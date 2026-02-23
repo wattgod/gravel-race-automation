@@ -19,7 +19,7 @@
         "Minnesota"
       ],
       "field_size": "50-100 riders",
-      "start_time": "Morning start",
+      "start_time": "8:00 a.m.",
       "registration": "Online. Cost: ~$75-100",
       "prize_purse": "Modest prizes",
       "aid_stations": "Multiple aid stations",
@@ -94,7 +94,10 @@
       "score": "44 / 100",
       "one_liner": "Minnesota local gravel challenge.",
       "should_you_race": "If you're local to Minnesota—yes, it's solid. If you're traveling—skip it.",
-      "alternatives": "For better Minnesota races: Almanzo, Dirty Benjamin."
+      "alternatives": "For better Minnesota races: Almanzo, Dirty Benjamin.",
+      "alternative_slugs": [
+        "almanzo-100"
+      ]
     },
     "logistics": {
       "airport": "Rochester (RST) 45 minutes",
@@ -185,12 +188,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 84.9,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 60,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 50
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -316,39 +328,29 @@
         "label": "RideWithGPS: 2024 Spring Valley 100 Forestville Bypass"
       },
       {
-        "url": "https://gravelnewsnetwork.blogspot.com/2021/06/race-report-05jun2021-spring-valley.html",
-        "category": "community",
-        "label": "gravelnewsnetwork.blogspot.com: Race Report 05Jun2021 Spring Valley.Html"
+        "url": "https://springvalleyeda.org/spring-valley-100-and-spring-valley-60-gravel-bike-race-official-results/",
+        "category": "other",
+        "label": "Springvalleyeda"
       },
       {
-        "url": "https://springvalleyeda.org/sv100-race-report-the-graders/",
-        "category": "community",
-        "label": "springvalleyeda.org: Sv100 Race Report The Graders"
-      },
-      {
-        "url": "https://www.thenxrth.com/events/spring-valley-100",
-        "category": "community",
-        "label": "thenxrth.com: Spring Valley 100"
-      },
-      {
-        "url": "https://springvalleyeda.org/spring-valley-100-gravel-bike-race-recap/",
-        "category": "community",
-        "label": "springvalleyeda.org: Spring Valley 100 Gravel Bike Race Recap"
-      },
-      {
-        "url": "https://www.gravelcyclist.com/race-reports/race-report-2018-almanzo-100-spring-valley-minnesota-by-nicholas-garbis/",
-        "category": "community",
-        "label": "gravelcyclist.com: Race Report 2018 Almanzo 100 Spring Valley Minnesota By N..."
-      },
-      {
-        "url": "https://www.gravelcyclist.com/race-reports/race-report-2021-spring-valley-almanzo-100-meteor-theory-vs-heat-wave-gravel-vs-skin/",
-        "category": "community",
-        "label": "gravelcyclist.com: Race Report 2021 Spring Valley Almanzo 100 Meteor Theory ..."
+        "url": "https://springvalleyeda.org/spring-valley-100-gravel-bike-race-results/",
+        "category": "other",
+        "label": "Springvalleyeda"
       },
       {
         "url": "https://www.cxmagazine.com/gravel-bikes-waltworks-all-city-specialized-2018-almanzo-100",
-        "category": "community",
-        "label": "cxmagazine.com: Gravel Bikes Waltworks All City Specialized 2018 Almanzo 100"
+        "category": "media",
+        "label": "CX Magazine"
+      },
+      {
+        "url": "https://www.gravelcyclist.com/race-reports/race-report-2018-almanzo-100-spring-valley-minnesota-by-nicholas-garbis/",
+        "category": "media",
+        "label": "Gravel Cyclist"
+      },
+      {
+        "url": "https://www.gravelcyclist.com/race-reports/race-report-2021-spring-valley-almanzo-100-meteor-theory-vs-heat-wave-gravel-vs-skin/",
+        "category": "media",
+        "label": "Gravel Cyclist"
       }
     ],
     "tire_recommendations": {

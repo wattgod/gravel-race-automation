@@ -125,7 +125,13 @@
           "survival_strategy": "3+ bottles. Hydrate at every aid. Manage heat/humidity."
         }
       ],
-      "signature_challenge": "Steep Brazilian coastal mountains (2,000 m / 100 km) + technical descents + heat/humidity."
+      "signature_challenge": "Steep Brazilian coastal mountains (2,000 m / 100 km) + technical descents + heat/humidity.",
+      "surface_breakdown": {
+        "overall": {
+          "gravel": 80,
+          "dirt": 20
+        }
+      }
     },
     "history": {
       "founded": "~2019",
@@ -145,19 +151,19 @@
       ],
       "research_date": "2026-02-04",
       "research_strength": {
-        "overall": 0,
-        "grade": "pending",
-        "weakest": "pending",
+        "overall": 96.1,
+        "grade": "A",
+        "weakest": "voice_authenticity",
         "has_research_dump": true,
         "dimensions": {
-          "source_diversity": 0,
-          "citation_density": 0,
-          "temporal_depth": 0,
-          "specificity": 0,
-          "statistical_backing": 0,
-          "voice_authenticity": 0,
-          "completeness": 0,
-          "cross_reference": 0
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 94,
+          "cross_reference": 100
         },
         "scored_at": "2026-02-04"
       }
@@ -224,13 +230,17 @@
       "score": "71 / 100",
       "one_liner": "Brazil's first UCI gravel race arrives with World Championship stakes and zero track record—you're betting on potential over proof.",
       "should_you_race": "If you need UCI points or want to say you raced Brazil's inaugural gravel event, this makes sense. The 6,562 feet of climbing over 62 miles suggests sustained suffering, not punchy attacks. Show up ready for humidity, unknown surfaces, and the chaos that comes with first-year events where nothing goes according to plan.",
-      "alternatives": "Unbound Gravel gives you proven difficulty and community without the travel gamble. SBT GRVL delivers similar climbing with mountain views and established logistics if you want your suffering served with competence."
+      "alternatives": "Unbound Gravel gives you proven difficulty and community without the travel gamble. SBT GRVL delivers similar climbing with mountain views and established logistics if you want your suffering served with competence.",
+      "alternative_slugs": [
+        "sbt-grvl",
+        "unbound-200"
+      ]
     },
     "citations": [
       {
-        "url": "https://www.gravelbrazil.com.br",
-        "category": "official",
-        "label": "Official Website"
+        "url": "https://cyclingflash.com/race/uci-gravel-world-series-gravel-brazil-2025/result",
+        "category": "other",
+        "label": "Cyclingflash"
       },
       {
         "url": "https://reddit.com/r/gravelcycling/comments/gravel-brazil",
@@ -238,74 +248,39 @@
         "label": "Reddit"
       },
       {
-        "url": "https://ridewithgps.com",
-        "category": "route",
-        "label": "RideWithGPS"
-      },
-      {
-        "url": "https://www.cyclingtips.com",
-        "category": "media",
-        "label": "CyclingTips"
-      },
-      {
-        "url": "https://www.ridingravel.com",
-        "category": "other",
-        "label": "Ridingravel"
-      },
-      {
-        "url": "https://www.strava.com",
-        "category": "activity",
-        "label": "Strava"
-      },
-      {
-        "url": "https://www.trainerroad.com",
-        "category": "community",
-        "label": "TrainerRoad"
-      },
-      {
-        "url": "https://www.velonews.com",
-        "category": "media",
-        "label": "VeloNews"
-      },
-      {
-        "url": "https://www.reddit.com/r/gravelcycling/comments/19e1s8i/tropical_gravel_from_brazil/",
-        "category": "community",
-        "label": "reddit.com: Tropical Gravel From Brazil"
-      },
-      {
-        "url": "https://www.reddit.com/r/gravelcycling/comments/l7w9us/my_gravel_bike_dinâmica_guará_handmade_in_brazil/",
-        "category": "community",
-        "label": "reddit.com: My Gravel Bike Dinâmica Guará Handmade In Brazil"
-      },
-      {
-        "url": "https://www.cyclingnews.com/race-homes/gravel-racing-2025/",
-        "category": "community",
-        "label": "cyclingnews.com: Gravel Racing 2025"
-      },
-      {
-        "url": "https://www.cyclingnews.com/races/uci-gravel-world-series-events-2025/gravel-brazil/results/",
-        "category": "community",
-        "label": "cyclingnews.com: Results"
-      },
-      {
         "url": "https://ucigravelworldseries.com/en/camboriu/",
-        "category": "community",
-        "label": "ucigravelworldseries.com: Camboriu"
+        "category": "other",
+        "label": "Ucigravelworldseries"
       },
       {
         "url": "https://ucigravelworldseries.com/en/pellaud-and-nutt-celebrate-in-brazil/",
-        "category": "community",
-        "label": "ucigravelworldseries.com: Pellaud And Nutt Celebrate In Brazil"
+        "category": "other",
+        "label": "Ucigravelworldseries"
       },
       {
         "url": "https://ucigravelworldseries.com/en/uci-gravel-brazil-first-event-in-south-america/",
-        "category": "community",
-        "label": "ucigravelworldseries.com: Uci Gravel Brazil First Event In South America"
+        "category": "other",
+        "label": "Ucigravelworldseries"
+      },
+      {
+        "url": "https://www.cyclingnews.com/races/uci-gravel-world-series-events-2025/gravel-brazil/results/",
+        "category": "other",
+        "label": "Cyclingnews"
+      },
+      {
+        "url": "https://www.finishers.com/en/event/uci-gravel-brazil",
+        "category": "other",
+        "label": "Finishers"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/12344/uci-gravel-brazil",
+        "category": "other",
+        "label": "Granfondoguide"
       },
       {
         "url": "https://www.ticketsports.com.br/e/2026-uci-gravel-world-series-brazil-73922",
-        "category": "community",
-        "label": "ticketsports.com.br: 2026 Uci Gravel World Series Brazil 73922"
+        "category": "other",
+        "label": "Ticketsports"
       }
     ],
     "tire_recommendations": {

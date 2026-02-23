@@ -122,7 +122,8 @@
       "lodging_strategy": "Mathias has minimal lodging. Book Moorefield, WV (10 mi south) for motels/inns or Wardensville, WV (15 mi north). Lost River State Park cabins require months-advance reservation. Camping available at state park or George Washington National Forest sites. Plan ahead—this is rural WV, not a resort town.",
       "food": "Moorefield has grocery stores and fast food. Limited restaurant options in immediate race area. Bring race-morning breakfast supplies and post-race snacks. Post-race meal typically at event venue.",
       "packet_pickup": "Friday evening or Saturday morning at race start area near Lost River State Park. Verify timing with organizer.",
-      "official_site": "https://www.lostriverclassic.com"
+      "official_site": "https://www.lostriverclassic.com",
+      "parking": "Parking at race venue\n- Aid stations: ~Mile 30 and Mile 60 (verify with organizer)\n- Self-supported sections require carrying spare"
     },
     "history": {
       "founded": 2010,
@@ -190,19 +191,19 @@
       ],
       "research_date": "2026-02-04",
       "research_strength": {
-        "overall": 89.0,
+        "overall": 92.8,
         "grade": "A",
-        "weakest": "citation_density",
+        "weakest": "voice_authenticity",
         "has_research_dump": true,
         "dimensions": {
-          "source_diversity": 80,
-          "citation_density": 50,
+          "source_diversity": 100,
+          "citation_density": 80,
           "temporal_depth": 100,
           "specificity": 100,
           "statistical_backing": 100,
           "voice_authenticity": 70,
-          "completeness": 100,
-          "cross_reference": 100
+          "completeness": 94,
+          "cross_reference": 75
         },
         "scored_at": "2026-02-04"
       }
@@ -269,13 +270,22 @@
       "score": "66 / 100",
       "one_liner": "West Virginia's humid, hilly reminder that 8,500 feet of climbing doesn't need a single big mountain to break your legs.",
       "should_you_race": "You need legitimate climbing fitness and wide-range gearing for the constant Appalachian rollers. August heat plus humidity makes this harder than the elevation suggests, and the rocky technical descents will punish weak bike handling. Show up undertrained and you'll be walking plenty of those punchy climbs in the remote backcountry sections.",
-      "alternatives": "Dirty Kanza offers similar distance with less technical terrain but more exposure, while Vermont Overland delivers comparable elevation with better logistics and cooler weather. Both have actual prestige and post-race scenes worth the travel cost."
+      "alternatives": "Dirty Kanza offers similar distance with less technical terrain but more exposure, while Vermont Overland delivers comparable elevation with better logistics and cooler weather. Both have actual prestige and post-race scenes worth the travel cost.",
+      "alternative_slugs": [
+        "unbound-200",
+        "vermont-overland"
+      ]
     },
     "citations": [
       {
-        "url": "https://www.lostriverclassic.com",
-        "category": "official",
-        "label": "Official Website"
+        "url": "https://ridewithgps.com/routes/52228993",
+        "category": "route",
+        "label": "RideWithGPS: Lost River Classic 2025 (87mi)"
+      },
+      {
+        "url": "https://lostrivertrailscoalition.org/blog/",
+        "category": "other",
+        "label": "Lostrivertrailscoalition"
       },
       {
         "url": "https://lostrivertrailscoalition.org/lost-river-classic/",
@@ -283,49 +293,39 @@
         "label": "Lostrivertrailscoalition"
       },
       {
+        "url": "https://lostrivertrailscoalition.org/news/2025/01/18/new-lost-river-classic-routes-in-2025/",
+        "category": "other",
+        "label": "Lostrivertrailscoalition"
+      },
+      {
+        "url": "https://lostrivertrailscoalition.org/news/2025/07/17/lost-river-classic-month-is-upon-us/",
+        "category": "other",
+        "label": "Lostrivertrailscoalition"
+      },
+      {
+        "url": "https://moorefieldexaminer.com/2025/08/05/lost-river-classic/",
+        "category": "other",
+        "label": "Moorefieldexaminer"
+      },
+      {
+        "url": "https://moorefieldexaminer.com/2025/08/19/lost-river-classic-traverses-gravel-terrain/",
+        "category": "other",
+        "label": "Moorefieldexaminer"
+      },
+      {
         "url": "https://www.granfondoguide.com/Events/Index/10501/lost-river-classic",
         "category": "other",
         "label": "Granfondoguide"
       },
       {
+        "url": "https://www.ohiogravelgrinders.com/event-listings/2025/8/16/lost-river-classic",
+        "category": "other",
+        "label": "Ohiogravelgrinders"
+      },
+      {
         "url": "https://www.wvgravelseries.com/lost-river-classic",
         "category": "other",
         "label": "Wvgravelseries"
-      },
-      {
-        "url": "https://moorefieldexaminer.com/2025/08/19/lost-river-classic-traverses-gravel-terrain/",
-        "category": "community",
-        "label": "moorefieldexaminer.com: Lost River Classic Traverses Gravel Terrain"
-      },
-      {
-        "url": "https://lostrivertrailscoalition.org/blog/",
-        "category": "community",
-        "label": "lostrivertrailscoalition.org: Blog"
-      },
-      {
-        "url": "https://www.roadbikerider.com/gravel-ride-race-list/",
-        "category": "community",
-        "label": "roadbikerider.com: Gravel Ride Race List"
-      },
-      {
-        "url": "https://www.southeastgravel.com/events",
-        "category": "community",
-        "label": "southeastgravel.com: Events"
-      },
-      {
-        "url": "https://www.hampshirereview.com/living/article_972e570a-a933-45b1-b836-f22ea8c0f71b.html",
-        "category": "community",
-        "label": "hampshirereview.com: Article 972E570A A933 45B1 B836 F22Ea8C0F71B.Html"
-      },
-      {
-        "url": "https://lostrivertrailscoalition.org/news/2025/01/18/new-lost-river-classic-routes-in-2025/",
-        "category": "community",
-        "label": "lostrivertrailscoalition.org: New Lost River Classic Routes In 2025"
-      },
-      {
-        "url": "https://lostrivertrailscoalition.org/news/2025/07/17/lost-river-classic-month-is-upon-us/",
-        "category": "community",
-        "label": "lostrivertrailscoalition.org: Lost River Classic Month Is Upon Us"
       }
     ],
     "tire_recommendations": {

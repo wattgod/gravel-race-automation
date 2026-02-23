@@ -19,7 +19,7 @@
         "100-mile distance"
       ],
       "field_size": "150-400 riders",
-      "start_time": "Morning start",
+      "start_time": "8:00 AM CDT",
       "registration": "Online. Cost: ~$80-120",
       "prize_purse": "State championship prizes",
       "aid_stations": "Multiple aid stations",
@@ -94,7 +94,12 @@
       "score": "51 / 100",
       "one_liner": "Illinois State Championship 100-mile gravel through flat farmland.",
       "should_you_race": "If you're in Illinois and want state championship status—yes, it's a well-organized century event. If you're from out of state—there are more prestigious events elsewhere.",
-      "alternatives": "For better Midwest events: Gravel Worlds, Almanzo 100, Dirty Kanza. For similar state championships: other state championship events."
+      "alternatives": "For better Midwest events: Gravel Worlds, Almanzo 100, Dirty Kanza. For similar state championships: other state championship events.",
+      "alternative_slugs": [
+        "almanzo-100",
+        "garmin-gravel-worlds",
+        "unbound-200"
+      ]
     },
     "logistics": {
       "airport": "Chicago (ORD/MDW) 1 hour",
@@ -192,12 +197,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 91.8,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 82,
+          "cross_reference": 50
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -331,39 +345,39 @@
         "label": "RideWithGPS: Little Apple 100km"
       },
       {
-        "url": "https://www.rawbikefitting.com/blog/2018/08/little-apple-100",
-        "category": "community",
-        "label": "rawbikefitting.com: Little Apple 100"
+        "url": "https://anamazingrun.com/2025/08/03/little-apple-gravel-race-50k-race-report/",
+        "category": "other",
+        "label": "Anamazingrun"
       },
       {
         "url": "https://discuss.360velo.com/t/little-apple-100-crash/1386",
-        "category": "community",
-        "label": "discuss.360velo.com: 1386"
-      },
-      {
-        "url": "https://anamazingrun.com/2025/08/03/little-apple-gravel-race-50k-race-report/",
-        "category": "community",
-        "label": "anamazingrun.com: Little Apple Gravel Race 50K Race Report"
+        "category": "other",
+        "label": "Discuss"
       },
       {
         "url": "https://hardcorecycling.com/hardcore-cycling-club-dominates-little-apple-gravel-state-championship/",
-        "category": "community",
-        "label": "hardcorecycling.com: Hardcore Cycling Club Dominates Little Apple Gravel State..."
+        "category": "other",
+        "label": "Hardcorecycling"
       },
       {
-        "url": "https://results.bikereg.com/race/17684",
-        "category": "community",
-        "label": "results.bikereg.com: 17684"
+        "url": "https://www.rawbikefitting.com/blog/2018/08/little-apple-100",
+        "category": "other",
+        "label": "Rawbikefitting"
       },
       {
         "url": "https://www.trainerroad.com/forum/t/midwest-events-for-2023/79346?page=12",
         "category": "community",
-        "label": "trainerroad.com: 79346"
+        "label": "TrainerRoad"
       },
       {
         "url": "https://results.bikereg.com/race/13746",
         "category": "community",
         "label": "results.bikereg.com: 13746"
+      },
+      {
+        "url": "https://results.bikereg.com/race/17684",
+        "category": "community",
+        "label": "results.bikereg.com: 17684"
       }
     ],
     "results": {

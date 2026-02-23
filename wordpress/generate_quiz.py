@@ -27,7 +27,8 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
-from brand_tokens import COLORS, GA_MEASUREMENT_ID, SITE_BASE_URL, get_font_face_css, get_tokens_css
+from brand_tokens import COLORS, get_font_face_css, get_ga4_head_snippet, get_tokens_css, SITE_BASE_URL
+from cookie_consent import get_consent_banner_html
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 OUTPUT_DIR = Path(__file__).parent / "output" / "quiz"
@@ -146,7 +147,7 @@ def build_quiz_page(races: list) -> str:
   <meta property="og:description" content="Answer 5 questions to find your perfect gravel race from {race_count} options.">
   <meta property="og:url" content="{SITE_BASE_URL}/race/quiz/">
   <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Gravel God">
+  <meta property="og:site_name" content="Gravel God Cycling">
   <script type="application/ld+json">{breadcrumb_jsonld}</script>
   <script type="application/ld+json">{faq_jsonld}</script>
   <style>
@@ -154,8 +155,7 @@ def build_quiz_page(races: list) -> str:
 {tokens_css}
 {build_quiz_css()}
   </style>
-  <script async src="https://www.googletagmanager.com/gtag/js?id={GA_MEASUREMENT_ID}"></script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments)}}gtag('js',new Date());gtag('config','{GA_MEASUREMENT_ID}');</script>
+  {get_ga4_head_snippet()}
 </head>
 <body>
 <div class="gg-quiz-page">
@@ -331,6 +331,7 @@ var RACES={races_json};
 var WORKER_URL='{FUELING_WORKER_URL}';
 {build_quiz_js()}
 </script>
+{get_consent_banner_html()}
 </body>
 </html>'''
 

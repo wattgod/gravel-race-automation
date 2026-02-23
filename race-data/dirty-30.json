@@ -19,7 +19,7 @@
         "Spring mud potential"
       ],
       "field_size": "500 riders",
-      "start_time": "Morning — check official website",
+      "start_time": "7:01AM",
       "registration": "Online. Cost: $45-$75 (distance-dependent: 100/50/30/16mi)",
       "prize_purse": "None",
       "aid_stations": "Multiple on course",
@@ -136,18 +136,18 @@
       ],
       "research_date": "2026-02-04",
       "research_strength": {
-        "overall": 82.6,
+        "overall": 95.2,
         "grade": "A",
-        "weakest": "temporal_depth",
+        "weakest": "voice_authenticity",
         "has_research_dump": true,
         "dimensions": {
-          "source_diversity": 60,
+          "source_diversity": 100,
           "citation_density": 100,
-          "temporal_depth": 25,
+          "temporal_depth": 100,
           "specificity": 100,
           "statistical_backing": 100,
           "voice_authenticity": 70,
-          "completeness": 94,
+          "completeness": 88,
           "cross_reference": 100
         },
         "scored_at": "2026-02-04"
@@ -215,68 +215,61 @@
       "score": "63 / 100",
       "one_liner": "The Dirty 30 gets by on Michigan charm and distance options, but without signature terrain or serious prestige, it's more local weekend fun than destination race.",
       "should_you_race": "If you're in the Midwest looking for solid training miles with low pressure, this works. The 100-mile option gives you century bragging rights without the Unbound brutality, and starting from downtown Saranac beats another cornfield parking lot. Skip it if you need technical challenges or want to test yourself against serious competition—3500 feet over 100 miles won't break anyone who's been riding longer than six months.",
-      "alternatives": "Almanzo 100 in Minnesota delivers similar distance with more historic credibility and harder conditions. For Michigan riders wanting something with actual teeth, Lumberjack 100 up north will remind you why they make suspension seatposts."
+      "alternatives": "Almanzo 100 in Minnesota delivers similar distance with more historic credibility and harder conditions. For Michigan riders wanting something with actual teeth, Lumberjack 100 up north will remind you why they make suspension seatposts.",
+      "alternative_slugs": [
+        "almanzo-100"
+      ]
     },
     "citations": [
       {
-        "url": "https://www.dirty30.com",
-        "category": "official",
-        "label": "Official Website"
-      },
-      {
-        "url": "https://stuartcoaching.com/dirty-30-race-report/",
-        "category": "community",
-        "label": "stuartcoaching.com: Dirty 30 Race Report"
+        "url": "https://ridewithgps.com/routes/53839822",
+        "category": "route",
+        "label": "RideWithGPS: THE dirty 30 route"
       },
       {
         "url": "https://andrewskurka.com/dirty-30-race-report-wake-up/",
-        "category": "community",
-        "label": "andrewskurka.com: Dirty 30 Race Report Wake Up"
-      },
-      {
-        "url": "https://www.annikarollock.com/blog/race-report-dirty-30",
-        "category": "community",
-        "label": "annikarollock.com: Race Report Dirty 30"
-      },
-      {
-        "url": "https://justinsimoni.com/dirty_30_2015_report/",
-        "category": "community",
-        "label": "justinsimoni.com: Dirty 30 2015 Report"
-      },
-      {
-        "url": "https://www.reddit.com/r/MichiganCycling/comments/1c4jfaa/dirty_30_in_saranac/",
-        "category": "community",
-        "label": "reddit.com: Dirty 30 In Saranac"
-      },
-      {
-        "url": "https://blog.ultimatedirection.com/the-ultimate-direction-dirty-30/",
-        "category": "community",
-        "label": "blog.ultimatedirection.com: The Ultimate Direction Dirty 30"
-      },
-      {
-        "url": "https://www.annikarollock.com/blog/race-report-icky-30",
-        "category": "community",
-        "label": "annikarollock.com: Race Report Icky 30"
-      },
-      {
-        "url": "https://dirtythirtygravelgrinder.com/filthy50k/",
-        "category": "community",
-        "label": "dirtythirtygravelgrinder.com: Filthy50K"
-      },
-      {
-        "url": "https://strengthrunning.com/2019/06/dirty-30-race-report-dq/",
-        "category": "community",
-        "label": "strengthrunning.com: Dirty 30 Race Report Dq"
-      },
-      {
-        "url": "https://lynnkhall.com/2014/06/01/dirty-30-race-report/",
-        "category": "community",
-        "label": "lynnkhall.com: Dirty 30 Race Report"
+        "category": "other",
+        "label": "Andrewskurka"
       },
       {
         "url": "https://dirtythirtygravelgrinder.com/dirty30/",
+        "category": "other",
+        "label": "Dirtythirtygravelgrinder"
+      },
+      {
+        "url": "https://lmb.org/ride-calendar/dirty-30-gravel-3/",
+        "category": "other",
+        "label": "Lmb"
+      },
+      {
+        "url": "https://lynnkhall.com/2014/06/01/dirty-30-race-report/",
+        "category": "other",
+        "label": "Lynnkhall"
+      },
+      {
+        "url": "https://strengthrunning.com/2019/06/dirty-30-race-report-dq/",
+        "category": "other",
+        "label": "Strengthrunning"
+      },
+      {
+        "url": "https://stuartcoaching.com/dirty-30-race-report/",
+        "category": "other",
+        "label": "Stuartcoaching"
+      },
+      {
+        "url": "https://www.annikarollock.com/blog/race-report-dirty-30",
+        "category": "other",
+        "label": "Annikarollock"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/7927/dirty-thirty-gravel-grinder",
+        "category": "other",
+        "label": "Granfondoguide"
+      },
+      {
+        "url": "https://www.reddit.com/r/OpiatesRecovery/comments/peomdo/need_help_coming_off_dirty_30/",
         "category": "community",
-        "label": "dirtythirtygravelgrinder.com: Dirty30"
+        "label": "Reddit"
       }
     ],
     "tire_recommendations": {

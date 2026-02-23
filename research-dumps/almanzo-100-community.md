@@ -85,13 +85,13 @@
 
 **Brad Patty [COMPETITIVE] - 200W Average Strategy:**
 
-"I knew from previous long hard-surface rides that I could maintain around 200 watts average power for over 5 hours. I was also able to determine from prior Almanzo 100 races I should be able to average between 15 and 16 MPH." His hourly breakdown for successful 2015 finish:
+"I knew from previous long hard-surface rides that I could maintain around 200 watts average power for over 5 hours. I was also able to determine from prior Almanzo 100 races I should be able to average between 15 and 16 MPH." His hourly breakdown for successful 2015 finish [COMPETITIVE]:
 - Hour 0-1: 16.1 mph, 138 HR, 195W
-- Hour 1-2: 16.4 mph, 144 HR, 214W  
-- Hour 2-3: 14.1 mph, 143 HR, 211W
+- Hour 1-2: 16.4 mph, 144 HR, 214W
+- Hour 2-3: 14.1 mph, 143 HR, 211W [COMPETITIVE]
 - Hour 3-4: 16.7 mph, 140 HR, 201W
 - Hour 4-5: 13.9 mph, 144 HR, 216W
-- Hour 5-6: 15.9 mph, 143 HR, 211W
+- Hour 5-6: 15.9 mph, 143 HR, 211W [COMPETITIVE]
 - Hour 6-7: 14.3 mph, 141 HR, 205W
 - **Race average: 15.4 mph, 142 HR, 208W**
 

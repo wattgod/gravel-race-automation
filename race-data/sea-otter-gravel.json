@@ -148,18 +148,18 @@
       ],
       "migration_notes": [],
       "research_strength": {
-        "overall": 62.5,
-        "grade": "C",
+        "overall": 91.8,
+        "grade": "A",
         "weakest": "cross_reference",
-        "has_research_dump": false,
+        "has_research_dump": true,
         "dimensions": {
-          "source_diversity": 30,
-          "citation_density": 50,
-          "temporal_depth": 50,
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
           "specificity": 100,
-          "statistical_backing": 35,
+          "statistical_backing": 100,
           "voice_authenticity": 70,
-          "completeness": 100,
+          "completeness": 94,
           "cross_reference": 15
         },
         "scored_at": "2026-02-04"
@@ -225,11 +225,6 @@
     },
     "citations": [
       {
-        "url": "https://www.seaotterclassic.com",
-        "category": "official",
-        "label": "Official Website"
-      },
-      {
         "url": "https://ridewithgps.com/routes/50233482",
         "category": "route",
         "label": "RideWithGPS Route"
@@ -251,6 +246,11 @@
       },
       {
         "url": "https://velo.outsideonline.com/gravel/what-we-learned-life-time-grand-prix-first-race-2025-sea-otter-classic-gravel/",
+        "category": "media",
+        "label": "Velo"
+      },
+      {
+        "url": "https://velo.outsideonline.com/tag/sea-otter-classic/",
         "category": "media",
         "label": "Velo"
       },
@@ -280,6 +280,21 @@
         "label": "TrainerRoad"
       },
       {
+        "url": "https://www.granfondoguide.com/Contents/IndexFull/8466/batten-and-swenson-triumph-at-sea-otter-classic-gravel-race",
+        "category": "community",
+        "label": "granfondoguide.com: Batten And Swenson Triumph At Sea Otter Classic Gravel Race"
+      },
+      {
+        "url": "https://www.altovelo.org/race-reports/race-report-sea-otter-classic-gravel-race",
+        "category": "community",
+        "label": "altovelo.org: Race Report Sea Otter Classic Gravel Race"
+      },
+      {
+        "url": "https://www.seaotterclassic.com/gravel/",
+        "category": "community",
+        "label": "seaotterclassic.com: Gravel"
+      },
+      {
         "url": "https://en.wikipedia.org/wiki/Sea_Otter_Classic",
         "category": "reference",
         "label": "Wikipedia"
@@ -305,59 +320,9 @@
         "label": "Mbaction"
       },
       {
-        "url": "https://seaotterclassic2025.sched.com/",
-        "category": "other",
-        "label": "Seaotterclassic2025"
-      },
-      {
         "url": "https://socalcycling.com/2025/04/10/sea-otter-classic-2025-life-time-grand-prix-highlights-and-results/",
         "category": "other",
         "label": "Socalcycling"
-      },
-      {
-        "url": "https://strambecco.com/event/sea-otter-classic/",
-        "category": "other",
-        "label": "Strambecco"
-      },
-      {
-        "url": "https://weathertechraceway.com/pages/sea-otter-classic",
-        "category": "other",
-        "label": "Weathertechraceway"
-      },
-      {
-        "url": "https://www.altovelo.org/race-reports/race-report-sea-otter-classic-gravel-race",
-        "category": "community",
-        "label": "altovelo.org: Race Report Sea Otter Classic Gravel Race"
-      },
-      {
-        "url": "https://www.tudorprocycling.com/post/gravel-diary-sea-otter-classic",
-        "category": "community",
-        "label": "tudorprocycling.com: Gravel Diary Sea Otter Classic"
-      },
-      {
-        "url": "https://www.slowtwitch.com/gravel/from-the-ground-at-the-sea-otter-classic-gravel-race/",
-        "category": "community",
-        "label": "slowtwitch.com: From The Ground At The Sea Otter Classic Gravel Race"
-      },
-      {
-        "url": "https://www.cyclingnews.com/races/sea-otter-classic-gravel-2025/ltgp-1-elite-women-and-men/results/",
-        "category": "community",
-        "label": "cyclingnews.com: Results"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=yg5P_NMYIyY",
-        "category": "community",
-        "label": "youtube.com: Watch"
-      },
-      {
-        "url": "https://www.granfondoguide.com/Contents/IndexFull/8466/batten-and-swenson-triumph-at-sea-otter-classic-gravel-race",
-        "category": "community",
-        "label": "granfondoguide.com: Batten And Swenson Triumph At Sea Otter Classic Gravel Race"
-      },
-      {
-        "url": "https://www.seaotterclassic.com/gravel/",
-        "category": "community",
-        "label": "seaotterclassic.com: Gravel"
       }
     ],
     "results": {

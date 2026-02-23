@@ -24,17 +24,19 @@ import html
 from pathlib import Path
 
 from generate_neo_brutalist import (
-    GA_MEASUREMENT_ID,
     SITE_BASE_URL,
     get_page_css,
     build_inline_js,
     write_shared_assets,
 )
-from brand_tokens import get_ab_head_snippet, get_preload_hints
+from brand_tokens import get_ab_head_snippet, get_ga4_head_snippet, get_preload_hints
 from shared_footer import get_mega_footer_html
 from shared_header import get_site_header_html
+from cookie_consent import get_consent_banner_html
 
 OUTPUT_DIR = Path(__file__).parent / "output"
+
+GOOGLE_CALENDAR_URL = "https://calendar.app.google/E282ZtBJAFBXYdYJ6"
 
 
 def esc(text) -> str:
@@ -362,19 +364,18 @@ def build_consulting_success() -> str:
   <div class="gg-success-hero" data-product-type="consulting">
     <div class="gg-success-check">&check;</div>
     <h1>Consulting Session Confirmed</h1>
-    <p>Payment received. I'll reach out within 24 hours to schedule
-    your session.</p>
+    <p>Payment received. <strong>Schedule your session now.</strong></p>
   </div>"""
 
-    steps = """
+    steps = f"""
   <div class="gg-success-steps">
     <h2>WHAT HAPPENS NEXT</h2>
     <div class="gg-success-step">
       <div class="gg-success-step-num">1</div>
       <div class="gg-success-step-text">
-        <h3>Check Your Email</h3>
-        <p>I'll send a scheduling link within 24 hours. We'll find a
-        time that works for both of us.</p>
+        <h3>Schedule Your Session</h3>
+        <p><a href="{GOOGLE_CALENDAR_URL}" class="gg-success-cta" target="_blank" rel="noopener" data-cta="schedule_session">Pick a Time</a></p>
+        <p>Choose a time that works. I'll confirm within 24 hours.</p>
       </div>
     </div>
     <div class="gg-success-step">
@@ -484,12 +485,21 @@ def generate_success_page(page_key: str,
   <meta name="description" content="{esc(page['description'])}">
   <meta name="robots" content="{page['robots']}">
   <link rel="canonical" href="{esc(canonical_url)}">
+  <meta property="og:title" content="{esc(page['title'])}">
+  <meta property="og:description" content="{esc(page['description'])}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{esc(canonical_url)}">
+  <meta property="og:image" content="{SITE_BASE_URL}/og/homepage.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Gravel God Cycling">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="{SITE_BASE_URL}/og/homepage.jpg">
   <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
   {preload}
   {page_css}
   {success_css}
-  <script async src="https://www.googletagmanager.com/gtag/js?id={GA_MEASUREMENT_ID}"></script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments)}}gtag('js',new Date());gtag('config','{GA_MEASUREMENT_ID}');</script>
+  {get_ga4_head_snippet()}
   {get_ab_head_snippet()}
 </head>
 <body>
@@ -501,6 +511,7 @@ def generate_success_page(page_key: str,
 </div>
 {inline_js}
 {success_js}
+{get_consent_banner_html()}
 </body>
 </html>'''
 

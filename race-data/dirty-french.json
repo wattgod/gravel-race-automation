@@ -13,7 +13,8 @@
       "date_specific": "2026: May 2026",
       "lat": 39.3331,
       "lng": -82.9824,
-      "registration": "Online. Cost: $50-200"
+      "registration": "Online. Cost: $50-200",
+      "start_time": "5:00 AM"
     },
     "gravel_god_rating": {
       "overall_score": 64,
@@ -150,7 +151,11 @@
       "score": "64 / 100",
       "one_liner": "Ohio delivers 9,000 feet of legitimate gravel suffering without the pretension of mountain racing.",
       "should_you_race": "You need solid fitness for 100 miles and 9,000 feet—this isn't a beginner's ride. The rolling Midwest terrain means constant power output with no real recovery sections. Come prepared for variable weather and mechanical self-sufficiency. If you can handle a 6-8 hour suffer-fest without mountain views as motivation, this will test you properly.",
-      "alternatives": "Unbound 200 gives you similar distance with more prestige and Kansas wind instead of Ohio hills. Mid South in Oklahoma delivers comparable elevation with better post-race atmosphere and more challenging gravel surfaces."
+      "alternatives": "Unbound 200 gives you similar distance with more prestige and Kansas wind instead of Ohio hills. Mid South in Oklahoma delivers comparable elevation with better post-race atmosphere and more challenging gravel surfaces.",
+      "alternative_slugs": [
+        "mid-south",
+        "unbound-200"
+      ]
     },
     "course_description": {
       "character": "Dirty French borrows everything cruel from Ohio's rolling farm country and amplifies it through 9,000 feet of grinding climbs. This isn't manicured gravel—it's crushed limestone that turns to peanut butter when wet, farm roads that pitch up without warning, and long stretches where your GPS becomes your only friend. The Chillicothe region doesn't negotiate; it just keeps rolling upward until your legs forget what flat feels like.",
@@ -180,19 +185,29 @@
     },
     "citations": [
       {
-        "url": "https://www.dirtyfrench.org/",
-        "category": "official",
-        "label": "Official Website"
+        "url": "https://gothamgal.com/2014/10/dirty-french/",
+        "category": "other",
+        "label": "Gothamgal"
+      },
+      {
+        "url": "https://ny.eater.com/2014/10/3/6881683/good-news-bad-news-dirty-french",
+        "category": "other",
+        "label": "Ny"
+      },
+      {
+        "url": "https://thepoliticalfoodie.wordpress.com/2015/01/14/dirty-french/",
+        "category": "other",
+        "label": "Thepoliticalfoodie"
+      },
+      {
+        "url": "https://www.andrewloves.com/blog/dirty-french-1",
+        "category": "other",
+        "label": "Andrewloves"
       },
       {
         "url": "https://www.cyclingweekly.com/news/gravel-riders-ready-here-are-the-registration-dates-for-gravels-biggest-events",
         "category": "media",
         "label": "Cycling Weekly"
-      },
-      {
-        "url": "https://www.frenchdivide.com/en/",
-        "category": "other",
-        "label": "Frenchdivide"
       }
     ],
     "logistics": {
@@ -264,6 +279,25 @@
         "200pluslb_dry": "44-48",
         "200pluslb_mixed": "41-45",
         "200pluslb_wet": "39-43"
+      }
+    },
+    "research_metadata": {
+      "research_strength": {
+        "overall": 88.2,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 58,
+          "cross_reference": 50
+        },
+        "scored_at": "2026-02-04"
       }
     }
   }

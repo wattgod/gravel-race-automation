@@ -19,7 +19,7 @@
         "Northeast USA"
       ],
       "field_size": "200-400 riders",
-      "start_time": "Morning start",
+      "start_time": "9:00 am",
       "registration": "Online. Cost: ~$75-125",
       "prize_purse": "Modest prizes",
       "aid_stations": "Multiple aid stations",
@@ -185,12 +185,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 84.2,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 80,
+          "citation_density": 80,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -311,6 +320,21 @@
     },
     "citations": [
       {
+        "url": "https://ridewithgps.com/routes/52380212",
+        "category": "route",
+        "label": "RideWithGPS: Farmer's Daughter route 2021 "
+      },
+      {
+        "url": "https://www.tobedetermined.cc/journal/2019/6/farmers-daughter-get-it-while-its-weird",
+        "category": "other",
+        "label": "Tobedetermined"
+      },
+      {
+        "url": "https://www.tobedetermined.cc/journal/farmers-daughter-gravel-grinder-2025",
+        "category": "other",
+        "label": "Tobedetermined"
+      },
+      {
         "url": "https://www.reddit.com/r/gravelcycling/comments/13oqt4h/trail_runner_does_gravel_farmers_daughter_race/",
         "category": "community",
         "label": "reddit.com: Trail Runner Does Gravel Farmers Daughter Race"
@@ -319,36 +343,6 @@
         "url": "https://groups.google.com/g/racer-x/c/1bQi7FvDiVA",
         "category": "community",
         "label": "groups.google.com: 1Bqi7Fvdiva"
-      },
-      {
-        "url": "https://www.tobedetermined.cc/journal/one-of-new-yorks-best-events-farmers-daughter-2022",
-        "category": "community",
-        "label": "tobedetermined.cc: One Of New Yorks Best Events Farmers Daughter 2022"
-      },
-      {
-        "url": "https://www.tobedetermined.cc/journal/2019/6/farmers-daughter-get-it-while-its-weird",
-        "category": "community",
-        "label": "tobedetermined.cc: Farmers Daughter Get It While Its Weird"
-      },
-      {
-        "url": "https://www.granfondoguide.com/Events/Index/4718/the-farmers-daughter-gravel-grinder",
-        "category": "community",
-        "label": "granfondoguide.com: The Farmers Daughter Gravel Grinder"
-      },
-      {
-        "url": "https://www.tobedetermined.cc/journal/farmers-daughter-gravel-grinder-2025",
-        "category": "community",
-        "label": "tobedetermined.cc: Farmers Daughter Gravel Grinder 2025"
-      },
-      {
-        "url": "http://www.farmersdaughtergravelgrinder.com/",
-        "category": "community",
-        "label": "farmersdaughtergravelgrinder.com"
-      },
-      {
-        "url": "https://www.cbrc.club/farmers-daughter",
-        "category": "community",
-        "label": "cbrc.club: Farmers Daughter"
       },
       {
         "url": "https://www.adkforum.com/forum/the-adirondack-forum/biking-in-the-adirondacks/23613-farmer-s-daughter-gravel-grinder",

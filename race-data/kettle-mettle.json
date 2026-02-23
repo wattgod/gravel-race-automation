@@ -19,7 +19,7 @@
         "Canada"
       ],
       "field_size": "200-400 riders",
-      "start_time": "Morning start",
+      "start_time": "6:55AM",
       "registration": "Online. Cost: ~$100-150 CAD",
       "prize_purse": "Modest prizes",
       "aid_stations": "Multiple aid stations",
@@ -94,7 +94,10 @@
       "score": "53 / 100",
       "one_liner": "British Columbia mountain gravel challenge.",
       "should_you_race": "If you're in Canada—yes, it's solid. If you're international—there are better options.",
-      "alternatives": "For better value: regional gravel races. For similar Canadian terrain: TransRockies Gravel Royale."
+      "alternatives": "For better value: regional gravel races. For similar Canadian terrain: TransRockies Gravel Royale.",
+      "alternative_slugs": [
+        "transrockies-gravel-royale"
+      ]
     },
     "logistics": {
       "airport": "Kelowna (YLW) or Vancouver (YVR) varies by location",
@@ -185,12 +188,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 89.2,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -311,49 +323,44 @@
     },
     "citations": [
       {
-        "url": "https://infotel.ca/newsitem/kettle-mettle-bike-race-set-to-roll-in-october/it34656",
-        "category": "community",
-        "label": "infotel.ca: It34656"
+        "url": "https://strambecco.com/event/kettle-mettle-dirty-fondo/",
+        "category": "other",
+        "label": "Strambecco"
+      },
+      {
+        "url": "https://triplecrownofgravel.ca/kettlemettle/",
+        "category": "other",
+        "label": "Triplecrownofgravel"
+      },
+      {
+        "url": "https://www.adventurebc.com/articles-and-adventure/kettle-mettle-gravel-fondo-a-gritty-ride-through-bcs-history",
+        "category": "other",
+        "label": "Adventurebc"
+      },
+      {
+        "url": "https://www.granfondoguide.com/RaceDashboard/BCTripleCrownOfGravelSeries/1/7417/8th-edition-of-kettle-mettle-dirty-fondo-takes-place-this-september",
+        "category": "other",
+        "label": "Granfondoguide"
+      },
+      {
+        "url": "https://www.granfondoguide.com/RaceDashboard/BCTripleCrownOfGravelSeries/1/8026/register-now-for-the-9th-annual-kettle-mettle-gravel-fondo-and-save",
+        "category": "other",
+        "label": "Granfondoguide"
       },
       {
         "url": "https://www.reddit.com/r/bicycling/comments/55jkxj/kettle_mettle_along_the_kettle_valley_railway/",
         "category": "community",
-        "label": "reddit.com: Kettle Mettle Along The Kettle Valley Railway"
-      },
-      {
-        "url": "https://www.reddit.com/r/xbiking/comments/d7zei2/another_kettle_mettle_in_the_books_so_fun/",
-        "category": "community",
-        "label": "reddit.com: Another Kettle Mettle In The Books So Fun"
-      },
-      {
-        "url": "https://www.kettlemettle.ca/",
-        "category": "community",
-        "label": "kettlemettle.ca"
-      },
-      {
-        "url": "https://www.granfondoguide.com/RaceDashboard/BCTripleCrownOfGravelSeries/1/8026/register-now-for-the-9th-annual-kettle-mettle-gravel-fondo-and-save",
-        "category": "community",
-        "label": "granfondoguide.com: Register Now For The 9Th Annual Kettle Mettle Gravel Fond..."
-      },
-      {
-        "url": "https://www.adventurebc.com/articles-and-adventure/kettle-mettle-gravel-fondo-a-gritty-ride-through-bcs-history",
-        "category": "community",
-        "label": "adventurebc.com: Kettle Mettle Gravel Fondo A Gritty Ride Through Bcs History"
-      },
-      {
-        "url": "https://triplecrownofgravel.ca/kettlemettle/",
-        "category": "community",
-        "label": "triplecrownofgravel.ca: Kettlemettle"
-      },
-      {
-        "url": "https://strambecco.com/event/kettle-mettle-dirty-fondo/",
-        "category": "community",
-        "label": "strambecco.com: Kettle Mettle Dirty Fondo"
+        "label": "Reddit"
       },
       {
         "url": "https://www.reddit.com/r/vancouvercycling/comments/4worr1/kettle_mettle_weather/",
         "category": "community",
-        "label": "reddit.com: Kettle Mettle Weather"
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.reddit.com/r/xbiking/comments/d7zei2/another_kettle_mettle_in_the_books_so_fun/",
+        "category": "community",
+        "label": "Reddit"
       },
       {
         "url": "https://www.reddit.com/r/gravelcycling/comments/14v7h67/kalamalka_lake_lake_country_vernon_bc/",
@@ -364,11 +371,6 @@
         "url": "https://www.youtube.com/watch?v=ZY50-fhnPnM",
         "category": "community",
         "label": "youtube.com: Watch"
-      },
-      {
-        "url": "https://www.granfondoguide.com/RaceDashboard/BCTripleCrownOfGravelSeries/1/7417/8th-edition-of-kettle-mettle-dirty-fondo-takes-place-this-september",
-        "category": "community",
-        "label": "granfondoguide.com: 8Th Edition Of Kettle Mettle Dirty Fondo Takes Place This..."
       }
     ],
     "tire_recommendations": {

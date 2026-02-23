@@ -94,7 +94,11 @@
       "score": "47 / 100",
       "one_liner": "Rolling Alabama gravel in east Alabama's Opelika.",
       "should_you_race": "If you're in Alabama and want a local rolling gravel event near Auburn—yes, it's a solid regional race. If you're from out of state—there are better options.",
-      "alternatives": "For better Southeast events: Gravel Worlds, Pisgah Monster-Cross, Hot Springs Gravel Gauntlet. For similar regional events: other Alabama gravel races."
+      "alternatives": "For better Southeast events: Gravel Worlds, Pisgah Monster-Cross, Hot Springs Gravel Gauntlet. For similar regional events: other Alabama gravel races.",
+      "alternative_slugs": [
+        "garmin-gravel-worlds",
+        "hot-springs-gravel-gauntlet"
+      ]
     },
     "logistics": {
       "airport": "Columbus (CSG) 30 minutes or Atlanta (ATL) 2 hours",
@@ -102,7 +106,8 @@
       "food": "Moderate dining options. Stock nutrition.",
       "packet_pickup": "Day before typically",
       "parking": "At start/finish",
-      "official_site": "Check Alabama cycling calendars"
+      "official_site": "Check Alabama cycling calendars",
+      "camping": "camping spot, be sure to go ahead and hit up Chewacla State Park"
     },
     "history": {
       "founded": null,
@@ -185,12 +190,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 87.5,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 82,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -345,29 +359,34 @@
         "label": "RideWithGPS: AL - Opelika Okey Dokey Loop (45mi)"
       },
       {
+        "url": "https://gravelroll.com/gravel-roll-blog/first-stop-opelika-okey-dokey",
+        "category": "other",
+        "label": "Gravelroll"
+      },
+      {
+        "url": "https://gravelroll.com/gravel-roll-blog/opelika-okey-dokey-moments",
+        "category": "other",
+        "label": "Gravelroll"
+      },
+      {
+        "url": "https://gravelroll.com/opelikaokeydokey",
+        "category": "other",
+        "label": "Gravelroll"
+      },
+      {
+        "url": "https://onemileanhour.wordpress.com/2024/05/19/okey-dokey-ride-in-opelika-al/",
+        "category": "other",
+        "label": "Onemileanhour"
+      },
+      {
         "url": "https://www.bikereg.com/okey-dokey[3",
         "category": "registration",
         "label": "BikeReg"
       },
       {
-        "url": "https://onemileanhour.wordpress.com/2024/05/19/okey-dokey-ride-in-opelika-al/",
-        "category": "community",
-        "label": "onemileanhour.wordpress.com: Okey Dokey Ride In Opelika Al"
-      },
-      {
-        "url": "https://gravelroll.com/gravel-roll-blog/opelika-okey-dokey-moments",
-        "category": "community",
-        "label": "gravelroll.com: Opelika Okey Dokey Moments"
-      },
-      {
-        "url": "https://gravelroll.com/opelikaokeydokey",
-        "category": "community",
-        "label": "gravelroll.com: Opelikaokeydokey"
-      },
-      {
-        "url": "https://gravelroll.com/gravel-roll-blog/first-stop-opelika-okey-dokey",
-        "category": "community",
-        "label": "gravelroll.com: First Stop Opelika Okey Dokey"
+        "url": "https://www.gravelcyclist.com/videos/gravel-events-you-should-know-about-southeastern-usa/",
+        "category": "media",
+        "label": "Gravel Cyclist"
       }
     ],
     "tire_recommendations": {

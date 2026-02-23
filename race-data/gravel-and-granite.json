@@ -19,7 +19,7 @@
         "NSW"
       ],
       "field_size": "50-100 riders",
-      "start_time": "Morning start",
+      "start_time": "7:00am even",
       "registration": "Online. Cost: ~$75-100 AUD",
       "prize_purse": "Modest prizes",
       "aid_stations": "Limited aid stations",
@@ -185,12 +185,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 92.2,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 100,
+          "completeness": 76,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -311,39 +320,39 @@
     },
     "citations": [
       {
+        "url": "https://driveinland.com.au/events/sporting-events/gravel-n-granite-tenterfield/",
+        "category": "other",
+        "label": "Driveinland"
+      },
+      {
+        "url": "https://flowmountainbibe.com/post-all/gravel-n-granite-is-returns-in-2025/",
+        "category": "other",
+        "label": "Flowmountainbibe"
+      },
+      {
         "url": "https://flowmountainbike.com/post-all/gravel-n-granite-is-returns-in-2025/",
-        "category": "community",
-        "label": "flowmountainbike.com: Gravel N Granite Is Returns In 2025"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=c7DtPN9-EbE",
-        "category": "community",
-        "label": "youtube.com: Watch"
-      },
-      {
-        "url": "https://www.nsw.gov.au/visiting-and-exploring-nsw/nsw-events/gravel-n-granite-tenterfield",
-        "category": "community",
-        "label": "nsw.gov.au: Gravel N Granite Tenterfield"
+        "category": "other",
+        "label": "Flowmountainbike"
       },
       {
         "url": "https://thesaddlersmtbclub.com.au/gravel-n-granite-3",
-        "category": "community",
-        "label": "thesaddlersmtbclub.com.au: Gravel N Granite 3"
+        "category": "other",
+        "label": "Thesaddlersmtbclub"
       },
       {
         "url": "https://www.gravelcyclist.com/race-reports/2019-ironbull-granite-grinder-race-report-wausau-wisconsin-by-todd-meerdink/",
-        "category": "community",
-        "label": "gravelcyclist.com: 2019 Ironbull Granite Grinder Race Report Wausau Wisconsi..."
+        "category": "media",
+        "label": "Gravel Cyclist"
+      },
+      {
+        "url": "https://www.nsw.gov.au/visiting-and-exploring-nsw/nsw-events/gravel-n-granite-tenterfield",
+        "category": "other",
+        "label": "Nsw"
       },
       {
         "url": "https://www.ironbull.org/in-the-news/grinder-2022-race-report-jacob",
         "category": "community",
         "label": "ironbull.org: Grinder 2022 Race Report Jacob"
-      },
-      {
-        "url": "https://flowmountainbibe.com/post-all/gravel-n-granite-is-returns-in-2025/",
-        "category": "community",
-        "label": "flowmountainbibe.com: Gravel N Granite Is Returns In 2025"
       }
     ],
     "tire_recommendations": {

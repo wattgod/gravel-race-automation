@@ -169,7 +169,12 @@
       "score": "98 / 100",
       "one_liner": "The longest mountain bike time trial on earth—2,745 miles from Banff to Mexico, completely self-supported, pure amateur ethos.",
       "should_you_race": "Yes if you have serious ultra-endurance experience and can commit 2-4 weeks to the Continental Divide. Yes if you can handle complete self-sufficiency across remote terrain. Yes if you want the ultimate test. Skip if you haven't completed multi-day self-supported events. Skip if you need race organization, aid stations, or support crews. Skip if you cannot repair your own bike.",
-      "alternatives": "Trans Am Bike Race (4,400 miles, more paved); Colorado Trail Race (500 miles, high-altitude focus); Arizona Trail Race (800 miles, desert bikepacking); Badlands (800km, self-supported in Spain)"
+      "alternatives": "Trans Am Bike Race (4,400 miles, more paved); Colorado Trail Race (500 miles, high-altitude focus); Arizona Trail Race (800 miles, desert bikepacking); Badlands (800km, self-supported in Spain)",
+      "alternative_slugs": [
+        "badlands",
+        "colorado-trail-race",
+        "trans-am-bike-race"
+      ]
     },
     "logistics": {
       "airport": "YYC (Calgary) - 90min to Banff start; ELP (El Paso) - 85 miles from Antelope Wells finish; alternative Columbus NM finish has services",
@@ -177,7 +182,8 @@
       "food": "Self-supported—resupply at ~20 towns along route. Carry 2-3 days food for long stretches. Great Basin (Wyoming) has 100+ miles with no natural water. Binge at restaurants, carry Snickers and hand food for riding.",
       "packet_pickup": "No formal packet pickup—show up at Banff start line. Submit letter of intent beforehand encouraged.",
       "parking": "Banff staging area. Coordinate with Whitefish-area bike shops (Glacier Cyclery) for post-race transport.",
-      "official_site": "https://tourdivide.org"
+      "official_site": "https://tourdivide.org",
+      "camping": "Campground\n- After summit, 13 miles riding above 11,000 ft\n- Curvy gravel road through colored aspens\n\n**Fleecer Ridge (Montana):**"
     },
     "history": {
       "founded": 2008,
@@ -291,14 +297,44 @@
     },
     "citations": [
       {
-        "url": "https://tourdivide.org",
-        "category": "official",
-        "label": "Official Website"
-      },
-      {
         "url": "https://ridewithgps.com/routes/53936176",
         "category": "route",
         "label": "RideWithGPS: Tour Divide Route--Barb's Planning Copy (based on SS 2023)"
+      },
+      {
+        "url": "https://www.halfwayanywhere.com/bikepacking/tour-divide/tour-divide-post-race-report-the-body/",
+        "category": "community",
+        "label": "halfwayanywhere.com: Tour Divide Post Race Report The Body"
+      },
+      {
+        "url": "https://www.bryanrogala.com/tour-divide",
+        "category": "community",
+        "label": "bryanrogala.com: Tour Divide"
+      },
+      {
+        "url": "https://www.rodeo-labs.com/the-tour-divide-day-by-day/",
+        "category": "community",
+        "label": "rodeo-labs.com: The Tour Divide Day By Day"
+      },
+      {
+        "url": "https://www.davegieger.com/category/bikepacking/tour-divide/",
+        "category": "community",
+        "label": "davegieger.com: Tour Divide"
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Great_Divide_Mountain_Bike_Route",
+        "category": "reference",
+        "label": "Wikipedia"
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Tour_Divide",
+        "category": "reference",
+        "label": "Wikipedia"
+      },
+      {
+        "url": "http://rambleur.com/ramblings/2018/7/13/tour-divide-completed",
+        "category": "other",
+        "label": "Rambleur"
       },
       {
         "url": "http://tourdivide.org/the_rules",
@@ -321,24 +357,24 @@
         "label": "Bikepacking"
       },
       {
-        "url": "https://dotwatcher.cc/",
-        "category": "tracking",
-        "label": "DotWatcher"
+        "url": "https://blog.otsocycles.com/2025/09/jjjjustins-tour-divide-recap/",
+        "category": "other",
+        "label": "Blog"
       },
       {
-        "url": "https://en.wikipedia.org/wiki/Great_Divide_Mountain_Bike_Route",
-        "category": "reference",
-        "label": "Wikipedia"
-      },
-      {
-        "url": "https://en.wikipedia.org/wiki/Tour_Divide",
-        "category": "reference",
-        "label": "Wikipedia"
+        "url": "https://dirttanbikeclub.com/2019/07/27/tour-divided-when-did-gravel-get-so-mean/",
+        "category": "other",
+        "label": "Dirttanbikeclub"
       },
       {
         "url": "https://escapecollective.com/how-the-tour-divide-was-won/",
         "category": "other",
         "label": "Escapecollective"
+      },
+      {
+        "url": "https://oneofsevenproject.com/tour-divide-journal/",
+        "category": "other",
+        "label": "Oneofsevenproject"
       },
       {
         "url": "https://oneofsevenproject.com/tour-divide-planning-guide/",
@@ -351,94 +387,14 @@
         "label": "Oneofsevenproject"
       },
       {
-        "url": "https://trackleaders.com/",
-        "category": "tracking",
-        "label": "TrackLeaders"
-      },
-      {
-        "url": "https://www.adventurecycling.org/routes-and-maps/adventure-cycling-route-network/great-divide-mountain-bike-route/",
+        "url": "https://ozogan.eu/tour-divide-2024-how-did-it-begin/",
         "category": "other",
-        "label": "Adventurecycling"
-      },
-      {
-        "url": "https://www.apidura.com/journal/records-reconciliation-the-2024-tour-divide/",
-        "category": "other",
-        "label": "Apidura"
-      },
-      {
-        "url": "https://www.cyclingabout.com/fastest-tour-divide-bike-setups-2025/",
-        "category": "other",
-        "label": "Cyclingabout"
-      },
-      {
-        "url": "https://www.halfwayanywhere.com/bikepacking/tour-divide/racing-tour-divide-what-to-do-differently/",
-        "category": "other",
-        "label": "Halfwayanywhere"
-      },
-      {
-        "url": "https://www.halfwayanywhere.com/bikepacking/tour-divide/tour-divide-bikepacking-data-stats/",
-        "category": "other",
-        "label": "Halfwayanywhere"
-      },
-      {
-        "url": "https://www.halfwayanywhere.com/bikepacking/tour-divide/tour-divide-gear-bicycle-breakdown/",
-        "category": "other",
-        "label": "Halfwayanywhere"
-      },
-      {
-        "url": "https://www.halfwayanywhere.com/category/bikepacking/tour-divide/",
-        "category": "other",
-        "label": "Halfwayanywhere"
-      },
-      {
-        "url": "https://www.halfwayanywhere.com/bikepacking/tour-divide/tour-divide-post-race-report-the-body/",
-        "category": "community",
-        "label": "halfwayanywhere.com: Tour Divide Post Race Report The Body"
+        "label": "Ozogan"
       },
       {
         "url": "https://sklarbikes.com/blogs/blog/adams-tour-divide-recap",
-        "category": "community",
-        "label": "sklarbikes.com: Adams Tour Divide Recap"
-      },
-      {
-        "url": "https://blog.otsocycles.com/2025/09/jjjjustins-tour-divide-recap/",
-        "category": "community",
-        "label": "blog.otsocycles.com: Jjjjustins Tour Divide Recap"
-      },
-      {
-        "url": "https://ozogan.eu/tour-divide-2024-how-did-it-begin/",
-        "category": "community",
-        "label": "ozogan.eu: Tour Divide 2024 How Did It Begin"
-      },
-      {
-        "url": "https://www.bryanrogala.com/tour-divide",
-        "category": "community",
-        "label": "bryanrogala.com: Tour Divide"
-      },
-      {
-        "url": "https://vargooutdoors.com/blogs/blog/the-flip-side-of-the-tour-divide-post-race-interview-with-brett-simpson",
-        "category": "community",
-        "label": "vargooutdoors.com: The Flip Side Of The Tour Divide Post Race Interview With..."
-      },
-      {
-        "url": "https://oneofsevenproject.com/tour-divide-journal/",
-        "category": "community",
-        "label": "oneofsevenproject.com: Tour Divide Journal"
-      },
-      {
-        "url": "https://www.rodeo-labs.com/the-tour-divide-day-by-day/",
-        "category": "community",
-        "label": "rodeo-labs.com: The Tour Divide Day By Day"
-      },
-      {
-        "url": "http://rambleur.com/ramblings/2018/7/13/tour-divide-completed",
-        "category": "community",
-        "label": "rambleur.com: Tour Divide Completed"
-      },
-      {
-        "url": "https://www.davegieger.com/category/bikepacking/tour-divide/",
-        "category": "community",
-        "label": "davegieger.com: Tour Divide"
+        "category": "other",
+        "label": "Sklarbikes"
       }
     ],
     "results": {
@@ -521,6 +477,25 @@
         "200pluslb_dry": "42-46",
         "200pluslb_mixed": "40-44",
         "200pluslb_wet": "38-42"
+      }
+    },
+    "research_metadata": {
+      "research_strength": {
+        "overall": 100.0,
+        "grade": "A",
+        "weakest": "source_diversity",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 100,
+          "completeness": 100,
+          "cross_reference": 100
+        },
+        "scored_at": "2026-02-04"
       }
     }
   }

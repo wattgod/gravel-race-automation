@@ -30,6 +30,8 @@ from pathlib import Path
 LTGP_RACES = {
     2024: {
         "sea-otter-gravel",      # Fuego XL 100k
+        "fuego-mtb",             # Fuego XL (alternate slug)
+        "fuego-xl",              # Fuego XL (alternate slug)
         "unbound-200",
         "crusher-in-the-tushar",
         "leadville-100",
@@ -40,6 +42,8 @@ LTGP_RACES = {
     },
     2025: {
         "sea-otter-gravel",
+        "fuego-mtb",             # Fuego XL (alternate slug)
+        "fuego-xl",              # Fuego XL (alternate slug)
         "unbound-200",
         "leadville-100",
         "chequamegon",           # MTB (alternate slug)
@@ -50,6 +54,8 @@ LTGP_RACES = {
     },
     2026: {
         "sea-otter-gravel",
+        "fuego-mtb",             # Fuego XL (alternate slug)
+        "fuego-xl",              # Fuego XL (alternate slug)
         "unbound-200",
         "leadville-100",
         "chequamegon",           # MTB (alternate slug)

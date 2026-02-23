@@ -160,7 +160,11 @@
       "score": "74 / 100",
       "one_liner": "The UCI's backyard playground where 3,300 meters of climbing separates tourists from gravel racers.",
       "should_you_race": "You need legitimate climbing legs and a gravel bike that can handle 20% grades on loose surfaces. The second half destroys weekend warriors—if you can't sustain power on steep off-road climbs above 1,500 meters, the Route des Chaux will expose you. Come for the prestige and alpine scenery, but expect to earn every meter of that Col de la Croix finish.",
-      "alternatives": "Unbound 200 offers similar suffering with less elevation but more distance and heat. Traka 360 in Spain delivers comparable climbing with better weather windows and fewer altitude issues for sea-level dwellers."
+      "alternatives": "Unbound 200 offers similar suffering with less elevation but more distance and heat. Traka 360 in Spain delivers comparable climbing with better weather windows and fewer altitude issues for sea-level dwellers.",
+      "alternative_slugs": [
+        "the-traka",
+        "unbound-200"
+      ]
     },
     "course_description": {
       "character": "Starting at cycling's global headquarters in Aigle, this course lulls you through 30 miles of Rhone Valley false confidence before unleashing 3,300 meters of vertical punishment. The second half abandons civilization for alpine forest tracks and 20% wooden ladders disguised as bike paths. It's less gravel race, more high-altitude survival exam with a fancy UCI stamp.",
@@ -192,14 +196,9 @@
     },
     "citations": [
       {
-        "url": "https://ucigravelsuisse.com/en/",
-        "category": "official",
-        "label": "Official Website"
-      },
-      {
-        "url": "https://alpine-gravel-challenge.ch/en/",
-        "category": "other",
-        "label": "Alpine-Gravel-Challenge"
+        "url": "https://ridewithgps.com/routes/52287506",
+        "category": "route",
+        "label": "RideWithGPS: UCI Gravel Suisse - The Summit"
       },
       {
         "url": "https://gearjunkie.com/biking/gravel-epic-switzerland-bike-race",
@@ -207,14 +206,49 @@
         "label": "GearJunkie"
       },
       {
+        "url": "https://www.cyclingweekly.com/news",
+        "category": "media",
+        "label": "Cycling Weekly"
+      },
+      {
+        "url": "https://www.inkl.com/news/former-unbound-gravel-winner-carolin-schiff-returns-from-health-issues-with-new-13-rider-canyon-x-dt-swiss-all-terrain-racing-team",
+        "category": "community",
+        "label": "inkl.com: Former Unbound Gravel Winner Carolin Schiff Returns From ..."
+      },
+      {
+        "url": "https://www.cyclingnews.com/races/uci-gravel-world-series-events-2025/alentejo-gravel/results/",
+        "category": "community",
+        "label": "cyclingnews.com: Results"
+      },
+      {
+        "url": "https://www.finishers.com/en/event/uci-gran-fondo-suisse-time-trial",
+        "category": "community",
+        "label": "finishers.com: Uci Gran Fondo Suisse Time Trial"
+      },
+      {
+        "url": "https://www.canyon.com/en-us/meet-the-wildcards-all-terrain-racing/b16022026.html",
+        "category": "community",
+        "label": "canyon.com: B16022026.Html"
+      },
+      {
+        "url": "https://www.mso.swiss/en/events/2367-uci-gravel-suisse/results",
+        "category": "community",
+        "label": "mso.swiss: Results"
+      },
+      {
+        "url": "https://www.mso.swiss/en/events/2164-uci-gravel-suisse/results",
+        "category": "community",
+        "label": "mso.swiss: Results"
+      },
+      {
+        "url": "https://granfondo-cycling.com/best-race-gravel-bike-review/",
+        "category": "other",
+        "label": "Granfondo-Cycling"
+      },
+      {
         "url": "https://ucigravelsuisse.com/en/inscriptions/",
         "category": "other",
         "label": "Ucigravelsuisse"
-      },
-      {
-        "url": "https://ucigravelworldseries.com/en/",
-        "category": "other",
-        "label": "Ucigravelworldseries"
       },
       {
         "url": "https://ucigravelworldseries.com/en/champery/",
@@ -242,14 +276,14 @@
         "label": "Cycloworld"
       },
       {
-        "url": "https://www.granfondoguide.com/",
+        "url": "https://www.grallochgravel.com/journal/tessa-neefjes-on-defending-her-gralloch-crown-belief-gravel-and-coming-back-stronger",
         "category": "other",
-        "label": "Granfondoguide"
+        "label": "Grallochgravel"
       },
       {
-        "url": "https://www.gravelepic.com/",
+        "url": "https://www.granfondoguide.com/Events/Index/11723/the-majestics",
         "category": "other",
-        "label": "Gravelepic"
+        "label": "Granfondoguide"
       },
       {
         "url": "https://www.gravelepic.com/epic-switzerland",
@@ -260,55 +294,12 @@
         "url": "https://www.gravelepic.com/info-switzerland",
         "category": "other",
         "label": "Gravelepic"
-      },
-      {
-        "url": "https://www.komoot.com/collection/2794729/-uci-gravel-suisse",
-        "category": "other",
-        "label": "Komoot"
-      },
-      {
-        "url": "https://www.mso.swiss/en/events/2367-uci-gravel-suisse/results",
-        "category": "other",
-        "label": "Mso"
-      },
-      {
-        "url": "https://www.grallochgravel.com/journal/tessa-neefjes-on-defending-her-gralloch-crown-belief-gravel-and-coming-back-stronger",
-        "category": "community",
-        "label": "grallochgravel.com: Tessa Neefjes On Defending Her Gralloch Crown Belief Grav..."
-      },
-      {
-        "url": "https://www.inkl.com/news/former-unbound-gravel-winner-carolin-schiff-returns-from-health-issues-with-new-13-rider-canyon-x-dt-swiss-all-terrain-racing-team",
-        "category": "community",
-        "label": "inkl.com: Former Unbound Gravel Winner Carolin Schiff Returns From ..."
-      },
-      {
-        "url": "https://www.cyclingnews.com/races/uci-gravel-world-series-events-2025/alentejo-gravel/results/",
-        "category": "community",
-        "label": "cyclingnews.com: Results"
-      },
-      {
-        "url": "https://www.finishers.com/en/event/uci-gran-fondo-suisse-time-trial",
-        "category": "community",
-        "label": "finishers.com: Uci Gran Fondo Suisse Time Trial"
-      },
-      {
-        "url": "https://granfondo-cycling.com/best-race-gravel-bike-review/",
-        "category": "community",
-        "label": "granfondo-cycling.com: Best Race Gravel Bike Review"
-      },
-      {
-        "url": "https://www.canyon.com/en-us/meet-the-wildcards-all-terrain-racing/b16022026.html",
-        "category": "community",
-        "label": "canyon.com: B16022026.Html"
-      },
-      {
-        "url": "https://www.mso.swiss/en/events/2164-uci-gravel-suisse/results",
-        "category": "community",
-        "label": "mso.swiss: Results"
       }
     ],
     "logistics": {
-      "official_site": "https://ucigravelsuisse.com/en/"
+      "official_site": "https://ucigravelsuisse.com/en/",
+      "camping": "Camping\n\n**Sample Hotel Prices:**\n- Villars Lodge (Ollon): ~USD 186-243/night\n- Grand Hotel Suisse Majestic (Montreux): ~USD 304/",
+      "parking": "Parking available throughout resort\n\n**Parking Options in Villars:**\n- Place du Rendez-vous (Roc d'Orsay gondola): 400 free spaces\n- Parki"
     },
     "tire_recommendations": {
       "generated_at": "2026-02-19",
@@ -376,6 +367,25 @@
         "200pluslb_dry": "44-48",
         "200pluslb_mixed": "41-45",
         "200pluslb_wet": "39-43"
+      }
+    },
+    "research_metadata": {
+      "research_strength": {
+        "overall": 87.3,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 52,
+          "cross_reference": 50
+        },
+        "scored_at": "2026-02-04"
       }
     }
   }

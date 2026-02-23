@@ -94,7 +94,12 @@
       "score": "47 / 100",
       "one_liner": "Honest grassroots gravel in rural Ontario with strong community and modest ambitions.",
       "should_you_race": "If you're in the region and want an affordable, well-organized gravel race with good vibes—yes. If you're traveling from far away or seeking competitive depth and prestige—probably not worth the trip. This is a local favorite for good reason, but it's not trying to be more than it is.",
-      "alternatives": "For bigger Ontario events: try Gravel Growler (more established). For similar grassroots vibes in other regions: Barry-Roubaix (Michigan), Almanzo (Minnesota), or Dirty Kanza (Kansas—though much larger)."
+      "alternatives": "For bigger Ontario events: try Gravel Growler (more established). For similar grassroots vibes in other regions: Barry-Roubaix (Michigan), Almanzo (Minnesota), or Dirty Kanza (Kansas—though much larger).",
+      "alternative_slugs": [
+        "almanzo-100",
+        "barry-roubaix",
+        "unbound-200"
+      ]
     },
     "logistics": {
       "airport": "Ottawa International Airport (YOW) - ~1 hour drive",
@@ -188,12 +193,21 @@
         "Generated from regional race information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 82.3,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 80,
+          "citation_density": 80,
+          "temporal_depth": 75,
+          "specificity": 90,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 94,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -316,19 +330,19 @@
     },
     "citations": [
       {
-        "url": "https://gravelcup.com/gravel-cup-events/back-forty-highlander-2024",
-        "category": "community",
-        "label": "gravelcup.com: Back Forty Highlander 2024"
-      },
-      {
         "url": "https://gravelcup.com/gravel-cup-events/back-forty-highlander",
-        "category": "community",
-        "label": "gravelcup.com: Back Forty Highlander"
+        "category": "other",
+        "label": "Gravelcup"
       },
       {
-        "url": "https://northernontario.travel/cycling/ontario-gravel-bike-events",
-        "category": "community",
-        "label": "northernontario.travel: Ontario Gravel Bike Events"
+        "url": "https://gravelcup.com/gravel-cup-events/back-forty-highlander-2024",
+        "category": "other",
+        "label": "Gravelcup"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/12531/back-forty-highlander-",
+        "category": "other",
+        "label": "Granfondoguide"
       },
       {
         "url": "http://www.timeral.info/Archive/A3-2025.html",
@@ -339,11 +353,6 @@
         "url": "https://www.youtube.com/watch?v=ZvDCMD-Bpe0",
         "category": "community",
         "label": "youtube.com: Watch"
-      },
-      {
-        "url": "https://www.granfondoguide.com/Events/Index/12531/back-forty-highlander-",
-        "category": "community",
-        "label": "granfondoguide.com: Back Forty Highlander "
       }
     ],
     "tire_recommendations": {

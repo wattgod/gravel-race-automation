@@ -151,18 +151,18 @@
       ],
       "research_date": "2026-02-04",
       "research_strength": {
-        "overall": 97.5,
+        "overall": 99.1,
         "grade": "A",
-        "weakest": "temporal_depth",
+        "weakest": "completeness",
         "has_research_dump": true,
         "dimensions": {
           "source_diversity": 100,
           "citation_density": 100,
-          "temporal_depth": 75,
+          "temporal_depth": 100,
           "specificity": 100,
           "statistical_backing": 100,
           "voice_authenticity": 100,
-          "completeness": 100,
+          "completeness": 94,
           "cross_reference": 100
         },
         "scored_at": "2026-02-04"
@@ -230,14 +230,13 @@
       "score": "71 / 100",
       "one_liner": "North Georgia's wine country serves up proper climbing with a civilized finish—Woody Gap separates the tourists from the locals.",
       "should_you_race": "If you can handle 5,000 feet of punchy Georgia climbs and aren't fazed by potential mud lottery conditions, this delivers solid suffering with the best post-race scene in the Southeast. Skip it if you need extensive aid station coddling or panic at the thought of 35-degree starts. Compact gearing and 40mm+ tires aren't suggestions—they're survival equipment.",
-      "alternatives": "Gravel Worlds offers similar climbing with bigger fields and prestige, while Belgian Waffle Ride serves up more technical punishment if you want your suffering with extra rocks. Both skip the intimate winery finish for pure Type 2 fun."
+      "alternatives": "Gravel Worlds offers similar climbing with bigger fields and prestige, while Belgian Waffle Ride serves up more technical punishment if you want your suffering with extra rocks. Both skip the intimate winery finish for pure Type 2 fun.",
+      "alternative_slugs": [
+        "bwr-california",
+        "garmin-gravel-worlds"
+      ]
     },
     "citations": [
-      {
-        "url": "https://www.coasttocoastgravel.com",
-        "category": "official",
-        "label": "Official Website"
-      },
       {
         "url": "https://ridewithgps.com/routes/32690265",
         "category": "route",
@@ -247,6 +246,16 @@
         "url": "https://athlinks.com/event/southern-cross-gravel",
         "category": "other",
         "label": "Athlinks"
+      },
+      {
+        "url": "https://jaylocycling.com/2023-southern-cross-gravel-race-report/",
+        "category": "other",
+        "label": "Jaylocycling"
+      },
+      {
+        "url": "https://racingbikesraisingkids.com/tag/southern-cross-gravel-race/",
+        "category": "other",
+        "label": "Racingbikesraisingkids"
       },
       {
         "url": "https://reddit.com/r/gravelcycling/comments/southern-cross-2024",
@@ -264,9 +273,9 @@
         "label": "Reddit"
       },
       {
-        "url": "https://ridewithgps.com",
-        "category": "route",
-        "label": "RideWithGPS"
+        "url": "https://ridefierceracing.com/2020/03/09/race-report-southern-cross-gravel-grinder/",
+        "category": "other",
+        "label": "Ridefierceracing"
       },
       {
         "url": "https://ridewithgps.com/routes/southern-cross-gravel",
@@ -279,9 +288,9 @@
         "label": "Slowtwitch"
       },
       {
-        "url": "https://strava.com",
-        "category": "activity",
-        "label": "Strava"
+        "url": "https://strambecco.com/event/southern-cross/",
+        "category": "other",
+        "label": "Strambecco"
       },
       {
         "url": "https://strava.com/segments/blood-mountain-descent",
@@ -289,64 +298,19 @@
         "label": "Strava"
       },
       {
+        "url": "https://www.bikeforums.net/cyclocross-gravelbiking-recreational/1098455-gravel-ride-pics-20.html",
+        "category": "other",
+        "label": "Bikeforums"
+      },
+      {
         "url": "https://www.bikereg.com/southern-cross-gravel",
         "category": "registration",
         "label": "BikeReg"
       },
       {
-        "url": "https://jaylocycling.com/2023-southern-cross-gravel-race-report/",
-        "category": "community",
-        "label": "jaylocycling.com: 2023 Southern Cross Gravel Race Report"
-      },
-      {
-        "url": "https://beatawronska.blogspot.com/2025/03/southern-cross-50-mile-gravel-race.html",
-        "category": "community",
-        "label": "beatawronska.blogspot.com: Southern Cross 50 Mile Gravel Race.Html"
-      },
-      {
-        "url": "https://www.renehersecycles.com/brennan-lauren-win-shasta-southern-cross/",
-        "category": "community",
-        "label": "renehersecycles.com: Brennan Lauren Win Shasta Southern Cross"
-      },
-      {
-        "url": "https://www.cxmagazine.com/southern-cross-video-interviews",
-        "category": "community",
-        "label": "cxmagazine.com: Southern Cross Video Interviews"
-      },
-      {
-        "url": "https://sorellacycling.org/content.aspx?page_id=5&club_id=815352&item_id=76000",
-        "category": "community",
-        "label": "sorellacycling.org: Content.Aspx"
-      },
-      {
-        "url": "https://www.cxmagazine.com/nina-laughlin-2019-land-run-100-gravel-race-womens-winner-interview",
-        "category": "community",
-        "label": "cxmagazine.com: Nina Laughlin 2019 Land Run 100 Gravel Race Womens Winner..."
-      },
-      {
-        "url": "http://www.brickhouseracing.com/?p=4228",
-        "category": "community",
-        "label": "brickhouseracing.com"
-      },
-      {
-        "url": "https://mountaingoatadventures.com/southernx/course",
-        "category": "community",
-        "label": "mountaingoatadventures.com: Course"
-      },
-      {
         "url": "https://mountaingoatadventures.com/southernx",
         "category": "community",
         "label": "mountaingoatadventures.com: Southernx"
-      },
-      {
-        "url": "https://ridefierceracing.com/2020/03/09/race-report-southern-cross-gravel-grinder/",
-        "category": "community",
-        "label": "ridefierceracing.com: Race Report Southern Cross Gravel Grinder"
-      },
-      {
-        "url": "https://www.bikeforums.net/cyclocross-gravelbiking-recreational/1098455-gravel-ride-pics-20.html",
-        "category": "community",
-        "label": "bikeforums.net: 1098455 Gravel Ride Pics 20.Html"
       }
     ],
     "results": {

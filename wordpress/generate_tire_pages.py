@@ -20,12 +20,13 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
 from brand_tokens import (
     COLORS,
-    GA_MEASUREMENT_ID,
     SITE_BASE_URL,
     get_font_face_css,
     get_preload_hints,
     get_tokens_css,
+    get_ga4_head_snippet,
 )
+from cookie_consent import get_consent_banner_html
 
 from generate_tire_guide import load_tire_database
 
@@ -1297,7 +1298,7 @@ def generate_tire_page(tire: dict, race_recs: list) -> str:
   <meta property="og:description" content="{esc(meta_desc)}">
   <meta property="og:url" content="{canonical}">
   <meta property="og:type" content="article">
-  <meta property="og:site_name" content="Gravel God">
+  <meta property="og:site_name" content="Gravel God Cycling">
 
   {preload}
 
@@ -1309,13 +1310,7 @@ def generate_tire_page(tire: dict, race_recs: list) -> str:
 
   {json_ld}
 
-  <script async src="https://www.googletagmanager.com/gtag/js?id={GA_MEASUREMENT_ID}"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){{dataLayer.push(arguments);}}
-    gtag('js', new Date());
-    gtag('config', '{GA_MEASUREMENT_ID}');
-  </script>
+  {get_ga4_head_snippet()}
 </head>
 <body>
 {header}
@@ -1334,6 +1329,7 @@ def generate_tire_page(tire: dict, race_recs: list) -> str:
 </main>
 {footer}
 {inline_js}
+{get_consent_banner_html()}
 </body>
 </html>'''
 

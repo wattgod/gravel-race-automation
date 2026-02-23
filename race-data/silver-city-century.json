@@ -19,7 +19,7 @@
         "Iowa"
       ],
       "field_size": "50-100 riders",
-      "start_time": "Morning start",
+      "start_time": "7:30 AM",
       "registration": "Online. Cost: ~$75-100",
       "prize_purse": "Modest prizes",
       "aid_stations": "Multiple aid stations",
@@ -94,7 +94,10 @@
       "score": "41 / 100",
       "one_liner": "Iowa local gravel challenge.",
       "should_you_race": "If you're local to Iowa—yes, it's solid. If you're traveling—skip it.",
-      "alternatives": "For better Iowa races: Gravel Worlds, RAGBRAI."
+      "alternatives": "For better Iowa races: Gravel Worlds, RAGBRAI.",
+      "alternative_slugs": [
+        "garmin-gravel-worlds"
+      ]
     },
     "logistics": {
       "airport": "Omaha (OMA) 60 minutes",
@@ -185,12 +188,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 80.4,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 60,
+          "citation_density": 80,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 50
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -316,39 +328,24 @@
         "label": "RideWithGPS: Dry - 100km - 2024 Silver City Century"
       },
       {
-        "url": "https://www.reddit.com/r/gravelcycling/comments/1cwjmzk/silver_city_century/",
-        "category": "community",
-        "label": "reddit.com: Silver City Century"
-      },
-      {
-        "url": "https://www.bikeiowa.com/Event/15565/silver-city-century",
-        "category": "community",
-        "label": "bikeiowa.com: Silver City Century"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=14K2BnCYQ-k",
-        "category": "community",
-        "label": "youtube.com: Watch"
+        "url": "https://www.bikeiowa.com/Event/14307/silver-city-century",
+        "category": "other",
+        "label": "Bikeiowa"
       },
       {
         "url": "https://www.bikeiowa.com/Event/16433/silver-city-century",
-        "category": "community",
-        "label": "bikeiowa.com: Silver City Century"
+        "category": "other",
+        "label": "Bikeiowa"
       },
       {
-        "url": "https://www.bikeiowa.com/Event/14307/silver-city-century",
-        "category": "community",
-        "label": "bikeiowa.com: Silver City Century"
+        "url": "https://www.granfondoguide.com/Events/Index/10052/silver-city-century",
+        "category": "other",
+        "label": "Granfondoguide"
       },
       {
         "url": "https://www.youtube.com/playlist?list=PLRBU6fQScQ-v9hvU-zZ1gydSsFg6vXSqi",
         "category": "community",
         "label": "youtube.com: Playlist"
-      },
-      {
-        "url": "https://www.granfondoguide.com/Events/Index/10052/silver-city-century",
-        "category": "community",
-        "label": "granfondoguide.com: Silver City Century"
       }
     ],
     "tire_recommendations": {

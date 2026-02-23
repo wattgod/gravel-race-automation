@@ -20,8 +20,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 add_action( 'wp_head', 'gg_shared_header_css', 5 );
+add_action( 'wp_head', 'gg_rss_feed_link', 6 );
 add_action( 'wp_body_open', 'gg_shared_header_html', 1 );
 add_filter( 'body_class', 'gg_add_neo_brutalist_class' );
+
+/**
+ * Add RSS feed discovery link to <head> on all pages.
+ */
+function gg_rss_feed_link() {
+    echo '<link rel="alternate" type="application/rss+xml" title="Gravel God Race Database" href="https://gravelgodcycling.com/feed/races.xml">' . "\n";
+}
 
 /**
  * Add gg-neo-brutalist-page class to body so existing Code Snippet overrides
@@ -125,7 +133,7 @@ function gg_shared_header_html() {
         $active = 'products';
     } elseif ( strpos( $uri, '/coaching' ) !== false || strpos( $uri, '/consulting' ) !== false ) {
         $active = 'services';
-    } elseif ( strpos( $uri, '/articles' ) !== false || strpos( $uri, '/blog' ) !== false ) {
+    } elseif ( strpos( $uri, '/articles' ) !== false || strpos( $uri, '/blog' ) !== false || strpos( $uri, '/insights' ) !== false ) {
         $active = 'articles';
     } elseif ( strpos( $uri, '/about' ) !== false ) {
         $active = 'about';
@@ -155,7 +163,6 @@ function gg_shared_header_html() {
         <a href="<?php echo $base; ?>/products/training-plans/"<?php echo $aria('products'); ?>>PRODUCTS</a>
         <div class="gg-site-header-dropdown">
           <a href="<?php echo $base; ?>/products/training-plans/">Custom Training Plans</a>
-          <a href="<?php echo $base; ?>/course/">Courses</a>
           <a href="<?php echo $base; ?>/guide/">Gravel Handbook</a>
         </div>
       </div>
@@ -171,6 +178,7 @@ function gg_shared_header_html() {
         <div class="gg-site-header-dropdown">
           <a href="<?php echo $substack; ?>" target="_blank" rel="noopener">Slow Mid 38s</a>
           <a href="<?php echo $base; ?>/articles/">Hot Takes</a>
+          <a href="<?php echo $base; ?>/insights/">The State of Gravel</a>
         </div>
       </div>
       <a href="<?php echo $base; ?>/about/"<?php echo $aria('about'); ?>>ABOUT</a>

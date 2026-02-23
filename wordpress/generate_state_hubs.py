@@ -29,8 +29,9 @@ from datetime import date
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
-from brand_tokens import COLORS, GA_MEASUREMENT_ID, RACER_RATING_THRESHOLD, SITE_BASE_URL, get_font_face_css, get_tokens_css
+from brand_tokens import COLORS, get_font_face_css, get_ga4_head_snippet, get_tokens_css, RACER_RATING_THRESHOLD, SITE_BASE_URL
 from shared_header import get_site_header_css, get_site_header_html
+from cookie_consent import get_consent_banner_html
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 CURRENT_YEAR = date.today().year
@@ -431,6 +432,12 @@ def build_state_page(state: str, races: list, total_races: int) -> str:
   <meta property="og:description" content="{esc(description)}">
   <meta property="og:type" content="website">
   <meta property="og:url" content="{esc(canonical)}">
+  <meta property="og:image" content="{SITE_BASE_URL}/og/homepage.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Gravel God Cycling">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="{SITE_BASE_URL}/og/homepage.jpg">
   <script type="application/ld+json">
   {breadcrumb_jsonld}
   </script>
@@ -723,8 +730,7 @@ body {{ margin: 0; background: var(--gg-color-warm-paper); }}
   .gg-state-cta {{ margin: 32px -12px; }}
 }}
   </style>
-  <script async src="https://www.googletagmanager.com/gtag/js?id={GA_MEASUREMENT_ID}"></script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments)}}gtag('js',new Date());gtag('config','{GA_MEASUREMENT_ID}');</script>
+  {get_ga4_head_snippet()}
 </head>
 <body>
 
@@ -758,7 +764,7 @@ body {{ margin: 0; background: var(--gg-color-warm-paper); }}
   <section class="gg-state-cta">
     <h2>Racing in {esc(state)}?</h2>
     <p>Get a personalized training plan for any {esc(state)} gravel race — tailored to your fitness, schedule, and goals.</p>
-    <a href="/products/training-plans/" class="gg-state-cta-btn">Build My Plan</a>
+    <a href="/questionnaire/" class="gg-state-cta-btn">Build My Plan</a>
     <p style="font-size:11px;color:var(--gg-color-tan);margin-top:8px">$15/week, capped at $249. One-time payment.</p>
   </section>
 
@@ -770,6 +776,7 @@ body {{ margin: 0; background: var(--gg-color-warm-paper); }}
 
 </div>
 
+{get_consent_banner_html()}
 </body>
 </html>'''
 

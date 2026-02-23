@@ -121,7 +121,13 @@
       ],
       "signature_challenge": "Technical Appalachian terrain (5/5) + steep (8,000 ft / 50mi).",
       "ridewithgps_id": "28070012",
-      "ridewithgps_name": "2018 Pisgah Monster-Cross"
+      "ridewithgps_name": "2018 Pisgah Monster-Cross",
+      "surface_breakdown": {
+        "overall": {
+          "gravel": 60,
+          "singletrack": 40
+        }
+      }
     },
     "history": {
       "founded": "~2012",
@@ -141,19 +147,19 @@
       ],
       "research_date": "2026-02-04",
       "research_strength": {
-        "overall": 0,
-        "grade": "pending",
-        "weakest": "pending",
+        "overall": 96.1,
+        "grade": "A",
+        "weakest": "voice_authenticity",
         "has_research_dump": true,
         "dimensions": {
-          "source_diversity": 0,
-          "citation_density": 0,
-          "temporal_depth": 0,
-          "specificity": 0,
-          "statistical_backing": 0,
-          "voice_authenticity": 0,
-          "completeness": 0,
-          "cross_reference": 0
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 94,
+          "cross_reference": 100
         },
         "scored_at": "2026-02-04"
       }
@@ -220,7 +226,11 @@
       "score": "69 / 100",
       "one_liner": "Pisgah's gravel roads will remind you that 8,777 feet of climbing doesn't negotiate, even when wrapped in Appalachian eye candy.",
       "should_you_race": "You need legitimate climbing legs and comfort grinding for 14 hours through National Forest terrain that rewards bike handling over pure watts. The three aid stations mean you're mostly self-sufficient between long stretches of Pisgah's relentless rollers. Show up undertrained to this one and you'll discover new definitions of suffering before that 10PM cutoff.",
-      "alternatives": "Gravel Worlds gives you similar distance with less punishing elevation if you want to test endurance without the Appalachian punishment. Dirty Kanza DK200 offers comparable suffering but trades mountain climbs for Kansas wind and heat—pick your preferred torture method."
+      "alternatives": "Gravel Worlds gives you similar distance with less punishing elevation if you want to test endurance without the Appalachian punishment. Dirty Kanza DK200 offers comparable suffering but trades mountain climbs for Kansas wind and heat—pick your preferred torture method.",
+      "alternative_slugs": [
+        "garmin-gravel-worlds",
+        "unbound-200"
+      ]
     },
     "unsplash_photos": [
       {
@@ -235,14 +245,19 @@
     ],
     "citations": [
       {
-        "url": "https://www.pisgahmonstercross.com",
-        "category": "official",
-        "label": "Official Website"
-      },
-      {
         "url": "https://ridewithgps.com/routes/28070012",
         "category": "route",
         "label": "RideWithGPS: 2018 Pisgah Monster-Cross"
+      },
+      {
+        "url": "https://careylowery.blogspot.com/2018/09/pisgah-monster-cross-race-report.html",
+        "category": "other",
+        "label": "Careylowery"
+      },
+      {
+        "url": "https://racingbikesraisingkids.com/2025-pisgah-monstercross/",
+        "category": "other",
+        "label": "Racingbikesraisingkids"
       },
       {
         "url": "https://reddit.com/r/gravelcycling/comments/pisgah-monster-cross",
@@ -250,79 +265,34 @@
         "label": "Reddit"
       },
       {
-        "url": "https://ridewithgps.com",
-        "category": "route",
-        "label": "RideWithGPS"
+        "url": "https://teamdicky.blogspot.com/2024/09/2024-pisgah-monster-cross.html",
+        "category": "other",
+        "label": "Teamdicky"
       },
       {
-        "url": "https://www.cyclingtips.com",
-        "category": "media",
-        "label": "CyclingTips"
+        "url": "https://www.dupontbikeretreat.com/local-bike-events/pisgah-monster-cross-challenge-1",
+        "category": "other",
+        "label": "Dupontbikeretreat"
       },
       {
-        "url": "https://www.strava.com",
-        "category": "activity",
-        "label": "Strava"
-      },
-      {
-        "url": "https://www.trainerroad.com",
-        "category": "community",
-        "label": "TrainerRoad"
-      },
-      {
-        "url": "https://www.velonews.com",
-        "category": "media",
-        "label": "VeloNews"
-      },
-      {
-        "url": "https://careylowery.blogspot.com/2013/09/pisgah-monster-cross-race-report.html",
-        "category": "community",
-        "label": "careylowery.blogspot.com: Pisgah Monster Cross Race Report.Html"
-      },
-      {
-        "url": "https://www.gravelcyclist.com/race-reports/2016-pisgah-monster-cross-race-report-by-jom/",
-        "category": "community",
-        "label": "gravelcyclist.com: 2016 Pisgah Monster Cross Race Report By Jom"
-      },
-      {
-        "url": "https://www.gravelcyclist.com/race-reports/pisgah-monster-cross-challenge/",
-        "category": "community",
-        "label": "gravelcyclist.com: Pisgah Monster Cross Challenge"
+        "url": "https://www.granfondoguide.com/Events/Index/5287/pisgah-monster-cross-challenge",
+        "category": "other",
+        "label": "Granfondoguide"
       },
       {
         "url": "https://www.gravelcyclist.com/race-reports/race-report-2019-pisgah-monster-cross-challenge-western-north-carolina/",
-        "category": "community",
-        "label": "gravelcyclist.com: Race Report 2019 Pisgah Monster Cross Challenge Western N..."
-      },
-      {
-        "url": "https://www.bikeforums.net/cyclocross-gravelbiking-recreational/1114649-pisgah-monster-cross.html",
-        "category": "community",
-        "label": "bikeforums.net: 1114649 Pisgah Monster Cross.Html"
-      },
-      {
-        "url": "https://racingbikesraisingkids.com/2021-pisgah-99/",
-        "category": "community",
-        "label": "racingbikesraisingkids.com: 2021 Pisgah 99"
-      },
-      {
-        "url": "https://careylowery.blogspot.com/2018/09/pisgah-monster-cross-race-report.html",
-        "category": "community",
-        "label": "careylowery.blogspot.com: Pisgah Monster Cross Race Report.Html"
-      },
-      {
-        "url": "https://racingbikesraisingkids.com/2025-pisgah-monstercross/",
-        "category": "community",
-        "label": "racingbikesraisingkids.com: 2025 Pisgah Monstercross"
-      },
-      {
-        "url": "https://teamdicky.blogspot.com/2024/09/2024-pisgah-monster-cross.html",
-        "category": "community",
-        "label": "teamdicky.blogspot.com: 2024 Pisgah Monster Cross.Html"
+        "category": "media",
+        "label": "Gravel Cyclist"
       },
       {
         "url": "https://www.pisgahproductions.com/events/pisgah-monster-cross-challenge/",
-        "category": "community",
-        "label": "pisgahproductions.com: Pisgah Monster Cross Challenge"
+        "category": "other",
+        "label": "Pisgahproductions"
+      },
+      {
+        "url": "https://www.pisgahproductions.com/results/2024-pisgah-monster-cross-challenge-results/",
+        "category": "other",
+        "label": "Pisgahproductions"
       }
     ],
     "tire_recommendations": {

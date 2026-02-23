@@ -94,7 +94,10 @@
       "score": "47 / 100",
       "one_liner": "German rolling gravel in Singen.",
       "should_you_race": "If you're in Germany/Europe and want a local event—yes, it's solid. If you're international—there are better options.",
-      "alternatives": "For better European events: The Traka, Grinduro. For similar regional events: other German gravel races."
+      "alternatives": "For better European events: The Traka, Grinduro. For similar regional events: other German gravel races.",
+      "alternative_slugs": [
+        "grinduro"
+      ]
     },
     "logistics": {
       "airport": "Zurich (ZRH) 1 hour or Stuttgart (STR) 1.5 hours",
@@ -185,12 +188,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 86.7,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -311,39 +323,44 @@
     },
     "citations": [
       {
+        "url": "https://granfondodailynews.com/2024/07/04/germans-schiff-koch-rule-at-muddy-uci-gravel-world-series-hegau/",
+        "category": "other",
+        "label": "Granfondodailynews"
+      },
+      {
         "url": "https://granfondodailynews.com/2025/07/08/uci-hegau-gravel-results-kloser-loman-finish-on-top-again/",
-        "category": "community",
-        "label": "granfondodailynews.com: Uci Hegau Gravel Results Kloser Loman Finish On Top Again"
-      },
-      {
-        "url": "https://www.cyclingnews.com/races/uci-gravel-world-series-events-2025/hegau-gravel-festival/results/",
-        "category": "community",
-        "label": "cyclingnews.com: Results"
-      },
-      {
-        "url": "https://www.rennrad-news.de/forum/threads/hegau-gravel.194216/",
-        "category": "community",
-        "label": "rennrad-news.de: Hegau Gravel.194216"
-      },
-      {
-        "url": "https://ucigravelworldseries.com/en/singen/",
-        "category": "community",
-        "label": "ucigravelworldseries.com: Singen"
-      },
-      {
-        "url": "https://www.cyclingnews.com/news/uci-gravel-world-series-jonas-koch-and-carolin-schiff-win-at-hegau/",
-        "category": "community",
-        "label": "cyclingnews.com: Uci Gravel World Series Jonas Koch And Carolin Schiff Win..."
-      },
-      {
-        "url": "https://www.granfondoguide.com/RaceDashboard/UCIGravelWorldSeries/1/8617/kloser-and-lowman-take-victory-at-uci-hegau-gravel-race",
-        "category": "community",
-        "label": "granfondoguide.com: Kloser And Lowman Take Victory At Uci Hegau Gravel Race"
+        "category": "other",
+        "label": "Granfondodailynews"
       },
       {
         "url": "https://ucigravelworldseries.com/en/hegau-gravel-festival-distances-updated-for-the-weekend/",
-        "category": "community",
-        "label": "ucigravelworldseries.com: Hegau Gravel Festival Distances Updated For The Weekend"
+        "category": "other",
+        "label": "Ucigravelworldseries"
+      },
+      {
+        "url": "https://ucigravelworldseries.com/en/hegau-gravel-race-with-a-very-international-line-up/",
+        "category": "other",
+        "label": "Ucigravelworldseries"
+      },
+      {
+        "url": "https://www.cyclingnews.com/news/uci-gravel-world-series-jonas-koch-and-carolin-schiff-win-at-hegau/",
+        "category": "other",
+        "label": "Cyclingnews"
+      },
+      {
+        "url": "https://www.cyclingnews.com/races/uci-gravel-world-series-events-2025/hegau-gravel-festival/results/",
+        "category": "other",
+        "label": "Cyclingnews"
+      },
+      {
+        "url": "https://www.granfondoguide.com/RaceDashboard/UCIGravelWorldSeries/1/8617/kloser-and-lowman-take-victory-at-uci-hegau-gravel-race",
+        "category": "other",
+        "label": "Granfondoguide"
+      },
+      {
+        "url": "https://www.rennrad-news.de/forum/threads/hegau-gravel.194216/",
+        "category": "other",
+        "label": "Rennrad-News"
       }
     ],
     "results": {

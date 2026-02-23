@@ -19,7 +19,7 @@
         "Central Tennessee"
       ],
       "field_size": "100-300 riders",
-      "start_time": "Morning start",
+      "start_time": "7:30 AM",
       "registration": "Online. Cost: ~$60-100",
       "prize_purse": "Modest prizes",
       "aid_stations": "Multiple aid stations",
@@ -94,7 +94,11 @@
       "score": "46 / 100",
       "one_liner": "Rural rolling Tennessee gravel in Hickman County.",
       "should_you_race": "If you're in Tennessee and want a local rolling gravel event—yes, it's a solid regional race. If you're from out of state—there are better options.",
-      "alternatives": "For better Southeast events: Gravel Worlds, Pisgah Monster-Cross, Hot Springs Gravel Gauntlet. For similar regional events: other Tennessee gravel races."
+      "alternatives": "For better Southeast events: Gravel Worlds, Pisgah Monster-Cross, Hot Springs Gravel Gauntlet. For similar regional events: other Tennessee gravel races.",
+      "alternative_slugs": [
+        "garmin-gravel-worlds",
+        "hot-springs-gravel-gauntlet"
+      ]
     },
     "logistics": {
       "airport": "Nashville (BNA) 1 hour",
@@ -102,7 +106,8 @@
       "food": "Rural area with limited dining. Stock nutrition.",
       "packet_pickup": "Day before typically",
       "parking": "At start/finish",
-      "official_site": "Check Tennessee cycling calendars"
+      "official_site": "Check Tennessee cycling calendars",
+      "camping": "camping is included with registration"
     },
     "history": {
       "founded": null,
@@ -185,12 +190,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 93.0,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 100,
+          "completeness": 82,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -316,19 +330,59 @@
         "label": "RideWithGPS: Hickman County: OG Gravel Revival Route"
       },
       {
-        "url": "https://www.tennesseegravel.com/ride-reports",
+        "url": "https://apuama.com/events/gravel-revival-shake-out-demo-ride-84033",
+        "category": "other",
+        "label": "Apuama"
+      },
+      {
+        "url": "https://racedayevents.net/wp-content/uploads/2023/11/Gravel-Revival-2023-43-Mile.htm",
+        "category": "other",
+        "label": "Racedayevents"
+      },
+      {
+        "url": "https://trueperformancetrainingsystems.com/gravelrevivalpackage",
+        "category": "other",
+        "label": "Trueperformancetrainingsystems"
+      },
+      {
+        "url": "https://www.gravel-results.com/race/19790",
+        "category": "other",
+        "label": "Gravel-Results"
+      },
+      {
+        "url": "https://www.gravelcyclist.com/training-rides/the-5th-annual-gravel-revival-returns-to-centerville-tennessee/",
+        "category": "media",
+        "label": "Gravel Cyclist"
+      },
+      {
+        "url": "https://www.moabbikes.com/events/gravel-revival-pg222.htm",
+        "category": "other",
+        "label": "Moabbikes"
+      },
+      {
+        "url": "https://www.natcheztracetravel.com/festivals-events/event/846-gravel-revival.html",
+        "category": "other",
+        "label": "Natcheztracetravel"
+      },
+      {
+        "url": "https://www.reddit.com/r/Surlybikefans/comments/12dlpdj/ready_for_gosh_darn_gravel_revival_this_weekend/",
         "category": "community",
-        "label": "tennesseegravel.com: Ride Reports"
+        "label": "Reddit"
       },
       {
         "url": "https://www.reddit.com/r/gravelcycling/comments/17eic1e/gravel_revival_2023/",
         "category": "community",
-        "label": "reddit.com: Gravel Revival 2023"
+        "label": "Reddit"
       },
       {
-        "url": "https://www.gravelcyclist.com/training-rides/the-5th-annual-gravel-revival-returns-to-centerville-tennessee/",
+        "url": "https://www.reddit.com/r/nashvillecyclists/comments/175l26q/gravel_revival_is_next_week_are_you_signed_up/",
         "category": "community",
-        "label": "gravelcyclist.com: The 5Th Annual Gravel Revival Returns To Centerville Tenn..."
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.tennesseegravel.com/ride-reports",
+        "category": "other",
+        "label": "Tennesseegravel"
       },
       {
         "url": "https://www.youtube.com/watch?v=nBfw37ca2SA",
@@ -339,21 +393,6 @@
         "url": "https://www.youtube.com/watch?v=iwDMPTCWmBQ",
         "category": "community",
         "label": "youtube.com: Watch"
-      },
-      {
-        "url": "https://www.gravel-results.com/race/19790",
-        "category": "community",
-        "label": "gravel-results.com: 19790"
-      },
-      {
-        "url": "https://racedayevents.net/wp-content/uploads/2023/11/Gravel-Revival-2023-43-Mile.htm",
-        "category": "community",
-        "label": "racedayevents.net: Gravel Revival 2023 43 Mile.Htm"
-      },
-      {
-        "url": "https://www.moabbikes.com/events/gravel-revival-pg222.htm",
-        "category": "community",
-        "label": "moabbikes.com: Gravel Revival Pg222.Htm"
       }
     ],
     "results": {

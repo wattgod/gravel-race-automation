@@ -150,7 +150,12 @@
       "score": "69 / 100",
       "one_liner": "The only US path to UCI Gravel Worlds—67 miles of Ozark smashfest.",
       "should_you_race": "Yes if you're chasing UCI qualification. Yes if you want a short, intense race on technical terrain. Skip if you want ultra-endurance or smooth gravel.",
-      "alternatives": "Big Sugar (same region, longer); BWR California (more technical); SBT GRVL (longer, Colorado mountains)"
+      "alternatives": "Big Sugar (same region, longer); BWR California (more technical); SBT GRVL (longer, Colorado mountains)",
+      "alternative_slugs": [
+        "big-sugar",
+        "bwr-california",
+        "sbt-grvl"
+      ]
     },
     "logistics": {
       "airport": "XNA (Northwest Arkansas National) - 20min to Fayetteville",
@@ -207,7 +212,7 @@
       ],
       "migration_notes": [],
       "research_strength": {
-        "overall": 97.5,
+        "overall": 96.6,
         "grade": "A",
         "weakest": "cross_reference",
         "has_research_dump": true,
@@ -218,18 +223,13 @@
           "specificity": 100,
           "statistical_backing": 100,
           "voice_authenticity": 100,
-          "completeness": 100,
+          "completeness": 94,
           "cross_reference": 50
         },
         "scored_at": "2026-02-04"
       }
     },
     "citations": [
-      {
-        "url": "https://highlandsgravelclassic.com",
-        "category": "official",
-        "label": "Official Website"
-      },
       {
         "url": "https://ridewithgps.com/routes/45297663",
         "category": "route",
@@ -276,6 +276,36 @@
         "label": "TrainerRoad"
       },
       {
+        "url": "https://www.joinbasecamp.com/post/deannas-story-highlands-gravel-classic",
+        "category": "community",
+        "label": "joinbasecamp.com: Deannas Story Highlands Gravel Classic"
+      },
+      {
+        "url": "https://ucigravelworldseries.com/en/fayetteville/",
+        "category": "community",
+        "label": "ucigravelworldseries.com: Fayetteville"
+      },
+      {
+        "url": "https://www.experiencefayetteville.com/experience/cycling/highlands-gravel-classic",
+        "category": "community",
+        "label": "experiencefayetteville.com: Highlands Gravel Classic"
+      },
+      {
+        "url": "https://www.cyclingnews.com/races/uci-gravel-world-series-events-2025/highlands-gravel-classic/results/",
+        "category": "community",
+        "label": "cyclingnews.com: Results"
+      },
+      {
+        "url": "https://granfondodailynews.com/2025/04/27/uci-highlands-gravel-classic-results-407-riders-at-first-usa-worlds-qualifier/",
+        "category": "community",
+        "label": "granfondodailynews.com: Uci Highlands Gravel Classic Results 407 Riders At First ..."
+      },
+      {
+        "url": "https://www.highlandsgravelclassic.com/Race/HighlandsGravelClassic/Page-13",
+        "category": "community",
+        "label": "highlandsgravelclassic.com: Page 13"
+      },
+      {
         "url": "https://www.bikereg.com/results/rr/20748/highlands-gravel-classic",
         "category": "registration",
         "label": "BikeReg"
@@ -299,86 +329,6 @@
         "url": "https://www.facebook.com/highlandsgravelclassic/videos/no-shortcuts-no-easy-miles-no-ordinary-racethe-highlands-gravel-classic-is-where/816828304455811/",
         "category": "social",
         "label": "Facebook"
-      },
-      {
-        "url": "https://www.facebook.com/joelwbarish/videos/first-epic-gravel-race-at-the-highland-classic-in-goshen-arkansas-675-miles-109-/1215136580125560/",
-        "category": "social",
-        "label": "Facebook"
-      },
-      {
-        "url": "https://www.facebook.com/ucigravelworldseries/videos/looking-back-at-a-great-highlands-gravel-classic/3056752521151569/",
-        "category": "social",
-        "label": "Facebook"
-      },
-      {
-        "url": "https://www.instagram.com/highlandsgravel/?hl=en",
-        "category": "social",
-        "label": "Instagram"
-      },
-      {
-        "url": "https://findarace.com/us/events/highlands-gravel-classic",
-        "category": "other",
-        "label": "Findarace"
-      },
-      {
-        "url": "https://strambecco.com/event/highlands-gravel-classic/",
-        "category": "other",
-        "label": "Strambecco"
-      },
-      {
-        "url": "https://www.cyclingnews.com/races/uci-gravel-world-series-events-2025/highlands-gravel-classic/results/",
-        "category": "community",
-        "label": "cyclingnews.com: Results"
-      },
-      {
-        "url": "https://www.cyclingnews.com/races/uci-gravel-world-series-2024/highlands-gravel-classic/results/",
-        "category": "community",
-        "label": "cyclingnews.com: Results"
-      },
-      {
-        "url": "https://www.granfondoguide.com/Contents/PopUp/7934/wertz-and-rinehart-fastest-at-2024-uci-highlands-gravel-classic",
-        "category": "community",
-        "label": "granfondoguide.com: Wertz And Rinehart Fastest At 2024 Uci Highlands Gravel C..."
-      },
-      {
-        "url": "https://www.highlandsgravelclassic.com/Race/HighlandsGravelClassic/Page-13",
-        "category": "community",
-        "label": "highlandsgravelclassic.com: Page 13"
-      },
-      {
-        "url": "https://www.experiencefayetteville.com/experience/cycling/highlands-gravel-classic?highlight=WyJhZ2VzIiwiYXByaWwiLCJhZ2VzIGFwcmlsIl0=",
-        "category": "community",
-        "label": "experiencefayetteville.com: Highlands Gravel Classic"
-      },
-      {
-        "url": "https://granfondodailynews.com/2025/04/27/uci-highlands-gravel-classic-results-407-riders-at-first-usa-worlds-qualifier/",
-        "category": "community",
-        "label": "granfondodailynews.com: Uci Highlands Gravel Classic Results 407 Riders At First ..."
-      },
-      {
-        "url": "https://www.joinbasecamp.com/post/deannas-story-highlands-gravel-classic",
-        "category": "community",
-        "label": "joinbasecamp.com: Deannas Story Highlands Gravel Classic"
-      },
-      {
-        "url": "https://www.highlandsgravelclassic.com/Race/HighlandsGravelClassic/Page-6",
-        "category": "community",
-        "label": "highlandsgravelclassic.com: Page 6"
-      },
-      {
-        "url": "https://www.experiencefayetteville.com/experience/cycling/highlands-gravel-classic?highlight=WyJjYW4iLDIwMjZd",
-        "category": "community",
-        "label": "experiencefayetteville.com: Highlands Gravel Classic"
-      },
-      {
-        "url": "https://ucigravelworldseries.com/en/fayetteville/",
-        "category": "community",
-        "label": "ucigravelworldseries.com: Fayetteville"
-      },
-      {
-        "url": "https://www.experiencefayetteville.com/experience/cycling/highlands-gravel-classic",
-        "category": "community",
-        "label": "experiencefayetteville.com: Highlands Gravel Classic"
       }
     ],
     "results": {

@@ -185,12 +185,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 83.5,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 80,
+          "citation_density": 80,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 88,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -316,24 +325,24 @@
         "label": "RideWithGPS: Grand Fondo Natchez Trace"
       },
       {
-        "url": "https://forum.slowtwitch.com/t/recent-move-to-nashville-tn/597008",
+        "url": "https://granfondo-cycling.com/best-race-gravel-bike-review/",
+        "category": "other",
+        "label": "Granfondo-Cycling"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/3733/natchez-trace-century-ride",
+        "category": "other",
+        "label": "Granfondoguide"
+      },
+      {
+        "url": "https://www.trainerroad.com/forum/t/best-training-plan-for-100mile-gran-fondo-race/1387",
         "category": "community",
-        "label": "forum.slowtwitch.com: 597008"
+        "label": "TrainerRoad"
       },
       {
         "url": "http://www.distancerider.net/stories/NT1000k/NT1000kRideStory.html",
         "category": "community",
         "label": "distancerider.net: Nt1000Kridestory.Html"
-      },
-      {
-        "url": "https://www.trainerroad.com/forum/t/best-training-plan-for-100mile-gran-fondo-race/1387",
-        "category": "community",
-        "label": "trainerroad.com: 1387"
-      },
-      {
-        "url": "https://www.granfondoguide.com/Events/Index/3733/natchez-trace-century-ride",
-        "category": "community",
-        "label": "granfondoguide.com: Natchez Trace Century Ride"
       }
     ],
     "tire_recommendations": {

@@ -488,9 +488,8 @@ class TestBuildFactSheet:
         assert fact_sheet is not None
         assert sections is not None
 
-        # Should contain rider names
+        # Should contain rider names (from current community dump)
         assert "Bobby Kennedy" in fact_sheet
-        assert "husterk" in fact_sheet
 
         # Should contain terrain features
         assert "TERRAIN:" in fact_sheet

@@ -102,6 +102,29 @@ ALWAYS_RELEVANT_DOMAINS = {
 }
 
 
+def is_generic_homepage(url: str) -> bool:
+    """Return True if URL is just a domain homepage with no specific path.
+
+    Catches:
+    - https://velonews.com/
+    - https://ridinggravel.com
+    - https://cyclingtips.com/en/
+    - https://example.com/fr/
+    """
+    try:
+        parsed = urlparse(url)
+        path = parsed.path.rstrip('/')
+        # No path at all
+        if not path:
+            return True
+        # Language prefix only: /en, /fr, /de, /es, /it, /nl, /pt, /ja, /ko, /zh
+        if re.match(r'^/[a-z]{2}$', path):
+            return True
+        return False
+    except Exception:
+        return False
+
+
 def clean_url(url: str) -> str:
     """Clean extracted URL — strip trailing punctuation, fragments, artifacts."""
     url = TRAILING_PUNCT.sub('', url)
@@ -192,10 +215,13 @@ def is_relevant_to_race(url: str, slug: str, race_name: str) -> bool:
 
     url_lower = url.lower()
 
-    # Always-relevant cycling media/tool domains — but for registration sites
-    # with opaque IDs, require the race name in the URL path
+    # Always-relevant cycling media/tool domains — but reject bare homepages
+    # and registration sites with opaque IDs
     for d in ALWAYS_RELEVANT_DOMAINS:
         if d in domain:
+            # Homepage URLs are never useful citations (e.g., https://velonews.com/)
+            if is_generic_homepage(url):
+                return False
             # BikeReg/Eventbrite with opaque numeric IDs are NOT automatically relevant
             if d in ('bikereg.com', 'eventbrite.com'):
                 # Only relevant if the path contains race-identifying text

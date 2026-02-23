@@ -19,7 +19,7 @@
         "Italy"
       ],
       "field_size": "300-500 riders",
-      "start_time": "Morning start",
+      "start_time": "2:00pm",
       "registration": "Online. Cost: ~€100-150",
       "prize_purse": "Modest prizes",
       "aid_stations": "Multiple aid stations",
@@ -94,7 +94,12 @@
       "score": "53 / 100",
       "one_liner": "Italian coastal mountain gravel in Finale Ligure.",
       "should_you_race": "If you're in Europe and want a Grinduro experience—yes, it's solid. If you're international—consider Grinduro California instead.",
-      "alternatives": "For better Grinduro events: Grinduro California. For similar Italian terrain: Veneto Gravel."
+      "alternatives": "For better Grinduro events: Grinduro California. For similar Italian terrain: Veneto Gravel.",
+      "alternative_slugs": [
+        "grinduro",
+        "grinduro-california",
+        "veneto-gravel"
+      ]
     },
     "logistics": {
       "airport": "Genoa (GOA) 1 hour or Nice (NCE) 1.5 hours",
@@ -102,7 +107,8 @@
       "food": "Finale Ligure has full dining options. Stock nutrition.",
       "packet_pickup": "Day before typically",
       "parking": "At start/finish",
-      "official_site": "Check Grinduro website"
+      "official_site": "Check Grinduro website",
+      "camping": "camping upgrades include campsite €25/person for two nights, camper van spot €75/person for two nights (requires separate ticket"
     },
     "history": {
       "founded": null,
@@ -185,12 +191,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 87.5,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 82,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -311,49 +326,39 @@
     },
     "citations": [
       {
-        "url": "https://www.gravelunion.cc/article/ride-report-la-dolce-vita-meets-the-purple-party-at-grinduro-italy",
-        "category": "community",
-        "label": "gravelunion.cc: Ride Report La Dolce Vita Meets The Purple Party At Grind..."
+        "url": "https://ridewithgps.com/routes/52669799",
+        "category": "route",
+        "label": "RideWithGPS: Grinduro Italy 2025"
       },
       {
-        "url": "https://www.gravelunion.cc/article/ride-report-grinduro-italia-2023",
-        "category": "community",
-        "label": "gravelunion.cc: Ride Report Grinduro Italia 2023"
-      },
-      {
-        "url": "https://fitfortrails.ch/blog/rennbericht-grinduro-italy-2024",
-        "category": "community",
-        "label": "fitfortrails.ch: Rennbericht Grinduro Italy 2024"
-      },
-      {
-        "url": "https://www.gravelcyclist.com/videos/2025-grinduro-italy-crazy-italian-gravel-race-party/",
-        "category": "community",
-        "label": "gravelcyclist.com: 2025 Grinduro Italy Crazy Italian Gravel Race Party"
-      },
-      {
-        "url": "https://www.progravelmagazine.com/post/grinduro-celebrates-10th-birthday-in-scotland-and-returns-to-italy-in-2025",
-        "category": "community",
-        "label": "progravelmagazine.com: Grinduro Celebrates 10Th Birthday In Scotland And Returns..."
+        "url": "https://gravelunion.cc/article/grinduro-italy-2023",
+        "category": "other",
+        "label": "Gravelunion"
       },
       {
         "url": "https://gravelunion.cc/article/ride-report-la-dolce-vita-meets-the-purple-party-at-grinduro-italy",
-        "category": "community",
-        "label": "gravelunion.cc: Ride Report La Dolce Vita Meets The Purple Party At Grind..."
+        "category": "other",
+        "label": "Gravelunion"
+      },
+      {
+        "url": "https://www.bicidastrada.it/grinduro-italy-2024-percorsi/",
+        "category": "other",
+        "label": "Bicidastrada"
+      },
+      {
+        "url": "https://www.columbusridesbikes.com/2025/07/2025-grinduro-italy-crazy-italian.html",
+        "category": "other",
+        "label": "Columbusridesbikes"
+      },
+      {
+        "url": "https://www.progravelmagazine.com/post/grinduro-celebrates-10th-birthday-in-scotland-and-returns-to-italy-in-2025",
+        "category": "other",
+        "label": "Progravelmagazine"
       },
       {
         "url": "https://gravelunion.cc/article/ride-report-grinduro-italia-2023",
         "category": "community",
         "label": "gravelunion.cc: Ride Report Grinduro Italia 2023"
-      },
-      {
-        "url": "https://gravelunion.cc/article/grinduro-italy-2023",
-        "category": "community",
-        "label": "gravelunion.cc: Grinduro Italy 2023"
-      },
-      {
-        "url": "https://www.bicidastrada.it/grinduro-italy-2024-percorsi/",
-        "category": "community",
-        "label": "bicidastrada.it: Grinduro Italy 2024 Percorsi"
       },
       {
         "url": "https://gravel.shimano.com/stories/grinduro-2024-preview",

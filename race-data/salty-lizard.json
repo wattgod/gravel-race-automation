@@ -19,7 +19,7 @@
         "Utah"
       ],
       "field_size": "50-100 riders",
-      "start_time": "Morning start",
+      "start_time": "8:30AM",
       "registration": "Online. Cost: ~$70-90",
       "prize_purse": "Modest prizes",
       "aid_stations": "2 aid stations",
@@ -94,7 +94,11 @@
       "score": "41 / 100",
       "one_liner": "Utah desert gravel challenge.",
       "should_you_race": "If you're local to UT and want desert experience—yes. If you're traveling—skip it.",
-      "alternatives": "For better UT races: Wasatch All-Road, Dirty Dino."
+      "alternatives": "For better UT races: Wasatch All-Road, Dirty Dino.",
+      "alternative_slugs": [
+        "dirty-dino",
+        "wasatch-all-road"
+      ]
     },
     "logistics": {
       "airport": "Salt Lake City (SLC) 2 hours",
@@ -102,7 +106,8 @@
       "food": "Wendover has limited dining. Stock nutrition.",
       "packet_pickup": "Day of typically",
       "parking": "At start/finish",
-      "official_site": "Check Salty Lizard website"
+      "official_site": "Check Salty Lizard website",
+      "camping": "camping experience for vans and tents"
     },
     "history": {
       "founded": null,
@@ -185,12 +190,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 86.7,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -316,44 +330,29 @@
         "label": "RideWithGPS: 2025 Salty Lizard - Little Lizzie 26Feb2025"
       },
       {
-        "url": "https://keithandlindsey.com/the-salty-lizard-100-keiths-first-gravel-race/",
-        "category": "community",
-        "label": "keithandlindsey.com: The Salty Lizard 100 Keiths First Gravel Race"
+        "url": "https://utahgravelseries.com/saltylizard",
+        "category": "other",
+        "label": "Utahgravelseries"
+      },
+      {
+        "url": "https://www.cyclingnews.com/news/winning-trajectory-for-unbound-brendan-johnston-opens-third-us-gravel-season-with-salty-lizard-win/",
+        "category": "other",
+        "label": "Cyclingnews"
+      },
+      {
+        "url": "https://www.gravelcyclist.com/category/race-reports/",
+        "category": "media",
+        "label": "Gravel Cyclist"
       },
       {
         "url": "https://www.gravelcyclist.com/race-reports/the-salty-lizard-100-silver-island-mountains-wendover-utah-the-third-go-round-by-bobby-kennedy/",
-        "category": "community",
-        "label": "gravelcyclist.com: The Salty Lizard 100 Silver Island Mountains Wendover Uta..."
-      },
-      {
-        "url": "https://dnacycling.com/blogs/ride-journal/2024-utah-gravel-series-recap",
-        "category": "community",
-        "label": "dnacycling.com: 2024 Utah Gravel Series Recap"
-      },
-      {
-        "url": "https://www.cyclingwest.com/racing/gravel-racing/the-salty-lizard-gravel-race-kicks-off-utah-gravel-series-on-april-5-in-wendover-ut/",
-        "category": "community",
-        "label": "cyclingwest.com: The Salty Lizard Gravel Race Kicks Off Utah Gravel Series..."
-      },
-      {
-        "url": "https://www.bikesignup.com/Race/UT/Wendover/TheSaltyLizard",
-        "category": "community",
-        "label": "bikesignup.com: Thesaltylizard"
-      },
-      {
-        "url": "https://utahgravelseries.com/saltylizard",
-        "category": "community",
-        "label": "utahgravelseries.com: Saltylizard"
+        "category": "media",
+        "label": "Gravel Cyclist"
       },
       {
         "url": "https://velo.outsideonline.com/gravel/the-grind-a-not-quite-farewell-to-gravel/",
         "category": "community",
         "label": "velo.outsideonline.com: The Grind A Not Quite Farewell To Gravel"
-      },
-      {
-        "url": "https://www.cyclingnews.com/news/winning-trajectory-for-unbound-brendan-johnston-opens-third-us-gravel-season-with-salty-lizard-win/",
-        "category": "community",
-        "label": "cyclingnews.com: Winning Trajectory For Unbound Brendan Johnston Opens Thi..."
       }
     ],
     "results": {

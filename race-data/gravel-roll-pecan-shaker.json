@@ -19,7 +19,7 @@
         "Central Georgia"
       ],
       "field_size": "100-300 riders",
-      "start_time": "Morning start",
+      "start_time": "8:00 AM East",
       "registration": "Online. Cost: ~$60-100",
       "prize_purse": "Modest prizes",
       "aid_stations": "Multiple aid stations",
@@ -94,7 +94,11 @@
       "score": "46 / 100",
       "one_liner": "Rolling Georgia gravel in central Georgia's Hawkinsville.",
       "should_you_race": "If you're in Georgia and want a local rolling gravel event—yes, it's a solid regional race. If you're from out of state—there are better options.",
-      "alternatives": "For better Southeast events: Gravel Worlds, Pisgah Monster-Cross, Hot Springs Gravel Gauntlet. For similar regional events: other Georgia gravel races."
+      "alternatives": "For better Southeast events: Gravel Worlds, Pisgah Monster-Cross, Hot Springs Gravel Gauntlet. For similar regional events: other Georgia gravel races.",
+      "alternative_slugs": [
+        "garmin-gravel-worlds",
+        "hot-springs-gravel-gauntlet"
+      ]
     },
     "logistics": {
       "airport": "Macon (MCN) 45 minutes or Atlanta (ATL) 2 hours",
@@ -185,12 +189,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 79.5,
+        "grade": "B",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 60,
+          "citation_density": 80,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 82,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -311,24 +324,34 @@
     },
     "citations": [
       {
-        "url": "https://gravelroll.com/",
-        "category": "community",
-        "label": "gravelroll.com"
+        "url": "https://georgiabikes.org/event/pecan-shaker-gravel-roll/",
+        "category": "other",
+        "label": "Georgiabikes"
       },
       {
-        "url": "https://www.granfondoguide.com/Events/Index/10569/pecan-shaker",
-        "category": "community",
-        "label": "granfondoguide.com: Pecan Shaker"
+        "url": "https://gravelroll.com/gravel-roll-blog/pecan",
+        "category": "other",
+        "label": "Gravelroll"
       },
       {
         "url": "https://gravelroll.com/gravel-roll-blog/pecanshaker24recap",
-        "category": "community",
-        "label": "gravelroll.com: Pecanshaker24Recap"
+        "category": "other",
+        "label": "Gravelroll"
+      },
+      {
+        "url": "https://gravelroll.com/results",
+        "category": "other",
+        "label": "Gravelroll"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/10569/pecan-shaker",
+        "category": "other",
+        "label": "Granfondoguide"
       },
       {
         "url": "https://www.gravelcyclist.com/race-reports/ride-report-dirty-pecan-150-mile-dirt-road-epic-what-were-we-thinking-by-k-dogg/",
-        "category": "community",
-        "label": "gravelcyclist.com: Ride Report Dirty Pecan 150 Mile Dirt Road Epic What Were..."
+        "category": "media",
+        "label": "Gravel Cyclist"
       }
     ],
     "results": {

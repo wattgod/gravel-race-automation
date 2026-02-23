@@ -94,7 +94,10 @@
       "score": "56 / 100",
       "one_liner": "Iowa prairie ultra-endurance gravel challenge.",
       "should_you_race": "If you're in the Midwest—yes, it's solid. If you're international—there are better options.",
-      "alternatives": "For better value: regional gravel races. For similar ultra-endurance: Trans Iowa."
+      "alternatives": "For better value: regional gravel races. For similar ultra-endurance: Trans Iowa.",
+      "alternative_slugs": [
+        "trans-iowa"
+      ]
     },
     "logistics": {
       "airport": "Des Moines (DSM) varies by location",
@@ -185,12 +188,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 87.9,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 80,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 50
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -311,44 +323,29 @@
     },
     "citations": [
       {
-        "url": "https://www.bikeiowa.com/Review/1709/spotted-horse-gravel-ultra-race-recap",
-        "category": "community",
-        "label": "bikeiowa.com: Spotted Horse Gravel Ultra Race Recap"
-      },
-      {
-        "url": "https://expandyourpossible.blogspot.com/2016/11/200-miles-and-people-that-made-it.html",
-        "category": "community",
-        "label": "expandyourpossible.blogspot.com: 200 Miles And People That Made It.Html"
-      },
-      {
-        "url": "https://www.gravelcyclist.com/race-reports/race-report-2018-spotted-horse-gravel-ultra-the-wet-edition-by-adrienne-taren/",
-        "category": "community",
-        "label": "gravelcyclist.com: Race Report 2018 Spotted Horse Gravel Ultra The Wet Editi..."
-      },
-      {
-        "url": "https://strambecco.com/event/spotted-horse-gravel-ultra/",
-        "category": "community",
-        "label": "strambecco.com: Spotted Horse Gravel Ultra"
-      },
-      {
-        "url": "https://www.bikeiowa.com/Event/14467/spotted-horse-gravel-ultra",
-        "category": "community",
-        "label": "bikeiowa.com: Spotted Horse Gravel Ultra"
-      },
-      {
         "url": "http://kate-my-mind.blogspot.com/2016/11/spotted-horse-150.html",
-        "category": "community",
-        "label": "kate-my-mind.blogspot.com: Spotted Horse 150.Html"
-      },
-      {
-        "url": "https://www.hpultracycling.com/spotted-horse-gravel-ultra-shgu-2019/",
-        "category": "community",
-        "label": "hpultracycling.com: Spotted Horse Gravel Ultra Shgu 2019"
+        "category": "other",
+        "label": "Kate-My-Mind"
       },
       {
         "url": "https://spottedhorsecycling.com/results/",
-        "category": "community",
-        "label": "spottedhorsecycling.com: Results"
+        "category": "other",
+        "label": "Spottedhorsecycling"
+      },
+      {
+        "url": "https://www.bikeiowa.com/Review/1709/spotted-horse-gravel-ultra-race-recap",
+        "category": "other",
+        "label": "Bikeiowa"
+      },
+      {
+        "url": "https://www.gravelcyclist.com/race-reports/race-report-2018-spotted-horse-gravel-ultra-the-wet-edition-by-adrienne-taren/",
+        "category": "media",
+        "label": "Gravel Cyclist"
+      },
+      {
+        "url": "https://www.hpultracycling.com/spotted-horse-gravel-ultra-shgu-2019/",
+        "category": "other",
+        "label": "Hpultracycling"
       }
     ],
     "tire_recommendations": {

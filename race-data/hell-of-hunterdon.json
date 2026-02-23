@@ -19,7 +19,7 @@
         "Central New Jersey"
       ],
       "field_size": "200-400 riders",
-      "start_time": "Morning start",
+      "start_time": "7:30 AM",
       "registration": "Online. Cost: ~$60-100",
       "prize_purse": "Modest prizes",
       "aid_stations": "Multiple aid stations",
@@ -94,7 +94,12 @@
       "score": "49 / 100",
       "one_liner": "Rolling New Jersey hills gravel in Hunterdon County.",
       "should_you_race": "If you're in New Jersey and want a local rolling hills event—yes, it's a solid regional race. If you're from out of state—there are better options.",
-      "alternatives": "For better Northeast events: D2R2, Vermont Overland, Battenkill. For similar regional events: other NJ gravel races."
+      "alternatives": "For better Northeast events: D2R2, Vermont Overland, Battenkill. For similar regional events: other NJ gravel races.",
+      "alternative_slugs": [
+        "battenkill",
+        "d2r2",
+        "vermont-overland"
+      ]
     },
     "logistics": {
       "airport": "Newark (EWR) 1 hour or Philadelphia (PHL) 1.5 hours",
@@ -185,12 +190,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 91.0,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 88,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -316,49 +330,49 @@
         "label": "RideWithGPS: NJ Hell-of-Hunterdon-2017"
       },
       {
-        "url": "https://www.tobedetermined.cc/journal/2019/3/hell-of-hunterdon-and-a-better-form-of-bikes",
-        "category": "community",
-        "label": "tobedetermined.cc: Hell Of Hunterdon And A Better Form Of Bikes"
+        "url": "https://forum.slowtwitch.com/t/hell-of-hunterdon-whos-racing/619169",
+        "category": "other",
+        "label": "Forum"
       },
       {
-        "url": "https://www.granfondo.com/featured-granfondo/517572/the-howling-hell-of-hunterdon",
-        "category": "community",
-        "label": "granfondo.com: The Howling Hell Of Hunterdon"
+        "url": "https://mafw.org/hell-of-hunterdon/",
+        "category": "other",
+        "label": "Mafw"
       },
       {
-        "url": "https://www.creakybottombracket.com/home/2025/7/27/events-notes-from-the-hell-of-batten-fly-project-2025",
-        "category": "community",
-        "label": "creakybottombracket.com: Events Notes From The Hell Of Batten Fly Project 2025"
-      },
-      {
-        "url": "https://www.hellofhunterdon.com/",
-        "category": "community",
-        "label": "hellofhunterdon.com"
-      },
-      {
-        "url": "https://www.granfondoguide.com/Contents/Index/1321/conquering-the-dirt-the-hell-of-hunterdon",
-        "category": "community",
-        "label": "granfondoguide.com: Conquering The Dirt The Hell Of Hunterdon"
-      },
-      {
-        "url": "https://www.hellofhunterdon.com/faq/",
-        "category": "community",
-        "label": "hellofhunterdon.com: Faq"
+        "url": "https://whiteclaybicycleclub.org/out-of-bounds-ride/hell-of-hunterdon/",
+        "category": "other",
+        "label": "Whiteclaybicycleclub"
       },
       {
         "url": "https://www.cxmagazine.com/offseason-fundo-hell-hunterdon-sees-success",
-        "category": "community",
-        "label": "cxmagazine.com: Offseason Fundo Hell Hunterdon Sees Success"
+        "category": "media",
+        "label": "CX Magazine"
       },
       {
-        "url": "https://forum.slowtwitch.com/t/hell-of-hunterdon-whos-racing/619169",
-        "category": "community",
-        "label": "forum.slowtwitch.com: 619169"
+        "url": "https://www.granfondoguide.com/Contents/Index/1321/conquering-the-dirt-the-hell-of-hunterdon",
+        "category": "other",
+        "label": "Granfondoguide"
       },
       {
         "url": "https://www.mtbnj.com/forum/threads/hell-of-hunterdon.20590/page-2",
+        "category": "other",
+        "label": "Mtbnj"
+      },
+      {
+        "url": "https://www.reddit.com/r/Velo/comments/10xfu0p/hell_of_hunterdon/",
         "category": "community",
-        "label": "mtbnj.com: Page 2"
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.reddit.com/r/bicycling/comments/pil6s/hell_of_hunterdon_anyonedelaware_valley_folks/",
+        "category": "community",
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.tobedetermined.cc/journal/2019/3/hell-of-hunterdon-and-a-better-form-of-bikes",
+        "category": "other",
+        "label": "Tobedetermined"
       }
     ],
     "tire_recommendations": {

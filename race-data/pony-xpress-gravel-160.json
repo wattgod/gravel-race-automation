@@ -185,12 +185,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 87.9,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 80,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 50
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -332,24 +341,24 @@
     ],
     "citations": [
       {
-        "url": "https://www.gravelcyclist.com/race-reports/pony-xpress-gravel-160-ride-report-by-tony-huston/",
-        "category": "community",
-        "label": "gravelcyclist.com: Pony Xpress Gravel 160 Ride Report By Tony Huston"
-      },
-      {
-        "url": "https://coloradogravelgrinderchampionship.com/pony-xpress/details",
-        "category": "community",
-        "label": "coloradogravelgrinderchampionship.com: Details"
-      },
-      {
-        "url": "https://coloradogravelgrinderchampionship.com/",
-        "category": "community",
-        "label": "coloradogravelgrinderchampionship.com"
-      },
-      {
         "url": "http://coloradogravelgrinderchampionship.com/pony-xpress/details",
-        "category": "community",
-        "label": "coloradogravelgrinderchampionship.com: Details"
+        "category": "other",
+        "label": "Coloradogravelgrinderchampionship"
+      },
+      {
+        "url": "http://coloradogravelgrinderchampionship.com/the-series",
+        "category": "other",
+        "label": "Coloradogravelgrinderchampionship"
+      },
+      {
+        "url": "https://www.gravelcyclist.com/race-reports/pony-xpress-gravel-160-ride-report-by-tony-huston/",
+        "category": "media",
+        "label": "Gravel Cyclist"
+      },
+      {
+        "url": "https://www.gravelcyclist.com/tag/pony-xpress-gravel-160/",
+        "category": "media",
+        "label": "Gravel Cyclist"
       }
     ],
     "tire_recommendations": {

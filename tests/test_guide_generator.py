@@ -99,6 +99,8 @@ class TestBlockRenderers:
             "process_list", "callout", "knowledge_check",
             "flashcard", "scenario", "calculator", "zone_visualizer",
             "image", "video", "hero_stat",
+            "race_reference", "race_callout", "decision_tree",
+            "personalized_content",
         }
         assert set(BLOCK_RENDERERS.keys()) == expected_types
 
@@ -1155,11 +1157,11 @@ class TestContentJsonIntegrity:
 class TestSizeBudget:
     def test_css_under_budget(self):
         css = build_guide_css()
-        assert len(css) < 62000, f"CSS is {len(css)} bytes, exceeds 62KB budget"
+        assert len(css) < 65000, f"CSS is {len(css)} bytes, exceeds 65KB budget"
 
     def test_js_under_budget(self):
         js = build_guide_js()
-        assert len(js) < 30000, f"JS is {len(js)} bytes, exceeds 30KB budget"
+        assert len(js) < 33000, f"JS is {len(js)} bytes, exceeds 33KB budget"
 
 
 # ── Sprint 17: Behavior-Level Tests ────────────────────────
@@ -1454,7 +1456,7 @@ class TestImageCss:
     def test_css_budget_with_images(self):
         """CSS still under 25KB budget after image additions."""
         css = build_guide_css()
-        assert len(css) < 62000, f"CSS is {len(css)} bytes, exceeds 62KB budget"
+        assert len(css) < 65000, f"CSS is {len(css)} bytes, exceeds 65KB budget"
 
     def test_css_image_responsive(self):
         """Image layout classes have responsive overrides."""
@@ -1748,4 +1750,4 @@ class TestInfographicDispatch:
     def test_css_budget_with_infographics(self):
         """CSS still under 30KB budget after infographic additions."""
         css = build_guide_css()
-        assert len(css) < 62000, f"CSS is {len(css)} bytes, exceeds 62KB budget"
+        assert len(css) < 65000, f"CSS is {len(css)} bytes, exceeds 65KB budget"

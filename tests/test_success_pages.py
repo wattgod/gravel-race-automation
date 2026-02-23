@@ -268,11 +268,23 @@ class TestConsultingSuccess:
         assert "gg-success-hero" in html
         assert "Consulting Session Confirmed" in html
 
+    def test_hero_mentions_scheduling(self):
+        html = build_consulting_success()
+        assert "Schedule your session now" in html
+
     def test_has_next_steps(self):
         html = build_consulting_success()
-        assert "Check Your Email" in html
+        assert "Schedule Your Session" in html
         assert "Prepare Your Questions" in html
         assert "We Talk" in html
+
+    def test_consulting_has_scheduling_link(self):
+        html = build_consulting_success()
+        assert "calendar.app.google/E282ZtBJAFBXYdYJ6" in html
+
+    def test_consulting_scheduling_cta(self):
+        html = build_consulting_success()
+        assert "Pick a Time" in html
 
     def test_cross_sells_coaching(self):
         html = build_consulting_success()

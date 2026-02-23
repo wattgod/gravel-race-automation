@@ -306,7 +306,11 @@
       "score": "81 / 100",
       "one_liner": "Italy's gravel masquerading as a wine tour until 7,000 meters of climbing and mandatory night riding separate the romantics from the masochists.",
       "should_you_race": "Show up undertrained and the Lombard Prealps will humble you by kilometer 30. The 4pm start means you're grinding technical singletrack in the dark with dead legs, so your bike handling better be dialed. This isn't a gravel race—it's a 24-hour suffer fest through vineyards that thinks it's the Giro.",
-      "alternatives": "If you want the European gravel experience without the night riding punishment, try Gravel One Fifty in the Dolomites or L'Eroica for vintage charm. SBT GRVL gives you similar distance and elevation but trades Italian romance for Colorado's reliable weather and better logistics."
+      "alternatives": "If you want the European gravel experience without the night riding punishment, try Gravel One Fifty in the Dolomites or L'Eroica for vintage charm. SBT GRVL gives you similar distance and elevation but trades Italian romance for Colorado's reliable weather and better logistics.",
+      "alternative_slugs": [
+        "gravel-one-fifty",
+        "sbt-grvl"
+      ]
     },
     "course_description": {
       "character": "Jeroboam masquerades as gravel but delivers two-thirds asphalt—don't be fooled, this isn't easy road riding. The Lombard Prealps serve up Roman cobbles, vineyard doubletrack, and 30% mountain bike trails that'll have you hiking sections. Wine country never tasted this bitter.",
@@ -338,14 +342,34 @@
     },
     "citations": [
       {
-        "url": "https://jeroboam.bike/",
-        "category": "official",
-        "label": "Official Website"
+        "url": "https://ridewithgps.com/routes/44742357",
+        "category": "route",
+        "label": "RideWithGPS: Jeroboam Franciacorta 300 - Official 2023"
+      },
+      {
+        "url": "https://3t.bike/blogs/news/two-jeroboams-japan-and-italy",
+        "category": "other",
+        "label": "3T"
+      },
+      {
+        "url": "https://en.365mountainbike.it/news/Jeroboam-Gravel-Series-2026-returns--the-gravel-experience-that-unites-territories--culture--and-adventure./",
+        "category": "other",
+        "label": "En"
+      },
+      {
+        "url": "https://en.3bikes.fr/fr/2026/01/30/le-jeroboam-gravel-series-2026-est-de-retour/",
+        "category": "other",
+        "label": "En"
       },
       {
         "url": "https://off.road.cc/content/feature/riding-and-surviving-the-jeroboam-a-tough-as-nails-gravel-race-in-italy-4258",
         "category": "other",
         "label": "Off"
+      },
+      {
+        "url": "https://road.cc/offroad/content/feature/riding-and-surviving-the-jeroboam-a-tough-as-nails-gravel-race-in-italy-4258",
+        "category": "other",
+        "label": "Road"
       },
       {
         "url": "https://unicorncycling.com/en/join-my-first-gravel-event-jeroboam-austria/",
@@ -373,6 +397,11 @@
         "label": "Gravel Cyclist"
       },
       {
+        "url": "https://www.jakubbarcik.com/ride-logs/jeroboam-300-2024",
+        "category": "other",
+        "label": "Jakubbarcik"
+      },
+      {
         "url": "https://www.rawcyclingmag.com/jeroboam-franciacorta-2021-with-3t/",
         "category": "other",
         "label": "Rawcyclingmag"
@@ -381,45 +410,11 @@
         "url": "https://www.winespectator.com/articles/how-did-jeroboam-wine-bottle-get-its-name-56204",
         "category": "other",
         "label": "Winespectator"
-      },
-      {
-        "url": "https://road.cc/offroad/content/feature/riding-and-surviving-the-jeroboam-a-tough-as-nails-gravel-race-in-italy-4258",
-        "category": "community",
-        "label": "road.cc: Riding And Surviving The Jeroboam A Tough As Nails Gravel..."
-      },
-      {
-        "url": "https://rawcyclingmag.com/jeroboam-gravel-czechia-2023/",
-        "category": "community",
-        "label": "rawcyclingmag.com: Jeroboam Gravel Czechia 2023"
-      },
-      {
-        "url": "https://road.cc/content/tech-news/266890-fulcrum-rapid-red-5-db-gravel-wheels-150km-first-ride-review-jeroboam",
-        "category": "community",
-        "label": "road.cc: 266890 Fulcrum Rapid Red 5 Db Gravel Wheels 150Km First R..."
-      },
-      {
-        "url": "https://en.365mountainbike.it/news/Jeroboam-Gravel-Series-2026-returns--the-gravel-experience-that-unites-territories--culture--and-adventure./",
-        "category": "community",
-        "label": "en.365mountainbike.it: Jeroboam Gravel Series 2026 Returns  The Gravel Experienc..."
-      },
-      {
-        "url": "https://3t.bike/blogs/news/jeroboam-last-chance-to-enter",
-        "category": "community",
-        "label": "3t.bike: Jeroboam Last Chance To Enter"
-      },
-      {
-        "url": "https://www.jakubbarcik.com/ride-logs/jeroboam-300-2024",
-        "category": "community",
-        "label": "jakubbarcik.com: Jeroboam 300 2024"
-      },
-      {
-        "url": "https://3t.bike/blogs/news/two-jeroboams-japan-and-italy",
-        "category": "community",
-        "label": "3t.bike: Two Jeroboams Japan And Italy"
       }
     ],
     "logistics": {
-      "official_site": "https://jeroboam.bike/"
+      "official_site": "https://jeroboam.bike/",
+      "camping": "camping area available to all participants\n- \"Fully experience the event atmosphere\"\n\n**Partner Hotels (with agreements):**\n- Ch"
     },
     "results": {
       "years": {
@@ -495,6 +490,25 @@
         "200pluslb_dry": "45-49",
         "200pluslb_mixed": "42-46",
         "200pluslb_wet": "40-44"
+      }
+    },
+    "research_metadata": {
+      "research_strength": {
+        "overall": 87.3,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 52,
+          "cross_reference": 50
+        },
+        "scored_at": "2026-02-04"
       }
     }
   }

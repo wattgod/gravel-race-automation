@@ -94,7 +94,11 @@
       "score": "49 / 100",
       "one_liner": "Michigan local gravel challenge.",
       "should_you_race": "If you're local to Michigan—yes, it's good value. If you're traveling—skip it.",
-      "alternatives": "For better Michigan races: Barry-Roubaix, Iceman Cometh."
+      "alternatives": "For better Michigan races: Barry-Roubaix, Iceman Cometh.",
+      "alternative_slugs": [
+        "barry-roubaix",
+        "iceman-cometh"
+      ]
     },
     "logistics": {
       "airport": "Kalamazoo (AZO) 30 minutes",
@@ -185,12 +189,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 80.9,
+        "grade": "A",
+        "weakest": "temporal_depth",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 80,
+          "temporal_depth": 50,
+          "specificity": 100,
+          "statistical_backing": 80,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 50
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -311,9 +324,9 @@
     },
     "citations": [
       {
-        "url": "https://www.youtube.com/watch?v=6P6Dfo7SOHw",
-        "category": "community",
-        "label": "youtube.com: Watch"
+        "url": "https://www.dirty100.com/scoring",
+        "category": "other",
+        "label": "Dirty100"
       }
     ],
     "tire_recommendations": {

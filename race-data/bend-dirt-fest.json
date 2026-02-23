@@ -19,7 +19,7 @@
         "Oregon volcanic landscape"
       ],
       "field_size": "500 riders (across all disciplines)",
-      "start_time": "Saturday morning — check official website",
+      "start_time": "8:00 AM mass",
       "registration": "Online. Cost: $75-$100",
       "prize_purse": "None",
       "aid_stations": "Multiple on course",
@@ -134,18 +134,18 @@
       ],
       "research_date": "2026-02-04",
       "research_strength": {
-        "overall": 77.1,
-        "grade": "B",
+        "overall": 87.7,
+        "grade": "A",
         "weakest": "temporal_depth",
         "has_research_dump": true,
         "dimensions": {
-          "source_diversity": 60,
+          "source_diversity": 100,
           "citation_density": 100,
-          "temporal_depth": 25,
+          "temporal_depth": 50,
           "specificity": 100,
-          "statistical_backing": 80,
+          "statistical_backing": 100,
           "voice_authenticity": 70,
-          "completeness": 94,
+          "completeness": 88,
           "cross_reference": 50
         },
         "scored_at": "2026-02-04"
@@ -213,43 +213,52 @@
       "score": "66 / 100",
       "one_liner": "A solid debut that prioritizes good vibes over gravel glory, perfect for testing Oregon's dirt without the Oregon trail suffering.",
       "should_you_race": "This works if you want a legitimate 50-mile dirt challenge without the circus atmosphere of bigger events. The 3,000 feet of climbing won't break anyone, but it'll remind you why base fitness matters. Skip it if you need competition depth or proven course logistics—first-year events always come with question marks.",
-      "alternatives": "Gravel Worlds Oregon gives you proven course management and deeper fields if you want actual competition. For similar mileage with better established logistics, Dirty Kanza 100 delivers twice the suffering with half the organizational uncertainty."
+      "alternatives": "Gravel Worlds Oregon gives you proven course management and deeper fields if you want actual competition. For similar mileage with better established logistics, Dirty Kanza 100 delivers twice the suffering with half the organizational uncertainty.",
+      "alternative_slugs": [
+        "garmin-gravel-worlds",
+        "unbound-200"
+      ]
     },
     "citations": [
       {
-        "url": "https://www.benddirtfest.com",
-        "category": "official",
-        "label": "Official Website"
+        "url": "https://bendbulletin.com/2025/07/12/bend-dirt-fest-super-successful-in-its-first-year/",
+        "category": "other",
+        "label": "Bendbulletin"
       },
       {
-        "url": "https://cascadiamtb.com/2025/11/20/oregon-triple-crown-2026/",
-        "category": "community",
-        "label": "cascadiamtb.com: Oregon Triple Crown 2026"
-      },
-      {
-        "url": "https://www.bicycling.com/rides/a38013915/best-gravel-bike-races/",
-        "category": "community",
-        "label": "bicycling.com: Best Gravel Bike Races"
-      },
-      {
-        "url": "https://cascadiamtb.com/tag/bend/",
-        "category": "community",
-        "label": "cascadiamtb.com: Bend"
+        "url": "https://thegravelriders.com/bend-dirt-fest-a-triumphant-debut-in-outdoor-endurance-racing/",
+        "category": "other",
+        "label": "Thegravelriders"
       },
       {
         "url": "https://www.bendbulletin.com/2025/07/10/inaugural-bend-dirt-fest-includes-a-half-marathon-mountain-biking-gravel-riding/",
-        "category": "community",
-        "label": "bendbulletin.com: Inaugural Bend Dirt Fest Includes A Half Marathon Mountai..."
+        "category": "other",
+        "label": "Bendbulletin"
       },
       {
         "url": "https://www.bendbulletin.com/2025/07/12/bend-dirt-fest-super-successful-in-its-first-year/",
-        "category": "community",
-        "label": "bendbulletin.com: Bend Dirt Fest Super Successful In Its First Year"
+        "category": "other",
+        "label": "Bendbulletin"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Contents/Index/8624/inaugural-bend-dirt-fest-a-big-success",
+        "category": "other",
+        "label": "Granfondoguide"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Contents/PopUp/8624/inaugural-bend-dirt-fest-a-big-success",
+        "category": "other",
+        "label": "Granfondoguide"
+      },
+      {
+        "url": "https://www.granfondoguide.com/RaceDashboard/OregonTripleCrownSeries/1/8624/inaugural-bend-dirt-fest-a-big-success",
+        "category": "other",
+        "label": "Granfondoguide"
       },
       {
         "url": "https://www.mudslingerevents.com/bend-dirt-fest",
-        "category": "community",
-        "label": "mudslingerevents.com: Bend Dirt Fest"
+        "category": "other",
+        "label": "Mudslingerevents"
       }
     ],
     "tire_recommendations": {

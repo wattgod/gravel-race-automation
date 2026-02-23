@@ -94,7 +94,13 @@
       "score": "59 / 100",
       "one_liner": "Remote southern Colorado gravel through Sangre de Cristo mining country at altitude.",
       "should_you_race": "If you're in Colorado and want a remote gravel adventure through mining history at altitude—yes, it's a well-organized event with serious terrain. If you're from out of state—there are more accessible events with deeper fields.",
-      "alternatives": "For bigger Colorado events: SBT GRVL, Steamboat Gravel. For similar remote Colorado gravel: Ned Gravel, Grit & Gravel. For championship-level gravel: Unbound, BWR."
+      "alternatives": "For bigger Colorado events: SBT GRVL, Steamboat Gravel. For similar remote Colorado gravel: Ned Gravel, Grit & Gravel. For championship-level gravel: Unbound, BWR.",
+      "alternative_slugs": [
+        "bwr-california",
+        "ned-gravel",
+        "sbt-grvl",
+        "unbound-200"
+      ]
     },
     "logistics": {
       "airport": "Trinidad (TAD) 30 min, or Denver (DEN) 4 hours",
@@ -187,12 +193,21 @@
         "Cleaned Feb 2026: removed overstated State Championship framing (was series member, not standalone championship)"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 95.2,
+        "grade": "A",
+        "weakest": "voice_authenticity",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 88,
+          "cross_reference": 100
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -313,39 +328,44 @@
     },
     "citations": [
       {
+        "url": "http://coloradogravelgrinderchampionship.com/pony-xpress/details",
+        "category": "official",
+        "label": "Official Website"
+      },
+      {
         "url": "https://ridewithgps.com/routes/53884002",
         "category": "route",
         "label": "RideWithGPS: PX 160 Pony Xpress Ride in Trinidad CO"
       },
       {
-        "url": "https://slowguyonthefastride.com/whitney-allison-pony-xpress-160-from-the-saddle/",
-        "category": "community",
-        "label": "slowguyonthefastride.com: Whitney Allison Pony Xpress 160 From The Saddle"
-      },
-      {
-        "url": "http://coloradogravelgrinderchampionship.com/pony-xpress/details",
-        "category": "community",
-        "label": "coloradogravelgrinderchampionship.com: Details"
-      },
-      {
-        "url": "https://www.theaveragejoerunner.com/post/ponyexpress50",
-        "category": "community",
-        "label": "theaveragejoerunner.com: Ponyexpress50"
+        "url": "https://saturdaymarathoms.com/pony-express-100-miler-steves-first-100/",
+        "category": "other",
+        "label": "Saturdaymarathoms"
       },
       {
         "url": "https://saturdaymarathons.com/pony-express-100-miler-steves-first-100/",
-        "category": "community",
-        "label": "saturdaymarathons.com: Pony Express 100 Miler Steves First 100"
+        "category": "other",
+        "label": "Saturdaymarathons"
       },
       {
-        "url": "https://saturdaymarathoms.com/pony-express-100-miler-steves-first-100/",
-        "category": "community",
-        "label": "saturdaymarathoms.com: Pony Express 100 Miler Steves First 100"
+        "url": "https://slowguyonthefastride.com/whitney-allison-pony-xpress-160-from-the-saddle/",
+        "category": "other",
+        "label": "Slowguyonthefastride"
       },
       {
         "url": "https://www.granfondoguide.com/Events/Index/5348/pony-xpress",
+        "category": "other",
+        "label": "Granfondoguide"
+      },
+      {
+        "url": "https://www.reddit.com/r/AdvancedRunning/comments/4hiz49/race_report_pony_express_half_marathon/",
         "category": "community",
-        "label": "granfondoguide.com: Pony Xpress"
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.theaveragejoerunner.com/post/ponyexpress50",
+        "category": "other",
+        "label": "Theaveragejoerunner"
       }
     ],
     "tire_recommendations": {

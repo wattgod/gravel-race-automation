@@ -94,7 +94,11 @@
       "score": "49 / 100",
       "one_liner": "120-mile Kansas farmland/prairie gravel in Marysville.",
       "should_you_race": "If you want a 120-mile challenge—yes, it's a solid distance test. If you want terrain variety or pro field depth—look elsewhere.",
-      "alternatives": "For better century+ events: Unbound 200, Land Run 100. For similar regional events: other KS gravel races."
+      "alternatives": "For better century+ events: Unbound 200, Land Run 100. For similar regional events: other KS gravel races.",
+      "alternative_slugs": [
+        "mid-south",
+        "unbound-200"
+      ]
     },
     "logistics": {
       "airport": "Kansas City (MCI) 2 hours or Lincoln (LNK) 1.5 hours",
@@ -102,7 +106,8 @@
       "food": "Small town with limited dining. Stock nutrition for 120 miles.",
       "packet_pickup": "Day before",
       "parking": "At start/finish",
-      "official_site": "Check Pony Express 120 website"
+      "official_site": "Check Pony Express 120 website",
+      "camping": "campsite with a cozy oasis of chairs and coolers wedged into the camper's sliver of shade"
     },
     "history": {
       "founded": null,
@@ -192,12 +197,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 88.8,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 80,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 82,
+          "cross_reference": 50
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -318,19 +332,24 @@
     },
     "citations": [
       {
-        "url": "https://www.joinbasecamp.com/post/sues-story-pony-express-120-gravel-dash",
-        "category": "community",
-        "label": "joinbasecamp.com: Sues Story Pony Express 120 Gravel Dash"
-      },
-      {
         "url": "https://blackhillsbackbone.blogspot.com/2022/09/2022-pony-express-120-bikepack.html",
-        "category": "community",
-        "label": "blackhillsbackbone.blogspot.com: 2022 Pony Express 120 Bikepack.Html"
+        "category": "other",
+        "label": "Blackhillsbackbone"
       },
       {
-        "url": "https://onemarysville.com/pxgd120/",
-        "category": "community",
-        "label": "onemarysville.com: Pxgd120"
+        "url": "https://onemarysville.com/events/pony-express-120-gravel-dash/",
+        "category": "other",
+        "label": "Onemarysville"
+      },
+      {
+        "url": "https://www.joinbasecamp.com/post/sues-story-pony-express-120-gravel-dash",
+        "category": "other",
+        "label": "Joinbasecamp"
+      },
+      {
+        "url": "https://www.marysvilleonline.net/pony-express-120-gravel-dash-winners/article_108f9cae-4ce2-11ee-9560-87746b0275d7.html",
+        "category": "other",
+        "label": "Marysvilleonline"
       },
       {
         "url": "https://www.gravel-results.com/race/19641",
@@ -338,9 +357,9 @@
         "label": "gravel-results.com: 19641"
       },
       {
-        "url": "https://onemarysville.com/events/pony-express-120-gravel-dash/",
+        "url": "https://onemarysville.com/pxgd120/",
         "category": "community",
-        "label": "onemarysville.com: Pony Express 120 Gravel Dash"
+        "label": "onemarysville.com: Pxgd120"
       }
     ],
     "tire_recommendations": {

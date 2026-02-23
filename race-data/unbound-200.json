@@ -153,7 +153,12 @@
       "score": "80 / 100",
       "one_liner": "The gravel race by which all others are measured.",
       "should_you_race": "If you're asking whether Unbound is 'worth it,' the answer is probably yes—but only if you're willing to commit to the training, the logistics, and the reality that this race will test every assumption you have about your durability. It's not fun. It's not easy. But it's unforgettable.",
-      "alternatives": "If you want the prestige without the chaos: try Belgian Waffle Ride (similar vibe, better logistics). If you want the distance without the heat: try Gravel Worlds in August (still hard, slightly cooler). If you want to test yourself without the hype: try Mid South (intimate, brutal, beautiful)."
+      "alternatives": "If you want the prestige without the chaos: try Belgian Waffle Ride (similar vibe, better logistics). If you want the distance without the heat: try Gravel Worlds in August (still hard, slightly cooler). If you want to test yourself without the hype: try Mid South (intimate, brutal, beautiful).",
+      "alternative_slugs": [
+        "bwr-california",
+        "garmin-gravel-worlds",
+        "mid-south"
+      ]
     },
     "logistics": {
       "airport": "Wichita (ICT) - 90 minutes to Emporia",
@@ -161,7 +166,8 @@
       "food": "Pack your own breakfast. Race-morning lines are absurd. Stock up at Walmart/Dillons day before.",
       "packet_pickup": "Friday at Emporia State University. Long lines. Budget 45+ minutes.",
       "parking": "Free lots open 4:00 AM. Arrive early or walk 15+ minutes.",
-      "official_site": "https://unboundgravel.com"
+      "official_site": "https://unboundgravel.com",
+      "camping": "camping or RV at Emporia Fairgrounds** – the fairgrounds has showers and endless tent space"
     },
     "history": {
       "founded": 2006,
@@ -385,19 +391,19 @@
       ],
       "migration_notes": [],
       "research_strength": {
-        "overall": 76.8,
-        "grade": "B",
-        "weakest": "citation_density",
+        "overall": 92.6,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
         "dimensions": {
-          "source_diversity": 30,
-          "citation_density": 5,
+          "source_diversity": 100,
+          "citation_density": 80,
           "temporal_depth": 100,
           "specificity": 90,
           "statistical_backing": 100,
           "voice_authenticity": 100,
-          "completeness": 100,
-          "cross_reference": 75
+          "completeness": 94,
+          "cross_reference": 50
         },
         "scored_at": "2026-02-04"
       }
@@ -529,74 +535,74 @@
     ],
     "citations": [
       {
-        "url": "https://unboundgravel.com",
-        "category": "official",
-        "label": "Official Website"
-      },
-      {
         "url": "https://ridewithgps.com/routes/46551378",
         "category": "route",
         "label": "RideWithGPS: Unbound%20200"
       },
       {
-        "url": "https://www.cyclingnews.com/features/10-things-to-know-before-racing-unbound-gravel/",
-        "category": "community",
-        "label": "cyclingnews.com: 10 Things To Know Before Racing Unbound Gravel"
+        "url": "https://abovecategory.com/blogs/journal/preparing-for-the-unbound-200",
+        "category": "other",
+        "label": "Abovecategory"
       },
       {
         "url": "https://ircbike.com/blogs/news/unbound-gravel-race-report",
-        "category": "community",
-        "label": "ircbike.com: Unbound Gravel Race Report"
+        "category": "other",
+        "label": "Ircbike"
       },
       {
-        "url": "https://www.gravelcyclist.com/race-reports/2021-unbound-gravel-200-by-gravel-newbie-not-any-more-caroline-worrall/",
-        "category": "community",
-        "label": "gravelcyclist.com: 2021 Unbound Gravel 200 By Gravel Newbie Not Any More Car..."
-      },
-      {
-        "url": "https://www.mettlecycling.com/post/unbound-200-2025-mettle-race-report",
-        "category": "community",
-        "label": "mettlecycling.com: Unbound 200 2025 Mettle Race Report"
+        "url": "https://obedbikes.com/blogs/stories/10-tips-to-finish-the-unbound-gravel-",
+        "category": "other",
+        "label": "Obedbikes"
       },
       {
         "url": "https://obedbikes.com/blogs/stories/10-tips-to-finish-the-unbound-gravel-200-or-any-long-gravel-race",
-        "category": "community",
-        "label": "obedbikes.com: 10 Tips To Finish The Unbound Gravel 200 Or Any Long Grav..."
+        "category": "other",
+        "label": "Obedbikes"
       },
       {
-        "url": "https://www.reddit.com/r/gravelcycling/comments/1d8dvkf/unbound_200_my_experience_pacing_strategy_tips/",
-        "category": "community",
-        "label": "reddit.com: Unbound 200 My Experience Pacing Strategy Tips"
+        "url": "https://silca.cc/blogs/silca/2024unboundgravel200",
+        "category": "other",
+        "label": "Silca"
       },
       {
-        "url": "https://www.reddit.com/r/gravelcycling/comments/1d8txts/unbound_200_after_all_your_tips_the_result/",
-        "category": "community",
-        "label": "reddit.com: Unbound 200 After All Your Tips The Result"
+        "url": "https://www.cyclingnews.com/features/10-things-to-know-before-racing-unbound-gravel/",
+        "category": "other",
+        "label": "Cyclingnews"
+      },
+      {
+        "url": "https://www.gravelcyclist.com/race-reports/2021-unbound-gravel-200-by-gravel-newbie-not-any-more-caroline-worrall/",
+        "category": "media",
+        "label": "Gravel Cyclist"
+      },
+      {
+        "url": "https://www.mettlecycling.com/post/unbound-200-2025-mettle-race-report",
+        "category": "other",
+        "label": "Mettlecycling"
       },
       {
         "url": "https://www.reddit.com/r/gravelcycling/comments/1d85e8h/unbound_200_mile_race_recap_2024/",
         "category": "community",
-        "label": "reddit.com: Unbound 200 Mile Race Recap 2024"
+        "label": "Reddit"
       },
       {
-        "url": "https://abovecategory.com/blogs/journal/preparing-for-the-unbound-200",
+        "url": "https://www.reddit.com/r/gravelcycling/comments/1d8dvkf/unbound_200_my_experience_pacing_strategy_tips/",
         "category": "community",
-        "label": "abovecategory.com: Preparing For The Unbound 200"
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/1d8txts/unbound_200_after_all_your_tips_the_result/",
+        "category": "community",
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.salsacycles.com/blogs/articles/finding-success-at-unbound-gravel",
+        "category": "other",
+        "label": "Salsacycles"
       },
       {
         "url": "https://www.trainerroad.com/forum/t/unbound-gravel-race-recap/53441?page=9",
         "category": "community",
-        "label": "trainerroad.com: 53441"
-      },
-      {
-        "url": "https://www.salsacycles.com/blogs/articles/finding-success-at-unbound-gravel",
-        "category": "community",
-        "label": "salsacycles.com: Finding Success At Unbound Gravel"
-      },
-      {
-        "url": "https://silca.cc/blogs/silca/2024unboundgravel200",
-        "category": "community",
-        "label": "silca.cc: 2024Unboundgravel200"
+        "label": "TrainerRoad"
       }
     ],
     "results": {

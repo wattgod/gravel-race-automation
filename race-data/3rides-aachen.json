@@ -19,7 +19,7 @@
         "Western Germany"
       ],
       "field_size": "200-400 riders",
-      "start_time": "Morning start",
+      "start_time": "3:40 pm for",
       "registration": "Online. Cost: ~€80-120",
       "prize_purse": "Modest prizes",
       "aid_stations": "Multiple aid stations",
@@ -94,7 +94,10 @@
       "score": "51 / 100",
       "one_liner": "German mountain gravel in Winterberg/Aachen.",
       "should_you_race": "If you're in Germany/Europe and want a mountain event—yes, it's solid. If you're international—there are better options.",
-      "alternatives": "For better European events: The Traka, Grinduro. For similar regional events: other German gravel races."
+      "alternatives": "For better European events: The Traka, Grinduro. For similar regional events: other German gravel races.",
+      "alternative_slugs": [
+        "grinduro"
+      ]
     },
     "logistics": {
       "airport": "Cologne (CGN) 1 hour or Düsseldorf (DUS) 1.5 hours",
@@ -185,12 +188,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 89.3,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 82,
+          "cross_reference": 50
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -316,74 +328,39 @@
         "label": "RideWithGPS: UCI 3Rides Aachen"
       },
       {
-        "url": "https://www.cyclingnews.com/uci-gravel-world-series/",
-        "category": "community",
-        "label": "cyclingnews.com: Uci Gravel World Series"
+        "url": "https://3rides-festival.de/en/category/news-en/",
+        "category": "other",
+        "label": "3Rides-Festival"
       },
       {
-        "url": "https://ucigravelworldseries.com/en/3rides-gravel-race-for-marianne-vos-and-niels-vandeputte/",
-        "category": "community",
-        "label": "ucigravelworldseries.com: 3Rides Gravel Race For Marianne Vos And Niels Vandeputte"
+        "url": "https://3rides.de/en/category/homepage-en/",
+        "category": "other",
+        "label": "3Rides"
       },
       {
-        "url": "https://radclub.de/3rides-aachen/",
-        "category": "community",
-        "label": "radclub.de: 3Rides Aachen"
+        "url": "https://speed-ville.de/3rides-aachen-gravel/",
+        "category": "other",
+        "label": "Speed-Ville"
       },
       {
-        "url": "https://www.youtube.com/watch?v=bYZ7gBcgcyg",
-        "category": "community",
-        "label": "youtube.com: Watch"
+        "url": "https://ucigravelworldseries.com/en/3rides-gravel-in-aachen-biggest-ever-uci-gravel-world-series-event/",
+        "category": "other",
+        "label": "Ucigravelworldseries"
       },
       {
-        "url": "https://www.youtube.com/watch?v=ec3QNcm-M5g",
-        "category": "community",
-        "label": "youtube.com: Watch"
+        "url": "https://ucigravelworldseries.com/en/3rides-gravel-race-aachen-with-close-sprint-finishes/",
+        "category": "other",
+        "label": "Ucigravelworldseries"
       },
       {
-        "url": "https://www.youtube.com/watch?v=JkARThgx6WU",
-        "category": "community",
-        "label": "youtube.com: Watch"
-      },
-      {
-        "url": "https://www.dw.com/en/germany-updates-severe-storms-hit-several-states/live-72749136",
-        "category": "community",
-        "label": "dw.com: Live 72749136"
-      },
-      {
-        "url": "https://www.radsport-rennrad.de/event/3rides-aachen-rennrad-gravel-rides/",
-        "category": "community",
-        "label": "radsport-rennrad.de: 3Rides Aachen Rennrad Gravel Rides"
-      },
-      {
-        "url": "https://www.tour-magazin.de/event/jedermann-rennen/3rides-aachen-2025-hochkaratige-besetzung-und-neue-strecke/",
-        "category": "community",
-        "label": "tour-magazin.de: 3Rides Aachen 2025 Hochkaratige Besetzung Und Neue Strecke"
+        "url": "https://www.rennrad-news.de/forum/threads/3rides-gran-fondo-aachen-ein-satz-mit-x.200172/",
+        "category": "other",
+        "label": "Rennrad-News"
       },
       {
         "url": "https://rsv-rheinadler.de/wordpress/2025/06/03/3-rides-aachen-uci-gravel-world-series-rennbericht/",
         "category": "community",
         "label": "rsv-rheinadler.de: 3 Rides Aachen Uci Gravel World Series Rennbericht"
-      },
-      {
-        "url": "https://speed-ville.de/3rides-aachen-gravel/",
-        "category": "community",
-        "label": "speed-ville.de: 3Rides Aachen Gravel"
-      },
-      {
-        "url": "https://www.rennrad-news.de/forum/threads/3rides-gran-fondo-aachen-ein-satz-mit-x.200172/",
-        "category": "community",
-        "label": "rennrad-news.de: 3Rides Gran Fondo Aachen Ein Satz Mit X.200172"
-      },
-      {
-        "url": "https://3rides.de/en/category/homepage-en/",
-        "category": "community",
-        "label": "3rides.de: Homepage En"
-      },
-      {
-        "url": "https://ucigravelworldseries.com/en/3rides-gravel-race-aachen-with-close-sprint-finishes/",
-        "category": "community",
-        "label": "ucigravelworldseries.com: 3Rides Gravel Race Aachen With Close Sprint Finishes"
       }
     ],
     "tire_recommendations": {

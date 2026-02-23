@@ -94,7 +94,11 @@
       "score": "56 / 100",
       "one_liner": "150-mile Nebraska farmland gravel challenge in Lincoln.",
       "should_you_race": "If you want a 150-mile ultra-distance challenge with solid organization—yes, it's a legitimate test. If you want terrain variety or pro field depth—look elsewhere.",
-      "alternatives": "For better ultra-distance events: Unbound 200, Dirty Kanza. For similar amateur events: other Gravel Worlds divisions."
+      "alternatives": "For better ultra-distance events: Unbound 200, Dirty Kanza. For similar amateur events: other Gravel Worlds divisions.",
+      "alternative_slugs": [
+        "garmin-gravel-worlds",
+        "unbound-200"
+      ]
     },
     "logistics": {
       "airport": "Lincoln (LNK) 15 minutes",
@@ -102,7 +106,8 @@
       "food": "Lincoln has full dining options. Stock nutrition for 150 miles.",
       "packet_pickup": "Day before",
       "parking": "At start/finish",
-      "official_site": "Check Gravel Worlds website"
+      "official_site": "Check Gravel Worlds website",
+      "camping": "camping available at Sandhills Global Event Center"
     },
     "history": {
       "founded": null,
@@ -192,12 +197,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 84.3,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 80,
+          "citation_density": 80,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 82,
+          "cross_reference": 50
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -326,14 +340,14 @@
     },
     "citations": [
       {
-        "url": "https://www.gravelworlds.com",
-        "category": "community",
-        "label": "gravelworlds.com"
+        "url": "https://granfondodailynews.com/2026/01/25/2026-gravel-worlds-not-the-uci-version-offering-massive-150000-record-setting-prize-purse/",
+        "category": "other",
+        "label": "Granfondodailynews"
       },
       {
-        "url": "https://granfondodailynews.com/2026/01/25/2026-gravel-worlds-not-the-uci-version-offering-massive-150000-record-setting-prize-purse/",
-        "category": "community",
-        "label": "granfondodailynews.com: 2026 Gravel Worlds Not The Uci Version Offering Massive 1..."
+        "url": "https://ucigravelworldseries.com/en/gravelking-uci-gravel-world-series-2026-a-record-45-events-worldwide/",
+        "category": "other",
+        "label": "Ucigravelworldseries"
       }
     ],
     "tire_recommendations": {

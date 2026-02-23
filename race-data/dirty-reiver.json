@@ -157,7 +157,12 @@
       "score": "77 / 100",
       "one_liner": "Britain's original gravel race where 4,300 meters of climbing meets technical terrain and British weather that doesn't negotiate.",
       "should_you_race": "Yes, if British gravel interests you. Dirty Reiver is non-negotiable for UK gravel credibility. Just be ready for the registration sprint, the weather roulette, and the technical terrain that separates prepared riders from hopeful ones.",
-      "alternatives": "If you want European gravel without UK weather: Traka 360 (Spain, better weather). If you want bucket-list adventure: The Rift (Iceland, volcanic). If you want guaranteed conditions: Unbound (Kansas, June)."
+      "alternatives": "If you want European gravel without UK weather: Traka 360 (Spain, better weather). If you want bucket-list adventure: The Rift (Iceland, volcanic). If you want guaranteed conditions: Unbound (Kansas, June).",
+      "alternative_slugs": [
+        "the-rift",
+        "the-traka",
+        "unbound-200"
+      ]
     },
     "logistics": {
       "airport": "Newcastle (NCL) - 90 minutes to Kielder",
@@ -165,7 +170,8 @@
       "food": "Kielder has limited options. Plan meals. Newcastle has good restaurants if staying there.",
       "packet_pickup": "Friday/Saturday at venue. Long drive—plan accordingly.",
       "parking": "On-site available. Arrive early.",
-      "official_site": "https://dirtyreiver.co.uk"
+      "official_site": "https://dirtyreiver.co.uk",
+      "camping": "camping at Kielder campsite with very limited on-site accommodation<u>[cyclingweekly"
     },
     "history": {
       "founded": 2015,
@@ -224,7 +230,7 @@
       ],
       "migration_notes": [],
       "research_strength": {
-        "overall": 92.8,
+        "overall": 91.8,
         "grade": "A",
         "weakest": "cross_reference",
         "has_research_dump": true,
@@ -235,7 +241,7 @@
           "specificity": 100,
           "statistical_backing": 100,
           "voice_authenticity": 70,
-          "completeness": 100,
+          "completeness": 94,
           "cross_reference": 15
         },
         "scored_at": "2026-02-04"
@@ -243,34 +249,9 @@
     },
     "citations": [
       {
-        "url": "https://dirtyreiver.co.uk",
-        "category": "official",
-        "label": "Official Website"
-      },
-      {
         "url": "https://ridewithgps.com/routes/53326466",
         "category": "route",
         "label": "RideWithGPS: Dirty Reiver 200km 2024"
-      },
-      {
-        "url": "https://dirtyreiver.co.uk/event/",
-        "category": "other",
-        "label": "Dirtyreiver"
-      },
-      {
-        "url": "https://dirtyreiver.co.uk/location/",
-        "category": "other",
-        "label": "Dirtyreiver"
-      },
-      {
-        "url": "https://marathonmtb.com/2021/10/04/dirty-reiver-lessons-learnt-from-gravel/",
-        "category": "other",
-        "label": "Marathonmtb"
-      },
-      {
-        "url": "https://singletrackworld.com/gritcx/2022/12/entered-the-dirty-reiver-dont-panic/",
-        "category": "other",
-        "label": "Singletrackworld"
       },
       {
         "url": "https://www.bikeradar.com/features/opinion/five-things-i-learnt-riding-dirty-reiver",
@@ -283,17 +264,27 @@
         "label": "Cycling Weekly"
       },
       {
-        "url": "https://www.cycloworld.cc/en/gran-fondo/united-kingdom/dirty-reiver/38235",
-        "category": "other",
-        "label": "Cycloworld"
+        "url": "https://www.reddit.com/r/gravelcycling/comments/102hnu0/dirty_reiver_2023_tyre_choice/",
+        "category": "community",
+        "label": "Reddit"
       },
       {
-        "url": "https://www.granfondoguide.com/Events/Index/5259/dirty-reiver",
-        "category": "other",
-        "label": "Granfondoguide"
+        "url": "https://www.reddit.com/r/gravelcycling/comments/1886zu5/dirty_reiver_2024/",
+        "category": "community",
+        "label": "Reddit"
       },
       {
         "url": "https://www.reddit.com/r/gravelcycling/comments/1jgdv17/dirty_reiver_2025_whats_your_thoughts_on_bike/",
+        "category": "community",
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/bf0z8t/who_had_a_good_time_at_the_dirty_reiver/",
+        "category": "community",
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/uams3k/dirty_reiver_200km/",
         "category": "community",
         "label": "Reddit"
       },
@@ -313,74 +304,49 @@
         "label": "TrainerRoad"
       },
       {
-        "url": "https://www.benthomascoaching.com/post/the-really-dirty-reiver",
-        "category": "community",
-        "label": "benthomascoaching.com: The Really Dirty Reiver"
+        "url": "https://dirtyreiver.co.uk/event/",
+        "category": "other",
+        "label": "Dirtyreiver"
       },
       {
-        "url": "https://road.cc/content/tech-news/186623-what-bike-dirty-reiver-200km-race",
-        "category": "community",
-        "label": "road.cc: 186623 What Bike Dirty Reiver 200Km Race"
+        "url": "https://dirtyreiver.co.uk/location/",
+        "category": "other",
+        "label": "Dirtyreiver"
       },
       {
-        "url": "https://dirtyreiver.co.uk/",
-        "category": "community",
-        "label": "dirtyreiver.co.uk"
-      },
-      {
-        "url": "https://www.cyclingweekly.com/routes/7-tips-to-nail-your-first-gravel-event-taking-on-britains-dirty-reiver",
-        "category": "community",
-        "label": "cyclingweekly.com: 7 Tips To Nail Your First Gravel Event Taking On Britains..."
-      },
-      {
-        "url": "https://endurance.biz/2025/industry-news/dirty-reiver-draws-2000-riders-for-biggest-edition-to-date/",
-        "category": "community",
-        "label": "endurance.biz: Dirty Reiver Draws 2000 Riders For Biggest Edition To Date"
-      },
-      {
-        "url": "https://masoncycles.cc/blog/dirtyreiveride",
-        "category": "community",
-        "label": "masoncycles.cc: Dirtyreiveride"
-      },
-      {
-        "url": "https://mostlybybike.com/2019/06/03/the-dirty-reiver-2019/",
-        "category": "community",
-        "label": "mostlybybike.com: The Dirty Reiver 2019"
-      },
-      {
-        "url": "https://www.benthomascoaching.com/post/dirty-reiver-an-introduction-to-gravel",
-        "category": "community",
-        "label": "benthomascoaching.com: Dirty Reiver An Introduction To Gravel"
-      },
-      {
-        "url": "https://www.gravelunion.cc/article/dirty-reiver-take-10-with-Josh-Ibbett",
-        "category": "community",
-        "label": "gravelunion.cc: Dirty Reiver Take 10 With Josh Ibbett"
-      },
-      {
-        "url": "https://grvlcc.wordpress.com/2019/04/18/thedirtyreiver2019/",
-        "category": "community",
-        "label": "grvlcc.wordpress.com: Thedirtyreiver2019"
-      },
-      {
-        "url": "https://us.alpkit.com/blogs/deeds/liams-dirty-one-thirty",
-        "category": "community",
-        "label": "us.alpkit.com: Liams Dirty One Thirty"
+        "url": "https://issuu.com/focalevents/docs/dirty_reiver_rider_guide_2025",
+        "category": "other",
+        "label": "Issuu"
       },
       {
         "url": "https://jennytough.substack.com/p/the-dirty-reiver-200",
-        "category": "community",
-        "label": "jennytough.substack.com: The Dirty Reiver 200"
+        "category": "other",
+        "label": "Jennytough"
+      },
+      {
+        "url": "https://lecol.cc/blogs/ride-stories/race-report-jesse-yates-finishes-fifth-at-dirty-reiver",
+        "category": "other",
+        "label": "Lecol"
+      },
+      {
+        "url": "https://marathonmtb.com/2021/10/04/dirty-reiver-lessons-learnt-from-gravel/",
+        "category": "other",
+        "label": "Marathonmtb"
+      },
+      {
+        "url": "https://road.cc/content/tech-news/186623-what-bike-dirty-reiver-200km-race",
+        "category": "other",
+        "label": "Road"
+      },
+      {
+        "url": "https://singletrackworld.com/gritcx/2022/12/entered-the-dirty-reiver-dont-panic/",
+        "category": "other",
+        "label": "Singletrackworld"
       },
       {
         "url": "https://www.reddit.com/r/gravelcycling/comments/uassvz/one_of_the_many_fun_descents_on_yesterdays_the/",
         "category": "community",
         "label": "reddit.com: One Of The Many Fun Descents On Yesterdays The"
-      },
-      {
-        "url": "https://www.reddit.com/r/gravelcycling/comments/1886zu5/dirty_reiver_2024/",
-        "category": "community",
-        "label": "reddit.com: Dirty Reiver 2024"
       }
     ],
     "results": {

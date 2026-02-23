@@ -19,7 +19,7 @@
         "Tennessee"
       ],
       "field_size": "75-125 riders",
-      "start_time": "Morning start",
+      "start_time": "8:00 AM on",
       "registration": "Online. Cost: ~$65-85",
       "prize_purse": "Modest prizes",
       "aid_stations": "2-3 aid stations",
@@ -94,7 +94,11 @@
       "score": "37 / 100",
       "one_liner": "Tennessee gravel challenge.",
       "should_you_race": "If you're local to TN/Southeast—yes, it's solid. If you're traveling—skip it.",
-      "alternatives": "For better TN races: Reliance Tennessee Gravel, Gravel Revival."
+      "alternatives": "For better TN races: Reliance Tennessee Gravel, Gravel Revival.",
+      "alternative_slugs": [
+        "gravel-revival",
+        "reliance-tennessee-gravel"
+      ]
     },
     "logistics": {
       "airport": "Memphis (MEM) 30 minutes",
@@ -102,7 +106,7 @@
       "food": "Memphis has excellent dining. Stock nutrition.",
       "packet_pickup": "Day of typically",
       "parking": "At start/finish",
-      "official_site": "Check Rust Buster website"
+      "official_site": "https://victorybicyclestudio.com/?page_id=47519"
     },
     "history": {
       "founded": null,
@@ -185,12 +189,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 83.7,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 80,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -323,13 +336,13 @@
     "citations": [
       {
         "url": "https://www.granfondoguide.com/Events/Index/11762/rust-buster",
-        "category": "community",
-        "label": "granfondoguide.com: Rust Buster"
+        "category": "other",
+        "label": "Granfondoguide"
       },
       {
-        "url": "https://victorybicyclestudio.com/2024-rust-buster-ride/",
-        "category": "community",
-        "label": "victorybicyclestudio.com: 2024 Rust Buster Ride"
+        "url": "https://www.gravelcyclist.com/category/race-reports/",
+        "category": "media",
+        "label": "Gravel Cyclist"
       },
       {
         "url": "https://cyclingindependent.com/the-rust-bucket-gravel-ride/",
@@ -337,9 +350,9 @@
         "label": "cyclingindependent.com: The Rust Bucket Gravel Ride"
       },
       {
-        "url": "https://www.gravelcyclist.com/category/race-reports/",
+        "url": "https://victorybicyclestudio.com/2024-rust-buster-ride/",
         "category": "community",
-        "label": "gravelcyclist.com: Race Reports"
+        "label": "victorybicyclestudio.com: 2024 Rust Buster Ride"
       },
       {
         "url": "https://k9jnfb-vq.myshopify.com/pages/rust-buster-ride",

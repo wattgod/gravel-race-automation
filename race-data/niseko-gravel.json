@@ -185,12 +185,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 89.2,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -311,49 +320,54 @@
     },
     "citations": [
       {
-        "url": "https://www.gravelcyclist.com/training-rides/japan-ride-report-panaracer-niseko-gravel-by-kae-takeshita/",
-        "category": "community",
-        "label": "gravelcyclist.com: Japan Ride Report Panaracer Niseko Gravel By Kae Takeshita"
-      },
-      {
-        "url": "https://setsuniseko.com/en/blog/takahito-kishi-interview/",
-        "category": "community",
-        "label": "setsuniseko.com: Takahito Kishi Interview"
-      },
-      {
-        "url": "https://rhythmjapan.com/our-stories/niseko-gravel-biking",
-        "category": "community",
-        "label": "rhythmjapan.com: Niseko Gravel Biking"
-      },
-      {
-        "url": "https://www.summerjapan.com/en/niseko-gravel-2023-spring-ride/",
-        "category": "community",
-        "label": "summerjapan.com: Niseko Gravel 2023 Spring Ride"
-      },
-      {
-        "url": "https://www.powderlife.com/blog/over-200-cyclists-joined-niseko-gravel-spring-ride-2024/",
-        "category": "community",
-        "label": "powderlife.com: Over 200 Cyclists Joined Niseko Gravel Spring Ride 2024"
+        "url": "https://ridewithgps.com/routes/52644177",
+        "category": "route",
+        "label": "RideWithGPS: 【100km EZOSHIKA Course】Panaracer NISEKO GRAVEL 2025"
       },
       {
         "url": "https://nisekogravel.com/category/news_en",
-        "category": "community",
-        "label": "nisekogravel.com: News En"
+        "category": "other",
+        "label": "Nisekogravel"
       },
       {
-        "url": "https://www.nisekoareaguide.com/events/niseko-gravel-spring-ride",
-        "category": "community",
-        "label": "nisekoareaguide.com: Niseko Gravel Spring Ride"
+        "url": "https://rhythmjapan.com/our-stories/niseko-gravel-biking",
+        "category": "other",
+        "label": "Rhythmjapan"
       },
       {
-        "url": "https://nisekogravel.com/category/news_en/",
-        "category": "community",
-        "label": "nisekogravel.com: News En"
+        "url": "https://setsuniseko.com/en/blog/takahito-kishi-interview/",
+        "category": "other",
+        "label": "Setsuniseko"
       },
       {
         "url": "https://www.experienceniseko.com/events/panaracer-niseko-gravel",
+        "category": "other",
+        "label": "Experienceniseko"
+      },
+      {
+        "url": "https://www.gravelcyclist.com/training-rides/japan-ride-report-panaracer-niseko-gravel-by-kae-takeshita/",
+        "category": "media",
+        "label": "Gravel Cyclist"
+      },
+      {
+        "url": "https://www.nisekoareaguide.com/events/niseko-gravel-spring-ride",
+        "category": "other",
+        "label": "Nisekoareaguide"
+      },
+      {
+        "url": "https://www.powderlife.com/blog/over-200-cyclists-joined-niseko-gravel-spring-ride-2024/",
+        "category": "other",
+        "label": "Powderlife"
+      },
+      {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/x6dzs5/a_few_shots_from_yesterdays_niseko_gravel_2022_in/",
         "category": "community",
-        "label": "experienceniseko.com: Panaracer Niseko Gravel"
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.summerjapan.com/en/niseko-gravel-2023-spring-ride/",
+        "category": "other",
+        "label": "Summerjapan"
       }
     ],
     "results": {

@@ -19,7 +19,7 @@
         "Central Kansas"
       ],
       "field_size": "200-400 riders",
-      "start_time": "Morning start",
+      "start_time": "8:30am star",
       "registration": "Online. Cost: ~$60-100",
       "prize_purse": "Modest prizes",
       "aid_stations": "Multiple aid stations",
@@ -94,7 +94,11 @@
       "score": "49 / 100",
       "one_liner": "Kansas Flint Hills gravel in Cottonwood Falls.",
       "should_you_race": "If you're in Kansas and want a local Flint Hills event—yes, it's a solid regional race. If you're from out of state—there are better options.",
-      "alternatives": "For better events: Unbound. For similar regional events: Switchgrass, other KS gravel races."
+      "alternatives": "For better events: Unbound. For similar regional events: Switchgrass, other KS gravel races.",
+      "alternative_slugs": [
+        "switchgrass",
+        "unbound-200"
+      ]
     },
     "logistics": {
       "airport": "Wichita (ICT) 1.5 hours or Kansas City (MCI) 2 hours",
@@ -185,12 +189,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 92.7,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 88,
+          "cross_reference": 50
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -316,24 +329,24 @@
         "label": "RideWithGPS: Flint Hills Death Ride 2000"
       },
       {
-        "url": "https://singlespeedpirate.blogspot.com/2009/07/flint-hills-death-ride.html",
-        "category": "community",
-        "label": "singlespeedpirate.blogspot.com: Flint Hills Death Ride.Html"
-      },
-      {
-        "url": "https://discovergravel.com/the-undead-death-ride",
-        "category": "community",
-        "label": "discovergravel.com: The Undead Death Ride"
-      },
-      {
-        "url": "https://flinthillsgravelride.com/",
-        "category": "community",
-        "label": "flinthillsgravelride.com"
-      },
-      {
         "url": "https://autobus.cyclingnews.com/mtb.php?id=mtb%2F2003%2Faug03%2Faug31mtbUSAflinthills",
-        "category": "community",
-        "label": "autobus.cyclingnews.com: Mtb.Php"
+        "category": "other",
+        "label": "Autobus"
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Unbound_Gravel",
+        "category": "reference",
+        "label": "Wikipedia"
+      },
+      {
+        "url": "https://singlespeedpirate.blogspot.com/2009/07/flint-hills-death-ride.html",
+        "category": "other",
+        "label": "Singlespeedpirate"
+      },
+      {
+        "url": "https://www.gravelcyclist.com/race-reports/2016-dirty-kanza-200-round-three-by-bob-cummings/",
+        "category": "media",
+        "label": "Gravel Cyclist"
       },
       {
         "url": "https://g-tedproductions.blogspot.com/2020/05/gravel-grinder-news-evidence-of-gravel.html",

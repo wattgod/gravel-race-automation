@@ -19,7 +19,7 @@
         "Poland"
       ],
       "field_size": "200-400 riders",
-      "start_time": "Morning start",
+      "start_time": "7:30am",
       "registration": "Online. Cost: ~€40-70",
       "prize_purse": "Modest prizes",
       "aid_stations": "Multiple aid stations",
@@ -94,7 +94,11 @@
       "score": "46 / 100",
       "one_liner": "Polish rolling gravel in Kraków.",
       "should_you_race": "If you're in Poland/Europe—yes, it's solid. If you're international—there are better options.",
-      "alternatives": "For similar Central European events: Bohemian Border Bash, Carpathian Gravel."
+      "alternatives": "For similar Central European events: Bohemian Border Bash, Carpathian Gravel.",
+      "alternative_slugs": [
+        "bohemian-border-bash",
+        "carpathian-gravel"
+      ]
     },
     "logistics": {
       "airport": "Kraków (KRK) varies by location",
@@ -185,12 +189,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 86.7,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -340,39 +353,24 @@
     ],
     "citations": [
       {
-        "url": "https://velonews.pl/posts/6256-race-through-poland-samowystarczalnie-nie-tylko-przez-polske",
+        "url": "https://magazinebike.com/2025/09/08/Antidote-Pathseeker-Polish-Gravel-Test-Nanoflex-Suspension/",
+        "category": "other",
+        "label": "Magazinebike"
+      },
+      {
+        "url": "https://www.cyclingweekly.com/products/rondo-launches-super-slack-descent-oriented-mylc-gravel-bike",
+        "category": "media",
+        "label": "Cycling Weekly"
+      },
+      {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/hot79q/at_the_finish_line_of_the_longest_polish_gravel/",
         "category": "community",
-        "label": "velonews.pl: 6256 Race Through Poland Samowystarczalnie Nie Tylko Prze..."
+        "label": "Reddit"
       },
       {
         "url": "https://granfondodailynews.com/2025/06/08/uci-gravel-adventure-poland-results-350-hardcore-riders-battle-mother-nature/",
         "category": "community",
         "label": "granfondodailynews.com: Uci Gravel Adventure Poland Results 350 Hardcore Riders B..."
-      },
-      {
-        "url": "https://www.pontustidemand.se/tidemand-looks-forward-to-polish-gravel-action/",
-        "category": "community",
-        "label": "pontustidemand.se: Tidemand Looks Forward To Polish Gravel Action"
-      },
-      {
-        "url": "https://pgr.kolo-ultra.pl/en/",
-        "category": "community",
-        "label": "pgr.kolo-ultra.pl: En"
-      },
-      {
-        "url": "https://www.cyclingweekly.com/products/rondo-launches-super-slack-descent-oriented-mylc-gravel-bike",
-        "category": "community",
-        "label": "cyclingweekly.com: Rondo Launches Super Slack Descent Oriented Mylc Gravel Bike"
-      },
-      {
-        "url": "https://velonews.pl/posts/6256-race-through-polske",
-        "category": "community",
-        "label": "velonews.pl: 6256 Race Through Polske"
-      },
-      {
-        "url": "https://www.reddit.com/r/gravelcycling/comments/hot79q/at_the_finish_line_of_the_longest_polish_gravel/",
-        "category": "community",
-        "label": "reddit.com: At The Finish Line Of The Longest Polish Gravel"
       },
       {
         "url": "https://www.granfondoguide.com/Events/Index/11421/poland-gravel-race",
@@ -393,11 +391,6 @@
         "url": "https://www.youtube.com/watch?v=tfd150p0QuI",
         "category": "community",
         "label": "youtube.com: Watch"
-      },
-      {
-        "url": "https://magazinebike.com/2025/09/08/Antidote-Pathseeker-Polish-Gravel-Test-Nanoflex-Suspension/",
-        "category": "community",
-        "label": "magazinebike.com: Antidote Pathseeker Polish Gravel Test Nanoflex Suspension"
       }
     ],
     "tire_recommendations": {

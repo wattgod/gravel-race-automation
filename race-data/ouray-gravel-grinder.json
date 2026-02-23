@@ -175,7 +175,10 @@
       "score": "74 / 100",
       "one_liner": "The Ouray Gravel Grinder doesn't exist as an organized race, but the San Juan Mountains will humble your FTP and test your ability to push a bike up 13,000-foot passes.",
       "should_you_race": "You can't race what isn't there, but if you're drawn to self-supported suffering in Colorado's most brutal terrain, bring a mountain bike and your hiking legs. The Alpine Loop and Imogene Pass will have you walking more than riding above 12,000 feet, and afternoon thunderstorms don't negotiate with your Strava segment dreams. This is bikepacking country masquerading as a gravel destination.",
-      "alternatives": "Hit the actual Telluride Gravel Race 25 miles away for organized pain with 10,000 feet of climbing, or SBT GRVL in Steamboat for high-altitude suffering with better logistics and real competition instead of just you versus gravity."
+      "alternatives": "Hit the actual Telluride Gravel Race 25 miles away for organized pain with 10,000 feet of climbing, or SBT GRVL in Steamboat for high-altitude suffering with better logistics and real competition instead of just you versus gravity.",
+      "alternative_slugs": [
+        "sbt-grvl"
+      ]
     },
     "course_description": {
       "character": "Ouray serves up 80 miles of high-altitude punishment across mining roads that were never meant for bicycles. You'll grind through San Juan valleys on County Road 23 before the real show begins—12,000-foot alpine passes where your 34x42 becomes a prayer. This isn't gravel racing, it's controlled mountaineering on two wheels.",
@@ -234,11 +237,6 @@
     ],
     "citations": [
       {
-        "url": "https://boxcanyonouray.com/",
-        "category": "other",
-        "label": "Boxcanyonouray"
-      },
-      {
         "url": "https://graveladventurefieldguide.com/ridgway",
         "category": "other",
         "label": "Graveladventurefieldguide"
@@ -259,24 +257,14 @@
         "label": "Ouraymountainadventures"
       },
       {
-        "url": "https://www.visitouray.com/",
-        "category": "other",
-        "label": "Visitouray"
-      },
-      {
-        "url": "http://www.jilloutside.com/2018/",
-        "category": "community",
-        "label": "jilloutside.com: 2018"
-      },
-      {
-        "url": "https://intheknowcycling.com/choosing-gravel-bike-tires/",
-        "category": "community",
-        "label": "intheknowcycling.com: Choosing Gravel Bike Tires"
+        "url": "https://www.gravelcyclist.com/bicycle-tech/new-parlee-ouray-all-road-bike-shows-boldly-bare-single-piece-monocoque-frame/",
+        "category": "media",
+        "label": "Gravel Cyclist"
       },
       {
         "url": "https://www.trainerroad.com/forum/t/list-your-personal-top-3-gravel-races-in-your-home-state-or-country/79242?page=4",
         "category": "community",
-        "label": "trainerroad.com: 79242"
+        "label": "TrainerRoad"
       }
     ],
     "history": {
@@ -348,6 +336,25 @@
         "200pluslb_dry": "45-49",
         "200pluslb_mixed": "42-46",
         "200pluslb_wet": "40-44"
+      }
+    },
+    "research_metadata": {
+      "research_strength": {
+        "overall": 87.8,
+        "grade": "A",
+        "weakest": "completeness",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 47,
+          "cross_reference": 75
+        },
+        "scored_at": "2026-02-04"
       }
     }
   }

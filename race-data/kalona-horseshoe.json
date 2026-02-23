@@ -19,7 +19,7 @@
         "Iowa"
       ],
       "field_size": "50-100 riders",
-      "start_time": "Morning start",
+      "start_time": "7:30 a.m.",
       "registration": "Online. Cost: ~$50-75",
       "prize_purse": "Modest prizes",
       "aid_stations": "Limited aid stations",
@@ -94,7 +94,10 @@
       "score": "40 / 100",
       "one_liner": "Iowa local gravel challenge.",
       "should_you_race": "If you're local to Iowa—yes, it's good value. If you're traveling—skip it.",
-      "alternatives": "For better Iowa races: Gravel Worlds, RAGBRAI."
+      "alternatives": "For better Iowa races: Gravel Worlds, RAGBRAI.",
+      "alternative_slugs": [
+        "garmin-gravel-worlds"
+      ]
     },
     "logistics": {
       "airport": "Cedar Rapids (CID) 60 minutes",
@@ -185,12 +188,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 88.4,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 50
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -316,39 +328,44 @@
         "label": "RideWithGPS: Dry 50K Kalona Horseshoe on"
       },
       {
-        "url": "https://www.youtube.com/watch?v=_7VS-l6yPqA",
-        "category": "community",
-        "label": "youtube.com: Watch"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=ugqMl15yQQ0",
-        "category": "community",
-        "label": "youtube.com: Watch"
-      },
-      {
-        "url": "https://www.granfondoguide.com/Events/Index/11788/kalona-horseshoe",
-        "category": "community",
-        "label": "granfondoguide.com: Kalona Horseshoe"
-      },
-      {
-        "url": "https://www.racecenter.com/cycling/kalona-horseshoe",
-        "category": "community",
-        "label": "racecenter.com: Kalona Horseshoe"
-      },
-      {
         "url": "https://icorrmtb.org/event/kalona-horseshoe/",
-        "category": "community",
-        "label": "icorrmtb.org: Kalona Horseshoe"
-      },
-      {
-        "url": "https://www.bikeiowa.com/Event/15673/kalona-horseshoe",
-        "category": "community",
-        "label": "bikeiowa.com: Kalona Horseshoe"
+        "category": "other",
+        "label": "Icorrmtb"
       },
       {
         "url": "https://thenews-ia.com/stories/kalona-horseshoe-gravel-bike-race,178440",
+        "category": "other",
+        "label": "Thenews-Ia"
+      },
+      {
+        "url": "https://www.bikeiowa.com/Event/15673/kalona-horseshoe",
+        "category": "other",
+        "label": "Bikeiowa"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/11788/kalona-horseshoe",
+        "category": "other",
+        "label": "Granfondoguide"
+      },
+      {
+        "url": "https://www.kalonachamber.com/calendar/iowa-gravel-series-bike-race-kalona-horseshoe",
+        "category": "other",
+        "label": "Kalonachamber"
+      },
+      {
+        "url": "https://www.movemint.cc/events/kalona_horseshoe_2025/",
+        "category": "other",
+        "label": "Movemint"
+      },
+      {
+        "url": "https://www.racecenter.com/cycling/kalona-horseshoe",
+        "category": "other",
+        "label": "Racecenter"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=_7VS-l6yPqA",
         "category": "community",
-        "label": "thenews-ia.com: Kalona Horseshoe Gravel Bike Race,178440"
+        "label": "youtube.com: Watch"
       }
     ],
     "results": {

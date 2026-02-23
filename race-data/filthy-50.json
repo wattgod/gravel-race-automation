@@ -19,7 +19,7 @@
         "Northern lakes area"
       ],
       "field_size": "1,000 riders",
-      "start_time": "Morning — check official website",
+      "start_time": "10:00 a.m. from",
       "registration": "Online. Cost: $75-$100",
       "prize_purse": "None",
       "aid_stations": "Multiple on course",
@@ -119,7 +119,13 @@
       ],
       "signature_challenge": "Minnesota fall colors + October cold. Manageable 50mi distance.",
       "ridewithgps_id": "53102035",
-      "ridewithgps_name": "Filthy 50"
+      "ridewithgps_name": "Filthy 50",
+      "surface_breakdown": {
+        "overall": {
+          "gravel": 80,
+          "dirt": 20
+        }
+      }
     },
     "history": {
       "founded": "~2010",
@@ -139,19 +145,19 @@
       ],
       "research_date": "2026-02-04",
       "research_strength": {
-        "overall": 0,
-        "grade": "pending",
-        "weakest": "pending",
+        "overall": 96.1,
+        "grade": "A",
+        "weakest": "voice_authenticity",
         "has_research_dump": true,
         "dimensions": {
-          "source_diversity": 0,
-          "citation_density": 0,
-          "temporal_depth": 0,
-          "specificity": 0,
-          "statistical_backing": 0,
-          "voice_authenticity": 0,
-          "completeness": 0,
-          "cross_reference": 0
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 94,
+          "cross_reference": 100
         },
         "scored_at": "2026-02-04"
       }
@@ -218,18 +224,32 @@
       "score": "54 / 100",
       "one_liner": "A Minnesota bluff country crawler that's more tourist ride than race, complete with food trucks and small-town charm.",
       "should_you_race": "If you're looking for a chill fall colors tour with 3000 feet of rolling climbs, this works. The Lanesboro setting is pretty, the vibe is friendly, and 50 miles won't destroy your weekend. Skip it if you want real competition or technical challenge—this is more community ride than gravel race. Any decent gravel bike handles these roads fine.",
-      "alternatives": "Almanzo 100 gives you proper Minnesota suffering if you want the real thing, while Gravel Worlds in Nebraska delivers actual competition with similar Midwest charm but higher stakes."
+      "alternatives": "Almanzo 100 gives you proper Minnesota suffering if you want the real thing, while Gravel Worlds in Nebraska delivers actual competition with similar Midwest charm but higher stakes.",
+      "alternative_slugs": [
+        "almanzo-100",
+        "garmin-gravel-worlds"
+      ]
     },
     "citations": [
-      {
-        "url": "https://www.filthy50.com",
-        "category": "official",
-        "label": "Official Website"
-      },
       {
         "url": "https://ridewithgps.com/routes/53102035",
         "category": "route",
         "label": "RideWithGPS: Filthy 50"
+      },
+      {
+        "url": "https://almsthre.com/blogs/news/2025-quick-n-dirty-filthy-50",
+        "category": "other",
+        "label": "Almsthre"
+      },
+      {
+        "url": "https://dirtythirtygravelgrinder.com/filthy50/",
+        "category": "other",
+        "label": "Dirtythirtygravelgrinder"
+      },
+      {
+        "url": "https://gravelnewsnetwork.blogspot.com/2018/10/ride-report-14oct2018-filthy-50-finally.html",
+        "category": "other",
+        "label": "Gravelnewsnetwork"
       },
       {
         "url": "https://reddit.com/r/gravelcycling/comments/filthy-50",
@@ -237,39 +257,39 @@
         "label": "Reddit"
       },
       {
-        "url": "https://ridewithgps.com",
-        "category": "route",
-        "label": "RideWithGPS"
-      },
-      {
-        "url": "https://www.cyclingtips.com",
-        "category": "media",
-        "label": "CyclingTips"
-      },
-      {
-        "url": "https://www.strava.com",
-        "category": "activity",
-        "label": "Strava"
-      },
-      {
-        "url": "https://www.trainerroad.com",
-        "category": "community",
-        "label": "TrainerRoad"
-      },
-      {
-        "url": "https://www.velonews.com",
-        "category": "media",
-        "label": "VeloNews"
-      },
-      {
-        "url": "http://hylanderik.com/a-modern-viking-blog/2023/10/14/the-filthy-fifty",
-        "category": "community",
-        "label": "hylanderik.com: The Filthy Fifty"
-      },
-      {
         "url": "https://www.gravelcyclist.com/race-reports/race-report-the-filthy-50-finally-filthy-so-very-filthy-stewartville-minnesota-by-nicholas-garbis/",
+        "category": "media",
+        "label": "Gravel Cyclist"
+      },
+      {
+        "url": "https://www.reddit.com/r/MichiganCycling/comments/1c532g6/gravel_race_recap_video_2m10s_dirty_30s_filthy_50/",
         "category": "community",
-        "label": "gravelcyclist.com: Race Report The Filthy 50 Finally Filthy So Very Filthy S..."
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.reddit.com/r/bicycling/comments/2j2ifh/just_completed_my_first_gravel_race_the_filthy_50/",
+        "category": "community",
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.reddit.com/r/fatbike/comments/y0cf05/filthy_50/",
+        "category": "community",
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/q5y7p4/filthy_50_in_lanesboro_mn_on_the_fixie/",
+        "category": "community",
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/xzvykt/filthy_50/",
+        "category": "community",
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.thenxrth.com/events/the-filthy-50",
+        "category": "other",
+        "label": "Thenxrth"
       },
       {
         "url": "https://juliedunkle.substack.com/p/wtf-my-first-mountain-bike-race-the",
@@ -277,34 +297,9 @@
         "label": "juliedunkle.substack.com: Wtf My First Mountain Bike Race The"
       },
       {
-        "url": "https://www.reddit.com/r/gravelcycling/comments/xzvykt/filthy_50/",
-        "category": "community",
-        "label": "reddit.com: Filthy 50"
-      },
-      {
-        "url": "https://almsthre.com/blogs/news/2025-quick-n-dirty-filthy-50",
-        "category": "community",
-        "label": "almsthre.com: 2025 Quick N Dirty Filthy 50"
-      },
-      {
-        "url": "https://www.reddit.com/r/fatbike/comments/y0cf05/filthy_50/",
-        "category": "community",
-        "label": "reddit.com: Filthy 50"
-      },
-      {
-        "url": "https://www.reddit.com/r/gravelcycling/comments/q5y7p4/filthy_50_in_lanesboro_mn_on_the_fixie/",
-        "category": "community",
-        "label": "reddit.com: Filthy 50 In Lanesboro Mn On The Fixie"
-      },
-      {
         "url": "https://www.youtube.com/watch?v=elT_Rh-zsrc",
         "category": "community",
         "label": "youtube.com: Watch"
-      },
-      {
-        "url": "https://www.reddit.com/r/MichiganCycling/comments/1c532g6/gravel_race_recap_video_2m10s_dirty_30s_filthy_50/",
-        "category": "community",
-        "label": "reddit.com: Gravel Race Recap Video 2M10S Dirty 30S Filthy 50"
       }
     ],
     "tire_recommendations": {

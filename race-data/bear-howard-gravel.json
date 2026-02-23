@@ -19,7 +19,7 @@
         "Arizona"
       ],
       "field_size": "100-200 riders",
-      "start_time": "Morning start",
+      "start_time": "6:15 am at",
       "registration": "Online. Cost: ~$75-100",
       "prize_purse": "Modest prizes",
       "aid_stations": "Multiple aid stations",
@@ -94,7 +94,11 @@
       "score": "47 / 100",
       "one_liner": "Arizona mountain gravel challenge.",
       "should_you_race": "If you're local to Arizona—yes, it's solid. If you're traveling—skip it.",
-      "alternatives": "For better Arizona races: Whiskey Off-Road, Chino Grinder."
+      "alternatives": "For better Arizona races: Whiskey Off-Road, Chino Grinder.",
+      "alternative_slugs": [
+        "chino-grinder",
+        "whiskey-off-road"
+      ]
     },
     "logistics": {
       "airport": "Flagstaff (FLG) 30 minutes",
@@ -185,12 +189,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 93.9,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 100,
+          "completeness": 76,
+          "cross_reference": 50
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -311,39 +324,49 @@
     },
     "citations": [
       {
-        "url": "https://www.sableevents.com/events/bearhowardgravel",
-        "category": "community",
-        "label": "sableevents.com: Bearhowardgravel"
+        "url": "https://lowell.edu/event/bear-howard-gravel-race/",
+        "category": "other",
+        "label": "Lowell"
       },
       {
         "url": "https://www.granfondoguide.com/Events/Index/9471/bear-howard-gravel-race",
-        "category": "community",
-        "label": "granfondoguide.com: Bear Howard Gravel Race"
+        "category": "other",
+        "label": "Granfondoguide"
       },
       {
         "url": "https://www.gravel-results.com/race/19993",
-        "category": "community",
-        "label": "gravel-results.com: 19993"
+        "category": "other",
+        "label": "Gravel-Results"
       },
       {
         "url": "https://www.gravel-results.com/race/22807",
-        "category": "community",
-        "label": "gravel-results.com: 22807"
+        "category": "other",
+        "label": "Gravel-Results"
       },
       {
-        "url": "https://www.sableevents.com/about",
+        "url": "https://www.gravel-results.com/racer/42253",
+        "category": "other",
+        "label": "Gravel-Results"
+      },
+      {
+        "url": "https://www.raceplace.com/events/115387/bear-howard-gravel-race",
+        "category": "other",
+        "label": "Raceplace"
+      },
+      {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/1d3dnua/bear_howard_gravel_flagstaff_az/",
         "category": "community",
-        "label": "sableevents.com: About"
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.sableevents.com/events/bearhowardgravel",
+        "category": "other",
+        "label": "Sableevents"
       },
       {
         "url": "https://results.bikereg.com/race/19993",
         "category": "community",
         "label": "results.bikereg.com: 19993"
-      },
-      {
-        "url": "https://lowell.edu/event/bear-howard-gravel-race/",
-        "category": "community",
-        "label": "lowell.edu: Bear Howard Gravel Race"
       }
     ],
     "tire_recommendations": {

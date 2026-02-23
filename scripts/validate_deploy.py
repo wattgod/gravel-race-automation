@@ -530,6 +530,138 @@ def check_success_pages(v):
             v.check("session_id" in body, f"{path} has session_id tracking", "Missing session_id")
 
 
+def check_insights(v):
+    """Verify insights page is deployed with expected content."""
+    print("\n[Insights Page]")
+    code = curl_status(f"{BASE_URL}/insights/")
+    v.check(code == "200", "/insights/ accessible", f"HTTP {code}")
+
+    if code == "200":
+        body = curl_body(f"{BASE_URL}/insights/")
+        v.check("State of Gravel" in body, "Insights page has title", "Missing title")
+        v.check("gg-ins-map-grid" in body, "Insights page has geography map", "Missing tile grid map")
+        v.check("data-counter" in body, "Insights page has counter animations", "Missing data-counter")
+        v.check("insights_page_view" in body, "Insights page has GA4 tracking", "Missing GA4 events")
+
+
+def check_meta_descriptions(v):
+    """Verify meta descriptions are deployed and appearing on pages."""
+    import html as html_mod
+    print("\n[Meta Descriptions]")
+    project_root = Path(__file__).resolve().parent.parent
+    json_path = project_root / "seo" / "meta-descriptions.json"
+
+    if not json_path.exists():
+        v.warn("meta-descriptions.json not found locally",
+               "Run: python scripts/generate_meta_descriptions.py")
+        return
+
+    data = json.loads(json_path.read_text())
+    entries = data.get("entries", [])
+    v.check(len(entries) >= 100, f"meta-descriptions.json has {len(entries)} entries",
+            f"Too few entries (expected 131)")
+
+    if QUICK:
+        return
+
+    # Spot-check 5 key pages for meta description presence.
+    # These are WordPress-managed pages where the mu-plugin injects our descriptions.
+    spot_checks = [
+        (448, "/", "home"),
+        (5018, "/gravel-races/", "gravel-races"),
+        (5016, "/products/training-plans/", "training-plans"),
+        (5043, "/coaching/", "coaching"),
+        (5045, "/articles/", "articles"),
+    ]
+
+    entries_by_id = {e["wp_id"]: e for e in entries}
+    for wp_id, path, name in spot_checks:
+        if wp_id not in entries_by_id:
+            v.warn(f"wp_id={wp_id} ({name}) not in meta-descriptions.json", "")
+            continue
+
+        expected_desc = entries_by_id[wp_id]["description"]
+        body = curl_body(f"{BASE_URL}{path}")
+
+        # HTML encodes special chars in attribute values (&→&amp; "→&quot; etc.)
+        escaped_desc = html_mod.escape(expected_desc, quote=True)
+        # Check for exact match in content attr, or partial match (first 50 chars)
+        has_meta = (f'content="{escaped_desc}"' in body
+                    or html_mod.escape(expected_desc[:50], quote=True) in body)
+        v.check(has_meta, f"Meta description on {path}",
+                f"Expected: {expected_desc[:60]}...")
+
+        # Spot-check title override if present
+        expected_title = entries_by_id[wp_id].get("title")
+        if expected_title:
+            escaped_title = html_mod.escape(expected_title, quote=True)
+            has_title = (escaped_title in body
+                         or f"<title>{escaped_title}</title>" in body)
+            v.check(has_title, f"Title override on {path}",
+                    f"Expected: {expected_title}")
+
+
+def check_legal_pages(v):
+    """Verify legal pages are deployed with expected content."""
+    print("\n[Legal Pages]")
+    legal_pages = [
+        ("/privacy/", "Privacy Policy", "privacy-policy"),
+        ("/terms/", "Terms of Service", "terms-of-service"),
+        ("/cookies/", "Cookie Policy", "cookie-policy"),
+    ]
+    for path, name, slug in legal_pages:
+        url = f"{BASE_URL}{path}"
+        code = curl_status(url)
+        v.check(code == "200", f"{path} accessible", f"HTTP {code}")
+        if code == "200":
+            body = curl_body(url)
+            v.check("noindex" in body, f"{path} is noindexed", "Missing noindex")
+            v.check("gg-consent-banner" in body, f"{path} has consent banner", "Missing consent banner")
+            v.check("gg_consent=accepted" in body, f"{path} has consent cookie check", "Missing cookie logic")
+            v.check("gg-site-header" in body, f"{path} has site header", "Missing header")
+            v.check("gg-mega-footer" in body, f"{path} has mega footer", "Missing footer")
+            v.check("og:image" in body, f"{path} has og:image", "Missing og:image meta tag")
+            # Consent defaults must use regex, not indexOf
+            v.check("indexOf" not in body, f"{path} consent uses regex not indexOf",
+                    "Found indexOf — must use regex pattern")
+
+
+def check_guide_cluster(v):
+    """Verify guide cluster pages (pillar + 8 chapters) are deployed."""
+    print("\n[Guide Cluster]")
+    guide_pages = [
+        ("/guide/", "Guide pillar"),
+        ("/guide/what-is-gravel-racing/", "Ch 1: What Is Gravel Racing"),
+        ("/guide/race-selection/", "Ch 2: Race Selection"),
+        ("/guide/training-fundamentals/", "Ch 3: Training Fundamentals"),
+        ("/guide/workout-execution/", "Ch 4: Workout Execution"),
+        ("/guide/nutrition-fueling/", "Ch 5: Nutrition & Fueling"),
+        ("/guide/mental-training-race-tactics/", "Ch 6: Mental Training"),
+        ("/guide/race-week/", "Ch 7: Race Week"),
+        ("/guide/post-race/", "Ch 8: Post-Race"),
+        ("/guide/race-prep-configurator/", "Race Prep Configurator"),
+    ]
+    for path, name in guide_pages:
+        code = curl_status(f"{BASE_URL}{path}")
+        v.check(code == "200", f"{name} ({path})", f"HTTP {code}")
+
+    # Spot-check SEO elements on pillar
+    body = curl_body(f"{BASE_URL}/guide/")
+    if body:
+        v.check("application/ld+json" in body, "Guide pillar has JSON-LD", "Missing JSON-LD")
+        v.check("canonical" in body.lower(), "Guide pillar has canonical", "Missing canonical")
+        v.check("gg-site-header" in body, "Guide pillar has site header", "Missing header")
+        v.check("gg-mega-footer" in body, "Guide pillar has mega footer", "Missing footer")
+
+    # Spot-check a chapter page
+    ch_body = curl_body(f"{BASE_URL}/guide/training-fundamentals/")
+    if ch_body:
+        v.check("application/ld+json" in ch_body, "Chapter page has JSON-LD", "Missing JSON-LD")
+        v.check("canonical" in ch_body.lower(), "Chapter page has canonical", "Missing canonical")
+        v.check("breadcrumb" in ch_body.lower() or "BreadcrumbList" in ch_body,
+                "Chapter page has breadcrumb", "Missing breadcrumb")
+
+
 def check_series_hubs(v):
     """Verify series hub pages are deployed and accessible."""
     print("\n[Series Hubs]")
@@ -568,6 +700,10 @@ def main():
     check_coaching_apply(v)
     check_success_pages(v)
     check_series_hubs(v)
+    check_guide_cluster(v)
+    check_insights(v)
+    check_legal_pages(v)
+    check_meta_descriptions(v)
 
     check_search_schema(v)
     check_featured_slugs(v)

@@ -18,16 +18,16 @@ import json
 from pathlib import Path
 
 from generate_neo_brutalist import (
-    GA_MEASUREMENT_ID,
     SITE_BASE_URL,
     SUBSTACK_URL,
     get_page_css,
     build_inline_js,
     write_shared_assets,
 )
-from brand_tokens import get_ab_head_snippet, get_preload_hints
+from brand_tokens import get_ab_head_snippet, get_ga4_head_snippet, get_preload_hints
 from shared_footer import get_mega_footer_html
 from shared_header import get_site_header_html
+from cookie_consent import get_consent_banner_html
 
 OUTPUT_DIR = Path(__file__).parent / "output"
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
@@ -287,12 +287,12 @@ def build_ctas() -> str:
         <div class="gg-about-cta">
           <h3>Training Plans</h3>
           <p data-ab="training_price">Race-specific. Built for your target event. Less than your race hotel &mdash; $2/day.</p>
-          <a href="{SITE_BASE_URL}/coaching/" class="gg-about-cta-btn gg-about-cta-btn--gold" data-cta="training_plans" data-ab="training_cta_btn">BUILD MY PLAN</a>
+          <a href="{SITE_BASE_URL}/questionnaire/" class="gg-about-cta-btn gg-about-cta-btn--gold" data-cta="training_plans" data-ab="training_cta_btn">BUILD MY PLAN</a>
         </div>
         <div class="gg-about-cta">
           <h3>1:1 Coaching</h3>
           <p data-ab="coaching_scarcity">A human in your corner. Adapts week to week. Limited spots &mdash; opens quarterly.</p>
-          <a href="{SITE_BASE_URL}/coaching/" class="gg-about-cta-btn gg-about-cta-btn--teal" data-cta="coaching_apply">APPLY</a>
+          <a href="{SITE_BASE_URL}/coaching/apply/" class="gg-about-cta-btn gg-about-cta-btn--teal" data-cta="coaching_apply">APPLY</a>
         </div>
         <div class="gg-about-cta">
           <h3>Newsletter</h3>
@@ -923,10 +923,14 @@ def generate_about_page(external_assets: dict = None) -> str:
   <meta property="og:description" content="The story behind the internet&#39;s most comprehensive gravel race database. {race_count} races scored across 15 dimensions.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="{esc(canonical_url)}">
+  <meta property="og:image" content="{SITE_BASE_URL}/og/homepage.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:site_name" content="Gravel God Cycling">
-  <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="About Gravel God — Race Intelligence &amp; Coaching for Gravel Cyclists">
-  <meta name="twitter:description" content="{race_count} gravel races scored across 15 dimensions. Zero sponsors. Plus coaching that works for people with real lives.">'''
+  <meta name="twitter:description" content="{race_count} gravel races scored across 15 dimensions. Zero sponsors. Plus coaching that works for people with real lives.">
+  <meta name="twitter:image" content="{SITE_BASE_URL}/og/homepage.jpg">'''
 
     preload = get_preload_hints()
 
@@ -945,8 +949,7 @@ def generate_about_page(external_assets: dict = None) -> str:
   {jsonld}
   {page_css}
   {about_css}
-  <script async src="https://www.googletagmanager.com/gtag/js?id={GA_MEASUREMENT_ID}"></script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments)}}gtag('js',new Date());gtag('config','{GA_MEASUREMENT_ID}');</script>
+  {get_ga4_head_snippet()}
   {get_ab_head_snippet()}
 </head>
 <body>
@@ -974,6 +977,7 @@ def generate_about_page(external_assets: dict = None) -> str:
 {inline_js}
 {about_js}
 
+{get_consent_banner_html()}
 </body>
 </html>'''
 

@@ -19,7 +19,7 @@
         "Scottish Highlands"
       ],
       "field_size": "75-125 riders",
-      "start_time": "Morning start",
+      "start_time": "9:00 AM at",
       "registration": "Online. Cost: ~£60-80",
       "prize_purse": "Modest prizes",
       "aid_stations": "2 aid stations",
@@ -94,7 +94,10 @@
       "score": "39 / 100",
       "one_liner": "UK Scotland gravel challenge.",
       "should_you_race": "If you're local to UK—yes, it's solid. If you're traveling internationally—skip it.",
-      "alternatives": "For better UK races: Lauf Gritfest."
+      "alternatives": "For better UK races: Lauf Gritfest.",
+      "alternative_slugs": [
+        "lauf-gritfest"
+      ]
     },
     "logistics": {
       "airport": "Glasgow (GLA) 2 hours",
@@ -102,7 +105,8 @@
       "food": "Dunoon has limited dining. Stock nutrition.",
       "packet_pickup": "Day of typically",
       "parking": "At start/finish",
-      "official_site": "Check Dunoon Dirt Dash website"
+      "official_site": "Check Dunoon Dirt Dash website",
+      "camping": "Campsite accommodation\n- Evening meal\n- Breakfast\n- Broom wagon support\n\n**Start Location & Time**\n\nStart: Saturday 9:00 AM at Ar"
     },
     "history": {
       "founded": null,
@@ -185,12 +189,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 93.9,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 100,
+          "completeness": 76,
+          "cross_reference": 50
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -317,38 +330,43 @@
       },
       {
         "url": "https://bikepacking.com/news/2024-dunoon-dirt-dash-recap/",
-        "category": "community",
-        "label": "bikepacking.com: 2024 Dunoon Dirt Dash Recap"
-      },
-      {
-        "url": "https://www.gravelunion.cc/article/ride-report-photo-essay-from-the-2023-dunoon-dirt-dash",
-        "category": "community",
-        "label": "gravelunion.cc: Ride Report Photo Essay From The 2023 Dunoon Dirt Dash"
-      },
-      {
-        "url": "https://mostlybybike.com/tag/dunoon/",
-        "category": "community",
-        "label": "mostlybybike.com: Dunoon"
+        "category": "other",
+        "label": "Bikepacking"
       },
       {
         "url": "https://bikepacking.com/news/surly-dunoon-dirt-dash-gravel-event/",
-        "category": "community",
-        "label": "bikepacking.com: Surly Dunoon Dirt Dash Gravel Event"
+        "category": "other",
+        "label": "Bikepacking"
+      },
+      {
+        "url": "https://bikepackingscotland.com/dunoon/",
+        "category": "other",
+        "label": "Bikepackingscotland"
+      },
+      {
+        "url": "https://dirtdash.cc/dunoon/",
+        "category": "other",
+        "label": "Dirtdash"
+      },
+      {
+        "url": "https://mostlybybike.com/tag/dunoon/",
+        "category": "other",
+        "label": "Mostlybybike"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/11207/dunoon-dirt-dash",
+        "category": "other",
+        "label": "Granfondoguide"
+      },
+      {
+        "url": "https://www.gravelunion.cc/article/ride-report-photo-essay-from-the-2023-dunoon-dirt-dash",
+        "category": "other",
+        "label": "Gravelunion"
       },
       {
         "url": "https://www.reddit.com/r/xbiking/comments/df004k/surly_dunoon_dirt_dash_hard_to_tell_whether_it/",
         "category": "community",
-        "label": "reddit.com: Surly Dunoon Dirt Dash Hard To Tell Whether It"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=nuG1sI66WrA",
-        "category": "community",
-        "label": "youtube.com: Watch"
-      },
-      {
-        "url": "https://dirtdash.cc/dunoon/",
-        "category": "community",
-        "label": "dirtdash.cc: Dunoon"
+        "label": "Reddit"
       },
       {
         "url": "https://www.youtube.com/watch?v=_dsE55VYQcg",

@@ -19,7 +19,7 @@
         "Montana"
       ],
       "field_size": "50-100 riders",
-      "start_time": "Morning start",
+      "start_time": "9:00 AM MDT",
       "registration": "Online. Cost: ~$75-100",
       "prize_purse": "Modest prizes",
       "aid_stations": "Limited aid stations",
@@ -94,7 +94,11 @@
       "score": "46 / 100",
       "one_liner": "Montana mountain gravel challenge.",
       "should_you_race": "If you're local to Montana—yes, it's solid. If you're traveling—skip it.",
-      "alternatives": "For better Montana races: Gravel Worlds, Rebecca's Private Idaho."
+      "alternatives": "For better Montana races: Gravel Worlds, Rebecca's Private Idaho.",
+      "alternative_slugs": [
+        "garmin-gravel-worlds",
+        "rebeccas-private-idaho"
+      ]
     },
     "logistics": {
       "airport": "Missoula (MSO) 90 minutes",
@@ -102,7 +106,8 @@
       "food": "Ovando has very limited dining options. Stock nutrition.",
       "packet_pickup": "Day of typically",
       "parking": "At start/finish",
-      "official_site": "Check Dusty Bandita website"
+      "official_site": "Check Dusty Bandita website",
+      "camping": "camping (bear aware due to 2021 grizzly incident)"
     },
     "history": {
       "founded": null,
@@ -185,12 +190,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 89.2,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -316,39 +330,49 @@
         "label": "RideWithGPS: 2025 Dusty Bandita (80)"
       },
       {
-        "url": "https://www.reddit.com/r/gravelcycling/comments/140c9f9/my_first_race_first_group_ride_longest_ride/",
-        "category": "community",
-        "label": "reddit.com: My First Race First Group Ride Longest Ride"
-      },
-      {
         "url": "https://2wheeledinspiration.com/2023/06/23/the-dusty-bandita-a-race-review/",
-        "category": "community",
-        "label": "2wheeledinspiration.com: The Dusty Bandita A Race Review"
+        "category": "other",
+        "label": "2Wheeledinspiration"
       },
       {
-        "url": "https://www.roadbikerider.com/dusty-bandita-interview-bri-lui/",
-        "category": "community",
-        "label": "roadbikerider.com: Dusty Bandita Interview Bri Lui"
+        "url": "https://competitivetiming.com/the-dusty-bandita-results/",
+        "category": "other",
+        "label": "Competitivetiming"
       },
       {
-        "url": "https://www.roadbikerider.com/dusty-bandita-interview-bri-liu/",
-        "category": "community",
-        "label": "roadbikerider.com: Dusty Bandita Interview Bri Liu"
+        "url": "https://linktr.ee/thedustybandita",
+        "category": "other",
+        "label": "Linktr"
       },
       {
-        "url": "https://www.thedustybandita.com/",
-        "category": "community",
-        "label": "thedustybandita.com"
+        "url": "https://strambecco.com/event/the-dusty-bandita/",
+        "category": "other",
+        "label": "Strambecco"
       },
       {
         "url": "https://www.bikesignup.com/Race/MT/Ovando/TheDustyBandita",
-        "category": "community",
-        "label": "bikesignup.com: Thedustybandita"
+        "category": "other",
+        "label": "Bikesignup"
+      },
+      {
+        "url": "https://www.roadbikerider.com/dusty-bandita-interview-bri-liu/",
+        "category": "other",
+        "label": "Roadbikerider"
+      },
+      {
+        "url": "https://www.roadbikerider.com/dusty-bandita-interview-bri-lui/",
+        "category": "other",
+        "label": "Roadbikerider"
       },
       {
         "url": "https://www.seeleylake.com/story/2025/06/19/sports/dusty-banditas-bike-race-swarms-ovando-for-the-third-time/11143.html",
+        "category": "other",
+        "label": "Seeleylake"
+      },
+      {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/140c9f9/my_first_race_first_group_ride_longest_ride/",
         "category": "community",
-        "label": "seeleylake.com: 11143.Html"
+        "label": "reddit.com: My First Race First Group Ride Longest Ride"
       }
     ],
     "tire_recommendations": {

@@ -208,29 +208,24 @@
       ],
       "migration_notes": [],
       "research_strength": {
-        "overall": 73.5,
-        "grade": "B",
-        "weakest": "citation_density",
-        "has_research_dump": false,
+        "overall": 96.1,
+        "grade": "A",
+        "weakest": "voice_authenticity",
+        "has_research_dump": true,
         "dimensions": {
-          "source_diversity": 30,
-          "citation_density": 20,
-          "temporal_depth": 50,
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
           "specificity": 100,
           "statistical_backing": 100,
           "voice_authenticity": 70,
-          "completeness": 100,
+          "completeness": 94,
           "cross_reference": 100
         },
         "scored_at": "2026-02-04"
       }
     },
     "citations": [
-      {
-        "url": "https://gfstradebianche.it",
-        "category": "official",
-        "label": "Official Website"
-      },
       {
         "url": "https://ridewithgps.com/routes/53843273",
         "category": "route",
@@ -250,11 +245,6 @@
         "url": "https://en.wikipedia.org/wiki/Strade_Bianche",
         "category": "reference",
         "label": "Wikipedia"
-      },
-      {
-        "url": "https://gfstradebianche.it/en/",
-        "category": "other",
-        "label": "Gfstradebianche"
       },
       {
         "url": "https://gfstradebianche.it/en/entry-fee-partecipation/",
@@ -297,9 +287,19 @@
         "label": "Gravelunion"
       },
       {
+        "url": "https://gravelunion.cc/article/gran-fondo-strade-ride-report",
+        "category": "other",
+        "label": "Gravelunion"
+      },
+      {
         "url": "https://gustocycling.com/strade-bianche/",
         "category": "other",
         "label": "Gustocycling"
+      },
+      {
+        "url": "https://ingamba.pro/trip/the-strade-bianche-experience-2026/",
+        "category": "other",
+        "label": "Ingamba"
       },
       {
         "url": "https://inrng.com/2012/03/strade-bianche-classic-italy/",
@@ -317,51 +317,6 @@
         "label": "Pezcyclingnews"
       },
       {
-        "url": "https://sportivebreaks.com/sportives/classics/strade-bianche-gran-fondo/",
-        "category": "other",
-        "label": "Sportivebreaks"
-      },
-      {
-        "url": "https://strambecco.com/event/strade-bianche-gran-fondo/",
-        "category": "other",
-        "label": "Strambecco"
-      },
-      {
-        "url": "https://thecyclinghouse.com/reflections-in-photos-our-strade-bianche-cycling-trip-to-tuscany/",
-        "category": "community",
-        "label": "thecyclinghouse.com: Reflections In Photos Our Strade Bianche Cycling Trip To ..."
-      },
-      {
-        "url": "https://viciouscycle.blog/2018/03/06/strade-bianche-2018-done-and-dusty/",
-        "category": "community",
-        "label": "viciouscycle.blog: Strade Bianche 2018 Done And Dusty"
-      },
-      {
-        "url": "https://www.teamefcoaching.com/events/strade-bianche-pro-race-camp-2026/",
-        "category": "community",
-        "label": "teamefcoaching.com: Strade Bianche Pro Race Camp 2026"
-      },
-      {
-        "url": "https://www.reddit.com/r/Velo/comments/1annvib/gp5000_or_4season_for_strade_bianche/",
-        "category": "community",
-        "label": "reddit.com: Gp5000 Or 4Season For Strade Bianche"
-      },
-      {
-        "url": "https://viciouscycle.blog/2017/11/03/gran-fondo-strade-bianche-the-optimist/",
-        "category": "community",
-        "label": "viciouscycle.blog: Gran Fondo Strade Bianche The Optimist"
-      },
-      {
-        "url": "https://epicroadrides.com/cycling-blog/best-cycling-challenge-europe/",
-        "category": "community",
-        "label": "epicroadrides.com: Best Cycling Challenge Europe"
-      },
-      {
-        "url": "https://forge1860.com/blogs/news/strade-bianche-gran-fondo-10-week-training-plan",
-        "category": "community",
-        "label": "forge1860.com: Strade Bianche Gran Fondo 10 Week Training Plan"
-      },
-      {
         "url": "https://www.tudorprocycling.com/post/strade-bianche-a-beautiful-and-unique-experience",
         "category": "community",
         "label": "tudorprocycling.com: Strade Bianche A Beautiful And Unique Experience"
@@ -370,16 +325,6 @@
         "url": "https://thecyclinghouse.com/reflections-in-photos-our-strade-bianche-cycling-trip-to-tuscany",
         "category": "community",
         "label": "thecyclinghouse.com: Reflections In Photos Our Strade Bianche Cycling Trip To ..."
-      },
-      {
-        "url": "https://ingamba.pro/trip/the-strade-bianche-experience-2026/",
-        "category": "community",
-        "label": "ingamba.pro: The Strade Bianche Experience 2026"
-      },
-      {
-        "url": "https://gravelunion.cc/article/gran-fondo-strade-ride-report",
-        "category": "community",
-        "label": "gravelunion.cc: Gran Fondo Strade Ride Report"
       }
     ],
     "results": {

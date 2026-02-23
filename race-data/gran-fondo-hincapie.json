@@ -145,7 +145,13 @@
       ],
       "signature_challenge": "100+ miles with 7000 feet of climbing on mixed surfaces.",
       "ridewithgps_id": "44781186",
-      "ridewithgps_name": "Gran Route / Gran Fondo Hincapie - Greenville (copy)"
+      "ridewithgps_name": "Gran Route / Gran Fondo Hincapie - Greenville (copy)",
+      "surface_breakdown": {
+        "81mi": {
+          "gravel": 49,
+          "pavement": 51
+        }
+      }
     },
     "guide_variables": {
       "race_name": "Gran Fondo Hincapie",
@@ -192,12 +198,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 91.8,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 82,
+          "cross_reference": 50
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -326,69 +341,79 @@
     },
     "citations": [
       {
+        "url": "https://hincapie.com/pages/gran-fondo-greenville",
+        "category": "official",
+        "label": "Official Website"
+      },
+      {
         "url": "https://ridewithgps.com/routes/44781186",
         "category": "route",
         "label": "RideWithGPS: Gran Route / Gran Fondo Hincapie - Greenville (copy)"
       },
       {
-        "url": "https://www.reddit.com/r/bicycling/comments/z4774/my_brother_backed_out_on_the_gran_fondo_hincapie/",
+        "url": "https://avidcyclist.com/event/grand-fondo-hincapie-merced-california/",
+        "category": "other",
+        "label": "Avidcyclist"
+      },
+      {
+        "url": "https://granfondodailynews.com/2025/01/20/2025-hincapie-gran-fondo-series-starts-on-californian-gravel-in-march/",
+        "category": "other",
+        "label": "Granfondodailynews"
+      },
+      {
+        "url": "https://granfondodailynews.com/2025/03/21/hincapie-series-kicks-off-with-a-big-muddy-mess-in-merced-results/",
+        "category": "other",
+        "label": "Granfondodailynews"
+      },
+      {
+        "url": "https://hincapie.com/pages/gran-fondo-hincapie",
+        "category": "other",
+        "label": "Hincapie"
+      },
+      {
+        "url": "https://hincapie.com/pages/gran-fondo-merced",
+        "category": "other",
+        "label": "Hincapie"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Contents/Index/8761/2025-gran-fondo-hincapie-greenville-draws-2000-riders",
+        "category": "other",
+        "label": "Granfondoguide"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Contents/PopUp/8375/gran-fondo-hincapie-announces-official-courses-for-merced-gravel-event",
+        "category": "other",
+        "label": "Granfondoguide"
+      },
+      {
+        "url": "https://www.reddit.com/r/bicycling/comments/12b07q/me_finishing_gran_fondo_hincapie_with_george_and/",
         "category": "community",
-        "label": "reddit.com: My Brother Backed Out On The Gran Fondo Hincapie"
+        "label": "Reddit"
       },
       {
         "url": "https://www.reddit.com/r/bicycling/comments/dkzuz8/gran_fondo_hincapie_greenville_if_you_ever_have/",
         "category": "community",
-        "label": "reddit.com: Gran Fondo Hincapie Greenville If You Ever Have"
+        "label": "Reddit"
       },
       {
-        "url": "https://granfondodailynews.com/2020/09/13/george-hincapie-gets-dirty-adds-gravel-race-to-gran-fondo-series/",
+        "url": "https://www.reddit.com/r/bicycling/comments/yanut/any_of_you_guys_doing_the_gran_fondo_hincapie/",
         "category": "community",
-        "label": "granfondodailynews.com: George Hincapie Gets Dirty Adds Gravel Race To Gran Fondo..."
+        "label": "Reddit"
       },
       {
-        "url": "https://hincapie.com/pages/gran-fondo-merced",
+        "url": "https://www.reddit.com/r/bicycling/comments/z4774/my_brother_backed_out_on_the_gran_fondo_hincapie/",
         "category": "community",
-        "label": "hincapie.com: Gran Fondo Merced"
-      },
-      {
-        "url": "https://granfondodailynews.com/2025/01/20/2025-hincapie-gran-fondo-series-starts-on-californian-gravel-in-march/",
-        "category": "community",
-        "label": "granfondodailynews.com: 2025 Hincapie Gran Fondo Series Starts On Californian Gra..."
+        "label": "Reddit"
       },
       {
         "url": "https://www.reddit.com/r/cycling/comments/r3n1z7/chemin_dirt_road_sections_of_hincapie_gran_fondo/",
         "category": "community",
-        "label": "reddit.com: Chemin Dirt Road Sections Of Hincapie Gran Fondo"
-      },
-      {
-        "url": "https://hincapie.com/pages/gran-fondo-hincapie",
-        "category": "community",
-        "label": "hincapie.com: Gran Fondo Hincapie"
-      },
-      {
-        "url": "https://granfondo-cycling.com/guide-gran-fondo/",
-        "category": "community",
-        "label": "granfondo-cycling.com: Guide Gran Fondo"
-      },
-      {
-        "url": "https://www.granfondoguide.com/Contents/PopUp/8375/gran-fondo-hincapie-announces-official-courses-for-merced-gravel-event",
-        "category": "community",
-        "label": "granfondoguide.com: Gran Fondo Hincapie Announces Official Courses For Merced..."
+        "label": "Reddit"
       },
       {
         "url": "https://www.trainerroad.com/forum/t/hincapie-gran-fondo/105740",
         "category": "community",
-        "label": "trainerroad.com: 105740"
-      },
-      {
-        "url": "https://granfondodailynews.com/2025/03/21/hincapie-series-kicks-off-with-a-big-muddy-mess-in-merced-results/",
-        "category": "community",
-        "label": "granfondodailynews.com: Hincapie Series Kicks Off With A Big Muddy Mess In Merced..."
-      },
-      {
-        "url": "https://www.granfondoguide.com/Contents/Index/8761/2025-gran-fondo-hincapie-greenville-draws-2000-riders",
-        "category": "community",
-        "label": "granfondoguide.com: 2025 Gran Fondo Hincapie Greenville Draws 2000 Riders"
+        "label": "TrainerRoad"
       },
       {
         "url": "https://www.reddit.com/r/cycling/comments/1co7odn/strava_v_ridewithgps_v_google_maps_pro_huge/",

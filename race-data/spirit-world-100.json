@@ -19,7 +19,7 @@
         "Southwest USA"
       ],
       "field_size": "200-400 riders",
-      "start_time": "Morning start",
+      "start_time": "7:00 AM",
       "registration": "Online. Cost: ~$75-125",
       "prize_purse": "Modest prizes",
       "aid_stations": "Multiple aid stations",
@@ -185,12 +185,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 92.3,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 100,
+          "completeness": 82,
+          "cross_reference": 50
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -311,44 +320,24 @@
     },
     "citations": [
       {
-        "url": "https://www.thebetterbar.co/conquering-80-miles-karls-journey-through-the-spirit-world-100/",
-        "category": "community",
-        "label": "thebetterbar.co: Conquering 80 Miles Karls Journey Through The Spirit Worl..."
-      },
-      {
-        "url": "https://www.cyclingwest.com/racing/gravel-racing/entering-the-spirit-world-an-arizona-gravel-event/",
-        "category": "community",
-        "label": "cyclingwest.com: Entering The Spirit World An Arizona Gravel Event"
-      },
-      {
-        "url": "https://velo.outsideonline.com/gravel/the-spirit-world-100-and-other-grassroots-gravel-events-offer-more-than-just-a-finish-line/",
-        "category": "community",
-        "label": "velo.outsideonline.com: The Spirit World 100 And Other Grassroots Gravel Events O..."
-      },
-      {
-        "url": "https://velo.outsideonline.com/gallery/gallery-the-spirit-of-gravel-revisited/",
-        "category": "community",
-        "label": "velo.outsideonline.com: Gallery The Spirit Of Gravel Revisited"
-      },
-      {
-        "url": "https://theradavist.com/sometimes-you-meet-the-people-and-the-animals-racing-the-spirit-world-100",
-        "category": "community",
-        "label": "theradavist.com: Sometimes You Meet The People And The Animals Racing The ..."
-      },
-      {
-        "url": "https://www.thespiritworld100.com/",
-        "category": "community",
-        "label": "thespiritworld100.com"
+        "url": "https://ridewithgps.com/routes/50564820",
+        "category": "route",
+        "label": "RideWithGPS: Copy of The Spirit World 100"
       },
       {
         "url": "https://patagoniaregionaltimes.org/how-spirit-world-100-went-this-year-and-where-its-going-next/",
-        "category": "community",
-        "label": "patagoniaregionaltimes.org: How Spirit World 100 Went This Year And Where Its Going Next"
+        "category": "other",
+        "label": "Patagoniaregionaltimes"
       },
       {
-        "url": "https://www.thespiritworld100.com",
-        "category": "community",
-        "label": "thespiritworld100.com"
+        "url": "https://velo.outsideonline.com/gallery/bikes-on-the-borderlands-the-spirit-world-100/",
+        "category": "media",
+        "label": "Velo"
+      },
+      {
+        "url": "https://www.thespiritworld100.com/results",
+        "category": "other",
+        "label": "Thespiritworld100"
       },
       {
         "url": "https://www.webscorer.com/racealldetails?pid=1&raceid=202891&topn=3",
@@ -361,9 +350,9 @@
         "label": "gravel-results.com: 19888"
       },
       {
-        "url": "https://velo.outsideonline.com/gallery/bikes-on-the-borderlands-the-spirit-world-100/",
+        "url": "https://velo.outsideonline.com/gallery/gallery-the-spirit-of-gravel-revisited/",
         "category": "community",
-        "label": "velo.outsideonline.com: Bikes On The Borderlands The Spirit World 100"
+        "label": "velo.outsideonline.com: Gallery The Spirit Of Gravel Revisited"
       }
     ],
     "tire_recommendations": {

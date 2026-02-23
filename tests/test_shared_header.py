@@ -53,7 +53,7 @@ class TestHeaderHTML:
         for link_text in expected:
             assert link_text in html, f"Missing dropdown link: {link_text}"
 
-    def test_eight_sub_links(self):
+    def test_nine_sub_links(self):
         html = get_site_header_html()
         # Count links inside dropdown divs
         dropdowns = re.findall(

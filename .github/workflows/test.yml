@@ -27,3 +27,11 @@ jobs:
         run: |
           pytest tests/ -v --tb=short
 
+      - name: Validate citations
+        run: |
+          python scripts/validate_citations.py
+
+      - name: Check citation quality
+        run: |
+          python scripts/audit_citation_quality.py 2>&1 | tail -20
+

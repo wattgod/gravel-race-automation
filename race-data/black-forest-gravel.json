@@ -94,7 +94,10 @@
       "score": "51 / 100",
       "one_liner": "German Black Forest mountainous gravel in Freiburg.",
       "should_you_race": "If you're in Germany/Europe—yes, it's solid. If you're international—there are better options.",
-      "alternatives": "For similar German events: King of the Lake."
+      "alternatives": "For similar German events: King of the Lake.",
+      "alternative_slugs": [
+        "king-of-the-lake"
+      ]
     },
     "logistics": {
       "airport": "Basel (BSL) 1 hour or Zurich (ZRH) 2 hours",
@@ -102,7 +105,8 @@
       "food": "Freiburg has full dining options. Stock nutrition.",
       "packet_pickup": "Day before typically",
       "parking": "At start/finish",
-      "official_site": "Check Black Forest Gravel website"
+      "official_site": "Check Black Forest Gravel website",
+      "camping": "Camping directly at festival grounds, described as \"echte Festival-Atmosphäre\" (real festival atmosphere) (https://gravel-rallye"
     },
     "history": {
       "founded": null,
@@ -185,12 +189,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 90.0,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 82,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -311,49 +324,44 @@
     },
     "citations": [
       {
-        "url": "https://www.ultra-gravel.de/en/",
-        "category": "community",
-        "label": "ultra-gravel.de: En"
+        "url": "https://gravel-rallye.com/black-forest/",
+        "category": "other",
+        "label": "Gravel-Rallye"
       },
       {
-        "url": "https://www.ultra-gravel.de/en/news/",
-        "category": "community",
-        "label": "ultra-gravel.de: News"
+        "url": "https://ilovegravelracing.com/event/black-fork-gravel-grinder/",
+        "category": "other",
+        "label": "Ilovegravelracing"
       },
       {
-        "url": "https://www.blackforkgravelgrinder.com/",
-        "category": "community",
-        "label": "blackforkgravelgrinder.com"
+        "url": "https://onreg.datasport.com/en/black-forest-ultra-gravel",
+        "category": "other",
+        "label": "Onreg"
+      },
+      {
+        "url": "https://onreg.datasport.com/en/black-forest-ultra-gravel-2025",
+        "category": "other",
+        "label": "Onreg"
       },
       {
         "url": "https://www.blackforkgravelgrinder.com/results",
-        "category": "community",
-        "label": "blackforkgravelgrinder.com: Results"
+        "category": "other",
+        "label": "Blackforkgravelgrinder"
       },
       {
-        "url": "https://www.blackforkgravelgrinder.com/course",
-        "category": "community",
-        "label": "blackforkgravelgrinder.com: Course"
+        "url": "https://www.granfondoguide.com/Events/Index/7578/gravel-rallye-black-forest",
+        "category": "other",
+        "label": "Granfondoguide"
+      },
+      {
+        "url": "https://www.ultra-gravel.de/en/news/",
+        "category": "other",
+        "label": "Ultra-Gravel"
       },
       {
         "url": "https://www.youtube.com/watch?v=bBORxMlLTEE",
         "category": "community",
         "label": "youtube.com: Watch"
-      },
-      {
-        "url": "https://gravel-rallye.com/black-forest/",
-        "category": "community",
-        "label": "gravel-rallye.com: Black Forest"
-      },
-      {
-        "url": "https://onreg.datasport.com/en/black-forest-ultra-gravel-2025",
-        "category": "community",
-        "label": "onreg.datasport.com: Black Forest Ultra Gravel 2025"
-      },
-      {
-        "url": "https://ilovegravelracing.com/event/black-fork-gravel-grinder/",
-        "category": "community",
-        "label": "ilovegravelracing.com: Black Fork Gravel Grinder"
       }
     ],
     "tire_recommendations": {

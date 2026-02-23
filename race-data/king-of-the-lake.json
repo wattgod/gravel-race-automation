@@ -19,7 +19,7 @@
         "Germany"
       ],
       "field_size": "200-400 riders",
-      "start_time": "Morning start",
+      "start_time": "1:00 PM",
       "registration": "Online. Cost: ~€60-100",
       "prize_purse": "Modest prizes",
       "aid_stations": "Multiple aid stations",
@@ -94,14 +94,17 @@
       "score": "49 / 100",
       "one_liner": "German Lake Constance rolling gravel.",
       "should_you_race": "If you're in Germany/Europe—yes, it's solid. If you're international—there are better options.",
-      "alternatives": "For similar German events: Black Forest Gravel."
+      "alternatives": "For similar German events: Black Forest Gravel.",
+      "alternative_slugs": [
+        "black-forest-gravel"
+      ]
     },
     "logistics": {
       "airport": "Zurich (ZRH) 1 hour or Munich (MUC) 2.5 hours",
       "lodging_strategy": "Lake Constance has good lodging options.",
       "food": "Lake Constance has full dining options. Stock nutrition.",
       "packet_pickup": "Day before typically",
-      "parking": "At start/finish",
+      "parking": "Parking available\n- Start number distribution system\n- Festival tent\n- Expo area\n- Nearby grocery store (Billa)\n- Coffee available\n(https:",
       "official_site": "Check King of the Lake website"
     },
     "history": {
@@ -185,12 +188,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 89.2,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -312,33 +324,23 @@
     "citations": [
       {
         "url": "https://bikeboard.cc/eng/king-of-the-lake-2024-review-th11098",
-        "category": "community",
-        "label": "bikeboard.cc: King Of The Lake 2024 Review Th11098"
-      },
-      {
-        "url": "https://ridemonkey.com/threads/bmcc-king-of-the-lake-nc-state-super-d-series-race-2-may-18th.257618/",
-        "category": "community",
-        "label": "ridemonkey.com: Bmcc King Of The Lake Nc State Super D Series Race 2 May ..."
-      },
-      {
-        "url": "https://www.experiencefayetteville.com/experience/cycling/arkansaw-high-country-race",
-        "category": "community",
-        "label": "experiencefayetteville.com: Arkansaw High Country Race"
-      },
-      {
-        "url": "https://www.lakecycling.com/blogs/newsletter/the-rebirth-of-trail-and-xc-mountain-biking",
-        "category": "community",
-        "label": "lakecycling.com: The Rebirth Of Trail And Xc Mountain Biking"
+        "category": "other",
+        "label": "Bikeboard"
       },
       {
         "url": "https://granfondodailynews.com/2025/09/22/15th-king-of-the-lake-tt-results-megens-ventker-crowned-champions/",
-        "category": "community",
-        "label": "granfondodailynews.com: 15Th King Of The Lake Tt Results Megens Ventker Crowned C..."
+        "category": "other",
+        "label": "Granfondodailynews"
+      },
+      {
+        "url": "https://ridemonkey.com/threads/bmcc-king-of-the-lake-nc-state-super-d-series-race-2-may-18th.257618/",
+        "category": "other",
+        "label": "Ridemonkey"
       },
       {
         "url": "https://ridemonkey.com/threads/bmcc-king-of-the-lake-series.195081/",
-        "category": "community",
-        "label": "ridemonkey.com: Bmcc King Of The Lake Series.195081"
+        "category": "other",
+        "label": "Ridemonkey"
       }
     ],
     "results": {

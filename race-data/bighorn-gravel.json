@@ -93,7 +93,10 @@
       "score": "60 / 100",
       "one_liner": "Regional Colorado mountain gravel with high altitude and significant climbing near Vail.",
       "should_you_race": "If you're in Colorado or the Front Range and want a mountain gravel challenge—yes, it's a well-organized event with genuine altitude and climbing. If you're traveling from far away—there are more prestigious mountain events elsewhere.",
-      "alternatives": "For better Colorado mountain events: Leadville 100, Steamboat Gravel. For similar regional mountain vibes: other Front Range events."
+      "alternatives": "For better Colorado mountain events: Leadville 100, Steamboat Gravel. For similar regional mountain vibes: other Front Range events.",
+      "alternative_slugs": [
+        "leadville-100"
+      ]
     },
     "logistics": {
       "airport": "Denver (DEN) 2 hours, or Eagle County (EGE) 30 min",
@@ -101,7 +104,8 @@
       "food": "Small town with basic dining options. Stock race nutrition beforehand.",
       "packet_pickup": "Day before typically",
       "parking": "At start/finish",
-      "official_site": "Check Colorado cycling calendars"
+      "official_site": "Check Colorado cycling calendars",
+      "camping": "onsite camping with showers and bathrooms** through support of the event[3]"
     },
     "history": {
       "founded": null,
@@ -183,12 +187,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 97.0,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 100,
+          "completeness": 88,
+          "cross_reference": 75
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -272,7 +285,7 @@
       },
       "altitude": {
         "score": 4,
-        "explanation": "Starting in Gypsum and climbing to 11,000 feet delivers serious physiological impact. Race positioning serves as \"first opportunity to get some high-altitude racing in\" for athletes preparing for Leadville and other marquee mountain events. LifeTime Grand Prix athletes specifically call about this early-season high-altitude training opportunity. Higher altitude racing, comparable to SBT GRVL."
+        "explanation": "Starting in Gypsum and climbing to 11,000 feet delivers serious physiological impact. Race positioning serves as \"first opportunity to get some high-altitude racing in\" for athletes preparing for Leadville and other marquee mountain events. Elite athletes specifically seek this early-season high-altitude training opportunity. Higher altitude racing, comparable to SBT GRVL."
       },
       "adventure": {
         "score": 3,
@@ -309,64 +322,49 @@
     },
     "citations": [
       {
-        "url": "https://michaela-thompson.com/thoughts/blog-post-title-one-7s48c",
-        "category": "community",
-        "label": "michaela-thompson.com: Blog Post Title One 7S48C"
+        "url": "https://avidcyclist.com/event/bighorn-gravel/",
+        "category": "other",
+        "label": "Avidcyclist"
       },
       {
-        "url": "https://www.pactimo.com/blogs/cycling-people-places-things/racing-at-altitude-grit-dust-glory-at-bighorn-gravel",
+        "url": "https://www.granfondoguide.com/Events/Index/10530/bighorn-gravel",
+        "category": "other",
+        "label": "Granfondoguide"
+      },
+      {
+        "url": "https://www.gravel-results.com/race/20885",
+        "category": "other",
+        "label": "Gravel-Results"
+      },
+      {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/1c9sz5x/bighorn_gravel_gypsum_co/",
         "category": "community",
-        "label": "pactimo.com: Racing At Altitude Grit Dust Glory At Bighorn Gravel"
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/1cytq3g/lost_found_gravel_grinder_portola_ca_or_bighorn/",
+        "category": "community",
+        "label": "Reddit"
       },
       {
         "url": "https://www.thecoyotecollective.com/bighorn-gravel",
-        "category": "community",
-        "label": "thecoyotecollective.com: Bighorn Gravel"
+        "category": "other",
+        "label": "Thecoyotecollective"
       },
       {
         "url": "https://www.vaildaily.com/news/bighorn-gravel-2025-off-road-mountain-bike-race-gypsum/",
-        "category": "community",
-        "label": "vaildaily.com: Bighorn Gravel 2025 Off Road Mountain Bike Race Gypsum"
+        "category": "other",
+        "label": "Vaildaily"
       },
       {
-        "url": "https://www.reddit.com/r/gravelcycling/comments/1jk34r0/what_the_hell_happened_to_the_price_of_gravel/",
-        "category": "community",
-        "label": "reddit.com: What The Hell Happened To The Price Of Gravel"
+        "url": "https://www.vaildaily.com/news/checking-all-the-boxes-third-annual-bighorn-gravel-returns-with-reversed-course-more-riders-and-same-vibes/",
+        "category": "other",
+        "label": "Vaildaily"
       },
       {
         "url": "https://www.reddit.com/r/gravelcycling/comments/1jn044s/happy_to_have_dry_gravel_to_ride_in_march_in_the/",
         "category": "community",
         "label": "reddit.com: Happy To Have Dry Gravel To Ride In March In The"
-      },
-      {
-        "url": "https://www.reddit.com/r/gravelcycling/comments/1knayu1/bighorn_gravel_race_colorado/",
-        "category": "community",
-        "label": "reddit.com: Bighorn Gravel Race Colorado"
-      },
-      {
-        "url": "https://www.bighornevents.com/",
-        "category": "community",
-        "label": "bighornevents.com"
-      },
-      {
-        "url": "https://www.granfondoguide.com/Events/Index/10530/bighorn-gravel",
-        "category": "community",
-        "label": "granfondoguide.com: Bighorn Gravel"
-      },
-      {
-        "url": "https://velo.outsideonline.com/road/road-culture/is-gravel-the-new-blueprint-for-road-racing-in-the-u-s/",
-        "category": "community",
-        "label": "velo.outsideonline.com: Is Gravel The New Blueprint For Road Racing In The U S"
-      },
-      {
-        "url": "https://www.vaildaily.com/news/checking-all-the-boxes-third-annual-bighorn-gravel-returns-with-reversed-course-more-riders-and-same-vibes/",
-        "category": "community",
-        "label": "vaildaily.com: Checking All The Boxes Third Annual Bighorn Gravel Return..."
-      },
-      {
-        "url": "https://www.reddit.com/r/gravelcycling/comments/1c9sz5x/bighorn_gravel_gypsum_co/",
-        "category": "community",
-        "label": "reddit.com: Bighorn Gravel Gypsum Co"
       },
       {
         "url": "https://www.youtube.com/watch?v=WnqAdNTiLKE",
@@ -377,6 +375,11 @@
         "url": "https://www.youtube.com/watch?v=Zx58wCVnGTI",
         "category": "community",
         "label": "youtube.com: Watch"
+      },
+      {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/1jk34r0/what_the_hell_happened_to_the_price_of_gravel/",
+        "category": "community",
+        "label": "reddit.com: What The Hell Happened To The Price Of Gravel"
       },
       {
         "url": "https://www.movemint.cc/series/bighorn_series_2025",

@@ -93,7 +93,12 @@
       "score": "74 / 100",
       "one_liner": "Four days through Kenya's Maasai Mara where heat, altitude, dust, and wildlife create the ultimate gravel adventure.",
       "should_you_race": "Yes, if you can afford it and can get a spot. Migration is the gravel adventure of a lifetime. No other race combines this level of support, experience, and pure adventure. Just be ready for the price tag and the cumulative stress of four consecutive days.",
-      "alternatives": "If you want single-day bucket-list: The Rift (Iceland, volcanic terrain). If you want European adventure: Traka 360 (Spain, 360km). If you want premium without Africa: Unbound (Kansas, established event)."
+      "alternatives": "If you want single-day bucket-list: The Rift (Iceland, volcanic terrain). If you want European adventure: Traka 360 (Spain, 360km). If you want premium without Africa: Unbound (Kansas, established event).",
+      "alternative_slugs": [
+        "the-rift",
+        "the-traka",
+        "unbound-200"
+      ]
     },
     "logistics": {
       "airport": "Nairobi (NBO) - then charter/transfer to Mara",
@@ -101,7 +106,8 @@
       "food": "Included in race package. Meals provided at camps.",
       "packet_pickup": "Race briefing at start location. All gear handled.",
       "parking": "N/A - airport transfers included",
-      "official_site": "https://migrationgravel.com"
+      "official_site": "https://migrationgravel.com",
+      "camping": "camping experience like it"
     },
     "history": {
       "founded": 2019,
@@ -166,18 +172,18 @@
       ],
       "migration_notes": [],
       "research_strength": {
-        "overall": 61.2,
-        "grade": "C",
-        "weakest": "citation_density",
-        "has_research_dump": false,
+        "overall": 93.6,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
         "dimensions": {
-          "source_diversity": 30,
-          "citation_density": 20,
-          "temporal_depth": 50,
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
           "specificity": 100,
-          "statistical_backing": 35,
+          "statistical_backing": 100,
           "voice_authenticity": 70,
-          "completeness": 100,
+          "completeness": 94,
           "cross_reference": 50
         },
         "scored_at": "2026-02-04"
@@ -243,84 +249,54 @@
     },
     "citations": [
       {
-        "url": "https://migrationgravel.com",
-        "category": "official",
-        "label": "Official Website"
-      },
-      {
         "url": "https://ridewithgps.com/routes/45563845",
         "category": "route",
         "label": "RideWithGPS: Migration Gravel Race"
       },
       {
+        "url": "https://atta.travel/resource/the-ultimate-gravel-challenge--migration-gravel-race-returns--june-16---21--2025.html",
+        "category": "other",
+        "label": "Atta"
+      },
+      {
         "url": "https://gravelearthseries.com/2025/06/25/four-days-through-the-wild-the-spirit-of-migration-gravel/",
-        "category": "community",
-        "label": "gravelearthseries.com: Four Days Through The Wild The Spirit Of Migration Gravel"
+        "category": "other",
+        "label": "Gravelearthseries"
       },
       {
-        "url": "https://www.parcours.cc/blogs/news/migration-gravel-race-report-contributed-by-maddy-nutt",
-        "category": "community",
-        "label": "parcours.cc: Migration Gravel Race Report Contributed By Maddy Nutt"
-      },
-      {
-        "url": "https://velo.outsideonline.com/gravel/gravel-racing/migration-gravel-race-results-sarah-sturm-and-hans-becking-celebrate-overall-victory-in-the-maasai-mara/",
-        "category": "community",
-        "label": "velo.outsideonline.com: Migration Gravel Race Results Sarah Sturm And Hans Beckin..."
+        "url": "https://gravelearthseries.com/migration-gravel-race/",
+        "category": "other",
+        "label": "Gravelearthseries"
       },
       {
         "url": "https://rawcyclingmag.com/migration-gravel-race-2024-when-finishing-is-a-remarkable-feat/",
-        "category": "community",
-        "label": "rawcyclingmag.com: Migration Gravel Race 2024 When Finishing Is A Remarkable..."
+        "category": "other",
+        "label": "Rawcyclingmag"
       },
       {
-        "url": "https://www.albioncycling.com/log/no-word-for-stranger-the-migration-gravel-race/",
-        "category": "community",
-        "label": "albioncycling.com: No Word For Stranger The Migration Gravel Race"
+        "url": "https://velo.outsideonline.com/gravel/gravel-racing/migration-gravel-race-results-sarah-sturm-and-hans-becking-celebrate-overall-victory-in-the-maasai-mara/",
+        "category": "media",
+        "label": "Velo"
       },
       {
-        "url": "https://cyclespeak.com/tag/migration-gravel-race/",
-        "category": "community",
-        "label": "cyclespeak.com: Migration Gravel Race"
+        "url": "https://velo.outsideonline.com/road/road-culture/kenyas-migration-gravel-race-this-isnt-another-feel-good-african-development-story",
+        "category": "media",
+        "label": "Velo"
       },
       {
-        "url": "https://journal.brooksengland.com/migration-gravel-race-followup/",
-        "category": "community",
-        "label": "journal.brooksengland.com: Migration Gravel Race Followup"
+        "url": "https://www.parcours.cc/blogs/news/migration-gravel-race-report-contributed-by-maddy-nutt",
+        "category": "other",
+        "label": "Parcours"
       },
       {
-        "url": "https://factorbikes.com/news/the-migration-diaries-part-one",
+        "url": "https://www.reddit.com/r/gravelcycling/comments/14lemls/migration_gravel_race_2023/",
         "category": "community",
-        "label": "factorbikes.com: The Migration Diaries Part One"
-      },
-      {
-        "url": "https://www.cyclingnews.com/blogs/nathan-haas/nathan-haas-2023-gravel-guide-for-new-races-toughest-races-and-wild-adventures/",
-        "category": "community",
-        "label": "cyclingnews.com: Nathan Haas 2023 Gravel Guide For New Races Toughest Race..."
-      },
-      {
-        "url": "https://journal.brooksengland.com/migration-gravel-race/",
-        "category": "community",
-        "label": "journal.brooksengland.com: Migration Gravel Race"
-      },
-      {
-        "url": "https://atta.travel/resource/the-ultimate-gravel-challenge--migration-gravel-race-returns--june-16---21--2025.html",
-        "category": "community",
-        "label": "atta.travel: The Ultimate Gravel Challenge  Migration Gravel Race Retu..."
-      },
-      {
-        "url": "https://www.migrationgravelrace.com/",
-        "category": "community",
-        "label": "migrationgravelrace.com"
+        "label": "Reddit"
       },
       {
         "url": "https://www.reddit.com/r/gravelcycling/comments/1dn7dj3/brutal_gravel_wildebeests/",
         "category": "community",
         "label": "reddit.com: Brutal Gravel Wildebeests"
-      },
-      {
-        "url": "https://velo.outsideonline.com/road/road-culture/kenyas-migration-gravel-race-this-isnt-another-feel-good-african-development-story",
-        "category": "community",
-        "label": "velo.outsideonline.com: Kenyas Migration Gravel Race This Isnt Another Feel Good ..."
       }
     ],
     "tire_recommendations": {

@@ -19,7 +19,7 @@
         "Georgia"
       ],
       "field_size": "75-125 riders",
-      "start_time": "Morning start",
+      "start_time": "12:00am PDT",
       "registration": "Online. Cost: ~$65-85",
       "prize_purse": "Modest prizes",
       "aid_stations": "2-3 aid stations",
@@ -94,7 +94,10 @@
       "score": "37 / 100",
       "one_liner": "Georgia gravel challenge.",
       "should_you_race": "If you're local to GA/Southeast—yes, it's solid. If you're traveling—skip it.",
-      "alternatives": "For better GA races: Cohutta Gravel Grinder, Southern Cross."
+      "alternatives": "For better GA races: Cohutta Gravel Grinder, Southern Cross.",
+      "alternative_slugs": [
+        "cohutta-gravel-grinder"
+      ]
     },
     "logistics": {
       "airport": "Tallahassee (TLH) 45 minutes",
@@ -185,12 +188,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 82.9,
+        "grade": "A",
+        "weakest": "citation_density",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 80,
+          "citation_density": 50,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 50
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -314,6 +326,11 @@
         "url": "https://ridewithgps.com/routes/45518916",
         "category": "route",
         "label": "RideWithGPS: Rose City Rampage Gravel Race long"
+      },
+      {
+        "url": "https://www.bikereg.com/rose-city-rampage",
+        "category": "registration",
+        "label": "BikeReg"
       },
       {
         "url": "https://sadlebred.com/page/7/",

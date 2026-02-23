@@ -94,7 +94,12 @@
       "score": "43 / 100",
       "one_liner": "Colorado gravel challenge.",
       "should_you_race": "If you're local to Colorado—yes, it's solid. If you're traveling—skip it.",
-      "alternatives": "For better Colorado races: Gravel Worlds, SBT GRVL, Leadville."
+      "alternatives": "For better Colorado races: Gravel Worlds, SBT GRVL, Leadville.",
+      "alternative_slugs": [
+        "garmin-gravel-worlds",
+        "leadville-100",
+        "sbt-grvl"
+      ]
     },
     "logistics": {
       "airport": "Pueblo (PUB) 30 minutes",
@@ -185,12 +190,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 90.9,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 50
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -316,39 +330,59 @@
         "label": "RideWithGPS: 2025 Grassroots Gravel - The Half (rev 1.6) (copy)"
       },
       {
-        "url": "https://cosracing.wildapricot.org/news/13418845",
-        "category": "community",
-        "label": "cosracing.wildapricot.org: 13418845"
-      },
-      {
-        "url": "https://www.grassrootsgravel.com/",
-        "category": "community",
-        "label": "grassrootsgravel.com"
-      },
-      {
         "url": "https://avidcyclist.com/featured-event/grassroots-gravel-a-gravel-race-on-a-state-hwy-what/",
-        "category": "community",
-        "label": "avidcyclist.com: Grassroots Gravel A Gravel Race On A State Hwy What"
+        "category": "other",
+        "label": "Avidcyclist"
       },
       {
         "url": "https://avidcyclist.com/news/grassroots-gravel-to-bring-1000-riders-outdoor-festival-and-live-concert-to-pueblo-october-10-11/",
-        "category": "community",
-        "label": "avidcyclist.com: Grassroots Gravel To Bring 1000 Riders Outdoor Festival A..."
+        "category": "other",
+        "label": "Avidcyclist"
       },
       {
         "url": "https://www.cyclingwest.com/racing/gravel-racing/grassroots-gravel-returns-to-pueblo-october-10-11/",
+        "category": "other",
+        "label": "Cyclingwest"
+      },
+      {
+        "url": "https://www.grassrootsgravel.com/pics-results",
+        "category": "other",
+        "label": "Grassrootsgravel"
+      },
+      {
+        "url": "https://www.info.routesoutfitter.com/all-events/grassroots-gravel-pueblo-colorado",
+        "category": "other",
+        "label": "Info"
+      },
+      {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/14rp2z9/gravel_is_back_in_pueblo_grassroots_gravel_reg/",
         "category": "community",
-        "label": "cyclingwest.com: Grassroots Gravel Returns To Pueblo October 10 11"
+        "label": "Reddit"
       },
       {
         "url": "https://www.reddit.com/r/gravelcycling/comments/14yby0r/grassroots_gravel_routes_are_live/",
         "category": "community",
-        "label": "reddit.com: Grassroots Gravel Routes Are Live"
+        "label": "Reddit"
       },
       {
-        "url": "https://www.info.routesoutfitter.com/all-events/grassroots-gravel-pueblo-colorado",
+        "url": "https://www.reddit.com/r/gravelcycling/comments/ev7kym/grassrootsgravel_keepgravelweird/",
         "category": "community",
-        "label": "info.routesoutfitter.com: Grassroots Gravel Pueblo Colorado"
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.reddit.com/r/pueblo/comments/159uwh5/grassroots_gravel_is_bringing_protier_cycling/",
+        "category": "community",
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.reddit.com/r/pueblo/comments/17ubm7e/grassroots_gravel_returns_to_pueblo_10122024/",
+        "category": "community",
+        "label": "Reddit"
+      },
+      {
+        "url": "https://cosracing.wildapricot.org/news/13418845",
+        "category": "community",
+        "label": "cosracing.wildapricot.org: 13418845"
       }
     ],
     "results": {

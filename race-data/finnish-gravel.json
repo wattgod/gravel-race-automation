@@ -164,7 +164,11 @@
       "score": "72 / 100",
       "one_liner": "F1 glamour meets Nordic gravel in a UNESCO Geopark—premium experience, premium price tag, unique bucket-list appeal.",
       "should_you_race": "Yes if you want a unique Nordic cultural experience with world-class event production. Yes if you're an F1/Bottas fan. Skip if you're chasing big climbing or watching your budget. International travelers should weigh the high costs against the unique experience.",
-      "alternatives": "Dirty Reiver (UK, cheaper, more climbing); The Traka (Spain, bigger field, better weather); SBT GRVL (Colorado, same organizers, more established)"
+      "alternatives": "Dirty Reiver (UK, cheaper, more climbing); The Traka (Spain, bigger field, better weather); SBT GRVL (Colorado, same organizers, more established)",
+      "alternative_slugs": [
+        "dirty-reiver",
+        "sbt-grvl"
+      ]
     },
     "logistics": {
       "airport": "HEL (Helsinki-Vantaa) - 1hr by train/bus to Lahti",
@@ -262,19 +266,9 @@
     },
     "citations": [
       {
-        "url": "https://fnldgrvl.com",
-        "category": "official",
-        "label": "Official Website"
-      },
-      {
         "url": "https://ridewithgps.com/routes/50081451",
         "category": "route",
         "label": "RideWithGPS: 2025 FNLD GRVL Midnight Sun Route"
-      },
-      {
-        "url": "https://nordicgravel.com/",
-        "category": "other",
-        "label": "Nordicgravel"
       },
       {
         "url": "https://www.cyclingweekly.com/racing/valterri-bottas-gravel-race-gears-up-for-a-second-edition-in-lathi-finland-in-june-2024",
@@ -282,49 +276,9 @@
         "label": "Cycling Weekly"
       },
       {
-        "url": "https://www.cyclingnews.com/blogs/nathan-haas/nathan-haas-2023-gravel-guide-for-new-races-toughest-races-and-wild-adventures/",
-        "category": "community",
-        "label": "cyclingnews.com: Nathan Haas 2023 Gravel Guide For New Races Toughest Race..."
-      },
-      {
-        "url": "https://thefeed.com/insider/the-juxtaposition-of-leadville-vs-sbt-grvl",
-        "category": "community",
-        "label": "thefeed.com: The Juxtaposition Of Leadville Vs Sbt Grvl"
-      },
-      {
-        "url": "https://nordictrailblazer.cc/races/fndl-grvl-2024/",
-        "category": "community",
-        "label": "nordictrailblazer.cc: Fndl Grvl 2024"
-      },
-      {
-        "url": "https://nordictrailblazer.cc/races/fndl-grvl/",
-        "category": "community",
-        "label": "nordictrailblazer.cc: Fndl Grvl"
-      },
-      {
         "url": "https://www.bikeperfect.com/features/fnld-grvl-ride-report",
         "category": "community",
         "label": "bikeperfect.com: Fnld Grvl Ride Report"
-      },
-      {
-        "url": "https://off.road.cc/content/feature/fnld-grvl-why-the-shortest-distance-is-often-the-sweetest-12795",
-        "category": "community",
-        "label": "off.road.cc: Fnld Grvl Why The Shortest Distance Is Often The Sweetest..."
-      },
-      {
-        "url": "https://www.keepitsimpelle.com/fnld-grvl-review/",
-        "category": "community",
-        "label": "keepitsimpelle.com: Fnld Grvl Review"
-      },
-      {
-        "url": "https://blog.zone4.ca/2025/10/31/gravel-biking-origins/",
-        "category": "community",
-        "label": "blog.zone4.ca: Gravel Biking Origins"
-      },
-      {
-        "url": "https://www.velouk.net/2024/04/18/ribble-collective-ride-more-in-24/",
-        "category": "community",
-        "label": "velouk.net: Ribble Collective Ride More In 24"
       },
       {
         "url": "https://off-road.cc/content/feature/fnld-grvl-why-the-shortest-distance-is-often-the-sweetest-12795",
@@ -340,6 +294,11 @@
         "url": "https://www.maurten.com/es/magazine/fnld-grvl-carolin-schiff",
         "category": "community",
         "label": "maurten.com: Fnld Grvl Carolin Schiff"
+      },
+      {
+        "url": "https://www.keepitsimpelle.com/fnld-grvl-review/",
+        "category": "community",
+        "label": "keepitsimpelle.com: Fnld Grvl Review"
       },
       {
         "url": "https://rawcyclingmag.com/fnld-grvl-a-premier-gravel-event-in-the-making/",
@@ -424,6 +383,25 @@
         "200pluslb_dry": "44-48",
         "200pluslb_mixed": "41-45",
         "200pluslb_wet": "39-43"
+      }
+    },
+    "research_metadata": {
+      "research_strength": {
+        "overall": 97.0,
+        "grade": "A",
+        "weakest": "voice_authenticity",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 100,
+          "cross_reference": 100
+        },
+        "scored_at": "2026-02-04"
       }
     }
   },

@@ -182,7 +182,8 @@
       ],
       "accommodation_notes": "Book early - Sea Otter Europe brings 68,000+ visitors",
       "bike_services": "Girona is cycling capital of Europe - excellent shops, rentals, transfers",
-      "official_site": "http://www.thepirinexuschallenge.com"
+      "official_site": "http://www.thepirinexuschallenge.com",
+      "camping": "Camping Intel\n\n> \"There's no lack of camping sites in this corner of Spain, and Catalonia is one of the few regions in Spain whe"
     },
     "gear_recommendations": {
       "tires": "40mm+ essential, 42-45mm ideal",
@@ -203,7 +204,11 @@
       "score": "74 / 100",
       "one_liner": "The thinking rider's 340k—half the distance of the big ultras but twice as beautiful, with a border-crossing climb that sends half the field home early.",
       "should_you_race": "You need 200+ mile legs and 40mm+ tires minimum—the technical border descent after Col d'Ares will put narrower rubber on foot. This isn't a watts contest; it's navigation, bike handling, and knowing when to push through the Pyrenean climbs versus when to survive them. Show up undertrained and that 18-hour cutoff becomes very real very fast.",
-      "alternatives": "Gravel Worlds in Nebraska gives you similar distance with half the climbing and none of the charm. Dirty Kanza (Unbound) trades European scenery for American suffer-fest purity, while Eroica keeps the Old World vibe but loses the modern challenge."
+      "alternatives": "Gravel Worlds in Nebraska gives you similar distance with half the climbing and none of the charm. Dirty Kanza (Unbound) trades European scenery for American suffer-fest purity, while Eroica keeps the Old World vibe but loses the modern challenge.",
+      "alternative_slugs": [
+        "garmin-gravel-worlds",
+        "unbound-200"
+      ]
     },
     "course_description": {
       "character": "The Pirinexus is half smooth greenway cruise, half bike-destroying nightmare. You'll roll 55 kilometers on the silky Via Verde del Carrilet thinking this is easy, then spend the next 70 kilometers climbing volcanic hills and technical gravel that'll have you questioning your tire choice. The route crosses into France where the road literally disappears into rocky descents that punish anything under 40mm tires.",
@@ -264,11 +269,6 @@
     ],
     "citations": [
       {
-        "url": "http://www.thepirinexuschallenge.com",
-        "category": "official",
-        "label": "Official Website"
-      },
-      {
         "url": "https://ridewithgps.com/routes/52671146",
         "category": "route",
         "label": "RideWithGPS: Pirinexus360 2 Stops"
@@ -279,9 +279,19 @@
         "label": "Therawstories"
       },
       {
+        "url": "https://bike-cafe.fr/2017/06/the-pirinexus-360-challenge-catalunya-version-gravel/",
+        "category": "other",
+        "label": "Bike-Cafe"
+      },
+      {
         "url": "https://bikepacking.com/news/bikepacking-pirinexus-bike-trail-girona/",
         "category": "other",
         "label": "Bikepacking"
+      },
+      {
+        "url": "https://gravelunion.cc/article/ride-report-the-pirinexus-challenge",
+        "category": "other",
+        "label": "Gravelunion"
       },
       {
         "url": "https://pyrenees.cc/pirinexus-gravel-tour",
@@ -309,6 +319,11 @@
         "label": "Eatsleepcycle"
       },
       {
+        "url": "https://www.eatsleepcycle.com/pirinexus-360-cycling-catalunya/",
+        "category": "other",
+        "label": "Eatsleepcycle"
+      },
+      {
         "url": "https://www.freewheelingfrance.com/bike-routes-in-france/pirinexus-cycle-loop.html",
         "category": "other",
         "label": "Freewheelingfrance"
@@ -319,44 +334,24 @@
         "label": "Gravel Cyclist"
       },
       {
-        "url": "https://www.viesverdes.cat/en/pirinexus/",
+        "url": "https://www.therawstories.com/the-pirinexus-360/",
+        "category": "other",
+        "label": "Therawstories"
+      },
+      {
+        "url": "https://www.viesverdes.cat/en/noticies_actualitat/arriba-la-5a-edicio-de-la-pirinexus-360-challenge/",
         "category": "other",
         "label": "Viesverdes"
       },
       {
-        "url": "https://www.ciclo21.com/pirinexus-gravel-pirineos-2019/",
-        "category": "community",
-        "label": "ciclo21.com: Pirinexus Gravel Pirineos 2019"
-      },
-      {
-        "url": "https://www.viesverdes.cat/en/noticies_actualitat/arriba-la-5a-edicio-de-la-pirinexus-360-challenge/",
-        "category": "community",
-        "label": "viesverdes.cat: Arriba La 5A Edicio De La Pirinexus 360 Challenge"
-      },
-      {
-        "url": "https://www.seaottereurope.com/two-spectacular-gravel-trails-exploring-best-parts-girona-pirinexus-challenge/",
-        "category": "community",
-        "label": "seaottereurope.com: Two Spectacular Gravel Trails Exploring Best Parts Girona..."
-      },
-      {
-        "url": "https://www.eatsleepcycle.com/pirinexus-360-cycling-catalunya/",
-        "category": "community",
-        "label": "eatsleepcycle.com: Pirinexus 360 Cycling Catalunya"
-      },
-      {
-        "url": "https://bike-cafe.fr/2017/06/the-pirinexus-360-challenge-catalunya-version-gravel/",
-        "category": "community",
-        "label": "bike-cafe.fr: The Pirinexus 360 Challenge Catalunya Version Gravel"
-      },
-      {
-        "url": "https://gravelunion.cc/article/ride-report-the-pirinexus-challenge",
-        "category": "community",
-        "label": "gravelunion.cc: Ride Report The Pirinexus Challenge"
-      },
-      {
         "url": "https://www.viesverdes.cat/en/noticies_actualitat/the-pirinexus-360-challenge-and-half-p360-gravel/",
-        "category": "community",
-        "label": "viesverdes.cat: The Pirinexus 360 Challenge And Half P360 Gravel"
+        "category": "other",
+        "label": "Viesverdes"
+      },
+      {
+        "url": "https://www.viesverdes.cat/en/pirinexus/",
+        "category": "other",
+        "label": "Viesverdes"
       }
     ],
     "results": {
@@ -447,6 +442,25 @@
         "Medieval village cobbles",
         "Singletrack sections"
       ]
+    },
+    "research_metadata": {
+      "research_strength": {
+        "overall": 92.1,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 100,
+          "completeness": 64,
+          "cross_reference": 50
+        },
+        "scored_at": "2026-02-04"
+      }
     }
   }
 }

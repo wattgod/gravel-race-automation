@@ -80,6 +80,34 @@ class TestMegaFooterHTML:
         assert "produced independently" in self.html
         assert "not affiliated with" in self.html
 
+    def test_has_legal_links_section(self):
+        assert "gg-mega-footer-legal-links" in self.html
+
+    def test_has_privacy_link(self):
+        assert 'href="https://gravelgodcycling.com/privacy/"' in self.html
+
+    def test_has_terms_link(self):
+        assert 'href="https://gravelgodcycling.com/terms/"' in self.html
+
+    def test_has_cookies_link(self):
+        assert 'href="https://gravelgodcycling.com/cookies/"' in self.html
+
+    def test_legal_links_in_nav(self):
+        """Legal links must be inside a <nav> element for accessibility."""
+        assert '<nav class="gg-mega-footer-legal-links">' in self.html
+
+    def test_three_legal_links(self):
+        """Exactly 3 legal links: Privacy, Terms, Cookies."""
+        section = self.html.split("gg-mega-footer-legal-links")[1].split("</nav>")[0]
+        link_count = section.count("<a ")
+        assert link_count == 3, f"Expected 3 legal links, got {link_count}"
+
+    def test_legal_link_labels(self):
+        """Links must have visible text labels."""
+        assert ">Privacy</a>" in self.html
+        assert ">Terms</a>" in self.html
+        assert ">Cookies</a>" in self.html
+
     # ── External links ───────────────────────────────────────
 
     def test_external_links_noopener(self):

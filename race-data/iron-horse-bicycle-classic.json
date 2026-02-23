@@ -19,7 +19,7 @@
         "Regional event"
       ],
       "field_size": "400-800 riders",
-      "start_time": "Morning start",
+      "start_time": "7:15 AM",
       "registration": "Online. Cost: ~$80-120",
       "prize_purse": "Prizes for top finishers",
       "aid_stations": "Multiple aid stations",
@@ -94,7 +94,11 @@
       "score": "59 / 100",
       "one_liner": "Colorado mountain cycling in Durango.",
       "should_you_race": "If you're in Colorado and want a mountain cycling event—yes, it's solid. If you want pure gravel or pro field depth—look elsewhere.",
-      "alternatives": "For better CO events: Crusher in the Tushar, Leadville 100. For similar regional events: other CO cycling races."
+      "alternatives": "For better CO events: Crusher in the Tushar, Leadville 100. For similar regional events: other CO cycling races.",
+      "alternative_slugs": [
+        "crusher-in-the-tushar",
+        "leadville-100"
+      ]
     },
     "logistics": {
       "airport": "Durango (DRO) 20 minutes or Albuquerque (ABQ) 3 hours",
@@ -185,12 +189,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 92.7,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 88,
+          "cross_reference": 50
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -316,44 +329,64 @@
         "label": "RideWithGPS: 2019 Coca-Cola Iron Horse Bicycle Classic Road Race "
       },
       {
-        "url": "https://www.reddit.com/r/bicycling/comments/1463ltp/i_beat_the_train_2023_iron_horse_bicycle_classic/",
-        "category": "community",
-        "label": "reddit.com: I Beat The Train 2023 Iron Horse Bicycle Classic"
-      },
-      {
-        "url": "https://www.durangoherald.com/articles/ian-burnett-reflects-on-iron-horse-bicycle-classic-looks-ahead/",
-        "category": "community",
-        "label": "durangoherald.com: Ian Burnett Reflects On Iron Horse Bicycle Classic Looks ..."
-      },
-      {
-        "url": "https://www.durangoherald.com/articles/iron-horse-bicycle-classic-makes-its-return-to-downtown-durango-this-weekend/",
-        "category": "community",
-        "label": "durangoherald.com: Iron Horse Bicycle Classic Makes Its Return To Downtown D..."
-      },
-      {
-        "url": "https://www.cyclingwest.com/racing/road-racing/51st-iron-horse-bicycle-classic-brief-results/",
-        "category": "community",
-        "label": "cyclingwest.com: 51St Iron Horse Bicycle Classic Brief Results"
-      },
-      {
-        "url": "https://avidcyclist.com/event/iron-horse-bicycle-classic/",
-        "category": "community",
-        "label": "avidcyclist.com: Iron Horse Bicycle Classic"
-      },
-      {
-        "url": "https://www.ironhorsebicycleclassic.com/",
-        "category": "community",
-        "label": "ironhorsebicycleclassic.com"
-      },
-      {
-        "url": "https://www.cpr.org/2022/05/26/bike-vs-train-the-story-behind-durangos-iron-horse-bicycle-classic/",
-        "category": "community",
-        "label": "cpr.org: Bike Vs Train The Story Behind Durangos Iron Horse Bicycl..."
+        "url": "https://ironhorsebicycleclassic.com/index.php?nav=results",
+        "category": "other",
+        "label": "Ironhorsebicycleclassic"
       },
       {
         "url": "https://velo.outsideonline.com/news/history-iron-horse-bicycle-classic-returns-for-52nd-year",
+        "category": "media",
+        "label": "Velo"
+      },
+      {
+        "url": "https://www.cpr.org/2022/05/26/bike-vs-train-the-story-behind-durangos-iron-horse-bicycle-classic/",
+        "category": "other",
+        "label": "Cpr"
+      },
+      {
+        "url": "https://www.cyclingwest.com/racing/road-racing/51st-iron-horse-bicycle-classic-brief-results/",
+        "category": "other",
+        "label": "Cyclingwest"
+      },
+      {
+        "url": "https://www.durango.org/events/annual-events/spring/iron-horse-bicycle-classic/",
+        "category": "other",
+        "label": "Durango"
+      },
+      {
+        "url": "https://www.durangoherald.com/articles/ian-burnett-reflects-on-iron-horse-bicycle-classic-looks-ahead/",
+        "category": "other",
+        "label": "Durangoherald"
+      },
+      {
+        "url": "https://www.durangoherald.com/articles/iron-horse-bicycle-classic-makes-its-return-to-downtown-durango-this-weekend/",
+        "category": "other",
+        "label": "Durangoherald"
+      },
+      {
+        "url": "https://www.outdoorsportswire.com/results-51st-iron-horse-bicycle-classic/",
+        "category": "other",
+        "label": "Outdoorsportswire"
+      },
+      {
+        "url": "https://www.reddit.com/r/amputee/comments/1463ppi/i_beat_the_train_2023_iron_horse_bicycle_classic/",
         "category": "community",
-        "label": "velo.outsideonline.com: History Iron Horse Bicycle Classic Returns For 52Nd Year"
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.reddit.com/r/bicycling/comments/1463ltp/i_beat_the_train_2023_iron_horse_bicycle_classic/",
+        "category": "community",
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.reddit.com/r/bicycling/comments/u76ye/ride_profile_of_the_iron_horse_bicycle_classic/",
+        "category": "community",
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.uncovercolorado.com/events/iron-horse-bicycle-classic/",
+        "category": "other",
+        "label": "Uncovercolorado"
       }
     ],
     "tire_recommendations": {

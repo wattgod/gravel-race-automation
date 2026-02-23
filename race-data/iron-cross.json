@@ -19,7 +19,7 @@
         "Northeast USA"
       ],
       "field_size": "200-400 riders",
-      "start_time": "Morning start",
+      "start_time": "12:00am to",
       "registration": "Online. Cost: ~$75-125",
       "prize_purse": "Modest prizes",
       "aid_stations": "Multiple aid stations",
@@ -94,7 +94,10 @@
       "score": "51 / 100",
       "one_liner": "Pennsylvania gravel/cyclocross with technical elements.",
       "should_you_race": "If you're in PA/Northeast and want a cyclocross-style gravel race—yes, it's solid. If you're from out of region—there are better options.",
-      "alternatives": "For better PA events: Trans-Sylvania Epic. For similar cyclocross gravel events: other regional cyclocross races."
+      "alternatives": "For better PA events: Trans-Sylvania Epic. For similar cyclocross gravel events: other regional cyclocross races.",
+      "alternative_slugs": [
+        "trans-sylvania-epic"
+      ]
     },
     "logistics": {
       "airport": "Varies by location in PA",
@@ -185,12 +188,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 90.0,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 82,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -311,49 +323,19 @@
     },
     "citations": [
       {
+        "url": "https://www.trainerroad.com/forum/t/thoughts-on-singletrack-in-a-gravel-event/19514",
+        "category": "community",
+        "label": "TrainerRoad"
+      },
+      {
         "url": "https://www.worldwidecyclery.com/blogs/worldwide-cyclery-blog/my-experience-at-the-iron-cross-race",
-        "category": "community",
-        "label": "worldwidecyclery.com: My Experience At The Iron Cross Race"
-      },
-      {
-        "url": "https://www.tobedetermined.cc/journal/why-iron-cross-is-the-best-event-ever",
-        "category": "community",
-        "label": "tobedetermined.cc: Why Iron Cross Is The Best Event Ever"
-      },
-      {
-        "url": "https://ironcrossrace.blogspot.com/",
-        "category": "community",
-        "label": "ironcrossrace.blogspot.com"
-      },
-      {
-        "url": "https://www.joinbasecamp.com/post/evans-story-iron-cross-gravel",
-        "category": "community",
-        "label": "joinbasecamp.com: Evans Story Iron Cross Gravel"
-      },
-      {
-        "url": "https://ironcrossrace.blogspot.com/p/ic-faqs.html",
-        "category": "community",
-        "label": "ironcrossrace.blogspot.com: Ic Faqs.Html"
-      },
-      {
-        "url": "https://ironcrossgravel.com/routes/",
-        "category": "community",
-        "label": "ironcrossgravel.com: Routes"
-      },
-      {
-        "url": "https://ironcrossgravel.com/",
-        "category": "community",
-        "label": "ironcrossgravel.com"
+        "category": "other",
+        "label": "Worldwidecyclery"
       },
       {
         "url": "https://worldwidecyclery.com/blogs/worldwide-cyclery-blog/open-u-p-wi-de-force-eagle-axs-gravel-bike-rider-review",
         "category": "community",
         "label": "worldwidecyclery.com: Open U P Wi De Force Eagle Axs Gravel Bike Rider Review"
-      },
-      {
-        "url": "https://www.trainerroad.com/forum/t/thoughts-on-singletrack-in-a-gravel-event/19514",
-        "category": "community",
-        "label": "trainerroad.com: 19514"
       }
     ],
     "results": {

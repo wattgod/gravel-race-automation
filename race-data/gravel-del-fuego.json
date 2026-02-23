@@ -94,7 +94,10 @@
       "score": "53 / 100",
       "one_liner": "Chilean Patagonia gravel adventure.",
       "should_you_race": "If you have a big budget and want a Patagonian experience—maybe. For most riders—there are better options.",
-      "alternatives": "For better value: regional gravel races. For similar Chilean terrain: Karukinka."
+      "alternatives": "For better value: regional gravel races. For similar Chilean terrain: Karukinka.",
+      "alternative_slugs": [
+        "karukinka"
+      ]
     },
     "logistics": {
       "airport": "Punta Arenas (PUQ) varies by location",
@@ -185,12 +188,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 86.7,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -311,39 +323,34 @@
     },
     "citations": [
       {
+        "url": "https://bikepacking.com/event/gravel-del-fuego-2026/",
+        "category": "other",
+        "label": "Bikepacking"
+      },
+      {
         "url": "https://dotwatcher.cc/feature/gravel-del-fuego-2025-landscapes-too-big-to-frame",
-        "category": "community",
-        "label": "dotwatcher.cc: Gravel Del Fuego 2025 Landscapes Too Big To Frame"
+        "category": "tracking",
+        "label": "DotWatcher"
+      },
+      {
+        "url": "https://linktr.ee/graveldelfuego",
+        "category": "other",
+        "label": "Linktr"
+      },
+      {
+        "url": "https://mapmagic.app/blog/2024/01/24/gravel-del-fuego-2024/",
+        "category": "other",
+        "label": "Mapmagic"
       },
       {
         "url": "https://thegravelride.bike/gravel-del-fuego-race-a-patagonian-adventure-with-tito-nazar",
-        "category": "community",
-        "label": "thegravelride.bike: Gravel Del Fuego Race A Patagonian Adventure With Tito Nazar"
-      },
-      {
-        "url": "https://bikepacking.com/event/gravel-del-fuego-2026/",
-        "category": "community",
-        "label": "bikepacking.com: Gravel Del Fuego 2026"
-      },
-      {
-        "url": "https://dotwatcher.cc/race/gravel-del-fuego-2024",
-        "category": "community",
-        "label": "dotwatcher.cc: Gravel Del Fuego 2024"
-      },
-      {
-        "url": "https://graveldelfuego.com/?page_id=10127",
-        "category": "community",
-        "label": "graveldelfuego.com"
-      },
-      {
-        "url": "https://dotwatcher.cc/results/2024/gravel-del-fuego-2024",
-        "category": "community",
-        "label": "dotwatcher.cc: Gravel Del Fuego 2024"
+        "category": "other",
+        "label": "Thegravelride"
       },
       {
         "url": "https://www.granfondoguide.com/Events/Index/11396/gravel-del-fuego",
-        "category": "community",
-        "label": "granfondoguide.com: Gravel Del Fuego"
+        "category": "other",
+        "label": "Granfondoguide"
       }
     ],
     "results": {

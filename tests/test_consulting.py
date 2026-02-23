@@ -12,12 +12,14 @@ import pytest
 sys.path.insert(0, str(Path(__file__).parent.parent / "wordpress"))
 
 from generate_consulting import (
-    BOOKING_URL,
     CONSULTING_PRICE,
+    CONSULTING_PRICE_INT,
     CONSULTING_DURATION,
     build_nav,
     build_hero,
     build_what_you_get,
+    build_bio,
+    build_testimonials,
     build_how_it_works,
     build_topics,
     build_faq,
@@ -130,14 +132,31 @@ class TestHero:
         hero = build_hero()
         assert CONSULTING_PRICE in hero
 
-    def test_cta_present(self):
+    def test_checkout_form_present(self):
         hero = build_hero()
-        assert "Book a Consult" in hero
+        assert 'id="checkout"' in hero
+        assert "<form" in hero
+
+    def test_checkout_form_has_name_field(self):
+        hero = build_hero()
+        assert 'name="name"' in hero
+        assert 'type="text"' in hero
+
+    def test_checkout_form_has_email_field(self):
+        hero = build_hero()
+        assert 'type="email"' in hero
+        assert 'name="email"' in hero
+
+    def test_checkout_form_has_submit_button(self):
+        hero = build_hero()
+        assert "$150" in hero
+        assert 'type="submit"' in hero
         assert 'data-cta="hero_book"' in hero
 
-    def test_booking_url(self):
+    def test_checkout_form_has_honeypot(self):
         hero = build_hero()
-        assert BOOKING_URL in hero
+        assert 'name="_honeypot"' in hero
+        assert 'display:none' in hero
 
 
 # ── What You Get ─────────────────────────────────────────────
@@ -169,7 +188,8 @@ class TestHowItWorks:
 
     def test_step_titles(self):
         section = build_how_it_works()
-        assert "Book" in section
+        assert "Pay" in section
+        assert "Schedule" in section
         assert "We Talk" in section
         assert "Get Your Plan" in section
 
@@ -189,6 +209,75 @@ class TestTopics:
         assert "Nutrition" in section
 
 
+# ── Bio ─────────────────────────────────────────────────────
+
+
+class TestBio:
+    def test_bio_section_present(self):
+        bio = build_bio()
+        assert 'id="who"' in bio
+
+    def test_bio_has_name(self):
+        bio = build_bio()
+        assert "Matti" in bio
+
+    def test_bio_has_credentials(self):
+        bio = build_bio()
+        assert "TrainingPeaks" in bio
+        assert "100+" in bio or "100" in bio
+
+    def test_bio_has_database_reference(self):
+        bio = build_bio()
+        assert "328" in bio
+
+    def test_bio_section_title(self):
+        bio = build_bio()
+        assert "Who You" in bio
+        assert "Talk To" in bio
+
+    def test_bio_in_full_page(self, consulting_html):
+        assert 'id="who"' in consulting_html
+        assert "Matti" in consulting_html
+
+
+# ── Testimonials ────────────────────────────────────────────
+
+
+class TestTestimonials:
+    def test_three_testimonials(self):
+        section = build_testimonials()
+        assert section.count("gg-consult-testimonial") >= 3
+
+    def test_section_id(self):
+        section = build_testimonials()
+        assert 'id="testimonials"' in section
+
+    def test_section_title(self):
+        section = build_testimonials()
+        assert "What Athletes Say" in section
+
+    def test_has_names(self):
+        section = build_testimonials()
+        assert "Andrew T." in section
+        assert "Jen H." in section
+        assert "Katie B." in section
+
+    def test_has_meta_lines(self):
+        section = build_testimonials()
+        assert "gg-consult-testimonial-meta" in section
+
+    def test_testimonials_in_full_page(self, consulting_html):
+        assert 'id="testimonials"' in consulting_html
+        assert "What Athletes Say" in consulting_html
+
+    def test_no_coaching_language(self):
+        """Testimonials should sound like single-session outcomes."""
+        section = build_testimonials()
+        assert "weekly" not in section.lower()
+        assert "training plan" not in section.lower()
+        assert "subscription" not in section.lower()
+
+
 # ── FAQ ──────────────────────────────────────────────────────
 
 
@@ -204,7 +293,7 @@ class TestFAQ:
     def test_key_questions(self):
         faq = build_faq()
         assert "Who is this for?" in faq
-        assert "What happens after I book?" in faq
+        assert "What happens after I pay?" in faq
 
 
 # ── Final CTA ────────────────────────────────────────────────
@@ -216,9 +305,9 @@ class TestFinalCTA:
         assert "Book Your Consult" in cta
         assert 'data-cta="final_book"' in cta
 
-    def test_booking_url(self):
+    def test_final_cta_scrolls_to_form(self):
         cta = build_final_cta()
-        assert BOOKING_URL in cta
+        assert 'href="#checkout"' in cta
 
     def test_price_summary(self):
         cta = build_final_cta()
@@ -283,9 +372,26 @@ class TestJSQuality:
     def test_scroll_depth(self, consulting_js):
         assert "consulting_scroll_depth" in consulting_js
         assert "IntersectionObserver" in consulting_js
+        assert "testimonials" in consulting_js
+        assert "who" in consulting_js
 
     def test_page_view_event(self, consulting_js):
         assert "consulting_page_view" in consulting_js
+
+    def test_checkout_js_has_api_url(self, consulting_js):
+        assert "create-consulting-checkout" in consulting_js
+
+    def test_checkout_js_has_begin_checkout_event(self, consulting_js):
+        assert "begin_checkout" in consulting_js
+        assert "Consulting Session" in consulting_js
+
+    def test_checkout_js_has_error_handling(self, consulting_js):
+        assert "consulting_checkout_error" in consulting_js
+        assert "gg-consult-form-message" in consulting_js
+
+    def test_checkout_js_has_smooth_scroll(self, consulting_js):
+        assert 'href="#checkout"' in consulting_js
+        assert "scrollIntoView" in consulting_js
 
     def test_js_syntax_valid(self, consulting_js):
         """Validate JS syntax via Node.js."""

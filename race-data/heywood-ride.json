@@ -19,7 +19,7 @@
         "Minnesota"
       ],
       "field_size": "50-100 riders",
-      "start_time": "Morning start",
+      "start_time": "8:00 AM",
       "registration": "Online. Cost: ~$50-75",
       "prize_purse": "Modest prizes",
       "aid_stations": "Limited aid stations",
@@ -94,7 +94,10 @@
       "score": "41 / 100",
       "one_liner": "Minnesota local gravel challenge.",
       "should_you_race": "If you're local to Minnesota—yes, it's good value. If you're traveling—skip it.",
-      "alternatives": "For better Minnesota races: Almanzo, Dirty Benjamin."
+      "alternatives": "For better Minnesota races: Almanzo, Dirty Benjamin.",
+      "alternative_slugs": [
+        "almanzo-100"
+      ]
     },
     "logistics": {
       "airport": "Minneapolis (MSP) 60 minutes",
@@ -102,7 +105,8 @@
       "food": "Northfield has full dining options. Stock nutrition.",
       "packet_pickup": "Day of typically",
       "parking": "At start/finish",
-      "official_site": "Check Heywood Ride website"
+      "official_site": "Check Heywood Ride website",
+      "camping": "camping available at Sechler Park (no facilities, no big rigs/trailers)"
     },
     "history": {
       "founded": null,
@@ -185,12 +189,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 90.9,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 50
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -311,34 +324,44 @@
     },
     "citations": [
       {
-        "url": "https://pie.bike/blog/heywood-55-ride-report-dustin-hruby-wyttenhove",
-        "category": "community",
-        "label": "pie.bike: Heywood 55 Ride Report Dustin Hruby Wyttenhove"
-      },
-      {
         "url": "https://atsukos.day/2025/06/13/2025-heywood-ride-report/",
-        "category": "community",
-        "label": "atsukos.day: 2025 Heywood Ride Report"
+        "category": "other",
+        "label": "Atsukos"
       },
       {
-        "url": "https://www.thenxrth.com/post/no-sponsors-no-podium-the-heywood-ride-at-the-heart-of-grassroots-community-gravel",
-        "category": "community",
-        "label": "thenxrth.com: No Sponsors No Podium The Heywood Ride At The Heart Of Gr..."
-      },
-      {
-        "url": "https://theheywoodride.com/",
-        "category": "community",
-        "label": "theheywoodride.com"
-      },
-      {
-        "url": "https://www.thenxrth.com/post/meet-the-heywood-your-new-favorite-pay-what-you-want-gravel-event",
-        "category": "community",
-        "label": "thenxrth.com: Meet The Heywood Your New Favorite Pay What You Want Grav..."
+        "url": "https://pie.bike/blog/heywood-55-ride-report-dustin-hruby-wyttenhove",
+        "category": "other",
+        "label": "Pie"
       },
       {
         "url": "https://theheywoodride.com/ride",
+        "category": "other",
+        "label": "Theheywoodride"
+      },
+      {
+        "url": "https://www.bikemn.org/events/the-heywood-2025/",
+        "category": "other",
+        "label": "Bikemn"
+      },
+      {
+        "url": "https://www.bikemn.org/events/the-heywood/",
+        "category": "other",
+        "label": "Bikemn"
+      },
+      {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/f89nl3/event_announcement_theheywoodridecom_is_live/",
         "category": "community",
-        "label": "theheywoodride.com: Ride"
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.thenxrth.com/post/meet-the-heywood-your-new-favorite-pay-what-you-want-gravel-event",
+        "category": "other",
+        "label": "Thenxrth"
+      },
+      {
+        "url": "https://www.thenxrth.com/post/no-sponsors-no-podium-the-heywood-ride-at-the-heart-of-grassroots-community-gravel",
+        "category": "other",
+        "label": "Thenxrth"
       }
     ],
     "tire_recommendations": {

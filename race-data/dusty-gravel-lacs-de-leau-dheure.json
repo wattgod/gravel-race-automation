@@ -19,7 +19,7 @@
         "Belgium"
       ],
       "field_size": "50-100 riders",
-      "start_time": "Morning start",
+      "start_time": "9:00 AM star",
       "registration": "Online. Cost: ~€50-75",
       "prize_purse": "Modest prizes",
       "aid_stations": "Limited aid stations",
@@ -94,7 +94,11 @@
       "score": "39 / 100",
       "one_liner": "Belgian local gravel challenge.",
       "should_you_race": "If you're local to Belgium—yes, it's good value. If you're traveling—skip it.",
-      "alternatives": "For better Belgian races: Gravel des Flandres, Houffa Gravel."
+      "alternatives": "For better Belgian races: Gravel des Flandres, Houffa Gravel.",
+      "alternative_slugs": [
+        "gravel-des-flandres",
+        "houffa-gravel"
+      ]
     },
     "logistics": {
       "airport": "Brussels (BRU) 90 minutes",
@@ -185,12 +189,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 84.2,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 50,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -311,39 +324,44 @@
     },
     "citations": [
       {
-        "url": "https://www.godare.events/en/events/gravel-ride-calendar/dusty-gravel-lacs-de-l-eau-d-heure",
-        "category": "community",
-        "label": "godare.events: Dusty Gravel Lacs De L Eau D Heure"
+        "url": "https://ridewithgps.com/routes/50325989",
+        "category": "route",
+        "label": "RideWithGPS: Dusty Gravel Les Lacs de l'Eau d'Heure 75km-21062581"
       },
       {
-        "url": "https://www.granfondoguide.com/Events/Index/12726/dusty-les-lacs-de-leau-dheure",
-        "category": "community",
-        "label": "granfondoguide.com: Dusty Les Lacs De Leau Dheure"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=XTQ8R__4rNY",
-        "category": "community",
-        "label": "youtube.com: Watch"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=7BFBtdEOkVE",
-        "category": "community",
-        "label": "youtube.com: Watch"
+        "url": "https://sport-agenda.fr/annonce/dusty-gravel-lacs-de-leau-dheure/",
+        "category": "other",
+        "label": "Sport-Agenda"
       },
       {
         "url": "https://www.dustygravelseries.be/en/grandfondo",
-        "category": "community",
-        "label": "dustygravelseries.be: Grandfondo"
+        "category": "other",
+        "label": "Dustygravelseries"
       },
       {
-        "url": "https://www.vojomag.nl/dusty-gravel-2025-cerfontaine-strijd-rond-de-lacs-de-leau-dheure/",
-        "category": "community",
-        "label": "vojomag.nl: Dusty Gravel 2025 Cerfontaine Strijd Rond De Lacs De Leau..."
+        "url": "https://www.godare.events/en/events/gravel-ride-calendar/dusty-gravel-lacs-de-l-eau-d-heure",
+        "category": "other",
+        "label": "Godare"
+      },
+      {
+        "url": "https://www.godare.events/nl/events/gravel-ride-kalender/dusty-gravel-lacs-de-l-eau-d-heure",
+        "category": "other",
+        "label": "Godare"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/12775/dusty-gravel-lacs-de-l´eau-d´heure",
+        "category": "other",
+        "label": "Granfondoguide"
       },
       {
         "url": "https://www.le-sportif.com/calendrier/215995/dusty-gravel-lacs-de-l-eau-d-heure-2025-froidchapelle/gravel/",
-        "category": "community",
-        "label": "le-sportif.com: Gravel"
+        "category": "other",
+        "label": "Le-Sportif"
+      },
+      {
+        "url": "https://www.vojomag.nl/dusty-gravel-2025-cerfontaine-strijd-rond-de-lacs-de-leau-dheure/",
+        "category": "other",
+        "label": "Vojomag"
       }
     ],
     "tire_recommendations": {

@@ -42,7 +42,7 @@
 
 ## Race Strategy & Pacing
 
-**Bluegrass Endurance [UNKNOWN, 60-69 AG]:** "Was not feeling bad but just not peppy however knew I was going to try and put in a bigger effort over the last 20 miles or so... to see if I could pick up any places and appeared to do so as started catching people... Over the last 20+ miles based on the splits GW supplied I picked up 30 places and averaged a good pace." His Normalized Power was 213W for the ride (compared to previous races at 198W and 200W). Total ride time appears to have been around 5-6 hours for 78 miles. (https://bluegrassendurance.blogspot.com/2025/08/2025-gravew-worlds-12-double-race.html)
+**Bluegrass Endurance** [UNKNOWN] **(60-69 AG):** "Was not feeling bad but just not peppy however knew I was going to try and put in a bigger effort over the last 20 miles or so... to see if I could pick up any places and appeared to do so as started catching people... Over the last 20+ miles based on the splits GW supplied I picked up 30 places and averaged a good pace." His Normalized Power was 213W for the ride (compared to previous races at 198W and 200W). Total ride time appears to have been around 5-6 hours for 78 miles. (https://bluegrassendurance.blogspot.com/2025/08/2025-gravew-worlds-12-double-race.html)
 
 **Note on race format discussion:** Multiple sources discuss safety concerns around mass starts and open-road racing. One proposal gaining traction is the "enduro format" - timing discrete segments with flaggers while letting the rest be untimed riding. This would "capture the racing element here and let the rest be riding, with no results penalty for say, stopping at a stop sign, or taking a downhill more cautiously." (https://www.trainerroad.com/forum/t/the-future-of-gravel-racing/95739)
 

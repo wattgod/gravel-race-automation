@@ -334,7 +334,11 @@
       "score": "77 / 100",
       "one_liner": "Four timed segments scattered across 60 miles of Sierra Nevada dirt — race hard when it counts, cruise with friends when it doesn't.",
       "should_you_race": "You need legitimate climbing legs for 7,800 feet and technical handling skills for those singletrack descents. The format saves you from pacing disasters but won't save you from being undertrained. Show up fit enough to go anaerobic for 10 minutes at a time across varied terrain, or you'll get shelled on every timed segment.",
-      "alternatives": "Dirty Kanza gives you the full suffer-fest without recovery breaks, while Lost and Found delivers similar Sierra Nevada punishment in a traditional format. Pick Belgian Waffle Ride if you want the same climbing brutality with more consistent intensity."
+      "alternatives": "Dirty Kanza gives you the full suffer-fest without recovery breaks, while Lost and Found delivers similar Sierra Nevada punishment in a traditional format. Pick Belgian Waffle Ride if you want the same climbing brutality with more consistent intensity.",
+      "alternative_slugs": [
+        "bwr-california",
+        "unbound-200"
+      ]
     },
     "course_description": {
       "character": "Grinduro flips gravel racing on its head - four brutal timed segments scattered across 60 miles of Sierra Nevada terrain, with social cruise sections between the suffering. You'll ride conversationally through spectacular mountain scenery, then absolutely torch yourself for 5-15 minutes when the clock starts ticking.",
@@ -366,9 +370,14 @@
     },
     "citations": [
       {
-        "url": "https://grinduro.com",
+        "url": "https://ridewithgps.com/routes/53291723",
+        "category": "route",
+        "label": "RideWithGPS: Grinduro CA 2026"
+      },
+      {
+        "url": "https://theradavist.com/2025-grinduro",
         "category": "other",
-        "label": "Grinduro"
+        "label": "Theradavist"
       },
       {
         "url": "https://theradavist.com/tag/grinduro",
@@ -376,19 +385,34 @@
         "label": "Theradavist"
       },
       {
+        "url": "https://www.altovelo.org/blog/race-report-grinduro-2023",
+        "category": "other",
+        "label": "Altovelo"
+      },
+      {
         "url": "https://www.bikeradar.com/news/grinduro-2025",
         "category": "media",
         "label": "BikeRadar"
       },
       {
-        "url": "https://www.cxmagazine.com",
-        "category": "media",
-        "label": "CX Magazine"
+        "url": "https://www.cyclepathpdx.com/blogs/news/grinduro-2025-experience-and-gear",
+        "category": "other",
+        "label": "Cyclepathpdx"
       },
       {
-        "url": "https://www.cyclingweekly.com",
+        "url": "https://www.giant-bicycles.com/us/the_road_to_grinduro",
+        "category": "other",
+        "label": "Giant-Bicycles"
+      },
+      {
+        "url": "https://www.gravelcyclist.com/videos/2025-grinduro-italy-crazy-italian-gravel-race-party/",
         "category": "media",
-        "label": "Cycling Weekly"
+        "label": "Gravel Cyclist"
+      },
+      {
+        "url": "https://www.gravelunion.cc/article/ride-report-grinduro-italia-2023",
+        "category": "other",
+        "label": "Gravelunion"
       },
       {
         "url": "https://www.patagonia.com/stories/grinduro-scotland",
@@ -396,63 +420,54 @@
         "label": "Patagonia"
       },
       {
-        "url": "https://www.altovelo.org/blog/race-report-grinduro-2023",
+        "url": "https://www.reddit.com/r/bicycling/comments/19644c5/grinduro_pennwhat_to_do_with_family/",
         "category": "community",
-        "label": "altovelo.org: Race Report Grinduro 2023"
+        "label": "Reddit"
       },
       {
-        "url": "https://www.cyclepathpdx.com/blogs/news/grinduro-2025-experience-and-gear",
+        "url": "https://www.reddit.com/r/gravelcycling/comments/1aj5862/tips_for_the_pennsylvania_grinduro/",
         "category": "community",
-        "label": "cyclepathpdx.com: Grinduro 2025 Experience And Gear"
-      },
-      {
-        "url": "https://theradavist.com/2025-grinduro",
-        "category": "community",
-        "label": "theradavist.com: 2025 Grinduro"
-      },
-      {
-        "url": "https://gravelunion.cc/article/ride-report-grinduro-germany2023",
-        "category": "community",
-        "label": "gravelunion.cc: Ride Report Grinduro Germany2023"
-      },
-      {
-        "url": "https://www.reddit.com/r/gravelcycling/comments/1dcmw3i/my_first_gravel_race_grinduro_pa/",
-        "category": "community",
-        "label": "reddit.com: My First Gravel Race Grinduro Pa"
-      },
-      {
-        "url": "https://bikebiz.com/grinduro-turns-10-celebrating-a-decade-of-gravel-good-times/",
-        "category": "community",
-        "label": "bikebiz.com: Grinduro Turns 10 Celebrating A Decade Of Gravel Good Times"
-      },
-      {
-        "url": "https://www.giant-bicycles.com/us/the_road_to_grinduro",
-        "category": "community",
-        "label": "giant-bicycles.com: The Road To Grinduro"
-      },
-      {
-        "url": "https://www.gravelcyclist.com/videos/2025-grinduro-italy-crazy-italian-gravel-race-party/",
-        "category": "community",
-        "label": "gravelcyclist.com: 2025 Grinduro Italy Crazy Italian Gravel Race Party"
-      },
-      {
-        "url": "https://mostlybybike.com/tag/grinduro-2018/",
-        "category": "community",
-        "label": "mostlybybike.com: Grinduro 2018"
-      },
-      {
-        "url": "https://www.gravelunion.cc/article/ride-report-grinduro-italia-2023",
-        "category": "community",
-        "label": "gravelunion.cc: Ride Report Grinduro Italia 2023"
+        "label": "Reddit"
       },
       {
         "url": "https://www.reddit.com/r/gravelcycling/comments/1czj7o3/grinduro_pennsylvania_bike_advise/",
         "category": "community",
-        "label": "reddit.com: Grinduro Pennsylvania Bike Advise"
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/1d6hbaa/last_minute_pa_grinduro_transfer_available/",
+        "category": "community",
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/1dad5qk/last_minute_sale_one_extra_grinduro_ticket/",
+        "category": "community",
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/1dcmw3i/my_first_gravel_race_grinduro_pa/",
+        "category": "community",
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/exa1jy/grinduro_experience/",
+        "category": "community",
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.youtube.com/c/Grinduro",
+        "category": "video",
+        "label": "YouTube"
+      },
+      {
+        "url": "https://www.youtube.com/hashtag/grinduro",
+        "category": "video",
+        "label": "YouTube"
       }
     ],
     "logistics": {
-      "official_site": "https://grinduro.com"
+      "official_site": "https://grinduro.com",
+      "camping": "Camping in fairgrounds, not hotels\n- Ferry crossings required (Scotland Isle of Arran)\n- Medical certificate required (Italy)\n\n*"
     },
     "results": {
       "years": {
@@ -535,6 +550,25 @@
         "Technical climbing segments",
         "Rocky sections"
       ]
+    },
+    "research_metadata": {
+      "research_strength": {
+        "overall": 86.5,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 58,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
+      }
     }
   }
 }

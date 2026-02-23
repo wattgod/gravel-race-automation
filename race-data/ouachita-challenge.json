@@ -19,7 +19,7 @@
         "Central Arkansas"
       ],
       "field_size": "200-400 riders",
-      "start_time": "Morning start",
+      "start_time": "8:00 am shar",
       "registration": "Online. Cost: ~$60-100",
       "prize_purse": "Modest prizes",
       "aid_stations": "Multiple aid stations",
@@ -94,15 +94,19 @@
       "score": "51 / 100",
       "one_liner": "Arkansas Ouachita Mountains gravel in Mount Ida.",
       "should_you_race": "If you're in Arkansas and want a mountain event—yes, it's solid. If you're from out of state—there are better options.",
-      "alternatives": "For better regional events: Ozark Gravel. For similar mountain events: other AR mountain gravel races."
+      "alternatives": "For better regional events: Ozark Gravel. For similar mountain events: other AR mountain gravel races.",
+      "alternative_slugs": [
+        "ozark-gravel"
+      ]
     },
     "logistics": {
       "airport": "Little Rock (LIT) 2 hours or Hot Springs (HOT) 1 hour",
       "lodging_strategy": "Mount Ida has limited lodging options.",
       "food": "Small town with limited dining. Stock nutrition.",
       "packet_pickup": "Day before typically",
-      "parking": "At start/finish",
-      "official_site": "https://ouachitachallenge.com/"
+      "parking": "Parking is available at the Oden School complex[2], but specific capacity or details are not provided",
+      "official_site": "https://ouachitachallenge.com/",
+      "camping": "camping will still be allowed on the school grounds\"[5]\n- **Gym sleeping**: \"If you arrive in the Oden area without a motel rese"
     },
     "history": {
       "founded": null,
@@ -185,12 +189,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 94.8,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 100,
+          "completeness": 82,
+          "cross_reference": 50
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -345,44 +358,44 @@
         "label": "RideWithGPS: Ouachita Challenge Gravel 2025"
       },
       {
-        "url": "https://careylowery.blogspot.com/2012/04/ouachita-challenge-race-report.html",
-        "category": "community",
-        "label": "careylowery.blogspot.com: Ouachita Challenge Race Report.Html"
-      },
-      {
-        "url": "https://nankmancycling.blogspot.com/2021/03/ouachita-challenge-race-beauty-and.html",
-        "category": "community",
-        "label": "nankmancycling.blogspot.com: Ouachita Challenge Race Beauty And.Html"
+        "url": "http://nankmancycling.blogspot.com/2021/03/ouachita-challenge-race-beauty-and.html",
+        "category": "other",
+        "label": "Nankmancycling"
       },
       {
         "url": "https://andrewevans.bike/2022/03/30/ouachita-challenge-recap/",
-        "category": "community",
-        "label": "andrewevans.bike: Ouachita Challenge Recap"
+        "category": "other",
+        "label": "Andrewevans"
       },
       {
-        "url": "https://arkansasoutside.com/guts-and-glory-on-the-ouachita-challenge/",
-        "category": "community",
-        "label": "arkansasoutside.com: Guts And Glory On The Ouachita Challenge"
+        "url": "https://nankmancycling.blogspot.com/2021/03/ouachita-challenge-race-beauty-and.html",
+        "category": "other",
+        "label": "Nankmancycling"
       },
       {
-        "url": "http://www.brickhouseracing.com/?p=1813",
+        "url": "https://nankmancycycling.blogspot.com/2021/03/ouachita-challenge-race-beauty-and.html",
+        "category": "other",
+        "label": "Nankmancycycling"
+      },
+      {
+        "url": "https://ouachitachallenge.com/course-info",
+        "category": "other",
+        "label": "Ouachitachallenge"
+      },
+      {
+        "url": "https://www.reddit.com/r/cycling/comments/5rum60/ouachita_challenge_tips/",
         "category": "community",
-        "label": "brickhouseracing.com"
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.reddit.com/r/dfwbike/comments/3niei4/ouachita_challenge_anyone/",
+        "category": "community",
+        "label": "Reddit"
       },
       {
         "url": "https://www.youtube.com/watch?v=lmF6oQ8ANNc",
         "category": "community",
         "label": "youtube.com: Watch"
-      },
-      {
-        "url": "https://nankmancycycling.blogspot.com/2021/03/ouachita-challenge-race-beauty-and.html",
-        "category": "community",
-        "label": "nankmancycycling.blogspot.com: Ouachita Challenge Race Beauty And.Html"
-      },
-      {
-        "url": "https://ouachitachallenge.com/course-info",
-        "category": "community",
-        "label": "ouachitachallenge.com: Course Info"
       }
     ],
     "results": {

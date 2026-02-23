@@ -41,12 +41,13 @@ from generate_neo_brutalist import (
 from generate_neo_brutalist import esc  # HTML escape helper
 
 from brand_tokens import (
-    GA_MEASUREMENT_ID,
     get_font_face_css,
     get_preload_hints,
     get_tokens_css,
+    get_ga4_head_snippet,
 )
 from shared_footer import get_mega_footer_css, get_mega_footer_html
+from cookie_consent import get_consent_banner_html
 
 # Disable glossary tooltips in guide renderers (we don't need them here)
 import generate_guide
@@ -2751,7 +2752,12 @@ def generate_prep_kit_page(rd: dict, raw: dict, guide_sections: dict) -> str:
   <meta property="og:description" content="{esc(meta_desc)}">
   <meta property="og:url" content="{canonical}">
   <meta property="og:type" content="article">
-  <meta property="og:site_name" content="Gravel God">
+  <meta property="og:image" content="{SITE_BASE_URL}/og/{slug}.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Gravel God Cycling">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="{SITE_BASE_URL}/og/{slug}.jpg">
   <script type="application/ld+json">
   {schema_jsonld}
   </script>
@@ -2762,8 +2768,7 @@ def generate_prep_kit_page(rd: dict, raw: dict, guide_sections: dict) -> str:
 {pk_css}
   </style>
   <!-- GA4 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id={GA_MEASUREMENT_ID}"></script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments)}}gtag('js',new Date());gtag('config','{GA_MEASUREMENT_ID}');</script>
+  {get_ga4_head_snippet()}
 </head>
 <body>
 <div class="gg-pk-page">
@@ -2772,6 +2777,7 @@ def generate_prep_kit_page(rd: dict, raw: dict, guide_sections: dict) -> str:
 <script>
 {js}
 </script>
+{get_consent_banner_html()}
 </body>
 </html>'''
 

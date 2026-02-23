@@ -101,7 +101,7 @@
       "packet_pickup": "Day-before. Check official website.",
       "travel_summary": "Wichita airport 90 miles. Rental car needed. Emporia small town—book lodging early. Day-before packet pickup. Race early September.",
       "food_options": "Aid stations on course (self-supported—no SAG). Post-race party if you finish.",
-      "camping": "Check official website",
+      "camping": "Camping on-site at event location (gorgeous open field for tents, no RVs/camper vans on field",
       "official_site": "https://www.ruleofthreegravel.com"
     },
     "course_description": {
@@ -126,7 +126,13 @@
           "survival_strategy": "Carry spares, CO2, multitool, dynamo lights. Self-sufficient."
         }
       ],
-      "signature_challenge": "300 miles ultra distance. Flint Hills rollers never stop. 15-25 hours. 30-40% DNF."
+      "signature_challenge": "300 miles ultra distance. Flint Hills rollers never stop. 15-25 hours. 30-40% DNF.",
+      "surface_breakdown": {
+        "overall": {
+          "gravel": 95,
+          "pavement": 5
+        }
+      }
     },
     "history": {
       "founded": "~2018",
@@ -146,19 +152,19 @@
       ],
       "research_date": "2026-02-04",
       "research_strength": {
-        "overall": 0,
-        "grade": "pending",
-        "weakest": "pending",
+        "overall": 91.1,
+        "grade": "A",
+        "weakest": "voice_authenticity",
         "has_research_dump": true,
         "dimensions": {
-          "source_diversity": 0,
-          "citation_density": 0,
-          "temporal_depth": 0,
-          "specificity": 0,
-          "statistical_backing": 0,
-          "voice_authenticity": 0,
-          "completeness": 0,
-          "cross_reference": 0
+          "source_diversity": 80,
+          "citation_density": 80,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 94,
+          "cross_reference": 100
         },
         "scored_at": "2026-02-04"
       }
@@ -225,7 +231,12 @@
       "score": "66 / 100",
       "one_liner": "Three hundred miles on Unbound roads without the Unbound circus—just you, Kansas, and the kind of suffering that builds character.",
       "should_you_race": "This is for riders who want the full Unbound experience without paying Unbound prices or fighting Unbound crowds. You need legitimate endurance fitness—300 miles doesn't negotiate, and the self-supported nature means your mistakes compound quickly. Come prepared for mental warfare disguised as a bike race.",
-      "alternatives": "Unbound 200 gives you the same roads with aid stations and more prestige, while Mid South offers similar distance with better terrain variety and actual community vibe. If you want the suffering without the Kansas wind penalty, Crusher in the Tushar delivers mountain punishment instead of prairie monotony."
+      "alternatives": "Unbound 200 gives you the same roads with aid stations and more prestige, while Mid South offers similar distance with better terrain variety and actual community vibe. If you want the suffering without the Kansas wind penalty, Crusher in the Tushar delivers mountain punishment instead of prairie monotony.",
+      "alternative_slugs": [
+        "crusher-in-the-tushar",
+        "mid-south",
+        "unbound-200"
+      ]
     },
     "unsplash_photos": [
       {
@@ -258,74 +269,19 @@
     ],
     "citations": [
       {
-        "url": "https://www.ruleofthreegravel.com",
-        "category": "official",
-        "label": "Official Website"
-      },
-      {
         "url": "https://reddit.com/r/gravelcycling/comments/rule-of-three",
         "category": "community",
         "label": "Reddit"
       },
       {
-        "url": "https://ridewithgps.com",
-        "category": "route",
-        "label": "RideWithGPS"
-      },
-      {
-        "url": "https://www.cyclingtips.com",
+        "url": "https://velo.outsideonline.com/road/road-culture/three-reasons-why-the-rule-of-three-is-not-your-realistic-gravel-race/",
         "category": "media",
-        "label": "CyclingTips"
-      },
-      {
-        "url": "https://www.strava.com",
-        "category": "activity",
-        "label": "Strava"
-      },
-      {
-        "url": "https://www.trainerroad.com",
-        "category": "community",
-        "label": "TrainerRoad"
-      },
-      {
-        "url": "https://www.velonews.com",
-        "category": "media",
-        "label": "VeloNews"
-      },
-      {
-        "url": "https://www.statebicycle.com/blogs/news/race-report-rule-of-3-gravel-w-caro-poole",
-        "category": "community",
-        "label": "statebicycle.com: Race Report Rule Of 3 Gravel W Caro Poole"
-      },
-      {
-        "url": "https://www.paigepowered.com/post/rule-of-3-race-recap",
-        "category": "community",
-        "label": "paigepowered.com: Rule Of 3 Race Recap"
-      },
-      {
-        "url": "https://www.joinbasecamp.com/post/jons-story-rule-of-three",
-        "category": "community",
-        "label": "joinbasecamp.com: Jons Story Rule Of Three"
-      },
-      {
-        "url": "https://www.reddit.com/r/Velo/comments/1d6iqvf/racing_the_rule_of_3_thoughts_reflections_and/",
-        "category": "community",
-        "label": "reddit.com: Racing The Rule Of 3 Thoughts Reflections And"
+        "label": "Velo"
       },
       {
         "url": "https://velo.outsideonline.com/road/road-culture/three-reasons-why-the-rule-of-three-is-not-your-typical-gravel-race/",
-        "category": "community",
-        "label": "velo.outsideonline.com: Three Reasons Why The Rule Of Three Is Not Your Typical G..."
-      },
-      {
-        "url": "https://www.ruleofthree.bike/",
-        "category": "community",
-        "label": "ruleofthree.bike"
-      },
-      {
-        "url": "https://velo.outsideonline.com/road/road-culture/three-reasons-why-the-rule-of-three-is-not-your-realistic-gravel-race/",
-        "category": "community",
-        "label": "velo.outsideonline.com: Three Reasons Why The Rule Of Three Is Not Your Realistic..."
+        "category": "media",
+        "label": "Velo"
       }
     ],
     "tire_recommendations": {

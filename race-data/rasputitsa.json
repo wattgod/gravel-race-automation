@@ -19,7 +19,7 @@
         "Northeast Kingdom terrain"
       ],
       "field_size": "600+ riders",
-      "start_time": "Saturday morning — check official website",
+      "start_time": "11:30 AM",
       "registration": "Online. Cost: $80-$120",
       "prize_purse": "None",
       "aid_stations": "NONE—self-supported",
@@ -126,7 +126,14 @@
       ],
       "signature_challenge": "April mud + self-supported + Class 4 technical roads. Mud is guaranteed, aid is not.",
       "ridewithgps_id": "33718706",
-      "ridewithgps_name": "CCNS/VTdirt - Rasputitsa Course Preview 2019"
+      "ridewithgps_name": "CCNS/VTdirt - Rasputitsa Course Preview 2019",
+      "surface_breakdown": {
+        "overall": {
+          "dirt": 70,
+          "gravel": 20,
+          "pavement": 10
+        }
+      }
     },
     "history": {
       "founded": "2016",
@@ -147,18 +154,18 @@
       ],
       "research_date": "2026-02-04",
       "research_strength": {
-        "overall": 97.5,
+        "overall": 96.1,
         "grade": "A",
-        "weakest": "temporal_depth",
+        "weakest": "voice_authenticity",
         "has_research_dump": true,
         "dimensions": {
           "source_diversity": 100,
           "citation_density": 100,
-          "temporal_depth": 75,
+          "temporal_depth": 100,
           "specificity": 100,
           "statistical_backing": 100,
-          "voice_authenticity": 100,
-          "completeness": 100,
+          "voice_authenticity": 70,
+          "completeness": 94,
           "cross_reference": 100
         },
         "scored_at": "2026-02-04"
@@ -226,7 +233,12 @@
       "score": "73 / 100",
       "one_liner": "Vermont's 10-year-old mud lottery where 5,000 feet of climbing meets April's bipolar weather and your cross training actually matters.",
       "should_you_race": "If you can handle 46 miles of sustained climbing in conditions that range from perfect to apocalyptic, Rasputitsa delivers authentic Northeast Kingdom suffering without the ego. The 5,000 feet of elevation isn't negotiable, and April weather means you might get snow, mud, or sunshine—sometimes all three. Skip this if you need predictable conditions or hate climbing.",
-      "alternatives": "Vermont Overland offers similar Vermont grit with more distance options, while Dirty Kanza (Unbound) gives you comparable difficulty without the elevation. For pure climbing punishment, try Gravel Worlds if you want the suffering with better weather odds."
+      "alternatives": "Vermont Overland offers similar Vermont grit with more distance options, while Dirty Kanza (Unbound) gives you comparable difficulty without the elevation. For pure climbing punishment, try Gravel Worlds if you want the suffering with better weather odds.",
+      "alternative_slugs": [
+        "garmin-gravel-worlds",
+        "unbound-200",
+        "vermont-overland"
+      ]
     },
     "unsplash_photos": [
       {
@@ -259,14 +271,49 @@
     ],
     "citations": [
       {
-        "url": "https://www.rasputitsa.com",
-        "category": "official",
-        "label": "Official Website"
-      },
-      {
         "url": "https://ridewithgps.com/routes/33718706",
         "category": "route",
         "label": "RideWithGPS: CCNS/VTdirt - Rasputitsa Course Preview 2019"
+      },
+      {
+        "url": "https://discuss.360velo.com/t/rasputitsa-2019/1207",
+        "category": "other",
+        "label": "Discuss"
+      },
+      {
+        "url": "https://rasputitsadirt.com/about",
+        "category": "other",
+        "label": "Rasputitsadirt"
+      },
+      {
+        "url": "https://rasputitsadirt.com/events",
+        "category": "other",
+        "label": "Rasputitsadirt"
+      },
+      {
+        "url": "https://rasputitsadirt.com/events/2024/1/20/shakeout-ride-with-makesi-duncan",
+        "category": "other",
+        "label": "Rasputitsadirt"
+      },
+      {
+        "url": "https://rasputitsadirt.com/new-page",
+        "category": "other",
+        "label": "Rasputitsadirt"
+      },
+      {
+        "url": "https://rasputitsadirt.com/partners",
+        "category": "other",
+        "label": "Rasputitsadirt"
+      },
+      {
+        "url": "https://rasputitsadirt.com/results",
+        "category": "other",
+        "label": "Rasputitsadirt"
+      },
+      {
+        "url": "https://rasputitsadirt.com/shop/rasputitsa-supergiara-jersey",
+        "category": "other",
+        "label": "Rasputitsadirt"
       },
       {
         "url": "https://reddit.com/r/gravelcycling/comments/rasputitsa",
@@ -274,94 +321,34 @@
         "label": "Reddit"
       },
       {
-        "url": "https://ridewithgps.com",
-        "category": "route",
-        "label": "RideWithGPS"
-      },
-      {
-        "url": "https://www.cyclingtips.com",
-        "category": "media",
-        "label": "CyclingTips"
-      },
-      {
-        "url": "https://www.strava.com",
-        "category": "activity",
-        "label": "Strava"
-      },
-      {
-        "url": "https://www.trainerroad.com",
-        "category": "community",
-        "label": "TrainerRoad"
-      },
-      {
-        "url": "https://www.velonews.com",
-        "category": "media",
-        "label": "VeloNews"
-      },
-      {
-        "url": "https://adamroberge.com/2024/05/597/",
-        "category": "community",
-        "label": "adamroberge.com: 597"
-      },
-      {
-        "url": "https://www.cxmagazine.com/gravel-race-2019-rasputitsa-vermont-cycling-community-charity-2",
-        "category": "community",
-        "label": "cxmagazine.com: Gravel Race 2019 Rasputitsa Vermont Cycling Community Cha..."
-      },
-      {
-        "url": "https://adventuresneaker.com/2016/04/25/rasputitsa-2016-race-report/",
-        "category": "community",
-        "label": "adventuresneaker.com: Rasputitsa 2016 Race Report"
-      },
-      {
-        "url": "https://www.cxmagazine.com/gravel-race-irreverent-road-ride-8-vermont-challenge",
-        "category": "community",
-        "label": "cxmagazine.com: Gravel Race Irreverent Road Ride 8 Vermont Challenge"
-      },
-      {
         "url": "https://theradavist.com/2022-rasputitsa-dirt-gravel-cycling-event",
-        "category": "community",
-        "label": "theradavist.com: 2022 Rasputitsa Dirt Gravel Cycling Event"
+        "category": "other",
+        "label": "Theradavist"
       },
       {
-        "url": "https://rasputitsadirt.com/results",
-        "category": "community",
-        "label": "rasputitsadirt.com: Results"
+        "url": "https://www.tobedetermined.cc/journal/2017/4/rasputitsa-2017-how-the-weekend-was-won",
+        "category": "other",
+        "label": "Tobedetermined"
       },
       {
-        "url": "https://rasputitsadirt.com/",
-        "category": "community",
-        "label": "rasputitsadirt.com"
+        "url": "https://www.tobedetermined.cc/journal/2018/4/rasputitsa-is-it-a-race-or-is-it-a-race",
+        "category": "other",
+        "label": "Tobedetermined"
+      },
+      {
+        "url": "https://www.tobedetermined.cc/journal/2018/4/rasputitsa-is-it-a-race-or-is-it-a-ride",
+        "category": "other",
+        "label": "Tobedetermined"
       },
       {
         "url": "https://www.trainerroad.com/forum/t/rasputitsa-2023/82653",
         "category": "community",
-        "label": "trainerroad.com: 82653"
-      },
-      {
-        "url": "https://discuss.360velo.com/t/rasputitsa-2019/1207",
-        "category": "community",
-        "label": "discuss.360velo.com: 1207"
-      },
-      {
-        "url": "https://www.tobedetermined.cc/journal/2018/4/rasputitsa-is-it-a-race-or-is-it-a-ride",
-        "category": "community",
-        "label": "tobedetermined.cc: Rasputitsa Is It A Race Or Is It A Ride"
-      },
-      {
-        "url": "https://www.tobedetermined.cc/journal/2018/4/rasputitsa-is-it-a-race-or-is-it-a-race",
-        "category": "community",
-        "label": "tobedetermined.cc: Rasputitsa Is It A Race Or Is It A Race"
+        "label": "TrainerRoad"
       },
       {
         "url": "https://mtbvt.com/archives/27636",
         "category": "community",
         "label": "mtbvt.com: 27636"
-      },
-      {
-        "url": "https://www.tobedetermined.cc/journal/2017/4/rasputitsa-2017-how-the-weekend-was-won",
-        "category": "community",
-        "label": "tobedetermined.cc: Rasputitsa 2017 How The Weekend Was Won"
       },
       {
         "url": "https://mtbvt.com/archives/27542",

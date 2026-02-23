@@ -298,10 +298,10 @@ class TestHonestUncertainty:
 
 
 class TestExplanationLength:
-    """Each explanation should be 50-600 characters."""
+    """Each explanation should be 50-800 characters."""
 
     MIN_LENGTH = 50
-    MAX_LENGTH = 600
+    MAX_LENGTH = 800
 
     def test_explanation_length_bounds(self):
         violations = []

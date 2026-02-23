@@ -94,7 +94,11 @@
       "score": "46 / 100",
       "one_liner": "Wisconsin local gravel challenge.",
       "should_you_race": "If you're local to Wisconsin—yes, it's good value. If you're traveling—skip it.",
-      "alternatives": "For better Wisconsin races: Chequamegon, Bear 100."
+      "alternatives": "For better Wisconsin races: Chequamegon, Bear 100.",
+      "alternative_slugs": [
+        "bear-100",
+        "chequamegon-mtb"
+      ]
     },
     "logistics": {
       "airport": "Wausau (CWA) 30 minutes",
@@ -185,12 +189,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 89.2,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -311,24 +324,59 @@
     },
     "citations": [
       {
-        "url": "https://www.ironbull.org/essential-gravel-ride-details",
-        "category": "community",
-        "label": "ironbull.org: Essential Gravel Ride Details"
+        "url": "https://ridewithgps.com/routes/48038106",
+        "category": "route",
+        "label": "RideWithGPS: Ironbull Essential Gravel Grinder 44 (copy)"
       },
       {
         "url": "https://www.beyondthepeloton.cc/blog/essential-gravel",
-        "category": "community",
-        "label": "beyondthepeloton.cc: Essential Gravel"
+        "category": "other",
+        "label": "Beyondthepeloton"
       },
       {
-        "url": "https://blog.irace.ai/gravel-racing",
+        "url": "https://www.ironbull.org/essential-gravel-ride-details",
+        "category": "other",
+        "label": "Ironbull"
+      },
+      {
+        "url": "https://www.ironbull.org/in-the-news/essential-gravel",
+        "category": "other",
+        "label": "Ironbull"
+      },
+      {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/13yniiv/coolessential_gravel_accesories/",
         "category": "community",
-        "label": "blog.irace.ai: Gravel Racing"
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/14rhj3a/essentials_for_starting_gravelcycling/",
+        "category": "community",
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/19elfwn/commencal_fcb_essential_gravel_build/",
+        "category": "community",
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/1bg5zoh/what_is_essential_to_take_with_you_on_a_ride/",
+        "category": "community",
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/1c2g8ta/is_a_narrow_wide_chainring_really_that_essential/",
+        "category": "community",
+        "label": "Reddit"
       },
       {
         "url": "https://www.bicycling.com/skills-tips/a33266537/expert-gravel-guide-3/",
         "category": "community",
         "label": "bicycling.com: Expert Gravel Guide 3"
+      },
+      {
+        "url": "https://blog.irace.ai/gravel-racing",
+        "category": "community",
+        "label": "blog.irace.ai: Gravel Racing"
       },
       {
         "url": "https://trainright.com/gravel-racing-gear-guide/",
@@ -339,21 +387,6 @@
         "url": "https://runbikecalc.com/blog/gravel-cycling-training-complete-guide",
         "category": "community",
         "label": "runbikecalc.com: Gravel Cycling Training Complete Guide"
-      },
-      {
-        "url": "https://silentsportsmagazine.com/2022/06/06/ironbull-brings-more-free-gravel-riding-to-north-central-wisconsin/",
-        "category": "community",
-        "label": "silentsportsmagazine.com: Ironbull Brings More Free Gravel Riding To North Central ..."
-      },
-      {
-        "url": "https://www.ironbull.org/in-the-news/essential-gravel",
-        "category": "community",
-        "label": "ironbull.org: Essential Gravel"
-      },
-      {
-        "url": "https://www.bikeradar.com/advice/fitness-and-training/gravel-riding-tips",
-        "category": "community",
-        "label": "bikeradar.com: Gravel Riding Tips"
       }
     ],
     "tire_recommendations": {

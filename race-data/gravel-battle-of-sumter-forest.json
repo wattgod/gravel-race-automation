@@ -19,7 +19,7 @@
         "Central South Carolina"
       ],
       "field_size": "200-400 riders",
-      "start_time": "Morning start",
+      "start_time": "9:00 AM star",
       "registration": "Online. Cost: ~$60-100",
       "prize_purse": "Modest prizes",
       "aid_stations": "Multiple aid stations",
@@ -94,7 +94,10 @@
       "score": "50 / 100",
       "one_liner": "South Carolina Sumter Forest gravel in Whitmire.",
       "should_you_race": "If you're in South Carolina and want a forest event—yes, it's solid. If you're from out of state—there are better options.",
-      "alternatives": "For better SC events: Gran Fondo Hincapie. For similar forest events: other SC gravel races."
+      "alternatives": "For better SC events: Gran Fondo Hincapie. For similar forest events: other SC gravel races.",
+      "alternative_slugs": [
+        "gran-fondo-hincapie"
+      ]
     },
     "logistics": {
       "airport": "Columbia (CAE) 1 hour or Greenville (GSP) 1 hour",
@@ -102,7 +105,8 @@
       "food": "Small town with limited dining. Stock nutrition.",
       "packet_pickup": "Day before typically",
       "parking": "At start/finish",
-      "official_site": "Check South Carolina cycling calendars"
+      "official_site": "Check South Carolina cycling calendars",
+      "camping": "Camping option:** \"The town of Whitmire has agreed to allow racers to boondock downtown Friday night"
     },
     "history": {
       "founded": null,
@@ -185,12 +189,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 89.3,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 82,
+          "cross_reference": 50
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -316,6 +329,11 @@
         "label": "RideWithGPS: Gravel Battle of Sumter Forest Long Course New For 2025 (copy)"
       },
       {
+        "url": "https://granfondodailynews.com/2021/03/17/stacked-pro-field-goes-head-to-head-at-battle-gravel-of-sumter-forest-results/",
+        "category": "other",
+        "label": "Granfondodailynews"
+      },
+      {
         "url": "https://ridewithgps.com/routes/49042380",
         "category": "route",
         "label": "RideWithGPS"
@@ -331,34 +349,39 @@
         "label": "RideWithGPS"
       },
       {
+        "url": "https://strambecco.com/event/gravel-battle-sumter-forest/",
+        "category": "other",
+        "label": "Strambecco"
+      },
+      {
         "url": "https://trimarni.blogspot.com/2021/03/gravel-battle-of-sumter-forest-race.html",
+        "category": "other",
+        "label": "Trimarni"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/7917/sumter-national-forest-gravel-event",
+        "category": "other",
+        "label": "Granfondoguide"
+      },
+      {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/11s8ekw/action_shot_from_the_gravel_battle_of_sumter/",
         "category": "community",
-        "label": "trimarni.blogspot.com: Gravel Battle Of Sumter Forest Race.Html"
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.southeastgravel.com/gravel-battle-of-sumter-forest",
+        "category": "other",
+        "label": "Southeastgravel"
+      },
+      {
+        "url": "https://www.trimarnicoach.com/trimarniblog/2021/03/gravel-battle-of-sumter-forest-race.html",
+        "category": "other",
+        "label": "Trimarnicoach"
       },
       {
         "url": "https://feisty.co/p/2021-3-17-we-went-to-gravel-race/",
         "category": "community",
         "label": "feisty.co: 2021 3 17 We Went To Gravel Race"
-      },
-      {
-        "url": "https://strambecco.com/event/gravel-battle-sumter-forest/",
-        "category": "community",
-        "label": "strambecco.com: Gravel Battle Sumter Forest"
-      },
-      {
-        "url": "https://www.southeastgravel.com/gravel-battle-of-sumter-forest",
-        "category": "community",
-        "label": "southeastgravel.com: Gravel Battle Of Sumter Forest"
-      },
-      {
-        "url": "https://www.trimarnicoach.com/trimarniblog/2021/03/gravel-battle-of-sumter-forest-race.html",
-        "category": "community",
-        "label": "trimarnicoach.com: Gravel Battle Of Sumter Forest Race.Html"
-      },
-      {
-        "url": "https://granfondodailynews.com/2021/03/17/stacked-pro-field-goes-head-to-head-at-battle-gravel-of-sumter-forest-results/",
-        "category": "community",
-        "label": "granfondodailynews.com: Stacked Pro Field Goes Head To Head At Battle Gravel Of S..."
       }
     ],
     "tire_recommendations": {

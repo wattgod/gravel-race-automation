@@ -19,7 +19,7 @@
         "Oregon"
       ],
       "field_size": "50-100 riders",
-      "start_time": "Morning start",
+      "start_time": "8:30AM star",
       "registration": "Online. Cost: ~$75-95",
       "prize_purse": "Modest prizes",
       "aid_stations": "2-3 aid stations",
@@ -94,7 +94,11 @@
       "score": "43 / 100",
       "one_liner": "Oregon mountain gravel challenge.",
       "should_you_race": "If you're local to OR—yes, it's solid. If you're traveling—skip it.",
-      "alternatives": "For better OR races: Oregon Coast Gravel Epic, Oregon Gran Fondo."
+      "alternatives": "For better OR races: Oregon Coast Gravel Epic, Oregon Gran Fondo.",
+      "alternative_slugs": [
+        "oregon-coast-gravel-epic",
+        "oregon-gran-fondo"
+      ]
     },
     "logistics": {
       "airport": "Medford (MFR) 90 minutes",
@@ -102,7 +106,8 @@
       "food": "Canyonville has limited dining. Stock nutrition.",
       "packet_pickup": "Day of typically",
       "parking": "At start/finish",
-      "official_site": "Check Takelma Gravel Grinder website"
+      "official_site": "Check Takelma Gravel Grinder website",
+      "camping": "Camping Options:**\n- Chief Miwaleta RV Park and Campground\n- County Park Campground\n(https://strambecco"
     },
     "history": {
       "founded": null,
@@ -138,7 +143,13 @@
       ],
       "signature_challenge": "Oregon Cascades mountain terrain.",
       "ridewithgps_id": "43400256",
-      "ridewithgps_name": "Takelma gravel grinder Bold route"
+      "ridewithgps_name": "Takelma gravel grinder Bold route",
+      "surface_breakdown": {
+        "overall": {
+          "gravel": 55,
+          "pavement": 45
+        }
+      }
     },
     "guide_variables": {
       "race_name": "Takelma Gravel Grinder",
@@ -185,12 +196,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 86.7,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -316,44 +336,59 @@
         "label": "RideWithGPS: Takelma gravel grinder Bold route"
       },
       {
-        "url": "https://www.reddit.com/r/gravelgrinder/comments/c82u1j/first_gravel_grinder/",
-        "category": "community",
-        "label": "reddit.com: First Gravel Grinder"
+        "url": "https://strambecco.com/event/takelma-gravel-grinder/",
+        "category": "other",
+        "label": "Strambecco"
       },
       {
-        "url": "https://www.takelmagravelgrinder.com/",
-        "category": "community",
-        "label": "takelmagravelgrinder.com"
+        "url": "https://takelmaroasting.com/collections",
+        "category": "other",
+        "label": "Takelmaroasting"
+      },
+      {
+        "url": "https://takelmaroasting.com/collections/coffee",
+        "category": "other",
+        "label": "Takelmaroasting"
+      },
+      {
+        "url": "https://takelmaroasting.com/pages/our-story",
+        "category": "other",
+        "label": "Takelmaroasting"
+      },
+      {
+        "url": "https://takelmaroasting.com/pages/where-to-find-us",
+        "category": "other",
+        "label": "Takelmaroasting"
+      },
+      {
+        "url": "https://takelmaroasting.com/products/copy-of-copy-of-takelma-picture-book-colors",
+        "category": "other",
+        "label": "Takelmaroasting"
+      },
+      {
+        "url": "https://takelmaroasting.com/products/iridescent-takelma-etched-tumbler",
+        "category": "other",
+        "label": "Takelmaroasting"
+      },
+      {
+        "url": "https://takelmaroasting.com/products/takelma-logo-mug",
+        "category": "other",
+        "label": "Takelmaroasting"
+      },
+      {
+        "url": "https://traveloregon.com/things-to-do/takelma-gravel-grinder-3/",
+        "category": "other",
+        "label": "Traveloregon"
       },
       {
         "url": "https://www.granfondoguide.com/Contents/Index/7641/registration-opens-for-one-the-craziest-grinders-out-west-the-takelma-gravel-grinder",
-        "category": "community",
-        "label": "granfondoguide.com: Registration Opens For One The Craziest Grinders Out West..."
+        "category": "other",
+        "label": "Granfondoguide"
       },
       {
-        "url": "https://traveloregon.com/things-to-do/events/takelma-gravel-grinder-3/",
-        "category": "community",
-        "label": "traveloregon.com: Takelma Gravel Grinder 3"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=dt9ycvdxONU",
-        "category": "community",
-        "label": "youtube.com: Watch"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=6SRatkX8UfE",
-        "category": "community",
-        "label": "youtube.com: Watch"
-      },
-      {
-        "url": "https://strambecco.com/event/takelma-gravel-grinder/",
-        "category": "community",
-        "label": "strambecco.com: Takelma Gravel Grinder"
-      },
-      {
-        "url": "https://www.southernoregon.org/cycling-biking/gravel-adventure-biking/ultimate-guide-to-gravel-rides-in-southern-oregon/",
-        "category": "community",
-        "label": "southernoregon.org: Ultimate Guide To Gravel Rides In Southern Oregon"
+        "url": "https://www.mudslingerevents.com/takelma-gravel-grinder",
+        "category": "other",
+        "label": "Mudslingerevents"
       },
       {
         "url": "https://www.granfondoguide.com/Contents/Index/7641/",

@@ -37,6 +37,8 @@ function gg_noindex_junk_pages() {
         '/dashboard',
         '/student-registration',
         '/instructor-registration',
+        '/questionnaire',
+        '/coaching/apply',
         'wc-ajax=',
     ];
 

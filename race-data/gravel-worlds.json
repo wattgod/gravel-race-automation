@@ -153,7 +153,10 @@
       "score": "79 / 100",
       "one_liner": "The OG grassroots gravel race—where the spirit of the sport lives on in Nebraska summer heat.",
       "should_you_race": "Yes if you value authenticity, community, and genuine challenge over polish. Yes if you can handle August Midwest heat. Not if you need corporate production value.",
-      "alternatives": "If you want heat without the distance: Unbound 100. If you want distance without the heat: fall ultra events. If you want grassroots elsewhere: local favorites."
+      "alternatives": "If you want heat without the distance: Unbound 100. If you want distance without the heat: fall ultra events. If you want grassroots elsewhere: local favorites.",
+      "alternative_slugs": [
+        "unbound-100"
+      ]
     },
     "logistics": {
       "airport": "Omaha (OMA) - 1 hour. Lincoln (LNK) - 15 minutes but limited flights.",
@@ -213,18 +216,18 @@
       ],
       "migration_notes": [],
       "research_strength": {
-        "overall": 78.8,
-        "grade": "B",
+        "overall": 92.8,
+        "grade": "A",
         "weakest": "citation_density",
         "has_research_dump": true,
         "dimensions": {
-          "source_diversity": 30,
-          "citation_density": 5,
+          "source_diversity": 100,
+          "citation_density": 50,
           "temporal_depth": 100,
           "specificity": 100,
           "statistical_backing": 100,
           "voice_authenticity": 100,
-          "completeness": 100,
+          "completeness": 94,
           "cross_reference": 75
         },
         "scored_at": "2026-02-04"
@@ -232,89 +235,74 @@
     },
     "citations": [
       {
-        "url": "https://www.gravel-worlds.com",
-        "category": "official",
-        "label": "Official Website"
-      },
-      {
         "url": "https://ridewithgps.com/routes/51659517",
         "category": "route",
         "label": "RideWithGPS Route"
       },
       {
         "url": "https://careylowery.blogspot.com/2023/08/gravel-worlds-race-report.html",
-        "category": "community",
-        "label": "careylowery.blogspot.com: Gravel Worlds Race Report.Html"
-      },
-      {
-        "url": "https://www.gravelworlds.com/blog/from-behind-the-corn-10-elizabeth-james",
-        "category": "community",
-        "label": "gravelworlds.com: From Behind The Corn 10 Elizabeth James"
-      },
-      {
-        "url": "https://www.paigepowered.com/post/gravel-worlds-race-recap",
-        "category": "community",
-        "label": "paigepowered.com: Gravel Worlds Race Recap"
-      },
-      {
-        "url": "https://adamroberge.com/2024/10/645/",
-        "category": "community",
-        "label": "adamroberge.com: 645"
-      },
-      {
-        "url": "https://www.gravelworlds.com/blog/mygravelworlds/mygravelworlds-colin-strickland",
-        "category": "community",
-        "label": "gravelworlds.com: Mygravelworlds Colin Strickland"
-      },
-      {
-        "url": "https://gravelunion.cc/article/UCI-gravel-worlds",
-        "category": "community",
-        "label": "gravelunion.cc: Uci Gravel Worlds"
-      },
-      {
-        "url": "https://flowmountainbike.com/features/it-begins-with-yes-gravel-worlds/",
-        "category": "community",
-        "label": "flowmountainbike.com: It Begins With Yes Gravel Worlds"
-      },
-      {
-        "url": "https://cinelli-milano.com/blogs/news/race-report-liv-at-gravel-worlds",
-        "category": "community",
-        "label": "cinelli-milano.com: Race Report Liv At Gravel Worlds"
-      },
-      {
-        "url": "https://www.joinbasecamp.com/post/lauf-gravel-worlds-on-a-lauf-seigla",
-        "category": "community",
-        "label": "joinbasecamp.com: Lauf Gravel Worlds On A Lauf Seigla"
-      },
-      {
-        "url": "https://www.slowtwitch.com/gravel/gravel-worlds-goes-big-again-with-record-setting-2026-prize-purse/",
-        "category": "community",
-        "label": "slowtwitch.com: Gravel Worlds Goes Big Again With Record Setting 2026 Pri..."
-      },
-      {
-        "url": "https://velo.outsideonline.com/gravel/gravel-racing/results-matt-beers-and-rosa-kloser-win-lauf-gravel-worlds-2025-in-a-duo-of-two-up-sprints/",
-        "category": "community",
-        "label": "velo.outsideonline.com: Results Matt Beers And Rosa Kloser Win Lauf Gravel Worlds..."
-      },
-      {
-        "url": "https://www.slowtwitch.com/gravel/rosa-kloser-wins-gravel-worlds-after-epic-breakaway-with-geerike-schreurs/",
-        "category": "community",
-        "label": "slowtwitch.com: Rosa Kloser Wins Gravel Worlds After Epic Breakaway With ..."
-      },
-      {
-        "url": "https://www.mathewwollmann.com/post/garmin-gravel-worlds-300-2024-race-recap",
-        "category": "community",
-        "label": "mathewwollmann.com: Garmin Gravel Worlds 300 2024 Race Recap"
-      },
-      {
-        "url": "https://www.gravelworlds.com/about",
-        "category": "community",
-        "label": "gravelworlds.com: About"
+        "category": "other",
+        "label": "Careylowery"
       },
       {
         "url": "https://velo.outsideonline.com/gravel/gravel-racing/garmin-gravel-worlds/",
+        "category": "media",
+        "label": "Velo"
+      },
+      {
+        "url": "https://velo.outsideonline.com/gravel/gravel-racing/results-matt-beers-and-rosa-kloser-win-lauf-gravel-worlds-2025-in-a-duo-of-two-up-sprints/",
+        "category": "media",
+        "label": "Velo"
+      },
+      {
+        "url": "https://www.cyclingweekly.com/gravel/usd100-000-unofficial-gravel-worlds-to-offer-largest-single-day-prize-purse-in-gravel-racing",
+        "category": "media",
+        "label": "Cycling Weekly"
+      },
+      {
+        "url": "https://www.gravelworlds.com/about",
+        "category": "other",
+        "label": "Gravelworlds"
+      },
+      {
+        "url": "https://www.gravelworlds.com/blog/category/Results",
+        "category": "other",
+        "label": "Gravelworlds"
+      },
+      {
+        "url": "https://www.mathewwollmann.com/post/garmin-gravel-worlds-300-2024-race-recap",
+        "category": "other",
+        "label": "Mathewwollmann"
+      },
+      {
+        "url": "https://www.paigepowered.com/post/gravel-worlds-race-recap",
+        "category": "other",
+        "label": "Paigepowered"
+      },
+      {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/15nxcu5/garmin_gravel_worlds_whos_going/",
         "category": "community",
-        "label": "velo.outsideonline.com: Garmin Gravel Worlds"
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/15xhjpy/gravel_worlds_in_lincoln/",
+        "category": "community",
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/17123cv/can_keegan_win_gravel_worlds/",
+        "category": "community",
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/wty6ku/got_11th_place_at_gravel_worlds_300_yesterday/",
+        "category": "community",
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.slowtwitch.com/gravel/rosa-kloser-wins-gravel-worlds-after-epic-breakaway-with-geerike-schreurs/",
+        "category": "other",
+        "label": "Slowtwitch"
       }
     ],
     "results": {

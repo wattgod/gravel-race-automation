@@ -102,7 +102,8 @@
       "food": "Small town with limited dining. Stock nutrition.",
       "packet_pickup": "Day before typically",
       "parking": "At start/finish",
-      "official_site": "Check Missouri cycling calendars"
+      "official_site": "Check Missouri cycling calendars",
+      "camping": "campground section in a previous year but returned to finish the race in 2024[4]"
     },
     "history": {
       "founded": null,
@@ -185,12 +186,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 91.0,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 88,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -316,59 +326,54 @@
         "label": "RideWithGPS: Berryman Epic "
       },
       {
+        "url": "http://www.markgullett.com/2009/10/berryman-epic-recap.html",
+        "category": "other",
+        "label": "Markgullett"
+      },
+      {
         "url": "https://careylowery.blogspot.com/2010/10/berryman-epic-race-report.html",
-        "category": "community",
-        "label": "careylowery.blogspot.com: Berryman Epic Race Report.Html"
+        "category": "other",
+        "label": "Careylowery"
       },
       {
         "url": "https://careylowery.blogspot.com/2011/10/berryman-epic-race-report.html",
-        "category": "community",
-        "label": "careylowery.blogspot.com: Berryman Epic Race Report.Html"
-      },
-      {
-        "url": "https://stevetilford.com/2010/10/25/berryman-it-was-epic-in-a-different-way/",
-        "category": "community",
-        "label": "stevetilford.com: Berryman It Was Epic In A Different Way"
+        "category": "other",
+        "label": "Careylowery"
       },
       {
         "url": "https://gorctrails.com/berryman-trail-epic/",
-        "category": "community",
-        "label": "gorctrails.com: Berryman Trail Epic"
-      },
-      {
-        "url": "http://www.markgullett.com/2009/10/berryman-epic-recap.html",
-        "category": "community",
-        "label": "markgullett.com: Berryman Epic Recap.Html"
-      },
-      {
-        "url": "https://stevetilford.com/2011/10/21/driving-to-the-ozarks-berryman-epic/",
-        "category": "community",
-        "label": "stevetilford.com: Driving To The Ozarks Berryman Epic"
+        "category": "other",
+        "label": "Gorctrails"
       },
       {
         "url": "https://kcrastarider.blogspot.com/2010/10/berryman-epic.html",
-        "category": "community",
-        "label": "kcrastarider.blogspot.com: Berryman Epic.Html"
+        "category": "other",
+        "label": "Kcrastarider"
       },
       {
-        "url": "https://stevetilford.com/2015/10/26/berryman-trail-epic-mtb-race/",
-        "category": "community",
-        "label": "stevetilford.com: Berryman Trail Epic Mtb Race"
+        "url": "https://stevetilford.com/2010/10/22/berryman-epic-t-12-hours/",
+        "category": "other",
+        "label": "Stevetilford"
+      },
+      {
+        "url": "https://stevetilford.com/2010/10/25/berryman-it-was-epic-in-a-different-way/",
+        "category": "other",
+        "label": "Stevetilford"
       },
       {
         "url": "https://stevetilford.com/2012/10/29/the-berryman-epic-just-trying-to-maintain-is-enough-sometimes/",
-        "category": "community",
-        "label": "stevetilford.com: The Berryman Epic Just Trying To Maintain Is Enough Somet..."
+        "category": "other",
+        "label": "Stevetilford"
+      },
+      {
+        "url": "https://stevetilford.com/2015/10/26/berryman-trail-epic-mtb-race/",
+        "category": "other",
+        "label": "Stevetilford"
       },
       {
         "url": "http://kate-my-mind.blogspot.com/2015/10/bt-epic.html",
         "category": "community",
         "label": "kate-my-mind.blogspot.com: Bt Epic.Html"
-      },
-      {
-        "url": "https://stevetilford.com/2010/10/22/berryman-epic-t-12-hours/",
-        "category": "community",
-        "label": "stevetilford.com: Berryman Epic T 12 Hours"
       }
     ],
     "results": {

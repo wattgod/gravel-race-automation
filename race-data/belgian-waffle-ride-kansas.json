@@ -113,7 +113,13 @@
       "score": "56 / 100",
       "one_liner": "Kansas pretends to be Belgium with cyclocross courses and punchy climbs, but you're still riding through cornfields.",
       "should_you_race": "If you've never experienced proper Belgian Waffle Ride suffering, this is training wheels for the real thing in San Diego or North Carolina. The cyclocross sections and singletrack will humble roadies, but seasoned gravel riders will find it more annoying than challenging. Show up undertrained and the punchy climbs will remind you that Kansas isn't actually flat.",
-      "alternatives": "Belgian Waffle Ride San Diego delivers the full BWR experience with proper mountains and ocean views. Dirty Kanza/Unbound gives you authentic Kansas gravel without the gimmicks, while Mid South offers similar mileage with more legitimate suffering per mile."
+      "alternatives": "Belgian Waffle Ride San Diego delivers the full BWR experience with proper mountains and ocean views. Dirty Kanza/Unbound gives you authentic Kansas gravel without the gimmicks, while Mid South offers similar mileage with more legitimate suffering per mile.",
+      "alternative_slugs": [
+        "bwr-california",
+        "bwr-san-diego",
+        "mid-south",
+        "unbound-200"
+      ]
     },
     "course_description": {
       "character": "Kansas decides to cosplay as Belgium with double the elevation per mile of anything else in the region. The Snake Farm cyclocross courses and punchy singletrack sections exist to humble roadies who think gravel is just riding fast on dirt roads. This is 89% unroad terrain designed to make you question why you didn't just stay in Flanders.",
@@ -150,44 +156,39 @@
         "label": "RideWithGPS: 2022 BWR KS WAFER (copy) By 2023 BELGIAN WAFFLE RIDE"
       },
       {
-        "url": "https://www.belgianwaffleride.bike/blogs/news/2022-bwr-kansas-results",
-        "category": "community",
-        "label": "belgianwaffleride.bike: 2022 Bwr Kansas Results"
-      },
-      {
         "url": "https://nordictrailblazer.cc/races/belgian-waffle-ride-kansas-23/",
-        "category": "community",
-        "label": "nordictrailblazer.cc: Belgian Waffle Ride Kansas 23"
-      },
-      {
-        "url": "https://velo.outsideonline.com/gravel/tiffany-cromwell-tanner-ward-win-belgian-waffle-ride-kansas/",
-        "category": "community",
-        "label": "velo.outsideonline.com: Tiffany Cromwell Tanner Ward Win Belgian Waffle Ride Kansas"
-      },
-      {
-        "url": "https://www.belgianwaffleride.bike/blogs/news/joy-mccullochs-race-recap-for-the-womens-waffle",
-        "category": "community",
-        "label": "belgianwaffleride.bike: Joy Mccullochs Race Recap For The Womens Waffle"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=RmYv3l9jeLM",
-        "category": "community",
-        "label": "youtube.com: Watch"
+        "category": "other",
+        "label": "Nordictrailblazer"
       },
       {
         "url": "https://velo.outsideonline.com/gravel/gravel-racing/belgian-waffle-ride-kansas-wraps-tripel-crown-of-gravel-series-registration-opens",
-        "category": "community",
-        "label": "velo.outsideonline.com: Belgian Waffle Ride Kansas Wraps Tripel Crown Of Gravel S..."
+        "category": "media",
+        "label": "Velo"
       },
       {
-        "url": "https://www.stevetilfordfoundationracing.com/team-updates/belgian-waffle-ride-kansas",
-        "category": "community",
-        "label": "stevetilfordfoundationracing.com: Belgian Waffle Ride Kansas"
+        "url": "https://www.belgianwaffleride.bike/blogs/news/2022-bwr-kansas-results",
+        "category": "other",
+        "label": "Belgianwaffleride"
       },
       {
         "url": "https://www.belgianwaffleride.bike/pages/kansas",
+        "category": "other",
+        "label": "Belgianwaffleride"
+      },
+      {
+        "url": "https://www.reddit.com/r/CanyonBikes/comments/y5vhdk/valterri_bottas_has_won_the_belgian_waffle_ride/",
         "category": "community",
-        "label": "belgianwaffleride.bike: Kansas"
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.reddit.com/r/formula1/comments/y5ksso/valterri_bottas_has_won_the_belgian_waffle_ride/",
+        "category": "community",
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.stevetilfordfoundationracing.com/team-updates/belgian-waffle-ride-kansas",
+        "category": "other",
+        "label": "Stevetilfordfoundationracing"
       }
     ],
     "logistics": {
@@ -263,6 +264,25 @@
         "200pluslb_dry": "42-46",
         "200pluslb_mixed": "38-42",
         "200pluslb_wet": "36-40"
+      }
+    },
+    "research_metadata": {
+      "research_strength": {
+        "overall": 87.3,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 52,
+          "cross_reference": 50
+        },
+        "scored_at": "2026-02-04"
       }
     }
   }

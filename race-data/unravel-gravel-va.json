@@ -185,12 +185,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 90.9,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 50
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -311,9 +320,14 @@
     },
     "citations": [
       {
-        "url": "https://granfondo-cycling.com/best-race-gravel-bike-review/",
-        "category": "community",
-        "label": "granfondo-cycling.com: Best Race Gravel Bike Review"
+        "url": "https://www.cyclingva.com/events/unravel-gravel/",
+        "category": "other",
+        "label": "Cyclingva"
+      },
+      {
+        "url": "https://www.gravel-results.com/racer/299052",
+        "category": "other",
+        "label": "Gravel-Results"
       },
       {
         "url": "https://www.webscorer.com/results?raceid=370345&did=482698&gender=M",
@@ -326,11 +340,6 @@
         "label": "webscorer.com: Results"
       },
       {
-        "url": "https://www.gravel-results.com/racer/299052",
-        "category": "community",
-        "label": "gravel-results.com: 299052"
-      },
-      {
         "url": "https://results.bikereg.com/downloadteam.php?teamID=48411",
         "category": "community",
         "label": "results.bikereg.com: Downloadteam.Php"
@@ -339,16 +348,6 @@
         "url": "https://results.bikereg.com/race/19801",
         "category": "community",
         "label": "results.bikereg.com: 19801"
-      },
-      {
-        "url": "https://www.cyclingva.com/events/unravel-gravel/",
-        "category": "community",
-        "label": "cyclingva.com: Unravel Gravel"
-      },
-      {
-        "url": "https://rvaracingevents.com",
-        "category": "community",
-        "label": "rvaracingevents.com"
       }
     ],
     "tire_recommendations": {

@@ -94,7 +94,11 @@
       "score": "40 / 100",
       "one_liner": "Michigan local gravel challenge.",
       "should_you_race": "If you're local to Michigan—yes, it's good value. If you're traveling—skip it.",
-      "alternatives": "For better Michigan races: Barry-Roubaix, Iceman Cometh."
+      "alternatives": "For better Michigan races: Barry-Roubaix, Iceman Cometh.",
+      "alternative_slugs": [
+        "barry-roubaix",
+        "iceman-cometh"
+      ]
     },
     "logistics": {
       "airport": "Alpena (APN) 15 minutes",
@@ -185,12 +189,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 88.4,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 50
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -316,19 +329,29 @@
         "label": "RideWithGPS: Thunder Bay Thriller - 27 Mile Short Route"
       },
       {
+        "url": "https://ilovegravelracing.com/event/thunder-bay-thriller/",
+        "category": "other",
+        "label": "Ilovegravelracing"
+      },
+      {
         "url": "https://www.joinbasecamp.com/post/tracys-story-thunder-bay-thriller",
-        "category": "community",
-        "label": "joinbasecamp.com: Tracys Story Thunder Bay Thriller"
+        "category": "other",
+        "label": "Joinbasecamp"
       },
       {
         "url": "https://www.letsrockcf.org/thunder-bay-thriller",
-        "category": "community",
-        "label": "letsrockcf.org: Thunder Bay Thriller"
+        "category": "other",
+        "label": "Letsrockcf"
       },
       {
         "url": "https://www.letsrockcf.org/upcoming-events/thunder-bay-thriller",
-        "category": "community",
-        "label": "letsrockcf.org: Thunder Bay Thriller"
+        "category": "other",
+        "label": "Letsrockcf"
+      },
+      {
+        "url": "https://www.michigangravelraceseries.com/schedule/thunderbaythriller",
+        "category": "other",
+        "label": "Michigangravelraceseries"
       }
     ],
     "results": {

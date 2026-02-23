@@ -94,7 +94,10 @@
       "score": "54 / 100",
       "one_liner": "Tasmanian mountain gravel adventure.",
       "should_you_race": "If you have a big budget and want a Tasmania experience—maybe. For most riders—there are better options.",
-      "alternatives": "For better value: regional gravel races. For similar Australian terrain: Gravelista."
+      "alternatives": "For better value: regional gravel races. For similar Australian terrain: Gravelista.",
+      "alternative_slugs": [
+        "gravelista"
+      ]
     },
     "logistics": {
       "airport": "Hobart (HBA) or Launceston (LST) varies by location",
@@ -185,12 +188,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 93.9,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 100,
+          "completeness": 76,
+          "cross_reference": 50
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -311,44 +323,44 @@
     },
     "citations": [
       {
-        "url": "https://www.devilscardigan.com.au/race-reports",
-        "category": "community",
-        "label": "devilscardigan.com.au: Race Reports"
+        "url": "https://burgh.cc/gravel-goes-global-the-devils-cardigans-uci-debut-in-derby-tasmania/",
+        "category": "other",
+        "label": "Burgh"
       },
       {
-        "url": "https://www.cyclingnews.com/races/uci-gravel-world-series-events-2025/the-devils-cardigan/results/",
-        "category": "community",
-        "label": "cyclingnews.com: Results"
+        "url": "https://cyclingflash.com/race/uci-gravel-world-series-the-devils-cardigan-2025/result",
+        "category": "other",
+        "label": "Cyclingflash"
+      },
+      {
+        "url": "https://granfondodailynews.com/2025/05/11/devils-cardigan-gravel-results-brendan-johnston-takes-third-uci-gravel-win/",
+        "category": "other",
+        "label": "Granfondodailynews"
+      },
+      {
+        "url": "https://marathonmtb.com/2021/07/04/the-devils-cardigan-gravel-race-sets-the-scene-in-tasmania-with-epic-course-and-conditions/",
+        "category": "other",
+        "label": "Marathonmtb"
+      },
+      {
+        "url": "https://www.ambmag.com.au/feature/2024-devils-cardigan-gravel-national-609264/",
+        "category": "other",
+        "label": "Ambmag"
+      },
+      {
+        "url": "https://www.devilscardigan.com.au/2023-race-recap-1",
+        "category": "other",
+        "label": "Devilscardigan"
+      },
+      {
+        "url": "https://www.devilscardigan.com.au/race-reports",
+        "category": "other",
+        "label": "Devilscardigan"
       },
       {
         "url": "https://theradavist.com/australian-gravel-national-championships",
         "category": "community",
         "label": "theradavist.com: Australian Gravel National Championships"
-      },
-      {
-        "url": "https://www.ambmag.com.au/feature/2024-devils-cardigan-gravel-national-609264/",
-        "category": "community",
-        "label": "ambmag.com.au: 2024 Devils Cardigan Gravel National 609264"
-      },
-      {
-        "url": "https://bicyclingaustralia.com.au/news/tassie-gravel-the-devils-cardigan/",
-        "category": "community",
-        "label": "bicyclingaustralia.com.au: Tassie Gravel The Devils Cardigan"
-      },
-      {
-        "url": "https://www.devilscardigan.com.au/2023-race-recap-1",
-        "category": "community",
-        "label": "devilscardigan.com.au: 2023 Race Recap 1"
-      },
-      {
-        "url": "https://burgh.cc/gravel-goes-global-the-devils-cardigans-uci-debut-in-derby-tasmania/",
-        "category": "community",
-        "label": "burgh.cc: Gravel Goes Global The Devils Cardigans Uci Debut In Derb..."
-      },
-      {
-        "url": "https://marathonmtb.com/2021/07/04/the-devils-cardigan-gravel-race-sets-the-scene-in-tasmania-with-epic-course-and-conditions/",
-        "category": "community",
-        "label": "marathonmtb.com: The Devils Cardigan Gravel Race Sets The Scene In Tasmani..."
       }
     ],
     "tire_recommendations": {

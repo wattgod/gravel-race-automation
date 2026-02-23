@@ -70,7 +70,7 @@ The course is described as "half in Georgia and half in Alabama" with the gravel
 
 **START POSITIONING IS CRITICAL [COMPETITIVE rider Jason Lopez]:** "Advice to future self, stick to the front at the beginning of the race. Ride a little bit harder up the hill to stay on the front group." The early single-track mud section creates a massive bottleneck that can separate you from the lead group permanently. (https://jaylocycling.com/2024-border-wars-gravel-race-report/)
 
-**Pacing Data [COMPETITIVE rider Jason Lopez - 100-mile]:** Finished 11th in category with:
+**Pacing Data** [COMPETITIVE] **Jason Lopez - 100-mile:** Finished 11th in category with:
 - 5:58 moving time
 - 16.2 mph average speed
 - 245W normalized power

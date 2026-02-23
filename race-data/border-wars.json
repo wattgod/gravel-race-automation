@@ -19,7 +19,7 @@
         "Southeast USA"
       ],
       "field_size": "200-400 riders",
-      "start_time": "Morning start",
+      "start_time": "4:00pm",
       "registration": "Online. Cost: ~$75-125",
       "prize_purse": "Modest prizes",
       "aid_stations": "Multiple aid stations",
@@ -101,8 +101,9 @@
       "lodging_strategy": "GA/AL border has moderate lodging options.",
       "food": "GA/AL has full dining options. Stock nutrition.",
       "packet_pickup": "Day before typically",
-      "parking": "At start/finish",
-      "official_site": "Check Border Wars website"
+      "parking": "parking at Heard County High School (600+ parking spots, room for RVs)\n- Some on-street parking downtown and small parking lot sout",
+      "official_site": "Check Border Wars website",
+      "camping": "camping and RV spaces (no electricity or water hook-ups)\n- Limited hotels in Franklin"
     },
     "history": {
       "founded": null,
@@ -185,12 +186,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 86.2,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 80,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -311,29 +321,44 @@
     },
     "citations": [
       {
-        "url": "https://jaylocycling.com/2024-border-wars-gravel-race-report/",
-        "category": "community",
-        "label": "jaylocycling.com: 2024 Border Wars Gravel Race Report"
-      },
-      {
-        "url": "https://www.ohiogravelgrinders.com/blog/2024/2/27/border-wars-gravel",
-        "category": "community",
-        "label": "ohiogravelgrinders.com: Border Wars Gravel"
-      },
-      {
-        "url": "https://www.granfondoguide.com/Contents/IndexFull/8123/homegrown-gravel-adventure-heads-into-fourth-year",
-        "category": "community",
-        "label": "granfondoguide.com: Homegrown Gravel Adventure Heads Into Fourth Year"
-      },
-      {
-        "url": "https://www.gravelcyclist.com/videos/2024-border-wars-gravel-franklin-georgia/",
-        "category": "community",
-        "label": "gravelcyclist.com: 2024 Border Wars Gravel Franklin Georgia"
+        "url": "https://ridewithgps.com/routes/49741722",
+        "category": "route",
+        "label": "RideWithGPS: BORDER WARS 2025"
       },
       {
         "url": "https://app.sponsorpitch.com/properties/border-wars-gravel-adventure",
-        "category": "community",
-        "label": "app.sponsorpitch.com: Border Wars Gravel Adventure"
+        "category": "other",
+        "label": "App"
+      },
+      {
+        "url": "https://jaylocycling.com/2024-border-wars-gravel-race-report/",
+        "category": "other",
+        "label": "Jaylocycling"
+      },
+      {
+        "url": "https://ridewithgps.com/routes/45363387",
+        "category": "route",
+        "label": "RideWithGPS"
+      },
+      {
+        "url": "https://ridewithgps.com/routes/45364559",
+        "category": "route",
+        "label": "RideWithGPS"
+      },
+      {
+        "url": "https://ridewithgps.com/routes/45364881",
+        "category": "route",
+        "label": "RideWithGPS"
+      },
+      {
+        "url": "https://www.gravelcyclist.com/videos/2024-border-wars-gravel-franklin-georgia/",
+        "category": "media",
+        "label": "Gravel Cyclist"
+      },
+      {
+        "url": "https://www.ohiogravelgrinders.com/blog/2024/2/27/border-wars-gravel",
+        "category": "other",
+        "label": "Ohiogravelgrinders"
       }
     ],
     "results": {

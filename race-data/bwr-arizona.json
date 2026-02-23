@@ -154,7 +154,11 @@
       "score": "67 / 100",
       "one_liner": "Technical desert suffering through sand, rock, and singletrack—a true BWR experience in Sonoran landscapes.",
       "should_you_race": "Yes if you want technical gravel racing with genuine unroad terrain. Yes if you're chasing BWR cred without major series pressure. Skip if you expect smooth gravel roads or hate sand and rocks.",
-      "alternatives": "BWR California (more climbing, iconic); BWR Cedar City (altitude + unroad); Unbound 200 (longer, less technical)"
+      "alternatives": "BWR California (more climbing, iconic); BWR Cedar City (altitude + unroad); Unbound 200 (longer, less technical)",
+      "alternative_slugs": [
+        "bwr-california",
+        "unbound-200"
+      ]
     },
     "logistics": {
       "airport": "PHX (Phoenix Sky Harbor) - major hub, 45-60min to venue",
@@ -211,18 +215,18 @@
       ],
       "migration_notes": [],
       "research_strength": {
-        "overall": 68.8,
-        "grade": "B",
-        "weakest": "citation_density",
-        "has_research_dump": false,
+        "overall": 94.8,
+        "grade": "A",
+        "weakest": "voice_authenticity",
+        "has_research_dump": true,
         "dimensions": {
-          "source_diversity": 30,
-          "citation_density": 20,
-          "temporal_depth": 75,
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
           "specificity": 100,
-          "statistical_backing": 60,
+          "statistical_backing": 100,
           "voice_authenticity": 70,
-          "completeness": 100,
+          "completeness": 94,
           "cross_reference": 75
         },
         "scored_at": "2026-02-04"
@@ -230,14 +234,14 @@
     },
     "citations": [
       {
-        "url": "https://www.belgianwaffleride.bike",
-        "category": "official",
-        "label": "Official Website"
-      },
-      {
         "url": "https://ridewithgps.com/routes/44736827",
         "category": "route",
         "label": "RideWithGPS: 2023 BWR ARIZONA WAFFLE"
+      },
+      {
+        "url": "https://almsthre.com/blogs/news/bwr-arizona-2025",
+        "category": "other",
+        "label": "Almsthre"
       },
       {
         "url": "https://burgh.cc/belgian-waffle-ride-arizona/",
@@ -255,9 +259,19 @@
         "label": "Strambecco"
       },
       {
+        "url": "https://veloracycling.com/events/belgian-waffle-ride-arizona-2026/preview",
+        "category": "other",
+        "label": "Veloracycling"
+      },
+      {
         "url": "https://weatherspark.com/y/2603/Average-Weather-in-Cave-Creek-Arizona-United-States-Year-Round",
         "category": "other",
         "label": "Weatherspark"
+      },
+      {
+        "url": "https://www.belgianwaffleride.bike/blogs/news/2024-bwr-arizona-results",
+        "category": "other",
+        "label": "Belgianwaffleride"
       },
       {
         "url": "https://www.bikereg.com/belgian-waffle-ride-arizona",
@@ -270,59 +284,29 @@
         "label": "Granfondoguide"
       },
       {
+        "url": "https://www.granfondoguide.com/RaceDashboard/BelgianWaffleRideSeries/1/8408/villafane-and-swenson-dominate-at-the-3rd-edition-of-belgian-waffle-ride-arizona",
+        "category": "other",
+        "label": "Granfondoguide"
+      },
+      {
+        "url": "https://www.progravelmagazine.com/post/belgian-waffel-ride-arizona-preview",
+        "category": "other",
+        "label": "Progravelmagazine"
+      },
+      {
+        "url": "https://www.reddit.com/r/cycling/comments/186ozxn/belgian_waffle_ride_arizona/",
+        "category": "community",
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.spokescollective.com/bike-race-series/belgian-waffle-ride-arizona-2026",
+        "category": "other",
+        "label": "Spokescollective"
+      },
+      {
         "url": "https://www.trainerroad.com/forum/t/bwr-scottsdale-az-2023/76159",
         "category": "community",
         "label": "TrainerRoad"
-      },
-      {
-        "url": "https://www.belgianwaffleride.bike/blogs/news/inaugural-bwr-arizona-recap",
-        "category": "community",
-        "label": "belgianwaffleride.bike: Inaugural Bwr Arizona Recap"
-      },
-      {
-        "url": "https://www.ccnsport.com/blogs/stories/ride-of-a-lifetime-jonas-orset-back-from-us-gravel-race",
-        "category": "community",
-        "label": "ccnsport.com: Ride Of A Lifetime Jonas Orset Back From Us Gravel Race"
-      },
-      {
-        "url": "https://obedbikes.com/blogs/stories/when-a-triathlete-does-their-first-gravel-race-on-the-obed-gvr",
-        "category": "community",
-        "label": "obedbikes.com: When A Triathlete Does Their First Gravel Race On The Obe..."
-      },
-      {
-        "url": "https://www.reddit.com/r/gravelcycling/comments/186p59j/belgian_waffle_ride_az/",
-        "category": "community",
-        "label": "reddit.com: Belgian Waffle Ride Az"
-      },
-      {
-        "url": "https://www.reddit.com/r/gravelcycling/comments/1izw0n9/finally_some_warmth_and_sunshine/",
-        "category": "community",
-        "label": "reddit.com: Finally Some Warmth And Sunshine"
-      },
-      {
-        "url": "https://nordictrailblazer.cc/blog/test-felt-breed/",
-        "category": "community",
-        "label": "nordictrailblazer.cc: Test Felt Breed"
-      },
-      {
-        "url": "https://www.belgianwaffleride.bike/pages/belgian-waffle-ride-az",
-        "category": "community",
-        "label": "belgianwaffleride.bike: Belgian Waffle Ride Az"
-      },
-      {
-        "url": "https://www.granfondoguide.com/Series/BelgianWaffleRide",
-        "category": "community",
-        "label": "granfondoguide.com: Belgianwaffleride"
-      },
-      {
-        "url": "https://veloracycling.com/events/belgian-waffle-ride-arizona-2026/preview",
-        "category": "community",
-        "label": "veloracycling.com: Preview"
-      },
-      {
-        "url": "https://www.granfondoguide.com/RaceDashboard/BelgianWaffleRideSeries/1/8408/villafane-and-swenson-dominate-at-the-3rd-edition-of-belgian-waffle-ride-arizona",
-        "category": "community",
-        "label": "granfondoguide.com: Villafane And Swenson Dominate At The 3Rd Edition Of Belg..."
       },
       {
         "url": "https://servicecoursereport.substack.com/p/tour-de-dumoulin",
@@ -330,9 +314,14 @@
         "label": "servicecoursereport.substack.com: Tour De Dumoulin"
       },
       {
-        "url": "https://www.progravelmagazine.com/post/belgian-waffel-ride-arizona-preview",
+        "url": "https://www.granfondoguide.com/Series/BelgianWaffleRide",
         "category": "community",
-        "label": "progravelmagazine.com: Belgian Waffel Ride Arizona Preview"
+        "label": "granfondoguide.com: Belgianwaffleride"
+      },
+      {
+        "url": "https://www.belgianwaffleride.bike/pages/belgian-waffle-ride-az",
+        "category": "community",
+        "label": "belgianwaffleride.bike: Belgian Waffle Ride Az"
       }
     ],
     "series": {

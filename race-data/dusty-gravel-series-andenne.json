@@ -19,7 +19,7 @@
         "Ardennes"
       ],
       "field_size": "100-150 riders",
-      "start_time": "Morning start",
+      "start_time": "9:00 AM star",
       "registration": "Online. Cost: ~€60-80",
       "prize_purse": "Modest prizes",
       "aid_stations": "2-3 aid stations",
@@ -94,7 +94,11 @@
       "score": "39 / 100",
       "one_liner": "Belgium gravel series event.",
       "should_you_race": "If you're local to Belgium/Europe—yes, it's solid. If you're traveling internationally—skip it.",
-      "alternatives": "For better Belgium races: Flanders Legacy Gravel, Houffa Gravel."
+      "alternatives": "For better Belgium races: Flanders Legacy Gravel, Houffa Gravel.",
+      "alternative_slugs": [
+        "flanders-legacy-gravel",
+        "houffa-gravel"
+      ]
     },
     "logistics": {
       "airport": "Brussels (BRU) 90 minutes",
@@ -185,12 +189,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 81.2,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 80,
+          "citation_density": 100,
+          "temporal_depth": 50,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -312,13 +325,13 @@
     "citations": [
       {
         "url": "https://rsv-rheinadler.de/wordpress/2025/04/15/dusty-gravel-series-belgien-rennbericht/",
-        "category": "community",
-        "label": "rsv-rheinadler.de: Dusty Gravel Series Belgien Rennbericht"
+        "category": "other",
+        "label": "Rsv-Rheinadler"
       },
       {
-        "url": "https://www.dustygravelseries.be/",
-        "category": "community",
-        "label": "dustygravelseries.be"
+        "url": "https://www.granfondoguide.com/Events/Index/12725/dusty-gravel-andenne",
+        "category": "other",
+        "label": "Granfondoguide"
       },
       {
         "url": "https://www.youtube.com/watch?v=OEbIUS7eOIU",

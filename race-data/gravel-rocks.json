@@ -19,7 +19,7 @@
         "Yorkshire"
       ],
       "field_size": "100-150 riders",
-      "start_time": "Morning start",
+      "start_time": "7:30pm Frid",
       "registration": "Online. Cost: ~£70-90",
       "prize_purse": "Modest prizes",
       "aid_stations": "3 aid stations",
@@ -94,7 +94,10 @@
       "score": "43 / 100",
       "one_liner": "UK North York Moors gravel challenge.",
       "should_you_race": "If you're local to UK—yes, it's solid. If you're traveling internationally—skip it.",
-      "alternatives": "For better UK races: Lauf Gritfest."
+      "alternatives": "For better UK races: Lauf Gritfest.",
+      "alternative_slugs": [
+        "lauf-gritfest"
+      ]
     },
     "logistics": {
       "airport": "Leeds Bradford (LBA) 90 minutes",
@@ -102,7 +105,8 @@
       "food": "North York Moors has limited dining. Stock nutrition.",
       "packet_pickup": "Day of typically",
       "parking": "At start/finish",
-      "official_site": "Check Gravel Rocks website"
+      "official_site": "Check Gravel Rocks website",
+      "camping": "camping included) – £93"
     },
     "history": {
       "founded": null,
@@ -185,12 +189,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 85.9,
+        "grade": "A",
+        "weakest": "temporal_depth",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 50,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 50
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -311,29 +324,39 @@
     },
     "citations": [
       {
-        "url": "https://www.timeoutdoors.com/events/gravel-rocks-running/gravel-riding-weekend",
-        "category": "community",
-        "label": "timeoutdoors.com: Gravel Riding Weekend"
+        "url": "https://ridewithgps.com/routes/53953422",
+        "category": "route",
+        "label": "RideWithGPS: Castle Rocks Gravel Populaire (copy)"
       },
       {
         "url": "https://focalevents.eventrac.co.uk/e/gravel-rocks-9208",
-        "category": "community",
-        "label": "focalevents.eventrac.co.uk: Gravel Rocks 9208"
+        "category": "other",
+        "label": "Focalevents"
+      },
+      {
+        "url": "https://news.paceupmedia.com/trail-runners--gravel-riders-unite-at-scott-gravel-rocks",
+        "category": "other",
+        "label": "News"
+      },
+      {
+        "url": "https://racecheck.com/races/gravel-rocks/",
+        "category": "other",
+        "label": "Racecheck"
+      },
+      {
+        "url": "https://racecheck.com/races/gravel-rocks/review/",
+        "category": "other",
+        "label": "Racecheck"
+      },
+      {
+        "url": "https://www.timeoutdoors.com/events/gravel-rocks-running/gravel-riding-weekend",
+        "category": "other",
+        "label": "Timeoutdoors"
       },
       {
         "url": "https://singletrackworld.com/forum/bike-forum/find-me-a-gravel-or-maybe-road-mtb-event-for-2026/",
         "category": "community",
         "label": "singletrackworld.com: Find Me A Gravel Or Maybe Road Mtb Event For 2026"
-      },
-      {
-        "url": "https://gravelrocks.cc/",
-        "category": "community",
-        "label": "gravelrocks.cc"
-      },
-      {
-        "url": "https://news.paceupmedia.com/trail-runners--gravel-riders-unite-at-scott-gravel-rocks",
-        "category": "community",
-        "label": "news.paceupmedia.com: Trail Runners  Gravel Riders Unite At Scott Gravel Rocks"
       }
     ],
     "tire_recommendations": {

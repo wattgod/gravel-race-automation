@@ -94,7 +94,10 @@
       "score": "60 / 100",
       "one_liner": "Argentine Andes mountain gravel challenge.",
       "should_you_race": "If you have a big budget and want an extreme Argentine experience—maybe. For most riders—there are better options.",
-      "alternatives": "For better value: regional gravel races. For similar South American terrain: Transcordilleras."
+      "alternatives": "For better value: regional gravel races. For similar South American terrain: Transcordilleras.",
+      "alternative_slugs": [
+        "transcordilleras"
+      ]
     },
     "logistics": {
       "airport": "Córdoba (COR) or Buenos Aires (EZE) varies by location",
@@ -185,12 +188,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 88.4,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 50
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -313,39 +325,34 @@
     },
     "citations": [
       {
-        "url": "https://www.carlospazvivo.com/experiencia-altas-cumbres-fin-de-semana-epico-en-traslasierra-con-destacados-carlospacenses-en-el-podio/",
-        "category": "community",
-        "label": "carlospazvivo.com: Experiencia Altas Cumbres Fin De Semana Epico En Traslasi..."
+        "url": "https://prensa.cba.gov.ar/informacion-general/la-experiencia-altas-cumbres-paso-a-pura-adrenalina-y-emocion-en-traslasierra/",
+        "category": "other",
+        "label": "Prensa"
       },
       {
-        "url": "https://prensa.cba.gov.ar/informacion-general/la-experiencia-altas-cumbres-paso-a-pura-adrenalina-y-emocion-en-traslasierra/",
-        "category": "community",
-        "label": "prensa.cba.gov.ar: La Experiencia Altas Cumbres Paso A Pura Adrenalina Y Emo..."
+        "url": "https://vueltaaltascumbres.com.ar/clasificaciones/",
+        "category": "other",
+        "label": "Vueltaaltascumbres"
+      },
+      {
+        "url": "https://www.carlospazvivo.com/experiencia-altas-cumbres-fin-de-semana-epico-en-traslasierra-com-destacados-carlospacenses-en-el-podio/",
+        "category": "other",
+        "label": "Carlospazvivo"
+      },
+      {
+        "url": "https://www.carlospazvivo.com/experiencia-altas-cumbres-fin-de-semana-epico-en-traslasierra-con-destacados-carlospacenses-en-el-podio/",
+        "category": "other",
+        "label": "Carlospazvivo"
       },
       {
         "url": "https://www.granfondoguide.com/Events/Index/13454/vuelta-altas-cumbres-gravel",
-        "category": "community",
-        "label": "granfondoguide.com: Vuelta Altas Cumbres Gravel"
-      },
-      {
-        "url": "https://vueltaaltascumbres.com.ar/",
-        "category": "community",
-        "label": "vueltaaltascumbres.com.ar"
+        "category": "other",
+        "label": "Granfondoguide"
       },
       {
         "url": "https://ucigravelworldseries.com/en/villa-cura-brochero/",
         "category": "community",
         "label": "ucigravelworldseries.com: Villa Cura Brochero"
-      },
-      {
-        "url": "https://www.carlospazvivo.com/experiencia-altas-cumbres-fin-de-semana-epico-en-traslasierra-com-destacados-carlospacenses-en-el-podio/",
-        "category": "community",
-        "label": "carlospazvivo.com: Experiencia Altas Cumbres Fin De Semana Epico En Traslasi..."
-      },
-      {
-        "url": "https://rac.vueltaaltascumbres.com.ar/",
-        "category": "community",
-        "label": "rac.vueltaaltascumbres.com.ar"
       }
     ],
     "tire_recommendations": {

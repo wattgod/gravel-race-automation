@@ -94,7 +94,10 @@
       "score": "54 / 100",
       "one_liner": "Alberta mountain gravel challenge.",
       "should_you_race": "If you're in Canada—yes, it's solid. If you're international—there are better options.",
-      "alternatives": "For better value: regional gravel races. For similar Canadian terrain: Ghost of the Gravel."
+      "alternatives": "For better value: regional gravel races. For similar Canadian terrain: Ghost of the Gravel.",
+      "alternative_slugs": [
+        "ghost-of-the-gravel"
+      ]
     },
     "logistics": {
       "airport": "Calgary (YYC) varies by location",
@@ -102,7 +105,8 @@
       "food": "Alberta has full dining options. Stock nutrition.",
       "packet_pickup": "Day before typically",
       "parking": "At start/finish",
-      "official_site": "Check The Range website"
+      "official_site": "Check The Range website",
+      "camping": "camping move-in (3:00-9:00 PM), and packet pickup (6:00-8:00 PM)\n- Saturday: Staggered starts for different distances (6:45 AM f"
     },
     "history": {
       "founded": null,
@@ -185,12 +189,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 78.2,
+        "grade": "B",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 60,
+          "citation_density": 50,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -311,24 +324,9 @@
     },
     "citations": [
       {
-        "url": "https://www.transrockies.com/news/8inp3s2o3yjmcpvvyscid4691f0f68-fegxd-7yxsj-9lzc9-clnyd-rr23z",
-        "category": "community",
-        "label": "transrockies.com: 8Inp3S2O3Yjmcpvvyscid4691F0F68 Fegxd 7Yxsj 9Lzc9 Clnyd Rr23Z"
-      },
-      {
         "url": "https://www.granfondoguide.com/Events/Index/10123/the-range",
-        "category": "community",
-        "label": "granfondoguide.com: The Range"
-      },
-      {
-        "url": "https://strambecco.com/event/the-range-gravel-experience/",
-        "category": "community",
-        "label": "strambecco.com: The Range Gravel Experience"
-      },
-      {
-        "url": "https://www.therangegravel.com/",
-        "category": "community",
-        "label": "therangegravel.com"
+        "category": "other",
+        "label": "Granfondoguide"
       }
     ],
     "tire_recommendations": {

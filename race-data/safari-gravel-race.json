@@ -94,7 +94,10 @@
       "score": "50 / 100",
       "one_liner": "Kenyan safari gravel adventure.",
       "should_you_race": "If you have a big budget and want a unique safari experience—maybe. For most riders—there are better options.",
-      "alternatives": "For better value: regional gravel races. For similar adventure: Atlas Mountain Race."
+      "alternatives": "For better value: regional gravel races. For similar adventure: Atlas Mountain Race.",
+      "alternative_slugs": [
+        "atlas-mountain-race"
+      ]
     },
     "logistics": {
       "airport": "Nairobi (NBO) varies by location",
@@ -102,7 +105,8 @@
       "food": "Limited dining options. Stock nutrition.",
       "packet_pickup": "Day before typically",
       "parking": "At start/finish",
-      "official_site": "Check Safari Gravel Race website"
+      "official_site": "Check Safari Gravel Race website",
+      "camping": "camping grounds for tents/sleeping bags, per teamamani"
     },
     "history": {
       "founded": null,
@@ -185,12 +189,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 88.4,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 50
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -311,44 +324,29 @@
     },
     "citations": [
       {
-        "url": "https://cyclingmagazine.ca/gravel/giraffes-lions-and-zebras-oh-my-hailey-hunter-smith-wins-safari-gravel-race/",
-        "category": "community",
-        "label": "cyclingmagazine.ca: Giraffes Lions And Zebras Oh My Hailey Hunter Smith Wins ..."
-      },
-      {
-        "url": "https://www.archyde.com/safari-gravel-race-hailey-hunter-smith-wins-solo/",
-        "category": "community",
-        "label": "archyde.com: Safari Gravel Race Hailey Hunter Smith Wins Solo"
-      },
-      {
-        "url": "https://velo.outsideonline.com/gravel/gravel-racing/safari-gravel-shines-a-spotlight-on-kenyas-growing-race-scene",
-        "category": "community",
-        "label": "velo.outsideonline.com: Safari Gravel Shines A Spotlight On Kenyas Growing Race S..."
-      },
-      {
-        "url": "https://ucigravelworldseries.com/en/naivasha/",
-        "category": "community",
-        "label": "ucigravelworldseries.com: Naivasha"
-      },
-      {
-        "url": "https://ucigravelworldseries.com/en/safari-gravel-race-for-maddy-nutt-and-hans-becking/",
-        "category": "community",
-        "label": "ucigravelworldseries.com: Safari Gravel Race For Maddy Nutt And Hans Becking"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=i4tso9L5YCE",
-        "category": "community",
-        "label": "youtube.com: Watch"
-      },
-      {
-        "url": "https://www.ribblecycles.co.uk/blog/maddy-nutt-reigns-victorious-at-safari-gravel/",
-        "category": "community",
-        "label": "ribblecycles.co.uk: Maddy Nutt Reigns Victorious At Safari Gravel"
+        "url": "https://cyclingflash.com/race/safari-gravel-race-we-2024",
+        "category": "other",
+        "label": "Cyclingflash"
       },
       {
         "url": "https://ucigravelworldseries.com/en/safari-gravel-race-kenyas-inaugural-uci-event/",
-        "category": "community",
-        "label": "ucigravelworldseries.com: Safari Gravel Race Kenyas Inaugural Uci Event"
+        "category": "other",
+        "label": "Ucigravelworldseries"
+      },
+      {
+        "url": "https://www.migrationgravelrace.com/schedule",
+        "category": "other",
+        "label": "Migrationgravelrace"
+      },
+      {
+        "url": "https://www.ribblecycles.co.uk/blog/maddy-nutt-reigns-victorious-at-safari-gravel/",
+        "category": "other",
+        "label": "Ribblecycles"
+      },
+      {
+        "url": "https://www.teamamani.com/safari-gravel-race",
+        "category": "other",
+        "label": "Teamamani"
       },
       {
         "url": "https://www.rouleur.cc/blogs/rouleur-explore/explore-the-wildest-race",
@@ -359,16 +357,6 @@
         "url": "https://sacredrides.com/my-first-gravel-bike-race/",
         "category": "community",
         "label": "sacredrides.com: My First Gravel Bike Race"
-      },
-      {
-        "url": "https://www.migrationgravelrace.com/schedule",
-        "category": "community",
-        "label": "migrationgravelrace.com: Schedule"
-      },
-      {
-        "url": "https://www.teamamani.com/safari-gravel-race",
-        "category": "community",
-        "label": "teamamani.com: Safari Gravel Race"
       }
     ],
     "tire_recommendations": {

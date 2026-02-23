@@ -94,14 +94,17 @@
       "score": "39 / 100",
       "one_liner": "UK Devon gravel challenge.",
       "should_you_race": "If you're local to UK—yes, it's solid. If you're traveling internationally—skip it.",
-      "alternatives": "For better UK races: Lauf Gritfest."
+      "alternatives": "For better UK races: Lauf Gritfest.",
+      "alternative_slugs": [
+        "lauf-gritfest"
+      ]
     },
     "logistics": {
       "airport": "Exeter (EXT) 30 minutes",
       "lodging_strategy": "Devon has lodging. Book ahead.",
       "food": "Devon has dining. Stock nutrition.",
       "packet_pickup": "Day of typically",
-      "parking": "At start/finish",
+      "parking": "parking at Event HQ (Exeter Racecourse)[6]",
       "official_site": "Check Haldon Heroic website"
     },
     "history": {
@@ -185,12 +188,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 86.7,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -316,34 +328,49 @@
         "label": "RideWithGPS: Haldon Heroic"
       },
       {
-        "url": "https://www.reddit.com/r/bicycling/comments/4dfxb4/first_sportive_of_2016_done_the_48_mile_haldon/",
-        "category": "community",
-        "label": "reddit.com: First Sportive Of 2016 Done The 48 Mile Haldon"
+        "url": "https://racecheck.com/races/haldon-heroic-gravel-sportive/",
+        "category": "other",
+        "label": "Racecheck"
       },
       {
-        "url": "https://singletrackworld.com/forum/bike-forum/haldon-heroic/",
-        "category": "community",
-        "label": "singletrackworld.com: Haldon Heroic"
+        "url": "https://racecheck.com/races/haldon-heroic-gravel-sportive/review/",
+        "category": "other",
+        "label": "Racecheck"
       },
       {
-        "url": "https://www.youtube.com/watch?v=aMSegvkedW8",
-        "category": "community",
-        "label": "youtube.com: Watch"
+        "url": "https://sportivaevents.clubtrac.co.uk/e/haldon-heroic-7628",
+        "category": "other",
+        "label": "Sportivaevents"
       },
       {
-        "url": "https://www.webscorer.com/racedetails?raceid=386389&did=511901",
-        "category": "community",
-        "label": "webscorer.com: Racedetails"
+        "url": "https://sportivaevents.clubtrac.co.uk/e/haldon-heroic-7628/results",
+        "category": "other",
+        "label": "Sportivaevents"
+      },
+      {
+        "url": "https://sportivaevents.clubtrac.co.uk/e/haldon-heroic-7628/reviews",
+        "category": "other",
+        "label": "Sportivaevents"
       },
       {
         "url": "https://tortugo.run/race/haldon-heroic-gravel-sportive-devon-united-kingdom-e4",
-        "category": "community",
-        "label": "tortugo.run: Haldon Heroic Gravel Sportive Devon United Kingdom E4"
+        "category": "other",
+        "label": "Tortugo"
       },
       {
-        "url": "https://racecheck.com/races/haldon-heroic-gravel-sportive/",
+        "url": "https://www.eventrac.co.uk/e/haldon-heroic-7628/reviews",
+        "category": "other",
+        "label": "Eventrac"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/6334/haldon-heroic",
+        "category": "other",
+        "label": "Granfondoguide"
+      },
+      {
+        "url": "https://www.reddit.com/r/bicycling/comments/4dfxb4/first_sportive_of_2016_done_the_48_mile_haldon/",
         "category": "community",
-        "label": "racecheck.com: Haldon Heroic Gravel Sportive"
+        "label": "reddit.com: First Sportive Of 2016 Done The 48 Mile Haldon"
       },
       {
         "url": "https://www.youtube.com/watch?v=-xPnmU_w2o8",
@@ -351,9 +378,9 @@
         "label": "youtube.com: Watch"
       },
       {
-        "url": "https://www.granfondoguide.com/Events/Index/6334/haldon-heroic",
+        "url": "https://www.youtube.com/watch?v=aMSegvkedW8",
         "category": "community",
-        "label": "granfondoguide.com: Haldon Heroic"
+        "label": "youtube.com: Watch"
       },
       {
         "url": "https://www.webscorer.com/race?raceid=386389",
@@ -361,9 +388,9 @@
         "label": "webscorer.com: Race"
       },
       {
-        "url": "https://sportivaevents.clubtrac.co.uk/e/haldon-heroic-7628",
+        "url": "https://www.webscorer.com/racedetails?raceid=386389&did=511901",
         "category": "community",
-        "label": "sportivaevents.clubtrac.co.uk: Haldon Heroic 7628"
+        "label": "webscorer.com: Racedetails"
       }
     ],
     "tire_recommendations": {

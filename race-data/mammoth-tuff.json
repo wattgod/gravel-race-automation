@@ -19,7 +19,7 @@
         "Altitude 7,880-8,000 ft"
       ],
       "field_size": "400+ riders",
-      "start_time": "Saturday morning — check official website",
+      "start_time": "12:00am PDT",
       "registration": "Online. Cost: $100-$150",
       "prize_purse": "UCI Gravel World Series points",
       "aid_stations": "Multiple on course",
@@ -145,18 +145,18 @@
       ],
       "research_date": "2026-02-04",
       "research_strength": {
-        "overall": 97.5,
+        "overall": 96.1,
         "grade": "A",
-        "weakest": "temporal_depth",
+        "weakest": "voice_authenticity",
         "has_research_dump": true,
         "dimensions": {
           "source_diversity": 100,
           "citation_density": 100,
-          "temporal_depth": 75,
+          "temporal_depth": 100,
           "specificity": 100,
           "statistical_backing": 100,
-          "voice_authenticity": 100,
-          "completeness": 100,
+          "voice_authenticity": 70,
+          "completeness": 94,
           "cross_reference": 100
         },
         "scored_at": "2026-02-04"
@@ -224,18 +224,32 @@
       "score": "76 / 100",
       "one_liner": "Altitude meets volcanic attitude in California's most honest sufferfest.",
       "should_you_race": "Show up fit or the 8,000-foot starting elevation will expose every training shortcut you took. The 7,500 feet of climbing over 105 miles isn't negotiable, and volcanic gravel punishes both your legs and your equipment. This isn't a scenic tour—it's a legitimate training ground that's produced Unbound winners for a reason.",
-      "alternatives": "Belgian Waffle Ride delivers similar suffer-per-mile ratios with more technical variety, while Crusher in the Tushar offers comparable high-altitude punishment with Utah's signature loose climbs. Both skip the volcanic rock tax but demand the same honest fitness."
+      "alternatives": "Belgian Waffle Ride delivers similar suffer-per-mile ratios with more technical variety, while Crusher in the Tushar offers comparable high-altitude punishment with Utah's signature loose climbs. Both skip the volcanic rock tax but demand the same honest fitness.",
+      "alternative_slugs": [
+        "bwr-california",
+        "crusher-in-the-tushar"
+      ]
     },
     "citations": [
-      {
-        "url": "https://www.mammothtuff.com",
-        "category": "official",
-        "label": "Official Website"
-      },
       {
         "url": "https://ridewithgps.com/routes/52694679",
         "category": "route",
         "label": "RideWithGPS: Mammoth TUFF - Long 25 V3"
+      },
+      {
+        "url": "https://adventuresportsjournal.com/events/mammoth-tuff-gravel-adventure/",
+        "category": "other",
+        "label": "Adventuresportsjournal"
+      },
+      {
+        "url": "https://granfondodailynews.com/2025/09/16/mammoth-tuff-results-tave-botcher-win-earn-the-last-starting-bibs-for-gravel-worlds/",
+        "category": "other",
+        "label": "Granfondodailynews"
+      },
+      {
+        "url": "https://puregravel.com/blogs/reviews/mammoth-tuff-taming-volcanic-gravel-and-embracing-high-altitude-cycling",
+        "category": "other",
+        "label": "Puregravel"
       },
       {
         "url": "https://ridewithgps.com/events/400860-mammoth-tuff-2025",
@@ -248,49 +262,49 @@
         "label": "RideWithGPS"
       },
       {
+        "url": "https://ucigravelworldseries.com/en/bottcher-and-tave-to-take-mammoth-tuff-wins/",
+        "category": "other",
+        "label": "Ucigravelworldseries"
+      },
+      {
+        "url": "https://ucigravelworldseries.com/en/mammoth/",
+        "category": "other",
+        "label": "Ucigravelworldseries"
+      },
+      {
+        "url": "https://velo.outsideonline.com/tag/mammoth-tuff/",
+        "category": "media",
+        "label": "Velo"
+      },
+      {
+        "url": "https://www.altovelo.org/blog/2022-mammoth-tuff",
+        "category": "other",
+        "label": "Altovelo"
+      },
+      {
         "url": "https://www.gravelstoke.com/gravel-cycling-gear-blog/mammoth-tuff-2024-through-sand-and-sky",
-        "category": "community",
-        "label": "gravelstoke.com: Mammoth Tuff 2024 Through Sand And Sky"
+        "category": "other",
+        "label": "Gravelstoke"
       },
       {
-        "url": "https://www.gravelstoke.com/gravel-cycling-gear-blog/2023-mammoth-tuff-gravel-race-report",
-        "category": "community",
-        "label": "gravelstoke.com: 2023 Mammoth Tuff Gravel Race Report"
+        "url": "https://www.mammothmountain.com/things-to-do/events/mammoth-tuff",
+        "category": "other",
+        "label": "Mammothmountain"
       },
       {
-        "url": "https://puregravel.com/blogs/reviews/mammoth-tuff-taming-volcanic-gravel-and-embracing-high-altitude-cycling",
+        "url": "https://www.reddit.com/r/Mammoth/comments/1cwtqhj/road_or_gravel_biking_recommendations_near/",
         "category": "community",
-        "label": "puregravel.com: Mammoth Tuff Taming Volcanic Gravel And Embracing High Al..."
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/fwwsoc/mammoth_tuff/",
+        "category": "community",
+        "label": "Reddit"
       },
       {
         "url": "https://www.tuff.ventures/mtuff/info",
         "category": "community",
         "label": "tuff.ventures: Info"
-      },
-      {
-        "url": "https://ucigravelworldseries.com/en/mammoth/",
-        "category": "community",
-        "label": "ucigravelworldseries.com: Mammoth"
-      },
-      {
-        "url": "https://granfondodailynews.com/2025/09/16/mammoth-tuff-results-tave-botcher-win-earn-the-last-starting-bibs-for-gravel-worlds/",
-        "category": "community",
-        "label": "granfondodailynews.com: Mammoth Tuff Results Tave Botcher Win Earn The Last Start..."
-      },
-      {
-        "url": "https://ucigravelworldseries.com/en/bottcher-and-tave-to-take-mammoth-tuff-wins/",
-        "category": "community",
-        "label": "ucigravelworldseries.com: Bottcher And Tave To Take Mammoth Tuff Wins"
-      },
-      {
-        "url": "https://www.altovelo.org/blog/2022-mammoth-tuff",
-        "category": "community",
-        "label": "altovelo.org: 2022 Mammoth Tuff"
-      },
-      {
-        "url": "https://velo.outsideonline.com/tag/mammoth-tuff/",
-        "category": "community",
-        "label": "velo.outsideonline.com: Mammoth Tuff"
       }
     ],
     "tire_recommendations": {

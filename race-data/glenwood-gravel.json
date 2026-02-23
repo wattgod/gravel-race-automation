@@ -19,7 +19,7 @@
         "Iowa"
       ],
       "field_size": "100-200 riders",
-      "start_time": "Morning start",
+      "start_time": "7:30 AM star",
       "registration": "Online. Cost: ~$50-75",
       "prize_purse": "Modest prizes",
       "aid_stations": "Multiple aid stations",
@@ -94,7 +94,11 @@
       "score": "44 / 100",
       "one_liner": "Iowa local gravel challenge.",
       "should_you_race": "If you're local to Iowa—yes, it's good value. If you're traveling—skip it.",
-      "alternatives": "For better Iowa races: Trans Iowa, Spotted Horse Ultra."
+      "alternatives": "For better Iowa races: Trans Iowa, Spotted Horse Ultra.",
+      "alternative_slugs": [
+        "spotted-horse-ultra",
+        "trans-iowa"
+      ]
     },
     "logistics": {
       "airport": "Omaha (OMA) 30 minutes",
@@ -185,12 +189,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 88.4,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 50
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -311,24 +324,29 @@
     },
     "citations": [
       {
-        "url": "https://www.youtube.com/watch?v=UJK4f8LKmtM",
-        "category": "community",
-        "label": "youtube.com: Watch"
+        "url": "https://ridewithgps.com/routes/51634081",
+        "category": "route",
+        "label": "RideWithGPS: Dry 100KM Glenwood Gravel"
       },
       {
-        "url": "https://www.granfondoguide.com/Events/Index/13166/glenwood-gravel",
-        "category": "community",
-        "label": "granfondoguide.com: Glenwood Gravel"
+        "url": "http://www.gravel-results.com/race/12609",
+        "category": "other",
+        "label": "Gravel-Results"
       },
       {
         "url": "https://www.bikeiowa.com/Event/16028/glenwood-gravel",
-        "category": "community",
-        "label": "bikeiowa.com: Glenwood Gravel"
+        "category": "other",
+        "label": "Bikeiowa"
       },
       {
-        "url": "https://results.bikereg.com/?results/12609",
-        "category": "community",
-        "label": "results.bikereg.com"
+        "url": "https://www.granfondoguide.com/Events/Index/13166/glenwood-gravel",
+        "category": "other",
+        "label": "Granfondoguide"
+      },
+      {
+        "url": "https://www.movemint.cc/events/glenwood_gravel_2025",
+        "category": "other",
+        "label": "Movemint"
       },
       {
         "url": "https://www.granfondoguide.com/Events/Index/12361/superbloom-gravel",
@@ -337,6 +355,11 @@
       },
       {
         "url": "https://www.youtube.com/watch?v=b8vWVoXHYc0",
+        "category": "community",
+        "label": "youtube.com: Watch"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=UJK4f8LKmtM",
         "category": "community",
         "label": "youtube.com: Watch"
       },

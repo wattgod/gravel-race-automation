@@ -94,7 +94,10 @@
       "score": "54 / 100",
       "one_liner": "Well-organized Vancouver Island fondo with technical terrain and BC weather.",
       "should_you_race": "If you're in BC or on Vancouver Island—yes, it's a good regional event with solid terrain. If you're traveling from elsewhere—probably not worth the ferry logistics and weather uncertainty unless you're making it part of a bigger island trip.",
-      "alternatives": "For other BC gravel: RBC Gran Fondo (bigger, more established), Grinduro Whistler (more prestige). For similar forest road racing: Oregon gravel events, Washington State gravel races."
+      "alternatives": "For other BC gravel: RBC Gran Fondo (bigger, more established), Grinduro Whistler (more prestige). For similar forest road racing: Oregon gravel events, Washington State gravel races.",
+      "alternative_slugs": [
+        "grinduro"
+      ]
     },
     "logistics": {
       "airport": "Campbell River Airport (YBL) - regional flights. Or fly to Victoria (YYJ) or Vancouver (YVR) and drive/ferry.",
@@ -187,12 +190,21 @@
         "Generated from regional race information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 88.5,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 88,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -344,39 +356,49 @@
     ],
     "citations": [
       {
+        "url": "https://www.bcgravelseries.com/rivercitygravelfondo",
+        "category": "official",
+        "label": "Official Website"
+      },
+      {
         "url": "https://ridewithgps.com/routes/50401058",
         "category": "route",
         "label": "RideWithGPS: 2025 River City Gravel Fondo - Esperto"
       },
       {
-        "url": "https://www.granfondoguide.com/Events/Index/12111/river-city-gravel-fondo",
-        "category": "community",
-        "label": "granfondoguide.com: River City Gravel Fondo"
+        "url": "https://campbellriver.travel/news/upcoming-cycling-events-in-campbell-river/",
+        "category": "other",
+        "label": "Campbellriver"
       },
       {
-        "url": "https://www.bcgravelseries.com/rivercitygravelfondo",
-        "category": "community",
-        "label": "bcgravelseries.com: Rivercitygravelfondo"
+        "url": "https://cyclingbc.net/event/river-city-gravel-fondo-2025/",
+        "category": "other",
+        "label": "Cyclingbc"
+      },
+      {
+        "url": "https://granfondodailynews.com/gravel-fondo-calendar-worldwide/",
+        "category": "other",
+        "label": "Granfondodailynews"
+      },
+      {
+        "url": "https://www.bcgravelseries.com/post/2025-river-city-gravel-fondo-full-results",
+        "category": "other",
+        "label": "Bcgravelseries"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/12111/river-city-gravel-fondo",
+        "category": "other",
+        "label": "Granfondoguide"
+      },
+      {
+        "url": "https://www.panachecyclingsports.com/post/river-city-gravel-fondo-a-huge-success",
+        "category": "other",
+        "label": "Panachecyclingsports"
       },
       {
         "url": "https://www.webscorer.com/race?raceid=386987",
         "category": "community",
         "label": "webscorer.com: Race"
-      },
-      {
-        "url": "https://www.panachecyclingsports.com/post/river-city-gravel-fondo-a-huge-success",
-        "category": "community",
-        "label": "panachecyclingsports.com: River City Gravel Fondo A Huge Success"
-      },
-      {
-        "url": "https://www.thegravelcyclistsguidetobritishcolumbia.ca/ride-list/campbell-river-river-city-fondo",
-        "category": "community",
-        "label": "thegravelcyclistsguidetobritishcolumbia.ca: Campbell River River City Fondo"
-      },
-      {
-        "url": "https://cyclingbc.net/event/river-city-gravel-fondo-2025/",
-        "category": "community",
-        "label": "cyclingbc.net: River City Gravel Fondo 2025"
       },
       {
         "url": "https://www.webscorer.com/race?raceid=349372",

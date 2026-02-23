@@ -94,7 +94,11 @@
       "score": "41 / 100",
       "one_liner": "New Hampshire local gravel challenge.",
       "should_you_race": "If you're local to New Hampshire—yes, it's good value. If you're traveling—skip it.",
-      "alternatives": "For better New Hampshire races: Rasputitsa, D2R2."
+      "alternatives": "For better New Hampshire races: Rasputitsa, D2R2.",
+      "alternative_slugs": [
+        "d2r2",
+        "rasputitsa"
+      ]
     },
     "logistics": {
       "airport": "Manchester (MHT) 30 minutes",
@@ -185,12 +189,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 86.2,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 80,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -340,44 +353,24 @@
     ],
     "citations": [
       {
-        "url": "https://www.cxmagazine.com/gravel-dreams-realized-hampshire-rider-diary",
-        "category": "community",
-        "label": "cxmagazine.com: Gravel Dreams Realized Hampshire Rider Diary"
-      },
-      {
-        "url": "https://raidrockingham.blogspot.com/",
-        "category": "community",
-        "label": "raidrockingham.blogspot.com"
-      },
-      {
-        "url": "https://www.reddit.com/user/throwawaycxer/",
-        "category": "community",
-        "label": "reddit.com: Throwawaycxer"
-      },
-      {
-        "url": "https://www.grvl.net/raid-rockingham",
-        "category": "community",
-        "label": "grvl.net: Raid Rockingham"
-      },
-      {
-        "url": "https://mcccxxv.wordpress.com/2021/03/29/ne-gravel/",
-        "category": "community",
-        "label": "mcccxxv.wordpress.com: Ne Gravel"
-      },
-      {
-        "url": "https://www.crwheelers.org/content/gravel-raid-rockingham",
-        "category": "community",
-        "label": "crwheelers.org: Gravel Raid Rockingham"
-      },
-      {
-        "url": "https://ifbikes.com/other/raid-rockingham-race-or-ride/",
-        "category": "community",
-        "label": "ifbikes.com: Raid Rockingham Race Or Ride"
+        "url": "https://ridewithgps.com/routes/51840080",
+        "category": "route",
+        "label": "RideWithGPS: Raid Rockingham from house"
       },
       {
         "url": "http://velocb.blogspot.com/2013/06/raid-rockingham.html",
-        "category": "community",
-        "label": "velocb.blogspot.com: Raid Rockingham.Html"
+        "category": "other",
+        "label": "Velocb"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/9334/raid-rockingham",
+        "category": "other",
+        "label": "Granfondoguide"
+      },
+      {
+        "url": "https://www.grvl.net/raid-rockingham",
+        "category": "other",
+        "label": "Grvl"
       }
     ],
     "tire_recommendations": {

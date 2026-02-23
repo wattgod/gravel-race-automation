@@ -157,7 +157,12 @@
       "score": "89 / 100",
       "one_liner": "Iceland's volcanic gravel race where you literally cross between continents and experience weather that doesn't negotiate.",
       "should_you_race": "Yes, if bucket-list adventure matters more than racing. The Rift delivers geological pilgrimage, otherworldly terrain, and a story you'll tell forever. Just be ready for Iceland's weather and the expense of getting there.",
-      "alternatives": "If you want European adventure: Traka 360 (Spain, 360km). If you want guaranteed good weather: Unbound (Kansas, June). If you want premium adventure: Migration Gravel Race (Kenya, 4-day)."
+      "alternatives": "If you want European adventure: Traka 360 (Spain, 360km). If you want guaranteed good weather: Unbound (Kansas, June). If you want premium adventure: Migration Gravel Race (Kenya, 4-day).",
+      "alternative_slugs": [
+        "migration-gravel-race",
+        "the-traka",
+        "unbound-200"
+      ]
     },
     "logistics": {
       "airport": "Keflavík (KEF) - 130km to Hvolsvöllur",
@@ -165,7 +170,8 @@
       "food": "Icelandic food is expensive. Plan accordingly. Hvolsvöllur has limited options.",
       "packet_pickup": "Friday in Hvolsvöllur. Long drive from airport—plan accordingly.",
       "parking": "Limited village parking. Carpool or hotel shuttles.",
-      "official_site": "https://therift.bike"
+      "official_site": "https://therift.bike",
+      "camping": "camping at the Hvolsvöllur campground (used by “dozens” of riders)<u>[trainerroad"
     },
     "history": {
       "founded": 2016,
@@ -224,7 +230,7 @@
       ],
       "migration_notes": [],
       "research_strength": {
-        "overall": 94.5,
+        "overall": 91.8,
         "grade": "A",
         "weakest": "cross_reference",
         "has_research_dump": true,
@@ -235,22 +241,22 @@
           "specificity": 100,
           "statistical_backing": 100,
           "voice_authenticity": 70,
-          "completeness": 100,
-          "cross_reference": 50
+          "completeness": 94,
+          "cross_reference": 15
         },
         "scored_at": "2026-02-04"
       }
     },
     "citations": [
       {
-        "url": "https://therift.bike",
-        "category": "official",
-        "label": "Official Website"
-      },
-      {
         "url": "https://ridewithgps.com/routes/52620636",
         "category": "route",
         "label": "RideWithGPS: The Rift Iceland"
+      },
+      {
+        "url": "https://bicycle.spinergy.com/blogs/news/the-rift-2021-race-report-i-mean-survival-report",
+        "category": "other",
+        "label": "Bicycle"
       },
       {
         "url": "https://bikepacking.com/news/the-rift-iceland-trailer/",
@@ -258,9 +264,34 @@
         "label": "Bikepacking"
       },
       {
+        "url": "https://cuene.com/the-rift-2024/",
+        "category": "other",
+        "label": "Cuene"
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/The_Rift_(1990_film",
+        "category": "reference",
+        "label": "Wikipedia"
+      },
+      {
+        "url": "https://gravgrav.cc/en/article/the-rift-2023",
+        "category": "other",
+        "label": "Gravgrav"
+      },
+      {
         "url": "https://nordictrailblazer.cc/races/the-rift/",
         "category": "other",
         "label": "Nordictrailblazer"
+      },
+      {
+        "url": "https://sarahjswallow.com/stories/2021/8/3/volcanoes-waterfalls-and-puffins-my-travel-journal-from-iceland-and-the-rift-gravel-race",
+        "category": "other",
+        "label": "Sarahjswallow"
+      },
+      {
+        "url": "https://tv.apple.com/us/movie/the-rift/umc.cmc.52c7hu0gxuuqynip2rc6twnxr",
+        "category": "other",
+        "label": "Tv"
       },
       {
         "url": "https://www.cyclingnews.com/the-rift-gravel-race-iceland/",
@@ -283,6 +314,16 @@
         "label": "Myvelofit"
       },
       {
+        "url": "https://www.rodeo-labs.com/ride-report-the-rift-iceland/",
+        "category": "other",
+        "label": "Rodeo-Labs"
+      },
+      {
+        "url": "https://www.thecenterstudio.com/the-rift-iceland-race-report/",
+        "category": "other",
+        "label": "Thecenterstudio"
+      },
+      {
         "url": "https://www.trainerroad.com/forum/t/the-rift-2021-iceland-gravel-race/42053?page=3",
         "category": "community",
         "label": "TrainerRoad"
@@ -296,86 +337,6 @@
         "url": "https://www.trainerroad.com/forum/t/the-rift-2025-iceland-gravel-race/97326",
         "category": "community",
         "label": "TrainerRoad"
-      },
-      {
-        "url": "https://nofcksgivengravel.com/2021/07/29/the-rift-2021/",
-        "category": "community",
-        "label": "nofcksgivengravel.com: The Rift 2021"
-      },
-      {
-        "url": "https://gulocomposites.com/blogs/journal/the-rift-race-recap-2024",
-        "category": "community",
-        "label": "gulocomposites.com: The Rift Race Recap 2024"
-      },
-      {
-        "url": "https://routewerks.cc/blogs/the_dirt/trip-report-the-rift-gravel-race-2024",
-        "category": "community",
-        "label": "routewerks.cc: Trip Report The Rift Gravel Race 2024"
-      },
-      {
-        "url": "https://www.ribblecycles.co.uk/blog/the-rift-2024-round-up/",
-        "category": "community",
-        "label": "ribblecycles.co.uk: The Rift 2024 Round Up"
-      },
-      {
-        "url": "https://chadhaga.com/chad-haga-blog-the-rift/",
-        "category": "community",
-        "label": "chadhaga.com: Chad Haga Blog The Rift"
-      },
-      {
-        "url": "https://signaturecycles.com/journal/the-rift",
-        "category": "community",
-        "label": "signaturecycles.com: The Rift"
-      },
-      {
-        "url": "https://doettelmayer.com/the-rift-gravel-race-work-for-1of1-bikes",
-        "category": "community",
-        "label": "doettelmayer.com: The Rift Gravel Race Work For 1Of1 Bikes"
-      },
-      {
-        "url": "https://www.thenxrth.com/post/adrian-vs-the-rift-iceland-s-volcanic-wilds-fights-back",
-        "category": "community",
-        "label": "thenxrth.com: Adrian Vs The Rift Iceland S Volcanic Wilds Fights Back"
-      },
-      {
-        "url": "https://www.benthomascoaching.com/post/the-rift-volcanoes-and-gravel",
-        "category": "community",
-        "label": "benthomascoaching.com: The Rift Volcanoes And Gravel"
-      },
-      {
-        "url": "https://forum.slowtwitch.com/t/the-rift/1284306",
-        "category": "community",
-        "label": "forum.slowtwitch.com: 1284306"
-      },
-      {
-        "url": "https://bicycle.spinergy.com/blogs/news/the-rift-2021-race-report-i-mean-survival-report",
-        "category": "community",
-        "label": "bicycle.spinergy.com: The Rift 2021 Race Report I Mean Survival Report"
-      },
-      {
-        "url": "https://www.cyclingnews.com/races/gravel-earth-series-2025/the-rift-10-event-elite-men-women/results/",
-        "category": "community",
-        "label": "cyclingnews.com: Results"
-      },
-      {
-        "url": "https://cuene.com/the-rift-2024/",
-        "category": "community",
-        "label": "cuene.com: The Rift 2024"
-      },
-      {
-        "url": "https://www.rodeo-labs.com/ride-report-the-rift-iceland/",
-        "category": "community",
-        "label": "rodeo-labs.com: Ride Report The Rift Iceland"
-      },
-      {
-        "url": "https://gravgrav.cc/en/article/the-rift-2023",
-        "category": "community",
-        "label": "gravgrav.cc: The Rift 2023"
-      },
-      {
-        "url": "https://sarahjswallow.com/stories/2021/8/3/volcanoes-waterfalls-and-puffins-my-travel-journal-from-iceland-and-the-rift-gravel-race",
-        "category": "community",
-        "label": "sarahjswallow.com: Volcanoes Waterfalls And Puffins My Travel Journal From I..."
       },
       {
         "url": "https://coefficientcycling.com/blogs/news/200km-of-lava-fields-fog-and-roads-carved-from-volcanic-rock-my-rift-iceland-experience-with-coefficient-cycling",

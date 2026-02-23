@@ -185,12 +185,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 88.9,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 80,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 50
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -316,39 +325,44 @@
         "label": "RideWithGPS: Galactic Grinder 53 Mile Orbit Alien Run and Arch with Dutchman Downhill Finish"
       },
       {
-        "url": "https://triathloninsight.com/insight-update/third-annual-galactic-grinder-challenges-cyclists-2/",
-        "category": "community",
-        "label": "triathloninsight.com: Third Annual Galactic Grinder Challenges Cyclists 2"
+        "url": "https://aztec-adventures.com/galactic-grinder/",
+        "category": "other",
+        "label": "Aztec-Adventures"
       },
       {
         "url": "https://farmingtonnm.org/events/galactic-gravel-grinder",
-        "category": "community",
-        "label": "farmingtonnm.org: Galactic Gravel Grinder"
-      },
-      {
-        "url": "https://www.the-journal.com/articles/galactic-grinder-race-series-brings-out-100-cyclists/",
-        "category": "community",
-        "label": "the-journal.com: Galactic Grinder Race Series Brings Out 100 Cyclists"
-      },
-      {
-        "url": "https://www.granfondoguide.com/Events/Index/10288/galactic-grinder",
-        "category": "community",
-        "label": "granfondoguide.com: Galactic Grinder"
-      },
-      {
-        "url": "https://www.outdoorsportswire.com/third-annual-galactic-grinder-challenges-cyclists-northeast-of-aztec-n-m/",
-        "category": "community",
-        "label": "outdoorsportswire.com: Third Annual Galactic Grinder Challenges Cyclists Northea..."
+        "category": "other",
+        "label": "Farmingtonnm"
       },
       {
         "url": "https://outdoorindustry.org/press-release/third-annual-galactic-grinder-challenges-cyclists-northeast-of-aztec-n-m/",
-        "category": "community",
-        "label": "outdoorindustry.org: Third Annual Galactic Grinder Challenges Cyclists Northea..."
+        "category": "other",
+        "label": "Outdoorindustry"
       },
       {
-        "url": "https://aztec-adventures.com/galactic-grinder/",
-        "category": "community",
-        "label": "aztec-adventures.com: Galactic Grinder"
+        "url": "https://triathloninsight.com/insight-update/third-annual-galactic-grinder-challenges-cyclists-2/",
+        "category": "other",
+        "label": "Triathloninsight"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/10288/galactic-grinder",
+        "category": "other",
+        "label": "Granfondoguide"
+      },
+      {
+        "url": "https://www.outdoorsportswire.com/third-annual-galactic-grinder-challenges-cyclists-northeast-of-aztec-n-m/",
+        "category": "other",
+        "label": "Outdoorsportswire"
+      },
+      {
+        "url": "https://www.the-journal.com/articles/galactic-grinder-race-series-brings-out-100-cyclists/",
+        "category": "other",
+        "label": "The-Journal"
+      },
+      {
+        "url": "https://www.tricityrecordnm.com/articles/galactic-grinder-race-series-brings-out-100-cyclists/",
+        "category": "other",
+        "label": "Tricityrecordnm"
       }
     ],
     "results": {

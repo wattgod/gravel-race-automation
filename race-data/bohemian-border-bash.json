@@ -19,7 +19,7 @@
         "Czech Republic"
       ],
       "field_size": "200-400 riders",
-      "start_time": "Morning start",
+      "start_time": "5:50 AM sunr",
       "registration": "Online. Cost: ~€50-80",
       "prize_purse": "Modest prizes",
       "aid_stations": "Multiple aid stations",
@@ -94,7 +94,10 @@
       "score": "46 / 100",
       "one_liner": "Czech rolling to hilly gravel.",
       "should_you_race": "If you're in Czech Republic/Europe—yes, it's solid. If you're international—there are better options.",
-      "alternatives": "For similar Central European events: Polish Gravel."
+      "alternatives": "For similar Central European events: Polish Gravel.",
+      "alternative_slugs": [
+        "polish-gravel"
+      ]
     },
     "logistics": {
       "airport": "Prague (PRG) varies by location",
@@ -185,12 +188,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 89.2,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -311,39 +323,59 @@
     },
     "citations": [
       {
+        "url": "https://bikepacking.com/event/bohemian-border-bash-race-2025/",
+        "category": "other",
+        "label": "Bikepacking"
+      },
+      {
+        "url": "https://dotwatcher.cc/series/Bohemian+Border+Bash+Race",
+        "category": "tracking",
+        "label": "DotWatcher"
+      },
+      {
+        "url": "https://granfondo-cycling.com/bohemian-border-bash/",
+        "category": "other",
+        "label": "Granfondo-Cycling"
+      },
+      {
         "url": "https://magazinebike.com/2024/10/01/bohemian-border-bash-race-in-search-of-borders/",
-        "category": "community",
-        "label": "magazinebike.com: Bohemian Border Bash Race In Search Of Borders"
+        "category": "other",
+        "label": "Magazinebike"
+      },
+      {
+        "url": "https://theradavist.com/the-bohemian-border-bash-gravel-riding-event",
+        "category": "other",
+        "label": "Theradavist"
+      },
+      {
+        "url": "https://www.borderbash.cc/gravelcampbohemia2025",
+        "category": "other",
+        "label": "Borderbash"
       },
       {
         "url": "https://www.buzzalong.cc/post/bohemian-border-bash-1300km-insights-from-my-first-solo-off-road-ultra-endurance-cycling-race",
-        "category": "community",
-        "label": "buzzalong.cc: Bohemian Border Bash 1300Km Insights From My First Solo O..."
+        "category": "other",
+        "label": "Buzzalong"
       },
       {
-        "url": "https://www.biketour-global.de/en/2023/09/10/a-different-experience-my-bohemian-border-bash-race-2023/",
+        "url": "https://www.reddit.com/r/bikepacking/comments/17oiojz/bohemian_border_bash_ultra_cycling_race_film_1300/",
         "category": "community",
-        "label": "biketour-global.de: A Different Experience My Bohemian Border Bash Race 2023"
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/1d8r59y/bohemian_border_bash_race/",
+        "category": "community",
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/d710eh/bohemian_border_bash_in_czech/",
+        "category": "community",
+        "label": "Reddit"
       },
       {
         "url": "https://rawcyclingmag.com/border-bash-bohemia-camp-2024-recap/",
         "category": "community",
         "label": "rawcyclingmag.com: Border Bash Bohemia Camp 2024 Recap"
-      },
-      {
-        "url": "https://gravgrav.cc/en/article/bohemian-border-bash",
-        "category": "community",
-        "label": "gravgrav.cc: Bohemian Border Bash"
-      },
-      {
-        "url": "https://www.borderbash.cc/gravelcampbohemia2025",
-        "category": "community",
-        "label": "borderbash.cc: Gravelcampbohemia2025"
-      },
-      {
-        "url": "https://www.borderbash.cc/",
-        "category": "community",
-        "label": "borderbash.cc"
       },
       {
         "url": "https://rawcyclingmag.com/border-bash-bohemia-2024-international-gravel-event-you-should-visit/",

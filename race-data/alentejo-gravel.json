@@ -94,7 +94,10 @@
       "score": "47 / 100",
       "one_liner": "Portuguese Alentejo gravel adventure.",
       "should_you_race": "If you're in Europe—yes, it's solid. If you're international—there are better options.",
-      "alternatives": "For better value: regional gravel races. For similar Portuguese terrain: 114 Gravel Race."
+      "alternatives": "For better value: regional gravel races. For similar Portuguese terrain: 114 Gravel Race.",
+      "alternative_slugs": [
+        "114-gravel-race"
+      ]
     },
     "logistics": {
       "airport": "Lisbon (LIS) 2 hours",
@@ -138,7 +141,13 @@
       ],
       "signature_challenge": "Alentejo rolling terrain.",
       "ridewithgps_id": "53243412",
-      "ridewithgps_name": "LONG120KM-UCI-ALENTEJO-GRAVEL-VF.gpx"
+      "ridewithgps_name": "LONG120KM-UCI-ALENTEJO-GRAVEL-VF.gpx",
+      "surface_breakdown": {
+        "overall": {
+          "gravel": 85,
+          "pavement": 15
+        }
+      }
     },
     "guide_variables": {
       "race_name": "Alentejo Gravel",
@@ -185,12 +194,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 90.0,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 82,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -311,89 +329,49 @@
     },
     "citations": [
       {
+        "url": "https://ridewithgps.com/routes/53243412",
+        "category": "route",
+        "label": "RideWithGPS: LONG120KM-UCI-ALENTEJO-GRAVEL-VF.gpx"
+      },
+      {
+        "url": "https://cyclingflash.com/race/uci-gravel-world-series-alentejo-gravel-we-2025/result",
+        "category": "other",
+        "label": "Cyclingflash"
+      },
+      {
+        "url": "https://granfondodailynews.com/2025/11/10/uci-alentejo-gravel-results-malezsewski-kloser-win-in-portugal/",
+        "category": "other",
+        "label": "Granfondodailynews"
+      },
+      {
         "url": "https://reddit.com/r/gravelcycling/comments/alentejo-gravel",
         "category": "community",
         "label": "Reddit"
       },
       {
-        "url": "https://ridewithgps.com",
-        "category": "route",
-        "label": "RideWithGPS"
-      },
-      {
-        "url": "https://www.alentejogravel.pt",
+        "url": "https://ucigravelworldseries.com/en/ourique/",
         "category": "other",
-        "label": "Alentejogravel"
+        "label": "Ucigravelworldseries"
       },
       {
-        "url": "https://www.cyclingtips.com",
-        "category": "media",
-        "label": "CyclingTips"
-      },
-      {
-        "url": "https://www.ridingravel.com",
+        "url": "https://veloracycling.com/races/alentejo-gravel-2025",
         "category": "other",
-        "label": "Ridingravel"
-      },
-      {
-        "url": "https://www.strava.com",
-        "category": "activity",
-        "label": "Strava"
-      },
-      {
-        "url": "https://www.trainerroad.com",
-        "category": "community",
-        "label": "TrainerRoad"
-      },
-      {
-        "url": "https://www.velonews.com",
-        "category": "media",
-        "label": "VeloNews"
+        "label": "Veloracycling"
       },
       {
         "url": "https://www.cyclingnews.com/races/uci-gravel-world-series-events-2025/alentejo-gravel/results/",
-        "category": "community",
-        "label": "cyclingnews.com: Results"
-      },
-      {
-        "url": "https://www.liv-cycling.com/us/news/tessa-neefjes-podiums-at-gravel-world-series-in-portugal/30234",
-        "category": "community",
-        "label": "liv-cycling.com: 30234"
-      },
-      {
-        "url": "https://ucigravelworldseries.com/en/alentejo-gravel-wraps-up-the-2025-season/",
-        "category": "community",
-        "label": "ucigravelworldseries.com: Alentejo Gravel Wraps Up The 2025 Season"
-      },
-      {
-        "url": "https://www.propedalar.pt/bike-news/75417-ourique-recebeu-etapa-da-uci-gravel-world-series-e-afirmou-o-alentejo-como-desti/",
-        "category": "community",
-        "label": "propedalar.pt: 75417 Ourique Recebeu Etapa Da Uci Gravel World Series E ..."
-      },
-      {
-        "url": "https://www.racefinder.pt/event/uci-alentejo-gravel/",
-        "category": "community",
-        "label": "racefinder.pt: Uci Alentejo Gravel"
+        "category": "other",
+        "label": "Cyclingnews"
       },
       {
         "url": "https://www.granfondoguide.com/Contents/Index/8787/rosa-kloser-and-lukas-malezsewski-take-victory-at-2025-uci-alentejo-gravel-",
-        "category": "community",
-        "label": "granfondoguide.com: Rosa Kloser And Lukas Malezsewski Take Victory At 2025 Uc..."
-      },
-      {
-        "url": "https://granfondodailynews.com/2025/11/10/uci-alentejo-gravel-results-malezsewski-kloser-win-in-portugal/",
-        "category": "community",
-        "label": "granfondodailynews.com: Uci Alentejo Gravel Results Malezsewski Kloser Win In Por..."
+        "category": "other",
+        "label": "Granfondoguide"
       },
       {
         "url": "https://www.granfondoguide.com/Events/Index/12849/alentejo-gravel",
-        "category": "community",
-        "label": "granfondoguide.com: Alentejo Gravel"
-      },
-      {
-        "url": "https://ucigravelworldseries.com/en/ourique/",
-        "category": "community",
-        "label": "ucigravelworldseries.com: Ourique"
+        "category": "other",
+        "label": "Granfondoguide"
       }
     ],
     "tire_recommendations": {

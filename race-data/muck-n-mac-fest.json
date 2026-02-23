@@ -19,7 +19,7 @@
         "Scottish Borders"
       ],
       "field_size": "100-150 riders",
-      "start_time": "Morning start",
+      "start_time": "7:00 AM Satu",
       "registration": "Online. Cost: ~£70-90",
       "prize_purse": "Modest prizes",
       "aid_stations": "3 aid stations",
@@ -94,7 +94,10 @@
       "score": "40 / 100",
       "one_liner": "UK Scotland gravel challenge.",
       "should_you_race": "If you're local to UK—yes, it's solid. If you're traveling internationally—skip it.",
-      "alternatives": "For better UK races: Lauf Gritfest."
+      "alternatives": "For better UK races: Lauf Gritfest.",
+      "alternative_slugs": [
+        "lauf-gritfest"
+      ]
     },
     "logistics": {
       "airport": "Edinburgh (EDI) 90 minutes",
@@ -102,7 +105,8 @@
       "food": "Traquair has limited dining. Stock nutrition.",
       "packet_pickup": "Day of typically",
       "parking": "At start/finish",
-      "official_site": "Check Muck n Mac Fest website"
+      "official_site": "Check Muck n Mac Fest website",
+      "camping": "camping included with all weekend tickets"
     },
     "history": {
       "founded": null,
@@ -185,12 +189,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 88.4,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 50
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -316,34 +329,39 @@
         "label": "RideWithGPS: Muck n' Mac Fest (2025) - Day 2 Long"
       },
       {
-        "url": "https://www.timeoutdoors.com/events/muck-n-mac-fest",
-        "category": "community",
-        "label": "timeoutdoors.com: Muck N Mac Fest"
-      },
-      {
-        "url": "https://www.finishers.com/en/event/muck-n-mac-fest",
-        "category": "community",
-        "label": "finishers.com: Muck N Mac Fest"
-      },
-      {
         "url": "https://outsiderevents.eventrac.co.uk/e/muck-n-mac-fest-13569",
-        "category": "community",
-        "label": "outsiderevents.eventrac.co.uk: Muck N Mac Fest 13569"
+        "category": "other",
+        "label": "Outsiderevents"
       },
       {
         "url": "https://racecheck.com/races/muck-n-mac-fest/",
-        "category": "community",
-        "label": "racecheck.com: Muck N Mac Fest"
+        "category": "other",
+        "label": "Racecheck"
       },
       {
-        "url": "https://www.mucknmacfest.co.uk/",
-        "category": "community",
-        "label": "mucknmacfest.co.uk"
+        "url": "https://racecheck.com/races/muck-n-mac-fest/review/",
+        "category": "other",
+        "label": "Racecheck"
+      },
+      {
+        "url": "https://road.cc/tag/muck-n-mac-fest",
+        "category": "other",
+        "label": "Road"
+      },
+      {
+        "url": "https://www.finishers.com/en/event/muck-n-mac-fest",
+        "category": "other",
+        "label": "Finishers"
       },
       {
         "url": "https://www.outsiderevents.com/muck-n-mac-fest",
-        "category": "community",
-        "label": "outsiderevents.com: Muck N Mac Fest"
+        "category": "other",
+        "label": "Outsiderevents"
+      },
+      {
+        "url": "https://www.timeoutdoors.com/events/muck-n-mac-fest",
+        "category": "other",
+        "label": "Timeoutdoors"
       },
       {
         "url": "https://www.mucknmacfest.co.uk/gravelriding",

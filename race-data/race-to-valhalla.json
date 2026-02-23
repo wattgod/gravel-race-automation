@@ -19,7 +19,7 @@
         "Upstate South Carolina"
       ],
       "field_size": "200-400 riders",
-      "start_time": "Morning start",
+      "start_time": "9:00 AM",
       "registration": "Online. Cost: ~$60-100",
       "prize_purse": "Modest prizes",
       "aid_stations": "Multiple aid stations",
@@ -94,7 +94,10 @@
       "score": "51 / 100",
       "one_liner": "South Carolina mountain gravel in Walhalla.",
       "should_you_race": "If you're in South Carolina and want a mountain event—yes, it's solid. If you're from out of state—there are better options.",
-      "alternatives": "For better SC events: Gran Fondo Hincapie. For similar mountain events: other SC gravel races."
+      "alternatives": "For better SC events: Gran Fondo Hincapie. For similar mountain events: other SC gravel races.",
+      "alternative_slugs": [
+        "gran-fondo-hincapie"
+      ]
     },
     "logistics": {
       "airport": "Greenville (GSP) 45 minutes or Atlanta (ATL) 1.5 hours",
@@ -102,7 +105,8 @@
       "food": "Small town with limited dining. Stock nutrition.",
       "packet_pickup": "Day before typically",
       "parking": "At start/finish",
-      "official_site": "Check South Carolina cycling calendars"
+      "official_site": "Check South Carolina cycling calendars",
+      "camping": "Camping at Oconee State Park or South Cove County Park (close to start)"
     },
     "history": {
       "founded": null,
@@ -185,12 +189,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 80.4,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 60,
+          "citation_density": 80,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 50
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -316,24 +329,9 @@
         "label": "RideWithGPS: Official SEG The Race to Valhalla long course"
       },
       {
-        "url": "https://www.trainerroad.com/forum/t/what-do-you-look-for-in-a-gravel-race/89186?page=3",
-        "category": "community",
-        "label": "trainerroad.com: 89186"
-      },
-      {
-        "url": "https://strambecco.com/event/race-to-valhalla/",
-        "category": "community",
-        "label": "strambecco.com: Race To Valhalla"
-      },
-      {
         "url": "https://www.southeastgravel.com/race-to-valhalla",
-        "category": "community",
-        "label": "southeastgravel.com: Race To Valhalla"
-      },
-      {
-        "url": "https://www.webscorer.com/race?raceid=387568",
-        "category": "community",
-        "label": "webscorer.com: Race"
+        "category": "other",
+        "label": "Southeastgravel"
       },
       {
         "url": "https://www.webscorer.com/race?raceid=387568&groupid=385552",

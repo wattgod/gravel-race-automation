@@ -152,9 +152,9 @@
       ],
       "research_date": "2026-02-04",
       "research_strength": {
-        "overall": 100.0,
+        "overall": 99.1,
         "grade": "A",
-        "weakest": "source_diversity",
+        "weakest": "completeness",
         "has_research_dump": true,
         "dimensions": {
           "source_diversity": 100,
@@ -163,7 +163,7 @@
           "specificity": 100,
           "statistical_backing": 100,
           "voice_authenticity": 100,
-          "completeness": 100,
+          "completeness": 94,
           "cross_reference": 100
         },
         "scored_at": "2026-02-04"
@@ -231,14 +231,12 @@
       "score": "71 / 100",
       "one_liner": "Minnesota's sneakiest technical test disguised as a scenic fall colors ride.",
       "should_you_race": "If you've got mountain bike skills and don't mind wrestling roots and rocks for 100 miles, this is your jam. The snowmobile trails demand 40mm+ tires and actual bike handling—your road racing background won't save you here. Skip it if you're looking for fast gravel or hate technical terrain that slows you to 8 mph.",
-      "alternatives": "Gravel Worlds gives you similar distance with less technical bullshit, while Lutsen 99er keeps you in Minnesota but trades the tech for pure climbing suffering. Both let you actually use your fitness instead of just surviving the trail."
+      "alternatives": "Gravel Worlds gives you similar distance with less technical bullshit, while Lutsen 99er keeps you in Minnesota but trades the tech for pure climbing suffering. Both let you actually use your fitness instead of just surviving the trail.",
+      "alternative_slugs": [
+        "garmin-gravel-worlds"
+      ]
     },
     "citations": [
-      {
-        "url": "https://www.heckofthenorth.com",
-        "category": "official",
-        "label": "Official Website"
-      },
       {
         "url": "https://ridewithgps.com/routes/31127155",
         "category": "route",
@@ -250,9 +248,19 @@
         "label": "Athlinks"
       },
       {
-        "url": "https://ridewithgps.com",
-        "category": "route",
-        "label": "RideWithGPS"
+        "url": "https://northernwilds.com/gearing-heck-north/",
+        "category": "other",
+        "label": "Northernwilds"
+      },
+      {
+        "url": "https://northshorevisitor.com/events/heck-of-the-north-gravel-bike-classic/",
+        "category": "other",
+        "label": "Northshorevisitor"
+      },
+      {
+        "url": "https://otsocycles.com/blogs/otso-journal/heck-of-the-north-2021",
+        "category": "other",
+        "label": "Otsocycles"
       },
       {
         "url": "https://ridewithgps.com/routes/heck-of-the-north",
@@ -265,74 +273,49 @@
         "label": "Slowtwitch"
       },
       {
+        "url": "https://www.bikemn.org/events/heck-of-the-north-2025/",
+        "category": "other",
+        "label": "Bikemn"
+      },
+      {
         "url": "https://www.bikereg.com/heck-of-the-north",
         "category": "registration",
         "label": "BikeReg"
       },
       {
+        "url": "https://www.granfondoguide.com/Events/Index/4939/the-heck-of-the-north-gravel-classic",
+        "category": "other",
+        "label": "Granfondoguide"
+      },
+      {
+        "url": "https://www.heckofthenorth.com/cadence/2025/10/1/the-heck-route-scout-report",
+        "category": "other",
+        "label": "Heckofthenorth"
+      },
+      {
         "url": "https://www.mikeward.cool/blog/racing/heck-of-the-north-100-mile-race-report/",
-        "category": "community",
-        "label": "mikeward.cool: Heck Of The North 100 Mile Race Report"
+        "category": "other",
+        "label": "Mikeward"
       },
       {
         "url": "https://www.reddit.com/r/gravelcycling/comments/11ienqf/minnesotans_whove_done_heck_of_the_north_how/",
         "category": "community",
-        "label": "reddit.com: Minnesotans Whove Done Heck Of The North How"
-      },
-      {
-        "url": "https://www.heckofthenorth.com/cadence/2025/10/1/the-heck-route-scout-report",
-        "category": "community",
-        "label": "heckofthenorth.com: The Heck Route Scout Report"
-      },
-      {
-        "url": "https://www.bikemn.org/events/heck-of-the-north-2025/",
-        "category": "community",
-        "label": "bikemn.org: Heck Of The North 2025"
-      },
-      {
-        "url": "https://www.granfondoguide.com/Events/Index/4939/the-heck-of-the-north-gravel-classic",
-        "category": "community",
-        "label": "granfondoguide.com: The Heck Of The North Gravel Classic"
-      },
-      {
-        "url": "https://www.heckofthenorth.com/cadence/2025/9/20/getting-ready",
-        "category": "community",
-        "label": "heckofthenorth.com: Getting Ready"
-      },
-      {
-        "url": "https://www.heckofthenorth.com/heck-registration",
-        "category": "community",
-        "label": "heckofthenorth.com: Heck Registration"
+        "label": "Reddit"
       },
       {
         "url": "https://www.reddit.com/r/gravelcycling/comments/daufse/i_drove_15_hours_to_ride_heck_of_the_north_13/",
         "category": "community",
-        "label": "reddit.com: I Drove 15 Hours To Ride Heck Of The North 13"
+        "label": "Reddit"
       },
       {
-        "url": "https://www.bikesignup.com/Race/MN/TwoHarbors/HeckOfTheNorthGravelClassic",
+        "url": "https://www.reddit.com/r/gravelcycling/comments/xyc4zw/my_gopro_video_from_the_heck_of_the_north/",
         "category": "community",
-        "label": "bikesignup.com: Heckofthenorthgravelclassic"
-      },
-      {
-        "url": "https://northshorevisitor.com/events/heck-of-north-gravel-bike-race/",
-        "category": "community",
-        "label": "northshorevisitor.com: Heck Of North Gravel Bike Race"
-      },
-      {
-        "url": "https://northernwilds.com/gearing-heck-north/",
-        "category": "community",
-        "label": "northernwilds.com: Gearing Heck North"
+        "label": "Reddit"
       },
       {
         "url": "https://www.youtube.com/watch?v=3tzqKPLDVTQ",
         "category": "community",
         "label": "youtube.com: Watch"
-      },
-      {
-        "url": "https://www.reddit.com/r/gravelcycling/comments/xyc4zw/my_gopro_video_from_the_heck_of_the_north/",
-        "category": "community",
-        "label": "reddit.com: My Gopro Video From The Heck Of The North"
       }
     ],
     "results": {

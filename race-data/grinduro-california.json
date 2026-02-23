@@ -97,7 +97,7 @@
       "packet_pickup": "Friday packet pickup. Multi-day event—Friday expo, Saturday race, Saturday night party.",
       "travel_summary": "Reno airport 90 miles. Rental car needed. Quincy small town—book lodging or camping early. Multi-day event (Friday-Saturday). Race Saturday, legendary party Saturday night.",
       "food_options": "Aid stations on course. Post-race party: beer, food, music.",
-      "camping": "Encouraged. Part of Grinduro vibe. Check official website.",
+      "camping": "camping and a festival atmosphere",
       "official_site": "https://www.grinduro.com"
     },
     "course_description": {
@@ -124,7 +124,14 @@
       ],
       "signature_challenge": "Enduro format—timed descents reward MTB skills. Untimed climbs = social. Party vibe.",
       "ridewithgps_id": "31202456",
-      "ridewithgps_name": "Grinduro! California 2019 - Sunday Hangover Ride #1"
+      "ridewithgps_name": "Grinduro! California 2019 - Sunday Hangover Ride #1",
+      "surface_breakdown": {
+        "overall": {
+          "singletrack": 50,
+          "gravel": 30,
+          "dirt": 20
+        }
+      }
     },
     "history": {
       "founded": "2015",
@@ -146,9 +153,9 @@
       ],
       "research_date": "2026-02-04",
       "research_strength": {
-        "overall": 100.0,
+        "overall": 99.1,
         "grade": "A",
-        "weakest": "source_diversity",
+        "weakest": "completeness",
         "has_research_dump": true,
         "dimensions": {
           "source_diversity": 100,
@@ -157,7 +164,7 @@
           "specificity": 100,
           "statistical_backing": 100,
           "voice_authenticity": 100,
-          "completeness": 100,
+          "completeness": 94,
           "cross_reference": 100
         },
         "scored_at": "2026-02-04"
@@ -225,78 +232,42 @@
       "score": "70 / 100",
       "one_liner": "A party disguised as a race where the descents are timed, the climbs are social, and your bike handling matters more than your FTP.",
       "should_you_race": "Come if you want good vibes and can handle singletrack on drop bars—this isn't pure gravel racing. You need actual mountain bike skills for the technical descents and 40-45mm tires that grip. Skip it if you're chasing serious race results or can't ride technical terrain without white knuckling.",
-      "alternatives": "Try Crusher in the Tushar if you want legitimate gravel racing with climbing, or Sea Otter Grinduro if you prefer the same party format but with better logistics. Both will test your legs more than your bike handling."
+      "alternatives": "Try Crusher in the Tushar if you want legitimate gravel racing with climbing, or Sea Otter Grinduro if you prefer the same party format but with better logistics. Both will test your legs more than your bike handling.",
+      "alternative_slugs": [
+        "crusher-in-the-tushar",
+        "grinduro"
+      ]
     },
     "citations": [
-      {
-        "url": "https://www.grinduro.com",
-        "category": "official",
-        "label": "Official Website"
-      },
       {
         "url": "https://ridewithgps.com/routes/31202456",
         "category": "route",
         "label": "RideWithGPS: Grinduro! California 2019 - Sunday Hangover Ride #1"
       },
       {
-        "url": "https://ridewithgps.com",
-        "category": "route",
-        "label": "RideWithGPS"
+        "url": "https://theradavist.com/grinduro-california-2025-quincy",
+        "category": "other",
+        "label": "Theradavist"
       },
       {
-        "url": "https://www.cyclingtips.com",
+        "url": "https://www.gravelcyclist.com/training-rides/grinduro-california-returns-to-quincy-in-2025-sierra-plumas-county-fairgrounds/",
         "category": "media",
-        "label": "CyclingTips"
+        "label": "Gravel Cyclist"
       },
       {
-        "url": "https://www.strava.com",
-        "category": "activity",
-        "label": "Strava"
+        "url": "https://www.gravelunion.cc/article/grinduro-california-2022",
+        "category": "other",
+        "label": "Gravelunion"
       },
       {
-        "url": "https://www.trainerroad.com",
+        "url": "https://www.reddit.com/r/gravelcycling/comments/11t2wmc/tires_for_grinduro_california/",
         "category": "community",
-        "label": "TrainerRoad"
+        "label": "Reddit"
       },
       {
-        "url": "https://www.velonews.com",
-        "category": "media",
-        "label": "VeloNews"
-      },
-      {
-        "url": "http://www.hungmaiphotography.com/blog/tag/grinduro",
+        "url": "https://www.reddit.com/r/xbiking/comments/be40lc/sign_up_for_grinduro_california_2019_now_i_need/",
         "category": "community",
-        "label": "hungmaiphotography.com: Grinduro"
-      },
-      {
-        "url": "https://www.gravelcyclist.com/race-reports/2019-grinduro-california-the-four-seasons-of-bike-riding-racing/",
-        "category": "community",
-        "label": "gravelcyclist.com: 2019 Grinduro California The Four Seasons Of Bike Riding ..."
-      },
-      {
-        "url": "https://www.gravelstoke.com/gravel-cycling-gear-blog/grinduro-2019",
-        "category": "community",
-        "label": "gravelstoke.com: Grinduro 2019"
-      },
-      {
-        "url": "https://www.gravelcyclist.com/videos/video-2019-grinduro-california-the-mayhem-of-rain-cold-sun-snow-in-one-day/",
-        "category": "community",
-        "label": "gravelcyclist.com: Video 2019 Grinduro California The Mayhem Of Rain Cold Su..."
-      },
-      {
-        "url": "https://www.cxmagazine.com/2022-grinduro-california-race-results-shasta-cyclocrossers-win",
-        "category": "community",
-        "label": "cxmagazine.com: 2022 Grinduro California Race Results Shasta Cyclocrosser..."
-      },
-      {
-        "url": "https://www.bikeperfect.com/features/five-of-the-best-us-gravel-bike-events-to-ride-in-2023",
-        "category": "community",
-        "label": "bikeperfect.com: Five Of The Best Us Gravel Bike Events To Ride In 2023"
-      },
-      {
-        "url": "https://www.mtshastanordic.org/blog/grinduro-ca-needs-you-sign-up-to-volunteer-during-race-weekend",
-        "category": "community",
-        "label": "mtshastanordic.org: Grinduro Ca Needs You Sign Up To Volunteer During Race We..."
+        "label": "Reddit"
       },
       {
         "url": "https://theradavist.com/2025-grinduro",
@@ -304,29 +275,14 @@
         "label": "theradavist.com: 2025 Grinduro"
       },
       {
-        "url": "https://www.gravelunion.cc/article/grinduro-california-2022",
-        "category": "community",
-        "label": "gravelunion.cc: Grinduro California 2022"
-      },
-      {
         "url": "https://www.reddit.com/r/BAbike/",
         "category": "community",
         "label": "reddit.com: Babike"
       },
       {
-        "url": "https://www.reddit.com/user/OriginalJimDog/",
-        "category": "community",
-        "label": "reddit.com: Originaljimdog"
-      },
-      {
         "url": "https://www.youtube.com/watch?v=K9OvmGAA2a4",
         "category": "community",
         "label": "youtube.com: Watch"
-      },
-      {
-        "url": "https://www.reddit.com/r/xbiking/comments/be40lc/sign_up_for_grinduro_california_2019_now_i_need/",
-        "category": "community",
-        "label": "reddit.com: Sign Up For Grinduro California 2019 Now I Need"
       },
       {
         "url": "https://www.youtube.com/watch?v=KyfqpCn9ggo",
@@ -337,11 +293,6 @@
         "url": "https://quincymountainstomeadows.com/grinduro-race.php",
         "category": "community",
         "label": "quincymountainstomeadows.com: Grinduro Race.Php"
-      },
-      {
-        "url": "https://theradavist.com/grinduro-california-2025-quincy",
-        "category": "community",
-        "label": "theradavist.com: Grinduro California 2025 Quincy"
       },
       {
         "url": "https://www.activenorcal.com/your-complete-guide-to-grinduro-the-international-cycling-celebration-coming-to-mt-shasta/",

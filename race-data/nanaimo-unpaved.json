@@ -19,7 +19,7 @@
         "British Columbia"
       ],
       "field_size": "50-100 riders",
-      "start_time": "Morning start",
+      "start_time": "9:00 AM",
       "registration": "Online. Cost: ~$75-100 CAD",
       "prize_purse": "Modest prizes",
       "aid_stations": "Limited aid stations",
@@ -94,7 +94,11 @@
       "score": "39 / 100",
       "one_liner": "BC coastal gravel challenge.",
       "should_you_race": "If you're local to BC—yes, it's good value. If you're traveling—skip it.",
-      "alternatives": "For better BC races: Kettle Mettle, TransRockies Gravel Royale."
+      "alternatives": "For better BC races: Kettle Mettle, TransRockies Gravel Royale.",
+      "alternative_slugs": [
+        "kettle-mettle",
+        "transrockies-gravel-royale"
+      ]
     },
     "logistics": {
       "airport": "Nanaimo (YCD) 30 minutes",
@@ -102,7 +106,8 @@
       "food": "Nanaimo has full dining options. Stock nutrition.",
       "packet_pickup": "Day of typically",
       "parking": "At start/finish",
-      "official_site": "Check Nanaimo Unpaved website"
+      "official_site": "Check Nanaimo Unpaved website",
+      "camping": "Camping reservation available June 14, 2025, 12:00 p"
     },
     "history": {
       "founded": null,
@@ -185,12 +190,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 86.7,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -311,34 +325,29 @@
     },
     "citations": [
       {
-        "url": "https://www.webscorer.com/racealldetails?raceid=394540",
-        "category": "community",
-        "label": "webscorer.com: Racealldetails"
+        "url": "https://cyclingbc.net/event/nanaimo-unpaved/",
+        "category": "other",
+        "label": "Cyclingbc"
       },
       {
         "url": "https://cyclinggreatescapes.com/nanaimo-unpaved-gravel-fondo-results-and-photos-round-3-of-2025-trek-bc-gravel-series/",
-        "category": "community",
-        "label": "cyclinggreatescapes.com: Nanaimo Unpaved Gravel Fondo Results And Photos Round 3 O..."
-      },
-      {
-        "url": "https://www.webscorer.com/race?raceid=355715",
-        "category": "community",
-        "label": "webscorer.com: Race"
+        "category": "other",
+        "label": "Cyclinggreatescapes"
       },
       {
         "url": "https://www.bcgravelseries.com/nanaimounpaved",
-        "category": "community",
-        "label": "bcgravelseries.com: Nanaimounpaved"
-      },
-      {
-        "url": "https://zone4.ca/~bzKM9Z/",
-        "category": "community",
-        "label": "zone4.ca: ~Bzkm9Z"
+        "category": "other",
+        "label": "Bcgravelseries"
       },
       {
         "url": "https://bookofchad.ca/category/race-reports/",
         "category": "community",
         "label": "bookofchad.ca: Race Reports"
+      },
+      {
+        "url": "https://www.webscorer.com/racealldetails?raceid=394540",
+        "category": "community",
+        "label": "webscorer.com: Racealldetails"
       }
     ],
     "results": {

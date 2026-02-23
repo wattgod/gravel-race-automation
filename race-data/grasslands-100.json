@@ -19,7 +19,7 @@
         "Regional event"
       ],
       "field_size": "200-400 riders",
-      "start_time": "Morning start",
+      "start_time": "11:59 p.m. Satu",
       "registration": "Online. Cost: ~$80-120",
       "prize_purse": "Prizes for top finishers",
       "aid_stations": "Multiple aid stations",
@@ -94,7 +94,10 @@
       "score": "50 / 100",
       "one_liner": "100-mile Texas grasslands gravel in Decatur.",
       "should_you_race": "If you want a 100-mile challenge—yes, it's a solid distance test. If you want terrain variety or pro field depth—look elsewhere.",
-      "alternatives": "For better century events: Land Run 100. For similar regional events: other TX gravel races."
+      "alternatives": "For better century events: Land Run 100. For similar regional events: other TX gravel races.",
+      "alternative_slugs": [
+        "mid-south"
+      ]
     },
     "logistics": {
       "airport": "Dallas/Fort Worth (DFW) 1 hour",
@@ -102,7 +105,8 @@
       "food": "Decatur has moderate dining options. Stock nutrition for 100 miles.",
       "packet_pickup": "Day before",
       "parking": "At start/finish",
-      "official_site": "Check Grasslands 100 website"
+      "official_site": "Check Grasslands 100 website",
+      "camping": "Camping Area within the Grasslands park area, near the intersection of FS Road 900 and FS 904"
     },
     "history": {
       "founded": null,
@@ -192,12 +196,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 81.8,
+        "grade": "A",
+        "weakest": "temporal_depth",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 80,
+          "citation_density": 80,
+          "temporal_depth": 50,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 82,
+          "cross_reference": 50
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -323,9 +336,19 @@
         "label": "RideWithGPS: Grasslands 100"
       },
       {
+        "url": "http://www.edsresults.com/grasslands24/",
+        "category": "other",
+        "label": "Edsresults"
+      },
+      {
         "url": "https://www.halfmarathons.net/races/grasslands-trail-run-100-mile-50-mile-marathon-half-marathon-15k/",
+        "category": "other",
+        "label": "Halfmarathons"
+      },
+      {
+        "url": "https://www.reddit.com/r/thalassophobia/comments/13v3pvo/sf_bay_the_entire_bay_used_to_be_grasslands_100s/",
         "category": "community",
-        "label": "halfmarathons.net: Grasslands Trail Run 100 Mile 50 Mile Marathon Half Marat..."
+        "label": "Reddit"
       },
       {
         "url": "https://www.youtube.com/watch?v=D7mBGtpYxu4",

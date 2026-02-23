@@ -42,6 +42,68 @@ EXCLUDE_DOMAINS = {
     'w3.org',
 }
 
+# Domains where a bare homepage is never a useful citation
+DOMAINS_REQUIRING_PATH = {
+    'velonews.com', 'cyclingtips.com', 'bikeradar.com',
+    'gearjunkie.com', 'cyclingweekly.com', 'cxmagazine.com',
+    'ridinggravel.com', 'gravelcyclist.com',
+    'reddit.com', 'youtube.com', 'strava.com',
+    'trainerroad.com', 'wikipedia.org',
+    'outsideonline.com',
+}
+
+
+def is_generic_homepage(url: str) -> bool:
+    """Return True if URL is just a domain homepage with no specific path."""
+    try:
+        parsed = urlparse(url)
+        path = parsed.path.rstrip('/')
+        if not path:
+            return True
+        # Language prefix only: /en, /fr, /de etc.
+        if re.match(r'^/[a-z]{2}$', path):
+            return True
+        return False
+    except Exception:
+        return False
+
+
+def is_suspicious_reddit_url(url: str) -> bool:
+    """Return True if URL claims to be Reddit but doesn't match real format.
+
+    Valid Reddit URLs:
+    - /r/{subreddit}/comments/{id}/...  (post)
+    - /r/{subreddit}/                   (subreddit listing — generic but real)
+
+    Invalid:
+    - /user/{name}/...                  (user profiles — not race citations)
+    - /r/{subreddit}/s/{hash}           (share links — opaque, break over time)
+    - Random paths that don't match Reddit's URL structure
+    """
+    try:
+        parsed = urlparse(url)
+        hostname = parsed.hostname or ''
+        if 'reddit.com' not in hostname:
+            return False
+        path = parsed.path.rstrip('/')
+        if not path:
+            return False  # homepage — caught by generic check
+        # Valid: /r/subreddit/comments/id/...
+        if re.search(r'/r/[a-zA-Z0-9_]+/comments/[a-z0-9]+', path):
+            return False
+        # Valid: /r/subreddit/ (subreddit listing)
+        if re.match(r'^/r/[a-zA-Z0-9_]+$', path):
+            return False
+        # User profile URLs are not citations
+        if path.startswith('/user/') or path.startswith('/u/'):
+            return True
+        # Share links with /s/ hash — opaque and break
+        if re.search(r'/r/[a-zA-Z0-9_]+/s/[a-zA-Z0-9]+', path):
+            return True
+        return False
+    except Exception:
+        return False
+
 
 def validate_race_citations(slug: str, citations: list, verbose: bool = False) -> list:
     """Validate citations for a single race. Returns list of error strings."""
@@ -86,6 +148,14 @@ def validate_race_citations(slug: str, citations: list, verbose: bool = False) -
         domain = parsed.netloc.lower().replace('www.', '')
         if domain in EXCLUDE_DOMAINS:
             errors.append(f"{slug}: excluded domain leaked: {domain}")
+
+        # Check for generic homepage URLs on known domains
+        if domain in DOMAINS_REQUIRING_PATH and is_generic_homepage(url):
+            errors.append(f"{slug}: generic homepage URL (no path): {url}")
+
+        # Check for suspicious Reddit URLs (user profiles, share links)
+        if is_suspicious_reddit_url(url):
+            errors.append(f"{slug}: suspicious Reddit URL: {url}")
 
         # Check for exact duplicates
         if url in seen_urls:

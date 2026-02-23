@@ -19,7 +19,7 @@
         "Iowa"
       ],
       "field_size": "50-100 riders",
-      "start_time": "Morning start",
+      "start_time": "1:00PM",
       "registration": "Online. Cost: ~$50-75",
       "prize_purse": "Modest prizes",
       "aid_stations": "Limited aid stations",
@@ -94,7 +94,10 @@
       "score": "41 / 100",
       "one_liner": "Iowa local gravel challenge.",
       "should_you_race": "If you're local to Iowa—yes, it's good value. If you're traveling—skip it.",
-      "alternatives": "For better Iowa races: Gravel Worlds, RAGBRAI."
+      "alternatives": "For better Iowa races: Gravel Worlds, RAGBRAI.",
+      "alternative_slugs": [
+        "garmin-gravel-worlds"
+      ]
     },
     "logistics": {
       "airport": "Omaha (OMA) 90 minutes",
@@ -185,12 +188,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 81.7,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 80,
+          "citation_density": 80,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -316,44 +328,19 @@
         "label": "RideWithGPS: 100km - 2024 Soldier Cutoff Hillduro"
       },
       {
-        "url": "https://www.joinbasecamp.com/post/garys-story-soldier-cutoff-hillduro",
-        "category": "community",
-        "label": "joinbasecamp.com: Garys Story Soldier Cutoff Hillduro"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=IRDmhDusWss",
-        "category": "community",
-        "label": "youtube.com: Watch"
+        "url": "https://iowabicyclecoalition.org/event/soldier-cutoff-hillduro-iowa-gravel-series/",
+        "category": "other",
+        "label": "Iowabicyclecoalition"
       },
       {
         "url": "https://www.granfondoguide.com/Events/Index/10857/soldier-cutoff-hillduro",
-        "category": "community",
-        "label": "granfondoguide.com: Soldier Cutoff Hillduro"
+        "category": "other",
+        "label": "Granfondoguide"
       },
       {
-        "url": "https://www.youtube.com/watch?v=0UHgsDA94HA?hl=en-US",
-        "category": "community",
-        "label": "youtube.com: Watch"
-      },
-      {
-        "url": "https://www.gravel-results.com/race/19988",
-        "category": "community",
-        "label": "gravel-results.com: 19988"
-      },
-      {
-        "url": "https://www.racecenter.com/cycling/soldier-cutoff-hillduro",
-        "category": "community",
-        "label": "racecenter.com: Soldier Cutoff Hillduro"
-      },
-      {
-        "url": "https://www.bikeiowa.com/Event/16437/soldier-cutoff-hillduro",
-        "category": "community",
-        "label": "bikeiowa.com: Soldier Cutoff Hillduro"
-      },
-      {
-        "url": "https://iowabicyclecoalition.org/event/soldier-cutoff-hillduro-iowa-gravel-series/",
-        "category": "community",
-        "label": "iowabicyclecoalition.org: Soldier Cutoff Hillduro Iowa Gravel Series"
+        "url": "https://www.joinbasecamp.com/post/garys-story-soldier-cutoff-hillduro",
+        "category": "other",
+        "label": "Joinbasecamp"
       }
     ],
     "tire_recommendations": {

@@ -193,7 +193,10 @@
       "score": "78 / 100",
       "one_liner": "The Southwest's 20-year MTB institution where Skull Valley tests your suffering and Whiskey Row rewards your survival.",
       "should_you_race": "Yes if you want a world-class MTB festival experience with genuine physical challenge. Yes if you appreciate 20 years of event refinement. No if you're a gravel purist uncomfortable on technical terrain. No if you need budget-friendly entry.",
-      "alternatives": "Grand Junction Off-Road (Epic Rides sister event); Sea Otter Classic (bigger festival, coastal); Crusher in the Tushar (more altitude suffering, less festival)"
+      "alternatives": "Grand Junction Off-Road (Epic Rides sister event); Sea Otter Classic (bigger festival, coastal); Crusher in the Tushar (more altitude suffering, less festival)",
+      "alternative_slugs": [
+        "crusher-in-the-tushar"
+      ]
     },
     "logistics": {
       "airport": "PHX (Phoenix Sky Harbor) - 1hr 56min drive, 106 miles",
@@ -202,7 +205,8 @@
       "food": "Concentrated around downtown square and Whiskey Row. Full options in tourist-friendly Prescott.",
       "packet_pickup": "Friday. Mandatory Pre-Ride Meeting Friday 7:00 PM on Main Stage.",
       "parking": "Designated areas—respect local businesses. Event designed for walkability once parked.",
-      "official_site": "https://epicrides.com/events/whiskey-off-road"
+      "official_site": "https://epicrides.com/events/whiskey-off-road",
+      "camping": "Camping area, slightly further out\n\n### Event Weekend Flow\n\nEpic Rides designed the weekend so participants can:\n- Arrive Friday"
     },
     "history": {
       "founded": 2004,
@@ -289,6 +293,11 @@
         "label": "Epicrides"
       },
       {
+        "url": "https://epicrides.com/events/whiskey-off-road/results/",
+        "category": "other",
+        "label": "Epicrides"
+      },
+      {
         "url": "https://epicrides.com/product/2026-whiskey-off-road/",
         "category": "other",
         "label": "Epicrides"
@@ -332,11 +341,6 @@
         "url": "https://www.pinkbike.com/news/race-report-savilia-blunk-and-riley-amos-take-50-proof-backcountry-race-wins-at-epic-rides-whiskey-off-road.html",
         "category": "other",
         "label": "Pinkbike"
-      },
-      {
-        "url": "https://www.brickhouseracing.com/?p=6177",
-        "category": "community",
-        "label": "brickhouseracing.com"
       },
       {
         "url": "https://cxhairs.substack.com/p/big-money-prime-shakes-up-whiskey",
@@ -410,6 +414,25 @@
         "200pluslb_dry": "42-46",
         "200pluslb_mixed": "40-44",
         "200pluslb_wet": "38-42"
+      }
+    },
+    "research_metadata": {
+      "research_strength": {
+        "overall": 97.0,
+        "grade": "A",
+        "weakest": "voice_authenticity",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 100,
+          "cross_reference": 100
+        },
+        "scored_at": "2026-02-04"
       }
     }
   },

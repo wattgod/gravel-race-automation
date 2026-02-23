@@ -94,7 +94,10 @@
       "score": "46 / 100",
       "one_liner": "Belgian Turnhout gravel challenge.",
       "should_you_race": "If you're in Europe—yes, it's solid. If you're international—there are better options.",
-      "alternatives": "For better value: regional gravel races. For similar Belgian terrain: Heathland Gravel."
+      "alternatives": "For better value: regional gravel races. For similar Belgian terrain: Heathland Gravel.",
+      "alternative_slugs": [
+        "heathland-gravel"
+      ]
     },
     "logistics": {
       "airport": "Brussels (BRU) or Antwerp (ANR) 1 hour",
@@ -138,7 +141,13 @@
       ],
       "signature_challenge": "Belgian rolling terrain.",
       "ridewithgps_id": "53926943",
-      "ridewithgps_name": "Turnhout Gravel 2026 - 72 km"
+      "ridewithgps_name": "Turnhout Gravel 2026 - 72 km",
+      "surface_breakdown": {
+        "overall": {
+          "gravel": 80,
+          "pavement": 20
+        }
+      }
     },
     "guide_variables": {
       "race_name": "Turnhout Gravel",
@@ -185,12 +194,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 89.2,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -316,74 +334,44 @@
         "label": "RideWithGPS: Turnhout Gravel 2026 - 72 km"
       },
       {
+        "url": "https://cycling-info.com/mads-wurtz-schmidt-and-geerike-schreurs-triumph-at-thrilling-turnhout-gravel-race-in-belgium/",
+        "category": "other",
+        "label": "Cycling-Info"
+      },
+      {
+        "url": "https://granfondodailynews.com/2025/03/24/2500-try-to-qualify-for-worlds-at-turnhout-gravel-in-belgium-results/",
+        "category": "other",
+        "label": "Granfondodailynews"
+      },
+      {
         "url": "https://reddit.com/r/gravelcycling/comments/turnhout-gravel",
         "category": "community",
         "label": "Reddit"
       },
       {
-        "url": "https://ridewithgps.com",
-        "category": "route",
-        "label": "RideWithGPS"
-      },
-      {
-        "url": "https://www.cyclingtips.com",
-        "category": "media",
-        "label": "CyclingTips"
-      },
-      {
-        "url": "https://www.ridingravel.com",
+        "url": "https://ucigravelworldseries.com/en/bolero-turnhout-gravel-record-breaking-event-in-the-uci-gravel-world-series/",
         "category": "other",
-        "label": "Ridingravel"
-      },
-      {
-        "url": "https://www.strava.com",
-        "category": "activity",
-        "label": "Strava"
-      },
-      {
-        "url": "https://www.trainerroad.com",
-        "category": "community",
-        "label": "TrainerRoad"
-      },
-      {
-        "url": "https://www.turnhoutgravel.be",
-        "category": "other",
-        "label": "Turnhoutgravel"
-      },
-      {
-        "url": "https://www.velonews.com",
-        "category": "media",
-        "label": "VeloNews"
-      },
-      {
-        "url": "https://www.cyclingweekly.com/news/its-going-to-be-wild-ribble-launches-new-gravel-team-with-ex-worldtour-pros",
-        "category": "community",
-        "label": "cyclingweekly.com: Its Going To Be Wild Ribble Launches New Gravel Team With..."
-      },
-      {
-        "url": "https://cycling-info.com/mads-wurtz-schmidt-and-geerike-schreurs-triumph-at-thrilling-turnhout-gravel-race-in-belgium/",
-        "category": "community",
-        "label": "cycling-info.com: Mads Wurtz Schmidt And Geerike Schreurs Triumph At Thrill..."
-      },
-      {
-        "url": "https://ucigravelworldseries.com/en/wurtz-schmidt-and-schreurs-victorious-in-fast-bolero-turnhout-gravel/",
-        "category": "community",
-        "label": "ucigravelworldseries.com: Wurtz Schmidt And Schreurs Victorious In Fast Bolero Turn..."
+        "label": "Ucigravelworldseries"
       },
       {
         "url": "https://ucigravelworldseries.com/en/turnhout/",
-        "category": "community",
-        "label": "ucigravelworldseries.com: Turnhout"
+        "category": "other",
+        "label": "Ucigravelworldseries"
       },
       {
-        "url": "https://ucigravelworldseries.com/en/bolero-turnhout-gravel-record-breaking-event-in-the-uci-gravel-world-series/",
-        "category": "community",
-        "label": "ucigravelworldseries.com: Bolero Turnhout Gravel Record Breaking Event In The Uci G..."
+        "url": "https://ucigravelworldseries.com/en/wurtz-schmidt-and-schreurs-victorious-in-fast-bolero-turnhout-gravel/",
+        "category": "other",
+        "label": "Ucigravelworldseries"
+      },
+      {
+        "url": "https://www.cyclingweekly.com/news/its-going-to-be-wild-ribble-launches-new-gravel-team-with-ex-worldtour-pros",
+        "category": "media",
+        "label": "Cycling Weekly"
       },
       {
         "url": "https://www.granfondoguide.com/Contents/PopUp/8436/uci-turnhout-gravel-race-in-belgium-attracts-2500-riders-from-27-countries",
-        "category": "community",
-        "label": "granfondoguide.com: Uci Turnhout Gravel Race In Belgium Attracts 2500 Riders ..."
+        "category": "other",
+        "label": "Granfondoguide"
       }
     ],
     "results": {

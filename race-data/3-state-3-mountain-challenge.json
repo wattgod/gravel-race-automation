@@ -185,12 +185,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 92.7,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 88,
+          "cross_reference": 50
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -311,14 +320,24 @@
     },
     "citations": [
       {
+        "url": "https://ridewithgps.com/routes/49021325",
+        "category": "route",
+        "label": "RideWithGPS: Traditional 3 State 3 Mountain Challenge - Metric (63 Miles)"
+      },
+      {
         "url": "https://ridewithgps.com/routes/19171754[2",
         "category": "route",
         "label": "RideWithGPS"
       },
       {
         "url": "https://thecyclingaddiction.blogspot.com/2008/05/3-state-3-mountain-challenge.html",
-        "category": "community",
-        "label": "thecyclingaddiction.blogspot.com: 3 State 3 Mountain Challenge.Html"
+        "category": "other",
+        "label": "Thecyclingaddiction"
+      },
+      {
+        "url": "https://wheelbrothers.com/3-state-3-mountain-challenge/",
+        "category": "other",
+        "label": "Wheelbrothers"
       },
       {
         "url": "http://forums.teamestrogen.com/showthread.php?t=51493",
@@ -334,11 +353,6 @@
         "url": "https://www.bikeforums.net/4381823-post47.html",
         "category": "community",
         "label": "bikeforums.net: 4381823 Post47.Html"
-      },
-      {
-        "url": "https://wheelbrothers.com/3-state-3-mountain-challenge/",
-        "category": "community",
-        "label": "wheelbrothers.com: 3 State 3 Mountain Challenge"
       },
       {
         "url": "https://www.youtube.com/watch?v=jgMCnqLWS5o",

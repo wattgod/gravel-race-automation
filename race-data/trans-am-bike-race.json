@@ -166,7 +166,12 @@
       "score": "97 / 100",
       "one_liner": "The longest self-supported bike race on earth—4,200+ miles from Pacific to Atlantic, crossing 10 states, no support crews, pure transcontinental adventure.",
       "should_you_race": "Yes if you have serious ultra-endurance experience and can commit 2-5 weeks to crossing America. Yes if you can handle complete self-sufficiency across 4,200 miles. Yes if you want the ultimate American cycling pilgrimage. Skip if you haven't completed multi-day self-supported events. Skip if 200+ mile days for weeks on end sounds impossible. Skip if Kansas wind and Appalachian rollercoasters would break your spirit.",
-      "alternatives": "Tour Divide (2,745 miles, mountain bike, Canada to Mexico); Race Across America (supported, different ethos); Transcontinental Race (4,000km, self-supported across Europe); Colorado Trail Race (500 miles, high-altitude bikepacking)"
+      "alternatives": "Tour Divide (2,745 miles, mountain bike, Canada to Mexico); Race Across America (supported, different ethos); Transcontinental Race (4,000km, self-supported across Europe); Colorado Trail Race (500 miles, high-altitude bikepacking)",
+      "alternative_slugs": [
+        "colorado-trail-race",
+        "tour-divide",
+        "transcontinental-race"
+      ]
     },
     "logistics": {
       "airport": "PDX (Portland) - 100mi to Astoria start; ORF (Norfolk) or RIC (Richmond) - near Yorktown finish; DCA/IAD/BWI for D.C. finish option",
@@ -174,7 +179,8 @@
       "food": "Self-supported—resupply at towns throughout route. More frequent services than Tour Divide. Kansas and Missouri cater specifically to TransAmerica cyclists with water, Wi-Fi, and cyclist campsites. Carry 1-2 days food for sparse Eastern Oregon section.",
       "packet_pickup": "Virtual registration and briefing. Show up at Columbia River Maritime Museum in Astoria. On-site bike inspection available.",
       "parking": "Astoria start area. Coordinate finish transport—Yorktown or D.C. options. Consider one-way bike shipping.",
-      "official_site": "https://rideyrbike.com/transambikenonstop/"
+      "official_site": "https://rideyrbike.com/transambikenonstop/",
+      "camping": "camping is common\n\n#### Ozarks and Mid-West (Missouri, Illinois)\n- Roller-coaster terrain\n- Short, steep climbs\n- More developed"
     },
     "history": {
       "founded": 2014,
@@ -328,9 +334,9 @@
         "label": "RideWithGPS: Trans Am Bike Race 2024 v4 (copy)"
       },
       {
-        "url": "https://dotwatcher.cc/",
-        "category": "tracking",
-        "label": "DotWatcher"
+        "url": "https://bikepacking.com/plog/lael-wilcox-trans-am/",
+        "category": "other",
+        "label": "Bikepacking"
       },
       {
         "url": "https://en.wikipedia.org/wiki/Trans_Am_Bike_Race",
@@ -338,19 +344,24 @@
         "label": "Wikipedia"
       },
       {
+        "url": "https://jamesmackeddie.com/2015/11/14/the-trans-am-bike-race/",
+        "category": "other",
+        "label": "Jamesmackeddie"
+      },
+      {
+        "url": "https://ridefar.info/2019/11/trans-am-bike-race-2014-15-16/",
+        "category": "other",
+        "label": "Ridefar"
+      },
+      {
         "url": "https://ridewithgps.com/routes/25569923",
         "category": "route",
         "label": "RideWithGPS"
       },
       {
-        "url": "https://trackleaders.com/",
-        "category": "tracking",
-        "label": "TrackLeaders"
-      },
-      {
-        "url": "https://transambikerace.com/",
-        "category": "other",
-        "label": "Transambikerace"
+        "url": "https://stories.strava.com/articles/the-worlds-most-challenging-on-road-bikepacking-races",
+        "category": "activity",
+        "label": "Strava"
       },
       {
         "url": "https://transambikerace.com/results/",
@@ -358,44 +369,39 @@
         "label": "Transambikerace"
       },
       {
+        "url": "https://velo.outsideonline.com/gravel/gravel-culture/photo-gallery-breaking-records-at-the-2018-trans-am-ultra-endurance-race",
+        "category": "media",
+        "label": "Velo"
+      },
+      {
         "url": "https://www.adventurecycling.org/routes-and-maps/adventure-cycling-route-network/transamerica-trail/",
         "category": "other",
         "label": "Adventurecycling"
       },
       {
-        "url": "https://ridefar.info/2019/11/trans-am-bike-race-2014-15-16/",
-        "category": "community",
-        "label": "ridefar.info: Trans Am Bike Race 2014 15 16"
-      },
-      {
-        "url": "https://bikepacking.com/plog/lael-wilcox-trans-am/",
-        "category": "community",
-        "label": "bikepacking.com: Lael Wilcox Trans Am"
-      },
-      {
-        "url": "https://stories.strava.com/articles/the-worlds-most-challenging-on-road-bikepacking-races",
-        "category": "community",
-        "label": "stories.strava.com: The Worlds Most Challenging On Road Bikepacking Races"
-      },
-      {
-        "url": "https://www.roadbikerider.com/leah-goldstein-trans-am-race/",
-        "category": "community",
-        "label": "roadbikerider.com: Leah Goldstein Trans Am Race"
-      },
-      {
-        "url": "https://velo.outsideonline.com/gravel/gravel-culture/photo-gallery-breaking-records-at-the-2018-trans-am-ultra-endurance-race",
-        "category": "community",
-        "label": "velo.outsideonline.com: Photo Gallery Breaking Records At The 2018 Trans Am Ultra..."
+        "url": "https://www.bikingbis.com/2013/11/14/trans-am-bike-race-its-all-about-bragging-rights/",
+        "category": "other",
+        "label": "Bikingbis"
       },
       {
         "url": "https://www.curvecycling.com/blogs/news/117931781-trans-am-bike-race-2016-womens-race-preview",
-        "category": "community",
-        "label": "curvecycling.com: 117931781 Trans Am Bike Race 2016 Womens Race Preview"
+        "category": "other",
+        "label": "Curvecycling"
       },
       {
         "url": "https://www.liveviewgps.com/blog/cyclists-tracked-2016-trans-bike-race/",
+        "category": "other",
+        "label": "Liveviewgps"
+      },
+      {
+        "url": "https://www.reddit.com/r/bicycling/comments/4pkr6l/lael_wilcox_wins_the_transam_bicycle_race_in_18/",
         "category": "community",
-        "label": "liveviewgps.com: Cyclists Tracked 2016 Trans Bike Race"
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.roadbikerider.com/leah-goldstein-trans-am-race/",
+        "category": "other",
+        "label": "Roadbikerider"
       }
     ],
     "tire_recommendations": {
@@ -464,6 +470,25 @@
         "200pluslb_dry": "45-49",
         "200pluslb_mixed": "42-46",
         "200pluslb_wet": "40-44"
+      }
+    },
+    "research_metadata": {
+      "research_strength": {
+        "overall": 97.0,
+        "grade": "A",
+        "weakest": "voice_authenticity",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 100,
+          "cross_reference": 100
+        },
+        "scored_at": "2026-02-04"
       }
     }
   }

@@ -117,7 +117,13 @@
       "ridewithgps_id": "45904274",
       "ridewithgps_name": "Gravel Grit 'n Grind Granfondo 133km"
     },
-    "citations": [],
+    "citations": [
+      {
+        "url": "https://ridewithgps.com/routes/45904274",
+        "category": "route",
+        "label": "RideWithGPS: Gravel Grit 'n Grind Granfondo 133km"
+      }
+    ],
     "course_description": {
       "ridewithgps_id": "45904274",
       "ridewithgps_name": "Gravel Grit 'n Grind Granfondo 133km"
@@ -188,6 +194,25 @@
         "200pluslb_dry": "42-46",
         "200pluslb_mixed": "40-44",
         "200pluslb_wet": "38-42"
+      }
+    },
+    "research_metadata": {
+      "research_strength": {
+        "overall": 33.5,
+        "grade": "D",
+        "weakest": "specificity",
+        "has_research_dump": false,
+        "dimensions": {
+          "source_diversity": 30,
+          "citation_density": 20,
+          "temporal_depth": 50,
+          "specificity": 0,
+          "statistical_backing": 60,
+          "voice_authenticity": 70,
+          "completeness": 35,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     }
   }

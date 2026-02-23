@@ -94,7 +94,11 @@
       "score": "46 / 100",
       "one_liner": "Wisconsin local gravel challenge.",
       "should_you_race": "If you're local to Wisconsin—yes, it's good value. If you're traveling—skip it.",
-      "alternatives": "For better Wisconsin races: Chequamegon, Bear 100."
+      "alternatives": "For better Wisconsin races: Chequamegon, Bear 100.",
+      "alternative_slugs": [
+        "bear-100",
+        "chequamegon-mtb"
+      ]
     },
     "logistics": {
       "airport": "Milwaukee (MKE) 45 minutes",
@@ -185,12 +189,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 69.4,
+        "grade": "B",
+        "weakest": "temporal_depth",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 60,
+          "citation_density": 50,
+          "temporal_depth": 25,
+          "specificity": 100,
+          "statistical_backing": 80,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 50
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -311,9 +324,9 @@
     },
     "citations": [
       {
-        "url": "https://www.youtube.com/watch?v=xbYuqdOZ1no",
+        "url": "https://www.trainerroad.com/forum/t/list-your-personal-top-3-gravel-races-in-your-home-state-or-country/79242?page=2",
         "category": "community",
-        "label": "youtube.com: Watch"
+        "label": "TrainerRoad"
       }
     ],
     "tire_recommendations": {

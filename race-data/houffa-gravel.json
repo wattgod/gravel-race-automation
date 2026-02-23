@@ -19,7 +19,7 @@
         "Belgium"
       ],
       "field_size": "200-400 riders",
-      "start_time": "Morning start",
+      "start_time": "8:30 a.m.",
       "registration": "Online. Cost: ~€60-100",
       "prize_purse": "Modest prizes",
       "aid_stations": "Multiple aid stations",
@@ -94,7 +94,10 @@
       "score": "49 / 100",
       "one_liner": "Belgian Ardennes gravel in Houffalize.",
       "should_you_race": "If you're in Belgium/Europe and want a local event—yes, it's solid. If you're international—there are better options.",
-      "alternatives": "For better Belgian events: Ardenne Gravel Stages. For similar regional events: other Belgian gravel races."
+      "alternatives": "For better Belgian events: Ardenne Gravel Stages. For similar regional events: other Belgian gravel races.",
+      "alternative_slugs": [
+        "ardenne-gravel-stages"
+      ]
     },
     "logistics": {
       "airport": "Brussels (BRU) 2 hours or Luxembourg (LUX) 1 hour",
@@ -185,12 +188,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 86.7,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -316,49 +328,44 @@
         "label": "RideWithGPS: Houffa Gravel 2025 - 94 km - RACE"
       },
       {
-        "url": "https://www.cyclingnews.com/races/uci-gravel-world-series-events-2025/houffa-gravel/results/",
-        "category": "community",
-        "label": "cyclingnews.com: Results"
+        "url": "https://granfondodailynews.com/2025/08/30/houffa-gravel-results-schmidt-storms-to-victory-in-belgium/",
+        "category": "other",
+        "label": "Granfondodailynews"
+      },
+      {
+        "url": "https://ucigravelworldseries.com/en/houffa-gravel-for-wurtz-schmid-and-frain/",
+        "category": "other",
+        "label": "Ucigravelworldseries"
+      },
+      {
+        "url": "https://ucigravelworldseries.com/en/schonberger-and-kasper-dominate-houffa-gravel/",
+        "category": "other",
+        "label": "Ucigravelworldseries"
       },
       {
         "url": "https://www.benthomascoaching.com/post/houffa-gravel-full-gas-in-the-ardennes",
-        "category": "community",
-        "label": "benthomascoaching.com: Houffa Gravel Full Gas In The Ardennes"
+        "category": "other",
+        "label": "Benthomascoaching"
+      },
+      {
+        "url": "https://www.cyclingnews.com/news/houffa-gravel-romy-kasper-sebastian-schonberger-take-top-steps-at-uci-world-series-round-in-belgium/",
+        "category": "other",
+        "label": "Cyclingnews"
+      },
+      {
+        "url": "https://www.cyclingnews.com/races/uci-gravel-world-series-events-2025/houffa-gravel/results/",
+        "category": "other",
+        "label": "Cyclingnews"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Contents/PopUp/8696/frain-and-schmdit-dominate-at-uci-houffa-gravel-in-stunning-solo-victories",
+        "category": "other",
+        "label": "Granfondoguide"
       },
       {
         "url": "https://www.reddit.com/r/gravelcycling/comments/16080mm/houffa_gravel_first_real_tour/",
         "category": "community",
-        "label": "reddit.com: Houffa Gravel First Real Tour"
-      },
-      {
-        "url": "https://ucigravelworldseries.com/en/houffalize/",
-        "category": "community",
-        "label": "ucigravelworldseries.com: Houffalize"
-      },
-      {
-        "url": "https://www.cyclingnews.com/news/houffa-gravel-romy-kasper-sebastian-schonberger-take-top-steps-at-uci-world-series-round-in-belgium/",
-        "category": "community",
-        "label": "cyclingnews.com: Houffa Gravel Romy Kasper Sebastian Schonberger Take Top ..."
-      },
-      {
-        "url": "https://ucigravelworldseries.com/en/schonberger-and-kasper-dominate-houffa-gravel/",
-        "category": "community",
-        "label": "ucigravelworldseries.com: Schonberger And Kasper Dominate Houffa Gravel"
-      },
-      {
-        "url": "https://granfondodailynews.com/2025/08/30/houffa-gravel-results-schmidt-storms-to-victory-in-belgium/",
-        "category": "community",
-        "label": "granfondodailynews.com: Houffa Gravel Results Schmidt Storms To Victory In Belgium"
-      },
-      {
-        "url": "https://www.granfondoguide.com/Contents/PopUp/8696/frain-and-schmdit-dominate-at-uci-houffa-gravel-in-stunning-solo-victories",
-        "category": "community",
-        "label": "granfondoguide.com: Frain And Schmdit Dominate At Uci Houffa Gravel In Stunni..."
-      },
-      {
-        "url": "https://ucigravelworldseries.com/en/houffa-gravel-for-wurtz-schmid-and-frain/",
-        "category": "community",
-        "label": "ucigravelworldseries.com: Houffa Gravel For Wurtz Schmid And Frain"
+        "label": "Reddit"
       }
     ],
     "tire_recommendations": {

@@ -185,12 +185,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 93.7,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 80,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 100,
+          "completeness": 88,
+          "cross_reference": 50
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -312,28 +321,28 @@
     "citations": [
       {
         "url": "https://beaudacious.com/fools-gold-gravel-grinder/",
-        "category": "community",
-        "label": "beaudacious.com: Fools Gold Gravel Grinder"
+        "category": "other",
+        "label": "Beaudacious"
       },
       {
         "url": "https://bluegrassendurance.blogspot.com/2025/07/2025-gravel-grinder-national.html",
-        "category": "community",
-        "label": "bluegrassendurance.blogspot.com: 2025 Gravel Grinder National.Html"
+        "category": "other",
+        "label": "Bluegrassendurance"
       },
       {
-        "url": "https://www.youtube.com/watch?v=xp3FldLK9bU",
+        "url": "https://www.reddit.com/r/whatsthisrock/comments/n2br3u/found_in_some_gravel_looks_like_fools_gold_but/",
         "category": "community",
-        "label": "youtube.com: Watch"
-      },
-      {
-        "url": "https://www.mountaingoatadventures.com/foolsgold/course",
-        "category": "community",
-        "label": "mountaingoatadventures.com: Course"
+        "label": "Reddit"
       },
       {
         "url": "https://www.mountaingoatadventures.com/foolsgold",
         "category": "community",
         "label": "mountaingoatadventures.com: Foolsgold"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=xp3FldLK9bU",
+        "category": "community",
+        "label": "youtube.com: Watch"
       }
     ],
     "tire_recommendations": {

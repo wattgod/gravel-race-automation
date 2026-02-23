@@ -19,7 +19,7 @@
         "Michigan"
       ],
       "field_size": "50-100 riders",
-      "start_time": "Morning start",
+      "start_time": "9:00 AM at",
       "registration": "Online. Cost: ~$50-75",
       "prize_purse": "Modest prizes",
       "aid_stations": "Limited aid stations",
@@ -94,7 +94,11 @@
       "score": "40 / 100",
       "one_liner": "Michigan local gravel challenge.",
       "should_you_race": "If you're local to Michigan—yes, it's good value. If you're traveling—skip it.",
-      "alternatives": "For better Michigan races: Barry-Roubaix, Iceman Cometh."
+      "alternatives": "For better Michigan races: Barry-Roubaix, Iceman Cometh.",
+      "alternative_slugs": [
+        "barry-roubaix",
+        "iceman-cometh"
+      ]
     },
     "logistics": {
       "airport": "Traverse City (TVC) 45 minutes",
@@ -185,12 +189,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 89.2,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -316,74 +329,49 @@
         "label": "RideWithGPS: THE DIVIDE: 2025 NEW 41 Mile Route"
       },
       {
-        "url": "https://ultra-jo.com/2025/06/09/td2025/",
-        "category": "community",
-        "label": "ultra-jo.com: Td2025"
-      },
-      {
-        "url": "https://www.ohiogravelgrinders.com/blog/2025/7/14/five-questions-with-tour-divide-rider-shannon-allison",
-        "category": "community",
-        "label": "ohiogravelgrinders.com: Five Questions With Tour Divide Rider Shannon Allison"
-      },
-      {
-        "url": "https://bikepacking.com/tracker/2025-tour-divide-tracker/",
-        "category": "community",
-        "label": "bikepacking.com: 2025 Tour Divide Tracker"
-      },
-      {
-        "url": "https://bikepacking.com/plog/2025-tour-divide-eddie-clark-part-1/",
-        "category": "community",
-        "label": "bikepacking.com: 2025 Tour Divide Eddie Clark Part 1"
-      },
-      {
-        "url": "https://www.athleticmentors.com/the-divide-gravel-road-race/",
-        "category": "community",
-        "label": "athleticmentors.com: The Divide Gravel Road Race"
-      },
-      {
-        "url": "http://hardracingevents.com/events/the-divide/",
-        "category": "community",
-        "label": "hardracingevents.com: The Divide"
-      },
-      {
-        "url": "https://bikepacking.com/plog/2024-tour-divide-preview/",
-        "category": "community",
-        "label": "bikepacking.com: 2024 Tour Divide Preview"
-      },
-      {
-        "url": "https://tourdivide.org/racer-2009-updates/race_report?page=1",
-        "category": "community",
-        "label": "tourdivide.org: Race Report"
+        "url": "https://3t.bike/blogs/news/get-creative-my-bike-for-the-divide",
+        "category": "other",
+        "label": "3T"
       },
       {
         "url": "https://bikepacking.com/plog/just-to-be-with-you-great-divide/",
-        "category": "community",
-        "label": "bikepacking.com: Just To Be With You Great Divide"
-      },
-      {
-        "url": "https://3t.bike/blogs/news/get-creative-my-bike-for-the-divide",
-        "category": "community",
-        "label": "3t.bike: Get Creative My Bike For The Divide"
-      },
-      {
-        "url": "https://michael-hodges.com/blog/devil-on-the-divide-50k-race-report/",
-        "category": "community",
-        "label": "michael-hodges.com: Devil On The Divide 50K Race Report"
-      },
-      {
-        "url": "https://chumbausa.com/blog/2023/7/9/race-report-tour-divide-this-is-what-setting-a-womens-singlespeed-record-looks-like",
-        "category": "community",
-        "label": "chumbausa.com: Race Report Tour Divide This Is What Setting A Womens Sin..."
+        "category": "other",
+        "label": "Bikepacking"
       },
       {
         "url": "https://bikingbethany.wordpress.com/2015/08/21/tour-divide-wide-open-space-in-wyoming/",
-        "category": "community",
-        "label": "bikingbethany.wordpress.com: Tour Divide Wide Open Space In Wyoming"
+        "category": "other",
+        "label": "Bikingbethany"
+      },
+      {
+        "url": "https://chumbausa.com/blog/2023/7/9/race-report-tour-divide-this-is-what-setting-a-womens-singlespeed-record-looks-like",
+        "category": "other",
+        "label": "Chumbausa"
+      },
+      {
+        "url": "https://michael-hodges.com/blog/devil-on-the-divide-50k-race-report/",
+        "category": "other",
+        "label": "Michael-Hodges"
+      },
+      {
+        "url": "https://michianatiming.com/results-the-divide-gravel-bike-race-7312022/",
+        "category": "other",
+        "label": "Michianatiming"
       },
       {
         "url": "https://theradavist.com/tour-divide-race-part-4",
-        "category": "community",
-        "label": "theradavist.com: Tour Divide Race Part 4"
+        "category": "other",
+        "label": "Theradavist"
+      },
+      {
+        "url": "https://tourdivide.org/racer-2009-updates/race_report?page=1",
+        "category": "other",
+        "label": "Tourdivide"
+      },
+      {
+        "url": "https://www.halfwayanywhere.com/category/bikepacking/tour-divide/",
+        "category": "other",
+        "label": "Halfwayanywhere"
       },
       {
         "url": "https://www.efprocycling.com/racing/alex-howes-and-lachlan-morton-are-ready-for-unbound/",

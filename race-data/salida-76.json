@@ -19,7 +19,7 @@
         "Colorado"
       ],
       "field_size": "100-200 riders",
-      "start_time": "Morning start",
+      "start_time": "11:30am afte",
       "registration": "Online. Cost: ~$90-110",
       "prize_purse": "Modest prizes",
       "aid_stations": "3-4 aid stations",
@@ -94,7 +94,12 @@
       "score": "50 / 100",
       "one_liner": "Colorado mountain gravel challenge.",
       "should_you_race": "If you're local to CO—yes, it's solid. If you're traveling—skip it.",
-      "alternatives": "For better CO races: Crooked Gravel, Wild Horse Gravel, Bighorn Gravel."
+      "alternatives": "For better CO races: Crooked Gravel, Wild Horse Gravel, Bighorn Gravel.",
+      "alternative_slugs": [
+        "bighorn-gravel",
+        "crooked-gravel",
+        "wild-horse-gravel"
+      ]
     },
     "logistics": {
       "airport": "Colorado Springs (COS) 2 hours",
@@ -185,12 +190,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 86.8,
+        "grade": "A",
+        "weakest": "temporal_depth",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 50,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 82,
+          "cross_reference": 50
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -316,34 +330,34 @@
         "label": "RideWithGPS: Salida 76ish (copy)"
       },
       {
+        "url": "https://en.wikipedia.org/wiki/Salida,_Colorado",
+        "category": "reference",
+        "label": "Wikipedia"
+      },
+      {
+        "url": "https://salidachamber.org/first-timers-guide/",
+        "category": "other",
+        "label": "Salidachamber"
+      },
+      {
+        "url": "https://www.colorfulcolorado.com/plan-your-visit/salida/",
+        "category": "other",
+        "label": "Colorfulcolorado"
+      },
+      {
         "url": "https://www.exploringtherockies.com/2025/09/30/salida-76-a-ride-to-a-bygone-era/",
-        "category": "community",
-        "label": "exploringtherockies.com: Salida 76 A Ride To A Bygone Era"
-      },
-      {
-        "url": "https://www.themountainmail.com/news/salida-76-mud-jams-race/article_c38f859e-265a-45ca-8b4b-a38d03aea0ba.html",
-        "category": "community",
-        "label": "themountainmail.com: Article C38F859E 265A 45Ca 8B4B A38D03Aea0Ba.Html"
-      },
-      {
-        "url": "https://wendyskean.com/wendyskean.com/Blog/Entries/2024/10/18_SALIDA_76K_GRAVEL_RACESEPTEMBER_14,_SALIDA,_COLORADO.html",
-        "category": "community",
-        "label": "wendyskean.com: 18 Salida 76K Gravel Raceseptember 14, Salida, Colorado.Html"
-      },
-      {
-        "url": "https://strambecco.com/event/salida-76/",
-        "category": "community",
-        "label": "strambecco.com: Salida 76"
+        "category": "other",
+        "label": "Exploringtherockies"
       },
       {
         "url": "https://www.salida76.com/ride-details",
-        "category": "community",
-        "label": "salida76.com: Ride Details"
+        "category": "other",
+        "label": "Salida76"
       },
       {
-        "url": "https://www.salida76.com",
-        "category": "community",
-        "label": "salida76.com"
+        "url": "https://www.uncovercolorado.com/things-to-do-in-salida-co/",
+        "category": "other",
+        "label": "Uncovercolorado"
       }
     ],
     "tire_recommendations": {

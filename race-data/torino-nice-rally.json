@@ -166,7 +166,12 @@
       "score": "89 / 100",
       "one_liner": "The quintessential European bikepacking pilgrimage - 700km crossing the Alps on legendary military roads for 25 EUR.",
       "should_you_race": "Yes if you want authentic bikepacking adventure without commercial racing pressure. Yes if you appreciate community, charity, and soul over competition. Yes if you're prepared for multi-day Alpine self-sufficiency. Skip if you need race infrastructure and support. Skip if rocky military roads will destroy your pure gravel setup.",
-      "alternatives": "Badlands (similar European ultra, more extreme heat); Transcontinental Race (longer European ultra); The Traka 360 (Spanish bikepacking with more infrastructure)"
+      "alternatives": "Badlands (similar European ultra, more extreme heat); Transcontinental Race (longer European ultra); The Traka 360 (Spanish bikepacking with more infrastructure)",
+      "alternative_slugs": [
+        "badlands",
+        "the-traka",
+        "transcontinental-race"
+      ]
     },
     "logistics": {
       "airport": "TRN (Turin) - start; NCE (Nice) - finish. Both cities have rail connections from major European hubs.",
@@ -174,7 +179,8 @@
       "food": "Self-supported - resupply at Italian villages with good water tap networks. Via del Sale has very rare fountains - plan ahead. Refuges provide meals and packed lunches for next day.",
       "packet_pickup": "Group start from Piazza Giambattista Bodoni, Turin (when official event runs).",
       "parking": "Turin city center start area.",
-      "official_site": "https://torino-nice.weebly.com"
+      "official_site": "https://torino-nice.weebly.com",
+      "camping": "Camping\n- Key: Be discreet, arrive late, leave early\n- Don't hop fences into private land\n- Technically not permitted but accept"
     },
     "history": {
       "founded": 2015,
@@ -224,14 +230,15 @@
       ],
       "signature_challenge": "The complete Alpine crossing - 700km, 16,000m+ climbing, legendary military roads, self-supported through the Maritime Alps from Italy to France.",
       "ridewithgps_id": "53387121",
-      "ridewithgps_name": "Torino-Nice Rally"
+      "ridewithgps_name": "Torino-Nice Rally",
+      "surface_breakdown": {
+        "overall": {
+          "pavement": 65,
+          "gravel": 35
+        }
+      }
     },
     "citations": [
-      {
-        "url": "https://torino-nice.weebly.com",
-        "category": "official",
-        "label": "Official Website"
-      },
       {
         "url": "https://ridewithgps.com/routes/53387121",
         "category": "route",
@@ -248,9 +255,29 @@
         "label": "TrainerRoad"
       },
       {
+        "url": "https://www.cafeducycliste.com/en-us/blogs/rouler/tracing-the-torino-nice-rally",
+        "category": "community",
+        "label": "cafeducycliste.com: Tracing The Torino Nice Rally"
+      },
+      {
+        "url": "https://bikepacking.com/plog/take-me-back-to-the-mountains/",
+        "category": "community",
+        "label": "bikepacking.com: Take Me Back To The Mountains"
+      },
+      {
+        "url": "https://www.huntbikewheels.cc/blogs/news/riding-the-turin-nice-rally",
+        "category": "community",
+        "label": "huntbikewheels.cc: Riding The Turin Nice Rally"
+      },
+      {
         "url": "http://trackleaders.com/torinonice21",
         "category": "tracking",
         "label": "TrackLeaders"
+      },
+      {
+        "url": "https://allterre.net/blog/torino-nice-rally-day-1",
+        "category": "other",
+        "label": "Allterre"
       },
       {
         "url": "https://bikepacking.com/event/torino-nice-rally-2017/",
@@ -308,49 +335,9 @@
         "label": "Joshibbett"
       },
       {
-        "url": "https://newsroom.komoot.com/202851-a-first-for-adventure-cycling-a-women-s-only-torino-nice-rally-with-lael-wilcox",
-        "category": "other",
-        "label": "Newsroom"
-      },
-      {
-        "url": "https://shandcycles.com/torino-nice-rally-2021/",
-        "category": "other",
-        "label": "Shandcycles"
-      },
-      {
-        "url": "https://singletrackworld.com/forum/bike-forum/torino-nice-rally-on-a-tandem-thoughts-please/",
-        "category": "other",
-        "label": "Singletrackworld"
-      },
-      {
-        "url": "https://stilloutriding.com/2025/07/torino-nice-rally-part-2/",
-        "category": "other",
-        "label": "Stilloutriding"
-      },
-      {
-        "url": "https://allterre.net/blog/torino-nice-rally-day-1",
-        "category": "community",
-        "label": "allterre.net: Torino Nice Rally Day 1"
-      },
-      {
         "url": "https://masoncycles.cc/blog/fastfar-torino-nice-rally-robert-krugel",
-        "category": "community",
-        "label": "masoncycles.cc: Fastfar Torino Nice Rally Robert Krugel"
-      },
-      {
-        "url": "https://www.cafeducycliste.com/en-us/blogs/rouler/tracing-the-torino-nice-rally",
-        "category": "community",
-        "label": "cafeducycliste.com: Tracing The Torino Nice Rally"
-      },
-      {
-        "url": "https://bikepacking.com/plog/take-me-back-to-the-mountains/",
-        "category": "community",
-        "label": "bikepacking.com: Take Me Back To The Mountains"
-      },
-      {
-        "url": "https://www.huntbikewheels.cc/blogs/news/riding-the-turin-nice-rally",
-        "category": "community",
-        "label": "huntbikewheels.cc: Riding The Turin Nice Rally"
+        "category": "other",
+        "label": "Masoncycles"
       }
     ],
     "results": {
@@ -416,6 +403,25 @@
         "200pluslb_dry": "38-42",
         "200pluslb_mixed": "36-40",
         "200pluslb_wet": "34-38"
+      }
+    },
+    "research_metadata": {
+      "research_strength": {
+        "overall": 97.0,
+        "grade": "A",
+        "weakest": "voice_authenticity",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 100,
+          "cross_reference": 100
+        },
+        "scored_at": "2026-02-04"
       }
     }
   }

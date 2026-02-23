@@ -152,7 +152,10 @@
       "score": "80 / 100",
       "one_liner": "The gravel pilgrimage that sells itself through pure experience.",
       "should_you_race": "Yes—if you can afford the trip and want to experience gravel at its most soulful. This isn't just a race; it's a community gathering hosted by royalty.",
-      "alternatives": "If you want Idaho scenery without the cost: check out smaller Idaho events. If you want a large-field gravel event: SBT GRVL has similar vibes, closer to Denver."
+      "alternatives": "If you want Idaho scenery without the cost: check out smaller Idaho events. If you want a large-field gravel event: SBT GRVL has similar vibes, closer to Denver.",
+      "alternative_slugs": [
+        "sbt-grvl"
+      ]
     },
     "logistics": {
       "airport": "Boise (BOI) - 2.5 hours to Ketchum. Sun Valley (SUN) has limited flights.",
@@ -160,7 +163,8 @@
       "food": "Ketchum has excellent restaurants. Plan a post-race dinner.",
       "packet_pickup": "Friday at event expo. Small-town vibes, quick process.",
       "parking": "Start area parking requires early arrival. Shuttles may be available.",
-      "official_site": "https://rebeccasprivateidaho.com"
+      "official_site": "https://rebeccasprivateidaho.com",
+      "camping": "Camping and Logistics):** In r/SunValley, someone asked about camping for RPI"
     },
     "history": {
       "founded": 2013,
@@ -211,7 +215,7 @@
       ],
       "migration_notes": [],
       "research_strength": {
-        "overall": 95.8,
+        "overall": 94.8,
         "grade": "A",
         "weakest": "cross_reference",
         "has_research_dump": true,
@@ -222,7 +226,7 @@
           "specificity": 100,
           "statistical_backing": 100,
           "voice_authenticity": 100,
-          "completeness": 100,
+          "completeness": 94,
           "cross_reference": 15
         },
         "scored_at": "2026-02-04"
@@ -241,9 +245,9 @@
     ],
     "citations": [
       {
-        "url": "https://rebeccasprivateidaho.com",
-        "category": "official",
-        "label": "Official Website"
+        "url": "https://ridewithgps.com/routes/24722263",
+        "category": "route",
+        "label": "RideWithGPS: 2017 Rebecca's Private Idaho Big Potato"
       },
       {
         "url": "https://ridewithgps.com/ambassador_routes/595-rebecca-s-private-idaho-small-fry",
@@ -296,6 +300,21 @@
         "label": "Eyeonsunvalley"
       },
       {
+        "url": "https://eyeonsunvalley.com/Story_Reader/12010/Rebecca's-Private-Idaho-Race-to-Get-Shoshone-Bannock-Blessing/",
+        "category": "other",
+        "label": "Eyeonsunvalley"
+      },
+      {
+        "url": "https://fascatcoaching.com/blogs/training-tips/rebeccas-private-idaho",
+        "category": "other",
+        "label": "Fascatcoaching"
+      },
+      {
+        "url": "https://www.bikeforums.net/cyclocross-gravelbiking-recreational/1160812-rebecca-s-private-idaho.html",
+        "category": "other",
+        "label": "Bikeforums"
+      },
+      {
         "url": "https://www.cyclingnews.com/news/rebeccas-private-idaho-sarah-max-and-griffin-easter-win-queens-stage-race/",
         "category": "other",
         "label": "Cyclingnews"
@@ -304,11 +323,6 @@
         "url": "https://www.joinbasecamp.com/post/micheles-story-rebeccas-private-idaho?srsltid=AfmBOoolPx8cKCOBkHrRd2zrZT3_peaVRAmWnCsNFHrRE8RV204uIOdV",
         "category": "other",
         "label": "Joinbasecamp"
-      },
-      {
-        "url": "https://www.rebeccasprivateidaho.com/",
-        "category": "other",
-        "label": "Rebeccasprivateidaho"
       },
       {
         "url": "https://www.rebeccasprivateidaho.com/2026",
@@ -321,79 +335,9 @@
         "label": "Rebeccasprivateidaho"
       },
       {
-        "url": "https://www.rebeccasprivateidaho.com/dispatches/2024-post-event-wrap-up",
-        "category": "other",
-        "label": "Rebeccasprivateidaho"
-      },
-      {
-        "url": "https://www.rebeccasprivateidaho.com/dispatches/rpi-x-ges",
-        "category": "other",
-        "label": "Rebeccasprivateidaho"
-      },
-      {
-        "url": "https://www.rebeccasprivateidaho.com/faq",
-        "category": "other",
-        "label": "Rebeccasprivateidaho"
-      },
-      {
-        "url": "https://www.rebeccasprivateidaho.com/lodging-and-travel",
-        "category": "other",
-        "label": "Rebeccasprivateidaho"
-      },
-      {
-        "url": "https://endurancediabetic.com/2014/09/18/rebeccas-private-idaho-part-2/",
-        "category": "community",
-        "label": "endurancediabetic.com: Rebeccas Private Idaho Part 2"
-      },
-      {
-        "url": "https://endurancediabetic.com/2014/09/12/the-road-to-rebeccas-private-idaho-part-1/",
-        "category": "community",
-        "label": "endurancediabetic.com: The Road To Rebeccas Private Idaho Part 1"
-      },
-      {
-        "url": "http://www.fatcyclist.com/2013/09/03/rebeccas-private-idaho-race-report-part-i/",
-        "category": "community",
-        "label": "fatcyclist.com: Rebeccas Private Idaho Race Report Part I"
-      },
-      {
-        "url": "http://www.fatcyclist.com/2013/09/04/rebeccas-private-idaho-ride-report-part-2/",
-        "category": "community",
-        "label": "fatcyclist.com: Rebeccas Private Idaho Ride Report Part 2"
-      },
-      {
-        "url": "https://www.joinbasecamp.com/post/micheles-story-rebeccas-private-idaho",
-        "category": "community",
-        "label": "joinbasecamp.com: Micheles Story Rebeccas Private Idaho"
-      },
-      {
-        "url": "https://www.reddit.com/r/bicycling/comments/9d2lav/rode_rebeccas_private_idaho_gravel_race_this/",
-        "category": "community",
-        "label": "reddit.com: Rode Rebeccas Private Idaho Gravel Race This"
-      },
-      {
-        "url": "https://www.rebeccasprivateidaho.com/riderguide",
-        "category": "community",
-        "label": "rebeccasprivateidaho.com: Riderguide"
-      },
-      {
-        "url": "https://eyeonsunvalley.com/kiosk/Kiosk_Story?StoryId=13170",
-        "category": "community",
-        "label": "eyeonsunvalley.com: Kiosk Story"
-      },
-      {
         "url": "https://www.rodeo-labs.com/edyns-adventures-rebeccas-private-idaho/",
         "category": "community",
         "label": "rodeo-labs.com: Edyns Adventures Rebeccas Private Idaho"
-      },
-      {
-        "url": "https://www.bikeforums.net/cyclocross-gravelbiking-recreational/1160812-rebecca-s-private-idaho.html",
-        "category": "community",
-        "label": "bikeforums.net: 1160812 Rebecca S Private Idaho.Html"
-      },
-      {
-        "url": "https://eyeonsunvalley.com/Story_Reader/12010/Rebecca's-Private-Idaho-Race-to-Get-Shoshone-Bannock-Blessing/",
-        "category": "community",
-        "label": "eyeonsunvalley.com: Rebecca'S Private Idaho Race To Get Shoshone Bannock Bles..."
       }
     ],
     "results": {

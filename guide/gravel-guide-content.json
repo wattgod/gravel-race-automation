@@ -131,6 +131,16 @@
               "type": "callout",
               "style": "highlight",
               "content": "Most readers are Finishers or Competitors. If you were a Podium, you wouldn't be reading an introductory guide. If you were an Ayahuasca, you wouldn't want to decrease the chances of having an out-of-body experience by preparing better."
+            },
+            {
+              "type": "race_reference",
+              "slug": "unbound-200",
+              "context": "distance"
+            },
+            {
+              "type": "race_reference",
+              "slug": "tour-divide",
+              "context": "distance"
             }
           ]
         },
@@ -292,13 +302,13 @@
             },
             {
               "type": "prose",
-              "content": "Weight matters for some components and does not matter for others. Here is where your grams actually go\u2014and which ones are worth optimizing."
+              "content": "Weight matters for some components and does not matter for others. Here is where your grams actually go—and which ones are worth optimizing."
             },
             {
               "type": "image",
               "asset_id": "ch1-gear-weight",
               "alt": "Interactive gear weight budget showing component weights with toggle switches to compare standard versus lightweight options",
-              "caption": "Toggle components on and off to see how weight adds up \u2014 and where to save it.",
+              "caption": "Toggle components on and off to see how weight adds up — and where to save it.",
               "layout": "inline"
             },
             {
@@ -382,6 +392,15 @@
                 }
               ],
               "explanation": "Equipment determines roughly 0.5% of your result. Fitness (70%) and pacing (20%) dwarf equipment gains. A strong rider on a mediocre bike will humiliate a mediocre rider on a $12k spaceship."
+            },
+            {
+              "type": "race_callout",
+              "slugs": [
+                "mid-south",
+                "bwr-california"
+              ],
+              "dimension": "technicality",
+              "caption": "The same sport, completely different demands. Mid South rolls on smooth Oklahoma red dirt. Belgian Waffle Ride throws road, gravel, singletrack, and sand at you in a single day."
             }
           ]
         },
@@ -402,6 +421,11 @@
             {
               "type": "prose",
               "content": "Gravel racing is accessible. You don't need to be a pro cyclist. You don't need a perfect bike. You don't need special genetics.\n\nYou need:\n\n- A bike that fits and doesn't break\n- The fitness to ride it for hours\n- The discipline to train consistently\n- The sense to fuel properly and pace conservatively\n\nEverything else is optimization.\n\nIf you have those four things, you can finish a gravel race. Whether you finish in 6 hours or 12 hours is between you and your training plan.\n\nUp next: [Chapter 2](#race-selection) helps you choose the right race using the Gravel God scoring system. Then [Chapter 3](#training-fundamentals) breaks down how training actually works—zones, phases, and the adaptation cycle that drives all fitness gains."
+            },
+            {
+              "type": "race_reference",
+              "slug": "sea-otter-gravel",
+              "context": "technicality"
             }
           ]
         }
@@ -606,6 +630,16 @@
                   "content": "Beginner-friendly, less physically demanding, or primarily social events. Nothing wrong with these — they're entry points and fun adventures. Great for first-timers, social riders, or anyone who just wants to be outside on bikes without the pressure.\n\nNo specific training plan needed. Just ride your bike regularly and show up.\n\n**When to race them:** Great if you want to dip a toe in without the full commitment. Also great for recovery races or just enjoying bikes with friends in a semi-structured format.\n\n**Examples:** [Albia Holy Cow](/race/albia-holy-cow/), [Cedar Blitz](/race/cedar-blitz/)"
                 }
               ]
+            },
+            {
+              "type": "race_reference",
+              "slug": "unbound-200",
+              "context": "elevation"
+            },
+            {
+              "type": "race_reference",
+              "slug": "steamboat-gravel",
+              "context": "distance"
             }
           ]
         },
@@ -630,6 +664,15 @@
                 }
               ],
               "explanation": "Tier 2-3 events offer meaningful challenge with more forgiving logistics. With an endurance background, you have the base fitness to handle a real gravel race. Save Tier 1 for when you've got a season of gravel-specific experience. Tier 4 might be too easy and not representative of what gravel racing actually demands."
+            },
+            {
+              "type": "race_callout",
+              "slugs": [
+                "mid-south",
+                "crusher-in-the-tushar"
+              ],
+              "dimension": "elevation_ft",
+              "caption": "Flat racing and mountain racing are different sports sharing the same calendar. Choose based on your strengths, not someone else's highlight reel."
             }
           ]
         },
@@ -662,7 +705,7 @@
               "type": "image",
               "asset_id": "ch2-race-table",
               "alt": "Sortable race comparison table showing tier, distance, elevation, field size, and overall score for selected gravel races",
-              "caption": "Click any column header to sort \u2014 find the race that fits your goals.",
+              "caption": "Click any column header to sort — find the race that fits your goals.",
               "layout": "inline"
             },
             {
@@ -682,7 +725,7 @@
             },
             {
               "type": "prose",
-              "content": "T1 races live in the upper right\u2014big fields, long days. T4 events cluster in the lower left\u2014small groups, manageable distances. Pick your adventure accordingly."
+              "content": "T1 races live in the upper right—big fields, long days. T4 events cluster in the lower left—small groups, manageable distances. Pick your adventure accordingly."
             },
             {
               "type": "prose",
@@ -702,7 +745,111 @@
             {
               "type": "callout",
               "style": "highlight",
-              "content": "Explore all 328 scored races in the [Gravel God Race Database](/gravel-races/). Read the full [scoring methodology](/methodology/).\n\nOnce you've picked your race, [Chapter 3](#training-fundamentals) covers how training actually works\u2014the adaptation cycle, zones, and periodization that will get you to the start line ready."
+              "content": "Explore all 328 scored races in the [Gravel God Race Database](/gravel-races/). Read the full [scoring methodology](/methodology/).\n\nOnce you've picked your race, [Chapter 3](#training-fundamentals) covers how training actually works—the adaptation cycle, zones, and periodization that will get you to the start line ready."
+            },
+            {
+              "type": "race_callout",
+              "slugs": [
+                "rasputitsa",
+                "unbound-xl"
+              ],
+              "dimension": "distance_mi",
+              "caption": "Rasputitsa packs maximum suffering into 46 miles of Vermont mud. Unbound XL stretches it over 350 miles of Kansas. Both will test everything you have — just on very different timescales."
+            },
+            {
+              "type": "decision_tree",
+              "title": "Find Your Race",
+              "tree": {
+                "root": {
+                  "question": "What's your primary goal for your next gravel race?",
+                  "options": [
+                    {
+                      "text": "My first gravel race — keep it fun",
+                      "next": "beginner"
+                    },
+                    {
+                      "text": "Push my limits on a big stage",
+                      "next": "competitive"
+                    },
+                    {
+                      "text": "An epic adventure I'll never forget",
+                      "next": "adventure"
+                    },
+                    {
+                      "text": "Test myself at altitude or extreme terrain",
+                      "next": "extreme"
+                    }
+                  ]
+                },
+                "beginner": {
+                  "question": "How far do you want to ride?",
+                  "options": [
+                    {
+                      "text": "Under 60 miles",
+                      "result": "rasputitsa"
+                    },
+                    {
+                      "text": "60-100 miles",
+                      "result": "sea-otter-gravel"
+                    },
+                    {
+                      "text": "100+ miles — I'm ready",
+                      "result": "steamboat-gravel"
+                    }
+                  ]
+                },
+                "competitive": {
+                  "question": "What kind of terrain excites you?",
+                  "options": [
+                    {
+                      "text": "Fast, smooth gravel roads",
+                      "result": "mid-south"
+                    },
+                    {
+                      "text": "Mixed terrain — everything thrown at me",
+                      "result": "bwr-california"
+                    },
+                    {
+                      "text": "The biggest field, the biggest stage",
+                      "result": "unbound-200"
+                    }
+                  ]
+                },
+                "adventure": {
+                  "question": "How remote do you want to go?",
+                  "options": [
+                    {
+                      "text": "European exploration",
+                      "result": "the-traka"
+                    },
+                    {
+                      "text": "African savanna — once in a lifetime",
+                      "result": "migration-gravel-race"
+                    },
+                    {
+                      "text": "Self-supported through Spanish desert",
+                      "result": "badlands"
+                    }
+                  ]
+                },
+                "extreme": {
+                  "question": "What's your weakness you want to conquer?",
+                  "options": [
+                    {
+                      "text": "Altitude — racing above 10,000 feet",
+                      "result": "leadville-100"
+                    },
+                    {
+                      "text": "Technical terrain — every surface imaginable",
+                      "result": "crusher-in-the-tushar"
+                    },
+                    {
+                      "text": "Sheer distance — 500+ miles unsupported",
+                      "result": "colorado-trail-race"
+                    }
+                  ]
+                }
+              }
             }
           ]
         }
@@ -791,7 +938,7 @@
             },
             {
               "type": "prose",
-              "content": "This is the mechanism behind every training gain you will ever make. You stress the system, you let it recover, and it rebuilds slightly stronger than before. Skip the stress and nothing changes. Skip the recovery and you just accumulate damage. The athletes who get this wrong usually err on the recovery side \u2014 they train hard enough but never rest enough to let adaptation happen. Respect the curve."
+              "content": "This is the mechanism behind every training gain you will ever make. You stress the system, you let it recover, and it rebuilds slightly stronger than before. Skip the stress and nothing changes. Skip the recovery and you just accumulate damage. The athletes who get this wrong usually err on the recovery side — they train hard enough but never rest enough to let adaptation happen. Respect the curve."
             },
             {
               "type": "prose",
@@ -801,12 +948,29 @@
               "type": "image",
               "asset_id": "ch3-before-after",
               "alt": "Before and after comparison of trained versus untrained metrics showing improvements in VO2max, lactate threshold, and economy",
-              "caption": "12 weeks of consistent training \u2014 the numbers do not lie.",
+              "caption": "12 weeks of consistent training — the numbers do not lie.",
               "layout": "inline"
             },
             {
               "type": "prose",
               "content": "These gains are real and replicable. But they require patience and consistency. Skip weeks, train sporadically, and the before and after look identical."
+            },
+            {
+              "type": "personalized_content",
+              "variants": {
+                "ayahuasca": {
+                  "content": "Start with 3 rides per week. Two easy, one with purpose. Consistency matters more than intensity at this stage — your body is still building the aerobic machinery that makes everything else possible."
+                },
+                "finisher": {
+                  "content": "Build to 4 rides per week. Two easy spins, one tempo effort, one longer ride. You have the base — now it's about adding just enough stress to keep adapting without burning out."
+                },
+                "competitor": {
+                  "content": "Target 5 rides per week. Two easy, two structured intervals, one long endurance ride. Your aerobic engine is strong — now sharpen it with targeted intensity while protecting recovery."
+                },
+                "podium": {
+                  "content": "Plan 5-6 rides per week across periodized blocks. Include two high-intensity sessions, two moderate volume days, and one long ride with race-specific efforts. Every session has a purpose."
+                }
+              }
             }
           ]
         },
@@ -915,18 +1079,18 @@
             },
             {
               "type": "prose",
-              "content": "Your power-duration curve defines what you can sustain at different time intervals\u2014from a 5-second sprint to a 6-hour gravel race. The zones are derived from this curve."
+              "content": "Your power-duration curve defines what you can sustain at different time intervals—from a 5-second sprint to a 6-hour gravel race. The zones are derived from this curve."
             },
             {
               "type": "image",
               "asset_id": "ch3-power-duration",
               "alt": "Power-duration curve showing sustainable watts from 5 seconds to 6 hours with training zone bands overlaid",
-              "caption": "The power-duration curve \u2014 your physiological fingerprint as a rider.",
+              "caption": "The power-duration curve — your physiological fingerprint as a rider.",
               "layout": "full-width"
             },
             {
               "type": "prose",
-              "content": "Training at the right intensity means respecting these boundaries. The curve bends sharply\u2014even a small increase above threshold drops sustainable duration dramatically."
+              "content": "Training at the right intensity means respecting these boundaries. The curve bends sharply—even a small increase above threshold drops sustainable duration dramatically."
             },
             {
               "type": "flashcard",
@@ -1135,6 +1299,23 @@
                   "color": "#2c3e50"
                 }
               ]
+            },
+            {
+              "type": "personalized_content",
+              "variants": {
+                "ayahuasca": {
+                  "content": "Spend 90% of your time in Zone 1-2. You're building the aerobic foundation that everything else depends on. High intensity too early is the fastest way to burn out or get injured."
+                },
+                "finisher": {
+                  "content": "Aim for 80% Zone 1-2, 20% Zone 3-4. Your endurance base is solid — tempo efforts teach your body to sustain harder efforts longer without blowing up."
+                },
+                "competitor": {
+                  "content": "Follow an 80/20 polarized split: 80% easy, 20% at Zone 4-5. Your gains now come from targeted high-intensity work, not more volume. Quality over quantity."
+                },
+                "podium": {
+                  "content": "Periodize your intensity distribution across training blocks. Base phase: 85/15 easy/hard. Build phase: 75/25. Peak phase: 70/30 with race-specific intervals above threshold."
+                }
+              }
             }
           ]
         },
@@ -1225,18 +1406,44 @@
             },
             {
               "type": "prose",
-              "content": "Zoom out further and the same periodization principles apply to an entire season\u2014multiple race targets, off-season base, and strategic recovery blocks."
+              "content": "Zoom out further and the same periodization principles apply to an entire season—multiple race targets, off-season base, and strategic recovery blocks."
             },
             {
               "type": "image",
               "asset_id": "ch3-gantt-season",
               "alt": "12-month season Gantt chart showing off-season, base, build, race, and recovery blocks across a full calendar year",
-              "caption": "A full season planned \u2014 stack race-specific blocks with recovery windows.",
+              "caption": "A full season planned — stack race-specific blocks with recovery windows.",
               "layout": "full-width"
             },
             {
               "type": "prose",
-              "content": "Plan backwards from your A-race. Everything else\u2014B races, training camps, recovery weeks\u2014serves that primary goal."
+              "content": "Plan backwards from your A-race. Everything else—B races, training camps, recovery weeks—serves that primary goal."
+            },
+            {
+              "type": "race_callout",
+              "slugs": [
+                "sea-otter-gravel",
+                "unbound-200"
+              ],
+              "dimension": "distance_mi",
+              "caption": "Your 12-week periodization looks completely different for a 89-mile festival atmosphere vs a 200-mile Kansas sufferfest. Match your training block to your target race demands."
+            },
+            {
+              "type": "personalized_content",
+              "variants": {
+                "ayahuasca": {
+                  "content": "A simple 8-week build is enough. Four weeks of gradually increasing volume, one recovery week, then three more weeks building toward your event. Don't overcomplicate it."
+                },
+                "finisher": {
+                  "content": "Plan a 12-week block: 4 weeks base building, 4 weeks adding intensity, 3 weeks race-specific work, 1 week taper. Each phase builds on the last."
+                },
+                "competitor": {
+                  "content": "Use a 16-week periodized plan with distinct base, build, and peak phases. Include a mid-plan recovery week and a proper 10-day taper. Test your fitness at a B-race mid-plan."
+                },
+                "podium": {
+                  "content": "Structure your season around A-races with 20-week macro cycles. Include base, build, peak, and taper mesocycles. Schedule B-races as training stimulus. Plan recovery blocks between peaks."
+                }
+              }
             }
           ]
         },
@@ -1278,6 +1485,11 @@
               "type": "callout",
               "style": "quote",
               "content": "Your plan already incorporates the right philosophy for your category and level. You don't need to choose—it's built in.\n\nWhat you need to do now is execute."
+            },
+            {
+              "type": "race_reference",
+              "slug": "leadville-100",
+              "context": "altitude"
             }
           ]
         }
@@ -1376,6 +1588,32 @@
                   "content": "**Target:** 110-120% FTP, {{RPE}} 9, gasping, burning legs, maximal but repeatable\n\nWarm-up is critical: 20-25 min progressive with 3×1 min openers. Hit the target from the start. Full recovery between: 4-5 min Z1, HR must drop below 60% max. Stop if power drops >10%.\n\n**Success looks like:** 4-5 quality intervals at target power, RPE 9 throughout, completed the set without falling apart."
                 }
               ]
+            },
+            {
+              "type": "race_callout",
+              "slugs": [
+                "mid-south",
+                "crusher-in-the-tushar"
+              ],
+              "dimension": "elevation_ft",
+              "caption": "Mid South rewards relentless Zone 2 power on rolling terrain. Crusher demands repeated threshold efforts up 10,000-foot climbs. Train the zone your race requires."
+            },
+            {
+              "type": "personalized_content",
+              "variants": {
+                "ayahuasca": {
+                  "content": "Your key workout: 3x10 minutes at a pace where you can still talk in short sentences. Recovery between intervals should be easy spinning for 5 minutes. That's it. Simple works."
+                },
+                "finisher": {
+                  "content": "Your key workouts: 4x8 minutes at tempo (breathing hard but controlled), and one threshold session of 2x20 minutes per week. These two sessions drive most of your fitness gains."
+                },
+                "competitor": {
+                  "content": "Include VO2max work (5x4 minutes at max sustainable effort) alongside threshold sessions. Add gravel-specific over/under intervals: 3 minutes hard, 2 minutes moderate, repeat 6 times."
+                },
+                "podium": {
+                  "content": "Race-specific intervals are your priority: 40/20s for surges, 8-minute threshold repeats for climbs, and 2-hour steady-state sessions for pacing. Match interval terrain to your target race surface."
+                }
+              }
             }
           ]
         },
@@ -1460,6 +1698,23 @@
                 }
               ],
               "explanation": "When power drops more than 10% from target, you're accumulating junk volume, not building fitness. Four quality intervals at target power beats six degraded intervals. Stop, cool down, and recover for the next session. This is discipline, not quitting."
+            },
+            {
+              "type": "personalized_content",
+              "variants": {
+                "ayahuasca": {
+                  "content": "If you're not feeling it, skip the intervals and just ride easy. A missed hard session is nothing compared to the weeks you'll lose if you push into illness or injury. Listen to your body first."
+                },
+                "finisher": {
+                  "content": "Use a simple traffic light: Green = hit the workout as planned. Yellow = reduce intensity by 10% and cut one interval. Red = convert to easy spin or rest. Track your resting heart rate to spot trends."
+                },
+                "competitor": {
+                  "content": "Monitor HRV trends and morning resting heart rate. If HRV drops 10%+ for two consecutive days, swap intensity for endurance. Extend recovery intervals if power is more than 5% below target."
+                },
+                "podium": {
+                  "content": "Use power-duration testing every 4 weeks to adjust training zones. Apply RPE-to-power cross-checks during intervals. If your decoupling exceeds 5% in steady-state rides, your fatigue is accumulating — schedule an unload week."
+                }
+              }
             }
           ]
         },
@@ -1473,7 +1728,7 @@
             },
             {
               "type": "prose",
-              "content": "Recovery is not one thing\u2014it is a dashboard of signals. Sleep quality, heart rate variability, and muscle soreness each tell you something different."
+              "content": "Recovery is not one thing—it is a dashboard of signals. Sleep quality, heart rate variability, and muscle soreness each tell you something different."
             },
             {
               "type": "image",
@@ -1494,7 +1749,7 @@
               "type": "image",
               "asset_id": "ch4-sleep-debt",
               "alt": "Weekly sleep debt tracker showing daily hours slept versus needed with cumulative debt calculation",
-              "caption": "7 hours of sleep debt in race week costs you 10\u201315% power output.",
+              "caption": "7 hours of sleep debt in race week costs you 10–15% power output.",
               "layout": "inline"
             },
             {
@@ -1505,6 +1760,11 @@
               "type": "callout",
               "style": "quote",
               "content": "Training gives you permission to recover well, not permission to trash recovery.\n\nFor the fuel side of recovery and performance, see [Chapter 5: Nutrition & Fueling](#nutrition-fueling)."
+            },
+            {
+              "type": "race_reference",
+              "slug": "unbound-xl",
+              "context": "distance"
             }
           ]
         }
@@ -1583,7 +1843,7 @@
             },
             {
               "type": "prose",
-              "content": "Protein stays constant regardless of training day. Carbs are the variable\u2014they scale directly with how hard you train. Fat fills the remaining calorie budget."
+              "content": "Protein stays constant regardless of training day. Carbs are the variable—they scale directly with how hard you train. Fat fills the remaining calorie budget."
             },
             {
               "type": "prose",
@@ -1593,7 +1853,7 @@
               "type": "image",
               "asset_id": "ch5-hydration-calc",
               "alt": "Interactive hydration calculator with sliders for duration, temperature, and intensity showing fluid and sodium needs",
-              "caption": "Dial in your baseline hydration \u2014 adjust for conditions, not guesswork.",
+              "caption": "Dial in your baseline hydration — adjust for conditions, not guesswork.",
               "layout": "inline"
             },
             {
@@ -1671,6 +1931,23 @@
                   "label": "Est. Calories"
                 }
               ]
+            },
+            {
+              "type": "personalized_content",
+              "variants": {
+                "ayahuasca": {
+                  "content": "Eat normally and add a pre-ride snack. You don't need to count calories — just ensure you're eating enough to fuel your 3 weekly rides without feeling depleted. A banana and peanut butter before riding covers most needs."
+                },
+                "finisher": {
+                  "content": "On training days, add 300-500 calories above your normal intake, focused around your ride window. Prioritize carbohydrates 2 hours before and within 30 minutes after riding."
+                },
+                "competitor": {
+                  "content": "Periodize your nutrition: high-carb on intensity days (7-10g/kg bodyweight), moderate on endurance days (5-7g/kg), lower on rest days (3-5g/kg). Train your gut to handle 60-80g carbs per hour during rides."
+                },
+                "podium": {
+                  "content": "Calculate precise macros per training phase. Base: 5-6g carbs/kg. Build: 7-8g/kg. Peak: 8-10g/kg on high days. Practice race-day fueling in every long training ride — 80-120g carbs per hour at race intensity."
+                }
+              }
             }
           ]
         },
@@ -1685,13 +1962,13 @@
             },
             {
               "type": "prose",
-              "content": "Not all hours are created equal. Calorie burn scales dramatically with intensity\u2014a Zone 2 hour and a threshold hour are completely different metabolic events."
+              "content": "Not all hours are created equal. Calorie burn scales dramatically with intensity—a Zone 2 hour and a threshold hour are completely different metabolic events."
             },
             {
               "type": "image",
               "asset_id": "ch5-calorie-burn",
               "alt": "Hourly calorie burn waterfall chart showing cumulative energy expenditure across a 6-hour gravel race",
-              "caption": "The calorie math hour by hour \u2014 deficit grows faster than you think.",
+              "caption": "The calorie math hour by hour — deficit grows faster than you think.",
               "layout": "inline"
             },
             {
@@ -1736,13 +2013,13 @@
             },
             {
               "type": "prose",
-              "content": "Your glycogen stores deplete at different rates depending on intensity. Here is what your fuel tank looks like over a long ride\u2014with and without proper fueling."
+              "content": "Your glycogen stores deplete at different rates depending on intensity. Here is what your fuel tank looks like over a long ride—with and without proper fueling."
             },
             {
               "type": "image",
               "asset_id": "ch5-glycogen-gauge",
               "alt": "Dual glycogen depletion gauges comparing fueled versus unfueled scenarios over 6 hours of racing",
-              "caption": "Fed vs. unfed \u2014 the gap between finishing strong and bonking hard.",
+              "caption": "Fed vs. unfed — the gap between finishing strong and bonking hard.",
               "layout": "inline"
             },
             {
@@ -1805,6 +2082,23 @@
                   "label": "Carry"
                 }
               ]
+            },
+            {
+              "type": "personalized_content",
+              "variants": {
+                "ayahuasca": {
+                  "content": "For rides under 90 minutes, water is enough. Over 90 minutes, bring one gel or a banana per hour plus a bottle of electrolyte drink. Keep it simple — fancy nutrition plans are for longer events."
+                },
+                "finisher": {
+                  "content": "Target 40-60g carbs per hour on rides over 2 hours. Mix gels, bars, and drink mix so you have options when your stomach gets picky. Start fueling at 45 minutes, not when you're already hungry."
+                },
+                "competitor": {
+                  "content": "Train your gut to handle 60-90g carbs per hour using a mix of glucose and fructose. Use a timer: fuel every 20 minutes, drink every 15. Practice with your exact race-day products on long training rides."
+                },
+                "podium": {
+                  "content": "Push toward 90-120g carbs per hour using dual-transport carbohydrate formulas (2:1 glucose:fructose). Periodize gut training across your build phase. Test multiple fuel sources and know your backup plan for every aid station scenario."
+                }
+              }
             }
           ]
         },
@@ -1837,6 +2131,23 @@
                   "content": "Stick with what worked in training. No new products. Trust your gut (literally)."
                 }
               ]
+            },
+            {
+              "type": "personalized_content",
+              "variants": {
+                "ayahuasca": {
+                  "content": "Start by eating a small snack 30 minutes before rides. If that sits well for two weeks, try eating during rides. Your gut adapts just like your legs — gradually."
+                },
+                "finisher": {
+                  "content": "Spend 4 weeks increasing on-bike fueling by 10g/hour per week. Start at 30g/hour and work up to 60g. If you get stomach issues, back off for a week then try again."
+                },
+                "competitor": {
+                  "content": "Dedicate your long rides to gut training: increase carb intake by 10-15g per hour each week until you reach 80-90g. Practice with race-day products. Log what works and what doesn't."
+                },
+                "podium": {
+                  "content": "Systematic gut training protocol: Week 1-2 at 60g/hr, Week 3-4 at 75g/hr, Week 5-6 at 90g/hr, Week 7-8 push to 100-120g/hr. Track GI symptoms on a 1-5 scale. Identify your personal ceiling."
+                }
+              }
             }
           ]
         },
@@ -1884,6 +2195,15 @@
               "type": "callout",
               "style": "quote",
               "content": "Set a timer. Seriously. Your brain will be stupid. It will forget to eat. It will lie to you and say \"I'm fine, I'll eat at the next aid station.\" The timer removes decision-making."
+            },
+            {
+              "type": "race_callout",
+              "slugs": [
+                "rasputitsa",
+                "unbound-200"
+              ],
+              "dimension": "distance_mi",
+              "caption": "Rasputitsa at 46 miles might not even need mid-race fueling beyond a bottle and a gel. Unbound 200 demands 6,000+ calories across 12+ hours. Your nutrition plan must match your race."
             }
           ]
         },
@@ -1965,6 +2285,11 @@
                   "back": "20-30g protein + 60-120g carbs within 30 min. Real food within 2 hours."
                 }
               ]
+            },
+            {
+              "type": "race_reference",
+              "slug": "gravel-locos",
+              "context": "climate"
             }
           ]
         },
@@ -2029,6 +2354,11 @@
             {
               "type": "prose",
               "content": "Nutrition determines 8% of your race result. That's significant but not worth obsessing over.\n\n**Daily nutrition:** Match carbs to training load. Get adequate protein. Don't fear fat. Eat real food. Research from sports nutrition scientist [Asker Jeukendrup](https://www.mysportscience.com/) consistently shows that training the gut to tolerate higher carb intake translates directly to race performance.\n\n**Supplements:** Vitamin D if deficient, creatine for high-intensity work, caffeine before hard sessions. Everything else is optional or snake oil.\n\n**During training:** Practice eating at your race-day target carb rate on long rides. Target rate scales with race duration: 80-100g/hr for sub-4hr races, 60-80g/hr for 4-8hr events, 50-70g/hr for 8-12hr, 40-60g/hr for ultra (12+hr). At lower intensities, fat oxidation carries more of the load and GI tolerance becomes the limiter. Train your gut like you train your legs.\n\n**Race day:** Eat a familiar pre-race meal 3-4 hours before. Start fueling at 30-45 minutes. Hit your duration-scaled target rate. Set a timer.\n\nWhen your stomach rebels, back off intensity for 10 minutes and switch to liquids. Don't stop eating entirely.\n\nWeight management happens in the off-season, not during training blocks. Chase performance, not scale numbers.\n\nUp next: [Chapter 6](#mental-training-race-tactics) covers the mental tools and tactical framework you need when the race gets hard—because it will."
+            },
+            {
+              "type": "race_reference",
+              "slug": "mid-south",
+              "context": "climate"
             }
           ]
         }
@@ -2089,6 +2419,23 @@
                   "percentage": 20
                 }
               ]
+            },
+            {
+              "type": "personalized_content",
+              "variants": {
+                "ayahuasca": {
+                  "content": "Your mental goal is simple: finish and enjoy the experience. When it gets hard, remind yourself why you signed up. The suffering is temporary. The story you'll tell is forever."
+                },
+                "finisher": {
+                  "content": "Set a time goal but hold it loosely. Your mental framework: 'Execute the plan, adapt when needed, never quit on a downhill.' Break the race into segments and focus only on the current one."
+                },
+                "competitor": {
+                  "content": "Race with a power plan and tactical awareness. Know your competition's tendencies. Have three scenarios: ideal (hit target), good (within 5%), and survival (just finish strong). Switch between them without spiraling."
+                },
+                "podium": {
+                  "content": "Pre-visualize every critical race segment. Have specific mantras for each phase: 'smooth is fast' for the start, 'hunt' for the middle, 'empty the tank' for the finish. Practice switching between tactical thinking and raw effort."
+                }
+              }
             }
           ]
         },
@@ -2117,6 +2464,23 @@
               "type": "callout",
               "style": "quote",
               "content": "Don't wait until mile 100 to try 6-2-7 breathing for the first time. Practice during training so it's automatic during racing."
+            },
+            {
+              "type": "personalized_content",
+              "variants": {
+                "ayahuasca": {
+                  "content": "When anxiety hits at the start line, try box breathing: 4 counts in, 4 counts hold, 4 counts out, 4 counts hold. Three cycles and you'll feel calmer. Use this on any climb that feels overwhelming."
+                },
+                "finisher": {
+                  "content": "Develop a pre-race breathing routine you do in the car before every event. Combine 5 minutes of diaphragmatic breathing with positive self-talk. During the race, use rhythmic breathing synced to your pedal cadence."
+                },
+                "competitor": {
+                  "content": "Practice tactical breathing during hard intervals in training — this builds the skill under fatigue. Use nasal breathing at endurance pace to control intensity. Switch to mouth breathing only above threshold."
+                },
+                "podium": {
+                  "content": "Integrate breathing protocols into your periodized training. Base phase: practice nasal-only breathing for aerobic rides. Build phase: tactical breathing during intervals. Peak: race-simulation breathing patterns at target effort."
+                }
+              }
             }
           ]
         },
@@ -2230,6 +2594,15 @@
                   "Empty the tank. Use everything you've got. Remember your why. Push through the pain. Finish strong."
                 ]
               ]
+            },
+            {
+              "type": "race_callout",
+              "slugs": [
+                "unbound-200",
+                "badlands"
+              ],
+              "dimension": "distance_mi",
+              "caption": "At Unbound, Act 1 is the first 60 miles of pack racing. Act 2 is the long solo middle. Act 3 is survival math. At Badlands, Act 1 is the first 100 miles. Act 2 lasts three days. The three-act structure scales to any distance."
             }
           ]
         },
@@ -2258,6 +2631,23 @@
               "type": "callout",
               "style": "quote",
               "content": "The race isn't won in the first hour, but it can be lost there. Survive phase one. Execute phase two. Capitalize in phase three."
+            },
+            {
+              "type": "personalized_content",
+              "variants": {
+                "ayahuasca": {
+                  "content": "Start at the back. Seriously. Let the fast riders go and find your rhythm. The first hour should feel almost too easy. You'll pass plenty of people in the second half who went out too hard."
+                },
+                "finisher": {
+                  "content": "Negative-split your race: ride the first third at 5% below target power, the middle third at target, and the last third at whatever you have left. This strategy beats 80% of riders who go out too fast."
+                },
+                "competitor": {
+                  "content": "Position yourself in the top 20% at the start to avoid bottlenecks on narrow sections. Ride with the group through crosswinds and technical sections. Save your matches for key climbs and the final push."
+                },
+                "podium": {
+                  "content": "Control the race by dictating tempo on climbs and technical sections. Use group dynamics strategically — let others chase while you recover. Attack on terrain that favors your strengths. Never follow an attack you can't sustain."
+                }
+              }
             }
           ]
         },
@@ -2289,6 +2679,11 @@
                   "best": false
                 }
               ]
+            },
+            {
+              "type": "race_reference",
+              "slug": "uci-gravel-worlds",
+              "context": "prestige"
             }
           ]
         },
@@ -2371,6 +2766,11 @@
               "type": "callout",
               "style": "highlight",
               "content": "Your job: Recognize these moments as part of the script, not proof that you're failing. Stay on task, solve the next problem, and let the course come back to you."
+            },
+            {
+              "type": "race_reference",
+              "slug": "colorado-trail-race",
+              "context": "distance"
             }
           ]
         },
@@ -2507,6 +2907,32 @@
             {
               "type": "prose",
               "content": "Resist the urge to squeeze in one more hard session. Your fitness is locked in — it was determined weeks ago. This week is about arriving at the start line rested, organized, and mentally calm. Every decision should reduce stress, not add it. Trust the work you have already done."
+            },
+            {
+              "type": "race_callout",
+              "slugs": [
+                "sea-otter-gravel",
+                "badlands"
+              ],
+              "dimension": "distance_mi",
+              "caption": "Tapering for a 89-mile festival race and tapering for a 497-mile self-supported desert crossing require fundamentally different approaches. Shorter races need sharper tapers. Ultra events need more volume maintenance."
+            },
+            {
+              "type": "personalized_content",
+              "variants": {
+                "ayahuasca": {
+                  "content": "Take 3-4 days completely easy before your race. One short ride two days out to keep your legs loose. Otherwise, rest. You can't gain fitness this week, but you can definitely lose it by overdoing it."
+                },
+                "finisher": {
+                  "content": "7-day taper: reduce volume by 40% but keep one short, sharp effort (10 minutes at race pace) 3 days out. This keeps your legs responsive without adding fatigue. Rest day before race day."
+                },
+                "competitor": {
+                  "content": "10-day taper: drop volume 50%, maintain intensity in two short opener sessions (5 days and 2 days out). Each opener: 3x5 minutes at threshold with full recovery. Keep your routine otherwise normal."
+                },
+                "podium": {
+                  "content": "12-14 day structured taper: gradual volume reduction (40% week 1, 60% week 2) with strategic openers. Include one race-simulation effort 5 days out (20 min at race pace on similar terrain). Two full rest days before race day."
+                }
+              }
             }
           ]
         },
@@ -2529,18 +2955,40 @@
             },
             {
               "type": "prose",
-              "content": "Weather changes your gear strategy completely. A 55\u00b0F start with 15 mph wind feels very different from a 75\u00b0F calm morning\u2014and your clothing choices should reflect that."
+              "content": "Weather changes your gear strategy completely. A 55°F start with 15 mph wind feels very different from a 75°F calm morning—and your clothing choices should reflect that."
             },
             {
               "type": "image",
               "asset_id": "ch7-weather-matrix",
               "alt": "Wind speed by temperature matrix showing recommended clothing for each combination of race day conditions",
-              "caption": "The race-morning gear decision matrix \u2014 check the forecast Thursday, lock it in by Friday.",
+              "caption": "The race-morning gear decision matrix — check the forecast Thursday, lock it in by Friday.",
               "layout": "inline"
             },
             {
               "type": "prose",
-              "content": "Scout the forecast Thursday morning. Lock in your plan by Friday. Do not second-guess Saturday morning\u2014the stress of indecision costs more energy than being slightly overdressed."
+              "content": "Scout the forecast Thursday morning. Lock in your plan by Friday. Do not second-guess Saturday morning—the stress of indecision costs more energy than being slightly overdressed."
+            },
+            {
+              "type": "race_reference",
+              "slug": "bwr-california",
+              "context": "technicality"
+            },
+            {
+              "type": "personalized_content",
+              "variants": {
+                "ayahuasca": {
+                  "content": "Ride whatever bike you have — don't buy new gear race week. Make sure your tires hold air, your brakes work, and you have a spare tube. That's your equipment checklist."
+                },
+                "finisher": {
+                  "content": "Test your race-day setup on a training ride at least 2 weeks before. Tire pressure, saddle bag contents, nutrition placement. Don't change anything in the final week — race with what you've trained with."
+                },
+                "competitor": {
+                  "content": "Dial tire pressure for the specific course: check weather forecasts and course reports. Have a backup tire/wheel option ready. Lay out all race gear the night before — kit, nutrition, tools, electronics."
+                },
+                "podium": {
+                  "content": "Pre-ride the course if possible or study every segment on video. Optimize tire selection and pressure for each surface type. Prepare two complete setups (including a spare wheel) and have a mechanical support plan for key checkpoints."
+                }
+              }
             }
           ]
         },
@@ -2621,6 +3069,28 @@
                   "best": false
                 }
               ]
+            },
+            {
+              "type": "race_reference",
+              "slug": "unbound-200",
+              "context": "distance"
+            },
+            {
+              "type": "personalized_content",
+              "variants": {
+                "ayahuasca": {
+                  "content": "Wake up early enough to eat breakfast and use the bathroom without rushing. Have coffee if that's your routine. Arrive at the venue with 45 minutes to spare. That's it."
+                },
+                "finisher": {
+                  "content": "3 hours before start: eat your tested pre-race meal (500-800 calories, carb-heavy). 90 minutes before: arrive, set up, warm up with a 15-minute easy spin. 30 minutes before: final bathroom break, sip electrolytes."
+                },
+                "competitor": {
+                  "content": "Follow your rehearsed race-morning protocol. Timed nutrition at 3 hours and 1 hour pre-start. 20-minute structured warm-up including 3 efforts at race pace. Check-in, staging, and mental preparation in the final 15 minutes."
+                },
+                "podium": {
+                  "content": "Execute your race-morning checklist exactly as rehearsed. Timed wake-up for optimal carb loading. Progressive warm-up protocol: 10 min easy, 5 min tempo, 3x30s at race pace with full recovery. Final equipment check. Pre-staging tactical positioning."
+                }
+              }
             }
           ]
         },
@@ -2693,6 +3163,23 @@
                   "detail": "You lost 1-4 liters of fluid. Drink 500-1000ml within the first hour. Add electrolytes. If pee is dark yellow by evening, keep drinking."
                 }
               ]
+            },
+            {
+              "type": "personalized_content",
+              "variants": {
+                "ayahuasca": {
+                  "content": "Eat whatever sounds good. Drink water. Sit down. Celebrate that you finished. That's your entire post-race protocol. The recovery science can wait — enjoy this moment."
+                },
+                "finisher": {
+                  "content": "Within 30 minutes: 50g carbs + 20g protein (chocolate milk works). Gentle walk for 10 minutes to flush your legs. Celebrate, then start hydrating with electrolytes for the next 4-6 hours."
+                },
+                "competitor": {
+                  "content": "Immediate recovery protocol: 1g/kg carbs + 0.3g/kg protein within 30 minutes. Active cool-down spin for 15 minutes. Compression boots if available. Begin structured recovery nutrition for the next 24 hours."
+                },
+                "podium": {
+                  "content": "Execute your rehearsed recovery protocol: recovery drink immediately, active cool-down, compression therapy. Log race data and subjective RPE before you forget. Begin carb reloading (8-10g/kg over 24 hours). Schedule a recovery massage within 48 hours."
+                }
+              }
             }
           ]
         },
@@ -2725,6 +3212,23 @@
                   "content": "Back to normal training (if racing again soon) or transition to off-season."
                 }
               ]
+            },
+            {
+              "type": "personalized_content",
+              "variants": {
+                "ayahuasca": {
+                  "content": "Take a full week off the bike. Walk, stretch, do whatever feels good that isn't cycling. Your body needs time to recover from an effort it's never done before. Start riding again only when you genuinely want to."
+                },
+                "finisher": {
+                  "content": "Days 1-3: complete rest or very easy walks only. Days 4-5: easy 30-minute spin at conversation pace. Days 6-7: one moderate 60-minute ride. Listen to your legs — extend rest if anything feels off."
+                },
+                "competitor": {
+                  "content": "48 hours complete rest, then 5 days of progressive loading: 30 min Z1, 45 min Z1-2, 60 min Z2, rest day, then reassess. Use HRV monitoring to guide return to structured training, typically 10-14 days post-race."
+                },
+                "podium": {
+                  "content": "Structured recovery protocol: 72 hours complete rest. Days 4-7: progressive Z1 rides (30, 45, 60, 60 min). Week 2: return to 60% volume, Z1-2 only. Week 3: add one tempo session. Resume full training Week 4 only if biomarkers (HRV, resting HR, sleep quality) are baseline."
+                }
+              }
             }
           ]
         },
@@ -2751,6 +3255,11 @@
                   "content": "**If you crushed it:** Move up a category. Target a harder race. Try longer distance.\n\n**If you struggled:** Same category, better execution. More volume or consistency. Focus on the limiter.\n\n**If you finished but didn't perform:** Analyze what went wrong. Adjust training approach.\n\nOne race is one data point. Don't overreact. But do learn."
                 }
               ]
+            },
+            {
+              "type": "race_reference",
+              "slug": "the-traka",
+              "context": "adventure"
             }
           ]
         },
@@ -2819,6 +3328,15 @@
                   "content": "**Goals:** Maintain fitness while managing life changes. Continue improving weaknesses. Enjoy the process. Maybe age up into Masters categories and dominate.\n\n**Expected improvement:** Small, but you're also older so maintaining is winning. At some point, age-related decline starts. Your goal shifts from \"get faster\" to \"get slower more slowly.\""
                 }
               ]
+            },
+            {
+              "type": "race_callout",
+              "slugs": [
+                "steamboat-gravel",
+                "unbound-200"
+              ],
+              "dimension": "overall_score",
+              "caption": "SBT GRVL is a perfect stepping stone — high community scores, excellent organization, manageable distance. Graduate to Unbound when you're ready for the biggest stage in gravel."
             }
           ]
         },
@@ -2850,6 +3368,23 @@
                   "detail": "Register for the race. Tell people. Make it real. The goal isn't just aspirational—it's a commitment."
                 }
               ]
+            },
+            {
+              "type": "personalized_content",
+              "variants": {
+                "ayahuasca": {
+                  "content": "Pick one more race this season that excites you. Not because you should, but because you want to. If nothing sounds fun right now, that's fine — ride for joy and revisit the calendar in a month."
+                },
+                "finisher": {
+                  "content": "Review your race: what went well, what surprised you, what would you change? Use those answers to pick your next event. Consider stepping up — a longer distance, a more technical course, or a race in a new region."
+                },
+                "competitor": {
+                  "content": "Analyze your race data against your goals. Identify the 2-3 limiters that cost you the most time. Build your next training block around addressing those specific weaknesses. Target a race that tests your improvements."
+                },
+                "podium": {
+                  "content": "Conduct a full season review: race results vs targets, power profile changes, tactical decisions. Plan next season's A-races around your strengths while addressing limiters in the off-season. Consider altitude camps or focused training blocks for specific weaknesses."
+                }
+              }
             }
           ]
         },
@@ -2915,6 +3450,11 @@
             {
               "type": "prose",
               "content": "You finished the race. You followed the plan. You learned something about yourself and about racing bikes on dirt.\n\nThat was one race. One training block. One season. The athletes who get fast and stay fast are the ones who show up consistently, year after year, refining their approach and building on what works.\n\nYou now have the framework: how to [choose a race](#race-selection), how to [understand training fundamentals](#training-fundamentals), how to [execute workouts](#workout-execution), how to [fuel](#nutrition-fueling), how to [race smart](#mental-training-race-tactics), how to [prepare for race week](#race-week), and how to recover.\n\nThe rest is execution.\n\nGo ride your bike. Train smart. Race hard. Recover well.\n\nAnd when you're ready, do it again.\n\nThat's how you become a gravel racer."
+            },
+            {
+              "type": "race_reference",
+              "slug": "migration-gravel-race",
+              "context": "adventure"
             }
           ]
         }

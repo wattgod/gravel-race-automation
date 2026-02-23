@@ -19,7 +19,7 @@
         "Farmland"
       ],
       "field_size": "100-250 riders",
-      "start_time": "Morning start",
+      "start_time": "9:00am",
       "registration": "Online. Cost: ~$60-90",
       "prize_purse": "None",
       "aid_stations": "Basic aid stations",
@@ -94,7 +94,10 @@
       "score": "44 / 100",
       "one_liner": "Small grassroots Michigan spring thaw ride with mud potential.",
       "should_you_race": "Only if you're in Michigan and want an affordable early-season gravel ride. Not worth traveling for.",
-      "alternatives": "For better Michigan events: Barry-Roubaix, Lumberjack 100. For similar grassroots vibes: other regional Midwest spring events."
+      "alternatives": "For better Michigan events: Barry-Roubaix, Lumberjack 100. For similar grassroots vibes: other regional Midwest spring events.",
+      "alternative_slugs": [
+        "barry-roubaix"
+      ]
     },
     "logistics": {
       "airport": "Kalamazoo (AZO) 1 hour, or Chicago (ORD)/Detroit (DTW) 2-3 hours",
@@ -178,12 +181,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 91.0,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 88,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -307,44 +319,49 @@
         "label": "RideWithGPS: 2026 Melting Mann 58 Mile"
       },
       {
-        "url": "https://cmsraceteam.blogspot.com/2014/03/melting-mann-race-report.html",
-        "category": "community",
-        "label": "cmsraceteam.blogspot.com: Melting Mann Race Report.Html"
+        "url": "http://bmtimes.co.uk/melting-mann-the-coolest-trail-race-youve-never-heard-of/",
+        "category": "other",
+        "label": "Bmtimes"
+      },
+      {
+        "url": "https://granfondodailynews.com/2025/03/25/melting-mann-coolest-gravel-race-in-north-america-results/",
+        "category": "other",
+        "label": "Granfondodailynews"
+      },
+      {
+        "url": "https://ilovegravelracing.com/event/melting-mann/",
+        "category": "other",
+        "label": "Ilovegravelracing"
+      },
+      {
+        "url": "https://meltingmann.com/details/",
+        "category": "other",
+        "label": "Meltingmann"
+      },
+      {
+        "url": "https://meltingmann.com/events/",
+        "category": "other",
+        "label": "Meltingmann"
       },
       {
         "url": "https://www.reddit.com/r/MichiganCycling/comments/1bl942v/anybody_else_racing_melting_mann_tomorrow/",
         "category": "community",
-        "label": "reddit.com: Anybody Else Racing Melting Mann Tomorrow"
+        "label": "Reddit"
       },
       {
-        "url": "https://www.yahoo.com/entertainment/mann-ly-bike-race-grind-101259302.html",
+        "url": "https://www.reddit.com/r/MichiganCycling/comments/1bld582/ready_for_the_drive_to_melting_mann_in_the_am/",
         "category": "community",
-        "label": "yahoo.com: Mann Ly Bike Race Grind 101259302.Html"
+        "label": "Reddit"
       },
       {
-        "url": "https://bmtimes.co.uk/melting-mann-the-coolest-trail-race-youve-never-heard-of/",
+        "url": "https://www.reddit.com/r/gravelcycling/comments/1bizrez/thoughts_on_the_weather_and_conditions_at_melting/",
         "category": "community",
-        "label": "bmtimes.co.uk: Melting Mann The Coolest Trail Race Youve Never Heard Of"
+        "label": "Reddit"
       },
       {
-        "url": "https://granfondodailynews.com/2025/03/25/melting-mann-coolest-gravel-race-in-north-america-results/",
+        "url": "https://www.reddit.com/r/gravelcycling/comments/tk4e2x/melting_mann_2022_mgrs/",
         "category": "community",
-        "label": "granfondodailynews.com: Melting Mann Coolest Gravel Race In North America Results"
-      },
-      {
-        "url": "https://meltingmann.com/details/",
-        "category": "community",
-        "label": "meltingmann.com: Details"
-      },
-      {
-        "url": "https://meltingmann.com/",
-        "category": "community",
-        "label": "meltingmann.com"
-      },
-      {
-        "url": "http://bmtimes.co.uk/melting-mann-the-coolest-trail-race-youve-never-heard-of/",
-        "category": "community",
-        "label": "bmtimes.co.uk: Melting Mann The Coolest Trail Race Youve Never Heard Of"
+        "label": "Reddit"
       },
       {
         "url": "https://www.gravel-results.com/race/17972",

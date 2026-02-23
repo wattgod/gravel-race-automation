@@ -127,7 +127,14 @@
       ],
       "signature_challenge": "129 miles + 10,000 ft + humid heat. Blue Ridge brutality.",
       "ridewithgps_id": "42567010",
-      "ridewithgps_name": "Asheville BWR 2022"
+      "ridewithgps_name": "Asheville BWR 2022",
+      "surface_breakdown": {
+        "overall": {
+          "gravel": 60,
+          "pavement": 30,
+          "dirt": 10
+        }
+      }
     },
     "history": {
       "founded": "2018",
@@ -148,18 +155,18 @@
       ],
       "research_date": "2026-02-04",
       "research_strength": {
-        "overall": 97.5,
+        "overall": 99.1,
         "grade": "A",
-        "weakest": "temporal_depth",
+        "weakest": "completeness",
         "has_research_dump": true,
         "dimensions": {
           "source_diversity": 100,
           "citation_density": 100,
-          "temporal_depth": 75,
+          "temporal_depth": 100,
           "specificity": 100,
           "statistical_backing": 100,
           "voice_authenticity": 100,
-          "completeness": 100,
+          "completeness": 94,
           "cross_reference": 100
         },
         "scored_at": "2026-02-04"
@@ -227,18 +234,22 @@
       "score": "77 / 100",
       "one_liner": "BWR's Blue Ridge cousin serves up Belgian-style punishment with Southern humidity and 10,000 feet of Appalachian reality checks.",
       "should_you_race": "You need solid climbing legs and comfort on technical gravel—those steep, chunky sectors don't forgive weakness. The 129-mile distance isn't the killer; it's the relentless elevation combined with late May humidity that breaks people. Show up undertrained and you'll join the 25% DNF rate somewhere around mile 80 when the Blue Ridge climbs start compounding.",
-      "alternatives": "BWR California delivers the original Belgian chaos with more prestige if you want the full experience. Dirty Kanza/Unbound offers similar distance and suffering but trades mountains for wind and heat on Kansas flats."
+      "alternatives": "BWR California delivers the original Belgian chaos with more prestige if you want the full experience. Dirty Kanza/Unbound offers similar distance and suffering but trades mountains for wind and heat on Kansas flats.",
+      "alternative_slugs": [
+        "bwr-california",
+        "unbound-200"
+      ]
     },
     "citations": [
-      {
-        "url": "https://www.belgianwaffleride.com",
-        "category": "official",
-        "label": "Official Website"
-      },
       {
         "url": "https://ridewithgps.com/routes/42567010",
         "category": "route",
         "label": "RideWithGPS: Asheville BWR 2022"
+      },
+      {
+        "url": "https://granfondodailynews.com/2025/10/08/70-year-old-ned-overend-keeps-winning-against-riders-half-his-age-at-bwr-asheville-results/",
+        "category": "other",
+        "label": "Granfondodailynews"
       },
       {
         "url": "https://reddit.com/r/gravelcycling/comments/bwr-asheville",
@@ -246,74 +257,44 @@
         "label": "Reddit"
       },
       {
-        "url": "https://ridewithgps.com",
-        "category": "route",
-        "label": "RideWithGPS"
+        "url": "https://strambecco.com/event/belgian-waffle-ride-asheville-north-carolina/",
+        "category": "other",
+        "label": "Strambecco"
       },
       {
-        "url": "https://www.cyclingtips.com",
+        "url": "https://velo.outsideonline.com/gravel/bwr-asheville-2023-sunshine-and-dusty-backroads/",
         "category": "media",
-        "label": "CyclingTips"
-      },
-      {
-        "url": "https://www.strava.com",
-        "category": "activity",
-        "label": "Strava"
-      },
-      {
-        "url": "https://www.trainerroad.com",
-        "category": "community",
-        "label": "TrainerRoad"
-      },
-      {
-        "url": "https://www.velonews.com",
-        "category": "media",
-        "label": "VeloNews"
-      },
-      {
-        "url": "https://www.trainerroad.com/forum/t/bwr-nc-2024-whos-going/92985",
-        "category": "community",
-        "label": "trainerroad.com: 92985"
+        "label": "Velo"
       },
       {
         "url": "https://velo.outsideonline.com/road/road-culture/groad-trip-utterly-spent-at-bwr-asheville/",
-        "category": "community",
-        "label": "velo.outsideonline.com: Groad Trip Utterly Spent At Bwr Asheville"
-      },
-      {
-        "url": "https://velo.outsideonline.com/gravel/course-preview-belgian-waffle-ride-asheville-serves-up-appalachian-punishment/",
-        "category": "community",
-        "label": "velo.outsideonline.com: Course Preview Belgian Waffle Ride Asheville Serves Up Ap..."
-      },
-      {
-        "url": "https://strambecco.com/event/belgian-waffle-ride-asheville-north-carolina/",
-        "category": "community",
-        "label": "strambecco.com: Belgian Waffle Ride Asheville North Carolina"
+        "category": "media",
+        "label": "Velo"
       },
       {
         "url": "https://www.belgianwaffleride.bike/blogs/news/results",
-        "category": "community",
-        "label": "belgianwaffleride.bike: Results"
+        "category": "other",
+        "label": "Belgianwaffleride"
       },
       {
-        "url": "https://granfondodailynews.com/2025/10/08/70-year-old-ned-overend-keeps-winning-against-riders-half-his-age-at-bwr-asheville-results/",
+        "url": "https://www.belgianwaffleride.bike/pages/northcarolina",
+        "category": "other",
+        "label": "Belgianwaffleride"
+      },
+      {
+        "url": "https://www.newsbreak.com/news/4276994298197-70-year-old-ned-overend-keeps-winning-against-riders-half-his-age-at-bwr-asheville-results",
+        "category": "other",
+        "label": "Newsbreak"
+      },
+      {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/s4q6fx/thinking_of_doing_the_belgian_waffle_ride_in/",
         "category": "community",
-        "label": "granfondodailynews.com: 70 Year Old Ned Overend Keeps Winning Against Riders Half..."
+        "label": "Reddit"
       },
       {
         "url": "https://redfroracing.wordpress.com/category/cycling/",
         "category": "community",
         "label": "redfroracing.wordpress.com: Cycling"
-      },
-      {
-        "url": "https://www.reddit.com/user/astromike48/",
-        "category": "community",
-        "label": "reddit.com: Astromike48"
-      },
-      {
-        "url": "https://www.reddit.com/r/gravelcycling/comments/s4q6fx/thinking_of_doing_the_belgian_waffle_ride_in/",
-        "category": "community",
-        "label": "reddit.com: Thinking Of Doing The Belgian Waffle Ride In"
       },
       {
         "url": "https://www.reddit.com/r/Velo/comments/mbx6yo/whats_your_bwr_drivetrain_set_up_1x_or_2x/",
@@ -324,11 +305,6 @@
         "url": "https://www.reddit.com/r/whichbike/comments/tgpq8g/broken_exploro_replace/",
         "category": "community",
         "label": "reddit.com: Broken Exploro Replace"
-      },
-      {
-        "url": "https://www.belgianwaffleride.bike/pages/northcarolina",
-        "category": "community",
-        "label": "belgianwaffleride.bike: Northcarolina"
       },
       {
         "url": "https://results.bikereg.com/race/20095",

@@ -19,7 +19,7 @@
         "Rural Michigan"
       ],
       "field_size": "100-250 riders",
-      "start_time": "Morning start",
+      "start_time": "7:00am Boda",
       "registration": "Online. Cost: ~$60-90",
       "prize_purse": "None",
       "aid_stations": "Basic aid stations",
@@ -94,7 +94,10 @@
       "score": "44 / 100",
       "one_liner": "Small grassroots Michigan farmland gravel with modest ambitions.",
       "should_you_race": "Only if you're in Michigan and want an affordable summer gravel ride. Not worth traveling for.",
-      "alternatives": "For better Michigan events: Barry-Roubaix, Lumberjack 100. For similar grassroots vibes: other regional Midwest events."
+      "alternatives": "For better Michigan events: Barry-Roubaix, Lumberjack 100. For similar grassroots vibes: other regional Midwest events.",
+      "alternative_slugs": [
+        "barry-roubaix"
+      ]
     },
     "logistics": {
       "airport": "Grand Rapids (GRR) 1 hour, or Detroit (DTW) 2 hours",
@@ -102,7 +105,8 @@
       "food": "Small city with dining options. Stock race nutrition beforehand.",
       "packet_pickup": "Race morning typically",
       "parking": "At start/finish",
-      "official_site": "Check Michigan cycling calendars"
+      "official_site": "Check Michigan cycling calendars",
+      "camping": "CAMPING AVAILABLE ON A FIRST COME FIRST SERVE BASIS\" with start/finish close to camping area (https://www"
     },
     "history": {
       "founded": null,
@@ -138,7 +142,13 @@
       ],
       "signature_challenge": "Rolling farmland terrain and summer heat.",
       "ridewithgps_id": null,
-      "ridewithgps_name": null
+      "ridewithgps_name": null,
+      "surface_breakdown": {
+        "34mi": {
+          "gravel": 80,
+          "pavement": 10
+        }
+      }
     },
     "guide_variables": {
       "race_name": "Cow Pie Classic",
@@ -178,12 +188,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 90.0,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 82,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -302,49 +321,39 @@
     },
     "citations": [
       {
-        "url": "https://www.bikeman.com/blog/race-reports/cow-pie-classic.htms",
-        "category": "community",
-        "label": "bikeman.com: Cow Pie Classic.Htms"
+        "url": "https://www.joinbasecamp.com/post/basecamp-strong-at-cow-pie-classic",
+        "category": "other",
+        "label": "Joinbasecamp"
       },
       {
-        "url": "https://komcycling.com/blogs/product-blogs/dirty-chain-podcast-episode-20-the-cow-pie-classic-gravel-race-and-polar-roll-recap",
+        "url": "https://www.ohiogravelgrinders.com/event-listings/2026/6/13/cow-pie-classic",
+        "category": "other",
+        "label": "Ohiogravelgrinders"
+      },
+      {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/va1oym/2022_cowpie_classic_race_review/",
         "category": "community",
-        "label": "komcycling.com: Dirty Chain Podcast Episode 20 The Cow Pie Classic Gravel..."
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/vcbscz/cow_pie_classic_gravel_race_video_from_this_past/",
+        "category": "community",
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.stellafly.com/events/the-4th-annual-cow-pie-classic/",
+        "category": "other",
+        "label": "Stellafly"
+      },
+      {
+        "url": "https://www.trainerroad.com/forum/t/midwest-events-for-2023/79346?page=17",
+        "category": "community",
+        "label": "TrainerRoad"
       },
       {
         "url": "https://www.reddit.com/r/MichiganCycling/comments/17p4g6w/gravel_race_logistics_when_the_whole_family_will/",
         "category": "community",
         "label": "reddit.com: Gravel Race Logistics When The Whole Family Will"
-      },
-      {
-        "url": "https://www.ridecowpie.com/",
-        "category": "community",
-        "label": "ridecowpie.com"
-      },
-      {
-        "url": "https://lmb.org/ride-calendar/the-cow-pie-classic-3/",
-        "category": "community",
-        "label": "lmb.org: The Cow Pie Classic 3"
-      },
-      {
-        "url": "https://www.granfondoguide.com/Events/Index/10131/the-cow-pie-classic",
-        "category": "community",
-        "label": "granfondoguide.com: The Cow Pie Classic"
-      },
-      {
-        "url": "https://lmb.org/ride-calendar/the-cow-pie-classic-2/",
-        "category": "community",
-        "label": "lmb.org: The Cow Pie Classic 2"
-      },
-      {
-        "url": "https://www.joinbasecamp.com/post/basecamp-strong-at-cow-pie-classic",
-        "category": "community",
-        "label": "joinbasecamp.com: Basecamp Strong At Cow Pie Classic"
-      },
-      {
-        "url": "https://www.trainerroad.com/forum/t/midwest-events-for-2023/79346?page=17",
-        "category": "community",
-        "label": "trainerroad.com: 79346"
       },
       {
         "url": "https://granfondodailynews.com/2025/12/11/is-michigan-gravel-heaven-local-race-series-now-biggest-in-america-with-16-events/",

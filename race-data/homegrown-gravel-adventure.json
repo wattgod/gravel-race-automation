@@ -19,7 +19,7 @@
         "West Georgia"
       ],
       "field_size": "100-300 riders",
-      "start_time": "Morning start",
+      "start_time": "10:30am on",
       "registration": "Online. Cost: ~$60-100",
       "prize_purse": "Modest prizes",
       "aid_stations": "Multiple aid stations",
@@ -94,15 +94,20 @@
       "score": "46 / 100",
       "one_liner": "Rural rolling Georgia gravel in west Georgia.",
       "should_you_race": "If you're in Georgia and want a local rolling gravel event—yes, it's a solid regional race. If you're from out of state—there are better options.",
-      "alternatives": "For better Southeast events: Gravel Worlds, Pisgah Monster-Cross, Hot Springs Gravel Gauntlet. For similar regional events: other Georgia gravel races."
+      "alternatives": "For better Southeast events: Gravel Worlds, Pisgah Monster-Cross, Hot Springs Gravel Gauntlet. For similar regional events: other Georgia gravel races.",
+      "alternative_slugs": [
+        "garmin-gravel-worlds",
+        "hot-springs-gravel-gauntlet"
+      ]
     },
     "logistics": {
       "airport": "Atlanta (ATL) 1.5 hours",
       "lodging_strategy": "Franklin has limited lodging. LaGrange or Newnan have more options.",
       "food": "Small town with limited dining. Stock nutrition.",
       "packet_pickup": "Day before typically",
-      "parking": "At start/finish",
-      "official_site": "Check Georgia cycling calendars"
+      "parking": "parking at high school is \"pretty far from the start/finish, and at the top of a hill",
+      "official_site": "Check Georgia cycling calendars",
+      "camping": "Camping options:** On-site camping available at Riverside Park (primitive camping and RV spaces with no electricity/water hookup"
     },
     "history": {
       "founded": null,
@@ -185,12 +190,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 90.0,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 82,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -316,29 +330,64 @@
         "label": "RideWithGPS: Homegrown Gravel Adventure 100 2025"
       },
       {
+        "url": "https://consummateathlete.com/homegrown-gravel-intel/",
+        "category": "other",
+        "label": "Consummateathlete"
+      },
+      {
+        "url": "https://www.cyclingnews.com/news/michael-garrison-lauren-de-crescenzo-repeat-as-winners-of-homegrown-gravel/",
+        "category": "other",
+        "label": "Cyclingnews"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Contents/IndexFull/8123/homegrown-gravel-adventure-heads-into-fourth-year",
+        "category": "other",
+        "label": "Granfondoguide"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Contents/IndexFull/8309/top-privateers-to-kickstart-2025-gravel-racing-season-at-georgias-homegrown-gravel-adventure",
+        "category": "other",
+        "label": "Granfondoguide"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Contents/IndexFull/8396/homegrown-gravel-adventure-recap-challenging-conditions-and-fierce-competition",
+        "category": "other",
+        "label": "Granfondoguide"
+      },
+      {
+        "url": "https://www.gravel-results.com/race/20191",
+        "category": "other",
+        "label": "Gravel-Results"
+      },
+      {
+        "url": "https://www.gravel-results.com/racer/194415",
+        "category": "other",
+        "label": "Gravel-Results"
+      },
+      {
+        "url": "https://www.gravelstoke.com/gravel-cycling-gear-blog/foco-fondo-fort-collins-colorado",
+        "category": "other",
+        "label": "Gravelstoke"
+      },
+      {
+        "url": "https://www.ohiogravelgrinders.com/event-listings/2026/2/28/homegrown-gravel-adventure",
+        "category": "other",
+        "label": "Ohiogravelgrinders"
+      },
+      {
+        "url": "https://www.trainerroad.com/forum/t/2025-best-east-coast-ish-events-gravel-or-mtb/97568",
+        "category": "community",
+        "label": "TrainerRoad"
+      },
+      {
         "url": "https://www.granfondoguide.com/Contents/IndexFull/8396/",
         "category": "community",
         "label": "granfondoguide.com: 8396"
       },
       {
-        "url": "https://www.cyclingnews.com/news/michael-garrison-lauren-de-crescenzo-repeat-as-winners-of-homegrown-gravel/",
-        "category": "community",
-        "label": "cyclingnews.com: Michael Garrison Lauren De Crescenzo Repeat As Winners Of..."
-      },
-      {
         "url": "https://jaylocycling.com/2024-border-wars-gravel-race-report/",
         "category": "community",
         "label": "jaylocycling.com: 2024 Border Wars Gravel Race Report"
-      },
-      {
-        "url": "https://consummateathlete.com/homegrown-gravel-intel/",
-        "category": "community",
-        "label": "consummateathlete.com: Homegrown Gravel Intel"
-      },
-      {
-        "url": "https://www.trainerroad.com/forum/t/2025-best-east-coast-ish-events-gravel-or-mtb/97568",
-        "category": "community",
-        "label": "trainerroad.com: 97568"
       },
       {
         "url": "https://linktr.ee/HGgravel",

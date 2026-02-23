@@ -94,7 +94,10 @@
       "score": "54 / 100",
       "one_liner": "Regional Oregon coast gravel with coastal and mountain terrain.",
       "should_you_race": "If you're in Oregon and want a unique coastal/mountain gravel challenge—yes, it's a well-organized event with beautiful scenery. If you're traveling from far away—there are more prestigious events elsewhere.",
-      "alternatives": "For better Oregon events: Oregon Trail Gravel Grinder. For similar coastal vibes: other Pacific coast gravel events."
+      "alternatives": "For better Oregon events: Oregon Trail Gravel Grinder. For similar coastal vibes: other Pacific coast gravel events.",
+      "alternative_slugs": [
+        "oregon-trail-gravel"
+      ]
     },
     "logistics": {
       "airport": "Eugene (EUG) 2 hours, or Portland (PDX) 3 hours",
@@ -179,12 +182,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 92.7,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 88,
+          "cross_reference": 50
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -309,33 +321,68 @@
       },
       {
         "url": "https://blog.sellwoodcycle.com/race-report-oregon-coast-gravel-epic/",
-        "category": "community",
-        "label": "blog.sellwoodcycle.com: Race Report Oregon Coast Gravel Epic"
+        "category": "other",
+        "label": "Blog"
       },
       {
-        "url": "https://www.joinbasecamp.com/post/shawns-story-oregon-coast-gravel-epic",
-        "category": "community",
-        "label": "joinbasecamp.com: Shawns Story Oregon Coast Gravel Epic"
+        "url": "https://strambecco.com/event/oregon-coast-gravel-epic-2/",
+        "category": "other",
+        "label": "Strambecco"
       },
       {
         "url": "https://traveloregon.com/things-to-do/outdoor-recreation/bicycling/the-oregon-coast-gravel-epic/",
-        "category": "community",
-        "label": "traveloregon.com: The Oregon Coast Gravel Epic"
-      },
-      {
-        "url": "https://www.mudslingerevents.com/oregon-coast-gravel-epic",
-        "category": "community",
-        "label": "mudslingerevents.com: Oregon Coast Gravel Epic"
-      },
-      {
-        "url": "https://www.granfondoguide.com/RaceDashboard/OregonTripleCrownSeries/1/7958/rainfall-of-biblical-proportions-slams-into-oregon-coast-gravel-epic",
-        "category": "community",
-        "label": "granfondoguide.com: Rainfall Of Biblical Proportions Slams Into Oregon Coast ..."
+        "category": "other",
+        "label": "Traveloregon"
       },
       {
         "url": "https://www.granfondoguide.com/Contents/PopUp/6651/650-riders-at-the-10th-annual-oregon-coast-gravel-epic-weekend",
+        "category": "other",
+        "label": "Granfondoguide"
+      },
+      {
+        "url": "https://www.granfondoguide.com/RaceDashboard/OregonTripleCrownSeries/1/7958/rainfall-of-biblical-proportions-slams-into-oregon-coast-gravel-epic",
+        "category": "other",
+        "label": "Granfondoguide"
+      },
+      {
+        "url": "https://www.gravel-results.com/race/18562",
+        "category": "other",
+        "label": "Gravel-Results"
+      },
+      {
+        "url": "https://www.joinbasecamp.com/post/shawns-story-oregon-coast-gravel-epic",
+        "category": "other",
+        "label": "Joinbasecamp"
+      },
+      {
+        "url": "https://www.mudslingerevents.com/oregon-coast-gravel-epic",
+        "category": "other",
+        "label": "Mudslingerevents"
+      },
+      {
+        "url": "https://www.reddit.com/r/OregonCoast/comments/bnu0ui/photo_gallery_and_recap_of_the_oregon_coast/",
         "category": "community",
-        "label": "granfondoguide.com: 650 Riders At The 10Th Annual Oregon Coast Gravel Epic We..."
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.reddit.com/r/cyclocross/comments/1mau81/the_oregon_coast_gravel_epic_im_doing_it_37_miles/",
+        "category": "community",
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/13a2jmi/vaast_a1_at_the_end_of_the_oregon_coast_gravel/",
+        "category": "community",
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/1afpi7p/oregon_coast_epic_gearing/",
+        "category": "community",
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/1ckfa4n/a_very_rainy_race_in_oregon/",
+        "category": "community",
+        "label": "Reddit"
       }
     ],
     "tire_recommendations": {

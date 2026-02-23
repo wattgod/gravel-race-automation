@@ -10,8 +10,8 @@
       "location": "Muskegon, Michigan",
       "location_badge": "MUSKEGON, MI",
       "county": "Muskegon County",
-      "date": "Late March annually",
-      "date_specific": "2025: March 30",
+      "date": "Mid-April annually",
+      "date_specific": "2026: April 12",
       "terrain_types": [
         "Michigan rolling",
         "Local event",
@@ -19,7 +19,7 @@
         "Michigan"
       ],
       "field_size": "100-200 riders",
-      "start_time": "Morning start",
+      "start_time": "10:00 AM",
       "registration": "Online. Cost: ~$50-75",
       "prize_purse": "Modest prizes",
       "aid_stations": "Multiple aid stations",
@@ -94,7 +94,11 @@
       "score": "43 / 100",
       "one_liner": "Michigan local gravel challenge.",
       "should_you_race": "If you're local to Michigan—yes, it's good value. If you're traveling—skip it.",
-      "alternatives": "For better Michigan races: Barry-Roubaix, Iceman Cometh."
+      "alternatives": "For better Michigan races: Barry-Roubaix, Iceman Cometh.",
+      "alternative_slugs": [
+        "barry-roubaix",
+        "iceman-cometh"
+      ]
     },
     "logistics": {
       "airport": "Grand Rapids (GRR) 45 minutes",
@@ -185,12 +189,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 78.7,
+        "grade": "B",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 60,
+          "citation_density": 80,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -311,29 +324,14 @@
     },
     "citations": [
       {
-        "url": "https://www.reddit.com/r/running/comments/aum5cc/spring_thaw/",
-        "category": "community",
-        "label": "reddit.com: Spring Thaw"
+        "url": "https://greenmountaingravel.com/blogs/news/spring-thaw-gravel-ride",
+        "category": "other",
+        "label": "Greenmountaingravel"
       },
       {
         "url": "https://www.ohiogravelgrinders.com/blog/2025/3/30/recap-10th-annual-great-big-spring-thaw-ride",
-        "category": "community",
-        "label": "ohiogravelgrinders.com: Recap 10Th Annual Great Big Spring Thaw Ride"
-      },
-      {
-        "url": "https://www.rocketracingmn.com/event-details/fat-happy-spring-thaw-2",
-        "category": "community",
-        "label": "rocketracingmn.com: Fat Happy Spring Thaw 2"
-      },
-      {
-        "url": "https://www.fleetfeet.com/races/pa/allison-park/102647-the-spring-thaw",
-        "category": "community",
-        "label": "fleetfeet.com: 102647 The Spring Thaw"
-      },
-      {
-        "url": "https://www.ohiogravelgrinders.com/event-listings/2026/3/28/11th-annual-great-big-spring-thaw-ride",
-        "category": "community",
-        "label": "ohiogravelgrinders.com: 11Th Annual Great Big Spring Thaw Ride"
+        "category": "other",
+        "label": "Ohiogravelgrinders"
       }
     ],
     "tire_recommendations": {

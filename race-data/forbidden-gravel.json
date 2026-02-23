@@ -19,7 +19,7 @@
         "British Columbia"
       ],
       "field_size": "50-100 riders",
-      "start_time": "Morning start",
+      "start_time": "9:00 a.m. to",
       "registration": "Online. Cost: ~$75-100 CAD",
       "prize_purse": "Modest prizes",
       "aid_stations": "Limited aid stations",
@@ -94,7 +94,11 @@
       "score": "41 / 100",
       "one_liner": "Canadian coastal gravel challenge.",
       "should_you_race": "If you're local to BC—yes, it's solid. If you're traveling—skip it.",
-      "alternatives": "For better Canadian races: Kettle Mettle, TransRockies Gravel Royale."
+      "alternatives": "For better Canadian races: Kettle Mettle, TransRockies Gravel Royale.",
+      "alternative_slugs": [
+        "kettle-mettle",
+        "transrockies-gravel-royale"
+      ]
     },
     "logistics": {
       "airport": "Comox (YQQ) 30 minutes",
@@ -185,12 +189,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 86.7,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -317,38 +330,68 @@
       },
       {
         "url": "https://bookofchad.ca/2023/06/22/forbidden-gravel-experiance/",
-        "category": "community",
-        "label": "bookofchad.ca: Forbidden Gravel Experiance"
+        "category": "other",
+        "label": "Bookofchad"
       },
       {
         "url": "https://cyclingbc.net/event/forbidden-gravel-experience-2/",
-        "category": "community",
-        "label": "cyclingbc.net: Forbidden Gravel Experience 2"
+        "category": "other",
+        "label": "Cyclingbc"
       },
       {
         "url": "https://cyclingbc.net/event/forbidden-gravel-experience-2025/",
-        "category": "community",
-        "label": "cyclingbc.net: Forbidden Gravel Experience 2025"
+        "category": "other",
+        "label": "Cyclingbc"
       },
       {
         "url": "https://vanislander.com/festivals-events/forbidden-gravel-experience",
-        "category": "community",
-        "label": "vanislander.com: Forbidden Gravel Experience"
+        "category": "other",
+        "label": "Vanislander"
       },
       {
         "url": "https://www.bcgravelseries.com/forbiddengravel",
+        "category": "other",
+        "label": "Bcgravelseries"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/12218/forbidden-gravel",
+        "category": "other",
+        "label": "Granfondoguide"
+      },
+      {
+        "url": "https://www.reddit.com/r/FixedGearBicycle/comments/ban435/just_a_bit_dirty_after_a_forbidden_gravel_ride/",
         "category": "community",
-        "label": "bcgravelseries.com: Forbiddengravel"
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.reddit.com/r/forbiddensnacks/comments/87v11e/forbidden_gravel/",
+        "category": "community",
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.reddit.com/r/forbiddensnacks/comments/z622xd/forbidden_gravel_salmon/",
+        "category": "community",
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/1dki88d/the_forbidden_gravel_is_calling_to_me/",
+        "category": "community",
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/vgymh0/finished_my_first_gravel_race_forbidden_gravel/",
+        "category": "community",
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/xu5ttb/forbidden_gravel/",
+        "category": "community",
+        "label": "Reddit"
       },
       {
         "url": "https://eastoncycling.com/blogs/news/can-gravel-suspension-help-you-climb-faster",
         "category": "community",
         "label": "eastoncycling.com: Can Gravel Suspension Help You Climb Faster"
-      },
-      {
-        "url": "https://www.granfondoguide.com/Events/Index/12218/forbidden-gravel",
-        "category": "community",
-        "label": "granfondoguide.com: Forbidden Gravel"
       }
     ],
     "tire_recommendations": {

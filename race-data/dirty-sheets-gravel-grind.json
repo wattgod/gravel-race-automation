@@ -19,7 +19,7 @@
         "Metro Atlanta area"
       ],
       "field_size": "100-300 riders",
-      "start_time": "Morning start",
+      "start_time": "8:30am for",
       "registration": "Online. Cost: ~$60-100",
       "prize_purse": "Modest prizes",
       "aid_stations": "Multiple aid stations",
@@ -94,15 +94,20 @@
       "score": "47 / 100",
       "one_liner": "Rolling Georgia gravel near Atlanta in Chattahoochee Hills.",
       "should_you_race": "If you're in Georgia and want a local rolling gravel event near Atlanta—yes, it's a solid regional race. If you're from out of state—there are better options.",
-      "alternatives": "For better Southeast events: Gravel Worlds, Pisgah Monster-Cross, Hot Springs Gravel Gauntlet. For similar regional events: other Georgia gravel races."
+      "alternatives": "For better Southeast events: Gravel Worlds, Pisgah Monster-Cross, Hot Springs Gravel Gauntlet. For similar regional events: other Georgia gravel races.",
+      "alternative_slugs": [
+        "garmin-gravel-worlds",
+        "hot-springs-gravel-gauntlet"
+      ]
     },
     "logistics": {
       "airport": "Atlanta (ATL) 45 minutes",
       "lodging_strategy": "Atlanta has extensive lodging options. Chattahoochee Hills has limited options.",
       "food": "Moderate dining options. Stock nutrition.",
       "packet_pickup": "Day before typically",
-      "parking": "At start/finish",
-      "official_site": "Check Georgia cycling calendars"
+      "parking": "park at Cochran Mill Park (https://www",
+      "official_site": "Check Georgia cycling calendars",
+      "camping": "Camping now available at MTB Atlanta HQ\n- Friday shakeout ride offered\n- Sunday coffee ride added\n- $3,000 prize money for 100-m"
     },
     "history": {
       "founded": null,
@@ -185,12 +190,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 90.0,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 82,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -311,29 +325,29 @@
     },
     "citations": [
       {
-        "url": "https://www.mtbproject.com/trail/7012793/dirty-sheets-gravel-loop",
-        "category": "community",
-        "label": "mtbproject.com: Dirty Sheets Gravel Loop"
-      },
-      {
-        "url": "https://results.bikereg.com/race/19779",
-        "category": "community",
-        "label": "results.bikereg.com: 19779"
-      },
-      {
-        "url": "https://www.granfondoguide.com/Events/Index/12001/dirty-sheets-gravel-grind",
-        "category": "community",
-        "label": "granfondoguide.com: Dirty Sheets Gravel Grind"
+        "url": "https://ridewithgps.com/routes/53420740",
+        "category": "route",
+        "label": "RideWithGPS: Dirty Sheets Gravel Grinder 2025 - 62"
       },
       {
         "url": "https://brag.org/dirty-sheets-bicycle-ride-guide/",
-        "category": "community",
-        "label": "brag.org: Dirty Sheets Bicycle Ride Guide"
+        "category": "other",
+        "label": "Brag"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/12001/dirty-sheets-gravel-grind",
+        "category": "other",
+        "label": "Granfondoguide"
       },
       {
         "url": "https://www.gravel-results.com/race/19779",
-        "category": "community",
-        "label": "gravel-results.com: 19779"
+        "category": "other",
+        "label": "Gravel-Results"
+      },
+      {
+        "url": "https://www.mtbproject.com/trail/7012793/dirty-sheets-gravel-loop",
+        "category": "other",
+        "label": "Mtbproject"
       }
     ],
     "tire_recommendations": {

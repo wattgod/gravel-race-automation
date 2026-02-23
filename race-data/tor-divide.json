@@ -94,7 +94,10 @@
       "score": "46 / 100",
       "one_liner": "UK Peak District gravel challenge.",
       "should_you_race": "If you're local to UK—yes, it's solid. If you're traveling internationally—skip it.",
-      "alternatives": "For better UK races: Lauf Gritfest."
+      "alternatives": "For better UK races: Lauf Gritfest.",
+      "alternative_slugs": [
+        "lauf-gritfest"
+      ]
     },
     "logistics": {
       "airport": "Manchester (MAN) 60 minutes",
@@ -102,7 +105,8 @@
       "food": "Peak District has dining. Stock nutrition.",
       "packet_pickup": "Day of typically",
       "parking": "At start/finish",
-      "official_site": "Check Tor Divide website"
+      "official_site": "Check Tor Divide website",
+      "camping": "camping at an event village in Bamford on Friday night** before the Saturday morning start"
     },
     "history": {
       "founded": null,
@@ -185,12 +189,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 80.4,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 60,
+          "citation_density": 80,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 50
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -311,19 +324,19 @@
     },
     "citations": [
       {
+        "url": "https://road.cc/content/blog/taking-on-inaugural-tor-divide-bikepacking-peak-district-308797",
+        "category": "other",
+        "label": "Road"
+      },
+      {
         "url": "https://tordivide.co.uk/resources/tor-divide-reflections-2025",
-        "category": "community",
-        "label": "tordivide.co.uk: Tor Divide Reflections 2025"
+        "category": "other",
+        "label": "Tordivide"
       },
       {
         "url": "https://www.gravelunion.cc/article/ride-report-tor-divide-2024",
-        "category": "community",
-        "label": "gravelunion.cc: Ride Report Tor Divide 2024"
-      },
-      {
-        "url": "https://road.cc/content/blog/taking-on-inaugural-tor-divide-bikepacking-peak-district-308797",
-        "category": "community",
-        "label": "road.cc: Taking On Inaugural Tor Divide Bikepacking Peak District ..."
+        "category": "other",
+        "label": "Gravelunion"
       },
       {
         "url": "https://www.gravelunion.cc/article/ride-report-tor-ide-2024",

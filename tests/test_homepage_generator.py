@@ -54,8 +54,8 @@ from generate_homepage import (
     HERO_VIZ_LABELS,
     HERO_VIZ_TOOLTIPS,
     HERO_VIZ_ARCHETYPES,
-    GA4_MEASUREMENT_ID,
 )
+from brand_tokens import GA_MEASUREMENT_ID
 
 
 # ── Fixtures ─────────────────────────────────────────────────
@@ -349,7 +349,7 @@ class TestSectionBuilders:
 
     def test_training_cta_links(self):
         html = build_training_cta()
-        assert "/training-plans/" in html
+        assert "/questionnaire/" in html
 
     def test_email_capture_has_content(self):
         html = build_email_capture()
@@ -529,7 +529,7 @@ class TestFullPage:
         assert "fonts.googleapis.com" not in homepage_html
 
     def test_has_ga4(self, homepage_html):
-        assert GA4_MEASUREMENT_ID in homepage_html
+        assert GA_MEASUREMENT_ID in homepage_html
         assert "googletagmanager.com/gtag/js" in homepage_html
 
     def test_has_all_sections(self, homepage_html):
@@ -901,7 +901,7 @@ class TestSidebar:
     def test_sidebar_cta(self, stats, race_index, upcoming):
         html = build_sidebar(stats, race_index, upcoming)
         assert "gg-hp-sidebar-cta" in html
-        assert "/training-plans/" in html
+        assert "/questionnaire/" in html
 
     def test_sidebar_coming_up(self, stats, race_index, upcoming):
         html = build_sidebar(stats, race_index, upcoming)

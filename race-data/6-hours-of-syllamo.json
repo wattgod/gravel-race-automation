@@ -19,7 +19,7 @@
         "Regional event"
       ],
       "field_size": "100-200 riders",
-      "start_time": "Morning start",
+      "start_time": "9:00 AM",
       "registration": "Online. Cost: ~$60-100",
       "prize_purse": "Prizes for most laps",
       "aid_stations": "Lap-based aid",
@@ -185,12 +185,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 72.0,
+        "grade": "B",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 60,
+          "citation_density": 20,
+          "temporal_depth": 50,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 88,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -309,48 +318,7 @@
         "explanation": "Registration runs $60-100. Mountain View, Arkansas location keeps travel and lodging costs modest. Free basecamp camping reduces accommodation expenses. However, no cycling-specific cost data available as all documented events focus on running gear and preparation needs. Similar expense level to Belgian Waffle Ride San Diego."
       }
     },
-    "citations": [
-      {
-        "url": "https://lilestrials.com/blog/race-report-3-days-of-syllamo",
-        "category": "community",
-        "label": "lilestrials.com: Race Report 3 Days Of Syllamo"
-      },
-      {
-        "url": "http://www.dirtgirldiary.com/2013/05/silly-slippery-syllamo.html",
-        "category": "community",
-        "label": "dirtgirldiary.com: Silly Slippery Syllamo.Html"
-      },
-      {
-        "url": "http://www.brickhouseracing.com/?paged=14",
-        "category": "community",
-        "label": "brickhouseracing.com"
-      },
-      {
-        "url": "http://www.brickhouseracing.com/?paged=28",
-        "category": "community",
-        "label": "brickhouseracing.com"
-      },
-      {
-        "url": "http://www.brickhouseracing.com/?p=1885",
-        "category": "community",
-        "label": "brickhouseracing.com"
-      },
-      {
-        "url": "http://www.markgullett.com/2012/04/2012-ouachita-challenge-race-report.html",
-        "category": "community",
-        "label": "markgullett.com: 2012 Ouachita Challenge Race Report.Html"
-      },
-      {
-        "url": "http://www.markgullett.com/2010/03/2010-spa-city-6-hour-race-recap.html",
-        "category": "community",
-        "label": "markgullett.com: 2010 Spa City 6 Hour Race Recap.Html"
-      },
-      {
-        "url": "http://www.brickhouseracing.com/?p=3398",
-        "category": "community",
-        "label": "brickhouseracing.com"
-      }
-    ],
+    "citations": [],
     "tire_recommendations": {
       "generated_at": "2026-02-19",
       "primary": [

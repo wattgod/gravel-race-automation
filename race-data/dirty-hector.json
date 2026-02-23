@@ -19,7 +19,7 @@
         "Rolling to hilly"
       ],
       "field_size": "100-300 riders",
-      "start_time": "Morning start",
+      "start_time": "11:00 AM",
       "registration": "Online. Cost: ~$80-120",
       "prize_purse": "State championship prizes",
       "aid_stations": "Multiple aid stations",
@@ -93,7 +93,12 @@
       "score": "53 / 100",
       "one_liner": "New York State Championship gravel with significant climbing in Finger Lakes.",
       "should_you_race": "If you're in New York and want state championship status—yes, it's a well-organized event with genuine climbing. If you're from out of state—there are more prestigious events elsewhere.",
-      "alternatives": "For better Northeast events: Rasputitsa, Vermont Overland, Grinduro. For similar state championships: other state championship events."
+      "alternatives": "For better Northeast events: Rasputitsa, Vermont Overland, Grinduro. For similar state championships: other state championship events.",
+      "alternative_slugs": [
+        "grinduro",
+        "rasputitsa",
+        "vermont-overland"
+      ]
     },
     "logistics": {
       "airport": "Ithaca (ITH) 45 min, or Syracuse (SYR) 1 hour",
@@ -178,12 +183,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 88.2,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 80,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 88,
+          "cross_reference": 50
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -307,39 +321,34 @@
         "label": "RideWithGPS: Dirty Hector"
       },
       {
+        "url": "https://blackpearlbikes.com/dirty-hector-race-recap",
+        "category": "other",
+        "label": "Blackpearlbikes"
+      },
+      {
         "url": "https://cycle-cny.com/event/dirty-hector/",
-        "category": "community",
-        "label": "cycle-cny.com: Dirty Hector"
-      },
-      {
-        "url": "https://www.webscorer.com/racedetails?raceid=391470&did=519844",
-        "category": "community",
-        "label": "webscorer.com: Racedetails"
-      },
-      {
-        "url": "https://www.bikereg.com/dirtyhector2026",
-        "category": "community",
-        "label": "bikereg.com: Dirtyhector2026"
+        "category": "other",
+        "label": "Cycle-Cny"
       },
       {
         "url": "https://nysbra.com/2025/06/30/gravel-champions-dirty-hector-2025/",
-        "category": "community",
-        "label": "nysbra.com: Gravel Champions Dirty Hector 2025"
+        "category": "other",
+        "label": "Nysbra"
       },
       {
-        "url": "https://blackpearlbikes.com/dirty-hector-race-recap",
-        "category": "community",
-        "label": "blackpearlbikes.com: Dirty Hector Race Recap"
+        "url": "https://www.granfondoguide.com/Events/Index/12417/dirty-hector",
+        "category": "other",
+        "label": "Granfondoguide"
+      },
+      {
+        "url": "https://www.strava.com/routes/3226938286173883882",
+        "category": "activity",
+        "label": "Strava"
       },
       {
         "url": "https://www.webscorer.com/race?raceid=391470",
         "category": "community",
         "label": "webscorer.com: Race"
-      },
-      {
-        "url": "https://www.granfondoguide.com/Events/Index/12417/dirty-hector",
-        "category": "community",
-        "label": "granfondoguide.com: Dirty Hector"
       }
     ],
     "tire_recommendations": {

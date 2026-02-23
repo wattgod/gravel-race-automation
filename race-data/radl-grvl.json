@@ -120,7 +120,13 @@
       ],
       "signature_challenge": "130 km + 2,500 m cumulative elevation. Rolling Australian bush.",
       "ridewithgps_id": "53794771",
-      "ridewithgps_name": "2026 RADL GRVL p/b Quad Lock Blue Adelaide Hills Course"
+      "ridewithgps_name": "2026 RADL GRVL p/b Quad Lock Blue Adelaide Hills Course",
+      "surface_breakdown": {
+        "overall": {
+          "gravel": 85,
+          "dirt": 15
+        }
+      }
     },
     "history": {
       "founded": "~2020",
@@ -140,19 +146,19 @@
       ],
       "research_date": "2026-02-04",
       "research_strength": {
-        "overall": 0,
-        "grade": "pending",
-        "weakest": "pending",
+        "overall": 99.1,
+        "grade": "A",
+        "weakest": "completeness",
         "has_research_dump": true,
         "dimensions": {
-          "source_diversity": 0,
-          "citation_density": 0,
-          "temporal_depth": 0,
-          "specificity": 0,
-          "statistical_backing": 0,
-          "voice_authenticity": 0,
-          "completeness": 0,
-          "cross_reference": 0
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 100,
+          "completeness": 94,
+          "cross_reference": 100
         },
         "scored_at": "2026-02-04"
       }
@@ -219,7 +225,10 @@
       "score": "66 / 100",
       "one_liner": "Australia's gravel monument that kicks off the international season with Adelaide Hills punishment and post-race shiraz.",
       "should_you_race": "If you can handle 2,300 meters of climbing on sketchy gravel roads while jetlagged, the Blue course rewards masochists with proper suffering through wine country. The Red gives you 60% of the pain for half the bragging rights. Skip it if you need perfect organization—this is only three years old and still figuring things out.",
-      "alternatives": "Dirty Kanza offers similar distance with better logistics and flatter terrain if you want to avoid the climbs. Gralloch in Scotland delivers comparable suffering through equally remote terrain, just swap wine country for whisky country and add biblical weather."
+      "alternatives": "Dirty Kanza offers similar distance with better logistics and flatter terrain if you want to avoid the climbs. Gralloch in Scotland delivers comparable suffering through equally remote terrain, just swap wine country for whisky country and add biblical weather.",
+      "alternative_slugs": [
+        "unbound-200"
+      ]
     },
     "unsplash_photos": [
       {
@@ -234,11 +243,6 @@
     ],
     "citations": [
       {
-        "url": "https://www.radlgrvl.com.au",
-        "category": "official",
-        "label": "Official Website"
-      },
-      {
         "url": "https://ridewithgps.com/routes/53794771",
         "category": "route",
         "label": "RideWithGPS: 2026 RADL GRVL p/b Quad Lock Blue Adelaide Hills Course"
@@ -249,79 +253,14 @@
         "label": "Reddit"
       },
       {
-        "url": "https://ridewithgps.com",
-        "category": "route",
-        "label": "RideWithGPS"
-      },
-      {
-        "url": "https://www.cyclingtips.com",
-        "category": "media",
-        "label": "CyclingTips"
-      },
-      {
-        "url": "https://www.strava.com",
-        "category": "activity",
-        "label": "Strava"
-      },
-      {
-        "url": "https://www.trainerroad.com",
-        "category": "community",
-        "label": "TrainerRoad"
-      },
-      {
-        "url": "https://www.velonews.com",
-        "category": "media",
-        "label": "VeloNews"
-      },
-      {
-        "url": "https://selfrighteouscyclist.blogspot.com/2026/01/radl-grvl-2026-race-review.html",
-        "category": "community",
-        "label": "selfrighteouscyclist.blogspot.com: Radl Grvl 2026 Race Review.Html"
-      },
-      {
-        "url": "https://www.radlgrvl.com/",
-        "category": "community",
-        "label": "radlgrvl.com"
-      },
-      {
-        "url": "https://velo.outsideonline.com/gravel/gravel-racing/brodie-chapman-and-tasman-nankervis-win-inaugural-radl-grvl/",
-        "category": "community",
-        "label": "velo.outsideonline.com: Brodie Chapman And Tasman Nankervis Win Inaugural Radl Grvl"
-      },
-      {
-        "url": "https://escapecollective.com/pro-bikes-of-radl-grvl-2026/",
-        "category": "community",
-        "label": "escapecollective.com: Pro Bikes Of Radl Grvl 2026"
-      },
-      {
-        "url": "https://www.progravelmagazine.com/post/radl-grvl-p-b-quad-lock-2026",
-        "category": "community",
-        "label": "progravelmagazine.com: Radl Grvl P B Quad Lock 2026"
-      },
-      {
-        "url": "https://www.gravelcyclist.com/videos/radl-grvl-course-preview-adelaide-south-australia/",
-        "category": "community",
-        "label": "gravelcyclist.com: Radl Grvl Course Preview Adelaide South Australia"
+        "url": "https://sportivebreaks.com/en-au/gravel/radl-grvl-2025/",
+        "category": "other",
+        "label": "Sportivebreaks"
       },
       {
         "url": "https://www.radlgrvl.com/radl-overview",
         "category": "community",
         "label": "radlgrvl.com: Radl Overview"
-      },
-      {
-        "url": "https://www.travelandtourworld.com/news/article/mclaren-vale-gravel-race-ignites-2026-season-with-record-international-lineup-and-epic-victory-in-south-australia/",
-        "category": "community",
-        "label": "travelandtourworld.com: Mclaren Vale Gravel Race Ignites 2026 Season With Record ..."
-      },
-      {
-        "url": "https://sportivebreaks.com/en-au/gravel/radl-grvl-2025/",
-        "category": "community",
-        "label": "sportivebreaks.com: Radl Grvl 2025"
-      },
-      {
-        "url": "https://www.radlgrvl.com",
-        "category": "community",
-        "label": "radlgrvl.com"
       }
     ],
     "tire_recommendations": {

@@ -185,12 +185,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 92.3,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 100,
+          "completeness": 82,
+          "cross_reference": 50
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -316,9 +325,24 @@
         "label": "RideWithGPS: Gravel One Fifty 2025 150 km (onder voorbehoud)"
       },
       {
+        "url": "https://cyclingflash.com/race/uci-gravel-world-series-gravel-one-fifty-2025",
+        "category": "other",
+        "label": "Cyclingflash"
+      },
+      {
+        "url": "https://ucigravelworldseries.com/en/roden/",
+        "category": "other",
+        "label": "Ucigravelworldseries"
+      },
+      {
+        "url": "https://www.cyclingnews.com/races/uci-gravel-world-series-events-2025/gravel-one-fifty/results/",
+        "category": "other",
+        "label": "Cyclingnews"
+      },
+      {
         "url": "https://www.progravelmagazine.com/post/sun-speed-and-gravel-2025-gravel-one-fifty-race-report",
-        "category": "community",
-        "label": "progravelmagazine.com: Sun Speed And Gravel 2025 Gravel One Fifty Race Report"
+        "category": "other",
+        "label": "Progravelmagazine"
       },
       {
         "url": "https://www.youtube.com/watch?v=KsYGQOq6-x4",
@@ -334,11 +358,6 @@
         "url": "https://www.youtube.com/watch?v=HCZo4FhTGps",
         "category": "community",
         "label": "youtube.com: Watch"
-      },
-      {
-        "url": "https://ucigravelworldseries.com/en/roden/",
-        "category": "community",
-        "label": "ucigravelworldseries.com: Roden"
       }
     ],
     "tire_recommendations": {

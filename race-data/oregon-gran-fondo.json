@@ -19,7 +19,7 @@
         "Rural Oregon"
       ],
       "field_size": "100-250 riders",
-      "start_time": "Morning start",
+      "start_time": "8:00 AM",
       "registration": "Online. Cost: ~$80-100",
       "prize_purse": "None or minimal",
       "aid_stations": "Multiple aid stations",
@@ -92,7 +92,10 @@
       "score": "51 / 100",
       "one_liner": "Regional Oregon Cascade foothills gravel near Eugene.",
       "should_you_race": "If you're in Oregon or the Eugene area and want a gravel challenge—yes, it's a well-organized event. If you're traveling from far away—there are more prestigious events elsewhere.",
-      "alternatives": "For better Oregon events: Oregon Trail Gravel Grinder. For similar regional vibes: other Pacific Northwest events."
+      "alternatives": "For better Oregon events: Oregon Trail Gravel Grinder. For similar regional vibes: other Pacific Northwest events.",
+      "alternative_slugs": [
+        "oregon-trail-gravel"
+      ]
     },
     "logistics": {
       "airport": "Eugene (EUG) 30 min",
@@ -100,7 +103,8 @@
       "food": "Small city with dining options.",
       "packet_pickup": "Day before typically",
       "parking": "At start/finish",
-      "official_site": "Check Oregon cycling calendars"
+      "official_site": "Check Oregon cycling calendars",
+      "camping": "camping available at Bohemia Park (20 spaces for self-contained vehicles under 20 feet in gravel lot off East Monroe and S 8th"
     },
     "history": {
       "founded": null,
@@ -176,12 +180,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 93.0,
+        "grade": "A",
+        "weakest": "voice_authenticity",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 82,
+          "cross_reference": 75
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -334,34 +347,49 @@
         "label": "RideWithGPS: Oregon Gran Fondo Medio Route 2025"
       },
       {
-        "url": "https://www.reddit.com/r/AdvancedRunning/comments/1ch0mkt/race_report_eugene_marathon_huge_pr_on_a_cross/",
-        "category": "community",
-        "label": "reddit.com: Race Report Eugene Marathon Huge Pr On A Cross"
-      },
-      {
-        "url": "https://www.granfondoguide.com/RaceDashboard/OregonTripleCrownSeries/1/8438/the-oregon-gran-fondo-a-ride-for-everyone",
-        "category": "community",
-        "label": "granfondoguide.com: The Oregon Gran Fondo A Ride For Everyone"
+        "url": "https://aduckonabike.substack.com/p/oregon-gran-fondo-adventure-edition",
+        "category": "other",
+        "label": "Aduckonabike"
       },
       {
         "url": "https://argonautcycles.com/the-soul-of-the-gran-fondo-from-italian-origins-to-oregon-roads/",
-        "category": "community",
-        "label": "argonautcycles.com: The Soul Of The Gran Fondo From Italian Origins To Oregon..."
+        "category": "other",
+        "label": "Argonautcycles"
       },
       {
-        "url": "https://www.mudslingerevents.com/oregon-gran-fondo",
-        "category": "community",
-        "label": "mudslingerevents.com: Oregon Gran Fondo"
+        "url": "https://unlimitedbiking.com/events/oregon-gran-fondo-registration/",
+        "category": "other",
+        "label": "Unlimitedbiking"
       },
       {
         "url": "https://www.granfondoguide.com/Events/Index/455/the-oregon-gran-fondo",
-        "category": "community",
-        "label": "granfondoguide.com: The Oregon Gran Fondo"
+        "category": "other",
+        "label": "Granfondoguide"
       },
       {
-        "url": "https://aduckonabike.substack.com/p/oregon-gran-fondo-adventure-edition",
+        "url": "https://www.granfondoguide.com/RaceDashboard/OregonTripleCrownSeries/1/8438/the-oregon-gran-fondo-a-ride-for-everyone",
+        "category": "other",
+        "label": "Granfondoguide"
+      },
+      {
+        "url": "https://www.mudslingerevents.com/oregon-gran-fondo",
+        "category": "other",
+        "label": "Mudslingerevents"
+      },
+      {
+        "url": "https://www.racecenter.com/cycling/oregon-gran-fondo",
+        "category": "other",
+        "label": "Racecenter"
+      },
+      {
+        "url": "https://www.reddit.com/r/bicycling/comments/3a7d7q/oregon_gran_fondo_looks_awesome/",
         "category": "community",
-        "label": "aduckonabike.substack.com: Oregon Gran Fondo Adventure Edition"
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.reddit.com/r/AdvancedRunning/comments/1ch0mkt/race_report_eugene_marathon_huge_pr_on_a_cross/",
+        "category": "community",
+        "label": "reddit.com: Race Report Eugene Marathon Huge Pr On A Cross"
       },
       {
         "url": "https://www.youtube.com/watch?v=DM7k-BFiiic",

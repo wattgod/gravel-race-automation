@@ -94,7 +94,11 @@
       "score": "56 / 100",
       "one_liner": "French Alpine gravel.",
       "should_you_race": "If you're in France/Europe—yes, the Alps are worth it. If you're international—there are better options.",
-      "alternatives": "For better value: 66° South Pyrénées. For similar Alpine terrain: Gravel Suisse."
+      "alternatives": "For better value: 66° South Pyrénées. For similar Alpine terrain: Gravel Suisse.",
+      "alternative_slugs": [
+        "66-south-pyrenees",
+        "gravel-suisse"
+      ]
     },
     "logistics": {
       "airport": "Geneva (GVA) or Lyon (LYS) depending on location",
@@ -185,12 +189,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 81.7,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 80,
+          "citation_density": 80,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -311,34 +324,29 @@
     },
     "citations": [
       {
-        "url": "https://road.cc/content/blog/200639-la-resistance-close-futile",
-        "category": "community",
-        "label": "road.cc: 200639 La Resistance Close Futile"
-      },
-      {
         "url": "https://www.cyclist.co.uk/in-depth/la-resistance-sportive-vive-la-resistance",
-        "category": "community",
-        "label": "cyclist.co.uk: La Resistance Sportive Vive La Resistance"
-      },
-      {
-        "url": "https://www.komoot.com/collection/2300993/tour-de-la-resistance-a-gravel-bikepacking-loop-above-lake-annecy",
-        "category": "community",
-        "label": "komoot.com: Tour De La Resistance A Gravel Bikepacking Loop Above Lak..."
-      },
-      {
-        "url": "https://www.gravelunion.cc/article/la-resistance",
-        "category": "community",
-        "label": "gravelunion.cc: La Resistance"
-      },
-      {
-        "url": "https://www.granfondoguide.com/Events/Index/5192/la-resistance",
-        "category": "community",
-        "label": "granfondoguide.com: La Resistance"
+        "category": "other",
+        "label": "Cyclist"
       },
       {
         "url": "https://www.freewheelingfrance.com/blog/la-resistance.html",
-        "category": "community",
-        "label": "freewheelingfrance.com: La Resistance.Html"
+        "category": "other",
+        "label": "Freewheelingfrance"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/5192/la-resistance",
+        "category": "other",
+        "label": "Granfondoguide"
+      },
+      {
+        "url": "https://www.gravelunion.cc/article/la-resistance",
+        "category": "other",
+        "label": "Gravelunion"
+      },
+      {
+        "url": "https://www.komoot.com/collection/2300993/tour-de-la-resistance-a-gravel-bikepacking-loop-above-lake-annecy",
+        "category": "other",
+        "label": "Komoot"
       }
     ],
     "tire_recommendations": {

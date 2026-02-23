@@ -94,7 +94,10 @@
       "score": "49 / 100",
       "one_liner": "Welsh mountain gravel in Cambrian Mountains.",
       "should_you_race": "If you're in the UK and want a Welsh mountain event—yes, it's solid. If you're international—there are better options.",
-      "alternatives": "For better UK events: Dirty Reiver. For similar mountain events: other UK gravel races."
+      "alternatives": "For better UK events: Dirty Reiver. For similar mountain events: other UK gravel races.",
+      "alternative_slugs": [
+        "dirty-reiver"
+      ]
     },
     "logistics": {
       "airport": "Cardiff (CWL) 2 hours or Birmingham (BHX) 2 hours",
@@ -102,7 +105,8 @@
       "food": "Limited dining. Stock nutrition.",
       "packet_pickup": "Day before typically",
       "parking": "At start/finish",
-      "official_site": "Check Lauf Gritfest website"
+      "official_site": "Check Lauf Gritfest website",
+      "camping": "Campsite opens Friday 12:00, closes Monday 11:00"
     },
     "history": {
       "founded": null,
@@ -185,12 +189,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 91.8,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 82,
+          "cross_reference": 50
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -262,7 +275,7 @@
       },
       "technicality": {
         "score": 3,
-        "explanation": "Rachel Sokal describes 'nearly 20 km of undulating trails on ever changing grades of gravel' as epic terrain. Access to Day 1's final stage requires 'winching up a 20% gradient climb' — this isn't fire road gravel. Similar technical demands to Gravel Worlds. As Rachel Sokal puts it: \"Day two was a much drier and shorter affair although the fact that the 60 km route included 1,500 m of climbing meant I continued to curse my relaxed attitude to selecting gearing.\""
+        "explanation": "Rachel Sokal describes 'nearly 20 km of undulating trails on ever changing grades of gravel' as epic terrain. Access to Day 1's final stage requires 'winching up a 20% gradient climb' — this isn't fire road gravel. Similar technical demands to Gravel Worlds. As Rachel Sokal puts it: \"Day two was a much drier and shorter affair although the 60 km route included 1,500 m of climbing, which meant I continued to curse my relaxed attitude to selecting gearing.\""
       },
       "elevation": {
         "score": 4,
@@ -316,29 +329,54 @@
         "label": "RideWithGPS: Lauf Gritfest 2019 - Day 1 (copy) (copy)"
       },
       {
-        "url": "https://road.cc/content/feature/why-i-gravel-weekend-lauf-gritfest-velocio-314643",
-        "category": "community",
-        "label": "road.cc: Why I Gravel Weekend Lauf Gritfest Velocio 314643"
+        "url": "https://gravelunion.cc/article/ride-report%E2%80%93gritfest-2022",
+        "category": "other",
+        "label": "Gravelunion"
       },
       {
         "url": "https://gravelunion.cc/article/ride-report–gritfest-2022",
-        "category": "community",
-        "label": "gravelunion.cc: Ride Report–Gritfest 2022"
+        "category": "other",
+        "label": "Gravelunion"
       },
       {
-        "url": "https://www.moredirt.com/article/Lauf-Gritfest-returns---bigger-and-better/7944/",
-        "category": "community",
-        "label": "moredirt.com: 7944"
+        "url": "https://road.cc/content/feature/why-i-gravel-weekend-lauf-gritfest-velocio-314643",
+        "category": "other",
+        "label": "Road"
       },
       {
-        "url": "https://gritfest.co.uk/",
-        "category": "community",
-        "label": "gritfest.co.uk"
+        "url": "https://www.breconoak.com/running-and-cycling-events/lauf-gritfest",
+        "category": "other",
+        "label": "Breconoak"
+      },
+      {
+        "url": "https://www.eventrac.co.uk/e/lauf-gritfest-8732",
+        "category": "other",
+        "label": "Eventrac"
+      },
+      {
+        "url": "https://www.eventrac.co.uk/e/lauf-gritfest-8732/faqs",
+        "category": "other",
+        "label": "Eventrac"
+      },
+      {
+        "url": "https://www.eventrac.co.uk/e/lauf-gritfest-8732/results",
+        "category": "other",
+        "label": "Eventrac"
       },
       {
         "url": "https://www.granfondo.com/events/lauf-gritfest-2025/2025-06-20/6908/cycling",
+        "category": "other",
+        "label": "Granfondo"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/8425/lauf-gritfest",
+        "category": "other",
+        "label": "Granfondoguide"
+      },
+      {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/1170ngs/lauf_gritfest_place_available/",
         "category": "community",
-        "label": "granfondo.com: Cycling"
+        "label": "Reddit"
       }
     ],
     "tire_recommendations": {

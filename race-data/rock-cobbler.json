@@ -19,7 +19,7 @@
         "Havilah climb"
       ],
       "field_size": "600+ riders",
-      "start_time": "Saturday morning — check official website",
+      "start_time": "6:30am",
       "registration": "Online. Cost: $80-$120",
       "prize_purse": "None",
       "aid_stations": "Multiple on course",
@@ -98,7 +98,7 @@
       "packet_pickup": "Friday at expo. Vendor expo.",
       "travel_summary": "Bakersfield or LA airports. Rental car recommended. Bakersfield affordable. Expo Friday. Race Saturday.",
       "food_options": "Aid stations on course. Post-race BBQ and beer at finish.",
-      "camping": "Check official website",
+      "camping": "camping at venue: $50 per vehicle per night (Saturday option for 2026)[2]",
       "official_site": "https://www.rockcobbler.com"
     },
     "course_description": {
@@ -125,7 +125,14 @@
       ],
       "signature_challenge": "February weather roulette. Chunky rocks. Early season fitness test.",
       "ridewithgps_id": "45578777",
-      "ridewithgps_name": "2024  Rock Cobbler - GBC"
+      "ridewithgps_name": "2024  Rock Cobbler - GBC",
+      "surface_breakdown": {
+        "overall": {
+          "gravel": 60,
+          "dirt": 30,
+          "pavement": 10
+        }
+      }
     },
     "history": {
       "founded": "2012",
@@ -145,18 +152,18 @@
       ],
       "research_date": "2026-02-04",
       "research_strength": {
-        "overall": 97.5,
+        "overall": 96.1,
         "grade": "A",
-        "weakest": "temporal_depth",
+        "weakest": "voice_authenticity",
         "has_research_dump": true,
         "dimensions": {
           "source_diversity": 100,
           "citation_density": 100,
-          "temporal_depth": 75,
+          "temporal_depth": 100,
           "specificity": 100,
           "statistical_backing": 100,
-          "voice_authenticity": 100,
-          "completeness": 100,
+          "voice_authenticity": 70,
+          "completeness": 94,
           "cross_reference": 100
         },
         "scored_at": "2026-02-04"
@@ -224,7 +231,11 @@
       "score": "69 / 100",
       "one_liner": "The gravel scene's greatest shitshow — equal parts bike race, agricultural obstacle course, and fever dream cooked up by someone who thinks cyclocross isn't weird enough.",
       "should_you_race": "If you need your races predictable and your routes announced more than a week out, keep scrolling. This is for riders who want their fitness tested by 30% run-ups, cattle dodging, and whatever Sam Ames dreamed up the night before. Your FTP matters less than your ability to laugh while hike-a-biking through a ball pit. Show up undertrained and the scree fields will humble you in ways Strava can't measure.",
-      "alternatives": "Belgian Waffle Ride gives you similar unpredictability with better production value and fewer livestock encounters. Crusher in the Tushar delivers comparable suffering with actual mountain views instead of Bakersfield's agricultural moonscape."
+      "alternatives": "Belgian Waffle Ride gives you similar unpredictability with better production value and fewer livestock encounters. Crusher in the Tushar delivers comparable suffering with actual mountain views instead of Bakersfield's agricultural moonscape.",
+      "alternative_slugs": [
+        "bwr-california",
+        "crusher-in-the-tushar"
+      ]
     },
     "unsplash_photos": [
       {
@@ -239,11 +250,6 @@
     ],
     "citations": [
       {
-        "url": "https://www.rockcobbler.com",
-        "category": "official",
-        "label": "Official Website"
-      },
-      {
         "url": "https://ridewithgps.com/routes/45578777",
         "category": "route",
         "label": "RideWithGPS: 2024  Rock Cobbler - GBC"
@@ -254,99 +260,29 @@
         "label": "Reddit"
       },
       {
-        "url": "https://ridewithgps.com",
-        "category": "route",
-        "label": "RideWithGPS"
-      },
-      {
-        "url": "https://www.cyclingtips.com",
+        "url": "https://velo.outsideonline.com/road/road-culture/groad-trip-bulls-ball-pits-and-bucket-lists-at-the-rock-cobbler/",
         "category": "media",
-        "label": "CyclingTips"
+        "label": "Velo"
       },
       {
-        "url": "https://www.strava.com",
-        "category": "activity",
-        "label": "Strava"
-      },
-      {
-        "url": "https://www.trainerroad.com",
-        "category": "community",
-        "label": "TrainerRoad"
-      },
-      {
-        "url": "https://www.velonews.com",
+        "url": "https://www.gravelcyclist.com/videos/my-bike-for-the-2023-rock-cobbler-rockshox-reverb-axs-wireless-dropper-with-shimano-grx-di2/",
         "category": "media",
-        "label": "VeloNews"
-      },
-      {
-        "url": "https://rockcobbler.com/",
-        "category": "community",
-        "label": "rockcobbler.com"
-      },
-      {
-        "url": "https://cyclespeak.com/tag/rock-cobbler/",
-        "category": "community",
-        "label": "cyclespeak.com: Rock Cobbler"
-      },
-      {
-        "url": "https://thesportsvine.com/gravel-tips/",
-        "category": "community",
-        "label": "thesportsvine.com: Gravel Tips"
-      },
-      {
-        "url": "https://www.outdoorfitnesscoach.com/blog/rockcobblerprep",
-        "category": "community",
-        "label": "outdoorfitnesscoach.com: Rockcobblerprep"
+        "label": "Gravel Cyclist"
       },
       {
         "url": "https://www.progravelmagazine.com/post/fomo-factory-why-the-rock-cobbler-the-ultimate-race-to-miss",
-        "category": "community",
-        "label": "progravelmagazine.com: Fomo Factory Why The Rock Cobbler The Ultimate Race To Miss"
+        "category": "other",
+        "label": "Progravelmagazine"
       },
       {
-        "url": "https://www.cxmagazine.com/2026-rock-cobbler-gravel-ride-cyclocross-style-bakersfield",
+        "url": "https://www.reddit.com/r/PublicFreakout/comments/187s3al/bull_attacks_cyclists_during_rock_cobbler_race_in/",
         "category": "community",
-        "label": "cxmagazine.com: 2026 Rock Cobbler Gravel Ride Cyclocross Style Bakersfield"
-      },
-      {
-        "url": "https://www.coureur.bike/post/rock-cobbler-recap-service-course-report",
-        "category": "community",
-        "label": "coureur.bike: Rock Cobbler Recap Service Course Report"
-      },
-      {
-        "url": "https://puregravel.com/blogs/reviews/live-race-coverage-of-bianchi-rock-cobbler",
-        "category": "community",
-        "label": "puregravel.com: Live Race Coverage Of Bianchi Rock Cobbler"
-      },
-      {
-        "url": "https://www.gravelstoke.com/gravel-cycling-gear-blog/photo-gallery-2020-rock-cobbler",
-        "category": "community",
-        "label": "gravelstoke.com: Photo Gallery 2020 Rock Cobbler"
-      },
-      {
-        "url": "https://www.gravelstoke.com/gravel-cycling-gear-blog/2019/2/15/rock-cobbler-2019-photo-gallery",
-        "category": "community",
-        "label": "gravelstoke.com: Rock Cobbler 2019 Photo Gallery"
-      },
-      {
-        "url": "https://gravelbikecalifornia.com/rock-cobbler-gravel-guide/",
-        "category": "community",
-        "label": "gravelbikecalifornia.com: Rock Cobbler Gravel Guide"
+        "label": "Reddit"
       },
       {
         "url": "https://www.trainerroad.com/forum/t/rock-cobbler-2025/99924",
         "category": "community",
-        "label": "trainerroad.com: 99924"
-      },
-      {
-        "url": "https://velo.outsideonline.com/road/road-culture/groad-trip-bulls-ball-pits-and-bucket-lists-at-the-rock-cobbler/",
-        "category": "community",
-        "label": "velo.outsideonline.com: Groad Trip Bulls Ball Pits And Bucket Lists At The Rock C..."
-      },
-      {
-        "url": "https://www.gravelcyclist.com/videos/my-bike-for-the-2023-rock-cobbler-rockshox-reverb-axs-wireless-dropper-with-shimano-grx-di2/",
-        "category": "community",
-        "label": "gravelcyclist.com: My Bike For The 2023 Rock Cobbler Rockshox Reverb Axs Wir..."
+        "label": "TrainerRoad"
       }
     ],
     "tire_recommendations": {

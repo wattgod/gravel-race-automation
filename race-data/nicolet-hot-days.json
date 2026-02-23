@@ -19,7 +19,7 @@
         "Wisconsin"
       ],
       "field_size": "50-100 riders",
-      "start_time": "Morning start",
+      "start_time": "10:00 am",
       "registration": "Online. Cost: ~$50-75",
       "prize_purse": "Modest prizes",
       "aid_stations": "Limited aid stations",
@@ -94,7 +94,11 @@
       "score": "40 / 100",
       "one_liner": "Wisconsin local gravel challenge.",
       "should_you_race": "If you're local to Wisconsin—yes, it's good value. If you're traveling—skip it.",
-      "alternatives": "For better Wisconsin races: Chequamegon, Almanzo."
+      "alternatives": "For better Wisconsin races: Chequamegon, Almanzo.",
+      "alternative_slugs": [
+        "almanzo-100",
+        "chequamegon-mtb"
+      ]
     },
     "logistics": {
       "airport": "Rhinelander (RHI) 60 minutes",
@@ -102,7 +106,8 @@
       "food": "Wabeno has limited dining options. Stock nutrition.",
       "packet_pickup": "Day of typically",
       "parking": "At start/finish",
-      "official_site": "Check Nicolet Hot Days website"
+      "official_site": "Check Nicolet Hot Days website",
+      "camping": "camping by water every night, e"
     },
     "history": {
       "founded": null,
@@ -185,12 +190,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 84.9,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 60,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 50
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -321,24 +335,24 @@
         "label": "RideWithGPS"
       },
       {
+        "url": "https://wisconsinbikefed.org/route/tour-de-nicolet/",
+        "category": "other",
+        "label": "Wisconsinbikefed"
+      },
+      {
+        "url": "https://www.ironbull.org/nicolet-hot-days",
+        "category": "other",
+        "label": "Ironbull"
+      },
+      {
         "url": "https://www.ironbull.org/registration-nicolet-hot-days",
-        "category": "community",
-        "label": "ironbull.org: Registration Nicolet Hot Days"
+        "category": "other",
+        "label": "Ironbull"
       },
       {
         "url": "https://www.ironbull.org/fkt-leaderboard",
         "category": "community",
         "label": "ironbull.org: Fkt Leaderboard"
-      },
-      {
-        "url": "https://wisconsinbikefed.org/route/tour-de-nicolet/",
-        "category": "community",
-        "label": "wisconsinbikefed.org: Tour De Nicolet"
-      },
-      {
-        "url": "https://www.ironbull.org/nicolet-hot-days",
-        "category": "community",
-        "label": "ironbull.org: Nicolet Hot Days"
       }
     ],
     "tire_recommendations": {

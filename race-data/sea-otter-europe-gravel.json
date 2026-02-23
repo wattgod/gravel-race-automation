@@ -19,7 +19,7 @@
         "Spain"
       ],
       "field_size": "400-800 riders",
-      "start_time": "Morning start",
+      "start_time": "10:30 AM",
       "registration": "Online. Cost: ~€60-90",
       "prize_purse": "Modest prizes",
       "aid_stations": "Multiple aid stations",
@@ -94,7 +94,10 @@
       "score": "51 / 100",
       "one_liner": "Spanish Girona gravel challenge.",
       "should_you_race": "If you're in Europe—yes, it's solid. If you're international—there are better options.",
-      "alternatives": "For better value: regional gravel races. For similar Spanish terrain: Castellon Gravel Race."
+      "alternatives": "For better value: regional gravel races. For similar Spanish terrain: Castellon Gravel Race.",
+      "alternative_slugs": [
+        "castellon-gravel-race"
+      ]
     },
     "logistics": {
       "airport": "Girona (GRO) or Barcelona (BCN) 1 hour",
@@ -185,12 +188,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 85.5,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 80,
+          "citation_density": 80,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 100,
+          "completeness": 82,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -311,29 +323,34 @@
     },
     "citations": [
       {
-        "url": "https://www.granfondoguide.com/RaceDashboard/UCIGravelWorldSeries/1/8727/nicole-frain-and-daan-soete-take-victory-at-2025-uci-sea-otter-europe-gravel-girona",
-        "category": "community",
-        "label": "granfondoguide.com: Nicole Frain And Daan Soete Take Victory At 2025 Uci Sea ..."
-      },
-      {
         "url": "https://bicyclingaustralia.com.au/news/nicole-frain-wins-sea-otter-europe-gravel-race/",
-        "category": "community",
-        "label": "bicyclingaustralia.com.au: Nicole Frain Wins Sea Otter Europe Gravel Race"
-      },
-      {
-        "url": "https://ucigravelworldseries.com/en/girona/",
-        "category": "community",
-        "label": "ucigravelworldseries.com: Girona"
+        "category": "other",
+        "label": "Bicyclingaustralia"
       },
       {
         "url": "https://granfondodailynews.com/2025/09/22/sea-otter-europe-gravel-results-soete-frain-sweep-podium-for-ridley-racing/",
-        "category": "community",
-        "label": "granfondodailynews.com: Sea Otter Europe Gravel Results Soete Frain Sweep Podium ..."
+        "category": "other",
+        "label": "Granfondodailynews"
+      },
+      {
+        "url": "https://ucigravelworldseries.com/en/girona/",
+        "category": "other",
+        "label": "Ucigravelworldseries"
+      },
+      {
+        "url": "https://www.seaottereurope.com/sports-events/",
+        "category": "other",
+        "label": "Seaottereurope"
+      },
+      {
+        "url": "https://www.trainingpeaks.com/training-plans/cycling/tp-612108/sea-otter-europe-gravel-6-week-kick-start-training-plan-zwift-compatible",
+        "category": "other",
+        "label": "Trainingpeaks"
       },
       {
         "url": "https://xbenbike.com/blogs/blog/gravel-cycling-equipment-guide-2025-essential-gear-for-european-adventures",
-        "category": "community",
-        "label": "xbenbike.com: Gravel Cycling Equipment Guide 2025 Essential Gear For Eu..."
+        "category": "other",
+        "label": "Xbenbike"
       }
     ],
     "tire_recommendations": {

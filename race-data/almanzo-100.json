@@ -25,7 +25,8 @@
       "alternate_website": "https://springvalleyeda.org/spring-valley-gravel-bike-races/",
       "lat": 43.687,
       "lng": -92.3893,
-      "registration": "Online. Cost: FREE"
+      "registration": "Online. Cost: FREE",
+      "start_time": "8:00am star"
     },
     "gravel_god_rating": {
       "overall_score": 70,
@@ -191,7 +192,11 @@
       "score": "70 / 100",
       "one_liner": "The granddaddy of gravel racing where loose stone and 17% grades separate tourists from riders.",
       "should_you_race": "If you've got 6+ hours in your legs and can push through loose gravel that feels like riding in sand, this is gravel racing church. The Oriole Road climb at mile 90 will humble anyone undertrained, and the second-half stone layer turns strong groups into survival shuffles. Skip it if you need aid stations or can't handle Minnesota spring weather ranging from hypothermia-inducing rain to scorching sun.",
-      "alternatives": "Dirty Kanza/Unbound offers similar distance with more prestige but flatter terrain and corporate polish. Ragnarok gives you comparable Midwest suffering with better organization, while Trans Iowa delivers the same self-supported ethos but with fewer riders and more isolation."
+      "alternatives": "Dirty Kanza/Unbound offers similar distance with more prestige but flatter terrain and corporate polish. Ragnarok gives you comparable Midwest suffering with better organization, while Trans Iowa delivers the same self-supported ethos but with fewer riders and more isolation.",
+      "alternative_slugs": [
+        "trans-iowa",
+        "unbound-200"
+      ]
     },
     "course_description": {
       "character": "The granddaddy of gravel racing rolls through Minnesota's Driftless region where glaciers never flattened the terrain. Six thousand feet of climbing over endless farm roads that transition from hard-pack early to soul-crushing loose stone as you fall apart. The hills never stop coming, and neither does the sensation you're riding through pioneer country on roads that were never meant for bikes.",
@@ -228,11 +233,6 @@
     },
     "citations": [
       {
-        "url": "https://www.almanzo.com/",
-        "category": "official",
-        "label": "Official Website"
-      },
-      {
         "url": "https://ridewithgps.com/routes/38583053",
         "category": "route",
         "label": "RideWithGPS: Almanzo 100 w/ Cues"
@@ -243,14 +243,29 @@
         "label": "Banjobrothers"
       },
       {
-        "url": "https://forum.ridinggravel.com/",
-        "category": "community",
-        "label": "Riding Gravel"
+        "url": "https://bikefixation.com/post/blog-15-almanzo-100-lessons-from-two-years-of-gravel-racing",
+        "category": "other",
+        "label": "Bikefixation"
       },
       {
         "url": "https://gearjunkie.com/biking/almanzo-100-gravel-bike-race",
         "category": "media",
         "label": "GearJunkie"
+      },
+      {
+        "url": "https://gravelnewsnetwork.blogspot.com/2018/05/ride-report-19may2018-almanzo-100.html",
+        "category": "other",
+        "label": "Gravelnewsnetwork"
+      },
+      {
+        "url": "https://hpr1.com/index.php/arts-entertainment/outdoors/almanzo-100-wilderfest-bike-race-still-a-rookie/",
+        "category": "other",
+        "label": "Hpr1"
+      },
+      {
+        "url": "https://jesselindhorst.tumblr.com/post/51076284551/the-almanzo-100-a-bike-race-in-spring-valley-that",
+        "category": "other",
+        "label": "Jesselindhorst"
       },
       {
         "url": "https://www.cxmagazine.com/2018-almanzo-100-gravel-race-results-minnesota-winfield-russell",
@@ -269,73 +284,8 @@
       },
       {
         "url": "https://www.gravelcyclist.com/race-reports/race-report-2021-spring-valley-almanzo-100-meteor-theory-vs-heat-wave-gravel-vs-skin/",
-        "category": "community",
-        "label": "gravelcyclist.com: Race Report 2021 Spring Valley Almanzo 100 Meteor Theory ..."
-      },
-      {
-        "url": "https://saris.com/blogs/saris-blog/blog-15-almanzo-100-lessons-from-two-years-of-gravel-racing",
-        "category": "community",
-        "label": "saris.com: Blog 15 Almanzo 100 Lessons From Two Years Of Gravel Racing"
-      },
-      {
-        "url": "https://mnbiketrailnavigator.blogspot.com/2017/05/2017-almanzo-stories.html",
-        "category": "community",
-        "label": "mnbiketrailnavigator.blogspot.com: 2017 Almanzo Stories.Html"
-      },
-      {
-        "url": "http://deathrideradventure.blogspot.com/2012/05/2012-almanzo-100.html",
-        "category": "community",
-        "label": "deathrideradventure.blogspot.com: 2012 Almanzo 100.Html"
-      },
-      {
-        "url": "http://www.hotdogdayz.com/2014/05/scene-report-2014-almanzo-100.html",
-        "category": "community",
-        "label": "hotdogdayz.com: Scene Report 2014 Almanzo 100.Html"
-      },
-      {
-        "url": "https://www.cxmagazine.com/gravel-bike-medici-gran-turismo-steel-1980s-almanzo-100-matt-allen",
-        "category": "community",
-        "label": "cxmagazine.com: Gravel Bike Medici Gran Turismo Steel 1980S Almanzo 100 M..."
-      },
-      {
-        "url": "https://www.eplocalnews.org/2022/05/05/gravel-racing-a-challenge-for-body-and-mind/",
-        "category": "community",
-        "label": "eplocalnews.org: Gravel Racing A Challenge For Body And Mind"
-      },
-      {
-        "url": "https://hpr1.com/index.php/arts-entertainment/outdoors/almanzo-100-wilderfest-bike-race-still-a-rookie/",
-        "category": "community",
-        "label": "hpr1.com: Almanzo 100 Wilderfest Bike Race Still A Rookie"
-      },
-      {
-        "url": "https://www.cxmagazine.com/tag/almanzo-100",
-        "category": "community",
-        "label": "cxmagazine.com: Almanzo 100"
-      },
-      {
-        "url": "https://g-tedproductions.blogspot.com/2018/05/almanzo-100-2018-cherry-grove-report.html",
-        "category": "community",
-        "label": "g-tedproductions.blogspot.com: Almanzo 100 2018 Cherry Grove Report.Html"
-      },
-      {
-        "url": "https://www.gravelcyclist.com/race-reports/race-report-2021-spring-valley-almanzo-100-meteor-theory-vs-heat-wake-gravel-vs-skin/",
-        "category": "community",
-        "label": "gravelcyclist.com: Race Report 2021 Spring Valley Almanzo 100 Meteor Theory ..."
-      },
-      {
-        "url": "https://www.reddit.com/r/bicycling/comments/25y3of/during_the_almanzo_100_this_year_horses_broke/",
-        "category": "community",
-        "label": "reddit.com: During The Almanzo 100 This Year Horses Broke"
-      },
-      {
-        "url": "https://bikefixation.com/post/blog-15-almanzo-100-lessons-from-two-years-of-gravel-racing",
-        "category": "community",
-        "label": "bikefixation.com: Blog 15 Almanzo 100 Lessons From Two Years Of Gravel Racing"
-      },
-      {
-        "url": "https://jesselindhorst.tumblr.com/post/51076284551/the-almanzo-100-a-bike-race-in-spring-valley-that",
-        "category": "community",
-        "label": "jesselindhorst.tumblr.com: The Almanzo 100 A Bike Race In Spring Valley That"
+        "category": "media",
+        "label": "Gravel Cyclist"
       },
       {
         "url": "https://gravelnewsnetwork.blogspot.com/2021/06/race-report-05jun2021-spring-valley.html",
@@ -346,15 +296,12 @@
         "url": "https://craftedwords.com/portfolio/ride-at-the-heart-of-minnesotas-gravel-scene-stays-true-to-its-origins/",
         "category": "community",
         "label": "craftedwords.com: Ride At The Heart Of Minnesotas Gravel Scene Stays True T..."
-      },
-      {
-        "url": "https://gravelnewsnetwork.blogspot.com/2018/05/ride-report-19may2018-almanzo-100.html",
-        "category": "community",
-        "label": "gravelnewsnetwork.blogspot.com: Ride Report 19May2018 Almanzo 100.Html"
       }
     ],
     "logistics": {
-      "official_site": "https://www.almanzo.com/"
+      "official_site": "https://www.almanzo.com/",
+      "camping": "camping at Forestville/Mystery Cave State Park\n\n### Local Attractions\n\n- Forestville/Mystery Cave State Park\n- Spring Valley Histor",
+      "parking": "Park at mile 70:** Listed as a course milestone (https://bikefixation"
     },
     "tire_recommendations": {
       "generated_at": "2026-02-19",
@@ -435,6 +382,25 @@
         "Broken pavement sections",
         "Sandy stretches"
       ]
+    },
+    "research_metadata": {
+      "research_strength": {
+        "overall": 89.1,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 64,
+          "cross_reference": 50
+        },
+        "scored_at": "2026-02-04"
+      }
     }
   }
 }

@@ -152,7 +152,11 @@
       "score": "89 / 100",
       "one_liner": "The mountain bike endurance race that defines the category. Bucket list for a reason.",
       "should_you_race": "Yes—if you're serious about endurance riding and willing to commit to proper altitude preparation. No—if you can't take time to acclimatize or haven't trained specifically for high-altitude suffering.",
-      "alternatives": "If you want Leadville's prestige without the lottery: Leadville Camp (August warmup). If you want 100 miles without altitude: Unbound 200 (longer, lower, different). If you want Colorado gravel: SBT GRVL is lower altitude, pure gravel."
+      "alternatives": "If you want Leadville's prestige without the lottery: Leadville Camp (August warmup). If you want 100 miles without altitude: Unbound 200 (longer, lower, different). If you want Colorado gravel: SBT GRVL is lower altitude, pure gravel.",
+      "alternative_slugs": [
+        "sbt-grvl",
+        "unbound-200"
+      ]
     },
     "logistics": {
       "airport": "Denver (DEN) - 2.5 hours to Leadville. Consider arriving days early.",
@@ -212,9 +216,9 @@
       ],
       "migration_notes": [],
       "research_strength": {
-        "overall": 100.0,
+        "overall": 99.1,
         "grade": "A",
-        "weakest": "source_diversity",
+        "weakest": "completeness",
         "has_research_dump": true,
         "dimensions": {
           "source_diversity": 100,
@@ -223,7 +227,7 @@
           "specificity": 100,
           "statistical_backing": 100,
           "voice_authenticity": 100,
-          "completeness": 100,
+          "completeness": 94,
           "cross_reference": 100
         },
         "scored_at": "2026-02-04"
@@ -239,6 +243,11 @@
         "url": "https://ridewithgps.com/routes/3227417",
         "category": "route",
         "label": "RideWithGPS Route"
+      },
+      {
+        "url": "https://velo.outsideonline.com/gravel/the-leadville-trail-100-mtb-is-a-gravel-bike-a-good-choice/",
+        "category": "media",
+        "label": "Velo"
       },
       {
         "url": "https://www.cyclingweekly.com/news/why-pros-are-racing-the-biggest-mtb-race-in-the-us-on-drop-bars-and-frankenstein-bikes",
@@ -261,6 +270,26 @@
         "label": "TrainerRoad"
       },
       {
+        "url": "https://www.victoriaweeks.com/race-report-leadville-trail-100-mtb/",
+        "category": "community",
+        "label": "victoriaweeks.com: Race Report Leadville Trail 100 Mtb"
+      },
+      {
+        "url": "https://paacycling.net/content.aspx?page_id=2507&club_id=45054&item_id=3074&pst=15460",
+        "category": "community",
+        "label": "paacycling.net: Content.Aspx"
+      },
+      {
+        "url": "https://www.theproscloset.com/blogs/news/race-tips-from-leadville-trail-100-mtb-finishers",
+        "category": "community",
+        "label": "theproscloset.com: Race Tips From Leadville Trail 100 Mtb Finishers"
+      },
+      {
+        "url": "https://www.reddit.com/r/AdvancedRunning/comments/6w19ak/race_report_the_grand_slam_leg_3_the_leadville/",
+        "category": "community",
+        "label": "reddit.com: Race Report The Grand Slam Leg 3 The Leadville"
+      },
+      {
         "url": "https://en.wikipedia.org/wiki/Leadville_Trail_100_MTB",
         "category": "reference",
         "label": "Wikipedia"
@@ -281,134 +310,29 @@
         "label": "Alphaarchitect"
       },
       {
+        "url": "https://leadville100podcast.com/website/2025-lt100-race-recap",
+        "category": "other",
+        "label": "Leadville100Podcast"
+      },
+      {
+        "url": "https://nolimitsendurance.com/riding-across-the-sky-leadville-100-mountain-bike-race-report/",
+        "category": "other",
+        "label": "Nolimitsendurance"
+      },
+      {
         "url": "https://shop.sportsbasement.com/blogs/news/matt-takes-on-the-leadville-100-video-4?srsltid=AfmBOooxTnsubJh8ikxGkIY_xyHdGCVUEvsJyviT0m6DfYKJy9kKsxTe",
         "category": "other",
         "label": "Shop"
       },
       {
-        "url": "https://silca.cc/blogs/silca/2025-leadville-100-mtb?srsltid=AfmBOop-dm4_mSDSsW_MIYe_Jfvm6QBA427eH9p7rsqtgtPsVvOA9vvc",
+        "url": "https://silca.cc/blogs/silca/2025-leadville-100-mtb",
         "category": "other",
         "label": "Silca"
       },
       {
-        "url": "https://trainright.com/leadville-100-problem-women-representation/",
+        "url": "https://silca.cc/blogs/silca/2025-leadville-100-mtb?srsltid=AfmBOop-dm4_mSDSsW_MIYe_Jfvm6QBA427eH9p7rsqtgtPsVvOA9vvc",
         "category": "other",
-        "label": "Trainright"
-      },
-      {
-        "url": "https://trainright.com/understanding-challenges-of-high-altitude-racing-at-the-leadville-100-and-usa-pro-cycling-challenge/",
-        "category": "other",
-        "label": "Trainright"
-      },
-      {
-        "url": "https://www.altovelo.org/race-reports/race-report-2024-leadville-trail-100-mtb",
-        "category": "other",
-        "label": "Altovelo"
-      },
-      {
-        "url": "https://www.elevationoutdoors.com/blogs/alpine-adventures/leadville-100-race-report/",
-        "category": "other",
-        "label": "Elevationoutdoors"
-      },
-      {
-        "url": "https://www.joinbasecamp.com/post/shawns-story-leadville-100?srsltid=AfmBOoryXL74ixQ1OBO_3wvLuo7lEru7_mjJPuWTPHhnyUQfRHiriRnT",
-        "category": "other",
-        "label": "Joinbasecamp"
-      },
-      {
-        "url": "https://www.leadvilleraceseries.com/acclimatize-for-the-leadville-100-from-home/",
-        "category": "other",
-        "label": "Leadvilleraceseries"
-      },
-      {
-        "url": "https://www.leadvilleraceseries.com/dispatches-from-10000-feet-altitude-adjustment/",
-        "category": "other",
-        "label": "Leadvilleraceseries"
-      },
-      {
-        "url": "https://www.leadvilleraceseries.com/dispatches-from-columbine-top-10-things-to-know-before-your-first-leadville-trail-100-mtb/",
-        "category": "other",
-        "label": "Leadvilleraceseries"
-      },
-      {
-        "url": "https://paacycling.net/content.aspx?page_id=2507&club_id=45054&item_id=3074&pst=15460",
-        "category": "community",
-        "label": "paacycling.net: Content.Aspx"
-      },
-      {
-        "url": "https://www.victoriaweeks.com/race-report-leadville-trail-100-mtb/",
-        "category": "community",
-        "label": "victoriaweeks.com: Race Report Leadville Trail 100 Mtb"
-      },
-      {
-        "url": "https://www.cyclingnews.com/races/leadville-trail-100-mtb-2024/ltgp-4-pro-men/results/",
-        "category": "community",
-        "label": "cyclingnews.com: Results"
-      },
-      {
-        "url": "https://www.endurancesportswire.com/renowned-stages-cycling-leadville-trail-100-mtb-produced-by-life-time-returns-in-2021-with-stacked-field-of-riders/",
-        "category": "community",
-        "label": "endurancesportswire.com: Renowned Stages Cycling Leadville Trail 100 Mtb Produced ..."
-      },
-      {
-        "url": "https://www.cantuwheels.com/behindthewheels/2019/8/8/leadville-100-mtb-pre-race-interview-with-cantu-ambassadors-james-griffis-and-lee-allen",
-        "category": "community",
-        "label": "cantuwheels.com: Leadville 100 Mtb Pre Race Interview With Cantu Ambassado..."
-      },
-      {
-        "url": "https://www.cantuwheels.com/behindthewheels/tag/leadville+100+mtb",
-        "category": "community",
-        "label": "cantuwheels.com: Leadville+100+Mtb"
-      },
-      {
-        "url": "https://www.openspaceleadership.com/blog/2014/12/4/leadville-100-mtb",
-        "category": "community",
-        "label": "openspaceleadership.com: Leadville 100 Mtb"
-      },
-      {
-        "url": "https://velo.outsideonline.com/tag/leadville-100-mtb",
-        "category": "community",
-        "label": "velo.outsideonline.com: Leadville 100 Mtb"
-      },
-      {
-        "url": "https://leadville100podcast.com/website/2025-lt100-race-recap",
-        "category": "community",
-        "label": "leadville100podcast.com: 2025 Lt100 Race Recap"
-      },
-      {
-        "url": "https://strambecco.com/event/leadville-trail-100-mtb/",
-        "category": "community",
-        "label": "strambecco.com: Leadville Trail 100 Mtb"
-      },
-      {
-        "url": "https://whitepineathletics.com/blog-1/2024/1/3/taking-on-the-leadville-trail-100-mtb-race-top-10-tips-for-success",
-        "category": "community",
-        "label": "whitepineathletics.com: Taking On The Leadville Trail 100 Mtb Race Top 10 Tips Fo..."
-      },
-      {
-        "url": "https://nolimitsendurance.com/riding-across-the-sky-leadville-100-mountain-bike-race-report/",
-        "category": "community",
-        "label": "nolimitsendurance.com: Riding Across The Sky Leadville 100 Mountain Bike Race Re..."
-      },
-      {
-        "url": "https://www.theproscloset.com/blogs/news/race-tips-from-leadville-trail-100-mtb-finishers",
-        "category": "community",
-        "label": "theproscloset.com: Race Tips From Leadville Trail 100 Mtb Finishers"
-      },
-      {
-        "url": "https://velo.outsideonline.com/gravel/the-leadville-trail-100-mtb-is-a-gravel-bike-a-good-choice/",
-        "category": "community",
-        "label": "velo.outsideonline.com: The Leadville Trail 100 Mtb Is A Gravel Bike A Good Choice"
-      },
-      {
-        "url": "https://silca.cc/blogs/silca/2025-leadville-100-mtb",
-        "category": "community",
-        "label": "silca.cc: 2025 Leadville 100 Mtb"
-      },
-      {
-        "url": "https://www.reddit.com/r/AdvancedRunning/comments/6w19ak/race_report_the_grand_slam_leg_3_the_leadville/",
-        "category": "community",
-        "label": "reddit.com: Race Report The Grand Slam Leg 3 The Leadville"
+        "label": "Silca"
       }
     ],
     "results": {

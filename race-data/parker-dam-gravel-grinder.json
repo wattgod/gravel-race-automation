@@ -19,7 +19,7 @@
         "Pennsylvania"
       ],
       "field_size": "50-100 riders",
-      "start_time": "Morning start",
+      "start_time": "9:00 AM with",
       "registration": "Online. Cost: ~$50-75",
       "prize_purse": "Modest prizes",
       "aid_stations": "Limited aid stations",
@@ -94,7 +94,11 @@
       "score": "40 / 100",
       "one_liner": "Pennsylvania local gravel challenge.",
       "should_you_race": "If you're local to Pennsylvania—yes, it's good value. If you're traveling—skip it.",
-      "alternatives": "For better Pennsylvania races: Dirty Kanza PA, Trans-Sylvania Epic."
+      "alternatives": "For better Pennsylvania races: Dirty Kanza PA, Trans-Sylvania Epic.",
+      "alternative_slugs": [
+        "trans-sylvania-epic",
+        "unbound-200"
+      ]
     },
     "logistics": {
       "airport": "State College (SCE) 90 minutes",
@@ -185,12 +189,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 89.2,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -316,34 +329,49 @@
         "label": "RideWithGPS: Parker Dam Gravel Grinder - Half Series Route 2024"
       },
       {
+        "url": "https://racecheck.com/races/parker-dam-gravel-grinder/",
+        "category": "other",
+        "label": "Racecheck"
+      },
+      {
+        "url": "https://raceroster.com/events/2022/60753/parker-dam-gravel-grinder",
+        "category": "other",
+        "label": "Raceroster"
+      },
+      {
+        "url": "https://www.biapa.org/get-involved/gravel-grinders",
+        "category": "other",
+        "label": "Biapa"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/10051/parker-dam-gravel-grinder",
+        "category": "other",
+        "label": "Granfondoguide"
+      },
+      {
+        "url": "https://www.gravel-results.com/race/21365",
+        "category": "other",
+        "label": "Gravel-Results"
+      },
+      {
         "url": "https://www.joinbasecamp.com/post/lynns-story-parker-dam-gravel-grinder",
-        "category": "community",
-        "label": "joinbasecamp.com: Lynns Story Parker Dam Gravel Grinder"
+        "category": "other",
+        "label": "Joinbasecamp"
+      },
+      {
+        "url": "https://www.ohiogravelgrinders.com/blog/2023/7/24/recap-parker-dam-gravel-adventure-via-ev",
+        "category": "other",
+        "label": "Ohiogravelgrinders"
+      },
+      {
+        "url": "https://www.ohiogravelgrinders.com/event-listings/2026/5/9/parker-dam-gravel-grinder",
+        "category": "other",
+        "label": "Ohiogravelgrinders"
       },
       {
         "url": "https://www.trans-sylvaniaproductions.com/pdgg",
         "category": "community",
         "label": "trans-sylvaniaproductions.com: Pdgg"
-      },
-      {
-        "url": "https://www.ohiogravelgrinders.com/blog/2023/7/24/recap-parker-dam-gravel-adventure-via-ev",
-        "category": "community",
-        "label": "ohiogravelgrinders.com: Recap Parker Dam Gravel Adventure Via Ev"
-      },
-      {
-        "url": "https://www.granfondoguide.com/Events/Index/10051/parker-dam-gravel-grinder",
-        "category": "community",
-        "label": "granfondoguide.com: Parker Dam Gravel Grinder"
-      },
-      {
-        "url": "https://www.biapa.org/get-involved/gravel-grinders",
-        "category": "community",
-        "label": "biapa.org: Gravel Grinders"
-      },
-      {
-        "url": "https://www.gravel-results.com/race/21365",
-        "category": "community",
-        "label": "gravel-results.com: 21365"
       }
     ],
     "tire_recommendations": {

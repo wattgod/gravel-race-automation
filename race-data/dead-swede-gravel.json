@@ -179,12 +179,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 91.0,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 88,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -308,9 +317,24 @@
         "label": "RideWithGPS: WY: Dead Swede 40 Gravel"
       },
       {
+        "url": "https://thedeadswedehundo.itsyourrace.com/event.aspx?id=8932",
+        "category": "other",
+        "label": "Thedeadswedehundo"
+      },
+      {
+        "url": "https://www.thedeadswede.com/faqs",
+        "category": "other",
+        "label": "Thedeadswede"
+      },
+      {
         "url": "https://heidiridesbikes.com/2019/06/09/race-report-the-dead-swede/",
         "category": "community",
         "label": "heidiridesbikes.com: Race Report The Dead Swede"
+      },
+      {
+        "url": "https://heidiridesbikes.com/2021/06/06/race-report-2021-dead-swede-hundo/",
+        "category": "community",
+        "label": "heidiridesbikes.com: Race Report 2021 Dead Swede Hundo"
       },
       {
         "url": "https://www.joinbasecamp.com/post/jeffreys-story-dead-swede-2022",
@@ -321,11 +345,6 @@
         "url": "https://2wheeledinspiration.com/2024/06/19/the-dead-swede-a-race-review/",
         "category": "community",
         "label": "2wheeledinspiration.com: The Dead Swede A Race Review"
-      },
-      {
-        "url": "https://heidiridesbikes.com/2021/06/06/race-report-2021-dead-swede-hundo/",
-        "category": "community",
-        "label": "heidiridesbikes.com: Race Report 2021 Dead Swede Hundo"
       }
     ],
     "tire_recommendations": {

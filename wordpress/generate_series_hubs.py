@@ -21,9 +21,10 @@ from datetime import date
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
-from brand_tokens import COLORS, GA_MEASUREMENT_ID, RACER_RATING_THRESHOLD, get_font_face_css, get_tokens_css
+from brand_tokens import COLORS, get_font_face_css, get_ga4_head_snippet, get_tokens_css, RACER_RATING_THRESHOLD
 from shared_footer import get_mega_footer_css, get_mega_footer_html
 from shared_header import get_site_header_css, get_site_header_html
+from cookie_consent import get_consent_banner_html
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 SERIES_DIR = PROJECT_ROOT / "series-data"
@@ -975,6 +976,42 @@ def _build_faq_pairs(series: dict, race_data: dict) -> list:
 
     qa_pairs = []
 
+    # Q0a: How many events? (series-level — works even without profiled events)
+    total = series.get("key_stats", {}).get("total_events") or len(events)
+    if total > 0:
+        event_names = [e.get("name", "") for e in events if e.get("name")]
+        countries = series.get("key_stats", {}).get("countries", 1)
+        answer = f"The {name} includes {total} events"
+        if countries and countries > 1:
+            answer += f" across {countries} countries"
+        answer += f" in {year}."
+        if len(event_names) <= MAX_EVENT_NAMES_IN_FAQ and event_names:
+            answer += " Events include: " + ", ".join(event_names) + "."
+        qa_pairs.append((
+            f"How many {name} events are there?",
+            answer
+        ))
+
+    # Q0b: Which event is the hardest? (needs profiled events with difficulty)
+    difficulty_ranked = []
+    for e in events:
+        e_slug = e.get("slug")
+        if e_slug and e_slug in race_data:
+            rd = race_data[e_slug]
+            diff = _avg_scores(rd, ["length", "technicality", "elevation", "altitude"])
+            if diff > 0:
+                difficulty_ranked.append((e.get("name", ""), diff, e_slug))
+    if len(difficulty_ranked) >= 2:
+        hardest = max(difficulty_ranked, key=lambda x: x[1])
+        easiest = min(difficulty_ranked, key=lambda x: x[1])
+        answer = f"{hardest[0]} is the hardest event in the {name} with a difficulty rating of {hardest[1]}/5."
+        if easiest[0] != hardest[0]:
+            answer += f" The most approachable is {easiest[0]} at {easiest[1]}/5."
+        qa_pairs.append((
+            f"Which {name} event is the hardest?",
+            answer
+        ))
+
     # Q1: Which event should I do first? (beginner guidance — NOT shown elsewhere)
     profiled_accessibility = []
     for e in events:
@@ -1338,6 +1375,12 @@ def build_hub_page(series: dict, race_lookup: dict, race_data: dict) -> str:
   <meta property="og:description" content="{esc(meta_desc)}">
   <meta property="og:type" content="website">
   <meta property="og:url" content="{esc(canonical)}">
+  <meta property="og:image" content="{SITE_BASE_URL}/og/homepage.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Gravel God Cycling">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="{SITE_BASE_URL}/og/homepage.jpg">
   <script type="application/ld+json">
   {{
     "@context": "https://schema.org",
@@ -1959,8 +2002,7 @@ a.gg-series-event-name:hover {{
 }}
   {get_mega_footer_css()}
   </style>
-  <script async src="https://www.googletagmanager.com/gtag/js?id={GA_MEASUREMENT_ID}"></script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments)}}gtag('js',new Date());gtag('config','{GA_MEASUREMENT_ID}');</script>
+  {get_ga4_head_snippet()}
 </head>
 <body style="margin:0;background:var(--gg-color-warm-paper)">
 
@@ -2116,6 +2158,7 @@ a.gg-series-event-name:hover {{
   }}
 }})();
 </script>
+{get_consent_banner_html()}
 </body>
 </html>'''
 

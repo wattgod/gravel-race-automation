@@ -99,7 +99,7 @@
       "packet_pickup": "Day-before. Check official website.",
       "travel_summary": "Atlanta airport 70 miles. Rental car needed. Dahlonega small mountain town limited lodging—book early. Day-before packet pickup. Race mid-April.",
       "food_options": "Aid stations on course. Post-race party in Dahlonega downtown.",
-      "camping": "Check official website",
+      "camping": "camping in the downtown area! Just park in one of the many designated parking lots downtown!\" (https://runthequay",
       "official_site": "https://www.bootlegger100.com"
     },
     "course_description": {
@@ -120,7 +120,13 @@
       ],
       "signature_challenge": "10,000 ft / 100mi steep North Georgia mountains + technical descents.",
       "ridewithgps_id": "45519300",
-      "ridewithgps_name": "Bootlegger 100 - With Cues"
+      "ridewithgps_name": "Bootlegger 100 - With Cues",
+      "surface_breakdown": {
+        "overall": {
+          "gravel": 80,
+          "dirt": 20
+        }
+      }
     },
     "history": {
       "founded": "~2013",
@@ -140,19 +146,19 @@
       ],
       "research_date": "2026-02-04",
       "research_strength": {
-        "overall": 0,
-        "grade": "pending",
-        "weakest": "pending",
+        "overall": 96.1,
+        "grade": "A",
+        "weakest": "voice_authenticity",
         "has_research_dump": true,
         "dimensions": {
-          "source_diversity": 0,
-          "citation_density": 0,
-          "temporal_depth": 0,
-          "specificity": 0,
-          "statistical_backing": 0,
-          "voice_authenticity": 0,
-          "completeness": 0,
-          "cross_reference": 0
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 94,
+          "cross_reference": 100
         },
         "scored_at": "2026-02-04"
       }
@@ -219,18 +225,27 @@
       "score": "70 / 100",
       "one_liner": "Wilson Creek Gorge will eat your lunch and serve it back with a side of North Carolina suffering.",
       "should_you_race": "You need proper gravel legs and mechanical confidence before diving into Pisgah Productions' playground. The terrain doesn't negotiate, and being 100 miles deep in the NC mountains isn't the place to discover your limits. Show up undertrained and you'll spend more time walking than riding.",
-      "alternatives": "Dirty Kanza offers similar distance with less technical punishment if you prefer power over bike handling. For the full Appalachian experience without quite this level of commitment, try Trans-Sylvania Epic's individual stages."
+      "alternatives": "Dirty Kanza offers similar distance with less technical punishment if you prefer power over bike handling. For the full Appalachian experience without quite this level of commitment, try Trans-Sylvania Epic's individual stages.",
+      "alternative_slugs": [
+        "trans-sylvania-epic",
+        "unbound-200"
+      ]
     },
     "citations": [
-      {
-        "url": "https://www.bootlegger100.com",
-        "category": "official",
-        "label": "Official Website"
-      },
       {
         "url": "https://ridewithgps.com/routes/45519300",
         "category": "route",
         "label": "RideWithGPS: Bootlegger 100 - With Cues"
+      },
+      {
+        "url": "https://endokimberly.wixsite.com/risingruncoaching/post/race-report-bootlegger-bananza",
+        "category": "other",
+        "label": "Endokimberly"
+      },
+      {
+        "url": "https://jaylocycling.com/2023-bootlegger-100-gravel-race-report/",
+        "category": "other",
+        "label": "Jaylocycling"
       },
       {
         "url": "https://reddit.com/r/gravelcycling/comments/bootlegger-100",
@@ -238,74 +253,39 @@
         "label": "Reddit"
       },
       {
-        "url": "https://ridewithgps.com",
-        "category": "route",
-        "label": "RideWithGPS"
-      },
-      {
-        "url": "https://www.cyclingtips.com",
-        "category": "media",
-        "label": "CyclingTips"
-      },
-      {
-        "url": "https://www.strava.com",
-        "category": "activity",
-        "label": "Strava"
-      },
-      {
-        "url": "https://www.trainerroad.com",
-        "category": "community",
-        "label": "TrainerRoad"
-      },
-      {
-        "url": "https://www.velonews.com",
-        "category": "media",
-        "label": "VeloNews"
-      },
-      {
-        "url": "https://jaylocycling.com/2023-bootlegger-100-gravel-race-report/",
-        "category": "community",
-        "label": "jaylocycling.com: 2023 Bootlegger 100 Gravel Race Report"
-      },
-      {
-        "url": "https://www.gravelcyclist.com/race-reports/race-report-2018-bootlegger-100-lenoir-north-carolina-by-k-dogg/",
-        "category": "community",
-        "label": "gravelcyclist.com: Race Report 2018 Bootlegger 100 Lenoir North Carolina By ..."
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=c09piD-bQoc",
-        "category": "community",
-        "label": "youtube.com: Watch"
-      },
-      {
-        "url": "https://www.gravelcyclist.com/tag/bootlegger-100-gravel-race/",
-        "category": "community",
-        "label": "gravelcyclist.com: Bootlegger 100 Gravel Race"
-      },
-      {
         "url": "https://tennesseevalleyoutsider.com/tvo-roundup-bootlegger-100-savage-gulf-50k-and-new-notes/",
-        "category": "community",
-        "label": "tennesseevalleyoutsider.com: Tvo Roundup Bootlegger 100 Savage Gulf 50K And New Notes"
+        "category": "other",
+        "label": "Tennesseevalleyoutsider"
+      },
+      {
+        "url": "https://www.cxmagazine.com/bootlegger-100-gravel-race-recap-video-winner-interviews-reid-beloni-nina-laughlin-cyclocross-magazine",
+        "category": "media",
+        "label": "CX Magazine"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/5352/the-bootlegger-100-proof-dirt-road-ride",
+        "category": "other",
+        "label": "Granfondoguide"
+      },
+      {
+        "url": "https://www.pisgahproductions.com/events/bootlegger-100/",
+        "category": "other",
+        "label": "Pisgahproductions"
       },
       {
         "url": "https://www.reddit.com/r/bicycling/comments/7y2995/anyone_ridden_the_bootlegger_100/",
         "category": "community",
-        "label": "reddit.com: Anyone Ridden The Bootlegger 100"
+        "label": "Reddit"
       },
       {
         "url": "https://www.reddit.com/r/gravelcycling/comments/1bbq2k6/western_nc_bootlegger_100_tire_advice/",
         "category": "community",
-        "label": "reddit.com: Western Nc Bootlegger 100 Tire Advice"
+        "label": "Reddit"
       },
       {
-        "url": "https://www.gravelcyclist.com/videos/video-2016-bootlegger-100-gravel-race-lenoir-north-carolina/",
+        "url": "https://www.reddit.com/r/gravelcycling/comments/f2b4o3/registration_is_now_open_for_the_2020_bootlegger/",
         "category": "community",
-        "label": "gravelcyclist.com: Video 2016 Bootlegger 100 Gravel Race Lenoir North Carolina"
-      },
-      {
-        "url": "https://endokimberly.wixsite.com/risingruncoaching/post/race-report-bootlegger-bananza",
-        "category": "community",
-        "label": "endokimberly.wixsite.com: Race Report Bootlegger Bananza"
+        "label": "Reddit"
       },
       {
         "url": "https://runthequay.itsyourrace.com/event.aspx?id=16622",
@@ -316,21 +296,6 @@
         "url": "https://www.youtube.com/watch?v=Reewk_IYRtY",
         "category": "community",
         "label": "youtube.com: Watch"
-      },
-      {
-        "url": "https://www.cxmagazine.com/bootlegger-100-gravel-race-recap-video-winner-interviews-reid-beloni-nina-laughlin-cyclocross-magazine",
-        "category": "community",
-        "label": "cxmagazine.com: Bootlegger 100 Gravel Race Recap Video Winner Interviews ..."
-      },
-      {
-        "url": "https://bootlegger100.com/",
-        "category": "community",
-        "label": "bootlegger100.com"
-      },
-      {
-        "url": "https://www.pisgahproductions.com/events/bootlegger-100/",
-        "category": "community",
-        "label": "pisgahproductions.com: Bootlegger 100"
       }
     ],
     "tire_recommendations": {

@@ -94,7 +94,11 @@
       "score": "59 / 100",
       "one_liner": "100-mile rugged Upper Peninsula mountain bike/gravel endurance.",
       "should_you_race": "If you want a 100-mile technical endurance challenge in wilderness—yes, it's a legitimate test. If you want accessibility or pro field depth—look elsewhere.",
-      "alternatives": "For better endurance events: Leadville Trail 100, Crusher in the Tushar. For similar regional events: other Michigan endurance races."
+      "alternatives": "For better endurance events: Leadville Trail 100, Crusher in the Tushar. For similar regional events: other Michigan endurance races.",
+      "alternative_slugs": [
+        "crusher-in-the-tushar",
+        "leadville-100"
+      ]
     },
     "logistics": {
       "airport": "Marquette (MQT) 15 minutes",
@@ -102,7 +106,8 @@
       "food": "Marquette has moderate dining options. Stock nutrition for 100 miles.",
       "packet_pickup": "Day before",
       "parking": "At start/finish",
-      "official_site": "Check Marji Gesick website"
+      "official_site": "Check Marji Gesick website",
+      "camping": "campsites in Pioneer Circle, share space, community-focused[3]"
     },
     "history": {
       "founded": null,
@@ -192,12 +197,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 91.8,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 82,
+          "cross_reference": 50
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -331,49 +345,64 @@
         "label": "RideWithGPS: Marji Gesick 100mi"
       },
       {
+        "url": "https://906adventureteam.com/marji-gesick-blog/",
+        "category": "other",
+        "label": "906Adventureteam"
+      },
+      {
+        "url": "https://906adventureteam.com/mountain-bike-events/marji-gesick/",
+        "category": "other",
+        "label": "906Adventureteam"
+      },
+      {
         "url": "https://teamrunrun.com/marji-gesick-100/",
+        "category": "other",
+        "label": "Teamrunrun"
+      },
+      {
+        "url": "https://www.joinbasecamp.com/post/heaths-story-marji-gesick",
+        "category": "other",
+        "label": "Joinbasecamp"
+      },
+      {
+        "url": "https://www.reddit.com/r/MTB/comments/9d8euf/marji_gesick_100_who_else_here_is_attempting_this/",
         "category": "community",
-        "label": "teamrunrun.com: Marji Gesick 100"
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.reddit.com/r/MTB/comments/9i8d7o/marji_gesick_100_howd_your_race_go/",
+        "category": "community",
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.reddit.com/r/MTB/comments/dbfdl9/josh_tostados_marji_gesick_100_preride_pine_knob/",
+        "category": "community",
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.reddit.com/r/Ultramarathon/comments/bb0r98/marji_gesick/",
+        "category": "community",
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.reddit.com/r/Velo/comments/9j8xl7/my_marji_gesick_100_race_report/",
+        "category": "community",
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.rlp-coaching.com/blog/read_206695/my-marji-gesick-experience-2024-part-1-the-run-in-to-the-race.html",
+        "category": "other",
+        "label": "Rlp-Coaching"
+      },
+      {
+        "url": "https://www.salsacycles.com/blogs/articles/8-tips-for-thriving-not-just-surviving-at-marji-gesick",
+        "category": "other",
+        "label": "Salsacycles"
       },
       {
         "url": "https://www.ironbull.org/blog/marji-2024a",
         "category": "community",
         "label": "ironbull.org: Marji 2024A"
-      },
-      {
-        "url": "https://www.rlp-coaching.com/blog/read_206695/my-marji-gesick-experience-2024-part-1-the-run-in-to-the-race.html",
-        "category": "community",
-        "label": "rlp-coaching.com: My Marji Gesick Experience 2024 Part 1 The Run In To The ..."
-      },
-      {
-        "url": "https://www.reddit.com/r/MTB/comments/9i8d7o/marji_gesick_100_howd_your_race_go/",
-        "category": "community",
-        "label": "reddit.com: Marji Gesick 100 Howd Your Race Go"
-      },
-      {
-        "url": "https://www.reddit.com/r/trailrunning/comments/ps4bdy/the_marji_gesick_sure_didnt_disappoint_this/",
-        "category": "community",
-        "label": "reddit.com: The Marji Gesick Sure Didnt Disappoint This"
-      },
-      {
-        "url": "https://www.reddit.com/r/ultrarunning/comments/xhw9kn/first_ultra_marji_gesick_50_but_its_really_62/",
-        "category": "community",
-        "label": "reddit.com: First Ultra Marji Gesick 50 But Its Really 62"
-      },
-      {
-        "url": "https://www.salsacycles.com/blogs/articles/8-tips-for-thriving-not-just-surviving-at-marji-gesick",
-        "category": "community",
-        "label": "salsacycles.com: 8 Tips For Thriving Not Just Surviving At Marji Gesick"
-      },
-      {
-        "url": "https://906adventureteam.com/marji-gesick-blog/",
-        "category": "community",
-        "label": "906adventureteam.com: Marji Gesick Blog"
-      },
-      {
-        "url": "https://www.joinbasecamp.com/post/heaths-story-marji-gesick",
-        "category": "community",
-        "label": "joinbasecamp.com: Heaths Story Marji Gesick"
       }
     ],
     "tire_recommendations": {

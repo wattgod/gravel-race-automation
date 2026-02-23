@@ -19,7 +19,7 @@
         "Rolling hills"
       ],
       "field_size": "50-150 riders",
-      "start_time": "Morning start",
+      "start_time": "7:00 AM",
       "registration": "Online. Cost: ~$60-90",
       "prize_purse": "None",
       "aid_stations": "Minimal aid stations",
@@ -138,7 +138,13 @@
       ],
       "signature_challenge": "Arizona high desert heat and sun exposure.",
       "ridewithgps_id": "44452406",
-      "ridewithgps_name": "2023 Chino Grinder Half Grind 60"
+      "ridewithgps_name": "2023 Chino Grinder Half Grind 60",
+      "surface_breakdown": {
+        "overall": {
+          "gravel": 60,
+          "pavement": 40
+        }
+      }
     },
     "guide_variables": {
       "race_name": "Chino Grinder",
@@ -179,12 +185,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 90.0,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 82,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -308,39 +323,49 @@
         "label": "RideWithGPS: 2023 Chino Grinder Half Grind 60"
       },
       {
+        "url": "https://azgravelrides.com/blog/category/chino-grinder/",
+        "category": "other",
+        "label": "Azgravelrides"
+      },
+      {
         "url": "https://gooldsgonewild.com/2016/05/10/chino-grinder-race-report-a-tale-of-two-races/",
-        "category": "community",
-        "label": "gooldsgonewild.com: Chino Grinder Race Report A Tale Of Two Races"
+        "category": "other",
+        "label": "Gooldsgonewild"
+      },
+      {
+        "url": "https://www.bikesignup.com/Race/AZ/ChinoValley/ChinoGrinder",
+        "category": "other",
+        "label": "Bikesignup"
       },
       {
         "url": "https://www.cxmagazine.com/riding-spy-chino-grinder-nicole-duke",
-        "category": "community",
-        "label": "cxmagazine.com: Riding Spy Chino Grinder Nicole Duke"
+        "category": "media",
+        "label": "CX Magazine"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/5163/chino-grinder",
+        "category": "other",
+        "label": "Granfondoguide"
+      },
+      {
+        "url": "https://www.racecenter.com/cycling/chino-grinder",
+        "category": "other",
+        "label": "Racecenter"
       },
       {
         "url": "https://www.reddit.com/r/gravelbike/comments/1745hg1/chino_grinder/",
         "category": "community",
-        "label": "reddit.com: Chino Grinder"
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.reddit.com/r/gravelgrinder/comments/8f82n6/chino_grinder/",
+        "category": "community",
+        "label": "Reddit"
       },
       {
         "url": "https://www.reddit.com/r/CanyonBikes/comments/xnpv8n/hardest_ride_of_my_life_grail_was_flawless/",
         "category": "community",
         "label": "reddit.com: Hardest Ride Of My Life Grail Was Flawless"
-      },
-      {
-        "url": "https://www.chinogrinder.com/",
-        "category": "community",
-        "label": "chinogrinder.com"
-      },
-      {
-        "url": "https://www.bikesignup.com/Race/AZ/ChinoValley/ChinoGrinder",
-        "category": "community",
-        "label": "bikesignup.com: Chinogrinder"
-      },
-      {
-        "url": "https://www.granfondoguide.com/Events/Index/5163/chino-grinder",
-        "category": "community",
-        "label": "granfondoguide.com: Chino Grinder"
       }
     ],
     "tire_recommendations": {

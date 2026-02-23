@@ -94,7 +94,10 @@
       "score": "47 / 100",
       "one_liner": "Italian flat to rolling gravel near Venice.",
       "should_you_race": "If you're in Italy/Europe—yes, it's solid. If you're international—there are better options.",
-      "alternatives": "For similar Italian events: Veneto Gravel. For more elevation: Italian mountain races."
+      "alternatives": "For similar Italian events: Veneto Gravel. For more elevation: Italian mountain races.",
+      "alternative_slugs": [
+        "veneto-gravel"
+      ]
     },
     "logistics": {
       "airport": "Venice (VCE) 30 minutes",
@@ -185,12 +188,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 89.2,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -311,34 +323,34 @@
     },
     "citations": [
       {
-        "url": "https://velo.outsideonline.com/gravel/alexey-lutsenko-wins-the-first-ever-pro-only-gravel-race-as-racers-welcome-new-format/",
-        "category": "community",
-        "label": "velo.outsideonline.com: Alexey Lutsenko Wins The First Ever Pro Only Gravel Race ..."
+        "url": "https://cyclingflash.com/race/serenissima-gravel-2025",
+        "category": "other",
+        "label": "Cyclingflash"
       },
       {
         "url": "https://journal.wilier.com/en/the-serenissima-gravel-the-race-that-is-all-the-rave",
-        "category": "community",
-        "label": "journal.wilier.com: The Serenissima Gravel The Race That Is All The Rave"
-      },
-      {
-        "url": "https://www.idlprocycling.com/cycling/alpecin-deceuninck-says-goodbye-to-team-legend-with-win-on-italian-gravel-del-grosso-joins-world-champion-on-the-podium",
-        "category": "community",
-        "label": "idlprocycling.com: Alpecin Deceuninck Says Goodbye To Team Legend With Win O..."
-      },
-      {
-        "url": "https://www.serenissimagravel.com/",
-        "category": "community",
-        "label": "serenissimagravel.com"
+        "category": "other",
+        "label": "Journal"
       },
       {
         "url": "https://qazinform.com/news/astana-s-alexey-lutsenko-wins-serenissima-gravel_a3849821",
-        "category": "community",
-        "label": "qazinform.com: Astana S Alexey Lutsenko Wins Serenissima Gravel A3849821"
+        "category": "other",
+        "label": "Qazinform"
+      },
+      {
+        "url": "https://www.boards.ie/discussion/2058214990/serenissima-gravel",
+        "category": "other",
+        "label": "Boards"
       },
       {
         "url": "https://www.cyclingnews.com/races/serenissima-gravel-2022/serenissima-gravel-2022/results/",
+        "category": "other",
+        "label": "Cyclingnews"
+      },
+      {
+        "url": "https://velo.outsideonline.com/gravel/alexey-lutsenko-wins-the-first-ever-pro-only-gravel-race-as-racers-welcome-new-format/",
         "category": "community",
-        "label": "cyclingnews.com: Results"
+        "label": "velo.outsideonline.com: Alexey Lutsenko Wins The First Ever Pro Only Gravel Race ..."
       },
       {
         "url": "https://www.granfondonationalseries.com/blog/2024/1/30/ride-with-italian-champion-filippo-pozzato-at-2024-gran-fondo-asheville-pb-applewood-manor",
@@ -349,16 +361,6 @@
         "url": "https://passoni.com/en/journal/meetpozzato",
         "category": "community",
         "label": "passoni.com: Meetpozzato"
-      },
-      {
-        "url": "https://www.boards.ie/discussion/2058214990/serenissima-gravel",
-        "category": "community",
-        "label": "boards.ie: Serenissima Gravel"
-      },
-      {
-        "url": "https://cyclingflash.com/race/serenissima-gravel-2025",
-        "category": "community",
-        "label": "cyclingflash.com: Serenissima Gravel 2025"
       },
       {
         "url": "https://dirttanbikeclub.com/2021/11/12/a-thousand-to-none-grassroots-and-pro-gravel-keep-different-scores/",

@@ -166,7 +166,12 @@
       "score": "85 / 100",
       "one_liner": "All the Unbound prestige, all the Kansas suffering, half the distance—still not easy.",
       "should_you_race": "Yes if you want the world-class Unbound experience in a (relatively) more accessible package. Yes if you're building toward the 200. Skip if lottery entry or Kansas weather are deal-breakers.",
-      "alternatives": "Unbound 200 (the full experience); SBT GRVL (Colorado scenery, better weather); Gravel Worlds (Nebraska alternative)"
+      "alternatives": "Unbound 200 (the full experience); SBT GRVL (Colorado scenery, better weather); Gravel Worlds (Nebraska alternative)",
+      "alternative_slugs": [
+        "garmin-gravel-worlds",
+        "sbt-grvl",
+        "unbound-200"
+      ]
     },
     "logistics": {
       "airport": "KCI (Kansas City) - 2hr drive to Emporia; ICT (Wichita) - 1.5hr drive",
@@ -174,7 +179,8 @@
       "food": "Emporia has standard restaurant/grocery options. Race week features expo food, pasta dinners. Finish line party with beer garden on Commercial Street.",
       "packet_pickup": "Thursday-Friday at All Things Gravel Expo in downtown Emporia. Photo ID required.",
       "parking": "Downtown streets close race day. Park legally nearby. The start is at Granada Theatre on Commercial Street.",
-      "official_site": "https://unboundgravel.com"
+      "official_site": "https://unboundgravel.com",
+      "camping": "- Consider splitting accommodations (4 people = ~$105/night per person)"
     },
     "history": {
       "founded": 2013,
@@ -217,11 +223,6 @@
     },
     "citations": [
       {
-        "url": "https://unboundgravel.com",
-        "category": "official",
-        "label": "Official Website"
-      },
-      {
         "url": "https://velo.outsideonline.com/gravel/the-hardest-part-about-racing-unbound-might-just-be-finding-an-affordable-place-to-sleep/",
         "category": "media",
         "label": "Velo"
@@ -237,9 +238,64 @@
         "label": "BikeRadar"
       },
       {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/144hanq/unbound_gravel_100/",
+        "category": "community",
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/v70rpb/unbound_100_review/",
+        "category": "community",
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.roadbikerider.com/2025-unbound-100/",
+        "category": "community",
+        "label": "roadbikerider.com: 2025 Unbound 100"
+      },
+      {
+        "url": "https://www.yahoo.com/lifestyle/6-things-learned-first-gravel-130752698.html",
+        "category": "community",
+        "label": "yahoo.com: 6 Things Learned First Gravel 130752698.Html"
+      },
+      {
+        "url": "https://www.roadbikerider.com/preparing-for-unbound/",
+        "category": "community",
+        "label": "roadbikerider.com: Preparing For Unbound"
+      },
+      {
+        "url": "https://www.precisionhydration.com/athletes/case-studies/cycling/jonny-tye/31-05-2025/",
+        "category": "community",
+        "label": "precisionhydration.com: 31 05 2025"
+      },
+      {
         "url": "https://en.wikipedia.org/wiki/Unbound_Gravel",
         "category": "reference",
         "label": "Wikipedia"
+      },
+      {
+        "url": "https://altangletools.com/de-de/blogs/news/altangle-at-unbound-gravel-conquering-the-flint-hills-with-innovative-cycling-solutions",
+        "category": "other",
+        "label": "Altangletools"
+      },
+      {
+        "url": "https://blog.chapter2bikes.com/day-at-unbound-gravel-100km/",
+        "category": "other",
+        "label": "Blog"
+      },
+      {
+        "url": "https://cycling-info.com/tiffany-cromwell-claims-second-unbound-gravel-100-title-as-hayden-christian-edges-out-isaac-allred-in-thrilling-mens-sprint-finish/",
+        "category": "other",
+        "label": "Cycling-Info"
+      },
+      {
+        "url": "https://kriscordova.blogspot.com/2023/06/unbound-gravel-100-race-report-2023.html",
+        "category": "other",
+        "label": "Kriscordova"
+      },
+      {
+        "url": "https://marleyblonsky.com/blog-native/unboundgravelrecap",
+        "category": "other",
+        "label": "Marleyblonsky"
       },
       {
         "url": "https://www.apidura.com/journal/unbound-gravel-everything-you-need-to-know/",
@@ -265,91 +321,6 @@
         "url": "https://www.cyclingnews.com/unbound-gravel/",
         "category": "other",
         "label": "Cyclingnews"
-      },
-      {
-        "url": "https://www.granfondoguide.com/Contents/Index/7393/swenson-and-schiff-win-2023-garmin-unbound-gravel-presented-by-craft-sportswear",
-        "category": "other",
-        "label": "Granfondoguide"
-      },
-      {
-        "url": "https://www.granfondoguide.com/Contents/Index/8001/rosa-kl%C3%B6ser-and-lachlan-morton-victorious-at-2024-unbound-gravel",
-        "category": "other",
-        "label": "Granfondoguide"
-      },
-      {
-        "url": "https://www.progravelmagazine.com/post/unbound-gravel-s-impact-on-emporia-kansas",
-        "category": "other",
-        "label": "Progravelmagazine"
-      },
-      {
-        "url": "https://www.unboundgravel.com/",
-        "category": "other",
-        "label": "Unboundgravel"
-      },
-      {
-        "url": "https://www.unboundgravel.com/emporia-lodging/",
-        "category": "other",
-        "label": "Unboundgravel"
-      },
-      {
-        "url": "https://www.unboundgravel.com/events-100/",
-        "category": "other",
-        "label": "Unboundgravel"
-      },
-      {
-        "url": "https://www.unboundgravel.com/officialrules/",
-        "category": "other",
-        "label": "Unboundgravel"
-      },
-      {
-        "url": "https://www.unboundgravel.com/results/",
-        "category": "other",
-        "label": "Unboundgravel"
-      },
-      {
-        "url": "https://www.unboundgravel.com/routes/",
-        "category": "other",
-        "label": "Unboundgravel"
-      },
-      {
-        "url": "https://www.unboundgravel.com/schedule/",
-        "category": "other",
-        "label": "Unboundgravel"
-      },
-      {
-        "url": "https://www.roadbikerider.com/2025-unbound-100/",
-        "category": "community",
-        "label": "roadbikerider.com: 2025 Unbound 100"
-      },
-      {
-        "url": "https://blog.chapter2bikes.com/day-at-unbound-gravel-100km/",
-        "category": "community",
-        "label": "blog.chapter2bikes.com: Day At Unbound Gravel 100Km"
-      },
-      {
-        "url": "https://marleyblonsky.com/blog-native/unboundgravelrecap",
-        "category": "community",
-        "label": "marleyblonsky.com: Unboundgravelrecap"
-      },
-      {
-        "url": "https://kriscordova.blogspot.com/2023/06/unbound-gravel-100-race-report-2023.html",
-        "category": "community",
-        "label": "kriscordova.blogspot.com: Unbound Gravel 100 Race Report 2023.Html"
-      },
-      {
-        "url": "https://www.yahoo.com/lifestyle/6-things-learned-first-gravel-130752698.html",
-        "category": "community",
-        "label": "yahoo.com: 6 Things Learned First Gravel 130752698.Html"
-      },
-      {
-        "url": "https://www.roadbikerider.com/preparing-for-unbound/",
-        "category": "community",
-        "label": "roadbikerider.com: Preparing For Unbound"
-      },
-      {
-        "url": "https://www.precisionhydration.com/athletes/case-studies/cycling/jonny-tye/31-05-2025/",
-        "category": "community",
-        "label": "precisionhydration.com: 31 05 2025"
       }
     ],
     "results": {
@@ -416,6 +387,25 @@
         "200pluslb_dry": "42-46",
         "200pluslb_mixed": "40-44",
         "200pluslb_wet": "38-42"
+      }
+    },
+    "research_metadata": {
+      "research_strength": {
+        "overall": 97.0,
+        "grade": "A",
+        "weakest": "voice_authenticity",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 100,
+          "cross_reference": 100
+        },
+        "scored_at": "2026-02-04"
       }
     }
   },

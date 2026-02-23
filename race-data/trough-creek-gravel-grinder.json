@@ -19,7 +19,7 @@
         "Pennsylvania"
       ],
       "field_size": "50-100 riders",
-      "start_time": "Morning start",
+      "start_time": "9:00 AM EDT",
       "registration": "Online. Cost: ~$50-75",
       "prize_purse": "Modest prizes",
       "aid_stations": "Limited aid stations",
@@ -94,7 +94,11 @@
       "score": "41 / 100",
       "one_liner": "Pennsylvania local gravel challenge.",
       "should_you_race": "If you're local to Pennsylvania—yes, it's good value. If you're traveling—skip it.",
-      "alternatives": "For better Pennsylvania races: Dirty Kanza PA, Trans-Sylvania Epic."
+      "alternatives": "For better Pennsylvania races: Dirty Kanza PA, Trans-Sylvania Epic.",
+      "alternative_slugs": [
+        "trans-sylvania-epic",
+        "unbound-200"
+      ]
     },
     "logistics": {
       "airport": "State College (SCE) 90 minutes",
@@ -185,12 +189,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 84.7,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 80,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -316,19 +329,29 @@
         "label": "RideWithGPS: Trough Creek Gravel Grinder - Half Series Route 2025"
       },
       {
+        "url": "https://racecheck.com/races/trough-creek-gravel-grinder/",
+        "category": "other",
+        "label": "Racecheck"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/10761/trough-creek-gravel-grinder",
+        "category": "other",
+        "label": "Granfondoguide"
+      },
+      {
+        "url": "https://www.gravel-results.com/race/23490",
+        "category": "other",
+        "label": "Gravel-Results"
+      },
+      {
         "url": "https://www.joinbasecamp.com/post/evans-story-trough-creek-gravel-grinder",
-        "category": "community",
-        "label": "joinbasecamp.com: Evans Story Trough Creek Gravel Grinder"
+        "category": "other",
+        "label": "Joinbasecamp"
       },
       {
         "url": "https://www.trans-sylvaniaproductions.com/tcgg",
         "category": "community",
         "label": "trans-sylvaniaproductions.com: Tcgg"
-      },
-      {
-        "url": "https://www.gravel-results.com/race/23490",
-        "category": "community",
-        "label": "gravel-results.com: 23490"
       }
     ],
     "tire_recommendations": {

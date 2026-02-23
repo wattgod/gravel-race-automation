@@ -19,7 +19,7 @@
         "Rural NSW"
       ],
       "field_size": "200-400 riders",
-      "start_time": "Morning start",
+      "start_time": "8:30am",
       "registration": "Online. Cost: ~$70-120 AUD",
       "prize_purse": "None",
       "aid_stations": "Aid stations on course",
@@ -178,12 +178,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 83.5,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 60,
+          "citation_density": 80,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 100,
+          "completeness": 88,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -303,28 +312,18 @@
     "citations": [
       {
         "url": "https://wollombigravel.com.au/wollombi-gravel-fest/",
-        "category": "community",
-        "label": "wollombigravel.com.au: Wollombi Gravel Fest"
-      },
-      {
-        "url": "https://raceroster.com/events/2024/96526/wollombi-gravel-fest",
-        "category": "community",
-        "label": "raceroster.com: Wollombi Gravel Fest"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=CFOKk9gc4MA",
-        "category": "community",
-        "label": "youtube.com: Watch"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=_9wru3B5CJo",
-        "category": "community",
-        "label": "youtube.com: Watch"
+        "category": "official",
+        "label": "Official Website"
       },
       {
         "url": "https://auscycling.org.au/events/wollombi-gravel-fest",
-        "category": "community",
-        "label": "auscycling.org.au: Wollombi Gravel Fest"
+        "category": "other",
+        "label": "Auscycling"
+      },
+      {
+        "url": "https://raceroster.com/events/2024/96526/wollombi-gravel-fest/leaderboards/overall",
+        "category": "other",
+        "label": "Raceroster"
       }
     ],
     "results": {

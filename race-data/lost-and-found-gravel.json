@@ -94,7 +94,11 @@
       "score": "51 / 100",
       "one_liner": "California Sierra Nevada gravel in Portola.",
       "should_you_race": "If you're in California and want a Sierra Nevada event—yes, it's solid. If you're from out of state—there are better options.",
-      "alternatives": "For better CA events: Grinduro, BWR. For similar Sierra events: other Sierra gravel races."
+      "alternatives": "For better CA events: Grinduro, BWR. For similar Sierra events: other Sierra gravel races.",
+      "alternative_slugs": [
+        "bwr-california",
+        "grinduro"
+      ]
     },
     "logistics": {
       "airport": "Reno (RNO) 1.5 hours or Sacramento (SMF) 2.5 hours",
@@ -102,7 +106,8 @@
       "food": "Small town with limited dining. Stock nutrition.",
       "packet_pickup": "Day before typically",
       "parking": "At start/finish",
-      "official_site": "Check Lost and Found Gravel website"
+      "official_site": "Check Lost and Found Gravel website",
+      "camping": "Camping and lodging** info on official site (specifics not detailed in results)"
     },
     "history": {
       "founded": null,
@@ -185,12 +190,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 92.7,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 88,
+          "cross_reference": 50
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -298,7 +312,7 @@
       },
       "field_depth": {
         "score": 2,
-        "explanation": "With a field of 200-400 riders, serena Gordon winning three times tells you everything about the competitive depth — when the same rider dominates repeatedly, the field isn't stacked. No prize purse and no mention of notable pros beyond Gordon and Mike Shaw suggests this draws enthusiasts, not elite competition. The 'worldwide' marketing claim feels like counting anyone who drove more than three hours to get there. Less competitive depth than Almanzo 100. As Derek Yarra puts it: \"At the end of the day, I crossed the line 25th in the pro field with a time of 6h24m.\""
+        "explanation": "With a field of 200-400 riders, serena Gordon winning three times tells you everything about the competitive depth — when the same rider dominates repeatedly, the field isn't stacked. No prize purse and no mention of notable pros beyond Gordon and Mike Shaw suggests this draws enthusiasts, not elite competition. The 'worldwide' marketing claim feels like counting anyone who drove more than three hours to get there. Less competitive depth than Almanzo 100. As Derek Yarra puts it: \"I crossed the line 25th in the pro field with a time of 6h24m.\""
       },
       "value": {
         "score": 2,
@@ -316,29 +330,44 @@
         "label": "RideWithGPS: Lost and Found Graveler"
       },
       {
-        "url": "https://lostandfoundbikeride.com/",
-        "category": "community",
-        "label": "lostandfoundbikeride.com"
+        "url": "https://sierratrails.org/event/lost-and-found-gravel-grinder/",
+        "category": "other",
+        "label": "Sierratrails"
       },
       {
-        "url": "https://theradavist.com/2025-lost-and-found",
-        "category": "community",
-        "label": "theradavist.com: 2025 Lost And Found"
+        "url": "https://strambecco.com/event/lost-and-found-gravel-festival/",
+        "category": "other",
+        "label": "Strambecco"
       },
       {
-        "url": "https://www.reddit.com/r/gravelcycling/comments/b6apar/signed_up_for_my_first_gravel_grinder_lost_and/",
-        "category": "community",
-        "label": "reddit.com: Signed Up For My First Gravel Grinder Lost And"
+        "url": "https://velo.outsideonline.com/gravel/the-grind-lost-and-found-and-reborn/?scope=anon",
+        "category": "media",
+        "label": "Velo"
+      },
+      {
+        "url": "https://www.cxmagazine.com/2014-lost-and-found-gravel-bike-ride-race-results-kessler-young",
+        "category": "media",
+        "label": "CX Magazine"
       },
       {
         "url": "https://www.reddit.com/r/gravelcycling/comments/13jlt09/lost_found_gravel_race_lost_sierra_tire/",
         "category": "community",
-        "label": "reddit.com: Lost Found Gravel Race Lost Sierra Tire"
+        "label": "Reddit"
       },
       {
-        "url": "https://www.granfondoguide.com/Events/Popup/4711",
+        "url": "https://www.reddit.com/r/gravelcycling/comments/14843gg/an_epic_gravel_race_adventure_lost_found_2023/",
         "category": "community",
-        "label": "granfondoguide.com: 4711"
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/1cytq3g/lost_found_gravel_grinder_portola_ca_or_bighorn/",
+        "category": "community",
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/1df0h62/digging_into_the_lost_found_course_in_portola_ca/",
+        "category": "community",
+        "label": "Reddit"
       },
       {
         "url": "https://abovecategory.com/blogs/journal/100-miles-of-sierra-paydirt-racing-the-lost-and-found",
@@ -346,19 +375,14 @@
         "label": "abovecategory.com: 100 Miles Of Sierra Paydirt Racing The Lost And Found"
       },
       {
-        "url": "https://www.cxmagazine.com/2014-lost-and-found-gravel-bike-ride-race-results-kessler-young",
-        "category": "community",
-        "label": "cxmagazine.com: 2014 Lost And Found Gravel Bike Ride Race Results Kessler..."
-      },
-      {
-        "url": "https://velo.outsideonline.com/gravel/the-grind-lost-and-found-and-reborn/?scope=anon",
-        "category": "community",
-        "label": "velo.outsideonline.com: The Grind Lost And Found And Reborn"
-      },
-      {
         "url": "https://www.wtb.com/blogs/wtb/tires-of-choice-for-lost-and-found-2025",
         "category": "community",
         "label": "wtb.com: Tires Of Choice For Lost And Found 2025"
+      },
+      {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/b6apar/signed_up_for_my_first_gravel_grinder_lost_and/",
+        "category": "community",
+        "label": "reddit.com: Signed Up For My First Gravel Grinder Lost And"
       },
       {
         "url": "https://ritcheylogic.com/blog/for-the-moment-i-am-fine",
@@ -366,9 +390,14 @@
         "label": "ritcheylogic.com: For The Moment I Am Fine"
       },
       {
-        "url": "https://strambecco.com/event/lost-and-found-gravel-festival/",
+        "url": "https://www.granfondoguide.com/Events/Popup/4711",
         "category": "community",
-        "label": "strambecco.com: Lost And Found Gravel Festival"
+        "label": "granfondoguide.com: 4711"
+      },
+      {
+        "url": "https://theradavist.com/2025-lost-and-found",
+        "category": "community",
+        "label": "theradavist.com: 2025 Lost And Found"
       }
     ],
     "results": {

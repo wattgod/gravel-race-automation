@@ -119,7 +119,13 @@
       ],
       "signature_challenge": "Technical singletrack. MTB skills required. Crashes possible.",
       "ridewithgps_id": "47342609",
-      "ridewithgps_name": "Grinduro France 2024 - Full"
+      "ridewithgps_name": "Grinduro France 2024 - Full",
+      "surface_breakdown": {
+        "overall": {
+          "gravel": 50,
+          "singletrack": 30
+        }
+      }
     },
     "history": {
       "founded": "2010s",
@@ -138,18 +144,18 @@
       ],
       "research_date": "2026-02-04",
       "research_strength": {
-        "overall": 89.8,
+        "overall": 91.5,
         "grade": "A",
-        "weakest": "temporal_depth",
+        "weakest": "voice_authenticity",
         "has_research_dump": true,
         "dimensions": {
-          "source_diversity": 80,
+          "source_diversity": 100,
           "citation_density": 100,
-          "temporal_depth": 50,
+          "temporal_depth": 75,
           "specificity": 100,
           "statistical_backing": 100,
-          "voice_authenticity": 100,
-          "completeness": 94,
+          "voice_authenticity": 70,
+          "completeness": 88,
           "cross_reference": 75
         },
         "scored_at": "2026-02-04"
@@ -217,7 +223,11 @@
       "score": "76 / 100",
       "one_liner": "Grinduro's inaugural European outing trades California dust for Vosges forests, keeping the party-to-pain ratio intact.",
       "should_you_race": "If you can handle 100 kilometers of varied terrain without crying about gravel bike handling, this works. The 2,000 meters of climbing spread across French forest roads won't destroy you, but the mix of surfaces rewards riders who can adapt rather than specialists. Show up for the weekend festival vibe, not pure racing—Grinduro's DNA is equal parts suffering and beer.",
-      "alternatives": "Dirty Kanza offers more prestige and American-style gravel brutality if you want traditional gravel racing. For European adventures with better established reputations, consider Gravel Grit & Oysters in Belgium or Italy's Nova Eroica for proven courses and deeper community."
+      "alternatives": "Dirty Kanza offers more prestige and American-style gravel brutality if you want traditional gravel racing. For European adventures with better established reputations, consider Gravel Grit & Oysters in Belgium or Italy's Nova Eroica for proven courses and deeper community.",
+      "alternative_slugs": [
+        "nova-eroica",
+        "unbound-200"
+      ]
     },
     "citations": [
       {
@@ -231,39 +241,39 @@
         "label": "RideWithGPS: Grinduro France 2024 - Full"
       },
       {
+        "url": "https://gravelunion.cc/article/ride-report-grinduro-france-goes-down-a-storm-in-the-vosges",
+        "category": "other",
+        "label": "Gravelunion"
+      },
+      {
+        "url": "https://lecycle.fr/actualites/grinduro-levenement-gravel-alternatif-debarque-en-france/49379/",
+        "category": "other",
+        "label": "Lecycle"
+      },
+      {
         "url": "https://reddit.com/r/gravelcycling/comments/grinduro-france",
         "category": "community",
         "label": "Reddit"
       },
       {
-        "url": "https://www.grinduro.com",
-        "category": "other",
-        "label": "Grinduro"
-      },
-      {
-        "url": "https://gravelunion.cc/article/ride-report-grinduro-france-goes-down-a-storm-in-the-vosges",
-        "category": "community",
-        "label": "gravelunion.cc: Ride Report Grinduro France Goes Down A Storm In The Vosges"
-      },
-      {
         "url": "https://weelz.ouest-france.fr/jetais-au-grinduro-france-une-epopee-gravel-dans-les-vosges/",
-        "category": "community",
-        "label": "weelz.ouest-france.fr: Jetais Au Grinduro France Une Epopee Gravel Dans Les Vosges"
-      },
-      {
-        "url": "https://weelz.ouest-france.fr/grinduro-france-gravel-chrono-et-biere-au-coeur-des-vosges-avec-shimano/",
-        "category": "community",
-        "label": "weelz.ouest-france.fr: Grinduro France Gravel Chrono Et Biere Au Coeur Des Vosge..."
+        "category": "other",
+        "label": "Weelz"
       },
       {
         "url": "https://weelz.ouest-france.fr/objectif-grinduro-france-100-km-de-gravel-mon-format-prefere/",
-        "category": "community",
-        "label": "weelz.ouest-france.fr: Objectif Grinduro France 100 Km De Gravel Mon Format Prefere"
+        "category": "other",
+        "label": "Weelz"
       },
       {
-        "url": "https://lecycle.fr/actualites/grinduro-levenement-gravel-alternatif-debarque-en-france/49379/",
-        "category": "community",
-        "label": "lecycle.fr: 49379"
+        "url": "https://www.godare.events/en/events/gravel-ride-calendar/grinduro-france",
+        "category": "other",
+        "label": "Godare"
+      },
+      {
+        "url": "https://www.gravelcyclist.com/training-rides/press-release-grinduro-announces-dates-new-locations-for-2024/",
+        "category": "media",
+        "label": "Gravel Cyclist"
       },
       {
         "url": "https://gravel.shimano.com/stories/grinduro-2024-preview",
@@ -274,11 +284,6 @@
         "url": "https://gravelunion.cc/article/turning-the-forest-purple-at-grinduro-germany",
         "category": "community",
         "label": "gravelunion.cc: Turning The Forest Purple At Grinduro Germany"
-      },
-      {
-        "url": "https://www.gravelcyclist.com/training-rides/press-release-grinduro-announces-dates-new-locations-for-2024/",
-        "category": "community",
-        "label": "gravelcyclist.com: Press Release Grinduro Announces Dates New Locations For ..."
       }
     ],
     "results": {

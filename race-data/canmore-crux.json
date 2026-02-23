@@ -19,7 +19,7 @@
         "Alberta"
       ],
       "field_size": "50-100 riders",
-      "start_time": "Morning start",
+      "start_time": "9:00 AM for",
       "registration": "Online. Cost: ~$75-100 CAD",
       "prize_purse": "Modest prizes",
       "aid_stations": "Limited aid stations",
@@ -94,7 +94,11 @@
       "score": "46 / 100",
       "one_liner": "Canadian mountain gravel challenge.",
       "should_you_race": "If you're local to Alberta—yes, it's solid. If you're traveling—skip it.",
-      "alternatives": "For better Canadian races: The Range, TransRockies Gravel Royale."
+      "alternatives": "For better Canadian races: The Range, TransRockies Gravel Royale.",
+      "alternative_slugs": [
+        "the-range",
+        "transrockies-gravel-royale"
+      ]
     },
     "logistics": {
       "airport": "Calgary (YYC) 90 minutes",
@@ -185,12 +189,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 86.7,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -316,19 +329,19 @@
         "label": "RideWithGPS: CanmoreCrux"
       },
       {
-        "url": "https://www.canmorecrux.com/",
-        "category": "community",
-        "label": "canmorecrux.com"
+        "url": "https://cms.albertaparks.ca/parks/kananaskis/canmore-nordic-centre-pp/events/events/canmore-crux-2025/",
+        "category": "other",
+        "label": "Cms"
       },
       {
         "url": "https://www.albertaparks.ca/parks/kananaskis/canmore-nordic-centre-pp/events/events/canmore-crux-2025/",
-        "category": "community",
-        "label": "albertaparks.ca: Canmore Crux 2025"
+        "category": "other",
+        "label": "Albertaparks"
       },
       {
         "url": "https://www.granfondoguide.com/Events/Index/10497/canmore-crux",
-        "category": "community",
-        "label": "granfondoguide.com: Canmore Crux"
+        "category": "other",
+        "label": "Granfondoguide"
       }
     ],
     "tire_recommendations": {

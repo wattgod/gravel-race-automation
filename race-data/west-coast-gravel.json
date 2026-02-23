@@ -19,7 +19,7 @@
         "Oregon"
       ],
       "field_size": "75-125 riders",
-      "start_time": "Morning start",
+      "start_time": "9:00 AM",
       "registration": "Online. Cost: ~$75-95",
       "prize_purse": "Modest prizes",
       "aid_stations": "2-3 aid stations",
@@ -94,7 +94,11 @@
       "score": "43 / 100",
       "one_liner": "Oregon coast gravel challenge.",
       "should_you_race": "If you're local to OR—yes, it's solid. If you're traveling—skip it.",
-      "alternatives": "For better OR races: Oregon Coast Gravel Epic, Oregon Gran Fondo."
+      "alternatives": "For better OR races: Oregon Coast Gravel Epic, Oregon Gran Fondo.",
+      "alternative_slugs": [
+        "oregon-coast-gravel-epic",
+        "oregon-gran-fondo"
+      ]
     },
     "logistics": {
       "airport": "Eugene (EUG) 90 minutes",
@@ -185,12 +189,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 89.7,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 100,
+          "completeness": 76,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -316,14 +329,49 @@
         "label": "RideWithGPS: West Coast Gravel (OR) long course"
       },
       {
+        "url": "https://www.granfondoguide.com/Events/Index/9349/west-coast-gravel",
+        "category": "other",
+        "label": "Granfondoguide"
+      },
+      {
+        "url": "https://www.gravel-results.com/race/20752",
+        "category": "other",
+        "label": "Gravel-Results"
+      },
+      {
         "url": "https://www.gravelstoke.com/gravel-cycling-gear-blog/mammoth-tuff-2024-through-sand-and-sky",
-        "category": "community",
-        "label": "gravelstoke.com: Mammoth Tuff 2024 Through Sand And Sky"
+        "category": "other",
+        "label": "Gravelstoke"
+      },
+      {
+        "url": "https://www.mudslingerevents.com/oregon-coast-gravel-epic",
+        "category": "other",
+        "label": "Mudslingerevents"
       },
       {
         "url": "https://www.mudslingerevents.com/west-coast-gravel",
+        "category": "other",
+        "label": "Mudslingerevents"
+      },
+      {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/13a2jmi/vaast_a1_at_the_end_of_the_oregon_coast_gravel/",
         "category": "community",
-        "label": "mudslingerevents.com: West Coast Gravel"
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/uh1mkv/2022_west_coast_gravel_race_erik_the_red/",
+        "category": "community",
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.reddit.com/r/newfoundland/comments/q5duzd/corner_brook_west_coast_gravel_bike_trails/",
+        "category": "community",
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.reddit.com/r/xbiking/comments/khhqlq/dadbiking_on_west_coast_gravel/",
+        "category": "community",
+        "label": "Reddit"
       },
       {
         "url": "https://www.youtube.com/watch?v=4RQk2fPmUMA",

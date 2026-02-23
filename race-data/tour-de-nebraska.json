@@ -15,7 +15,8 @@
       "date_specific": "2026: June 23-28",
       "lat": 40.63,
       "lng": -100.08,
-      "registration": "Online. Cost: $100"
+      "registration": "Online. Cost: $100",
+      "start_time": "5:55 AM star"
     },
     "gravel_god_rating": {
       "overall_score": 56,
@@ -160,7 +161,11 @@
       "score": "56 / 100",
       "one_liner": "Nebraska's genteel summer camp for cyclists who want gravel adventure without the gravel commitment.",
       "should_you_race": "Perfect for riders wanting to dip their toes into multi-day touring without the suffer-fest. The main tour welcomes any bike and fitness level, while the 30-rider gravel component offers real Nebraska dirt roads for those ready to upgrade. Skip if you need competition or epic single climbs—this is about rolling hills, beer at camp, and discovering that Nebraska isn't actually flat.",
-      "alternatives": "Gravel Worlds in Lincoln delivers the full Nebraska gravel experience with actual racing, while RAGBRAI offers similar supported touring with bigger crowds and more chaos. If you want the multi-day format but harder terrain, look at Dirty Kanza's multi-day events."
+      "alternatives": "Gravel Worlds in Lincoln delivers the full Nebraska gravel experience with actual racing, while RAGBRAI offers similar supported touring with bigger crowds and more chaos. If you want the multi-day format but harder terrain, look at Dirty Kanza's multi-day events.",
+      "alternative_slugs": [
+        "garmin-gravel-worlds",
+        "unbound-200"
+      ]
     },
     "course_description": {
       "character": "Tour de Nebraska is gravel touring disguised as vacation—250 miles of rolling Nebraska farmland where the wind never stops and the hills never quit. Five days of single-lane maintenance roads and well-worn dirt paths that look innocent on paper but grind you down with relentless undulation. The optional gravel adventure component turns those pastoral country roads into proper suffering, especially when fresh gravel meets crosswinds on exposed ridgelines.",
@@ -195,14 +200,14 @@
     },
     "citations": [
       {
-        "url": "https://www.tourdenebraska.com/",
-        "category": "official",
-        "label": "Official Website"
-      },
-      {
         "url": "https://bikepackingroots.org/project/great-plains-gravel-route-nebraska/",
         "category": "other",
         "label": "Bikepackingroots"
+      },
+      {
+        "url": "https://obedbikes.com/blogs/stories/race-recap-gravel-worlds-nebraska",
+        "category": "other",
+        "label": "Obedbikes"
       },
       {
         "url": "https://visitnebraska.com/trip-idea/8-annual-gravel-cycling-events-try-nebraska",
@@ -220,14 +225,39 @@
         "label": "BikeReg"
       },
       {
-        "url": "https://www.centralnebraskatoday.com/",
-        "category": "other",
-        "label": "Centralnebraskatoday"
+        "url": "https://www.gravelcyclist.com/race-reports/race-report-150-hot-miles-of-the-2018-gravel-worlds-and-about-87-hills-lincoln-nebraska-usa/",
+        "category": "media",
+        "label": "Gravel Cyclist"
       },
       {
         "url": "https://www.klkntv.com/tour-de-nebraska-announces-new-route-for-2025/",
         "category": "other",
         "label": "Klkntv"
+      },
+      {
+        "url": "https://www.nancecountyjournal.com/news/tour-de-nebraska",
+        "category": "other",
+        "label": "Nancecountyjournal"
+      },
+      {
+        "url": "https://www.reddit.com/r/Nebraska/comments/33dbam/is_omaha_worth_diverting_to_on_a_bicycle_tour/",
+        "category": "community",
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.reddit.com/r/bicycletouring/comments/970z59/cycling_through_nebraska/",
+        "category": "community",
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.reddit.com/r/bicycling/comments/o5uad/elkhorn_valley_cycling_tour_de_nebraska_to_start/",
+        "category": "community",
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/ckirqi/from_a_gravel_race_last_month_in_western_nebraska/",
+        "category": "community",
+        "label": "Reddit"
       },
       {
         "url": "https://www.tourdenebraska.com/faqs.html",
@@ -250,24 +280,14 @@
         "label": "Tourdenebraska"
       },
       {
+        "url": "https://www.trainerroad.com/forum/t/the-nebraska-garmin-gravel-worlds-2024-tell-me-about-it/95329",
+        "category": "community",
+        "label": "TrainerRoad"
+      },
+      {
         "url": "https://www.tripadvisor.com/Hotels-g45696-McCook_Nebraska-Hotels.html",
         "category": "other",
         "label": "Tripadvisor"
-      },
-      {
-        "url": "https://bellbike.clubexpress.com/content.aspx?page_id=4091&club_id=489982&item_id=2201475",
-        "category": "community",
-        "label": "bellbike.clubexpress.com: Content.Aspx"
-      },
-      {
-        "url": "https://www.gravelcyclist.com/race-reports/race-report-150-hot-miles-of-the-2018-gravel-worlds-and-about-87-hills-lincoln-nebraska-usa/",
-        "category": "community",
-        "label": "gravelcyclist.com: Race Report 150 Hot Miles Of The 2018 Gravel Worlds And A..."
-      },
-      {
-        "url": "https://www.trainerroad.com/forum/t/the-nebraska-garmin-gravel-worlds-2024-tell-me-about-it/95329",
-        "category": "community",
-        "label": "trainerroad.com: 95329"
       },
       {
         "url": "https://velo.outsideonline.com/gravel/gravel-racing/results-matt-beers-and-rosa-kloser-win-lauf-gravel-worlds-2025-in-a-duo-of-two-up-sprints/",
@@ -276,7 +296,8 @@
       }
     ],
     "logistics": {
-      "official_site": "https://www.tourdenebraska.com/"
+      "official_site": "https://www.tourdenebraska.com/",
+      "camping": "campsite (water, Gatorade, beer)\n- SAG support with emergency mechanical and medical assistance\n- Luggage transport between camps"
     },
     "history": {
       "founder": "Charlie & Kim Schilling (Directors)"
@@ -347,6 +368,25 @@
         "200pluslb_dry": "45-49",
         "200pluslb_mixed": "42-46",
         "200pluslb_wet": "40-44"
+      }
+    },
+    "research_metadata": {
+      "research_strength": {
+        "overall": 86.5,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 58,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     }
   }

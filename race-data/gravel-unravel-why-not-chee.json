@@ -19,7 +19,7 @@
         "Washington"
       ],
       "field_size": "50-100 riders",
-      "start_time": "Morning start",
+      "start_time": "9:30 AM",
       "registration": "Online. Cost: ~$75-95",
       "prize_purse": "Modest prizes",
       "aid_stations": "2 aid stations",
@@ -102,7 +102,8 @@
       "food": "Hoquiam has limited dining. Stock nutrition.",
       "packet_pickup": "Day of typically",
       "parking": "At start/finish",
-      "official_site": "Check Gravel Unravel website"
+      "official_site": "Check Gravel Unravel website",
+      "camping": "Camping Culture:** \"Part of the race fee pays for the organizers to haul in water for the racers"
     },
     "history": {
       "founded": null,
@@ -185,12 +186,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 84.2,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 50,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -316,29 +326,44 @@
         "label": "RideWithGPS: Gravel Unravel Why-Not-chee, Medium Course, 42.7 mi 4,300' (copy)"
       },
       {
-        "url": "https://www.trainerroad.com/forum/t/why-not-chee-gravel-unravel/85508",
-        "category": "community",
-        "label": "trainerroad.com: 85508"
+        "url": "https://olympicpeninsula.org/event/gravel-unravel-whynotchee/",
+        "category": "other",
+        "label": "Olympicpeninsula"
       },
       {
         "url": "https://peninsulaadventuresports.com/events/gravel-unravel/why-not-chee/",
-        "category": "community",
-        "label": "peninsulaadventuresports.com: Why Not Chee"
+        "category": "other",
+        "label": "Peninsulaadventuresports"
+      },
+      {
+        "url": "https://stateofwatourism.com/event/gravel-unravel-why-not-chee-2/",
+        "category": "other",
+        "label": "Stateofwatourism"
       },
       {
         "url": "https://www.bikesignup.com/Race/WA/Hoquiam/GravelUnravelWhyNotChee",
+        "category": "other",
+        "label": "Bikesignup"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/10752/gravel-unravel-why-not-chee",
+        "category": "other",
+        "label": "Granfondoguide"
+      },
+      {
+        "url": "https://www.peninsuladailynews.com/sports/gravel-unravel-big-hills-thick-clouds-and-close-finishes/",
+        "category": "other",
+        "label": "Peninsuladailynews"
+      },
+      {
+        "url": "https://www.trainerroad.com/forum/t/why-not-chee-gravel-unravel/85508",
         "category": "community",
-        "label": "bikesignup.com: Gravelunravelwhynotchee"
+        "label": "TrainerRoad"
       },
       {
         "url": "https://www.renehersecycles.com/gravel-racing-in-the-pacific-northwest/",
         "category": "community",
         "label": "renehersecycles.com: Gravel Racing In The Pacific Northwest"
-      },
-      {
-        "url": "https://www.peninsuladailynews.com/sports/gravel-unravel-big-hills-thick-clouds-and-close-finishes/",
-        "category": "community",
-        "label": "peninsuladailynews.com: Gravel Unravel Big Hills Thick Clouds And Close Finishes"
       }
     ],
     "tire_recommendations": {

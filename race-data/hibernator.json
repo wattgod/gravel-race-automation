@@ -19,7 +19,7 @@
         "Forest roads"
       ],
       "field_size": "100-200 riders",
-      "start_time": "Morning start",
+      "start_time": "12:00am PDT",
       "registration": "Online. Cost: ~$60-90",
       "prize_purse": "None",
       "aid_stations": "Basic aid stations",
@@ -94,7 +94,10 @@
       "score": "43 / 100",
       "one_liner": "Small grassroots Wisconsin cooler-season Northwoods ride.",
       "should_you_race": "Only if you're in Wisconsin and want an affordable, low-key cooler-season gravel ride. Not worth traveling far for.",
-      "alternatives": "For better Wisconsin events: Chequamegon, Driftless Gravel. For similar grassroots vibes: other regional Midwest events."
+      "alternatives": "For better Wisconsin events: Chequamegon, Driftless Gravel. For similar grassroots vibes: other regional Midwest events.",
+      "alternative_slugs": [
+        "chequamegon-mtb"
+      ]
     },
     "logistics": {
       "airport": "Green Bay (GRB) or Milwaukee (MKE) 3-4 hours",
@@ -178,12 +181,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 87.5,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 82,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -302,34 +314,34 @@
     },
     "citations": [
       {
-        "url": "https://www.steelcitystriders.co.uk/2026/hathersage-hibernator-race-report-and-results/",
-        "category": "community",
-        "label": "steelcitystriders.co.uk: Hathersage Hibernator Race Report And Results"
+        "url": "https://activemindedprofessor.com/ride-report-the-hibernator/",
+        "category": "other",
+        "label": "Activemindedprofessor"
+      },
+      {
+        "url": "https://crosscycleadventures.com/dirt/thehibernator.html",
+        "category": "other",
+        "label": "Crosscycleadventures"
       },
       {
         "url": "https://www.bikeman.com/blog/the-hibernator.htms",
-        "category": "community",
-        "label": "bikeman.com: The Hibernator.Htms"
+        "category": "other",
+        "label": "Bikeman"
       },
       {
-        "url": "https://activemindedprofessor.com/ride-report-the-hibernator/",
-        "category": "community",
-        "label": "activemindedprofessor.com: Ride Report The Hibernator"
+        "url": "https://www.bikesignup.com/Race/VT/WestBurke/HibernatorGravel",
+        "category": "other",
+        "label": "Bikesignup"
+      },
+      {
+        "url": "https://www.steelcitystriders.co.uk/2026/hathersage-hibernator-race-report-and-results/",
+        "category": "other",
+        "label": "Steelcitystriders"
       },
       {
         "url": "https://www.thebear100.com/about-1",
         "category": "community",
         "label": "thebear100.com: About 1"
-      },
-      {
-        "url": "https://crosscycleadventures.com/dirt/thehibernator.html",
-        "category": "community",
-        "label": "crosscycleadventures.com: Thehibernator.Html"
-      },
-      {
-        "url": "https://www.bikesignup.com/Race/VT/WestBurke/HibernatorGravel",
-        "category": "community",
-        "label": "bikesignup.com: Hibernatorgravel"
       }
     ],
     "tire_recommendations": {

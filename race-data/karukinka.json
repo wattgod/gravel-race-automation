@@ -10,8 +10,8 @@
       "location": "Tierra del Fuego, Chile",
       "location_badge": "TIERRA DEL FUEGO, CHILE",
       "county": "Tierra del Fuego",
-      "date": "Early December annually",
-      "date_specific": "2025: December 8",
+      "date": "Late February annually",
+      "date_specific": "2026: February 25",
       "terrain_types": [
         "Chilean Tierra del Fuego",
         "South American gravel",
@@ -94,7 +94,10 @@
       "score": "54 / 100",
       "one_liner": "Chilean Tierra del Fuego gravel adventure.",
       "should_you_race": "If you have a big budget and want an extreme end-of-the-world experience—maybe. For most riders—there are better options.",
-      "alternatives": "For better value: regional gravel races. For similar Chilean terrain: Gravel del Fuego."
+      "alternatives": "For better value: regional gravel races. For similar Chilean terrain: Gravel del Fuego.",
+      "alternative_slugs": [
+        "gravel-del-fuego"
+      ]
     },
     "logistics": {
       "airport": "Punta Arenas (PUQ) then ferry/flight to Tierra del Fuego",
@@ -102,7 +105,7 @@
       "food": "Very limited dining options. Stock nutrition.",
       "packet_pickup": "Day before typically",
       "parking": "At start/finish",
-      "official_site": "Check Karukinka website"
+      "official_site": "https://www.karukinka.com/"
     },
     "history": {
       "founded": null,
@@ -185,12 +188,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 89.2,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -316,34 +328,44 @@
         "label": "RideWithGPS: 🥇2 de 2 en Karukinka 🏆"
       },
       {
-        "url": "https://www.gravelunion.cc/article/armchair-adventure-karukinka-gravel",
-        "category": "community",
-        "label": "gravelunion.cc: Armchair Adventure Karukinka Gravel"
+        "url": "https://gravelevents.com/event/karukinka-gravel-race/",
+        "category": "other",
+        "label": "Gravelevents"
       },
       {
-        "url": "https://www.bhbikes.com/en_GB/stories/gravelxr/antonio-ortiz-karukinka-gravel-race",
-        "category": "community",
-        "label": "bhbikes.com: Antonio Ortiz Karukinka Gravel Race"
-      },
-      {
-        "url": "https://karukinkagravelrace.com/",
-        "category": "community",
-        "label": "karukinkagravelrace.com"
+        "url": "https://gravelunion.cc/article/armchair-adventure-karukinka-gravel",
+        "category": "other",
+        "label": "Gravelunion"
       },
       {
         "url": "https://stageraces.com/event/karukinka-gravel-race/",
-        "category": "community",
-        "label": "stageraces.com: Karukinka Gravel Race"
+        "category": "other",
+        "label": "Stageraces"
+      },
+      {
+        "url": "https://www.bhbikes.com/en_GB/stories/gravelxr/antonio-ortiz-karukinka-gravel-race",
+        "category": "other",
+        "label": "Bhbikes"
       },
       {
         "url": "https://www.granfondoguide.com/Contents/PopUp/8187/robert-gesink-to-participate-in-the-karukinka-gravel-race-in-chile-",
-        "category": "community",
-        "label": "granfondoguide.com: Robert Gesink To Participate In The Karukinka Gravel Race..."
+        "category": "other",
+        "label": "Granfondoguide"
       },
       {
-        "url": "https://my.raceresult.com/270903/results",
+        "url": "https://www.granfondoguide.com/Events/Index/11955/karukinka-gravel-race",
+        "category": "other",
+        "label": "Granfondoguide"
+      },
+      {
+        "url": "https://www.gravelunion.cc/article/armchair-adventure-karukinka-gravel",
+        "category": "other",
+        "label": "Gravelunion"
+      },
+      {
+        "url": "https://www.reddit.com/r/Ciclismo/comments/1adxpfk/karukinka_gravel_race/",
         "category": "community",
-        "label": "my.raceresult.com: Results"
+        "label": "Reddit"
       },
       {
         "url": "https://colombici.cc/journal/finding-myself",

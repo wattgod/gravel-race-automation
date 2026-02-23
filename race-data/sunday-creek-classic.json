@@ -19,7 +19,7 @@
         "Rolling hills"
       ],
       "field_size": "100-250 riders",
-      "start_time": "Morning start",
+      "start_time": "7:00 AM from",
       "registration": "Online. Cost: ~$60-100 AUD",
       "prize_purse": "None",
       "aid_stations": "Basic aid stations",
@@ -93,7 +93,10 @@
       "score": "44 / 100",
       "one_liner": "Small grassroots Queensland hinterland ride with modest ambitions.",
       "should_you_race": "Only if you're local to Queensland and want an affordable, low-key gravel ride. Not worth traveling for.",
-      "alternatives": "For better Queensland events: Noosa Gravel Enduro. For similar grassroots vibes: other regional Australian events."
+      "alternatives": "For better Queensland events: Noosa Gravel Enduro. For similar grassroots vibes: other regional Australian events.",
+      "alternative_slugs": [
+        "noosa-gravel-enduro"
+      ]
     },
     "logistics": {
       "airport": "Brisbane (BNE) 1.5-2 hours drive, or Sunshine Coast Airport (MCY) 1 hour",
@@ -101,7 +104,8 @@
       "food": "Small town with minimal dining. Stock up beforehand.",
       "packet_pickup": "Race morning typically",
       "parking": "At start/finish",
-      "official_site": "Check Queensland cycling calendars"
+      "official_site": "Check Queensland cycling calendars",
+      "camping": "camping options are not listed"
     },
     "history": {
       "founded": null,
@@ -177,12 +181,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 93.0,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 100,
+          "completeness": 82,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -306,64 +319,49 @@
         "label": "RideWithGPS: Sunday Creek Classic "
       },
       {
-        "url": "https://marathonmtb.com/2023/06/02/sunday-creek-classic-goosebumps-and-gravel/",
-        "category": "community",
-        "label": "marathonmtb.com: Sunday Creek Classic Goosebumps And Gravel"
-      },
-      {
-        "url": "https://wildnco.tumblr.com/post/651955101774249984/welcome-to-the-inaugural-sunday-creek-classic",
-        "category": "community",
-        "label": "wildnco.tumblr.com: Welcome To The Inaugural Sunday Creek Classic"
-      },
-      {
-        "url": "https://cyclist.com.au/big-ride-kenilworth/",
-        "category": "community",
-        "label": "cyclist.com.au: Big Ride Kenilworth"
-      },
-      {
-        "url": "https://www.visitsunshinecoast.com/event/6792e93919a59dbd60d36d09/sunday-creek-classic-gravel-ride",
-        "category": "community",
-        "label": "visitsunshinecoast.com: Sunday Creek Classic Gravel Ride"
-      },
-      {
         "url": "https://bq.org.au/where-to-rides/sunday-creek-gravel-loop/",
-        "category": "community",
-        "label": "bq.org.au: Sunday Creek Gravel Loop"
+        "category": "other",
+        "label": "Bq"
       },
       {
-        "url": "https://www.findglocal.com/AU/Unknown/212924220754831/Sunday-Creek-Classic-Gravel-120km",
-        "category": "community",
-        "label": "findglocal.com: Sunday Creek Classic Gravel 120Km"
+        "url": "https://en.wikipedia.org/wiki/Rodney_McGee",
+        "category": "reference",
+        "label": "Wikipedia"
       },
       {
-        "url": "https://barefootsport.bbtiming.com/event/1254/results",
-        "category": "community",
-        "label": "barefootsport.bbtiming.com: Results"
-      },
-      {
-        "url": "https://results.trackmelive.com.au/event/sundaycreek2024",
-        "category": "community",
-        "label": "results.trackmelive.com.au: Sundaycreek2024"
+        "url": "https://marathonmtb.com/2023/06/02/sunday-creek-classic-goosebumps-and-gravel/",
+        "category": "other",
+        "label": "Marathonmtb"
       },
       {
         "url": "https://marathonmtb.com/2024/04/30/bike-choice-sunday-creek-classic/",
-        "category": "community",
-        "label": "marathonmtb.com: Bike Choice Sunday Creek Classic"
+        "category": "other",
+        "label": "Marathonmtb"
       },
       {
-        "url": "https://www.gravelclassics.com.au/news/the-sunday-creek-classic-the-most-challenging-single-day-ride-in-australia",
-        "category": "community",
-        "label": "gravelclassics.com.au: The Sunday Creek Classic The Most Challenging Single Day ..."
-      },
-      {
-        "url": "https://www.zinc96.com.au/event/sunday-creek-classic/",
-        "category": "community",
-        "label": "zinc96.com.au: Sunday Creek Classic"
+        "url": "https://results.trackmelive.com.au/event/sundaycreek2024",
+        "category": "other",
+        "label": "Results"
       },
       {
         "url": "https://www.gravelclassics.com.au/about-sunday-creek-classic",
-        "category": "community",
-        "label": "gravelclassics.com.au: About Sunday Creek Classic"
+        "category": "other",
+        "label": "Gravelclassics"
+      },
+      {
+        "url": "https://www.gravelclassics.com.au/news/the-sunday-creek-classic-the-most-challenging-single-day-ride-in-australia",
+        "category": "other",
+        "label": "Gravelclassics"
+      },
+      {
+        "url": "https://www.visitsunshinecoast.com/event/6792e93919a59dbd60d36d09/sunday-creek-classic",
+        "category": "other",
+        "label": "Visitsunshinecoast"
+      },
+      {
+        "url": "https://www.zinc96.com.au/event/sunday-creek-classic/",
+        "category": "other",
+        "label": "Zinc96"
       }
     ],
     "tire_recommendations": {

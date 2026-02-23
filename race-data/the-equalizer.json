@@ -136,7 +136,7 @@
       ],
       "research_date": "2026-02-04",
       "research_strength": {
-        "overall": 97.5,
+        "overall": 96.6,
         "grade": "A",
         "weakest": "temporal_depth",
         "has_research_dump": true,
@@ -147,7 +147,7 @@
           "specificity": 100,
           "statistical_backing": 100,
           "voice_authenticity": 100,
-          "completeness": 100,
+          "completeness": 94,
           "cross_reference": 100
         },
         "scored_at": "2026-02-04"
@@ -215,53 +215,23 @@
       "score": "60 / 100",
       "one_liner": "Missouri's state championship is a heat-soaked slog through wine country rollers that separates the prepared from the hospitalized.",
       "should_you_race": "If you can handle 95°F with 80% humidity while grinding constant rollers for six hours, this is solid Midwest racing. The course won't break you—smooth gravel, manageable elevation—but July heat will cook anyone who shows up with two bottles and a prayer. Perfect for riders wanting state championship bragging rights without the technical demands of mountain races.",
-      "alternatives": "Gravel Worlds in Nebraska offers similar Midwest terrain with bigger fields and better logistics. If you want actual challenging terrain instead of just challenging weather, hit up Rebecca's Private Idaho or the Crusher in the Tushar where the mountains do the work instead of the thermometer."
+      "alternatives": "Gravel Worlds in Nebraska offers similar Midwest terrain with bigger fields and better logistics. If you want actual challenging terrain instead of just challenging weather, hit up Rebecca's Private Idaho or the Crusher in the Tushar where the mountains do the work instead of the thermometer.",
+      "alternative_slugs": [
+        "crusher-in-the-tushar",
+        "garmin-gravel-worlds",
+        "rebeccas-private-idaho"
+      ]
     },
     "citations": [
       {
-        "url": "https://www.theequalizermostatechampionship.com",
-        "category": "official",
-        "label": "Official Website"
-      },
-      {
-        "url": "https://ridewithgps.com",
-        "category": "route",
-        "label": "RideWithGPS"
+        "url": "https://irace.ai/events/the-equalizer-gravel-race",
+        "category": "other",
+        "label": "Irace"
       },
       {
         "url": "https://www.bikereg.com/the-equalizer",
         "category": "registration",
         "label": "BikeReg"
-      },
-      {
-        "url": "https://irace.ai/events/the-equalizer-gravel-race",
-        "category": "community",
-        "label": "irace.ai: The Equalizer Gravel Race"
-      },
-      {
-        "url": "https://www.youtube.com/shorts/2NnZ5FYyU0w",
-        "category": "community",
-        "label": "youtube.com: 2Nnz5Fyyu0W"
-      },
-      {
-        "url": "https://www.bikeperfect.com/reviews/rockshox-rudy-ultimate-xplr-gravel-fork-review",
-        "category": "community",
-        "label": "bikeperfect.com: Rockshox Rudy Ultimate Xplr Gravel Fork Review"
-      },
-      {
-        "url": "https://terrain-mag.com/event/the-equalizer-50k-and-100k-gravel-race/",
-        "category": "community",
-        "label": "terrain-mag.com: The Equalizer 50K And 100K Gravel Race"
-      },
-      {
-        "url": "https://trailnet.org/calendar/the-equalizer-gravel-race-2024/",
-        "category": "community",
-        "label": "trailnet.org: The Equalizer Gravel Race 2024"
-      },
-      {
-        "url": "https://finance.yahoo.com/news/recalled-great-equalizer-205308580.html",
-        "category": "community",
-        "label": "finance.yahoo.com: Recalled Great Equalizer 205308580.Html"
       },
       {
         "url": "https://www.bikesignup.com/Race/MO/Marthasville/Equalizer",

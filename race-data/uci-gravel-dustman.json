@@ -113,7 +113,10 @@
       "score": "50 / 100",
       "one_liner": "The only UCI gravel qualifier in Asia, which tells you everything about both its significance and the depth of competition.",
       "should_you_race": "If you're serious about Worlds qualification and can handle November heat in Thailand, this is your most exotic path to Nannup. The 130km course through ancient Khmer ruins isn't technically demanding, but weather-dependent route changes and Southeast Asian logistics will test your adaptability more than your FTP. Show up with flexible travel plans and backup gear.",
-      "alternatives": "Gravel Worlds qualifiers closer to home like Gralloch in Scotland or Gravel Epic in South Africa offer similar UCI points without the visa paperwork and monsoon roulette. If you want temple ruins with your suffering, stick to Strade Bianche's Tuscan churches."
+      "alternatives": "Gravel Worlds qualifiers closer to home like Gralloch in Scotland or Gravel Epic in South Africa offer similar UCI points without the visa paperwork and monsoon roulette. If you want temple ruins with your suffering, stick to Strade Bianche's Tuscan churches.",
+      "alternative_slugs": [
+        "garmin-gravel-worlds"
+      ]
     },
     "course_description": {
       "character": "Ancient temple ruins, jungle humidity, and Thai backcountry roads that switch between smooth pavement and technical gravel without warning. The course winds through Muang Sing Historical Park where thousand-year-old Khmer temples watch you suffer through 2,756 feet of climbing spread across 81 miles of whatever surface Thailand decides to throw at you.",
@@ -145,14 +148,24 @@
     },
     "citations": [
       {
-        "url": "https://www.cyclingnews.com/races/uci-gravel-world-series-events-2025/dustman/results/",
-        "category": "community",
-        "label": "cyclingnews.com: Results"
+        "url": "https://ridewithgps.com/routes/53184604",
+        "category": "route",
+        "label": "RideWithGPS: UCI GRAVEL WORLD SERIES DUSTMAN 130 KM. REVISED"
+      },
+      {
+        "url": "https://granfondodailynews.com/2025/11/02/uci-dustman-gravel-worlds-qualifying-results-sawada-livesey-win-in-thailand/",
+        "category": "other",
+        "label": "Granfondodailynews"
       },
       {
         "url": "https://ucigravelworldseries.com/en/dustman/",
-        "category": "community",
-        "label": "ucigravelworldseries.com: Dustman"
+        "category": "other",
+        "label": "Ucigravelworldseries"
+      },
+      {
+        "url": "https://www.cyclingnews.com/races/uci-gravel-world-series-events-2025/dustman/results/",
+        "category": "other",
+        "label": "Cyclingnews"
       }
     ],
     "history": {
@@ -224,6 +237,25 @@
         "200pluslb_dry": "42-46",
         "200pluslb_mixed": "40-44",
         "200pluslb_wet": "38-42"
+      }
+    },
+    "research_metadata": {
+      "research_strength": {
+        "overall": 76.8,
+        "grade": "B",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 80,
+          "citation_density": 100,
+          "temporal_depth": 50,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 47,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     }
   }

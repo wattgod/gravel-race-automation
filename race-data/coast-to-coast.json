@@ -94,7 +94,12 @@
       "score": "54 / 100",
       "one_liner": "Regional Michigan ultra-distance crossing the state from coast to coast.",
       "should_you_race": "If you're in Michigan or the Midwest and want an ultra-distance challenge—yes, it's a well-organized event with unique appeal. If you're traveling from far away—there are more prestigious ultra-distance events elsewhere.",
-      "alternatives": "For better ultra-distance: Unbound XL (Kansas), Dirty Kanza (Kansas), Trans Iowa. For similar regional ultras: other Midwest ultra-distance events."
+      "alternatives": "For better ultra-distance: Unbound XL (Kansas), Dirty Kanza (Kansas), Trans Iowa. For similar regional ultras: other Midwest ultra-distance events.",
+      "alternative_slugs": [
+        "trans-iowa",
+        "unbound-200",
+        "unbound-xl"
+      ]
     },
     "logistics": {
       "airport": "Detroit (DTW) or Grand Rapids (GRR) - varies by start/finish",
@@ -191,12 +196,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 90.2,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 88,
+          "cross_reference": 50
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -319,44 +333,59 @@
     },
     "citations": [
       {
-        "url": "https://sammanson.com/2024/03/01/2024-kathmandu-coast-to-coast-race-report-all-of-last-year/",
-        "category": "community",
-        "label": "sammanson.com: 2024 Kathmandu Coast To Coast Race Report All Of Last Year"
+        "url": "https://ridewithgps.com/routes/47196412",
+        "category": "route",
+        "label": "RideWithGPS: E24 12 Michigan 2024 Coast to Coast Gravel Grinder (autotraced)"
       },
       {
         "url": "https://cyclejourneys.co.nz/lynnette-coast-to-coast/",
-        "category": "community",
-        "label": "cyclejourneys.co.nz: Lynnette Coast To Coast"
+        "category": "other",
+        "label": "Cyclejourneys"
+      },
+      {
+        "url": "https://komcycling.com/blogs/product-blogs/dirty-chain-podcast-episode-104-michigan-coast-to-coast-with-nick-stanko",
+        "category": "other",
+        "label": "Komcycling"
+      },
+      {
+        "url": "https://lmb.org/ride-calendar/coast-to-coast-gravel-grinder/",
+        "category": "other",
+        "label": "Lmb"
+      },
+      {
+        "url": "https://sammanson.com/2024/03/01/2024-kathmandu-coast-to-coast-race-report-all-of-last-year/",
+        "category": "other",
+        "label": "Sammanson"
       },
       {
         "url": "https://www.coasttocoast.co.nz/two-day-race-report",
-        "category": "community",
-        "label": "coasttocoast.co.nz: Two Day Race Report"
-      },
-      {
-        "url": "https://www.bicycling.com/rides/a20770672/michigans-coast-to-coast-210-gravel-grinder/",
-        "category": "community",
-        "label": "bicycling.com: Michigans Coast To Coast 210 Gravel Grinder"
-      },
-      {
-        "url": "https://www.joinbasecamp.com/post/sarahs-story-coast-to-coast-gravel-grinder",
-        "category": "community",
-        "label": "joinbasecamp.com: Sarahs Story Coast To Coast Gravel Grinder"
-      },
-      {
-        "url": "https://www.cantuwheels.com/behindthewheels/2025/6/27/michigan-coast-to-coast-adventures-with-jackie-gregory",
-        "category": "community",
-        "label": "cantuwheels.com: Michigan Coast To Coast Adventures With Jackie Gregory"
-      },
-      {
-        "url": "https://www.salsacycles.com/blogs/articles/coast-to-coast-gravel-grinder-a-new-epic-is-born",
-        "category": "community",
-        "label": "salsacycles.com: Coast To Coast Gravel Grinder A New Epic Is Born"
+        "category": "other",
+        "label": "Coasttocoast"
       },
       {
         "url": "https://www.dietitianapproved.com/blog/newzealandcoasttocoastracereport",
+        "category": "other",
+        "label": "Dietitianapproved"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/7062/coast-to-coast-gravel-grinder",
+        "category": "other",
+        "label": "Granfondoguide"
+      },
+      {
+        "url": "https://www.joinbasecamp.com/post/sarahs-story-coast-to-coast-gravel-grinder",
+        "category": "other",
+        "label": "Joinbasecamp"
+      },
+      {
+        "url": "https://www.reddit.com/r/coasttocoastam/comments/136dnqt/please_retire_george_noory/",
         "category": "community",
-        "label": "dietitianapproved.com: Newzealandcoasttocoastracereport"
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.salsacycles.com/blogs/articles/coast-to-coast-gravel-grinder-a-new-epic-is-born",
+        "category": "other",
+        "label": "Salsacycles"
       }
     ],
     "tire_recommendations": {

@@ -552,6 +552,55 @@ def check_css_js_class_sync():
             check(f".{cls} in CSS", cls in css_classes, f"JS references .{cls} but not in CSS")
 
 
+def check_guide_cluster_js_syntax():
+    """Parse guide cluster JS through Node.js to catch syntax errors."""
+    print("\n── Guide Cluster JS Syntax ──")
+    sys.path.insert(0, str(WORDPRESS_DIR))
+    try:
+        import generate_guide_cluster as ggc
+        import generate_guide
+
+        # Check cluster-specific JS
+        cluster_js = ggc.build_cluster_js()
+        test_script = f"""
+try {{
+    new Function({json.dumps(cluster_js)});
+    console.log('SYNTAX_OK');
+}} catch(e) {{
+    console.log('SYNTAX_ERROR: ' + e.message);
+    process.exit(1);
+}}
+"""
+        result = subprocess.run(
+            ["node", "-e", test_script],
+            capture_output=True, text=True, timeout=10
+        )
+        check("Guide cluster JS parses without syntax errors",
+              result.returncode == 0 and "SYNTAX_OK" in result.stdout,
+              result.stderr or result.stdout)
+
+        # Also check the guide JS (reused from monolith)
+        guide_js = generate_guide.build_guide_js()
+        test_script2 = f"""
+try {{
+    new Function({json.dumps(guide_js)});
+    console.log('SYNTAX_OK');
+}} catch(e) {{
+    console.log('SYNTAX_ERROR: ' + e.message);
+    process.exit(1);
+}}
+"""
+        result2 = subprocess.run(
+            ["node", "-e", test_script2],
+            capture_output=True, text=True, timeout=10
+        )
+        check("Guide (monolith) JS parses without syntax errors",
+              result2.returncode == 0 and "SYNTAX_OK" in result2.stdout,
+              result2.stderr or result2.stdout)
+    except Exception as e:
+        check("Guide cluster JS syntax", False, f"Error: {e}")
+
+
 def check_infographic_renderers():
     """Verify all infographic asset_ids in guide content JSON have renderers."""
     print("\n── Infographic Renderer Coverage ──")
@@ -936,6 +985,24 @@ def check_success_js_syntax():
         check("Success page JS syntax", False, f"Error: {e}")
 
 
+def check_insights_js_syntax():
+    """Validate insights page JS via Node.js."""
+    print("\n── Insights Page JS Syntax ──")
+    sys.path.insert(0, str(WORDPRESS_DIR))
+    try:
+        from generate_insights import build_insights_js
+        js = build_insights_js().replace("<script>", "").replace("</script>", "")
+        result = subprocess.run(
+            ["node", "-e", f"try {{ new Function({json.dumps(js)}); console.log('OK'); }}"
+             f" catch(e) {{ console.error(e.message); process.exit(1); }}"],
+            capture_output=True, text=True, timeout=10
+        )
+        check("Insights page JS syntax", result.returncode == 0,
+              result.stderr.strip() if result.returncode != 0 else "")
+    except Exception as e:
+        check("Insights page JS syntax", False, f"Error: {e}")
+
+
 # ── Check 21: Raw transition values in generator CSS ─────────
 
 
@@ -971,6 +1038,235 @@ def check_no_raw_transitions():
             pass
 
 
+# ── Check: Meta descriptions JSON valid ─────────────────────────────
+
+
+def check_meta_descriptions():
+    """Validate meta-descriptions.json structure and quality."""
+    print("\n── Meta Descriptions ──")
+    project_root = Path(__file__).resolve().parent.parent
+    json_path = project_root / "seo" / "meta-descriptions.json"
+
+    if not json_path.exists():
+        warn("meta-descriptions.json exists", "File not found — run generate_meta_descriptions.py")
+        return
+
+    try:
+        data = json.loads(json_path.read_text())
+    except Exception as e:
+        check("meta-descriptions.json is valid JSON", False, str(e))
+        return
+
+    entries = data.get("entries", [])
+    check("meta-descriptions.json has entries", len(entries) >= 100,
+          f"Only {len(entries)} entries (expected 131)")
+
+    # Length checks
+    bad_lengths = []
+    for e in entries:
+        desc = e.get("description", "")
+        if len(desc) < 50 or len(desc) > 160:
+            bad_lengths.append(f"wp_id={e.get('wp_id')} ({len(desc)} chars)")
+    check("All descriptions 50-160 chars", len(bad_lengths) == 0,
+          f"{len(bad_lengths)} bad: {', '.join(bad_lengths[:3])}")
+
+    # Duplicate check
+    descs = [e.get("description", "") for e in entries]
+    dupes = len(descs) - len(set(descs))
+    check("No duplicate descriptions", dupes == 0, f"{dupes} duplicates")
+
+    # Repr leak check
+    leaks = []
+    for e in entries:
+        desc = e.get("description", "")
+        if "\\n" in desc or "\\t" in desc or desc.startswith("[") or desc.startswith("{"):
+            leaks.append(f"wp_id={e.get('wp_id')}")
+    check("No Python repr leaks in descriptions", len(leaks) == 0,
+          f"Leaks in: {', '.join(leaks)}")
+
+    # Required fields
+    missing = []
+    for e in entries:
+        for f in ("wp_id", "wp_type", "slug", "description"):
+            if f not in e:
+                missing.append(f"wp_id={e.get('wp_id', '?')}: missing {f}")
+    check("All entries have required fields", len(missing) == 0,
+          f"{len(missing)} missing: {', '.join(missing[:3])}")
+
+    # Focus keyword in description
+    kw_missing = []
+    for e in entries:
+        kw = e.get("focus_keyword")
+        if kw and kw.lower() not in e.get("description", "").lower():
+            kw_missing.append(f"wp_id={e.get('wp_id')}: '{kw}'")
+    check("All focus keywords appear in descriptions", len(kw_missing) == 0,
+          f"{len(kw_missing)} mismatches: {', '.join(kw_missing[:3])}")
+
+    # Title checks
+    titles = [e.get("title") for e in entries if e.get("title")]
+    check("All entries have titles", len(titles) == len(entries),
+          f"Only {len(titles)}/{len(entries)} entries have titles")
+
+    bad_title_lengths = []
+    for e in entries:
+        title = e.get("title", "")
+        if title and (len(title) < 30 or len(title) > 60):
+            bad_title_lengths.append(f"wp_id={e.get('wp_id')} ({len(title)} chars)")
+    check("All titles 30-60 chars", len(bad_title_lengths) == 0,
+          f"{len(bad_title_lengths)} bad: {', '.join(bad_title_lengths[:3])}")
+
+    title_dupes = len(titles) - len(set(titles))
+    check("No duplicate titles", title_dupes == 0, f"{title_dupes} duplicates")
+
+
+def check_consent_snippet_centralized():
+    """Ensure all generators use get_ga4_head_snippet() — no copy-pasted GA4 blocks."""
+    print("\n── Consent Snippet Centralization ──")
+    violations = []
+    for f in sorted(WORDPRESS_DIR.glob("generate_*.py")):
+        if f.name == "brand_tokens.py":
+            continue
+        content = f.read_text()
+        if "googletagmanager.com/gtag/js" in content:
+            violations.append(f.name)
+    check("No inline GA4 blocks in generators", len(violations) == 0,
+          f"Found inline GA4 block in: {violations}")
+
+    # Check all generators that call get_ga4_head_snippet have the import
+    missing_import = []
+    for f in sorted(WORDPRESS_DIR.glob("generate_*.py")):
+        content = f.read_text()
+        if "get_ga4_head_snippet()" in content and "import" in content:
+            # Check it's actually imported, not just in a string
+            import_section = content.split("def ")[0] if "def " in content else content
+            if "get_ga4_head_snippet" not in import_section:
+                missing_import.append(f.name)
+    check("All generators import get_ga4_head_snippet", len(missing_import) == 0,
+          f"Missing import: {missing_import}")
+
+    # Check consent regex (not indexOf) across all generators
+    indexof_files = []
+    for f in sorted(WORDPRESS_DIR.glob("generate_*.py")):
+        content = f.read_text()
+        if "indexOf" in content and "gg_consent" in content:
+            indexof_files.append(f.name)
+    check("No indexOf for consent check in generators", len(indexof_files) == 0,
+          f"Found indexOf: {indexof_files}")
+
+    # Check brand_tokens.py snippet uses regex
+    bt = (WORDPRESS_DIR / "brand_tokens.py").read_text()
+    check("brand_tokens consent uses regex",
+          "/(^|; )gg_consent=accepted/.test" in bt,
+          "Must use regex, not indexOf")
+
+    # Check PHP mu-plugin parity
+    php_path = WORDPRESS_DIR / "mu-plugins" / "gg-cookie-consent.php"
+    if php_path.exists():
+        php = php_path.read_text()
+        check("PHP consent uses regex",
+              "/(^|; )gg_consent=accepted/.test" in php,
+              "Must use regex in PHP mu-plugin")
+        check("PHP consent has no indexOf",
+              "indexOf" not in php or "gg_consent" not in php,
+              "PHP still has indexOf for consent")
+    else:
+        warn("gg-cookie-consent.php", "Not found — skipping parity check")
+
+
+def check_mu_plugin_php_syntax():
+    """Validate PHP syntax of all mu-plugin files."""
+    print("\n── mu-plugin PHP Syntax ──")
+    project_root = Path(__file__).resolve().parent.parent
+    mu_dir = project_root / "wordpress" / "mu-plugins"
+
+    if not mu_dir.exists():
+        warn("mu-plugins directory", "Not found")
+        return
+
+    php_files = sorted(mu_dir.glob("*.php"))
+    if not php_files:
+        warn("mu-plugin PHP files", "No .php files found")
+        return
+
+    for php_file in php_files:
+        try:
+            result = subprocess.run(
+                ["php", "-l", str(php_file)],
+                capture_output=True, text=True, timeout=10,
+            )
+            check(f"PHP syntax: {php_file.name}",
+                  result.returncode == 0,
+                  result.stderr.strip() if result.returncode != 0 else "")
+        except FileNotFoundError:
+            warn(f"PHP syntax: {php_file.name}", "php not in PATH — skipping")
+            break
+        except Exception as e:
+            check(f"PHP syntax: {php_file.name}", False, str(e))
+
+
+def check_citation_quality():
+    """Check all race profiles for generic homepage citations and suspicious Reddit URLs."""
+    print("\n── Citation Quality ──")
+
+    import glob
+    from urllib.parse import urlparse as _urlparse
+
+    race_dir = PROJECT_ROOT / "race-data"
+    generic_count = 0
+    suspicious_count = 0
+    profiles_with_issues = []
+
+    for fp in sorted(race_dir.glob("*.json")):
+        try:
+            data = json.load(open(fp))
+        except Exception:
+            continue
+        citations = data.get("race", {}).get("citations", [])
+        slug = fp.stem
+        profile_generic = 0
+        profile_suspicious = 0
+
+        for cit in citations:
+            url = cit.get("url", "")
+            if not url:
+                continue
+            try:
+                parsed = _urlparse(url)
+                path = parsed.path.rstrip("/")
+                hostname = parsed.hostname or ""
+            except Exception:
+                continue
+
+            # Generic homepage check
+            if not path or re.match(r"^/[a-z]{2}$", path):
+                generic_count += 1
+                profile_generic += 1
+
+            # Suspicious Reddit check
+            if "reddit.com" in hostname:
+                if path.startswith("/user/") or path.startswith("/u/"):
+                    suspicious_count += 1
+                    profile_suspicious += 1
+                elif re.search(r"/r/[a-zA-Z0-9_]+/s/[a-zA-Z0-9]+", path):
+                    suspicious_count += 1
+                    profile_suspicious += 1
+
+        if profile_generic > 3:
+            profiles_with_issues.append((slug, profile_generic, "generic"))
+        if profile_suspicious > 0:
+            profiles_with_issues.append((slug, profile_suspicious, "reddit"))
+
+    for slug, count, kind in profiles_with_issues:
+        check(f"Citation quality: {slug}", False,
+              f"{count} {kind} citation(s)")
+
+    if generic_count == 0 and suspicious_count == 0:
+        check("Citation quality: no generic homepages or suspicious Reddit URLs", True)
+    elif not profiles_with_issues:
+        warn("Citation quality",
+             f"{generic_count} generic homepage(s) found (<=3 per profile, acceptable)")
+
+
 def main():
     parser = argparse.ArgumentParser(description="Preflight quality checks")
     parser.add_argument("--js", action="store_true", help="JS-only checks")
@@ -986,6 +1282,7 @@ def main():
         check_training_form_js_syntax()
         check_coaching_js_syntax()
         check_coaching_apply_js_syntax()
+        check_guide_cluster_js_syntax()
         check_js_python_constant_parity()
         check_css_js_class_sync()
         check_pricing_parity()
@@ -997,6 +1294,7 @@ def main():
         check_training_form_js_syntax()
         check_coaching_js_syntax()
         check_coaching_apply_js_syntax()
+        check_guide_cluster_js_syntax()
         check_css_js_class_sync()
         check_worker_hydration_fields()
         check_pricing_parity()
@@ -1011,8 +1309,13 @@ def main():
         check_root_matches_brand_tokens()
         check_all_generators_token_refs()
         check_success_js_syntax()
+        check_insights_js_syntax()
         check_no_raw_transitions()
         check_ab_config_sync()
+        check_meta_descriptions()
+        check_consent_snippet_centralized()
+        check_mu_plugin_php_syntax()
+        check_citation_quality()
         if not args.quick:
             check_climate_classification()
             check_fabricated_claims()

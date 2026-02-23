@@ -94,7 +94,10 @@
       "score": "50 / 100",
       "one_liner": "French plateau gravel in Millau Grands Causses.",
       "should_you_race": "If you're in France/Europe and want a local event—yes, it's solid. If you're international—there are better options.",
-      "alternatives": "For better French events: 66° South Pyrénées. For similar regional events: other French gravel races."
+      "alternatives": "For better French events: 66° South Pyrénées. For similar regional events: other French gravel races.",
+      "alternative_slugs": [
+        "66-south-pyrenees"
+      ]
     },
     "logistics": {
       "airport": "Montpellier (MPL) 1.5 hours or Toulouse (TLS) 2 hours",
@@ -185,12 +188,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 86.7,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -316,29 +328,29 @@
         "label": "RideWithGPS: Wish One Millau Grands Causses 130"
       },
       {
-        "url": "https://www.granfondoguide.com/Contents/PopUp/8587/france-prevails-as-prevot-and-drechou-take-uci-wish-one-millau-gran-causses-titles",
-        "category": "community",
-        "label": "granfondoguide.com: France Prevails As Prevot And Drechou Take Uci Wish One M..."
+        "url": "https://ucigravelworldseries.com/en/600-riders-from-20-countries-to-discover-frances-gravel-playgrounds-in-ush-one-millau-grands-causses/",
+        "category": "other",
+        "label": "Ucigravelworldseries"
       },
       {
-        "url": "https://ucigravelworldseries.com/en/millau/",
-        "category": "community",
-        "label": "ucigravelworldseries.com: Millau"
+        "url": "https://ucigravelworldseries.com/en/600-riders-from-20-countries-to-discover-frances-gravel-playgrounds-in-wish-one-millau-grands-causses/",
+        "category": "other",
+        "label": "Ucigravelworldseries"
       },
       {
-        "url": "https://www.millau.fr/loisirs/les-grands-evenements/wish-one-millau-grands-causses",
-        "category": "community",
-        "label": "millau.fr: Wish One Millau Grands Causses"
+        "url": "https://www.cyclingnews.com/races/uci-gravel-world-series-2023/world-series-10-wish-one-millau-grands-causses/results/",
+        "category": "other",
+        "label": "Cyclingnews"
       },
       {
-        "url": "https://ucigravelworldseries.com/en/french-riders-win-on-homeground-in-wish-one-gravel-grands-causses/",
-        "category": "community",
-        "label": "ucigravelworldseries.com: French Riders Win On Homeground In Wish One Gravel Grands..."
+        "url": "https://www.cyclingnews.com/races/uci-gravel-world-series-2024/wish-one-millau-grands-causses/results/",
+        "category": "other",
+        "label": "Cyclingnews"
       },
       {
-        "url": "https://ucigravelworldseries.com/en/sprint-victories-for-schiff-and-dauphin-at-the-wish-one-gravel/",
-        "category": "community",
-        "label": "ucigravelworldseries.com: Sprint Victories For Schiff And Dauphin At The Wish One G..."
+        "url": "https://www.finishers.com/en/event/wish-one-millau-grands-causses",
+        "category": "other",
+        "label": "Finishers"
       },
       {
         "url": "https://www.cafeducycliste.com/en-gb/blogs/rouler/wish-one-and-all",
@@ -359,26 +371,6 @@
         "url": "https://wishonegravelrace.com/en/accueil-english/",
         "category": "community",
         "label": "wishonegravelrace.com: Accueil English"
-      },
-      {
-        "url": "https://ucigravelworldseries.com/en/600-riders-from-20-countries-to-discover-frances-gravel-playgrounds-in-wish-one-millau-grands-causses/",
-        "category": "community",
-        "label": "ucigravelworldseries.com: 600 Riders From 20 Countries To Discover Frances Gravel P..."
-      },
-      {
-        "url": "https://www.cyclingnews.com/races/uci-gravel-world-series-2023/world-series-10-wish-one-millau-grands-causses/results/",
-        "category": "community",
-        "label": "cyclingnews.com: Results"
-      },
-      {
-        "url": "https://www.cyclingnews.com/races/uci-gravel-world-series-2024/wish-one-millau-grands-causses/results/",
-        "category": "community",
-        "label": "cyclingnews.com: Results"
-      },
-      {
-        "url": "https://ucigravelworldseries.com/en/600-riders-from-20-countries-to-discover-frances-gravel-playgrounds-in-ush-one-millau-grands-causses/",
-        "category": "community",
-        "label": "ucigravelworldseries.com: 600 Riders From 20 Countries To Discover Frances Gravel P..."
       },
       {
         "url": "https://www.cyclingnews.com/races/uci-gravel-world-series-events-2025/66-degres-sud-pyrenees-catalanes-gravel-tour/results/",

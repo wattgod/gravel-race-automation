@@ -101,7 +101,7 @@
       "packet_pickup": "Multi-day expo. Check official website.",
       "travel_summary": "Fly to Denver (DEN). Rental car needed (200 km, 2.5-hour drive to Salida). Salida lodging—book early. Multi-day expo. Race September.",
       "food_options": "Aid stations on course. Post-race party in Salida.",
-      "camping": "Check official website",
+      "camping": "camping within 1 mile of start/finish\n- Trinidad Lake State Park - reservation only, book 6 months in advance\n- Various RV parks",
       "official_site": "https://www.raddirtfest.com"
     },
     "course_description": {
@@ -140,19 +140,19 @@
       ],
       "research_date": "2026-02-04",
       "research_strength": {
-        "overall": 0,
-        "grade": "pending",
-        "weakest": "pending",
+        "overall": 96.1,
+        "grade": "A",
+        "weakest": "voice_authenticity",
         "has_research_dump": true,
         "dimensions": {
-          "source_diversity": 0,
-          "citation_density": 0,
-          "temporal_depth": 0,
-          "specificity": 0,
-          "statistical_backing": 0,
-          "voice_authenticity": 0,
-          "completeness": 0,
-          "cross_reference": 0
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 94,
+          "cross_reference": 100
         },
         "scored_at": "2026-02-04"
       }
@@ -219,7 +219,11 @@
       "score": "71 / 100",
       "one_liner": "The Rad serves up champagne gravel and Spanish Peaks views, but that 31-mile no-service stretch will expose every training shortcut you took.",
       "should_you_race": "If you can hold steady watts for five hours at altitude without external validation, this is your race. The gravel is buttery smooth, but 8,900 feet doesn't negotiate with your sea-level fitness. Show up undertrained and that remote backcountry section becomes a very expensive therapy session.",
-      "alternatives": "BWR California gives you similar smooth surfaces without the altitude punishment, while Gravel Worlds in Nebraska delivers comparable distances on flatter terrain. Both let you suffer closer to civilization."
+      "alternatives": "BWR California gives you similar smooth surfaces without the altitude punishment, while Gravel Worlds in Nebraska delivers comparable distances on flatter terrain. Both let you suffer closer to civilization.",
+      "alternative_slugs": [
+        "bwr-california",
+        "garmin-gravel-worlds"
+      ]
     },
     "unsplash_photos": [
       {
@@ -252,11 +256,6 @@
     ],
     "citations": [
       {
-        "url": "https://www.raddirtfest.com",
-        "category": "official",
-        "label": "Official Website"
-      },
-      {
         "url": "https://gearjunkie.com/biking/rad-gravel-ride-run-fest-trinidad-colorado",
         "category": "media",
         "label": "GearJunkie"
@@ -282,6 +281,11 @@
         "label": "Velo"
       },
       {
+        "url": "https://www.cyclingnews.com/news/lauren-de-crescenzo-wins-fourth-rad-dirt-fest-while-cole-davis-takes-surprise-victory-unbound-gravel-lottery-and-bwr-registrations-open-soon/",
+        "category": "other",
+        "label": "Cyclingnews"
+      },
+      {
         "url": "https://www.cyclingnews.com/races/the-rad-dirt-fest-2024/",
         "category": "other",
         "label": "Cyclingnews"
@@ -295,41 +299,6 @@
         "url": "https://www.distancetoempty.com/news/2022/11/03/the-rad-dirt-fest-wrap",
         "category": "other",
         "label": "Distancetoempty"
-      },
-      {
-        "url": "http://www.ryanstandish.com/racing.html",
-        "category": "community",
-        "label": "ryanstandish.com: Racing.Html"
-      },
-      {
-        "url": "https://www.cyclingnews.com/blogs/lauren-de-crescenzo/a-proper-womens-race-historic-day-in-emporia-at-unbound-gravel/",
-        "category": "community",
-        "label": "cyclingnews.com: A Proper Womens Race Historic Day In Emporia At Unbound G..."
-      },
-      {
-        "url": "https://www.elevationoutdoors.com/go-outside/why-the-rad-dirt-fest-is-rad-and-the-gear-that-helped-get-the-job-done/",
-        "category": "community",
-        "label": "elevationoutdoors.com: Why The Rad Dirt Fest Is Rad And The Gear That Helped Get..."
-      },
-      {
-        "url": "https://www.theraddirt.com/info/",
-        "category": "community",
-        "label": "theraddirt.com: Info"
-      },
-      {
-        "url": "https://www.gravelcyclist.com/bicycle-tech/life-time-introduces-the-rad-dirt-fest-a-new-gravel-bike-trail-run-event-in-trinidad-colorado/",
-        "category": "community",
-        "label": "gravelcyclist.com: Life Time Introduces The Rad Dirt Fest A New Gravel Bike ..."
-      },
-      {
-        "url": "https://www.cyclingnews.com/news/lauren-de-crescenzo-wins-fourth-rad-dirt-fest-while-cole-davis-takes-surprise-victory-unbound-gravel-lottery-and-bwr-registrations-open-soon/",
-        "category": "community",
-        "label": "cyclingnews.com: Lauren De Crescenzo Wins Fourth Rad Dirt Fest While Cole ..."
-      },
-      {
-        "url": "https://www.theraddirt.com",
-        "category": "community",
-        "label": "theraddirt.com"
       }
     ],
     "results": {

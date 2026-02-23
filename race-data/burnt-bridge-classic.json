@@ -93,7 +93,11 @@
       "score": "47 / 100",
       "one_liner": "Small wine country gravel race on Vancouver Island.",
       "should_you_race": "Only if you're local to Vancouver Island or planning a wine country trip anyway. Not worth traveling specifically for the race.",
-      "alternatives": "For better BC events: RBC Gran Fondo, River City Gravel Fondo. For wine country gravel: California events like BWR."
+      "alternatives": "For better BC events: RBC Gran Fondo, River City Gravel Fondo. For wine country gravel: California events like BWR.",
+      "alternative_slugs": [
+        "bwr-california",
+        "river-city-gravel-fondo"
+      ]
     },
     "logistics": {
       "airport": "Victoria (YYJ) 1 hour south, or Vancouver (YVR) + ferry",
@@ -177,12 +181,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 88.5,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 88,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -299,18 +312,28 @@
       },
       {
         "url": "https://bookofchad.ca/2025/05/19/burnt-bridge-classic-gravel-2025/",
-        "category": "community",
-        "label": "bookofchad.ca: Burnt Bridge Classic Gravel 2025"
+        "category": "other",
+        "label": "Bookofchad"
       },
       {
         "url": "https://pacificcyclingcentre.ca/news/brenna-pauly-takes-the-win-at-burnt-bridge/",
-        "category": "community",
-        "label": "pacificcyclingcentre.ca: Brenna Pauly Takes The Win At Burnt Bridge"
+        "category": "other",
+        "label": "Pacificcyclingcentre"
       },
       {
-        "url": "https://bookofchad.ca/category/race-reports/",
-        "category": "community",
-        "label": "bookofchad.ca: Race Reports"
+        "url": "https://www.bcgravelseries.com/burntbridgeclassic",
+        "category": "other",
+        "label": "Bcgravelseries"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/8488/burnt-bridge-classic-gravel-fondo",
+        "category": "other",
+        "label": "Granfondoguide"
+      },
+      {
+        "url": "https://www.youtube.com/@burntbridgeclassicgravelfo2400",
+        "category": "video",
+        "label": "YouTube"
       },
       {
         "url": "https://www.webscorer.com/racealldetails?raceid=390636",
@@ -318,14 +341,9 @@
         "label": "webscorer.com: Racealldetails"
       },
       {
-        "url": "https://www.bcgravelseries.com/",
+        "url": "https://bookofchad.ca/category/race-reports/",
         "category": "community",
-        "label": "bcgravelseries.com"
-      },
-      {
-        "url": "https://www.bcgravelseries.com/burntbridgeclassic",
-        "category": "community",
-        "label": "bcgravelseries.com: Burntbridgeclassic"
+        "label": "bookofchad.ca: Race Reports"
       }
     ],
     "tire_recommendations": {

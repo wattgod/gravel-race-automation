@@ -94,7 +94,10 @@
       "score": "47 / 100",
       "one_liner": "Texas Hill Country gravel in Fredericksburg.",
       "should_you_race": "If you're in Texas and want a local Hill Country event—yes, it's a solid regional race. If you're from out of state—there are better options.",
-      "alternatives": "For better TX events: Gravel Locos. For similar regional events: other TX Hill Country gravel races."
+      "alternatives": "For better TX events: Gravel Locos. For similar regional events: other TX Hill Country gravel races.",
+      "alternative_slugs": [
+        "gravel-locos"
+      ]
     },
     "logistics": {
       "airport": "San Antonio (SAT) 1.5 hours or Austin (AUS) 1.5 hours",
@@ -185,12 +188,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 91.0,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 88,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -340,19 +352,29 @@
     ],
     "citations": [
       {
-        "url": "https://minutemanroadclub.com/forum/viewtopic.php?f=26&t=5499",
-        "category": "community",
-        "label": "minutemanroadclub.com: Viewtopic.Php"
+        "url": "https://ridewithgps.com/routes/22021155",
+        "category": "route",
+        "label": "RideWithGPS: Purgatory Road Race - 5 laps - Cat 3"
       },
       {
         "url": "https://downeastracing.blogspot.com/2014/06/purgatory-road-race.html",
-        "category": "community",
-        "label": "downeastracing.blogspot.com: Purgatory Road Race.Html"
+        "category": "other",
+        "label": "Downeastracing"
       },
       {
-        "url": "https://fitwerx.com/deans-purgatory-p12-race-report/",
+        "url": "https://mbcycling.ca/event/road-bike-purgatory-gravel-race-june-23th/",
+        "category": "other",
+        "label": "Mbcycling"
+      },
+      {
+        "url": "https://www.countrycycle.ca/community-programs/races/purgatory-100/",
+        "category": "other",
+        "label": "Countrycycle"
+      },
+      {
+        "url": "https://minutemanroadclub.com/forum/viewtopic.php?f=26&t=5499",
         "category": "community",
-        "label": "fitwerx.com: Deans Purgatory P12 Race Report"
+        "label": "minutemanroadclub.com: Viewtopic.Php"
       },
       {
         "url": "https://minutemanroadclub.com/forum/viewtopic.php?f=26&t=7118",

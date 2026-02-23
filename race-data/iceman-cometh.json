@@ -94,7 +94,11 @@
       "score": "57 / 100",
       "one_liner": "30-mile Michigan mountain bike race with 4000+ riders in November.",
       "should_you_race": "If you're a mountain biker seeking an iconic November challenge with massive field—yes, it's a unique event. If you're a gravel rider—this isn't a gravel race.",
-      "alternatives": "For gravel events: Barry-Roubaix, Marji Gesick. For similar mountain bike events: other Michigan mountain bike races."
+      "alternatives": "For gravel events: Barry-Roubaix, Marji Gesick. For similar mountain bike events: other Michigan mountain bike races.",
+      "alternative_slugs": [
+        "barry-roubaix",
+        "marji-gesick"
+      ]
     },
     "logistics": {
       "airport": "Traverse City (TVC) 30 minutes",
@@ -138,7 +142,13 @@
       ],
       "signature_challenge": "30-mile technical mountain bike in November cold.",
       "ridewithgps_id": "48937112",
-      "ridewithgps_name": "Bell's Iceman Cometh Challenge - 2024 Course (copy)"
+      "ridewithgps_name": "Bell's Iceman Cometh Challenge - 2024 Course (copy)",
+      "surface_breakdown": {
+        "overall": {
+          "gravel": 70,
+          "singletrack": 20
+        }
+      }
     },
     "guide_variables": {
       "race_name": "Iceman Cometh",
@@ -185,12 +195,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 91.8,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 82,
+          "cross_reference": 50
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -316,74 +335,39 @@
         "label": "RideWithGPS: Bell's Iceman Cometh Challenge - 2024 Course (copy)"
       },
       {
-        "url": "https://blog.iceman.com/",
-        "category": "community",
-        "label": "blog.iceman.com"
+        "url": "https://blog.iceman.com/index.php/tag/race/",
+        "category": "other",
+        "label": "Blog"
       },
       {
-        "url": "https://camba.us/wp/archives/7200",
-        "category": "community",
-        "label": "camba.us: 7200"
-      },
-      {
-        "url": "https://www.bikeman.com/blog/iceman-cometh-2024.htms",
-        "category": "community",
-        "label": "bikeman.com: Iceman Cometh 2024.Htms"
-      },
-      {
-        "url": "https://silca.cc/en-gb/blogs/silca/winning-iceman-cometh",
-        "category": "community",
-        "label": "silca.cc: Winning Iceman Cometh"
-      },
-      {
-        "url": "https://www.fox17online.com/news/local-news/holland-zeeland/9-year-old-mountain-biker-from-zeeland-completes-32-mile-iceman-cometh-challenge",
-        "category": "community",
-        "label": "fox17online.com: 9 Year Old Mountain Biker From Zeeland Completes 32 Mile ..."
-      },
-      {
-        "url": "https://blog.iceman.com/index.php/2025/08/21/countdown-to-iceman-events-to-test-your-legs/",
-        "category": "community",
-        "label": "blog.iceman.com: Countdown To Iceman Events To Test Your Legs"
-      },
-      {
-        "url": "https://velo.outsideonline.com/road/road-culture/life-as-a-bike-jockey-why-is-the-iceman-so-hot/",
-        "category": "community",
-        "label": "velo.outsideonline.com: Life As A Bike Jockey Why Is The Iceman So Hot"
-      },
-      {
-        "url": "https://www.athleticmentors.com/how-it-all-went-down-an-iceman-cometh-race-recap/",
-        "category": "community",
-        "label": "athleticmentors.com: How It All Went Down An Iceman Cometh Race Recap"
+        "url": "https://cyclingmagazine.ca/mtb/kabush-wins-iceman-cometh-on-his-open-gravel-bike/",
+        "category": "other",
+        "label": "Cyclingmagazine"
       },
       {
         "url": "https://scottrcmtb.blogspot.com/2010/11/2010-iceman-cometh-race-report.html",
-        "category": "community",
-        "label": "scottrcmtb.blogspot.com: 2010 Iceman Cometh Race Report.Html"
+        "category": "other",
+        "label": "Scottrcmtb"
+      },
+      {
+        "url": "https://www.athleticmentors.com/how-it-all-went-down-an-iceman-cometh-race-recap/",
+        "category": "other",
+        "label": "Athleticmentors"
       },
       {
         "url": "https://www.paigepowered.com/post/iceman-cometh-race-recap",
-        "category": "community",
-        "label": "paigepowered.com: Iceman Cometh Race Recap"
-      },
-      {
-        "url": "https://blog.iceman.com/index.php/tag/race/",
-        "category": "community",
-        "label": "blog.iceman.com: Race"
+        "category": "other",
+        "label": "Paigepowered"
       },
       {
         "url": "https://www.reddit.com/r/MichiganCycling/comments/1gjcmlp/humanity_at_the_iceman_cometh_race/",
         "category": "community",
-        "label": "reddit.com: Humanity At The Iceman Cometh Race"
-      },
-      {
-        "url": "https://cyclingmagazine.ca/mtb/kabush-wins-iceman-cometh-on-his-open-gravel-bike/",
-        "category": "community",
-        "label": "cyclingmagazine.ca: Kabush Wins Iceman Cometh On His Open Gravel Bike"
+        "label": "Reddit"
       },
       {
         "url": "https://www.reddit.com/r/gravelcycling/comments/16l5qjv/need_tire_advice_best_option_for_iceman_cometh/",
         "category": "community",
-        "label": "reddit.com: Need Tire Advice Best Option For Iceman Cometh"
+        "label": "Reddit"
       },
       {
         "url": "https://komcycling.com/blogs/product-blogs/dirty-chain-podcast-episode-12-more-iceman-because-why-not",

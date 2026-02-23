@@ -42,7 +42,7 @@ Course composition: 66% pure gravel, mix of asphalt, gravel/schotter, and some g
 
 **spessartpantani [COMPETITIVE - ~4 W/kg FTP, 74kg, ran 2:26 on MTB version previously]:** "Die eigentlich angedachte lange Strecke mit 136km wäre für mich nicht ein Kampf gegen die Mitstreiter, sondern ums Überleben geworden. Dafür sind die Anstiege zu steil, so dass ich meist über oder an der Schwelle hätte fahren müssen und das wäre dann auf die Menge an Höhenmeter echt eine Aufgabe geworden" [Translation: Would have had to ride mostly over or at threshold on the steep climbs, making the full distance a survival challenge rather than a race] (https://www.rennrad-news.de/forum/threads/hegau-gravel.194216/)
 
-**CmdT [COMPETITIVE - ~4 W/kg FTP, 74kg, 250W NP in similar races]:** "Für mich war es ein echt hartes Rennen" over the shortened 104km distance. Notes that difficulty was greater than the topo suggested. Recommends at least 4.3 W/kg FTP to be competitive for qualification places based on experience at similar UCI races. (https://www.rennrad-news.de/forum/threads/hegau-gravel.194216/)
+**CmdT** [COMPETITIVE] **(~4 W/kg FTP, 74kg, 250W NP in similar races):** "Für mich war es ein echt hartes Rennen" over the shortened 104km distance. Notes that difficulty was greater than the topo suggested. Recommends at least 4.3 W/kg FTP to be competitive for qualification places based on experience at similar UCI races. (https://www.rennrad-news.de/forum/threads/hegau-gravel.194216/)
 
 ## DNF Risk Factors
 

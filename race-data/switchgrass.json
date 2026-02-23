@@ -19,7 +19,7 @@
         "Central Kansas"
       ],
       "field_size": "200-400 riders",
-      "start_time": "Morning start",
+      "start_time": "3:00 PM star",
       "registration": "Online. Cost: ~$60-100",
       "prize_purse": "Modest prizes",
       "aid_stations": "Multiple aid stations",
@@ -94,7 +94,11 @@
       "score": "47 / 100",
       "one_liner": "Kansas Flint Hills gravel in Leonardville.",
       "should_you_race": "If you're in Kansas and want a local Flint Hills event—yes, it's a solid regional race. If you're from out of state—there are better options.",
-      "alternatives": "For better regional events: Land Run 100, Ozark Gravel. For similar Flint Hills events: other KS gravel races."
+      "alternatives": "For better regional events: Land Run 100, Ozark Gravel. For similar Flint Hills events: other KS gravel races.",
+      "alternative_slugs": [
+        "mid-south",
+        "ozark-gravel"
+      ]
     },
     "logistics": {
       "airport": "Manhattan (MHK) 30 minutes or Kansas City (MCI) 2 hours",
@@ -185,12 +189,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 83.0,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 60,
+          "citation_density": 80,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 88,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -311,29 +324,19 @@
     },
     "citations": [
       {
-        "url": "https://www.youtube.com/watch?v=AD7fdKt1irg",
-        "category": "community",
-        "label": "youtube.com: Watch"
+        "url": "https://www.empireswitchgrass.com/about-switchgrass",
+        "category": "official",
+        "label": "Official Website"
       },
       {
-        "url": "http://www.kansascyclist.com/events/SwitchgrassMountainBikeRace.html",
-        "category": "community",
-        "label": "kansascyclist.com: Switchgrassmountainbikerace.Html"
-      },
-      {
-        "url": "https://evendo.com/locations/kansas/wilson-lake/attraction/switchgrass-mountain-bike-trails",
-        "category": "community",
-        "label": "evendo.com: Switchgrass Mountain Bike Trails"
+        "url": "https://ridewithgps.com/routes/53002568",
+        "category": "route",
+        "label": "RideWithGPS: Switchgrass Loop"
       },
       {
         "url": "https://www.themaniclab.com/posts/unbound-gravel-xl-2021",
         "category": "community",
         "label": "themaniclab.com: Unbound Gravel Xl 2021"
-      },
-      {
-        "url": "http://www.kansascyclist.com/videos/SwitchgrassMountainBikeTrail.html",
-        "category": "community",
-        "label": "kansascyclist.com: Switchgrassmountainbiketrail.Html"
       }
     ],
     "tire_recommendations": {

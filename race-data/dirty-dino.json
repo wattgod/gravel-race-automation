@@ -19,7 +19,7 @@
         "Utah"
       ],
       "field_size": "50-100 riders",
-      "start_time": "Morning start",
+      "start_time": "7:00 am",
       "registration": "Online. Cost: ~$50-75",
       "prize_purse": "Modest prizes",
       "aid_stations": "Limited aid stations",
@@ -94,7 +94,11 @@
       "score": "41 / 100",
       "one_liner": "Utah desert gravel challenge.",
       "should_you_race": "If you're local to Utah—yes, it's good value. If you're traveling—skip it.",
-      "alternatives": "For better Utah races: Wasatch All-Road, Crusher in the Tushar."
+      "alternatives": "For better Utah races: Wasatch All-Road, Crusher in the Tushar.",
+      "alternative_slugs": [
+        "crusher-in-the-tushar",
+        "wasatch-all-road"
+      ]
     },
     "logistics": {
       "airport": "Salt Lake City (SLC) 3 hours",
@@ -102,7 +106,8 @@
       "food": "Vernal has limited dining options. Stock nutrition.",
       "packet_pickup": "Day of typically",
       "parking": "At start/finish",
-      "official_site": "Check Dirty Dino website"
+      "official_site": "Check Dirty Dino website",
+      "camping": "camping spots, dining in Vernal (Dinosaurland)"
     },
     "history": {
       "founded": null,
@@ -185,12 +190,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 86.2,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 80,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -317,38 +331,38 @@
       },
       {
         "url": "https://www.cyclingwest.com/racing/gravel-racing/inaugural-dirty-dino-gravel-grinder-rider-reports/",
-        "category": "community",
-        "label": "cyclingwest.com: Inaugural Dirty Dino Gravel Grinder Rider Reports"
+        "category": "other",
+        "label": "Cyclingwest"
       },
       {
-        "url": "https://www.reddit.com/r/gravelcycling/comments/14w2p5b/just_came_across_a_post_bashing_the_dirty_dino/",
+        "url": "https://www.granfondoguide.com/Events/Index/10508/dirty-dino-gravel",
+        "category": "other",
+        "label": "Granfondoguide"
+      },
+      {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/1470vj8/anyone_raced_the_dirty_dino_gravel_grinder_in_utah/",
         "category": "community",
-        "label": "reddit.com: Just Came Across A Post Bashing The Dirty Dino"
+        "label": "Reddit"
       },
       {
         "url": "https://www.reddit.com/r/gravelcycling/comments/14cmdx0/dirty_dino_gravel_ride_report_vernal_utah/",
         "category": "community",
-        "label": "reddit.com: Dirty Dino Gravel Ride Report Vernal Utah"
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/14w2p5b/just_came_across_a_post_bashing_the_dirty_dino/",
+        "category": "community",
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.utahgravelseries.com/dirtydino",
+        "category": "other",
+        "label": "Utahgravelseries"
       },
       {
         "url": "https://www.reddit.com/r/gravelcycling/comments/1cy36pa/first_gravel_race/",
         "category": "community",
         "label": "reddit.com: First Gravel Race"
-      },
-      {
-        "url": "https://www.granfondoguide.com/Events/Index/10508/dirty-dino-gravel",
-        "category": "community",
-        "label": "granfondoguide.com: Dirty Dino Gravel"
-      },
-      {
-        "url": "https://www.reddit.com/r/gravelcycling/comments/1470vj8/anyone_raced_the_dirty_dino_gravel_grinder_in_utah/",
-        "category": "community",
-        "label": "reddit.com: Anyone Raced The Dirty Dino Gravel Grinder In Utah"
-      },
-      {
-        "url": "https://www.gravel-results.com/race/19725",
-        "category": "community",
-        "label": "gravel-results.com: 19725"
       }
     ],
     "results": {

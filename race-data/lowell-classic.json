@@ -19,7 +19,7 @@
         "Farmland"
       ],
       "field_size": "100-250 riders",
-      "start_time": "Morning start",
+      "start_time": "7:00 AM",
       "registration": "Online. Cost: ~$60-90",
       "prize_purse": "None",
       "aid_stations": "Basic aid stations",
@@ -92,7 +92,10 @@
       "score": "44 / 100",
       "one_liner": "Small grassroots west Michigan ride near Grand Rapids.",
       "should_you_race": "Only if you're in west Michigan or the Grand Rapids area and want an affordable gravel ride. Not worth traveling for.",
-      "alternatives": "For better Michigan events: Barry-Roubaix, Lumberjack 100. For similar grassroots vibes: other regional Midwest events."
+      "alternatives": "For better Michigan events: Barry-Roubaix, Lumberjack 100. For similar grassroots vibes: other regional Midwest events.",
+      "alternative_slugs": [
+        "barry-roubaix"
+      ]
     },
     "logistics": {
       "airport": "Grand Rapids (GRR) 20 min",
@@ -176,12 +179,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 91.8,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 82,
+          "cross_reference": 50
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -305,24 +317,29 @@
         "label": "RideWithGPS: 54 Mile - Lowell Classic Route Map"
       },
       {
-        "url": "https://www.youtube.com/watch?v=stBKSe7MV8Q",
-        "category": "community",
-        "label": "youtube.com: Watch"
-      },
-      {
         "url": "https://ilovegravelracing.com/event/lowell-classic/",
-        "category": "community",
-        "label": "ilovegravelracing.com: Lowell Classic"
+        "category": "other",
+        "label": "Ilovegravelracing"
       },
       {
-        "url": "https://lowellclassic.com/results/",
-        "category": "community",
-        "label": "lowellclassic.com: Results"
+        "url": "https://lowellclassic.com/about-2/",
+        "category": "other",
+        "label": "Lowellclassic"
       },
       {
-        "url": "https://www.youtube.com/watch?v=pKJHVh7MruM",
-        "category": "community",
-        "label": "youtube.com: Watch"
+        "url": "https://www.granfondoguide.com/Events/Index/5267/lowell-classic",
+        "category": "other",
+        "label": "Granfondoguide"
+      },
+      {
+        "url": "https://www.ohiogravelgrinders.com/event-listings/2025/10/25/lowell-classic-gravel-race",
+        "category": "other",
+        "label": "Ohiogravelgrinders"
+      },
+      {
+        "url": "https://www.stellafly.com/events/lowell-classic-gravel-road-race/",
+        "category": "other",
+        "label": "Stellafly"
       },
       {
         "url": "https://www.youtube.com/watch?v=ngfV_0F8tYs",
@@ -330,34 +347,14 @@
         "label": "youtube.com: Watch"
       },
       {
-        "url": "https://results.bikereg.com/race/19814",
+        "url": "https://www.youtube.com/watch?v=pKJHVh7MruM",
         "category": "community",
-        "label": "results.bikereg.com: 19814"
-      },
-      {
-        "url": "https://www.webscorer.com/racealldetails?raceid=296091",
-        "category": "community",
-        "label": "webscorer.com: Racealldetails"
-      },
-      {
-        "url": "https://www.granfondoguide.com/Events/Index/5267/lowell-classic",
-        "category": "community",
-        "label": "granfondoguide.com: Lowell Classic"
-      },
-      {
-        "url": "https://www.stellafly.com/events/lowell-classic-gravel-road-race/",
-        "category": "community",
-        "label": "stellafly.com: Lowell Classic Gravel Road Race"
+        "label": "youtube.com: Watch"
       },
       {
         "url": "https://www.youtube.com/watch?v=kXnLUXU6LHM",
         "category": "community",
         "label": "youtube.com: Watch"
-      },
-      {
-        "url": "https://lowellclassic.com/about-2/",
-        "category": "community",
-        "label": "lowellclassic.com: About 2"
       }
     ],
     "tire_recommendations": {

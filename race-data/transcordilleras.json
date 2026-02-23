@@ -19,7 +19,7 @@
         "Colombia"
       ],
       "field_size": "200-400 riders",
-      "start_time": "Morning start",
+      "start_time": "7:00 am",
       "registration": "Online. Cost: ~$150-250",
       "prize_purse": "Modest prizes",
       "aid_stations": "Multiple aid stations",
@@ -94,7 +94,10 @@
       "score": "61 / 100",
       "one_liner": "Colombian Andes mountain gravel adventure.",
       "should_you_race": "If you have a big budget and want an extreme Colombian experience—maybe. For most riders—there are better options.",
-      "alternatives": "For better value: regional gravel races. For similar Colombian terrain: Gravel Bogotá."
+      "alternatives": "For better value: regional gravel races. For similar Colombian terrain: Gravel Bogotá.",
+      "alternative_slugs": [
+        "gravel-bogota"
+      ]
     },
     "logistics": {
       "airport": "Bogotá (BOG) or Medellín (MDE) varies by location",
@@ -185,12 +188,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 90.9,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 50
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -314,8 +326,68 @@
     "citations": [
       {
         "url": "https://4iiii.com/blog/griffin-easter-transcordilleras/",
+        "category": "other",
+        "label": "4Iiii"
+      },
+      {
+        "url": "https://4iiii.com/de/blog/griffin-easter-transcordilleras/",
+        "category": "other",
+        "label": "4Iiii"
+      },
+      {
+        "url": "https://4iiii.com/es/blog/griffin-easter-transcordilleras/",
+        "category": "other",
+        "label": "4Iiii"
+      },
+      {
+        "url": "https://4iiii.com/fr/blog/griffin-easter-transcordilleras/",
+        "category": "other",
+        "label": "4Iiii"
+      },
+      {
+        "url": "https://4iiii.com/nl/blog/griffin-easter-transcordilleras/",
+        "category": "other",
+        "label": "4Iiii"
+      },
+      {
+        "url": "https://bikepacking.com/plog/transcordilleras-2023-recap/",
+        "category": "other",
+        "label": "Bikepacking"
+      },
+      {
+        "url": "https://gravelunion.cc/article/transcordilleras-colombian-adventure",
+        "category": "other",
+        "label": "Gravelunion"
+      },
+      {
+        "url": "https://obedbikes.com/blogs/stories/austin-sullivans-return-to-transcordilleras-2025",
+        "category": "other",
+        "label": "Obedbikes"
+      },
+      {
+        "url": "https://sports.yahoo.com/transcordilleras-crossing-andes-via-gravel-160024153.html",
+        "category": "other",
+        "label": "Sports"
+      },
+      {
+        "url": "https://uk.4iiii.com/blog/griffin-easter-transcordilleras/",
+        "category": "other",
+        "label": "Uk"
+      },
+      {
+        "url": "https://www.cyclingnews.com/news/laurens-ten-dam-transcordilleras-is-old-school-racing/",
+        "category": "other",
+        "label": "Cyclingnews"
+      },
+      {
+        "url": "https://www.reddit.com/r/BikeRadar/comments/1auj0y9/laurens_ten_dam_sets_1050km_transcordilleras_fkt/",
         "category": "community",
-        "label": "4iiii.com: Griffin Easter Transcordilleras"
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/172nong/bikepack_rally_in_colombia_transcordilleras_is/",
+        "category": "community",
+        "label": "Reddit"
       },
       {
         "url": "https://www.lostdot.cc/blog/the-transcontinental-race-no10-pre-race-report",
@@ -323,34 +395,9 @@
         "label": "lostdot.cc: The Transcontinental Race No10 Pre Race Report"
       },
       {
-        "url": "https://www.cyclingnews.com/news/laurens-ten-dam-transcordilleras-is-old-school-racing/",
-        "category": "community",
-        "label": "cyclingnews.com: Laurens Ten Dam Transcordilleras Is Old School Racing"
-      },
-      {
-        "url": "https://gravelunion.cc/article/transcordilleras-colombian-adventure",
-        "category": "community",
-        "label": "gravelunion.cc: Transcordilleras Colombian Adventure"
-      },
-      {
-        "url": "https://bikepacking.com/plog/transcordilleras-2023-recap/",
-        "category": "community",
-        "label": "bikepacking.com: Transcordilleras 2023 Recap"
-      },
-      {
-        "url": "https://obedbikes.com/blogs/stories/austin-sullivans-return-to-transcordilleras-2025",
-        "category": "community",
-        "label": "obedbikes.com: Austin Sullivans Return To Transcordilleras 2025"
-      },
-      {
         "url": "https://iris.cc/stories/colombian-gravel-adventure",
         "category": "community",
         "label": "iris.cc: Colombian Gravel Adventure"
-      },
-      {
-        "url": "https://sports.yahoo.com/transcordilleras-crossing-andes-via-gravel-160024153.html",
-        "category": "community",
-        "label": "sports.yahoo.com: Transcordilleras Crossing Andes Via Gravel 160024153.Html"
       }
     ],
     "tire_recommendations": {

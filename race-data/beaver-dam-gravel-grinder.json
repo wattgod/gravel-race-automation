@@ -19,7 +19,7 @@
         "Nevada"
       ],
       "field_size": "50-100 riders",
-      "start_time": "Morning start",
+      "start_time": "7:30 am and",
       "registration": "Online. Cost: ~$50-75",
       "prize_purse": "Modest prizes",
       "aid_stations": "Limited aid stations",
@@ -94,7 +94,11 @@
       "score": "41 / 100",
       "one_liner": "Nevada desert gravel challenge.",
       "should_you_race": "If you're local to Nevada—yes, it's good value. If you're traveling—skip it.",
-      "alternatives": "For better Nevada races: Ruby Roubaix, Gravel Worlds."
+      "alternatives": "For better Nevada races: Ruby Roubaix, Gravel Worlds.",
+      "alternative_slugs": [
+        "garmin-gravel-worlds",
+        "ruby-roubaix"
+      ]
     },
     "logistics": {
       "airport": "Las Vegas (LAS) 3 hours",
@@ -102,7 +106,8 @@
       "food": "Beaver Dam has very limited dining options. Stock nutrition.",
       "packet_pickup": "Day of typically",
       "parking": "At start/finish",
-      "official_site": "Check Beaver Dam Gravel Grinder website"
+      "official_site": "Check Beaver Dam Gravel Grinder website",
+      "camping": "camping at Beaver Dam State Park"
     },
     "history": {
       "founded": null,
@@ -185,12 +190,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 86.2,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 80,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -316,34 +330,44 @@
         "label": "RideWithGPS: Beaver Dam Gravel Grinder (Unoffical)"
       },
       {
-        "url": "https://www.cyclingwest.com/gravel-biking/beaver-dam-gravel-grinder-comes-south-east-nevada-june/",
-        "category": "community",
-        "label": "cyclingwest.com: Beaver Dam Gravel Grinder Comes South East Nevada June"
+        "url": "https://beaverdamgravelgrinder.com/about-the-gravel-grinder/",
+        "category": "other",
+        "label": "Beaverdamgravelgrinder"
       },
       {
-        "url": "https://lincolncountynevada.com/events/spring-events/beaver-dam-gravel-grinder/",
-        "category": "community",
-        "label": "lincolncountynevada.com: Beaver Dam Gravel Grinder"
+        "url": "https://eurekasentinel.com/2017/06/beaver-dam-gravel-grinder-june-17/",
+        "category": "other",
+        "label": "Eurekasentinel"
       },
       {
         "url": "https://lccentral.com/2022/06/24/mountain-bikers-take-on-beaver-dam-gravel-grinder/",
-        "category": "community",
-        "label": "lccentral.com: Mountain Bikers Take On Beaver Dam Gravel Grinder"
+        "category": "other",
+        "label": "Lccentral"
+      },
+      {
+        "url": "https://lincolncountynevada.com/events/spring-events/beaver-dam-gravel-grinder/",
+        "category": "other",
+        "label": "Lincolncountynevada"
       },
       {
         "url": "https://lincolncountynevada.com/gravel-grinder-challenge-lincoln-countys-ultimate-ride/",
-        "category": "community",
-        "label": "lincolncountynevada.com: Gravel Grinder Challenge Lincoln Countys Ultimate Ride"
+        "category": "other",
+        "label": "Lincolncountynevada"
       },
       {
-        "url": "https://beaverdamgravelgrinder.com/about-the-gravel-grinder/",
-        "category": "community",
-        "label": "beaverdamgravelgrinder.com: About The Gravel Grinder"
+        "url": "https://www.cyclingwest.com/gravel-biking/beaver-dam-gravel-grinder-comes-south-east-nevada-june/",
+        "category": "other",
+        "label": "Cyclingwest"
       },
       {
         "url": "https://www.cyclingwest.com/gravel-biking/beaver-dam-gravel-grinder-comes-south-est-nevada-june/",
-        "category": "community",
-        "label": "cyclingwest.com: Beaver Dam Gravel Grinder Comes South Est Nevada June"
+        "category": "other",
+        "label": "Cyclingwest"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/5393/beaver-dam-49er-gravel-grinder",
+        "category": "other",
+        "label": "Granfondoguide"
       }
     ],
     "results": {

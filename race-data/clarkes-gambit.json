@@ -19,7 +19,7 @@
         "NSW"
       ],
       "field_size": "50-100 riders",
-      "start_time": "Morning start",
+      "start_time": "12:00 pm AEST",
       "registration": "Online. Cost: ~$75-100 AUD",
       "prize_purse": "Modest prizes",
       "aid_stations": "Limited aid stations",
@@ -102,7 +102,8 @@
       "food": "Nelligen has very limited dining options. Stock nutrition.",
       "packet_pickup": "Day of typically",
       "parking": "At start/finish",
-      "official_site": "Check Clarkes Gambit website"
+      "official_site": "Check Clarkes Gambit website",
+      "camping": "camping at Steampacket Hotel[1][5]"
     },
     "history": {
       "founded": null,
@@ -185,12 +186,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 92.2,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 100,
+          "completeness": 76,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -316,34 +326,54 @@
         "label": "RideWithGPS: Clarkes Gambit"
       },
       {
-        "url": "https://rideonmagazine.com.au/clarkes-gambit-gravel-good-times-great-mates/",
-        "category": "community",
-        "label": "rideonmagazine.com.au: Clarkes Gambit Gravel Good Times Great Mates"
-      },
-      {
         "url": "https://graveleur.cc/clarkes-gambit-event-page",
-        "category": "community",
-        "label": "graveleur.cc: Clarkes Gambit Event Page"
-      },
-      {
-        "url": "https://raceroster.com/events/2026/112569/clarkes-gambit-2026",
-        "category": "community",
-        "label": "raceroster.com: Clarkes Gambit 2026"
+        "category": "other",
+        "label": "Graveleur"
       },
       {
         "url": "https://graveleur.cc/events/clarkes-gambit-2024",
-        "category": "community",
-        "label": "graveleur.cc: Clarkes Gambit 2024"
+        "category": "other",
+        "label": "Graveleur"
+      },
+      {
+        "url": "https://raceroster.com/events/2026/112569/clarkes-gambit-2026",
+        "category": "other",
+        "label": "Raceroster"
+      },
+      {
+        "url": "https://raceroster.com/events/2026/112569/clarkes-gambit-2026/leaderboards",
+        "category": "other",
+        "label": "Raceroster"
+      },
+      {
+        "url": "https://raceroster.com/events/2026/112569/clarkes-gambit-2026/leaderboards/overall",
+        "category": "other",
+        "label": "Raceroster"
+      },
+      {
+        "url": "https://www.batemansbaypost.com.au/story/7950149/clarkes-gambit-gravel-race-comes-to-nelligen/",
+        "category": "other",
+        "label": "Batemansbaypost"
+      },
+      {
+        "url": "https://www.beagleweekly.com.au/post/clarkes-gambit-comes-to-nelligen-oct-29th-and-30th",
+        "category": "other",
+        "label": "Beagleweekly"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/11587/clarkes-gambit",
+        "category": "other",
+        "label": "Granfondoguide"
+      },
+      {
+        "url": "https://www.nsw.gov.au/visiting-and-exploring-nsw/nsw-events/clarkes-gambit-0",
+        "category": "other",
+        "label": "Nsw"
       },
       {
         "url": "https://eurobodalla.com.au/get-ready-for-gravel/",
         "category": "community",
         "label": "eurobodalla.com.au: Get Ready For Gravel"
-      },
-      {
-        "url": "https://www.batemansbaypost.com.au/story/7950149/clarkes-gambit-gravel-race-comes-to-nelligen/",
-        "category": "community",
-        "label": "batemansbaypost.com.au: Clarkes Gambit Gravel Race Comes To Nelligen"
       }
     ],
     "tire_recommendations": {

@@ -94,7 +94,10 @@
       "score": "47 / 100",
       "one_liner": "Portuguese rolling gravel challenge.",
       "should_you_race": "If you're in Europe—yes, it's solid. If you're international—there are better options.",
-      "alternatives": "For better value: regional gravel races. For similar Portuguese terrain: Alentejo Gravel."
+      "alternatives": "For better value: regional gravel races. For similar Portuguese terrain: Alentejo Gravel.",
+      "alternative_slugs": [
+        "alentejo-gravel"
+      ]
     },
     "logistics": {
       "airport": "Lisbon (LIS) or Porto (OPO) varies by location",
@@ -185,12 +188,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 85.9,
+        "grade": "A",
+        "weakest": "temporal_depth",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 50,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 50
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -316,39 +328,64 @@
         "label": "RideWithGPS: 114 Gravel Race"
       },
       {
+        "url": "https://cyclingflash.com/race/uci-gravel-world-series-114-gravel-race-2026",
+        "category": "other",
+        "label": "Cyclingflash"
+      },
+      {
+        "url": "https://en.brujulabike.com/aleix-espargaro-makes-his-debut-as-a-professional-cyclist-in-competition-and-secures-a-spot-for-the-gravel-world-championship/",
+        "category": "other",
+        "label": "En"
+      },
+      {
         "url": "https://gravelunion.cc/article/ride-report-114-gravel-race-2025",
-        "category": "community",
-        "label": "gravelunion.cc: Ride Report 114 Gravel Race 2025"
+        "category": "other",
+        "label": "Gravelunion"
+      },
+      {
+        "url": "https://sportmaniacs.com/en/races/114-gravel-race",
+        "category": "other",
+        "label": "Sportmaniacs"
+      },
+      {
+        "url": "https://ucigravelworldseries.com/en/114-gravel-race-first-uci-gravel-event-connecting-two-countries/",
+        "category": "other",
+        "label": "Ucigravelworldseries"
+      },
+      {
+        "url": "https://ucigravelworldseries.com/en/114-gravel-race-with-victories-of-matthew-holmes-and-lucia-gonzalez-blanco/",
+        "category": "other",
+        "label": "Ucigravelworldseries"
+      },
+      {
+        "url": "https://ucigravelworldseries.com/en/elvas/",
+        "category": "other",
+        "label": "Ucigravelworldseries"
+      },
+      {
+        "url": "https://www.cyclingnews.com/races/uci-gravel-world-series-events-2025/114-gravel-race/results/",
+        "category": "other",
+        "label": "Cyclingnews"
       },
       {
         "url": "https://www.granfondoguide.com/Contents/Index/8447/former-motogp-star-aleix-espargaro-shines-at-inaugural-uci-114-gravel-race",
-        "category": "community",
-        "label": "granfondoguide.com: Former Motogp Star Aleix Espargaro Shines At Inaugural Uc..."
+        "category": "other",
+        "label": "Granfondoguide"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Contents/IndexFull/8447/former-motogp-star-aleix-espargaro-shines-at-inaugural-uci-114-gravel-race",
+        "category": "other",
+        "label": "Granfondoguide"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/9515/114-gravel-race",
+        "category": "other",
+        "label": "Granfondoguide"
       },
       {
         "url": "https://ryanmtb.substack.com/p/keegan-swenson-predicts-fast-tactical",
         "category": "community",
         "label": "ryanmtb.substack.com: Keegan Swenson Predicts Fast Tactical"
-      },
-      {
-        "url": "https://www.cyclingnews.com/races/uci-gravel-world-series-events-2025/114-gravel-race/results/",
-        "category": "community",
-        "label": "cyclingnews.com: Results"
-      },
-      {
-        "url": "https://ucigravelworldseries.com/en/114-gravel-race-with-victories-of-matthew-holmes-and-lucia-gonzalez-blanco/",
-        "category": "community",
-        "label": "ucigravelworldseries.com: 114 Gravel Race With Victories Of Matthew Holmes And Luci..."
-      },
-      {
-        "url": "https://ucigravelworldseries.com/en/114-gravel-race-first-uci-gravel-event-connecting-two-countries/",
-        "category": "community",
-        "label": "ucigravelworldseries.com: 114 Gravel Race First Uci Gravel Event Connecting Two Cou..."
-      },
-      {
-        "url": "https://ucigravelworldseries.com/en/elvas/",
-        "category": "community",
-        "label": "ucigravelworldseries.com: Elvas"
       }
     ],
     "tire_recommendations": {

@@ -143,18 +143,18 @@
       ],
       "research_date": "2026-02-04",
       "research_strength": {
-        "overall": 97.5,
+        "overall": 99.1,
         "grade": "A",
-        "weakest": "temporal_depth",
+        "weakest": "completeness",
         "has_research_dump": true,
         "dimensions": {
           "source_diversity": 100,
           "citation_density": 100,
-          "temporal_depth": 75,
+          "temporal_depth": 100,
           "specificity": 100,
           "statistical_backing": 100,
           "voice_authenticity": 100,
-          "completeness": 100,
+          "completeness": 94,
           "cross_reference": 100
         },
         "scored_at": "2026-02-04"
@@ -222,23 +222,18 @@
       "score": "74 / 100",
       "one_liner": "The most civilized way to suffer through 110 miles of Minnesota Northwoods while pretending Lake Superior views make your legs hurt less.",
       "should_you_race": "You need the fitness for 110 miles and 5,000 feet—that's six hours minimum of rolling punishment through forest roads. The course isn't technically brutal, but it's relentlessly rolling, and those doubletrack sections at mile 80 will test your focus when you're cooked. If you can't handle pack racing with 2,000 riders or the possibility of 45-degree rain, stay home.",
-      "alternatives": "Heck of the North offers more technical challenge in the same region if you want sharper teeth. For similar distance and beauty with fewer people, try Gravel Worlds in Nebraska or SBT GRVL in Colorado—both deliver the suffering without the Minnesota crowd."
+      "alternatives": "Heck of the North offers more technical challenge in the same region if you want sharper teeth. For similar distance and beauty with fewer people, try Gravel Worlds in Nebraska or SBT GRVL in Colorado—both deliver the suffering without the Minnesota crowd.",
+      "alternative_slugs": [
+        "garmin-gravel-worlds",
+        "heck-of-the-north",
+        "sbt-grvl"
+      ]
     },
     "citations": [
       {
-        "url": "https://www.legranddunord.com",
-        "category": "official",
-        "label": "Official Website"
-      },
-      {
-        "url": "https://ridewithgps.com",
-        "category": "route",
-        "label": "RideWithGPS"
-      },
-      {
-        "url": "https://strava.com",
-        "category": "activity",
-        "label": "Strava"
+        "url": "https://secondrunnings.me/2025/05/30/race-report-le-grand-du-nord-50-mile/",
+        "category": "other",
+        "label": "Secondrunnings"
       },
       {
         "url": "https://www.bikereg.com/le-grand-du-nord",
@@ -246,44 +241,59 @@
         "label": "BikeReg"
       },
       {
-        "url": "https://secondrunnings.me/2025/05/30/race-report-le-grand-du-nord-50-mile/",
-        "category": "community",
-        "label": "secondrunnings.me: Race Report Le Grand Du Nord 50 Mile"
-      },
-      {
-        "url": "https://www.mikeward.cool/blog/racing/le-grand-du-nord-race-report/",
-        "category": "community",
-        "label": "mikeward.cool: Le Grand Du Nord Race Report"
-      },
-      {
-        "url": "https://www.mathewwollmann.com/post/le-grand-du-nord-2022-110-mile-race-review",
-        "category": "community",
-        "label": "mathewwollmann.com: Le Grand Du Nord 2022 110 Mile Race Review"
-      },
-      {
-        "url": "https://www.thenxrth.com/post/mistakes-on-le-grand-du-nord-gravel-race",
-        "category": "community",
-        "label": "thenxrth.com: Mistakes On Le Grand Du Nord Gravel Race"
-      },
-      {
-        "url": "https://www.heckofthenorth.com/legrand-about/",
-        "category": "community",
-        "label": "heckofthenorth.com: Legrand About"
+        "url": "https://www.bikesignup.com/Race/Events/MN/GrandMarais/LeGrandDuNordGravelClassic",
+        "category": "other",
+        "label": "Bikesignup"
       },
       {
         "url": "https://www.granfondoguide.com/Events/Index/5367/le-grand-du-nord",
-        "category": "community",
-        "label": "granfondoguide.com: Le Grand Du Nord"
+        "category": "other",
+        "label": "Granfondoguide"
       },
       {
-        "url": "https://www.skinnyski.com/racing/display.asp?Id=47298",
+        "url": "https://www.heckofthenorth.com/legrand-about/",
+        "category": "other",
+        "label": "Heckofthenorth"
+      },
+      {
+        "url": "https://www.mathewwollmann.com/post/le-grand-du-nord-2022-110-mile-race-review",
+        "category": "other",
+        "label": "Mathewwollmann"
+      },
+      {
+        "url": "https://www.mikeward.cool/blog/racing/le-grand-du-nord-race-report/",
+        "category": "other",
+        "label": "Mikeward"
+      },
+      {
+        "url": "https://www.mtecresults.com/race/leaderboard/18778/2025_Le_Grand_du_Nord-50_Miles",
+        "category": "other",
+        "label": "Mtecresults"
+      },
+      {
+        "url": "https://www.reddit.com/r/CyclingMSP/comments/1cws8u1/wtb_le_grand_du_nord_registration/",
         "category": "community",
-        "label": "skinnyski.com: Display.Asp"
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.reddit.com/r/CyclingMSP/comments/1czbadm/to_those_riding_le_grand_du_nord_this_weekend/",
+        "category": "community",
+        "label": "Reddit"
       },
       {
         "url": "https://www.reddit.com/r/gravelcycling/comments/v3nqwx/anyone_get_out_to_le_grand_du_nord_last_week/",
         "category": "community",
-        "label": "reddit.com: Anyone Get Out To Le Grand Du Nord Last Week"
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.thenxrth.com/events/le-grand-du-nord",
+        "category": "other",
+        "label": "Thenxrth"
+      },
+      {
+        "url": "https://www.thenxrth.com/post/mistakes-on-le-grand-du-nord-gravel-race",
+        "category": "other",
+        "label": "Thenxrth"
       }
     ],
     "results": {

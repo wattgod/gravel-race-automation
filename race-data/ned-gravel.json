@@ -18,7 +18,7 @@
         "High altitude"
       ],
       "field_size": "200-500 riders",
-      "start_time": "Morning start",
+      "start_time": "5:30 AM on",
       "registration": "Online. Cost: ~$80-120",
       "prize_purse": "Category prizes",
       "aid_stations": "Multiple aid stations",
@@ -93,7 +93,12 @@
       "score": "63 / 100",
       "one_liner": "High-altitude Front Range gravel with ghost towns and serious climbing.",
       "should_you_race": "If you're in Colorado and want a mountain gravel challenge near Boulder with real altitude—yes, it's a solid event. If you're from out of state—there are more prestigious options.",
-      "alternatives": "For bigger Colorado events: Leadville Trail 100, Crusher in the Tushar. For similar regional mountain gravel: SBT GRVL, Steamboat Gravel."
+      "alternatives": "For bigger Colorado events: Leadville Trail 100, Crusher in the Tushar. For similar regional mountain gravel: SBT GRVL, Steamboat Gravel.",
+      "alternative_slugs": [
+        "crusher-in-the-tushar",
+        "leadville-100",
+        "sbt-grvl"
+      ]
     },
     "logistics": {
       "airport": "Denver (DEN) 1 hour",
@@ -184,12 +189,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 94.0,
+        "grade": "A",
+        "weakest": "voice_authenticity",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 88,
+          "cross_reference": 75
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -309,49 +323,74 @@
     },
     "citations": [
       {
-        "url": "https://www.cyclingwest.com/events/gravel-with-soul-ned-gravel-turns-five-with-high-elevation-style-and-substance/",
-        "category": "community",
-        "label": "cyclingwest.com: Gravel With Soul Ned Gravel Turns Five With High Elevatio..."
-      },
-      {
-        "url": "https://www.elevationoutdoors.com/go-outside/beat-the-heat-july-31-boulder-county-ned-gravel-newly-envisioned-gravel-cycling-event/",
-        "category": "community",
-        "label": "elevationoutdoors.com: Beat The Heat July 31 Boulder County Ned Gravel Newly Env..."
-      },
-      {
-        "url": "https://www.nedgravel.com/race-info/",
-        "category": "community",
-        "label": "nedgravel.com: Race Info"
+        "url": "https://ridewithgps.com/routes/38479446",
+        "category": "route",
+        "label": "RideWithGPS: Ned Gravel - Tungsten Course"
       },
       {
         "url": "https://strambecco.com/event/ned-gravel/",
-        "category": "community",
-        "label": "strambecco.com: Ned Gravel"
+        "category": "other",
+        "label": "Strambecco"
       },
       {
-        "url": "https://www.nedgravel.com/",
-        "category": "community",
-        "label": "nedgravel.com"
-      },
-      {
-        "url": "https://www.gravelcyclist.com/category/race-reports/page/2/",
-        "category": "community",
-        "label": "gravelcyclist.com: 2"
+        "url": "https://www.cyclingwest.com/events/gravel-with-soul-ned-gravel-turns-five-with-high-elevation-style-and-substance/",
+        "category": "other",
+        "label": "Cyclingwest"
       },
       {
         "url": "https://www.distancetoempty.com/news/2022/07/12/ned-gravel-2022-race-report",
-        "category": "community",
-        "label": "distancetoempty.com: Ned Gravel 2022 Race Report"
+        "category": "other",
+        "label": "Distancetoempty"
       },
       {
-        "url": "https://www.themtnear.com/stories/riders-take-on-ned-gravel,11209",
+        "url": "https://www.elevationoutdoors.com/go-outside/beat-the-heat-july-31-boulder-county-ned-gravel-newly-envisioned-gravel-cycling-event/",
+        "category": "other",
+        "label": "Elevationoutdoors"
+      },
+      {
+        "url": "https://www.nedgravel.com/race-info/",
+        "category": "other",
+        "label": "Nedgravel"
+      },
+      {
+        "url": "https://www.reddit.com/r/COBike/comments/14sdafx/does_anyone_know_if_ned_gravel_offers_race_day/",
         "category": "community",
-        "label": "themtnear.com: Riders Take On Ned Gravel,11209"
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/12gytt1/nicest_day_of_the_year_took_my_partner_out_on_her/",
+        "category": "community",
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/nv9c54/the_club_took_a_trip_to_rollinsville_co_to_recon/",
+        "category": "community",
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/nw4de2/if_youre_riding_ned_gravel_in_nederland_co_this/",
+        "category": "community",
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/ttvejq/serious_good_faith_question_does_anyone_else_feel/",
+        "category": "community",
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/vrhqn4/received_our_kits_in_time_for_ned_gravel/",
+        "category": "community",
+        "label": "Reddit"
       },
       {
         "url": "https://www.themtnear.com/stories/nedgravel-2025-takes-over-town,50246",
-        "category": "community",
-        "label": "themtnear.com: Nedgravel 2025 Takes Over Town,50246"
+        "category": "other",
+        "label": "Themtnear"
+      },
+      {
+        "url": "https://www.themtnear.com/stories/riders-take-on-ned-gravel,11209",
+        "category": "other",
+        "label": "Themtnear"
       },
       {
         "url": "https://results.bikereg.com/race/21661",

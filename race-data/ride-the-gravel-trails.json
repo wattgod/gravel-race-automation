@@ -94,7 +94,11 @@
       "score": "44 / 100",
       "one_liner": "Minnesota local gravel challenge.",
       "should_you_race": "If you're local to Minnesota—yes, it's good value. If you're traveling—skip it.",
-      "alternatives": "For better Minnesota races: Gray Duck Grit, Almanzo 100."
+      "alternatives": "For better Minnesota races: Gray Duck Grit, Almanzo 100.",
+      "alternative_slugs": [
+        "almanzo-100",
+        "gray-duck-grit"
+      ]
     },
     "logistics": {
       "airport": "Minneapolis (MSP) 45 minutes",
@@ -185,12 +189,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 84.2,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 50,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -331,34 +344,9 @@
     ],
     "citations": [
       {
-        "url": "https://www.gravelbikeadventures.com/route/longmont-gravel-route",
-        "category": "community",
-        "label": "gravelbikeadventures.com: Longmont Gravel Route"
-      },
-      {
         "url": "https://gravelunion.cc/article/saddling-up-for-the-GiRodeo-gravel-ride",
-        "category": "community",
-        "label": "gravelunion.cc: Saddling Up For The Girodeo Gravel Ride"
-      },
-      {
-        "url": "https://strambecco.com/event/longmont-gravel/",
-        "category": "community",
-        "label": "strambecco.com: Longmont Gravel"
-      },
-      {
-        "url": "https://www.oldmanwinterrally.com/wintertrainingseries/gravel-ride-temp-3fgf8-h794b-ka59a",
-        "category": "community",
-        "label": "oldmanwinterrally.com: Gravel Ride Temp 3Fgf8 H794B Ka59A"
-      },
-      {
-        "url": "https://www.reddit.com/r/dfwbike/comments/190uxhr/gravel_cycling_in_dallas/",
-        "category": "community",
-        "label": "reddit.com: Gravel Cycling In Dallas"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=pvCTKoCFS3M",
-        "category": "community",
-        "label": "youtube.com: Watch"
+        "category": "other",
+        "label": "Gravelunion"
       },
       {
         "url": "https://www.singletracks.com/mtb-gear/6-tpu-inner-tubes-trail-tested/",

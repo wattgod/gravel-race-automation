@@ -185,12 +185,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 81.3,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 60,
+          "citation_density": 80,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 82,
+          "cross_reference": 50
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -319,24 +328,24 @@
     },
     "citations": [
       {
+        "url": "https://www.santafecentury.com/gravelon-fondo/",
+        "category": "other",
+        "label": "Santafecentury"
+      },
+      {
         "url": "https://www.santafecentury.com/maps/.[2",
         "category": "other",
         "label": "Santafecentury"
       },
       {
-        "url": "https://www.santafecentury.com/gravelon-fondo/",
-        "category": "community",
-        "label": "santafecentury.com: Gravelon Fondo"
+        "url": "https://www.santafecentury.com/results/",
+        "category": "other",
+        "label": "Santafecentury"
       },
       {
         "url": "https://fltresults.com/event-summary/267",
         "category": "community",
         "label": "fltresults.com: 267"
-      },
-      {
-        "url": "https://www.santafecentury.com",
-        "category": "community",
-        "label": "santafecentury.com"
       }
     ],
     "tire_recommendations": {

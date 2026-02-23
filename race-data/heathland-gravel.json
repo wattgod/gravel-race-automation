@@ -94,7 +94,10 @@
       "score": "46 / 100",
       "one_liner": "Belgian heathland gravel challenge.",
       "should_you_race": "If you're in Europe—yes, it's solid. If you're international—there are better options.",
-      "alternatives": "For better value: regional gravel races. For similar Belgian terrain: Flanders Legacy Gravel."
+      "alternatives": "For better value: regional gravel races. For similar Belgian terrain: Flanders Legacy Gravel.",
+      "alternative_slugs": [
+        "flanders-legacy-gravel"
+      ]
     },
     "logistics": {
       "airport": "Brussels (BRU) varies by location",
@@ -138,7 +141,13 @@
       ],
       "signature_challenge": "Belgian heathland terrain.",
       "ridewithgps_id": "52603358",
-      "ridewithgps_name": "OTHERS Heathland Gravel 2025 - 110KM"
+      "ridewithgps_name": "OTHERS Heathland Gravel 2025 - 110KM",
+      "surface_breakdown": {
+        "overall": {
+          "gravel": 80,
+          "pavement": 20
+        }
+      }
     },
     "guide_variables": {
       "race_name": "Heathland Gravel",
@@ -185,12 +194,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 89.2,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -311,89 +329,49 @@
     },
     "citations": [
       {
+        "url": "https://ridewithgps.com/routes/52603358",
+        "category": "route",
+        "label": "RideWithGPS: OTHERS Heathland Gravel 2025 - 110KM"
+      },
+      {
+        "url": "https://cyclingflash.com/race/heathland-gravel-2025/result",
+        "category": "other",
+        "label": "Cyclingflash"
+      },
+      {
+        "url": "https://g-tedproductions.blogspot.com/2024/02/gravel-grinder-news-heathland-gravel-to.html",
+        "category": "other",
+        "label": "G-Tedproductions"
+      },
+      {
         "url": "https://reddit.com/r/gravelcycling/comments/heathland-gravel",
         "category": "community",
         "label": "Reddit"
       },
       {
-        "url": "https://ridewithgps.com",
-        "category": "route",
-        "label": "RideWithGPS"
+        "url": "https://www.granfondoguide.com/Contents/Index/8669/50-participants-qualify-for-2026-unbound-at-2nd-edition-of-heathland-gravel",
+        "category": "other",
+        "label": "Granfondoguide"
       },
       {
-        "url": "https://www.cyclingtips.com",
-        "category": "media",
-        "label": "CyclingTips"
+        "url": "https://www.granfondoguide.com/Contents/IndexFull/8239/heathland-gravel-is-back-in-2025",
+        "category": "other",
+        "label": "Granfondoguide"
       },
       {
-        "url": "https://www.heathlandgravel.be",
+        "url": "https://www.heathlandgravel.com/en/programme",
         "category": "other",
         "label": "Heathlandgravel"
       },
       {
-        "url": "https://www.ridingravel.com",
+        "url": "https://www.heathlandgravel.com/en/results",
         "category": "other",
-        "label": "Ridingravel"
+        "label": "Heathlandgravel"
       },
       {
-        "url": "https://www.strava.com",
-        "category": "activity",
-        "label": "Strava"
-      },
-      {
-        "url": "https://www.trainerroad.com",
-        "category": "community",
-        "label": "TrainerRoad"
-      },
-      {
-        "url": "https://www.velonews.com",
-        "category": "media",
-        "label": "VeloNews"
-      },
-      {
-        "url": "https://www.granfondoguide.com/Contents/IndexFull/8239/heathland-gravel-is-back-in-2025",
-        "category": "community",
-        "label": "granfondoguide.com: Heathland Gravel Is Back In 2025"
-      },
-      {
-        "url": "https://www.granfondoguide.com/Contents/Index/8669/50-participants-qualify-for-2026-unbound-at-2nd-edition-of-heathland-gravel",
-        "category": "community",
-        "label": "granfondoguide.com: 50 Participants Qualify For 2026 Unbound At 2Nd Edition O..."
-      },
-      {
-        "url": "https://www.cyclingweekly.com/news/the-impossible-dream-gets-closer-as-unbounds-only-european-qualifier-opens-for-entries",
-        "category": "community",
-        "label": "cyclingweekly.com: The Impossible Dream Gets Closer As Unbounds Only Europea..."
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=_UzA2wRUPXI",
-        "category": "community",
-        "label": "youtube.com: Watch"
-      },
-      {
-        "url": "https://www.heathlandgravel.com/en",
-        "category": "community",
-        "label": "heathlandgravel.com: En"
-      },
-      {
-        "url": "https://cyclingflash.com/race/heathland-gravel-2025/result",
-        "category": "community",
-        "label": "cyclingflash.com: Result"
-      },
-      {
-        "url": "https://www.heathlandgravel.com/en/programme",
-        "category": "community",
-        "label": "heathlandgravel.com: Programme"
-      },
-      {
-        "url": "https://www.granfondoguide.com/Contents/Index/7812/life-time-and-flanders-classics-to-designate-first-ever-unbound-gravel-qualifier",
-        "category": "community",
-        "label": "granfondoguide.com: Life Time And Flanders Classics To Designate First Ever U..."
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=X8Xg7YkvYdU",
-        "category": "community",
-        "label": "youtube.com: Watch"
+        "url": "https://www.youtube.com/@HeathlandGravel",
+        "category": "video",
+        "label": "YouTube"
       },
       {
         "url": "https://huacesports.com/blogs/unbound-gravel-expands-to-europe-debut-qualifying-race-in-belgium",
@@ -401,9 +379,19 @@
         "label": "huacesports.com: Unbound Gravel Expands To Europe Debut Qualifying Race In..."
       },
       {
-        "url": "https://g-tedproductions.blogspot.com/2024/02/gravel-grinder-news-heathland-gravel-to.html",
+        "url": "https://www.granfondoguide.com/Contents/Index/7812/life-time-and-flanders-classics-to-designate-first-ever-unbound-gravel-qualifier",
         "category": "community",
-        "label": "g-tedproductions.blogspot.com: Gravel Grinder News Heathland Gravel To.Html"
+        "label": "granfondoguide.com: Life Time And Flanders Classics To Designate First Ever U..."
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=_UzA2wRUPXI",
+        "category": "community",
+        "label": "youtube.com: Watch"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=X8Xg7YkvYdU",
+        "category": "community",
+        "label": "youtube.com: Watch"
       }
     ],
     "results": {

@@ -19,7 +19,7 @@
         "Minnesota"
       ],
       "field_size": "50-100 riders",
-      "start_time": "Morning start",
+      "start_time": "12:00am PDT",
       "registration": "Online. Cost: ~$50-75",
       "prize_purse": "Modest prizes",
       "aid_stations": "Limited aid stations",
@@ -94,7 +94,10 @@
       "score": "40 / 100",
       "one_liner": "Minnesota local gravel challenge.",
       "should_you_race": "If you're local to Minnesota—yes, it's good value. If you're traveling—skip it.",
-      "alternatives": "For better Minnesota races: Almanzo, Dirty Benjamin."
+      "alternatives": "For better Minnesota races: Almanzo, Dirty Benjamin.",
+      "alternative_slugs": [
+        "almanzo-100"
+      ]
     },
     "logistics": {
       "airport": "La Crosse (LSE) 30 minutes",
@@ -102,7 +105,8 @@
       "food": "Hokah has limited dining options. Stock nutrition.",
       "packet_pickup": "Day of typically",
       "parking": "At start/finish",
-      "official_site": "Check Old Fashioned Gravel website"
+      "official_site": "Check Old Fashioned Gravel website",
+      "camping": "Camping available in the pasture (riders could sleep in cars on-site, helpful due to high hotel prices)"
     },
     "history": {
       "founded": null,
@@ -185,12 +189,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 85.4,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 80,
+          "citation_density": 100,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 50
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -316,34 +329,39 @@
         "label": "RideWithGPS: Old Fashioned Gravel (Winnie Cooper) "
       },
       {
-        "url": "https://www.raceentry.com/old-fashioned-gravel/race-reviews",
-        "category": "community",
-        "label": "raceentry.com: Race Reviews"
-      },
-      {
-        "url": "https://www.oldfashionedgravel.com/",
-        "category": "community",
-        "label": "oldfashionedgravel.com"
-      },
-      {
-        "url": "https://www.thenxrth.com/post/everything-you-need-to-know-about-the-new-old-fashioned-gravel-race-this-october",
-        "category": "community",
-        "label": "thenxrth.com: Everything You Need To Know About The New Old Fashioned G..."
+        "url": "https://www.bikemn.org/events/old-fashioned-gravel/",
+        "category": "other",
+        "label": "Bikemn"
       },
       {
         "url": "https://www.gravel-results.com/race/23253",
-        "category": "community",
-        "label": "gravel-results.com: 23253"
+        "category": "other",
+        "label": "Gravel-Results"
       },
       {
-        "url": "https://oldfashionedgravel.com/routes/butter-valley-20",
-        "category": "community",
-        "label": "oldfashionedgravel.com: Butter Valley 20"
+        "url": "https://www.gravel-results.com/racer/70203",
+        "category": "other",
+        "label": "Gravel-Results"
       },
       {
-        "url": "https://www.thenxrth.com/post/everything-you-need-to-know-about-the-new-old-fashioned-gravel-race-this-quarter",
-        "category": "community",
-        "label": "thenxrth.com: Everything You Need To Know About The New Old Fashioned G..."
+        "url": "https://www.raceentry.com/old-fashioned-gravel/race-information",
+        "category": "other",
+        "label": "Raceentry"
+      },
+      {
+        "url": "https://www.raceentry.com/old-fashioned-gravel/race-reviews",
+        "category": "other",
+        "label": "Raceentry"
+      },
+      {
+        "url": "https://www.thenxrth.com/events/old-fashioned-gravel",
+        "category": "other",
+        "label": "Thenxrth"
+      },
+      {
+        "url": "https://www.thenxrth.com/post/everything-you-need-to-know-about-the-new-old-fashioned-gravel-race-this-october",
+        "category": "other",
+        "label": "Thenxrth"
       }
     ],
     "results": {

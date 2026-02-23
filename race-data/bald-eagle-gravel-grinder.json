@@ -19,7 +19,7 @@
         "Pennsylvania"
       ],
       "field_size": "50-100 riders",
-      "start_time": "Morning start",
+      "start_time": "9:00 AM",
       "registration": "Online. Cost: ~$50-75",
       "prize_purse": "Modest prizes",
       "aid_stations": "Limited aid stations",
@@ -94,7 +94,11 @@
       "score": "40 / 100",
       "one_liner": "Pennsylvania local gravel challenge.",
       "should_you_race": "If you're local to Pennsylvania—yes, it's good value. If you're traveling—skip it.",
-      "alternatives": "For better Pennsylvania races: Dirty Kanza PA, Trans-Sylvania Epic."
+      "alternatives": "For better Pennsylvania races: Dirty Kanza PA, Trans-Sylvania Epic.",
+      "alternative_slugs": [
+        "trans-sylvania-epic",
+        "unbound-200"
+      ]
     },
     "logistics": {
       "airport": "Williamsport (IPT) 30 minutes",
@@ -102,7 +106,8 @@
       "food": "Lock Haven has full dining options. Stock nutrition.",
       "packet_pickup": "Day of typically",
       "parking": "At start/finish",
-      "official_site": "Check Bald Eagle Gravel Grinder website"
+      "official_site": "Check Bald Eagle Gravel Grinder website",
+      "camping": "Camping at Seven Mountains Scout Camp:** \"All entrants into the Gravel Epic have the option for onsite housing, whether it be in a"
     },
     "history": {
       "founded": null,
@@ -185,12 +190,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 86.7,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -316,39 +330,64 @@
         "label": "RideWithGPS: Bald Eagle Gravel Grinder 2025"
       },
       {
-        "url": "https://www.joinbasecamp.com/post/lynns-story-bald-eagle-gravel-grinder",
-        "category": "community",
-        "label": "joinbasecamp.com: Lynns Story Bald Eagle Gravel Grinder"
+        "url": "https://racecheck.com/races/bald-eagle-gravel-grinder/",
+        "category": "other",
+        "label": "Racecheck"
       },
       {
-        "url": "https://www.joinbasecamp.com/post/nancy-s-story-bald-eagle-gravel-grinder",
-        "category": "community",
-        "label": "joinbasecamp.com: Nancy S Story Bald Eagle Gravel Grinder"
+        "url": "https://raceroster.com/events/2025/99503/bald-eagle-gravel-grinder",
+        "category": "other",
+        "label": "Raceroster"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/10759/bald-eagle-gravel-grinder",
+        "category": "other",
+        "label": "Granfondoguide"
+      },
+      {
+        "url": "https://www.gravel-results.com/race/20820",
+        "category": "other",
+        "label": "Gravel-Results"
+      },
+      {
+        "url": "https://www.gravelcyclist.com/race-reports/trans-sylvania-gravel-epic-proves-to-be-an-epic-awesome-challenge-by-tom-meersman-peter-meersman/",
+        "category": "media",
+        "label": "Gravel Cyclist"
       },
       {
         "url": "https://www.joinbasecamp.com/post/amy-s-story-bald-eagle-gravel-grinder",
-        "category": "community",
-        "label": "joinbasecamp.com: Amy S Story Bald Eagle Gravel Grinder"
+        "category": "other",
+        "label": "Joinbasecamp"
+      },
+      {
+        "url": "https://www.joinbasecamp.com/post/lynns-story-bald-eagle-gravel-grinder",
+        "category": "other",
+        "label": "Joinbasecamp"
+      },
+      {
+        "url": "https://www.joinbasecamp.com/post/nancy-s-story-bald-eagle-gravel-grinder",
+        "category": "other",
+        "label": "Joinbasecamp"
+      },
+      {
+        "url": "https://www.joinbasecamp.com/post/nancy-s-story-bald-evening-gravel-grinder",
+        "category": "other",
+        "label": "Joinbasecamp"
+      },
+      {
+        "url": "https://www.ohiogravelgrinders.com/event-listings/2024/4/14/bald-eagle-gravel-grinder",
+        "category": "other",
+        "label": "Ohiogravelgrinders"
+      },
+      {
+        "url": "https://www.ohiogravelgrinders.com/gravel-races",
+        "category": "other",
+        "label": "Ohiogravelgrinders"
       },
       {
         "url": "https://www.reddit.com/r/PoseidonBikes/comments/1c5wcoc/finished_a_50_mile_gravel_bike_race_with_a_stock/",
         "category": "community",
         "label": "reddit.com: Finished A 50 Mile Gravel Bike Race With A Stock"
-      },
-      {
-        "url": "https://www.trans-sylvaniaproductions.com/begg",
-        "category": "community",
-        "label": "trans-sylvaniaproductions.com: Begg"
-      },
-      {
-        "url": "https://www.gravelcyclist.com/race-reports/trans-sylvania-gravel-epic-proves-to-be-an-epic-awesome-challenge-by-tom-meersman-peter-meersman/",
-        "category": "community",
-        "label": "gravelcyclist.com: Trans Sylvania Gravel Epic Proves To Be An Epic Awesome C..."
-      },
-      {
-        "url": "https://www.joinbasecamp.com/post/nancy-s-story-bald-evening-gravel-grinder",
-        "category": "community",
-        "label": "joinbasecamp.com: Nancy S Story Bald Evening Gravel Grinder"
       }
     ],
     "tire_recommendations": {

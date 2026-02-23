@@ -19,7 +19,7 @@
         "France"
       ],
       "field_size": "200-400 riders",
-      "start_time": "Morning start",
+      "start_time": "12:00 PM on",
       "registration": "Online. Cost: ~€60-100",
       "prize_purse": "Modest prizes",
       "aid_stations": "Multiple aid stations",
@@ -94,7 +94,10 @@
       "score": "51 / 100",
       "one_liner": "French Pyrénées mountain gravel.",
       "should_you_race": "If you're in France/Europe and want a Pyrénées mountain event—yes, it's solid. If you're international—there are better options.",
-      "alternatives": "For better French events: Wish One Millau. For similar mountain events: other French/Spanish Pyrénées races."
+      "alternatives": "For better French events: Wish One Millau. For similar mountain events: other French/Spanish Pyrénées races.",
+      "alternative_slugs": [
+        "wish-one-millau"
+      ]
     },
     "logistics": {
       "airport": "Toulouse (TLS) 1.5-2 hours or regional airports",
@@ -185,12 +188,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 70.8,
+        "grade": "B",
+        "weakest": "citation_density",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 30,
+          "citation_density": 20,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 82,
+          "cross_reference": 50
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {

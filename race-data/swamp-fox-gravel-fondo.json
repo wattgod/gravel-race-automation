@@ -94,7 +94,11 @@
       "score": "44 / 100",
       "one_liner": "South Carolina coastal forest gravel in Francis Marion NF.",
       "should_you_race": "If you're in South Carolina and want a flat forest event—yes, it's solid. If you're from out of state or want climbing—look elsewhere.",
-      "alternatives": "For better SC events: Gran Fondo Hincapie, Race to Valhalla. For similar flat events: other coastal gravel races."
+      "alternatives": "For better SC events: Gran Fondo Hincapie, Race to Valhalla. For similar flat events: other coastal gravel races.",
+      "alternative_slugs": [
+        "gran-fondo-hincapie",
+        "race-to-valhalla"
+      ]
     },
     "logistics": {
       "airport": "Charleston (CHS) 45 minutes",
@@ -185,12 +189,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 83.3,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 60,
+          "citation_density": 100,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 82,
+          "cross_reference": 50
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -316,29 +329,9 @@
         "label": "RideWithGPS: Swamp Fox Gravel Fondo 2024 50 Mile Route"
       },
       {
-        "url": "https://www.youtube.com/watch?v=dvQby-ppJ00",
-        "category": "community",
-        "label": "youtube.com: Watch"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=WtYAjRcKUIQ",
-        "category": "community",
-        "label": "youtube.com: Watch"
-      },
-      {
         "url": "https://www.mtpleasantvelo.org/swampfoxgravelfondo",
-        "category": "community",
-        "label": "mtpleasantvelo.org: Swampfoxgravelfondo"
-      },
-      {
-        "url": "https://www.gravel-results.com/race/18314",
-        "category": "community",
-        "label": "gravel-results.com: 18314"
-      },
-      {
-        "url": "https://www.gravel-results.com/race/20364",
-        "category": "community",
-        "label": "gravel-results.com: 20364"
+        "category": "other",
+        "label": "Mtpleasantvelo"
       },
       {
         "url": "https://relentlessforwardcommotion.com/2025-moultrie-militia-gravel-raid-race-report/",

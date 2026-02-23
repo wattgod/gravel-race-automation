@@ -185,12 +185,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 87.5,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 82,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -316,44 +325,49 @@
         "label": "RideWithGPS: UCI Gravel Suisse - The Summit 2025"
       },
       {
-        "url": "https://www.cyclingnews.com/races/uci-gravel-world-series-events-2025/gravel-suisse/results/",
-        "category": "community",
-        "label": "cyclingnews.com: Results"
+        "url": "https://cyclingflash.com/race/uci-gravel-world-series-gravel-suisse-2025",
+        "category": "other",
+        "label": "Cyclingflash"
       },
       {
-        "url": "https://granfondodailynews.com/2024/07/07/fondo-rider-shoe-salesman-turned-pro-wins-uci-gravel-suisse-worlds-qualifier/",
-        "category": "community",
-        "label": "granfondodailynews.com: Fondo Rider Shoe Salesman Turned Pro Wins Uci Gravel Suis..."
-      },
-      {
-        "url": "https://ucigravelworldseries.com/en/villars/",
-        "category": "community",
-        "label": "ucigravelworldseries.com: Villars"
+        "url": "https://gravelevents.com/event/aurora-gravel-suisse/",
+        "category": "other",
+        "label": "Gravelevents"
       },
       {
         "url": "https://ucigravelworldseries.com/en/the-uci-gravel-suisse-decided-on-the-final-climb/",
-        "category": "community",
-        "label": "ucigravelworldseries.com: The Uci Gravel Suisse Decided On The Final Climb"
+        "category": "other",
+        "label": "Ucigravelworldseries"
       },
       {
-        "url": "https://www.youtube.com/watch?v=Pi4O41Ginrc",
-        "category": "community",
-        "label": "youtube.com: Watch"
+        "url": "https://ucigravelworldseries.com/en/villars/",
+        "category": "other",
+        "label": "Ucigravelworldseries"
+      },
+      {
+        "url": "https://www.cyclingnews.com/races/uci-gravel-world-series-events-2025/gravel-suisse/results/",
+        "category": "other",
+        "label": "Cyclingnews"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/11723/uci-gravel-suisse",
+        "category": "other",
+        "label": "Granfondoguide"
+      },
+      {
+        "url": "https://www.mso.swiss/en/events/2164-uci-gravel-suisse/results",
+        "category": "other",
+        "label": "Mso"
+      },
+      {
+        "url": "https://www.youtube.com/@2025UCIGravelSuisse",
+        "category": "video",
+        "label": "YouTube"
       },
       {
         "url": "https://lecol.cc/en-us/blogs/content/ribble-outliers-gravel-season-recap",
         "category": "community",
         "label": "lecol.cc: Ribble Outliers Gravel Season Recap"
-      },
-      {
-        "url": "https://www.mso.swiss/en/events/2164-uci-gravel-suisse/results",
-        "category": "community",
-        "label": "mso.swiss: Results"
-      },
-      {
-        "url": "https://www.granfondoguide.com/Events/Index/11723/uci-gravel-suisse",
-        "category": "community",
-        "label": "granfondoguide.com: Uci Gravel Suisse"
       }
     ],
     "results": {

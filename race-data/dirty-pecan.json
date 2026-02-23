@@ -102,7 +102,8 @@
       "food": "FL has full dining options. Stock nutrition.",
       "packet_pickup": "Day before typically",
       "parking": "At start/finish",
-      "official_site": "Check Dirty Pecan website"
+      "official_site": "Check Dirty Pecan website",
+      "camping": "Camping Culture:** Dry camping available for $40 for 2 nights with \"A huge camp fire awaits you hardy campers!\" at the Jefferson"
     },
     "history": {
       "founded": null,
@@ -185,12 +186,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 87.5,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 82,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -316,39 +326,44 @@
         "label": "RideWithGPS: Dirty Pecan Sim"
       },
       {
-        "url": "https://www.gravelcyclist.com/race-reports/ride-report-dirty-pecan-150-mile-dirt-road-epic-what-were-we-thinking-by-k-dogg/",
-        "category": "community",
-        "label": "gravelcyclist.com: Ride Report Dirty Pecan 150 Mile Dirt Road Epic What Were..."
+        "url": "https://davefaitlemonde.com/2025/03/03/dirty-pecan-day-1-monticello-florida/",
+        "category": "other",
+        "label": "Davefaitlemonde"
       },
       {
         "url": "https://davefaitlemonde.com/2025/03/04/dirty-pecan-day-2-monticello-florida/",
-        "category": "community",
-        "label": "davefaitlemonde.com: Dirty Pecan Day 2 Monticello Florida"
+        "category": "other",
+        "label": "Davefaitlemonde"
+      },
+      {
+        "url": "https://www.floridabicycling.com/event/dirty-pecan-gravel-ride/",
+        "category": "other",
+        "label": "Floridabicycling"
+      },
+      {
+        "url": "https://www.granfondoguide.com/event/5234/dirty-pecan",
+        "category": "other",
+        "label": "Granfondoguide"
+      },
+      {
+        "url": "https://www.gravelcyclist.com/race-reports/ride-report-dirty-pecan-150-mile-dirt-road-epic-what-were-we-thinking-by-k-dogg/",
+        "category": "media",
+        "label": "Gravel Cyclist"
+      },
+      {
+        "url": "https://www.tallahassee-informer.com/2025/03/03/pedaling-for-a-purpose-at-dirty-pecan-gravel-ride-in-monticello/",
+        "category": "other",
+        "label": "Tallahassee-Informer"
       },
       {
         "url": "https://www.wtxl.com/news/local-news/in-your-neighborhood/monticello/pedaling-for-a-purpose-at-dirty-pecan-gravel-ride-in-monticello",
-        "category": "community",
-        "label": "wtxl.com: Pedaling For A Purpose At Dirty Pecan Gravel Ride In Mont..."
-      },
-      {
-        "url": "https://www.dirtypecan.com/",
-        "category": "community",
-        "label": "dirtypecan.com"
-      },
-      {
-        "url": "https://www.granfondoguide.com/Events/Index/5234/dirty-pecan",
-        "category": "community",
-        "label": "granfondoguide.com: Dirty Pecan"
+        "category": "other",
+        "label": "Wtxl"
       },
       {
         "url": "https://www.granfondoguide.com/Contents/IndexFull/8261/",
         "category": "community",
         "label": "granfondoguide.com: 8261"
-      },
-      {
-        "url": "https://www.granfondoguide.com/event/5234/dirty-pecan",
-        "category": "community",
-        "label": "granfondoguide.com: Dirty Pecan"
       }
     ],
     "tire_recommendations": {

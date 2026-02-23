@@ -19,7 +19,7 @@
         "Western Australia"
       ],
       "field_size": "50-100 riders",
-      "start_time": "Morning start",
+      "start_time": "7:05am",
       "registration": "Online. Cost: ~$75-100 AUD",
       "prize_purse": "Modest prizes",
       "aid_stations": "Limited aid stations",
@@ -102,7 +102,8 @@
       "food": "Gnowangerup has very limited dining options. Stock nutrition.",
       "packet_pickup": "Day of typically",
       "parking": "At start/finish",
-      "official_site": "https://wildgravel.com.au/"
+      "official_site": "https://wildgravel.com.au/",
+      "camping": "camping and accommodation in nearby towns along the Wild Gravel Trail loop are options"
     },
     "history": {
       "founded": null,
@@ -185,12 +186,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 75.7,
+        "grade": "B",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 60,
+          "citation_density": 20,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 100,
+          "completeness": 76,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -311,29 +321,9 @@
     },
     "citations": [
       {
-        "url": "https://stayhappening.com/e/wild-gravel-2024-E2ISWUK2D3T",
-        "category": "community",
-        "label": "stayhappening.com: Wild Gravel 2024 E2Iswuk2D3T"
-      },
-      {
-        "url": "https://www.trimarnicoach.com/trimarniblog/tag/gravel+race",
-        "category": "community",
-        "label": "trimarnicoach.com: Gravel+Race"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=qnQcaAdzHrw",
-        "category": "community",
-        "label": "youtube.com: Watch"
-      },
-      {
-        "url": "https://www.gnowangerup.wa.gov.au/news/announcing-the-wild-gravel-trail-a-new-adventure-for-gravel-riders/10238",
-        "category": "community",
-        "label": "gnowangerup.wa.gov.au: 10238"
-      },
-      {
-        "url": "https://wildgravel.com.au/",
-        "category": "community",
-        "label": "wildgravel.com.au"
+        "url": "https://gnowangerup.wa.gov.au/wild-gravel",
+        "category": "other",
+        "label": "Gnowangerup"
       }
     ],
     "results": {

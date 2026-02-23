@@ -19,7 +19,8 @@
       "date": "April annually",
       "date_specific": "2026: April 26",
       "lat": 40.8015,
-      "lng": -75.6102
+      "lng": -75.6102,
+      "start_time": "7:00 AM EST"
     },
     "date": {
       "month": "April",
@@ -151,7 +152,11 @@
       "score": "67 / 100",
       "one_liner": "A proper gravel beatdown disguised as a backyard Pennsylvania sufferfest.",
       "should_you_race": "Show up ready for 8,000 feet of climbing and terrain that switches moods faster than spring weather. The Three Sisters will expose weak legs early, and Sager Road's sandy chaos separates pretenders from contenders. You need solid bike handling skills and the fitness to climb repeatedly—this isn't a gentle introduction to gravel racing.",
-      "alternatives": "Barry-Roubaix offers similar Roubaix vibes with better organization and flatter Michigan terrain. SBT GRVL delivers comparable suffering with Colorado scenery and fewer logistics headaches than Pennsylvania's unpredictable conditions."
+      "alternatives": "Barry-Roubaix offers similar Roubaix vibes with better organization and flatter Michigan terrain. SBT GRVL delivers comparable suffering with Colorado scenery and fewer logistics headaches than Pennsylvania's unpredictable conditions.",
+      "alternative_slugs": [
+        "barry-roubaix",
+        "sbt-grvl"
+      ]
     },
     "course_description": {
       "character": "Barry-Roubaix throws everything at you except actual cobblestones. Eighty percent gravel roads with pavement breaks, sand traps, mud wallows, and one brutal mile of rocky two-track that separates pretenders from finishers. The terrain rolls constantly through Michigan farmland, never letting you settle into a rhythm.",
@@ -179,23 +184,59 @@
       ],
       "signature_challenge": "Sager Road is the course's true character test—a narrow, unmaintained seasonal road that can be sandy, rocky, or muddy depending on conditions. It's where separation occurs in the front of the race because fitness alone won't save you when your bike handling skills get exposed on technical terrain at race pace.",
       "ridewithgps_id": "53316252",
-      "ridewithgps_name": "WIP - Charly-ROUBAIX-45  Holicong Park - Classic Hunterdon County Ride - GRAVEL Version "
+      "ridewithgps_name": "WIP - Charly-ROUBAIX-45  Holicong Park - Classic Hunterdon County Ride - GRAVEL Version ",
+      "surface_breakdown": {
+        "overall": {
+          "gravel": 50,
+          "pavement": 50
+        }
+      }
     },
     "citations": [
-      {
-        "url": "https://www.gravelroubaix.com/",
-        "category": "official",
-        "label": "Official Website"
-      },
       {
         "url": "https://ridewithgps.com/routes/53316252",
         "category": "route",
         "label": "RideWithGPS: WIP - Charly-ROUBAIX-45  Holicong Park - Classic Hunterdon County Ride - GRAVEL Version "
       },
       {
-        "url": "https://barry-roubaix.com/",
-        "category": "other",
-        "label": "Barry-Roubaix"
+        "url": "https://www.gravelcyclist.com/training-rides/all-about-the-roughneck-gravel-roubaix-titusville-pennsylvania/",
+        "category": "media",
+        "label": "Gravel Cyclist"
+      },
+      {
+        "url": "https://www.reddit.com/r/cycling/comments/hyao3n/specialized_roubaix_as_gravel_bike/",
+        "category": "community",
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.reddit.com/r/cycling/comments/vdv3d0/specialized_roubaix_bike_on_gravel/",
+        "category": "community",
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/1cm8yqu/anyone_using_the_new_roubaix_as_a_gravel_bike/",
+        "category": "community",
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/mcb7zy/opinions_wanted_on_switching_my_2020_roubaix/",
+        "category": "community",
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/tfjn5l/wisconsin_gravel_roubaix/",
+        "category": "community",
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.reddit.com/r/specialized/comments/110bc9y/roubaix_gravel/",
+        "category": "community",
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.trainerroad.com/forum/t/gap-training-advice-for-barry-roubaix/13009",
+        "category": "community",
+        "label": "TrainerRoad"
       },
       {
         "url": "https://barry-roubaix.com/courses-descriptions",
@@ -223,9 +264,9 @@
         "label": "Barry-Roubaix"
       },
       {
-        "url": "https://boulderroubaix.com",
+        "url": "https://ilovegravelracing.com/event/roughneck-gravel-roubaix/",
         "category": "other",
-        "label": "Boulderroubaix"
+        "label": "Ilovegravelracing"
       },
       {
         "url": "https://www.360velo.com/barry-roubaix-gravel-race-overview-and-tips/",
@@ -238,41 +279,6 @@
         "label": "Gravel-Results"
       },
       {
-        "url": "https://www.paris-roubaix.fr/en/",
-        "category": "other",
-        "label": "Paris-Roubaix"
-      },
-      {
-        "url": "https://www.parisroubaixchallenge.com/en",
-        "category": "other",
-        "label": "Parisroubaixchallenge"
-      },
-      {
-        "url": "https://www.rougeroubaix.com/",
-        "category": "other",
-        "label": "Rougeroubaix"
-      },
-      {
-        "url": "https://www.rougeroubaix.com/register",
-        "category": "other",
-        "label": "Rougeroubaix"
-      },
-      {
-        "url": "https://www.rougeroubaix.com/the-course",
-        "category": "other",
-        "label": "Rougeroubaix"
-      },
-      {
-        "url": "https://www.rubyroubaix.com",
-        "category": "other",
-        "label": "Rubyroubaix"
-      },
-      {
-        "url": "https://www.trainerroad.com/forum/t/gap-training-advice-for-barry-roubaix/13009",
-        "category": "community",
-        "label": "TrainerRoad"
-      },
-      {
         "url": "https://www.ohiogravelgrinders.com/blog/2023/5/28/recap-roughneck-gravel-roubaix",
         "category": "community",
         "label": "ohiogravelgrinders.com: Recap Roughneck Gravel Roubaix"
@@ -283,18 +289,14 @@
         "label": "venangoextra.com: Roughneck Gravel Roubaix Attracts About 400 Cyclists"
       },
       {
-        "url": "https://www.gravelcyclist.com/training-rides/all-about-the-roughneck-gravel-roubaix-titusville-pennsylvania/",
-        "category": "community",
-        "label": "gravelcyclist.com: All About The Roughneck Gravel Roubaix Titusville Pennsyl..."
-      },
-      {
         "url": "https://www.youtube.com/watch?v=f2wMs9slIsk",
         "category": "community",
         "label": "youtube.com: Watch"
       }
     ],
     "logistics": {
-      "official_site": "https://barry-roubaix.com/"
+      "official_site": "https://barry-roubaix.com/",
+      "camping": "Campground about 10 minutes south of town"
     },
     "tire_recommendations": {
       "generated_at": "2026-02-19",
@@ -362,6 +364,25 @@
         "200pluslb_dry": "44-48",
         "200pluslb_mixed": "41-45",
         "200pluslb_wet": "39-43"
+      }
+    },
+    "research_metadata": {
+      "research_strength": {
+        "overall": 88.5,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 100,
+          "completeness": 52,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     }
   }

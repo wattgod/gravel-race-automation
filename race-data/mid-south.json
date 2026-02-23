@@ -3,7 +3,7 @@
     "name": "Mid South",
     "slug": "mid-south",
     "display_name": "The Mid South",
-    "tagline": "Oklahoma's weather lottery with a $100K prize purse and a guaranteed Bobby hug.",
+    "tagline": "Oklahoma's weather lottery with a $100K purse and a guaranteed Bobby hug.",
     "vitals": {
       "distance_mi": 100,
       "elevation_ft": 6000,
@@ -94,7 +94,12 @@
       "score": "76 / 100",
       "one_liner": "The early-season gravel race with the biggest heart and the most unpredictable conditions.",
       "should_you_race": "If you value community, celebration, and authentic hospitality over predictable racing conditions—yes, absolutely. If you need to know what you're getting into before you commit—maybe reconsider. The Mid South is chaos wrapped in a Bobby hug. Some years it's fast and perfect. Some years it's a mud disaster. Some years it gets cancelled by wildfires. But the people who come back year after year aren't coming for the course—they're coming for the experience. Show up ready for anything. Leave with stories.",
-      "alternatives": "If you want the prestige without the weather lottery: try Unbound (harder but more predictable). If you want tactical short-course racing without the mud risk: try Gravel Locos (Texas, also 100mi, drier climate). If you want community vibe with better logistics: try Belgian Waffle Ride (San Diego, also chaotic but easier to access)."
+      "alternatives": "If you want the prestige without the weather lottery: try Unbound (harder but more predictable). If you want tactical short-course racing without the mud risk: try Gravel Locos (Texas, also 100mi, drier climate). If you want community vibe with better logistics: try Belgian Waffle Ride (San Diego, also chaotic but easier to access).",
+      "alternative_slugs": [
+        "bwr-california",
+        "gravel-locos",
+        "unbound-200"
+      ]
     },
     "logistics": {
       "airport": "Oklahoma City (OKC) or Tulsa (TUL) - both ~1.5 hours to Stillwater",
@@ -102,7 +107,8 @@
       "food": "College town pricing = cheap. Lots of options downtown. Post-race celebration has food trucks and local beer. Stock your own race nutrition—aid stations are sparse.",
       "packet_pickup": "Friday before race. Downtown Stillwater. Expect lines but not Unbound chaos.",
       "parking": "Free parking available downtown. Easier than Unbound logistics.",
-      "official_site": "https://www.midsouthgravel.com"
+      "official_site": "https://www.midsouthgravel.com",
+      "camping": "campground at Lake Carl Blackwell"
     },
     "history": {
       "founded": 2006,
@@ -194,19 +200,19 @@
       ],
       "migration_notes": [],
       "research_strength": {
-        "overall": 96.4,
+        "overall": 93.2,
         "grade": "A",
-        "weakest": "citation_density",
+        "weakest": "voice_authenticity",
         "has_research_dump": true,
         "dimensions": {
           "source_diversity": 100,
-          "citation_density": 80,
+          "citation_density": 100,
           "temporal_depth": 100,
           "specificity": 92,
           "statistical_backing": 100,
-          "voice_authenticity": 100,
-          "completeness": 100,
-          "cross_reference": 100
+          "voice_authenticity": 70,
+          "completeness": 94,
+          "cross_reference": 75
         },
         "scored_at": "2026-02-04"
       }
@@ -371,99 +377,64 @@
     },
     "citations": [
       {
-        "url": "https://www.midsouthgravel.com",
-        "category": "official",
-        "label": "Official Website"
-      },
-      {
         "url": "https://ridewithgps.com/routes/48969927",
         "category": "route",
         "label": "RideWithGPS: Mid%20South%202026%20100%20Mile"
       },
       {
-        "url": "https://www.joelaverick.com/p/mid-south-gravel",
-        "category": "community",
-        "label": "joelaverick.com: Mid South Gravel"
-      },
-      {
-        "url": "https://dirttanbikeclub.com/2024/03/29/mid-south-2024-the-durability-of-joy/",
-        "category": "community",
-        "label": "dirttanbikeclub.com: Mid South 2024 The Durability Of Joy"
-      },
-      {
-        "url": "https://www.gravelstoke.com/gravel-cycling-gear-blog/the-mid-south-race-report-john-borstelmann-2023",
-        "category": "community",
-        "label": "gravelstoke.com: The Mid South Race Report John Borstelmann 2023"
-      },
-      {
-        "url": "https://www.ohiogravelgrinders.com/blog/2025/3/18/recap-mid-south-2025",
-        "category": "community",
-        "label": "ohiogravelgrinders.com: Recap Mid South 2025"
-      },
-      {
-        "url": "https://www.trainerroad.com/forum/t/mid-south-gravel-2025-thread/96156",
-        "category": "community",
-        "label": "trainerroad.com: 96156"
-      },
-      {
-        "url": "https://www.midsouthgravel.com/2025/project-one-f4fe3",
-        "category": "community",
-        "label": "midsouthgravel.com: Project One F4Fe3"
-      },
-      {
-        "url": "https://riptonco.com/blogs/rippedin-journal/the-mid-south-that-wasnt",
-        "category": "community",
-        "label": "riptonco.com: The Mid South That Wasnt"
-      },
-      {
-        "url": "https://moots.com/blogs/news/the-mid-south-gravel-a-spring-gravel-classic-and-so-much-more",
-        "category": "community",
-        "label": "moots.com: The Mid South Gravel A Spring Gravel Classic And So Much ..."
-      },
-      {
-        "url": "https://www.cyclingweekly.com/gravel/mid-south-splits-pro-and-amateur-race-days-to-prioritise-safety-while-preserving-the-gravel-spirit",
-        "category": "community",
-        "label": "cyclingweekly.com: Mid South Splits Pro And Amateur Race Days To Prioritise ..."
-      },
-      {
         "url": "https://bikepacking.com/plog/mega-mid-south-2024/",
-        "category": "community",
-        "label": "bikepacking.com: Mega Mid South 2024"
-      },
-      {
-        "url": "https://velo-orange.com/blogs/theveloorangeblog/nics-mega-mid-south-report-and-upcoming-events",
-        "category": "community",
-        "label": "velo-orange.com: Nics Mega Mid South Report And Upcoming Events"
+        "category": "other",
+        "label": "Bikepacking"
       },
       {
         "url": "https://chrismehlman.substack.com/p/race-report-mid-south-gravel-2024",
-        "category": "community",
-        "label": "chrismehlman.substack.com: Race Report Mid South Gravel 2024"
+        "category": "other",
+        "label": "Chrismehlman"
       },
       {
-        "url": "https://www.mettlecycling.com/post/the-mid-south-mettle-race-report",
-        "category": "community",
-        "label": "mettlecycling.com: The Mid South Mettle Race Report"
+        "url": "https://source-e.net/rider-resources/pre-race-meeting-the-mid-south-gravel-race/",
+        "category": "other",
+        "label": "Source-E"
+      },
+      {
+        "url": "https://theradavist.com/tag/mid-south",
+        "category": "other",
+        "label": "Theradavist"
+      },
+      {
+        "url": "https://velo-orange.com/blogs/theveloorangeblog/nics-mega-mid-south-report-and-upcoming-events",
+        "category": "other",
+        "label": "Velo-Orange"
       },
       {
         "url": "https://velo.outsideonline.com/gravel/gravel-racing/hugs-matter-4-takeaways-from-the-mid-south-gravel-race",
-        "category": "community",
-        "label": "velo.outsideonline.com: Hugs Matter 4 Takeaways From The Mid South Gravel Race"
+        "category": "media",
+        "label": "Velo"
+      },
+      {
+        "url": "https://www.allbodiesonbikes.com/about-the-program-midsouth",
+        "category": "other",
+        "label": "Allbodiesonbikes"
+      },
+      {
+        "url": "https://www.cyclingweekly.com/gravel/mid-south-splits-pro-and-amateur-race-days-to-prioritise-safety-while-preserving-the-gravel-spirit",
+        "category": "media",
+        "label": "Cycling Weekly"
+      },
+      {
+        "url": "https://www.mettlecycling.com/post/the-mid-south-mettle-race-report",
+        "category": "other",
+        "label": "Mettlecycling"
       },
       {
         "url": "https://www.reddit.com/r/gravelcycling/comments/1bhprki/mid_south_fun/",
         "category": "community",
-        "label": "reddit.com: Mid South Fun"
+        "label": "Reddit"
       },
       {
-        "url": "https://theradavist.com/tag/mid-south",
+        "url": "https://www.trainerroad.com/forum/t/mid-south-gravel-2025-thread/96156",
         "category": "community",
-        "label": "theradavist.com: Mid South"
-      },
-      {
-        "url": "https://www.allbodiesonbikes.com/about-the-program-midsouth",
-        "category": "community",
-        "label": "allbodiesonbikes.com: About The Program Midsouth"
+        "label": "TrainerRoad"
       }
     ],
     "tire_recommendations": {

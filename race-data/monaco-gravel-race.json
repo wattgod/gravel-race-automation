@@ -121,7 +121,13 @@
       ],
       "signature_challenge": "110 km + 2,500 m elevation = very steep. Monaco/French Alps. 20-25% DNF.",
       "ridewithgps_id": "50327918",
-      "ridewithgps_name": "Monaco gravel race UCI 120k 2025 VL"
+      "ridewithgps_name": "Monaco gravel race UCI 120k 2025 VL",
+      "surface_breakdown": {
+        "overall": {
+          "gravel": 70,
+          "pavement": 30
+        }
+      }
     },
     "history": {
       "founded": "~2020",
@@ -141,19 +147,19 @@
       ],
       "research_date": "2026-02-04",
       "research_strength": {
-        "overall": 0,
-        "grade": "pending",
-        "weakest": "pending",
+        "overall": 96.1,
+        "grade": "A",
+        "weakest": "voice_authenticity",
         "has_research_dump": true,
         "dimensions": {
-          "source_diversity": 0,
-          "citation_density": 0,
-          "temporal_depth": 0,
-          "specificity": 0,
-          "statistical_backing": 0,
-          "voice_authenticity": 0,
-          "completeness": 0,
-          "cross_reference": 0
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 94,
+          "cross_reference": 100
         },
         "scored_at": "2026-02-04"
       }
@@ -220,18 +226,34 @@
       "score": "74 / 100",
       "one_liner": "A UCI qualifier that trades the usual gravel brutality for Alpine scenery and climbing legs that'll make you question your gear choices.",
       "should_you_race": "If you can handle 121 feet of climbing per mile on short, punchy ascents, this is your European gravel vacation with World Championship qualification upside. The Mercantour park setting means you're climbing through postcard scenery instead of Kansas cornfields. Skip it if you prefer sustained efforts over constant gear changes, or if you think 68 miles sounds easy because the math doesn't lie on those repeated kicks.",
-      "alternatives": "Dirty Kanza offers similar UCI points without the airline ticket, while Gravel Worlds qualifiers like SBT GRVL give you high desert instead of Alpine views. If you want European gravel without the Monaco price tag, consider Gravel One Fifty in the UK for comparable terrain and fewer tourist crowds."
+      "alternatives": "Dirty Kanza offers similar UCI points without the airline ticket, while Gravel Worlds qualifiers like SBT GRVL give you high desert instead of Alpine views. If you want European gravel without the Monaco price tag, consider Gravel One Fifty in the UK for comparable terrain and fewer tourist crowds.",
+      "alternative_slugs": [
+        "garmin-gravel-worlds",
+        "gravel-one-fifty",
+        "sbt-grvl",
+        "unbound-200"
+      ]
     },
     "citations": [
-      {
-        "url": "https://www.monacogravelrace.com",
-        "category": "official",
-        "label": "Official Website"
-      },
       {
         "url": "https://ridewithgps.com/routes/50327918",
         "category": "route",
         "label": "RideWithGPS: Monaco gravel race UCI 120k 2025 VL"
+      },
+      {
+        "url": "https://cyclingflash.com/race/uci-gravel-world-series-monaco-gravel-race-2025/result",
+        "category": "other",
+        "label": "Cyclingflash"
+      },
+      {
+        "url": "https://granfondodailynews.com/2025/04/22/uci-monaco-gravel-results-schmidt-aguirre-dominate-to-earn-solo-victories-and-qualify-for-worlds/",
+        "category": "other",
+        "label": "Granfondodailynews"
+      },
+      {
+        "url": "https://monacogravelrace.fr/en/epreuves-monaco-gravel-race/",
+        "category": "other",
+        "label": "Monacogravelrace"
       },
       {
         "url": "https://reddit.com/r/gravelcycling/comments/monaco-gravel",
@@ -239,64 +261,29 @@
         "label": "Reddit"
       },
       {
-        "url": "https://ridewithgps.com",
-        "category": "route",
-        "label": "RideWithGPS"
-      },
-      {
-        "url": "https://www.cyclingtips.com",
-        "category": "media",
-        "label": "CyclingTips"
-      },
-      {
-        "url": "https://www.ridingravel.com",
-        "category": "other",
-        "label": "Ridingravel"
-      },
-      {
-        "url": "https://www.strava.com",
-        "category": "activity",
-        "label": "Strava"
-      },
-      {
-        "url": "https://www.trainerroad.com",
-        "category": "community",
-        "label": "TrainerRoad"
-      },
-      {
-        "url": "https://www.velonews.com",
-        "category": "media",
-        "label": "VeloNews"
-      },
-      {
-        "url": "https://www.granfondoguide.com/RaceDashboard/UCIGravelWorldSeries/1/8484/aguirre-and-schmidt-triumph-at-monaco-gravel",
-        "category": "community",
-        "label": "granfondoguide.com: Aguirre And Schmidt Triumph At Monaco Gravel"
-      },
-      {
-        "url": "https://www.tudorprocycling.com/post/gravel-diary-monaco-gravel-race-uci",
-        "category": "community",
-        "label": "tudorprocycling.com: Gravel Diary Monaco Gravel Race Uci"
-      },
-      {
         "url": "https://ucigravelworldseries.com/en/monaco/",
-        "category": "community",
-        "label": "ucigravelworldseries.com: Monaco"
+        "category": "other",
+        "label": "Ucigravelworldseries"
       },
       {
-        "url": "https://granfondodailynews.com/2025/04/22/uci-monaco-gravel-results-schmidt-aguirre-dominate-to-earn-solo-victories-and-qualify-for-worlds/",
-        "category": "community",
-        "label": "granfondodailynews.com: Uci Monaco Gravel Results Schmidt Aguirre Dominate To Ear..."
+        "url": "https://ucigravelworldseries.com/en/pas-racing-conquers-monaco-gravel-race/",
+        "category": "other",
+        "label": "Ucigravelworldseries"
       },
       {
         "url": "https://www.granfondoguide.com/Events/Index/12348/monaco-gravel-race",
-        "category": "community",
-        "label": "granfondoguide.com: Monaco Gravel Race"
+        "category": "other",
+        "label": "Granfondoguide"
       },
       {
-        "url": "https://monacogravelrace.fr/en/epreuves-monaco-gravel-race/",
-        "category": "community",
-        "label": "monacogravelrace.fr: Epreuves Monaco Gravel Race"
+        "url": "https://www.granfondoguide.com/RaceDashboard/UCIGravelWorldSeries/1/8484/aguirre-and-schmidt-triumph-at-monaco-gravel",
+        "category": "other",
+        "label": "Granfondoguide"
+      },
+      {
+        "url": "https://www.tudorprocycling.com/post/gravel-diary-monaco-gravel-race-uci",
+        "category": "other",
+        "label": "Tudorprocycling"
       }
     ],
     "tire_recommendations": {

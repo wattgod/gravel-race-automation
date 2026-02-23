@@ -19,7 +19,7 @@
         "Iowa"
       ],
       "field_size": "100-200 riders",
-      "start_time": "Morning start",
+      "start_time": "7:30AM",
       "registration": "Online. Cost: ~$50-75",
       "prize_purse": "Modest prizes",
       "aid_stations": "Multiple aid stations",
@@ -94,7 +94,11 @@
       "score": "44 / 100",
       "one_liner": "Iowa local gravel challenge.",
       "should_you_race": "If you're local to Iowa—yes, it's good value. If you're traveling—skip it.",
-      "alternatives": "For better Iowa races: Trans Iowa, Spotted Horse Ultra."
+      "alternatives": "For better Iowa races: Trans Iowa, Spotted Horse Ultra.",
+      "alternative_slugs": [
+        "spotted-horse-ultra",
+        "trans-iowa"
+      ]
     },
     "logistics": {
       "airport": "Des Moines (DSM) 1.5 hours",
@@ -185,12 +189,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 86.7,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -316,29 +329,34 @@
         "label": "RideWithGPS: Dry 100KM Fairfield Harvest Rush  2024 - Taylor Swift's Fists"
       },
       {
+        "url": "https://iowabicyclecoalition.org/event/fairfield-harvest-rush-iowa-gravel-series/",
+        "category": "other",
+        "label": "Iowabicyclecoalition"
+      },
+      {
         "url": "https://www.bikeiowa.com/Event/16029/fairfield-harvest-rush",
-        "category": "community",
-        "label": "bikeiowa.com: Fairfield Harvest Rush"
+        "category": "other",
+        "label": "Bikeiowa"
+      },
+      {
+        "url": "https://www.fairfieldiowa.com/calendar/harvest_rush_gravel_grinder/",
+        "category": "other",
+        "label": "Fairfieldiowa"
+      },
+      {
+        "url": "https://www.movemint.cc/events/fairfield_harvest_rush_2025",
+        "category": "other",
+        "label": "Movemint"
+      },
+      {
+        "url": "https://www.racecenter.com/cycling/fairfield-harvest-rush",
+        "category": "other",
+        "label": "Racecenter"
       },
       {
         "url": "https://www.granfondoguide.com/Events/Index/10605/harvest-rush-gravel-grinder",
         "category": "community",
         "label": "granfondoguide.com: Harvest Rush Gravel Grinder"
-      },
-      {
-        "url": "https://www.fairfieldiowa.com/calendar/harvest_rush_gravel_grinder/",
-        "category": "community",
-        "label": "fairfieldiowa.com: Harvest Rush Gravel Grinder"
-      },
-      {
-        "url": "https://iowabicyclecoalition.org/event/fairfield-harvest-rush-iowa-gravel-series/",
-        "category": "community",
-        "label": "iowabicyclecoalition.org: Fairfield Harvest Rush Iowa Gravel Series"
-      },
-      {
-        "url": "https://www.racecenter.com/cycling/fairfield-harvest-rush",
-        "category": "community",
-        "label": "racecenter.com: Fairfield Harvest Rush"
       },
       {
         "url": "https://www.bikeiowa.com/News/9474/ride-the-backroads-of-jefferson-county-on-the-harvest-rush-gravel-grinder",

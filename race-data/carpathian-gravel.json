@@ -94,7 +94,10 @@
       "score": "53 / 100",
       "one_liner": "Romanian Carpathian mountainous gravel.",
       "should_you_race": "If you're an adventure seeker on a budget—maybe. For most riders—there are better options.",
-      "alternatives": "For similar mountain terrain: Balkan Gravel. For better organization: Alpine races."
+      "alternatives": "For similar mountain terrain: Balkan Gravel. For better organization: Alpine races.",
+      "alternative_slugs": [
+        "balkan-gravel"
+      ]
     },
     "logistics": {
       "airport": "Bucharest (OTP) 3-4 hours depending on location",
@@ -185,12 +188,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 86.7,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -311,24 +323,24 @@
     },
     "citations": [
       {
-        "url": "https://www.carpatbike.ro/tour/carpathian-gravel-grinder-weekend/",
-        "category": "community",
-        "label": "carpatbike.ro: Carpathian Gravel Grinder Weekend"
+        "url": "https://gloriousgravel.com/blog/offroading-transylvania/",
+        "category": "other",
+        "label": "Gloriousgravel"
       },
       {
-        "url": "https://www.youtube.com/watch?v=VCiqJ4cyEL4",
-        "category": "community",
-        "label": "youtube.com: Watch"
+        "url": "https://www.carpatbike.ro/tour/carpathian-gravel-grinder-weekend/",
+        "category": "other",
+        "label": "Carpatbike"
+      },
+      {
+        "url": "https://www.komoot.com/guide/3454361/gravel-biking-in-the-carpathian-mountains",
+        "category": "other",
+        "label": "Komoot"
       },
       {
         "url": "http://corywallace.com/2018/08/romanian-adventures-the-carpathian-mtb-epic/",
         "category": "community",
         "label": "corywallace.com: Romanian Adventures The Carpathian Mtb Epic"
-      },
-      {
-        "url": "https://gloriousgravel.com/blog/offroading-transylvania/",
-        "category": "community",
-        "label": "gloriousgravel.com: Offroading Transylvania"
       },
       {
         "url": "https://alpkit.com/blogs/deeds/battling-the-elements-cycling-through-the-romanian-carpathians",

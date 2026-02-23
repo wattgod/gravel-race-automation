@@ -118,7 +118,13 @@
           "survival_strategy": "Break into chunks. Focus on next aid station. Mental toughness."
         }
       ],
-      "signature_challenge": "150 miles ultra distance. Flat but sandy gravel slows pace. 10-15 hours."
+      "signature_challenge": "150 miles ultra distance. Flat but sandy gravel slows pace. 10-15 hours.",
+      "surface_breakdown": {
+        "overall": {
+          "gravel": 90,
+          "dirt": 10
+        }
+      }
     },
     "history": {
       "founded": "~2015",
@@ -138,19 +144,19 @@
       ],
       "research_date": "2026-02-04",
       "research_strength": {
-        "overall": 0,
-        "grade": "pending",
-        "weakest": "pending",
+        "overall": 96.1,
+        "grade": "A",
+        "weakest": "voice_authenticity",
         "has_research_dump": true,
         "dimensions": {
-          "source_diversity": 0,
-          "citation_density": 0,
-          "temporal_depth": 0,
-          "specificity": 0,
-          "statistical_backing": 0,
-          "voice_authenticity": 0,
-          "completeness": 0,
-          "cross_reference": 0
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 94,
+          "cross_reference": 100
         },
         "scored_at": "2026-02-04"
       }
@@ -217,13 +223,27 @@
       "score": "59 / 100",
       "one_liner": "Three laps of coastal North Carolina gravel where the only thing flatter than the terrain is the race's national reputation.",
       "should_you_race": "If you're chasing distance PRs without the suffering of real climbing, this works—139 miles with minimal vert is pure endurance grinding. The lap format means you can bail early when reality hits, but also means you'll get bored watching the same trees three times. Bring lights if you're slow; that 2pm cutoff for the final lap isn't a suggestion.",
-      "alternatives": "Dirty Kanza offers similar distance with actual consequence and prestige, while Gravel Worlds gives you the lap format with better competition. Both will test more than just your ability to pedal in circles through a forgettable forest."
+      "alternatives": "Dirty Kanza offers similar distance with actual consequence and prestige, while Gravel Worlds gives you the lap format with better competition. Both will test more than just your ability to pedal in circles through a forgettable forest.",
+      "alternative_slugs": [
+        "garmin-gravel-worlds",
+        "unbound-200"
+      ]
     },
     "citations": [
       {
-        "url": "https://www.croatanbuckfifty.com",
-        "category": "official",
-        "label": "Official Website"
+        "url": "https://kylecoaching.com/race-croatan-buck-fifty-chris-spurrier-2/",
+        "category": "other",
+        "label": "Kylecoaching"
+      },
+      {
+        "url": "https://lifebybicycle.blogspot.com/2018/03/croatan-buck-fifty-race-report.html",
+        "category": "other",
+        "label": "Lifebybicycle"
+      },
+      {
+        "url": "https://masteringtheuphillshift.wordpress.com/2018/04/05/the-croatan-buck-fifty/",
+        "category": "other",
+        "label": "Masteringtheuphillshift"
       },
       {
         "url": "https://reddit.com/r/gravelcycling/comments/croatan-buck-fifty",
@@ -231,89 +251,29 @@
         "label": "Reddit"
       },
       {
-        "url": "https://ridewithgps.com",
-        "category": "route",
-        "label": "RideWithGPS"
-      },
-      {
-        "url": "https://www.cyclingtips.com",
-        "category": "media",
-        "label": "CyclingTips"
-      },
-      {
-        "url": "https://www.strava.com",
-        "category": "activity",
-        "label": "Strava"
-      },
-      {
-        "url": "https://www.trainerroad.com",
-        "category": "community",
-        "label": "TrainerRoad"
-      },
-      {
-        "url": "https://www.velonews.com",
-        "category": "media",
-        "label": "VeloNews"
+        "url": "https://www.dudeonabike.com/2024/05/croatan-buck-fifty.html",
+        "category": "other",
+        "label": "Dudeonabike"
       },
       {
         "url": "https://www.reddit.com/r/gravelcycling/comments/11z4kly/croatan_buck_fifty_race_last_saturday_i_did_the/",
         "category": "community",
-        "label": "reddit.com: Croatan Buck Fifty Race Last Saturday I Did The"
+        "label": "Reddit"
       },
       {
-        "url": "https://kylecoaching.com/race-croatan-buck-fifty-chris-spurrier-2/",
+        "url": "https://www.reddit.com/r/gravelcycling/comments/fabhty/episode_060_croatan_buck_fifty_recon_with_matt/",
         "category": "community",
-        "label": "kylecoaching.com: Race Croatan Buck Fifty Chris Spurrier 2"
-      },
-      {
-        "url": "https://www.dudeonabike.com/2024/05/croatan-buck-fifty.html",
-        "category": "community",
-        "label": "dudeonabike.com: Croatan Buck Fifty.Html"
-      },
-      {
-        "url": "https://www.reddit.com/r/gravelcycling/comments/tiw8uc/visiting_north_carolina_for_the_croatan_buck/",
-        "category": "community",
-        "label": "reddit.com: Visiting North Carolina For The Croatan Buck"
-      },
-      {
-        "url": "https://www.reddit.com/r/gravelcycling/comments/b3izqx/it_wasnt_pretty_at_times_but_this_past_weekend_i/",
-        "category": "community",
-        "label": "reddit.com: It Wasnt Pretty At Times But This Past Weekend I"
-      },
-      {
-        "url": "https://www.reddit.com/r/gravelcycling/comments/zvz17l/croatan_buck_fifty_tyre_choice/",
-        "category": "community",
-        "label": "reddit.com: Croatan Buck Fifty Tyre Choice"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=DwP9obh6DYQ",
-        "category": "community",
-        "label": "youtube.com: Watch"
+        "label": "Reddit"
       },
       {
         "url": "https://www.reddit.com/r/gravelcycling/comments/tiy4jf/croatan_buck_fifty_sector_4_delivered_the_goods/",
         "category": "community",
-        "label": "reddit.com: Croatan Buck Fifty Sector 4 Delivered The Goods"
+        "label": "Reddit"
       },
       {
-        "url": "https://www.youtube.com/watch?v=P_GLkmNiutU",
+        "url": "https://www.reddit.com/r/gravelcycling/comments/zvz17l/croatan_buck_fifty_tyre_choice/",
         "category": "community",
-        "label": "youtube.com: Watch"
-      },
-      {
-        "url": "https://croatanbuckfifty.com/",
-        "category": "community",
-        "label": "croatanbuckfifty.com"
-      },
-      {
-        "url": "https://masteringtheuphillshift.wordpress.com/2018/04/05/the-croatan-buck-fifty/",
-        "category": "community",
-        "label": "masteringtheuphillshift.wordpress.com: The Croatan Buck Fifty"
-      },
-      {
-        "url": "https://lifebybicycle.blogspot.com/2018/03/croatan-buck-fifty-race-report.html",
-        "category": "community",
-        "label": "lifebybicycle.blogspot.com: Croatan Buck Fifty Race Report.Html"
+        "label": "Reddit"
       }
     ],
     "tire_recommendations": {

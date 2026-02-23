@@ -94,7 +94,11 @@
       "score": "49 / 100",
       "one_liner": "French Alps gravel challenge.",
       "should_you_race": "If you're local to France/Europe—yes, it's solid. If you're traveling internationally—skip it.",
-      "alternatives": "For better France races: Gravel Fever, Wish One Millau."
+      "alternatives": "For better France races: Gravel Fever, Wish One Millau.",
+      "alternative_slugs": [
+        "gravel-fever",
+        "wish-one-millau"
+      ]
     },
     "logistics": {
       "airport": "Lyon (LYS) 2 hours",
@@ -185,12 +189,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 87.2,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 80,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -311,39 +324,19 @@
     },
     "citations": [
       {
-        "url": "https://www.cyclodromoise.com/project_category/gravel/",
-        "category": "community",
-        "label": "cyclodromoise.com: Gravel"
+        "url": "https://www.biklo.ie/calendar/la-dromoise-gravel-2025-23",
+        "category": "other",
+        "label": "Biklo"
       },
       {
         "url": "https://www.cyclodromoise.com/photos-la-dromoise-gravel/",
-        "category": "community",
-        "label": "cyclodromoise.com: Photos La Dromoise Gravel"
+        "category": "other",
+        "label": "Cyclodromoise"
       },
       {
-        "url": "https://www.openrunner.com/en/route-details/14232554",
-        "category": "community",
-        "label": "openrunner.com: 14232554"
-      },
-      {
-        "url": "https://www.cyclodromoise.com",
-        "category": "community",
-        "label": "cyclodromoise.com"
-      },
-      {
-        "url": "https://www.nathaliebaillon.com/home/en",
-        "category": "community",
-        "label": "nathaliebaillon.com: En"
-      },
-      {
-        "url": "http://www.cyclodromoise.com/project/gravel-75km-gps/",
-        "category": "community",
-        "label": "cyclodromoise.com: Gravel 75Km Gps"
-      },
-      {
-        "url": "https://gfmontventoux.com/en/parcours-2/80-km-gravel/",
-        "category": "community",
-        "label": "gfmontventoux.com: 80 Km Gravel"
+        "url": "https://www.cyclodromoise.com/project_category/gravel/",
+        "category": "other",
+        "label": "Cyclodromoise"
       },
       {
         "url": "https://www.granfondoguide.com/Events/Index/10265/la-dr%C3%B4moise",

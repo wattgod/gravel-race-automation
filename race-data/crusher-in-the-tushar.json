@@ -153,7 +153,11 @@
       "score": "86 / 100",
       "one_liner": "The climber's gravel race—where thin air separates pretenders from contenders.",
       "should_you_race": "If you love climbing and want a race that rewards it, absolutely. If you're a diesel-engine flat-lander, consider something else. The altitude alone makes this a specialist's race.",
-      "alternatives": "If you want climbing without altitude: Leadville (higher but different format). If you want gravel without the vertical: SBT GRVL Green offers similar beauty with less suffering per mile."
+      "alternatives": "If you want climbing without altitude: Leadville (higher but different format). If you want gravel without the vertical: SBT GRVL Green offers similar beauty with less suffering per mile.",
+      "alternative_slugs": [
+        "leadville-100",
+        "sbt-grvl"
+      ]
     },
     "logistics": {
       "airport": "Salt Lake City (SLC) - 3+ hours to Beaver",
@@ -219,18 +223,18 @@
       ],
       "migration_notes": [],
       "research_strength": {
-        "overall": 80.0,
+        "overall": 94.1,
         "grade": "A",
         "weakest": "citation_density",
         "has_research_dump": true,
         "dimensions": {
-          "source_diversity": 30,
-          "citation_density": 5,
+          "source_diversity": 100,
+          "citation_density": 50,
           "temporal_depth": 100,
           "specificity": 100,
           "statistical_backing": 100,
           "voice_authenticity": 100,
-          "completeness": 100,
+          "completeness": 94,
           "cross_reference": 100
         },
         "scored_at": "2026-02-04"
@@ -238,84 +242,69 @@
     },
     "citations": [
       {
-        "url": "https://tusharcrusher.com",
-        "category": "official",
-        "label": "Official Website"
-      },
-      {
         "url": "https://ridewithgps.com/routes/32869577",
         "category": "route",
         "label": "RideWithGPS Route"
       },
       {
-        "url": "https://gooldsgonewild.com/2016/07/14/crusher-in-the-tushar-damage-control/",
-        "category": "community",
-        "label": "gooldsgonewild.com: Crusher In The Tushar Damage Control"
+        "url": "https://blog.bikeflights.com/post/689784595694141441/crusher-in-the-tushar-recap",
+        "category": "other",
+        "label": "Blog"
       },
       {
-        "url": "https://gooldsgonewild.com/2016/07/15/crusher-in-the-tushar-crushing-my-limits/",
-        "category": "community",
-        "label": "gooldsgonewild.com: Crusher In The Tushar Crushing My Limits"
+        "url": "https://granfondodailynews.com/2025/07/16/crusher-tushar-results-calton-sturm-crush-utah-gravel-on-the-road-to-victory/",
+        "category": "other",
+        "label": "Granfondodailynews"
       },
       {
-        "url": "http://www.fatcyclist.com/2015/07/27/perfect-part-2-2015-crusher-in-the-tushar-race-report/",
-        "category": "community",
-        "label": "fatcyclist.com: Perfect Part 2 2015 Crusher In The Tushar Race Report"
+        "url": "https://gravelevents.com/event/crusher-in-the-tushar/",
+        "category": "other",
+        "label": "Gravelevents"
       },
       {
-        "url": "https://firstendurance.com/blogs/articles/race-report-crusher-in-the-tushar-2023",
-        "category": "community",
-        "label": "firstendurance.com: Race Report Crusher In The Tushar 2023"
+        "url": "https://rouvy.com/life-time/crusher-in-the-tushar",
+        "category": "other",
+        "label": "Rouvy"
       },
       {
-        "url": "https://www.gravelstoke.com/gravel-cycling-gear-blog/2019-crusher-in-the-tushar",
-        "category": "community",
-        "label": "gravelstoke.com: 2019 Crusher In The Tushar"
+        "url": "https://www.cxmagazine.com/interview-burke-swindlehurst-crusher-tushar-gravel-ride-race",
+        "category": "media",
+        "label": "CX Magazine"
       },
       {
-        "url": "https://thefeed.com/insider/hpt-athlete-interview-pete-stetina-on-crusher-in-the-tushar",
-        "category": "community",
-        "label": "thefeed.com: Hpt Athlete Interview Pete Stetina On Crusher In The Tushar"
-      },
-      {
-        "url": "https://gravel.shimano.com/stories/life-time-grand-prix-series-crusher-in-the-tushar",
-        "category": "community",
-        "label": "gravel.shimano.com: Life Time Grand Prix Series Crusher In The Tushar"
-      },
-      {
-        "url": "https://andrewevans.bike/2021/07/22/crusher-tushar-21/",
-        "category": "community",
-        "label": "andrewevans.bike: Crusher Tushar 21"
-      },
-      {
-        "url": "https://orangeseal.com/blogs/news/crusher-in-the-tushar-lifetime-gp",
-        "category": "community",
-        "label": "orangeseal.com: Crusher In The Tushar Lifetime Gp"
+        "url": "https://www.cyclingnews.com/races/crusher-in-the-tushar-2025/elite-women-and-men/results/",
+        "category": "other",
+        "label": "Cyclingnews"
       },
       {
         "url": "https://www.cyclingwest.com/racing/gravel-racing/sarah-sturm-and-zach-calton-top-2025-crusher-in-the-tushar-report-results-and-photos/",
-        "category": "community",
-        "label": "cyclingwest.com: Sarah Sturm And Zach Calton Top 2025 Crusher In The Tusha..."
+        "category": "other",
+        "label": "Cyclingwest"
+      },
+      {
+        "url": "https://www.gravelcyclist.com/videos/raw-crusher-in-the-tushar-2017-edition-90-minutes-of-utah-gravel-perfect-for-your-trainer/",
+        "category": "media",
+        "label": "Gravel Cyclist"
       },
       {
         "url": "https://www.paigepowered.com/post/crusher-in-the-tushar-race-recap-1",
+        "category": "other",
+        "label": "Paigepowered"
+      },
+      {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/1dkdj6g/crusher_in_the_tushar_predictions/",
         "category": "community",
-        "label": "paigepowered.com: Crusher In The Tushar Race Recap 1"
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/bmb53z/anyone_done_crusher_in_the_tushar/",
+        "category": "community",
+        "label": "Reddit"
       },
       {
         "url": "https://www.trainerroad.com/forum/t/crusher-in-the-tushar-2022/68292",
         "category": "community",
-        "label": "trainerroad.com: 68292"
-      },
-      {
-        "url": "https://www.cxmagazine.com/interview-burke-swindlehurst-crusher-tushar-gravel-ride-race",
-        "category": "community",
-        "label": "cxmagazine.com: Interview Burke Swindlehurst Crusher Tushar Gravel Ride Race"
-      },
-      {
-        "url": "https://granfondodailynews.com/2025/07/16/crusher-tushar-results-calton-sturm-crush-utah-gravel-on-the-road-to-victory/",
-        "category": "community",
-        "label": "granfondodailynews.com: Crusher Tushar Results Calton Sturm Crush Utah Gravel On ..."
+        "label": "TrainerRoad"
       },
       {
         "url": "https://velo.outsideonline.com/news/gravel/gravel-race-organizers-balk-at-the-request-for-more-rules/",

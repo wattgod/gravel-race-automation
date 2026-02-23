@@ -184,12 +184,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 91.0,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 80,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 100,
+          "completeness": 88,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -317,29 +326,29 @@
         "label": "RideWithGPS: MAAP Beechworth Granite Classic"
       },
       {
+        "url": "https://beechworthgraniteclassic.com.au/program",
+        "category": "other",
+        "label": "Beechworthgraniteclassic"
+      },
+      {
         "url": "https://flowmountainbike.com/post-all/beechworth-granite-classic-2025/",
-        "category": "community",
-        "label": "flowmountainbike.com: Beechworth Granite Classic 2025"
-      },
-      {
-        "url": "https://events.humanitix.com/maap-beechworth-granite-classic-2024",
-        "category": "community",
-        "label": "events.humanitix.com: Maap Beechworth Granite Classic 2024"
-      },
-      {
-        "url": "https://www.cycleprojectstore.com/blogs/stories/beechworth-granite-classic-2023",
-        "category": "community",
-        "label": "cycleprojectstore.com: Beechworth Granite Classic 2023"
+        "category": "other",
+        "label": "Flowmountainbike"
       },
       {
         "url": "https://us.knog.com/blogs/journal/beechworth-granite-classic",
-        "category": "community",
-        "label": "us.knog.com: Beechworth Granite Classic"
+        "category": "other",
+        "label": "Us"
+      },
+      {
+        "url": "https://www.cycleprojectstore.com/blogs/stories/beechworth-granite-classic-2023",
+        "category": "other",
+        "label": "Cycleprojectstore"
       },
       {
         "url": "https://www.granfondoguide.com/Events/Index/12548/beechworth-granite-classic",
-        "category": "community",
-        "label": "granfondoguide.com: Beechworth Granite Classic"
+        "category": "other",
+        "label": "Granfondoguide"
       }
     ],
     "tire_recommendations": {

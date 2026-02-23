@@ -94,7 +94,12 @@
       "score": "73 / 100",
       "one_liner": "Colorado's rowdiest gravel race where the 3,000 ft opening wall and rutted Jeep roads make pros switch to hardtails.",
       "should_you_race": "Yes if you want genuinely hard gravel racing that tests your technical skills, altitude tolerance, and pacing discipline. Big Horn is 'the best gravel race you've never heard of' - but it won't stay unknown for long. Come prepared for aggressive terrain and you'll have an unforgettable day.",
-      "alternatives": "If you want Colorado altitude without the tech: SBT GRVL (champagne gravel). If you want similar rowdiness: Gunni Grinder. If you want technical but less altitude: BWR California."
+      "alternatives": "If you want Colorado altitude without the tech: SBT GRVL (champagne gravel). If you want similar rowdiness: Gunni Grinder. If you want technical but less altitude: BWR California.",
+      "alternative_slugs": [
+        "bwr-california",
+        "gunni-grinder",
+        "sbt-grvl"
+      ]
     },
     "logistics": {
       "airport": "Eagle County Regional (EGE) - right next to Gypsum. Denver (DEN) - I-70 drive to Eagle Valley.",
@@ -102,7 +107,8 @@
       "food": "Small town. Plan meals. Vail/Edwards have more options.",
       "packet_pickup": "Standard pre-race pickup + limited morning check-in at Gypsum Sports Complex.",
       "parking": "Gypsum Sports Complex / downtown. Big paved and gravel lots with overflow. No major complaints.",
-      "official_site": "https://www.bighornevents.com"
+      "official_site": "https://www.bighornevents.com",
+      "camping": "- **Budget:** Gypsum Inn and Suites (~$125/night for 2-star)"
     },
     "history": {
       "founded": 2020,
@@ -152,19 +158,19 @@
       ],
       "migration_notes": [],
       "research_strength": {
-        "overall": 74.8,
-        "grade": "B",
-        "weakest": "citation_density",
-        "has_research_dump": false,
+        "overall": 93.6,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
         "dimensions": {
-          "source_diversity": 30,
-          "citation_density": 20,
-          "temporal_depth": 75,
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
           "specificity": 100,
           "statistical_backing": 100,
           "voice_authenticity": 70,
-          "completeness": 100,
-          "cross_reference": 75
+          "completeness": 94,
+          "cross_reference": 50
         },
         "scored_at": "2026-02-04"
       }
@@ -200,7 +206,7 @@
       },
       "prestige": {
         "score": 2,
-        "explanation": "Howard Grotts won in 2023 and Eric Brunner took 2024, plus Dylan Johnson called it the 'most money I've ever won at a race' after placing third. The $2,500 winner's purse and LifeTime Grand Prix athlete interest show growing credibility, but at four years old it's still building its reputation in the gravel hierarchy."
+        "explanation": "Howard Grotts won in 2023 and Eric Brunner took 2024, plus Dylan Johnson called it the 'most money I've ever won at a race' after placing third. The $2,500 winner's purse and growing pro athlete interest show rising credibility, but at four years old it's still building its reputation in the gravel hierarchy."
       },
       "race_quality": {
         "score": 3,
@@ -229,14 +235,19 @@
     },
     "citations": [
       {
-        "url": "https://www.bighornevents.com",
-        "category": "official",
-        "label": "Official Website"
+        "url": "https://4iiii.com/nl/blog/great-gravel-events/",
+        "category": "other",
+        "label": "4Iiii"
       },
       {
         "url": "https://heidiridesbikes.com/colorado-wyoming-gravel-race-calendar/",
         "category": "other",
         "label": "Heidiridesbikes"
+      },
+      {
+        "url": "https://linktr.ee/bighorngravel",
+        "category": "other",
+        "label": "Linktr"
       },
       {
         "url": "https://www.granfondoguide.com/Events/Index/10530/bighorn-gravel",
@@ -249,12 +260,32 @@
         "label": "Pactimo"
       },
       {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/1c9sz5x/bighorn_gravel_gypsum_co/",
+        "category": "community",
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/1cytq3g/lost_found_gravel_grinder_portola_ca_or_bighorn/",
+        "category": "community",
+        "label": "Reddit"
+      },
+      {
         "url": "https://www.spokescollective.com/bike-race-series/bighorn-gravel",
         "category": "other",
         "label": "Spokescollective"
       },
       {
+        "url": "https://www.thecoyotecollective.com/bighorn-gravel",
+        "category": "other",
+        "label": "Thecoyotecollective"
+      },
+      {
         "url": "https://www.vaildaily.com/news/bighorn-gravel-2025-off-road-mountain-bike-race-gypsum/",
+        "category": "other",
+        "label": "Vaildaily"
+      },
+      {
+        "url": "https://www.vaildaily.com/news/get-ready-for-gravel-cyclists-invited-to-prepare-for-the-second-bighorn-gravel-race-with-free-recon-ride-on-may-6/",
         "category": "other",
         "label": "Vaildaily"
       },
@@ -272,71 +303,6 @@
         "url": "https://www.vaildaily.com/sports/bighorn-gravel-preview-colorado-race-course-change/",
         "category": "other",
         "label": "Vaildaily"
-      },
-      {
-        "url": "https://4iiii.com/blog/great-gravel-events/?srsltid=AfmBOoq37xh_jacy3FW_CtWiNR9OQXDyNyhj3rPzpbNT4S_jAqZPu1rn",
-        "category": "community",
-        "label": "4iiii.com: Great Gravel Events"
-      },
-      {
-        "url": "https://www.thecoyotecollective.com/bighorn-gravel",
-        "category": "community",
-        "label": "thecoyotecollective.com: Bighorn Gravel"
-      },
-      {
-        "url": "https://www.bighornevents.com/race-day-road",
-        "category": "community",
-        "label": "bighornevents.com: Race Day Road"
-      },
-      {
-        "url": "https://www.joinbasecamp.com/coach/tina-hart?srsltid=AfmBOoq1BEW1VB8X2m9u1orLGQ7K3GBOeteTnfyMN9V4_nEogi5mn9s_",
-        "category": "community",
-        "label": "joinbasecamp.com: Tina Hart"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=L0ChtNZQj-Y",
-        "category": "community",
-        "label": "youtube.com: Watch"
-      },
-      {
-        "url": "https://www.bighornevents.com/race-day-gravel",
-        "category": "community",
-        "label": "bighornevents.com: Race Day Gravel"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=WnqAdNTiLKE",
-        "category": "community",
-        "label": "youtube.com: Watch"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=Zx58wCVnGTI",
-        "category": "community",
-        "label": "youtube.com: Watch"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=e4vCk7NpMMg",
-        "category": "community",
-        "label": "youtube.com: Watch"
-      },
-      {
-        "url": "https://www.sarahzsturm.com/post/2023-spring-race-calendar",
-        "category": "community",
-        "label": "sarahzsturm.com: 2023 Spring Race Calendar"
-      },
-      {
-        "url": "https://www.bighornevents.com/",
-        "category": "community",
-        "label": "bighornevents.com"
-      },
-      {
-        "url": "https://www.vaildaily.com/news/get-ready-for-gravel-cyclists-invited-to-prepare-for-the-second-bighorn-gravel-race-with-free-recon-ride-on-may-6/",
-        "category": "community",
-        "label": "vaildaily.com: Get Ready For Gravel Cyclists Invited To Prepare For The ..."
-      },
-      {
-        "url": "https://www.reddit.com/r/gravelcycling/comments/1c9sz5x/bighorn_gravel_gypsum_co/",
-        "category": "community",
-        "label": "reddit.com: Bighorn Gravel Gypsum Co"
       }
     ],
     "results": {

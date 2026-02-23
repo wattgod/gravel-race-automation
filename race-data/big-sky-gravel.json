@@ -19,7 +19,7 @@
         "Montana"
       ],
       "field_size": "100-200 riders",
-      "start_time": "Morning start",
+      "start_time": "7:00 AM MDT",
       "registration": "Online. Cost: ~$75-100",
       "prize_purse": "Modest prizes",
       "aid_stations": "Multiple aid stations",
@@ -94,7 +94,11 @@
       "score": "46 / 100",
       "one_liner": "Montana mountain gravel challenge.",
       "should_you_race": "If you're local to Montana—yes, it's solid. If you're traveling—skip it.",
-      "alternatives": "For better Montana races: Gravel Worlds, Rebecca's Private Idaho."
+      "alternatives": "For better Montana races: Gravel Worlds, Rebecca's Private Idaho.",
+      "alternative_slugs": [
+        "garmin-gravel-worlds",
+        "rebeccas-private-idaho"
+      ]
     },
     "logistics": {
       "airport": "Billings (BIL) 90 minutes",
@@ -102,7 +106,8 @@
       "food": "Red Lodge has limited dining options. Stock nutrition.",
       "packet_pickup": "Day of typically",
       "parking": "At start/finish",
-      "official_site": "Check Big Sky Gravel website"
+      "official_site": "Check Big Sky Gravel website",
+      "camping": "Camping is available nearby on **Custer Gallatin** or through **Montana FWP** (Montana Fish, Wildlife & Parks)[4]"
     },
     "history": {
       "founded": null,
@@ -185,12 +190,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 89.2,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -311,44 +325,59 @@
     },
     "citations": [
       {
-        "url": "https://www.redlodgeevents.com/bigskygravel",
-        "category": "community",
-        "label": "redlodgeevents.com: Bigskygravel"
+        "url": "https://ridewithgps.com/routes/38380768",
+        "category": "route",
+        "label": "RideWithGPS: Montana Gravel (Cliff Ranch)- Big Sky Loop & Cooper Lake + Little Blackfoot - Long"
       },
       {
-        "url": "https://www.tetongravity.com/forums/showthread.php/348092-Big-Sky-Gravel/",
-        "category": "community",
-        "label": "tetongravity.com: 348092 Big Sky Gravel"
-      },
-      {
-        "url": "https://bigskygravel.com/",
-        "category": "community",
-        "label": "bigskygravel.com"
-      },
-      {
-        "url": "https://www.granfondoguide.com/Events/Index/12017/big-sky-gravel",
-        "category": "community",
-        "label": "granfondoguide.com: Big Sky Gravel"
-      },
-      {
-        "url": "https://www.gravelcyclist.com/training-rides/meet-big-sky-gravel-in-red-lodge-montana-22-50-100-mile-distances-coming-august-24-2024/",
-        "category": "community",
-        "label": "gravelcyclist.com: Meet Big Sky Gravel In Red Lodge Montana 22 50 100 Mile D..."
+        "url": "https://competitivetiming.com/big-sky-gravel-results/",
+        "category": "other",
+        "label": "Competitivetiming"
       },
       {
         "url": "https://www.bikesignup.com/Race/MT/RedLodge/BigSkyGravelTour",
+        "category": "other",
+        "label": "Bikesignup"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/12017/big-sky-gravel",
+        "category": "other",
+        "label": "Granfondoguide"
+      },
+      {
+        "url": "https://www.gravelcyclist.com/training-rides/meet-big-sky-gravel-in-red-lodge-montana-22-50-100-mile-distances-coming-august-24-2024/",
+        "category": "media",
+        "label": "Gravel Cyclist"
+      },
+      {
+        "url": "https://www.hpultracycling.com/big-sky-gravel-race-report/",
+        "category": "other",
+        "label": "Hpultracycling"
+      },
+      {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/14gzzrk/big_sky_gravel/",
         "category": "community",
-        "label": "bikesignup.com: Bigskygraveltour"
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/pgkkwa/explored_some_ww2_ruins_on_my_gravel_ride_today/",
+        "category": "community",
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.redlodgeevents.com/bigskygravel",
+        "category": "other",
+        "label": "Redlodgeevents"
+      },
+      {
+        "url": "https://www.tetongravity.com/forums/showthread.php/348092-Big-Sky-Gravel/",
+        "category": "other",
+        "label": "Tetongravity"
       },
       {
         "url": "https://www.hpultracycling.com/big-sky-spectaculaire-race-report/",
         "category": "community",
         "label": "hpultracycling.com: Big Sky Spectaculaire Race Report"
-      },
-      {
-        "url": "https://www.hpultracycling.com/big-sky-gravel-race-report/",
-        "category": "community",
-        "label": "hpultracycling.com: Big Sky Gravel Race Report"
       },
       {
         "url": "https://www.redlodgeevents.com/other-races-we-love",

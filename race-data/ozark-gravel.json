@@ -19,7 +19,7 @@
         "Northwest Arkansas"
       ],
       "field_size": "200-400 riders",
-      "start_time": "Morning start",
+      "start_time": "6:00 a.m. star",
       "registration": "Online. Cost: ~$60-100",
       "prize_purse": "Modest prizes",
       "aid_stations": "Multiple aid stations",
@@ -94,7 +94,11 @@
       "score": "53 / 100",
       "one_liner": "Arkansas Ozark hills gravel in Rogers.",
       "should_you_race": "If you're in Arkansas and want a local Ozark hills event—yes, it's a solid regional race. If you're from out of state—there are better options.",
-      "alternatives": "For better regional events: Land Run 100, Switchgrass. For similar Ozark events: other AR gravel races."
+      "alternatives": "For better regional events: Land Run 100, Switchgrass. For similar Ozark events: other AR gravel races.",
+      "alternative_slugs": [
+        "mid-south",
+        "switchgrass"
+      ]
     },
     "logistics": {
       "airport": "Northwest Arkansas (XNA) 20 minutes",
@@ -102,7 +106,8 @@
       "food": "Rogers has full dining options. Stock nutrition.",
       "packet_pickup": "Day before typically",
       "parking": "At start/finish",
-      "official_site": "Check Arkansas cycling calendars"
+      "official_site": "Check Arkansas cycling calendars",
+      "camping": "camping space, a trading post/office, and a new restaurant with a beautiful overlook of the canyon valley"
     },
     "history": {
       "founded": null,
@@ -185,12 +190,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 91.8,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 82,
+          "cross_reference": 50
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -311,44 +325,59 @@
     },
     "citations": [
       {
-        "url": "https://www.starlingcycles.com/a-murmur-of-doom-jacobs-story/",
-        "category": "community",
-        "label": "starlingcycles.com: A Murmur Of Doom Jacobs Story"
+        "url": "https://ridewithgps.com/routes/49405718",
+        "category": "route",
+        "label": "RideWithGPS: Fayetteville - Ozark | Arkansas Graveler 2024 Legacy Route (copy)"
+      },
+      {
+        "url": "https://bikepacking.com/news/2025-ozark-gravel-doom-dismay-winners/",
+        "category": "other",
+        "label": "Bikepacking"
       },
       {
         "url": "https://bikepacking.com/news/tom-schwemberger-wins-ozark-gravel-doom-2025/",
-        "category": "community",
-        "label": "bikepacking.com: Tom Schwemberger Wins Ozark Gravel Doom 2025"
+        "category": "other",
+        "label": "Bikepacking"
       },
       {
-        "url": "https://bikepacking.com/news/doom-2025-scratch-report/",
+        "url": "https://komcycling.com/blogs/product-blogs/dirty-chain-podcast-episode-101-ozark-gravel-doom-with-ed-rogers",
+        "category": "other",
+        "label": "Komcycling"
+      },
+      {
+        "url": "https://theradavist.com/tag/ozark-gravel-doom",
+        "category": "other",
+        "label": "Theradavist"
+      },
+      {
+        "url": "https://www.ozarkgravelcyclists.com/doombikepacking",
+        "category": "other",
+        "label": "Ozarkgravelcyclists"
+      },
+      {
+        "url": "https://www.ozarkgravelcyclists.com/happenings",
+        "category": "other",
+        "label": "Ozarkgravelcyclists"
+      },
+      {
+        "url": "https://www.reddit.com/r/Budgetbikeriders/comments/1cqncz9/any_owners_of_the_ozark_trail_gravel_bike_g1_from/",
         "category": "community",
-        "label": "bikepacking.com: Doom 2025 Scratch Report"
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/1dfb7vn/nbd_ozark_trail_g1_explorer/",
+        "category": "community",
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/1dhxr08/first_ride_walmart_ozark_trail_g1_explorer/",
+        "category": "community",
+        "label": "Reddit"
       },
       {
         "url": "https://www.angrycatfishbicycle.com/articles/doom-gravel-race-recap-pg374.htm",
         "category": "community",
         "label": "angrycatfishbicycle.com: Doom Gravel Race Recap Pg374.Htm"
-      },
-      {
-        "url": "https://komcycling.com/blogs/product-blogs/dirty-chain-podcast-episode-101-ozark-gravel-doom-with-ed-rogers",
-        "category": "community",
-        "label": "komcycling.com: Dirty Chain Podcast Episode 101 Ozark Gravel Doom With Ed..."
-      },
-      {
-        "url": "https://bikepacking.com/news/2025-ozark-gravel-doom-dismay-winners/",
-        "category": "community",
-        "label": "bikepacking.com: 2025 Ozark Gravel Doom Dismay Winners"
-      },
-      {
-        "url": "https://theradavist.com/tag/ozark-gravel-doom",
-        "category": "community",
-        "label": "theradavist.com: Ozark Gravel Doom"
-      },
-      {
-        "url": "https://www.ozarkgravelcyclists.com/doombikepacking",
-        "category": "community",
-        "label": "ozarkgravelcyclists.com: Doombikepacking"
       },
       {
         "url": "https://www.yahoo.com/news/single-speed-bike-erie-woman-100847578.html",

@@ -19,7 +19,7 @@
         "Regional event"
       ],
       "field_size": "200-400 riders",
-      "start_time": "Morning start",
+      "start_time": "12:00am PST",
       "registration": "Online. Cost: ~$60-100",
       "prize_purse": "Modest prizes",
       "aid_stations": "Multiple aid stations",
@@ -94,7 +94,11 @@
       "score": "49 / 100",
       "one_liner": "100-mile Alabama dirt roads in Waverly.",
       "should_you_race": "If you want a 100-mile challenge—yes, it's a solid distance test. If you want terrain variety or pro field depth—look elsewhere.",
-      "alternatives": "For better century events: Land Run 100, Barry-Roubaix. For similar regional events: other AL gravel races."
+      "alternatives": "For better century events: Land Run 100, Barry-Roubaix. For similar regional events: other AL gravel races.",
+      "alternative_slugs": [
+        "barry-roubaix",
+        "mid-south"
+      ]
     },
     "logistics": {
       "airport": "Birmingham (BHM) 1.5 hours or Atlanta (ATL) 2 hours",
@@ -102,7 +106,8 @@
       "food": "Small town with limited dining. Stock nutrition for 100 miles.",
       "packet_pickup": "Day before",
       "parking": "At start/finish",
-      "official_site": "https://www.dirtroadcentury.com/"
+      "official_site": "https://www.dirtroadcentury.com/",
+      "camping": "camping at Standard Deluxe, Live music at the Little House (located at Standard Deluxe), A clearly marked course (last year's route"
     },
     "history": {
       "founded": null,
@@ -192,12 +197,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 85.8,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 60,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 82,
+          "cross_reference": 50
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -318,49 +332,24 @@
     },
     "citations": [
       {
-        "url": "https://www.gravelcyclist.com/race-reports/race-report-standard-deluxe-dirt-road-century-waverly-alabama/",
-        "category": "community",
-        "label": "gravelcyclist.com: Race Report Standard Deluxe Dirt Road Century Waverly Ala..."
-      },
-      {
-        "url": "https://www.gravelcyclist.com/race-reports/race-report-k-doggs-take-on-the-standard-deluxe-dirt-road-century/",
-        "category": "community",
-        "label": "gravelcyclist.com: Race Report K Doggs Take On The Standard Deluxe Dirt Road..."
-      },
-      {
-        "url": "https://www.dirtroadcentury.com/about-the-race",
-        "category": "community",
-        "label": "dirtroadcentury.com: About The Race"
-      },
-      {
-        "url": "https://www.bikeforums.net/19727562-post1.html",
-        "category": "community",
-        "label": "bikeforums.net: 19727562 Post1.Html"
-      },
-      {
-        "url": "https://www.webscorer.com/racedetails?raceid=334484&did=417608",
-        "category": "community",
-        "label": "webscorer.com: Racedetails"
-      },
-      {
-        "url": "https://www.dirtroadcentury.com/",
-        "category": "community",
-        "label": "dirtroadcentury.com"
+        "url": "https://www.bikeforums.net/southeast-regional-rides-events/1115197-alabama-standard-deluxe-dirt-road-century-october-21st-2017-a.html",
+        "category": "other",
+        "label": "Bikeforums"
       },
       {
         "url": "https://www.gravelcyclist.com/race-reports/race-report-2018-standard-deluxe-gravel-race-waverly-alabama/",
-        "category": "community",
-        "label": "gravelcyclist.com: Race Report 2018 Standard Deluxe Gravel Race Waverly Alabama"
+        "category": "media",
+        "label": "Gravel Cyclist"
       },
       {
-        "url": "https://www.bikeforums.net/southeast-regional-rides-events/1115197-alabama-standard-deluxe-dirt-road-century-october-21st-2017-a.html",
-        "category": "community",
-        "label": "bikeforums.net: 1115197 Alabama Standard Deluxe Dirt Road Century October..."
+        "url": "https://www.gravelcyclist.com/race-reports/race-report-k-doggs-take-on-the-standard-deluxe-dirt-road-century/",
+        "category": "media",
+        "label": "Gravel Cyclist"
       },
       {
-        "url": "https://www.dirtroadcentury.com",
+        "url": "https://www.trainerroad.com/forum/t/list-your-personal-top-3-gravel-races-in-your-home-state-or-country/79242",
         "category": "community",
-        "label": "dirtroadcentury.com"
+        "label": "TrainerRoad"
       }
     ],
     "tire_recommendations": {

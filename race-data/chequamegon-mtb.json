@@ -99,7 +99,7 @@
       "packet_pickup": "Friday packet pickup. Multi-day event.",
       "travel_summary": "MSP airport 140 miles. Rental car needed. Cable small town limited lodging—book early. Friday packet pickup, Saturday race.",
       "food_options": "Aid stations on course. Post-race party in Cable area.",
-      "camping": "Check official website",
+      "camping": "campgrounds within an hour\n- Hayward KOA: 300ft waterslide, heated pool, mini golf\n- Primitive camping along Namekagon River (Nation",
       "official_site": "https://www.cheqmtb.com"
     },
     "course_description": {
@@ -148,19 +148,19 @@
       ],
       "research_date": "2026-02-04",
       "research_strength": {
-        "overall": 0,
-        "grade": "pending",
-        "weakest": "pending",
+        "overall": 96.1,
+        "grade": "A",
+        "weakest": "voice_authenticity",
         "has_research_dump": true,
         "dimensions": {
-          "source_diversity": 0,
-          "citation_density": 0,
-          "temporal_depth": 0,
-          "specificity": 0,
-          "statistical_backing": 0,
-          "voice_authenticity": 0,
-          "completeness": 0,
-          "cross_reference": 0
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 94,
+          "cross_reference": 100
         },
         "scored_at": "2026-02-04"
       }
@@ -227,13 +227,27 @@
       "score": "74 / 100",
       "one_liner": "Forty miles of Northwoods power suffering disguised as a mountain bike race that somehow became a gravel institution.",
       "should_you_race": "Show up fit or don't show up at all—the Seeley Fire Tower climb doesn't care about your weekend warrior training plan. You need sustained power for constant rollers and the mental fortitude to handle September weather that swings from dust storms to mud festivals. If you can hold 250+ watts for three hours while navigating lottery systems and tourist crowds, this delivers old-school racing credibility.",
-      "alternatives": "Dirty Kanza (Unbound) gives you similar distance with more predictable suffering and better logistics. For that vintage MTB festival vibe without the Midwest tourist trap energy, try Trans-Sylvania Epic's individual stages."
+      "alternatives": "Dirty Kanza (Unbound) gives you similar distance with more predictable suffering and better logistics. For that vintage MTB festival vibe without the Midwest tourist trap energy, try Trans-Sylvania Epic's individual stages.",
+      "alternative_slugs": [
+        "trans-sylvania-epic",
+        "unbound-200"
+      ]
     },
     "citations": [
       {
-        "url": "https://www.cheqmtb.com",
-        "category": "official",
-        "label": "Official Website"
+        "url": "https://ridewithgps.com/routes/43651747",
+        "category": "route",
+        "label": "RideWithGPS: Chequamegon MTB Festival 40 (copy)"
+      },
+      {
+        "url": "https://velo.outsideonline.com/gravel/gravel-racing/alexey-vermeulen-and-ruth-edwards-win-life-time-chequamegon-mtb-festival/",
+        "category": "media",
+        "label": "Velo"
+      },
+      {
+        "url": "https://velo.outsideonline.com/news/rollins-vermeulen-take-chequamegon/",
+        "category": "media",
+        "label": "Velo"
       },
       {
         "url": "https://www.cheqmtb.com/chequamegon-40/",
@@ -241,69 +255,34 @@
         "label": "Cheqmtb"
       },
       {
-        "url": "https://www.travelwisconsin.com/events/mountain-biking/chequamegon-mountain-bike-festival-40270",
-        "category": "other",
-        "label": "Travelwisconsin"
-      },
-      {
-        "url": "https://www.skinnyski.com/racing/display.asp?Id=50848",
-        "category": "community",
-        "label": "skinnyski.com: Display.Asp"
-      },
-      {
         "url": "https://www.cyclingnews.com/races/chequamegon-mtb-festival-2025/ltgp-4-elite-women-and-men/results/",
-        "category": "community",
-        "label": "cyclingnews.com: Results"
+        "category": "other",
+        "label": "Cyclingnews"
       },
       {
-        "url": "https://www.gomuskox.com/blogs/news/kyan-olshove-chequamegon",
-        "category": "community",
-        "label": "gomuskox.com: Kyan Olshove Chequamegon"
+        "url": "https://www.cyclingwest.com/racing/mountain-bike-racing/chequamegon-rollins-and-vermeulen-strike-solo-in-cable/",
+        "category": "other",
+        "label": "Cyclingwest"
+      },
+      {
+        "url": "https://www.durangoherald.com/articles/freeburn-holcomb-mcelveen-finish-inside-top-10-at-chequamegon/",
+        "category": "other",
+        "label": "Durangoherald"
+      },
+      {
+        "url": "https://www.losgatosbicycleracing.org/race-report-chequamegon-mtb-festival/",
+        "category": "other",
+        "label": "Losgatosbicycleracing"
       },
       {
         "url": "https://www.reddit.com/r/MTB/comments/arx6bm/has_anyone_here_done_the_chequamegon_40/",
         "category": "community",
-        "label": "reddit.com: Has Anyone Here Done The Chequamegon 40"
+        "label": "Reddit"
       },
       {
-        "url": "https://www.thenxrth.com/post/lutsen-99er-vs-chequamegon-40-which-life-time-event-is-the-better-northwoods-challenge",
-        "category": "community",
-        "label": "thenxrth.com: Lutsen 99Er Vs Chequamegon 40 Which Life Time Event Is Th..."
-      },
-      {
-        "url": "https://www.cheqmtb.com/pro-riders/",
-        "category": "community",
-        "label": "cheqmtb.com: Pro Riders"
-      },
-      {
-        "url": "https://www.cheqmtb.com/",
-        "category": "community",
-        "label": "cheqmtb.com"
-      },
-      {
-        "url": "https://www.losgatosbicycleracing.org/race-report-chequamegon-mtb-festival/",
-        "category": "community",
-        "label": "losgatosbicycleracing.org: Race Report Chequamegon Mtb Festival"
-      },
-      {
-        "url": "https://velo.outsideonline.com/news/rollins-vermeulen-take-chequamegon/",
-        "category": "community",
-        "label": "velo.outsideonline.com: Rollins Vermeulen Take Chequamegon"
-      },
-      {
-        "url": "https://www.cyclingwest.com/racing/mountain-bike-racing/chequamegon-rollins-and-vermeulen-strike-solo-in-cable/",
-        "category": "community",
-        "label": "cyclingwest.com: Chequamegon Rollins And Vermeulen Strike Solo In Cable"
-      },
-      {
-        "url": "https://velo.outsideonline.com/gravel/gravel-racing/alexey-vermeulen-and-ruth-edwards-win-life-time-chequamegon-mtb-festival/",
-        "category": "community",
-        "label": "velo.outsideonline.com: Alexey Vermeulen And Ruth Edwards Win Life Time Chequameg..."
-      },
-      {
-        "url": "https://www.durangoherald.com/articles/freeburn-holcomb-mcelveen-finish-inside-top-10-at-chequamegon/",
-        "category": "community",
-        "label": "durangoherald.com: Freeburn Holcomb Mcelveen Finish Inside Top 10 At Chequam..."
+        "url": "https://www.travelwisconsin.com/events/mountain-biking/chequamegon-mountain-bike-festival-40270",
+        "category": "other",
+        "label": "Travelwisconsin"
       },
       {
         "url": "https://hungrybeargravel.com/information",

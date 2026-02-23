@@ -19,7 +19,7 @@
         "Victoria"
       ],
       "field_size": "50-100 riders",
-      "start_time": "Morning start",
+      "start_time": "11:00am for",
       "registration": "Online. Cost: ~$75-100 AUD",
       "prize_purse": "Modest prizes",
       "aid_stations": "Limited aid stations",
@@ -185,12 +185,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 92.2,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 100,
+          "completeness": 76,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -316,34 +325,44 @@
         "label": "RideWithGPS: Great Otway Gravel Grind "
       },
       {
-        "url": "https://otwayodyssey.rapidascent.com.au/",
-        "category": "community",
-        "label": "otwayodyssey.rapidascent.com.au"
+        "url": "https://flowmountainbike.com/tag/gravel-grind/",
+        "category": "other",
+        "label": "Flowmountainbike"
+      },
+      {
+        "url": "https://marathonmtb.com/2025/01/24/gear-up-for-the-great-otway-gravel-grind/",
+        "category": "other",
+        "label": "Marathonmtb"
       },
       {
         "url": "https://otwayodyssey.rapidascent.com.au/49km-gravel/",
-        "category": "community",
-        "label": "otwayodyssey.rapidascent.com.au: 49Km Gravel"
+        "category": "other",
+        "label": "Otwayodyssey"
+      },
+      {
+        "url": "https://raceroster.com/events/2026/109758/otway-odyssey-and-great-otway-gravel-grind-2026/leaderboards/overall",
+        "category": "other",
+        "label": "Raceroster"
+      },
+      {
+        "url": "https://www.endurancesportswire.com/great-otway-gravel-grinder-the-australian-kickoff-for-the-gran-fondo-world-tour-gravel-series/",
+        "category": "other",
+        "label": "Endurancesportswire"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/7976/great-otway-gravel-grind",
+        "category": "other",
+        "label": "Granfondoguide"
+      },
+      {
+        "url": "https://www.outdoorphin.com/australia/victoria/great-otway-gravel-grind",
+        "category": "other",
+        "label": "Outdoorphin"
       },
       {
         "url": "https://www.reddit.com/r/gravelcycling/comments/doom1i/so_ive_committed_to_my_first_race_what_now/",
         "category": "community",
         "label": "reddit.com: So Ive Committed To My First Race What Now"
-      },
-      {
-        "url": "https://marathonmtb.com/2025/01/24/gear-up-for-the-great-otway-gravel-grind/",
-        "category": "community",
-        "label": "marathonmtb.com: Gear Up For The Great Otway Gravel Grind"
-      },
-      {
-        "url": "https://www.endurancesportswire.com/great-otway-gravel-grinder-the-australian-kickoff-for-the-gran-fondo-world-tour-gravel-series/",
-        "category": "community",
-        "label": "endurancesportswire.com: Great Otway Gravel Grinder The Australian Kickoff For The..."
-      },
-      {
-        "url": "https://www.granfondoguide.com/Events/Index/7976/great-otway-gravel-grind",
-        "category": "community",
-        "label": "granfondoguide.com: Great Otway Gravel Grind"
       }
     ],
     "tire_recommendations": {

@@ -102,7 +102,8 @@
       "food": "Small town with limited dining. Stock nutrition.",
       "packet_pickup": "Day before",
       "parking": "At start/finish",
-      "official_site": "Check Texas Hell Week website"
+      "official_site": "Check Texas Hell Week website",
+      "camping": "campgrounds and RV parks, 20 hotels/motels, nearly 1500 B&Bs, vacation rentals and guest houses) and over 100 restaurants"
     },
     "history": {
       "founded": null,
@@ -192,12 +193,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 95.7,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 100,
+          "completeness": 88,
+          "cross_reference": 50
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -318,14 +328,34 @@
     },
     "citations": [
       {
-        "url": "https://rbentonline.org/YaBB.pl?num=1200283740/29",
-        "category": "community",
-        "label": "rbentonline.org: Yabb.Pl"
+        "url": "https://10best.usatoday.com/awards/texas-hell-week-fredericksburg-texas/",
+        "category": "other",
+        "label": "10Best"
       },
       {
-        "url": "https://www.raamchallenge.com/races",
-        "category": "community",
-        "label": "raamchallenge.com: Races"
+        "url": "https://avidcyclist.com/event/texas-hell-week/",
+        "category": "other",
+        "label": "Avidcyclist"
+      },
+      {
+        "url": "https://biketourfinder.com/texas-hell-week/",
+        "category": "other",
+        "label": "Biketourfinder"
+      },
+      {
+        "url": "https://wheelbrothers.com/2012/01/07/cycling-fredericksburg-the-texas-hill-country/",
+        "category": "other",
+        "label": "Wheelbrothers"
+      },
+      {
+        "url": "https://www.endurancesportswire.com/texas-hell-week-joins-raam-family-of-events/",
+        "category": "other",
+        "label": "Endurancesportswire"
+      },
+      {
+        "url": "https://www.fredericksburgstandard.com/2024/04/03/texas-hell-week-20240403-1701-070797/",
+        "category": "other",
+        "label": "Fredericksburgstandard"
       },
       {
         "url": "https://www.raamchallenge.com/about",
@@ -333,24 +363,9 @@
         "label": "raamchallenge.com: About"
       },
       {
-        "url": "https://www.endurancesportswire.com/texas-hell-week-joins-raam-family-of-events/",
+        "url": "https://www.raamchallenge.com/races",
         "category": "community",
-        "label": "endurancesportswire.com: Texas Hell Week Joins Raam Family Of Events"
-      },
-      {
-        "url": "https://wheelbrothers.com/2012/01/07/cycling-fredericksburg-the-texas-hill-country/",
-        "category": "community",
-        "label": "wheelbrothers.com: Cycling Fredericksburg The Texas Hill Country"
-      },
-      {
-        "url": "https://www.fredericksburgstandard.com/2024/04/03/texas-hell-week-20240403-1701-070797/",
-        "category": "community",
-        "label": "fredericksburgstandard.com: Texas Hell Week 20240403 1701 070797"
-      },
-      {
-        "url": "https://10best.usatoday.com/awards/texas-hell-week-fredericksburg-texas/",
-        "category": "community",
-        "label": "10best.usatoday.com: Texas Hell Week Fredericksburg Texas"
+        "label": "raamchallenge.com: Races"
       },
       {
         "url": "https://kavhelmets.com/blogs/kav-journal/best-cycling-races-and-events-in-the-us",

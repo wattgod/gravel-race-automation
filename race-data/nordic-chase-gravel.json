@@ -124,7 +124,13 @@
           "survival_strategy": "Push through. Final day. Celebrate in Oslo."
         }
       ],
-      "signature_challenge": "Multi-day fatigue (4 days, 600 km). Supported but cumulative."
+      "signature_challenge": "Multi-day fatigue (4 days, 600 km). Supported but cumulative.",
+      "surface_breakdown": {
+        "overall": {
+          "gravel": 70,
+          "pavement": 30
+        }
+      }
     },
     "history": {
       "founded": "~2019",
@@ -144,19 +150,19 @@
       ],
       "research_date": "2026-02-04",
       "research_strength": {
-        "overall": 0,
-        "grade": "pending",
-        "weakest": "pending",
+        "overall": 96.1,
+        "grade": "A",
+        "weakest": "voice_authenticity",
         "has_research_dump": true,
         "dimensions": {
-          "source_diversity": 0,
-          "citation_density": 0,
-          "temporal_depth": 0,
-          "specificity": 0,
-          "statistical_backing": 0,
-          "voice_authenticity": 0,
-          "completeness": 0,
-          "cross_reference": 0
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 94,
+          "cross_reference": 100
         },
         "scored_at": "2026-02-04"
       }
@@ -223,13 +229,52 @@
       "score": "76 / 100",
       "one_liner": "Three countries, 100 hours, and enough Scandinavian gravel to remind you why self-supported ultras don't negotiate.",
       "should_you_race": "You need serious self-supported experience and the mental fortitude for 100-hour efforts across three countries. The 60-80% gravel through Nordic forests isn't technical, but the distance and isolation will expose every weakness in your preparation and gear. Show up undertrained and you'll be arranging your own expensive extraction from rural Sweden.",
-      "alternatives": "Gravel Worlds gives you similar ultra-distance suffering with better logistics and more predictable conditions. If you want the Scandinavian experience without the commitment, Grinduro Scotland delivers Nordic-adjacent terrain in a more digestible format."
+      "alternatives": "Gravel Worlds gives you similar ultra-distance suffering with better logistics and more predictable conditions. If you want the Scandinavian experience without the commitment, Grinduro Scotland delivers Nordic-adjacent terrain in a more digestible format.",
+      "alternative_slugs": [
+        "garmin-gravel-worlds",
+        "grinduro"
+      ]
     },
     "citations": [
       {
-        "url": "https://www.nordicchase.com",
-        "category": "official",
-        "label": "Official Website"
+        "url": "https://bikepacking.com/event/2026-nordic-chase-chapter-two/",
+        "category": "other",
+        "label": "Bikepacking"
+      },
+      {
+        "url": "https://bikepacking.com/event/2026-nordic-chase-gravel/",
+        "category": "other",
+        "label": "Bikepacking"
+      },
+      {
+        "url": "https://gravelevents.com/european-gravel-events/",
+        "category": "other",
+        "label": "Gravelevents"
+      },
+      {
+        "url": "https://gravelevents.com/event/nordic-chase-gravel-edition/",
+        "category": "other",
+        "label": "Gravelevents"
+      },
+      {
+        "url": "https://gravelevents.com/location/copenhagen/",
+        "category": "other",
+        "label": "Gravelevents"
+      },
+      {
+        "url": "https://nordicchase.com/ber-cph-gravel",
+        "category": "other",
+        "label": "Nordicchase"
+      },
+      {
+        "url": "https://nordicchase.com/cph-osl-gravel",
+        "category": "other",
+        "label": "Nordicchase"
+      },
+      {
+        "url": "https://nordictrailblazer.cc/races/unbound-gravel25/",
+        "category": "other",
+        "label": "Nordictrailblazer"
       },
       {
         "url": "https://reddit.com/r/gravelcycling/comments/nordic-chase",
@@ -237,84 +282,9 @@
         "label": "Reddit"
       },
       {
-        "url": "https://ridewithgps.com",
-        "category": "route",
-        "label": "RideWithGPS"
-      },
-      {
-        "url": "https://www.cyclingtips.com",
-        "category": "media",
-        "label": "CyclingTips"
-      },
-      {
-        "url": "https://www.ridingravel.com",
-        "category": "other",
-        "label": "Ridingravel"
-      },
-      {
-        "url": "https://www.strava.com",
-        "category": "activity",
-        "label": "Strava"
-      },
-      {
-        "url": "https://www.trainerroad.com",
-        "category": "community",
-        "label": "TrainerRoad"
-      },
-      {
-        "url": "https://www.velonews.com",
-        "category": "media",
-        "label": "VeloNews"
-      },
-      {
-        "url": "https://nordicchase.com/cph-osl-gravel",
-        "category": "community",
-        "label": "nordicchase.com: Cph Osl Gravel"
-      },
-      {
-        "url": "https://gravelevents.com/event/nordic-chase-gravel-edition/",
-        "category": "community",
-        "label": "gravelevents.com: Nordic Chase Gravel Edition"
-      },
-      {
-        "url": "https://gravelevents.com/european-gravel-events/",
-        "category": "community",
-        "label": "gravelevents.com: European Gravel Events"
-      },
-      {
-        "url": "https://www.cyclingnews.com/races/uci-gravel-world-series-events-2025/gravel-grit-n-grind/results/",
-        "category": "community",
-        "label": "cyclingnews.com: Results"
-      },
-      {
-        "url": "https://nordicchase.com/ber-cph-gravel",
-        "category": "community",
-        "label": "nordicchase.com: Ber Cph Gravel"
-      },
-      {
-        "url": "https://nordicchase.com",
-        "category": "community",
-        "label": "nordicchase.com"
-      },
-      {
-        "url": "https://nordictrailblazer.cc/races/unbound-gravel25/",
-        "category": "community",
-        "label": "nordictrailblazer.cc: Unbound Gravel25"
-      },
-      {
         "url": "https://veloatlas.com/ultra_cycling_events/nordic-chase-gravel/",
-        "category": "community",
-        "label": "veloatlas.com: Nordic Chase Gravel"
-      },
-      {
-        "url": "https://bikepacking.com/event/2026-nordic-chase-chapter-two/",
-        "category": "community",
-        "label": "bikepacking.com: 2026 Nordic Chase Chapter Two"
-      },
-      {
-        "url": "https://bikepacking.com/event/2026-nordic-chase-gravel/",
-        "category": "community",
-        "label": "bikepacking.com: 2026 Nordic Chase Gravel"
+        "category": "other",
+        "label": "Veloatlas"
       },
       {
         "url": "https://granfondo-cycling.com/best-race-gravel-bike-review/",

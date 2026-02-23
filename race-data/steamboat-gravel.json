@@ -173,7 +173,12 @@
       "score": "80 / 100",
       "one_liner": "Champagne gravel at altitude with a three-day festival vibe that somehow doesn't ruin the racing.",
       "should_you_race": "If you can hold 20+ mph for five hours at 7,000 feet, the Black course rewards fitness with buttery gravel and legitimate competition. The 8 mph cutoff sounds generous until you're grinding into headwinds at altitude. Come undertrained and you'll get pulled to a shorter course, which isn't the worst fate given the scenery.",
-      "alternatives": "Unbound 200 offers more prestige and suffering if you want the hardest test. Big Sugar delivers similar smooth gravel without the altitude penalty, while Dirty Kanza's spiritual successor BWR California gives you desert beauty with less lottery drama."
+      "alternatives": "Unbound 200 offers more prestige and suffering if you want the hardest test. Big Sugar delivers similar smooth gravel without the altitude penalty, while Dirty Kanza's spiritual successor BWR California gives you desert beauty with less lottery drama.",
+      "alternative_slugs": [
+        "big-sugar",
+        "bwr-california",
+        "unbound-200"
+      ]
     },
     "course_description": {
       "character": "SBT GRVL serves up 108 miles of Colorado's famous 'champagne gravel' - smooth, fast surfaces that seduce you into thinking this will be easy. The 8,189 feet of climbing happens gradually across working ranch land, aspen groves, and sage-covered hills, with 70% gravel that ranges from hero dirt to loose chunky sections that'll humble your bike handling.",
@@ -205,11 +210,6 @@
     },
     "citations": [
       {
-        "url": "https://www.sbtgrvl.com/",
-        "category": "official",
-        "label": "Official Website"
-      },
-      {
         "url": "https://ridewithgps.com/routes/53876176",
         "category": "route",
         "label": "RideWithGPS: Black Race Course | SBT GRVL® p/b Wahoo 2026"
@@ -220,54 +220,14 @@
         "label": "tobedetermined.cc: Sbt Grvl Recap"
       },
       {
-        "url": "https://www.theproscloset.com/blogs/news/sometimes-ambition-outweighs-talent-my-2023-sbt-grvl-recap",
+        "url": "https://www.theproscloset.com/blogs/news/my-race-plan-for-sbt-grvl-2023",
         "category": "community",
-        "label": "theproscloset.com: Sometimes Ambition Outweighs Talent My 2023 Sbt Grvl Recap"
-      },
-      {
-        "url": "https://www.pactimo.com/en-uk/blogs/alisons-blog/sbt-grvl-recap",
-        "category": "community",
-        "label": "pactimo.com: Sbt Grvl Recap"
-      },
-      {
-        "url": "https://fascatcoaching.com/blogs/training-tips/winning-sbt-grvl-blue-power-analysis",
-        "category": "community",
-        "label": "fascatcoaching.com: Winning Sbt Grvl Blue Power Analysis"
-      },
-      {
-        "url": "http://micah-ling-dofs.squarespace.com/blog/2019/8/27/race-report-sbt-grvl-black-course-140-miles",
-        "category": "community",
-        "label": "micah-ling-dofs.squarespace.com: Race Report Sbt Grvl Black Course 140 Miles"
+        "label": "theproscloset.com: My Race Plan For Sbt Grvl 2023"
       },
       {
         "url": "https://trainright.com/reggie-miller-sbt-gravel-100-mile-gravel-race/",
         "category": "community",
         "label": "trainright.com: Reggie Miller Sbt Gravel 100 Mile Gravel Race"
-      },
-      {
-        "url": "https://stephanieholbrook.com/blog/the-thrilling-steamboat-springs-gravel-race-my-experience-at-sbt-grvl",
-        "category": "community",
-        "label": "stephanieholbrook.com: The Thrilling Steamboat Springs Gravel Race My Experience..."
-      },
-      {
-        "url": "https://www.cyclingwest.com/racing/gravel-racing/sbt-grvl-the-best-bike-race-in-north-america/",
-        "category": "community",
-        "label": "cyclingwest.com: Sbt Grvl The Best Bike Race In North America"
-      },
-      {
-        "url": "https://www.theproscloset.com/blogs/news/sometimes-ambition-outweigows-talent-my-2023-sbt-grvl-recap",
-        "category": "community",
-        "label": "theproscloset.com: Sometimes Ambition Outweigows Talent My 2023 Sbt Grvl Recap"
-      },
-      {
-        "url": "https://www.progravelmagazine.com/post/sbt-grvl-redefining-gravel-racing-with-a-spectator-friendly-format",
-        "category": "community",
-        "label": "progravelmagazine.com: Sbt Grvl Redefining Gravel Racing With A Spectator Friend..."
-      },
-      {
-        "url": "https://www.theproscloset.com/blogs/news/my-race-plan-for-sbt-grvl-2023",
-        "category": "community",
-        "label": "theproscloset.com: My Race Plan For Sbt Grvl 2023"
       },
       {
         "url": "https://www.outsideonline.com/outdoor-adventure/biking/e-bike-paracycling-sbt-grvl-andrew-bernstein/",
@@ -363,6 +323,25 @@
         "200pluslb_dry": "45-49",
         "200pluslb_mixed": "42-46",
         "200pluslb_wet": "40-44"
+      }
+    },
+    "research_metadata": {
+      "research_strength": {
+        "overall": 84.8,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 47,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     }
   }

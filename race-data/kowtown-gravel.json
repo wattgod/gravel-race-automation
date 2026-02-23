@@ -19,7 +19,7 @@
         "Colorado"
       ],
       "field_size": "100-200 riders",
-      "start_time": "Morning start",
+      "start_time": "5:00 PM",
       "registration": "Online. Cost: ~$80-100",
       "prize_purse": "Modest prizes",
       "aid_stations": "2-3 aid stations",
@@ -94,7 +94,12 @@
       "score": "47 / 100",
       "one_liner": "Colorado mountain gravel challenge.",
       "should_you_race": "If you're local to CO—yes, it's solid. If you're traveling—skip it.",
-      "alternatives": "For better CO races: Crooked Gravel, Wild Horse Gravel, Bighorn Gravel."
+      "alternatives": "For better CO races: Crooked Gravel, Wild Horse Gravel, Bighorn Gravel.",
+      "alternative_slugs": [
+        "bighorn-gravel",
+        "crooked-gravel",
+        "wild-horse-gravel"
+      ]
     },
     "logistics": {
       "airport": "Denver (DEN) 2 hours",
@@ -102,7 +107,8 @@
       "food": "Kremmling has limited dining. Stock nutrition.",
       "packet_pickup": "Day of typically",
       "parking": "At start/finish",
-      "official_site": "Check KowTown Gravel website"
+      "official_site": "Check KowTown Gravel website",
+      "camping": "camping check-in (Friday): **5:00 PM – 7:00 PM**[6]\nPacket pickup (Saturday morning): **6:30 AM – 9:00 AM**[6]\n\nCourse start tim"
     },
     "history": {
       "founded": null,
@@ -185,12 +191,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 89.3,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 82,
+          "cross_reference": 50
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -311,34 +326,29 @@
     },
     "citations": [
       {
-        "url": "https://thegravelride.bike/kowtown-gravel-another-secret-stash-of-great-colorado-gravel-with-laura-wisner",
-        "category": "community",
-        "label": "thegravelride.bike: Kowtown Gravel Another Secret Stash Of Great Colorado Gra..."
-      },
-      {
-        "url": "https://funhurts.cc/catalog",
-        "category": "community",
-        "label": "funhurts.cc: Catalog"
-      },
-      {
-        "url": "https://www.kowtowngravel.com/",
-        "category": "community",
-        "label": "kowtowngravel.com"
-      },
-      {
         "url": "https://avidcyclist.com/event/kowtown-gravel/",
-        "category": "community",
-        "label": "avidcyclist.com: Kowtown Gravel"
+        "category": "other",
+        "label": "Avidcyclist"
       },
       {
         "url": "https://competitivetiming.com/kowtown-gravel-results/",
-        "category": "community",
-        "label": "competitivetiming.com: Kowtown Gravel Results"
+        "category": "other",
+        "label": "Competitivetiming"
+      },
+      {
+        "url": "https://thegravelride.bike/kowtown-gravel-another-secret-stash-of-great-colorado-gravel-with-laura-wisner",
+        "category": "other",
+        "label": "Thegravelride"
       },
       {
         "url": "https://www.granfondoguide.com/Events/Index/11969/kowtown-gravel",
-        "category": "community",
-        "label": "granfondoguide.com: Kowtown Gravel"
+        "category": "other",
+        "label": "Granfondoguide"
+      },
+      {
+        "url": "https://www.gravel-results.com/race/22803",
+        "category": "other",
+        "label": "Gravel-Results"
       },
       {
         "url": "https://www.youtube.com/watch?v=Pf4xmVRnKZI",

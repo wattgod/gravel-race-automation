@@ -13,6 +13,7 @@ from brand_tokens import (
     GA_MEASUREMENT_ID,
     SITE_BASE_URL,
     get_font_face_css,
+    get_ga4_head_snippet,
     get_preload_hints,
     get_tokens_css,
 )
@@ -151,3 +152,89 @@ class TestConstants:
     def test_font_files_woff2(self):
         for f in FONT_FILES:
             assert f.endswith(".woff2"), f"{f} is not woff2"
+
+
+class TestGa4HeadSnippet:
+    """Tests for get_ga4_head_snippet() — centralized GA4 consent + loading."""
+
+    def test_returns_string(self):
+        snippet = get_ga4_head_snippet()
+        assert isinstance(snippet, str)
+        assert len(snippet) > 100
+
+    def test_consent_defaults_before_ga4(self):
+        snippet = get_ga4_head_snippet()
+        consent_pos = snippet.index("consent")
+        ga4_pos = snippet.index("googletagmanager.com")
+        assert consent_pos < ga4_pos, "Consent defaults must fire before GA4 loads"
+
+    def test_has_all_consent_types(self):
+        snippet = get_ga4_head_snippet()
+        for ctype in ("analytics_storage", "ad_storage", "ad_user_data", "ad_personalization"):
+            assert ctype in snippet, f"Missing consent type: {ctype}"
+
+    def test_ad_types_denied_by_default(self):
+        snippet = get_ga4_head_snippet()
+        assert "'ad_storage':'denied'" in snippet
+        assert "'ad_user_data':'denied'" in snippet
+        assert "'ad_personalization':'denied'" in snippet
+
+    def test_analytics_conditional_on_cookie(self):
+        snippet = get_ga4_head_snippet()
+        assert "gg_consent=accepted" in snippet
+        assert "?'granted':'denied'" in snippet
+
+    def test_uses_regex_not_indexof(self):
+        snippet = get_ga4_head_snippet()
+        assert "indexOf" not in snippet, "Must use regex, not indexOf"
+        assert "/(^|; )gg_consent=accepted/.test" in snippet
+
+    def test_has_wait_for_update(self):
+        snippet = get_ga4_head_snippet()
+        assert "wait_for_update" in snippet
+
+    def test_has_ga4_measurement_id(self):
+        snippet = get_ga4_head_snippet()
+        assert GA_MEASUREMENT_ID in snippet
+
+    def test_ga4_async_loading(self):
+        snippet = get_ga4_head_snippet()
+        assert f'<script async src="https://www.googletagmanager.com/gtag/js?id={GA_MEASUREMENT_ID}">' in snippet
+
+    def test_ga4_config_call(self):
+        snippet = get_ga4_head_snippet()
+        assert f"gtag('config','{GA_MEASUREMENT_ID}')" in snippet
+
+    def test_three_script_tags(self):
+        snippet = get_ga4_head_snippet()
+        assert snippet.count("<script") == 3
+        assert snippet.count("</script>") == 3
+
+    def test_no_generators_have_inline_ga4_block(self):
+        """Ensure no generator has a copy-pasted GA4 block — all must use get_ga4_head_snippet()."""
+        wp_dir = Path(__file__).parent.parent / "wordpress"
+        violations = []
+        for f in sorted(wp_dir.glob("generate_*.py")):
+            content = f.read_text()
+            if "googletagmanager.com/gtag/js" in content and f.name != "brand_tokens.py":
+                violations.append(f.name)
+        assert not violations, (
+            f"Generators with inline GA4 block (must use get_ga4_head_snippet()): {violations}"
+        )
+
+    def test_no_generators_define_ga_measurement_id(self):
+        """No generator should define GA_MEASUREMENT_ID locally — canonical definition is in brand_tokens."""
+        wp_dir = Path(__file__).parent.parent / "wordpress"
+        violations = []
+        for f in sorted(wp_dir.glob("generate_*.py")):
+            if f.name == "brand_tokens.py":
+                continue
+            for line in f.read_text().split("\n"):
+                stripped = line.strip()
+                if (stripped.startswith("GA_MEASUREMENT_ID") or
+                    stripped.startswith("GA4_MEASUREMENT_ID")):
+                    if "=" in stripped and "import" not in stripped:
+                        violations.append(f"{f.name}: {stripped}")
+        assert not violations, (
+            f"Generators defining GA_MEASUREMENT_ID locally: {violations}"
+        )

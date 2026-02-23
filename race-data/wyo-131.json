@@ -95,14 +95,18 @@
       "score": "61 / 100",
       "one_liner": "Regional Wyoming ultra-distance through mountain and high desert.",
       "should_you_race": "If you're in Wyoming or the Rockies and want an ultra-distance challenge—yes, it's a well-organized event with genuine wilderness appeal. If you're traveling from far away—there are more prestigious ultra events elsewhere.",
-      "alternatives": "For better ultra-distance: Unbound XL (Kansas), Dirty Kanza. For similar regional ultras: other Rocky Mountain ultra events."
+      "alternatives": "For better ultra-distance: Unbound XL (Kansas), Dirty Kanza. For similar regional ultras: other Rocky Mountain ultra events.",
+      "alternative_slugs": [
+        "unbound-200",
+        "unbound-xl"
+      ]
     },
     "logistics": {
       "airport": "Casper (CPR) 3 hours, or Denver (DEN) 6+ hours",
       "lodging_strategy": "Lander has basic lodging. Small city with limited options. Book early.",
       "food": "Small city with basic dining. Stock nutrition for ultra distance.",
       "packet_pickup": "Day before typically",
-      "parking": "At start/finish",
+      "parking": "Park at 405 Fremont St in early morning darkness (hence mandatory bike light)",
       "official_site": "https://www.wyo131.com/"
     },
     "history": {
@@ -192,12 +196,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 85.2,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 80,
+          "citation_density": 80,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 88,
+          "cross_reference": 50
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -325,29 +338,9 @@
         "label": "RideWithGPS: WYO 131"
       },
       {
-        "url": "https://www.reddit.com/r/gravelcycling/comments/w4zamy/looking_for_advice_for_training_and_or_equipment/",
+        "url": "https://www.trainerroad.com/forum/t/list-your-personal-top-3-gravel-races-in-your-home-state-or-country/79242",
         "category": "community",
-        "label": "reddit.com: Looking For Advice For Training And Or Equipment"
-      },
-      {
-        "url": "https://www.cyclingwest.com/gravel-biking/a-secret-in-the-old-west-lander-wyomings-wyo-131-gravel-race-to-be-held-september-7-2024/",
-        "category": "community",
-        "label": "cyclingwest.com: A Secret In The Old West Lander Wyomings Wyo 131 Gravel R..."
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=S5kE3ckI1nw",
-        "category": "community",
-        "label": "youtube.com: Watch"
-      },
-      {
-        "url": "https://www.wyo131.com/",
-        "category": "community",
-        "label": "wyo131.com"
-      },
-      {
-        "url": "https://results.bikereg.com/race/19487",
-        "category": "community",
-        "label": "results.bikereg.com: 19487"
+        "label": "TrainerRoad"
       },
       {
         "url": "https://www.wyo131.com/131mile",
@@ -355,14 +348,9 @@
         "label": "wyo131.com: 131Mile"
       },
       {
-        "url": "https://www.wyo131.com",
+        "url": "https://results.bikereg.com/race/19487",
         "category": "community",
-        "label": "wyo131.com"
-      },
-      {
-        "url": "https://www.trainerroad.com/forum/t/list-your-personal-top-3-gravel-races-in-your-home-state-or-country/79242",
-        "category": "community",
-        "label": "trainerroad.com: 79242"
+        "label": "results.bikereg.com: 19487"
       }
     ],
     "tire_recommendations": {

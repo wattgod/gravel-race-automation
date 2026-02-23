@@ -100,7 +100,7 @@
       "packet_pickup": "Day-before. Check official website.",
       "travel_summary": "Fly to Johannesburg (JNB). Rental car needed (250 km, 3-hour drive to Mpumalanga). Book lodging early. Day-before packet pickup. Race October.",
       "food_options": "Aid stations on course. Post-race party.",
-      "camping": "Check official website",
+      "camping": "campsite in Merino Farm at 1,300m above sea level",
       "official_site": "https://www.gravelburn.co.za"
     },
     "course_description": {
@@ -119,7 +119,13 @@
           "survival_strategy": "3+ bottles. Hydrate at every aid. Sun protection. Manage heat."
         }
       ],
-      "signature_challenge": "South African highveld rolling terrain + October heat. Red dirt roads."
+      "signature_challenge": "South African highveld rolling terrain + October heat. Red dirt roads.",
+      "surface_breakdown": {
+        "overall": {
+          "gravel": 85,
+          "dirt": 15
+        }
+      }
     },
     "history": {
       "founded": "~2018",
@@ -139,19 +145,19 @@
       ],
       "research_date": "2026-02-04",
       "research_strength": {
-        "overall": 0,
-        "grade": "pending",
-        "weakest": "pending",
+        "overall": 96.1,
+        "grade": "A",
+        "weakest": "voice_authenticity",
         "has_research_dump": true,
         "dimensions": {
-          "source_diversity": 0,
-          "citation_density": 0,
-          "temporal_depth": 0,
-          "specificity": 0,
-          "statistical_backing": 0,
-          "voice_authenticity": 0,
-          "completeness": 0,
-          "cross_reference": 0
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 94,
+          "cross_reference": 100
         },
         "scored_at": "2026-02-04"
       }
@@ -218,13 +224,32 @@
       "score": "70 / 100",
       "one_liner": "A stage race trying to be Unbound with safari views, but the Karoo heat and seven-day commitment separate the curious from the committed.",
       "should_you_race": "If you've never done a multi-day gravel event, this isn't where you start—the Karoo semi-desert doesn't forgive poor pacing or inadequate hydration systems. You need solid base fitness for 100km+ daily efforts and the mental fortitude for a week of accumulating fatigue. The full-service camps cushion the suffering, but those long drags to places like Conical Peak will expose fitness gaps quickly.",
-      "alternatives": "Cape Epic offers similar South African adventure with better-established logistics and stronger international field. For stage race experience without the travel, consider Gravel Worlds' multi-day format or Trans Iowa if you want proper suffering without the safari marketing."
+      "alternatives": "Cape Epic offers similar South African adventure with better-established logistics and stronger international field. For stage race experience without the travel, consider Gravel Worlds' multi-day format or Trans Iowa if you want proper suffering without the safari marketing.",
+      "alternative_slugs": [
+        "garmin-gravel-worlds",
+        "trans-iowa"
+      ]
     },
     "citations": [
       {
-        "url": "https://www.gravelburn.co.za",
-        "category": "official",
-        "label": "Official Website"
+        "url": "https://escapecollective.com/re-imagining-the-gravel-racing-experience-at-gravel-burn/",
+        "category": "other",
+        "label": "Escapecollective"
+      },
+      {
+        "url": "https://gravel-burn.com/blog/category/blog/",
+        "category": "other",
+        "label": "Gravel-Burn"
+      },
+      {
+        "url": "https://gravel-burn.com/entry-info/",
+        "category": "other",
+        "label": "Gravel-Burn"
+      },
+      {
+        "url": "https://gravel-burn.link/stories/prepare-for-race-week-expert-advice",
+        "category": "other",
+        "label": "Gravel-Burn"
       },
       {
         "url": "https://reddit.com/r/gravelcycling",
@@ -237,104 +262,29 @@
         "label": "Reddit"
       },
       {
-        "url": "https://ridewithgps.com",
-        "category": "route",
-        "label": "RideWithGPS"
-      },
-      {
-        "url": "https://www.cyclingtips.com",
-        "category": "media",
-        "label": "CyclingTips"
-      },
-      {
-        "url": "https://www.ridingravel.com",
+        "url": "https://road.cc/offroad/content/feature/2025-gravel-burn-stage-race-everything-you-need-to-know-15915",
         "category": "other",
-        "label": "Ridingravel"
-      },
-      {
-        "url": "https://www.strava.com",
-        "category": "activity",
-        "label": "Strava"
-      },
-      {
-        "url": "https://www.trainerroad.com",
-        "category": "community",
-        "label": "TrainerRoad"
-      },
-      {
-        "url": "https://www.velonews.com",
-        "category": "media",
-        "label": "VeloNews"
-      },
-      {
-        "url": "https://capovelo.com/gravel-burn-stage-race-ups-the-ante-to-150000-in-prizing-money/",
-        "category": "community",
-        "label": "capovelo.com: Gravel Burn Stage Race Ups The Ante To 150000 In Prizing ..."
-      },
-      {
-        "url": "https://gravel-burn.com/",
-        "category": "community",
-        "label": "gravel-burn.com"
-      },
-      {
-        "url": "https://diverge.info/2025/06/20/gravel-burn-alison-jackson-to-light-up-the-inaugural-race/",
-        "category": "community",
-        "label": "diverge.info: Gravel Burn Alison Jackson To Light Up The Inaugural Race"
-      },
-      {
-        "url": "https://www.ride-mtb.com/de/news/sturz-bei-gravel-premiere-schluesselbein-durchsticht-frischknechts-lunge",
-        "category": "community",
-        "label": "ride-mtb.com: Sturz Bei Gravel Premiere Schluesselbein Durchsticht Fris..."
-      },
-      {
-        "url": "https://www.thenxrth.com/post/from-the-northwoods-to-south-africa-meet-the-world-s-newest-and-wildest-gravel-stage-race",
-        "category": "community",
-        "label": "thenxrth.com: From The Northwoods To South Africa Meet The World S Newe..."
-      },
-      {
-        "url": "https://gravel-burn.com/racing/",
-        "category": "community",
-        "label": "gravel-burn.com: Racing"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=3Tx4dzclTY0",
-        "category": "community",
-        "label": "youtube.com: Watch"
-      },
-      {
-        "url": "https://www.thenxrth.com/post/from-the-northwoods-to-south-africa-meet-the-world-s-newest-and-wildest-gravel-race",
-        "category": "community",
-        "label": "thenxrth.com: From The Northwoods To South Africa Meet The World S Newe..."
-      },
-      {
-        "url": "https://cycling-info.com/gravel-burn-matt-beers-and-axelle-dubau-prevot-conquer-epic-seven-day-race-across-south-africas-great-karoo/",
-        "category": "community",
-        "label": "cycling-info.com: Gravel Burn Matt Beers And Axelle Dubau Prevot Conquer Ep..."
-      },
-      {
-        "url": "https://ngontinh24.com/article/giant-factory-tour-gravel-burn-bike-tech-with-kevin-bekenstein",
-        "category": "community",
-        "label": "ngontinh24.com: Giant Factory Tour Gravel Burn Bike Tech With Kevin Beken..."
-      },
-      {
-        "url": "https://www.cyclingweekly.com/routes/gravel-burn-is-the-toughest-off-road-stage-race-in-the-world-and-this-is-why-it-needs-to-be-on-your-bucket-list",
-        "category": "community",
-        "label": "cyclingweekly.com: Gravel Burn Is The Toughest Off Road Stage Race In The Wo..."
+        "label": "Road"
       },
       {
         "url": "https://triathlon.mx/blogs/triathlon-news/gravel-burn-2025-how-alistair-brownlee-conquered-800km-of-south-africas-brutal-terrain-in-epic-7-day-cycling-adventure",
-        "category": "community",
-        "label": "triathlon.mx: Gravel Burn 2025 How Alistair Brownlee Conquered 800Km Of..."
+        "category": "other",
+        "label": "Triathlon"
       },
       {
-        "url": "https://gravel-burn.link/stories/prepare-for-race-week-expert-advice",
-        "category": "community",
-        "label": "gravel-burn.link: Prepare For Race Week Expert Advice"
+        "url": "https://www.cyclingweekly.com/routes/gravel-burn-2025-everything-you-need-to-know-about-the-gravel-stage-race",
+        "category": "media",
+        "label": "Cycling Weekly"
       },
       {
-        "url": "https://escapecollective.com/re-imagining-the-gravel-racing-experience-at-gravel-burn/",
-        "category": "community",
-        "label": "escapecollective.com: Re Imagining The Gravel Racing Experience At Gravel Burn"
+        "url": "https://www.cyclingweekly.com/routes/gravel-burn-is-the-toughest-off-road-stage-race-in-the-world-and-this-is-why-it-needs-to-be-on-your-bucket-list",
+        "category": "media",
+        "label": "Cycling Weekly"
+      },
+      {
+        "url": "https://www.thenxrth.com/post/from-the-northwoods-to-south-africa-meet-the-world-s-newest-and-wildest-gravel-stage-race",
+        "category": "other",
+        "label": "Thenxrth"
       }
     ],
     "tire_recommendations": {

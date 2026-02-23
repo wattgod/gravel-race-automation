@@ -138,7 +138,7 @@ def sync_index(index_file: str):
 
 
 def sync_widget(widget_file: str):
-    """Upload gravel-race-search.html and gravel-race-search.js to WP uploads via SCP."""
+    """Upload gravel-race-search.html, .js, and external CSS to WP uploads via SCP."""
     ssh = get_ssh_credentials()
     if not ssh:
         return None
@@ -197,6 +197,32 @@ def sync_widget(widget_file: str):
             print(f"✗ Error uploading widget JS: {e}")
     else:
         print(f"⚠ Widget JS not found: {js_path} (widget may not work without it)")
+
+    # Upload external CSS file (gg-search.{hash}.css)
+    css_files = list(widget_path.parent.glob("gg-search.*.css"))
+    if css_files:
+        css_path = css_files[0]  # Should be exactly one
+        remote_css = f"{WP_UPLOADS}/{css_path.name}"
+        try:
+            subprocess.run(
+                [
+                    "scp", "-i", str(SSH_KEY), "-P", port,
+                    str(css_path),
+                    f"{user}@{host}:{remote_css}",
+                ],
+                check=True,
+                capture_output=True,
+                text=True,
+                timeout=30,
+            )
+            css_url = f"{wp_url}/wp-content/uploads/{css_path.name}"
+            print(f"✓ Uploaded widget CSS: {css_url}")
+        except subprocess.CalledProcessError as e:
+            print(f"✗ SCP failed for widget CSS: {e.stderr.strip()}")
+        except Exception as e:
+            print(f"✗ Error uploading widget CSS: {e}")
+    else:
+        print(f"⚠ No gg-search.*.css found in {widget_path.parent} (CSS may be inline)")
 
     return public_url
 
@@ -395,6 +421,110 @@ def sync_guide(guide_dir: str):
         print(f"⚠ No guide/media/ directory found (run generate_guide_media.py first)")
 
     wp_url = os.environ.get("WP_URL", "https://gravelgodcycling.com")
+    return f"{wp_url}/guide/"
+
+
+def sync_guide_cluster(cluster_dir: str):
+    """Upload guide cluster pages (pillar + 8 chapters) to /guide/ on SiteGround via tar+ssh.
+
+    Each page is structured as {slug}/index.html under the cluster output directory.
+    The pillar page is at index.html (root of cluster_dir).
+    """
+    ssh = get_ssh_credentials()
+    if not ssh:
+        return None
+    host, user, port = ssh
+
+    cluster_path = Path(cluster_dir)
+    if not cluster_path.exists():
+        print(f"✗ Guide cluster directory not found: {cluster_path}")
+        print("  Run: python3 wordpress/generate_guide_cluster.py first")
+        return None
+
+    # Verify pillar page exists
+    pillar = cluster_path / "index.html"
+    if not pillar.exists():
+        print(f"✗ Guide pillar page not found: {pillar}")
+        return None
+
+    # Find all chapter directories with index.html
+    chapter_dirs = sorted([
+        d for d in cluster_path.iterdir()
+        if d.is_dir() and (d / "index.html").exists()
+    ])
+    if not chapter_dirs:
+        print(f"✗ No guide chapter pages found in {cluster_path}")
+        return None
+
+    remote_base = "~/www/gravelgodcycling.com/public_html/guide"
+
+    # Create remote directory structure
+    chapter_mkdir = " ".join(f"{remote_base}/{d.name}" for d in chapter_dirs)
+    try:
+        subprocess.run(
+            [
+                "ssh", "-i", str(SSH_KEY), "-p", port,
+                f"{user}@{host}",
+                f"mkdir -p {remote_base} {chapter_mkdir}",
+            ],
+            check=True,
+            capture_output=True,
+            text=True,
+            timeout=15,
+        )
+    except subprocess.CalledProcessError as e:
+        print(f"✗ Failed to create remote directories: {e.stderr.strip()}")
+        return None
+
+    page_count = 1 + len(chapter_dirs)
+    print(f"  Uploading {page_count} guide cluster pages via tar+ssh...")
+
+    # Build list of items to tar: index.html + each chapter dir
+    items = ["index.html"] + [d.name for d in chapter_dirs]
+    try:
+        tar_cmd = ["tar", "-cf", "-", "-C", str(cluster_path)] + items
+        ssh_cmd = [
+            "ssh", "-i", str(SSH_KEY), "-p", port,
+            f"{user}@{host}",
+            f"tar -xf - -C {remote_base}",
+        ]
+
+        tar_proc = subprocess.Popen(tar_cmd, stdout=subprocess.PIPE)
+        ssh_proc = subprocess.Popen(ssh_cmd, stdin=tar_proc.stdout,
+                                    stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        tar_proc.stdout.close()
+        stdout, stderr = ssh_proc.communicate(timeout=300)
+
+        if ssh_proc.returncode != 0:
+            print(f"✗ tar+ssh failed: {stderr.decode().strip()}")
+            return None
+    except subprocess.TimeoutExpired:
+        print("✗ Upload timed out (300s)")
+        tar_proc.kill()
+        ssh_proc.kill()
+        return None
+    except Exception as e:
+        print(f"✗ Error uploading guide cluster pages: {e}")
+        return None
+
+    # Fix permissions
+    try:
+        subprocess.run(
+            [
+                "ssh", "-i", str(SSH_KEY), "-p", port,
+                f"{user}@{host}",
+                f"chmod -R 755 {remote_base}",
+            ],
+            check=True,
+            capture_output=True,
+            text=True,
+            timeout=15,
+        )
+    except subprocess.CalledProcessError:
+        print("⚠️  Warning: could not fix /guide/ permissions — verify manually")
+
+    wp_url = os.environ.get("WP_URL", "https://gravelgodcycling.com")
+    print(f"✓ Uploaded {page_count} guide cluster pages to {wp_url}/guide/")
     return f"{wp_url}/guide/"
 
 
@@ -808,6 +938,163 @@ def sync_consulting(consulting_file: str):
     return f"{wp_url}/consulting/"
 
 
+def sync_legal(output_dir: str):
+    """Upload privacy.html, terms.html, cookies.html to /privacy/, /terms/, /cookies/ on SiteGround."""
+    ssh = get_ssh_credentials()
+    if not ssh:
+        return None
+    host, user, port = ssh
+
+    out = Path(output_dir)
+    pages = {"privacy": "privacy.html", "terms": "terms.html", "cookies": "cookies.html"}
+    uploaded = []
+
+    for slug, filename in pages.items():
+        html_path = out / filename
+        if not html_path.exists():
+            print(f"✗ Legal page not found: {html_path}")
+            print("  Run: python3 wordpress/generate_legal_pages.py first")
+            continue
+
+        remote_dir = f"~/www/gravelgodcycling.com/public_html/{slug}"
+        try:
+            subprocess.run(
+                ["ssh", "-i", str(SSH_KEY), "-p", port, f"{user}@{host}", f"mkdir -p {remote_dir}"],
+                check=True, capture_output=True, text=True, timeout=15,
+            )
+            subprocess.run(
+                ["scp", "-i", str(SSH_KEY), "-P", port, str(html_path), f"{user}@{host}:{remote_dir}/index.html"],
+                check=True, capture_output=True, text=True, timeout=30,
+            )
+            uploaded.append(slug)
+        except subprocess.CalledProcessError as e:
+            print(f"✗ Failed to upload {slug}: {e.stderr.strip()}")
+
+    if uploaded:
+        wp_url = os.environ.get("WP_URL", "https://gravelgodcycling.com")
+        for slug in uploaded:
+            print(f"✓ Uploaded legal page: {wp_url}/{slug}/")
+
+    # Upload shared CSS/JS assets
+    assets_dir = out / "assets"
+    remote_assets = "~/www/gravelgodcycling.com/public_html/race/assets"
+    for pattern in ("gg-styles.*.css", "gg-scripts.*.js"):
+        for asset in assets_dir.glob(pattern):
+            try:
+                subprocess.run(
+                    ["scp", "-i", str(SSH_KEY), "-P", port, str(asset), f"{user}@{host}:{remote_assets}/{asset.name}"],
+                    check=True, capture_output=True, text=True, timeout=30,
+                )
+            except subprocess.CalledProcessError:
+                pass
+
+    return uploaded or None
+
+
+def sync_consent():
+    """Upload gg-cookie-consent.php mu-plugin to SiteGround."""
+    ssh = get_ssh_credentials()
+    if not ssh:
+        return None
+    host, user, port = ssh
+
+    mu_plugin = Path(__file__).parent.parent / "wordpress" / "mu-plugins" / "gg-cookie-consent.php"
+    if not mu_plugin.exists():
+        print(f"✗ Cookie consent mu-plugin not found: {mu_plugin}")
+        return None
+
+    remote = "~/www/gravelgodcycling.com/public_html/wp-content/mu-plugins/gg-cookie-consent.php"
+    try:
+        subprocess.run(
+            ["scp", "-i", str(SSH_KEY), "-P", port, str(mu_plugin), f"{user}@{host}:{remote}"],
+            check=True, capture_output=True, text=True, timeout=30,
+        )
+        print("✓ Deployed gg-cookie-consent.php mu-plugin")
+        return True
+    except subprocess.CalledProcessError as e:
+        print(f"✗ Failed to deploy cookie consent: {e.stderr.strip()}")
+        return None
+
+
+def sync_training_plans(training_plans_file: str):
+    """Upload training-plans/index.html to /products/training-plans/ on SiteGround via SSH+SCP."""
+    ssh = get_ssh_credentials()
+    if not ssh:
+        return None
+    host, user, port = ssh
+
+    html_path = Path(training_plans_file)
+    if not html_path.exists():
+        print(f"✗ Training plans page HTML not found: {html_path}")
+        print("  Run: python3 wordpress/generate_training_plans.py first")
+        return None
+
+    remote_base = "~/www/gravelgodcycling.com/public_html/products/training-plans"
+
+    # Create remote directory
+    try:
+        subprocess.run(
+            [
+                "ssh", "-i", str(SSH_KEY), "-p", port,
+                f"{user}@{host}",
+                f"mkdir -p {remote_base}",
+            ],
+            check=True,
+            capture_output=True,
+            text=True,
+            timeout=15,
+        )
+    except subprocess.CalledProcessError as e:
+        print(f"✗ Failed to create remote directory: {e.stderr.strip()}")
+        return None
+
+    # Upload training-plans/index.html as index.html
+    try:
+        subprocess.run(
+            [
+                "scp", "-i", str(SSH_KEY), "-P", port,
+                str(html_path),
+                f"{user}@{host}:{remote_base}/index.html",
+            ],
+            check=True,
+            capture_output=True,
+            text=True,
+            timeout=30,
+        )
+    except subprocess.CalledProcessError as e:
+        print(f"✗ SCP failed for training plans page: {e.stderr.strip()}")
+        return None
+    except Exception as e:
+        print(f"✗ Error uploading training plans page: {e}")
+        return None
+
+    # Upload shared CSS/JS assets (training plans page references them via /race/assets/)
+    assets_dir = html_path.parent.parent / "assets"
+    if not assets_dir.exists():
+        assets_dir = html_path.parent / "assets"
+    remote_assets = "~/www/gravelgodcycling.com/public_html/race/assets"
+    for pattern in ("gg-styles.*.css", "gg-scripts.*.js"):
+        for asset in assets_dir.glob(pattern):
+            try:
+                subprocess.run(
+                    [
+                        "scp", "-i", str(SSH_KEY), "-P", port,
+                        str(asset),
+                        f"{user}@{host}:{remote_assets}/{asset.name}",
+                    ],
+                    check=True,
+                    capture_output=True,
+                    text=True,
+                    timeout=30,
+                )
+            except subprocess.CalledProcessError:
+                print(f"  ⚠ Could not upload {asset.name} (non-fatal)")
+
+    wp_url = os.environ.get("WP_URL", "https://gravelgodcycling.com")
+    print(f"✓ Uploaded training plans page: {wp_url}/products/training-plans/")
+    return f"{wp_url}/products/training-plans/"
+
+
 def sync_coaching_apply(apply_file: str):
     """Upload coaching-apply.html to /coaching/apply/index.html on SiteGround via SSH+SCP."""
     ssh = get_ssh_credentials()
@@ -1124,6 +1411,13 @@ RewriteRule ^midsouth/?$ https://www.trainingpeaks.com/training-plans/cycling/gr
 # /about-me/ → /about/ (old WP page trashed, consolidate 1,169 impressions)
 RewriteRule ^about-me/?$ /about/ [R=301,L]
 
+# WP media attachment slugs hijacking /race/ paths
+RewriteRule ^race/dirty-kanza/?$ /race/unbound-200/ [R=301,L]
+RewriteRule ^race/oregon-trail-gravel-grinder/?$ /race/oregon-trail-gravel/ [R=301,L]
+
+# /training-plans/ directory → product page (prevents 403)
+RewriteRule ^training-plans/?$ /products/training-plans/ [R=301,L]
+
 # Broken URL from GSC → parent page (404 fix)
 RewriteRule ^training-plans-faq/gravelgodcoaching@gmail\\.com$ /training-plans-faq/ [R=301,L]
 </IfModule>
@@ -1371,6 +1665,109 @@ def sync_noindex():
     except Exception as e:
         print(f"✗ Failed to deploy mu-plugin: {e}")
         return False
+
+
+def sync_meta_descriptions():
+    """Deploy meta description mu-plugin + JSON data to WordPress.
+
+    Uploads:
+      1. gg-meta-descriptions.php → wp-content/mu-plugins/
+      2. meta-descriptions.json → wp-content/uploads/gg-meta-descriptions.json
+
+    The mu-plugin reads the JSON and overrides AIOSEO meta descriptions
+    via filter hooks for all WordPress pages and posts.
+    """
+    ssh = get_ssh_credentials()
+    if not ssh:
+        return False
+    host, user, port = ssh
+
+    project_root = Path(__file__).resolve().parent.parent
+    plugin_file = project_root / "wordpress" / "mu-plugins" / "gg-meta-descriptions.php"
+    json_file = project_root / "seo" / "meta-descriptions.json"
+
+    if not plugin_file.exists():
+        print(f"✗ mu-plugin not found: {plugin_file}")
+        return False
+    if not json_file.exists():
+        print(f"✗ JSON data not found: {json_file}")
+        print("  Run: python scripts/generate_meta_descriptions.py")
+        return False
+
+    # Validate JSON before uploading
+    try:
+        data = json.loads(json_file.read_text())
+        count = len(data.get("entries", []))
+        if count < 100:
+            print(f"✗ Only {count} entries in JSON (expected 131+)")
+            return False
+    except json.JSONDecodeError as e:
+        print(f"✗ Invalid JSON: {e}")
+        return False
+
+    mu_plugins_path = "~/www/gravelgodcycling.com/public_html/wp-content/mu-plugins"
+    uploads_path = "~/www/gravelgodcycling.com/public_html/wp-content/uploads"
+
+    # Ensure directories exist
+    try:
+        subprocess.run(
+            [
+                "ssh", "-i", str(SSH_KEY), "-p", port,
+                f"{user}@{host}",
+                f"mkdir -p {mu_plugins_path} {uploads_path}",
+            ],
+            capture_output=True, text=True, timeout=15, check=True,
+        )
+    except Exception:
+        pass  # Directories likely already exist
+
+    # Upload JSON data FIRST — mu-plugin reads it on activation, so data
+    # must be present before the PHP file arrives to avoid a race condition.
+    try:
+        subprocess.run(
+            [
+                "scp", "-i", str(SSH_KEY), "-P", port,
+                str(json_file),
+                f"{user}@{host}:{uploads_path}/gg-meta-descriptions.json",
+            ],
+            capture_output=True, text=True, timeout=15, check=True,
+        )
+    except Exception as e:
+        print(f"✗ Failed to upload JSON data: {e}")
+        return False
+
+    # Upload mu-plugin
+    try:
+        subprocess.run(
+            [
+                "scp", "-i", str(SSH_KEY), "-P", port,
+                str(plugin_file),
+                f"{user}@{host}:{mu_plugins_path}/gg-meta-descriptions.php",
+            ],
+            capture_output=True, text=True, timeout=15, check=True,
+        )
+    except Exception as e:
+        print(f"✗ Failed to upload mu-plugin: {e}")
+        return False
+
+    # Set file permissions (644 = owner rw, group/others read)
+    try:
+        subprocess.run(
+            [
+                "ssh", "-i", str(SSH_KEY), "-p", port,
+                f"{user}@{host}",
+                f"chmod 644 {mu_plugins_path}/gg-meta-descriptions.php "
+                f"{uploads_path}/gg-meta-descriptions.json",
+            ],
+            capture_output=True, text=True, timeout=10, check=True,
+        )
+    except Exception:
+        pass  # Non-fatal — SCP usually sets sane defaults
+
+    print(f"✓ Deployed meta descriptions ({count} entries)")
+    print("  → gg-meta-descriptions.json (data file, uploaded first)")
+    print("  → gg-meta-descriptions.php (mu-plugin)")
+    return True
 
 
 def sync_ctas():
@@ -2076,6 +2473,304 @@ def sync_courses(course_dir: str):
     return f"{wp_url}/course/"
 
 
+def sync_mission_control(mc_file: str):
+    """Upload mission-control/index.html to /mission-control/ on SiteGround via SSH+SCP."""
+    ssh = get_ssh_credentials()
+    if not ssh:
+        return None
+    host, user, port = ssh
+
+    html_path = Path(mc_file)
+    if not html_path.exists():
+        print(f"✗ Mission Control HTML not found: {html_path}")
+        print("  Run: python3 wordpress/generate_mission_control.py first")
+        return None
+
+    remote_base = "~/www/gravelgodcycling.com/public_html/mission-control"
+
+    # Create remote directory
+    try:
+        subprocess.run(
+            [
+                "ssh", "-i", str(SSH_KEY), "-p", port,
+                f"{user}@{host}",
+                f"mkdir -p {remote_base}",
+            ],
+            check=True,
+            capture_output=True,
+            text=True,
+            timeout=15,
+        )
+    except subprocess.CalledProcessError as e:
+        print(f"✗ Failed to create remote directory: {e.stderr.strip()}")
+        return None
+
+    # Upload mission-control/index.html
+    try:
+        subprocess.run(
+            [
+                "scp", "-i", str(SSH_KEY), "-P", port,
+                str(html_path),
+                f"{user}@{host}:{remote_base}/index.html",
+            ],
+            check=True,
+            capture_output=True,
+            text=True,
+            timeout=30,
+        )
+    except subprocess.CalledProcessError as e:
+        print(f"✗ SCP failed for mission control: {e.stderr.strip()}")
+        return None
+    except Exception as e:
+        print(f"✗ Error uploading mission control: {e}")
+        return None
+
+    wp_url = os.environ.get("WP_URL", "https://gravelgodcycling.com")
+    print(f"✓ Uploaded mission control: {wp_url}/mission-control/")
+    return f"{wp_url}/mission-control/"
+
+
+def sync_insights(insights_file: str):
+    """Upload insights.html to /insights/index.html on SiteGround via SSH+SCP."""
+    ssh = get_ssh_credentials()
+    if not ssh:
+        return None
+    host, user, port = ssh
+
+    html_path = Path(insights_file)
+    if not html_path.exists():
+        print(f"✗ Insights page HTML not found: {html_path}")
+        print("  Run: python3 wordpress/generate_insights.py first")
+        return None
+
+    remote_base = "~/www/gravelgodcycling.com/public_html/insights"
+
+    # Create remote directory
+    try:
+        subprocess.run(
+            [
+                "ssh", "-i", str(SSH_KEY), "-p", port,
+                f"{user}@{host}",
+                f"mkdir -p {remote_base}",
+            ],
+            check=True,
+            capture_output=True,
+            text=True,
+            timeout=15,
+        )
+    except subprocess.CalledProcessError as e:
+        print(f"✗ Failed to create remote directory: {e.stderr.strip()}")
+        return None
+
+    # Upload insights.html as index.html
+    try:
+        subprocess.run(
+            [
+                "scp", "-i", str(SSH_KEY), "-P", port,
+                str(html_path),
+                f"{user}@{host}:{remote_base}/index.html",
+            ],
+            check=True,
+            capture_output=True,
+            text=True,
+            timeout=30,
+        )
+    except subprocess.CalledProcessError as e:
+        print(f"✗ SCP failed for insights page: {e.stderr.strip()}")
+        return None
+    except Exception as e:
+        print(f"✗ Error uploading insights page: {e}")
+        return None
+
+    # Upload shared CSS/JS assets (insights page references them via /race/assets/)
+    assets_dir = html_path.parent / "assets"
+    remote_assets = "~/www/gravelgodcycling.com/public_html/race/assets"
+    for pattern in ("gg-styles.*.css", "gg-scripts.*.js"):
+        for asset in assets_dir.glob(pattern):
+            try:
+                subprocess.run(
+                    [
+                        "scp", "-i", str(SSH_KEY), "-P", port,
+                        str(asset),
+                        f"{user}@{host}:{remote_assets}/{asset.name}",
+                    ],
+                    check=True,
+                    capture_output=True,
+                    text=True,
+                    timeout=30,
+                )
+            except subprocess.CalledProcessError:
+                pass  # Asset may already exist
+
+    # Fix permissions
+    try:
+        subprocess.run(
+            [
+                "ssh", "-i", str(SSH_KEY), "-p", port,
+                f"{user}@{host}",
+                f"chmod 755 {remote_base} && chmod 644 {remote_base}/index.html",
+            ],
+            check=True,
+            capture_output=True,
+            text=True,
+            timeout=15,
+        )
+    except subprocess.CalledProcessError:
+        pass
+
+    wp_url = os.environ.get("WP_URL", "https://gravelgodcycling.com")
+    print(f"✓ Uploaded insights page: {wp_url}/insights/")
+    return f"{wp_url}/insights/"
+
+
+def sync_embed():
+    """Upload embed widget files (JS, data JSON, demo) to /embed/ on SiteGround via SSH+SCP."""
+    ssh = get_ssh_credentials()
+    if not ssh:
+        return None
+    host, user, port = ssh
+
+    embed_dir = Path("web/embed")
+    if not embed_dir.exists():
+        print(f"✗ Embed directory not found: {embed_dir}")
+        print("  Run: python3 scripts/generate_embed_widget.py first")
+        return None
+
+    remote_base = "~/www/gravelgodcycling.com/public_html/embed"
+
+    # Create remote directory
+    try:
+        subprocess.run(
+            [
+                "ssh", "-i", str(SSH_KEY), "-p", port,
+                f"{user}@{host}",
+                f"mkdir -p {remote_base}",
+            ],
+            check=True,
+            capture_output=True,
+            text=True,
+            timeout=15,
+        )
+    except subprocess.CalledProcessError as e:
+        print(f"✗ Failed to create remote directory: {e.stderr.strip()}")
+        return None
+
+    # Upload all embed files
+    files = list(embed_dir.glob("*"))
+    for fpath in files:
+        if fpath.is_file():
+            try:
+                subprocess.run(
+                    [
+                        "scp", "-i", str(SSH_KEY), "-P", port,
+                        str(fpath),
+                        f"{user}@{host}:{remote_base}/{fpath.name}",
+                    ],
+                    check=True,
+                    capture_output=True,
+                    text=True,
+                    timeout=30,
+                )
+                print(f"✓ Uploaded embed: /embed/{fpath.name}")
+            except subprocess.CalledProcessError as e:
+                print(f"✗ SCP failed for {fpath.name}: {e.stderr.strip()}")
+            except Exception as e:
+                print(f"✗ Error uploading {fpath.name}: {e}")
+
+    # Fix permissions
+    try:
+        subprocess.run(
+            [
+                "ssh", "-i", str(SSH_KEY), "-p", port,
+                f"{user}@{host}",
+                f"chmod 755 {remote_base} && chmod 644 {remote_base}/*",
+            ],
+            check=True,
+            capture_output=True,
+            text=True,
+            timeout=15,
+        )
+    except subprocess.CalledProcessError:
+        pass
+
+    wp_url = os.environ.get("WP_URL", "https://gravelgodcycling.com")
+    print(f"✓ Embed widget deployed: {wp_url}/embed/demo.html")
+    return f"{wp_url}/embed/"
+
+
+def sync_rss():
+    """Upload RSS feed to /feed/ on SiteGround via SSH+SCP."""
+    ssh = get_ssh_credentials()
+    if not ssh:
+        return None
+    host, user, port = ssh
+
+    feed_file = Path("web/feed/races.xml")
+    if not feed_file.exists():
+        print(f"✗ RSS feed not found: {feed_file}")
+        print("  Run: python3 scripts/generate_rss_feed.py first")
+        return None
+
+    remote_base = "~/www/gravelgodcycling.com/public_html/feed"
+
+    # Create remote directory
+    try:
+        subprocess.run(
+            [
+                "ssh", "-i", str(SSH_KEY), "-p", port,
+                f"{user}@{host}",
+                f"mkdir -p {remote_base}",
+            ],
+            check=True,
+            capture_output=True,
+            text=True,
+            timeout=15,
+        )
+    except subprocess.CalledProcessError as e:
+        print(f"✗ Failed to create remote directory: {e.stderr.strip()}")
+        return None
+
+    # Upload RSS feed
+    try:
+        subprocess.run(
+            [
+                "scp", "-i", str(SSH_KEY), "-P", port,
+                str(feed_file),
+                f"{user}@{host}:{remote_base}/races.xml",
+            ],
+            check=True,
+            capture_output=True,
+            text=True,
+            timeout=30,
+        )
+    except subprocess.CalledProcessError as e:
+        print(f"✗ SCP failed for RSS feed: {e.stderr.strip()}")
+        return None
+    except Exception as e:
+        print(f"✗ Error uploading RSS feed: {e}")
+        return None
+
+    # Fix permissions
+    try:
+        subprocess.run(
+            [
+                "ssh", "-i", str(SSH_KEY), "-p", port,
+                f"{user}@{host}",
+                f"chmod 755 {remote_base} && chmod 644 {remote_base}/races.xml",
+            ],
+            check=True,
+            capture_output=True,
+            text=True,
+            timeout=15,
+        )
+    except subprocess.CalledProcessError:
+        pass
+
+    wp_url = os.environ.get("WP_URL", "https://gravelgodcycling.com")
+    print(f"✓ RSS feed deployed: {wp_url}/feed/races.xml")
+    return f"{wp_url}/feed/races.xml"
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
         description="Push race pages or sync race index to WordPress"
@@ -2107,11 +2802,19 @@ if __name__ == "__main__":
     )
     parser.add_argument(
         "--sync-guide", action="store_true",
-        help="Upload training guide to /guide/ via SCP"
+        help="Upload training guide (monolith) to /guide/ via SCP"
     )
     parser.add_argument(
         "--guide-dir", default="wordpress/output",
         help="Path to guide output directory (default: wordpress/output)"
+    )
+    parser.add_argument(
+        "--sync-guide-cluster", action="store_true",
+        help="Upload guide cluster pages (pillar + 8 chapters) to /guide/ via tar+ssh"
+    )
+    parser.add_argument(
+        "--guide-cluster-dir", default="wordpress/output/guide",
+        help="Path to guide cluster directory (default: wordpress/output/guide)"
     )
     parser.add_argument(
         "--sync-og", action="store_true",
@@ -2160,6 +2863,30 @@ if __name__ == "__main__":
     parser.add_argument(
         "--consulting-file", default="wordpress/output/consulting.html",
         help="Path to consulting page HTML (default: wordpress/output/consulting.html)"
+    )
+    parser.add_argument(
+        "--sync-legal", action="store_true",
+        help="Upload legal pages (privacy, terms, cookies) via SCP"
+    )
+    parser.add_argument(
+        "--sync-consent", action="store_true",
+        help="Upload cookie consent mu-plugin to WordPress"
+    )
+    parser.add_argument(
+        "--sync-insights", action="store_true",
+        help="Upload insights page to /insights/ via SCP"
+    )
+    parser.add_argument(
+        "--insights-file", default="wordpress/output/insights.html",
+        help="Path to insights page HTML (default: wordpress/output/insights.html)"
+    )
+    parser.add_argument(
+        "--sync-training-plans", action="store_true",
+        help="Upload training plans page to /products/training-plans/ via SCP"
+    )
+    parser.add_argument(
+        "--training-plans-file", default="wordpress/output/training-plans/index.html",
+        help="Path to training plans page HTML (default: wordpress/output/training-plans/index.html)"
     )
     parser.add_argument(
         "--sync-success", action="store_true",
@@ -2254,8 +2981,29 @@ if __name__ == "__main__":
         help="Path to course output directory (default: wordpress/output/course)"
     )
     parser.add_argument(
+        "--sync-embed", action="store_true",
+        help="Upload embed widget files (JS, data JSON, demo) to /embed/"
+    )
+    parser.add_argument(
+        "--sync-rss", action="store_true",
+        help="Upload RSS feed to /feed/"
+    )
+    parser.add_argument(
+        "--sync-meta-descriptions", action="store_true",
+        help="Deploy meta description mu-plugin + JSON data to WordPress"
+    )
+    parser.add_argument(
         "--sync-ab", action="store_true",
         help="Deploy A/B test assets (JS, config, mu-plugin) to /ab/"
+    )
+    parser.add_argument(
+        "--sync-mission-control", action="store_true",
+        help="Upload mission control dashboard to /mission-control/ via SCP"
+    )
+    parser.add_argument(
+        "--mission-control-file",
+        default="wordpress/output/mission-control/index.html",
+        help="Path to mission control HTML (default: wordpress/output/mission-control/index.html)"
     )
     parser.add_argument(
         "--purge-cache", action="store_true",
@@ -2287,6 +3035,7 @@ if __name__ == "__main__":
         args.sync_coaching = True
         args.sync_coaching_apply = True
         args.sync_consulting = True
+        args.sync_training_plans = True
         args.sync_success = True
         args.sync_sitemap = True
         args.sync_redirects = True
@@ -2301,16 +3050,25 @@ if __name__ == "__main__":
         args.sync_ab = True
         args.sync_header = True
         args.sync_courses = True
+        args.sync_meta_descriptions = True
+        args.sync_insights = True
+        args.sync_embed = True
+        args.sync_rss = True
+        args.sync_guide_cluster = True
+        args.sync_legal = True
+        args.sync_consent = True
         args.purge_cache = True
 
     has_action = any([args.json, args.sync_index, args.sync_widget, args.sync_training,
-                      args.sync_guide, args.sync_og, args.sync_homepage, args.sync_about,
+                      args.sync_guide, args.sync_guide_cluster, args.sync_og, args.sync_homepage, args.sync_about,
                       args.sync_coaching, args.sync_coaching_apply, args.sync_consulting,
-                      args.sync_success, args.sync_pages,
+                      args.sync_training_plans, args.sync_success, args.sync_pages,
                       args.sync_sitemap, args.sync_redirects,
                       args.sync_noindex, args.sync_ctas, args.sync_ga4, args.sync_header, args.sync_prep_kits,
                       args.sync_series, args.sync_blog,
                       args.sync_blog_index, args.sync_photos, args.sync_ab, args.sync_courses,
+                      args.sync_meta_descriptions, args.sync_mission_control,
+                      args.sync_insights, args.sync_embed, args.sync_rss,
                       args.purge_cache])
     if not has_action:
         parser.error("Provide a sync flag (--sync-pages, --sync-index, etc.), --deploy-content, or --deploy-all")
@@ -2325,6 +3083,8 @@ if __name__ == "__main__":
         sync_training(args.training_file)
     if args.sync_guide:
         sync_guide(args.guide_dir)
+    if args.sync_guide_cluster:
+        sync_guide_cluster(args.guide_cluster_dir)
     if args.sync_og:
         sync_og(args.og_dir)
     if args.sync_homepage:
@@ -2337,6 +3097,12 @@ if __name__ == "__main__":
         sync_coaching_apply(args.coaching_apply_file)
     if args.sync_consulting:
         sync_consulting(args.consulting_file)
+    if args.sync_legal:
+        sync_legal("wordpress/output")
+    if args.sync_consent:
+        sync_consent()
+    if args.sync_training_plans:
+        sync_training_plans(args.training_plans_file)
     if args.sync_success:
         sync_success(args.success_dir)
     if args.sync_pages:
@@ -2365,7 +3131,17 @@ if __name__ == "__main__":
         sync_blog_index(args.blog_index_page, args.blog_index_json)
     if args.sync_ab:
         sync_ab()
+    if args.sync_meta_descriptions:
+        sync_meta_descriptions()
     if args.sync_courses:
         sync_courses(args.course_dir)
+    if args.sync_mission_control:
+        sync_mission_control(args.mission_control_file)
+    if args.sync_insights:
+        sync_insights(args.insights_file)
+    if args.sync_embed:
+        sync_embed()
+    if args.sync_rss:
+        sync_rss()
     if args.purge_cache:
         purge_cache()

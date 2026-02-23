@@ -94,7 +94,10 @@
       "score": "44 / 100",
       "one_liner": "Remote grassroots Wisconsin century in the Northwoods.",
       "should_you_race": "Only if you're in Wisconsin and want an affordable, low-key 100-miler in a beautiful setting. Not worth traveling far for.",
-      "alternatives": "For better Wisconsin events: Driftless Gravel, Chequamegon. For similar grassroots centuries: regional Midwest gravel events."
+      "alternatives": "For better Wisconsin events: Driftless Gravel, Chequamegon. For similar grassroots centuries: regional Midwest gravel events.",
+      "alternative_slugs": [
+        "chequamegon-mtb"
+      ]
     },
     "logistics": {
       "airport": "Green Bay (GRB) or Milwaukee (MKE) 3-4 hours drive",
@@ -179,12 +182,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 90.7,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 90,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 88,
+          "cross_reference": 50
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -308,84 +320,39 @@
         "label": "RideWithGPS: 2025 Hungry Bear 100 Route - Wisconsin"
       },
       {
-        "url": "https://spectorjosh.com/bear-100-race-report/",
-        "category": "community",
-        "label": "spectorjosh.com: Bear 100 Race Report"
-      },
-      {
-        "url": "https://teamrunrun.com/bear-100-endurance-run-race-report/",
-        "category": "community",
-        "label": "teamrunrun.com: Bear 100 Endurance Run Race Report"
-      },
-      {
-        "url": "https://marathonhandbook.com/bear-100-race-report/",
-        "category": "community",
-        "label": "marathonhandbook.com: Bear 100 Race Report"
+        "url": "https://lunasandals.com/blogs/luna-sandals-blog/15680996-the-bear-100-a-100-mile-vision-quest-in-luna-sandals",
+        "category": "other",
+        "label": "Lunasandals"
       },
       {
         "url": "https://miles4hips.org/the-bear-100-race-report",
-        "category": "community",
-        "label": "miles4hips.org: The Bear 100 Race Report"
+        "category": "other",
+        "label": "Miles4Hips"
       },
       {
-        "url": "https://trailrunning100.wordpress.com/2020/09/29/the-bear-100-race-report/comment-page-1/",
-        "category": "community",
-        "label": "trailrunning100.wordpress.com: Comment Page 1"
+        "url": "https://rmspineandsport.com/blog/posts/bear-100-2016/",
+        "category": "other",
+        "label": "Rmspineandsport"
       },
       {
-        "url": "https://www.youtube.com/watch?v=JnJYFEWNAHY",
-        "category": "community",
-        "label": "youtube.com: Watch"
+        "url": "https://stuckintherockies.com/2012/10/the-bear-100/",
+        "category": "other",
+        "label": "Stuckintherockies"
       },
       {
-        "url": "https://www.youtube.com/watch?v=Dm64qMtLii4",
-        "category": "community",
-        "label": "youtube.com: Watch"
+        "url": "https://www.irunfar.com/waiting-for-it-anna-frost-and-the-2014-bear-100",
+        "category": "other",
+        "label": "Irunfar"
       },
       {
-        "url": "https://www.youtube.com/watch?v=ZoCCyzmw5Eg",
-        "category": "community",
-        "label": "youtube.com: Watch"
-      },
-      {
-        "url": "https://flawlessrun.com/bear-100-2025-results-mike-cappi-and-sarah-humble-win-in-utah-idaho-100-miler/",
-        "category": "community",
-        "label": "flawlessrun.com: Bear 100 2025 Results Mike Cappi And Sarah Humble Win In ..."
-      },
-      {
-        "url": "https://www.thebear100.com/",
-        "category": "community",
-        "label": "thebear100.com"
-      },
-      {
-        "url": "https://www.thebear100.com/routes",
-        "category": "community",
-        "label": "thebear100.com: Routes"
+        "url": "https://www.thenxrth.com/events/the-bear-100",
+        "category": "other",
+        "label": "Thenxrth"
       },
       {
         "url": "https://mtnclmbr.cloud.prohosting.com/Bear100/Bear100.htm",
         "category": "community",
         "label": "mtnclmbr.cloud.prohosting.com: Bear100.Htm"
-      },
-      {
-        "url": "https://www.irunfar.com/waiting-for-it-anna-frost-and-the-2014-bear-100",
-        "category": "community",
-        "label": "irunfar.com: Waiting For It Anna Frost And The 2014 Bear 100"
-      },
-      {
-        "url": "https://stuckintherockies.com/2012/10/the-bear-100/",
-        "category": "community",
-        "label": "stuckintherockies.com: The Bear 100"
-      },
-      {
-        "url": "https://rmspineandsport.com/blog/posts/bear-100-2016/",
-        "category": "community",
-        "label": "rmspineandsport.com: Bear 100 2016"
-      },
-      {
-        "url": "https://lunasandals.com/blogs/luna-sandals-blog/15680996-the-bear-100-a-100-mile-vision-quest-in-luna-sandals",
-        "category": "community",
-        "label": "lunasandals.com: 15680996 The Bear 100 A 100 Mile Vision Quest In Luna San..."
       }
     ],
     "tire_recommendations": {

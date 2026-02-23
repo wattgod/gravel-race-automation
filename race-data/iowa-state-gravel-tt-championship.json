@@ -19,7 +19,7 @@
         "Iowa"
       ],
       "field_size": "50-100 riders",
-      "start_time": "Morning start",
+      "start_time": "9:00 am",
       "registration": "Online. Cost: ~$50-75",
       "prize_purse": "State championship prizes",
       "aid_stations": "Limited aid stations",
@@ -94,7 +94,10 @@
       "score": "43 / 100",
       "one_liner": "Iowa state championship gravel challenge.",
       "should_you_race": "If you're local to Iowa—yes, it's solid. If you're traveling—skip it.",
-      "alternatives": "For better Iowa races: Gravel Worlds, RAGBRAI."
+      "alternatives": "For better Iowa races: Gravel Worlds, RAGBRAI.",
+      "alternative_slugs": [
+        "garmin-gravel-worlds"
+      ]
     },
     "logistics": {
       "airport": "Cedar Rapids (CID) 30 minutes",
@@ -185,12 +188,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 86.7,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -312,8 +324,23 @@
     "citations": [
       {
         "url": "https://iowacitycyclingclub.com/events/iowa-state-grave-time-trial-championships/ia-state-gravel-tt-2017/",
-        "category": "community",
-        "label": "iowacitycyclingclub.com: Ia State Gravel Tt 2017"
+        "category": "other",
+        "label": "Iowacitycyclingclub"
+      },
+      {
+        "url": "https://www.cyclingweekly.com/news",
+        "category": "media",
+        "label": "Cycling Weekly"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/12427/iowa-state-gravel-time-trial-championship",
+        "category": "other",
+        "label": "Granfondoguide"
+      },
+      {
+        "url": "https://www.gravel-results.com/racer/48198",
+        "category": "other",
+        "label": "Gravel-Results"
       },
       {
         "url": "https://results.bikereg.com/race/6823",

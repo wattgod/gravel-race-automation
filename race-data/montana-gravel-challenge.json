@@ -19,7 +19,7 @@
         "Montana"
       ],
       "field_size": "100-200 riders",
-      "start_time": "Morning start",
+      "start_time": "3:30PM",
       "registration": "Online. Cost: ~$80-100",
       "prize_purse": "Modest prizes",
       "aid_stations": "2-3 aid stations",
@@ -94,7 +94,11 @@
       "score": "47 / 100",
       "one_liner": "Montana mountain gravel challenge.",
       "should_you_race": "If you're local to MT—yes, it's solid. If you're traveling—skip it.",
-      "alternatives": "For better MT races: Big Sky Gravel, Dusty Bandita."
+      "alternatives": "For better MT races: Big Sky Gravel, Dusty Bandita.",
+      "alternative_slugs": [
+        "big-sky-gravel",
+        "dusty-bandita"
+      ]
     },
     "logistics": {
       "airport": "Missoula (MSO) 30 minutes",
@@ -102,7 +106,8 @@
       "food": "Huson has limited dining. Stock nutrition or eat in Missoula.",
       "packet_pickup": "Day of typically",
       "parking": "At start/finish",
-      "official_site": "Check Montana Gravel Challenge website"
+      "official_site": "Check Montana Gravel Challenge website",
+      "camping": "onsite camping/trailer camping at the race HQ (18450 Six Mile Road, Huson, MT)"
     },
     "history": {
       "founded": null,
@@ -185,12 +190,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 90.9,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 50
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -317,23 +331,28 @@
       },
       {
         "url": "https://bikingmt.blogspot.com/2024/04/montana-gravel-challenge-2024.html",
-        "category": "community",
-        "label": "bikingmt.blogspot.com: Montana Gravel Challenge 2024.Html"
+        "category": "other",
+        "label": "Bikingmt"
       },
       {
         "url": "https://competitivetiming.com/montana-gravel-challenge-results/",
-        "category": "community",
-        "label": "competitivetiming.com: Montana Gravel Challenge Results"
+        "category": "other",
+        "label": "Competitivetiming"
       },
       {
-        "url": "https://www.youtube.com/watch?v=M8EUeycIlIc",
-        "category": "community",
-        "label": "youtube.com: Watch"
+        "url": "https://montanacycling.net/race-results/2024-race-results/",
+        "category": "other",
+        "label": "Montanacycling"
       },
       {
-        "url": "https://www.youtube.com/watch?v=Aesl2RVuKrQ",
+        "url": "https://racecheck.com/races/montana-gravel-challenge/",
+        "category": "other",
+        "label": "Racecheck"
+      },
+      {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/10qdn2h/any_montana_riders_in_the_sub_looking_for_an/",
         "category": "community",
-        "label": "youtube.com: Watch"
+        "label": "Reddit"
       },
       {
         "url": "https://www.bikesignup.com/Race/MT/Huson/MontanaHellRide",

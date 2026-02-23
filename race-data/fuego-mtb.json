@@ -166,7 +166,8 @@
         "nearby": "Monterey/Carmel hotels - book early"
       },
       "notes": "Many roads surrounding Laguna Seca CLOSED during event",
-      "official_site": "https://fuegoyagua.com/"
+      "official_site": "https://fuegoyagua.com/",
+      "camping": "Camping available at venue\n\n**Bike:**\n- Bring own bike or rent locally\n- Multiple bike shops in Monterey area\n- Bike demo at Sea Otter expo"
     },
     "registration": {
       "opens": "Fall prior year",
@@ -233,7 +234,11 @@
       "score": "67 / 100",
       "one_liner": "Sea Otter's sandbox climbs and corporate chaos create a perfectly mediocre gravel experience wrapped in mountain bike tradition.",
       "should_you_race": "If you can hold 250+ watts for three hours and enjoy fighting sandy ruts while dodging expo traffic, this works. The course isn't technical but those loose-over-hard descents will humble cocky roadies, and April weather swings from 40 to 90 degrees without warning. Skip it if you want pure gravel culture – this is MTB pageantry with drop bars allowed.",
-      "alternatives": "Gravel Worlds gives you real gravel suffering without the trade show circus, while Crusher in the Tushar delivers proper mountain punishment if you want elevation that matters. Both cost half as much and won't leave you sitting in Monterey traffic."
+      "alternatives": "Gravel Worlds gives you real gravel suffering without the trade show circus, while Crusher in the Tushar delivers proper mountain punishment if you want elevation that matters. Both cost half as much and won't leave you sitting in Monterey traffic.",
+      "alternative_slugs": [
+        "crusher-in-the-tushar",
+        "garmin-gravel-worlds"
+      ]
     },
     "course_description": {
       "character": "Fort Ord's sandy climbs and loose-over-hard descents turn your bike into a wrestling match. Two laps of relentless XC terrain where the sandstone gets looser and the ruts get deeper as 2,000 riders churn the course into a minefield of blown lines and shattered legs.",
@@ -275,69 +280,34 @@
         "label": "RideWithGPS: 2024 Sea Otter XL Fuego (MTB)"
       },
       {
-        "url": "https://dotwatcher.cc/",
-        "category": "tracking",
-        "label": "DotWatcher"
-      },
-      {
-        "url": "https://fuegoyagua.com/",
+        "url": "https://firstendurance.com/blogs/articles/2023-sea-otter-classic-fuego-xl-race-report",
         "category": "other",
-        "label": "Fuegoyagua"
+        "label": "Firstendurance"
       },
       {
-        "url": "https://graveldelfuego.com/",
+        "url": "https://www.altovelo.org/blog/race-report-2024-sea-otter-classic-fuego-xl",
         "category": "other",
-        "label": "Graveldelfuego"
+        "label": "Altovelo"
       },
       {
-        "url": "https://www.mediaboss.net/seo-training/brendan-johnston-a-15-year-pro-racing-quest-with-a-gravel-resolution-cyclingnews.php",
-        "category": "community",
-        "label": "mediaboss.net: Brendan Johnston A 15 Year Pro Racing Quest With A Gravel..."
+        "url": "https://www.cxmagazine.com/keegan-swenson-sofia-gomez-2024-sea-otter-fuego-xl-results-report",
+        "category": "media",
+        "label": "CX Magazine"
       },
       {
-        "url": "https://www.cyclingnews.com/news/leipheimers-growler-gran-fondo-turns-pro-luring-top-riders-to-majestic-route/",
-        "category": "community",
-        "label": "cyclingnews.com: Leipheimers Growler Gran Fondo Turns Pro Luring Top Rider..."
+        "url": "https://www.cyclingnews.com/sea-otter-classic-fuego-xl/",
+        "category": "other",
+        "label": "Cyclingnews"
       },
       {
         "url": "https://www.trainerroad.com/forum/t/sea-otter-classic-2023-fuego-la-gravilla-et-al/82332",
         "category": "community",
-        "label": "trainerroad.com: 82332"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=PaFPWZP72HM",
-        "category": "community",
-        "label": "youtube.com: Watch"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=NqJhGENXWqk",
-        "category": "community",
-        "label": "youtube.com: Watch"
-      },
-      {
-        "url": "https://rouvy.com/blog/life-time-grand-prix",
-        "category": "community",
-        "label": "rouvy.com: Life Time Grand Prix"
-      },
-      {
-        "url": "https://www.altovelo.org/blog/race-report-2024-sea-otter-classic-fuego-xl",
-        "category": "community",
-        "label": "altovelo.org: Race Report 2024 Sea Otter Classic Fuego Xl"
+        "label": "TrainerRoad"
       },
       {
         "url": "https://www.wolftoothcomponents.com/blogs/news/michael-van-den-ham-fuego-xl-race-recap",
         "category": "community",
         "label": "wolftoothcomponents.com: Michael Van Den Ham Fuego Xl Race Recap"
-      },
-      {
-        "url": "https://www.cxmagazine.com/keegan-swenson-sofia-gomez-2024-sea-otter-fuego-xl-results-report",
-        "category": "community",
-        "label": "cxmagazine.com: Keegan Swenson Sofia Gomez 2024 Sea Otter Fuego Xl Result..."
-      },
-      {
-        "url": "https://firstendurance.com/blogs/articles/2023-sea-otter-classic-fuego-xl-race-report",
-        "category": "community",
-        "label": "firstendurance.com: 2023 Sea Otter Classic Fuego Xl Race Report"
       },
       {
         "url": "https://flowmountainbike.com/features/brendan-trekky-johnston-on-racing-the-lifetime-grand-prix/",
@@ -426,6 +396,25 @@
         "200pluslb_dry": "45-49",
         "200pluslb_mixed": "42-46",
         "200pluslb_wet": "40-44"
+      }
+    },
+    "research_metadata": {
+      "research_strength": {
+        "overall": 85.5,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 52,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     }
   }

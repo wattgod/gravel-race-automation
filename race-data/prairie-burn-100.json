@@ -19,7 +19,7 @@
         "Iowa"
       ],
       "field_size": "50-100 riders",
-      "start_time": "Morning start",
+      "start_time": "8:00 AM to",
       "registration": "Online. Cost: ~$75-100",
       "prize_purse": "Modest prizes",
       "aid_stations": "Multiple aid stations",
@@ -94,7 +94,10 @@
       "score": "43 / 100",
       "one_liner": "Iowa local gravel challenge.",
       "should_you_race": "If you're local to Iowa—yes, it's solid. If you're traveling—skip it.",
-      "alternatives": "For better Iowa races: Gravel Worlds, RAGBRAI."
+      "alternatives": "For better Iowa races: Gravel Worlds, RAGBRAI.",
+      "alternative_slugs": [
+        "garmin-gravel-worlds"
+      ]
     },
     "logistics": {
       "airport": "Des Moines (DSM) 90 minutes",
@@ -185,12 +188,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 88.4,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 50
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -328,23 +340,63 @@
       },
       {
         "url": "https://thesandb.com/53911/sports/prairie-burners-group-ride-blazes-through-iowas-gravel-roads/",
-        "category": "community",
-        "label": "thesandb.com: Prairie Burners Group Ride Blazes Through Iowas Gravel Roads"
+        "category": "other",
+        "label": "Thesandb"
       },
       {
-        "url": "https://www.prairieburn100.com/",
-        "category": "community",
-        "label": "prairieburn100.com"
+        "url": "https://www.imaginegrinnell.org/events/prairie-burn-100-gravel-bike-ride-and-fun-run",
+        "category": "other",
+        "label": "Imaginegrinnell"
       },
       {
-        "url": "https://www.prairieburn100.com/event-info",
-        "category": "community",
-        "label": "prairieburn100.com: Event Info"
+        "url": "https://www.longrangehunting.com/threads/204-or-223-for-prairie-dogs.321248/",
+        "category": "other",
+        "label": "Longrangehunting"
+      },
+      {
+        "url": "https://www.longrangehunting.com/threads/6-5-creed-for-prairie-dogs.244552/",
+        "category": "other",
+        "label": "Longrangehunting"
+      },
+      {
+        "url": "https://www.longrangehunting.com/threads/caliber-choice-for-prairie-dogs.268875/",
+        "category": "other",
+        "label": "Longrangehunting"
+      },
+      {
+        "url": "https://www.longrangehunting.com/threads/caliber-combination-for-prairie-dog-hunting.358540/",
+        "category": "other",
+        "label": "Longrangehunting"
+      },
+      {
+        "url": "https://www.longrangehunting.com/threads/long-ish-range-prairie-dog-caliber.223006/",
+        "category": "other",
+        "label": "Longrangehunting"
+      },
+      {
+        "url": "https://www.longrangehunting.com/threads/panhandle-prairie-dog-hunts.383622/",
+        "category": "other",
+        "label": "Longrangehunting"
+      },
+      {
+        "url": "https://www.longrangehunting.com/threads/prairie-dogs-spots-in-arizona.239138/",
+        "category": "other",
+        "label": "Longrangehunting"
+      },
+      {
+        "url": "https://www.longrangehunting.com/threads/scope-recommendations-for-prairie-dogs.358987/",
+        "category": "other",
+        "label": "Longrangehunting"
       },
       {
         "url": "https://www.traveliowa.com/calendar/prairie-burn-100-gravel-bike-ride-and-5k-fun-run/1653598/",
-        "category": "community",
-        "label": "traveliowa.com: 1653598"
+        "category": "other",
+        "label": "Traveliowa"
+      },
+      {
+        "url": "https://www.youtube.com/@prairieburn100",
+        "category": "video",
+        "label": "YouTube"
       }
     ],
     "tire_recommendations": {

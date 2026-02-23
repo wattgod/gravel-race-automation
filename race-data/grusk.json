@@ -102,7 +102,8 @@
       "food": "Small town with limited dining. Stock nutrition.",
       "packet_pickup": "Day before typically",
       "parking": "At start/finish",
-      "official_site": "Check West Virginia cycling calendars"
+      "official_site": "Check West Virginia cycling calendars",
+      "camping": "Camping costs $15 per person for the weekend"
     },
     "history": {
       "founded": null,
@@ -185,12 +186,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 90.9,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 50
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -312,68 +322,63 @@
     "citations": [
       {
         "url": "https://debruns.com/2024/10/01/grusk-gravel-ride-up-spruce-knob-race-recap/",
-        "category": "community",
-        "label": "debruns.com: Grusk Gravel Ride Up Spruce Knob Race Recap"
-      },
-      {
-        "url": "https://www.rocktownbicycles.com/blog/2019/7/14/grusk-2019",
-        "category": "community",
-        "label": "rocktownbicycles.com: Grusk 2019"
-      },
-      {
-        "url": "https://oceanandsan.com/blogs/journal/grusk-race-recap",
-        "category": "community",
-        "label": "oceanandsan.com: Grusk Race Recap"
+        "category": "other",
+        "label": "Debruns"
       },
       {
         "url": "https://mountain-road.com/blog/gravelride-grusk",
-        "category": "community",
-        "label": "mountain-road.com: Gravelride Grusk"
+        "category": "other",
+        "label": "Mountain-Road"
       },
       {
-        "url": "https://www.reddit.com/r/gravelcycling/comments/sq1mxt/question_about_grusk/",
-        "category": "community",
-        "label": "reddit.com: Question About Grusk"
+        "url": "https://oceanandsan.com/blogs/journal/grusk-race-recap",
+        "category": "other",
+        "label": "Oceanandsan"
       },
       {
-        "url": "https://www.reddit.com/r/gravelcycling/comments/14wohlh/how_did_i_screw_up/",
-        "category": "community",
-        "label": "reddit.com: How Did I Screw Up"
+        "url": "https://www.blueridgeoutdoors.com/go-outside/gravel-race-grusk/",
+        "category": "other",
+        "label": "Blueridgeoutdoors"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/11302/grusk-the-grave-race-up-spruce-knob-",
+        "category": "other",
+        "label": "Granfondoguide"
+      },
+      {
+        "url": "https://www.joinbasecamp.com/post/natalies-story-grusk",
+        "category": "other",
+        "label": "Joinbasecamp"
+      },
+      {
+        "url": "https://www.mountainrides.net/grusk",
+        "category": "other",
+        "label": "Mountainrides"
       },
       {
         "url": "https://www.reddit.com/r/gravelcycling/comments/1bv2p6i/grusk/",
         "category": "community",
-        "label": "reddit.com: Grusk"
+        "label": "Reddit"
       },
       {
-        "url": "https://www.reddit.com/r/gravelcycling/comments/cae9j6/the_grusk_at_40_as_a_gravel_newbie/",
+        "url": "https://www.reddit.com/r/gravelcycling/comments/sq1mxt/question_about_grusk/",
         "category": "community",
-        "label": "reddit.com: The Grusk At 40 As A Gravel Newbie"
+        "label": "Reddit"
       },
       {
         "url": "https://www.reddit.com/r/gravelcycling/comments/vvpmbj/grusk_muddy_foggy_and_super_fun/",
         "category": "community",
-        "label": "reddit.com: Grusk Muddy Foggy And Super Fun"
+        "label": "Reddit"
       },
       {
-        "url": "https://bikepacking.com/event/grusk-gravel-race-spruce-knob-2024/",
-        "category": "community",
-        "label": "bikepacking.com: Grusk Gravel Race Spruce Knob 2024"
+        "url": "https://www.rocktownbicycles.com/blog/2019/7/14/grusk-2019",
+        "category": "other",
+        "label": "Rocktownbicycles"
       },
       {
-        "url": "https://www.joinbasecamp.com/post/natalies-story-grusk",
-        "category": "community",
-        "label": "joinbasecamp.com: Natalies Story Grusk"
-      },
-      {
-        "url": "https://www.blueridgeoutdoors.com/go-outside/gravel-race-grusk/",
-        "category": "community",
-        "label": "blueridgeoutdoors.com: Gravel Race Grusk"
-      },
-      {
-        "url": "https://www.mountainrides.net/grusk",
-        "category": "community",
-        "label": "mountainrides.net: Grusk"
+        "url": "https://www.wvgravelseries.com/grusk",
+        "category": "other",
+        "label": "Wvgravelseries"
       }
     ],
     "tire_recommendations": {

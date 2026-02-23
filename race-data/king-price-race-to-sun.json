@@ -94,14 +94,17 @@
       "score": "53 / 100",
       "one_liner": "South African mountain gravel stage race.",
       "should_you_race": "If you have a big budget and want a South African adventure—maybe. For most riders—there are better options.",
-      "alternatives": "For similar multi-stage: Ardenne Gravel Stages. For better value: regional gravel races."
+      "alternatives": "For similar multi-stage: Ardenne Gravel Stages. For better value: regional gravel races.",
+      "alternative_slugs": [
+        "ardenne-gravel-stages"
+      ]
     },
     "logistics": {
       "airport": "Cape Town (CPT) or Johannesburg (JNB) depending on location",
       "lodging_strategy": "Included in package or arranged by organizers.",
       "food": "Support provided. Stock nutrition.",
       "packet_pickup": "Day before typically",
-      "parking": "At start/finish",
+      "parking": "Parking available as amenity[1]",
       "official_site": "Check King Price Race to Sun website"
     },
     "history": {
@@ -185,12 +188,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 86.7,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -311,24 +323,39 @@
     },
     "citations": [
       {
-        "url": "https://racetothesun.co.za/honeycomb226ers_dominate/",
-        "category": "community",
-        "label": "racetothesun.co.za: Honeycomb226Ers Dominate"
+        "url": "https://bikehub.co.za/news/embark-on-a-100-mile-gravel-journey-with-king-price-race-to-the-sun/",
+        "category": "other",
+        "label": "Bikehub"
+      },
+      {
+        "url": "https://facesadvendurance.howler.co.za/events/king-price-race-to-the-sun-2025-d04b",
+        "category": "other",
+        "label": "Facesadvendurance"
       },
       {
         "url": "https://forum.bikehub.co.za/topic/195470-event-king-price-race-to-the-sun/",
-        "category": "community",
-        "label": "forum.bikehub.co.za: 195470 Event King Price Race To The Sun"
+        "category": "other",
+        "label": "Forum"
       },
       {
-        "url": "https://forum.bikehub.co.za/topic/195470-event-king-price-race-to-the-sun/page/4/",
-        "category": "community",
-        "label": "forum.bikehub.co.za: 4"
+        "url": "https://forum.bikehub.co.za/topic/197388-event-king-price-race-to-the-sun/",
+        "category": "other",
+        "label": "Forum"
       },
       {
-        "url": "https://racetothesun.co.za/",
+        "url": "https://racetothesun.co.za/tag/king-price-race-to-the-sun/",
+        "category": "other",
+        "label": "Racetothesun"
+      },
+      {
+        "url": "https://www.treadmtb.co.za/a-prestige-boost-for-king-price-race-to-the-sun/",
+        "category": "other",
+        "label": "Treadmtb"
+      },
+      {
+        "url": "https://racetothesun.co.za/honeycomb226ers_dominate/",
         "category": "community",
-        "label": "racetothesun.co.za"
+        "label": "racetothesun.co.za: Honeycomb226Ers Dominate"
       },
       {
         "url": "https://www.youtube.com/watch?v=FYSA5w9weX0",
@@ -336,29 +363,9 @@
         "label": "youtube.com: Watch"
       },
       {
-        "url": "https://racetothesea.co.za",
-        "category": "community",
-        "label": "racetothesea.co.za"
-      },
-      {
-        "url": "https://racetothesun.co.za",
-        "category": "community",
-        "label": "racetothesun.co.za"
-      },
-      {
         "url": "https://diverge.info/2025/11/25/race-to-the-sun-go-gravel-in-2026-with-sas-og-grave-bike-race/",
         "category": "community",
         "label": "diverge.info: Race To The Sun Go Gravel In 2026 With Sas Og Grave Bike ..."
-      },
-      {
-        "url": "https://forum.bikehub.co.za/topic/197388-event-king-price-race-to-the-sun/",
-        "category": "community",
-        "label": "forum.bikehub.co.za: 197388 Event King Price Race To The Sun"
-      },
-      {
-        "url": "https://www.treadmtb.co.za/a-prestige-boost-for-king-price-race-to-the-sun/",
-        "category": "community",
-        "label": "treadmtb.co.za: A Prestige Boost For King Price Race To The Sun"
       }
     ],
     "tire_recommendations": {

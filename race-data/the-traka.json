@@ -158,7 +158,12 @@
       "score": "88 / 100",
       "one_liner": "Europe's Unbound—360km of technical Mediterranean gravel with Garmin Hill waiting to break you at km 300.",
       "should_you_race": "Yes, if you want Europe's premier gravel experience and can handle 12-18+ hours of racing. Traka delivers WorldTour-level legitimacy, stunning Catalan terrain, and a field from 74 countries. Just be ready for rough sections, Garmin Hill after 300km, and run 44-50mm tires.",
-      "alternatives": "If you want European gravel without the ultra distance: Dirty Reiver (UK, 210km). If you want bucket-list adventure: The Rift (Iceland, volcanic terrain). If you want guaranteed good weather: Unbound (Kansas, June)."
+      "alternatives": "If you want European gravel without the ultra distance: Dirty Reiver (UK, 210km). If you want bucket-list adventure: The Rift (Iceland, volcanic terrain). If you want guaranteed good weather: Unbound (Kansas, June).",
+      "alternative_slugs": [
+        "dirty-reiver",
+        "the-rift",
+        "unbound-200"
+      ]
     },
     "logistics": {
       "airport": "Barcelona (BCN) - 100km / Girona (GRO) - 12km",
@@ -221,7 +226,17 @@
       "signature_challenge": "Garmin Hill—the steepest, slowest, most brutal climb of the day, hitting when you have 300+ km in your legs.",
       "ridewithgps_id": "53947204",
       "ridewithgps_name": "Provisional Traka 360",
-      "map_url": null
+      "map_url": null,
+      "surface_breakdown": {
+        "360mi": {
+          "gravel": 80,
+          "trail": 5
+        },
+        "120mi": {
+          "gravel": 80,
+          "trail": 5
+        }
+      }
     },
     "research_metadata": {
       "data_confidence": "migrated",
@@ -232,18 +247,18 @@
       ],
       "migration_notes": [],
       "research_strength": {
-        "overall": 80.0,
+        "overall": 94.1,
         "grade": "A",
         "weakest": "citation_density",
         "has_research_dump": true,
         "dimensions": {
-          "source_diversity": 30,
-          "citation_density": 5,
+          "source_diversity": 100,
+          "citation_density": 50,
           "temporal_depth": 100,
           "specificity": 100,
           "statistical_backing": 100,
           "voice_authenticity": 100,
-          "completeness": 100,
+          "completeness": 94,
           "cross_reference": 100
         },
         "scored_at": "2026-02-04"
@@ -251,104 +266,59 @@
     },
     "citations": [
       {
-        "url": "https://trfraka.com",
-        "category": "official",
-        "label": "Official Website"
-      },
-      {
         "url": "https://ridewithgps.com/routes/53947204",
         "category": "route",
         "label": "RideWithGPS: Provisional Traka 360"
       },
       {
-        "url": "https://tritalkingsport.com/race-report-tackling-the-traka-360-by-emma-porter/",
-        "category": "community",
-        "label": "tritalkingsport.com: Race Report Tackling The Traka 360 By Emma Porter"
+        "url": "https://cinelli-milano.com/blogs/news/race-report-liv-at-the-traka",
+        "category": "other",
+        "label": "Cinelli-Milano"
       },
       {
-        "url": "https://cyclespeak.com/tag/traka-360/",
-        "category": "community",
-        "label": "cyclespeak.com: Traka 360"
+        "url": "https://gravelearthseries.com/2025/05/05/the-traka-moves-the-whole-world-from-girona-with-the-best-gravel-week-of-the-year/",
+        "category": "other",
+        "label": "Gravelearthseries"
       },
       {
-        "url": "https://nordictrailblazer.cc/races/traka-360/",
-        "category": "community",
-        "label": "nordictrailblazer.cc: Traka 360"
+        "url": "https://gravelunion.cc/article/ride-report-the-traka360-from-dawn-till-dusk",
+        "category": "other",
+        "label": "Gravelunion"
       },
       {
-        "url": "https://www.kogel.cc/blogs/kbba/ulrich-bartholmoes-vs-the-traka-360",
-        "category": "community",
-        "label": "kogel.cc: Ulrich Bartholmoes Vs The Traka 360"
-      },
-      {
-        "url": "https://coros.com/stories/d/freddy-ovett-traka-360",
-        "category": "community",
-        "label": "coros.com: Freddy Ovett Traka 360"
-      },
-      {
-        "url": "https://www.gravelunion.cc/article/ride-report-the-traka360-from-dawn-till-dusk",
-        "category": "community",
-        "label": "gravelunion.cc: Ride Report The Traka360 From Dawn Till Dusk"
-      },
-      {
-        "url": "https://www.tudorprocycling.com/post/gravel-heroes-the-traka-360",
-        "category": "community",
-        "label": "tudorprocycling.com: Gravel Heroes The Traka 360"
-      },
-      {
-        "url": "https://benturneradventure.mykajabi.com/blog/traka360",
-        "category": "community",
-        "label": "benturneradventure.mykajabi.com: Traka360"
+        "url": "https://konacog.konaworld.com/thomas-boury-reports-on-the-360km-traka-race/",
+        "category": "other",
+        "label": "Konacog"
       },
       {
         "url": "https://velo.outsideonline.com/gravel/the-traka-360-tobias-kongstad-soloes-to-victory/",
-        "category": "community",
-        "label": "velo.outsideonline.com: The Traka 360 Tobias Kongstad Soloes To Victory"
-      },
-      {
-        "url": "https://www.cyclingweekly.com/gravel/tobias-kongstad-and-karolina-migon-win-the-traka-360",
-        "category": "community",
-        "label": "cyclingweekly.com: Tobias Kongstad And Karolina Migon Win The Traka 360"
+        "category": "media",
+        "label": "Velo"
       },
       {
         "url": "https://www.cyclingnews.com/races/gravel-earth-series-2025/the-traka-360-20-event-elite-men-women/results/",
-        "category": "community",
-        "label": "cyclingnews.com: Results"
+        "category": "other",
+        "label": "Cyclingnews"
+      },
+      {
+        "url": "https://www.cyclingweekly.com/fitness/nine-lessons-i-learnt-the-hard-way-on-my-first-360km-220mi-gravel-ride",
+        "category": "media",
+        "label": "Cycling Weekly"
+      },
+      {
+        "url": "https://www.cyclingweekly.com/gravel/tobias-kongstad-and-karolina-migon-win-the-traka-360",
+        "category": "media",
+        "label": "Cycling Weekly"
       },
       {
         "url": "https://www.parcours.cc/blogs/news/maddy-nutt-traka-360-race-report",
-        "category": "community",
-        "label": "parcours.cc: Maddy Nutt Traka 360 Race Report"
+        "category": "other",
+        "label": "Parcours"
       },
       {
         "url": "https://www.trainerroad.com/forum/t/traka-360-300km-race-prep/101138",
         "category": "community",
-        "label": "trainerroad.com: 101138"
-      },
-      {
-        "url": "https://gravelunion.cc/article/ride-report-the-traka360-from-dawn-till-dusk",
-        "category": "community",
-        "label": "gravelunion.cc: Ride Report The Traka360 From Dawn Till Dusk"
-      },
-      {
-        "url": "https://konacog.konaworld.com/thomas-boury-reports-on-the-360km-traka-race/",
-        "category": "community",
-        "label": "konacog.konaworld.com: Thomas Boury Reports On The 360Km Traka Race"
-      },
-      {
-        "url": "https://www.cyclingweekly.com/fitness/nine-lessons-i-learnt-the-hard-way-on-my-first-360km-220mi-gravel-ride",
-        "category": "community",
-        "label": "cyclingweekly.com: Nine Lessons I Learnt The Hard Way On My First 360Km 220M..."
-      },
-      {
-        "url": "https://cinelli-milano.com/blogs/news/race-report-liv-at-the-traka",
-        "category": "community",
-        "label": "cinelli-milano.com: Race Report Liv At The Traka"
-      },
-      {
-        "url": "https://gravelearthseries.com/2025/05/05/the-traka-moves-the-whole-world-from-girona-with-the-best-gravel-week-of-the-year/",
-        "category": "community",
-        "label": "gravelearthseries.com: The Traka Moves The Whole World From Girona With The Best..."
+        "label": "TrainerRoad"
       }
     ],
     "results": {

@@ -19,7 +19,7 @@
         "Northeast Alabama"
       ],
       "field_size": "200-400 riders",
-      "start_time": "Morning start",
+      "start_time": "7:42 AM",
       "registration": "Online. Cost: ~$60-100",
       "prize_purse": "Modest prizes",
       "aid_stations": "Multiple aid stations",
@@ -185,12 +185,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 91.8,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 82,
+          "cross_reference": 50
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -316,19 +325,34 @@
         "label": "RideWithGPS: Cheaha Challenge Shake out"
       },
       {
-        "url": "https://www.granfondoguide.com/Contents/Index/6093/cheaha-challenge-draws-record-numbers-this-year",
-        "category": "community",
-        "label": "granfondoguide.com: Cheaha Challenge Draws Record Numbers This Year"
+        "url": "https://avidcyclist.com/event/cheaha-challenge-gran-fondo/",
+        "category": "other",
+        "label": "Avidcyclist"
       },
       {
-        "url": "https://avidcyclist.com/event/cheaha-challenge-gran-fondo/",
-        "category": "community",
-        "label": "avidcyclist.com: Cheaha Challenge Gran Fondo"
+        "url": "https://calhounjournal.com/cheaha-challenge-gran-fondo-returns-to-jacksonville-may-17-18/",
+        "category": "other",
+        "label": "Calhounjournal"
+      },
+      {
+        "url": "https://runtrimag.com/race-events/cheaha-challenge-gran-fondo/",
+        "category": "other",
+        "label": "Runtrimag"
+      },
+      {
+        "url": "https://ucigranfondoworldseries.com/en/cheaha-challenge-granfondo-for-ricardo-rouillon-and-emma-drabbe/",
+        "category": "other",
+        "label": "Ucigranfondoworldseries"
       },
       {
         "url": "https://ucigranfondoworldseries.com/en/cheaha-challenge-granfondo/",
-        "category": "community",
-        "label": "ucigranfondoworldseries.com: Cheaha Challenge Granfondo"
+        "category": "other",
+        "label": "Ucigranfondoworldseries"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Contents/Index/6093/cheaha-challenge-draws-record-numbers-this-year",
+        "category": "other",
+        "label": "Granfondoguide"
       },
       {
         "url": "https://www.youtube.com/watch?v=GodkAOPLQVU",
@@ -336,29 +360,9 @@
         "label": "youtube.com: Watch"
       },
       {
-        "url": "https://granfondodailynews.com/2024/05/21/uci-cheaha-challenge-gran-fondo-worlds-qualifying-results/",
+        "url": "https://www.youtube.com/watch?v=875ptbqhquU",
         "category": "community",
-        "label": "granfondodailynews.com: Uci Cheaha Challenge Gran Fondo Worlds Qualifying Results"
-      },
-      {
-        "url": "https://app.advcollective.com/travel-guides/Lineville/cheaha-challenge-gran-fondo-lineville-alabama",
-        "category": "community",
-        "label": "app.advcollective.com: Cheaha Challenge Gran Fondo Lineville Alabama"
-      },
-      {
-        "url": "https://granfondodailynews.com/2025/05/20/uci-gran-fondo-world-series-wieling-wins-vosges-knight-crushes-cheaha/",
-        "category": "community",
-        "label": "granfondodailynews.com: Uci Gran Fondo World Series Wieling Wins Vosges Knight Cr..."
-      },
-      {
-        "url": "https://runtrimag.com/race-events/cheaha-challenge-gran-fondo/",
-        "category": "community",
-        "label": "runtrimag.com: Cheaha Challenge Gran Fondo"
-      },
-      {
-        "url": "https://ucigranfondoworldseries.com/en/cheaha-challenge-granfondo-for-ricardo-rouillon-and-emma-drabbe/",
-        "category": "community",
-        "label": "ucigranfondoworldseries.com: Cheaha Challenge Granfondo For Ricardo Rouillon And Emma ..."
+        "label": "youtube.com: Watch"
       },
       {
         "url": "https://www.granfondoguide.com/Events/Popup/402",
@@ -366,9 +370,9 @@
         "label": "granfondoguide.com: 402"
       },
       {
-        "url": "https://www.youtube.com/watch?v=875ptbqhquU",
+        "url": "https://granfondodailynews.com/2025/05/20/uci-gran-fondo-world-series-wieling-wins-vosges-knight-crushes-cheaha/",
         "category": "community",
-        "label": "youtube.com: Watch"
+        "label": "granfondodailynews.com: Uci Gran Fondo World Series Wieling Wins Vosges Knight Cr..."
       }
     ],
     "tire_recommendations": {

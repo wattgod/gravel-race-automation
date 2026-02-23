@@ -19,7 +19,7 @@
         "Michigan"
       ],
       "field_size": "100-200 riders",
-      "start_time": "Morning start",
+      "start_time": "8:30 AM",
       "registration": "Online. Cost: ~$50-75",
       "prize_purse": "Modest prizes",
       "aid_stations": "Multiple aid stations",
@@ -94,7 +94,11 @@
       "score": "43 / 100",
       "one_liner": "Michigan local gravel challenge.",
       "should_you_race": "If you're local to Michigan—yes, it's good value. If you're traveling—skip it.",
-      "alternatives": "For better Michigan races: Barry-Roubaix, Iceman Cometh."
+      "alternatives": "For better Michigan races: Barry-Roubaix, Iceman Cometh.",
+      "alternative_slugs": [
+        "barry-roubaix",
+        "iceman-cometh"
+      ]
     },
     "logistics": {
       "airport": "Detroit (DTW) 1 hour",
@@ -185,12 +189,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 92.2,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 100,
+          "completeness": 76,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -316,39 +329,39 @@
         "label": "RideWithGPS: De Ronde Van Grampian 2024 (copy)"
       },
       {
-        "url": "https://www.reddit.com/r/MichiganCycling/comments/whzrvt/de_ronde_van_grampian/",
-        "category": "community",
-        "label": "reddit.com: De Ronde Van Grampian"
+        "url": "https://fastrunningblog.com/u/jasondodge/blog-De-Ronde-van-Grampian/07-22-2023.html",
+        "category": "other",
+        "label": "Fastrunningblog"
+      },
+      {
+        "url": "https://lmb.org/ride-calendar/de-ronde-van-grampian/",
+        "category": "other",
+        "label": "Lmb"
       },
       {
         "url": "https://www.bikeman.com/blog/de-ronde-van-grampian.htms",
-        "category": "community",
-        "label": "bikeman.com: De Ronde Van Grampian.Htms"
+        "category": "other",
+        "label": "Bikeman"
       },
       {
-        "url": "https://www.joinbasecamp.com/post/mikes-story-de-ronde-van-grampian",
-        "category": "community",
-        "label": "joinbasecamp.com: Mikes Story De Ronde Van Grampian"
+        "url": "https://www.ohiogravelgrinders.com/event-listings/2025/8/2/de-ronde-van-grampian-gravel-race",
+        "category": "other",
+        "label": "Ohiogravelgrinders"
       },
       {
-        "url": "https://fastrunningblog.com/u/jasondodge/blog-De-Ronde-van-Grampian/07-22-2023.html",
+        "url": "https://www.reddit.com/r/MichiganCycling/comments/whzrvt/de_ronde_van_grampian/",
         "category": "community",
-        "label": "fastrunningblog.com: 07 22 2023.Html"
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.trainerroad.com/forum/t/list-your-personal-top-3-gravel-races-in-your-home-state-or-country/79242",
+        "category": "community",
+        "label": "TrainerRoad"
       },
       {
         "url": "https://www.reddit.com/r/CheckpointClub/comments/1bd44oc/carbon_wheel_upgrade/",
         "category": "community",
         "label": "reddit.com: Carbon Wheel Upgrade"
-      },
-      {
-        "url": "https://www.drvg-gravel.com/",
-        "category": "community",
-        "label": "drvg-gravel.com"
-      },
-      {
-        "url": "https://lmb.org/ride-calendar/de-ronde-van-grampian/",
-        "category": "community",
-        "label": "lmb.org: De Ronde Van Grampian"
       },
       {
         "url": "https://www.michigangravelraceseries.com/schedule/drvg-gravel-h58kk",

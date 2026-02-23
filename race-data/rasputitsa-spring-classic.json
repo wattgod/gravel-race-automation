@@ -94,7 +94,10 @@
       "score": "60 / 100",
       "one_liner": "Vermont spring mud season mountain gravel in Burke.",
       "should_you_race": "If you want a unique spring mud mountain challenge—yes, it's a legitimate test. If you want dry conditions or pro field depth—look elsewhere.",
-      "alternatives": "For better Vermont events: Vermont Overland. For similar spring mud events: other spring gravel races."
+      "alternatives": "For better Vermont events: Vermont Overland. For similar spring mud events: other spring gravel races.",
+      "alternative_slugs": [
+        "vermont-overland"
+      ]
     },
     "logistics": {
       "airport": "Burlington (BTV) 1.5 hours",
@@ -185,12 +188,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 91.8,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 82,
+          "cross_reference": 50
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -286,7 +298,7 @@
       },
       "adventure": {
         "score": 4,
-        "explanation": "Racing through mud and potential snow while overlooking Canada in Vermont's remote mountains delivers adventure. Weather that's 'merciless on wheeled transport' means you'll earn stories worth telling. This homegrown event puts you at nature's mercy, not some sanitized gravel theme park. As Event Philosophy puts it: \"Rasputitsa transcends the realm of a mere gravel cycling race; it embodies a homegrown, self-supported endeavor that tests the limits of the mind, body, and soul...\""
+        "explanation": "Racing through mud and potential snow while overlooking Canada in Vermont's remote mountains delivers adventure. Weather that's 'merciless on wheeled transport' means you'll earn stories worth telling. This homegrown event puts you at nature's mercy, not some sanitized gravel theme park. As Event Philosophy puts it: \"Rasputitsa transcends the realm of a mere gravel cycling race; it embodies a homegrown, self-supported challenge that tests the limits of the mind, body, and soul...\""
       },
       "prestige": {
         "score": 3,
@@ -324,64 +336,59 @@
         "label": "RideWithGPS: Rasputitsa Spring Classic: 7th"
       },
       {
-        "url": "https://www.bicycling.com/rides/a25061218/gravel-racing-and-parkinsons/",
-        "category": "community",
-        "label": "bicycling.com: Gravel Racing And Parkinsons"
+        "url": "https://rasputitsadirt.com/about",
+        "category": "other",
+        "label": "Rasputitsadirt"
       },
       {
-        "url": "https://nyvelocity.com/rasputitsa/",
-        "category": "community",
-        "label": "nyvelocity.com: Rasputitsa"
+        "url": "https://rasputitsadirt.com/events",
+        "category": "other",
+        "label": "Rasputitsadirt"
       },
       {
-        "url": "https://wifemotherawesomegirl.com/tag/gravel-century/",
-        "category": "community",
-        "label": "wifemotherawesomegirl.com: Gravel Century"
+        "url": "https://rasputitsadirt.com/events/2024/1/20/shakeout-ride-with-makesi-duncan",
+        "category": "other",
+        "label": "Rasputitsadirt"
       },
       {
-        "url": "https://wifemotheawesomegirl.com/tag/gravel-century/",
-        "category": "community",
-        "label": "wifemotheawesomegirl.com: Gravel Century"
+        "url": "https://rasputitsadirt.com/new-page",
+        "category": "other",
+        "label": "Rasputitsadirt"
       },
       {
-        "url": "https://www.youtube.com/watch?v=91O6dSEUFhk",
-        "category": "community",
-        "label": "youtube.com: Watch"
+        "url": "https://rasputitsadirt.com/partners",
+        "category": "other",
+        "label": "Rasputitsadirt"
       },
       {
-        "url": "https://www.volunteersignup.org/LFM4A",
-        "category": "community",
-        "label": "volunteersignup.org: Lfm4A"
+        "url": "https://rasputitsadirt.com/results",
+        "category": "other",
+        "label": "Rasputitsadirt"
       },
       {
-        "url": "https://www.youtube.com/watch?v=k2P1FtVHD64",
-        "category": "community",
-        "label": "youtube.com: Watch"
+        "url": "https://rasputitsadirt.com/shop/rasputitsa-corduroy-hat",
+        "category": "other",
+        "label": "Rasputitsadirt"
       },
       {
-        "url": "https://veloklubhaus.com/2025/02/27/february-2025-rides/",
-        "category": "community",
-        "label": "veloklubhaus.com: February 2025 Rides"
+        "url": "https://rasputitsadirt.com/shop/rasputitsa-supergiara-jersey",
+        "category": "other",
+        "label": "Rasputitsadirt"
       },
       {
-        "url": "https://www.youtube.com/channel/UCbw1cbkgOPggMB63iotxCPw",
-        "category": "community",
-        "label": "youtube.com: Ucbw1Cbkgopggmb63Iotxcpw"
+        "url": "https://www.columbusridesbikes.com/2019/05/rasputitsa-spring-classic-gravel.html",
+        "category": "other",
+        "label": "Columbusridesbikes"
       },
       {
-        "url": "https://granfondoguide.com/Events/NorthAmericanSpringClassics",
-        "category": "community",
-        "label": "granfondoguide.com: Northamericanspringclassics"
+        "url": "https://www.tobedetermined.cc/journal/rasputitsa-recap-the-northeasts-gravel-spring-classic",
+        "category": "other",
+        "label": "Tobedetermined"
       },
       {
         "url": "https://www.tobedetermined.cc/journal/2018/4/rasputitsa-is-it-a-race-or-is-it-a-ride",
         "category": "community",
         "label": "tobedetermined.cc: Rasputitsa Is It A Race Or Is It A Ride"
-      },
-      {
-        "url": "https://www.tobedetermined.cc/journal/rasputitsa-recap-the-northeasts-gravel-spring-classic",
-        "category": "community",
-        "label": "tobedetermined.cc: Rasputitsa Recap The Northeasts Gravel Spring Classic"
       },
       {
         "url": "https://results.bikereg.com/race/11394",
@@ -397,16 +404,6 @@
         "url": "https://www.tobedetermined.cc/journal/2018/4/rasputitsa-is-it-a-race-or-is-it-a-race-or-is-it-a-ride",
         "category": "community",
         "label": "tobedetermined.cc: Rasputitsa Is It A Race Or Is It A Race Or Is It A Ride"
-      },
-      {
-        "url": "https://rasputitsadirt.com/",
-        "category": "community",
-        "label": "rasputitsadirt.com"
-      },
-      {
-        "url": "https://rasputitsadirt.com/results",
-        "category": "community",
-        "label": "rasputitsadirt.com: Results"
       }
     ],
     "tire_recommendations": {

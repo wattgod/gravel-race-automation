@@ -12,7 +12,8 @@
       "date": "March annually",
       "date_specific": "2026: March 19-21",
       "lat": 37.133,
-      "lng": -113.6541
+      "lng": -113.6541,
+      "start_time": "7:30 AM"
     },
     "gravel_god_rating": {
       "overall_score": 74,
@@ -131,7 +132,10 @@
       "score": "74 / 100",
       "one_liner": "Utah's technical playground where your handling skills matter more than your FTP and the Rollers of Doom separate pretenders from the genuinely prepared.",
       "should_you_race": "Show up if you're comfortable dismounting on steep rock faces and practicing technical lines a dozen times before race day. The 9,000 feet of climbing rides like a century because of the constant technical demands—your bike handling needs to be sharp when you're deep into hour six. Skip this if you prefer smooth gravel roads or think a dropper post is overkill for gravel racing.",
-      "alternatives": "Dirty Kanza offers similar distance with less technical punishment, while McDowell Mountain Frenzy gives you desert beauty without the constant dismount-and-carry sections. Both let you actually use your fitness instead of spending half the day walking your bike over sandstone."
+      "alternatives": "Dirty Kanza offers similar distance with less technical punishment, while McDowell Mountain Frenzy gives you desert beauty without the constant dismount-and-carry sections. Both let you actually use your fitness instead of spending half the day walking your bike over sandstone.",
+      "alternative_slugs": [
+        "unbound-200"
+      ]
     },
     "course_description": {
       "character": "True Grit drops you into the geological chaos where three deserts collide—Mojave, Great Basin, and Colorado Plateau. Eighty percent off-road through sandstone mazes, volcanic remnants, and sandy washes that chew up bikes and spit out undertrained riders. This isn't gravel racing, it's technical mountain biking disguised as a gravel event.",
@@ -157,9 +161,20 @@
           "desc": "The final ridge ascent where the accumulated technical damage meets legitimate climbing. Your bike handling mistakes from mile 30 compound into full-body rebellion."
         }
       ],
-      "signature_challenge": "Lines through the rocks that riders practice a dozen times pre-race and still freeze up on race day. The technical sections aren't just difficult—they're bike-destroying, confidence-crushing puzzles that punish hesitation and reward local knowledge you don't have."
+      "signature_challenge": "Lines through the rocks that riders practice a dozen times pre-race and still freeze up on race day. The technical sections aren't just difficult—they're bike-destroying, confidence-crushing puzzles that punish hesitation and reward local knowledge you don't have.",
+      "surface_breakdown": {
+        "overall": {
+          "off-road": 80,
+          "pavement": 20
+        }
+      }
     },
     "citations": [
+      {
+        "url": "https://truegritepic.com/gravel/",
+        "category": "official",
+        "label": "Official Website"
+      },
       {
         "url": "https://greaterzion.com/event/true-grit-gravel-epic-race/",
         "category": "other",
@@ -171,9 +186,9 @@
         "label": "Gropromotions"
       },
       {
-        "url": "https://truegritepic.com/gravel/",
-        "category": "other",
-        "label": "Truegritepic"
+        "url": "https://www.bikeradar.com/reviews/bikes/gravel-bikes/lauf-true-grit-race-axs-long-term-review",
+        "category": "media",
+        "label": "BikeRadar"
       },
       {
         "url": "https://www.cxmagazine.com/gravel-race-2019-true-grit-gravel-epic-utah-pickles",
@@ -181,34 +196,19 @@
         "label": "CX Magazine"
       },
       {
+        "url": "https://www.cyclingnews.com/pro-cycling/teams-riders/former-unbound-gravel-winner-carolin-schiff-returns-from-health-issues-with-new-13-rider-canyon-x-dt-swiss-all-terrain-racing-team/",
+        "category": "other",
+        "label": "Cyclingnews"
+      },
+      {
         "url": "https://www.trainerroad.com/forum/t/true-grit-epic-50-data-fields/12740",
         "category": "community",
         "label": "TrainerRoad"
       },
       {
-        "url": "https://www.cxmagazine.com/preview-2018-gravel-worlds-race-nebraska-lauf-true-grit",
-        "category": "community",
-        "label": "cxmagazine.com: Preview 2018 Gravel Worlds Race Nebraska Lauf True Grit"
-      },
-      {
-        "url": "https://bikepacking.com/bikes/2024-atlas-mountain-race-rigs-part-2/",
-        "category": "community",
-        "label": "bikepacking.com: 2024 Atlas Mountain Race Rigs Part 2"
-      },
-      {
-        "url": "https://www.cyclingnews.com/reviews/vittoria-mezcal-tyre-review/",
-        "category": "community",
-        "label": "cyclingnews.com: Vittoria Mezcal Tyre Review"
-      },
-      {
         "url": "https://careylowery.blogspot.com/2019/03/true-grit-epic-race-report.html",
         "category": "community",
         "label": "careylowery.blogspot.com: True Grit Epic Race Report.Html"
-      },
-      {
-        "url": "https://www.bikeradar.com/reviews/bikes/gravel-bikes/lauf-true-grit-race-axs-long-term-review",
-        "category": "community",
-        "label": "bikeradar.com: Lauf True Grit Race Axs Long Term Review"
       }
     ],
     "logistics": {
@@ -286,6 +286,25 @@
         "Technical ledge climbs",
         "Waterfall technical lines"
       ]
+    },
+    "research_metadata": {
+      "research_strength": {
+        "overall": 84.5,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 80,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 58,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
+      }
     }
   }
 }

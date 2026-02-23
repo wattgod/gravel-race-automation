@@ -57,6 +57,11 @@ def get_mega_footer_html() -> str:
   </div>
   <div class="gg-mega-footer-legal">
     <span>&copy; {CURRENT_YEAR} Gravel God Cycling. All rights reserved.</span>
+    <nav class="gg-mega-footer-legal-links">
+      <a href="{SITE_BASE_URL}/privacy/">Privacy</a>
+      <a href="{SITE_BASE_URL}/terms/">Terms</a>
+      <a href="{SITE_BASE_URL}/cookies/">Cookies</a>
+    </nav>
   </div>
   <div class="gg-mega-footer-disclaimer">
     <p>This content is produced independently by Gravel God and is not affiliated with, endorsed by, or officially connected to any race organizer, event, or governing body mentioned on this page. All ratings, opinions, and assessments represent the editorial views of Gravel God based on publicly available information and community research. Race details are subject to change &mdash; always verify with official race sources.</p>
@@ -79,7 +84,10 @@ def get_mega_footer_css() -> str:
 .gg-mega-footer-newsletter-desc { font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-xs); color: var(--gg-color-tan); line-height: var(--gg-line-height-prose); margin: 0 0 var(--gg-spacing-md) 0; }
 .gg-mega-footer-subscribe { display: inline-block; padding: var(--gg-spacing-xs) var(--gg-spacing-lg); font-family: var(--gg-font-data); font-size: 11px; font-weight: var(--gg-font-weight-bold); letter-spacing: var(--gg-letter-spacing-wider); background: var(--gg-color-teal); color: var(--gg-color-white); text-decoration: none; border: var(--gg-border-width-standard) solid var(--gg-color-teal); transition: background-color var(--gg-transition-hover), border-color var(--gg-transition-hover); }
 .gg-mega-footer-subscribe:hover { background: transparent; border-color: var(--gg-color-teal); }
-.gg-mega-footer-legal { padding: var(--gg-spacing-md) var(--gg-spacing-xl); border-top: 1px solid var(--gg-color-primary-brown); text-align: center; font-family: var(--gg-font-data); font-size: var(--gg-font-size-2xs); color: var(--gg-color-secondary-brown); letter-spacing: var(--gg-letter-spacing-wide); max-width: 960px; margin: 0 auto; }
+.gg-mega-footer-legal { padding: var(--gg-spacing-md) var(--gg-spacing-xl); border-top: 1px solid var(--gg-color-primary-brown); text-align: center; font-family: var(--gg-font-data); font-size: var(--gg-font-size-2xs); color: var(--gg-color-secondary-brown); letter-spacing: var(--gg-letter-spacing-wide); max-width: 960px; margin: 0 auto; display: flex; justify-content: center; align-items: center; gap: var(--gg-spacing-md); flex-wrap: wrap; }
+.gg-mega-footer-legal-links { display: flex; gap: var(--gg-spacing-md); }
+.gg-mega-footer-legal-links a { color: var(--gg-color-secondary-brown); text-decoration: none; transition: color var(--gg-transition-hover); }
+.gg-mega-footer-legal-links a:hover { color: var(--gg-color-tan); }
 .gg-mega-footer-disclaimer { padding: var(--gg-spacing-sm) var(--gg-spacing-xl) var(--gg-spacing-lg); max-width: 960px; margin: 0 auto; }
 .gg-mega-footer-disclaimer p { font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-2xs); color: var(--gg-color-secondary-brown); line-height: var(--gg-line-height-relaxed); margin: 0; text-align: center; }
 

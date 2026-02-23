@@ -19,7 +19,7 @@
         "Wyoming"
       ],
       "field_size": "50-100 riders",
-      "start_time": "Morning start",
+      "start_time": "7:30 AM",
       "registration": "Online. Cost: ~$75-95",
       "prize_purse": "Modest prizes",
       "aid_stations": "2-3 aid stations",
@@ -94,7 +94,12 @@
       "score": "44 / 100",
       "one_liner": "Wyoming mountain gravel challenge.",
       "should_you_race": "If you're local to WY—yes, it's solid. If you're traveling—skip it.",
-      "alternatives": "For better WY races: Dead Swede Gravel, WYO 131, Cowboy Crusher."
+      "alternatives": "For better WY races: Dead Swede Gravel, WYO 131, Cowboy Crusher.",
+      "alternative_slugs": [
+        "cowboy-crusher",
+        "dead-swede-gravel",
+        "wyo-131"
+      ]
     },
     "logistics": {
       "airport": "Billings (BIL) 2 hours",
@@ -185,12 +190,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 84.7,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 80,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -316,59 +330,29 @@
         "label": "RideWithGPS: 2022 Mane Event gravel Grinder"
       },
       {
-        "url": "https://www.maneeventgravel.com/gravelog-posts",
-        "category": "community",
-        "label": "maneeventgravel.com: Gravelog Posts"
-      },
-      {
-        "url": "https://sheridanwyoming.com/2025/09/03/grinding-gravel-and-giving-sight/",
-        "category": "community",
-        "label": "sheridanwyoming.com: Grinding Gravel And Giving Sight"
-      },
-      {
-        "url": "https://www.sheridanwyoming.org/festivals-events/mane-event-gravel-grinder/",
-        "category": "community",
-        "label": "sheridanwyoming.org: Mane Event Gravel Grinder"
-      },
-      {
-        "url": "https://bicyclecolorado.org/event/mane-event/",
-        "category": "community",
-        "label": "bicyclecolorado.org: Mane Event"
-      },
-      {
-        "url": "https://www.maneeventgravel.com/",
-        "category": "community",
-        "label": "maneeventgravel.com"
-      },
-      {
-        "url": "https://maneevent.itsyourrace.com/Results.aspx?id=14243",
-        "category": "community",
-        "label": "maneevent.itsyourrace.com: Results.Aspx"
-      },
-      {
-        "url": "https://www.granfondoguide.com/Events/Index/10592/the-mane-event-gravel-grinder",
-        "category": "community",
-        "label": "granfondoguide.com: The Mane Event Gravel Grinder"
-      },
-      {
-        "url": "https://www.maneeventgravel.com/gravelog-posts/changes-for-2025",
-        "category": "community",
-        "label": "maneeventgravel.com: Changes For 2025"
-      },
-      {
         "url": "https://sheridanmedia.com/news/146679/lions-club-presents-the-mane-event-gravel-grinder/",
-        "category": "community",
-        "label": "sheridanmedia.com: Lions Club Presents The Mane Event Gravel Grinder"
-      },
-      {
-        "url": "https://sheridanwyoming.com/2024/09/17/the-mane-event-gravel-grinder-racing-to-raise-funds-for-sight/",
-        "category": "community",
-        "label": "sheridanwyoming.com: The Mane Event Gravel Grinder Racing To Raise Funds For S..."
+        "category": "other",
+        "label": "Sheridanmedia"
       },
       {
         "url": "https://sheridanmedia.com/news/205839/the-mane-event-gravel-grinder-on-public-pulse-sept-2/",
-        "category": "community",
-        "label": "sheridanmedia.com: The Mane Event Gravel Grinder On Public Pulse Sept 2"
+        "category": "other",
+        "label": "Sheridanmedia"
+      },
+      {
+        "url": "https://sheridanwyoming.com/2024/09/17/the-mane-event-gravel-grinder-racing-to-raise-funds-for-sight/",
+        "category": "other",
+        "label": "Sheridanwyoming"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/10592/the-mane-event-gravel-grinder",
+        "category": "other",
+        "label": "Granfondoguide"
+      },
+      {
+        "url": "https://www.maneeventgravel.com/gravelog",
+        "category": "other",
+        "label": "Maneeventgravel"
       }
     ],
     "tire_recommendations": {

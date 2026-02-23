@@ -38,7 +38,9 @@ from brand_tokens import (
     get_font_face_css,
     get_preload_hints,
     get_tokens_css,
+    get_ga4_head_snippet,
 )
+from cookie_consent import get_consent_banner_html
 from shared_footer import get_mega_footer_css, get_mega_footer_html
 from shared_header import get_site_header_css, get_site_header_html
 
@@ -145,23 +147,9 @@ def detect_country(location: str) -> str:
     return 'US'
 
 
-QUESTIONNAIRE_SLUGS = {
-    'unbound-200': 'unbound-200',
-    'unbound-gravel-200': 'unbound-200',
-    'mid-south': 'mid-south',
-    'sbt-grvl': 'sbt-grvl',
-    'bwr-california': 'bwr',
-    'leadville-trail-100-mtb': 'leadville-100',
-    'the-rift-iceland': 'rift-iceland',
-    'gravel-worlds': 'gravel-worlds',
-    'steamboat-gravel': 'steamboat-gravel',
-}
-
-QUESTIONNAIRE_BASE = "https://wattgod.github.io/training-plans-component/training-plan-questionnaire.html"
 SITE_BASE_URL = "https://gravelgodcycling.com"
-COACHING_URL = f"{SITE_BASE_URL}/coaching/"
-TRAINING_PLANS_URL = f"{SITE_BASE_URL}/products/training-plans/"
-GA_MEASUREMENT_ID = "G-EJJZ9T6M52"
+COACHING_URL = f"{SITE_BASE_URL}/coaching/apply/"
+TRAINING_PLANS_URL = f"{SITE_BASE_URL}/questionnaire/"
 SUBSTACK_URL = "https://gravelgodcycling.substack.com"
 SUBSTACK_EMBED = "https://gravelgodcycling.substack.com/embed"
 CURRENT_YEAR = str(datetime.now().year)
@@ -372,14 +360,6 @@ def normalize_race_data(data: dict) -> dict:
     }
 
 
-def get_questionnaire_url(slug: str) -> str:
-    """Return questionnaire URL for a race, with race param if supported."""
-    mapped = QUESTIONNAIRE_SLUGS.get(slug)
-    if mapped:
-        return f"{QUESTIONNAIRE_BASE}?race={mapped}"
-    return QUESTIONNAIRE_BASE
-
-
 # ── Phase 2: HTML Builders ─────────────────────────────────────
 
 def esc(text: Any) -> str:
@@ -569,7 +549,7 @@ def build_accordion_html(dims: list, explanations: dict, idx_offset: int = 0) ->
     return '<div class="gg-accordion">\n' + '\n'.join(items) + '\n</div>'
 
 
-def build_sticky_cta(race_name: str, url: str) -> str:
+def build_sticky_cta(race_name: str) -> str:
     """Build sticky bottom CTA bar HTML."""
     return f'''<div class="gg-sticky-cta" id="gg-sticky-cta">
   <div class="gg-sticky-cta-inner">
@@ -1546,6 +1526,54 @@ def build_course_overview(rd: dict, race_index: list = None) -> str:
     else:
         hard_label, hard_color = 'ACCESSIBLE', COLORS['teal']
 
+    # Calendar export — Google Calendar link + .ics download
+    cal_html = ''
+    date_specific = v.get('date_specific', '')
+    date_clean = re.sub(
+        r'(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday),?\s*',
+        '', date_specific)
+    date_clean = re.sub(r'(\d+)(?:st|nd|rd|th)\b', r'\1', date_clean)
+    cal_date_match = re.search(r'(\d{4}).*?(\w+)\s+(\d+)(?:-(\d+))?', date_clean)
+    if not cal_date_match:
+        cal_date_match = re.search(r'(\w+)\s+(\d+)(?:-\d+)?,?\s*(\d{4})', date_clean)
+        if cal_date_match:
+            month_name_c, day_c, year_c = cal_date_match.group(1), cal_date_match.group(2), cal_date_match.group(3)
+            month_num_c = MONTH_NUMBERS.get(month_name_c.lower(), '')
+        else:
+            month_num_c = ''
+    else:
+        year_c = cal_date_match.group(1)
+        month_name_c = cal_date_match.group(2)
+        day_c = cal_date_match.group(3)
+        month_num_c = MONTH_NUMBERS.get(month_name_c.lower(), '')
+
+    if month_num_c and month_num_c != '':
+        iso_date = f"{year_c}{month_num_c}{int(day_c):02d}"
+        race_title = rd['name']
+        location_str = v.get('location', '')
+        from urllib.parse import quote
+        gcal_url = (
+            f"https://calendar.google.com/calendar/render?action=TEMPLATE"
+            f"&text={quote(race_title)}"
+            f"&dates={iso_date}/{iso_date}"
+            f"&details={quote(f'Gravel race — {race_title}. More info at gravelgodcycling.com')}"
+            f"&location={quote(location_str)}"
+        )
+        ics_data = (
+            f"BEGIN:VCALENDAR\\nVERSION:2.0\\nPRODID:-//GravelGod//EN\\n"
+            f"BEGIN:VEVENT\\n"
+            f"DTSTART;VALUE=DATE:{iso_date}\\n"
+            f"DTEND;VALUE=DATE:{iso_date}\\n"
+            f"SUMMARY:{race_title}\\n"
+            f"LOCATION:{location_str}\\n"
+            f"DESCRIPTION:Gravel race. More info at gravelgodcycling.com\\n"
+            f"END:VEVENT\\nEND:VCALENDAR"
+        )
+        cal_html = f'''<div class="gg-calendar-export">
+        <a href="{esc(gcal_url)}" target="_blank" rel="noopener" class="gg-cal-btn gg-cal-btn--google">+ Google Calendar</a>
+        <a href="#" class="gg-cal-btn gg-cal-btn--ics" onclick="var b=new Blob(['{ics_data}'.replace(/\\\\n/g,'\\n')],{{type:'text/calendar'}});var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='{esc(rd["slug"])}.ics';a.click();return false;">Download .ics</a>
+      </div>'''
+
     gauge_html = f'''<div class="gg-difficulty-gauge">
         <div class="gg-difficulty-header">
           <span class="gg-difficulty-title">DIFFICULTY</span>
@@ -1572,6 +1600,7 @@ def build_course_overview(rd: dict, race_index: list = None) -> str:
       <div class="gg-stat-grid">
       {cards}
       </div>
+      {cal_html}
       {gauge_html}
       {nearby_html}
     </div>
@@ -1644,6 +1673,45 @@ def build_course_route(rd: dict) -> str:
 
     if c.get('signature_challenge'):
         body_parts.append(f'<div class="gg-prose"><p><strong>Signature challenge:</strong> {esc(c["signature_challenge"])}</p></div>')
+
+    # Surface breakdown bar chart
+    surface = c.get('surface_breakdown', {})
+    if surface:
+        surface_colors = {
+            'gravel': 'var(--gg-color-teal)',
+            'pavement': 'var(--gg-color-gold)',
+            'dirt': 'var(--gg-color-warm-brown)',
+            'singletrack': 'var(--gg-color-primary-brown)',
+            'doubletrack': 'var(--gg-color-secondary-brown)',
+            'trail': 'var(--gg-color-secondary-brown)',
+            'sand': 'var(--gg-color-tan)',
+            'mud': 'var(--gg-color-dark-brown)',
+        }
+        bars_html = []
+        for dist_label, surfaces in surface.items():
+            segs = []
+            for stype, pct in sorted(surfaces.items(), key=lambda x: -x[1]):
+                color = surface_colors.get(stype, 'var(--gg-color-tan)')
+                label_text = f'{esc(stype)} {pct}%' if pct >= 10 else ''
+                segs.append(
+                    f'<div class="gg-surface-seg" style="width:{pct}%;background:{color}" '
+                    f'title="{esc(stype)} {pct}%">{label_text}</div>'
+                )
+            legend_items = [
+                f'<span class="gg-surface-legend-item">'
+                f'<span class="gg-surface-legend-dot" style="background:{surface_colors.get(s, "var(--gg-color-tan)")}">'
+                f'</span>{esc(s)} {p}%</span>'
+                for s, p in sorted(surfaces.items(), key=lambda x: -x[1])
+            ]
+            bars_html.append(f'''<div class="gg-surface-row">
+              <div class="gg-surface-dist">{esc(dist_label)}</div>
+              <div class="gg-surface-bar">{"".join(segs)}</div>
+              <div class="gg-surface-legend">{"".join(legend_items)}</div>
+            </div>''')
+        body_parts.append(f'''<div class="gg-surface-breakdown">
+          <div class="gg-surface-header">SURFACE COMPOSITION</div>
+          {"".join(bars_html)}
+        </div>''')
 
     if zones:
         zone_html = []
@@ -1927,7 +1995,7 @@ def build_racer_reviews(rd: dict) -> str:
   </section>'''
 
 
-def build_training(rd: dict, q_url: str) -> str:
+def build_training(rd: dict) -> str:
     """Build [06] Training section — two distinct paths, countdown, clear differentiation."""
     race_name = rd['name']
 
@@ -1977,7 +2045,7 @@ def build_training(rd: dict, q_url: str) -> str:
           <p class="gg-training-subtitle">A human in your corner. Adapts week to week.</p>
           <p>Your coach reviews every session, adjusts when life happens, and builds race-day strategy with you. Not a plan &mdash; a partnership.</p>
         </div>
-        <a href="{esc(COACHING_URL)}" class="gg-btn" target="_blank" rel="noopener">APPLY FOR 1:1 COACHING</a>
+        <a href="{esc(COACHING_URL)}" class="gg-btn">APPLY FOR 1:1 COACHING</a>
       </div>
     </div>
   </section>'''
@@ -2525,6 +2593,14 @@ def get_page_css() -> str:
 .gg-neo-brutalist-page .gg-stat-value {{ font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-xl); font-weight: var(--gg-font-weight-bold); color: var(--gg-color-dark-brown); line-height: var(--gg-line-height-tight); }}
 .gg-neo-brutalist-page .gg-stat-label {{ font-family: var(--gg-font-data); font-size: var(--gg-font-size-2xs); font-weight: var(--gg-font-weight-bold); letter-spacing: var(--gg-letter-spacing-wider); text-transform: uppercase; color: var(--gg-color-gold); margin-top: var(--gg-spacing-2xs); }}
 
+/* Calendar export */
+.gg-neo-brutalist-page .gg-calendar-export {{ display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; }}
+.gg-neo-brutalist-page .gg-cal-btn {{ font-family: var(--gg-font-data); font-size: 11px; font-weight: 700; letter-spacing: var(--gg-letter-spacing-wider); text-transform: uppercase; padding: 6px 14px; border: 2px solid var(--gg-color-dark-brown); text-decoration: none; transition: background var(--gg-transition-hover), color var(--gg-transition-hover); cursor: pointer; }}
+.gg-neo-brutalist-page .gg-cal-btn--google {{ background: var(--gg-color-warm-paper); color: var(--gg-color-dark-brown); }}
+.gg-neo-brutalist-page .gg-cal-btn--google:hover {{ background: var(--gg-color-teal); color: var(--gg-color-white); }}
+.gg-neo-brutalist-page .gg-cal-btn--ics {{ background: var(--gg-color-warm-paper); color: var(--gg-color-dark-brown); }}
+.gg-neo-brutalist-page .gg-cal-btn--ics:hover {{ background: var(--gg-color-gold); color: var(--gg-color-dark-brown); }}
+
 /* Difficulty gauge */
 .gg-neo-brutalist-page .gg-difficulty-gauge {{ margin-top: 20px; border: var(--gg-border-standard); padding: 16px; background: var(--gg-color-warm-paper); }}
 .gg-neo-brutalist-page .gg-difficulty-header {{ display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }}
@@ -2558,6 +2634,18 @@ def get_page_css() -> str:
 .gg-neo-brutalist-page .gg-timeline-item.is-visible {{ opacity: 1; transform: translateY(0); }}
 .gg-neo-brutalist-page .gg-timeline-item::before {{ content: ''; position: absolute; left: -27px; top: 6px; width: 10px; height: 10px; background: var(--gg-color-gold); border: 2px solid var(--gg-color-dark-brown); }}
 .gg-neo-brutalist-page .gg-timeline-text {{ font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-xs); color: var(--gg-color-dark-brown); line-height: 1.5; }}
+
+/* Surface breakdown chart */
+.gg-neo-brutalist-page .gg-surface-breakdown {{ border: var(--gg-border-standard); padding: var(--gg-spacing-md); background: var(--gg-color-warm-paper); margin-bottom: 20px; }}
+.gg-neo-brutalist-page .gg-surface-header {{ font-family: var(--gg-font-data); font-size: 10px; font-weight: 700; letter-spacing: var(--gg-letter-spacing-wider); text-transform: uppercase; color: var(--gg-color-warm-brown); margin-bottom: 12px; }}
+.gg-neo-brutalist-page .gg-surface-row {{ margin-bottom: 10px; }}
+.gg-neo-brutalist-page .gg-surface-row:last-child {{ margin-bottom: 0; }}
+.gg-neo-brutalist-page .gg-surface-dist {{ font-family: var(--gg-font-data); font-size: var(--gg-font-size-xs); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; color: var(--gg-color-dark-brown); }}
+.gg-neo-brutalist-page .gg-surface-bar {{ display: flex; height: 24px; border: 1px solid var(--gg-color-dark-brown); overflow: hidden; }}
+.gg-neo-brutalist-page .gg-surface-seg {{ display: flex; align-items: center; justify-content: center; font-family: var(--gg-font-data); font-size: 9px; font-weight: 700; color: var(--gg-color-white); text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap; overflow: hidden; }}
+.gg-neo-brutalist-page .gg-surface-legend {{ display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }}
+.gg-neo-brutalist-page .gg-surface-legend-item {{ font-family: var(--gg-font-data); font-size: 10px; color: var(--gg-color-dark-brown); display: flex; align-items: center; gap: 4px; text-transform: capitalize; }}
+.gg-neo-brutalist-page .gg-surface-legend-dot {{ width: 8px; height: 8px; border: 1px solid var(--gg-color-dark-brown); flex-shrink: 0; }}
 
 /* Suffering zones */
 .gg-neo-brutalist-page .gg-suffering-zone {{ border: var(--gg-border-subtle); margin-bottom: 12px; display: flex; background: var(--gg-color-warm-paper); opacity: 0; transform: translateX(-30px); transition: opacity 0.5s, transform 0.5s; }}
@@ -2956,7 +3044,6 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
     If external_assets is provided, references external CSS/JS files instead of inlining.
     """
     race_index = race_index or []
-    q_url = get_questionnaire_url(rd['slug'])
     canonical_url = f"{SITE_BASE_URL}/race/{rd['slug']}/"
 
     # JSON-LD
@@ -2993,12 +3080,12 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
     email_capture = build_email_capture(rd)
     visible_faq = build_visible_faq(rd)
     news = build_news_section(rd)
-    training = build_training(rd, q_url)
+    training = build_training(rd)
     logistics_sec = build_logistics_section(rd)
     similar = build_similar_races(rd, race_index)
     citations_sec = build_citations_section(rd)
     footer = build_footer(rd)
-    sticky_cta = build_sticky_cta(rd['name'], q_url)
+    sticky_cta = build_sticky_cta(rd['name'])
 
     # Dynamic TOC — only link to sections that have content
     active = {'course', 'ratings', 'training'}  # always present
@@ -3088,8 +3175,7 @@ body{margin:0;background:#ede4d8}
   {og_tags}
   {jsonld_html}
   {css}
-  <script async src="https://www.googletagmanager.com/gtag/js?id={GA_MEASUREMENT_ID}"></script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments)}}gtag('js',new Date());gtag('config','{GA_MEASUREMENT_ID}');</script>
+  {get_ga4_head_snippet()}
 </head>
 <body>
 
@@ -3110,6 +3196,7 @@ body{margin:0;background:#ede4d8}
 <button class="gg-back-to-top" id="gg-back-to-top" aria-label="Back to top">&uarr;</button>
 {inline_js}
 
+{get_consent_banner_html()}
 </body>
 </html>'''
 

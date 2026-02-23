@@ -94,7 +94,10 @@
       "score": "53 / 100",
       "one_liner": "Austrian Alps gravel challenge.",
       "should_you_race": "If you're in Europe—yes, it's solid. If you're international—there are better options.",
-      "alternatives": "For better value: regional gravel races. For similar Alpine terrain: Gravel Suisse."
+      "alternatives": "For better value: regional gravel races. For similar Alpine terrain: Gravel Suisse.",
+      "alternative_slugs": [
+        "gravel-suisse"
+      ]
     },
     "logistics": {
       "airport": "Klagenfurt (KLU) or Ljubljana (LJU) 1 hour",
@@ -185,12 +188,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 86.7,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -311,49 +323,54 @@
     },
     "citations": [
       {
-        "url": "https://cyclry.com/worthersee-gravel-race-2024-highlights-report/",
-        "category": "community",
-        "label": "cyclry.com: Worthersee Gravel Race 2024 Highlights Report"
-      },
-      {
-        "url": "https://ucigravelworldseries.com/en/veldamworthersee/",
-        "category": "community",
-        "label": "ucigravelworldseries.com: Veldamworthersee"
-      },
-      {
-        "url": "https://pedalperformancegroup.com/worthersee-gravel-race-victory-goes-to-austria/",
-        "category": "community",
-        "label": "pedalperformancegroup.com: Worthersee Gravel Race Victory Goes To Austria"
-      },
-      {
-        "url": "https://trailstories.net/2024/05/20/woerthersee-gravel-race.html",
-        "category": "community",
-        "label": "trailstories.net: Woerthersee Gravel Race.Html"
-      },
-      {
-        "url": "https://www.woerthersee-gravel.com/en/competition/course/",
-        "category": "community",
-        "label": "woerthersee-gravel.com: Course"
-      },
-      {
-        "url": "https://granfondodailynews.com/2025/04/07/uci-worthersee-gravel-results-klaris-schreurs-awesome-in-austria/",
-        "category": "community",
-        "label": "granfondodailynews.com: Uci Worthersee Gravel Results Klaris Schreurs Awesome In ..."
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=4C5vWlRVnxc",
-        "category": "community",
-        "label": "youtube.com: Watch"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=S4F7SHM9dxU",
-        "category": "community",
-        "label": "youtube.com: Watch"
+        "url": "https://ridewithgps.com/routes/50218872",
+        "category": "route",
+        "label": "RideWithGPS: Wörthersee Gravel Race 2025 | 136km | Update "
       },
       {
         "url": "https://magazinebike.com/2025/04/17/veni-vidi-vici-qualification-won-worthersee-gravel-race-2025/",
-        "category": "community",
-        "label": "magazinebike.com: Veni Vidi Vici Qualification Won Worthersee Gravel Race 2025"
+        "category": "other",
+        "label": "Magazinebike"
+      },
+      {
+        "url": "https://pedalperformancegroup.com/strongest-uci-gravel-world-series-pro-field-ever-at-the-worthersee-gravel-race/",
+        "category": "other",
+        "label": "Pedalperformancegroup"
+      },
+      {
+        "url": "https://ucigravelworldseries.com/en/veldamworthersee/",
+        "category": "other",
+        "label": "Ucigravelworldseries"
+      },
+      {
+        "url": "https://w-gravel.com/event/uci-world-gravel-series/",
+        "category": "other",
+        "label": "W-Gravel"
+      },
+      {
+        "url": "https://www.falkensteiner.com/en/schlosshotel-velden/experience/whats-on/worthersee-gravel-race",
+        "category": "other",
+        "label": "Falkensteiner"
+      },
+      {
+        "url": "https://www.gravelbike-holidays.com/en/gravel-bike-vacation/region-detail/lake-woerthersee",
+        "category": "other",
+        "label": "Gravelbike-Holidays"
+      },
+      {
+        "url": "https://www.woerthersee-gravel.com/en/gravel-experience-gravgrav-max-riese/",
+        "category": "other",
+        "label": "Woerthersee-Gravel"
+      },
+      {
+        "url": "https://www.woerthersee-gravel.com/en/program/",
+        "category": "other",
+        "label": "Woerthersee-Gravel"
+      },
+      {
+        "url": "https://www.woerthersee-gravel.com/en/registration/accommodation-entry-powered-by-pedal-ride-experience/",
+        "category": "other",
+        "label": "Woerthersee-Gravel"
       },
       {
         "url": "https://www.bike-x.de/mitgefahren-rasantes-woerthersee-gravel-race/",
@@ -364,11 +381,6 @@
         "url": "https://trailstories.net/2024/05/20/woerthersee-gravel-race",
         "category": "community",
         "label": "trailstories.net: Woerthersee Gravel Race"
-      },
-      {
-        "url": "https://www.woerthersee-gravel.com/en/program/",
-        "category": "community",
-        "label": "woerthersee-gravel.com: Program"
       }
     ],
     "results": {

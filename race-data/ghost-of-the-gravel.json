@@ -19,7 +19,7 @@
         "Canada"
       ],
       "field_size": "200-400 riders",
-      "start_time": "Morning start",
+      "start_time": "9:00am with",
       "registration": "Online. Cost: ~$100-150 CAD",
       "prize_purse": "Modest prizes",
       "aid_stations": "Multiple aid stations",
@@ -94,7 +94,10 @@
       "score": "46 / 100",
       "one_liner": "Alberta prairie gravel challenge.",
       "should_you_race": "If you're in Canada—yes, it's solid. If you're international—there are better options.",
-      "alternatives": "For better value: regional gravel races. For similar Canadian terrain: The Range."
+      "alternatives": "For better value: regional gravel races. For similar Canadian terrain: The Range.",
+      "alternative_slugs": [
+        "the-range"
+      ]
     },
     "logistics": {
       "airport": "Calgary (YYC) varies by location",
@@ -102,7 +105,8 @@
       "food": "Alberta has full dining options. Stock nutrition.",
       "packet_pickup": "Day before typically",
       "parking": "At start/finish",
-      "official_site": "Check Ghost of the Gravel website"
+      "official_site": "Check Ghost of the Gravel website",
+      "camping": "Campground to Lyell Saddle hut experienced \"a large and unpassable slip\" (landslide), forcing route modifications"
     },
     "history": {
       "founded": null,
@@ -185,12 +189,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 81.7,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 80,
+          "citation_density": 80,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -311,14 +324,24 @@
     },
     "citations": [
       {
-        "url": "https://www.trainerroad.com/forum/t/tr-success-story-ghost-of-the-gravel-alberta-my-2019-a-race/17262",
-        "category": "community",
-        "label": "trainerroad.com: 17262"
+        "url": "https://cyclingmagazine.ca/gravel/ghost-of-the-gravel-crowns-canadian-champions-in-albertas-backcountry/",
+        "category": "other",
+        "label": "Cyclingmagazine"
       },
       {
-        "url": "https://cyclingmagazine.ca/gravel/ghost-of-the-gravel-crowns-canadian-champions-in-albertas-backcountry/",
+        "url": "https://deadgoat.ca/ghostofthegravel/",
+        "category": "other",
+        "label": "Deadgoat"
+      },
+      {
+        "url": "https://ucigravelworldseries.com/en/ghost-of-gravel/",
+        "category": "other",
+        "label": "Ucigravelworldseries"
+      },
+      {
+        "url": "https://www.trainerroad.com/forum/t/tr-success-story-ghost-of-the-gravel-alberta-my-2019-a-race/17262",
         "category": "community",
-        "label": "cyclingmagazine.ca: Ghost Of The Gravel Crowns Canadian Champions In Albertas..."
+        "label": "TrainerRoad"
       },
       {
         "url": "https://fernie.com/blog/hugh-mcdougall-rides-to-4th-at-canadian-gravel-championships/",
@@ -326,19 +349,9 @@
         "label": "fernie.com: Hugh Mcdougall Rides To 4Th At Canadian Gravel Championships"
       },
       {
-        "url": "https://deadgoat.ca/ghostofthegravel/",
-        "category": "community",
-        "label": "deadgoat.ca: Ghostofthegravel"
-      },
-      {
         "url": "https://www.reddit.com/r/gravelcycling/comments/1dfw6h6/how_to_minimize_drivetrain_and_brake_damage_in/",
         "category": "community",
         "label": "reddit.com: How To Minimize Drivetrain And Brake Damage In"
-      },
-      {
-        "url": "https://ucigravelworldseries.com/en/ghost-of-gravel/",
-        "category": "community",
-        "label": "ucigravelworldseries.com: Ghost Of Gravel"
       }
     ],
     "tire_recommendations": {

@@ -19,7 +19,7 @@
         "Michigan"
       ],
       "field_size": "100-200 riders",
-      "start_time": "Morning start",
+      "start_time": "9:00 AM",
       "registration": "Online. Cost: ~$50-75",
       "prize_purse": "Modest prizes",
       "aid_stations": "Multiple aid stations",
@@ -94,7 +94,11 @@
       "score": "44 / 100",
       "one_liner": "Michigan local gravel challenge.",
       "should_you_race": "If you're local to Michigan—yes, it's good value. If you're traveling—skip it.",
-      "alternatives": "For better Michigan races: Barry-Roubaix, Iceman Cometh."
+      "alternatives": "For better Michigan races: Barry-Roubaix, Iceman Cometh.",
+      "alternative_slugs": [
+        "barry-roubaix",
+        "iceman-cometh"
+      ]
     },
     "logistics": {
       "airport": "Grand Rapids (GRR) 1 hour",
@@ -185,12 +189,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 85.4,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 80,
+          "citation_density": 100,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 50
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -311,24 +324,24 @@
     },
     "citations": [
       {
+        "url": "https://lmb.org/ride-calendar/hart-hills-2/",
+        "category": "other",
+        "label": "Lmb"
+      },
+      {
         "url": "https://www.athleticmentors.com/hart-hills-gravel-grinder/",
-        "category": "community",
-        "label": "athleticmentors.com: Hart Hills Gravel Grinder"
+        "category": "other",
+        "label": "Athleticmentors"
       },
       {
         "url": "https://www.joinbasecamp.com/post/tracys-story-hart-hills",
-        "category": "community",
-        "label": "joinbasecamp.com: Tracys Story Hart Hills"
-      },
-      {
-        "url": "https://www.harthills.com/",
-        "category": "community",
-        "label": "harthills.com"
+        "category": "other",
+        "label": "Joinbasecamp"
       },
       {
         "url": "https://www.takemetohart.org/event-details/hart-hills-gravel-race",
-        "category": "community",
-        "label": "takemetohart.org: Hart Hills Gravel Race"
+        "category": "other",
+        "label": "Takemetohart"
       },
       {
         "url": "https://www.youtube.com/watch?v=8MSTdq4g_hI",

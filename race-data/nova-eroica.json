@@ -141,19 +141,19 @@
       ],
       "research_date": "2026-02-04",
       "research_strength": {
-        "overall": 0,
-        "grade": "pending",
-        "weakest": "pending",
+        "overall": 96.1,
+        "grade": "A",
+        "weakest": "voice_authenticity",
         "has_research_dump": true,
         "dimensions": {
-          "source_diversity": 0,
-          "citation_density": 0,
-          "temporal_depth": 0,
-          "specificity": 0,
-          "statistical_backing": 0,
-          "voice_authenticity": 0,
-          "completeness": 0,
-          "cross_reference": 0
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 94,
+          "cross_reference": 100
         },
         "scored_at": "2026-02-04"
       }
@@ -253,14 +253,14 @@
     ],
     "citations": [
       {
-        "url": "https://www.novaeroica.it",
-        "category": "official",
-        "label": "Official Website"
-      },
-      {
         "url": "https://ridewithgps.com/routes/39107798",
         "category": "route",
         "label": "RideWithGPS: ITALY - Tuscany - Nova Eroica 90km"
+      },
+      {
+        "url": "https://cyclinghero.cc/special-event/nova-eroica-prosecco-hills",
+        "category": "other",
+        "label": "Cyclinghero"
       },
       {
         "url": "https://reddit.com/r/gravelcycling/comments/nova-eroica",
@@ -268,69 +268,44 @@
         "label": "Reddit"
       },
       {
-        "url": "https://ridewithgps.com",
-        "category": "route",
-        "label": "RideWithGPS"
-      },
-      {
-        "url": "https://www.cyclingtips.com",
-        "category": "media",
-        "label": "CyclingTips"
-      },
-      {
-        "url": "https://www.strava.com",
-        "category": "activity",
-        "label": "Strava"
-      },
-      {
-        "url": "https://www.trainerroad.com",
-        "category": "community",
-        "label": "TrainerRoad"
-      },
-      {
-        "url": "https://www.velonews.com",
-        "category": "media",
-        "label": "VeloNews"
-      },
-      {
-        "url": "https://www.gravelcyclist.com/videos/2025-nova-eroica-italy-one-of-my-best-days-on-a-bicycle/",
-        "category": "community",
-        "label": "gravelcyclist.com: 2025 Nova Eroica Italy One Of My Best Days On A Bicycle"
-      },
-      {
         "url": "https://www.biciitalia.com/bici-blog/heroic-gravel-at-nova-eroica",
-        "category": "community",
-        "label": "biciitalia.com: Heroic Gravel At Nova Eroica"
+        "category": "other",
+        "label": "Biciitalia"
       },
       {
-        "url": "https://www.thevermilion.com/eroica-nova-when-the-gravel-respects-the-story-antonio-ruzzos-blog/article_9659/",
-        "category": "community",
-        "label": "thevermilion.com: Article 9659"
+        "url": "https://www.biciitalia.com/nova-eroica-gravel-bike-race-tuscany",
+        "category": "other",
+        "label": "Biciitalia"
       },
       {
-        "url": "https://www.gravelcyclist.com/videos/gravel-bike-check-what-people-are-riding-at-the-2025-nova-eroica-italy/",
-        "category": "community",
-        "label": "gravelcyclist.com: Gravel Bike Check What People Are Riding At The 2025 Nova..."
-      },
-      {
-        "url": "https://cyclinghero.cc/special-event/nova-eroica-prosecco-hills",
-        "category": "community",
-        "label": "cyclinghero.cc: Nova Eroica Prosecco Hills"
+        "url": "https://www.endu.net/en/events/nova-eroica-prosecco-hills/results",
+        "category": "other",
+        "label": "Endu"
       },
       {
         "url": "https://www.eroica.cc/en/the-istria-race/",
-        "category": "community",
-        "label": "eroica.cc: The Istria Race"
+        "category": "other",
+        "label": "Eroica"
+      },
+      {
+        "url": "https://www.gravelcyclist.com/videos/2025-nova-eroica-italy-one-of-my-best-days-on-a-bicycle/",
+        "category": "media",
+        "label": "Gravel Cyclist"
+      },
+      {
+        "url": "https://www.thevermilion.com/eroica-nova-when-the-gravel-respects-the-story-antonio-ruzzos-blog/article_9659/",
+        "category": "other",
+        "label": "Thevermilion"
+      },
+      {
+        "url": "https://www.wanderlustmagazine.com/news/nova-eroica-croatia-istria/",
+        "category": "other",
+        "label": "Wanderlustmagazine"
       },
       {
         "url": "https://www.youtube.com/watch?v=0T77wZQD54Q",
         "category": "community",
         "label": "youtube.com: Watch"
-      },
-      {
-        "url": "https://www.biciitalia.com/nova-eroica-gravel-bike-race-tuscany",
-        "category": "community",
-        "label": "biciitalia.com: Nova Eroica Gravel Bike Race Tuscany"
       }
     ],
     "tire_recommendations": {

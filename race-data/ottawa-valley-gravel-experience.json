@@ -19,7 +19,7 @@
         "Ontario"
       ],
       "field_size": "50-100 riders",
-      "start_time": "Morning start",
+      "start_time": "9:00 AM to",
       "registration": "Online. Cost: ~$50-75 CAD",
       "prize_purse": "Modest prizes",
       "aid_stations": "Limited aid stations",
@@ -94,7 +94,11 @@
       "score": "40 / 100",
       "one_liner": "Ontario local gravel challenge.",
       "should_you_race": "If you're local to Ontario—yes, it's good value. If you're traveling—skip it.",
-      "alternatives": "For better Ontario races: Back Forty Highlander, Ghost of the Gravel."
+      "alternatives": "For better Ontario races: Back Forty Highlander, Ghost of the Gravel.",
+      "alternative_slugs": [
+        "back-forty-highlander",
+        "ghost-of-the-gravel"
+      ]
     },
     "logistics": {
       "airport": "Ottawa (YOW) 90 minutes",
@@ -185,12 +189,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 86.7,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -316,19 +329,34 @@
         "label": "RideWithGPS: Ottawa Valley Gravel Experience Medio "
       },
       {
-        "url": "https://gravelcup.com/gravel-cup-events/ottawa-valley-gravel-experience-2024-bmjx3",
-        "category": "community",
-        "label": "gravelcup.com: Ottawa Valley Gravel Experience 2024 Bmjx3"
+        "url": "https://gravelcup.com/gravel-cup-events",
+        "category": "other",
+        "label": "Gravelcup"
       },
       {
         "url": "https://gravelcup.com/ottawa-valley-gravel-experience",
-        "category": "community",
-        "label": "gravelcup.com: Ottawa Valley Gravel Experience"
+        "category": "other",
+        "label": "Gravelcup"
       },
       {
-        "url": "https://northernontario.travel/cycling/ontario-gravel-bike-events",
-        "category": "community",
-        "label": "northernontario.travel: Ontario Gravel Bike Events"
+        "url": "https://ontariocycling.org/event/gravel-cup-series-ottawa-valley-gravel-experience-ottawa-on/",
+        "category": "other",
+        "label": "Ontariocycling"
+      },
+      {
+        "url": "https://ovcata.ca/rides/runs-and-rides-in-the-ottawa-valley-in-2025-5341.html",
+        "category": "other",
+        "label": "Ovcata"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/12529/ottawa-valley-gravel-experience-",
+        "category": "other",
+        "label": "Granfondoguide"
+      },
+      {
+        "url": "https://www.ovcata.ca/rides/runs-and-rides-in-the-ottawa-valley-in-2025-5341.html",
+        "category": "other",
+        "label": "Ovcata"
       },
       {
         "url": "http://www.timeral.info/Archive/A1-2025.html",
@@ -336,29 +364,14 @@
         "label": "timeral.info: A1 2025.Html"
       },
       {
-        "url": "https://www.youtube.com/watch?v=hzepaOSfj9M",
-        "category": "community",
-        "label": "youtube.com: Watch"
-      },
-      {
-        "url": "https://www.ovcata.ca/rides/runs-and-rides-in-the-ottawa-valley-in-2025-5341.html",
-        "category": "community",
-        "label": "ovcata.ca: Runs And Rides In The Ottawa Valley In 2025 5341.Html"
-      },
-      {
-        "url": "https://gravelcup.com/gravel-cup-events",
-        "category": "community",
-        "label": "gravelcup.com: Gravel Cup Events"
-      },
-      {
-        "url": "https://www.granfondoguide.com/Events/Index/12529/ottawa-valley-gravel-experience-",
-        "category": "community",
-        "label": "granfondoguide.com: Ottawa Valley Gravel Experience "
-      },
-      {
         "url": "http://www.timeral.info/Archive/A1-2024.html",
         "category": "community",
         "label": "timeral.info: A1 2024.Html"
+      },
+      {
+        "url": "https://northernontario.travel/cycling/ontario-gravel-bike-events",
+        "category": "community",
+        "label": "northernontario.travel: Ontario Gravel Bike Events"
       },
       {
         "url": "https://ontariocycling.org/tag/gravel/",

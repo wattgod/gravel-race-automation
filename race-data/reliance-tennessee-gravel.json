@@ -19,7 +19,7 @@
         "Cherokee National Forest area"
       ],
       "field_size": "100-300 riders",
-      "start_time": "Morning start",
+      "start_time": "7:30 a.m. EST",
       "registration": "Online. Cost: ~$60-100",
       "prize_purse": "Modest prizes",
       "aid_stations": "Multiple aid stations",
@@ -94,15 +94,20 @@
       "score": "50 / 100",
       "one_liner": "Remote Appalachian foothills gravel in southeast Tennessee.",
       "should_you_race": "If you're in Tennessee and want a remote Appalachian adventure—yes, it's a solid regional event. If you're from out of state—there are better options.",
-      "alternatives": "For better Southeast events: Gravel Worlds, Pisgah Monster-Cross, Hot Springs Gravel Gauntlet. For similar regional events: other Tennessee gravel races."
+      "alternatives": "For better Southeast events: Gravel Worlds, Pisgah Monster-Cross, Hot Springs Gravel Gauntlet. For similar regional events: other Tennessee gravel races.",
+      "alternative_slugs": [
+        "garmin-gravel-worlds",
+        "hot-springs-gravel-gauntlet"
+      ]
     },
     "logistics": {
       "airport": "Chattanooga (CHA) 1.5 hours",
       "lodging_strategy": "Reliance has very limited lodging. Cleveland or Chattanooga have more options.",
       "food": "Small community with limited dining. Stock nutrition.",
       "packet_pickup": "Day before typically",
-      "parking": "At start/finish",
-      "official_site": "https://www.tennesseegravel.com/"
+      "parking": "parking at Hiwassee Outfitters",
+      "official_site": "https://www.tennesseegravel.com/",
+      "camping": "Camping available at start/finish (Hiwassee Outfitters)"
     },
     "history": {
       "founded": null,
@@ -185,12 +190,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 85.5,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 80,
+          "citation_density": 100,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 88,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -340,44 +354,39 @@
     ],
     "citations": [
       {
-        "url": "https://www.tennesseegravel.com/reliance",
-        "category": "community",
-        "label": "tennesseegravel.com: Reliance"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=1Khsxx8Bg-Y",
-        "category": "community",
-        "label": "youtube.com: Watch"
-      },
-      {
-        "url": "https://www.racemappr.com/events/reliance-tennessee-gravel-2025",
-        "category": "community",
-        "label": "racemappr.com: Reliance Tennessee Gravel 2025"
-      },
-      {
-        "url": "https://www.granfondoguide.com/Events/Index/12064/reliance-deep-woods-gravel-grinder",
-        "category": "community",
-        "label": "granfondoguide.com: Reliance Deep Woods Gravel Grinder"
-      },
-      {
         "url": "https://careylowery.blogspot.com/2025/04/reliance-deep-woods-gravel-race-stage-1.html",
-        "category": "community",
-        "label": "careylowery.blogspot.com: Reliance Deep Woods Gravel Race Stage 1.Html"
+        "category": "other",
+        "label": "Careylowery"
       },
       {
         "url": "https://gumbi1.wordpress.com/2024/06/01/reliance-gravel/",
-        "category": "community",
-        "label": "gumbi1.wordpress.com: Reliance Gravel"
+        "category": "other",
+        "label": "Gumbi1"
       },
       {
-        "url": "https://www.tennesseegravel.com/ride-reports",
-        "category": "community",
-        "label": "tennesseegravel.com: Ride Reports"
+        "url": "https://www.tennesseegravel.com/past-results",
+        "category": "other",
+        "label": "Tennesseegravel"
+      },
+      {
+        "url": "https://www.tennesseegravel.com/reliance",
+        "category": "other",
+        "label": "Tennesseegravel"
+      },
+      {
+        "url": "https://www.tennesseegravel.com/reliance-results-2025",
+        "category": "other",
+        "label": "Tennesseegravel"
       },
       {
         "url": "https://www.tennesseegravel.com/reliance-routes",
-        "category": "community",
-        "label": "tennesseegravel.com: Reliance Routes"
+        "category": "other",
+        "label": "Tennesseegravel"
+      },
+      {
+        "url": "https://www.tennesseegravel.com/ride-reports",
+        "category": "other",
+        "label": "Tennesseegravel"
       }
     ],
     "tire_recommendations": {

@@ -246,6 +246,36 @@ def generate_sitemap(race_index: list, output_path: Path, data_dir: Path = None,
             SubElement(url, 'changefreq').text = 'monthly'
             SubElement(url, 'priority').text = '0.7'
 
+    # Guide cluster pages (pillar + 8 chapters)
+    guide_chapter_slugs = [
+        "what-is-gravel-racing",
+        "race-selection",
+        "training-fundamentals",
+        "workout-execution",
+        "nutrition-fueling",
+        "mental-training-race-tactics",
+        "race-week",
+        "post-race",
+    ]
+    url = SubElement(urlset, 'url')
+    SubElement(url, 'loc').text = f"{SITE_BASE_URL}/guide/"
+    SubElement(url, 'lastmod').text = today
+    SubElement(url, 'changefreq').text = 'monthly'
+    SubElement(url, 'priority').text = '0.8'
+    for slug in guide_chapter_slugs:
+        url = SubElement(urlset, 'url')
+        SubElement(url, 'loc').text = f"{SITE_BASE_URL}/guide/{slug}/"
+        SubElement(url, 'lastmod').text = today
+        SubElement(url, 'changefreq').text = 'monthly'
+        SubElement(url, 'priority').text = '0.7'
+
+    # Guide configurator page
+    url = SubElement(urlset, 'url')
+    SubElement(url, 'loc').text = f"{SITE_BASE_URL}/guide/race-prep-configurator/"
+    SubElement(url, 'lastmod').text = today
+    SubElement(url, 'changefreq').text = 'monthly'
+    SubElement(url, 'priority').text = '0.7'
+
     # Race pages
     for race in race_index:
         slug = race.get('slug', '')
@@ -354,7 +384,8 @@ def main():
     tire_vs_slugs = load_tire_vs_slugs(project_root)
     course_slugs = load_course_slugs(project_root)
     course_url_count = (1 + len(course_slugs)) if course_slugs else 0
-    total_urls = (7 + len(series_slugs) + len(vs_slugs) + len(state_slugs)
+    guide_cluster_count = 10  # pillar + 8 chapters + configurator
+    total_urls = (7 + guide_cluster_count + len(series_slugs) + len(vs_slugs) + len(state_slugs)
                   + len(special_slugs) + len(tire_slugs)
                   + len(tire_page_slugs) + len(tire_vs_slugs) + course_url_count + len(race_index))
     print(f"Generated sitemap: {output_path} ({total_urls} URLs)")

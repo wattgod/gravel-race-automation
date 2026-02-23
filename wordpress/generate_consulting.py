@@ -20,23 +20,24 @@ import html
 from pathlib import Path
 
 from generate_neo_brutalist import (
-    GA_MEASUREMENT_ID,
     SITE_BASE_URL,
     get_page_css,
     build_inline_js,
     write_shared_assets,
 )
-from brand_tokens import get_ab_head_snippet, get_preload_hints
+from brand_tokens import get_ab_head_snippet, get_ga4_head_snippet, get_preload_hints
 from shared_footer import get_mega_footer_html
 from shared_header import get_site_header_html, get_site_header_css
+from cookie_consent import get_consent_banner_html
 
 OUTPUT_DIR = Path(__file__).parent / "output"
 
 # ── Constants ─────────────────────────────────────────────────
 
-BOOKING_URL = "https://calendly.com/gravelgodcycling/consult"
-CONSULTING_PRICE = "$150"
+CONSULTING_PRICE_INT = 150
+CONSULTING_PRICE = f"${CONSULTING_PRICE_INT}"
 CONSULTING_DURATION = "60 minutes"
+BOOKING_URL = "https://calendar.app.google/E282ZtBJAFBXYdYJ6"
 
 
 def esc(text) -> str:
@@ -65,7 +66,19 @@ def build_hero() -> str:
       <span class="gg-consult-price-tag">{CONSULTING_PRICE}</span>
       <span class="gg-consult-price-detail">{CONSULTING_DURATION} &middot; 1-on-1 video call</span>
     </div>
-    <a href="{BOOKING_URL}" class="gg-consult-btn-gold" data-cta="hero_book">Book a Consult</a>
+    <form id="checkout" class="gg-consult-form" novalidate>
+      <div class="gg-consult-form-row">
+        <label class="gg-consult-form-label" for="consult-name">Name</label>
+        <input type="text" id="consult-name" name="name" required aria-required="true" placeholder="Your name" autocomplete="name">
+      </div>
+      <div class="gg-consult-form-row">
+        <label class="gg-consult-form-label" for="consult-email">Email</label>
+        <input type="email" id="consult-email" name="email" required aria-required="true" placeholder="you@example.com" autocomplete="email">
+      </div>
+      <input type="text" name="_honeypot" style="display:none" tabindex="-1" autocomplete="off">
+      <button type="submit" class="gg-consult-form-submit gg-consult-btn-gold" data-cta="hero_book">Pay &amp; Book &mdash; {CONSULTING_PRICE}</button>
+      <div class="gg-consult-form-message" role="alert" aria-live="polite" style="display:none"></div>
+    </form>
   </div>
 </section>'''
 
@@ -102,7 +115,7 @@ def build_what_you_get() -> str:
 
 def build_how_it_works() -> str:
     steps = [
-        ("1", "Book &amp; Fill Out Intake", "Choose a time that works. A short form captures your background so we hit the ground running."),
+        ("1", "Pay &amp; Schedule", f'Checkout takes 30 seconds. After payment, <a href="{BOOKING_URL}" target="_blank" rel="noopener">pick a time on the calendar</a>. A short intake form captures your background so we hit the ground running.'),
         ("2", "We Talk", "60 minutes, video call, no fluff. Bring your training files, race shortlist, or whatever needs sorting out."),
         ("3", "Get Your Plan", "Within 48 hours, a written action plan lands in your inbox. Specific, actionable, referenced to data."),
     ]
@@ -143,6 +156,51 @@ def build_topics() -> str:
 </section>'''
 
 
+def build_bio() -> str:
+    return f'''<section class="gg-consult-section" id="who">
+  <h2 class="gg-consult-section-title">Who You&rsquo;ll Talk To</h2>
+  <div class="gg-consult-bio">
+    <div class="gg-consult-bio-text">
+      <p>I&rsquo;m Matti. 12 years at TrainingPeaks, 100+ athletes coached, 1,000+ training plans sold. I&rsquo;ve raced at the national level and I&rsquo;ve blown up at mile 80 enough times to know what bad pacing actually costs you.</p>
+      <p>I built a database of 328 gravel races &mdash; terrain breakdowns, suffering zones, altitude profiles, segment-by-segment pacing data. When you ask &ldquo;which race should I do?&rdquo; or &ldquo;how do I fuel for this course?,&rdquo; the answer comes from data, not vibes.</p>
+    </div>
+  </div>
+</section>'''
+
+
+def build_testimonials() -> str:
+    testimonials = [
+        (
+            "Andrew T.",
+            "One call. That&rsquo;s all it took to completely change my race calendar. Matti walked me through why Gravel Locos was a better fit than Unbound for my first 150-miler. Best decision I made all year.",
+            "Gravel Locos finisher &middot; First 150-miler",
+        ),
+        (
+            "Jen H.",
+            "I booked a consult because I was cramping at mile 80 in every single race. Matti broke down my sodium math in about ten minutes and I haven&rsquo;t cramped once since. That&rsquo;s $150 well spent.",
+            "Unbound 200 finisher &middot; 8 hrs/week",
+        ),
+        (
+            "Katie B.",
+            "Everyone told me I needed more volume for Crusher. Matti looked at my numbers and said I needed better pacing, not more hours. He was right. Finished on 8 hours a week.",
+            "Crusher in the Tushar &middot; Marketing director",
+        ),
+    ]
+    cards = ""
+    for name, quote, meta in testimonials:
+        cards += f'''<blockquote class="gg-consult-testimonial">
+      <p>{quote}</p>
+      <footer><strong>{esc(name)}</strong><span class="gg-consult-testimonial-meta">{meta}</span></footer>
+    </blockquote>
+'''
+    return f'''<section class="gg-consult-section gg-consult-section--alt" id="testimonials">
+  <h2 class="gg-consult-section-title">What Athletes Say</h2>
+  <div class="gg-consult-testimonials">
+    {cards}
+  </div>
+</section>'''
+
+
 def build_faq() -> str:
     faqs = [
         (
@@ -150,8 +208,8 @@ def build_faq() -> str:
             "Anyone racing or considering gravel events who wants focused, data-informed guidance without committing to ongoing coaching. Works for first-timers and experienced riders alike.",
         ),
         (
-            "What happens after I book?",
-            "You get a confirmation email with a short intake form. Fill it out before the call so I can review your situation in advance. The call link arrives 24 hours before your session.",
+            "What happens after I pay?",
+            "You land on a confirmation page with a link to pick your session time. You also get a confirmation email with a short intake form. Fill it out before the call so I can review your situation in advance.",
         ),
         (
             "Can I record the call?",
@@ -183,7 +241,7 @@ def build_final_cta() -> str:
     <h2 class="gg-consult-cta-title">Stop Guessing. Start Racing Smarter.</h2>
     <p class="gg-consult-cta-desc">{CONSULTING_PRICE} &middot; {CONSULTING_DURATION} &middot; Action plan included</p>
     <p class="gg-consult-cta-context">Less than a race entry fee. More useful than 40 hours of forum threads.</p>
-    <a href="{BOOKING_URL}" class="gg-consult-btn-gold" data-cta="final_book">Book Your Consult</a>
+    <a href="#checkout" class="gg-consult-btn-gold" data-cta="final_book">Book Your Consult</a>
   </div>
 </section>'''
 
@@ -477,6 +535,120 @@ def build_consulting_css() -> str:
 .gg-breadcrumb a:hover {{ color: var(--gg-color-gold); }}
 .gg-breadcrumb-sep {{ margin: 0 var(--gg-spacing-xs); }}
 
+/* ── Checkout Form ── */
+.gg-consult-form {{
+  max-width: 480px;
+  margin: var(--gg-spacing-lg) auto 0;
+  text-align: left;
+}}
+.gg-consult-form-row {{
+  margin-bottom: var(--gg-spacing-md);
+}}
+.gg-consult-form-label {{
+  display: block;
+  font-family: var(--gg-font-data);
+  font-size: var(--gg-font-size-xs);
+  font-weight: var(--gg-font-weight-bold);
+  letter-spacing: var(--gg-letter-spacing-wide);
+  text-transform: uppercase;
+  color: var(--gg-color-dark-brown);
+  margin-bottom: var(--gg-spacing-xs);
+}}
+.gg-consult-form input[type="text"],
+.gg-consult-form input[type="email"] {{
+  display: block;
+  width: 100%;
+  padding: var(--gg-spacing-sm) var(--gg-spacing-md);
+  font-family: var(--gg-font-data);
+  font-size: var(--gg-font-size-sm);
+  color: var(--gg-color-dark-brown);
+  background: var(--gg-color-white);
+  border: 2px solid var(--gg-color-dark-brown);
+  box-sizing: border-box;
+}}
+.gg-consult-form input[type="text"]:focus,
+.gg-consult-form input[type="email"]:focus {{
+  outline: none;
+  border-color: var(--gg-color-gold);
+}}
+.gg-consult-form-submit {{
+  width: 100%;
+  cursor: pointer;
+  margin-top: var(--gg-spacing-sm);
+}}
+.gg-consult-form-submit:disabled {{
+  opacity: 0.6;
+  cursor: not-allowed;
+}}
+.gg-consult-form-message {{
+  margin-top: var(--gg-spacing-sm);
+  font-family: var(--gg-font-data);
+  font-size: var(--gg-font-size-xs);
+  color: var(--gg-color-secondary-brown);
+  text-align: center;
+}}
+.gg-consult-form-message.error {{
+  color: var(--gg-color-dark-brown);
+  border: 2px solid var(--gg-color-dark-brown);
+  padding: var(--gg-spacing-sm) var(--gg-spacing-md);
+  background: var(--gg-color-warm-paper);
+}}
+
+/* ── Bio ── */
+.gg-consult-bio-text {{
+  max-width: 640px;
+  margin: 0 auto;
+}}
+.gg-consult-bio-text p {{
+  font-family: var(--gg-font-editorial);
+  font-size: var(--gg-font-size-sm);
+  line-height: var(--gg-line-height-prose);
+  color: var(--gg-color-primary-brown);
+  margin: 0 0 var(--gg-spacing-md) 0;
+}}
+.gg-consult-bio-text p:last-child {{
+  margin-bottom: 0;
+}}
+
+/* ── Testimonials ── */
+.gg-consult-testimonials {{
+  display: flex;
+  flex-direction: column;
+  gap: var(--gg-spacing-md);
+  max-width: 640px;
+  margin: 0 auto;
+}}
+.gg-consult-testimonial {{
+  padding: var(--gg-spacing-lg);
+  background: var(--gg-color-warm-paper);
+  border: 2px solid var(--gg-color-dark-brown);
+  margin: 0;
+}}
+.gg-consult-testimonial p {{
+  font-family: var(--gg-font-editorial);
+  font-size: var(--gg-font-size-sm);
+  line-height: var(--gg-line-height-prose);
+  color: var(--gg-color-dark-brown);
+  margin: 0 0 var(--gg-spacing-sm) 0;
+  font-style: italic;
+}}
+.gg-consult-testimonial footer {{
+  font-family: var(--gg-font-data);
+  font-size: var(--gg-font-size-xs);
+  color: var(--gg-color-dark-brown);
+  letter-spacing: var(--gg-letter-spacing-wide);
+}}
+.gg-consult-testimonial footer strong {{
+  display: block;
+  text-transform: uppercase;
+  margin-bottom: var(--gg-spacing-2xs);
+}}
+.gg-consult-testimonial-meta {{
+  display: block;
+  color: var(--gg-color-secondary-brown);
+  font-size: var(--gg-font-size-2xs);
+}}
+
 /* ── Responsive ── */
 @media (max-width: 768px) {{
   .gg-consult-cards {{ grid-template-columns: 1fr; }}
@@ -510,7 +682,7 @@ def build_consulting_js() -> str:
   /* Scroll depth */
   if('IntersectionObserver' in window){{
     var fired={{}};
-    var map={{'hero':'0_hero','what-you-get':'25_what_you_get','how-it-works':'50_how_it_works','faq':'75_faq','final-cta':'100_final_cta'}};
+    var map={{'hero':'0_hero','what-you-get':'14_what_you_get','who':'28_who','topics':'42_topics','how-it-works':'57_how_it_works','testimonials':'71_testimonials','faq':'85_faq','final-cta':'100_final_cta'}};
     var obs=new IntersectionObserver(function(entries){{
       entries.forEach(function(e){{
         if(e.isIntersecting&&!fired[e.target.id]){{
@@ -523,6 +695,79 @@ def build_consulting_js() -> str:
   }}
   /* Page view */
   if(typeof gtag==='function'){{gtag('event','consulting_page_view')}}
+
+  /* ── Checkout form ── */
+  var CHECKOUT_API='https://athlete-custom-training-plan-pipeline-production.up.railway.app/api/create-consulting-checkout';
+  var CHECKOUT_PRICE={CONSULTING_PRICE_INT};
+  var CHECKOUT_BTN_LABEL='Pay & Book \u2014 ${CONSULTING_PRICE_INT}';
+  var checkoutForm=document.getElementById('checkout');
+  var checkoutMsg=checkoutForm?checkoutForm.querySelector('.gg-consult-form-message'):null;
+  var checkoutBtn=checkoutForm?checkoutForm.querySelector('.gg-consult-form-submit'):null;
+  var checkoutSubmitting=false;
+
+  function showCheckoutError(msg){{
+    checkoutMsg.className='gg-consult-form-message error';
+    checkoutMsg.textContent=msg;
+    checkoutMsg.style.display='block';
+    checkoutBtn.disabled=false;
+    checkoutBtn.textContent=CHECKOUT_BTN_LABEL;
+    checkoutSubmitting=false;
+    if(typeof gtag==='function'){{gtag('event','consulting_checkout_error',{{error:msg}})}}
+  }}
+
+  if(checkoutForm){{
+    checkoutForm.addEventListener('submit',function(e){{
+      e.preventDefault();
+      if(checkoutSubmitting)return;
+      var nameVal=checkoutForm.querySelector('input[name="name"]').value.trim();
+      var emailVal=checkoutForm.querySelector('input[name="email"]').value.trim();
+      var honeypot=checkoutForm.querySelector('input[name="_honeypot"]').value;
+      if(honeypot)return;
+      if(!nameVal||!emailVal){{
+        showCheckoutError('Please fill in your name and email.');
+        return;
+      }}
+      if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal)){{
+        showCheckoutError('Please enter a valid email address.');
+        return;
+      }}
+      checkoutSubmitting=true;
+      checkoutBtn.disabled=true;
+      checkoutBtn.textContent='Preparing checkout...';
+      checkoutMsg.style.display='none';
+
+      if(typeof gtag==='function'){{gtag('event','begin_checkout',{{currency:'USD',value:CHECKOUT_PRICE,items:[{{item_name:'Consulting Session'}}]}})}}
+
+      fetch(CHECKOUT_API,{{
+        method:'POST',
+        headers:{{'Content-Type':'application/json'}},
+        body:JSON.stringify({{name:nameVal,email:emailVal,hours:1}})
+      }})
+      .then(function(r){{
+        if(!r.ok)throw new Error('Server error ('+r.status+'). Please try again.');
+        return r.json();
+      }})
+      .then(function(result){{
+        if(result.checkout_url){{
+          window.location.href=result.checkout_url;
+        }}else{{
+          throw new Error(result.error||'Failed to create checkout session');
+        }}
+      }})
+      .catch(function(err){{
+        showCheckoutError(err.message||'Something went wrong. Please try again.');
+      }});
+    }});
+  }}
+
+  /* Smooth scroll for #checkout links */
+  document.querySelectorAll('a[href="#checkout"]').forEach(function(link){{
+    link.addEventListener('click',function(e){{
+      e.preventDefault();
+      var target=document.getElementById('checkout');
+      if(target){{target.scrollIntoView({{behavior:'smooth',block:'center'}});target.querySelector('input[name="name"]').focus()}}
+    }});
+  }});
 }})();
 </script>'''
 
@@ -541,7 +786,7 @@ def build_jsonld() -> str:
   "description": "One-on-one consulting for gravel race selection, training structure, nutrition, and season planning.",
   "offers": {{
     "@type": "Offer",
-    "price": "150",
+    "price": "{CONSULTING_PRICE_INT}",
     "priceCurrency": "USD",
     "description": "60-minute 1-on-1 video consultation with written action plan"
   }},
@@ -556,8 +801,10 @@ def generate_consulting_page(external_assets: dict = None) -> str:
     nav = build_nav()
     hero = build_hero()
     what = build_what_you_get()
+    bio = build_bio()
     topics = build_topics()
     how = build_how_it_works()
+    testimonials = build_testimonials()
     faq = build_faq()
     final_cta = build_final_cta()
     footer = build_footer()
@@ -572,16 +819,20 @@ def generate_consulting_page(external_assets: dict = None) -> str:
         page_css = get_page_css()
         inline_js = build_inline_js()
 
-    meta_desc = "60-minute gravel race consulting call. Race selection, training structure, nutrition, and season planning. $150 with written action plan included."
+    meta_desc = f"60-minute gravel race consulting call. Race selection, training structure, nutrition, and season planning. {CONSULTING_PRICE} with written action plan included."
 
     og_tags = f'''<meta property="og:title" content="Consulting | Gravel God">
   <meta property="og:description" content="60-minute gravel race consulting. Race selection, training, nutrition, and season planning.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="{esc(canonical_url)}">
+  <meta property="og:image" content="{SITE_BASE_URL}/og/homepage.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:site_name" content="Gravel God Cycling">
-  <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Consulting | Gravel God">
-  <meta name="twitter:description" content="60-minute gravel race consulting. Race selection, training, nutrition, and season planning.">'''
+  <meta name="twitter:description" content="60-minute gravel race consulting. Race selection, training, nutrition, and season planning.">
+  <meta name="twitter:image" content="{SITE_BASE_URL}/og/homepage.jpg">'''
 
     preload = get_preload_hints()
 
@@ -600,8 +851,7 @@ def generate_consulting_page(external_assets: dict = None) -> str:
   {jsonld}
   {page_css}
   {consulting_css}
-  <script async src="https://www.googletagmanager.com/gtag/js?id={GA_MEASUREMENT_ID}"></script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments)}}gtag('js',new Date());gtag('config','{GA_MEASUREMENT_ID}');</script>
+  {get_ga4_head_snippet()}
   {get_ab_head_snippet()}
 </head>
 <body>
@@ -613,9 +863,13 @@ def generate_consulting_page(external_assets: dict = None) -> str:
 
   {what}
 
+  {bio}
+
   {topics}
 
   {how}
+
+  {testimonials}
 
   {faq}
 
@@ -627,6 +881,7 @@ def generate_consulting_page(external_assets: dict = None) -> str:
 {inline_js}
 {consulting_js}
 
+{get_consent_banner_html()}
 </body>
 </html>'''
 

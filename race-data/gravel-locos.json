@@ -158,7 +158,10 @@
       "score": "79 / 100",
       "one_liner": "Free 150-mile Unbound tune-up on gorgeous Texas gravel where Texas heat is the great equalizer.",
       "should_you_race": "Yes if you want a legitimate ultra-gravel experience for free with international competition and legendary Texas hospitality. Gravel Locos proves you don't need a $250 entry fee to have a world-class gravel race. Just train for heat.",
-      "alternatives": "If you want similar distance with mud risk: Unbound. If you want Texas gravel with less heat: wait for fall events. If you want free racing: this is the gold standard."
+      "alternatives": "If you want similar distance with mud risk: Unbound. If you want Texas gravel with less heat: wait for fall events. If you want free racing: this is the gold standard.",
+      "alternative_slugs": [
+        "unbound-200"
+      ]
     },
     "logistics": {
       "airport": "Dallas-Fort Worth (DFW) - 'a few hours' drive. Hico is 'the middle of nowhere.'",
@@ -220,9 +223,9 @@
       ],
       "migration_notes": [],
       "research_strength": {
-        "overall": 100.0,
+        "overall": 96.1,
         "grade": "A",
-        "weakest": "source_diversity",
+        "weakest": "voice_authenticity",
         "has_research_dump": true,
         "dimensions": {
           "source_diversity": 100,
@@ -230,8 +233,8 @@
           "temporal_depth": 100,
           "specificity": 100,
           "statistical_backing": 100,
-          "voice_authenticity": 100,
-          "completeness": 100,
+          "voice_authenticity": 70,
+          "completeness": 94,
           "cross_reference": 100
         },
         "scored_at": "2026-02-04"
@@ -239,59 +242,79 @@
     },
     "citations": [
       {
-        "url": "https://www.gravellocos.bike",
-        "category": "official",
-        "label": "Official Website"
-      },
-      {
         "url": "https://ridewithgps.com/routes/50345473",
         "category": "route",
         "label": "RideWithGPS: NTX Police Cycling & Gravel Locos 40mil Training Ride"
       },
       {
         "url": "https://kavhelmets.com/blogs/kav-journal/battling-heat-and-international-field-at-2025-gravel-locos",
-        "category": "community",
-        "label": "kavhelmets.com: Battling Heat And International Field At 2025 Gravel Locos"
+        "category": "other",
+        "label": "Kavhelmets"
       },
       {
-        "url": "https://www.cyclingnews.com/races/gravel-locos-2025/gl-110-elite-women-and-men/results/",
-        "category": "community",
-        "label": "cyclingnews.com: Results"
-      },
-      {
-        "url": "https://www.renehersecycles.com/gravel-locos-in-texas-and-holly-in-colorado/",
-        "category": "community",
-        "label": "renehersecycles.com: Gravel Locos In Texas And Holly In Colorado"
+        "url": "https://nordictrailblazer.cc/races/gravel-locos-2/",
+        "category": "other",
+        "label": "Nordictrailblazer"
       },
       {
         "url": "https://nordictrailblazer.cc/races/gravel-locos-25/",
-        "category": "community",
-        "label": "nordictrailblazer.cc: Gravel Locos 25"
+        "category": "other",
+        "label": "Nordictrailblazer"
       },
       {
-        "url": "https://www.reddit.com/r/gravelcycling/comments/13rwtj5/gravel_locos_go_ride_this_race/",
-        "category": "community",
-        "label": "reddit.com: Gravel Locos Go Ride This Race"
+        "url": "https://velo.outsideonline.com/gravel/gravel-racing/gravel-locos-2024-results/",
+        "category": "media",
+        "label": "Velo"
+      },
+      {
+        "url": "https://visithicotexas.com/gravel-locos-2025/",
+        "category": "other",
+        "label": "Visithicotexas"
+      },
+      {
+        "url": "https://www.cyclingnews.com/gravel-locos/",
+        "category": "other",
+        "label": "Cyclingnews"
+      },
+      {
+        "url": "https://www.cyclingnews.com/races/gravel-locos-2025/gl-110-elite-women-and-men/results/",
+        "category": "other",
+        "label": "Cyclingnews"
       },
       {
         "url": "https://www.reddit.com/r/gravelcycling/comments/13nr3g7/completed_my_first_century_at_gravel_locos_this/",
         "category": "community",
-        "label": "reddit.com: Completed My First Century At Gravel Locos This"
+        "label": "Reddit"
       },
       {
-        "url": "https://nordictrailblazer.cc/races/gravel-locos-2/",
+        "url": "https://www.reddit.com/r/gravelcycling/comments/13ou8p7/2023_gravel_locos_pro_finish/",
         "category": "community",
-        "label": "nordictrailblazer.cc: Gravel Locos 2"
+        "label": "Reddit"
       },
       {
-        "url": "https://velo.outsideonline.com/gravel/gravel-racing/gravel-locos-2024-results/",
+        "url": "https://www.reddit.com/r/gravelcycling/comments/13rwtj5/gravel_locos_go_ride_this_race/",
         "category": "community",
-        "label": "velo.outsideonline.com: Gravel Locos 2024 Results"
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/1d03cx3/first_18_miles_uncut_footage_from_gravel_locos/",
+        "category": "community",
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/1df64pl/gravel_locos_2024/",
+        "category": "community",
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.renehersecycles.com/gravel-locos-in-texas-and-holly-in-colorado/",
+        "category": "other",
+        "label": "Renehersecycles"
       },
       {
         "url": "https://www.xjd.com/t-gravel-locos-bike-race/",
-        "category": "community",
-        "label": "xjd.com: T Gravel Locos Bike Race"
+        "category": "other",
+        "label": "Xjd"
       }
     ],
     "tire_recommendations": {

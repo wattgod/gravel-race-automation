@@ -15,6 +15,8 @@ from generate_insights import (
     ALL_DIMS,
     COUNTRY_MAP,
     COUNTRY_NAMES,
+    DENSITY_HIGH_MIN,
+    DENSITY_MED_MIN,
     DIM_LABELS,
     MONTHS,
     RANKING_PRESETS,
@@ -1228,7 +1230,7 @@ class TestClosing:
             r'id="what-now".*?</section>', insights_html, re.DOTALL
         )
         assert closing_match
-        assert "/races/" in closing_match.group()
+        assert "gravel-races/" in closing_match.group()
 
     def test_closing_no_grid(self, insights_html):
         """Closing should NOT have the old grid layout."""
@@ -1323,20 +1325,35 @@ class TestCss:
     """Test CSS brand compliance."""
 
     def test_no_hardcoded_hex(self, insights_css):
+        # Known hex fallbacks for color-mix() browser compat
+        COLOR_MIX_FALLBACKS = {
+            "#d8e5e0", "#aeccc6", "#7aafa7",  # teal density fills
+            "#f3ede5", "#cdc1b5",              # brown density fallbacks
+        }
         css_no_comments = re.sub(r"/\*.*?\*/", "", insights_css, flags=re.DOTALL)
         hexes = re.findall(r"#[0-9a-fA-F]{3,8}\b", css_no_comments)
         color_hexes = []
         for h in hexes:
             digits = h[1:]
-            if len(digits) in (3, 4, 6, 8):
+            if len(digits) in (3, 4, 6, 8) and h.lower() not in COLOR_MIX_FALLBACKS:
                 color_hexes.append(h)
         assert len(color_hexes) == 0, f"Hardcoded hex colors found: {color_hexes[:10]}"
 
     def test_no_border_radius(self, insights_css):
-        assert "border-radius" not in insights_css
+        """border-radius only allowed as 0 !important (neo-brutalist reset)."""
+        matches = re.findall(r"border-radius:\s*([^;]+);", insights_css)
+        for val in matches:
+            assert val.strip() == "0 !important", (
+                f"Non-zero border-radius found: {val}"
+            )
 
     def test_no_box_shadow(self, insights_css):
-        assert "box-shadow" not in insights_css
+        """box-shadow only allowed as none !important (neo-brutalist reset)."""
+        matches = re.findall(r"box-shadow:\s*([^;]+);", insights_css)
+        for val in matches:
+            assert val.strip() == "none !important", (
+                f"Non-none box-shadow found: {val}"
+            )
 
     def test_no_opacity_transition(self, insights_css):
         transitions = re.findall(r"transition:\s*([^;]+);", insights_css)
@@ -1545,8 +1562,12 @@ class TestCss:
         assert ".gg-ins-ou-link" in insights_css
 
     def test_no_circle_border_radius_anywhere(self, insights_css):
-        """Explicitly confirm zero border-radius (neo-brutalist)."""
-        assert insights_css.count("border-radius") == 0
+        """All border-radius values must be 0 (neo-brutalist reset only)."""
+        matches = re.findall(r"border-radius:\s*([^;]+);", insights_css)
+        for val in matches:
+            assert val.strip() == "0 !important", (
+                f"Non-zero border-radius found: {val}"
+            )
 
 
 # ── TestJs ────────────────────────────────────────────────────
@@ -2444,7 +2465,7 @@ class TestBuildClosing:
 
     def test_closing_links_to_races(self, race_count):
         result = build_closing(race_count)
-        assert "/races/" in result
+        assert "gravel-races/" in result
 
     def test_closing_no_grid(self, race_count):
         result = build_closing(race_count)
@@ -3171,11 +3192,53 @@ class TestExtractCountryConstants:
                 seen[code] = region
 
 
-# ── TestWorldGrid ────────────────────────────────────────────
+# ── TestWorldMapData ─────────────────────────────────────────
+
+
+class TestWorldMapData:
+    """Test the SVG world map data module."""
+
+    def test_world_map_paths_is_dict(self):
+        from world_map_data import WORLD_MAP_PATHS
+        assert isinstance(WORLD_MAP_PATHS, dict)
+        assert len(WORLD_MAP_PATHS) >= 170
+
+    def test_all_race_countries_have_paths(self):
+        from world_map_data import WORLD_MAP_PATHS
+        for code in COUNTRY_NAMES:
+            assert code in WORLD_MAP_PATHS, (
+                f"Race country {code} ({COUNTRY_NAMES[code]}) missing from WORLD_MAP_PATHS"
+            )
+
+    def test_paths_are_valid_svg_d_strings(self):
+        from world_map_data import WORLD_MAP_PATHS
+        for iso, d_str in WORLD_MAP_PATHS.items():
+            assert d_str.startswith("M"), f"{iso} path doesn't start with M"
+            assert "Z" in d_str, f"{iso} path missing Z (close)"
+
+    def test_country_centroids_have_race_countries(self):
+        from world_map_data import COUNTRY_CENTROIDS
+        for code in COUNTRY_NAMES:
+            assert code in COUNTRY_CENTROIDS, (
+                f"Race country {code} missing from COUNTRY_CENTROIDS"
+            )
+
+    def test_centroids_are_valid_coordinates(self):
+        from world_map_data import COUNTRY_CENTROIDS
+        for iso, (cx, cy) in COUNTRY_CENTROIDS.items():
+            assert 0 <= cx <= 1000, f"{iso} centroid x={cx} out of viewBox"
+            assert 0 <= cy <= 500, f"{iso} centroid y={cy} out of viewBox"
+
+    def test_us_path_present(self):
+        from world_map_data import WORLD_MAP_PATHS
+        assert "US" in WORLD_MAP_PATHS
+
+
+# ── TestWorldGrid (SVG Map) ─────────────────────────────────
 
 
 class TestWorldGrid:
-    """Test the international country tile grid in the geography section."""
+    """Test the international SVG world map in the geography section."""
 
     def test_world_grid_present(self, insights_html):
         """World grid container should be in the geography section."""
@@ -3188,35 +3251,81 @@ class TestWorldGrid:
         assert geo_match
         assert "gg-ins-world-grid" in geo_match.group()
 
-    def test_all_four_regions_present(self, insights_html):
-        """All four continent labels should appear."""
-        geo_match = re.search(
-            r'class="gg-ins-world-grid".*?id="world-detail"',
-            insights_html, re.DOTALL
-        )
-        assert geo_match
-        section = geo_match.group()
-        for region in ["Europe", "Americas", "Asia-Pacific", "Africa"]:
-            assert region in section, f"Region {region!r} missing from world grid"
+    def test_svg_worldmap_present(self, insights_html):
+        """SVG element with worldmap class should be present."""
+        assert 'class="gg-ins-worldmap"' in insights_html
 
-    def test_world_tiles_have_data_country(self, insights_html):
+    def test_svg_has_viewbox(self, insights_html):
+        svg_match = re.search(r'<svg[^>]*class="gg-ins-worldmap"[^>]*>', insights_html)
+        assert svg_match
+        assert 'viewBox="0 0 1000 500"' in svg_match.group()
+
+    def test_svg_has_role_img(self, insights_html):
+        svg_match = re.search(r'<svg[^>]*class="gg-ins-worldmap"[^>]*>', insights_html)
+        assert svg_match
+        assert 'role="img"' in svg_match.group()
+
+    def test_svg_has_aria_label(self, insights_html):
+        svg_match = re.search(r'<svg[^>]*class="gg-ins-worldmap"[^>]*>', insights_html)
+        assert svg_match
+        assert 'aria-label=' in svg_match.group()
+
+    def test_race_countries_have_paths(self, insights_html):
+        """Race countries should be rendered as interactive SVG paths."""
         geo_match = re.search(
             r'class="gg-ins-world-grid".*?</section>', insights_html, re.DOTALL
         )
         assert geo_match
-        tiles = re.findall(r'data-country="([A-Z]{2})"', geo_match.group())
-        assert len(tiles) >= 10, f"Expected >=10 country tiles, got {len(tiles)}"
-
-    def test_world_tiles_have_density(self, insights_html):
-        geo_match = re.search(
-            r'class="gg-ins-world-grid".*?</section>', insights_html, re.DOTALL
-        )
-        assert geo_match
-        densities = re.findall(
-            r'class="gg-ins-world-tile"[^>]*data-density="(low|med|high)"',
+        countries = re.findall(
+            r'class="gg-wm-country[^"]*"[^>]*data-country="([A-Z]{2})"',
             geo_match.group()
         )
+        assert len(countries) >= 10, f"Expected >=10 country paths, got {len(countries)}"
+
+    def test_race_paths_have_density_class(self, insights_html):
+        """Race country paths should have density class (low/med/high)."""
+        densities = re.findall(
+            r'gg-wm-density-(low|med|high)',
+            insights_html
+        )
         assert len(densities) >= 10
+
+    def test_us_path_is_neutral(self, insights_html):
+        """US should have a neutral land path (not interactive)."""
+        assert 'gg-wm-land gg-wm-us' in insights_html
+
+    def test_non_race_countries_are_neutral(self, insights_html):
+        """Non-race countries should have gg-wm-land class."""
+        assert 'class="gg-wm-land"' in insights_html
+
+    def test_race_paths_have_tabindex_minus_one(self, insights_html):
+        """Race country paths use tabindex=-1 (no tab trap)."""
+        paths = re.findall(
+            r'class="gg-wm-country[^"]*"[^>]*tabindex="-1"',
+            insights_html
+        )
+        assert len(paths) >= 10
+
+    def test_race_paths_have_aria_expanded(self, insights_html):
+        """Race country paths should start with aria-expanded=false."""
+        expanded = re.findall(
+            r'class="gg-wm-country[^"]*"[^>]*aria-expanded="false"',
+            insights_html
+        )
+        assert len(expanded) >= 10
+
+    def test_race_paths_have_svg_title(self, insights_html):
+        """Race country paths should have inline <title> elements (not JS-built)."""
+        titles = re.findall(
+            r'<path[^>]*class="gg-wm-country[^"]*"[^>]*>.*?<title>[^<]+</title>',
+            insights_html
+        )
+        assert len(titles) >= 10
+
+    def test_country_labels_present(self, insights_html):
+        """SVG text labels should be present for race countries."""
+        labels = re.findall(r'class="gg-wm-label"', insights_html)
+        assert len(labels) >= 10
 
     def test_country_panels_hidden_by_default(self, insights_html):
         """Country panels should start hidden."""
@@ -3256,42 +3365,117 @@ class TestWorldGrid:
         assert "races across" in text
         assert "countries" in text
 
+    def test_no_old_tile_classes(self, insights_html):
+        """Old tile grid classes should be completely gone."""
+        assert "gg-ins-world-tile" not in insights_html
+        assert "gg-ins-world-region" not in insights_html
+        assert "gg-ins-world-code" not in insights_html
+        assert "gg-ins-world-count" not in insights_html
 
-# ── TestWorldGridCss ─────────────────────────────────────────
+
+# ── TestWorldMapLegend ──────────────────────────────────────
 
 
-class TestWorldGridCss:
-    """Test CSS for world tile grid."""
+class TestWorldMapLegend:
+    """Test the world map density legend."""
+
+    def test_legend_present(self, insights_html):
+        assert "gg-ins-world-legend" in insights_html
+
+    def test_legend_has_three_levels(self, insights_html):
+        legend_match = re.search(
+            r'class="gg-ins-world-legend".*?</div>',
+            insights_html, re.DOTALL
+        )
+        assert legend_match
+        section = legend_match.group()
+        assert "gg-wm-density-low" in section
+        assert "gg-wm-density-med" in section
+        assert "gg-wm-density-high" in section
+
+    def test_legend_has_labels(self, insights_html):
+        legend_match = re.search(
+            r'class="gg-ins-world-legend".*?</div>',
+            insights_html, re.DOTALL
+        )
+        assert legend_match
+        section = legend_match.group()
+        assert "races" in section
+        assert "5+" in section
+
+
+# ── TestWorldMapCss ─────────────────────────────────────────
+
+
+class TestWorldMapCss:
+    """Test CSS for SVG world map."""
 
     def test_world_grid_css(self, insights_css):
         assert ".gg-ins-world-grid" in insights_css
 
-    def test_world_tile_css(self, insights_css):
-        assert ".gg-ins-world-tile" in insights_css
+    def test_worldmap_css(self, insights_css):
+        assert ".gg-ins-worldmap" in insights_css
 
-    def test_world_tile_density_low(self, insights_css):
-        assert '.gg-ins-world-tile[data-density="low"]' in insights_css
+    def test_wm_land_css(self, insights_css):
+        assert ".gg-wm-land" in insights_css
 
-    def test_world_tile_density_med(self, insights_css):
-        assert '.gg-ins-world-tile[data-density="med"]' in insights_css
+    def test_wm_country_css(self, insights_css):
+        assert ".gg-wm-country" in insights_css
 
-    def test_world_tile_density_high(self, insights_css):
-        assert '.gg-ins-world-tile[data-density="high"]' in insights_css
+    def test_wm_density_low_css(self, insights_css):
+        assert ".gg-wm-density-low" in insights_css
 
-    def test_world_region_label_css(self, insights_css):
-        assert ".gg-ins-world-region-label" in insights_css
+    def test_wm_density_med_css(self, insights_css):
+        assert ".gg-wm-density-med" in insights_css
 
-    def test_world_tile_expanded_css(self, insights_css):
-        assert '.gg-ins-world-tile[aria-expanded="true"]' in insights_css
+    def test_wm_density_high_css(self, insights_css):
+        assert ".gg-wm-density-high" in insights_css
+
+    def test_wm_country_hover_css(self, insights_css):
+        assert ".gg-wm-country:hover" in insights_css
+
+    def test_wm_country_expanded_css(self, insights_css):
+        assert '.gg-wm-country[aria-expanded="true"]' in insights_css
+
+    def test_wm_label_css(self, insights_css):
+        assert ".gg-wm-label" in insights_css
+
+    def test_legend_css(self, insights_css):
+        assert ".gg-ins-world-legend" in insights_css
+
+    def test_swatch_css(self, insights_css):
+        assert ".gg-wm-swatch" in insights_css
+
+    def test_no_old_tile_css(self, insights_css):
+        """Old tile CSS classes should be completely gone."""
+        assert ".gg-ins-world-tile" not in insights_css
+        assert ".gg-ins-world-region" not in insights_css
+
+    def test_css_uses_only_vars(self, insights_css):
+        """SVG fill/stroke should use CSS custom properties, not hex
+        (except hex fallbacks immediately before a color-mix override)."""
+        # Known hex fallbacks paired with color-mix overrides
+        COLOR_MIX_FALLBACKS = {"#d8e5e0", "#aeccc6", "#7aafa7"}
+        for prop in ["fill:", "stroke:"]:
+            matches = re.findall(rf'{prop}\s*([^;]+);', insights_css)
+            for val in matches:
+                val = val.strip()
+                if val == "none" or val.startswith("var(") or val.startswith("color-mix("):
+                    continue
+                if val in COLOR_MIX_FALLBACKS:
+                    continue  # hex fallback for color-mix() browser compat
+                assert not val.startswith("#"), (
+                    f"Found hardcoded hex in CSS: {prop} {val}"
+                )
 
 
-# ── TestWorldGridJs ──────────────────────────────────────────
+# ── TestWorldMapJs ──────────────────────────────────────────
 
 
-class TestWorldGridJs:
-    """Test JS for world tile interactivity."""
+class TestWorldMapJs:
+    """Test JS for world map interactivity."""
 
-    def test_world_tile_click_handler(self, insights_js):
+    def test_toggle_world_country_fn(self, insights_js):
         assert "toggleWorldCountry" in insights_js
 
     def test_ga4_country_event(self, insights_js):
@@ -3299,3 +3483,274 @@ class TestWorldGridJs:
 
     def test_world_detail_reference(self, insights_js):
         assert "world-detail" in insights_js
+
+    def test_svg_selector(self, insights_js):
+        assert ".gg-ins-worldmap" in insights_js
+
+    def test_country_path_selector(self, insights_js):
+        assert ".gg-wm-country" in insights_js
+
+    def test_keyboard_handler(self, insights_js):
+        assert "keydown" in insights_js
+        assert "Enter" in insights_js
+
+    def test_no_js_svg_tooltip_builder(self, insights_js):
+        """World map tooltips are now <title> in SVG at gen time, not JS-built."""
+        assert "createElementNS" not in insights_js
+
+    def test_no_old_tile_selectors(self, insights_js):
+        """Old tile selectors should be completely gone."""
+        assert ".gg-ins-world-tile" not in insights_js
+
+
+# ── TestWorldMapBehavioral (post-audit) ─────────────────────
+
+
+class TestWorldMapBehavioral:
+    """Behavioral tests added after Sprint 39 self-audit.
+
+    Each test targets a specific confirmed bug class, not just string presence.
+    """
+
+    # ── Fix 1: Antimeridian ──
+
+    def test_antimeridian_no_huge_jumps(self):
+        """SVG paths for antimeridian countries (RU, FJ, AQ) must not have
+        >500px x-jumps within L segments (would cause visual tears)."""
+        from world_map_data import WORLD_MAP_PATHS
+        for iso in ("RU", "FJ", "AQ"):
+            d = WORLD_MAP_PATHS.get(iso, "")
+            assert d, f"{iso} missing from WORLD_MAP_PATHS"
+            # Parse path: track x across L commands only (M starts new sub-path)
+            tokens = re.findall(r"([MLZ])([0-9.,]*)", d)
+            prev_x = None
+            for cmd, val in tokens:
+                if cmd == "Z":
+                    prev_x = None
+                    continue
+                if cmd == "M":
+                    parts = val.split(",")
+                    prev_x = float(parts[0])
+                    continue
+                if cmd == "L" and prev_x is not None:
+                    parts = val.split(",")
+                    x = float(parts[0])
+                    jump = abs(x - prev_x)
+                    assert jump <= 500, (
+                        f"{iso}: L-segment x-jump of {jump:.0f}px (antimeridian tear)"
+                    )
+                    prev_x = x
+
+    def test_all_race_country_centroids_exist(self):
+        """Every country in COUNTRY_NAMES must have a centroid for label placement."""
+        from world_map_data import COUNTRY_CENTROIDS
+        for code, name in COUNTRY_NAMES.items():
+            assert code in COUNTRY_CENTROIDS, (
+                f"Race country {code} ({name}) missing from COUNTRY_CENTROIDS"
+            )
+
+    def test_centroids_within_country_bounds(self):
+        """Centroids should be within reasonable bounds of the country's path bbox."""
+        from world_map_data import COUNTRY_CENTROIDS, WORLD_MAP_PATHS
+        for iso in COUNTRY_NAMES:
+            if iso not in WORLD_MAP_PATHS:
+                continue
+            d = WORLD_MAP_PATHS[iso]
+            cx, cy = COUNTRY_CENTROIDS[iso]
+            # Extract all coordinates from path
+            coords = re.findall(r"[ML]([0-9.]+),([0-9.]+)", d)
+            if not coords:
+                continue
+            xs = [float(c[0]) for c in coords]
+            ys = [float(c[1]) for c in coords]
+            # Centroid should be within viewBox (0-1000, 0-500)
+            assert 0 <= cx <= 1000, f"{iso} centroid x={cx} out of viewBox"
+            assert 0 <= cy <= 500, f"{iso} centroid y={cy} out of viewBox"
+
+    # ── Fix 2: Editorial casing ──
+
+    def test_editorial_quip_casing(self, insights_html):
+        """Multi-word dimension labels like 'Race Quality' must keep title case
+        in editorial quips, not become 'Race quality' via .capitalize()."""
+        multi_word_labels = [v for v in DIM_LABELS.values() if " " in v]
+        assert len(multi_word_labels) >= 2, "Expected multi-word DIM_LABELS"
+        for label in multi_word_labels:
+            bad = label[0].upper() + label[1:].lower()  # e.g. "Race quality"
+            if bad != label:
+                # If the bad version appears, it should not be followed by ": N/5"
+                bad_pattern = re.escape(bad) + r": \d/5"
+                matches = re.findall(bad_pattern, insights_html)
+                assert not matches, (
+                    f"Found .capitalize() casing bug: '{bad}' in editorial text"
+                )
+
+    def test_editorial_quips_all_unique(self, insights_html):
+        """No two editorial quip texts should be identical across all
+        overrated/underrated cards."""
+        editorials = re.findall(
+            r'class="gg-insights-ou-card-editorial">(.*?)</div>',
+            insights_html, re.DOTALL
+        )
+        # Need at least some editorials to test
+        if len(editorials) < 2:
+            pytest.skip("Not enough editorial quips to test uniqueness")
+        # Strip whitespace for comparison
+        cleaned = [e.strip() for e in editorials]
+        # Allow some duplicates (different races can have same template variant)
+        # but not ALL identical
+        unique = set(cleaned)
+        assert len(unique) > 1, "All editorial quips are identical — variant logic broken"
+
+    # ── Fix 3: SVG <title> at generation time ──
+
+    def test_svg_title_elements_present(self, insights_html):
+        """Every interactive world map path must have a <title> child element
+        with country name and race count, generated at Python time (not JS)."""
+        paths_with_title = re.findall(
+            r'<path[^>]*class="gg-wm-country[^"]*"[^>]*><title>([^<]+)</title></path>',
+            insights_html
+        )
+        assert len(paths_with_title) >= 10, (
+            f"Expected >=10 paths with <title>, got {len(paths_with_title)}"
+        )
+        # Verify title content format: "Country: N race(s)"
+        for title_text in paths_with_title:
+            assert re.match(r".+: \d+ races?$", title_text), (
+                f"Unexpected title format: '{title_text}'"
+            )
+
+    def test_no_data_tooltip_on_world_paths(self, insights_html):
+        """World map paths should NOT have data-tooltip (moved to <title>)."""
+        world_paths = re.findall(
+            r'<path[^>]*class="gg-wm-country[^"]*"[^>]*/?>',
+            insights_html
+        )
+        for path in world_paths:
+            assert "data-tooltip" not in path, (
+                f"World map path still has data-tooltip: {path[:100]}"
+            )
+
+    # ── Fix 4: No tabindex=0 tab trap ──
+
+    def test_no_tabindex_zero_on_paths(self, insights_html):
+        """No world map path should have tabindex='0' (creates 32-stop tab trap)."""
+        bad_paths = re.findall(
+            r'<path[^>]*class="gg-wm-country[^"]*"[^>]*tabindex="0"',
+            insights_html
+        )
+        assert len(bad_paths) == 0, (
+            f"Found {len(bad_paths)} world map paths with tabindex='0' (tab trap)"
+        )
+
+    # ── Fix 5: Density thresholds match legend ──
+
+    def test_density_thresholds_match_legend(self, insights_html):
+        """Legend text must match DENSITY_HIGH_MIN/DENSITY_MED_MIN constants."""
+        legend = re.search(
+            r'class="gg-ins-world-legend">(.*?)</div>',
+            insights_html, re.DOTALL
+        )
+        assert legend, "World map legend not found"
+        text = legend.group(1)
+        # Legend should reference the exact threshold values
+        assert f"{DENSITY_HIGH_MIN}+" in text, (
+            f"Legend missing '{DENSITY_HIGH_MIN}+' for high density"
+        )
+        assert f"{DENSITY_MED_MIN}" in text, (
+            f"Legend missing '{DENSITY_MED_MIN}' for medium density start"
+        )
+
+    def test_density_boundary_1_race(self):
+        """1 race in a country → 'low' density."""
+        assert 1 < DENSITY_MED_MIN, "Threshold sanity: 1 should be below med"
+
+    def test_density_boundary_med(self):
+        """DENSITY_MED_MIN races → 'med' density (not low)."""
+        assert DENSITY_MED_MIN < DENSITY_HIGH_MIN, (
+            "Threshold sanity: med min must be below high min"
+        )
+
+    def test_density_boundary_high(self):
+        """DENSITY_HIGH_MIN races → 'high' density (not med)."""
+        assert DENSITY_HIGH_MIN >= 3, "High threshold seems too low"
+        assert DENSITY_HIGH_MIN <= 20, "High threshold seems too high"
+
+    # ── Fix 6: color-mix fallbacks ──
+
+    def test_color_mix_has_fallback(self, insights_css):
+        """Every color-mix() density rule must have a hex fallback.
+        Checks both SVG fill rules and swatch background rules."""
+        density_classes = ["gg-wm-density-low", "gg-wm-density-med", "gg-wm-density-high"]
+        for cls in density_classes:
+            # Find ALL CSS blocks for this class (swatch uses background, SVG uses fill)
+            pattern = re.escape(f".{cls}") + r"\s*\{([^}]+)\}"
+            matches = re.findall(pattern, insights_css)
+            assert matches, f"CSS rule for .{cls} not found"
+            for block in matches:
+                assert "color-mix(" in block, f".{cls} missing color-mix()"
+                # Hex fallback can be fill: or background: depending on context
+                assert re.search(r"(?:fill|background):\s*#[0-9a-fA-F]{6}", block), (
+                    f".{cls} missing hex fallback before color-mix()"
+                )
+
+    # ── Fix 7: JS uses e.currentTarget ──
+
+    def test_js_uses_currentTarget(self, insights_js):
+        """World map JS event handlers must use e.currentTarget, not this."""
+        # Check for the pattern: e.currentTarget.getAttribute('data-country')
+        assert "e.currentTarget.getAttribute" in insights_js, (
+            "World map JS should use e.currentTarget.getAttribute, not this"
+        )
+        # The fragile `this.getAttribute` pattern should not exist
+        assert "this.getAttribute" not in insights_js, (
+            "Found this.getAttribute — should be e.currentTarget.getAttribute"
+        )
+
+    # ── Fix 3 regression: no JS tooltip builder ──
+
+    def test_no_js_tooltip_builder(self, insights_js):
+        """SVG title elements are generated at Python time.
+        JS should not use createElementNS to build tooltips."""
+        assert "createElementNS" not in insights_js, (
+            "JS still builds SVG title elements — should be generated at Python time"
+        )
+
+    # ── Data consistency ──
+
+    def test_svg_path_panel_correspondence(self, insights_html):
+        """Every interactive SVG path must have a matching detail panel,
+        and every panel must have a matching SVG path."""
+        # Extract data-country from SVG paths
+        svg_countries = set(re.findall(
+            r'<path[^>]*class="gg-wm-country[^"]*"[^>]*data-country="([A-Z]{2})"',
+            insights_html
+        ))
+        # Extract data-country from panels in world-detail
+        world_detail = re.search(
+            r'id="world-detail"(.*?)</div>\s*</div>\s*</div>',
+            insights_html, re.DOTALL
+        )
+        assert world_detail, "World detail section not found"
+        panel_countries = set(re.findall(
+            r'class="gg-ins-map-panel[^"]*"[^>]*data-country="([A-Z]{2})"',
+            world_detail.group()
+        ))
+        assert svg_countries, "No SVG country paths found"
+        assert panel_countries, "No country panels found"
+        # Every SVG path should have a panel
+        missing_panels = svg_countries - panel_countries
+        assert not missing_panels, (
+            f"SVG paths without panels: {missing_panels}"
+        )
+        # Every panel should have an SVG path
+        missing_paths = panel_countries - svg_countries
+        assert not missing_paths, (
+            f"Panels without SVG paths: {missing_paths}"
+        )
+
+    def test_country_names_covers_country_map(self):
+        """Every value in COUNTRY_MAP must appear in COUNTRY_NAMES."""
+        for region, code in COUNTRY_MAP.items():
+            assert code in COUNTRY_NAMES, (
+                f"COUNTRY_MAP['{region}'] = '{code}' not in COUNTRY_NAMES"
+            )

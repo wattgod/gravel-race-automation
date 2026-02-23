@@ -151,7 +151,12 @@
       "score": "76 / 100",
       "one_liner": "Australia's crown jewel—hosting 2026 Worlds with brutal climbs, wildlife hazards, and Western Australian wilderness.",
       "should_you_race": "Yes if you want a bucket-list Australian adventure and handle technical terrain. Yes if you're chasing UCI Gravel World Series. Skip if the travel commitment to Western Australia is prohibitive.",
-      "alternatives": "The Traka 360 (Europe's equivalent ultra); Crusher in the Tushar (similar climbing ratio); Leadville 100 (altitude challenge)"
+      "alternatives": "The Traka 360 (Europe's equivalent ultra); Crusher in the Tushar (similar climbing ratio); Leadville 100 (altitude challenge)",
+      "alternative_slugs": [
+        "crusher-in-the-tushar",
+        "leadville-100",
+        "the-traka"
+      ]
     },
     "logistics": {
       "airport": "PER (Perth) - 3hr drive to Nannup",
@@ -206,7 +211,7 @@
       ],
       "migration_notes": [],
       "research_strength": {
-        "overall": 97.5,
+        "overall": 96.6,
         "grade": "A",
         "weakest": "cross_reference",
         "has_research_dump": true,
@@ -217,18 +222,13 @@
           "specificity": 100,
           "statistical_backing": 100,
           "voice_authenticity": 100,
-          "completeness": 100,
+          "completeness": 94,
           "cross_reference": 50
         },
         "scored_at": "2026-02-04"
       }
     },
     "citations": [
-      {
-        "url": "https://sevengravelrace.com",
-        "category": "official",
-        "label": "Official Website"
-      },
       {
         "url": "https://www.cyclingweekly.com/gravel/unbound-gravel-vs-uci-gravel-worlds-how-ones-bike-build-would-differ-at-gravels-top-races",
         "category": "media",
@@ -260,6 +260,26 @@
         "label": "TrainerRoad"
       },
       {
+        "url": "https://ucigravelworldseries.com/en/national-champions-show-power-on-2026-worlds-courses/",
+        "category": "community",
+        "label": "ucigravelworldseries.com: National Champions Show Power On 2026 Worlds Courses"
+      },
+      {
+        "url": "https://www.lifeinthesaddle.cc/2012/09/race-report-seven-hills-killer-2012.html",
+        "category": "community",
+        "label": "lifeinthesaddle.cc: Race Report Seven Hills Killer 2012.Html"
+      },
+      {
+        "url": "https://www.aravaiparunning.com/category/race-report/page/2/",
+        "category": "community",
+        "label": "aravaiparunning.com: 2"
+      },
+      {
+        "url": "https://www.travelandsports.com.au/packages/cycling/sevengraveltravel/",
+        "category": "community",
+        "label": "travelandsports.com.au: Sevengraveltravel"
+      },
+      {
         "url": "https://www.facebook.com/SEVENGravel/photos/strava-on-the-crucible-via-brett-morgan/190818394843200/",
         "category": "social",
         "label": "Facebook"
@@ -285,6 +305,16 @@
         "label": "Australiassouthwest"
       },
       {
+        "url": "https://blog.minisport.com/2014/07/mini-seven-race-report-oulton-park/",
+        "category": "other",
+        "label": "Blog"
+      },
+      {
+        "url": "https://sevencycles.com/category/gravel/g-45700-rr-fs.php",
+        "category": "other",
+        "label": "Sevencycles"
+      },
+      {
         "url": "https://sevengravelrace.com/2024-results/",
         "category": "other",
         "label": "Sevengravelrace"
@@ -298,81 +328,6 @@
         "url": "https://sevengravelrace.com/product/caravan-site/",
         "category": "other",
         "label": "Sevengravelrace"
-      },
-      {
-        "url": "https://sevengravelrace.com/race-and-routes/",
-        "category": "other",
-        "label": "Sevengravelrace"
-      },
-      {
-        "url": "https://sevengravelrace.com/results-2/",
-        "category": "other",
-        "label": "Sevengravelrace"
-      },
-      {
-        "url": "https://sevengravelrace.com/seven-2025-map/",
-        "category": "other",
-        "label": "Sevengravelrace"
-      },
-      {
-        "url": "https://sevengravelrace.com/wp-content/uploads/2022/05/SEVEN-Survival-Guide-2022-3-for-Web.pdf",
-        "category": "other",
-        "label": "Sevengravelrace"
-      },
-      {
-        "url": "https://sevengravelrace.com/wp-content/uploads/2023/05/SEVEN-Survival-Guide-2023-Final-for-Web.pdf",
-        "category": "other",
-        "label": "Sevengravelrace"
-      },
-      {
-        "url": "https://ucigravelworldseries.com/en/seven/",
-        "category": "community",
-        "label": "ucigravelworldseries.com: Seven"
-      },
-      {
-        "url": "https://southernforestsandvalleys.com/activity/seven-gravel-race/",
-        "category": "community",
-        "label": "southernforestsandvalleys.com: Seven Gravel Race"
-      },
-      {
-        "url": "https://sportivebreaks.com/sportive-and-gran-fondo/seven/",
-        "category": "community",
-        "label": "sportivebreaks.com: Seven"
-      },
-      {
-        "url": "https://sevengravelrace.com/",
-        "category": "community",
-        "label": "sevengravelrace.com"
-      },
-      {
-        "url": "https://ucigravelworldseries.com/en/national-champions-show-power-on-2026-worlds-courses/",
-        "category": "community",
-        "label": "ucigravelworldseries.com: National Champions Show Power On 2026 Worlds Courses"
-      },
-      {
-        "url": "https://sevencycles.com/category/gravel/g-45700-rr-fs.php",
-        "category": "community",
-        "label": "sevencycles.com: G 45700 Rr Fs.Php"
-      },
-      {
-        "url": "https://www.lifeinthesaddle.cc/2012/09/race-report-seven-hills-killer-2012.html",
-        "category": "community",
-        "label": "lifeinthesaddle.cc: Race Report Seven Hills Killer 2012.Html"
-      },
-      {
-        "url": "https://www.aravaiparunning.com/category/race-report/page/2/",
-        "category": "community",
-        "label": "aravaiparunning.com: 2"
-      },
-      {
-        "url": "https://blog.minisport.com/2014/07/mini-seven-race-report-oulton-park/",
-        "category": "community",
-        "label": "blog.minisport.com: Mini Seven Race Report Oulton Park"
-      },
-      {
-        "url": "https://www.travelandsports.com.au/packages/cycling/sevengraveltravel/",
-        "category": "community",
-        "label": "travelandsports.com.au: Sevengraveltravel"
       }
     ],
     "results": {

@@ -32,12 +32,13 @@ from generate_neo_brutalist import (
 from generate_neo_brutalist import esc  # HTML escape helper
 
 from brand_tokens import (
-    GA_MEASUREMENT_ID,
     get_font_face_css,
     get_preload_hints,
     get_tokens_css,
     get_ab_head_snippet,
+    get_ga4_head_snippet,
 )
+from cookie_consent import get_consent_banner_html
 
 # ── Constants ──────────────────────────────────────────────────
 
@@ -2005,7 +2006,7 @@ def generate_tire_guide_page(rd: dict, raw_race: dict, weather: dict,
   <meta property="og:description" content="{esc(meta_desc)}">
   <meta property="og:url" content="{canonical}">
   <meta property="og:type" content="article">
-  <meta property="og:site_name" content="Gravel God">
+  <meta property="og:site_name" content="Gravel God Cycling">
 
   <!-- Preload fonts -->
   {preload}
@@ -2019,13 +2020,7 @@ def generate_tire_guide_page(rd: dict, raw_race: dict, weather: dict,
   {json_ld}
 
   <!-- GA4 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id={GA_MEASUREMENT_ID}"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){{dataLayer.push(arguments);}}
-    gtag('js', new Date());
-    gtag('config', '{GA_MEASUREMENT_ID}');
-  </script>
+  {get_ga4_head_snippet()}
 </head>
 <body>
 {header}
@@ -2039,6 +2034,7 @@ def generate_tire_guide_page(rd: dict, raw_race: dict, weather: dict,
 </main>
 {footer}
 {inline_js}
+{get_consent_banner_html()}
 </body>
 </html>'''
 

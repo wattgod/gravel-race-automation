@@ -19,7 +19,7 @@
         "Northeast Mississippi"
       ],
       "field_size": "200-400 riders",
-      "start_time": "Morning start",
+      "start_time": "7:30 a.m.",
       "registration": "Online. Cost: ~$60-100",
       "prize_purse": "Modest prizes",
       "aid_stations": "Multiple aid stations",
@@ -185,12 +185,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 88.5,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 88,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -311,24 +320,29 @@
     },
     "citations": [
       {
-        "url": "https://rbentonline.org/YaBB.pl?board=reports;action=multidel;thread=1437860382/0",
-        "category": "community",
-        "label": "rbentonline.org: Yabb.Pl"
+        "url": "https://wheelbrothers.com/tour-de-gap-2/",
+        "category": "other",
+        "label": "Wheelbrothers"
       },
       {
-        "url": "https://www.theoldguybicycleblog.com/2025/07/buffalo-gap-tour-de-gap-one-ride-at.html",
-        "category": "community",
-        "label": "theoldguybicycleblog.com: Buffalo Gap Tour De Gap One Ride At.Html"
-      },
-      {
-        "url": "https://tourdegap.com/",
-        "category": "community",
-        "label": "tourdegap.com"
+        "url": "https://wheelbrothers.com/tour-de-gap/",
+        "category": "other",
+        "label": "Wheelbrothers"
       },
       {
         "url": "https://www.reporternews.com/story/news/local/2024/07/29/riding-the-gap-south-taylor-countys-tour-de-gap-pedals-for-rehab-abilene-texas-newspaper/74583698007/",
+        "category": "other",
+        "label": "Reporternews"
+      },
+      {
+        "url": "https://www.theoldguybicycleblog.com/2025/07/buffalo-gap-tour-de-gap-one-ride-at.html",
+        "category": "other",
+        "label": "Theoldguybicycleblog"
+      },
+      {
+        "url": "https://rbentonline.org/YaBB.pl?board=reports;action=multidel;thread=1437860382/0",
         "category": "community",
-        "label": "reporternews.com: 74583698007"
+        "label": "rbentonline.org: Yabb.Pl"
       },
       {
         "url": "https://tourdegap.com/schedule/",
@@ -339,16 +353,6 @@
         "url": "https://sports.yahoo.com/results-41st-tour-gap-draws-223537965.html",
         "category": "community",
         "label": "sports.yahoo.com: Results 41St Tour Gap Draws 223537965.Html"
-      },
-      {
-        "url": "https://wheelbrothers.com/tour-de-gap-2/",
-        "category": "community",
-        "label": "wheelbrothers.com: Tour De Gap 2"
-      },
-      {
-        "url": "https://wheelbrothers.com/tour-de-gap/",
-        "category": "community",
-        "label": "wheelbrothers.com: Tour De Gap"
       }
     ],
     "tire_recommendations": {

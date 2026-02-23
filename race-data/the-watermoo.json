@@ -92,7 +92,10 @@
       "score": "44 / 100",
       "one_liner": "Small grassroots southeast Michigan ride near Ann Arbor.",
       "should_you_race": "Only if you're in southeast Michigan or the Ann Arbor area and want an affordable gravel ride. Not worth traveling for.",
-      "alternatives": "For better Michigan events: Barry-Roubaix, Lumberjack 100. For similar grassroots vibes: other regional Midwest events."
+      "alternatives": "For better Michigan events: Barry-Roubaix, Lumberjack 100. For similar grassroots vibes: other regional Midwest events.",
+      "alternative_slugs": [
+        "barry-roubaix"
+      ]
     },
     "logistics": {
       "airport": "Detroit (DTW) 45 min",
@@ -176,12 +179,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 86.5,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 80,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 88,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -305,24 +317,34 @@
         "label": "RideWithGPS: 2023 THE WATERMOO"
       },
       {
-        "url": "https://www.flyingrhinocc.com/photography-summary-2023/the-watermoo-gravel-race-2023",
-        "category": "community",
-        "label": "flyingrhinocc.com: The Watermoo Gravel Race 2023"
-      },
-      {
         "url": "https://chelseaupdate.com/the-watermoo-new-gravel-bike-race-that-will-challenge-your-limits/",
-        "category": "community",
-        "label": "chelseaupdate.com: The Watermoo New Gravel Bike Race That Will Challenge You..."
-      },
-      {
-        "url": "https://thewatermoo.com/",
-        "category": "community",
-        "label": "thewatermoo.com"
+        "category": "other",
+        "label": "Chelseaupdate"
       },
       {
         "url": "https://komcycling.com/blogs/product-blogs/dirty-chain-podcast-episode-16-nick-stanko-introduces-the-watermoo-gravel-road-race",
-        "category": "community",
-        "label": "komcycling.com: Dirty Chain Podcast Episode 16 Nick Stanko Introduces The..."
+        "category": "other",
+        "label": "Komcycling"
+      },
+      {
+        "url": "https://racecheck.com/races/the-watermoo/review/",
+        "category": "other",
+        "label": "Racecheck"
+      },
+      {
+        "url": "https://www.annarborrunningcompany.com/blogs/news/the-watermoo-2",
+        "category": "other",
+        "label": "Annarborrunningcompany"
+      },
+      {
+        "url": "https://www.flyingrhinocc.com/photography-summary-2023/the-watermoo-gravel-race-2023",
+        "category": "other",
+        "label": "Flyingrhinocc"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/9373/the-watermoo",
+        "category": "other",
+        "label": "Granfondoguide"
       }
     ],
     "tire_recommendations": {

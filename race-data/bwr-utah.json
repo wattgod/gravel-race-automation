@@ -140,19 +140,19 @@
       ],
       "research_date": "2026-02-04",
       "research_strength": {
-        "overall": 0,
-        "grade": "pending",
-        "weakest": "pending",
+        "overall": 96.1,
+        "grade": "A",
+        "weakest": "voice_authenticity",
         "has_research_dump": true,
         "dimensions": {
-          "source_diversity": 0,
-          "citation_density": 0,
-          "temporal_depth": 0,
-          "specificity": 0,
-          "statistical_backing": 0,
-          "voice_authenticity": 0,
-          "completeness": 0,
-          "cross_reference": 0
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 94,
+          "cross_reference": 100
         },
         "scored_at": "2026-02-04"
       }
@@ -219,18 +219,42 @@
       "score": "79 / 100",
       "one_liner": "Cedar City's altitude strips away your excuses while loose rock strips away your skin—Utah's answer to European suffering with American scenery.",
       "should_you_race": "Show up if you can handle bike handling at 6,000 feet where thin air meets technical terrain. The 92% unroad isn't just marketing speak—it's sand, rock, and singletrack that punishes hesitant front wheels and rewards desert racing experience. Skip it if you think gravel means smooth fire roads or you've never raced above 4,000 feet.",
-      "alternatives": "BWR Arizona gives you similar Belgian Waffle punishment with easier logistics if you want the series experience without altitude games. Dirty Kanza (Unbound) offers comparable distance and prestige but trades Utah's technical variety for Kansas power grinding."
+      "alternatives": "BWR Arizona gives you similar Belgian Waffle punishment with easier logistics if you want the series experience without altitude games. Dirty Kanza (Unbound) offers comparable distance and prestige but trades Utah's technical variety for Kansas power grinding.",
+      "alternative_slugs": [
+        "bwr-arizona",
+        "unbound-200"
+      ]
     },
     "citations": [
-      {
-        "url": "https://www.belgianwaffleride.com",
-        "category": "official",
-        "label": "Official Website"
-      },
       {
         "url": "https://ridewithgps.com/routes/52703090",
         "category": "route",
         "label": "RideWithGPS: BWR Utah Wafer 8.15.23 Final (copy) (copy) (copy)"
+      },
+      {
+        "url": "https://puregravel.com/blogs/reviews/race-report-bwr-utah-2021",
+        "category": "other",
+        "label": "Puregravel"
+      },
+      {
+        "url": "https://strambecco.com/event/belgian-waffle-ride-bwr-utah/",
+        "category": "other",
+        "label": "Strambecco"
+      },
+      {
+        "url": "https://thefeed.com/insider/gold-for-rollins-at-bwr-utah",
+        "category": "other",
+        "label": "Thefeed"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Contents/PopUp/8409/registration-now-open-for-the-6th-edition-of-bwr-utah",
+        "category": "other",
+        "label": "Granfondoguide"
+      },
+      {
+        "url": "https://www.yahoo.com/lifestyle/september-legs-singletrack-bwr-utah-143428100.html",
+        "category": "other",
+        "label": "Yahoo"
       },
       {
         "url": "https://www.youtube.com/watch?v=p2jtN5LC32Q",
@@ -238,54 +262,14 @@
         "label": "youtube.com: Watch"
       },
       {
-        "url": "https://almsthre.com/blogs/news/bwr-utah-2025",
+        "url": "https://www.reddit.com/r/gravelcycling/comments/nja52x/bwr_utah_on_sl7/",
         "category": "community",
-        "label": "almsthre.com: Bwr Utah 2025"
-      },
-      {
-        "url": "https://puregravel.com/blogs/reviews/race-report-bwr-utah-2021",
-        "category": "community",
-        "label": "puregravel.com: Race Report Bwr Utah 2021"
-      },
-      {
-        "url": "https://thefeed.com/insider/gold-for-rollins-at-bwr-utah",
-        "category": "community",
-        "label": "thefeed.com: Gold For Rollins At Bwr Utah"
-      },
-      {
-        "url": "https://www.cyclingnews.com/news/chasing-the-gravel-experience-a-year-of-branching-out-for-australias-courtney-sherwell/",
-        "category": "community",
-        "label": "cyclingnews.com: Chasing The Gravel Experience A Year Of Branching Out For..."
-      },
-      {
-        "url": "https://www.gravelstoke.com/gravel-cycling-gear-blog/2020-bwr-cedar-city-utah-routes",
-        "category": "community",
-        "label": "gravelstoke.com: 2020 Bwr Cedar City Utah Routes"
-      },
-      {
-        "url": "https://h2oaudio.com/blogs/news/from-fire-sparked-to-finish-line-joe-goettl-wins-bwr-utah",
-        "category": "community",
-        "label": "h2oaudio.com: From Fire Sparked To Finish Line Joe Goettl Wins Bwr Utah"
-      },
-      {
-        "url": "https://www.yahoo.com/lifestyle/september-legs-singletrack-bwr-utah-143428100.html",
-        "category": "community",
-        "label": "yahoo.com: September Legs Singletrack Bwr Utah 143428100.Html"
+        "label": "reddit.com: Bwr Utah On Sl7"
       },
       {
         "url": "https://www.belgianwaffleride.bike/pages/utah",
         "category": "community",
         "label": "belgianwaffleride.bike: Utah"
-      },
-      {
-        "url": "https://strambecco.com/event/belgian-waffle-ride-bwr-utah/",
-        "category": "community",
-        "label": "strambecco.com: Belgian Waffle Ride Bwr Utah"
-      },
-      {
-        "url": "https://www.reddit.com/r/gravelcycling/comments/nja52x/bwr_utah_on_sl7/",
-        "category": "community",
-        "label": "reddit.com: Bwr Utah On Sl7"
       }
     ],
     "series": {

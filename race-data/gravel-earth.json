@@ -169,7 +169,12 @@
       "score": "82 / 100",
       "one_liner": "Europe's premier gravel circuit—global adventure racing from Girona to Kenya to Iceland, built on passion over profit.",
       "should_you_race": "Yes if you want adventure beyond typical gravel racing and value experience over prize money. Yes if you're European-based or seeking unique global destinations. Yes if community vibe matters more than production polish. Skip if you need significant prize purses, prefer USA-based racing, or can't handle the travel logistics and expenses.",
-      "alternatives": "major series (USA focus, bigger prizes); UCI Gravel World Series (institutional, global); Individual events like Unbound, Badlands, or SBT GRVL"
+      "alternatives": "major series (USA focus, bigger prizes); UCI Gravel World Series (institutional, global); Individual events like Unbound, Badlands, or SBT GRVL",
+      "alternative_slugs": [
+        "badlands",
+        "sbt-grvl",
+        "unbound-200"
+      ]
     },
     "logistics": {
       "airport": "BCN (Barcelona) for The Traka - 30min train to Girona. JKIA (Nairobi) for Migration - concierge service included. Various for other events.",
@@ -227,7 +232,31 @@
           "desc": "580km with 30,000ft climbing across Cascade Mountains. Snow possible. The 'Grand Tour of Gravel.'"
         }
       ],
-      "signature_challenge": "The sheer variety—committing to GES means racing Mediterranean forests, African safari lands, volcanic Iceland, and American mountain ranges. No other series delivers this breadth of adventure."
+      "signature_challenge": "The sheer variety—committing to GES means racing Mediterranean forests, African safari lands, volcanic Iceland, and American mountain ranges. No other series delivers this breadth of adventure.",
+      "surface_breakdown": {
+        "overall": {
+          "gravel": 85,
+          "pavement": 15
+        },
+        "3mi": {
+          "gravel": 60,
+          "pavement": 40
+        },
+        "92mi": {
+          "gravel": 54,
+          "pavement": 40,
+          "singletrack": 6
+        },
+        "5mi": {
+          "gravel": 54,
+          "pavement": 40,
+          "singletrack": 6
+        },
+        "1mi": {
+          "gravel": 70,
+          "pavement": 30
+        }
+      }
     },
     "series_events_2026": [
       {
@@ -306,11 +335,6 @@
     ],
     "citations": [
       {
-        "url": "https://gravelearthseries.com/",
-        "category": "official",
-        "label": "Official Website"
-      },
-      {
         "url": "https://battistrada.com/en/circuit/gravel-earth-series-2026/229/",
         "category": "other",
         "label": "Battistrada"
@@ -326,14 +350,24 @@
         "label": "Gravelearthseries"
       },
       {
+        "url": "https://rawcyclingmag.com/cardona-final-gravel-earth-series/",
+        "category": "other",
+        "label": "Rawcyclingmag"
+      },
+      {
         "url": "https://sportmaniacs.com/en/races/gravel-earth-series",
         "category": "other",
         "label": "Sportmaniacs"
       },
       {
-        "url": "https://www.bikeradar.com/",
-        "category": "media",
-        "label": "BikeRadar"
+        "url": "https://thefeed.com/insider/race-roundups-with-pete-stetina-the-gravel-earth-series-final",
+        "category": "other",
+        "label": "Thefeed"
+      },
+      {
+        "url": "https://thegravelstack.substack.com/p/recapping-ranxo-and-the-2025-gravel",
+        "category": "other",
+        "label": "Thegravelstack"
       },
       {
         "url": "https://www.cyclingnews.com/gravel-earth-series/",
@@ -341,9 +375,14 @@
         "label": "Cyclingnews"
       },
       {
-        "url": "https://www.cyclingweekly.com/",
-        "category": "media",
-        "label": "Cycling Weekly"
+        "url": "https://www.cyclingnews.com/races/gravel-earth-series-2025/ranxo-gravel-20-event-elite-men-women/results/",
+        "category": "other",
+        "label": "Cyclingnews"
+      },
+      {
+        "url": "https://www.granfondoguide.com/RaceDashboard/GravelEarthSeries/1/8523/",
+        "category": "other",
+        "label": "Granfondoguide"
       },
       {
         "url": "https://www.granfondoguide.com/Series/GravelEarth",
@@ -351,64 +390,14 @@
         "label": "Granfondoguide"
       },
       {
-        "url": "https://www.migrationgravelrace.com/",
-        "category": "other",
-        "label": "Migrationgravelrace"
-      },
-      {
-        "url": "https://www.oregontrailgravelgrinder.com/",
-        "category": "other",
-        "label": "Oregontrailgravelgrinder"
-      },
-      {
-        "url": "https://www.progravelmagazine.com/",
-        "category": "other",
-        "label": "Progravelmagazine"
-      },
-      {
-        "url": "https://thefeed.com/insider/race-roundups-with-pete-stetina-the-gravel-earth-series-final",
-        "category": "community",
-        "label": "thefeed.com: Race Roundups With Pete Stetina The Gravel Earth Series F..."
-      },
-      {
         "url": "https://www.gravelunion.cc/article/ride-report-the-gravel-earth-series-final",
-        "category": "community",
-        "label": "gravelunion.cc: Ride Report The Gravel Earth Series Final"
-      },
-      {
-        "url": "https://thegravelstack.substack.com/p/recapping-ranxo-and-the-2025-gravel",
-        "category": "community",
-        "label": "thegravelstack.substack.com: Recapping Ranxo And The 2025 Gravel"
-      },
-      {
-        "url": "https://rawcyclingmag.com/cardona-final-gravel-earth-series/",
-        "category": "community",
-        "label": "rawcyclingmag.com: Cardona Final Gravel Earth Series"
-      },
-      {
-        "url": "https://www.cyclingnews.com/races/gravel-earth-global-events-2024/falling-leaves/results/",
-        "category": "community",
-        "label": "cyclingnews.com: Results"
-      },
-      {
-        "url": "https://www.cyclingnews.com/races/gravel-earth-series-2025/ranxo-gravel-20-event-elite-men-women/results/",
-        "category": "community",
-        "label": "cyclingnews.com: Results"
-      },
-      {
-        "url": "https://www.welovecycling.com/wide/2022/11/30/gravel-racing-gets-a-big-boost-the-gravel-earth-series/",
-        "category": "community",
-        "label": "welovecycling.com: Gravel Racing Gets A Big Boost The Gravel Earth Series"
-      },
-      {
-        "url": "https://www.granfondoguide.com/RaceDashboard/GravelEarthSeries",
-        "category": "community",
-        "label": "granfondoguide.com: Gravelearthseries"
+        "category": "other",
+        "label": "Gravelunion"
       },
       {
         "url": "https://www.joelaverick.com/p/gravel-earth-2026-a-series-of-unfortunate",
-        "category": "community",
-        "label": "joelaverick.com: Gravel Earth 2026 A Series Of Unfortunate"
+        "category": "other",
+        "label": "Joelaverick"
       }
     ],
     "results": {
@@ -482,6 +471,25 @@
         "200pluslb_dry": "38-42",
         "200pluslb_mixed": "36-40",
         "200pluslb_wet": "34-38"
+      }
+    },
+    "research_metadata": {
+      "research_strength": {
+        "overall": 92.5,
+        "grade": "A",
+        "weakest": "voice_authenticity",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 80,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 100,
+          "cross_reference": 100
+        },
+        "scored_at": "2026-02-04"
       }
     }
   }

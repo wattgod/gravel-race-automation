@@ -19,7 +19,7 @@
         "Spain"
       ],
       "field_size": "200-400 riders",
-      "start_time": "Morning start",
+      "start_time": "9:00 AM",
       "registration": "Online. Cost: ~€50-80",
       "prize_purse": "Modest prizes",
       "aid_stations": "Multiple aid stations",
@@ -94,7 +94,10 @@
       "score": "47 / 100",
       "one_liner": "Spanish Castellon gravel challenge.",
       "should_you_race": "If you're in Europe—yes, it's solid. If you're international—there are better options.",
-      "alternatives": "For better value: regional gravel races. For similar Spanish terrain: Sea Otter Europe Gravel."
+      "alternatives": "For better value: regional gravel races. For similar Spanish terrain: Sea Otter Europe Gravel.",
+      "alternative_slugs": [
+        "sea-otter-europe-gravel"
+      ]
     },
     "logistics": {
       "airport": "Valencia (VLC) 1 hour",
@@ -138,7 +141,13 @@
       ],
       "signature_challenge": "Spanish rolling terrain.",
       "ridewithgps_id": null,
-      "ridewithgps_name": null
+      "ridewithgps_name": null,
+      "surface_breakdown": {
+        "overall": {
+          "gravel": 80,
+          "pavement": 20
+        }
+      }
     },
     "guide_variables": {
       "race_name": "Castellon Gravel Race",
@@ -185,12 +194,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 90.0,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 82,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -311,69 +329,49 @@
     },
     "citations": [
       {
+        "url": "https://cycling-info.com/alejandro-valverde-and-carolin-schiff-triumph-with-solo-victories-at-castellon-gravel-race/",
+        "category": "other",
+        "label": "Cycling-Info"
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/2024–25_UCI_Gravel_World_Series",
+        "category": "reference",
+        "label": "Wikipedia"
+      },
+      {
+        "url": "https://granfondodailynews.com/2025/02/16/2025-uci-gravel-worlds-qualifying-old-man-valverde-wins-at-castellon-again/",
+        "category": "other",
+        "label": "Granfondodailynews"
+      },
+      {
         "url": "https://reddit.com/r/gravelcycling/comments/castellon-gravel",
         "category": "community",
         "label": "Reddit"
       },
       {
-        "url": "https://ridewithgps.com",
-        "category": "route",
-        "label": "RideWithGPS"
-      },
-      {
-        "url": "https://www.castellongravelrace.com",
-        "category": "other",
-        "label": "Castellongravelrace"
-      },
-      {
-        "url": "https://www.cyclingtips.com",
-        "category": "media",
-        "label": "CyclingTips"
-      },
-      {
-        "url": "https://www.ridingravel.com",
-        "category": "other",
-        "label": "Ridingravel"
-      },
-      {
-        "url": "https://www.strava.com",
-        "category": "activity",
-        "label": "Strava"
-      },
-      {
-        "url": "https://www.trainerroad.com",
-        "category": "community",
-        "label": "TrainerRoad"
-      },
-      {
-        "url": "https://www.velonews.com",
-        "category": "media",
-        "label": "VeloNews"
-      },
-      {
-        "url": "https://www.gravelunion.cc/article/ride-report-uci-gravel-world-series-castellon",
-        "category": "community",
-        "label": "gravelunion.cc: Ride Report Uci Gravel World Series Castellon"
-      },
-      {
         "url": "https://ucigravelworldseries.com/en/castellon/",
-        "category": "community",
-        "label": "ucigravelworldseries.com: Castellon"
+        "category": "other",
+        "label": "Ucigravelworldseries"
+      },
+      {
+        "url": "https://www.comunitatvalenciana.com/en/castello-castellon/llucena-lucena-del-cid/events/castello-gravel-race",
+        "category": "other",
+        "label": "Comunitatvalenciana"
       },
       {
         "url": "https://www.cyclingnews.com/news/alejandro-valverde-and-carolin-schiff-ride-to-solo-elite-titles-at-castellon-gravel-race/",
-        "category": "community",
-        "label": "cyclingnews.com: Alejandro Valverde And Carolin Schiff Ride To Solo Elite ..."
+        "category": "other",
+        "label": "Cyclingnews"
       },
       {
         "url": "https://www.gravelunion.cc/article/ride-report-uci-gravel-race-castellon",
-        "category": "community",
-        "label": "gravelunion.cc: Ride Report Uci Gravel Race Castellon"
+        "category": "other",
+        "label": "Gravelunion"
       },
       {
-        "url": "https://granfondodailynews.com/2025/02/16/2025-uci-gravel-worlds-qualifying-old-man-valverde-wins-at-castellon-again/",
-        "category": "community",
-        "label": "granfondodailynews.com: 2025 Uci Gravel Worlds Qualifying Old Man Valverde Wins A..."
+        "url": "https://www.gravelunion.cc/article/ride-report-uci-gravel-world-series-castellon",
+        "category": "other",
+        "label": "Gravelunion"
       }
     ],
     "tire_recommendations": {

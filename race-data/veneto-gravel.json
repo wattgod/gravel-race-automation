@@ -19,7 +19,7 @@
         "Italy"
       ],
       "field_size": "200-400 riders",
-      "start_time": "Morning start",
+      "start_time": "8:00 AM on",
       "registration": "Online. Cost: ~€60-100",
       "prize_purse": "Modest prizes",
       "aid_stations": "Multiple aid stations",
@@ -94,7 +94,10 @@
       "score": "49 / 100",
       "one_liner": "Italian Veneto hilly gravel in Asolo.",
       "should_you_race": "If you're in Italy/Europe—yes, it's solid. If you're international—there are better options.",
-      "alternatives": "For similar Italian events: other Italian gravel races. For better organization: Grinduro Italy."
+      "alternatives": "For similar Italian events: other Italian gravel races. For better organization: Grinduro Italy.",
+      "alternative_slugs": [
+        "grinduro-italy"
+      ]
     },
     "logistics": {
       "airport": "Venice (VCE) 1 hour or Milan (MXP) 3 hours",
@@ -185,12 +188,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 92.2,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 100,
+          "completeness": 76,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -311,24 +323,69 @@
     },
     "citations": [
       {
-        "url": "https://www.gravelunion.cc/article/ride-report-veneto-gravel-2023",
-        "category": "community",
-        "label": "gravelunion.cc: Ride Report Veneto Gravel 2023"
+        "url": "https://venetogravel.it/en/edizione2026/",
+        "category": "official",
+        "label": "Official Website"
       },
       {
-        "url": "https://stefanorodighiero.net/blog/venetogravel-2025.html",
-        "category": "community",
-        "label": "stefanorodighiero.net: Venetogravel 2025.Html"
+        "url": "https://3t.bike/blogs/news/venetogravel-the-longest-gravel-ride-in-europe",
+        "category": "other",
+        "label": "3T"
+      },
+      {
+        "url": "https://bikepacking.com/event/2025-veneto-gravel/",
+        "category": "other",
+        "label": "Bikepacking"
+      },
+      {
+        "url": "https://bikepacking.com/event/2026-veneto-gravel/",
+        "category": "other",
+        "label": "Bikepacking"
       },
       {
         "url": "https://bolg.gsng.eu/root/2025/04-25--27_veneto-gravel-2025.html",
+        "category": "other",
+        "label": "Bolg"
+      },
+      {
+        "url": "https://stefanorodighiero.net/blog/venetogravel-2025.html",
+        "category": "other",
+        "label": "Stefanorodighiero"
+      },
+      {
+        "url": "https://strambecco.com/event/veneto-gravel-classic/",
+        "category": "other",
+        "label": "Strambecco"
+      },
+      {
+        "url": "https://us.3t.bike/blogs/news/venetogravel-the-longest-gravel-ride-in-europe",
+        "category": "other",
+        "label": "Us"
+      },
+      {
+        "url": "https://www.gravelunion.cc/article/ride-report-veneto-gravel-2023",
+        "category": "other",
+        "label": "Gravelunion"
+      },
+      {
+        "url": "https://www.gravelunion.cc/article/ride-ride-report-veneto-gravel-2023",
+        "category": "other",
+        "label": "Gravelunion"
+      },
+      {
+        "url": "https://www.reddit.com/r/bikepacking/comments/10247hh/has_anyone_been_to_or_going_to_veneto_gravel_italy/",
         "category": "community",
-        "label": "bolg.gsng.eu: 04 25  27 Veneto Gravel 2025.Html"
+        "label": "Reddit"
       },
       {
         "url": "https://www.reddit.com/r/bikepacking/comments/1c9rdic/my_setup_for_the_veneto_gravel/",
         "category": "community",
-        "label": "reddit.com: My Setup For The Veneto Gravel"
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.skedaddle.com/blog/the-story-behind-gravel-trails-of-veneto/",
+        "category": "other",
+        "label": "Skedaddle"
       },
       {
         "url": "https://www.youtube.com/watch?v=SzPcJVTJX74",
@@ -336,29 +393,9 @@
         "label": "youtube.com: Watch"
       },
       {
-        "url": "https://venetogravel.it/en/",
-        "category": "community",
-        "label": "venetogravel.it: En"
-      },
-      {
         "url": "https://www.youtube.com/watch?v=YIoIi7kX4d0",
         "category": "community",
         "label": "youtube.com: Watch"
-      },
-      {
-        "url": "https://www.skedaddle.com/blog/the-story-behind-gravel-trails-of-veneto/",
-        "category": "community",
-        "label": "skedaddle.com: The Story Behind Gravel Trails Of Veneto"
-      },
-      {
-        "url": "https://www.gravelunion.cc/article/ride-ride-report-veneto-gravel-2023",
-        "category": "community",
-        "label": "gravelunion.cc: Ride Ride Report Veneto Gravel 2023"
-      },
-      {
-        "url": "https://3t.bike/blogs/news/venetogravel-the-longest-gravel-ride-in-europe",
-        "category": "community",
-        "label": "3t.bike: Venetogravel The Longest Gravel Ride In Europe"
       }
     ],
     "results": {

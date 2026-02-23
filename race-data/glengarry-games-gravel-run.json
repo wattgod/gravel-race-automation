@@ -19,7 +19,7 @@
         "Ontario"
       ],
       "field_size": "50-100 riders",
-      "start_time": "Morning start",
+      "start_time": "9:00 AM",
       "registration": "Online. Cost: ~$50-75 CAD",
       "prize_purse": "Modest prizes",
       "aid_stations": "Limited aid stations",
@@ -94,7 +94,11 @@
       "score": "40 / 100",
       "one_liner": "Ontario local gravel challenge.",
       "should_you_race": "If you're local to Ontario—yes, it's good value. If you're traveling—skip it.",
-      "alternatives": "For better Ontario races: Back Forty Highlander, Ghost of the Gravel."
+      "alternatives": "For better Ontario races: Back Forty Highlander, Ghost of the Gravel.",
+      "alternative_slugs": [
+        "back-forty-highlander",
+        "ghost-of-the-gravel"
+      ]
     },
     "logistics": {
       "airport": "Ottawa (YOW) 90 minutes",
@@ -185,12 +189,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 81.7,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 80,
+          "citation_density": 80,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -311,34 +324,24 @@
     },
     "citations": [
       {
+        "url": "https://gravelcup.com/gravel-cup-events/glengarry-gravel-run",
+        "category": "official",
+        "label": "Official Website"
+      },
+      {
         "url": "https://ridewithgps.com/routes/52063952",
         "category": "route",
         "label": "RideWithGPS: Glengarry Games Gravel Run MEDIO"
       },
       {
-        "url": "https://gravelcup.com/gravel-cup-events/glengarry-gravel-run",
-        "category": "community",
-        "label": "gravelcup.com: Glengarry Gravel Run"
+        "url": "https://www.granfondoguide.com/Events/Index/12530/glengarry-games-gravel-run",
+        "category": "other",
+        "label": "Granfondoguide"
       },
       {
         "url": "https://northernontario.travel/cycling/ontario-gravel-bike-events",
         "category": "community",
         "label": "northernontario.travel: Ontario Gravel Bike Events"
-      },
-      {
-        "url": "http://www.timeral.info/Archive/A2-2025.html",
-        "category": "community",
-        "label": "timeral.info: A2 2025.Html"
-      },
-      {
-        "url": "http://timeral.info/Archive/A2-2024.html",
-        "category": "community",
-        "label": "timeral.info: A2 2024.Html"
-      },
-      {
-        "url": "https://www.granfondoguide.com/Events/Index/12530/glengarry-games-gravel-run",
-        "category": "community",
-        "label": "granfondoguide.com: Glengarry Games Gravel Run"
       }
     ],
     "tire_recommendations": {

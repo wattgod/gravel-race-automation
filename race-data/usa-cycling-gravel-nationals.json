@@ -19,7 +19,7 @@
         "Punchy Driftless terrain"
       ],
       "field_size": "~50-100+ per elite category; 42 national-title categories total",
-      "start_time": "Morning start",
+      "start_time": "7:00 AM",
       "registration": "Open entry with USA Cycling racing membership required; no one-day licenses",
       "prize_purse": "National Championship jersey; UCI Gravel Worlds automatic qualification for top finishers",
       "aid_stations": "Course support provided",
@@ -151,7 +151,12 @@
       "score": "63 / 100",
       "one_liner": "The national championship with open entry—stars and stripes on Driftless gravel with UCI Worlds pathway.",
       "should_you_race": "Yes if you want a legitimate national championship jersey and Worlds qualification. Yes if you appreciate accessible championship racing. Skip if you want destination adventure over competitive credentialing.",
-      "alternatives": "Gravel Worlds (different title, Nebraska); SBT GRVL (similar region, different vibe); Unbound 200 (bigger field, Kansas gravel)"
+      "alternatives": "Gravel Worlds (different title, Nebraska); SBT GRVL (similar region, different vibe); Unbound 200 (bigger field, Kansas gravel)",
+      "alternative_slugs": [
+        "garmin-gravel-worlds",
+        "sbt-grvl",
+        "unbound-200"
+      ]
     },
     "logistics": {
       "airport": "LSE (La Crosse Regional) - closest; MSP (Minneapolis-St Paul) - 2.5hr drive; ORD (Chicago) - 4hr drive",
@@ -208,18 +213,18 @@
       ],
       "migration_notes": [],
       "research_strength": {
-        "overall": 71.8,
-        "grade": "B",
-        "weakest": "citation_density",
-        "has_research_dump": false,
+        "overall": 94.8,
+        "grade": "A",
+        "weakest": "voice_authenticity",
+        "has_research_dump": true,
         "dimensions": {
-          "source_diversity": 30,
-          "citation_density": 20,
-          "temporal_depth": 75,
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
           "specificity": 100,
-          "statistical_backing": 80,
+          "statistical_backing": 100,
           "voice_authenticity": 70,
-          "completeness": 100,
+          "completeness": 94,
           "cross_reference": 75
         },
         "scored_at": "2026-02-04"
@@ -287,44 +292,19 @@
         "label": "Cycling Weekly"
       },
       {
-        "url": "https://forum.ridinggravel.com/",
-        "category": "community",
-        "label": "Riding Gravel"
-      },
-      {
         "url": "https://www.trainerroad.com/forum/t/2024-usa-cycling-gravel-national-championships/90249",
         "category": "community",
         "label": "TrainerRoad"
       },
       {
-        "url": "https://en.wikipedia.org/wiki/UCI_Gravel_World_Championships",
-        "category": "reference",
-        "label": "Wikipedia"
+        "url": "https://www.trainerroad.com/forum/t/2025-usa-gravel-national-championships-la-crosse-mn/95234",
+        "category": "community",
+        "label": "TrainerRoad"
       },
       {
-        "url": "https://explorelacrosse.com/usa-cycling-gravel-national-championships/",
-        "category": "other",
-        "label": "Explorelacrosse"
-      },
-      {
-        "url": "https://gravelnats.usacycling.org/",
-        "category": "other",
-        "label": "Gravelnats"
-      },
-      {
-        "url": "https://iowabicyclecoalition.org/event/2025-usa-cycling-gravel-national-championships/",
-        "category": "other",
-        "label": "Iowabicyclecoalition"
-      },
-      {
-        "url": "https://ucigravelworldseries.com/en/",
-        "category": "other",
-        "label": "Ucigravelworldseries"
-      },
-      {
-        "url": "https://usacycling.org/article/inaugural-usa-cycling-gravel-national-championship-heads-to-nebraska",
-        "category": "other",
-        "label": "Usacycling"
+        "url": "https://velo.outsideonline.com/gravel/what-its-like-competing-pro-gravel-race/",
+        "category": "community",
+        "label": "velo.outsideonline.com: What Its Like Competing Pro Gravel Race"
       },
       {
         "url": "https://velo.outsideonline.com/gravel/gravel-racing/usac-gravel-national-championship/",
@@ -337,9 +317,19 @@
         "label": "thenxrth.com: Gravel Nationals 2025 Preview Everything You Need To Know..."
       },
       {
-        "url": "https://velo.outsideonline.com/gravel/what-its-like-competing-pro-gravel-race/",
-        "category": "community",
-        "label": "velo.outsideonline.com: What Its Like Competing Pro Gravel Race"
+        "url": "https://en.wikipedia.org/wiki/UCI_Gravel_World_Championships",
+        "category": "reference",
+        "label": "Wikipedia"
+      },
+      {
+        "url": "https://explorelacrosse.com/usa-cycling-gravel-national-championships/",
+        "category": "other",
+        "label": "Explorelacrosse"
+      },
+      {
+        "url": "https://iowabicyclecoalition.org/event/2025-usa-cycling-gravel-national-championships/",
+        "category": "other",
+        "label": "Iowabicyclecoalition"
       }
     ],
     "results": {

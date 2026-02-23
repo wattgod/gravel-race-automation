@@ -90,7 +90,11 @@
       "score": "73 / 100",
       "one_liner": "High-desert climbing race with Spanish Peaks views and 10,000+ feet of vertical.",
       "should_you_race": "Yes if you love climbing and want a challenging altitude race in stunning Colorado scenery. The 18-mile climb is the real deal.",
-      "alternatives": "If you want Colorado gravel without the massive climb: Ned Gravel. If you want similar climbing: Crusher in the Tushar."
+      "alternatives": "If you want Colorado gravel without the massive climb: Ned Gravel. If you want similar climbing: Crusher in the Tushar.",
+      "alternative_slugs": [
+        "crusher-in-the-tushar",
+        "ned-gravel"
+      ]
     },
     "logistics": {
       "airport": "Denver (DEN) or Colorado Springs (COS) - several hours drive to Trinidad. Consider Pueblo for closer regional option.",
@@ -154,18 +158,18 @@
       ],
       "migration_notes": [],
       "research_strength": {
-        "overall": 71.8,
-        "grade": "B",
-        "weakest": "source_diversity",
-        "has_research_dump": false,
+        "overall": 94.8,
+        "grade": "A",
+        "weakest": "voice_authenticity",
+        "has_research_dump": true,
         "dimensions": {
-          "source_diversity": 30,
-          "citation_density": 50,
-          "temporal_depth": 75,
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
           "specificity": 100,
-          "statistical_backing": 60,
+          "statistical_backing": 100,
           "voice_authenticity": 70,
-          "completeness": 100,
+          "completeness": 94,
           "cross_reference": 75
         },
         "scored_at": "2026-02-04"
@@ -231,44 +235,34 @@
     },
     "citations": [
       {
-        "url": "https://www.theraddirt.com",
-        "category": "official",
-        "label": "Official Website"
-      },
-      {
-        "url": "https://www.elevationoutdoors.com/go-outside/why-the-rad-dirt-fest-is-rad-and-the-gear-that-helped-get-the-job-done/",
-        "category": "community",
-        "label": "elevationoutdoors.com: Why The Rad Dirt Fest Is Rad And The Gear That Helped Get..."
-      },
-      {
-        "url": "https://www.renehersecycles.com/riders/",
-        "category": "community",
-        "label": "renehersecycles.com: Riders"
-      },
-      {
-        "url": "https://gearandgrit.com/life-time-introduces-the-rad-dirt-fest-a-new-gravel-bike-and-trail-run-event-in-trinidad-colorado/",
-        "category": "community",
-        "label": "gearandgrit.com: Life Time Introduces The Rad Dirt Fest A New Gravel Bike ..."
-      },
-      {
-        "url": "https://oaklandnorth.net/2010/07/12/cyclists-race-in-the-rad-massaker-alleycat/",
-        "category": "community",
-        "label": "oaklandnorth.net: Cyclists Race In The Rad Massaker Alleycat"
+        "url": "https://rouvy.com/life-time/the-rad-dirt-fest",
+        "category": "other",
+        "label": "Rouvy"
       },
       {
         "url": "https://velo.outsideonline.com/events/lauren-de-crescenzo-john-keller-win-the-rad-165mi-gravel-race/",
-        "category": "community",
-        "label": "velo.outsideonline.com: Lauren De Crescenzo John Keller Win The Rad 165Mi Gravel ..."
+        "category": "media",
+        "label": "Velo"
+      },
+      {
+        "url": "https://velo.outsideonline.com/tag/the-rad/",
+        "category": "media",
+        "label": "Velo"
       },
       {
         "url": "https://www.distancetoempty.com/news/2022/11/03/the-rad-dirt-fest-wrap",
-        "category": "community",
-        "label": "distancetoempty.com: The Rad Dirt Fest Wrap"
+        "category": "other",
+        "label": "Distancetoempty"
       },
       {
         "url": "https://www.distancetoempty.com/news/2022/11/03/the-rad-race-wrap",
-        "category": "community",
-        "label": "distancetoempty.com: The Rad Race Wrap"
+        "category": "other",
+        "label": "Distancetoempty"
+      },
+      {
+        "url": "https://www.elevationoutdoors.com/go-outside/why-the-rad-dirt-fest-is-rad-and-the-gear-that-helped-get-the-job-done/",
+        "category": "other",
+        "label": "Elevationoutdoors"
       }
     ],
     "tire_recommendations": {

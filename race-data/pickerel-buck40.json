@@ -94,7 +94,11 @@
       "score": "46 / 100",
       "one_liner": "Wisconsin 40-mile rolling gravel.",
       "should_you_race": "If you're in WI/Midwest and want a local shorter event—yes, it's solid. If you're from out of region—there are better options.",
-      "alternatives": "For longer WI events: Bear 100, Hungry Bear 100. For similar regional events: other WI gravel races."
+      "alternatives": "For longer WI events: Bear 100, Hungry Bear 100. For similar regional events: other WI gravel races.",
+      "alternative_slugs": [
+        "bear-100",
+        "hungry-bear-100"
+      ]
     },
     "logistics": {
       "airport": "Varies by location in WI",
@@ -102,7 +106,8 @@
       "food": "WI has full dining options. Stock nutrition.",
       "packet_pickup": "Day before typically",
       "parking": "At start/finish",
-      "official_site": "Check Pickerel Buck40 website"
+      "official_site": "Check Pickerel Buck40 website",
+      "camping": "campgrounds each night with opportunities to rinse off in the lake/stream"
     },
     "history": {
       "founded": null,
@@ -185,12 +190,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 85.4,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 80,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 50
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -340,14 +354,14 @@
     ],
     "citations": [
       {
+        "url": "https://www.ironbull.org/pickerel-buck40",
+        "category": "other",
+        "label": "Ironbull"
+      },
+      {
         "url": "https://www.ironbull.org/fkt-leaderboard",
         "category": "community",
         "label": "ironbull.org: Fkt Leaderboard"
-      },
-      {
-        "url": "https://www.ironbull.org/pickerel-buck40",
-        "category": "community",
-        "label": "ironbull.org: Pickerel Buck40"
       }
     ],
     "tire_recommendations": {

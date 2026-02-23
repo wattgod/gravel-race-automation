@@ -19,7 +19,7 @@
         "Cherokee National Forest area"
       ],
       "field_size": "100-300 riders",
-      "start_time": "Morning start",
+      "start_time": "8:00am",
       "registration": "Online. Cost: ~$60-100",
       "prize_purse": "Modest prizes",
       "aid_stations": "Multiple aid stations",
@@ -94,7 +94,11 @@
       "score": "51 / 100",
       "one_liner": "Remote Appalachian mountain gravel in southeast Tennessee.",
       "should_you_race": "If you're in Tennessee and want a remote mountain challenge—yes, it's a solid regional event. If you're from out of state—there are better options.",
-      "alternatives": "For better Southeast events: Gravel Worlds, Pisgah Monster-Cross, Hot Springs Gravel Gauntlet. For similar regional events: other Tennessee gravel races."
+      "alternatives": "For better Southeast events: Gravel Worlds, Pisgah Monster-Cross, Hot Springs Gravel Gauntlet. For similar regional events: other Tennessee gravel races.",
+      "alternative_slugs": [
+        "garmin-gravel-worlds",
+        "hot-springs-gravel-gauntlet"
+      ]
     },
     "logistics": {
       "airport": "Chattanooga (CHA) 1.5 hours or Knoxville (TYS) 1.5 hours",
@@ -185,12 +189,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 84.7,
+        "grade": "A",
+        "weakest": "temporal_depth",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 80,
+          "citation_density": 100,
+          "temporal_depth": 50,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 88,
+          "cross_reference": 50
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -317,18 +330,13 @@
       },
       {
         "url": "https://rapidexpeditions.com/waucheesi-bike-race.html",
-        "category": "community",
-        "label": "rapidexpeditions.com: Waucheesi Bike Race.Html"
-      },
-      {
-        "url": "https://thewaucheesi2025.itsyourrace.com/",
-        "category": "community",
-        "label": "thewaucheesi2025.itsyourrace.com"
+        "category": "other",
+        "label": "Rapidexpeditions"
       },
       {
         "url": "https://www.granfondoguide.com/Events/Index/10043/the-waucheesi-bike-race",
-        "category": "community",
-        "label": "granfondoguide.com: The Waucheesi Bike Race"
+        "category": "other",
+        "label": "Granfondoguide"
       }
     ],
     "tire_recommendations": {

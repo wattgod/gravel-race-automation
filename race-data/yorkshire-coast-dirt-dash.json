@@ -94,7 +94,10 @@
       "score": "39 / 100",
       "one_liner": "UK Yorkshire coast gravel challenge.",
       "should_you_race": "If you're local to UK—yes, it's solid. If you're traveling internationally—skip it.",
-      "alternatives": "For better UK races: Lauf Gritfest."
+      "alternatives": "For better UK races: Lauf Gritfest.",
+      "alternative_slugs": [
+        "lauf-gritfest"
+      ]
     },
     "logistics": {
       "airport": "Leeds Bradford (LBA) 90 minutes",
@@ -102,7 +105,8 @@
       "food": "Whitby has excellent dining. Stock nutrition.",
       "packet_pickup": "Day of typically",
       "parking": "At start/finish",
-      "official_site": "Check Yorkshire Coast Dirt Dash website"
+      "official_site": "Check Yorkshire Coast Dirt Dash website",
+      "camping": "camping included halfway"
     },
     "history": {
       "founded": null,
@@ -185,12 +189,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 81.5,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 80,
+          "citation_density": 100,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 80,
+          "voice_authenticity": 70,
+          "completeness": 82,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -316,24 +329,19 @@
         "label": "RideWithGPS: Yorkshire Coast Dirt Dash Day 1"
       },
       {
-        "url": "https://dirtdash.cc/yorkshire/",
-        "category": "community",
-        "label": "dirtdash.cc: Yorkshire"
-      },
-      {
-        "url": "https://bikepacking.com/event/yorkshire-coast-dirt-dash-2026/",
-        "category": "community",
-        "label": "bikepacking.com: Yorkshire Coast Dirt Dash 2026"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=NcLjWeACkL0",
-        "category": "community",
-        "label": "youtube.com: Watch"
+        "url": "https://bikepacking.com/event/yorkshire-coast-dirt-dash-2025/",
+        "category": "other",
+        "label": "Bikepacking"
       },
       {
         "url": "https://www.gravelcyclist.com/training-rides/yorkshire-coast-dirt-dash-new-gravel-bikepacking-event-takes-cyclists-around-the-dramatic-scenery-of-the-yorkshire-coast-north-york-moors-national-park/",
+        "category": "media",
+        "label": "Gravel Cyclist"
+      },
+      {
+        "url": "https://dirtdash.cc/yorkshire/",
         "category": "community",
-        "label": "gravelcyclist.com: Yorkshire Coast Dirt Dash New Gravel Bikepacking Event Ta..."
+        "label": "dirtdash.cc: Yorkshire"
       },
       {
         "url": "https://us.alpkit.com/blogs/deeds/adventure-cycling-in-north-yorkshire-route-yc",

@@ -19,7 +19,7 @@
         "Wine country"
       ],
       "field_size": "100-250 riders",
-      "start_time": "Morning start",
+      "start_time": "10:00 AM with",
       "registration": "Online. Cost: ~$80-100",
       "prize_purse": "None or minimal",
       "aid_stations": "Multiple aid stations",
@@ -93,7 +93,10 @@
       "score": "56 / 100",
       "one_liner": "Regional Oregon Coast Range mountain gravel with significant climbing near Portland.",
       "should_you_race": "If you're in Oregon or the Pacific Northwest and want a mountain gravel challenge—yes, it's a well-organized event with genuine climbing. If you're traveling from far away—there are more prestigious mountain events elsewhere.",
-      "alternatives": "For better Oregon events: Oregon Trail Gravel Grinder. For similar regional mountain vibes: other Pacific Northwest mountain events."
+      "alternatives": "For better Oregon events: Oregon Trail Gravel Grinder. For similar regional mountain vibes: other Pacific Northwest mountain events.",
+      "alternative_slugs": [
+        "oregon-trail-gravel"
+      ]
     },
     "logistics": {
       "airport": "Portland (PDX) 1 hour",
@@ -101,7 +104,8 @@
       "food": "Wine country town with good dining options.",
       "packet_pickup": "Day before typically",
       "parking": "At start/finish",
-      "official_site": "Check Oregon cycling calendars"
+      "official_site": "Check Oregon cycling calendars",
+      "camping": "camping available 16 minutes from Carlton"
     },
     "history": {
       "founded": null,
@@ -178,12 +182,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 87.7,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 80,
+          "citation_density": 80,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 88,
+          "cross_reference": 50
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -307,39 +320,19 @@
         "label": "RideWithGPS: Carlton Gravel Short Loop Sasquatch Duro"
       },
       {
-        "url": "https://www.gravel-results.com/race/18013",
-        "category": "community",
-        "label": "gravel-results.com: 18013"
+        "url": "https://bikeportland.org/2019/05/20/oakridge-and-westfir-host-sasquatch-duro-gravel-event-299959",
+        "category": "other",
+        "label": "Bikeportland"
       },
       {
-        "url": "https://results.bikereg.com/race/20753",
-        "category": "community",
-        "label": "results.bikereg.com: 20753"
-      },
-      {
-        "url": "https://visitmcminnville.com/about/articles/sasquatch-duro/",
-        "category": "community",
-        "label": "visitmcminnville.com: Sasquatch Duro"
-      },
-      {
-        "url": "https://www.granfondoguide.com/Events/Index/7795/sasquatch-duro",
-        "category": "community",
-        "label": "granfondoguide.com: Sasquatch Duro"
+        "url": "https://www.granfondoguide.com/Contents/PopUp/8473/gray-and-sophocles-fastest-at-sasquatch-duro",
+        "category": "other",
+        "label": "Granfondoguide"
       },
       {
         "url": "https://www.mudslingerevents.com/sasquatch-duro",
-        "category": "community",
-        "label": "mudslingerevents.com: Sasquatch Duro"
-      },
-      {
-        "url": "https://strambecco.com/event/sasquatch-duro/",
-        "category": "community",
-        "label": "strambecco.com: Sasquatch Duro"
-      },
-      {
-        "url": "https://bikeportland.org/2019/05/20/oakridge-and-westfir-host-sasquatch-duro-gravel-event-299959",
-        "category": "community",
-        "label": "bikeportland.org: Oakridge And Westfir Host Sasquatch Duro Gravel Event 299959"
+        "category": "other",
+        "label": "Mudslingerevents"
       },
       {
         "url": "https://www.webscorer.com/racedetails?did=340652&embed=1&raceid=287089",

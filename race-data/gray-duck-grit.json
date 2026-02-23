@@ -92,7 +92,10 @@
       "score": "44 / 100",
       "one_liner": "Small grassroots southeast Minnesota ride near Twin Cities.",
       "should_you_race": "Only if you're in Minnesota or the Twin Cities area and want an affordable gravel ride. Not worth traveling for.",
-      "alternatives": "For better Minnesota events: Almanzo 100, Dirty Benjamin. For similar grassroots vibes: other regional Midwest events."
+      "alternatives": "For better Minnesota events: Almanzo 100, Dirty Benjamin. For similar grassroots vibes: other regional Midwest events.",
+      "alternative_slugs": [
+        "almanzo-100"
+      ]
     },
     "logistics": {
       "airport": "Minneapolis-St. Paul (MSP) 45 min",
@@ -100,7 +103,8 @@
       "food": "Small city with dining options. Stock race nutrition beforehand.",
       "packet_pickup": "Race morning typically",
       "parking": "At start/finish",
-      "official_site": "Check Minnesota cycling calendars"
+      "official_site": "Check Minnesota cycling calendars",
+      "camping": "camping options, parking details, and parking strategy are **not provided in the search results**"
     },
     "history": {
       "founded": null,
@@ -176,12 +180,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 90.0,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 82,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -300,39 +313,44 @@
     },
     "citations": [
       {
+        "url": "https://thegravelride.bike/gray-duck-grit-unleashing-your-endurance-in-the-driftless-region-of-minnesota",
+        "category": "other",
+        "label": "Thegravelride"
+      },
+      {
+        "url": "https://www.bikemn.org/events/gray-duck-grit-2025/",
+        "category": "other",
+        "label": "Bikemn"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/11034/gray-duck-grit-iii",
+        "category": "other",
+        "label": "Granfondoguide"
+      },
+      {
         "url": "https://www.thenxrth.com/post/gray-duck-grit-first-look-3-riders-share-3-perspectives-of-3-races",
-        "category": "community",
-        "label": "thenxrth.com: Gray Duck Grit First Look 3 Riders Share 3 Perspectives O..."
+        "category": "other",
+        "label": "Thenxrth"
       },
       {
         "url": "https://www.thenxrth.com/post/horsetracks-cowbells-blue-sky-gravel-pat-moore-s-gray-duck-grit-recap",
-        "category": "community",
-        "label": "thenxrth.com: Horsetracks Cowbells Blue Sky Gravel Pat Moore S Gray Duc..."
+        "category": "other",
+        "label": "Thenxrth"
       },
       {
-        "url": "https://grayduckgrit.com/",
-        "category": "community",
-        "label": "grayduckgrit.com"
-      },
-      {
-        "url": "https://thegravelride.bike/gray-duck-grit-unleashing-your-endurance-in-the-driftless-region-of-minnesota",
-        "category": "community",
-        "label": "thegravelride.bike: Gray Duck Grit Unleashing Your Endurance In The Driftless..."
+        "url": "https://www.thenxrth.com/post/the-collective-passion-for-gravel-gray-duck-grit-rounds-the-corner-into-year-2",
+        "category": "other",
+        "label": "Thenxrth"
       },
       {
         "url": "https://www.trainerroad.com/forum/t/grey-duck-grit-in-minnesota/74859",
         "category": "community",
-        "label": "trainerroad.com: 74859"
+        "label": "TrainerRoad"
       },
       {
         "url": "https://www.reddit.com/r/gravelcycling/comments/y5o64a/completed_the_gray_duck_grit_2022/",
         "category": "community",
         "label": "reddit.com: Completed The Gray Duck Grit 2022"
-      },
-      {
-        "url": "https://www.thenxrth.com/post/the-collective-passion-for-gravel-gray-duck-grit-rounds-the-corner-into-year-2",
-        "category": "community",
-        "label": "thenxrth.com: The Collective Passion For Gravel Gray Duck Grit Rounds T..."
       }
     ],
     "results": {

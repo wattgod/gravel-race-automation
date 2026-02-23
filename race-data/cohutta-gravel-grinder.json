@@ -19,7 +19,7 @@
         "Mountain gravel"
       ],
       "field_size": "400-800 riders",
-      "start_time": "Morning start",
+      "start_time": "7:00 AM",
       "registration": "Online. Cost: ~$80-120",
       "prize_purse": "Prizes for top finishers",
       "aid_stations": "Multiple aid stations",
@@ -94,7 +94,10 @@
       "score": "61 / 100",
       "one_liner": "100-mile Georgia mountain gravel through Cohutta Wilderness.",
       "should_you_race": "If you want a 100-mile mountain challenge with significant climbing—yes, it's a solid event. If you want pro field depth or cooler conditions—look elsewhere.",
-      "alternatives": "For better mountain events: Leadville, Crusher. For similar regional events: other Georgia gravel races."
+      "alternatives": "For better mountain events: Leadville, Crusher. For similar regional events: other Georgia gravel races.",
+      "alternative_slugs": [
+        "leadville-100"
+      ]
     },
     "logistics": {
       "airport": "Chattanooga (CHA) 45 minutes or Atlanta (ATL) 1.5 hours",
@@ -102,7 +105,8 @@
       "food": "Small town with limited dining. Stock nutrition for 100 miles.",
       "packet_pickup": "Day before",
       "parking": "At start/finish",
-      "official_site": "Check Cohutta website"
+      "official_site": "Check Cohutta website",
+      "camping": "camping is available in the Cherokee National Forest"
     },
     "history": {
       "founded": null,
@@ -192,12 +196,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 91.8,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 82,
+          "cross_reference": 50
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -326,34 +339,19 @@
     },
     "citations": [
       {
-        "url": "https://www.mtbracenews.com/news/cohutta-100",
-        "category": "community",
-        "label": "mtbracenews.com: Cohutta 100"
+        "url": "https://ridewithgps.com/routes/41524803",
+        "category": "route",
+        "label": "RideWithGPS: Cohutta Kitten Gravel Grinder"
       },
       {
-        "url": "https://www.mtbracenews.com/tag/cohutta",
-        "category": "community",
-        "label": "mtbracenews.com: Cohutta"
+        "url": "https://www.ohiogravelgrinders.com/blog/2022/3/27/mulberry-gap-adventure",
+        "category": "other",
+        "label": "Ohiogravelgrinders"
       },
       {
-        "url": "http://www.brickhouseracing.com/?p=4339",
-        "category": "community",
-        "label": "brickhouseracing.com"
-      },
-      {
-        "url": "https://www.mtbracenews.com/xc-racing/nue-big-frog-65-mile",
-        "category": "community",
-        "label": "mtbracenews.com: Nue Big Frog 65 Mile"
-      },
-      {
-        "url": "https://www.roadbikerider.com/gravel-ride-race-list/",
-        "category": "community",
-        "label": "roadbikerider.com: Gravel Ride Race List"
-      },
-      {
-        "url": "https://strambecco.com/event/cohutta-100-big-frog-65/",
-        "category": "community",
-        "label": "strambecco.com: Cohutta 100 Big Frog 65"
+        "url": "https://www.tennesseegravel.com/ride-reports",
+        "category": "other",
+        "label": "Tennesseegravel"
       },
       {
         "url": "https://bikepacking.com/news/neil-beltchenko-cohutta-cat/",
@@ -371,19 +369,9 @@
         "label": "singletracks.com: My Toughest Ride Yet 19 Days To Cohutta"
       },
       {
-        "url": "https://www.tennesseegravel.com/ride-reports",
-        "category": "community",
-        "label": "tennesseegravel.com: Ride Reports"
-      },
-      {
         "url": "https://camba.us/wp/archives/6616",
         "category": "community",
         "label": "camba.us: 6616"
-      },
-      {
-        "url": "https://www.ohiogravelgrinders.com/blog/2022/3/27/mulberry-gap-adventure",
-        "category": "community",
-        "label": "ohiogravelgrinders.com: Mulberry Gap Adventure"
       }
     ],
     "tire_recommendations": {

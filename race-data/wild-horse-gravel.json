@@ -19,7 +19,7 @@
         "Desert terrain"
       ],
       "field_size": "50-150 riders",
-      "start_time": "Morning start",
+      "start_time": "8:00 AM on",
       "registration": "Online. Cost: ~$60-90",
       "prize_purse": "None",
       "aid_stations": "Minimal aid stations",
@@ -94,7 +94,10 @@
       "score": "50 / 100",
       "one_liner": "Small grassroots western Colorado high desert ride with remote location.",
       "should_you_race": "Only if you're in western Colorado or seeking unique desert gravel. Not worth the long drive for the race alone.",
-      "alternatives": "For better Colorado events: Leadville 100, Steamboat Gravel. For similar desert vibes: other western desert events."
+      "alternatives": "For better Colorado events: Leadville 100, Steamboat Gravel. For similar desert vibes: other western desert events.",
+      "alternative_slugs": [
+        "leadville-100"
+      ]
     },
     "logistics": {
       "airport": "Grand Junction (GJT) 45 min, or Denver (DEN) 2.5 hours",
@@ -102,7 +105,8 @@
       "food": "Small town with minimal dining. Bring your own.",
       "packet_pickup": "Race morning",
       "parking": "At start/finish",
-      "official_site": "Check Colorado cycling calendars"
+      "official_site": "Check Colorado cycling calendars",
+      "camping": "camping setup Friday 5:00pm-9:00pm at High Lonesome Ranch"
     },
     "history": {
       "founded": null,
@@ -179,12 +183,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 85.0,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 60,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 88,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -303,44 +316,24 @@
     },
     "citations": [
       {
-        "url": "https://www.vaildaily.com/sports-and-outdoors/summer-series-race-report-wild-horse-gravel/",
-        "category": "community",
-        "label": "vaildaily.com: Summer Series Race Report Wild Horse Gravel"
+        "url": "https://geminiadventures.com/bike/wild-horse-gravel",
+        "category": "other",
+        "label": "Geminiadventures"
       },
       {
-        "url": "https://www.gravelcyclist.com/race-reports/ride-report-wild-horse-gravel-de-beque-colorado-lets-roll-with-roll-massif/",
-        "category": "community",
-        "label": "gravelcyclist.com: Ride Report Wild Horse Gravel De Beque Colorado Lets Roll..."
+        "url": "https://velo.outsideonline.com/gravel/weekend-gravel-recap-ro3-grinduro-gravel-locos-paydirt-and-wild-horse-gravel/",
+        "category": "media",
+        "label": "Velo"
       },
       {
         "url": "https://www.bikeradar.com/features/routes-and-rides/roll-massif-wild-horse-gravel",
-        "category": "community",
-        "label": "bikeradar.com: Roll Massif Wild Horse Gravel"
+        "category": "media",
+        "label": "BikeRadar"
       },
       {
-        "url": "https://www.reddit.com/r/running/comments/17e43t/wild_horse_half_marathon_race_report/",
-        "category": "community",
-        "label": "reddit.com: Wild Horse Half Marathon Race Report"
-      },
-      {
-        "url": "https://www.exquisiteendurancecoaching.com/post/race-recap-the-wild-horse-gravel-utah",
-        "category": "community",
-        "label": "exquisiteendurancecoaching.com: Race Recap The Wild Horse Gravel Utah"
-      },
-      {
-        "url": "https://www.reddit.com/r/gravelcycling/comments/1ckxbwt/withdrew_from_my_last_organized_ride_ever/",
-        "category": "community",
-        "label": "reddit.com: Withdrew From My Last Organized Ride Ever"
-      },
-      {
-        "url": "https://geminiadventures.com/bike/wild-horse-gravel",
-        "category": "community",
-        "label": "geminiadventures.com: Wild Horse Gravel"
-      },
-      {
-        "url": "https://velo.outsideonline.com/gallery/grind-gallery-gravel-fondo-fun-at-wild-horse-gravel",
-        "category": "community",
-        "label": "velo.outsideonline.com: Grind Gallery Gravel Fondo Fun At Wild Horse Gravel"
+        "url": "https://www.gravelcyclist.com/race-reports/ride-report-wild-horse-gravel-de-beque-colorado-lets-roll-with-roll-massif/",
+        "category": "media",
+        "label": "Gravel Cyclist"
       }
     ],
     "tire_recommendations": {

@@ -1,6 +1,12 @@
 #!/usr/bin/env python3
 """
-Generate the Gravel God Interactive Training Guide page.
+Generate the Gravel God Interactive Training Guide page (MONOLITH — DEPRECATED).
+
+DEPRECATED: This generator produces a single-page monolith (/guide/). The new
+topic-cluster generator (generate_guide_cluster.py) produces 9 pages (1 pillar +
+8 chapters) and should be used for all new deployments. This file is retained
+because its block renderers, CSS builders, and JS builders are imported by the
+cluster generator.
 
 Reads structured content from guide/gravel-guide-content.json and produces
 a standalone HTML page with interactive blocks (accordions, tabs, timelines,
@@ -11,9 +17,11 @@ Follows the same pattern as generate_methodology.py — imports shared constants
 defines page-specific builders, outputs standalone HTML.
 
 Usage:
-    python generate_guide.py
+    python generate_guide.py              # Still works but deprecated
     python generate_guide.py --inline
     python generate_guide.py --output-dir ./output
+
+See generate_guide_cluster.py for the replacement.
 """
 
 import argparse
@@ -37,8 +45,9 @@ from generate_neo_brutalist import (
 
 from guide_infographics import INFOGRAPHIC_RENDERERS
 from shared_header import get_site_header_css, get_site_header_html
+from cookie_consent import get_consent_banner_html
+from brand_tokens import get_ga4_head_snippet
 
-GA4_MEASUREMENT_ID = "G-EJJZ9T6M52"
 
 GUIDE_DIR = Path(__file__).parent.parent / "guide"
 CONTENT_JSON = GUIDE_DIR / "gravel-guide-content.json"
@@ -46,8 +55,23 @@ OUTPUT_DIR = Path(__file__).parent / "output"
 
 
 def esc(text) -> str:
-    """HTML-escape a string."""
-    return html.escape(str(text)) if text else ""
+    """HTML-escape a string. Handles 0/False correctly (only skips None/'')."""
+    if text is None or text == "":
+        return ""
+    return html.escape(str(text))
+
+
+def _safe_json_for_script(obj, **kwargs) -> str:
+    """Serialize obj to JSON safe for embedding inside <script> tags.
+
+    json.dumps does NOT escape '</' sequences, so a string containing
+    '</script>' would prematurely close the <script> element, breaking
+    the page and potentially enabling XSS. We replace '</' with '<\\/'
+    which is semantically identical in JSON/JS but prevents the HTML
+    parser from seeing an end tag.
+    """
+    raw = json.dumps(obj, **kwargs)
+    return raw.replace("</", "<\\/")
 
 
 # ── Content Loading ──────────────────────────────────────────
@@ -58,11 +82,19 @@ def load_content() -> dict:
     return json.loads(CONTENT_JSON.read_text(encoding="utf-8"))
 
 
+def load_race_index() -> dict:
+    """Load race-index.json and return slug → race dict mapping."""
+    index_path = Path(__file__).parent.parent / "web" / "race-index.json"
+    races = json.loads(index_path.read_text(encoding="utf-8"))
+    return {r["slug"]: r for r in races}
+
+
 # ── Markdown helpers ─────────────────────────────────────────
 
 # Module-level glossary dict, set during generation so all render functions
 # that call _md_inline() automatically resolve tooltip markers.
 _GLOSSARY = None  # dict or None — set during generation for tooltip resolution
+_RACE_INDEX = None  # dict or None — slug → race data, set during generation for race blocks
 
 
 def _md_inline(text: str) -> str:
@@ -515,6 +547,184 @@ def render_hero_stat(block: dict) -> str:
     return f'<div class="gg-guide-hero-stat"><div class="gg-guide-hero-stat__value">{value}{unit_html}</div>{ctx_html}</div>'
 
 
+# ── Race-Connected Block Renderers ──────────────────────────
+
+
+def render_race_reference(block: dict) -> str:
+    """Render an inline race mention with a live stat from the race database.
+
+    Input: {"type": "race_reference", "slug": "unbound-200", "context": "elevation"}
+    Output: Linked race name with relevant stat, e.g. "Unbound 200 (9,200ft gain, Tier 1)"
+    """
+    slug = block.get("slug", "")
+    context_dim = block.get("context", "")
+    if not _RACE_INDEX or slug not in _RACE_INDEX:
+        return f'<!-- race not found: {esc(slug)} -->'
+    race = _RACE_INDEX[slug]
+    name = esc(race["name"])
+    tier = race.get("tier", "")
+    profile_url = esc(race.get("profile_url", f"/race/{slug}/"))
+    # Build context stat string
+    stat_parts = []
+    if context_dim == "elevation" and race.get("elevation_ft"):
+        stat_parts.append(f'{race["elevation_ft"]:,}ft gain')
+    elif context_dim == "distance" and race.get("distance_mi"):
+        stat_parts.append(f'{race["distance_mi"]:,} miles')
+    elif context_dim == "climate" and race.get("scores", {}).get("climate"):
+        score = race["scores"]["climate"]
+        labels = {1: "Mild", 2: "Moderate", 3: "Variable", 4: "Challenging", 5: "Extreme"}
+        stat_parts.append(f'Climate: {labels.get(score, score)}/5')
+    elif context_dim == "technicality" and race.get("scores", {}).get("technicality"):
+        score = race["scores"]["technicality"]
+        labels = {1: "Paved", 2: "Smooth gravel", 3: "Mixed", 4: "Technical", 5: "Extreme"}
+        stat_parts.append(f'{labels.get(score, score)}')
+    elif context_dim and race.get("scores", {}).get(context_dim):
+        stat_parts.append(f'{esc(context_dim.replace("_", " ").title())}: {esc(race["scores"][context_dim])}/5')
+    if tier:
+        stat_parts.append(f'Tier {esc(tier)}')
+    stat_str = f' ({", ".join(stat_parts)})' if stat_parts else ''
+    return (f'<a href="{profile_url}" class="gg-race-ref" '
+            f'data-slug="{esc(slug)}">{name}{stat_str}</a>')
+
+
+def render_race_callout(block: dict) -> str:
+    """Render a side-by-side race comparison card.
+
+    Input: {"type": "race_callout", "slugs": ["unbound-200", "mid-south-100"],
+            "dimension": "elevation", "caption": "..."}
+    Output: Neo-brutalist comparison card showing how two races differ on a dimension.
+    """
+    slugs = block.get("slugs", [])
+    dimension = block.get("dimension", "overall_score")
+    caption = block.get("caption", "")
+    if not _RACE_INDEX:
+        return '<!-- race index not loaded -->'
+    if len(slugs) != 2:
+        return f'<!-- race callout: expected 2 slugs, got {len(slugs)} -->'
+    races = [_RACE_INDEX.get(s) for s in slugs]
+    if not all(races):
+        missing = [esc(s) for s, r in zip(slugs, races) if not r]
+        return f'<!-- race callout: missing slugs {", ".join(missing)} -->'
+
+    def _race_card(race):
+        name = esc(race["name"])
+        url = esc(race.get("profile_url", f'/race/{race["slug"]}/'))
+        tier = race.get("tier", "")
+        # Get dimension value
+        if dimension == "overall_score":
+            val = str(race.get("overall_score", "—"))
+            label = "Overall"
+        elif dimension in ("distance_mi", "elevation_ft"):
+            raw = race.get(dimension, 0)
+            val = f'{raw:,}' if raw else "—"
+            label = "Distance (mi)" if dimension == "distance_mi" else "Elevation (ft)"
+        elif dimension in race.get("scores", {}):
+            val = str(race["scores"][dimension])
+            label = dimension.replace("_", " ").title()
+        else:
+            val = "—"
+            label = dimension.replace("_", " ").title()
+        tier_html = f'<span class="gg-race-callout__tier" data-tier="{esc(tier)}">T{esc(tier)}</span>' if tier else ''
+        return (f'<div class="gg-race-callout__race">'
+                f'<a href="{url}" class="gg-race-callout__name">{name}</a>{tier_html}'
+                f'<div class="gg-race-callout__stat">'
+                f'<span class="gg-race-callout__stat-value">{esc(val)}</span>'
+                f'<span class="gg-race-callout__stat-label">{esc(label)}</span>'
+                f'</div></div>')
+
+    cards = ''.join(_race_card(r) for r in races)
+    vs_html = '<span class="gg-race-callout__vs">VS</span>'
+    caption_html = f'<p class="gg-race-callout__caption">{_md_inline(esc(caption))}</p>' if caption else ''
+    return (f'<div class="gg-race-callout" data-dimension="{esc(dimension)}">'
+            f'<div class="gg-race-callout__header">RACE COMPARISON</div>'
+            f'<div class="gg-race-callout__grid">{cards}</div>'
+            f'{vs_html}{caption_html}</div>')
+
+
+def render_decision_tree(block: dict) -> str:
+    """Render an interactive decision tree for race selection.
+
+    Input: {"type": "decision_tree", "title": "...", "tree": {...}}
+    Tree structure: Each node has "question", "options" (list of {text, next|result}).
+    Leaf nodes have "result" (slug or text) instead of "next" (node id).
+    """
+    title = esc(block.get("title", "Find Your Race"))
+    tree = block.get("tree", {})
+    # Validate that every 'next' reference points to an existing node
+    node_ids = set(tree.keys())
+    for node_id, node in tree.items():
+        for opt in node.get("options", []):
+            next_ref = opt.get("next")
+            if next_ref and next_ref not in node_ids:
+                raise ValueError(
+                    f"Decision tree node '{node_id}' has option "
+                    f"with next='{next_ref}' but node '{next_ref}' "
+                    f"does not exist. Available nodes: {sorted(node_ids)}"
+                )
+    tree_json = json.dumps(tree, ensure_ascii=False)
+    # Build initial question from the root node
+    root = tree.get("root", {})
+    root_question = esc(root.get("question", ""))
+    root_options = root.get("options", [])
+    options_html = []
+    for opt in root_options:
+        text = esc(opt.get("text", ""))
+        target = esc(opt.get("next", opt.get("result", "")))
+        is_result = "result" in opt
+        options_html.append(
+            f'<button class="gg-decision-tree__option" '
+            f'data-target="{target}" data-is-result="{str(is_result).lower()}">'
+            f'{text}</button>'
+        )
+    return (f'<div class="gg-decision-tree" data-tree=\'{esc(tree_json)}\'>'
+            f'<div class="gg-decision-tree__header">{title}</div>'
+            f'<div class="gg-decision-tree__body">'
+            f'<p class="gg-decision-tree__question">{root_question}</p>'
+            f'<div class="gg-decision-tree__options">{"".join(options_html)}</div>'
+            f'</div>'
+            f'<div class="gg-decision-tree__result" style="display:none"></div>'
+            f'<button class="gg-decision-tree__restart" style="display:none">Start Over</button>'
+            f'</div>')
+
+
+def render_personalized_content(block: dict) -> str:
+    """Render rider-type-personalized content with 4 variants.
+
+    Input: {"type": "personalized_content", "variants": {
+        "ayahuasca": {"content": "..."},
+        "finisher": {"content": "..."},
+        "competitor": {"content": "..."},
+        "podium": {"content": "..."}
+    }}
+    Each variant is rendered in a div with data-rider-type. The finisher variant
+    is visible by default; JS swaps on rider type selection.
+    """
+    variants = block.get("variants", {})
+    rider_order = ["ayahuasca", "finisher", "competitor", "podium"]
+    # Warn about unknown variant keys (catches misspelled rider types)
+    unknown = set(variants.keys()) - set(rider_order)
+    if unknown:
+        raise ValueError(
+            f"personalized_content block has unknown rider types: "
+            f"{sorted(unknown)}. Valid types: {rider_order}"
+        )
+    parts = []
+    for rider in rider_order:
+        v = variants.get(rider)
+        if not v:
+            continue
+        content = _md_inline(esc(v.get("content", "")))
+        paras = [f'<p>{p.strip()}</p>' for p in content.split('\n') if p.strip()]
+        # finisher is visible by default (CSS uses opacity/visibility via --active class)
+        active = ' gg-personalized--active' if rider == 'finisher' else ''
+        parts.append(
+            f'<div class="gg-personalized__variant{active}" '
+            f'data-rider-type="{esc(rider)}">'
+            f'{"".join(paras)}</div>'
+        )
+    return f'<div class="gg-personalized">{"".join(parts)}</div>'
+
+
 # Block type -> renderer dispatch
 BLOCK_RENDERERS = {
     "prose": render_prose,
@@ -532,6 +742,10 @@ BLOCK_RENDERERS = {
     "image": render_image,
     "video": render_video,
     "hero_stat": render_hero_stat,
+    "race_reference": render_race_reference,
+    "race_callout": render_race_callout,
+    "decision_tree": render_decision_tree,
+    "personalized_content": render_personalized_content,
 }
 
 
@@ -855,10 +1069,10 @@ def build_jsonld(content: dict) -> str:
     }
 
     parts = [
-        f'<script type="application/ld+json">{json.dumps(article, separators=(",",":"))}</script>',
-        f'<script type="application/ld+json">{json.dumps(breadcrumb, separators=(",",":"))}</script>',
-        f'<script type="application/ld+json">{json.dumps(course, separators=(",",":"))}</script>',
-        f'<script type="application/ld+json">{json.dumps(howto, separators=(",",":"))}</script>',
+        f'<script type="application/ld+json">{_safe_json_for_script(article, separators=(",",":"))}</script>',
+        f'<script type="application/ld+json">{_safe_json_for_script(breadcrumb, separators=(",",":"))}</script>',
+        f'<script type="application/ld+json">{_safe_json_for_script(course, separators=(",",":"))}</script>',
+        f'<script type="application/ld+json">{_safe_json_for_script(howto, separators=(",",":"))}</script>',
     ]
     return '\n'.join(parts)
 
@@ -1551,6 +1765,63 @@ def build_guide_css() -> str:
 .gg-infographic-digit{width:28px;height:44px}
 .gg-infographic-digit-strip span{height:44px;font-size:24px}
 }
+
+/* ── Race Reference (inline link) ── */
+.gg-race-ref{color:var(--gg-color-teal);text-decoration:underline;text-underline-offset:2px;font-family:var(--gg-font-data)}
+.gg-race-ref:hover{color:var(--gg-color-primary-brown)}
+
+/* ── Race Callout (comparison card) ── */
+.gg-race-callout{border:2px solid var(--gg-color-primary-brown);padding:0;margin:24px 0;background:var(--gg-color-warm-paper)}
+.gg-race-callout__header{background:var(--gg-color-primary-brown);color:var(--gg-color-warm-paper);padding:8px 16px;font-family:var(--gg-font-data);font-size:11px;letter-spacing:0.1em;text-transform:uppercase}
+.gg-race-callout__grid{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.gg-race-callout__race{padding:16px;text-align:center;border-bottom:1px solid var(--gg-color-tan)}
+.gg-race-callout__race:first-child{border-right:2px solid var(--gg-color-primary-brown)}
+.gg-race-callout__name{color:var(--gg-color-teal);font-family:var(--gg-font-editorial);font-weight:600;text-decoration:none;font-size:16px}
+.gg-race-callout__name:hover{text-decoration:underline}
+.gg-race-callout__tier{display:inline-block;margin-left:8px;font-family:var(--gg-font-data);font-size:11px;padding:2px 6px;border:1px solid currentColor}
+.gg-race-callout__tier[data-tier="1"]{color:var(--gg-color-primary-brown)}
+.gg-race-callout__tier[data-tier="2"]{color:var(--gg-color-secondary-brown)}
+.gg-race-callout__tier[data-tier="3"]{color:var(--gg-color-tier-3)}
+.gg-race-callout__tier[data-tier="4"]{color:var(--gg-color-tier-4)}
+.gg-race-callout__stat{margin-top:12px}
+.gg-race-callout__stat-value{display:block;font-family:var(--gg-font-data);font-size:28px;font-weight:700;color:var(--gg-color-primary-brown)}
+.gg-race-callout__stat-label{display:block;font-family:var(--gg-font-data);font-size:11px;color:var(--gg-color-secondary-brown);text-transform:uppercase;letter-spacing:0.05em;margin-top:4px}
+.gg-race-callout__vs{display:block;text-align:center;font-family:var(--gg-font-data);font-size:12px;color:var(--gg-color-secondary-brown);padding:4px 0;letter-spacing:0.15em}
+.gg-race-callout__caption{padding:12px 16px;margin:0;font-family:var(--gg-font-editorial);font-size:14px;color:var(--gg-color-secondary-brown);border-top:1px solid var(--gg-color-tan)}
+@media(max-width:768px){
+.gg-race-callout__grid{grid-template-columns:1fr}
+.gg-race-callout__race:first-child{border-right:none;border-bottom:2px solid var(--gg-color-primary-brown)}
+.gg-race-callout__stat-value{font-size:22px}
+}
+
+/* ── Decision Tree (interactive race finder) ── */
+.gg-decision-tree{border:2px solid var(--gg-color-primary-brown);margin:24px 0;background:var(--gg-color-warm-paper)}
+.gg-decision-tree__header{background:var(--gg-color-primary-brown);color:var(--gg-color-warm-paper);padding:10px 16px;font-family:var(--gg-font-data);font-size:13px;letter-spacing:0.1em;text-transform:uppercase}
+.gg-decision-tree__body{padding:24px 16px}
+.gg-decision-tree__question{font-family:var(--gg-font-editorial);font-size:18px;font-weight:600;color:var(--gg-color-primary-brown);margin:0 0 16px}
+.gg-decision-tree__options{display:flex;flex-direction:column;gap:8px}
+.gg-decision-tree__option{display:block;width:100%;padding:12px 16px;border:2px solid var(--gg-color-tan);background:var(--gg-color-sand);font-family:var(--gg-font-editorial);font-size:15px;color:var(--gg-color-primary-brown);cursor:pointer;text-align:left;transition:border-color 0.15s,background 0.15s}
+.gg-decision-tree__option:hover{border-color:var(--gg-color-teal);background:var(--gg-color-warm-paper)}
+.gg-decision-tree__result{padding:24px 16px;text-align:center}
+.gg-decision-tree__result-title{font-family:var(--gg-font-data);font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:var(--gg-color-secondary-brown);margin-bottom:8px}
+.gg-decision-tree__result-race{font-family:var(--gg-font-editorial);font-size:22px;font-weight:700}
+.gg-decision-tree__result-race a{color:var(--gg-color-teal);text-decoration:underline}
+.gg-decision-tree__restart{display:block;width:100%;padding:10px;border:2px solid var(--gg-color-primary-brown);background:var(--gg-color-warm-paper);font-family:var(--gg-font-data);font-size:12px;text-transform:uppercase;letter-spacing:0.1em;cursor:pointer;color:var(--gg-color-primary-brown)}
+.gg-decision-tree__restart:hover{background:var(--gg-color-sand)}
+@media(max-width:768px){
+.gg-decision-tree__question{font-size:16px}
+.gg-decision-tree__option{font-size:14px;padding:10px 12px}
+}
+
+/* ── Personalized Content (rider-type variants) ── */
+.gg-personalized{margin:16px 0;position:relative}
+.gg-personalized__variant{border-left:3px solid var(--gg-color-teal);padding:12px 16px;background:var(--gg-color-sand);opacity:0;visibility:hidden;position:absolute;width:100%;transition:opacity 0.3s ease}
+.gg-personalized__variant.gg-personalized--active{opacity:1;visibility:visible;position:relative}
+.gg-personalized__variant p{margin:0 0 8px;font-family:var(--gg-font-editorial);font-size:15px;color:var(--gg-color-primary-brown);line-height:1.6}
+.gg-personalized__variant p:last-child{margin-bottom:0}
+@media(prefers-reduced-motion:reduce){
+.gg-personalized__variant{transition:none}
+}
 '''
 
 
@@ -1852,6 +2123,14 @@ if(panel)panel.style.display="block";
 });
 var ftpInput=document.getElementById("gg-calc-ftp-power");
 if(ftpInput)ftpInput.placeholder="e.g., "+ftp;
+/* Personalized content: show matching variant, hide others */
+document.querySelectorAll(".gg-personalized").forEach(function(pc){
+var variants=pc.querySelectorAll(".gg-personalized__variant");
+variants.forEach(function(v){
+var isMatch=v.getAttribute("data-rider-type")===type;
+v.classList.toggle("gg-personalized--active",isMatch);
+});
+});
 track("guide_rider_select",{rider_type:type});
 }
 if(riderSelector){
@@ -2158,6 +2437,82 @@ if(expand)expand.textContent=node.classList.contains("open")?"\u2212":"+";
 track("infographic_interact",{type:"timeline"});
 });
 
+/* Decision tree interaction */
+document.addEventListener("click",function(e){
+var btn=e.target.closest(".gg-decision-tree__option");
+if(!btn)return;
+var tree=btn.closest(".gg-decision-tree");
+if(!tree)return;
+var treeData;
+try{treeData=JSON.parse(tree.getAttribute("data-tree")||"{}");}catch(ex){return;}
+var target=btn.getAttribute("data-target");
+var isResult=btn.getAttribute("data-is-result")==="true";
+if(isResult){
+var resultEl=tree.querySelector(".gg-decision-tree__result");
+var bodyEl=tree.querySelector(".gg-decision-tree__body");
+var restartEl=tree.querySelector(".gg-decision-tree__restart");
+if(bodyEl)bodyEl.style.display="none";
+if(resultEl){
+var resultHtml='<div class="gg-decision-tree__result-title">WE RECOMMEND</div>';
+resultHtml+='<div class="gg-decision-tree__result-race">';
+resultHtml+='<a href="/race/'+target+'/">'+target.replace(/-/g," ").replace(/\b\w/g,function(c){return c.toUpperCase();})+'</a>';
+resultHtml+='</div>';
+resultEl.innerHTML=resultHtml;
+resultEl.style.display="block";
+}
+if(restartEl)restartEl.style.display="block";
+track("decision_tree_result",{race:target});
+}else{
+var node=treeData[target];
+if(!node)return;
+var qEl=tree.querySelector(".gg-decision-tree__question");
+var optsEl=tree.querySelector(".gg-decision-tree__options");
+if(qEl)qEl.textContent=node.question||"";
+if(optsEl){
+optsEl.innerHTML="";
+(node.options||[]).forEach(function(opt){
+var b=document.createElement("button");
+b.className="gg-decision-tree__option";
+b.setAttribute("data-target",opt.next||opt.result||"");
+b.setAttribute("data-is-result",opt.result?"true":"false");
+b.textContent=opt.text||"";
+optsEl.appendChild(b);
+});
+}
+track("decision_tree_step",{node:target});
+}
+});
+document.addEventListener("click",function(e){
+var btn=e.target.closest(".gg-decision-tree__restart");
+if(!btn)return;
+var tree=btn.closest(".gg-decision-tree");
+if(!tree)return;
+var treeData;
+try{treeData=JSON.parse(tree.getAttribute("data-tree")||"{}");}catch(ex){return;}
+var root=treeData.root;
+if(!root)return;
+var bodyEl=tree.querySelector(".gg-decision-tree__body");
+var resultEl=tree.querySelector(".gg-decision-tree__result");
+var qEl=tree.querySelector(".gg-decision-tree__question");
+var optsEl=tree.querySelector(".gg-decision-tree__options");
+if(bodyEl)bodyEl.style.display="block";
+if(resultEl){resultEl.style.display="none";resultEl.innerHTML="";}
+btn.style.display="none";
+if(qEl)qEl.textContent=root.question||"";
+if(optsEl){
+optsEl.innerHTML="";
+(root.options||[]).forEach(function(opt){
+var b=document.createElement("button");
+b.className="gg-decision-tree__option";
+b.setAttribute("data-target",opt.next||opt.result||"");
+b.setAttribute("data-is-result",opt.result?"true":"false");
+b.textContent=opt.text||"";
+optsEl.appendChild(b);
+});
+}
+track("decision_tree_restart",{});
+});
+
 })();'''
 
 
@@ -2170,8 +2525,9 @@ def generate_guide_page(content: dict, inline: bool = False, assets_dir: Path = 
     og_image = f"{SITE_BASE_URL}/wp-content/uploads/gravel-god-og.png"
 
     # Activate glossary for tooltip resolution in _md_inline()
-    global _GLOSSARY
+    global _GLOSSARY, _RACE_INDEX
     _GLOSSARY = content.get("glossary")
+    _RACE_INDEX = load_race_index()
 
     nav = build_nav()
     hero = build_hero(content)
@@ -2254,8 +2610,7 @@ def generate_guide_page(content: dict, inline: bool = False, assets_dir: Path = 
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sometype+Mono:wght@400;700&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400;1,700&display=swap">
   <!-- GA4 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id={GA4_MEASUREMENT_ID}"></script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments)}}gtag('js',new Date());gtag('config','{GA4_MEASUREMENT_ID}');</script>
+  {get_ga4_head_snippet()}
   {og_tags}
   {jsonld}
   <style>
@@ -2319,6 +2674,7 @@ def generate_guide_page(content: dict, inline: bool = False, assets_dir: Path = 
 
 {js_html}
 
+{get_consent_banner_html()}
 </body>
 </html>'''
 

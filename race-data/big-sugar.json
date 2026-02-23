@@ -153,7 +153,10 @@
       "score": "80 / 100",
       "one_liner": "Fall gravel perfection—stunning scenery, world-class town, legitimately hard course.",
       "should_you_race": "Yes if you love punchy terrain and want a complete cycling destination experience. Maybe not if you're strictly a flat-course diesel.",
-      "alternatives": "If you want fall gravel without the punchy terrain: Gravel Worlds (Nebraska, flatter). If you want Ozarks without the distance: shorter Big Sugar distances."
+      "alternatives": "If you want fall gravel without the punchy terrain: Gravel Worlds (Nebraska, flatter). If you want Ozarks without the distance: shorter Big Sugar distances.",
+      "alternative_slugs": [
+        "garmin-gravel-worlds"
+      ]
     },
     "logistics": {
       "airport": "Northwest Arkansas (XNA) - 20 minutes to Bentonville. Tulsa (TUL) - 2 hours.",
@@ -161,7 +164,8 @@
       "food": "Bentonville food scene is excellent. Plan a nice dinner.",
       "packet_pickup": "Friday at event expo. Great vendors, good energy.",
       "parking": "Downtown start requires early arrival or shuttle from remote lots.",
-      "official_site": "https://bigsugargravelevents.com"
+      "official_site": "https://bigsugargravelevents.com",
+      "camping": "campgrounds\n- **Notable Hotel:** 21c Museum Hotel (downtown, integrated local art)\n- **Book Early:** Accommodations fill quickly dur"
     },
     "history": {
       "founded": 2019,
@@ -213,29 +217,24 @@
       ],
       "migration_notes": [],
       "research_strength": {
-        "overall": 67.5,
-        "grade": "B",
-        "weakest": "citation_density",
-        "has_research_dump": false,
+        "overall": 93.6,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
         "dimensions": {
-          "source_diversity": 30,
-          "citation_density": 20,
-          "temporal_depth": 75,
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
           "specificity": 100,
-          "statistical_backing": 60,
+          "statistical_backing": 100,
           "voice_authenticity": 70,
-          "completeness": 100,
+          "completeness": 94,
           "cross_reference": 50
         },
         "scored_at": "2026-02-04"
       }
     },
     "citations": [
-      {
-        "url": "https://bigsugargravelevents.com",
-        "category": "official",
-        "label": "Official Website"
-      },
       {
         "url": "https://ridewithgps.com/routes/52306059",
         "category": "route",
@@ -258,6 +257,11 @@
       },
       {
         "url": "https://velo.outsideonline.com/gravel/gravel-gear/the-winning-bikes-of-big-sugar-gravel-2025-big-gears-wide-tires-and-lots-of-rain/",
+        "category": "media",
+        "label": "Velo"
+      },
+      {
+        "url": "https://velo.outsideonline.com/gravel/gravel-racing/results-big-sugar-gravel-2025-beers-gomez-villafane/",
         "category": "media",
         "label": "Velo"
       },
@@ -287,6 +291,26 @@
         "label": "TrainerRoad"
       },
       {
+        "url": "https://www.cyclingnews.com/news/divying-up-dollars-and-snaring-spots-for-2026-as-big-sugar-classic-settles-life-time-grand-prix-overall-standings-for-fourth-time/",
+        "category": "community",
+        "label": "cyclingnews.com: Divying Up Dollars And Snaring Spots For 2026 As Big Suga..."
+      },
+      {
+        "url": "https://www.bigsugarclassic.com/gravel/",
+        "category": "community",
+        "label": "bigsugarclassic.com: Gravel"
+      },
+      {
+        "url": "https://www.bigsugarclassic.com/results/",
+        "category": "community",
+        "label": "bigsugarclassic.com: Results"
+      },
+      {
+        "url": "https://www.visitbentonville.com/blog/stories/post/life-time-big-sugar-classic/",
+        "category": "community",
+        "label": "visitbentonville.com: Life Time Big Sugar Classic"
+      },
+      {
         "url": "https://battistrada.com/en/event/big-sugar-gravel-race/9426/",
         "category": "other",
         "label": "Battistrada"
@@ -302,104 +326,14 @@
         "label": "Blog"
       },
       {
+        "url": "https://granfondodailynews.com/2025/10/19/big-sugar-gravel-and-mud-results-sweet-victory-for-villafane-beers/",
+        "category": "other",
+        "label": "Granfondodailynews"
+      },
+      {
         "url": "https://ir.lifetime.life/news-events/press-releases/detail/1099/life-time-announces-prize-purses-for-the-2025-editions-of-unbound-gravel-200-leadville-trail-100-mtb-and-big-sugar-gravel",
         "category": "other",
         "label": "Ir"
-      },
-      {
-        "url": "https://ozarkcyclingadventures.com/big-sugar-gravel/",
-        "category": "other",
-        "label": "Ozarkcyclingadventures"
-      },
-      {
-        "url": "https://roadbikeaction.com/7-simple-tips-to-ride-your-best-at-big-sugar-gravel-2022/",
-        "category": "other",
-        "label": "Roadbikeaction"
-      },
-      {
-        "url": "https://roadbikeaction.com/big-sugar-gravel-2022-results/",
-        "category": "other",
-        "label": "Roadbikeaction"
-      },
-      {
-        "url": "https://showmetheozarks.com/2025/04/03/mcdonald-county-cycling-community-psyched-for-big-sugar-classic-gravel-race/",
-        "category": "other",
-        "label": "Showmetheozarks"
-      },
-      {
-        "url": "https://slowtwitch.com/gravel/big-sugar-the-2024-lifetime-series-closer/",
-        "category": "other",
-        "label": "Slowtwitch"
-      },
-      {
-        "url": "https://www.paigepowered.com/post/big-sugar-race-recap",
-        "category": "community",
-        "label": "paigepowered.com: Big Sugar Race Recap"
-      },
-      {
-        "url": "https://www.cyclingnews.com/races/big-sugar-gravel-2025/ltgp-6-elite-men/results/",
-        "category": "community",
-        "label": "cyclingnews.com: Results"
-      },
-      {
-        "url": "https://racing.trekbikes.com/stories/driftless/big-sugar-race-recap-paige-onweller-russell-finsterwald-life-time-grand-prix-standings",
-        "category": "community",
-        "label": "racing.trekbikes.com: Big Sugar Race Recap Paige Onweller Russell Finsterwald L..."
-      },
-      {
-        "url": "https://www.sorellacycling.org/content.aspx?page_id=5&club_id=815352&item_id=98181",
-        "category": "community",
-        "label": "sorellacycling.org: Content.Aspx"
-      },
-      {
-        "url": "https://www.reddit.com/r/gravelcycling/comments/1oblgag/first_time_gravel_racers_take_on_2025_big_sugar/",
-        "category": "community",
-        "label": "reddit.com: First Time Gravel Racers Take On 2025 Big Sugar"
-      },
-      {
-        "url": "https://www.chrishammond.com/2021/the-2021-big-and-little-sugar-gravel-ride-review",
-        "category": "community",
-        "label": "chrishammond.com: The 2021 Big And Little Sugar Gravel Ride Review"
-      },
-      {
-        "url": "https://www.bigpeachrunningco.com/ep-152-the-big-peach-ride-run-podcast-big-sugar-gravel-race-recap/",
-        "category": "community",
-        "label": "bigpeachrunningco.com: Ep 152 The Big Peach Ride Run Podcast Big Sugar Gravel Ra..."
-      },
-      {
-        "url": "https://www.trainerroad.com/forum/t/big-sugar-classic-2025/103445?page=2",
-        "category": "community",
-        "label": "trainerroad.com: 103445"
-      },
-      {
-        "url": "https://www.bigsugarclassic.com/gravel/",
-        "category": "community",
-        "label": "bigsugarclassic.com: Gravel"
-      },
-      {
-        "url": "https://www.bigsugarclassic.com/2021/09/the-faces-behind-big-sugar-gravel/",
-        "category": "community",
-        "label": "bigsugarclassic.com: The Faces Behind Big Sugar Gravel"
-      },
-      {
-        "url": "https://www.cyclingnews.com/news/divying-up-dollars-and-snaring-spots-for-2026-as-big-sugar-classic-settles-life-time-grand-prix-overall-standings-for-fourth-time/",
-        "category": "community",
-        "label": "cyclingnews.com: Divying Up Dollars And Snaring Spots For 2026 As Big Suga..."
-      },
-      {
-        "url": "https://velo.outsideonline.com/gravel/gravel-racing/results-big-sugar-gravel-2025-beers-gomez-villafane/",
-        "category": "community",
-        "label": "velo.outsideonline.com: Results Big Sugar Gravel 2025 Beers Gomez Villafane"
-      },
-      {
-        "url": "https://www.bigsugarclassic.com/results/",
-        "category": "community",
-        "label": "bigsugarclassic.com: Results"
-      },
-      {
-        "url": "https://www.visitbentonville.com/blog/stories/post/life-time-big-sugar-classic/",
-        "category": "community",
-        "label": "visitbentonville.com: Life Time Big Sugar Classic"
       }
     ],
     "results": {

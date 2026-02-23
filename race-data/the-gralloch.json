@@ -100,7 +100,7 @@
       "packet_pickup": "Day-before. Check official website.",
       "travel_summary": "Fly to Edinburgh (EDI) or Glasgow (GLA). Rental car needed (150 km, 2-3 hour drive to Highlands). Remote location—book lodging early. Day-before packet pickup. Race September.",
       "food_options": "Limited aid stations (remote location, self-sufficient required). Post-race party if you finish.",
-      "camping": "Check official website",
+      "camping": "camping mentioned)\n- Parking details\n- Packet pickup procedures\n- Specific past winners or elite rider names\n- Detailed rider re",
       "official_site": "https://www.thegralloch.com"
     },
     "course_description": {
@@ -127,7 +127,13 @@
       ],
       "signature_challenge": "200 km ultra + Scottish weather (40% rain, cold) + remote Highlands. 25-35% DNF.",
       "ridewithgps_id": "53947683",
-      "ridewithgps_name": "The Stag (Long Route) - The Gralloch Sportive 2025"
+      "ridewithgps_name": "The Stag (Long Route) - The Gralloch Sportive 2025",
+      "surface_breakdown": {
+        "overall": {
+          "gravel": 75,
+          "singletrack": 25
+        }
+      }
     },
     "history": {
       "founded": "~2017",
@@ -147,19 +153,19 @@
       ],
       "research_date": "2026-02-04",
       "research_strength": {
-        "overall": 0,
-        "grade": "pending",
-        "weakest": "pending",
+        "overall": 96.1,
+        "grade": "A",
+        "weakest": "voice_authenticity",
         "has_research_dump": true,
         "dimensions": {
-          "source_diversity": 0,
-          "citation_density": 0,
-          "temporal_depth": 0,
-          "specificity": 0,
-          "statistical_backing": 0,
-          "voice_authenticity": 0,
-          "completeness": 0,
-          "cross_reference": 0
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 94,
+          "cross_reference": 100
         },
         "scored_at": "2026-02-04"
       }
@@ -226,18 +232,22 @@
       "score": "69 / 100",
       "one_liner": "Scotland's gravel crown jewel serves up 1,700 meters of climbing through Galloway's forests with a side of Highland hospitality.",
       "should_you_race": "You need solid climbing legs and comfort on technical gravel—that opening 11km ascent eliminates pretenders fast. The 4:15 PM cutoff at 67km isn't generous, so show up fit or get shuttled to the shortened route. Perfect for riders who want UCI World Series prestige without the chaos of American mega-events.",
-      "alternatives": "Dirty Kanza offers more distance brutality on flatter Kansas flint, while Belgian Waffle Ride delivers comparable climbing with more pavement mixing. Both lack The Gralloch's UNESCO Biosphere scenery but serve bigger, more established fields if you're chasing pack dynamics over Scottish solitude."
+      "alternatives": "Dirty Kanza offers more distance brutality on flatter Kansas flint, while Belgian Waffle Ride delivers comparable climbing with more pavement mixing. Both lack The Gralloch's UNESCO Biosphere scenery but serve bigger, more established fields if you're chasing pack dynamics over Scottish solitude.",
+      "alternative_slugs": [
+        "bwr-california",
+        "unbound-200"
+      ]
     },
     "citations": [
-      {
-        "url": "https://www.thegralloch.com",
-        "category": "official",
-        "label": "Official Website"
-      },
       {
         "url": "https://ridewithgps.com/routes/53947683",
         "category": "route",
         "label": "RideWithGPS: The Stag (Long Route) - The Gralloch Sportive 2025"
+      },
+      {
+        "url": "https://laka.co/gb/blog/uci/racing-the-gralloch-my-experience-at-the-uci-gravel-world-series-in-scotland/",
+        "category": "other",
+        "label": "Laka"
       },
       {
         "url": "https://reddit.com/r/gravelcycling/comments/the-gralloch",
@@ -245,49 +255,39 @@
         "label": "Reddit"
       },
       {
-        "url": "https://ridewithgps.com",
-        "category": "route",
-        "label": "RideWithGPS"
-      },
-      {
-        "url": "https://www.cyclingtips.com",
-        "category": "media",
-        "label": "CyclingTips"
-      },
-      {
-        "url": "https://www.strava.com",
-        "category": "activity",
-        "label": "Strava"
-      },
-      {
-        "url": "https://www.trainerroad.com",
-        "category": "community",
-        "label": "TrainerRoad"
-      },
-      {
-        "url": "https://www.velonews.com",
-        "category": "media",
-        "label": "VeloNews"
-      },
-      {
-        "url": "https://www.huntbikewheels.com/blogs/news/racing-the-gralloch-with-tom-couzens",
-        "category": "community",
-        "label": "huntbikewheels.com: Racing The Gralloch With Tom Couzens"
-      },
-      {
-        "url": "https://laka.co/gb/blog/uci/racing-the-gralloch-my-experience-at-the-uci-gravel-world-series-in-scotland/",
-        "category": "community",
-        "label": "laka.co: Racing The Gralloch My Experience At The Uci Gravel World..."
+        "url": "https://usa.cinelli-milano.com/blogs/news/race-report-hugo-foulon-goes-to-gralloch",
+        "category": "other",
+        "label": "Usa"
       },
       {
         "url": "https://www.barnsleyroadclub.co.uk/post/gralloch-uci-gravel-2024-111km-race-report",
-        "category": "community",
-        "label": "barnsleyroadclub.co.uk: Gralloch Uci Gravel 2024 111Km Race Report"
+        "category": "other",
+        "label": "Barnsleyroadclub"
       },
       {
-        "url": "https://www.rlscyclingclub.com/post/the-gralloch-a-uci-gravel-race-in-scotland",
-        "category": "community",
-        "label": "rlscyclingclub.com: The Gralloch A Uci Gravel Race In Scotland"
+        "url": "https://www.benthomascoaching.com/post/gralloch-almost-a-dream-ride",
+        "category": "other",
+        "label": "Benthomascoaching"
+      },
+      {
+        "url": "https://www.eventrac.co.uk/e/the-gralloch-8917",
+        "category": "other",
+        "label": "Eventrac"
+      },
+      {
+        "url": "https://www.grallochgravel.com/journal",
+        "category": "other",
+        "label": "Grallochgravel"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Contents/IndexFull/8526/the-gralloch-2025-draws-global-elite-to-galloway-for-uk's-premier-gravel-event",
+        "category": "other",
+        "label": "Granfondoguide"
+      },
+      {
+        "url": "https://www.huntbikewheels.cc/blogs/news/racing-the-gralloch-with-tom-couzens",
+        "category": "other",
+        "label": "Huntbikewheels"
       },
       {
         "url": "https://www.t3.com/active/cycling/i-rode-the-uks-most-brutal-gravel-race-and-lived-to-tell-the-tale",
@@ -295,44 +295,9 @@
         "label": "t3.com: I Rode The Uks Most Brutal Gravel Race And Lived To Tell ..."
       },
       {
-        "url": "https://www.benthomascoaching.com/post/gralloch-almost-a-dream-ride",
-        "category": "community",
-        "label": "benthomascoaching.com: Gralloch Almost A Dream Ride"
-      },
-      {
-        "url": "https://escapecollective.com/tech-gallery-gravel-gear-at-the-gralloch/",
-        "category": "community",
-        "label": "escapecollective.com: Tech Gallery Gravel Gear At The Gralloch"
-      },
-      {
-        "url": "https://www.granfondoguide.com/Contents/IndexFull/8533/",
-        "category": "community",
-        "label": "granfondoguide.com: 8533"
-      },
-      {
-        "url": "https://www.bbc.com/news/articles/c79ze01xqzdo",
-        "category": "community",
-        "label": "bbc.com: C79Ze01Xqzdo"
-      },
-      {
-        "url": "https://www.grallochgravel.com/journal/the-road-to-the-european-gravel-championships-starts-at-the-gralloch",
-        "category": "community",
-        "label": "grallochgravel.com: The Road To The European Gravel Championships Starts At T..."
-      },
-      {
-        "url": "https://usa.cinelli-milano.com/blogs/news/race-report-hugo-foulon-goes-to-gralloch",
-        "category": "community",
-        "label": "usa.cinelli-milano.com: Race Report Hugo Foulon Goes To Gralloch"
-      },
-      {
         "url": "https://www.precisionhydration.com/athletes/case-studies/cycling/ben-thomas/17-05-2025/",
         "category": "community",
         "label": "precisionhydration.com: 17 05 2025"
-      },
-      {
-        "url": "https://www.granfondoguide.com/Contents/IndexFull/8526/the-gralloch-2025-draws-global-elite-to-galloway-for-uk's-premier-gravel-event",
-        "category": "community",
-        "label": "granfondoguide.com: The Gralloch 2025 Draws Global Elite To Galloway For Uk'S..."
       }
     ],
     "tire_recommendations": {

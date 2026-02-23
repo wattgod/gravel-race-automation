@@ -94,7 +94,10 @@
       "score": "41 / 100",
       "one_liner": "UK Lake District gravel challenge.",
       "should_you_race": "If you're local to UK—yes, it's solid. If you're traveling internationally—skip it.",
-      "alternatives": "For better UK races: Lauf Gritfest."
+      "alternatives": "For better UK races: Lauf Gritfest.",
+      "alternative_slugs": [
+        "lauf-gritfest"
+      ]
     },
     "logistics": {
       "airport": "Manchester (MAN) 2 hours",
@@ -185,12 +188,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 88.0,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 80,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 82,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -311,44 +323,29 @@
     },
     "citations": [
       {
+        "url": "https://www.cyclingweekly.com/news/a-celebration-of-tenacity-legends-of-unbound-gravel-defend-its-difficulty-and-revisit-its-gnarliest-editions",
+        "category": "media",
+        "label": "Cycling Weekly"
+      },
+      {
+        "url": "https://www.justgravel.co.uk/event-info",
+        "category": "other",
+        "label": "Justgravel"
+      },
+      {
+        "url": "https://www.trainerroad.com/forum/t/the-future-of-gravel-racing/95739",
+        "category": "community",
+        "label": "TrainerRoad"
+      },
+      {
         "url": "https://bluegrassendurance.blogspot.com/2025/08/2025-gravew-worlds-12-double-race.html",
         "category": "community",
         "label": "bluegrassendurance.blogspot.com: 2025 Gravew Worlds 12 Double Race.Html"
       },
       {
-        "url": "https://www.justgravel.co.uk/event-info",
-        "category": "community",
-        "label": "justgravel.co.uk: Event Info"
-      },
-      {
-        "url": "https://www.justgravel.co.uk/",
-        "category": "community",
-        "label": "justgravel.co.uk"
-      },
-      {
-        "url": "https://www.granfondoguide.com/Events/Index/12573/just-gravel-grizdale",
-        "category": "community",
-        "label": "granfondoguide.com: Just Gravel Grizdale"
-      },
-      {
-        "url": "https://www.cyclingweekly.com/news/a-celebration-of-tenacity-legends-of-unbound-gravel-defend-its-difficulty-and-revisit-its-gnarliest-editions",
-        "category": "community",
-        "label": "cyclingweekly.com: A Celebration Of Tenacity Legends Of Unbound Gravel Defen..."
-      },
-      {
-        "url": "https://www.eventrac.co.uk/e/just-grvl-grizedale-10892",
-        "category": "community",
-        "label": "eventrac.co.uk: Just Grvl Grizedale 10892"
-      },
-      {
         "url": "https://dirtdispatch.substack.com/p/the-four-kinds-of-gravel-races-that",
         "category": "community",
         "label": "dirtdispatch.substack.com: The Four Kinds Of Gravel Races That"
-      },
-      {
-        "url": "https://www.trainerroad.com/forum/t/the-future-of-gravel-racing/95739",
-        "category": "community",
-        "label": "trainerroad.com: 95739"
       }
     ],
     "tire_recommendations": {

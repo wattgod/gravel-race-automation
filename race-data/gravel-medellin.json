@@ -94,7 +94,10 @@
       "score": "53 / 100",
       "one_liner": "Colombian Medellín mountain gravel challenge.",
       "should_you_race": "If you have a big budget and want a Colombian experience—maybe. For most riders—there are better options.",
-      "alternatives": "For better value: regional gravel races. For similar Colombian terrain: Gravel Bogotá."
+      "alternatives": "For better value: regional gravel races. For similar Colombian terrain: Gravel Bogotá.",
+      "alternative_slugs": [
+        "gravel-bogota"
+      ]
     },
     "logistics": {
       "airport": "Medellín (MDE) varies by location",
@@ -185,12 +188,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 82.5,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 80,
+          "citation_density": 80,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 82,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -311,14 +323,19 @@
     },
     "citations": [
       {
-        "url": "https://ucigravelworldseries.com/en/gravelking-uci-gravel-world-series-2026-a-record-45-events-worldwide/",
-        "category": "community",
-        "label": "ucigravelworldseries.com: Gravelking Uci Gravel World Series 2026 A Record 45 Event..."
+        "url": "https://gravel-club.com/events/gravel-medellin/",
+        "category": "other",
+        "label": "Gravel-Club"
       },
       {
         "url": "https://ucigravelworldseries.com/en/gravel-medellin/",
-        "category": "community",
-        "label": "ucigravelworldseries.com: Gravel Medellin"
+        "category": "other",
+        "label": "Ucigravelworldseries"
+      },
+      {
+        "url": "https://ucigravelworldseries.com/en/gravelking-uci-gravel-world-series-2026-a-record-45-events-worldwide/",
+        "category": "other",
+        "label": "Ucigravelworldseries"
       },
       {
         "url": "https://www.eatsleepcycle.com/tour/colombia-gravel-adventure/",

@@ -185,7 +185,8 @@
       "ground_transport": "Rental car STRONGLY recommended",
       "language": "French primary, English understood in tourist areas",
       "border_crossing": "US citizens need passport",
-      "official_site": "https://grinduro.com/canada/"
+      "official_site": "https://grinduro.com/canada/",
+      "camping": "camping add-on $25 CAD |\n| **Organizer** | Northern Consultancy Co"
     },
     "unique_characteristics": [
       "Racing inside 450-million-year-old Charlevoix meteorite crater",
@@ -222,7 +223,11 @@
       "score": "67 / 100",
       "one_liner": "A mountain bike race disguised as gravel, where meteorite-shaped terrain separates the prepared from the delusional.",
       "should_you_race": "If you panic on technical singletrack or think 25mm tires are acceptable, stay home. This demands MTB skills, fat rubber, and comfort with getting your ego adjusted by Quebec sand pits. The festival vibes and excellent food soften the blow, but won't save you from walking the steep, loose climbs that eat narrow tires alive.",
-      "alternatives": "Mid South offers similar technical challenge with better race organization and guaranteed scheduling. Grinduro California delivers the same format with more predictable conditions and without the language barrier that might complicate logistics in rural Quebec."
+      "alternatives": "Mid South offers similar technical challenge with better race organization and guaranteed scheduling. Grinduro California delivers the same format with more predictable conditions and without the language barrier that might complicate logistics in rural Quebec.",
+      "alternative_slugs": [
+        "grinduro-california",
+        "mid-south"
+      ]
     },
     "course_description": {
       "character": "Grinduro Canada drops you inside a 450-million-year-old meteorite crater where Mother Nature has been plotting your demise since the Ordovician period. Four timed segments demand everything from singletrack handling to sand survival, connected by 'neutral' sections that aren't neutral at all. This isn't gravel racing—it's enduro with a gravel entry fee.",
@@ -269,14 +274,24 @@
         "label": "Bikerumor"
       },
       {
+        "url": "https://eastoncycling.ca/blogs/news/overland-caitlin-bernstein-heads-to-grinduro-canada",
+        "category": "other",
+        "label": "Eastoncycling"
+      },
+      {
+        "url": "https://eastoncycling.com/blogs/news/overland-caitlin-bernstein-heads-to-grinduro-canada",
+        "category": "other",
+        "label": "Eastoncycling"
+      },
+      {
         "url": "https://en.wikipedia.org/wiki/Charlevoix_impact_structure",
         "category": "reference",
         "label": "Wikipedia"
       },
       {
-        "url": "https://grinduro.com/",
+        "url": "https://gravelunion.cc/article/grinduro-canada-2",
         "category": "other",
-        "label": "Grinduro"
+        "label": "Gravelunion"
       },
       {
         "url": "https://grinduro.com/about/",
@@ -287,6 +302,11 @@
         "url": "https://grinduro.com/contact.php",
         "category": "other",
         "label": "Grinduro"
+      },
+      {
+        "url": "https://theradavist.com/grinduro-expands-to-japan-and-canada-for-2019",
+        "category": "other",
+        "label": "Theradavist"
       },
       {
         "url": "https://theunpavedhub.com/event/grinduro-canada/",
@@ -309,49 +329,19 @@
         "label": "Cycloworld"
       },
       {
-        "url": "https://www.teknecycling.com/collection/grinduro-canada-bike-check",
-        "category": "other",
-        "label": "Teknecycling"
-      },
-      {
-        "url": "https://eastoncycling.com/blogs/news/overland-caitlin-bernstein-heads-to-grinduro-canada",
-        "category": "community",
-        "label": "eastoncycling.com: Overland Caitlin Bernstein Heads To Grinduro Canada"
+        "url": "https://www.gravelcyclist.com/training-rides/photo-gallery-2019-grinduro-canada-and-2019-grinduro-japan/",
+        "category": "media",
+        "label": "Gravel Cyclist"
       },
       {
         "url": "https://www.reddit.com/r/gravelcycling/comments/csnx2y/grinduro_canada_is_in_the_books/",
         "category": "community",
-        "label": "reddit.com: Grinduro Canada Is In The Books"
+        "label": "Reddit"
       },
       {
-        "url": "https://eastoncycling.com/blogs/news/tagged/wheels",
-        "category": "community",
-        "label": "eastoncycling.com: Wheels"
-      },
-      {
-        "url": "https://www.ornotbike.com/blogs/news/ritchey-outback",
-        "category": "community",
-        "label": "ornotbike.com: Ritchey Outback"
-      },
-      {
-        "url": "https://singletrackworld.com/gritcx/2019/02/grinduro-announces-2019-dates-new-locations-and-headline-sponsor-for-grinduro-scotland/",
-        "category": "community",
-        "label": "singletrackworld.com: Grinduro Announces 2019 Dates New Locations And Headline ..."
-      },
-      {
-        "url": "https://chumbausa.com/blog/2023/10/3/pt1-why-race-the-silk-road-mountain-race",
-        "category": "community",
-        "label": "chumbausa.com: Pt1 Why Race The Silk Road Mountain Race"
-      },
-      {
-        "url": "https://gravelunion.cc/article/grinduro-canada-2",
-        "category": "community",
-        "label": "gravelunion.cc: Grinduro Canada 2"
-      },
-      {
-        "url": "https://www.gravelcyclist.com/training-rides/photo-gallery-2019-grinduro-canada-and-2019-grinduro-japan/",
-        "category": "community",
-        "label": "gravelcyclist.com: Photo Gallery 2019 Grinduro Canada And 2019 Grinduro Japan"
+        "url": "https://www.teknecycling.com/collection/grinduro-canada-bike-check",
+        "category": "other",
+        "label": "Teknecycling"
       },
       {
         "url": "https://www.youtube.com/watch?v=_bVqGqcEBD8",
@@ -440,6 +430,25 @@
         "200pluslb_dry": "45-49",
         "200pluslb_mixed": "42-46",
         "200pluslb_wet": "40-44"
+      }
+    },
+    "research_metadata": {
+      "research_strength": {
+        "overall": 89.5,
+        "grade": "A",
+        "weakest": "completeness",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 58,
+          "cross_reference": 75
+        },
+        "scored_at": "2026-02-04"
       }
     }
   }

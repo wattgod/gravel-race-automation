@@ -138,19 +138,19 @@
       ],
       "research_date": "2026-02-04",
       "research_strength": {
-        "overall": 0,
-        "grade": "pending",
-        "weakest": "pending",
+        "overall": 85.1,
+        "grade": "A",
+        "weakest": "citation_density",
         "has_research_dump": true,
         "dimensions": {
-          "source_diversity": 0,
-          "citation_density": 0,
-          "temporal_depth": 0,
-          "specificity": 0,
-          "statistical_backing": 0,
-          "voice_authenticity": 0,
-          "completeness": 0,
-          "cross_reference": 0
+          "source_diversity": 60,
+          "citation_density": 50,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 94,
+          "cross_reference": 100
         },
         "scored_at": "2026-02-04"
       }
@@ -217,33 +217,17 @@
       "score": "69 / 100",
       "one_liner": "The inaugural collegiate nationals that trades established prestige for first-year chaos in the Texas panhandle.",
       "should_you_race": "If you're college-aged with decent fitness and want to claim bragging rights as the first-ever winner, this is your shot. The 62-mile mix of gravel roads, rail trail, and singletrack won't destroy you, but March in Texas means unpredictable weather and zero race history to guide your prep. Show up ready for anything because nobody knows what they're doing yet.",
-      "alternatives": "Dirty Kanza offers the real gravel prestige without the growing pains, while Unbound Gravel 100 gives you similar distance with actual race infrastructure. If you want collegiate competition with established traditions, stick to cyclocross nationals where the chaos is intentional."
+      "alternatives": "Dirty Kanza offers the real gravel prestige without the growing pains, while Unbound Gravel 100 gives you similar distance with actual race infrastructure. If you want collegiate competition with established traditions, stick to cyclocross nationals where the chaos is intentional.",
+      "alternative_slugs": [
+        "unbound-100",
+        "unbound-200"
+      ]
     },
     "citations": [
       {
-        "url": "https://www.usacycling.org",
-        "category": "official",
-        "label": "Official Website"
-      },
-      {
         "url": "https://www.valleyoftearsgravel.com/2026-collegiate-gravel-national-championships",
-        "category": "community",
-        "label": "valleyoftearsgravel.com: 2026 Collegiate Gravel National Championships"
-      },
-      {
-        "url": "https://grassrootsmotorsports.com/forum/motorcycles-and-bicycles/i-ordered-a-gravel-bike/263229/page1/",
-        "category": "community",
-        "label": "grassrootsmotorsports.com: Page1"
-      },
-      {
-        "url": "https://fascatcoaching.com/blogs/training-tips/collegiate-road-nationals-training",
-        "category": "community",
-        "label": "fascatcoaching.com: Collegiate Road Nationals Training"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=KV9DlVGRGF4",
-        "category": "community",
-        "label": "youtube.com: Watch"
+        "category": "other",
+        "label": "Valleyoftearsgravel"
       },
       {
         "url": "https://www.cyclingnews.com/pro-cycling/teams-riders/lizzy-gunsalus-to-debut-us-champions-jersey-at-uci-cyclocross-world-cup-in-antwerp-north-american-roundup/",

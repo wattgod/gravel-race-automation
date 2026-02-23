@@ -185,12 +185,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 90.9,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 50
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -311,39 +320,39 @@
     },
     "citations": [
       {
-        "url": "https://www.climbbikeski.com/2025/12/12/edition-zero-gravel-2025/",
-        "category": "community",
-        "label": "climbbikeski.com: Edition Zero Gravel 2025"
-      },
-      {
-        "url": "https://www.nzcyclingjournal.com/inside-edition-zero/",
-        "category": "community",
-        "label": "nzcyclingjournal.com: Inside Edition Zero"
+        "url": "https://ridewithgps.com/routes/53436658",
+        "category": "route",
+        "label": "RideWithGPS: Edition Zero Entree 25"
       },
       {
         "url": "https://charlottelucyclarke.substack.com/p/edition-zero-gravel-2025",
-        "category": "community",
-        "label": "charlottelucyclarke.substack.com: Edition Zero Gravel 2025"
+        "category": "other",
+        "label": "Charlottelucyclarke"
+      },
+      {
+        "url": "https://greatkiwigravel.com/post/edition-zero-2025-newsletter-one",
+        "category": "other",
+        "label": "Greatkiwigravel"
+      },
+      {
+        "url": "https://www.climbbikeski.com/2025/12/12/edition-zero-gravel-2025/",
+        "category": "other",
+        "label": "Climbbikeski"
       },
       {
         "url": "https://www.greatkiwigravel.com/post/edition-zero-2025-newsletter-one",
-        "category": "community",
-        "label": "greatkiwigravel.com: Edition Zero 2025 Newsletter One"
+        "category": "other",
+        "label": "Greatkiwigravel"
       },
       {
-        "url": "https://www.greatkiwigravel.com/post/edition-zero-2024-newsletter-one",
-        "category": "community",
-        "label": "greatkiwigravel.com: Edition Zero 2024 Newsletter One"
-      },
-      {
-        "url": "https://www.squirtcyclingproducts.com/2025/10/edition-zero-gravel-adventure-challenge-community/",
-        "category": "community",
-        "label": "squirtcyclingproducts.com: Edition Zero Gravel Adventure Challenge Community"
+        "url": "https://www.nzcyclingjournal.com/inside-edition-zero/",
+        "category": "other",
+        "label": "Nzcyclingjournal"
       },
       {
         "url": "https://www.pushbikes.co.nz/blogs/news/edition-zero-gravel-race",
-        "category": "community",
-        "label": "pushbikes.co.nz: Edition Zero Gravel Race"
+        "category": "other",
+        "label": "Pushbikes"
       }
     ],
     "results": {

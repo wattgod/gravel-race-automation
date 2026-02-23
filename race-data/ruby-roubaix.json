@@ -102,7 +102,8 @@
       "food": "Tiny town with minimal dining. Bring your own.",
       "packet_pickup": "Race morning",
       "parking": "At start/finish",
-      "official_site": "Check Nevada cycling calendars"
+      "official_site": "Check Nevada cycling calendars",
+      "camping": "Camping options:**\n- Thomas Canyon Campground (USFS developed) in Lamoille Canyon — \"reserve early as this is a small and popula"
     },
     "history": {
       "founded": null,
@@ -184,12 +185,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 91.0,
+        "grade": "A",
+        "weakest": "voice_authenticity",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 80,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 82,
+          "cross_reference": 75
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -350,39 +360,24 @@
         "label": "RideWithGPS: RubyRoubaix_SecretPass"
       },
       {
-        "url": "https://www.rubyroubaix.com/the-race",
-        "category": "community",
-        "label": "rubyroubaix.com: The Race"
-      },
-      {
-        "url": "https://www.rubyroubaix.com/",
-        "category": "community",
-        "label": "rubyroubaix.com"
-      },
-      {
-        "url": "https://elkocommunityhub.com/blog/ruby-roubaix",
-        "category": "community",
-        "label": "elkocommunityhub.com: Ruby Roubaix"
-      },
-      {
-        "url": "https://www.cyclingwest.com/events/discover-adventure-and-scenic-beauty-at-the-2024-ruby-roubaix-gravel-fondo/",
-        "category": "community",
-        "label": "cyclingwest.com: Discover Adventure And Scenic Beauty At The 2024 Ruby Rou..."
+        "url": "https://gravelevents.com/event/ruby-roubaix/",
+        "category": "other",
+        "label": "Gravelevents"
       },
       {
         "url": "https://www.reddit.com/r/gravelcycling/comments/1dleu9s/ruby_roubaix/",
         "category": "community",
-        "label": "reddit.com: Ruby Roubaix"
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.rubyroubaix.com/faqs",
+        "category": "other",
+        "label": "Rubyroubaix"
       },
       {
         "url": "https://everythingelko.com/2023/04/29/whats-a-gravel-fondo/",
         "category": "community",
         "label": "everythingelko.com: Whats A Gravel Fondo"
-      },
-      {
-        "url": "https://www.rubyroubaix.com/faqs",
-        "category": "community",
-        "label": "rubyroubaix.com: Faqs"
       },
       {
         "url": "https://elkodaily.com/life-entertainment/local/events/article_2c987f8e-f0e4-4063-9952-646213a00873.html",

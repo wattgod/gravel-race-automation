@@ -127,7 +127,13 @@
       ],
       "signature_challenge": "160 km long distance + 2,000 m elevation. New Zealand countryside.",
       "ridewithgps_id": "45397123",
-      "ridewithgps_name": "new zealand gravel and tar classic"
+      "ridewithgps_name": "new zealand gravel and tar classic",
+      "surface_breakdown": {
+        "overall": {
+          "gravel": 70,
+          "pavement": 30
+        }
+      }
     },
     "history": {
       "founded": "~2018",
@@ -147,19 +153,19 @@
       ],
       "research_date": "2026-02-04",
       "research_strength": {
-        "overall": 0,
-        "grade": "pending",
-        "weakest": "pending",
+        "overall": 96.1,
+        "grade": "A",
+        "weakest": "voice_authenticity",
         "has_research_dump": true,
         "dimensions": {
-          "source_diversity": 0,
-          "citation_density": 0,
-          "temporal_depth": 0,
-          "specificity": 0,
-          "statistical_backing": 0,
-          "voice_authenticity": 0,
-          "completeness": 0,
-          "cross_reference": 0
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 94,
+          "cross_reference": 100
         },
         "scored_at": "2026-02-04"
       }
@@ -226,98 +232,57 @@
       "score": "67 / 100",
       "one_liner": "New Zealand's most beautiful way to discover that punctures and time cuts don't negotiate.",
       "should_you_race": "If you can handle 99 miles where the gravel sectors exist specifically to fracture the field and leave riders scattered across the Manawatū countryside, this is your kind of suffering. The 25% gravel ratio sounds friendly until you're dealing with punctures while chasing time cuts that historically claim a significant chunk of the field. Show up undertrained and you'll join the long list of DNFs who underestimated what 'toughest one-day race in Oceania' actually means.",
-      "alternatives": "Dirty Kanza offers similar field-fracturing chaos but with more predictable Midwest conditions instead of New Zealand's weather roulette. If you want the mixed-surface challenge without the travel logistics nightmare, Crusher in the Tushar delivers comparable suffering with better infrastructure and fewer question marks about whether the race will actually happen."
+      "alternatives": "Dirty Kanza offers similar field-fracturing chaos but with more predictable Midwest conditions instead of New Zealand's weather roulette. If you want the mixed-surface challenge without the travel logistics nightmare, Crusher in the Tushar delivers comparable suffering with better infrastructure and fewer question marks about whether the race will actually happen.",
+      "alternative_slugs": [
+        "crusher-in-the-tushar",
+        "unbound-200"
+      ]
     },
     "citations": [
       {
-        "url": "https://www.gravelandtar.co.nz",
-        "category": "official",
-        "label": "Official Website"
-      },
-      {
-        "url": "https://ridewithgps.com",
+        "url": "https://ridewithgps.com/routes/45397123",
         "category": "route",
-        "label": "RideWithGPS"
+        "label": "RideWithGPS: new zealand gravel and tar classic"
       },
       {
-        "url": "https://www.cyclingtips.com",
-        "category": "media",
-        "label": "CyclingTips"
-      },
-      {
-        "url": "https://www.ridingravel.com",
+        "url": "https://cyclingflash.com/race/gravel-and-tar-classic-2025",
         "category": "other",
-        "label": "Ridingravel"
+        "label": "Cyclingflash"
       },
       {
-        "url": "https://www.strava.com",
-        "category": "activity",
-        "label": "Strava"
+        "url": "https://en.wikipedia.org/wiki/Gravel_and_Tar_Classic",
+        "category": "reference",
+        "label": "Wikipedia"
       },
       {
-        "url": "https://www.trainerroad.com",
-        "category": "community",
-        "label": "TrainerRoad"
+        "url": "https://www.cyclingranking.com/races/2024/gravel-and-tar-classic",
+        "category": "other",
+        "label": "Cyclingranking"
       },
       {
-        "url": "https://www.velonews.com",
+        "url": "https://www.gravelcyclist.com/videos/video-2018-gravel-tar-classic-manawatu-region-new-zealand/",
         "category": "media",
-        "label": "VeloNews"
+        "label": "Gravel Cyclist"
       },
       {
-        "url": "https://greasychain.com/events/gravel-and-tar/",
+        "url": "https://www.reddit.com/r/Ciclismo/comments/8juqa2/gravel_and_tar_classic/",
         "category": "community",
-        "label": "greasychain.com: Gravel And Tar"
+        "label": "Reddit"
       },
       {
-        "url": "https://www.zwift.com/uk/news/23376-za-past-winners",
+        "url": "https://www.reddit.com/r/extrarfl/comments/kyuq1m/predictions_thread_gravel_and_tar_classic_12_23/",
         "category": "community",
-        "label": "zwift.com: 23376 Za Past Winners"
+        "label": "Reddit"
       },
       {
-        "url": "https://sparkbikereview.com/joels-blog-gravel-bike/",
+        "url": "https://www.reddit.com/r/peloton/comments/l38bvj/results_thread_gravel_and_tar_classic_la_femme_12/",
         "category": "community",
-        "label": "sparkbikereview.com: Joels Blog Gravel Bike"
-      },
-      {
-        "url": "https://www.slowtwitch.com/industry/gravel-from-the-ground-up-tires-pressure/",
-        "category": "community",
-        "label": "slowtwitch.com: Gravel From The Ground Up Tires Pressure"
-      },
-      {
-        "url": "https://sparkbikereview.com/new-gear-momsens-gravel-bike-series/",
-        "category": "community",
-        "label": "sparkbikereview.com: New Gear Momsens Gravel Bike Series"
-      },
-      {
-        "url": "https://wildairsports.com/the-growing-gravel-riding-culture/",
-        "category": "community",
-        "label": "wildairsports.com: The Growing Gravel Riding Culture"
+        "label": "Reddit"
       },
       {
         "url": "https://steve-stannard.squarespace.com/classicuci",
         "category": "community",
         "label": "steve-stannard.squarespace.com: Classicuci"
-      },
-      {
-        "url": "https://www.gravelcyclist.com/videos/video-2018-gravel-tar-classic-manawatu-region-new-zealand/",
-        "category": "community",
-        "label": "gravelcyclist.com: Video 2018 Gravel Tar Classic Manawatu Region New Zealand"
-      },
-      {
-        "url": "https://en.wikipedia.org/wiki/Gravel_and_Tar_Classic",
-        "category": "community",
-        "label": "en.wikipedia.org: Gravel And Tar Classic"
-      },
-      {
-        "url": "https://steve-stannard.squarespace.com/",
-        "category": "community",
-        "label": "steve-stannard.squarespace.com"
-      },
-      {
-        "url": "https://www.cyclingranking.com/races/2024/gravel-and-tar-classic",
-        "category": "community",
-        "label": "cyclingranking.com: Gravel And Tar Classic"
       }
     ],
     "tire_recommendations": {

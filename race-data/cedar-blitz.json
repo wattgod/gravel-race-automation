@@ -19,7 +19,7 @@
         "Forest roads"
       ],
       "field_size": "100-250 riders",
-      "start_time": "Morning start",
+      "start_time": "6:00 AM",
       "registration": "Online. Cost: ~$60-90",
       "prize_purse": "None",
       "aid_stations": "Basic aid stations",
@@ -92,7 +92,10 @@
       "score": "44 / 100",
       "one_liner": "Small grassroots west Michigan ride near Grand Rapids.",
       "should_you_race": "Only if you're in west Michigan or the Grand Rapids area and want an affordable gravel ride. Not worth traveling for.",
-      "alternatives": "For better Michigan events: Barry-Roubaix, Lumberjack 100. For similar grassroots vibes: other regional Midwest events."
+      "alternatives": "For better Michigan events: Barry-Roubaix, Lumberjack 100. For similar grassroots vibes: other regional Midwest events.",
+      "alternative_slugs": [
+        "barry-roubaix"
+      ]
     },
     "logistics": {
       "airport": "Grand Rapids (GRR) 30 min",
@@ -176,12 +179,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 87.5,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 82,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -305,34 +317,39 @@
         "label": "RideWithGPS: 2024 - 36 Mile Cedar Blitz R1"
       },
       {
-        "url": "https://www.joinbasecamp.com/post/tracys-story-cedar-blitz",
-        "category": "community",
-        "label": "joinbasecamp.com: Tracys Story Cedar Blitz"
+        "url": "https://cedarblitz.com/race-results",
+        "category": "other",
+        "label": "Cedarblitz"
       },
       {
         "url": "https://dragonadventuresbasecamp.com/2025/07/18/cedar-blitz-gravel-race-2025-highlights-and-interviews/",
-        "category": "community",
-        "label": "dragonadventuresbasecamp.com: Cedar Blitz Gravel Race 2025 Highlights And Interviews"
+        "category": "other",
+        "label": "Dragonadventuresbasecamp"
       },
       {
-        "url": "https://results.bikereg.com/race/14522",
-        "category": "community",
-        "label": "results.bikereg.com: 14522"
+        "url": "https://ilovegravelracing.com/event/cedar-blitz/",
+        "category": "other",
+        "label": "Ilovegravelracing"
       },
       {
         "url": "https://www.joinbasecamp.com/post/beths-story-cedar-blitz",
-        "category": "community",
-        "label": "joinbasecamp.com: Beths Story Cedar Blitz"
+        "category": "other",
+        "label": "Joinbasecamp"
+      },
+      {
+        "url": "https://www.joinbasecamp.com/post/tracys-story-cedar-blitz",
+        "category": "other",
+        "label": "Joinbasecamp"
+      },
+      {
+        "url": "https://www.youtube.com/@thecedarblitz",
+        "category": "video",
+        "label": "YouTube"
       },
       {
         "url": "https://www.youtube.com/watch?v=oq5ch_rV4cA",
         "category": "community",
         "label": "youtube.com: Watch"
-      },
-      {
-        "url": "https://ilovegravelracing.com/event/cedar-blitz/",
-        "category": "community",
-        "label": "ilovegravelracing.com: Cedar Blitz"
       }
     ],
     "tire_recommendations": {

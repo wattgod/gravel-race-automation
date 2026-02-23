@@ -19,7 +19,7 @@
         "Colombia"
       ],
       "field_size": "200-400 riders",
-      "start_time": "Morning start",
+      "start_time": "4:30 am to",
       "registration": "Online. Cost: ~$100-150",
       "prize_purse": "Modest prizes",
       "aid_stations": "Multiple aid stations",
@@ -94,7 +94,10 @@
       "score": "54 / 100",
       "one_liner": "Colombian Bogotá mountain gravel challenge.",
       "should_you_race": "If you have a big budget and want a Colombian experience—maybe. For most riders—there are better options.",
-      "alternatives": "For better value: regional gravel races. For similar Colombian terrain: Gravel Medellín."
+      "alternatives": "For better value: regional gravel races. For similar Colombian terrain: Gravel Medellín.",
+      "alternative_slugs": [
+        "gravel-medellin"
+      ]
     },
     "logistics": {
       "airport": "Bogotá (BOG) varies by location",
@@ -185,12 +188,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 87.5,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 82,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -311,19 +323,24 @@
     },
     "citations": [
       {
+        "url": "https://gravel-club.com/events/gravel-bogota/",
+        "category": "other",
+        "label": "Gravel-Club"
+      },
+      {
+        "url": "https://gravelunion.cc/article/transcordilleras-colombian-adventure",
+        "category": "other",
+        "label": "Gravelunion"
+      },
+      {
         "url": "https://ucigravelworldseries.com/en/gravel-bogota/",
-        "category": "community",
-        "label": "ucigravelworldseries.com: Gravel Bogota"
+        "category": "other",
+        "label": "Ucigravelworldseries"
       },
       {
         "url": "https://www.uci.org/article/2026-gravelking-uci-gravel-world-series-a-comprehensive-season/XWSarTMx2S2EhfkqJvKMW",
         "category": "community",
         "label": "uci.org: Xwsartmx2S2Ehfkqjvkmw"
-      },
-      {
-        "url": "https://gravelunion.cc/article/transcordilleras-colombian-adventure",
-        "category": "community",
-        "label": "gravelunion.cc: Transcordilleras Colombian Adventure"
       },
       {
         "url": "https://steedcycles.com/blogs/steed-cycles/podcast-colombia-dreaming-part-two",

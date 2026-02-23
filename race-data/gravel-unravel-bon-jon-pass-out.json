@@ -19,7 +19,7 @@
         "Washington"
       ],
       "field_size": "50-100 riders",
-      "start_time": "Morning start",
+      "start_time": "9:00 a.m.",
       "registration": "Online. Cost: ~$80-100",
       "prize_purse": "Modest prizes",
       "aid_stations": "2-3 aid stations",
@@ -102,7 +102,8 @@
       "food": "Quilcene has limited dining. Stock nutrition.",
       "packet_pickup": "Day of typically",
       "parking": "At start/finish",
-      "official_site": "Check Gravel Unravel website"
+      "official_site": "Check Gravel Unravel website",
+      "camping": "Camping at Lake Leland Amphitheater (10 min drive from Worthington Park) for Friday/Saturday nights, including RV sites in town"
     },
     "history": {
       "founded": null,
@@ -185,12 +186,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 86.7,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -311,34 +321,49 @@
     },
     "citations": [
       {
+        "url": "https://olympicpeninsula.org/event/gravel-unravel-bicycle-race-series-bon-jon-pass-out/",
+        "category": "other",
+        "label": "Olympicpeninsula"
+      },
+      {
+        "url": "https://peninsulaadventuresports.com/events/gravel-unravel/bon-jon-pedal-bender/",
+        "category": "other",
+        "label": "Peninsulaadventuresports"
+      },
+      {
         "url": "https://ridewithgps.com/routes/31776039[1",
         "category": "route",
         "label": "RideWithGPS"
       },
       {
-        "url": "https://peninsulaadventuresports.com/events/gravel-unravel/bon-jon-pedal-bender/",
-        "category": "community",
-        "label": "peninsulaadventuresports.com: Bon Jon Pedal Bender"
+        "url": "https://www.bikesignup.com/Race/WA/Quilcene/GravelUnravelBonJonPassOut",
+        "category": "other",
+        "label": "Bikesignup"
       },
       {
-        "url": "https://www.bikesignup.com/Race/WA/Quilcene/GravelUnravelBonJonPassOut",
-        "category": "community",
-        "label": "bikesignup.com: Gravelunravelbonjonpassout"
+        "url": "https://www.granfondoguide.com/Events/Index/8761/gravel-unravel-bon-jon-pass-out",
+        "category": "other",
+        "label": "Granfondoguide"
+      },
+      {
+        "url": "https://www.peninsuladailynews.com/sports/gravel-unravel-big-hills-thick-clouds-and-close-finishes/",
+        "category": "other",
+        "label": "Peninsuladailynews"
+      },
+      {
+        "url": "https://www.racecenter.com/cycling/gravel-unravel-bon-jon-pass-out",
+        "category": "other",
+        "label": "Racecenter"
+      },
+      {
+        "url": "https://www.renehersecycles.com/rene-herse-x-gravel-unravel-races/",
+        "category": "other",
+        "label": "Renehersecycles"
       },
       {
         "url": "https://www.renehersecycles.com/ted-kings-impressions-from-bon-jon-pass/",
         "category": "community",
         "label": "renehersecycles.com: Ted Kings Impressions From Bon Jon Pass"
-      },
-      {
-        "url": "https://www.renehersecycles.com/rene-herse-x-gravel-unravel-races/",
-        "category": "community",
-        "label": "renehersecycles.com: Rene Herse X Gravel Unravel Races"
-      },
-      {
-        "url": "https://www.peninsuladailynews.com/sports/gravel-unravel-big-hills-thick-clouds-and-close-finishes/",
-        "category": "community",
-        "label": "peninsuladailynews.com: Gravel Unravel Big Hills Thick Clouds And Close Finishes"
       }
     ],
     "tire_recommendations": {

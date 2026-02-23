@@ -19,7 +19,7 @@
         "Forest roads"
       ],
       "field_size": "50-150 riders",
-      "start_time": "Morning start",
+      "start_time": "5:30am",
       "registration": "Online. Cost: ~$60-90",
       "prize_purse": "None",
       "aid_stations": "Minimal aid stations",
@@ -94,7 +94,10 @@
       "score": "46 / 100",
       "one_liner": "Small grassroots Upper Peninsula wilderness ride with remote location.",
       "should_you_race": "Only if you're in the Upper Peninsula or planning UP tourism. Not worth the long drive for the race alone.",
-      "alternatives": "For better Michigan events: Barry-Roubaix, Lumberjack 100. For similar remote wilderness vibes: other Upper Midwest wilderness events."
+      "alternatives": "For better Michigan events: Barry-Roubaix, Lumberjack 100. For similar remote wilderness vibes: other Upper Midwest wilderness events.",
+      "alternative_slugs": [
+        "barry-roubaix"
+      ]
     },
     "logistics": {
       "airport": "Marquette (MQT) or Green Bay (GRB) - varies, or Detroit (DTW) 5+ hours",
@@ -102,7 +105,8 @@
       "food": "Rural area with minimal dining. Bring your own.",
       "packet_pickup": "Race morning",
       "parking": "At start/finish",
-      "official_site": "Check Michigan cycling calendars"
+      "official_site": "Check Michigan cycling calendars",
+      "camping": "Campground not specified[2]"
     },
     "history": {
       "founded": null,
@@ -178,12 +182,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 89.0,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 80,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 88,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -302,49 +315,44 @@
     },
     "citations": [
       {
-        "url": "https://fat-bike.com/2019/08/the-crusher-race-report-by-greg-gentle/",
-        "category": "community",
-        "label": "fat-bike.com: The Crusher Race Report By Greg Gentle"
-      },
-      {
-        "url": "https://kylecoaching.com/race-report-the-crusher-race-report-chris-spurrier/",
-        "category": "community",
-        "label": "kylecoaching.com: Race Report The Crusher Race Report Chris Spurrier"
-      },
-      {
         "url": "https://906adventureteam.com/mountain-bike-events/the-crusher/",
-        "category": "community",
-        "label": "906adventureteam.com: The Crusher"
+        "category": "other",
+        "label": "906Adventureteam"
       },
       {
-        "url": "https://www.gravelcyclist.com/training-rides/the-crusher-enhanced-gravel-michigan-upper-peninsula-usa/",
-        "category": "community",
-        "label": "gravelcyclist.com: The Crusher Enhanced Gravel Michigan Upper Peninsula Usa"
+        "url": "https://fat-bike.com/2019/08/the-crusher-race-report-by-greg-gentle/",
+        "category": "other",
+        "label": "Fat-Bike"
       },
       {
-        "url": "https://www.singletracks.com/mtb-trails/getting-lost-in-the-up-a-solo-mission-to-finish-the-crusher-gravel-race/",
-        "category": "community",
-        "label": "singletracks.com: Getting Lost In The Up A Solo Mission To Finish The Crush..."
-      },
-      {
-        "url": "https://www.cxmagazine.com/gravel-preview-2019-crushar-tushar-riders-watch-women-men",
-        "category": "community",
-        "label": "cxmagazine.com: Gravel Preview 2019 Crushar Tushar Riders Watch Women Men"
-      },
-      {
-        "url": "https://www.cxmagazine.com/crusher-tushar-race-report-results-cyclocross-gravel-race/2",
-        "category": "community",
-        "label": "cxmagazine.com: 2"
-      },
-      {
-        "url": "https://www.mudrunguide.com/organizers/crusher-race/",
-        "category": "community",
-        "label": "mudrunguide.com: Crusher Race"
+        "url": "https://velo.outsideonline.com/gravel/gravel-racing/2024-crusher-in-the-tushar-canceled",
+        "category": "media",
+        "label": "Velo"
       },
       {
         "url": "https://www.bikeforums.net/cyclocross-gravelbiking-recreational/835152-crusher-tushar-bike.html",
-        "category": "community",
-        "label": "bikeforums.net: 835152 Crusher Tushar Bike.Html"
+        "category": "other",
+        "label": "Bikeforums"
+      },
+      {
+        "url": "https://www.cxmagazine.com/crusher-tushar-race-report-results-cyclocross-gravel-race/2",
+        "category": "media",
+        "label": "CX Magazine"
+      },
+      {
+        "url": "https://www.cxmagazine.com/gravel-preview-2019-crushar-tushar-riders-watch-women-men",
+        "category": "media",
+        "label": "CX Magazine"
+      },
+      {
+        "url": "https://www.mudrunguide.com/organizers/crusher-race/",
+        "category": "other",
+        "label": "Mudrunguide"
+      },
+      {
+        "url": "https://www.singletracks.com/mtb-trails/getting-lost-in-the-up-a-solo-mission-to-finish-the-crusher-gravel-race/",
+        "category": "other",
+        "label": "Singletracks"
       }
     ],
     "tire_recommendations": {

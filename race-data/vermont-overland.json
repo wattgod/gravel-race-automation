@@ -126,7 +126,14 @@
       ],
       "signature_challenge": "7,000 ft elevation over 54 miles = relentless. Vermont pavé sectors = technical.",
       "ridewithgps_id": "37223600",
-      "ridewithgps_name": "VT - Vermont Overland 2021"
+      "ridewithgps_name": "VT - Vermont Overland 2021",
+      "surface_breakdown": {
+        "overall": {
+          "gravel": 60,
+          "dirt": 30,
+          "pavement": 10
+        }
+      }
     },
     "history": {
       "founded": "2009",
@@ -147,18 +154,18 @@
       ],
       "research_date": "2026-02-04",
       "research_strength": {
-        "overall": 97.5,
+        "overall": 96.1,
         "grade": "A",
-        "weakest": "temporal_depth",
+        "weakest": "voice_authenticity",
         "has_research_dump": true,
         "dimensions": {
           "source_diversity": 100,
           "citation_density": 100,
-          "temporal_depth": 75,
+          "temporal_depth": 100,
           "specificity": 100,
           "statistical_backing": 100,
-          "voice_authenticity": 100,
-          "completeness": 100,
+          "voice_authenticity": 70,
+          "completeness": 94,
           "cross_reference": 100
         },
         "scored_at": "2026-02-04"
@@ -226,14 +233,12 @@
       "score": "71 / 100",
       "one_liner": "Vermont's steepest 55 miles disguised as a pastoral New England postcard.",
       "should_you_race": "Those eight Class 4 sectors will humble anyone who shows up thinking this is a leaf-peeping tour. You need solid climbing legs for 7000 feet of punishment and bike handling skills for unmaintained roads that range from sketchy to bike-breaking. The 1000-rider field sells out in hours because riders who've done it know something the rest of us don't.",
-      "alternatives": "Vermont 50 offers similar Green Mountain suffering with more singletrack if you want technical variety. Rasputitsa hits you with New England mud and weather chaos if you prefer your Vermont gravel with a side of misery."
+      "alternatives": "Vermont 50 offers similar Green Mountain suffering with more singletrack if you want technical variety. Rasputitsa hits you with New England mud and weather chaos if you prefer your Vermont gravel with a side of misery.",
+      "alternative_slugs": [
+        "rasputitsa"
+      ]
     },
     "citations": [
-      {
-        "url": "https://www.vermontoverland.com",
-        "category": "official",
-        "label": "Official Website"
-      },
       {
         "url": "https://ridewithgps.com/routes/37223600",
         "category": "route",
@@ -245,39 +250,59 @@
         "label": "Reddit"
       },
       {
-        "url": "https://ridewithgps.com",
-        "category": "route",
-        "label": "RideWithGPS"
+        "url": "https://strambecco.com/event/vermont-overland/",
+        "category": "other",
+        "label": "Strambecco"
       },
       {
-        "url": "https://www.cyclingtips.com",
+        "url": "https://velo.outsideonline.com/gravel/gravel-racing/gallery-joy-overload-at-the-vermont-overland/",
         "category": "media",
-        "label": "CyclingTips"
+        "label": "Velo"
       },
       {
-        "url": "https://www.strava.com",
-        "category": "activity",
-        "label": "Strava"
-      },
-      {
-        "url": "https://www.trainerroad.com",
-        "category": "community",
-        "label": "TrainerRoad"
-      },
-      {
-        "url": "https://www.velonews.com",
+        "url": "https://www.cxmagazine.com/2016-vermont-overland-photos-report-peter-vollers/11",
         "category": "media",
-        "label": "VeloNews"
-      },
-      {
-        "url": "https://www.tobedetermined.cc/journal/race-report-the-vermont-overland",
-        "category": "community",
-        "label": "tobedetermined.cc: Race Report The Vermont Overland"
+        "label": "CX Magazine"
       },
       {
         "url": "https://www.gravelcyclist.com/race-reports/vermont-overland-grand-prix-2015-joms-race-report/",
+        "category": "media",
+        "label": "Gravel Cyclist"
+      },
+      {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/1c4n7si/vermont_overland_bike_men_registration_up_for/",
         "category": "community",
-        "label": "gravelcyclist.com: Vermont Overland Grand Prix 2015 Joms Race Report"
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/x0liee/finished_vermont_overland_on_a_cross_bike_that/",
+        "category": "community",
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/xlynan/the_vermont_overland_2022_its_just_a_hill/",
+        "category": "community",
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.reddit.com/r/overlanding/comments/1okd3f/vermont_overland_rally_photos_i_took_last_weekend/",
+        "category": "community",
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.reddit.com/r/vermont/comments/12hmhgh/community_for_overlandingoffroad_car_camping/",
+        "category": "community",
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.tobedetermined.cc/journal/race-report-the-vermont-overland",
+        "category": "other",
+        "label": "Tobedetermined"
+      },
+      {
+        "url": "https://www.vermontoverland.com/overland/",
+        "category": "other",
+        "label": "Vermontoverland"
       },
       {
         "url": "https://uvcc.bike/articles/vt-overland-measure-personal-progress",
@@ -285,29 +310,9 @@
         "label": "uvcc.bike: Vt Overland Measure Personal Progress"
       },
       {
-        "url": "https://velo.outsideonline.com/gravel/gravel-racing/gallery-joy-overload-at-the-vermont-overland/",
-        "category": "community",
-        "label": "velo.outsideonline.com: Gallery Joy Overload At The Vermont Overland"
-      },
-      {
-        "url": "https://www.cxmagazine.com/2016-vermont-overland-photos-report-peter-vollers/11",
-        "category": "community",
-        "label": "cxmagazine.com: 11"
-      },
-      {
-        "url": "https://strambecco.com/event/vermont-overland/",
-        "category": "community",
-        "label": "strambecco.com: Vermont Overland"
-      },
-      {
         "url": "https://www.outsideonline.com/outdoor-adventure/biking/sule-kangangi-of-team-amani-tragically-dies-at-33/",
         "category": "community",
         "label": "outsideonline.com: Sule Kangangi Of Team Amani Tragically Dies At 33"
-      },
-      {
-        "url": "https://www.vermontoverland.com/",
-        "category": "community",
-        "label": "vermontoverland.com"
       }
     ],
     "tire_recommendations": {

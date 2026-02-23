@@ -168,7 +168,12 @@
       "score": "98 / 100",
       "one_liner": "The flagship European ultra—4,000-5,000km self-supported across a continent. Mike Hall's legacy. The ultimate test.",
       "should_you_race": "Yes if you have 2+ years ultra-distance experience, can ride 300-400km days consistently, handle extreme sleep deprivation, and want cycling's ultimate European challenge. Skip if you haven't completed multi-day unsupported rides, can't commit to 6+ months training, or expect it to be 'just a long race.'",
-      "alternatives": "Trans Am Bike Race (6,800km fixed route across USA), Tour Divide (4,400km MTB fixed route), The Accursed Race (Lost Dot's Balkans race), Badlands (800km Spanish ultra—shorter, similar self-supported intensity)"
+      "alternatives": "Trans Am Bike Race (6,800km fixed route across USA), Tour Divide (4,400km MTB fixed route), The Accursed Race (Lost Dot's Balkans race), Badlands (800km Spanish ultra—shorter, similar self-supported intensity)",
+      "alternative_slugs": [
+        "badlands",
+        "tour-divide",
+        "trans-am-bike-race"
+      ]
     },
     "logistics": {
       "airport": "Varies by year. 2026: TRD (Trondheim) for start, ATH (Athens) + transfer for Kalamata finish",
@@ -176,7 +181,8 @@
       "food": "Self-supported—grocery stores, petrol stations (often 24hr with hot food), restaurants, bakeries. Budget 50-100 EUR/day. Prices halve in Balkans.",
       "packet_pickup": "Pre-race briefing at start location with mandatory equipment check.",
       "parking": "Varies by year—start/finish locations change each edition.",
-      "official_site": "https://www.lostdot.cc/tcr"
+      "official_site": "https://www.lostdot.cc/tcr",
+      "camping": "camping more acceptable/legal\n\n4"
     },
     "history": {
       "founded": 2013,
@@ -224,99 +230,24 @@
         "label": "Official Website"
       },
       {
-        "url": "https://bikepacking.com/bikes/2022-transcontinental-race-rigs/",
-        "category": "other",
-        "label": "Bikepacking"
-      },
-      {
-        "url": "https://bikepacking.com/news/robin-gemperle-wins-2024-transcontinental-race/",
-        "category": "other",
-        "label": "Bikepacking"
-      },
-      {
-        "url": "https://dotwatcher.cc/feature/bikes-of-transcontinental-race-no11",
-        "category": "tracking",
-        "label": "DotWatcher"
-      },
-      {
-        "url": "https://dotwatcher.cc/results/2024/transcontinental-race-2024",
-        "category": "tracking",
-        "label": "DotWatcher"
-      },
-      {
-        "url": "https://en.wikipedia.org/wiki/Mike_Hall_(cyclist",
-        "category": "reference",
-        "label": "Wikipedia"
-      },
-      {
-        "url": "https://en.wikipedia.org/wiki/Transcontinental_Race",
-        "category": "reference",
-        "label": "Wikipedia"
-      },
-      {
-        "url": "https://endurance.biz/2025/industry-news/transcontinental-race-no12-route-heads-from-norway-to-greece/",
-        "category": "other",
-        "label": "Endurance"
-      },
-      {
-        "url": "https://jkbsbikeride.com/2019/09/08/the-transcontinental-a-beginners-guide-to-ultra-distance-racing-25-08-2019/",
-        "category": "other",
-        "label": "Jkbsbikeride"
-      },
-      {
-        "url": "https://ridefar.info/races/transcontinental-race/overall/",
-        "category": "other",
-        "label": "Ridefar"
-      },
-      {
-        "url": "https://ridefar.info/races/transcontinental-race/overview/",
-        "category": "other",
-        "label": "Ridefar"
-      },
-      {
-        "url": "https://road.cc/content/news/264631-transcontinental-race-no7-2019-beginners-guide",
-        "category": "other",
-        "label": "Road"
-      },
-      {
         "url": "https://velo.outsideonline.com/gravel/gravel-culture/keeping-mike-halls-legacy-alive-transcontinental-needed-continue/",
         "category": "media",
         "label": "Velo"
       },
       {
-        "url": "https://www.apidura.com/journal/christoph-strassers-transcontinental-race-no-9-bikepacking-kit-list/",
-        "category": "other",
-        "label": "Apidura"
+        "url": "https://www.gravelcyclist.com/training-rides/the-road-to-transcontinental-race-part-twelve-by-sebastian-breuer/",
+        "category": "media",
+        "label": "Gravel Cyclist"
       },
       {
-        "url": "https://www.apidura.com/journal/the-transcontinental-race-everything-you-need-to-know/",
-        "category": "other",
-        "label": "Apidura"
+        "url": "https://www.reddit.com/r/randonneuring/comments/1ebq8t9/transcontinental_race_10/",
+        "category": "community",
+        "label": "Reddit"
       },
       {
-        "url": "https://www.buzzalong.cc/post/insights-from-transcontinental-race-tcr-no-9-ultra-distance-cycling-race-across-europe",
-        "category": "other",
-        "label": "Buzzalong"
-      },
-      {
-        "url": "https://www.cnn.com/2019/08/06/world/fiona-kolbinger-wins-transcontinental-race-spt-intl",
-        "category": "other",
-        "label": "Cnn"
-      },
-      {
-        "url": "https://www.cyclingeu.com/787578/transcontinental-race-2026-route-preview/",
-        "category": "other",
-        "label": "Cyclingeu"
-      },
-      {
-        "url": "https://www.cyclist.co.uk/in-depth/transcontinental-race-kit-list",
-        "category": "other",
-        "label": "Cyclist"
-      },
-      {
-        "url": "https://www.thevelocitynerd.com/blog/the-transcontinental-race",
-        "category": "other",
-        "label": "Thevelocitynerd"
+        "url": "https://www.reddit.com/r/ultracycling/comments/1583l8c/transcontinental_race/",
+        "category": "community",
+        "label": "Reddit"
       },
       {
         "url": "https://www.panoramacycles.com/blogs/blog/tcr-2023-race-report",
@@ -339,24 +270,59 @@
         "label": "cyclingnews.com: Transcontinental Racing 4000Km From Belgium To Greece In ..."
       },
       {
-        "url": "https://eu.huntbikewheels.com/blogs/news/readers-rides-transcontinental-race-no-6-setups",
-        "category": "community",
-        "label": "eu.huntbikewheels.com: Readers Rides Transcontinental Race No 6 Setups"
+        "url": "https://en.wikipedia.org/wiki/Mike_Hall_(cyclist",
+        "category": "reference",
+        "label": "Wikipedia"
       },
       {
-        "url": "https://3t.bike/blogs/news/transcontinental-race-no11-a-pilgrimage-to-the-black-sea",
-        "category": "community",
-        "label": "3t.bike: Transcontinental Race No11 A Pilgrimage To The Black Sea"
+        "url": "https://en.wikipedia.org/wiki/Transcontinental_Race",
+        "category": "reference",
+        "label": "Wikipedia"
       },
       {
-        "url": "https://www.reddit.com/r/ultracycling/comments/1583l8c/transcontinental_race/",
-        "category": "community",
-        "label": "reddit.com: Transcontinental Race"
+        "url": "https://dotwatcher.cc/feature/bikes-of-transcontinental-race-no11",
+        "category": "tracking",
+        "label": "DotWatcher"
       },
       {
         "url": "https://dotwatcher.cc/race/transcontinental-race-no11-2025",
-        "category": "community",
-        "label": "dotwatcher.cc: Transcontinental Race No11 2025"
+        "category": "tracking",
+        "label": "DotWatcher"
+      },
+      {
+        "url": "https://dotwatcher.cc/results/2024/transcontinental-race-2024",
+        "category": "tracking",
+        "label": "DotWatcher"
+      },
+      {
+        "url": "https://3t.bike/blogs/news/transcontinental-race-no11-a-pilgrimage-to-the-black-sea",
+        "category": "other",
+        "label": "3T"
+      },
+      {
+        "url": "https://bikepacking.com/bikes/2022-transcontinental-race-rigs/",
+        "category": "other",
+        "label": "Bikepacking"
+      },
+      {
+        "url": "https://bikepacking.com/news/robin-gemperle-wins-2024-transcontinental-race/",
+        "category": "other",
+        "label": "Bikepacking"
+      },
+      {
+        "url": "https://cyclingtourist.com/2022/07/13/01-transcontinental-race-no-8-about-the-race-live-tracking-cap63-start-24-7/",
+        "category": "other",
+        "label": "Cyclingtourist"
+      },
+      {
+        "url": "https://endurance.biz/2025/industry-news/transcontinental-race-no12-route-heads-from-norway-to-greece/",
+        "category": "other",
+        "label": "Endurance"
+      },
+      {
+        "url": "https://eu.huntbikewheels.com/blogs/news/readers-rides-transcontinental-race-no-6-setups",
+        "category": "other",
+        "label": "Eu"
       }
     ],
     "results": {
@@ -437,6 +403,25 @@
         "200pluslb_dry": "42-46",
         "200pluslb_mixed": "40-44",
         "200pluslb_wet": "38-42"
+      }
+    },
+    "research_metadata": {
+      "research_strength": {
+        "overall": 97.0,
+        "grade": "A",
+        "weakest": "voice_authenticity",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 100,
+          "cross_reference": 100
+        },
+        "scored_at": "2026-02-04"
       }
     }
   }

@@ -94,7 +94,10 @@
       "score": "47 / 100",
       "one_liner": "Victorian rolling gravel in Australia.",
       "should_you_race": "If you're in Australia—yes, it's solid. If you're international—there are better options.",
-      "alternatives": "For better value: regional gravel races. For similar Australian terrain: Devils Cardigan."
+      "alternatives": "For better value: regional gravel races. For similar Australian terrain: Devils Cardigan.",
+      "alternative_slugs": [
+        "devils-cardigan"
+      ]
     },
     "logistics": {
       "airport": "Melbourne (MEL) varies by location",
@@ -185,12 +188,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 86.7,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -311,39 +323,34 @@
     },
     "citations": [
       {
-        "url": "https://thepedla.com/blogs/pedla-news/race-debrief-beechworth-gravelista",
-        "category": "community",
-        "label": "thepedla.com: Race Debrief Beechworth Gravelista"
+        "url": "https://ridewithgps.com/routes/53482061",
+        "category": "route",
+        "label": "RideWithGPS: GRAVELISTA 135KM"
       },
       {
-        "url": "https://www.gravelista.cc/",
-        "category": "community",
-        "label": "gravelista.cc"
+        "url": "https://granfondodailynews.com/2025/10/28/uci-gravelista-results-brendan-johnston-repeats-down-under/",
+        "category": "other",
+        "label": "Granfondodailynews"
       },
       {
-        "url": "https://ucigravelworldseries.com/en/gravelista-grows-to-over-500-riders/",
-        "category": "community",
-        "label": "ucigravelworldseries.com: Gravelista Grows To Over 500 Riders"
-      },
-      {
-        "url": "https://raceroster.com/events/2025/101242/gravelista-2025",
-        "category": "community",
-        "label": "raceroster.com: Gravelista 2025"
-      },
-      {
-        "url": "https://www.gravelista.cc/info",
-        "category": "community",
-        "label": "gravelista.cc: Info"
-      },
-      {
-        "url": "https://www.granfondoguide.com/Contents/IndexFull/8771/johnston-and-lucas-triumph-at-uci-gravelista-gravel-fondo-in-seymour",
-        "category": "community",
-        "label": "granfondoguide.com: Johnston And Lucas Triumph At Uci Gravelista Gravel Fondo..."
+        "url": "https://ucigravelworldseries.com/en/muddy-gravelista-johnston-defends-title-lucas-takes-first-win/",
+        "category": "other",
+        "label": "Ucigravelworldseries"
       },
       {
         "url": "https://www.cyclingnews.com/races/uci-gravel-world-series-events-2025/gravelista-2025/results/",
-        "category": "community",
-        "label": "cyclingnews.com: Results"
+        "category": "other",
+        "label": "Cyclingnews"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Contents/IndexFull/8771/johnston-and-lucas-triumph-at-uci-gravelista-gravel-fondo-in-seymour",
+        "category": "other",
+        "label": "Granfondoguide"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/10380/gravelista",
+        "category": "other",
+        "label": "Granfondoguide"
       },
       {
         "url": "https://www.youtube.com/watch?v=9IAHh5_4RnI",
@@ -354,16 +361,6 @@
         "url": "https://ucigravelworldseries.com/en/seymour/",
         "category": "community",
         "label": "ucigravelworldseries.com: Seymour"
-      },
-      {
-        "url": "https://www.granfondoguide.com/Events/Index/10380/gravelista",
-        "category": "community",
-        "label": "granfondoguide.com: Gravelista"
-      },
-      {
-        "url": "https://granfondodailynews.com/2025/10/28/uci-gravelista-results-brendan-johnston-repeats-down-under/",
-        "category": "community",
-        "label": "granfondodailynews.com: Uci Gravelista Results Brendan Johnston Repeats Down Under"
       }
     ],
     "tire_recommendations": {

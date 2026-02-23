@@ -95,7 +95,10 @@
       "score": "56 / 100",
       "one_liner": "300+ mile self-supported Iowa farmland gravel ultra-distance.",
       "should_you_race": "If you want an extreme 300+ mile self-supported ultra-distance challenge—yes, it's a legitimate test. If you want terrain variety or support—look elsewhere.",
-      "alternatives": "For better ultra-distance events: Unbound 200, Dirty Kanza. For similar self-supported events: other ultra-distance self-supported races."
+      "alternatives": "For better ultra-distance events: Unbound 200, Dirty Kanza. For similar self-supported events: other ultra-distance self-supported races.",
+      "alternative_slugs": [
+        "unbound-200"
+      ]
     },
     "logistics": {
       "airport": "Des Moines (DSM) 2 hours",
@@ -146,7 +149,13 @@
       ],
       "signature_challenge": "300+ mile self-supported distance through Iowa farmland.",
       "ridewithgps_id": "17383528",
-      "ridewithgps_name": "Trans Iowa V8 Race 04/28/2012 Grinnell, IA"
+      "ridewithgps_name": "Trans Iowa V8 Race 04/28/2012 Grinnell, IA",
+      "surface_breakdown": {
+        "overall": {
+          "gravel": 95,
+          "pavement": 5
+        }
+      }
     },
     "guide_variables": {
       "race_name": "Trans Iowa",
@@ -193,12 +202,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 92.7,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 88,
+          "cross_reference": 50
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -344,9 +362,29 @@
         "label": "Bikepacking"
       },
       {
+        "url": "https://dirtscrolls.com/14951591-blast-from-the-past-trans-iowa-and-the-rise-of-gravel-grinders",
+        "category": "other",
+        "label": "Dirtscrolls"
+      },
+      {
         "url": "https://guitarted1961.wordpress.com/trans-iowa-v1/trans-iowa-v2/trans-iowa-v3/trans-iowa-v4/trans-iowa-v5/trans-iowa-v6/trans-iowa-v7/trans-iowa-v8/the-roster/the-results/",
         "category": "other",
         "label": "Guitarted1961"
+      },
+      {
+        "url": "https://transiowa.blogspot.com/p/trans-iowa-faq.html",
+        "category": "other",
+        "label": "Transiowa"
+      },
+      {
+        "url": "https://transiowa.blogspot.com/p/trans-iowa-stories.html",
+        "category": "other",
+        "label": "Transiowa"
+      },
+      {
+        "url": "https://www.bikeiowa.com/Blog/1568/trans-iowa-v11-recap",
+        "category": "other",
+        "label": "Bikeiowa"
       },
       {
         "url": "https://www.bikeiowa.com/Event/12302/trans-iowa-v14",
@@ -365,38 +403,8 @@
       },
       {
         "url": "https://www.salsacycles.com/blogs/articles/trans-iowa-v12-the-big-easy",
-        "category": "community",
-        "label": "salsacycles.com: Trans Iowa V12 The Big Easy"
-      },
-      {
-        "url": "https://dirtscrolls.com/14951591-blast-from-the-past-trans-iowa-and-the-rise-of-gravel-grinders",
-        "category": "community",
-        "label": "dirtscrolls.com: 14951591 Blast From The Past Trans Iowa And The Rise Of G..."
-      },
-      {
-        "url": "https://transiowa.blogspot.com/p/trans-iowa-stories.html",
-        "category": "community",
-        "label": "transiowa.blogspot.com: Trans Iowa Stories.Html"
-      },
-      {
-        "url": "https://www.bikeiowa.com/Blog/1568/trans-iowa-v11-recap",
-        "category": "community",
-        "label": "bikeiowa.com: Trans Iowa V11 Recap"
-      },
-      {
-        "url": "https://transiowa.blogspot.com/",
-        "category": "community",
-        "label": "transiowa.blogspot.com"
-      },
-      {
-        "url": "https://transiowa.blogspot.com/p/trans-iowa-faq.html",
-        "category": "community",
-        "label": "transiowa.blogspot.com: Trans Iowa Faq.Html"
-      },
-      {
-        "url": "https://iowawindandrock.com/",
-        "category": "community",
-        "label": "iowawindandrock.com"
+        "category": "other",
+        "label": "Salsacycles"
       }
     ],
     "tire_recommendations": {

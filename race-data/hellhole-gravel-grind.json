@@ -185,12 +185,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 90.0,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 82,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -311,34 +320,44 @@
     },
     "citations": [
       {
-        "url": "https://www.cxmagazine.com/hellhole-gravel-grind-stage-race-report",
-        "category": "community",
-        "label": "cxmagazine.com: Hellhole Gravel Grind Stage Race Report"
-      },
-      {
-        "url": "https://www.gravelcyclist.com/race-reports/hell-hole-gravel-grind-stage-race-report-by-dr-pain/",
-        "category": "community",
-        "label": "gravelcyclist.com: Hell Hole Gravel Grind Stage Race Report By Dr Pain"
+        "url": "https://hartadventureracing.com/2023-hell-hole-gravel-grind-fondo-race-recap/",
+        "category": "other",
+        "label": "Hartadventureracing"
       },
       {
         "url": "https://thegravelride.bike/website/hellhole-gravel-grind-stage-race-south-carolina",
-        "category": "community",
-        "label": "thegravelride.bike: Hellhole Gravel Grind Stage Race South Carolina"
+        "category": "other",
+        "label": "Thegravelride"
       },
       {
-        "url": "https://www.mtpleasantvelo.org/hellhole-gravel-grind-stage-race",
-        "category": "community",
-        "label": "mtpleasantvelo.org: Hellhole Gravel Grind Stage Race"
+        "url": "https://www.cxmagazine.com/hellhole-gravel-grind-stage-race-report",
+        "category": "media",
+        "label": "CX Magazine"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/7064/hellhole-gravel-grind-stage-race",
+        "category": "other",
+        "label": "Granfondoguide"
+      },
+      {
+        "url": "https://www.gravel-results.com/race/19723",
+        "category": "other",
+        "label": "Gravel-Results"
+      },
+      {
+        "url": "https://www.gravelcyclist.com/race-reports/hell-hole-gravel-grind-stage-race-report-by-dr-pain/",
+        "category": "media",
+        "label": "Gravel Cyclist"
       },
       {
         "url": "https://www.gravelcyclist.com/race-reports/race-report-2017-hellhole-gravel-grind-stage-race-south-carolina-by-libby-skinner/",
-        "category": "community",
-        "label": "gravelcyclist.com: Race Report 2017 Hellhole Gravel Grind Stage Race South C..."
+        "category": "media",
+        "label": "Gravel Cyclist"
       },
       {
-        "url": "https://hartadventureracing.com/2023-hell-hole-gravel-grind-fondo-race-recap/",
-        "category": "community",
-        "label": "hartadventureracing.com: 2023 Hell Hole Gravel Grind Fondo Race Recap"
+        "url": "https://www.mtpleasantvelo.org/hellhole-gravel-grind-stage-race",
+        "category": "other",
+        "label": "Mtpleasantvelo"
       }
     ],
     "tire_recommendations": {

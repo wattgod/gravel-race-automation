@@ -27,15 +27,15 @@ import json
 from pathlib import Path
 
 from generate_neo_brutalist import (
-    GA_MEASUREMENT_ID,
     SITE_BASE_URL,
     get_page_css,
     build_inline_js,
     write_shared_assets,
 )
-from brand_tokens import get_ab_head_snippet, get_preload_hints
+from brand_tokens import get_ab_head_snippet, get_ga4_head_snippet, get_preload_hints
 from shared_footer import get_mega_footer_html
 from shared_header import get_site_header_html
+from cookie_consent import get_consent_banner_html
 
 OUTPUT_DIR = Path(__file__).parent / "output"
 
@@ -1787,13 +1787,22 @@ def generate_apply_page(external_assets=None):
   <meta name="description" content="Apply for personalized gravel cycling coaching. 12-section athlete intake with blindspot inference, W/kg calculator, and save/resume.">
   <meta name="robots" content="noindex, follow">
   <link rel="canonical" href="{SITE_BASE_URL}/coaching/apply/">
+  <meta property="og:title" content="Coaching Application | Gravel God">
+  <meta property="og:description" content="Apply for personalized gravel cycling coaching. 12-section athlete intake with blindspot inference, W/kg calculator, and save/resume.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{SITE_BASE_URL}/coaching/apply/">
+  <meta property="og:image" content="{SITE_BASE_URL}/og/homepage.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Gravel God Cycling">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="{SITE_BASE_URL}/og/homepage.jpg">
   <link rel="icon" href="https://gravelgodcycling.com/wp-content/uploads/2021/09/cropped-Gravel-God-logo-32x32.png" sizes="32x32">
   {get_preload_hints()}
   {page_css}
   {get_ab_head_snippet()}
   <!-- GA4 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id={GA_MEASUREMENT_ID}"></script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}gtag("js",new Date());gtag("config","{GA_MEASUREMENT_ID}");</script>
+  {get_ga4_head_snippet()}
   {build_apply_css()}
 </head>
 <body class="gg-neo-brutalist-page" style="background:var(--gg-color-warm-paper);color:var(--gg-color-near-black);font-family:var(--gg-font-data);font-size:var(--gg-font-size-sm);line-height:1.7;min-height:100vh">
@@ -1827,6 +1836,7 @@ def generate_apply_page(external_assets=None):
   {build_footer()}
   {build_jsonld()}
   {build_apply_js()}
+{get_consent_banner_html()}
 </body>
 </html>'''
 

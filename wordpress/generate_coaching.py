@@ -20,15 +20,15 @@ import json
 from pathlib import Path
 
 from generate_neo_brutalist import (
-    GA_MEASUREMENT_ID,
     SITE_BASE_URL,
     get_page_css,
     build_inline_js,
     write_shared_assets,
 )
-from brand_tokens import get_ab_head_snippet, get_preload_hints
+from brand_tokens import get_ab_head_snippet, get_ga4_head_snippet, get_preload_hints
 from shared_footer import get_mega_footer_html
 from shared_header import get_site_header_html
+from cookie_consent import get_consent_banner_html
 from generate_about import _testimonial_data
 
 OUTPUT_DIR = Path(__file__).parent / "output"
@@ -59,7 +59,7 @@ def build_nav() -> str:
 def build_hero() -> str:
     return f'''<div class="gg-hero gg-coach-hero" id="hero">
     <div class="gg-hero-tier" style="background:var(--gg-color-gold)">COACHING</div>
-    <h1>An Algorithm Isn&#39;t a Person.</h1>
+    <h1>You&#39;re a Person, Not a Spreadsheet.</h1>
     <p class="gg-hero-tagline">Coaching is a relationship. Someone who knows your history, reads your data, and adjusts when life gets in the way. That&#39;s what this is.</p>
     <div class="gg-coach-hero-cta">
       <a href="{QUESTIONNAIRE_URL}" class="gg-coach-btn gg-coach-btn--gold" data-cta="hero_apply">APPLY NOW</a>
@@ -1243,16 +1243,20 @@ def generate_coaching_page(external_assets: dict = None) -> str:
         page_css = get_page_css()
         inline_js = build_inline_js()
 
-    meta_desc = "Gravel race coaching built around your schedule, your data, and your life. Three tiers of involvement — from weekly review to daily high-touch support."
+    meta_desc = "Gravel cycling coaching: structured training, race strategy, and honest feedback from a real coach. Plans from $199 every 4 weeks."
 
     og_tags = f'''<meta property="og:title" content="Coaching | Gravel God">
   <meta property="og:description" content="Gravel race coaching built around your schedule, your data, and your life. Three tiers of involvement.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="{esc(canonical_url)}">
+  <meta property="og:image" content="{SITE_BASE_URL}/og/homepage.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:site_name" content="Gravel God Cycling">
-  <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Coaching | Gravel God">
-  <meta name="twitter:description" content="Gravel race coaching built around your schedule, your data, and your life. Three tiers of involvement.">'''
+  <meta name="twitter:description" content="Gravel race coaching built around your schedule, your data, and your life. Three tiers of involvement.">
+  <meta name="twitter:image" content="{SITE_BASE_URL}/og/homepage.jpg">'''
 
     preload = get_preload_hints()
 
@@ -1261,7 +1265,7 @@ def generate_coaching_page(external_assets: dict = None) -> str:
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Coaching | Gravel God</title>
+  <title>Gravel Cycling Coaching | Gravel God</title>
   <meta name="description" content="{esc(meta_desc)}">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="{esc(canonical_url)}">
@@ -1271,8 +1275,7 @@ def generate_coaching_page(external_assets: dict = None) -> str:
   {jsonld}
   {page_css}
   {coaching_css}
-  <script async src="https://www.googletagmanager.com/gtag/js?id={GA_MEASUREMENT_ID}"></script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments)}}gtag('js',new Date());gtag('config','{GA_MEASUREMENT_ID}');</script>
+  {get_ga4_head_snippet()}
   {get_ab_head_snippet()}
 </head>
 <body>
@@ -1307,6 +1310,7 @@ def generate_coaching_page(external_assets: dict = None) -> str:
 {inline_js}
 {coaching_js}
 
+{get_consent_banner_html()}
 </body>
 </html>'''
 

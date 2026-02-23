@@ -185,12 +185,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 81.3,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 60,
+          "citation_density": 80,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 82,
+          "cross_reference": 50
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -341,8 +350,8 @@
     "citations": [
       {
         "url": "https://trimarni.blogspot.com/2020/07/greenville-cycling-paris-mountain.html",
-        "category": "community",
-        "label": "trimarni.blogspot.com: Greenville Cycling Paris Mountain.Html"
+        "category": "other",
+        "label": "Trimarni"
       }
     ],
     "tire_recommendations": {

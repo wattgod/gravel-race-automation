@@ -129,7 +129,13 @@
       ],
       "signature_challenge": "180 km elite + World Championship field + October weather. Rainbow jersey.",
       "ridewithgps_id": "53011652",
-      "ridewithgps_name": "2025 UCI Gravel World Championships - Elite men 181"
+      "ridewithgps_name": "2025 UCI Gravel World Championships - Elite men 181",
+      "surface_breakdown": {
+        "overall": {
+          "gravel": 70,
+          "pavement": 30
+        }
+      }
     },
     "history": {
       "founded": "2022",
@@ -150,19 +156,19 @@
       ],
       "research_date": "2026-02-04",
       "research_strength": {
-        "overall": 0,
-        "grade": "pending",
-        "weakest": "pending",
+        "overall": 99.1,
+        "grade": "A",
+        "weakest": "completeness",
         "has_research_dump": true,
         "dimensions": {
-          "source_diversity": 0,
-          "citation_density": 0,
-          "temporal_depth": 0,
-          "specificity": 0,
-          "statistical_backing": 0,
-          "voice_authenticity": 0,
-          "completeness": 0,
-          "cross_reference": 0
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 100,
+          "completeness": 94,
+          "cross_reference": 100
         },
         "scored_at": "2026-02-04"
       }
@@ -229,13 +235,36 @@
       "score": "83 / 100",
       "one_liner": "The only gravel race where you can actually call yourself World Champion—if you can handle 180km of whatever terrain the UCI throws at you.",
       "should_you_race": "You need a UCI license, the fitness for nearly five hours of World Championship pace racing, and the mental fortitude to suffer in front of 1,000+ of the world's fastest gravel riders. The course changes annually, so you're gambling on terrain, but if you can't handle 2,500m of climbing and October weather in Europe, stay home. This isn't about participation—it's about proving you belong with the global elite.",
-      "alternatives": "Unbound 200 gives you similar distance and prestige without the UCI bureaucracy and European travel costs. If you want that strade bianche experience more predictably, hit L'Eroica or Strade Bianche Gran Fondo where the terrain stays consistent and the October weather won't ruin your expensive European vacation."
+      "alternatives": "Unbound 200 gives you similar distance and prestige without the UCI bureaucracy and European travel costs. If you want that strade bianche experience more predictably, hit L'Eroica or Strade Bianche Gran Fondo where the terrain stays consistent and the October weather won't ruin your expensive European vacation.",
+      "alternative_slugs": [
+        "unbound-200"
+      ]
     },
     "citations": [
       {
-        "url": "https://www.uci.org",
-        "category": "official",
-        "label": "Official Website"
+        "url": "https://ridewithgps.com/routes/53011652",
+        "category": "route",
+        "label": "RideWithGPS: 2025 UCI Gravel World Championships - Elite men 181"
+      },
+      {
+        "url": "https://cycling-info.com/discover-the-champions-of-the-uci-gravel-world-championships/",
+        "category": "other",
+        "label": "Cycling-Info"
+      },
+      {
+        "url": "https://granfondodailynews.com/2025/10/11/results-2025-uci-gravel-world-championships-limburg-netherlands/",
+        "category": "other",
+        "label": "Granfondodailynews"
+      },
+      {
+        "url": "https://neurojoy.net/blog/ucigravelworldsracereport/",
+        "category": "other",
+        "label": "Neurojoy"
+      },
+      {
+        "url": "https://off.road.cc/content/feature/dodgy-tactics-and-dutch-domination-the-2025-uci-gravel-world-championships-analysed",
+        "category": "other",
+        "label": "Off"
       },
       {
         "url": "https://reddit.com/r/gravelcycling/comments/uci-gravel-worlds",
@@ -243,114 +272,44 @@
         "label": "Reddit"
       },
       {
-        "url": "https://ridewithgps.com",
-        "category": "route",
-        "label": "RideWithGPS"
-      },
-      {
-        "url": "https://www.cyclingtips.com",
+        "url": "https://velo.outsideonline.com/tag/uci-gravel-world-championships",
         "category": "media",
-        "label": "CyclingTips"
+        "label": "Velo"
       },
       {
-        "url": "https://www.ridingravel.com",
+        "url": "https://www.grallochgravel.com/uci-gravel-world-championships",
         "category": "other",
-        "label": "Ridingravel"
-      },
-      {
-        "url": "https://www.strava.com",
-        "category": "activity",
-        "label": "Strava"
-      },
-      {
-        "url": "https://www.trainerroad.com",
-        "category": "community",
-        "label": "TrainerRoad"
-      },
-      {
-        "url": "https://www.velonews.com",
-        "category": "media",
-        "label": "VeloNews"
-      },
-      {
-        "url": "https://neurojoy.net/blog/ucigravelworldsracereport/",
-        "category": "community",
-        "label": "neurojoy.net: Ucigravelworldsracereport"
+        "label": "Grallochgravel"
       },
       {
         "url": "https://www.paigepowered.com/post/uci-gravel-world-championships-race-recap",
-        "category": "community",
-        "label": "paigepowered.com: Uci Gravel World Championships Race Recap"
+        "category": "other",
+        "label": "Paigepowered"
       },
       {
-        "url": "https://www.velouk.net/2024/10/07/report-result-world-gravel-championships/",
+        "url": "https://www.reddit.com/r/gravelcycling/comments/1731sys/uci_gravel_world_championships_me_2023_one_day/",
         "category": "community",
-        "label": "velouk.net: Report Result World Gravel Championships"
+        "label": "Reddit"
       },
       {
-        "url": "https://www.cyclingnews.com/blogs/lauren-de-crescenzo/lauren-de-crescenzo-and-her-tough-decision-to-miss-uci-gravel-world-championships/",
+        "url": "https://www.reddit.com/r/gravelcycling/comments/xzlrrg/uci_gravel_world_be_like/",
         "category": "community",
-        "label": "cyclingnews.com: Lauren De Crescenzo And Her Tough Decision To Miss Uci Gr..."
+        "label": "Reddit"
       },
       {
-        "url": "https://www.iamtedking.com/blog/a-week-in-review-the-uci-gravel-world-championships",
+        "url": "https://www.reddit.com/r/ucigravel/comments/15wyq3y/uci_gravel_world_series_championships/",
         "category": "community",
-        "label": "iamtedking.com: A Week In Review The Uci Gravel World Championships"
-      },
-      {
-        "url": "https://thegravelride.bike/uci-gravel-world-series-with-erwin-vervecken",
-        "category": "community",
-        "label": "thegravelride.bike: Uci Gravel World Series With Erwin Vervecken"
-      },
-      {
-        "url": "https://forum.cyclingnews.com/threads/2025-uci-gravel-world-championships.40744/",
-        "category": "community",
-        "label": "forum.cyclingnews.com: 2025 Uci Gravel World Championships.40744"
-      },
-      {
-        "url": "https://ucigravelworldseries.com/en/gravelking-uci-gravel-world-series-2026-a-record-45-events-worldwide/",
-        "category": "community",
-        "label": "ucigravelworldseries.com: Gravelking Uci Gravel World Series 2026 A Record 45 Event..."
-      },
-      {
-        "url": "https://www.yahoo.com/lifestyle/daniel-oss-uci-gravel-world-072614775.html",
-        "category": "community",
-        "label": "yahoo.com: Daniel Oss Uci Gravel World 072614775.Html"
-      },
-      {
-        "url": "https://www.cyclingnews.com/races/uci-gravel-world-championships-2025/elite-men/live-report/",
-        "category": "community",
-        "label": "cyclingnews.com: Live Report"
-      },
-      {
-        "url": "https://www.bikeradar.com/features/pro-bike/2025-uci-gravel-world-championships-pro-bike-gallery",
-        "category": "community",
-        "label": "bikeradar.com: 2025 Uci Gravel World Championships Pro Bike Gallery"
-      },
-      {
-        "url": "https://www.progravelmagazine.com/post/uci-gravel-world-championships-2025",
-        "category": "community",
-        "label": "progravelmagazine.com: Uci Gravel World Championships 2025"
-      },
-      {
-        "url": "https://off.road.cc/content/feature/uci-gravel-world-championship-2025-everything-you-need-to-know-16933",
-        "category": "community",
-        "label": "off.road.cc: Uci Gravel World Championship 2025 Everything You Need To..."
-      },
-      {
-        "url": "https://velo.outsideonline.com/gravel/uci-gravel-world-championships-10-riders-to-watch-in-the-mens-race/",
-        "category": "community",
-        "label": "velo.outsideonline.com: Uci Gravel World Championships 10 Riders To Watch In The ..."
-      },
-      {
-        "url": "https://off.road.cc/content/feature/dodgy-tactics-and-dutch-domination-the-2025-uci-gravel-world-championships-analysed",
-        "category": "community",
-        "label": "off.road.cc: Dodgy Tactics And Dutch Domination The 2025 Uci Gravel Wo..."
+        "label": "Reddit"
       },
       {
         "url": "https://www.rouleur.cc/en-us/blogs/the-rouleur-journal/the-inaugural-uci-gravel-world-championships-were-they-a-success-and-do-we-really-need-them",
-        "category": "community",
-        "label": "rouleur.cc: The Inaugural Uci Gravel World Championships Were They A ..."
+        "category": "other",
+        "label": "Rouleur"
+      },
+      {
+        "url": "https://www.velouk.net/2024/10/07/report-result-world-gravel-championships/",
+        "category": "other",
+        "label": "Velouk"
       }
     ],
     "results": {

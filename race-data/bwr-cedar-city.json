@@ -96,7 +96,12 @@
       "score": "77 / 100",
       "one_liner": "Half the climbing of San Diego. All the suffering. Plus miles of playground sand and a soul-crushing mile-100 combo.",
       "should_you_race": "Yes if you want a different BWR challenge that tests sand navigation, weather adaptability, and late-race mental fortitude. Cedar City punishes under-prepared riders more than they expect. Come with 40mm+ tires, cold-weather layers, and a pacing plan that saves matches for mile 100.",
-      "alternatives": "If you want BWR with more climbing: San Diego original. If you want Utah gravel without sand: Crusher in the Tushar. If you want desert gravel with guaranteed weather: BWR Arizona."
+      "alternatives": "If you want BWR with more climbing: San Diego original. If you want Utah gravel without sand: Crusher in the Tushar. If you want desert gravel with guaranteed weather: BWR Arizona.",
+      "alternative_slugs": [
+        "bwr-arizona",
+        "bwr-california",
+        "crusher-in-the-tushar"
+      ]
     },
     "logistics": {
       "airport": "Cedar City Regional (CDC) - limited. Las Vegas (LAS) - 2.5 hours. Salt Lake City (SLC) - 4 hours.",
@@ -104,7 +109,8 @@
       "food": "College town with solid options. Not a foodie destination but functional.",
       "packet_pickup": "Standard BWR format: expo day before with 'waffle + beer' scene and tech partner booths.",
       "parking": "Start/finish near downtown. Large parking fields with no major complaints.",
-      "official_site": "https://www.belgianwaffleride.bike/pages/cedar-city-2020-course"
+      "official_site": "https://www.belgianwaffleride.bike/pages/cedar-city-2020-course",
+      "camping": "Campground\n- Pyramid Ridge camping\n\n**Booking Tips:**\n- Book early - limited inventory in small town\n- Consider Kanarraville, Enoch"
     },
     "history": {
       "founded": 2020,
@@ -163,18 +169,18 @@
       ],
       "migration_notes": [],
       "research_strength": {
-        "overall": 78.5,
-        "grade": "B",
-        "weakest": "citation_density",
-        "has_research_dump": false,
+        "overall": 96.1,
+        "grade": "A",
+        "weakest": "voice_authenticity",
+        "has_research_dump": true,
         "dimensions": {
-          "source_diversity": 30,
-          "citation_density": 20,
+          "source_diversity": 100,
+          "citation_density": 100,
           "temporal_depth": 100,
           "specificity": 100,
           "statistical_backing": 100,
           "voice_authenticity": 70,
-          "completeness": 100,
+          "completeness": 94,
           "cross_reference": 100
         },
         "scored_at": "2026-02-04"
@@ -199,7 +205,7 @@
       },
       "field_depth": {
         "score": 4,
-        "explanation": "Pete Stetina, Keegan Swenson, Sofia Gomez Villafane, and Rose Grant on the winner's list tells you the caliber. 600+ riders in the inaugural year shows it attracts numbers, not just names. Being part of the Quad-Tripel Crown means traveling pros treat it seriously, not as a training ride. Deeper field than most — comparable to Badlands. As Melisa Rollins puts it: \"Belgian Waffle Ride Cedar City was my first race on the dirt in 11 months. After finishing off my first pro season as an endurance gravel/mountain bike racer racing in the Lifetime Grand Prix in 2022,...\""
+        "explanation": "Pete Stetina, Keegan Swenson, Sofia Gomez Villafane, and Rose Grant on the winner's list tells you the caliber. 600+ riders in the inaugural year shows it attracts numbers, not just names. Being part of the Quad-Tripel Crown means traveling pros treat it seriously, not as a training ride. Deeper field than most — comparable to Badlands. As Melisa Rollins puts it: \"Belgian Waffle Ride Cedar City was my first race on the dirt in 11 months. After finishing off my first pro season as an endurance gravel/mountain bike racer in 2022,...\""
       },
       "value": {
         "score": 4,
@@ -211,7 +217,7 @@
       },
       "length": {
         "score": 4,
-        "explanation": "117 miles hits the sweet spot for gravel suffering—long enough to separate pretenders from contenders, short enough that mortals can finish before dark. The 66.5-mile Wafer option gives beginners an out without embarrassment. At 5,800 feet average elevation, those miles feel longer than sea level equivalents. Longer than Belgian Waffle Ride San Diego. As Melisa Rollins puts it: \"Belgian Waffle Ride Cedar City was my first race on the dirt in 11 months. After finishing off my first pro season as an endurance gravel/mountain bike racer racing in the Lifetime Grand Prix in 2022,...\""
+        "explanation": "117 miles hits the sweet spot for gravel suffering—long enough to separate pretenders from contenders, short enough that mortals can finish before dark. The 66.5-mile Wafer option gives beginners an out without embarrassment. At 5,800 feet average elevation, those miles feel longer than sea level equivalents. Longer than Belgian Waffle Ride San Diego. As Melisa Rollins puts it: \"Belgian Waffle Ride Cedar City was my first race on the dirt in 11 months. After finishing off my first pro season as an endurance gravel/mountain bike racer in 2022,...\""
       },
       "technicality": {
         "score": 4,
@@ -250,6 +256,26 @@
         "label": "RideWithGPS: Belgian Waffle Ride Cedar City"
       },
       {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/jiv4w7/belgian_waffle_ride_cedar_cityepic/",
+        "category": "community",
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.reddit.com/r/gravelracing/comments/vep50l/2020_belgian_waffle_ride_cedar_city_dylan_johnson/",
+        "category": "community",
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.trainerroad.com/forum/t/belgian-waffle-ride-cedar-city-utah-2020/30188",
+        "category": "community",
+        "label": "TrainerRoad"
+      },
+      {
+        "url": "https://almsthre.com/blogs/news/belgian-waffle-ride-cedar-city",
+        "category": "other",
+        "label": "Almsthre"
+      },
+      {
         "url": "https://enve.com/blogs/journal/bwr-cedar-city-what-worked-what-didnt",
         "category": "other",
         "label": "Enve"
@@ -260,19 +286,29 @@
         "label": "Forum"
       },
       {
+        "url": "https://puregravel.com/blogs/reviews/reliving-the-journey-to-belgian-waffle-ride-cedar-city",
+        "category": "other",
+        "label": "Puregravel"
+      },
+      {
+        "url": "https://rdubcreative.com/belgian-waffle-ride-cedar-city/",
+        "category": "other",
+        "label": "Rdubcreative"
+      },
+      {
         "url": "https://strambecco.com/event/belgian-waffle-ride-bwr-utah/",
         "category": "other",
         "label": "Strambecco"
       },
       {
+        "url": "https://up.bike/blog/alexeys-belgian-waffle-ride-cedar-city/",
+        "category": "other",
+        "label": "Up"
+      },
+      {
         "url": "https://visitcedarcity.com/sports/",
         "category": "other",
         "label": "Visitcedarcity"
-      },
-      {
-        "url": "https://www.belgianwaffleride.bike/",
-        "category": "other",
-        "label": "Belgianwaffleride"
       },
       {
         "url": "https://www.belgianwaffleride.bike/blogs/news/results",
@@ -300,69 +336,9 @@
         "label": "Cyclingwest"
       },
       {
-        "url": "https://www.enve.com/journal/bwr-cedar-city-tips-from-enve-pros/",
-        "category": "other",
-        "label": "Enve"
-      },
-      {
-        "url": "https://www.granfondoguide.com/Events/Index/8861/belgian-waffle-ride-utah",
-        "category": "other",
-        "label": "Granfondoguide"
-      },
-      {
-        "url": "https://www.trainerroad.com/forum/t/belgian-waffle-ride-cedar-city-utah-2020/30188",
-        "category": "community",
-        "label": "TrainerRoad"
-      },
-      {
-        "url": "https://puregravel.com/blogs/reviews/reliving-the-journey-to-belgian-waffle-ride-cedar-city",
-        "category": "community",
-        "label": "puregravel.com: Reliving The Journey To Belgian Waffle Ride Cedar City"
-      },
-      {
-        "url": "https://up.bike/blog/alexeys-belgian-waffle-ride-cedar-city/",
-        "category": "community",
-        "label": "up.bike: Alexeys Belgian Waffle Ride Cedar City"
-      },
-      {
-        "url": "https://www.belgianwaffleride.bike/blogs/news/the-eternal-importance-of-family",
-        "category": "community",
-        "label": "belgianwaffleride.bike: The Eternal Importance Of Family"
-      },
-      {
-        "url": "https://us.3t.bike/blogs/news/belgian-waffle-ride-cedar-city-a-race-finally",
-        "category": "community",
-        "label": "us.3t.bike: Belgian Waffle Ride Cedar City A Race Finally"
-      },
-      {
-        "url": "https://enve.com/blogs/journal/explore-the-bwr-cedar-city-course-a-challenge-worthy-of-the-bwr-moniker",
-        "category": "community",
-        "label": "enve.com: Explore The Bwr Cedar City Course A Challenge Worthy Of T..."
-      },
-      {
-        "url": "https://www.belgianwaffleride.bike/blogs/news/bwr-cedar-city-2020-women-s-recap",
-        "category": "community",
-        "label": "belgianwaffleride.bike: Bwr Cedar City 2020 Women S Recap"
-      },
-      {
-        "url": "https://robrides.com/belgian-waffle-ride-cedar-city/",
-        "category": "community",
-        "label": "robrides.com: Belgian Waffle Ride Cedar City"
-      },
-      {
-        "url": "https://source-e.net/rider-resources/belgian-waffle-ride-cedar-city-course-musings/",
-        "category": "community",
-        "label": "source-e.net: Belgian Waffle Ride Cedar City Course Musings"
-      },
-      {
-        "url": "https://rdubcreative.com/belgian-waffle-ride-cedar-city/",
-        "category": "community",
-        "label": "rdubcreative.com: Belgian Waffle Ride Cedar City"
-      },
-      {
         "url": "https://www.cyclingwest.com/racing/gravel-racing/belgian-waffle-ride-cedar-city-race-recaps/",
-        "category": "community",
-        "label": "cyclingwest.com: Belgian Waffle Ride Cedar City Race Recaps"
+        "category": "other",
+        "label": "Cyclingwest"
       },
       {
         "url": "https://www.granfondoguide.com/Contents/Index/5751/rose-grant-and-keegan-swenson-take-gravel-victory-at-enves-belgian-waffle-ride-cedar-city",

@@ -238,7 +238,11 @@
       "score": "73 / 100",
       "one_liner": "The granddaddy of gravel serves up 70 miles of Northern California's hidden roads with enough climbing to remind you why it started this whole movement.",
       "should_you_race": "If you can handle 4,500-9,116 feet of elevation on mixed terrain and navigate without hand-holding, this is your history lesson in what gravel racing actually is. Bring a gravel bike with 38-42c tires and the fitness for sustained climbing — the self-sufficiency requirement isn't posturing. Skip it if you need constant aid stations or can't fix a flat solo.",
-      "alternatives": "Belgian Waffle Ride California delivers similar elevation punishment with more mainstream hype, while Dirty Kanza (Unbound) offers flatter suffering if you prefer heat over hills. Choose those if you want bigger fields and more spectacle over authentic Northern California backroads."
+      "alternatives": "Belgian Waffle Ride California delivers similar elevation punishment with more mainstream hype, while Dirty Kanza (Unbound) offers flatter suffering if you prefer heat over hills. Choose those if you want bigger fields and more spectacle over authentic Northern California backroads.",
+      "alternative_slugs": [
+        "bwr-california",
+        "unbound-200"
+      ]
     },
     "course_description": {
       "character": "The Grasshopper Adventure Series throws 70 miles of Northern California's most eclectic terrain at you—think wine country roads that suddenly dump you onto logging roads, then back to pavement without warning. This isn't just gravel grinding or road racing; it's bike handling boot camp where your line choice and gear selection get tested every few miles. The elevation gain sits somewhere between 4,500-9,116 feet depending on which Hopper you're riding, but the real challenge is the constant terrain switching that turns your legs into confused mush.",
@@ -268,9 +272,44 @@
     },
     "citations": [
       {
-        "url": "https://grasshopperadventureseries.com/",
-        "category": "official",
-        "label": "Official Website"
+        "url": "https://velo.outsideonline.com/tag/grasshopper-adventure-series",
+        "category": "media",
+        "label": "Velo"
+      },
+      {
+        "url": "https://www.outsideonline.com/outdoor-adventure/biking/discover-grasshopper-adventure-series/",
+        "category": "media",
+        "label": "Outside"
+      },
+      {
+        "url": "https://www.reddit.com/r/bicycling/comments/5r3m1v/12817_grasshopper_adventure_series_kicked_off/",
+        "category": "community",
+        "label": "Reddit"
+      },
+      {
+        "url": "https://velo.outsideonline.com/gravel/katerina-nash-ian-lopez-de-san-roman-win-mud-caked-huffmaster-hopper/",
+        "category": "community",
+        "label": "velo.outsideonline.com: Katerina Nash Ian Lopez De San Roman Win Mud Caked Huffma..."
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=PWffvjLT7qE",
+        "category": "community",
+        "label": "youtube.com: Watch"
+      },
+      {
+        "url": "https://www.sportful.com/US/en/stories/cycling/grasshopper-adventure-series",
+        "category": "community",
+        "label": "sportful.com: Grasshopper Adventure Series"
+      },
+      {
+        "url": "https://velo.outsideonline.com/gravel/gravel-racing/my-mentor-gave-me-the-confidence-to-try-a-gravel-race-in-the-first-place-year-2-of-low-gap-hopper-initiative-a-success/",
+        "category": "community",
+        "label": "velo.outsideonline.com: My Mentor Gave Me The Confidence To Try A Gravel Race In ..."
+      },
+      {
+        "url": "https://www.youtube.com/@GrasshopperAdventureSeries",
+        "category": "video",
+        "label": "YouTube"
       },
       {
         "url": "https://grasshopperadventureseries.com/hopper-history/",
@@ -281,6 +320,11 @@
         "url": "https://iamtedking.podbean.com/e/episode-1-miguel-crawford-%E2%80%94-grasshopper-adventure-series-founder/",
         "category": "other",
         "label": "Iamtedking"
+      },
+      {
+        "url": "https://mtbgirlsmagazine.com/huffmaster-race-2-grasshopper-adventure-series/",
+        "category": "other",
+        "label": "Mtbgirlsmagazine"
       },
       {
         "url": "https://sfbike.org/event/twenty-years-of-the-grasshopper-adventure-series-with-miguel-crawford/",
@@ -318,11 +362,6 @@
         "label": "Granfondoguide"
       },
       {
-        "url": "https://www.grasshopperadventureseries.com",
-        "category": "other",
-        "label": "Grasshopperadventureseries"
-      },
-      {
         "url": "https://www.grasshopperadventureseries.com/huffmaster",
         "category": "other",
         "label": "Grasshopperadventureseries"
@@ -331,96 +370,6 @@
         "url": "https://www.grasshopperadventureseries.com/jackson-forest-hopper",
         "category": "other",
         "label": "Grasshopperadventureseries"
-      },
-      {
-        "url": "https://www.grasshopperadventureseries.com/king-ridge",
-        "category": "other",
-        "label": "Grasshopperadventureseries"
-      },
-      {
-        "url": "https://www.grasshopperadventureseries.com/lake-sonoma-mtb",
-        "category": "other",
-        "label": "Grasshopperadventureseries"
-      },
-      {
-        "url": "https://www.grasshopperadventureseries.com/low-gap",
-        "category": "other",
-        "label": "Grasshopperadventureseries"
-      },
-      {
-        "url": "https://www.grasshopperadventureseries.com/megahopper",
-        "category": "other",
-        "label": "Grasshopperadventureseries"
-      },
-      {
-        "url": "https://www.grasshopperadventureseries.com/special-events",
-        "category": "other",
-        "label": "Grasshopperadventureseries"
-      },
-      {
-        "url": "https://www.grasshopperadventureseries.com/ukiah-mendo-gravel-epic",
-        "category": "other",
-        "label": "Grasshopperadventureseries"
-      },
-      {
-        "url": "https://www.movemint.cc/series/grasshopper_adventure_series_2026",
-        "category": "other",
-        "label": "Movemint"
-      },
-      {
-        "url": "http://www.teammikesbikes.com/blog-2020/2019/2/5/grasshopper-adventure-series-numero-uno-low-gap",
-        "category": "community",
-        "label": "teammikesbikes.com: Grasshopper Adventure Series Numero Uno Low Gap"
-      },
-      {
-        "url": "http://www.teammikesbikes.com/blog-2020/2018/2/5/grasshopper-adventure-series-old-caz",
-        "category": "community",
-        "label": "teammikesbikes.com: Grasshopper Adventure Series Old Caz"
-      },
-      {
-        "url": "https://www.outsideonline.com/outdoor-adventure/biking/discover-grasshopper-adventure-series/",
-        "category": "community",
-        "label": "outsideonline.com: Discover Grasshopper Adventure Series"
-      },
-      {
-        "url": "https://velo.outsideonline.com/gravel/katerina-nash-ian-lopez-de-san-roman-win-mud-caked-huffmaster-hopper/",
-        "category": "community",
-        "label": "velo.outsideonline.com: Katerina Nash Ian Lopez De San Roman Win Mud Caked Huffma..."
-      },
-      {
-        "url": "https://velo.outsideonline.com/gravel/gravel-racing/my-mentor-gave-me-the-confidence-to-try-a-gravel-race-in-the-first-place-year-2-of-low-gap-hopper-initiative-a-success/",
-        "category": "community",
-        "label": "velo.outsideonline.com: My Mentor Gave Me The Confidence To Try A Gravel Race In ..."
-      },
-      {
-        "url": "https://www.sportful.com/US/en/stories/cycling/grasshopper-adventure-series",
-        "category": "community",
-        "label": "sportful.com: Grasshopper Adventure Series"
-      },
-      {
-        "url": "https://www.grasshopperadventureseries.com/",
-        "category": "community",
-        "label": "grasshopperadventureseries.com"
-      },
-      {
-        "url": "https://www.grasshopperadventureseries.com/about-us",
-        "category": "community",
-        "label": "grasshopperadventureseries.com: About Us"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=PWffvjLT7qE",
-        "category": "community",
-        "label": "youtube.com: Watch"
-      },
-      {
-        "url": "https://mtbgirlsmagazine.com/huffmaster-race-2-grasshopper-adventure-series/",
-        "category": "community",
-        "label": "mtbgirlsmagazine.com: Huffmaster Race 2 Grasshopper Adventure Series"
-      },
-      {
-        "url": "https://velo.outsideonline.com/tag/grasshopper-adventure-series",
-        "category": "community",
-        "label": "velo.outsideonline.com: Grasshopper Adventure Series"
       }
     ],
     "history": {
@@ -508,6 +457,25 @@
         "200pluslb_dry": "45-49",
         "200pluslb_mixed": "42-46",
         "200pluslb_wet": "40-44"
+      }
+    },
+    "research_metadata": {
+      "research_strength": {
+        "overall": 84.8,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 47,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     }
   }

@@ -19,9 +19,9 @@
         "Eastern Nebraska"
       ],
       "field_size": "200-400 riders",
-      "start_time": "Morning start",
+      "start_time": "5:55am Elit",
       "registration": "Online. Cost: ~$60-100",
-      "prize_purse": "Modest prizes",
+      "prize_purse": "$30,000 prize purse",
       "aid_stations": "Multiple aid stations",
       "cutoff_time": "Varies",
       "lat": 40.8089,
@@ -94,7 +94,10 @@
       "score": "47 / 100",
       "one_liner": "Nebraska rolling farmland gravel in Lincoln.",
       "should_you_race": "If you're in Nebraska and want a local rolling farmland event—yes, it's a solid regional race. If you're from out of state—there are better options.",
-      "alternatives": "For better events: Gravel Worlds (UCI), Unbound. For similar regional events: other NE gravel races."
+      "alternatives": "For better events: Gravel Worlds (UCI), Unbound. For similar regional events: other NE gravel races.",
+      "alternative_slugs": [
+        "unbound-200"
+      ]
     },
     "logistics": {
       "airport": "Lincoln (LNK) 15 minutes or Omaha (OMA) 1 hour",
@@ -185,12 +188,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 91.0,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 88,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -316,39 +328,64 @@
         "label": "RideWithGPS: 2024 75 Garmin Gravel Worlds p/b Goodlife Cyclery "
       },
       {
+        "url": "https://velo.outsideonline.com/gravel/gravel-racing/garmin-gravel-worlds/",
+        "category": "media",
+        "label": "Velo"
+      },
+      {
+        "url": "https://velo.outsideonline.com/gravel/gravel-racing/power-analysis-lauf-gravel-worlds-2025-in-a-100000-face-off/",
+        "category": "media",
+        "label": "Velo"
+      },
+      {
+        "url": "https://velo.outsideonline.com/tag/gravel-worlds",
+        "category": "media",
+        "label": "Velo"
+      },
+      {
+        "url": "https://www.cyclingwest.com/racing/gravel-racing/2024-gravel-worlds-champions-announced/",
+        "category": "other",
+        "label": "Cyclingwest"
+      },
+      {
+        "url": "https://www.gravel-results.com/race/19971",
+        "category": "other",
+        "label": "Gravel-Results"
+      },
+      {
+        "url": "https://www.gravelworlds.com/blog/garmin-gravel-worlds-adds-live-event-coverage-bolsters-womens-pro-prize-purse",
+        "category": "other",
+        "label": "Gravelworlds"
+      },
+      {
         "url": "https://www.mathewwollmann.com/post/garmin-gravel-worlds-300-2024-race-recap",
+        "category": "other",
+        "label": "Mathewwollmann"
+      },
+      {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/15nxcu5/garmin_gravel_worlds_whos_going/",
         "category": "community",
-        "label": "mathewwollmann.com: Garmin Gravel Worlds 300 2024 Race Recap"
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/wxho8h/183_garmin_gravel_worlds_2022_recap/",
+        "category": "community",
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/xy0tyc/reminder_sign_up_for_garmin_gravel_worlds_2023/",
+        "category": "community",
+        "label": "Reddit"
       },
       {
         "url": "https://www.trainerroad.com/forum/t/the-nebraska-garmin-gravel-worlds-2024-tell-me-about-it/95329",
         "category": "community",
-        "label": "trainerroad.com: 95329"
-      },
-      {
-        "url": "https://www.trainerroad.com/forum/t/tr-for-long-rides-aka-garmin-gravel-worlds-300-miles/99162",
-        "category": "community",
-        "label": "trainerroad.com: 99162"
-      },
-      {
-        "url": "https://velo.outsideonline.com/gravel/gravel-racing/garmin-gravel-worlds/",
-        "category": "community",
-        "label": "velo.outsideonline.com: Garmin Gravel Worlds"
+        "label": "TrainerRoad"
       },
       {
         "url": "https://g-tedproductions.blogspot.com/2024/04/gravel-grinder-news-changes-at-gravel.html",
         "category": "community",
         "label": "g-tedproductions.blogspot.com: Gravel Grinder News Changes At Gravel.Html"
-      },
-      {
-        "url": "https://velo.outsideonline.com/gravel/gravel-racing/power-analysis-lauf-gravel-worlds-2025-in-a-100000-face-off/",
-        "category": "community",
-        "label": "velo.outsideonline.com: Power Analysis Lauf Gravel Worlds 2025 In A 100000 Face Off"
-      },
-      {
-        "url": "https://www.gravelworlds.com/blog/garmin-gravel-worlds-adds-live-event-coverage-bolsters-womens-pro-prize-purse",
-        "category": "community",
-        "label": "gravelworlds.com: Garmin Gravel Worlds Adds Live Event Coverage Bolsters Wo..."
       }
     ],
     "tire_recommendations": {

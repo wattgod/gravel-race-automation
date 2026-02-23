@@ -160,11 +160,15 @@ Use multiple searches to find different types of information:
 - Historical weather incidents (mud years, heat, wind)
 - Altitude (starting elevation, max elevation)
 
-**LOGISTICS**
-- Nearest airport
-- Lodging options and strategy
-- Parking situation
-- Packet pickup details
+**LOGISTICS** (be as specific as possible — exact times, addresses, costs)
+- Nearest airport (name, code, driving distance/time to race start)
+- Lodging options and strategy (specific hotel/campground names, prices)
+- Parking situation (specific address or lot name, any shuttles)
+- Packet pickup details (exact times and location, e.g., "Friday 5-6:30pm at Community Center")
+- Start time (exact, e.g., "7:00 AM CDT" — not just "morning")
+- Number of aid stations with approximate mile markers
+- Camping options (campground name, address, cost per site, electric/non-electric)
+- Prize purse amounts (total and/or per category if available)
 
 **COMMUNITY & REPUTATION**
 - Race history (founded year, founder if known)

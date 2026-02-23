@@ -19,7 +19,7 @@
         "NSW"
       ],
       "field_size": "50-100 riders",
-      "start_time": "Morning start",
+      "start_time": "7:30am",
       "registration": "Online. Cost: ~$75-100 AUD",
       "prize_purse": "Modest prizes",
       "aid_stations": "Limited aid stations",
@@ -101,7 +101,7 @@
       "lodging_strategy": "Mudgee has limited lodging options. Plan ahead.",
       "food": "Mudgee has limited dining options. Stock nutrition.",
       "packet_pickup": "Day of typically",
-      "parking": "At start/finish",
+      "parking": "parking is available at the event venue",
       "official_site": "Check Marys Mayhem website"
     },
     "history": {
@@ -185,12 +185,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 89.7,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 100,
+          "completeness": 76,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -316,29 +325,49 @@
         "label": "RideWithGPS: Marys Mayhem 2025 Saturday Long"
       },
       {
-        "url": "https://thebodymechanic.com.au/marys-mayhem-gravel-ride-australia/",
-        "category": "community",
-        "label": "thebodymechanic.com.au: Marys Mayhem Gravel Ride Australia"
-      },
-      {
-        "url": "https://www.midwesternliving.com.au/blog/marys-mayhem-gravel-grit-and-a-whole-lot-of-heart",
-        "category": "community",
-        "label": "midwesternliving.com.au: Marys Mayhem Gravel Grit And A Whole Lot Of Heart"
-      },
-      {
-        "url": "https://raceroster.com/events/2026/112571/marys-mayhem-2026",
-        "category": "community",
-        "label": "raceroster.com: Marys Mayhem 2026"
+        "url": "http://graveleur.cc/events/marys-mayhem-2026",
+        "category": "other",
+        "label": "Graveleur"
       },
       {
         "url": "https://graveleur.cc/features/marys-mayhem-video-recap",
-        "category": "community",
-        "label": "graveleur.cc: Marys Mayhem Video Recap"
+        "category": "other",
+        "label": "Graveleur"
       },
       {
         "url": "https://graveleur.cc/marys-mayhem-event-page",
+        "category": "other",
+        "label": "Graveleur"
+      },
+      {
+        "url": "https://raceroster.com/events/2026/112571/marys-mayhem-2026",
+        "category": "other",
+        "label": "Raceroster"
+      },
+      {
+        "url": "https://raceroster.com/events/2026/112571/marys-mayhem-2026/leaderboards/overall",
+        "category": "other",
+        "label": "Raceroster"
+      },
+      {
+        "url": "https://thebodymechanic.com.au/marys-mayhem-gravel-ride-australia/",
+        "category": "other",
+        "label": "Thebodymechanic"
+      },
+      {
+        "url": "https://www.midwesternliving.com.au/blog/marys-mayhem-gravel-grit-and-a-whole-lot-of-heart",
+        "category": "other",
+        "label": "Midwesternliving"
+      },
+      {
+        "url": "https://www.nsw.gov.au/visiting-and-exploring-nsw/nsw-events/marys-mayhem",
+        "category": "other",
+        "label": "Nsw"
+      },
+      {
+        "url": "https://www.reddit.com/r/SpecArt/comments/gnsl0x/saint_marys_by_markymayhem/",
         "category": "community",
-        "label": "graveleur.cc: Marys Mayhem Event Page"
+        "label": "Reddit"
       }
     ],
     "results": {

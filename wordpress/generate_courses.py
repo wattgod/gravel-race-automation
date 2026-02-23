@@ -24,12 +24,12 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 from generate_guide import render_block, build_guide_css
-from brand_tokens import get_tokens_css, get_font_face_css, get_preload_hints
+from brand_tokens import get_font_face_css, get_ga4_head_snippet, get_preload_hints, get_tokens_css
 from shared_footer import get_mega_footer_html, get_mega_footer_css
 from shared_header import get_site_header_html, get_site_header_css
+from cookie_consent import get_consent_banner_html
 
 SITE_BASE_URL = "https://gravelgodcycling.com"
-GA4_MEASUREMENT_ID = "G-EJJZ9T6M52"
 WORKER_URL = "https://course-access.gravelgodcoaching.workers.dev"
 
 PROJECT_ROOT = Path(__file__).parent.parent
@@ -852,8 +852,7 @@ def build_landing_page(course: dict) -> str:
 {course_css}
 {footer_css}
   </style>
-  <script async src="https://www.googletagmanager.com/gtag/js?id={GA4_MEASUREMENT_ID}"></script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments)}}gtag('js',new Date());gtag('config','{GA4_MEASUREMENT_ID}');</script>
+  {get_ga4_head_snippet()}
 </head>
 <body>
 <div class="gg-course-page">
@@ -895,6 +894,7 @@ def build_landing_page(course: dict) -> str:
 
 {mega_footer}
 </div>
+{get_consent_banner_html()}
 </body>
 </html>'''
 
@@ -981,8 +981,7 @@ def build_lesson_page(course: dict, module: dict, lesson: dict,
 {course_css}
 {footer_css}
   </style>
-  <script async src="https://www.googletagmanager.com/gtag/js?id={GA4_MEASUREMENT_ID}"></script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments)}}gtag('js',new Date());gtag('config','{GA4_MEASUREMENT_ID}');</script>
+  {get_ga4_head_snippet()}
 </head>
 <body>
 <div class="gg-course-page">
@@ -1119,6 +1118,7 @@ def build_lesson_page(course: dict, module: dict, lesson: dict,
 <script>
 {course_js}
 </script>
+{get_consent_banner_html()}
 </body>
 </html>'''
 
@@ -1166,8 +1166,7 @@ def build_course_index(courses: list) -> str:
 {course_css}
 {footer_css}
   </style>
-  <script async src="https://www.googletagmanager.com/gtag/js?id={GA4_MEASUREMENT_ID}"></script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments)}}gtag('js',new Date());gtag('config','{GA4_MEASUREMENT_ID}');</script>
+  {get_ga4_head_snippet()}
 </head>
 <body>
 <div class="gg-course-page">
@@ -1183,6 +1182,7 @@ def build_course_index(courses: list) -> str:
 </div>
 {mega_footer}
 </div>
+{get_consent_banner_html()}
 </body>
 </html>'''
 

@@ -95,7 +95,12 @@
       "score": "46 / 100",
       "one_liner": "Rural rolling Illinois farmland gravel in Roubaix.",
       "should_you_race": "If you're in Illinois and want a local rolling gravel event—yes, it's a solid regional race. If you're from out of state—there are better options.",
-      "alternatives": "For better Midwest events: Gravel Worlds, Almanzo 100, Dirty Kanza. For similar regional events: other Illinois gravel races."
+      "alternatives": "For better Midwest events: Gravel Worlds, Almanzo 100, Dirty Kanza. For similar regional events: other Illinois gravel races.",
+      "alternative_slugs": [
+        "almanzo-100",
+        "garmin-gravel-worlds",
+        "unbound-200"
+      ]
     },
     "logistics": {
       "airport": "Chicago (ORD/MDW) 2 hours or Peoria (PIA) 1 hour",
@@ -186,12 +191,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 91.0,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 88,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -312,44 +326,29 @@
     },
     "citations": [
       {
-        "url": "https://www.cxmagazine.com/tag/cirrem",
-        "category": "community",
-        "label": "cxmagazine.com: Cirrem"
+        "url": "https://ridewithgps.com/routes/53919197",
+        "category": "route",
+        "label": "RideWithGPS: CIRREM Short"
       },
       {
         "url": "https://cirrem.com/race-info/",
-        "category": "community",
-        "label": "cirrem.com: Race Info"
+        "category": "other",
+        "label": "Cirrem"
       },
       {
-        "url": "https://www.youtube.com/watch?v=kOw1SgaJ_vo",
-        "category": "community",
-        "label": "youtube.com: Watch"
+        "url": "https://cirrem.com/results/",
+        "category": "other",
+        "label": "Cirrem"
       },
       {
-        "url": "http://cirrem.com/results/",
-        "category": "community",
-        "label": "cirrem.com: Results"
-      },
-      {
-        "url": "http://cirrem.com/",
-        "category": "community",
-        "label": "cirrem.com"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=qQnmfWxv8Hw",
-        "category": "community",
-        "label": "youtube.com: Watch"
-      },
-      {
-        "url": "https://www.webscorer.com/racedetails?pid=1&raceid=381373&did=502211&cid=2689059",
-        "category": "community",
-        "label": "webscorer.com: Racedetails"
+        "url": "https://www.cxmagazine.com/tag/cirrem",
+        "category": "media",
+        "label": "CX Magazine"
       },
       {
         "url": "https://www.granfondoguide.com/Events/Index/5135/cirrem",
-        "category": "community",
-        "label": "granfondoguide.com: Cirrem"
+        "category": "other",
+        "label": "Granfondoguide"
       },
       {
         "url": "https://www.tri2max.com/blog/2020/11/17/gloves-or-pogies-what-is-faster-for-me-on-a-gravel-race",
@@ -357,19 +356,9 @@
         "label": "tri2max.com: Gloves Or Pogies What Is Faster For Me On A Gravel Race"
       },
       {
-        "url": "https://cirrem.com/results/",
-        "category": "community",
-        "label": "cirrem.com: Results"
-      },
-      {
         "url": "https://www.gravel-results.com/race/20280",
         "category": "community",
         "label": "gravel-results.com: 20280"
-      },
-      {
-        "url": "https://cirrem.com/",
-        "category": "community",
-        "label": "cirrem.com"
       }
     ],
     "tire_recommendations": {

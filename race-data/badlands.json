@@ -21,7 +21,7 @@
         "Rocky terrain"
       ],
       "field_size": "~200-300 riders",
-      "start_time": "Morning start",
+      "start_time": "4:30 PM",
       "registration": "Limited entry, sells out. Cost: ~200-300 EUR",
       "prize_purse": "Finisher recognition (self-supported ethos)",
       "aid_stations": "None—self-supported. Resupply at public establishments only.",
@@ -123,7 +123,7 @@
       },
       "field_depth": {
         "score": 4,
-        "explanation": "With a field of ~200-300 riders, attracts elite ultra-endurance athletes—bikepacking specialists, gravel racers, adventure cyclists. Not mass-participation like Unbound, but deep in ultra credentials. Winners are ultra legends. Deeper field than most — comparable to Gravel Worlds. As Pairs Strategy - Claire puts it: \"We should perhaps have done some practice rides to get to know each other better, or for Simon to try sleeping in a bivi bag and packing his kit, but our only test run was a 60km cafe ride the week be...\""
+        "explanation": "With a field of ~200-300 riders, attracts elite ultra-endurance athletes—bikepacking specialists, gravel racers, adventure cyclists. Not mass-participation like Unbound, but deep in ultra credentials. Winners are ultra legends. Deeper field than most — comparable to Gravel Worlds. As Pairs Strategy - Claire puts it: \"We should have done some practice rides to get to know each other better, or for Simon to try sleeping in a bivi bag and packing his kit, but our only test run was a 60km cafe ride the week be...\""
       },
       "value": {
         "score": 3,
@@ -153,7 +153,10 @@
       "score": "89 / 100",
       "one_liner": "The world's hardest gravel race—800km through Spanish deserts and alpine passes, completely self-supported.",
       "should_you_race": "Yes if you have genuine ultra-endurance experience and want the ultimate test. Yes if you can handle extreme heat and self-support logistics. Skip if you haven't completed multi-day bikepacking events or can't adapt to 40°C+ conditions.",
-      "alternatives": "The Traka 560 (similar European ultra, less extreme); Unbound XL (350mi, supported); GB Duro (UK ultra, cooler climate)"
+      "alternatives": "The Traka 560 (similar European ultra, less extreme); Unbound XL (350mi, supported); GB Duro (UK ultra, cooler climate)",
+      "alternative_slugs": [
+        "unbound-xl"
+      ]
     },
     "logistics": {
       "airport": "AGP (Málaga) - 90min drive; GRX (Granada) - local but limited; SVQ (Seville) - 2.5hr",
@@ -161,7 +164,8 @@
       "food": "Self-supported—resupply at villages, bars, shops. Carry enough between stops. Spanish villages may have limited hours.",
       "packet_pickup": "Pre-race in Granada with bike check and mandatory equipment verification.",
       "parking": "Granada start/finish area.",
-      "official_site": "https://www.yourbadlands.cc"
+      "official_site": "https://www.yourbadlands.cc",
+      "camping": "camping\n- Must use official accommodation (hotels, hostels, etc"
     },
     "history": {
       "founded": 2018,
@@ -210,18 +214,18 @@
       ],
       "migration_notes": [],
       "research_strength": {
-        "overall": 74.8,
-        "grade": "B",
-        "weakest": "citation_density",
-        "has_research_dump": false,
+        "overall": 94.8,
+        "grade": "A",
+        "weakest": "voice_authenticity",
+        "has_research_dump": true,
         "dimensions": {
-          "source_diversity": 30,
-          "citation_density": 20,
-          "temporal_depth": 75,
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
           "specificity": 100,
           "statistical_backing": 100,
           "voice_authenticity": 70,
-          "completeness": 100,
+          "completeness": 94,
           "cross_reference": 75
         },
         "scored_at": "2026-02-04"
@@ -229,17 +233,52 @@
     },
     "citations": [
       {
-        "url": "https://www.yourbadlands.cc",
-        "category": "official",
-        "label": "Official Website"
-      },
-      {
         "url": "https://ridewithgps.com/routes/53936171",
         "category": "route",
         "label": "RideWithGPS: BADLANDS UNPLUGGED"
       },
       {
-        "url": "https://dotwatcher.cc",
+        "url": "https://www.reddit.com/r/TrueFilm/comments/mn7scg/badlands_whats_so_great_about_it/",
+        "category": "community",
+        "label": "Reddit"
+      },
+      {
+        "url": "https://gravgrav.cc/en/article/badlands-2024-race-report",
+        "category": "community",
+        "label": "gravgrav.cc: Badlands 2024 Race Report"
+      },
+      {
+        "url": "https://www.voomnutrition.co.uk/blog/badlands-race-report-the-worlds-most-brutal-gravel-race/",
+        "category": "community",
+        "label": "voomnutrition.co.uk: Badlands Race Report The Worlds Most Brutal Gravel Race"
+      },
+      {
+        "url": "https://road.cc/offroad/content/feature/badlands-2023-my-epic-journey-through-europes-toughest-gravel-race-13439",
+        "category": "community",
+        "label": "road.cc: Badlands 2023 My Epic Journey Through Europes Toughest Gr..."
+      },
+      {
+        "url": "https://www.buzzalong.cc/post/badlands-race-recap-800-km-ultra-cycling-gravel-race-through-the-desert",
+        "category": "community",
+        "label": "buzzalong.cc: Badlands Race Recap 800 Km Ultra Cycling Gravel Race Thro..."
+      },
+      {
+        "url": "https://www.siestacampers.com/blog/badlands-gravel-challenge",
+        "category": "community",
+        "label": "siestacampers.com: Badlands Gravel Challenge"
+      },
+      {
+        "url": "https://www.experienceland.org/badlands-gravel-battle",
+        "category": "community",
+        "label": "experienceland.org: Badlands Gravel Battle"
+      },
+      {
+        "url": "https://www.youtube.com/@badlandscc",
+        "category": "video",
+        "label": "YouTube"
+      },
+      {
+        "url": "https://dotwatcher.cc/feature/badlands-2024-race-report-and-winner",
         "category": "tracking",
         "label": "DotWatcher"
       },
@@ -252,11 +291,6 @@
         "url": "https://dotwatcher.cc/race/badlands-2025",
         "category": "tracking",
         "label": "DotWatcher"
-      },
-      {
-        "url": "https://badlands.cc",
-        "category": "other",
-        "label": "Badlands"
       },
       {
         "url": "https://badlands.cc/badlands2026/",
@@ -284,6 +318,11 @@
         "label": "Bikepacking"
       },
       {
+        "url": "https://bikepacking.com/news/event-recaps/badlands-2024-recap/",
+        "category": "other",
+        "label": "Bikepacking"
+      },
+      {
         "url": "https://bikepacking.com/tracker/badlands-2024/",
         "category": "other",
         "label": "Bikepacking"
@@ -292,106 +331,6 @@
         "url": "https://bikepacking.com/tracker/badlands-2025/",
         "category": "other",
         "label": "Bikepacking"
-      },
-      {
-        "url": "https://chrismehlman.substack.com/p/my-equipment-choices-for-badlands",
-        "category": "other",
-        "label": "Chrismehlman"
-      },
-      {
-        "url": "https://en.brujulabike.com/lachlan-morton-badlands-interview/",
-        "category": "other",
-        "label": "En"
-      },
-      {
-        "url": "https://gravgrav.cc/en/article/badlands-2024-race-report",
-        "category": "other",
-        "label": "Gravgrav"
-      },
-      {
-        "url": "https://off.road.cc/content/feature/badlands-2023-my-epic-journey-through-europes-toughest-gravel-race-13439",
-        "category": "other",
-        "label": "Off"
-      },
-      {
-        "url": "https://thecyclingmeister.com/2025/05/03/badlands-gravel-ultra-endurance-race/",
-        "category": "other",
-        "label": "Thecyclingmeister"
-      },
-      {
-        "url": "https://torstenfrank.wordpress.com/2023/09/14/the-fastest-bike-for-badlands/",
-        "category": "other",
-        "label": "Torstenfrank"
-      },
-      {
-        "url": "https://torstenfrank.wordpress.com/2023/12/31/badlands-2023-the-complete-experience/",
-        "category": "other",
-        "label": "Torstenfrank"
-      },
-      {
-        "url": "https://drtyrunner.com/2016/08/23/badlands-50k-race-report/",
-        "category": "community",
-        "label": "drtyrunner.com: Badlands 50K Race Report"
-      },
-      {
-        "url": "https://cyclespeak.com/tag/badlands/",
-        "category": "community",
-        "label": "cyclespeak.com: Badlands"
-      },
-      {
-        "url": "https://pbcyclecoaching.co.uk/category/race-reports/page/2",
-        "category": "community",
-        "label": "pbcyclecoaching.co.uk: 2"
-      },
-      {
-        "url": "https://jamesmarkhayden.eu/articles/badlands",
-        "category": "community",
-        "label": "jamesmarkhayden.eu: Badlands"
-      },
-      {
-        "url": "https://www.siestacampers.com/blog/badlands-gravel-challenge",
-        "category": "community",
-        "label": "siestacampers.com: Badlands Gravel Challenge"
-      },
-      {
-        "url": "https://www.poltarres.com/2023/05/18/gravel-changed-my-mind/",
-        "category": "community",
-        "label": "poltarres.com: Gravel Changed My Mind"
-      },
-      {
-        "url": "https://dotwatcher.cc/feature/badlands-2024-race-report-and-winner",
-        "category": "community",
-        "label": "dotwatcher.cc: Badlands 2024 Race Report And Winner"
-      },
-      {
-        "url": "https://www.voomnutrition.co.uk/blog/badlands-race-report-the-worlds-most-brutal-gravel-race/",
-        "category": "community",
-        "label": "voomnutrition.co.uk: Badlands Race Report The Worlds Most Brutal Gravel Race"
-      },
-      {
-        "url": "https://road.cc/offroad/content/feature/badlands-2023-my-epic-journey-through-europes-toughest-gravel-race-13439",
-        "category": "community",
-        "label": "road.cc: Badlands 2023 My Epic Journey Through Europes Toughest Gr..."
-      },
-      {
-        "url": "https://www.buzzalong.cc/post/badlands-race-recap-800-km-ultra-cycling-gravel-race-through-the-desert",
-        "category": "community",
-        "label": "buzzalong.cc: Badlands Race Recap 800 Km Ultra Cycling Gravel Race Thro..."
-      },
-      {
-        "url": "https://eu.huntbikewheels.com/blogs/news/ditching-the-desk-simon-and-claire-at-badlands",
-        "category": "community",
-        "label": "eu.huntbikewheels.com: Ditching The Desk Simon And Claire At Badlands"
-      },
-      {
-        "url": "https://www.experienceland.org/badlands-gravel-battle",
-        "category": "community",
-        "label": "experienceland.org: Badlands Gravel Battle"
-      },
-      {
-        "url": "https://bikepacking.com/news/event-recaps/badlands-2024-recap/",
-        "category": "community",
-        "label": "bikepacking.com: Badlands 2024 Recap"
       }
     ],
     "results": {

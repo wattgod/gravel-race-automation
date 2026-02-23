@@ -19,7 +19,7 @@
         "Canada"
       ],
       "field_size": "200-400 riders",
-      "start_time": "Morning start",
+      "start_time": "11:00 AM on",
       "registration": "Online. Cost: ~$500-800 CAD",
       "prize_purse": "Modest prizes",
       "aid_stations": "Multiple aid stations per stage",
@@ -94,7 +94,10 @@
       "score": "57 / 100",
       "one_liner": "British Columbia multi-stage gravel adventure.",
       "should_you_race": "If you're in Canada with a budget—yes, it's solid. If you're international—there are better options.",
-      "alternatives": "For better value: regional gravel races. For similar multi-stage: Ardenne Gravel Stages."
+      "alternatives": "For better value: regional gravel races. For similar multi-stage: Ardenne Gravel Stages.",
+      "alternative_slugs": [
+        "ardenne-gravel-stages"
+      ]
     },
     "logistics": {
       "airport": "Vancouver (YVR) or Kelowna (YLW) varies by location",
@@ -102,7 +105,8 @@
       "food": "Support provided. Stock nutrition.",
       "packet_pickup": "Day before typically",
       "parking": "At start/finish",
-      "official_site": "Check TransRockies Gravel Royale website"
+      "official_site": "Check TransRockies Gravel Royale website",
+      "camping": "camping included:** Registration includes tent camps for the nights registered[5]\n- **Solo Tent Upgrade:** Available as an add-o"
     },
     "history": {
       "founded": null,
@@ -138,7 +142,14 @@
       ],
       "signature_challenge": "BC multi-stage mountains.",
       "ridewithgps_id": "52499537",
-      "ridewithgps_name": "TransRockies Gravel Royale 2021 Full Route (copy) (copy)"
+      "ridewithgps_name": "TransRockies Gravel Royale 2021 Full Route (copy) (copy)",
+      "surface_breakdown": {
+        "overall": {
+          "gravel": 84,
+          "pavement": 10,
+          "doubletrack": 5
+        }
+      }
     },
     "guide_variables": {
       "race_name": "TransRockies Gravel Royale",
@@ -185,12 +196,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 89.2,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -311,54 +331,54 @@
     },
     "citations": [
       {
-        "url": "https://pacificcyclingcentre.ca/news/transrockies-gravel-royale/",
-        "category": "community",
-        "label": "pacificcyclingcentre.ca: Transrockies Gravel Royale"
+        "url": "https://ridewithgps.com/routes/52499537",
+        "category": "route",
+        "label": "RideWithGPS: TransRockies Gravel Royale 2021 Full Route (copy) (copy)"
       },
       {
         "url": "https://4iiii.com/blog/2024-gravel-royale/",
-        "category": "community",
-        "label": "4iiii.com: 2024 Gravel Royale"
-      },
-      {
-        "url": "https://www.transrockiesgravelroyale.com/",
-        "category": "community",
-        "label": "transrockiesgravelroyale.com"
-      },
-      {
-        "url": "https://www.granfondoguide.com/Contents/Index/6869/inaugural-transrockies-gravel-royale-",
-        "category": "community",
-        "label": "granfondoguide.com: Inaugural Transrockies Gravel Royale "
-      },
-      {
-        "url": "https://theradavist.com/2022-transrockies-gravel-royale",
-        "category": "community",
-        "label": "theradavist.com: 2022 Transrockies Gravel Royale"
+        "category": "other",
+        "label": "4Iiii"
       },
       {
         "url": "https://4iiii.com/blog/transrockies-gravel-royale/?srsltid=AfmBOoreYq8FtvkJwwNSaGEzgaU54BnptTlmUHcoS7NEIw6VNkJRKPmS",
-        "category": "community",
-        "label": "4iiii.com: Transrockies Gravel Royale"
-      },
-      {
-        "url": "https://www.transrockiesgravelroyale.com/stage-stories/rider-safety-with-mack",
-        "category": "community",
-        "label": "transrockiesgravelroyale.com: Rider Safety With Mack"
-      },
-      {
-        "url": "https://www.transrockiesgravelroyale.com/stage-stories/the-transrockies-stage-race-legacy",
-        "category": "community",
-        "label": "transrockiesgravelroyale.com: The Transrockies Stage Race Legacy"
+        "category": "other",
+        "label": "4Iiii"
       },
       {
         "url": "https://cyclingmagazine.ca/gravel/2024-transrockies-gravel-royale-stage-2/",
-        "category": "community",
-        "label": "cyclingmagazine.ca: 2024 Transrockies Gravel Royale Stage 2"
+        "category": "other",
+        "label": "Cyclingmagazine"
+      },
+      {
+        "url": "https://pacificcyclingcentre.ca/news/transrockies-gravel-royale/",
+        "category": "other",
+        "label": "Pacificcyclingcentre"
+      },
+      {
+        "url": "https://theradavist.com/2022-transrockies-gravel-royale",
+        "category": "other",
+        "label": "Theradavist"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Contents/Index/6869/inaugural-transrockies-gravel-royale-",
+        "category": "other",
+        "label": "Granfondoguide"
+      },
+      {
+        "url": "https://www.transrockiesgravelroyale.com/stage-stories/rider-safety-with-mack",
+        "category": "other",
+        "label": "Transrockiesgravelroyale"
       },
       {
         "url": "https://www.transrockiesgravelroyale.com/stage-stories/robert-savin-on-exploring-transrockies-gravel",
-        "category": "community",
-        "label": "transrockiesgravelroyale.com: Robert Savin On Exploring Transrockies Gravel"
+        "category": "other",
+        "label": "Transrockiesgravelroyale"
+      },
+      {
+        "url": "https://www.transrockiesgravelroyale.com/stage-stories/the-transrockies-stage-race-legacy",
+        "category": "other",
+        "label": "Transrockiesgravelroyale"
       }
     ],
     "tire_recommendations": {

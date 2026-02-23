@@ -31,13 +31,14 @@ from generate_neo_brutalist import (
     TRAINING_PLANS_URL,
 )
 from brand_tokens import (
-    GA_MEASUREMENT_ID,
     RACER_RATING_THRESHOLD,
     get_ab_head_snippet,
     get_font_face_css,
     get_preload_hints,
     get_tokens_css,
+    get_ga4_head_snippet,
 )
+from cookie_consent import get_consent_banner_html
 from shared_footer import get_mega_footer_css, get_mega_footer_html
 from shared_header import get_site_header_css, get_site_header_html
 
@@ -47,7 +48,6 @@ RACE_DATA_DIR = Path(__file__).parent.parent / "race-data"
 GUIDE_CONTENT_PATH = Path(__file__).parent.parent / "guide" / "gravel-guide-content.json"
 SUBSTACK_RSS_URL = "https://gravelgodcycling.substack.com/feed"
 
-GA4_MEASUREMENT_ID = GA_MEASUREMENT_ID
 CURRENT_YEAR = date.today().year
 
 # ── Featured race slugs (curated for homepage diversity) ─────
@@ -1155,7 +1155,7 @@ def build_testimonials() -> str:
     </div>
     <div class="gg-hp-test-cta">
       <p data-ab="coaching_scarcity">A human in your corner. Adapts week to week. Limited spots.</p>
-      <a href="{esc(COACHING_URL)}" class="gg-hp-btn gg-hp-btn--primary" data-ga="coaching_cta_testimonials">SEE COACHING OPTIONS &rarr;</a>
+      <a href="{esc(SITE_BASE_URL)}/coaching/" class="gg-hp-btn gg-hp-btn--primary" data-ga="coaching_cta_testimonials">SEE COACHING OPTIONS &rarr;</a>
     </div>
   </section>'''
 
@@ -1984,6 +1984,8 @@ def generate_homepage(race_index: list, race_data_dir: Path = None,
   <meta property="og:type" content="website">
   <meta property="og:url" content="{esc(canonical_url)}">
   <meta property="og:image" content="{esc(og_image)}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:site_name" content="Gravel God Cycling">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{esc(title)}">
@@ -2006,8 +2008,7 @@ def generate_homepage(race_index: list, race_data_dir: Path = None,
   {og_tags}
   {jsonld}
   {css}
-  <script async src="https://www.googletagmanager.com/gtag/js?id={GA4_MEASUREMENT_ID}"></script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments)}}gtag('js',new Date());gtag('config','{GA4_MEASUREMENT_ID}');</script>
+  {get_ga4_head_snippet()}
   {get_ab_head_snippet()}
 </head>
 <body>
@@ -2046,6 +2047,7 @@ def generate_homepage(race_index: list, race_data_dir: Path = None,
 
 {js}
 
+{get_consent_banner_html()}
 </body>
 </html>'''
 

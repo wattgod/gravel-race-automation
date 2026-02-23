@@ -19,7 +19,7 @@
         "Wisconsin"
       ],
       "field_size": "50-100 riders",
-      "start_time": "Morning start",
+      "start_time": "10:00 AM CDT",
       "registration": "Online. Cost: ~$50-75",
       "prize_purse": "Modest prizes",
       "aid_stations": "Limited aid stations",
@@ -94,7 +94,11 @@
       "score": "40 / 100",
       "one_liner": "Wisconsin local gravel challenge.",
       "should_you_race": "If you're local to Wisconsin—yes, it's good value. If you're traveling—skip it.",
-      "alternatives": "For better Wisconsin races: Chequamegon, Almanzo."
+      "alternatives": "For better Wisconsin races: Chequamegon, Almanzo.",
+      "alternative_slugs": [
+        "almanzo-100",
+        "chequamegon-mtb"
+      ]
     },
     "logistics": {
       "airport": "Rhinelander (RHI) 60 minutes",
@@ -185,12 +189,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 89.2,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -316,29 +329,34 @@
         "label": "RideWithGPS: InSayner Long Course"
       },
       {
+        "url": "https://fat-bike.com/mc-events/insayner-adventure-bike-race/?mc_id=1004",
+        "category": "other",
+        "label": "Fat-Bike"
+      },
+      {
+        "url": "https://fat-bike.com/mc-events/the-inthe-insayner-23-mile-adventure-bike-rice/",
+        "category": "other",
+        "label": "Fat-Bike"
+      },
+      {
         "url": "https://lamboriders.org/events/the-insayner/10544[2",
         "category": "other",
         "label": "Lamboriders"
       },
       {
-        "url": "https://lambo.rocks/news/the-first-ever-insayner-rocked",
-        "category": "community",
-        "label": "lambo.rocks: The First Ever Insayner Rocked"
+        "url": "https://vcnewsreview.com/stories/insayner-adventure-bike-race-kicks-off-fundraising-for-mus-ski-mountain-trail,149194",
+        "category": "other",
+        "label": "Vcnewsreview"
       },
       {
-        "url": "https://runtrimag.com/race-events/insayner-mountain-bike-race-musky-mountain-bike-trails-fund-raiser/",
-        "category": "community",
-        "label": "runtrimag.com: Insayner Mountain Bike Race Musky Mountain Bike Trails Fu..."
+        "url": "https://www.nwpulse.com/insayner-bike-race-to-deliver-big-adventure-this-saturday/",
+        "category": "other",
+        "label": "Nwpulse"
       },
       {
         "url": "https://www.raceplace.com/events/162810/insayner-mountain-bike-race",
-        "category": "community",
-        "label": "raceplace.com: Insayner Mountain Bike Race"
-      },
-      {
-        "url": "https://www.ironbull.org/ironbear-1000",
-        "category": "community",
-        "label": "ironbull.org: Ironbear 1000"
+        "category": "other",
+        "label": "Raceplace"
       },
       {
         "url": "https://www.overlandgirl.com/mountain-biking/wisconsin-bike-races-supporting-trails",
@@ -346,24 +364,9 @@
         "label": "overlandgirl.com: Wisconsin Bike Races Supporting Trails"
       },
       {
-        "url": "https://www.nwpulse.com/insayner-bike-race-to-deliver-big-adventure-this-saturday/",
+        "url": "https://www.ironbull.org/ironbear-1000",
         "category": "community",
-        "label": "nwpulse.com: Insayner Bike Race To Deliver Big Adventure This Saturday"
-      },
-      {
-        "url": "https://fat-bike.com/mc-events/insayner-adventure-bike-race/?mc_id=1004",
-        "category": "community",
-        "label": "fat-bike.com: Insayner Adventure Bike Race"
-      },
-      {
-        "url": "https://vcnewsreview.com/stories/insayner-adventure-bike-race-kicks-off-fundraising-for-mus-ski-mountain-trail,149194",
-        "category": "community",
-        "label": "vcnewsreview.com: Insayner Adventure Bike Race Kicks Off Fundraising For Mu..."
-      },
-      {
-        "url": "https://fat-bike.com/mc-events/the-inthe-insayner-23-mile-adventure-bike-rice/",
-        "category": "community",
-        "label": "fat-bike.com: The Inthe Insayner 23 Mile Adventure Bike Rice"
+        "label": "ironbull.org: Ironbear 1000"
       },
       {
         "url": "https://fat-bike.com/2021/05/full-spectrum-cycling-113-sooo-much-goodness/",

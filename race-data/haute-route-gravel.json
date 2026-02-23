@@ -94,7 +94,11 @@
       "score": "56 / 100",
       "one_liner": "European Alpine multi-stage gravel event.",
       "should_you_race": "If you have a large budget and want a supported Alpine multi-stage experience—maybe. For most riders—there are better value options.",
-      "alternatives": "For better value: Ardenne Gravel Stages, Trans-Sylvania Epic. For similar Alpine terrain: local Alpine races."
+      "alternatives": "For better value: Ardenne Gravel Stages, Trans-Sylvania Epic. For similar Alpine terrain: local Alpine races.",
+      "alternative_slugs": [
+        "ardenne-gravel-stages",
+        "trans-sylvania-epic"
+      ]
     },
     "logistics": {
       "airport": "Varies by year (typically Geneva, Zurich, or regional)",
@@ -185,12 +189,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 92.2,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 100,
+          "completeness": 76,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -311,49 +324,54 @@
     },
     "citations": [
       {
-        "url": "https://www.granfondoguide.com/Contents/Index/6209/register-now-for-gravel-epic-switzerland",
-        "category": "community",
-        "label": "granfondoguide.com: Register Now For Gravel Epic Switzerland"
+        "url": "https://markgilmour.wordpress.com/2017/09/19/my-haute-route-experience/",
+        "category": "other",
+        "label": "Markgilmour"
       },
       {
-        "url": "https://granfondo-cycling.com/best-race-gravel-bike-review/",
-        "category": "community",
-        "label": "granfondo-cycling.com: Best Race Gravel Bike Review"
-      },
-      {
-        "url": "https://www.racedirectorshq.com/read/ironman-group-acquires-haute-route-gravel-epic-300/",
-        "category": "community",
-        "label": "racedirectorshq.com: Ironman Group Acquires Haute Route Gravel Epic 300"
-      },
-      {
-        "url": "https://www.altovelo.org/blog/race-report-2022-haute-route-alps",
-        "category": "community",
-        "label": "altovelo.org: Race Report 2022 Haute Route Alps"
-      },
-      {
-        "url": "https://www.kudoscycling.com/the-kudos-blog/racereport-hauteroutealps",
-        "category": "community",
-        "label": "kudoscycling.com: Racereport Hauteroutealps"
+        "url": "https://southperthrouleurs.com.au/2017/07/07/haute-route-rockies-2017-ride-report/comment-page-1/",
+        "category": "other",
+        "label": "Southperthrouleurs"
       },
       {
         "url": "https://velo.outsideonline.com/road/road-culture/rupert-guinness-finding-my-own-race-at-haute-route/",
-        "category": "community",
-        "label": "velo.outsideonline.com: Rupert Guinness Finding My Own Race At Haute Route"
+        "category": "media",
+        "label": "Velo"
       },
       {
-        "url": "https://markgilmour.wordpress.com/2017/09/19/my-haute-route-experience/",
-        "category": "community",
-        "label": "markgilmour.wordpress.com: My Haute Route Experience"
+        "url": "https://www.altovelo.org/blog/race-report-2022-haute-route-alps",
+        "category": "other",
+        "label": "Altovelo"
+      },
+      {
+        "url": "https://www.kudoscycling.com/the-kudos-blog/racereport-hauteroutealps",
+        "category": "other",
+        "label": "Kudoscycling"
+      },
+      {
+        "url": "https://www.orrick.com/en/News/2021/08/Orrick-Advises-The-IRONMAN-Group-on-Acquisition-of-Haute-Route-and-Gravel-Epic",
+        "category": "other",
+        "label": "Orrick"
+      },
+      {
+        "url": "https://www.purplepatchfitness.com/podcast-transfer/episode-231-matts-journey-to-the-haute-route-des-alpes-a-case-study-of-a-challenge-for-a-multi-day-bike-race",
+        "category": "other",
+        "label": "Purplepatchfitness"
+      },
+      {
+        "url": "https://www.racedirectorshq.com/read/ironman-group-acquires-haute-route-gravel-epic-300/",
+        "category": "other",
+        "label": "Racedirectorshq"
       },
       {
         "url": "https://www.trainerroad.com/forum/t/5-weeks-to-haute-route-alps-best-use-of-time/94789?page=5",
         "category": "community",
-        "label": "trainerroad.com: 94789"
+        "label": "TrainerRoad"
       },
       {
-        "url": "https://southperthrouleurs.com.au/2017/07/07/haute-route-rockies-2017-ride-report/comment-page-1/",
+        "url": "https://www.granfondoguide.com/Contents/Index/6209/register-now-for-gravel-epic-switzerland",
         "category": "community",
-        "label": "southperthrouleurs.com.au: Comment Page 1"
+        "label": "granfondoguide.com: Register Now For Gravel Epic Switzerland"
       }
     ],
     "tire_recommendations": {

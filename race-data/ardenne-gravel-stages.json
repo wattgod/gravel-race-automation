@@ -94,7 +94,10 @@
       "score": "51 / 100",
       "one_liner": "Belgian Ardennes multi-stage gravel in Vielsalm/Engreux.",
       "should_you_race": "If you're in Belgium/Europe and want a multi-stage local event—yes, it's solid. If you're international—there are better options.",
-      "alternatives": "For better Belgian events: Houffa Gravel. For similar multi-stage events: other European stage races."
+      "alternatives": "For better Belgian events: Houffa Gravel. For similar multi-stage events: other European stage races.",
+      "alternative_slugs": [
+        "houffa-gravel"
+      ]
     },
     "logistics": {
       "airport": "Brussels (BRU) 2 hours or Luxembourg (LUX) 1 hour",
@@ -102,7 +105,8 @@
       "food": "Vielsalm has full dining options. Stock nutrition.",
       "packet_pickup": "Day before typically",
       "parking": "At start/finish",
-      "official_site": "Check Ardenne Gravel Stages website"
+      "official_site": "Check Ardenne Gravel Stages website",
+      "camping": "camping access, Sunday pasta party"
     },
     "history": {
       "founded": null,
@@ -185,12 +189,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 84.7,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 80,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -316,54 +329,29 @@
         "label": "RideWithGPS: Ardenne Gravel Stages - Etape 1-20126513"
       },
       {
+        "url": "https://dutchgravel.cc/ardenne-gravel-stages/",
+        "category": "other",
+        "label": "Dutchgravel"
+      },
+      {
         "url": "https://mountainbiketeam.com/en/marielle-trouwborst-wins-3-day-ardenne-gravel-stages/",
-        "category": "community",
-        "label": "mountainbiketeam.com: Marielle Trouwborst Wins 3 Day Ardenne Gravel Stages"
+        "category": "other",
+        "label": "Mountainbiketeam"
       },
       {
-        "url": "https://www.cyclingonline.nl/artikel/26774_mariëlle_trouwborst_wint_3_daagse_ardenne_gravel_stages.html",
-        "category": "community",
-        "label": "cyclingonline.nl: 26774 Mariëlle Trouwborst Wint 3 Daagse Ardenne Gravel St..."
+        "url": "https://www.ardennegravelstages.com/en/blog",
+        "category": "other",
+        "label": "Ardennegravelstages"
       },
       {
-        "url": "https://www.b-m-b.be/index.php?/topic/67857-pour-discuter-de-toutes-les-courses-gravel/",
-        "category": "community",
-        "label": "b-m-b.be: Index.Php"
-      },
-      {
-        "url": "https://www.vojomag.com/news/ardenne-gravel-stages-une-epreuve-gravel-par-etapes-inedite-en-belgique/",
-        "category": "community",
-        "label": "vojomag.com: Ardenne Gravel Stages Une Epreuve Gravel Par Etapes Inedi..."
-      },
-      {
-        "url": "https://www.ardennegravelstages.com/en/inscriptions",
-        "category": "community",
-        "label": "ardennegravelstages.com: Inscriptions"
-      },
-      {
-        "url": "https://www.ardennegravelstages.com/en/faq",
-        "category": "community",
-        "label": "ardennegravelstages.com: Faq"
-      },
-      {
-        "url": "https://www.le-sportif.com/calendrier/215146/ardenne-gravel-stages-2025-vielsalm/gravel/",
-        "category": "community",
-        "label": "le-sportif.com: Gravel"
+        "url": "https://www.dustygravelseries.be/en/ardennesgravelstage",
+        "category": "other",
+        "label": "Dustygravelseries"
       },
       {
         "url": "https://juliogreff.com/cycling/race-report-ardennes-monster-2022/",
         "category": "community",
         "label": "juliogreff.com: Race Report Ardennes Monster 2022"
-      },
-      {
-        "url": "https://dutchgravel.cc/ardenne-gravel-stages/",
-        "category": "community",
-        "label": "dutchgravel.cc: Ardenne Gravel Stages"
-      },
-      {
-        "url": "https://www.dustygravelseries.be/en/ardennesgravelstage",
-        "category": "community",
-        "label": "dustygravelseries.be: Ardennesgravelstage"
       }
     ],
     "tire_recommendations": {

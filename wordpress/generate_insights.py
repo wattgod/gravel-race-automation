@@ -26,14 +26,15 @@ from collections import defaultdict
 from statistics import mean, median
 
 from generate_neo_brutalist import (
-    GA_MEASUREMENT_ID,
     SITE_BASE_URL,
     get_page_css,
     write_shared_assets,
 )
-from brand_tokens import get_ab_head_snippet, get_preload_hints
+from brand_tokens import get_ab_head_snippet, get_ga4_head_snippet, get_preload_hints
 from shared_footer import get_mega_footer_html
 from shared_header import get_site_header_html, get_site_header_css
+from cookie_consent import get_consent_banner_html
+from world_map_data import WORLD_MAP_PATHS, COUNTRY_CENTROIDS
 
 OUTPUT_DIR = Path(__file__).parent / "output"
 RACE_INDEX = Path(__file__).parent.parent / "web" / "race-index.json"
@@ -53,6 +54,11 @@ DIM_LABELS = {
     "experience": "Experience", "community": "Community", "field_depth": "Field Depth",
     "value": "Value", "expenses": "Expenses",
 }
+
+# Density thresholds for map choropleth (single source of truth)
+DENSITY_HIGH_MIN = 5   # >= this count → "high"
+DENSITY_MED_MIN = 3    # >= this count → "med"
+# Below DENSITY_MED_MIN → "low"
 
 # US state abbreviations → tile grid positions (col, row) for cartogram
 # Standard US tile grid map layout (10 cols × 8 rows approximation)
@@ -559,84 +565,90 @@ def build_overrated_underrated(races: list[dict], editorial_facts: dict) -> str:
       </div>
 '''
 
-    def _under_quip(r: dict) -> str:
+    def _under_quip(r: dict, idx: int) -> str:
         """Editorial explanation for underrated races. Gravel God voice."""
         s = r.get("scores") or {}
         prestige = s.get("prestige", 0)
         score = r.get("overall_score", 0)
         tier = r.get("tier", 4)
         name = r.get("name", "This race")
-        slug = r.get("slug", "")
 
         # Find top 2-3 dimensions (above 4/5)
         dim_vals = [(d, s.get(d, 0)) for d in ALL_DIMS]
         dim_vals.sort(key=lambda x: -x[1])
         top_dims = [(d, v) for d, v in dim_vals if v >= 4][:3]
 
-        # Use slug hash to rotate templates for variety
-        variant = sum(ord(c) for c in slug) % 3
+        # Use card index for guaranteed unique template
+        variant = idx % 5
 
         if len(top_dims) >= 2:
             d1, v1 = top_dims[0]
             d2, v2 = top_dims[1]
             dl1 = DIM_LABELS[d1].lower()
             dl2 = DIM_LABELS[d2].lower()
+            d3l = DIM_LABELS[top_dims[2][0]].lower() if len(top_dims) >= 3 else None
+            d3v = top_dims[2][1] if len(top_dims) >= 3 else None
             if variant == 0:
                 return (
                     f"{name} posts a {v1}/5 in {dl1} and {v2}/5 in {dl2}. "
-                    f"That is Tier {tier} firepower with a prestige score stuck at {prestige}/5. "
-                    f"Nobody is hashtagging this race. The route does not care."
+                    f"That is Tier {tier} firepower on a prestige budget of {prestige}/5. "
+                    f"The course is writing checks the brand has not cashed yet."
                 )
             elif variant == 1:
+                third = f", {d3l} at {d3v}/5" if d3l else ""
                 return (
-                    f"The numbers tell a clear story: {dl1} at {v1}/5, {dl2} at {v2}/5, "
-                    f"overall score of {score}. But prestige sits at {prestige}/5, "
-                    f"which means {name} stays off the influencer radar. Their loss."
+                    f"Score of {score} against a prestige of {prestige}/5. "
+                    f"Dig into the dimensions and the gap makes sense: {dl1} at {v1}/5, "
+                    f"{dl2} at {v2}/5{third}. {name} does the work. "
+                    f"The algorithm just has not caught on."
+                )
+            elif variant == 2:
+                return (
+                    f"Nobody is putting {name} on a poster. Prestige {prestige}/5 "
+                    f"says it all. But the route cards {v1}/5 in {dl1} and {v2}/5 in "
+                    f"{dl2}, landing an overall of {score}. "
+                    f"Reputation is lagging. The data is not."
+                )
+            elif variant == 3:
+                return (
+                    f"A {score}-point overall on a {prestige}/5 prestige platform. "
+                    f"{name} leads with {dl1} ({v1}/5) and {dl2} ({v2}/5) but trails "
+                    f"in name recognition. The kind of race you find through riding, "
+                    f"not scrolling."
                 )
             else:
                 return (
-                    f"Prestige {prestige}/5. Overall score {score}. "
-                    f"That gap is the whole story of {name}. The {dl1} ({v1}/5) and "
-                    f"{dl2} ({v2}/5) say this course delivers. "
-                    f"The Instagram algorithm just has not figured that out yet."
+                    f"Strip the branding and run the numbers. "
+                    f"{DIM_LABELS[d1]}: {v1}/5. {DIM_LABELS[d2]}: {v2}/5. "
+                    f"Overall: {score}. "
+                    f"Prestige: {prestige}/5. {name} is a Tier {tier} course "
+                    f"hiding behind a Tier 4 profile."
                 )
         return (
             f"{name} scored {score} across 14 dimensions with a prestige of just {prestige}/5. "
-            f"The data sees what the hype cycle missed. Worth a second look."
+            f"The data sees what the hype cycle missed."
         )
 
-    def _prestige_reason(r: dict) -> str:
-        """Brief reason for a race's prestige score."""
-        s = r.get("scores") or {}
-        field = s.get("field_depth", 0)
-        founded = r.get("founded")
-        prestige = s.get("prestige", 0)
-        if field >= 4 and founded and founded < 2015:
-            return "name recognition, a deep pro field, and years of heritage"
-        if field >= 4:
-            return "a competitive field and growing reputation"
-        if founded and founded < 2010:
-            return "brand heritage dating to " + str(founded)
-        if prestige >= 4:
-            return "strong name recognition in the gravel community"
-        return "its reputation on the circuit"
-
-    def _over_quip(r: dict) -> str:
+    def _over_quip(r: dict, idx: int) -> str:
         """Editorial explanation for overrated races. Gravel God voice. Never punch down."""
         s = r.get("scores") or {}
         prestige = s.get("prestige", 0)
         score = r.get("overall_score", 0)
         tier = r.get("tier", 4)
         name = r.get("name", "This race")
-        slug = r.get("slug", "")
 
         # Find bottom 2-3 dimensions (below 3/5)
         dim_vals = [(d, s.get(d, 0)) for d in ALL_DIMS if d != "prestige"]
         dim_vals.sort(key=lambda x: x[1])
         weak_dims = [(d, v) for d, v in dim_vals if v <= 3][:3]
 
-        reason = _prestige_reason(r)
-        variant = sum(ord(c) for c in slug) % 3
+        # Find top strength (best non-prestige dim) for balance
+        top_dim = max(dim_vals, key=lambda x: x[1])
+        tdl = DIM_LABELS[top_dim[0]].lower()
+        tdv = top_dim[1]
+
+        # Use card index for guaranteed unique template
+        variant = idx % 5
 
         if len(weak_dims) >= 2:
             d1, v1 = weak_dims[0]
@@ -645,37 +657,50 @@ def build_overrated_underrated(races: list[dict], editorial_facts: dict) -> str:
             dl2 = DIM_LABELS[d2].lower()
             if variant == 0:
                 return (
-                    f"Prestige {prestige}/5 tells you {name} has {reason}. "
-                    f"The course tells a different story: {dl1} at {v1}/5, {dl2} at {v2}/5. "
-                    f"Overall score of {score} lands it in Tier {tier}. "
-                    f"Reputation opens the door. The data decides who stays."
+                    f"Prestige {prestige}/5 opens the door. But {dl1} at {v1}/5 and "
+                    f"{dl2} at {v2}/5 tell a different story. {name} lands at {score} "
+                    f"overall &#8212; Tier {tier}. The reputation is doing heavy lifting."
                 )
             elif variant == 1:
                 return (
-                    f"{name} has the name recognition ({prestige}/5 prestige) but the "
+                    f"{name} delivers on {tdl} ({tdv}/5) but the "
                     f"{dl1} ({v1}/5) and {dl2} ({v2}/5) drag the overall to {score}. "
-                    f"Good race. Just not as good as the registration price implies."
+                    f"Good event. Just not as elite as the prestige implies."
+                )
+            elif variant == 2:
+                return (
+                    f"A {prestige}/5 prestige score buys goodwill, but {name} "
+                    f"posts a {v1}/5 in {dl1} and {v2}/5 in {dl2}. "
+                    f"That lands at {score} overall. Tier {tier}. "
+                    f"The brand is outpacing the course &#8212; for now."
+                )
+            elif variant == 3:
+                return (
+                    f"Start with {dl1}: {v1}/5. Then {dl2}: {v2}/5. "
+                    f"The foundation under {name} is thinner than its {prestige}/5 "
+                    f"prestige suggests. Score of {score}. "
+                    f"Strong where it counts for vibes, weaker where it counts for data."
                 )
             else:
                 return (
-                    f"A {prestige}/5 prestige score buys a lot of goodwill. "
-                    f"But {name} posts a {v1}/5 in {dl1} and {v2}/5 in {dl2}, "
-                    f"landing at {score} overall. Tier {tier}. "
-                    f"The brand is stronger than the course &#8212; for now."
+                    f"Overall {score}. Prestige {prestige}/5. "
+                    f"On paper, {name} has the name. In the spreadsheet, "
+                    f"{dl1} at {v1}/5 and {dl2} at {v2}/5 tell the real story. "
+                    f"Tier {tier} when you let the numbers talk."
                 )
         return (
             f"Prestige {prestige}/5. Overall {score}. "
-            f"Built on {reason}, but the 14 dimensions tell a more nuanced story. "
-            f"Tier {tier} when the hype fades."
+            f"The 14 dimensions paint a more complicated picture than the "
+            f"registration page. Tier {tier} by the data."
         )
 
     under_cards = ""
-    for r in underrated:
-        under_cards += _card(r, _under_quip(r))
+    for i, r in enumerate(underrated):
+        under_cards += _card(r, _under_quip(r, i))
 
     over_cards = ""
-    for r in overrated:
-        over_cards += _card(r, _over_quip(r))
+    for i, r in enumerate(overrated):
+        over_cards += _card(r, _over_quip(r, i))
 
     return f'''<section class="gg-insights-section" id="overrated-underrated">
   <h2 class="gg-insights-section-title">Punching Above &amp; Below Their Weight</h2>
@@ -860,7 +885,7 @@ def build_data_story(races: list[dict], editorial_facts: dict) -> str:
             f'    </div>\n'
         )
 
-    # ── World Tile Grid: International races by country ──
+    # ── World Map Choropleth: International races by country ──
     country_counts: dict[str, int] = {}
     country_races: dict[str, list[dict]] = {}
     for r in races:
@@ -875,32 +900,43 @@ def build_data_story(races: list[dict], editorial_facts: dict) -> str:
     intl_country_count = len(country_counts)
     intl_race_count = sum(country_counts.values())
 
-    # Build tiles grouped by region
-    world_html = ""
-    for region, codes in WORLD_REGIONS.items():
-        region_codes = [c for c in codes if c in country_counts]
-        if not region_codes:
-            continue
-        tiles = ""
-        for cc in sorted(region_codes, key=lambda c: -country_counts[c]):
-            count = country_counts[cc]
-            density = "high" if count >= 5 else "med" if count >= 3 else "low"
-            name = COUNTRY_NAMES.get(cc, cc)
+    # Build SVG world map choropleth
+    svg_paths = []
+    for iso, d_str in WORLD_MAP_PATHS.items():
+        if iso in country_counts:
+            # Race country — interactive, density-colored
+            count = country_counts[iso]
+            density = "high" if count >= DENSITY_HIGH_MIN else "med" if count >= DENSITY_MED_MIN else "low"
+            name = COUNTRY_NAMES.get(iso, iso)
             tip = f"{name}: {count} race{'s' if count != 1 else ''}"
-            tiles += (
-                f'      <button class="gg-ins-world-tile" data-country="{cc}" '
-                f'data-density="{density}" data-tooltip="{esc(tip)}" '
-                f'aria-expanded="false">'
-                f'<span class="gg-ins-world-code">{cc}</span>'
-                f'<span class="gg-ins-world-count">{count}</span>'
-                f'</button>\n'
+            svg_paths.append(
+                f'<path d="{d_str}" class="gg-wm-country gg-wm-density-{density}"'
+                f' data-country="{iso}"'
+                f' tabindex="-1" role="button" aria-label="{esc(name)}"'
+                f' aria-expanded="false"><title>{esc(tip)}</title></path>'
             )
-        world_html += (
-            f'    <div class="gg-ins-world-region">'
-            f'<div class="gg-ins-world-region-label">{esc(region)}</div>'
-            f'<div class="gg-ins-world-region-tiles">\n{tiles}'
-            f'    </div></div>\n'
-        )
+        elif iso == "US":
+            # US shown but neutral (covered by tile map above)
+            svg_paths.append(f'<path d="{d_str}" class="gg-wm-land gg-wm-us"/>')
+        else:
+            # Non-race country — neutral fill
+            svg_paths.append(f'<path d="{d_str}" class="gg-wm-land"/>')
+
+    # Add country code labels on race countries
+    svg_labels = []
+    for iso, (cx, cy) in COUNTRY_CENTROIDS.items():
+        if iso in country_counts:
+            svg_labels.append(
+                f'<text x="{cx}" y="{cy}" class="gg-wm-label">{iso}</text>'
+            )
+
+    world_svg = (
+        '<svg class="gg-ins-worldmap" viewBox="0 0 1000 500"'
+        ' role="img" aria-label="World map showing international gravel race distribution">\n'
+        + '\n'.join(svg_paths) + '\n'
+        + '\n'.join(svg_labels) + '\n'
+        + '</svg>'
+    )
 
     # Build expandable panels per country (same pattern as state panels)
     country_panel_html = ""
@@ -924,12 +960,18 @@ def build_data_story(races: list[dict], editorial_facts: dict) -> str:
         )
 
     world_grid_html = ""
-    if world_html:
+    if country_counts:
         world_grid_html = f'''
   <div class="gg-ins-world-grid">
     <h3 class="gg-ins-world-title">International</h3>
     <p class="gg-ins-world-subtitle">{intl_race_count} races across {intl_country_count} countries. Click a country to see its races.</p>
-{world_html}    <div class="gg-ins-world-detail" id="world-detail" aria-live="polite">
+    <div class="gg-ins-world-legend">
+      <span class="gg-ins-world-legend-item"><span class="gg-wm-swatch gg-wm-density-low"></span> 1&#8211;{DENSITY_MED_MIN - 1} races</span>
+      <span class="gg-ins-world-legend-item"><span class="gg-wm-swatch gg-wm-density-med"></span> {DENSITY_MED_MIN}&#8211;{DENSITY_HIGH_MIN - 1} races</span>
+      <span class="gg-ins-world-legend-item"><span class="gg-wm-swatch gg-wm-density-high"></span> {DENSITY_HIGH_MIN}+ races</span>
+    </div>
+{world_svg}
+    <div class="gg-ins-world-detail" id="world-detail" aria-live="polite">
 {country_panel_html}    </div>
   </div>'''
 
@@ -1178,7 +1220,7 @@ def build_closing(race_count: int, stats: dict = None) -> str:
   <h2 class="gg-insights-section-title">Now Go Race</h2>
   <p class="gg-insights-narrative">{race_count} races. {len(ALL_DIMS)} dimensions. The data is here. Use it.</p>
 {stat_strip}  <div class="gg-insights-closing-single">
-    <a href="{SITE_BASE_URL}/races/" class="gg-insights-cta-btn-gold gg-insights-cta-btn-lg" data-cta="closing-explore">Explore All {race_count} Races</a>
+    <a href="{SITE_BASE_URL}/gravel-races/" class="gg-insights-cta-btn-gold gg-insights-cta-btn-lg" data-cta="closing-explore">Explore All {race_count} Races</a>
   </div>
 </section>'''
 
@@ -1622,16 +1664,21 @@ def build_insights_css() -> str:
   min-height: 40px;
 }}
 .gg-ins-map-tile[data-density="low"] {{
+  background: #d8e5e0;
   background: color-mix(in srgb, var(--gg-color-teal) 15%, var(--gg-color-warm-paper));
 }}
 .gg-ins-map-tile[data-density="med"] {{
+  background: #aeccc6;
   background: color-mix(in srgb, var(--gg-color-teal) 35%, var(--gg-color-warm-paper));
 }}
 .gg-ins-map-tile[data-density="high"] {{
+  background: #7aafa7;
   background: color-mix(in srgb, var(--gg-color-teal) 60%, var(--gg-color-warm-paper));
 }}
 .gg-ins-map-tile[data-density="none"] {{
+  background: #f3ede5;
   background: color-mix(in srgb, var(--gg-color-dark-brown) 5%, var(--gg-color-warm-paper));
+  border-color: #cdc1b5;
   border-color: color-mix(in srgb, var(--gg-color-dark-brown) 30%, transparent);
 }}
 .gg-ins-map-tile:hover {{
@@ -1702,7 +1749,7 @@ def build_insights_css() -> str:
   font-style: italic;
 }}
 
-/* ── World Tile Grid (International) ── */
+/* ── World Map Choropleth (International) ── */
 .gg-ins-world-grid {{
   margin-top: var(--gg-spacing-xl);
   border-top: 2px solid var(--gg-color-dark-brown);
@@ -1723,66 +1770,89 @@ def build_insights_css() -> str:
   color: var(--gg-color-secondary-brown);
   margin: 0 0 var(--gg-spacing-md) 0;
 }}
-.gg-ins-world-region {{
-  margin-bottom: var(--gg-spacing-lg);
-}}
-.gg-ins-world-region-label {{
+.gg-ins-world-legend {{
+  display: flex;
+  gap: var(--gg-spacing-md);
+  margin-bottom: var(--gg-spacing-sm);
   font-family: var(--gg-font-data);
-  font-size: var(--gg-font-size-xs);
-  font-weight: var(--gg-font-weight-bold);
-  letter-spacing: var(--gg-letter-spacing-wider);
-  text-transform: uppercase;
+  font-size: var(--gg-font-size-2xs);
   color: var(--gg-color-secondary-brown);
-  margin-bottom: var(--gg-spacing-xs);
 }}
-.gg-ins-world-region-tiles {{
+.gg-ins-world-legend-item {{
   display: flex;
-  flex-wrap: wrap;
-  gap: 3px;
-}}
-.gg-ins-world-tile {{
-  width: 56px;
-  height: 48px;
-  border: 2px solid var(--gg-color-dark-brown);
-  background: var(--gg-color-warm-paper);
-  cursor: pointer;
-  font-family: var(--gg-font-data);
-  text-align: center;
-  display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: 0;
+  gap: var(--gg-spacing-2xs);
 }}
-.gg-ins-world-tile[data-density="low"] {{
+.gg-wm-swatch {{
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 1px solid var(--gg-color-dark-brown);
+}}
+.gg-wm-swatch.gg-wm-density-low {{
+  background: #d8e5e0;
   background: color-mix(in srgb, var(--gg-color-teal) 15%, var(--gg-color-warm-paper));
 }}
-.gg-ins-world-tile[data-density="med"] {{
+.gg-wm-swatch.gg-wm-density-med {{
+  background: #aeccc6;
   background: color-mix(in srgb, var(--gg-color-teal) 35%, var(--gg-color-warm-paper));
 }}
-.gg-ins-world-tile[data-density="high"] {{
+.gg-wm-swatch.gg-wm-density-high {{
+  background: #7aafa7;
   background: color-mix(in srgb, var(--gg-color-teal) 60%, var(--gg-color-warm-paper));
 }}
-.gg-ins-world-tile:hover {{
-  border-color: var(--gg-color-gold);
+.gg-ins-worldmap {{
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-top: var(--gg-spacing-sm);
+  border: 2px solid var(--gg-color-dark-brown);
+  background: var(--gg-color-warm-paper);
 }}
-.gg-ins-world-tile:focus-visible {{
-  outline: 3px solid var(--gg-color-teal);
-  outline-offset: 1px;
+.gg-wm-land {{
+  fill: var(--gg-color-tan);
+  stroke: var(--gg-color-secondary-brown);
+  stroke-width: 0.5;
 }}
-.gg-ins-world-tile[aria-expanded="true"] {{
-  border-color: var(--gg-color-gold);
-  border-width: 3px;
+.gg-wm-us {{
+  fill: var(--gg-color-sand);
 }}
-.gg-ins-world-code {{
-  font-size: var(--gg-font-size-2xs);
+.gg-wm-country {{
+  stroke: var(--gg-color-dark-brown);
+  stroke-width: 0.8;
+  cursor: pointer;
+  transition: fill 0.15s;
+}}
+.gg-wm-density-low {{
+  fill: #d8e5e0;
+  fill: color-mix(in srgb, var(--gg-color-teal) 15%, var(--gg-color-warm-paper));
+}}
+.gg-wm-density-med {{
+  fill: #aeccc6;
+  fill: color-mix(in srgb, var(--gg-color-teal) 35%, var(--gg-color-warm-paper));
+}}
+.gg-wm-density-high {{
+  fill: #7aafa7;
+  fill: color-mix(in srgb, var(--gg-color-teal) 60%, var(--gg-color-warm-paper));
+}}
+.gg-wm-country:hover,
+.gg-wm-country:focus-visible {{
+  stroke: var(--gg-color-gold);
+  stroke-width: 1.5;
+  outline: none;
+}}
+.gg-wm-country[aria-expanded="true"] {{
+  stroke: var(--gg-color-gold);
+  stroke-width: 2;
+}}
+.gg-wm-label {{
+  font-family: var(--gg-font-data);
+  font-size: 8px;
   font-weight: var(--gg-font-weight-bold);
-  color: var(--gg-color-dark-brown);
-  letter-spacing: 0.5px;
-}}
-.gg-ins-world-count {{
-  font-size: 9px;
-  color: var(--gg-color-secondary-brown);
+  fill: var(--gg-color-dark-brown);
+  text-anchor: middle;
+  dominant-baseline: central;
+  pointer-events: none;
 }}
 .gg-ins-world-detail {{
   margin-top: var(--gg-spacing-md);
@@ -2421,9 +2491,7 @@ def build_insights_css() -> str:
   .gg-ins-map-tile {{ min-height: 32px; padding: 2px 1px; }}
   .gg-ins-map-abbr {{ font-size: 8px; }}
   .gg-ins-map-count {{ font-size: 7px; }}
-  .gg-ins-world-tile {{ width: 48px; height: 40px; }}
-  .gg-ins-world-code {{ font-size: 8px; }}
-  .gg-ins-world-count {{ font-size: 7px; }}
+  .gg-wm-label {{ font-size: 6px; }}
 }}
 
 /* ── Responsive: 480px ── */
@@ -2557,28 +2625,27 @@ def build_insights_js() -> str:
   });
 
   /* ══════════════════════════════════════════════════════════════
-     WORLD GRID — Clickable country tiles
+     WORLD MAP — Clickable SVG country paths
      ══════════════════════════════════════════════════════════════ */
 
-  var worldTiles = document.querySelectorAll('.gg-ins-world-tile');
+  var worldMap = document.querySelector('.gg-ins-worldmap');
+  var worldCountries = worldMap ? worldMap.querySelectorAll('.gg-wm-country') : [];
   var worldDetail = document.getElementById('world-detail');
+
   function toggleWorldCountry(country) {
     var panels = worldDetail ? worldDetail.querySelectorAll('.gg-ins-map-panel') : [];
     var wasAlreadyOpen = false;
-    worldTiles.forEach(function(tile) {
-      var c = tile.getAttribute('data-country');
-      if (c === country && tile.getAttribute('aria-expanded') === 'true') {
+    worldCountries.forEach(function(path) {
+      if (path.getAttribute('data-country') === country &&
+          path.getAttribute('aria-expanded') === 'true') {
         wasAlreadyOpen = true;
       }
-      if (c === country && !wasAlreadyOpen) {
-        tile.setAttribute('aria-expanded', 'true');
-      } else {
-        tile.setAttribute('aria-expanded', 'false');
-      }
+      path.setAttribute('aria-expanded',
+        (!wasAlreadyOpen && path.getAttribute('data-country') === country) ? 'true' : 'false');
     });
     var openCountry = wasAlreadyOpen ? null : country;
     panels.forEach(function(p) {
-      if (p.getAttribute('data-country') === openCountry) {
+      if (openCountry && p.getAttribute('data-country') === openCountry) {
         p.classList.remove('gg-ins-panel-hidden');
         p.setAttribute('aria-hidden', 'false');
       } else {
@@ -2593,14 +2660,15 @@ def build_insights_js() -> str:
       gtag('event', 'insights_country_click', { country: country });
     }
   }
-  worldTiles.forEach(function(tile) {
-    tile.addEventListener('click', function() {
-      toggleWorldCountry(tile.getAttribute('data-country'));
+
+  worldCountries.forEach(function(path) {
+    path.addEventListener('click', function(e) {
+      toggleWorldCountry(e.currentTarget.getAttribute('data-country'));
     });
-    tile.addEventListener('keydown', function(e) {
+    path.addEventListener('keydown', function(e) {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
-        toggleWorldCountry(tile.getAttribute('data-country'));
+        toggleWorldCountry(e.currentTarget.getAttribute('data-country'));
       }
     });
   });
@@ -3155,10 +3223,14 @@ def generate_insights_page(external_assets: dict = None) -> str:
   <meta property="og:description" content="{esc(meta_desc)}">
   <meta property="og:type" content="article">
   <meta property="og:url" content="{esc(canonical_url)}">
+  <meta property="og:image" content="{SITE_BASE_URL}/og/homepage.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:site_name" content="Gravel God Cycling">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="The State of Gravel Racing | Gravel God">
-  <meta name="twitter:description" content="{esc(meta_desc)}">'''
+  <meta name="twitter:description" content="{esc(meta_desc)}">
+  <meta name="twitter:image" content="{SITE_BASE_URL}/og/homepage.jpg">'''
 
     preload = get_preload_hints()
 
@@ -3177,8 +3249,7 @@ def generate_insights_page(external_assets: dict = None) -> str:
   {jsonld}
   {page_css}
   {insights_css}
-  <script async src="https://www.googletagmanager.com/gtag/js?id={GA_MEASUREMENT_ID}"></script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments)}}gtag('js',new Date());gtag('config','{GA_MEASUREMENT_ID}');</script>
+  {get_ga4_head_snippet()}
   {get_ab_head_snippet()}
 </head>
 <body>
@@ -3207,6 +3278,7 @@ def generate_insights_page(external_assets: dict = None) -> str:
 
 {insights_js}
 
+{get_consent_banner_html()}
 </body>
 </html>'''
 

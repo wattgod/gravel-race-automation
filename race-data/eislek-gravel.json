@@ -94,7 +94,10 @@
       "score": "49 / 100",
       "one_liner": "Luxembourg Ardennes gravel challenge.",
       "should_you_race": "If you're in Europe—yes, it's solid. If you're international—there are better options.",
-      "alternatives": "For better value: regional gravel races. For similar Ardennes terrain: Ardenne Gravel Stages."
+      "alternatives": "For better value: regional gravel races. For similar Ardennes terrain: Ardenne Gravel Stages.",
+      "alternative_slugs": [
+        "ardenne-gravel-stages"
+      ]
     },
     "logistics": {
       "airport": "Luxembourg (LUX) 1 hour",
@@ -185,12 +188,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 86.7,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -316,49 +328,44 @@
         "label": "RideWithGPS: Eislek gravel 1"
       },
       {
-        "url": "https://www.granfondoguide.com/RaceDashboard/UCIGravelWorldSeries/1/8594/kloser-and-loman-claim-victory-at-the-inaugural-uci-eislek-gravel-in-luxembourg",
-        "category": "community",
-        "label": "granfondoguide.com: Kloser And Loman Claim Victory At The Inaugural Uci Eisle..."
+        "url": "https://cyclingflash.com/race/uci-gravel-world-series-eislek-gravel-luxembourg-2025/result",
+        "category": "other",
+        "label": "Cyclingflash"
       },
       {
-        "url": "https://www.cyclingnews.com/races/uci-gravel-world-series-events-2025/eislek-gravel-luxembourg/results/",
-        "category": "community",
-        "label": "cyclingnews.com: Results"
+        "url": "https://en.wikipedia.org/wiki/2024–25_UCI_Gravel_World_Series",
+        "category": "reference",
+        "label": "Wikipedia"
       },
       {
-        "url": "https://ucigravelworldseries.com/en/eislek-gravel-luxembourg-with-a-cross-border-challenge/",
-        "category": "community",
-        "label": "ucigravelworldseries.com: Eislek Gravel Luxembourg With A Cross Border Challenge"
-      },
-      {
-        "url": "https://allevents.in/diekirch/eislek-gravel-luxembourg-2026/200029253717054",
-        "category": "community",
-        "label": "allevents.in: 200029253717054"
-      },
-      {
-        "url": "https://www.rennrad-news.de/forum/threads/eislek-gravel-luxoland-2025.200322/",
-        "category": "community",
-        "label": "rennrad-news.de: Eislek Gravel Luxoland 2025.200322"
+        "url": "https://granfondodailynews.com/2025/06/27/luxembourg-hosts-uci-gravel-worlds-qualifying-eislek-race-results/",
+        "category": "other",
+        "label": "Granfondodailynews"
       },
       {
         "url": "https://ucigravelworldseries.com/en/vianden/",
-        "category": "community",
-        "label": "ucigravelworldseries.com: Vianden"
+        "category": "other",
+        "label": "Ucigravelworldseries"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/12352/eislek-gravel-luxembourg",
+        "category": "other",
+        "label": "Granfondoguide"
+      },
+      {
+        "url": "https://www.granfondoguide.com/RaceDashboard/UCIGravelWorldSeries/1/8594/kloser-and-loman-claim-victory-at-the-inaugural-uci-eislek-gravel-in-luxembourg",
+        "category": "other",
+        "label": "Granfondoguide"
+      },
+      {
+        "url": "https://www.rennrad-news.de/forum/threads/eislek-gravel-luxoland-2025.200322/",
+        "category": "other",
+        "label": "Rennrad-News"
       },
       {
         "url": "https://www.cyclingnews.com/races/uci-gravel-world-series-events-2025/",
         "category": "community",
         "label": "cyclingnews.com: Uci Gravel World Series Events 2025"
-      },
-      {
-        "url": "https://www.granfondoguide.com/Events/Index/12352/eislek-gravel-luxembourg",
-        "category": "community",
-        "label": "granfondoguide.com: Eislek Gravel Luxembourg"
-      },
-      {
-        "url": "https://granfondodailynews.com/2025/06/27/luxembourg-hosts-uci-gravel-worlds-qualifying-eislek-race-results/",
-        "category": "community",
-        "label": "granfondodailynews.com: Luxembourg Hosts Uci Gravel Worlds Qualifying Eislek Race..."
       }
     ],
     "tire_recommendations": {

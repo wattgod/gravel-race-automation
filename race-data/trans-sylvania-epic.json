@@ -19,7 +19,7 @@
         "Northeast USA"
       ],
       "field_size": "200-400 riders",
-      "start_time": "Morning start",
+      "start_time": "10:00 AM at",
       "registration": "Online. Cost: ~$300-500",
       "prize_purse": "Modest prizes",
       "aid_stations": "Multiple aid stations per stage",
@@ -94,7 +94,10 @@
       "score": "51 / 100",
       "one_liner": "Pennsylvania multi-stage mountain gravel.",
       "should_you_race": "If you're in PA/Northeast and want a multi-stage local event—yes, it's solid. If you're from out of region—there are better options.",
-      "alternatives": "For better PA events: Iron Cross. For similar multi-stage events: other regional stage races."
+      "alternatives": "For better PA events: Iron Cross. For similar multi-stage events: other regional stage races.",
+      "alternative_slugs": [
+        "iron-cross"
+      ]
     },
     "logistics": {
       "airport": "Varies by location in PA",
@@ -102,7 +105,8 @@
       "food": "PA has full dining options. Stock nutrition.",
       "packet_pickup": "Day before typically",
       "parking": "At start/finish",
-      "official_site": "Check Trans-Sylvania Epic website"
+      "official_site": "Check Trans-Sylvania Epic website",
+      "camping": "camping as well as indoor lodging right next to the start/finish area for most of the stages"
     },
     "history": {
       "founded": null,
@@ -185,12 +189,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 89.2,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -311,24 +324,29 @@
     },
     "citations": [
       {
+        "url": "https://dirtscrolls.com/14960294-the-trans-sylvania-epic-experience-tips-from-a-first-time-stage-racer",
+        "category": "other",
+        "label": "Dirtscrolls"
+      },
+      {
+        "url": "https://strambecco.com/event/trans-sylvania-gravel-epic/",
+        "category": "other",
+        "label": "Strambecco"
+      },
+      {
         "url": "https://www.blueridgeoutdoors.com/biking/trans-sylvania-epic-race-retrospective/",
-        "category": "community",
-        "label": "blueridgeoutdoors.com: Trans Sylvania Epic Race Retrospective"
+        "category": "other",
+        "label": "Blueridgeoutdoors"
       },
       {
         "url": "https://www.cxmagazine.com/lindine-barclay-win-notubes-transsylvania-epic",
-        "category": "community",
-        "label": "cxmagazine.com: Lindine Barclay Win Notubes Transsylvania Epic"
-      },
-      {
-        "url": "https://dirtscrolls.com/14960294-the-trans-sylvania-epic-experience-tips-from-a-first-time-stage-racer",
-        "category": "community",
-        "label": "dirtscrolls.com: 14960294 The Trans Sylvania Epic Experience Tips From A F..."
+        "category": "media",
+        "label": "CX Magazine"
       },
       {
         "url": "https://www.singletracks.com/mtb-tips/prepping-for-the-trans-sylvania-epic/",
-        "category": "community",
-        "label": "singletracks.com: Prepping For The Trans Sylvania Epic"
+        "category": "other",
+        "label": "Singletracks"
       },
       {
         "url": "https://www.tsepicmtb.com/results",
@@ -339,11 +357,6 @@
         "url": "https://www.tsepicmtb.com/categories",
         "category": "community",
         "label": "tsepicmtb.com: Categories"
-      },
-      {
-        "url": "https://strambecco.com/event/trans-sylvania-gravel-epic/",
-        "category": "community",
-        "label": "strambecco.com: Trans Sylvania Gravel Epic"
       }
     ],
     "tire_recommendations": {

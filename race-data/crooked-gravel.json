@@ -19,7 +19,7 @@
         "Colorado Rockies"
       ],
       "field_size": "100-300 riders",
-      "start_time": "Morning start",
+      "start_time": "8:00 am mass",
       "registration": "Online. Cost: ~$80-120",
       "prize_purse": "None or minimal",
       "aid_stations": "Multiple aid stations",
@@ -93,7 +93,10 @@
       "score": "59 / 100",
       "one_liner": "Regional Colorado mountain gravel with high altitude and significant climbing.",
       "should_you_race": "If you're in Colorado or the Front Range and want a mountain gravel challenge—yes, it's a well-organized event with genuine altitude and climbing. If you're traveling from far away—there are more prestigious mountain events elsewhere.",
-      "alternatives": "For better Colorado mountain events: Leadville 100, Steamboat Gravel. For similar regional mountain vibes: other Front Range events."
+      "alternatives": "For better Colorado mountain events: Leadville 100, Steamboat Gravel. For similar regional mountain vibes: other Front Range events.",
+      "alternative_slugs": [
+        "leadville-100"
+      ]
     },
     "logistics": {
       "airport": "Denver (DEN) 90 min",
@@ -101,7 +104,8 @@
       "food": "Resort town with good dining options. Stock race nutrition beforehand.",
       "packet_pickup": "Day before typically",
       "parking": "At start/finish",
-      "official_site": "Check Colorado cycling calendars"
+      "official_site": "Check Colorado cycling calendars",
+      "camping": "campgrounds near start or in Fraser (e"
     },
     "history": {
       "founded": null,
@@ -183,12 +187,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 88.5,
+        "grade": "A",
+        "weakest": "voice_authenticity",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 80,
+          "citation_density": 100,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 88,
+          "cross_reference": 75
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -309,39 +322,39 @@
     },
     "citations": [
       {
-        "url": "https://www.exploringtherockies.com/2023/08/03/2023-crooked-gravel-race/",
-        "category": "community",
-        "label": "exploringtherockies.com: 2023 Crooked Gravel Race"
-      },
-      {
-        "url": "https://www.reddit.com/r/gravelcycling/comments/cj10ct/grinning_like_an_idiot_with_my_helmet_on_crooked/",
-        "category": "community",
-        "label": "reddit.com: Grinning Like An Idiot With My Helmet On Crooked"
+        "url": "https://ridewithgps.com/routes/42969175",
+        "category": "route",
+        "label": "RideWithGPS: Crooked Gravel - 65mi Route Winter Park Colorado"
       },
       {
         "url": "https://avidcyclist.com/featured-event/the-crooked-gravel-from-crooked-roubaix-to-colorado-cycling-classic/",
-        "category": "community",
-        "label": "avidcyclist.com: The Crooked Gravel From Crooked Roubaix To Colorado Cycli..."
-      },
-      {
-        "url": "https://www.reddit.com/r/gravelcycling/comments/omg2si/anyone_riding_crooked_gravel_next_weekend/",
-        "category": "community",
-        "label": "reddit.com: Anyone Riding Crooked Gravel Next Weekend"
+        "category": "other",
+        "label": "Avidcyclist"
       },
       {
         "url": "https://geminiadventures.com/bike/crooked-gravel",
-        "category": "community",
-        "label": "geminiadventures.com: Crooked Gravel"
+        "category": "other",
+        "label": "Geminiadventures"
       },
       {
         "url": "https://velo.outsideonline.com/road/road-racing/the-grind-new-routes-and-5000-purses-for-crooked-gravel-wild-horse-gravel",
-        "category": "community",
-        "label": "velo.outsideonline.com: The Grind New Routes And 5000 Purses For Crooked Gravel W..."
+        "category": "media",
+        "label": "Velo"
+      },
+      {
+        "url": "https://www.exploringtherockies.com/2023/08/03/2023-crooked-gravel-race/",
+        "category": "other",
+        "label": "Exploringtherockies"
+      },
+      {
+        "url": "https://www.skyhinews.com/news/crooked-gravel-race-will-take-riders-through-winter-park-wilderness/",
+        "category": "other",
+        "label": "Skyhinews"
       },
       {
         "url": "https://www.skyhinews.com/news/guest-column-a-wonderful-day-spent-in-grand-county-at-crooked-gravel/",
-        "category": "community",
-        "label": "skyhinews.com: Guest Column A Wonderful Day Spent In Grand County At Cro..."
+        "category": "other",
+        "label": "Skyhinews"
       }
     ],
     "tire_recommendations": {

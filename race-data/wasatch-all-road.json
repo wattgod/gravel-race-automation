@@ -19,7 +19,7 @@
         "Significant climbing"
       ],
       "field_size": "100-300 riders",
-      "start_time": "Morning start",
+      "start_time": "8:00 am",
       "registration": "Online. Cost: ~$80-120",
       "prize_purse": "None or minimal",
       "aid_stations": "Multiple aid stations",
@@ -93,7 +93,11 @@
       "score": "60 / 100",
       "one_liner": "Regional Utah mountain gravel with high altitude and significant climbing in Wasatch Range.",
       "should_you_race": "If you're in Utah or the Wasatch Front and want a mountain gravel challenge—yes, it's a well-organized event with genuine altitude and climbing. If you're traveling from far away—there are more prestigious mountain events elsewhere.",
-      "alternatives": "For better Utah mountain events: Crusher in the Tushar (if running), Leadville 100. For similar regional mountain vibes: other Wasatch events."
+      "alternatives": "For better Utah mountain events: Crusher in the Tushar (if running), Leadville 100. For similar regional mountain vibes: other Wasatch events.",
+      "alternative_slugs": [
+        "crusher-in-the-tushar",
+        "leadville-100"
+      ]
     },
     "logistics": {
       "airport": "Salt Lake City (SLC) 45 min",
@@ -183,12 +187,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 87.7,
+        "grade": "A",
+        "weakest": "temporal_depth",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 50,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 88,
+          "cross_reference": 50
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -314,9 +327,34 @@
         "label": "RideWithGPS: 2025 Wasatch All-Road Sasquatch 60 16June2025"
       },
       {
+        "url": "https://velo.outsideonline.com/gravel/gravel-racing/wasatch-all-road-toughest-gravel-race-youve-never-heard/",
+        "category": "media",
+        "label": "Velo"
+      },
+      {
+        "url": "https://velo.outsideonline.com/tag/wasatch-all-road/",
+        "category": "media",
+        "label": "Velo"
+      },
+      {
+        "url": "https://www.bloomingtonvelo.org/tag/wasatch-all-road/",
+        "category": "other",
+        "label": "Bloomingtonvelo"
+      },
+      {
         "url": "https://www.exquisiteendurancecoaching.com/post/wasatch-all-road-race-recap",
-        "category": "community",
-        "label": "exquisiteendurancecoaching.com: Wasatch All Road Race Recap"
+        "category": "other",
+        "label": "Exquisiteendurancecoaching"
+      },
+      {
+        "url": "https://www.gohebervalley.com/wasatch-all-road/",
+        "category": "other",
+        "label": "Gohebervalley"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/9376/the-wasatch-all-road",
+        "category": "other",
+        "label": "Granfondoguide"
       },
       {
         "url": "https://www.reddit.com/r/gravelcycling/comments/onm9j3/wasatch_allroad/",
@@ -332,11 +370,6 @@
         "url": "https://utahgravelseries.com/wasatchallroad",
         "category": "community",
         "label": "utahgravelseries.com: Wasatchallroad"
-      },
-      {
-        "url": "https://velo.outsideonline.com/tag/wasatch-all-road/",
-        "category": "community",
-        "label": "velo.outsideonline.com: Wasatch All Road"
       }
     ],
     "tire_recommendations": {

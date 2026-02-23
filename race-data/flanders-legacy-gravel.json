@@ -19,7 +19,7 @@
         "Belgium"
       ],
       "field_size": "200-400 riders",
-      "start_time": "Morning start",
+      "start_time": "9:30 AM",
       "registration": "Online. Cost: ~€50-80",
       "prize_purse": "Modest prizes",
       "aid_stations": "Multiple aid stations",
@@ -94,7 +94,10 @@
       "score": "49 / 100",
       "one_liner": "Belgian Flanders gravel challenge.",
       "should_you_race": "If you're in Europe—yes, it's solid. If you're international—there are better options.",
-      "alternatives": "For better value: regional gravel races. For similar Belgian terrain: Gravel des Flandres."
+      "alternatives": "For better value: regional gravel races. For similar Belgian terrain: Gravel des Flandres.",
+      "alternative_slugs": [
+        "gravel-des-flandres"
+      ]
     },
     "logistics": {
       "airport": "Brussels (BRU) 1 hour",
@@ -138,7 +141,13 @@
       ],
       "signature_challenge": "Flanders rolling terrain.",
       "ridewithgps_id": "53068383",
-      "ridewithgps_name": "Flanders Legacy Gravel 2025 147 km"
+      "ridewithgps_name": "Flanders Legacy Gravel 2025 147 km",
+      "surface_breakdown": {
+        "overall": {
+          "gravel": 75,
+          "pavement": 25
+        }
+      }
     },
     "guide_variables": {
       "race_name": "Flanders Legacy Gravel",
@@ -185,12 +194,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 87.2,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 80,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -311,79 +329,54 @@
     },
     "citations": [
       {
+        "url": "https://ridewithgps.com/routes/53068383",
+        "category": "route",
+        "label": "RideWithGPS: Flanders Legacy Gravel 2025 147 km"
+      },
+      {
+        "url": "https://cyclingflash.com/race/uci-gravel-world-series-flanders-legacy-gravel-we-2026",
+        "category": "other",
+        "label": "Cyclingflash"
+      },
+      {
+        "url": "https://flanderslegacygravel.be/en/homepage/",
+        "category": "other",
+        "label": "Flanderslegacygravel"
+      },
+      {
+        "url": "https://flanderslegacygravel.be/en/practical-information/",
+        "category": "other",
+        "label": "Flanderslegacygravel"
+      },
+      {
         "url": "https://reddit.com/r/gravelcycling/comments/flanders-legacy",
         "category": "community",
         "label": "Reddit"
       },
       {
-        "url": "https://ridewithgps.com",
-        "category": "route",
-        "label": "RideWithGPS"
-      },
-      {
-        "url": "https://www.cyclingtips.com",
-        "category": "media",
-        "label": "CyclingTips"
-      },
-      {
-        "url": "https://www.flanderslegacygravel.be",
+        "url": "https://ucigravelworldseries.com/en/legacy-gravel-2026/",
         "category": "other",
-        "label": "Flanderslegacygravel"
-      },
-      {
-        "url": "https://www.ridingravel.com",
-        "category": "other",
-        "label": "Ridingravel"
-      },
-      {
-        "url": "https://www.strava.com",
-        "category": "activity",
-        "label": "Strava"
-      },
-      {
-        "url": "https://www.trainerroad.com",
-        "category": "community",
-        "label": "TrainerRoad"
-      },
-      {
-        "url": "https://www.velonews.com",
-        "category": "media",
-        "label": "VeloNews"
+        "label": "Ucigravelworldseries"
       },
       {
         "url": "https://ucigravelworldseries.com/en/legacy-gravel/",
-        "category": "community",
-        "label": "ucigravelworldseries.com: Legacy Gravel"
-      },
-      {
-        "url": "https://www.granfondoguide.com/Events/Index/12363/legacy-gravel",
-        "category": "community",
-        "label": "granfondoguide.com: Legacy Gravel"
-      },
-      {
-        "url": "https://ucigravelworldseries.com/en/flanders-legacy-gravel-builds-further-on-2024-uci-gravel-worlds/",
-        "category": "community",
-        "label": "ucigravelworldseries.com: Flanders Legacy Gravel Builds Further On 2024 Uci Gravel ..."
-      },
-      {
-        "url": "https://flanderslegacygravel.be/en/",
-        "category": "community",
-        "label": "flanderslegacygravel.be: En"
-      },
-      {
-        "url": "https://www.cyclingnews.com/races/uci-gravel-world-series-events-2025/flanders-legacy-gravel/results/",
-        "category": "community",
-        "label": "cyclingnews.com: Results"
-      },
-      {
-        "url": "https://flanderslegacygravel.be/en/practical-information/",
-        "category": "community",
-        "label": "flanderslegacygravel.be: Practical Information"
+        "category": "other",
+        "label": "Ucigravelworldseries"
       },
       {
         "url": "https://wielerverhaal.com/2025/08/08/flanders-legacy-gravel-in-leuven-is-officiele-kwalificatiewedstrijd-voor-wk-gravel-2026/",
-        "category": "community",
-        "label": "wielerverhaal.com: Flanders Legacy Gravel In Leuven Is Officiele Kwalificati..."
+        "category": "other",
+        "label": "Wielerverhaal"
+      },
+      {
+        "url": "https://www.cyclingnews.com/races/uci-gravel-world-series-events-2025/flanders-legacy-gravel/results/",
+        "category": "other",
+        "label": "Cyclingnews"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/12363/legacy-gravel",
+        "category": "other",
+        "label": "Granfondoguide"
       }
     ],
     "results": {

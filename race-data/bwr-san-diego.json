@@ -288,7 +288,13 @@
       "score": "79 / 100",
       "one_liner": "Belgian suffering translated to sunny San Diego, where Double Peak turns roadies into believers and flatlanders into casualties.",
       "should_you_race": "You need legitimate climbing legs and the patience to navigate technical single-track when you're already cooked. This isn't a pure gravel race—it's a Spring Classic with dirt sectors that'll shred tires and egos equally. Show up undertrained for Double Peak's 20% final pitches and you'll be walking in front of 2,800 witnesses.",
-      "alternatives": "SBT GRVL offers similar distance with more consistent gravel and less traffic, while Unbound 200 delivers pure suffering without the roadie pretensions. If you want Spring Classic vibes without the California price tag, try Almanzo or Barry-Roubaix."
+      "alternatives": "SBT GRVL offers similar distance with more consistent gravel and less traffic, while Unbound 200 delivers pure suffering without the roadie pretensions. If you want Spring Classic vibes without the California price tag, try Almanzo or Barry-Roubaix.",
+      "alternative_slugs": [
+        "almanzo-100",
+        "barry-roubaix",
+        "sbt-grvl",
+        "unbound-200"
+      ]
     },
     "course_description": {
       "character": "BWR San Diego masquerades as an American Belgian classic, trading cobblestones for bone-rattling dirt sectors and sandy washes across 23 off-road segments. You'll roll through 80 miles of pavement and 52 miles of 'unroad' — everything from rocky single-track at Lake Hodges to the infamous sandy traps of Bandy Canyon. The course saves its cruelest joke for last: Double Peak, a 4.5-mile climb that turns savage in the final mile when your legs are already cooked.",
@@ -335,6 +341,11 @@
         "label": "Velo"
       },
       {
+        "url": "https://velo.outsideonline.com/tag/belgian-waffle-ride",
+        "category": "media",
+        "label": "Velo"
+      },
+      {
         "url": "https://www.cyclingweekly.com/news/gravel-riders-ready-here-are-the-registration-dates-for-gravels-biggest-events",
         "category": "media",
         "label": "Cycling Weekly"
@@ -348,6 +359,11 @@
         "url": "https://www.velonews.com/2020/03/gravel/monuments-of-gravel-belgian-waffle-ride_505599",
         "category": "media",
         "label": "VeloNews"
+      },
+      {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/12enqsz/belgian_waffle_ride_san_diego_worth_attending/",
+        "category": "community",
+        "label": "Reddit"
       },
       {
         "url": "https://www.trainerroad.com/blog/belgian-waffle-ride-equipment-upgrades-recovery-tactics-and-more-ask-a-cycling-coach-317/",
@@ -375,54 +391,9 @@
         "label": "TrainerRoad"
       },
       {
-        "url": "https://en.wikipedia.org/wiki/Cobbled_classics",
-        "category": "reference",
-        "label": "Wikipedia"
-      },
-      {
-        "url": "https://www.instagram.com/belgianwaffleride/",
-        "category": "social",
-        "label": "Instagram"
-      },
-      {
-        "url": "https://blog.flocycling.com/gravel-wheels/wheels-tires-tire-pressure-and-aerodynamics-for-the-belgian-waffle-ride-california/",
-        "category": "other",
-        "label": "Blog"
-      },
-      {
-        "url": "https://descenders.org/2013/04/08/belgian-waffle-ride-report/",
-        "category": "other",
-        "label": "Descenders"
-      },
-      {
-        "url": "https://findarace.com/us/events/belgian-waffle-ride-california-in-del-mar-2025",
-        "category": "other",
-        "label": "Findarace"
-      },
-      {
-        "url": "https://forum.cyclingnews.com/threads/waffles-beer-and-unroad-who%E2%80%99s-in-for-belgian-waffle-ride-2026.40887/",
-        "category": "other",
-        "label": "Forum"
-      },
-      {
-        "url": "https://nordictrailblazer.cc/races/belgian-waffle-ride-california/",
-        "category": "other",
-        "label": "Nordictrailblazer"
-      },
-      {
-        "url": "https://podcasts.apple.com/us/podcast/episode-78-michael-marckx-belgian-waffle-ride-founder/id1474410356?i=1000577803799",
-        "category": "other",
-        "label": "Podcasts"
-      },
-      {
-        "url": "https://roadbikeaction.com/10-tips-to-surviving-the-139-mile-belgian-waffle-ride/",
-        "category": "other",
-        "label": "Roadbikeaction"
-      },
-      {
-        "url": "https://thresholdcycling.com/blogs/training-resources/from-doubt-to-dirt-my-grit-fueled-ride-at-belgian-waffle-ride",
+        "url": "https://thresholdcycling.com/blogs/training-resources/from-doubt-to-dirt-my-grit-fueled-ride-at-belgian-waffle",
         "category": "community",
-        "label": "thresholdcycling.com: From Doubt To Dirt My Grit Fueled Ride At Belgian Waffle ..."
+        "label": "thresholdcycling.com: From Doubt To Dirt My Grit Fueled Ride At Belgian Waffle"
       },
       {
         "url": "https://litespeed.com/blogs/litespeed-stories/2024-belgian-waffle-ride-san-diego-dusted-belgian-style",
@@ -433,46 +404,6 @@
         "url": "https://signaturecycles.com/journal/nick-leeper-bwr-ca",
         "category": "community",
         "label": "signaturecycles.com: Nick Leeper Bwr Ca"
-      },
-      {
-        "url": "https://www.granfondoguide.com/Contents/Index/6230/katerina-nash-and-peter-stetina-fastest-at-the-2021-belgian-waffle-ride",
-        "category": "community",
-        "label": "granfondoguide.com: Katerina Nash And Peter Stetina Fastest At The 2021 Belgi..."
-      },
-      {
-        "url": "https://www.cyclingnews.com/features/how-to-be-a-gravel-pro-vermeulens-top-10-tips/",
-        "category": "community",
-        "label": "cyclingnews.com: How To Be A Gravel Pro Vermeulens Top 10 Tips"
-      },
-      {
-        "url": "https://cxhairs.substack.com/p/freeroading-report-belgian-waffle",
-        "category": "community",
-        "label": "cxhairs.substack.com: Freeroading Report Belgian Waffle"
-      },
-      {
-        "url": "https://www.cyclingnews.com/news/flavia-oliveira-embraces-gravel-its-you-against-the-terrain/",
-        "category": "community",
-        "label": "cyclingnews.com: Flavia Oliveira Embraces Gravel Its You Against The Terrain"
-      },
-      {
-        "url": "https://flowmountainbike.com/features/brendan-trekky-johnston-on-racing-the-lifetime-grand-prix/",
-        "category": "community",
-        "label": "flowmountainbike.com: Brendan Trekky Johnston On Racing The Lifetime Grand Prix"
-      },
-      {
-        "url": "https://www.trainerroad.com/forum/t/bwr-california-bike-tire-choice/70453",
-        "category": "community",
-        "label": "trainerroad.com: 70453"
-      },
-      {
-        "url": "https://strambecco.com/event/belgian-waffle-ride-san-diego-california/",
-        "category": "community",
-        "label": "strambecco.com: Belgian Waffle Ride San Diego California"
-      },
-      {
-        "url": "https://thresholdcycling.com/blogs/training-resources/from-doubt-to-dirt-my-grit-fueled-ride-at-belgian-waffle",
-        "category": "community",
-        "label": "thresholdcycling.com: From Doubt To Dirt My Grit Fueled Ride At Belgian Waffle"
       },
       {
         "url": "https://juliedunkle.substack.com/p/belgian-waffle-ride-san-diego",
@@ -493,11 +424,6 @@
         "url": "https://velo.outsideonline.com/gravel/gravel-racing/alejandro-valverde-flat-tire-bwr/",
         "category": "community",
         "label": "velo.outsideonline.com: Alejandro Valverde Flat Tire Bwr"
-      },
-      {
-        "url": "https://almsthre.com/blogs/news/bwr-san-diego-2025",
-        "category": "community",
-        "label": "almsthre.com: Bwr San Diego 2025"
       }
     ],
     "history": {
@@ -586,6 +512,28 @@
         "Technical line choices",
         "Loose sand patches"
       ]
+    },
+    "logistics": {
+      "parking": "Parking available on-site\n\n### Accommodation Strategy\n\n**Official Partner Hotels:** Available through Let's Do This partnership\n\n**Recomme"
+    },
+    "research_metadata": {
+      "research_strength": {
+        "overall": 88.2,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 58,
+          "cross_reference": 50
+        },
+        "scored_at": "2026-02-04"
+      }
     }
   }
 }

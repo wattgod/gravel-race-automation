@@ -19,7 +19,7 @@
         "Midwest USA"
       ],
       "field_size": "200-400 riders",
-      "start_time": "Morning start",
+      "start_time": "10:00 am",
       "registration": "Online. Cost: ~$50-100",
       "prize_purse": "Modest prizes",
       "aid_stations": "Multiple aid stations",
@@ -94,7 +94,10 @@
       "score": "46 / 100",
       "one_liner": "Grand Marais, Minnesota 44-mile rolling gravel.",
       "should_you_race": "If you're in MN/Midwest and want a local North Shore event—yes, it's solid. If you're from out of region—there are better options.",
-      "alternatives": "For similar MN events: Gray Duck Grit. For longer MN events: other MN gravel races."
+      "alternatives": "For similar MN events: Gray Duck Grit. For longer MN events: other MN gravel races.",
+      "alternative_slugs": [
+        "gray-duck-grit"
+      ]
     },
     "logistics": {
       "airport": "Duluth (DLH) 2 hours",
@@ -185,12 +188,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 80.4,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 80,
+          "citation_density": 80,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 80,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 50
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -311,19 +323,24 @@
     },
     "citations": [
       {
-        "url": "https://mushlakeracing.weebly.com/blog/gunflint-mail-run-race-report",
-        "category": "community",
-        "label": "mushlakeracing.weebly.com: Gunflint Mail Run Race Report"
+        "url": "https://gunflintmailrun.com/results/",
+        "category": "other",
+        "label": "Gunflintmailrun"
       },
       {
-        "url": "https://www.wdio.com/front-page/top-stories/a-community-race-history-and-impact-of-the-gunflint-mail-run/",
-        "category": "community",
-        "label": "wdio.com: A Community Race History And Impact Of The Gunflint Mail Run"
+        "url": "https://mushlakeracing.weebly.com/blog/gunflint-mail-run-race-report",
+        "category": "other",
+        "label": "Mushlakeracing"
       },
       {
         "url": "https://www.mtecresults.com/race/leaderboard/16221/2023_The_Gunflint_Scramble-20_Miles",
+        "category": "other",
+        "label": "Mtecresults"
+      },
+      {
+        "url": "https://www.reddit.com/r/knapping/comments/1bqpylv/a_fellow_from_pa_i_made_gunflints_for_sent_me/",
         "category": "community",
-        "label": "mtecresults.com: 2023 The Gunflint Scramble 20 Miles"
+        "label": "Reddit"
       }
     ],
     "tire_recommendations": {

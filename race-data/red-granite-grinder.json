@@ -11,7 +11,7 @@
       "location_badge": "ATHENS, WISCONSIN",
       "county": "Marathon County",
       "date": "Early October annually",
-      "date_specific": "Check official website for date",
+      "date_specific": "2025: October 11",
       "terrain_types": [
         "Wisconsin gravel roads (90%)",
         "Dirt roads (10%)",
@@ -19,7 +19,7 @@
         "Central Wisconsin terrain"
       ],
       "field_size": "300+ riders",
-      "start_time": "Morning — check official website",
+      "start_time": "8:16am CDT (longer distances may start earlier — prior year 7:00am)",
       "registration": "Online. Cost: $60-$100",
       "prize_purse": "None",
       "aid_stations": "Multiple on course",
@@ -95,11 +95,11 @@
       "nearest_airport": "Madison (MSN) — 110 miles (2-hour drive)",
       "alternate_airports": "Milwaukee (MKE) — 140 miles",
       "lodging_note": "Athens small town—limited lodging. Book early.",
-      "parking": "Check official website",
-      "packet_pickup": "Day-before. Check official website.",
+      "parking": "Athens High School, 601 W Limit Rd — police escort to Erbach Park start/finish",
+      "packet_pickup": "Friday 5-6:30pm at pre-race venue; race morning 5:15-6:30am at start",
       "travel_summary": "Madison airport 110 miles. Rental car needed. Athens small town limited lodging—book early. Day-before packet pickup. Race early October.",
       "food_options": "Aid stations on course. Post-race party.",
-      "camping": "Check official website",
+      "camping": "Miltrim Farms (115315 Township Rd, Athens): 120 non-electric sites, $55/site weekend, 20x30 ft sites. Check-in Friday 10am, check-out Sunday 2pm. Email jenny@miltrimfarms.com",
       "official_site": "https://www.redgranitegrinder.com"
     },
     "course_description": {
@@ -125,13 +125,31 @@
         }
       ],
       "signature_challenge": "150mi ultra distance—flat but long. Wisconsin fall farmland.",
+      "surface_breakdown": {
+        "50mi": {
+          "gravel": 86,
+          "pavement": 12,
+          "trail": 2
+        },
+        "100mi": {
+          "gravel": 92,
+          "pavement": 6,
+          "doubletrack": 2
+        },
+        "150mi": {
+          "gravel": 80,
+          "pavement": 14,
+          "trail": 5,
+          "doubletrack": 1
+        }
+      },
       "ridewithgps_id": "52962151",
       "ridewithgps_name": "2025 Red Granite Grinder 100"
     },
     "history": {
-      "founded": "~2014",
+      "founded": "~2019",
       "founder": "Shane Hitz",
-      "origin_story": "Red Granite Grinder founded ~2014. Wisconsin fall gravel. 150/100/50 miles, 300+ riders. Athens central Wisconsin. Fall foliage. Regional favorite. Ultra distance option.",
+      "origin_story": "Founded ~2019 by Shane Hitz through IRONBULL 501(c)(3). Six editions before 2025 venue move to Erbach Park in Athens. Part of Ironbear 1000 series. Courses redesigned for 2025 with 85%+ gravel.",
       "notable_moments": [
         "2023: Cool, dry (45-60°F)",
         "2024: Variable, some rain (40-65°F)"
@@ -146,19 +164,19 @@
       ],
       "research_date": "2026-02-04",
       "research_strength": {
-        "overall": 0,
-        "grade": "pending",
-        "weakest": "pending",
+        "overall": 96.1,
+        "grade": "A",
+        "weakest": "voice_authenticity",
         "has_research_dump": true,
         "dimensions": {
-          "source_diversity": 0,
-          "citation_density": 0,
-          "temporal_depth": 0,
-          "specificity": 0,
-          "statistical_backing": 0,
-          "voice_authenticity": 0,
-          "completeness": 0,
-          "cross_reference": 0
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 94,
+          "cross_reference": 100
         },
         "scored_at": "2026-02-04"
       }
@@ -225,7 +243,12 @@
       "score": "59 / 100",
       "one_liner": "A community-heavy Wisconsin gravel race that's more about the beer release and camping than any memorable terrain.",
       "should_you_race": "Perfect for gravel newcomers who want a supportive atmosphere and aren't chasing epic terrain. The 50-miler works if you're testing your legs on real gravel, and the camping at Miltrim Farms beats another hotel weekend. Skip it if you need memorable climbs or technical features—2800 feet over 150 miles won't challenge anyone who's ridden outside Wisconsin.",
-      "alternatives": "Dirty Kanza/Unbound offers actual difficulty at similar distances, while Gravel Worlds gives you Nebraska's endless horizons instead of farm fields. If you want Midwest gravel that matters, Barry-Roubaix delivers more character in fewer miles."
+      "alternatives": "Dirty Kanza/Unbound offers actual difficulty at similar distances, while Gravel Worlds gives you Nebraska's endless horizons instead of farm fields. If you want Midwest gravel that matters, Barry-Roubaix delivers more character in fewer miles.",
+      "alternative_slugs": [
+        "barry-roubaix",
+        "garmin-gravel-worlds",
+        "unbound-200"
+      ]
     },
     "unsplash_photos": [
       {
@@ -258,9 +281,14 @@
     ],
     "citations": [
       {
-        "url": "https://www.redgranitegrinder.com",
-        "category": "official",
-        "label": "Official Website"
+        "url": "https://ridewithgps.com/routes/52962151",
+        "category": "route",
+        "label": "RideWithGPS: 2025 Red Granite Grinder 100"
+      },
+      {
+        "url": "https://bikesordeath.com/ep-131-red-granite-grinder-recap/",
+        "category": "other",
+        "label": "Bikesordeath"
       },
       {
         "url": "https://ironbull-signup.redpodium.com/2025-red-granite-grinder",
@@ -273,44 +301,29 @@
         "label": "Reddit"
       },
       {
-        "url": "https://ridewithgps.com",
-        "category": "route",
-        "label": "RideWithGPS"
-      },
-      {
-        "url": "https://www.cyclingtips.com",
-        "category": "media",
-        "label": "CyclingTips"
-      },
-      {
-        "url": "https://www.strava.com",
-        "category": "activity",
-        "label": "Strava"
-      },
-      {
-        "url": "https://www.trainerroad.com",
-        "category": "community",
-        "label": "TrainerRoad"
-      },
-      {
-        "url": "https://www.velonews.com",
-        "category": "media",
-        "label": "VeloNews"
+        "url": "https://silentsportsmagazine.com/2024/10/05/red-granite-grinder-an-unforgettable-cycling-experience-is-back-in-wausau-on-october-12th/",
+        "category": "other",
+        "label": "Silentsportsmagazine"
       },
       {
         "url": "https://www.gravelcyclist.com/race-reports/2019-ironbull-granite-grinder-race-report-wausau-wisconsin-by-todd-meerdink/",
-        "category": "community",
-        "label": "gravelcyclist.com: 2019 Ironbull Granite Grinder Race Report Wausau Wisconsi..."
+        "category": "media",
+        "label": "Gravel Cyclist"
       },
       {
         "url": "https://www.gravelcyclist.com/race-reports/race-report-ironbull-red-granite-grinder-showcases-central-wisconsin-on-an-epic-racecourse/",
-        "category": "community",
-        "label": "gravelcyclist.com: Race Report Ironbull Red Granite Grinder Showcases Centra..."
+        "category": "media",
+        "label": "Gravel Cyclist"
+      },
+      {
+        "url": "https://www.ironbull.org/red-granite-grinder-details",
+        "category": "other",
+        "label": "Ironbull"
       },
       {
         "url": "https://www.yahoo.com/news/articles/ironbull-red-granite-grinder-bicycle-090230313.html",
-        "category": "community",
-        "label": "yahoo.com: Ironbull Red Granite Grinder Bicycle 090230313.Html"
+        "category": "other",
+        "label": "Yahoo"
       },
       {
         "url": "https://www.ironbull.org/in-the-news/grinder-2022-race-report-jacob",
@@ -318,19 +331,29 @@
         "label": "ironbull.org: Grinder 2022 Race Report Jacob"
       },
       {
-        "url": "https://www.ironbull.org/red-granite-grinder-details",
-        "category": "community",
-        "label": "ironbull.org: Red Granite Grinder Details"
-      },
-      {
         "url": "https://results.bikereg.com/race/12340",
         "category": "community",
-        "label": "results.bikereg.com: 12340"
+        "label": "results.bikereg.com: 2019 Results"
       },
       {
-        "url": "https://silentsportsmagazine.com/2024/10/05/red-granite-grinder-an-unforgettable-cycling-experience-is-back-in-wausau-on-october-12th/",
+        "url": "https://results.bikereg.com/race/17316",
         "category": "community",
-        "label": "silentsportsmagazine.com: Red Granite Grinder An Unforgettable Cycling Experience I..."
+        "label": "results.bikereg.com: 2024 Results"
+      },
+      {
+        "url": "https://www.webscorer.com/race?raceid=409522",
+        "category": "community",
+        "label": "WebScorer: Race Results"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=_JPps45ViyQ",
+        "category": "video",
+        "label": "YouTube: Red Granite Grinder Coverage"
+      },
+      {
+        "url": "https://www.ironbull.org/grinder-results-and-pictures",
+        "category": "other",
+        "label": "IRONBULL: Results & Pictures"
       }
     ],
     "results": {

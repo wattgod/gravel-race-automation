@@ -19,7 +19,7 @@
         "Wilderness roads"
       ],
       "field_size": "50-150 riders",
-      "start_time": "Morning start",
+      "start_time": "9:15 AM CDT",
       "registration": "Online. Cost: ~$60-90",
       "prize_purse": "None",
       "aid_stations": "Minimal aid stations",
@@ -94,7 +94,10 @@
       "score": "47 / 100",
       "one_liner": "Small grassroots Upper Peninsula wilderness ride with remote location.",
       "should_you_race": "Only if you're in the Upper Peninsula or planning UP tourism. Not worth the long drive for the race alone.",
-      "alternatives": "For better Michigan events: Barry-Roubaix, Lumberjack 100. For similar remote wilderness vibes: other Upper Midwest wilderness events."
+      "alternatives": "For better Michigan events: Barry-Roubaix, Lumberjack 100. For similar remote wilderness vibes: other Upper Midwest wilderness events.",
+      "alternative_slugs": [
+        "barry-roubaix"
+      ]
     },
     "logistics": {
       "airport": "Green Bay (GRB) 2 hours, or Detroit (DTW) 5 hours",
@@ -178,12 +181,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 86.5,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 80,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 88,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -302,29 +314,34 @@
     },
     "citations": [
       {
+        "url": "http://www.diablocycling.com/races-events--blog/the-lone-wolf-gravel-race9964023",
+        "category": "other",
+        "label": "Diablocycling"
+      },
+      {
+        "url": "https://komcycling.com/blogs/product-blogs/episode-95-the-lone-wolf-gravel-race",
+        "category": "other",
+        "label": "Komcycling"
+      },
+      {
+        "url": "https://www.bikesignup.com/Race/MI/IronMountain/TheLoneWolfGravelRace",
+        "category": "other",
+        "label": "Bikesignup"
+      },
+      {
+        "url": "https://www.michigangravelraceseries.com/schedule/lonewolfgravel",
+        "category": "other",
+        "label": "Michigangravelraceseries"
+      },
+      {
         "url": "https://www.upsportandspoke.com/lonewolfgravelrace",
-        "category": "community",
-        "label": "upsportandspoke.com: Lonewolfgravelrace"
+        "category": "other",
+        "label": "Upsportandspoke"
       },
       {
         "url": "https://www.thenxrth.com/post/the-lone-wolf-sequel-2022-reroutes-peak-colors-a-perfect-day-in-dah-u-p",
         "category": "community",
         "label": "thenxrth.com: The Lone Wolf Sequel 2022 Reroutes Peak Colors A Perfect ..."
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=D7dMuD_U3Ho",
-        "category": "community",
-        "label": "youtube.com: Watch"
-      },
-      {
-        "url": "https://komcycling.com/blogs/product-blogs/episode-95-the-lone-wolf-gravel-race",
-        "category": "community",
-        "label": "komcycling.com: Episode 95 The Lone Wolf Gravel Race"
-      },
-      {
-        "url": "http://www.diablocycling.com/races-events--blog/the-lone-wolf-gravel-race9964023",
-        "category": "community",
-        "label": "diablocycling.com: The Lone Wolf Gravel Race9964023"
       }
     ],
     "tire_recommendations": {

@@ -19,7 +19,7 @@
         "Greece"
       ],
       "field_size": "200-400 riders",
-      "start_time": "Morning start",
+      "start_time": "8:30pm on",
       "registration": "Online. Cost: ~€50-80",
       "prize_purse": "Modest prizes",
       "aid_stations": "Multiple aid stations",
@@ -185,12 +185,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 90.5,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 100,
+          "completeness": 82,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -311,49 +320,29 @@
     },
     "citations": [
       {
-        "url": "https://speedcafe.com/rovanpera-surprised-by-dominance-on-greek-gravel/",
-        "category": "community",
-        "label": "speedcafe.com: Rovanpera Surprised By Dominance On Greek Gravel"
-      },
-      {
-        "url": "https://tgr-wrt.com/greek-gravel-classic-the-next-test-for-toyota-gazoo-racing/",
-        "category": "community",
-        "label": "tgr-wrt.com: Greek Gravel Classic The Next Test For Toyota Gazoo Racing"
-      },
-      {
         "url": "https://media.toyota.co.uk/greek-gravel-classic-the-next-test-for-toyota-gazoo-racing/",
-        "category": "community",
-        "label": "media.toyota.co.uk: Greek Gravel Classic The Next Test For Toyota Gazoo Racing"
-      },
-      {
-        "url": "https://www.gr-zoo.com/threads/greek-gravel-classic-the-next-test-for-toyota-gazoo-racing.8838/",
-        "category": "community",
-        "label": "gr-zoo.com: Greek Gravel Classic The Next Test For Toyota Gazoo Racin..."
-      },
-      {
-        "url": "https://www.fia.com/news/jari-matti-latvala-claims-victory-greek-gravel",
-        "category": "community",
-        "label": "fia.com: Jari Matti Latvala Claims Victory Greek Gravel"
+        "category": "other",
+        "label": "Media"
       },
       {
         "url": "https://rallydiaries.eu/en/toyota-gazoo-racing-wrc-test-greek-gravel",
-        "category": "community",
-        "label": "rallydiaries.eu: Toyota Gazoo Racing Wrc Test Greek Gravel"
+        "category": "other",
+        "label": "Rallydiaries"
       },
       {
-        "url": "https://www.reddit.com/r/rally/comments/14ovffv/today_was_rally_day/",
-        "category": "community",
-        "label": "reddit.com: Today Was Rally Day"
+        "url": "https://tgr-wrt.com/greek-gravel-classic-the-next-test-for-toyota-gazoo-racing/",
+        "category": "other",
+        "label": "Tgr-Wrt"
       },
       {
-        "url": "https://www.miamicars.com/news/syndicated-news/acropolis-rally-greece-previewgreek-gravel-classic-the-next-test-for-toyota-gazoo-racing/",
-        "category": "community",
-        "label": "miamicars.com: Acropolis Rally Greece Previewgreek Gravel Classic The Ne..."
+        "url": "https://www.gr-zoo.com/threads/acropolis-rally-greece-preview-greek-gravel-classic-the-next-test-for-toyota-gazoo-racing.8820/",
+        "category": "other",
+        "label": "Gr-Zoo"
       },
       {
-        "url": "https://www.gr-zoo.com/threads/greek-gravel-classic-the-next-test-for-toyota-gazoo-racing.8820/",
-        "category": "community",
-        "label": "gr-zoo.com: Greek Gravel Classic The Next Test For Toyota Gazoo Racin..."
+        "url": "https://www.gr-zoo.com/threads/greek-gravel-classic-the-next-test-for-toyota-gazoo-racing.8838/",
+        "category": "other",
+        "label": "Gr-Zoo"
       },
       {
         "url": "https://www.renehersecycles.com/winning-the-hellenic-mountain-race/",
@@ -369,6 +358,11 @@
         "url": "https://torstenfrank.wordpress.com/2025/06/18/hellenic-mountain-race-2025-by-the-numbers-and-compared-to-alps-divide-and-el-piri-omg-its-so-much-hiking/",
         "category": "community",
         "label": "torstenfrank.wordpress.com: Hellenic Mountain Race 2025 By The Numbers And Compared T..."
+      },
+      {
+        "url": "https://www.reddit.com/r/rally/comments/14ovffv/today_was_rally_day/",
+        "category": "community",
+        "label": "reddit.com: Today Was Rally Day"
       }
     ],
     "tire_recommendations": {

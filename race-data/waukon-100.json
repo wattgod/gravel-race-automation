@@ -19,7 +19,7 @@
         "Iowa"
       ],
       "field_size": "50-100 riders",
-      "start_time": "Morning start",
+      "start_time": "1:00PM",
       "registration": "Online. Cost: ~$75-100",
       "prize_purse": "Modest prizes",
       "aid_stations": "Multiple aid stations",
@@ -94,7 +94,10 @@
       "score": "44 / 100",
       "one_liner": "Iowa local gravel challenge.",
       "should_you_race": "If you're local to Iowa—yes, it's solid. If you're traveling—skip it.",
-      "alternatives": "For better Iowa races: Gravel Worlds, RAGBRAI."
+      "alternatives": "For better Iowa races: Gravel Worlds, RAGBRAI.",
+      "alternative_slugs": [
+        "garmin-gravel-worlds"
+      ]
     },
     "logistics": {
       "airport": "La Crosse (LSE) 60 minutes",
@@ -185,12 +188,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 80.9,
+        "grade": "A",
+        "weakest": "temporal_depth",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 80,
+          "citation_density": 80,
+          "temporal_depth": 50,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 50
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -317,18 +329,18 @@
       },
       {
         "url": "https://www.allamakeecounty.com/events/waukon-100-iowa-gravel-series",
-        "category": "community",
-        "label": "allamakeecounty.com: Waukon 100 Iowa Gravel Series"
+        "category": "other",
+        "label": "Allamakeecounty"
       },
       {
         "url": "https://www.bikeiowa.com/Event/16025/waukon-one-hundred-iowa-gravel-series",
-        "category": "community",
-        "label": "bikeiowa.com: Waukon One Hundred Iowa Gravel Series"
+        "category": "other",
+        "label": "Bikeiowa"
       },
       {
         "url": "https://www.cityofwaukon.com/events/waukon-100",
-        "category": "community",
-        "label": "cityofwaukon.com: Waukon 100"
+        "category": "other",
+        "label": "Cityofwaukon"
       },
       {
         "url": "https://www.youtube.com/watch?v=J0q4sRsjUCo",

@@ -19,7 +19,7 @@
         "Washington"
       ],
       "field_size": "75-125 riders",
-      "start_time": "Morning start",
+      "start_time": "9:00am",
       "registration": "Online. Cost: ~$85-105",
       "prize_purse": "Modest prizes",
       "aid_stations": "3 aid stations",
@@ -102,7 +102,8 @@
       "food": "Snoqualmie Pass has limited dining. Stock nutrition.",
       "packet_pickup": "Day of typically",
       "parking": "At start/finish",
-      "official_site": "Check The GRiT Adventure website"
+      "official_site": "Check The GRiT Adventure website",
+      "camping": "Camping available along the I90 corridor near Snoqualmie Pass**[2]"
     },
     "history": {
       "founded": null,
@@ -185,12 +186,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 75.7,
+        "grade": "B",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 60,
+          "citation_density": 80,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 80,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -311,19 +321,19 @@
     },
     "citations": [
       {
+        "url": "https://soundcloud.com/channeljourneys/grit-adventure-faith-behind-pivot-cj182",
+        "category": "other",
+        "label": "Soundcloud"
+      },
+      {
+        "url": "https://www.advpulse.com/adv-news/revit-harley-davidson-partner-up-to-create-new-adventure-line/",
+        "category": "other",
+        "label": "Advpulse"
+      },
+      {
         "url": "https://martin.criminale.com/2022/06/pre-riding-grit-l-course.html",
         "category": "community",
         "label": "martin.criminale.com: Pre Riding Grit L Course.Html"
-      },
-      {
-        "url": "https://www.granfondoguide.com/Events/Index/10617/the-grit",
-        "category": "community",
-        "label": "granfondoguide.com: The Grit"
-      },
-      {
-        "url": "https://thegrit.bike",
-        "category": "community",
-        "label": "thegrit.bike"
       }
     ],
     "tire_recommendations": {

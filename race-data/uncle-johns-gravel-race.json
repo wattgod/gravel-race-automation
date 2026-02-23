@@ -19,7 +19,7 @@
         "Michigan"
       ],
       "field_size": "50-100 riders",
-      "start_time": "Morning start",
+      "start_time": "8:00 AM",
       "registration": "Online. Cost: ~$50-75",
       "prize_purse": "Modest prizes",
       "aid_stations": "Limited aid stations",
@@ -94,7 +94,11 @@
       "score": "41 / 100",
       "one_liner": "Michigan local gravel challenge.",
       "should_you_race": "If you're local to Michigan—yes, it's good value. If you're traveling—skip it.",
-      "alternatives": "For better Michigan races: Barry-Roubaix, Iceman Cometh."
+      "alternatives": "For better Michigan races: Barry-Roubaix, Iceman Cometh.",
+      "alternative_slugs": [
+        "barry-roubaix",
+        "iceman-cometh"
+      ]
     },
     "logistics": {
       "airport": "Lansing (LAN) 30 minutes",
@@ -185,12 +189,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 88.4,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 50
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -316,9 +329,29 @@
         "label": "RideWithGPS: Uncle John's Dirty Ride 24 mile gravel road race."
       },
       {
+        "url": "https://ilovegravelracing.com/event/uncle-johns-gravel-race/",
+        "category": "other",
+        "label": "Ilovegravelracing"
+      },
+      {
         "url": "https://sunflowersandpedals.com/2025/09/16/gravel-racing-at-uncle-johns-a-season-finisher-to-remember/",
-        "category": "community",
-        "label": "sunflowersandpedals.com: Gravel Racing At Uncle Johns A Season Finisher To Remember"
+        "category": "other",
+        "label": "Sunflowersandpedals"
+      },
+      {
+        "url": "https://unclejohnsgravelrace.com/details/",
+        "category": "other",
+        "label": "Unclejohnsgravelrace"
+      },
+      {
+        "url": "https://unclejohnsgravelrace.com/events/",
+        "category": "other",
+        "label": "Unclejohnsgravelrace"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/7928/uncle-johns-gravel-race",
+        "category": "other",
+        "label": "Granfondoguide"
       },
       {
         "url": "https://www.youtube.com/watch?v=zt1I5Ld1ULQ",
@@ -329,16 +362,6 @@
         "url": "https://lmb.org/ride-calendar/uncle-johns-dirty-ride/",
         "category": "community",
         "label": "lmb.org: Uncle Johns Dirty Ride"
-      },
-      {
-        "url": "https://unclejohnsgravelrace.com/",
-        "category": "community",
-        "label": "unclejohnsgravelrace.com"
-      },
-      {
-        "url": "https://unclejohnsgravelrace.com/details/",
-        "category": "community",
-        "label": "unclejohnsgravelrace.com: Details"
       }
     ],
     "tire_recommendations": {

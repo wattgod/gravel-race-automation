@@ -94,7 +94,11 @@
       "score": "63 / 100",
       "one_liner": "125-mile high-altitude Colorado mountain gravel in Leadville.",
       "should_you_race": "If you want a high-altitude endurance test—yes, it's a serious challenge. If you want organization or pro field depth—look elsewhere.",
-      "alternatives": "For better high-altitude events: Leadville 100, Crusher in the Tushar. For similar regional events: other CO mountain gravel races."
+      "alternatives": "For better high-altitude events: Leadville 100, Crusher in the Tushar. For similar regional events: other CO mountain gravel races.",
+      "alternative_slugs": [
+        "crusher-in-the-tushar",
+        "leadville-100"
+      ]
     },
     "logistics": {
       "airport": "Denver (DEN) 2 hours or Colorado Springs (COS) 2 hours",
@@ -192,12 +196,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 93.0,
+        "grade": "A",
+        "weakest": "voice_authenticity",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 82,
+          "cross_reference": 75
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -323,49 +336,44 @@
         "label": "RideWithGPS: 2024 Vapor Trail 125"
       },
       {
-        "url": "https://vaportrail125.com/",
-        "category": "community",
-        "label": "vaportrail125.com"
-      },
-      {
-        "url": "https://www.themountainmail.com/news/vapor-trail-sees-record-turn-out-two-new-course-records-set/article_b0e96418-ab4b-413a-b964-37185dcc944e.html",
-        "category": "community",
-        "label": "themountainmail.com: Article B0E96418 Ab4B 413A B964 37185Dcc944E.Html"
-      },
-      {
-        "url": "https://singletrackskills.substack.com/p/vapor-trail-125-recap",
-        "category": "community",
-        "label": "singletrackskills.substack.com: Vapor Trail 125 Recap"
-      },
-      {
-        "url": "https://www.konaworld.com/blogs/cog/becky-and-ryan-gardner-battle-vapor-trail-125",
-        "category": "community",
-        "label": "konaworld.com: Becky And Ryan Gardner Battle Vapor Trail 125"
-      },
-      {
-        "url": "https://erichenderson1.blogspot.com/2024/09/vapor-trail-125.html",
-        "category": "community",
-        "label": "erichenderson1.blogspot.com: Vapor Trail 125.Html"
-      },
-      {
-        "url": "https://www.joinbasecamp.com/post/kathys-story-vapor-trail-125",
-        "category": "community",
-        "label": "joinbasecamp.com: Kathys Story Vapor Trail 125"
-      },
-      {
-        "url": "https://www.singletracks.com/community/race-report-vapor-trail-125-salida-co/",
-        "category": "community",
-        "label": "singletracks.com: Race Report Vapor Trail 125 Salida Co"
-      },
-      {
         "url": "https://bikepacking.com/plog/2024-vapor-trail-125-gallery/",
-        "category": "community",
-        "label": "bikepacking.com: 2024 Vapor Trail 125 Gallery"
+        "category": "other",
+        "label": "Bikepacking"
       },
       {
         "url": "https://blog.athletereg.com/2025/10/endurance-athletes-vapor-trail-125-salida/",
-        "category": "community",
-        "label": "blog.athletereg.com: Endurance Athletes Vapor Trail 125 Salida"
+        "category": "other",
+        "label": "Blog"
+      },
+      {
+        "url": "https://erichenderson1.blogspot.com/2024/09/vapor-trail-125.html",
+        "category": "other",
+        "label": "Erichenderson1"
+      },
+      {
+        "url": "https://singletrackskills.substack.com/p/vapor-trail-125-recap",
+        "category": "other",
+        "label": "Singletrackskills"
+      },
+      {
+        "url": "https://www.joinbasecamp.com/post/kathys-story-vapor-trail-125",
+        "category": "other",
+        "label": "Joinbasecamp"
+      },
+      {
+        "url": "https://www.konaworld.com/blogs/cog/becky-and-ryan-gardner-battle-vapor-trail-125",
+        "category": "other",
+        "label": "Konaworld"
+      },
+      {
+        "url": "https://www.singletracks.com/community/race-report-vapor-trail-125-salida-co/",
+        "category": "other",
+        "label": "Singletracks"
+      },
+      {
+        "url": "https://www.themountainmail.com/news/vapor-trail-sees-record-turn-out-two-new-course-records-set/article_b0e96418-ab4b-413a-b964-37185dcc944e.html",
+        "category": "other",
+        "label": "Themountainmail"
       },
       {
         "url": "https://www.camponocreative.com/blog/conquering-the-vapor-125",

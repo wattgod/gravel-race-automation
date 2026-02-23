@@ -122,7 +122,8 @@
       "lodging_strategy": "Winterset, IA has limited motels/Airbnbs—book early. Des Moines (45 min) has more lodging options. Book flexible dates: finishers arrive Sunday-Monday depending on pace (30-50 hour range). Consider post-race recovery lodging for 1-2 nights.",
       "food": "Self-supported format: resupply at Iowa small-town gas stations and grocery stores (25-40 mi gaps). Bring cash—not all rural stores accept cards; some close early evening. Plan resupply stops using route map beforehand. Shelf-stable convenience store food becomes race fuel (hot dogs, pizza, candy, sports drinks).",
       "packet_pickup": "Friday evening or Saturday morning at Winterset start venue. GPS tracker required for safety monitoring.",
-      "official_site": "https://www.iowagravel.com"
+      "official_site": "https://www.iowagravel.com",
+      "parking": "Parking available at start/finish venue\n\n**Lodging:**\n- **Winterset, IA** - Small town with limited motels/Airbnbs\n- **Des Moines area** - Mo"
     },
     "history": {
       "founded": 2018,
@@ -197,18 +198,18 @@
       ],
       "research_date": "2026-02-04",
       "research_strength": {
-        "overall": 78.5,
-        "grade": "B",
-        "weakest": "citation_density",
+        "overall": 94.1,
+        "grade": "A",
+        "weakest": "voice_authenticity",
         "has_research_dump": true,
         "dimensions": {
-          "source_diversity": 30,
-          "citation_density": 20,
+          "source_diversity": 100,
+          "citation_density": 80,
           "temporal_depth": 100,
           "specificity": 100,
           "statistical_backing": 100,
           "voice_authenticity": 70,
-          "completeness": 100,
+          "completeness": 94,
           "cross_reference": 100
         },
         "scored_at": "2026-02-04"
@@ -276,43 +277,42 @@
       "score": "63 / 100",
       "one_liner": "340 miles of Iowa gravel where the wind never stops and the suffering compounds every hour you're out there.",
       "should_you_race": "You need 200+ mile experience and the mental fortitude to grind through 40+ hours of constant wind exposure across endless farm roads. This isn't about watts—it's about navigation skills, self-sufficiency, and accepting that you'll question every life choice around Mile 200. Skip it if you've never done overnight riding or think Iowa looks flat and easy.",
-      "alternatives": "Dirty Kanza DK200 gives you the ultra-endurance challenge with better support and more prestige, while Gravel Worlds in Nebraska delivers similar Midwest suffering with a more established field. Both will test you without the navigation headaches of true self-support."
+      "alternatives": "Dirty Kanza DK200 gives you the ultra-endurance challenge with better support and more prestige, while Gravel Worlds in Nebraska delivers similar Midwest suffering with a more established field. Both will test you without the navigation headaches of true self-support.",
+      "alternative_slugs": [
+        "garmin-gravel-worlds",
+        "unbound-200"
+      ]
     },
     "citations": [
       {
-        "url": "https://www.iowagravel.com",
-        "category": "official",
-        "label": "Official Website"
+        "url": "https://ggtri.wordpress.com/test-2/2019-races/2019-iowa-wind-and-rock-iawar/",
+        "category": "other",
+        "label": "Ggtri"
+      },
+      {
+        "url": "https://wilcounchained.substack.com/p/iowa-wind-and-rock-iwar-2024",
+        "category": "other",
+        "label": "Wilcounchained"
+      },
+      {
+        "url": "https://www.cxmagazine.com/2019-iowa-wind-rock-gravel-race-ultra-endurance-transiowa-legacy",
+        "category": "media",
+        "label": "CX Magazine"
       },
       {
         "url": "https://www.trainerroad.com/forum/t/a-success-story-iowa-wind-and-rock/57591",
         "category": "community",
-        "label": "trainerroad.com: 57591"
+        "label": "TrainerRoad"
       },
       {
-        "url": "https://wilcounchained.substack.com/p/iowa-wind-and-rock-iwar-2024",
+        "url": "https://www.trainerroad.com/forum/t/ultra-gravel-racing-riding/15399",
         "category": "community",
-        "label": "wilcounchained.substack.com: Iowa Wind And Rock Iwar 2024"
+        "label": "TrainerRoad"
       },
       {
-        "url": "https://www.hpultracycling.com/iowa-wind-and-rock-2019-heather-poskevichs-race-report/",
-        "category": "community",
-        "label": "hpultracycling.com: Iowa Wind And Rock 2019 Heather Poskevichs Race Report"
-      },
-      {
-        "url": "https://www.bikeiowa.com/Event/15945/iowa-wind-and-rock",
-        "category": "community",
-        "label": "bikeiowa.com: Iowa Wind And Rock"
-      },
-      {
-        "url": "https://iowawindandrock.com/",
-        "category": "community",
-        "label": "iowawindandrock.com"
-      },
-      {
-        "url": "https://blackhillsbackbone.blogspot.com/2018/09/iowa-wind-and-rock-gravel-family-steps.html",
-        "category": "community",
-        "label": "blackhillsbackbone.blogspot.com: Iowa Wind And Rock Gravel Family Steps.Html"
+        "url": "https://www.trainingpeaks.com/training-plans/cycling/gran-fondo-century/tp-434440/t2m-iowa-wind-and-rock-gravel-ultra-iwar-iawar-v24",
+        "category": "other",
+        "label": "Trainingpeaks"
       },
       {
         "url": "https://www.mathewwollmann.com/post/iowa-wind-rock-2023-race-recap",
@@ -320,24 +320,9 @@
         "label": "mathewwollmann.com: Iowa Wind Rock 2023 Race Recap"
       },
       {
-        "url": "https://ggtri.wordpress.com/test-2/2019-races/2019-iowa-wind-and-rock-iawar/",
-        "category": "community",
-        "label": "ggtri.wordpress.com: 2019 Iowa Wind And Rock Iawar"
-      },
-      {
         "url": "https://www.eplocalnews.org/2022/05/05/gravel-racing-a-challenge-for-body-and-mind/",
         "category": "community",
         "label": "eplocalnews.org: Gravel Racing A Challenge For Body And Mind"
-      },
-      {
-        "url": "https://www.cxmagazine.com/2019-iowa-wind-rock-gravel-race-ultra-endurance-transiowa-legacy",
-        "category": "community",
-        "label": "cxmagazine.com: 2019 Iowa Wind Rock Gravel Race Ultra Endurance Transiowa..."
-      },
-      {
-        "url": "https://www.trainerroad.com/forum/t/ultra-gravel-racing-riding/15399",
-        "category": "community",
-        "label": "trainerroad.com: 15399"
       }
     ],
     "tire_recommendations": {

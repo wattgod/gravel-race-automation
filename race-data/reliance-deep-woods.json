@@ -19,7 +19,7 @@
         "Southeast USA"
       ],
       "field_size": "200-400 riders",
-      "start_time": "Morning start",
+      "start_time": "7:30 a.m. EST",
       "registration": "Online. Cost: ~$75-125",
       "prize_purse": "Modest prizes",
       "aid_stations": "Multiple aid stations",
@@ -102,7 +102,8 @@
       "food": "TN has full dining options. Stock nutrition.",
       "packet_pickup": "Day before typically",
       "parking": "At start/finish",
-      "official_site": "Check Reliance Deep Woods website"
+      "official_site": "Check Reliance Deep Woods website",
+      "camping": "Camping available with music, food, beer[1]"
     },
     "history": {
       "founded": null,
@@ -185,12 +186,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 86.7,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -341,28 +351,28 @@
     "citations": [
       {
         "url": "https://careylowery.blogspot.com/2025/04/reliance-deep-woods-gravel-race-stage-1.html",
-        "category": "community",
-        "label": "careylowery.blogspot.com: Reliance Deep Woods Gravel Race Stage 1.Html"
-      },
-      {
-        "url": "https://www.joinbasecamp.com/post/jons-story-reliance-deep-woods-gravel-grinder",
-        "category": "community",
-        "label": "joinbasecamp.com: Jons Story Reliance Deep Woods Gravel Grinder"
+        "category": "other",
+        "label": "Careylowery"
       },
       {
         "url": "https://careylowery.blogspot.com/2025/04/reliance-deep-woods-gravel-race-stage-2.html",
-        "category": "community",
-        "label": "careylowery.blogspot.com: Reliance Deep Woods Gravel Race Stage 2.Html"
+        "category": "other",
+        "label": "Careylowery"
+      },
+      {
+        "url": "https://www.gravelcyclist.com/videos/gravel-events-you-should-know-about-southeastern-usa-volume-2/",
+        "category": "media",
+        "label": "Gravel Cyclist"
+      },
+      {
+        "url": "https://www.joinbasecamp.com/post/jons-story-reliance-deep-woods-gravel-grinder",
+        "category": "other",
+        "label": "Joinbasecamp"
       },
       {
         "url": "https://www.tennesseegravel.com/reliance-sponsor",
         "category": "community",
         "label": "tennesseegravel.com: Reliance Sponsor"
-      },
-      {
-        "url": "https://www.gravelcyclist.com/videos/gravel-events-you-should-know-about-southeastern-usa-volume-2/",
-        "category": "community",
-        "label": "gravelcyclist.com: Gravel Events You Should Know About Southeastern Usa Volu..."
       }
     ],
     "tire_recommendations": {

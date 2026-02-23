@@ -19,7 +19,7 @@
         "Florida"
       ],
       "field_size": "75-125 riders",
-      "start_time": "Morning start",
+      "start_time": "7:30 AM",
       "registration": "Online. Cost: ~$60-80",
       "prize_purse": "Modest prizes",
       "aid_stations": "2 aid stations",
@@ -94,7 +94,10 @@
       "score": "36 / 100",
       "one_liner": "Florida gravel challenge.",
       "should_you_race": "If you're local to FL/Southeast—yes, it's solid. If you're traveling—skip it.",
-      "alternatives": "For better FL races: Dirty Pecan."
+      "alternatives": "For better FL races: Dirty Pecan.",
+      "alternative_slugs": [
+        "dirty-pecan"
+      ]
     },
     "logistics": {
       "airport": "Pensacola (PNS) 30 minutes",
@@ -185,12 +188,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 72.7,
+        "grade": "B",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 60,
+          "citation_density": 50,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 80,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -311,29 +323,19 @@
     },
     "citations": [
       {
-        "url": "https://www.porc.org/scratch-ankle",
-        "category": "community",
-        "label": "porc.org: Scratch Ankle"
+        "url": "https://elitewheels.com/events/scratch-ankle-gravel/",
+        "category": "other",
+        "label": "Elitewheels"
       },
       {
-        "url": "https://bikepacking.com/event/scratch-ankle-gravel-2025/",
-        "category": "community",
-        "label": "bikepacking.com: Scratch Ankle Gravel 2025"
+        "url": "https://www.bikereg.com/scratch-ankle-gravel",
+        "category": "registration",
+        "label": "BikeReg"
       },
       {
-        "url": "https://www.granfondoguide.com/Events/Index/12212/scratch-ankle-gravel",
-        "category": "community",
-        "label": "granfondoguide.com: Scratch Ankle Gravel"
-      },
-      {
-        "url": "https://scratchanklegravel.com",
-        "category": "community",
-        "label": "scratchanklegravel.com"
-      },
-      {
-        "url": "https://scratchanklegravel.com/news",
-        "category": "community",
-        "label": "scratchanklegravel.com: News"
+        "url": "https://www.granfondoguide.com/Events/Index/scratch-ankle-gravel",
+        "category": "other",
+        "label": "Granfondoguide"
       }
     ],
     "tire_recommendations": {

@@ -19,7 +19,7 @@
         "Forest roads"
       ],
       "field_size": "50-150 riders",
-      "start_time": "Morning start",
+      "start_time": "12:00am to",
       "registration": "Online. Cost: ~$50-80",
       "prize_purse": "None",
       "aid_stations": "Minimal aid stations",
@@ -101,7 +101,7 @@
       "food": "Tiny community with minimal options. Bring your own.",
       "packet_pickup": "Race morning",
       "parking": "At start/finish",
-      "official_site": "Check Wisconsin cycling calendars"
+      "official_site": "https://go.hardwood-hustle.com/summerhustletour-2025"
     },
     "history": {
       "founded": null,
@@ -177,12 +177,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 90.0,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 82,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -301,19 +310,54 @@
     },
     "citations": [
       {
-        "url": "https://www.bikesignup.com/Race/Events/WI/LongLake/TheHardwoodHustle",
-        "category": "community",
-        "label": "bikesignup.com: Thehardwoodhustle"
+        "url": "https://go.hardwood-hustle.com/summerhustletour-2025",
+        "category": "official",
+        "label": "Official Website"
       },
       {
-        "url": "https://www.thenxrth.com/events/the-hardwood-hustle",
-        "category": "community",
-        "label": "thenxrth.com: The Hardwood Hustle"
+        "url": "https://ridewithgps.com/routes/44349130",
+        "category": "route",
+        "label": "RideWithGPS: Hardwood Hustle Bikepacking "
+      },
+      {
+        "url": "https://hardwood-hustle.com/blog/",
+        "category": "other",
+        "label": "Hardwood-Hustle"
+      },
+      {
+        "url": "https://hardwood-hustle.com/newsletter/",
+        "category": "other",
+        "label": "Hardwood-Hustle"
+      },
+      {
+        "url": "https://hardwoodhustle.com/episode-504/",
+        "category": "other",
+        "label": "Hardwoodhustle"
+      },
+      {
+        "url": "https://runtrimag.com/race-events/the-hardwood-hustle/",
+        "category": "other",
+        "label": "Runtrimag"
+      },
+      {
+        "url": "https://www.bikesignup.com/Race/Events/WI/LongLake/TheHardwoodHustle",
+        "category": "other",
+        "label": "Bikesignup"
       },
       {
         "url": "https://www.bikesignup.com/Race/WI/LongLake/TheHardwoodHustle",
-        "category": "community",
-        "label": "bikesignup.com: Thehardwoodhustle"
+        "category": "other",
+        "label": "Bikesignup"
+      },
+      {
+        "url": "https://www.thenxrth.com/events/the-hardwood-hustle",
+        "category": "other",
+        "label": "Thenxrth"
+      },
+      {
+        "url": "https://www.youtube.com/HardwoodHustle",
+        "category": "video",
+        "label": "YouTube"
       }
     ],
     "tire_recommendations": {

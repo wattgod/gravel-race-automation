@@ -97,7 +97,8 @@
       "food": "Event provides some meals. Small-town dining in stage communities.",
       "packet_pickup": "Day before Stage 1 at start location.",
       "parking": "Vehicle support recommended for gear transport between stages.",
-      "official_site": "https://www.oregontrailgravelgrinder.com"
+      "official_site": "https://www.oregontrailgravelgrinder.com",
+      "camping": "camping at Dufur City Park (series other event: hookups, heated bathrooms/showers)[2]"
     },
     "history": {
       "founded": 2015,
@@ -149,18 +150,18 @@
       ],
       "migration_notes": [],
       "research_strength": {
-        "overall": 62.0,
-        "grade": "C",
+        "overall": 91.8,
+        "grade": "A",
         "weakest": "cross_reference",
-        "has_research_dump": false,
+        "has_research_dump": true,
         "dimensions": {
-          "source_diversity": 30,
-          "citation_density": 20,
-          "temporal_depth": 75,
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
           "specificity": 100,
-          "statistical_backing": 35,
+          "statistical_backing": 100,
           "voice_authenticity": 70,
-          "completeness": 100,
+          "completeness": 94,
           "cross_reference": 15
         },
         "scored_at": "2026-02-04"
@@ -226,84 +227,69 @@
     },
     "citations": [
       {
-        "url": "https://www.oregontrailgravelgrinder.com",
-        "category": "official",
-        "label": "Official Website"
-      },
-      {
         "url": "https://ridewithgps.com/routes/51970272",
         "category": "route",
         "label": "RideWithGPS: 2025 Oregon Trail Gravel Grinder Full Route"
       },
       {
-        "url": "https://www.gravelstoke.com/gravel-cycling-gear-blog/2019-oregon-trail-gravel-grinder",
-        "category": "community",
-        "label": "gravelstoke.com: 2019 Oregon Trail Gravel Grinder"
-      },
-      {
-        "url": "https://sagetitanium.com/2019/07/25/oregon-trail-gravel-grinder-stage-3-race-report/",
-        "category": "community",
-        "label": "sagetitanium.com: Oregon Trail Gravel Grinder Stage 3 Race Report"
-      },
-      {
-        "url": "https://www.altovelo.org/blog/race-report-oregon-trail-gravel-grinder",
-        "category": "community",
-        "label": "altovelo.org: Race Report Oregon Trail Gravel Grinder"
-      },
-      {
-        "url": "https://www.bicyclelaw.com/newsletter/critical-infrastructure/a-field-guide-to-the-oregon-trail-gravel-grinder/",
-        "category": "community",
-        "label": "bicyclelaw.com: A Field Guide To The Oregon Trail Gravel Grinder"
-      },
-      {
-        "url": "https://velo.outsideonline.com/gravel/gravel-racing/oregon-trail-gravel-grinder-all-you-need-to-know-about-life-on-the-trail/",
-        "category": "community",
-        "label": "velo.outsideonline.com: Oregon Trail Gravel Grinder All You Need To Know About Li..."
-      },
-      {
-        "url": "https://www.gravelunion.cc/article/ride-report-racing-the-pioneer-trails-in-oregon",
-        "category": "community",
-        "label": "gravelunion.cc: Ride Report Racing The Pioneer Trails In Oregon"
-      },
-      {
         "url": "https://argonautcycles.com/inside-the-argonaut-factory-racing-setup-at-oregon-trail/",
-        "category": "community",
-        "label": "argonautcycles.com: Inside The Argonaut Factory Racing Setup At Oregon Trail"
+        "category": "other",
+        "label": "Argonautcycles"
       },
       {
-        "url": "https://www.gravelstoke.com/gravel-civic-gear-blog/2019-oregon-trail-gravel-grinder",
-        "category": "community",
-        "label": "gravelstoke.com: 2019 Oregon Trail Gravel Grinder"
-      },
-      {
-        "url": "https://velo.outsideonline.com/gravel/gravel-racing/oregon-trail-gravel-grinder-2025-results-race-report/",
-        "category": "community",
-        "label": "velo.outsideonline.com: Oregon Trail Gravel Grinder 2025 Results Race Report"
-      },
-      {
-        "url": "https://www.oregontrailgravelgrinder.com/dispatches",
-        "category": "community",
-        "label": "oregontrailgravelgrinder.com: Dispatches"
+        "url": "https://avidcyclist.com/event/oregon-trail-gravel-grinder/",
+        "category": "other",
+        "label": "Avidcyclist"
       },
       {
         "url": "https://cecilelejeune.substack.com/p/oregon-trail-gravel-grinder-the-race",
-        "category": "community",
-        "label": "cecilelejeune.substack.com: Oregon Trail Gravel Grinder The Race"
+        "category": "other",
+        "label": "Cecilelejeune"
+      },
+      {
+        "url": "https://gravelearthseries.com/2025/07/02/wilderness-grit-and-glory-in-oregon/",
+        "category": "other",
+        "label": "Gravelearthseries"
+      },
+      {
+        "url": "https://konaworld.com/blogs/cog/cory-wallace-reports-on-the-oregon-trail-gravel-grinder",
+        "category": "other",
+        "label": "Konaworld"
+      },
+      {
+        "url": "https://velo.outsideonline.com/gravel/gravel-racing/oregon-trail-gravel-grinder-2025-results-race-report/",
+        "category": "media",
+        "label": "Velo"
+      },
+      {
+        "url": "https://velo.outsideonline.com/gravel/gravel-racing/oregon-trail-gravel-grinder-all-you-need-to-know-about-life-on-the-trail/",
+        "category": "media",
+        "label": "Velo"
+      },
+      {
+        "url": "https://www.altovelo.org/blog/race-report-oregon-trail-gravel-grinder",
+        "category": "other",
+        "label": "Altovelo"
       },
       {
         "url": "https://www.konaworld.com/blogs/cog/cory-wallace-reports-on-the-oregon-trail-gravel-grinder",
-        "category": "community",
-        "label": "konaworld.com: Cory Wallace Reports On The Oregon Trail Gravel Grinder"
+        "category": "other",
+        "label": "Konaworld"
+      },
+      {
+        "url": "https://www.oregontrailgravelgrinder.com/dispatches",
+        "category": "other",
+        "label": "Oregontrailgravelgrinder"
       },
       {
         "url": "https://www.reddit.com/r/gravelcycling/comments/1425rwc/oregon_trail_gravel_grinder_tire_question/",
         "category": "community",
-        "label": "reddit.com: Oregon Trail Gravel Grinder Tire Question"
+        "label": "Reddit"
       },
       {
-        "url": "https://www.oregontrailgravelgrinder.com/",
+        "url": "https://www.reddit.com/r/gravelcycling/comments/1bi9jd8/2024_oregon_trail_gravel_grinder/",
         "category": "community",
-        "label": "oregontrailgravelgrinder.com"
+        "label": "Reddit"
       }
     ],
     "tire_recommendations": {

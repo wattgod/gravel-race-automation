@@ -94,7 +94,11 @@
       "score": "51 / 100",
       "one_liner": "California coastal mountains gravel in Ojai.",
       "should_you_race": "If you're in California and want a coastal mountains event—yes, it's solid. If you're from out of state—there are better options.",
-      "alternatives": "For better CA events: BWR, Grinduro. For similar regional events: other CA mountain gravel races."
+      "alternatives": "For better CA events: BWR, Grinduro. For similar regional events: other CA mountain gravel races.",
+      "alternative_slugs": [
+        "bwr-california",
+        "grinduro"
+      ]
     },
     "logistics": {
       "airport": "Los Angeles (LAX) 1.5 hours or Burbank (BUR) 1.5 hours",
@@ -185,12 +189,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 95.7,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 100,
+          "completeness": 88,
+          "cross_reference": 50
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -282,7 +295,7 @@
       },
       "prestige": {
         "score": 2,
-        "explanation": "The Pirate Cycling League attracts elite talent like Austin Morris, Colin Strickland, and Payson McElveen to their established Nebraska events. However, this specific Ojai race lacks discoverable presence in cycling calendars or community recognition. While PCL carries grassroots credibility from organizing since 2007, this appears to be a regional offering without the reputation of their flagship Gravel Worlds championship that draws top competitors. As Andrew 'Lespy' L'Esperance puts it: \"Some riders finishing inside the top-10 of the Life Time Grand Prix (LTGP), the world's most prestigious off-road series, are barely breaking even, let alone earning a salary.\""
+        "explanation": "The Pirate Cycling League attracts elite talent like Austin Morris, Colin Strickland, and Payson McElveen to their established Nebraska events. However, this specific Ojai race lacks discoverable presence in cycling calendars or community recognition. While PCL carries grassroots credibility from organizing since 2007, this appears to be a regional offering without the reputation of their flagship Gravel Worlds championship that draws top competitors. As Andrew 'Lespy' L'Esperance puts it: \"Some riders finishing inside the top-10 of the world's most prestigious off-road series are barely breaking even, let alone earning a salary.\""
       },
       "race_quality": {
         "score": 2,
@@ -322,49 +335,44 @@
     ],
     "citations": [
       {
-        "url": "https://www.cxmagazine.com/preview-2018-gravel-worlds-race-nebraska-lauf-true-grit",
-        "category": "community",
-        "label": "cxmagazine.com: Preview 2018 Gravel Worlds Race Nebraska Lauf True Grit"
+        "url": "https://www.cyclingnews.com/pro-cycling/riders-making-six-figures-race-against-some-who-arent-making-a-cent-are-pro-gravel-teams-about-to-be-the-end-of-the-privateer/",
+        "category": "other",
+        "label": "Cyclingnews"
       },
       {
-        "url": "https://ari-fixed-gear-pages.blogspot.com/2012/09/iowa-iowa-iowa-sunday-september-2nd-2012.html",
-        "category": "community",
-        "label": "ari-fixed-gear-pages.blogspot.com: Iowa Iowa Iowa Sunday September 2Nd 2012.Html"
-      },
-      {
-        "url": "https://www.cxmagazine.com/tag/gravel-worlds",
-        "category": "community",
-        "label": "cxmagazine.com: Gravel Worlds"
-      },
-      {
-        "url": "https://www.gravelworlds.com/blog/2021-gravel-worlds-rider-info",
-        "category": "community",
-        "label": "gravelworlds.com: 2021 Gravel Worlds Rider Info"
-      },
-      {
-        "url": "https://www.gravelworlds.com/blog/uncategorized/cancelling-gravel-worlds-2020",
-        "category": "community",
-        "label": "gravelworlds.com: Cancelling Gravel Worlds 2020"
-      },
-      {
-        "url": "https://dirttanbikeclub.com/2022/10/18/the-victory-of-third-places/",
-        "category": "community",
-        "label": "dirttanbikeclub.com: The Victory Of Third Places"
+        "url": "https://www.cyclingnews.com/pro-racing/riders-making-six-figures-race-against-some-who-arent-making-a-cent-are-pro-gravel-teams-about-to-be-the-end-of-the-privateer/",
+        "category": "other",
+        "label": "Cyclingnews"
       },
       {
         "url": "https://www.gravelcyclist.com/race-reports/gravel-worlds-race-report-by-austin-morris/",
-        "category": "community",
-        "label": "gravelcyclist.com: Gravel Worlds Race Report By Austin Morris"
+        "category": "media",
+        "label": "Gravel Cyclist"
       },
       {
         "url": "https://www.gravelcyclist.com/race-reports/race-report-150-hot-miles-of-the-2018-gravel-worlds-and-about-87-hills-lincoln-nebraska-usa/",
-        "category": "community",
-        "label": "gravelcyclist.com: Race Report 150 Hot Miles Of The 2018 Gravel Worlds And A..."
+        "category": "media",
+        "label": "Gravel Cyclist"
       },
       {
         "url": "https://www.gravelcyclist.com/race-reports/single-speeding-at-2019-gravel-worlds-lincoln-nebraska-by-adrienne-taren/",
+        "category": "media",
+        "label": "Gravel Cyclist"
+      },
+      {
+        "url": "https://www.gravelworlds.com/blog/garmin-gravel-worlds-announces-pro-category-with-donation-based-prize-pool",
+        "category": "other",
+        "label": "Gravelworlds"
+      },
+      {
+        "url": "https://www.gravelworlds.com/blog/pirate-cycling-league-celebrates-15-years-of-two-wheeled-adventures",
+        "category": "other",
+        "label": "Gravelworlds"
+      },
+      {
+        "url": "https://www.reddit.com/r/gravelgrinder/comments/312aau/pirate_cycling_league_gravel_worlds_registration/",
         "category": "community",
-        "label": "gravelcyclist.com: Single Speeding At 2019 Gravel Worlds Lincoln Nebraska By..."
+        "label": "Reddit"
       },
       {
         "url": "https://dirttanbikeclub.com/category/race-recaps/",
@@ -372,29 +380,9 @@
         "label": "dirttanbikeclub.com: Race Recaps"
       },
       {
-        "url": "https://www.cyclingnews.com/pro-cycling/riders-making-six-figures-race-against-some-who-arent-making-a-cent-are-pro-gravel-teams-about-to-be-the-end-of-the-privateer/",
-        "category": "community",
-        "label": "cyclingnews.com: Riders Making Six Figures Race Against Some Who Arent Mak..."
-      },
-      {
-        "url": "https://www.cyclingnews.com/pro-racing/riders-making-six-figures-race-against-some-who-arent-making-a-cent-are-pro-gravel-teams-about-to-be-the-end-of-the-privateer/",
-        "category": "community",
-        "label": "cyclingnews.com: Riders Making Six Figures Race Against Some Who Arent Mak..."
-      },
-      {
         "url": "https://www.komoot.com/user/gravelworlds",
         "category": "community",
         "label": "komoot.com: Gravelworlds"
-      },
-      {
-        "url": "https://www.gravelworlds.com/blog/pirate-cycling-league-celebrates-15-years-of-two-wheeled-adventures",
-        "category": "community",
-        "label": "gravelworlds.com: Pirate Cycling League Celebrates 15 Years Of Two Wheeled ..."
-      },
-      {
-        "url": "https://www.gravelworlds.com/blog/garmin-gravel-worlds-announces-pro-category-with-donation-based-prize-pool",
-        "category": "community",
-        "label": "gravelworlds.com: Garmin Gravel Worlds Announces Pro Category With Donation..."
       },
       {
         "url": "https://g-tedproductions.blogspot.com/2023/08/gravel-history-with-guitar-ted-good.html",

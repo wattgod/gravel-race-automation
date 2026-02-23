@@ -94,7 +94,10 @@
       "score": "44 / 100",
       "one_liner": "Small grassroots Wisconsin Northwoods ride with modest ambitions.",
       "should_you_race": "Only if you're in Wisconsin and want an affordable, low-key gravel ride in the Northwoods. Not worth traveling far for.",
-      "alternatives": "For better Wisconsin events: Chequamegon, Driftless Gravel. For similar grassroots vibes: other regional Midwest events."
+      "alternatives": "For better Wisconsin events: Chequamegon, Driftless Gravel. For similar grassroots vibes: other regional Midwest events.",
+      "alternative_slugs": [
+        "chequamegon-mtb"
+      ]
     },
     "logistics": {
       "airport": "Green Bay (GRB) or Milwaukee (MKE) ~3 hours",
@@ -102,7 +105,8 @@
       "food": "Small town with basic dining. Stock up beforehand.",
       "packet_pickup": "Race morning typically",
       "parking": "At start/finish",
-      "official_site": "Check Wisconsin cycling calendars"
+      "official_site": "Check Wisconsin cycling calendars",
+      "camping": "camping facilities**[1]"
     },
     "history": {
       "founded": null,
@@ -178,12 +182,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 78.5,
+        "grade": "B",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 30,
+          "citation_density": 80,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 88,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {

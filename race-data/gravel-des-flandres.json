@@ -94,7 +94,11 @@
       "score": "47 / 100",
       "one_liner": "Belgian Flanders rolling gravel.",
       "should_you_race": "If you're in Belgium/Europe—yes, it's solid. If you're international—there are better options.",
-      "alternatives": "For similar Belgian events: Houffa Gravel, Ardenne Gravel Stages."
+      "alternatives": "For similar Belgian events: Houffa Gravel, Ardenne Gravel Stages.",
+      "alternative_slugs": [
+        "ardenne-gravel-stages",
+        "houffa-gravel"
+      ]
     },
     "logistics": {
       "airport": "Brussels (BRU) 1-2 hours depending on location",
@@ -185,12 +189,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 64.7,
+        "grade": "C",
+        "weakest": "source_diversity",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 0,
+          "citation_density": 5,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {

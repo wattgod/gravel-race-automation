@@ -95,7 +95,10 @@
       "score": "63 / 100",
       "one_liner": "Moroccan Atlas Mountains ultra-endurance gravel race.",
       "should_you_race": "If you're an elite ultra-endurance rider with a big budget—maybe. For most riders—there are better options.",
-      "alternatives": "For similar ultra-endurance: Transcontinental Race. For better value: regional gravel races."
+      "alternatives": "For similar ultra-endurance: Transcontinental Race. For better value: regional gravel races.",
+      "alternative_slugs": [
+        "transcontinental-race"
+      ]
     },
     "logistics": {
       "airport": "Marrakech (RAK) varies by start location",
@@ -186,12 +189,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 97.0,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 100,
+          "completeness": 88,
+          "cross_reference": 75
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -314,99 +326,64 @@
     },
     "citations": [
       {
+        "url": "https://www.themountainraces.cc/atlas-mountain-race",
+        "category": "official",
+        "label": "Official Website"
+      },
+      {
         "url": "https://ridewithgps.com/routes/32078944",
         "category": "route",
         "label": "RideWithGPS: Atlas Mountain Race // Morocco"
       },
       {
-        "url": "https://advntr.cc/the-atlas-mountain-race-diary-pt-1-of-4/",
-        "category": "community",
-        "label": "advntr.cc: The Atlas Mountain Race Diary Pt 1 Of 4"
-      },
-      {
-        "url": "https://advntr.cc/atlas-mountain-race-countdown/",
-        "category": "community",
-        "label": "advntr.cc: Atlas Mountain Race Countdown"
-      },
-      {
-        "url": "https://ultra-jo.com/2022/12/03/amr-report/",
-        "category": "community",
-        "label": "ultra-jo.com: Amr Report"
-      },
-      {
-        "url": "https://bikepacking.com/plog/riding-the-high-atlas-morocco/",
-        "category": "community",
-        "label": "bikepacking.com: Riding The High Atlas Morocco"
-      },
-      {
-        "url": "https://escapecollective.com/bike-check-surviving-the-1-300-km-atlas-mountain-race/",
-        "category": "community",
-        "label": "escapecollective.com: Bike Check Surviving The 1 300 Km Atlas Mountain Race"
-      },
-      {
-        "url": "https://www.tailfin.cc/blog/10-lessons-learned-from-the-atlas-mountain-race/",
-        "category": "community",
-        "label": "tailfin.cc: 10 Lessons Learned From The Atlas Mountain Race"
-      },
-      {
-        "url": "https://kostume.cc/atlas-mountain-race-report-2025",
-        "category": "community",
-        "label": "kostume.cc: Atlas Mountain Race Report 2025"
-      },
-      {
-        "url": "https://jamesmarkhayden.eu/knowledge/tips-on-how-to-complete-the-atlas-mountain-race",
-        "category": "community",
-        "label": "jamesmarkhayden.eu: Tips On How To Complete The Atlas Mountain Race"
-      },
-      {
-        "url": "https://theradavist.com/mel-webb-atlas-mountain-race",
-        "category": "community",
-        "label": "theradavist.com: Mel Webb Atlas Mountain Race"
-      },
-      {
-        "url": "https://cyclite.cc/en/blogs/news/atlas-mountain-race-marei-moldenhauer",
-        "category": "community",
-        "label": "cyclite.cc: Atlas Mountain Race Marei Moldenhauer"
-      },
-      {
-        "url": "https://www.themountainraces.cc/atlas-mountain-race",
-        "category": "community",
-        "label": "themountainraces.cc: Atlas Mountain Race"
-      },
-      {
-        "url": "https://ozogan.eu/atlas-mountain-race-2025/",
-        "category": "community",
-        "label": "ozogan.eu: Atlas Mountain Race 2025"
+        "url": "https://bikepacking.com/bikes/2026-atlas-mountain-race-rigs-part-one/",
+        "category": "other",
+        "label": "Bikepacking"
       },
       {
         "url": "https://bikepacking.com/plog/2025-atlas-mountain-race-mid-race/",
-        "category": "community",
-        "label": "bikepacking.com: 2025 Atlas Mountain Race Mid Race"
+        "category": "other",
+        "label": "Bikepacking"
       },
       {
-        "url": "https://restrap.com/blogs/news/atlas-mountain-race-report",
-        "category": "community",
-        "label": "restrap.com: Atlas Mountain Race Report"
+        "url": "https://dotwatcher.cc/race/atlas-mountain-race-2025",
+        "category": "tracking",
+        "label": "DotWatcher"
       },
       {
-        "url": "https://www.gravelunion.cc/article/armchair-adventure-conquering-the-atlas-mountain-race",
-        "category": "community",
-        "label": "gravelunion.cc: Armchair Adventure Conquering The Atlas Mountain Race"
+        "url": "https://ozogan.eu/atlas-mountain-race-2025/",
+        "category": "other",
+        "label": "Ozogan"
       },
       {
         "url": "https://pasnormalstudios.com/int/pages/atlas-mountain-race",
-        "category": "community",
-        "label": "pasnormalstudios.com: Atlas Mountain Race"
+        "category": "other",
+        "label": "Pasnormalstudios"
       },
       {
-        "url": "https://www.buzzalong.cc/post/how-to-bikepack-the-atlas-mountain-race-a-complete-guide",
-        "category": "community",
-        "label": "buzzalong.cc: How To Bikepack The Atlas Mountain Race A Complete Guide"
+        "url": "https://restrap.com/blogs/news/atlas-mountain-race-report",
+        "category": "other",
+        "label": "Restrap"
       },
       {
         "url": "https://www.biketour-global.de/en/2026/02/07/bikeanalytics-atlas-mountain-race-2026-2/",
+        "category": "other",
+        "label": "Biketour-Global"
+      },
+      {
+        "url": "https://www.buzzalong.cc/post/how-to-bikepack-the-atlas-mountain-race-a-complete-guide",
+        "category": "other",
+        "label": "Buzzalong"
+      },
+      {
+        "url": "https://www.gravelunion.cc/article/armchair-adventure-conquering-the-atlas-mountain-race",
+        "category": "other",
+        "label": "Gravelunion"
+      },
+      {
+        "url": "https://www.reddit.com/r/bikepacking/comments/1al6j2h/why_i_trained_indoors_for_the_atlas_mountain_race/",
         "category": "community",
-        "label": "biketour-global.de: Bikeanalytics Atlas Mountain Race 2026 2"
+        "label": "Reddit"
       }
     ],
     "tire_recommendations": {

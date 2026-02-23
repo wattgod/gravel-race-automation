@@ -151,7 +151,12 @@
       "score": "70 / 100",
       "one_liner": "Canada's spring classic—where mud is the main competitor and surviving is winning.",
       "should_you_race": "Yes if you want Canada's flagship gravel event and can handle mud chaos. Yes if you like spring classics vibes. Skip if you hate cold/wet or can't accept potential mechanical disaster.",
-      "alternatives": "Barry-Roubaix (similar spring chaos, Michigan); Dirty Reiver (UK equivalent); Mid South (earlier, similar mud potential)"
+      "alternatives": "Barry-Roubaix (similar spring chaos, Michigan); Dirty Reiver (UK equivalent); Mid South (earlier, similar mud potential)",
+      "alternative_slugs": [
+        "barry-roubaix",
+        "dirty-reiver",
+        "mid-south"
+      ]
     },
     "logistics": {
       "airport": "YYZ (Toronto Pearson) - 1hr to Hamilton area; YHM (Hamilton) - 20min",
@@ -208,9 +213,9 @@
       ],
       "migration_notes": [],
       "research_strength": {
-        "overall": 100.0,
+        "overall": 99.1,
         "grade": "A",
-        "weakest": "source_diversity",
+        "weakest": "completeness",
         "has_research_dump": true,
         "dimensions": {
           "source_diversity": 100,
@@ -219,18 +224,13 @@
           "specificity": 100,
           "statistical_backing": 100,
           "voice_authenticity": 100,
-          "completeness": 100,
+          "completeness": 94,
           "cross_reference": 100
         },
         "scored_at": "2026-02-04"
       }
     },
     "citations": [
-      {
-        "url": "https://parisancaster.com",
-        "category": "official",
-        "label": "Official Website"
-      },
       {
         "url": "https://ridewithgps.com/routes/53024230",
         "category": "route",
@@ -240,6 +240,11 @@
         "url": "https://www.cyclingweekly.com/news/gravel-racing-a-brief-history",
         "category": "media",
         "label": "Cycling Weekly"
+      },
+      {
+        "url": "https://www.gravelcyclist.com/race-reports/paris-to-ancaster-2015-race-report-by-damian-bradley/",
+        "category": "media",
+        "label": "Gravel Cyclist"
       },
       {
         "url": "https://www.gravelcyclist.com/training-rides/one-of-the-og-events-returns-for-another-year-of-madness-in-2025-paris-to-ancaster-canada/",
@@ -287,6 +292,26 @@
         "label": "TrainerRoad"
       },
       {
+        "url": "https://www.teknecycling.com/collection/how-the-race-was-won-paris-to-ancaster-2017",
+        "category": "community",
+        "label": "teknecycling.com: How The Race Was Won Paris To Ancaster 2017"
+      },
+      {
+        "url": "https://kyraonthego.wordpress.com/2022/05/04/paris-to-ancaster-70k-2022-edition/comment-page-1/",
+        "category": "community",
+        "label": "kyraonthego.wordpress.com: Comment Page 1"
+      },
+      {
+        "url": "https://www.teamrunningfree.com/blog/2017/05/15/paris-to-ancaster-2017/",
+        "category": "community",
+        "label": "teamrunningfree.com: Paris To Ancaster 2017"
+      },
+      {
+        "url": "https://www.thespec.com/sports/hamilton-region/oh-yes-there-will-be-mud-at-the-paris-to-ancaster-race-this-weekend/article_a8c1233f-ad19-5bed-acff-a9949d935b6a.html",
+        "category": "community",
+        "label": "thespec.com: Article A8C1233F Ad19 5Bed Acff A9949D935B6A.Html"
+      },
+      {
         "url": "https://www.facebook.com/CanadianCyclist/posts/paris-to-ancaster-joins-uci-gravel-world-series-for-2025-httpscanadiancyclistcom/1154608530006130/",
         "category": "social",
         "label": "Facebook"
@@ -305,76 +330,6 @@
         "url": "https://www.strava.com/challenges/p2a-2017-final-climb",
         "category": "activity",
         "label": "Strava"
-      },
-      {
-        "url": "https://cyclingmagazine.ca/sections/news/5-tips-for-your-first-paris-to-ancaster/",
-        "category": "other",
-        "label": "Cyclingmagazine"
-      },
-      {
-        "url": "https://forum.waterloocyclingclub.ca/t/paris-to-ancaster-2025-registration-opening-friday-nov-22/7806",
-        "category": "other",
-        "label": "Forum"
-      },
-      {
-        "url": "https://guelphcyclingclub.ca/the-29th-annual-paris-to-ancaster-ride-report/",
-        "category": "other",
-        "label": "Guelphcyclingclub"
-      },
-      {
-        "url": "https://kyraonthego.wordpress.com/2022/05/04/paris-to-ancaster-70k-2022-edition/",
-        "category": "other",
-        "label": "Kyraonthego"
-      },
-      {
-        "url": "https://www.gravelcyclist.com/race-reports/paris-to-ancaster-2015-race-report-by-damian-bradley/",
-        "category": "community",
-        "label": "gravelcyclist.com: Paris To Ancaster 2015 Race Report By Damian Bradley"
-      },
-      {
-        "url": "https://www.teknecycling.com/collection/how-the-race-was-won-paris-to-ancaster-2017",
-        "category": "community",
-        "label": "teknecycling.com: How The Race Was Won Paris To Ancaster 2017"
-      },
-      {
-        "url": "https://aiendurance.com/blog/predicting-my-paris-to-ancaster-race-performance",
-        "category": "community",
-        "label": "aiendurance.com: Predicting My Paris To Ancaster Race Performance"
-      },
-      {
-        "url": "https://cyclingmagazine.ca/sections/news/2025-paris-ancaster-ben-perry-devon-clarke-win/",
-        "category": "community",
-        "label": "cyclingmagazine.ca: 2025 Paris Ancaster Ben Perry Devon Clarke Win"
-      },
-      {
-        "url": "https://consummateathlete.com/5-ways-to-improve-your-race-the-weekend-before-paris-to-ancaster/",
-        "category": "community",
-        "label": "consummateathlete.com: 5 Ways To Improve Your Race The Weekend Before Paris To A..."
-      },
-      {
-        "url": "https://www.granfondoguide.com/Contents/Index/8229/",
-        "category": "community",
-        "label": "granfondoguide.com: 8229"
-      },
-      {
-        "url": "https://raceroster.com/events/2025/96309/2025-creemore-springs-paris-to-ancaster",
-        "category": "community",
-        "label": "raceroster.com: 2025 Creemore Springs Paris To Ancaster"
-      },
-      {
-        "url": "https://kyraonthego.wordpress.com/2022/05/04/paris-to-ancaster-70k-2022-edition/comment-page-1/",
-        "category": "community",
-        "label": "kyraonthego.wordpress.com: Comment Page 1"
-      },
-      {
-        "url": "https://www.teamrunningfree.com/blog/2017/05/15/paris-to-ancaster-2017/",
-        "category": "community",
-        "label": "teamrunningfree.com: Paris To Ancaster 2017"
-      },
-      {
-        "url": "https://www.thespec.com/sports/hamilton-region/oh-yes-there-will-be-mud-at-the-paris-to-ancaster-race-this-weekend/article_a8c1233f-ad19-5bed-acff-a9949d935b6a.html",
-        "category": "community",
-        "label": "thespec.com: Article A8C1233F Ad19 5Bed Acff A9949D935B6A.Html"
       }
     ],
     "results": {

@@ -19,7 +19,7 @@
         "Rolling to hilly terrain"
       ],
       "field_size": "200-400 riders",
-      "start_time": "Morning start",
+      "start_time": "7:00 AM Full",
       "registration": "Online. Cost: ~$70-110 CAD",
       "prize_purse": "None (fondo format)",
       "aid_stations": "Multiple aid stations",
@@ -93,7 +93,10 @@
       "score": "54 / 100",
       "one_liner": "Solid Vancouver Island fondo with excellent terrain but challenging logistics.",
       "should_you_race": "If you're on Vancouver Island or planning an island trip—yes, it's a good event with great terrain. If you're traveling from elsewhere—the ferry logistics and limited amenities make it a harder sell unless you're combining with tourism.",
-      "alternatives": "For other BC gravel: RBC Gran Fondo (bigger), River City Gravel Fondo (Campbell River, better amenities). For similar forest road racing: Oregon or Washington gravel events."
+      "alternatives": "For other BC gravel: RBC Gran Fondo (bigger), River City Gravel Fondo (Campbell River, better amenities). For similar forest road racing: Oregon or Washington gravel events.",
+      "alternative_slugs": [
+        "river-city-gravel-fondo"
+      ]
     },
     "logistics": {
       "airport": "Victoria (YYJ) 1.5 hours, or Vancouver (YVR) + ferry + drive",
@@ -183,12 +186,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 91.0,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 88,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -309,44 +321,44 @@
     },
     "citations": [
       {
-        "url": "https://www.granfondoguide.com/RaceDashboard/BCTripleCrownOfGravelSeries/1/7954/record-300-participants-ride-the-7th-annual-cowichan-crusher-gravel-fondo-",
-        "category": "community",
-        "label": "granfondoguide.com: Record 300 Participants Ride The 7Th Annual Cowichan Crus..."
-      },
-      {
-        "url": "https://cowichancrusher.com/faq-updates/",
-        "category": "community",
-        "label": "cowichancrusher.com: Faq Updates"
+        "url": "https://cowichancrusher.com/event-info/",
+        "category": "other",
+        "label": "Cowichancrusher"
       },
       {
         "url": "https://strambecco.com/event/cowichan-crusher/",
-        "category": "community",
-        "label": "strambecco.com: Cowichan Crusher"
-      },
-      {
-        "url": "https://cal-kaiser.com/blog.html/bike-race-season-in-cowichan-8485894",
-        "category": "community",
-        "label": "cal-kaiser.com: Bike Race Season In Cowichan 8485894"
-      },
-      {
-        "url": "https://www.granfondoguide.com/Series/BCTripleCrownOfGravel",
-        "category": "community",
-        "label": "granfondoguide.com: Bctriplecrownofgravel"
-      },
-      {
-        "url": "https://www.granfondoguide.com/Contents/Index/7840/register-now-for-the-cowichan-crusher-and-save",
-        "category": "community",
-        "label": "granfondoguide.com: Register Now For The Cowichan Crusher And Save"
-      },
-      {
-        "url": "https://www.cowichanvalleycitizen.com/sports/sun-shines-as-riders-crush-gravel-at-cowichan-lake-bike-race",
-        "category": "community",
-        "label": "cowichanvalleycitizen.com: Sun Shines As Riders Crush Gravel At Cowichan Lake Bike Race"
+        "category": "other",
+        "label": "Strambecco"
       },
       {
         "url": "https://triplecrownofgravel.ca/cowichan-crusher/",
-        "category": "community",
-        "label": "triplecrownofgravel.ca: Cowichan Crusher"
+        "category": "other",
+        "label": "Triplecrownofgravel"
+      },
+      {
+        "url": "https://www.cowichanvalleycitizen.com/sports/sun-shines-as-riders-crush-gravel-at-cowichan-lake-bike-race",
+        "category": "other",
+        "label": "Cowichanvalleycitizen"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Contents/Index/7840/register-now-for-the-cowichan-crusher-and-save",
+        "category": "other",
+        "label": "Granfondoguide"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Contents/Index/7954/record-300-participants-ride-the-7th-annual-cowichan-crusher-gravel-fondo-",
+        "category": "other",
+        "label": "Granfondoguide"
+      },
+      {
+        "url": "https://www.granfondoguide.com/RaceDashboard/BCTripleCrownOfGravelSeries/1/7954/record-300-participants-ride-the-7th-annual-cowichan-crusher-gravel-fondo-",
+        "category": "other",
+        "label": "Granfondoguide"
+      },
+      {
+        "url": "https://www.tourismcowichan.com/event/cowichan-crusher-gravel-fondo/",
+        "category": "other",
+        "label": "Tourismcowichan"
       }
     ],
     "tire_recommendations": {

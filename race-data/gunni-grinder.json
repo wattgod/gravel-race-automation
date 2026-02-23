@@ -152,9 +152,9 @@
       ],
       "research_date": "2026-02-04",
       "research_strength": {
-        "overall": 100.0,
+        "overall": 99.1,
         "grade": "A",
-        "weakest": "source_diversity",
+        "weakest": "completeness",
         "has_research_dump": true,
         "dimensions": {
           "source_diversity": 100,
@@ -163,7 +163,7 @@
           "specificity": 100,
           "statistical_backing": 100,
           "voice_authenticity": 100,
-          "completeness": 100,
+          "completeness": 94,
           "cross_reference": 100
         },
         "scored_at": "2026-02-04"
@@ -231,14 +231,13 @@
       "score": "74 / 100",
       "one_liner": "High-altitude gravel that separates your actual fitness from your sea-level delusions.",
       "should_you_race": "If you can sustain power above 8,000 feet and have low gears for Cochetopa Pass, this is honest mountain suffering without the Leadville circus. Sea-level riders thinking they'll adapt on race day will discover what oxygen debt feels like around mile 40. The terrain isn't technical, but the altitude will expose every fitness gap you've been hiding behind at home.",
-      "alternatives": "Leadville Trail 100 MTB offers similar altitude punishment with more prestige and twice the suffering. SBT GRVL gives you Colorado gravel without the oxygen penalty if you want the scenery but need to breathe."
+      "alternatives": "Leadville Trail 100 MTB offers similar altitude punishment with more prestige and twice the suffering. SBT GRVL gives you Colorado gravel without the oxygen penalty if you want the scenery but need to breathe.",
+      "alternative_slugs": [
+        "leadville-100",
+        "sbt-grvl"
+      ]
     },
     "citations": [
-      {
-        "url": "https://www.gunnigrinder.com",
-        "category": "official",
-        "label": "Official Website"
-      },
       {
         "url": "https://ridewithgps.com/routes/46250094",
         "category": "route",
@@ -250,9 +249,14 @@
         "label": "Athlinks"
       },
       {
-        "url": "https://ridewithgps.com",
-        "category": "route",
-        "label": "RideWithGPS"
+        "url": "https://bikepacking.com/routes/gunni-grinder/",
+        "category": "other",
+        "label": "Bikepacking"
+      },
+      {
+        "url": "https://racecheck.com/races/the-gunni-grinder/",
+        "category": "other",
+        "label": "Racecheck"
       },
       {
         "url": "https://ridewithgps.com/routes/gunni-grinder",
@@ -265,11 +269,6 @@
         "label": "Slowtwitch"
       },
       {
-        "url": "https://strava.com",
-        "category": "activity",
-        "label": "Strava"
-      },
-      {
         "url": "https://strava.com/segments/razor-creek-descent",
         "category": "activity",
         "label": "Strava"
@@ -280,14 +279,19 @@
         "label": "BikeReg"
       },
       {
-        "url": "https://www.trainerroad.com/forum/t/gunni-grinder-2023-colorado/86583?page=2",
-        "category": "community",
-        "label": "trainerroad.com: 86583"
+        "url": "https://www.bikesignup.com/Race/CO/Gunnison/TheGunniGrinder",
+        "category": "other",
+        "label": "Bikesignup"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/12020/the-gunni-grinder",
+        "category": "other",
+        "label": "Granfondoguide"
       },
       {
         "url": "https://www.trainerroad.com/forum/t/gunni-grinder-2023-colorado/86583",
         "category": "community",
-        "label": "trainerroad.com: 86583"
+        "label": "TrainerRoad"
       },
       {
         "url": "https://velo.outsideonline.com/gravel/the-grind-a-not-quite-farewell-to-gravel/",
@@ -295,49 +299,9 @@
         "label": "velo.outsideonline.com: The Grind A Not Quite Farewell To Gravel"
       },
       {
-        "url": "https://bikepacking.com/routes/gunni-grinder/",
-        "category": "community",
-        "label": "bikepacking.com: Gunni Grinder"
-      },
-      {
         "url": "https://zenocycleparts.com/blogs/cyclingtips/glorious-gravel-grinding-in-colorado-s-gunnison-county",
         "category": "community",
         "label": "zenocycleparts.com: Glorious Gravel Grinding In Colorado S Gunnison County"
-      },
-      {
-        "url": "https://www.thegunnigrinder.com/",
-        "category": "community",
-        "label": "thegunnigrinder.com"
-      },
-      {
-        "url": "https://www.gunnisontimes.com/stories/gunni-grindin,6208",
-        "category": "community",
-        "label": "gunnisontimes.com: Gunni Grindin,6208"
-      },
-      {
-        "url": "https://simpleendurancecoaching.com/biking-and-running/",
-        "category": "community",
-        "label": "simpleendurancecoaching.com: Biking And Running"
-      },
-      {
-        "url": "https://www.wildbunchdesertguides.com/blog/Just-what-doctor-ordered-Phoenix-mountain-bike-tours-next.cfm",
-        "category": "community",
-        "label": "wildbunchdesertguides.com: Just What Doctor Ordered Phoenix Mountain Bike Tours Next..."
-      },
-      {
-        "url": "https://gunnisoncrestedbutte.com/blog/gunnison-gravel-biking-from-the-ground-up/",
-        "category": "community",
-        "label": "gunnisoncrestedbutte.com: Gunnison Gravel Biking From The Ground Up"
-      },
-      {
-        "url": "https://gunnisoncrestedbutte.com/blog/gravel-biking-in-gunnison-colorado-with-nick-gould/",
-        "category": "community",
-        "label": "gunnisoncrestedbutte.com: Gravel Biking In Gunnison Colorado With Nick Gould"
-      },
-      {
-        "url": "https://www.thegunnigrinder.com",
-        "category": "community",
-        "label": "thegunnigrinder.com"
       }
     ],
     "results": {

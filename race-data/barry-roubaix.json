@@ -19,7 +19,7 @@
         "Large field event"
       ],
       "field_size": "1000+ riders",
-      "start_time": "Morning start",
+      "start_time": "7:00am",
       "registration": "Online. Cost: ~$80-120",
       "prize_purse": "Prizes for top finishers",
       "aid_stations": "Multiple aid stations",
@@ -94,7 +94,10 @@
       "score": "53 / 100",
       "one_liner": "100+ mile Michigan farmland gravel with 1000+ riders.",
       "should_you_race": "If you want a 100+ mile challenge with large field and festival atmosphere—yes, it's a fun event. If you want terrain variety or pro field depth—look elsewhere.",
-      "alternatives": "For better century events: Unbound 200, Dirty Kanza. For similar large field events: other Michigan gravel races."
+      "alternatives": "For better century events: Unbound 200, Dirty Kanza. For similar large field events: other Michigan gravel races.",
+      "alternative_slugs": [
+        "unbound-200"
+      ]
     },
     "logistics": {
       "airport": "Grand Rapids (GRR) 45 minutes or Kalamazoo (AZO) 45 minutes",
@@ -102,7 +105,8 @@
       "food": "Hastings has moderate dining options. Stock nutrition for 100+ miles.",
       "packet_pickup": "Day before",
       "parking": "At start/finish",
-      "official_site": "Check Barry-Roubaix website"
+      "official_site": "Check Barry-Roubaix website",
+      "camping": "camping (first-come, $?, no hookups) right in town"
     },
     "history": {
       "founded": null,
@@ -192,12 +196,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 89.8,
+        "grade": "A",
+        "weakest": "citation_density",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 50,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 100,
+          "completeness": 82,
+          "cross_reference": 50
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -323,54 +336,44 @@
         "label": "RideWithGPS: Barry-Roubaix Killer Gravel Road Race 62"
       },
       {
-        "url": "https://www.granfondoguide.com/Contents/Index/6587/thousands-complete-americas-largest-gravel-race-in-freezing-conditions",
-        "category": "community",
-        "label": "granfondoguide.com: Thousands Complete Americas Largest Gravel Race In Freezi..."
-      },
-      {
-        "url": "https://www.joinbasecamp.com/post/steves-story-barry-roubaix",
-        "category": "community",
-        "label": "joinbasecamp.com: Steves Story Barry Roubaix"
-      },
-      {
-        "url": "https://myhometownbicycles.com/tag/barry-roubaix-killer-gravel-road-race/",
-        "category": "community",
-        "label": "myhometownbicycles.com: Barry Roubaix Killer Gravel Road Race"
-      },
-      {
-        "url": "https://barry-roubaix.com/faq",
-        "category": "community",
-        "label": "barry-roubaix.com: Faq"
-      },
-      {
-        "url": "https://en.wikipedia.org/wiki/Barry-Roubaix",
-        "category": "community",
-        "label": "en.wikipedia.org: Barry Roubaix"
-      },
-      {
-        "url": "https://www.ohiogravelgrinders.com/event-listings/2024/4/20/barry-roubaix",
-        "category": "community",
-        "label": "ohiogravelgrinders.com: Barry Roubaix"
-      },
-      {
-        "url": "https://granfondodailynews.com/2025/04/14/barry-roubaix-5000-riders-set-record-for-worlds-largest-gravel-race-results/",
-        "category": "community",
-        "label": "granfondodailynews.com: Barry Roubaix 5000 Riders Set Record For Worlds Largest G..."
-      },
-      {
-        "url": "https://eattriventure.posthaven.com/barry-roubaix-race-report",
-        "category": "community",
-        "label": "eattriventure.posthaven.com: Barry Roubaix Race Report"
+        "url": "https://barry-roubaix.com/news/",
+        "category": "other",
+        "label": "Barry-Roubaix"
       },
       {
         "url": "https://barry-roubaix.com/results",
-        "category": "community",
-        "label": "barry-roubaix.com: Results"
+        "category": "other",
+        "label": "Barry-Roubaix"
       },
       {
-        "url": "https://barry-roubaix.com/",
+        "url": "https://eattriventure.posthaven.com/barry-roubaix-race-report",
+        "category": "other",
+        "label": "Eattriventure"
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Barry-Roubaix",
+        "category": "reference",
+        "label": "Wikipedia"
+      },
+      {
+        "url": "https://granfondodailynews.com/2025/04/14/barry-roubaix-5000-riders-set-record-for-worlds-largest-gravel-race-results/",
+        "category": "other",
+        "label": "Granfondodailynews"
+      },
+      {
+        "url": "https://www.joinbasecamp.com/post/steves-story-barry-roubaix",
+        "category": "other",
+        "label": "Joinbasecamp"
+      },
+      {
+        "url": "https://www.ohiogravelgrinders.com/event-listings/2025/4/12/barry-roubaix",
+        "category": "other",
+        "label": "Ohiogravelgrinders"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Contents/Index/6587/thousands-complete-americas-largest-gravel-race-in-freezing-conditions",
         "category": "community",
-        "label": "barry-roubaix.com"
+        "label": "granfondoguide.com: Thousands Complete Americas Largest Gravel Race In Freezi..."
       }
     ],
     "results": {

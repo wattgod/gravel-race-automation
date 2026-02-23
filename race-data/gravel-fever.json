@@ -19,7 +19,7 @@
         "Central France"
       ],
       "field_size": "200-400 riders",
-      "start_time": "Morning start",
+      "start_time": "10:00 am and",
       "registration": "Online. Cost: ~€60-100",
       "prize_purse": "Modest prizes",
       "aid_stations": "Multiple aid stations",
@@ -94,7 +94,11 @@
       "score": "46 / 100",
       "one_liner": "French rolling gravel in Châtellerault.",
       "should_you_race": "If you're in France/Europe and want a local event—yes, it's solid. If you're international—there are better options.",
-      "alternatives": "For better French events: Wish One Millau, 66° South Pyrénées. For similar regional events: other French gravel races."
+      "alternatives": "For better French events: Wish One Millau, 66° South Pyrénées. For similar regional events: other French gravel races.",
+      "alternative_slugs": [
+        "66-south-pyrenees",
+        "wish-one-millau"
+      ]
     },
     "logistics": {
       "airport": "Paris (CDG) 2.5 hours or Bordeaux (BOD) 2 hours",
@@ -185,12 +189,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 86.7,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -316,59 +329,54 @@
         "label": "RideWithGPS: Gravel Fever 150 & Championnats de France FFC Gravel Elite hommes"
       },
       {
-        "url": "https://khs91-passionvtt.blogspot.com/2025/09/vendredi-26092025-la-gravel-fever-ultra.html",
-        "category": "community",
-        "label": "khs91-passionvtt.blogspot.com: Vendredi 26092025 La Gravel Fever Ultra.Html"
-      },
-      {
-        "url": "https://en.3bikes.fr/2023/08/30/le-gravel-fever-en-octobre-un-evenement-a-ne-pas-manquer/",
-        "category": "community",
-        "label": "en.3bikes.fr: Le Gravel Fever En Octobre Un Evenement A Ne Pas Manquer"
+        "url": "https://fr.milesrepublic.com/event/gravel-fever-11793",
+        "category": "other",
+        "label": "Fr"
       },
       {
         "url": "https://gravelfever.fr/en/500-km/",
-        "category": "community",
-        "label": "gravelfever.fr: 500 Km"
+        "category": "other",
+        "label": "Gravelfever"
       },
       {
-        "url": "https://www.youtube.com/watch?v=TlWgzq-6ZwQ",
-        "category": "community",
-        "label": "youtube.com: Watch"
-      },
-      {
-        "url": "https://gravelfever.fr/en/",
-        "category": "community",
-        "label": "gravelfever.fr: En"
-      },
-      {
-        "url": "https://www.woerthersee-gravel.com/en/gravel-fever-at-lake-woerthersee-enthusiasm-in-the-region-and-momentum-for-the-world-championship-application/",
-        "category": "community",
-        "label": "woerthersee-gravel.com: Gravel Fever At Lake Woerthersee Enthusiasm In The Region..."
-      },
-      {
-        "url": "https://www.sportsnconnect.com/blogs/view/338/gravel_fever_entretien_avec_marius_louvet_organisateur_du_nouvel_evenement_gravel_de_l_annee",
-        "category": "community",
-        "label": "sportsnconnect.com: Gravel Fever Entretien Avec Marius Louvet Organisateur Du..."
+        "url": "https://weelz.ouest-france.fr/le-festival-gravel-fever-revient-en-septembre-2024-pour-une-seconde-edition-a-chatellerault/",
+        "category": "other",
+        "label": "Weelz"
       },
       {
         "url": "https://www.cyclismactu.net/news-cyclisme-gravel-lancement-du-gravel-fever-grand-chatellerault-en-octobre-75964.html",
+        "category": "other",
+        "label": "Cyclismactu"
+      },
+      {
+        "url": "https://www.finishers.com/en/event/gravel-fever-festival",
+        "category": "other",
+        "label": "Finishers"
+      },
+      {
+        "url": "https://www.reddit.com/r/NYCbike/comments/6yil4z/gravel_grinding_fever/",
         "category": "community",
-        "label": "cyclismactu.net: News Cyclisme Gravel Lancement Du Gravel Fever Grand Chat..."
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.sportsnconnect.com/blogs/view/338/gravel_fever_entretien_avec_marius_louvet_organisateur_du_nouvel_evenement_gravel_de_l_annee",
+        "category": "other",
+        "label": "Sportsnconnect"
+      },
+      {
+        "url": "https://www.woerthersee-gravel.com/en/gravel-fever-at-lake-woerthersee-enthusiasm-in-the-region-and-momentum-for-the-world-championship-application/",
+        "category": "other",
+        "label": "Woerthersee-Gravel"
+      },
+      {
+        "url": "https://www.youtube.com/@GravelFeverFestival",
+        "category": "video",
+        "label": "YouTube"
       },
       {
         "url": "https://www.youtube.com/watch?v=s1dJlck9hIQ",
         "category": "community",
         "label": "youtube.com: Watch"
-      },
-      {
-        "url": "https://www.finishers.com/en/event/gravel-fever-festival",
-        "category": "community",
-        "label": "finishers.com: Gravel Fever Festival"
-      },
-      {
-        "url": "https://weelz.ouest-france.fr/le-festival-gravel-fever-revient-en-septembre-2024-pour-une-seconde-edition-a-chatellerault/",
-        "category": "community",
-        "label": "weelz.ouest-france.fr: Le Festival Gravel Fever Revient En Septembre 2024 Pour U..."
       }
     ],
     "results": {

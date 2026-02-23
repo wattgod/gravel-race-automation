@@ -1,9 +1,10 @@
 """Shared site header used by all generated pages.
 
 Provides get_site_header_html() and get_site_header_css() for a consistent
-5-item dropdown nav across homepage, race profiles, coaching, about, prep kits,
-series hubs, guide, methodology, state hubs, vs pages, power rankings,
-calendar, tier hubs, and coaching apply pages.
+5-item dropdown nav (RACES, PRODUCTS, SERVICES, ARTICLES, ABOUT) across
+homepage, race profiles, coaching, about, prep kits, series hubs, guide,
+methodology, state hubs, vs pages, power rankings, calendar, tier hubs,
+and coaching apply pages.
 """
 from __future__ import annotations
 
@@ -40,7 +41,6 @@ def get_site_header_html(active: str | None = None) -> str:
         <a href="{SITE_BASE_URL}/products/training-plans/"{_aria("products")}>PRODUCTS</a>
         <div class="gg-site-header-dropdown">
           <a href="{SITE_BASE_URL}/products/training-plans/">Custom Training Plans</a>
-          <a href="{SITE_BASE_URL}/course/">Courses</a>
           <a href="{SITE_BASE_URL}/guide/">Gravel Handbook</a>
         </div>
       </div>
@@ -56,6 +56,7 @@ def get_site_header_html(active: str | None = None) -> str:
         <div class="gg-site-header-dropdown">
           <a href="{SUBSTACK_URL}" target="_blank" rel="noopener">Slow Mid 38s</a>
           <a href="{SITE_BASE_URL}/articles/">Hot Takes</a>
+          <a href="{SITE_BASE_URL}/insights/">The State of Gravel</a>
         </div>
       </div>
       <a href="{SITE_BASE_URL}/about/"{_aria("about")}>ABOUT</a>

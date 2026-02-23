@@ -19,7 +19,7 @@
         "Eastern Oregon"
       ],
       "field_size": "100-250 riders",
-      "start_time": "Morning start",
+      "start_time": "9:30 am",
       "registration": "Online. Cost: ~$60-90",
       "prize_purse": "None",
       "aid_stations": "Basic aid stations",
@@ -94,7 +94,10 @@
       "score": "44 / 100",
       "one_liner": "Small grassroots eastern Oregon wheat country ride with remote location.",
       "should_you_race": "Only if you're in eastern Oregon or seeking a wheat country gravel experience. Not worth the long drive from Portland.",
-      "alternatives": "For better Oregon events: Oregon Trail Gravel Grinder, other western Oregon events. For similar wheat country vibes: Washington or Idaho wheat country events."
+      "alternatives": "For better Oregon events: Oregon Trail Gravel Grinder, other western Oregon events. For similar wheat country vibes: Washington or Idaho wheat country events.",
+      "alternative_slugs": [
+        "oregon-trail-gravel"
+      ]
     },
     "logistics": {
       "airport": "Portland (PDX) 3 hours, or Pasco (PSC) 2 hours",
@@ -178,12 +181,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 88.5,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 88,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -308,53 +320,33 @@
       },
       {
         "url": "https://argonautcycles.com/real-west-gravel-from-matthews-eyes/",
-        "category": "community",
-        "label": "argonautcycles.com: Real West Gravel From Matthews Eyes"
+        "category": "other",
+        "label": "Argonautcycles"
       },
       {
-        "url": "https://argonautcycles.com/racing-roundup-real-west-gravel-grit-strategy-and-sheer-determination/",
-        "category": "community",
-        "label": "argonautcycles.com: Racing Roundup Real West Gravel Grit Strategy And Sheer D..."
-      },
-      {
-        "url": "https://www.joinbasecamp.com/post/shawns-story-real-west-gravel",
-        "category": "community",
-        "label": "joinbasecamp.com: Shawns Story Real West Gravel"
-      },
-      {
-        "url": "https://www.joinbasecamp.com/post/shawn-s-story-real-west-gravel",
-        "category": "community",
-        "label": "joinbasecamp.com: Shawn S Story Real West Gravel"
-      },
-      {
-        "url": "https://www.granfondoguide.com/Contents/PopUp/8431/brutal-conditions-mark-2nd-edition-of-real-west-gravel-race",
-        "category": "community",
-        "label": "granfondoguide.com: Brutal Conditions Mark 2Nd Edition Of Real West Gravel Race"
-      },
-      {
-        "url": "https://groups.google.com/a/obra.org/g/obra-chat/c/sN854zTvRPs",
-        "category": "community",
-        "label": "groups.google.com: Sn854Ztvrps"
-      },
-      {
-        "url": "https://www.mudslingerevents.com/real-west-gravel",
-        "category": "community",
-        "label": "mudslingerevents.com: Real West Gravel"
-      },
-      {
-        "url": "https://www.mudslingerevents.com/west-coast-gravel",
-        "category": "community",
-        "label": "mudslingerevents.com: West Coast Gravel"
+        "url": "https://northwest.motion.social/event/real-west-gravel/2027-03-21/",
+        "category": "other",
+        "label": "Northwest"
       },
       {
         "url": "https://www.granfondoguide.com/Contents/IndexFull/7702/real-west-gravel-adventure-set-to-take-cyclists-on-an-unforgettable-journey",
-        "category": "community",
-        "label": "granfondoguide.com: Real West Gravel Adventure Set To Take Cyclists On An Unf..."
+        "category": "other",
+        "label": "Granfondoguide"
       },
       {
         "url": "https://www.granfondoguide.com/Events/Index/11761/real-west-gravel",
-        "category": "community",
-        "label": "granfondoguide.com: Real West Gravel"
+        "category": "other",
+        "label": "Granfondoguide"
+      },
+      {
+        "url": "https://www.mudslingerevents.com/real-west-gravel",
+        "category": "other",
+        "label": "Mudslingerevents"
+      },
+      {
+        "url": "https://www.mudslingerevents.com/west-coast-gravel",
+        "category": "other",
+        "label": "Mudslingerevents"
       }
     ],
     "results": {

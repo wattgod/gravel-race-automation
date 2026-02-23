@@ -185,12 +185,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 87.5,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 82,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -311,19 +320,49 @@
     },
     "citations": [
       {
+        "url": "https://ridewithgps.com/routes/52812382",
+        "category": "route",
+        "label": "RideWithGPS: Marly Grav Race 2025 - Course 100 km"
+      },
+      {
+        "url": "https://allevents.in/valkenburg/marly-grav-race/200029568876449",
+        "category": "other",
+        "label": "Allevents"
+      },
+      {
+        "url": "https://granfondodailynews.com/2025/05/14/wellens-punches-ticket-to-gravel-worlds-wins-uci-marly-grav-race/",
+        "category": "other",
+        "label": "Granfondodailynews"
+      },
+      {
         "url": "https://ucigravelworldseries.com/en/europes-biggest-gravel-race-returns-as-marly-grav-race/",
-        "category": "community",
-        "label": "ucigravelworldseries.com: Europes Biggest Gravel Race Returns As Marly Grav Race"
+        "category": "other",
+        "label": "Ucigravelworldseries"
       },
       {
-        "url": "https://www.marlygrav.com/en/",
-        "category": "community",
-        "label": "marlygrav.com: En"
+        "url": "https://www.bicycling.nl/nieuws/1295327/alles-wat-je-moet-weten-over-marly-grav-race-2025.html",
+        "category": "other",
+        "label": "Bicycling"
       },
       {
-        "url": "https://www.granfondoguide.com/RaceDashboard/UCIGravelWorldSeries/1/8519/wiebes-and-wellens-triumph-at-uci-marly-grav-race",
-        "category": "community",
-        "label": "granfondoguide.com: Wiebes And Wellens Triumph At Uci Marly Grav Race"
+        "url": "https://www.finishers.com/en/event/marly-grav-uci-race",
+        "category": "other",
+        "label": "Finishers"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/10803/marly-grav-race-and-festival",
+        "category": "other",
+        "label": "Granfondoguide"
+      },
+      {
+        "url": "https://www.komoot.com/collection/3449919/-marly-grav-race-2025",
+        "category": "other",
+        "label": "Komoot"
+      },
+      {
+        "url": "https://www.marlygrav.com/en/experience",
+        "category": "other",
+        "label": "Marlygrav"
       },
       {
         "url": "https://www.youtube.com/watch?v=Jb_0v__2YTY",
@@ -331,9 +370,9 @@
         "label": "youtube.com: Watch"
       },
       {
-        "url": "https://allevents.in/valkenburg/marly-grav-race/200029568876449",
+        "url": "https://cyclingflash.com/race/uci-gravel-world-series-gravel-fondo-limburg-we-2025/result",
         "category": "community",
-        "label": "allevents.in: 200029568876449"
+        "label": "cyclingflash.com: Result"
       },
       {
         "url": "https://ucigravelworldseries.com/en/valkenburg/",
@@ -344,31 +383,6 @@
         "url": "https://www.youtube.com/watch?v=MPjpAjfhtRE",
         "category": "community",
         "label": "youtube.com: Watch"
-      },
-      {
-        "url": "https://granfondodailynews.com/2025/05/14/wellens-punches-ticket-to-gravel-worlds-wins-uci-marly-grav-race/",
-        "category": "community",
-        "label": "granfondodailynews.com: Wellens Punches Ticket To Gravel Worlds Wins Uci Marly Gr..."
-      },
-      {
-        "url": "https://www.bicycling.nl/nieuws/1295327/alles-wat-je-moet-weten-over-marly-grav-race-2025.html",
-        "category": "community",
-        "label": "bicycling.nl: Alles Wat Je Moet Weten Over Marly Grav Race 2025.Html"
-      },
-      {
-        "url": "https://www.komoot.com/collection/3449919/-marly-grav-race-2025",
-        "category": "community",
-        "label": "komoot.com:  Marly Grav Race 2025"
-      },
-      {
-        "url": "https://cyclingflash.com/race/uci-gravel-world-series-gravel-fondo-limburg-we-2025/result",
-        "category": "community",
-        "label": "cyclingflash.com: Result"
-      },
-      {
-        "url": "https://www.granfondoguide.com/Events/Index/10803/marly-grav-race-and-festival",
-        "category": "community",
-        "label": "granfondoguide.com: Marly Grav Race And Festival"
       }
     ],
     "tire_recommendations": {

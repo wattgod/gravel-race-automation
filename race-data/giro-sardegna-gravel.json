@@ -121,7 +121,13 @@
       ],
       "signature_challenge": "130 km + 2,600 m elevation + May warmth. Sardinian mountains Mediterranean views.",
       "ridewithgps_id": "48864427",
-      "ridewithgps_name": "Giro Sardegna Gravel"
+      "ridewithgps_name": "Giro Sardegna Gravel",
+      "surface_breakdown": {
+        "overall": {
+          "gravel": 75,
+          "pavement": 25
+        }
+      }
     },
     "history": {
       "founded": "~2020",
@@ -141,19 +147,19 @@
       ],
       "research_date": "2026-02-04",
       "research_strength": {
-        "overall": 0,
-        "grade": "pending",
-        "weakest": "pending",
+        "overall": 94.1,
+        "grade": "A",
+        "weakest": "voice_authenticity",
         "has_research_dump": true,
         "dimensions": {
-          "source_diversity": 0,
-          "citation_density": 0,
-          "temporal_depth": 0,
-          "specificity": 0,
-          "statistical_backing": 0,
-          "voice_authenticity": 0,
-          "completeness": 0,
-          "cross_reference": 0
+          "source_diversity": 100,
+          "citation_density": 80,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 94,
+          "cross_reference": 100
         },
         "scored_at": "2026-02-04"
       }
@@ -220,18 +226,27 @@
       "score": "76 / 100",
       "one_liner": "Mediterranean gravel with UCI points that actually feels like a vacation until the dirt sections remind you why your watts matter.",
       "should_you_race": "If you can hold threshold power on loose surfaces and don't mind mixing beach starts with proper gravel circuits, this delivers. The 50km circuit format means your pacing mistakes get amplified—show up undertrained for those dirt sections and the second lap becomes survival mode. Solid choice if you want UCI World Series points without the full sufferfest of most qualifiers.",
-      "alternatives": "Gravel Worlds qualifiers like Gralloch in Scotland offer similar points with more technical challenge, while SBT GRVL gives you the big-field energy this lacks. If you want Mediterranean vibes with less travel complexity, consider Tuscany Trail or Spanish gravel events that don't require island logistics."
+      "alternatives": "Gravel Worlds qualifiers like Gralloch in Scotland offer similar points with more technical challenge, while SBT GRVL gives you the big-field energy this lacks. If you want Mediterranean vibes with less travel complexity, consider Tuscany Trail or Spanish gravel events that don't require island logistics.",
+      "alternative_slugs": [
+        "garmin-gravel-worlds",
+        "sbt-grvl"
+      ]
     },
     "citations": [
-      {
-        "url": "https://www.girosardegnagravel.com",
-        "category": "official",
-        "label": "Official Website"
-      },
       {
         "url": "https://ridewithgps.com/routes/48864427",
         "category": "route",
         "label": "RideWithGPS: Giro Sardegna Gravel"
+      },
+      {
+        "url": "https://cyclingflash.com/race/uci-gravel-world-series-giro-sardegna-gravel-2026/result",
+        "category": "other",
+        "label": "Cyclingflash"
+      },
+      {
+        "url": "https://granfondodailynews.com/2025/04/26/uci-gravel-world-series-results-from-giro-sardegna/",
+        "category": "other",
+        "label": "Granfondodailynews"
       },
       {
         "url": "https://reddit.com/r/gravelcycling/comments/giro-sardegna",
@@ -239,39 +254,39 @@
         "label": "Reddit"
       },
       {
-        "url": "https://ridewithgps.com",
-        "category": "route",
-        "label": "RideWithGPS"
-      },
-      {
-        "url": "https://www.cyclingtips.com",
-        "category": "media",
-        "label": "CyclingTips"
-      },
-      {
-        "url": "https://www.girosardegnagrav",
+        "url": "https://ucigravelworldseries.com/en/orosei/",
         "category": "other",
-        "label": "Girosardegnagrav"
+        "label": "Ucigravelworldseries"
       },
       {
-        "url": "https://www.ridingravel.com",
+        "url": "https://www.cyclingnews.com/races/uci-gravel-world-series-2024/giro-sardegna-gravel/results/",
         "category": "other",
-        "label": "Ridingravel"
+        "label": "Cyclingnews"
       },
       {
-        "url": "https://www.strava.com",
-        "category": "activity",
-        "label": "Strava"
+        "url": "https://www.endu.net/en/events/girosardegnagravel/results",
+        "category": "other",
+        "label": "Endu"
       },
       {
-        "url": "https://www.trainerroad.com",
-        "category": "community",
-        "label": "TrainerRoad"
+        "url": "https://www.girosardegna.com/girosardegnagravel-uci-gravel-world-tour/",
+        "category": "other",
+        "label": "Girosardegna"
       },
       {
-        "url": "https://www.velonews.com",
-        "category": "media",
-        "label": "VeloNews"
+        "url": "https://www.granfondoguide.com/Contents/PopUp/8493/piana-and-wollenberg-triumph-at-the-uci-giro-sardegna-gravel-race",
+        "category": "other",
+        "label": "Granfondoguide"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Contents/PopUp/8493/piana-and-wollenberg-triumph-at-the-uci-gravel-world-series-giro-sardegna-gravel-race",
+        "category": "other",
+        "label": "Granfondoguide"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/11722/giro-sardegna-gravel",
+        "category": "other",
+        "label": "Granfondoguide"
       }
     ],
     "results": {

@@ -19,7 +19,7 @@
         "Pennsylvania"
       ],
       "field_size": "50-100 riders",
-      "start_time": "Morning start",
+      "start_time": "9:00 a.m. EDT",
       "registration": "Online. Cost: ~$50-75",
       "prize_purse": "Modest prizes",
       "aid_stations": "Limited aid stations",
@@ -94,7 +94,11 @@
       "score": "40 / 100",
       "one_liner": "Pennsylvania local gravel challenge.",
       "should_you_race": "If you're local to Pennsylvania—yes, it's good value. If you're traveling—skip it.",
-      "alternatives": "For better Pennsylvania races: Dirty Kanza PA, Trans-Sylvania Epic."
+      "alternatives": "For better Pennsylvania races: Dirty Kanza PA, Trans-Sylvania Epic.",
+      "alternative_slugs": [
+        "trans-sylvania-epic",
+        "unbound-200"
+      ]
     },
     "logistics": {
       "airport": "State College (SCE) 30 minutes",
@@ -185,12 +189,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
-        "has_research_dump": false,
-        "dimensions": {},
-        "scored_at": null
+        "overall": 86.7,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -311,14 +324,49 @@
     },
     "citations": [
       {
-        "url": "https://www.joinbasecamp.com/post/lynns-story-mid-state-gravel-grinder",
-        "category": "community",
-        "label": "joinbasecamp.com: Lynns Story Mid State Gravel Grinder"
+        "url": "https://ridewithgps.com/routes/47788083",
+        "category": "route",
+        "label": "RideWithGPS: Mid-State Gravel Grinder 2024"
+      },
+      {
+        "url": "https://racecheck.com/races/mid-state-gravel-grinder/",
+        "category": "other",
+        "label": "Racecheck"
+      },
+      {
+        "url": "https://raceroster.com/events/2025/108864/mid-state-gravel-grinder",
+        "category": "other",
+        "label": "Raceroster"
+      },
+      {
+        "url": "https://www.gravel-results.com/race/19991",
+        "category": "other",
+        "label": "Gravel-Results"
       },
       {
         "url": "https://www.joinbasecamp.com/post/evans-story-mid-state-gravel-grinder",
+        "category": "other",
+        "label": "Joinbasecamp"
+      },
+      {
+        "url": "https://www.joinbasecamp.com/post/lynns-story-mid-state-gravel-grinder",
+        "category": "other",
+        "label": "Joinbasecamp"
+      },
+      {
+        "url": "https://www.ohiogravelgrinders.com/event-listings/2024/8/3/mid-state-gravel-grinder",
+        "category": "other",
+        "label": "Ohiogravelgrinders"
+      },
+      {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/w1ikoc/midstate_gravel_grinder/",
         "category": "community",
-        "label": "joinbasecamp.com: Evans Story Mid State Gravel Grinder"
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.statecollege.com/articles/community/test-your-mettle-on-trail-events-in-centre-county/",
+        "category": "other",
+        "label": "Statecollege"
       },
       {
         "url": "https://www.reddit.com/r/gravelcycling/comments/omq0zh/rode_in_my_first_bike_race_yesterday_the_midstate/",
@@ -329,21 +377,6 @@
         "url": "https://www.trans-sylvaniaproductions.com/msgg",
         "category": "community",
         "label": "trans-sylvaniaproductions.com: Msgg"
-      },
-      {
-        "url": "https://www.reddit.com/r/gravelcycling/comments/1dy9nyt/tire_size_recommendation_for_midstate_gravel/",
-        "category": "community",
-        "label": "reddit.com: Tire Size Recommendation For Midstate Gravel"
-      },
-      {
-        "url": "https://www.gravel-results.com/race/19991",
-        "category": "community",
-        "label": "gravel-results.com: 19991"
-      },
-      {
-        "url": "https://www.joinbasecamp.com/post/lynns-story-mid-state-grinder",
-        "category": "community",
-        "label": "joinbasecamp.com: Lynns Story Mid State Grinder"
       }
     ],
     "tire_recommendations": {

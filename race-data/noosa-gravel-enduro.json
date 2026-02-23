@@ -94,7 +94,10 @@
       "score": "56 / 100",
       "one_liner": "Challenging hinterland enduro with tourist town amenities and costs.",
       "should_you_race": "If you're in Queensland or planning a Noosa trip—yes, it's a good event with excellent terrain. If you're traveling from afar—the tourist town costs and regional field make it a harder sell unless you're combining with tourism.",
-      "alternatives": "For other Australian gravel: MAAP Beechworth, Gravel Grit. For similar enduro format: Grinduro events (various locations)."
+      "alternatives": "For other Australian gravel: MAAP Beechworth, Gravel Grit. For similar enduro format: Grinduro events (various locations).",
+      "alternative_slugs": [
+        "grinduro"
+      ]
     },
     "logistics": {
       "airport": "Brisbane (BNE) 2 hours drive, or Sunshine Coast Airport (MCY) 30 min",
@@ -184,12 +187,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 91.5,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 75,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 100,
+          "completeness": 88,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -323,34 +335,44 @@
         "label": "RideWithGPS: Noosa enduro gravel 100"
       },
       {
+        "url": "https://auscycling.org.au/events/noosa-enduro-gravel",
+        "category": "other",
+        "label": "Auscycling"
+      },
+      {
+        "url": "https://localsintheloop.com.au/listing/noosa-enduro-2024/",
+        "category": "other",
+        "label": "Localsintheloop"
+      },
+      {
         "url": "https://noosaenduro.com.au/adventure-gravel/",
-        "category": "community",
-        "label": "noosaenduro.com.au: Adventure Gravel"
+        "category": "other",
+        "label": "Noosaenduro"
+      },
+      {
+        "url": "https://www.accommodationinnoosa.com.au/noosa-enduro-2025-a-challenging-riding-experience/",
+        "category": "other",
+        "label": "Accommodationinnoosa"
+      },
+      {
+        "url": "https://www.ambmag.com.au/video/noosa-enduro-bike-race-preview-577071/",
+        "category": "other",
+        "label": "Ambmag"
+      },
+      {
+        "url": "https://www.sunshinecoastpoint.com.au/events/noosa-enduro/",
+        "category": "other",
+        "label": "Sunshinecoastpoint"
+      },
+      {
+        "url": "https://www.thirdwheelcycling.com/blogs/news/noosa-enduro-everything-you-need-to-know",
+        "category": "other",
+        "label": "Thirdwheelcycling"
       },
       {
         "url": "https://www.youtube.com/watch?v=eKgU9fRY6-4",
         "category": "community",
         "label": "youtube.com: Watch"
-      },
-      {
-        "url": "https://localsintheloop.com.au/listing/noosa-enduro-2024/",
-        "category": "community",
-        "label": "localsintheloop.com.au: Noosa Enduro 2024"
-      },
-      {
-        "url": "https://www.accommodationinnoosa.com.au/noosa-enduro-2025-a-challenging-riding-experience/",
-        "category": "community",
-        "label": "accommodationinnoosa.com.au: Noosa Enduro 2025 A Challenging Riding Experience"
-      },
-      {
-        "url": "https://noosaenduro.com.au/",
-        "category": "community",
-        "label": "noosaenduro.com.au"
-      },
-      {
-        "url": "https://www.ambmag.com.au/video/noosa-enduro-bike-race-preview-577071/",
-        "category": "community",
-        "label": "ambmag.com.au: Noosa Enduro Bike Race Preview 577071"
       },
       {
         "url": "https://auscycling.org.au/news/2026-gravel-calendar",

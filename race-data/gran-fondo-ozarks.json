@@ -19,7 +19,7 @@
         "Northwest Arkansas"
       ],
       "field_size": "200-400 riders",
-      "start_time": "Morning start",
+      "start_time": "6:30am from",
       "registration": "Online. Cost: ~$60-100",
       "prize_purse": "Modest prizes",
       "aid_stations": "Multiple aid stations",
@@ -94,7 +94,11 @@
       "score": "53 / 100",
       "one_liner": "Arkansas Ozark Mountains gravel in Eureka Springs.",
       "should_you_race": "If you're in Arkansas and want a mountain event—yes, it's solid. If you're from out of state—there are better options.",
-      "alternatives": "For better regional events: Ozark Gravel, Ouachita Challenge. For similar mountain events: other AR mountain gravel races."
+      "alternatives": "For better regional events: Ozark Gravel, Ouachita Challenge. For similar mountain events: other AR mountain gravel races.",
+      "alternative_slugs": [
+        "ouachita-challenge",
+        "ozark-gravel"
+      ]
     },
     "logistics": {
       "airport": "Northwest Arkansas (XNA) 45 minutes",
@@ -185,12 +189,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 83.9,
+        "grade": "A",
+        "weakest": "temporal_depth",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 80,
+          "temporal_depth": 50,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 76,
+          "cross_reference": 50
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -311,9 +324,9 @@
     },
     "citations": [
       {
-        "url": "https://www.trifind.com/re_793140/RandonneuringGravelRallyoftheOzarks",
-        "category": "community",
-        "label": "trifind.com: Randonneuringgravelrallyoftheozarks"
+        "url": "https://www.granfondoguide.com/Events/Index/12198/high-in-the-ozarks",
+        "category": "other",
+        "label": "Granfondoguide"
       }
     ],
     "tire_recommendations": {

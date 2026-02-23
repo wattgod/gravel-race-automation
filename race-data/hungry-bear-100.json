@@ -19,7 +19,7 @@
         "Forest and lakes"
       ],
       "field_size": "200-400 riders",
-      "start_time": "Morning start",
+      "start_time": "8:00 AM",
       "registration": "Online. Cost: ~$70-110",
       "prize_purse": "None",
       "aid_stations": "Aid stations on course",
@@ -94,14 +94,17 @@
       "score": "50 / 100",
       "one_liner": "Regional Wisconsin century in the Chequamegon area with good terrain.",
       "should_you_race": "If you're in Wisconsin or the Upper Midwest and want a 100-miler in a beautiful setting—yes. If you're traveling from far away—probably not worth the trip.",
-      "alternatives": "For better Wisconsin events: Chequamegon (mountain bike), Driftless Gravel. For similar regional centuries: other Midwest gravel events."
+      "alternatives": "For better Wisconsin events: Chequamegon (mountain bike), Driftless Gravel. For similar regional centuries: other Midwest gravel events.",
+      "alternative_slugs": [
+        "chequamegon-mtb"
+      ]
     },
     "logistics": {
       "airport": "Duluth (DLH) or Minneapolis (MSP) ~2-3 hours, Milwaukee (MKE) 4 hours",
       "lodging_strategy": "Cable has lodging due to Chequamegon area tourism. Book early during summer season.",
       "food": "Small town with dining options. Better than typical Northwoods towns.",
       "packet_pickup": "Typically day before or race morning",
-      "parking": "At start/finish",
+      "parking": "parking at Cable Municipal Parking implied[3]",
       "official_site": "Check Wisconsin cycling calendars"
     },
     "history": {
@@ -179,12 +182,21 @@
         "Generated from regional information"
       ],
       "research_strength": {
-        "overall": null,
-        "grade": null,
-        "weakest": null,
+        "overall": 92.7,
+        "grade": "A",
+        "weakest": "cross_reference",
         "has_research_dump": true,
-        "dimensions": {},
-        "scored_at": null
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 88,
+          "cross_reference": 50
+        },
+        "scored_at": "2026-02-04"
       }
     },
     "training_config": {
@@ -308,29 +320,39 @@
         "label": "RideWithGPS: Hungry Bear 100 2022 (copy)"
       },
       {
-        "url": "https://www.oneononebike.com/blogs/journal/race-report-the-hungry-bear-100/",
-        "category": "community",
-        "label": "oneononebike.com: Race Report The Hungry Bear 100"
-      },
-      {
-        "url": "https://hungrybeargravel.com/",
-        "category": "community",
-        "label": "hungrybeargravel.com"
-      },
-      {
         "url": "https://blog.newmoonski.com/2024/05/15/2024-hungry-bear-a-photo-recap/",
-        "category": "community",
-        "label": "blog.newmoonski.com: 2024 Hungry Bear A Photo Recap"
+        "category": "other",
+        "label": "Blog"
       },
       {
-        "url": "https://www.thenxrth.com/post/hungry-bear-gravel-race-2022",
-        "category": "community",
-        "label": "thenxrth.com: Hungry Bear Gravel Race 2022"
+        "url": "https://deathrideradventure.blogspot.com/2016/05/hungry-bear-100.html",
+        "category": "other",
+        "label": "Deathrideradventure"
       },
       {
         "url": "https://lifeaboveeight.com/hungry-bear-100/hungry-bear-must-know/",
-        "category": "community",
-        "label": "lifeaboveeight.com: Hungry Bear Must Know"
+        "category": "other",
+        "label": "Lifeaboveeight"
+      },
+      {
+        "url": "https://www.cambatrails.org/events/hungrybeargravel",
+        "category": "other",
+        "label": "Cambatrails"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/12414/hungry-bear-gravel",
+        "category": "other",
+        "label": "Granfondoguide"
+      },
+      {
+        "url": "https://www.oneononebike.com/blogs/journal/race-report-the-hungry-bear-100/",
+        "category": "other",
+        "label": "Oneononebike"
+      },
+      {
+        "url": "https://www.thenxrth.com/post/hungry-bear-gravel-race-2022",
+        "category": "other",
+        "label": "Thenxrth"
       },
       {
         "url": "https://www.youtube.com/watch?v=ZoCCyzmw5Eg",
@@ -341,11 +363,6 @@
         "url": "https://www.youtube.com/watch?v=JnJYFEWNAHY",
         "category": "community",
         "label": "youtube.com: Watch"
-      },
-      {
-        "url": "https://deathrideradventure.blogspot.com/2016/05/hungry-bear-100.html",
-        "category": "community",
-        "label": "deathrideradventure.blogspot.com: Hungry Bear 100.Html"
       },
       {
         "url": "https://www.webscorer.com/race?raceid=276638",

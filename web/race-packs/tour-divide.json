@@ -1,0 +1,61 @@
+{
+  "slug": "tour-divide",
+  "race_name": "Tour Divide",
+  "demands": {
+    "durability": 10,
+    "climbing": 10,
+    "vo2_power": 10,
+    "threshold": 5,
+    "technical": 6,
+    "heat_resilience": 10,
+    "altitude": 10,
+    "race_specificity": 10
+  },
+  "top_categories": [
+    {
+      "category": "Durability",
+      "score": 100,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ]
+    },
+    {
+      "category": "VO2max",
+      "score": 85,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ]
+    },
+    {
+      "category": "Endurance",
+      "score": 77,
+      "workouts": [
+        "Pre-Race Openers",
+        "Terrain Simulation Z2"
+      ]
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 60,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ]
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 58,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ]
+    }
+  ],
+  "pack_summary": "This 10-workout pack focuses on Durability, VO2max, and Endurance to prepare you for 2745 miles of mixed mountain bike terrain following the continental divide in Banff, Alberta to Antelope Wells, New Mexico.",
+  "generated_at": "2026-02-26"
+}

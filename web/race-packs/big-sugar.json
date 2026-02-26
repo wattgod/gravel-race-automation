@@ -1,0 +1,62 @@
+{
+  "slug": "big-sugar",
+  "race_name": "Big Sugar Gravel",
+  "demands": {
+    "durability": 6,
+    "climbing": 8,
+    "vo2_power": 10,
+    "threshold": 8,
+    "technical": 8,
+    "heat_resilience": 1,
+    "altitude": 2,
+    "race_specificity": 10
+  },
+  "top_categories": [
+    {
+      "category": "Gravel_Specific",
+      "score": 100,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ]
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 95,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ]
+    },
+    {
+      "category": "TT_Threshold",
+      "score": 82,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ]
+    },
+    {
+      "category": "Durability",
+      "score": 80,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ]
+    },
+    {
+      "category": "VO2max",
+      "score": 80,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ]
+    }
+  ],
+  "pack_summary": "This 10-workout pack focuses on Gravel Specific, Race Simulation, and TT Threshold to prepare you for 100 miles of ozark mountain gravel with punchy repeated climbs in Bentonville, Arkansas.",
+  "generated_at": "2026-02-26"
+}

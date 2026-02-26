@@ -1,0 +1,62 @@
+{
+  "slug": "uci-gravel-dustman",
+  "race_name": "UCI Gravel Dustman",
+  "demands": {
+    "durability": 4,
+    "climbing": 4,
+    "vo2_power": 5,
+    "threshold": 7,
+    "technical": 6,
+    "heat_resilience": 2,
+    "altitude": 2,
+    "race_specificity": 7
+  },
+  "top_categories": [
+    {
+      "category": "Gravel_Specific",
+      "score": 100,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ]
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 94,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ]
+    },
+    {
+      "category": "TT_Threshold",
+      "score": 84,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ]
+    },
+    {
+      "category": "Durability",
+      "score": 83,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ]
+    },
+    {
+      "category": "G_Spot",
+      "score": 67,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ]
+    }
+  ],
+  "pack_summary": "This 10-workout pack focuses on Gravel Specific, Race Simulation, and TT Threshold to prepare you for 81 miles of mixed gravel in Kanchanaburi, Thailand.",
+  "generated_at": "2026-02-26"
+}

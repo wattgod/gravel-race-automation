@@ -1,0 +1,61 @@
+{
+  "slug": "salida-76",
+  "race_name": "Salida 76",
+  "demands": {
+    "durability": 4,
+    "climbing": 7,
+    "vo2_power": 2,
+    "threshold": 8,
+    "technical": 6,
+    "heat_resilience": 0,
+    "altitude": 6,
+    "race_specificity": 5
+  },
+  "top_categories": [
+    {
+      "category": "TT_Threshold",
+      "score": 100,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ]
+    },
+    {
+      "category": "Over_Under",
+      "score": 86,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ]
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 81,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ]
+    },
+    {
+      "category": "G_Spot",
+      "score": 78,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ]
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 70,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ]
+    }
+  ],
+  "pack_summary": "This 10-workout pack focuses on TT Threshold, Over Under, and Gravel Specific to prepare you for 76 miles of colorado rockies gravel in Salida, CO.",
+  "generated_at": "2026-02-26"
+}

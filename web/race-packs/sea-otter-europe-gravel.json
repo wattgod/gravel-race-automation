@@ -1,0 +1,62 @@
+{
+  "slug": "sea-otter-europe-gravel",
+  "race_name": "Sea Otter Europe Gravel",
+  "demands": {
+    "durability": 4,
+    "climbing": 4,
+    "vo2_power": 6,
+    "threshold": 7,
+    "technical": 4,
+    "heat_resilience": 0,
+    "altitude": 2,
+    "race_specificity": 7
+  },
+  "top_categories": [
+    {
+      "category": "TT_Threshold",
+      "score": 100,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ]
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 100,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ]
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 96,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ]
+    },
+    {
+      "category": "VO2max",
+      "score": 85,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ]
+    },
+    {
+      "category": "Durability",
+      "score": 83,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ]
+    }
+  ],
+  "pack_summary": "This 10-workout pack focuses on TT Threshold, Race Simulation, and Gravel Specific to prepare you for 75 miles of spanish rolling gravel in Girona, Spain.",
+  "generated_at": "2026-02-26"
+}

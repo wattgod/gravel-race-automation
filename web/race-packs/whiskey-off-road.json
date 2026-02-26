@@ -1,0 +1,62 @@
+{
+  "slug": "whiskey-off-road",
+  "race_name": "Whiskey Off-Road",
+  "demands": {
+    "durability": 2,
+    "climbing": 7,
+    "vo2_power": 7,
+    "threshold": 6,
+    "technical": 8,
+    "heat_resilience": 6,
+    "altitude": 6,
+    "race_specificity": 10
+  },
+  "top_categories": [
+    {
+      "category": "Gravel_Specific",
+      "score": 100,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ]
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 95,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ]
+    },
+    {
+      "category": "VO2max",
+      "score": 82,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ]
+    },
+    {
+      "category": "Durability",
+      "score": 75,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ]
+    },
+    {
+      "category": "TT_Threshold",
+      "score": 65,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ]
+    }
+  ],
+  "pack_summary": "This 10-workout pack focuses on Gravel Specific, Race Simulation, and VO2max to prepare you for 50 miles of classic southwest mtb with singletrack, fire roads, and technical descents in Prescott, Arizona.",
+  "generated_at": "2026-02-26"
+}

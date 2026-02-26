@@ -1,0 +1,61 @@
+{
+  "slug": "dirty-hector",
+  "race_name": "Dirty Hector - New York State Championship",
+  "demands": {
+    "durability": 2,
+    "climbing": 7,
+    "vo2_power": 5,
+    "threshold": 6,
+    "technical": 4,
+    "heat_resilience": 1,
+    "altitude": 2,
+    "race_specificity": 7
+  },
+  "top_categories": [
+    {
+      "category": "TT_Threshold",
+      "score": 100,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ]
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 95,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ]
+    },
+    {
+      "category": "Over_Under",
+      "score": 93,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ]
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 91,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ]
+    },
+    {
+      "category": "G_Spot",
+      "score": 77,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ]
+    }
+  ],
+  "pack_summary": "This 10-workout pack focuses on TT Threshold, Race Simulation, and Over Under to prepare you for 62 miles of finger lakes hills gravel in Trumansburg, New York.",
+  "generated_at": "2026-02-26"
+}

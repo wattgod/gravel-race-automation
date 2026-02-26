@@ -1,0 +1,61 @@
+{
+  "slug": "crusher-in-the-tushar",
+  "race_name": "Crusher in the Tushar",
+  "demands": {
+    "durability": 2,
+    "climbing": 10,
+    "vo2_power": 10,
+    "threshold": 6,
+    "technical": 8,
+    "heat_resilience": 8,
+    "altitude": 10,
+    "race_specificity": 10
+  },
+  "top_categories": [
+    {
+      "category": "VO2max",
+      "score": 100,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ]
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 80,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ]
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 76,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ]
+    },
+    {
+      "category": "Durability",
+      "score": 67,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ]
+    },
+    {
+      "category": "Over_Under",
+      "score": 62,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ]
+    }
+  ],
+  "pack_summary": "This 10-workout pack focuses on VO2max, Gravel Specific, and Race Simulation to prepare you for 69 miles of mixed surface climbing with extended descents in Beaver, Utah.",
+  "generated_at": "2026-02-26"
+}

@@ -1,0 +1,61 @@
+{
+  "slug": "cedar-blitz",
+  "race_name": "Cedar Blitz",
+  "demands": {
+    "durability": 2,
+    "climbing": 4,
+    "vo2_power": 2,
+    "threshold": 5,
+    "technical": 4,
+    "heat_resilience": 1,
+    "altitude": 2,
+    "race_specificity": 3
+  },
+  "top_categories": [
+    {
+      "category": "TT_Threshold",
+      "score": 100,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ]
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 86,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ]
+    },
+    {
+      "category": "Over_Under",
+      "score": 83,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ]
+    },
+    {
+      "category": "G_Spot",
+      "score": 79,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ]
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 71,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ]
+    }
+  ],
+  "pack_summary": "This 10-workout pack focuses on TT Threshold, Gravel Specific, and Over Under to prepare you for 62 miles of west michigan gravel roads in Cedar Springs, Michigan.",
+  "generated_at": "2026-02-26"
+}

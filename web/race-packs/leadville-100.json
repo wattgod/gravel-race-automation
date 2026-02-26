@@ -1,0 +1,62 @@
+{
+  "slug": "leadville-100",
+  "race_name": "Leadville Trail 100 MTB",
+  "demands": {
+    "durability": 6,
+    "climbing": 10,
+    "vo2_power": 10,
+    "threshold": 8,
+    "technical": 8,
+    "heat_resilience": 6,
+    "altitude": 10,
+    "race_specificity": 10
+  },
+  "top_categories": [
+    {
+      "category": "VO2max",
+      "score": 100,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ]
+    },
+    {
+      "category": "Durability",
+      "score": 82,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ]
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 80,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ]
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 76,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ]
+    },
+    {
+      "category": "TT_Threshold",
+      "score": 71,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ]
+    }
+  ],
+  "pack_summary": "This 10-workout pack focuses on VO2max, Durability, and Gravel Specific to prepare you for 100 miles of mixed mountain terrain\u2014singletrack, fire roads, pavement in Leadville, Colorado.",
+  "generated_at": "2026-02-26"
+}

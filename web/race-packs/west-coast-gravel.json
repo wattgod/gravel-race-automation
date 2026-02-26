@@ -1,0 +1,61 @@
+{
+  "slug": "west-coast-gravel",
+  "race_name": "West Coast Gravel",
+  "demands": {
+    "durability": 2,
+    "climbing": 5,
+    "vo2_power": 2,
+    "threshold": 6,
+    "technical": 6,
+    "heat_resilience": 0,
+    "altitude": 2,
+    "race_specificity": 3
+  },
+  "top_categories": [
+    {
+      "category": "TT_Threshold",
+      "score": 100,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ]
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 94,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ]
+    },
+    {
+      "category": "Over_Under",
+      "score": 84,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ]
+    },
+    {
+      "category": "G_Spot",
+      "score": 78,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ]
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 71,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ]
+    }
+  ],
+  "pack_summary": "This 10-workout pack focuses on TT Threshold, Gravel Specific, and Over Under to prepare you for 55 miles of oregon coast gravel in Yachats, OR.",
+  "generated_at": "2026-02-26"
+}

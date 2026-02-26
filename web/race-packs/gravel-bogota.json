@@ -1,0 +1,61 @@
+{
+  "slug": "gravel-bogota",
+  "race_name": "Gravel Bogot\u00e1",
+  "demands": {
+    "durability": 4,
+    "climbing": 6,
+    "vo2_power": 4,
+    "threshold": 8,
+    "technical": 6,
+    "heat_resilience": 0,
+    "altitude": 8,
+    "race_specificity": 6
+  },
+  "top_categories": [
+    {
+      "category": "TT_Threshold",
+      "score": 100,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ]
+    },
+    {
+      "category": "VO2max",
+      "score": 97,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ]
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 91,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ]
+    },
+    {
+      "category": "Over_Under",
+      "score": 82,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ]
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 82,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ]
+    }
+  ],
+  "pack_summary": "This 10-workout pack focuses on TT Threshold, VO2max, and Gravel Specific to prepare you for 80 miles of colombian mountain gravel in Bogot\u00e1, Colombia.",
+  "generated_at": "2026-02-26"
+}

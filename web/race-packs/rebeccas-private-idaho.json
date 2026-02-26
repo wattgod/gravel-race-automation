@@ -1,0 +1,62 @@
+{
+  "slug": "rebeccas-private-idaho",
+  "race_name": "Rebecca's Private Idaho",
+  "demands": {
+    "durability": 6,
+    "climbing": 8,
+    "vo2_power": 9,
+    "threshold": 8,
+    "technical": 6,
+    "heat_resilience": 3,
+    "altitude": 8,
+    "race_specificity": 10
+  },
+  "top_categories": [
+    {
+      "category": "VO2max",
+      "score": 100,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ]
+    },
+    {
+      "category": "Durability",
+      "score": 83,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ]
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 83,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ]
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 81,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ]
+    },
+    {
+      "category": "TT_Threshold",
+      "score": 77,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ]
+    }
+  ],
+  "pack_summary": "This 10-workout pack focuses on VO2max, Durability, and Race Simulation to prepare you for 103 miles of high desert gravel with sustained climbs in Ketchum, Idaho.",
+  "generated_at": "2026-02-26"
+}

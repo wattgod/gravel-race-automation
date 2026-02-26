@@ -1,0 +1,61 @@
+{
+  "slug": "glengarry-games-gravel-run",
+  "race_name": "Glengarry Games Gravel Run",
+  "demands": {
+    "durability": 2,
+    "climbing": 3,
+    "vo2_power": 2,
+    "threshold": 5,
+    "technical": 4,
+    "heat_resilience": 3,
+    "altitude": 2,
+    "race_specificity": 3
+  },
+  "top_categories": [
+    {
+      "category": "TT_Threshold",
+      "score": 100,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ]
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 92,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ]
+    },
+    {
+      "category": "Durability",
+      "score": 85,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ]
+    },
+    {
+      "category": "G_Spot",
+      "score": 79,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ]
+    },
+    {
+      "category": "Over_Under",
+      "score": 77,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ]
+    }
+  ],
+  "pack_summary": "This 10-workout pack focuses on TT Threshold, Gravel Specific, and Durability to prepare you for 50 miles of ontario rolling gravel in Maxville, Ontario, Canada.",
+  "generated_at": "2026-02-26"
+}

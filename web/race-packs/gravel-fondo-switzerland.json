@@ -1,0 +1,61 @@
+{
+  "slug": "gravel-fondo-switzerland",
+  "race_name": "UCI Gravel Suisse",
+  "demands": {
+    "durability": 2,
+    "climbing": 10,
+    "vo2_power": 9,
+    "threshold": 6,
+    "technical": 6,
+    "heat_resilience": 6,
+    "altitude": 6,
+    "race_specificity": 10
+  },
+  "top_categories": [
+    {
+      "category": "VO2max",
+      "score": 100,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ]
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 93,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ]
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 90,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ]
+    },
+    {
+      "category": "Over_Under",
+      "score": 81,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ]
+    },
+    {
+      "category": "Durability",
+      "score": 79,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ]
+    }
+  ],
+  "pack_summary": "This 10-workout pack focuses on VO2max, Race Simulation, and Gravel Specific to prepare you for 68 miles of 50% paved / 50% unpaved alpine terrain. starts flat in rhone valley, transitions to steep forest climbs and high-altitude gravel roads. features a brutal 20% gradient section on route des chaux before the col de la croix finish in Aigle / Villars-sur-Ollon, Switzerland.",
+  "generated_at": "2026-02-26"
+}

@@ -1,0 +1,61 @@
+{
+  "slug": "tour-de-nebraska",
+  "race_name": "Tour de Nebraska",
+  "demands": {
+    "durability": 10,
+    "climbing": 4,
+    "vo2_power": 3,
+    "threshold": 4,
+    "technical": 4,
+    "heat_resilience": 0,
+    "altitude": 2,
+    "race_specificity": 6
+  },
+  "top_categories": [
+    {
+      "category": "Durability",
+      "score": 100,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ]
+    },
+    {
+      "category": "HVLI_Extended",
+      "score": 64,
+      "workouts": [
+        "HVLI Extended Z2",
+        "Multi-Hour Z2",
+        "Back-to-Back Long"
+      ]
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 62,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ]
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 62,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ]
+    },
+    {
+      "category": "Endurance",
+      "score": 59,
+      "workouts": [
+        "Pre-Race Openers",
+        "Terrain Simulation Z2"
+      ]
+    }
+  ],
+  "pack_summary": "This 10-workout pack focuses on Durability, HVLI Extended, and Gravel Specific to prepare you for 250 miles of mix of paved roads and gravel; optional gravel adventure includes single-lane maintenance roads, fresh gravel, and minimum maintenance roads (mmr) in Southwest Nebraska (Curtis, Elwood, Cambridge, McCook).",
+  "generated_at": "2026-02-26"
+}

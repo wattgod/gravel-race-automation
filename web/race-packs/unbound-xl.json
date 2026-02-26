@@ -1,0 +1,61 @@
+{
+  "slug": "unbound-xl",
+  "race_name": "Unbound XL",
+  "demands": {
+    "durability": 10,
+    "climbing": 9,
+    "vo2_power": 10,
+    "threshold": 5,
+    "technical": 8,
+    "heat_resilience": 8,
+    "altitude": 4,
+    "race_specificity": 10
+  },
+  "top_categories": [
+    {
+      "category": "Durability",
+      "score": 100,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ]
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 72,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ]
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 69,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ]
+    },
+    {
+      "category": "VO2max",
+      "score": 66,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ]
+    },
+    {
+      "category": "Endurance",
+      "score": 62,
+      "workouts": [
+        "Pre-Race Openers",
+        "Terrain Simulation Z2"
+      ]
+    }
+  ],
+  "pack_summary": "This 10-workout pack focuses on Durability, Gravel Specific, and Race Simulation to prepare you for 350 miles of pure limestone gravel \u2014 sharp edges regularly destroy tires, constant line-choice decisions in Emporia, Kansas.",
+  "generated_at": "2026-02-26"
+}

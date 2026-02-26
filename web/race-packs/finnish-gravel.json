@@ -1,0 +1,62 @@
+{
+  "slug": "finnish-gravel",
+  "race_name": "Finnish Gravel",
+  "demands": {
+    "durability": 6,
+    "climbing": 3,
+    "vo2_power": 8,
+    "threshold": 7,
+    "technical": 4,
+    "heat_resilience": 0,
+    "altitude": 2,
+    "race_specificity": 10
+  },
+  "top_categories": [
+    {
+      "category": "Race_Simulation",
+      "score": 100,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ]
+    },
+    {
+      "category": "Durability",
+      "score": 92,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ]
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 89,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ]
+    },
+    {
+      "category": "VO2max",
+      "score": 81,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ]
+    },
+    {
+      "category": "TT_Threshold",
+      "score": 71,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ]
+    }
+  ],
+  "pack_summary": "This 10-workout pack focuses on Race Simulation, Durability, and Gravel Specific to prepare you for 110 miles of fast-rolling finnish gravel roads through unesco geopark in Lahti, Paijanne Tavastia, Finland.",
+  "generated_at": "2026-02-26"
+}

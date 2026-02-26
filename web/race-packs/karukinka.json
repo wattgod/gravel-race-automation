@@ -1,0 +1,61 @@
+{
+  "slug": "karukinka",
+  "race_name": "Karukinka",
+  "demands": {
+    "durability": 6,
+    "climbing": 8,
+    "vo2_power": 4,
+    "threshold": 8,
+    "technical": 8,
+    "heat_resilience": 0,
+    "altitude": 4,
+    "race_specificity": 6
+  },
+  "top_categories": [
+    {
+      "category": "TT_Threshold",
+      "score": 100,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ]
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 100,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ]
+    },
+    {
+      "category": "Over_Under",
+      "score": 89,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ]
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 83,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ]
+    },
+    {
+      "category": "G_Spot",
+      "score": 78,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ]
+    }
+  ],
+  "pack_summary": "This 10-workout pack focuses on TT Threshold, Gravel Specific, and Over Under to prepare you for 120 miles of tierra del fuego mountain gravel in Tierra del Fuego, Chile.",
+  "generated_at": "2026-02-26"
+}

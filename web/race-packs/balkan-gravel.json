@@ -1,0 +1,61 @@
+{
+  "slug": "balkan-gravel",
+  "race_name": "Balkan Gravel",
+  "demands": {
+    "durability": 2,
+    "climbing": 5,
+    "vo2_power": 4,
+    "threshold": 6,
+    "technical": 4,
+    "heat_resilience": 2,
+    "altitude": 4,
+    "race_specificity": 6
+  },
+  "top_categories": [
+    {
+      "category": "TT_Threshold",
+      "score": 100,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ]
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 94,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ]
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 94,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ]
+    },
+    {
+      "category": "VO2max",
+      "score": 86,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ]
+    },
+    {
+      "category": "Over_Under",
+      "score": 84,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ]
+    }
+  ],
+  "pack_summary": "This 10-workout pack focuses on TT Threshold, Gravel Specific, and Race Simulation to prepare you for 65 miles of balkan mountainous gravel in Slovenia/Croatia.",
+  "generated_at": "2026-02-26"
+}

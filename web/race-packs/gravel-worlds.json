@@ -1,0 +1,61 @@
+{
+  "slug": "gravel-worlds",
+  "race_name": "Gravel Worlds",
+  "demands": {
+    "durability": 8,
+    "climbing": 6,
+    "vo2_power": 9,
+    "threshold": 8,
+    "technical": 6,
+    "heat_resilience": 10,
+    "altitude": 2,
+    "race_specificity": 10
+  },
+  "top_categories": [
+    {
+      "category": "Durability",
+      "score": 100,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ]
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 66,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ]
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 64,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ]
+    },
+    {
+      "category": "Endurance",
+      "score": 58,
+      "workouts": [
+        "Pre-Race Openers",
+        "Terrain Simulation Z2"
+      ]
+    },
+    {
+      "category": "TT_Threshold",
+      "score": 56,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ]
+    }
+  ],
+  "pack_summary": "This 10-workout pack focuses on Durability, Race Simulation, and Gravel Specific to prepare you for 150 miles of classic nebraska farm gravel with minimum maintenance roads in Lincoln, Nebraska (Sandhills Global Event Center).",
+  "generated_at": "2026-02-26"
+}

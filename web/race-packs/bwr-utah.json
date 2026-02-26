@@ -1,0 +1,61 @@
+{
+  "slug": "bwr-utah",
+  "race_name": "BWR Utah (Belgian Waffle Ride Utah)",
+  "demands": {
+    "durability": 4,
+    "climbing": 9,
+    "vo2_power": 8,
+    "threshold": 8,
+    "technical": 8,
+    "heat_resilience": 7,
+    "altitude": 4,
+    "race_specificity": 10
+  },
+  "top_categories": [
+    {
+      "category": "Gravel_Specific",
+      "score": 100,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ]
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 95,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ]
+    },
+    {
+      "category": "Durability",
+      "score": 93,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ]
+    },
+    {
+      "category": "TT_Threshold",
+      "score": 85,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ]
+    },
+    {
+      "category": "Over_Under",
+      "score": 78,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ]
+    }
+  ],
+  "pack_summary": "This 10-workout pack focuses on Gravel Specific, Race Simulation, and Durability to prepare you for 84 miles of utah red rock\u2014high desert technical terrain in Cedar City, Utah.",
+  "generated_at": "2026-02-26"
+}

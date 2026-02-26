@@ -1,0 +1,62 @@
+{
+  "slug": "bwr-arizona",
+  "race_name": "BWR Arizona",
+  "demands": {
+    "durability": 6,
+    "climbing": 6,
+    "vo2_power": 8,
+    "threshold": 8,
+    "technical": 8,
+    "heat_resilience": 1,
+    "altitude": 4,
+    "race_specificity": 10
+  },
+  "top_categories": [
+    {
+      "category": "Gravel_Specific",
+      "score": 100,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ]
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 95,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ]
+    },
+    {
+      "category": "Durability",
+      "score": 80,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ]
+    },
+    {
+      "category": "VO2max",
+      "score": 77,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ]
+    },
+    {
+      "category": "TT_Threshold",
+      "score": 75,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ]
+    }
+  ],
+  "pack_summary": "This 10-workout pack focuses on Gravel Specific, Race Simulation, and Durability to prepare you for 104 miles of desert gravel, singletrack, sand, rock in Cave Creek / McDowell Region, Arizona.",
+  "generated_at": "2026-02-26"
+}

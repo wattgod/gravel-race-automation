@@ -1,0 +1,61 @@
+{
+  "slug": "niseko-gravel",
+  "race_name": "Niseko Gravel",
+  "demands": {
+    "durability": 2,
+    "climbing": 6,
+    "vo2_power": 4,
+    "threshold": 6,
+    "technical": 4,
+    "heat_resilience": 0,
+    "altitude": 4,
+    "race_specificity": 6
+  },
+  "top_categories": [
+    {
+      "category": "TT_Threshold",
+      "score": 100,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ]
+    },
+    {
+      "category": "Over_Under",
+      "score": 89,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ]
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 89,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ]
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 89,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ]
+    },
+    {
+      "category": "VO2max",
+      "score": 81,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ]
+    }
+  ],
+  "pack_summary": "This 10-workout pack focuses on TT Threshold, Over Under, and Gravel Specific to prepare you for 65 miles of hokkaido mountain gravel in Niseko, Hokkaido, Japan.",
+  "generated_at": "2026-02-26"
+}

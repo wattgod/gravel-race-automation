@@ -1,0 +1,60 @@
+{
+  "slug": "rasputitsa",
+  "race_name": "Rasputitsa",
+  "demands": {
+    "durability": 1,
+    "climbing": 7,
+    "vo2_power": 6,
+    "threshold": 4,
+    "technical": 10,
+    "heat_resilience": 10,
+    "altitude": 2,
+    "race_specificity": 9
+  },
+  "top_categories": [
+    {
+      "category": "Gravel_Specific",
+      "score": 100,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ]
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 88,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ]
+    },
+    {
+      "category": "Durability",
+      "score": 76,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ]
+    },
+    {
+      "category": "Critical_Power",
+      "score": 60,
+      "workouts": [
+        "Above CP Repeats",
+        "W-Prime Depletion"
+      ]
+    },
+    {
+      "category": "Over_Under",
+      "score": 49,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ]
+    }
+  ],
+  "pack_summary": "This 10-workout pack focuses on Gravel Specific, Race Simulation, and Durability to prepare you for 46 miles of vermont class 4 roads\u2014unmaintained dirt, mud in Burke, Vermont.",
+  "generated_at": "2026-02-26"
+}

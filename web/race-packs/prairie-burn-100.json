@@ -1,0 +1,61 @@
+{
+  "slug": "prairie-burn-100",
+  "race_name": "Prairie Burn 100",
+  "demands": {
+    "durability": 6,
+    "climbing": 4,
+    "vo2_power": 2,
+    "threshold": 7,
+    "technical": 4,
+    "heat_resilience": 1,
+    "altitude": 2,
+    "race_specificity": 3
+  },
+  "top_categories": [
+    {
+      "category": "TT_Threshold",
+      "score": 100,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ]
+    },
+    {
+      "category": "Durability",
+      "score": 91,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ]
+    },
+    {
+      "category": "G_Spot",
+      "score": 80,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ]
+    },
+    {
+      "category": "Over_Under",
+      "score": 76,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ]
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 67,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ]
+    }
+  ],
+  "pack_summary": "This 10-workout pack focuses on TT Threshold, Durability, and G Spot to prepare you for 100 miles of iowa rolling gravel in Grinnell, Iowa.",
+  "generated_at": "2026-02-26"
+}

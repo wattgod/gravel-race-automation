@@ -1,0 +1,61 @@
+{
+  "slug": "the-rad",
+  "race_name": "The Rad Dirt Fest",
+  "demands": {
+    "durability": 6,
+    "climbing": 10,
+    "vo2_power": 6,
+    "threshold": 8,
+    "technical": 6,
+    "heat_resilience": 1,
+    "altitude": 8,
+    "race_specificity": 9
+  },
+  "top_categories": [
+    {
+      "category": "TT_Threshold",
+      "score": 100,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ]
+    },
+    {
+      "category": "VO2max",
+      "score": 97,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ]
+    },
+    {
+      "category": "Over_Under",
+      "score": 95,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ]
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 92,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ]
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 92,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ]
+    }
+  ],
+  "pack_summary": "This 10-workout pack focuses on TT Threshold, VO2max, and Over Under to prepare you for 113 miles of high-desert gravel with long sustained climbs in Trinidad, Colorado.",
+  "generated_at": "2026-02-26"
+}

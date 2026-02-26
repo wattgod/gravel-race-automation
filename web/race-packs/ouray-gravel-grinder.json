@@ -1,0 +1,61 @@
+{
+  "slug": "ouray-gravel-grinder",
+  "race_name": "Ouray Gravel Grinder",
+  "demands": {
+    "durability": 4,
+    "climbing": 9,
+    "vo2_power": 3,
+    "threshold": 8,
+    "technical": 10,
+    "heat_resilience": 10,
+    "altitude": 10,
+    "race_specificity": 8
+  },
+  "top_categories": [
+    {
+      "category": "Gravel_Specific",
+      "score": 100,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ]
+    },
+    {
+      "category": "Durability",
+      "score": 96,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ]
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 85,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ]
+    },
+    {
+      "category": "Endurance",
+      "score": 83,
+      "workouts": [
+        "Pre-Race Openers",
+        "Terrain Simulation Z2"
+      ]
+    },
+    {
+      "category": "TT_Threshold",
+      "score": 82,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ]
+    }
+  ],
+  "pack_summary": "This 10-workout pack focuses on Gravel Specific, Durability, and Race Simulation to prepare you for 80 miles of mixed terrain in Ouray, Colorado.",
+  "generated_at": "2026-02-26"
+}

@@ -1,0 +1,61 @@
+{
+  "slug": "highlands-gravel-classic",
+  "race_name": "Highlands Gravel Classic",
+  "demands": {
+    "durability": 2,
+    "climbing": 5,
+    "vo2_power": 8,
+    "threshold": 6,
+    "technical": 6,
+    "heat_resilience": 1,
+    "altitude": 2,
+    "race_specificity": 10
+  },
+  "top_categories": [
+    {
+      "category": "Race_Simulation",
+      "score": 100,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ]
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 97,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ]
+    },
+    {
+      "category": "VO2max",
+      "score": 74,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ]
+    },
+    {
+      "category": "TT_Threshold",
+      "score": 65,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ]
+    },
+    {
+      "category": "Critical_Power",
+      "score": 62,
+      "workouts": [
+        "Above CP Repeats",
+        "W-Prime Depletion"
+      ]
+    }
+  ],
+  "pack_summary": "This 10-workout pack focuses on Race Simulation, Gravel Specific, and VO2max to prepare you for 67 miles of chunky ozark gravel with constant rolling hills in Goshen, Arkansas.",
+  "generated_at": "2026-02-26"
+}

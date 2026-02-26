@@ -1,0 +1,62 @@
+{
+  "slug": "kal-tour-dirty-100",
+  "race_name": "Kal-Tour Dirty 100",
+  "demands": {
+    "durability": 6,
+    "climbing": 4,
+    "vo2_power": 2,
+    "threshold": 7,
+    "technical": 4,
+    "heat_resilience": 0,
+    "altitude": 2,
+    "race_specificity": 5
+  },
+  "top_categories": [
+    {
+      "category": "TT_Threshold",
+      "score": 100,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ]
+    },
+    {
+      "category": "Durability",
+      "score": 94,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ]
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 81,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ]
+    },
+    {
+      "category": "G_Spot",
+      "score": 80,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ]
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 78,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ]
+    }
+  ],
+  "pack_summary": "This 10-workout pack focuses on TT Threshold, Durability, and Gravel Specific to prepare you for 100 miles of michigan rolling gravel in Kalamazoo, Michigan.",
+  "generated_at": "2026-02-26"
+}

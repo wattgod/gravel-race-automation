@@ -1,0 +1,61 @@
+{
+  "slug": "gravel-burn",
+  "race_name": "Gravel Burn",
+  "demands": {
+    "durability": 2,
+    "climbing": 8,
+    "vo2_power": 7,
+    "threshold": 6,
+    "technical": 6,
+    "heat_resilience": 3,
+    "altitude": 4,
+    "race_specificity": 10
+  },
+  "top_categories": [
+    {
+      "category": "Race_Simulation",
+      "score": 100,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ]
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 97,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ]
+    },
+    {
+      "category": "VO2max",
+      "score": 79,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ]
+    },
+    {
+      "category": "TT_Threshold",
+      "score": 77,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ]
+    },
+    {
+      "category": "Over_Under",
+      "score": 74,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ]
+    }
+  ],
+  "pack_summary": "This 10-workout pack focuses on Race Simulation, Gravel Specific, and VO2max to prepare you for 62 miles of south african highveld\u2014rolling red dirt gravel in Mpumalanga, South Africa.",
+  "generated_at": "2026-02-26"
+}

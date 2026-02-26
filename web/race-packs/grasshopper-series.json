@@ -1,0 +1,61 @@
+{
+  "slug": "grasshopper-series",
+  "race_name": "Grasshopper Adventure Series",
+  "demands": {
+    "durability": 2,
+    "climbing": 7,
+    "vo2_power": 8,
+    "threshold": 6,
+    "technical": 6,
+    "heat_resilience": 0,
+    "altitude": 4,
+    "race_specificity": 10
+  },
+  "top_categories": [
+    {
+      "category": "Race_Simulation",
+      "score": 100,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ]
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 97,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ]
+    },
+    {
+      "category": "VO2max",
+      "score": 87,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ]
+    },
+    {
+      "category": "TT_Threshold",
+      "score": 73,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ]
+    },
+    {
+      "category": "Over_Under",
+      "score": 68,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ]
+    }
+  ],
+  "pack_summary": "This 10-workout pack focuses on Race Simulation, Gravel Specific, and VO2max to prepare you for 70 miles of diverse - gravel roads, logging roads, singletrack, pavement. varies significantly by event from 95% dirt (low gap) to 96% paved (king ridge) to 100% off-road (jackson forest) in Northern California.",
+  "generated_at": "2026-02-26"
+}

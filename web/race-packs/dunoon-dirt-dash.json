@@ -1,0 +1,60 @@
+{
+  "slug": "dunoon-dirt-dash",
+  "race_name": "Dunoon Dirt Dash",
+  "demands": {
+    "durability": 1,
+    "climbing": 4,
+    "vo2_power": 2,
+    "threshold": 3,
+    "technical": 4,
+    "heat_resilience": 0,
+    "altitude": 2,
+    "race_specificity": 3
+  },
+  "top_categories": [
+    {
+      "category": "Gravel_Specific",
+      "score": 100,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ]
+    },
+    {
+      "category": "TT_Threshold",
+      "score": 83,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ]
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 83,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ]
+    },
+    {
+      "category": "Over_Under",
+      "score": 81,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ]
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 67,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ]
+    }
+  ],
+  "pack_summary": "This 10-workout pack focuses on Gravel Specific, TT Threshold, and Race Simulation to prepare you for 45 miles of uk scotland gravel in Dunoon, Scotland, UK.",
+  "generated_at": "2026-02-26"
+}

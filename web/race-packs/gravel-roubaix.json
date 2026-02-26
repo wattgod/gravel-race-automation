@@ -1,0 +1,61 @@
+{
+  "slug": "gravel-roubaix",
+  "race_name": "Gravel Roubaix",
+  "demands": {
+    "durability": 6,
+    "climbing": 8,
+    "vo2_power": 6,
+    "threshold": 8,
+    "technical": 8,
+    "heat_resilience": 0,
+    "altitude": 4,
+    "race_specificity": 9
+  },
+  "top_categories": [
+    {
+      "category": "Gravel_Specific",
+      "score": 100,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ]
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 93,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ]
+    },
+    {
+      "category": "TT_Threshold",
+      "score": 86,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ]
+    },
+    {
+      "category": "Over_Under",
+      "score": 76,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ]
+    },
+    {
+      "category": "Durability",
+      "score": 75,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ]
+    }
+  ],
+  "pack_summary": "This 10-workout pack focuses on Gravel Specific, Race Simulation, and TT Threshold to prepare you for 100 miles of pocono mountain gravel roads - steep sustained climbs, technical rocky descents, remote forest roads in Palmerton, Pennsylvania.",
+  "generated_at": "2026-02-26"
+}

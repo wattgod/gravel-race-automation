@@ -1,0 +1,60 @@
+{
+  "slug": "pony-xpress-gravel-160",
+  "race_name": "Pony Xpress Gravel 160",
+  "demands": {
+    "durability": 8,
+    "climbing": 10,
+    "vo2_power": 2,
+    "threshold": 5,
+    "technical": 8,
+    "heat_resilience": 2,
+    "altitude": 6,
+    "race_specificity": 5
+  },
+  "top_categories": [
+    {
+      "category": "Durability",
+      "score": 100,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ]
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 96,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ]
+    },
+    {
+      "category": "Over_Under",
+      "score": 92,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ]
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 85,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ]
+    },
+    {
+      "category": "TT_Threshold",
+      "score": 85,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ]
+    }
+  ],
+  "pack_summary": "This 10-workout pack focuses on Durability, Gravel Specific, and Over Under to prepare you for 160 miles of colorado mountains gravel in Trinidad, CO.",
+  "generated_at": "2026-02-26"
+}

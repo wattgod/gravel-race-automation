@@ -1,0 +1,61 @@
+{
+  "slug": "waukon-100",
+  "race_name": "Waukon 100",
+  "demands": {
+    "durability": 6,
+    "climbing": 6,
+    "vo2_power": 2,
+    "threshold": 8,
+    "technical": 6,
+    "heat_resilience": 1,
+    "altitude": 2,
+    "race_specificity": 3
+  },
+  "top_categories": [
+    {
+      "category": "TT_Threshold",
+      "score": 100,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ]
+    },
+    {
+      "category": "Over_Under",
+      "score": 82,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ]
+    },
+    {
+      "category": "G_Spot",
+      "score": 79,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ]
+    },
+    {
+      "category": "Durability",
+      "score": 74,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ]
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 73,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ]
+    }
+  ],
+  "pack_summary": "This 10-workout pack focuses on TT Threshold, Over Under, and G Spot to prepare you for 100 miles of iowa rolling gravel in Waukon, Iowa.",
+  "generated_at": "2026-02-26"
+}

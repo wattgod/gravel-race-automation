@@ -1,0 +1,61 @@
+{
+  "slug": "atlas-mountain-race",
+  "race_name": "Atlas Mountain Race",
+  "demands": {
+    "durability": 10,
+    "climbing": 10,
+    "vo2_power": 5,
+    "threshold": 5,
+    "technical": 8,
+    "heat_resilience": 1,
+    "altitude": 8,
+    "race_specificity": 9
+  },
+  "top_categories": [
+    {
+      "category": "Durability",
+      "score": 100,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ]
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 92,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ]
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 86,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ]
+    },
+    {
+      "category": "VO2max",
+      "score": 77,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ]
+    },
+    {
+      "category": "Endurance",
+      "score": 74,
+      "workouts": [
+        "Pre-Race Openers",
+        "Terrain Simulation Z2"
+      ]
+    }
+  ],
+  "pack_summary": "This 10-workout pack focuses on Durability, Gravel Specific, and Race Simulation to prepare you for 750 miles of atlas mountains ultra-endurance gravel in Morocco.",
+  "generated_at": "2026-02-26"
+}

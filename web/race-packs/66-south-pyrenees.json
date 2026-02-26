@@ -1,0 +1,61 @@
+{
+  "slug": "66-south-pyrenees",
+  "race_name": "66\u00b0 South Pyr\u00e9n\u00e9es",
+  "demands": {
+    "durability": 2,
+    "climbing": 7,
+    "vo2_power": 4,
+    "threshold": 6,
+    "technical": 4,
+    "heat_resilience": 0,
+    "altitude": 4,
+    "race_specificity": 6
+  },
+  "top_categories": [
+    {
+      "category": "TT_Threshold",
+      "score": 100,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ]
+    },
+    {
+      "category": "Over_Under",
+      "score": 93,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ]
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 84,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ]
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 84,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ]
+    },
+    {
+      "category": "G_Spot",
+      "score": 77,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ]
+    }
+  ],
+  "pack_summary": "This 10-workout pack focuses on TT Threshold, Over Under, and Gravel Specific to prepare you for 65 miles of pyr\u00e9n\u00e9es mountain gravel in Pyr\u00e9n\u00e9es, France.",
+  "generated_at": "2026-02-26"
+}

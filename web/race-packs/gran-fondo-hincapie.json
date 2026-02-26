@@ -1,0 +1,62 @@
+{
+  "slug": "gran-fondo-hincapie",
+  "race_name": "Gran Fondo Hincapie",
+  "demands": {
+    "durability": 6,
+    "climbing": 7,
+    "vo2_power": 5,
+    "threshold": 8,
+    "technical": 4,
+    "heat_resilience": 1,
+    "altitude": 2,
+    "race_specificity": 7
+  },
+  "top_categories": [
+    {
+      "category": "TT_Threshold",
+      "score": 100,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ]
+    },
+    {
+      "category": "Durability",
+      "score": 88,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ]
+    },
+    {
+      "category": "Over_Under",
+      "score": 86,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ]
+    },
+    {
+      "category": "G_Spot",
+      "score": 78,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ]
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 78,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ]
+    }
+  ],
+  "pack_summary": "This 10-workout pack focuses on TT Threshold, Durability, and Over Under to prepare you for 105 miles of south carolina mixed road/gravel in Greenville, South Carolina.",
+  "generated_at": "2026-02-26"
+}

@@ -1,0 +1,62 @@
+{
+  "slug": "usa-cycling-gravel-nationals",
+  "race_name": "USA Cycling Gravel Nationals",
+  "demands": {
+    "durability": 6,
+    "climbing": 6,
+    "vo2_power": 9,
+    "threshold": 8,
+    "technical": 6,
+    "heat_resilience": 0,
+    "altitude": 2,
+    "race_specificity": 10
+  },
+  "top_categories": [
+    {
+      "category": "Race_Simulation",
+      "score": 100,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ]
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 97,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ]
+    },
+    {
+      "category": "Durability",
+      "score": 85,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ]
+    },
+    {
+      "category": "TT_Threshold",
+      "score": 85,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ]
+    },
+    {
+      "category": "VO2max",
+      "score": 82,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ]
+    }
+  ],
+  "pack_summary": "This 10-workout pack focuses on Race Simulation, Gravel Specific, and Durability to prepare you for 131 miles of driftless 'champagne gravel' and punchy blufftop climbs in La Crescent, Minnesota (2025-26); previously Gering, Nebraska (2023-24).",
+  "generated_at": "2026-02-26"
+}

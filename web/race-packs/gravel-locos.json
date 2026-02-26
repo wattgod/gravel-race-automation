@@ -1,0 +1,61 @@
+{
+  "slug": "gravel-locos",
+  "race_name": "Gravel Locos",
+  "demands": {
+    "durability": 8,
+    "climbing": 8,
+    "vo2_power": 8,
+    "threshold": 5,
+    "technical": 4,
+    "heat_resilience": 10,
+    "altitude": 2,
+    "race_specificity": 10
+  },
+  "top_categories": [
+    {
+      "category": "Durability",
+      "score": 100,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ]
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 61,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ]
+    },
+    {
+      "category": "Endurance",
+      "score": 58,
+      "workouts": [
+        "Pre-Race Openers",
+        "Terrain Simulation Z2"
+      ]
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 54,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ]
+    },
+    {
+      "category": "HVLI_Extended",
+      "score": 51,
+      "workouts": [
+        "HVLI Extended Z2",
+        "Multi-Hour Z2",
+        "Back-to-Back Long"
+      ]
+    }
+  ],
+  "pack_summary": "This 10-workout pack focuses on Durability, Race Simulation, and Endurance to prepare you for 157 miles of smooth, fast hill country gravel with endless rollers in Hico, Texas.",
+  "generated_at": "2026-02-26"
+}

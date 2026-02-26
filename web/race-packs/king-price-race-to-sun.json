@@ -1,0 +1,60 @@
+{
+  "slug": "king-price-race-to-sun",
+  "race_name": "King Price Race to Sun",
+  "demands": {
+    "durability": 10,
+    "climbing": 10,
+    "vo2_power": 4,
+    "threshold": 5,
+    "technical": 6,
+    "heat_resilience": 0,
+    "altitude": 4,
+    "race_specificity": 6
+  },
+  "top_categories": [
+    {
+      "category": "Durability",
+      "score": 100,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ]
+    },
+    {
+      "category": "Over_Under",
+      "score": 83,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ]
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 77,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ]
+    },
+    {
+      "category": "TT_Threshold",
+      "score": 77,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ]
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 77,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ]
+    }
+  ],
+  "pack_summary": "This 10-workout pack focuses on Durability, Over Under, and Mixed Climbing to prepare you for 250 miles of south african mountain gravel in South Africa.",
+  "generated_at": "2026-02-26"
+}

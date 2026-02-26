@@ -1,0 +1,61 @@
+{
+  "slug": "bootlegger-100",
+  "race_name": "Bootlegger 100",
+  "demands": {
+    "durability": 6,
+    "climbing": 10,
+    "vo2_power": 6,
+    "threshold": 8,
+    "technical": 8,
+    "heat_resilience": 0,
+    "altitude": 2,
+    "race_specificity": 9
+  },
+  "top_categories": [
+    {
+      "category": "Gravel_Specific",
+      "score": 100,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ]
+    },
+    {
+      "category": "TT_Threshold",
+      "score": 93,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ]
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 93,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ]
+    },
+    {
+      "category": "Over_Under",
+      "score": 88,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ]
+    },
+    {
+      "category": "Durability",
+      "score": 75,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ]
+    }
+  ],
+  "pack_summary": "This 10-workout pack focuses on Gravel Specific, TT Threshold, and Race Simulation to prepare you for 100 miles of north georgia mountains\u2014steep climbs, technical descents in Dahlonega, Georgia (North Georgia mountains).",
+  "generated_at": "2026-02-26"
+}

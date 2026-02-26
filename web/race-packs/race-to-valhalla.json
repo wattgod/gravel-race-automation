@@ -1,0 +1,61 @@
+{
+  "slug": "race-to-valhalla",
+  "race_name": "Race to Valhalla",
+  "demands": {
+    "durability": 2,
+    "climbing": 7,
+    "vo2_power": 4,
+    "threshold": 6,
+    "technical": 6,
+    "heat_resilience": 1,
+    "altitude": 2,
+    "race_specificity": 6
+  },
+  "top_categories": [
+    {
+      "category": "Gravel_Specific",
+      "score": 100,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ]
+    },
+    {
+      "category": "TT_Threshold",
+      "score": 95,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ]
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 90,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ]
+    },
+    {
+      "category": "Over_Under",
+      "score": 88,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ]
+    },
+    {
+      "category": "G_Spot",
+      "score": 73,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ]
+    }
+  ],
+  "pack_summary": "This 10-workout pack focuses on Gravel Specific, TT Threshold, and Race Simulation to prepare you for 65 miles of south carolina mountain gravel in Walhalla, South Carolina.",
+  "generated_at": "2026-02-26"
+}

@@ -1,0 +1,61 @@
+{
+  "slug": "iowa-wind-and-rock",
+  "race_name": "Iowa Wind and Rock",
+  "demands": {
+    "durability": 10,
+    "climbing": 5,
+    "vo2_power": 4,
+    "threshold": 4,
+    "technical": 4,
+    "heat_resilience": 7,
+    "altitude": 2,
+    "race_specificity": 8
+  },
+  "top_categories": [
+    {
+      "category": "Durability",
+      "score": 100,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ]
+    },
+    {
+      "category": "Endurance",
+      "score": 60,
+      "workouts": [
+        "Pre-Race Openers",
+        "Terrain Simulation Z2"
+      ]
+    },
+    {
+      "category": "HVLI_Extended",
+      "score": 57,
+      "workouts": [
+        "HVLI Extended Z2",
+        "Multi-Hour Z2",
+        "Back-to-Back Long"
+      ]
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 54,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ]
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 50,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ]
+    }
+  ],
+  "pack_summary": "This 10-workout pack focuses on Durability, Endurance, and HVLI Extended to prepare you for 340 miles of fast iowa gravel with constant rolling undulation in Winterset, Iowa.",
+  "generated_at": "2026-02-26"
+}

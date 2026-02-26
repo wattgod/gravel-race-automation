@@ -1,0 +1,61 @@
+{
+  "slug": "giro-sardegna-gravel",
+  "race_name": "Giro Sardegna Gravel",
+  "demands": {
+    "durability": 4,
+    "climbing": 8,
+    "vo2_power": 8,
+    "threshold": 8,
+    "technical": 8,
+    "heat_resilience": 3,
+    "altitude": 2,
+    "race_specificity": 10
+  },
+  "top_categories": [
+    {
+      "category": "Gravel_Specific",
+      "score": 100,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ]
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 95,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ]
+    },
+    {
+      "category": "TT_Threshold",
+      "score": 82,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ]
+    },
+    {
+      "category": "Durability",
+      "score": 75,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ]
+    },
+    {
+      "category": "Over_Under",
+      "score": 73,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ]
+    }
+  ],
+  "pack_summary": "This 10-workout pack focuses on Gravel Specific, Race Simulation, and TT Threshold to prepare you for 81 miles of sardinian mountains\u2014rolling terrain with coastal views in Siniscola, Sardinia, Italy.",
+  "generated_at": "2026-02-26"
+}

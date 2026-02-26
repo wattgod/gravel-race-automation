@@ -1,0 +1,61 @@
+{
+  "slug": "migration-gravel-race",
+  "race_name": "Migration Gravel Race",
+  "demands": {
+    "durability": 10,
+    "climbing": 10,
+    "vo2_power": 7,
+    "threshold": 5,
+    "technical": 6,
+    "heat_resilience": 10,
+    "altitude": 8,
+    "race_specificity": 10
+  },
+  "top_categories": [
+    {
+      "category": "Durability",
+      "score": 100,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ]
+    },
+    {
+      "category": "Endurance",
+      "score": 72,
+      "workouts": [
+        "Pre-Race Openers",
+        "Terrain Simulation Z2"
+      ]
+    },
+    {
+      "category": "VO2max",
+      "score": 63,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ]
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 60,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ]
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 58,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ]
+    }
+  ],
+  "pack_summary": "This 10-workout pack focuses on Durability, Endurance, and VO2max to prepare you for 404 miles of red volcanic dust and savanna trails in Maasai Mara, Kenya.",
+  "generated_at": "2026-02-26"
+}

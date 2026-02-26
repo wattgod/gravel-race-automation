@@ -1,0 +1,62 @@
+{
+  "slug": "steamboat-gravel",
+  "race_name": "SBT GRVL",
+  "demands": {
+    "durability": 6,
+    "climbing": 8,
+    "vo2_power": 10,
+    "threshold": 8,
+    "technical": 6,
+    "heat_resilience": 0,
+    "altitude": 8,
+    "race_specificity": 10
+  },
+  "top_categories": [
+    {
+      "category": "VO2max",
+      "score": 100,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ]
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 78,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ]
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 76,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ]
+    },
+    {
+      "category": "TT_Threshold",
+      "score": 72,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ]
+    },
+    {
+      "category": "Durability",
+      "score": 66,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ]
+    }
+  ],
+  "pack_summary": "This 10-workout pack focuses on VO2max, Race Simulation, and Gravel Specific to prepare you for 108 miles of famous 'champagne gravel' - smooth, high-quality gravel roads through working ranches, aspen groves, and sage-studded hills at high altitude in Steamboat Springs, Colorado.",
+  "generated_at": "2026-02-26"
+}

@@ -1,0 +1,61 @@
+{
+  "slug": "almanzo-100",
+  "race_name": "Almanzo 100",
+  "demands": {
+    "durability": 6,
+    "climbing": 6,
+    "vo2_power": 6,
+    "threshold": 8,
+    "technical": 6,
+    "heat_resilience": 6,
+    "altitude": 2,
+    "race_specificity": 10
+  },
+  "top_categories": [
+    {
+      "category": "Durability",
+      "score": 100,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ]
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 87,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ]
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 84,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ]
+    },
+    {
+      "category": "TT_Threshold",
+      "score": 73,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ]
+    },
+    {
+      "category": "Over_Under",
+      "score": 60,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ]
+    }
+  ],
+  "pack_summary": "This 10-workout pack focuses on Durability, Race Simulation, and Gravel Specific to prepare you for 100 miles of mixed gravel \u2014 well-maintained early, freshly laid loose stone mid-race in Spring Valley, Minnesota.",
+  "generated_at": "2026-02-26"
+}

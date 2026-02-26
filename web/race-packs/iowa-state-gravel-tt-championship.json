@@ -1,0 +1,61 @@
+{
+  "slug": "iowa-state-gravel-tt-championship",
+  "race_name": "Iowa State Gravel TT Championship",
+  "demands": {
+    "durability": 1,
+    "climbing": 3,
+    "vo2_power": 3,
+    "threshold": 3,
+    "technical": 4,
+    "heat_resilience": 1,
+    "altitude": 2,
+    "race_specificity": 4
+  },
+  "top_categories": [
+    {
+      "category": "Gravel_Specific",
+      "score": 100,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ]
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 90,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ]
+    },
+    {
+      "category": "VO2max",
+      "score": 70,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ]
+    },
+    {
+      "category": "TT_Threshold",
+      "score": 68,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ]
+    },
+    {
+      "category": "Critical_Power",
+      "score": 62,
+      "workouts": [
+        "Above CP Repeats",
+        "W-Prime Depletion"
+      ]
+    }
+  ],
+  "pack_summary": "This 10-workout pack focuses on Gravel Specific, Race Simulation, and VO2max to prepare you for 40 miles of iowa rolling gravel in Amana, Iowa.",
+  "generated_at": "2026-02-26"
+}

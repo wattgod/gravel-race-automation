@@ -389,6 +389,8 @@ def normalize_race_data(data: dict) -> dict:
             'total_reviews': race.get('racer_rating', {}).get('total_reviews', 0),
             'reviews': race.get('racer_rating', {}).get('reviews', []),
         },
+        'photos': race.get('photos', []),
+        'tire_recommendations': race.get('tire_recommendations', {}),
     }
 
 
@@ -1256,8 +1258,13 @@ def build_sports_event_jsonld(rd: dict) -> Optional[dict]:
             }
         jsonld["location"] = place
 
-    # OG image
-    jsonld["image"] = f"{SITE_BASE_URL}/og/{rd['slug']}.jpg"
+    # Image array: OG image first, then race photos (not GIFs)
+    image_urls = [f"{SITE_BASE_URL}/og/{rd['slug']}.jpg"]
+    for photo in rd.get('photos', []):
+        photo_url = photo.get('url', '')
+        if photo_url and not photo.get('gif'):
+            image_urls.append(f"{SITE_BASE_URL}{photo_url}")
+    jsonld["image"] = image_urls if len(image_urls) > 1 else image_urls[0]
 
     # Organizer from history.founder — skip generic stub text
     founder = rd.get('history', {}).get('founder', '')
@@ -1434,8 +1441,8 @@ def build_photos_section(rd: dict) -> str:
     photos = rd.get('photos', [])
     if not photos:
         return ''
-    # Exclude primary (already used in hero), show up to 4 gallery photos
-    gallery = [p for p in photos if not p.get('primary')][:4]
+    # Exclude primary (already used in hero) and GIFs (shown in Course section)
+    gallery = [p for p in photos if not p.get('primary') and not p.get('gif')][:4]
     if not gallery:
         return ''
     items = []
@@ -1469,8 +1476,10 @@ def build_toc(active_sections=None) -> str:
         ('ratings', '05 The Ratings'),
         ('verdict', '06 Final Verdict'),
         ('training', '07 Training'),
-        ('logistics', '08 Race Logistics'),
-        ('citations', '09 Sources'),
+        ('train-for-race', '08 Train for This Race'),
+        ('logistics', '09 Race Logistics'),
+        ('tires', '10 Tire Picks'),
+        ('citations', '11 Sources'),
     ]
     links = [(href, label) for href, label in all_links
              if active_sections is None or href in active_sections]
@@ -1706,40 +1715,43 @@ def build_history(rd: dict) -> str:
   </section>'''
 
 
-def _build_riders_report(items: list[dict], item_type: str = "named") -> str:
-    """Build a RIDERS REPORT callout box.
+def _build_riders_report(groups: list[tuple[list[dict], str]]) -> str:
+    """Build a single RIDERS REPORT callout box from one or more item groups.
 
-    item_type:
-      - "named": items with name + description + optional mile_marker (key_challenges)
-      - "text": items with text field (terrain_notes, gear_mentions, race_day_tips)
+    Each group is a (items, item_type) tuple:
+      - item_type "named": items with name + description + optional mile_marker
+      - item_type "text": items with text field
 
-    Returns '' if items is empty.
+    Returns '' if all groups are empty. One badge per callout, regardless of
+    how many item types are combined.
     """
-    if not items:
+    active = [(items, itype) for items, itype in groups if items]
+    if not active:
         return ''
 
     parts = ['<div class="gg-riders-report">',
              '<div class="gg-riders-report-badge">RIDERS REPORT</div>']
 
-    for item in items:
-        if item_type == "named":
-            name = esc(item.get("name", ""))
-            desc = esc(item.get("description", ""))
-            mile = item.get("mile_marker", "")
-            mile_html = f' <span class="gg-riders-report-mile">MI {esc(str(mile))}</span>' if mile else ''
-            parts.append(
-                f'<div class="gg-riders-report-item">'
-                f'<div class="gg-riders-report-name">{name}{mile_html}</div>'
-                f'<div class="gg-riders-report-desc">{desc}</div>'
-                f'</div>'
-            )
-        else:
-            text = esc(item.get("text", ""))
-            parts.append(
-                f'<div class="gg-riders-report-item">'
-                f'<div class="gg-riders-report-desc">{text}</div>'
-                f'</div>'
-            )
+    for items, item_type in active:
+        for item in items:
+            if item_type == "named":
+                name = esc(item.get("name", ""))
+                desc = esc(item.get("description", ""))
+                mile = str(item.get("mile_marker", "")) if item.get("mile_marker") is not None else ""
+                mile_html = f' <span class="gg-riders-report-mile">MI {esc(mile)}</span>' if mile else ''
+                parts.append(
+                    f'<div class="gg-riders-report-item">'
+                    f'<div class="gg-riders-report-name">{name}{mile_html}</div>'
+                    f'<div class="gg-riders-report-desc">{desc}</div>'
+                    f'</div>'
+                )
+            else:
+                text = esc(item.get("text", ""))
+                parts.append(
+                    f'<div class="gg-riders-report-item">'
+                    f'<div class="gg-riders-report-desc">{text}</div>'
+                    f'</div>'
+                )
 
     parts.append('</div>')
     return '\n      '.join(parts)
@@ -1754,6 +1766,29 @@ def build_course_route(rd: dict) -> str:
         return ''
 
     body_parts = []
+
+    # Photo gallery (video stills) — top of Course section
+    gallery = [p for p in rd.get('photos', [])
+               if not p.get('primary') and not p.get('gif')][:4]
+    if gallery:
+        items = []
+        for p in gallery:
+            alt = esc(p.get('alt', rd['name']))
+            credit = p.get('credit', '')
+            credit_html = (
+                f'<span class="gg-photo-credit">Photo: {esc(credit)}</span>'
+                if credit else ''
+            )
+            items.append(
+                f'<figure class="gg-photo-item">'
+                f'<img src="{esc(p["url"])}" alt="{alt}" loading="lazy"'
+                f' width="600" height="400">'
+                f'{credit_html}'
+                f'</figure>'
+            )
+        body_parts.append(
+            f'<div class="gg-photo-grid">{"".join(items)}</div>'
+        )
 
     if c.get('character'):
         body_parts.append(f'<div class="gg-prose"><p>{esc(c["character"])}</p></div>')
@@ -1815,14 +1850,38 @@ def build_course_route(rd: dict) -> str:
         </div>''')
         body_parts.append('\n      '.join(zone_html))
 
-    # Riders Report: key challenges + terrain notes
+    # Course preview GIF gallery (from YouTube screenshots)
+    preview_gifs = [p for p in rd.get('photos', []) if p.get('gif')]
+    if preview_gifs:
+        gif_items = []
+        for pg in preview_gifs:
+            gif_credit = esc(pg.get('credit', ''))
+            credit_html = (
+                f'<span class="gg-photo-credit">{gif_credit}</span>'
+                if gif_credit else ''
+            )
+            gif_items.append(
+                f'<div class="gg-course-preview">'
+                f'<img src="{esc(pg["url"])}" alt="{esc(pg.get("alt", "Course preview"))}"'
+                f' loading="lazy" width="400" height="225" class="gg-preview-gif">'
+                f'{credit_html}'
+                f'</div>'
+            )
+        if len(gif_items) == 1:
+            body_parts.append(gif_items[0])
+        else:
+            body_parts.append(
+                f'<div class="gg-gif-gallery">{"".join(gif_items)}</div>'
+            )
+
+    # Riders Report: key challenges + terrain notes (single combined callout)
     intel = rd.get('rider_intel', {})
-    challenges_html = _build_riders_report(intel.get('key_challenges', []), item_type="named")
-    if challenges_html:
-        body_parts.append(challenges_html)
-    terrain_html = _build_riders_report(intel.get('terrain_notes', []), item_type="text")
-    if terrain_html:
-        body_parts.append(terrain_html)
+    course_report = _build_riders_report([
+        (intel.get('key_challenges', []), "named"),
+        (intel.get('terrain_notes', []), "text"),
+    ])
+    if course_report:
+        body_parts.append(course_report)
 
     body = '\n      '.join(body_parts)
 
@@ -2194,7 +2253,9 @@ def build_training(rd: dict) -> str:
         countdown_html = f'<div class="gg-countdown" data-date="{iso_date}"><span class="gg-countdown-num" id="gg-days-left">{esc(display_date)}</span> {esc(race_name.upper())}</div>'
 
     # Riders Report: gear mentions before training plan CTA
-    gear_html = _build_riders_report(rd.get('rider_intel', {}).get('gear_mentions', []), item_type="text")
+    gear_html = _build_riders_report([
+        (rd.get('rider_intel', {}).get('gear_mentions', []), "text"),
+    ])
 
     return f'''<section id="training" class="gg-section gg-fade-section">
     <div class="gg-section-header">
@@ -2237,8 +2298,102 @@ def build_training(rd: dict) -> str:
   </section>'''
 
 
+def build_train_for_race(rd: dict) -> str:
+    """Build [08] Train for This Race section — race-specific training pack CTA."""
+    slug = rd['slug']
+    race_name = rd['name']
+
+    # Load race-pack preview JSON
+    preview_path = Path(__file__).resolve().parent.parent / 'web' / 'race-packs' / f'{slug}.json'
+    if not preview_path.exists():
+        return ''
+
+    try:
+        with open(preview_path) as f:
+            preview = json.load(f)
+    except (json.JSONDecodeError, OSError):
+        return ''
+
+    demands = preview.get('demands', {})
+    top_categories = preview.get('top_categories', [])
+    pack_summary = preview.get('pack_summary', '')
+
+    if not demands or not top_categories:
+        return ''
+
+    # Build demand bars (8 dimensions, each 0-10)
+    dim_labels = {
+        'durability': 'Durability',
+        'climbing': 'Climbing',
+        'vo2_power': 'VO2 Power',
+        'threshold': 'Threshold',
+        'technical': 'Technical',
+        'heat_resilience': 'Heat',
+        'altitude': 'Altitude',
+        'race_specificity': 'Race Specificity',
+    }
+    demand_bars = []
+    for dim_key in ['durability', 'climbing', 'vo2_power', 'threshold',
+                     'technical', 'heat_resilience', 'altitude', 'race_specificity']:
+        score = demands.get(dim_key, 0)
+        label = dim_labels.get(dim_key, dim_key)
+        pct = score * 10  # 0-10 -> 0-100%
+        demand_bars.append(
+            f'<div class="gg-pack-demand">'
+            f'<span class="gg-pack-demand-label">{esc(label)}</span>'
+            f'<div class="gg-pack-demand-track">'
+            f'<div class="gg-pack-demand-fill" style="width:{pct}%"></div>'
+            f'</div>'
+            f'<span class="gg-pack-demand-score">{score}</span>'
+            f'</div>'
+        )
+    demands_html = '\n      '.join(demand_bars)
+
+    # Build category cards (top 3-5)
+    cat_cards = []
+    for tc in top_categories[:5]:
+        cat_name = tc['category'].replace('_', ' ')
+        cat_score = tc['score']
+        workouts = tc.get('workouts', [])[:2]
+        workouts_html = ', '.join(esc(w) for w in workouts)
+        cat_cards.append(
+            f'<div class="gg-pack-category">'
+            f'<div class="gg-pack-category-header">'
+            f'<span class="gg-pack-category-name">{esc(cat_name)}</span>'
+            f'<span class="gg-pack-category-score">{cat_score}/100</span>'
+            f'</div>'
+            f'<div class="gg-pack-category-workouts">{workouts_html}</div>'
+            f'</div>'
+        )
+    categories_html = '\n      '.join(cat_cards)
+
+    plan_url = f"{TRAINING_PLANS_URL}?race={esc(slug)}"
+
+    return f'''<section id="train-for-race" class="gg-section gg-fade-section">
+    <div class="gg-section-header">
+      <span class="gg-section-kicker">[08]</span>
+      <h2 class="gg-section-title">Train for {esc(race_name)}</h2>
+    </div>
+    <div class="gg-section-body">
+      <p class="gg-pack-summary">{esc(pack_summary)}</p>
+      <div class="gg-pack-demands">
+        <h3 class="gg-pack-subtitle">RACE DEMAND PROFILE</h3>
+        {demands_html}
+      </div>
+      <div class="gg-pack-categories">
+        <h3 class="gg-pack-subtitle">YOUR TRAINING FOCUS</h3>
+        {categories_html}
+      </div>
+      <div class="gg-pack-cta">
+        <a href="{plan_url}" class="gg-btn">BUILD MY PLAN &mdash; $15/WK</a>
+        <p class="gg-pack-cta-detail">Race-specific. Built for {esc(race_name)}. $15/week, capped at $249.</p>
+      </div>
+    </div>
+  </section>'''
+
+
 def build_logistics_section(rd: dict) -> str:
-    """Build [07] Race Logistics section."""
+    """Build [09] Race Logistics section."""
     lg = rd['logistics']
 
     items_data = [
@@ -2273,11 +2428,13 @@ def build_logistics_section(rd: dict) -> str:
       </div>'''
 
     # Riders Report: race day tips after logistics grid
-    tips_html = _build_riders_report(rd.get('rider_intel', {}).get('race_day_tips', []), item_type="text")
+    tips_html = _build_riders_report([
+        (rd.get('rider_intel', {}).get('race_day_tips', []), "text"),
+    ])
 
     return f'''<section id="logistics" class="gg-section gg-section--accent gg-fade-section">
     <div class="gg-section-header">
-      <span class="gg-section-kicker">[08]</span>
+      <span class="gg-section-kicker">[09]</span>
       <h2 class="gg-section-title">Race Logistics</h2>
     </div>
     <div class="gg-section-body">
@@ -2286,6 +2443,99 @@ def build_logistics_section(rd: dict) -> str:
       </div>
       {tips_html}
       {site_html}
+    </div>
+  </section>'''
+
+
+def build_tire_picks(rd: dict) -> str:
+    """Build compact tire recommendation section — top 3 picks + link to full guide."""
+    tr = rd.get('tire_recommendations', {})
+    primary = tr.get('primary', [])
+    if not primary:
+        return ''
+
+    slug = rd['slug']
+    width_mm = tr.get('recommended_width_mm')
+    surface = tr.get('race_surface_profile', '')
+
+    width_badge = ''
+    if width_mm:
+        width_badge = (
+            f'<span class="gg-tire-badge">{esc(str(width_mm))}mm</span>'
+        )
+    surface_badge = ''
+    if surface:
+        surface_badge = (
+            f'<span class="gg-tire-badge">{esc(surface.upper())}</span>'
+        )
+
+    picks_html = []
+    for t in primary[:3]:
+        rank = t.get('rank', '')
+        name = t.get('name', '')
+        w = t.get('recommended_width_mm', '')
+        price = t.get('msrp_usd')
+        crr = t.get('crr_watts')
+        why = t.get('why', '')
+
+        price_str = f'${price:.0f}' if price else ''
+        crr_str = f'{crr:.0f}W' if crr else ''
+
+        meta_parts = []
+        if w:
+            meta_parts.append(f'{w}mm')
+        if price_str:
+            meta_parts.append(price_str)
+        if crr_str:
+            meta_parts.append(crr_str)
+        meta = ' · '.join(meta_parts)
+
+        why_html = f'<div class="gg-tire-why">{esc(why)}</div>' if why else ''
+        picks_html.append(
+            f'<div class="gg-tire-pick">'
+            f'<div class="gg-tire-rank">{esc(str(rank))}</div>'
+            f'<div class="gg-tire-info">'
+            f'<div class="gg-tire-name">{esc(name)}</div>'
+            f'<div class="gg-tire-meta">{esc(meta)}</div>'
+            f'{why_html}'
+            f'</div>'
+            f'</div>'
+        )
+
+    # Front/rear split callout
+    split = tr.get('front_rear_split', {})
+    split_html = ''
+    if split.get('applicable') and split.get('front') and split.get('rear'):
+        front = split['front']
+        rear = split['rear']
+        rationale = split.get('rationale', '')
+        rationale_html = f'<span class="gg-tire-split-why">{esc(rationale)}</span>' if rationale else ''
+        split_html = (
+            f'<div class="gg-tire-split">'
+            f'<span class="gg-tire-split-label">FRONT/REAR SPLIT</span> '
+            f'<span class="gg-tire-split-combo">'
+            f'{esc(front.get("name", ""))} {esc(str(front.get("width_mm", "")))}mm'
+            f' / '
+            f'{esc(rear.get("name", ""))} {esc(str(rear.get("width_mm", "")))}mm'
+            f'</span>'
+            f'{rationale_html}'
+            f'</div>'
+        )
+
+    return f'''<section id="tires" class="gg-section gg-fade-section">
+    <div class="gg-section-header">
+      <span class="gg-section-kicker">[10]</span>
+      <h2 class="gg-section-title">Tire Picks</h2>
+    </div>
+    <div class="gg-section-body">
+      <div class="gg-tire-badges">{width_badge}{surface_badge}</div>
+      <div class="gg-tire-list">
+        {"".join(picks_html)}
+      </div>
+      {split_html}
+      <div class="gg-mt-md">
+        <a href="/race/{esc(slug)}/tires/" class="gg-btn gg-btn--outline">FULL TIRE GUIDE &amp; PRESSURE TABLE</a>
+      </div>
     </div>
   </section>'''
 
@@ -2582,7 +2832,7 @@ def build_citations_section(rd: dict) -> str:
 
     return f'''<section class="gg-section gg-fade-section" id="citations">
     <div class="gg-section-header gg-section-header--dark">
-      <span class="gg-section-kicker">[&mdash;]</span>
+      <span class="gg-section-kicker">[11]</span>
       <h2 class="gg-section-title">Sources &amp; Citations</h2>
     </div>
     <div class="gg-section-body">
@@ -2837,6 +3087,22 @@ def get_page_css() -> str:
 .gg-neo-brutalist-page .gg-surface-legend-item {{ font-family: var(--gg-font-data); font-size: 10px; color: var(--gg-color-dark-brown); display: flex; align-items: center; gap: 4px; text-transform: capitalize; }}
 .gg-neo-brutalist-page .gg-surface-legend-dot {{ width: 8px; height: 8px; border: 1px solid var(--gg-color-dark-brown); flex-shrink: 0; }}
 
+/* Tire picks */
+.gg-neo-brutalist-page .gg-tire-badges {{ display: flex; gap: 8px; margin-bottom: 16px; }}
+.gg-neo-brutalist-page .gg-tire-badge {{ font-family: var(--gg-font-data); font-size: 10px; font-weight: 700; letter-spacing: var(--gg-letter-spacing-wider); text-transform: uppercase; color: var(--gg-color-teal); border: 2px solid var(--gg-color-teal); padding: 2px 10px; }}
+.gg-neo-brutalist-page .gg-tire-list {{ display: flex; flex-direction: column; gap: 0; }}
+.gg-neo-brutalist-page .gg-tire-pick {{ display: flex; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--gg-color-muted-tan); }}
+.gg-neo-brutalist-page .gg-tire-pick:last-child {{ border-bottom: none; }}
+.gg-neo-brutalist-page .gg-tire-rank {{ font-family: var(--gg-font-data); font-size: var(--gg-font-size-xl); font-weight: 700; color: var(--gg-color-gold); min-width: 28px; text-align: center; line-height: 1; padding-top: 2px; }}
+.gg-neo-brutalist-page .gg-tire-info {{ flex: 1; }}
+.gg-neo-brutalist-page .gg-tire-name {{ font-family: var(--gg-font-data); font-size: var(--gg-font-size-sm); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--gg-color-dark-brown); }}
+.gg-neo-brutalist-page .gg-tire-meta {{ font-family: var(--gg-font-data); font-size: var(--gg-font-size-xs); color: var(--gg-color-secondary-brown); margin-top: 2px; }}
+.gg-neo-brutalist-page .gg-tire-why {{ font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-xs); color: var(--gg-color-primary-brown); margin-top: 4px; line-height: var(--gg-line-height-relaxed); }}
+.gg-neo-brutalist-page .gg-tire-split {{ border: var(--gg-border-subtle); padding: 12px 16px; background: var(--gg-color-warm-paper); margin-top: 16px; }}
+.gg-neo-brutalist-page .gg-tire-split-label {{ font-family: var(--gg-font-data); font-size: 10px; font-weight: 700; letter-spacing: var(--gg-letter-spacing-wider); text-transform: uppercase; color: var(--gg-color-teal); }}
+.gg-neo-brutalist-page .gg-tire-split-combo {{ font-family: var(--gg-font-data); font-size: var(--gg-font-size-xs); color: var(--gg-color-dark-brown); font-weight: 700; }}
+.gg-neo-brutalist-page .gg-tire-split-why {{ display: block; font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-xs); color: var(--gg-color-secondary-brown); margin-top: 4px; line-height: var(--gg-line-height-relaxed); }}
+
 /* Suffering zones */
 .gg-neo-brutalist-page .gg-suffering-zone {{ border: var(--gg-border-subtle); margin-bottom: 12px; display: flex; background: var(--gg-color-warm-paper); opacity: 0; transform: translateX(-30px); transition: opacity 0.5s, transform 0.5s; }}
 .gg-neo-brutalist-page .gg-suffering-zone.is-visible {{ opacity: 1; transform: translateX(0); }}
@@ -2846,6 +3112,17 @@ def get_page_css() -> str:
 .gg-neo-brutalist-page .gg-suffering-content {{ padding: 12px 16px; flex: 1; }}
 .gg-neo-brutalist-page .gg-suffering-name {{ font-family: var(--gg-font-data); font-size: var(--gg-font-size-sm); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }}
 .gg-neo-brutalist-page .gg-suffering-desc {{ font-family: var(--gg-font-editorial); font-size: 12px; color: var(--gg-color-secondary-brown); line-height: 1.5; }}
+
+/* Course photos + preview GIF */
+.gg-neo-brutalist-page .gg-photo-grid {{ display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; margin-bottom: 24px; }}
+.gg-neo-brutalist-page .gg-photo-item {{ margin: 0; border: 2px solid var(--gg-color-dark-brown); }}
+.gg-neo-brutalist-page .gg-photo-item img {{ display: block; width: 100%; aspect-ratio: 3/2; object-fit: cover; }}
+.gg-neo-brutalist-page .gg-photo-item .gg-photo-credit {{ display: block; font-family: var(--gg-font-data); font-size: 9px; letter-spacing: var(--gg-letter-spacing-wider); text-transform: uppercase; color: var(--gg-color-secondary-brown); padding: 4px 8px; background: var(--gg-color-warm-paper); }}
+.gg-neo-brutalist-page .gg-gif-gallery {{ display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; margin: 24px 0; }}
+.gg-neo-brutalist-page .gg-gif-gallery .gg-course-preview {{ margin: 0; }}
+.gg-neo-brutalist-page .gg-course-preview {{ margin: 24px 0; border: 2px solid var(--gg-color-dark-brown); }}
+.gg-neo-brutalist-page .gg-preview-gif {{ display: block; width: 100%; aspect-ratio: 16/9; object-fit: cover; }}
+.gg-neo-brutalist-page .gg-course-preview .gg-photo-credit {{ display: block; font-family: var(--gg-font-data); font-size: 9px; letter-spacing: var(--gg-letter-spacing-wider); text-transform: uppercase; color: var(--gg-color-secondary-brown); padding: 4px 8px; background: var(--gg-color-warm-paper); }}
 
 /* Accordion */
 .gg-neo-brutalist-page .gg-accordion {{ border-top: var(--gg-border-standard); }}
@@ -2946,6 +3223,26 @@ def get_page_css() -> str:
 .gg-neo-brutalist-page .gg-training-free-desc {{ font-family: var(--gg-font-editorial); font-size: 12px; color: var(--gg-color-secondary-brown); margin: 8px 0 0; }}
 .gg-neo-brutalist-page .gg-btn--outline {{ background: transparent; color: var(--gg-color-teal); border-color: var(--gg-color-teal); }}
 .gg-neo-brutalist-page .gg-btn--outline:hover {{ background: var(--gg-color-teal); color: var(--gg-color-white); }}
+
+/* Train for Race Pack */
+.gg-neo-brutalist-page .gg-pack-summary {{ font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-sm); color: var(--gg-color-secondary-brown); line-height: 1.6; margin-bottom: 24px; }}
+.gg-neo-brutalist-page .gg-pack-subtitle {{ font-family: var(--gg-font-data); font-size: var(--gg-font-size-2xs); font-weight: 700; letter-spacing: var(--gg-letter-spacing-ultra-wide); text-transform: uppercase; color: var(--gg-color-secondary-brown); margin-bottom: 12px; }}
+.gg-neo-brutalist-page .gg-pack-demands {{ margin-bottom: 24px; }}
+.gg-neo-brutalist-page .gg-pack-demand {{ display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }}
+.gg-neo-brutalist-page .gg-pack-demand-label {{ font-family: var(--gg-font-data); font-size: 11px; width: 110px; min-width: 110px; text-transform: uppercase; letter-spacing: var(--gg-letter-spacing-wider); color: var(--gg-color-primary-brown); }}
+.gg-neo-brutalist-page .gg-pack-demand-track {{ flex: 1; height: 8px; background: var(--gg-color-tan); border: 1px solid var(--gg-color-tan); }}
+.gg-neo-brutalist-page .gg-pack-demand-fill {{ height: 100%; background: var(--gg-color-teal); transition: width 0.6s ease-out; }}
+.gg-neo-brutalist-page .gg-pack-demand-score {{ font-family: var(--gg-font-data); font-size: 11px; width: 20px; text-align: right; color: var(--gg-color-secondary-brown); }}
+.gg-neo-brutalist-page .gg-pack-categories {{ margin-bottom: 24px; }}
+.gg-neo-brutalist-page .gg-pack-category {{ border: 1px solid var(--gg-color-tan); padding: 12px 16px; margin-bottom: 8px; background: var(--gg-color-warm-paper); }}
+.gg-neo-brutalist-page .gg-pack-category-header {{ display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }}
+.gg-neo-brutalist-page .gg-pack-category-name {{ font-family: var(--gg-font-data); font-size: var(--gg-font-size-xs); font-weight: 700; text-transform: uppercase; letter-spacing: var(--gg-letter-spacing-wider); color: var(--gg-color-dark-brown); }}
+.gg-neo-brutalist-page .gg-pack-category-score {{ font-family: var(--gg-font-data); font-size: 11px; color: var(--gg-color-teal); font-weight: 700; }}
+.gg-neo-brutalist-page .gg-pack-category-workouts {{ font-family: var(--gg-font-editorial); font-size: 12px; color: var(--gg-color-secondary-brown); }}
+.gg-neo-brutalist-page .gg-pack-cta {{ text-align: center; padding: 24px; border: 1px solid var(--gg-color-tan); border-top: 3px solid var(--gg-color-teal); background: var(--gg-color-warm-paper); }}
+.gg-neo-brutalist-page .gg-pack-cta .gg-btn {{ background: var(--gg-color-teal); color: var(--gg-color-white); border-color: var(--gg-color-teal); }}
+.gg-neo-brutalist-page .gg-pack-cta .gg-btn:hover {{ background: var(--gg-color-light-teal); }}
+.gg-neo-brutalist-page .gg-pack-cta-detail {{ font-family: var(--gg-font-editorial); font-size: 12px; color: var(--gg-color-secondary-brown); margin-top: 8px; }}
 
 /* Logistics */
 .gg-neo-brutalist-page .gg-logistics-grid {{ display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }}
@@ -3148,6 +3445,7 @@ def get_page_css() -> str:
   .gg-neo-brutalist-page .gg-accordion-label {{ width: 80px; min-width: 80px; font-size: 10px; }}
   .gg-neo-brutalist-page .gg-accordion-content {{ padding-left: 0; }}
   .gg-neo-brutalist-page .gg-training-secondary {{ flex-direction: column; text-align: center; }}
+  .gg-neo-brutalist-page .gg-pack-demand-label {{ width: 80px; min-width: 80px; font-size: 10px; }}
   .gg-sticky-cta-name {{ display: none; }}
   .gg-exit-row {{ flex-direction: column; gap: 8px; }}
   .gg-exit-input {{ border-right: 3px solid var(--gg-color-near-black); }}
@@ -3285,7 +3583,6 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
     # Build sections
     nav_header = build_nav_header(rd, race_index)
     hero = build_hero(rd)
-    photos_section = build_photos_section(rd)
     course_overview = build_course_overview(rd, race_index)
     history = build_history(rd)
     pullquote = build_pullquote(rd)
@@ -3298,7 +3595,9 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
     visible_faq = build_visible_faq(rd)
     news = build_news_section(rd)
     training = build_training(rd)
+    train_for_race = build_train_for_race(rd)
     logistics_sec = build_logistics_section(rd)
+    tire_picks = build_tire_picks(rd)
     similar = build_similar_races(rd, race_index)
     citations_sec = build_citations_section(rd)
     footer = build_footer(rd)
@@ -3306,8 +3605,6 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
 
     # Dynamic TOC — only link to sections that have content
     active = {'course', 'ratings', 'training'}  # always present
-    if photos_section:
-        active.add('photos')
     if history:
         active.add('history')
     if course_route:
@@ -3318,6 +3615,10 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
         active.add('verdict')
     if logistics_sec:
         active.add('logistics')
+    if tire_picks:
+        active.add('tires')
+    if train_for_race:
+        active.add('train-for-race')
     if citations_sec:
         active.add('citations')
     toc = build_toc(active)
@@ -3347,10 +3648,12 @@ body{margin:0;background:#ede4d8}
 
     # Section order
     content_sections = []
-    for section in [photos_section, course_overview, history, pullquote,
+    for section in [course_overview, history, pullquote,
                     course_route, from_the_field, ratings, verdict,
                     racer_reviews, email_capture, news, training,
-                    logistics_sec, similar, visible_faq, citations_sec]:
+                    train_for_race,
+                    logistics_sec, tire_picks, similar, visible_faq,
+                    citations_sec]:
         if section:
             content_sections.append(section)
 

@@ -1,0 +1,61 @@
+{
+  "slug": "pirinexus-360",
+  "race_name": "Pirinexus 360",
+  "demands": {
+    "durability": 10,
+    "climbing": 8,
+    "vo2_power": 7,
+    "threshold": 5,
+    "technical": 6,
+    "heat_resilience": 0,
+    "altitude": 4,
+    "race_specificity": 10
+  },
+  "top_categories": [
+    {
+      "category": "Durability",
+      "score": 100,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ]
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 87,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ]
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 84,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ]
+    },
+    {
+      "category": "VO2max",
+      "score": 69,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ]
+    },
+    {
+      "category": "Over_Under",
+      "score": 61,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ]
+    }
+  ],
+  "pack_summary": "This 10-workout pack focuses on Durability, Race Simulation, and Gravel Specific to prepare you for 211 miles of mixed gravel and asphalt with volcanic zones and technical border descent in Girona, Catalonia, Spain.",
+  "generated_at": "2026-02-26"
+}

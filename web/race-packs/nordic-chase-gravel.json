@@ -1,0 +1,60 @@
+{
+  "slug": "nordic-chase-gravel",
+  "race_name": "Nordic Chase Gravel Edition",
+  "demands": {
+    "durability": 10,
+    "climbing": 10,
+    "vo2_power": 7,
+    "threshold": 5,
+    "technical": 6,
+    "heat_resilience": 0,
+    "altitude": 2,
+    "race_specificity": 10
+  },
+  "top_categories": [
+    {
+      "category": "Durability",
+      "score": 100,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ]
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 87,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ]
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 84,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ]
+    },
+    {
+      "category": "Over_Under",
+      "score": 72,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ]
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 67,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ]
+    }
+  ],
+  "pack_summary": "This 10-workout pack focuses on Durability, Race Simulation, and Gravel Specific to prepare you for 373 miles of scandinavian countryside\u2014rolling gravel + coastal sections in Copenhagen, Denmark to Oslo, Norway.",
+  "generated_at": "2026-02-26"
+}

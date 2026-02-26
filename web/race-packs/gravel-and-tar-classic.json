@@ -1,0 +1,61 @@
+{
+  "slug": "gravel-and-tar-classic",
+  "race_name": "Gravel and Tar Classic",
+  "demands": {
+    "durability": 4,
+    "climbing": 6,
+    "vo2_power": 6,
+    "threshold": 8,
+    "technical": 6,
+    "heat_resilience": 3,
+    "altitude": 2,
+    "race_specificity": 9
+  },
+  "top_categories": [
+    {
+      "category": "Gravel_Specific",
+      "score": 100,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ]
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 100,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ]
+    },
+    {
+      "category": "TT_Threshold",
+      "score": 92,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ]
+    },
+    {
+      "category": "Durability",
+      "score": 88,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ]
+    },
+    {
+      "category": "Over_Under",
+      "score": 75,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ]
+    }
+  ],
+  "pack_summary": "This 10-workout pack focuses on Gravel Specific, Race Simulation, and TT Threshold to prepare you for 99 miles of new zealand countryside\u2014rolling hills, farmland in Manawat\u016b-Whanganui, New Zealand.",
+  "generated_at": "2026-02-26"
+}

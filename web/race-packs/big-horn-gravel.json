@@ -1,0 +1,61 @@
+{
+  "slug": "big-horn-gravel",
+  "race_name": "Big Horn Gravel",
+  "demands": {
+    "durability": 4,
+    "climbing": 10,
+    "vo2_power": 4,
+    "threshold": 8,
+    "technical": 10,
+    "heat_resilience": 1,
+    "altitude": 10,
+    "race_specificity": 8
+  },
+  "top_categories": [
+    {
+      "category": "Gravel_Specific",
+      "score": 100,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ]
+    },
+    {
+      "category": "TT_Threshold",
+      "score": 85,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ]
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 85,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ]
+    },
+    {
+      "category": "Over_Under",
+      "score": 80,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ]
+    },
+    {
+      "category": "VO2max",
+      "score": 80,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ]
+    }
+  ],
+  "pack_summary": "This 10-workout pack focuses on Gravel Specific, TT Threshold, and Race Simulation to prepare you for 85 miles of rugged jeep roads, singletrack, backcountry dirt in Gypsum, Colorado.",
+  "generated_at": "2026-02-26"
+}

@@ -1,0 +1,61 @@
+{
+  "slug": "torino-nice-rally",
+  "race_name": "Torino Nice Rally",
+  "demands": {
+    "durability": 10,
+    "climbing": 10,
+    "vo2_power": 8,
+    "threshold": 5,
+    "technical": 8,
+    "heat_resilience": 7,
+    "altitude": 10,
+    "race_specificity": 10
+  },
+  "top_categories": [
+    {
+      "category": "Durability",
+      "score": 100,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ]
+    },
+    {
+      "category": "VO2max",
+      "score": 83,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ]
+    },
+    {
+      "category": "Endurance",
+      "score": 77,
+      "workouts": [
+        "Pre-Race Openers",
+        "Terrain Simulation Z2"
+      ]
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 75,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ]
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 71,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ]
+    }
+  ],
+  "pack_summary": "This 10-workout pack focuses on Durability, VO2max, and Endurance to prepare you for 435 miles of mixed alpine terrain - paved cols, military gravel roads, rocky doubletrack in Turin, Italy to Nice, France.",
+  "generated_at": "2026-02-26"
+}

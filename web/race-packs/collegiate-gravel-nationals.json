@@ -1,0 +1,61 @@
+{
+  "slug": "collegiate-gravel-nationals",
+  "race_name": "Collegiate Gravel Nationals",
+  "demands": {
+    "durability": 2,
+    "climbing": 5,
+    "vo2_power": 10,
+    "threshold": 6,
+    "technical": 4,
+    "heat_resilience": 0,
+    "altitude": 2,
+    "race_specificity": 10
+  },
+  "top_categories": [
+    {
+      "category": "Race_Simulation",
+      "score": 100,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ]
+    },
+    {
+      "category": "VO2max",
+      "score": 97,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ]
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 89,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ]
+    },
+    {
+      "category": "TT_Threshold",
+      "score": 71,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ]
+    },
+    {
+      "category": "Anaerobic_Capacity",
+      "score": 67,
+      "workouts": [
+        "2min Killers",
+        "90sec Repeats"
+      ]
+    }
+  ],
+  "pack_summary": "This 10-workout pack focuses on Race Simulation, VO2max, and Gravel Specific to prepare you for 62 miles of texas panhandle\u2014rolling plains, red dirt in Turkey, Texas.",
+  "generated_at": "2026-02-26"
+}

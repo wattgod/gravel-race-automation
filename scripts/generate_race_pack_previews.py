@@ -222,7 +222,9 @@ def _extract_terrain_primary(race: dict) -> str:
 
     Falls back gracefully if terrain data is missing.
     """
-    terrain = race.get("terrain", {})
+    terrain = race.get("terrain") or {}
+    if isinstance(terrain, str):
+        return terrain
     primary = terrain.get("primary", "")
     if primary:
         return primary

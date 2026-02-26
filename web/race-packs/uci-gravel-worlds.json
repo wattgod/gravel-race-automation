@@ -1,0 +1,62 @@
+{
+  "slug": "uci-gravel-worlds",
+  "race_name": "UCI Gravel World Championships",
+  "demands": {
+    "durability": 6,
+    "climbing": 8,
+    "vo2_power": 10,
+    "threshold": 8,
+    "technical": 8,
+    "heat_resilience": 6,
+    "altitude": 2,
+    "race_specificity": 10
+  },
+  "top_categories": [
+    {
+      "category": "Durability",
+      "score": 100,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ]
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 98,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ]
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 93,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ]
+    },
+    {
+      "category": "TT_Threshold",
+      "score": 80,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ]
+    },
+    {
+      "category": "VO2max",
+      "score": 78,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ]
+    }
+  ],
+  "pack_summary": "This 10-workout pack focuses on Durability, Gravel Specific, and Race Simulation to prepare you for 112 miles of varies by location\u2014rolling technical terrain in Rotating (2024: Heerlen, Netherlands).",
+  "generated_at": "2026-02-26"
+}

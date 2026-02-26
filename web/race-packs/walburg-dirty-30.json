@@ -1,0 +1,61 @@
+{
+  "slug": "walburg-dirty-30",
+  "race_name": "Walburg Dirty 30",
+  "demands": {
+    "durability": 1,
+    "climbing": 3,
+    "vo2_power": 4,
+    "threshold": 3,
+    "technical": 4,
+    "heat_resilience": 0,
+    "altitude": 2,
+    "race_specificity": 6
+  },
+  "top_categories": [
+    {
+      "category": "Gravel_Specific",
+      "score": 100,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ]
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 100,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ]
+    },
+    {
+      "category": "VO2max",
+      "score": 71,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ]
+    },
+    {
+      "category": "Critical_Power",
+      "score": 58,
+      "workouts": [
+        "Above CP Repeats",
+        "W-Prime Depletion"
+      ]
+    },
+    {
+      "category": "TT_Threshold",
+      "score": 56,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ]
+    }
+  ],
+  "pack_summary": "This 10-workout pack focuses on Gravel Specific, Race Simulation, and VO2max to prepare you for 30 miles of texas hill country gravel - rolling hills, limestone roads, ranch land, technical sections in Walburg, Texas.",
+  "generated_at": "2026-02-26"
+}

@@ -1,0 +1,61 @@
+{
+  "slug": "texas-hell-week",
+  "race_name": "Texas Hell Week",
+  "demands": {
+    "durability": 10,
+    "climbing": 5,
+    "vo2_power": 4,
+    "threshold": 4,
+    "technical": 4,
+    "heat_resilience": 1,
+    "altitude": 2,
+    "race_specificity": 6
+  },
+  "top_categories": [
+    {
+      "category": "Durability",
+      "score": 100,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ]
+    },
+    {
+      "category": "HVLI_Extended",
+      "score": 63,
+      "workouts": [
+        "HVLI Extended Z2",
+        "Multi-Hour Z2",
+        "Back-to-Back Long"
+      ]
+    },
+    {
+      "category": "Endurance",
+      "score": 60,
+      "workouts": [
+        "Pre-Race Openers",
+        "Terrain Simulation Z2"
+      ]
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 59,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ]
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 59,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ]
+    }
+  ],
+  "pack_summary": "This 10-workout pack focuses on Durability, HVLI Extended, and Endurance to prepare you for 200 miles of texas rolling gravel in Warda, Texas.",
+  "generated_at": "2026-02-26"
+}

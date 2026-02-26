@@ -1,0 +1,61 @@
+{
+  "slug": "mad-gravel",
+  "race_name": "Mad Gravel",
+  "demands": {
+    "durability": 2,
+    "climbing": 4,
+    "vo2_power": 2,
+    "threshold": 5,
+    "technical": 4,
+    "heat_resilience": 0,
+    "altitude": 6,
+    "race_specificity": 3
+  },
+  "top_categories": [
+    {
+      "category": "TT_Threshold",
+      "score": 100,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ]
+    },
+    {
+      "category": "VO2max",
+      "score": 100,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ]
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 86,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ]
+    },
+    {
+      "category": "Over_Under",
+      "score": 83,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ]
+    },
+    {
+      "category": "G_Spot",
+      "score": 79,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ]
+    }
+  ],
+  "pack_summary": "This 10-workout pack focuses on TT Threshold, VO2max, and Gravel Specific to prepare you for 55 miles of colorado plains gravel in Elbert, CO.",
+  "generated_at": "2026-02-26"
+}

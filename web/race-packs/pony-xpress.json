@@ -1,0 +1,62 @@
+{
+  "slug": "pony-xpress",
+  "race_name": "Pony Xpress",
+  "demands": {
+    "durability": 6,
+    "climbing": 7,
+    "vo2_power": 5,
+    "threshold": 8,
+    "technical": 4,
+    "heat_resilience": 1,
+    "altitude": 8,
+    "race_specificity": 7
+  },
+  "top_categories": [
+    {
+      "category": "VO2max",
+      "score": 100,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ]
+    },
+    {
+      "category": "TT_Threshold",
+      "score": 99,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ]
+    },
+    {
+      "category": "Durability",
+      "score": 87,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ]
+    },
+    {
+      "category": "Over_Under",
+      "score": 84,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ]
+    },
+    {
+      "category": "G_Spot",
+      "score": 77,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ]
+    }
+  ],
+  "pack_summary": "This 10-workout pack focuses on VO2max, TT Threshold, and Durability to prepare you for 100 miles of colorado high desert and foothills gravel in Cokedale, Colorado.",
+  "generated_at": "2026-02-26"
+}

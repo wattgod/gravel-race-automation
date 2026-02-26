@@ -1,0 +1,61 @@
+{
+  "slug": "crystal-bear",
+  "race_name": "Crystal Bear",
+  "demands": {
+    "durability": 8,
+    "climbing": 6,
+    "vo2_power": 4,
+    "threshold": 5,
+    "technical": 6,
+    "heat_resilience": 7,
+    "altitude": 2,
+    "race_specificity": 8
+  },
+  "top_categories": [
+    {
+      "category": "Durability",
+      "score": 100,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ]
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 68,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ]
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 66,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ]
+    },
+    {
+      "category": "Endurance",
+      "score": 59,
+      "workouts": [
+        "Pre-Race Openers",
+        "Terrain Simulation Z2"
+      ]
+    },
+    {
+      "category": "HVLI_Extended",
+      "score": 54,
+      "workouts": [
+        "HVLI Extended Z2",
+        "Multi-Hour Z2",
+        "Back-to-Back Long"
+      ]
+    }
+  ],
+  "pack_summary": "This 10-workout pack focuses on Durability, Gravel Specific, and Race Simulation to prepare you for 192 miles of northwoods rolling gravel with sandy sections and overnight navigation challenge in Laona, WI to Crystal Falls, MI.",
+  "generated_at": "2026-02-26"
+}

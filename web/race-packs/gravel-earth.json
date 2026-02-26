@@ -1,0 +1,61 @@
+{
+  "slug": "gravel-earth",
+  "race_name": "Gravel Earth Series",
+  "demands": {
+    "durability": 10,
+    "climbing": 8,
+    "vo2_power": 8,
+    "threshold": 5,
+    "technical": 8,
+    "heat_resilience": 7,
+    "altitude": 6,
+    "race_specificity": 10
+  },
+  "top_categories": [
+    {
+      "category": "Durability",
+      "score": 100,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ]
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 75,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ]
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 71,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ]
+    },
+    {
+      "category": "Endurance",
+      "score": 67,
+      "workouts": [
+        "Pre-Race Openers",
+        "Terrain Simulation Z2"
+      ]
+    },
+    {
+      "category": "VO2max",
+      "score": 66,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ]
+    }
+  ],
+  "pack_summary": "This 10-workout pack focuses on Durability, Gravel Specific, and Race Simulation to prepare you for 208 miles of mixed gravel, from smooth european roads to technical african game trails in Global (HQ: Girona, Spain).",
+  "generated_at": "2026-02-26"
+}

@@ -1,0 +1,61 @@
+{
+  "slug": "belgian-waffle-ride-kansas",
+  "race_name": "Belgian Waffle Ride Kansas",
+  "demands": {
+    "durability": 4,
+    "climbing": 5,
+    "vo2_power": 5,
+    "threshold": 8,
+    "technical": 8,
+    "heat_resilience": 0,
+    "altitude": 2,
+    "race_specificity": 7
+  },
+  "top_categories": [
+    {
+      "category": "Gravel_Specific",
+      "score": 100,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ]
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 87,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ]
+    },
+    {
+      "category": "TT_Threshold",
+      "score": 83,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ]
+    },
+    {
+      "category": "G_Spot",
+      "score": 66,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ]
+    },
+    {
+      "category": "Over_Under",
+      "score": 64,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ]
+    }
+  ],
+  "pack_summary": "This 10-workout pack focuses on Gravel Specific, Race Simulation, and TT Threshold to prepare you for 80 miles of mixed gravel in Lawrence, Kansas.",
+  "generated_at": "2026-02-26"
+}

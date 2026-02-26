@@ -1,0 +1,60 @@
+{
+  "slug": "iceman-cometh",
+  "race_name": "Iceman Cometh",
+  "demands": {
+    "durability": 1,
+    "climbing": 3,
+    "vo2_power": 5,
+    "threshold": 3,
+    "technical": 8,
+    "heat_resilience": 0,
+    "altitude": 2,
+    "race_specificity": 7
+  },
+  "top_categories": [
+    {
+      "category": "Gravel_Specific",
+      "score": 100,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ]
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 87,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ]
+    },
+    {
+      "category": "Critical_Power",
+      "score": 62,
+      "workouts": [
+        "Above CP Repeats",
+        "W-Prime Depletion"
+      ]
+    },
+    {
+      "category": "VO2max",
+      "score": 53,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ]
+    },
+    {
+      "category": "Anaerobic_Capacity",
+      "score": 47,
+      "workouts": [
+        "2min Killers",
+        "90sec Repeats"
+      ]
+    }
+  ],
+  "pack_summary": "This 10-workout pack focuses on Gravel Specific, Race Simulation, and Critical Power to prepare you for 30 miles of michigan mountain bike singletrack in Kalkaska, Michigan.",
+  "generated_at": "2026-02-26"
+}

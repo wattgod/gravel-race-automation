@@ -1,0 +1,62 @@
+{
+  "slug": "mammoth-tuff",
+  "race_name": "Mammoth Tuff",
+  "demands": {
+    "durability": 6,
+    "climbing": 8,
+    "vo2_power": 8,
+    "threshold": 8,
+    "technical": 4,
+    "heat_resilience": 0,
+    "altitude": 10,
+    "race_specificity": 10
+  },
+  "top_categories": [
+    {
+      "category": "VO2max",
+      "score": 100,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ]
+    },
+    {
+      "category": "TT_Threshold",
+      "score": 73,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ]
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 73,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ]
+    },
+    {
+      "category": "Durability",
+      "score": 67,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ]
+    },
+    {
+      "category": "Over_Under",
+      "score": 65,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ]
+    }
+  ],
+  "pack_summary": "This 10-workout pack focuses on VO2max, TT Threshold, and Race Simulation to prepare you for 100 miles of high sierra alpine gravel\u2014smooth and fast in Mammoth Lakes, California.",
+  "generated_at": "2026-02-26"
+}

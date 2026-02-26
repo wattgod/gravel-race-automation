@@ -1,0 +1,60 @@
+{
+  "slug": "monaco-gravel-race",
+  "race_name": "Monaco Gravel Race",
+  "demands": {
+    "durability": 2,
+    "climbing": 9,
+    "vo2_power": 8,
+    "threshold": 6,
+    "technical": 10,
+    "heat_resilience": 0,
+    "altitude": 2,
+    "race_specificity": 10
+  },
+  "top_categories": [
+    {
+      "category": "Gravel_Specific",
+      "score": 100,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ]
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 90,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ]
+    },
+    {
+      "category": "Critical_Power",
+      "score": 64,
+      "workouts": [
+        "Above CP Repeats",
+        "W-Prime Depletion"
+      ]
+    },
+    {
+      "category": "Over_Under",
+      "score": 63,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ]
+    },
+    {
+      "category": "TT_Threshold",
+      "score": 63,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ]
+    }
+  ],
+  "pack_summary": "This 10-workout pack focuses on Gravel Specific, Race Simulation, and Critical Power to prepare you for 68 miles of monaco/french alps\u2014steep technical climbs in Monaco.",
+  "generated_at": "2026-02-26"
+}

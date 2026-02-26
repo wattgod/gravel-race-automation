@@ -168,7 +168,7 @@ def _score_heat_resilience(race: dict) -> int:
     Scan rider intel search_text for heat keywords: +2 if found (cap 10).
     Scan climate.challenges for heat keywords: +1 if found (cap 10).
     """
-    rating = race.get("gravel_god_rating", {})
+    rating = race.get("gravel_god_rating") or {}
     climate_score = _safe_get(rating, "climate", 0)
 
     if climate_score >= 5:
@@ -179,8 +179,8 @@ def _score_heat_resilience(race: dict) -> int:
         score = 0
 
     # Rider intel boost
-    youtube_data = race.get("youtube_data", {})
-    rider_intel = youtube_data.get("rider_intel", {})
+    youtube_data = race.get("youtube_data") or {}
+    rider_intel = youtube_data.get("rider_intel") or {}
     search_text = _safe_get(rider_intel, "search_text", "")
     if search_text:
         search_lower = search_text.lower()
@@ -190,8 +190,8 @@ def _score_heat_resilience(race: dict) -> int:
                 break
 
     # Climate challenges boost
-    climate_block = race.get("climate", {})
-    challenges = climate_block.get("challenges", [])
+    climate_block = race.get("climate") or {}
+    challenges = climate_block.get("challenges") or []
     challenges_text = " ".join(challenges).lower()
     for keyword in HEAT_KEYWORDS:
         if keyword in challenges_text:
@@ -233,9 +233,9 @@ def analyze_race_demands(race_data: dict) -> dict:
     Returns:
         Dict mapping dimension name to integer score (0-10).
     """
-    race = race_data.get("race", {})
-    vitals = race.get("vitals", {})
-    rating = race.get("gravel_god_rating", {})
+    race = race_data.get("race") or {}
+    vitals = race.get("vitals") or {}
+    rating = race.get("gravel_god_rating") or {}
 
     return {
         "durability": _score_durability(vitals, rating),

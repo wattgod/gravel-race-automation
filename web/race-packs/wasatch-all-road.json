@@ -1,0 +1,61 @@
+{
+  "slug": "wasatch-all-road",
+  "race_name": "Wasatch All-Road",
+  "demands": {
+    "durability": 2,
+    "climbing": 7,
+    "vo2_power": 4,
+    "threshold": 6,
+    "technical": 6,
+    "heat_resilience": 1,
+    "altitude": 8,
+    "race_specificity": 8
+  },
+  "top_categories": [
+    {
+      "category": "Gravel_Specific",
+      "score": 100,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ]
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 97,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ]
+    },
+    {
+      "category": "VO2max",
+      "score": 94,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ]
+    },
+    {
+      "category": "TT_Threshold",
+      "score": 84,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ]
+    },
+    {
+      "category": "Over_Under",
+      "score": 78,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ]
+    }
+  ],
+  "pack_summary": "This 10-workout pack focuses on Gravel Specific, Race Simulation, and VO2max to prepare you for 62 miles of wasatch range mountain gravel in Francis, Utah.",
+  "generated_at": "2026-02-26"
+}

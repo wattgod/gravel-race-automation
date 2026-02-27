@@ -20,7 +20,7 @@ import time
 from pathlib import Path
 from urllib.parse import urlparse
 
-from ddgs import DDGS
+from duckduckgo_search import DDGS
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 RACE_DATA_DIR = PROJECT_ROOT / "race-data"

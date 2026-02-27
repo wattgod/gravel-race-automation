@@ -1,6 +1,7 @@
 {
   "slug": "lost-river-classic",
   "race_name": "Lost River Classic",
+  "distance_mi": 85.0,
   "demands": {
     "durability": 4,
     "climbing": 8,
@@ -19,7 +20,8 @@
         "Tired VO2max",
         "Double Day Simulation",
         "Progressive Fatigue"
-      ]
+      ],
+      "workout_context": "At 85 miles, Lost River Classic punishes athletes who haven\u2019t trained their body to produce power when glycogen runs low."
     },
     {
       "category": "Gravel_Specific",
@@ -27,7 +29,8 @@
       "workouts": [
         "Surge and Settle",
         "Terrain Microbursts"
-      ]
+      ],
+      "workout_context": "Lost River Classic\u2019s appalachian gravel roads, george washington national forest service roads demands rapid power changes \u2014 surge over obstacles, settle on smoother sections, repeat for hours."
     },
     {
       "category": "TT_Threshold",
@@ -36,7 +39,8 @@
         "Single Sustained Threshold",
         "Threshold Ramps",
         "Descending Threshold"
-      ]
+      ],
+      "workout_context": "Lost River Classic rewards athletes who can hold sustained power without blowing up \u2014 threshold is the engine that drives everything above Zone 2."
     },
     {
       "category": "Race_Simulation",
@@ -45,7 +49,8 @@
         "Breakaway Simulation",
         "Variable Pace Chaos",
         "Sector Simulation"
-      ]
+      ],
+      "workout_context": "Racing Lost River Classic isn\u2019t just fitness \u2014 it\u2019s pacing, fueling, and executing when conditions deteriorate. This workout practices the race itself."
     },
     {
       "category": "Over_Under",
@@ -53,9 +58,81 @@
       "workouts": [
         "Classic Over-Unders",
         "Ladder Over-Unders"
-      ]
+      ],
+      "workout_context": "Over-unders train the lactate clearance you\u2019ll need at Lost River Classic when surges push you above threshold and you have to recover while still riding hard."
+    },
+    {
+      "category": "G_Spot",
+      "score": 67,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ],
+      "workout_context": "The G-Spot zone (88\u201392% FTP) is where you\u2019ll spend the hardest sustained miles of Lost River Classic. Make this intensity feel like home."
+    },
+    {
+      "category": "Endurance",
+      "score": 58,
+      "workouts": [
+        "Pre-Race Openers",
+        "Terrain Simulation Z2"
+      ],
+      "workout_context": "Every session at Lost River Classic intensity builds on this aerobic foundation \u2014 the endurance base is the soil everything else grows in."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 57,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "Lost River Classic\u2019s 8,500ft of climbing demands seated and standing versatility \u2014 the ability to change climbing style as gradient and fatigue dictate."
+    },
+    {
+      "category": "Critical_Power",
+      "score": 52,
+      "workouts": [
+        "Above CP Repeats",
+        "W-Prime Depletion"
+      ],
+      "workout_context": "Critical power determines how long you can sustain above-threshold efforts at Lost River Classic \u2014 a higher CP means more time in the red before failure."
+    },
+    {
+      "category": "HVLI_Extended",
+      "score": 45,
+      "workouts": [
+        "HVLI Extended Z2",
+        "Multi-Hour Z2",
+        "Back-to-Back Long"
+      ],
+      "workout_context": "High-volume endurance builds the aerobic base that makes Lost River Classic\u2019s race-day efforts sustainable rather than destructive."
+    },
+    {
+      "category": "VO2max",
+      "score": 40,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ],
+      "workout_context": "Lost River Classic\u2019s technical appalachian gravel with constant elevation change and competitive field demand explosive aerobic capacity \u2014 the ability to respond to surges without blowing up."
+    },
+    {
+      "category": "SFR_Muscle_Force",
+      "score": 38,
+      "workouts": [
+        "SFR Low Cadence",
+        "Force Repeats"
+      ],
+      "workout_context": "Low-cadence force work builds the muscular strength for Lost River Classic\u2019s 8,500ft of climbing \u2014 especially the grinding, low-speed ascents."
     }
   ],
+  "race_overlay": {
+    "heat": "August in Mathias, West Virginia \u2014 Mid-August brings 65-85\u00b0F temperatures with 70-90% humidity. Heat index can reach 90-95\u00b0F. Afternoon thunderstorm risk moderate. Dense forest canopy provides intermittent shade but traps humidity. Heat management is the defining climate challenge. Begin heat acclimatization 10\u201314 days before Lost River Classic \u2014 20\u201330min sauna sessions or midday rides in full kit. Pre-load sodium 48 hours out. Target 500\u2013750ml/hr with electrolytes on race day. Race-day realities: High humidity compounds heat stress during long climbs.",
+    "nutrition": "Target 60\u201380g carbs/hour for Lost River Classic\u2019s 85 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
+    "terrain": "Highly technical terrain at Lost River Classic demands practice on similar surfaces. Ride technical appalachian gravel with constant elevation change at race-day cadence weekly. Expect: appalachian gravel roads, george washington national forest service roads, rocky descents with embedded rocks. Practice cornering, descending, and power delivery on unstable surfaces. Dial in tire pressure before race week \u2014 5 PSI wrong costs you 15+ minutes over 85 miles."
+  },
   "pack_summary": "This 10-workout pack focuses on Durability, Gravel Specific, and TT Threshold to prepare you for 85 miles of technical appalachian gravel with constant elevation change in Mathias, West Virginia.",
   "generated_at": "2026-02-26"
 }

@@ -517,7 +517,149 @@
           "curated": false
         }
       ],
-      "quotes": []
-    }
+      "quotes": [],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "East Coast Section",
+            "description": "Much lumpier than expected with constant up down up down profile rather than flat terrain, despite appearing flat on route maps until zooming in",
+            "source_video_ids": [
+              "Kp1ymn6d1bg"
+            ]
+          },
+          {
+            "name": "Old Mountain Road",
+            "description": "Lumpy journey with very little traffic on winding mountain roads",
+            "source_video_ids": [
+              "Kp1ymn6d1bg"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "East Coast roads are much lumpier than they appear on route profiles - constant up and down rather than flat sections",
+            "source_video_ids": [
+              "Kp1ymn6d1bg"
+            ]
+          },
+          {
+            "text": "Old mountain roads have very little traffic and offer stunning scenery",
+            "source_video_ids": [
+              "Kp1ymn6d1bg"
+            ]
+          }
+        ],
+        "gear_mentions": [],
+        "race_day_tips": [
+          {
+            "text": "Start early (around 4am) to avoid the heat of midday and get kilometers done in cooler conditions",
+            "source_video_ids": [
+              "Kp1ymn6d1bg"
+            ]
+          },
+          {
+            "text": "Plan to ride into the night when it's cooler rather than fighting strong headwinds and heat during midday",
+            "source_video_ids": [
+              "Kp1ymn6d1bg"
+            ]
+          },
+          {
+            "text": "Don't rely on route profiles appearing flat - zoom in close to see the actual elevation changes",
+            "source_video_ids": [
+              "Kp1ymn6d1bg"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "It was suggested to me by a guy called Massimo and he's a local Sardinian cycling tour guide and he told me to come this way and I'm really glad he did",
+            "source_video_id": "Kp1ymn6d1bg",
+            "source_channel": "Josh Reid",
+            "source_view_count": 11971,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "The Sardinian coast offers stunning scenery with crystal blue water and beautiful beaches, but riders should expect much lumpier terrain than route profiles suggest. The East Coast section appears flat on maps but features constant up and down elevation changes that can be challenging. Old mountain roads have very little traffic and provide amazing views. Heat and strong headwinds are significant factors during midday hours. Riders recommend starting very early (around 4am) or riding into the night to avoid the heat. Local knowledge is valuable - connecting with Sardinian cycling tour guides can provide route suggestions for the most scenic roads. The hospitality of Sardinia is notable, with tight-knit communities where everyone knows each other."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "giro-sardegna-gravel-video-1.jpg",
+        "url": "/race-photos/giro-sardegna-gravel/giro-sardegna-gravel-video-1.jpg",
+        "alt": "Two gravel cyclists in aerodynamic position racing on paved road through lush green Mediterranean countryside in Sardinia - Giro Sardegna Gravel - Siniscola, Sardinia, Italy",
+        "credit": "YouTube / GCN Italia",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel racing",
+          "Sardinia",
+          "Mediterranean",
+          "cycling",
+          "countryside"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "giro-sardegna-gravel-video-2.jpg",
+        "url": "/race-photos/giro-sardegna-gravel/giro-sardegna-gravel-video-2.jpg",
+        "alt": "Solo gravel cyclist crossing wooden bridge on dirt trail through dense forest vegetation in Sardinian wilderness - Giro Sardegna Gravel - Siniscola, Sardinia, Italy",
+        "credit": "YouTube / GCN Italia",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel trail",
+          "wooden bridge",
+          "forest",
+          "Sardinia",
+          "dirt path"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "giro-sardegna-gravel-video-3.jpg",
+        "url": "/race-photos/giro-sardegna-gravel/giro-sardegna-gravel-video-3.jpg",
+        "alt": "Modern concrete tunnel with dramatic shadows and pillars leading through Sardinian landscape infrastructure - Giro Sardegna Gravel - Siniscola, Sardinia, Italy",
+        "credit": "YouTube / GCN Italia",
+        "primary": false,
+        "ai_relevance": 2,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "tunnel",
+          "concrete",
+          "infrastructure",
+          "Sardinia",
+          "shadows"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "giro-sardegna-gravel-preview.gif",
+        "url": "/race-photos/giro-sardegna-gravel/giro-sardegna-gravel-preview.gif",
+        "alt": "Course preview from Giro Sardegna Gravel race footage",
+        "credit": "YouTube / GCN Italia",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "giro-sardegna-gravel-preview-2.gif",
+        "url": "/race-photos/giro-sardegna-gravel/giro-sardegna-gravel-preview-2.gif",
+        "alt": "Course preview from Giro Sardegna Gravel race footage",
+        "credit": "YouTube / GCN Italia",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "giro-sardegna-gravel-preview-3.gif",
+        "url": "/race-photos/giro-sardegna-gravel/giro-sardegna-gravel-preview-3.gif",
+        "alt": "Course preview from Giro Sardegna Gravel race footage",
+        "credit": "YouTube / GCN Italia",
+        "gif": true
+      }
+    ]
   }
 }

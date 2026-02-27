@@ -549,7 +549,167 @@
           "curated": false
         }
       ],
-      "quotes": []
-    }
+      "quotes": [],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "First climb",
+            "description": "Getting carried away at the start and going way harder than planned, made especially tough because riders can't warm up before the race and must line up in age pens about 45 minutes before start.",
+            "source_video_ids": [
+              "xSmOhfzpeo4"
+            ]
+          },
+          {
+            "name": "Manaste National Forest trails",
+            "mile_marker": "128",
+            "description": "Off-road vehicle trails with several miles of relentless sand that test tired legs and bike handling skills. Sandy trails require hiking the bike in sections.",
+            "source_video_ids": [
+              "uhYYtLlJy3c"
+            ]
+          },
+          {
+            "name": "Big M climb",
+            "mile_marker": "169+",
+            "description": "Infamous climbing section that's about 100 ft elevation but involves riding over roots with technical terrain.",
+            "source_video_ids": [
+              "uhYYtLlJy3c"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "The gravel in Scotland is way tougher and way harder than anywhere experienced before - pretty rocky and chunky terrain that pounds your arms relentlessly over 4+ hours.",
+            "source_video_ids": [
+              "xSmOhfzpeo4"
+            ]
+          },
+          {
+            "text": "Roads start smooth and fast, then turn to rollers after checkpoint 2. Sandy sections where you can hear the sand and it makes going tougher.",
+            "source_video_ids": [
+              "uhYYtLlJy3c"
+            ]
+          },
+          {
+            "text": "Sandy trails in the forest are really testing on tired legs, requiring bike handling skills and sometimes forcing you to hike your bike.",
+            "source_video_ids": [
+              "uhYYtLlJy3c"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "Don't go higher on tire pressures than normal - stick to low pressures you know work for you even if others are puncturing, as higher pressures minimize tire deformation and suspension effect.",
+            "source_video_ids": [
+              "xSmOhfzpeo4"
+            ]
+          },
+          {
+            "text": "Make sure to take care of your equipment and use wheels that are strong enough - a lot of people's races end with big hits breaking wheels that weren't strong enough for the rocky, chunky terrain.",
+            "source_video_ids": [
+              "xSmOhfzpeo4"
+            ]
+          }
+        ],
+        "race_day_tips": [
+          {
+            "text": "Don't start too fast - avoid getting caught up in the race for the first corner and climb. Unless you're racing to win, ride to your own heart rate or power and pace yourself better.",
+            "source_video_ids": [
+              "xSmOhfzpeo4"
+            ]
+          },
+          {
+            "text": "Do a warm up before the race if possible, since you may have to line up in age pens about 45 minutes before start with cold legs.",
+            "source_video_ids": [
+              "xSmOhfzpeo4"
+            ]
+          },
+          {
+            "text": "Work together in groups during the smooth, fast opening sections to make good time - several groups can form and help you set PRs on the first 100 miles.",
+            "source_video_ids": [
+              "uhYYtLlJy3c"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "We had to line up in our age pens about 45 minutes before the start. So we stood around for ages with cold legs. So that made it really tough.",
+            "source_video_id": "xSmOhfzpeo4",
+            "source_channel": "David Arthur - Just Ride Bikes",
+            "source_view_count": 20578,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "At checkpoint number three, a cheering crowd really lifts the spirits. That was a tough stretch. 65 miles in 6 hours.",
+            "source_video_id": "uhYYtLlJy3c",
+            "source_channel": "Striving5280",
+            "source_view_count": 6162,
+            "category": "community",
+            "curated": true
+          }
+        ],
+        "search_text": "Riders describe challenging gravel racing conditions with rocky, chunky terrain that pounds arms relentlessly over 4+ hours of racing. Courses typically start with smooth, fast gravel roads where groups can work together effectively, then transition to more technical terrain. Key challenges include sandy sections in forest areas that require bike handling skills and sometimes force hiking, plus technical climbs over roots. Riders emphasize avoiding starting too fast, especially when cold starts are required after standing in age pens for 45 minutes before racing begins. Equipment reliability is crucial - many races end due to wheel failures from big hits on rocky terrain. Tire pressure strategy is important, with experienced riders recommending sticking to lower pressures despite puncture risks to maintain tire deformation and suspension benefits. Sandy trails test tired legs significantly and can dramatically slow pace in later race sections."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "lake-country-gravel-video-1.jpg",
+        "url": "/race-photos/lake-country-gravel/lake-country-gravel-video-1.jpg",
+        "alt": "Muddy forest trail winding through dense green deciduous trees during a gravel race - Lake Country Gravel - Oconomowoc, Wisconsin",
+        "credit": "YouTube / Striving5280",
+        "primary": true,
+        "ai_relevance": 4,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "forest trail",
+          "muddy conditions",
+          "deciduous trees",
+          "gravel path"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "lake-country-gravel-video-2.jpg",
+        "url": "/race-photos/lake-country-gravel/lake-country-gravel-video-2.jpg",
+        "alt": "Gravel cyclists racing on paved road past RV camping area with rider perspective view - Lake Country Gravel - Oconomowoc, Wisconsin",
+        "credit": "YouTube / Striving5280",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel peloton",
+          "RV camping",
+          "rider perspective",
+          "paved section",
+          "cycling group"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "lake-country-gravel-video-3.jpg",
+        "url": "/race-photos/lake-country-gravel/lake-country-gravel-video-3.jpg",
+        "alt": "Cyclist being interviewed indoors wearing Just Ride Bikes cap with mountain bike wheel visible - Lake Country Gravel - Oconomowoc, Wisconsin",
+        "credit": "YouTube / Striving5280",
+        "primary": false,
+        "ai_relevance": 2,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "cyclist interview",
+          "Just Ride Bikes",
+          "mountain bike wheel",
+          "indoor setting"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "lake-country-gravel-preview.gif",
+        "url": "/race-photos/lake-country-gravel/lake-country-gravel-preview.gif",
+        "alt": "Course preview from Lake Country Gravel race footage",
+        "credit": "YouTube / Striving5280",
+        "gif": true
+      }
+    ]
   }
 }

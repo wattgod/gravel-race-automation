@@ -546,7 +546,172 @@
           "category": "race_atmosphere",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Notorious BIG Hill",
+            "mile_marker": "30",
+            "description": "A significant climb at about 30 miles in with 3800 ft of climbing. Described as straight up for a long ways, with 5% grade feeling mellow compared to earlier climbs.",
+            "source_video_ids": [
+              "91O6dSEUFhk"
+            ]
+          },
+          {
+            "name": "Siberia",
+            "description": "A particularly rough section that riders specifically call out as difficult.",
+            "source_video_ids": [
+              "MX7d46bobHA"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Vermont gravel is hard packed, basically like a dirt highway according to riders on pre-race rides.",
+            "source_video_ids": [
+              "G_TV-u0btk8"
+            ]
+          },
+          {
+            "text": "Roads are pretty smooth actually, with constant ups and downs throughout the course.",
+            "source_video_ids": [
+              "91O6dSEUFhk"
+            ]
+          },
+          {
+            "text": "There was a muddy section the day before race day that left bikes very dirty.",
+            "source_video_ids": [
+              "G_TV-u0btk8"
+            ]
+          }
+        ],
+        "gear_mentions": [],
+        "race_day_tips": [
+          {
+            "text": "The race requires constant pedal to the metal max heart rate max power - it's relentless climbing.",
+            "source_video_ids": [
+              "MX7d46bobHA"
+            ]
+          },
+          {
+            "text": "Don't forget sunscreen even if weather looks good - riders were caught off guard by bright sunny conditions.",
+            "source_video_ids": [
+              "G_TV-u0btk8"
+            ]
+          },
+          {
+            "text": "Taking whiskey shots and chocolate chip cookies at aid stations around mile 26 can be a good morale booster for the climbs ahead.",
+            "source_video_ids": [
+              "91O6dSEUFhk"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "I showed up at the front desk at 6:00 a.m. with a locked bike chain problem and hotel maintenance came out with bolt cutters to save my race - that's the kind of customer service you get here.",
+            "source_video_id": "91O6dSEUFhk",
+            "source_channel": "Green Mountain Gravel",
+            "source_view_count": 3593,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "100% of what we make after we pay for the race itself goes to the Halo foundation and the Halo Foundation supports family struggling with the cost of cancer in Orleans County Vermont",
+            "source_video_id": "MX7d46bobHA",
+            "source_channel": "Rasputitsa Spring Classic",
+            "source_view_count": 8889,
+            "category": "community",
+            "curated": true
+          },
+          {
+            "text": "It's only 57 miles but it's 7000 feet of climbing and that's a lot for 57 miles - I just did a parking lot bike wash with Dawn dish soap and there might still be soap on my chain",
+            "source_video_id": "G_TV-u0btk8",
+            "source_channel": "Watt Wagon",
+            "source_view_count": 5224,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "Rasputitsa in Burke, Vermont is a 46-57 mile gravel race with 5000-7000 feet of climbing that riders describe as relentlessly difficult. The course features hard-packed Vermont gravel that feels like a dirt highway, with constant ups and downs throughout. Key challenges include the Notorious BIG Hill around mile 30 with 3800 feet of climbing already completed, and a rough section called Siberia. Riders emphasize this requires constant maximum effort and heart rate. The race has grown from 50 to 500 participants and features excellent community support with people lining the entire course. Aid stations offer whiskey shots, cookies, and hot dogs. Weather can vary dramatically - past years have been freezing cold while recent editions have been sunny and warm. The terrain can be muddy the day before but dry up for race day. The event supports the Halo Foundation which helps families dealing with cancer costs in Orleans County Vermont."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "rasputitsa-video-1.jpg",
+        "url": "/race-photos/rasputitsa/rasputitsa-video-1.jpg",
+        "alt": "Solo cyclist riding on paved forest road through mixed evergreen and deciduous trees during Rasputitsa gravel race - Burke, Vermont",
+        "credit": "YouTube / Watt Wagon",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "forest road",
+          "solo rider",
+          "mixed forest",
+          "paved section",
+          "spring cycling"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "rasputitsa-video-2.jpg",
+        "url": "/race-photos/rasputitsa/rasputitsa-video-2.jpg",
+        "alt": "Race spectators and support crew gathered along rural paved road with forest backdrop during cycling event - Rasputitsa - Burke, Vermont",
+        "credit": "YouTube / Watt Wagon",
+        "primary": false,
+        "ai_relevance": 3,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "race support",
+          "spectators",
+          "rural road",
+          "forest backdrop",
+          "cycling event"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "rasputitsa-video-3.jpg",
+        "url": "/race-photos/rasputitsa/rasputitsa-video-3.jpg",
+        "alt": "First-person view following two cyclists on muddy gravel road through forest with bare trees and evergreens - Rasputitsa - Burke, Vermont",
+        "credit": "YouTube / Watt Wagon",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "muddy gravel",
+          "first person view",
+          "forest road",
+          "spring conditions",
+          "cycling pursuit"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "rasputitsa-preview.gif",
+        "url": "/race-photos/rasputitsa/rasputitsa-preview.gif",
+        "alt": "Course preview from Rasputitsa race footage",
+        "credit": "YouTube / Watt Wagon",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "rasputitsa-preview-2.gif",
+        "url": "/race-photos/rasputitsa/rasputitsa-preview-2.gif",
+        "alt": "Course preview from Rasputitsa race footage",
+        "credit": "YouTube / Watt Wagon",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "rasputitsa-preview-3.gif",
+        "url": "/race-photos/rasputitsa/rasputitsa-preview-3.gif",
+        "alt": "Course preview from Rasputitsa race footage",
+        "credit": "YouTube / Watt Wagon",
+        "gif": true
+      }
+    ]
   }
 }

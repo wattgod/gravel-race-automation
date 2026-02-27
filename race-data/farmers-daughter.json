@@ -550,7 +550,134 @@
           "category": "race_atmosphere",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Trail sections",
+            "description": "Single track sections are included in the route, with riders expressing nervousness about muddy conditions when wet",
+            "source_video_ids": [
+              "E7_9RFODhNM"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Most gravel roads are really dry and hard packed when conditions are good",
+            "source_video_ids": [
+              "E7_9RFODhNM"
+            ]
+          },
+          {
+            "text": "The course includes roots that weren't even slippery in good conditions",
+            "source_video_ids": [
+              "ezhwlmOMRtc"
+            ]
+          },
+          {
+            "text": "Mix of gravel roads, paved roads, and single track sections through Columbia County",
+            "source_video_ids": [
+              "E7_9RFODhNM"
+            ]
+          }
+        ],
+        "gear_mentions": [],
+        "race_day_tips": [
+          {
+            "text": "Rain can significantly change trail conditions, making them muddy - monitor weather forecasts",
+            "source_video_ids": [
+              "E7_9RFODhNM"
+            ]
+          },
+          {
+            "text": "Don't worry about fast riders who sprint off at the start - they'll be way ahead and you won't see them again",
+            "source_video_ids": [
+              "E7_9RFODhNM"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "The Farmer's Daughter Gravel Grinder is a non-competitive event for beginners and veterans of the sport that takes place in Chatham, New York",
+            "source_video_id": "E7_9RFODhNM",
+            "source_channel": "Joy & Jason Rides",
+            "source_view_count": 1451,
+            "category": "community",
+            "curated": true
+          },
+          {
+            "text": "It's only an hour and a half drive from Danbury to the event location in Chatham, New York",
+            "source_video_id": "E7_9RFODhNM",
+            "source_channel": "Joy & Jason Rides",
+            "source_view_count": 1451,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "The Farmer's Daughter Gravel Grinder is a non-competitive 65-mile event in Chatham, New York, featuring 3,500 feet of elevation gain through Columbia County's gravel roads, paved sections, and single track trails. Riders describe the gravel roads as really dry and hard packed in good conditions, with roots on trail sections that aren't slippery when dry. Weather is a key concern, as rain can make trail sections muddy and significantly change conditions. The event attracts both beginners and veterans, with a lively atmosphere and music at the start. Fast riders sprint off early and disappear ahead, so newer riders shouldn't worry about keeping pace with them. The location is about 90 minutes from Danbury, Connecticut, making it accessible for regional riders."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "farmers-daughter-video-1.jpg",
+        "url": "/race-photos/farmers-daughter/farmers-daughter-video-1.jpg",
+        "alt": "Gravel cyclists racing on dirt road through lush green forest during Farmers Daughter gravel race - Farmer's Daughter - New York",
+        "credit": "YouTube / Terry B",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel road",
+          "forest racing",
+          "dirt path",
+          "cycling peloton",
+          "wooded terrain"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "farmers-daughter-video-2.jpg",
+        "url": "/race-photos/farmers-daughter/farmers-daughter-video-2.jpg",
+        "alt": "Cyclists taking nutrition break at aid station during gravel race in rural countryside setting - Farmer's Daughter - New York",
+        "credit": "YouTube / Terry B",
+        "primary": false,
+        "ai_relevance": 4,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "aid station",
+          "race nutrition",
+          "gravel cyclists",
+          "rest stop",
+          "countryside"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "farmers-daughter-video-3.jpg",
+        "url": "/race-photos/farmers-daughter/farmers-daughter-video-3.jpg",
+        "alt": "Cyclist speaking to camera at gravel race finish area with parking and support vehicles visible - Farmer's Daughter - New York",
+        "credit": "YouTube / Terry B",
+        "primary": false,
+        "ai_relevance": 3,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "race finish",
+          "cyclist interview",
+          "gravel event",
+          "support area",
+          "parking lot"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "farmers-daughter-preview.gif",
+        "url": "/race-photos/farmers-daughter/farmers-daughter-preview.gif",
+        "alt": "Course preview from Farmers Daughter race footage",
+        "credit": "YouTube / Terry B",
+        "gif": true
+      }
+    ]
   }
 }

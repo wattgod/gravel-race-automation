@@ -1,6 +1,7 @@
 {
   "slug": "grinduro-california",
   "race_name": "Grinduro California",
+  "distance_mi": 60.0,
   "demands": {
     "durability": 2,
     "climbing": 7,
@@ -18,7 +19,8 @@
       "workouts": [
         "Surge and Settle",
         "Terrain Microbursts"
-      ]
+      ],
+      "workout_context": "Grinduro California\u2019s sierra nevada singletrack (50%), gravel roads (30%) demands rapid power changes \u2014 surge over obstacles, settle on smoother sections, repeat for hours."
     },
     {
       "category": "Race_Simulation",
@@ -27,7 +29,8 @@
         "Breakaway Simulation",
         "Variable Pace Chaos",
         "Sector Simulation"
-      ]
+      ],
+      "workout_context": "Racing Grinduro California isn\u2019t just fitness \u2014 it\u2019s pacing, fueling, and executing when conditions deteriorate. This workout practices the race itself."
     },
     {
       "category": "VO2max",
@@ -36,7 +39,8 @@
         "5x3 VO2 Classic",
         "Descending VO2 Pyramid",
         "Norwegian 4x8"
-      ]
+      ],
+      "workout_context": "Grinduro California\u2019s sierra nevada enduro\u2014singletrack descents + gravel climbs and competitive field demand explosive aerobic capacity \u2014 the ability to respond to surges without blowing up."
     },
     {
       "category": "Critical_Power",
@@ -44,7 +48,8 @@
       "workouts": [
         "Above CP Repeats",
         "W-Prime Depletion"
-      ]
+      ],
+      "workout_context": "Critical power determines how long you can sustain above-threshold efforts at Grinduro California \u2014 a higher CP means more time in the red before failure."
     },
     {
       "category": "TT_Threshold",
@@ -53,9 +58,80 @@
         "Single Sustained Threshold",
         "Threshold Ramps",
         "Descending Threshold"
-      ]
+      ],
+      "workout_context": "Grinduro California rewards athletes who can hold sustained power without blowing up \u2014 threshold is the engine that drives everything above Zone 2."
+    },
+    {
+      "category": "Over_Under",
+      "score": 53,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ],
+      "workout_context": "Over-unders train the lactate clearance you\u2019ll need at Grinduro California when surges push you above threshold and you have to recover while still riding hard."
+    },
+    {
+      "category": "Durability",
+      "score": 50,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ],
+      "workout_context": "Grinduro California\u2019s sierra nevada enduro\u2014singletrack descents + gravel climbs drains energy reserves faster than the distance suggests \u2014 durability training bridges the gap."
+    },
+    {
+      "category": "Anaerobic_Capacity",
+      "score": 48,
+      "workouts": [
+        "2min Killers",
+        "90sec Repeats"
+      ],
+      "workout_context": "Short, violent efforts are unavoidable at Grinduro California \u2014 climbs demanding 2-minute maximal efforts, surges to close gaps, attacks on sierra nevada enduro\u2014singletrack descents + gravel climbs."
+    },
+    {
+      "category": "G_Spot",
+      "score": 44,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ],
+      "workout_context": "The G-Spot zone (88\u201392% FTP) is where you\u2019ll spend the hardest sustained miles of Grinduro California. Make this intensity feel like home."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 42,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "Grinduro California\u2019s 6,500ft of climbing demands seated and standing versatility \u2014 the ability to change climbing style as gradient and fatigue dictate."
+    },
+    {
+      "category": "Cadence_Work",
+      "score": 40,
+      "workouts": [
+        "High Cadence Drills",
+        "Cadence Pyramids"
+      ],
+      "workout_context": "Cadence efficiency makes every pedal stroke at Grinduro California count \u2014 smooth technique reduces muscular fatigue over long distances."
+    },
+    {
+      "category": "SFR_Muscle_Force",
+      "score": 28,
+      "workouts": [
+        "SFR Low Cadence",
+        "Force Repeats"
+      ],
+      "workout_context": "Low-cadence force work builds the muscular strength for Grinduro California\u2019s 6,500ft of climbing \u2014 especially the grinding, low-speed ascents."
     }
   ],
+  "race_overlay": {
+    "nutrition": "Target 40\u201360g carbs/hour for Grinduro California\u2019s 60 miles. Front-load calories in the first half. One bottle per hour minimum, more in heat.",
+    "altitude": "Moderate altitude at Grinduro California. Arrive 2\u20133 days early. Reduce intensity expectations by 5\u201310%. Hydrate aggressively.",
+    "terrain": "Highly technical terrain at Grinduro California demands practice on similar surfaces. Ride sierra nevada enduro\u2014singletrack descents + gravel climbs at race-day cadence weekly. Expect: sierra nevada singletrack (50%), gravel roads (30%), dirt roads (20%). Practice cornering, descending, and power delivery on unstable surfaces. Dial in tire pressure before race week \u2014 5 PSI wrong costs you 15+ minutes over 60 miles."
+  },
   "pack_summary": "This 10-workout pack focuses on Gravel Specific, Race Simulation, and VO2max to prepare you for 60 miles of sierra nevada enduro\u2014singletrack descents + gravel climbs in Quincy, California (Plumas County).",
   "generated_at": "2026-02-26"
 }

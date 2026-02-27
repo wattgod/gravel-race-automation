@@ -521,7 +521,68 @@
           "category": "race_atmosphere",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [],
+        "terrain_notes": [],
+        "gear_mentions": [],
+        "race_day_tips": [],
+        "additional_quotes": [
+          {
+            "text": "So Mock is at um Traqua House. I think that's how you say it. In Ethan, I'm really hoping you can hear me cuz I haven't got my uh microphone on. So hopefully you can hear me. Um and yeah, it's really lovely.",
+            "source_video_id": "JrlngiHh8nk",
+            "source_channel": "Life Without Number",
+            "source_view_count": 126,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "The Muck n Mac Festival takes place at Traquair House in Althan, Scotland in the Scottish Borders. According to industry participants, the event has a very nice and lovely setting. The transcript primarily focuses on behind-the-scenes setup the night before the event rather than race-specific details. The location appears to be suitable for camping, with participants setting up tents on site. While this transcript doesn't provide specific course details, terrain conditions, or racing challenges, it confirms the scenic Scottish Borders location and suggests the event has an attractive natural setting that appeals to both industry professionals and riders."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "muck-n-mac-fest-video-1.jpg",
+        "url": "/race-photos/muck-n-mac-fest/muck-n-mac-fest-video-1.jpg",
+        "alt": "Colorful gravel bike with rainbow frame displayed on stand under tent at cycling expo or bike shop - Muck n Mac Fest - Traquair House, Scotland, UK",
+        "credit": "YouTube / Life Without Number",
+        "primary": true,
+        "ai_relevance": 2,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel bike",
+          "rainbow frame",
+          "cycling expo",
+          "bike display",
+          "tent setup"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "muck-n-mac-fest-video-2.jpg",
+        "url": "/race-photos/muck-n-mac-fest/muck-n-mac-fest-video-2.jpg",
+        "alt": "Man with glasses and black cap speaking to camera in residential park setting during cycling interview - Muck n Mac Fest - Traquair House, Scotland, UK",
+        "credit": "YouTube / Life Without Number",
+        "primary": false,
+        "ai_relevance": 1,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "cycling interview",
+          "park setting",
+          "residential area",
+          "video blog"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "muck-n-mac-fest-preview.gif",
+        "url": "/race-photos/muck-n-mac-fest/muck-n-mac-fest-preview.gif",
+        "alt": "Course preview from Muck N Mac Fest race footage",
+        "credit": "YouTube / Life Without Number",
+        "gif": true
+      }
+    ]
   }
 }

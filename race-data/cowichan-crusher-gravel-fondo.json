@@ -580,7 +580,134 @@
           "category": "course_difficulty",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [],
+        "terrain_notes": [
+          {
+            "text": "The Cowichan Trail is a beautiful hard-packed trail with no motorized vehicles, so no washboard - just spectacular riding conditions.",
+            "source_video_ids": [
+              "_ICmsauvGyE"
+            ]
+          },
+          {
+            "text": "Some sections become decidedly more mountain bike like and rougher, but still beautiful - just not quite as fast.",
+            "source_video_ids": [
+              "_ICmsauvGyE"
+            ]
+          },
+          {
+            "text": "The gravel riding around Lake Cowichan is phenomenal with spectacular scenery.",
+            "source_video_ids": [
+              "yeFoKjPmp7g"
+            ]
+          }
+        ],
+        "gear_mentions": [],
+        "race_day_tips": [
+          {
+            "text": "A 90-minute shakeout ride with a few little pickups is good preparation for race day.",
+            "source_video_ids": [
+              "_ICmsauvGyE"
+            ]
+          },
+          {
+            "text": "Listen to your body - if you're feeling under the weather, consider dropping down to a shorter distance rather than missing the race entirely.",
+            "source_video_ids": [
+              "XYVtB-q0kuI"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "They've had to change the course this year because of some construction on the rail trail. So it's going to be a new course this time around.",
+            "source_video_id": "XYVtB-q0kuI",
+            "source_channel": "PIQUE PICTURES",
+            "source_view_count": 1582,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "We moved it to Lake Cowichan and I really like it here because we're even bit more remote but the gravel riding around here is phenomenal.",
+            "source_video_id": "yeFoKjPmp7g",
+            "source_channel": "Triple Crown of Gravel",
+            "source_view_count": 618,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "It's really inclusive - we're running over 30 percent overall and in our shorter events it's almost 50 percent female participation.",
+            "source_video_id": "yeFoKjPmp7g",
+            "source_channel": "Triple Crown of Gravel",
+            "source_view_count": 618,
+            "category": "community",
+            "curated": true
+          }
+        ],
+        "search_text": "The Cowichan Crusher is held in Lake Cowichan, British Columbia, featuring four different distance options from 25km to 160km. The course has been modified due to construction on the rail trail. Riders experience the beautiful Cowichan Valley Rail Trail with spectacular trestle bridges and phenomenal scenery. The terrain includes hard-packed trail sections with no motorized vehicle access, creating smooth riding conditions without washboard surfaces. Some sections become more mountain bike-like and rougher but remain rideable. The event attracts diverse participation with over 30% female riders overall and nearly 50% in shorter distances. The race moved from Duncan to Lake Cowichan for a more remote setting while maintaining access to excellent gravel riding. Conditions can vary from fast, smooth trail sections to more technical mountain bike-style terrain, requiring riders to adapt their pacing accordingly."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "cowichan-crusher-gravel-fondo-video-1.jpg",
+        "url": "/race-photos/cowichan-crusher-gravel-fondo/cowichan-crusher-gravel-fondo-video-1.jpg",
+        "alt": "Cyclist riding gravel bike on forest dirt road through dense Pacific Northwest evergreen trees - Cowichan Crusher Gravel Fondo - Lake Cowichan, British Columbia",
+        "credit": "YouTube / PIQUE PICTURES",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel cycling",
+          "forest trail",
+          "Pacific Northwest",
+          "dirt road",
+          "evergreen forest"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "cowichan-crusher-gravel-fondo-video-2.jpg",
+        "url": "/race-photos/cowichan-crusher-gravel-fondo/cowichan-crusher-gravel-fondo-video-2.jpg",
+        "alt": "Historic wooden railway trestle bridge spanning forested valley under clear blue sky in British Columbia - Cowichan Crusher Gravel Fondo - Lake Cowichan, British Columbia",
+        "credit": "YouTube / PIQUE PICTURES",
+        "primary": false,
+        "ai_relevance": 3,
+        "ai_quality": 5,
+        "ai_keywords": [
+          "wooden trestle",
+          "railway bridge",
+          "British Columbia",
+          "forest valley",
+          "clear sky"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "cowichan-crusher-gravel-fondo-video-3.jpg",
+        "url": "/race-photos/cowichan-crusher-gravel-fondo/cowichan-crusher-gravel-fondo-video-3.jpg",
+        "alt": "Close-up of gravel cyclist wearing camouflage helmet and sunglasses riding through forested trail - Cowichan Crusher Gravel Fondo - Lake Cowichan, British Columbia",
+        "credit": "YouTube / PIQUE PICTURES",
+        "primary": false,
+        "ai_relevance": 4,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "cyclist portrait",
+          "camouflage helmet",
+          "forest riding",
+          "gravel racer",
+          "action shot"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "cowichan-crusher-gravel-fondo-preview.gif",
+        "url": "/race-photos/cowichan-crusher-gravel-fondo/cowichan-crusher-gravel-fondo-preview.gif",
+        "alt": "Course preview from Cowichan Crusher Gravel Fondo race footage",
+        "credit": "YouTube / PIQUE PICTURES",
+        "gif": true
+      }
+    ]
   }
 }

@@ -525,6 +525,67 @@
         }
       ],
       "quotes": []
-    }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "hart-hills-video-1.jpg",
+        "url": "/race-photos/hart-hills/hart-hills-video-1.jpg",
+        "alt": "Cyclist riding on paved residential road through tree-lined neighborhood with performance metrics displayed - Hart Hills - Hart, Michigan",
+        "credit": "YouTube / Up The Road",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "cycling",
+          "residential road",
+          "tree-lined",
+          "performance metrics",
+          "road bike"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "hart-hills-video-2.jpg",
+        "url": "/race-photos/hart-hills/hart-hills-video-2.jpg",
+        "alt": "Solo cyclist in aerodynamic position riding on paved country road through bare winter trees - Hart Hills - Hart, Michigan",
+        "credit": "YouTube / Up The Road",
+        "primary": false,
+        "ai_relevance": 4,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "time trial position",
+          "country road",
+          "winter cycling",
+          "bare trees",
+          "solo rider"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "hart-hills-video-3.jpg",
+        "url": "/race-photos/hart-hills/hart-hills-video-3.jpg",
+        "alt": "Group of cyclists in colorful jerseys riding together on paved road through residential area with green lawns - Hart Hills - Hart, Michigan",
+        "credit": "YouTube / Up The Road",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "cycling group",
+          "colorful jerseys",
+          "residential cycling",
+          "green lawns",
+          "peloton"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "hart-hills-preview.gif",
+        "url": "/race-photos/hart-hills/hart-hills-preview.gif",
+        "alt": "Course preview from Hart Hills race footage",
+        "credit": "YouTube / Up The Road",
+        "gif": true
+      }
+    ]
   }
 }

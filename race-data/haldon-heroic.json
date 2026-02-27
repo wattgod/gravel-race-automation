@@ -668,7 +668,94 @@
           "category": "race_atmosphere",
           "curated": true
         }
-      ]
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Bridleway muddy section",
+            "description": "A brutal muddy bridleway that feels like cycling through treacle with wheel spinning everywhere. Riders describe it as full on with many people walking this section.",
+            "source_video_ids": [
+              "naxhSJ4y-5g"
+            ]
+          },
+          {
+            "name": "Steep climb",
+            "description": "Described as as steep as they come, this climb scattered the field like leaves and had several people walking.",
+            "source_video_ids": [
+              "naxhSJ4y-5g"
+            ]
+          },
+          {
+            "name": "Bog section after tarmac",
+            "description": "Just after a road section, the route turns off into what riders describe as a bog, creating challenging conditions.",
+            "source_video_ids": [
+              "naxhSJ4y-5g"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "The mud is thick enough that it collects between the rear wheel and down tube, essentially acting like a brake. Riders describe having to put out massive power just to barely move forward.",
+            "source_video_ids": [
+              "gJ061Le_doQ"
+            ]
+          },
+          {
+            "text": "The muddy bridleway section feels like cycling through treacle with constant wheel spinning and no forward progress despite high power output.",
+            "source_video_ids": [
+              "naxhSJ4y-5g"
+            ]
+          },
+          {
+            "text": "The course offers a good mix of road and gravel through forest and around the racecourse, with different surfaces favoring gravel bikes versus mountain bikes.",
+            "source_video_ids": [
+              "naxhSJ4y-5g"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "Gravel bikes aren't designed for thick thick mud - the fat tires fit in the frame unless you're riding in these conditions where mud gets packed behind the wheel.",
+            "source_video_ids": [
+              "gJ061Le_doQ"
+            ]
+          }
+        ],
+        "race_day_tips": [
+          {
+            "text": "The 85k distance might take much longer than expected - Garmin estimated 6.5 hours. English gravel roads aren't like the fast flowing gravel roads from America, so pace expectations accordingly.",
+            "source_video_ids": [
+              "gJ061Le_doQ"
+            ]
+          },
+          {
+            "text": "Navigation can be challenging with missed turns and unclear signage. Having GPS backup and watching for route markers is essential.",
+            "source_video_ids": [
+              "naxhSJ4y-5g"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "We finally found a feed stop and we're heading on to the next feed stop which apparently is the one with the egg rolls and the bacon rolls and all the nice food",
+            "source_video_id": "naxhSJ4y-5g",
+            "source_channel": "Darren Phillips",
+            "source_view_count": 1603,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "It's a really good Forest Park and you can just come and ride here for well you can ride for free if you cycle here but yeah if you drive you don't have to pay an entrance fee just pay to park I think it's a good deal",
+            "source_video_id": "gJ061Le_doQ",
+            "source_channel": "Juliet Elliott",
+            "source_view_count": 26322,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "The Haldon Heroic takes riders through Haldon Forest and surrounding Devon countryside on a challenging 85k course with 1282 meters of elevation. The terrain features thick, treacherous mud that riders describe as like cycling through treacle, with bridleways so muddy that many participants walk sections. Key challenges include an extremely steep climb that scatters the field and muddy bog sections that follow tarmac portions. The course offers a mix of forest trails, gravel roads, and racecourse sections, but lacks the fast-flowing gravel roads found in other regions. Navigation can be tricky with missed turns and unclear signage. Gravel bikes struggle in the thick mud conditions where debris gets packed between wheels and frames. Feed stations offer bacon and egg rolls. The forest park allows free riding access for cyclists, with only parking fees for drivers. Riders should expect significantly longer completion times than typical gravel events due to the challenging English terrain and muddy conditions."
+      }
     }
   }
 }

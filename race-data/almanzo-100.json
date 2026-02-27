@@ -427,6 +427,66 @@
           "curated": true
         }
       ]
-    }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "almanzo-100-video-1.jpg",
+        "url": "/race-photos/almanzo-100/almanzo-100-video-1.jpg",
+        "alt": "Aerial view of Masonic Park showing winding gravel paths through lush green forest with limestone bluffs and creek - Almanzo 100 - Spring Valley, Minnesota",
+        "credit": "YouTube / Gravel Cyclist",
+        "primary": true,
+        "ai_relevance": 3,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "Masonic Park",
+          "gravel paths",
+          "limestone bluffs",
+          "forest trail",
+          "creek crossing"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "almanzo-100-video-2.jpg",
+        "url": "/race-photos/almanzo-100/almanzo-100-video-2.jpg",
+        "alt": "Aerial view of small rural town with emergency vehicles lined up on main street surrounded by residential homes and farmland - Almanzo 100 - Spring Valley, Minnesota",
+        "credit": "YouTube / Gravel Cyclist",
+        "primary": false,
+        "ai_relevance": 2,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "rural town",
+          "emergency vehicles",
+          "main street",
+          "farmland",
+          "race support"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "almanzo-100-preview.gif",
+        "url": "/race-photos/almanzo-100/almanzo-100-preview.gif",
+        "alt": "Course preview from Almanzo 100 race footage",
+        "credit": "YouTube / Gravel Cyclist",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "almanzo-100-preview-2.gif",
+        "url": "/race-photos/almanzo-100/almanzo-100-preview-2.gif",
+        "alt": "Course preview from Almanzo 100 race footage",
+        "credit": "YouTube / Gravel Cyclist",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "almanzo-100-preview-3.gif",
+        "url": "/race-photos/almanzo-100/almanzo-100-preview-3.gif",
+        "alt": "Course preview from Almanzo 100 race footage",
+        "credit": "YouTube / Gravel Cyclist",
+        "gif": true
+      }
+    ]
   }
 }

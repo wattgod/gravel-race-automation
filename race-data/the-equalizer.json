@@ -389,7 +389,152 @@
           "category": "logistics",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Thunder Ridge",
+            "mile_marker": "",
+            "description": "A levy section with grass and some gravel, mostly grass surface. Riders face about five miles going directly into a headwind. The winds were coming out of the South during this race.",
+            "source_video_ids": [
+              "Gf_JTm6dVP8"
+            ]
+          },
+          {
+            "name": "Route decision point",
+            "mile_marker": "21",
+            "description": "Fork in the road where the 81 mile route normally turns right and 44 mile route goes left. This is where riders were informed of route changes due to weather.",
+            "source_video_ids": [
+              "Gf_JTm6dVP8"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Thunder Ridge is described as a levy section that's mostly grass with a little bit of gravel mixed in.",
+            "source_video_ids": [
+              "Gf_JTm6dVP8"
+            ]
+          },
+          {
+            "text": "The countryside features beautiful gravel roads that feel like you're in another country, resembling the countryside of France with beautiful old houses and farms.",
+            "source_video_ids": [
+              "Gf_JTm6dVP8"
+            ]
+          }
+        ],
+        "gear_mentions": [],
+        "race_day_tips": [
+          {
+            "text": "The race organizers paint arrows on the road which really help with navigation, more reliable than signs that sometimes get moved or turned around.",
+            "source_video_ids": [
+              "Gf_JTm6dVP8"
+            ]
+          },
+          {
+            "text": "Having a headwind at the beginning of the race when you're fresh is preferable to having tailwind to finish the race.",
+            "source_video_ids": [
+              "Gf_JTm6dVP8"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "From Farmington to St geneveve it's only like a 30 minute drive so we got up about 5:30 and then made our way to the race",
+            "source_video_id": "Gf_JTm6dVP8",
+            "source_channel": "Ty's Rides",
+            "source_view_count": 1154,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "They've got lots of porta-potties there do your morning business they've got the check-in process was really really smooth",
+            "source_video_id": "Gf_JTm6dVP8",
+            "source_channel": "Ty's Rides",
+            "source_view_count": 1154,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "The St Genevieve Gravel Classic takes place in St. Genevieve, Missouri, the oldest French settlement west of the Mississippi River. The race offers multiple distance options including 18, 44, and 78-81 mile routes. A key challenge is Thunder Ridge, a levy section that's mostly grass with some gravel, where riders face about five miles of direct headwind. At mile 21, there's a significant fork where longer and shorter routes split. The terrain features beautiful countryside gravel roads through old farms and houses. Race organizers paint directional arrows on roads for navigation, which riders find more reliable than signs. The event is hosted by Trail Et with smooth check-in processes and good facilities. Weather can impact longer routes, with severe storm warnings potentially canceling extended distances for safety. The downtown area is blocked off for the event with plenty of porta-potties and organized packet pickup."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "the-equalizer-video-1.jpg",
+        "url": "/race-photos/the-equalizer/the-equalizer-video-1.jpg",
+        "alt": "Three cyclists riding in formation on gravel road through agricultural farmland with rolling hills and morning mist in background - THE EQUALIZER - Missouri State Championship - Marthasville, Missouri",
+        "credit": "YouTube / Rising Stock Media",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel road",
+          "farmland",
+          "peloton",
+          "rural terrain",
+          "morning ride"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "the-equalizer-video-2.jpg",
+        "url": "/race-photos/the-equalizer/the-equalizer-video-2.jpg",
+        "alt": "Race volunteer or official wearing blue shirt with DNA helix design standing in event parking area with support trailers behind - THE EQUALIZER - Missouri State Championship - Marthasville, Missouri",
+        "credit": "YouTube / Rising Stock Media",
+        "primary": false,
+        "ai_relevance": 2,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "race volunteer",
+          "event support",
+          "parking area",
+          "race organization"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "the-equalizer-video-3.jpg",
+        "url": "/race-photos/the-equalizer/the-equalizer-video-3.jpg",
+        "alt": "Winner celebrating on first place podium holding bicycle wheel trophy in front of brick building at gravel race finish - THE EQUALIZER - Missouri State Championship - Marthasville, Missouri",
+        "credit": "YouTube / Rising Stock Media",
+        "primary": false,
+        "ai_relevance": 4,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "podium ceremony",
+          "race winner",
+          "bicycle wheel trophy",
+          "gravel race finish",
+          "victory celebration"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "the-equalizer-preview.gif",
+        "url": "/race-photos/the-equalizer/the-equalizer-preview.gif",
+        "alt": "Course preview from The Equalizer race footage",
+        "credit": "YouTube / Rising Stock Media",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "the-equalizer-preview-2.gif",
+        "url": "/race-photos/the-equalizer/the-equalizer-preview-2.gif",
+        "alt": "Course preview from The Equalizer race footage",
+        "credit": "YouTube / Rising Stock Media",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "the-equalizer-preview-3.gif",
+        "url": "/race-photos/the-equalizer/the-equalizer-preview-3.gif",
+        "alt": "Course preview from The Equalizer race footage",
+        "credit": "YouTube / Rising Stock Media",
+        "gif": true
+      }
+    ]
   }
 }

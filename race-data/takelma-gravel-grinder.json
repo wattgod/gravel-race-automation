@@ -574,7 +574,149 @@
           "category": "race_atmosphere",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "First Big Climb",
+            "description": "The steepest and longest sustained climb, with sections hitting 20% grade according to rider GPS data. Described as the steepest sustained climb some experienced riders have ever done.",
+            "source_video_ids": [
+              "96zqwpHvg5E",
+              "6SRatkX8UfE"
+            ]
+          },
+          {
+            "name": "Second Big Climb",
+            "mile_marker": "20+",
+            "description": "About 10 miles of climbing gaining 3,000 feet after turning south from the river section. Riders start cramping around three-quarters through this section.",
+            "source_video_ids": [
+              "96zqwpHvg5E",
+              "6SRatkX8UfE"
+            ]
+          },
+          {
+            "name": "Final Climb with False Summits",
+            "description": "The last climb has two false summits before the actual top, making it mentally challenging when riders think they're done but have to keep climbing.",
+            "source_video_ids": [
+              "6SRatkX8UfE"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Gravel roads are steep, narrow, and remote with no car traffic. Described as rough gravel roads that are challenging to ride on.",
+            "source_video_ids": [
+              "96zqwpHvg5E",
+              "6SRatkX8UfE"
+            ]
+          },
+          {
+            "text": "The stretch along Gailsville Reservoir is flat, paved, and refreshingly cool - a great break from the rough gravel sections.",
+            "source_video_ids": [
+              "6SRatkX8UfE"
+            ]
+          }
+        ],
+        "gear_mentions": [],
+        "race_day_tips": [
+          {
+            "text": "Join pace lines on the flat section leading up to gravel to draft behind bigger riders and save energy for the climbs.",
+            "source_video_ids": [
+              "6SRatkX8UfE"
+            ]
+          },
+          {
+            "text": "The Gailsville Reservoir section is a good place to grab food and take big gulps of hydration before the next climb.",
+            "source_video_ids": [
+              "6SRatkX8UfE"
+            ]
+          },
+          {
+            "text": "Race can get very hot - riders recommend finishing before afternoon when you're out in the sun, as morning sections have shade.",
+            "source_video_ids": [
+              "6SRatkX8UfE"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "I checked in last night, got my number, my timing chip, camped out in the parking lot with a bunch of other two wheeled wackos.",
+            "source_video_id": "6SRatkX8UfE",
+            "source_channel": "Chip Weinert",
+            "source_view_count": 342,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "We got like a drink ticket and a food ticket I got a really good barbecue pork belly sandwich and a really good beer so that's like super extra bonus",
+            "source_video_id": "96zqwpHvg5E",
+            "source_channel": "Seven Feathers Casino Resort",
+            "source_view_count": 1099,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "The Takelma Gravel Grinder is a 55-mile race with over 6,000 feet of climbing, making it the most climbing per mile of any gravel race in Oregon according to organizers. The unique race starts inside Seven Feathers Casino in Canyonville. Riders follow the South Fork Umpqua River for 10 miles before turning onto steep gravel roads that climb 3,000 feet over the next 10 miles. The course features narrow, remote gravel roads with no car traffic and grades reaching 20%. Key challenges include sustained steep climbs that cause experienced riders to cramp, and a final climb with two false summits. The Gailsville Reservoir section provides flat, paved relief between climbs. Heat becomes a major factor as the day progresses, with morning sections offering shade but afternoon sun exposure being brutal. The race attracts 75-80 riders and includes post-race food and drink tickets."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "takelma-gravel-grinder-video-1.jpg",
+        "url": "/race-photos/takelma-gravel-grinder/takelma-gravel-grinder-video-1.jpg",
+        "alt": "Bare trees and mixed vegetation on hillside terrain with exposed earth and dirt road visible in background - Takelma Gravel Grinder - Canyonville, OR",
+        "credit": "YouTube / Seven Feathers Casino Resort",
+        "primary": true,
+        "ai_relevance": 3,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "hillside terrain",
+          "dirt road",
+          "bare trees",
+          "exposed earth"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "takelma-gravel-grinder-video-2.jpg",
+        "url": "/race-photos/takelma-gravel-grinder/takelma-gravel-grinder-video-2.jpg",
+        "alt": "Cyclists riding gravel road through dense forest with rider visible ahead on tree-lined dirt path - Takelma Gravel Grinder - Canyonville, OR",
+        "credit": "YouTube / Seven Feathers Casino Resort",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel road",
+          "forest cycling",
+          "tree-lined path",
+          "dirt trail"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "takelma-gravel-grinder-video-3.jpg",
+        "url": "/race-photos/takelma-gravel-grinder/takelma-gravel-grinder-video-3.jpg",
+        "alt": "Aerial satellite view of winding gravel roads through mountainous valley terrain with elevation profile overlay - Takelma Gravel Grinder - Canyonville, OR",
+        "credit": "YouTube / Seven Feathers Casino Resort",
+        "primary": false,
+        "ai_relevance": 4,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "aerial view",
+          "mountain valley",
+          "winding roads",
+          "elevation profile"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "takelma-gravel-grinder-preview.gif",
+        "url": "/race-photos/takelma-gravel-grinder/takelma-gravel-grinder-preview.gif",
+        "alt": "Course preview from Takelma Gravel Grinder race footage",
+        "credit": "YouTube / Seven Feathers Casino Resort",
+        "gif": true
+      }
+    ]
   }
 }

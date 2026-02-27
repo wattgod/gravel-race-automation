@@ -551,7 +551,115 @@
           "display_order": 1
         }
       ],
-      "quotes": []
-    }
+      "quotes": [],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Bridge area",
+            "description": "Dangerous section where crashes can occur, resulting in serious injuries including concussions and shoulder damage.",
+            "source_video_ids": [
+              "6aDCbPCkxc4"
+            ]
+          },
+          {
+            "name": "7% grade climb",
+            "description": "Sustained climb with riders going 7 miles per hour on this challenging grade.",
+            "source_video_ids": [
+              "6aDCbPCkxc4"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Tar surfaces can be slick if there's moisture on them, requiring caution on descents.",
+            "source_video_ids": [
+              "6aDCbPCkxc4"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "Continental tubeless tires in 28mm width are being used by riders.",
+            "source_video_ids": [
+              "6aDCbPCkxc4"
+            ]
+          }
+        ],
+        "race_day_tips": [],
+        "additional_quotes": [
+          {
+            "text": "Well, we just had one of our team members crash. Probably got a mild concussion. He just crashed on this bridge I'm about to video going across. We're here at the famous Reliance Tennessee Web Brothers store. It's kind of a staple up here. It's only store up here.",
+            "source_video_id": "6aDCbPCkxc4",
+            "source_channel": "American Cycling Network",
+            "source_view_count": 15,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "The Reliance Tennessee gravel race features challenging terrain including dangerous bridge sections where crashes resulting in concussions and shoulder injuries have occurred. The course includes sustained climbs with 7% grades where riders slow to 7 miles per hour. Surface conditions can be hazardous, particularly tar sections that become slick when wet. The Web Brothers store serves as a key landmark and appears to be the only store in the area, making it an important logistical point. Riders are using Continental tubeless tires in 28mm widths for the varied terrain. The scenic route passes through beautiful areas that are popular with motorcycles and connects to areas like Cage Cove. The challenging nature of the course requires careful attention to technical descents and sustained climbing efforts."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "reliance-tennessee-gravel-video-1.jpg",
+        "url": "/race-photos/reliance-tennessee-gravel/reliance-tennessee-gravel-video-1.jpg",
+        "alt": "Cyclist shadow visible on sandy gravel road through dense Tennessee forest with tall pine trees - Reliance Tennessee Gravel - Reliance, Tennessee",
+        "credit": "YouTube / Gravel Cyclist",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel road",
+          "Tennessee forest",
+          "pine trees",
+          "cyclist shadow",
+          "sandy trail"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "reliance-tennessee-gravel-video-2.jpg",
+        "url": "/race-photos/reliance-tennessee-gravel/reliance-tennessee-gravel-video-2.jpg",
+        "alt": "Paved road curving through lush green Tennessee woodland with yellow curve warning sign - Reliance Tennessee Gravel - Reliance, Tennessee",
+        "credit": "YouTube / Gravel Cyclist",
+        "primary": false,
+        "ai_relevance": 3,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "paved road",
+          "Tennessee woods",
+          "curve sign",
+          "forest canopy",
+          "road cycling"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "reliance-tennessee-gravel-video-3.jpg",
+        "url": "/race-photos/reliance-tennessee-gravel/reliance-tennessee-gravel-video-3.jpg",
+        "alt": "Paved road intersection with stop signs near Tennessee lake surrounded by dense forest - Reliance Tennessee Gravel - Reliance, Tennessee",
+        "credit": "YouTube / Gravel Cyclist",
+        "primary": false,
+        "ai_relevance": 2,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "paved intersection",
+          "Tennessee lake",
+          "stop signs",
+          "forest road",
+          "lakeside cycling"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "reliance-tennessee-gravel-preview.gif",
+        "url": "/race-photos/reliance-tennessee-gravel/reliance-tennessee-gravel-preview.gif",
+        "alt": "Course preview from Reliance Tennessee Gravel race footage",
+        "credit": "YouTube / Gravel Cyclist",
+        "gif": true
+      }
+    ]
   }
 }

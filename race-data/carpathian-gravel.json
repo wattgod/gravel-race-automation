@@ -557,7 +557,154 @@
           "category": "race_atmosphere",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Military checkpoint",
+            "description": "Riders encounter a military checkpoint where passport must be shown when crossing into different regional areas (Oblast).",
+            "source_video_ids": [
+              "O6x0NN4E1QI"
+            ]
+          },
+          {
+            "name": "Steep fast descents",
+            "description": "Extremely steep and fast descents that drop riders into valleys, followed by long climbs back out that can take ages.",
+            "source_video_ids": [
+              "O6x0NN4E1QI"
+            ]
+          },
+          {
+            "name": "First half ups and downs",
+            "description": "The first half of the route features challenging ups and downs before following the river becomes more gradual.",
+            "source_video_ids": [
+              "O6x0NN4E1QI"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Roads are often pretty bad quality, especially in poverty-stricken areas, but surroundings are stunning.",
+            "source_video_ids": [
+              "O6x0NN4E1QI"
+            ]
+          },
+          {
+            "text": "Descents require both hands on brakes at all times, limiting speed to maybe 10 kilometers per hour due to steepness.",
+            "source_video_ids": [
+              "O6x0NN4E1QI"
+            ]
+          },
+          {
+            "text": "Following the river provides good road quality with gradual downhill and no big ups or downs.",
+            "source_video_ids": [
+              "O6x0NN4E1QI"
+            ]
+          }
+        ],
+        "gear_mentions": [],
+        "race_day_tips": [
+          {
+            "text": "Expect occasional downpours and mountains covered in mist affecting visibility.",
+            "source_video_ids": [
+              "O6x0NN4E1QI"
+            ]
+          },
+          {
+            "text": "Have passport ready for military checkpoints when crossing regional boundaries.",
+            "source_video_ids": [
+              "O6x0NN4E1QI"
+            ]
+          },
+          {
+            "text": "Secure gear properly as items can fall out of front bags on big downhills.",
+            "source_video_ids": [
+              "O6x0NN4E1QI"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "I just had to go through a military checkpoint oh and the road starts I mean their owners been carpet so far and now it's yeah it's just all of a sudden I had to show my my passport I think it's because we are in a different Oblast right now",
+            "source_video_id": "O6x0NN4E1QI",
+            "source_channel": "TravelingTice",
+            "source_view_count": 5190,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "even though they don't have much you know you can see the poverty especially this area where the roads are often pretty bad but the people here are just very nice",
+            "source_video_id": "O6x0NN4E1QI",
+            "source_channel": "TravelingTice",
+            "source_view_count": 5190,
+            "category": "community",
+            "curated": true
+          }
+        ],
+        "search_text": "The Carpathian Gravel route crosses the Carpathian Mountains with challenging terrain in the first half featuring lots of ups and downs, followed by more gradual descents following a river. Riders encounter military checkpoints requiring passport verification when crossing regional boundaries (Oblast). The route includes extremely steep and fast descents that require constant braking at speeds around 10 km/h, followed by long climbs back out of valleys. Road quality varies significantly, often poor in certain areas, but the surroundings are described as stunning and gorgeous. Weather conditions include occasional downpours and mountains covered in mist. The elevation profile drops from around 900 meters to 160 meters over the latter portion. Local communities are described as very nice and welcoming despite economic challenges in the region."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "carpathian-gravel-video-1.jpg",
+        "url": "/race-photos/carpathian-gravel/carpathian-gravel-video-1.jpg",
+        "alt": "Empty gravel road winding through lush green forest with clear blue sky in Carpathian mountain region - Carpathian Gravel - Carpathian Mountains, Romania",
+        "credit": "YouTube / Battistrada Cycling",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel road",
+          "forest terrain",
+          "Carpathian mountains",
+          "tree-lined course",
+          "rural cycling"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "carpathian-gravel-video-2.jpg",
+        "url": "/race-photos/carpathian-gravel/carpathian-gravel-video-2.jpg",
+        "alt": "Gravel cyclist in racing gear riding red bike through rural Carpathian village with houses and green hills in background - Carpathian Gravel - Carpathian Mountains, Romania",
+        "credit": "YouTube / Battistrada Cycling",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel racing",
+          "Carpathian village",
+          "cycling competition",
+          "rural terrain",
+          "mountain backdrop"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "carpathian-gravel-video-3.jpg",
+        "url": "/race-photos/carpathian-gravel/carpathian-gravel-video-3.jpg",
+        "alt": "Close-up of exhausted cyclist in bright yellow jersey and Giro helmet speaking during post-race interview on rural road - Carpathian Gravel - Carpathian Mountains, Romania",
+        "credit": "YouTube / Battistrada Cycling",
+        "primary": false,
+        "ai_relevance": 3,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "post-race interview",
+          "cycling gear",
+          "Giro helmet",
+          "race finish",
+          "competitor"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "carpathian-gravel-preview.gif",
+        "url": "/race-photos/carpathian-gravel/carpathian-gravel-preview.gif",
+        "alt": "Course preview from Carpathian Gravel race footage",
+        "credit": "YouTube / Battistrada Cycling",
+        "gif": true
+      }
+    ]
   }
 }

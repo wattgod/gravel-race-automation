@@ -466,7 +466,142 @@
           "category": "race_atmosphere",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Savage Road",
+            "description": "Finding the line through this section is challenging but fun, riders need to navigate carefully through technical terrain.",
+            "source_video_ids": [
+              "ON2xKm-9JC4"
+            ]
+          },
+          {
+            "name": "Big potholes throughout course",
+            "description": "Sandy gravel roads with large potholes that are hard to see when riding in big groups, riders hitting the bottom of rims on impact.",
+            "source_video_ids": [
+              "ON2xKm-9JC4"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Very bumpy with more potholes than previous years, especially dangerous when riding in large groups where visibility is limited.",
+            "source_video_ids": [
+              "ON2xKm-9JC4"
+            ]
+          },
+          {
+            "text": "Almost 90% really fast sandy gravel roads, but the big potholes create constant hazards where you feel the bottom of the rim.",
+            "source_video_ids": [
+              "ON2xKm-9JC4"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "One rider mentions running 38 PSI tire pressure and considering dropping it lower for the conditions.",
+            "source_video_ids": [
+              "5yC2Bd8U2YU"
+            ]
+          }
+        ],
+        "race_day_tips": [
+          {
+            "text": "Stay safe in the hectic mass start with 550+ people, find a good group early and race your own race.",
+            "source_video_ids": [
+              "ON2xKm-9JC4"
+            ]
+          },
+          {
+            "text": "When riding in packs, be extra cautious as potholes are harder to see when you're 3-5 riders back in the group.",
+            "source_video_ids": [
+              "ON2xKm-9JC4"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "It started off a little hectic I'm used to Road races with like 60 women as a mass start so 550 people was a new experience for me but I stayed safe and found a good group.",
+            "source_video_id": "ON2xKm-9JC4",
+            "source_channel": "Jack Anderson",
+            "source_view_count": 7355,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "It's just a great spirit and vibe here like everyone's really excited and inclusive and the food is great and you know the stuff you get is great and the gravel roads are super fun to ride so it's a great race.",
+            "source_video_id": "ON2xKm-9JC4",
+            "source_channel": "Jack Anderson",
+            "source_view_count": 7355,
+            "category": "community",
+            "curated": true
+          }
+        ],
+        "search_text": "The Croatan Buck Fifty features a 99% gravel course through North Carolina's Croatan National Forest with over 560 participants. Riders describe fast sandy gravel roads dominated by large potholes that create constant hazards, especially when riding in groups where visibility is limited. The terrain is notably bumpy with more potholes than previous years, causing riders to hit rim bottoms on impact. Savage Road stands out as a technical section requiring careful line selection. The mass start with 550+ people creates hectic conditions requiring extra caution. Riders mention tire pressures around 38 PSI with some considering lower pressures. Despite challenges, participants praise the inclusive atmosphere, great food, and fun gravel roads. The course conditions are described as being in good shape overall, though riders consistently underestimate the difficulty level."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "croatan-buck-fifty-video-1.jpg",
+        "url": "/race-photos/croatan-buck-fifty/croatan-buck-fifty-video-1.jpg",
+        "alt": "Aerial view of race start/finish area with support vehicles, tents, and curved paved road at Croatan Buck Fifty gravel race venue - New Bern, North Carolina (Croatan National Forest)",
+        "credit": "YouTube / Jack Anderson",
+        "primary": true,
+        "ai_relevance": 3,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "race start",
+          "support area",
+          "race venue",
+          "curved road",
+          "aerial view"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "croatan-buck-fifty-video-2.jpg",
+        "url": "/race-photos/croatan-buck-fifty/croatan-buck-fifty-video-2.jpg",
+        "alt": "Gravel cyclists riding single file through green North Carolina pine forest on dirt trail during Croatan Buck Fifty race - New Bern, North Carolina (Croatan National Forest)",
+        "credit": "YouTube / Jack Anderson",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "pine forest",
+          "dirt trail",
+          "North Carolina",
+          "single file",
+          "gravel cycling"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "croatan-buck-fifty-video-3.jpg",
+        "url": "/race-photos/croatan-buck-fifty/croatan-buck-fifty-video-3.jpg",
+        "alt": "First-person view of dusty gravel road through wooded terrain with motion blur during Croatan Buck Fifty race - New Bern, North Carolina (Croatan National Forest)",
+        "credit": "YouTube / Jack Anderson",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "dusty gravel",
+          "wooded terrain",
+          "first person",
+          "motion blur",
+          "gravel road"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "croatan-buck-fifty-preview.gif",
+        "url": "/race-photos/croatan-buck-fifty/croatan-buck-fifty-preview.gif",
+        "alt": "Course preview from Croatan Buck Fifty race footage",
+        "credit": "YouTube / Jack Anderson",
+        "gif": true
+      }
+    ]
   }
 }

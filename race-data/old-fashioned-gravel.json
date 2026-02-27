@@ -573,7 +573,76 @@
           "curated": false
         }
       ],
-      "quotes": []
-    }
+      "quotes": [],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [],
+        "terrain_notes": [],
+        "gear_mentions": [],
+        "race_day_tips": [],
+        "additional_quotes": [],
+        "search_text": "No race-specific information available. The provided transcripts contain content about car driving techniques and running shoe reviews, but do not contain any information about the Old Fashioned Gravel race in Hokah, Minnesota. No course features, terrain conditions, challenges, or race atmosphere details are available from these sources."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "old-fashioned-gravel-video-1.jpg",
+        "url": "/race-photos/old-fashioned-gravel/old-fashioned-gravel-video-1.jpg",
+        "alt": "Cyclists riding on paved rural road through residential neighborhood with tree-lined streets and white farmhouse visible - Old Fashioned Gravel - Hokah, Minnesota",
+        "credit": "YouTube / Driftless Cycling",
+        "primary": true,
+        "ai_relevance": 4,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "rural cycling",
+          "residential road",
+          "tree-lined street",
+          "farmhouse",
+          "countryside"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "old-fashioned-gravel-video-2.jpg",
+        "url": "/race-photos/old-fashioned-gravel/old-fashioned-gravel-video-2.jpg",
+        "alt": "Gravel cycling peloton racing through tree-canopied country road with dense forest on both sides - Old Fashioned Gravel - Hokah, Minnesota",
+        "credit": "YouTube / Driftless Cycling",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel peloton",
+          "forest road",
+          "tree canopy",
+          "pack racing",
+          "wooded terrain"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "old-fashioned-gravel-video-3.jpg",
+        "url": "/race-photos/old-fashioned-gravel/old-fashioned-gravel-video-3.jpg",
+        "alt": "Heavily distorted and pixelated video frame showing fragmented bicycle components with severe digital artifacts - Old Fashioned Gravel - Hokah, Minnesota",
+        "credit": "YouTube / Driftless Cycling",
+        "primary": false,
+        "ai_relevance": 2,
+        "ai_quality": 1,
+        "ai_keywords": [
+          "digital glitch",
+          "video artifacts",
+          "bicycle components",
+          "screen distortion"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "old-fashioned-gravel-preview.gif",
+        "url": "/race-photos/old-fashioned-gravel/old-fashioned-gravel-preview.gif",
+        "alt": "Course preview from Old Fashioned Gravel race footage",
+        "credit": "YouTube / Driftless Cycling",
+        "gif": true
+      }
+    ]
   }
 }

@@ -1,6 +1,7 @@
 {
   "slug": "ouray-gravel-grinder",
   "race_name": "Ouray Gravel Grinder",
+  "distance_mi": 80.0,
   "demands": {
     "durability": 4,
     "climbing": 9,
@@ -18,7 +19,8 @@
       "workouts": [
         "Surge and Settle",
         "Terrain Microbursts"
-      ]
+      ],
+      "workout_context": "Ouray Gravel Grinder\u2019s mixed terrain demands rapid power changes \u2014 surge over obstacles, settle on smoother sections, repeat for hours."
     },
     {
       "category": "Durability",
@@ -27,7 +29,8 @@
         "Tired VO2max",
         "Double Day Simulation",
         "Progressive Fatigue"
-      ]
+      ],
+      "workout_context": "At 80 miles, Ouray Gravel Grinder punishes athletes who haven\u2019t trained their body to produce power when glycogen runs low."
     },
     {
       "category": "Race_Simulation",
@@ -36,7 +39,8 @@
         "Breakaway Simulation",
         "Variable Pace Chaos",
         "Sector Simulation"
-      ]
+      ],
+      "workout_context": "Racing Ouray Gravel Grinder isn\u2019t just fitness \u2014 it\u2019s pacing, fueling, and executing when conditions deteriorate. This workout practices the race itself."
     },
     {
       "category": "Endurance",
@@ -44,7 +48,8 @@
       "workouts": [
         "Pre-Race Openers",
         "Terrain Simulation Z2"
-      ]
+      ],
+      "workout_context": "Every session at Ouray Gravel Grinder intensity builds on this aerobic foundation \u2014 the endurance base is the soil everything else grows in."
     },
     {
       "category": "TT_Threshold",
@@ -53,9 +58,82 @@
         "Single Sustained Threshold",
         "Threshold Ramps",
         "Descending Threshold"
-      ]
+      ],
+      "workout_context": "Ouray Gravel Grinder rewards athletes who can hold sustained power without blowing up \u2014 threshold is the engine that drives everything above Zone 2."
+    },
+    {
+      "category": "Over_Under",
+      "score": 75,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ],
+      "workout_context": "Over-unders train the lactate clearance you\u2019ll need at Ouray Gravel Grinder when surges push you above threshold and you have to recover while still riding hard."
+    },
+    {
+      "category": "VO2max",
+      "score": 74,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ],
+      "workout_context": "Ouray Gravel Grinder\u2019s mixed terrain and competitive field demand explosive aerobic capacity \u2014 the ability to respond to surges without blowing up."
+    },
+    {
+      "category": "G_Spot",
+      "score": 63,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ],
+      "workout_context": "The G-Spot zone (88\u201392% FTP) is where you\u2019ll spend the hardest sustained miles of Ouray Gravel Grinder. Make this intensity feel like home."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 59,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "Ouray Gravel Grinder\u2019s 7,800ft of climbing demands seated and standing versatility \u2014 the ability to change climbing style as gradient and fatigue dictate."
+    },
+    {
+      "category": "Critical_Power",
+      "score": 53,
+      "workouts": [
+        "Above CP Repeats",
+        "W-Prime Depletion"
+      ],
+      "workout_context": "Critical power determines how long you can sustain above-threshold efforts at Ouray Gravel Grinder \u2014 a higher CP means more time in the red before failure."
+    },
+    {
+      "category": "HVLI_Extended",
+      "score": 43,
+      "workouts": [
+        "HVLI Extended Z2",
+        "Multi-Hour Z2",
+        "Back-to-Back Long"
+      ],
+      "workout_context": "High-volume endurance builds the aerobic base that makes Ouray Gravel Grinder\u2019s race-day efforts sustainable rather than destructive."
+    },
+    {
+      "category": "Cadence_Work",
+      "score": 43,
+      "workouts": [
+        "High Cadence Drills",
+        "Cadence Pyramids"
+      ],
+      "workout_context": "Cadence efficiency makes every pedal stroke at Ouray Gravel Grinder count \u2014 smooth technique reduces muscular fatigue over long distances."
     }
   ],
+  "race_overlay": {
+    "heat": "September in Ouray, Colorado. Begin heat acclimatization 10\u201314 days before Ouray Gravel Grinder \u2014 20\u201330min sauna sessions or midday rides in full kit. Pre-load sodium 48 hours out. Target 500\u2013750ml/hr with electrolytes on race day.",
+    "nutrition": "Target 60\u201380g carbs/hour for Ouray Gravel Grinder\u2019s 80 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
+    "altitude": "Ouray Gravel Grinder with 7,800ft of climbing, much of it above 8,000ft demands altitude preparation. Arrive 5\u20137 days early for acclimatization. Expect 5\u201315% power reduction at altitude. Increase iron intake 4 weeks out. Hydrate aggressively \u2014 altitude increases fluid loss by 20\u201340%.",
+    "terrain": "Highly technical terrain at Ouray Gravel Grinder demands practice on similar surfaces. Ride mixed terrain at race-day cadence weekly. Practice cornering, descending, and power delivery on unstable surfaces. Dial in tire pressure before race week \u2014 5 PSI wrong costs you 15+ minutes over 80 miles."
+  },
   "pack_summary": "This 10-workout pack focuses on Gravel Specific, Durability, and Race Simulation to prepare you for 80 miles of mixed terrain in Ouray, Colorado.",
   "generated_at": "2026-02-26"
 }

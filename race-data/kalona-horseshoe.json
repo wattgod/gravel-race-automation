@@ -587,7 +587,114 @@
           "category": "race_atmosphere",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [],
+        "terrain_notes": [
+          {
+            "text": "Course includes big chunky gravel sections that historically have been raced on road bikes with 25mm tires.",
+            "source_video_ids": [
+              "BHudJUKh2kI"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "Racers have used road bikes with 25 millimeter tires on the gravel sections.",
+            "source_video_ids": [
+              "BHudJUKh2kI"
+            ]
+          }
+        ],
+        "race_day_tips": [
+          {
+            "text": "Going off the front solo early in the race is risky and will burn matches early, but can create significant gaps if executed properly.",
+            "source_video_ids": [
+              "YYC3AN2KH7w"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "we came the night before so that we can get our pockets picked up now we don't know how to uh deal with that in the morning tomorrow",
+            "source_video_id": "_7VS-l6yPqA",
+            "source_channel": "iowagravelgang",
+            "source_view_count": 1187,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "I need a shift cable meet me at the feed Zone he's found a mechanic he's found a cable the guy's ready to change this thing out",
+            "source_video_id": "YYC3AN2KH7w",
+            "source_channel": "Iowa Gravel Series",
+            "source_view_count": 54,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "The Kalona Horseshoe is described as a mixed surface race featuring big chunky gravel sections that have historically been tackled by riders using road bikes with 25mm tires. The race includes feed zones for mechanical support and nutrition. Riders discuss pacing strategies, with early solo breakaways being considered risky but potentially rewarding if gaps can be established. The event attracts riders from across the Midwest, with some traveling from Wisconsin and other neighboring states. Race morning logistics include packet pickup the night before. The course appears to have some climbing despite initial expectations of flat terrain. Weather conditions have been described as beautiful with great turnout from the cycling community."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "kalona-horseshoe-video-1.jpg",
+        "url": "/race-photos/kalona-horseshoe/kalona-horseshoe-video-1.jpg",
+        "alt": "First-person view of cyclist hands on handlebars riding gravel road through rural Iowa countryside with trees and farmland - Kalona Horseshoe - Kalona, Iowa",
+        "credit": "YouTube / iowagravelgang",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel road",
+          "Iowa countryside",
+          "rural cycling",
+          "farmland",
+          "first-person POV"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "kalona-horseshoe-video-2.jpg",
+        "url": "/race-photos/kalona-horseshoe/kalona-horseshoe-video-2.jpg",
+        "alt": "Indoor interview shot of bearded cyclist wearing glasses and dark shirt sitting in bright room with window behind - Kalona Horseshoe - Kalona, Iowa",
+        "credit": "YouTube / iowagravelgang",
+        "primary": false,
+        "ai_relevance": 2,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "cyclist interview",
+          "indoor setting",
+          "race participant",
+          "post-race"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "kalona-horseshoe-video-3.jpg",
+        "url": "/race-photos/kalona-horseshoe/kalona-horseshoe-video-3.jpg",
+        "alt": "Close-up selfie of bearded cyclist in orange helmet and pink Rapha jersey riding through Iowa gravel roads with rolling farmland backdrop - Kalona Horseshoe - Kalona, Iowa",
+        "credit": "YouTube / iowagravelgang",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel cyclist",
+          "Iowa farmland",
+          "Rapha jersey",
+          "rolling terrain",
+          "selfie POV"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "kalona-horseshoe-preview.gif",
+        "url": "/race-photos/kalona-horseshoe/kalona-horseshoe-preview.gif",
+        "alt": "Course preview from Kalona Horseshoe race footage",
+        "credit": "YouTube / iowagravelgang",
+        "gif": true
+      }
+    ]
   }
 }

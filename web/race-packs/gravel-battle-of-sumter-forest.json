@@ -1,6 +1,7 @@
 {
   "slug": "gravel-battle-of-sumter-forest",
   "race_name": "Gravel Battle of Sumter Forest",
+  "distance_mi": 65.0,
   "demands": {
     "durability": 2,
     "climbing": 5,
@@ -18,7 +19,8 @@
       "workouts": [
         "Surge and Settle",
         "Terrain Microbursts"
-      ]
+      ],
+      "workout_context": "Gravel Battle of Sumter Forest\u2019s south carolina sumter forest, forest gravel demands rapid power changes \u2014 surge over obstacles, settle on smoother sections, repeat for hours."
     },
     {
       "category": "Race_Simulation",
@@ -27,7 +29,8 @@
         "Breakaway Simulation",
         "Variable Pace Chaos",
         "Sector Simulation"
-      ]
+      ],
+      "workout_context": "Racing Gravel Battle of Sumter Forest isn\u2019t just fitness \u2014 it\u2019s pacing, fueling, and executing when conditions deteriorate. This workout practices the race itself."
     },
     {
       "category": "TT_Threshold",
@@ -36,7 +39,8 @@
         "Single Sustained Threshold",
         "Threshold Ramps",
         "Descending Threshold"
-      ]
+      ],
+      "workout_context": "Gravel Battle of Sumter Forest rewards athletes who can hold sustained power without blowing up \u2014 threshold is the engine that drives everything above Zone 2."
     },
     {
       "category": "Over_Under",
@@ -44,7 +48,8 @@
       "workouts": [
         "Classic Over-Unders",
         "Ladder Over-Unders"
-      ]
+      ],
+      "workout_context": "Over-unders train the lactate clearance you\u2019ll need at Gravel Battle of Sumter Forest when surges push you above threshold and you have to recover while still riding hard."
     },
     {
       "category": "G_Spot",
@@ -53,9 +58,79 @@
         "G-Spot Standard",
         "G-Spot Extended",
         "Criss-Cross"
-      ]
+      ],
+      "workout_context": "The G-Spot zone (88\u201392% FTP) is where you\u2019ll spend the hardest sustained miles of Gravel Battle of Sumter Forest. Make this intensity feel like home."
+    },
+    {
+      "category": "Critical_Power",
+      "score": 60,
+      "workouts": [
+        "Above CP Repeats",
+        "W-Prime Depletion"
+      ],
+      "workout_context": "Critical power determines how long you can sustain above-threshold efforts at Gravel Battle of Sumter Forest \u2014 a higher CP means more time in the red before failure."
+    },
+    {
+      "category": "Durability",
+      "score": 57,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ],
+      "workout_context": "Gravel Battle of Sumter Forest\u2019s south carolina sumter forest gravel drains energy reserves faster than the distance suggests \u2014 durability training bridges the gap."
+    },
+    {
+      "category": "VO2max",
+      "score": 57,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ],
+      "workout_context": "Gravel Battle of Sumter Forest\u2019s south carolina sumter forest gravel and competitive field demand explosive aerobic capacity \u2014 the ability to respond to surges without blowing up."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 50,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "The varied gradients at Gravel Battle of Sumter Forest reward climbing adaptability \u2014 knowing when to sit, when to stand, and when to switch."
+    },
+    {
+      "category": "Anaerobic_Capacity",
+      "score": 47,
+      "workouts": [
+        "2min Killers",
+        "90sec Repeats"
+      ],
+      "workout_context": "Short, violent efforts are unavoidable at Gravel Battle of Sumter Forest \u2014 climbs demanding 2-minute maximal efforts, surges to close gaps, attacks on south carolina sumter forest gravel."
+    },
+    {
+      "category": "Norwegian_Double",
+      "score": 40,
+      "workouts": [
+        "Norwegian 4x8 Classic",
+        "Double Threshold"
+      ],
+      "workout_context": "The Norwegian double-threshold method builds the sustained power base for Gravel Battle of Sumter Forest \u2014 massive training stimulus without the recovery cost of VO2max work."
+    },
+    {
+      "category": "Cadence_Work",
+      "score": 40,
+      "workouts": [
+        "High Cadence Drills",
+        "Cadence Pyramids"
+      ],
+      "workout_context": "Cadence efficiency makes every pedal stroke at Gravel Battle of Sumter Forest count \u2014 smooth technique reduces muscular fatigue over long distances."
     }
   ],
+  "race_overlay": {
+    "nutrition": "Target 40\u201360g carbs/hour for Gravel Battle of Sumter Forest\u2019s 65 miles. Front-load calories in the first half. One bottle per hour minimum, more in heat.",
+    "terrain": "Mixed terrain at Gravel Battle of Sumter Forest requires surface adaptability. Include weekly rides on south carolina sumter forest gravel to build confidence. Expect: south carolina sumter forest, forest gravel, regional event."
+  },
   "pack_summary": "This 10-workout pack focuses on Gravel Specific, Race Simulation, and TT Threshold to prepare you for 65 miles of south carolina sumter forest gravel in Whitmire, South Carolina.",
   "generated_at": "2026-02-26"
 }

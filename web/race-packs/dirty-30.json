@@ -1,6 +1,7 @@
 {
   "slug": "dirty-30",
   "race_name": "Dirty 30",
+  "distance_mi": 100.0,
   "demands": {
     "durability": 6,
     "climbing": 5,
@@ -19,7 +20,8 @@
         "Tired VO2max",
         "Double Day Simulation",
         "Progressive Fatigue"
-      ]
+      ],
+      "workout_context": "At 100 miles, Dirty 30 punishes athletes who haven\u2019t trained their body to produce power when glycogen runs low."
     },
     {
       "category": "TT_Threshold",
@@ -28,7 +30,8 @@
         "Single Sustained Threshold",
         "Threshold Ramps",
         "Descending Threshold"
-      ]
+      ],
+      "workout_context": "Dirty 30 rewards athletes who can hold sustained power without blowing up \u2014 threshold is the engine that drives everything above Zone 2."
     },
     {
       "category": "Race_Simulation",
@@ -37,7 +40,8 @@
         "Breakaway Simulation",
         "Variable Pace Chaos",
         "Sector Simulation"
-      ]
+      ],
+      "workout_context": "Racing Dirty 30 isn\u2019t just fitness \u2014 it\u2019s pacing, fueling, and executing when conditions deteriorate. This workout practices the race itself."
     },
     {
       "category": "Gravel_Specific",
@@ -45,7 +49,8 @@
       "workouts": [
         "Surge and Settle",
         "Terrain Microbursts"
-      ]
+      ],
+      "workout_context": "Dirty 30\u2019s michigan forest roads, rural gravel demands rapid power changes \u2014 surge over obstacles, settle on smoother sections, repeat for hours."
     },
     {
       "category": "G_Spot",
@@ -54,9 +59,80 @@
         "G-Spot Standard",
         "G-Spot Extended",
         "Criss-Cross"
-      ]
+      ],
+      "workout_context": "The G-Spot zone (88\u201392% FTP) is where you\u2019ll spend the hardest sustained miles of Dirty 30. Make this intensity feel like home."
+    },
+    {
+      "category": "Over_Under",
+      "score": 58,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ],
+      "workout_context": "Over-unders train the lactate clearance you\u2019ll need at Dirty 30 when surges push you above threshold and you have to recover while still riding hard."
+    },
+    {
+      "category": "Endurance",
+      "score": 57,
+      "workouts": [
+        "Pre-Race Openers",
+        "Terrain Simulation Z2"
+      ],
+      "workout_context": "Every session at Dirty 30 intensity builds on this aerobic foundation \u2014 the endurance base is the soil everything else grows in."
+    },
+    {
+      "category": "HVLI_Extended",
+      "score": 50,
+      "workouts": [
+        "HVLI Extended Z2",
+        "Multi-Hour Z2",
+        "Back-to-Back Long"
+      ],
+      "workout_context": "At 100 miles, Dirty 30 rewards a massive aerobic engine. This volume work builds the fat-oxidation capacity that keeps you moving when glycogen runs low."
+    },
+    {
+      "category": "Blended",
+      "score": 40,
+      "workouts": [
+        "Z2 + VO2 Combo",
+        "Endurance with Spikes"
+      ],
+      "workout_context": "Blended sessions combine endurance with intensity spikes \u2014 exactly what Dirty 30\u2019s rolling michigan gravel delivers on race day."
+    },
+    {
+      "category": "VO2max",
+      "score": 40,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ],
+      "workout_context": "Dirty 30\u2019s rolling michigan gravel and competitive field demand explosive aerobic capacity \u2014 the ability to respond to surges without blowing up."
+    },
+    {
+      "category": "Norwegian_Double",
+      "score": 38,
+      "workouts": [
+        "Norwegian 4x8 Classic",
+        "Double Threshold"
+      ],
+      "workout_context": "The Norwegian double-threshold method builds the sustained power base for Dirty 30 \u2014 massive training stimulus without the recovery cost of VO2max work."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 36,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "The varied gradients at Dirty 30 reward climbing adaptability \u2014 knowing when to sit, when to stand, and when to switch."
     }
   ],
+  "race_overlay": {
+    "heat": "April in Saranac, Michigan can bring heat. Complete 3\u20134 heat exposure sessions in the final 2 weeks before Dirty 30. Increase sodium intake 48 hours before race day.",
+    "nutrition": "Target 60\u201380g carbs/hour for Dirty 30\u2019s 100 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
+    "terrain": "Mixed terrain at Dirty 30 requires surface adaptability. Include weekly rides on rolling michigan gravel to build confidence. Expect: michigan forest roads, rural gravel, rolling hills."
+  },
   "pack_summary": "This 10-workout pack focuses on Durability, TT Threshold, and Race Simulation to prepare you for 100 miles of rolling michigan gravel in Saranac, Michigan.",
   "generated_at": "2026-02-26"
 }

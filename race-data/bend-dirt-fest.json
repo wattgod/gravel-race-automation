@@ -439,7 +439,144 @@
           "category": "race_atmosphere",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "BS logging road climb",
+            "description": "Pretty much uphill the whole way for the warm-up section. Includes one steep part at the beginning before connecting to the main route.",
+            "source_video_ids": [
+              "iApiAZvi4c0"
+            ]
+          },
+          {
+            "name": "Steep hill descent",
+            "description": "One steep downhill section that riders specifically mention during the route.",
+            "source_video_ids": [
+              "iApiAZvi4c0"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Built on old logging railroad grade, so basically never goes over 2 percent grade and stays very even throughout most of the route.",
+            "source_video_ids": [
+              "iApiAZvi4c0"
+            ]
+          },
+          {
+            "text": "Utilizes tons of logging roads on public lands, which makes gravel riding so good in this area.",
+            "source_video_ids": [
+              "iApiAZvi4c0"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "40c Schwalbe G1R tires worked well for the conditions.",
+            "source_video_ids": [
+              "iApiAZvi4c0"
+            ]
+          }
+        ],
+        "race_day_tips": [
+          {
+            "text": "The warm-up from Shevlin Park area up through upper Shevlin to BS logging road is pretty much uphill the whole way, so plan accordingly.",
+            "source_video_ids": [
+              "iApiAZvi4c0"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "We live close to Shevlin Park and we kind of roll up through shoveling upper shoveling area to get to the BS logging road and that's kind of where we'll hook up with the beginning of the route.",
+            "source_video_id": "iApiAZvi4c0",
+            "source_channel": "TTL MultiSport",
+            "source_view_count": 28454,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "Riders describe Bend area gravel routes that utilize old logging railroad grades, maintaining gentle gradients that rarely exceed 2 percent. The terrain takes advantage of extensive logging roads on public lands throughout Oregon. A typical route starts from Shevlin Park area, climbing through upper Shevlin to connect with BS logging road. The warm-up section is described as uphill the whole way with one steep section at the beginning. Riders mention a steep downhill portion during the main route. The logging railroad foundation makes for very even terrain throughout most of the ride. One rider successfully used 40c Schwalbe G1R tires for the conditions. The area offers scenic riding with sunset views, and riders note this type of terrain showcases why Oregon's logging road network creates excellent gravel riding opportunities on public lands."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "bend-dirt-fest-video-1.jpg",
+        "url": "/race-photos/bend-dirt-fest/bend-dirt-fest-video-1.jpg",
+        "alt": "Professional gravel racing bikes with disc brakes mounted on team support vehicle in snowy forest setting at Bend Dirt Fest - Bend, Oregon",
+        "credit": "YouTube / Molly Cameron",
+        "primary": true,
+        "ai_relevance": 3,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "team support",
+          "gravel bikes",
+          "Bend forest",
+          "disc brakes",
+          "snow"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "bend-dirt-fest-video-2.jpg",
+        "url": "/race-photos/bend-dirt-fest/bend-dirt-fest-video-2.jpg",
+        "alt": "Post-race interview with gravel cyclist in yellow team kit at Bend Dirt Fest finish area with forest backdrop - Bend, Oregon",
+        "credit": "YouTube / Molly Cameron",
+        "primary": false,
+        "ai_relevance": 2,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "race interview",
+          "team kit",
+          "Bend forest",
+          "finish area",
+          "gravel racing"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "bend-dirt-fest-video-3.jpg",
+        "url": "/race-photos/bend-dirt-fest/bend-dirt-fest-video-3.jpg",
+        "alt": "Gravel cyclist riding paved path through high desert landscape with modern buildings and golden grassland near Bend Oregon - Bend Dirt Fest - Bend, Oregon",
+        "credit": "YouTube / Molly Cameron",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "high desert",
+          "Bend Oregon",
+          "golden grassland",
+          "gravel racing",
+          "desert terrain"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "bend-dirt-fest-preview.gif",
+        "url": "/race-photos/bend-dirt-fest/bend-dirt-fest-preview.gif",
+        "alt": "Course preview from Bend Dirt Fest race footage",
+        "credit": "YouTube / Molly Cameron",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "bend-dirt-fest-preview-2.gif",
+        "url": "/race-photos/bend-dirt-fest/bend-dirt-fest-preview-2.gif",
+        "alt": "Course preview from Bend Dirt Fest race footage",
+        "credit": "YouTube / Molly Cameron",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "bend-dirt-fest-preview-3.gif",
+        "url": "/race-photos/bend-dirt-fest/bend-dirt-fest-preview-3.gif",
+        "alt": "Course preview from Bend Dirt Fest race footage",
+        "credit": "YouTube / Molly Cameron",
+        "gif": true
+      }
+    ]
   }
 }

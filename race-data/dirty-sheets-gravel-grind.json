@@ -517,7 +517,115 @@
           "category": "course_difficulty",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Single track section",
+            "description": "A little section of single track that adds technical difficulty to the route.",
+            "source_video_ids": [
+              "xw9o5CsGdsw"
+            ]
+          },
+          {
+            "name": "Steep short punchy grades",
+            "description": "A couple of pretty steep short punchy grades that are through some chunky rough stuff. Some people have to walk it, some people can power right up it just depends really on the line that you pick.",
+            "source_video_ids": [
+              "xw9o5CsGdsw"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Features chunky rough stuff on the steep climbs that requires careful line selection.",
+            "source_video_ids": [
+              "xw9o5CsGdsw"
+            ]
+          }
+        ],
+        "gear_mentions": [],
+        "race_day_tips": [
+          {
+            "text": "Line selection is crucial on the steep climbs - picking the right line determines whether you can power through or have to walk.",
+            "source_video_ids": [
+              "xw9o5CsGdsw"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "It's not an easy ride but it's not overly challenging or difficult there are a couple of challenging sections",
+            "source_video_id": "xw9o5CsGdsw",
+            "source_channel": "Jackelxing",
+            "source_view_count": 507,
+            "category": "course_difficulty",
+            "curated": true
+          }
+        ],
+        "search_text": "The Dirty Sheets Gravel Grind in Chattahoochee Hills features a mix of terrain that riders describe as challenging but not overly difficult. The course includes a technical single track section and steep, short punchy climbs through chunky rough terrain. These climbs are particularly notable because success depends heavily on line selection - riders who pick good lines can power through, while others may need to walk. The route covers approximately 20 miles around the Chattahoochee Hills area near Atlanta. Riders emphasize that while the course has challenging sections, it remains accessible to a range of skill levels, making it a popular choice for group rides and social events in the gravel cycling community."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "dirty-sheets-gravel-grind-video-1.jpg",
+        "url": "/race-photos/dirty-sheets-gravel-grind/dirty-sheets-gravel-grind-video-1.jpg",
+        "alt": "First-person view following cyclist on dirt gravel road through wooded terrain with autumn foliage - Dirty Sheets Gravel Grind - Chattahoochee Hills, Georgia",
+        "credit": "YouTube / s y n t h b e n t",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel road",
+          "autumn cycling",
+          "dirt road",
+          "wooded terrain",
+          "first person view"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "dirty-sheets-gravel-grind-video-2.jpg",
+        "url": "/race-photos/dirty-sheets-gravel-grind/dirty-sheets-gravel-grind-video-2.jpg",
+        "alt": "Cyclist's perspective riding on paved road through fall forest with scattered leaves - Dirty Sheets Gravel Grind - Chattahoochee Hills, Georgia",
+        "credit": "YouTube / s y n t h b e n t",
+        "primary": false,
+        "ai_relevance": 4,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "paved road",
+          "fall foliage",
+          "forest cycling",
+          "autumn leaves",
+          "cyclist perspective"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "dirty-sheets-gravel-grind-video-3.jpg",
+        "url": "/race-photos/dirty-sheets-gravel-grind/dirty-sheets-gravel-grind-video-3.jpg",
+        "alt": "Handlebar camera view following red-shirted cyclist climbing steep gravel trail through bare winter woods - Dirty Sheets Gravel Grind - Chattahoochee Hills, Georgia",
+        "credit": "YouTube / s y n t h b e n t",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel climb",
+          "winter cycling",
+          "handlebar view",
+          "steep trail",
+          "bare trees"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "dirty-sheets-gravel-grind-preview.gif",
+        "url": "/race-photos/dirty-sheets-gravel-grind/dirty-sheets-gravel-grind-preview.gif",
+        "alt": "Course preview from Dirty Sheets Gravel Grind race footage",
+        "credit": "YouTube / s y n t h b e n t",
+        "gif": true
+      }
+    ]
   }
 }

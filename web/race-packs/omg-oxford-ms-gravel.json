@@ -1,6 +1,7 @@
 {
   "slug": "omg-oxford-ms-gravel",
   "race_name": "OMG (Oxford MS Gravel)",
+  "distance_mi": 50.0,
   "demands": {
     "durability": 2,
     "climbing": 4,
@@ -19,7 +20,8 @@
         "Single Sustained Threshold",
         "Threshold Ramps",
         "Descending Threshold"
-      ]
+      ],
+      "workout_context": "OMG (Oxford MS Gravel) rewards athletes who can hold sustained power without blowing up \u2014 threshold is the engine that drives everything above Zone 2."
     },
     {
       "category": "Gravel_Specific",
@@ -27,7 +29,8 @@
       "workouts": [
         "Surge and Settle",
         "Terrain Microbursts"
-      ]
+      ],
+      "workout_context": "OMG (Oxford MS Gravel)\u2019s mississippi hills, southern gravel demands rapid power changes \u2014 surge over obstacles, settle on smoother sections, repeat for hours."
     },
     {
       "category": "Over_Under",
@@ -35,7 +38,8 @@
       "workouts": [
         "Classic Over-Unders",
         "Ladder Over-Unders"
-      ]
+      ],
+      "workout_context": "Over-unders train the lactate clearance you\u2019ll need at OMG (Oxford MS Gravel) when surges push you above threshold and you have to recover while still riding hard."
     },
     {
       "category": "Durability",
@@ -44,7 +48,8 @@
         "Tired VO2max",
         "Double Day Simulation",
         "Progressive Fatigue"
-      ]
+      ],
+      "workout_context": "OMG (Oxford MS Gravel)\u2019s mississippi hills gravel drains energy reserves faster than the distance suggests \u2014 durability training bridges the gap."
     },
     {
       "category": "G_Spot",
@@ -53,9 +58,80 @@
         "G-Spot Standard",
         "G-Spot Extended",
         "Criss-Cross"
-      ]
+      ],
+      "workout_context": "The G-Spot zone (88\u201392% FTP) is where you\u2019ll spend the hardest sustained miles of OMG (Oxford MS Gravel). Make this intensity feel like home."
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 71,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ],
+      "workout_context": "Racing OMG (Oxford MS Gravel) isn\u2019t just fitness \u2014 it\u2019s pacing, fueling, and executing when conditions deteriorate. This workout practices the race itself."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 57,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "The varied gradients at OMG (Oxford MS Gravel) reward climbing adaptability \u2014 knowing when to sit, when to stand, and when to switch."
+    },
+    {
+      "category": "Endurance",
+      "score": 55,
+      "workouts": [
+        "Pre-Race Openers",
+        "Terrain Simulation Z2"
+      ],
+      "workout_context": "Every session at OMG (Oxford MS Gravel) intensity builds on this aerobic foundation \u2014 the endurance base is the soil everything else grows in."
+    },
+    {
+      "category": "VO2max",
+      "score": 52,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ],
+      "workout_context": "OMG (Oxford MS Gravel)\u2019s mississippi hills gravel and competitive field demand explosive aerobic capacity \u2014 the ability to respond to surges without blowing up."
+    },
+    {
+      "category": "Critical_Power",
+      "score": 52,
+      "workouts": [
+        "Above CP Repeats",
+        "W-Prime Depletion"
+      ],
+      "workout_context": "Critical power determines how long you can sustain above-threshold efforts at OMG (Oxford MS Gravel) \u2014 a higher CP means more time in the red before failure."
+    },
+    {
+      "category": "Norwegian_Double",
+      "score": 48,
+      "workouts": [
+        "Norwegian 4x8 Classic",
+        "Double Threshold"
+      ],
+      "workout_context": "The Norwegian double-threshold method builds the sustained power base for OMG (Oxford MS Gravel) \u2014 massive training stimulus without the recovery cost of VO2max work."
+    },
+    {
+      "category": "HVLI_Extended",
+      "score": 38,
+      "workouts": [
+        "HVLI Extended Z2",
+        "Multi-Hour Z2",
+        "Back-to-Back Long"
+      ],
+      "workout_context": "High-volume endurance builds the aerobic base that makes OMG (Oxford MS Gravel)\u2019s race-day efforts sustainable rather than destructive."
     }
   ],
+  "race_overlay": {
+    "nutrition": "Target 40\u201360g carbs/hour for OMG (Oxford MS Gravel)\u2019s 50 miles. Front-load calories in the first half. One bottle per hour minimum, more in heat.",
+    "terrain": "Mixed terrain at OMG (Oxford MS Gravel) requires surface adaptability. Include weekly rides on mississippi hills gravel to build confidence. Expect: mississippi hills, southern gravel, southeast us."
+  },
   "pack_summary": "This 10-workout pack focuses on TT Threshold, Gravel Specific, and Over Under to prepare you for 50 miles of mississippi hills gravel in Oxford, MS.",
   "generated_at": "2026-02-26"
 }

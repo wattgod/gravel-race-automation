@@ -131,12 +131,36 @@ def load_special_pages(project_root: Path) -> list:
     return slugs
 
 
+def load_race_photos(data_dir: Path) -> dict:
+    """Load photo data from race JSONs for image sitemap entries.
+
+    Returns dict: slug -> list of photo dicts with url/alt/credit.
+    """
+    photos_by_slug = {}
+    if not data_dir or not data_dir.exists():
+        return photos_by_slug
+    for f in data_dir.glob("*.json"):
+        try:
+            data = json.loads(f.read_text())
+            race = data.get("race", data)
+            photos = race.get("photos", [])
+            if photos:
+                photos_by_slug[f.stem] = photos
+        except (json.JSONDecodeError, IOError):
+            continue
+    return photos_by_slug
+
+
 def generate_sitemap(race_index: list, output_path: Path, data_dir: Path = None,
                      series_slugs: list = None) -> Path:
     today = date.today().isoformat()
 
     urlset = Element('urlset')
     urlset.set('xmlns', 'http://www.sitemaps.org/schemas/sitemap/0.9')
+    urlset.set('xmlns:image', 'http://www.google.com/schemas/sitemap-image/1.1')
+
+    # Pre-load race photos for image sitemap entries
+    race_photos = load_race_photos(data_dir) if data_dir else {}
 
     # Homepage
     url = SubElement(urlset, 'url')
@@ -297,6 +321,20 @@ def generate_sitemap(race_index: list, output_path: Path, data_dir: Path = None,
         SubElement(url, 'lastmod').text = lastmod
         SubElement(url, 'changefreq').text = 'monthly'
         SubElement(url, 'priority').text = priority
+
+        # Image sitemap entries for race photos
+        photos = race_photos.get(slug, [])
+        for photo in photos:
+            photo_url = photo.get("url", "")
+            if not photo_url or photo.get("gif"):
+                continue  # Skip GIFs — Google Images doesn't index them well
+            img_el = SubElement(url, 'image:image')
+            SubElement(img_el, 'image:loc').text = f"{SITE_BASE_URL}{photo_url}"
+            alt = photo.get("alt", "")
+            if alt:
+                SubElement(img_el, 'image:caption').text = alt
+            race_name = race.get("name", slug.replace("-", " ").title())
+            SubElement(img_el, 'image:title').text = f"{race_name} race photo"
 
     raw_xml = tostring(urlset, encoding='unicode')
     pretty = parseString(raw_xml).toprettyxml(indent='  ', encoding='UTF-8')

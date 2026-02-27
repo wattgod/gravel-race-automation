@@ -509,7 +509,102 @@
           "category": "race_atmosphere",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Winding Stair Climb",
+            "mile_marker": "",
+            "description": "A roughly four-mile climb that takes over 20 minutes and is the pivotal moment that breaks up the race. Riders say this is where winners rise to the top. The climb starts with a left turn across a bridge where the action kicks off and power immediately goes up as people try to break away.",
+            "source_video_ids": [
+              "pb30y1iThws"
+            ]
+          }
+        ],
+        "terrain_notes": [],
+        "gear_mentions": [],
+        "race_day_tips": [
+          {
+            "text": "Don't try to stick with the leaders on the Winding Stair climb if you're not at that level - pace yourself realistically and ride at your own pace. You can catch and pass people who went out too hard by maintaining steady power and not blowing up early.",
+            "source_video_ids": [
+              "pb30y1iThws"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "I paced myself really well on this climb. In the past I found that I tend to try and stick with the leaders but this time I was more realistic. I know that I'm not as strong as guys like Dylan Johnson but I knew that if I just ride at my own pace over the course of this climb hopefully I'll end up in a group fighting it out for a place on the podium and that is essentially what happened.",
+            "source_video_id": "pb30y1iThws",
+            "source_channel": "Zebulon Ramsbotham",
+            "source_view_count": 1506,
+            "category": "training",
+            "curated": true
+          }
+        ],
+        "search_text": "Race to Valhalla is a roughly 70-mile gravel race in Walhalla, South Carolina that takes experienced riders around 3 hours and 46 minutes to complete. The defining feature is the Winding Stair climb, a four-mile ascent taking over 20 minutes that riders describe as the pivotal moment breaking up the race where winners rise to the top. The climb begins with a left turn across a bridge where the action intensifies and riders start attacking. Smart pacing strategy is crucial - riders who go out too hard early get caught by those maintaining steady power. The climb allows stronger climbers to separate from the field and form elite groups for podium contention."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "race-to-valhalla-video-1.jpg",
+        "url": "/race-photos/race-to-valhalla/race-to-valhalla-video-1.jpg",
+        "alt": "Cyclist riding on unpaved gravel road through dense green forest with heart rate and speed data overlay visible - Race to Valhalla - Walhalla, South Carolina",
+        "credit": "YouTube / Alex Runge",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel road",
+          "forest trail",
+          "cycling data",
+          "unpaved road",
+          "tree canopy"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "race-to-valhalla-video-2.jpg",
+        "url": "/race-photos/race-to-valhalla/race-to-valhalla-video-2.jpg",
+        "alt": "GPS mapping interface showing cycling route data and statistics overlaid on street map near Victory Baptist Church - Race to Valhalla - Walhalla, South Carolina",
+        "credit": "YouTube / Alex Runge",
+        "primary": false,
+        "ai_relevance": 3,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "GPS tracking",
+          "cycling route",
+          "ride data",
+          "mapping interface",
+          "performance stats"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "race-to-valhalla-video-3.jpg",
+        "url": "/race-photos/race-to-valhalla/race-to-valhalla-video-3.jpg",
+        "alt": "Fast-paced first-person view of cycling down paved forest road with motion blur and dense green woodland on both sides - Race to Valhalla - Walhalla, South Carolina",
+        "credit": "YouTube / Alex Runge",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "forest road",
+          "cycling speed",
+          "tree tunnel",
+          "paved trail",
+          "motion blur"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "race-to-valhalla-preview.gif",
+        "url": "/race-photos/race-to-valhalla/race-to-valhalla-preview.gif",
+        "alt": "Course preview from Race To Valhalla race footage",
+        "credit": "YouTube / Alex Runge",
+        "gif": true
+      }
+    ]
   }
 }

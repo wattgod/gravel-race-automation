@@ -1,6 +1,7 @@
 {
   "slug": "castellon-gravel-race",
   "race_name": "Castellon Gravel Race",
+  "distance_mi": 75.0,
   "demands": {
     "durability": 4,
     "climbing": 4,
@@ -19,7 +20,8 @@
         "Single Sustained Threshold",
         "Threshold Ramps",
         "Descending Threshold"
-      ]
+      ],
+      "workout_context": "Castellon Gravel Race rewards athletes who can hold sustained power without blowing up \u2014 threshold is the engine that drives everything above Zone 2."
     },
     {
       "category": "Gravel_Specific",
@@ -27,7 +29,8 @@
       "workouts": [
         "Surge and Settle",
         "Terrain Microbursts"
-      ]
+      ],
+      "workout_context": "Castellon Gravel Race\u2019s spanish rolling, european gravel demands rapid power changes \u2014 surge over obstacles, settle on smoother sections, repeat for hours."
     },
     {
       "category": "Race_Simulation",
@@ -36,7 +39,8 @@
         "Breakaway Simulation",
         "Variable Pace Chaos",
         "Sector Simulation"
-      ]
+      ],
+      "workout_context": "Racing Castellon Gravel Race isn\u2019t just fitness \u2014 it\u2019s pacing, fueling, and executing when conditions deteriorate. This workout practices the race itself."
     },
     {
       "category": "G_Spot",
@@ -45,7 +49,8 @@
         "G-Spot Standard",
         "G-Spot Extended",
         "Criss-Cross"
-      ]
+      ],
+      "workout_context": "The G-Spot zone (88\u201392% FTP) is where you\u2019ll spend the hardest sustained miles of Castellon Gravel Race. Make this intensity feel like home."
     },
     {
       "category": "Durability",
@@ -54,9 +59,78 @@
         "Tired VO2max",
         "Double Day Simulation",
         "Progressive Fatigue"
-      ]
+      ],
+      "workout_context": "Castellon Gravel Race\u2019s spanish rolling gravel drains energy reserves faster than the distance suggests \u2014 durability training bridges the gap."
+    },
+    {
+      "category": "Over_Under",
+      "score": 76,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ],
+      "workout_context": "Over-unders train the lactate clearance you\u2019ll need at Castellon Gravel Race when surges push you above threshold and you have to recover while still riding hard."
+    },
+    {
+      "category": "VO2max",
+      "score": 63,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ],
+      "workout_context": "Castellon Gravel Race\u2019s spanish rolling gravel and competitive field demand explosive aerobic capacity \u2014 the ability to respond to surges without blowing up."
+    },
+    {
+      "category": "Critical_Power",
+      "score": 52,
+      "workouts": [
+        "Above CP Repeats",
+        "W-Prime Depletion"
+      ],
+      "workout_context": "Critical power determines how long you can sustain above-threshold efforts at Castellon Gravel Race \u2014 a higher CP means more time in the red before failure."
+    },
+    {
+      "category": "Norwegian_Double",
+      "score": 52,
+      "workouts": [
+        "Norwegian 4x8 Classic",
+        "Double Threshold"
+      ],
+      "workout_context": "The Norwegian double-threshold method builds the sustained power base for Castellon Gravel Race \u2014 massive training stimulus without the recovery cost of VO2max work."
+    },
+    {
+      "category": "Blended",
+      "score": 44,
+      "workouts": [
+        "Z2 + VO2 Combo",
+        "Endurance with Spikes"
+      ],
+      "workout_context": "Blended sessions combine endurance with intensity spikes \u2014 exactly what Castellon Gravel Race\u2019s spanish rolling gravel delivers on race day."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 44,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "Castellon Gravel Race\u2019s 5,000ft of climbing demands seated and standing versatility \u2014 the ability to change climbing style as gradient and fatigue dictate."
+    },
+    {
+      "category": "Anaerobic_Capacity",
+      "score": 44,
+      "workouts": [
+        "2min Killers",
+        "90sec Repeats"
+      ],
+      "workout_context": "Short, violent efforts are unavoidable at Castellon Gravel Race \u2014 climbs demanding 2-minute maximal efforts, surges to close gaps, attacks on spanish rolling gravel."
     }
   ],
+  "race_overlay": {
+    "nutrition": "Target 40\u201360g carbs/hour for Castellon Gravel Race\u2019s 75 miles. Front-load calories in the first half. One bottle per hour minimum, more in heat.",
+    "terrain": "Mixed terrain at Castellon Gravel Race requires surface adaptability. Include weekly rides on spanish rolling gravel to build confidence. Expect: spanish rolling, european gravel, regional event."
+  },
   "pack_summary": "This 10-workout pack focuses on TT Threshold, Gravel Specific, and Race Simulation to prepare you for 75 miles of spanish rolling gravel in Castellon, Spain.",
   "generated_at": "2026-02-26"
 }

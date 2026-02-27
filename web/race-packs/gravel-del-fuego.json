@@ -1,6 +1,7 @@
 {
   "slug": "gravel-del-fuego",
   "race_name": "Gravel del Fuego",
+  "distance_mi": 100.0,
   "demands": {
     "durability": 6,
     "climbing": 6,
@@ -19,7 +20,8 @@
         "Single Sustained Threshold",
         "Threshold Ramps",
         "Descending Threshold"
-      ]
+      ],
+      "workout_context": "Gravel del Fuego rewards athletes who can hold sustained power without blowing up \u2014 threshold is the engine that drives everything above Zone 2."
     },
     {
       "category": "Gravel_Specific",
@@ -27,7 +29,8 @@
       "workouts": [
         "Surge and Settle",
         "Terrain Microbursts"
-      ]
+      ],
+      "workout_context": "Gravel del Fuego\u2019s chilean patagonia, south american gravel demands rapid power changes \u2014 surge over obstacles, settle on smoother sections, repeat for hours."
     },
     {
       "category": "Durability",
@@ -36,7 +39,8 @@
         "Tired VO2max",
         "Double Day Simulation",
         "Progressive Fatigue"
-      ]
+      ],
+      "workout_context": "At 100 miles, Gravel del Fuego punishes athletes who haven\u2019t trained their body to produce power when glycogen runs low."
     },
     {
       "category": "Over_Under",
@@ -44,7 +48,8 @@
       "workouts": [
         "Classic Over-Unders",
         "Ladder Over-Unders"
-      ]
+      ],
+      "workout_context": "Over-unders train the lactate clearance you\u2019ll need at Gravel del Fuego when surges push you above threshold and you have to recover while still riding hard."
     },
     {
       "category": "Race_Simulation",
@@ -53,9 +58,81 @@
         "Breakaway Simulation",
         "Variable Pace Chaos",
         "Sector Simulation"
-      ]
+      ],
+      "workout_context": "Racing Gravel del Fuego isn\u2019t just fitness \u2014 it\u2019s pacing, fueling, and executing when conditions deteriorate. This workout practices the race itself."
+    },
+    {
+      "category": "G_Spot",
+      "score": 79,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ],
+      "workout_context": "The G-Spot zone (88\u201392% FTP) is where you\u2019ll spend the hardest sustained miles of Gravel del Fuego. Make this intensity feel like home."
+    },
+    {
+      "category": "VO2max",
+      "score": 67,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ],
+      "workout_context": "Gravel del Fuego\u2019s patagonian mountain gravel and competitive field demand explosive aerobic capacity \u2014 the ability to respond to surges without blowing up."
+    },
+    {
+      "category": "Endurance",
+      "score": 55,
+      "workouts": [
+        "Pre-Race Openers",
+        "Terrain Simulation Z2"
+      ],
+      "workout_context": "Every session at Gravel del Fuego intensity builds on this aerobic foundation \u2014 the endurance base is the soil everything else grows in."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 55,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "Gravel del Fuego\u2019s 8,000ft of climbing demands seated and standing versatility \u2014 the ability to change climbing style as gradient and fatigue dictate."
+    },
+    {
+      "category": "Critical_Power",
+      "score": 55,
+      "workouts": [
+        "Above CP Repeats",
+        "W-Prime Depletion"
+      ],
+      "workout_context": "Critical power determines how long you can sustain above-threshold efforts at Gravel del Fuego \u2014 a higher CP means more time in the red before failure."
+    },
+    {
+      "category": "Norwegian_Double",
+      "score": 48,
+      "workouts": [
+        "Norwegian 4x8 Classic",
+        "Double Threshold"
+      ],
+      "workout_context": "The Norwegian double-threshold method builds the sustained power base for Gravel del Fuego \u2014 massive training stimulus without the recovery cost of VO2max work."
+    },
+    {
+      "category": "HVLI_Extended",
+      "score": 45,
+      "workouts": [
+        "HVLI Extended Z2",
+        "Multi-Hour Z2",
+        "Back-to-Back Long"
+      ],
+      "workout_context": "At 100 miles, Gravel del Fuego rewards a massive aerobic engine. This volume work builds the fat-oxidation capacity that keeps you moving when glycogen runs low."
     }
   ],
+  "race_overlay": {
+    "nutrition": "Target 60\u201380g carbs/hour for Gravel del Fuego\u2019s 100 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
+    "altitude": "Moderate altitude at Gravel del Fuego. Arrive 2\u20133 days early. Reduce intensity expectations by 5\u201310%. Hydrate aggressively.",
+    "terrain": "Mixed terrain at Gravel del Fuego requires surface adaptability. Include weekly rides on patagonian mountain gravel to build confidence. Expect: chilean patagonia, south american gravel, regional event."
+  },
   "pack_summary": "This 10-workout pack focuses on TT Threshold, Gravel Specific, and Durability to prepare you for 100 miles of patagonian mountain gravel in Patagonia, Chile.",
   "generated_at": "2026-02-26"
 }

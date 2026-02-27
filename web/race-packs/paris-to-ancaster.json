@@ -1,6 +1,7 @@
 {
   "slug": "paris-to-ancaster",
   "race_name": "Paris to Ancaster",
+  "distance_mi": 62.0,
   "demands": {
     "durability": 2,
     "climbing": 5,
@@ -18,7 +19,8 @@
       "workouts": [
         "Surge and Settle",
         "Terrain Microbursts"
-      ]
+      ],
+      "workout_context": "Paris to Ancaster\u2019s rail trail, farm lanes demands rapid power changes \u2014 surge over obstacles, settle on smoother sections, repeat for hours."
     },
     {
       "category": "Race_Simulation",
@@ -27,7 +29,8 @@
         "Breakaway Simulation",
         "Variable Pace Chaos",
         "Sector Simulation"
-      ]
+      ],
+      "workout_context": "Racing Paris to Ancaster isn\u2019t just fitness \u2014 it\u2019s pacing, fueling, and executing when conditions deteriorate. This workout practices the race itself."
     },
     {
       "category": "Durability",
@@ -36,7 +39,8 @@
         "Tired VO2max",
         "Double Day Simulation",
         "Progressive Fatigue"
-      ]
+      ],
+      "workout_context": "Paris to Ancaster\u2019s multi-surface chaos\u2014rail trails to mud chutes in one race drains energy reserves faster than the distance suggests \u2014 durability training bridges the gap."
     },
     {
       "category": "VO2max",
@@ -45,7 +49,8 @@
         "5x3 VO2 Classic",
         "Descending VO2 Pyramid",
         "Norwegian 4x8"
-      ]
+      ],
+      "workout_context": "Paris to Ancaster\u2019s multi-surface chaos\u2014rail trails to mud chutes in one race and competitive field demand explosive aerobic capacity \u2014 the ability to respond to surges without blowing up."
     },
     {
       "category": "Critical_Power",
@@ -53,9 +58,80 @@
       "workouts": [
         "Above CP Repeats",
         "W-Prime Depletion"
-      ]
+      ],
+      "workout_context": "Critical power determines how long you can sustain above-threshold efforts at Paris to Ancaster \u2014 a higher CP means more time in the red before failure."
+    },
+    {
+      "category": "TT_Threshold",
+      "score": 58,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ],
+      "workout_context": "Paris to Ancaster rewards athletes who can hold sustained power without blowing up \u2014 threshold is the engine that drives everything above Zone 2."
+    },
+    {
+      "category": "Anaerobic_Capacity",
+      "score": 55,
+      "workouts": [
+        "2min Killers",
+        "90sec Repeats"
+      ],
+      "workout_context": "Short, violent efforts are unavoidable at Paris to Ancaster \u2014 climbs demanding 2-minute maximal efforts, surges to close gaps, attacks on multi-surface chaos\u2014rail trails to mud chutes in one race."
+    },
+    {
+      "category": "Over_Under",
+      "score": 49,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ],
+      "workout_context": "Over-unders train the lactate clearance you\u2019ll need at Paris to Ancaster when surges push you above threshold and you have to recover while still riding hard."
+    },
+    {
+      "category": "G_Spot",
+      "score": 45,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ],
+      "workout_context": "The G-Spot zone (88\u201392% FTP) is where you\u2019ll spend the hardest sustained miles of Paris to Ancaster. Make this intensity feel like home."
+    },
+    {
+      "category": "Endurance",
+      "score": 36,
+      "workouts": [
+        "Pre-Race Openers",
+        "Terrain Simulation Z2"
+      ],
+      "workout_context": "Every session at Paris to Ancaster intensity builds on this aerobic foundation \u2014 the endurance base is the soil everything else grows in."
+    },
+    {
+      "category": "Cadence_Work",
+      "score": 36,
+      "workouts": [
+        "High Cadence Drills",
+        "Cadence Pyramids"
+      ],
+      "workout_context": "Cadence efficiency makes every pedal stroke at Paris to Ancaster count \u2014 smooth technique reduces muscular fatigue over long distances."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 34,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "The varied gradients at Paris to Ancaster reward climbing adaptability \u2014 knowing when to sit, when to stand, and when to switch."
     }
   ],
+  "race_overlay": {
+    "heat": "April in Paris to Ancaster, Ontario, Canada can bring heat. Complete 3\u20134 heat exposure sessions in the final 2 weeks before Paris to Ancaster. Increase sodium intake 48 hours before race day.",
+    "nutrition": "Target 40\u201360g carbs/hour for Paris to Ancaster\u2019s 62 miles. Front-load calories in the first half. One bottle per hour minimum, more in heat.",
+    "terrain": "Highly technical terrain at Paris to Ancaster demands practice on similar surfaces. Ride multi-surface chaos\u2014rail trails to mud chutes in one race at race-day cadence weekly. Expect: rail trail, farm lanes, mud chutes. Practice cornering, descending, and power delivery on unstable surfaces. Dial in tire pressure before race week \u2014 5 PSI wrong costs you 15+ minutes over 62 miles."
+  },
   "pack_summary": "This 10-workout pack focuses on Gravel Specific, Race Simulation, and Durability to prepare you for 62 miles of multi-surface chaos\u2014rail trails to mud chutes in one race in Paris to Ancaster, Ontario, Canada.",
   "generated_at": "2026-02-26"
 }

@@ -575,7 +575,147 @@
           "category": "race_atmosphere",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "First climb",
+            "description": "Riders struggle to maintain target power output - one rider planned to stay under 295 watts but found it impossible due to race dynamics.",
+            "source_video_ids": [
+              "K3gfNi-_7RE"
+            ]
+          },
+          {
+            "name": "Colbank",
+            "description": "Attacks were happening all the way up this climb, creating selection in the lead group.",
+            "source_video_ids": [
+              "q8BQteTvGBU"
+            ]
+          },
+          {
+            "name": "Mullus",
+            "description": "Continued attacks all the way up this climb, where gaps formed and closed over the top.",
+            "source_video_ids": [
+              "q8BQteTvGBU"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Features big wide roads where groups can move faster than solo riders.",
+            "source_video_ids": [
+              "K3gfNi-_7RE"
+            ]
+          }
+        ],
+        "gear_mentions": [],
+        "race_day_tips": [
+          {
+            "text": "Look for wheels at the start but don't bury yourself - treat it like a multi-day enduro and focus on being consistent.",
+            "source_video_ids": [
+              "K3gfNi-_7RE"
+            ]
+          },
+          {
+            "text": "If you're with a group, stay there - the group will move faster on the big wide road than a solo rider.",
+            "source_video_ids": [
+              "K3gfNi-_7RE"
+            ]
+          },
+          {
+            "text": "Aim for 650-850 calories during the race - 150 calories every 30 minutes.",
+            "source_video_ids": [
+              "K3gfNi-_7RE"
+            ]
+          },
+          {
+            "text": "Don't try to go with super skinny roadie types - have realistic expectations about who you can match.",
+            "source_video_ids": [
+              "K3gfNi-_7RE"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "It's just a testament to what an incredible Town Durango is - an 18-year-old could win or 60-year-old could win.",
+            "source_video_id": "q8BQteTvGBU",
+            "source_channel": "Durango Herald",
+            "source_view_count": 3013,
+            "category": "community",
+            "curated": true
+          },
+          {
+            "text": "We're driving up some bumpy roads in the middle of nowhere trying to find our friends.",
+            "source_video_id": "K3gfNi-_7RE",
+            "source_channel": "SYD and MACKY",
+            "source_view_count": 32739,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "The Iron Horse road race in Durango covers 47 miles with 5,000-6,000 feet of climbing from Durango to Silverton. Key climbs include Colbank and Mullus, where attacks happen continuously and create selection in the field. The course features big wide roads where groups can move faster than solo riders. Riders report the first climb makes it nearly impossible to maintain conservative power targets due to race dynamics. The event attracts a diverse field where both 18-year-olds and 60-year-olds can compete for wins, showcasing Durango's unique cycling community. Nutrition strategy involves consuming 650-850 calories during the race at 150 calories every 30 minutes. Race tactics emphasize finding wheels early but not overextending, treating it like a multi-day enduro with consistent effort. The combination format pairs this road race with a mountain bike event for overall results."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "iron-horse-bicycle-classic-video-1.jpg",
+        "url": "/race-photos/iron-horse-bicycle-classic/iron-horse-bicycle-classic-video-1.jpg",
+        "alt": "People gathered around camping chairs and table in wooded area discussing race plans before Iron Horse Bicycle Classic gravel event - Durango, Colorado",
+        "credit": "YouTube / SYD and MACKY",
+        "primary": true,
+        "ai_relevance": 2,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "race preparation",
+          "camping setup",
+          "Iron Horse Classic",
+          "pre-race meeting"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "iron-horse-bicycle-classic-video-2.jpg",
+        "url": "/race-photos/iron-horse-bicycle-classic/iron-horse-bicycle-classic-video-2.jpg",
+        "alt": "Mountain biker's first-person view descending rocky technical terrain with dust clouds and riders ahead on Colorado trail - Iron Horse Bicycle Classic - Durango, Colorado",
+        "credit": "YouTube / SYD and MACKY",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "rocky descent",
+          "mountain biking",
+          "Colorado terrain",
+          "technical trail",
+          "dust clouds"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "iron-horse-bicycle-classic-video-3.jpg",
+        "url": "/race-photos/iron-horse-bicycle-classic/iron-horse-bicycle-classic-video-3.jpg",
+        "alt": "Peloton of road cyclists climbing toward Purgatory with mountain backdrop and blue support vehicle during organized race - Iron Horse Bicycle Classic - Durango, Colorado",
+        "credit": "YouTube / SYD and MACKY",
+        "primary": false,
+        "ai_relevance": 4,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "peloton climb",
+          "Purgatory ascent",
+          "mountain backdrop",
+          "road cycling",
+          "support vehicle"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "iron-horse-bicycle-classic-preview.gif",
+        "url": "/race-photos/iron-horse-bicycle-classic/iron-horse-bicycle-classic-preview.gif",
+        "alt": "Course preview from Iron Horse Bicycle Classic race footage",
+        "credit": "YouTube / SYD and MACKY",
+        "gif": true
+      }
+    ]
   }
 }

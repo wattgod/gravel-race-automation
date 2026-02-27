@@ -533,7 +533,77 @@
           "curated": false
         }
       ],
-      "quotes": []
-    }
+      "quotes": [],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [],
+        "terrain_notes": [],
+        "gear_mentions": [],
+        "race_day_tips": [],
+        "additional_quotes": [],
+        "search_text": "The available transcript content for Flanders Legacy Gravel is extremely limited and fragmented, containing only brief mentions of heat conditions and racing intensity. The transcript appears to be incomplete or corrupted, with repeated references to heat and racing dynamics but no clear information about course features, terrain conditions, specific challenges, or actionable race intelligence. No concrete details about the 75-mile Belgian gravel course, its 4000 feet of elevation, or specific sections are provided in the available material."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "flanders-legacy-gravel-video-1.jpg",
+        "url": "/race-photos/flanders-legacy-gravel/flanders-legacy-gravel-video-1.jpg",
+        "alt": "Sunken gravel road cutting through wooded hills with earthen embankments and overhanging trees creating a natural tunnel effect - Flanders Legacy Gravel - Flanders, Belgium",
+        "credit": "YouTube / Graveleiro",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "sunken road",
+          "gravel cycling",
+          "wooded terrain",
+          "earthen embankments",
+          "tree tunnel"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "flanders-legacy-gravel-video-2.jpg",
+        "url": "/race-photos/flanders-legacy-gravel/flanders-legacy-gravel-video-2.jpg",
+        "alt": "Cobblestone and gravel transition point in rural countryside with open fields and scattered trees under cloudy sky - Flanders Legacy Gravel - Flanders, Belgium",
+        "credit": "YouTube / Graveleiro",
+        "primary": false,
+        "ai_relevance": 4,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "cobblestone",
+          "gravel transition",
+          "rural countryside",
+          "open fields",
+          "mixed surface"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "flanders-legacy-gravel-video-3.jpg",
+        "url": "/race-photos/flanders-legacy-gravel/flanders-legacy-gravel-video-3.jpg",
+        "alt": "Cyclist shadow visible on dirt gravel road climbing through tree-lined rural path with dappled sunlight - Flanders Legacy Gravel - Flanders, Belgium",
+        "credit": "YouTube / Graveleiro",
+        "primary": false,
+        "ai_relevance": 3,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "cyclist shadow",
+          "dirt road",
+          "gravel climb",
+          "tree-lined path",
+          "rural cycling"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "flanders-legacy-gravel-preview.gif",
+        "url": "/race-photos/flanders-legacy-gravel/flanders-legacy-gravel-preview.gif",
+        "alt": "Course preview from Flanders Legacy Gravel race footage",
+        "credit": "YouTube / Graveleiro",
+        "gif": true
+      }
+    ]
   }
 }

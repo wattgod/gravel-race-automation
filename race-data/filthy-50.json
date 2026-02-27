@@ -418,7 +418,108 @@
           "curated": false
         }
       ],
-      "quotes": []
-    }
+      "quotes": [],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Headwinds",
+            "description": "Riders report significant headwinds requiring high power output. One rider mentions doing 220 watts at only 11 miles per hour due to the wind conditions.",
+            "source_video_ids": [
+              "IS8u_xUeoEw"
+            ]
+          },
+          {
+            "name": "Velcro-like road conditions",
+            "description": "Post-rain road surfaces described as velcro-like, requiring extra power to push through and causing duress for legs.",
+            "source_video_ids": [
+              "IS8u_xUeoEw"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Road surfaces become velcro-like after rain, requiring significantly more power to push through and making riding more difficult.",
+            "source_video_ids": [
+              "IS8u_xUeoEw"
+            ]
+          },
+          {
+            "text": "Roads are soft after rain but without hard rocks, though conditions still cause significant leg fatigue.",
+            "source_video_ids": [
+              "IS8u_xUeoEw"
+            ]
+          }
+        ],
+        "gear_mentions": [],
+        "race_day_tips": [
+          {
+            "text": "Expect significantly higher power requirements in headwind and post-rain conditions - one rider needed 220 watts to maintain only 11 mph.",
+            "source_video_ids": [
+              "IS8u_xUeoEw"
+            ]
+          },
+          {
+            "text": "Routes may need to be cut short due to challenging headwind conditions to save energy.",
+            "source_video_ids": [
+              "IS8u_xUeoEw"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "The route was cut a little bit short because the headwinds are complete pain in the ass so we're saving our legs for tomorrow's well maybe the queen Ride The Longest Ride of our little trip",
+            "source_video_id": "IS8u_xUeoEw",
+            "source_channel": "Gravel Cyclist",
+            "source_view_count": 1922,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "The Filthy 50 in Northern Minnesota features challenging conditions that vary significantly with weather. Riders report velcro-like road surfaces after rain that require substantial extra power to navigate, with soft gravel that creates leg fatigue. Headwinds are a major factor, with one rider reporting 220 watts needed to maintain just 11 mph speeds. The route travels through farmlands near the Minnesota-Iowa border around Blue Earth, Minnesota. Post-rain conditions eliminate dust but create sticky, power-sapping surfaces. Wind direction can dramatically affect ride difficulty, with tailwinds providing relief on return portions. Some riders cut routes short to conserve energy due to challenging headwind conditions, suggesting pacing strategy is crucial for completing the full distance."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "filthy-50-video-1.jpg",
+        "url": "/race-photos/filthy-50/filthy-50-video-1.jpg",
+        "alt": "Residential neighborhood street view showing white houses with green lawns and mature trees on overcast day - Filthy 50 - Northern Minnesota (route varies)",
+        "credit": "YouTube / Gravel Cyclist",
+        "primary": true,
+        "ai_relevance": 1,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "residential street",
+          "suburban neighborhood",
+          "white houses",
+          "green lawns"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "filthy-50-video-2.jpg",
+        "url": "/race-photos/filthy-50/filthy-50-video-2.jpg",
+        "alt": "Wide angle view of suburban residential area with two-story houses, driveways, and sidewalks under cloudy sky - Filthy 50 - Northern Minnesota (route varies)",
+        "credit": "YouTube / Gravel Cyclist",
+        "primary": false,
+        "ai_relevance": 1,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "suburban houses",
+          "residential area",
+          "driveways",
+          "sidewalks"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "filthy-50-preview.gif",
+        "url": "/race-photos/filthy-50/filthy-50-preview.gif",
+        "alt": "Course preview from Filthy 50 race footage",
+        "credit": "YouTube / Gravel Cyclist",
+        "gif": true
+      }
+    ]
   }
 }

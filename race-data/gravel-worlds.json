@@ -526,7 +526,183 @@
           "category": "race_atmosphere",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Rolling hills",
+            "description": "87 hills over the 150 mile course with no flat roads in Nebraska. The roller coaster hills slowly ramp up causing you to lose speed over the top and then have to accelerate down, which zaps your legs.",
+            "source_video_ids": [
+              "t8ub32393ak",
+              "HtH-6K_ElSk"
+            ]
+          },
+          {
+            "name": "Crosswinds and echelons",
+            "description": "Long straight roads that can wreak havoc if the wind is blowing. Crosswinds create echelon formations that add difficulty to the race.",
+            "source_video_ids": [
+              "t8ub32393ak",
+              "HtH-6K_ElSk"
+            ]
+          },
+          {
+            "name": "Deep gravel sections",
+            "description": "Many sections of gravel put riders into difficulty. You need to be very relaxed and allow the bike to float, especially if you start slipping and sliding around in the deep gravel.",
+            "source_video_ids": [
+              "HtH-6K_ElSk"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Roads are in primo shape for much of the course but there are many sections of deep gravel that require you to stay relaxed and let the bike float to avoid slipping and sliding.",
+            "source_video_ids": [
+              "HtH-6K_ElSk"
+            ]
+          },
+          {
+            "text": "The terrain is more relentless than Unbound with constant up and down roller coasters. There are no flat roads in Nebraska and the surfing motion over hills zaps your legs.",
+            "source_video_ids": [
+              "t8ub32393ak"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "Probably the Teras 45 tires for tire choice at Gravel Worlds.",
+            "source_video_ids": [
+              "t8ub32393ak"
+            ]
+          }
+        ],
+        "race_day_tips": [
+          {
+            "text": "No outside support means you're on your own for flats, mechanical issues, and nutrition. Some riders choose to carry all water for the whole day (about 6 liters) while others stop at the 2-3 water oasises to refill bottles.",
+            "source_video_ids": [
+              "t8ub32393ak"
+            ]
+          },
+          {
+            "text": "There are two official checkpoints where you can refuel with food and hydration since riders must be self-sufficient with no outside support from friends or family.",
+            "source_video_ids": [
+              "HtH-6K_ElSk"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "Another unique thing about the race this weekend is there's no outside support, which means we're on our own should we flat, break a chain, anything like that. Definitely a little bit more strategy around nutrition and feed zone stops this weekend compared to your average gravel race, which is kind of cool. Just adds another dynamic to the weekend.",
+            "source_video_id": "t8ub32393ak",
+            "source_channel": "Russell Finsterwald",
+            "source_view_count": 54208,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "I think one of the things that'll be a bit surprising about the weekend is just how stacked the field is. Part of the Gravel Earth series and it's one of the higher level races within that series. The $100,000 prize purse also draws a lot of riders.",
+            "source_video_id": "t8ub32393ak",
+            "source_channel": "Russell Finsterwald",
+            "source_view_count": 54208,
+            "category": "community",
+            "curated": true
+          }
+        ],
+        "search_text": "Gravel Worlds in Lincoln, Nebraska features 150 miles with about 11,000 feet of climbing across 87 hills. Riders describe the terrain as more relentless than Unbound, with constant roller coaster hills that cause speed loss and leg fatigue. The course has no flat roads and includes challenging sections of deep gravel requiring relaxed bike handling. Long straight roads create crosswind challenges and echelon formations. The race requires complete self-sufficiency with no outside support for mechanicals or nutrition. Riders must carry all supplies or stop at 2-3 official water oasises and checkpoints. The $100,000 prize purse attracts a highly competitive field. Road conditions vary from primo gravel to technical deep sections that can put riders into difficulty. Weather is typically dusty with potential for strong winds."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "gravel-worlds-video-1.jpg",
+        "url": "/race-photos/gravel-worlds/gravel-worlds-video-1.jpg",
+        "alt": "Aerial view of small rural town with residential buildings, farmland and green spaces typical of gravel racing venues in Nebraska - Gravel Worlds - Lincoln, Nebraska (Sandhills Global Event Center)",
+        "credit": "YouTube / Gravel Cyclist",
+        "primary": true,
+        "ai_relevance": 2,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "rural town",
+          "Nebraska countryside",
+          "farmland",
+          "aerial view",
+          "gravel racing venue"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "gravel-worlds-video-2.jpg",
+        "url": "/race-photos/gravel-worlds/gravel-worlds-video-2.jpg",
+        "alt": "Overhead shot of industrial warehouse building with flat roof in small town surrounded by residential area - Gravel Worlds - Lincoln, Nebraska (Sandhills Global Event Center)",
+        "credit": "YouTube / Gravel Cyclist",
+        "primary": false,
+        "ai_relevance": 2,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "warehouse",
+          "industrial building",
+          "small town",
+          "aerial view",
+          "rural community"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "gravel-worlds-video-3.jpg",
+        "url": "/race-photos/gravel-worlds/gravel-worlds-video-3.jpg",
+        "alt": "Cyclist in purple jersey riding gravel bike on dirt road through rural countryside with trees and blue sky - Gravel Worlds - Lincoln, Nebraska (Sandhills Global Event Center)",
+        "credit": "YouTube / Gravel Cyclist",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel cycling",
+          "dirt road",
+          "rural countryside",
+          "gravel bike",
+          "solo rider"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "gravel-worlds-preview.gif",
+        "url": "/race-photos/gravel-worlds/gravel-worlds-preview.gif",
+        "alt": "Course preview from Gravel Worlds race footage",
+        "credit": "YouTube / Gravel Cyclist",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "gravel-worlds-preview-2.gif",
+        "url": "/race-photos/gravel-worlds/gravel-worlds-preview-2.gif",
+        "alt": "Course preview from Gravel Worlds race footage",
+        "credit": "YouTube / Gravel Cyclist",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "gravel-worlds-preview-3.gif",
+        "url": "/race-photos/gravel-worlds/gravel-worlds-preview-3.gif",
+        "alt": "Course preview from Gravel Worlds race footage",
+        "credit": "YouTube / Gravel Cyclist",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "gravel-worlds-preview-4.gif",
+        "url": "/race-photos/gravel-worlds/gravel-worlds-preview-4.gif",
+        "alt": "Course preview from Gravel Worlds race footage",
+        "credit": "YouTube / Gravel Cyclist",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "gravel-worlds-preview-5.gif",
+        "url": "/race-photos/gravel-worlds/gravel-worlds-preview-5.gif",
+        "alt": "Course preview from Gravel Worlds race footage",
+        "credit": "YouTube / Gravel Cyclist",
+        "gif": true
+      }
+    ]
   }
 }

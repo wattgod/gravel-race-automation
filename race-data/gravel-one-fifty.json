@@ -570,7 +570,151 @@
           "category": "course_difficulty",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Single track passing sections",
+            "description": "Narrow single track sections where riders crash when trying to pass and others suddenly stop, with ditches alongside the trail.",
+            "source_video_ids": [
+              "2uSJJB00p00"
+            ]
+          },
+          {
+            "name": "Technical sections",
+            "description": "Technical parts that require extra effort for riders who aren't the best technical riders, contributing to fatigue and dehydration.",
+            "source_video_ids": [
+              "forniu6CAdI"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Lots of sand throughout the course that requires specific tire pressure considerations.",
+            "source_video_ids": [
+              "2uSJJB00p00"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "Full bar tire pressure is not good for gravel - riders need to run lower pressure for the sandy conditions.",
+            "source_video_ids": [
+              "2uSJJB00p00"
+            ]
+          },
+          {
+            "text": "Going quite a bit wider on tire choice would provide performance gains on this course.",
+            "source_video_ids": [
+              "forniu6CAdI"
+            ]
+          },
+          {
+            "text": "Consider riding with a hydration pack for more water carrying capacity and flexibility between feed stops.",
+            "source_video_ids": [
+              "forniu6CAdI"
+            ]
+          }
+        ],
+        "race_day_tips": [
+          {
+            "text": "Don't start too fast - pace management is crucial for the 150km distance.",
+            "source_video_ids": [
+              "2uSJJB00p00"
+            ]
+          },
+          {
+            "text": "Hydration is critical - riders who don't drink enough will see power drop to 200 watts or below in the final hours.",
+            "source_video_ids": [
+              "forniu6CAdI"
+            ]
+          },
+          {
+            "text": "The pace stays hot longer than expected - groups don't settle into steady pace as quickly as riders anticipate.",
+            "source_video_ids": [
+              "forniu6CAdI"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "The race was a crazy experience, well organized race with 1300 participants, extremely entertaining and hard route.",
+            "source_video_id": "forniu6CAdI",
+            "source_channel": "The Danish Cyclist",
+            "source_view_count": 6754,
+            "category": "race_atmosphere",
+            "curated": true
+          },
+          {
+            "text": "There was free food and drinks at feed stops, but having parents help with feeding meant not losing time compared to stopping.",
+            "source_video_id": "2uSJJB00p00",
+            "source_channel": "Femke Gort",
+            "source_view_count": 6647,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "Gravel One Fifty is a well-organized 150km Dutch gravel race with 1300 participants featuring an entertaining but demanding route. The course includes technical single track sections with ditches alongside where crashes occur during passing attempts, and lots of sand that requires lower tire pressures than full bar. The pace remains hot throughout with groups not settling as quickly as expected. Key challenges include hydration management in technical sections, with dehydrated riders seeing power drop to 200 watts in final hours. Feed stops offer free food and drinks. Riders recommend wider tires, hydration packs for water capacity, avoiding high tire pressure on sandy terrain, and conservative pacing for the 5+ hour event. The race serves as qualifying for world championships and attracts serious competition."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "gravel-one-fifty-video-1.jpg",
+        "url": "/race-photos/gravel-one-fifty/gravel-one-fifty-video-1.jpg",
+        "alt": "Cyclist riding through forested gravel path with dappled sunlight filtering through dense tree canopy overhead - Gravel One Fifty - Roden, Drenthe, Netherlands",
+        "credit": "YouTube / FlyingGravelMan",
+        "primary": true,
+        "ai_relevance": 4,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "forest gravel",
+          "tree canopy",
+          "wooded trail",
+          "dappled light"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "gravel-one-fifty-video-2.jpg",
+        "url": "/race-photos/gravel-one-fifty/gravel-one-fifty-video-2.jpg",
+        "alt": "Large peloton of gravel cyclists riding on paved country road through open grassland under cloudy sky - Gravel One Fifty - Roden, Drenthe, Netherlands",
+        "credit": "YouTube / FlyingGravelMan",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel peloton",
+          "country road",
+          "grassland",
+          "cycling group"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "gravel-one-fifty-video-3.jpg",
+        "url": "/race-photos/gravel-one-fifty/gravel-one-fifty-video-3.jpg",
+        "alt": "Motion-blurred cyclist in Allinq jersey riding on wet paved road through rural countryside with trees - Gravel One Fifty - Roden, Drenthe, Netherlands",
+        "credit": "YouTube / FlyingGravelMan",
+        "primary": false,
+        "ai_relevance": 4,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "wet pavement",
+          "rural countryside",
+          "motion blur",
+          "gravel racing"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "gravel-one-fifty-preview.gif",
+        "url": "/race-photos/gravel-one-fifty/gravel-one-fifty-preview.gif",
+        "alt": "Course preview from Gravel One Fifty race footage",
+        "credit": "YouTube / FlyingGravelMan",
+        "gif": true
+      }
+    ]
   }
 }

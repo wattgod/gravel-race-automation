@@ -1,6 +1,7 @@
 {
   "slug": "atlas-mountain-race",
   "race_name": "Atlas Mountain Race",
+  "distance_mi": 750.0,
   "demands": {
     "durability": 10,
     "climbing": 10,
@@ -19,7 +20,8 @@
         "Tired VO2max",
         "Double Day Simulation",
         "Progressive Fatigue"
-      ]
+      ],
+      "workout_context": "Atlas Mountain Race\u2019s 750-mile distance demands power production deep into fatigue \u2014 the defining challenge of ultra-distance gravel."
     },
     {
       "category": "Gravel_Specific",
@@ -27,7 +29,8 @@
       "workouts": [
         "Surge and Settle",
         "Terrain Microbursts"
-      ]
+      ],
+      "workout_context": "Atlas Mountain Race\u2019s atlas mountains, ultra-endurance demands rapid power changes \u2014 surge over obstacles, settle on smoother sections, repeat for hours."
     },
     {
       "category": "Race_Simulation",
@@ -36,7 +39,8 @@
         "Breakaway Simulation",
         "Variable Pace Chaos",
         "Sector Simulation"
-      ]
+      ],
+      "workout_context": "Racing Atlas Mountain Race isn\u2019t just fitness \u2014 it\u2019s pacing, fueling, and executing when conditions deteriorate. This workout practices the race itself."
     },
     {
       "category": "VO2max",
@@ -45,7 +49,8 @@
         "5x3 VO2 Classic",
         "Descending VO2 Pyramid",
         "Norwegian 4x8"
-      ]
+      ],
+      "workout_context": "Atlas Mountain Race\u2019s atlas mountains ultra-endurance gravel and competitive field demand explosive aerobic capacity \u2014 the ability to respond to surges without blowing up."
     },
     {
       "category": "Endurance",
@@ -53,9 +58,81 @@
       "workouts": [
         "Pre-Race Openers",
         "Terrain Simulation Z2"
-      ]
+      ],
+      "workout_context": "Every session at Atlas Mountain Race intensity builds on this aerobic foundation \u2014 the endurance base is the soil everything else grows in."
+    },
+    {
+      "category": "Over_Under",
+      "score": 71,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ],
+      "workout_context": "Over-unders train the lactate clearance you\u2019ll need at Atlas Mountain Race when surges push you above threshold and you have to recover while still riding hard."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 66,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "Atlas Mountain Race\u2019s 80,000ft of climbing demands seated and standing versatility \u2014 the ability to change climbing style as gradient and fatigue dictate."
+    },
+    {
+      "category": "TT_Threshold",
+      "score": 66,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ],
+      "workout_context": "Atlas Mountain Race rewards athletes who can hold sustained power without blowing up \u2014 threshold is the engine that drives everything above Zone 2."
+    },
+    {
+      "category": "HVLI_Extended",
+      "score": 57,
+      "workouts": [
+        "HVLI Extended Z2",
+        "Multi-Hour Z2",
+        "Back-to-Back Long"
+      ],
+      "workout_context": "At 750 miles, Atlas Mountain Race rewards a massive aerobic engine. This volume work builds the fat-oxidation capacity that keeps you moving when glycogen runs low."
+    },
+    {
+      "category": "Blended",
+      "score": 53,
+      "workouts": [
+        "Z2 + VO2 Combo",
+        "Endurance with Spikes"
+      ],
+      "workout_context": "Blended sessions combine endurance with intensity spikes \u2014 exactly what Atlas Mountain Race\u2019s atlas mountains ultra-endurance gravel delivers on race day."
+    },
+    {
+      "category": "Critical_Power",
+      "score": 52,
+      "workouts": [
+        "Above CP Repeats",
+        "W-Prime Depletion"
+      ],
+      "workout_context": "Critical power determines how long you can sustain above-threshold efforts at Atlas Mountain Race \u2014 a higher CP means more time in the red before failure."
+    },
+    {
+      "category": "G_Spot",
+      "score": 49,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ],
+      "workout_context": "The G-Spot zone (88\u201392% FTP) is where you\u2019ll spend the hardest sustained miles of Atlas Mountain Race. Make this intensity feel like home."
     }
   ],
+  "race_overlay": {
+    "nutrition": "Ultra-distance fueling for 750 miles: 80\u2013100g carbs/hour from mile 1 \u2014 don\u2019t wait until you\u2019re hungry. Practice your exact race-day nutrition in every long training ride. Carry backup calories. 750 miles burns 8,000\u201312,000+ calories \u2014 you cannot replace them all, but you must try.",
+    "altitude": "Atlas Mountain Race with 80,000ft of climbing, much of it above 8,000ft demands altitude preparation. Arrive 5\u20137 days early for acclimatization. Expect 5\u201315% power reduction at altitude. Increase iron intake 4 weeks out. Hydrate aggressively \u2014 altitude increases fluid loss by 20\u201340%.",
+    "terrain": "Highly technical terrain at Atlas Mountain Race demands practice on similar surfaces. Ride atlas mountains ultra-endurance gravel at race-day cadence weekly. Expect: atlas mountains, ultra-endurance, self-supported. Practice cornering, descending, and power delivery on unstable surfaces. Dial in tire pressure before race week \u2014 5 PSI wrong costs you 15+ minutes over 750 miles."
+  },
   "pack_summary": "This 10-workout pack focuses on Durability, Gravel Specific, and Race Simulation to prepare you for 750 miles of atlas mountains ultra-endurance gravel in Morocco.",
   "generated_at": "2026-02-26"
 }

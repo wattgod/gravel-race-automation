@@ -188,6 +188,45 @@ def call_api(prompt: str, max_retries: int = 3, retry_delay: int = 30) -> str:
                 raise
 
 
+def call_api_vision(prompt: str, images: list[dict], max_retries: int = 3,
+                     retry_delay: int = 30) -> str:
+    """Call Claude API with images (multimodal). Returns text response.
+
+    Args:
+        prompt: Text prompt to send.
+        images: List of image content blocks, each with type/source keys
+                matching the Anthropic Messages API image format.
+        max_retries: Number of retry attempts on rate limit.
+        retry_delay: Base delay in seconds between retries.
+    """
+    import anthropic
+
+    api_key = os.environ.get("ANTHROPIC_API_KEY")
+    if not api_key:
+        raise ValueError("ANTHROPIC_API_KEY environment variable not set")
+
+    client = anthropic.Anthropic(api_key=api_key)
+
+    # Build content array: images first, then text prompt
+    content = list(images) + [{"type": "text", "text": prompt}]
+
+    for attempt in range(max_retries):
+        try:
+            response = client.messages.create(
+                model="claude-sonnet-4-20250514",
+                max_tokens=4000,
+                messages=[{"role": "user", "content": content}]
+            )
+            return response.content[0].text
+        except anthropic.RateLimitError:
+            if attempt < max_retries - 1:
+                wait = retry_delay * (attempt + 1)
+                print(f"  Rate limited. Waiting {wait}s...")
+                time.sleep(wait)
+            else:
+                raise
+
+
 def parse_json_response(text: str) -> dict:
     """Parse JSON from API response, handling code blocks."""
     text = text.strip()

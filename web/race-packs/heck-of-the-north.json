@@ -1,6 +1,7 @@
 {
   "slug": "heck-of-the-north",
   "race_name": "Heck of the North",
+  "distance_mi": 100.0,
   "demands": {
     "durability": 6,
     "climbing": 5,
@@ -18,7 +19,8 @@
       "workouts": [
         "Surge and Settle",
         "Terrain Microbursts"
-      ]
+      ],
+      "workout_context": "Heck of the North\u2019s snowmobile trails (roots, rocks), minnesota northwoods forest roads demands rapid power changes \u2014 surge over obstacles, settle on smoother sections, repeat for hours."
     },
     {
       "category": "Race_Simulation",
@@ -27,7 +29,8 @@
         "Breakaway Simulation",
         "Variable Pace Chaos",
         "Sector Simulation"
-      ]
+      ],
+      "workout_context": "Racing Heck of the North isn\u2019t just fitness \u2014 it\u2019s pacing, fueling, and executing when conditions deteriorate. This workout practices the race itself."
     },
     {
       "category": "Durability",
@@ -36,7 +39,8 @@
         "Tired VO2max",
         "Double Day Simulation",
         "Progressive Fatigue"
-      ]
+      ],
+      "workout_context": "At 100 miles, Heck of the North punishes athletes who haven\u2019t trained their body to produce power when glycogen runs low."
     },
     {
       "category": "TT_Threshold",
@@ -45,7 +49,8 @@
         "Single Sustained Threshold",
         "Threshold Ramps",
         "Descending Threshold"
-      ]
+      ],
+      "workout_context": "Heck of the North rewards athletes who can hold sustained power without blowing up \u2014 threshold is the engine that drives everything above Zone 2."
     },
     {
       "category": "Critical_Power",
@@ -53,9 +58,79 @@
       "workouts": [
         "Above CP Repeats",
         "W-Prime Depletion"
-      ]
+      ],
+      "workout_context": "Critical power determines how long you can sustain above-threshold efforts at Heck of the North \u2014 a higher CP means more time in the red before failure."
+    },
+    {
+      "category": "G_Spot",
+      "score": 52,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ],
+      "workout_context": "The G-Spot zone (88\u201392% FTP) is where you\u2019ll spend the hardest sustained miles of Heck of the North. Make this intensity feel like home."
+    },
+    {
+      "category": "Over_Under",
+      "score": 51,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ],
+      "workout_context": "Over-unders train the lactate clearance you\u2019ll need at Heck of the North when surges push you above threshold and you have to recover while still riding hard."
+    },
+    {
+      "category": "VO2max",
+      "score": 48,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ],
+      "workout_context": "Heck of the North\u2019s technical snowmobile-trail gravel and competitive field demand explosive aerobic capacity \u2014 the ability to respond to surges without blowing up."
+    },
+    {
+      "category": "Anaerobic_Capacity",
+      "score": 46,
+      "workouts": [
+        "2min Killers",
+        "90sec Repeats"
+      ],
+      "workout_context": "Short, violent efforts are unavoidable at Heck of the North \u2014 climbs demanding 2-minute maximal efforts, surges to close gaps, attacks on technical snowmobile-trail gravel."
+    },
+    {
+      "category": "Cadence_Work",
+      "score": 42,
+      "workouts": [
+        "High Cadence Drills",
+        "Cadence Pyramids"
+      ],
+      "workout_context": "Cadence efficiency makes every pedal stroke at Heck of the North count \u2014 smooth technique reduces muscular fatigue over long distances."
+    },
+    {
+      "category": "Blended",
+      "score": 38,
+      "workouts": [
+        "Z2 + VO2 Combo",
+        "Endurance with Spikes"
+      ],
+      "workout_context": "Blended sessions combine endurance with intensity spikes \u2014 exactly what Heck of the North\u2019s technical snowmobile-trail gravel delivers on race day."
+    },
+    {
+      "category": "Norwegian_Double",
+      "score": 33,
+      "workouts": [
+        "Norwegian 4x8 Classic",
+        "Double Threshold"
+      ],
+      "workout_context": "The Norwegian double-threshold method builds the sustained power base for Heck of the North \u2014 massive training stimulus without the recovery cost of VO2max work."
     }
   ],
+  "race_overlay": {
+    "nutrition": "Target 60\u201380g carbs/hour for Heck of the North\u2019s 100 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
+    "terrain": "Highly technical terrain at Heck of the North demands practice on similar surfaces. Ride technical snowmobile-trail gravel at race-day cadence weekly. Expect: snowmobile trails (roots, rocks), minnesota northwoods forest roads, technical singletrack-width paths. Practice cornering, descending, and power delivery on unstable surfaces. Dial in tire pressure before race week \u2014 5 PSI wrong costs you 15+ minutes over 100 miles."
+  },
   "pack_summary": "This 10-workout pack focuses on Gravel Specific, Race Simulation, and Durability to prepare you for 100 miles of technical snowmobile-trail gravel in Two Harbors, Minnesota.",
   "generated_at": "2026-02-26"
 }

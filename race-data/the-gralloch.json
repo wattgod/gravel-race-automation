@@ -494,7 +494,157 @@
           "category": "course_difficulty",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Opening 6K Climb",
+            "description": "A brutal start with about 8 minutes at over 300 watts full gas. Features a descent with a sharp right-hand corner that catches riders out, followed by more climbing.",
+            "source_video_ids": [
+              "2pmvumdH3fM"
+            ]
+          },
+          {
+            "name": "Sharp Left-Hand Corner",
+            "description": "A technical corner after the opening climb where riders can easily hit rocks awkwardly and crash, even when being cautious.",
+            "source_video_ids": [
+              "2pmvumdH3fM"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "The gravel roads drain really well - despite raining all night, surfaces were pretty much dry the next day.",
+            "source_video_ids": [
+              "xeyip5XDLys"
+            ]
+          },
+          {
+            "text": "Properly chunky gravel throughout much of the course - chunky enough that you can't ride through punctures with no pressure.",
+            "source_video_ids": [
+              "2pmvumdH3fM"
+            ]
+          }
+        ],
+        "gear_mentions": [],
+        "race_day_tips": [
+          {
+            "text": "Take nutrition you've eaten before - if you're out for 320 kilometers and eat something that's not your taste, that's not the greatest feeling. Take comfort food you like and eat often.",
+            "source_video_ids": [
+              "xeyip5XDLys"
+            ]
+          },
+          {
+            "text": "Feed stations are all self-service - you have to actually stop and pick stuff up, so factor this into your race strategy.",
+            "source_video_ids": [
+              "2pmvumdH3fM"
+            ]
+          },
+          {
+            "text": "Tech boxes are positioned every 5 to 10K, but 5K is quite a long way to walk with a puncture on chunky gravel.",
+            "source_video_ids": [
+              "2pmvumdH3fM"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "It's 330 km and a time limit of 25 hours, but I reckon it's about a 12-13 hour for the fastest finishes. You can race it or you can have a nice time and take the full 25 hours.",
+            "source_video_id": "xeyip5XDLys",
+            "source_channel": "Josh Reid",
+            "source_view_count": 11261,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "This is a dark sky park. So if you're out here at night, you'll see the stars and there's no light pollution.",
+            "source_video_id": "xeyip5XDLys",
+            "source_channel": "Josh Reid",
+            "source_view_count": 11261,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "The Gralloch features a brutal 6K opening climb requiring 8+ minutes at over 300 watts, followed by technical corners that catch riders off-guard. The chunky gravel drains well but is too rough to ride through punctures. Feed stations are self-service requiring full stops, with tech boxes every 5-10K. The ultra version covers 330km with a 25-hour time limit, though fastest finishers complete it in 12-13 hours. Set in Galloway Forest Park, riders experience stunning scenery with woodland sections, open areas, and mountain views. The dark sky designation means excellent stargazing for night riding. Weather can be challenging but the well-draining gravel surfaces stay rideable even after heavy rain."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "the-gralloch-video-1.jpg",
+        "url": "/race-photos/the-gralloch/the-gralloch-video-1.jpg",
+        "alt": "Solo cyclist navigating winding gravel path through dense Scottish forest with evergreen trees and brown undergrowth - The Gralloch - Scottish Highlands, Scotland",
+        "credit": "YouTube / Glorious Gravel TV",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "forest trail",
+          "gravel path",
+          "Scottish woodland",
+          "solo rider",
+          "evergreen forest"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "the-gralloch-video-2.jpg",
+        "url": "/race-photos/the-gralloch/the-gralloch-video-2.jpg",
+        "alt": "Two cyclists riding gravel road through open countryside with green fields and dramatic cloudy sky - The Gralloch - Scottish Highlands, Scotland",
+        "credit": "YouTube / Glorious Gravel TV",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel road",
+          "open countryside",
+          "green fields",
+          "cloudy sky",
+          "rural cycling"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "the-gralloch-video-3.jpg",
+        "url": "/race-photos/the-gralloch/the-gralloch-video-3.jpg",
+        "alt": "Highland landscape showing barren moorland with rolling mountains, scattered trees and meandering stream under cloudy sky - The Gralloch - Scottish Highlands, Scotland",
+        "credit": "YouTube / Glorious Gravel TV",
+        "primary": false,
+        "ai_relevance": 2,
+        "ai_quality": 5,
+        "ai_keywords": [
+          "Highland moorland",
+          "rolling mountains",
+          "barren landscape",
+          "meandering stream",
+          "Scottish Highlands"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "the-gralloch-preview.gif",
+        "url": "/race-photos/the-gralloch/the-gralloch-preview.gif",
+        "alt": "Course preview from The Gralloch race footage",
+        "credit": "YouTube / Glorious Gravel TV",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "the-gralloch-preview-2.gif",
+        "url": "/race-photos/the-gralloch/the-gralloch-preview-2.gif",
+        "alt": "Course preview from The Gralloch race footage",
+        "credit": "YouTube / Glorious Gravel TV",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "the-gralloch-preview-3.gif",
+        "url": "/race-photos/the-gralloch/the-gralloch-preview-3.gif",
+        "alt": "Course preview from The Gralloch race footage",
+        "credit": "YouTube / Glorious Gravel TV",
+        "gif": true
+      }
+    ]
   }
 }

@@ -1,6 +1,7 @@
 {
   "slug": "waukon-100",
   "race_name": "Waukon 100",
+  "distance_mi": 100.0,
   "demands": {
     "durability": 6,
     "climbing": 6,
@@ -19,7 +20,8 @@
         "Single Sustained Threshold",
         "Threshold Ramps",
         "Descending Threshold"
-      ]
+      ],
+      "workout_context": "Waukon 100 rewards athletes who can hold sustained power without blowing up \u2014 threshold is the engine that drives everything above Zone 2."
     },
     {
       "category": "Over_Under",
@@ -27,7 +29,8 @@
       "workouts": [
         "Classic Over-Unders",
         "Ladder Over-Unders"
-      ]
+      ],
+      "workout_context": "Over-unders train the lactate clearance you\u2019ll need at Waukon 100 when surges push you above threshold and you have to recover while still riding hard."
     },
     {
       "category": "G_Spot",
@@ -36,7 +39,8 @@
         "G-Spot Standard",
         "G-Spot Extended",
         "Criss-Cross"
-      ]
+      ],
+      "workout_context": "The G-Spot zone (88\u201392% FTP) is where you\u2019ll spend the hardest sustained miles of Waukon 100. Make this intensity feel like home."
     },
     {
       "category": "Durability",
@@ -45,7 +49,8 @@
         "Tired VO2max",
         "Double Day Simulation",
         "Progressive Fatigue"
-      ]
+      ],
+      "workout_context": "At 100 miles, Waukon 100 punishes athletes who haven\u2019t trained their body to produce power when glycogen runs low."
     },
     {
       "category": "Gravel_Specific",
@@ -53,9 +58,79 @@
       "workouts": [
         "Surge and Settle",
         "Terrain Microbursts"
-      ]
+      ],
+      "workout_context": "Waukon 100\u2019s iowa rolling, local event demands rapid power changes \u2014 surge over obstacles, settle on smoother sections, repeat for hours."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 55,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "Waukon 100\u2019s 5,000ft of climbing demands seated and standing versatility \u2014 the ability to change climbing style as gradient and fatigue dictate."
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 55,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ],
+      "workout_context": "Racing Waukon 100 isn\u2019t just fitness \u2014 it\u2019s pacing, fueling, and executing when conditions deteriorate. This workout practices the race itself."
+    },
+    {
+      "category": "Endurance",
+      "score": 50,
+      "workouts": [
+        "Pre-Race Openers",
+        "Terrain Simulation Z2"
+      ],
+      "workout_context": "Every session at Waukon 100 intensity builds on this aerobic foundation \u2014 the endurance base is the soil everything else grows in."
+    },
+    {
+      "category": "HVLI_Extended",
+      "score": 48,
+      "workouts": [
+        "HVLI Extended Z2",
+        "Multi-Hour Z2",
+        "Back-to-Back Long"
+      ],
+      "workout_context": "At 100 miles, Waukon 100 rewards a massive aerobic engine. This volume work builds the fat-oxidation capacity that keeps you moving when glycogen runs low."
+    },
+    {
+      "category": "Norwegian_Double",
+      "score": 48,
+      "workouts": [
+        "Norwegian 4x8 Classic",
+        "Double Threshold"
+      ],
+      "workout_context": "The Norwegian double-threshold method builds the sustained power base for Waukon 100 \u2014 massive training stimulus without the recovery cost of VO2max work."
+    },
+    {
+      "category": "Critical_Power",
+      "score": 45,
+      "workouts": [
+        "Above CP Repeats",
+        "W-Prime Depletion"
+      ],
+      "workout_context": "Critical power determines how long you can sustain above-threshold efforts at Waukon 100 \u2014 a higher CP means more time in the red before failure."
+    },
+    {
+      "category": "Tempo",
+      "score": 42,
+      "workouts": [
+        "Tempo Blocks",
+        "Extended Tempo"
+      ],
+      "workout_context": "Tempo is the race-day intensity of Waukon 100. Harder than Z2, easier than threshold \u2014 the pace you\u2019ll hold for hours on iowa rolling gravel."
     }
   ],
+  "race_overlay": {
+    "nutrition": "Target 60\u201380g carbs/hour for Waukon 100\u2019s 100 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
+    "terrain": "Mixed terrain at Waukon 100 requires surface adaptability. Include weekly rides on iowa rolling gravel to build confidence. Expect: iowa rolling, local event, midwest gravel."
+  },
   "pack_summary": "This 10-workout pack focuses on TT Threshold, Over Under, and G Spot to prepare you for 100 miles of iowa rolling gravel in Waukon, Iowa.",
   "generated_at": "2026-02-26"
 }

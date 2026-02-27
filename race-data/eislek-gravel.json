@@ -506,6 +506,67 @@
         }
       ],
       "quotes": []
-    }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "eislek-gravel-video-1.jpg",
+        "url": "/race-photos/eislek-gravel/eislek-gravel-video-1.jpg",
+        "alt": "Cyclists racing on forest gravel trail through dense green woodland with power meter data displayed - Eislek Gravel - Luxembourg",
+        "credit": "YouTube / matthias z",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "forest gravel",
+          "woodland trail",
+          "cycling group",
+          "gravel racing",
+          "tree canopy"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "eislek-gravel-video-2.jpg",
+        "url": "/race-photos/eislek-gravel/eislek-gravel-video-2.jpg",
+        "alt": "Single cyclist on shaded gravel path through lush forest with GPS tracking data overlay - Eislek Gravel - Luxembourg",
+        "credit": "YouTube / matthias z",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "forest path",
+          "gravel trail",
+          "solo rider",
+          "woodland cycling",
+          "shaded trail"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "eislek-gravel-video-3.jpg",
+        "url": "/race-photos/eislek-gravel/eislek-gravel-video-3.jpg",
+        "alt": "Cycling peloton on paved country road through rural farmland with rolling hills and golden fields - Eislek Gravel - Luxembourg",
+        "credit": "YouTube / matthias z",
+        "primary": false,
+        "ai_relevance": 4,
+        "ai_quality": 5,
+        "ai_keywords": [
+          "rural road",
+          "cycling peloton",
+          "farmland",
+          "rolling hills",
+          "country cycling"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "eislek-gravel-preview.gif",
+        "url": "/race-photos/eislek-gravel/eislek-gravel-preview.gif",
+        "alt": "Course preview from Eislek Gravel race footage",
+        "credit": "YouTube / matthias z",
+        "gif": true
+      }
+    ]
   }
 }

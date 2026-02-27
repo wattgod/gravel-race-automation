@@ -536,7 +536,119 @@
           "category": "course_difficulty",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Two Track Sections",
+            "description": "Two track part felt like a little bit of obstacle courses, more obstacle course than expected but fun",
+            "source_video_ids": [
+              "Jeuc_O_ePBI"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "So much varied terrain, way more fun than expected for a gravel race. Two track sections felt like obstacle courses with more obstacles than anticipated.",
+            "source_video_ids": [
+              "Jeuc_O_ePBI"
+            ]
+          }
+        ],
+        "gear_mentions": [],
+        "race_day_tips": [
+          {
+            "text": "Parking opens around 6:00 a.m., the earlier you get there the better spot you get closest to the starting line",
+            "source_video_ids": [
+              "eUR2O9S1bWk"
+            ]
+          },
+          {
+            "text": "Enter parking lot via the furthest east driveway off Third Avenue - this is the only entrance available, follow arrows on ground to volunteer who will direct you to nearest spot",
+            "source_video_ids": [
+              "eUR2O9S1bWk"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "There was a guy out on the course I found out his name is James Decker so shout out to him because he helped someone who had crashed chain was totally off he was an awesome guy so he was helping people",
+            "source_video_id": "Jeuc_O_ePBI",
+            "source_channel": "STS, American Made Bicycles",
+            "source_view_count": 305,
+            "category": "community",
+            "curated": true
+          },
+          {
+            "text": "100% of the proceeds of this race go right back to the Rock CF Foundation, a cystic fibrosis nonprofit based out of Michigan that just turned 18 years old",
+            "source_video_id": "Ya0CGOXzE24",
+            "source_channel": "Rock CF Foundation",
+            "source_view_count": 169,
+            "category": "community",
+            "curated": true
+          }
+        ],
+        "search_text": "The Thunder Bay Thriller in Alpena, Michigan features surprisingly varied terrain that goes beyond typical gravel racing. Riders describe the course as having much more diversity than expected, with two-track sections that feel like obstacle courses with more challenges than anticipated. The race offers 62-mile, 27-mile, and 16-mile distance options, with the longer course adding a southern loop near Hubbard Lake. Parking opens at 6 a.m. at Thunder Bay Junior High School via Third Avenue, with early arrival recommended for closer spots to the start/finish line. Volunteers are stationed at busier intersections for rider safety. The race attracts around 170 participants and features strong community support, with riders helping each other on course when mechanical issues arise. The event benefits the Rock CF Foundation, a cystic fibrosis nonprofit, with 100% of proceeds supporting patient programs."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "thunder-bay-thriller-video-1.jpg",
+        "url": "/race-photos/thunder-bay-thriller/thunder-bay-thriller-video-1.jpg",
+        "alt": "Paved road intersection with dead end sign surrounded by dense forest in Thunder Bay region - Thunder Bay Thriller - Alpena, Michigan",
+        "credit": "YouTube / Rock CF Foundation",
+        "primary": true,
+        "ai_relevance": 3,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "paved intersection",
+          "Thunder Bay",
+          "forest",
+          "dead end"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "thunder-bay-thriller-video-2.jpg",
+        "url": "/race-photos/thunder-bay-thriller/thunder-bay-thriller-video-2.jpg",
+        "alt": "Dirt gravel road stretching through wooded terrain with tire tracks visible on Indian Reserve Road - Thunder Bay Thriller - Alpena, Michigan",
+        "credit": "YouTube / Rock CF Foundation",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "dirt gravel road",
+          "Thunder Bay",
+          "wooded terrain",
+          "Indian Reserve Road"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "thunder-bay-thriller-video-3.jpg",
+        "url": "/race-photos/thunder-bay-thriller/thunder-bay-thriller-video-3.jpg",
+        "alt": "Post-race interview with cyclist in gravel racing kit and organizer at Thunder Bay Thriller event - Alpena, Michigan",
+        "credit": "YouTube / Rock CF Foundation",
+        "primary": false,
+        "ai_relevance": 4,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel cyclist",
+          "Thunder Bay Thriller",
+          "race interview",
+          "cycling kit"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "thunder-bay-thriller-preview.gif",
+        "url": "/race-photos/thunder-bay-thriller/thunder-bay-thriller-preview.gif",
+        "alt": "Course preview from Thunder Bay Thriller race footage",
+        "credit": "YouTube / Rock CF Foundation",
+        "gif": true
+      }
+    ]
   }
 }

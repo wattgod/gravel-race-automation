@@ -546,7 +546,86 @@
           "display_order": 1
         }
       ],
-      "quotes": []
-    }
+      "quotes": [],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [],
+        "terrain_notes": [],
+        "gear_mentions": [],
+        "race_day_tips": [],
+        "additional_quotes": [
+          {
+            "text": "Heat. Hey, heat. Heat. Heat.",
+            "source_video_id": "eGB67uwBfUs",
+            "source_channel": "UCI Gravel World Series",
+            "source_view_count": 58,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "Based on available race footage from the Wish One Millau gravel race in France's Millau Grands Causses region, riders specifically mention heat as a notable factor during the 70-mile event. The race covers 4500 feet of elevation gain through the French countryside. While detailed course information is limited in available transcripts, the emphasis on heat conditions suggests riders should prepare for warm weather racing in this region of France. The race appears to be part of organized gravel racing events in the area, though specific terrain details, technical sections, and gear recommendations are not detailed in the current race footage transcripts."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "wish-one-millau-video-1.jpg",
+        "url": "/race-photos/wish-one-millau/wish-one-millau-video-1.jpg",
+        "alt": "Stone bridge crossing with cyclists and spectators in mountainous terrain near Millau, France with lush vegetation in foreground - Wish One Millau - Millau Grands Causses, France",
+        "credit": "YouTube / Gravel & Bike",
+        "primary": true,
+        "ai_relevance": 3,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "stone bridge",
+          "Millau",
+          "mountain terrain",
+          "spectators",
+          "French countryside"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "wish-one-millau-video-2.jpg",
+        "url": "/race-photos/wish-one-millau/wish-one-millau-video-2.jpg",
+        "alt": "First-person view of gravel cyclist riding dirt trail through golden grassland fields with aerobars visible - Wish One Millau - Millau Grands Causses, France",
+        "credit": "YouTube / Gravel & Bike",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel trail",
+          "dirt path",
+          "grassland",
+          "aerobars",
+          "first person POV"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "wish-one-millau-video-3.jpg",
+        "url": "/race-photos/wish-one-millau/wish-one-millau-video-3.jpg",
+        "alt": "Group of gravel racers in team kit riding dirt road through open countryside terrain - Wish One Millau - Millau Grands Causses, France",
+        "credit": "YouTube / Gravel & Bike",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel peloton",
+          "dirt road",
+          "team kit",
+          "countryside",
+          "group riding"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "wish-one-millau-preview.gif",
+        "url": "/race-photos/wish-one-millau/wish-one-millau-preview.gif",
+        "alt": "Course preview from Wish One Millau race footage",
+        "credit": "YouTube / Gravel & Bike",
+        "gif": true
+      }
+    ]
   }
 }

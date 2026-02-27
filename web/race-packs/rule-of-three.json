@@ -1,6 +1,7 @@
 {
   "slug": "rule-of-three",
   "race_name": "Rule of Three",
+  "distance_mi": 300.0,
   "demands": {
     "durability": 10,
     "climbing": 9,
@@ -19,7 +20,8 @@
         "Tired VO2max",
         "Double Day Simulation",
         "Progressive Fatigue"
-      ]
+      ],
+      "workout_context": "Rule of Three\u2019s 300-mile distance demands power production deep into fatigue \u2014 the defining challenge of ultra-distance gravel."
     },
     {
       "category": "Endurance",
@@ -27,7 +29,8 @@
       "workouts": [
         "Pre-Race Openers",
         "Terrain Simulation Z2"
-      ]
+      ],
+      "workout_context": "Every session at Rule of Three intensity builds on this aerobic foundation \u2014 the endurance base is the soil everything else grows in."
     },
     {
       "category": "Race_Simulation",
@@ -36,7 +39,8 @@
         "Breakaway Simulation",
         "Variable Pace Chaos",
         "Sector Simulation"
-      ]
+      ],
+      "workout_context": "Racing Rule of Three isn\u2019t just fitness \u2014 it\u2019s pacing, fueling, and executing when conditions deteriorate. This workout practices the race itself."
     },
     {
       "category": "HVLI_Extended",
@@ -45,7 +49,8 @@
         "HVLI Extended Z2",
         "Multi-Hour Z2",
         "Back-to-Back Long"
-      ]
+      ],
+      "workout_context": "At 300 miles, Rule of Three rewards a massive aerobic engine. This volume work builds the fat-oxidation capacity that keeps you moving when glycogen runs low."
     },
     {
       "category": "Over_Under",
@@ -53,9 +58,81 @@
       "workouts": [
         "Classic Over-Unders",
         "Ladder Over-Unders"
-      ]
+      ],
+      "workout_context": "Over-unders train the lactate clearance you\u2019ll need at Rule of Three when surges push you above threshold and you have to recover while still riding hard."
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 52,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ],
+      "workout_context": "Rule of Three\u2019s kansas flint hills gravel (95%), pavement (5%) demands rapid power changes \u2014 surge over obstacles, settle on smoother sections, repeat for hours."
+    },
+    {
+      "category": "TT_Threshold",
+      "score": 50,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ],
+      "workout_context": "Rule of Three rewards athletes who can hold sustained power without blowing up \u2014 threshold is the engine that drives everything above Zone 2."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 47,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "Rule of Three\u2019s 15,000ft of climbing demands seated and standing versatility \u2014 the ability to change climbing style as gradient and fatigue dictate."
+    },
+    {
+      "category": "Blended",
+      "score": 42,
+      "workouts": [
+        "Z2 + VO2 Combo",
+        "Endurance with Spikes"
+      ],
+      "workout_context": "Blended sessions combine endurance with intensity spikes \u2014 exactly what Rule of Three\u2019s kansas flint hills\u2014same roads as unbound, ultra distance delivers on race day."
+    },
+    {
+      "category": "VO2max",
+      "score": 40,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ],
+      "workout_context": "Rule of Three\u2019s kansas flint hills\u2014same roads as unbound, ultra distance and competitive field demand explosive aerobic capacity \u2014 the ability to respond to surges without blowing up."
+    },
+    {
+      "category": "G_Spot",
+      "score": 37,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ],
+      "workout_context": "The G-Spot zone (88\u201392% FTP) is where you\u2019ll spend the hardest sustained miles of Rule of Three. Make this intensity feel like home."
+    },
+    {
+      "category": "SFR_Muscle_Force",
+      "score": 31,
+      "workouts": [
+        "SFR Low Cadence",
+        "Force Repeats"
+      ],
+      "workout_context": "Low-cadence force work builds the muscular strength for Rule of Three\u2019s 15,000ft of climbing \u2014 especially the grinding, low-speed ascents."
     }
   ],
+  "race_overlay": {
+    "heat": "September in Emporia, Kansas (same roads as Unbound Gravel) can bring heat. Complete 3\u20134 heat exposure sessions in the final 2 weeks before Rule of Three. Increase sodium intake 48 hours before race day.",
+    "nutrition": "Ultra-distance fueling for 300 miles: 80\u2013100g carbs/hour from mile 1 \u2014 don\u2019t wait until you\u2019re hungry. Practice your exact race-day nutrition in every long training ride. Carry backup calories. 300 miles burns 8,000\u201312,000+ calories \u2014 you cannot replace them all, but you must try.",
+    "terrain": "Mixed terrain at Rule of Three requires surface adaptability. Include weekly rides on kansas flint hills\u2014same roads as unbound, ultra distance to build confidence. Expect: kansas flint hills gravel (95%), pavement (5%), same roads as unbound."
+  },
   "pack_summary": "This 10-workout pack focuses on Durability, Endurance, and Race Simulation to prepare you for 300 miles of kansas flint hills\u2014same roads as unbound, ultra distance in Emporia, Kansas (same roads as Unbound Gravel).",
   "generated_at": "2026-02-26"
 }

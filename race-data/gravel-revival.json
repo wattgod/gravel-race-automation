@@ -612,7 +612,132 @@
           "category": "race_atmosphere",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Property crossing section",
+            "description": "Course involves crossing private pasture land with gates that must be closed behind you and potential barbed wire fencing around dam areas.",
+            "source_video_ids": [
+              "REn-qx1wasE"
+            ]
+          },
+          {
+            "name": "Navigation challenges",
+            "description": "GPS routing can be unreliable with confusing sections that may require fence jumping or going through private side yards to stay on course.",
+            "source_video_ids": [
+              "REn-qx1wasE"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Mix of gravel road surfaces with variety for different skill levels from beginner to race-level difficulty.",
+            "source_video_ids": [
+              "vrAkew1xr-E"
+            ]
+          },
+          {
+            "text": "Course includes pasture crossings with cow-beaten paths and potential livestock encounters.",
+            "source_video_ids": [
+              "REn-qx1wasE"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "Rider used 43x36 gear combination on challenging sections with SRAM Force eTap drivetrain.",
+            "source_video_ids": [
+              "REn-qx1wasE"
+            ]
+          }
+        ],
+        "race_day_tips": [
+          {
+            "text": "Always close gates behind you when crossing pasture sections to respect landowner property.",
+            "source_video_ids": [
+              "REn-qx1wasE"
+            ]
+          },
+          {
+            "text": "Be prepared for potential navigation issues and have backup routing plans as GPS can lead to confusing private property situations.",
+            "source_video_ids": [
+              "REn-qx1wasE"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "This is one of six courses that will be offered over the two days one of five courses on sunday ranging from 15 miles to 66 miles if you want it so i figured i'd just bring out here and show you some of the gravel that we do have welcome you guys to centerville tennessee",
+            "source_video_id": "vrAkew1xr-E",
+            "source_channel": "Gravel Grinders of Tennessee",
+            "source_view_count": 194,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "Gravel Revival in Centerville, Tennessee offers multiple course options ranging from 15 to 66 miles over two days near East Hickman High School, about 35 miles southwest of Nashville. The terrain features a variety of gravel road surfaces suitable for different skill levels from beginner to race difficulty. Riders encounter unique challenges including crossing private pasture land with livestock, navigating through gates that must be closed behind you, and potential barbed wire fencing around dam areas. GPS navigation can be unreliable with some sections requiring creative routing through private property. The course includes cow-beaten paths and requires respect for landowner property. One rider used a 43x36 gear combination on challenging sections. The event showcases Hickman County's diverse gravel road network with scenic countryside views and fall foliage."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "gravel-revival-video-1.jpg",
+        "url": "/race-photos/gravel-revival/gravel-revival-video-1.jpg",
+        "alt": "Rural gravel path alongside green agricultural field with tree line and rolling hills in Tennessee countryside - Gravel Revival - Hickman County, Tennessee",
+        "credit": "YouTube / Gravel Cyclist",
+        "primary": true,
+        "ai_relevance": 3,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "gravel path",
+          "Tennessee countryside",
+          "agricultural field",
+          "rural road"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "gravel-revival-video-2.jpg",
+        "url": "/race-photos/gravel-revival/gravel-revival-video-2.jpg",
+        "alt": "Gravel cyclists racing on dirt road through wooded terrain with bare winter trees in Tennessee - Gravel Revival - Hickman County, Tennessee",
+        "credit": "YouTube / Gravel Cyclist",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel racing",
+          "dirt road",
+          "Tennessee",
+          "cyclists",
+          "wooded terrain"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "gravel-revival-video-3.jpg",
+        "url": "/race-photos/gravel-revival/gravel-revival-video-3.jpg",
+        "alt": "Mountain biker navigating narrow singletrack trail through dense forest with bare winter trees - Gravel Revival - Hickman County, Tennessee",
+        "credit": "YouTube / Gravel Cyclist",
+        "primary": false,
+        "ai_relevance": 4,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "singletrack",
+          "forest trail",
+          "mountain biking",
+          "winter cycling"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "gravel-revival-preview.gif",
+        "url": "/race-photos/gravel-revival/gravel-revival-preview.gif",
+        "alt": "Course preview from Gravel Revival race footage",
+        "credit": "YouTube / Gravel Cyclist",
+        "gif": true
+      }
+    ]
   }
 }

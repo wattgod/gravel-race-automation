@@ -1,6 +1,7 @@
 {
   "slug": "gran-fondo-hincapie",
   "race_name": "Gran Fondo Hincapie",
+  "distance_mi": 105.0,
   "demands": {
     "durability": 6,
     "climbing": 7,
@@ -19,7 +20,8 @@
         "Single Sustained Threshold",
         "Threshold Ramps",
         "Descending Threshold"
-      ]
+      ],
+      "workout_context": "Gran Fondo Hincapie rewards athletes who can hold sustained power without blowing up \u2014 threshold is the engine that drives everything above Zone 2."
     },
     {
       "category": "Durability",
@@ -28,7 +30,8 @@
         "Tired VO2max",
         "Double Day Simulation",
         "Progressive Fatigue"
-      ]
+      ],
+      "workout_context": "At 105 miles, Gran Fondo Hincapie punishes athletes who haven\u2019t trained their body to produce power when glycogen runs low."
     },
     {
       "category": "Over_Under",
@@ -36,7 +39,8 @@
       "workouts": [
         "Classic Over-Unders",
         "Ladder Over-Unders"
-      ]
+      ],
+      "workout_context": "Over-unders train the lactate clearance you\u2019ll need at Gran Fondo Hincapie when surges push you above threshold and you have to recover while still riding hard."
     },
     {
       "category": "G_Spot",
@@ -45,7 +49,8 @@
         "G-Spot Standard",
         "G-Spot Extended",
         "Criss-Cross"
-      ]
+      ],
+      "workout_context": "The G-Spot zone (88\u201392% FTP) is where you\u2019ll spend the hardest sustained miles of Gran Fondo Hincapie. Make this intensity feel like home."
     },
     {
       "category": "Race_Simulation",
@@ -54,9 +59,79 @@
         "Breakaway Simulation",
         "Variable Pace Chaos",
         "Sector Simulation"
-      ]
+      ],
+      "workout_context": "Racing Gran Fondo Hincapie isn\u2019t just fitness \u2014 it\u2019s pacing, fueling, and executing when conditions deteriorate. This workout practices the race itself."
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 75,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ],
+      "workout_context": "Gran Fondo Hincapie\u2019s south carolina mountains, mixed road/gravel demands rapid power changes \u2014 surge over obstacles, settle on smoother sections, repeat for hours."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 61,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "Gran Fondo Hincapie\u2019s 7,000ft of climbing demands seated and standing versatility \u2014 the ability to change climbing style as gradient and fatigue dictate."
+    },
+    {
+      "category": "VO2max",
+      "score": 58,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ],
+      "workout_context": "Gran Fondo Hincapie\u2019s south carolina mixed road/gravel and competitive field demand explosive aerobic capacity \u2014 the ability to respond to surges without blowing up."
+    },
+    {
+      "category": "Endurance",
+      "score": 48,
+      "workouts": [
+        "Pre-Race Openers",
+        "Terrain Simulation Z2"
+      ],
+      "workout_context": "Every session at Gran Fondo Hincapie intensity builds on this aerobic foundation \u2014 the endurance base is the soil everything else grows in."
+    },
+    {
+      "category": "HVLI_Extended",
+      "score": 46,
+      "workouts": [
+        "HVLI Extended Z2",
+        "Multi-Hour Z2",
+        "Back-to-Back Long"
+      ],
+      "workout_context": "At 105 miles, Gran Fondo Hincapie rewards a massive aerobic engine. This volume work builds the fat-oxidation capacity that keeps you moving when glycogen runs low."
+    },
+    {
+      "category": "Blended",
+      "score": 46,
+      "workouts": [
+        "Z2 + VO2 Combo",
+        "Endurance with Spikes"
+      ],
+      "workout_context": "Blended sessions combine endurance with intensity spikes \u2014 exactly what Gran Fondo Hincapie\u2019s south carolina mixed road/gravel delivers on race day."
+    },
+    {
+      "category": "Norwegian_Double",
+      "score": 46,
+      "workouts": [
+        "Norwegian 4x8 Classic",
+        "Double Threshold"
+      ],
+      "workout_context": "The Norwegian double-threshold method builds the sustained power base for Gran Fondo Hincapie \u2014 massive training stimulus without the recovery cost of VO2max work."
     }
   ],
+  "race_overlay": {
+    "nutrition": "Target 60\u201380g carbs/hour for Gran Fondo Hincapie\u2019s 105 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
+    "terrain": "Mixed terrain at Gran Fondo Hincapie requires surface adaptability. Include weekly rides on south carolina mixed road/gravel to build confidence. Expect: south carolina mountains, mixed road/gravel, 100+ mile distance."
+  },
   "pack_summary": "This 10-workout pack focuses on TT Threshold, Durability, and Over Under to prepare you for 105 miles of south carolina mixed road/gravel in Greenville, South Carolina.",
   "generated_at": "2026-02-26"
 }

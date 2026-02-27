@@ -491,7 +491,121 @@
           "category": "race_atmosphere",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [],
+        "terrain_notes": [],
+        "gear_mentions": [
+          {
+            "text": "Mix of one-by and two-by setups observed, with two-by being more common than in the United States. Mechanical groupsets like Apex and GRX prevalent.",
+            "source_video_ids": [
+              "O9dQAj5eqp8"
+            ]
+          },
+          {
+            "text": "Some riders running very narrow tires on road bikes, while others using huge tires up to 2.2 by 29 mountain bike tires.",
+            "source_video_ids": [
+              "O9dQAj5eqp8"
+            ]
+          }
+        ],
+        "race_day_tips": [
+          {
+            "text": "Just enjoy it, have fun, enjoy the roads and food, and plan to come back next year.",
+            "source_video_ids": [
+              "Ci1sU-raoTM"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "I want to say just enjoy it will be a great event just have fun enjoy your roads enjoy your food and come back next year",
+            "source_video_id": "Ci1sU-raoTM",
+            "source_channel": "eroica",
+            "source_view_count": 1556,
+            "category": "community",
+            "curated": true
+          }
+        ],
+        "search_text": "Nova Eroica in Buonconvento, Tuscany attracts riders with diverse bike setups ranging from vintage steel road bikes to modern gravel machines. The event showcases a mix of mechanical groupsets including Apex, GRX, and Rival, with two-by drivetrains being more common than in US gravel races. Tire choices vary dramatically from very narrow road tires to massive 2.2-inch mountain bike rubber. Popular bike brands include Italian steel frames, Canyon, Cannondale, Scott, and vintage Bianchi models. Riders emphasize the importance of enjoying the Tuscan roads, local food, and overall experience rather than focusing solely on performance. The event maintains a relaxed, celebratory atmosphere where participants are encouraged to savor the journey through beautiful Italian countryside and return annually for the unique cultural experience."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "nova-eroica-video-1.jpg",
+        "url": "/race-photos/nova-eroica/nova-eroica-video-1.jpg",
+        "alt": "White gravel bike with drop bars mounted on car rack in urban parking lot with stone wall backdrop - Nova Eroica - Buonconvento, Tuscany, Italy",
+        "credit": "YouTube / Gravel Cyclist",
+        "primary": true,
+        "ai_relevance": 2,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "gravel bike",
+          "car rack",
+          "drop bars",
+          "parking lot"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "nova-eroica-video-2.jpg",
+        "url": "/race-photos/nova-eroica/nova-eroica-video-2.jpg",
+        "alt": "Aerial view of gravel cycling event with riders gathering on dirt field surrounded by white tents and parked bicycles - Nova Eroica - Buonconvento, Tuscany, Italy",
+        "credit": "YouTube / Gravel Cyclist",
+        "primary": false,
+        "ai_relevance": 4,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "aerial view",
+          "gravel event",
+          "dirt field",
+          "cycling gathering",
+          "race tents"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "nova-eroica-video-3.jpg",
+        "url": "/race-photos/nova-eroica/nova-eroica-video-3.jpg",
+        "alt": "Cyclist in racing kit sitting at Nova Eroica event area with historic stone buildings and Vittoria sponsor tents in background - Buonconvento, Tuscany, Italy",
+        "credit": "YouTube / Gravel Cyclist",
+        "primary": false,
+        "ai_relevance": 3,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "Nova Eroica",
+          "historic buildings",
+          "Vittoria",
+          "cycling event",
+          "stone architecture"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "nova-eroica-preview.gif",
+        "url": "/race-photos/nova-eroica/nova-eroica-preview.gif",
+        "alt": "Course preview from Nova Eroica race footage",
+        "credit": "YouTube / Gravel Cyclist",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "nova-eroica-preview-2.gif",
+        "url": "/race-photos/nova-eroica/nova-eroica-preview-2.gif",
+        "alt": "Course preview from Nova Eroica race footage",
+        "credit": "YouTube / Gravel Cyclist",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "nova-eroica-preview-3.gif",
+        "url": "/race-photos/nova-eroica/nova-eroica-preview-3.gif",
+        "alt": "Course preview from Nova Eroica race footage",
+        "credit": "YouTube / Gravel Cyclist",
+        "gif": true
+      }
+    ]
   }
 }

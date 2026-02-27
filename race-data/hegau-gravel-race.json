@@ -559,7 +559,81 @@
           "category": "race_atmosphere",
           "curated": true
         }
-      ]
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Continuous climbs",
+            "description": "No flat sections according to riders - it's only steep climbs or steep downhills. Every climb must be ridden above threshold power, creating high risk of exploding if pacing isn't managed carefully.",
+            "source_video_ids": [
+              "Kd8qPIwAveg"
+            ]
+          },
+          {
+            "name": "Short recovery sections",
+            "description": "Climbs are pretty short but you don't have time to recover in the downhills because they're also very short, with climbs just keep on coming.",
+            "source_video_ids": [
+              "Kd8qPIwAveg"
+            ]
+          },
+          {
+            "name": "Technical descents",
+            "description": "Very steep and very twisty off camber turns on the downhills.",
+            "source_video_ids": [
+              "Kd8qPIwAveg"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Gravel surface is pretty good overall - no small pieces that are a bit off, but mostly it's pretty good according to riders who reconned the course.",
+            "source_video_ids": [
+              "Kd8qPIwAveg"
+            ]
+          }
+        ],
+        "gear_mentions": [],
+        "race_day_tips": [
+          {
+            "text": "Strategy is critical - every climb has to be ridden above threshold, but if you keep doing that there's a moment you're going to explode. It's not a good idea to ride your own pace from the start, but if you feel like you're going to blow up, you're already too late with riding at your own pace.",
+            "source_video_ids": [
+              "Kd8qPIwAveg"
+            ]
+          },
+          {
+            "text": "Don't try to stay with riders who are significantly better - they are going to drop you eventually on this demanding course.",
+            "source_video_ids": [
+              "Kd8qPIwAveg"
+            ]
+          },
+          {
+            "text": "The race will be anaerobic due to the constant short, steep climbs with minimal recovery time.",
+            "source_video_ids": [
+              "Kd8qPIwAveg"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "Weather update tomorrow forecast for tomorrow is thunderstorms thunderstorms thunderstorms thunderstorms during the whole day like there's a lot of rain forecast in the night and then in the morning there's also rain",
+            "source_video_id": "Kd8qPIwAveg",
+            "source_channel": "Douwe Does Things",
+            "source_view_count": 30993,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "This is the first time ever that this gravel race is being organized but this place is drenched in cycling history - Singen has been hosting mountain bike Marathon World Cups for more than 20 years now including the 2017 marathon world championships",
+            "source_video_id": "Kd8qPIwAveg",
+            "source_channel": "Douwe Does Things",
+            "source_view_count": 30993,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "The Hegau Gravel Race in Singen, Germany is an extremely demanding course with no flat sections - only steep climbs and steep descents according to riders who reconned it. The climbs are short but require riding above threshold power, with minimal recovery time on equally short downhills. Riders describe it as anaerobic racing where pacing strategy is critical to avoid exploding. The descents feature very steep and twisty off-camber turns. The gravel surface quality is described as pretty good overall. This inaugural race takes place in an area with rich cycling history, having hosted mountain bike Marathon World Cups for over 20 years. Weather can be a major factor with thunderstorms and rain forecasted. Riders note this is a course where you can easily blow up, making it crucial to find the right balance between staying competitive and riding within your limits."
+      }
     }
   }
 }

@@ -594,7 +594,161 @@
           "category": "course_difficulty",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Mile 19 pace increase",
+            "mile_marker": "19",
+            "description": "The front group turns it up to 11 here and drops riders who can't match the intensity.",
+            "source_video_ids": [
+              "eSOTOk1AB0E"
+            ]
+          },
+          {
+            "name": "Mile 52 aid station decision point",
+            "mile_marker": "52",
+            "description": "Intersection for both 100 mile and 60 mile courses - last aid station until the finish for 100-milers.",
+            "source_video_ids": [
+              "eSOTOk1AB0E"
+            ]
+          },
+          {
+            "name": "Hills with pines and birch trees",
+            "description": "Uphill sections through thick pine and birch forest cover that can gap riders on climbs.",
+            "source_video_ids": [
+              "nQczFit1tGU"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Hard packed dirt roads that were wet and sticky from rain the night before, with lots of potholes and puddles to navigate around.",
+            "source_video_ids": [
+              "nQczFit1tGU"
+            ]
+          },
+          {
+            "text": "Everything becomes soaked and muddy as rain progresses throughout the day, making conditions pretty miserable by the later miles.",
+            "source_video_ids": [
+              "eSOTOk1AB0E"
+            ]
+          },
+          {
+            "text": "Course starts on local walking and ATV/UTV trails with bad blacktop mixed in, providing a flat easy start.",
+            "source_video_ids": [
+              "nQczFit1tGU"
+            ]
+          }
+        ],
+        "gear_mentions": [],
+        "race_day_tips": [
+          {
+            "text": "Check the weather forecast carefully - rain predictions can change and affect race strategy. Consider starting conservatively if doing the longer distance.",
+            "source_video_ids": [
+              "eSOTOk1AB0E"
+            ]
+          },
+          {
+            "text": "Be aware of the different race distances when riding with other racers - 60-milers and 100-milers split at mile 52.",
+            "source_video_ids": [
+              "eSOTOk1AB0E"
+            ]
+          },
+          {
+            "text": "Don't go out too hard with the front group early on if doing the 100-mile distance - the aggressive early pace will cause leg cramps later.",
+            "source_video_ids": [
+              "eSOTOk1AB0E"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "I sat down to my computer and started scrolling really with no purpose in mind just searching after a little bit of mindless searching I got an idea I wanted to see if there was any upcoming gravel races in the area I looked and quickly found the hibernator 100 this intrigued me I noticed it was this Saturday today was Wednesday on impulse I decided to sign up",
+            "source_video_id": "eSOTOk1AB0E",
+            "source_channel": "Josh Romero",
+            "source_view_count": 18019,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "when I got there I layered up through my cycling shoes on and went to the bathroom when I stepped out of the bathroom the race had started people were heading out so I had to hop on my bike and do the same",
+            "source_video_id": "eSOTOk1AB0E",
+            "source_channel": "Josh Romero",
+            "source_view_count": 18019,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "this section here where we start to go up some of these hills with the pines and birch trees uh here on the sides of the road. Uh this is honestly one of my favorite parts of the course. It's just beautiful and really accentuates what you know Wisconsin has to offer for gravel riding",
+            "source_video_id": "nQczFit1tGU",
+            "source_channel": "The Wisconsin Gravel Cyclist",
+            "source_view_count": 313,
+            "category": "race_atmosphere",
+            "curated": true
+          }
+        ],
+        "search_text": "The Hibernator takes place in Laona, Wisconsin with 30, 60, and 100-mile distance options starting from a local bar in town. The course features hard-packed dirt roads through thick pine and birch forest cover, creating beautiful scenery that showcases northern Wisconsin gravel riding. Riders report the roads had decent condition overall but can become wet and sticky after rain, with numerous potholes and puddles to navigate. The race starts on local walking and ATV trails with some blacktop sections, providing a flat easy beginning before hitting the forested hills. Key challenges include an aggressive pace increase around mile 19 where the front group drops many riders, and a critical decision point at mile 52 where the 60 and 100-mile courses intersect at the final aid station. Weather can be unpredictable with rain developing throughout race day, making conditions increasingly muddy and miserable in later miles. The course atmosphere is described as beautiful with thick forest cover, though riders should pace conservatively for longer distances to avoid cramping issues."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "hibernator-video-1.jpg",
+        "url": "/race-photos/hibernator/hibernator-video-1.jpg",
+        "alt": "Indoor interview setup with cyclist at desk wearing 'Just Ride' cap and bike-themed shirt - Hibernator - Laona, Wisconsin",
+        "credit": "YouTube / David Arthur - Just Ride Bikes",
+        "primary": true,
+        "ai_relevance": 2,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "indoor interview",
+          "cyclist",
+          "bike enthusiast",
+          "just ride"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "hibernator-video-2.jpg",
+        "url": "/race-photos/hibernator/hibernator-video-2.jpg",
+        "alt": "White gravel bike with knobby tires displayed at outdoor cycling event with spectators on grass - Hibernator - Laona, Wisconsin",
+        "credit": "YouTube / David Arthur - Just Ride Bikes",
+        "primary": false,
+        "ai_relevance": 4,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel bike",
+          "cycling event",
+          "knobby tires",
+          "bike display"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "hibernator-video-3.jpg",
+        "url": "/race-photos/hibernator/hibernator-video-3.jpg",
+        "alt": "First-person view of cyclist riding through autumn forest trail with colorful fall foliage - Hibernator - Laona, Wisconsin",
+        "credit": "YouTube / David Arthur - Just Ride Bikes",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "forest trail",
+          "autumn cycling",
+          "first person view",
+          "fall foliage"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "hibernator-preview.gif",
+        "url": "/race-photos/hibernator/hibernator-preview.gif",
+        "alt": "Course preview from Hibernator race footage",
+        "credit": "YouTube / David Arthur - Just Ride Bikes",
+        "gif": true
+      }
+    ]
   }
 }

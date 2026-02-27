@@ -600,7 +600,145 @@
           "curated": false
         }
       ],
-      "quotes": []
-    }
+      "quotes": [],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Plank Road Section",
+            "description": "Trail follows part of the historic Fayetteville to Morganton Plank Road through the defunct town of Lawrenceville with remnants of old courthouse foundations.",
+            "source_video_ids": [
+              "0rpRpUMgjBM"
+            ]
+          },
+          {
+            "name": "Wood Run Creek Crossing",
+            "description": "Trail passes over Wood Run Creek which feeds into the PD River, with bridge crossing noted by riders.",
+            "source_video_ids": [
+              "0rpRpUMgjBM"
+            ]
+          },
+          {
+            "name": "Power Line Sections",
+            "description": "Trail winds through multiple power line clearings providing open areas between wooded sections.",
+            "source_video_ids": [
+              "0rpRpUMgjBM"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Deep leaf coverage creates leaf surfing conditions on the trails, especially notable in fall conditions.",
+            "source_video_ids": [
+              "0rpRpUMgjBM"
+            ]
+          },
+          {
+            "text": "Recent controlled burn areas with remnants from patrol burns affecting trail conditions and visibility.",
+            "source_video_ids": [
+              "0rpRpUMgjBM"
+            ]
+          },
+          {
+            "text": "Trail alternates between wooded sections and open power line areas with varying surface conditions.",
+            "source_video_ids": [
+              "0rpRpUMgjBM"
+            ]
+          }
+        ],
+        "gear_mentions": [],
+        "race_day_tips": [
+          {
+            "text": "Be aware it's hunting season - expect to see hunters in orange throughout the woods during fall racing periods.",
+            "source_video_ids": [
+              "0rpRpUMgjBM"
+            ]
+          },
+          {
+            "text": "Trail entrance has been rerouted - the parking lot entrance now goes past Escape rather than the old route.",
+            "source_video_ids": [
+              "0rpRpUMgjBM"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "They rerouted the entrance so there's the parking lot but the entrance to lip run is over here and just go right past Escape",
+            "source_video_id": "0rpRpUMgjBM",
+            "source_channel": "MTB Plan B",
+            "source_view_count": 341,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "This particular spot was home to the courthouse in Lawrenceville you can still see some of the rocks that formed the chimneys of the courthouse",
+            "source_video_id": "0rpRpUMgjBM",
+            "source_channel": "MTB Plan B",
+            "source_view_count": 341,
+            "category": "community",
+            "curated": true
+          }
+        ],
+        "search_text": "The Uwharrie Forest trail system features the Wood Run trail with deep historical significance, following the old Fayetteville to Morganton Plank Road through the defunct town of Lawrenceville. Riders encounter Wood Run Creek crossings and multiple power line clearings between wooded sections. Fall conditions create significant leaf surfing opportunities with deep leaf coverage affecting trail surface. Recent controlled burns have left remnants throughout the forest. Key logistical notes include a rerouted trail entrance that now passes Escape rather than the old route. Hunters in orange are common during fall season. The trail connects to other Uwharrie trails including access to Kiwi Trails and connects to the broader trail network. Historical features include visible courthouse foundation remnants from the old Montgomery County seat before it was moved to Troy."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "uwharrie-forest-gravel-grinder-video-1.jpg",
+        "url": "/race-photos/uwharrie-forest-gravel-grinder/uwharrie-forest-gravel-grinder-video-1.jpg",
+        "alt": "Cyclist riding gravel road through dense North Carolina forest canopy with power and speed metrics displayed - Uwharrie Forest Gravel Grinder - Central North Carolina (Uwharrie National Forest)",
+        "credit": "YouTube / James Pearl",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel road",
+          "forest canopy",
+          "North Carolina",
+          "cycling metrics"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "uwharrie-forest-gravel-grinder-video-2.jpg",
+        "url": "/race-photos/uwharrie-forest-gravel-grinder/uwharrie-forest-gravel-grinder-video-2.jpg",
+        "alt": "Two cyclists racing on forest gravel path with performance data showing heart rate and power output - Uwharrie Forest Gravel Grinder - Central North Carolina (Uwharrie National Forest)",
+        "credit": "YouTube / James Pearl",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel racing",
+          "forest trail",
+          "cycling competition",
+          "performance metrics"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "uwharrie-forest-gravel-grinder-video-3.jpg",
+        "url": "/race-photos/uwharrie-forest-gravel-grinder/uwharrie-forest-gravel-grinder-video-3.jpg",
+        "alt": "Mountain biker carrying bicycle through wooded forest trail covered in autumn leaves at Uwharrie Forest - Uwharrie Forest Gravel Grinder - Central North Carolina (Uwharrie National Forest)",
+        "credit": "YouTube / James Pearl",
+        "primary": false,
+        "ai_relevance": 4,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "Uwharrie Forest",
+          "forest trail",
+          "bike portage",
+          "autumn leaves"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "uwharrie-forest-gravel-grinder-preview.gif",
+        "url": "/race-photos/uwharrie-forest-gravel-grinder/uwharrie-forest-gravel-grinder-preview.gif",
+        "alt": "Course preview from Uwharrie Forest Gravel Grinder race footage",
+        "credit": "YouTube / James Pearl",
+        "gif": true
+      }
+    ]
   }
 }

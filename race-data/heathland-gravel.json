@@ -600,7 +600,115 @@
           "curated": false
         }
       ],
-      "quotes": []
-    }
+      "quotes": [],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Giant sand pit",
+            "description": "BWR puts a giant sand pit right before the finish line so that spectators can heckle you as you go through. Riders say it's much harder and recommend not touching your brakes.",
+            "source_video_ids": [
+              "GEIX-tlzSVI"
+            ]
+          },
+          {
+            "name": "Technical single track section",
+            "description": "After a 7 mile straight stretch at 2-3% grade, there's a right turn off the main road leading to 10 miles of pretty technical, sandy single track in the desert.",
+            "source_video_ids": [
+              "GEIX-tlzSVI"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "About 50% of the race is unroad - anything that's not tarmac. The desert sections are sandy and dry.",
+            "source_video_ids": [
+              "GEIX-tlzSVI"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "Tire pressure is going to be crucial - saw a lot of puncture issues in the women's race.",
+            "source_video_ids": [
+              "LeN_-gShDE8"
+            ]
+          },
+          {
+            "text": "Using Favero mountain bike pedals for better grip on technical terrain.",
+            "source_video_ids": [
+              "GEIX-tlzSVI"
+            ]
+          }
+        ],
+        "race_day_tips": [
+          {
+            "text": "Having that front row position at the start is really critical because of tight corners and log jams early in the race.",
+            "source_video_ids": [
+              "LeN_-gShDE8"
+            ]
+          },
+          {
+            "text": "For the sand pit section, don't touch your brakes - just power through.",
+            "source_video_ids": [
+              "GEIX-tlzSVI"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "I am not that comfortable taking my hands off the handlebars so we're trying to make it as easy as possible - using a top tube bottle with 210g of carbs in flow gel form that I can just grab and shove back, plus wearing a Camelback backpack.",
+            "source_video_id": "GEIX-tlzSVI",
+            "source_channel": "Jenna & Miguel – Freestyle Tri",
+            "source_view_count": 14877,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "Heathland Gravel features challenging terrain with about 50% unroad surfaces including sandy, dry desert sections. Key obstacles include a giant sand pit before the finish line where spectators gather, and 10 miles of technical sandy single track after a 7-mile straight climb at 2-3% grade. Riders emphasize tire pressure is crucial due to puncture risks seen in other races. Early positioning is critical at the start due to tight corners creating log jams. The technical sections require mountain bike pedals for better grip, and the sand pit should be tackled without touching brakes. Desert conditions are described as sandy and dry, requiring careful fueling strategy for the demanding terrain."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "heathland-gravel-video-1.jpg",
+        "url": "/race-photos/heathland-gravel/heathland-gravel-video-1.jpg",
+        "alt": "Hand holding smartphone displaying cycling GPS data with 62.24 mile distance and 4:34:58 elapsed time on route map - Heathland Gravel - Belgium",
+        "credit": "YouTube / Jenna & Miguel – Freestyle Tri",
+        "primary": true,
+        "ai_relevance": 3,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "cycling GPS",
+          "route tracking",
+          "gravel distance",
+          "smartphone app"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "heathland-gravel-video-2.jpg",
+        "url": "/race-photos/heathland-gravel/heathland-gravel-video-2.jpg",
+        "alt": "Male cyclist with curly hair giving thumbs up gesture while sitting inside vehicle wearing patterned shirt - Heathland Gravel - Belgium",
+        "credit": "YouTube / Jenna & Miguel – Freestyle Tri",
+        "primary": false,
+        "ai_relevance": 2,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "cyclist interview",
+          "vehicle interior",
+          "thumbs up",
+          "patterned shirt"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "heathland-gravel-preview.gif",
+        "url": "/race-photos/heathland-gravel/heathland-gravel-preview.gif",
+        "alt": "Course preview from Heathland Gravel race footage",
+        "credit": "YouTube / Jenna & Miguel – Freestyle Tri",
+        "gif": true
+      }
+    ]
   }
 }

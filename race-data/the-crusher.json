@@ -556,7 +556,142 @@
           "category": "course_difficulty",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Front Group Start",
+            "mile_marker": "16",
+            "description": "First 16 miles were dark, fast and exciting. Riders warn this is where mechanical issues often surface, with one rider experiencing heart rate monitor failure, boa shoe break, and tire puncture that wouldn't seal.",
+            "source_video_ids": [
+              "94rlQwWAZHY"
+            ]
+          },
+          {
+            "name": "Spicy EX Sections",
+            "description": "This year's mass start course included EX-style sections with unbridged rivers, mud pits, sand, overgrown rocky tracks, and steep single track - sections that are supposed to be reserved for the EX version.",
+            "source_video_ids": [
+              "94rlQwWAZHY"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "The mass start course is supposed to be relatively easy gravel roads, but this year's course got pretty EX-style with spicy sections that initially frustrate riders before they start to enjoy the variety and hardship.",
+            "source_video_ids": [
+              "94rlQwWAZHY"
+            ]
+          },
+          {
+            "text": "EX version features unbridged rivers, mud pits, sand, overgrown rocky tracks, and even some steep single track - it's called extra enhanced for more suffering.",
+            "source_video_ids": [
+              "94rlQwWAZHY"
+            ]
+          }
+        ],
+        "gear_mentions": [],
+        "race_day_tips": [
+          {
+            "text": "After mechanical issues and getting separated, riders need to reset expectations and stay positive. Having freedom to ride your own speed can actually be beneficial.",
+            "source_video_ids": [
+              "94rlQwWAZHY"
+            ]
+          },
+          {
+            "text": "The race is much better when experienced with someone else - finding a partner for the long haul makes a significant difference in enjoyment.",
+            "source_video_ids": [
+              "94rlQwWAZHY"
+            ]
+          },
+          {
+            "text": "Be prepared for the actual distance to be longer than advertised - while advertised as 175 miles, the actual distance was 203 miles.",
+            "source_video_ids": [
+              "94rlQwWAZHY"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "Be prepared for the actual distance to be longer than advertised - while Todd will tell you the mass start is 175 miles, it's actually 203 miles of enhanced gravel goodness.",
+            "source_video_id": "94rlQwWAZHY",
+            "source_channel": "glowingrock",
+            "source_view_count": 5881,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "Leading up to this event my back hurt for weeks however after sleeping on the ground the night before the event and spending nearly 15 hours on course I felt great - Todd's races can heal not only your mind but also your body.",
+            "source_video_id": "94rlQwWAZHY",
+            "source_channel": "glowingrock",
+            "source_view_count": 5881,
+            "category": "community",
+            "curated": true
+          }
+        ],
+        "search_text": "The Crusher in Michigan's Upper Peninsula is organized by Todd Bouquet and features two versions: the mass start and the EX (extra enhanced). The mass start is supposed to be relatively easy gravel roads but recent years have included EX-style sections with unbridged rivers, mud pits, sand, overgrown rocky tracks, and steep single track. The first 16 miles start in darkness and are fast-paced, where mechanical issues commonly surface. Riders report the actual distance being longer than advertised - 203 miles instead of the stated 175 miles. The race requires significant endurance with nearly 15 hours on course. Riders emphasize that having a partner makes the experience much better, and that staying positive after setbacks is crucial. The event has been running since 2018 and is considered an adventure that tests both physical and mental limits in Michigan's challenging terrain."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "the-crusher-video-1.jpg",
+        "url": "/race-photos/the-crusher/the-crusher-video-1.jpg",
+        "alt": "Mountain biker's first-person view navigating rocky forest trail with GPS computer showing route data through dense woodland - The Crusher - Upper Peninsula, Michigan",
+        "credit": "YouTube / Gregory Boehnlein",
+        "primary": true,
+        "ai_relevance": 4,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "mountain biking",
+          "forest trail",
+          "GPS computer",
+          "rocky terrain",
+          "first-person view"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "the-crusher-video-2.jpg",
+        "url": "/race-photos/the-crusher/the-crusher-video-2.jpg",
+        "alt": "Cyclist's handlebar perspective showing muddy puddle-filled trail through lush green forest with ferns and dense vegetation - The Crusher - Upper Peninsula, Michigan",
+        "credit": "YouTube / Gregory Boehnlein",
+        "primary": false,
+        "ai_relevance": 3,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "muddy trail",
+          "forest cycling",
+          "puddles",
+          "ferns",
+          "handlebar view"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "the-crusher-video-3.jpg",
+        "url": "/race-photos/the-crusher/the-crusher-video-3.jpg",
+        "alt": "Mountain biker riding singletrack trail through dense deciduous forest with GPS device mounted on handlebars - The Crusher - Upper Peninsula, Michigan",
+        "credit": "YouTube / Gregory Boehnlein",
+        "primary": false,
+        "ai_relevance": 4,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "singletrack",
+          "forest trail",
+          "GPS device",
+          "deciduous forest",
+          "mountain biking"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "the-crusher-preview.gif",
+        "url": "/race-photos/the-crusher/the-crusher-preview.gif",
+        "alt": "Course preview from The Crusher race footage",
+        "credit": "YouTube / Gregory Boehnlein",
+        "gif": true
+      }
+    ]
   }
 }

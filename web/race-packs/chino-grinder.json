@@ -1,6 +1,7 @@
 {
   "slug": "chino-grinder",
   "race_name": "Chino Grinder",
+  "distance_mi": 62.0,
   "demands": {
     "durability": 2,
     "climbing": 4,
@@ -18,7 +19,8 @@
       "workouts": [
         "Surge and Settle",
         "Terrain Microbursts"
-      ]
+      ],
+      "workout_context": "Chino Grinder\u2019s high desert gravel, arizona grasslands demands rapid power changes \u2014 surge over obstacles, settle on smoother sections, repeat for hours."
     },
     {
       "category": "TT_Threshold",
@@ -27,7 +29,8 @@
         "Single Sustained Threshold",
         "Threshold Ramps",
         "Descending Threshold"
-      ]
+      ],
+      "workout_context": "Chino Grinder rewards athletes who can hold sustained power without blowing up \u2014 threshold is the engine that drives everything above Zone 2."
     },
     {
       "category": "VO2max",
@@ -36,7 +39,8 @@
         "5x3 VO2 Classic",
         "Descending VO2 Pyramid",
         "Norwegian 4x8"
-      ]
+      ],
+      "workout_context": "Chino Grinder\u2019s arizona high desert gravel and competitive field demand explosive aerobic capacity \u2014 the ability to respond to surges without blowing up."
     },
     {
       "category": "Race_Simulation",
@@ -45,7 +49,8 @@
         "Breakaway Simulation",
         "Variable Pace Chaos",
         "Sector Simulation"
-      ]
+      ],
+      "workout_context": "Racing Chino Grinder isn\u2019t just fitness \u2014 it\u2019s pacing, fueling, and executing when conditions deteriorate. This workout practices the race itself."
     },
     {
       "category": "Over_Under",
@@ -53,9 +58,80 @@
       "workouts": [
         "Classic Over-Unders",
         "Ladder Over-Unders"
-      ]
+      ],
+      "workout_context": "Over-unders train the lactate clearance you\u2019ll need at Chino Grinder when surges push you above threshold and you have to recover while still riding hard."
+    },
+    {
+      "category": "G_Spot",
+      "score": 75,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ],
+      "workout_context": "The G-Spot zone (88\u201392% FTP) is where you\u2019ll spend the hardest sustained miles of Chino Grinder. Make this intensity feel like home."
+    },
+    {
+      "category": "Durability",
+      "score": 70,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ],
+      "workout_context": "Chino Grinder\u2019s arizona high desert gravel drains energy reserves faster than the distance suggests \u2014 durability training bridges the gap."
+    },
+    {
+      "category": "Endurance",
+      "score": 66,
+      "workouts": [
+        "Pre-Race Openers",
+        "Terrain Simulation Z2"
+      ],
+      "workout_context": "Every session at Chino Grinder intensity builds on this aerobic foundation \u2014 the endurance base is the soil everything else grows in."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 55,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "The varied gradients at Chino Grinder reward climbing adaptability \u2014 knowing when to sit, when to stand, and when to switch."
+    },
+    {
+      "category": "Critical_Power",
+      "score": 50,
+      "workouts": [
+        "Above CP Repeats",
+        "W-Prime Depletion"
+      ],
+      "workout_context": "Critical power determines how long you can sustain above-threshold efforts at Chino Grinder \u2014 a higher CP means more time in the red before failure."
+    },
+    {
+      "category": "Norwegian_Double",
+      "score": 45,
+      "workouts": [
+        "Norwegian 4x8 Classic",
+        "Double Threshold"
+      ],
+      "workout_context": "The Norwegian double-threshold method builds the sustained power base for Chino Grinder \u2014 massive training stimulus without the recovery cost of VO2max work."
+    },
+    {
+      "category": "Blended",
+      "score": 36,
+      "workouts": [
+        "Z2 + VO2 Combo",
+        "Endurance with Spikes"
+      ],
+      "workout_context": "Blended sessions combine endurance with intensity spikes \u2014 exactly what Chino Grinder\u2019s arizona high desert gravel delivers on race day."
     }
   ],
+  "race_overlay": {
+    "nutrition": "Target 40\u201360g carbs/hour for Chino Grinder\u2019s 62 miles. Front-load calories in the first half. One bottle per hour minimum, more in heat.",
+    "altitude": "Moderate altitude at Chino Grinder. Arrive 2\u20133 days early. Reduce intensity expectations by 5\u201310%. Hydrate aggressively.",
+    "terrain": "Mixed terrain at Chino Grinder requires surface adaptability. Include weekly rides on arizona high desert gravel to build confidence. Expect: high desert gravel, arizona grasslands, desert terrain."
+  },
   "pack_summary": "This 10-workout pack focuses on Gravel Specific, TT Threshold, and VO2max to prepare you for 62 miles of arizona high desert gravel in Chino Valley, Arizona.",
   "generated_at": "2026-02-26"
 }

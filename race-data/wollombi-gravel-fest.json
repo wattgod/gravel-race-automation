@@ -509,7 +509,107 @@
           "category": "logistics",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [],
+        "terrain_notes": [],
+        "gear_mentions": [],
+        "race_day_tips": [
+          {
+            "text": "As Val Botas reminded riders, this is gravel which is to say have a bit of fun don't take it too seriously - it's about pacing not racing.",
+            "source_video_ids": [
+              "CFOKk9gc4MA"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "The whole idea of this weekend is to get a bunch of people together who like the same thing and showcase a region which is close to a big city which is appropriate for gravel riding.",
+            "source_video_id": "CFOKk9gc4MA",
+            "source_channel": "ridemedia",
+            "source_view_count": 11922,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "First year sold out like that because they had limited spots of about 300. For 2025 they've got openings for about a thousand people and there's still a few hundred tickets available.",
+            "source_video_id": "_9wru3B5CJo",
+            "source_channel": "ridemedia",
+            "source_view_count": 4513,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "The bike brings people together, it blurs the line between one sport and another, it allows discovery and family time and all sorts of benefits.",
+            "source_video_id": "_9wru3B5CJo",
+            "source_channel": "ridemedia",
+            "source_view_count": 4513,
+            "category": "community",
+            "curated": true
+          }
+        ],
+        "search_text": "The Wollombi Gravel Fest takes place in Wollombi Valley, about 150 kilometers north of Sydney, starting from Myrtle and Stone Cafe. The inaugural event featured two days of riding with the first year limited to 300 participants but expanding to 1000 spots for 2025. Day one was described as longer with warmer conditions, while day two featured a shorter out-and-back course that was at least 10 degrees cooler with overcast skies providing relief from UV exposure. Pro cyclists Val Botas and Tiffany Cromwell participated and emphasized the fun, non-competitive nature of gravel riding. The event showcases a region close to Sydney that's appropriate for gravel riding, allowing riders to enjoy off-road pleasure without the usual on-road stress of reaching gravel from the city. The weekend included evening social activities with barbecues and informal talks with pro athletes, emphasizing community building through cycling."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "wollombi-gravel-fest-video-1.jpg",
+        "url": "/race-photos/wollombi-gravel-fest/wollombi-gravel-fest-video-1.jpg",
+        "alt": "Cyclist in bright yellow jersey riding on paved road through green Australian countryside hills near Wollombi - Wollombi Gravel Fest - Wollombi Valley, New South Wales",
+        "credit": "YouTube / ridemedia",
+        "primary": true,
+        "ai_relevance": 4,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "Australian countryside",
+          "paved road",
+          "green hills",
+          "cycling jersey"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "wollombi-gravel-fest-video-2.jpg",
+        "url": "/race-photos/wollombi-gravel-fest/wollombi-gravel-fest-video-2.jpg",
+        "alt": "Gravel cyclist with helmet and sunglasses speaking to camera in rural Australian parkland setting - Wollombi Gravel Fest - Wollombi Valley, New South Wales",
+        "credit": "YouTube / ridemedia",
+        "primary": false,
+        "ai_relevance": 3,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "gravel cyclist",
+          "interview",
+          "Australian parkland",
+          "cycling helmet"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "wollombi-gravel-fest-video-3.jpg",
+        "url": "/race-photos/wollombi-gravel-fest/wollombi-gravel-fest-video-3.jpg",
+        "alt": "First-person view from gravel bike handlebars showing dirt road through eucalyptus forest with cycling computer displaying speed - Wollombi Gravel Fest - Wollombi Valley, New South Wales",
+        "credit": "YouTube / ridemedia",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel road",
+          "eucalyptus forest",
+          "cycling computer",
+          "first-person view",
+          "dirt road"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "wollombi-gravel-fest-preview.gif",
+        "url": "/race-photos/wollombi-gravel-fest/wollombi-gravel-fest-preview.gif",
+        "alt": "Course preview from Wollombi Gravel Fest race footage",
+        "credit": "YouTube / ridemedia",
+        "gif": true
+      }
+    ]
   }
 }

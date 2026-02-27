@@ -575,7 +575,130 @@
           "category": "race_atmosphere",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [],
+        "terrain_notes": [
+          {
+            "text": "The Berryman Trail is described as 'really rocky' terrain that makes for challenging riding conditions.",
+            "source_video_ids": [
+              "0Z2jJU-YxWs"
+            ]
+          },
+          {
+            "text": "The trail features brutal climbs even on road shortcuts back to base areas.",
+            "source_video_ids": [
+              "0Z2jJU-YxWs"
+            ]
+          },
+          {
+            "text": "Creek crossings can be challenging when water levels are high.",
+            "source_video_ids": [
+              "0Z2jJU-YxWs"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "Riders should consider proper glove selection - one rider regretted their glove choice on the rocky terrain.",
+            "source_video_ids": [
+              "0Z2jJU-YxWs"
+            ]
+          }
+        ],
+        "race_day_tips": [
+          {
+            "text": "Plan extra time for the journey - the 16 mile section from Berryman campground to Brazil Creek took longer than expected.",
+            "source_video_ids": [
+              "0Z2jJU-YxWs"
+            ]
+          },
+          {
+            "text": "Consider stashing a cooler at Brazil Creek (16 miles in) for refueling during longer rides.",
+            "source_video_ids": [
+              "0Z2jJU-YxWs"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "Berryman is one of the premier trails in the state of Missouri",
+            "source_video_id": "0Z2jJU-YxWs",
+            "source_channel": "BLT Biking",
+            "source_view_count": 1266,
+            "category": "community",
+            "curated": true
+          },
+          {
+            "text": "50 mile training it is tough, really really tough",
+            "source_video_id": "CsXAvDIu14w",
+            "source_channel": "WXRose",
+            "source_view_count": 169,
+            "category": "training",
+            "curated": true
+          }
+        ],
+        "search_text": "The Berryman Trail in Missouri is described by riders as one of the premier trails in the state, featuring challenging rocky terrain that demands proper preparation. The trail includes a 16-mile section from Berryman campground to Brazil Creek that typically takes longer than expected, with riders noting the need for extra time planning. Key challenges include brutal climbs even on road shortcuts, potentially high creek crossings, and technical rocky surfaces that affect gear choices like gloves. The terrain is described as really rocky and demanding. Riders recommend strategic refueling at Brazil Creek campground around the 16-mile mark. The trail offers beautiful fall riding conditions and scenic descents, though technical skill is required for safe navigation. Training for longer distances on this trail is noted as particularly tough and demanding."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "berryman-epic-video-1.jpg",
+        "url": "/race-photos/berryman-epic/berryman-epic-video-1.jpg",
+        "alt": "Mountain biker navigating autumn forest trail with fallen leaves and bare trees during Berryman Epic race - Potosi, Missouri",
+        "credit": "YouTube / BLT Biking",
+        "primary": true,
+        "ai_relevance": 3,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "autumn trail",
+          "forest singletrack",
+          "fallen leaves",
+          "mountain biking"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "berryman-epic-video-2.jpg",
+        "url": "/race-photos/berryman-epic/berryman-epic-video-2.jpg",
+        "alt": "First-person view of cyclist riding through wooded trail with autumn foliage and leaf-covered ground - Berryman Epic - Potosi, Missouri",
+        "credit": "YouTube / BLT Biking",
+        "primary": false,
+        "ai_relevance": 3,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "wooded trail",
+          "autumn cycling",
+          "leaf-covered path",
+          "forest riding"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "berryman-epic-video-3.jpg",
+        "url": "/race-photos/berryman-epic/berryman-epic-video-3.jpg",
+        "alt": "Blurred action shot of mountain biker descending through green forest trail with dense vegetation - Berryman Epic - Potosi, Missouri",
+        "credit": "YouTube / BLT Biking",
+        "primary": false,
+        "ai_relevance": 3,
+        "ai_quality": 2,
+        "ai_keywords": [
+          "forest descent",
+          "green trail",
+          "dense woods",
+          "mountain bike action"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "berryman-epic-preview.gif",
+        "url": "/race-photos/berryman-epic/berryman-epic-preview.gif",
+        "alt": "Course preview from Berryman Epic race footage",
+        "credit": "YouTube / BLT Biking",
+        "gif": true
+      }
+    ]
   }
 }

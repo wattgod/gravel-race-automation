@@ -594,7 +594,164 @@
           "category": "course_difficulty",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "First dirt section",
+            "mile_marker": "7",
+            "description": "Things start to go nuts with people all over the place and it's pretty hectic. Race really starts to split up here.",
+            "source_video_ids": [
+              "O9TVj5ExuRc"
+            ]
+          },
+          {
+            "name": "Chunky section before I-26 underpass",
+            "mile_marker": "",
+            "description": "Really blown out old road bed section that wakes you up and is pretty chunky.",
+            "source_video_ids": [
+              "BEsKd7iG6W8"
+            ]
+          },
+          {
+            "name": "Indian Creek Road transition",
+            "mile_marker": "7",
+            "description": "First pavement section almost seven miles in, but the pavement is really rough which makes riding a gravel bike feel worthwhile.",
+            "source_video_ids": [
+              "BEsKd7iG6W8"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Pretty chunky sections with blown out old road bed that really wakes you up.",
+            "source_video_ids": [
+              "BEsKd7iG6W8"
+            ]
+          },
+          {
+            "text": "Even the pavement sections are really rough, making a gravel bike feel necessary rather than wasteful.",
+            "source_video_ids": [
+              "BEsKd7iG6W8"
+            ]
+          },
+          {
+            "text": "Some gravel sections are smoother than others - varies throughout the course.",
+            "source_video_ids": [
+              "BEsKd7iG6W8"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "Running Gravel King pan racer tires, the slicks in 38mm width at 50 PSI front and 52 PSI rear for the 50% gravel, 50% road mix.",
+            "source_video_ids": [
+              "O9TVj5ExuRc"
+            ]
+          }
+        ],
+        "race_day_tips": [
+          {
+            "text": "The race goes fast right from the start - expect people to go up the road within the first two miles.",
+            "source_video_ids": [
+              "O9TVj5ExuRc"
+            ]
+          },
+          {
+            "text": "Consider moving to the front before the first dirt section at mile 7 because things get sketchy with the big mass start when everyone hits the dirt.",
+            "source_video_ids": [
+              "O9TVj5ExuRc"
+            ]
+          },
+          {
+            "text": "It's been pretty dry conditions, so slick tires can work well if you want extra traction on the road sections.",
+            "source_video_ids": [
+              "O9TVj5ExuRc"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "This place is packed, absolutely insane. Kind of gives you that sense of hope that there's gonna be something post-covid.",
+            "source_video_id": "O9TVj5ExuRc",
+            "source_channel": "John Croom",
+            "source_view_count": 1952,
+            "category": "race_atmosphere",
+            "curated": true
+          },
+          {
+            "text": "Really nice ride so far, I think only two cars passed me, it's been pretty quiet on these back roads.",
+            "source_video_id": "BEsKd7iG6W8",
+            "source_channel": "FKT",
+            "source_view_count": 521,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "The Gravel Battle of Sumter Forest features a 50% gravel, 50% road mix with varied terrain conditions. Riders describe the course as having chunky, blown-out sections especially before the I-26 underpass, while other gravel portions are smoother. Even the pavement sections are notably rough, making gravel bikes essential. The first major challenge comes at mile 7 with the first dirt section where the large mass start creates hectic conditions and the field begins splitting up. Early race pace is fast with attacks starting within the first two miles. The course features quiet back roads with minimal car traffic, crossing under I-26 twice and including sections on the Palmetto Trail. Riders recommend 38mm slick tires around 50-52 PSI for the mixed surface conditions. The race atmosphere is described as packed and exciting, representing a return to racing post-pandemic with strong community spirit typical of gravel events."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "gravel-battle-of-sumter-forest-video-1.jpg",
+        "url": "/race-photos/gravel-battle-of-sumter-forest/gravel-battle-of-sumter-forest-video-1.jpg",
+        "alt": "Cyclists racing on paved forest road through dense green woodland with power meter data overlay showing heart rate and speed metrics - Gravel Battle of Sumter Forest - Whitmire, South Carolina",
+        "credit": "YouTube / Alex Runge",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "forest road",
+          "cycling data",
+          "woodland racing",
+          "paved section",
+          "power metrics"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "gravel-battle-of-sumter-forest-video-2.jpg",
+        "url": "/race-photos/gravel-battle-of-sumter-forest/gravel-battle-of-sumter-forest-video-2.jpg",
+        "alt": "Gravel cyclists on dirt road through southern pine forest with performance data showing 297 watts and 92 rpm cadence - Gravel Battle of Sumter Forest - Whitmire, South Carolina",
+        "credit": "YouTube / Alex Runge",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "dirt road",
+          "pine forest",
+          "gravel racing",
+          "southern terrain",
+          "cycling metrics"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "gravel-battle-of-sumter-forest-video-3.jpg",
+        "url": "/race-photos/gravel-battle-of-sumter-forest/gravel-battle-of-sumter-forest-video-3.jpg",
+        "alt": "Cyclists navigating muddy dirt section through rolling farmland with power lines and mixed deciduous forest in background - Gravel Battle of Sumter Forest - Whitmire, South Carolina",
+        "credit": "YouTube / Alex Runge",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "muddy terrain",
+          "farmland",
+          "dirt roads",
+          "rolling hills",
+          "rural cycling"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "gravel-battle-of-sumter-forest-preview.gif",
+        "url": "/race-photos/gravel-battle-of-sumter-forest/gravel-battle-of-sumter-forest-preview.gif",
+        "alt": "Course preview from Gravel Battle Of Sumter Forest race footage",
+        "credit": "YouTube / Alex Runge",
+        "gif": true
+      }
+    ]
   }
 }

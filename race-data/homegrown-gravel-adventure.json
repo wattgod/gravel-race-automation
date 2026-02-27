@@ -568,7 +568,139 @@
           "category": "course_difficulty",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Early breakaway formation",
+            "mile_marker": "15-20",
+            "description": "The race broke up super early with a breakaway forming at mile 15-20, making it crucial to be positioned well from the start.",
+            "source_video_ids": [
+              "kq-xhCEbxxE"
+            ]
+          },
+          {
+            "name": "Bottleneck section",
+            "mile_marker": "",
+            "description": "There's a bottleneck area that can cause riders to dangle off the peloton if not positioned properly.",
+            "source_video_ids": [
+              "_SFjl8aD2vg"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "The course is mostly gravel roads with some chunky, gnarly stuff on descents where you need both hands on the bars. Riders describe typical Alabama and Georgia gravel roads.",
+            "source_video_ids": [
+              "kq-xhCEbxxE"
+            ]
+          },
+          {
+            "text": "Mixed surface riding with paved sections interspersed throughout the gravel sections.",
+            "source_video_ids": [
+              "kq-xhCEbxxE",
+              "_SFjl8aD2vg"
+            ]
+          }
+        ],
+        "gear_mentions": [],
+        "race_day_tips": [
+          {
+            "text": "Be prepared for cold starts - it was 27 degrees Fahrenheit at race start, so layering with leg warmers or full-length tights is important.",
+            "source_video_ids": [
+              "kq-xhCEbxxE"
+            ]
+          },
+          {
+            "text": "Position yourself well early as the race breaks up around mile 15-20 and you don't want to get caught behind the bottleneck.",
+            "source_video_ids": [
+              "kq-xhCEbxxE",
+              "_SFjl8aD2vg"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "This event is hosted by longstanding cycling promoter Mr Wayne Whitesides and takes riders from Georgia crossing the border into Alabama and back again.",
+            "source_video_id": "1PFe_j8Dq_Q",
+            "source_channel": "Gravel Cyclist",
+            "source_view_count": 4701,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "I like races without a lot of climbing and this was the one for me.",
+            "source_video_id": "_SFjl8aD2vg",
+            "source_channel": "Ali Whittier",
+            "source_view_count": 550,
+            "category": "course_difficulty",
+            "curated": true
+          }
+        ],
+        "search_text": "Homegrown Gravel Adventure in Franklin, Georgia is a mixed-surface race hosted by Wayne Whitesides that takes riders from Georgia into Alabama and back. The 100-mile course is mostly gravel roads with some paved sections, featuring chunky and gnarly descents typical of Alabama and Georgia terrain. The race starts cold with temperatures around 27 degrees Fahrenheit, requiring proper layering. A key challenge occurs early when the race breaks up around mile 15-20 with breakaway formation, and there's a bottleneck section that can separate riders from the main group. Riders describe it as having minimal climbing, making it appealing for those who prefer flatter gravel courses. The event offers multiple distance options including 62-mile and 100-mile routes, with the longer distance crossing state borders for added adventure."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "homegrown-gravel-adventure-video-1.jpg",
+        "url": "/race-photos/homegrown-gravel-adventure/homegrown-gravel-adventure-video-1.jpg",
+        "alt": "Cyclist riding on dirt forest road with tall trees on both sides showing heart rate and power data overlay - Homegrown Gravel Adventure - Franklin, Georgia",
+        "credit": "YouTube / Michael Lambert",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "dirt road",
+          "forest cycling",
+          "gravel racing",
+          "wooded trail",
+          "cycling metrics"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "homegrown-gravel-adventure-video-2.jpg",
+        "url": "/race-photos/homegrown-gravel-adventure/homegrown-gravel-adventure-video-2.jpg",
+        "alt": "Two cyclists riding together on paved forest road with dense trees and natural lighting - Homegrown Gravel Adventure - Franklin, Georgia",
+        "credit": "YouTube / Michael Lambert",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "forest road",
+          "cycling duo",
+          "wooded terrain",
+          "gravel adventure",
+          "tree-lined route"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "homegrown-gravel-adventure-video-3.jpg",
+        "url": "/race-photos/homegrown-gravel-adventure/homegrown-gravel-adventure-video-3.jpg",
+        "alt": "Cyclist approaching bridge on paved road with guardrails under blue sky and white clouds with performance data displayed - Homegrown Gravel Adventure - Franklin, Georgia",
+        "credit": "YouTube / Michael Lambert",
+        "primary": false,
+        "ai_relevance": 4,
+        "ai_quality": 5,
+        "ai_keywords": [
+          "bridge approach",
+          "paved road",
+          "guardrails",
+          "blue sky",
+          "cycling metrics"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "homegrown-gravel-adventure-preview.gif",
+        "url": "/race-photos/homegrown-gravel-adventure/homegrown-gravel-adventure-preview.gif",
+        "alt": "Course preview from Homegrown Gravel Adventure race footage",
+        "credit": "YouTube / Michael Lambert",
+        "gif": true
+      }
+    ]
   }
 }

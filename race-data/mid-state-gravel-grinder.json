@@ -595,7 +595,113 @@
           "category": "race_atmosphere",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Five mile drag",
+            "description": "A long gradual climb that's only a thousand feet over five miles, described as like a false flat forever.",
+            "source_video_ids": [
+              "rlcmtPaW9w8"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "The roads are described as fantastic with trails that are really nice.",
+            "source_video_ids": [
+              "PUl9gxsnuJg"
+            ]
+          }
+        ],
+        "gear_mentions": [],
+        "race_day_tips": [
+          {
+            "text": "The first 20 miles can be fast with big groups doing 20 to 24 miles per hour with lots of drafting and tactical racing.",
+            "source_video_ids": [
+              "rlcmtPaW9w8"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "I just think these gravel camping events are so awesome and this is no different like like we race hard when from start to finish but like once we cross the line like the vibe totally changes and it's just hanging out around the campsite playing guitar on the campfire having s'mores and stuff and just having fun with your friends so I think that's what sets these events apart",
+            "source_video_id": "PUl9gxsnuJg",
+            "source_channel": "DirtWireTV",
+            "source_view_count": 840,
+            "category": "community",
+            "curated": true
+          },
+          {
+            "text": "The camaraderie is really really cool everybody's out there her and but you're getting a good group and everybody's working together once you know to get to the finish and you know it's just everybody's enjoying enjoying the weekend together",
+            "source_video_id": "PUl9gxsnuJg",
+            "source_channel": "DirtWireTV",
+            "source_view_count": 840,
+            "category": "community",
+            "curated": true
+          }
+        ],
+        "search_text": "The Mid-State Gravel Grinder features fantastic roads and nice trails through Pennsylvania terrain. Riders describe a key challenge as a five-mile drag that climbs only 1000 feet over five miles, feeling like a false flat forever. The race can start fast with large groups maintaining 20-24 mph for the first 20 miles, involving tactical racing and drafting. Weather conditions are typically excellent. The event emphasizes community with camping, campfires, guitar playing, and s'mores after racing. Riders praise the camaraderie and group dynamics, with many forming lasting friendships. The multi-day format creates strong bonds between participants who work together throughout the race. Many riders describe it as an immersive gravel experience they want to repeat."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "mid-state-gravel-grinder-video-1.jpg",
+        "url": "/race-photos/mid-state-gravel-grinder/mid-state-gravel-grinder-video-1.jpg",
+        "alt": "Person holding disc golf disc at outdoor recreational facility with camping area and trees in background - Mid-State Gravel Grinder - Central Pennsylvania",
+        "credit": "YouTube / Kerry Werner",
+        "primary": true,
+        "ai_relevance": 2,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "disc golf",
+          "camping",
+          "recreational facility",
+          "outdoor activity"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "mid-state-gravel-grinder-video-2.jpg",
+        "url": "/race-photos/mid-state-gravel-grinder/mid-state-gravel-grinder-video-2.jpg",
+        "alt": "Person in black hoodie inside RV or camper with outdoor camping area visible through doorway - Mid-State Gravel Grinder - Central Pennsylvania",
+        "credit": "YouTube / Kerry Werner",
+        "primary": false,
+        "ai_relevance": 1,
+        "ai_quality": 2,
+        "ai_keywords": [
+          "RV camping",
+          "camper interior",
+          "outdoor camping",
+          "recreational vehicle"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "mid-state-gravel-grinder-video-3.jpg",
+        "url": "/race-photos/mid-state-gravel-grinder/mid-state-gravel-grinder-video-3.jpg",
+        "alt": "Person in black beanie and hoodie being interviewed indoors with BikeFlights shipping boxes in background - Mid-State Gravel Grinder - Central Pennsylvania",
+        "credit": "YouTube / Kerry Werner",
+        "primary": false,
+        "ai_relevance": 1,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "BikeFlights",
+          "indoor interview",
+          "bike shipping",
+          "cycling industry"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "mid-state-gravel-grinder-preview.gif",
+        "url": "/race-photos/mid-state-gravel-grinder/mid-state-gravel-grinder-preview.gif",
+        "alt": "Course preview from Mid State Gravel Grinder race footage",
+        "credit": "YouTube / Kerry Werner",
+        "gif": true
+      }
+    ]
   }
 }

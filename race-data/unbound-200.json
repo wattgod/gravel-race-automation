@@ -752,6 +752,96 @@
           "curated": true
         }
       ]
-    }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "unbound-200-video-1.jpg",
+        "url": "/race-photos/unbound-200/unbound-200-video-1.jpg",
+        "alt": "First-person view of cyclist on gravel road through Kansas prairie with rolling hills and green vegetation - Unbound Gravel 200 - Emporia, Kansas",
+        "credit": "YouTube / Goettl Media",
+        "primary": true,
+        "ai_relevance": 4,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "gravel road",
+          "Kansas prairie",
+          "first-person view",
+          "rolling hills"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "unbound-200-video-2.jpg",
+        "url": "/race-photos/unbound-200/unbound-200-video-2.jpg",
+        "alt": "Two cyclists racing on rough gravel path through Kansas countryside with green fields and cloudy skies - Unbound Gravel 200 - Emporia, Kansas",
+        "credit": "YouTube / Goettl Media",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel racing",
+          "Kansas countryside",
+          "rough terrain",
+          "peloton"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "unbound-200-video-3.jpg",
+        "url": "/race-photos/unbound-200/unbound-200-video-3.jpg",
+        "alt": "Close-up of gravel bike drivetrain and wheel on rocky gravel surface showing race equipment details - Unbound Gravel 200 - Emporia, Kansas",
+        "credit": "YouTube / Goettl Media",
+        "primary": false,
+        "ai_relevance": 3,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel bike",
+          "drivetrain",
+          "rocky surface",
+          "bike equipment"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "unbound-200-preview.gif",
+        "url": "/race-photos/unbound-200/unbound-200-preview.gif",
+        "alt": "Course preview from Unbound 200 race footage",
+        "credit": "YouTube / Goettl Media",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "unbound-200-preview-2.gif",
+        "url": "/race-photos/unbound-200/unbound-200-preview-2.gif",
+        "alt": "Course preview from Unbound 200 race footage",
+        "credit": "YouTube / Goettl Media",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "unbound-200-preview-3.gif",
+        "url": "/race-photos/unbound-200/unbound-200-preview-3.gif",
+        "alt": "Course preview from Unbound 200 race footage",
+        "credit": "YouTube / Goettl Media",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "unbound-200-preview-4.gif",
+        "url": "/race-photos/unbound-200/unbound-200-preview-4.gif",
+        "alt": "Course preview from Unbound 200 race footage",
+        "credit": "YouTube / Goettl Media",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "unbound-200-preview-5.gif",
+        "url": "/race-photos/unbound-200/unbound-200-preview-5.gif",
+        "alt": "Course preview from Unbound 200 race footage",
+        "credit": "YouTube / Goettl Media",
+        "gif": true
+      }
+    ]
   }
 }

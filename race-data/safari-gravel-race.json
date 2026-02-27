@@ -524,7 +524,180 @@
           "category": "course_difficulty",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Game Reserve Wildlife Crossings",
+            "description": "Wild animals like zebras, impala, giraffe, and buffalo sometimes run across the road during the game reserve sections.",
+            "source_video_ids": [
+              "Xnjq3IX_qkY"
+            ]
+          },
+          {
+            "name": "Steep Climbs with Technical Issues",
+            "mile_marker": "60",
+            "description": "Steep climbs that riders may have to walk parts of, especially if experiencing mechanical issues.",
+            "source_video_ids": [
+              "Xnjq3IX_qkY"
+            ]
+          },
+          {
+            "name": "Descents with Hazards",
+            "description": "Descents have pretty big holes, gullies and ruts, plus livestock on the road including cows.",
+            "source_video_ids": [
+              "Xnjq3IX_qkY"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "The road is rough and bumpy terrain can dislodge cables from batteries on electronic shifting systems.",
+            "source_video_ids": [
+              "Xnjq3IX_qkY"
+            ]
+          },
+          {
+            "text": "Course gets dusty as the race progresses, particularly around 30km into the race.",
+            "source_video_ids": [
+              "Xnjq3IX_qkY"
+            ]
+          },
+          {
+            "text": "Expect every person, animal, motorbike and car to be on the wrong side of the road around every blind corner.",
+            "source_video_ids": [
+              "Xnjq3IX_qkY"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "If you've never ridden in Kenya before, take a few percent off on your descending skills due to the rough conditions.",
+            "source_video_ids": [
+              "Xnjq3IX_qkY"
+            ]
+          },
+          {
+            "text": "Electronic shifting systems are vulnerable to the bumpy terrain - cables can become dislodged from batteries.",
+            "source_video_ids": [
+              "Xnjq3IX_qkY"
+            ]
+          }
+        ],
+        "race_day_tips": [
+          {
+            "text": "Drink as often as you can - it gets very hot by mid-race and you're at altitude. If you run out of water and there's no water stops, there are little shops on the course.",
+            "source_video_ids": [
+              "Xnjq3IX_qkY"
+            ]
+          },
+          {
+            "text": "Morning starts cool but gets very warm during the middle of the race.",
+            "source_video_ids": [
+              "Xnjq3IX_qkY"
+            ]
+          },
+          {
+            "text": "If you expect there to be a car going the wrong way around every blind corner, you will be okay.",
+            "source_video_ids": [
+              "Xnjq3IX_qkY"
+            ]
+          },
+          {
+            "text": "The feed station serves delicious, sweet watermelon that you don't get in the UK.",
+            "source_video_ids": [
+              "Xnjq3IX_qkY"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "We had a 10-hour journey in the bus to get to Naivasha - it was a heinous journey but we got to see giraffes which was a bonus.",
+            "source_video_id": "VsFDv9BBx8M",
+            "source_channel": "vc letsgetit",
+            "source_view_count": 11095,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "This is better than some of the UCI races in Europe - it's a proper setup with so many people here, it's so hopeful for the scene.",
+            "source_video_id": "VsFDv9BBx8M",
+            "source_channel": "vc letsgetit",
+            "source_view_count": 11095,
+            "category": "community",
+            "curated": true
+          },
+          {
+            "text": "As they say in Swahili, pole pole - slowly slowly. Not a bad day for a walk through Hell's Gate National Park.",
+            "source_video_id": "Xnjq3IX_qkY",
+            "source_channel": "Josh Reid",
+            "source_view_count": 3290,
+            "category": "community",
+            "curated": true
+          }
+        ],
+        "search_text": "The Safari Gravel Race in Kenya's Hell's Gate National Park presents unique challenges for gravel riders. The course runs through a game reserve where wild animals like zebras, impala, giraffe and buffalo cross the road unexpectedly. Riders must navigate rough, bumpy terrain with big holes, gullies and ruts on descents, plus livestock including cows on the road. The race starts cool in the morning but becomes very hot by midday, with altitude adding difficulty. Water stops are supplemented by small shops along the course. Traffic and animals frequently travel on the wrong side of the road around blind corners. The bumpy conditions can cause mechanical issues with electronic shifting systems. Despite technical challenges, riders praise the professional race organization and vibrant local cycling community. The course features steep climbs that some riders walk, followed by long descents to the finish. Dust becomes an issue around 30km into the race. The setting in Hell's Gate National Park, where Lion King was based, provides stunning Great Rift Valley scenery."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "safari-gravel-race-video-1.jpg",
+        "url": "/race-photos/safari-gravel-race/safari-gravel-race-video-1.jpg",
+        "alt": "Motorcycle support rider in high-visibility vest on dirt road talking to person in beige clothing during gravel race - Safari Gravel Race - Kenya",
+        "credit": "YouTube / Josh Reid",
+        "primary": true,
+        "ai_relevance": 2,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "dirt road",
+          "motorcycle support",
+          "race official",
+          "African landscape"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "safari-gravel-race-video-2.jpg",
+        "url": "/race-photos/safari-gravel-race/safari-gravel-race-video-2.jpg",
+        "alt": "Two cyclists racing side by side on grass finish area with colorful sponsor banners at gravel cycling event - Safari Gravel Race - Kenya",
+        "credit": "YouTube / Josh Reid",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "sprint finish",
+          "grass terrain",
+          "gravel race",
+          "sponsor banners",
+          "cycling competition"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "safari-gravel-race-video-3.jpg",
+        "url": "/race-photos/safari-gravel-race/safari-gravel-race-video-3.jpg",
+        "alt": "Race announcer speaking at covered podium area with Migration Gravel Race banner and microphone setup - Safari Gravel Race - Kenya",
+        "credit": "YouTube / Josh Reid",
+        "primary": false,
+        "ai_relevance": 3,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "Migration Gravel Race",
+          "race announcer",
+          "podium ceremony",
+          "cycling event"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "safari-gravel-race-preview.gif",
+        "url": "/race-photos/safari-gravel-race/safari-gravel-race-preview.gif",
+        "alt": "Course preview from Safari Gravel Race race footage",
+        "credit": "YouTube / Josh Reid",
+        "gif": true
+      }
+    ]
   }
 }

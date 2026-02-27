@@ -606,7 +606,144 @@
           "category": "race_atmosphere",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Wickets Hill",
+            "mile_marker": "",
+            "description": "The only real major climb in this course, located at the start of the main loop. It's an early attack point where stronger riders make moves.",
+            "source_video_ids": [
+              "4CH4ndrfLx4"
+            ]
+          },
+          {
+            "name": "Creek Crossing",
+            "mile_marker": "",
+            "description": "A creek crossing about 500 meters into the gravel section where riders need to pick their line through the water.",
+            "source_video_ids": [
+              "4CH4ndrfLx4"
+            ]
+          },
+          {
+            "name": "Bridge Crossing",
+            "mile_marker": "",
+            "description": "A really sketchy bridge crossing that narrows significantly, creating a pinch point as riders enter the main loop.",
+            "source_video_ids": [
+              "4CH4ndrfLx4"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Course features big muddy puddles that riders can get caught in if not positioned well.",
+            "source_video_ids": [
+              "4CH4ndrfLx4"
+            ]
+          },
+          {
+            "text": "Mix of on and off tarmac before settling into gravel sections for the main loop.",
+            "source_video_ids": [
+              "4CH4ndrfLx4"
+            ]
+          }
+        ],
+        "gear_mentions": [],
+        "race_day_tips": [
+          {
+            "text": "Stay towards the front of the group at the start so you're rolling with those faster wheels and have a good chance of actually sticking with them throughout the day.",
+            "source_video_ids": [
+              "4CH4ndrfLx4"
+            ]
+          },
+          {
+            "text": "Get a good position early because there's a creek crossing about 500 meters into the gravel section where you want to pick your line.",
+            "source_video_ids": [
+              "4CH4ndrfLx4"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "Welcome to Sunny Seymour this small farming Town hosted gravista 2024 at the race course",
+            "source_video_id": "4CH4ndrfLx4",
+            "source_channel": "Long and Winding",
+            "source_view_count": 4908,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "The course started at Seymour Race Course headed out over wickets Hill which is the only real major climb in this course and then it did a big loop the 136k Riders did it twice and the 95k Riders did it once then it headed back down to Seymour race course",
+            "source_video_id": "4CH4ndrfLx4",
+            "source_channel": "Long and Winding",
+            "source_view_count": 4908,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "Gravelista takes place in the small farming town of Seymour, Victoria, starting and finishing at Seymour Race Course. The course features one major climb called Wickets Hill, located at the start of the main loop. The 136k riders complete the loop twice while 95k riders do it once. Key challenges include a creek crossing 500 meters into the gravel section where line choice matters, and a sketchy bridge crossing that narrows significantly as riders enter the main loop. The terrain mixes tarmac and gravel with big muddy puddles that can catch riders off guard. Early positioning is crucial as stronger riders make moves on Wickets Hill. The race starts neutralized on tarmac before hitting gravel where attacks begin. The course offers stunning scenery through farming countryside. Elite competition is fierce with the 2024 men's race decided by just 3 seconds between defending champion Brendan Johnston and Mark O'Brien."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "gravelista-video-1.jpg",
+        "url": "/race-photos/gravelista/gravelista-video-1.jpg",
+        "alt": "Medical personnel attending to an injured cyclist at race support station with medical equipment and high-visibility safety vest - Gravelista - Victoria, Australia",
+        "credit": "YouTube / Long and Winding",
+        "primary": true,
+        "ai_relevance": 2,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "medical support",
+          "race safety",
+          "cycling injury",
+          "support station"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "gravelista-video-2.jpg",
+        "url": "/race-photos/gravelista/gravelista-video-2.jpg",
+        "alt": "Group of cyclists riding mountain bikes on dusty dirt road through Australian bush terrain with eucalyptus trees - Gravelista - Victoria, Australia",
+        "credit": "YouTube / Long and Winding",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "dirt road",
+          "mountain biking",
+          "Australian bush",
+          "eucalyptus trees",
+          "gravel racing"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "gravelista-video-3.jpg",
+        "url": "/race-photos/gravelista/gravelista-video-3.jpg",
+        "alt": "Fast-moving perspective shot of gravel road surface through wooded area with dappled sunlight and tire tracks - Gravelista - Victoria, Australia",
+        "credit": "YouTube / Long and Winding",
+        "primary": false,
+        "ai_relevance": 4,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "gravel road",
+          "wooded trail",
+          "tire tracks",
+          "forest path",
+          "POV racing"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "gravelista-preview.gif",
+        "url": "/race-photos/gravelista/gravelista-preview.gif",
+        "alt": "Course preview from Gravelista race footage",
+        "credit": "YouTube / Long and Winding",
+        "gif": true
+      }
+    ]
   }
 }

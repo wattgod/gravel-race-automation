@@ -624,7 +624,179 @@
           "category": "course_difficulty",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "forest sections",
+            "description": "First sections where the woods are slow real slow according to riders",
+            "source_video_ids": [
+              "oxA7jRErMSM"
+            ]
+          },
+          {
+            "name": "challenging descents",
+            "description": "More challenging descents where suspension helps take out some of the rough edges",
+            "source_video_ids": [
+              "F6PQ3ZXNgGg"
+            ]
+          },
+          {
+            "name": "tougher climbs",
+            "description": "Tough climbs that require extra gears, with riders mentioning the need for a 52-tooth cassette for additional gearing",
+            "source_video_ids": [
+              "F6PQ3ZXNgGg"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Champagne gravel is present on sections of the course, described as one of the surface types riders encounter during the race week",
+            "source_video_ids": [
+              "oxA7jRErMSM"
+            ]
+          },
+          {
+            "text": "Course has rough edges on descents that benefit from suspension to smooth out the ride",
+            "source_video_ids": [
+              "F6PQ3ZXNgGg"
+            ]
+          },
+          {
+            "text": "Mix of forest sections and gravel roads, with forest areas being notably slow",
+            "source_video_ids": [
+              "oxA7jRErMSM"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "47mm tires run at 30 PSI on 650B rims for wider tire clearance",
+            "source_video_ids": [
+              "F6PQ3ZXNgGg"
+            ]
+          },
+          {
+            "text": "10-52 tooth cassette recommended for extra gears on tougher climbs",
+            "source_video_ids": [
+              "F6PQ3ZXNgGg"
+            ]
+          },
+          {
+            "text": "Specialized Diverge with Future Shock suspension is quite handy for sections where having a little bit of suspension is nice",
+            "source_video_ids": [
+              "F6PQ3ZXNgGg"
+            ]
+          },
+          {
+            "text": "Electronic shifting recommended for longer days as it provides easy feather touch shifting that's more enjoyable",
+            "source_video_ids": [
+              "F6PQ3ZXNgGg"
+            ]
+          }
+        ],
+        "race_day_tips": [
+          {
+            "text": "Load all routes onto Garmin GPS device to avoid navigation difficulties on course",
+            "source_video_ids": [
+              "F6PQ3ZXNgGg"
+            ]
+          },
+          {
+            "text": "Always tether your GoPro as lesson learned from equipment flying off during the race",
+            "source_video_ids": [
+              "oxA7jRErMSM"
+            ]
+          },
+          {
+            "text": "Expect slow days in forest sections and plan accordingly rather than focusing on placement",
+            "source_video_ids": [
+              "oxA7jRErMSM"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "I've kind of given up the idea of place half de just enjoying the ride",
+            "source_video_id": "oxA7jRErMSM",
+            "source_channel": "Life Without Number",
+            "source_view_count": 220,
+            "category": "community",
+            "curated": true
+          },
+          {
+            "text": "Not long after that last shot was taken the GoPro left its noisy Mount and went flying almost slow motion like over my shoulder into the bushes at the side of the trail",
+            "source_video_id": "oxA7jRErMSM",
+            "source_channel": "Life Without Number",
+            "source_view_count": 220,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "The TransRockies Gravel Royale features challenging terrain with forest sections that are notably slow, mixed with gravel roads and champagne gravel surfaces. Riders encounter tough climbs requiring wide-range gearing like 10-52 tooth cassettes, plus challenging descents where suspension helps smooth rough edges. The course demands 47mm tires at 30 PSI for optimal performance. Forest sections significantly slow pace, making it a demanding day for riders. Electronic shifting proves beneficial on longer stages. Navigation requires GPS with preloaded routes. The race tests equipment durability with potential for damage. Riders emphasize enjoying the experience over placement given the technical challenges. Mixed terrain includes everything from smooth gravel to rough forest trails requiring versatile bike setups."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "transrockies-gravel-royale-video-1.jpg",
+        "url": "/race-photos/transrockies-gravel-royale/transrockies-gravel-royale-video-1.jpg",
+        "alt": "Cyclist with race number 625.2 navigating through dense forest on single track gravel trail with fallen logs and lush vegetation - TransRockies Gravel Royale - British Columbia, Canada",
+        "credit": "YouTube / PIQUE PICTURES",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "forest trail",
+          "race number",
+          "single track",
+          "gravel racing",
+          "mountain biking"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "transrockies-gravel-royale-video-2.jpg",
+        "url": "/race-photos/transrockies-gravel-royale/transrockies-gravel-royale-video-2.jpg",
+        "alt": "Wide gravel road stretching through dense coniferous forest with mountains visible in the distance creating perfect gravel racing conditions - TransRockies Gravel Royale - British Columbia, Canada",
+        "credit": "YouTube / PIQUE PICTURES",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel road",
+          "forest corridor",
+          "mountain vista",
+          "dirt road",
+          "gravel racing"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "transrockies-gravel-royale-video-3.jpg",
+        "url": "/race-photos/transrockies-gravel-royale/transrockies-gravel-royale-video-3.jpg",
+        "alt": "Close-up view of mountain bike tire and wheel on grassy terrain with forested hills and mountains in the background - TransRockies Gravel Royale - British Columbia, Canada",
+        "credit": "YouTube / PIQUE PICTURES",
+        "primary": false,
+        "ai_relevance": 4,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "bike tire",
+          "mountain landscape",
+          "grassy terrain",
+          "cycling equipment",
+          "forest hills"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "transrockies-gravel-royale-preview.gif",
+        "url": "/race-photos/transrockies-gravel-royale/transrockies-gravel-royale-preview.gif",
+        "alt": "Course preview from Transrockies Gravel Royale race footage",
+        "credit": "YouTube / PIQUE PICTURES",
+        "gif": true
+      }
+    ]
   }
 }

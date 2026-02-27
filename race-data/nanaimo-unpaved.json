@@ -534,7 +534,135 @@
           "category": "race_atmosphere",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "creek crossing",
+            "description": "Riders drop down into a creek area after hanging a right - mentioned in pre-race briefing as a notable feature to watch for.",
+            "source_video_ids": [
+              "tdJOMy2tGtU"
+            ]
+          },
+          {
+            "name": "opening climb",
+            "description": "Race starts with an uphill section that riders say will warm you up quickly, described as tiring and challenging right from the start.",
+            "source_video_ids": [
+              "tdJOMy2tGtU"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Course runs behind Mount Benson on gravel roads and trails. One rider commented there wasn't enough mud and hills, suggesting they wanted more challenging terrain.",
+            "source_video_ids": [
+              "tdJOMy2tGtU"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "Riders were seen on Specialized Diverge bikes, though no specific gear recommendations were given in the transcript.",
+            "source_video_ids": [
+              "tdJOMy2tGtU"
+            ]
+          }
+        ],
+        "race_day_tips": [
+          {
+            "text": "Bring electrolytes - one rider mentioned starting to feel euphoric then weird and tired after 45 minutes without them.",
+            "source_video_ids": [
+              "tdJOMy2tGtU"
+            ]
+          },
+          {
+            "text": "Dress for cold conditions - riders mentioned it being very cold in January with rain, though they noted you'll warm up on the opening climb.",
+            "source_video_ids": [
+              "tdJOMy2tGtU"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "There is a creek crossing so you guys are going to be hanging a right and dropping down into a Creek area",
+            "source_video_id": "tdJOMy2tGtU",
+            "source_channel": "Heyjude's Adventures",
+            "source_view_count": 575,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "Just because you don't think you're fast enough or good enough or whatever it's just fun to do events so you're kind of on the fence about doing an event I highly recommend it",
+            "source_video_id": "tdJOMy2tGtU",
+            "source_channel": "Heyjude's Adventures",
+            "source_view_count": 575,
+            "category": "community",
+            "curated": true
+          }
+        ],
+        "search_text": "The Nanaimo Unpaved takes place near the motocross track and Mount Benson area, featuring gravel roads and trails. The race starts with a challenging uphill section that helps riders warm up in cold January conditions. Key features include a creek crossing where riders drop down after hanging a right. The course was described as running behind Mount Benson with some riders wanting more mud and hills for additional challenge. Weather can be cold and rainy in January, making proper clothing important. Race organizers mention fire risk concerns in hot weather. The event offers multiple distance options and has a welcoming community atmosphere. Riders recommend bringing electrolytes to avoid feeling euphoric then tired after about 45 minutes. The race starts near Dumont Trails and attracts riders from across Vancouver Island including Courtenay."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "nanaimo-unpaved-video-1.jpg",
+        "url": "/race-photos/nanaimo-unpaved/nanaimo-unpaved-video-1.jpg",
+        "alt": "Group of gravel cyclists riding on dirt road through forested terrain with dust clouds visible in background during Nanaimo Unpaved race - Nanaimo, British Columbia, Canada",
+        "credit": "YouTube / AP",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel peloton",
+          "dirt road",
+          "forest terrain",
+          "dust clouds",
+          "group ride"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "nanaimo-unpaved-video-2.jpg",
+        "url": "/race-photos/nanaimo-unpaved/nanaimo-unpaved-video-2.jpg",
+        "alt": "Cyclist in red jersey climbing gravel road with mountain views and coastal landscape visible in background during Pacific Northwest gravel race - Nanaimo Unpaved - Nanaimo, British Columbia, Canada",
+        "credit": "YouTube / AP",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel climb",
+          "mountain views",
+          "Pacific Northwest",
+          "coastal landscape",
+          "red jersey"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "nanaimo-unpaved-video-3.jpg",
+        "url": "/race-photos/nanaimo-unpaved/nanaimo-unpaved-video-3.jpg",
+        "alt": "Close-up selfie of gravel cyclist wearing helmet and sunglasses in forested area during overcast conditions - Nanaimo Unpaved - Nanaimo, British Columbia, Canada",
+        "credit": "YouTube / AP",
+        "primary": false,
+        "ai_relevance": 3,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "cyclist selfie",
+          "helmet",
+          "forest background",
+          "overcast weather"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "nanaimo-unpaved-preview.gif",
+        "url": "/race-photos/nanaimo-unpaved/nanaimo-unpaved-preview.gif",
+        "alt": "Course preview from Nanaimo Unpaved race footage",
+        "credit": "YouTube / AP",
+        "gif": true
+      }
+    ]
   }
 }

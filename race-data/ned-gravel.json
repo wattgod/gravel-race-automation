@@ -576,7 +576,144 @@
           "category": "race_atmosphere",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Never-ending descent",
+            "mile_marker": "",
+            "description": "Riders describe reaching checkpoint one after a never-ending descent that challenges pacing and bike handling.",
+            "source_video_ids": [
+              "hYp0QWAWIew"
+            ]
+          },
+          {
+            "name": "Long climbing sections",
+            "mile_marker": "",
+            "description": "Multiple steep climbs that force riders to walk, with one rider mentioning it feels like two days later still climbing and describing some hills as requiring walking.",
+            "source_video_ids": [
+              "hYp0QWAWIew"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Course becomes muddy when it rains, with rain overnight and morning showers affecting conditions. The climbing is described as beautiful grade that's nice and gradual when riding together.",
+            "source_video_ids": [
+              "hYp0QWAWIew"
+            ]
+          }
+        ],
+        "gear_mentions": [],
+        "race_day_tips": [
+          {
+            "text": "Weather can change quickly - one rider finished just before rain hit and others came in looking rough from getting caught in heavy rain.",
+            "source_video_ids": [
+              "hYp0QWAWIew"
+            ]
+          },
+          {
+            "text": "Be prepared for significant elevation gain that will push your heart rate high - one rider averaged 150 bpm and felt it quite a bit throughout the ride.",
+            "source_video_ids": [
+              "hYp0QWAWIew"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "It started raining not too long after the finish so somehow made it all the way through without getting rained on which is nice the guys coming in now don't look great a lot of rain",
+            "source_video_id": "hYp0QWAWIew",
+            "source_channel": "Back of the Gravel Pack",
+            "source_view_count": 1350,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "Really fun route some really good descents hopefully i got some good footage of a lot of climbing for me elevation and climbing made for a rough day",
+            "source_video_id": "hYp0QWAWIew",
+            "source_channel": "Back of the Gravel Pack",
+            "source_view_count": 1350,
+            "category": "training",
+            "curated": true
+          }
+        ],
+        "search_text": "Ned Gravel in Nederland, Colorado features significant elevation challenges with multiple steep climbing sections that force many riders to walk. The course includes what riders describe as a never-ending descent to checkpoint one, followed by beautiful gradual grades when riding in groups, but also steeper climbs later in the route. Weather plays a major factor with overnight and morning rain creating muddy conditions. The 6000 feet of elevation gain pushes heart rates high, with one rider averaging 150 bpm throughout. Riders describe really good descents and beautiful views, but note the climbing makes for a rough day. Weather can change quickly during the event, with some riders finishing just before rain hits while others get caught in heavy downpours. Despite the challenging elevation profile, riders recommend the route for its fun descents and scenic Colorado mountain views."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "ned-gravel-video-1.jpg",
+        "url": "/race-photos/ned-gravel/ned-gravel-video-1.jpg",
+        "alt": "Cyclists gathered at gravel race start area near supermarket with rolling forested hills in background - Ned Gravel - Nederland, Colorado",
+        "credit": "YouTube / Back of the Gravel Pack",
+        "primary": true,
+        "ai_relevance": 3,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "race start",
+          "gravel cycling",
+          "forest hills",
+          "cycling event"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "ned-gravel-video-2.jpg",
+        "url": "/race-photos/ned-gravel/ned-gravel-video-2.jpg",
+        "alt": "Solo cyclist riding rough gravel road through forested terrain at high elevation showing 8580 feet and performance metrics - Ned Gravel - Nederland, Colorado",
+        "credit": "YouTube / Back of the Gravel Pack",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel road",
+          "mountain elevation",
+          "forest terrain",
+          "solo rider"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "ned-gravel-video-3.jpg",
+        "url": "/race-photos/ned-gravel/ned-gravel-video-3.jpg",
+        "alt": "Gravel cyclists riding dirt road through scenic valley with golden grasslands and mountains in distance - Ned Gravel - Nederland, Colorado",
+        "credit": "YouTube / Back of the Gravel Pack",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "dirt road",
+          "mountain valley",
+          "golden grasslands",
+          "gravel peloton"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "ned-gravel-preview.gif",
+        "url": "/race-photos/ned-gravel/ned-gravel-preview.gif",
+        "alt": "Course preview from Ned Gravel race footage",
+        "credit": "YouTube / Back of the Gravel Pack",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "ned-gravel-preview-2.gif",
+        "url": "/race-photos/ned-gravel/ned-gravel-preview-2.gif",
+        "alt": "Course preview from Ned Gravel race footage",
+        "credit": "YouTube / Back of the Gravel Pack",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "ned-gravel-preview-3.gif",
+        "url": "/race-photos/ned-gravel/ned-gravel-preview-3.gif",
+        "alt": "Course preview from Ned Gravel race footage",
+        "credit": "YouTube / Back of the Gravel Pack",
+        "gif": true
+      }
+    ]
   }
 }

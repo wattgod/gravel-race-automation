@@ -586,7 +586,132 @@
           "category": "course_difficulty",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "First Climb",
+            "mile_marker": "",
+            "description": "The first real effort of the race comes at 20-25 minutes in after a fast descent section. Has multiple pitches with the second pitch being particularly challenging where gaps can form.",
+            "source_video_ids": [
+              "oXhzzgWzalQ"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Rolling terrain with pretty treacherous gravel roads that have been known to cause flat tires both at this race and lots of other races in the surrounding area.",
+            "source_video_ids": [
+              "oXhzzgWzalQ"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "Mountain bike tires are recommended for the treacherous gravel - 2.2 Conti Race Kings on slate carbon all-road described as the fastest option out there and very happy with that setup.",
+            "source_video_ids": [
+              "oXhzzgWzalQ"
+            ]
+          }
+        ],
+        "race_day_tips": [
+          {
+            "text": "Start position doesn't really matter with small field sizes since the first real effort isn't until 20-25 minutes in.",
+            "source_video_ids": [
+              "oXhzzgWzalQ"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "This course is part of the UCI Gravel World Series and is one of two races in the US that are part of the series. Finishing in the top 25% of your category automatically qualifies you for the UCI Gravel World Championships.",
+            "source_video_id": "oXhzzgWzalQ",
+            "source_channel": "Justin McQuerry",
+            "source_view_count": 708,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "The Highlands Gravel Classic is a 68-mile rolling terrain race in northwest Arkansas featuring treacherous gravel roads known for causing flat tires. The course includes a key climb that hits 20-25 minutes into the race after a fast descent section, with multiple pitches where the second pitch is particularly challenging and can split the field. Riders recommend mountain bike tires like 2.2 Conti Race Kings for the rough conditions. The race is part of the UCI Gravel World Series, one of only two such races in the US, where finishing in the top 25% of your category automatically qualifies you for the UCI Gravel World Championships. With smaller field sizes, start position matters less since the first real effort comes well into the race."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "highlands-gravel-classic-video-1.jpg",
+        "url": "/race-photos/highlands-gravel-classic/highlands-gravel-classic-video-1.jpg",
+        "alt": "Cyclists racing on dirt gravel road through lush green forest with overhanging trees during Highlands Gravel Classic - Goshen, Arkansas",
+        "credit": "YouTube / Justin McQuerry",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel road",
+          "forest racing",
+          "dirt trail",
+          "cycling peloton",
+          "tree canopy"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "highlands-gravel-classic-video-2.jpg",
+        "url": "/race-photos/highlands-gravel-classic/highlands-gravel-classic-video-2.jpg",
+        "alt": "Gravel cyclist in red jersey riding on rural dirt road with green fields and power lines in countryside setting - Highlands Gravel Classic - Goshen, Arkansas",
+        "credit": "YouTube / Justin McQuerry",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel cycling",
+          "rural road",
+          "countryside",
+          "dirt surface",
+          "power lines"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "highlands-gravel-classic-video-3.jpg",
+        "url": "/race-photos/highlands-gravel-classic/highlands-gravel-classic-video-3.jpg",
+        "alt": "Racing cyclists in peloton formation on paved road through green agricultural landscape with picture-in-picture race footage - Highlands Gravel Classic - Goshen, Arkansas",
+        "credit": "YouTube / Justin McQuerry",
+        "primary": false,
+        "ai_relevance": 4,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "cycling peloton",
+          "paved road",
+          "agricultural fields",
+          "race footage",
+          "countryside"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "highlands-gravel-classic-preview.gif",
+        "url": "/race-photos/highlands-gravel-classic/highlands-gravel-classic-preview.gif",
+        "alt": "Course preview from Highlands Gravel Classic race footage",
+        "credit": "YouTube / Justin McQuerry",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "highlands-gravel-classic-preview-2.gif",
+        "url": "/race-photos/highlands-gravel-classic/highlands-gravel-classic-preview-2.gif",
+        "alt": "Course preview from Highlands Gravel Classic race footage",
+        "credit": "YouTube / Justin McQuerry",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "highlands-gravel-classic-preview-3.gif",
+        "url": "/race-photos/highlands-gravel-classic/highlands-gravel-classic-preview-3.gif",
+        "alt": "Course preview from Highlands Gravel Classic race footage",
+        "credit": "YouTube / Justin McQuerry",
+        "gif": true
+      }
+    ]
   }
 }

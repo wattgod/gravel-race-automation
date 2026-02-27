@@ -1,6 +1,7 @@
 {
   "slug": "devils-cardigan",
   "race_name": "Devils Cardigan",
+  "distance_mi": 120.0,
   "demands": {
     "durability": 6,
     "climbing": 8,
@@ -19,7 +20,8 @@
         "Single Sustained Threshold",
         "Threshold Ramps",
         "Descending Threshold"
-      ]
+      ],
+      "workout_context": "Devils Cardigan rewards athletes who can hold sustained power without blowing up \u2014 threshold is the engine that drives everything above Zone 2."
     },
     {
       "category": "Over_Under",
@@ -27,7 +29,8 @@
       "workouts": [
         "Classic Over-Unders",
         "Ladder Over-Unders"
-      ]
+      ],
+      "workout_context": "Over-unders train the lactate clearance you\u2019ll need at Devils Cardigan when surges push you above threshold and you have to recover while still riding hard."
     },
     {
       "category": "Gravel_Specific",
@@ -35,7 +38,8 @@
       "workouts": [
         "Surge and Settle",
         "Terrain Microbursts"
-      ]
+      ],
+      "workout_context": "Devils Cardigan\u2019s tasmanian mountains, australian gravel demands rapid power changes \u2014 surge over obstacles, settle on smoother sections, repeat for hours."
     },
     {
       "category": "G_Spot",
@@ -44,7 +48,8 @@
         "G-Spot Standard",
         "G-Spot Extended",
         "Criss-Cross"
-      ]
+      ],
+      "workout_context": "The G-Spot zone (88\u201392% FTP) is where you\u2019ll spend the hardest sustained miles of Devils Cardigan. Make this intensity feel like home."
     },
     {
       "category": "Durability",
@@ -53,9 +58,80 @@
         "Tired VO2max",
         "Double Day Simulation",
         "Progressive Fatigue"
-      ]
+      ],
+      "workout_context": "At 120 miles, Devils Cardigan punishes athletes who haven\u2019t trained their body to produce power when glycogen runs low."
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 75,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ],
+      "workout_context": "Racing Devils Cardigan isn\u2019t just fitness \u2014 it\u2019s pacing, fueling, and executing when conditions deteriorate. This workout practices the race itself."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 67,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "Devils Cardigan\u2019s 12,000ft of climbing demands seated and standing versatility \u2014 the ability to change climbing style as gradient and fatigue dictate."
+    },
+    {
+      "category": "VO2max",
+      "score": 61,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ],
+      "workout_context": "Devils Cardigan\u2019s tasmanian mountain gravel and competitive field demand explosive aerobic capacity \u2014 the ability to respond to surges without blowing up."
+    },
+    {
+      "category": "Endurance",
+      "score": 50,
+      "workouts": [
+        "Pre-Race Openers",
+        "Terrain Simulation Z2"
+      ],
+      "workout_context": "Every session at Devils Cardigan intensity builds on this aerobic foundation \u2014 the endurance base is the soil everything else grows in."
+    },
+    {
+      "category": "Critical_Power",
+      "score": 50,
+      "workouts": [
+        "Above CP Repeats",
+        "W-Prime Depletion"
+      ],
+      "workout_context": "Critical power determines how long you can sustain above-threshold efforts at Devils Cardigan \u2014 a higher CP means more time in the red before failure."
+    },
+    {
+      "category": "SFR_Muscle_Force",
+      "score": 44,
+      "workouts": [
+        "SFR Low Cadence",
+        "Force Repeats"
+      ],
+      "workout_context": "Low-cadence force work builds the muscular strength for Devils Cardigan\u2019s 12,000ft of climbing \u2014 especially the grinding, low-speed ascents."
+    },
+    {
+      "category": "Norwegian_Double",
+      "score": 44,
+      "workouts": [
+        "Norwegian 4x8 Classic",
+        "Double Threshold"
+      ],
+      "workout_context": "The Norwegian double-threshold method builds the sustained power base for Devils Cardigan \u2014 massive training stimulus without the recovery cost of VO2max work."
     }
   ],
+  "race_overlay": {
+    "nutrition": "Target 60\u201380g carbs/hour for Devils Cardigan\u2019s 120 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
+    "altitude": "Moderate altitude at Devils Cardigan. Arrive 2\u20133 days early. Reduce intensity expectations by 5\u201310%. Hydrate aggressively.",
+    "terrain": "Mixed terrain at Devils Cardigan requires surface adaptability. Include weekly rides on tasmanian mountain gravel to build confidence. Expect: tasmanian mountains, australian gravel, regional event."
+  },
   "pack_summary": "This 10-workout pack focuses on TT Threshold, Over Under, and Gravel Specific to prepare you for 120 miles of tasmanian mountain gravel in Tasmania, Australia.",
   "generated_at": "2026-02-26"
 }

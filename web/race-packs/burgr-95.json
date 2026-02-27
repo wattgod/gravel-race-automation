@@ -1,6 +1,7 @@
 {
   "slug": "burgr-95",
   "race_name": "BURGR 95",
+  "distance_mi": 95.0,
   "demands": {
     "durability": 4,
     "climbing": 4,
@@ -19,7 +20,8 @@
         "Single Sustained Threshold",
         "Threshold Ramps",
         "Descending Threshold"
-      ]
+      ],
+      "workout_context": "BURGR 95 rewards athletes who can hold sustained power without blowing up \u2014 threshold is the engine that drives everything above Zone 2."
     },
     {
       "category": "Gravel_Specific",
@@ -27,7 +29,8 @@
       "workouts": [
         "Surge and Settle",
         "Terrain Microbursts"
-      ]
+      ],
+      "workout_context": "BURGR 95\u2019s wisconsin northwoods, local event demands rapid power changes \u2014 surge over obstacles, settle on smoother sections, repeat for hours."
     },
     {
       "category": "G_Spot",
@@ -36,7 +39,8 @@
         "G-Spot Standard",
         "G-Spot Extended",
         "Criss-Cross"
-      ]
+      ],
+      "workout_context": "The G-Spot zone (88\u201392% FTP) is where you\u2019ll spend the hardest sustained miles of BURGR 95. Make this intensity feel like home."
     },
     {
       "category": "Race_Simulation",
@@ -45,7 +49,8 @@
         "Breakaway Simulation",
         "Variable Pace Chaos",
         "Sector Simulation"
-      ]
+      ],
+      "workout_context": "Racing BURGR 95 isn\u2019t just fitness \u2014 it\u2019s pacing, fueling, and executing when conditions deteriorate. This workout practices the race itself."
     },
     {
       "category": "Over_Under",
@@ -53,9 +58,79 @@
       "workouts": [
         "Classic Over-Unders",
         "Ladder Over-Unders"
-      ]
+      ],
+      "workout_context": "Over-unders train the lactate clearance you\u2019ll need at BURGR 95 when surges push you above threshold and you have to recover while still riding hard."
+    },
+    {
+      "category": "Durability",
+      "score": 72,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ],
+      "workout_context": "At 95 miles, BURGR 95 punishes athletes who haven\u2019t trained their body to produce power when glycogen runs low."
+    },
+    {
+      "category": "Norwegian_Double",
+      "score": 52,
+      "workouts": [
+        "Norwegian 4x8 Classic",
+        "Double Threshold"
+      ],
+      "workout_context": "The Norwegian double-threshold method builds the sustained power base for BURGR 95 \u2014 massive training stimulus without the recovery cost of VO2max work."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 44,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "The varied gradients at BURGR 95 reward climbing adaptability \u2014 knowing when to sit, when to stand, and when to switch."
+    },
+    {
+      "category": "Endurance",
+      "score": 41,
+      "workouts": [
+        "Pre-Race Openers",
+        "Terrain Simulation Z2"
+      ],
+      "workout_context": "Every session at BURGR 95 intensity builds on this aerobic foundation \u2014 the endurance base is the soil everything else grows in."
+    },
+    {
+      "category": "Blended",
+      "score": 41,
+      "workouts": [
+        "Z2 + VO2 Combo",
+        "Endurance with Spikes"
+      ],
+      "workout_context": "Blended sessions combine endurance with intensity spikes \u2014 exactly what BURGR 95\u2019s wisconsin northwoods gravel delivers on race day."
+    },
+    {
+      "category": "Tempo",
+      "score": 41,
+      "workouts": [
+        "Tempo Blocks",
+        "Extended Tempo"
+      ],
+      "workout_context": "Tempo is the race-day intensity of BURGR 95. Harder than Z2, easier than threshold \u2014 the pace you\u2019ll hold for hours on wisconsin northwoods gravel."
+    },
+    {
+      "category": "VO2max",
+      "score": 41,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ],
+      "workout_context": "BURGR 95\u2019s wisconsin northwoods gravel and competitive field demand explosive aerobic capacity \u2014 the ability to respond to surges without blowing up."
     }
   ],
+  "race_overlay": {
+    "nutrition": "Target 60\u201380g carbs/hour for BURGR 95\u2019s 95 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
+    "terrain": "Mixed terrain at BURGR 95 requires surface adaptability. Include weekly rides on wisconsin northwoods gravel to build confidence. Expect: wisconsin northwoods, local event, midwest gravel."
+  },
   "pack_summary": "This 10-workout pack focuses on TT Threshold, Gravel Specific, and G Spot to prepare you for 95 miles of wisconsin northwoods gravel in Gleason, Wisconsin.",
   "generated_at": "2026-02-26"
 }

@@ -544,7 +544,150 @@
           "category": "course_difficulty",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Main Climb",
+            "mile_marker": "",
+            "description": "14-15 mile climb gaining 4,000 feet to over 10,000 feet elevation, described as extremely difficult requiring granny gear for extended periods.",
+            "source_video_ids": [
+              "oJOjx26dw5Q"
+            ]
+          },
+          {
+            "name": "3200 foot climb",
+            "mile_marker": "",
+            "description": "Major 3200 foot climb that goes up and over before dropping into South Park, then riders face the backside of the same climb around mile 65.",
+            "source_video_ids": [
+              "Mx52xaD4EXE"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Course may be muddy, with mud sticks being handed out at race start due to rain the day before and snow at higher elevations.",
+            "source_video_ids": [
+              "oJOjx26dw5Q"
+            ]
+          },
+          {
+            "text": "The descent from the main climb is sketchy and open to traffic, which is why the finish line is at the crest rather than back in town.",
+            "source_video_ids": [
+              "Mx52xaD4EXE"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "Rider wished they had at least 40mm tires, preferably 45mm, instead of the 35mm Schwalbe G1 RS tires they used, as tire width became an issue during the race.",
+            "source_video_ids": [
+              "Mx52xaD4EXE"
+            ]
+          },
+          {
+            "text": "Upgraded to SRAM 11-36 cassette from stock Shimano GRX 820 11-34 for more climbing power, though this also became an issue.",
+            "source_video_ids": [
+              "Mx52xaD4EXE"
+            ]
+          }
+        ],
+        "race_day_tips": [
+          {
+            "text": "Morning temperatures start chilly in the 40s after dropping to the 30s overnight, so plan for layer shedding during the initial climb.",
+            "source_video_ids": [
+              "oJOjx26dw5Q"
+            ]
+          },
+          {
+            "text": "The descent back into town after finishing is neutralized, so no need to worry about racing the sketchy downhill.",
+            "source_video_ids": [
+              "Mx52xaD4EXE"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "Salida is called the banana belt of Colorado in that the weather tends to be much warmer, it doesn't get the cold temperatures that Denver has in the wintertime so very mild climate here.",
+            "source_video_id": "Mx52xaD4EXE",
+            "source_channel": "Morgan Brown",
+            "source_view_count": 1299,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "The first year they were thinking that they would actually have the Finish Line be back in the town which would make sense but you'd have people bombing that 3200 foot descent with that's open to traffic and as you'll see it's a little bit sketchy so luckily the finish line is actually at the crest of that hill.",
+            "source_video_id": "Mx52xaD4EXE",
+            "source_channel": "Morgan Brown",
+            "source_view_count": 1299,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "Salida 76 is a challenging 76-mile gravel race in Salida, Colorado at 7,000 feet elevation. The course features a brutal 14-15 mile opening climb gaining 4,000 feet to over 10,000 feet elevation, requiring extended time in granny gears. Riders then descend into South Park for 40-50 miles of rollers before tackling the backside of the same climb around mile 65. The finish line is positioned at the crest to avoid a sketchy 3200-foot descent back to town that's open to traffic. Weather can be variable with chilly morning starts in the 40s and potential mud conditions from overnight precipitation. Riders recommend wider tires (40-45mm preferred over 35mm) and lower gearing for the sustained climbing. The race has been running for about 5 years in this historic mining town known as Colorado's banana belt for its mild climate."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "salida-76-video-1.jpg",
+        "url": "/race-photos/salida-76/salida-76-video-1.jpg",
+        "alt": "Gravel cyclists gathering at race start in downtown Salida with historic brick buildings and mountain views - Salida 76 - Salida, CO",
+        "credit": "YouTube / Back of the Gravel Pack",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "race start",
+          "downtown Salida",
+          "gravel cyclists",
+          "Colorado mountains",
+          "brick buildings"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "salida-76-video-2.jpg",
+        "url": "/race-photos/salida-76/salida-76-video-2.jpg",
+        "alt": "Remote gravel road winding through Colorado mountain valley with forested hills and exposed rock cuts - Salida 76 - Salida, CO",
+        "credit": "YouTube / Back of the Gravel Pack",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel road",
+          "Colorado mountains",
+          "mountain valley",
+          "remote terrain",
+          "forest hills"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "salida-76-video-3.jpg",
+        "url": "/race-photos/salida-76/salida-76-video-3.jpg",
+        "alt": "Indoor cyclist training setup showing mountain road footage with performance data overlay including speed and power metrics - Salida 76 - Salida, CO",
+        "credit": "YouTube / Back of the Gravel Pack",
+        "primary": false,
+        "ai_relevance": 3,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "indoor training",
+          "performance data",
+          "mountain roads",
+          "power metrics",
+          "screen recording"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "salida-76-preview.gif",
+        "url": "/race-photos/salida-76/salida-76-preview.gif",
+        "alt": "Course preview from Salida 76 race footage",
+        "credit": "YouTube / Back of the Gravel Pack",
+        "gif": true
+      }
+    ]
   }
 }

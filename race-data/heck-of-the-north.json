@@ -540,7 +540,156 @@
           "category": "course_difficulty",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "ATV trails section",
+            "description": "Rough terrain that's nowhere near smooth, makes riders regret bringing gravel bikes. One rider said a mountain bike would have been nice for this section.",
+            "source_video_ids": [
+              "lTTTzDG62s8"
+            ]
+          },
+          {
+            "name": "Snowmobile trail",
+            "description": "Hard work with wet conditions, including multiple ponds riders need to walk through. Bridge has slats going same direction as riding that can catch 38mm tires. One rider had to walk through cold water barefoot.",
+            "source_video_ids": [
+              "890_cEXYrHE"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "ATV trails are rough and bumpy, making it difficult to talk to camera while riding. Riders can't see rocks clearly on some sections.",
+            "source_video_ids": [
+              "lTTTzDG62s8"
+            ]
+          },
+          {
+            "text": "Snowmobile trail sections are very wet with riders sinking into muddy ground that makes squishing sounds. Right side of trail is better for avoiding deep water, but left side is more packed down from traffic.",
+            "source_video_ids": [
+              "890_cEXYrHE"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "38 millimeter tires can get caught in bridge slats that run the same direction as the trail.",
+            "source_video_ids": [
+              "890_cEXYrHE"
+            ]
+          }
+        ],
+        "race_day_tips": [
+          {
+            "text": "Don't go out too hard early - one rider was toast by 40 miles after trying to keep up with fast groups.",
+            "source_video_ids": [
+              "lTTTzDG62s8"
+            ]
+          },
+          {
+            "text": "Bring a theragun to checkpoint bag for muscle relief during the race.",
+            "source_video_ids": [
+              "lTTTzDG62s8"
+            ]
+          },
+          {
+            "text": "Scout the route beforehand to figure out navigation and identify problem areas like wet sections.",
+            "source_video_ids": [
+              "890_cEXYrHE"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "I forgot my bike shoes and didn't realize it until we were about five minutes away from the start line and it was a 45 minute drive that morning",
+            "source_video_id": "890_cEXYrHE",
+            "source_channel": "Beth Bikes",
+            "source_view_count": 1380,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "Heck of the North features challenging terrain including rough ATV trails that make riders wish they brought mountain bikes instead of gravel bikes. The course includes technical snowmobile trail sections with very wet, muddy conditions requiring riders to walk through multiple cold ponds barefoot. Bridge crossings have slats that can catch 38mm tires. The race takes place in late September when northern Minnesota foliage is changing colors. Riders report the ATV sections are bumpy enough that it's difficult to see rocks clearly. Course scouting is recommended to identify navigation points and problem areas. Early pacing is critical as riders report being exhausted by mile 40 when going out too hard with fast groups. Weather can be cold requiring winter layers that need to be shed as the sun comes out."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "heck-of-the-north-video-1.jpg",
+        "url": "/race-photos/heck-of-the-north/heck-of-the-north-video-1.jpg",
+        "alt": "Rocky gravel road winding through dense forest with mixed deciduous and evergreen trees during autumn cycling conditions - Heck of the North - Two Harbors, Minnesota",
+        "credit": "YouTube / Beth Bikes",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel road",
+          "forest trail",
+          "rocky terrain",
+          "autumn cycling",
+          "wooded path"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "heck-of-the-north-video-2.jpg",
+        "url": "/race-photos/heck-of-the-north/heck-of-the-north-video-2.jpg",
+        "alt": "Female gravel cyclist in racing jersey with braided hair riding through forested trail during competitive event - Heck of the North - Two Harbors, Minnesota",
+        "credit": "YouTube / Beth Bikes",
+        "primary": false,
+        "ai_relevance": 4,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "gravel cyclist",
+          "racing jersey",
+          "forest cycling",
+          "competitive racing",
+          "trail riding"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "heck-of-the-north-video-3.jpg",
+        "url": "/race-photos/heck-of-the-north/heck-of-the-north-video-3.jpg",
+        "alt": "Male cyclist in white helmet and Patagonia jacket taking selfie on paved road surrounded by autumn forest - Heck of the North - Two Harbors, Minnesota",
+        "credit": "YouTube / Beth Bikes",
+        "primary": false,
+        "ai_relevance": 3,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "cycling selfie",
+          "paved road",
+          "autumn forest",
+          "cycling gear",
+          "road cycling"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "heck-of-the-north-preview.gif",
+        "url": "/race-photos/heck-of-the-north/heck-of-the-north-preview.gif",
+        "alt": "Course preview from Heck Of The North race footage",
+        "credit": "YouTube / Beth Bikes",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "heck-of-the-north-preview-2.gif",
+        "url": "/race-photos/heck-of-the-north/heck-of-the-north-preview-2.gif",
+        "alt": "Course preview from Heck Of The North race footage",
+        "credit": "YouTube / Beth Bikes",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "heck-of-the-north-preview-3.gif",
+        "url": "/race-photos/heck-of-the-north/heck-of-the-north-preview-3.gif",
+        "alt": "Course preview from Heck Of The North race footage",
+        "credit": "YouTube / Beth Bikes",
+        "gif": true
+      }
+    ]
   }
 }

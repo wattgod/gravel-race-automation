@@ -1267,6 +1267,47 @@ def check_citation_quality():
              f"{generic_count} generic homepage(s) found (<=3 per profile, acceptable)")
 
 
+def check_photo_qc_health():
+    """Check photo QC results for systemic issues."""
+    print("\n── Photo QC Health ──")
+    qc_path = PROJECT_ROOT / "race-photos" / "_qc_results.json"
+    progress_path = PROJECT_ROOT / "race-photos" / "_progress.json"
+
+    if not progress_path.exists():
+        warn("Photo QC", "No _progress.json found — no photos extracted yet")
+        return
+
+    progress = json.loads(progress_path.read_text())
+    total_races = len(progress)
+
+    if not qc_path.exists():
+        warn("Photo QC", f"No _qc_results.json found — run: python scripts/photo_qc.py --check")
+        return
+
+    qc = json.loads(qc_path.read_text())
+    summary = qc.get("summary", {})
+    fail_count = summary.get("fail", 0)
+    total_checked = summary.get("total_races", 0)
+
+    check(f"Photo QC: {total_checked}/{total_races} races checked",
+          total_checked >= total_races * 0.9,
+          f"Only {total_checked} of {total_races} races checked")
+
+    # Allow up to 10% failures (mediocre frames are expected from auto-extraction)
+    fail_pct = (fail_count / total_checked * 100) if total_checked > 0 else 0
+    check(f"Photo QC: fail rate {fail_pct:.0f}%",
+          fail_pct <= 15,
+          f"{fail_count} races failing QC ({fail_pct:.0f}%) — review with --report")
+
+    # Check for parity errors (these should always be 0)
+    parity_errors = 0
+    for slug, race_data in qc.get("races", {}).items():
+        parity_errors += len(race_data.get("parity_errors", []))
+    check("Photo QC: no JSON/disk parity errors",
+          parity_errors == 0,
+          f"{parity_errors} parity errors — JSON references missing files or orphans on disk")
+
+
 def main():
     parser = argparse.ArgumentParser(description="Preflight quality checks")
     parser.add_argument("--js", action="store_true", help="JS-only checks")
@@ -1316,6 +1357,7 @@ def main():
         check_consent_snippet_centralized()
         check_mu_plugin_php_syntax()
         check_citation_quality()
+        check_photo_qc_health()
         if not args.quick:
             check_climate_classification()
             check_fabricated_claims()

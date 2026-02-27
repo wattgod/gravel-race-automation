@@ -518,7 +518,188 @@
           "category": "race_atmosphere",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "First climb",
+            "mile_marker": "",
+            "description": "The opening climb hits early and riders describe it as where the field gets strung out immediately. At elevation, riders lose their top-end power and have fewer matches for recovering from efforts.",
+            "source_video_ids": [
+              "AJlE4XZN1_A"
+            ]
+          },
+          {
+            "name": "Walking section near summit",
+            "mile_marker": "",
+            "description": "At least one section becomes too steep to ride for many riders, requiring walking for about a mile from the top where the grade pitches up beyond what's manageable.",
+            "source_video_ids": [
+              "L0ChtNZQj-Y"
+            ]
+          },
+          {
+            "name": "Rowdy downhill section",
+            "mile_marker": "",
+            "description": "A new two-mile downhill section that tests bike handling skills even on larger bikes with suspension.",
+            "source_video_ids": [
+              "Zx58wCVnGTI"
+            ]
+          },
+          {
+            "name": "Swoopy bermed single track",
+            "mile_marker": "",
+            "description": "A section of bermed out single track towards the end of the race that adds technical challenge.",
+            "source_video_ids": [
+              "Zx58wCVnGTI"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Most of the race is on county roads and rugged jeep roads. Some sections are pretty rotted out from rain and vehicle traffic, with trucks and jeeps digging ruts that add challenge.",
+            "source_video_ids": [
+              "Zx58wCVnGTI"
+            ]
+          },
+          {
+            "text": "The climbing is described as pitching up then leveling out repeatedly along a creek valley, with sustained climbing for the first 15-20 miles.",
+            "source_video_ids": [
+              "L0ChtNZQj-Y"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "Fast riders at the front were on straight gravel bikes, not mountain bikes. Dylan Johnson rode a hardtail with a smaller suspension fork and drop bars.",
+            "source_video_ids": [
+              "Zx58wCVnGTI"
+            ]
+          },
+          {
+            "text": "One rider was happy to have both suspension and big 2.3 tires on a hardtail mountain bike for the rowdy conditions.",
+            "source_video_ids": [
+              "Zx58wCVnGTI"
+            ]
+          }
+        ],
+        "race_day_tips": [
+          {
+            "text": "At elevation you lose your top-end power and have fewer matches for recovery. If you try to do your sea level watts at 8000 feet, you'll blow up quick - pacing is critical.",
+            "source_video_ids": [
+              "AJlE4XZN1_A"
+            ]
+          },
+          {
+            "text": "Pay attention to heart rate and give yourself a governor - if you go too high at elevation, it's hard to recover and you'll be in for a long day.",
+            "source_video_ids": [
+              "L0ChtNZQj-Y"
+            ]
+          },
+          {
+            "text": "When taking your front wheel off to transport, always put a brake block inside the front caliper to prevent pad compression.",
+            "source_video_ids": [
+              "Zx58wCVnGTI"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "The nice thing about Bighorn is they provide band camping location here on site, which these days in Colorado is pretty tough to find.",
+            "source_video_id": "L0ChtNZQj-Y",
+            "source_channel": "Back of the Gravel Pack",
+            "source_view_count": 2101,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "It's a different schedule - this is Sunday morning and so we had all day yesterday with a nice Expo and ShakeOut ride.",
+            "source_video_id": "L0ChtNZQj-Y",
+            "source_channel": "Back of the Gravel Pack",
+            "source_view_count": 2101,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "Big Horn Gravel in Gypsum, Colorado features 10,000 feet of climbing over 85 miles at elevation ranging from 6,000 to 10,000 feet. The course was rerouted due to snow at the high point but still delivered significant elevation gain. Riders describe losing top-end power at altitude with fewer matches for recovery, making pacing critical. The terrain consists mainly of county roads and rugged jeep roads, with some sections rotted out from rain and vehicle traffic. Key challenges include an early climb that strings out the field, a walking section near the summit where grades become unrideable, a technical two-mile downhill, and swoopy bermed single track toward the finish. Fast riders used straight gravel bikes while others benefited from hardtails with suspension forks and wider tires. The race attracts strong competition including Lifetime Grand Prix athletes preparing for Leadville. The event provides on-site camping and runs on a Sunday schedule with Saturday expo activities."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "big-horn-gravel-video-1.jpg",
+        "url": "/race-photos/big-horn-gravel/big-horn-gravel-video-1.jpg",
+        "alt": "Dirt gravel road winding through dense aspen forest with mountains visible in the distance under blue sky - Big Horn Gravel - Gypsum, Colorado",
+        "credit": "YouTube / The Ride with Ben Delaney",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel road",
+          "aspen forest",
+          "mountain terrain",
+          "dirt trail",
+          "forest canopy"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "big-horn-gravel-video-2.jpg",
+        "url": "/race-photos/big-horn-gravel/big-horn-gravel-video-2.jpg",
+        "alt": "Cyclist in blue jersey posing with white mountain bike on gravel trail surrounded by sagebrush and rolling hills - Big Horn Gravel - Gypsum, Colorado",
+        "credit": "YouTube / The Ride with Ben Delaney",
+        "primary": false,
+        "ai_relevance": 4,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "mountain bike",
+          "gravel trail",
+          "sagebrush terrain",
+          "cyclist portrait",
+          "arid landscape"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "big-horn-gravel-video-3.jpg",
+        "url": "/race-photos/big-horn-gravel/big-horn-gravel-video-3.jpg",
+        "alt": "Wide dirt gravel road intersection with wooden trail signs against backdrop of forested mountains and clear blue sky - Big Horn Gravel - Gypsum, Colorado",
+        "credit": "YouTube / The Ride with Ben Delaney",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 5,
+        "ai_keywords": [
+          "gravel intersection",
+          "trail markers",
+          "mountain backdrop",
+          "dirt roads",
+          "forest hills"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "big-horn-gravel-preview.gif",
+        "url": "/race-photos/big-horn-gravel/big-horn-gravel-preview.gif",
+        "alt": "Course preview from Big Horn Gravel race footage",
+        "credit": "YouTube / The Ride with Ben Delaney",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "big-horn-gravel-preview-2.gif",
+        "url": "/race-photos/big-horn-gravel/big-horn-gravel-preview-2.gif",
+        "alt": "Course preview from Big Horn Gravel race footage",
+        "credit": "YouTube / The Ride with Ben Delaney",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "big-horn-gravel-preview-3.gif",
+        "url": "/race-photos/big-horn-gravel/big-horn-gravel-preview-3.gif",
+        "alt": "Course preview from Big Horn Gravel race footage",
+        "credit": "YouTube / The Ride with Ben Delaney",
+        "gif": true
+      }
+    ]
   }
 }

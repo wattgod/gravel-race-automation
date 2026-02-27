@@ -1,6 +1,7 @@
 {
   "slug": "gravel-fondo-switzerland",
   "race_name": "UCI Gravel Suisse",
+  "distance_mi": 68.0,
   "demands": {
     "durability": 2,
     "climbing": 10,
@@ -19,7 +20,8 @@
         "5x3 VO2 Classic",
         "Descending VO2 Pyramid",
         "Norwegian 4x8"
-      ]
+      ],
+      "workout_context": "UCI Gravel Suisse\u2019s 50% paved / 50% unpaved alpine terrain. starts flat in rhone valley, transitions to steep forest climbs and high-altitude gravel roads. features a brutal 20% gradient section on route des chaux before the col de la croix finish and competitive field demand explosive aerobic capacity \u2014 the ability to respond to surges without blowing up."
     },
     {
       "category": "Race_Simulation",
@@ -28,7 +30,8 @@
         "Breakaway Simulation",
         "Variable Pace Chaos",
         "Sector Simulation"
-      ]
+      ],
+      "workout_context": "Racing UCI Gravel Suisse isn\u2019t just fitness \u2014 it\u2019s pacing, fueling, and executing when conditions deteriorate. This workout practices the race itself."
     },
     {
       "category": "Gravel_Specific",
@@ -36,7 +39,8 @@
       "workouts": [
         "Surge and Settle",
         "Terrain Microbursts"
-      ]
+      ],
+      "workout_context": "UCI Gravel Suisse\u2019s 50% paved / 50% unpaved alpine terrain. starts flat in rhone valley, transitions to steep forest climbs and high-altitude gravel roads. features a brutal 20% gradient section on route des chaux before the col de la croix finish demands rapid power changes \u2014 surge over obstacles, settle on smoother sections, repeat for hours."
     },
     {
       "category": "Over_Under",
@@ -44,7 +48,8 @@
       "workouts": [
         "Classic Over-Unders",
         "Ladder Over-Unders"
-      ]
+      ],
+      "workout_context": "Over-unders train the lactate clearance you\u2019ll need at UCI Gravel Suisse when surges push you above threshold and you have to recover while still riding hard."
     },
     {
       "category": "Durability",
@@ -53,9 +58,81 @@
         "Tired VO2max",
         "Double Day Simulation",
         "Progressive Fatigue"
-      ]
+      ],
+      "workout_context": "UCI Gravel Suisse\u2019s 50% paved / 50% unpaved alpine terrain. starts flat in rhone valley, transitions to steep forest climbs and high-altitude gravel roads. features a brutal 20% gradient section on route des chaux before the col de la croix finish drains energy reserves faster than the distance suggests \u2014 durability training bridges the gap."
+    },
+    {
+      "category": "TT_Threshold",
+      "score": 79,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ],
+      "workout_context": "UCI Gravel Suisse rewards athletes who can hold sustained power without blowing up \u2014 threshold is the engine that drives everything above Zone 2."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 71,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "UCI Gravel Suisse\u2019s 11,300ft of climbing demands seated and standing versatility \u2014 the ability to change climbing style as gradient and fatigue dictate."
+    },
+    {
+      "category": "Critical_Power",
+      "score": 61,
+      "workouts": [
+        "Above CP Repeats",
+        "W-Prime Depletion"
+      ],
+      "workout_context": "Critical power determines how long you can sustain above-threshold efforts at UCI Gravel Suisse \u2014 a higher CP means more time in the red before failure."
+    },
+    {
+      "category": "G_Spot",
+      "score": 60,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ],
+      "workout_context": "The G-Spot zone (88\u201392% FTP) is where you\u2019ll spend the hardest sustained miles of UCI Gravel Suisse. Make this intensity feel like home."
+    },
+    {
+      "category": "Anaerobic_Capacity",
+      "score": 57,
+      "workouts": [
+        "2min Killers",
+        "90sec Repeats"
+      ],
+      "workout_context": "Short, violent efforts are unavoidable at UCI Gravel Suisse \u2014 climbs demanding 2-minute maximal efforts, surges to close gaps, attacks on 50% paved / 50% unpaved alpine terrain. starts flat in rhone valley, transitions to steep forest climbs and high-altitude gravel roads. features a brutal 20% gradient section on route des chaux before the col de la croix finish."
+    },
+    {
+      "category": "Endurance",
+      "score": 52,
+      "workouts": [
+        "Pre-Race Openers",
+        "Terrain Simulation Z2"
+      ],
+      "workout_context": "Every session at UCI Gravel Suisse intensity builds on this aerobic foundation \u2014 the endurance base is the soil everything else grows in."
+    },
+    {
+      "category": "SFR_Muscle_Force",
+      "score": 48,
+      "workouts": [
+        "SFR Low Cadence",
+        "Force Repeats"
+      ],
+      "workout_context": "Low-cadence force work builds the muscular strength for UCI Gravel Suisse\u2019s 11,300ft of climbing \u2014 especially the grinding, low-speed ascents."
     }
   ],
+  "race_overlay": {
+    "heat": "July in Aigle / Villars-sur-Ollon, Switzerland can bring heat. Complete 3\u20134 heat exposure sessions in the final 2 weeks before UCI Gravel Suisse. Increase sodium intake 48 hours before race day.",
+    "nutrition": "Target 40\u201360g carbs/hour for UCI Gravel Suisse\u2019s 68 miles. Front-load calories in the first half. One bottle per hour minimum, more in heat.",
+    "altitude": "Moderate altitude at UCI Gravel Suisse. Arrive 2\u20133 days early. Reduce intensity expectations by 5\u201310%. Hydrate aggressively.",
+    "terrain": "Mixed terrain at UCI Gravel Suisse requires surface adaptability. Include weekly rides on 50% paved / 50% unpaved alpine terrain. starts flat in rhone valley, transitions to steep forest climbs and high-altitude gravel roads. features a brutal 20% gradient section on route des chaux before the col de la croix finish to build confidence."
+  },
   "pack_summary": "This 10-workout pack focuses on VO2max, Race Simulation, and Gravel Specific to prepare you for 68 miles of 50% paved / 50% unpaved alpine terrain. starts flat in rhone valley, transitions to steep forest climbs and high-altitude gravel roads. features a brutal 20% gradient section on route des chaux before the col de la croix finish in Aigle / Villars-sur-Ollon, Switzerland.",
   "generated_at": "2026-02-26"
 }

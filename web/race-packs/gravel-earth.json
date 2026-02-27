@@ -1,6 +1,7 @@
 {
   "slug": "gravel-earth",
   "race_name": "Gravel Earth Series",
+  "distance_mi": 208.0,
   "demands": {
     "durability": 10,
     "climbing": 8,
@@ -19,7 +20,8 @@
         "Tired VO2max",
         "Double Day Simulation",
         "Progressive Fatigue"
-      ]
+      ],
+      "workout_context": "Gravel Earth Series\u2019s 208-mile distance demands power production deep into fatigue \u2014 the defining challenge of ultra-distance gravel."
     },
     {
       "category": "Gravel_Specific",
@@ -27,7 +29,8 @@
       "workouts": [
         "Surge and Settle",
         "Terrain Microbursts"
-      ]
+      ],
+      "workout_context": "Gravel Earth Series\u2019s european gravel, volcanic fields demands rapid power changes \u2014 surge over obstacles, settle on smoother sections, repeat for hours."
     },
     {
       "category": "Race_Simulation",
@@ -36,7 +39,8 @@
         "Breakaway Simulation",
         "Variable Pace Chaos",
         "Sector Simulation"
-      ]
+      ],
+      "workout_context": "Racing Gravel Earth Series isn\u2019t just fitness \u2014 it\u2019s pacing, fueling, and executing when conditions deteriorate. This workout practices the race itself."
     },
     {
       "category": "Endurance",
@@ -44,7 +48,8 @@
       "workouts": [
         "Pre-Race Openers",
         "Terrain Simulation Z2"
-      ]
+      ],
+      "workout_context": "Every session at Gravel Earth Series intensity builds on this aerobic foundation \u2014 the endurance base is the soil everything else grows in."
     },
     {
       "category": "VO2max",
@@ -53,9 +58,81 @@
         "5x3 VO2 Classic",
         "Descending VO2 Pyramid",
         "Norwegian 4x8"
-      ]
+      ],
+      "workout_context": "Gravel Earth Series\u2019s mixed gravel, from smooth european roads to technical african game trails and competitive field demand explosive aerobic capacity \u2014 the ability to respond to surges without blowing up."
+    },
+    {
+      "category": "HVLI_Extended",
+      "score": 54,
+      "workouts": [
+        "HVLI Extended Z2",
+        "Multi-Hour Z2",
+        "Back-to-Back Long"
+      ],
+      "workout_context": "At 208 miles, Gravel Earth Series rewards a massive aerobic engine. This volume work builds the fat-oxidation capacity that keeps you moving when glycogen runs low."
+    },
+    {
+      "category": "Over_Under",
+      "score": 47,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ],
+      "workout_context": "Over-unders train the lactate clearance you\u2019ll need at Gravel Earth Series when surges push you above threshold and you have to recover while still riding hard."
+    },
+    {
+      "category": "Critical_Power",
+      "score": 47,
+      "workouts": [
+        "Above CP Repeats",
+        "W-Prime Depletion"
+      ],
+      "workout_context": "Critical power determines how long you can sustain above-threshold efforts at Gravel Earth Series \u2014 a higher CP means more time in the red before failure."
+    },
+    {
+      "category": "TT_Threshold",
+      "score": 46,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ],
+      "workout_context": "Gravel Earth Series rewards athletes who can hold sustained power without blowing up \u2014 threshold is the engine that drives everything above Zone 2."
+    },
+    {
+      "category": "Blended",
+      "score": 42,
+      "workouts": [
+        "Z2 + VO2 Combo",
+        "Endurance with Spikes"
+      ],
+      "workout_context": "Blended sessions combine endurance with intensity spikes \u2014 exactly what Gravel Earth Series\u2019s mixed gravel, from smooth european roads to technical african game trails delivers on race day."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 41,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "Gravel Earth Series\u2019s 12,139ft of climbing demands seated and standing versatility \u2014 the ability to change climbing style as gradient and fatigue dictate."
+    },
+    {
+      "category": "Anaerobic_Capacity",
+      "score": 41,
+      "workouts": [
+        "2min Killers",
+        "90sec Repeats"
+      ],
+      "workout_context": "Short, violent efforts are unavoidable at Gravel Earth Series \u2014 climbs demanding 2-minute maximal efforts, surges to close gaps, attacks on mixed gravel, from smooth european roads to technical african game trails."
     }
   ],
+  "race_overlay": {
+    "heat": "February in Global (HQ: Girona, Spain) can bring heat. Complete 3\u20134 heat exposure sessions in the final 2 weeks before Gravel Earth Series. Increase sodium intake 48 hours before race day.",
+    "nutrition": "Ultra-distance fueling for 208 miles: 80\u2013100g carbs/hour from mile 1 \u2014 don\u2019t wait until you\u2019re hungry. Practice your exact race-day nutrition in every long training ride. Carry backup calories. 208 miles burns 8,000\u201312,000+ calories \u2014 you cannot replace them all, but you must try.",
+    "altitude": "Moderate altitude at Gravel Earth Series. Arrive 2\u20133 days early. Reduce intensity expectations by 5\u201310%. Hydrate aggressively.",
+    "terrain": "Highly technical terrain at Gravel Earth Series demands practice on similar surfaces. Ride mixed gravel, from smooth european roads to technical african game trails at race-day cadence weekly. Expect: european gravel, volcanic fields, desert terrain. Practice cornering, descending, and power delivery on unstable surfaces. Dial in tire pressure before race week \u2014 5 PSI wrong costs you 15+ minutes over 208 miles."
+  },
   "pack_summary": "This 10-workout pack focuses on Durability, Gravel Specific, and Race Simulation to prepare you for 208 miles of mixed gravel, from smooth european roads to technical african game trails in Global (HQ: Girona, Spain).",
   "generated_at": "2026-02-26"
 }

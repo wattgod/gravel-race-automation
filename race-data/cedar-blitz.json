@@ -540,6 +540,67 @@
         }
       ],
       "quotes": []
-    }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "cedar-blitz-video-1.jpg",
+        "url": "/race-photos/cedar-blitz/cedar-blitz-video-1.jpg",
+        "alt": "Group of cyclists racing on paved road through wooded area during Cedar Blitz gravel race - Cedar Springs, Michigan",
+        "credit": "YouTube / Up The Road",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "cycling peloton",
+          "wooded road",
+          "group ride",
+          "race pack",
+          "paved section"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "cedar-blitz-video-2.jpg",
+        "url": "/race-photos/cedar-blitz/cedar-blitz-video-2.jpg",
+        "alt": "Cyclists riding through tree-lined park path with green canopy overhead during gravel race - Cedar Blitz - Cedar Springs, Michigan",
+        "credit": "YouTube / Up The Road",
+        "primary": false,
+        "ai_relevance": 4,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "tree canopy",
+          "park trail",
+          "shaded path",
+          "green foliage",
+          "cycling path"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "cedar-blitz-video-3.jpg",
+        "url": "/race-photos/cedar-blitz/cedar-blitz-video-3.jpg",
+        "alt": "Empty gravel road stretching ahead through rural farmland with tall grass on both sides - Cedar Blitz - Cedar Springs, Michigan",
+        "credit": "YouTube / Up The Road",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 5,
+        "ai_keywords": [
+          "gravel road",
+          "rural farmland",
+          "tall grass",
+          "country road",
+          "open terrain"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "cedar-blitz-preview.gif",
+        "url": "/race-photos/cedar-blitz/cedar-blitz-preview.gif",
+        "alt": "Course preview from Cedar Blitz race footage",
+        "credit": "YouTube / Up The Road",
+        "gif": true
+      }
+    ]
   }
 }

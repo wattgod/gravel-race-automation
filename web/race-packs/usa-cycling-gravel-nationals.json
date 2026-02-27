@@ -1,6 +1,7 @@
 {
   "slug": "usa-cycling-gravel-nationals",
   "race_name": "USA Cycling Gravel Nationals",
+  "distance_mi": 131.0,
   "demands": {
     "durability": 6,
     "climbing": 6,
@@ -19,7 +20,8 @@
         "Breakaway Simulation",
         "Variable Pace Chaos",
         "Sector Simulation"
-      ]
+      ],
+      "workout_context": "Racing USA Cycling Gravel Nationals isn\u2019t just fitness \u2014 it\u2019s pacing, fueling, and executing when conditions deteriorate. This workout practices the race itself."
     },
     {
       "category": "Gravel_Specific",
@@ -27,7 +29,8 @@
       "workouts": [
         "Surge and Settle",
         "Terrain Microbursts"
-      ]
+      ],
+      "workout_context": "USA Cycling Gravel Nationals\u2019s champagne gravel, blufftop climbs demands rapid power changes \u2014 surge over obstacles, settle on smoother sections, repeat for hours."
     },
     {
       "category": "Durability",
@@ -36,7 +39,8 @@
         "Tired VO2max",
         "Double Day Simulation",
         "Progressive Fatigue"
-      ]
+      ],
+      "workout_context": "At 131 miles, USA Cycling Gravel Nationals punishes athletes who haven\u2019t trained their body to produce power when glycogen runs low."
     },
     {
       "category": "TT_Threshold",
@@ -45,7 +49,8 @@
         "Single Sustained Threshold",
         "Threshold Ramps",
         "Descending Threshold"
-      ]
+      ],
+      "workout_context": "USA Cycling Gravel Nationals rewards athletes who can hold sustained power without blowing up \u2014 threshold is the engine that drives everything above Zone 2."
     },
     {
       "category": "VO2max",
@@ -54,9 +59,78 @@
         "5x3 VO2 Classic",
         "Descending VO2 Pyramid",
         "Norwegian 4x8"
-      ]
+      ],
+      "workout_context": "USA Cycling Gravel Nationals\u2019s driftless 'champagne gravel' and punchy blufftop climbs and competitive field demand explosive aerobic capacity \u2014 the ability to respond to surges without blowing up."
+    },
+    {
+      "category": "Over_Under",
+      "score": 69,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ],
+      "workout_context": "Over-unders train the lactate clearance you\u2019ll need at USA Cycling Gravel Nationals when surges push you above threshold and you have to recover while still riding hard."
+    },
+    {
+      "category": "G_Spot",
+      "score": 67,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ],
+      "workout_context": "The G-Spot zone (88\u201392% FTP) is where you\u2019ll spend the hardest sustained miles of USA Cycling Gravel Nationals. Make this intensity feel like home."
+    },
+    {
+      "category": "Critical_Power",
+      "score": 65,
+      "workouts": [
+        "Above CP Repeats",
+        "W-Prime Depletion"
+      ],
+      "workout_context": "Critical power determines how long you can sustain above-threshold efforts at USA Cycling Gravel Nationals \u2014 a higher CP means more time in the red before failure."
+    },
+    {
+      "category": "Anaerobic_Capacity",
+      "score": 62,
+      "workouts": [
+        "2min Killers",
+        "90sec Repeats"
+      ],
+      "workout_context": "Short, violent efforts are unavoidable at USA Cycling Gravel Nationals \u2014 climbs demanding 2-minute maximal efforts, surges to close gaps, attacks on driftless 'champagne gravel' and punchy blufftop climbs."
+    },
+    {
+      "category": "Blended",
+      "score": 49,
+      "workouts": [
+        "Z2 + VO2 Combo",
+        "Endurance with Spikes"
+      ],
+      "workout_context": "Blended sessions combine endurance with intensity spikes \u2014 exactly what USA Cycling Gravel Nationals\u2019s driftless 'champagne gravel' and punchy blufftop climbs delivers on race day."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 46,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "USA Cycling Gravel Nationals\u2019s 7,000ft of climbing demands seated and standing versatility \u2014 the ability to change climbing style as gradient and fatigue dictate."
+    },
+    {
+      "category": "Norwegian_Double",
+      "score": 41,
+      "workouts": [
+        "Norwegian 4x8 Classic",
+        "Double Threshold"
+      ],
+      "workout_context": "The Norwegian double-threshold method builds the sustained power base for USA Cycling Gravel Nationals \u2014 massive training stimulus without the recovery cost of VO2max work."
     }
   ],
+  "race_overlay": {
+    "nutrition": "Target 60\u201380g carbs/hour for USA Cycling Gravel Nationals\u2019s 131 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
+    "terrain": "Mixed terrain at USA Cycling Gravel Nationals requires surface adaptability. Include weekly rides on driftless 'champagne gravel' and punchy blufftop climbs to build confidence. Expect: champagne gravel, blufftop climbs, rolling farm roads."
+  },
   "pack_summary": "This 10-workout pack focuses on Race Simulation, Gravel Specific, and Durability to prepare you for 131 miles of driftless 'champagne gravel' and punchy blufftop climbs in La Crescent, Minnesota (2025-26); previously Gering, Nebraska (2023-24).",
   "generated_at": "2026-02-26"
 }

@@ -770,9 +770,9 @@ def get_condition_alternatives(tires: list, profile: dict, top_picks: list) -> d
                 best_score = s
                 wet_alt = {"tire": tire, "score": s, "width": recommend_width(tech_rating, tire)}
 
-    # Dry alternative: only if primary is conservative (mud/aggressive tread)
+    # Dry alternative: show whenever primary isn't already a file-tread tire
     dry_alt = None
-    if primary_tread in ("mud", "aggressive") or primary_mud in ("moderate", "high"):
+    if primary_tread != "file":
         best_score = -999
         for tire in tires:
             if tire["id"] in top_ids:

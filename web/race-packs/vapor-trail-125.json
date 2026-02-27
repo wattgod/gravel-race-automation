@@ -1,6 +1,7 @@
 {
   "slug": "vapor-trail-125",
   "race_name": "Vapor Trail 125",
+  "distance_mi": 125.0,
   "demands": {
     "durability": 6,
     "climbing": 8,
@@ -19,7 +20,8 @@
         "5x3 VO2 Classic",
         "Descending VO2 Pyramid",
         "Norwegian 4x8"
-      ]
+      ],
+      "workout_context": "Vapor Trail 125\u2019s colorado high-altitude mountain gravel and competitive field demand explosive aerobic capacity \u2014 the ability to respond to surges without blowing up."
     },
     {
       "category": "TT_Threshold",
@@ -28,7 +30,8 @@
         "Single Sustained Threshold",
         "Threshold Ramps",
         "Descending Threshold"
-      ]
+      ],
+      "workout_context": "Vapor Trail 125 rewards athletes who can hold sustained power without blowing up \u2014 threshold is the engine that drives everything above Zone 2."
     },
     {
       "category": "Gravel_Specific",
@@ -36,7 +39,8 @@
       "workouts": [
         "Surge and Settle",
         "Terrain Microbursts"
-      ]
+      ],
+      "workout_context": "Vapor Trail 125\u2019s colorado high-altitude mountains, mountain gravel demands rapid power changes \u2014 surge over obstacles, settle on smoother sections, repeat for hours."
     },
     {
       "category": "Race_Simulation",
@@ -45,7 +49,8 @@
         "Breakaway Simulation",
         "Variable Pace Chaos",
         "Sector Simulation"
-      ]
+      ],
+      "workout_context": "Racing Vapor Trail 125 isn\u2019t just fitness \u2014 it\u2019s pacing, fueling, and executing when conditions deteriorate. This workout practices the race itself."
     },
     {
       "category": "Over_Under",
@@ -53,9 +58,80 @@
       "workouts": [
         "Classic Over-Unders",
         "Ladder Over-Unders"
-      ]
+      ],
+      "workout_context": "Over-unders train the lactate clearance you\u2019ll need at Vapor Trail 125 when surges push you above threshold and you have to recover while still riding hard."
+    },
+    {
+      "category": "Durability",
+      "score": 81,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ],
+      "workout_context": "At 125 miles, Vapor Trail 125 punishes athletes who haven\u2019t trained their body to produce power when glycogen runs low."
+    },
+    {
+      "category": "G_Spot",
+      "score": 76,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ],
+      "workout_context": "The G-Spot zone (88\u201392% FTP) is where you\u2019ll spend the hardest sustained miles of Vapor Trail 125. Make this intensity feel like home."
+    },
+    {
+      "category": "Endurance",
+      "score": 73,
+      "workouts": [
+        "Pre-Race Openers",
+        "Terrain Simulation Z2"
+      ],
+      "workout_context": "Every session at Vapor Trail 125 intensity builds on this aerobic foundation \u2014 the endurance base is the soil everything else grows in."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 65,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "Vapor Trail 125\u2019s 9,000ft of climbing demands seated and standing versatility \u2014 the ability to change climbing style as gradient and fatigue dictate."
+    },
+    {
+      "category": "Critical_Power",
+      "score": 49,
+      "workouts": [
+        "Above CP Repeats",
+        "W-Prime Depletion"
+      ],
+      "workout_context": "Critical power determines how long you can sustain above-threshold efforts at Vapor Trail 125 \u2014 a higher CP means more time in the red before failure."
+    },
+    {
+      "category": "Blended",
+      "score": 46,
+      "workouts": [
+        "Z2 + VO2 Combo",
+        "Endurance with Spikes"
+      ],
+      "workout_context": "Blended sessions combine endurance with intensity spikes \u2014 exactly what Vapor Trail 125\u2019s colorado high-altitude mountain gravel delivers on race day."
+    },
+    {
+      "category": "SFR_Muscle_Force",
+      "score": 43,
+      "workouts": [
+        "SFR Low Cadence",
+        "Force Repeats"
+      ],
+      "workout_context": "Low-cadence force work builds the muscular strength for Vapor Trail 125\u2019s 9,000ft of climbing \u2014 especially the grinding, low-speed ascents."
     }
   ],
+  "race_overlay": {
+    "nutrition": "Target 60\u201380g carbs/hour for Vapor Trail 125\u2019s 125 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
+    "altitude": "Vapor Trail 125 with 9,000ft of climbing, much of it above 8,000ft demands altitude preparation. Arrive 5\u20137 days early for acclimatization. Expect 5\u201315% power reduction at altitude. Increase iron intake 4 weeks out. Hydrate aggressively \u2014 altitude increases fluid loss by 20\u201340%. Extreme altitude (10,000ft+); Long exposure at altitude.",
+    "terrain": "Mixed terrain at Vapor Trail 125 requires surface adaptability. Include weekly rides on colorado high-altitude mountain gravel to build confidence. Expect: colorado high-altitude mountains, mountain gravel, 125-mile distance."
+  },
   "pack_summary": "This 10-workout pack focuses on VO2max, TT Threshold, and Gravel Specific to prepare you for 125 miles of colorado high-altitude mountain gravel in Leadville, Colorado.",
   "generated_at": "2026-02-26"
 }

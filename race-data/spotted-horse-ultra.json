@@ -536,7 +536,149 @@
           "category": "course_difficulty",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "B-roads",
+            "description": "Riders encounter numerous B-roads throughout the course, described as dusty but beautiful sections.",
+            "source_video_ids": [
+              "AK3jxb6YyQo"
+            ]
+          },
+          {
+            "name": "Headwind sections",
+            "mile_marker": "49",
+            "description": "Significant headwind and hills for the majority of the way back in the second half, making for challenging conditions.",
+            "source_video_ids": [
+              "AK3jxb6YyQo"
+            ]
+          },
+          {
+            "name": "Flat headwind stretch",
+            "mile_marker": "67",
+            "description": "A particularly difficult 2-mile flat section into strong headwind with nothing to avoid it, described as sucking.",
+            "source_video_ids": [
+              "AK3jxb6YyQo"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "B-roads get dusty but are described as pretty sweet and smooth in sections.",
+            "source_video_ids": [
+              "AK3jxb6YyQo"
+            ]
+          },
+          {
+            "text": "Course includes both gravel B-roads and some pavement sections, with the final 3/4 mile finishing on pavement.",
+            "source_video_ids": [
+              "AK3jxb6YyQo"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "Rider used Maxxis Refuse tires in 40mm by 700c size for the race conditions.",
+            "source_video_ids": [
+              "AK3jxb6YyQo"
+            ]
+          }
+        ],
+        "race_day_tips": [
+          {
+            "text": "Water available around mile 35-37 mark for resupply.",
+            "source_video_ids": [
+              "AK3jxb6YyQo"
+            ]
+          },
+          {
+            "text": "Expect strong winds of 15-35 mph, with significant tailwind sections early but challenging headwinds in the second half.",
+            "source_video_ids": [
+              "AK3jxb6YyQo"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "What is spotted horse known for? It's known for challenge right like serious challenge like hike a bike 3 miles through 2 ft of mud challenge like end up in a Casey putting doughnut bags on your feet so you don't freeze to death challenge.",
+            "source_video_id": "CcRlIIWM64A",
+            "source_channel": "Iowa Gravel Series",
+            "source_view_count": 99,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "October 24th is spotted horse gravel ultra in St Charles, that's still a go. Thanks to all the event coordinators, we know it's been a tough decision to still hold your event this year.",
+            "source_video_id": "I0Djah5wx20",
+            "source_channel": "BikeIowaGuy",
+            "source_view_count": 57,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "Spotted Horse Ultra in Iowa is known for extreme challenge and variable weather conditions. Riders describe encountering dusty B-roads throughout the 150-mile course, with significant elevation changes requiring some riders to walk steep climbs. Wind is a major factor with 15-35 mph conditions creating both beneficial tailwind sections early in the race and punishing headwind stretches in the second half. The course features a mix of gravel B-roads and some pavement, finishing with the final 3/4 mile on pavement. Water resupply is available around mile 35-37. Race conditions can vary dramatically year to year, from extreme mud and cold requiring survival tactics to pleasant 70-degree weather with favorable winds. The event is held in October and organized by Sarah Cooper and Steve Fuller, with a reputation for being one of the most challenging gravel races."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "spotted-horse-ultra-video-1.jpg",
+        "url": "/race-photos/spotted-horse-ultra/spotted-horse-ultra-video-1.jpg",
+        "alt": "Blurry indoor interview footage of bearded cyclist with headphones in radio studio setting - Spotted Horse Ultra - Iowa",
+        "credit": "YouTube / BikeIowaGuy",
+        "primary": true,
+        "ai_relevance": 1,
+        "ai_quality": 2,
+        "ai_keywords": [
+          "interview",
+          "cyclist",
+          "indoor studio",
+          "headphones"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "spotted-horse-ultra-video-2.jpg",
+        "url": "/race-photos/spotted-horse-ultra/spotted-horse-ultra-video-2.jpg",
+        "alt": "Clear indoor interview of smiling bearded cyclist wearing headphones in broadcast studio - Spotted Horse Ultra - Iowa",
+        "credit": "YouTube / BikeIowaGuy",
+        "primary": false,
+        "ai_relevance": 1,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "cyclist interview",
+          "broadcast studio",
+          "headphones",
+          "indoor"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "spotted-horse-ultra-video-3.jpg",
+        "url": "/race-photos/spotted-horse-ultra/spotted-horse-ultra-video-3.jpg",
+        "alt": "First-person view of gravel road stretching toward horizon through rolling prairie with autumn foliage - Spotted Horse Ultra - Iowa",
+        "credit": "YouTube / BikeIowaGuy",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel road",
+          "prairie landscape",
+          "autumn foliage",
+          "cycling perspective",
+          "rolling hills"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "spotted-horse-ultra-preview.gif",
+        "url": "/race-photos/spotted-horse-ultra/spotted-horse-ultra-preview.gif",
+        "alt": "Course preview from Spotted Horse Ultra race footage",
+        "credit": "YouTube / BikeIowaGuy",
+        "gif": true
+      }
+    ]
   }
 }

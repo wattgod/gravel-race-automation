@@ -507,7 +507,165 @@
           "category": "race_atmosphere",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Junction Road",
+            "description": "First gravel sector with corrugations on the road causing crashes and bunch splits. Riders need to position themselves on left or right track lines.",
+            "source_video_ids": [
+              "MQTe-YdWxoQ"
+            ]
+          },
+          {
+            "name": "First gravel climb",
+            "description": "Very demanding gravel road that tests the legs and creates splits in the peloton. This is described as where the rubber hits the road and riders can blow up.",
+            "source_video_ids": [
+              "XDMiVXHDeB4"
+            ]
+          },
+          {
+            "name": "Gravel sector number one",
+            "description": "Riders fight for position to get on first, dust gets kicked up making breathing difficult and getting in eyes. The bunch splits up here.",
+            "source_video_ids": [
+              "_4C9eiU-bzY"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Dust gets kicked up by riders, making breathing difficult and getting dust in eyes, which makes riding harder and harder.",
+            "source_video_ids": [
+              "_4C9eiU-bzY"
+            ]
+          },
+          {
+            "text": "Corrugations on the gravel roads require riders to follow road tracks on either the left or right side.",
+            "source_video_ids": [
+              "MQTe-YdWxoQ"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "Tire choice is critical - riders need something that can withstand the rigors of gravel but fast enough on bitumen. Some chose 23mm road tires while smart operators went for 28mm tires which make it much easier on the gravel.",
+            "source_video_ids": [
+              "_4C9eiU-bzY",
+              "MQTe-YdWxoQ"
+            ]
+          }
+        ],
+        "race_day_tips": [
+          {
+            "text": "Riders need to fight for position to get on the gravel first, as this determines race outcome.",
+            "source_video_ids": [
+              "_4C9eiU-bzY"
+            ]
+          },
+          {
+            "text": "Everyone should carry at least two drink bottles for hydration, plus food in back pockets including caffeine gels, spreading nutrition evenly through the race.",
+            "source_video_ids": [
+              "MQTe-YdWxoQ"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "I wanted to create a race that was really demanding for these elite riders physically and technically very difficult, a race unlike anything else on the calendar, a race that truly tests the physical limits of the riders.",
+            "source_video_id": "XDMiVXHDeB4",
+            "source_channel": "Gravel Cyclist",
+            "source_view_count": 4266,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "There's a long convoy that follows the riders - each team has a car that contains spares and feeds the riders.",
+            "source_video_id": "_4C9eiU-bzY",
+            "source_channel": "The Gravel and Tar Classic NZ",
+            "source_view_count": 1166,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "The Gravel and Tar Classic in New Zealand's Manawatu region is described as one of the hardest one-day races in the world, testing riders both physically and technically. The 135km course features demanding gravel climbs and sectors that split the peloton, with Junction Road being the first major challenge featuring corrugations that cause crashes. Tire choice is critical, with smart riders opting for 28mm over 23mm tires. Dust kicked up on gravel sections makes breathing difficult and gets in riders' eyes. The race starts in Fielding and finishes in Palmerston North, taking in farmland, gravel watersheds, and river plains. Hot conditions over 30 degrees add to the challenge. Positioning is crucial as riders fight to get on gravel sections first. The technical demands require following track lines on corrugated roads while managing nutrition and hydration over the demanding terrain."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "gravel-and-tar-classic-video-1.jpg",
+        "url": "/race-photos/gravel-and-tar-classic/gravel-and-tar-classic-video-1.jpg",
+        "alt": "Gravel cyclists riding along coastal dirt roads with beach and forested hills in background under cloudy sky - Gravel and Tar Classic - Manawatū-Whanganui, New Zealand",
+        "credit": "YouTube / The Gravel and Tar Classic NZ",
+        "primary": true,
+        "ai_relevance": 4,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "coastal gravel",
+          "dirt road",
+          "beach cycling",
+          "forested hills",
+          "gravel riders"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "gravel-and-tar-classic-video-2.jpg",
+        "url": "/race-photos/gravel-and-tar-classic/gravel-and-tar-classic-video-2.jpg",
+        "alt": "Cyclist with green gear sitting at airport terminal with luggage and bike equipment near retail shops - Gravel and Tar Classic - Manawatū-Whanganui, New Zealand",
+        "credit": "YouTube / The Gravel and Tar Classic NZ",
+        "primary": false,
+        "ai_relevance": 2,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "airport terminal",
+          "bike travel",
+          "cycling gear",
+          "travel preparation"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "gravel-and-tar-classic-video-3.jpg",
+        "url": "/race-photos/gravel-and-tar-classic/gravel-and-tar-classic-video-3.jpg",
+        "alt": "Aerial view of gravel cyclists on winding dirt road through rolling forested hills and valleys with mountain backdrop - Gravel and Tar Classic - Manawatū-Whanganui, New Zealand",
+        "credit": "YouTube / The Gravel and Tar Classic NZ",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 5,
+        "ai_keywords": [
+          "aerial view",
+          "winding gravel road",
+          "forested hills",
+          "mountain valleys",
+          "gravel peloton"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "gravel-and-tar-classic-preview.gif",
+        "url": "/race-photos/gravel-and-tar-classic/gravel-and-tar-classic-preview.gif",
+        "alt": "Course preview from Gravel And Tar Classic race footage",
+        "credit": "YouTube / The Gravel and Tar Classic NZ",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "gravel-and-tar-classic-preview-2.gif",
+        "url": "/race-photos/gravel-and-tar-classic/gravel-and-tar-classic-preview-2.gif",
+        "alt": "Course preview from Gravel And Tar Classic race footage",
+        "credit": "YouTube / The Gravel and Tar Classic NZ",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "gravel-and-tar-classic-preview-3.gif",
+        "url": "/race-photos/gravel-and-tar-classic/gravel-and-tar-classic-preview-3.gif",
+        "alt": "Course preview from Gravel And Tar Classic race footage",
+        "credit": "YouTube / The Gravel and Tar Classic NZ",
+        "gif": true
+      }
+    ]
   }
 }

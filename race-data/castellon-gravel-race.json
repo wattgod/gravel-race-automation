@@ -520,7 +520,120 @@
           "category": "course_difficulty",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Overall elevation profile",
+            "description": "3,000 M of climbing in under 100K described as going to be so so hard",
+            "source_video_ids": [
+              "ZcpeYPIo86A"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Course is literally just climbing and descending according to riders who love climbing",
+            "source_video_ids": [
+              "ZcpeYPIo86A"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "Suspension fork recommended for time savings on descents despite weight penalty in this really heavy race",
+            "source_video_ids": [
+              "ZcpeYPIo86A"
+            ]
+          },
+          {
+            "text": "Mountain bike cassette setup chosen for maximum gear range on technical rougher races",
+            "source_video_ids": [
+              "ZcpeYPIo86A"
+            ]
+          },
+          {
+            "text": "45mm tire width on front for more grip, slightly smaller tire on back for less rolling resistance",
+            "source_video_ids": [
+              "1qgqQ3U5gwo"
+            ]
+          }
+        ],
+        "race_day_tips": [],
+        "additional_quotes": [
+          {
+            "text": "L asked me like what I wanted in terms of setup and like I've set up my two bikes differently and I'll go through the other bike when I race that but this bike I've decided to put a mountain bike cassette on it because this is going to be my race bike for like the really technical rougher races",
+            "source_video_id": "ZcpeYPIo86A",
+            "source_channel": "Maddy Nutt",
+            "source_view_count": 18496,
+            "category": "training",
+            "curated": true
+          }
+        ],
+        "search_text": "The Castellon Gravel Race features intense climbing with 3,000 meters of elevation gain in under 100K, described by riders as extremely challenging. The course profile consists primarily of climbing and descending sections. Riders recommend suspension forks despite the weight penalty, noting significant time savings on descents and improved confidence on technical terrain. Mountain bike cassettes are suggested for maximum gear range on this technical race. The challenging elevation profile makes this suitable for riders who love climbing but prepare for difficulty. Tire setup recommendations include 45mm width on front for grip with slightly narrower rear tires for reduced rolling resistance. The race is part of the UCI Gravel World Series."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "castellon-gravel-race-video-1.jpg",
+        "url": "/race-photos/castellon-gravel-race/castellon-gravel-race-video-1.jpg",
+        "alt": "Rocky gravel road winding through Mediterranean hillside terrain with scattered vegetation and stone-covered slopes - Castellon Gravel Race - Castellon, Spain",
+        "credit": "YouTube / Maddy Nutt",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel road",
+          "rocky terrain",
+          "Mediterranean hillside",
+          "stone surface",
+          "rural trail"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "castellon-gravel-race-video-2.jpg",
+        "url": "/race-photos/castellon-gravel-race/castellon-gravel-race-video-2.jpg",
+        "alt": "Three female cyclists sitting inside vehicle during what appears to be a race interview or rest break - Castellon Gravel Race - Castellon, Spain",
+        "credit": "YouTube / Maddy Nutt",
+        "primary": false,
+        "ai_relevance": 2,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "cyclists",
+          "interview",
+          "vehicle interior",
+          "female riders",
+          "race break"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "castellon-gravel-race-video-3.jpg",
+        "url": "/race-photos/castellon-gravel-race/castellon-gravel-race-video-3.jpg",
+        "alt": "Close-up of muddy cyclist wearing sunglasses and helmet speaking to camera after completing gravel race stage - Castellon Gravel Race - Castellon, Spain",
+        "credit": "YouTube / Maddy Nutt",
+        "primary": false,
+        "ai_relevance": 3,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "muddy cyclist",
+          "post-race interview",
+          "gravel racing",
+          "helmet",
+          "finish line"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "castellon-gravel-race-preview.gif",
+        "url": "/race-photos/castellon-gravel-race/castellon-gravel-race-preview.gif",
+        "alt": "Course preview from Castellon Gravel Race race footage",
+        "credit": "YouTube / Maddy Nutt",
+        "gif": true
+      }
+    ]
   }
 }

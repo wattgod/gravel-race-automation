@@ -258,6 +258,13 @@ def build_index_entry_from_profile(slug: str, data: dict) -> dict:
     if search_text:
         entry["st"] = search_text
 
+    # Thumbnail: primary photo URL for search UI visual previews
+    photos = race.get("photos", [])
+    for p in photos:
+        if p.get("primary") and p.get("url") and not p.get("gif"):
+            entry["thumb"] = p["url"]
+            break
+
     return entry
 
 

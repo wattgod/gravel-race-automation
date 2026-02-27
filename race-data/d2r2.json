@@ -641,7 +641,151 @@
           "category": "course_difficulty",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "15% climbs on dirt roads",
+            "description": "Multiple 15% grade climbs throughout the course that are very slippery with rocks and require low gearing. Some riders resort to zigzagging to get up them.",
+            "source_video_ids": [
+              "4gNXPICMR0s"
+            ]
+          },
+          {
+            "name": "Rocky dirt sections",
+            "description": "Very rocky but beautiful terrain that can be challenging to navigate, requiring wider tires for better traction.",
+            "source_video_ids": [
+              "4gNXPICMR0s"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Very slippery rocks and such on the dirt climbs, described as pretty rugged terrain that requires wider tires.",
+            "source_video_ids": [
+              "4gNXPICMR0s"
+            ]
+          },
+          {
+            "text": "Some extremely steep little buggers on dirt roads that test your mental fortitude and legs.",
+            "source_video_ids": [
+              "4gNXPICMR0s"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "Glad to have wider tires, specifically a pair of Teravail Cannonball tires for the rocky, rugged terrain.",
+            "source_video_ids": [
+              "4gNXPICMR0s"
+            ]
+          },
+          {
+            "text": "Low gearing is essential - rider had 42 chainring with 46 biggest cog (less than 1:1 ratio) but would prefer a 2x setup for this type of terrain.",
+            "source_video_ids": [
+              "4gNXPICMR0s"
+            ]
+          }
+        ],
+        "race_day_tips": [
+          {
+            "text": "You have to like climbing if you're riding anywhere around Deerfield Massachusetts - there are 16 climbs on a typical course.",
+            "source_video_ids": [
+              "4gNXPICMR0s"
+            ]
+          },
+          {
+            "text": "Limited support options out there, so plan your hydration and nutrition accordingly with what you can carry.",
+            "source_video_ids": [
+              "4gNXPICMR0s"
+            ]
+          },
+          {
+            "text": "Rest stops are typically right before climbing sections, so lactic acid builds up while you're eating.",
+            "source_video_ids": [
+              "Y-7sHKCt3bE"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "You must be wearing a D2R2 wristband to receive meals - that's how you know it's legit when there's bagpipes at the start.",
+            "source_video_id": "Y-7sHKCt3bE",
+            "source_channel": "It's Just A Hill: A Cycling Collective",
+            "source_view_count": 864,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "It's 150 bucks for this ride but you get three full meals, continental breakfast, lunch along the Green River, barbecue dinner, beer in commemorative pint glass, and multiple checkpoints with real pickles, Cabot cheese, Cliff bars, and much more.",
+            "source_video_id": "oQ4mhQD6OdE",
+            "source_channel": "Reelife Productions",
+            "source_view_count": 2144,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "D2R2 in Deerfield, Massachusetts features extremely challenging terrain with 16 climbs over 112 miles and 7000-13000 feet of elevation. Riders describe multiple 15% grade climbs on slippery, rocky dirt roads that test mental fortitude and require low gearing and wider tires. The course includes very rugged sections where some riders must zigzag up steep climbs. Support is limited so riders need to plan hydration carefully. The event provides three full meals including continental breakfast, lunch along Green River, and barbecue dinner, plus multiple aid stations with pickles, cheese, and Cliff bars. Registration costs $150 and includes commemorative pint glass with beer. Rest stops are typically positioned before climbs. The scenery is described as beautiful with changing fall foliage, but the technical rocky terrain requires specific gear preparation including wider tires and very low gearing ratios."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "d2r2-video-1.jpg",
+        "url": "/race-photos/d2r2/d2r2-video-1.jpg",
+        "alt": "Rural gravel road stretching through green countryside with power lines overhead under overcast sky - D2R2 - Deerfield, Massachusetts",
+        "credit": "YouTube / It's Just A Hill: A Cycling Collective",
+        "primary": true,
+        "ai_relevance": 4,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "gravel road",
+          "rural countryside",
+          "power lines",
+          "overcast conditions"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "d2r2-video-2.jpg",
+        "url": "/race-photos/d2r2/d2r2-video-2.jpg",
+        "alt": "First-person view from bicycle handlebars riding on leaf-covered trail through wooded area - D2R2 - Deerfield, Massachusetts",
+        "credit": "YouTube / It's Just A Hill: A Cycling Collective",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "bike handlebar view",
+          "leaf covered trail",
+          "wooded terrain",
+          "autumn cycling"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "d2r2-video-3.jpg",
+        "url": "/race-photos/d2r2/d2r2-video-3.jpg",
+        "alt": "Male cyclist wearing black cap speaking inside vehicle during race interview with green landscape visible outside - D2R2 - Deerfield, Massachusetts",
+        "credit": "YouTube / It's Just A Hill: A Cycling Collective",
+        "primary": false,
+        "ai_relevance": 2,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "cyclist interview",
+          "race vehicle",
+          "black cap",
+          "green landscape"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "d2r2-preview.gif",
+        "url": "/race-photos/d2r2/d2r2-preview.gif",
+        "alt": "Course preview from D2R2 race footage",
+        "credit": "YouTube / It's Just A Hill: A Cycling Collective",
+        "gif": true
+      }
+    ]
   }
 }

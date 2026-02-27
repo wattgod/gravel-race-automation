@@ -1,6 +1,7 @@
 {
   "slug": "hardwood-hustle",
   "race_name": "Hardwood Hustle",
+  "distance_mi": 62.0,
   "demands": {
     "durability": 2,
     "climbing": 4,
@@ -19,7 +20,8 @@
         "Single Sustained Threshold",
         "Threshold Ramps",
         "Descending Threshold"
-      ]
+      ],
+      "workout_context": "Hardwood Hustle rewards athletes who can hold sustained power without blowing up \u2014 threshold is the engine that drives everything above Zone 2."
     },
     {
       "category": "Gravel_Specific",
@@ -27,7 +29,8 @@
       "workouts": [
         "Surge and Settle",
         "Terrain Microbursts"
-      ]
+      ],
+      "workout_context": "Hardwood Hustle\u2019s gravel roads, hardwood forest demands rapid power changes \u2014 surge over obstacles, settle on smoother sections, repeat for hours."
     },
     {
       "category": "Over_Under",
@@ -35,7 +38,8 @@
       "workouts": [
         "Classic Over-Unders",
         "Ladder Over-Unders"
-      ]
+      ],
+      "workout_context": "Over-unders train the lactate clearance you\u2019ll need at Hardwood Hustle when surges push you above threshold and you have to recover while still riding hard."
     },
     {
       "category": "G_Spot",
@@ -44,7 +48,8 @@
         "G-Spot Standard",
         "G-Spot Extended",
         "Criss-Cross"
-      ]
+      ],
+      "workout_context": "The G-Spot zone (88\u201392% FTP) is where you\u2019ll spend the hardest sustained miles of Hardwood Hustle. Make this intensity feel like home."
     },
     {
       "category": "Race_Simulation",
@@ -53,9 +58,79 @@
         "Breakaway Simulation",
         "Variable Pace Chaos",
         "Sector Simulation"
-      ]
+      ],
+      "workout_context": "Racing Hardwood Hustle isn\u2019t just fitness \u2014 it\u2019s pacing, fueling, and executing when conditions deteriorate. This workout practices the race itself."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 57,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "The varied gradients at Hardwood Hustle reward climbing adaptability \u2014 knowing when to sit, when to stand, and when to switch."
+    },
+    {
+      "category": "VO2max",
+      "score": 52,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ],
+      "workout_context": "Hardwood Hustle\u2019s hardwood forest gravel roads and competitive field demand explosive aerobic capacity \u2014 the ability to respond to surges without blowing up."
+    },
+    {
+      "category": "Critical_Power",
+      "score": 52,
+      "workouts": [
+        "Above CP Repeats",
+        "W-Prime Depletion"
+      ],
+      "workout_context": "Critical power determines how long you can sustain above-threshold efforts at Hardwood Hustle \u2014 a higher CP means more time in the red before failure."
+    },
+    {
+      "category": "Durability",
+      "score": 50,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ],
+      "workout_context": "Hardwood Hustle\u2019s hardwood forest gravel roads drains energy reserves faster than the distance suggests \u2014 durability training bridges the gap."
+    },
+    {
+      "category": "Norwegian_Double",
+      "score": 48,
+      "workouts": [
+        "Norwegian 4x8 Classic",
+        "Double Threshold"
+      ],
+      "workout_context": "The Norwegian double-threshold method builds the sustained power base for Hardwood Hustle \u2014 massive training stimulus without the recovery cost of VO2max work."
+    },
+    {
+      "category": "SFR_Muscle_Force",
+      "score": 38,
+      "workouts": [
+        "SFR Low Cadence",
+        "Force Repeats"
+      ],
+      "workout_context": "Low-cadence force work builds the muscular strength for Hardwood Hustle\u2019s 3,000ft of climbing \u2014 especially the grinding, low-speed ascents."
+    },
+    {
+      "category": "Anaerobic_Capacity",
+      "score": 38,
+      "workouts": [
+        "2min Killers",
+        "90sec Repeats"
+      ],
+      "workout_context": "Short, violent efforts are unavoidable at Hardwood Hustle \u2014 climbs demanding 2-minute maximal efforts, surges to close gaps, attacks on hardwood forest gravel roads."
     }
   ],
+  "race_overlay": {
+    "nutrition": "Target 40\u201360g carbs/hour for Hardwood Hustle\u2019s 62 miles. Front-load calories in the first half. One bottle per hour minimum, more in heat.",
+    "terrain": "Mixed terrain at Hardwood Hustle requires surface adaptability. Include weekly rides on hardwood forest gravel roads to build confidence. Expect: gravel roads, hardwood forest, rolling hills."
+  },
   "pack_summary": "This 10-workout pack focuses on TT Threshold, Gravel Specific, and Over Under to prepare you for 62 miles of hardwood forest gravel roads in Nelma, Wisconsin.",
   "generated_at": "2026-02-26"
 }

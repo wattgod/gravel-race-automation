@@ -490,6 +490,64 @@
         }
       ],
       "quotes": []
-    }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "melting-mann-video-1.jpg",
+        "url": "/race-photos/melting-mann/melting-mann-video-1.jpg",
+        "alt": "First-person POV of cyclist following another rider on wooded gravel trail with dense green forest canopy overhead - Melting Mann - Vandalia, Michigan",
+        "credit": "YouTube / Spoked Trails",
+        "primary": true,
+        "ai_relevance": 4,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "wooded gravel trail",
+          "forest canopy",
+          "POV cycling",
+          "shaded path"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "melting-mann-video-2.jpg",
+        "url": "/race-photos/melting-mann/melting-mann-video-2.jpg",
+        "alt": "POV shot from bike handlebars following cyclist on open paved road with green countryside and blue sky - Melting Mann - Vandalia, Michigan",
+        "credit": "YouTube / Spoked Trails",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "paved road cycling",
+          "countryside",
+          "blue sky",
+          "POV handlebars"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "melting-mann-video-3.jpg",
+        "url": "/race-photos/melting-mann/melting-mann-video-3.jpg",
+        "alt": "Two cyclists racing on gravel road through rural winter landscape with bare trees and overcast sky - Melting Mann - Vandalia, Michigan",
+        "credit": "YouTube / Spoked Trails",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel road racing",
+          "winter cycling",
+          "rural landscape",
+          "bare trees"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "melting-mann-preview.gif",
+        "url": "/race-photos/melting-mann/melting-mann-preview.gif",
+        "alt": "Course preview from Melting Mann race footage",
+        "credit": "YouTube / Spoked Trails",
+        "gif": true
+      }
+    ]
   }
 }

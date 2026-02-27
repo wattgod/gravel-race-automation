@@ -557,7 +557,149 @@
           "category": "community",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Steep climb at the start",
+            "description": "Riders mentioned a steep climb to start with that caught them off guard.",
+            "source_video_ids": [
+              "oFlnkggPruE"
+            ]
+          },
+          {
+            "name": "Single track section",
+            "mile_marker": "3",
+            "description": "About 5k in, riders hit a challenging single track section where Cameron Mason pushed the pace. It starts with a drag then goes into flowy, twisty sections with big puddles. Hard to pass anyone and need to stay focused on the turns.",
+            "source_video_ids": [
+              "3ZNeWh4SQO8"
+            ]
+          },
+          {
+            "name": "Pothole sections",
+            "description": "Riders warn about keeping an eye out for poles and potholes, especially when riding close behind someone as they're hard to see coming up. Some are pretty big and can cause crashes if caught wrong.",
+            "source_video_ids": [
+              "3ZNeWh4SQO8"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "The course was pretty much all off-road, mainly forest fire tracks with some single track thrown in. The climbs weren't too long and you could roll over them with a bit of speed.",
+            "source_video_ids": [
+              "3ZNeWh4SQO8"
+            ]
+          },
+          {
+            "text": "Quality of the gravel in the forest is great with flowing sections along the reservoir edge.",
+            "source_video_ids": [
+              "oFlnkggPruE"
+            ]
+          }
+        ],
+        "gear_mentions": [],
+        "race_day_tips": [
+          {
+            "text": "There's a time cut at 12:30 at the split point - if you're not there by then, you'll be directed to finish on the medium route.",
+            "source_video_ids": [
+              "oFlnkggPruE"
+            ]
+          },
+          {
+            "text": "Make sure to wrap up plenty before heading to the start as weather can be misty for the whole day.",
+            "source_video_ids": [
+              "3ZNeWh4SQO8"
+            ]
+          },
+          {
+            "text": "Don't forget to fill up water at the start - riders mentioned forgetting and hoping it wasn't too far to the first feed stop.",
+            "source_video_ids": [
+              "oFlnkggPruE"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "Feed stops are super consistent and the guys are just absolutely amazing we do all of them so um yeah this North Wales gravel it's just typical gravel isn't it uh great banter you know great Riders you know the staff are always helpful because they've nailed it they've done a fantastic job everyone's so friendly",
+            "source_video_id": "oFlnkggPruE",
+            "source_channel": "Glorious Gravel TV",
+            "source_view_count": 9502,
+            "category": "community",
+            "curated": true
+          },
+          {
+            "text": "Only downside is the car park space we uh had was a full of uh sheep droppings and uh it's kind of all inside of John's car now so um sorry John smelling pretty horrific",
+            "source_video_id": "oFlnkggPruE",
+            "source_channel": "Glorious Gravel TV",
+            "source_view_count": 9502,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "North Wales Gravel X near Ruthin features a challenging course that starts with a steep climb before transitioning to mainly forest fire tracks and flowing sections along a reservoir edge. At 5k in, riders face a demanding single track section with big puddles and twisty terrain where passing is difficult. The course includes numerous potholes that require constant attention, especially when riding in groups. Weather conditions can be misty throughout the day. The event has excellent feed stops with helpful staff and a strong community atmosphere. There's a time cut at 12:30 at the split point for route selection. The climbs aren't too long and can be rolled over with speed. Riders praise the quality of gravel in the forest sections and describe it as a hidden gem with great scenery that's easily accessible from major motorways."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "north-wales-gravel-x-video-1.jpg",
+        "url": "/race-photos/north-wales-gravel-x/north-wales-gravel-x-video-1.jpg",
+        "alt": "Two cyclists in helmets and racing gear standing at North Wales Gravel X event tents after completing the race - Ruthin, Wales, UK",
+        "credit": "YouTube / Glorious Gravel TV",
+        "primary": true,
+        "ai_relevance": 3,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "North Wales Gravel X",
+          "cyclists",
+          "race finish",
+          "event tents",
+          "gravel racing"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "north-wales-gravel-x-video-2.jpg",
+        "url": "/race-photos/north-wales-gravel-x/north-wales-gravel-x-video-2.jpg",
+        "alt": "Rough gravel track crossing golden moorland terrain with reservoirs visible in the rolling Welsh hills landscape - North Wales Gravel X - Ruthin, Wales, UK",
+        "credit": "YouTube / Glorious Gravel TV",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 5,
+        "ai_keywords": [
+          "Welsh moorland",
+          "gravel track",
+          "reservoirs",
+          "golden grassland",
+          "rolling hills"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "north-wales-gravel-x-video-3.jpg",
+        "url": "/race-photos/north-wales-gravel-x/north-wales-gravel-x-video-3.jpg",
+        "alt": "Cyclists riding on paved forest road through dense woodland with mixed coniferous and deciduous trees in North Wales - North Wales Gravel X - Ruthin, Wales, UK",
+        "credit": "YouTube / Glorious Gravel TV",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "forest road",
+          "woodland cycling",
+          "North Wales",
+          "tree-lined road",
+          "cyclists"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "north-wales-gravel-x-preview.gif",
+        "url": "/race-photos/north-wales-gravel-x/north-wales-gravel-x-preview.gif",
+        "alt": "Course preview from North Wales Gravel X race footage",
+        "credit": "YouTube / Glorious Gravel TV",
+        "gif": true
+      }
+    ]
   }
 }

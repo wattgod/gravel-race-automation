@@ -462,7 +462,128 @@
           "category": "race_atmosphere",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [],
+        "terrain_notes": [
+          {
+            "text": "The course includes a lot of single track sections that pop up throughout the race, creating technical challenges 100 miles into the event when riders are fatigued.",
+            "source_video_ids": [
+              "PhSjlSkFP-U"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "Most riders opted for 45mm tires. One rider ran Teras 45s and discussed whether to use J1 RS at 45mm width versus other 45mm options.",
+            "source_video_ids": [
+              "PhSjlSkFP-U"
+            ]
+          }
+        ],
+        "race_day_tips": [
+          {
+            "text": "The race will likely break up into small groups all day and probably be down to three or four riders going into the single track sections.",
+            "source_video_ids": [
+              "PhSjlSkFP-U"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "I look to Belgian waffle rides as events that really bring the best courses that we race on all season. They're the most encompassing of everything that I think gravel racing should be. Like you have a lot of single track out there, just challenging unroad sectors that pop up out of nowhere.",
+            "source_video_id": "PhSjlSkFP-U",
+            "source_channel": "Russell Finsterwald",
+            "source_view_count": 22547,
+            "category": "course_difficulty",
+            "curated": true
+          },
+          {
+            "text": "Having gotten second at BWR Arizona and then having a decent ride in BWR California getting seventh, I come into the weekend with the lead in the series which is pretty cool. This is the final stop.",
+            "source_video_id": "PhSjlSkFP-U",
+            "source_channel": "Russell Finsterwald",
+            "source_view_count": 22547,
+            "category": "race_atmosphere",
+            "curated": true
+          }
+        ],
+        "search_text": "BWR Montana serves as the final stop in the Belgian Waffle Ride Triple Crown series, taking place in Big Sky Country around Bozeman, Montana. Riders describe the course as encompassing everything gravel racing should be, featuring significant single track sections that create technical challenges, especially when riders hit them 100 miles into the race while fatigued. The terrain includes challenging unroad sectors that pop up unexpectedly throughout the course. Most competitive riders opt for 45mm tires to handle the varied terrain. The race typically breaks down into small groups throughout the day, with expectations that only three or four riders will remain together heading into the technical single track sections. The event attracts strong competition as riders vie for both individual race wins and overall series standings."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "bwr-montana-video-1.jpg",
+        "url": "/race-photos/bwr-montana/bwr-montana-video-1.jpg",
+        "alt": "Purple gravel bike with deep-section wheels displayed on grass with wooden fence background - BWR Montana (Belgian Waffle Ride Montana) - Missoula, Montana",
+        "credit": "YouTube / Goettl Media",
+        "primary": true,
+        "ai_relevance": 2,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel bike",
+          "deep-section wheels",
+          "purple frame",
+          "bike display"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "bwr-montana-video-2.jpg",
+        "url": "/race-photos/bwr-montana/bwr-montana-video-2.jpg",
+        "alt": "Aerial view of Virginia City with residential buildings and cars parked along main street - BWR Montana (Belgian Waffle Ride Montana) - Missoula, Montana",
+        "credit": "YouTube / Goettl Media",
+        "primary": false,
+        "ai_relevance": 3,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "Virginia City",
+          "aerial view",
+          "small town",
+          "race location"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "bwr-montana-video-3.jpg",
+        "url": "/race-photos/bwr-montana/bwr-montana-video-3.jpg",
+        "alt": "Cyclist in racing position riding through lush green forest terrain on gravel path - BWR Montana (Belgian Waffle Ride Montana) - Missoula, Montana",
+        "credit": "YouTube / Goettl Media",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "forest gravel",
+          "racing position",
+          "green terrain",
+          "tree-lined trail"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "bwr-montana-preview.gif",
+        "url": "/race-photos/bwr-montana/bwr-montana-preview.gif",
+        "alt": "Course preview from Bwr Montana race footage",
+        "credit": "YouTube / Goettl Media",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "bwr-montana-preview-2.gif",
+        "url": "/race-photos/bwr-montana/bwr-montana-preview-2.gif",
+        "alt": "Course preview from Bwr Montana race footage",
+        "credit": "YouTube / Goettl Media",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "bwr-montana-preview-3.gif",
+        "url": "/race-photos/bwr-montana/bwr-montana-preview-3.gif",
+        "alt": "Course preview from Bwr Montana race footage",
+        "credit": "YouTube / Goettl Media",
+        "gif": true
+      }
+    ]
   }
 }

@@ -545,7 +545,89 @@
           "category": "race_atmosphere",
           "curated": true
         }
-      ]
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Bon Jon Pass climb",
+            "mile_marker": "15",
+            "description": "Starting at sea level and climbing exclusively to approaching 4,000 ft altitude, with one rider noting they were approaching 3500 ft at 15 miles in. Riders describe this as climbing for the better part of an hour and a half.",
+            "source_video_ids": [
+              "0DtzvAQqpdI"
+            ]
+          },
+          {
+            "name": "15 to 18 gravel climbs",
+            "description": "Multiple steep gravel climbs throughout the course that cause many people to walk, though some riders complete without walking.",
+            "source_video_ids": [
+              "S7iayrbthLw"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "The ground is more loamy and soft on the west coast, with moss encroaching the middle of paved roads and plants growing out of the pavement. Expect muddy conditions.",
+            "source_video_ids": [
+              "0DtzvAQqpdI",
+              "S7iayrbthLw"
+            ]
+          },
+          {
+            "text": "Dusty conditions on climbs, with riders needing masks due to dust.",
+            "source_video_ids": [
+              "S5b4ks3s8nk"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "700x44 Manastash Ridge tires in endurance plus casing recommended for the softer, loamy terrain and unfamiliar sharp rocks.",
+            "source_video_ids": [
+              "0DtzvAQqpdI"
+            ]
+          },
+          {
+            "text": "Maximum 30 chainring with 42 cassette for the steep climbing sections.",
+            "source_video_ids": [
+              "S7iayrbthLw"
+            ]
+          }
+        ],
+        "race_day_tips": [
+          {
+            "text": "Prepare for weather - expect 40-something degrees at the start with precipitation possible. Bring layers including ultralight jacket for the temperature variation from sea level to 4000 ft.",
+            "source_video_ids": [
+              "0DtzvAQqpdI"
+            ]
+          },
+          {
+            "text": "Secure your equipment well - multiple riders experienced GoPro mounting failures on the rough gravel terrain.",
+            "source_video_ids": [
+              "S7iayrbthLw"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "I can honestly say this is the hardest ride I've ever done over the past two years",
+            "source_video_id": "S7iayrbthLw",
+            "source_channel": "Always in Motion",
+            "source_view_count": 291,
+            "category": "course_difficulty",
+            "curated": true
+          },
+          {
+            "text": "The important thing is we made it, we did not walk we did not, a lot of people want a lot of people walk we did not walk those 15 to 18 climbs on the gravel",
+            "source_video_id": "S7iayrbthLw",
+            "source_channel": "Always in Motion",
+            "source_view_count": 291,
+            "category": "community",
+            "curated": true
+          }
+        ],
+        "search_text": "The Gravel Unravel - Bon Jon Pass Out in Quilcene, WA features extreme elevation gain starting at sea level and climbing to nearly 4,000 feet. The signature Bon Jon Pass climb hits 3,500 feet by mile 15, requiring an hour and a half of sustained climbing. Riders face 15-18 gravel climbs throughout the course, with many walking sections. Terrain includes loamy, soft ground with moss-covered roads and muddy conditions. Weather can include precipitation with temperatures starting in the 40s. The Pacific Northwest setting offers mountain views and pine forests. Riders recommend 700x44 tires in endurance casing for the sharp rocks and soft terrain, plus low gearing like 30x42 for the steep sections. Equipment security is important due to rough conditions causing mounting failures."
+      }
     }
   }
 }

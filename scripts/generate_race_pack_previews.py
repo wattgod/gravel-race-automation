@@ -125,8 +125,11 @@ CATEGORY_SAMPLE_ARCHETYPES = {
     'Recovery': ['Easy Spin', 'Active Recovery'],
 }
 
-# Default number of top categories to include in a race pack preview
-TOP_N_DEFAULT = 5
+# Default number of top categories to include in a race pack preview.
+# Must be high enough that ultra-distance races still get 5 eligible workouts
+# after filtering (up to 7 categories can be filtered for ultra: VO2max,
+# Race_Simulation, Gravel_Specific, Critical_Power, Anaerobic, Sprint, Norwegian).
+TOP_N_DEFAULT = 12
 # Minimum number of top categories
 TOP_N_MIN = 3
 
@@ -286,6 +289,245 @@ def generate_pack_summary(race: dict, top_categories: list) -> str:
     )
 
 
+def generate_race_overlay(race: dict, demands: dict) -> dict:
+    """Generate race-specific preparation notes from race data and demands.
+
+    Uses actual race climate, terrain, and vitals data to produce genuinely
+    race-specific text (not generic templates with name swapped in).
+
+    Returns dict with keys: heat, nutrition, altitude, terrain (each str or absent).
+    """
+    vitals = race.get('vitals') or {}
+    distance = _safe_numeric(vitals, 'distance_mi', 0)
+    race_name = race.get('display_name') or race.get('name', 'this race')
+    location = _extract_location(race)
+    terrain_primary = _extract_terrain_primary(race)
+
+    # Extract month from date string
+    date_str = vitals.get('date', '') or vitals.get('date_specific', '') or ''
+    month = ''
+    for m in ['January','February','March','April','May','June','July','August',
+              'September','October','November','December']:
+        if m in date_str:
+            month = m
+            break
+
+    # Climate data
+    climate = race.get('climate') or {}
+    climate_desc = ''
+    if isinstance(climate, dict):
+        climate_desc = climate.get('description', '')
+    challenges = []
+    if isinstance(climate, dict):
+        challenges = climate.get('challenges', []) or []
+
+    # Elevation
+    elevation = _safe_numeric(vitals, 'elevation_ft', 0)
+
+    # Terrain types for specificity
+    terrain_types = vitals.get('terrain_types', []) or []
+    terrain_detail = ', '.join(terrain_types[:3]).lower() if terrain_types else ''
+
+    overlay = {}
+
+    # ── Heat ──
+    heat_score = demands.get('heat_resilience', 0)
+    if heat_score >= 8:
+        # Use actual climate data
+        climate_line = ''
+        if month and location != 'the course':
+            climate_line = f"{month} in {location}"
+            if climate_desc:
+                climate_line += f" — {climate_desc.rstrip('.')}"
+            climate_line += '. '
+        elif climate_desc:
+            climate_line = f"{climate_desc.rstrip('.')}. "
+
+        challenge_line = ''
+        heat_challenges = [c for c in challenges if any(w in c.lower() for w in ['heat', 'hot', 'sun', 'humid', 'hydra'])]
+        if heat_challenges:
+            challenge_line = ' Race-day realities: ' + '; '.join(c.rstrip('.') for c in heat_challenges[:2]) + '.'
+
+        overlay['heat'] = (
+            f"{climate_line}"
+            f"Begin heat acclimatization 10\u201314 days before {race_name} \u2014 "
+            f"20\u201330min sauna sessions or midday rides in full kit. "
+            f"Pre-load sodium 48 hours out. "
+            f"Target 500\u2013750ml/hr with electrolytes on race day.{challenge_line}"
+        )
+    elif heat_score >= 5:
+        climate_line = ''
+        if month and location != 'the course':
+            climate_line = f"{month} in {location} can bring heat. "
+        overlay['heat'] = (
+            f"{climate_line}"
+            f"Complete 3\u20134 heat exposure sessions in the final 2 weeks before {race_name}. "
+            f"Increase sodium intake 48 hours before race day."
+        )
+
+    # ── Nutrition ──
+    if distance >= 150:
+        overlay['nutrition'] = (
+            f"Ultra-distance fueling for {int(distance)} miles: 80\u2013100g carbs/hour from mile 1 \u2014 "
+            f"don\u2019t wait until you\u2019re hungry. "
+            f"Practice your exact race-day nutrition in every long training ride. "
+            f"Carry backup calories. "
+            f"{int(distance)} miles burns 8,000\u201312,000+ calories \u2014 you cannot replace them all, but you must try."
+        )
+    elif distance >= 80:
+        overlay['nutrition'] = (
+            f"Target 60\u201380g carbs/hour for {race_name}\u2019s {int(distance)} miles. "
+            f"Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. "
+            f"Bonking at mile 60 is a nutrition failure, not a fitness failure."
+        )
+    elif distance >= 40:
+        overlay['nutrition'] = (
+            f"Target 40\u201360g carbs/hour for {race_name}\u2019s {int(distance)} miles. "
+            f"Front-load calories in the first half. One bottle per hour minimum, more in heat."
+        )
+    else:
+        overlay['nutrition'] = (
+            "Standard hydration and fueling. One bottle per hour minimum. "
+            "Gel or bar every 45 minutes at race intensity."
+        )
+
+    # ── Altitude ──
+    alt_score = demands.get('altitude', 0)
+    if alt_score >= 7:
+        elev_line = ''
+        if elevation >= 1000:
+            elev_line = f"with {int(elevation):,}ft of climbing, much of it above 8,000ft"
+        alt_challenges = [c for c in challenges if any(w in c.lower() for w in ['altitude', 'elevation', 'feet', 'summit', 'thin air'])]
+        challenge_line = ''
+        if alt_challenges:
+            challenge_line = ' ' + '; '.join(c.rstrip('.') for c in alt_challenges[:2]) + '.'
+
+        overlay['altitude'] = (
+            f"{race_name} {elev_line + ' ' if elev_line else ''}"
+            f"demands altitude preparation. "
+            f"Arrive 5\u20137 days early for acclimatization. "
+            f"Expect 5\u201315% power reduction at altitude. "
+            f"Increase iron intake 4 weeks out. "
+            f"Hydrate aggressively \u2014 altitude increases fluid loss by 20\u201340%.{challenge_line}"
+        )
+    elif alt_score >= 4:
+        overlay['altitude'] = (
+            f"Moderate altitude at {race_name}. "
+            f"Arrive 2\u20133 days early. Reduce intensity expectations by 5\u201310%. "
+            f"Hydrate aggressively."
+        )
+
+    # ── Terrain ──
+    tech_score = demands.get('technical', 0)
+    terrain_str = terrain_primary.rstrip('.').lower() if terrain_primary else 'mixed terrain'
+
+    if tech_score >= 7:
+        detail_line = ''
+        if terrain_detail:
+            detail_line = f" Expect: {terrain_detail}."
+
+        overlay['terrain'] = (
+            f"Highly technical terrain at {race_name} demands practice on similar surfaces. "
+            f"Ride {terrain_str} at race-day cadence weekly.{detail_line} "
+            f"Practice cornering, descending, and power delivery on unstable surfaces. "
+            f"Dial in tire pressure before race week \u2014 "
+            f"5 PSI wrong costs you 15+ minutes over {int(distance) if distance >= 1 else 'the full'} miles."
+        )
+    elif tech_score >= 4:
+        overlay['terrain'] = (
+            f"Mixed terrain at {race_name} requires surface adaptability. "
+            f"Include weekly rides on {terrain_str} to build confidence."
+            + (f" Expect: {terrain_detail}." if terrain_detail else "")
+        )
+
+    return overlay
+
+
+def generate_workout_context(race: dict, demands: dict, category: str) -> str:
+    """Generate a 1-sentence race-specific context for why a workout category matters.
+
+    Uses actual race data (distance, elevation, terrain, month, location) to produce
+    genuinely race-specific text that varies across races.
+    """
+    vitals = race.get('vitals') or {}
+    distance = _safe_numeric(vitals, 'distance_mi', 0)
+    race_name = race.get('display_name') or race.get('name', 'this race')
+    location = _extract_location(race)
+    terrain_primary = _extract_terrain_primary(race)
+    terrain_str = terrain_primary.rstrip('.').lower() if terrain_primary else 'mixed terrain'
+    elevation = _safe_numeric(vitals, 'elevation_ft', 0)
+    terrain_types = vitals.get('terrain_types', []) or []
+
+    # Extract month
+    date_str = vitals.get('date', '') or vitals.get('date_specific', '') or ''
+    month = ''
+    for m in ['January','February','March','April','May','June','July','August',
+              'September','October','November','December']:
+        if m in date_str:
+            month = m
+            break
+
+    dist_str = f"{int(distance)}-mile" if distance >= 1 else "full"
+
+    if category == 'Durability':
+        if distance >= 150:
+            return f"{race_name}\u2019s {dist_str} distance demands power production deep into fatigue \u2014 the defining challenge of ultra-distance gravel."
+        elif distance >= 80:
+            return f"At {int(distance)} miles, {race_name} punishes athletes who haven\u2019t trained their body to produce power when glycogen runs low."
+        else:
+            return f"{race_name}\u2019s {terrain_str} drains energy reserves faster than the distance suggests \u2014 durability training bridges the gap."
+    elif category == 'VO2max':
+        return f"{race_name}\u2019s {terrain_str} and competitive field demand explosive aerobic capacity \u2014 the ability to respond to surges without blowing up."
+    elif category == 'HVLI_Extended':
+        if distance >= 100:
+            return f"At {int(distance)} miles, {race_name} rewards a massive aerobic engine. This volume work builds the fat-oxidation capacity that keeps you moving when glycogen runs low."
+        else:
+            return f"High-volume endurance builds the aerobic base that makes {race_name}\u2019s race-day efforts sustainable rather than destructive."
+    elif category == 'Race_Simulation':
+        return f"Racing {race_name} isn\u2019t just fitness \u2014 it\u2019s pacing, fueling, and executing when conditions deteriorate. This workout practices the race itself."
+    elif category == 'TT_Threshold':
+        return f"{race_name} rewards athletes who can hold sustained power without blowing up \u2014 threshold is the engine that drives everything above Zone 2."
+    elif category == 'G_Spot':
+        return f"The G-Spot zone (88\u201392% FTP) is where you\u2019ll spend the hardest sustained miles of {race_name}. Make this intensity feel like home."
+    elif category == 'Mixed_Climbing':
+        if elevation >= 5000:
+            return f"{race_name}\u2019s {int(elevation):,}ft of climbing demands seated and standing versatility \u2014 the ability to change climbing style as gradient and fatigue dictate."
+        else:
+            return f"The varied gradients at {race_name} reward climbing adaptability \u2014 knowing when to sit, when to stand, and when to switch."
+    elif category == 'Over_Under':
+        return f"Over-unders train the lactate clearance you\u2019ll need at {race_name} when surges push you above threshold and you have to recover while still riding hard."
+    elif category == 'Gravel_Specific':
+        terrain_detail = ', '.join(terrain_types[:2]).lower() if terrain_types else terrain_str
+        return f"{race_name}\u2019s {terrain_detail} demands rapid power changes \u2014 surge over obstacles, settle on smoother sections, repeat for hours."
+    elif category == 'Endurance':
+        return f"Every session at {race_name} intensity builds on this aerobic foundation \u2014 the endurance base is the soil everything else grows in."
+    elif category == 'Critical_Power':
+        return f"Critical power determines how long you can sustain above-threshold efforts at {race_name} \u2014 a higher CP means more time in the red before failure."
+    elif category == 'Anaerobic_Capacity':
+        return f"Short, violent efforts are unavoidable at {race_name} \u2014 climbs demanding 2-minute maximal efforts, surges to close gaps, attacks on {terrain_str}."
+    elif category == 'Sprint_Neuromuscular':
+        return f"Neuromuscular power closes gaps and wins field sprints at {race_name}. The ability to produce massive short-burst power is a tactical weapon."
+    elif category == 'Norwegian_Double':
+        return f"The Norwegian double-threshold method builds the sustained power base for {race_name} \u2014 massive training stimulus without the recovery cost of VO2max work."
+    elif category == 'SFR_Muscle_Force':
+        if elevation >= 3000:
+            return f"Low-cadence force work builds the muscular strength for {race_name}\u2019s {int(elevation):,}ft of climbing \u2014 especially the grinding, low-speed ascents."
+        else:
+            return f"Muscular force work builds the torque for headwinds and {terrain_str} at {race_name} \u2014 when you can\u2019t spin, you grind."
+    elif category == 'Cadence_Work':
+        return f"Cadence efficiency makes every pedal stroke at {race_name} count \u2014 smooth technique reduces muscular fatigue over long distances."
+    elif category == 'Blended':
+        return f"Blended sessions combine endurance with intensity spikes \u2014 exactly what {race_name}\u2019s {terrain_str} delivers on race day."
+    elif category == 'Tempo':
+        return f"Tempo is the race-day intensity of {race_name}. Harder than Z2, easier than threshold \u2014 the pace you\u2019ll hold for hours on {terrain_str}."
+    elif category == 'LT1_MAF':
+        return f"Aerobic development below LT1 builds the fat-burning engine for {race_name}\u2019s endurance demands \u2014 the foundation everything else rides on."
+    elif category == 'Recovery':
+        return f"Strategic recovery enables the hard work. At {race_name}\u2019s training intensity, active recovery rides prevent overtraining."
+    else:
+        return f"Targeted training for {race_name}\u2019s specific demands."
+
+
 # =============================================================================
 # PREVIEW GENERATION
 # =============================================================================
@@ -311,14 +553,27 @@ def generate_preview(race_data: dict) -> dict:
     # 2. Top categories with archetypes
     top_categories = get_top_categories(demands)
 
+    # 2b. Add race-specific context per category
+    for tc in top_categories:
+        tc['workout_context'] = generate_workout_context(race, demands, tc['category'])
+
     # 3. Pack summary
     pack_summary = generate_pack_summary(race, top_categories)
+
+    # 4. Race-specific overlay
+    race_overlay = generate_race_overlay(race, demands)
+
+    # 5. Distance for eligibility filtering in page generator
+    vitals = race.get("vitals") or {}
+    distance_mi = _safe_numeric(vitals, "distance_mi", 0)
 
     return {
         "slug": slug,
         "race_name": race_name,
+        "distance_mi": distance_mi,
         "demands": demands,
         "top_categories": top_categories,
+        "race_overlay": race_overlay,
         "pack_summary": pack_summary,
         "generated_at": date.today().isoformat(),
     }

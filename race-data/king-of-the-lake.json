@@ -538,7 +538,99 @@
           "curated": false
         }
       ],
-      "quotes": []
-    }
+      "quotes": [],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [],
+        "terrain_notes": [
+          {
+            "text": "The route includes some gravel parts, making it easy to take detours and excursions.",
+            "source_video_ids": [
+              "KT90vsNsv7g"
+            ]
+          }
+        ],
+        "gear_mentions": [],
+        "race_day_tips": [],
+        "additional_quotes": [
+          {
+            "text": "The location adds character to the root the Eastern German Shore is lined with villages hotels and private properties and you actually don't see very much of the lake on the western Swiss side the route is closer to the shore and it's longer between sites.",
+            "source_video_id": "KT90vsNsv7g",
+            "source_channel": "Viking and Biking",
+            "source_view_count": 8344,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "There are lots of sites and quaint Villages every few kilometers the architecture is amazing and after a day you almost feel like you filled your quote of greatness for the rest of the year.",
+            "source_video_id": "KT90vsNsv7g",
+            "source_channel": "Viking and Biking",
+            "source_view_count": 8344,
+            "category": "community",
+            "curated": true
+          }
+        ],
+        "search_text": "The Lake Constance cycling route is a 250 kilometer signposted bike path that circles the lake through Germany, Austria, and Switzerland. The eastern German shore features villages, hotels, and private properties with limited lake views, while the western Swiss side runs closer to the shore with longer stretches between settlements. The route includes gravel sections that allow for easy detours and excursions. Austria's elegant city of Bregenz sits between Germany and Switzerland, offering beautiful promenades and beaches. The Rhine River delta area provides nature park wetlands for bird watching. Villages appear every few kilometers with impressive architecture, and the route offers abundant accommodation options including hotels, guest houses, campsites, restaurants, and cafes. The terrain is described as suitable for relaxing cycling and beginner bike touring rather than high-mileage days."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "king-of-the-lake-video-1.jpg",
+        "url": "/race-photos/king-of-the-lake/king-of-the-lake-video-1.jpg",
+        "alt": "Bearded man in winter jacket being interviewed in snowy European town with yellow historic buildings - King of the Lake - Lake Constance, Germany",
+        "credit": "YouTube / Wolters World",
+        "primary": true,
+        "ai_relevance": 1,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "interview",
+          "winter",
+          "historic buildings",
+          "European town"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "king-of-the-lake-video-2.jpg",
+        "url": "/race-photos/king-of-the-lake/king-of-the-lake-video-2.jpg",
+        "alt": "Deep excavated trenches cut through sandy soil with forest background showing construction or archaeological work - King of the Lake - Lake Constance, Germany",
+        "credit": "YouTube / Wolters World",
+        "primary": false,
+        "ai_relevance": 2,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "excavation",
+          "sandy soil",
+          "trenches",
+          "forest terrain"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "king-of-the-lake-video-3.jpg",
+        "url": "/race-photos/king-of-the-lake/king-of-the-lake-video-3.jpg",
+        "alt": "Aerial view of historic Belgian town square with Gothic architecture and traditional European buildings - King of the Lake - Lake Constance, Germany",
+        "credit": "YouTube / Wolters World",
+        "primary": false,
+        "ai_relevance": 1,
+        "ai_quality": 5,
+        "ai_keywords": [
+          "Belgium",
+          "town square",
+          "Gothic architecture",
+          "aerial view",
+          "historic buildings"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "king-of-the-lake-preview.gif",
+        "url": "/race-photos/king-of-the-lake/king-of-the-lake-preview.gif",
+        "alt": "Course preview from King Of The Lake race footage",
+        "credit": "YouTube / Wolters World",
+        "gif": true
+      }
+    ]
   }
 }

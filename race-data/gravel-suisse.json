@@ -554,7 +554,134 @@
           "category": "course_difficulty",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "First climb",
+            "description": "Features serious pitches of around 25% grade with multiple very steep sections. Riders describe it as really grim with people struggling and going over their bikes.",
+            "source_video_ids": [
+              "fiButZ7a5Ec"
+            ]
+          },
+          {
+            "name": "Long descent after first climb",
+            "description": "Technical descent that requires confidence and local knowledge. Riders without course reconnaissance struggle to hold wheels of local riders.",
+            "source_video_ids": [
+              "fiButZ7a5Ec"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Single trail sections with really steep, never-ending climbs through horse territory.",
+            "source_video_ids": [
+              "BuT92STJG7A"
+            ]
+          },
+          {
+            "text": "From mile 30 to 60, it's basically uphill with no technical descents to worry about.",
+            "source_video_ids": [
+              "fiButZ7a5Ec"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "40-52 gearing really came into its own on the steep pitches and allowed really good cadence to pick groups off on the climb.",
+            "source_video_ids": [
+              "fiButZ7a5Ec"
+            ]
+          },
+          {
+            "text": "New Maxxis tires provided really good grip and felt lighter than Pirellis, allowing enough traction to get out of the saddle on climbs.",
+            "source_video_ids": [
+              "fiButZ7a5Ec"
+            ]
+          }
+        ],
+        "race_day_tips": [
+          {
+            "text": "Let people go out hard at the start and ride your own tempo, then catch people on the climb when there's room. Don't put yourself in the red before the first climb.",
+            "source_video_ids": [
+              "fiButZ7a5Ec"
+            ]
+          },
+          {
+            "text": "Run a really high cadence on the climbs and keep the legs moving. Important to warm up properly and flush everything out.",
+            "source_video_ids": [
+              "fiButZ7a5Ec"
+            ]
+          },
+          {
+            "text": "Try to come over the top of climbs with local riders or a group if you haven't reconned the course, especially for the descents.",
+            "source_video_ids": [
+              "fiButZ7a5Ec"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "Breakfast at 4:30 a.m. I'm going back to bed for an hour. Pre-made burger though is decent, but it's gone down pretty quick and I am going back to sleep.",
+            "source_video_id": "fiButZ7a5Ec",
+            "source_channel": "Ross Howcroft-Jones",
+            "source_view_count": 392,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "One of the coolest things of the day was rolling out from UCI Cycling Center just here.",
+            "source_video_id": "fiButZ7a5Ec",
+            "source_channel": "Ross Howcroft-Jones",
+            "source_view_count": 392,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "Gravel Suisse features a brutal climbing profile with the main challenge being a long first climb containing multiple pitches of 25% grade that riders describe as really grim. From mile 30 to 60, the course is basically uphill through horse territory with single trail sections and never-ending steep climbs. The race starts from the UCI Cycling Center in the medieval town of Aigle. Riders recommend conservative pacing strategy, letting others go hard early then catching groups on the climbs. Technical descents after major climbs require local knowledge and confidence. Successful riders used 40-52 gearing for the steep pitches and maintained high cadence. The terrain includes single trail sections through horse territory with very steep, sustained climbing efforts that accumulated significant elevation gain."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "gravel-suisse-video-1.jpg",
+        "url": "/race-photos/gravel-suisse/gravel-suisse-video-1.jpg",
+        "alt": "Indoor interview scene with person wearing patterned shirt and lanyard against wall with framed artwork - Gravel Suisse - Aigle, Switzerland",
+        "credit": "YouTube / Ross Howcroft-Jones",
+        "primary": true,
+        "ai_relevance": 1,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "indoor interview",
+          "lanyard",
+          "framed artwork"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "gravel-suisse-video-2.jpg",
+        "url": "/race-photos/gravel-suisse/gravel-suisse-video-2.jpg",
+        "alt": "Motion-blurred view of cyclist descending through dense forest on dirt trail with green canopy overhead - Gravel Suisse - Aigle, Switzerland",
+        "credit": "YouTube / Ross Howcroft-Jones",
+        "primary": false,
+        "ai_relevance": 4,
+        "ai_quality": 2,
+        "ai_keywords": [
+          "forest descent",
+          "dirt trail",
+          "tree canopy",
+          "mountain biking"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "gravel-suisse-preview.gif",
+        "url": "/race-photos/gravel-suisse/gravel-suisse-preview.gif",
+        "alt": "Course preview from Gravel Suisse race footage",
+        "credit": "YouTube / Ross Howcroft-Jones",
+        "gif": true
+      }
+    ]
   }
 }

@@ -1,6 +1,7 @@
 {
   "slug": "texas-hell-week",
   "race_name": "Texas Hell Week",
+  "distance_mi": 200.0,
   "demands": {
     "durability": 10,
     "climbing": 5,
@@ -19,7 +20,8 @@
         "Tired VO2max",
         "Double Day Simulation",
         "Progressive Fatigue"
-      ]
+      ],
+      "workout_context": "Texas Hell Week\u2019s 200-mile distance demands power production deep into fatigue \u2014 the defining challenge of ultra-distance gravel."
     },
     {
       "category": "HVLI_Extended",
@@ -28,7 +30,8 @@
         "HVLI Extended Z2",
         "Multi-Hour Z2",
         "Back-to-Back Long"
-      ]
+      ],
+      "workout_context": "At 200 miles, Texas Hell Week rewards a massive aerobic engine. This volume work builds the fat-oxidation capacity that keeps you moving when glycogen runs low."
     },
     {
       "category": "Endurance",
@@ -36,7 +39,8 @@
       "workouts": [
         "Pre-Race Openers",
         "Terrain Simulation Z2"
-      ]
+      ],
+      "workout_context": "Every session at Texas Hell Week intensity builds on this aerobic foundation \u2014 the endurance base is the soil everything else grows in."
     },
     {
       "category": "Gravel_Specific",
@@ -44,7 +48,8 @@
       "workouts": [
         "Surge and Settle",
         "Terrain Microbursts"
-      ]
+      ],
+      "workout_context": "Texas Hell Week\u2019s texas rolling gravel, multi-day event demands rapid power changes \u2014 surge over obstacles, settle on smoother sections, repeat for hours."
     },
     {
       "category": "Race_Simulation",
@@ -53,9 +58,80 @@
         "Breakaway Simulation",
         "Variable Pace Chaos",
         "Sector Simulation"
-      ]
+      ],
+      "workout_context": "Racing Texas Hell Week isn\u2019t just fitness \u2014 it\u2019s pacing, fueling, and executing when conditions deteriorate. This workout practices the race itself."
+    },
+    {
+      "category": "Blended",
+      "score": 51,
+      "workouts": [
+        "Z2 + VO2 Combo",
+        "Endurance with Spikes"
+      ],
+      "workout_context": "Blended sessions combine endurance with intensity spikes \u2014 exactly what Texas Hell Week\u2019s texas rolling gravel delivers on race day."
+    },
+    {
+      "category": "TT_Threshold",
+      "score": 48,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ],
+      "workout_context": "Texas Hell Week rewards athletes who can hold sustained power without blowing up \u2014 threshold is the engine that drives everything above Zone 2."
+    },
+    {
+      "category": "Over_Under",
+      "score": 45,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ],
+      "workout_context": "Over-unders train the lactate clearance you\u2019ll need at Texas Hell Week when surges push you above threshold and you have to recover while still riding hard."
+    },
+    {
+      "category": "VO2max",
+      "score": 41,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ],
+      "workout_context": "Texas Hell Week\u2019s texas rolling gravel and competitive field demand explosive aerobic capacity \u2014 the ability to respond to surges without blowing up."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 37,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "Texas Hell Week\u2019s 8,000ft of climbing demands seated and standing versatility \u2014 the ability to change climbing style as gradient and fatigue dictate."
+    },
+    {
+      "category": "G_Spot",
+      "score": 37,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ],
+      "workout_context": "The G-Spot zone (88\u201392% FTP) is where you\u2019ll spend the hardest sustained miles of Texas Hell Week. Make this intensity feel like home."
+    },
+    {
+      "category": "Tempo",
+      "score": 34,
+      "workouts": [
+        "Tempo Blocks",
+        "Extended Tempo"
+      ],
+      "workout_context": "Tempo is the race-day intensity of Texas Hell Week. Harder than Z2, easier than threshold \u2014 the pace you\u2019ll hold for hours on texas rolling gravel."
     }
   ],
+  "race_overlay": {
+    "nutrition": "Ultra-distance fueling for 200 miles: 80\u2013100g carbs/hour from mile 1 \u2014 don\u2019t wait until you\u2019re hungry. Practice your exact race-day nutrition in every long training ride. Carry backup calories. 200 miles burns 8,000\u201312,000+ calories \u2014 you cannot replace them all, but you must try.",
+    "terrain": "Mixed terrain at Texas Hell Week requires surface adaptability. Include weekly rides on texas rolling gravel to build confidence. Expect: texas rolling gravel, multi-day event, summer heat challenge."
+  },
   "pack_summary": "This 10-workout pack focuses on Durability, HVLI Extended, and Endurance to prepare you for 200 miles of texas rolling gravel in Warda, Texas.",
   "generated_at": "2026-02-26"
 }

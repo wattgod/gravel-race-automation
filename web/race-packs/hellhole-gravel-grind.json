@@ -1,6 +1,7 @@
 {
   "slug": "hellhole-gravel-grind",
   "race_name": "Hellhole Gravel Grind Stage Race",
+  "distance_mi": 150.0,
   "demands": {
     "durability": 8,
     "climbing": 4,
@@ -19,7 +20,8 @@
         "Tired VO2max",
         "Double Day Simulation",
         "Progressive Fatigue"
-      ]
+      ],
+      "workout_context": "Hellhole Gravel Grind Stage Race\u2019s 150-mile distance demands power production deep into fatigue \u2014 the defining challenge of ultra-distance gravel."
     },
     {
       "category": "TT_Threshold",
@@ -28,7 +30,8 @@
         "Single Sustained Threshold",
         "Threshold Ramps",
         "Descending Threshold"
-      ]
+      ],
+      "workout_context": "Hellhole Gravel Grind Stage Race rewards athletes who can hold sustained power without blowing up \u2014 threshold is the engine that drives everything above Zone 2."
     },
     {
       "category": "Gravel_Specific",
@@ -36,7 +39,8 @@
       "workouts": [
         "Surge and Settle",
         "Terrain Microbursts"
-      ]
+      ],
+      "workout_context": "Hellhole Gravel Grind Stage Race\u2019s south carolina rolling gravel, multi-day stage race demands rapid power changes \u2014 surge over obstacles, settle on smoother sections, repeat for hours."
     },
     {
       "category": "Race_Simulation",
@@ -45,7 +49,8 @@
         "Breakaway Simulation",
         "Variable Pace Chaos",
         "Sector Simulation"
-      ]
+      ],
+      "workout_context": "Racing Hellhole Gravel Grind Stage Race isn\u2019t just fitness \u2014 it\u2019s pacing, fueling, and executing when conditions deteriorate. This workout practices the race itself."
     },
     {
       "category": "G_Spot",
@@ -54,9 +59,79 @@
         "G-Spot Standard",
         "G-Spot Extended",
         "Criss-Cross"
-      ]
+      ],
+      "workout_context": "The G-Spot zone (88\u201392% FTP) is where you\u2019ll spend the hardest sustained miles of Hellhole Gravel Grind Stage Race. Make this intensity feel like home."
+    },
+    {
+      "category": "HVLI_Extended",
+      "score": 60,
+      "workouts": [
+        "HVLI Extended Z2",
+        "Multi-Hour Z2",
+        "Back-to-Back Long"
+      ],
+      "workout_context": "At 150 miles, Hellhole Gravel Grind Stage Race rewards a massive aerobic engine. This volume work builds the fat-oxidation capacity that keeps you moving when glycogen runs low."
+    },
+    {
+      "category": "Endurance",
+      "score": 59,
+      "workouts": [
+        "Pre-Race Openers",
+        "Terrain Simulation Z2"
+      ],
+      "workout_context": "Every session at Hellhole Gravel Grind Stage Race intensity builds on this aerobic foundation \u2014 the endurance base is the soil everything else grows in."
+    },
+    {
+      "category": "Over_Under",
+      "score": 59,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ],
+      "workout_context": "Over-unders train the lactate clearance you\u2019ll need at Hellhole Gravel Grind Stage Race when surges push you above threshold and you have to recover while still riding hard."
+    },
+    {
+      "category": "Blended",
+      "score": 51,
+      "workouts": [
+        "Z2 + VO2 Combo",
+        "Endurance with Spikes"
+      ],
+      "workout_context": "Blended sessions combine endurance with intensity spikes \u2014 exactly what Hellhole Gravel Grind Stage Race\u2019s south carolina rolling gravel delivers on race day."
+    },
+    {
+      "category": "VO2max",
+      "score": 49,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ],
+      "workout_context": "Hellhole Gravel Grind Stage Race\u2019s south carolina rolling gravel and competitive field demand explosive aerobic capacity \u2014 the ability to respond to surges without blowing up."
+    },
+    {
+      "category": "Tempo",
+      "score": 43,
+      "workouts": [
+        "Tempo Blocks",
+        "Extended Tempo"
+      ],
+      "workout_context": "Tempo is the race-day intensity of Hellhole Gravel Grind Stage Race. Harder than Z2, easier than threshold \u2014 the pace you\u2019ll hold for hours on south carolina rolling gravel."
+    },
+    {
+      "category": "Critical_Power",
+      "score": 40,
+      "workouts": [
+        "Above CP Repeats",
+        "W-Prime Depletion"
+      ],
+      "workout_context": "Critical power determines how long you can sustain above-threshold efforts at Hellhole Gravel Grind Stage Race \u2014 a higher CP means more time in the red before failure."
     }
   ],
+  "race_overlay": {
+    "nutrition": "Ultra-distance fueling for 150 miles: 80\u2013100g carbs/hour from mile 1 \u2014 don\u2019t wait until you\u2019re hungry. Practice your exact race-day nutrition in every long training ride. Carry backup calories. 150 miles burns 8,000\u201312,000+ calories \u2014 you cannot replace them all, but you must try.",
+    "terrain": "Mixed terrain at Hellhole Gravel Grind Stage Race requires surface adaptability. Include weekly rides on south carolina rolling gravel to build confidence. Expect: south carolina rolling gravel, multi-day stage race, regional event."
+  },
   "pack_summary": "This 10-workout pack focuses on Durability, TT Threshold, and Gravel Specific to prepare you for 150 miles of south carolina rolling gravel in Jamestown, South Carolina.",
   "generated_at": "2026-02-26"
 }

@@ -615,6 +615,67 @@
         }
       ],
       "quotes": []
-    }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "the-divide-video-1.jpg",
+        "url": "/race-photos/the-divide/the-divide-video-1.jpg",
+        "alt": "First-person view of cyclist following another rider on tree-lined gravel road during gravel race with performance metrics displayed - The Divide - Manton, Michigan",
+        "credit": "YouTube / Greg's Michigan Bike Races",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel road",
+          "first person view",
+          "tree lined",
+          "performance metrics",
+          "gravel racing"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "the-divide-video-2.jpg",
+        "url": "/race-photos/the-divide/the-divide-video-2.jpg",
+        "alt": "Cyclist's handlebar view following multiple riders on gravel road through open countryside with rolling hills and scattered trees - The Divide - Manton, Michigan",
+        "credit": "YouTube / Greg's Michigan Bike Races",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "handlebar view",
+          "gravel road",
+          "rolling hills",
+          "countryside",
+          "multiple riders"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "the-divide-video-3.jpg",
+        "url": "/race-photos/the-divide/the-divide-video-3.jpg",
+        "alt": "Ground-level perspective of gravel cyclists racing on paved road through dense forest canopy during organized gravel event - The Divide - Manton, Michigan",
+        "credit": "YouTube / Greg's Michigan Bike Races",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "ground level",
+          "gravel cyclists",
+          "forest canopy",
+          "paved section",
+          "racing peloton"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "the-divide-preview.gif",
+        "url": "/race-photos/the-divide/the-divide-preview.gif",
+        "alt": "Course preview from The Divide race footage",
+        "credit": "YouTube / Greg's Michigan Bike Races",
+        "gif": true
+      }
+    ]
   }
 }

@@ -633,7 +633,178 @@
           "category": "race_atmosphere",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Hay Creek Fire near Whitefish Montana",
+            "description": "Fire blocked Red Meadow Lake Road requiring a massive out and back reroute. Very smoky conditions that affected breathing, especially problematic for riders with asthma.",
+            "source_video_ids": [
+              "h0hkoee6sI8"
+            ]
+          },
+          {
+            "name": "Wildlife encounters",
+            "description": "Bears, mountain lions, grizzly bears throughout the route. Riders mention needing to be very wary of bears all the time. One rider saw a grizzly on the first day.",
+            "source_video_ids": [
+              "M2IhljWdiDU"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Remote terrain in British Columbia that locals describe as familiar for the first half of the route but still challenging.",
+            "source_video_ids": [
+              "M2IhljWdiDU"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "Rain trousers are essential gear that riders need to sort out before starting.",
+            "source_video_ids": [
+              "M2IhljWdiDU"
+            ]
+          },
+          {
+            "text": "Choice between fully rigid setup versus full suspension - one experienced rider switched from fully rigid the previous year to full suspension to try something different.",
+            "source_video_ids": [
+              "M2IhljWdiDU"
+            ]
+          }
+        ],
+        "race_day_tips": [
+          {
+            "text": "Phone in for bears using 188866 MTB Cast when you see them. Also grab your camera and take a picture first.",
+            "source_video_ids": [
+              "M2IhljWdiDU"
+            ]
+          },
+          {
+            "text": "To get the overall record you have to ride 200 miles a day for 14 days. You have to crave miles and sleep very little with a cutthroat approach.",
+            "source_video_ids": [
+              "h0hkoee6sI8"
+            ]
+          },
+          {
+            "text": "During wildfire smoke conditions, consider getting a hotel room to get out of the smoke for a few hours and take a shower to clear up breathing.",
+            "source_video_ids": [
+              "h0hkoee6sI8"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "This is very very common especially more and more with climate change that wildfires are happening in the west closing parts of the route",
+            "source_video_id": "h0hkoee6sI8",
+            "source_channel": "Rapha Films",
+            "source_view_count": 283498,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "It feels so weird to be like outside like with wild animals one minute and then the next year like checking into a best western",
+            "source_video_id": "h0hkoee6sI8",
+            "source_channel": "Rapha Films",
+            "source_view_count": 283498,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "The Tour Divide is a self-supported off-road race from Banff, Alberta to Antelope Wells, New Mexico. Current record stands at 13 days 2 hours. Riders face significant wildlife including bears, mountain lions, grizzly bears, elk, moose, deer, coyotes, antelope, and wild horses. Wildlife encounters require constant vigilance with bears being the primary concern. Wildfire closures are increasingly common due to climate change, forcing major reroutes like the Hay Creek Fire near Whitefish Montana that blocked Red Meadow Lake Road. Smoke conditions can severely impact breathing, especially for riders with asthma. The terrain starts in remote British Columbia with familiar conditions for locals. Essential gear includes rain trousers, and riders choose between fully rigid or full suspension setups. Record attempts require riding 200 miles daily for 14 days with minimal sleep. The route covers diverse terrain from Canadian mountains to southwestern desert, with riders experiencing dramatic transitions from wilderness to civilization."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "tour-divide-video-1.jpg",
+        "url": "/race-photos/tour-divide/tour-divide-video-1.jpg",
+        "alt": "Lone cyclist riding gravel path through green hillside terrain with lush vegetation and rolling landscape - Tour Divide - Banff, Alberta to Antelope Wells, New Mexico",
+        "credit": "YouTube / Adventure Cycling",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "gravel path",
+          "solo cyclist",
+          "green hillside",
+          "rolling terrain"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "tour-divide-video-2.jpg",
+        "url": "/race-photos/tour-divide/tour-divide-video-2.jpg",
+        "alt": "Gravel road stretching through dense coniferous forest with tall evergreen trees lining both sides of the path - Tour Divide - Banff, Alberta to Antelope Wells, New Mexico",
+        "credit": "YouTube / Adventure Cycling",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "forest gravel road",
+          "coniferous trees",
+          "evergreen forest",
+          "tree-lined path"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "tour-divide-video-3.jpg",
+        "url": "/race-photos/tour-divide/tour-divide-video-3.jpg",
+        "alt": "Cyclist on dirt road crossing expansive prairie grassland with distant mountains and fence line visible - Tour Divide - Banff, Alberta to Antelope Wells, New Mexico",
+        "credit": "YouTube / Adventure Cycling",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "prairie crossing",
+          "dirt road",
+          "grassland",
+          "mountain backdrop",
+          "fence line"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "tour-divide-preview.gif",
+        "url": "/race-photos/tour-divide/tour-divide-preview.gif",
+        "alt": "Course preview from Tour Divide race footage",
+        "credit": "YouTube / Adventure Cycling",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "tour-divide-preview-2.gif",
+        "url": "/race-photos/tour-divide/tour-divide-preview-2.gif",
+        "alt": "Course preview from Tour Divide race footage",
+        "credit": "YouTube / Adventure Cycling",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "tour-divide-preview-3.gif",
+        "url": "/race-photos/tour-divide/tour-divide-preview-3.gif",
+        "alt": "Course preview from Tour Divide race footage",
+        "credit": "YouTube / Adventure Cycling",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "tour-divide-preview-4.gif",
+        "url": "/race-photos/tour-divide/tour-divide-preview-4.gif",
+        "alt": "Course preview from Tour Divide race footage",
+        "credit": "YouTube / Adventure Cycling",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "tour-divide-preview-5.gif",
+        "url": "/race-photos/tour-divide/tour-divide-preview-5.gif",
+        "alt": "Course preview from Tour Divide race footage",
+        "credit": "YouTube / Adventure Cycling",
+        "gif": true
+      }
+    ]
   }
 }

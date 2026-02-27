@@ -2140,6 +2140,73 @@ def sync_prep_kits(prep_kit_dir: str):
     return f"{wp_url}/race/"
 
 
+def sync_tire_guides(tire_guide_dir: str):
+    """Upload tire guide pages to /race/{slug}/tires/ on SiteGround via tar+ssh.
+
+    Converts flat {slug}.html files to {slug}/tires/index.html directory
+    structure under /race/. Same tar+ssh pattern as sync_prep_kits().
+    """
+    ssh = get_ssh_credentials()
+    if not ssh:
+        return None
+    host, user, port = ssh
+
+    tg_path = Path(tire_guide_dir)
+    if not tg_path.exists():
+        print(f"✗ Tire guide directory not found: {tg_path}")
+        return None
+
+    html_files = sorted(tg_path.glob("*.html"))
+    if not html_files:
+        print(f"✗ No .html files found in {tg_path}")
+        return None
+
+    remote_base = "~/www/gravelgodcycling.com/public_html/race"
+
+    with tempfile.TemporaryDirectory() as tmpdir:
+        tmpdir = Path(tmpdir)
+        page_count = 0
+        for html_file in html_files:
+            slug = html_file.stem
+            tg_dir = tmpdir / slug / "tires"
+            tg_dir.mkdir(parents=True)
+            shutil.copy2(html_file, tg_dir / "index.html")
+            page_count += 1
+
+        print(f"  Uploading {page_count} tire guide pages via tar+ssh...")
+
+        try:
+            items = [p.name for p in sorted(tmpdir.iterdir())]
+            tar_cmd = ["tar", "-cf", "-", "-C", str(tmpdir)] + items
+            ssh_cmd = [
+                "ssh", "-i", str(SSH_KEY), "-p", port,
+                f"{user}@{host}",
+                f"tar -xf - -C {remote_base}",
+            ]
+
+            tar_proc = subprocess.Popen(tar_cmd, stdout=subprocess.PIPE)
+            ssh_proc = subprocess.Popen(ssh_cmd, stdin=tar_proc.stdout,
+                                        stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            tar_proc.stdout.close()
+            stdout, stderr = ssh_proc.communicate(timeout=300)
+
+            if ssh_proc.returncode != 0:
+                print(f"✗ tar+ssh failed: {stderr.decode().strip()}")
+                return None
+        except subprocess.TimeoutExpired:
+            print("✗ Upload timed out (300s)")
+            tar_proc.kill()
+            ssh_proc.kill()
+            return None
+        except Exception as e:
+            print(f"✗ Error uploading tire guide pages: {e}")
+            return None
+
+    wp_url = os.environ.get("WP_URL", "https://gravelgodcycling.com")
+    print(f"✓ Uploaded {page_count} tire guide pages to {wp_url}/race/*/tires/")
+    return f"{wp_url}/race/"
+
+
 def sync_series(series_dir: str):
     """Upload series hub pages to /race/series/{slug}/ on SiteGround via tar+ssh.
 
@@ -2771,6 +2838,130 @@ def sync_rss():
     return f"{wp_url}/feed/races.xml"
 
 
+def sync_llms_txt():
+    """Upload llms.txt and llms-full.txt to site root on SiteGround via SCP."""
+    ssh = get_ssh_credentials()
+    if not ssh:
+        return None
+    host, user, port = ssh
+
+    remote_base = "~/www/gravelgodcycling.com/public_html"
+    uploaded = 0
+
+    for filename in ("llms.txt", "llms-full.txt"):
+        local_path = Path("web") / filename
+        if not local_path.exists():
+            print(f"✗ {filename} not found: {local_path}")
+            print(f"  Run: python3 scripts/generate_llms_txt.py first")
+            continue
+
+        try:
+            subprocess.run(
+                [
+                    "scp", "-i", str(SSH_KEY), "-P", port,
+                    str(local_path),
+                    f"{user}@{host}:{remote_base}/{filename}",
+                ],
+                check=True,
+                capture_output=True,
+                text=True,
+                timeout=30,
+            )
+            uploaded += 1
+        except subprocess.CalledProcessError as e:
+            print(f"✗ SCP failed for {filename}: {e.stderr.strip()}")
+        except Exception as e:
+            print(f"✗ Error uploading {filename}: {e}")
+
+    # Fix permissions
+    try:
+        subprocess.run(
+            [
+                "ssh", "-i", str(SSH_KEY), "-p", port,
+                f"{user}@{host}",
+                f"chmod 644 {remote_base}/llms.txt {remote_base}/llms-full.txt 2>/dev/null",
+            ],
+            check=True,
+            capture_output=True,
+            text=True,
+            timeout=15,
+        )
+    except subprocess.CalledProcessError:
+        pass
+
+    wp_url = os.environ.get("WP_URL", "https://gravelgodcycling.com")
+    print(f"✓ Uploaded {uploaded} llms.txt files to {wp_url}/")
+    return f"{wp_url}/llms.txt"
+
+
+def sync_markdown(markdown_dir: str):
+    """Upload markdown race profiles to /race/{slug}/index.md on SiteGround via tar+ssh.
+
+    Converts flat {slug}.md files to {slug}/index.md directory structure
+    under a temporary staging dir, then uploads to /race/ on the server.
+    """
+    ssh = get_ssh_credentials()
+    if not ssh:
+        return None
+    host, user, port = ssh
+
+    md_path = Path(markdown_dir)
+    if not md_path.exists():
+        print(f"✗ Markdown directory not found: {md_path}")
+        print("  Run: python3 scripts/generate_markdown_profiles.py first")
+        return None
+
+    md_files = sorted(md_path.glob("*.md"))
+    if not md_files:
+        print(f"✗ No .md files found in {md_path}")
+        return None
+
+    remote_base = "~/www/gravelgodcycling.com/public_html/race"
+
+    with tempfile.TemporaryDirectory() as tmpdir:
+        tmpdir = Path(tmpdir)
+        page_count = 0
+        for md_file in md_files:
+            slug = md_file.stem
+            slug_dir = tmpdir / slug
+            slug_dir.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(md_file, slug_dir / "index.md")
+            page_count += 1
+
+        print(f"  Uploading {page_count} markdown profiles via tar+ssh...")
+
+        try:
+            items = [p.name for p in sorted(tmpdir.iterdir())]
+            tar_cmd = ["tar", "-cf", "-", "-C", str(tmpdir)] + items
+            ssh_cmd = [
+                "ssh", "-i", str(SSH_KEY), "-p", port,
+                f"{user}@{host}",
+                f"tar -xf - -C {remote_base}",
+            ]
+
+            tar_proc = subprocess.Popen(tar_cmd, stdout=subprocess.PIPE)
+            ssh_proc = subprocess.Popen(ssh_cmd, stdin=tar_proc.stdout,
+                                        stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            tar_proc.stdout.close()
+            stdout, stderr = ssh_proc.communicate(timeout=300)
+
+            if ssh_proc.returncode != 0:
+                print(f"✗ tar+ssh failed: {stderr.decode().strip()}")
+                return None
+        except subprocess.TimeoutExpired:
+            print("✗ Upload timed out (300s)")
+            tar_proc.kill()
+            ssh_proc.kill()
+            return None
+        except Exception as e:
+            print(f"✗ Error uploading markdown profiles: {e}")
+            return None
+
+    wp_url = os.environ.get("WP_URL", "https://gravelgodcycling.com")
+    print(f"✓ Uploaded {page_count} markdown profiles to {wp_url}/race/*/index.md")
+    return f"{wp_url}/race/"
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
         description="Push race pages or sync race index to WordPress"
@@ -2945,6 +3136,14 @@ if __name__ == "__main__":
         help="Path to prep kit directory (default: wordpress/output/prep-kit)"
     )
     parser.add_argument(
+        "--sync-tire-guides", action="store_true",
+        help="Upload tire guide pages to /race/{slug}/tires/ via tar+ssh"
+    )
+    parser.add_argument(
+        "--tire-guide-dir", default="wordpress/output/tires",
+        help="Path to tire guide directory (default: wordpress/output/tires)"
+    )
+    parser.add_argument(
         "--sync-series", action="store_true",
         help="Upload series hub pages to /race/series/{slug}/ via tar+ssh"
     )
@@ -2989,6 +3188,18 @@ if __name__ == "__main__":
         help="Upload RSS feed to /feed/"
     )
     parser.add_argument(
+        "--sync-llms-txt", action="store_true",
+        help="Upload llms.txt + llms-full.txt to site root"
+    )
+    parser.add_argument(
+        "--sync-markdown", action="store_true",
+        help="Upload markdown race profiles to /race/{slug}/index.md via tar+ssh"
+    )
+    parser.add_argument(
+        "--markdown-dir", default="web/markdown",
+        help="Path to markdown profiles directory (default: web/markdown)"
+    )
+    parser.add_argument(
         "--sync-meta-descriptions", action="store_true",
         help="Deploy meta description mu-plugin + JSON data to WordPress"
     )
@@ -3024,6 +3235,8 @@ if __name__ == "__main__":
         args.sync_pages = True
         args.sync_index = True
         args.sync_widget = True
+        args.sync_llms_txt = True
+        args.sync_markdown = True
         args.purge_cache = True
     if args.deploy_all:
         args.sync_pages = True
@@ -3043,6 +3256,7 @@ if __name__ == "__main__":
         args.sync_ctas = True
         args.sync_ga4 = True
         args.sync_prep_kits = True
+        args.sync_tire_guides = True
         args.sync_series = True
         args.sync_blog = True
         args.sync_blog_index = True
@@ -3054,6 +3268,8 @@ if __name__ == "__main__":
         args.sync_insights = True
         args.sync_embed = True
         args.sync_rss = True
+        args.sync_llms_txt = True
+        args.sync_markdown = True
         args.sync_guide_cluster = True
         args.sync_legal = True
         args.sync_consent = True
@@ -3064,11 +3280,12 @@ if __name__ == "__main__":
                       args.sync_coaching, args.sync_coaching_apply, args.sync_consulting,
                       args.sync_training_plans, args.sync_success, args.sync_pages,
                       args.sync_sitemap, args.sync_redirects,
-                      args.sync_noindex, args.sync_ctas, args.sync_ga4, args.sync_header, args.sync_prep_kits,
+                      args.sync_noindex, args.sync_ctas, args.sync_ga4, args.sync_header, args.sync_prep_kits, args.sync_tire_guides,
                       args.sync_series, args.sync_blog,
                       args.sync_blog_index, args.sync_photos, args.sync_ab, args.sync_courses,
                       args.sync_meta_descriptions, args.sync_mission_control,
                       args.sync_insights, args.sync_embed, args.sync_rss,
+                      args.sync_llms_txt, args.sync_markdown,
                       args.purge_cache])
     if not has_action:
         parser.error("Provide a sync flag (--sync-pages, --sync-index, etc.), --deploy-content, or --deploy-all")
@@ -3123,6 +3340,8 @@ if __name__ == "__main__":
         sync_photos(args.photos_dir)
     if args.sync_prep_kits:
         sync_prep_kits(args.prep_kit_dir)
+    if args.sync_tire_guides:
+        sync_tire_guides(args.tire_guide_dir)
     if args.sync_series:
         sync_series(args.series_dir)
     if args.sync_blog:
@@ -3143,5 +3362,9 @@ if __name__ == "__main__":
         sync_embed()
     if args.sync_rss:
         sync_rss()
+    if args.sync_llms_txt:
+        sync_llms_txt()
+    if args.sync_markdown:
+        sync_markdown(args.markdown_dir)
     if args.purge_cache:
         purge_cache()

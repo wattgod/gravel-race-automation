@@ -586,7 +586,100 @@
           "curated": false
         }
       ],
-      "quotes": []
-    }
+      "quotes": [],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [],
+        "terrain_notes": [],
+        "gear_mentions": [],
+        "race_day_tips": [],
+        "additional_quotes": [
+          {
+            "text": "The bike path goes all the way downtown where there's a beautiful walking area, there's a waterfall, all these cool cafes and it goes directly to where I'm staying at the embassy suites right to the door. So, I didn't haven't touched pavement or not pavement with cars on this whole ride.",
+            "source_video_id": "A7jMWnmEYBw",
+            "source_channel": "Phil Gaimon",
+            "source_view_count": 33036,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "There's all kinds of really nice shops and cafes along the path. I'm enjoying a cookie from the Commons and a Methodical Coffee where the line was a lot more doable than the tandem crepe spot.",
+            "source_video_id": "A7jMWnmEYBw",
+            "source_channel": "Phil Gaimon",
+            "source_view_count": 33036,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "I started the day at the Tandem crepery and coffee as both of those. It was a really long line. Get there early.",
+            "source_video_id": "A7jMWnmEYBw",
+            "source_channel": "Phil Gaimon",
+            "source_view_count": 33036,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "The Gran Fondo Hincapie takes place in Greenville, South Carolina, utilizing the area's cycling infrastructure including the Swamp Rabbit Trail, a rails-to-trails conversion that connects Greenville to Travelers Rest. The route features Paris Mountain, described as a legendary climb with significant history from hosting National Road Race Championships for four to five years. Riders mention the beautiful downtown area with waterfalls and cafes accessible via bike paths. The Swamp Rabbit Trail allows car-free travel from downtown to accommodations like Embassy Suites. Local cycling amenities include numerous shops and cafes along the path, with popular spots being Tandem Crepery, Methodical Coffee, and the Commons. The area offers excellent cycling infrastructure with dedicated bike paths that avoid car traffic, making it rider-friendly for both the event and general cycling activities."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "gran-fondo-hincapie-video-1.jpg",
+        "url": "/race-photos/gran-fondo-hincapie/gran-fondo-hincapie-video-1.jpg",
+        "alt": "Paved forest road with dappled sunlight filtering through dense canopy and approaching vehicle visible ahead - Gran Fondo Hincapie - Greenville, South Carolina",
+        "credit": "YouTube / Cat4Garage",
+        "primary": true,
+        "ai_relevance": 3,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "forest road",
+          "tree canopy",
+          "paved surface",
+          "wooded terrain"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "gran-fondo-hincapie-video-2.jpg",
+        "url": "/race-photos/gran-fondo-hincapie/gran-fondo-hincapie-video-2.jpg",
+        "alt": "Cyclist riding on paved road through autumn forest with yellow center line and dense tree coverage on both sides - Gran Fondo Hincapie - Greenville, South Carolina",
+        "credit": "YouTube / Cat4Garage",
+        "primary": false,
+        "ai_relevance": 4,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "autumn cycling",
+          "forest road",
+          "paved surface",
+          "tree-lined route"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "gran-fondo-hincapie-video-3.jpg",
+        "url": "/race-photos/gran-fondo-hincapie/gran-fondo-hincapie-video-3.jpg",
+        "alt": "Multiple cyclists riding on paved road through autumn landscape with colorful foliage and partial bike wheel visible in foreground - Gran Fondo Hincapie - Greenville, South Carolina",
+        "credit": "YouTube / Cat4Garage",
+        "primary": false,
+        "ai_relevance": 4,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "autumn cycling",
+          "group ride",
+          "fall foliage",
+          "paved road",
+          "cyclists"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "gran-fondo-hincapie-preview.gif",
+        "url": "/race-photos/gran-fondo-hincapie/gran-fondo-hincapie-preview.gif",
+        "alt": "Course preview from Gran Fondo Hincapie race footage",
+        "credit": "YouTube / Cat4Garage",
+        "gif": true
+      }
+    ]
   }
 }

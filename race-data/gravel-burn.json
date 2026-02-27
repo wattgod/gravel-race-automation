@@ -461,7 +461,172 @@
           "category": "course_difficulty",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Shellot climb",
+            "description": "A brutal steep ascent described as a nightmare of rocks, stones, and loose terrain that stunts momentum and forces riders off their bikes. Called a pivotal race defining course that shatters the peloton.",
+            "source_video_ids": [
+              "froQcKV5KbI"
+            ]
+          },
+          {
+            "name": "Prince Alfred's Pass",
+            "description": "A defining climb of 14 kilometers up Prince Alfred's Pass, topping out at over 1,000 meters elevation.",
+            "source_video_ids": [
+              "-XpSNb9UCHg"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "First stage features muddy and slippery conditions through forest sections with wet gravel.",
+            "source_video_ids": [
+              "-XpSNb9UCHg"
+            ]
+          },
+          {
+            "text": "Stage one conditions were described as grim, wet, and cold enough to finish a whole pair of brake pads.",
+            "source_video_ids": [
+              "VZcHpZN0Keo"
+            ]
+          },
+          {
+            "text": "Stage 4 includes an 80 km tarmac section that riders celebrated as a relief from gravel.",
+            "source_video_ids": [
+              "VZcHpZN0Keo"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "Van Risal CGR set up with 45 mm tubeless tires was used as a trusty race setup.",
+            "source_video_ids": [
+              "VZcHpZN0Keo"
+            ]
+          }
+        ],
+        "race_day_tips": [
+          {
+            "text": "Riders need to be prepared for extreme weather variations - freezing temperatures at night that can freeze tents and gear, requiring multiple pairs of socks.",
+            "source_video_ids": [
+              "VZcHpZN0Keo"
+            ]
+          },
+          {
+            "text": "Some riders chose to take easier days to recover after being pushed over their limit, accepting a position further back to manage the week-long effort.",
+            "source_video_ids": [
+              "VZcHpZN0Keo"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "I woke up at like 3:00 in the morning with my feet frozen and I put like three pairs of socks on and then I thought I was going to die, but I made it. And I think I have all of my toes still.",
+            "source_video_id": "VZcHpZN0Keo",
+            "source_channel": "Lawrence Carpenter",
+            "source_view_count": 28705,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "On a gravel racing, you have no idea what's coming. You know, the terrain can change and the the flattest stage could be like the hardest in the ends.",
+            "source_video_id": "-XpSNb9UCHg",
+            "source_channel": "Nedbank Gravel Burn",
+            "source_view_count": 17537,
+            "category": "training",
+            "curated": true
+          },
+          {
+            "text": "At the end of the day's endeavors, nightfalls. It's a full immersion into the unique hospitality of the guru. Firelight, flavors, and the hidden secrets of the land.",
+            "source_video_id": "-XpSNb9UCHg",
+            "source_channel": "Nedbank Gravel Burn",
+            "source_view_count": 17537,
+            "category": "community",
+            "curated": true
+          }
+        ],
+        "search_text": "Gravel Burn is a seven-stage, 786-800km gravel race across South Africa featuring extreme terrain variations and challenging conditions. Key obstacles include the brutal Shellot climb with rocks, stones and loose terrain that forces riders to dismount, and the 14km Prince Alfred's Pass climb reaching over 1,000m elevation. Stage one presents muddy, slippery forest sections in wet conditions cold enough to destroy brake pads. The race traverses from coastal forests through the Karu Desert to wildlife reserves, with stages including 80km tarmac sections. Riders face extreme weather from freezing nighttime temperatures that freeze tents and gear to desert heat. The event combines professional racing with a $150,000 prize purse and burn camps featuring communal dining and campfires. Terrain constantly changes making flat stages potentially the hardest, requiring strategic pacing across the week-long effort."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "gravel-burn-video-1.jpg",
+        "url": "/race-photos/gravel-burn/gravel-burn-video-1.jpg",
+        "alt": "Aerial view of gravel race support camp with service vehicles, tents, and equipment spread across desert terrain with rolling hills - Gravel Burn - Mpumalanga, South Africa",
+        "credit": "YouTube / Lawrence Carpenter",
+        "primary": true,
+        "ai_relevance": 3,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "race support",
+          "desert terrain",
+          "service camp",
+          "gravel race logistics",
+          "aerial view"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "gravel-burn-video-2.jpg",
+        "url": "/race-photos/gravel-burn/gravel-burn-video-2.jpg",
+        "alt": "Gravel cyclist in racing kit with helmet and sunglasses at desert race checkpoint with support vehicles and tents in background - Gravel Burn - Mpumalanga, South Africa",
+        "credit": "YouTube / Lawrence Carpenter",
+        "primary": false,
+        "ai_relevance": 4,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel cyclist",
+          "race checkpoint",
+          "desert racing",
+          "cycling kit",
+          "support station"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "gravel-burn-video-3.jpg",
+        "url": "/race-photos/gravel-burn/gravel-burn-video-3.jpg",
+        "alt": "General classification leaderboard showing Matthew Beers leading after stage 5 from Blaauwwater to Merino in professional gravel race - Gravel Burn - Mpumalanga, South Africa",
+        "credit": "YouTube / Lawrence Carpenter",
+        "primary": false,
+        "ai_relevance": 4,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "race standings",
+          "general classification",
+          "stage race",
+          "professional cycling",
+          "leaderboard"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "gravel-burn-preview.gif",
+        "url": "/race-photos/gravel-burn/gravel-burn-preview.gif",
+        "alt": "Course preview from Gravel Burn race footage",
+        "credit": "YouTube / Lawrence Carpenter",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "gravel-burn-preview-2.gif",
+        "url": "/race-photos/gravel-burn/gravel-burn-preview-2.gif",
+        "alt": "Course preview from Gravel Burn race footage",
+        "credit": "YouTube / Lawrence Carpenter",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "gravel-burn-preview-3.gif",
+        "url": "/race-photos/gravel-burn/gravel-burn-preview-3.gif",
+        "alt": "Course preview from Gravel Burn race footage",
+        "credit": "YouTube / Lawrence Carpenter",
+        "gif": true
+      }
+    ]
   }
 }

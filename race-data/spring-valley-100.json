@@ -528,6 +528,50 @@
         }
       ],
       "quotes": []
-    }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "spring-valley-100-video-1.jpg",
+        "url": "/race-photos/spring-valley-100/spring-valley-100-video-1.jpg",
+        "alt": "Aerial view of Masonic Park showing winding gravel paths through lush green forest with limestone bluffs and creek - Spring Valley 100 - Spring Valley, Minnesota",
+        "credit": "YouTube / Gravel Cyclist",
+        "primary": true,
+        "ai_relevance": 3,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "Masonic Park",
+          "gravel paths",
+          "limestone bluffs",
+          "forest trail",
+          "creek crossing"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "spring-valley-100-video-2.jpg",
+        "url": "/race-photos/spring-valley-100/spring-valley-100-video-2.jpg",
+        "alt": "First-person cycling view on muddy gravel trail through dense forest canopy with motion blur - Spring Valley 100 - Spring Valley, Minnesota",
+        "credit": "YouTube / Gravel Cyclist",
+        "primary": false,
+        "ai_relevance": 4,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "muddy gravel",
+          "forest trail",
+          "cycling POV",
+          "tree canopy",
+          "trail conditions"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "spring-valley-100-preview.gif",
+        "url": "/race-photos/spring-valley-100/spring-valley-100-preview.gif",
+        "alt": "Course preview from Spring Valley 100 race footage",
+        "credit": "YouTube / Gravel Cyclist",
+        "gif": true
+      }
+    ]
   }
 }

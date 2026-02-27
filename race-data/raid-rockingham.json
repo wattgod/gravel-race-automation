@@ -523,7 +523,126 @@
           "curated": false
         }
       ],
-      "quotes": []
-    }
+      "quotes": [],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Climb out of Craftsbury",
+            "description": "13 percent grade climb that riders describe as steep and difficult.",
+            "source_video_ids": [
+              "aIXWry2-L4c"
+            ]
+          },
+          {
+            "name": "10-mile pavement stretch",
+            "description": "Long section on pavement where riders can stretch out roadie legs before returning to gravel near Green River Reservoir.",
+            "source_video_ids": [
+              "aIXWry2-L4c"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Road conditions described as premium and unreal quality.",
+            "source_video_ids": [
+              "aIXWry2-L4c"
+            ]
+          },
+          {
+            "text": "Mixed terrain with rocks and roots typical of Boston area gravel, different from smooth Vermont-style dirt roads.",
+            "source_video_ids": [
+              "0Aa9fZLpe60"
+            ]
+          }
+        ],
+        "gear_mentions": [],
+        "race_day_tips": [
+          {
+            "text": "Race is mostly self-supported - make sure to get your cue sheet and know where you're going before heading out.",
+            "source_video_ids": [
+              "aIXWry2-L4c"
+            ]
+          },
+          {
+            "text": "Flexible start window from 7:45 to 8:15, no official mass start - riders can leave at their own leisure.",
+            "source_video_ids": [
+              "aIXWry2-L4c"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "There's not going to be an official mass start so we've got a ride window of 7:45 to 8:15. People have already asked me can we leave now and I said sure you can leave now if you'd like, just be aware that the after party is not going to start until about 11 o'clock.",
+            "source_video_id": "aIXWry2-L4c",
+            "source_channel": "Green Mountain Gravel",
+            "source_view_count": 1797,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "Raid Rockingham is a 50-mile gravel race in SE New Hampshire with 3,500 feet of climbing. Riders describe premium road conditions throughout the course. Key challenges include a steep 13 percent grade climb out of Craftsbury and a 10-mile pavement stretch near Green River Reservoir where riders can stretch their legs before returning to gravel. The race features a flexible start format with a window from 7:45 to 8:15 AM rather than a mass start. The event is mostly self-supported, requiring riders to navigate using cue sheets. Terrain includes mixed surfaces with rocks and roots typical of New England gravel racing. The course passes through beautiful Northeast Kingdom scenery with an after party starting around 11 AM for finishers."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "raid-rockingham-video-1.jpg",
+        "url": "/race-photos/raid-rockingham/raid-rockingham-video-1.jpg",
+        "alt": "Large open grass field with forest edge and small structure in distance under overcast sky - Raid Rockingham - SE New Hampshire",
+        "credit": "YouTube / Green Mountain Gravel",
+        "primary": true,
+        "ai_relevance": 2,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "grass field",
+          "forest edge",
+          "open terrain",
+          "countryside"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "raid-rockingham-video-2.jpg",
+        "url": "/race-photos/raid-rockingham/raid-rockingham-video-2.jpg",
+        "alt": "First-person view of gravel road passing white barn and silo with bicycle wheel visible in foreground - Raid Rockingham - SE New Hampshire",
+        "credit": "YouTube / Green Mountain Gravel",
+        "primary": false,
+        "ai_relevance": 4,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel road",
+          "barn",
+          "silo",
+          "rural cycling",
+          "farm country"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "raid-rockingham-video-3.jpg",
+        "url": "/race-photos/raid-rockingham/raid-rockingham-video-3.jpg",
+        "alt": "Mountain bikers riding dirt trail through dense green forest with dappled sunlight filtering through trees - Raid Rockingham - SE New Hampshire",
+        "credit": "YouTube / Green Mountain Gravel",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "forest trail",
+          "mountain biking",
+          "wooded path",
+          "dirt trail",
+          "tree canopy"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "raid-rockingham-preview.gif",
+        "url": "/race-photos/raid-rockingham/raid-rockingham-preview.gif",
+        "alt": "Course preview from Raid Rockingham race footage",
+        "credit": "YouTube / Green Mountain Gravel",
+        "gif": true
+      }
+    ]
   }
 }

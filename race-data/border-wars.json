@@ -661,7 +661,75 @@
           "curated": false
         }
       ],
-      "quotes": []
-    }
+      "quotes": [],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [],
+        "terrain_notes": [],
+        "gear_mentions": [],
+        "race_day_tips": [],
+        "additional_quotes": [],
+        "search_text": "No specific information about the Border Wars race at the GA/AL border was found in the provided transcripts. The transcripts contain content about motorcycle travel through Wyoming dirt roads, bikepacking in Patagonia, and general cycling experiences, but none mention the Border Wars gravel race, its 65-mile distance, 3500 feet of elevation, course conditions, terrain features, or rider experiences specific to this event."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "border-wars-video-1.jpg",
+        "url": "/race-photos/border-wars/border-wars-video-1.jpg",
+        "alt": "Two cyclists in red jerseys riding on paved road past modern industrial buildings with forested hills in background - Border Wars - GA/AL border",
+        "credit": "YouTube / Global Cycling Network",
+        "primary": true,
+        "ai_relevance": 3,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "road cycling",
+          "industrial area",
+          "forested hills",
+          "paved road"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "border-wars-video-2.jpg",
+        "url": "/race-photos/border-wars/border-wars-video-2.jpg",
+        "alt": "Yellow motorcycle splashing through muddy puddle on winter trail with snow-covered ground and bare trees - Border Wars - GA/AL border",
+        "credit": "YouTube / Global Cycling Network",
+        "primary": false,
+        "ai_relevance": 4,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "muddy trail",
+          "winter conditions",
+          "motorcycle",
+          "snow terrain"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "border-wars-video-3.jpg",
+        "url": "/race-photos/border-wars/border-wars-video-3.jpg",
+        "alt": "First-person view from motorcycle rider following another rider on dusty dirt road through sparse woodland - Border Wars - GA/AL border",
+        "credit": "YouTube / Global Cycling Network",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "dirt road",
+          "dust trail",
+          "woodland",
+          "first-person view",
+          "motorcycle racing"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "border-wars-preview.gif",
+        "url": "/race-photos/border-wars/border-wars-preview.gif",
+        "alt": "Course preview from Border Wars race footage",
+        "credit": "YouTube / Global Cycling Network",
+        "gif": true
+      }
+    ]
   }
 }

@@ -565,7 +565,93 @@
           "curated": false
         }
       ],
-      "quotes": []
-    }
+      "quotes": [],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [],
+        "terrain_notes": [],
+        "gear_mentions": [],
+        "race_day_tips": [
+          {
+            "text": "Be prepared for potential cramping issues late in the race - one rider experienced severe cramping about three miles from the finish.",
+            "source_video_ids": [
+              "h1hQD9b_9CE"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "I cramped really bad about three miles from the finish. Like Frankenstein walking bad. But walked it out a little bit, got back on the bike and finished.",
+            "source_video_id": "h1hQD9b_9CE",
+            "source_channel": "The Reluctant Racer",
+            "source_view_count": 181,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "The Fast Fitty gravel race takes place in Charlotte, Michigan and offers both 50-mile and 36-mile distance options. According to race participants, cramping can be a significant issue in the final miles of the race, with one rider experiencing severe cramping approximately three miles from the finish line. The race appears to be well-organized with proper podium ceremonies for finishers. Riders note this as a challenging event that requires proper preparation, especially for those who haven't raced recently during the summer season. The race serves as good preparation for other major gravel events later in the season."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "fast-fitty-video-1.jpg",
+        "url": "/race-photos/fast-fitty/fast-fitty-video-1.jpg",
+        "alt": "Group of gravel cyclists riding on dirt road through rural farmland with white farmhouse and green fields visible - Fast Fitty - Charlotte, Michigan",
+        "credit": "YouTube / Up The Road",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel road",
+          "rural cycling",
+          "dirt road",
+          "farmland",
+          "cycling peloton"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "fast-fitty-video-2.jpg",
+        "url": "/race-photos/fast-fitty/fast-fitty-video-2.jpg",
+        "alt": "Cyclists racing on gravel road through tree-lined countryside with green fields and wooded areas - Fast Fitty - Charlotte, Michigan",
+        "credit": "YouTube / Up The Road",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel racing",
+          "tree-lined road",
+          "countryside",
+          "dirt road",
+          "cycling group"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "fast-fitty-video-3.jpg",
+        "url": "/race-photos/fast-fitty/fast-fitty-video-3.jpg",
+        "alt": "Gravel cyclists riding through shaded dirt road tunnel created by overhanging trees and dense vegetation - Fast Fitty - Charlotte, Michigan",
+        "credit": "YouTube / Up The Road",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "tree tunnel",
+          "shaded gravel",
+          "dirt road",
+          "wooded trail",
+          "cycling group"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "fast-fitty-preview.gif",
+        "url": "/race-photos/fast-fitty/fast-fitty-preview.gif",
+        "alt": "Course preview from Fast Fitty race footage",
+        "credit": "YouTube / Up The Road",
+        "gif": true
+      }
+    ]
   }
 }

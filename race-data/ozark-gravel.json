@@ -571,7 +571,132 @@
           "category": "course_difficulty",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Ozark Mega Loop route",
+            "description": "Over 300 miles with close to 30,000 vertical feet of climbing. Very chunky jeep trail. A lot of loose rocks, steep, barely rideable climbs, sections you have to push.",
+            "source_video_ids": [
+              "otKnn-wJFxo"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Very chunky jeep trail. A lot of loose rocks, steep, barely rideable climbs, sections you have to push.",
+            "source_video_ids": [
+              "otKnn-wJFxo"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "First time ever riding disc brakes. Allied bike was super comfortable compared to regular road setup.",
+            "source_video_ids": [
+              "XFXFGjLgB1w"
+            ]
+          },
+          {
+            "text": "Left-sided Rival power meter for 250 bucks for single-sided power meter.",
+            "source_video_ids": [
+              "kBwPKqK7iGs"
+            ]
+          }
+        ],
+        "race_day_tips": [
+          {
+            "text": "Team race format - you're only as fast as your slowest guy so you got to finish together, start together finish together.",
+            "source_video_ids": [
+              "XFXFGjLgB1w"
+            ]
+          },
+          {
+            "text": "For ultra-distance events, had to strategize which checkpoints to hit or skip and figure it out on the fly during the ride.",
+            "source_video_ids": [
+              "otKnn-wJFxo"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "We're hanging out in Fayetteville. The Ozark's bike packing route network starts in Fayetteville. This eclectic college town is vibrant and bustling. There's great restaurants and a cozy downtown, making it a really nice base to kick off our adventure.",
+            "source_video_id": "otKnn-wJFxo",
+            "source_channel": "THE IMPOSSIBLE ROUTE",
+            "source_view_count": 43906,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "A lot of bike rides in the summer end up in that creek for cooling off after the heat.",
+            "source_video_id": "kBwPKqK7iGs",
+            "source_channel": "Chris Sheldon",
+            "source_view_count": 1099,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "The Ozark gravel scene in Arkansas offers challenging terrain around Rogers and Fayetteville. Riders describe very chunky jeep trails with loose rocks, steep barely rideable climbs, and sections requiring walking. The area features over 300 miles of routes with close to 30,000 feet of climbing for ultra-distance events. Team formats require staying together as a group. The terrain includes creek crossings that provide cooling opportunities during summer rides. Fayetteville serves as a vibrant base town with restaurants and downtown amenities. Disc brakes and comfortable gravel bikes are recommended for the rough surfaces. Riders mention 13-mile loop options and technical sections. The rural Arkansas setting offers authentic working-class farm country atmosphere. Power meters help with pacing on the varied terrain that ranges from easy spinning to maximum efforts on steep climbs."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "ozark-gravel-video-1.jpg",
+        "url": "/race-photos/ozark-gravel/ozark-gravel-video-1.jpg",
+        "alt": "Close-up selfie of smiling cyclist wearing yellow sunglasses and teal jersey among green trees during gravel race - Ozark Gravel - Rogers, Arkansas",
+        "credit": "YouTube / VC Adventures",
+        "primary": true,
+        "ai_relevance": 3,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "cyclist selfie",
+          "gravel racer",
+          "yellow sunglasses",
+          "forest trail"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "ozark-gravel-video-2.jpg",
+        "url": "/race-photos/ozark-gravel/ozark-gravel-video-2.jpg",
+        "alt": "Three cyclists riding road bikes on paved residential street lined with trees and suburban homes during organized ride - Ozark Gravel - Rogers, Arkansas",
+        "credit": "YouTube / VC Adventures",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "cycling group",
+          "residential street",
+          "road cycling",
+          "suburban ride"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "ozark-gravel-video-3.jpg",
+        "url": "/race-photos/ozark-gravel/ozark-gravel-video-3.jpg",
+        "alt": "Mountain bikers navigating dirt trail through dense forest with sunlight filtering through tree canopy - Ozark Gravel - Rogers, Arkansas",
+        "credit": "YouTube / VC Adventures",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "mountain biking",
+          "forest trail",
+          "dirt path",
+          "wooded terrain"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "ozark-gravel-preview.gif",
+        "url": "/race-photos/ozark-gravel/ozark-gravel-preview.gif",
+        "alt": "Course preview from Ozark Gravel race footage",
+        "credit": "YouTube / VC Adventures",
+        "gif": true
+      }
+    ]
   }
 }

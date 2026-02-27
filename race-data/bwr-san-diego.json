@@ -704,7 +704,206 @@
           "category": "course_difficulty",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "First off-road sector",
+            "description": "Riders need good positioning before entering, as poor position leads to over 20 minutes of chasing to catch back up to the leaders",
+            "source_video_ids": [
+              "1q0v_lkLvwM"
+            ]
+          },
+          {
+            "name": "Lemon Twistenberg",
+            "description": "A long dirt section where the lead group gets blown to shreds, requiring riders to avoid going in dead last",
+            "source_video_ids": [
+              "1q0v_lkLvwM"
+            ]
+          },
+          {
+            "name": "Boulder garden",
+            "description": "A section requiring dismount, though route design made it more efficient than previous years",
+            "source_video_ids": [
+              "91Ijxfn8-Eg"
+            ]
+          },
+          {
+            "name": "Sandy trail climb",
+            "mile_marker": "15",
+            "description": "A never-ending 20 percent grade on sandy trail that forces everyone to walk",
+            "source_video_ids": [
+              "91Ijxfn8-Eg"
+            ]
+          },
+          {
+            "name": "Double Peak",
+            "mile_marker": "65",
+            "description": "An unrelenting 1,400 feet of climbing near the end of the race for wafer riders",
+            "source_video_ids": [
+              "91Ijxfn8-Eg"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "The course included quite a bit more rough off-road sections, making it feel more like a gravel race instead of a road race with off-road sectors",
+            "source_video_ids": [
+              "1q0v_lkLvwM"
+            ]
+          },
+          {
+            "text": "Route starts with a huge climb followed by a dirt multi-use trail and fast downhill to thin the packs before the first single track section",
+            "source_video_ids": [
+              "91Ijxfn8-Eg"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "Most riders were on 40s or 45s and opted for more gravel specific tires, unlike years past when riders used wider road tires like Strata Bianca 36s. Pathfinder 40s were used this year",
+            "source_video_ids": [
+              "1q0v_lkLvwM"
+            ]
+          },
+          {
+            "text": "On road wide tires required for the 137 mile route",
+            "source_video_ids": [
+              "91Ijxfn8-Eg"
+            ]
+          }
+        ],
+        "race_day_tips": [
+          {
+            "text": "Without Double Peak at the end, you don't have to save so many matches for the end of the race and can be more risky with efforts earlier",
+            "source_video_ids": [
+              "1q0v_lkLvwM"
+            ]
+          },
+          {
+            "text": "Attack with about one mile before the first off-road sector to get a buffer before technical parts and give yourself a head start",
+            "source_video_ids": [
+              "1q0v_lkLvwM"
+            ]
+          },
+          {
+            "text": "Don't skip the first feed zone - it's too easy to get carried away and fall behind on calorie intake",
+            "source_video_ids": [
+              "91Ijxfn8-Eg"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "The big news with this race this year is that there is a massive course change with the change in venue. We are no longer climbing double peak at the end",
+            "source_video_id": "1q0v_lkLvwM",
+            "source_channel": "Drew Dillman",
+            "source_view_count": 19799,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "You would need to eat a burrito the size of a wonky ball to be able to get through the day",
+            "source_video_id": "91Ijxfn8-Eg",
+            "source_channel": "Kyle on Wheels",
+            "source_view_count": 1328,
+            "category": "training",
+            "curated": true
+          }
+        ],
+        "search_text": "Belgian Waffle Ride San Diego features a major course change with no Double Peak finish climb, allowing riders to be more aggressive earlier in the race. The 131-mile route includes substantial rough off-road sections that favor mountain bikers and gravel-specific equipment. Key challenges include the first off-road sector requiring good positioning to avoid 20+ minutes of chasing, the Lemon Twistenberg dirt section that shreds lead groups, a boulder garden dismount, and a brutal 20-percent sandy trail climb that forces walking. The route starts with a big climb followed by dirt multi-use trail and fast downhill to thin packs before single track. Most riders now use 40-45mm gravel tires instead of road tires. Double Peak still features as an unrelenting 1,400-foot climb but repositioned earlier in the race. Strong headwinds and technical terrain create opportunities for selective racing throughout the event."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "bwr-san-diego-video-1.jpg",
+        "url": "/race-photos/bwr-san-diego/bwr-san-diego-video-1.jpg",
+        "alt": "Gravel cyclist in red helmet and jersey riding through tree-lined trail section during BWR San Diego race - Belgian Waffle Ride San Diego - Del Mar, California",
+        "credit": "YouTube / Kyle on Wheels",
+        "primary": true,
+        "ai_relevance": 4,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "gravel cycling",
+          "tree-lined trail",
+          "red jersey",
+          "BWR San Diego"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "bwr-san-diego-video-2.jpg",
+        "url": "/race-photos/bwr-san-diego/bwr-san-diego-video-2.jpg",
+        "alt": "Paved road section with cyclist ahead on rolling hills terrain under overcast sky during gravel race - Belgian Waffle Ride San Diego - Del Mar, California",
+        "credit": "YouTube / Kyle on Wheels",
+        "primary": false,
+        "ai_relevance": 3,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "rolling hills",
+          "paved section",
+          "overcast sky",
+          "gravel race"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "bwr-san-diego-video-3.jpg",
+        "url": "/race-photos/bwr-san-diego/bwr-san-diego-video-3.jpg",
+        "alt": "Blurred view of dense green vegetation and brush along gravel race course terrain - Belgian Waffle Ride San Diego - Del Mar, California",
+        "credit": "YouTube / Kyle on Wheels",
+        "primary": false,
+        "ai_relevance": 2,
+        "ai_quality": 2,
+        "ai_keywords": [
+          "vegetation",
+          "brush",
+          "course terrain",
+          "green foliage"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "bwr-san-diego-preview.gif",
+        "url": "/race-photos/bwr-san-diego/bwr-san-diego-preview.gif",
+        "alt": "Course preview from Bwr San Diego race footage",
+        "credit": "YouTube / Kyle on Wheels",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "bwr-san-diego-preview-2.gif",
+        "url": "/race-photos/bwr-san-diego/bwr-san-diego-preview-2.gif",
+        "alt": "Course preview from Bwr San Diego race footage",
+        "credit": "YouTube / Kyle on Wheels",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "bwr-san-diego-preview-3.gif",
+        "url": "/race-photos/bwr-san-diego/bwr-san-diego-preview-3.gif",
+        "alt": "Course preview from Bwr San Diego race footage",
+        "credit": "YouTube / Kyle on Wheels",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "bwr-san-diego-preview-4.gif",
+        "url": "/race-photos/bwr-san-diego/bwr-san-diego-preview-4.gif",
+        "alt": "Course preview from Bwr San Diego race footage",
+        "credit": "YouTube / Kyle on Wheels",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "bwr-san-diego-preview-5.gif",
+        "url": "/race-photos/bwr-san-diego/bwr-san-diego-preview-5.gif",
+        "alt": "Course preview from Bwr San Diego race footage",
+        "credit": "YouTube / Kyle on Wheels",
+        "gif": true
+      }
+    ]
   }
 }

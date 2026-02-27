@@ -533,7 +533,144 @@
           "category": "race_atmosphere",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Initial 800m climb from Gol",
+            "mile_marker": "0",
+            "description": "Straight away you've got an 800 M climb which will bring you up onto the top of rolling Alpine Plains",
+            "source_video_ids": [
+              "ivnFJosIiKw"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "The gravel is in excellent condition and the traffic very light once in a while a car or tractor may pass you but in general these are cycling roads",
+            "source_video_ids": [
+              "ivnFJosIiKw"
+            ]
+          }
+        ],
+        "gear_mentions": [],
+        "race_day_tips": [
+          {
+            "text": "You should always bring extra clothing. Nothing is guaranteed in Norway even on sunny days there can be a really really cold breeze",
+            "source_video_ids": [
+              "ivnFJosIiKw"
+            ]
+          },
+          {
+            "text": "You should always book your bike on board in advance when taking the train",
+            "source_video_ids": [
+              "ivnFJosIiKw"
+            ]
+          },
+          {
+            "text": "Just make sure you check the opening times as sometimes cafes close early",
+            "source_video_ids": [
+              "ivnFJosIiKw"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "You basically just jump on a train and go you don't need to organize anything else. It's like the equivalent of Plug and Play click and collect out of the box ready",
+            "source_video_id": "ivnFJosIiKw",
+            "source_channel": "MatthewNorway",
+            "source_view_count": 218291,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "Nordic chase brings three things. It brings you a great challenge, a long ultra distance race. It brings you adventure. You go through three countries and you will have super nice landscapes",
+            "source_video_id": "lWlUXwrMeSY",
+            "source_channel": "Nordic Chase",
+            "source_view_count": 156,
+            "category": "community",
+            "curated": true
+          }
+        ],
+        "search_text": "The Nordic Chase Gravel Edition runs from Copenhagen to Oslo covering 373 miles with 26,247 feet of elevation. The route features over 85% perfect gravel roads with excellent surface conditions and very light traffic. Riders face an immediate 800-meter climb from the starting point that brings them onto rolling Alpine plains, then flattens out with spectacular views for the next 200+ kilometers. The course offers beautiful views of mountain ranges including Hemal and Yiman National Park. Every 40-50 km there are small cafes and kiosks for resupply, though riders should check opening times as they sometimes close early. Water is readily available from fast flowing streams. Weather can be unpredictable with cold breezes even on sunny days, so extra clothing is essential. The race emphasizes community and adventure, taking riders through three countries with varied landscapes."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "nordic-chase-gravel-video-1.jpg",
+        "url": "/race-photos/nordic-chase-gravel/nordic-chase-gravel-video-1.jpg",
+        "alt": "Paved road winding through tall pine forest with clear blue sky overhead showing Nordic forest cycling terrain - Nordic Chase Gravel Edition - Copenhagen, Denmark to Oslo, Norway",
+        "credit": "YouTube / MatthewNorway",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "pine forest",
+          "paved road",
+          "Nordic terrain",
+          "forest cycling",
+          "blue sky"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "nordic-chase-gravel-video-2.jpg",
+        "url": "/race-photos/nordic-chase-gravel/nordic-chase-gravel-video-2.jpg",
+        "alt": "First-person view from bicycle handlebars on gravel path through lush green forest with ferns and dense vegetation - Nordic Chase Gravel Edition - Copenhagen, Denmark to Oslo, Norway",
+        "credit": "YouTube / MatthewNorway",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel path",
+          "forest trail",
+          "bicycle handlebars",
+          "first-person view",
+          "green vegetation"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "nordic-chase-gravel-video-3.jpg",
+        "url": "/race-photos/nordic-chase-gravel/nordic-chase-gravel-video-3.jpg",
+        "alt": "Interior of rustic wooden building with warm lighting, decorative lamps, and large windows showing restaurant or lodge atmosphere - Nordic Chase Gravel Edition - Copenhagen, Denmark to Oslo, Norway",
+        "credit": "YouTube / MatthewNorway",
+        "primary": false,
+        "ai_relevance": 1,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "indoor restaurant",
+          "wooden interior",
+          "warm lighting",
+          "rustic lodge"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "nordic-chase-gravel-preview.gif",
+        "url": "/race-photos/nordic-chase-gravel/nordic-chase-gravel-preview.gif",
+        "alt": "Course preview from Nordic Chase Gravel race footage",
+        "credit": "YouTube / MatthewNorway",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "nordic-chase-gravel-preview-2.gif",
+        "url": "/race-photos/nordic-chase-gravel/nordic-chase-gravel-preview-2.gif",
+        "alt": "Course preview from Nordic Chase Gravel race footage",
+        "credit": "YouTube / MatthewNorway",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "nordic-chase-gravel-preview-3.gif",
+        "url": "/race-photos/nordic-chase-gravel/nordic-chase-gravel-preview-3.gif",
+        "alt": "Course preview from Nordic Chase Gravel race footage",
+        "credit": "YouTube / MatthewNorway",
+        "gif": true
+      }
+    ]
   }
 }

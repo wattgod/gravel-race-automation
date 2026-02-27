@@ -1,6 +1,7 @@
 {
   "slug": "crusher-in-the-tushar",
   "race_name": "Crusher in the Tushar",
+  "distance_mi": 69.0,
   "demands": {
     "durability": 2,
     "climbing": 10,
@@ -19,7 +20,8 @@
         "5x3 VO2 Classic",
         "Descending VO2 Pyramid",
         "Norwegian 4x8"
-      ]
+      ],
+      "workout_context": "Crusher in the Tushar\u2019s mixed surface climbing with extended descents and competitive field demand explosive aerobic capacity \u2014 the ability to respond to surges without blowing up."
     },
     {
       "category": "Gravel_Specific",
@@ -27,7 +29,8 @@
       "workouts": [
         "Surge and Settle",
         "Terrain Microbursts"
-      ]
+      ],
+      "workout_context": "Crusher in the Tushar\u2019s high-altitude gravel, paved climbs demands rapid power changes \u2014 surge over obstacles, settle on smoother sections, repeat for hours."
     },
     {
       "category": "Race_Simulation",
@@ -36,7 +39,8 @@
         "Breakaway Simulation",
         "Variable Pace Chaos",
         "Sector Simulation"
-      ]
+      ],
+      "workout_context": "Racing Crusher in the Tushar isn\u2019t just fitness \u2014 it\u2019s pacing, fueling, and executing when conditions deteriorate. This workout practices the race itself."
     },
     {
       "category": "Durability",
@@ -45,7 +49,8 @@
         "Tired VO2max",
         "Double Day Simulation",
         "Progressive Fatigue"
-      ]
+      ],
+      "workout_context": "Crusher in the Tushar\u2019s mixed surface climbing with extended descents drains energy reserves faster than the distance suggests \u2014 durability training bridges the gap."
     },
     {
       "category": "Over_Under",
@@ -53,9 +58,81 @@
       "workouts": [
         "Classic Over-Unders",
         "Ladder Over-Unders"
-      ]
+      ],
+      "workout_context": "Over-unders train the lactate clearance you\u2019ll need at Crusher in the Tushar when surges push you above threshold and you have to recover while still riding hard."
+    },
+    {
+      "category": "TT_Threshold",
+      "score": 60,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ],
+      "workout_context": "Crusher in the Tushar rewards athletes who can hold sustained power without blowing up \u2014 threshold is the engine that drives everything above Zone 2."
+    },
+    {
+      "category": "Endurance",
+      "score": 56,
+      "workouts": [
+        "Pre-Race Openers",
+        "Terrain Simulation Z2"
+      ],
+      "workout_context": "Every session at Crusher in the Tushar intensity builds on this aerobic foundation \u2014 the endurance base is the soil everything else grows in."
+    },
+    {
+      "category": "Critical_Power",
+      "score": 56,
+      "workouts": [
+        "Above CP Repeats",
+        "W-Prime Depletion"
+      ],
+      "workout_context": "Critical power determines how long you can sustain above-threshold efforts at Crusher in the Tushar \u2014 a higher CP means more time in the red before failure."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 55,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "Crusher in the Tushar\u2019s 10,000ft of climbing demands seated and standing versatility \u2014 the ability to change climbing style as gradient and fatigue dictate."
+    },
+    {
+      "category": "Anaerobic_Capacity",
+      "score": 51,
+      "workouts": [
+        "2min Killers",
+        "90sec Repeats"
+      ],
+      "workout_context": "Short, violent efforts are unavoidable at Crusher in the Tushar \u2014 climbs demanding 2-minute maximal efforts, surges to close gaps, attacks on mixed surface climbing with extended descents."
+    },
+    {
+      "category": "G_Spot",
+      "score": 45,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ],
+      "workout_context": "The G-Spot zone (88\u201392% FTP) is where you\u2019ll spend the hardest sustained miles of Crusher in the Tushar. Make this intensity feel like home."
+    },
+    {
+      "category": "SFR_Muscle_Force",
+      "score": 36,
+      "workouts": [
+        "SFR Low Cadence",
+        "Force Repeats"
+      ],
+      "workout_context": "Low-cadence force work builds the muscular strength for Crusher in the Tushar\u2019s 10,000ft of climbing \u2014 especially the grinding, low-speed ascents."
     }
   ],
+  "race_overlay": {
+    "heat": "July in Beaver, Utah \u2014 July at 10,000+ feet means intense sun, thin air, and afternoon thunderstorms. Begin heat acclimatization 10\u201314 days before Crusher in the Tushar \u2014 20\u201330min sauna sessions or midday rides in full kit. Pre-load sodium 48 hours out. Target 500\u2013750ml/hr with electrolytes on race day.",
+    "nutrition": "Target 40\u201360g carbs/hour for Crusher in the Tushar\u2019s 69 miles. Front-load calories in the first half. One bottle per hour minimum, more in heat.",
+    "altitude": "Crusher in the Tushar with 10,000ft of climbing, much of it above 8,000ft demands altitude preparation. Arrive 5\u20137 days early for acclimatization. Expect 5\u201315% power reduction at altitude. Increase iron intake 4 weeks out. Hydrate aggressively \u2014 altitude increases fluid loss by 20\u201340%. Altitude adaptation critical.",
+    "terrain": "Highly technical terrain at Crusher in the Tushar demands practice on similar surfaces. Ride mixed surface climbing with extended descents at race-day cadence weekly. Expect: high-altitude gravel, paved climbs, technical descents. Practice cornering, descending, and power delivery on unstable surfaces. Dial in tire pressure before race week \u2014 5 PSI wrong costs you 15+ minutes over 69 miles."
+  },
   "pack_summary": "This 10-workout pack focuses on VO2max, Gravel Specific, and Race Simulation to prepare you for 69 miles of mixed surface climbing with extended descents in Beaver, Utah.",
   "generated_at": "2026-02-26"
 }

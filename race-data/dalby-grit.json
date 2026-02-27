@@ -582,7 +582,161 @@
           "category": "race_atmosphere",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Very steep descent followed by steep ascent",
+            "description": "Described as testing the legs midcourse, making the race much harder than other events like the Granlock with steeper climbs overall.",
+            "source_video_ids": [
+              "kkT3HxL2XkY"
+            ]
+          },
+          {
+            "name": "Single track section",
+            "description": "Designed to string the field out for safety, occurs in the first few miles along with twisty 90-degree turns that bunch riders up then string them out again.",
+            "source_video_ids": [
+              "N3vlsd_50WQ"
+            ]
+          },
+          {
+            "name": "Neutralized roll out",
+            "description": "Despite being called neutralized, riders describe this section as very hard with opportunities to gain gaps on the field.",
+            "source_video_ids": [
+              "N3vlsd_50WQ"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Gravel doesn't look as chunky as other events like the Granlock, allowing for slightly higher tire pressures and potentially less aggressive tread patterns.",
+            "source_video_ids": [
+              "kkT3HxL2XkY"
+            ]
+          },
+          {
+            "text": "First lap is 22km and mostly flat with quite twisty sections including many 90-degree left and right turns.",
+            "source_video_ids": [
+              "N3vlsd_50WQ"
+            ]
+          },
+          {
+            "text": "Course includes some small sections of road on each lap, providing ideal opportunities for eating solid food.",
+            "source_video_ids": [
+              "kkT3HxL2XkY"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "Running 50mm Swelby RX tires at 28 psi rear and 25 psi front due to less severe gravel conditions, with tire liners still recommended.",
+            "source_video_ids": [
+              "kkT3HxL2XkY"
+            ]
+          }
+        ],
+        "race_day_tips": [
+          {
+            "text": "It's a lapped course passing the feed station three times total, so you don't need to make hydration last - aim to almost run out and refill to ensure proper hydration.",
+            "source_video_ids": [
+              "kkT3HxL2XkY"
+            ]
+          },
+          {
+            "text": "Plan nutrition around 60-70g carbs per hour using 80g carb bottles every 2 hours plus hourly 30g gels, with increased sodium content of 1000mg per 500ml to prevent cramping.",
+            "source_video_ids": [
+              "kkT3HxL2XkY"
+            ]
+          },
+          {
+            "text": "Start positioning is crucial - surge hard during the neutralized section to avoid getting swamped, aiming for 5th-6th wheel position rather than sitting on front or getting buried in the field.",
+            "source_video_ids": [
+              "N3vlsd_50WQ"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "Only about 400 riders total with about 40-50 in each age group, so it's not going to be too packed. You had to be in the start pens for 9:00 a.m.",
+            "source_video_id": "kkT3HxL2XkY",
+            "source_channel": "The Coeliac Cyclist",
+            "source_view_count": 2780,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "The environment's already been pretty cool and gravel racing in the UK is really welcoming. The vibes of gravel are genuine - the people seem great and it's just a good place to be.",
+            "source_video_id": "N3vlsd_50WQ",
+            "source_channel": "TriathlonDan",
+            "source_view_count": 2436,
+            "category": "community",
+            "curated": true
+          }
+        ],
+        "search_text": "Dalby Grit is a new 50-mile gravel race in Dalby Forest near York featuring 3500 feet of elevation over three laps. Riders describe steeper climbs than comparable events, with a particularly challenging steep descent followed by a steep ascent midcourse. The course includes chunky gravel sections, twisty 90-degree turns, single track designed to string out the field, and some road sections ideal for nutrition. Weather conditions include 20mph winds with potential drizzle but temperatures above 20 degrees. The race attracts around 400 riders total with 40-50 per age group, creating an intimate atmosphere. The neutralized start is described as very hard with opportunities for strong riders to gain early gaps. Course features both forest roads and sections extending into the North Yorkshire Moors, with generally less severe gravel than other major UK gravel events."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "dalby-grit-video-1.jpg",
+        "url": "/race-photos/dalby-grit/dalby-grit-video-1.jpg",
+        "alt": "Gravel cycling peloton racing on paved forest road through green Yorkshire woodland during Dalby Grit race - Dalby Forest, North York Moors, UK",
+        "credit": "YouTube / The Coeliac Cyclist",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel peloton",
+          "forest road",
+          "Yorkshire woodland",
+          "cycling race",
+          "Dalby Forest"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "dalby-grit-video-2.jpg",
+        "url": "/race-photos/dalby-grit/dalby-grit-video-2.jpg",
+        "alt": "Race support area with parked vehicles and grass field at Dalby Forest cycling event finish zone - Dalby Grit - Dalby Forest, North York Moors, UK",
+        "credit": "YouTube / The Coeliac Cyclist",
+        "primary": false,
+        "ai_relevance": 3,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "race support",
+          "finish area",
+          "Dalby Forest",
+          "cycling event",
+          "support vehicles"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "dalby-grit-video-3.jpg",
+        "url": "/race-photos/dalby-grit/dalby-grit-video-3.jpg",
+        "alt": "Cyclists racing on dirt gravel track through lush green forest during Dalby Grit gravel race in Yorkshire - Dalby Forest, North York Moors, UK",
+        "credit": "YouTube / The Coeliac Cyclist",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "dirt track",
+          "gravel racing",
+          "forest trail",
+          "Yorkshire cycling",
+          "Dalby trail"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "dalby-grit-preview.gif",
+        "url": "/race-photos/dalby-grit/dalby-grit-preview.gif",
+        "alt": "Course preview from Dalby Grit race footage",
+        "credit": "YouTube / The Coeliac Cyclist",
+        "gif": true
+      }
+    ]
   }
 }

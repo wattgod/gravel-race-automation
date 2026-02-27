@@ -591,7 +591,157 @@
           "category": "course_difficulty",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Ride to Puerto Berrio",
+            "description": "Described as the worst part of the race, extremely hot conditions around 3pm with temperatures reaching a thousand degrees, riders needing to find relief in rivers and creeks.",
+            "source_video_ids": [
+              "ClSgmKXdbJo"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "The course features steep climbs at high altitude with insane vertical gain, crossing three cordilleras through Colombian jungle terrain.",
+            "source_video_ids": [
+              "1F3Xj4fZHIs"
+            ]
+          },
+          {
+            "text": "Humid conditions throughout the race with challenging terrain that tests riders physically and mentally.",
+            "source_video_ids": [
+              "1F3Xj4fZHIs"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "Full suspension bike with drop bars and arrow bar extensions, testing dynamo hub for self-sufficient electricity generation.",
+            "source_video_ids": [
+              "ClSgmKXdbJo"
+            ]
+          }
+        ],
+        "race_day_tips": [
+          {
+            "text": "Get breakfast the night before and put it in your hotel room when starting early, fix everything yourself including cleaning the bike.",
+            "source_video_ids": [
+              "1F3Xj4fZHIs"
+            ]
+          },
+          {
+            "text": "You have to be mentally and physically prepared - this race takes every single ounce of energy that you have.",
+            "source_video_ids": [
+              "1F3Xj4fZHIs"
+            ]
+          },
+          {
+            "text": "Plan for extreme heat management - riders needed to find relief in rivers, creeks, and shaded areas during hot afternoon sections.",
+            "source_video_ids": [
+              "ClSgmKXdbJo"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "The course is insane the ride is a super challenge but then I think for a lot of us too is the just the logistics right - getting the food every day, when you start early you have to have maybe get breakfast the night before and put it in your hotel room, you have to fix everything yourself you have to clean the bike so even if you're not pedaling then you are either eating cleaning the bike getting ready for the next day and all the logistics so it's just every day is busy",
+            "source_video_id": "1F3Xj4fZHIs",
+            "source_channel": "Live Slow Ride Fast",
+            "source_view_count": 308273,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "The people there are incredibly genuine and incredibly proud of where they're from it's like infectious it's really refreshing - they really appreciate where they're from and really want to share it",
+            "source_video_id": "opRZr4-JLCg",
+            "source_channel": "Far Beyond by EF Pro Cycling",
+            "source_view_count": 126152,
+            "category": "community",
+            "curated": true
+          }
+        ],
+        "search_text": "Transcordilleras is a multi-stage Colombian Andes race covering 1055 kilometers over eight stages with 28,500 meters of elevation gain. Riders describe it as crossing three cordilleras through jungle terrain with steep climbs at high altitude and humid conditions. The ride to Puerto Berrio stands out as particularly challenging due to extreme heat requiring riders to seek relief in rivers and creeks. Logistics prove as demanding as the riding itself - daily tasks include securing food, cleaning bikes, and preparing for early starts. The non-stop category can be completed in 4.5 to 5 days with minimal sleep. Colombian riders are noted for their climbing speed and altitude adaptation. The race attracts international professionals who experience genuine Colombian hospitality. Riders emphasize the need for both mental and physical preparation as the race demands every ounce of energy over the multi-day format."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "transcordilleras-video-1.jpg",
+        "url": "/race-photos/transcordilleras/transcordilleras-video-1.jpg",
+        "alt": "Gravel cyclists racing on dirt road through tropical landscape with banana plantations and mountains in background - Transcordilleras - Colombian Andes, Colombia",
+        "credit": "YouTube / Far Beyond by EF Pro Cycling",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel racing",
+          "tropical terrain",
+          "banana plantation",
+          "mountain backdrop",
+          "dirt road"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "transcordilleras-video-2.jpg",
+        "url": "/race-photos/transcordilleras/transcordilleras-video-2.jpg",
+        "alt": "Lone cyclist on unpaved gravel road winding through arid hillside terrain with sparse vegetation - Transcordilleras - Colombian Andes, Colombia",
+        "credit": "YouTube / Far Beyond by EF Pro Cycling",
+        "primary": false,
+        "ai_relevance": 4,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel road",
+          "arid terrain",
+          "hillside",
+          "unpaved surface",
+          "remote cycling"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "transcordilleras-video-3.jpg",
+        "url": "/race-photos/transcordilleras/transcordilleras-video-3.jpg",
+        "alt": "Gravel cyclist in green jersey being interviewed while sitting on grass with rural countryside and fence posts visible - Transcordilleras - Colombian Andes, Colombia",
+        "credit": "YouTube / Far Beyond by EF Pro Cycling",
+        "primary": false,
+        "ai_relevance": 3,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "cyclist interview",
+          "rural countryside",
+          "green jersey",
+          "gravel rider",
+          "pastoral setting"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "transcordilleras-preview.gif",
+        "url": "/race-photos/transcordilleras/transcordilleras-preview.gif",
+        "alt": "Course preview from Transcordilleras race footage",
+        "credit": "YouTube / Far Beyond by EF Pro Cycling",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "transcordilleras-preview-2.gif",
+        "url": "/race-photos/transcordilleras/transcordilleras-preview-2.gif",
+        "alt": "Course preview from Transcordilleras race footage",
+        "credit": "YouTube / Far Beyond by EF Pro Cycling",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "transcordilleras-preview-3.gif",
+        "url": "/race-photos/transcordilleras/transcordilleras-preview-3.gif",
+        "alt": "Course preview from Transcordilleras race footage",
+        "credit": "YouTube / Far Beyond by EF Pro Cycling",
+        "gif": true
+      }
+    ]
   }
 }

@@ -699,7 +699,162 @@
           "category": "course_difficulty",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Jebel Akhdar",
+            "mile_marker": "19",
+            "description": "19 kilometers at 8% average gradient with 4 kilometers of 10.5%. Described as the most difficult climb ever done by the rider with seriously steep ramps hitting 20% in the first 10 meters. Unrelenting climb with extreme heat adding to the challenge.",
+            "source_video_ids": [
+              "K5hLeLa3_GE"
+            ]
+          },
+          {
+            "name": "Col du Izoard",
+            "description": "The infamous climb that brought one rider to nearly giving up, described as one of the toughest tests on the route requiring support from fellow riders to complete.",
+            "source_video_ids": [
+              "ctQNYA00bLw"
+            ]
+          },
+          {
+            "name": "22km climb to 2200 meters",
+            "description": "Long 22 kilometer climb from 1500 to 2200 meters elevation where power numbers drastically decrease due to thin air and less oxygen availability compared to sea level.",
+            "source_video_ids": [
+              "GaLbWZqq8tk"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Climbs feature seriously steep ramps with gradients hitting 20% in opening sections, making gear selection immediately critical.",
+            "source_video_ids": [
+              "K5hLeLa3_GE"
+            ]
+          },
+          {
+            "text": "High altitude sections above 1500 meters significantly impact power output due to thin air and reduced oxygen availability.",
+            "source_video_ids": [
+              "GaLbWZqq8tk"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "50/34 chainrings with 11-28 cassette recommended, with an 11-30 cassette as backup for the steepest sections.",
+            "source_video_ids": [
+              "ctQNYA00bLw"
+            ]
+          }
+        ],
+        "race_day_tips": [
+          {
+            "text": "On extreme climbs, pace yourself and ride to power rather than trying to stay with faster riders early on the climb.",
+            "source_video_ids": [
+              "K5hLeLa3_GE"
+            ]
+          },
+          {
+            "text": "Nutrition is critical - big riders need to consume 800-1300 grams of carbs daily totaling 6000-8000 calories to maintain performance across multiple stages.",
+            "source_video_ids": [
+              "GaLbWZqq8tk"
+            ]
+          },
+          {
+            "text": "When struggling mentally on climbs, fellow riders can provide crucial support - accept help and consume nutrition even when you don't want to.",
+            "source_video_ids": [
+              "ctQNYA00bLw"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "The only thing we could find was a takeaway pizza so I had like a massive vegetable pizza with some tuna and then we went to the rider briefing with information about the next day they'll give you the weather to give you the stuff to look out for",
+            "source_video_id": "GaLbWZqq8tk",
+            "source_channel": "Jasper Verkuijl",
+            "source_view_count": 41306,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "After each stage preparation of the next stage starts right after the previous stage and actually the food might be the biggest Factor if you don't eat well the next day you're not gonna perform",
+            "source_video_id": "GaLbWZqq8tk",
+            "source_channel": "Jasper Verkuijl",
+            "source_view_count": 41306,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "There's one guy you helped yesterday the he's 71 is struggling with his head uses never done a truth that's one of the things they all do it you really get it right the first time he's never done it and at the bottom of the last climb yesterday she basically went to the Dominican says I'm done",
+            "source_video_id": "ctQNYA00bLw",
+            "source_channel": "Global Cycling Network",
+            "source_view_count": 464914,
+            "category": "community",
+            "curated": true
+          }
+        ],
+        "search_text": "Haute Route events are professionally supported multi-day stage races featuring extreme climbs across European mountain ranges. Riders face challenges like the 19km Jebel Akhdar climb in Oman with 8% average gradient and 20% ramps, and high-altitude Alpine climbs reaching 2200 meters where reduced oxygen significantly impacts power output. The Alps route covers 896 kilometers with over 22,000 meters of elevation gain across multiple stages. Each stage includes timed climbing sections with mandatory time limits riders must meet to continue. Gear recommendations include 50/34 chainrings with 11-28 or 11-30 cassettes for steep gradients. Nutrition becomes critical with larger riders needing 800-1300 grams of carbs daily. Events provide full support including marshals, neutral service, medical support, and rider briefings covering weather, climb details, and safety information. Mental challenges are common especially for first-time participants, but strong community support among riders helps people through difficult moments on climbs."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "haute-route-gravel-video-1.jpg",
+        "url": "/race-photos/haute-route-gravel/haute-route-gravel-video-1.jpg",
+        "alt": "Woman cyclist standing next to Cafepod coffee support van during Haute Route gravel race in Dolomites mountains - Various Europe",
+        "credit": "YouTube / Global Cycling Network",
+        "primary": true,
+        "ai_relevance": 2,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "support vehicle",
+          "Dolomites",
+          "coffee van",
+          "race support"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "haute-route-gravel-video-2.jpg",
+        "url": "/race-photos/haute-route-gravel/haute-route-gravel-video-2.jpg",
+        "alt": "First-person view of cyclist hands on handlebars riding gravel road through alpine mountain landscape with snow-capped peaks - Haute Route Gravel - Various Europe",
+        "credit": "YouTube / Global Cycling Network",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel road",
+          "alpine terrain",
+          "mountain pass",
+          "first-person cycling",
+          "snow peaks"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "haute-route-gravel-video-3.jpg",
+        "url": "/race-photos/haute-route-gravel/haute-route-gravel-video-3.jpg",
+        "alt": "Cyclist in red and black jersey climbing through forested mountain terrain during gravel race - Haute Route Gravel - Various Europe",
+        "credit": "YouTube / Global Cycling Network",
+        "primary": false,
+        "ai_relevance": 4,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "mountain climbing",
+          "forest trail",
+          "cycling jersey",
+          "gravel climb"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "haute-route-gravel-preview.gif",
+        "url": "/race-photos/haute-route-gravel/haute-route-gravel-preview.gif",
+        "alt": "Course preview from Haute Route Gravel race footage",
+        "credit": "YouTube / Global Cycling Network",
+        "gif": true
+      }
+    ]
   }
 }

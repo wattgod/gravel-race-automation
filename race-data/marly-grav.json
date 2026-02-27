@@ -565,7 +565,107 @@
           "curated": false
         }
       ],
-      "quotes": []
-    }
+      "quotes": [],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Gravel sections with marbles",
+            "description": "Riders can lose wheels on the gravel when hitting the marbles, especially on slight banks where you can drift down and crash.",
+            "source_video_ids": [
+              "rAbjTTTfP2A"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "The course features gravel sections with marbles that can cause riders to lose traction and crash, particularly on banked sections where bikes can drift down.",
+            "source_video_ids": [
+              "rAbjTTTfP2A"
+            ]
+          },
+          {
+            "text": "Very sticky mud conditions that accumulate heavily on tires and make cycling extremely difficult.",
+            "source_video_ids": [
+              "NK9ZbXOBbhY"
+            ]
+          }
+        ],
+        "gear_mentions": [],
+        "race_day_tips": [],
+        "additional_quotes": [
+          {
+            "text": "so much mud um I can't ride like that and I have to take it off my tires but it's so much and it's so freaking sticky",
+            "source_video_id": "NK9ZbXOBbhY",
+            "source_channel": "Giant Cheerio",
+            "source_view_count": 100184,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "Marly Grav features a triangular lap course in the Netherlands with riders completing multiple laps. The race presents significant challenges with gravel sections containing marbles that can cause crashes, particularly on banked areas where bikes drift down and lose traction. Mud conditions can be extremely problematic, with sticky mud accumulating heavily on tires and making riding nearly impossible. The course includes transitions between different surface types, and riders must navigate technical gravel sections where wheel slip is common. Race dynamics typically see early breakaways form, with gaps opening and closing throughout the event as riders struggle with the challenging surface conditions and equipment issues that can arise from the demanding terrain."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "marly-grav-video-1.jpg",
+        "url": "/race-photos/marly-grav/marly-grav-video-1.jpg",
+        "alt": "Cyclist riding through lush green forest trail with dappled sunlight filtering through dense tree canopy overhead - Marly Grav - Netherlands",
+        "credit": "YouTube / KOENEGO",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "forest trail",
+          "wooded gravel",
+          "tree canopy",
+          "single track",
+          "shaded path"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "marly-grav-video-2.jpg",
+        "url": "/race-photos/marly-grav/marly-grav-video-2.jpg",
+        "alt": "Gravel cyclist on dirt road through open countryside with clear blue sky and agricultural fields on both sides - Marly Grav - Netherlands",
+        "credit": "YouTube / KOENEGO",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "dirt road",
+          "open countryside",
+          "agricultural landscape",
+          "rural gravel",
+          "blue sky"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "marly-grav-video-3.jpg",
+        "url": "/race-photos/marly-grav/marly-grav-video-3.jpg",
+        "alt": "Two gravel racers with race numbers riding on dirt farm road through green agricultural fields with farmhouse in background - Marly Grav - Netherlands",
+        "credit": "YouTube / KOENEGO",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel race",
+          "race numbers",
+          "farm road",
+          "agricultural fields",
+          "competitive cycling"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "marly-grav-preview.gif",
+        "url": "/race-photos/marly-grav/marly-grav-preview.gif",
+        "alt": "Course preview from Marly Grav race footage",
+        "credit": "YouTube / KOENEGO",
+        "gif": true
+      }
+    ]
   }
 }

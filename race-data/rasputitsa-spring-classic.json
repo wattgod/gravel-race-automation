@@ -594,7 +594,138 @@
           "category": "race_atmosphere",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Notorious BIG Hill",
+            "mile_marker": "30",
+            "description": "A major climb that goes up and up and up. At 30 miles, riders face 3800 ft of climbing with a 5% grade that feels mellow compared to previous sections.",
+            "source_video_ids": [
+              "91O6dSEUFhk"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Roads are pretty smooth actually and gorgeous. However, in wet conditions, the mud gets so deep that riders sink into it and struggle to maintain traction.",
+            "source_video_ids": [
+              "91O6dSEUFhk",
+              "W0K94sgxWqw"
+            ]
+          }
+        ],
+        "gear_mentions": [],
+        "race_day_tips": [
+          {
+            "text": "Whiskey shots paired with chocolate chip cookies at aid stations around mile 26 can be a good choice for morale and energy.",
+            "source_video_ids": [
+              "91O6dSEUFhk"
+            ]
+          },
+          {
+            "text": "In wet conditions, expect your hands and feet to be soaked within the first 30 minutes, so prepare for 3+ hours of riding in those conditions.",
+            "source_video_ids": [
+              "W0K94sgxWqw"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "I showed up at the front desk at 6:00 a.m. and found our hero ready to go with bolt cutters. That customer service - Derek came through with the save.",
+            "source_video_id": "91O6dSEUFhk",
+            "source_channel": "Green Mountain Gravel",
+            "source_view_count": 3593,
+            "category": "community",
+            "curated": true
+          },
+          {
+            "text": "The truck that was bringing back the bikes from people who had quit was there and just emptied, so I asked if I could get a ride 1.75 miles up the mountain to the hotel.",
+            "source_video_id": "W0K94sgxWqw",
+            "source_channel": "Mark Thistle",
+            "source_view_count": 1645,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "The Rasputitsa Spring Classic features 5,700 feet of climbing over approximately 45-60 miles through Vermont's Burke Mountain area. Riders describe roads as pretty smooth with gorgeous scenery and horses along the course. The major challenge is the Notorious BIG Hill around mile 30, where riders face sustained climbing with grades that make 5% feel mellow. Aid stations around mile 26 offer whiskey and cookies, with hot dogs available later in the race. Weather can be brutal - riders report racing in 3-4 degree Celsius temperatures with rain turning to snow. In wet conditions, mud becomes so deep that riders sink into it and lose traction. Cramping becomes an issue on climbs steeper than 5% grade. The course attracts strong community support with people lining the entire route and helpful volunteers."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "rasputitsa-spring-classic-video-1.jpg",
+        "url": "/race-photos/rasputitsa-spring-classic/rasputitsa-spring-classic-video-1.jpg",
+        "alt": "Large group of gravel cyclists gathered at start line with bikes on forested dirt road in Vermont countryside - Rasputitsa Spring Classic - Burke, Vermont",
+        "credit": "YouTube / Green Mountain Gravel",
+        "primary": true,
+        "ai_relevance": 4,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "gravel race start",
+          "Vermont forest",
+          "cycling group",
+          "dirt road",
+          "Rasputitsa"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "rasputitsa-spring-classic-video-2.jpg",
+        "url": "/race-photos/rasputitsa-spring-classic/rasputitsa-spring-classic-video-2.jpg",
+        "alt": "Rural Vermont gravel road passing between weathered farm buildings and open fields under cloudy sky - Rasputitsa Spring Classic - Burke, Vermont",
+        "credit": "YouTube / Green Mountain Gravel",
+        "primary": false,
+        "ai_relevance": 2,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "Vermont gravel road",
+          "farm buildings",
+          "rural countryside",
+          "gravel route"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "rasputitsa-spring-classic-video-3.jpg",
+        "url": "/race-photos/rasputitsa-spring-classic/rasputitsa-spring-classic-video-3.jpg",
+        "alt": "Female cyclist celebrating at aid station on Vermont gravel road with support crew and tent setup - Rasputitsa Spring Classic - Burke, Vermont",
+        "credit": "YouTube / Green Mountain Gravel",
+        "primary": false,
+        "ai_relevance": 3,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel aid station",
+          "Vermont roads",
+          "cyclist celebration",
+          "race support"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "rasputitsa-spring-classic-preview.gif",
+        "url": "/race-photos/rasputitsa-spring-classic/rasputitsa-spring-classic-preview.gif",
+        "alt": "Course preview from Rasputitsa Spring Classic race footage",
+        "credit": "YouTube / Green Mountain Gravel",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "rasputitsa-spring-classic-preview-2.gif",
+        "url": "/race-photos/rasputitsa-spring-classic/rasputitsa-spring-classic-preview-2.gif",
+        "alt": "Course preview from Rasputitsa Spring Classic race footage",
+        "credit": "YouTube / Green Mountain Gravel",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "rasputitsa-spring-classic-preview-3.gif",
+        "url": "/race-photos/rasputitsa-spring-classic/rasputitsa-spring-classic-preview-3.gif",
+        "alt": "Course preview from Rasputitsa Spring Classic race footage",
+        "credit": "YouTube / Green Mountain Gravel",
+        "gif": true
+      }
+    ]
   }
 }

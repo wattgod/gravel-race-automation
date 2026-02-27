@@ -555,7 +555,168 @@
           "category": "course_difficulty",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Griesdale Forest Opening",
+            "description": "200 meters uphill climb straight off the bat in the first 20 minutes",
+            "source_video_ids": [
+              "3s5rojx5xS4"
+            ]
+          },
+          {
+            "name": "Forest River Crossings",
+            "mile_marker": "26",
+            "description": "Cycling through rivers in the forest trails where water gets in through shoes",
+            "source_video_ids": [
+              "UxcL-VLEPN8"
+            ]
+          },
+          {
+            "name": "Final Big Hill",
+            "mile_marker": "35",
+            "description": "One more big hill in the final 10-mile leg",
+            "source_video_ids": [
+              "UxcL-VLEPN8"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Griesdale Forest features well-maintained gravel fire tracks that are consistently hilly throughout",
+            "source_video_ids": [
+              "3s5rojx5xS4"
+            ]
+          },
+          {
+            "text": "Mixture of purpose-built tracks, gravel roads, and tiny roads with really steep downs and ups",
+            "source_video_ids": [
+              "n_j9Xqd7xVk"
+            ]
+          },
+          {
+            "text": "Forest trails hold water during wet conditions, creating river-like crossings",
+            "source_video_ids": [
+              "UxcL-VLEPN8"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "Most people can do it on a gravel bike for the intermediate beginner level 24-mile course",
+            "source_video_ids": [
+              "n_j9Xqd7xVk"
+            ]
+          },
+          {
+            "text": "Waterproof shoes are important - regular shoes let water in and hold it during river crossings",
+            "source_video_ids": [
+              "UxcL-VLEPN8"
+            ]
+          }
+        ],
+        "race_day_tips": [
+          {
+            "text": "Don't eat too much ice cream during the ride - causes sluggishness and sickness on the hills",
+            "source_video_ids": [
+              "3s5rojx5xS4"
+            ]
+          },
+          {
+            "text": "Events may modify or cancel long routes due to weather conditions like thundershowers",
+            "source_video_ids": [
+              "UxcL-VLEPN8"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "We're expecting around 200 today so quite a big turnout very social",
+            "source_video_id": "n_j9Xqd7xVk",
+            "source_channel": "Julie Phelan Cycling",
+            "source_view_count": 2072,
+            "category": "community",
+            "curated": true
+          },
+          {
+            "text": "It's towards the op kit foundation which helps get people and groups into the outdoors giving them funding and equipment that they might need",
+            "source_video_id": "n_j9Xqd7xVk",
+            "source_channel": "Julie Phelan Cycling",
+            "source_view_count": 2072,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "The plan is to go up today night and I wake up fresh for an 8 A.M start",
+            "source_video_id": "UxcL-VLEPN8",
+            "source_channel": "Chunky Gravel",
+            "source_view_count": 1191,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "Lake District gravel riding features challenging terrain with significant elevation gain from the start. Griesdale Forest offers 200 meters of uphill climbing in the first 20 minutes on well-maintained gravel fire tracks. The terrain includes purpose-built tracks, gravel roads, and narrow roads with steep ascents and descents. During wet conditions, forest trails become waterlogged with river-like crossings that soak through regular shoes. Routes typically accommodate 200 riders with intermediate beginner difficulty suitable for gravel bikes. Weather can significantly impact events, with long routes potentially canceled for thundershowers and modified medium routes offered instead. The area features multiple route options including color-coded trails and various distance options. Social atmosphere is strong with friendly riders and community support. Feed stops provide sandwiches, coffee, and crisps around the 30-35 mile mark."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "just-gravel-video-1.jpg",
+        "url": "/race-photos/just-gravel/just-gravel-video-1.jpg",
+        "alt": "First-person view cycling through flooded gravel path with high-visibility clothing and cycling computer visible on handlebars - JUST.GRAVEL - Southern Lake District, UK",
+        "credit": "YouTube / Chunky Gravel",
+        "primary": true,
+        "ai_relevance": 3,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "flooded gravel",
+          "cycling computer",
+          "first-person view",
+          "muddy conditions"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "just-gravel-video-2.jpg",
+        "url": "/race-photos/just-gravel/just-gravel-video-2.jpg",
+        "alt": "Mountain bikers navigating around fallen tree obstacle on woodland trail with cycling computer mounted on handlebars - JUST.GRAVEL - Southern Lake District, UK",
+        "credit": "YouTube / Chunky Gravel",
+        "primary": false,
+        "ai_relevance": 4,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "tree obstacle",
+          "woodland trail",
+          "cycling computer",
+          "trail navigation"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "just-gravel-video-3.jpg",
+        "url": "/race-photos/just-gravel/just-gravel-video-3.jpg",
+        "alt": "First-person perspective cycling through narrow singletrack trail surrounded by dense ferns in lush forest environment - JUST.GRAVEL - Southern Lake District, UK",
+        "credit": "YouTube / Chunky Gravel",
+        "primary": false,
+        "ai_relevance": 4,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "singletrack trail",
+          "fern forest",
+          "narrow path",
+          "first-person cycling"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "just-gravel-preview.gif",
+        "url": "/race-photos/just-gravel/just-gravel-preview.gif",
+        "alt": "Course preview from Just Gravel race footage",
+        "credit": "YouTube / Chunky Gravel",
+        "gif": true
+      }
+    ]
   }
 }

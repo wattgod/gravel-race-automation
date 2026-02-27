@@ -1,6 +1,7 @@
 {
   "slug": "bwr-montana",
   "race_name": "BWR Montana (Belgian Waffle Ride Montana)",
+  "distance_mi": 87.0,
   "demands": {
     "durability": 4,
     "climbing": 8,
@@ -18,7 +19,8 @@
       "workouts": [
         "Surge and Settle",
         "Terrain Microbursts"
-      ]
+      ],
+      "workout_context": "BWR Montana (Belgian Waffle Ride Montana)\u2019s montana rockies gravel (75%), paved roads (25%) demands rapid power changes \u2014 surge over obstacles, settle on smoother sections, repeat for hours."
     },
     {
       "category": "Race_Simulation",
@@ -27,7 +29,8 @@
         "Breakaway Simulation",
         "Variable Pace Chaos",
         "Sector Simulation"
-      ]
+      ],
+      "workout_context": "Racing BWR Montana (Belgian Waffle Ride Montana) isn\u2019t just fitness \u2014 it\u2019s pacing, fueling, and executing when conditions deteriorate. This workout practices the race itself."
     },
     {
       "category": "TT_Threshold",
@@ -36,7 +39,8 @@
         "Single Sustained Threshold",
         "Threshold Ramps",
         "Descending Threshold"
-      ]
+      ],
+      "workout_context": "BWR Montana (Belgian Waffle Ride Montana) rewards athletes who can hold sustained power without blowing up \u2014 threshold is the engine that drives everything above Zone 2."
     },
     {
       "category": "VO2max",
@@ -45,7 +49,8 @@
         "5x3 VO2 Classic",
         "Descending VO2 Pyramid",
         "Norwegian 4x8"
-      ]
+      ],
+      "workout_context": "BWR Montana (Belgian Waffle Ride Montana)\u2019s montana rockies\u2014mountain technical terrain and competitive field demand explosive aerobic capacity \u2014 the ability to respond to surges without blowing up."
     },
     {
       "category": "Over_Under",
@@ -53,9 +58,80 @@
       "workouts": [
         "Classic Over-Unders",
         "Ladder Over-Unders"
-      ]
+      ],
+      "workout_context": "Over-unders train the lactate clearance you\u2019ll need at BWR Montana (Belgian Waffle Ride Montana) when surges push you above threshold and you have to recover while still riding hard."
+    },
+    {
+      "category": "G_Spot",
+      "score": 64,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ],
+      "workout_context": "The G-Spot zone (88\u201392% FTP) is where you\u2019ll spend the hardest sustained miles of BWR Montana (Belgian Waffle Ride Montana). Make this intensity feel like home."
+    },
+    {
+      "category": "Critical_Power",
+      "score": 64,
+      "workouts": [
+        "Above CP Repeats",
+        "W-Prime Depletion"
+      ],
+      "workout_context": "Critical power determines how long you can sustain above-threshold efforts at BWR Montana (Belgian Waffle Ride Montana) \u2014 a higher CP means more time in the red before failure."
+    },
+    {
+      "category": "Durability",
+      "score": 61,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ],
+      "workout_context": "At 87 miles, BWR Montana (Belgian Waffle Ride Montana) punishes athletes who haven\u2019t trained their body to produce power when glycogen runs low."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 55,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "BWR Montana (Belgian Waffle Ride Montana)\u2019s 9,186ft of climbing demands seated and standing versatility \u2014 the ability to change climbing style as gradient and fatigue dictate."
+    },
+    {
+      "category": "Anaerobic_Capacity",
+      "score": 55,
+      "workouts": [
+        "2min Killers",
+        "90sec Repeats"
+      ],
+      "workout_context": "Short, violent efforts are unavoidable at BWR Montana (Belgian Waffle Ride Montana) \u2014 climbs demanding 2-minute maximal efforts, surges to close gaps, attacks on montana rockies\u2014mountain technical terrain."
+    },
+    {
+      "category": "Blended",
+      "score": 36,
+      "workouts": [
+        "Z2 + VO2 Combo",
+        "Endurance with Spikes"
+      ],
+      "workout_context": "Blended sessions combine endurance with intensity spikes \u2014 exactly what BWR Montana (Belgian Waffle Ride Montana)\u2019s montana rockies\u2014mountain technical terrain delivers on race day."
+    },
+    {
+      "category": "SFR_Muscle_Force",
+      "score": 36,
+      "workouts": [
+        "SFR Low Cadence",
+        "Force Repeats"
+      ],
+      "workout_context": "Low-cadence force work builds the muscular strength for BWR Montana (Belgian Waffle Ride Montana)\u2019s 9,186ft of climbing \u2014 especially the grinding, low-speed ascents."
     }
   ],
+  "race_overlay": {
+    "nutrition": "Target 60\u201380g carbs/hour for BWR Montana (Belgian Waffle Ride Montana)\u2019s 87 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
+    "altitude": "Moderate altitude at BWR Montana (Belgian Waffle Ride Montana). Arrive 2\u20133 days early. Reduce intensity expectations by 5\u201310%. Hydrate aggressively.",
+    "terrain": "Highly technical terrain at BWR Montana (Belgian Waffle Ride Montana) demands practice on similar surfaces. Ride montana rockies\u2014mountain technical terrain at race-day cadence weekly. Expect: montana rockies gravel (75%), paved roads (25%), mountain terrain. Practice cornering, descending, and power delivery on unstable surfaces. Dial in tire pressure before race week \u2014 5 PSI wrong costs you 15+ minutes over 87 miles."
+  },
   "pack_summary": "This 10-workout pack focuses on Gravel Specific, Race Simulation, and TT Threshold to prepare you for 87 miles of montana rockies\u2014mountain technical terrain in Missoula, Montana.",
   "generated_at": "2026-02-26"
 }

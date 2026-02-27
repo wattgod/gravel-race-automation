@@ -476,7 +476,113 @@
           "category": "logistics",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Hills and rolling terrain",
+            "description": "The route features rolling hills with some climbs, but not intimidating elevation for riders coming from flatter areas.",
+            "source_video_ids": [
+              "N_D5XDDVybg"
+            ]
+          },
+          {
+            "name": "Water crossing",
+            "description": "The course includes a water crossing that adds intrigue to the race.",
+            "source_video_ids": [
+              "N_D5XDDVybg"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "The gravel roads are smooth as can be - absolutely fantastic on a gravel bike. The course transitions from paved roads onto gravel with rolling hills throughout.",
+            "source_video_ids": [
+              "N_D5XDDVybg"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "A variety of tire types work well - slicks performed fine for one rider, while another used tires with a little bit of tread (American Classic gr).",
+            "source_video_ids": [
+              "N_D5XDDVybg"
+            ]
+          }
+        ],
+        "race_day_tips": [],
+        "additional_quotes": [
+          {
+            "text": "You park at the Jolly Pumpkin with plenty of space right there at the event, and really close to the start finish is a school which has a huge parking lot so they have ample room to grow.",
+            "source_video_id": "N_D5XDDVybg",
+            "source_channel": "STS, American Made Bicycles",
+            "source_view_count": 140,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "The Watermoo in Dexter, Michigan is described as having smooth gravel roads that transition from pavement with rolling hills and some climbs throughout the 110-mile course. The elevation is described as plenty but not too much, making it non-intimidating for riders from flatter areas. The course features beautiful scenery and includes a water crossing that adds intrigue to the race. Riders report that a variety of tire types work well, from slicks to tires with light tread. The event is well-organized with ample parking available at the Jolly Pumpkin and a nearby school with a large parking lot. The route is praised for being absolutely fantastic on gravel bikes with smooth road surfaces."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "the-watermoo-video-1.jpg",
+        "url": "/race-photos/the-watermoo/the-watermoo-video-1.jpg",
+        "alt": "Person in waders standing in river with lush green vegetation and trees under overcast sky in natural waterway setting - The Watermoo - Dexter, Michigan",
+        "credit": "YouTube / angel sanchez",
+        "primary": true,
+        "ai_relevance": 2,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "river crossing",
+          "water feature",
+          "natural terrain",
+          "overcast conditions"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "the-watermoo-video-2.jpg",
+        "url": "/race-photos/the-watermoo/the-watermoo-video-2.jpg",
+        "alt": "First-person view of gravel cyclist following competitor on dirt path through green parkland during race with aerobars visible - The Watermoo - Dexter, Michigan",
+        "credit": "YouTube / angel sanchez",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel racing",
+          "dirt path",
+          "aerobars",
+          "parkland terrain",
+          "cyclist POV"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "the-watermoo-video-3.jpg",
+        "url": "/race-photos/the-watermoo/the-watermoo-video-3.jpg",
+        "alt": "Blurred motion shot of wooded area with dense trees and shadows along what appears to be a trail or path - The Watermoo - Dexter, Michigan",
+        "credit": "YouTube / angel sanchez",
+        "primary": false,
+        "ai_relevance": 2,
+        "ai_quality": 2,
+        "ai_keywords": [
+          "wooded trail",
+          "forest terrain",
+          "motion blur",
+          "tree coverage"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "the-watermoo-preview.gif",
+        "url": "/race-photos/the-watermoo/the-watermoo-preview.gif",
+        "alt": "Course preview from The Watermoo race footage",
+        "credit": "YouTube / angel sanchez",
+        "gif": true
+      }
+    ]
   }
 }

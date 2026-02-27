@@ -471,7 +471,189 @@
           "category": "course_difficulty",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Grassy climb start",
+            "description": "Race starts straight up a hill with a grass field that has only one good fast racing line despite being wide. The start is full gas from the gun.",
+            "source_video_ids": [
+              "tyo8FkWdDk8",
+              "2pnkhlF_igw"
+            ]
+          },
+          {
+            "name": "Fire tower",
+            "description": "The highest point on the course and a big selective point. This is where a lot starts to happen in the race and the only steep climb. It's where attacks happen and the race breaks up.",
+            "source_video_ids": [
+              "tyo8FkWdDk8",
+              "pdCi4evRe4c",
+              "2pnkhlF_igw"
+            ]
+          },
+          {
+            "name": "Seven Sisters",
+            "description": "A punchy, brutal climb that follows Fire Tower Hill. Described as undulations that continue after the main climb.",
+            "source_video_ids": [
+              "pdCi4evRe4c"
+            ]
+          },
+          {
+            "name": "Power line section",
+            "description": "Wide open undulations toward the finish after single track stops. This is where the finish starts to open up.",
+            "source_video_ids": [
+              "pdCi4evRe4c"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Course is part mountain bike, part gravel through iconic Wisconsin North Woods following parts of the famous Berky cross country ski trail.",
+            "source_video_ids": [
+              "tyo8FkWdDk8",
+              "pdCi4evRe4c"
+            ]
+          },
+          {
+            "text": "Described as flying through hilly grassy areas where you can smell the forest and earth, especially beautiful in fall when leaves are turning.",
+            "source_video_ids": [
+              "pdCi4evRe4c"
+            ]
+          },
+          {
+            "text": "Race conditions can include mud when rain clouds are looming.",
+            "source_video_ids": [
+              "tyo8FkWdDk8"
+            ]
+          }
+        ],
+        "gear_mentions": [],
+        "race_day_tips": [
+          {
+            "text": "Just make sure you clip in, start pedaling, and then kind of fight for position as you get over the first climb.",
+            "source_video_ids": [
+              "2pnkhlF_igw"
+            ]
+          },
+          {
+            "text": "You constantly have to be moving forward, otherwise you're moving backwards. Keep your head up and be good at riding in the pack.",
+            "source_video_ids": [
+              "2pnkhlF_igw"
+            ]
+          },
+          {
+            "text": "You just have to kind of act on instinct, go with your gut and not hesitate. Push all the way to the line in sprints because someone can sneak by at the end.",
+            "source_video_ids": [
+              "tyo8FkWdDk8"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "Cable is really all about community. Gary Krannle way back in the day, whatever, 42 years ago, decided to start this event. And it really did build a community around it with an amazing group of volunteers. This race just sort of brings everybody together.",
+            "source_video_id": "pdCi4evRe4c",
+            "source_channel": "Life Time Grand Prix",
+            "source_view_count": 65096,
+            "category": "community",
+            "curated": true
+          },
+          {
+            "text": "We travel full time as a family going around bike racing. There's guys that have been doing it they walk up to our booth they let us know that they've been here for 37 years every year and then we get people coming by the booth that have you know this is their first time and they're just as excited.",
+            "source_video_id": "tyo8FkWdDk8",
+            "source_channel": "Life Time Grand Prix",
+            "source_view_count": 164612,
+            "category": "community",
+            "curated": true
+          },
+          {
+            "text": "We go from racing at super high elevation at Leadville, and then a month later, we have to tune our engines to sea level race, really short and punchy, completely different race demands, a lot more short sprint workouts, just trying to get some high-end power.",
+            "source_video_id": "2pnkhlF_igw",
+            "source_channel": "Life Time Grand Prix",
+            "source_view_count": 25038,
+            "category": "training",
+            "curated": true
+          }
+        ],
+        "search_text": "The Chequamegon 40 is a 39-mile point-to-point race through Wisconsin's North Woods following parts of the famous Berky cross country ski trail. Riders describe it as a 2-hour long short track race that's like a big washing machine with constant position changes. The race starts with a full-gas climb up a grassy hill that has only one good racing line despite being wide. Fire Tower Hill is the highest point and main selective climb where attacks happen and the race breaks up, followed by the punchy Seven Sisters climb. The course combines mountain bike single track with gravel sections and finishes with wide open power line undulations. Known as the drag race from Hayward to Cable, it's considered one of the hardest Grand Prix races to win due to pinch points and aggressive pack racing. The 42-year-old event brings together a strong cycling community in the small town of Cable, Wisconsin."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "chequamegon-mtb-video-1.jpg",
+        "url": "/race-photos/chequamegon-mtb/chequamegon-mtb-video-1.jpg",
+        "alt": "Mountain biker in colorful jersey riding through lush green forest trail during Chequamegon race - Chequamegon MTB - Cable, Wisconsin (Chequamegon National Forest)",
+        "credit": "YouTube / Brady Likes Bikes",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "forest trail",
+          "mountain biking",
+          "Wisconsin woods",
+          "single track",
+          "green canopy"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "chequamegon-mtb-video-2.jpg",
+        "url": "/race-photos/chequamegon-mtb/chequamegon-mtb-video-2.jpg",
+        "alt": "First-person view from handlebars navigating rocky forest trail with exposed roots and technical terrain - Chequamegon MTB - Cable, Wisconsin (Chequamegon National Forest)",
+        "credit": "YouTube / Brady Likes Bikes",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "technical terrain",
+          "forest roots",
+          "handlebar view",
+          "rocky trail",
+          "Wisconsin trails"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "chequamegon-mtb-video-3.jpg",
+        "url": "/race-photos/chequamegon-mtb/chequamegon-mtb-video-3.jpg",
+        "alt": "Two men in conversation at outdoor cycling event with vendor tents and cloudy sky in background - Chequamegon MTB - Cable, Wisconsin (Chequamegon National Forest)",
+        "credit": "YouTube / Brady Likes Bikes",
+        "primary": false,
+        "ai_relevance": 2,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "cycling event",
+          "vendor area",
+          "race finish",
+          "outdoor interview",
+          "event atmosphere"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "chequamegon-mtb-preview.gif",
+        "url": "/race-photos/chequamegon-mtb/chequamegon-mtb-preview.gif",
+        "alt": "Course preview from Chequamegon Mtb race footage",
+        "credit": "YouTube / Brady Likes Bikes",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "chequamegon-mtb-preview-2.gif",
+        "url": "/race-photos/chequamegon-mtb/chequamegon-mtb-preview-2.gif",
+        "alt": "Course preview from Chequamegon Mtb race footage",
+        "credit": "YouTube / Brady Likes Bikes",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "chequamegon-mtb-preview-3.gif",
+        "url": "/race-photos/chequamegon-mtb/chequamegon-mtb-preview-3.gif",
+        "alt": "Course preview from Chequamegon Mtb race footage",
+        "credit": "YouTube / Brady Likes Bikes",
+        "gif": true
+      }
+    ]
   }
 }

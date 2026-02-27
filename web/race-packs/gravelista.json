@@ -1,6 +1,7 @@
 {
   "slug": "gravelista",
   "race_name": "Gravelista",
+  "distance_mi": 80.0,
   "demands": {
     "durability": 4,
     "climbing": 4,
@@ -19,7 +20,8 @@
         "Single Sustained Threshold",
         "Threshold Ramps",
         "Descending Threshold"
-      ]
+      ],
+      "workout_context": "Gravelista rewards athletes who can hold sustained power without blowing up \u2014 threshold is the engine that drives everything above Zone 2."
     },
     {
       "category": "Gravel_Specific",
@@ -27,7 +29,8 @@
       "workouts": [
         "Surge and Settle",
         "Terrain Microbursts"
-      ]
+      ],
+      "workout_context": "Gravelista\u2019s victorian rolling, australian gravel demands rapid power changes \u2014 surge over obstacles, settle on smoother sections, repeat for hours."
     },
     {
       "category": "Race_Simulation",
@@ -36,7 +39,8 @@
         "Breakaway Simulation",
         "Variable Pace Chaos",
         "Sector Simulation"
-      ]
+      ],
+      "workout_context": "Racing Gravelista isn\u2019t just fitness \u2014 it\u2019s pacing, fueling, and executing when conditions deteriorate. This workout practices the race itself."
     },
     {
       "category": "G_Spot",
@@ -45,7 +49,8 @@
         "G-Spot Standard",
         "G-Spot Extended",
         "Criss-Cross"
-      ]
+      ],
+      "workout_context": "The G-Spot zone (88\u201392% FTP) is where you\u2019ll spend the hardest sustained miles of Gravelista. Make this intensity feel like home."
     },
     {
       "category": "Durability",
@@ -54,9 +59,78 @@
         "Tired VO2max",
         "Double Day Simulation",
         "Progressive Fatigue"
-      ]
+      ],
+      "workout_context": "At 80 miles, Gravelista punishes athletes who haven\u2019t trained their body to produce power when glycogen runs low."
+    },
+    {
+      "category": "Over_Under",
+      "score": 76,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ],
+      "workout_context": "Over-unders train the lactate clearance you\u2019ll need at Gravelista when surges push you above threshold and you have to recover while still riding hard."
+    },
+    {
+      "category": "VO2max",
+      "score": 63,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ],
+      "workout_context": "Gravelista\u2019s victorian rolling gravel and competitive field demand explosive aerobic capacity \u2014 the ability to respond to surges without blowing up."
+    },
+    {
+      "category": "Critical_Power",
+      "score": 52,
+      "workouts": [
+        "Above CP Repeats",
+        "W-Prime Depletion"
+      ],
+      "workout_context": "Critical power determines how long you can sustain above-threshold efforts at Gravelista \u2014 a higher CP means more time in the red before failure."
+    },
+    {
+      "category": "Norwegian_Double",
+      "score": 52,
+      "workouts": [
+        "Norwegian 4x8 Classic",
+        "Double Threshold"
+      ],
+      "workout_context": "The Norwegian double-threshold method builds the sustained power base for Gravelista \u2014 massive training stimulus without the recovery cost of VO2max work."
+    },
+    {
+      "category": "Blended",
+      "score": 44,
+      "workouts": [
+        "Z2 + VO2 Combo",
+        "Endurance with Spikes"
+      ],
+      "workout_context": "Blended sessions combine endurance with intensity spikes \u2014 exactly what Gravelista\u2019s victorian rolling gravel delivers on race day."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 44,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "Gravelista\u2019s 5,000ft of climbing demands seated and standing versatility \u2014 the ability to change climbing style as gradient and fatigue dictate."
+    },
+    {
+      "category": "Anaerobic_Capacity",
+      "score": 44,
+      "workouts": [
+        "2min Killers",
+        "90sec Repeats"
+      ],
+      "workout_context": "Short, violent efforts are unavoidable at Gravelista \u2014 climbs demanding 2-minute maximal efforts, surges to close gaps, attacks on victorian rolling gravel."
     }
   ],
+  "race_overlay": {
+    "nutrition": "Target 60\u201380g carbs/hour for Gravelista\u2019s 80 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
+    "terrain": "Mixed terrain at Gravelista requires surface adaptability. Include weekly rides on victorian rolling gravel to build confidence. Expect: victorian rolling, australian gravel, regional event."
+  },
   "pack_summary": "This 10-workout pack focuses on TT Threshold, Gravel Specific, and Race Simulation to prepare you for 80 miles of victorian rolling gravel in Victoria, Australia.",
   "generated_at": "2026-02-26"
 }

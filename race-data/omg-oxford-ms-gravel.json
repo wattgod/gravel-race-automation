@@ -514,7 +514,157 @@
           "category": "race_atmosphere",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Opening climbs after start",
+            "description": "Two substantial climbs right after the start. Hard right turn into gravel then immediate climbing - if you're not warmed up you'll be in trouble and playing chase.",
+            "source_video_ids": [
+              "c6OEF0V10jM"
+            ]
+          },
+          {
+            "name": "20-22 mile climbs",
+            "mile_marker": "20-22",
+            "description": "Challenging climbs on the back side of the course after taking right-hand turns around mile 20 and again at the 22 mile mark.",
+            "source_video_ids": [
+              "c6OEF0V10jM"
+            ]
+          },
+          {
+            "name": "Final climb to finish",
+            "mile_marker": "42",
+            "description": "Steep hill that the finish is positioned at the top of. You get back onto paved road around mile 42 then have to climb this final steep section to the finish.",
+            "source_video_ids": [
+              "c6OEF0V10jM"
+            ]
+          },
+          {
+            "name": "Low-lying flat area near Baptist church",
+            "description": "Narrow, muddy section in low-lying flat area near Baptist church where course dumps from paved road into gravel.",
+            "source_video_ids": [
+              "c6OEF0V10jM"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Very few flat portions with constant undulation. Fast downhills lead straight back into uphills throughout the course.",
+            "source_video_ids": [
+              "c6OEF0V10jM"
+            ]
+          },
+          {
+            "text": "Course narrows significantly when transitioning from paved road to gravel sections.",
+            "source_video_ids": [
+              "c6OEF0V10jM"
+            ]
+          }
+        ],
+        "gear_mentions": [],
+        "race_day_tips": [
+          {
+            "text": "Make sure you have a good warm up before this race starts or you may end up on your limit with the immediate climbs after the start.",
+            "source_video_ids": [
+              "c6OEF0V10jM"
+            ]
+          },
+          {
+            "text": "Don't trust the elevation profiles - climbs are more challenging than they appear on paper.",
+            "source_video_ids": [
+              "c6OEF0V10jM"
+            ]
+          },
+          {
+            "text": "Sometimes you can't always look at the weather reports and gauge your race - just show up no matter what the weather.",
+            "source_video_ids": [
+              "VknpUetbOEc"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "We started off that morning below freezing in Mississippi. We've got a little bit of humidity here in Mississippi so those kind of numbers maybe in other states don't seem that cold but in Mississippi that cold gets to you.",
+            "source_video_id": "VknpUetbOEc",
+            "source_channel": "The Bicycle Rider",
+            "source_view_count": 2513,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "With 200 people on the starting line for the 50-mile race, once you get up there that adrenaline is kicking and you don't really think about the cold - you actually embrace it and it's just part of the race.",
+            "source_video_id": "VknpUetbOEc",
+            "source_channel": "The Bicycle Rider",
+            "source_view_count": 2513,
+            "category": "race_atmosphere",
+            "curated": true
+          }
+        ],
+        "search_text": "Oxford Mississippi Gravel is a challenging 50-mile course with nearly 3000 feet of elevation gain and very few flat sections. The race features constant undulation with fast downhills leading straight into uphills. Key challenges include two substantial climbs immediately after the start that catch unprepared riders, requiring a good warm-up. Additional difficult climbs occur around miles 20-22 on the back side of the course. The course includes a 3-mile paved relief section from mile 28-31, but finishes with a steep climb. Riders describe narrow transitions from paved to gravel sections, particularly near a Baptist church in a low-lying muddy area. The race typically starts in freezing conditions but can warm to 50+ degrees. With 200 riders on the start line, the race atmosphere is energetic despite cold Mississippi weather conditions that feel particularly harsh due to humidity."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "omg-oxford-ms-gravel-video-1.jpg",
+        "url": "/race-photos/omg-oxford-ms-gravel/omg-oxford-ms-gravel-video-1.jpg",
+        "alt": "GPS route map showing gravel cycling course through forested hills with elevation profile in Oxford Mississippi area - OMG (Oxford MS Gravel) - Oxford, MS",
+        "credit": "YouTube / BPC Performance Coaching",
+        "primary": true,
+        "ai_relevance": 4,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "GPS route",
+          "elevation profile",
+          "forested terrain",
+          "Oxford Mississippi",
+          "gravel course"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "omg-oxford-ms-gravel-video-2.jpg",
+        "url": "/race-photos/omg-oxford-ms-gravel/omg-oxford-ms-gravel-video-2.jpg",
+        "alt": "Topographical map view of gravel race route through hilly terrain near Oxford Mississippi with elevation data - OMG (Oxford MS Gravel) - Oxford, MS",
+        "credit": "YouTube / BPC Performance Coaching",
+        "primary": false,
+        "ai_relevance": 4,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "topographical map",
+          "hilly terrain",
+          "Oxford Mississippi",
+          "gravel route",
+          "elevation data"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "omg-oxford-ms-gravel-video-3.jpg",
+        "url": "/race-photos/omg-oxford-ms-gravel/omg-oxford-ms-gravel-video-3.jpg",
+        "alt": "Large group of gravel cyclists gathered at race start with mountain bikes in Oxford Mississippi parking area - OMG (Oxford MS Gravel) - Oxford, MS",
+        "credit": "YouTube / BPC Performance Coaching",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "race start",
+          "gravel cyclists",
+          "mountain bikes",
+          "Oxford Mississippi",
+          "cycling peloton"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "omg-oxford-ms-gravel-preview.gif",
+        "url": "/race-photos/omg-oxford-ms-gravel/omg-oxford-ms-gravel-preview.gif",
+        "alt": "Course preview from Omg Oxford Ms Gravel race footage",
+        "credit": "YouTube / BPC Performance Coaching",
+        "gif": true
+      }
+    ]
   }
 }

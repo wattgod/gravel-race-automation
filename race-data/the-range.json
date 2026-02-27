@@ -493,7 +493,142 @@
           "category": "race_atmosphere",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Junction Decision Point",
+            "description": "Riders must choose between the 60km Rodeo ride or turning left to continue for the full rustler distance. Decision point impacts race strategy especially on hot days.",
+            "source_video_ids": [
+              "a4vZzZVirUA"
+            ]
+          },
+          {
+            "name": "Burke Creek Ranch",
+            "mile_marker": "8",
+            "description": "Private road onto working ranch accessible only on race day, features super fast downhill section onto the ranch property.",
+            "source_video_ids": [
+              "a4vZzZVirUA"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Gravel course was in perfect condition with public gravel roads that are really quiet with mainly marshalling vehicles for traffic.",
+            "source_video_ids": [
+              "a4vZzZVirUA"
+            ]
+          },
+          {
+            "text": "Landscape feels ancient and fossil-rich with dinosaur burial sites deep in the coulees, stretching out pristine ranch views.",
+            "source_video_ids": [
+              "a4vZzZVirUA"
+            ]
+          }
+        ],
+        "gear_mentions": [],
+        "race_day_tips": [
+          {
+            "text": "If not used to riding in a pack, give yourself more space as the first part goes really fast.",
+            "source_video_ids": [
+              "a4vZzZVirUA"
+            ]
+          },
+          {
+            "text": "Come prepared to be self-sufficient with food and water, though there is an aid station at the turnaround point.",
+            "source_video_ids": [
+              "a4vZzZVirUA"
+            ]
+          },
+          {
+            "text": "Work from heart rate zones and anticipate how your body will feel to set realistic target times.",
+            "source_video_ids": [
+              "a4vZzZVirUA"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "Race day a lovely sunny morning around 20 Celsius, we knew that in the afternoon it was going to be in the mid-30s. The ride started at 8:00 so we would be back before the real heat of the day kicked in.",
+            "source_video_id": "a4vZzZVirUA",
+            "source_channel": "Christine Pedersen",
+            "source_view_count": 738,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "My prep over the long cold Calgary Winter was to ride on zwift, without door riding as soon as the ice was gone from the paths and I added weights and pilates and some yoga, and it's all on strava so it all counts.",
+            "source_video_id": "a4vZzZVirUA",
+            "source_channel": "Christine Pedersen",
+            "source_view_count": 738,
+            "category": "training",
+            "curated": true
+          }
+        ],
+        "search_text": "The Range rustler is an 86km gravel race in Alberta featuring mostly public gravel roads in perfect condition with quiet traffic. Key features include a decision junction where riders choose between 60km Rodeo or full rustler distance, and exclusive access to Burke Creek Ranch via private road with fast downhill section. Race starts at 8am in 20C temperatures before afternoon heat reaches mid-30s. Course has one aid station at turnaround point. Terrain feels ancient and fossil-rich through Alberta coulees. Early pace goes really fast requiring pack riding skills. Riders should come self-sufficient with food and water and plan around hot afternoon conditions."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "the-range-video-1.jpg",
+        "url": "/race-photos/the-range/the-range-video-1.jpg",
+        "alt": "Cyclists riding uphill on wide gravel road through green rolling hills with forested areas on both sides - The Range - Alberta, Canada",
+        "credit": "YouTube / The Gravel Experience",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel road",
+          "uphill climb",
+          "rolling hills",
+          "forest trails",
+          "cycling group"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "the-range-video-2.jpg",
+        "url": "/race-photos/the-range/the-range-video-2.jpg",
+        "alt": "Aerial view of gravel road crossing stream with cyclists navigating water crossing through lush green valley - The Range - Alberta, Canada",
+        "credit": "YouTube / The Gravel Experience",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "water crossing",
+          "stream ford",
+          "aerial view",
+          "gravel valley",
+          "creek crossing"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "the-range-video-3.jpg",
+        "url": "/race-photos/the-range/the-range-video-3.jpg",
+        "alt": "Dirt road leading to cattle gate across open prairie grassland with rolling hills in background - The Range - Alberta, Canada",
+        "credit": "YouTube / The Gravel Experience",
+        "primary": false,
+        "ai_relevance": 4,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "cattle gate",
+          "prairie grassland",
+          "dirt road",
+          "open country",
+          "rolling plains"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "the-range-preview.gif",
+        "url": "/race-photos/the-range/the-range-preview.gif",
+        "alt": "Course preview from The Range race footage",
+        "credit": "YouTube / The Gravel Experience",
+        "gif": true
+      }
+    ]
   }
 }

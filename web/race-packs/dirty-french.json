@@ -1,6 +1,7 @@
 {
   "slug": "dirty-french",
   "race_name": "Dirty French",
+  "distance_mi": 100.0,
   "demands": {
     "durability": 6,
     "climbing": 8,
@@ -19,7 +20,8 @@
         "Single Sustained Threshold",
         "Threshold Ramps",
         "Descending Threshold"
-      ]
+      ],
+      "workout_context": "Dirty French rewards athletes who can hold sustained power without blowing up \u2014 threshold is the engine that drives everything above Zone 2."
     },
     {
       "category": "Gravel_Specific",
@@ -27,7 +29,8 @@
       "workouts": [
         "Surge and Settle",
         "Terrain Microbursts"
-      ]
+      ],
+      "workout_context": "Dirty French\u2019s appalachian foothills gravel - steep sustained climbs, technical terrain, challenging ohio hill country demands rapid power changes \u2014 surge over obstacles, settle on smoother sections, repeat for hours."
     },
     {
       "category": "Race_Simulation",
@@ -36,7 +39,8 @@
         "Breakaway Simulation",
         "Variable Pace Chaos",
         "Sector Simulation"
-      ]
+      ],
+      "workout_context": "Racing Dirty French isn\u2019t just fitness \u2014 it\u2019s pacing, fueling, and executing when conditions deteriorate. This workout practices the race itself."
     },
     {
       "category": "Over_Under",
@@ -44,7 +48,8 @@
       "workouts": [
         "Classic Over-Unders",
         "Ladder Over-Unders"
-      ]
+      ],
+      "workout_context": "Over-unders train the lactate clearance you\u2019ll need at Dirty French when surges push you above threshold and you have to recover while still riding hard."
     },
     {
       "category": "Durability",
@@ -53,9 +58,79 @@
         "Tired VO2max",
         "Double Day Simulation",
         "Progressive Fatigue"
-      ]
+      ],
+      "workout_context": "At 100 miles, Dirty French punishes athletes who haven\u2019t trained their body to produce power when glycogen runs low."
+    },
+    {
+      "category": "G_Spot",
+      "score": 78,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ],
+      "workout_context": "The G-Spot zone (88\u201392% FTP) is where you\u2019ll spend the hardest sustained miles of Dirty French. Make this intensity feel like home."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 67,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "Dirty French\u2019s 9,000ft of climbing demands seated and standing versatility \u2014 the ability to change climbing style as gradient and fatigue dictate."
+    },
+    {
+      "category": "VO2max",
+      "score": 56,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ],
+      "workout_context": "Dirty French\u2019s appalachian foothills gravel - steep sustained climbs, technical terrain, challenging ohio hill country and competitive field demand explosive aerobic capacity \u2014 the ability to respond to surges without blowing up."
+    },
+    {
+      "category": "Critical_Power",
+      "score": 54,
+      "workouts": [
+        "Above CP Repeats",
+        "W-Prime Depletion"
+      ],
+      "workout_context": "Critical power determines how long you can sustain above-threshold efforts at Dirty French \u2014 a higher CP means more time in the red before failure."
+    },
+    {
+      "category": "Blended",
+      "score": 50,
+      "workouts": [
+        "Z2 + VO2 Combo",
+        "Endurance with Spikes"
+      ],
+      "workout_context": "Blended sessions combine endurance with intensity spikes \u2014 exactly what Dirty French\u2019s appalachian foothills gravel - steep sustained climbs, technical terrain, challenging ohio hill country delivers on race day."
+    },
+    {
+      "category": "SFR_Muscle_Force",
+      "score": 44,
+      "workouts": [
+        "SFR Low Cadence",
+        "Force Repeats"
+      ],
+      "workout_context": "Low-cadence force work builds the muscular strength for Dirty French\u2019s 9,000ft of climbing \u2014 especially the grinding, low-speed ascents."
+    },
+    {
+      "category": "Anaerobic_Capacity",
+      "score": 44,
+      "workouts": [
+        "2min Killers",
+        "90sec Repeats"
+      ],
+      "workout_context": "Short, violent efforts are unavoidable at Dirty French \u2014 climbs demanding 2-minute maximal efforts, surges to close gaps, attacks on appalachian foothills gravel - steep sustained climbs, technical terrain, challenging ohio hill country."
     }
   ],
+  "race_overlay": {
+    "nutrition": "Target 60\u201380g carbs/hour for Dirty French\u2019s 100 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
+    "terrain": "Mixed terrain at Dirty French requires surface adaptability. Include weekly rides on appalachian foothills gravel - steep sustained climbs, technical terrain, challenging ohio hill country to build confidence."
+  },
   "pack_summary": "This 10-workout pack focuses on TT Threshold, Gravel Specific, and Race Simulation to prepare you for 100 miles of appalachian foothills gravel - steep sustained climbs, technical terrain, challenging ohio hill country in Chillicothe, Ohio.",
   "generated_at": "2026-02-26"
 }

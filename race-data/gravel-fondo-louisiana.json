@@ -531,7 +531,127 @@
           "category": "race_atmosphere",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Turn at 9.83 miles",
+            "mile_marker": "9.83",
+            "description": "Critical turn point where the 20-mile group splits from longer distance groups - easy to miss if following the pace car with other riders.",
+            "source_video_ids": [
+              "A8kVGVtfzBM"
+            ]
+          },
+          {
+            "name": "Chain drop at 13-mile marker",
+            "mile_marker": "13",
+            "description": "Climbing section where chain drops can occur, especially after hitting potholes or moving to take drinks.",
+            "source_video_ids": [
+              "A8kVGVtfzBM"
+            ]
+          },
+          {
+            "name": "Back stretch hills",
+            "description": "Continuous rolling terrain described as hard hill after hill, up and down throughout the back section of the course.",
+            "source_video_ids": [
+              "A8kVGVtfzBM"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Course features significant elevation with 2061 feet of climbing described as continuous up and down rolling hills, including potholes deep enough to drop chains.",
+            "source_video_ids": [
+              "A8kVGVtfzBM"
+            ]
+          }
+        ],
+        "gear_mentions": [],
+        "race_day_tips": [
+          {
+            "text": "Avoid moving to left lane to take drinks during climbs as you can lose position and hit potholes that may drop your chain.",
+            "source_video_ids": [
+              "A8kVGVtfzBM"
+            ]
+          },
+          {
+            "text": "Pay attention to course markings and cones at the 9.83 mile turn where different distance groups split - don't just follow other riders.",
+            "source_video_ids": [
+              "A8kVGVtfzBM"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "The pace car pretty much stayed the whole way but those guys started to pick it up they started to accelerate, we were rolling about 28 to 30 mph just cracking that whip.",
+            "source_video_id": "A8kVGVtfzBM",
+            "source_channel": "Ivan B",
+            "source_view_count": 231,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "The Gravel Fondo Louisiana in St. Francisville features a challenging 65-mile course with 3000 feet of elevation gain described by riders as continuous rolling hills throughout. The terrain includes significant climbs with potholes deep enough to cause mechanical issues like dropped chains. Key course features include a critical turn at 9.83 miles where the 20-mile group splits from longer distances, and a particularly difficult climbing section around the 13-mile marker. Riders report the back stretch as especially challenging with hard hill after hill. The event uses pace cars and cone markings for navigation. Race speeds reach 28-30 mph on flatter sections with groups that crack the whip early in the race. The elevation profile shows 2061 feet of climbing with what goes up must come down terrain characteristics."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "gravel-fondo-louisiana-video-1.jpg",
+        "url": "/race-photos/gravel-fondo-louisiana/gravel-fondo-louisiana-video-1.jpg",
+        "alt": "Cyclist in winter clothing sitting by swimming pool at Louisiana gravel race venue giving wave gesture - Gravel Fondo Louisiana - St. Francisville, Louisiana",
+        "credit": "YouTube / Gravel Cyclist",
+        "primary": true,
+        "ai_relevance": 2,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "gravel cyclist",
+          "Louisiana venue",
+          "swimming pool",
+          "race location"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "gravel-fondo-louisiana-video-2.jpg",
+        "url": "/race-photos/gravel-fondo-louisiana/gravel-fondo-louisiana-video-2.jpg",
+        "alt": "Group of gravel cyclists riding on dirt road through lush Louisiana forest with photographer shadow visible - Gravel Fondo Louisiana - St. Francisville, Louisiana",
+        "credit": "YouTube / Gravel Cyclist",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel peloton",
+          "dirt road",
+          "Louisiana forest",
+          "tree-lined course"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "gravel-fondo-louisiana-video-3.jpg",
+        "url": "/race-photos/gravel-fondo-louisiana/gravel-fondo-louisiana-video-3.jpg",
+        "alt": "Gravel cyclist wearing medal and Cyclopath jersey standing in Louisiana race venue parking area after finishing event - Gravel Fondo Louisiana - St. Francisville, Louisiana",
+        "credit": "YouTube / Gravel Cyclist",
+        "primary": false,
+        "ai_relevance": 3,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "race finisher",
+          "cycling medal",
+          "Louisiana gravel",
+          "post-race"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "gravel-fondo-louisiana-preview.gif",
+        "url": "/race-photos/gravel-fondo-louisiana/gravel-fondo-louisiana-preview.gif",
+        "alt": "Course preview from Gravel Fondo Louisiana race footage",
+        "credit": "YouTube / Gravel Cyclist",
+        "gif": true
+      }
+    ]
   }
 }

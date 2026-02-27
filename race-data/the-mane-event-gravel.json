@@ -522,7 +522,125 @@
           "curated": false
         }
       ],
-      "quotes": []
-    }
+      "quotes": [],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [],
+        "terrain_notes": [
+          {
+            "text": "Grinduro is notoriously dusty, creating heavy atmospheric conditions that riders should prepare for.",
+            "source_video_ids": [
+              "zgz70lDdKUo"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "2.1 inch tires on 26 inch wheels were used on a vintage Klein bike build.",
+            "source_video_ids": [
+              "zgz70lDdKUo"
+            ]
+          },
+          {
+            "text": "29 by 2.4 tires were the tire selection for a Salsa Powder Keg build.",
+            "source_video_ids": [
+              "zgz70lDdKUo"
+            ]
+          }
+        ],
+        "race_day_tips": [
+          {
+            "text": "The event provides breakfast, lunch, and dinner to participants, so riders don't need to worry about full meal planning.",
+            "source_video_ids": [
+              "zgz70lDdKUo"
+            ]
+          },
+          {
+            "text": "There are four timed segments throughout the ride - a road time trial, gravel descent, gravel climb, and singletrack section. You can ride casually between segments and only race during the timed portions.",
+            "source_video_ids": [
+              "zgz70lDdKUo"
+            ]
+          },
+          {
+            "text": "At 30 miles in with 3000 feet of elevation and steady 90-degree temperatures, expect to feel more spent than anticipated by the halfway point.",
+            "source_video_ids": [
+              "zgz70lDdKUo"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "There's camping at the event but we opted for the soft landing that is lodge accommodation because it's cold and we didn't sleep well.",
+            "source_video_id": "zgz70lDdKUo",
+            "source_channel": "Everything's Been Done",
+            "source_view_count": 133971,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "Based on rider accounts, this gravel event features four distinct timed segments including a road time trial, gravel descent, gravel climb, and singletrack section, allowing riders to cruise between competitive portions. The course covers challenging terrain with significant dust conditions that create a heavy atmosphere. By the 30-mile halfway point with 3000 feet of elevation gain, riders report feeling more depleted than expected in steady 90-degree temperatures. The event provides full meal service with breakfast, lunch, and dinner included. Riders describe it as having camping options though some opt for lodge accommodations. The course travels around scenic areas with perfect singletrack sections. Tire selections vary widely from 2.1 inches on vintage 26-inch wheel setups to 29 by 2.4 inch tires on modern gravel bikes. The event attracts around 700 participants with varying approaches from serious racing to casual riding focused on the party-to-race ratio experience."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "the-mane-event-gravel-video-1.jpg",
+        "url": "/race-photos/the-mane-event-gravel/the-mane-event-gravel-video-1.jpg",
+        "alt": "Mountain biker in colorful jersey standing at forest trailhead with green bike surrounded by pine trees and dirt trails - The Mane Event Gravel - Sheridan, WY",
+        "credit": "YouTube / Everything's Been Done",
+        "primary": true,
+        "ai_relevance": 4,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "mountain forest",
+          "dirt trails",
+          "pine trees",
+          "trailhead",
+          "green bike"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "the-mane-event-gravel-video-2.jpg",
+        "url": "/race-photos/the-mane-event-gravel/the-mane-event-gravel-video-2.jpg",
+        "alt": "Cyclists riding dirt path through green countryside with elevation profile and GPS data overlay showing mile 82 of gravel race - The Mane Event Gravel - Sheridan, WY",
+        "credit": "YouTube / Everything's Been Done",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "dirt path",
+          "countryside",
+          "elevation profile",
+          "gravel race",
+          "GPS data"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "the-mane-event-gravel-video-3.jpg",
+        "url": "/race-photos/the-mane-event-gravel/the-mane-event-gravel-video-3.jpg",
+        "alt": "First-person view of gravel cyclist riding forest trail with GPS device on handlebars through wooded terrain - The Mane Event Gravel - Sheridan, WY",
+        "credit": "YouTube / Everything's Been Done",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "forest trail",
+          "GPS device",
+          "wooded terrain",
+          "first-person view",
+          "handlebars"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "the-mane-event-gravel-preview.gif",
+        "url": "/race-photos/the-mane-event-gravel/the-mane-event-gravel-preview.gif",
+        "alt": "Course preview from The Mane Event Gravel race footage",
+        "credit": "YouTube / Everything's Been Done",
+        "gif": true
+      }
+    ]
   }
 }

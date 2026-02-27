@@ -573,7 +573,77 @@
           "curated": false
         }
       ],
-      "quotes": []
-    }
+      "quotes": [],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [],
+        "terrain_notes": [],
+        "gear_mentions": [],
+        "race_day_tips": [],
+        "additional_quotes": [],
+        "search_text": "The provided transcripts do not contain content about the Tour de Gap gravel race in Fulton, Mississippi. Instead, they feature coverage of the Tour de France road cycling race, discussing professional cyclists like Jonas Vingegaard and Tadej Pogacar on mountain climbs. The transcripts cover climbing techniques, power-to-weight ratios, drafting strategies, and biomechanics adjustments used by Tour de France riders, but contain no information about the 65-mile gravel race with 3000 feet of elevation gain in Mississippi. No course features, terrain conditions, gear recommendations, or race-specific challenges for the Tour de Gap are mentioned in these video transcripts."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "tour-de-gap-video-1.jpg",
+        "url": "/race-photos/tour-de-gap/tour-de-gap-video-1.jpg",
+        "alt": "Three cyclists in red and black team jerseys racing on gravel road through mountainous terrain with rocky outcrops and green vegetation - Tour de Gap - Fulton, Mississippi",
+        "credit": "YouTube / Global Cycling Network",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel racing",
+          "mountain terrain",
+          "team cyclists",
+          "rocky landscape",
+          "gravel road"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "tour-de-gap-video-2.jpg",
+        "url": "/race-photos/tour-de-gap/tour-de-gap-video-2.jpg",
+        "alt": "Aerial view of cyclists on paved road through rural countryside with speed markers showing 12 K/H and 25 K/H overlaid on image - Tour de Gap - Fulton, Mississippi",
+        "credit": "YouTube / Global Cycling Network",
+        "primary": false,
+        "ai_relevance": 3,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "aerial view",
+          "rural countryside",
+          "paved road",
+          "cycling race",
+          "speed tracking"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "tour-de-gap-video-3.jpg",
+        "url": "/race-photos/tour-de-gap/tour-de-gap-video-3.jpg",
+        "alt": "Motion-blurred view from moving vehicle showing highway guardrail and agricultural fields with rolling hills in background - Tour de Gap - Fulton, Mississippi",
+        "credit": "YouTube / Global Cycling Network",
+        "primary": false,
+        "ai_relevance": 2,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "highway",
+          "agricultural fields",
+          "rolling hills",
+          "motion blur",
+          "countryside"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "tour-de-gap-preview.gif",
+        "url": "/race-photos/tour-de-gap/tour-de-gap-preview.gif",
+        "alt": "Course preview from Tour De Gap race footage",
+        "credit": "YouTube / Global Cycling Network",
+        "gif": true
+      }
+    ]
   }
 }

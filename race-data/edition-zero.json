@@ -667,7 +667,142 @@
           "category": "course_difficulty",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Deep gravel section",
+            "mile_marker": "4",
+            "description": "About 6K in, the gravel gets pretty deep. This is where crashes happen - rider went down in the deep gravel in front of other riders.",
+            "source_video_ids": [
+              "iKXk1XOrcFg"
+            ]
+          },
+          {
+            "name": "Velodrome finish",
+            "mile_marker": "140",
+            "description": "You have to do two laps around the velodrome at the finish in Waimate. The velodrome was built in 1891.",
+            "source_video_ids": [
+              "iKXk1XOrcFg"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "The gravel varies from thick to not so thick. You're always searching for the smoothest line if there is one. Lots of straight roads and rolling hills.",
+            "source_video_ids": [
+              "iKXk1XOrcFg"
+            ]
+          },
+          {
+            "text": "Long straight roads everywhere, pretty relentless. The back gets screaming from the lack of suspension on the rough surface.",
+            "source_video_ids": [
+              "iKXk1XOrcFg"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "Rider wished they were on their Epic Evo instead of their current bike due to the rough terrain and back pain from lack of suspension.",
+            "source_video_ids": [
+              "iKXk1XOrcFg"
+            ]
+          }
+        ],
+        "race_day_tips": [
+          {
+            "text": "Stay on your line when riding through the deep gravel sections to avoid crashes.",
+            "source_video_ids": [
+              "iKXk1XOrcFg"
+            ]
+          },
+          {
+            "text": "Pace conservatively - rider was able to pass 5-6 people who were slowing down after the turnaround point.",
+            "source_video_ids": [
+              "iKXk1XOrcFg"
+            ]
+          },
+          {
+            "text": "Finished Camelbak by 70k mark (halfway point), so plan hydration accordingly for the full distance.",
+            "source_video_ids": [
+              "iKXk1XOrcFg"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "The event was really well organized by Andy and his crew. It looks like they put the community at the forefront of Edition Zero.",
+            "source_video_id": "iKXk1XOrcFg",
+            "source_channel": "jaselikesbikes",
+            "source_view_count": 3779,
+            "category": "community",
+            "curated": true
+          }
+        ],
+        "search_text": "Edition Zero takes place in Waimate, South Island New Zealand, about 20 minutes from Timaru. The 140k entree distance takes around 6 hours. Key challenges include deep gravel sections starting around 6k that cause crashes, and a unique velodrome finish requiring two laps around the historic 1891 Waimate velodrome. The terrain features long straight roads with rolling hills, varying from thick to thin gravel where riders constantly search for smooth lines. The relentless straight sections and rough surface cause significant back fatigue without suspension. Riders report being able to pass others who slow down after the turnaround point, suggesting conservative pacing is effective. Hydration planning is critical with riders finishing water supplies at the halfway point. The event is praised for strong organization and community focus."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "edition-zero-video-1.jpg",
+        "url": "/race-photos/edition-zero/edition-zero-video-1.jpg",
+        "alt": "Rolling green pastureland with gravel road and fence line stretching toward distant hills under overcast sky - Edition Zero - South Island, New Zealand",
+        "credit": "YouTube / jaselikesbikes",
+        "primary": true,
+        "ai_relevance": 3,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "gravel road",
+          "rolling hills",
+          "pastoral landscape",
+          "countryside",
+          "fence line"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "edition-zero-video-2.jpg",
+        "url": "/race-photos/edition-zero/edition-zero-video-2.jpg",
+        "alt": "Curved section of paved racing circuit with white barriers and grass infield under cloudy skies - Edition Zero - South Island, New Zealand",
+        "credit": "YouTube / jaselikesbikes",
+        "primary": false,
+        "ai_relevance": 4,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "race track",
+          "paved circuit",
+          "racing curve",
+          "track barriers",
+          "motorsport venue"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "edition-zero-video-3.jpg",
+        "url": "/race-photos/edition-zero/edition-zero-video-3.jpg",
+        "alt": "Cyclists riding on rural gravel road through green farmland with rolling hills and scattered trees - Edition Zero - South Island, New Zealand",
+        "credit": "YouTube / jaselikesbikes",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel cycling",
+          "rural road",
+          "farmland",
+          "rolling terrain",
+          "group ride"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "edition-zero-preview.gif",
+        "url": "/race-photos/edition-zero/edition-zero-preview.gif",
+        "alt": "Course preview from Edition Zero race footage",
+        "credit": "YouTube / jaselikesbikes",
+        "gif": true
+      }
+    ]
   }
 }

@@ -521,7 +521,149 @@
           "category": "course_difficulty",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Wet and sticky roads with potholes",
+            "description": "The course had a fair amount of rain the night before, making roads rather wet and sticky with lots of potholes and puddles that riders had to avoid, making it interesting at times.",
+            "source_video_ids": [
+              "nQczFit1tGU"
+            ]
+          },
+          {
+            "name": "Hill sections through pines and birch",
+            "description": "Uphill sections with pine and birch trees on the sides where stronger riders would gap others off a little bit.",
+            "source_video_ids": [
+              "nQczFit1tGU"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Hard packed dirt roads with trees and thick cover all around. Roads were in decent condition overall but wet and sticky from rain the night before with potholes and puddles to avoid.",
+            "source_video_ids": [
+              "nQczFit1tGU"
+            ]
+          },
+          {
+            "text": "Started on local walking and ATV/UTV trail that had all kinds of bad black top and stuff all over it, but was a very nice, flat, easy start.",
+            "source_video_ids": [
+              "nQczFit1tGU"
+            ]
+          }
+        ],
+        "gear_mentions": [],
+        "race_day_tips": [
+          {
+            "text": "The start is typically relaxed with riders going around 15-16 mph and just rolling out easy on the flat opening section.",
+            "source_video_ids": [
+              "nQczFit1tGU"
+            ]
+          },
+          {
+            "text": "Be prepared to work with other riders and rotate, as small groups tend to form and work together for much of the race.",
+            "source_video_ids": [
+              "nQczFit1tGU"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "This is honestly one of my favorite parts of the course. It's just beautiful and really accentuates what Wisconsin has to offer for gravel riding.",
+            "source_video_id": "nQczFit1tGU",
+            "source_channel": "The Wisconsin Gravel Cyclist",
+            "source_view_count": 313,
+            "category": "race_atmosphere",
+            "curated": true
+          },
+          {
+            "text": "We started off right in town at a local bar and we started on this just local walking in ATV UTV trail.",
+            "source_video_id": "nQczFit1tGU",
+            "source_channel": "The Wisconsin Gravel Cyclist",
+            "source_view_count": 313,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "The Crystal Bear race starts in town at a local bar on a flat, easy ATV/UTV trail with bad blacktop sections. The course features hard packed dirt roads with thick tree cover throughout, including beautiful sections through pine and birch forests that riders call some of the most scenic parts. Rain the night before the race made roads wet and sticky with numerous potholes and puddles that required careful navigation. The race typically starts relaxed with riders rolling out at 15-16 mph before the pace picks up. Hill sections through forested areas tend to split groups as stronger climbers gap others. Small groups form and work together for much of the race, rotating and drafting on flat sections. The northern Wisconsin setting provides a cool atmosphere with beautiful forest roads, though road conditions can be challenging after wet weather with riders needing to avoid obstacles."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "crystal-bear-video-1.jpg",
+        "url": "/race-photos/crystal-bear/crystal-bear-video-1.jpg",
+        "alt": "Cyclist on gravel bike riding through rural town intersection with historic buildings and stop signs under overcast sky - Crystal Bear - Laona, WI to Crystal Falls, MI",
+        "credit": "YouTube / The Wisconsin Gravel Cyclist",
+        "primary": true,
+        "ai_relevance": 4,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "gravel bike",
+          "rural town",
+          "gravel road",
+          "small town racing"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "crystal-bear-video-2.jpg",
+        "url": "/race-photos/crystal-bear/crystal-bear-video-2.jpg",
+        "alt": "Gravel cyclist pedaling on dirt road through forested area with power lines and another rider visible in distance - Crystal Bear - Laona, WI to Crystal Falls, MI",
+        "credit": "YouTube / The Wisconsin Gravel Cyclist",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel racing",
+          "dirt road",
+          "forest cycling",
+          "remote gravel",
+          "power lines"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "crystal-bear-video-3.jpg",
+        "url": "/race-photos/crystal-bear/crystal-bear-video-3.jpg",
+        "alt": "Person standing beside rushing whitewater rapids in dense forest with rocks and fallen logs - Crystal Bear - Laona, WI to Crystal Falls, MI",
+        "credit": "YouTube / The Wisconsin Gravel Cyclist",
+        "primary": false,
+        "ai_relevance": 2,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "whitewater rapids",
+          "forest stream",
+          "wilderness",
+          "rocky creek"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "crystal-bear-preview.gif",
+        "url": "/race-photos/crystal-bear/crystal-bear-preview.gif",
+        "alt": "Course preview from Crystal Bear race footage",
+        "credit": "YouTube / The Wisconsin Gravel Cyclist",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "crystal-bear-preview-2.gif",
+        "url": "/race-photos/crystal-bear/crystal-bear-preview-2.gif",
+        "alt": "Course preview from Crystal Bear race footage",
+        "credit": "YouTube / The Wisconsin Gravel Cyclist",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "crystal-bear-preview-3.gif",
+        "url": "/race-photos/crystal-bear/crystal-bear-preview-3.gif",
+        "alt": "Course preview from Crystal Bear race footage",
+        "credit": "YouTube / The Wisconsin Gravel Cyclist",
+        "gif": true
+      }
+    ]
   }
 }

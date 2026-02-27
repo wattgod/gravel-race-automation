@@ -430,7 +430,122 @@
           "curated": false
         }
       ],
-      "quotes": []
-    }
+      "quotes": [],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "White Rock Section",
+            "mile_marker": "25",
+            "description": "About five miles of white rock that riders describe as horrific.",
+            "source_video_ids": [
+              "rN2PUDM2dzE"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Five miles of white rock surface that feels horrific to ride on, described as extremely challenging.",
+            "source_video_ids": [
+              "rN2PUDM2dzE"
+            ]
+          }
+        ],
+        "gear_mentions": [],
+        "race_day_tips": [
+          {
+            "text": "Don't pack nitro beer on hot days with lots of rocks - it will explode.",
+            "source_video_ids": [
+              "rN2PUDM2dzE"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "We're in exira iowa nothing exciting happens here. We're about 25 miles in gonna go see a giant paper mache bowl and a plow stuck in a tree.",
+            "source_video_id": "rN2PUDM2dzE",
+            "source_channel": "No Coast Gravel Syndicate",
+            "source_view_count": 253,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "This Iowa gravel ride features challenging terrain including a particularly difficult five-mile section of white rock surface that riders describe as horrific. The route passes through small Iowa towns like Exira and includes stops at local attractions such as a tree growing in the middle of a road intersection and Albert the Bull statue. Riders encounter typical Iowa gravel conditions with rocky surfaces that can be punishing on equipment. The area features rural gravel roads connecting small communities, with the terrain offering both scenic rural views and technical challenges from varied surface conditions."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "iowa-wind-and-rock-video-1.jpg",
+        "url": "/race-photos/iowa-wind-and-rock/iowa-wind-and-rock-video-1.jpg",
+        "alt": "Cyclist in orange jersey taking a break on residential street with white farmhouse and bare trees in background - Iowa Wind and Rock - Winterset, Iowa",
+        "credit": "YouTube / No Coast Gravel Syndicate",
+        "primary": true,
+        "ai_relevance": 2,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "residential street",
+          "farmhouse",
+          "cyclist break",
+          "rural Iowa"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "iowa-wind-and-rock-video-2.jpg",
+        "url": "/race-photos/iowa-wind-and-rock/iowa-wind-and-rock-video-2.jpg",
+        "alt": "Hand holding beverage can in rural landscape with grassy hills and bare trees under blue sky - Iowa Wind and Rock - Winterset, Iowa",
+        "credit": "YouTube / No Coast Gravel Syndicate",
+        "primary": false,
+        "ai_relevance": 1,
+        "ai_quality": 2,
+        "ai_keywords": [
+          "beverage break",
+          "rural landscape",
+          "grassy hills",
+          "Iowa countryside"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "iowa-wind-and-rock-video-3.jpg",
+        "url": "/race-photos/iowa-wind-and-rock/iowa-wind-and-rock-video-3.jpg",
+        "alt": "First-person view from cockpit of race car on paved runway or track with speed display showing 59 - Iowa Wind and Rock - Winterset, Iowa",
+        "credit": "YouTube / No Coast Gravel Syndicate",
+        "primary": false,
+        "ai_relevance": 3,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "first-person view",
+          "paved track",
+          "speed display",
+          "racing cockpit"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "iowa-wind-and-rock-preview.gif",
+        "url": "/race-photos/iowa-wind-and-rock/iowa-wind-and-rock-preview.gif",
+        "alt": "Course preview from Iowa Wind And Rock race footage",
+        "credit": "YouTube / No Coast Gravel Syndicate",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "iowa-wind-and-rock-preview-2.gif",
+        "url": "/race-photos/iowa-wind-and-rock/iowa-wind-and-rock-preview-2.gif",
+        "alt": "Course preview from Iowa Wind And Rock race footage",
+        "credit": "YouTube / No Coast Gravel Syndicate",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "iowa-wind-and-rock-preview-3.gif",
+        "url": "/race-photos/iowa-wind-and-rock/iowa-wind-and-rock-preview-3.gif",
+        "alt": "Course preview from Iowa Wind And Rock race footage",
+        "credit": "YouTube / No Coast Gravel Syndicate",
+        "gif": true
+      }
+    ]
   }
 }

@@ -467,7 +467,91 @@
           "curated": false
         }
       ],
-      "quotes": []
-    }
+      "quotes": [],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Hill section",
+            "description": "Riders mention a specific hill that is identified as 'the worst of it' and noted as 'My Favorite Hill of the day' sarcastically, with one rider running out of gears trying to shift.",
+            "source_video_ids": [
+              "fidkw5-yxcg"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Course includes road biking sections through the middle of nowhere areas.",
+            "source_video_ids": [
+              "fidkw5-yxcg"
+            ]
+          }
+        ],
+        "gear_mentions": [],
+        "race_day_tips": [
+          {
+            "text": "Take advantage of the downhill parts after climbs to recover.",
+            "source_video_ids": [
+              "fidkw5-yxcg"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "It was enjoyable I liked it I liked the people and the feel of it it was fun and the road biking wasn't too bad because it was the middle of nowhere.",
+            "source_video_id": "fidkw5-yxcg",
+            "source_channel": "The Lanky Cyclist",
+            "source_view_count": 594,
+            "category": "community",
+            "curated": true
+          }
+        ],
+        "search_text": "The Red Granite Grinder in Athens, Wisconsin features challenging hill sections that push riders to their gear limits, with one particularly difficult climb identified as 'the worst of it' by riders using climb tracking technology. The 150-mile course includes road biking segments through remote middle-of-nowhere areas. Riders describe it as an enjoyable event with good community atmosphere and people. The terrain includes significant climbs followed by downhill recovery sections. Some participants noted they didn't train adequately for the event's demands. The race takes place in a scenic rural setting with venues like Running Horse Farm along the route. Despite the physical challenges, riders expressed willingness to participate again, praising both the course design and the overall community feel of the event."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "red-granite-grinder-video-1.jpg",
+        "url": "/race-photos/red-granite-grinder/red-granite-grinder-video-1.jpg",
+        "alt": "Cyclist with helmet and backpack stopped at trail marker on tree-lined gravel road during Red Granite Grinder race - Athens, Wisconsin (Central Wisconsin)",
+        "credit": "YouTube / The Lanky Cyclist",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel road",
+          "trail marker",
+          "tree-lined",
+          "cyclist",
+          "gravel racing"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "red-granite-grinder-video-2.jpg",
+        "url": "/race-photos/red-granite-grinder/red-granite-grinder-video-2.jpg",
+        "alt": "Gravel cyclist in racing kit riding on paved rural road intersection with open farmland and forest backdrop - Red Granite Grinder - Athens, Wisconsin (Central Wisconsin)",
+        "credit": "YouTube / The Lanky Cyclist",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel cyclist",
+          "rural road",
+          "farmland",
+          "forest",
+          "racing kit"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "red-granite-grinder-preview.gif",
+        "url": "/race-photos/red-granite-grinder/red-granite-grinder-preview.gif",
+        "alt": "Course preview from Red Granite Grinder race footage",
+        "credit": "YouTube / The Lanky Cyclist",
+        "gif": true
+      }
+    ]
   }
 }

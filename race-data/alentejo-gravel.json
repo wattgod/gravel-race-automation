@@ -609,6 +609,66 @@
         }
       ],
       "quotes": []
-    }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "alentejo-gravel-video-1.jpg",
+        "url": "/race-photos/alentejo-gravel/alentejo-gravel-video-1.jpg",
+        "alt": "Decorative tile or postcard showing Albufeira Portugal coastal town with colorful boats on beach - Alentejo Gravel - Alentejo, Portugal",
+        "credit": "YouTube / TopCycling",
+        "primary": true,
+        "ai_relevance": 2,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "Albufeira Portugal",
+          "coastal town",
+          "fishing boats",
+          "Portuguese coast"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "alentejo-gravel-video-2.jpg",
+        "url": "/race-photos/alentejo-gravel/alentejo-gravel-video-2.jpg",
+        "alt": "Gravel cyclists riding dirt trail through Portuguese countryside with rolling hills and farmland - Alentejo Gravel - Alentejo, Portugal",
+        "credit": "YouTube / TopCycling",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel trail",
+          "Portuguese countryside",
+          "dirt road",
+          "rolling hills",
+          "farmland"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "alentejo-gravel-video-3.jpg",
+        "url": "/race-photos/alentejo-gravel/alentejo-gravel-video-3.jpg",
+        "alt": "Close-up of gravel cyclist in aerodynamic position riding through Mediterranean landscape in Portugal - Alentejo Gravel - Alentejo, Portugal",
+        "credit": "YouTube / TopCycling",
+        "primary": false,
+        "ai_relevance": 4,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel cyclist",
+          "aero position",
+          "Portuguese landscape",
+          "Mediterranean terrain",
+          "time trial"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "alentejo-gravel-preview.gif",
+        "url": "/race-photos/alentejo-gravel/alentejo-gravel-preview.gif",
+        "alt": "Course preview from Alentejo Gravel race footage",
+        "credit": "YouTube / TopCycling",
+        "gif": true
+      }
+    ]
   }
 }

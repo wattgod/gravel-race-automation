@@ -528,7 +528,194 @@
           "category": "race_atmosphere",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "First gravel sector",
+            "description": "Chaotic section where the surface is not always even, causing riders to come back, move forwards, and change lines. Lines disappear and you can be pushed off.",
+            "source_video_ids": [
+              "Uh-BSsXkjHw"
+            ]
+          },
+          {
+            "name": "First major descent",
+            "description": "Stretches out the peloton due to different abilities and confidence levels. Surfaces going down were particularly sketchy with really loose gravel.",
+            "source_video_ids": [
+              "Uh-BSsXkjHw",
+              "qVP9wI4TRKI"
+            ]
+          },
+          {
+            "name": "Brockman climb",
+            "description": "The first really hard climb with 22% gradient. Some riders had to push their bikes and fell off trying to climb due to losing traction.",
+            "source_video_ids": [
+              "qVP9wI4TRKI",
+              "JtCNanuswZU"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "The gravel was really, really loose, especially on descents due to dry conditions. Makes descending feel less in control.",
+            "source_video_ids": [
+              "qVP9wI4TRKI"
+            ]
+          },
+          {
+            "text": "The gravel was really smooth in some sections and really nice to ride on, not too many ruts or bumps.",
+            "source_video_ids": [
+              "JtCNanuswZU"
+            ]
+          },
+          {
+            "text": "Corrugated bumps that you can get thrown into if cut off during passes.",
+            "source_video_ids": [
+              "JtCNanuswZU"
+            ]
+          }
+        ],
+        "gear_mentions": [],
+        "race_day_tips": [
+          {
+            "text": "For the women it is so important to stay inside those front 30 wheels during the first gravel sector.",
+            "source_video_ids": [
+              "Uh-BSsXkjHw"
+            ]
+          },
+          {
+            "text": "Trying to get a bit of draft is super important, especially after mechanicals.",
+            "source_video_ids": [
+              "Uh-BSsXkjHw"
+            ]
+          },
+          {
+            "text": "Pick a line and stick with it on loose gravel descents - if you just go straight, you'll be fine.",
+            "source_video_ids": [
+              "qVP9wI4TRKI"
+            ]
+          },
+          {
+            "text": "The goal was to ride well, not smash ourselves, but ride to a nice pace and stay upright. The start is obviously the most chaotic part of the course.",
+            "source_video_ids": [
+              "qVP9wI4TRKI"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "You can drop off your food in a bag labeled with your number and then they take it out to the halfway stop and then when you get to the halfway stop, you can find your food with the number. They'll lay it out for you there.",
+            "source_video_id": "JtCNanuswZU",
+            "source_channel": "Sam Shields",
+            "source_view_count": 3303,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "I would suggest if you can get in earlier to register and get a place that's closer is probably better cuz it is quite a drive even to Bustleton. It doesn't look like much on the map, but when it comes to coming all the way out here to register, it would be good to just be able to stay in the town. But you have to get in early because the accommodation does book out pretty quickly.",
+            "source_video_id": "JtCNanuswZU",
+            "source_channel": "Sam Shields",
+            "source_view_count": 3303,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "Seven gravel race in Nannup, Western Australia features 125km with 3200m of climbing and 12 categorized climbs, making it the biggest gravel race in the Southern Hemisphere. The course starts with a chaotic first gravel sector where the surface is uneven and riders get pushed off lines. Key challenges include loose, sketchy gravel on descents due to dry conditions, and the brutal Brockman climb with 22% gradients where some riders must walk. The first major descent stretches the peloton based on confidence levels. Riders emphasize staying in the front 30 wheels during early gravel sections and picking lines carefully on loose surfaces. The race offers stunning scenery through valleys with epic views, though cameras don't capture the full beauty. Over 1600 people registered, with perfect weather conditions. Course logistics include food drop bags at the halfway stop, and accommodation books out quickly requiring early registration."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "seven-video-1.jpg",
+        "url": "/race-photos/seven/seven-video-1.jpg",
+        "alt": "Cyclists riding on paved road through tree-lined course with race barriers and blue banners at organized cycling event - Seven - Nannup, Western Australia",
+        "credit": "YouTube / Pedal Action",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "cycling race",
+          "paved course",
+          "race barriers",
+          "tree-lined",
+          "cycling event"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "seven-video-2.jpg",
+        "url": "/race-photos/seven/seven-video-2.jpg",
+        "alt": "Cyclist riding uphill on dirt gravel road through forested terrain with eucalyptus trees and mountainous landscape - Seven - Nannup, Western Australia",
+        "credit": "YouTube / Pedal Action",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel climb",
+          "dirt road",
+          "forest terrain",
+          "eucalyptus trees",
+          "mountain gravel"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "seven-video-3.jpg",
+        "url": "/race-photos/seven/seven-video-3.jpg",
+        "alt": "Cyclist shadow cast on sandy dirt trail with bike computer visible and CamelBak signage in background - Seven - Nannup, Western Australia",
+        "credit": "YouTube / Pedal Action",
+        "primary": false,
+        "ai_relevance": 4,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "dirt trail",
+          "cyclist shadow",
+          "sandy terrain",
+          "bike computer",
+          "gravel racing"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "seven-preview.gif",
+        "url": "/race-photos/seven/seven-preview.gif",
+        "alt": "Course preview from Seven race footage",
+        "credit": "YouTube / Pedal Action",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "seven-preview-2.gif",
+        "url": "/race-photos/seven/seven-preview-2.gif",
+        "alt": "Course preview from Seven race footage",
+        "credit": "YouTube / Pedal Action",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "seven-preview-3.gif",
+        "url": "/race-photos/seven/seven-preview-3.gif",
+        "alt": "Course preview from Seven race footage",
+        "credit": "YouTube / Pedal Action",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "seven-preview-4.gif",
+        "url": "/race-photos/seven/seven-preview-4.gif",
+        "alt": "Course preview from Seven race footage",
+        "credit": "YouTube / Pedal Action",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "seven-preview-5.gif",
+        "url": "/race-photos/seven/seven-preview-5.gif",
+        "alt": "Course preview from Seven race footage",
+        "credit": "YouTube / Pedal Action",
+        "gif": true
+      }
+    ]
   }
 }

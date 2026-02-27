@@ -571,7 +571,200 @@
           "category": "race_atmosphere",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Early hills",
+            "description": "Pretty hilly early on with a spicy start straight onto the rough stuff after neutralized section ends",
+            "source_video_ids": [
+              "sGcbo0EBlzI"
+            ]
+          },
+          {
+            "name": "First three kilometers",
+            "description": "Neutralized section before getting into the challenging terrain",
+            "source_video_ids": [
+              "9TwID4k2qDQ"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "The gravel is a bit rougher and more technical than some other European races, but still quite nice and flowy rather than super technical",
+            "source_video_ids": [
+              "9TwID4k2qDQ"
+            ]
+          },
+          {
+            "text": "Race goes straight onto the rough stuff after the neutralized section with immediate challenging terrain",
+            "source_video_ids": [
+              "sGcbo0EBlzI"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "Tire pressure of 20 psi in the back and 14 in the front for heavier riders",
+            "source_video_ids": [
+              "fjDV5OxKnsk"
+            ]
+          },
+          {
+            "text": "Suspension fork suits the more technical riding and rougher gravel conditions",
+            "source_video_ids": [
+              "9TwID4k2qDQ"
+            ]
+          },
+          {
+            "text": "3L Camelback hydration bladder used with aerosuit for longer distances",
+            "source_video_ids": [
+              "sGcbo0EBlzI"
+            ]
+          }
+        ],
+        "race_day_tips": [
+          {
+            "text": "Carb loading the evening before is essential - focus on rice, wraps, and peanut butter sandwiches throughout the night",
+            "source_video_ids": [
+              "9TwID4k2qDQ"
+            ]
+          },
+          {
+            "text": "Get an early night before race day due to the significant distance and elevation",
+            "source_video_ids": [
+              "sGcbo0EBlzI"
+            ]
+          },
+          {
+            "text": "Even for faster riders, 200k is a long way and it's a big day out",
+            "source_video_ids": [
+              "9TwID4k2qDQ"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "Last year they said they were going to have a race. It's not a race, Ben. It's not a race.",
+            "source_video_id": "fjDV5OxKnsk",
+            "source_channel": "Josh Reid",
+            "source_view_count": 58886,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "Today is not a race. You get that. Today is about a challenge and to get round safely. Please, please help your friends, other riders if they have a problem.",
+            "source_video_id": "9TwID4k2qDQ",
+            "source_channel": "Maddy Nutt",
+            "source_view_count": 22056,
+            "category": "community",
+            "curated": true
+          },
+          {
+            "text": "I love the vibes of this event. This is going to be my fourth year in a row coming here and yeah, it's just great energy, great atmosphere.",
+            "source_video_id": "9TwID4k2qDQ",
+            "source_channel": "Maddy Nutt",
+            "source_view_count": 22056,
+            "category": "race_atmosphere",
+            "curated": true
+          }
+        ],
+        "search_text": "Dirty Reiver at Kielder Forest is described as one of the biggest gravel events in the UK, offering 200km, 130km, and 65km route options. Located on the England-Scotland border, the course features 3,500m of elevation gain over 200km with immediate challenging terrain after a neutralized start. Riders describe the gravel as rougher and more technical than some European events, but still flowy rather than super technical. The event starts with pretty hilly terrain early on and what riders call a spicy start straight onto rough stuff. While officially not a race but a timed challenge, competitive riders do race at the front. The atmosphere is praised for great energy and friendly vibes, with emphasis on helping other riders and finishing safely. Preparation includes significant carb loading the night before, with riders consuming rice, wraps, and peanut butter sandwiches. Even experienced riders note that 200km is a massive distance requiring proper preparation and early rest."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "dirty-reiver-video-1.jpg",
+        "url": "/race-photos/dirty-reiver/dirty-reiver-video-1.jpg",
+        "alt": "Cyclist presenting orange gravel bike with aerobars in grassy field with trees during bike review - Dirty Reiver - Kielder, Northumberland, England",
+        "credit": "YouTube / Global Cycling Network",
+        "primary": true,
+        "ai_relevance": 3,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel bike",
+          "aerobars",
+          "bike review",
+          "orange frame",
+          "grassy terrain"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "dirty-reiver-video-2.jpg",
+        "url": "/race-photos/dirty-reiver/dirty-reiver-video-2.jpg",
+        "alt": "Bearded cyclist in orange jersey taking selfie at SRAM race tent setup with bikes and banners - Dirty Reiver - Kielder, Northumberland, England",
+        "credit": "YouTube / Global Cycling Network",
+        "primary": false,
+        "ai_relevance": 4,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "SRAM tent",
+          "race setup",
+          "orange jersey",
+          "selfie",
+          "cycling event"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "dirty-reiver-video-3.jpg",
+        "url": "/race-photos/dirty-reiver/dirty-reiver-video-3.jpg",
+        "alt": "First-person view of gravel trail riding through wooded terrain with bare trees and dirt path - Dirty Reiver - Kielder, Northumberland, England",
+        "credit": "YouTube / Global Cycling Network",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "wooded trail",
+          "first-person view",
+          "dirt path",
+          "bare trees",
+          "gravel riding"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "dirty-reiver-preview.gif",
+        "url": "/race-photos/dirty-reiver/dirty-reiver-preview.gif",
+        "alt": "Course preview from Dirty Reiver race footage",
+        "credit": "YouTube / Global Cycling Network",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "dirty-reiver-preview-2.gif",
+        "url": "/race-photos/dirty-reiver/dirty-reiver-preview-2.gif",
+        "alt": "Course preview from Dirty Reiver race footage",
+        "credit": "YouTube / Global Cycling Network",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "dirty-reiver-preview-3.gif",
+        "url": "/race-photos/dirty-reiver/dirty-reiver-preview-3.gif",
+        "alt": "Course preview from Dirty Reiver race footage",
+        "credit": "YouTube / Global Cycling Network",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "dirty-reiver-preview-4.gif",
+        "url": "/race-photos/dirty-reiver/dirty-reiver-preview-4.gif",
+        "alt": "Course preview from Dirty Reiver race footage",
+        "credit": "YouTube / Global Cycling Network",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "dirty-reiver-preview-5.gif",
+        "url": "/race-photos/dirty-reiver/dirty-reiver-preview-5.gif",
+        "alt": "Course preview from Dirty Reiver race footage",
+        "credit": "YouTube / Global Cycling Network",
+        "gif": true
+      }
+    ]
   }
 }

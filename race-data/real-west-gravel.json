@@ -525,7 +525,92 @@
           "category": "course_difficulty",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "back side climbing",
+            "description": "Riders mention good climbing on the back side of the course.",
+            "source_video_ids": [
+              "4N5ITpa4P7A"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "The roads were pretty smooth all in all with good gravel throughout the course.",
+            "source_video_ids": [
+              "4N5ITpa4P7A"
+            ]
+          }
+        ],
+        "gear_mentions": [],
+        "race_day_tips": [],
+        "additional_quotes": [
+          {
+            "text": "This event features some of the most amazing gravel roads anywhere in the state of Oregon and the West.",
+            "source_video_id": "4N5ITpa4P7A",
+            "source_channel": "Mike Ripley",
+            "source_view_count": 581,
+            "category": "course_difficulty",
+            "curated": true
+          },
+          {
+            "text": "It's really about the individual competing with myself more than anything else.",
+            "source_video_id": "4N5ITpa4P7A",
+            "source_channel": "Mike Ripley",
+            "source_view_count": 581,
+            "category": "community",
+            "curated": true
+          }
+        ],
+        "search_text": "Real West Gravel in Pendleton, Oregon features some of the most amazing gravel roads in the state according to participants. The 62-mile course includes pretty smooth gravel roads overall with good climbing on the back side. First-time racers describe the terrain as good gravel with smooth road conditions throughout most of the route. The event is part of the Mudslinger series and attracts the Oregon cycling community. Riders emphasize the personal challenge aspect of the race and the opportunity to explore the gravel roads that this region has to offer. The climbing sections appear to be a notable feature, particularly on the back portion of the course."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "real-west-gravel-video-1.jpg",
+        "url": "/race-photos/real-west-gravel/real-west-gravel-video-1.jpg",
+        "alt": "First-person view from cyclist handlebars showing muddy gravel road through rolling grassland hills with GPS device mounted on bike - Real West Gravel - Pendleton, Oregon",
+        "credit": "YouTube / AP",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel road",
+          "muddy conditions",
+          "rolling hills",
+          "GPS cycling",
+          "first-person view"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "real-west-gravel-video-2.jpg",
+        "url": "/race-photos/real-west-gravel/real-west-gravel-video-2.jpg",
+        "alt": "Cyclist perspective of rural gravel road with power lines and irrigation equipment visible across agricultural landscape - Real West Gravel - Pendleton, Oregon",
+        "credit": "YouTube / AP",
+        "primary": false,
+        "ai_relevance": 4,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "rural gravel",
+          "power lines",
+          "irrigation",
+          "agricultural",
+          "cycling perspective"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "real-west-gravel-preview.gif",
+        "url": "/race-photos/real-west-gravel/real-west-gravel-preview.gif",
+        "alt": "Course preview from Real West Gravel race footage",
+        "credit": "YouTube / AP",
+        "gif": true
+      }
+    ]
   }
 }

@@ -552,7 +552,113 @@
           "curated": false
         }
       ],
-      "quotes": []
-    }
+      "quotes": [],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Santa Rosa Creek",
+            "description": "The steep sections are extremely steep - you have to be fully out of the saddle and some riders walk portions. One rider's best time up this climb is 11 minutes.",
+            "source_video_ids": [
+              "g6bHrNkr6ig"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Santa Rita road gravel is smooth enough that you don't need a gravel bike - you can do it on a road bike no problem. The dirt surface is very manageable.",
+            "source_video_ids": [
+              "g6bHrNkr6ig"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "IRC X Guards tires are recommended - rider hasn't flatted in three years with them. Tubeless setup is highly recommended once you get it dialed with the right tires.",
+            "source_video_ids": [
+              "g6bHrNkr6ig"
+            ]
+          }
+        ],
+        "race_day_tips": [
+          {
+            "text": "If you can only do one of the roads in the area - Santa Rosa's, Old Creek, or Santa Rita - Santa Rita is the way to go. It's quiet, beautiful, and you can descend the back side to Santa Margarita.",
+            "source_video_ids": [
+              "g6bHrNkr6ig"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "We're gonna go for a big ride today we're gonna go about 107 miles. They're tied in with the tourism board and they've been huge finding dog friendly hotels but again there isn't availability like for a week or two so we're kind of been jumping from one place to another place.",
+            "source_video_id": "g6bHrNkr6ig",
+            "source_channel": "VC Adventures",
+            "source_view_count": 66245,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "Riders describe challenging climbs including Santa Rosa Creek, which features extremely steep sections requiring full out-of-saddle efforts with some riders walking portions. The area offers multiple climbing options including Old Creek and Santa Rita road. Santa Rita road is highlighted as gravel that's smooth enough for road bikes, described as quiet and beautiful with scenic views. The terrain around Santa Margarita offers varied surfaces from steep paved climbs to manageable gravel roads. Riders recommend tubeless tire setups and specifically mention IRC X Guards for reliability. The riding area features multiple santa-named roads with different character - some extremely challenging climbs and others more accessible gravel suitable for various bike types."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "paris-mountain-gravel-grinder-video-1.jpg",
+        "url": "/race-photos/paris-mountain-gravel-grinder/paris-mountain-gravel-grinder-video-1.jpg",
+        "alt": "Street sign for Sleepy Hollow Road with wooded trail entrance in background showing lush green forest setting - Paris Mountain Gravel Grinder - Travelers Rest, South Carolina",
+        "credit": "YouTube / Phil the Cup",
+        "primary": true,
+        "ai_relevance": 2,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "Sleepy Hollow Road",
+          "wooded trail",
+          "forest entrance",
+          "trail signage"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "paris-mountain-gravel-grinder-video-2.jpg",
+        "url": "/race-photos/paris-mountain-gravel-grinder/paris-mountain-gravel-grinder-video-2.jpg",
+        "alt": "Cyclists in aerodynamic position riding through rural countryside with open fields and scattered trees during gravel race - Paris Mountain Gravel Grinder - Travelers Rest, South Carolina",
+        "credit": "YouTube / Phil the Cup",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel cycling",
+          "rural countryside",
+          "open fields",
+          "aerodynamic position",
+          "peloton"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "paris-mountain-gravel-grinder-video-3.jpg",
+        "url": "/race-photos/paris-mountain-gravel-grinder/paris-mountain-gravel-grinder-video-3.jpg",
+        "alt": "Informational sign about Chattooga River featuring rafting photos and outdoor recreation information at Nantahala Outdoor Center - Paris Mountain Gravel Grinder - Travelers Rest, South Carolina",
+        "credit": "YouTube / Phil the Cup",
+        "primary": false,
+        "ai_relevance": 1,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "Chattooga River",
+          "outdoor recreation",
+          "informational sign",
+          "Nantahala"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "paris-mountain-gravel-grinder-preview.gif",
+        "url": "/race-photos/paris-mountain-gravel-grinder/paris-mountain-gravel-grinder-preview.gif",
+        "alt": "Course preview from Paris Mountain Gravel Grinder race footage",
+        "credit": "YouTube / Phil the Cup",
+        "gif": true
+      }
+    ]
   }
 }

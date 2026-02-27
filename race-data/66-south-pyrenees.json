@@ -573,7 +573,140 @@
           "curated": false
         }
       ],
-      "quotes": []
-    }
+      "quotes": [],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Port Caboose climb",
+            "description": "A major climb that serves as the door back to Spain from Andorra - riders describe this as a significant ascent after days of riding",
+            "source_video_ids": [
+              "CNFSU2ICi1c"
+            ]
+          },
+          {
+            "name": "Thunderstorm exposure on mountaintops",
+            "description": "Riders got caught in thunderstorms on top of mountains and had to find shelter in a barn, soaked to the bones",
+            "source_video_ids": [
+              "CNFSU2ICi1c"
+            ]
+          },
+          {
+            "name": "Rough hike-a-bike shortcut",
+            "description": "What riders thought would be a shortcut turned into a rough hike-a-bike section",
+            "source_video_ids": [
+              "CNFSU2ICi1c"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "The Pyrenees are very diverse and change every day as you move from Mediterranean Sea toward Atlantic",
+            "source_video_ids": [
+              "CNFSU2ICi1c"
+            ]
+          },
+          {
+            "text": "Descents require careful attention because you never know when there will be horses and cows on the road",
+            "source_video_ids": [
+              "CNFSU2ICi1c"
+            ]
+          }
+        ],
+        "gear_mentions": [],
+        "race_day_tips": [
+          {
+            "text": "Weather changes rapidly - riders had to put rain jackets on and off many times throughout the journey",
+            "source_video_ids": [
+              "CNFSU2ICi1c"
+            ]
+          },
+          {
+            "text": "When thunderstorms hit on mountaintops, seek immediate shelter - riders found refuge in a barn when caught in severe weather",
+            "source_video_ids": [
+              "CNFSU2ICi1c"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "At 1:00 a.m. we were woken up by a horse knocking on our front door, kicking our front door. Unfortunately, we didn't have any place for him in the tent.",
+            "source_video_id": "CNFSU2ICi1c",
+            "source_channel": "Denisa S.",
+            "source_view_count": 56437,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "For the past 6 days, I've been stealing toilet paper in cafes around. And let me tell you, some are better than others. Both a paper and a coffee.",
+            "source_video_id": "CNFSU2ICi1c",
+            "source_channel": "Denisa S.",
+            "source_view_count": 56437,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "The Pyrenees crossing presents diverse terrain that changes daily as riders move from the Mediterranean toward the Atlantic. Key challenges include the Port Caboose climb serving as the gateway back to Spain from Andorra, and sudden thunderstorms that can trap riders on exposed mountaintops requiring emergency shelter. The terrain includes rough hike-a-bike sections where shortcuts become challenging portages. Weather is highly variable with frequent rain jacket changes needed throughout the journey. Livestock including horses and cows frequently occupy roads, particularly on descents, requiring constant vigilance. The route covers approximately 1,000 kilometers over two weeks with nearly 25,000 meters of elevation gain. Camping spots near mountain refuges may be shared with curious horses that can disturb sleep. The diverse landscape and rapidly changing conditions make this a challenging multi-day adventure requiring weather preparedness and flexibility."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "66-south-pyrenees-video-1.jpg",
+        "url": "/race-photos/66-south-pyrenees/66-south-pyrenees-video-1.jpg",
+        "alt": "UCI Gravel World Series qualification information displayed over mountain landscape background - 66° South Pyrénées - Pyrénées, France",
+        "credit": "YouTube / Cycliste Actuelle ",
+        "primary": true,
+        "ai_relevance": 2,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "UCI Gravel",
+          "World Series",
+          "qualification",
+          "mountain landscape"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "66-south-pyrenees-video-2.jpg",
+        "url": "/race-photos/66-south-pyrenees/66-south-pyrenees-video-2.jpg",
+        "alt": "Cyclist with curly hair speaking indoors with gravel bike displayed in modern bike shop setting - 66° South Pyrénées - Pyrénées, France",
+        "credit": "YouTube / Cycliste Actuelle ",
+        "primary": false,
+        "ai_relevance": 2,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "cyclist interview",
+          "gravel bike",
+          "bike shop",
+          "indoor setting"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "66-south-pyrenees-video-3.jpg",
+        "url": "/race-photos/66-south-pyrenees/66-south-pyrenees-video-3.jpg",
+        "alt": "First-person view of gravel road through green countryside with power meter data overlay showing race metrics - 66° South Pyrénées - Pyrénées, France",
+        "credit": "YouTube / Cycliste Actuelle ",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel road",
+          "first-person view",
+          "power meter",
+          "countryside",
+          "race data"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "66-south-pyrenees-preview.gif",
+        "url": "/race-photos/66-south-pyrenees/66-south-pyrenees-preview.gif",
+        "alt": "Course preview from 66 South Pyrenees race footage",
+        "credit": "YouTube / Cycliste Actuelle ",
+        "gif": true
+      }
+    ]
   }
 }

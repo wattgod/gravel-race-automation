@@ -567,7 +567,92 @@
           "category": "race_atmosphere",
           "curated": true
         }
-      ]
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Main climb",
+            "mile_marker": "10",
+            "description": "A relentless climb of almost 1,900 ft over the first 10 miles or so. Riders describe it as getting everyone strung out across the mountain side.",
+            "source_video_ids": [
+              "OsNNtDzp064"
+            ]
+          },
+          {
+            "name": "Left-hand death turn at Highway 101",
+            "mile_marker": "2.8",
+            "description": "A dangerous left turn onto Forest Service Road 55 with traffic coming at cyclists. Fire department stations there due to safety concerns. Organizers warn riders about this unmarked turn.",
+            "source_video_ids": [
+              "VrSUbC0BA5M"
+            ]
+          },
+          {
+            "name": "Yachats River Road headwind",
+            "description": "A stiff headwind for the last several miles to the finish on the flat paved section along Yachats River Road.",
+            "source_video_ids": [
+              "OsNNtDzp064"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "After the main climb, it's kind of up and down until the second aid station but primarily climbing. The pattern is gaining a couple hundred feet then losing 100, with the net effect going up but giving little breaks.",
+            "source_video_ids": [
+              "OsNNtDzp064",
+              "kJs5DNDzVl8"
+            ]
+          },
+          {
+            "text": "Giant potholes on the gravel sections that riders need to watch out for.",
+            "source_video_ids": [
+              "VrSUbC0BA5M"
+            ]
+          }
+        ],
+        "gear_mentions": [],
+        "race_day_tips": [
+          {
+            "text": "Use the roll out to the remote start as your warmup since there's no other warmup opportunity.",
+            "source_video_ids": [
+              "OsNNtDzp064"
+            ]
+          },
+          {
+            "text": "When layering, resist the temptation to fill up the pockets of every layer because when you shed a layer you have to figure out what to do with all the stuff that was in that layer's pockets.",
+            "source_video_ids": [
+              "kJs5DNDzVl8"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "All of you at 2.8 miles from here have to make that left-hand death turn. It's a 55 with a corner. The traffic's coming at you is on the KP turnoff. It's not even marked. Yachats fire department's going to be at the corner there in case any of you guys decides to be a hood ornament.",
+            "source_video_id": "VrSUbC0BA5M",
+            "source_channel": "Decently Fit Dad",
+            "source_view_count": 30,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "There were about 200 racers who started the day and by the time we were a couple of miles into the first climb, we were all strung out across the mountain side.",
+            "source_video_id": "OsNNtDzp064",
+            "source_channel": "Chip Weinert",
+            "source_view_count": 278,
+            "category": "race_atmosphere",
+            "curated": true
+          },
+          {
+            "text": "It was a gorgeous morning and the scenery made the relentless climb just a little bit more pleasant.",
+            "source_video_id": "OsNNtDzp064",
+            "source_channel": "Chip Weinert",
+            "source_view_count": 278,
+            "category": "race_atmosphere",
+            "curated": true
+          }
+        ],
+        "search_text": "The West Coast Gravel race in Yachats, Oregon features a challenging 55-mile course starting with a remote start format. The main challenge is a relentless 1,900-foot climb over the first 10 miles that strings riders across the mountainside. A dangerous left turn at mile 2.8 onto Forest Service Road 55 requires caution due to traffic, with fire department stationed for safety. After the initial climb, the course follows an up-and-down pattern gaining and losing elevation until the second aid station, then transitions to primarily downhill. The route includes Forest Service roads with giant potholes before finishing on Yachats River Road, where riders face a stiff headwind for the final flat paved miles. About 200 racers typically start this timed event, which uses sensors rather than finish line placement for results. The scenic Oregon coast setting provides beautiful views despite the challenging terrain and weather conditions."
+      }
     }
   }
 }

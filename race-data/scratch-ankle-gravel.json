@@ -532,7 +532,150 @@
           "category": "race_atmosphere",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Lots of hills",
+            "description": "Punchy hills throughout the course that challenge riders",
+            "source_video_ids": [
+              "HKvba776i1g"
+            ]
+          },
+          {
+            "name": "Northern loop",
+            "description": "Course includes a northern section above highway four that riders describe as challenging",
+            "source_video_ids": [
+              "HKvba776i1g"
+            ]
+          },
+          {
+            "name": "Paul Barnes Road",
+            "description": "Key road marker where riders return from the northern loop with about 5 miles to finish",
+            "source_video_ids": [
+              "HKvba776i1g"
+            ]
+          },
+          {
+            "name": "Sand sections near finish",
+            "description": "Sandy conditions encountered in the final approach to the finish line",
+            "source_video_ids": [
+              "HKvba776i1g"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Chunky sandy surface conditions mixed with gravel and asphalt",
+            "source_video_ids": [
+              "HKvba776i1g"
+            ]
+          },
+          {
+            "text": "Lots of water on course due to recent rain",
+            "source_video_ids": [
+              "HKvba776i1g"
+            ]
+          },
+          {
+            "text": "Course runs through Blackwater River State Forest area",
+            "source_video_ids": [
+              "cpqCHJeXbAM"
+            ]
+          }
+        ],
+        "gear_mentions": [],
+        "race_day_tips": [],
+        "additional_quotes": [
+          {
+            "text": "This event has been around for for many many years and visits the Blackwater River State Forest area of Florida up in the Panhandle",
+            "source_video_id": "cpqCHJeXbAM",
+            "source_channel": "Gravel Cyclist",
+            "source_view_count": 1886,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "There are several routes on offer including for those seeking big miles a 200m option",
+            "source_video_id": "cpqCHJeXbAM",
+            "source_channel": "Gravel Cyclist",
+            "source_view_count": 1886,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "This is an annual race that they have that chain busters puts on",
+            "source_video_id": "HKvba776i1g",
+            "source_channel": "Troy and Andrea's Little Adventures",
+            "source_view_count": 326,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "Scratch Ankle is an annual gravel race in Milton, Florida, organized by Chain Busters and held in the Blackwater River State Forest area. The race offers multiple distance options including 30-mile, 60-mile, and 200-mile routes. The course features a mixture of gravel and asphalt with chunky sandy surface conditions. Riders describe encountering punchy hills throughout the course, particularly on the northern loop above Highway Four. Key landmarks include Paul Barnes Road, which marks the return from the northern section with about 5 miles to the finish. Race conditions can include significant water on course due to rain, and sandy sections appear near the finish line. The event has been running for many years and attracts riders of various skill levels, with separate start times for short and long course groups."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "scratch-ankle-gravel-video-1.jpg",
+        "url": "/race-photos/scratch-ankle-gravel/scratch-ankle-gravel-video-1.jpg",
+        "alt": "Gravel cyclist in racing gear being interviewed at outdoor event with Chainhusler sponsor arch and pine forest backdrop - Scratch Ankle Gravel - Milton, FL",
+        "credit": "YouTube / Troy and Andrea's Little Adventures",
+        "primary": true,
+        "ai_relevance": 3,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel cyclist",
+          "race interview",
+          "Chainhusler",
+          "pine forest",
+          "cycling event"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "scratch-ankle-gravel-video-2.jpg",
+        "url": "/race-photos/scratch-ankle-gravel/scratch-ankle-gravel-video-2.jpg",
+        "alt": "First-person view of dirt gravel road winding through dense pine forest with cyclist shadow visible on sandy surface - Scratch Ankle Gravel - Milton, FL",
+        "credit": "YouTube / Troy and Andrea's Little Adventures",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel road",
+          "pine forest",
+          "dirt path",
+          "cyclist shadow",
+          "sandy terrain"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "scratch-ankle-gravel-video-3.jpg",
+        "url": "/race-photos/scratch-ankle-gravel/scratch-ankle-gravel-video-3.jpg",
+        "alt": "Chainhusler race finish line arch with cyclists and support crew gathered in pine forest clearing at gravel cycling event - Scratch Ankle Gravel - Milton, FL",
+        "credit": "YouTube / Troy and Andrea's Little Adventures",
+        "primary": false,
+        "ai_relevance": 4,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "finish line",
+          "Chainhusler",
+          "race arch",
+          "pine forest",
+          "gravel event"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "scratch-ankle-gravel-preview.gif",
+        "url": "/race-photos/scratch-ankle-gravel/scratch-ankle-gravel-preview.gif",
+        "alt": "Course preview from Scratch Ankle Gravel race footage",
+        "credit": "YouTube / Troy and Andrea's Little Adventures",
+        "gif": true
+      }
+    ]
   }
 }

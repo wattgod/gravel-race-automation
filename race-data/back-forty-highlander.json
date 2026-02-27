@@ -540,7 +540,74 @@
           "curated": false
         }
       ],
-      "quotes": []
-    }
+      "quotes": [],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [],
+        "terrain_notes": [],
+        "gear_mentions": [],
+        "race_day_tips": [],
+        "additional_quotes": [],
+        "search_text": "No race-specific information was found in the provided transcripts for the Back Forty Highlander gravel race in Mississippi Station, Ontario. The transcripts contain content about tire testing, hunting adventures, and aviation activities, but do not include any rider experiences, course descriptions, or race-related intelligence for this 62-mile gravel event with 3,500 feet of elevation gain. To provide actionable intelligence for riders considering this race, transcripts from actual race participants or race coverage would be needed."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "back-forty-highlander-video-1.jpg",
+        "url": "/race-photos/back-forty-highlander/back-forty-highlander-video-1.jpg",
+        "alt": "Car performing donuts on wet concrete test track with orange cones marking the course - Back Forty Highlander - Mississippi Station, Ontario",
+        "credit": "YouTube / Tyre Reviews",
+        "primary": true,
+        "ai_relevance": 1,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "test track",
+          "wet concrete",
+          "automotive testing",
+          "orange cones"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "back-forty-highlander-video-2.jpg",
+        "url": "/race-photos/back-forty-highlander/back-forty-highlander-video-2.jpg",
+        "alt": "Person in military-style hooded jacket speaking to camera on gravel riverbed with mountains and forest in background - Back Forty Highlander - Mississippi Station, Ontario",
+        "credit": "YouTube / Tyre Reviews",
+        "primary": false,
+        "ai_relevance": 2,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "gravel riverbed",
+          "mountain wilderness",
+          "forest landscape",
+          "outdoor interview"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "back-forty-highlander-video-3.jpg",
+        "url": "/race-photos/back-forty-highlander/back-forty-highlander-video-3.jpg",
+        "alt": "Small aircraft on remote gravel airstrip surrounded by boreal forest and mountains in wilderness setting - Back Forty Highlander - Mississippi Station, Ontario",
+        "credit": "YouTube / Tyre Reviews",
+        "primary": false,
+        "ai_relevance": 3,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel airstrip",
+          "boreal forest",
+          "mountain wilderness",
+          "remote aviation"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "back-forty-highlander-preview.gif",
+        "url": "/race-photos/back-forty-highlander/back-forty-highlander-preview.gif",
+        "alt": "Course preview from Back Forty Highlander race footage",
+        "credit": "YouTube / Tyre Reviews",
+        "gif": true
+      }
+    ]
   }
 }

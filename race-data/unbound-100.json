@@ -581,8 +581,181 @@
           "category": "race_atmosphere",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "North Course",
+            "description": "The North Course is punchier and chunkier. It's a beast. It's chunky like the gravel. It's just like these massive rocks.",
+            "source_video_ids": [
+              "9ECA253Qhn0"
+            ]
+          },
+          {
+            "name": "Heat Management",
+            "description": "Unbound is usually extremely hot and that will wreak havoc on your power late into the race. That is kind of the critical moment where people either completely crack and fall back to 80th place, 100th place, or break into that top 20 or top 10.",
+            "source_video_ids": [
+              "EZp-taQ4I7I"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "There are rocks flying everywhere. There are crashes happening. It's just a beatdown. To race 200 miles on this terrain is just so destructive.",
+            "source_video_ids": [
+              "9ECA253Qhn0"
+            ]
+          },
+          {
+            "text": "The conditions are completely unexpected. It's so different to everything we do. There's a lot of different sections to approach. Some are famous for being really fast. Some are famous for people notoriously having punctures non-stop and some are just famous for being real tough, gritty sections.",
+            "source_video_ids": [
+              "PUdTT0yopvE",
+              "EZp-taQ4I7I"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "As such, the gearing on this bike is something that people would be more familiar with on a road bike. 1134 to Dura Ace cassette and then up front we have a 3450 to Dura Ace power meter chain set. Shimano's GRX 12speed Di2 levers and rear derailleur complemented with some Dura Ace road components to help optimize my bike for the crazy high speeds of the Pro Race.",
+            "source_video_ids": [
+              "EZp-taQ4I7I"
+            ]
+          },
+          {
+            "text": "My chain is waxed with Silka's Endurance chip wax.",
+            "source_video_ids": [
+              "EZp-taQ4I7I"
+            ]
+          }
+        ],
+        "race_day_tips": [
+          {
+            "text": "Your whole training has to change your mentality definitely has to change. There's so many factors that are going into play here. It's just knowing that you're prepared and able to deal with that and don't give up.",
+            "source_video_ids": [
+              "PUdTT0yopvE"
+            ]
+          },
+          {
+            "text": "It is really hard to focus for 10 and 1/2 hours. Perfect world scenarios don't exist in Unbound.",
+            "source_video_ids": [
+              "9ECA253Qhn0"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "In the early days, it was a little bit more choose your own adventure, if you will. 20 years ago, Emporia was not a cycling town. There were a dozen of us that rode bikes. Now, there are hundreds. 10% of the 4,000 people lining up come from within a 20m radius of Emporia, Kansas.",
+            "source_video_id": "9ECA253Qhn0",
+            "source_channel": "Life Time Grand Prix",
+            "source_view_count": 232498,
+            "category": "community",
+            "curated": true
+          },
+          {
+            "text": "I would say that even if right now you had 10hour power of 4 watts per kilo and you had an FTP of 5 1/2 watts per kilo, which I think those are probably around the numbers that you're looking at. Breaking into the top 20 would be difficult.",
+            "source_video_id": "EZp-taQ4I7I",
+            "source_channel": "Global Cycling Network",
+            "source_view_count": 600000,
+            "category": "training",
+            "curated": true
+          }
+        ],
+        "search_text": "Unbound Gravel 200 in Emporia, Kansas features 200 miles through the Flint Hills with significant elevation and challenging terrain. The North Course is described as punchier and chunkier with massive rocks that create a destructive racing surface. Heat is a major factor that wreaks havoc on power output late in the race, often determining who cracks or breaks into top positions. The course includes sections famous for high speeds, frequent punctures, and tough gritty terrain with rocks flying everywhere. Riders report it takes 10.5 hours of intense focus with crashes and mechanicals being unpredictable race factors. The event attracts 4,000 riders from 50 states and 40 countries, making it the most competitive gravel field. Training requires completely different mentality and preparation compared to other races. Pro riders recommend road bike gearing for high speeds and chain waxing for the conditions."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "unbound-100-video-1.jpg",
+        "url": "/race-photos/unbound-100/unbound-100-video-1.jpg",
+        "alt": "Solo cyclist riding through muddy gravel road surrounded by lush green countryside during Unbound gravel race in Kansas - Unbound Gravel 100 - Emporia, Kansas",
+        "credit": "YouTube / Life Time Grand Prix",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "muddy gravel road",
+          "Kansas countryside",
+          "solo rider",
+          "wet conditions",
+          "gravel racing"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "unbound-100-video-2.jpg",
+        "url": "/race-photos/unbound-100/unbound-100-video-2.jpg",
+        "alt": "Peloton of gravel cyclists riding in formation on dirt road through open Kansas prairie farmland - Unbound Gravel 100 - Emporia, Kansas",
+        "credit": "YouTube / Life Time Grand Prix",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel peloton",
+          "Kansas prairie",
+          "dirt road",
+          "farmland",
+          "group riding"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "unbound-100-video-3.jpg",
+        "url": "/race-photos/unbound-100/unbound-100-video-3.jpg",
+        "alt": "Aerial view of race support area parking lot with cars and race infrastructure at gravel cycling event - Unbound Gravel 100 - Emporia, Kansas",
+        "credit": "YouTube / Life Time Grand Prix",
+        "primary": false,
+        "ai_relevance": 2,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "race support area",
+          "parking lot",
+          "event logistics",
+          "aerial view"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "unbound-100-preview.gif",
+        "url": "/race-photos/unbound-100/unbound-100-preview.gif",
+        "alt": "Course preview from Unbound 100 race footage",
+        "credit": "YouTube / Life Time Grand Prix",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "unbound-100-preview-2.gif",
+        "url": "/race-photos/unbound-100/unbound-100-preview-2.gif",
+        "alt": "Course preview from Unbound 100 race footage",
+        "credit": "YouTube / Life Time Grand Prix",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "unbound-100-preview-3.gif",
+        "url": "/race-photos/unbound-100/unbound-100-preview-3.gif",
+        "alt": "Course preview from Unbound 100 race footage",
+        "credit": "YouTube / Life Time Grand Prix",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "unbound-100-preview-4.gif",
+        "url": "/race-photos/unbound-100/unbound-100-preview-4.gif",
+        "alt": "Course preview from Unbound 100 race footage",
+        "credit": "YouTube / Life Time Grand Prix",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "unbound-100-preview-5.gif",
+        "url": "/race-photos/unbound-100/unbound-100-preview-5.gif",
+        "alt": "Course preview from Unbound 100 race footage",
+        "credit": "YouTube / Life Time Grand Prix",
+        "gif": true
+      }
+    ]
   },
   "dataQuality": "High",
   "lastUpdated": "2026-01-13"

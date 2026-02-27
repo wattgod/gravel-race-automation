@@ -1,6 +1,7 @@
 {
   "slug": "gravel-bogota",
   "race_name": "Gravel Bogot\u00e1",
+  "distance_mi": 80.0,
   "demands": {
     "durability": 4,
     "climbing": 6,
@@ -19,7 +20,8 @@
         "Single Sustained Threshold",
         "Threshold Ramps",
         "Descending Threshold"
-      ]
+      ],
+      "workout_context": "Gravel Bogot\u00e1 rewards athletes who can hold sustained power without blowing up \u2014 threshold is the engine that drives everything above Zone 2."
     },
     {
       "category": "VO2max",
@@ -28,7 +30,8 @@
         "5x3 VO2 Classic",
         "Descending VO2 Pyramid",
         "Norwegian 4x8"
-      ]
+      ],
+      "workout_context": "Gravel Bogot\u00e1\u2019s colombian mountain gravel and competitive field demand explosive aerobic capacity \u2014 the ability to respond to surges without blowing up."
     },
     {
       "category": "Gravel_Specific",
@@ -36,7 +39,8 @@
       "workouts": [
         "Surge and Settle",
         "Terrain Microbursts"
-      ]
+      ],
+      "workout_context": "Gravel Bogot\u00e1\u2019s colombian mountains, south american gravel demands rapid power changes \u2014 surge over obstacles, settle on smoother sections, repeat for hours."
     },
     {
       "category": "Over_Under",
@@ -44,7 +48,8 @@
       "workouts": [
         "Classic Over-Unders",
         "Ladder Over-Unders"
-      ]
+      ],
+      "workout_context": "Over-unders train the lactate clearance you\u2019ll need at Gravel Bogot\u00e1 when surges push you above threshold and you have to recover while still riding hard."
     },
     {
       "category": "Race_Simulation",
@@ -53,9 +58,80 @@
         "Breakaway Simulation",
         "Variable Pace Chaos",
         "Sector Simulation"
-      ]
+      ],
+      "workout_context": "Racing Gravel Bogot\u00e1 isn\u2019t just fitness \u2014 it\u2019s pacing, fueling, and executing when conditions deteriorate. This workout practices the race itself."
+    },
+    {
+      "category": "G_Spot",
+      "score": 79,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ],
+      "workout_context": "The G-Spot zone (88\u201392% FTP) is where you\u2019ll spend the hardest sustained miles of Gravel Bogot\u00e1. Make this intensity feel like home."
+    },
+    {
+      "category": "Durability",
+      "score": 64,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ],
+      "workout_context": "At 80 miles, Gravel Bogot\u00e1 punishes athletes who haven\u2019t trained their body to produce power when glycogen runs low."
+    },
+    {
+      "category": "Endurance",
+      "score": 61,
+      "workouts": [
+        "Pre-Race Openers",
+        "Terrain Simulation Z2"
+      ],
+      "workout_context": "Every session at Gravel Bogot\u00e1 intensity builds on this aerobic foundation \u2014 the endurance base is the soil everything else grows in."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 55,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "Gravel Bogot\u00e1\u2019s 8,000ft of climbing demands seated and standing versatility \u2014 the ability to change climbing style as gradient and fatigue dictate."
+    },
+    {
+      "category": "Critical_Power",
+      "score": 55,
+      "workouts": [
+        "Above CP Repeats",
+        "W-Prime Depletion"
+      ],
+      "workout_context": "Critical power determines how long you can sustain above-threshold efforts at Gravel Bogot\u00e1 \u2014 a higher CP means more time in the red before failure."
+    },
+    {
+      "category": "Norwegian_Double",
+      "score": 48,
+      "workouts": [
+        "Norwegian 4x8 Classic",
+        "Double Threshold"
+      ],
+      "workout_context": "The Norwegian double-threshold method builds the sustained power base for Gravel Bogot\u00e1 \u2014 massive training stimulus without the recovery cost of VO2max work."
+    },
+    {
+      "category": "Anaerobic_Capacity",
+      "score": 42,
+      "workouts": [
+        "2min Killers",
+        "90sec Repeats"
+      ],
+      "workout_context": "Short, violent efforts are unavoidable at Gravel Bogot\u00e1 \u2014 climbs demanding 2-minute maximal efforts, surges to close gaps, attacks on colombian mountain gravel."
     }
   ],
+  "race_overlay": {
+    "nutrition": "Target 60\u201380g carbs/hour for Gravel Bogot\u00e1\u2019s 80 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
+    "altitude": "Gravel Bogot\u00e1 with 8,000ft of climbing, much of it above 8,000ft demands altitude preparation. Arrive 5\u20137 days early for acclimatization. Expect 5\u201315% power reduction at altitude. Increase iron intake 4 weeks out. Hydrate aggressively \u2014 altitude increases fluid loss by 20\u201340%. High altitude.",
+    "terrain": "Mixed terrain at Gravel Bogot\u00e1 requires surface adaptability. Include weekly rides on colombian mountain gravel to build confidence. Expect: colombian mountains, south american gravel, regional event."
+  },
   "pack_summary": "This 10-workout pack focuses on TT Threshold, VO2max, and Gravel Specific to prepare you for 80 miles of colombian mountain gravel in Bogot\u00e1, Colombia.",
   "generated_at": "2026-02-26"
 }

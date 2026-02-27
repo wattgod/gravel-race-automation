@@ -523,7 +523,144 @@
           "category": "course_difficulty",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Ducane Pass climb",
+            "mile_marker": "17.5",
+            "description": "17 and a half mile line to the top of ducane pass, then you descend into low kill arizona. Within this stretch you see everything that you will then see across the entire course.",
+            "source_video_ids": [
+              "1IqYTlEbEZs"
+            ]
+          },
+          {
+            "name": "Deep sand pits",
+            "description": "Deep sand pits where you're fishtailing and just holding on for dear life at 25 miles an hour on your gravel bike",
+            "source_video_ids": [
+              "1IqYTlEbEZs"
+            ]
+          },
+          {
+            "name": "Creek crossings",
+            "description": "Creek crossings that splash you up in the face",
+            "source_video_ids": [
+              "1IqYTlEbEZs"
+            ]
+          },
+          {
+            "name": "Rocky shelves",
+            "description": "You get rocky shelves throughout the course",
+            "source_video_ids": [
+              "1IqYTlEbEZs"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Hot sun-exposed descents and steep long climbs with 7000 feet of climbing - you're going up and down and up and down and then down again and then up again",
+            "source_video_ids": [
+              "1IqYTlEbEZs"
+            ]
+          },
+          {
+            "text": "The ride was made quite a bit more difficult by the wind, with wind blowing from front wheel to rear wheel that was pretty stiff and pretty steady",
+            "source_video_ids": [
+              "v_-tragZGU0"
+            ]
+          }
+        ],
+        "gear_mentions": [],
+        "race_day_tips": [],
+        "additional_quotes": [
+          {
+            "text": "Pancho villa has the most incredible breakfast burrito sonoran style with charred jalapeno served on the side",
+            "source_video_id": "1IqYTlEbEZs",
+            "source_channel": "Ventum",
+            "source_view_count": 32988,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "They got a lot of different routes around here, little booklet that has all the all the roots on it so we did the spirit Loop today",
+            "source_video_id": "v_-tragZGU0",
+            "source_channel": "Stephen Plays",
+            "source_view_count": 1059,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "Three days of music and bikes beer drinking and revelry in the first weekend of november every year",
+            "source_video_id": "1IqYTlEbEZs",
+            "source_channel": "Ventum",
+            "source_view_count": 32988,
+            "category": "community",
+            "curated": true
+          }
+        ],
+        "search_text": "The Spirit World 100 features a challenging 17.5-mile climb to Ducane Pass before descending into Low Kill, Arizona, showcasing the entire course's variety in one section. Riders face 7000 feet of climbing with constant ups and downs throughout the 100-mile route. The course includes technical challenges like deep sand pits where riders fishtail at 25 mph, creek crossings that splash riders, rocky shelves, and hot sun-exposed descents. Wind can be a significant factor, blowing consistently and making the ride substantially more difficult. The race takes place in early November and is part of a three-day festival featuring music, cycling, and community celebration. The course utilizes hundreds of miles of ranch roads around Patagonia, Arizona, located 18 miles north of the Mexican border. The terrain offers access to 90,000 acres of open space in the Sonoita Valley."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "spirit-world-100-video-1.jpg",
+        "url": "/race-photos/spirit-world-100/spirit-world-100-video-1.jpg",
+        "alt": "Cyclists with bikes gathered outside a colorful restaurant or bike shop with Coca-Cola signage and yellow walls - Spirit World 100 - Arizona",
+        "credit": "YouTube / Ventum",
+        "primary": true,
+        "ai_relevance": 2,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "bike shop",
+          "restaurant stop",
+          "cyclist gathering",
+          "Coca-Cola signage"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "spirit-world-100-video-2.jpg",
+        "url": "/race-photos/spirit-world-100/spirit-world-100-video-2.jpg",
+        "alt": "First-person view from handlebars riding on dirt gravel road through desert terrain with mountains and trees in background - Spirit World 100 - Arizona",
+        "credit": "YouTube / Ventum",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel road",
+          "desert terrain",
+          "mountain backdrop",
+          "dirt road",
+          "handlebar view"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "spirit-world-100-video-3.jpg",
+        "url": "/race-photos/spirit-world-100/spirit-world-100-video-3.jpg",
+        "alt": "POV shot from bike handlebars descending dirt gravel road through wooded valley with desert landscape - Spirit World 100 - Arizona",
+        "credit": "YouTube / Ventum",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel descent",
+          "wooded valley",
+          "dirt road",
+          "desert landscape",
+          "POV cycling"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "spirit-world-100-preview.gif",
+        "url": "/race-photos/spirit-world-100/spirit-world-100-preview.gif",
+        "alt": "Course preview from Spirit World 100 race footage",
+        "credit": "YouTube / Ventum",
+        "gif": true
+      }
+    ]
   }
 }

@@ -1,6 +1,7 @@
 {
   "slug": "gravel-one-fifty",
   "race_name": "Gravel One Fifty",
+  "distance_mi": 93.0,
   "demands": {
     "durability": 4,
     "climbing": 2,
@@ -19,7 +20,8 @@
         "Tired VO2max",
         "Double Day Simulation",
         "Progressive Fatigue"
-      ]
+      ],
+      "workout_context": "At 93 miles, Gravel One Fifty punishes athletes who haven\u2019t trained their body to produce power when glycogen runs low."
     },
     {
       "category": "TT_Threshold",
@@ -28,7 +30,8 @@
         "Single Sustained Threshold",
         "Threshold Ramps",
         "Descending Threshold"
-      ]
+      ],
+      "workout_context": "Gravel One Fifty rewards athletes who can hold sustained power without blowing up \u2014 threshold is the engine that drives everything above Zone 2."
     },
     {
       "category": "Gravel_Specific",
@@ -36,7 +39,8 @@
       "workouts": [
         "Surge and Settle",
         "Terrain Microbursts"
-      ]
+      ],
+      "workout_context": "Gravel One Fifty\u2019s dutch countryside, flat gravel demands rapid power changes \u2014 surge over obstacles, settle on smoother sections, repeat for hours."
     },
     {
       "category": "Race_Simulation",
@@ -45,7 +49,8 @@
         "Breakaway Simulation",
         "Variable Pace Chaos",
         "Sector Simulation"
-      ]
+      ],
+      "workout_context": "Racing Gravel One Fifty isn\u2019t just fitness \u2014 it\u2019s pacing, fueling, and executing when conditions deteriorate. This workout practices the race itself."
     },
     {
       "category": "G_Spot",
@@ -54,9 +59,79 @@
         "G-Spot Standard",
         "G-Spot Extended",
         "Criss-Cross"
-      ]
+      ],
+      "workout_context": "The G-Spot zone (88\u201392% FTP) is where you\u2019ll spend the hardest sustained miles of Gravel One Fifty. Make this intensity feel like home."
+    },
+    {
+      "category": "VO2max",
+      "score": 68,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ],
+      "workout_context": "Gravel One Fifty\u2019s dutch flat gravel and competitive field demand explosive aerobic capacity \u2014 the ability to respond to surges without blowing up."
+    },
+    {
+      "category": "Over_Under",
+      "score": 62,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ],
+      "workout_context": "Over-unders train the lactate clearance you\u2019ll need at Gravel One Fifty when surges push you above threshold and you have to recover while still riding hard."
+    },
+    {
+      "category": "Endurance",
+      "score": 56,
+      "workouts": [
+        "Pre-Race Openers",
+        "Terrain Simulation Z2"
+      ],
+      "workout_context": "Every session at Gravel One Fifty intensity builds on this aerobic foundation \u2014 the endurance base is the soil everything else grows in."
+    },
+    {
+      "category": "Critical_Power",
+      "score": 56,
+      "workouts": [
+        "Above CP Repeats",
+        "W-Prime Depletion"
+      ],
+      "workout_context": "Critical power determines how long you can sustain above-threshold efforts at Gravel One Fifty \u2014 a higher CP means more time in the red before failure."
+    },
+    {
+      "category": "Norwegian_Double",
+      "score": 56,
+      "workouts": [
+        "Norwegian 4x8 Classic",
+        "Double Threshold"
+      ],
+      "workout_context": "The Norwegian double-threshold method builds the sustained power base for Gravel One Fifty \u2014 massive training stimulus without the recovery cost of VO2max work."
+    },
+    {
+      "category": "HVLI_Extended",
+      "score": 48,
+      "workouts": [
+        "HVLI Extended Z2",
+        "Multi-Hour Z2",
+        "Back-to-Back Long"
+      ],
+      "workout_context": "High-volume endurance builds the aerobic base that makes Gravel One Fifty\u2019s race-day efforts sustainable rather than destructive."
+    },
+    {
+      "category": "Blended",
+      "score": 48,
+      "workouts": [
+        "Z2 + VO2 Combo",
+        "Endurance with Spikes"
+      ],
+      "workout_context": "Blended sessions combine endurance with intensity spikes \u2014 exactly what Gravel One Fifty\u2019s dutch flat gravel delivers on race day."
     }
   ],
+  "race_overlay": {
+    "nutrition": "Target 60\u201380g carbs/hour for Gravel One Fifty\u2019s 93 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
+    "terrain": "Mixed terrain at Gravel One Fifty requires surface adaptability. Include weekly rides on dutch flat gravel to build confidence. Expect: dutch countryside, flat gravel, regional event."
+  },
   "pack_summary": "This 10-workout pack focuses on Durability, TT Threshold, and Gravel Specific to prepare you for 93 miles of dutch flat gravel in Roden, Drenthe, Netherlands.",
   "generated_at": "2026-02-26"
 }

@@ -471,7 +471,74 @@
           "display_order": 1
         }
       ],
-      "quotes": []
-    }
+      "quotes": [],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [],
+        "terrain_notes": [],
+        "gear_mentions": [
+          {
+            "text": "Gabe rides a Cervelo Sparrow but is looking for something with more tire clearance.",
+            "source_video_ids": [
+              "y9mzF5TYcZE"
+            ]
+          }
+        ],
+        "race_day_tips": [],
+        "additional_quotes": [
+          {
+            "text": "I didn't know anything about fueling and hydration - I way under fueled way under hydrated it was super hot and I don't think I've ever cramped up that bad in my life it was terrible.",
+            "source_video_id": "y9mzF5TYcZE",
+            "source_channel": "Iowa Gravel Series",
+            "source_view_count": 52,
+            "category": "training",
+            "curated": true
+          }
+        ],
+        "search_text": "The Fairfield Harvest Rush attracts competitive riders like Gabe Hobi, who placed second in the 100K distance in 2024. This Iowa gravel race is part of the regional gravel racing scene that draws riders from across the Midwest. The race represents the type of gravel event that has become popular in Iowa, where gravel cycling has emerged as the primary cycling discipline due to the terrain being better suited for gravel bikes than mountain bikes. Riders come from various backgrounds, including former runners and mountain bikers who have transitioned to gravel racing. The race appears to be well-established within the Iowa gravel racing circuit and attracts riders looking for competitive gravel racing opportunities in the region."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "fairfield-harvest-rush-video-1.jpg",
+        "url": "/race-photos/fairfield-harvest-rush/fairfield-harvest-rush-video-1.jpg",
+        "alt": "Indoor interview with cyclist wearing Honda cap in blurred indoor setting - Fairfield Harvest Rush - Fairfield, Iowa",
+        "credit": "YouTube / Iowa Gravel Series",
+        "primary": true,
+        "ai_relevance": 1,
+        "ai_quality": 2,
+        "ai_keywords": [
+          "cyclist interview",
+          "Honda cap",
+          "indoor",
+          "portrait"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "fairfield-harvest-rush-video-2.jpg",
+        "url": "/race-photos/fairfield-harvest-rush/fairfield-harvest-rush-video-2.jpg",
+        "alt": "Bald cyclist gesturing during indoor video interview or presentation - Fairfield Harvest Rush - Fairfield, Iowa",
+        "credit": "YouTube / Iowa Gravel Series",
+        "primary": false,
+        "ai_relevance": 1,
+        "ai_quality": 2,
+        "ai_keywords": [
+          "cyclist interview",
+          "indoor interview",
+          "video call",
+          "presentation"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "fairfield-harvest-rush-preview.gif",
+        "url": "/race-photos/fairfield-harvest-rush/fairfield-harvest-rush-preview.gif",
+        "alt": "Course preview from Fairfield Harvest Rush race footage",
+        "credit": "YouTube / Iowa Gravel Series",
+        "gif": true
+      }
+    ]
   }
 }

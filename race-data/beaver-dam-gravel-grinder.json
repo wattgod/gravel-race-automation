@@ -518,7 +518,75 @@
           "curated": false
         }
       ],
-      "quotes": []
-    }
+      "quotes": [],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [],
+        "terrain_notes": [],
+        "gear_mentions": [],
+        "race_day_tips": [],
+        "additional_quotes": [],
+        "search_text": "No relevant race intelligence available for the Beaver Dam Gravel Grinder from the provided transcript. The transcript discusses a different event (the Gravel Grind in Fredericton, New Brunswick) which is a recreational fundraising ride for Special Olympics New Brunswick with over 100 participants and routes of varying surfaces, distances and difficulties."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "beaver-dam-gravel-grinder-video-1.jpg",
+        "url": "/race-photos/beaver-dam-gravel-grinder/beaver-dam-gravel-grinder-video-1.jpg",
+        "alt": "Person with rifle aiming across desert terrain with sagebrush and hills in background - Beaver Dam Gravel Grinder - Beaver Dam State Park, Nevada",
+        "credit": "YouTube / Cori Jones",
+        "primary": true,
+        "ai_relevance": 2,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "desert landscape",
+          "sagebrush terrain",
+          "arid environment",
+          "hills"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "beaver-dam-gravel-grinder-video-2.jpg",
+        "url": "/race-photos/beaver-dam-gravel-grinder/beaver-dam-gravel-grinder-video-2.jpg",
+        "alt": "Wide open prairie landscape with rolling hills under blue sky with scattered clouds - Beaver Dam Gravel Grinder - Beaver Dam State Park, Nevada",
+        "credit": "YouTube / Cori Jones",
+        "primary": false,
+        "ai_relevance": 1,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "prairie landscape",
+          "rolling hills",
+          "open terrain",
+          "blue sky"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "beaver-dam-gravel-grinder-video-3.jpg",
+        "url": "/race-photos/beaver-dam-gravel-grinder/beaver-dam-gravel-grinder-video-3.jpg",
+        "alt": "Cyclists riding mountain bikes on paved road through canyon with red rock formations - Beaver Dam Gravel Grinder - Beaver Dam State Park, Nevada",
+        "credit": "YouTube / Cori Jones",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "cycling group",
+          "mountain bikes",
+          "canyon road",
+          "red rock",
+          "paved descent"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "beaver-dam-gravel-grinder-preview.gif",
+        "url": "/race-photos/beaver-dam-gravel-grinder/beaver-dam-gravel-grinder-preview.gif",
+        "alt": "Course preview from Beaver Dam Gravel Grinder race footage",
+        "credit": "YouTube / Cori Jones",
+        "gif": true
+      }
+    ]
   }
 }

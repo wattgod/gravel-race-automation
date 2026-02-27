@@ -1,6 +1,7 @@
 {
   "slug": "red-granite-grinder",
   "race_name": "Red Granite Grinder",
+  "distance_mi": 150.0,
   "demands": {
     "durability": 8,
     "climbing": 2,
@@ -19,7 +20,8 @@
         "Tired VO2max",
         "Double Day Simulation",
         "Progressive Fatigue"
-      ]
+      ],
+      "workout_context": "Red Granite Grinder\u2019s 150-mile distance demands power production deep into fatigue \u2014 the defining challenge of ultra-distance gravel."
     },
     {
       "category": "TT_Threshold",
@@ -28,7 +30,8 @@
         "Single Sustained Threshold",
         "Threshold Ramps",
         "Descending Threshold"
-      ]
+      ],
+      "workout_context": "Red Granite Grinder rewards athletes who can hold sustained power without blowing up \u2014 threshold is the engine that drives everything above Zone 2."
     },
     {
       "category": "Gravel_Specific",
@@ -36,7 +39,8 @@
       "workouts": [
         "Surge and Settle",
         "Terrain Microbursts"
-      ]
+      ],
+      "workout_context": "Red Granite Grinder\u2019s wisconsin gravel roads (90%), dirt roads (10%) demands rapid power changes \u2014 surge over obstacles, settle on smoother sections, repeat for hours."
     },
     {
       "category": "Race_Simulation",
@@ -45,7 +49,8 @@
         "Breakaway Simulation",
         "Variable Pace Chaos",
         "Sector Simulation"
-      ]
+      ],
+      "workout_context": "Racing Red Granite Grinder isn\u2019t just fitness \u2014 it\u2019s pacing, fueling, and executing when conditions deteriorate. This workout practices the race itself."
     },
     {
       "category": "HVLI_Extended",
@@ -54,9 +59,79 @@
         "HVLI Extended Z2",
         "Multi-Hour Z2",
         "Back-to-Back Long"
-      ]
+      ],
+      "workout_context": "At 150 miles, Red Granite Grinder rewards a massive aerobic engine. This volume work builds the fat-oxidation capacity that keeps you moving when glycogen runs low."
+    },
+    {
+      "category": "VO2max",
+      "score": 61,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ],
+      "workout_context": "Red Granite Grinder\u2019s wisconsin rolling gravel\u2014fall farmland and competitive field demand explosive aerobic capacity \u2014 the ability to respond to surges without blowing up."
+    },
+    {
+      "category": "G_Spot",
+      "score": 59,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ],
+      "workout_context": "The G-Spot zone (88\u201392% FTP) is where you\u2019ll spend the hardest sustained miles of Red Granite Grinder. Make this intensity feel like home."
+    },
+    {
+      "category": "Endurance",
+      "score": 58,
+      "workouts": [
+        "Pre-Race Openers",
+        "Terrain Simulation Z2"
+      ],
+      "workout_context": "Every session at Red Granite Grinder intensity builds on this aerobic foundation \u2014 the endurance base is the soil everything else grows in."
+    },
+    {
+      "category": "Blended",
+      "score": 55,
+      "workouts": [
+        "Z2 + VO2 Combo",
+        "Endurance with Spikes"
+      ],
+      "workout_context": "Blended sessions combine endurance with intensity spikes \u2014 exactly what Red Granite Grinder\u2019s wisconsin rolling gravel\u2014fall farmland delivers on race day."
+    },
+    {
+      "category": "Over_Under",
+      "score": 47,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ],
+      "workout_context": "Over-unders train the lactate clearance you\u2019ll need at Red Granite Grinder when surges push you above threshold and you have to recover while still riding hard."
+    },
+    {
+      "category": "Critical_Power",
+      "score": 47,
+      "workouts": [
+        "Above CP Repeats",
+        "W-Prime Depletion"
+      ],
+      "workout_context": "Critical power determines how long you can sustain above-threshold efforts at Red Granite Grinder \u2014 a higher CP means more time in the red before failure."
+    },
+    {
+      "category": "Tempo",
+      "score": 45,
+      "workouts": [
+        "Tempo Blocks",
+        "Extended Tempo"
+      ],
+      "workout_context": "Tempo is the race-day intensity of Red Granite Grinder. Harder than Z2, easier than threshold \u2014 the pace you\u2019ll hold for hours on wisconsin rolling gravel\u2014fall farmland."
     }
   ],
+  "race_overlay": {
+    "nutrition": "Ultra-distance fueling for 150 miles: 80\u2013100g carbs/hour from mile 1 \u2014 don\u2019t wait until you\u2019re hungry. Practice your exact race-day nutrition in every long training ride. Carry backup calories. 150 miles burns 8,000\u201312,000+ calories \u2014 you cannot replace them all, but you must try.",
+    "terrain": "Mixed terrain at Red Granite Grinder requires surface adaptability. Include weekly rides on wisconsin rolling gravel\u2014fall farmland to build confidence. Expect: wisconsin gravel roads (90%), dirt roads (10%), rolling farmland."
+  },
   "pack_summary": "This 10-workout pack focuses on Durability, TT Threshold, and Gravel Specific to prepare you for 150 miles of wisconsin rolling gravel\u2014fall farmland in Athens, Wisconsin (Central Wisconsin).",
   "generated_at": "2026-02-26"
 }

@@ -1,6 +1,7 @@
 {
   "slug": "unbound-200",
   "race_name": "Unbound Gravel 200",
+  "distance_mi": 200.0,
   "demands": {
     "durability": 10,
     "climbing": 7,
@@ -19,7 +20,8 @@
         "Tired VO2max",
         "Double Day Simulation",
         "Progressive Fatigue"
-      ]
+      ],
+      "workout_context": "Unbound Gravel 200\u2019s 200-mile distance demands power production deep into fatigue \u2014 the defining challenge of ultra-distance gravel."
     },
     {
       "category": "Gravel_Specific",
@@ -27,7 +29,8 @@
       "workouts": [
         "Surge and Settle",
         "Terrain Microbursts"
-      ]
+      ],
+      "workout_context": "Unbound Gravel 200\u2019s flint hills gravel, rolling hills demands rapid power changes \u2014 surge over obstacles, settle on smoother sections, repeat for hours."
     },
     {
       "category": "Race_Simulation",
@@ -36,7 +39,8 @@
         "Breakaway Simulation",
         "Variable Pace Chaos",
         "Sector Simulation"
-      ]
+      ],
+      "workout_context": "Racing Unbound Gravel 200 isn\u2019t just fitness \u2014 it\u2019s pacing, fueling, and executing when conditions deteriorate. This workout practices the race itself."
     },
     {
       "category": "Endurance",
@@ -44,7 +48,8 @@
       "workouts": [
         "Pre-Race Openers",
         "Terrain Simulation Z2"
-      ]
+      ],
+      "workout_context": "Every session at Unbound Gravel 200 intensity builds on this aerobic foundation \u2014 the endurance base is the soil everything else grows in."
     },
     {
       "category": "HVLI_Extended",
@@ -53,9 +58,80 @@
         "HVLI Extended Z2",
         "Multi-Hour Z2",
         "Back-to-Back Long"
-      ]
+      ],
+      "workout_context": "At 200 miles, Unbound Gravel 200 rewards a massive aerobic engine. This volume work builds the fat-oxidation capacity that keeps you moving when glycogen runs low."
+    },
+    {
+      "category": "VO2max",
+      "score": 54,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ],
+      "workout_context": "Unbound Gravel 200\u2019s rolling gravel with punchy climbs and competitive field demand explosive aerobic capacity \u2014 the ability to respond to surges without blowing up."
+    },
+    {
+      "category": "Critical_Power",
+      "score": 48,
+      "workouts": [
+        "Above CP Repeats",
+        "W-Prime Depletion"
+      ],
+      "workout_context": "Critical power determines how long you can sustain above-threshold efforts at Unbound Gravel 200 \u2014 a higher CP means more time in the red before failure."
+    },
+    {
+      "category": "Anaerobic_Capacity",
+      "score": 43,
+      "workouts": [
+        "2min Killers",
+        "90sec Repeats"
+      ],
+      "workout_context": "Short, violent efforts are unavoidable at Unbound Gravel 200 \u2014 climbs demanding 2-minute maximal efforts, surges to close gaps, attacks on rolling gravel with punchy climbs."
+    },
+    {
+      "category": "TT_Threshold",
+      "score": 39,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ],
+      "workout_context": "Unbound Gravel 200 rewards athletes who can hold sustained power without blowing up \u2014 threshold is the engine that drives everything above Zone 2."
+    },
+    {
+      "category": "Blended",
+      "score": 38,
+      "workouts": [
+        "Z2 + VO2 Combo",
+        "Endurance with Spikes"
+      ],
+      "workout_context": "Blended sessions combine endurance with intensity spikes \u2014 exactly what Unbound Gravel 200\u2019s rolling gravel with punchy climbs delivers on race day."
+    },
+    {
+      "category": "Over_Under",
+      "score": 38,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ],
+      "workout_context": "Over-unders train the lactate clearance you\u2019ll need at Unbound Gravel 200 when surges push you above threshold and you have to recover while still riding hard."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 32,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "Unbound Gravel 200\u2019s 11,000ft of climbing demands seated and standing versatility \u2014 the ability to change climbing style as gradient and fatigue dictate."
     }
   ],
+  "race_overlay": {
+    "heat": "June in Emporia, Kansas \u2014 June brings 85-95\u00b0F days with high humidity. Begin heat acclimatization 10\u201314 days before Unbound Gravel 200 \u2014 20\u201330min sauna sessions or midday rides in full kit. Pre-load sodium 48 hours out. Target 500\u2013750ml/hr with electrolytes on race day. Race-day realities: Heat adaptation critical; Hydration demands extreme.",
+    "nutrition": "Ultra-distance fueling for 200 miles: 80\u2013100g carbs/hour from mile 1 \u2014 don\u2019t wait until you\u2019re hungry. Practice your exact race-day nutrition in every long training ride. Carry backup calories. 200 miles burns 8,000\u201312,000+ calories \u2014 you cannot replace them all, but you must try.",
+    "terrain": "Highly technical terrain at Unbound Gravel 200 demands practice on similar surfaces. Ride rolling gravel with punchy climbs at race-day cadence weekly. Expect: flint hills gravel, rolling hills, sharp limestone. Practice cornering, descending, and power delivery on unstable surfaces. Dial in tire pressure before race week \u2014 5 PSI wrong costs you 15+ minutes over 200 miles."
+  },
   "pack_summary": "This 10-workout pack focuses on Durability, Gravel Specific, and Race Simulation to prepare you for 200 miles of rolling gravel with punchy climbs in Emporia, Kansas.",
   "generated_at": "2026-02-26"
 }

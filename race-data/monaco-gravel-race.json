@@ -444,7 +444,164 @@
           "category": "course_difficulty",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Long climb in middle section",
+            "description": "The long climb in the middle part of the course proved decisive, with riders fighting for position until this point where some were completely stalled.",
+            "source_video_ids": [
+              "0NA8yjZsS_I"
+            ]
+          },
+          {
+            "name": "Final 7km downhill",
+            "description": "Critical section where podium positions can be lost due to technical issues, with riders having significant time advantages that can be erased by mechanicals.",
+            "source_video_ids": [
+              "0NA8yjZsS_I"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Big stones and long climbs characterize the course, with wet and muddy conditions when it rains overnight.",
+            "source_video_ids": [
+              "0NA8yjZsS_I"
+            ]
+          },
+          {
+            "text": "The bike feels like a road bike on gravel - really fast rolling conditions despite the technical terrain.",
+            "source_video_ids": [
+              "0NA8yjZsS_I"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "45mm tires in front, 40mm behind worked well, though rider suggests maybe going 45mm front and rear next time. Single speed setup with 46 chain ring.",
+            "source_video_ids": [
+              "0NA8yjZsS_I"
+            ]
+          },
+          {
+            "text": "Schwab G1 Erics Pro in rear, G1 RS 45mm in front - described as best bike on the market for these conditions.",
+            "source_video_ids": [
+              "0NA8yjZsS_I"
+            ]
+          }
+        ],
+        "race_day_tips": [
+          {
+            "text": "Bring tire plugs and know how to use them - multiple flat tires can end podium chances even with significant time advantages.",
+            "source_video_ids": [
+              "0NA8yjZsS_I"
+            ]
+          },
+          {
+            "text": "Check tire pressure regularly during the race, especially after climbs and technical sections.",
+            "source_video_ids": [
+              "0NA8yjZsS_I"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "It's been pissing rain all night. It's going to be wet, muddy, and stony. 120ks of racing. Minus 5 because they put the finish line in the middle of the forest.",
+            "source_video_id": "0NA8yjZsS_I",
+            "source_channel": "Tudor Pro Cycling",
+            "source_view_count": 13302,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "I hope they have a shower but I'm not even sure they have a shower here. So yeah, maybe I bring some mud from Monaco back to Valvalis.",
+            "source_video_id": "0NA8yjZsS_I",
+            "source_channel": "Tudor Pro Cycling",
+            "source_view_count": 13302,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "The Monaco Gravel Race features 120km of racing with approximately 2600-2700m of climbing through challenging terrain characterized by big stones and long climbs. The course includes a decisive long climb in the middle section where many riders struggle to maintain pace, followed by a critical final 7km downhill where mechanical issues can end podium chances. Weather conditions can turn the course wet and muddy when rain occurs overnight. The finish line is located in the middle of the forest rather than in town. Riders report the course feels fast rolling like a road bike on gravel despite technical sections. Tire pressure management and puncture preparation are crucial as multiple flats are common. The terrain includes beautiful landscape but demands climbing legs and technical skills through stony sections."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "monaco-gravel-race-video-1.jpg",
+        "url": "/race-photos/monaco-gravel-race/monaco-gravel-race-video-1.jpg",
+        "alt": "Gravel cyclists riding on dirt trail through lush green forest with mountains visible in background during Monaco Gravel Race",
+        "credit": "YouTube / Cycles Aix'Perts",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel trail",
+          "forest cycling",
+          "mountain backdrop",
+          "dirt path",
+          "Monaco terrain"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "monaco-gravel-race-video-2.jpg",
+        "url": "/race-photos/monaco-gravel-race/monaco-gravel-race-video-2.jpg",
+        "alt": "Cyclists racing on paved road through Alpine village with traditional chalets and mountain valley landscape in Monaco region - Monaco Gravel Race",
+        "credit": "YouTube / Cycles Aix'Perts",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 5,
+        "ai_keywords": [
+          "Alpine village",
+          "mountain cycling",
+          "Monaco race",
+          "valley road",
+          "traditional chalets"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "monaco-gravel-race-video-3.jpg",
+        "url": "/race-photos/monaco-gravel-race/monaco-gravel-race-video-3.jpg",
+        "alt": "Aerial view of cyclists on winding mountain pass road through barren Alpine terrain with rocky slopes and switchbacks - Monaco Gravel Race - Monaco",
+        "credit": "YouTube / Cycles Aix'Perts",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 5,
+        "ai_keywords": [
+          "mountain pass",
+          "Alpine terrain",
+          "switchback road",
+          "aerial cycling",
+          "rocky landscape"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "monaco-gravel-race-preview.gif",
+        "url": "/race-photos/monaco-gravel-race/monaco-gravel-race-preview.gif",
+        "alt": "Course preview from Monaco Gravel Race race footage",
+        "credit": "YouTube / Cycles Aix'Perts",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "monaco-gravel-race-preview-2.gif",
+        "url": "/race-photos/monaco-gravel-race/monaco-gravel-race-preview-2.gif",
+        "alt": "Course preview from Monaco Gravel Race race footage",
+        "credit": "YouTube / Cycles Aix'Perts",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "monaco-gravel-race-preview-3.gif",
+        "url": "/race-photos/monaco-gravel-race/monaco-gravel-race-preview-3.gif",
+        "alt": "Course preview from Monaco Gravel Race race footage",
+        "credit": "YouTube / Cycles Aix'Perts",
+        "gif": true
+      }
+    ]
   }
 }

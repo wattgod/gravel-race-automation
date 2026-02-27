@@ -428,7 +428,116 @@
           "curated": false
         }
       ],
-      "quotes": []
-    }
+      "quotes": [],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [],
+        "terrain_notes": [
+          {
+            "text": "Course was pretty dry with a few wet sections in the trees, making conditions pretty fast overall.",
+            "source_video_ids": [
+              "eAwoo32N2Yk"
+            ]
+          }
+        ],
+        "gear_mentions": [],
+        "race_day_tips": [],
+        "additional_quotes": [
+          {
+            "text": "It wasn't as hot as last year which is nice and you know the course was pretty dry there were a few wet sections in the trees but for the most part it was pretty fast and I let it roll.",
+            "source_video_id": "eAwoo32N2Yk",
+            "source_channel": "USA Cycling",
+            "source_view_count": 1475,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "The 2023 USA Cycling Collegiate Road National Championship welcomed more than 350 cyclists to the Duke City, the first time the city of Albuquerque has ever hosted this event.",
+            "source_video_id": "e_swm3P6eYg",
+            "source_channel": "KOAT",
+            "source_view_count": 735,
+            "category": "community",
+            "curated": true
+          }
+        ],
+        "search_text": "The Collegiate Gravel Nationals in Turkey, Texas featured demanding racing conditions with riders pushing exceptional power numbers throughout the 62-mile course. Power data shows normalized power outputs of 370-380 watts for 5+ hours, with climbs requiring 430-500+ watts repeatedly. The course proved punchy with multiple selection points on climbs, where riders averaged over 450 watts each time. Weather conditions were described as cooler than previous years, with mostly dry course conditions except for a few wet sections in tree-covered areas. The terrain allowed for relatively fast racing at around 38 km/hour average speeds during flatter sections, though constant elevation changes and lack of drafting opportunities made for extremely high energy demands. Multiple climbs featured 6-9 minute sustained efforts at 430+ watts, creating significant selections in the field throughout the race."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "collegiate-gravel-nationals-video-1.jpg",
+        "url": "/race-photos/collegiate-gravel-nationals/collegiate-gravel-nationals-video-1.jpg",
+        "alt": "Gravel cyclists racing on paved road with grass fields and rural landscape in background during collegiate nationals competition - Collegiate Gravel Nationals - Turkey, Texas",
+        "credit": "YouTube / Skyler Mackey",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel racing",
+          "collegiate nationals",
+          "rural landscape",
+          "cycling peloton",
+          "paved section"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "collegiate-gravel-nationals-video-2.jpg",
+        "url": "/race-photos/collegiate-gravel-nationals/collegiate-gravel-nationals-video-2.jpg",
+        "alt": "Blurry indoor scene of person in red shirt eating at restaurant table with no cycling content visible - Collegiate Gravel Nationals - Turkey, Texas",
+        "credit": "YouTube / Skyler Mackey",
+        "primary": false,
+        "ai_relevance": 1,
+        "ai_quality": 2,
+        "ai_keywords": [
+          "indoor dining",
+          "restaurant",
+          "red shirt",
+          "eating"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "collegiate-gravel-nationals-video-3.jpg",
+        "url": "/race-photos/collegiate-gravel-nationals/collegiate-gravel-nationals-video-3.jpg",
+        "alt": "Strava activity analysis screen showing gravel race data with elevation profile, power metrics, and route map from cycling computer - Collegiate Gravel Nationals - Turkey, Texas",
+        "credit": "YouTube / Skyler Mackey",
+        "primary": false,
+        "ai_relevance": 3,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "Strava analysis",
+          "power data",
+          "elevation profile",
+          "gravel race metrics",
+          "cycling computer"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "collegiate-gravel-nationals-preview.gif",
+        "url": "/race-photos/collegiate-gravel-nationals/collegiate-gravel-nationals-preview.gif",
+        "alt": "Course preview from Collegiate Gravel Nationals race footage",
+        "credit": "YouTube / Skyler Mackey",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "collegiate-gravel-nationals-preview-2.gif",
+        "url": "/race-photos/collegiate-gravel-nationals/collegiate-gravel-nationals-preview-2.gif",
+        "alt": "Course preview from Collegiate Gravel Nationals race footage",
+        "credit": "YouTube / Skyler Mackey",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "collegiate-gravel-nationals-preview-3.gif",
+        "url": "/race-photos/collegiate-gravel-nationals/collegiate-gravel-nationals-preview-3.gif",
+        "alt": "Course preview from Collegiate Gravel Nationals race footage",
+        "credit": "YouTube / Skyler Mackey",
+        "gif": true
+      }
+    ]
   }
 }

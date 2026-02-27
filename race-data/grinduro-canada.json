@@ -492,6 +492,56 @@
         }
       ],
       "quotes": []
-    }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "grinduro-canada-video-1.jpg",
+        "url": "/race-photos/grinduro-canada/grinduro-canada-video-1.jpg",
+        "alt": "Gravel cycling campground with cars, tents, and bicycles set up in grassy field with forested hills and mountains in background - Grinduro Canada - Saint-Urbain-de-Charlevoix, Quebec, Canada",
+        "credit": "YouTube / SkiPresse : : CyclePresse",
+        "primary": true,
+        "ai_relevance": 3,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel camping",
+          "race basecamp",
+          "mountain backdrop",
+          "cycling festival"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "grinduro-canada-video-2.jpg",
+        "url": "/race-photos/grinduro-canada/grinduro-canada-video-2.jpg",
+        "alt": "Mass start of gravel race with large peloton of cyclists departing from timing arch on paved road surface - Grinduro Canada - Saint-Urbain-de-Charlevoix, Quebec, Canada",
+        "credit": "YouTube / SkiPresse : : CyclePresse",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "race start",
+          "gravel peloton",
+          "timing arch",
+          "mass departure"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "grinduro-canada-preview.gif",
+        "url": "/race-photos/grinduro-canada/grinduro-canada-preview.gif",
+        "alt": "Course preview from Grinduro Canada race footage",
+        "credit": "YouTube / SkiPresse : : CyclePresse",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "grinduro-canada-preview-2.gif",
+        "url": "/race-photos/grinduro-canada/grinduro-canada-preview-2.gif",
+        "alt": "Course preview from Grinduro Canada race footage",
+        "credit": "YouTube / SkiPresse : : CyclePresse",
+        "gif": true
+      }
+    ]
   }
 }

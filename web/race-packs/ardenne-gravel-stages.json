@@ -1,6 +1,7 @@
 {
   "slug": "ardenne-gravel-stages",
   "race_name": "Ardenne Gravel Stages",
+  "distance_mi": 180.0,
   "demands": {
     "durability": 8,
     "climbing": 7,
@@ -19,7 +20,8 @@
         "Tired VO2max",
         "Double Day Simulation",
         "Progressive Fatigue"
-      ]
+      ],
+      "workout_context": "Ardenne Gravel Stages\u2019s 180-mile distance demands power production deep into fatigue \u2014 the defining challenge of ultra-distance gravel."
     },
     {
       "category": "TT_Threshold",
@@ -28,7 +30,8 @@
         "Single Sustained Threshold",
         "Threshold Ramps",
         "Descending Threshold"
-      ]
+      ],
+      "workout_context": "Ardenne Gravel Stages rewards athletes who can hold sustained power without blowing up \u2014 threshold is the engine that drives everything above Zone 2."
     },
     {
       "category": "Over_Under",
@@ -36,7 +39,8 @@
       "workouts": [
         "Classic Over-Unders",
         "Ladder Over-Unders"
-      ]
+      ],
+      "workout_context": "Over-unders train the lactate clearance you\u2019ll need at Ardenne Gravel Stages when surges push you above threshold and you have to recover while still riding hard."
     },
     {
       "category": "Gravel_Specific",
@@ -44,7 +48,8 @@
       "workouts": [
         "Surge and Settle",
         "Terrain Microbursts"
-      ]
+      ],
+      "workout_context": "Ardenne Gravel Stages\u2019s belgian ardennes, multi-stage demands rapid power changes \u2014 surge over obstacles, settle on smoother sections, repeat for hours."
     },
     {
       "category": "Race_Simulation",
@@ -53,9 +58,80 @@
         "Breakaway Simulation",
         "Variable Pace Chaos",
         "Sector Simulation"
-      ]
+      ],
+      "workout_context": "Racing Ardenne Gravel Stages isn\u2019t just fitness \u2014 it\u2019s pacing, fueling, and executing when conditions deteriorate. This workout practices the race itself."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 64,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "Ardenne Gravel Stages\u2019s 12,000ft of climbing demands seated and standing versatility \u2014 the ability to change climbing style as gradient and fatigue dictate."
+    },
+    {
+      "category": "HVLI_Extended",
+      "score": 61,
+      "workouts": [
+        "HVLI Extended Z2",
+        "Multi-Hour Z2",
+        "Back-to-Back Long"
+      ],
+      "workout_context": "At 180 miles, Ardenne Gravel Stages rewards a massive aerobic engine. This volume work builds the fat-oxidation capacity that keeps you moving when glycogen runs low."
+    },
+    {
+      "category": "G_Spot",
+      "score": 59,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ],
+      "workout_context": "The G-Spot zone (88\u201392% FTP) is where you\u2019ll spend the hardest sustained miles of Ardenne Gravel Stages. Make this intensity feel like home."
+    },
+    {
+      "category": "Endurance",
+      "score": 58,
+      "workouts": [
+        "Pre-Race Openers",
+        "Terrain Simulation Z2"
+      ],
+      "workout_context": "Every session at Ardenne Gravel Stages intensity builds on this aerobic foundation \u2014 the endurance base is the soil everything else grows in."
+    },
+    {
+      "category": "Blended",
+      "score": 55,
+      "workouts": [
+        "Z2 + VO2 Combo",
+        "Endurance with Spikes"
+      ],
+      "workout_context": "Blended sessions combine endurance with intensity spikes \u2014 exactly what Ardenne Gravel Stages\u2019s belgian ardennes gravel delivers on race day."
+    },
+    {
+      "category": "VO2max",
+      "score": 52,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ],
+      "workout_context": "Ardenne Gravel Stages\u2019s belgian ardennes gravel and competitive field demand explosive aerobic capacity \u2014 the ability to respond to surges without blowing up."
+    },
+    {
+      "category": "SFR_Muscle_Force",
+      "score": 42,
+      "workouts": [
+        "SFR Low Cadence",
+        "Force Repeats"
+      ],
+      "workout_context": "Low-cadence force work builds the muscular strength for Ardenne Gravel Stages\u2019s 12,000ft of climbing \u2014 especially the grinding, low-speed ascents."
     }
   ],
+  "race_overlay": {
+    "nutrition": "Ultra-distance fueling for 180 miles: 80\u2013100g carbs/hour from mile 1 \u2014 don\u2019t wait until you\u2019re hungry. Practice your exact race-day nutrition in every long training ride. Carry backup calories. 180 miles burns 8,000\u201312,000+ calories \u2014 you cannot replace them all, but you must try.",
+    "terrain": "Mixed terrain at Ardenne Gravel Stages requires surface adaptability. Include weekly rides on belgian ardennes gravel to build confidence. Expect: belgian ardennes, multi-stage, regional event."
+  },
   "pack_summary": "This 10-workout pack focuses on Durability, TT Threshold, and Over Under to prepare you for 180 miles of belgian ardennes gravel in Vielsalm/Engreux, Belgian Ardennes.",
   "generated_at": "2026-02-26"
 }

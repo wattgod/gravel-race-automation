@@ -532,7 +532,91 @@
           "category": "course_difficulty",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [],
+        "terrain_notes": [],
+        "gear_mentions": [],
+        "race_day_tips": [],
+        "additional_quotes": [
+          {
+            "text": "Guy was a little unorganized. It seemed like he's done a lot of rides, but he seemed unorganized in this one. They had some trouble with people cutting the wires from one of the longer segments.",
+            "source_video_id": "j74wOwRDYVM",
+            "source_channel": "Treeman-Adventures in Retirement",
+            "source_view_count": 14,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "They did these two time segments. So they had a sign and a wire across the road and they gave you an ankle bracelet and you when you cross that it clocked you into the segment and then the first one was 10 miles long and it clocked you out. And the second one was I think 23 or 26 miles long clocked you in and out on that.",
+            "source_video_id": "j74wOwRDYVM",
+            "source_channel": "Treeman-Adventures in Retirement",
+            "source_view_count": 14,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "The Opelika Okey Dokey gravel race in Alabama features a unique timed segment format with two sections - a 10-mile segment and a longer 23-26 mile segment. Riders receive ankle bracelets that automatically time them through wire checkpoints at segment boundaries. The race offers 30, 65, and 100-mile distance options on quiet Alabama roads with minimal car traffic. Race organization had some issues with people cutting timing wires on the longer segments. Post-race activities include food and beer at Red Clay Brewing Company in downtown Opelika. Results are viewable immediately on phones after finishing. The area offers camping at nearby Chewacla State Park. Weather can be variable with potential for cold, rain, and wind. The course runs through scenic Alabama countryside with good road surfaces and minimal traffic making for an enjoyable riding experience in this neat small town setting."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "opelika-okey-dokey-video-1.jpg",
+        "url": "/race-photos/opelika-okey-dokey/opelika-okey-dokey-video-1.jpg",
+        "alt": "Cyclist relaxing by residential pool with gravel bike after completing Opelika Okey Dokey race - Opelika, Alabama",
+        "credit": "YouTube / Gravel Cyclist",
+        "primary": true,
+        "ai_relevance": 2,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel bike",
+          "post-race",
+          "residential setting",
+          "cycling gear"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "opelika-okey-dokey-video-2.jpg",
+        "url": "/race-photos/opelika-okey-dokey/opelika-okey-dokey-video-2.jpg",
+        "alt": "Pickup truck with bike rack on suburban street near Opelika race venue with tree-lined roads - Opelika Okey Dokey - Opelika, Alabama",
+        "credit": "YouTube / Gravel Cyclist",
+        "primary": false,
+        "ai_relevance": 3,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "bike transport",
+          "suburban street",
+          "race logistics",
+          "tree-lined road"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "opelika-okey-dokey-video-3.jpg",
+        "url": "/race-photos/opelika-okey-dokey/opelika-okey-dokey-video-3.jpg",
+        "alt": "Race participant interviewed indoors in garage with cycling medals and race numbers displayed on wall - Opelika Okey Dokey - Opelika, Alabama",
+        "credit": "YouTube / Gravel Cyclist",
+        "primary": false,
+        "ai_relevance": 2,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "race interview",
+          "cycling medals",
+          "race numbers",
+          "participant testimony"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "opelika-okey-dokey-preview.gif",
+        "url": "/race-photos/opelika-okey-dokey/opelika-okey-dokey-preview.gif",
+        "alt": "Course preview from Opelika Okey Dokey race footage",
+        "credit": "YouTube / Gravel Cyclist",
+        "gif": true
+      }
+    ]
   }
 }

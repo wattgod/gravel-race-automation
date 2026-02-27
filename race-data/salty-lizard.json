@@ -547,7 +547,143 @@
           "category": "race_atmosphere",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Huge Road climb out of town",
+            "description": "Short but very steep climb that leads out of town to first taste of gravel",
+            "source_video_ids": [
+              "PwEW02rR_Mw"
+            ]
+          },
+          {
+            "name": "First downhill section",
+            "description": "Fast, loose, rough and bumpy descent where gravel bikers slide out, photographers positioned to catch crashes",
+            "source_video_ids": [
+              "PwEW02rR_Mw"
+            ]
+          },
+          {
+            "name": "Silver Island pass descent",
+            "mile_marker": "17",
+            "description": "Fast and rowdy descent after aid station 1, riders almost lose control and go down",
+            "source_video_ids": [
+              "PwEW02rR_Mw"
+            ]
+          },
+          {
+            "name": "The big climb",
+            "mile_marker": "90",
+            "description": "Major climbing section near the end of the race in section four",
+            "source_video_ids": [
+              "PwEW02rR_Mw"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "First gravel section is a bit bumpy and kind of fast but fun",
+            "source_video_ids": [
+              "PwEW02rR_Mw"
+            ]
+          },
+          {
+            "text": "Middle section feels like flying, averaging 17-19 mph on mountain bike on dirt",
+            "source_video_ids": [
+              "PwEW02rR_Mw"
+            ]
+          }
+        ],
+        "gear_mentions": [],
+        "race_day_tips": [
+          {
+            "text": "Watch other riders' lines and see how hard they're pushing early in the race, heart rate management is critical",
+            "source_video_ids": [
+              "PwEW02rR_Mw"
+            ]
+          },
+          {
+            "text": "Don't push too hard in the first few miles - heart rate sitting at 150 is not sustainable for this race",
+            "source_video_ids": [
+              "PwEW02rR_Mw"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "The race took us out through the silver Island Scenic back way and this was spectacular like it is so beautiful out there especially if you love rocks and mountains and you can see the mountains on your left and the Salt Flats on your right is just incredible",
+            "source_video_id": "PwEW02rR_Mw",
+            "source_channel": "Keith and Lindsey",
+            "source_view_count": 737,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "The Salty Lizard features a challenging early profile with a short but very steep road climb out of Wendover leading to the first gravel section. The course includes a notorious fast downhill section where gravel bikes slide out, followed by terrain that feels bumpy and fast. Aid station 1 sits at mile 17 near Silver Island pass, which features a fast and rowdy descent where riders nearly lose control. The middle section allows riders to fly at 17-19 mph on dirt through spectacular desert scenery with mountains on the left and Salt Flats on the right. The race splits at 65 and 100 mile options after the Silver Island descent. A major climbing challenge hits around mile 90 in the fourth section. Heart rate management proves critical as the early pace can spike unsustainably high. The course travels through the Silver Island Scenic back way offering beautiful desert mountain views."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "salty-lizard-video-1.jpg",
+        "url": "/race-photos/salty-lizard/salty-lizard-video-1.jpg",
+        "alt": "Cyclist shadow and gravel road stretching through arid desert landscape with rocky mountains and clear blue sky - Salty Lizard - Wendover, UT",
+        "credit": "YouTube / Keith and Lindsey",
+        "primary": true,
+        "ai_relevance": 4,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel road",
+          "desert cycling",
+          "mountain landscape",
+          "cyclist shadow",
+          "arid terrain"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "salty-lizard-video-2.jpg",
+        "url": "/race-photos/salty-lizard/salty-lizard-video-2.jpg",
+        "alt": "Two cyclists riding gravel road through Silver Island Pass with desert mountains and sparse vegetation - Salty Lizard - Wendover, UT",
+        "credit": "YouTube / Keith and Lindsey",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "Silver Island Pass",
+          "gravel cycling",
+          "desert mountains",
+          "mountain pass",
+          "remote terrain"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "salty-lizard-video-3.jpg",
+        "url": "/race-photos/salty-lizard/salty-lizard-video-3.jpg",
+        "alt": "Large peloton of gravel cyclists riding through Historic Wendover Airfield at sunset with hangar buildings visible - Salty Lizard - Wendover, UT",
+        "credit": "YouTube / Keith and Lindsey",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "Wendover Airfield",
+          "gravel peloton",
+          "sunset cycling",
+          "historic airfield",
+          "group ride"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "salty-lizard-preview.gif",
+        "url": "/race-photos/salty-lizard/salty-lizard-preview.gif",
+        "alt": "Course preview from Salty Lizard race footage",
+        "credit": "YouTube / Keith and Lindsey",
+        "gif": true
+      }
+    ]
   }
 }

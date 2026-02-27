@@ -527,7 +527,169 @@
           "category": "race_atmosphere",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Climb after Tabernas",
+            "mile_marker": "217",
+            "description": "14km climb with 1,100m elevation gain that comes after 350km of riding. Riders report knee pain starting on this climb.",
+            "source_video_ids": [
+              "veOwQGb0yn4"
+            ]
+          },
+          {
+            "name": "First 300km",
+            "description": "Basically one big climb with first 1,000 meters of climbing in just 28 kilometers. Sets the tone for massive elevation early in the race.",
+            "source_video_ids": [
+              "1gSadv6n0jA"
+            ]
+          },
+          {
+            "name": "Coast to mountain transition",
+            "description": "After reaching the coast, riders face 3 hours of climbing up a rock garden to get back up from sea level.",
+            "source_video_ids": [
+              "veOwQGb0yn4"
+            ]
+          },
+          {
+            "name": "Night riding at altitude",
+            "description": "Mental battle when it's dark and you can't see what's coming. Riders report nearly falling asleep and having to rest at 2,000m elevation where it's freezing.",
+            "source_video_ids": [
+              "veOwQGb0yn4"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Desert section with rivets in the ground that can catch bike wheels and cause crashes. Surface feels twisty and technical.",
+            "source_video_ids": [
+              "8N8drxifX1E",
+              "veOwQGb0yn4"
+            ]
+          },
+          {
+            "text": "80km of desert riding through the Tabernas desert that's dramatic and breathtaking, with temperatures reaching 46°C.",
+            "source_video_ids": [
+              "1gSadv6n0jA"
+            ]
+          },
+          {
+            "text": "Rock garden climbing sections that require sustained technical effort for hours.",
+            "source_video_ids": [
+              "veOwQGb0yn4"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "Riders recommend adding extra electrolytes, specifically 1500mg tubes, due to high heat. Plan for 35+ hours worth of fuel and don't rely solely on picking up food.",
+            "source_video_ids": [
+              "8N8drxifX1E"
+            ]
+          }
+        ],
+        "race_day_tips": [
+          {
+            "text": "Start deliberately slow, keep heart rate down, and ease into it since it's such a long day. Resist urge to go faster early on.",
+            "source_video_ids": [
+              "1gSadv6n0jA"
+            ]
+          },
+          {
+            "text": "Plan nutrition strategy with 90g carbs per hour for first part, then settle into sustainable pacing. Carry enough to be self-sufficient for first 24 hours.",
+            "source_video_ids": [
+              "8N8drxifX1E"
+            ]
+          },
+          {
+            "text": "When falling asleep while riding, take a 30-minute rest even in poor conditions rather than risk crashing.",
+            "source_video_ids": [
+              "veOwQGb0yn4"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "I started to support the event two years ago, I am the owner of the store here, so I opened more hours, I encouraged the riders, I gave them tips... But this year it was time to go one step further and involve the whole village, so that people could enjoy and give encouragement to all the riders and make this a party",
+            "source_video_id": "veOwQGb0yn4",
+            "source_channel": "badlands cc",
+            "source_view_count": 175544,
+            "category": "community",
+            "curated": true
+          },
+          {
+            "text": "The Ultra community is unlike any other in cycling. While it's 800 kilometers of brutal terrain, the race feels remarkably accessible. It's not dominated by aero obsessed riders in skin suits chasing marginal gains. Instead, there's a mix of everyday cyclists, first timers, and people who like me just had the aim to finish. It felt inclusive, warm, and supportive.",
+            "source_video_id": "1gSadv6n0jA",
+            "source_channel": "David Arthur - Just Ride Bikes",
+            "source_view_count": 36527,
+            "category": "community",
+            "curated": true
+          }
+        ],
+        "search_text": "Badlands is an 800km ultra-distance race through southern Spain's diverse terrain including the Tabernas desert, Europe's only desert. The route features massive early climbing with the first 300km being essentially one big climb, starting with 1,000m elevation gain in just 28km. Key challenges include a brutal 14km climb with 1,100m gain after Tabernas at mile 217, night riding at 2,000m altitude in freezing conditions, and a 3-hour rock garden climb from the coast back to the mountains. The desert section spans 80km with temperatures reaching 46°C and technical terrain with rivets that can catch wheels. Riders emphasize the inclusive ultra community atmosphere and recommend starting conservatively, carrying 35+ hours of fuel, extra electrolytes for heat, and planning 90g carbs per hour initially. The route covers dramatic landscape variety from desert to forest to coastal roads."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "badlands-video-1.jpg",
+        "url": "/race-photos/badlands/badlands-video-1.jpg",
+        "alt": "Solo gravel cyclist riding through arid desert terrain with rocky hills and sparse vegetation under blue sky - Badlands - Granada, Andalusia, Spain",
+        "credit": "YouTube / Precision Fuel & Hydration",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "desert gravel",
+          "solo rider",
+          "arid terrain",
+          "rocky hills",
+          "gravel bike"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "badlands-video-2.jpg",
+        "url": "/race-photos/badlands/badlands-video-2.jpg",
+        "alt": "Indoor interview with cyclist wearing black cap and green shirt next to gravel bike, with Badlands race medal visible - Granada, Andalusia, Spain",
+        "credit": "YouTube / Precision Fuel & Hydration",
+        "primary": false,
+        "ai_relevance": 2,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "race interview",
+          "Badlands medal",
+          "cyclist portrait",
+          "indoor setting"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "badlands-video-3.jpg",
+        "url": "/race-photos/badlands/badlands-video-3.jpg",
+        "alt": "First-person view of gravel cyclist's handlebars on paved mountain road with desert hills and guardrails - Badlands - Granada, Andalusia, Spain",
+        "credit": "YouTube / Precision Fuel & Hydration",
+        "primary": false,
+        "ai_relevance": 4,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "mountain road",
+          "desert landscape",
+          "cyclist POV",
+          "paved climb",
+          "handlebars view"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "badlands-preview.gif",
+        "url": "/race-photos/badlands/badlands-preview.gif",
+        "alt": "Course preview from Badlands race footage",
+        "credit": "YouTube / Precision Fuel & Hydration",
+        "gif": true
+      }
+    ]
   }
 }

@@ -558,7 +558,86 @@
           "curated": false
         }
       ],
-      "quotes": []
-    }
+      "quotes": [],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [],
+        "terrain_notes": [],
+        "gear_mentions": [],
+        "race_day_tips": [],
+        "additional_quotes": [
+          {
+            "text": "I'm about an hour and a half away from where the race is, and it looks like there's going to be a fair bit of logistics to plan for tomorrow.",
+            "source_video_id": "5EKwj5JYXY8",
+            "source_channel": "Jack Reed",
+            "source_view_count": 201,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "This transcript provides limited race-specific intelligence about the Houffa Gravel race in Belgium. The rider mentions it's their second World Gravel Series event and notes logistical planning required, being about an hour and a half away from the race location. The surrounding area is described as flatter than France with quiet roads and located around historical battle sites. However, the transcript primarily focuses on travel preparation and pre-race logistics rather than course details, terrain conditions, or race-specific challenges that would be useful for other riders preparing for this event."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "houffa-gravel-video-1.jpg",
+        "url": "/race-photos/houffa-gravel/houffa-gravel-video-1.jpg",
+        "alt": "Cyclists racing on wooded gravel path through lush green forest during Houffa Gravel race - Houffalize, Belgian Ardennes",
+        "credit": "YouTube / Luis Marrafa",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel racing",
+          "forest trail",
+          "wooded path",
+          "cycling peloton",
+          "tree-lined course"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "houffa-gravel-video-2.jpg",
+        "url": "/race-photos/houffa-gravel/houffa-gravel-video-2.jpg",
+        "alt": "First-person view of gravel cyclists racing on dirt trail through green countryside with race number visible - Houffa Gravel - Houffalize, Belgian Ardennes",
+        "credit": "YouTube / Luis Marrafa",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel race",
+          "dirt trail",
+          "countryside",
+          "cycling group",
+          "race numbers"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "houffa-gravel-video-3.jpg",
+        "url": "/race-photos/houffa-gravel/houffa-gravel-video-3.jpg",
+        "alt": "Gravel cyclists descending at 22 MPH on dirt path through forested area with GPS data overlay showing elevation and distance - Houffa Gravel - Houffalize, Belgian Ardennes",
+        "credit": "YouTube / Luis Marrafa",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel descent",
+          "forest trail",
+          "cycling speed",
+          "dirt path",
+          "GPS tracking"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "houffa-gravel-preview.gif",
+        "url": "/race-photos/houffa-gravel/houffa-gravel-preview.gif",
+        "alt": "Course preview from Houffa Gravel race footage",
+        "credit": "YouTube / Luis Marrafa",
+        "gif": true
+      }
+    ]
   }
 }

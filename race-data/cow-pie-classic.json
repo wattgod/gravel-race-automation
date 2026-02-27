@@ -544,6 +544,67 @@
         }
       ],
       "quotes": []
-    }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "cow-pie-classic-video-1.jpg",
+        "url": "/race-photos/cow-pie-classic/cow-pie-classic-video-1.jpg",
+        "alt": "First-person view from gravel bike handlebars riding on grass farm track through green countryside with stone walls and trees - Cow Pie Classic - Ionia, Michigan",
+        "credit": "YouTube / Benjapol Piyawanichpong",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel bike",
+          "farm track",
+          "grass surface",
+          "countryside",
+          "handlebars view"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "cow-pie-classic-video-2.jpg",
+        "url": "/race-photos/cow-pie-classic/cow-pie-classic-video-2.jpg",
+        "alt": "Cyclist riding on paved country road with white line markings through rural farmland with fields and trees - Cow Pie Classic - Ionia, Michigan",
+        "credit": "YouTube / Benjapol Piyawanichpong",
+        "primary": false,
+        "ai_relevance": 3,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "paved road",
+          "country road",
+          "rural farmland",
+          "cycling",
+          "countryside"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "cow-pie-classic-video-3.jpg",
+        "url": "/race-photos/cow-pie-classic/cow-pie-classic-video-3.jpg",
+        "alt": "Group of gravel cyclists racing on dirt road through green countryside with trees and vegetation on both sides - Cow Pie Classic - Ionia, Michigan",
+        "credit": "YouTube / Benjapol Piyawanichpong",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel race",
+          "dirt road",
+          "peloton",
+          "group ride",
+          "countryside"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "cow-pie-classic-preview.gif",
+        "url": "/race-photos/cow-pie-classic/cow-pie-classic-preview.gif",
+        "alt": "Course preview from Cow Pie Classic race footage",
+        "credit": "YouTube / Benjapol Piyawanichpong",
+        "gif": true
+      }
+    ]
   }
 }

@@ -1,6 +1,7 @@
 {
   "slug": "lake-taupo-cycle-challenge",
   "race_name": "Lake Taupo Cycle Challenge",
+  "distance_mi": 100.0,
   "demands": {
     "durability": 6,
     "climbing": 4,
@@ -19,7 +20,8 @@
         "Tired VO2max",
         "Double Day Simulation",
         "Progressive Fatigue"
-      ]
+      ],
+      "workout_context": "At 100 miles, Lake Taupo Cycle Challenge punishes athletes who haven\u2019t trained their body to produce power when glycogen runs low."
     },
     {
       "category": "TT_Threshold",
@@ -28,7 +30,8 @@
         "Single Sustained Threshold",
         "Threshold Ramps",
         "Descending Threshold"
-      ]
+      ],
+      "workout_context": "Lake Taupo Cycle Challenge rewards athletes who can hold sustained power without blowing up \u2014 threshold is the engine that drives everything above Zone 2."
     },
     {
       "category": "Gravel_Specific",
@@ -36,7 +39,8 @@
       "workouts": [
         "Surge and Settle",
         "Terrain Microbursts"
-      ]
+      ],
+      "workout_context": "Lake Taupo Cycle Challenge\u2019s lake taupo, new zealand gravel demands rapid power changes \u2014 surge over obstacles, settle on smoother sections, repeat for hours."
     },
     {
       "category": "Race_Simulation",
@@ -45,7 +49,8 @@
         "Breakaway Simulation",
         "Variable Pace Chaos",
         "Sector Simulation"
-      ]
+      ],
+      "workout_context": "Racing Lake Taupo Cycle Challenge isn\u2019t just fitness \u2014 it\u2019s pacing, fueling, and executing when conditions deteriorate. This workout practices the race itself."
     },
     {
       "category": "G_Spot",
@@ -54,9 +59,79 @@
         "G-Spot Standard",
         "G-Spot Extended",
         "Criss-Cross"
-      ]
+      ],
+      "workout_context": "The G-Spot zone (88\u201392% FTP) is where you\u2019ll spend the hardest sustained miles of Lake Taupo Cycle Challenge. Make this intensity feel like home."
+    },
+    {
+      "category": "Over_Under",
+      "score": 76,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ],
+      "workout_context": "Over-unders train the lactate clearance you\u2019ll need at Lake Taupo Cycle Challenge when surges push you above threshold and you have to recover while still riding hard."
+    },
+    {
+      "category": "VO2max",
+      "score": 74,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ],
+      "workout_context": "Lake Taupo Cycle Challenge\u2019s lake taupo gravel and competitive field demand explosive aerobic capacity \u2014 the ability to respond to surges without blowing up."
+    },
+    {
+      "category": "Critical_Power",
+      "score": 57,
+      "workouts": [
+        "Above CP Repeats",
+        "W-Prime Depletion"
+      ],
+      "workout_context": "Critical power determines how long you can sustain above-threshold efforts at Lake Taupo Cycle Challenge \u2014 a higher CP means more time in the red before failure."
+    },
+    {
+      "category": "HVLI_Extended",
+      "score": 56,
+      "workouts": [
+        "HVLI Extended Z2",
+        "Multi-Hour Z2",
+        "Back-to-Back Long"
+      ],
+      "workout_context": "At 100 miles, Lake Taupo Cycle Challenge rewards a massive aerobic engine. This volume work builds the fat-oxidation capacity that keeps you moving when glycogen runs low."
+    },
+    {
+      "category": "Endurance",
+      "score": 56,
+      "workouts": [
+        "Pre-Race Openers",
+        "Terrain Simulation Z2"
+      ],
+      "workout_context": "Every session at Lake Taupo Cycle Challenge intensity builds on this aerobic foundation \u2014 the endurance base is the soil everything else grows in."
+    },
+    {
+      "category": "Blended",
+      "score": 56,
+      "workouts": [
+        "Z2 + VO2 Combo",
+        "Endurance with Spikes"
+      ],
+      "workout_context": "Blended sessions combine endurance with intensity spikes \u2014 exactly what Lake Taupo Cycle Challenge\u2019s lake taupo gravel delivers on race day."
+    },
+    {
+      "category": "Anaerobic_Capacity",
+      "score": 52,
+      "workouts": [
+        "2min Killers",
+        "90sec Repeats"
+      ],
+      "workout_context": "Short, violent efforts are unavoidable at Lake Taupo Cycle Challenge \u2014 climbs demanding 2-minute maximal efforts, surges to close gaps, attacks on lake taupo gravel."
     }
   ],
+  "race_overlay": {
+    "nutrition": "Target 60\u201380g carbs/hour for Lake Taupo Cycle Challenge\u2019s 100 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
+    "terrain": "Mixed terrain at Lake Taupo Cycle Challenge requires surface adaptability. Include weekly rides on lake taupo gravel to build confidence. Expect: lake taupo, new zealand gravel, regional event."
+  },
   "pack_summary": "This 10-workout pack focuses on Durability, TT Threshold, and Gravel Specific to prepare you for 100 miles of lake taupo gravel in Lake Taupo, New Zealand.",
   "generated_at": "2026-02-26"
 }

@@ -653,7 +653,143 @@
           "curated": false
         }
       ],
-      "quotes": []
-    }
+      "quotes": [],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [],
+        "terrain_notes": [
+          {
+            "text": "The gravel feels completely different at race pace. When doing 25-30 miles an hour versus 17 mph, everything feels way more rough and loose, making familiar sections feel unfamiliar during races.",
+            "source_video_ids": [
+              "APie78U_c3I"
+            ]
+          },
+          {
+            "text": "Dust conditions can be severe with visibility so bad that you can't see the front of the group or judge distances to other riders.",
+            "source_video_ids": [
+              "APie78U_c3I"
+            ]
+          },
+          {
+            "text": "The surface makes it difficult to make quick adjustments - you can see crashes coming from a distance but can't stop or get around them easily.",
+            "source_video_ids": [
+              "APie78U_c3I"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "50 psi on 38mm tires with aero wheels from Princeton, paired with super stiff road shoes on Canyon Grail with 34x40 gearing setup.",
+            "source_video_ids": [
+              "APie78U_c3I"
+            ]
+          },
+          {
+            "text": "Continental Race King 2.2 inch wide tires (57mm) can be fitted on gravel bikes if the frame allows, with many top tier races now seeing 50mm tires where 45mm used to be considered wide.",
+            "source_video_ids": [
+              "8DeIuk1MpHs"
+            ]
+          },
+          {
+            "text": "Wider tires like 2.2 inch mountain bike tires on gravel bikes let you not care as much what you're riding over - there's basically nothing you can't ride full pelt at on rocky terrain.",
+            "source_video_ids": [
+              "8DeIuk1MpHs"
+            ]
+          }
+        ],
+        "race_day_tips": [
+          {
+            "text": "Pre-ride sections at race pace, not casual pace, because the gravel feels completely different when racing at 25-30 mph versus 17 mph.",
+            "source_video_ids": [
+              "APie78U_c3I"
+            ]
+          },
+          {
+            "text": "Position yourself far enough up front before pinch points and tunnels, as these create bottlenecks where the race can be decided in the first mile.",
+            "source_video_ids": [
+              "APie78U_c3I"
+            ]
+          },
+          {
+            "text": "Pack thermal gear for cold starts - thermal jacket, vest, and gloves are essential when temperatures drop to around 40 degrees.",
+            "source_video_ids": [
+              "APie78U_c3I"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "I had 600 calories and 300 milligrams of caffeine in gels on me, plus 900 calories and 300 grams of carbs in my bottles, along with 60 milligrams of ketones - that's a lot of prep for race day nutrition.",
+            "source_video_id": "APie78U_c3I",
+            "source_channel": "VC Adventures",
+            "source_view_count": 221637,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "Based on rider accounts, gravel racing presents unique challenges around terrain conditions and race dynamics. The surface feels dramatically different at race pace compared to pre-riding - what feels manageable at 17 mph becomes rough and loose at racing speeds of 25-30 mph. Dust conditions can severely limit visibility, making it impossible to see other riders or judge gaps. Pinch points and tunnels create critical bottlenecks where positioning in the first mile can determine race outcomes. Cold weather preparation is essential, with riders using thermal jackets and gloves for 40-degree starts. Equipment trends show wider tires becoming standard, with 50mm now common where 45mm used to be considered wide. Mountain bike-width tires up to 2.2 inches allow riders to tackle rocky terrain at full speed without concern. Race preparation involves detailed nutrition planning with hundreds of grams of carbs and strategic caffeine timing."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "montana-gravel-challenge-video-1.jpg",
+        "url": "/race-photos/montana-gravel-challenge/montana-gravel-challenge-video-1.jpg",
+        "alt": "First-person mountain bike view riding through lush green fern-lined trail in Montana forest terrain - Montana Gravel Challenge - Huson, MT",
+        "credit": "YouTube / Global Cycling Network",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "Montana trail",
+          "forest riding",
+          "fern vegetation",
+          "mountain biking",
+          "green terrain"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "montana-gravel-challenge-video-2.jpg",
+        "url": "/race-photos/montana-gravel-challenge/montana-gravel-challenge-video-2.jpg",
+        "alt": "Cyclist's perspective on gravel road through Montana countryside with green grass and rural farming landscape - Montana Gravel Challenge - Huson, MT",
+        "credit": "YouTube / Global Cycling Network",
+        "primary": false,
+        "ai_relevance": 4,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "Montana gravel",
+          "rural road",
+          "countryside riding",
+          "gravel cycling",
+          "farm country"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "montana-gravel-challenge-video-3.jpg",
+        "url": "/race-photos/montana-gravel-challenge/montana-gravel-challenge-video-3.jpg",
+        "alt": "Desert mountain biking terrain with red rock formations and juniper trees under clear blue Montana sky - Montana Gravel Challenge - Huson, MT",
+        "credit": "YouTube / Global Cycling Network",
+        "primary": false,
+        "ai_relevance": 3,
+        "ai_quality": 5,
+        "ai_keywords": [
+          "Montana desert",
+          "red rock",
+          "juniper trees",
+          "desert riding",
+          "blue sky"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "montana-gravel-challenge-preview.gif",
+        "url": "/race-photos/montana-gravel-challenge/montana-gravel-challenge-preview.gif",
+        "alt": "Course preview from Montana Gravel Challenge race footage",
+        "credit": "YouTube / Global Cycling Network",
+        "gif": true
+      }
+    ]
   }
 }

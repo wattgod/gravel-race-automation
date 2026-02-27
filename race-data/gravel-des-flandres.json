@@ -641,7 +641,150 @@
           "category": "course_difficulty",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Paterberg",
+            "description": "One of the famous sections from the pro race that riders will encounter on the gravel route.",
+            "source_video_ids": [
+              "pZEP3LOroZI"
+            ]
+          },
+          {
+            "name": "Oude Kwaremont",
+            "description": "One of the famous sections from the pro race included in the gravel event.",
+            "source_video_ids": [
+              "pZEP3LOroZI"
+            ]
+          },
+          {
+            "name": "Koppenberg",
+            "description": "The brutal cobble climb where the gravel event finishes.",
+            "source_video_ids": [
+              "pZEP3LOroZI"
+            ]
+          },
+          {
+            "name": "Route Split",
+            "mile_marker": "40",
+            "description": "Easy to miss the split between the 120km and 160km routes if you're not paying attention while chatting in a group.",
+            "source_video_ids": [
+              "pZEP3LOroZI"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Features Flemish cobbles mixed with brilliant gravel roads, including some of the same iconic cobbled climbs from the pro Tour of Flanders race.",
+            "source_video_ids": [
+              "pZEP3LOroZI"
+            ]
+          }
+        ],
+        "gear_mentions": [],
+        "race_day_tips": [
+          {
+            "text": "Pay close attention at route splits, especially around the 40km mark where the 120km and 160km routes diverge - it's easy to miss while chatting in a group.",
+            "source_video_ids": [
+              "pZEP3LOroZI"
+            ]
+          },
+          {
+            "text": "Sign on early as there are limited breakfast options near the venue, and most shops are closed due to the early morning start time.",
+            "source_video_ids": [
+              "pZEP3LOroZI"
+            ]
+          },
+          {
+            "text": "Prepare for cold morning conditions - temperatures can be around 4 degrees Celsius at 9:00 AM start time.",
+            "source_video_ids": [
+              "pZEP3LOroZI"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "I've collected my race number also I've got my voucher here for lunch and a nice little beer at the end of the day",
+            "source_video_id": "pZEP3LOroZI",
+            "source_channel": "Global Cycling Network",
+            "source_view_count": 105523,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "Due to the early event start, there's nothing open again for breakfast options, so you have to make do with whatever you brought",
+            "source_video_id": "pZEP3LOroZI",
+            "source_channel": "Global Cycling Network",
+            "source_view_count": 105523,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "Gravel des Flandres is organized by the same team behind the pro Tour of Flanders race, featuring iconic Flemish cobbles and brilliant gravel roads. The event includes famous sections from the pro race including Oude Kwaremont, Paterberg, and finishes on the brutal cobble climb of Koppenberg. Riders face multiple distance options with splits that are easy to miss if not paying attention. Morning conditions can be quite cold with temperatures around 4 degrees Celsius at the 9:00 AM start. The event village is located in the center of Oudenaarde with early sign-on recommended due to limited breakfast options. Post-race amenities include lunch vouchers and beer. The course combines the heritage and culture of classic Belgian cycling with modern gravel racing, creating a challenging mix of cobbled climbs and gravel terrain."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "gravel-des-flandres-video-1.jpg",
+        "url": "/race-photos/gravel-des-flandres/gravel-des-flandres-video-1.jpg",
+        "alt": "Cyclist in red GCN jersey standing on cobblestone road with green agricultural fields and rolling countryside in background during Gravel Des Flandres race - Flanders, Belgium",
+        "credit": "YouTube / Global Cycling Network",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "cobblestone road",
+          "Flanders countryside",
+          "gravel cycling",
+          "agricultural fields",
+          "Belgian terrain"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "gravel-des-flandres-video-2.jpg",
+        "url": "/race-photos/gravel-des-flandres/gravel-des-flandres-video-2.jpg",
+        "alt": "Close-up selfie of cyclist in red racing kit with sunglasses riding through rural Belgian countryside with tree-lined roads - Gravel des Flandres - Flanders, Belgium",
+        "credit": "YouTube / Global Cycling Network",
+        "primary": false,
+        "ai_relevance": 4,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "cycling selfie",
+          "rural Belgium",
+          "tree-lined roads",
+          "gravel rider",
+          "countryside"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "gravel-des-flandres-video-3.jpg",
+        "url": "/race-photos/gravel-des-flandres/gravel-des-flandres-video-3.jpg",
+        "alt": "Cyclists preparing bikes in historic Belgian town square with Gothic cathedral and traditional Flemish architecture visible in background - Gravel des Flandres - Flanders, Belgium",
+        "credit": "YouTube / Global Cycling Network",
+        "primary": false,
+        "ai_relevance": 3,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "Belgian town square",
+          "Gothic cathedral",
+          "Flemish architecture",
+          "bike preparation",
+          "historic center"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "gravel-des-flandres-preview.gif",
+        "url": "/race-photos/gravel-des-flandres/gravel-des-flandres-preview.gif",
+        "alt": "Course preview from Gravel Des Flandres race footage",
+        "credit": "YouTube / Global Cycling Network",
+        "gif": true
+      }
+    ]
   }
 }

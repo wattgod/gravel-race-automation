@@ -545,7 +545,120 @@
           "category": "course_difficulty",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "big climb",
+            "description": "Riders mentioned struggling through a big climb that was particularly difficult, with one rider saying 'that big climb that sucked' and another mentioning 'we'll see when we get this other big climb'",
+            "source_video_ids": [
+              "sxDoqa05RSE",
+              "e3ETMbwFr1Y"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "The 20-mile option includes significant uphill grinding with sustained climbs that riders describe as 'no joke'",
+            "source_video_ids": [
+              "e3ETMbwFr1Y"
+            ]
+          }
+        ],
+        "gear_mentions": [],
+        "race_day_tips": [
+          {
+            "text": "Aid stations are described as the MVPs of the race, providing bacon and other food in nice little cups at the 30-mile mark",
+            "source_video_ids": [
+              "e3ETMbwFr1Y"
+            ]
+          },
+          {
+            "text": "Pacing yourself is essential - riders emphasized the importance of not going out too hard early in the race",
+            "source_video_ids": [
+              "e3ETMbwFr1Y"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "The 20 miles is no joke there's a lot of uphill grinding in there last sustained stuff",
+            "source_video_id": "e3ETMbwFr1Y",
+            "source_channel": "Brent Kastner",
+            "source_view_count": 476,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "Aid stations MVPs bike races MVPs or your aid stations",
+            "source_video_id": "e3ETMbwFr1Y",
+            "source_channel": "Brent Kastner",
+            "source_view_count": 476,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "Dead Swede Gravel in Sheridan, Wyoming features challenging sustained climbs that riders describe as difficult grinding sections. The race offers multiple distance options including 20, 40, and 100-mile routes. Weather conditions during race day were ideal at 75 degrees with light winds. The 30-mile aid station serves as a key checkpoint providing bacon and refreshments in a well-organized setup that riders praise as race MVPs. The course includes significant elevation with big climbs that test riders' pacing strategies. The 20-mile option alone contains substantial uphill sections that are described as no joke for the distance. Riders emphasize the importance of proper pacing throughout the event. The race attracts families and young riders, creating an encouraging community atmosphere. The Wyoming countryside provides scenic views with rolling terrain and sustained climbing sections that challenge participants across all distance categories."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "dead-swede-gravel-video-1.jpg",
+        "url": "/race-photos/dead-swede-gravel/dead-swede-gravel-video-1.jpg",
+        "alt": "Curved concrete path winding through green parkland with trees and grass areas during Dead Swede Gravel race - Sheridan, Wyoming",
+        "credit": "YouTube / Brent Kastner",
+        "primary": true,
+        "ai_relevance": 4,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "concrete path",
+          "parkland",
+          "curved road",
+          "green landscape"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "dead-swede-gravel-video-2.jpg",
+        "url": "/race-photos/dead-swede-gravel/dead-swede-gravel-video-2.jpg",
+        "alt": "Cyclist in yellow jersey being interviewed at Dead Swede Gravel race finish area with participants and bikes in wooded park background - Sheridan, Wyoming",
+        "credit": "YouTube / Brent Kastner",
+        "primary": false,
+        "ai_relevance": 3,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "cyclist interview",
+          "yellow jersey",
+          "race finish",
+          "wooded park"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "dead-swede-gravel-video-3.jpg",
+        "url": "/race-photos/dead-swede-gravel/dead-swede-gravel-video-3.jpg",
+        "alt": "First-person perspective of gravel cyclist riding through open prairie grassland with rolling hills under blue sky - Dead Swede Gravel - Sheridan, Wyoming",
+        "credit": "YouTube / Brent Kastner",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "prairie grassland",
+          "first-person cycling",
+          "rolling hills",
+          "gravel riding"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "dead-swede-gravel-preview.gif",
+        "url": "/race-photos/dead-swede-gravel/dead-swede-gravel-preview.gif",
+        "alt": "Course preview from Dead Swede Gravel race footage",
+        "credit": "YouTube / Brent Kastner",
+        "gif": true
+      }
+    ]
   }
 }

@@ -554,7 +554,155 @@
           "category": "course_difficulty",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Hike-a-bike sections",
+            "description": "Multiple steep climbs requiring riders to walk their bikes. One rider on single speed called it 'the run-up' and noted lots of rocks to climb over.",
+            "source_video_ids": [
+              "zw43pixb7xo",
+              "mTjp0pMa56U"
+            ]
+          },
+          {
+            "name": "Long climbing sections",
+            "description": "Riders report climbs that feel like 10 miles but are actually 5, with one described as 'on forever' and requiring granny gears.",
+            "source_video_ids": [
+              "zw43pixb7xo"
+            ]
+          },
+          {
+            "name": "Technical rocky terrain",
+            "description": "Course features lots of rocks that riders must navigate, with one noting 'I love all the rocks' sarcastically after a difficult section.",
+            "source_video_ids": [
+              "zw43pixb7xo"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Mixed surfaces including road, gravel, soft pack, and technical single track with significant rock features requiring hike-a-bike in multiple sections.",
+            "source_video_ids": [
+              "mTjp0pMa56U"
+            ]
+          },
+          {
+            "text": "Terrain switches up often, keeping riders with different groups throughout the course as the varied challenges suit different rider strengths.",
+            "source_video_ids": [
+              "zw43pixb7xo"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "Granny gears are essential for the extended climbing sections. One rider specifically mentioned struggling with their gearing on the climbs.",
+            "source_video_ids": [
+              "zw43pixb7xo"
+            ]
+          },
+          {
+            "text": "Single speed is viable - one experienced rider noted it's 'better on a single speed' and successfully completed the hike-a-bike sections.",
+            "source_video_ids": [
+              "5J1bwZj-aLs"
+            ]
+          }
+        ],
+        "race_day_tips": [
+          {
+            "text": "Try to keep a consistent pace throughout as there's nowhere to hide with all the climbing - you either brought the legs or you didn't.",
+            "source_video_ids": [
+              "zw43pixb7xo",
+              "mTjp0pMa56U"
+            ]
+          },
+          {
+            "text": "No sitting in packs and drafting due to the constant elevation changes - it's an individual effort from start to finish.",
+            "source_video_ids": [
+              "mTjp0pMa56U"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "I love the community it's wonderful to be surrounded by so many supportive people and just getting the ride done",
+            "source_video_id": "zw43pixb7xo",
+            "source_channel": "DirtWireTV",
+            "source_view_count": 2277,
+            "category": "community",
+            "curated": true
+          },
+          {
+            "text": "seems like there's a lot of first timers here which concerns me that people do it once and then it's so hard they don't do it again",
+            "source_video_id": "mTjp0pMa56U",
+            "source_channel": "DirtWireTV",
+            "source_view_count": 1430,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "Iron Cross in Pennsylvania is a 56-mile gravel race with significant elevation and technical challenges. The course features mixed terrain including road, gravel, soft pack, and technical single track sections. Multiple hike-a-bike sections with steep rocky climbs are a defining feature, with some climbs feeling twice as long as they actually are. Riders report needing granny gears for extended climbing sections, though single speed completion is possible. The constant elevation changes mean no drafting or pack riding - success depends entirely on individual fitness. Technical rock features require bike handling skills. The terrain switches frequently, mixing riders of different abilities throughout the race. Despite the difficulty, riders praise the supportive community atmosphere and beautiful fall scenery in Central Pennsylvania. Many first-time participants find it challenging enough that they don't return, though repeat racers appreciate both the tough reputation and positive vibe."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "iron-cross-video-1.jpg",
+        "url": "/race-photos/iron-cross/iron-cross-video-1.jpg",
+        "alt": "Aid station setup with volunteers serving food under green canopy tent in wooded forest area during gravel race - Iron Cross - Pennsylvania",
+        "credit": "YouTube / Old Man Cycling",
+        "primary": true,
+        "ai_relevance": 3,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "aid station",
+          "forest",
+          "volunteers",
+          "race support"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "iron-cross-video-2.jpg",
+        "url": "/race-photos/iron-cross/iron-cross-video-2.jpg",
+        "alt": "Cyclists gathering at forest aid station with support tent on gravel road surrounded by autumn trees - Iron Cross - Pennsylvania",
+        "credit": "YouTube / Old Man Cycling",
+        "primary": false,
+        "ai_relevance": 4,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel road",
+          "autumn forest",
+          "aid station",
+          "cyclists",
+          "support tent"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "iron-cross-video-3.jpg",
+        "url": "/race-photos/iron-cross/iron-cross-video-3.jpg",
+        "alt": "Gravel cyclist riding through wooded forest trail with autumn foliage and natural terrain - Iron Cross - Pennsylvania",
+        "credit": "YouTube / Old Man Cycling",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "forest trail",
+          "autumn foliage",
+          "gravel cyclist",
+          "wooded terrain"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "iron-cross-preview.gif",
+        "url": "/race-photos/iron-cross/iron-cross-preview.gif",
+        "alt": "Course preview from Iron Cross race footage",
+        "credit": "YouTube / Old Man Cycling",
+        "gif": true
+      }
+    ]
   }
 }

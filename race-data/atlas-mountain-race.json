@@ -581,7 +581,185 @@
           "category": "course_difficulty",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Tizi-n-Tichka Pass",
+            "description": "Lung busting 117 km climb with 1800m elevation gain where climbing begins almost immediately from the start. After reaching the top, riders face an obscure rocky descent down an old mule path littered with stones that's often difficult to find.",
+            "source_video_ids": [
+              "e5k5ayE9iqU"
+            ]
+          },
+          {
+            "name": "Tizi-n-Tichka Descent",
+            "description": "Rocky descent down an old mule path littered with stones and often difficult to find. Most riders elect to walk the majority of the descent rather than ride. Gets cold at the top just as sun is setting, then big rocks and poor visibility make navigation extremely difficult.",
+            "source_video_ids": [
+              "e5k5ayE9iqU"
+            ]
+          },
+          {
+            "name": "Day One Pass",
+            "mile_marker": "70",
+            "description": "Savage pass over 2,000m with snow, undulating terrain, and no clear path at some points. Takes all night to complete in pitch black conditions, making navigation extremely difficult. Riders pick their way down the mountain in darkness.",
+            "source_video_ids": [
+              "zR0MqbzLNLE"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Obscure rocky descent down old mule path littered with stones, often difficult to find. Most riders walk the majority rather than ride.",
+            "source_video_ids": [
+              "e5k5ayE9iqU"
+            ]
+          },
+          {
+            "text": "Lunar landscape with only rock dust and sagebrush after 300 kilometers, replacing earlier snow-capped peaks and almond trees.",
+            "source_video_ids": [
+              "e5k5ayE9iqU"
+            ]
+          },
+          {
+            "text": "Mix of tarmac and gravel roads, with really nice gravel sections that alternate between surface types throughout the route.",
+            "source_video_ids": [
+              "QuTkwrO1Rns"
+            ]
+          },
+          {
+            "text": "Savage pass with snow, undulating terrain, and no clear path at points where riders pick their way down the mountain.",
+            "source_video_ids": [
+              "zR0MqbzLNLE"
+            ]
+          }
+        ],
+        "gear_mentions": [],
+        "race_day_tips": [
+          {
+            "text": "Remember to turn on your spot tracker at the start - easy to forget in pre-race routine and you'll lose the front group if you have to stop to sort it out.",
+            "source_video_ids": [
+              "QuTkwrO1Rns"
+            ]
+          },
+          {
+            "text": "Try to keep heart rate in reasonable zone and not push too hard early, especially when trying to catch back up to groups.",
+            "source_video_ids": [
+              "QuTkwrO1Rns"
+            ]
+          },
+          {
+            "text": "Must reach checkpoint one to finish the race on time - it's mandatory for continuing in the event.",
+            "source_video_ids": [
+              "zR0MqbzLNLE"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "I've been living on about 2 and 1/2 3 hours sleep a night last four nights been wearing the same kit for the last 5 days I smell terrible",
+            "source_video_id": "QuTkwrO1Rns",
+            "source_channel": "tristantakevideo",
+            "source_view_count": 117148,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "The race started at 6:00 p.m. so up until that point I got my bike checked which is mandatory I collected my race cap and tracking device as well I managed to get some sleep as I wouldn't be getting much of that for a while",
+            "source_video_id": "zR0MqbzLNLE",
+            "source_channel": "Girl Outdoors",
+            "source_view_count": 91967,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "I'd never done an event where sleep deprivation is involved I've always enjoyed a good night's sleep so this was definitely a new challenge and to be up for that amount of time is pretty crazy",
+            "source_video_id": "zR0MqbzLNLE",
+            "source_channel": "Girl Outdoors",
+            "source_view_count": 91967,
+            "category": "training",
+            "curated": true
+          }
+        ],
+        "search_text": "The Atlas Mountain Race features immediate brutal climbing from Marrakech starting with the lung-busting 117km Tizi-n-Tichka Pass with 1800m elevation gain. The descent is an obscure rocky mule path littered with stones where most riders walk rather than ride. After 300km, the landscape transforms from snow-capped peaks and almond trees to lunar terrain with only rock dust and sagebrush. Day one includes a savage 2000m+ pass with snow and no clear path, taking riders all night to complete in pitch darkness. Navigation is extremely difficult in these conditions. The route alternates between tarmac and gravel surfaces. Race starts at 6pm with mandatory bike checks and tracking devices. Riders experience severe sleep deprivation, living on 2-3 hours sleep nightly while wearing the same kit for days. Checkpoint one is mandatory to continue and finish on time."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "atlas-mountain-race-video-1.jpg",
+        "url": "/race-photos/atlas-mountain-race/atlas-mountain-race-video-1.jpg",
+        "alt": "Winding gravel road cutting through red rocky desert terrain with layered canyon walls in Morocco's Atlas Mountains - Atlas Mountain Race",
+        "credit": "YouTube / Atlas Mountain Race",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 5,
+        "ai_keywords": [
+          "gravel road",
+          "Atlas Mountains",
+          "desert terrain",
+          "rocky canyon",
+          "switchback"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "atlas-mountain-race-video-2.jpg",
+        "url": "/race-photos/atlas-mountain-race/atlas-mountain-race-video-2.jpg",
+        "alt": "Gravel cyclist in racing gear taking selfie on desert road with barren Atlas Mountain peaks in background - Atlas Mountain Race - Morocco",
+        "credit": "YouTube / Atlas Mountain Race",
+        "primary": false,
+        "ai_relevance": 4,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel cyclist",
+          "Atlas Mountains",
+          "desert road",
+          "racing gear",
+          "mountain backdrop"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "atlas-mountain-race-video-3.jpg",
+        "url": "/race-photos/atlas-mountain-race/atlas-mountain-race-video-3.jpg",
+        "alt": "Group of bikepacking cyclists gathered in Moroccan town square with traditional architecture and palm trees - Atlas Mountain Race - Morocco",
+        "credit": "YouTube / Atlas Mountain Race",
+        "primary": false,
+        "ai_relevance": 3,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "bikepacking",
+          "Moroccan town",
+          "traditional architecture",
+          "cycling group",
+          "town square"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "atlas-mountain-race-preview.gif",
+        "url": "/race-photos/atlas-mountain-race/atlas-mountain-race-preview.gif",
+        "alt": "Course preview from Atlas Mountain Race race footage",
+        "credit": "YouTube / Atlas Mountain Race",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "atlas-mountain-race-preview-2.gif",
+        "url": "/race-photos/atlas-mountain-race/atlas-mountain-race-preview-2.gif",
+        "alt": "Course preview from Atlas Mountain Race race footage",
+        "credit": "YouTube / Atlas Mountain Race",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "atlas-mountain-race-preview-3.gif",
+        "url": "/race-photos/atlas-mountain-race/atlas-mountain-race-preview-3.gif",
+        "alt": "Course preview from Atlas Mountain Race race footage",
+        "credit": "YouTube / Atlas Mountain Race",
+        "gif": true
+      }
+    ]
   }
 }

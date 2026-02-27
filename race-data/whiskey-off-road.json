@@ -601,8 +601,179 @@
           "category": "course_difficulty",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Skull Valley climb",
+            "description": "About an hour-long climb after the turnaround at Skull Valley. Described as brutal climbing at elevation. The climb goes back up past the junction to the top of the hill before any reprieve.",
+            "source_video_ids": [
+              "SwVvYPJoCxo",
+              "66hoOYqTpX4"
+            ]
+          },
+          {
+            "name": "Split at Moby and 48",
+            "description": "Early in the race, riders must choose between Moby and 48 routes. Described as the first thing to mess with your head. The routes rejoin later.",
+            "source_video_ids": [
+              "66hoOYqTpX4"
+            ]
+          },
+          {
+            "name": "Cramp Hill",
+            "description": "A climbing section that riders mention by name, though one rider noted not remembering it clearly.",
+            "source_video_ids": [
+              "SwVvYPJoCxo"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Very different terrain from buff riding to very technical, very loose, very steep, very rocky. Trails are described as very challenging.",
+            "source_video_ids": [
+              "xHr-EHfK61s"
+            ]
+          },
+          {
+            "text": "Very narrow trail, very rocky sections that don't get huge amounts of traffic. Some areas require careful line selection due to loose conditions.",
+            "source_video_ids": [
+              "66hoOYqTpX4"
+            ]
+          },
+          {
+            "text": "Hidden rocks are a concern on the technical sections. The terrain is described as worse than other comparable races in terms of difficulty.",
+            "source_video_ids": [
+              "SwVvYPJoCxo"
+            ]
+          }
+        ],
+        "gear_mentions": [],
+        "race_day_tips": [
+          {
+            "text": "Limited opportunities to consume energy gels or reach water bottles while on the move. The course design offers limited spots where riders can safely reach down and grab bottles during early stages.",
+            "source_video_ids": [
+              "SwVvYPJoCxo"
+            ]
+          },
+          {
+            "text": "Be careful of traffic going both directions on the downhill out to Skull Valley. Fast riders are coming back up the hill.",
+            "source_video_ids": [
+              "66hoOYqTpX4"
+            ]
+          },
+          {
+            "text": "The race really starts at the Skull Valley turnaround because of the long climb back up. Prepare for about an hour of climbing and heavy breathing.",
+            "source_video_ids": [
+              "66hoOYqTpX4"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "This 50 mile race has just shy of 7000 feet of climbing. We're starting in the historic Whiskey Row here in Prescott Arizona and the energy here is off the charts.",
+            "source_video_id": "SwVvYPJoCxo",
+            "source_channel": "MTB Rad Dad",
+            "source_view_count": 7010,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "The altitude posed a significant challenge. The starting point was at approximately 5300 feet with the highest point reaching 7000 feet. During the initial two hours I struggled with a high heart rate that drained most my energy.",
+            "source_video_id": "SwVvYPJoCxo",
+            "source_channel": "MTB Rad Dad",
+            "source_view_count": 7010,
+            "category": "training",
+            "curated": true
+          },
+          {
+            "text": "It's grown immensely, it's one of our favorite events. It's just been a great community, just a lot of good down-to-earth people. You can just feel the vibe, everybody's just so cool and laid back and happy.",
+            "source_video_id": "xHr-EHfK61s",
+            "source_channel": "Epic Rides",
+            "source_view_count": 13076,
+            "category": "community",
+            "curated": true
+          }
+        ],
+        "search_text": "The Whiskey Off-Road 50-mile race in Prescott, Arizona features just shy of 7000 feet of climbing, starting at 5300 feet elevation and reaching 7000 feet at the highest point. The course begins on historic Whiskey Row and includes challenging terrain ranging from buff riding to very technical, loose, steep, and rocky sections. Key challenges include the brutal Skull Valley climb, described as about an hour of sustained climbing after the turnaround point. Early in the race, riders face a route choice between Moby and 48 sections. The course offers limited opportunities for nutrition due to technical terrain that makes reaching bottles difficult. Riders note hidden rocks, narrow rocky trails, and the need for careful line selection on downhills with two-way traffic. The elevation significantly impacts performance, particularly in the first two hours. The race finishes with new single track sections and is known for its welcoming community atmosphere in the cowboy town of Prescott."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "whiskey-off-road-video-1.jpg",
+        "url": "/race-photos/whiskey-off-road/whiskey-off-road-video-1.jpg",
+        "alt": "Cyclists gathering with bikes on courthouse lawn before race start in downtown area - Whiskey Off-Road - Prescott, Arizona",
+        "credit": "YouTube / MTB Rad Dad",
+        "primary": true,
+        "ai_relevance": 2,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "pre-race gathering",
+          "courthouse",
+          "cyclists",
+          "downtown",
+          "race preparation"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "whiskey-off-road-video-2.jpg",
+        "url": "/race-photos/whiskey-off-road/whiskey-off-road-video-2.jpg",
+        "alt": "First-person view mountain biking on desert trail with cactus and mountains in Arizona terrain - Whiskey Off-Road - Prescott, Arizona",
+        "credit": "YouTube / MTB Rad Dad",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "desert trail",
+          "mountain biking",
+          "cactus",
+          "Arizona mountains",
+          "first-person POV"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "whiskey-off-road-video-3.jpg",
+        "url": "/race-photos/whiskey-off-road/whiskey-off-road-video-3.jpg",
+        "alt": "Black and white portrait of bearded man with hat holding rifle during interview segment - Whiskey Off-Road - Prescott, Arizona",
+        "credit": "YouTube / MTB Rad Dad",
+        "primary": false,
+        "ai_relevance": 1,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "interview",
+          "portrait",
+          "black and white",
+          "western style"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "whiskey-off-road-preview.gif",
+        "url": "/race-photos/whiskey-off-road/whiskey-off-road-preview.gif",
+        "alt": "Course preview from Whiskey Off Road race footage",
+        "credit": "YouTube / MTB Rad Dad",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "whiskey-off-road-preview-2.gif",
+        "url": "/race-photos/whiskey-off-road/whiskey-off-road-preview-2.gif",
+        "alt": "Course preview from Whiskey Off Road race footage",
+        "credit": "YouTube / MTB Rad Dad",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "whiskey-off-road-preview-3.gif",
+        "url": "/race-photos/whiskey-off-road/whiskey-off-road-preview-3.gif",
+        "alt": "Course preview from Whiskey Off Road race footage",
+        "credit": "YouTube / MTB Rad Dad",
+        "gif": true
+      }
+    ]
   },
   "dataQuality": "High"
 }

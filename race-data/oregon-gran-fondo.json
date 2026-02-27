@@ -590,7 +590,160 @@
           "category": "course_difficulty",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Smith River Road climb",
+            "mile_marker": "",
+            "description": "The biggest climb of the day, climbing about a thousand feet in six miles and bringing riders to the highest point on the route.",
+            "source_video_ids": [
+              "tjFFodYUhyI"
+            ]
+          },
+          {
+            "name": "First climb",
+            "description": "Right off the bat there's the first climb of the day, with riders stretching out pretty quickly once underway. The pack gets really strung out and stays that way all day.",
+            "source_video_ids": [
+              "tjFFodYUhyI",
+              "MSl01sOOELY"
+            ]
+          },
+          {
+            "name": "Last climb",
+            "mile_marker": "64",
+            "description": "The last climb takes riders up to the end of the time section at about 64 miles of riding.",
+            "source_video_ids": [
+              "tjFFodYUhyI"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "The roads after the first rest stop were a little rough to put it nicely, making riders wonder if taking the gravel route would have been easier. Relief comes when reaching relatively flat open prairie-like area, which is welcome relief for hands and seat.",
+            "source_video_ids": [
+              "tjFFodYUhyI"
+            ]
+          },
+          {
+            "text": "The course goes deep deep deep into the upper Smith River back into the woods in the western side of the Willamette Valley and the South coastal range.",
+            "source_video_ids": [
+              "GVRpWMTLaz8"
+            ]
+          }
+        ],
+        "gear_mentions": [],
+        "race_day_tips": [
+          {
+            "text": "Each bike has a computer sensor on the front right fork and riders have to go over timing lines on the road. It's a pinch point so try to get up as close to the front as possible because it would mean less catching up to everybody later on.",
+            "source_video_ids": [
+              "tjFFodYUhyI"
+            ]
+          },
+          {
+            "text": "Don't burn all your matches at the start like normal - pace yourself on the climbs as people who get passed on the way up will blow past you on the downhills.",
+            "source_video_ids": [
+              "tjFFodYUhyI",
+              "MSl01sOOELY"
+            ]
+          },
+          {
+            "text": "Rest stops are about every 16 miles and are well stocked with good food and lots of friendly people.",
+            "source_video_ids": [
+              "tjFFodYUhyI"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "There were three different routes racers could compete in today the longest one was 117 miles the shortest 31 and the winner of the longest route won a $1,000 cash prize",
+            "source_video_id": "GVRpWMTLaz8",
+            "source_channel": "KEZI 9",
+            "source_view_count": 668,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "A lot of these people are from all over the state there some of them from out of state too and that has a pretty big economic impact",
+            "source_video_id": "GVRpWMTLaz8",
+            "source_channel": "KEZI 9",
+            "source_view_count": 668,
+            "category": "community",
+            "curated": true
+          },
+          {
+            "text": "The first couple miles were kept at a slower parade pace in a rolling neutral zone once we get out of town the real ride starts",
+            "source_video_id": "tjFFodYUhyI",
+            "source_channel": "Chip Weinert",
+            "source_view_count": 339,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "The Oregon Gran Fondo in Cottage Grove features multiple route options including gravel and road routes ranging from 31 to 117 miles. The course goes deep into the upper Smith River area in the western Willamette Valley and South coastal range. Riders face significant climbing with the biggest challenge being Smith River Road, climbing 1000 feet over six miles to the highest point. The terrain includes rough road sections after rest stops, with relief coming in flat prairie-like areas. The event uses electronic timing with sensors and timing mats, creating bottlenecks at the start. Rest stops are spaced every 16 miles with good food and support. The atmosphere is described as community-focused rather than ultra-competitive, drawing riders from across the state and beyond. The course features a lollipop route design with multiple substantial climbs throughout the 66-mile distance and 3700 feet of elevation gain."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "oregon-gran-fondo-video-1.jpg",
+        "url": "/race-photos/oregon-gran-fondo/oregon-gran-fondo-video-1.jpg",
+        "alt": "Cyclists gathering at Oregon Gran Fondo race start with orange traffic cones and organizers under clear blue sky - Cottage Grove, Oregon",
+        "credit": "YouTube / Chip Weinert",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "race start",
+          "Oregon cycling",
+          "gran fondo",
+          "cyclist gathering",
+          "race organization"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "oregon-gran-fondo-video-2.jpg",
+        "url": "/race-photos/oregon-gran-fondo/oregon-gran-fondo-video-2.jpg",
+        "alt": "First-person view of paved forest road through dense Pacific Northwest evergreen trees during Oregon Gran Fondo - Cottage Grove, Oregon",
+        "credit": "YouTube / Chip Weinert",
+        "primary": false,
+        "ai_relevance": 4,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "forest road",
+          "Pacific Northwest",
+          "evergreen trees",
+          "cycling perspective",
+          "paved road"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "oregon-gran-fondo-video-3.jpg",
+        "url": "/race-photos/oregon-gran-fondo/oregon-gran-fondo-video-3.jpg",
+        "alt": "Cyclist's perspective riding smooth paved road through lush Oregon forest with tall conifers and green undergrowth - Oregon Gran Fondo - Cottage Grove, Oregon",
+        "credit": "YouTube / Chip Weinert",
+        "primary": false,
+        "ai_relevance": 4,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "Oregon forest",
+          "paved cycling",
+          "conifer forest",
+          "cycling POV",
+          "forest canopy"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "oregon-gran-fondo-preview.gif",
+        "url": "/race-photos/oregon-gran-fondo/oregon-gran-fondo-preview.gif",
+        "alt": "Course preview from Oregon Gran Fondo race footage",
+        "credit": "YouTube / Chip Weinert",
+        "gif": true
+      }
+    ]
   }
 }

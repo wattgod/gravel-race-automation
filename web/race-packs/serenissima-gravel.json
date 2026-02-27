@@ -1,6 +1,7 @@
 {
   "slug": "serenissima-gravel",
   "race_name": "Serenissima Gravel",
+  "distance_mi": 65.0,
   "demands": {
     "durability": 2,
     "climbing": 2,
@@ -18,7 +19,8 @@
       "workouts": [
         "Surge and Settle",
         "Terrain Microbursts"
-      ]
+      ],
+      "workout_context": "Serenissima Gravel\u2019s venice area, flat to rolling demands rapid power changes \u2014 surge over obstacles, settle on smoother sections, repeat for hours."
     },
     {
       "category": "Race_Simulation",
@@ -27,7 +29,8 @@
         "Breakaway Simulation",
         "Variable Pace Chaos",
         "Sector Simulation"
-      ]
+      ],
+      "workout_context": "Racing Serenissima Gravel isn\u2019t just fitness \u2014 it\u2019s pacing, fueling, and executing when conditions deteriorate. This workout practices the race itself."
     },
     {
       "category": "TT_Threshold",
@@ -36,7 +39,8 @@
         "Single Sustained Threshold",
         "Threshold Ramps",
         "Descending Threshold"
-      ]
+      ],
+      "workout_context": "Serenissima Gravel rewards athletes who can hold sustained power without blowing up \u2014 threshold is the engine that drives everything above Zone 2."
     },
     {
       "category": "VO2max",
@@ -45,7 +49,8 @@
         "5x3 VO2 Classic",
         "Descending VO2 Pyramid",
         "Norwegian 4x8"
-      ]
+      ],
+      "workout_context": "Serenissima Gravel\u2019s italian flat to rolling gravel and competitive field demand explosive aerobic capacity \u2014 the ability to respond to surges without blowing up."
     },
     {
       "category": "Durability",
@@ -54,9 +59,78 @@
         "Tired VO2max",
         "Double Day Simulation",
         "Progressive Fatigue"
-      ]
+      ],
+      "workout_context": "Serenissima Gravel\u2019s italian flat to rolling gravel drains energy reserves faster than the distance suggests \u2014 durability training bridges the gap."
+    },
+    {
+      "category": "G_Spot",
+      "score": 60,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ],
+      "workout_context": "The G-Spot zone (88\u201392% FTP) is where you\u2019ll spend the hardest sustained miles of Serenissima Gravel. Make this intensity feel like home."
+    },
+    {
+      "category": "Critical_Power",
+      "score": 58,
+      "workouts": [
+        "Above CP Repeats",
+        "W-Prime Depletion"
+      ],
+      "workout_context": "Critical power determines how long you can sustain above-threshold efforts at Serenissima Gravel \u2014 a higher CP means more time in the red before failure."
+    },
+    {
+      "category": "Over_Under",
+      "score": 52,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ],
+      "workout_context": "Over-unders train the lactate clearance you\u2019ll need at Serenissima Gravel when surges push you above threshold and you have to recover while still riding hard."
+    },
+    {
+      "category": "Anaerobic_Capacity",
+      "score": 50,
+      "workouts": [
+        "2min Killers",
+        "90sec Repeats"
+      ],
+      "workout_context": "Short, violent efforts are unavoidable at Serenissima Gravel \u2014 climbs demanding 2-minute maximal efforts, surges to close gaps, attacks on italian flat to rolling gravel."
+    },
+    {
+      "category": "Norwegian_Double",
+      "score": 42,
+      "workouts": [
+        "Norwegian 4x8 Classic",
+        "Double Threshold"
+      ],
+      "workout_context": "The Norwegian double-threshold method builds the sustained power base for Serenissima Gravel \u2014 massive training stimulus without the recovery cost of VO2max work."
+    },
+    {
+      "category": "Blended",
+      "score": 38,
+      "workouts": [
+        "Z2 + VO2 Combo",
+        "Endurance with Spikes"
+      ],
+      "workout_context": "Blended sessions combine endurance with intensity spikes \u2014 exactly what Serenissima Gravel\u2019s italian flat to rolling gravel delivers on race day."
+    },
+    {
+      "category": "Cadence_Work",
+      "score": 33,
+      "workouts": [
+        "High Cadence Drills",
+        "Cadence Pyramids"
+      ],
+      "workout_context": "Cadence efficiency makes every pedal stroke at Serenissima Gravel count \u2014 smooth technique reduces muscular fatigue over long distances."
     }
   ],
+  "race_overlay": {
+    "nutrition": "Target 40\u201360g carbs/hour for Serenissima Gravel\u2019s 65 miles. Front-load calories in the first half. One bottle per hour minimum, more in heat.",
+    "terrain": "Mixed terrain at Serenissima Gravel requires surface adaptability. Include weekly rides on italian flat to rolling gravel to build confidence. Expect: venice area, flat to rolling, regional event."
+  },
   "pack_summary": "This 10-workout pack focuses on Gravel Specific, Race Simulation, and TT Threshold to prepare you for 65 miles of italian flat to rolling gravel in Venice, Italy.",
   "generated_at": "2026-02-26"
 }

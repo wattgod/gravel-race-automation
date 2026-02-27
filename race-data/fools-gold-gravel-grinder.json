@@ -465,7 +465,110 @@
           "curated": false
         }
       ],
-      "quotes": []
-    }
+      "quotes": [],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Mountain climbs",
+            "description": "Riders describe riding up and down mountains in the country roads section after crossing the bridge.",
+            "source_video_ids": [
+              "yQppQaOFxFw"
+            ]
+          },
+          {
+            "name": "Rain route conditions",
+            "description": "The Department of Forestry can shut down off-road sections due to weather, forcing the race onto an all-gravel rain route instead of the normal mountain bike course.",
+            "source_video_ids": [
+              "yQppQaOFxFw"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "The race features really fast fun single track sections in the normal route, but can be converted to all gravel when conditions force the rain route.",
+            "source_video_ids": [
+              "yQppQaOFxFw"
+            ]
+          },
+          {
+            "text": "Course includes riding asphalt for quite a while at the start, then country roads with mountain climbs and descents.",
+            "source_video_ids": [
+              "yQppQaOFxFw"
+            ]
+          }
+        ],
+        "gear_mentions": [],
+        "race_day_tips": [
+          {
+            "text": "Be prepared for the possibility of a rain route that changes the course from off-road mountain biking to all gravel due to Department of Forestry weather restrictions.",
+            "source_video_ids": [
+              "yQppQaOFxFw"
+            ]
+          },
+          {
+            "text": "Groups stay really tight during the fun downhill section at the start before turning left over the bridge.",
+            "source_video_ids": [
+              "yQppQaOFxFw"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "I actually showed up with my mountain bike Mountain Bike setup ready to go and come to find out that same night we then get a report that they have to run the rain route wasn't even aware of this rain route",
+            "source_video_id": "yQppQaOFxFw",
+            "source_channel": "Hook, Line and Shifter",
+            "source_view_count": 423,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "Fools Gold is described by riders as normally being a mountain bike race with 38-mile and 54-mile options starting at Montaluce Winery. The course begins with asphalt riding and a fun downhill where groups stay tight, then crosses a bridge into country roads with mountain climbs and descents, followed by fast fun single track sections. However, riders warn about the rain route - when weather conditions are poor, the Department of Forestry can shut down off-road sections, converting the entire race to all gravel instead of the normal mountain bike terrain. This can catch riders off guard who come prepared for mountain biking but find themselves racing an entirely different gravel course due to weather restrictions."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "fools-gold-gravel-grinder-video-1.jpg",
+        "url": "/race-photos/fools-gold-gravel-grinder/fools-gold-gravel-grinder-video-1.jpg",
+        "alt": "Cyclist's POV riding on paved road through dense forest canopy with speed and power data overlay - Fools Gold Gravel Grinder - Dahlonega, Georgia",
+        "credit": "YouTube / Mike Bates",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "paved road",
+          "forest canopy",
+          "cycling POV",
+          "wooded terrain",
+          "speed data"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "fools-gold-gravel-grinder-video-2.jpg",
+        "url": "/race-photos/fools-gold-gravel-grinder/fools-gold-gravel-grinder-video-2.jpg",
+        "alt": "Long-haired cyclist being interviewed indoors with race medals and number bibs displayed on wall behind - Fools Gold Gravel Grinder - Dahlonega, Georgia",
+        "credit": "YouTube / Mike Bates",
+        "primary": false,
+        "ai_relevance": 2,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "cyclist interview",
+          "race medals",
+          "number bibs",
+          "indoor setting",
+          "racing awards"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "fools-gold-gravel-grinder-preview.gif",
+        "url": "/race-photos/fools-gold-gravel-grinder/fools-gold-gravel-grinder-preview.gif",
+        "alt": "Course preview from Fools Gold Gravel Grinder race footage",
+        "credit": "YouTube / Mike Bates",
+        "gif": true
+      }
+    ]
   }
 }

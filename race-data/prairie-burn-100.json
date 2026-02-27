@@ -559,7 +559,88 @@
           "category": "course_difficulty",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [],
+        "terrain_notes": [
+          {
+            "text": "The route is almost 100 percent gravel roads, utilizing Iowa's 79,000 miles of gravel road network. Riders can travel for 2-3 hours on gravel and see only one car, making it much safer than road riding.",
+            "source_video_ids": [
+              "y9t9YV6dqxM"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "Road bikes with a little bit bigger tires are recommended to be more comfortable on gravel.",
+            "source_video_ids": [
+              "y9t9YV6dqxM"
+            ]
+          }
+        ],
+        "race_day_tips": [
+          {
+            "text": "Routes are chosen north, south, east, or west depending on the wind conditions. The organizers try to stay away from busy gravel roads and take routes that are less traveled.",
+            "source_video_ids": [
+              "y9t9YV6dqxM"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "All riders route back through Central Park with food trucks, family activities from 9 to 12, smoothie maker, yoga in the park, and art in the park. People might be on their bike for a couple hours to 10 hours.",
+            "source_video_id": "y9t9YV6dqxM",
+            "source_channel": "We Are Iowa Local 5 News",
+            "source_view_count": 51,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "Prairie Burn 100 is a gravel cycling event in Grinnell, Iowa, offering 25, 50, and 100-mile routes on almost 100 percent gravel roads. The race utilizes Iowa's extensive 79,000-mile gravel road network, with routes chosen based on wind direction. Riders report exceptional safety on gravel roads, often traveling 2-3 hours seeing only one car. The event routes all participants back through Grinnell's renovated Central Park, featuring food trucks and family activities from 9 AM to noon. Organizers recommend road bikes with slightly bigger tires for comfort on gravel surfaces. The event avoids busy gravel roads and selects less-traveled routes. Ride times range from a couple hours to 10 hours depending on distance. This is the fourth year of the event, typically attracting 150-200 riders and supporting local community initiatives."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "prairie-burn-100-video-1.jpg",
+        "url": "/race-photos/prairie-burn-100/prairie-burn-100-video-1.jpg",
+        "alt": "Young cyclist on white bike wearing turquoise helmet and racing suit at family cycling event on paved surface - Prairie Burn 100 - Grinnell, Iowa",
+        "credit": "YouTube / We Are Iowa Local 5 News",
+        "primary": true,
+        "ai_relevance": 2,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "youth cycling",
+          "family ride",
+          "turquoise helmet",
+          "paved surface"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "prairie-burn-100-video-2.jpg",
+        "url": "/race-photos/prairie-burn-100/prairie-burn-100-video-2.jpg",
+        "alt": "Tim Ellsworth, Imagine Grinnell Board Chair, speaking in interview wearing cycling cap and glasses outdoors - Prairie Burn 100 - Grinnell, Iowa",
+        "credit": "YouTube / We Are Iowa Local 5 News",
+        "primary": false,
+        "ai_relevance": 1,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "Tim Ellsworth",
+          "interview",
+          "cycling cap",
+          "board chair"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "prairie-burn-100-preview.gif",
+        "url": "/race-photos/prairie-burn-100/prairie-burn-100-preview.gif",
+        "alt": "Course preview from Prairie Burn 100 race footage",
+        "credit": "YouTube / We Are Iowa Local 5 News",
+        "gif": true
+      }
+    ]
   }
 }

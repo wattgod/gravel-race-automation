@@ -549,7 +549,147 @@
           "category": "course_difficulty",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Corrugations",
+            "description": "Some of the worst corrugations riders have experienced on gravel, completely sapping speed and making bikes drift sideways when hit. Caused mechanical issues like dropped chains and bottles.",
+            "source_video_ids": [
+              "BxYXO8TP8Gc"
+            ]
+          },
+          {
+            "name": "Sand sections",
+            "description": "Sections where the road was more sand than dirt or gravel, which sapped speed and was soul sucking at times.",
+            "source_video_ids": [
+              "BxYXO8TP8Gc"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Gravel rolls really fast on the course with some single track sections that are loose and spicy.",
+            "source_video_ids": [
+              "-P_60vqbq18"
+            ]
+          },
+          {
+            "text": "Worst corrugations ever ridden on a gravel bike - they completely sap speed and make the bike drift sideways when you hit them.",
+            "source_video_ids": [
+              "BxYXO8TP8Gc"
+            ]
+          },
+          {
+            "text": "Road sections that are more sand than dirt or gravel which sap your speed.",
+            "source_video_ids": [
+              "BxYXO8TP8Gc"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "Rider was undergeared with only 40x11 as highest gear ratio, expecting to spin out on the fast course.",
+            "source_video_ids": [
+              "BxYXO8TP8Gc"
+            ]
+          }
+        ],
+        "race_day_tips": [
+          {
+            "text": "Altitude is noticeable at just under 2,000m elevation - expect it to affect performance even if not extreme altitude.",
+            "source_video_ids": [
+              "BxYXO8TP8Gc"
+            ]
+          },
+          {
+            "text": "Race shortened from 100 to 80 miles due to crazy rain the night before in 2024.",
+            "source_video_ids": [
+              "-P_60vqbq18"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "All of our events over the entire 3-day weekend start and finish at the Peaceful Valley Scout Ranch. It's on the Eastern Slope of the Front Range located about halfway in between Colorado Springs and Denver.",
+            "source_video_id": "-P_60vqbq18",
+            "source_channel": "Siena Marie",
+            "source_view_count": 1010,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "What's really cool about this venue is the unlimited space we've got tons of family and kid-friendly activities, camping is all over, we have great food vendors and local live music.",
+            "source_video_id": "-P_60vqbq18",
+            "source_channel": "Siena Marie",
+            "source_view_count": 1010,
+            "category": "community",
+            "curated": true
+          }
+        ],
+        "search_text": "Mad Gravel takes place at Peaceful Valley Scout Ranch in Elbert County, Colorado, situated at 6,500-7,000 feet elevation on the Eastern Slope of the Front Range between Colorado Springs and Denver. The 55-mile course features fast-rolling gravel with some challenging corrugations that can sap speed and cause bikes to drift sideways. Riders report sections where the surface becomes more sand than gravel, which significantly slows progress. The course includes some single track sections described as loose and spicy. The altitude at just under 2,000 meters is noticeable and affects performance. The event is part of a 3-day Memorial Day weekend festival with camping, food vendors, live music, and family activities. Weather can impact the race, with heavy rain sometimes forcing course modifications. The venue offers spectacular views of the Colorado Front Range and high peaks."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "mad-gravel-video-1.jpg",
+        "url": "/race-photos/mad-gravel/mad-gravel-video-1.jpg",
+        "alt": "Aerial view of gravel cyclist on dirt road winding through green fields and forest under stormy skies - Mad Gravel - Elbert, CO",
+        "credit": "YouTube / Siena Marie",
+        "primary": true,
+        "ai_relevance": 4,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel road",
+          "rural countryside",
+          "stormy weather",
+          "aerial view",
+          "forest terrain"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "mad-gravel-video-2.jpg",
+        "url": "/race-photos/mad-gravel/mad-gravel-video-2.jpg",
+        "alt": "Older man with glasses and beard playing banjo indoors at what appears to be a race event or interview setting - Mad Gravel - Elbert, CO",
+        "credit": "YouTube / Siena Marie",
+        "primary": false,
+        "ai_relevance": 1,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "indoor event",
+          "banjo music",
+          "race entertainment",
+          "interview setting"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "mad-gravel-video-3.jpg",
+        "url": "/race-photos/mad-gravel/mad-gravel-video-3.jpg",
+        "alt": "First-person POV from cyclist's aerobars following two riders on paved road through pine forest with blue sky - Mad Gravel - Elbert, CO",
+        "credit": "YouTube / Siena Marie",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "POV cycling",
+          "aerobars",
+          "pine forest",
+          "paved road",
+          "peloton chase"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "mad-gravel-preview.gif",
+        "url": "/race-photos/mad-gravel/mad-gravel-preview.gif",
+        "alt": "Course preview from Mad Gravel race footage",
+        "credit": "YouTube / Siena Marie",
+        "gif": true
+      }
+    ]
   }
 }

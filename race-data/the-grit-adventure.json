@@ -509,7 +509,114 @@
           "category": "race_atmosphere",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Descents",
+            "mile_marker": "",
+            "description": "Multiple riders report the descents are pretty gnarly with crashes occurring. One rider wiped out on a descent and developed a knee hematoma.",
+            "source_video_ids": [
+              "ZkRz6nxsc2g"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Rain makes the descents particularly treacherous and dangerous for riders.",
+            "source_video_ids": [
+              "ZkRz6nxsc2g"
+            ]
+          }
+        ],
+        "gear_mentions": [],
+        "race_day_tips": [
+          {
+            "text": "Riders need electrolytes during the race - aid station volunteers were helping someone who needed electrolytes.",
+            "source_video_ids": [
+              "ZkRz6nxsc2g"
+            ]
+          },
+          {
+            "text": "If you crash and get a hematoma, some riders found that continuing to move worked it out rather than stopping and getting stiff.",
+            "source_video_ids": [
+              "ZkRz6nxsc2g"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "He needs electrolytes",
+            "source_video_id": "ZkRz6nxsc2g",
+            "source_channel": "PNW eBike",
+            "source_view_count": 423,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "There's been a few people who have like I'm done, it's freaking rain",
+            "source_video_id": "ZkRz6nxsc2g",
+            "source_channel": "PNW eBike",
+            "source_view_count": 423,
+            "category": "course_difficulty",
+            "curated": true
+          },
+          {
+            "text": "Last year had a guy had a big bump and he went ride and he came back and the bump was gone, just worked it out",
+            "source_video_id": "ZkRz6nxsc2g",
+            "source_channel": "PNW eBike",
+            "source_view_count": 423,
+            "category": "community",
+            "curated": true
+          }
+        ],
+        "search_text": "The GRiT Adventure at Snoqualmie Pass features challenging descents that riders describe as gnarly and dangerous, especially in wet conditions. Multiple crashes were reported on the descents, with at least one rider developing a knee hematoma from wiping out. Rain significantly increases the difficulty and danger of the course, causing several riders to abandon the race. The event has aid stations where volunteers assist with nutrition needs, particularly electrolytes. Despite the challenging conditions, there's a supportive community atmosphere with riders helping each other and sharing advice about continuing after crashes. The race attracts both experienced and novice gravel riders, with some participants noting the technical difficulty of the terrain."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "the-grit-adventure-video-1.jpg",
+        "url": "/race-photos/the-grit-adventure/the-grit-adventure-video-1.jpg",
+        "alt": "First-person view from gravel cyclist riding on paved forest road surrounded by dense evergreen trees with GPS data overlay - The GRiT Adventure - Snoqualmie Pass, WA",
+        "credit": "YouTube / PNW eBike",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel cycling",
+          "forest road",
+          "evergreen trees",
+          "first-person view",
+          "GPS overlay"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "the-grit-adventure-video-2.jpg",
+        "url": "/race-photos/the-grit-adventure/the-grit-adventure-video-2.jpg",
+        "alt": "Gravel cyclist's handlebar view on dirt trail through mountain forest with other riders visible ahead and GPS navigation display - The GRiT Adventure - Snoqualmie Pass, WA",
+        "credit": "YouTube / PNW eBike",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "dirt trail",
+          "mountain forest",
+          "gravel race",
+          "handlebar view",
+          "GPS navigation"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "the-grit-adventure-preview.gif",
+        "url": "/race-photos/the-grit-adventure/the-grit-adventure-preview.gif",
+        "alt": "Course preview from The Grit Adventure race footage",
+        "credit": "YouTube / PNW eBike",
+        "gif": true
+      }
+    ]
   }
 }

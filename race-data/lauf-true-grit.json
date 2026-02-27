@@ -454,7 +454,183 @@
           "category": "race_atmosphere",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Descent to Zen",
+            "description": "A technical descent where riders can open up speed and make race-deciding moves, but with risk of flats and crashes.",
+            "source_video_ids": [
+              "qwkea8uvzNs"
+            ]
+          },
+          {
+            "name": "River Crossings",
+            "description": "Deep water crossings that riders aren't ready for, requiring careful navigation and potentially going end over end.",
+            "source_video_ids": [
+              "HnKIAaGxeuY"
+            ]
+          },
+          {
+            "name": "Beaver Dam Wash",
+            "description": "Takes you through a National Conservation Area with difficult terrain that's hard to access any other way besides bike.",
+            "source_video_ids": [
+              "C1CQ52-7fl0"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "The course becomes like glorified cyclocross in wet conditions - cold, wet, muddy with tons of puddles and soggy conditions.",
+            "source_video_ids": [
+              "HnKIAaGxeuY"
+            ]
+          },
+          {
+            "text": "Parts of the course are so difficult and technical that just finishing is a real accomplishment for many riders.",
+            "source_video_ids": [
+              "C1CQ52-7fl0"
+            ]
+          },
+          {
+            "text": "The descents become super cold in wet weather, but reaching the road sections brings new hope and better conditions.",
+            "source_video_ids": [
+              "HnKIAaGxeuY"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "Wished for bigger tires - would prefer 235 in the front instead of what was available. Need to put more pressure in smaller tires to make them work.",
+            "source_video_ids": [
+              "qwkea8uvzNs"
+            ]
+          },
+          {
+            "text": "Winning setup was 49 SL with 120mm fork and dropper post, set up for fun.",
+            "source_video_ids": [
+              "qwkea8uvzNs"
+            ]
+          }
+        ],
+        "race_day_tips": [
+          {
+            "text": "Going in without expectations can be a winning strategy, especially after recent big efforts - rest played a key role.",
+            "source_video_ids": [
+              "qwkea8uvzNs"
+            ]
+          },
+          {
+            "text": "Be ready for hypothermia conditions and bring appropriate gear for cold, wet weather.",
+            "source_video_ids": [
+              "HnKIAaGxeuY"
+            ]
+          },
+          {
+            "text": "Carry tubes as flats are common on this course and can end your race if you're not prepared.",
+            "source_video_ids": [
+              "qwkea8uvzNs"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "It was like a glorified cyclocross it was awesome the dirt part was super fun it was cold it was wet it was muddy there was hypothermia it was awesome",
+            "source_video_id": "HnKIAaGxeuY",
+            "source_channel": "DirtWireTV",
+            "source_view_count": 1587,
+            "category": "training",
+            "curated": true
+          },
+          {
+            "text": "It's so family-oriented the family can come there's a couple different spots where they can watch really competitive racing if you want it to be but it's still just a great day for the family",
+            "source_video_id": "C1CQ52-7fl0",
+            "source_channel": "MTB yumyum",
+            "source_view_count": 4830,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "The Lauf True Grit Gravel Epic is an 84-mile, 9000-foot elevation gain race through Santa Clara, Utah's challenging terrain. The course travels through the Beaver Dam Wash National Conservation Area, featuring technical sections so difficult that finishing is considered an accomplishment. Key challenges include the technical descent to Zen where races can be won or lost, deep river crossings that catch riders off guard, and terrain accessible only by bike. Weather can transform the course into muddy, cyclocross-like conditions with hypothermia risks, tons of puddles, and cold descents followed by hopeful road sections. Riders recommend carrying tubes for common flats, considering larger 235mm tires for better traction, and preparing for extreme weather. The race combines competitive racing with family-friendly atmosphere, taking place annually in March through some of Utah's most beautiful and remote scenery."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "lauf-true-grit-video-1.jpg",
+        "url": "/race-photos/lauf-true-grit/lauf-true-grit-video-1.jpg",
+        "alt": "Mountain biker navigating technical slickrock terrain with red sandstone formations in desert landscape - Lauf True Grit Gravel Epic - Santa Clara, Utah",
+        "credit": "YouTube / MTB yumyum",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "slickrock",
+          "desert terrain",
+          "sandstone",
+          "technical riding",
+          "mountain biking"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "lauf-true-grit-video-2.jpg",
+        "url": "/race-photos/lauf-true-grit/lauf-true-grit-video-2.jpg",
+        "alt": "Cyclist riding gravel road through desert landscape with cholla cactus and distant mountains under cloudy sky - Lauf True Grit Gravel Epic - Santa Clara, Utah",
+        "credit": "YouTube / MTB yumyum",
+        "primary": false,
+        "ai_relevance": 4,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "gravel road",
+          "desert cycling",
+          "cholla cactus",
+          "remote terrain",
+          "mountain backdrop"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "lauf-true-grit-video-3.jpg",
+        "url": "/race-photos/lauf-true-grit/lauf-true-grit-video-3.jpg",
+        "alt": "Race participant numbered 2035 working on gravel bike with knobby tires in transition area - Lauf True Grit Gravel Epic - Santa Clara, Utah",
+        "credit": "YouTube / MTB yumyum",
+        "primary": false,
+        "ai_relevance": 3,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "race number",
+          "bike maintenance",
+          "gravel bike",
+          "transition area",
+          "knobby tires"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "lauf-true-grit-preview.gif",
+        "url": "/race-photos/lauf-true-grit/lauf-true-grit-preview.gif",
+        "alt": "Course preview from Lauf True Grit race footage",
+        "credit": "YouTube / MTB yumyum",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "lauf-true-grit-preview-2.gif",
+        "url": "/race-photos/lauf-true-grit/lauf-true-grit-preview-2.gif",
+        "alt": "Course preview from Lauf True Grit race footage",
+        "credit": "YouTube / MTB yumyum",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "lauf-true-grit-preview-3.gif",
+        "url": "/race-photos/lauf-true-grit/lauf-true-grit-preview-3.gif",
+        "alt": "Course preview from Lauf True Grit race footage",
+        "credit": "YouTube / MTB yumyum",
+        "gif": true
+      }
+    ]
   }
 }

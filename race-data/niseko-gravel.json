@@ -525,6 +525,67 @@
         }
       ],
       "quotes": []
-    }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "niseko-gravel-video-1.jpg",
+        "url": "/race-photos/niseko-gravel/niseko-gravel-video-1.jpg",
+        "alt": "Cyclist's perspective riding on narrow gravel path through lush green forest with dense vegetation on both sides in Niseko, Japan - Niseko Gravel - Niseko, Hokkaido, Japan",
+        "credit": "YouTube / Niseko Gravel",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "gravel path",
+          "forest trail",
+          "Niseko",
+          "cyclist POV",
+          "Japanese countryside"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "niseko-gravel-video-2.jpg",
+        "url": "/race-photos/niseko-gravel/niseko-gravel-video-2.jpg",
+        "alt": "First-person view of gravel cycling on dirt trail winding uphill through dense green forest vegetation in Niseko mountains - Niseko Gravel - Niseko, Hokkaido, Japan",
+        "credit": "YouTube / Niseko Gravel",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "gravel climb",
+          "mountain trail",
+          "Niseko",
+          "forest cycling",
+          "dirt path"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "niseko-gravel-video-3.jpg",
+        "url": "/race-photos/niseko-gravel/niseko-gravel-video-3.jpg",
+        "alt": "Rider's view of gravel road curving through thick forest canopy with dappled sunlight filtering through trees in Niseko - Niseko Gravel - Niseko, Hokkaido, Japan",
+        "credit": "YouTube / Niseko Gravel",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel road",
+          "forest canopy",
+          "curved trail",
+          "Niseko",
+          "tree tunnel"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "niseko-gravel-preview.gif",
+        "url": "/race-photos/niseko-gravel/niseko-gravel-preview.gif",
+        "alt": "Course preview from Niseko Gravel race footage",
+        "credit": "YouTube / Niseko Gravel",
+        "gif": true
+      }
+    ]
   }
 }

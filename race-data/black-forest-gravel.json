@@ -592,7 +592,130 @@
           "category": "race_atmosphere",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Black Forest climbs",
+            "description": "Riders emphasize that the climbing meters in the Black Forest are very steep, much steeper than other regions. Multiple riders mention gathering all strength needed for the big climbs.",
+            "source_video_ids": [
+              "rBHDdjDMqrk",
+              "zOszzCOdHHk"
+            ]
+          },
+          {
+            "name": "Tight corners in forest",
+            "description": "Corners require attention especially when it gets dark, as they can become slippery. The forest environment creates challenging visibility conditions.",
+            "source_video_ids": [
+              "rBHDdjDMqrk"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Long, dirty roads with tight corners throughout the forest. When conditions get dark, corners become slippery and require extra caution.",
+            "source_video_ids": [
+              "rBHDdjDMqrk"
+            ]
+          }
+        ],
+        "gear_mentions": [],
+        "race_day_tips": [
+          {
+            "text": "Do not plan too many meters of climbing - the elevation gains in Black Forest are very steep compared to other areas. Check route carefully and be conservative with climbing plans.",
+            "source_video_ids": [
+              "rBHDdjDMqrk"
+            ]
+          },
+          {
+            "text": "Pay attention on corners, especially when it gets dark, because they can become slippery.",
+            "source_video_ids": [
+              "rBHDdjDMqrk"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "After a train ride up into the mountains, we arrived in Titiz. This town is located in the south of the Black Forest near Lake Tis. Our goal was it to cycle around the lake on our bikes. And after that we planned to cycle down the mountain back to Fryborg.",
+            "source_video_id": "zOszzCOdHHk",
+            "source_channel": "sun4weasel",
+            "source_view_count": 267,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "It turned out to be a bigger adventure than we had expected, but that's the joy of bike touring. We are excited to see what else we will experience this year.",
+            "source_video_id": "zOszzCOdHHk",
+            "source_channel": "sun4weasel",
+            "source_view_count": 267,
+            "category": "community",
+            "curated": true
+          }
+        ],
+        "search_text": "The Black Forest offers challenging gravel riding with long, dirty roads and very steep climbing that riders consistently emphasize is much harder than other regions. Key challenges include navigating tight corners that become slippery in dark forest conditions. The terrain features extensive climbs where riders need to gather all their strength, with some routes reaching near the highest mountain in the Black Forest. Riders access the area via train from Freiburg, with routes including loops around Lake Titisee. The forest environment creates mysterious, dark conditions with challenging visibility. Riders strongly recommend being conservative with climbing plans and paying extra attention to corners. The area offers beautiful lake stops for swimming and connects via the Tisam river back to Freiburg. Multiple riders describe finishing completely exhausted after 4-5 hours of riding due to the demanding steep terrain throughout the Black Forest hills."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "black-forest-gravel-video-1.jpg",
+        "url": "/race-photos/black-forest-gravel/black-forest-gravel-video-1.jpg",
+        "alt": "Two gravel cyclists taking a rest break with their bikes in a shaded forest area during the Black Forest race - Black Forest Gravel - Freiburg, Black Forest, Germany",
+        "credit": "YouTube / Probikeshop TV",
+        "primary": true,
+        "ai_relevance": 3,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel cyclists",
+          "forest trail",
+          "rest break",
+          "Black Forest",
+          "cycling gear"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "black-forest-gravel-video-2.jpg",
+        "url": "/race-photos/black-forest-gravel/black-forest-gravel-video-2.jpg",
+        "alt": "Aerial view of dense green forest canopy in the Black Forest region of Germany showing the race terrain - Black Forest Gravel - Freiburg, Black Forest, Germany",
+        "credit": "YouTube / Probikeshop TV",
+        "primary": false,
+        "ai_relevance": 2,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "Black Forest",
+          "forest canopy",
+          "aerial view",
+          "Germany",
+          "race terrain"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "black-forest-gravel-video-3.jpg",
+        "url": "/race-photos/black-forest-gravel/black-forest-gravel-video-3.jpg",
+        "alt": "Town square with traditional German architecture near Lake Titisee showing the race location in Germany - Black Forest Gravel - Freiburg, Black Forest, Germany",
+        "credit": "YouTube / Probikeshop TV",
+        "primary": false,
+        "ai_relevance": 1,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "Lake Titisee",
+          "Germany",
+          "town square",
+          "traditional architecture",
+          "race location"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "black-forest-gravel-preview.gif",
+        "url": "/race-photos/black-forest-gravel/black-forest-gravel-preview.gif",
+        "alt": "Course preview from Black Forest Gravel race footage",
+        "credit": "YouTube / Probikeshop TV",
+        "gif": true
+      }
+    ]
   }
 }

@@ -415,7 +415,94 @@
           "curated": false
         }
       ],
-      "quotes": []
-    }
+      "quotes": [],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [],
+        "terrain_notes": [
+          {
+            "text": "Crushed limestone sections are tough and slow going, but manageable when dry conditions.",
+            "source_video_ids": [
+              "zHyhotDLI8o"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "Running 28mm tires, not 23mm on Jamis bike for crushed limestone sections.",
+            "source_video_ids": [
+              "zHyhotDLI8o"
+            ]
+          }
+        ],
+        "race_day_tips": [
+          {
+            "text": "Body craves more organic nutrition like fruit smoothies over gas station food during long rides - listen to what your body is telling you.",
+            "source_video_ids": [
+              "zHyhotDLI8o"
+            ]
+          },
+          {
+            "text": "Expect headwinds and plan nutrition accordingly, especially avoiding too much gas station food.",
+            "source_video_ids": [
+              "zHyhotDLI8o"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "This is what I love about Michigan - separated bike lanes, bike highway. We should have more of these definitely.",
+            "source_video_id": "zHyhotDLI8o",
+            "source_channel": "Kymberly Byers",
+            "source_view_count": 125,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "The Kalamazoo area offers excellent cycling infrastructure with separated bike lanes and bike highways along the west coast of Michigan. Riders encounter crushed limestone trail sections that can be challenging and slow going, though manageable in dry conditions. The terrain includes sections through Holland, Saugatuck, and South Haven areas. Nutrition becomes critical on longer rides, with riders reporting their bodies craving more organic options like fruit smoothies over typical gas station fare. Headwinds are a common challenge in the region. Wider tires (28mm vs 23mm) are recommended for the crushed limestone surfaces. The area provides good support infrastructure with health food stores available in Kalamazoo for better nutrition options during long training rides."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "kal-tour-dirty-100-video-1.jpg",
+        "url": "/race-photos/kal-tour-dirty-100/kal-tour-dirty-100-video-1.jpg",
+        "alt": "Man in checkered shirt speaking indoors at grocery store with shelves and products visible in background - Kal-Tour Dirty 100 - Kalamazoo, Michigan",
+        "credit": "YouTube / Kymberly Byers",
+        "primary": true,
+        "ai_relevance": 1,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "indoor interview",
+          "grocery store",
+          "retail setting",
+          "interview setup"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "kal-tour-dirty-100-video-2.jpg",
+        "url": "/race-photos/kal-tour-dirty-100/kal-tour-dirty-100-video-2.jpg",
+        "alt": "Historic brick building storefront with arched windows displaying ice cream shop with decorative rabbit display and closed sign - Kal-Tour Dirty 100 - Kalamazoo, Michigan",
+        "credit": "YouTube / Kymberly Byers",
+        "primary": false,
+        "ai_relevance": 1,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "ice cream shop",
+          "brick storefront",
+          "small town business",
+          "historic building"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "kal-tour-dirty-100-preview.gif",
+        "url": "/race-photos/kal-tour-dirty-100/kal-tour-dirty-100-preview.gif",
+        "alt": "Course preview from Kal Tour Dirty 100 race footage",
+        "credit": "YouTube / Kymberly Byers",
+        "gif": true
+      }
+    ]
   }
 }

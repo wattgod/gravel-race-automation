@@ -475,7 +475,91 @@
           "category": "race_atmosphere",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Cumulative climbing",
+            "description": "Riders report approximately 7,000 feet of climbing by the halfway point, indicating significant elevation gain throughout the race.",
+            "source_video_ids": [
+              "ZnfsXnO45DU"
+            ]
+          }
+        ],
+        "terrain_notes": [],
+        "gear_mentions": [
+          {
+            "text": "Riders successfully completed the race on fat bikes, finishing 13th and 14th in their category.",
+            "source_video_ids": [
+              "ZnfsXnO45DU"
+            ]
+          }
+        ],
+        "race_day_tips": [],
+        "additional_quotes": [
+          {
+            "text": "10 miles to go the sun is out about 70 degrees probably oh it's beautiful out here",
+            "source_video_id": "ZnfsXnO45DU",
+            "source_channel": "Team Mad Cow Ramble",
+            "source_view_count": 216,
+            "category": "race_atmosphere",
+            "curated": true
+          },
+          {
+            "text": "it's 82 degrees 82 we're gonna go home it'll be 42. what a day",
+            "source_video_id": "ZnfsXnO45DU",
+            "source_channel": "Team Mad Cow Ramble",
+            "source_view_count": 216,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "The Waucheesi Bike Race in Tellico Plains, Tennessee features substantial climbing with riders reporting approximately 7,000 feet of elevation gain by the halfway point of the 75-mile course. Race conditions can vary significantly with temperatures ranging from pleasant 70-degree weather during the race to much cooler 42-degree temperatures post-race. The course is challenging enough that riders feel accomplished completing it, with some successfully finishing on fat bikes and placing well in their categories. The mountainous Tennessee terrain provides beautiful scenery throughout the event, making it both a physical and visual experience for participants."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "waucheesi-bike-race-video-1.jpg",
+        "url": "/race-photos/waucheesi-bike-race/waucheesi-bike-race-video-1.jpg",
+        "alt": "Gravel cyclist in red and black jersey navigating wooded trail terrain during mountain bike race - Waucheesi Bike Race - Tellico Plains, Tennessee",
+        "credit": "YouTube / Team Mad Cow Ramble ",
+        "primary": true,
+        "ai_relevance": 4,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "wooded trail",
+          "gravel cyclist",
+          "mountain terrain",
+          "racing jersey"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "waucheesi-bike-race-video-2.jpg",
+        "url": "/race-photos/waucheesi-bike-race/waucheesi-bike-race-video-2.jpg",
+        "alt": "Close-up of gravel racer in protective helmet and sunglasses riding through dense forest trail - Waucheesi Bike Race - Tellico Plains, Tennessee",
+        "credit": "YouTube / Team Mad Cow Ramble ",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel racer",
+          "forest trail",
+          "cycling helmet",
+          "wooded course",
+          "trail racing"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "waucheesi-bike-race-preview.gif",
+        "url": "/race-photos/waucheesi-bike-race/waucheesi-bike-race-preview.gif",
+        "alt": "Course preview from Waucheesi Bike Race race footage",
+        "credit": "YouTube / Team Mad Cow Ramble ",
+        "gif": true
+      }
+    ]
   }
 }

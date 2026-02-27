@@ -544,7 +544,183 @@
           "category": "course_difficulty",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Wade's Field Gap",
+            "mile_marker": "33",
+            "description": "First climb of the day starting at 3,000 feet, eight to nine percent grade that gets steeper.",
+            "source_video_ids": [
+              "vp-wu_glqAs"
+            ]
+          },
+          {
+            "name": "More Town Gap",
+            "mile_marker": "",
+            "description": "Gap number two, about eight percent grade climbing, described as a solid climb but not the biggest of the day.",
+            "source_video_ids": [
+              "vp-wu_glqAs"
+            ]
+          },
+          {
+            "name": "Roxbury Gap",
+            "mile_marker": "",
+            "description": "Way too many cars on this road, climbed at about a third of the way up just past 8,000 feet elevation.",
+            "source_video_ids": [
+              "vp-wu_glqAs"
+            ]
+          },
+          {
+            "name": "Braintree Gap",
+            "mile_marker": "",
+            "description": "The biggest question mark of the day with crazy terrain. Technically a dirt road but the dirt is real big, bone jarring, with rocks. Reason people don't ride it too frequently.",
+            "source_video_ids": [
+              "vp-wu_glqAs"
+            ]
+          },
+          {
+            "name": "Doubleday Hill",
+            "mile_marker": "",
+            "description": "Final section described as incredible hell, eighteen to twenty percent grade. Has pavement in beginning but then grass and dirt with some roughs. Called the coolest thing but challenging.",
+            "source_video_ids": [
+              "__9b4Zgg7_Q"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Braintree Gap is technically a dirt road but the dirt is real big, bone jarring with rocks and crazy terrain.",
+            "source_video_ids": [
+              "vp-wu_glqAs"
+            ]
+          },
+          {
+            "text": "The course is 92% dirt with 77 sections of class four road, which are ancient unmaintained roads in Vermont.",
+            "source_video_ids": [
+              "__9b4Zgg7_Q"
+            ]
+          },
+          {
+            "text": "Doubleday Hill has a little bit of pavement in the beginning but then the rest is grass and dirt with some roughs.",
+            "source_video_ids": [
+              "__9b4Zgg7_Q"
+            ]
+          }
+        ],
+        "gear_mentions": [],
+        "race_day_tips": [
+          {
+            "text": "Faster riders should line up in the front at the 9 o'clock start, mid range in the middle, slower riders doing it for adventure in the back.",
+            "source_video_ids": [
+              "__9b4Zgg7_Q"
+            ]
+          },
+          {
+            "text": "On the finish, if you're with anybody you're going to want to start jockeying for position because the footbridge section is narrow like a hole shot.",
+            "source_video_ids": [
+              "__9b4Zgg7_Q"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "Central street is gonna be closed for the day which is pretty groundbreaking here in the village. The village is yours for the day.",
+            "source_video_id": "__9b4Zgg7_Q",
+            "source_channel": "Peter Vollers",
+            "source_view_count": 758,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "If you're staying here even better because you can just ride right to the course which is really cool, don't even have to get in your car.",
+            "source_video_id": "__9b4Zgg7_Q",
+            "source_channel": "Peter Vollers",
+            "source_view_count": 758,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "Vermont Overland is a 53-mile gravel race that's 92% dirt featuring 77 sections of class four road - ancient unmaintained Vermont roads. The course includes major climbs like Wade's Field Gap starting at 33 miles and 3,000 feet with eight to nine percent grades, More Town Gap, Roxbury Gap with heavy car traffic, and the notorious Braintree Gap described as bone jarring with real big dirt and rocks that riders avoid frequently. The race starts and finishes in downtown Woodstock village with Central Street closed for the event. The finish features a narrow footbridge section followed by the brutal Doubleday Hill climb at eighteen to twenty percent grade with pavement transitioning to grass and dirt. Race organizers recommend faster riders line up front at the 9 AM start, with positioning becoming critical on the technical finishing circuit through village streets and the final challenging climb."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "vermont-overland-video-1.jpg",
+        "url": "/race-photos/vermont-overland/vermont-overland-video-1.jpg",
+        "alt": "First-person view from cyclist handlebars riding on dirt gravel road through rural Vermont countryside with green fields and trees - Vermont Overland - Woodstock, Vermont",
+        "credit": "YouTube / Sean Mauceri",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel road",
+          "Vermont countryside",
+          "first-person cycling",
+          "rural terrain",
+          "dirt road"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "vermont-overland-video-2.jpg",
+        "url": "/race-photos/vermont-overland/vermont-overland-video-2.jpg",
+        "alt": "Cyclist's perspective riding gravel road with both hands on handlebars through Vermont farmland with open fields and scattered trees - Vermont Overland - Woodstock, Vermont",
+        "credit": "YouTube / Sean Mauceri",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel cycling",
+          "Vermont farmland",
+          "handlebars view",
+          "rural roads",
+          "countryside"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "vermont-overland-video-3.jpg",
+        "url": "/race-photos/vermont-overland/vermont-overland-video-3.jpg",
+        "alt": "Paved road intersection in residential Vermont area with houses, hills, and forested mountains in background during overcast conditions - Vermont Overland - Woodstock, Vermont",
+        "credit": "YouTube / Sean Mauceri",
+        "primary": false,
+        "ai_relevance": 3,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "Vermont hills",
+          "residential area",
+          "paved road",
+          "mountain backdrop",
+          "rural neighborhood"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "vermont-overland-preview.gif",
+        "url": "/race-photos/vermont-overland/vermont-overland-preview.gif",
+        "alt": "Course preview from Vermont Overland race footage",
+        "credit": "YouTube / Sean Mauceri",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "vermont-overland-preview-2.gif",
+        "url": "/race-photos/vermont-overland/vermont-overland-preview-2.gif",
+        "alt": "Course preview from Vermont Overland race footage",
+        "credit": "YouTube / Sean Mauceri",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "vermont-overland-preview-3.gif",
+        "url": "/race-photos/vermont-overland/vermont-overland-preview-3.gif",
+        "alt": "Course preview from Vermont Overland race footage",
+        "credit": "YouTube / Sean Mauceri",
+        "gif": true
+      }
+    ]
   }
 }

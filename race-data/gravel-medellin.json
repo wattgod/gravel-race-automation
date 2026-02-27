@@ -557,7 +557,174 @@
           "category": "course_difficulty",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Initial climb from guatape",
+            "mile_marker": "6",
+            "description": "Six miles at 10% grade right from the start - riders were huffing and puffing early",
+            "source_video_ids": [
+              "cWRDVcDfcJY"
+            ]
+          },
+          {
+            "name": "Construction zones",
+            "mile_marker": "",
+            "description": "Racing through active construction zones with barely any slowing down - front riders yell to workers that it's a race",
+            "source_video_ids": [
+              "cWRDVcDfcJY"
+            ]
+          },
+          {
+            "name": "Paramo sections",
+            "mile_marker": "",
+            "description": "Highest sections up to 3,900m elevation where it's cold and hard to breathe",
+            "source_video_ids": [
+              "x1qQ_08B2sA"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Colombian roads come in two flavors: steep or crazy steep. Descents are so rough and arm-shaking that riders are happy when climbs start",
+            "source_video_ids": [
+              "cWRDVcDfcJY"
+            ]
+          },
+          {
+            "text": "Descents are so rowdy and back-pinching that arms get fatigued even on pavement sections",
+            "source_video_ids": [
+              "cWRDVcDfcJY"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "Switched from 40t to 44t chainring after experiencing Colombian roads, though felt unsure about that choice. Used 51t cassette on back",
+            "source_video_ids": [
+              "cWRDVcDfcJY"
+            ]
+          },
+          {
+            "text": "For multi-day events: one jersey, one bib, one pair of socks total - wash daily and wear the same kit every day",
+            "source_video_ids": [
+              "x1qQ_08B2sA"
+            ]
+          },
+          {
+            "text": "Essential gear includes windbreaker, gore-tex jacket, puffed jacket for post-ride, latex gloves, neck warmer, spare gloves and jersey",
+            "source_video_ids": [
+              "x1qQ_08B2sA"
+            ]
+          }
+        ],
+        "race_day_tips": [
+          {
+            "text": "For extreme heat, carry salt pills and focus heavily on hydration",
+            "source_video_ids": [
+              "x1qQ_08B2sA"
+            ]
+          },
+          {
+            "text": "Skip the usual pack and take advantage of the stops - they're F1 style quick in the tiendas",
+            "source_video_ids": [
+              "cWRDVcDfcJY"
+            ]
+          },
+          {
+            "text": "When top riders tell you to slow down, listen to them - they set the pace for good reason",
+            "source_video_ids": [
+              "x1qQ_08B2sA"
+            ]
+          },
+          {
+            "text": "Most important preparation is hours in the saddle to understand how you'll feel the day after when exhausted",
+            "source_video_ids": [
+              "x1qQ_08B2sA"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "Nice folks here in the tiendas - came out of the shop and old man was holding my bike for me getting it ready to go",
+            "source_video_id": "cWRDVcDfcJY",
+            "source_channel": "The Ride with Ben Delaney",
+            "source_view_count": 20563,
+            "category": "community",
+            "curated": true
+          },
+          {
+            "text": "We were racing through construction zones with barely even slowing down just whoever was at the front would yell out hey we're in a race and we'd go blasting through",
+            "source_video_id": "cWRDVcDfcJY",
+            "source_channel": "The Ride with Ben Delaney",
+            "source_view_count": 20563,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "The Transcordilleras gravel race in Colombia crosses three mountain ranges from north to south, with elevations ranging from 200m in valleys to 3,900m in the paramo where it's cold and hard to breathe. Colombian roads come in two flavors according to riders: steep or crazy steep. The terrain features extremely rough descents that are back-pinching and arm-shaking, making riders happy when climbs begin. Key challenges include a six-mile 10% grade climb from guatape and racing through active construction zones. Riders recommend switching to larger chainrings like 44t and using 51t cassettes for the steep terrain. The race features F1-style quick stops at tiendas where locals help riders. For gear, experienced riders suggest minimal kit - one bib and jersey washed daily for multi-day events, plus essential weather protection including windbreakers and gore-tex jackets. The community aspect is strong with local support and experienced riders setting pace for groups."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "gravel-medellin-video-1.jpg",
+        "url": "/race-photos/gravel-medellin/gravel-medellin-video-1.jpg",
+        "alt": "Cycling race finish line ceremony with Specialized branding and spectators gathered under trees in Medellin - Gravel Medellín - Medellín, Colombia",
+        "credit": "YouTube / The Ride with Ben Delaney",
+        "primary": true,
+        "ai_relevance": 3,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "finish line",
+          "race ceremony",
+          "Specialized",
+          "Medellin cycling"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "gravel-medellin-video-2.jpg",
+        "url": "/race-photos/gravel-medellin/gravel-medellin-video-2.jpg",
+        "alt": "Cyclist loading bike onto support truck during gravel race in Colombian mountainous terrain near Medellin - Gravel Medellín - Medellín, Colombia",
+        "credit": "YouTube / The Ride with Ben Delaney",
+        "primary": false,
+        "ai_relevance": 2,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "support truck",
+          "bike loading",
+          "Colombian mountains",
+          "race logistics"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "gravel-medellin-video-3.jpg",
+        "url": "/race-photos/gravel-medellin/gravel-medellin-video-3.jpg",
+        "alt": "Gravel cyclists racing on paved rural roads through green Colombian countryside hills near Medellin - Gravel Medellín - Medellín, Colombia",
+        "credit": "YouTube / The Ride with Ben Delaney",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel peloton",
+          "Colombian countryside",
+          "rural roads",
+          "mountain terrain",
+          "Medellin gravel"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "gravel-medellin-preview.gif",
+        "url": "/race-photos/gravel-medellin/gravel-medellin-preview.gif",
+        "alt": "Course preview from Gravel Medellin race footage",
+        "credit": "YouTube / The Ride with Ben Delaney",
+        "gif": true
+      }
+    ]
   }
 }

@@ -584,7 +584,164 @@
           "category": "race_atmosphere",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "First hiker bike",
+            "description": "Long boggy steep hillside requiring pushing and carrying bikes. Described as 'excessive' and 'frankly was excessive'.",
+            "source_video_ids": [
+              "pR1uGiBGX1g",
+              "_dsE55VYQcg"
+            ]
+          },
+          {
+            "name": "Morning hiker bike day 2",
+            "description": "Relentless pushing up steep slippery footpath. Mixed with some riding sections but significant carrying required.",
+            "source_video_ids": [
+              "pR1uGiBGX1g",
+              "_dsE55VYQcg"
+            ]
+          },
+          {
+            "name": "Six climbs on day 2",
+            "description": "Four of the six climbs still remain after lunch at Benmore Gardens cafe.",
+            "source_video_ids": [
+              "pR1uGiBGX1g"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Hiker bike sections involve long boggy steep hillsides and steep slippery footpaths requiring extensive pushing and carrying.",
+            "source_video_ids": [
+              "pR1uGiBGX1g",
+              "_dsE55VYQcg"
+            ]
+          },
+          {
+            "text": "Course includes forest roads, single track, forest trails, and quiet coastal roads.",
+            "source_video_ids": [
+              "pR1uGiBGX1g"
+            ]
+          },
+          {
+            "text": "Second day features some of the best gravel trails with stunning descents through valleys.",
+            "source_video_ids": [
+              "_dsE55VYQcg"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "Important consideration when deciding what kit to bring and how to pack it on your bike due to extensive hiker bike sections.",
+            "source_video_ids": [
+              "pR1uGiBGX1g"
+            ]
+          }
+        ],
+        "race_day_tips": [
+          {
+            "text": "Stock up at the idyllically placed cafe before the big climb on morning of day 2.",
+            "source_video_ids": [
+              "pR1uGiBGX1g"
+            ]
+          },
+          {
+            "text": "There are bail out options at the main road partway through day 2 - tempting shortcut back to Dunoon.",
+            "source_video_ids": [
+              "pR1uGiBGX1g"
+            ]
+          },
+          {
+            "text": "Most fast riders stop at the pub, so don't worry about being alone - you might actually be near the front.",
+            "source_video_ids": [
+              "pR1uGiBGX1g"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "Unlike normal bike packing stoves could be left at home venison burgers chips and a veggie option provided by Winston Churchill yes that is his name",
+            "source_video_id": "pR1uGiBGX1g",
+            "source_channel": "Always Another Adventure",
+            "source_view_count": 6974,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "There are two rules to this event the first one is it's not a race the second is don't be a Edie",
+            "source_video_id": "pR1uGiBGX1g",
+            "source_channel": "Always Another Adventure",
+            "source_view_count": 6974,
+            "category": "community",
+            "curated": true
+          }
+        ],
+        "search_text": "The Dunoon Dirt Dash is a two-day overnight bikepacking event in Scotland with extensive hiker bike sections requiring significant pushing and carrying over long boggy steep hillsides and slippery footpaths. The course features forest roads, single track, coastal roads, and includes stops at Benmore Botanical Gardens cafe. Key challenges include the first day's excessive hiker bike section and six climbs on day 2. Riders can bail out at main roads partway through day 2. The event provides evening meals including venison burgers, eliminating need for camping stoves. The atmosphere emphasizes it's not a race with a don't be a dick philosophy. Second day features some excellent gravel descents through valleys despite the challenging climbs."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "dunoon-dirt-dash-video-1.jpg",
+        "url": "/race-photos/dunoon-dirt-dash/dunoon-dirt-dash-video-1.jpg",
+        "alt": "Cyclists navigating a flooded gravel trail section with large puddle reflecting trees and sky in wooded terrain - Dunoon Dirt Dash - Dunoon, Scotland, UK",
+        "credit": "YouTube / Always Another Adventure",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "flooded trail",
+          "gravel path",
+          "wooded terrain",
+          "puddle crossing",
+          "trail conditions"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "dunoon-dirt-dash-video-2.jpg",
+        "url": "/race-photos/dunoon-dirt-dash/dunoon-dirt-dash-video-2.jpg",
+        "alt": "Gravel cyclist in racing kit pushing bike up muddy trail beside tarn lake in Scottish Highland moorland - Dunoon Dirt Dash - Dunoon, Scotland, UK",
+        "credit": "YouTube / Always Another Adventure",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "Highland moorland",
+          "tarn lake",
+          "muddy trail",
+          "bike pushing",
+          "Scottish terrain"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "dunoon-dirt-dash-video-3.jpg",
+        "url": "/race-photos/dunoon-dirt-dash/dunoon-dirt-dash-video-3.jpg",
+        "alt": "Cyclist silhouetted against bright sky on urban waterfront promenade with bridge and crowds in background - Dunoon Dirt Dash - Dunoon, Scotland, UK",
+        "credit": "YouTube / Always Another Adventure",
+        "primary": false,
+        "ai_relevance": 3,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "urban promenade",
+          "waterfront",
+          "bridge",
+          "silhouette",
+          "paved surface"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "dunoon-dirt-dash-preview.gif",
+        "url": "/race-photos/dunoon-dirt-dash/dunoon-dirt-dash-preview.gif",
+        "alt": "Course preview from Dunoon Dirt Dash race footage",
+        "credit": "YouTube / Always Another Adventure",
+        "gif": true
+      }
+    ]
   }
 }

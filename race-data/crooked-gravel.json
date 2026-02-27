@@ -517,7 +517,77 @@
           "curated": false
         }
       ],
-      "quotes": []
-    }
+      "quotes": [],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [],
+        "terrain_notes": [],
+        "gear_mentions": [],
+        "race_day_tips": [],
+        "additional_quotes": [],
+        "search_text": "The available transcript from Crooked Gravel in Winter Park, Colorado contains only fragmented audio with music and unclear dialogue. No specific information about the 62-mile course, terrain conditions, elevation challenges, or race experience could be extracted from the provided transcript. The video appears to contain primarily background music and incomplete phrases that do not provide actionable intelligence about course features, gear recommendations, pacing strategies, or race day logistics for this Colorado gravel event."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "crooked-gravel-video-1.jpg",
+        "url": "/race-photos/crooked-gravel/crooked-gravel-video-1.jpg",
+        "alt": "First-person view from cyclist's handlebars riding on dirt gravel road through dense forest canopy with dappled sunlight - Crooked Gravel - Winter Park, Colorado",
+        "credit": "YouTube / Matt Woolly",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel road",
+          "forest trail",
+          "first person view",
+          "tree canopy",
+          "dirt road"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "crooked-gravel-video-2.jpg",
+        "url": "/race-photos/crooked-gravel/crooked-gravel-video-2.jpg",
+        "alt": "Cyclist's shadow visible on wide gravel road intersection surrounded by evergreen trees under clear blue sky - Crooked Gravel - Winter Park, Colorado",
+        "credit": "YouTube / Matt Woolly",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 5,
+        "ai_keywords": [
+          "gravel intersection",
+          "evergreen forest",
+          "cyclist shadow",
+          "blue sky",
+          "wide gravel road"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "crooked-gravel-video-3.jpg",
+        "url": "/race-photos/crooked-gravel/crooked-gravel-video-3.jpg",
+        "alt": "Handlebar perspective of gravel cyclist on rough dirt road with visible bike computer and red handlebar bag through mixed forest terrain - Crooked Gravel - Winter Park, Colorado",
+        "credit": "YouTube / Matt Woolly",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "handlebar view",
+          "bike computer",
+          "rough gravel",
+          "mixed forest",
+          "cycling gear"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "crooked-gravel-preview.gif",
+        "url": "/race-photos/crooked-gravel/crooked-gravel-preview.gif",
+        "alt": "Course preview from Crooked Gravel race footage",
+        "credit": "YouTube / Matt Woolly",
+        "gif": true
+      }
+    ]
   }
 }

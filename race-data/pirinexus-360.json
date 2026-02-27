@@ -530,6 +530,64 @@
         }
       ],
       "quotes": []
-    }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "pirinexus-360-video-1.jpg",
+        "url": "/race-photos/pirinexus-360/pirinexus-360-video-1.jpg",
+        "alt": "Group of cyclists riding on paved road past yellow Mediterranean-style house with mountains in background during Pirinexus 360 gravel race - Girona, Catalonia, Spain",
+        "credit": "YouTube / Xevi Piu",
+        "primary": true,
+        "ai_relevance": 4,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "cycling peloton",
+          "mountain backdrop",
+          "Mediterranean village",
+          "gravel race"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "pirinexus-360-video-2.jpg",
+        "url": "/race-photos/pirinexus-360/pirinexus-360-video-2.jpg",
+        "alt": "Cyclists crossing concrete bridge with metal railings through forested valley during gravel cycling race - Pirinexus 360 - Girona, Catalonia, Spain",
+        "credit": "YouTube / Xevi Piu",
+        "primary": false,
+        "ai_relevance": 4,
+        "ai_quality": 2,
+        "ai_keywords": [
+          "bridge crossing",
+          "forest valley",
+          "cycling group",
+          "concrete bridge"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "pirinexus-360-preview.gif",
+        "url": "/race-photos/pirinexus-360/pirinexus-360-preview.gif",
+        "alt": "Course preview from Pirinexus 360 race footage",
+        "credit": "YouTube / Xevi Piu",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "pirinexus-360-preview-2.gif",
+        "url": "/race-photos/pirinexus-360/pirinexus-360-preview-2.gif",
+        "alt": "Course preview from Pirinexus 360 race footage",
+        "credit": "YouTube / Xevi Piu",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "pirinexus-360-preview-3.gif",
+        "url": "/race-photos/pirinexus-360/pirinexus-360-preview-3.gif",
+        "alt": "Course preview from Pirinexus 360 race footage",
+        "credit": "YouTube / Xevi Piu",
+        "gif": true
+      }
+    ]
   }
 }

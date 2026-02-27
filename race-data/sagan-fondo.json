@@ -575,7 +575,132 @@
           "category": "race_atmosphere",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "The Boneyard",
+            "mile_marker": "40",
+            "description": "Legitimately like rock crawling for 20 minutes. This section destroys your back and legs, breaks bikes into bits, and features sharp rocks that cause punctures.",
+            "source_video_ids": [
+              "XE_SguMw_q4"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Sharp rocks throughout the course cause punctures. Extremely dusty conditions with 500-600 riders - dust gets so bad that chains run dry around 40 miles in and sound horrendous.",
+            "source_video_ids": [
+              "XE_SguMw_q4"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "High volume tires are key. Riders were running various tire widths including 38mm and 42mm options. The dusty conditions cause chains to run dry, so extra chain lubrication is important for long dusty rides.",
+            "source_video_ids": [
+              "XE_SguMw_q4"
+            ]
+          }
+        ],
+        "race_day_tips": [
+          {
+            "text": "Be prepared to help others with punctures from sharp rocks. Don't stop if you're racing for a podium position - the rider mentions losing time by helping someone fix a puncture.",
+            "source_video_ids": [
+              "XE_SguMw_q4"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "I have not ridden them yet I think I might score a pair and pick him up at the shop the saw to 38 seems quite intriguing to me I think it's got a nice good profile high volume is key",
+            "source_video_id": "XE_SguMw_q4",
+            "source_channel": "Cody Kaiser",
+            "source_view_count": 6484,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "The Sagan Fondo in Truckee, California features 68-78 miles with 8000 feet of elevation gain. The course includes a notorious section called The Boneyard around mile 40, which riders describe as legitimately like rock crawling for 20 minutes that destroys your back and legs. Sharp rocks throughout the course cause frequent punctures. With 500-600 participants, dust becomes a major issue, causing chains to run dry around 40 miles in. The terrain is technical enough to break bikes and demands high volume tires. Riders report the event being feisty and more race-like than a typical gran fondo, with age group categories and podium positions. The course serves as good preparation for other technical gravel races."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "sagan-fondo-video-1.jpg",
+        "url": "/race-photos/sagan-fondo/sagan-fondo-video-1.jpg",
+        "alt": "Cyclist in aerodynamic position racing on paved road through dense pine forest under clear blue sky - Sagan Fondo - Truckee, California",
+        "credit": "YouTube / melges241",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "time trial position",
+          "pine forest",
+          "paved road",
+          "cycling race",
+          "aerodynamic"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "sagan-fondo-video-2.jpg",
+        "url": "/race-photos/sagan-fondo/sagan-fondo-video-2.jpg",
+        "alt": "Mountain bikers riding on dirt trail through forested terrain with tall pine trees and natural vegetation - Sagan Fondo - Truckee, California",
+        "credit": "YouTube / melges241",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "dirt trail",
+          "mountain biking",
+          "pine forest",
+          "singletrack",
+          "forest riding"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "sagan-fondo-video-3.jpg",
+        "url": "/race-photos/sagan-fondo/sagan-fondo-video-3.jpg",
+        "alt": "Large group of cyclists gathered at race start line on paved road with pine forest backdrop and support vehicles - Sagan Fondo - Truckee, California",
+        "credit": "YouTube / melges241",
+        "primary": false,
+        "ai_relevance": 4,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "race start",
+          "cycling peloton",
+          "pine forest",
+          "group ride",
+          "race staging"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "sagan-fondo-preview.gif",
+        "url": "/race-photos/sagan-fondo/sagan-fondo-preview.gif",
+        "alt": "Course preview from Sagan Fondo race footage",
+        "credit": "YouTube / melges241",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "sagan-fondo-preview-2.gif",
+        "url": "/race-photos/sagan-fondo/sagan-fondo-preview-2.gif",
+        "alt": "Course preview from Sagan Fondo race footage",
+        "credit": "YouTube / melges241",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "sagan-fondo-preview-3.gif",
+        "url": "/race-photos/sagan-fondo/sagan-fondo-preview-3.gif",
+        "alt": "Course preview from Sagan Fondo race footage",
+        "credit": "YouTube / melges241",
+        "gif": true
+      }
+    ]
   }
 }

@@ -514,7 +514,169 @@
           "category": "race_atmosphere",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Opening climb",
+            "mile_marker": "6",
+            "description": "First six to seven miles are gradual uphill on pavement, described as a fast climb followed by a 20% grade wake-up call when you turn right onto gravel",
+            "source_video_ids": [
+              "wvlCXCBfisU"
+            ]
+          },
+          {
+            "name": "Checkpoint climbs",
+            "mile_marker": "",
+            "description": "Checkpoints are positioned at the bottom of hills - you go down half a mile to a mile into checkpoint, then have to climb back out the same way",
+            "source_video_ids": [
+              "wvlCXCBfisU"
+            ]
+          },
+          {
+            "name": "Three big climbs",
+            "mile_marker": "",
+            "description": "There are three really big climbs total, with rolling hills in between described as small selling rollers",
+            "source_video_ids": [
+              "wvlCXCBfisU"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "The gravel was fast overall with a chunky B section that was manageable - even single speed fat bikers were able to complete it",
+            "source_video_ids": [
+              "wvlCXCBfisU"
+            ]
+          },
+          {
+            "text": "Course takes place on gravel roads up in the Sawtooth Range with no gas stations or convenience stores, lots of woods",
+            "source_video_ids": [
+              "bIiCmow0_iY"
+            ]
+          }
+        ],
+        "gear_mentions": [],
+        "race_day_tips": [
+          {
+            "text": "If you've been training all winter this is a ride you really got to hit - need that winter training base for the climbs",
+            "source_video_ids": [
+              "wvlCXCBfisU"
+            ]
+          },
+          {
+            "text": "Four bottles recommended for hydration on the 110 mile distance",
+            "source_video_ids": [
+              "wvlCXCBfisU"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "There's moose and wolf sign if you're paying attention and lucky, plus great views of Lake Superior. It's such an awesome place to hang out in Grand Marais and shop and eat and hang up at the lake",
+            "source_video_id": "bIiCmow0_iY",
+            "source_channel": "Visit Cook County MN",
+            "source_view_count": 513,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "The best place to view is just right here in town watching the riders come home. It's just got a wild vibe",
+            "source_video_id": "bIiCmow0_iY",
+            "source_channel": "Visit Cook County MN",
+            "source_view_count": 513,
+            "category": "community",
+            "curated": true
+          },
+          {
+            "text": "We start at 8:15 for the 110 mile and the 56-58 mile starts at 9:15. The start is about a mile and a half ride along Lake Superior to the local YMCA",
+            "source_video_id": "wvlCXCBfisU",
+            "source_channel": "iowagravelgang",
+            "source_view_count": 2925,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "Le Grand du Nord features challenging climbs in Minnesota's Sawtooth Range with three major ascents including a 20% grade section after the opening 6-7 mile gradual climb. The 110-mile course starts at Grand Marais YMCA with checkpoints positioned at hill bottoms requiring climbs back out. Riders describe fast gravel conditions with some chunky B sections that remain manageable for various bike types including fat bikes. The remote course winds through wooded areas with no gas stations or stores, offering Lake Superior views and potential wildlife sightings including moose and wolves. Race starts are staggered with 110-mile at 8:15am and shorter distances at 9:15am. Four bottles recommended for hydration. The scenic Grand Marais finish area provides excellent spectator viewing as riders return to town."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "le-grand-du-nord-video-1.jpg",
+        "url": "/race-photos/le-grand-du-nord/le-grand-du-nord-video-1.jpg",
+        "alt": "Muddy forest trail with standing water and dense evergreen trees during wet conditions - Le Grand du Nord - Grand Marais, Minnesota",
+        "credit": "YouTube / John Seip",
+        "primary": true,
+        "ai_relevance": 4,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "muddy trail",
+          "forest path",
+          "wet conditions",
+          "evergreen trees",
+          "trail running"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "le-grand-du-nord-video-2.jpg",
+        "url": "/race-photos/le-grand-du-nord/le-grand-du-nord-video-2.jpg",
+        "alt": "Three cyclists riding gravel road through mixed forest with speed and heart rate data overlay - Le Grand du Nord - Grand Marais, Minnesota",
+        "credit": "YouTube / John Seip",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel cycling",
+          "forest road",
+          "peloton",
+          "mixed forest",
+          "cycling data"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "le-grand-du-nord-video-3.jpg",
+        "url": "/race-photos/le-grand-du-nord/le-grand-du-nord-video-3.jpg",
+        "alt": "Cyclist in blue shirt speaking to camera inside bike shop with multiple bicycles visible - Le Grand du Nord - Grand Marais, Minnesota",
+        "credit": "YouTube / John Seip",
+        "primary": false,
+        "ai_relevance": 2,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "bike shop",
+          "cyclist interview",
+          "indoor cycling",
+          "bicycle storage",
+          "cycling gear"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "le-grand-du-nord-preview.gif",
+        "url": "/race-photos/le-grand-du-nord/le-grand-du-nord-preview.gif",
+        "alt": "Course preview from Le Grand Du Nord race footage",
+        "credit": "YouTube / John Seip",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "le-grand-du-nord-preview-2.gif",
+        "url": "/race-photos/le-grand-du-nord/le-grand-du-nord-preview-2.gif",
+        "alt": "Course preview from Le Grand Du Nord race footage",
+        "credit": "YouTube / John Seip",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "le-grand-du-nord-preview-3.gif",
+        "url": "/race-photos/le-grand-du-nord/le-grand-du-nord-preview-3.gif",
+        "alt": "Course preview from Le Grand Du Nord race footage",
+        "credit": "YouTube / John Seip",
+        "gif": true
+      }
+    ]
   }
 }

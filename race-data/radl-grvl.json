@@ -514,7 +514,146 @@
           "category": "race_atmosphere",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Starting Climb",
+            "description": "An absolute brute of a climb that starts immediately after the start line. Riders describe it as an absolute wall that requires 20 minutes as hard as you could possibly ride. People are walking up this first climb already, even in the easiest gear.",
+            "source_video_ids": [
+              "pwmuWj5Y7mE",
+              "fLQtp1zoK_s"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Course features gravel tracks, big climbs, and road sections mixed together throughout the 108km route with over 2,000m of elevation gain.",
+            "source_video_ids": [
+              "pwmuWj5Y7mE"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "Riders used gravel bikes with suspension forks like Rock Shox Rudy up front, and some opted for fenders for coverage.",
+            "source_video_ids": [
+              "fLQtp1zoK_s"
+            ]
+          }
+        ],
+        "race_day_tips": [
+          {
+            "text": "Don't start too far back because everyone panics about the massive climb at the start - positioning is critical for the opening climb.",
+            "source_video_ids": [
+              "pwmuWj5Y7mE"
+            ]
+          },
+          {
+            "text": "Tape gels on top of your bike and load the route onto your head unit before the start to ensure proper fueling and navigation.",
+            "source_video_ids": [
+              "pwmuWj5Y7mE"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "I've collected my number board I've got the gels taped on the top of my bike to make sure I'm fueled correctly I'm loading the route up onto my head unit other than that it's pretty much like all systems go",
+            "source_video_id": "pwmuWj5Y7mE",
+            "source_channel": "Global Cycling Network",
+            "source_view_count": 140622,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "This is an actual race where we're just trying to survive it's 100ks",
+            "source_video_id": "fLQtp1zoK_s",
+            "source_channel": "Troy Brosnan",
+            "source_view_count": 8749,
+            "category": "race_atmosphere",
+            "curated": true
+          }
+        ],
+        "search_text": "RADL GRVL in Adelaide Hills features a brutal opening climb that riders describe as an absolute wall requiring 20 minutes of maximum effort. The 108km course includes over 2,000m of elevation with mixed terrain of gravel tracks, big climbs, and road sections. Riders emphasize the importance of starting position due to the immediate steep climb where people walk in their easiest gears. The race attracts professional cyclists including national champions, creating a competitive atmosphere. Equipment choices include gravel bikes with suspension forks and fenders. Race preparation involves strategic fueling with taped gels and route loading. The event is held in association with Tour Down Under, marking it as a significant gravel racing debut in South Australia's challenging terrain."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "radl-grvl-video-1.jpg",
+        "url": "/race-photos/radl-grvl/radl-grvl-video-1.jpg",
+        "alt": "Unpaved gravel road winding through Australian eucalyptus forest with dappled sunlight filtering through tree canopy - RADL GRVL - Adelaide Hills, South Australia",
+        "credit": "YouTube / Gravel Cyclist",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel road",
+          "eucalyptus forest",
+          "dirt track",
+          "rural cycling",
+          "Australian bush"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "radl-grvl-video-2.jpg",
+        "url": "/race-photos/radl-grvl/radl-grvl-video-2.jpg",
+        "alt": "Straight dirt gravel road stretching through dense Australian bushland with eucalyptus trees forming a natural corridor - RADL GRVL - Adelaide Hills, South Australia",
+        "credit": "YouTube / Gravel Cyclist",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "dirt road",
+          "gravel surface",
+          "bushland",
+          "cycling route",
+          "Australian outback"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "radl-grvl-video-3.jpg",
+        "url": "/race-photos/radl-grvl/radl-grvl-video-3.jpg",
+        "alt": "Aerial view of rolling agricultural landscape with vineyards, pastures and eucalyptus groves in Australian wine country - RADL GRVL - Adelaide Hills, South Australia",
+        "credit": "YouTube / Gravel Cyclist",
+        "primary": false,
+        "ai_relevance": 3,
+        "ai_quality": 5,
+        "ai_keywords": [
+          "aerial landscape",
+          "vineyard",
+          "agricultural fields",
+          "wine country",
+          "rolling hills"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "radl-grvl-preview.gif",
+        "url": "/race-photos/radl-grvl/radl-grvl-preview.gif",
+        "alt": "Course preview from Radl Grvl race footage",
+        "credit": "YouTube / Gravel Cyclist",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "radl-grvl-preview-2.gif",
+        "url": "/race-photos/radl-grvl/radl-grvl-preview-2.gif",
+        "alt": "Course preview from Radl Grvl race footage",
+        "credit": "YouTube / Gravel Cyclist",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "radl-grvl-preview-3.gif",
+        "url": "/race-photos/radl-grvl/radl-grvl-preview-3.gif",
+        "alt": "Course preview from Radl Grvl race footage",
+        "credit": "YouTube / Gravel Cyclist",
+        "gif": true
+      }
+    ]
   }
 }

@@ -490,7 +490,172 @@
           "category": "race_atmosphere",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Joel Branch climb",
+            "description": "Over 20 minutes of climbing that includes a super steep switchback single track section where riders hit threshold power. Adam was hitting threshold up this part according to Sierra.",
+            "source_video_ids": [
+              "llah8jaJGNs"
+            ]
+          },
+          {
+            "name": "Fish hatchery descent",
+            "description": "Downhill section with water puddles that come out of nowhere, lots of brake bumps. Sierra called it the cross part of monster cross due to the water hazards.",
+            "source_video_ids": [
+              "llah8jaJGNs"
+            ]
+          },
+          {
+            "name": "Opening climb",
+            "description": "10-15 minute climb on double track ATV trail with rutting and deeper gravel in the tracks. Riders go pretty hard from the start.",
+            "source_video_ids": [
+              "iuhm2-Fci14"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Gravel roads are pretty chunky and rugged. Hurricane damage made the roads more torn up and rougher than before. You have to take choice lines because of rutting and deeper gravel in the tracks.",
+            "source_video_ids": [
+              "iuhm2-Fci14"
+            ]
+          },
+          {
+            "text": "Double track feels like an ATV trail or jeep trail with some single track sections that include roots to navigate through.",
+            "source_video_ids": [
+              "iuhm2-Fci14",
+              "llah8jaJGNs"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "40mm tires struggle compared to mountain bike tires on the chunky gravel sections, though they have better rolling resistance on road spots. Many riders brought full mountain bikes with 120mm travel and mountain bike tires.",
+            "source_video_ids": [
+              "iuhm2-Fci14"
+            ]
+          },
+          {
+            "text": "Riders with thick/big tires can descend the rough sections way quicker than those with narrower tires.",
+            "source_video_ids": [
+              "llah8jaJGNs"
+            ]
+          }
+        ],
+        "race_day_tips": [
+          {
+            "text": "Don't gas yourself right away on the opening climb since it takes over 20 minutes and there's significant climbing throughout the 5+ hour race day.",
+            "source_video_ids": [
+              "llah8jaJGNs"
+            ]
+          },
+          {
+            "text": "Get to the front early so you don't get lost on descents and to avoid getting out-descended by mountain bikers. Attack early if you're on narrower tires to gain space before mountain bikers catch you.",
+            "source_video_ids": [
+              "iuhm2-Fci14"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "I actually forgot to get the map routed before the start here. So, had to figure that out while we were on the move.",
+            "source_video_id": "iuhm2-Fci14",
+            "source_channel": "Will Hardin",
+            "source_view_count": 4914,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "You can't have any outside aid. So, they were just there to say hi and my dad was like cheering me on.",
+            "source_video_id": "llah8jaJGNs",
+            "source_channel": "Sierra Sims",
+            "source_view_count": 728,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "Pisgah Monster Cross features challenging terrain made rougher by recent hurricane damage. The race starts with a 20+ minute climb up Joel Branch including steep switchback single track where riders hit threshold power. The course combines chunky gravel roads, double track ATV trails, and technical single track with roots. Key challenges include the opening climb, water puddles and brake bumps on the fish hatchery descent, and rutted gravel sections requiring careful line choice. Many riders bring full mountain bikes with 120mm travel, giving significant advantage over gravel bikes with 40mm tires on technical sections. The 50-mile course with 8000 feet of elevation takes around 5 hours to complete. Race atmosphere includes several hundred participants and no outside aid is permitted at aid stations."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "pisgah-monster-cross-video-1.jpg",
+        "url": "/race-photos/pisgah-monster-cross/pisgah-monster-cross-video-1.jpg",
+        "alt": "Two cyclists racing on paved forest road through dense green canopy during gravel race - Pisgah Monster Cross - Brevard, North Carolina (Pisgah National Forest)",
+        "credit": "YouTube / Gravel Cyclist",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "paved road",
+          "forest canopy",
+          "cycling race",
+          "wooded terrain",
+          "summer foliage"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "pisgah-monster-cross-video-2.jpg",
+        "url": "/race-photos/pisgah-monster-cross/pisgah-monster-cross-video-2.jpg",
+        "alt": "Empty paved residential road winding through suburban neighborhood with houses and mature trees - Pisgah Monster Cross - Brevard, North Carolina (Pisgah National Forest)",
+        "credit": "YouTube / Gravel Cyclist",
+        "primary": false,
+        "ai_relevance": 3,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "paved road",
+          "residential area",
+          "suburban",
+          "tree-lined",
+          "neighborhood"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "pisgah-monster-cross-video-3.jpg",
+        "url": "/race-photos/pisgah-monster-cross/pisgah-monster-cross-video-3.jpg",
+        "alt": "Single cyclist on dirt trail through dense forest with lush green vegetation - Pisgah Monster Cross - Brevard, North Carolina (Pisgah National Forest)",
+        "credit": "YouTube / Gravel Cyclist",
+        "primary": false,
+        "ai_relevance": 4,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "dirt trail",
+          "forest single track",
+          "dense woods",
+          "mountain biking",
+          "green foliage"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "pisgah-monster-cross-preview.gif",
+        "url": "/race-photos/pisgah-monster-cross/pisgah-monster-cross-preview.gif",
+        "alt": "Course preview from Pisgah Monster Cross race footage",
+        "credit": "YouTube / Gravel Cyclist",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "pisgah-monster-cross-preview-2.gif",
+        "url": "/race-photos/pisgah-monster-cross/pisgah-monster-cross-preview-2.gif",
+        "alt": "Course preview from Pisgah Monster Cross race footage",
+        "credit": "YouTube / Gravel Cyclist",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "pisgah-monster-cross-preview-3.gif",
+        "url": "/race-photos/pisgah-monster-cross/pisgah-monster-cross-preview-3.gif",
+        "alt": "Course preview from Pisgah Monster Cross race footage",
+        "credit": "YouTube / Gravel Cyclist",
+        "gif": true
+      }
+    ]
   }
 }

@@ -575,7 +575,83 @@
           "curated": false
         }
       ],
-      "quotes": []
-    }
+      "quotes": [],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [],
+        "terrain_notes": [
+          {
+            "text": "Features red clay canopy roads that create a challenging riding surface.",
+            "source_video_ids": [
+              "cpqCHJeXbAM"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "Bring your climbing gear because Middle Georgia certainly is not flat.",
+            "source_video_ids": [
+              "cpqCHJeXbAM"
+            ]
+          }
+        ],
+        "race_day_tips": [],
+        "additional_quotes": [
+          {
+            "text": "All proceeds benefit a local kids on bikes program it gives back to the community you have to love that.",
+            "source_video_id": "cpqCHJeXbAM",
+            "source_channel": "Gravel Cyclist",
+            "source_view_count": 1886,
+            "category": "community",
+            "curated": true
+          }
+        ],
+        "search_text": "The transcript mentions the Reliance Deep Woods as part of a broader discussion of Southeast gravel events. The race is described as featuring red clay canopy roads that provide challenging riding conditions. Riders are advised to bring climbing gear as the terrain is not flat. The event appears to be community-focused, with proceeds benefiting local programs. The race takes place in an area known for scenic riding with significant climbing challenges. The terrain includes red clay surfaces under tree canopy that riders will encounter throughout the 65-mile course with 4500 feet of elevation gain."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "reliance-deep-woods-video-1.jpg",
+        "url": "/race-photos/reliance-deep-woods/reliance-deep-woods-video-1.jpg",
+        "alt": "Sandy gravel road winding through dense pine forest with tall trees lining both sides of the trail - Reliance Deep Woods - Tennessee",
+        "credit": "YouTube / Gravel Cyclist",
+        "primary": true,
+        "ai_relevance": 4,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel road",
+          "pine forest",
+          "sandy terrain",
+          "wooded trail",
+          "forest cycling"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "reliance-deep-woods-video-2.jpg",
+        "url": "/race-photos/reliance-deep-woods/reliance-deep-woods-video-2.jpg",
+        "alt": "Cyclist resting in camping chair at night during race event with headlamp illumination - Reliance Deep Woods - Tennessee",
+        "credit": "YouTube / Gravel Cyclist",
+        "primary": false,
+        "ai_relevance": 2,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "night cycling",
+          "race rest",
+          "camping chair",
+          "headlamp",
+          "gravel racing"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "reliance-deep-woods-preview.gif",
+        "url": "/race-photos/reliance-deep-woods/reliance-deep-woods-preview.gif",
+        "alt": "Course preview from Reliance Deep Woods race footage",
+        "credit": "YouTube / Gravel Cyclist",
+        "gif": true
+      }
+    ]
   }
 }

@@ -569,7 +569,154 @@
           "category": "race_atmosphere",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Brewsky Hill",
+            "description": "Described as the first really big hill on the course, sponsored by the Wagon Wheel with a beer reward ticket at the top.",
+            "source_video_ids": [
+              "aCg3owOiRmM"
+            ]
+          },
+          {
+            "name": "Hot conditions and headwind",
+            "description": "Riders warn it's going to be hot, windy with headwind on the way back, making for a tough day.",
+            "source_video_ids": [
+              "aCg3owOiRmM"
+            ]
+          },
+          {
+            "name": "Dusty conditions",
+            "description": "First leg described as very dusty, with riders getting smoked by trucks passing by.",
+            "source_video_ids": [
+              "S6W84bGs_SI"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "B roads or farm roads with challenging gravel that's better than a lot of other races, featuring some fast downhills.",
+            "source_video_ids": [
+              "aCg3owOiRmM",
+              "8-6vjO3vlmA"
+            ]
+          },
+          {
+            "text": "The 30 mile beginner course is mostly flat with good rock and not a lot of hills.",
+            "source_video_ids": [
+              "8-6vjO3vlmA"
+            ]
+          }
+        ],
+        "gear_mentions": [],
+        "race_day_tips": [
+          {
+            "text": "Don't eat donuts before the race - rider regretted eating Casey's donuts and recommends eating something light like oatmeal instead.",
+            "source_video_ids": [
+              "aCg3owOiRmM"
+            ]
+          },
+          {
+            "text": "In emergency bathroom situations in cornfields, corn leaves work as a soft substitute for toilet paper.",
+            "source_video_ids": [
+              "aCg3owOiRmM"
+            ]
+          },
+          {
+            "text": "Casey's breakfast pizza and coffee work as pre-race fuel, and their fresh hot donuts are exceptional quality.",
+            "source_video_ids": [
+              "aCg3owOiRmM"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "Free camping in Marysville so if you ever go through Marysville Kansas and you're tired and you want to sleep just pull into the city park.",
+            "source_video_id": "S6W84bGs_SI",
+            "source_channel": "No Coast Gravel Syndicate",
+            "source_view_count": 202,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "This is the longest one I do so if I can do this I can do almost all the ones that I'd want to do but it's definitely not the easiest terrain around here.",
+            "source_video_id": "8-6vjO3vlmA",
+            "source_channel": "Visit Marysville",
+            "source_view_count": 159,
+            "category": "training",
+            "curated": true
+          },
+          {
+            "text": "We try to go through Alco Springs Park or this year we're going to Rock Creek station so we try to get some history aspects into every ride every race every year.",
+            "source_video_id": "8-6vjO3vlmA",
+            "source_channel": "Visit Marysville",
+            "source_view_count": 159,
+            "category": "community",
+            "curated": true
+          }
+        ],
+        "search_text": "The Pony Express 120 in Marysville, Kansas features challenging gravel terrain on B roads and farm roads with significant elevation changes. The signature climb is Brewsky Hill, the first major ascent that rewards finishers with a free beer ticket. Riders describe the surface as dusty with good rock on flatter sections and challenging gravel overall. Weather conditions typically include hot temperatures with headwinds on the return leg. The race offers multiple distance options from 30 miles for beginners to 120 miles, with the shorter course being mostly flat while the full distance provides fast downhills and tough climbs. The event incorporates historical elements, routing through locations like Alco Springs Park and Rock Creek Station along the original Pony Express route. Marysville offers free camping at the city park, and Casey's convenience store serves as a popular pre-race fuel stop."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "pony-express-120-video-1.jpg",
+        "url": "/race-photos/pony-express-120/pony-express-120-video-1.jpg",
+        "alt": "Two cyclists in matching Hawaiian shirts taking selfie on residential street with houses and cars in background - Pony Express 120 - Marysville, Kansas",
+        "credit": "YouTube / No Coast Gravel Syndicate",
+        "primary": true,
+        "ai_relevance": 2,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "cyclists",
+          "residential street",
+          "Hawaiian shirts",
+          "selfie"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "pony-express-120-video-2.jpg",
+        "url": "/race-photos/pony-express-120/pony-express-120-video-2.jpg",
+        "alt": "Two cyclists in tropical print jerseys posing for camera on suburban street with houses and trees - Pony Express 120 - Marysville, Kansas",
+        "credit": "YouTube / No Coast Gravel Syndicate",
+        "primary": false,
+        "ai_relevance": 2,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "cyclists",
+          "suburban street",
+          "tropical jerseys",
+          "houses"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "pony-express-120-video-3.jpg",
+        "url": "/race-photos/pony-express-120/pony-express-120-video-3.jpg",
+        "alt": "Cyclist in blue racing jersey riding through wooded trail section with dense green canopy overhead - Pony Express 120 - Marysville, Kansas",
+        "credit": "YouTube / No Coast Gravel Syndicate",
+        "primary": false,
+        "ai_relevance": 4,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "wooded trail",
+          "racing jersey",
+          "forest canopy",
+          "trail riding"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "pony-express-120-preview.gif",
+        "url": "/race-photos/pony-express-120/pony-express-120-preview.gif",
+        "alt": "Course preview from Pony Express 120 race footage",
+        "credit": "YouTube / No Coast Gravel Syndicate",
+        "gif": true
+      }
+    ]
   }
 }

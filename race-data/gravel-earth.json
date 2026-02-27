@@ -624,7 +624,181 @@
           "category": "course_difficulty",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "North Course",
+            "description": "The North Course is punchier and chunkier. It's a beast. It's I mean chunky like the gravel. It's just like these massive rocks.",
+            "source_video_ids": [
+              "9ECA253Qhn0"
+            ]
+          },
+          {
+            "name": "Terrain conditions in rough weather",
+            "description": "It's been raining. This winter has been crazy around. We've had lots of rain. We've had lots of wind. The terrain is in rough conditions. It's muddy and it's cold.",
+            "source_video_ids": [
+              "aPanll1n2Vg"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "To race 200 miles on this terrain is just so destructive. It just beats up your entire body.",
+            "source_video_ids": [
+              "9ECA253Qhn0"
+            ]
+          },
+          {
+            "text": "There are rocks flying everywhere. It's such a race of attrition.",
+            "source_video_ids": [
+              "9ECA253Qhn0"
+            ]
+          },
+          {
+            "text": "They're going to be probably covered in mud by the time they come to the start line if yesterday's ride was anything to go by.",
+            "source_video_ids": [
+              "aPanll1n2Vg"
+            ]
+          }
+        ],
+        "gear_mentions": [],
+        "race_day_tips": [
+          {
+            "text": "Perfect world scenarios don't exist in Unbound. It is really hard to focus for 10 and 1/2 hours.",
+            "source_video_ids": [
+              "9ECA253Qhn0"
+            ]
+          },
+          {
+            "text": "It's one of the most unpredictable races because of flat tires and mechanicals that can happen to equipment.",
+            "source_video_ids": [
+              "9ECA253Qhn0"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "Unbound started in the parking lot on the northwest side of town with 36 riders. Um, and most of them were from just around the region. It was not a big national event. In the early days, it was a little bit more choose your own adventure, if you will.",
+            "source_video_id": "9ECA253Qhn0",
+            "source_channel": "Life Time Grand Prix",
+            "source_view_count": 232498,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "20 years ago, Emporia was not a cycling town. There were a dozen of us that rode bikes. Now, there are hundreds of the 4,000 people lining up to take on Unbound. 10% of them come from within a 20m radius of Emporia, Kansas.",
+            "source_video_id": "9ECA253Qhn0",
+            "source_channel": "Life Time Grand Prix",
+            "source_view_count": 232498,
+            "category": "community",
+            "curated": true
+          },
+          {
+            "text": "Gravel started to be just friends going together, ex-professionals on the mountain bike or ex-professionals on the road just wanting to have a good time. But now it's just getting super professional. The brands, the sponsors, they all want results. So at the end of the day, it's a job and you want to do the job really good.",
+            "source_video_id": "LITJcboCupQ",
+            "source_channel": "Gravel Earth Series",
+            "source_view_count": 18171,
+            "category": "community",
+            "curated": true
+          }
+        ],
+        "search_text": "Riders describe extremely challenging terrain conditions with chunky gravel featuring massive rocks that cause destructive impacts over 200-mile distances. The North Course is particularly punchy and chunky, creating high speeds and chaos in the field. Weather conditions significantly impact racing with muddy terrain from winter rain and wind, temperatures around 8-14 Celsius, and riders getting covered in mud. The races feature rocks flying everywhere, frequent crashes, and high mechanical risk from flat tires and equipment failures. Competition levels are described as through the roof with fields of 20+ potential winners and over 100 strong riders including Olympians, pro triathletes, and world cup winners. Racing is very aggressive, dynamic, and technical. The sport has evolved from casual friends riding together to highly professional events with team tactics, sponsors demanding results, and significant preparation required. Early season races in February present unique challenges as all riders are fresh and injury-free, making competition particularly intense."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "gravel-earth-video-1.jpg",
+        "url": "/race-photos/gravel-earth/gravel-earth-video-1.jpg",
+        "alt": "Solo cyclist riding muddy gravel road through green countryside with race leaderboard overlay showing Emporia, KS race - Gravel Earth Series - Global (HQ: Girona, Spain)",
+        "credit": "YouTube / Life Time Grand Prix",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "muddy gravel",
+          "solo rider",
+          "Emporia Kansas",
+          "countryside",
+          "gravel racing"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "gravel-earth-video-2.jpg",
+        "url": "/race-photos/gravel-earth/gravel-earth-video-2.jpg",
+        "alt": "Cyclists and bikes gathered outside historic white stone building with arched windows during gravel race event - Gravel Earth Series - Global (HQ: Girona, Spain)",
+        "credit": "YouTube / Life Time Grand Prix",
+        "primary": false,
+        "ai_relevance": 3,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "race support",
+          "historic building",
+          "cyclist gathering",
+          "gravel bikes",
+          "event logistics"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "gravel-earth-video-3.jpg",
+        "url": "/race-photos/gravel-earth/gravel-earth-video-3.jpg",
+        "alt": "Aerial view of gravel cyclists on dirt farm road through agricultural fields with freshly tilled soil patterns - Gravel Earth Series - Global (HQ: Girona, Spain)",
+        "credit": "YouTube / Life Time Grand Prix",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 5,
+        "ai_keywords": [
+          "aerial gravel racing",
+          "farm roads",
+          "agricultural landscape",
+          "dirt roads",
+          "rural cycling"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "gravel-earth-preview.gif",
+        "url": "/race-photos/gravel-earth/gravel-earth-preview.gif",
+        "alt": "Course preview from Gravel Earth race footage",
+        "credit": "YouTube / Life Time Grand Prix",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "gravel-earth-preview-2.gif",
+        "url": "/race-photos/gravel-earth/gravel-earth-preview-2.gif",
+        "alt": "Course preview from Gravel Earth race footage",
+        "credit": "YouTube / Life Time Grand Prix",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "gravel-earth-preview-3.gif",
+        "url": "/race-photos/gravel-earth/gravel-earth-preview-3.gif",
+        "alt": "Course preview from Gravel Earth race footage",
+        "credit": "YouTube / Life Time Grand Prix",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "gravel-earth-preview-4.gif",
+        "url": "/race-photos/gravel-earth/gravel-earth-preview-4.gif",
+        "alt": "Course preview from Gravel Earth race footage",
+        "credit": "YouTube / Life Time Grand Prix",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "gravel-earth-preview-5.gif",
+        "url": "/race-photos/gravel-earth/gravel-earth-preview-5.gif",
+        "alt": "Course preview from Gravel Earth race footage",
+        "credit": "YouTube / Life Time Grand Prix",
+        "gif": true
+      }
+    ]
   }
 }

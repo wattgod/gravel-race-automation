@@ -1,6 +1,7 @@
 {
   "slug": "collegiate-gravel-nationals",
   "race_name": "Collegiate Gravel Nationals",
+  "distance_mi": 62.0,
   "demands": {
     "durability": 2,
     "climbing": 5,
@@ -19,7 +20,8 @@
         "Breakaway Simulation",
         "Variable Pace Chaos",
         "Sector Simulation"
-      ]
+      ],
+      "workout_context": "Racing Collegiate Gravel Nationals isn\u2019t just fitness \u2014 it\u2019s pacing, fueling, and executing when conditions deteriorate. This workout practices the race itself."
     },
     {
       "category": "VO2max",
@@ -28,7 +30,8 @@
         "5x3 VO2 Classic",
         "Descending VO2 Pyramid",
         "Norwegian 4x8"
-      ]
+      ],
+      "workout_context": "Collegiate Gravel Nationals\u2019s texas panhandle\u2014rolling plains, red dirt and competitive field demand explosive aerobic capacity \u2014 the ability to respond to surges without blowing up."
     },
     {
       "category": "Gravel_Specific",
@@ -36,7 +39,8 @@
       "workouts": [
         "Surge and Settle",
         "Terrain Microbursts"
-      ]
+      ],
+      "workout_context": "Collegiate Gravel Nationals\u2019s texas panhandle gravel (80%), dirt roads (20%) demands rapid power changes \u2014 surge over obstacles, settle on smoother sections, repeat for hours."
     },
     {
       "category": "TT_Threshold",
@@ -45,7 +49,8 @@
         "Single Sustained Threshold",
         "Threshold Ramps",
         "Descending Threshold"
-      ]
+      ],
+      "workout_context": "Collegiate Gravel Nationals rewards athletes who can hold sustained power without blowing up \u2014 threshold is the engine that drives everything above Zone 2."
     },
     {
       "category": "Anaerobic_Capacity",
@@ -53,9 +58,79 @@
       "workouts": [
         "2min Killers",
         "90sec Repeats"
-      ]
+      ],
+      "workout_context": "Short, violent efforts are unavoidable at Collegiate Gravel Nationals \u2014 climbs demanding 2-minute maximal efforts, surges to close gaps, attacks on texas panhandle\u2014rolling plains, red dirt."
+    },
+    {
+      "category": "Critical_Power",
+      "score": 64,
+      "workouts": [
+        "Above CP Repeats",
+        "W-Prime Depletion"
+      ],
+      "workout_context": "Critical power determines how long you can sustain above-threshold efforts at Collegiate Gravel Nationals \u2014 a higher CP means more time in the red before failure."
+    },
+    {
+      "category": "Over_Under",
+      "score": 60,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ],
+      "workout_context": "Over-unders train the lactate clearance you\u2019ll need at Collegiate Gravel Nationals when surges push you above threshold and you have to recover while still riding hard."
+    },
+    {
+      "category": "Durability",
+      "score": 58,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ],
+      "workout_context": "Collegiate Gravel Nationals\u2019s texas panhandle\u2014rolling plains, red dirt drains energy reserves faster than the distance suggests \u2014 durability training bridges the gap."
+    },
+    {
+      "category": "G_Spot",
+      "score": 56,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ],
+      "workout_context": "The G-Spot zone (88\u201392% FTP) is where you\u2019ll spend the hardest sustained miles of Collegiate Gravel Nationals. Make this intensity feel like home."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 42,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "The varied gradients at Collegiate Gravel Nationals reward climbing adaptability \u2014 knowing when to sit, when to stand, and when to switch."
+    },
+    {
+      "category": "Blended",
+      "score": 36,
+      "workouts": [
+        "Z2 + VO2 Combo",
+        "Endurance with Spikes"
+      ],
+      "workout_context": "Blended sessions combine endurance with intensity spikes \u2014 exactly what Collegiate Gravel Nationals\u2019s texas panhandle\u2014rolling plains, red dirt delivers on race day."
+    },
+    {
+      "category": "Norwegian_Double",
+      "score": 33,
+      "workouts": [
+        "Norwegian 4x8 Classic",
+        "Double Threshold"
+      ],
+      "workout_context": "The Norwegian double-threshold method builds the sustained power base for Collegiate Gravel Nationals \u2014 massive training stimulus without the recovery cost of VO2max work."
     }
   ],
+  "race_overlay": {
+    "nutrition": "Target 40\u201360g carbs/hour for Collegiate Gravel Nationals\u2019s 62 miles. Front-load calories in the first half. One bottle per hour minimum, more in heat.",
+    "terrain": "Mixed terrain at Collegiate Gravel Nationals requires surface adaptability. Include weekly rides on texas panhandle\u2014rolling plains, red dirt to build confidence. Expect: texas panhandle gravel (80%), dirt roads (20%), rolling plains."
+  },
   "pack_summary": "This 10-workout pack focuses on Race Simulation, VO2max, and Gravel Specific to prepare you for 62 miles of texas panhandle\u2014rolling plains, red dirt in Turkey, Texas.",
   "generated_at": "2026-02-26"
 }

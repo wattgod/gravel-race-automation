@@ -552,7 +552,141 @@
           "category": "race_atmosphere",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Muddy Two-Track Section",
+            "description": "Usually includes a section called ruddy two-track at the end - an ATV trail with deep, thick, slushy mud. This year it was removed due to safety concerns after an inch of rain a week before the race.",
+            "source_video_ids": [
+              "7x7v5U5sWYE"
+            ]
+          },
+          {
+            "name": "Early Hills with Mud",
+            "description": "All the mud sections have been uphill according to riders, creating additional difficulty early in the race around mile 9.",
+            "source_video_ids": [
+              "7x7v5U5sWYE"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Hard packed dirt roads with trees and thick cover. Roads were wet and sticky due to rain the night before, with a fair amount of potholes and puddles that made navigation interesting.",
+            "source_video_ids": [
+              "nQczFit1tGU"
+            ]
+          },
+          {
+            "text": "Course features sections through pines and birch trees on the sides of the road, creating a beautiful atmosphere in northern Wisconsin.",
+            "source_video_ids": [
+              "nQczFit1tGU"
+            ]
+          },
+          {
+            "text": "Start is on local walking and ATV/UTV trail with bad blacktop but provides a flat, easy beginning.",
+            "source_video_ids": [
+              "nQczFit1tGU"
+            ]
+          }
+        ],
+        "gear_mentions": [],
+        "race_day_tips": [
+          {
+            "text": "Don't go out with the fast guys at the start - pace really well and start at your own sustainable pace rather than getting caught up in early speed.",
+            "source_video_ids": [
+              "7x7v5U5sWYE"
+            ]
+          },
+          {
+            "text": "Race starts very easy at around 15-16 mph, so don't expect a hard start - riders roll out casually on the opening trail section.",
+            "source_video_ids": [
+              "nQczFit1tGU"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "This is a tough race. I do not quite every year, but I've done it three times now in the last five years, and it's really good primer for the season. Sometimes fun, sometimes just brutal.",
+            "source_video_id": "7x7v5U5sWYE",
+            "source_channel": "Adam Lives Adventure",
+            "source_view_count": 501,
+            "category": "training",
+            "curated": true
+          },
+          {
+            "text": "They took it out this year because there was an inch of rain a week before the race and they said it was not safe, which seeing the rest of the course, I can say it was the right decision. So, thanks guys for looking out for us.",
+            "source_video_id": "7x7v5U5sWYE",
+            "source_channel": "Adam Lives Adventure",
+            "source_view_count": 501,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "The Bear 100 in Laona, Wisconsin is described by riders as a tough early season race that serves as a good primer for the gravel season. The course typically features a challenging muddy two-track section at the end - an ATV trail with deep, thick, slushy mud - though this was removed in recent years due to safety concerns after heavy rain. Riders report hard-packed dirt roads with wet, sticky conditions when there's been recent precipitation, along with numerous potholes and puddles to navigate. The terrain includes beautiful sections through pines and birch trees characteristic of northern Wisconsin. The race starts easy on local ATV trails with bad blacktop, rolling out at 15-16 mph before riders establish working groups. Early sections feature uphill mud that can cause significant physical challenges around mile 9. The course was shortened from 113 to 115 miles due to course modifications, and the race attracts around 140 participants in shorter distance categories, starting from a local bar in town."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "bear-100-video-1.jpg",
+        "url": "/race-photos/bear-100/bear-100-video-1.jpg",
+        "alt": "Multiple cyclists riding gravel bikes on dirt road through dense forest with aid station visible on roadside during Bear 100 race - Laona, Wisconsin",
+        "credit": "YouTube / Adam Lives Adventure",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "gravel cycling",
+          "forest trail",
+          "aid station",
+          "dirt road",
+          "cyclists"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "bear-100-video-2.jpg",
+        "url": "/race-photos/bear-100/bear-100-video-2.jpg",
+        "alt": "Solo cyclist on gravel bike climbing muddy dirt road with power lines overhead through rural countryside terrain - Bear 100 - Laona, Wisconsin",
+        "credit": "YouTube / Adam Lives Adventure",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel bike",
+          "muddy road",
+          "rural countryside",
+          "climbing",
+          "power lines"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "bear-100-video-3.jpg",
+        "url": "/race-photos/bear-100/bear-100-video-3.jpg",
+        "alt": "Gravel cyclist visible in distance on wide dirt road cutting through mixed forest of deciduous and evergreen trees - Bear 100 - Laona, Wisconsin",
+        "credit": "YouTube / Adam Lives Adventure",
+        "primary": false,
+        "ai_relevance": 4,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "dirt road",
+          "forest cycling",
+          "gravel race",
+          "mixed forest",
+          "distance rider"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "bear-100-preview.gif",
+        "url": "/race-photos/bear-100/bear-100-preview.gif",
+        "alt": "Course preview from Bear 100 race footage",
+        "credit": "YouTube / Adam Lives Adventure",
+        "gif": true
+      }
+    ]
   }
 }

@@ -605,7 +605,149 @@
           "curated": false
         }
       ],
-      "quotes": []
-    }
+      "quotes": [],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [],
+        "terrain_notes": [
+          {
+            "text": "A lot of compact gravel and sand sections that favor wider, slicker tires over narrower knobby ones.",
+            "source_video_ids": [
+              "-3tLn2bzls4"
+            ]
+          },
+          {
+            "text": "Grassier sections of the course are pretty bumpy with lots of vibrations going through your hands and arms.",
+            "source_video_ids": [
+              "-3tLn2bzls4"
+            ]
+          },
+          {
+            "text": "Fast fire roads where flared handlebars give a very relaxed feel when riding.",
+            "source_video_ids": [
+              "-3tLn2bzls4"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "For compact gravel and sand, wider slicker tires are perfect instead of narrower knobblier tires.",
+            "source_video_ids": [
+              "-3tLn2bzls4"
+            ]
+          },
+          {
+            "text": "Went with 30 psi tire pressure but could have gone a tiny bit less pressure for the grassier bumpy sections.",
+            "source_video_ids": [
+              "-3tLn2bzls4"
+            ]
+          },
+          {
+            "text": "Run slightly different measurements than normally would on road bike - came higher with the handlebars and a shorter stem for more comfort on bumpy gravel sections and better handling.",
+            "source_video_ids": [
+              "-3tLn2bzls4"
+            ]
+          },
+          {
+            "text": "So glad I've got 45mm tires and plenty of clearance on the Revolt for the mud conditions.",
+            "source_video_ids": [
+              "qhAuTY2SUJ4"
+            ]
+          }
+        ],
+        "race_day_tips": [
+          {
+            "text": "Do research into the course beforehand - ride it the day before if possible, or look at pictures, videos, or check maps.",
+            "source_video_ids": [
+              "-3tLn2bzls4"
+            ]
+          },
+          {
+            "text": "Once the race starts you can't change your tires or put more air in them, you can probably take some air out but that requires stopping and you don't want to stop.",
+            "source_video_ids": [
+              "-3tLn2bzls4"
+            ]
+          },
+          {
+            "text": "Practice eating and drinking during training because when you're hanging on to wheels going over seriously bumpy terrain and going so hard your heart rate is sky high, it's not so easy to fuel but you'll pay for it if you don't.",
+            "source_video_ids": [
+              "-3tLn2bzls4"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "I took plenty of gels and food in my back pocket. How much did I eat? Yeah just just the one gel. I was constantly thinking in the race man you need to eat you need to drink but when you're hanging on to wheels going over seriously bumpy terrain and you've had you're going so hard in the race you feel a little bit sick from the effort the last thing I wanted to do was eat.",
+            "source_video_id": "-3tLn2bzls4",
+            "source_channel": "Global Cycling Network",
+            "source_view_count": 77490,
+            "category": "training",
+            "curated": true
+          }
+        ],
+        "search_text": "Riders describe Battenkill as featuring compact gravel and sand sections that favor wider, slicker tires over narrower knobby ones. The course includes bumpy grassier sections that send vibrations through hands and arms, as well as fast fire roads where flared handlebars provide comfort. Key challenges include the technical difficulty of eating and drinking while hanging onto wheels over seriously bumpy terrain when heart rate is sky high. Riders recommend 30 psi tire pressure or slightly lower for comfort, wider slicker tires for the surface conditions, and higher handlebars with shorter stems compared to road bike setup for better handling and comfort. The race requires significant research beforehand since gear changes aren't possible once racing starts. Nutrition becomes particularly challenging when racing hard over rough surfaces, making practice during training essential for success in this demanding gravel event."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "battenkill-video-1.jpg",
+        "url": "/race-photos/battenkill/battenkill-video-1.jpg",
+        "alt": "Peloton of cyclists racing on cracked asphalt road during Battenkill gravel race with rural countryside and green fields visible - Cambridge, New York",
+        "credit": "YouTube / Wayward Cyclist",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "peloton",
+          "cracked asphalt",
+          "gravel race",
+          "rural countryside",
+          "Battenkill"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "battenkill-video-2.jpg",
+        "url": "/race-photos/battenkill/battenkill-video-2.jpg",
+        "alt": "Cyclist in GCN jersey posing with gravel bike against wooden log barrier in wooded area during interview segment - Battenkill - Cambridge, New York",
+        "credit": "YouTube / Wayward Cyclist",
+        "primary": false,
+        "ai_relevance": 2,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "GCN",
+          "gravel bike",
+          "interview",
+          "wooded area",
+          "cyclist portrait"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "battenkill-video-3.jpg",
+        "url": "/race-photos/battenkill/battenkill-video-3.jpg",
+        "alt": "Close-up of cyclist in GCN jersey speaking during interview with gravel bike visible against tree background - Battenkill - Cambridge, New York",
+        "credit": "YouTube / Wayward Cyclist",
+        "primary": false,
+        "ai_relevance": 2,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "GCN jersey",
+          "interview",
+          "cyclist close-up",
+          "gravel bike",
+          "trees background"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "battenkill-preview.gif",
+        "url": "/race-photos/battenkill/battenkill-preview.gif",
+        "alt": "Course preview from Battenkill race footage",
+        "credit": "YouTube / Wayward Cyclist",
+        "gif": true
+      }
+    ]
   }
 }

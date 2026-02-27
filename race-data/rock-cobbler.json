@@ -490,7 +490,205 @@
           "category": "course_difficulty",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Mud Canyon",
+            "description": "Totally crazy section that caused a lot of issues for many riders.",
+            "source_video_ids": [
+              "lRwGtPek1FQ"
+            ]
+          },
+          {
+            "name": "Cow Path of Death",
+            "description": "Probably the most spectacular spot of the course according to riders.",
+            "source_video_ids": [
+              "lRwGtPek1FQ"
+            ]
+          },
+          {
+            "name": "45 Percent Grade Hike-a-Bike",
+            "description": "Insane steep section requiring riders to walk their bikes.",
+            "source_video_ids": [
+              "lRwGtPek1FQ"
+            ]
+          },
+          {
+            "name": "Breen Ridge Road",
+            "description": "4 mile climb but majority at below 2% grade, riders prefer catching groups here if possible.",
+            "source_video_ids": [
+              "P1ZzamDxQx0"
+            ]
+          },
+          {
+            "name": "Ranchlands Region",
+            "description": "The toughest region of the day not just for main climbs but the pitches in between.",
+            "source_video_ids": [
+              "P1ZzamDxQx0"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Short punchy climbs that are momentum sucking and not good for heavier riders.",
+            "source_video_ids": [
+              "P1ZzamDxQx0"
+            ]
+          },
+          {
+            "text": "Course features basically no roads with super punchy steep stuff and a huge climb up to the snow.",
+            "source_video_ids": [
+              "d9jwCSZcvwE"
+            ]
+          },
+          {
+            "text": "9300 feet of climbing total but far more palatable than previous years.",
+            "source_video_ids": [
+              "P1ZzamDxQx0"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "Running Canyon Grizzle with SRAM XX1 mountain bike derailleur, 11-52 cassette, 40T oval chainring, 30mm travel fork, dropper post with 50mm travel, and IRC Double Cross 42mm tires.",
+            "source_video_ids": [
+              "lRwGtPek1FQ"
+            ]
+          },
+          {
+            "text": "Running 42mm tires, suspension fork, dropper post, 1x setup with 46T to 11-52 cassette. Rider notes should have gone down to 44T or 42T in front.",
+            "source_video_ids": [
+              "d9jwCSZcvwE"
+            ]
+          }
+        ],
+        "race_day_tips": [
+          {
+            "text": "Pace yourself for 80 miles and don't care about anyone around you - focus only on your own race for first 5 hours.",
+            "source_video_ids": [
+              "lRwGtPek1FQ"
+            ]
+          },
+          {
+            "text": "Stay out in front before hitting dirt at 3.5 miles in, and try to make the selection of riders to stay connected with groups.",
+            "source_video_ids": [
+              "P1ZzamDxQx0"
+            ]
+          },
+          {
+            "text": "Dial it down early knowing that taxing yourself early will hurt exponentially later on.",
+            "source_video_ids": [
+              "P1ZzamDxQx0"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "There was four waves 250 in each wave, 1000 people total that's insane.",
+            "source_video_id": "lRwGtPek1FQ",
+            "source_channel": "VC Adventures",
+            "source_view_count": 2293327,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "For 12.0 the biggest difference was a starting point almost 10 miles to the east in the heart of the hills.",
+            "source_video_id": "P1ZzamDxQx0",
+            "source_channel": "Gravel Bike California",
+            "source_view_count": 8147,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "The competition at just any basic level race is just insane and so I think America as a cycling sport is hitting an all-time high.",
+            "source_video_id": "d9jwCSZcvwE",
+            "source_channel": "VC Adventures",
+            "source_view_count": 221748,
+            "category": "community",
+            "curated": true
+          }
+        ],
+        "search_text": "Rock Cobbler features 1000 riders in four waves of 250 each, starting with fast road sections before hitting challenging gravel terrain. Key obstacles include Mud Canyon causing issues for many riders, the spectacular Cow Path of Death, and a brutal 45% grade hike-a-bike section. The course includes 9300 feet of climbing with super punchy steep sections, a 4-mile Breen Ridge Road climb, and the difficult Ranchlands region. Riders recommend pacing strategy over aggressive early racing, suggest 42mm tires with suspension forks and dropper posts, and note the importance of staying connected with groups before technical sections. The course features minimal actual roads, momentum-sucking short climbs, and extends up to snow level with significant private property sections."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "rock-cobbler-video-1.jpg",
+        "url": "/race-photos/rock-cobbler/rock-cobbler-video-1.jpg",
+        "alt": "Gravel cyclist navigating a steep dirt turn on rolling hills with green grass and cloudy sky backdrop - Rock Cobbler - Bakersfield, California",
+        "credit": "YouTube / Gravel Bike California",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel turn",
+          "steep descent",
+          "rolling hills",
+          "dirt trail",
+          "mountain biking"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "rock-cobbler-video-2.jpg",
+        "url": "/race-photos/rock-cobbler/rock-cobbler-video-2.jpg",
+        "alt": "Wide dirt gravel road stretching through open countryside with green hills and dramatic cloudy sky - Rock Cobbler - Bakersfield, California",
+        "credit": "YouTube / Gravel Bike California",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel road",
+          "open countryside",
+          "rolling terrain",
+          "dirt path",
+          "rural landscape"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "rock-cobbler-video-3.jpg",
+        "url": "/race-photos/rock-cobbler/rock-cobbler-video-3.jpg",
+        "alt": "First-person view from cyclist's handlebars riding through lush green hills and grassy terrain on gravel trail - Rock Cobbler - Bakersfield, California",
+        "credit": "YouTube / Gravel Bike California",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "first person view",
+          "gravel trail",
+          "green hills",
+          "handlebars",
+          "POV cycling"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "rock-cobbler-preview.gif",
+        "url": "/race-photos/rock-cobbler/rock-cobbler-preview.gif",
+        "alt": "Course preview from Rock Cobbler race footage",
+        "credit": "YouTube / Gravel Bike California",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "rock-cobbler-preview-2.gif",
+        "url": "/race-photos/rock-cobbler/rock-cobbler-preview-2.gif",
+        "alt": "Course preview from Rock Cobbler race footage",
+        "credit": "YouTube / Gravel Bike California",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "rock-cobbler-preview-3.gif",
+        "url": "/race-photos/rock-cobbler/rock-cobbler-preview-3.gif",
+        "alt": "Course preview from Rock Cobbler race footage",
+        "credit": "YouTube / Gravel Bike California",
+        "gif": true
+      }
+    ]
   }
 }

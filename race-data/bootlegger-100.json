@@ -437,7 +437,141 @@
           "curated": false
         }
       ],
-      "quotes": []
-    }
+      "quotes": [],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [],
+        "terrain_notes": [
+          {
+            "text": "The gravel is way tougher and way harder than most places, described as pretty rocky and chunky terrain that causes relentless pounding over hours of racing.",
+            "source_video_ids": [
+              "xSmOhfzpeo4"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "Don't go higher on tire pressures than normal despite the rocky conditions - stick to lower pressures you know work for you to maintain suspension and comfort over 4+ hours.",
+            "source_video_ids": [
+              "xSmOhfzpeo4"
+            ]
+          },
+          {
+            "text": "Make sure to use strong enough wheels because many riders' races end from big hits breaking inadequate wheels on the chunky terrain.",
+            "source_video_ids": [
+              "xSmOhfzpeo4"
+            ]
+          }
+        ],
+        "race_day_tips": [
+          {
+            "text": "Don't start too fast or get caught up in the race for the first corner and climb - pace yourself and ride to your own heart rate or power instead of getting carried away.",
+            "source_video_ids": [
+              "xSmOhfzpeo4"
+            ]
+          },
+          {
+            "text": "Try to warm up before the race if possible, as going from standstill to full gas without warming up is very tough on the body.",
+            "source_video_ids": [
+              "xSmOhfzpeo4"
+            ]
+          },
+          {
+            "text": "Take care of your equipment especially because the rocky, chunky terrain causes many race-ending mechanical failures.",
+            "source_video_ids": [
+              "xSmOhfzpeo4"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "We had to line up in our age pens about 45 minutes before the start. So we stood around for ages with cold legs.",
+            "source_video_id": "xSmOhfzpeo4",
+            "source_channel": "David Arthur - Just Ride Bikes",
+            "source_view_count": 20576,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "Riders describe this as an extremely challenging race with gravel that is way tougher and harder than most places, featuring rocky and chunky terrain that delivers relentless pounding over 4+ hours. The course causes many race-ending mechanical failures, particularly wheel breakages from big hits on the harsh surface. Key challenges include managing pacing from a cold start, as riders must line up in age pens 45 minutes before the start with no warm-up opportunity. The rocky conditions tempt riders to increase tire pressures, but experienced riders recommend sticking to lower pressures for better suspension and comfort. Equipment durability is crucial, with strong wheels being essential to survive the chunky terrain that ends many riders' races through mechanical failures."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "bootlegger-100-video-1.jpg",
+        "url": "/race-photos/bootlegger-100/bootlegger-100-video-1.jpg",
+        "alt": "Cyclists racing on paved road with yellow centerline through bare winter forest during gravel race - Bootlegger 100 - Dahlonega, Georgia (North Georgia mountains)",
+        "credit": "YouTube / Tim Anderson",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "gravel race",
+          "forest road",
+          "winter cycling",
+          "peloton",
+          "paved section"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "bootlegger-100-video-2.jpg",
+        "url": "/race-photos/bootlegger-100/bootlegger-100-video-2.jpg",
+        "alt": "Dirt gravel road winding through bare deciduous forest with rocky embankment during cycling race - Bootlegger 100 - Dahlonega, Georgia (North Georgia mountains)",
+        "credit": "YouTube / Tim Anderson",
+        "primary": false,
+        "ai_relevance": 4,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel road",
+          "forest trail",
+          "dirt path",
+          "wooded terrain",
+          "cycling course"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "bootlegger-100-video-3.jpg",
+        "url": "/race-photos/bootlegger-100/bootlegger-100-video-3.jpg",
+        "alt": "Gravel cyclists racing in organized event with barrier fencing and spectators on sunny day - Bootlegger 100 - Dahlonega, Georgia (North Georgia mountains)",
+        "credit": "YouTube / Tim Anderson",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel race",
+          "cycling event",
+          "race barriers",
+          "sunny weather",
+          "competitive cycling"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "bootlegger-100-preview.gif",
+        "url": "/race-photos/bootlegger-100/bootlegger-100-preview.gif",
+        "alt": "Course preview from Bootlegger 100 race footage",
+        "credit": "YouTube / Tim Anderson",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "bootlegger-100-preview-2.gif",
+        "url": "/race-photos/bootlegger-100/bootlegger-100-preview-2.gif",
+        "alt": "Course preview from Bootlegger 100 race footage",
+        "credit": "YouTube / Tim Anderson",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "bootlegger-100-preview-3.gif",
+        "url": "/race-photos/bootlegger-100/bootlegger-100-preview-3.gif",
+        "alt": "Course preview from Bootlegger 100 race footage",
+        "credit": "YouTube / Tim Anderson",
+        "gif": true
+      }
+    ]
   }
 }

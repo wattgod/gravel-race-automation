@@ -572,7 +572,150 @@
           "category": "race_atmosphere",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Final climb",
+            "description": "Super steep grassy hill at the finish that was wet from rain. Multiple riders had to get off their bikes and walk up this hill.",
+            "source_video_ids": [
+              "ZxuUM6m9f50"
+            ]
+          },
+          {
+            "name": "Flying rocks section",
+            "mile_marker": "32.5",
+            "description": "Rocks were flying and hitting riders. One hit a rider in the eye and another broke a GoPro off the handlebar mount.",
+            "source_video_ids": [
+              "tJsf4Zfpuk8"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Sand sections in the apple orchard during neutral rollout that riders described as tricky.",
+            "source_video_ids": [
+              "ZxuUM6m9f50"
+            ]
+          },
+          {
+            "text": "Wet grassy hill at the finish was extremely steep and forced many riders to dismount and walk.",
+            "source_video_ids": [
+              "ZxuUM6m9f50"
+            ]
+          }
+        ],
+        "gear_mentions": [],
+        "race_day_tips": [
+          {
+            "text": "Check the race route pre-race - the actual distance can differ from advertised. The 24 mile race was closer to 26 miles.",
+            "source_video_ids": [
+              "ZxuUM6m9f50"
+            ]
+          },
+          {
+            "text": "Line up with the 22 plus mph group if that matches your ability, rather than being conservative with positioning at the start.",
+            "source_video_ids": [
+              "tJsf4Zfpuk8"
+            ]
+          },
+          {
+            "text": "Important to make the early split during neutral rollout to stay with the lead group.",
+            "source_video_ids": [
+              "tJsf4Zfpuk8"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "450 Riders out there today, our largest field yet as this race gets popular and popular every year 7th annual 2022 Uncle John Day",
+            "source_video_id": "ZxuUM6m9f50",
+            "source_channel": "Chris Bright",
+            "source_view_count": 810,
+            "category": "community",
+            "curated": true
+          },
+          {
+            "text": "Both races started with a neutral lap so we had a car in front keeping us at about 12 miles an hour until we got out of the apple orchard and onto the road proper",
+            "source_video_id": "ZxuUM6m9f50",
+            "source_channel": "Chris Bright",
+            "source_view_count": 810,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "There was hard cider and fresh donuts a food truck. We're new to the world of gravel racing but it's been super welcoming and we can't wait for the next one",
+            "source_video_id": "ZxuUM6m9f50",
+            "source_channel": "Chris Bright",
+            "source_view_count": 810,
+            "category": "community",
+            "curated": true
+          }
+        ],
+        "search_text": "Uncle John's Gravel Race in St Johns, Michigan features a challenging finish with a super steep, wet grassy hill that forces many riders to dismount and walk. The race starts with a neutral rollout through an apple orchard with tricky sand sections before hitting gravel roads. Key challenges include flying rocks around mile 32.5 that can damage equipment and hit riders, and a brutal final climb that catches riders off guard. The race distance runs longer than advertised, with the 24-mile option actually closer to 26 miles. Weather conditions include overcast skies with light drizzle. The event draws large fields of 450+ riders and features excellent organization with good support throughout. Post-race festivities include hard cider, fresh donuts, and food trucks at Uncle John's Cider Mill, creating a welcoming community atmosphere for both new and experienced gravel racers."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "uncle-johns-gravel-race-video-1.jpg",
+        "url": "/race-photos/uncle-johns-gravel-race/uncle-johns-gravel-race-video-1.jpg",
+        "alt": "Cyclists gathering at gravel race finish line area with support tents and spectators on grass field - Uncle John's Gravel Race - St Johns, Michigan",
+        "credit": "YouTube / Chris Bright",
+        "primary": true,
+        "ai_relevance": 4,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "finish line",
+          "gravel race",
+          "cycling event",
+          "spectators",
+          "support area"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "uncle-johns-gravel-race-video-2.jpg",
+        "url": "/race-photos/uncle-johns-gravel-race/uncle-johns-gravel-race-video-2.jpg",
+        "alt": "Orange traffic cones marking gravel race course boundary with spectators and vehicles lined along grass staging area - Uncle John's Gravel Race - St Johns, Michigan",
+        "credit": "YouTube / Chris Bright",
+        "primary": false,
+        "ai_relevance": 3,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "course marking",
+          "traffic cones",
+          "gravel event",
+          "staging area",
+          "race support"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "uncle-johns-gravel-race-video-3.jpg",
+        "url": "/race-photos/uncle-johns-gravel-race/uncle-johns-gravel-race-video-3.jpg",
+        "alt": "Cyclist riding on gravel road through rural countryside with performance data overlay showing race metrics - Uncle John's Gravel Race - St Johns, Michigan",
+        "credit": "YouTube / Chris Bright",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel road",
+          "rural cycling",
+          "race data",
+          "countryside",
+          "solo rider"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "uncle-johns-gravel-race-preview.gif",
+        "url": "/race-photos/uncle-johns-gravel-race/uncle-johns-gravel-race-preview.gif",
+        "alt": "Course preview from Uncle Johns Gravel Race race footage",
+        "credit": "YouTube / Chris Bright",
+        "gif": true
+      }
+    ]
   }
 }

@@ -1200,6 +1200,25 @@ document.querySelectorAll('.gg-lite-youtube').forEach(function(el) {
     el.appendChild(iframe);
   });
 });
+
+/* ── Train for Race: Workout expand/collapse ── */
+document.querySelectorAll('.gg-pack-workout').forEach(function(card) {
+  card.addEventListener('click', function(e) {
+    if (e.target.closest('a')) return;
+    var detail = this.querySelector('.gg-pack-workout-detail');
+    var wasActive = this.classList.contains('active');
+    // Close all others
+    document.querySelectorAll('.gg-pack-workout').forEach(function(c) {
+      c.classList.remove('active');
+      var d = c.querySelector('.gg-pack-workout-detail');
+      if (d) d.style.display = 'none';
+    });
+    if (!wasActive) {
+      this.classList.add('active');
+      if (detail) detail.style.display = 'block';
+    }
+  });
+});
 </script>'''
 
 
@@ -2298,8 +2317,1073 @@ def build_training(rd: dict) -> str:
   </section>'''
 
 
+# ── Workout showcase data for race-specific training section ──
+# Each entry: viz structure, duration, descriptions for the flagship workout
+# per archetype category. Viz format matches training-plans.html.
+WORKOUT_SHOWCASE = {
+    'Tired VO2max': {
+        'duration': '2.5hr',
+        'summary': 'VO2max intervals after 2 hours of endurance — power when it matters most.',
+        'viz': [
+            {"z":"z2","w":40,"h":48,"l":"Z2 Base 2hr"},
+            {"z":"z5","w":12,"h":85,"l":"4m VO2"},
+            {"z":"z1","w":8,"h":28,"l":"4m"},
+            {"z":"z5","w":12,"h":88,"l":"4m VO2"},
+            {"z":"z1","w":8,"h":28,"l":"4m"},
+            {"z":"z2","w":10,"h":40,"l":"CD"},
+        ],
+        'structure': '2hr Zone 2 \u2192 2\u00d74min @ 110% FTP / 4min recovery \u2192 10min cool-down',
+        'execution': 'Hold steady Zone 2 for 2 hours. Then hit VO2max intervals on tired legs. They will feel significantly harder than fresh \u2014 that\'s the point. This is what separates race-ready athletes from gym-fit athletes. Fight for form when fatigue hits.',
+        'cadence': '85\u201390rpm during Z2 base | 95\u2013100rpm on VO2 efforts',
+        'position': 'Hoods for Z2 base. Drops for VO2 intervals \u2014 aggressive, race position.',
+        'rpe': 'Z2 base: 3\u20134 | VO2 intervals: 8\u20139',
+        'power': 'Z2: 65\u201370% FTP | VO2: 110% FTP | Recovery: 55% FTP',
+    },
+    '5x3 VO2 Classic': {
+        'duration': '1hr',
+        'summary': 'The gold standard VO2max session \u2014 5 efforts at your aerobic ceiling.',
+        'viz': [
+            {"z":"z2","w":14,"h":45,"l":"WU 10m"},
+            {"z":"z5","w":8,"h":85,"l":"3m"},{"z":"z1","w":6,"h":28,"l":"3m"},
+            {"z":"z5","w":8,"h":87,"l":"3m"},{"z":"z1","w":6,"h":28,"l":"3m"},
+            {"z":"z5","w":8,"h":89,"l":"3m"},{"z":"z1","w":6,"h":28,"l":"3m"},
+            {"z":"z5","w":8,"h":91,"l":"3m"},{"z":"z1","w":6,"h":28,"l":"3m"},
+            {"z":"z5","w":8,"h":93,"l":"3m"},
+            {"z":"z2","w":8,"h":40,"l":"CD"},
+        ],
+        'structure': '10min warm-up \u2192 5\u00d73min @ 115% FTP / 3min recovery \u2192 5min cool-down',
+        'execution': 'Build into each interval over the first 30 seconds. Hold steady \u2014 don\'t surge and fade. If you can\'t hold power on rep 5, the target was too high. These should be controlled suffering, not panicked sprinting.',
+        'cadence': '95\u2013105rpm throughout intervals',
+        'position': 'Seated in drops, elbows bent. Standing OK for final 30s of each rep.',
+        'rpe': 'Reps 1\u20133: 8 | Reps 4\u20135: 9',
+        'power': 'Intervals: 112\u2013118% FTP | Recovery: 50\u201355% FTP',
+    },
+    'HVLI Extended Z2': {
+        'duration': '3hr',
+        'summary': 'Pure endurance volume \u2014 the aerobic engine that fuels everything else.',
+        'viz': [
+            {"z":"z2","w":12,"h":46,"l":"WU 15m"},
+            {"z":"z2","w":70,"h":52,"l":"Z2 Steady 2.5hr"},
+            {"z":"z2","w":12,"h":42,"l":"CD 15m"},
+        ],
+        'structure': '15min progressive warm-up \u2192 2.5hr steady Zone 2 \u2192 15min cool-down',
+        'execution': 'This is the foundation ride. Perfectly steady Zone 2 \u2014 no surges, no coasting, no excuses. Nasal breathing pace. This is where fat oxidation improves, mitochondrial density increases, and your body learns to go long. The most important ride of the week.',
+        'cadence': '80\u201390rpm \u2014 find your sustainable rhythm and hold it',
+        'position': 'Alternate every 30min: hoods \u2192 drops \u2192 tops. Build position endurance.',
+        'rpe': '3\u20134 throughout \u2014 conversational pace, never labored',
+        'power': '65\u201370% FTP steady \u2014 if heart rate drifts above Z2, reduce power',
+    },
+    'Breakaway Simulation': {
+        'duration': '1.5hr',
+        'summary': 'Attack, then hold \u2014 the tactical pattern that wins gravel races.',
+        'viz': [
+            {"z":"z2","w":12,"h":45,"l":"WU 15m"},
+            {"z":"z5","w":10,"h":82,"l":"5m ATK"},
+            {"z":"z4","w":18,"h":65,"l":"10m HOLD"},
+            {"z":"z2","w":6,"h":35,"l":"5m"},
+            {"z":"z5","w":10,"h":85,"l":"5m ATK"},
+            {"z":"z4","w":18,"h":68,"l":"10m HOLD"},
+            {"z":"z2","w":8,"h":40,"l":"CD"},
+        ],
+        'structure': '15min warm-up \u2192 2\u00d7(5min @ 110% FTP attack + 10min @ 88% FTP hold) / 5min recovery \u2192 cool-down',
+        'execution': 'This is race tactics on the trainer. Attack hard for 5 minutes \u2014 simulate bridging a gap or cresting a climb. Then immediately settle to tempo and HOLD. The transition from attack to hold is where races are lost. Practice it.',
+        'cadence': '95\u2013105rpm on attacks | 85\u201395rpm on holds',
+        'position': 'Out of saddle for first 60s of attacks. Seated in drops for holds.',
+        'rpe': 'Attacks: 8\u20139 | Holds: 6\u20137 | Recovery: 2\u20133',
+        'power': 'Attacks: 108\u2013112% FTP | Holds: 86\u201390% FTP | Recovery: 50% FTP',
+    },
+    'Single Sustained Threshold': {
+        'duration': '1.25hr',
+        'summary': '2\u00d720min at threshold \u2014 the ultimate FTP builder.',
+        'viz': [
+            {"z":"z2","w":12,"h":45,"l":"WU 10m"},
+            {"z":"z4","w":28,"h":72,"l":"20m FTP"},
+            {"z":"z2","w":6,"h":38,"l":"5m"},
+            {"z":"z4","w":28,"h":74,"l":"20m FTP"},
+            {"z":"z2","w":10,"h":40,"l":"CD"},
+        ],
+        'structure': '10min warm-up \u2192 20min @ 95\u2013100% FTP \u2192 5min recovery \u2192 20min @ 95\u2013100% FTP \u2192 cool-down',
+        'execution': 'Lock in your power. Don\'t start too hard \u2014 the first 5 minutes should feel almost easy. Build into it. At minute 15, you\'ll want to quit. That\'s where the adaptation happens. Breathing should be heavy but controlled.',
+        'cadence': '85\u201395rpm seated \u2014 constant, metronomic',
+        'position': 'Primary: seated on hoods. Switch to drops at minute 10 for aero practice.',
+        'rpe': '7\u20138 throughout \u2014 sustainable suffering',
+        'power': 'Intervals: 95\u2013100% FTP | Recovery: 55% FTP',
+    },
+    'G-Spot Standard': {
+        'duration': '1.5hr',
+        'summary': '2\u00d720min at 88\u201392% FTP \u2014 the workhorse of gravel training.',
+        'viz': [
+            {"z":"z2","w":12,"h":45,"l":"WU 10m"},
+            {"z":"z3","w":6,"h":55,"l":"5m"},
+            {"z":"z4","w":22,"h":68,"l":"20m G-Spot"},
+            {"z":"z2","w":6,"h":38,"l":"5m"},
+            {"z":"z4","w":22,"h":70,"l":"20m G-Spot"},
+            {"z":"z3","w":6,"h":52,"l":"5m"},
+            {"z":"z2","w":10,"h":40,"l":"CD"},
+        ],
+        'structure': '10min warm-up \u2192 5min tempo ramp \u2192 20min @ 88\u201392% FTP \u2192 5min recovery \u2192 20min @ 88\u201392% FTP \u2192 5min tempo \u2192 cool-down',
+        'execution': 'The G-Spot is the sweet spot that actually works for gravel. Slightly below threshold \u2014 enough stimulus for FTP gains, low enough for recovery within 24 hours. This is your bread-and-butter session. Nail the power. Nail the position. Nail the cadence.',
+        'cadence': '85\u201395rpm throughout \u2014 seated, smooth pedal stroke',
+        'position': 'Hoods, seated. Practice race posture \u2014 relaxed shoulders, bent elbows.',
+        'rpe': '6\u20137 \u2014 hard but repeatable. You could do a third set but shouldn\'t.',
+        'power': 'G-Spot: 88\u201392% FTP | Tempo ramp: 76\u201385% FTP | Recovery: 55% FTP',
+    },
+    'Seated/Standing Climbs': {
+        'duration': '1.25hr',
+        'summary': 'Alternating seated and standing efforts \u2014 builds climbing versatility.',
+        'viz': [
+            {"z":"z2","w":12,"h":45,"l":"WU 10m"},
+            {"z":"z4","w":10,"h":70,"l":"3m SEAT"},
+            {"z":"z5","w":7,"h":80,"l":"2m STAND"},
+            {"z":"z2","w":5,"h":35,"l":"5m"},
+            {"z":"z4","w":10,"h":72,"l":"3m SEAT"},
+            {"z":"z5","w":7,"h":82,"l":"2m STAND"},
+            {"z":"z2","w":5,"h":35,"l":"5m"},
+            {"z":"z4","w":10,"h":74,"l":"3m SEAT"},
+            {"z":"z5","w":7,"h":84,"l":"2m STAND"},
+            {"z":"z2","w":8,"h":40,"l":"CD"},
+        ],
+        'structure': '10min warm-up \u2192 3\u00d7(3min seated @ 95% FTP + 2min standing @ 105% FTP) / 5min recovery \u2192 cool-down',
+        'execution': 'Alternate between seated grinding and standing power. The transition is key \u2014 shift up 1\u20132 gears when standing, maintain cadence. This builds the ability to change climbing style mid-effort, exactly what variable-grade gravel climbs demand.',
+        'cadence': 'Seated: 70\u201380rpm (force) | Standing: 60\u201370rpm (torque)',
+        'position': 'Seated: hands on hoods, core engaged | Standing: hands on hoods, bike rocking gently',
+        'rpe': 'Seated: 7 | Standing: 8\u20139',
+        'power': 'Seated: 93\u201397% FTP | Standing: 103\u2013107% FTP | Recovery: 55% FTP',
+    },
+    'Classic Over-Unders': {
+        'duration': '1hr',
+        'summary': 'Oscillating above and below threshold \u2014 trains lactate clearance under load.',
+        'viz': [
+            {"z":"z2","w":12,"h":45,"l":"WU 10m"},
+            {"z":"z4","w":9,"h":64,"l":"3m UNDER"},
+            {"z":"z5","w":4,"h":82,"l":"1m OVER"},
+            {"z":"z4","w":9,"h":64,"l":"3m UNDER"},
+            {"z":"z5","w":4,"h":84,"l":"1m OVER"},
+            {"z":"z4","w":9,"h":64,"l":"3m UNDER"},
+            {"z":"z5","w":4,"h":86,"l":"1m OVER"},
+            {"z":"z2","w":6,"h":35,"l":"REST"},
+            {"z":"z4","w":14,"h":66,"l":"SET 2"},
+            {"z":"z2","w":6,"h":35,"l":"REST"},
+            {"z":"z4","w":14,"h":68,"l":"SET 3"},
+            {"z":"z2","w":8,"h":40,"l":"CD"},
+        ],
+        'structure': '10min warm-up \u2192 3 sets of (3min @ 90% + 1min @ 106% FTP)\u00d73 reps / 3min recovery between sets \u2192 cool-down',
+        'execution': 'The "under" should feel controlled \u2014 right at threshold. The "over" is a punch above. Your body learns to clear lactate while still working. The transitions should be INSTANT \u2014 no ramping, no soft-pedaling. That\'s what a gravel surge feels like.',
+        'cadence': '90rpm on unders | 95\u2013100rpm on overs',
+        'position': 'Seated throughout. Hands on drops during overs.',
+        'rpe': 'Unders: 7 | Overs: 8\u20139',
+        'power': 'Unders: 88\u201392% FTP | Overs: 104\u2013108% FTP | Rest: 50% FTP',
+    },
+    'Surge and Settle': {
+        'duration': '1hr',
+        'summary': 'Explosive surges into tempo settling \u2014 the signature gravel-specific workout.',
+        'viz': [
+            {"z":"z2","w":14,"h":45,"l":"WU 15m"},
+            {"z":"z6","w":4,"h":92,"l":"SURGE"},
+            {"z":"z3","w":9,"h":58,"l":"SETTLE"},
+            {"z":"z6","w":4,"h":94,"l":"SURGE"},
+            {"z":"z3","w":9,"h":58,"l":"SETTLE"},
+            {"z":"z6","w":4,"h":95,"l":"SURGE"},
+            {"z":"z3","w":9,"h":58,"l":"SETTLE"},
+            {"z":"z2","w":6,"h":35,"l":"5m"},
+            {"z":"z6","w":3,"h":92,"l":"S"},
+            {"z":"z3","w":7,"h":58,"l":"SET 2"},
+            {"z":"z6","w":3,"h":94,"l":"S"},
+            {"z":"z3","w":7,"h":58,"l":""},
+            {"z":"z6","w":3,"h":95,"l":"S"},
+            {"z":"z3","w":7,"h":58,"l":""},
+            {"z":"z2","w":8,"h":40,"l":"CD"},
+        ],
+        'structure': '15min warm-up \u2192 2 sets of 3\u00d7(20sec surge @ 130% FTP + 90sec settle @ 85% FTP) / 5min between sets \u2192 cool-down',
+        'execution': 'Out of the saddle for every surge \u2014 explosive, violent power. Then immediately drop to tempo and SETTLE. Smooth your breathing. Recover while still working. This is what gravel racing IS: attack the rock garden, settle on the straight, attack the climb, settle on the descent. Over and over.',
+        'cadence': '100\u2013120rpm surge (explosive) | 85\u201390rpm settle (smooth)',
+        'position': 'Standing for surges | Seated in drops for settle',
+        'rpe': 'Surges: 9\u201310 | Settle: 5\u20136',
+        'power': 'Surges: 125\u2013135% FTP | Settle: 83\u201387% FTP',
+    },
+    'Pre-Race Openers': {
+        'duration': '45min',
+        'summary': 'Race-eve activation \u2014 short, sharp efforts to prime the neuromuscular system.',
+        'viz': [
+            {"z":"z2","w":25,"h":46,"l":"WU 15m"},
+            {"z":"z5","w":6,"h":80,"l":"30s"},
+            {"z":"z2","w":10,"h":40,"l":"3m"},
+            {"z":"z5","w":6,"h":85,"l":"30s"},
+            {"z":"z2","w":10,"h":40,"l":"3m"},
+            {"z":"z5","w":6,"h":88,"l":"30s"},
+            {"z":"z2","w":25,"h":42,"l":"CD 10m"},
+        ],
+        'structure': '15min warm-up \u2192 3\u00d730sec @ 120% FTP / 3min easy \u2192 10min cool-down',
+        'execution': 'Race is tomorrow. This isn\'t a workout \u2014 it\'s an activation. Three short openers to remind your legs what hard feels like. Don\'t go deep. Don\'t go long. Feel the snap. Spin easy. Go to bed.',
+        'cadence': '100\u2013110rpm on openers | 85\u201390rpm easy spin',
+        'position': 'Race position for openers. Comfortable for everything else.',
+        'rpe': 'Openers: 7\u20138 | Easy: 2\u20133',
+        'power': 'Openers: 115\u2013125% FTP | Easy: 55\u201365% FTP',
+    },
+    'Above CP Repeats': {
+        'duration': '1hr',
+        'summary': 'Sustained efforts above critical power \u2014 expands your high-end ceiling.',
+        'viz': [
+            {"z":"z2","w":14,"h":45,"l":"WU 10m"},
+            {"z":"z5","w":10,"h":80,"l":"5m"},
+            {"z":"z1","w":8,"h":28,"l":"5m"},
+            {"z":"z5","w":10,"h":83,"l":"5m"},
+            {"z":"z1","w":8,"h":28,"l":"5m"},
+            {"z":"z5","w":10,"h":86,"l":"5m"},
+            {"z":"z1","w":8,"h":28,"l":"5m"},
+            {"z":"z5","w":10,"h":88,"l":"5m"},
+            {"z":"z2","w":8,"h":40,"l":"CD"},
+        ],
+        'structure': '10min warm-up \u2192 4\u00d75min @ 106\u2013110% FTP / 5min recovery \u2192 cool-down',
+        'execution': 'These are above your critical power but below VO2max \u2014 the no-man\'s-land where W\' depletion meets aerobic capacity. Hold each effort perfectly even. If you fade in the last minute, you started too hard.',
+        'cadence': '90\u2013100rpm \u2014 high turnover reduces muscular fatigue',
+        'position': 'Seated in drops. Aero position practice under load.',
+        'rpe': '8 across all reps \u2014 consistent, not progressive',
+        'power': 'Intervals: 106\u2013110% FTP | Recovery: 50\u201355% FTP',
+    },
+    '2min Killers': {
+        'duration': '50min',
+        'summary': 'Short, brutal anaerobic repeats \u2014 builds the punch for climbs and attacks.',
+        'viz': [
+            {"z":"z2","w":14,"h":45,"l":"WU 10m"},
+            {"z":"z5","w":7,"h":88,"l":"2m"},{"z":"z1","w":7,"h":28,"l":"3m"},
+            {"z":"z5","w":7,"h":90,"l":"2m"},{"z":"z1","w":7,"h":28,"l":"3m"},
+            {"z":"z5","w":7,"h":92,"l":"2m"},{"z":"z1","w":7,"h":28,"l":"3m"},
+            {"z":"z5","w":7,"h":94,"l":"2m"},{"z":"z1","w":7,"h":28,"l":"3m"},
+            {"z":"z5","w":7,"h":95,"l":"2m"},
+            {"z":"z2","w":8,"h":40,"l":"CD"},
+        ],
+        'structure': '10min warm-up \u2192 5\u00d72min @ 120\u2013130% FTP / 3min recovery \u2192 cool-down',
+        'execution': 'Two minutes of controlled violence. Start strong, hold on. These are short enough to survive but long enough to demand anaerobic capacity. By rep 4, your legs will burn. Rep 5 is where champions are made.',
+        'cadence': '95\u2013105rpm \u2014 spin the gear, don\'t mash it',
+        'position': 'Seated for reps 1\u20133. Standing for the final 30s of reps 4\u20135 if needed.',
+        'rpe': '9 \u2014 near-maximal for every rep',
+        'power': 'Intervals: 120\u2013130% FTP | Recovery: 50% FTP',
+    },
+    'Attack Repeats': {
+        'duration': '45min',
+        'summary': 'Sprint attacks with short recovery \u2014 neuromuscular power for race moves.',
+        'viz': [
+            {"z":"z2","w":16,"h":45,"l":"WU 12m"},
+            {"z":"z6","w":4,"h":95,"l":"15s"},{"z":"z1","w":8,"h":28,"l":"2m"},
+            {"z":"z6","w":4,"h":95,"l":"15s"},{"z":"z1","w":8,"h":28,"l":"2m"},
+            {"z":"z6","w":4,"h":95,"l":"15s"},{"z":"z1","w":8,"h":28,"l":"2m"},
+            {"z":"z6","w":4,"h":95,"l":"15s"},{"z":"z1","w":8,"h":28,"l":"2m"},
+            {"z":"z6","w":4,"h":95,"l":"15s"},{"z":"z1","w":8,"h":28,"l":"2m"},
+            {"z":"z6","w":4,"h":95,"l":"15s"},
+            {"z":"z2","w":10,"h":40,"l":"CD"},
+        ],
+        'structure': '12min warm-up \u2192 6\u00d715sec all-out sprint / 2min recovery \u2192 cool-down',
+        'execution': 'Maximum intensity. Every sprint is an all-out race attack \u2014 imagine you\'re jumping away from a group on a gravel climb. Recruit every muscle fiber. Full commitment for 15 seconds, then completely recover. Quality over quantity.',
+        'cadence': '120\u2013140rpm \u2014 pure leg speed and explosive power',
+        'position': 'Standing, hands in drops, bike rocking side to side',
+        'rpe': '10 \u2014 absolute maximum on every sprint',
+        'power': 'Sprints: 150\u2013200%+ FTP | Recovery: 45\u201350% FTP',
+    },
+    'Norwegian 4x8 Classic': {
+        'duration': '1.25hr',
+        'summary': '4\u00d78min at threshold \u2014 the Norwegian method for sustained power.',
+        'viz': [
+            {"z":"z2","w":12,"h":45,"l":"WU 10m"},
+            {"z":"z4","w":14,"h":72,"l":"8m"},
+            {"z":"z2","w":5,"h":38,"l":"4m"},
+            {"z":"z4","w":14,"h":74,"l":"8m"},
+            {"z":"z2","w":5,"h":38,"l":"4m"},
+            {"z":"z4","w":14,"h":76,"l":"8m"},
+            {"z":"z2","w":5,"h":38,"l":"4m"},
+            {"z":"z4","w":14,"h":78,"l":"8m"},
+            {"z":"z2","w":10,"h":40,"l":"CD"},
+        ],
+        'structure': '10min warm-up \u2192 4\u00d78min @ 90\u201395% FTP / 4min recovery \u2192 cool-down',
+        'execution': 'The Norwegian double-threshold method \u2014 longer intervals at a controlled intensity. The key is RESTRAINT. Don\'t push above target. These should feel hard but manageable until the final set. If you\'re dying on set 3, you went too hard on set 1.',
+        'cadence': '85\u201395rpm throughout \u2014 steady, metronomic',
+        'position': 'Seated on hoods. Switch to drops for the final 2 minutes of each interval.',
+        'rpe': 'Sets 1\u20132: 7 | Sets 3\u20134: 8',
+        'power': 'Intervals: 90\u201395% FTP | Recovery: 55\u201360% FTP',
+    },
+    'SFR Low Cadence': {
+        'duration': '1hr',
+        'summary': 'Low-cadence force work \u2014 builds muscular strength for climbing and headwinds.',
+        'viz': [
+            {"z":"z2","w":14,"h":45,"l":"WU 10m"},
+            {"z":"z3","w":12,"h":60,"l":"8m 55rpm"},
+            {"z":"z2","w":6,"h":38,"l":"4m"},
+            {"z":"z3","w":12,"h":62,"l":"8m 55rpm"},
+            {"z":"z2","w":6,"h":38,"l":"4m"},
+            {"z":"z3","w":12,"h":64,"l":"8m 55rpm"},
+            {"z":"z2","w":6,"h":38,"l":"4m"},
+            {"z":"z3","w":12,"h":66,"l":"8m 55rpm"},
+            {"z":"z2","w":8,"h":40,"l":"CD"},
+        ],
+        'structure': '10min warm-up \u2192 4\u00d78min @ 80\u201385% FTP at 50\u201360rpm / 4min recovery at 90rpm \u2192 cool-down',
+        'execution': 'Big gear, low cadence, steady torque. This is strength work on the bike. Keep your upper body quiet \u2014 all force through the pedals. If your knees complain, reduce resistance. Recovery spins at normal cadence to flush the legs.',
+        'cadence': 'Efforts: 50\u201360rpm (force) | Recovery: 90rpm (flush)',
+        'position': 'Seated, hands on hoods. Core braced, no rocking.',
+        'rpe': '6\u20137 \u2014 hard on muscles, moderate on heart',
+        'power': 'Efforts: 80\u201385% FTP | Recovery: 55% FTP',
+    },
+    'High Cadence Drills': {
+        'duration': '50min',
+        'summary': 'Cadence pyramids and spin-ups \u2014 neuromuscular efficiency and pedal smoothness.',
+        'viz': [
+            {"z":"z2","w":16,"h":45,"l":"WU 10m"},
+            {"z":"z2","w":10,"h":52,"l":"100rpm"},
+            {"z":"z2","w":10,"h":56,"l":"110rpm"},
+            {"z":"z2","w":10,"h":60,"l":"120rpm"},
+            {"z":"z2","w":10,"h":56,"l":"110rpm"},
+            {"z":"z2","w":10,"h":52,"l":"100rpm"},
+            {"z":"z2","w":10,"h":46,"l":"90rpm"},
+            {"z":"z2","w":10,"h":42,"l":"CD"},
+        ],
+        'structure': '10min warm-up \u2192 Cadence pyramid: 3min each at 100\u2192110\u2192120\u2192110\u2192100rpm \u2192 repeat \u2192 cool-down',
+        'execution': 'Same power, increasing cadence. Your legs spin faster while your upper body stays perfectly still. No bouncing. No hip rocking. The moment you bounce, drop 5rpm and stabilize. This is skill work \u2014 it makes every other workout more efficient.',
+        'cadence': 'Progressive: 100 \u2192 110 \u2192 120 \u2192 110 \u2192 100rpm',
+        'position': 'Seated, light grip, relaxed shoulders. Upper body is a statue.',
+        'rpe': '4\u20135 \u2014 moderate effort, high neuromuscular focus',
+        'power': '65\u201375% FTP throughout \u2014 power stays constant, only cadence changes',
+    },
+    'Z2 + VO2 Combo': {
+        'duration': '1.5hr',
+        'summary': 'Long endurance ride bookended with VO2 efforts \u2014 endurance with a bite.',
+        'viz': [
+            {"z":"z2","w":12,"h":45,"l":"WU 10m"},
+            {"z":"z5","w":6,"h":85,"l":"3m"},
+            {"z":"z1","w":4,"h":28,"l":"3m"},
+            {"z":"z5","w":6,"h":87,"l":"3m"},
+            {"z":"z2","w":35,"h":50,"l":"Z2 Steady 50m"},
+            {"z":"z5","w":6,"h":88,"l":"3m"},
+            {"z":"z1","w":4,"h":28,"l":"3m"},
+            {"z":"z5","w":6,"h":90,"l":"3m"},
+            {"z":"z2","w":10,"h":40,"l":"CD"},
+        ],
+        'structure': '10min warm-up \u2192 2\u00d73min VO2 @ 115% FTP \u2192 50min Zone 2 \u2192 2\u00d73min VO2 \u2192 cool-down',
+        'execution': 'VO2 bookends around a long Z2 block. The first set is fresh \u2014 lock in your power. The Z2 middle builds endurance. The second VO2 set on tired legs builds durability. A complete session in 90 minutes.',
+        'cadence': 'VO2: 95\u2013100rpm | Z2: 85\u201390rpm',
+        'position': 'Drops for VO2 intervals. Alternating hoods/drops for Z2.',
+        'rpe': 'VO2: 8\u20139 | Z2: 3\u20134',
+        'power': 'VO2: 112\u2013118% FTP | Z2: 65\u201370% FTP',
+    },
+    'Tempo Blocks': {
+        'duration': '1.25hr',
+        'summary': 'Extended tempo efforts \u2014 muscular endurance for sustained gravel power.',
+        'viz': [
+            {"z":"z2","w":12,"h":45,"l":"WU 10m"},
+            {"z":"z3","w":28,"h":60,"l":"20m TEMPO"},
+            {"z":"z2","w":6,"h":38,"l":"5m"},
+            {"z":"z3","w":28,"h":62,"l":"20m TEMPO"},
+            {"z":"z2","w":10,"h":40,"l":"CD"},
+        ],
+        'structure': '10min warm-up \u2192 2\u00d720min @ 76\u201385% FTP / 5min recovery \u2192 cool-down',
+        'execution': 'Tempo is the engine behind long races. Harder than Z2, easier than threshold. You should be able to speak in short sentences but not hold a conversation. This power range is where you\'ll spend most of your race \u2014 make it feel like home.',
+        'cadence': '85\u201395rpm \u2014 steady, comfortable',
+        'position': 'Race position. Practice staying aero for the full 20 minutes.',
+        'rpe': '5\u20136 \u2014 moderate, sustainable discomfort',
+        'power': 'Tempo: 76\u201385% FTP | Recovery: 55% FTP',
+    },
+    'MAF Capped Ride': {
+        'duration': '1.5hr',
+        'summary': 'Heart rate capped endurance \u2014 pure aerobic development below LT1.',
+        'viz': [
+            {"z":"z2","w":12,"h":44,"l":"WU 10m"},
+            {"z":"z2","w":72,"h":48,"l":"MAF Zone 1.5hr"},
+            {"z":"z2","w":12,"h":42,"l":"CD"},
+        ],
+        'structure': '10min warm-up \u2192 1.5hr capped at MAF heart rate (180 \u2212 age) \u2192 cool-down',
+        'execution': 'Ego-free riding. Set your heart rate cap and obey it. When hills push you above MAF, reduce power \u2014 even if it means crawling. Over weeks, your pace at the same heart rate will increase. That\'s aerobic development. That\'s what wins 100+ mile races.',
+        'cadence': '80\u201390rpm \u2014 whatever keeps HR below cap',
+        'position': 'Comfortable. This is about time and heart rate, not power.',
+        'rpe': '2\u20134 \u2014 easy, sometimes frustratingly so',
+        'power': 'Variable \u2014 whatever keeps HR below MAF cap (typically 55\u201370% FTP)',
+    },
+    'Easy Spin': {
+        'duration': '30\u201345min',
+        'summary': 'Active recovery \u2014 blood flow without training stress.',
+        'viz': [
+            {"z":"z1","w":15,"h":35,"l":"Easy 5m"},
+            {"z":"z1","w":60,"h":38,"l":"Recovery Spin 25\u201335m"},
+            {"z":"z1","w":15,"h":35,"l":"Easy 5m"},
+        ],
+        'structure': '5min easy spin \u2192 25\u201335min @ 50\u201355% FTP \u2192 5min easy spin',
+        'execution': 'The easiest ride you can do. No ego. No Strava. No pushing. Light resistance, smooth pedaling. This ride exists to flush metabolic waste and promote recovery between hard sessions. If it felt hard, you did it wrong.',
+        'cadence': '85\u201395rpm \u2014 light, smooth, effortless',
+        'position': 'Upright, relaxed grip, zero tension in shoulders',
+        'rpe': '1\u20132 \u2014 barely above sitting on the couch',
+        'power': '50\u201355% FTP maximum \u2014 err on the side of too easy',
+    },
+    'Double Day Simulation': {
+        'duration': '2hr (AM+PM)',
+        'summary': 'Two sessions in one day \u2014 AM endurance, PM intensity. Trains the double-day fatigue of multi-day events.',
+        'viz': [
+            {"z":"z2","w":35,"h":48,"l":"AM: Z2 1hr"},
+            {"z":"z1","w":6,"h":25,"l":"REST"},
+            {"z":"z2","w":14,"h":46,"l":"PM WU"},
+            {"z":"z4","w":12,"h":72,"l":"10m FTP"},
+            {"z":"z2","w":5,"h":38,"l":"5m"},
+            {"z":"z4","w":12,"h":74,"l":"10m FTP"},
+            {"z":"z2","w":8,"h":40,"l":"CD"},
+        ],
+        'structure': 'AM: 1hr Zone 2 | PM: 10min warm-up \u2192 2\u00d710min @ 95% FTP / 5min recovery \u2192 cool-down',
+        'execution': 'The AM ride loads fatigue. The PM session tests your ability to produce quality power on pre-stressed legs. This is what stage racing and back-to-back hard days feel like. Don\u2019t skip the AM ride \u2014 that\u2019s the whole point.',
+        'cadence': 'AM: 85\u201390rpm easy | PM: 85\u201395rpm on intervals',
+        'position': 'AM: comfortable, any position | PM: race position for intervals',
+        'rpe': 'AM: 3\u20134 | PM intervals: 7\u20138',
+        'power': 'AM: 65\u201370% FTP | PM intervals: 93\u201397% FTP | PM recovery: 55% FTP',
+    },
+    'Progressive Fatigue': {
+        'duration': '2hr',
+        'summary': 'Power targets INCREASE as duration goes on \u2014 reverse-pacing that builds race-finishing strength.',
+        'viz': [
+            {"z":"z2","w":14,"h":45,"l":"WU 15m"},
+            {"z":"z2","w":18,"h":50,"l":"Z2 30m"},
+            {"z":"z3","w":16,"h":58,"l":"TEMPO 20m"},
+            {"z":"z4","w":14,"h":68,"l":"G-SPOT 15m"},
+            {"z":"z4","w":12,"h":75,"l":"FTP 10m"},
+            {"z":"z5","w":8,"h":85,"l":"VO2 5m"},
+            {"z":"z2","w":8,"h":40,"l":"CD"},
+        ],
+        'structure': '15min warm-up \u2192 30min Z2 \u2192 20min Tempo \u2192 15min G-Spot \u2192 10min Threshold \u2192 5min VO2 \u2192 cool-down',
+        'execution': 'Each block is harder than the last. By the time you hit threshold, you\u2019ve been riding for 80+ minutes. The final VO2 effort is the test \u2014 can you go HARD when everything says stop? This is how you win the last 20 miles of a gravel race.',
+        'cadence': 'Z2: 85rpm | Tempo: 88rpm | G-Spot: 90rpm | Threshold: 92rpm | VO2: 95\u2013100rpm',
+        'position': 'Progressive: hoods \u2192 drops as intensity rises',
+        'rpe': 'Z2: 3 | Tempo: 5 | G-Spot: 6\u20137 | Threshold: 8 | VO2: 9',
+        'power': 'Z2: 65\u201370% | Tempo: 78\u201385% | G-Spot: 88\u201392% | Threshold: 95\u2013100% | VO2: 110\u2013115% FTP',
+    },
+    'Descending VO2 Pyramid': {
+        'duration': '55min',
+        'summary': '5-4-3-2-1 minute intervals at ascending power \u2014 a VO2 pyramid that gets shorter and harder.',
+        'viz': [
+            {"z":"z2","w":14,"h":45,"l":"WU 10m"},
+            {"z":"z5","w":12,"h":80,"l":"5m"},
+            {"z":"z1","w":6,"h":28,"l":"4m"},
+            {"z":"z5","w":10,"h":84,"l":"4m"},
+            {"z":"z1","w":5,"h":28,"l":"3m"},
+            {"z":"z5","w":8,"h":88,"l":"3m"},
+            {"z":"z1","w":5,"h":28,"l":"2m"},
+            {"z":"z5","w":6,"h":92,"l":"2m"},
+            {"z":"z1","w":4,"h":28,"l":"1m"},
+            {"z":"z6","w":4,"h":95,"l":"1m"},
+            {"z":"z2","w":8,"h":40,"l":"CD"},
+        ],
+        'structure': '10min warm-up \u2192 5min @ 108% \u2192 4min @ 112% \u2192 3min @ 116% \u2192 2min @ 120% \u2192 1min @ 130% FTP (equal rest) \u2192 cool-down',
+        'execution': 'Each interval gets shorter but HARDER. The 5-minute effort is controlled. The 1-minute finale is all-out. This pyramid teaches pacing discipline \u2014 start conservative, finish violent. Recovery between efforts equals the interval just completed.',
+        'cadence': '95\u2013100rpm throughout | 105rpm+ on the 1-minute finale',
+        'position': 'Seated for 5-4-3 min intervals. Standing option for 2-1 min intervals.',
+        'rpe': '5min: 7\u20138 | 4min: 8 | 3min: 8\u20139 | 2min: 9 | 1min: 10',
+        'power': '5min: 108% | 4min: 112% | 3min: 116% | 2min: 120% | 1min: 130% FTP',
+    },
+    'Norwegian 4x8': {
+        'duration': '1.25hr',
+        'summary': '4\u00d78min at VO2max intensity \u2014 the Norwegian method pushed to aerobic ceiling.',
+        'viz': [
+            {"z":"z2","w":12,"h":45,"l":"WU 10m"},
+            {"z":"z5","w":14,"h":80,"l":"8m"},
+            {"z":"z2","w":5,"h":38,"l":"4m"},
+            {"z":"z5","w":14,"h":83,"l":"8m"},
+            {"z":"z2","w":5,"h":38,"l":"4m"},
+            {"z":"z5","w":14,"h":86,"l":"8m"},
+            {"z":"z2","w":5,"h":38,"l":"4m"},
+            {"z":"z5","w":14,"h":88,"l":"8m"},
+            {"z":"z2","w":10,"h":40,"l":"CD"},
+        ],
+        'structure': '10min warm-up \u2192 4\u00d78min @ 106\u2013112% FTP / 4min recovery \u2192 cool-down',
+        'execution': 'Longer VO2 intervals demand pacing. Don\u2019t start at 120% and crater at minute 4. Hold steady at your 8-minute maximum sustainable intensity. Breathing should be maximal but controlled. If you can\u2019t finish set 4, your target was too high.',
+        'cadence': '95\u2013105rpm throughout intervals',
+        'position': 'Seated in drops. Aero position for final 2 minutes of each set if possible.',
+        'rpe': 'Sets 1\u20132: 8 | Sets 3\u20134: 9',
+        'power': 'Intervals: 106\u2013112% FTP | Recovery: 55\u201360% FTP',
+    },
+    'Multi-Hour Z2': {
+        'duration': '4hr',
+        'summary': 'The long ride. 4 hours of pure Zone 2 \u2014 massive aerobic volume for ultra-distance preparation.',
+        'viz': [
+            {"z":"z2","w":8,"h":46,"l":"WU"},
+            {"z":"z2","w":78,"h":52,"l":"Z2 Steady 3.5hr"},
+            {"z":"z2","w":8,"h":42,"l":"CD"},
+        ],
+        'structure': '15min progressive warm-up \u2192 3.5hr steady Zone 2 \u2192 15min cool-down',
+        'execution': 'This is the big one. Four hours in the saddle. Perfectly steady Z2 \u2014 no caf\u00e9 stops, no coasting downhill, no surges. Practice race-day nutrition (80g carbs/hr). Alternate positions every 30 minutes. This ride builds the aerobic capacity that makes everything else possible.',
+        'cadence': '80\u201390rpm \u2014 find your rhythm and lock it in for 4 hours',
+        'position': 'Rotate every 30min: hoods \u2192 drops \u2192 tops \u2192 aero. Build position endurance.',
+        'rpe': '3\u20134 throughout \u2014 if it drifts above 5, reduce power immediately',
+        'power': '65\u201370% FTP \u2014 if heart rate creeps up after hour 3, drop to 60\u201365%',
+    },
+    'Back-to-Back Long': {
+        'duration': '2.5hr + 2hr',
+        'summary': 'Saturday long ride, Sunday medium ride \u2014 back-to-back volume that mimics multi-day fatigue.',
+        'viz': [
+            {"z":"z2","w":40,"h":52,"l":"SAT: Z2 2.5hr"},
+            {"z":"z1","w":6,"h":25,"l":"SLEEP"},
+            {"z":"z2","w":35,"h":48,"l":"SUN: Z2 2hr"},
+            {"z":"z2","w":8,"h":42,"l":"CD"},
+        ],
+        'structure': 'Saturday: 2.5hr Zone 2 | Sunday: 2hr Zone 2 with 3\u00d75min tempo inserts',
+        'execution': 'Saturday loads the fatigue. Sunday tests your ability to ride steady on tired legs. The Sunday tempo inserts at minutes 45, 75, and 105 simulate the surges you\u2019ll face late in a race when your legs are already cooked. This is durability training.',
+        'cadence': 'Saturday: 85\u201390rpm | Sunday: 85\u201390rpm, 90\u201395rpm on tempo inserts',
+        'position': 'Both days: rotate positions. Sunday tempo inserts in drops.',
+        'rpe': 'Saturday: 3\u20134 | Sunday Z2: 4\u20135 | Sunday tempo: 5\u20136',
+        'power': 'Both: 65\u201370% FTP | Sunday tempo: 76\u201382% FTP',
+    },
+    'Variable Pace Chaos': {
+        'duration': '1.25hr',
+        'summary': 'Unpredictable power changes \u2014 no pattern, no rhythm, pure gravel race simulation.',
+        'viz': [
+            {"z":"z2","w":12,"h":45,"l":"WU 10m"},
+            {"z":"z3","w":5,"h":55,"l":"2m"},
+            {"z":"z5","w":3,"h":82,"l":"30s"},
+            {"z":"z4","w":8,"h":68,"l":"3m"},
+            {"z":"z2","w":5,"h":42,"l":"90s"},
+            {"z":"z5","w":4,"h":85,"l":"1m"},
+            {"z":"z3","w":6,"h":58,"l":"2m"},
+            {"z":"z6","w":3,"h":92,"l":"20s"},
+            {"z":"z4","w":7,"h":70,"l":"3m"},
+            {"z":"z2","w":4,"h":42,"l":"1m"},
+            {"z":"z5","w":4,"h":88,"l":"1m"},
+            {"z":"z3","w":8,"h":55,"l":"3m"},
+            {"z":"z4","w":6,"h":65,"l":"2m"},
+            {"z":"z2","w":8,"h":40,"l":"CD"},
+        ],
+        'structure': '10min warm-up \u2192 20min chaos block: random 30sec\u20133min efforts @ 85\u2013130% FTP \u2192 5min recovery \u2192 repeat \u2192 cool-down',
+        'execution': 'There is no pattern. That\u2019s the point. Power jumps randomly between zones \u2014 like a gravel race where terrain, wind, and competitors dictate your effort. Don\u2019t anticipate. React. Recover when you can. Suffer when you must. This workout teaches metabolic flexibility.',
+        'cadence': 'Variable \u2014 match the effort. 80rpm on tempo, 100rpm on VO2, 120rpm on sprints.',
+        'position': 'Change constantly. That\u2019s the chaos.',
+        'rpe': 'Varies wildly: 4\u201310 within a single block',
+        'power': 'Range: 85\u2013130% FTP | No two minutes at the same power',
+    },
+    'Sector Simulation': {
+        'duration': '1.5hr',
+        'summary': 'Timed race sectors with transitions \u2014 practice racing in segments, not just riding.',
+        'viz': [
+            {"z":"z2","w":12,"h":45,"l":"WU 10m"},
+            {"z":"z4","w":14,"h":70,"l":"SECTOR 1 12m"},
+            {"z":"z2","w":5,"h":38,"l":"TRANSIT"},
+            {"z":"z5","w":8,"h":82,"l":"SECTOR 2 6m"},
+            {"z":"z2","w":5,"h":38,"l":"TRANSIT"},
+            {"z":"z4","w":14,"h":72,"l":"SECTOR 3 12m"},
+            {"z":"z2","w":5,"h":38,"l":"TRANSIT"},
+            {"z":"z5","w":8,"h":85,"l":"SECTOR 4 6m"},
+            {"z":"z2","w":5,"h":38,"l":"TRANSIT"},
+            {"z":"z4","w":10,"h":74,"l":"FINAL 8m"},
+            {"z":"z2","w":8,"h":40,"l":"CD"},
+        ],
+        'structure': '10min warm-up \u2192 5 sectors (12-6-12-6-8min) at race pace / 4min transit between \u2192 cool-down',
+        'execution': 'Each sector is a race within the race. Sector 1: settle into race pace. Sector 2: short, hard \u2014 a hill or technical section. Sector 3: sustained power. Sector 4: another hard punch. Final sector: everything you have left. The transits are active recovery \u2014 drink, eat, prepare for the next sector.',
+        'cadence': 'Sectors: 88\u201395rpm | Transits: 80\u201385rpm (easy spin)',
+        'position': 'Race position on sectors. Sit up and eat during transits.',
+        'rpe': 'Long sectors: 7\u20138 | Short sectors: 8\u20139 | Transits: 3',
+        'power': 'Long sectors: 90\u201395% FTP | Short sectors: 105\u2013110% FTP | Transits: 55% FTP',
+    },
+    'Threshold Ramps': {
+        'duration': '1hr',
+        'summary': 'Progressive threshold ramps \u2014 start below, finish above. Teaches threshold precision.',
+        'viz': [
+            {"z":"z2","w":12,"h":45,"l":"WU 10m"},
+            {"z":"z3","w":6,"h":58,"l":"88%"},
+            {"z":"z4","w":6,"h":65,"l":"92%"},
+            {"z":"z4","w":6,"h":70,"l":"96%"},
+            {"z":"z4","w":6,"h":75,"l":"100%"},
+            {"z":"z2","w":6,"h":38,"l":"5m"},
+            {"z":"z3","w":6,"h":58,"l":"88%"},
+            {"z":"z4","w":6,"h":65,"l":"92%"},
+            {"z":"z4","w":6,"h":70,"l":"96%"},
+            {"z":"z4","w":6,"h":75,"l":"100%"},
+            {"z":"z5","w":4,"h":82,"l":"104%"},
+            {"z":"z2","w":8,"h":40,"l":"CD"},
+        ],
+        'structure': '10min warm-up \u2192 Ramp 1: 4\u00d74min @ 88\u2192100% FTP \u2192 5min rest \u2192 Ramp 2: 5\u00d74min @ 88\u2192104% \u2192 cool-down',
+        'execution': 'Start easy, finish hard. The ramp teaches you where your threshold REALLY is \u2014 the point where controlled becomes desperate. The second ramp pushes one step further. If you survive the 104% block, your FTP might be higher than you think.',
+        'cadence': '88\u201392rpm throughout \u2014 steady, no changes as power rises',
+        'position': 'Seated on hoods. Switch to drops above 96%.',
+        'rpe': '88%: 5\u20136 | 92%: 6\u20137 | 96%: 7\u20138 | 100%: 8 | 104%: 9',
+        'power': 'Ramp: 88% \u2192 92% \u2192 96% \u2192 100% \u2192 104% FTP in 4min steps',
+    },
+    'Descending Threshold': {
+        'duration': '1hr',
+        'summary': '20-15-10-5 minute threshold blocks with descending duration \u2014 intensity through fatigue.',
+        'viz': [
+            {"z":"z2","w":10,"h":45,"l":"WU"},
+            {"z":"z4","w":24,"h":72,"l":"20m FTP"},
+            {"z":"z2","w":5,"h":38,"l":"5m"},
+            {"z":"z4","w":18,"h":74,"l":"15m FTP"},
+            {"z":"z2","w":5,"h":38,"l":"4m"},
+            {"z":"z4","w":12,"h":76,"l":"10m FTP"},
+            {"z":"z2","w":4,"h":38,"l":"3m"},
+            {"z":"z4","w":8,"h":78,"l":"5m FTP"},
+            {"z":"z2","w":8,"h":40,"l":"CD"},
+        ],
+        'structure': '10min warm-up \u2192 20min @ 95% \u2192 15min @ 97% \u2192 10min @ 100% \u2192 5min @ 103% FTP (decreasing rest) \u2192 cool-down',
+        'execution': 'The intervals get shorter but harder. By the 5-minute block, you\u2019re above FTP on tired legs \u2014 this is the finish-line effort. The decreasing rest (5-4-3 min) compounds the fatigue. If you can hold the 5-minute block, you\u2019re race-ready.',
+        'cadence': '88\u201395rpm throughout',
+        'position': 'Seated. Drops for the final 10min and 5min blocks.',
+        'rpe': '20min: 7 | 15min: 7\u20138 | 10min: 8 | 5min: 9',
+        'power': '20min: 95% | 15min: 97% | 10min: 100% | 5min: 103% FTP',
+    },
+    'G-Spot Extended': {
+        'duration': '1.75hr',
+        'summary': '3\u00d715min at 88\u201392% FTP \u2014 extended G-Spot for deep muscular endurance.',
+        'viz': [
+            {"z":"z2","w":10,"h":45,"l":"WU 10m"},
+            {"z":"z3","w":5,"h":55,"l":"5m"},
+            {"z":"z4","w":18,"h":68,"l":"15m G-Spot"},
+            {"z":"z2","w":5,"h":38,"l":"5m"},
+            {"z":"z4","w":18,"h":70,"l":"15m G-Spot"},
+            {"z":"z2","w":5,"h":38,"l":"5m"},
+            {"z":"z4","w":18,"h":72,"l":"15m G-Spot"},
+            {"z":"z3","w":5,"h":52,"l":"5m"},
+            {"z":"z2","w":8,"h":40,"l":"CD"},
+        ],
+        'structure': '10min warm-up \u2192 5min tempo ramp \u2192 3\u00d715min @ 88\u201392% FTP / 5min recovery \u2192 5min tempo \u2192 cool-down',
+        'execution': '45 total minutes in the G-Spot zone. This is the workhorse session for gravel racers who need to hold high power for hours. The third set is where the real adaptation happens \u2014 maintaining form and power when everything wants to quit.',
+        'cadence': '85\u201395rpm throughout \u2014 no grinding, no spinning',
+        'position': 'Race position. Practice staying in drops for the full 15 minutes.',
+        'rpe': 'Set 1: 6 | Set 2: 7 | Set 3: 7\u20138',
+        'power': 'G-Spot: 88\u201392% FTP | Tempo ramp: 76\u201385% | Recovery: 55% FTP',
+    },
+    'Criss-Cross': {
+        'duration': '1.25hr',
+        'summary': 'Alternating between G-Spot and tempo in 2-minute blocks \u2014 relentless oscillation.',
+        'viz': [
+            {"z":"z2","w":12,"h":45,"l":"WU 10m"},
+            {"z":"z4","w":6,"h":68,"l":"2m G"},
+            {"z":"z3","w":6,"h":55,"l":"2m T"},
+            {"z":"z4","w":6,"h":70,"l":"2m G"},
+            {"z":"z3","w":6,"h":55,"l":"2m T"},
+            {"z":"z4","w":6,"h":72,"l":"2m G"},
+            {"z":"z3","w":6,"h":55,"l":"2m T"},
+            {"z":"z2","w":5,"h":38,"l":"5m"},
+            {"z":"z4","w":6,"h":70,"l":"SET 2"},
+            {"z":"z3","w":6,"h":55,"l":""},
+            {"z":"z4","w":6,"h":72,"l":""},
+            {"z":"z3","w":6,"h":55,"l":""},
+            {"z":"z4","w":6,"h":74,"l":""},
+            {"z":"z2","w":8,"h":40,"l":"CD"},
+        ],
+        'structure': '10min warm-up \u2192 2 sets of 6\u00d72min alternating G-Spot (90%)/Tempo (80%) / 5min recovery \u2192 cool-down',
+        'execution': 'No rest. Just oscillation. 2 minutes hard, 2 minutes moderate, repeat. The tempo blocks aren\u2019t recovery \u2014 they\u2019re active maintenance. Your body never fully recovers, just like mid-race gravel where terrain constantly shifts the effort.',
+        'cadence': 'G-Spot: 90rpm | Tempo: 85rpm \u2014 rhythm changes every 2 minutes',
+        'position': 'G-Spot: drops | Tempo: hoods. Practice transitions.',
+        'rpe': 'G-Spot: 6\u20137 | Tempo: 5\u20136 | The cumulative effect hits by set 2',
+        'power': 'G-Spot: 88\u201392% FTP | Tempo: 78\u201382% FTP | Recovery: 55% FTP',
+    },
+    'Variable Grade Simulation': {
+        'duration': '1.25hr',
+        'summary': 'Simulated climb with grade changes every 2 minutes \u2014 builds pacing for real-world climbs.',
+        'viz': [
+            {"z":"z2","w":12,"h":45,"l":"WU 10m"},
+            {"z":"z3","w":6,"h":58,"l":"4%"},
+            {"z":"z4","w":5,"h":70,"l":"8%"},
+            {"z":"z3","w":6,"h":55,"l":"3%"},
+            {"z":"z4","w":6,"h":75,"l":"10%"},
+            {"z":"z3","w":5,"h":52,"l":"2%"},
+            {"z":"z5","w":4,"h":82,"l":"15%"},
+            {"z":"z2","w":5,"h":38,"l":"5m"},
+            {"z":"z3","w":6,"h":58,"l":"4%"},
+            {"z":"z4","w":6,"h":72,"l":"8%"},
+            {"z":"z5","w":5,"h":80,"l":"12%"},
+            {"z":"z3","w":5,"h":55,"l":"3%"},
+            {"z":"z4","w":6,"h":78,"l":"10%"},
+            {"z":"z2","w":8,"h":40,"l":"CD"},
+        ],
+        'structure': '10min warm-up \u2192 2 sets of simulated variable-grade climb (2min blocks @ 75\u2013110% FTP matching grade) / 5min recovery \u2192 cool-down',
+        'execution': 'Imagine a real climb with constantly changing gradient. Power adjusts every 2 minutes \u2014 from 4% grade (tempo) to 15% grade (above threshold). The key is smooth transitions: don\u2019t surge when grade increases, don\u2019t coast when it eases.',
+        'cadence': 'Low grade: 85\u201390rpm | Mid grade: 75\u201385rpm | Steep: 60\u201370rpm',
+        'position': 'Low grade: seated hoods | Steep: standing or low-cadence seated',
+        'rpe': 'Flat: 5 | Moderate: 7 | Steep: 8\u20139',
+        'power': 'Maps to gradient: 4%=78% | 8%=92% | 10%=98% | 12%=105% | 15%=110% FTP',
+    },
+    'Ladder Over-Unders': {
+        'duration': '1.1hr',
+        'summary': 'Over-unders with increasing over-duration \u2014 the ladder adds progressive stress.',
+        'viz': [
+            {"z":"z2","w":12,"h":45,"l":"WU 10m"},
+            {"z":"z4","w":8,"h":64,"l":"3m U"},
+            {"z":"z5","w":3,"h":82,"l":"30s O"},
+            {"z":"z4","w":8,"h":64,"l":"3m U"},
+            {"z":"z5","w":4,"h":84,"l":"45s O"},
+            {"z":"z4","w":8,"h":64,"l":"3m U"},
+            {"z":"z5","w":5,"h":86,"l":"60s O"},
+            {"z":"z4","w":8,"h":64,"l":"3m U"},
+            {"z":"z5","w":6,"h":88,"l":"75s O"},
+            {"z":"z4","w":8,"h":64,"l":"3m U"},
+            {"z":"z5","w":7,"h":90,"l":"90s O"},
+            {"z":"z2","w":8,"h":40,"l":"CD"},
+        ],
+        'structure': '10min warm-up \u2192 5\u00d7(3min under @ 90% + ladder over @ 106%: 30s, 45s, 60s, 75s, 90s) \u2192 cool-down',
+        'execution': 'Same under, increasing over. Each rung of the ladder demands more time above threshold. By the 90-second over, your lactate is screaming \u2014 and you\u2019re still clearing it at 90% FTP. This builds the lactate tolerance that wins races.',
+        'cadence': 'Unders: 90rpm | Overs: 95\u2013100rpm',
+        'position': 'Seated throughout. Hands on drops during overs.',
+        'rpe': 'Unders: 7 | 30s over: 8 | 90s over: 9\u201310',
+        'power': 'Unders: 88\u201392% FTP | Overs: 104\u2013108% FTP',
+    },
+    'Terrain Microbursts': {
+        'duration': '50min',
+        'summary': '15-second microbursts every 45 seconds \u2014 the relentless terrain-driven surges of gravel.',
+        'viz': [
+            {"z":"z2","w":16,"h":45,"l":"WU 10m"},
+            {"z":"z6","w":3,"h":90,"l":"15s"},{"z":"z2","w":4,"h":42,"l":"45s"},
+            {"z":"z6","w":3,"h":90,"l":"15s"},{"z":"z2","w":4,"h":42,"l":"45s"},
+            {"z":"z6","w":3,"h":90,"l":"15s"},{"z":"z2","w":4,"h":42,"l":"45s"},
+            {"z":"z6","w":3,"h":90,"l":"15s"},{"z":"z2","w":4,"h":42,"l":"45s"},
+            {"z":"z6","w":3,"h":90,"l":"15s"},{"z":"z2","w":4,"h":42,"l":"45s"},
+            {"z":"z6","w":3,"h":90,"l":"15s"},{"z":"z2","w":4,"h":42,"l":"45s"},
+            {"z":"z6","w":3,"h":90,"l":"15s"},{"z":"z2","w":4,"h":42,"l":"45s"},
+            {"z":"z6","w":3,"h":90,"l":"15s"},{"z":"z2","w":4,"h":42,"l":"45s"},
+            {"z":"z2","w":10,"h":40,"l":"CD"},
+        ],
+        'structure': '10min warm-up \u2192 2 sets of 8\u00d7(15sec @ 150% FTP / 45sec @ 65% FTP) / 5min between sets \u2192 cool-down',
+        'execution': 'Every 60 seconds, EXPLODE. 15 seconds of maximum power \u2014 like hitting a rock garden, a short kicker, or responding to an attack. Then recover just enough to do it again. And again. This is what technical gravel terrain actually feels like: relentless microbursts with incomplete recovery.',
+        'cadence': 'Bursts: 100\u2013130rpm (explosive) | Recovery: 85\u201390rpm',
+        'position': 'Standing for every burst. Seated for recovery.',
+        'rpe': 'Bursts: 9\u201310 | Recovery: 3\u20134 | Cumulative: devastating',
+        'power': 'Bursts: 140\u2013160% FTP | Recovery: 60\u201365% FTP',
+    },
+    'Terrain Simulation Z2': {
+        'duration': '2hr',
+        'summary': 'Zone 2 with rolling terrain simulation \u2014 undulating power that builds fat oxidation.',
+        'viz': [
+            {"z":"z2","w":10,"h":45,"l":"WU"},
+            {"z":"z2","w":8,"h":55,"l":"RISE"},
+            {"z":"z2","w":10,"h":45,"l":"FLAT"},
+            {"z":"z2","w":8,"h":55,"l":"RISE"},
+            {"z":"z2","w":10,"h":42,"l":"VALLEY"},
+            {"z":"z2","w":8,"h":55,"l":"RISE"},
+            {"z":"z2","w":10,"h":45,"l":"FLAT"},
+            {"z":"z2","w":8,"h":55,"l":"RISE"},
+            {"z":"z2","w":10,"h":42,"l":"VALLEY"},
+            {"z":"z2","w":8,"h":55,"l":"RISE"},
+            {"z":"z2","w":8,"h":42,"l":"CD"},
+        ],
+        'structure': '10min warm-up \u2192 1.75hr alternating 4min @ 72\u201378% FTP (rises) and 6min @ 62\u201368% FTP (valleys) \u2192 cool-down',
+        'execution': 'Stay in Zone 2 the entire time, but undulate your power to simulate rolling terrain. The rises push the top of Z2; the valleys ease off. This builds terrain-responsive pacing without leaving the aerobic zone. Your body learns to modulate power without thinking.',
+        'cadence': 'Rises: 80\u201385rpm | Valleys: 88\u201392rpm',
+        'position': 'Alternate: hoods on rises, drops on flats. Build position endurance.',
+        'rpe': '3\u20134 throughout \u2014 never hard, but never mindless',
+        'power': 'Rises: 72\u201378% FTP | Valleys: 62\u201368% FTP | All within Zone 2',
+    },
+    'W-Prime Depletion': {
+        'duration': '1hr',
+        'summary': 'Repeated efforts that systematically drain your anaerobic battery \u2014 then test what\u2019s left.',
+        'viz': [
+            {"z":"z2","w":12,"h":45,"l":"WU 10m"},
+            {"z":"z5","w":8,"h":82,"l":"3m"},
+            {"z":"z1","w":5,"h":28,"l":"3m"},
+            {"z":"z5","w":8,"h":84,"l":"3m"},
+            {"z":"z1","w":5,"h":28,"l":"3m"},
+            {"z":"z5","w":8,"h":86,"l":"3m"},
+            {"z":"z1","w":5,"h":28,"l":"3m"},
+            {"z":"z5","w":8,"h":88,"l":"3m"},
+            {"z":"z1","w":5,"h":28,"l":"2m"},
+            {"z":"z5","w":8,"h":90,"l":"3m ALL OUT"},
+            {"z":"z2","w":8,"h":40,"l":"CD"},
+        ],
+        'structure': '10min warm-up \u2192 5\u00d73min @ 108\u2013115% FTP with DECREASING recovery (3-3-3-2-0min) \u2192 cool-down',
+        'execution': 'Each effort chips away at your W\u2019 (anaerobic work capacity). Recovery gets shorter \u2014 by rep 5, there\u2019s no rest at all. The final effort with a depleted W\u2019 is the moment of truth. Can you still produce power when the tank is empty? That\u2019s what decides gravel races.',
+        'cadence': '95\u2013100rpm throughout \u2014 spin, don\u2019t mash when depleted',
+        'position': 'Seated for reps 1\u20133. Standing option for reps 4\u20135 when desperate.',
+        'rpe': 'Rep 1: 7\u20138 | Rep 3: 8\u20139 | Rep 5: 10 (empty tank effort)',
+        'power': 'Reps 1\u20134: 108\u2013112% FTP | Rep 5: all-out (target 115%+ FTP)',
+    },
+    '90sec Repeats': {
+        'duration': '50min',
+        'summary': '90-second anaerobic repeats \u2014 the sweet spot between sprint and sustained suffering.',
+        'viz': [
+            {"z":"z2","w":14,"h":45,"l":"WU 10m"},
+            {"z":"z5","w":6,"h":88,"l":"90s"},{"z":"z1","w":6,"h":28,"l":"3m"},
+            {"z":"z5","w":6,"h":90,"l":"90s"},{"z":"z1","w":6,"h":28,"l":"3m"},
+            {"z":"z5","w":6,"h":92,"l":"90s"},{"z":"z1","w":6,"h":28,"l":"3m"},
+            {"z":"z5","w":6,"h":93,"l":"90s"},{"z":"z1","w":6,"h":28,"l":"3m"},
+            {"z":"z5","w":6,"h":95,"l":"90s"},{"z":"z1","w":6,"h":28,"l":"3m"},
+            {"z":"z5","w":6,"h":95,"l":"90s"},
+            {"z":"z2","w":8,"h":40,"l":"CD"},
+        ],
+        'structure': '10min warm-up \u2192 6\u00d790sec @ 120\u2013130% FTP / 3min recovery \u2192 cool-down',
+        'execution': '90 seconds is long enough to hurt, short enough to survive. Pure anaerobic capacity work. Each rep should feel like a 2-minute climb where you\u2019re fighting to hold the wheel ahead of you. Hold form \u2014 when your upper body starts flailing, the power is going to the wrong places.',
+        'cadence': '95\u2013105rpm \u2014 high cadence reduces muscular strain',
+        'position': 'Seated for first 60s. Standing for final 30s if needed.',
+        'rpe': '9 across all reps \u2014 consistently near-maximal',
+        'power': 'Reps: 120\u2013130% FTP | Recovery: 50% FTP',
+    },
+    'Sprint Buildups': {
+        'duration': '45min',
+        'summary': 'Progressive sprint buildups \u2014 from moderate to maximum over 20 seconds.',
+        'viz': [
+            {"z":"z2","w":18,"h":45,"l":"WU 12m"},
+            {"z":"z3","w":3,"h":55,"l":""},{"z":"z5","w":3,"h":78,"l":""},{"z":"z6","w":3,"h":95,"l":"MAX"},
+            {"z":"z1","w":8,"h":28,"l":"3m"},
+            {"z":"z3","w":3,"h":55,"l":""},{"z":"z5","w":3,"h":80,"l":""},{"z":"z6","w":3,"h":95,"l":"MAX"},
+            {"z":"z1","w":8,"h":28,"l":"3m"},
+            {"z":"z3","w":3,"h":55,"l":""},{"z":"z5","w":3,"h":82,"l":""},{"z":"z6","w":3,"h":95,"l":"MAX"},
+            {"z":"z1","w":8,"h":28,"l":"3m"},
+            {"z":"z3","w":3,"h":55,"l":""},{"z":"z5","w":3,"h":84,"l":""},{"z":"z6","w":3,"h":95,"l":"MAX"},
+            {"z":"z2","w":12,"h":40,"l":"CD"},
+        ],
+        'structure': '12min warm-up \u2192 4\u00d720sec buildups (moderate \u2192 hard \u2192 all-out over 20sec) / 3min recovery \u2192 cool-down',
+        'execution': 'Each buildup starts moderate and finishes at absolute maximum. Don\u2019t go all-out from the start \u2014 the buildup teaches neuromuscular recruitment patterns. By the final 5 seconds, you should be producing peak power. Full recovery between efforts \u2014 this is quality, not fatigue work.',
+        'cadence': 'Start: 90rpm | Build to: 120\u2013140rpm by the end of each sprint',
+        'position': 'Start seated, transition to standing as power builds. Full sprint position at peak.',
+        'rpe': 'Start of each buildup: 5 | Peak: 10',
+        'power': 'Build: 100% \u2192 150% \u2192 200%+ FTP over 20 seconds | Recovery: 45\u201350% FTP',
+    },
+    'Double Threshold': {
+        'duration': '1.5hr',
+        'summary': 'Two threshold sessions separated by Z2 \u2014 the Norwegian double-session in one ride.',
+        'viz': [
+            {"z":"z2","w":10,"h":45,"l":"WU"},
+            {"z":"z4","w":14,"h":72,"l":"8m FTP"},
+            {"z":"z2","w":4,"h":38,"l":"4m"},
+            {"z":"z4","w":14,"h":74,"l":"8m FTP"},
+            {"z":"z2","w":14,"h":48,"l":"Z2 20m"},
+            {"z":"z4","w":14,"h":72,"l":"8m FTP"},
+            {"z":"z2","w":4,"h":38,"l":"4m"},
+            {"z":"z4","w":14,"h":76,"l":"8m FTP"},
+            {"z":"z2","w":8,"h":40,"l":"CD"},
+        ],
+        'structure': '10min warm-up \u2192 2\u00d78min @ 92\u201395% FTP \u2192 20min Z2 \u2192 2\u00d78min @ 92\u201395% FTP \u2192 cool-down',
+        'execution': 'The Z2 middle block is NOT recovery \u2014 it\u2019s an aerobic buffer that simulates the pattern of real racing. The second pair of threshold intervals on partially fatigued legs is where the magic happens. This builds lactate clearance capacity more effectively than a single continuous block.',
+        'cadence': 'Threshold: 88\u201395rpm | Z2: 85\u201390rpm',
+        'position': 'Threshold: drops, race position | Z2: hoods, relaxed',
+        'rpe': 'First pair: 7\u20138 | Z2: 3\u20134 | Second pair: 8\u20139',
+        'power': 'Threshold: 92\u201395% FTP | Z2 block: 65\u201370% FTP | Recovery: 55% FTP',
+    },
+    'Force Repeats': {
+        'duration': '55min',
+        'summary': 'Short, maximal-force efforts at very low cadence \u2014 pure neuromuscular strength.',
+        'viz': [
+            {"z":"z2","w":16,"h":45,"l":"WU 12m"},
+            {"z":"z4","w":6,"h":65,"l":"2m 50rpm"},
+            {"z":"z2","w":6,"h":40,"l":"3m 90rpm"},
+            {"z":"z4","w":6,"h":68,"l":"2m 50rpm"},
+            {"z":"z2","w":6,"h":40,"l":"3m 90rpm"},
+            {"z":"z4","w":6,"h":70,"l":"2m 50rpm"},
+            {"z":"z2","w":6,"h":40,"l":"3m 90rpm"},
+            {"z":"z4","w":6,"h":72,"l":"2m 50rpm"},
+            {"z":"z2","w":6,"h":40,"l":"3m 90rpm"},
+            {"z":"z4","w":6,"h":74,"l":"2m 50rpm"},
+            {"z":"z2","w":6,"h":40,"l":"3m 90rpm"},
+            {"z":"z4","w":6,"h":76,"l":"2m 50rpm"},
+            {"z":"z2","w":10,"h":40,"l":"CD"},
+        ],
+        'structure': '12min warm-up \u2192 6\u00d72min @ 85\u201395% FTP at 45\u201355rpm / 3min recovery at 90rpm \u2192 cool-down',
+        'execution': 'Big gear. Low cadence. Maximum force per pedal stroke. This is strength training on the bike. Keep your core engaged and upper body still \u2014 all force through the pedals. If your knees protest, reduce the gear by one. Recovery spins at normal cadence flush the muscular fatigue.',
+        'cadence': 'Efforts: 45\u201355rpm (force) | Recovery: 90rpm (flush)',
+        'position': 'Seated, hands on hoods, core braced. No rocking, no pulling on bars.',
+        'rpe': '7\u20138 \u2014 muscularly hard, cardiovascularly moderate',
+        'power': 'Efforts: 85\u201395% FTP | Recovery: 55% FTP',
+    },
+    'Cadence Pyramids': {
+        'duration': '50min',
+        'summary': 'Full cadence pyramid from 70rpm to 130rpm and back \u2014 builds complete pedaling range.',
+        'viz': [
+            {"z":"z2","w":14,"h":45,"l":"WU 10m"},
+            {"z":"z2","w":6,"h":42,"l":"70rpm"},
+            {"z":"z2","w":6,"h":48,"l":"80rpm"},
+            {"z":"z2","w":6,"h":52,"l":"90rpm"},
+            {"z":"z2","w":6,"h":56,"l":"100rpm"},
+            {"z":"z2","w":6,"h":60,"l":"110rpm"},
+            {"z":"z2","w":6,"h":64,"l":"120rpm"},
+            {"z":"z2","w":6,"h":68,"l":"130rpm"},
+            {"z":"z2","w":6,"h":64,"l":"120rpm"},
+            {"z":"z2","w":6,"h":60,"l":"110rpm"},
+            {"z":"z2","w":6,"h":56,"l":"100rpm"},
+            {"z":"z2","w":6,"h":52,"l":"90rpm"},
+            {"z":"z2","w":6,"h":48,"l":"80rpm"},
+            {"z":"z2","w":6,"h":42,"l":"70rpm"},
+            {"z":"z2","w":8,"h":40,"l":"CD"},
+        ],
+        'structure': '10min warm-up \u2192 Pyramid: 2min each at 70\u219280\u219290\u2192100\u2192110\u2192120\u2192130\u2192120\u2192...\u219270rpm \u2192 cool-down',
+        'execution': 'Same power throughout \u2014 only cadence changes. The low end (70rpm) is muscular strength. The high end (130rpm) is neuromuscular speed. The transition zones are where most people are inefficient. This pyramid fills those gaps.',
+        'cadence': '70rpm \u2192 130rpm \u2192 70rpm in 10rpm steps, 2min each',
+        'position': 'Seated throughout. Zero upper-body movement at all cadences.',
+        'rpe': 'Low cadence: 5 (muscular) | Mid: 3 | High: 5 (coordination)',
+        'power': '65\u201375% FTP constant \u2014 power does not change, only cadence',
+    },
+    'Endurance with Spikes': {
+        'duration': '1.5hr',
+        'summary': 'Long Z2 ride peppered with random high-intensity spikes \u2014 endurance meets unpredictability.',
+        'viz': [
+            {"z":"z2","w":12,"h":48,"l":"WU"},
+            {"z":"z2","w":10,"h":50,"l":"Z2"},
+            {"z":"z5","w":3,"h":85,"l":"30s"},
+            {"z":"z2","w":12,"h":50,"l":"Z2"},
+            {"z":"z6","w":2,"h":92,"l":"15s"},
+            {"z":"z2","w":14,"h":50,"l":"Z2"},
+            {"z":"z5","w":4,"h":82,"l":"1m"},
+            {"z":"z2","w":10,"h":50,"l":"Z2"},
+            {"z":"z6","w":2,"h":95,"l":"20s"},
+            {"z":"z2","w":12,"h":50,"l":"Z2"},
+            {"z":"z5","w":3,"h":85,"l":"30s"},
+            {"z":"z2","w":8,"h":42,"l":"CD"},
+        ],
+        'structure': '10min warm-up \u2192 75min Zone 2 with 5\u20136 random spikes (15\u201360sec @ 120\u2013150% FTP) scattered throughout \u2192 cool-down',
+        'execution': 'Mostly Zone 2, with occasional violence. The spikes simulate race moments \u2014 a sudden climb, an attack, a technical section that demands a burst. Return to Z2 immediately after each spike. The aerobic system learns to absorb these disruptions without derailing.',
+        'cadence': 'Z2: 85\u201390rpm | Spikes: 100\u2013120rpm (explosive)',
+        'position': 'Z2: comfortable, rotating | Spikes: race position, aggressive',
+        'rpe': 'Z2: 3\u20134 | Spikes: 8\u201310 | Overall: mostly easy with moments of violence',
+        'power': 'Z2: 65\u201370% FTP | Spikes: 120\u2013150% FTP',
+    },
+    'Extended Tempo': {
+        'duration': '1.5hr',
+        'summary': '45 minutes of continuous tempo \u2014 the longest sustained effort below threshold.',
+        'viz': [
+            {"z":"z2","w":12,"h":45,"l":"WU 10m"},
+            {"z":"z3","w":5,"h":55,"l":"RAMP"},
+            {"z":"z3","w":52,"h":62,"l":"TEMPO 45min"},
+            {"z":"z3","w":5,"h":55,"l":"RAMP DOWN"},
+            {"z":"z2","w":10,"h":40,"l":"CD"},
+        ],
+        'structure': '10min warm-up \u2192 5min ramp to tempo \u2192 45min @ 78\u201385% FTP \u2192 5min ramp down \u2192 cool-down',
+        'execution': '45 unbroken minutes at tempo. No intervals, no recovery, no escape. This builds the muscular endurance for hours of sustained gravel racing. The first 15 minutes feel easy. Minutes 30\u201345 reveal your actual tempo fitness. Hold power. Hold position. Hold focus.',
+        'cadence': '85\u201395rpm throughout \u2014 metronomic consistency',
+        'position': 'Race position for the full 45 minutes. Practice aero comfort.',
+        'rpe': 'Minutes 1\u201315: 5 | Minutes 15\u201330: 5\u20136 | Minutes 30\u201345: 6\u20137',
+        'power': 'Tempo: 78\u201385% FTP | Ramps: 70\u201378% FTP',
+    },
+    'LT1 Assessment': {
+        'duration': '1hr',
+        'summary': 'Step test to find your LT1 \u2014 the aerobic threshold that defines your endurance ceiling.',
+        'viz': [
+            {"z":"z2","w":14,"h":45,"l":"WU 10m"},
+            {"z":"z2","w":10,"h":48,"l":"STEP 1"},
+            {"z":"z2","w":10,"h":52,"l":"STEP 2"},
+            {"z":"z2","w":10,"h":56,"l":"STEP 3"},
+            {"z":"z3","w":10,"h":60,"l":"STEP 4"},
+            {"z":"z3","w":10,"h":64,"l":"STEP 5"},
+            {"z":"z3","w":10,"h":68,"l":"STEP 6"},
+            {"z":"z4","w":8,"h":72,"l":"STEP 7"},
+            {"z":"z2","w":10,"h":40,"l":"CD"},
+        ],
+        'structure': '10min warm-up \u2192 7 steps of 5min each, starting at 55% FTP and increasing by 5% per step \u2192 cool-down',
+        'execution': 'This is an assessment, not a workout. Increase power by 5% FTP every 5 minutes. At each step, note your heart rate and breathing. LT1 is where breathing first shifts from nasal to mouth, or where heart rate-to-power ratio breaks from linear. Once identified, LT1 becomes your endurance ceiling for all Z2 work.',
+        'cadence': '90rpm throughout all steps \u2014 cadence must stay constant',
+        'position': 'Seated, hoods. Don\u2019t change position between steps \u2014 it affects heart rate.',
+        'rpe': 'Steps 1\u20133: 2\u20133 | Step 4\u20135: 4\u20135 | Step 6\u20137: 6\u20137',
+        'power': 'Steps: 55% \u2192 60% \u2192 65% \u2192 70% \u2192 75% \u2192 80% \u2192 85% FTP',
+    },
+    'Active Recovery': {
+        'duration': '30min',
+        'summary': 'The gentlest ride possible \u2014 active recovery to flush fatigue between hard sessions.',
+        'viz': [
+            {"z":"z1","w":20,"h":32,"l":"Easy 5m"},
+            {"z":"z1","w":55,"h":36,"l":"Recovery 20m"},
+            {"z":"z1","w":20,"h":32,"l":"Easy 5m"},
+        ],
+        'structure': '5min easy spin \u2192 20min @ 45\u201350% FTP \u2192 5min easy spin',
+        'execution': 'Easier than easy. If you\u2019re sweating, you\u2019re going too hard. This ride exists only to promote blood flow and recovery. Zero training stress. Zero Strava bragging. The discipline to ride this easy is harder than any interval session.',
+        'cadence': '85\u201395rpm \u2014 light, smooth, no resistance',
+        'position': 'Upright, relaxed. Hands on tops. Zero tension anywhere.',
+        'rpe': '1 \u2014 easier than walking',
+        'power': '45\u201350% FTP maximum \u2014 if in doubt, go easier',
+    },
+}
+
+# ── Showcase eligibility rules ──
+# Each workout can have constraints: min_dist, max_dist, min_climbing,
+# _never_showcase (assessments/taper/recovery that don't demonstrate training).
+# If ALL workouts in a category fail eligibility, the category is skipped.
+SHOWCASE_ELIGIBILITY = {
+    # Durability — 2hr base ride requires a race long enough to justify it
+    'Tired VO2max':          {'min_dist': 60},
+    'Double Day Simulation': {'min_dist': 200},   # ultra/multi-day only
+    'Progressive Fatigue':   {},                   # universal
+
+    # VO2max — irrelevant for ultra-bikepacking
+    '5x3 VO2 Classic':        {'max_dist': 400},
+    'Descending VO2 Pyramid': {'max_dist': 400},
+    'Norwegian 4x8':          {'max_dist': 400},
+
+    # HVLI_Extended — volume work needs distance to justify
+    'HVLI Extended Z2':  {'min_dist': 80},
+    'Multi-Hour Z2':     {'min_dist': 100},
+    'Back-to-Back Long': {'min_dist': 120},
+
+    # Race_Simulation — competitive race concepts, not ultra-endurance
+    'Breakaway Simulation': {'max_dist': 300},
+    'Variable Pace Chaos':  {'max_dist': 300},
+    'Sector Simulation':    {'max_dist': 300},
+
+    # Threshold — universal
+    'Single Sustained Threshold': {},
+    'Threshold Ramps':            {},
+    'Descending Threshold':       {},
+
+    # G_Spot — universal, extended version needs endurance
+    'G-Spot Standard':  {},
+    'G-Spot Extended':  {'min_dist': 60},
+    'Criss-Cross':      {},
+
+    # Climbing — only show if climbing demand warrants it
+    'Seated/Standing Climbs':    {'min_climbing': 5},
+    'Variable Grade Simulation': {'min_climbing': 5},
+
+    # Over_Under — universal
+    'Classic Over-Unders': {},
+    'Ladder Over-Unders':  {},
+
+    # Gravel_Specific — surging not relevant for ultra
+    'Surge and Settle':    {'max_dist': 300},
+    'Terrain Microbursts': {'max_dist': 300},
+
+    # Endurance
+    'Pre-Race Openers':    {'_never_showcase': True},   # taper, not training
+    'Terrain Simulation Z2': {},                        # universal
+
+    # Critical_Power — high-intensity, not for ultra
+    'Above CP Repeats':  {'max_dist': 300},
+    'W-Prime Depletion': {'max_dist': 300},
+
+    # Anaerobic — short-race focused
+    '2min Killers':  {'max_dist': 200},
+    '90sec Repeats': {'max_dist': 200},
+
+    # Sprint — competitive race context
+    'Attack Repeats':  {'max_dist': 200},
+    'Sprint Buildups': {'max_dist': 200},
+
+    # Norwegian_Double — irrelevant for ultra
+    'Norwegian 4x8 Classic': {'max_dist': 400},
+    'Double Threshold':      {'max_dist': 400},
+
+    # SFR/Force — universal (grinding is always relevant)
+    'SFR Low Cadence': {},
+    'Force Repeats':   {},
+
+    # Cadence — universal
+    'High Cadence Drills': {},
+    'Cadence Pyramids':    {},
+
+    # Blended
+    'Z2 + VO2 Combo':      {'max_dist': 300},
+    'Endurance with Spikes': {},
+
+    # Tempo — universal
+    'Tempo Blocks':    {},
+    'Extended Tempo':  {'min_dist': 60},
+
+    # Assessments — never showcase
+    'MAF Capped Ride':  {'_never_showcase': True},
+    'LT1 Assessment':   {'_never_showcase': True},
+
+    # Recovery — never showcase
+    'Easy Spin':        {'_never_showcase': True},
+    'Active Recovery':  {'_never_showcase': True},
+}
+
+
+def _workout_eligible(name: str, distance_mi: float, demands: dict) -> bool:
+    """Check if a workout passes eligibility for this race context."""
+    rules = SHOWCASE_ELIGIBILITY.get(name, {})
+    if rules.get('_never_showcase'):
+        return False
+    if 'min_dist' in rules and distance_mi < rules['min_dist']:
+        return False
+    if 'max_dist' in rules and distance_mi > rules['max_dist']:
+        return False
+    if 'min_climbing' in rules and demands.get('climbing', 0) < rules['min_climbing']:
+        return False
+    return True
+
+
 def build_train_for_race(rd: dict) -> str:
-    """Build [08] Train for This Race section — race-specific training pack CTA."""
+    """Build [08] Train for This Race section with showcase workouts."""
     slug = rd['slug']
     race_name = rd['name']
 
@@ -2316,7 +3400,8 @@ def build_train_for_race(rd: dict) -> str:
 
     demands = preview.get('demands', {})
     top_categories = preview.get('top_categories', [])
-    pack_summary = preview.get('pack_summary', '')
+    race_overlay = preview.get('race_overlay', {})
+    distance_mi = preview.get('distance_mi', 0)
 
     if not demands or not top_categories:
         return ''
@@ -2349,23 +3434,134 @@ def build_train_for_race(rd: dict) -> str:
         )
     demands_html = '\n      '.join(demand_bars)
 
-    # Build category cards (top 3-5)
-    cat_cards = []
-    for tc in top_categories[:5]:
+    # Build 5 showcase workout cards — walk the full ranked list,
+    # skip categories where no workout passes eligibility.
+    workout_cards = []
+    card_idx = 0
+    for tc in top_categories:
+        if card_idx >= 5:
+            break
         cat_name = tc['category'].replace('_', ' ')
-        cat_score = tc['score']
-        workouts = tc.get('workouts', [])[:2]
-        workouts_html = ', '.join(esc(w) for w in workouts)
-        cat_cards.append(
-            f'<div class="gg-pack-category">'
-            f'<div class="gg-pack-category-header">'
-            f'<span class="gg-pack-category-name">{esc(cat_name)}</span>'
-            f'<span class="gg-pack-category-score">{cat_score}/100</span>'
-            f'</div>'
-            f'<div class="gg-pack-category-workouts">{workouts_html}</div>'
-            f'</div>'
+        workouts_list = tc.get('workouts', [])
+        if not workouts_list:
+            continue
+        # Filter to workouts that exist in showcase AND pass eligibility
+        eligible = [w for w in workouts_list
+                    if w in WORKOUT_SHOWCASE
+                    and _workout_eligible(w, distance_mi, demands)]
+        if not eligible:
+            continue  # skip this category entirely
+        # Deterministic rotation among eligible workouts
+        h = int(hashlib.md5(f"{slug}-{tc['category']}".encode()).hexdigest(), 16)
+        workout_name = eligible[h % len(eligible)]
+        showcase = WORKOUT_SHOWCASE.get(workout_name)
+        if not showcase:
+            continue
+        i = card_idx
+        card_idx += 1
+
+        # Build viz HTML (static, no JS needed)
+        viz_blocks = []
+        for block in showcase['viz']:
+            h_px = int(block['h'] * 0.95)
+            z_cls = block['z']
+            w_pct = block['w']
+            lbl = esc(block.get('l', ''))
+            viz_blocks.append(
+                f'<div class="gg-pack-viz-block gg-pack-viz-{z_cls}" '
+                f'style="flex-basis:{w_pct}%;height:{h_px}px;">'
+                f'<span class="gg-pack-viz-label">{lbl}</span></div>'
+            )
+        viz_html = '\n            '.join(viz_blocks)
+
+        # Build expanded detail HTML
+        # Race overlay items (filter to non-empty)
+        overlay_items = []
+        if race_overlay.get('heat'):
+            overlay_items.append(
+                f'<div class="gg-pack-wo-overlay-item">'
+                f'<span class="gg-pack-wo-overlay-tag">HEAT PREP</span> '
+                f'{esc(race_overlay["heat"])}</div>')
+        if race_overlay.get('nutrition'):
+            overlay_items.append(
+                f'<div class="gg-pack-wo-overlay-item">'
+                f'<span class="gg-pack-wo-overlay-tag">NUTRITION</span> '
+                f'{esc(race_overlay["nutrition"])}</div>')
+        if race_overlay.get('altitude'):
+            overlay_items.append(
+                f'<div class="gg-pack-wo-overlay-item">'
+                f'<span class="gg-pack-wo-overlay-tag">ALTITUDE</span> '
+                f'{esc(race_overlay["altitude"])}</div>')
+        if race_overlay.get('terrain'):
+            overlay_items.append(
+                f'<div class="gg-pack-wo-overlay-item">'
+                f'<span class="gg-pack-wo-overlay-tag">TERRAIN</span> '
+                f'{esc(race_overlay["terrain"])}</div>')
+        overlay_html = '\n            '.join(overlay_items) if overlay_items else ''
+
+        overlay_section = ''
+        if overlay_html:
+            overlay_section = (
+                f'<div class="gg-pack-wo-overlay">'
+                f'<div class="gg-pack-wo-overlay-title">RACE-SPECIFIC: {esc(race_name.upper())}</div>'
+                f'{overlay_html}</div>'
+            )
+
+        context_text = tc.get('workout_context', '')
+        context_line = (
+            f'          <p class="gg-pack-workout-context">{esc(context_text)}</p>\n'
+            if context_text else ''
         )
-    categories_html = '\n      '.join(cat_cards)
+
+        card_html = (
+            f'<div class="gg-pack-workout" data-workout-idx="{i}">\n'
+            f'          <div class="gg-pack-workout-header">\n'
+            f'            <div class="gg-pack-workout-info">\n'
+            f'              <span class="gg-pack-workout-cat">{esc(cat_name)}</span>\n'
+            f'              <span class="gg-pack-workout-name">{esc(workout_name)}</span>\n'
+            f'            </div>\n'
+            f'            <div class="gg-pack-workout-meta">\n'
+            f'              <span class="gg-pack-workout-dur">{esc(showcase["duration"])}</span>\n'
+            f'              <span class="gg-pack-workout-expand">+</span>\n'
+            f'            </div>\n'
+            f'          </div>\n'
+            f'          <p class="gg-pack-workout-summary">{esc(showcase["summary"])}</p>\n'
+            f'{context_line}'
+            f'          <div class="gg-pack-workout-viz">\n'
+            f'            {viz_html}\n'
+            f'          </div>\n'
+            f'          <div class="gg-pack-workout-detail" style="display:none;">\n'
+            f'            <div class="gg-pack-wo-field">\n'
+            f'              <span class="gg-pack-wo-label">STRUCTURE</span>\n'
+            f'              <span class="gg-pack-wo-value">{esc(showcase["structure"])}</span>\n'
+            f'            </div>\n'
+            f'            <div class="gg-pack-wo-field">\n'
+            f'              <span class="gg-pack-wo-label">EXECUTION</span>\n'
+            f'              <span class="gg-pack-wo-value">{esc(showcase["execution"])}</span>\n'
+            f'            </div>\n'
+            f'            <div class="gg-pack-wo-field">\n'
+            f'              <span class="gg-pack-wo-label">POWER</span>\n'
+            f'              <span class="gg-pack-wo-value">{esc(showcase["power"])}</span>\n'
+            f'            </div>\n'
+            f'            <div class="gg-pack-wo-field">\n'
+            f'              <span class="gg-pack-wo-label">CADENCE</span>\n'
+            f'              <span class="gg-pack-wo-value">{esc(showcase["cadence"])}</span>\n'
+            f'            </div>\n'
+            f'            <div class="gg-pack-wo-field">\n'
+            f'              <span class="gg-pack-wo-label">POSITION</span>\n'
+            f'              <span class="gg-pack-wo-value">{esc(showcase["position"])}</span>\n'
+            f'            </div>\n'
+            f'            <div class="gg-pack-wo-field">\n'
+            f'              <span class="gg-pack-wo-label">RPE</span>\n'
+            f'              <span class="gg-pack-wo-value">{esc(showcase["rpe"])}</span>\n'
+            f'            </div>\n'
+            f'            {overlay_section}\n'
+            f'          </div>\n'
+            f'        </div>'
+        )
+        workout_cards.append(card_html)
+
+    workouts_html = '\n      '.join(workout_cards)
 
     plan_url = f"{TRAINING_PLANS_URL}?race={esc(slug)}"
 
@@ -2375,14 +3571,14 @@ def build_train_for_race(rd: dict) -> str:
       <h2 class="gg-section-title">Train for {esc(race_name)}</h2>
     </div>
     <div class="gg-section-body">
-      <p class="gg-pack-summary">{esc(pack_summary)}</p>
       <div class="gg-pack-demands">
         <h3 class="gg-pack-subtitle">RACE DEMAND PROFILE</h3>
         {demands_html}
       </div>
-      <div class="gg-pack-categories">
-        <h3 class="gg-pack-subtitle">YOUR TRAINING FOCUS</h3>
-        {categories_html}
+      <div class="gg-pack-workouts">
+        <h3 class="gg-pack-subtitle">5 WORKOUTS BUILT FOR THIS RACE</h3>
+        <p class="gg-pack-workouts-intro">Each workout below is selected from our archetype library based on {esc(race_name)}&rsquo;s specific demands. Click any workout to see the full execution protocol.</p>
+        {workouts_html}
       </div>
       <div class="gg-pack-cta">
         <a href="{plan_url}" class="gg-btn">BUILD MY PLAN &mdash; $15/WK</a>
@@ -3224,22 +4420,49 @@ def get_page_css() -> str:
 .gg-neo-brutalist-page .gg-btn--outline {{ background: transparent; color: var(--gg-color-teal); border-color: var(--gg-color-teal); }}
 .gg-neo-brutalist-page .gg-btn--outline:hover {{ background: var(--gg-color-teal); color: var(--gg-color-white); }}
 
-/* Train for Race Pack */
-.gg-neo-brutalist-page .gg-pack-summary {{ font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-sm); color: var(--gg-color-secondary-brown); line-height: 1.6; margin-bottom: 24px; }}
+/* ── Train for This Race ── */
 .gg-neo-brutalist-page .gg-pack-subtitle {{ font-family: var(--gg-font-data); font-size: var(--gg-font-size-2xs); font-weight: 700; letter-spacing: var(--gg-letter-spacing-ultra-wide); text-transform: uppercase; color: var(--gg-color-secondary-brown); margin-bottom: 12px; }}
-.gg-neo-brutalist-page .gg-pack-demands {{ margin-bottom: 24px; }}
+.gg-neo-brutalist-page .gg-pack-demands {{ margin-bottom: 32px; }}
 .gg-neo-brutalist-page .gg-pack-demand {{ display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }}
 .gg-neo-brutalist-page .gg-pack-demand-label {{ font-family: var(--gg-font-data); font-size: 11px; width: 110px; min-width: 110px; text-transform: uppercase; letter-spacing: var(--gg-letter-spacing-wider); color: var(--gg-color-primary-brown); }}
 .gg-neo-brutalist-page .gg-pack-demand-track {{ flex: 1; height: 8px; background: var(--gg-color-tan); border: 1px solid var(--gg-color-tan); }}
 .gg-neo-brutalist-page .gg-pack-demand-fill {{ height: 100%; background: var(--gg-color-teal); transition: width 0.6s ease-out; }}
 .gg-neo-brutalist-page .gg-pack-demand-score {{ font-family: var(--gg-font-data); font-size: 11px; width: 20px; text-align: right; color: var(--gg-color-secondary-brown); }}
-.gg-neo-brutalist-page .gg-pack-categories {{ margin-bottom: 24px; }}
-.gg-neo-brutalist-page .gg-pack-category {{ border: 1px solid var(--gg-color-tan); padding: 12px 16px; margin-bottom: 8px; background: var(--gg-color-warm-paper); }}
-.gg-neo-brutalist-page .gg-pack-category-header {{ display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }}
-.gg-neo-brutalist-page .gg-pack-category-name {{ font-family: var(--gg-font-data); font-size: var(--gg-font-size-xs); font-weight: 700; text-transform: uppercase; letter-spacing: var(--gg-letter-spacing-wider); color: var(--gg-color-dark-brown); }}
-.gg-neo-brutalist-page .gg-pack-category-score {{ font-family: var(--gg-font-data); font-size: 11px; color: var(--gg-color-teal); font-weight: 700; }}
-.gg-neo-brutalist-page .gg-pack-category-workouts {{ font-family: var(--gg-font-editorial); font-size: 12px; color: var(--gg-color-secondary-brown); }}
-.gg-neo-brutalist-page .gg-pack-cta {{ text-align: center; padding: 24px; border: 1px solid var(--gg-color-tan); border-top: 3px solid var(--gg-color-teal); background: var(--gg-color-warm-paper); }}
+.gg-neo-brutalist-page .gg-pack-workouts {{ margin-bottom: 32px; }}
+.gg-neo-brutalist-page .gg-pack-workouts-intro {{ font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-sm); color: var(--gg-color-secondary-brown); line-height: 1.6; margin-bottom: 20px; }}
+.gg-neo-brutalist-page .gg-pack-workout {{ border: 2px solid var(--gg-color-tan); margin-bottom: 12px; background: var(--gg-color-warm-paper); cursor: pointer; transition: border-color 0.2s; }}
+.gg-neo-brutalist-page .gg-pack-workout:hover {{ border-color: var(--gg-color-primary-brown); }}
+.gg-neo-brutalist-page .gg-pack-workout.active {{ border-color: var(--gg-color-teal); border-width: 2px; }}
+.gg-neo-brutalist-page .gg-pack-workout-header {{ display: flex; justify-content: space-between; align-items: flex-start; padding: 16px 16px 0; }}
+.gg-neo-brutalist-page .gg-pack-workout-info {{ display: flex; flex-direction: column; gap: 2px; }}
+.gg-neo-brutalist-page .gg-pack-workout-cat {{ font-family: var(--gg-font-data); font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: var(--gg-letter-spacing-ultra-wide); color: var(--gg-color-teal); }}
+.gg-neo-brutalist-page .gg-pack-workout-name {{ font-family: var(--gg-font-data); font-size: var(--gg-font-size-sm); font-weight: 700; text-transform: uppercase; letter-spacing: var(--gg-letter-spacing-wider); color: var(--gg-color-dark-brown); }}
+.gg-neo-brutalist-page .gg-pack-workout-meta {{ display: flex; align-items: center; gap: 12px; }}
+.gg-neo-brutalist-page .gg-pack-workout-dur {{ font-family: var(--gg-font-data); font-size: 11px; color: var(--gg-color-secondary-brown); text-transform: uppercase; }}
+.gg-neo-brutalist-page .gg-pack-workout-expand {{ font-family: var(--gg-font-data); font-size: 18px; font-weight: 700; color: var(--gg-color-teal); line-height: 1; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; transition: transform 0.2s; }}
+.gg-neo-brutalist-page .gg-pack-workout.active .gg-pack-workout-expand {{ transform: rotate(45deg); }}
+.gg-neo-brutalist-page .gg-pack-workout-summary {{ font-family: var(--gg-font-editorial); font-size: 12px; color: var(--gg-color-secondary-brown); line-height: 1.5; padding: 4px 16px 12px; }}
+.gg-neo-brutalist-page .gg-pack-workout-context {{ font-family: var(--gg-font-editorial); font-size: 12px; font-style: italic; color: var(--gg-color-teal); line-height: 1.5; padding: 0 16px 8px; border-left: 3px solid var(--gg-color-teal); margin: 0 16px 8px; }}
+.gg-neo-brutalist-page .gg-pack-workout-viz {{ display: flex; align-items: flex-end; gap: 1px; padding: 0 16px 16px; min-height: 50px; }}
+.gg-neo-brutalist-page .gg-pack-viz-block {{ display: flex; align-items: flex-end; justify-content: center; border: 1px solid var(--gg-color-tan); font-family: var(--gg-font-data); font-size: 9px; font-weight: 600; overflow: hidden; }}
+.gg-neo-brutalist-page .gg-pack-viz-label {{ padding: 2px; text-align: center; word-break: break-all; }}
+.gg-neo-brutalist-page .gg-pack-viz-z1 {{ background: color-mix(in srgb, var(--gg-color-near-black) 8%, var(--gg-color-white)); color: var(--gg-color-near-black); }}
+.gg-neo-brutalist-page .gg-pack-viz-z2 {{ background: var(--gg-color-sand); border-color: var(--gg-color-primary-brown); color: var(--gg-color-near-black); }}
+.gg-neo-brutalist-page .gg-pack-viz-z3 {{ background: var(--gg-color-tan); color: var(--gg-color-near-black); }}
+.gg-neo-brutalist-page .gg-pack-viz-z4 {{ background: var(--gg-color-primary-brown); color: var(--gg-color-sand); }}
+.gg-neo-brutalist-page .gg-pack-viz-z5 {{ background: var(--gg-color-near-black); color: var(--gg-color-sand); }}
+.gg-neo-brutalist-page .gg-pack-viz-z6 {{ background: var(--gg-color-near-black); color: var(--gg-color-light-teal); }}
+.gg-neo-brutalist-page .gg-pack-workout-detail {{ padding: 0 16px 16px; border-top: 1px solid var(--gg-color-tan); margin: 0 16px; }}
+.gg-neo-brutalist-page .gg-pack-wo-field {{ display: flex; gap: 12px; padding: 10px 0; border-bottom: 1px solid color-mix(in srgb, var(--gg-color-tan) 50%, transparent); }}
+.gg-neo-brutalist-page .gg-pack-wo-field:last-child {{ border-bottom: none; }}
+.gg-neo-brutalist-page .gg-pack-wo-label {{ font-family: var(--gg-font-data); font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: var(--gg-letter-spacing-ultra-wide); color: var(--gg-color-primary-brown); min-width: 80px; padding-top: 2px; }}
+.gg-neo-brutalist-page .gg-pack-wo-value {{ font-family: var(--gg-font-editorial); font-size: 13px; color: var(--gg-color-near-black); line-height: 1.55; }}
+.gg-neo-brutalist-page .gg-pack-wo-overlay {{ margin-top: 16px; padding: 16px; border: 2px solid var(--gg-color-teal); background: color-mix(in srgb, var(--gg-color-teal) 5%, var(--gg-color-warm-paper)); }}
+.gg-neo-brutalist-page .gg-pack-wo-overlay-title {{ font-family: var(--gg-font-data); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: var(--gg-letter-spacing-ultra-wide); color: var(--gg-color-teal); margin-bottom: 12px; }}
+.gg-neo-brutalist-page .gg-pack-wo-overlay-item {{ margin-bottom: 10px; font-family: var(--gg-font-editorial); font-size: 12px; color: var(--gg-color-near-black); line-height: 1.5; }}
+.gg-neo-brutalist-page .gg-pack-wo-overlay-item:last-child {{ margin-bottom: 0; }}
+.gg-neo-brutalist-page .gg-pack-wo-overlay-tag {{ font-family: var(--gg-font-data); font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: var(--gg-letter-spacing-wider); color: var(--gg-color-teal); margin-right: 8px; }}
+.gg-neo-brutalist-page .gg-pack-cta {{ text-align: center; padding: 24px; border: 2px solid var(--gg-color-tan); border-top: 3px solid var(--gg-color-teal); background: var(--gg-color-warm-paper); }}
 .gg-neo-brutalist-page .gg-pack-cta .gg-btn {{ background: var(--gg-color-teal); color: var(--gg-color-white); border-color: var(--gg-color-teal); }}
 .gg-neo-brutalist-page .gg-pack-cta .gg-btn:hover {{ background: var(--gg-color-light-teal); }}
 .gg-neo-brutalist-page .gg-pack-cta-detail {{ font-family: var(--gg-font-editorial); font-size: 12px; color: var(--gg-color-secondary-brown); margin-top: 8px; }}
@@ -3446,6 +4669,10 @@ def get_page_css() -> str:
   .gg-neo-brutalist-page .gg-accordion-content {{ padding-left: 0; }}
   .gg-neo-brutalist-page .gg-training-secondary {{ flex-direction: column; text-align: center; }}
   .gg-neo-brutalist-page .gg-pack-demand-label {{ width: 80px; min-width: 80px; font-size: 10px; }}
+  .gg-neo-brutalist-page .gg-pack-workout-header {{ flex-wrap: wrap; }}
+  .gg-neo-brutalist-page .gg-pack-wo-field {{ flex-direction: column; gap: 4px; }}
+  .gg-neo-brutalist-page .gg-pack-wo-label {{ min-width: unset; }}
+  .gg-neo-brutalist-page .gg-pack-viz-label {{ font-size: 8px; }}
   .gg-sticky-cta-name {{ display: none; }}
   .gg-exit-row {{ flex-direction: column; gap: 8px; }}
   .gg-exit-input {{ border-right: 3px solid var(--gg-color-near-black); }}

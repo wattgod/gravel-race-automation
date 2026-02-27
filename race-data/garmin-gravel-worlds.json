@@ -579,7 +579,148 @@
           "category": "course_difficulty",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Mile 20 hill section",
+            "mile_marker": "20",
+            "description": "Pretty hilly out here on dirt gravel, described as tough and difficult with continuous rollers that make the race challenging.",
+            "source_video_ids": [
+              "NEnawUTfx-U"
+            ]
+          },
+          {
+            "name": "Final miles",
+            "mile_marker": "66",
+            "description": "Heat becomes brutal leading to bonking, described as a very difficult ride requiring multiple breaks.",
+            "source_video_ids": [
+              "NEnawUTfx-U"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Continuous rollers throughout the course that make gravel racing pretty tough and difficult, requiring good climbing ability.",
+            "source_video_ids": [
+              "NEnawUTfx-U"
+            ]
+          },
+          {
+            "text": "Mix of dirt and gravel surfaces with hilly terrain starting around mile 20.",
+            "source_video_ids": [
+              "NEnawUTfx-U"
+            ]
+          }
+        ],
+        "gear_mentions": [],
+        "race_day_tips": [
+          {
+            "text": "Line up 30 minutes prior to your start time and follow estimated finish time markers on the side of the road for safety.",
+            "source_video_ids": [
+              "-iVkuhsUlic"
+            ]
+          },
+          {
+            "text": "Make race day check-in a last resort option - primary check-in is Thursday noon to 7pm and Friday 10am to 7pm.",
+            "source_video_ids": [
+              "-iVkuhsUlic"
+            ]
+          },
+          {
+            "text": "Be prepared for traffic on race morning with hundreds of people coming in at different entrances.",
+            "source_video_ids": [
+              "-iVkuhsUlic"
+            ]
+          },
+          {
+            "text": "Utilize secondary checkpoints in towns along the route to fuel up on water and snacks.",
+            "source_video_ids": [
+              "NEnawUTfx-U"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "Check-in is going to be in a similar place, not in the church like normal but in the same building on the northwest side of the Schilling bridge building - follow the signs.",
+            "source_video_id": "-iVkuhsUlic",
+            "source_channel": "Gravel Worlds",
+            "source_view_count": 1544,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "We do not have the resources or volunteers to check in hundreds of people on race morning so make that as a last possible ditch option for you.",
+            "source_video_id": "-iVkuhsUlic",
+            "source_channel": "Gravel Worlds",
+            "source_view_count": 1544,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "Gravel Worlds in Lincoln, Nebraska features continuous rollers that make the race tough and challenging, requiring good climbing ability throughout the 75-mile course. The terrain includes a mix of dirt and gravel surfaces with significant hills starting around mile 20. Riders report the heat can become brutal in later miles, leading to bonking around mile 66. The course includes secondary checkpoints in towns for refueling with water and snacks. Race logistics require check-in at the Schilling bridge building with primary times Thursday noon-7pm and Friday 10am-7pm. Race morning check-in starts at 4:30am but is discouraged due to limited resources. Riders should arrive 30 minutes before start time and line up according to estimated finish times marked on roadside for safety. Traffic congestion is expected with hundreds of participants using different neighborhood entrances."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "garmin-gravel-worlds-video-1.jpg",
+        "url": "/race-photos/garmin-gravel-worlds/garmin-gravel-worlds-video-1.jpg",
+        "alt": "Small town street view in Roca, Nebraska showing grain elevators and rural buildings along the gravel race route - Garmin Gravel Worlds - Lincoln, Nebraska",
+        "credit": "YouTube / Gravel Cyclist",
+        "primary": true,
+        "ai_relevance": 2,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "Roca Nebraska",
+          "grain elevators",
+          "small town",
+          "race route"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "garmin-gravel-worlds-video-2.jpg",
+        "url": "/race-photos/garmin-gravel-worlds/garmin-gravel-worlds-video-2.jpg",
+        "alt": "First-person perspective of gravel cyclists riding on dirt road through rolling green countryside at moderate pace - Garmin Gravel Worlds - Lincoln, Nebraska",
+        "credit": "YouTube / Gravel Cyclist",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel road",
+          "cycling peloton",
+          "dirt road",
+          "rolling hills",
+          "first-person view"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "garmin-gravel-worlds-video-3.jpg",
+        "url": "/race-photos/garmin-gravel-worlds/garmin-gravel-worlds-video-3.jpg",
+        "alt": "Gravel cyclist navigating muddy dirt road at sunset through rural farmland with golden sky backdrop - Garmin Gravel Worlds - Lincoln, Nebraska",
+        "credit": "YouTube / Gravel Cyclist",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 5,
+        "ai_keywords": [
+          "muddy gravel",
+          "sunset cycling",
+          "rural farmland",
+          "golden hour",
+          "dirt road"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "garmin-gravel-worlds-preview.gif",
+        "url": "/race-photos/garmin-gravel-worlds/garmin-gravel-worlds-preview.gif",
+        "alt": "Course preview from Garmin Gravel Worlds race footage",
+        "credit": "YouTube / Gravel Cyclist",
+        "gif": true
+      }
+    ]
   }
 }

@@ -495,7 +495,215 @@
           "category": "course_difficulty",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Technical Difficulty",
+            "description": "A section of trail where the name says it all. Steep technical switchbacks that will test the endurance and skill of each and every rider.",
+            "source_video_ids": [
+              "sW1zAc_t3JQ"
+            ]
+          },
+          {
+            "name": "The Ledges",
+            "description": "A narrow and technical section of the course that sits high above the ravine below. Patience and technical riding skills are a must to make it through this area. Riders describe it as where the race will blow up the most - it's carnage.",
+            "source_video_ids": [
+              "sW1zAc_t3JQ",
+              "gymqZkbBoiY"
+            ]
+          },
+          {
+            "name": "Windsor Dam crossing",
+            "mile_marker": "30",
+            "description": "Crossing point before hitting the one and only aid station on the course at mile 30.",
+            "source_video_ids": [
+              "sW1zAc_t3JQ"
+            ]
+          },
+          {
+            "name": "Back 40 climb",
+            "description": "Riders climb their way up through the back 40 toward the ledges after the aid station.",
+            "source_video_ids": [
+              "sW1zAc_t3JQ"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "The course is insanely technical with steep technical switchbacks and narrow sections high above ravines. It's a saw tooth profile - you go up and down all day, rarely climbing more than a minute and a half, which means you never really descend more than 20 seconds.",
+            "source_video_ids": [
+              "sW1zAc_t3JQ",
+              "3P1CJSZhPs8",
+              "gymqZkbBoiY"
+            ]
+          },
+          {
+            "text": "Bentonville is notorious for being hard on tires. The course features flow trail and technical sections with big rock piles that you have to go up and over.",
+            "source_video_ids": [
+              "sW1zAc_t3JQ",
+              "3P1CJSZhPs8",
+              "gymqZkbBoiY"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "You won't see anybody out here on drop bars or funny bikes. It is a proper mountain bike race.",
+            "source_video_ids": [
+              "3P1CJSZhPs8"
+            ]
+          },
+          {
+            "text": "For tire choice, Continental DNA trail tires are recommended. Bentonville is notorious for being hard on tires, so go for the most durable option - the Trail Grip compound for maximum durability.",
+            "source_video_ids": [
+              "gymqZkbBoiY"
+            ]
+          }
+        ],
+        "race_day_tips": [
+          {
+            "text": "Focus on how to not flat, not crash, and make it through the event as opposed to trying your best into every corner. You have to look at it as a full course and not just split it up into all these little sections.",
+            "source_video_ids": [
+              "3P1CJSZhPs8"
+            ]
+          },
+          {
+            "text": "Bring a lot of spare equipment because there's going to be a lot of carnage out there. With so many points on the line, so much can happen. It's about keeping air in your tires, not breaking equipment, not crashing.",
+            "source_video_ids": [
+              "gymqZkbBoiY"
+            ]
+          },
+          {
+            "text": "It's a real test of cornering skills and riding flowy. The key is finding the balance between riding at your physical limit and your technical limit - they're very different.",
+            "source_video_ids": [
+              "3P1CJSZhPs8",
+              "gymqZkbBoiY"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "The parking over there we think is going to be pretty bad. We're like a little bit concerned about that. So, we're going to do our best, you know, to get in there.",
+            "source_video_id": "gymqZkbBoiY",
+            "source_channel": "Russell Finsterwald",
+            "source_view_count": 10162,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "It takes a lot of planning to execute races like this. The amount of time we stay and getting all the bikes and equipment and tires all to the one place and be prepared.",
+            "source_video_id": "3P1CJSZhPs8",
+            "source_channel": "Alexey and Avery",
+            "source_view_count": 21926,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "Biggest prep I've done is about just doing some skills with Bridge Drew. My goal is not to be a good mountain biker, honestly, in the next couple days. My goal is to just find a couple moves and make me feel more confident on the trails.",
+            "source_video_id": "3P1CJSZhPs8",
+            "source_channel": "Alexey and Avery",
+            "source_view_count": 21926,
+            "category": "training",
+            "curated": true
+          }
+        ],
+        "search_text": "Little Sugar MTB in Bentonville, Arkansas is described as the most technical race on the Lifetime Grand Prix calendar. The 30-mile course features 3500 feet of climbing in a saw tooth profile with constant ups and downs. Key challenges include Technical Difficulty with steep technical switchbacks, and The Ledges - a narrow section high above ravines where riders expect the most carnage. The course starts at Coler Mountain Bike Park, heads through Down Under loop, Tunnel Vision for 12 miles of single track, then Technical Difficulty before descending to Windsor Dam crossing and the only aid station at mile 30. The second half climbs through Back 40 to The Ledges, then Mighty Pine Trail to the Bentonville finish. Riders emphasize this is a proper mountain bike race requiring full suspension bikes, technical cornering skills, and durable tires due to Bentonville's reputation for being hard on equipment."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "little-sugar-mtb-video-1.jpg",
+        "url": "/race-photos/little-sugar-mtb/little-sugar-mtb-video-1.jpg",
+        "alt": "Three cyclists racing on forest singletrack trail through dense green woods during mountain bike competition - Little Sugar MTB - Bentonville, Arkansas",
+        "credit": "YouTube / Life Time Grand Prix",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "forest trail",
+          "mountain bike racing",
+          "singletrack",
+          "wooded terrain",
+          "trail racing"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "little-sugar-mtb-video-2.jpg",
+        "url": "/race-photos/little-sugar-mtb/little-sugar-mtb-video-2.jpg",
+        "alt": "Aerial view of cycling event start area with large crowd of participants gathered near race buildings and timing infrastructure - Little Sugar MTB - Bentonville, Arkansas",
+        "credit": "YouTube / Life Time Grand Prix",
+        "primary": false,
+        "ai_relevance": 4,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "race start",
+          "cycling event",
+          "aerial view",
+          "participant staging",
+          "race infrastructure"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "little-sugar-mtb-video-3.jpg",
+        "url": "/race-photos/little-sugar-mtb/little-sugar-mtb-video-3.jpg",
+        "alt": "Cyclist crossing finish line on paved street with orange barriers, race volunteers, and spectators lining the course - Little Sugar MTB - Bentonville, Arkansas",
+        "credit": "YouTube / Life Time Grand Prix",
+        "primary": false,
+        "ai_relevance": 3,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "finish line",
+          "race volunteers",
+          "street finish",
+          "cycling competition",
+          "race barriers"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "little-sugar-mtb-preview.gif",
+        "url": "/race-photos/little-sugar-mtb/little-sugar-mtb-preview.gif",
+        "alt": "Course preview from Little Sugar Mtb race footage",
+        "credit": "YouTube / Life Time Grand Prix",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "little-sugar-mtb-preview-2.gif",
+        "url": "/race-photos/little-sugar-mtb/little-sugar-mtb-preview-2.gif",
+        "alt": "Course preview from Little Sugar Mtb race footage",
+        "credit": "YouTube / Life Time Grand Prix",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "little-sugar-mtb-preview-3.gif",
+        "url": "/race-photos/little-sugar-mtb/little-sugar-mtb-preview-3.gif",
+        "alt": "Course preview from Little Sugar Mtb race footage",
+        "credit": "YouTube / Life Time Grand Prix",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "little-sugar-mtb-preview-4.gif",
+        "url": "/race-photos/little-sugar-mtb/little-sugar-mtb-preview-4.gif",
+        "alt": "Course preview from Little Sugar Mtb race footage",
+        "credit": "YouTube / Life Time Grand Prix",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "little-sugar-mtb-preview-5.gif",
+        "url": "/race-photos/little-sugar-mtb/little-sugar-mtb-preview-5.gif",
+        "alt": "Course preview from Little Sugar Mtb race footage",
+        "credit": "YouTube / Life Time Grand Prix",
+        "gif": true
+      }
+    ]
   }
 }

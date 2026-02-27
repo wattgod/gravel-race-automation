@@ -709,7 +709,142 @@
           "curated": false
         }
       ],
-      "quotes": []
-    }
+      "quotes": [],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [],
+        "terrain_notes": [
+          {
+            "text": "Different surfaces are really awesome for climbing, some are really not. Often you're trying to avoid stuff where your tire is just gonna struggle and you're gonna spin out.",
+            "source_video_ids": [
+              "ywj6C4onzG4"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "Victoria Mezcal tires are absolute favorites - they have a really consistent center tire tread pattern so you're not dealing with crazy lugs that slow you down when riding road mixed with hard pack and some loose stuff.",
+            "source_video_ids": [
+              "ywj6C4onzG4"
+            ]
+          },
+          {
+            "text": "Pick a tire that's pretty wide but has a pretty smooth center section and then a little bit of knob on the side when you ride a lot of road mixed with hard pack and some loose stuff.",
+            "source_video_ids": [
+              "ywj6C4onzG4"
+            ]
+          },
+          {
+            "text": "For tire pressure, look at your tire manufacturer's website - many have tables where you can see what tire pressure to start with depending on your tire width and weight, then experiment by changing one or two psi at a time.",
+            "source_video_ids": [
+              "4a7WuuTjTqY"
+            ]
+          }
+        ],
+        "race_day_tips": [
+          {
+            "text": "You want to be sure that you are on top of hydration and nutrition, putting in 250 to 300 calories per hour for long gravel events.",
+            "source_video_ids": [
+              "ajoMqtscOME"
+            ]
+          },
+          {
+            "text": "Get your braking done or most of your breaking down before you hit the corner - enter slow, exit fast, then pedal pedal pedal out of that corner fast to maintain much more speed overall.",
+            "source_video_ids": [
+              "ywj6C4onzG4"
+            ]
+          },
+          {
+            "text": "On steep climbs, scoot your whole body forward on your bike and perch above your hoods to bring your weight forward, because one of the biggest reasons you'll have to bail is your front wheel starts waggling.",
+            "source_video_ids": [
+              "ywj6C4onzG4"
+            ]
+          },
+          {
+            "text": "Keep your weight back on descents so you can adjust to anything, and grab front and rear brakes evenly - avoid grabbing a lot of rear brake as your rear end starts to fishtail.",
+            "source_video_ids": [
+              "ywj6C4onzG4"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "Think about your bike and your body as two separate entities - you are in a dance with your bike. Sometimes you let your bike lead, sometimes you lead. The more you try to exert control over your bike, the more things will go poorly.",
+            "source_video_id": "ywj6C4onzG4",
+            "source_channel": "Ornot Bike",
+            "source_view_count": 326279,
+            "category": "training",
+            "curated": true
+          },
+          {
+            "text": "I have stuff in my bike wallet so it's with me all the time no matter what ride I'm on, and then I have specific stuff in each bike's saddlebag - lever, tire, co2, chuck, pump, patch kit, multi-tool, valve core tool, and Dyna plugs.",
+            "source_video_id": "ywj6C4onzG4",
+            "source_channel": "Ornot Bike",
+            "source_view_count": 326279,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "These transcripts provide general gravel riding advice rather than specific information about the Essential Gravel race in Ringle, Wisconsin. Riders emphasize the importance of tire selection, with Victoria Mezcal tires recommended for mixed terrain riding from road to hard pack. Tire pressure requires experimentation starting from manufacturer recommendations, adjusting by 1-2 psi increments to balance traction, comfort and rolling resistance. For steep climbs, riders should move their body weight forward to prevent front wheel wandering. Descending technique involves keeping weight back and using front and rear brakes evenly to avoid rear wheel fishtailing. Nutrition strategy calls for 250-300 calories per hour on long events. The mental approach treats bike and rider as dance partners, sometimes letting the bike lead rather than over-controlling. Essential gear includes repair supplies distributed between bike wallet and saddlebag systems. Line choice focuses on avoiding surfaces where tires will struggle and spin out. The transcripts emphasize gravel riding as a continuous learning process requiring adaptation to varied terrain conditions."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "essential-gravel-video-1.jpg",
+        "url": "/race-photos/essential-gravel/essential-gravel-video-1.jpg",
+        "alt": "Two cyclists with gravel bikes taking a break on a tree-lined dirt path during daylight ride - Essential Gravel - Ringle, Wisconsin",
+        "credit": "YouTube / Cycling Weekly",
+        "primary": true,
+        "ai_relevance": 3,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel bikes",
+          "dirt path",
+          "tree-lined trail",
+          "cycling break"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "essential-gravel-video-2.jpg",
+        "url": "/race-photos/essential-gravel/essential-gravel-video-2.jpg",
+        "alt": "Two bikepacking cyclists with loaded fat bikes riding through snowy winter terrain - Essential Gravel - Ringle, Wisconsin",
+        "credit": "YouTube / Cycling Weekly",
+        "primary": false,
+        "ai_relevance": 4,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "fat bikes",
+          "snow cycling",
+          "bikepacking",
+          "winter terrain"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "essential-gravel-video-3.jpg",
+        "url": "/race-photos/essential-gravel/essential-gravel-video-3.jpg",
+        "alt": "Close-up detail shot of bicycle wheel spokes and frame components with bright sunlight flare - Essential Gravel - Ringle, Wisconsin",
+        "credit": "YouTube / Cycling Weekly",
+        "primary": false,
+        "ai_relevance": 2,
+        "ai_quality": 2,
+        "ai_keywords": [
+          "bike details",
+          "wheel spokes",
+          "sunlight flare",
+          "bicycle components"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "essential-gravel-preview.gif",
+        "url": "/race-photos/essential-gravel/essential-gravel-preview.gif",
+        "alt": "Course preview from Essential Gravel race footage",
+        "credit": "YouTube / Cycling Weekly",
+        "gif": true
+      }
+    ]
   }
 }

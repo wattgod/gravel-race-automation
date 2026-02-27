@@ -489,7 +489,100 @@
           "category": "course_difficulty",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [],
+        "terrain_notes": [
+          {
+            "text": "Riders describe the gravel as horrible, indicating challenging surface conditions that make for difficult riding.",
+            "source_video_ids": [
+              "4Q4z_IiohuM"
+            ]
+          }
+        ],
+        "gear_mentions": [],
+        "race_day_tips": [
+          {
+            "text": "Carry bear spray for wildlife safety during the race.",
+            "source_video_ids": [
+              "4Q4z_IiohuM"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "I just remembered who had the bear spray",
+            "source_video_id": "4Q4z_IiohuM",
+            "source_channel": "Alejandro Saborio",
+            "source_view_count": 1187,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "The Canmore Crux features challenging gravel conditions that riders describe as horrible, making for tough riding throughout the course. The race takes place in bear country, with riders needing to carry bear spray for wildlife safety. One rider completed the distance in approximately seven and a half hours, indicating this is a demanding endurance event. The course includes significant climbing and descending sections, with riders mentioning both uphill and downhill segments. The challenging terrain and wildlife considerations make this a technically demanding gravel race in the Canadian wilderness around Canmore, Alberta."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "canmore-crux-video-1.jpg",
+        "url": "/race-photos/canmore-crux/canmore-crux-video-1.jpg",
+        "alt": "Cyclist riding gravel forest trail through dense Canadian boreal forest with evergreen trees lining the path - Canmore Crux - Canmore, Alberta, Canada",
+        "credit": "YouTube / RIDE NI DINGDONG, MASARAP MALUTONG!",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel trail",
+          "forest path",
+          "Canadian wilderness",
+          "boreal forest",
+          "evergreen trees"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "canmore-crux-video-2.jpg",
+        "url": "/race-photos/canmore-crux/canmore-crux-video-2.jpg",
+        "alt": "Two cyclists riding gravel road through rolling hills with mixed deciduous and coniferous forest under partly cloudy sky - Canmore Crux - Canmore, Alberta, Canada",
+        "credit": "YouTube / RIDE NI DINGDONG, MASARAP MALUTONG!",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel road",
+          "rolling hills",
+          "forest cycling",
+          "Canadian terrain",
+          "mixed forest"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "canmore-crux-video-3.jpg",
+        "url": "/race-photos/canmore-crux/canmore-crux-video-3.jpg",
+        "alt": "Two cyclists on paved mountain road surrounded by dense evergreen forest with mountain peaks in background under clear blue sky - Canmore Crux - Canmore, Alberta, Canada",
+        "credit": "YouTube / RIDE NI DINGDONG, MASARAP MALUTONG!",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 5,
+        "ai_keywords": [
+          "mountain road",
+          "evergreen forest",
+          "mountain peaks",
+          "Canadian Rockies",
+          "alpine cycling"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "canmore-crux-preview.gif",
+        "url": "/race-photos/canmore-crux/canmore-crux-preview.gif",
+        "alt": "Course preview from Canmore Crux race footage",
+        "credit": "YouTube / RIDE NI DINGDONG, MASARAP MALUTONG!",
+        "gif": true
+      }
+    ]
   }
 }

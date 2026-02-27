@@ -1,6 +1,7 @@
 {
   "slug": "rock-cobbler",
   "race_name": "Rock Cobbler",
+  "distance_mi": 100.0,
   "demands": {
     "durability": 6,
     "climbing": 6,
@@ -19,7 +20,8 @@
         "Tired VO2max",
         "Double Day Simulation",
         "Progressive Fatigue"
-      ]
+      ],
+      "workout_context": "At 100 miles, Rock Cobbler punishes athletes who haven\u2019t trained their body to produce power when glycogen runs low."
     },
     {
       "category": "Gravel_Specific",
@@ -27,7 +29,8 @@
       "workouts": [
         "Surge and Settle",
         "Terrain Microbursts"
-      ]
+      ],
+      "workout_context": "Rock Cobbler\u2019s central valley gravel, rocky sections demands rapid power changes \u2014 surge over obstacles, settle on smoother sections, repeat for hours."
     },
     {
       "category": "Race_Simulation",
@@ -36,7 +39,8 @@
         "Breakaway Simulation",
         "Variable Pace Chaos",
         "Sector Simulation"
-      ]
+      ],
+      "workout_context": "Racing Rock Cobbler isn\u2019t just fitness \u2014 it\u2019s pacing, fueling, and executing when conditions deteriorate. This workout practices the race itself."
     },
     {
       "category": "TT_Threshold",
@@ -45,7 +49,8 @@
         "Single Sustained Threshold",
         "Threshold Ramps",
         "Descending Threshold"
-      ]
+      ],
+      "workout_context": "Rock Cobbler rewards athletes who can hold sustained power without blowing up \u2014 threshold is the engine that drives everything above Zone 2."
     },
     {
       "category": "Over_Under",
@@ -53,9 +58,81 @@
       "workouts": [
         "Classic Over-Unders",
         "Ladder Over-Unders"
-      ]
+      ],
+      "workout_context": "Over-unders train the lactate clearance you\u2019ll need at Rock Cobbler when surges push you above threshold and you have to recover while still riding hard."
+    },
+    {
+      "category": "G_Spot",
+      "score": 60,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ],
+      "workout_context": "The G-Spot zone (88\u201392% FTP) is where you\u2019ll spend the hardest sustained miles of Rock Cobbler. Make this intensity feel like home."
+    },
+    {
+      "category": "Endurance",
+      "score": 55,
+      "workouts": [
+        "Pre-Race Openers",
+        "Terrain Simulation Z2"
+      ],
+      "workout_context": "Every session at Rock Cobbler intensity builds on this aerobic foundation \u2014 the endurance base is the soil everything else grows in."
+    },
+    {
+      "category": "VO2max",
+      "score": 53,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ],
+      "workout_context": "Rock Cobbler\u2019s central valley gravel and dirt\u2014rocks, rollers and competitive field demand explosive aerobic capacity \u2014 the ability to respond to surges without blowing up."
+    },
+    {
+      "category": "HVLI_Extended",
+      "score": 48,
+      "workouts": [
+        "HVLI Extended Z2",
+        "Multi-Hour Z2",
+        "Back-to-Back Long"
+      ],
+      "workout_context": "At 100 miles, Rock Cobbler rewards a massive aerobic engine. This volume work builds the fat-oxidation capacity that keeps you moving when glycogen runs low."
+    },
+    {
+      "category": "Critical_Power",
+      "score": 48,
+      "workouts": [
+        "Above CP Repeats",
+        "W-Prime Depletion"
+      ],
+      "workout_context": "Critical power determines how long you can sustain above-threshold efforts at Rock Cobbler \u2014 a higher CP means more time in the red before failure."
+    },
+    {
+      "category": "Blended",
+      "score": 41,
+      "workouts": [
+        "Z2 + VO2 Combo",
+        "Endurance with Spikes"
+      ],
+      "workout_context": "Blended sessions combine endurance with intensity spikes \u2014 exactly what Rock Cobbler\u2019s central valley gravel and dirt\u2014rocks, rollers delivers on race day."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 41,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "Rock Cobbler\u2019s 5,000ft of climbing demands seated and standing versatility \u2014 the ability to change climbing style as gradient and fatigue dictate."
     }
   ],
+  "race_overlay": {
+    "heat": "February in Bakersfield, California can bring heat. Complete 3\u20134 heat exposure sessions in the final 2 weeks before Rock Cobbler. Increase sodium intake 48 hours before race day.",
+    "nutrition": "Target 60\u201380g carbs/hour for Rock Cobbler\u2019s 100 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
+    "terrain": "Mixed terrain at Rock Cobbler requires surface adaptability. Include weekly rides on central valley gravel and dirt\u2014rocks, rollers to build confidence. Expect: central valley gravel, rocky sections, dirt roads."
+  },
   "pack_summary": "This 10-workout pack focuses on Durability, Gravel Specific, and Race Simulation to prepare you for 100 miles of central valley gravel and dirt\u2014rocks, rollers in Bakersfield, California.",
   "generated_at": "2026-02-26"
 }

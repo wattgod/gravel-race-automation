@@ -1,6 +1,7 @@
 {
   "slug": "dead-swede-gravel",
   "race_name": "Dead Swede Gravel",
+  "distance_mi": 62.0,
   "demands": {
     "durability": 2,
     "climbing": 5,
@@ -19,7 +20,8 @@
         "Single Sustained Threshold",
         "Threshold Ramps",
         "Descending Threshold"
-      ]
+      ],
+      "workout_context": "Dead Swede Gravel rewards athletes who can hold sustained power without blowing up \u2014 threshold is the engine that drives everything above Zone 2."
     },
     {
       "category": "Gravel_Specific",
@@ -27,7 +29,8 @@
       "workouts": [
         "Surge and Settle",
         "Terrain Microbursts"
-      ]
+      ],
+      "workout_context": "Dead Swede Gravel\u2019s high plains gravel, ranch country demands rapid power changes \u2014 surge over obstacles, settle on smoother sections, repeat for hours."
     },
     {
       "category": "Over_Under",
@@ -35,7 +38,8 @@
       "workouts": [
         "Classic Over-Unders",
         "Ladder Over-Unders"
-      ]
+      ],
+      "workout_context": "Over-unders train the lactate clearance you\u2019ll need at Dead Swede Gravel when surges push you above threshold and you have to recover while still riding hard."
     },
     {
       "category": "VO2max",
@@ -44,7 +48,8 @@
         "5x3 VO2 Classic",
         "Descending VO2 Pyramid",
         "Norwegian 4x8"
-      ]
+      ],
+      "workout_context": "Dead Swede Gravel\u2019s wyoming high plains gravel and competitive field demand explosive aerobic capacity \u2014 the ability to respond to surges without blowing up."
     },
     {
       "category": "Race_Simulation",
@@ -53,9 +58,80 @@
         "Breakaway Simulation",
         "Variable Pace Chaos",
         "Sector Simulation"
-      ]
+      ],
+      "workout_context": "Racing Dead Swede Gravel isn\u2019t just fitness \u2014 it\u2019s pacing, fueling, and executing when conditions deteriorate. This workout practices the race itself."
+    },
+    {
+      "category": "G_Spot",
+      "score": 78,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ],
+      "workout_context": "The G-Spot zone (88\u201392% FTP) is where you\u2019ll spend the hardest sustained miles of Dead Swede Gravel. Make this intensity feel like home."
+    },
+    {
+      "category": "Durability",
+      "score": 61,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ],
+      "workout_context": "Dead Swede Gravel\u2019s wyoming high plains gravel drains energy reserves faster than the distance suggests \u2014 durability training bridges the gap."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 59,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "The varied gradients at Dead Swede Gravel reward climbing adaptability \u2014 knowing when to sit, when to stand, and when to switch."
+    },
+    {
+      "category": "Endurance",
+      "score": 57,
+      "workouts": [
+        "Pre-Race Openers",
+        "Terrain Simulation Z2"
+      ],
+      "workout_context": "Every session at Dead Swede Gravel intensity builds on this aerobic foundation \u2014 the endurance base is the soil everything else grows in."
+    },
+    {
+      "category": "Norwegian_Double",
+      "score": 47,
+      "workouts": [
+        "Norwegian 4x8 Classic",
+        "Double Threshold"
+      ],
+      "workout_context": "The Norwegian double-threshold method builds the sustained power base for Dead Swede Gravel \u2014 massive training stimulus without the recovery cost of VO2max work."
+    },
+    {
+      "category": "Critical_Power",
+      "score": 43,
+      "workouts": [
+        "Above CP Repeats",
+        "W-Prime Depletion"
+      ],
+      "workout_context": "Critical power determines how long you can sustain above-threshold efforts at Dead Swede Gravel \u2014 a higher CP means more time in the red before failure."
+    },
+    {
+      "category": "SFR_Muscle_Force",
+      "score": 39,
+      "workouts": [
+        "SFR Low Cadence",
+        "Force Repeats"
+      ],
+      "workout_context": "Low-cadence force work builds the muscular strength for Dead Swede Gravel\u2019s 3,500ft of climbing \u2014 especially the grinding, low-speed ascents."
     }
   ],
+  "race_overlay": {
+    "nutrition": "Target 40\u201360g carbs/hour for Dead Swede Gravel\u2019s 62 miles. Front-load calories in the first half. One bottle per hour minimum, more in heat.",
+    "altitude": "Moderate altitude at Dead Swede Gravel. Arrive 2\u20133 days early. Reduce intensity expectations by 5\u201310%. Hydrate aggressively.",
+    "terrain": "Mixed terrain at Dead Swede Gravel requires surface adaptability. Include weekly rides on wyoming high plains gravel to build confidence. Expect: high plains gravel, ranch country, wyoming foothills."
+  },
   "pack_summary": "This 10-workout pack focuses on TT Threshold, Gravel Specific, and Over Under to prepare you for 62 miles of wyoming high plains gravel in Sheridan, Wyoming.",
   "generated_at": "2026-02-26"
 }

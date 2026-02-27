@@ -35,17 +35,16 @@ Requires: ANTHROPIC_API_KEY environment variable
 import argparse
 import json
 import os
-import re
 import sys
 import time
 from datetime import date
 from pathlib import Path
 
-RACE_DATA_DIR = Path(__file__).resolve().parent.parent / "race-data"
+# Import shared utilities — single source of truth
+from youtube_enrich import call_api, parse_json_response, QUOTE_CATEGORIES
+from youtube_validate import validate_rider_intel
 
-VIDEO_ID_RE = re.compile(r'^[A-Za-z0-9_-]{11}$')
-HTML_RE = re.compile(r'<[a-z][^>]*>', re.IGNORECASE)
-QUOTE_CATEGORIES = {"race_atmosphere", "course_difficulty", "community", "logistics", "training", "generic"}
+RACE_DATA_DIR = Path(__file__).resolve().parent.parent / "race-data"
 
 
 def load_race(slug: str) -> dict | None:
@@ -155,123 +154,45 @@ TRANSCRIPTS:
 """
 
 
-def call_api(prompt: str, max_retries: int = 3, retry_delay: int = 30) -> str:
-    """Call Claude API with retry logic."""
-    import anthropic
+def normalize_intel(intel: dict) -> dict:
+    """Normalize extracted intel: coerce types before validation.
 
-    api_key = os.environ.get("ANTHROPIC_API_KEY")
-    if not api_key:
-        raise ValueError("ANTHROPIC_API_KEY environment variable not set")
+    LLMs return ints where we expect strings, strings where we expect lists.
+    This must run before validate_intel().
+    """
+    for field in ("key_challenges", "terrain_notes", "gear_mentions", "race_day_tips"):
+        items = intel.get(field, [])
+        if not isinstance(items, list):
+            intel[field] = []
+            continue
+        for item in items:
+            # source_video_ids: coerce string → [string], non-list → []
+            vids = item.get("source_video_ids", [])
+            if isinstance(vids, str):
+                item["source_video_ids"] = [vids] if vids else []
+            elif not isinstance(vids, list):
+                item["source_video_ids"] = []
+            # mile_marker: coerce to string (int 0 must become "0", not falsy)
+            if "mile_marker" in item:
+                mm = item["mile_marker"]
+                item["mile_marker"] = str(mm) if mm is not None else ""
 
-    client = anthropic.Anthropic(api_key=api_key)
-
-    for attempt in range(max_retries):
-        try:
-            response = client.messages.create(
-                model="claude-sonnet-4-20250514",
-                max_tokens=4000,
-                messages=[{"role": "user", "content": prompt}]
-            )
-            return response.content[0].text
-        except anthropic.RateLimitError:
-            if attempt < max_retries - 1:
-                wait = retry_delay * (attempt + 1)
-                print(f"  Rate limited. Waiting {wait}s...")
-                time.sleep(wait)
-            else:
-                raise
-
-
-def parse_json_response(text: str) -> dict:
-    """Parse JSON from API response, handling code blocks."""
-    text = text.strip()
-    if text.startswith("```"):
-        text = text.split("```")[1]
-        if text.startswith("json"):
-            text = text[4:]
-        text = text.strip()
-    return json.loads(text)
-
-
-def validate_intel(slug: str, intel: dict, valid_video_ids: set) -> list[str]:
-    """Validate extracted rider_intel. Returns list of error strings."""
-    errors = []
-
-    # Validate key_challenges
-    challenges = intel.get("key_challenges", [])
-    if len(challenges) > 6:
-        errors.append(f"Too many key_challenges: {len(challenges)} (max 6)")
-    for c in challenges:
-        if not c.get("name"):
-            errors.append("key_challenge missing 'name'")
-        if not c.get("description"):
-            errors.append(f"key_challenge '{c.get('name', '?')}' missing 'description'")
-        if HTML_RE.search(c.get("description", "")):
-            errors.append(f"key_challenge '{c.get('name', '?')}' description contains HTML")
-        for vid in c.get("source_video_ids", []):
-            if vid not in valid_video_ids:
-                errors.append(f"key_challenge '{c.get('name', '?')}' references unknown video_id '{vid}'")
-
-    # Validate terrain_notes
-    for t in intel.get("terrain_notes", []):
-        if not t.get("text"):
-            errors.append("terrain_note missing 'text'")
-        if HTML_RE.search(t.get("text", "")):
-            errors.append(f"terrain_note contains HTML: '{t.get('text', '')[:60]}...'")
-        for vid in t.get("source_video_ids", []):
-            if vid not in valid_video_ids:
-                errors.append(f"terrain_note references unknown video_id '{vid}'")
-
-    # Validate gear_mentions
-    for g in intel.get("gear_mentions", []):
-        if not g.get("text"):
-            errors.append("gear_mention missing 'text'")
-        if HTML_RE.search(g.get("text", "")):
-            errors.append(f"gear_mention contains HTML: '{g.get('text', '')[:60]}...'")
-        for vid in g.get("source_video_ids", []):
-            if vid not in valid_video_ids:
-                errors.append(f"gear_mention references unknown video_id '{vid}'")
-
-    # Validate race_day_tips
-    for tip in intel.get("race_day_tips", []):
-        if not tip.get("text"):
-            errors.append("race_day_tip missing 'text'")
-        if HTML_RE.search(tip.get("text", "")):
-            errors.append(f"race_day_tip contains HTML: '{tip.get('text', '')[:60]}...'")
-        for vid in tip.get("source_video_ids", []):
-            if vid not in valid_video_ids:
-                errors.append(f"race_day_tip references unknown video_id '{vid}'")
-
-    # Validate additional_quotes
     quotes = intel.get("additional_quotes", [])
-    if len(quotes) > 5:
-        errors.append(f"Too many additional_quotes: {len(quotes)} (max 5)")
-    for q in quotes:
-        if not q.get("text"):
-            errors.append("additional_quote missing 'text'")
-        if HTML_RE.search(q.get("text", "")):
-            errors.append(f"additional_quote contains HTML: '{q.get('text', '')[:60]}...'")
-        src = q.get("source_video_id", "")
-        if src and src not in valid_video_ids:
-            errors.append(f"additional_quote references unknown video_id '{src}'")
-        cat = q.get("category", "")
-        if cat and cat not in QUOTE_CATEGORIES:
-            errors.append(f"additional_quote has invalid category: '{cat}'")
+    if not isinstance(quotes, list):
+        intel["additional_quotes"] = []
+    for q in intel.get("additional_quotes", []):
+        vid = q.get("source_video_id")
+        if vid is not None and not isinstance(vid, str):
+            q["source_video_id"] = str(vid)
 
-    # Validate search_text
-    search_text = intel.get("search_text", "")
-    if not search_text:
-        errors.append("search_text is empty")
-    elif HTML_RE.search(search_text):
-        errors.append("search_text contains HTML")
-    else:
-        word_count = len(search_text.split())
-        if word_count < 30:
-            errors.append(f"search_text too short: {word_count} words (min 30)")
-        elif word_count > 500:
-            errors.append(f"search_text too long: {word_count} words (max 500)")
+    st = intel.get("search_text")
+    if st is not None and not isinstance(st, str):
+        intel["search_text"] = str(st)
 
-    return errors
+    return intel
+
+
+    # validate_rider_intel imported from youtube_validate.py — single source of truth
 
 
 def get_intel_candidates(n: int, force: bool = False) -> list[str]:
@@ -354,11 +275,14 @@ def extract_intel(slug: str, dry_run: bool = False, force: bool = False) -> bool
         print(f"  ERROR: API call failed: {e}")
         return False
 
+    # Normalize types before validation (LLM may return int for string, string for list)
+    intel = normalize_intel(intel)
+
     # Collect valid video IDs for cross-reference validation
     valid_video_ids = {v.get("video_id") for v in yt.get("videos", [])}
 
-    # Validate
-    errors = validate_intel(slug, intel, valid_video_ids)
+    # Validate (single source: youtube_validate.validate_rider_intel)
+    errors = validate_rider_intel(slug, intel, valid_video_ids)
     if errors:
         print(f"  VALIDATION FAILED:")
         for err in errors:

@@ -1,6 +1,7 @@
 {
   "slug": "almanzo-100",
   "race_name": "Almanzo 100",
+  "distance_mi": 100.0,
   "demands": {
     "durability": 6,
     "climbing": 6,
@@ -19,7 +20,8 @@
         "Tired VO2max",
         "Double Day Simulation",
         "Progressive Fatigue"
-      ]
+      ],
+      "workout_context": "At 100 miles, Almanzo 100 punishes athletes who haven\u2019t trained their body to produce power when glycogen runs low."
     },
     {
       "category": "Race_Simulation",
@@ -28,7 +30,8 @@
         "Breakaway Simulation",
         "Variable Pace Chaos",
         "Sector Simulation"
-      ]
+      ],
+      "workout_context": "Racing Almanzo 100 isn\u2019t just fitness \u2014 it\u2019s pacing, fueling, and executing when conditions deteriorate. This workout practices the race itself."
     },
     {
       "category": "Gravel_Specific",
@@ -36,7 +39,8 @@
       "workouts": [
         "Surge and Settle",
         "Terrain Microbursts"
-      ]
+      ],
+      "workout_context": "Almanzo 100\u2019s mixed gravel \u2014 well-maintained early, freshly laid loose stone mid-race demands rapid power changes \u2014 surge over obstacles, settle on smoother sections, repeat for hours."
     },
     {
       "category": "TT_Threshold",
@@ -45,7 +49,8 @@
         "Single Sustained Threshold",
         "Threshold Ramps",
         "Descending Threshold"
-      ]
+      ],
+      "workout_context": "Almanzo 100 rewards athletes who can hold sustained power without blowing up \u2014 threshold is the engine that drives everything above Zone 2."
     },
     {
       "category": "Over_Under",
@@ -53,9 +58,81 @@
       "workouts": [
         "Classic Over-Unders",
         "Ladder Over-Unders"
-      ]
+      ],
+      "workout_context": "Over-unders train the lactate clearance you\u2019ll need at Almanzo 100 when surges push you above threshold and you have to recover while still riding hard."
+    },
+    {
+      "category": "G_Spot",
+      "score": 58,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ],
+      "workout_context": "The G-Spot zone (88\u201392% FTP) is where you\u2019ll spend the hardest sustained miles of Almanzo 100. Make this intensity feel like home."
+    },
+    {
+      "category": "Endurance",
+      "score": 53,
+      "workouts": [
+        "Pre-Race Openers",
+        "Terrain Simulation Z2"
+      ],
+      "workout_context": "Every session at Almanzo 100 intensity builds on this aerobic foundation \u2014 the endurance base is the soil everything else grows in."
+    },
+    {
+      "category": "VO2max",
+      "score": 51,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ],
+      "workout_context": "Almanzo 100\u2019s mixed gravel \u2014 well-maintained early, freshly laid loose stone mid-race and competitive field demand explosive aerobic capacity \u2014 the ability to respond to surges without blowing up."
+    },
+    {
+      "category": "HVLI_Extended",
+      "score": 47,
+      "workouts": [
+        "HVLI Extended Z2",
+        "Multi-Hour Z2",
+        "Back-to-Back Long"
+      ],
+      "workout_context": "At 100 miles, Almanzo 100 rewards a massive aerobic engine. This volume work builds the fat-oxidation capacity that keeps you moving when glycogen runs low."
+    },
+    {
+      "category": "Critical_Power",
+      "score": 47,
+      "workouts": [
+        "Above CP Repeats",
+        "W-Prime Depletion"
+      ],
+      "workout_context": "Critical power determines how long you can sustain above-threshold efforts at Almanzo 100 \u2014 a higher CP means more time in the red before failure."
+    },
+    {
+      "category": "Blended",
+      "score": 42,
+      "workouts": [
+        "Z2 + VO2 Combo",
+        "Endurance with Spikes"
+      ],
+      "workout_context": "Blended sessions combine endurance with intensity spikes \u2014 exactly what Almanzo 100\u2019s mixed gravel \u2014 well-maintained early, freshly laid loose stone mid-race delivers on race day."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 40,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "Almanzo 100\u2019s 6,500ft of climbing demands seated and standing versatility \u2014 the ability to change climbing style as gradient and fatigue dictate."
     }
   ],
+  "race_overlay": {
+    "heat": "May in Spring Valley, Minnesota can bring heat. Complete 3\u20134 heat exposure sessions in the final 2 weeks before Almanzo 100. Increase sodium intake 48 hours before race day.",
+    "nutrition": "Target 60\u201380g carbs/hour for Almanzo 100\u2019s 100 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
+    "terrain": "Mixed terrain at Almanzo 100 requires surface adaptability. Include weekly rides on mixed gravel \u2014 well-maintained early, freshly laid loose stone mid-race to build confidence."
+  },
   "pack_summary": "This 10-workout pack focuses on Durability, Race Simulation, and Gravel Specific to prepare you for 100 miles of mixed gravel \u2014 well-maintained early, freshly laid loose stone mid-race in Spring Valley, Minnesota.",
   "generated_at": "2026-02-26"
 }

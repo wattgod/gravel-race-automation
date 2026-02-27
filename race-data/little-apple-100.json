@@ -541,6 +541,67 @@
         }
       ],
       "quotes": []
-    }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "little-apple-100-video-1.jpg",
+        "url": "/race-photos/little-apple-100/little-apple-100-video-1.jpg",
+        "alt": "Cyclists racing on rural gravel road through green farmland with power lines and corn fields visible - Little Apple 100 - Illinois State Championship - Manhattan, Illinois",
+        "credit": "YouTube / Spoked Trails",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel road",
+          "rural racing",
+          "farmland",
+          "cycling peloton",
+          "country road"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "little-apple-100-video-2.jpg",
+        "url": "/race-photos/little-apple-100/little-apple-100-video-2.jpg",
+        "alt": "Gravel cyclists in racing position on paved country road surrounded by agricultural fields and green landscape - Little Apple 100 - Illinois State Championship - Manhattan, Illinois",
+        "credit": "YouTube / Spoked Trails",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel racing",
+          "agricultural terrain",
+          "cycling computer",
+          "rural roads",
+          "farm country"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "little-apple-100-video-3.jpg",
+        "url": "/race-photos/little-apple-100/little-apple-100-video-3.jpg",
+        "alt": "Group of gravel racers riding on rural road through open countryside under cloudy sky - Little Apple 100 - Illinois State Championship - Manhattan, Illinois",
+        "credit": "YouTube / Spoked Trails",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "gravel peloton",
+          "rural cycling",
+          "countryside racing",
+          "open terrain",
+          "cycling group"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "little-apple-100-preview.gif",
+        "url": "/race-photos/little-apple-100/little-apple-100-preview.gif",
+        "alt": "Course preview from Little Apple 100 race footage",
+        "credit": "YouTube / Spoked Trails",
+        "gif": true
+      }
+    ]
   }
 }

@@ -561,7 +561,188 @@
           "category": "course_difficulty",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Winn's Pass",
+            "description": "Riders describe this as a very challenging climb with extreme road conditions including 10 foot drops and rocky terrain that requires walking sections.",
+            "source_video_ids": [
+              "A0EN1VDGA3Y"
+            ]
+          },
+          {
+            "name": "The Broken Road",
+            "description": "A 6.6km section that is definitely hike-a-bike terrain according to riders.",
+            "source_video_ids": [
+              "W0vAtS3uJ74"
+            ]
+          },
+          {
+            "name": "Stony Middleton climb",
+            "description": "Described by riders as a bit unpleasant, one of the chunky hills on the route.",
+            "source_video_ids": [
+              "W0vAtS3uJ74"
+            ]
+          },
+          {
+            "name": "Lord's Seat",
+            "description": "Often boggy section that organizers suggested skipping due to wet conditions, described as a bit of a push.",
+            "source_video_ids": [
+              "Ly1pOVV7LV8"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Very rocky descents that require walking sections if you're not fully confident, with good lines visible but technically challenging.",
+            "source_video_ids": [
+              "W0vAtS3uJ74"
+            ]
+          },
+          {
+            "text": "Road conditions include extreme sections with 10 foot drops that make riders grateful for their usual roads.",
+            "source_video_ids": [
+              "A0EN1VDGA3Y"
+            ]
+          },
+          {
+            "text": "Boggy conditions are common, especially after rain, making some sections more of a push than a ride.",
+            "source_video_ids": [
+              "Ly1pOVV7LV8"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "Gravel bike worked fine for the gravel route but rider always prefers a hardtail, stating gravel bikes aren't really for them.",
+            "source_video_ids": [
+              "Ly1pOVV7LV8"
+            ]
+          },
+          {
+            "text": "Small bike frames can't fit required 1.5 liters of water on the frame, requiring a hydration pack packed with snacks.",
+            "source_video_ids": [
+              "A0EN1VDGA3Y"
+            ]
+          }
+        ],
+        "race_day_tips": [
+          {
+            "text": "You have 32 hours to complete the 200k route - your choice whether to sleep or go through the night for fastest time, or ride at leisurely cafe stop pace.",
+            "source_video_ids": [
+              "A0EN1VDGA3Y"
+            ]
+          },
+          {
+            "text": "Plan to stop around Bakewell for overnight if doing the leisurely two-day approach.",
+            "source_video_ids": [
+              "A0EN1VDGA3Y"
+            ]
+          },
+          {
+            "text": "At 30k in, riders report having done roughly 20% of the total climbing already with nearly 900 meters completed.",
+            "source_video_ids": [
+              "W0vAtS3uJ74"
+            ]
+          },
+          {
+            "text": "Event is unsupported - as long as you don't get outside help and don't sleep at a mate's house, anything else including B&Bs is fair game.",
+            "source_video_ids": [
+              "W0vAtS3uJ74"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "There's mandatory kit for the route including 1.5 liters of water, and I'm taking the absolute bare minimum to try and get back before 11:00 Saturday evening.",
+            "source_video_id": "W0vAtS3uJ74",
+            "source_channel": "Bikepacking Adventures",
+            "source_view_count": 3315,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "You'll find plenty of walkers, horse riders, motor bikers - just share the space.",
+            "source_video_id": "W0vAtS3uJ74",
+            "source_channel": "Bikepacking Adventures",
+            "source_view_count": 3315,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "Come to the pub. We've got beer. We got real food. Don't be sitting in your tent all night. Come and join us.",
+            "source_video_id": "Ly1pOVV7LV8",
+            "source_channel": "Allen Boardman",
+            "source_view_count": 2520,
+            "category": "community",
+            "curated": true
+          }
+        ],
+        "search_text": "Riders describe the Peak District Tor Divide as a challenging 200k gravel route with 4,000m of climbing through 38 total climbs. Key challenging sections include Winn's Pass with extreme rocky conditions and 10-foot drops, The Broken Road requiring 6.6km of hike-a-bike terrain, and the unpleasant Stony Middleton climb. Terrain features very rocky technical descents that force walking, boggy sections especially after rain, and roads with extreme drop-offs. The unsupported format allows 32 hours to complete with options to sleep or ride through. Riders report completing 20% of climbing in first 30k. Mandatory kit includes 1.5 liters of water. Route shares space with walkers, horse riders, and motor bikers. Weather can bring consistent rain making conditions more challenging. Popular strategy includes overnight stops around Bakewell for two-day approach."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "tor-divide-video-1.jpg",
+        "url": "/race-photos/tor-divide/tor-divide-video-1.jpg",
+        "alt": "Cyclist pushing bike up steep cobblestone climb through green countryside with stone walls and fields - Tor Divide - Peak District, UK",
+        "credit": "YouTube / Meg Whyte",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "cobblestone climb",
+          "hike-a-bike",
+          "stone walls",
+          "countryside",
+          "steep gradient"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "tor-divide-video-2.jpg",
+        "url": "/race-photos/tor-divide/tor-divide-video-2.jpg",
+        "alt": "Gravel cyclist in racing kit riding through rural British countryside with green fields and hedgerows - Tor Divide - Peak District, UK",
+        "credit": "YouTube / Meg Whyte",
+        "primary": false,
+        "ai_relevance": 4,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "gravel racing",
+          "British countryside",
+          "rural roads",
+          "cycling kit",
+          "green fields"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "tor-divide-video-3.jpg",
+        "url": "/race-photos/tor-divide/tor-divide-video-3.jpg",
+        "alt": "Race participant in down jacket being interviewed next to Tor Divide bikepacking challenge banner at event finish - Peak District, UK",
+        "credit": "YouTube / Meg Whyte",
+        "primary": false,
+        "ai_relevance": 3,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "Tor Divide",
+          "bikepacking challenge",
+          "race finish",
+          "interview",
+          "event banner"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "tor-divide-preview.gif",
+        "url": "/race-photos/tor-divide/tor-divide-preview.gif",
+        "alt": "Course preview from Tor Divide race footage",
+        "credit": "YouTube / Meg Whyte",
+        "gif": true
+      }
+    ]
   }
 }

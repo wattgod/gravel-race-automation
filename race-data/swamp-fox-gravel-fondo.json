@@ -535,7 +535,154 @@
           "category": "course_difficulty",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Steed Creek Road",
+            "description": "First of many road crossings with traffic noise during morning rush hour periods.",
+            "source_video_ids": [
+              "54oO9nQf_eY"
+            ]
+          },
+          {
+            "name": "Pavement sections",
+            "description": "Three sections of pavement on the route, each about half a mile long.",
+            "source_video_ids": [
+              "6ukOX42RhDU"
+            ]
+          },
+          {
+            "name": "Potholes on recently graded roads",
+            "description": "Lots of potholes present despite recent road grading work by forestry service.",
+            "source_video_ids": [
+              "I49G69WbcrA"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Very very flat terrain throughout most of the trail with no ups and downs, allowing for high mileage days.",
+            "source_video_ids": [
+              "54oO9nQf_eY"
+            ]
+          },
+          {
+            "text": "Muddy conditions expected all winter long, with roads showing evidence of recent maintenance work.",
+            "source_video_ids": [
+              "6ukOX42RhDU"
+            ]
+          },
+          {
+            "text": "Straight forestry roads with beautiful native pine forests and native grasses, featuring sudden changes between tall pine trees and marshy swampy bays.",
+            "source_video_ids": [
+              "54oO9nQf_eY",
+              "6ukOX42RhDU"
+            ]
+          }
+        ],
+        "gear_mentions": [],
+        "race_day_tips": [
+          {
+            "text": "Water east of Halfway Creek Road is not suitable for drinking or filtering due to brackish salt inundation according to forest rangers.",
+            "source_video_ids": [
+              "54oO9nQf_eY"
+            ]
+          },
+          {
+            "text": "For overnight events, calculate snacks based on expected hours out there and pack extra clothing even if temperature ranges don't vary wildly.",
+            "source_video_ids": [
+              "I49G69WbcrA"
+            ]
+          },
+          {
+            "text": "Install brand new batteries in GPS trackers before events for cheap insurance rather than worrying about battery life during the race.",
+            "source_video_ids": [
+              "I49G69WbcrA"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "You can't call us. We're gonna be sleeping in those cars right there so if you have a life threatening emergency just call 9-1-1 obviously.",
+            "source_video_id": "I49G69WbcrA",
+            "source_channel": "Nankman Cycling Adventures",
+            "source_view_count": 579,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "Come out and take a hike if you're into this kind of thing. Nothing so peaceful back here.",
+            "source_video_id": "6ukOX42RhDU",
+            "source_channel": "Charleston Bikepacker",
+            "source_view_count": 861,
+            "category": "community",
+            "curated": true
+          }
+        ],
+        "search_text": "The Swamp Fox area in Francis Marion National Forest features very flat terrain with no significant elevation changes, allowing riders to cover high mileage. The course runs on straight forestry roads through native pine forests and marshy areas, with sudden changes between tall pines and swampy bays. Riders encounter three pavement sections of about half a mile each, multiple road crossings including Steed Creek Road, and recently graded roads with numerous potholes. Winter conditions bring mud and pollen in late February. Water sources east of Halfway Creek Road are not suitable for drinking due to brackish salt contamination. The area offers peaceful riding with no car traffic on forestry roads, though morning rush hour creates noise at road crossings. Temperature ranges are moderate, typically between 60-70 degrees for overnight events."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "swamp-fox-gravel-fondo-video-1.jpg",
+        "url": "/race-photos/swamp-fox-gravel-fondo/swamp-fox-gravel-fondo-video-1.jpg",
+        "alt": "Rural intersection with paved roads and grassy areas under overcast sky in countryside setting - Swamp Fox Gravel Fondo - Francis Marion National Forest, South Carolina",
+        "credit": "YouTube / Nankman Cycling Adventures",
+        "primary": true,
+        "ai_relevance": 3,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "rural roads",
+          "countryside",
+          "intersection",
+          "overcast sky"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "swamp-fox-gravel-fondo-video-2.jpg",
+        "url": "/race-photos/swamp-fox-gravel-fondo/swamp-fox-gravel-fondo-video-2.jpg",
+        "alt": "Cyclists in high-visibility gear at gravel race start/finish area with support tents and spectators on grass field - Swamp Fox Gravel Fondo - Francis Marion National Forest, South Carolina",
+        "credit": "YouTube / Nankman Cycling Adventures",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "gravel race",
+          "cyclists",
+          "support tents",
+          "race atmosphere",
+          "high-vis gear"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "swamp-fox-gravel-fondo-video-3.jpg",
+        "url": "/race-photos/swamp-fox-gravel-fondo/swamp-fox-gravel-fondo-video-3.jpg",
+        "alt": "Cyclist riding on dirt gravel road through wooded countryside during Swamp Fox Gravel Fondo race - Francis Marion National Forest, South Carolina",
+        "credit": "YouTube / Nankman Cycling Adventures",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel road",
+          "dirt road",
+          "wooded terrain",
+          "countryside cycling",
+          "gravel racing"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "swamp-fox-gravel-fondo-preview.gif",
+        "url": "/race-photos/swamp-fox-gravel-fondo/swamp-fox-gravel-fondo-preview.gif",
+        "alt": "Course preview from Swamp Fox Gravel Fondo race footage",
+        "credit": "YouTube / Nankman Cycling Adventures",
+        "gif": true
+      }
+    ]
   }
 }

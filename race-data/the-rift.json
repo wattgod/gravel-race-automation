@@ -512,7 +512,137 @@
           "category": "race_atmosphere",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [],
+        "terrain_notes": [],
+        "gear_mentions": [
+          {
+            "text": "For race day clothing in rainy conditions, one rider chose shorts and a winter jacket combo, planning to unzip the jacket to cool off when needed, knowing it would be colder in the highlands.",
+            "source_video_ids": [
+              "YCrtUS_Kj_E"
+            ]
+          }
+        ],
+        "race_day_tips": [
+          {
+            "text": "Buy the cheaper avocados at local stores - the $200 avocados stay green until the next morning and aren't even that brown after the race, unlike the $800 ones.",
+            "source_video_ids": [
+              "YCrtUS_Kj_E"
+            ]
+          },
+          {
+            "text": "Expect it to be colder once you get up into the highlands during the race.",
+            "source_video_ids": [
+              "YCrtUS_Kj_E"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "So far, we have tried to fly into Iceland. We've gotten turned around on a flight to Iceland. We got a few nights of bad sleep in between all that. Then we finally got to Iceland. And now we've been here for a total of about 4 hours. We've done one pre-ride, not even on the course, so we have no idea what that looks like.",
+            "source_video_id": "YCrtUS_Kj_E",
+            "source_channel": "Job Rides Bikes",
+            "source_view_count": 9354,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "We were staying right there right near the start, which was super awesome. So, big thanks to them.",
+            "source_video_id": "YCrtUS_Kj_E",
+            "source_channel": "Job Rides Bikes",
+            "source_view_count": 9354,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "Some days aren't about performance. They're about letting go and about finding joy in the unexpected. Finding joy not in something that we have built up ourselves, but finding joy in the simple beauty of God's creation.",
+            "source_video_id": "YCrtUS_Kj_E",
+            "source_channel": "Job Rides Bikes",
+            "source_view_count": 9354,
+            "category": "community",
+            "curated": true
+          }
+        ],
+        "search_text": "The Rift in Iceland presents logistical challenges for traveling riders, with flight disruptions and limited preparation time being common issues. Race morning conditions included rain, requiring strategic clothing choices. Riders report that temperatures drop significantly once entering the highlands portion of the course. The race took place during a period of volcanic activity in southwest Iceland, adding to travel complications. Accommodation near the start line is available and considered advantageous. Local food shopping can be confusing with significant price variations on basic items like avocados. The race attracts riders seeking both performance and the experience of racing through Iceland's dramatic landscape, with some finding meaning beyond competitive results in the natural beauty of the course setting."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "the-rift-video-1.jpg",
+        "url": "/race-photos/the-rift/the-rift-video-1.jpg",
+        "alt": "Gravel cyclist crossing water obstacle with rocky terrain and snow-capped mountains in Iceland's highland landscape - The Rift - Hvolsvöllur, Southern Iceland",
+        "credit": "YouTube / Elvar Örn Reynisson",
+        "primary": true,
+        "ai_relevance": 4,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "water crossing",
+          "Iceland highlands",
+          "rocky terrain",
+          "mountain landscape",
+          "gravel adventure"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "the-rift-video-2.jpg",
+        "url": "/race-photos/the-rift/the-rift-video-2.jpg",
+        "alt": "Cyclist climbing steep volcanic gravel trail through barren Icelandic highlands under dramatic cloudy sky - The Rift - Hvolsvöllur, Southern Iceland",
+        "credit": "YouTube / Elvar Örn Reynisson",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "volcanic terrain",
+          "steep climb",
+          "Iceland highlands",
+          "gravel ascent",
+          "dramatic landscape"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "the-rift-video-3.jpg",
+        "url": "/race-photos/the-rift/the-rift-video-3.jpg",
+        "alt": "Cyclist gear equipment list display showing Kask helmet, KOO glasses, and Giordana clothing for gravel racing - The Rift - Hvolsvöllur, Southern Iceland",
+        "credit": "YouTube / Elvar Örn Reynisson",
+        "primary": false,
+        "ai_relevance": 2,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "cycling gear",
+          "equipment list",
+          "gravel kit",
+          "racing apparel"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "the-rift-preview.gif",
+        "url": "/race-photos/the-rift/the-rift-preview.gif",
+        "alt": "Course preview from The Rift race footage",
+        "credit": "YouTube / Elvar Örn Reynisson",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "the-rift-preview-2.gif",
+        "url": "/race-photos/the-rift/the-rift-preview-2.gif",
+        "alt": "Course preview from The Rift race footage",
+        "credit": "YouTube / Elvar Örn Reynisson",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "the-rift-preview-3.gif",
+        "url": "/race-photos/the-rift/the-rift-preview-3.gif",
+        "alt": "Course preview from The Rift race footage",
+        "credit": "YouTube / Elvar Örn Reynisson",
+        "gif": true
+      }
+    ]
   }
 }

@@ -478,7 +478,135 @@
           "category": "course_difficulty",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Altitude",
+            "description": "Riders emphasize the significant elevation challenge, with one noting coming from 2500 feet elevation to Gunnison requiring several days to ease into the altitude.",
+            "source_video_ids": [
+              "WQoyfdP-HJ0",
+              "E_DUHgeQB60"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Dust and technical sections are prominent features riders encounter throughout the course.",
+            "source_video_ids": [
+              "WQoyfdP-HJ0"
+            ]
+          },
+          {
+            "text": "The route covers very varied terrain in a small distance, starting in sagebrush with sprawling vistas and distant mountains, then progressing into the mountains themselves.",
+            "source_video_ids": [
+              "WQoyfdP-HJ0"
+            ]
+          },
+          {
+            "text": "The course offers a great mix of road surfaces that help prepare riders for very varied terrain.",
+            "source_video_ids": [
+              "O4r7LSSchYg"
+            ]
+          }
+        ],
+        "gear_mentions": [],
+        "race_day_tips": [
+          {
+            "text": "Coming from lower elevations, it's beneficial to have a couple of days to ease into the significant altitude before racing.",
+            "source_video_ids": [
+              "WQoyfdP-HJ0"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "35 percent of all gravel roads in Colorado are in Gunnison County",
+            "source_video_id": "WQoyfdP-HJ0",
+            "source_channel": "BIKEPACKING.com",
+            "source_view_count": 61856,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "Gunnison County is 93% public land and we're surrounded by BLM and then forest service",
+            "source_video_id": "E_DUHgeQB60",
+            "source_channel": "From The Ground Up",
+            "source_view_count": 3517,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "The whole time we were riding there was never a point where there was not an unbelievable view you could just see peaks and hills for miles and tons of wildlife",
+            "source_video_id": "E_DUHgeQB60",
+            "source_channel": "From The Ground Up",
+            "source_view_count": 3517,
+            "category": "community",
+            "curated": true
+          }
+        ],
+        "search_text": "The Gunni Grinder takes place in Gunnison County, Colorado, which contains 35 percent of all gravel roads in Colorado and is 93% public land surrounded by BLM and forest service areas. Riders face significant altitude challenges, with the elevation requiring several days of acclimatization for those coming from lower elevations. The course features dust and technical sections throughout, with very varied terrain that progresses from sagebrush areas with sprawling vistas and distant mountains to riding directly in the mountains themselves. The route offers a great mix of road surfaces across this varied terrain. Gunnison County provides 800 miles of single track and millions of acres of public land access, making it an ideal location for challenging gravel racing with dramatic elevation changes and diverse landscape features."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "gunni-grinder-video-1.jpg",
+        "url": "/race-photos/gunni-grinder/gunni-grinder-video-1.jpg",
+        "alt": "Topographic map showing mountainous terrain around Crested Butte and Gunnison area with county boundaries and highways marked - Gunni Grinder - Gunnison, Colorado",
+        "credit": "YouTube / BIKEPACKING.com",
+        "primary": true,
+        "ai_relevance": 2,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "Crested Butte",
+          "Gunnison",
+          "Colorado mountains",
+          "topographic map"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "gunni-grinder-video-2.jpg",
+        "url": "/race-photos/gunni-grinder/gunni-grinder-video-2.jpg",
+        "alt": "Gravel cyclist with dog companion riding on dirt road through Colorado high country with snow-capped mountains in background - Gunni Grinder - Gunnison, Colorado",
+        "credit": "YouTube / BIKEPACKING.com",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel road",
+          "Colorado mountains",
+          "dirt road",
+          "high country",
+          "cycling"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "gunni-grinder-preview.gif",
+        "url": "/race-photos/gunni-grinder/gunni-grinder-preview.gif",
+        "alt": "Course preview from Gunni Grinder race footage",
+        "credit": "YouTube / BIKEPACKING.com",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "gunni-grinder-preview-2.gif",
+        "url": "/race-photos/gunni-grinder/gunni-grinder-preview-2.gif",
+        "alt": "Course preview from Gunni Grinder race footage",
+        "credit": "YouTube / BIKEPACKING.com",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "gunni-grinder-preview-3.gif",
+        "url": "/race-photos/gunni-grinder/gunni-grinder-preview-3.gif",
+        "alt": "Course preview from Gunni Grinder race footage",
+        "credit": "YouTube / BIKEPACKING.com",
+        "gif": true
+      }
+    ]
   }
 }

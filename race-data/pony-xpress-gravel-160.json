@@ -517,7 +517,146 @@
           "category": "community",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Glass on course",
+            "mile_marker": "40",
+            "description": "Big shard of glass tore through rear tire around mile 40. Roads haven't been too rough but glass hazards present.",
+            "source_video_ids": [
+              "cE67G6f2K2A"
+            ]
+          },
+          {
+            "name": "Stream crossings",
+            "description": "Multiple stream crossings along the course on maintenance roads.",
+            "source_video_ids": [
+              "cE67G6f2K2A"
+            ]
+          },
+          {
+            "name": "Heat and headwinds",
+            "description": "High 90s to 100 degree temperatures both days with headwinds developing later in the day, creating suffer fest conditions.",
+            "source_video_ids": [
+              "cE67G6f2K2A"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Smooth saddling so far, smooth roads with tailwinds early. Lots of minimum maintenance roads. Some climbing involved with steep climbs.",
+            "source_video_ids": [
+              "cE67G6f2K2A"
+            ]
+          },
+          {
+            "text": "First part of day is enjoyable before it gets hot, with tailwinds when everyone's fresh.",
+            "source_video_ids": [
+              "cE67G6f2K2A"
+            ]
+          }
+        ],
+        "gear_mentions": [],
+        "race_day_tips": [
+          {
+            "text": "It's gonna be hot high 90s 100 both days, so take it easy on day one if doing the two-day bikepacking format.",
+            "source_video_ids": [
+              "cE67G6f2K2A"
+            ]
+          },
+          {
+            "text": "Make sure your frame pump is actually on your frame - don't be that guy having to rely on others.",
+            "source_video_ids": [
+              "cE67G6f2K2A"
+            ]
+          },
+          {
+            "text": "Stay with front group early while it's nice and cool in the morning, trying to keep grit down and make time before conditions deteriorate.",
+            "source_video_ids": [
+              "cE67G6f2K2A"
+            ]
+          },
+          {
+            "text": "Gas stations in small towns along route have water and orange juice for resupply.",
+            "source_video_ids": [
+              "cE67G6f2K2A"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "It's nice to know everybody's looking out for each other out here, which is half the reason it's so nice enjoy some time riding bikes together. Neil was kind enough to ride a mile back down one of the steeper climbs of the day to help me out.",
+            "source_video_id": "cE67G6f2K2A",
+            "source_channel": "Back of the Gravel Pack",
+            "source_view_count": 705,
+            "category": "community",
+            "curated": true
+          }
+        ],
+        "search_text": "The Pony Express Gravel features smooth roads early with tailwinds, transitioning to challenging conditions with high 90s to 100 degree temperatures both days. Course includes lots of minimum maintenance roads, stream crossings, and steep climbs. Glass hazards present - one rider suffered tire damage from glass shard around mile 40. Route passes through small towns with gas stations for water and supply resupply. Early morning conditions are pleasant before heat and headwinds develop, creating suffer fest conditions later. Strong community spirit among riders helping each other with mechanical issues. Beautiful rural churches and scenery along the route. Two-day bikepacking option available with camping midway through."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "pony-xpress-gravel-160-video-1.jpg",
+        "url": "/race-photos/pony-xpress-gravel-160/pony-xpress-gravel-160-video-1.jpg",
+        "alt": "Close-up portrait of gravel cyclist wearing red and black racing helmet on rural country road with open prairie landscape - Pony Xpress Gravel 160 - Trinidad, CO",
+        "credit": "YouTube / Back of the Gravel Pack",
+        "primary": true,
+        "ai_relevance": 3,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "gravel cyclist",
+          "racing helmet",
+          "prairie landscape",
+          "country road"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "pony-xpress-gravel-160-video-2.jpg",
+        "url": "/race-photos/pony-xpress-gravel-160/pony-xpress-gravel-160-video-2.jpg",
+        "alt": "Group of gravel cyclists riding together on paved road through rolling hills with blue sky and green countryside - Pony Xpress Gravel 160 - Trinidad, CO",
+        "credit": "YouTube / Back of the Gravel Pack",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel peloton",
+          "rolling hills",
+          "countryside",
+          "group ride",
+          "paved road"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "pony-xpress-gravel-160-video-3.jpg",
+        "url": "/race-photos/pony-xpress-gravel-160/pony-xpress-gravel-160-video-3.jpg",
+        "alt": "Three gravel racers cycling on paved road through open prairie with scattered trees and rural farmland - Pony Xpress Gravel 160 - Trinidad, CO",
+        "credit": "YouTube / Back of the Gravel Pack",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel racing",
+          "prairie road",
+          "farmland",
+          "rural cycling",
+          "open countryside"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "pony-xpress-gravel-160-preview.gif",
+        "url": "/race-photos/pony-xpress-gravel-160/pony-xpress-gravel-160-preview.gif",
+        "alt": "Course preview from Pony Xpress Gravel 160 race footage",
+        "credit": "YouTube / Back of the Gravel Pack",
+        "gif": true
+      }
+    ]
   }
 }

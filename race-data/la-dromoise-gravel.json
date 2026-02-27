@@ -527,6 +527,67 @@
         }
       ],
       "quotes": []
-    }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "la-dromoise-gravel-video-1.jpg",
+        "url": "/race-photos/la-dromoise-gravel/la-dromoise-gravel-video-1.jpg",
+        "alt": "Solo cyclist riding on winding country road through French countryside hills during golden hour light at La Dromoise Gravel race - La Drômoise Gravel - Drôme, France",
+        "credit": "YouTube / Cyclomag ",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel cycling",
+          "French countryside",
+          "solo rider",
+          "winding road",
+          "golden hour"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "la-dromoise-gravel-video-2.jpg",
+        "url": "/race-photos/la-dromoise-gravel/la-dromoise-gravel-video-2.jpg",
+        "alt": "Two cyclists in matching team kit climbing paved road through green rolling hills and farmland during La Dromoise Gravel race - La Drômoise Gravel - Drôme, France",
+        "credit": "YouTube / Cyclomag ",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "cycling duo",
+          "team kit",
+          "rolling hills",
+          "farmland",
+          "climbing"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "la-dromoise-gravel-video-3.jpg",
+        "url": "/race-photos/la-dromoise-gravel/la-dromoise-gravel-video-3.jpg",
+        "alt": "Empty paved road stretching toward mountains through French countryside with cypress trees and green fields along the route - La Drômoise Gravel - Drôme, France",
+        "credit": "YouTube / Cyclomag ",
+        "primary": false,
+        "ai_relevance": 3,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "mountain backdrop",
+          "cypress trees",
+          "French countryside",
+          "paved road",
+          "rural landscape"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "la-dromoise-gravel-preview.gif",
+        "url": "/race-photos/la-dromoise-gravel/la-dromoise-gravel-preview.gif",
+        "alt": "Course preview from La Dromoise Gravel race footage",
+        "credit": "YouTube / Cyclomag ",
+        "gif": true
+      }
+    ]
   }
 }

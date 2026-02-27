@@ -1,6 +1,7 @@
 {
   "slug": "rasputitsa-spring-classic",
   "race_name": "Rasputitsa Spring Classic",
+  "distance_mi": 60.0,
   "demands": {
     "durability": 2,
     "climbing": 7,
@@ -18,7 +19,8 @@
       "workouts": [
         "Surge and Settle",
         "Terrain Microbursts"
-      ]
+      ],
+      "workout_context": "Rasputitsa Spring Classic\u2019s vermont mountains, spring mud season demands rapid power changes \u2014 surge over obstacles, settle on smoother sections, repeat for hours."
     },
     {
       "category": "Race_Simulation",
@@ -27,7 +29,8 @@
         "Breakaway Simulation",
         "Variable Pace Chaos",
         "Sector Simulation"
-      ]
+      ],
+      "workout_context": "Racing Rasputitsa Spring Classic isn\u2019t just fitness \u2014 it\u2019s pacing, fueling, and executing when conditions deteriorate. This workout practices the race itself."
     },
     {
       "category": "TT_Threshold",
@@ -36,7 +39,8 @@
         "Single Sustained Threshold",
         "Threshold Ramps",
         "Descending Threshold"
-      ]
+      ],
+      "workout_context": "Rasputitsa Spring Classic rewards athletes who can hold sustained power without blowing up \u2014 threshold is the engine that drives everything above Zone 2."
     },
     {
       "category": "Over_Under",
@@ -44,7 +48,8 @@
       "workouts": [
         "Classic Over-Unders",
         "Ladder Over-Unders"
-      ]
+      ],
+      "workout_context": "Over-unders train the lactate clearance you\u2019ll need at Rasputitsa Spring Classic when surges push you above threshold and you have to recover while still riding hard."
     },
     {
       "category": "Durability",
@@ -53,9 +58,79 @@
         "Tired VO2max",
         "Double Day Simulation",
         "Progressive Fatigue"
-      ]
+      ],
+      "workout_context": "Rasputitsa Spring Classic\u2019s vermont mountainous gravel with spring mud drains energy reserves faster than the distance suggests \u2014 durability training bridges the gap."
+    },
+    {
+      "category": "Critical_Power",
+      "score": 56,
+      "workouts": [
+        "Above CP Repeats",
+        "W-Prime Depletion"
+      ],
+      "workout_context": "Critical power determines how long you can sustain above-threshold efforts at Rasputitsa Spring Classic \u2014 a higher CP means more time in the red before failure."
+    },
+    {
+      "category": "G_Spot",
+      "score": 52,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ],
+      "workout_context": "The G-Spot zone (88\u201392% FTP) is where you\u2019ll spend the hardest sustained miles of Rasputitsa Spring Classic. Make this intensity feel like home."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 50,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "Rasputitsa Spring Classic\u2019s 5,000ft of climbing demands seated and standing versatility \u2014 the ability to change climbing style as gradient and fatigue dictate."
+    },
+    {
+      "category": "VO2max",
+      "score": 48,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ],
+      "workout_context": "Rasputitsa Spring Classic\u2019s vermont mountainous gravel with spring mud and competitive field demand explosive aerobic capacity \u2014 the ability to respond to surges without blowing up."
+    },
+    {
+      "category": "Anaerobic_Capacity",
+      "score": 43,
+      "workouts": [
+        "2min Killers",
+        "90sec Repeats"
+      ],
+      "workout_context": "Short, violent efforts are unavoidable at Rasputitsa Spring Classic \u2014 climbs demanding 2-minute maximal efforts, surges to close gaps, attacks on vermont mountainous gravel with spring mud."
+    },
+    {
+      "category": "Cadence_Work",
+      "score": 38,
+      "workouts": [
+        "High Cadence Drills",
+        "Cadence Pyramids"
+      ],
+      "workout_context": "Cadence efficiency makes every pedal stroke at Rasputitsa Spring Classic count \u2014 smooth technique reduces muscular fatigue over long distances."
+    },
+    {
+      "category": "SFR_Muscle_Force",
+      "score": 33,
+      "workouts": [
+        "SFR Low Cadence",
+        "Force Repeats"
+      ],
+      "workout_context": "Low-cadence force work builds the muscular strength for Rasputitsa Spring Classic\u2019s 5,000ft of climbing \u2014 especially the grinding, low-speed ascents."
     }
   ],
+  "race_overlay": {
+    "nutrition": "Target 40\u201360g carbs/hour for Rasputitsa Spring Classic\u2019s 60 miles. Front-load calories in the first half. One bottle per hour minimum, more in heat.",
+    "terrain": "Highly technical terrain at Rasputitsa Spring Classic demands practice on similar surfaces. Ride vermont mountainous gravel with spring mud at race-day cadence weekly. Expect: vermont mountains, spring mud season, mountainous gravel. Practice cornering, descending, and power delivery on unstable surfaces. Dial in tire pressure before race week \u2014 5 PSI wrong costs you 15+ minutes over 60 miles."
+  },
   "pack_summary": "This 10-workout pack focuses on Gravel Specific, Race Simulation, and TT Threshold to prepare you for 60 miles of vermont mountainous gravel with spring mud in Burke, Vermont.",
   "generated_at": "2026-02-26"
 }

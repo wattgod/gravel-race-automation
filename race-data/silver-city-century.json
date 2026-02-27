@@ -526,7 +526,163 @@
           "category": "race_atmosphere",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "First Five Miles Rollers",
+            "mile_marker": "0-5",
+            "description": "Rollers right off the start that race director warns not to spend energy on - not where you'll win the race",
+            "source_video_ids": [
+              "fuAMsK_qZ90"
+            ]
+          },
+          {
+            "name": "Soft Gravel Section",
+            "mile_marker": "~50+",
+            "description": "Gravel gets crappy and soft after the second aid station - not dangerous but requires extra energy to get through",
+            "source_video_ids": [
+              "fuAMsK_qZ90"
+            ]
+          },
+          {
+            "name": "Last Three Hills",
+            "mile_marker": "~55+",
+            "description": "Final three hills on soft gravel that the race director suggests non-racers can skip by taking the trace",
+            "source_video_ids": [
+              "fuAMsK_qZ90"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Class B roads are some of the smoothest sections of the whole course, even smoother than some of the pavement",
+            "source_video_ids": [
+              "fuAMsK_qZ90"
+            ]
+          },
+          {
+            "text": "One Class B section that's all grass is described as really pretty and one of the race director's favorite sections",
+            "source_video_ids": [
+              "fuAMsK_qZ90"
+            ]
+          },
+          {
+            "text": "One fun drop section got torn up a little with someone driving through mud but it's not too bad",
+            "source_video_ids": [
+              "fuAMsK_qZ90"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "If you really love your aero bars, this is a course for you because you can hunker down for a good chunk of the long south-heading section",
+            "source_video_ids": [
+              "fuAMsK_qZ90"
+            ]
+          }
+        ],
+        "race_day_tips": [
+          {
+            "text": "Take the first five miles of rollers easy if you're not focusing on racing - this is not where you're going to win the race",
+            "source_video_ids": [
+              "fuAMsK_qZ90"
+            ]
+          },
+          {
+            "text": "Be careful of traffic where the course crosses a pretty busy road during the fairly flat speedy section heading north",
+            "source_video_ids": [
+              "fuAMsK_qZ90"
+            ]
+          },
+          {
+            "text": "Save energy for the soft gravel section after the second aid station as it takes extra work to get through",
+            "source_video_ids": [
+              "fuAMsK_qZ90"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "My first ride was on the Wabash with my uncle prepping for RAGBRAI, so being in Silver City was kind of a nice mental full circle way to be on the bike",
+            "source_video_id": "T13ExBIxJ-o",
+            "source_channel": "Iowa Gravel Series",
+            "source_view_count": 168,
+            "category": "community",
+            "curated": true
+          },
+          {
+            "text": "There's a good pit toilet at the first aid station near Macedonia - good place to stop if stopping is your thing",
+            "source_video_id": "fuAMsK_qZ90",
+            "source_channel": "Iowa Gravel Series",
+            "source_view_count": 129,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "The Silver City Century features challenging rollers in the first five miles that riders should pace conservatively. The course includes multiple Class B road sections described as some of the smoothest terrain, even smoother than pavement, with one grass-covered section being particularly scenic. A long south-heading section offers opportunities for riders to use aero bars effectively. Key aid stations are located near Macedonia (mile ~20) with pit toilets and at Willow Slew (mile 45). The course becomes more challenging after the second aid station where gravel turns soft and requires extra energy. The final section includes three hills on soft gravel that non-competitive riders can bypass using the trace. Traffic crossings require caution during faster northern sections. The race has strong community connections with local establishments like Silver Spokes bike shop."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "silver-city-century-video-1.jpg",
+        "url": "/race-photos/silver-city-century/silver-city-century-video-1.jpg",
+        "alt": "Cyclist's first-person view riding on tree-lined gravel road with dappled sunlight and another rider visible ahead - Silver City Century - Silver City, Iowa",
+        "credit": "YouTube / Roll n' Rocks",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel road",
+          "tree-lined path",
+          "first-person view",
+          "dappled sunlight",
+          "cycling"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "silver-city-century-video-2.jpg",
+        "url": "/race-photos/silver-city-century/silver-city-century-video-2.jpg",
+        "alt": "Two cyclists in blue racing jerseys riding on paved road through small town during organized gravel race event - Silver City Century - Silver City, Iowa",
+        "credit": "YouTube / Roll n' Rocks",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "cycling race",
+          "blue jerseys",
+          "small town",
+          "paved road",
+          "gravel event"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "silver-city-century-video-3.jpg",
+        "url": "/race-photos/silver-city-century/silver-city-century-video-3.jpg",
+        "alt": "Male cyclist in Grateful Dead t-shirt and cap speaking indoors during post-race interview or video call - Silver City Century - Silver City, Iowa",
+        "credit": "YouTube / Roll n' Rocks",
+        "primary": false,
+        "ai_relevance": 1,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "indoor interview",
+          "cyclist",
+          "post-race",
+          "video call"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "silver-city-century-preview.gif",
+        "url": "/race-photos/silver-city-century/silver-city-century-preview.gif",
+        "alt": "Course preview from Silver City Century race footage",
+        "credit": "YouTube / Roll n' Rocks",
+        "gif": true
+      }
+    ]
   }
 }

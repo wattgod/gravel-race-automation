@@ -536,7 +536,194 @@
           "category": "course_difficulty",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Double Peak",
+            "mile_marker": "",
+            "description": "Historically this race finished up a massive climb with the steepest pitch being right at the end of the race up a road called Double Peak. It was brutal. However, the current course no longer climbs Double Peak at the end.",
+            "source_video_ids": [
+              "1q0v_lkLvwM"
+            ]
+          },
+          {
+            "name": "Lemon Twistenberg",
+            "mile_marker": "",
+            "description": "A really long dirt section where the lead group gets blown to shreds.",
+            "source_video_ids": [
+              "1q0v_lkLvwM"
+            ]
+          },
+          {
+            "name": "The Wash",
+            "mile_marker": "",
+            "description": "The final kick in the teeth - just when you are meters from the Finish you're diverted into this deep sand wash. It's only a couple hundred meters but can cause riders to tip over as they run out of steam or cramp.",
+            "source_video_ids": [
+              "LSTzET6Q4ak"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "You're either on baby butt smooth pavement flying along in a big group or you're on chunky mud laden whoops the likes of which Motocross riders were out there riding because that is their terrain.",
+            "source_video_ids": [
+              "LSTzET6Q4ak"
+            ]
+          },
+          {
+            "text": "The course included quite a bit more rough off-road sections, which meant more people considered it a gravel race instead of a road race with off-road sectors.",
+            "source_video_ids": [
+              "1q0v_lkLvwM"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "Most riders were on 40s or 45s and opted for a more gravel specific tire. In years past, most riders opted for a wider road tire like the Strata Bianca 36s.",
+            "source_video_ids": [
+              "1q0v_lkLvwM"
+            ]
+          },
+          {
+            "text": "I went with the Pathfinder 40s this year.",
+            "source_video_ids": [
+              "1q0v_lkLvwM"
+            ]
+          },
+          {
+            "text": "Keegan had a little wider tires maybe a little lower pressure and that made the difference in the final sprint.",
+            "source_video_ids": [
+              "LSTzET6Q4ak"
+            ]
+          }
+        ],
+        "race_day_tips": [
+          {
+            "text": "Since double peak doesn't happen at the end of this race, it completely changes the dynamic because now you don't have to save so many matches for the end. You can be a little bit more risky with your efforts earlier in the race.",
+            "source_video_ids": [
+              "1q0v_lkLvwM"
+            ]
+          },
+          {
+            "text": "Attack with about one mile before the first off-road sector as a strategy to get a buffer before the technical parts of the course to give yourself a little bit of a head start.",
+            "source_video_ids": [
+              "1q0v_lkLvwM"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "The decisive parts of the course always lend it to those with more experience in the off-road side of things even though there's a fair amount of road.",
+            "source_video_id": "rFYsAX1lsSQ",
+            "source_channel": "Veloworthy",
+            "source_view_count": 32554,
+            "category": "training",
+            "curated": true
+          },
+          {
+            "text": "Michael marks the Mystic manic Mastermind behind this Mayhem describes his races now as unroad not gravel but unroad.",
+            "source_video_id": "LSTzET6Q4ak",
+            "source_channel": "The Ride with Ben Delaney",
+            "source_view_count": 24037,
+            "category": "community",
+            "curated": true
+          }
+        ],
+        "search_text": "The Belgian Waffle Ride California features a major course change with no more Double Peak finish climb, now ending with more gravel sections instead. Riders describe terrain that alternates between baby butt smooth pavement and chunky mud laden whoops that Motocross riders train on. Key challenges include the first off-road sector where positioning is critical, Lemon Twistenberg where lead groups get blown apart, and The Wash - a final deep sand section just meters from the finish that causes cramping riders to tip over. Most riders now use 40-45mm gravel-specific tires rather than the wider road tires of previous years. The course designer calls it unroad rather than gravel, with decisive sections favoring mountain bikers despite significant road portions. Race strategy has shifted since riders no longer need to save energy for the brutal Double Peak finish climb."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "bwr-california-video-1.jpg",
+        "url": "/race-photos/bwr-california/bwr-california-video-1.jpg",
+        "alt": "Two cyclists riding on wooded trail with one wearing red helmet and jersey, surrounded by evergreen trees in natural setting - Belgian Waffle Ride - Del Mar, California",
+        "credit": "YouTube / Kyle on Wheels",
+        "primary": true,
+        "ai_relevance": 4,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "mountain biking",
+          "wooded trail",
+          "evergreen forest",
+          "cycling helmet"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "bwr-california-video-2.jpg",
+        "url": "/race-photos/bwr-california/bwr-california-video-2.jpg",
+        "alt": "Paved road cutting through rolling green hills under overcast sky with cyclist visible in distance - Belgian Waffle Ride - Del Mar, California",
+        "credit": "YouTube / Kyle on Wheels",
+        "primary": false,
+        "ai_relevance": 3,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "paved road",
+          "rolling hills",
+          "overcast sky",
+          "road cycling"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "bwr-california-video-3.jpg",
+        "url": "/race-photos/bwr-california/bwr-california-video-3.jpg",
+        "alt": "Gravel cyclist in blue jersey standing with bike on desert trail surrounded by sagebrush and arid landscape - Belgian Waffle Ride - Del Mar, California",
+        "credit": "YouTube / Kyle on Wheels",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel bike",
+          "desert terrain",
+          "sagebrush",
+          "arid landscape",
+          "cycling jersey"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "bwr-california-preview.gif",
+        "url": "/race-photos/bwr-california/bwr-california-preview.gif",
+        "alt": "Course preview from Bwr California race footage",
+        "credit": "YouTube / Kyle on Wheels",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "bwr-california-preview-2.gif",
+        "url": "/race-photos/bwr-california/bwr-california-preview-2.gif",
+        "alt": "Course preview from Bwr California race footage",
+        "credit": "YouTube / Kyle on Wheels",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "bwr-california-preview-3.gif",
+        "url": "/race-photos/bwr-california/bwr-california-preview-3.gif",
+        "alt": "Course preview from Bwr California race footage",
+        "credit": "YouTube / Kyle on Wheels",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "bwr-california-preview-4.gif",
+        "url": "/race-photos/bwr-california/bwr-california-preview-4.gif",
+        "alt": "Course preview from Bwr California race footage",
+        "credit": "YouTube / Kyle on Wheels",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "bwr-california-preview-5.gif",
+        "url": "/race-photos/bwr-california/bwr-california-preview-5.gif",
+        "alt": "Course preview from Bwr California race footage",
+        "credit": "YouTube / Kyle on Wheels",
+        "gif": true
+      }
+    ]
   }
 }

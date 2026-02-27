@@ -543,7 +543,155 @@
           "category": "course_difficulty",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Double digit grades",
+            "description": "Steep climbs where riders report needing more gears, with 42 chainring and 10-44 cassette not being enough for the steep gradients.",
+            "source_video_ids": [
+              "XEDxVsSW2kE"
+            ]
+          },
+          {
+            "name": "High altitude climbing",
+            "description": "Course reaches 9,200 feet elevation with riders experiencing slow average pace of 2.5 miles per hour on climbs.",
+            "source_video_ids": [
+              "XEDxVsSW2kE"
+            ]
+          },
+          {
+            "name": "Grouse Mountain",
+            "description": "High point of the course with a rocking descent back down to the valley following the climb.",
+            "source_video_ids": [
+              "Pf4xmVRnKZI"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Gravel roads run nice and smooth, smoother than many pavement roads, especially for the shorter distances.",
+            "source_video_ids": [
+              "Pf4xmVRnKZI"
+            ]
+          },
+          {
+            "text": "Course features some chunky dirt roads that test equipment, with riders noting the rough conditions.",
+            "source_video_ids": [
+              "XEDxVsSW2kE"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "Put on 47mm Pathfinder Pro tires on Reserve 40/44 wheels which plump up to nearly 50mm to stay on track.",
+            "source_video_ids": [
+              "XEDxVsSW2kE"
+            ]
+          },
+          {
+            "text": "Stock 40mm Rambler tires work well for the course conditions.",
+            "source_video_ids": [
+              "XEDxVsSW2kE"
+            ]
+          }
+        ],
+        "race_day_tips": [
+          {
+            "text": "Riders report very slow average pace of 2.5 miles per hour on the climbs due to steep grades and high altitude.",
+            "source_video_ids": [
+              "XEDxVsSW2kE"
+            ]
+          },
+          {
+            "text": "When not racing hard, it's easier to enjoy the spectacular views along the course.",
+            "source_video_ids": [
+              "XEDxVsSW2kE"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "The riding in Kremling is incredible - you could go 35 miles in a few hours and you might see more elk than you'll see people. It's just miles and miles of untapped and untamed gravel.",
+            "source_video_id": "Pf4xmVRnKZI",
+            "source_channel": "The Ride with Ben Delaney",
+            "source_view_count": 12076,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "Being a rancher helps because I'm not like a hobby rancher. We have close to 200 head of cattle. So I'm looked at as a legitimate rancher that has a problem with aerobic exercise.",
+            "source_video_id": "sCTcd3VOKTM",
+            "source_channel": "The Ride with Ben Delaney",
+            "source_view_count": 12046,
+            "category": "community",
+            "curated": true
+          }
+        ],
+        "search_text": "KowTown Gravel in Kremling, Colorado features three distances with the longest reaching nearly 10,000 feet elevation and significant climbing. The course runs through working cattle ranch land owned by the Shaw family, with smooth gravel roads that are better than many paved surfaces. Key challenges include double-digit grade climbs where riders struggle with gearing, high altitude effects causing very slow 2.5 mph average pace on climbs, and reaching 9,200+ feet elevation. The terrain varies from smooth valley roads along the Colorado River to chunky dirt roads in the mountains. Riders report excellent scenery with wildlife including elk, bears, and moose, plus zero car traffic for hours. The course includes Grouse Mountain as a high point with spectacular descents. Gear recommendations include wider tires around 47-50mm for better traction on varied surfaces."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "kowtown-gravel-video-1.jpg",
+        "url": "/race-photos/kowtown-gravel/kowtown-gravel-video-1.jpg",
+        "alt": "Female gravel cyclist on dirt trail through rolling green hills with dramatic cloudy sky overhead - KowTown Gravel - Kremmling, CO",
+        "credit": "YouTube / The Ride with Ben Delaney",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel cyclist",
+          "dirt trail",
+          "rolling hills",
+          "green landscape",
+          "cycling helmet"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "kowtown-gravel-video-2.jpg",
+        "url": "/race-photos/kowtown-gravel/kowtown-gravel-video-2.jpg",
+        "alt": "Two gravel cyclists posing for camera on dirt path through open grassland prairie terrain - KowTown Gravel - Kremmling, CO",
+        "credit": "YouTube / The Ride with Ben Delaney",
+        "primary": false,
+        "ai_relevance": 4,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "gravel cyclists",
+          "prairie terrain",
+          "dirt path",
+          "grassland",
+          "cycling gear"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "kowtown-gravel-video-3.jpg",
+        "url": "/race-photos/kowtown-gravel/kowtown-gravel-video-3.jpg",
+        "alt": "Group of gravel cyclists riding single file on dirt trail through valley with aspen trees and mountains - KowTown Gravel - Kremmling, CO",
+        "credit": "YouTube / The Ride with Ben Delaney",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel group ride",
+          "dirt trail",
+          "aspen trees",
+          "mountain valley",
+          "single file"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "kowtown-gravel-preview.gif",
+        "url": "/race-photos/kowtown-gravel/kowtown-gravel-preview.gif",
+        "alt": "Course preview from Kowtown Gravel race footage",
+        "credit": "YouTube / The Ride with Ben Delaney",
+        "gif": true
+      }
+    ]
   }
 }

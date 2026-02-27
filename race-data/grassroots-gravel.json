@@ -578,7 +578,155 @@
           "category": "community",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "12 mile climb",
+            "description": "A sustained climb gaining more than 3,000 feet on that one climb alone. Goes on for many miles and heads over double digits grade.",
+            "source_video_ids": [
+              "Lq7OZo5v5Hs"
+            ]
+          },
+          {
+            "name": "washboard section at start",
+            "description": "Immediately after the start line, riders are met with washboard road conditions that catch people off guard.",
+            "source_video_ids": [
+              "5urN9oht3_s"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Never seen so much smooth dirt. The gravel's perfect after lots of rain the night before.",
+            "source_video_ids": [
+              "275qcjVttFI"
+            ]
+          },
+          {
+            "text": "There's no crazy technical gravel on any of the courses.",
+            "source_video_ids": [
+              "Lq7OZo5v5Hs"
+            ]
+          },
+          {
+            "text": "Fast rollers across some of the oldest ranches in Colorado on burntmill road.",
+            "source_video_ids": [
+              "Lq7OZo5v5Hs"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "You're going to appreciate having some low low gears - that 12 mile climb goes on for many miles and you're climbing more than 3,000 ft on that one climb alone. The wide range cassette 10-46 with a 42 chain ring is very much appreciated.",
+            "source_video_ids": [
+              "Lq7OZo5v5Hs"
+            ]
+          }
+        ],
+        "race_day_tips": [
+          {
+            "text": "His plan was to not stop at any aid station to reach his goal of sub eight hours.",
+            "source_video_ids": [
+              "5urN9oht3_s"
+            ]
+          },
+          {
+            "text": "The first four miles were neutral and the last six miles of the race were also neutral to avoid making it a version of monster track through downtown Pueblo.",
+            "source_video_ids": [
+              "5urN9oht3_s"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "The 75 mile route finishes through stem Beach which is a natural area owned by evz Rocky Mountain steel - they are partnering to provide access for this one day only of the year otherwise you cannot go through there. It's this gorgeous Gravel Road with a straight away between two big ponds and the Finish flags are right at the end.",
+            "source_video_id": "Lq7OZo5v5Hs",
+            "source_channel": "The Ride with Ben Delaney",
+            "source_view_count": 8454,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "Big thank you to all the folks volunteering at the aid stations. Really appreciate it. Makes a big difference. Every aid station was well stocked up with flow formulas.",
+            "source_video_id": "5urN9oht3_s",
+            "source_channel": "Josh Romero",
+            "source_view_count": 1449,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "We created this thing so there'd be a great event here in Pueblo that welcomes everyone and our goal has been to see every flavor of human, every type of bicycle here. Whether you're looking to absolutely crush some time or ride at whatever pace, be there for each other. That is what Grassroots Gravel is about.",
+            "source_video_id": "275qcjVttFI",
+            "source_channel": "Grassroots Gravel",
+            "source_view_count": 6296,
+            "category": "community",
+            "curated": true
+          }
+        ],
+        "search_text": "Grassroots Gravel in Pueblo, Colorado offers four distance options: 15, 40, 75, and 110 miles. The signature challenge is a 12-mile climb gaining over 3,000 feet on one sustained ascent. Riders describe the terrain as smooth dirt with no technical sections, though washboard conditions appear immediately after the start line. The course features fast rolling sections through historic Colorado ranches on burntmill road. A highlight is the finish through stem Beach, a private natural area with gravel roads between ponds, accessible only on race day. The race starts downtown with 4 miles of neutral rollout and 6 miles neutral to the finish. Aid stations are well-stocked. The event emphasizes inclusivity, welcoming riders of all abilities from age 10 up, with strong community atmosphere and volunteer support throughout."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "grassroots-gravel-video-1.jpg",
+        "url": "/race-photos/grassroots-gravel/grassroots-gravel-video-1.jpg",
+        "alt": "Cyclist in maroon jersey running on dirt gravel road through forested mountain terrain with blue sky - Grassroots Gravel - Pueblo, Colorado",
+        "credit": "YouTube / The Ride with Ben Delaney",
+        "primary": true,
+        "ai_relevance": 4,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel road",
+          "mountain terrain",
+          "forest",
+          "dirt road",
+          "cycling"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "grassroots-gravel-video-2.jpg",
+        "url": "/race-photos/grassroots-gravel/grassroots-gravel-video-2.jpg",
+        "alt": "Two men in matching patterned shirts posing at outdoor cycling event with vendor tents and buildings in background - Grassroots Gravel - Pueblo, Colorado",
+        "credit": "YouTube / The Ride with Ben Delaney",
+        "primary": false,
+        "ai_relevance": 2,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "cycling event",
+          "vendor area",
+          "race atmosphere",
+          "outdoor festival"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "grassroots-gravel-video-3.jpg",
+        "url": "/race-photos/grassroots-gravel/grassroots-gravel-video-3.jpg",
+        "alt": "Female cyclist in Colorado jersey and helmet waving beside mountain lake with forested hills and blue sky - Grassroots Gravel - Pueblo, Colorado",
+        "credit": "YouTube / The Ride with Ben Delaney",
+        "primary": false,
+        "ai_relevance": 4,
+        "ai_quality": 5,
+        "ai_keywords": [
+          "Colorado cycling",
+          "mountain lake",
+          "forest terrain",
+          "cycling helmet",
+          "gravel cycling"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "grassroots-gravel-preview.gif",
+        "url": "/race-photos/grassroots-gravel/grassroots-gravel-preview.gif",
+        "alt": "Course preview from Grassroots Gravel race footage",
+        "credit": "YouTube / The Ride with Ben Delaney",
+        "gif": true
+      }
+    ]
   }
 }

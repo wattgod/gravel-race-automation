@@ -620,7 +620,135 @@
           "category": "course_difficulty",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Ishpeming section",
+            "description": "A lot of hike-a-bike especially towards the end as you get into Ishpeming later in the race.",
+            "source_video_ids": [
+              "NvbeHWF14jI"
+            ]
+          },
+          {
+            "name": "Mental game deterioration",
+            "description": "The first thing to go for most will be the mental. When you get 6-10 hours in and you're dealing with rocks and roots while climbing and descending, it just wears on your mental game.",
+            "source_video_ids": [
+              "4LHU_tuXrbQ"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "85 to 90% of the race is single track with rocks, roots, jump lines, and constant hills. There's no free trail out there - even down the hills you have to stay completely focused.",
+            "source_video_ids": [
+              "4LHU_tuXrbQ"
+            ]
+          },
+          {
+            "text": "You can't see where you're going - everything comes in 100 foot spurts. You can't get into any kind of rhythm, challenges just keep coming at you one after the other.",
+            "source_video_ids": [
+              "4LHU_tuXrbQ"
+            ]
+          },
+          {
+            "text": "100 miles of bone-jarring, skin ripping, brutal unforgiving mining country trails that zigzag through the rugged Upper Peninsula landscape.",
+            "source_video_ids": [
+              "NvbeHWF14jI"
+            ]
+          }
+        ],
+        "gear_mentions": [],
+        "race_day_tips": [
+          {
+            "text": "Try to keep it cool and pace yourself throughout the race.",
+            "source_video_ids": [
+              "NvbeHWF14jI"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "There are no official race aid stations. We do have what we call Trail Angels out there providing aid, but there's not much Gatorade.",
+            "source_video_id": "4LHU_tuXrbQ",
+            "source_channel": "Travel Marquette Michigan",
+            "source_view_count": 83660,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "We wanted to put together an event for the community and for those in the Midwest that would really test one's spirit, one's will and their ability to push through a difficult event.",
+            "source_video_id": "NvbeHWF14jI",
+            "source_channel": "906 Outdoors",
+            "source_view_count": 17481,
+            "category": "community",
+            "curated": true
+          }
+        ],
+        "search_text": "The Marji Gesick 100 in Marquette, Michigan is described by riders as one of the most challenging endurance bike races in the Midwest. The course features 85-90% single track with 12,000 feet of climbing through rocks, roots, jump lines and constant hills across mining country trails. Riders emphasize the mental challenge, saying visibility is limited to 100-foot spurts with no rhythm possible. The terrain is bone-jarring and unforgiving, requiring complete focus even on descents. Key challenges include significant hike-a-bike sections especially toward Ishpeming and mental deterioration after 6-10 hours of technical riding. The race has no official aid stations, only Trail Angels providing limited support. What started as an event organizers thought might attract 12-15 people now draws over 600 participants who come to test their spirit and determination on this purposefully designed sadistic course."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "marji-gesick-video-1.jpg",
+        "url": "/race-photos/marji-gesick/marji-gesick-video-1.jpg",
+        "alt": "Gravel cyclists racing past transition area with bikes lined up on grass at forest-lined course - Marji Gesick - Marquette, Michigan",
+        "credit": "YouTube / Travel Marquette Michigan",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "gravel race",
+          "transition area",
+          "forest course",
+          "cycling event",
+          "bike staging"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "marji-gesick-video-2.jpg",
+        "url": "/race-photos/marji-gesick/marji-gesick-video-2.jpg",
+        "alt": "Mountain biker riding through tall grass at sunset with dramatic cloudy sky and forest backdrop - Marji Gesick - Marquette, Michigan",
+        "credit": "YouTube / Travel Marquette Michigan",
+        "primary": false,
+        "ai_relevance": 4,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "sunset ride",
+          "tall grass",
+          "forest trail",
+          "dramatic sky",
+          "evening cycling"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "marji-gesick-video-3.jpg",
+        "url": "/race-photos/marji-gesick/marji-gesick-video-3.jpg",
+        "alt": "Close-up of bicycle brake pad being adjusted or maintained indoors with blurred background - Marji Gesick - Marquette, Michigan",
+        "credit": "YouTube / Travel Marquette Michigan",
+        "primary": false,
+        "ai_relevance": 2,
+        "ai_quality": 2,
+        "ai_keywords": [
+          "bike maintenance",
+          "brake pad",
+          "cycling repair",
+          "bicycle component",
+          "indoor workshop"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "marji-gesick-preview.gif",
+        "url": "/race-photos/marji-gesick/marji-gesick-preview.gif",
+        "alt": "Course preview from Marji Gesick race footage",
+        "credit": "YouTube / Travel Marquette Michigan",
+        "gif": true
+      }
+    ]
   }
 }

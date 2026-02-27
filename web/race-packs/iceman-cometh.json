@@ -1,6 +1,7 @@
 {
   "slug": "iceman-cometh",
   "race_name": "Iceman Cometh",
+  "distance_mi": 30.0,
   "demands": {
     "durability": 1,
     "climbing": 3,
@@ -18,7 +19,8 @@
       "workouts": [
         "Surge and Settle",
         "Terrain Microbursts"
-      ]
+      ],
+      "workout_context": "Iceman Cometh\u2019s michigan singletrack, mountain bike demands rapid power changes \u2014 surge over obstacles, settle on smoother sections, repeat for hours."
     },
     {
       "category": "Race_Simulation",
@@ -27,7 +29,8 @@
         "Breakaway Simulation",
         "Variable Pace Chaos",
         "Sector Simulation"
-      ]
+      ],
+      "workout_context": "Racing Iceman Cometh isn\u2019t just fitness \u2014 it\u2019s pacing, fueling, and executing when conditions deteriorate. This workout practices the race itself."
     },
     {
       "category": "Critical_Power",
@@ -35,7 +38,8 @@
       "workouts": [
         "Above CP Repeats",
         "W-Prime Depletion"
-      ]
+      ],
+      "workout_context": "Critical power determines how long you can sustain above-threshold efforts at Iceman Cometh \u2014 a higher CP means more time in the red before failure."
     },
     {
       "category": "VO2max",
@@ -44,7 +48,8 @@
         "5x3 VO2 Classic",
         "Descending VO2 Pyramid",
         "Norwegian 4x8"
-      ]
+      ],
+      "workout_context": "Iceman Cometh\u2019s michigan mountain bike singletrack and competitive field demand explosive aerobic capacity \u2014 the ability to respond to surges without blowing up."
     },
     {
       "category": "Anaerobic_Capacity",
@@ -52,9 +57,80 @@
       "workouts": [
         "2min Killers",
         "90sec Repeats"
-      ]
+      ],
+      "workout_context": "Short, violent efforts are unavoidable at Iceman Cometh \u2014 climbs demanding 2-minute maximal efforts, surges to close gaps, attacks on michigan mountain bike singletrack."
+    },
+    {
+      "category": "Cadence_Work",
+      "score": 42,
+      "workouts": [
+        "High Cadence Drills",
+        "Cadence Pyramids"
+      ],
+      "workout_context": "Cadence efficiency makes every pedal stroke at Iceman Cometh count \u2014 smooth technique reduces muscular fatigue over long distances."
+    },
+    {
+      "category": "Durability",
+      "score": 36,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ],
+      "workout_context": "Iceman Cometh\u2019s michigan mountain bike singletrack drains energy reserves faster than the distance suggests \u2014 durability training bridges the gap."
+    },
+    {
+      "category": "TT_Threshold",
+      "score": 36,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ],
+      "workout_context": "Iceman Cometh rewards athletes who can hold sustained power without blowing up \u2014 threshold is the engine that drives everything above Zone 2."
+    },
+    {
+      "category": "Over_Under",
+      "score": 32,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ],
+      "workout_context": "Over-unders train the lactate clearance you\u2019ll need at Iceman Cometh when surges push you above threshold and you have to recover while still riding hard."
+    },
+    {
+      "category": "G_Spot",
+      "score": 28,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ],
+      "workout_context": "The G-Spot zone (88\u201392% FTP) is where you\u2019ll spend the hardest sustained miles of Iceman Cometh. Make this intensity feel like home."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 24,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "The varied gradients at Iceman Cometh reward climbing adaptability \u2014 knowing when to sit, when to stand, and when to switch."
+    },
+    {
+      "category": "Blended",
+      "score": 22,
+      "workouts": [
+        "Z2 + VO2 Combo",
+        "Endurance with Spikes"
+      ],
+      "workout_context": "Blended sessions combine endurance with intensity spikes \u2014 exactly what Iceman Cometh\u2019s michigan mountain bike singletrack delivers on race day."
     }
   ],
+  "race_overlay": {
+    "nutrition": "Standard hydration and fueling. One bottle per hour minimum. Gel or bar every 45 minutes at race intensity.",
+    "terrain": "Highly technical terrain at Iceman Cometh demands practice on similar surfaces. Ride michigan mountain bike singletrack at race-day cadence weekly. Expect: michigan singletrack, mountain bike, 30-mile distance. Practice cornering, descending, and power delivery on unstable surfaces. Dial in tire pressure before race week \u2014 5 PSI wrong costs you 15+ minutes over 30 miles."
+  },
   "pack_summary": "This 10-workout pack focuses on Gravel Specific, Race Simulation, and Critical Power to prepare you for 30 miles of michigan mountain bike singletrack in Kalkaska, Michigan.",
   "generated_at": "2026-02-26"
 }

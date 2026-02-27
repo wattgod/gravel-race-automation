@@ -1,6 +1,7 @@
 {
   "slug": "oregon-trail-gravel",
   "race_name": "Oregon Trail Gravel Grinder",
+  "distance_mi": 375.0,
   "demands": {
     "durability": 10,
     "climbing": 10,
@@ -19,7 +20,8 @@
         "Tired VO2max",
         "Double Day Simulation",
         "Progressive Fatigue"
-      ]
+      ],
+      "workout_context": "Oregon Trail Gravel Grinder\u2019s 375-mile distance demands power production deep into fatigue \u2014 the defining challenge of ultra-distance gravel."
     },
     {
       "category": "VO2max",
@@ -28,7 +30,8 @@
         "5x3 VO2 Classic",
         "Descending VO2 Pyramid",
         "Norwegian 4x8"
-      ]
+      ],
+      "workout_context": "Oregon Trail Gravel Grinder\u2019s high desert and forest service gravel across central oregon and competitive field demand explosive aerobic capacity \u2014 the ability to respond to surges without blowing up."
     },
     {
       "category": "Race_Simulation",
@@ -37,7 +40,8 @@
         "Breakaway Simulation",
         "Variable Pace Chaos",
         "Sector Simulation"
-      ]
+      ],
+      "workout_context": "Racing Oregon Trail Gravel Grinder isn\u2019t just fitness \u2014 it\u2019s pacing, fueling, and executing when conditions deteriorate. This workout practices the race itself."
     },
     {
       "category": "Gravel_Specific",
@@ -45,7 +49,8 @@
       "workouts": [
         "Surge and Settle",
         "Terrain Microbursts"
-      ]
+      ],
+      "workout_context": "Oregon Trail Gravel Grinder\u2019s high desert gravel, forest service roads demands rapid power changes \u2014 surge over obstacles, settle on smoother sections, repeat for hours."
     },
     {
       "category": "Endurance",
@@ -53,9 +58,81 @@
       "workouts": [
         "Pre-Race Openers",
         "Terrain Simulation Z2"
-      ]
+      ],
+      "workout_context": "Every session at Oregon Trail Gravel Grinder intensity builds on this aerobic foundation \u2014 the endurance base is the soil everything else grows in."
+    },
+    {
+      "category": "Over_Under",
+      "score": 69,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ],
+      "workout_context": "Over-unders train the lactate clearance you\u2019ll need at Oregon Trail Gravel Grinder when surges push you above threshold and you have to recover while still riding hard."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 64,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "Oregon Trail Gravel Grinder\u2019s 35,000ft of climbing demands seated and standing versatility \u2014 the ability to change climbing style as gradient and fatigue dictate."
+    },
+    {
+      "category": "TT_Threshold",
+      "score": 64,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ],
+      "workout_context": "Oregon Trail Gravel Grinder rewards athletes who can hold sustained power without blowing up \u2014 threshold is the engine that drives everything above Zone 2."
+    },
+    {
+      "category": "HVLI_Extended",
+      "score": 55,
+      "workouts": [
+        "HVLI Extended Z2",
+        "Multi-Hour Z2",
+        "Back-to-Back Long"
+      ],
+      "workout_context": "At 375 miles, Oregon Trail Gravel Grinder rewards a massive aerobic engine. This volume work builds the fat-oxidation capacity that keeps you moving when glycogen runs low."
+    },
+    {
+      "category": "Blended",
+      "score": 53,
+      "workouts": [
+        "Z2 + VO2 Combo",
+        "Endurance with Spikes"
+      ],
+      "workout_context": "Blended sessions combine endurance with intensity spikes \u2014 exactly what Oregon Trail Gravel Grinder\u2019s high desert and forest service gravel across central oregon delivers on race day."
+    },
+    {
+      "category": "G_Spot",
+      "score": 48,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ],
+      "workout_context": "The G-Spot zone (88\u201392% FTP) is where you\u2019ll spend the hardest sustained miles of Oregon Trail Gravel Grinder. Make this intensity feel like home."
+    },
+    {
+      "category": "Critical_Power",
+      "score": 48,
+      "workouts": [
+        "Above CP Repeats",
+        "W-Prime Depletion"
+      ],
+      "workout_context": "Critical power determines how long you can sustain above-threshold efforts at Oregon Trail Gravel Grinder \u2014 a higher CP means more time in the red before failure."
     }
   ],
+  "race_overlay": {
+    "nutrition": "Ultra-distance fueling for 375 miles: 80\u2013100g carbs/hour from mile 1 \u2014 don\u2019t wait until you\u2019re hungry. Practice your exact race-day nutrition in every long training ride. Carry backup calories. 375 miles burns 8,000\u201312,000+ calories \u2014 you cannot replace them all, but you must try.",
+    "altitude": "Oregon Trail Gravel Grinder with 35,000ft of climbing, much of it above 8,000ft demands altitude preparation. Arrive 5\u20137 days early for acclimatization. Expect 5\u201315% power reduction at altitude. Increase iron intake 4 weeks out. Hydrate aggressively \u2014 altitude increases fluid loss by 20\u201340%. High-altitude sun exposure.",
+    "terrain": "Mixed terrain at Oregon Trail Gravel Grinder requires surface adaptability. Include weekly rides on high desert and forest service gravel across central oregon to build confidence. Expect: high desert gravel, forest service roads, mountain passes."
+  },
   "pack_summary": "This 10-workout pack focuses on Durability, VO2max, and Race Simulation to prepare you for 375 miles of high desert and forest service gravel across central oregon in Central Oregon (multiple towns).",
   "generated_at": "2026-02-26"
 }

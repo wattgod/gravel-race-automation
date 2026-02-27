@@ -612,7 +612,192 @@
           "category": "course_difficulty",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Colombardo Climb",
+            "description": "The biggest climb many riders have ever done. Eight hours including stops from the approach to reaching over 2000m. Broken tarmac becomes loose gravel, then gets steeper like riding up a wall. Many riders walk large portions due to the length and high altitude.",
+            "source_video_ids": [
+              "djrzd4AO3qk",
+              "VwN0Xs-PjLA",
+              "dUP9w5i9mtI"
+            ]
+          },
+          {
+            "name": "Col de la Finestra",
+            "description": "Another major climb following the Colombardo. Riders describe it as a big one but hopefully easier than the Colombardo.",
+            "source_video_ids": [
+              "VwN0Xs-PjLA",
+              "dUP9w5i9mtI"
+            ]
+          },
+          {
+            "name": "Death Road",
+            "description": "A closed road known as the death road due to risk of rockfall that is reclaiming it for nature.",
+            "source_video_ids": [
+              "VwN0Xs-PjLA"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "50% gravel with parts that are not gravel anymore but big rocks and technical terrain. Broken tarmac becomes loose gravel on climbs.",
+            "source_video_ids": [
+              "djrzd4AO3qk",
+              "VwN0Xs-PjLA"
+            ]
+          },
+          {
+            "text": "Technical descents that are really fast, requiring full concentration and focus.",
+            "source_video_ids": [
+              "djrzd4AO3qk"
+            ]
+          }
+        ],
+        "gear_mentions": [],
+        "race_day_tips": [
+          {
+            "text": "Eat a lot more than your hunger tells you to eat. Bring power bars and stop at small restaurants and bars everywhere you can find them.",
+            "source_video_ids": [
+              "djrzd4AO3qk"
+            ]
+          },
+          {
+            "text": "Keep moving and eat roadside snacks quickly, then move on. Don't stop pedaling really, just keep turning pedals to get through the distance and elevation.",
+            "source_video_ids": [
+              "dUP9w5i9mtI"
+            ]
+          },
+          {
+            "text": "Consider taking more days if doing it again - maybe 10 days instead of 4-5 to ride less each day and enjoy the scenery more.",
+            "source_video_ids": [
+              "djrzd4AO3qk"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "This wasn't a race it was a rally and it was just about riding those 700 km. Didn't ride that many hours, somewhere between 10 and the longest day was maybe 14 hours. Got quite a bit of sleep, mostly 6 to 8 hours depending on how long the day was and how cold it was in the morning.",
+            "source_video_id": "djrzd4AO3qk",
+            "source_channel": "Bombtrack Bicycle Co.",
+            "source_view_count": 46739,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "Overnights are in Mountain refuges, tents and bivouacs and the 700 kilometer route can take anything from 5 to 10 days.",
+            "source_video_id": "VwN0Xs-PjLA",
+            "source_channel": "Always Another Adventure",
+            "source_view_count": 10185,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "We each have to make a series of choices along the way based on our abilities and accumulated fatigue. We link the gravel roads together by tackling famous Road climbs over classic cols.",
+            "source_video_id": "VwN0Xs-PjLA",
+            "source_channel": "Always Another Adventure",
+            "source_view_count": 10185,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "The Torino Nice Rally is a 700km route with 18,000m of climbing from Turin to Nice, featuring 50% gravel terrain that becomes increasingly technical with big rocks rather than just gravel. The route traverses high Alpine military roads mostly over 2000m elevation through national parks between Italy and France. The notorious Colombardo climb is the first major challenge, taking up to 8 hours and forcing many riders to walk sections due to its extreme steepness and altitude. Other key climbs include Col de la Finestra and the dangerous Death Road, closed due to rockfall risk. Technical descents require intense concentration at high speeds. The rally format allows riders to choose their own route and pace, taking 5-10 days to complete. Accommodations vary from mountain refuges to wild camping. Riders emphasize constant eating and frequent stops at restaurants. The remote, lonely sections through beautiful Alpine scenery provide a meditative experience above 2000m elevation."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "torino-nice-rally-video-1.jpg",
+        "url": "/race-photos/torino-nice-rally/torino-nice-rally-video-1.jpg",
+        "alt": "Cyclist in bright yellow jersey riding gravel path past historic stone church building in rural countryside setting - Torino Nice Rally - Turin, Italy to Nice, France",
+        "credit": "YouTube / Keith & Lindsay - Bikepacking Scotland",
+        "primary": true,
+        "ai_relevance": 4,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel cycling",
+          "historic church",
+          "yellow jersey",
+          "rural terrain",
+          "stone building"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "torino-nice-rally-video-2.jpg",
+        "url": "/race-photos/torino-nice-rally/torino-nice-rally-video-2.jpg",
+        "alt": "Winding gravel road cutting through golden hillside with dramatic mountain layers and valleys in the background - Torino Nice Rally - Turin, Italy to Nice, France",
+        "credit": "YouTube / Keith & Lindsay - Bikepacking Scotland",
+        "primary": false,
+        "ai_relevance": 3,
+        "ai_quality": 5,
+        "ai_keywords": [
+          "mountain gravel",
+          "winding road",
+          "alpine terrain",
+          "layered mountains",
+          "golden hills"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "torino-nice-rally-video-3.jpg",
+        "url": "/race-photos/torino-nice-rally/torino-nice-rally-video-3.jpg",
+        "alt": "Solo gravel cyclist climbing steep golden grassland hillside under bright blue sky in mountainous terrain - Torino Nice Rally - Turin, Italy to Nice, France",
+        "credit": "YouTube / Keith & Lindsay - Bikepacking Scotland",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel climb",
+          "solo rider",
+          "golden grassland",
+          "mountain terrain",
+          "steep ascent"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "torino-nice-rally-preview.gif",
+        "url": "/race-photos/torino-nice-rally/torino-nice-rally-preview.gif",
+        "alt": "Course preview from Torino Nice Rally race footage",
+        "credit": "YouTube / Keith & Lindsay - Bikepacking Scotland",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "torino-nice-rally-preview-2.gif",
+        "url": "/race-photos/torino-nice-rally/torino-nice-rally-preview-2.gif",
+        "alt": "Course preview from Torino Nice Rally race footage",
+        "credit": "YouTube / Keith & Lindsay - Bikepacking Scotland",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "torino-nice-rally-preview-3.gif",
+        "url": "/race-photos/torino-nice-rally/torino-nice-rally-preview-3.gif",
+        "alt": "Course preview from Torino Nice Rally race footage",
+        "credit": "YouTube / Keith & Lindsay - Bikepacking Scotland",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "torino-nice-rally-preview-4.gif",
+        "url": "/race-photos/torino-nice-rally/torino-nice-rally-preview-4.gif",
+        "alt": "Course preview from Torino Nice Rally race footage",
+        "credit": "YouTube / Keith & Lindsay - Bikepacking Scotland",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "torino-nice-rally-preview-5.gif",
+        "url": "/race-photos/torino-nice-rally/torino-nice-rally-preview-5.gif",
+        "alt": "Course preview from Torino Nice Rally race footage",
+        "credit": "YouTube / Keith & Lindsay - Bikepacking Scotland",
+        "gif": true
+      }
+    ]
   }
 }

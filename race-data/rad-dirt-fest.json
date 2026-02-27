@@ -485,7 +485,165 @@
           "category": "course_difficulty",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "20% grade opening climb",
+            "description": "Race starts with a big punchy climb that's 20 plus percent grade. Sets up visibility for the peloton and creates early selection.",
+            "source_video_ids": [
+              "aQQKNc4-D04"
+            ]
+          },
+          {
+            "name": "Final left turn onto Main Street",
+            "description": "After 113 miles of racing, the only thing standing between riders and the finish line is the last left hand turn onto Main Street.",
+            "source_video_ids": [
+              "aQQKNc4-D04"
+            ]
+          },
+          {
+            "name": "Highway section with no shoulder",
+            "description": "Rough stretch of highway with 65 mph traffic and no shoulder for a section that riders found unenjoyable and potentially dangerous.",
+            "source_video_ids": [
+              "W3USogS4wEY"
+            ]
+          },
+          {
+            "name": "Deep rock gravel section",
+            "description": "Miles of deep rock gravel surface that riders describe as not awesome to ride on.",
+            "source_video_ids": [
+              "W3USogS4wEY"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Road surfaces get rougher and stickier when wet, turning more clay-like. Deep rock gravel sections are challenging to ride on for extended miles.",
+            "source_video_ids": [
+              "W3USogS4wEY"
+            ]
+          },
+          {
+            "text": "Mix of flat plains riding with long views followed by climbing into the hills toward the Spanish Peaks. Transition from plains to mountains provides varied terrain.",
+            "source_video_ids": [
+              "W3USogS4wEY"
+            ]
+          }
+        ],
+        "gear_mentions": [],
+        "race_day_tips": [
+          {
+            "text": "Weather can change quickly with storms developing. Rain makes clay-like road surfaces sticky and slick, affecting bike handling.",
+            "source_video_ids": [
+              "W3USogS4wEY"
+            ]
+          },
+          {
+            "text": "The race has chess match elements beyond just fitness - riders play tactical games, especially at the bottom of climbs after long distances.",
+            "source_video_ids": [
+              "aQQKNc4-D04"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "Trinidad has done a really nice job of putting together some gravel cycling tourism with curated routes, so when I headed into town I could just pick from a few without having to build something from scratch.",
+            "source_video_id": "W3USogS4wEY",
+            "source_channel": "Back of the Gravel Pack",
+            "source_view_count": 2401,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "The rad belongs to Trinidad and the community stakeholders, leadership and local businesses become our partners. They show up to volunteer for us and without their partnership this event can't take place.",
+            "source_video_id": "aQQKNc4-D04",
+            "source_channel": "Life Time Grand Prix",
+            "source_view_count": 291328,
+            "category": "community",
+            "curated": true
+          }
+        ],
+        "search_text": "Rad Dirt Fest in Trinidad, Colorado features challenging terrain that transitions from flat plains to mountainous climbing toward the Spanish Peaks. The race starts with a punchy 20+ percent grade climb that creates early selection and visibility for the field. After 113 miles of racing, riders face a final left turn onto Main Street to reach the finish. The course includes difficult sections of deep rock gravel that riders find challenging to ride on for extended distances. Weather can be a factor with sudden storms making clay-like road surfaces sticky and slick. One particularly tough section involves highway riding with 65 mph traffic and no shoulder. The race has tactical elements beyond pure fitness, with riders playing chess match games especially at the bottom of climbs. Trinidad has developed gravel cycling tourism with curated routes for visitors. The community strongly supports the event with local businesses and volunteers partnering to make the race possible."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "rad-dirt-fest-video-1.jpg",
+        "url": "/race-photos/rad-dirt-fest/rad-dirt-fest-video-1.jpg",
+        "alt": "Nederland Colorado city limit sign at 8236 feet elevation with mountainous terrain and pine trees in background - Rad Dirt Fest - Salida, Colorado",
+        "credit": "YouTube / The Ride with Ben Delaney",
+        "primary": true,
+        "ai_relevance": 3,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "Nederland Colorado",
+          "mountain elevation",
+          "pine trees",
+          "city limit sign",
+          "8236 feet"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "rad-dirt-fest-video-2.jpg",
+        "url": "/race-photos/rad-dirt-fest/rad-dirt-fest-video-2.jpg",
+        "alt": "Cyclist in aerodynamic position wearing helmet and sunglasses racing on mountain gravel road with forested hills - Rad Dirt Fest - Salida, Colorado",
+        "credit": "YouTube / The Ride with Ben Delaney",
+        "primary": false,
+        "ai_relevance": 4,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "gravel racing",
+          "aero position",
+          "mountain terrain",
+          "cycling helmet",
+          "forest background"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "rad-dirt-fest-video-3.jpg",
+        "url": "/race-photos/rad-dirt-fest/rad-dirt-fest-video-3.jpg",
+        "alt": "Gravel cyclist in racing gear and sunglasses on mountain course with pine forest and clear blue sky - Rad Dirt Fest - Salida, Colorado",
+        "credit": "YouTube / The Ride with Ben Delaney",
+        "primary": false,
+        "ai_relevance": 4,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel cyclist",
+          "mountain course",
+          "pine forest",
+          "racing gear",
+          "blue sky"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "rad-dirt-fest-preview.gif",
+        "url": "/race-photos/rad-dirt-fest/rad-dirt-fest-preview.gif",
+        "alt": "Course preview from Rad Dirt Fest race footage",
+        "credit": "YouTube / The Ride with Ben Delaney",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "rad-dirt-fest-preview-2.gif",
+        "url": "/race-photos/rad-dirt-fest/rad-dirt-fest-preview-2.gif",
+        "alt": "Course preview from Rad Dirt Fest race footage",
+        "credit": "YouTube / The Ride with Ben Delaney",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "rad-dirt-fest-preview-3.gif",
+        "url": "/race-photos/rad-dirt-fest/rad-dirt-fest-preview-3.gif",
+        "alt": "Course preview from Rad Dirt Fest race footage",
+        "credit": "YouTube / The Ride with Ben Delaney",
+        "gif": true
+      }
+    ]
   }
 }

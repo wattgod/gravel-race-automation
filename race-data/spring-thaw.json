@@ -522,7 +522,58 @@
           "curated": false
         }
       ],
-      "quotes": []
-    }
+      "quotes": [],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [],
+        "terrain_notes": [],
+        "gear_mentions": [],
+        "race_day_tips": [],
+        "additional_quotes": [],
+        "search_text": "No race-related content found in the provided transcripts. The transcripts contain content about retail crime prevention technology, flooding along the Muskegon River in Michigan, and a hospital recovery story, but do not include any information about the Spring Thaw gravel race in Muskegon, Michigan or cycling-related content that would be useful for race preparation or intelligence."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "spring-thaw-video-1.jpg",
+        "url": "/race-photos/spring-thaw/spring-thaw-video-1.jpg",
+        "alt": "Flooded park area with bare trees standing in muddy water during spring conditions - Spring Thaw - Muskegon, Michigan",
+        "credit": "YouTube / RealUnitedStatesVlog",
+        "primary": true,
+        "ai_relevance": 1,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "spring flooding",
+          "bare trees",
+          "muddy water",
+          "park flooding"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "spring-thaw-video-2.jpg",
+        "url": "/race-photos/spring-thaw/spring-thaw-video-2.jpg",
+        "alt": "Flooded riverside area with leafless trees partially submerged in brown floodwater - Spring Thaw - Muskegon, Michigan",
+        "credit": "YouTube / RealUnitedStatesVlog",
+        "primary": false,
+        "ai_relevance": 1,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "river flooding",
+          "submerged trees",
+          "spring thaw",
+          "floodwater"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "spring-thaw-preview.gif",
+        "url": "/race-photos/spring-thaw/spring-thaw-preview.gif",
+        "alt": "Course preview from Spring Thaw race footage",
+        "credit": "YouTube / RealUnitedStatesVlog",
+        "gif": true
+      }
+    ]
   }
 }

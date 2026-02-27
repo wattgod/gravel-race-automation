@@ -558,7 +558,153 @@
           "category": "race_atmosphere",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Gum Swamp Road",
+            "mile_marker": "15 miles from finish",
+            "description": "This sandpit completely blew up the group and riders' legs. Causes problems for those riding 40 millimeter wide tires or less.",
+            "source_video_ids": [
+              "JT0UEclT2CU"
+            ]
+          },
+          {
+            "name": "Decision Point",
+            "mile_marker": "75",
+            "description": "Critical choice between continuing 38 more miles for the 150-mile route or taking the easier 100-mile option straight ahead.",
+            "source_video_ids": [
+              "8RFXN6msVtA"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Surfaces vary from hard-packed clay roads to gravel with tricky sandy spots that cause problems for riders on narrower tires.",
+            "source_video_ids": [
+              "JT0UEclT2CU"
+            ]
+          },
+          {
+            "text": "The route goes through pecan orchards on beautiful tree-lined Kennedy roads with plenty of rolling hills.",
+            "source_video_ids": [
+              "JT0UEclT2CU",
+              "8RFXN6msVtA"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "Sandy spots cause problems for those riding 40 millimeter wide tires or less. First event where rider officially used 650b wheels instead of keeping them just for training.",
+            "source_video_ids": [
+              "JT0UEclT2CU"
+            ]
+          }
+        ],
+        "race_day_tips": [
+          {
+            "text": "Stick towards the front but avoid going into the red zone early. Plan to hang with the front group for at least 20 miles then shut it down to a sustainable pace.",
+            "source_video_ids": [
+              "JT0UEclT2CU"
+            ]
+          },
+          {
+            "text": "Start early for longer distances - 150-mile riders started at 7am when it was 40 degrees with mist.",
+            "source_video_ids": [
+              "8RFXN6msVtA"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "All proceeds go to their local 4-H, and usually every year they give $20,000 but with a record 480 people signed up this year, they're trying to give $30,000.",
+            "source_video_id": "8RFXN6msVtA",
+            "source_channel": "PedalPower Adventures",
+            "source_view_count": 780,
+            "category": "community",
+            "curated": true
+          },
+          {
+            "text": "They provide camping for RVs in one area, always put the RVs in a separate spot because of generators. They had a big bonfire and here's the area for tent campers - this is the quiet area so no generators allowed.",
+            "source_video_id": "8RFXN6msVtA",
+            "source_channel": "PedalPower Adventures",
+            "source_view_count": 780,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "Jefferson County is the only county in the entire state of Florida that does not have AT&T cell signal.",
+            "source_video_id": "8RFXN6msVtA",
+            "source_channel": "PedalPower Adventures",
+            "source_view_count": 780,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "The Dirty Pecan in Monticello, Florida offers multiple distance options from 60 to 200 miles, with most of the route extending into Georgia. The terrain varies from hard-packed clay roads to gravel with challenging sandy sections, particularly at Gum Swamp Road 15 miles from the finish, which riders describe as completely blowing up groups. The route features rolling hills through beautiful tree-lined Kennedy roads and pecan orchards. Sandy spots cause significant problems for riders on 40mm tires or less. The race starts early for longer distances, with 150-mile riders beginning at 7am in 40-degree weather. A critical decision point at mile 75 determines whether riders continue for 38 additional miles on the 150-mile route or take the easier 100-mile option. The event draws 480+ riders on various bikes including mountain bikes and fat bikes, with proceeds benefiting local 4-H programs. Camping is available with separate RV and tent areas."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "dirty-pecan-video-1.jpg",
+        "url": "/race-photos/dirty-pecan/dirty-pecan-video-1.jpg",
+        "alt": "Gravel cyclist in racing gear riding on paved rural road during golden hour sunset with trees and farmland - Dirty Pecan - Florida",
+        "credit": "YouTube / PedalPower Adventures",
+        "primary": true,
+        "ai_relevance": 4,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel cyclist",
+          "rural road",
+          "golden hour",
+          "farmland",
+          "racing gear"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "dirty-pecan-video-2.jpg",
+        "url": "/race-photos/dirty-pecan/dirty-pecan-video-2.jpg",
+        "alt": "Large peloton of gravel cyclists racing on paved road through wooded area under clear blue sky - Dirty Pecan - Florida",
+        "credit": "YouTube / PedalPower Adventures",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel peloton",
+          "group ride",
+          "paved road",
+          "wooded terrain",
+          "blue sky"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "dirty-pecan-video-3.jpg",
+        "url": "/race-photos/dirty-pecan/dirty-pecan-video-3.jpg",
+        "alt": "First-person view of sandy gravel road with tire tracks winding through dense forest under blue sky - Dirty Pecan - Florida",
+        "credit": "YouTube / PedalPower Adventures",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 5,
+        "ai_keywords": [
+          "sandy gravel",
+          "forest road",
+          "tire tracks",
+          "first person",
+          "dirt road"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "dirty-pecan-preview.gif",
+        "url": "/race-photos/dirty-pecan/dirty-pecan-preview.gif",
+        "alt": "Course preview from Dirty Pecan race footage",
+        "credit": "YouTube / PedalPower Adventures",
+        "gif": true
+      }
+    ]
   }
 }

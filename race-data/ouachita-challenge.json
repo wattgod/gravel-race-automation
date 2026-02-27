@@ -555,7 +555,130 @@
           "category": "race_atmosphere",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "First climb on jeep road",
+            "mile_marker": "6-7",
+            "description": "Around a thousand feet of elevation gain on jeep road where riders start to separate. Gets pretty steep right before turning onto single track.",
+            "source_video_ids": [
+              "xp7b8UCepqk"
+            ]
+          },
+          {
+            "name": "Watchtower trail",
+            "mile_marker": "9",
+            "description": "First single track section that's extremely rocky with large rocks. Riders were getting off their bikes to walk through sections.",
+            "source_video_ids": [
+              "xp7b8UCepqk"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Heart rate effort really picks up when hitting the gravel after the paved road section.",
+            "source_video_ids": [
+              "xp7b8UCepqk"
+            ]
+          },
+          {
+            "text": "The trail is extremely rocky with large rocks that humble riders quickly.",
+            "source_video_ids": [
+              "xp7b8UCepqk"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "Rider used a 2010 Scott Scale 29er full suspension, which was 12-13 years old.",
+            "source_video_ids": [
+              "xp7b8UCepqk"
+            ]
+          }
+        ],
+        "race_day_tips": [
+          {
+            "text": "Don't go out too hard early - rider's heart rate got uncomfortably high for a 5-5.5 hour day within the first few miles.",
+            "source_video_ids": [
+              "xp7b8UCepqk"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "I went into this thinking roadie power, mountain bike skill, I'm going to excel long distance mountain bike race. The reality is starting to set in that I'm out of my league.",
+            "source_video_id": "xp7b8UCepqk",
+            "source_channel": "Ten 96 Cycling",
+            "source_view_count": 1110,
+            "category": "training",
+            "curated": true
+          }
+        ],
+        "search_text": "The Ouachita Challenge starts with 3 miles of pavement before hitting double track gravel where heart rate effort significantly increases. The first major challenge comes at miles 6-7 with around 1000 feet of elevation gain on a jeep road, getting steep before the single track. At mile 9, riders hit the Watchtower trail, the first single track section known for being extremely rocky with large rocks that force riders to dismount and walk. The course features beautiful pine trees and gravel roads through southwestern Arkansas. Riders describe the terrain as super gnarly and rocky with awesome trails. The rocky sections humble even experienced mountain bikers, with the large rocks creating significant technical challenges that separate the field early in this 60-mile race."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "ouachita-challenge-video-1.jpg",
+        "url": "/race-photos/ouachita-challenge/ouachita-challenge-video-1.jpg",
+        "alt": "Cyclist carrying bike up rocky technical trail through bare winter forest during Ouachita Challenge race - Mount Ida, Arkansas",
+        "credit": "YouTube / Mountain Bike Arkansas",
+        "primary": true,
+        "ai_relevance": 4,
+        "ai_quality": 2,
+        "ai_keywords": [
+          "bike portage",
+          "rocky trail",
+          "winter forest",
+          "technical terrain",
+          "Ouachita"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "ouachita-challenge-video-2.jpg",
+        "url": "/race-photos/ouachita-challenge/ouachita-challenge-video-2.jpg",
+        "alt": "Clear mountain stream flowing over rocky creek bed through bare deciduous forest in Ouachita Mountains - Ouachita Challenge - Mount Ida, Arkansas",
+        "credit": "YouTube / Mountain Bike Arkansas",
+        "primary": false,
+        "ai_relevance": 3,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "mountain stream",
+          "rocky creek",
+          "Ouachita forest",
+          "water crossing",
+          "deciduous trees"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "ouachita-challenge-video-3.jpg",
+        "url": "/race-photos/ouachita-challenge/ouachita-challenge-video-3.jpg",
+        "alt": "Cyclist riding gravel road through pine forest with large peloton visible in background during organized race - Ouachita Challenge - Mount Ida, Arkansas",
+        "credit": "YouTube / Mountain Bike Arkansas",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel road",
+          "pine forest",
+          "peloton",
+          "race group",
+          "forest trail"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "ouachita-challenge-preview.gif",
+        "url": "/race-photos/ouachita-challenge/ouachita-challenge-preview.gif",
+        "alt": "Course preview from Ouachita Challenge race footage",
+        "credit": "YouTube / Mountain Bike Arkansas",
+        "gif": true
+      }
+    ]
   }
 }

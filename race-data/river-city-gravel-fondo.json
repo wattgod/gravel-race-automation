@@ -608,7 +608,126 @@
           "category": "race_atmosphere",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Climbing section on logging road",
+            "description": "Riders describe getting very hot during the climbing sections, with glasses fogging up from condensation. The climbing appears significant enough that riders are working hard.",
+            "source_video_ids": [
+              "KVKMjj_BNW8"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "The logging roads were described as nice and smooth after being redone, but become very dusty during the race.",
+            "source_video_ids": [
+              "KVKMjj_BNW8"
+            ]
+          },
+          {
+            "text": "Course includes different branches of logging roads with turns between sections.",
+            "source_video_ids": [
+              "KVKMjj_BNW8"
+            ]
+          }
+        ],
+        "gear_mentions": [],
+        "race_day_tips": [
+          {
+            "text": "There's a turnaround point marked with cones and signs where riders can replenish at an aid station, or blast through if going for time.",
+            "source_video_ids": [
+              "KVKMjj_BNW8"
+            ]
+          },
+          {
+            "text": "The Impulso short course is just shy of 40km and follows an out-and-back format to the turnaround point.",
+            "source_video_ids": [
+              "KVKMjj_BNW8"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "This is the second annual event and we really knocked it out of the park in terms of numbers.",
+            "source_video_id": "KVKMjj_BNW8",
+            "source_channel": "Heyjude's Adventures",
+            "source_view_count": 415,
+            "category": "community",
+            "curated": true
+          },
+          {
+            "text": "Registration includes a lunch ticket, water bottle, and t-shirt as part of the race package.",
+            "source_video_id": "KVKMjj_BNW8",
+            "source_channel": "Heyjude's Adventures",
+            "source_view_count": 415,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "The River City Gravel Fondo is the first event in the Vancouver Island Gravel series, part of the BC Gravel event series sponsored by Trek. The race offers three distance options: Experto Long Course, Intermedio, and Impulso. The Impulso short course covers just under 40km in an out-and-back format to a turnaround point. The course runs primarily on logging roads that have been recently redone and described as smooth, though they become very dusty during the event. Riders face significant climbing sections that cause glasses to fog up from exertion. The turnaround point is marked with cones and signs, featuring an aid station where riders can replenish supplies. Race registration includes lunch ticket, water bottle, and t-shirt. This second annual event has grown significantly in participation numbers and takes place on a beautiful non-rainy day with spring foliage."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "river-city-gravel-fondo-video-1.jpg",
+        "url": "/race-photos/river-city-gravel-fondo/river-city-gravel-fondo-video-1.jpg",
+        "alt": "Female cyclist in helmet and sunglasses riding on paved road with rural countryside and trees in background - River City Gravel Fondo - Campbell River, British Columbia",
+        "credit": "YouTube / Heyjude's Adventures",
+        "primary": true,
+        "ai_relevance": 4,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "female cyclist",
+          "rural road",
+          "cycling helmet",
+          "countryside"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "river-city-gravel-fondo-video-2.jpg",
+        "url": "/race-photos/river-city-gravel-fondo/river-city-gravel-fondo-video-2.jpg",
+        "alt": "Close-up of cyclist in black helmet and sunglasses against cloudy sky with forest background during gravel race - River City Gravel Fondo - Campbell River, British Columbia",
+        "credit": "YouTube / Heyjude's Adventures",
+        "primary": false,
+        "ai_relevance": 4,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "cycling helmet",
+          "forest terrain",
+          "gravel racing",
+          "cloudy sky"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "river-city-gravel-fondo-video-3.jpg",
+        "url": "/race-photos/river-city-gravel-fondo/river-city-gravel-fondo-video-3.jpg",
+        "alt": "First-person view from cyclist's handlebars showing gravel road through forested area with other riders ahead - River City Gravel Fondo - Campbell River, British Columbia",
+        "credit": "YouTube / Heyjude's Adventures",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel road",
+          "forest cycling",
+          "handlebar view",
+          "cycling computer",
+          "gravel race"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "river-city-gravel-fondo-preview.gif",
+        "url": "/race-photos/river-city-gravel-fondo/river-city-gravel-fondo-preview.gif",
+        "alt": "Course preview from River City Gravel Fondo race footage",
+        "credit": "YouTube / Heyjude's Adventures",
+        "gif": true
+      }
+    ]
   }
 }

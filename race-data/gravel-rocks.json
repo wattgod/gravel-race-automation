@@ -514,7 +514,148 @@
           "category": "course_difficulty",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Long climb section",
+            "description": "Riders describe getting halfway up and then going 'pong' with everyone walking their bikes. One rider mentions their lungs being in their mouth after this climb.",
+            "source_video_ids": [
+              "eGt_mCRnE7g"
+            ]
+          },
+          {
+            "name": "Downhill sections",
+            "description": "Riders note that many participants struggle with downhill riding, leading to dodgy overtakes and getting stuck behind slower descenders.",
+            "source_video_ids": [
+              "eGt_mCRnE7g"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "The gravel is described as super grippy, especially with tires at low pressure on super wide rims. The surface includes proper gravelly double track.",
+            "source_video_ids": [
+              "wFX5TY5-1Lc"
+            ]
+          },
+          {
+            "text": "The route includes prehistoric medieval drove road sections with ancient routes, offering both single track and gravel road combinations.",
+            "source_video_ids": [
+              "wFX5TY5-1Lc"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "Zip G40 40mm gravel tires on 101 wheels with suspension fork providing 30mm travel. Rider emphasizes how smooth the setup feels.",
+            "source_video_ids": [
+              "wFX5TY5-1Lc"
+            ]
+          },
+          {
+            "text": "42 tooth chainring with 10-44 block at the back, fully wireless SRAM setup. The gearing helps with spinning up climbs.",
+            "source_video_ids": [
+              "wFX5TY5-1Lc"
+            ]
+          }
+        ],
+        "race_day_tips": [
+          {
+            "text": "Don't start at the front of the pack if downhill is your strong point - many riders can't descend well so you'll get stuck behind them and they'll overtake on uphills.",
+            "source_video_ids": [
+              "eGt_mCRnE7g"
+            ]
+          },
+          {
+            "text": "Consider starting at the back if you're a strong descender to avoid getting caught behind slower riders on technical sections.",
+            "source_video_ids": [
+              "eGt_mCRnE7g"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "This event put together by carter family and pest cycles who run the sutton bank bike shop. I've been in yorkshire mountain vikings since the start, so we're great that they're now embracing the new gravel.",
+            "source_video_id": "wFX5TY5-1Lc",
+            "source_channel": "GuyKesTV",
+            "source_view_count": 3254,
+            "category": "community",
+            "curated": true
+          },
+          {
+            "text": "There is a loop this evening which is time stage which is about 10K and then tomorrow we race again which is an 80k Loop but within the 80k loop there are time stages throughout the rides we don't know where they are.",
+            "source_video_id": "eGt_mCRnE7g",
+            "source_channel": "Meg Whyte",
+            "source_view_count": 1823,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "Gravel Rocks in North York Moors features 80k of prime Yorkshire moors combining single track, gravel roads, and ancient drove roads. The course includes challenging climbs where riders report getting stuck halfway up with many walking their bikes. Downhill sections prove technical with many participants struggling on descents. The terrain feels super grippy on gravel tires, especially on proper gravelly double track sections. The route follows prehistoric medieval drove roads with bronze age barrow cemeteries. Weather can vary from grey and cloudy to clearing views. The event includes feed stations and uses a time stage format similar to mountain bike enduro racing. Riders recommend strategic positioning based on climbing versus descending strengths, noting that many competitors struggle with technical descents but can overtake on climbs."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "gravel-rocks-video-1.jpg",
+        "url": "/race-photos/gravel-rocks/gravel-rocks-video-1.jpg",
+        "alt": "First-person view cycling through wooded gravel trail with handlebars and GPS device visible - Gravel Rocks - North York Moors, UK",
+        "credit": "YouTube / GuyKesTV",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel trail",
+          "wooded path",
+          "cycling POV",
+          "GPS device",
+          "forest ride"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "gravel-rocks-video-2.jpg",
+        "url": "/race-photos/gravel-rocks/gravel-rocks-video-2.jpg",
+        "alt": "Cyclist's handlebar view on gravel road through open countryside with rolling hills and moorland terrain - Gravel Rocks - North York Moors, UK",
+        "credit": "YouTube / GuyKesTV",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel road",
+          "countryside cycling",
+          "rolling hills",
+          "moorland",
+          "handlebar view"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "gravel-rocks-video-3.jpg",
+        "url": "/race-photos/gravel-rocks/gravel-rocks-video-3.jpg",
+        "alt": "Female cyclist wearing helmet and sunglasses on forest trail with tall pine trees in background - Gravel Rocks - North York Moors, UK",
+        "credit": "YouTube / GuyKesTV",
+        "primary": false,
+        "ai_relevance": 4,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "female cyclist",
+          "forest trail",
+          "cycling helmet",
+          "pine trees",
+          "gravel rider"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "gravel-rocks-preview.gif",
+        "url": "/race-photos/gravel-rocks/gravel-rocks-preview.gif",
+        "alt": "Course preview from Gravel Rocks race footage",
+        "credit": "YouTube / GuyKesTV",
+        "gif": true
+      }
+    ]
   }
 }

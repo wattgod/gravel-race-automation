@@ -556,7 +556,118 @@
           "category": "race_atmosphere",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Aggressive hills",
+            "description": "Riders describe the hills as hard and aggressive, representing a significant challenge throughout the course.",
+            "source_video_ids": [
+              "CjbQgDeZgtY"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Roads are described as great quality despite challenging conditions. No ice reported, with roads staying in good condition.",
+            "source_video_ids": [
+              "CjbQgDeZgtY"
+            ]
+          }
+        ],
+        "gear_mentions": [],
+        "race_day_tips": [
+          {
+            "text": "Plan for survival strategy - riders mention goal of getting to 30 miles and not dying, then making it back to the finish.",
+            "source_video_ids": [
+              "CjbQgDeZgtY"
+            ]
+          },
+          {
+            "text": "Be prepared for weather changes throughout the day - expect it to warm up as the day progresses.",
+            "source_video_ids": [
+              "CjbQgDeZgtY"
+            ]
+          },
+          {
+            "text": "Wind will be a challenge on race day - plan pacing and positioning accordingly.",
+            "source_video_ids": [
+              "CjbQgDeZgtY"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "We've taken a little bit of a B-road off of the 50K completely. The 100K, you've got a little tiny section. We'll be able to hike a bike it.",
+            "source_video_id": "XHX_Dr0nQwM",
+            "source_channel": "iowagravelgang",
+            "source_view_count": 871,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "Albia Holy Cow is a 60-mile gravel race in Iowa featuring aggressive hills that riders describe as hard and challenging. The course maintains good road quality with no ice conditions reported. Weather plays a significant role, with wind being a major challenge and temperatures expected to warm throughout the day. Riders adopt survival strategies, aiming to reach the 30-mile mark before focusing on the return. The race offers multiple distance options including 50K and 100K variants, with some course modifications made for wet conditions including B-road alternatives and potential hike-a-bike sections. The event attracts spectators who come to support friends and enjoy the race atmosphere in the scenic Iowa countryside."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "albia-holy-cow-video-1.jpg",
+        "url": "/race-photos/albia-holy-cow/albia-holy-cow-video-1.jpg",
+        "alt": "Three cyclists in matching Omaha Velo jerseys pose on rural gravel road with corn fields in background - Albia Holy Cow - Albia, Iowa",
+        "credit": "YouTube / Casey Ralston",
+        "primary": true,
+        "ai_relevance": 3,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "gravel road",
+          "corn fields",
+          "cycling team",
+          "rural Iowa"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "albia-holy-cow-video-2.jpg",
+        "url": "/race-photos/albia-holy-cow/albia-holy-cow-video-2.jpg",
+        "alt": "First-person perspective of gravel cyclists riding on dirt road through rural farmland with GPS device visible on handlebars - Albia Holy Cow - Albia, Iowa",
+        "credit": "YouTube / Casey Ralston",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel racing",
+          "dirt road",
+          "farmland",
+          "cycling peloton",
+          "GPS device"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "albia-holy-cow-video-3.jpg",
+        "url": "/race-photos/albia-holy-cow/albia-holy-cow-video-3.jpg",
+        "alt": "Post-race interview with cyclist wearing helmet and race director Chris McQueen in park setting with trees - Albia Holy Cow - Albia, Iowa",
+        "credit": "YouTube / Casey Ralston",
+        "primary": false,
+        "ai_relevance": 2,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "race interview",
+          "cycling helmet",
+          "race director",
+          "post-race"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "albia-holy-cow-preview.gif",
+        "url": "/race-photos/albia-holy-cow/albia-holy-cow-preview.gif",
+        "alt": "Course preview from Albia Holy Cow race footage",
+        "credit": "YouTube / Casey Ralston",
+        "gif": true
+      }
+    ]
   }
 }

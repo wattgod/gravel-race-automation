@@ -554,7 +554,136 @@
           "category": "race_atmosphere",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Flagged intersection leaving pavement",
+            "mile_marker": "3.1",
+            "description": "The only flagged intersection is where riders leave the pavement at 3.1 miles. Complete breaks required, slow through this section.",
+            "source_video_ids": [
+              "HD1ih1EIovQ"
+            ]
+          },
+          {
+            "name": "First big climb",
+            "mile_marker": "5.5",
+            "description": "About 5 and a half miles long with a little more than 1,200 feet of climbing. Described as a grinder that strings out the field.",
+            "source_video_ids": [
+              "8L5yUMjLaRU"
+            ]
+          },
+          {
+            "name": "Second big climb",
+            "description": "Climb back up to more than 1,400 ft in just 5 miles after dropping to almost sea level from the first climb.",
+            "source_video_ids": [
+              "8L5yUMjLaRU"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "A River Road features smooth pavement that feels nice in your hands and butt after the gravel sections.",
+            "source_video_ids": [
+              "8L5yUMjLaRU"
+            ]
+          }
+        ],
+        "gear_mentions": [],
+        "race_day_tips": [
+          {
+            "text": "Grab nutrition like gels before the start of the big climbs, not during them.",
+            "source_video_ids": [
+              "8L5yUMjLaRU"
+            ]
+          },
+          {
+            "text": "Be aware of logging trucks on the course - they use the same roads during the event.",
+            "source_video_ids": [
+              "HD1ih1EIovQ"
+            ]
+          },
+          {
+            "text": "Plan for about 3 and a half hours to complete the 38-mile short course.",
+            "source_video_ids": [
+              "8L5yUMjLaRU"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "Technically, the race is a timed event, not an actual race. Your final position is based on your time, not what place you cross the finish line. You have a little sensor on your bike that records your time electronically.",
+            "source_video_id": "8L5yUMjLaRU",
+            "source_channel": "Chip Weinert",
+            "source_view_count": 437,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "The Oregon Coast Gravel Epic in Waldport features two major climbs that define the race experience. The first climb spans 5.5 miles with over 1,200 feet of elevation gain, described by riders as a grinder that strings out the 250+ participant field. After descending nearly to sea level, riders face a second climb gaining 1,400 feet in just 5 miles. Key logistical challenges include a flagged intersection at mile 3.1 where riders leave pavement, requiring complete stops and slow navigation. Logging trucks share the roads during the event. The course includes smooth pavement sections on A River Road that provide relief from gravel surfaces. This is a timed event using electronic sensors rather than traditional finish line placement, with the short course taking experienced riders approximately 3.5 hours to complete 38 miles."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "oregon-coast-gravel-epic-video-1.jpg",
+        "url": "/race-photos/oregon-coast-gravel-epic/oregon-coast-gravel-epic-video-1.jpg",
+        "alt": "Gravel cyclist with race number 230 running through forested single track trail during Oregon Coast Gravel Epic - Waldport, Oregon",
+        "credit": "YouTube / Chip Weinert",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "gravel racing",
+          "forest trail",
+          "Oregon Coast",
+          "cyclocross running",
+          "race number"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "oregon-coast-gravel-epic-video-2.jpg",
+        "url": "/race-photos/oregon-coast-gravel-epic/oregon-coast-gravel-epic-video-2.jpg",
+        "alt": "Time trial cyclist with race number 184 in aerodynamic position riding on paved road through Oregon countryside - Oregon Coast Gravel Epic - Waldport, Oregon",
+        "credit": "YouTube / Chip Weinert",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "time trial position",
+          "aero bars",
+          "paved road",
+          "Oregon countryside",
+          "race number"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "oregon-coast-gravel-epic-video-3.jpg",
+        "url": "/race-photos/oregon-coast-gravel-epic/oregon-coast-gravel-epic-video-3.jpg",
+        "alt": "Gravel cyclist navigating dirt trail through lush green forest during Oregon Coast Gravel Epic race - Waldport, Oregon",
+        "credit": "YouTube / Chip Weinert",
+        "primary": false,
+        "ai_relevance": 4,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "dirt trail",
+          "forest gravel",
+          "Oregon Coast",
+          "tree canopy",
+          "gravel racing"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "oregon-coast-gravel-epic-preview.gif",
+        "url": "/race-photos/oregon-coast-gravel-epic/oregon-coast-gravel-epic-preview.gif",
+        "alt": "Course preview from Oregon Coast Gravel Epic race footage",
+        "credit": "YouTube / Chip Weinert",
+        "gif": true
+      }
+    ]
   }
 }

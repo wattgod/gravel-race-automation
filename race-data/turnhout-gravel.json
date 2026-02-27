@@ -579,7 +579,140 @@
           "category": "course_difficulty",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Start Line",
+            "description": "These starts are like a swift race - riders must be ready to go full gas immediately at the gun",
+            "source_video_ids": [
+              "uIpOiQmqfyM"
+            ]
+          },
+          {
+            "name": "First Gravel Section",
+            "description": "Very long straight line with super high speeds (45k an hour), super crowded with not a lot of room to get around riders",
+            "source_video_ids": [
+              "uIpOiQmqfyM"
+            ]
+          },
+          {
+            "name": "Loose Sandy Sectors",
+            "description": "Many loose sandy sectors that would decide everything in the race",
+            "source_video_ids": [
+              "uIpOiQmqfyM"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "First gravel section is still pretty smooth with super high speeds possible",
+            "source_video_ids": [
+              "uIpOiQmqfyM"
+            ]
+          },
+          {
+            "text": "Many loose sandy sectors throughout the course that are decisive",
+            "source_video_ids": [
+              "uIpOiQmqfyM"
+            ]
+          }
+        ],
+        "gear_mentions": [],
+        "race_day_tips": [
+          {
+            "text": "Get ready and be ready to go full gas at the start - don't step off bike for any reason like power meter calibration",
+            "source_video_ids": [
+              "uIpOiQmqfyM"
+            ]
+          },
+          {
+            "text": "Stay patient in crowded sections and keep an eye on front riders of your category to not let anybody slip away",
+            "source_video_ids": [
+              "uIpOiQmqfyM"
+            ]
+          },
+          {
+            "text": "Line up at the front row if possible to avoid chasing from the back of the start box",
+            "source_video_ids": [
+              "uIpOiQmqfyM"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "Only the winner gets a crucial advantage, a spot in the priority start box at the World Championship. Last year I had to start all the way in the back, fighting through the field, burning all of my matches, and this drastically lowered my chance to win.",
+            "source_video_id": "uIpOiQmqfyM",
+            "source_channel": "Jasper Verkuijl",
+            "source_view_count": 58624,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "Turnhout Gravel is described as the fastest UCI gravel race with a 144km course over two loops and only 200m of total elevation, flat as a pancake. The race features very long straight gravel sections where speeds reach 45k per hour, but the course includes many loose sandy sectors that prove decisive. The first gravel section is relatively smooth allowing for high speeds, though it becomes super crowded with limited room to maneuver around other riders. Starts are extremely fast-paced requiring immediate full gas efforts. The race serves as a UCI Worlds qualifier where finishing in the top 25% of age group qualifies riders, but only the winner receives priority start box positioning at World Championships. Navigation through hundreds of age group riders creates chaos, making it crucial to track front riders and maintain positioning from the start line."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "turnhout-gravel-video-1.jpg",
+        "url": "/race-photos/turnhout-gravel/turnhout-gravel-video-1.jpg",
+        "alt": "First-person view of cyclist following rider on dirt gravel path through Belgian countryside with bare trees - Turnhout Gravel - Turnhout, Belgium",
+        "credit": "YouTube / Jasper Verkuijl",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel racing",
+          "dirt path",
+          "Belgian countryside",
+          "cycling POV",
+          "bare trees"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "turnhout-gravel-video-2.jpg",
+        "url": "/race-photos/turnhout-gravel/turnhout-gravel-video-2.jpg",
+        "alt": "POV shot of gravel cyclist following competitor on unpaved road through wooded area during Turnhout race - Turnhout Gravel - Turnhout, Belgium",
+        "credit": "YouTube / Jasper Verkuijl",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel road",
+          "cycling chase",
+          "wooded terrain",
+          "unpaved surface",
+          "race action"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "turnhout-gravel-video-3.jpg",
+        "url": "/race-photos/turnhout-gravel/turnhout-gravel-video-3.jpg",
+        "alt": "Cyclist celebrating victory at gravel race finish line in forested area with other competitors visible - Turnhout Gravel - Turnhout, Belgium",
+        "credit": "YouTube / Jasper Verkuijl",
+        "primary": false,
+        "ai_relevance": 4,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "race finish",
+          "victory celebration",
+          "gravel cycling",
+          "forest setting",
+          "competition"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "turnhout-gravel-preview.gif",
+        "url": "/race-photos/turnhout-gravel/turnhout-gravel-preview.gif",
+        "alt": "Course preview from Turnhout Gravel race footage",
+        "credit": "YouTube / Jasper Verkuijl",
+        "gif": true
+      }
+    ]
   }
 }

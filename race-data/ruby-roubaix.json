@@ -565,7 +565,69 @@
           "category": "race_atmosphere",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [],
+        "terrain_notes": [],
+        "gear_mentions": [],
+        "race_day_tips": [],
+        "additional_quotes": [
+          {
+            "text": "This is my third time doing it the secret got second today which is really really fun my wife's out there somewhere uh four of us came down a lot of fun",
+            "source_video_id": "1T2cQGlG9NM",
+            "source_channel": "ElkoDaily",
+            "source_view_count": 62,
+            "category": "community",
+            "curated": true
+          }
+        ],
+        "search_text": "The available transcripts for Ruby Roubaix provide limited race-specific information. One experienced rider mentions this was their third time racing the event and achieved second place, describing the experience as fantastic. The rider notes being able to keep up with the lead group and pushing hard throughout the race. The event appears to attract riders who return multiple years, suggesting a positive race experience. However, the transcripts do not contain detailed information about course features, terrain conditions, specific challenges, or technical aspects that would typically help riders prepare for this 62-mile, 5000-foot elevation gravel race in Lamoille, Nevada."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "ruby-roubaix-video-1.jpg",
+        "url": "/race-photos/ruby-roubaix/ruby-roubaix-video-1.jpg",
+        "alt": "Cyclists riding single file on a paved trail past an information kiosk surrounded by lush green forest and tall grass - Ruby Roubaix - Lamoille, Nevada",
+        "credit": "YouTube / Skirack",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "cycling trail",
+          "forest path",
+          "information kiosk",
+          "green vegetation",
+          "single file"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "ruby-roubaix-video-2.jpg",
+        "url": "/race-photos/ruby-roubaix/ruby-roubaix-video-2.jpg",
+        "alt": "Two mountain bikers riding on a rocky gravel trail through dense woodland with scattered stones and natural terrain - Ruby Roubaix - Lamoille, Nevada",
+        "credit": "YouTube / Skirack",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "gravel trail",
+          "rocky terrain",
+          "mountain bikers",
+          "woodland",
+          "natural path"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "ruby-roubaix-preview.gif",
+        "url": "/race-photos/ruby-roubaix/ruby-roubaix-preview.gif",
+        "alt": "Course preview from Ruby Roubaix race footage",
+        "credit": "YouTube / Skirack",
+        "gif": true
+      }
+    ]
   }
 }

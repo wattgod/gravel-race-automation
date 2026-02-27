@@ -514,7 +514,112 @@
           "category": "course_difficulty",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [],
+        "terrain_notes": [
+          {
+            "text": "Miles and miles of dirt roads throughout Holly Shelter Game Land area.",
+            "source_video_ids": [
+              "h4-r7GFrth0"
+            ]
+          }
+        ],
+        "gear_mentions": [],
+        "race_day_tips": [
+          {
+            "text": "Avoid hunting season - don't ride on the first day of deer season or other big hunting seasons in the game land.",
+            "source_video_ids": [
+              "h4-r7GFrth0"
+            ]
+          },
+          {
+            "text": "Hydration is going to be key when heat index reaches 104 degrees.",
+            "source_video_ids": [
+              "h4-r7GFrth0"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "You gotta look out for hunting season - you don't want to be caught out here on the first day of deer season or any other big hunting seasons.",
+            "source_video_id": "h4-r7GFrth0",
+            "source_channel": "Curbside Treasures LLC",
+            "source_view_count": 282,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "Sometimes just going on adventures is way more fun than trying to go fast.",
+            "source_video_id": "h4-r7GFrth0",
+            "source_channel": "Curbside Treasures LLC",
+            "source_view_count": 282,
+            "category": "training",
+            "curated": true
+          }
+        ],
+        "search_text": "Holly Shelter Gravel Grinder takes place in Holly Shelter Game Land near Hampstead, North Carolina. The course features miles and miles of dirt roads through the game land area, with Lodge Road being a major section that connects the main entrances from Hampstead toward Rocky Point. Riders need to be aware of hunting seasons and avoid riding during deer season or other major hunting periods in the game land. Heat can be a significant factor, with heat index potentially reaching 104 degrees, making hydration crucial for race day success. The terrain consists primarily of dirt roads with some pavement sections connecting different areas of the course."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "holly-shelter-gravel-grinder-video-1.jpg",
+        "url": "/race-photos/holly-shelter-gravel-grinder/holly-shelter-gravel-grinder-video-1.jpg",
+        "alt": "Horse-drawn wagon on dirt road through wooded area with cycling data overlay display - Holly Shelter Gravel Grinder - Southeast North Carolina (Holly Shelter Game Land)",
+        "credit": "YouTube / Rides with Parker",
+        "primary": true,
+        "ai_relevance": 2,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "dirt road",
+          "wooded terrain",
+          "North Carolina forest",
+          "rural path"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "holly-shelter-gravel-grinder-video-2.jpg",
+        "url": "/race-photos/holly-shelter-gravel-grinder/holly-shelter-gravel-grinder-video-2.jpg",
+        "alt": "Cyclist climbing gravel road through dense forest canopy with elevation and heart rate data displayed - Holly Shelter Gravel Grinder - Southeast North Carolina (Holly Shelter Game Land)",
+        "credit": "YouTube / Rides with Parker",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel climb",
+          "forest canopy",
+          "dirt road",
+          "wooded terrain",
+          "climbing"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "holly-shelter-gravel-grinder-video-3.jpg",
+        "url": "/race-photos/holly-shelter-gravel-grinder/holly-shelter-gravel-grinder-video-3.jpg",
+        "alt": "Paved road surface through forested area with roadside signage and trees - Holly Shelter Gravel Grinder - Southeast North Carolina (Holly Shelter Game Land)",
+        "credit": "YouTube / Rides with Parker",
+        "primary": false,
+        "ai_relevance": 4,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "paved road",
+          "forest road",
+          "tree canopy",
+          "rural cycling"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "holly-shelter-gravel-grinder-preview.gif",
+        "url": "/race-photos/holly-shelter-gravel-grinder/holly-shelter-gravel-grinder-preview.gif",
+        "alt": "Course preview from Holly Shelter Gravel Grinder race footage",
+        "credit": "YouTube / Rides with Parker",
+        "gif": true
+      }
+    ]
   }
 }

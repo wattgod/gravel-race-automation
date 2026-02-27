@@ -508,7 +508,195 @@
           "category": "race_atmosphere",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "River Crossing",
+            "mile_marker": "10",
+            "description": "Deep river crossing with moving rocks and strong current. Riders must walk bikes across using rope for support. Slippery conditions especially challenging in road shoes.",
+            "source_video_ids": [
+              "Fx7jxLJTeYk",
+              "LKB-U3WDlt4"
+            ]
+          },
+          {
+            "name": "First Steep Hill",
+            "mile_marker": "10",
+            "description": "Short but steep climb immediately after river crossing. Riders averaging around 420 watts. Big riders tend to suffer more here.",
+            "source_video_ids": [
+              "LKB-U3WDlt4"
+            ]
+          },
+          {
+            "name": "High Speed Downhills and Flats",
+            "description": "Fast downhills and flat sections that string out the field. Particularly challenging for mountain bike riders who get spun out and struggle with aerodynamics.",
+            "source_video_ids": [
+              "LKB-U3WDlt4"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Extremely fast gravel roads where pathfinder tires work well because the middle tread acts like a road tire.",
+            "source_video_ids": [
+              "LKB-U3WDlt4"
+            ]
+          },
+          {
+            "text": "River crossing has moving rocks at the bottom that shift when stepped on, with strong current making crossing treacherous.",
+            "source_video_ids": [
+              "LKB-U3WDlt4"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "42 double cross IRC tires on Canyon Grail with Apidura frame bag worked well for the course.",
+            "source_video_ids": [
+              "Fx7jxLJTeYk"
+            ]
+          },
+          {
+            "text": "Specialized Pathfinders were awesome for this extremely fast course because the middle tread acts like a road tire. Changed from 34 to 36 tooth chainring to avoid spinning out.",
+            "source_video_ids": [
+              "LKB-U3WDlt4"
+            ]
+          }
+        ],
+        "race_day_tips": [
+          {
+            "text": "No need to rush after river crossing - you'll catch back up to leaders riding at normal pace despite the mad dash mentality.",
+            "source_video_ids": [
+              "LKB-U3WDlt4"
+            ]
+          },
+          {
+            "text": "Make sure bottles are secure - they can fly out on descents. Pre-ride to identify problem areas.",
+            "source_video_ids": [
+              "Fx7jxLJTeYk"
+            ]
+          },
+          {
+            "text": "Corner well and don't swerve in dirt sections - hop over potholes instead. Keep fingers on brakes during fast sections.",
+            "source_video_ids": [
+              "LKB-U3WDlt4"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "Flow Formulas in both bottles plus camel pack, cliff shot blocks, gels, and planned refueling at rest stops which had Gatorade, water, and candy.",
+            "source_video_id": "LKB-U3WDlt4",
+            "source_channel": "Dylan Schlageter",
+            "source_view_count": 4191,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "The pros eased into it and didn't take it ultra serious in the very beginning which was really cool. Ted King went to the front and said okay let's start ripping it.",
+            "source_video_id": "Fx7jxLJTeYk",
+            "source_channel": "VC Adventures",
+            "source_view_count": 221451,
+            "category": "community",
+            "curated": true
+          }
+        ],
+        "search_text": "Gravel Locos features a challenging early river crossing at mile 10 where riders must walk bikes across using ropes, with moving rocks and strong current making it treacherous especially in road shoes. The course includes extremely fast gravel roads where pathfinder tires excel due to road-like center tread. Key challenges include a steep short climb immediately after the river crossing and high-speed downhills that string out the field. Mountain bike riders struggle with spinning out and aerodynamics on the fast flats. The race starts neutralized through the river crossing for safety. Pros like Dylan Johnson, Colin Strickland, Ted King, and Peter Stetina participate, with the field easing into race pace before ramping up intensity. Aid stations provide Gatorade, water, and candy for refueling. Technical skills matter for cornering and handling potholes on dirt sections."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "gravel-locos-video-1.jpg",
+        "url": "/race-photos/gravel-locos/gravel-locos-video-1.jpg",
+        "alt": "TrainerRoad power data display showing gravel race performance metrics with Dylan Schlageter's ride statistics overlaid on workout interface - Gravel Locos - Hico, Texas",
+        "credit": "YouTube / Dylan Schlageter",
+        "primary": true,
+        "ai_relevance": 3,
+        "ai_quality": 2,
+        "ai_keywords": [
+          "power data",
+          "gravel racing",
+          "TrainerRoad",
+          "performance metrics"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "gravel-locos-video-2.jpg",
+        "url": "/race-photos/gravel-locos/gravel-locos-video-2.jpg",
+        "alt": "Exhausted gravel cyclist in colorful kit finishing 155-mile race with performance stats displayed, standing on wet pavement after completing endurance event - Gravel Locos - Hico, Texas",
+        "credit": "YouTube / Dylan Schlageter",
+        "primary": false,
+        "ai_relevance": 4,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "gravel finish",
+          "endurance cycling",
+          "race completion",
+          "cycling kit",
+          "wet conditions"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "gravel-locos-video-3.jpg",
+        "url": "/race-photos/gravel-locos/gravel-locos-video-3.jpg",
+        "alt": "Large peloton of gravel cyclists riding through tree-lined rural road during organized gravel race event in small town setting - Gravel Locos - Hico, Texas",
+        "credit": "YouTube / Dylan Schlageter",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel peloton",
+          "rural road",
+          "tree-lined",
+          "group ride",
+          "small town"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "gravel-locos-preview.gif",
+        "url": "/race-photos/gravel-locos/gravel-locos-preview.gif",
+        "alt": "Course preview from Gravel Locos race footage",
+        "credit": "YouTube / Dylan Schlageter",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "gravel-locos-preview-2.gif",
+        "url": "/race-photos/gravel-locos/gravel-locos-preview-2.gif",
+        "alt": "Course preview from Gravel Locos race footage",
+        "credit": "YouTube / Dylan Schlageter",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "gravel-locos-preview-3.gif",
+        "url": "/race-photos/gravel-locos/gravel-locos-preview-3.gif",
+        "alt": "Course preview from Gravel Locos race footage",
+        "credit": "YouTube / Dylan Schlageter",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "gravel-locos-preview-4.gif",
+        "url": "/race-photos/gravel-locos/gravel-locos-preview-4.gif",
+        "alt": "Course preview from Gravel Locos race footage",
+        "credit": "YouTube / Dylan Schlageter",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "gravel-locos-preview-5.gif",
+        "url": "/race-photos/gravel-locos/gravel-locos-preview-5.gif",
+        "alt": "Course preview from Gravel Locos race footage",
+        "credit": "YouTube / Dylan Schlageter",
+        "gif": true
+      }
+    ]
   }
 }

@@ -488,7 +488,134 @@
           "curated": false
         }
       ],
-      "quotes": []
-    }
+      "quotes": [],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [],
+        "terrain_notes": [
+          {
+            "text": "Chunky fire road climb of two miles at 5% grade along Dun and Graham trails before a swoopy and sometimes chunky dirt descent back to the ridge road along the West Ridge Trail",
+            "source_video_ids": [
+              "3edd5R2nsIM"
+            ]
+          },
+          {
+            "text": "The off-road descent was bone shaking with a rigid steel fork. Canal lever brakes took at least two fingers to pull and weren't the most effective",
+            "source_video_ids": [
+              "3edd5R2nsIM"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "Mountain bike trail tires and 26-in wheels performed well on dirt climbs but had more rolling resistance on road sections compared to 40mm gravel tires on 700c wheels",
+            "source_video_ids": [
+              "3edd5R2nsIM"
+            ]
+          }
+        ],
+        "race_day_tips": [
+          {
+            "text": "Make sure you acclimate or you'll pay the price - rider was four minutes back from PR on Columbine climb due to lack of altitude acclimatization",
+            "source_video_ids": [
+              "vZ4Cy1--VaQ"
+            ]
+          },
+          {
+            "text": "Seven bottles is not enough for this race - rider specifically mentions needing more hydration",
+            "source_video_ids": [
+              "vZ4Cy1--VaQ"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "I commit I won't quit you better than you think you are you can do more than you think you can",
+            "source_video_id": "vZ4Cy1--VaQ",
+            "source_channel": "Jeremiah Bishop's Wheelhouse",
+            "source_view_count": 66694,
+            "category": "training",
+            "curated": true
+          }
+        ],
+        "search_text": "Based on rider accounts, this race features significant altitude challenges at around 10,000-12,000 feet that severely impact non-acclimated riders. One experienced rider was four minutes behind his personal record on the Columbine climb due to altitude sickness, experiencing headaches and difficulty breathing. The course includes major climbs like Sugarloaf and Columbine, described as brutal and requiring significant preparation. Riders report needing more than seven bottles for hydration. There are technical sections including Powerline descent where multiple riders experienced flats - six flats were observed in one section. The terrain includes chunky fire road climbs and swoopy dirt descents. Feed zone chaos is mentioned as a logistical challenge. Riders emphasize the importance of proper acclimatization and pacing strategy, with some having to drop back through multiple groups as the race progresses."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "lost-river-classic-video-1.jpg",
+        "url": "/race-photos/lost-river-classic/lost-river-classic-video-1.jpg",
+        "alt": "Aerial view of winding gravel road through rolling hills and forested terrain with red route overlay marking the Lost River Classic course - Mathias, West Virginia",
+        "credit": "YouTube / Ride Loose",
+        "primary": true,
+        "ai_relevance": 4,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "aerial view",
+          "gravel road",
+          "rolling hills",
+          "forested terrain",
+          "course route"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "lost-river-classic-video-2.jpg",
+        "url": "/race-photos/lost-river-classic/lost-river-classic-video-2.jpg",
+        "alt": "First-person cyclist perspective riding through tree-lined residential street showing cycling computer display with speed and power data - Lost River Classic - Mathias, West Virginia",
+        "credit": "YouTube / Ride Loose",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "cyclist POV",
+          "tree-lined street",
+          "cycling computer",
+          "residential area",
+          "power meter"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "lost-river-classic-video-3.jpg",
+        "url": "/race-photos/lost-river-classic/lost-river-classic-video-3.jpg",
+        "alt": "Red mountain bike for sale displayed against wooden fence with $150 price tag overlay - Lost River Classic - Mathias, West Virginia",
+        "credit": "YouTube / Ride Loose",
+        "primary": false,
+        "ai_relevance": 2,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "mountain bike",
+          "red bicycle",
+          "wooden fence",
+          "bike sale"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "lost-river-classic-preview.gif",
+        "url": "/race-photos/lost-river-classic/lost-river-classic-preview.gif",
+        "alt": "Course preview from Lost River Classic race footage",
+        "credit": "YouTube / Ride Loose",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "lost-river-classic-preview-2.gif",
+        "url": "/race-photos/lost-river-classic/lost-river-classic-preview-2.gif",
+        "alt": "Course preview from Lost River Classic race footage",
+        "credit": "YouTube / Ride Loose",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "lost-river-classic-preview-3.gif",
+        "url": "/race-photos/lost-river-classic/lost-river-classic-preview-3.gif",
+        "alt": "Course preview from Lost River Classic race footage",
+        "credit": "YouTube / Ride Loose",
+        "gif": true
+      }
+    ]
   }
 }

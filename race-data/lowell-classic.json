@@ -536,6 +536,67 @@
         }
       ],
       "quotes": []
-    }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "lowell-classic-video-1.jpg",
+        "url": "/race-photos/lowell-classic/lowell-classic-video-1.jpg",
+        "alt": "Group of cyclists riding on gravel path through autumn forest with colorful fall foliage during Lowell Classic gravel race - Lowell, Michigan",
+        "credit": "YouTube / Up The Road",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel path",
+          "autumn cycling",
+          "fall foliage",
+          "group ride",
+          "forest trail"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "lowell-classic-video-2.jpg",
+        "url": "/race-photos/lowell-classic/lowell-classic-video-2.jpg",
+        "alt": "Single cyclist on gravel road surrounded by vibrant autumn trees with red and orange leaves during gravel race - Lowell Classic - Lowell, Michigan",
+        "credit": "YouTube / Up The Road",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel road",
+          "autumn trees",
+          "solo rider",
+          "fall colors",
+          "rural cycling"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "lowell-classic-video-3.jpg",
+        "url": "/race-photos/lowell-classic/lowell-classic-video-3.jpg",
+        "alt": "Cyclists racing on paved road through wooded area with fall foliage and safety lighting during Lowell Classic event - Lowell, Michigan",
+        "credit": "YouTube / Up The Road",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "paved road",
+          "wooded area",
+          "fall foliage",
+          "cycling race",
+          "safety lights"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "lowell-classic-preview.gif",
+        "url": "/race-photos/lowell-classic/lowell-classic-preview.gif",
+        "alt": "Course preview from Lowell Classic race footage",
+        "credit": "YouTube / Up The Road",
+        "gif": true
+      }
+    ]
   }
 }

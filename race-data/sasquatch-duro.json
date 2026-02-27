@@ -479,7 +479,153 @@
           "category": "course_difficulty",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Sasquatch Monster Split",
+            "mile_marker": "31",
+            "description": "Race promoter describes this as where it gets really interesting for the day, marking a significant point in the race.",
+            "source_video_ids": [
+              "BNEi7_Yyaa4"
+            ]
+          },
+          {
+            "name": "First climb",
+            "description": "Used strategically to break up the group early, got it down to three riders.",
+            "source_video_ids": [
+              "BNEi7_Yyaa4"
+            ]
+          },
+          {
+            "name": "16-mile climb",
+            "description": "Key tactical point where gaps can be established - winner put in a dig here and got a gap that grew to a minute.",
+            "source_video_ids": [
+              "BNEi7_Yyaa4"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Course described as wet Oregon fire roads with sheltered sections and lots of trees where you can't see other riders.",
+            "source_video_ids": [
+              "BNEi7_Yyaa4"
+            ]
+          },
+          {
+            "text": "Final downhill section allows for fast passing - described as making other riders look like they're standing still.",
+            "source_video_ids": [
+              "BNEi7_Yyaa4"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "Kenda Alluvium Pro tires 700x35 - described as super fast on Oregon fire roads with decent side knobs for cornering traction.",
+            "source_video_ids": [
+              "BNEi7_Yyaa4"
+            ]
+          },
+          {
+            "text": "42 tooth chainring with 33-10 cassette for gearing on the climbs.",
+            "source_video_ids": [
+              "BNEi7_Yyaa4"
+            ]
+          }
+        ],
+        "race_day_tips": [
+          {
+            "text": "Because of the sheltered, tree-covered terrain, you never know if you're 30 seconds ahead or 10 minutes, so gap management is crucial.",
+            "source_video_ids": [
+              "BNEi7_Yyaa4"
+            ]
+          },
+          {
+            "text": "Use the early climbs tactically to break up the group before the bigger efforts later in the race.",
+            "source_video_ids": [
+              "BNEi7_Yyaa4"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "It's going to be a ruckus day at Sasquatch Duro that's for sure with 260 people signed up.",
+            "source_video_id": "BNEi7_Yyaa4",
+            "source_channel": "STEFANO BARBERI",
+            "source_view_count": 310,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "We're at the big Sasquatch monster Sasquatch split about mile 31 and here's where it gets really interesting for the day.",
+            "source_video_id": "BNEi7_Yyaa4",
+            "source_channel": "STEFANO BARBERI",
+            "source_view_count": 310,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "Sasquatch Duro features wet Oregon fire roads with significant elevation changes and sheltered, tree-covered sections that make it difficult to judge gaps between riders. The course has a high point at 4,400 feet and includes strategic climbs early in the race for breaking up groups. A key feature is the Sasquatch Monster Split at mile 31, described by race promoters as where the race gets interesting. The terrain allows for fast riding on fire roads with Kenda Alluvium Pro 35mm tires proving effective. The final downhill section enables rapid passing of other riders. Race conditions often include Oregon rain, adding to the challenge. With 260 riders registered, the event draws significant participation. The course rewards tactical climbing and gap management skills due to limited visibility between competitors."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "sasquatch-duro-video-1.jpg",
+        "url": "/race-photos/sasquatch-duro/sasquatch-duro-video-1.jpg",
+        "alt": "First-person view of cyclist following another rider on forested gravel road with digital metrics display overlay - Sasquatch Duro - Carlton, Oregon",
+        "credit": "YouTube / Ride Revival",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel road",
+          "forest trail",
+          "cycling POV",
+          "bike computer"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "sasquatch-duro-video-2.jpg",
+        "url": "/race-photos/sasquatch-duro/sasquatch-duro-video-2.jpg",
+        "alt": "Cyclist in pink jersey taking selfie in residential area with pickup truck and mountains in background - Sasquatch Duro - Carlton, Oregon",
+        "credit": "YouTube / Ride Revival",
+        "primary": false,
+        "ai_relevance": 3,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "cycling selfie",
+          "pink jersey",
+          "mountain backdrop",
+          "residential area"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "sasquatch-duro-video-3.jpg",
+        "url": "/race-photos/sasquatch-duro/sasquatch-duro-video-3.jpg",
+        "alt": "Cyclist adjusting helmet while taking selfie on gravel road with rocky cliff formations and forest landscape - Sasquatch Duro - Carlton, Oregon",
+        "credit": "YouTube / Ride Revival",
+        "primary": false,
+        "ai_relevance": 4,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel cycling",
+          "rock formations",
+          "forest landscape",
+          "cycling helmet"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "sasquatch-duro-preview.gif",
+        "url": "/race-photos/sasquatch-duro/sasquatch-duro-preview.gif",
+        "alt": "Course preview from Sasquatch Duro race footage",
+        "credit": "YouTube / Ride Revival",
+        "gif": true
+      }
+    ]
   }
 }

@@ -422,6 +422,83 @@
           "curated": true
         }
       ]
-    }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "migration-gravel-race-video-1.jpg",
+        "url": "/race-photos/migration-gravel-race/migration-gravel-race-video-1.jpg",
+        "alt": "Herd of cattle including black, brown and white cows grazing in sandy terrain with scattered trees in African savanna landscape - Migration Gravel Race - Maasai Mara, Kenya",
+        "credit": "YouTube / Josh Reid",
+        "primary": true,
+        "ai_relevance": 2,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "cattle herd",
+          "sandy terrain",
+          "savanna",
+          "livestock",
+          "acacia trees"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "migration-gravel-race-video-2.jpg",
+        "url": "/race-photos/migration-gravel-race/migration-gravel-race-video-2.jpg",
+        "alt": "Muddy water pool with green algae and cyclist shadows visible on wet ground in rural grassland setting - Migration Gravel Race - Maasai Mara, Kenya",
+        "credit": "YouTube / Josh Reid",
+        "primary": false,
+        "ai_relevance": 2,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "muddy terrain",
+          "water crossing",
+          "cyclist shadow",
+          "grassland",
+          "wet conditions"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "migration-gravel-race-video-3.jpg",
+        "url": "/race-photos/migration-gravel-race/migration-gravel-race-video-3.jpg",
+        "alt": "Gravel cyclist in racing gear riding on dirt trail through green savanna landscape with other riders visible in background - Migration Gravel Race - Maasai Mara, Kenya",
+        "credit": "YouTube / Josh Reid",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel racing",
+          "dirt trail",
+          "savanna terrain",
+          "cycling peloton",
+          "African landscape"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "migration-gravel-race-preview.gif",
+        "url": "/race-photos/migration-gravel-race/migration-gravel-race-preview.gif",
+        "alt": "Course preview from Migration Gravel Race race footage",
+        "credit": "YouTube / Josh Reid",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "migration-gravel-race-preview-2.gif",
+        "url": "/race-photos/migration-gravel-race/migration-gravel-race-preview-2.gif",
+        "alt": "Course preview from Migration Gravel Race race footage",
+        "credit": "YouTube / Josh Reid",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "migration-gravel-race-preview-3.gif",
+        "url": "/race-photos/migration-gravel-race/migration-gravel-race-preview-3.gif",
+        "alt": "Course preview from Migration Gravel Race race footage",
+        "credit": "YouTube / Josh Reid",
+        "gif": true
+      }
+    ]
   }
 }

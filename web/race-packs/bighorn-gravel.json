@@ -1,6 +1,7 @@
 {
   "slug": "bighorn-gravel",
   "race_name": "Bighorn Gravel",
+  "distance_mi": 62.0,
   "demands": {
     "durability": 2,
     "climbing": 7,
@@ -18,7 +19,8 @@
       "workouts": [
         "Surge and Settle",
         "Terrain Microbursts"
-      ]
+      ],
+      "workout_context": "Bighorn Gravel\u2019s mountain gravel, high altitude demands rapid power changes \u2014 surge over obstacles, settle on smoother sections, repeat for hours."
     },
     {
       "category": "Race_Simulation",
@@ -27,7 +29,8 @@
         "Breakaway Simulation",
         "Variable Pace Chaos",
         "Sector Simulation"
-      ]
+      ],
+      "workout_context": "Racing Bighorn Gravel isn\u2019t just fitness \u2014 it\u2019s pacing, fueling, and executing when conditions deteriorate. This workout practices the race itself."
     },
     {
       "category": "VO2max",
@@ -36,7 +39,8 @@
         "5x3 VO2 Classic",
         "Descending VO2 Pyramid",
         "Norwegian 4x8"
-      ]
+      ],
+      "workout_context": "Bighorn Gravel\u2019s colorado mountain gravel and competitive field demand explosive aerobic capacity \u2014 the ability to respond to surges without blowing up."
     },
     {
       "category": "TT_Threshold",
@@ -45,7 +49,8 @@
         "Single Sustained Threshold",
         "Threshold Ramps",
         "Descending Threshold"
-      ]
+      ],
+      "workout_context": "Bighorn Gravel rewards athletes who can hold sustained power without blowing up \u2014 threshold is the engine that drives everything above Zone 2."
     },
     {
       "category": "Over_Under",
@@ -53,9 +58,80 @@
       "workouts": [
         "Classic Over-Unders",
         "Ladder Over-Unders"
-      ]
+      ],
+      "workout_context": "Over-unders train the lactate clearance you\u2019ll need at Bighorn Gravel when surges push you above threshold and you have to recover while still riding hard."
+    },
+    {
+      "category": "G_Spot",
+      "score": 65,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ],
+      "workout_context": "The G-Spot zone (88\u201392% FTP) is where you\u2019ll spend the hardest sustained miles of Bighorn Gravel. Make this intensity feel like home."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 62,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "Bighorn Gravel\u2019s 6,000ft of climbing demands seated and standing versatility \u2014 the ability to change climbing style as gradient and fatigue dictate."
+    },
+    {
+      "category": "Durability",
+      "score": 59,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ],
+      "workout_context": "Bighorn Gravel\u2019s colorado mountain gravel drains energy reserves faster than the distance suggests \u2014 durability training bridges the gap."
+    },
+    {
+      "category": "Critical_Power",
+      "score": 53,
+      "workouts": [
+        "Above CP Repeats",
+        "W-Prime Depletion"
+      ],
+      "workout_context": "Critical power determines how long you can sustain above-threshold efforts at Bighorn Gravel \u2014 a higher CP means more time in the red before failure."
+    },
+    {
+      "category": "Endurance",
+      "score": 51,
+      "workouts": [
+        "Pre-Race Openers",
+        "Terrain Simulation Z2"
+      ],
+      "workout_context": "Every session at Bighorn Gravel intensity builds on this aerobic foundation \u2014 the endurance base is the soil everything else grows in."
+    },
+    {
+      "category": "SFR_Muscle_Force",
+      "score": 41,
+      "workouts": [
+        "SFR Low Cadence",
+        "Force Repeats"
+      ],
+      "workout_context": "Low-cadence force work builds the muscular strength for Bighorn Gravel\u2019s 6,000ft of climbing \u2014 especially the grinding, low-speed ascents."
+    },
+    {
+      "category": "Anaerobic_Capacity",
+      "score": 41,
+      "workouts": [
+        "2min Killers",
+        "90sec Repeats"
+      ],
+      "workout_context": "Short, violent efforts are unavoidable at Bighorn Gravel \u2014 climbs demanding 2-minute maximal efforts, surges to close gaps, attacks on colorado mountain gravel."
     }
   ],
+  "race_overlay": {
+    "nutrition": "Target 40\u201360g carbs/hour for Bighorn Gravel\u2019s 62 miles. Front-load calories in the first half. One bottle per hour minimum, more in heat.",
+    "altitude": "Bighorn Gravel with 6,000ft of climbing, much of it above 8,000ft demands altitude preparation. Arrive 5\u20137 days early for acclimatization. Expect 5\u201315% power reduction at altitude. Increase iron intake 4 weeks out. Hydrate aggressively \u2014 altitude increases fluid loss by 20\u201340%. High altitude (7000-9000+ feet); Sun exposure at altitude.",
+    "terrain": "Mixed terrain at Bighorn Gravel requires surface adaptability. Include weekly rides on colorado mountain gravel to build confidence. Expect: mountain gravel, high altitude, significant climbing."
+  },
   "pack_summary": "This 10-workout pack focuses on Gravel Specific, Race Simulation, and VO2max to prepare you for 62 miles of colorado mountain gravel in Gypsum, Colorado.",
   "generated_at": "2026-02-26"
 }

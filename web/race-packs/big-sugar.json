@@ -1,6 +1,7 @@
 {
   "slug": "big-sugar",
   "race_name": "Big Sugar Gravel",
+  "distance_mi": 100.0,
   "demands": {
     "durability": 6,
     "climbing": 8,
@@ -18,7 +19,8 @@
       "workouts": [
         "Surge and Settle",
         "Terrain Microbursts"
-      ]
+      ],
+      "workout_context": "Big Sugar Gravel\u2019s ozark gravel, punchy climbs demands rapid power changes \u2014 surge over obstacles, settle on smoother sections, repeat for hours."
     },
     {
       "category": "Race_Simulation",
@@ -27,7 +29,8 @@
         "Breakaway Simulation",
         "Variable Pace Chaos",
         "Sector Simulation"
-      ]
+      ],
+      "workout_context": "Racing Big Sugar Gravel isn\u2019t just fitness \u2014 it\u2019s pacing, fueling, and executing when conditions deteriorate. This workout practices the race itself."
     },
     {
       "category": "TT_Threshold",
@@ -36,7 +39,8 @@
         "Single Sustained Threshold",
         "Threshold Ramps",
         "Descending Threshold"
-      ]
+      ],
+      "workout_context": "Big Sugar Gravel rewards athletes who can hold sustained power without blowing up \u2014 threshold is the engine that drives everything above Zone 2."
     },
     {
       "category": "Durability",
@@ -45,7 +49,8 @@
         "Tired VO2max",
         "Double Day Simulation",
         "Progressive Fatigue"
-      ]
+      ],
+      "workout_context": "At 100 miles, Big Sugar Gravel punishes athletes who haven\u2019t trained their body to produce power when glycogen runs low."
     },
     {
       "category": "VO2max",
@@ -54,9 +59,78 @@
         "5x3 VO2 Classic",
         "Descending VO2 Pyramid",
         "Norwegian 4x8"
-      ]
+      ],
+      "workout_context": "Big Sugar Gravel\u2019s ozark mountain gravel with punchy repeated climbs and competitive field demand explosive aerobic capacity \u2014 the ability to respond to surges without blowing up."
+    },
+    {
+      "category": "Over_Under",
+      "score": 73,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ],
+      "workout_context": "Over-unders train the lactate clearance you\u2019ll need at Big Sugar Gravel when surges push you above threshold and you have to recover while still riding hard."
+    },
+    {
+      "category": "Critical_Power",
+      "score": 70,
+      "workouts": [
+        "Above CP Repeats",
+        "W-Prime Depletion"
+      ],
+      "workout_context": "Critical power determines how long you can sustain above-threshold efforts at Big Sugar Gravel \u2014 a higher CP means more time in the red before failure."
+    },
+    {
+      "category": "G_Spot",
+      "score": 64,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ],
+      "workout_context": "The G-Spot zone (88\u201392% FTP) is where you\u2019ll spend the hardest sustained miles of Big Sugar Gravel. Make this intensity feel like home."
+    },
+    {
+      "category": "Anaerobic_Capacity",
+      "score": 64,
+      "workouts": [
+        "2min Killers",
+        "90sec Repeats"
+      ],
+      "workout_context": "Short, violent efforts are unavoidable at Big Sugar Gravel \u2014 climbs demanding 2-minute maximal efforts, surges to close gaps, attacks on ozark mountain gravel with punchy repeated climbs."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 55,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "Big Sugar Gravel\u2019s 9,500ft of climbing demands seated and standing versatility \u2014 the ability to change climbing style as gradient and fatigue dictate."
+    },
+    {
+      "category": "Blended",
+      "score": 43,
+      "workouts": [
+        "Z2 + VO2 Combo",
+        "Endurance with Spikes"
+      ],
+      "workout_context": "Blended sessions combine endurance with intensity spikes \u2014 exactly what Big Sugar Gravel\u2019s ozark mountain gravel with punchy repeated climbs delivers on race day."
+    },
+    {
+      "category": "Endurance",
+      "score": 38,
+      "workouts": [
+        "Pre-Race Openers",
+        "Terrain Simulation Z2"
+      ],
+      "workout_context": "Every session at Big Sugar Gravel intensity builds on this aerobic foundation \u2014 the endurance base is the soil everything else grows in."
     }
   ],
+  "race_overlay": {
+    "nutrition": "Target 60\u201380g carbs/hour for Big Sugar Gravel\u2019s 100 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
+    "terrain": "Highly technical terrain at Big Sugar Gravel demands practice on similar surfaces. Ride ozark mountain gravel with punchy repeated climbs at race-day cadence weekly. Expect: ozark gravel, punchy climbs, technical descents. Practice cornering, descending, and power delivery on unstable surfaces. Dial in tire pressure before race week \u2014 5 PSI wrong costs you 15+ minutes over 100 miles."
+  },
   "pack_summary": "This 10-workout pack focuses on Gravel Specific, Race Simulation, and TT Threshold to prepare you for 100 miles of ozark mountain gravel with punchy repeated climbs in Bentonville, Arkansas.",
   "generated_at": "2026-02-26"
 }

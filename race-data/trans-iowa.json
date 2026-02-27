@@ -603,7 +603,125 @@
           "curated": false
         }
       ],
-      "quotes": []
-    }
+      "quotes": [],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [],
+        "terrain_notes": [
+          {
+            "text": "The gravel roads in Texas were described as gradually ramping up in difficulty and speed throughout the race.",
+            "source_video_ids": [
+              "Fx7jxLJTeYk"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "42 double cross IRC tires on the Canyon Grail with Apidura frame bag for the Gravel Locos race.",
+            "source_video_ids": [
+              "Fx7jxLJTeYk"
+            ]
+          },
+          {
+            "text": "Adventure bikes have easier gears for getting up very steep climbs compared to gravel race bikes which have harder gearing.",
+            "source_video_ids": [
+              "l9oKDPRqZXw"
+            ]
+          }
+        ],
+        "race_day_tips": [
+          {
+            "text": "Flow formulas in both bottles plus a camel pack, cliff shot blocks, gels, and plan on refueling at rest stops during the race.",
+            "source_video_ids": [
+              "Fx7jxLJTeYk"
+            ]
+          },
+          {
+            "text": "Make sure bottles are secure before river crossings - bottles can fly out on descents into water crossings.",
+            "source_video_ids": [
+              "Fx7jxLJTeYk"
+            ]
+          },
+          {
+            "text": "The pros eased into the race and didn't go full gas from the beginning, gradually ramping up speed throughout.",
+            "source_video_ids": [
+              "Fx7jxLJTeYk"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "The beginning of this race was neutralized right so all the pros all the big hitters said let's get to this river crossing let's get across that first uh let's not race to that because it's pretty sketchy",
+            "source_video_id": "Fx7jxLJTeYk",
+            "source_channel": "VC Adventures",
+            "source_view_count": 221457,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "The transcripts cover gravel racing experiences from Kyrgyzstan's Silk Road Mountain Race and Texas's Gravel Locos race. Riders describe challenging terrain including steep mountain passes reaching 3,100 meters elevation with altitude sickness concerns. The Texas race featured technical river crossings that required walking bikes across with rope assistance due to deep water and slippery rocks. Gravel roads gradually increased in difficulty and speed throughout events. Equipment recommendations include 42mm tires, frame bags for nutrition storage, and dual bottle setups with backup hydration. Race tactics mentioned include neutralized starts for safety, gradual pacing by professional riders, and strategic refueling at aid stations. Course conditions varied from paved tarmac roads to technical gravel sections with punchy climbs requiring power output."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "trans-iowa-video-1.jpg",
+        "url": "/race-photos/trans-iowa/trans-iowa-video-1.jpg",
+        "alt": "Cyclists riding on gravel road through rolling countryside with green vegetation under overcast sky - Trans Iowa - Checkpoint, Iowa",
+        "credit": "YouTube / VC Adventures",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel road",
+          "cycling peloton",
+          "rural countryside",
+          "overcast conditions",
+          "rolling terrain"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "trans-iowa-video-2.jpg",
+        "url": "/race-photos/trans-iowa/trans-iowa-video-2.jpg",
+        "alt": "Group of gravel cyclists racing on dirt road through wooded area with dense green foliage - Trans Iowa - Checkpoint, Iowa",
+        "credit": "YouTube / VC Adventures",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "dirt road racing",
+          "wooded terrain",
+          "gravel cycling",
+          "forest path",
+          "cycling group"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "trans-iowa-video-3.jpg",
+        "url": "/race-photos/trans-iowa/trans-iowa-video-3.jpg",
+        "alt": "Female cyclist in helmet and green jacket speaking to camera in open landscape at sunset - Trans Iowa - Checkpoint, Iowa",
+        "credit": "YouTube / VC Adventures",
+        "primary": false,
+        "ai_relevance": 2,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "cyclist interview",
+          "sunset lighting",
+          "open landscape",
+          "cycling helmet",
+          "rider portrait"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "trans-iowa-preview.gif",
+        "url": "/race-photos/trans-iowa/trans-iowa-preview.gif",
+        "alt": "Course preview from Trans Iowa race footage",
+        "credit": "YouTube / VC Adventures",
+        "gif": true
+      }
+    ]
   }
 }

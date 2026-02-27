@@ -578,7 +578,220 @@
           "category": "race_atmosphere",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "tunnel pinch point",
+            "mile_marker": "4",
+            "description": "A major bottleneck where everyone gets crammed in. Creates crashes and dust visibility issues. Need to be in top 50 riders to avoid problems.",
+            "source_video_ids": [
+              "APie78U_c3I",
+              "b1y5o5WtFrc"
+            ]
+          },
+          {
+            "name": "first off-road section climb",
+            "mile_marker": "19",
+            "description": "First real decisive section requiring 8 minutes 49 seconds, averaging 351 watts with final 2.5 minutes at 432 watts. Key positioning point.",
+            "source_video_ids": [
+              "b1y5o5WtFrc"
+            ]
+          },
+          {
+            "name": "single track section",
+            "mile_marker": "115",
+            "description": "Most technical single track in BWR series - very techy section that advantages mountain bikers. Added back after being removed due to complaints.",
+            "source_video_ids": [
+              "M1PGGRlC488",
+              "b1y5o5WtFrc"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Gravel feels completely different at race pace (25-30 mph) versus pre-riding at 17 mph - much more rough and loose at speed.",
+            "source_video_ids": [
+              "APie78U_c3I"
+            ]
+          },
+          {
+            "text": "Course has sections where riders are flying and hitting rocks and holes with little to no warning.",
+            "source_video_ids": [
+              "M1PGGRlC488"
+            ]
+          },
+          {
+            "text": "Dust conditions are severe - riders report not being able to see the front or gauge gaps to lead groups.",
+            "source_video_ids": [
+              "APie78U_c3I"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "40mm tire width recommended by race organizers as optimal, though 42mm specialized pathfinder pro worked well for the conditions.",
+            "source_video_ids": [
+              "M1PGGRlC488"
+            ]
+          },
+          {
+            "text": "Tire pressure: 27 psi front, 29 psi rear with tire inserts allows lower pressure for chunky gravel while preventing flats.",
+            "source_video_ids": [
+              "M1PGGRlC488"
+            ]
+          },
+          {
+            "text": "Wide rims (25mm internal, 32mm external) improve aerodynamics with wider 28-32mm tires and play well with gravel tires.",
+            "source_video_ids": [
+              "M1PGGRlC488"
+            ]
+          },
+          {
+            "text": "Tubolito tire inserts are game-changing for gravel - greatly reduce flat risk when hitting rocks and holes at high speed.",
+            "source_video_ids": [
+              "M1PGGRlC488"
+            ]
+          }
+        ],
+        "race_day_tips": [
+          {
+            "text": "Need to be in top 50 riders before tunnel at mile 4 to avoid major positioning problems and crashes.",
+            "source_video_ids": [
+              "b1y5o5WtFrc"
+            ]
+          },
+          {
+            "text": "No real warm-up - race goes from coasting to full gas immediately after tunnel, so legs feel like bricks early.",
+            "source_video_ids": [
+              "APie78U_c3I"
+            ]
+          },
+          {
+            "text": "Pre-ride at race pace, not casual pace - terrain feels completely different at 25-30 mph vs 17 mph.",
+            "source_video_ids": [
+              "APie78U_c3I"
+            ]
+          },
+          {
+            "text": "Remember to zip frame bag back up after taking nutrition - easy to lose gels on bumpy gravel sections.",
+            "source_video_ids": [
+              "M1PGGRlC488"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "Cold start at 40 degrees requires dialed thermal gear - thermal jacket, vest, gloves essential for early race comfort.",
+            "source_video_id": "APie78U_c3I",
+            "source_channel": "VC Adventures",
+            "source_view_count": 221637,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "Nutrition strategy: 7 bottles total - 400 calories, 100g carbs per bottle of scratch superfuel, plus backup gels in case support misses aid stations.",
+            "source_video_id": "b1y5o5WtFrc",
+            "source_channel": "Goettl Media",
+            "source_view_count": 43826,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "Belgian Waffle Ride Cedar City features 127 miles with 6500 feet of elevation and significant technical challenges. The race starts cold at 40 degrees with a critical tunnel pinch point at mile 4 that creates crashes and dust visibility issues. Riders need to be in the top 50 to avoid problems. The first major climb at mile 19 is decisive, requiring 8+ minutes at high watts. A technical single track section at mile 115 advantages mountain bikers. Gravel feels much rougher at race pace (25-30 mph) than pre-riding speeds. Course has sections with rocks and holes hit at high speed with little warning. Recommended setup includes 40-42mm tires, tire inserts for flat protection, and lower pressures (27-29 psi). Race goes from no warm-up to full gas immediately, making positioning crucial early."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "bwr-cedar-city-video-1.jpg",
+        "url": "/race-photos/bwr-cedar-city/bwr-cedar-city-video-1.jpg",
+        "alt": "Indoor interview setup with cyclist in front of race number collection and bicycle in home setting - Belgian Waffle Ride Cedar City - Cedar City, Utah",
+        "credit": "YouTube / Dylan Johnson",
+        "primary": true,
+        "ai_relevance": 1,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "race numbers",
+          "cyclist interview",
+          "indoor",
+          "bicycle"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "bwr-cedar-city-video-2.jpg",
+        "url": "/race-photos/bwr-cedar-city/bwr-cedar-city-video-2.jpg",
+        "alt": "First-person view cycling on gravel road through desert canyon with rocky formations and parked vehicles - Belgian Waffle Ride Cedar City - Cedar City, Utah",
+        "credit": "YouTube / Dylan Johnson",
+        "primary": false,
+        "ai_relevance": 4,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "gravel road",
+          "desert canyon",
+          "POV cycling",
+          "rocky terrain"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "bwr-cedar-city-video-3.jpg",
+        "url": "/race-photos/bwr-cedar-city/bwr-cedar-city-video-3.jpg",
+        "alt": "Cyclist's handlebar view descending red dirt gravel road through desert terrain with vegetation - Belgian Waffle Ride Cedar City - Cedar City, Utah",
+        "credit": "YouTube / Dylan Johnson",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "red dirt",
+          "gravel descent",
+          "desert cycling",
+          "handlebar view",
+          "arid landscape"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "bwr-cedar-city-preview.gif",
+        "url": "/race-photos/bwr-cedar-city/bwr-cedar-city-preview.gif",
+        "alt": "Course preview from Bwr Cedar City race footage",
+        "credit": "YouTube / Dylan Johnson",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "bwr-cedar-city-preview-2.gif",
+        "url": "/race-photos/bwr-cedar-city/bwr-cedar-city-preview-2.gif",
+        "alt": "Course preview from Bwr Cedar City race footage",
+        "credit": "YouTube / Dylan Johnson",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "bwr-cedar-city-preview-3.gif",
+        "url": "/race-photos/bwr-cedar-city/bwr-cedar-city-preview-3.gif",
+        "alt": "Course preview from Bwr Cedar City race footage",
+        "credit": "YouTube / Dylan Johnson",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "bwr-cedar-city-preview-4.gif",
+        "url": "/race-photos/bwr-cedar-city/bwr-cedar-city-preview-4.gif",
+        "alt": "Course preview from Bwr Cedar City race footage",
+        "credit": "YouTube / Dylan Johnson",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "bwr-cedar-city-preview-5.gif",
+        "url": "/race-photos/bwr-cedar-city/bwr-cedar-city-preview-5.gif",
+        "alt": "Course preview from Bwr Cedar City race footage",
+        "credit": "YouTube / Dylan Johnson",
+        "gif": true
+      }
+    ]
   }
 }

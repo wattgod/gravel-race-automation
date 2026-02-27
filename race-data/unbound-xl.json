@@ -609,7 +609,209 @@
           "category": "race_atmosphere",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Early race crashes",
+            "mile_marker": "7-8",
+            "description": "Multiple crashes happen very early in the race, around mile 7 or 8, often when riders aren't expecting it during lulls in racing.",
+            "source_video_ids": [
+              "9-ygt3qHpQo"
+            ]
+          },
+          {
+            "name": "Heat management",
+            "mile_marker": "70",
+            "description": "Heat becomes a major factor as the day progresses, causing groups to dwindle and wreaking havoc on power late in the race. This is described as the critical moment where people either crack completely or break into top positions.",
+            "source_video_ids": [
+              "9-ygt3qHpQo",
+              "EZp-taQ4I7I"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Sharp rocks are a constant hazard on the course that riders must navigate.",
+            "source_video_ids": [
+              "9-ygt3qHpQo"
+            ]
+          },
+          {
+            "text": "The course features rolling terrain that becomes more challenging as heat builds throughout the day.",
+            "source_video_ids": [
+              "9-ygt3qHpQo"
+            ]
+          },
+          {
+            "text": "Different sections have distinct characteristics - some are famous for being really fast, others for causing non-stop punctures, and some for being real tough, gritty sections.",
+            "source_video_ids": [
+              "EZp-taQ4I7I"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "For XL distance (350 miles), riders use suspension forks like the RockShox 35 ARS with 42mm double cross IRC tires filled with Orange Seal tubeless sealant.",
+            "source_video_ids": [
+              "Dq1BwRQymaI"
+            ]
+          },
+          {
+            "text": "Pro race setups use road-oriented gearing: 11-34 Dura Ace cassette with 34-50 chainrings, optimized for the crazy high speeds of the pro race.",
+            "source_video_ids": [
+              "EZp-taQ4I7I"
+            ]
+          },
+          {
+            "text": "Chain waxing is important - riders use products like Silca Endurance chip wax for the long distance.",
+            "source_video_ids": [
+              "EZp-taQ4I7I"
+            ]
+          }
+        ],
+        "race_day_tips": [
+          {
+            "text": "Expect problems and set realistic expectations - issues are going to happen over such a long distance, so mental preparation for handling setbacks is crucial.",
+            "source_video_ids": [
+              "9-ygt3qHpQo"
+            ]
+          },
+          {
+            "text": "For XL distance, calculate every single calorie needed for the entire 350 miles and plan timing for what you're going to eat, since it's fully self-supported.",
+            "source_video_ids": [
+              "Dq1BwRQymaI"
+            ]
+          },
+          {
+            "text": "The critical moment comes late in the race when heat affects power output - this is where people either crack completely or break into top positions.",
+            "source_video_ids": [
+              "EZp-taQ4I7I"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "For XL distance it's fully self-supported so when you stop to get food and water that's on your own dime you've got to stop at little grocery stores little markets you got to kind of plan that along the way",
+            "source_video_id": "Dq1BwRQymaI",
+            "source_channel": "VC Adventures",
+            "source_view_count": 360944,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "The 200 has two designated rest stops where you have a sag crew that have a little tent they can give you food and water and repair equipment like you have two points on the course where you can stop",
+            "source_video_id": "Dq1BwRQymaI",
+            "source_channel": "VC Adventures",
+            "source_view_count": 360944,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "Over 350 miles there's so many opportunities for things to go wrong and it's really who can not succumb to the snowball effect of all the things going wrong",
+            "source_video_id": "Dq1BwRQymaI",
+            "source_channel": "VC Adventures",
+            "source_view_count": 360944,
+            "category": "training",
+            "curated": true
+          }
+        ],
+        "search_text": "Unbound XL in Emporia, Kansas is described as one of the toughest gravel races in the world, featuring 350 miles of brutal terrain with 14,000 feet of elevation. The course includes sharp rocks, rolling hills, and varied sections - some known for high speeds, others for constant punctures, and some for being particularly gritty and tough. Heat becomes a major challenge as the day progresses, often causing riders to crack late in the race. Early crashes around miles 7-8 are common when riders aren't expecting them. The XL distance is fully self-supported, requiring riders to stop at grocery stores and markets for supplies, while the 200-mile race has two designated sag stops. Environmental challenges include wind, rain, mud, and extreme heat. Riders emphasize the importance of mental preparation for handling multiple setbacks over such a long distance."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "unbound-xl-video-1.jpg",
+        "url": "/race-photos/unbound-xl/unbound-xl-video-1.jpg",
+        "alt": "Aerial view of cyclists racing in formation on gravel road through Kansas farmland with green fields and rural landscape - Unbound XL - Emporia, Kansas",
+        "credit": "YouTube / Global Cycling Network",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel peloton",
+          "Kansas farmland",
+          "aerial view",
+          "rural gravel road",
+          "cycling formation"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "unbound-xl-video-2.jpg",
+        "url": "/race-photos/unbound-xl/unbound-xl-video-2.jpg",
+        "alt": "Close-up selfie of gravel cyclist in colorful EF kit with sunglasses and helmet racing on dirt road through rolling prairie landscape - Unbound XL - Emporia, Kansas",
+        "credit": "YouTube / Global Cycling Network",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel cyclist",
+          "EF kit",
+          "prairie landscape",
+          "dirt road",
+          "cycling selfie"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "unbound-xl-video-3.jpg",
+        "url": "/race-photos/unbound-xl/unbound-xl-video-3.jpg",
+        "alt": "Muddy gravel cyclist in white jersey and MET helmet speaking to camera while riding through wooded area with trees - Unbound XL - Emporia, Kansas",
+        "credit": "YouTube / Global Cycling Network",
+        "primary": false,
+        "ai_relevance": 4,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "muddy cyclist",
+          "gravel racing",
+          "wooded terrain",
+          "MET helmet",
+          "cycling interview"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "unbound-xl-preview.gif",
+        "url": "/race-photos/unbound-xl/unbound-xl-preview.gif",
+        "alt": "Course preview from Unbound Xl race footage",
+        "credit": "YouTube / Global Cycling Network",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "unbound-xl-preview-2.gif",
+        "url": "/race-photos/unbound-xl/unbound-xl-preview-2.gif",
+        "alt": "Course preview from Unbound Xl race footage",
+        "credit": "YouTube / Global Cycling Network",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "unbound-xl-preview-3.gif",
+        "url": "/race-photos/unbound-xl/unbound-xl-preview-3.gif",
+        "alt": "Course preview from Unbound Xl race footage",
+        "credit": "YouTube / Global Cycling Network",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "unbound-xl-preview-4.gif",
+        "url": "/race-photos/unbound-xl/unbound-xl-preview-4.gif",
+        "alt": "Course preview from Unbound Xl race footage",
+        "credit": "YouTube / Global Cycling Network",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "unbound-xl-preview-5.gif",
+        "url": "/race-photos/unbound-xl/unbound-xl-preview-5.gif",
+        "alt": "Course preview from Unbound Xl race footage",
+        "credit": "YouTube / Global Cycling Network",
+        "gif": true
+      }
+    ]
   }
 }

@@ -518,7 +518,101 @@
           "curated": false
         }
       ],
-      "quotes": []
-    }
+      "quotes": [],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Technical descents",
+            "description": "Technical descents with twisty corners that require skill and focus.",
+            "source_video_ids": [
+              "jpZRtoXsrs4"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Nice fast gravel with good surface quality, combined with technical sections and twisty corners on descents.",
+            "source_video_ids": [
+              "jpZRtoXsrs4"
+            ]
+          }
+        ],
+        "gear_mentions": [],
+        "race_day_tips": [],
+        "additional_quotes": [
+          {
+            "text": "I was impressed by the gravel it was really good gravel you know nice fast gravel and technical stuff",
+            "source_video_id": "jpZRtoXsrs4",
+            "source_channel": "Ocisport TV",
+            "source_view_count": 479,
+            "category": "course_difficulty",
+            "curated": true
+          }
+        ],
+        "search_text": "Sea Otter Europe Gravel in Girona features a mix of nice fast gravel roads with good surface quality combined with technical sections. Riders highlight the technical descents with twisty corners as a key challenge requiring skill and bike handling. The course offers variety between fast gravel sections and more demanding technical terrain. Riders describe the gravel quality as impressive and recommend the area as an excellent destination for cycling. The technical nature of the descents with twisty corners stands out as a defining characteristic that riders need to prepare for."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "sea-otter-europe-gravel-video-1.jpg",
+        "url": "/race-photos/sea-otter-europe-gravel/sea-otter-europe-gravel-video-1.jpg",
+        "alt": "Group of gravel cyclists racing on dirt trail through forested terrain with rocky surface and dense tree coverage - Sea Otter Europe Gravel - Girona, Spain",
+        "credit": "YouTube / Gravel et Découvertes",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "gravel trail",
+          "forest racing",
+          "dirt path",
+          "cycling group",
+          "rocky terrain"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "sea-otter-europe-gravel-video-2.jpg",
+        "url": "/race-photos/sea-otter-europe-gravel/sea-otter-europe-gravel-video-2.jpg",
+        "alt": "Solo cyclist riding on paved road section through rolling countryside with green fields and scattered trees - Sea Otter Europe Gravel - Girona, Spain",
+        "credit": "YouTube / Gravel et Découvertes",
+        "primary": false,
+        "ai_relevance": 4,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "paved section",
+          "rolling hills",
+          "countryside",
+          "solo rider",
+          "rural landscape"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "sea-otter-europe-gravel-video-3.jpg",
+        "url": "/race-photos/sea-otter-europe-gravel/sea-otter-europe-gravel-video-3.jpg",
+        "alt": "Victorious gravel racer celebrating at Sea Otter Europe finish line with UCI branding and sponsors visible - Sea Otter Europe Gravel - Girona, Spain",
+        "credit": "YouTube / Gravel et Découvertes",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 5,
+        "ai_keywords": [
+          "finish line",
+          "Sea Otter Europe",
+          "victory celebration",
+          "UCI racing",
+          "gravel champion"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "sea-otter-europe-gravel-preview.gif",
+        "url": "/race-photos/sea-otter-europe-gravel/sea-otter-europe-gravel-preview.gif",
+        "alt": "Course preview from Sea Otter Europe Gravel race footage",
+        "credit": "YouTube / Gravel et Découvertes",
+        "gif": true
+      }
+    ]
   }
 }

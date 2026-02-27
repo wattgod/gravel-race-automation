@@ -570,7 +570,135 @@
           "category": "course_difficulty",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Forest Service roads climbs",
+            "description": "The climbs hit after deceptive calm wide gravel flats, gravel gets looser, climbs get punchier, and riders are exposed to long stretches that really test your legs and your mindset.",
+            "source_video_ids": [
+              "ZY50-fhnPnM"
+            ]
+          },
+          {
+            "name": "Rock hazards",
+            "description": "If you're right on the wheel and clip rock and flat, you're going to lose a lot more time than if you ride steady and smart.",
+            "source_video_ids": [
+              "ztQ9Of6tRBU"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Starts with deceptive calm wide gravel flats and quiet countryside but soon enough the climbs hit. Gravel gets a little looser on the climbs. The gravel was pristine on Forest Service roads.",
+            "source_video_ids": [
+              "ZY50-fhnPnM"
+            ]
+          },
+          {
+            "text": "Surprised at just how varied the terrain was and just how challenging the course was. Only a small portion was on the KVR trail as expected.",
+            "source_video_ids": [
+              "ZY50-fhnPnM"
+            ]
+          }
+        ],
+        "gear_mentions": [],
+        "race_day_tips": [
+          {
+            "text": "Don't ride right on the wheel like in road racing - if you clip rock and flat you'll lose more time than if you ride steady and smart and calculated.",
+            "source_video_ids": [
+              "ztQ9Of6tRBU"
+            ]
+          },
+          {
+            "text": "Speed is not part of these types of gravel events. It's just about showing up and getting in a good workout.",
+            "source_video_ids": [
+              "ZY50-fhnPnM"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "I think everybody was surprised by this course. Certainly, Catherine and I were under the impression that a good portion of this ride was going to be on the KVR. As it turns out, only a small portion was on the KVR.",
+            "source_video_id": "ZY50-fhnPnM",
+            "source_channel": "PIQUE PICTURES",
+            "source_view_count": 2200,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "The unique thing with gravel racing is a lot of it is actually like a race against yourself. Mostly you're racing yourselves.",
+            "source_video_id": "ztQ9Of6tRBU",
+            "source_channel": "Jodi Cross",
+            "source_view_count": 216,
+            "category": "training",
+            "curated": true
+          }
+        ],
+        "search_text": "The Kettle Mettle in British Columbia features deceptive terrain that starts with calm wide gravel flats before hitting challenging climbs on Forest Service roads behind Princeton. Riders report the gravel gets looser and climbs punchier than expected, with long exposed stretches testing legs and mindset. Only a small portion uses the anticipated KVR trail, surprising many participants. The pristine gravel roads offer spectacular views of Princeton and surrounding area. The course features varied terrain that challenges riders more than expected. Rock hazards pose flatting risks for riders following too closely. The grassroots event attracts diverse age groups including many riders in their 50s and 60s, emphasizing personal achievement over speed. The race philosophy focuses on showing up and getting a good workout rather than competitive pressure, making it appealing for those transitioning from other disciplines like triathlon to gravel riding."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "kettle-mettle-video-1.jpg",
+        "url": "/race-photos/kettle-mettle/kettle-mettle-video-1.jpg",
+        "alt": "Gravel cycling path winding through rocky canyon walls and mixed forest terrain with natural stone formations - Kettle Mettle - British Columbia, Canada",
+        "credit": "YouTube / Justin Payeur",
+        "primary": true,
+        "ai_relevance": 4,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "rocky canyon",
+          "gravel trail",
+          "forest riding",
+          "stone formations",
+          "canyon walls"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "kettle-mettle-video-2.jpg",
+        "url": "/race-photos/kettle-mettle/kettle-mettle-video-2.jpg",
+        "alt": "Cyclists riding on dirt gravel road through rural countryside with fence lines and mixed forest landscape - Kettle Mettle - British Columbia, Canada",
+        "credit": "YouTube / Justin Payeur",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "dirt road",
+          "rural cycling",
+          "gravel riders",
+          "countryside",
+          "forest landscape"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "kettle-mettle-video-3.jpg",
+        "url": "/race-photos/kettle-mettle/kettle-mettle-video-3.jpg",
+        "alt": "Group of gravel cyclists on paved trail through open grassland prairie with distant mountains under cloudy sky - Kettle Mettle - British Columbia, Canada",
+        "credit": "YouTube / Justin Payeur",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "prairie cycling",
+          "grassland trail",
+          "mountain views",
+          "gravel group",
+          "open country"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "kettle-mettle-preview.gif",
+        "url": "/race-photos/kettle-mettle/kettle-mettle-preview.gif",
+        "alt": "Course preview from Kettle Mettle race footage",
+        "credit": "YouTube / Justin Payeur",
+        "gif": true
+      }
+    ]
   }
 }

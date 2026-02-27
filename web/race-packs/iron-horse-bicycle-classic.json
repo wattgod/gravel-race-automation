@@ -1,6 +1,7 @@
 {
   "slug": "iron-horse-bicycle-classic",
   "race_name": "Iron Horse Bicycle Classic",
+  "distance_mi": 65.0,
   "demands": {
     "durability": 2,
     "climbing": 7,
@@ -18,7 +19,8 @@
       "workouts": [
         "Surge and Settle",
         "Terrain Microbursts"
-      ]
+      ],
+      "workout_context": "Iron Horse Bicycle Classic\u2019s colorado mountains, mixed surfaces demands rapid power changes \u2014 surge over obstacles, settle on smoother sections, repeat for hours."
     },
     {
       "category": "TT_Threshold",
@@ -27,7 +29,8 @@
         "Single Sustained Threshold",
         "Threshold Ramps",
         "Descending Threshold"
-      ]
+      ],
+      "workout_context": "Iron Horse Bicycle Classic rewards athletes who can hold sustained power without blowing up \u2014 threshold is the engine that drives everything above Zone 2."
     },
     {
       "category": "VO2max",
@@ -36,7 +39,8 @@
         "5x3 VO2 Classic",
         "Descending VO2 Pyramid",
         "Norwegian 4x8"
-      ]
+      ],
+      "workout_context": "Iron Horse Bicycle Classic\u2019s colorado mountain mixed terrain and competitive field demand explosive aerobic capacity \u2014 the ability to respond to surges without blowing up."
     },
     {
       "category": "Race_Simulation",
@@ -45,7 +49,8 @@
         "Breakaway Simulation",
         "Variable Pace Chaos",
         "Sector Simulation"
-      ]
+      ],
+      "workout_context": "Racing Iron Horse Bicycle Classic isn\u2019t just fitness \u2014 it\u2019s pacing, fueling, and executing when conditions deteriorate. This workout practices the race itself."
     },
     {
       "category": "Over_Under",
@@ -53,9 +58,80 @@
       "workouts": [
         "Classic Over-Unders",
         "Ladder Over-Unders"
-      ]
+      ],
+      "workout_context": "Over-unders train the lactate clearance you\u2019ll need at Iron Horse Bicycle Classic when surges push you above threshold and you have to recover while still riding hard."
+    },
+    {
+      "category": "G_Spot",
+      "score": 73,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ],
+      "workout_context": "The G-Spot zone (88\u201392% FTP) is where you\u2019ll spend the hardest sustained miles of Iron Horse Bicycle Classic. Make this intensity feel like home."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 70,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "Iron Horse Bicycle Classic\u2019s 6,000ft of climbing demands seated and standing versatility \u2014 the ability to change climbing style as gradient and fatigue dictate."
+    },
+    {
+      "category": "Critical_Power",
+      "score": 60,
+      "workouts": [
+        "Above CP Repeats",
+        "W-Prime Depletion"
+      ],
+      "workout_context": "Critical power determines how long you can sustain above-threshold efforts at Iron Horse Bicycle Classic \u2014 a higher CP means more time in the red before failure."
+    },
+    {
+      "category": "Durability",
+      "score": 50,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ],
+      "workout_context": "Iron Horse Bicycle Classic\u2019s colorado mountain mixed terrain drains energy reserves faster than the distance suggests \u2014 durability training bridges the gap."
+    },
+    {
+      "category": "SFR_Muscle_Force",
+      "score": 47,
+      "workouts": [
+        "SFR Low Cadence",
+        "Force Repeats"
+      ],
+      "workout_context": "Low-cadence force work builds the muscular strength for Iron Horse Bicycle Classic\u2019s 6,000ft of climbing \u2014 especially the grinding, low-speed ascents."
+    },
+    {
+      "category": "Anaerobic_Capacity",
+      "score": 47,
+      "workouts": [
+        "2min Killers",
+        "90sec Repeats"
+      ],
+      "workout_context": "Short, violent efforts are unavoidable at Iron Horse Bicycle Classic \u2014 climbs demanding 2-minute maximal efforts, surges to close gaps, attacks on colorado mountain mixed terrain."
+    },
+    {
+      "category": "Endurance",
+      "score": 43,
+      "workouts": [
+        "Pre-Race Openers",
+        "Terrain Simulation Z2"
+      ],
+      "workout_context": "Every session at Iron Horse Bicycle Classic intensity builds on this aerobic foundation \u2014 the endurance base is the soil everything else grows in."
     }
   ],
+  "race_overlay": {
+    "nutrition": "Target 40\u201360g carbs/hour for Iron Horse Bicycle Classic\u2019s 65 miles. Front-load calories in the first half. One bottle per hour minimum, more in heat.",
+    "altitude": "Moderate altitude at Iron Horse Bicycle Classic. Arrive 2\u20133 days early. Reduce intensity expectations by 5\u201310%. Hydrate aggressively.",
+    "terrain": "Mixed terrain at Iron Horse Bicycle Classic requires surface adaptability. Include weekly rides on colorado mountain mixed terrain to build confidence. Expect: colorado mountains, mixed surfaces, mountain gravel."
+  },
   "pack_summary": "This 10-workout pack focuses on Gravel Specific, TT Threshold, and VO2max to prepare you for 65 miles of colorado mountain mixed terrain in Durango, Colorado.",
   "generated_at": "2026-02-26"
 }

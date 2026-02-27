@@ -1,6 +1,7 @@
 {
   "slug": "bootlegger-100",
   "race_name": "Bootlegger 100",
+  "distance_mi": 100.0,
   "demands": {
     "durability": 6,
     "climbing": 10,
@@ -18,7 +19,8 @@
       "workouts": [
         "Surge and Settle",
         "Terrain Microbursts"
-      ]
+      ],
+      "workout_context": "Bootlegger 100\u2019s north georgia mountains gravel (80%), dirt roads (20%) demands rapid power changes \u2014 surge over obstacles, settle on smoother sections, repeat for hours."
     },
     {
       "category": "TT_Threshold",
@@ -27,7 +29,8 @@
         "Single Sustained Threshold",
         "Threshold Ramps",
         "Descending Threshold"
-      ]
+      ],
+      "workout_context": "Bootlegger 100 rewards athletes who can hold sustained power without blowing up \u2014 threshold is the engine that drives everything above Zone 2."
     },
     {
       "category": "Race_Simulation",
@@ -36,7 +39,8 @@
         "Breakaway Simulation",
         "Variable Pace Chaos",
         "Sector Simulation"
-      ]
+      ],
+      "workout_context": "Racing Bootlegger 100 isn\u2019t just fitness \u2014 it\u2019s pacing, fueling, and executing when conditions deteriorate. This workout practices the race itself."
     },
     {
       "category": "Over_Under",
@@ -44,7 +48,8 @@
       "workouts": [
         "Classic Over-Unders",
         "Ladder Over-Unders"
-      ]
+      ],
+      "workout_context": "Over-unders train the lactate clearance you\u2019ll need at Bootlegger 100 when surges push you above threshold and you have to recover while still riding hard."
     },
     {
       "category": "Durability",
@@ -53,9 +58,79 @@
         "Tired VO2max",
         "Double Day Simulation",
         "Progressive Fatigue"
-      ]
+      ],
+      "workout_context": "At 100 miles, Bootlegger 100 punishes athletes who haven\u2019t trained their body to produce power when glycogen runs low."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 71,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "Bootlegger 100\u2019s 10,000ft of climbing demands seated and standing versatility \u2014 the ability to change climbing style as gradient and fatigue dictate."
+    },
+    {
+      "category": "G_Spot",
+      "score": 71,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ],
+      "workout_context": "The G-Spot zone (88\u201392% FTP) is where you\u2019ll spend the hardest sustained miles of Bootlegger 100. Make this intensity feel like home."
+    },
+    {
+      "category": "Critical_Power",
+      "score": 60,
+      "workouts": [
+        "Above CP Repeats",
+        "W-Prime Depletion"
+      ],
+      "workout_context": "Critical power determines how long you can sustain above-threshold efforts at Bootlegger 100 \u2014 a higher CP means more time in the red before failure."
+    },
+    {
+      "category": "VO2max",
+      "score": 55,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ],
+      "workout_context": "Bootlegger 100\u2019s north georgia mountains\u2014steep climbs, technical descents and competitive field demand explosive aerobic capacity \u2014 the ability to respond to surges without blowing up."
+    },
+    {
+      "category": "SFR_Muscle_Force",
+      "score": 48,
+      "workouts": [
+        "SFR Low Cadence",
+        "Force Repeats"
+      ],
+      "workout_context": "Low-cadence force work builds the muscular strength for Bootlegger 100\u2019s 10,000ft of climbing \u2014 especially the grinding, low-speed ascents."
+    },
+    {
+      "category": "Anaerobic_Capacity",
+      "score": 48,
+      "workouts": [
+        "2min Killers",
+        "90sec Repeats"
+      ],
+      "workout_context": "Short, violent efforts are unavoidable at Bootlegger 100 \u2014 climbs demanding 2-minute maximal efforts, surges to close gaps, attacks on north georgia mountains\u2014steep climbs, technical descents."
+    },
+    {
+      "category": "Blended",
+      "score": 43,
+      "workouts": [
+        "Z2 + VO2 Combo",
+        "Endurance with Spikes"
+      ],
+      "workout_context": "Blended sessions combine endurance with intensity spikes \u2014 exactly what Bootlegger 100\u2019s north georgia mountains\u2014steep climbs, technical descents delivers on race day."
     }
   ],
+  "race_overlay": {
+    "nutrition": "Target 60\u201380g carbs/hour for Bootlegger 100\u2019s 100 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
+    "terrain": "Highly technical terrain at Bootlegger 100 demands practice on similar surfaces. Ride north georgia mountains\u2014steep climbs, technical descents at race-day cadence weekly. Expect: north georgia mountains gravel (80%), dirt roads (20%), steep appalachian climbs. Practice cornering, descending, and power delivery on unstable surfaces. Dial in tire pressure before race week \u2014 5 PSI wrong costs you 15+ minutes over 100 miles."
+  },
   "pack_summary": "This 10-workout pack focuses on Gravel Specific, TT Threshold, and Race Simulation to prepare you for 100 miles of north georgia mountains\u2014steep climbs, technical descents in Dahlonega, Georgia (North Georgia mountains).",
   "generated_at": "2026-02-26"
 }

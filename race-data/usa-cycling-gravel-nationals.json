@@ -532,7 +532,195 @@
           "category": "race_atmosphere",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Chicken Ridge gravel climb",
+            "description": "All three courses finish on the same circuit featuring the stout chicken ridge gravel climb followed by a run through an apple orchard.",
+            "source_video_ids": [
+              "kuu85uf5SFw"
+            ]
+          },
+          {
+            "name": "Final mile climb",
+            "description": "All three courses feature the same final one mile climb that averages 8% before descending back down into La Crescent.",
+            "source_video_ids": [
+              "kuu85uf5SFw"
+            ]
+          },
+          {
+            "name": "Nine distinct climbs",
+            "description": "The 110 mile course has nine distinct climbs that are roughly a mile long and 500 ft high.",
+            "source_video_ids": [
+              "kuu85uf5SFw"
+            ]
+          },
+          {
+            "name": "Technical descents and tight turns",
+            "description": "Riders emphasize you need to know the corners and where the tight turns are in the downhills to line up properly.",
+            "source_video_ids": [
+              "kuu85uf5SFw"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "The gravel is usually really good unless they freshly grade it.",
+            "source_video_ids": [
+              "kuu85uf5SFw"
+            ]
+          },
+          {
+            "text": "The course features bluffs with pretty flat ridges on top, then 400-500 foot descents into valleys with streams.",
+            "source_video_ids": [
+              "kuu85uf5SFw"
+            ]
+          },
+          {
+            "text": "Most of the last five miles is paved with a gravel kicker up into a neighborhood followed by a steep and curved paved descent down into town.",
+            "source_video_ids": [
+              "kuu85uf5SFw"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "Make sure you have your Garmin like zoomed in. If it looks like a sharp turn on your Garmin or Wahoo, it's going to be sharp.",
+            "source_video_ids": [
+              "kuu85uf5SFw"
+            ]
+          },
+          {
+            "text": "I don't think aeroing out is probably the best thing to do for this course.",
+            "source_video_ids": [
+              "kuu85uf5SFw"
+            ]
+          }
+        ],
+        "race_day_tips": [
+          {
+            "text": "You definitely need to pre-ride the course. You need to know the corners. You need to know where you're going.",
+            "source_video_ids": [
+              "kuu85uf5SFw"
+            ]
+          },
+          {
+            "text": "Get ready for some climbing. Get ready for some really fast roads. Be prepared to descend.",
+            "source_video_ids": [
+              "kuu85uf5SFw"
+            ]
+          },
+          {
+            "text": "It's going to be out of sight out of mind because it's almost like a mountain bike race. It's so windy. It's so tight. It's hilly.",
+            "source_video_ids": [
+              "kuu85uf5SFw"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "The racing starts tomorrow morning at 7:00 a.m. right on Main Street.",
+            "source_video_id": "9lqTztwQ7kA",
+            "source_channel": "WXOW News 19",
+            "source_view_count": 569,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "766 riders from across the country are competing for the Stars and Stripes jersey in their age group.",
+            "source_video_id": "9lqTztwQ7kA",
+            "source_channel": "WXOW News 19",
+            "source_view_count": 569,
+            "category": "community",
+            "curated": true
+          },
+          {
+            "text": "It's not just the racing that's drawing excitement. Many riders are just as eager for Lacrescent's Apple Fest.",
+            "source_video_id": "9lqTztwQ7kA",
+            "source_channel": "WXOW News 19",
+            "source_view_count": 569,
+            "category": "community",
+            "curated": true
+          }
+        ],
+        "search_text": "USA Cycling Gravel Nationals moved from Nebraska to La Crescent, Minnesota in the driftless region. The 110-mile course features 7,500 feet of elevation gain with nine distinct climbs roughly one mile long and 500 feet high. All courses finish on the chicken ridge gravel climb through an apple orchard, ending with a final one-mile climb averaging 8 percent grade. The terrain features bluffs with flat ridges and 400-500 foot descents into valleys. Riders emphasize pre-riding is essential due to limited visibility, tight turns, and technical descents. The gravel surface is typically good unless freshly graded. The course is described as windy, tight, and hilly like a mountain bike race. Racing starts at 7 AM on Main Street during Apple Fest weekend, drawing 766 riders competing for national championship jerseys across three distance options."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "usa-cycling-gravel-nationals-video-1.jpg",
+        "url": "/race-photos/usa-cycling-gravel-nationals/usa-cycling-gravel-nationals-video-1.jpg",
+        "alt": "Peloton of gravel cyclists riding in formation on paved country road through lush green Vermont countryside during Usa Cycling Gravel Nationals - La Crescent, Minnesota (2025-26); previously Gering, Nebraska (2023-24)",
+        "credit": "YouTube / The Ride with Ben Delaney",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel peloton",
+          "Vermont countryside",
+          "country road",
+          "cycling formation"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "usa-cycling-gravel-nationals-video-2.jpg",
+        "url": "/race-photos/usa-cycling-gravel-nationals/usa-cycling-gravel-nationals-video-2.jpg",
+        "alt": "Gravel cyclists navigating muddy dirt trail through rural farmland with elevation profile and GPS data overlay showing race progress - USA Cycling Gravel Nationals - La Crescent, Minnesota (2025-26); previously Gering, Nebraska (2023-24)",
+        "credit": "YouTube / The Ride with Ben Delaney",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "muddy gravel",
+          "dirt trail",
+          "farmland",
+          "race data"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "usa-cycling-gravel-nationals-video-3.jpg",
+        "url": "/race-photos/usa-cycling-gravel-nationals/usa-cycling-gravel-nationals-video-3.jpg",
+        "alt": "Group of gravel racers riding on dirt road through wooded terrain with power and speed metrics displayed during competitive race - USA Cycling Gravel Nationals - La Crescent, Minnesota (2025-26); previously Gering, Nebraska (2023-24)",
+        "credit": "YouTube / The Ride with Ben Delaney",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "dirt road",
+          "wooded terrain",
+          "gravel group",
+          "race metrics"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "usa-cycling-gravel-nationals-preview.gif",
+        "url": "/race-photos/usa-cycling-gravel-nationals/usa-cycling-gravel-nationals-preview.gif",
+        "alt": "Course preview from Usa Cycling Gravel Nationals race footage",
+        "credit": "YouTube / The Ride with Ben Delaney",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "usa-cycling-gravel-nationals-preview-2.gif",
+        "url": "/race-photos/usa-cycling-gravel-nationals/usa-cycling-gravel-nationals-preview-2.gif",
+        "alt": "Course preview from Usa Cycling Gravel Nationals race footage",
+        "credit": "YouTube / The Ride with Ben Delaney",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "usa-cycling-gravel-nationals-preview-3.gif",
+        "url": "/race-photos/usa-cycling-gravel-nationals/usa-cycling-gravel-nationals-preview-3.gif",
+        "alt": "Course preview from Usa Cycling Gravel Nationals race footage",
+        "credit": "YouTube / The Ride with Ben Delaney",
+        "gif": true
+      }
+    ]
   }
 }

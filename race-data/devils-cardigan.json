@@ -529,7 +529,141 @@
           "category": "course_difficulty",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Snake Pit",
+            "description": "Lots of trees and stuff over and really wet. It's like a river bed with soft gravel, soft mud and water. Bike pretty much got stuck. It's fun but hard and slow.",
+            "source_video_ids": [
+              "uGM3YGQgcOA"
+            ]
+          },
+          {
+            "name": "Warar to Delerain section",
+            "description": "Mix of fire road and into some pretty gnarly like rough terrain. Some walking required. Probably wouldn't even do it on a mountain bike. Lots of steep climbs. The climbs felt longer in the dark when you can't see the top.",
+            "source_video_ids": [
+              "uGM3YGQgcOA"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Snake pit section has soft gravel, soft mud and water like a river bed. Bikes get stuck in the conditions.",
+            "source_video_ids": [
+              "uGM3YGQgcOA"
+            ]
+          },
+          {
+            "text": "From Warar to Delerain features pretty gnarly rough terrain that's so tough you probably wouldn't even do it on a mountain bike.",
+            "source_video_ids": [
+              "uGM3YGQgcOA"
+            ]
+          }
+        ],
+        "gear_mentions": [],
+        "race_day_tips": [
+          {
+            "text": "Weather can change dramatically - around 4:00 a.m. it got really cold and started raining, forcing riders to make difficult decisions about continuing.",
+            "source_video_ids": [
+              "uGM3YGQgcOA"
+            ]
+          },
+          {
+            "text": "Bring multiple bike lights - one rider's first axis battery went flat after only 7 hours when it shouldn't, and the replacement only lasted 4 hours.",
+            "source_video_ids": [
+              "uGM3YGQgcOA"
+            ]
+          },
+          {
+            "text": "The course was much harder than the previous year according to finishers, so expect increased difficulty.",
+            "source_video_ids": [
+              "gEZFSkyMw9E"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "The camaraderie from all the riders is just amazing. Quite a few guys were very nice on climbs giving me encouragement and that's actually really what got me a good boost for the midsection of the route.",
+            "source_video_id": "gEZFSkyMw9E",
+            "source_channel": "The Devils Cardigan",
+            "source_view_count": 13404,
+            "category": "community",
+            "curated": true
+          },
+          {
+            "text": "You definitely feel like you're out there by yourself and there's no one else around. Just you and that's an interesting feeling.",
+            "source_video_id": "uGM3YGQgcOA",
+            "source_channel": "The Devils Cardigan",
+            "source_view_count": 2888,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "The Devils Cardigan features extremely challenging terrain including the notorious Snake Pit section, described as a river bed with soft gravel, soft mud and water where bikes get stuck. The course runs from Arthur's river to Warar, with particularly gnarly rough terrain from Warar to Delerain that requires walking and features steep climbs so difficult riders say they wouldn't attempt them on mountain bikes. Weather conditions can change dramatically, with temperatures dropping and rain starting around 4 a.m. Equipment reliability is crucial as bike lights can fail unexpectedly. The course was reportedly much harder than previous years. Despite the brutal conditions, riders emphasize the strong community spirit and camaraderie, with fellow competitors providing encouragement during difficult climbs. The race leaves participants feeling isolated in remote wilderness sections but also creates lasting bonds through shared suffering."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "devils-cardigan-video-1.jpg",
+        "url": "/race-photos/devils-cardigan/devils-cardigan-video-1.jpg",
+        "alt": "Aerial view of gravel cyclists riding single file on rural dirt road surrounded by lush green vegetation and trees - Devils Cardigan - Tasmania, Australia",
+        "credit": "YouTube / The Devils Cardigan ",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel road",
+          "aerial view",
+          "rural cycling",
+          "dirt trail",
+          "green landscape"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "devils-cardigan-video-2.jpg",
+        "url": "/race-photos/devils-cardigan/devils-cardigan-video-2.jpg",
+        "alt": "Black and white finish line moment with cyclist raising arm in victory while crossing gravel race finish with spectators and banners - Devils Cardigan - Tasmania, Australia",
+        "credit": "YouTube / The Devils Cardigan ",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "finish line",
+          "victory celebration",
+          "gravel race",
+          "spectators",
+          "cycling triumph"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "devils-cardigan-video-3.jpg",
+        "url": "/race-photos/devils-cardigan/devils-cardigan-video-3.jpg",
+        "alt": "Close-up of hand holding amber beer glass in indoor setting with warm bokeh lighting in background - Devils Cardigan - Tasmania, Australia",
+        "credit": "YouTube / The Devils Cardigan ",
+        "primary": false,
+        "ai_relevance": 1,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "beer glass",
+          "indoor bar",
+          "celebration drink",
+          "amber beer",
+          "post-race"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "devils-cardigan-preview.gif",
+        "url": "/race-photos/devils-cardigan/devils-cardigan-preview.gif",
+        "alt": "Course preview from Devils Cardigan race footage",
+        "credit": "YouTube / The Devils Cardigan ",
+        "gif": true
+      }
+    ]
   }
 }

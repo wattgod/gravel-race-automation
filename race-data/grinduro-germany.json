@@ -478,7 +478,157 @@
           "category": "course_difficulty",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Early Race Sections",
+            "description": "The first couple hours featured extremely heavy rain and strong winds making it feel like the longest 50k ever according to riders.",
+            "source_video_ids": [
+              "0v7Fhm54hmA"
+            ]
+          },
+          {
+            "name": "Prologue Hill Climb",
+            "description": "A 1K hill climb prologue that riders found intimidating and challenging, with multiple attempts allowed.",
+            "source_video_ids": [
+              "CpxmAaPI_TE"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Heavy rain and wind created extremely muddy conditions throughout the course, with riders describing lots of mud but still having enough grip to continue.",
+            "source_video_ids": [
+              "0v7Fhm54hmA",
+              "AT_pkk7w-5A"
+            ]
+          },
+          {
+            "text": "The track was not 100% perfect due to weather conditions but riders made the best of the muddy, wet terrain.",
+            "source_video_ids": [
+              "AT_pkk7w-5A"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "Tubeless tires are essential for gravel events - one rider punctured at 130k because they didn't realize tubeless was standard for gravel racing.",
+            "source_video_ids": [
+              "0v7Fhm54hmA"
+            ]
+          }
+        ],
+        "race_day_tips": [
+          {
+            "text": "Going slow is key for long distance events - you can continue for days, weeks, and months by maintaining a sustainable pace.",
+            "source_video_ids": [
+              "0v7Fhm54hmA"
+            ]
+          },
+          {
+            "text": "Be prepared for weather changes and have proper rain gear as conditions can be challenging with heavy rain and wind.",
+            "source_video_ids": [
+              "0v7Fhm54hmA"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "We came with the train all the way from Geneva to here, and then from the train station we rode here in the dark. It was awesome, it was really nice.",
+            "source_video_id": "0v7Fhm54hmA",
+            "source_channel": "SRAM",
+            "source_view_count": 6195,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "I live one and a half hour away. You could have gone home. Ha yeah, I could have that's why I stayed.",
+            "source_video_id": "0v7Fhm54hmA",
+            "source_channel": "SRAM",
+            "source_view_count": 6195,
+            "category": "community",
+            "curated": true
+          }
+        ],
+        "search_text": "Grinduro Germany in Hellenthal featured a unique format with four timed segments on a long course rather than a traditional A-to-B race, including a challenging 1K hill climb prologue. Race day conditions were extreme with heavy rain and strong winds throughout the first several hours, creating muddy terrain that riders described as making it feel like the longest 50k ever. Multiple riders experienced punctures, with tubeless tires being essential equipment. The event attracted both professional and amateur riders, with some switching categories day-of. Despite challenging weather conditions with lots of mud, riders maintained good grip and made the best of the wet terrain. The race format included multiple attempts at the prologue time trial. Riders emphasized the importance of pacing for long distance events and being prepared for variable weather conditions in the Eifel region."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "grinduro-germany-video-1.jpg",
+        "url": "/race-photos/grinduro-germany/grinduro-germany-video-1.jpg",
+        "alt": "Cyclist in red jersey pausing with gravel bike on grass field surrounded by evergreen trees in German countryside - Grinduro Germany - Hellenthal, Eifel, Germany",
+        "credit": "YouTube / Annika Langvad",
+        "primary": true,
+        "ai_relevance": 3,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel bike",
+          "German countryside",
+          "evergreen forest",
+          "cyclist break"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "grinduro-germany-video-2.jpg",
+        "url": "/race-photos/grinduro-germany/grinduro-germany-video-2.jpg",
+        "alt": "Gravel cyclist riding on cobbled farm track between wooden fence posts under cloudy skies in rural Germany - Grinduro Germany - Hellenthal, Eifel, Germany",
+        "credit": "YouTube / Annika Langvad",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "cobbled track",
+          "farm road",
+          "rural Germany",
+          "gravel racing",
+          "countryside"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "grinduro-germany-video-3.jpg",
+        "url": "/race-photos/grinduro-germany/grinduro-germany-video-3.jpg",
+        "alt": "Female cyclist in beanie speaking into microphone during post-race interview at Grinduro Germany event - Hellenthal, Eifel, Germany",
+        "credit": "YouTube / Annika Langvad",
+        "primary": false,
+        "ai_relevance": 2,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "race interview",
+          "Grinduro Germany",
+          "post-race",
+          "cyclist interview"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "grinduro-germany-preview.gif",
+        "url": "/race-photos/grinduro-germany/grinduro-germany-preview.gif",
+        "alt": "Course preview from Grinduro Germany race footage",
+        "credit": "YouTube / Annika Langvad",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "grinduro-germany-preview-2.gif",
+        "url": "/race-photos/grinduro-germany/grinduro-germany-preview-2.gif",
+        "alt": "Course preview from Grinduro Germany race footage",
+        "credit": "YouTube / Annika Langvad",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "grinduro-germany-preview-3.gif",
+        "url": "/race-photos/grinduro-germany/grinduro-germany-preview-3.gif",
+        "alt": "Course preview from Grinduro Germany race footage",
+        "credit": "YouTube / Annika Langvad",
+        "gif": true
+      }
+    ]
   }
 }

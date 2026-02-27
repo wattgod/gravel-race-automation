@@ -536,7 +536,115 @@
           "category": "race_atmosphere",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Final Seven Miles",
+            "description": "Hardest part of the ride featuring a brutal headwind that riders describe as tough stuff.",
+            "source_video_ids": [
+              "6m3u0rB2HXs"
+            ]
+          }
+        ],
+        "terrain_notes": [],
+        "gear_mentions": [],
+        "race_day_tips": [
+          {
+            "text": "Use buck bags for your feet to help with the cold weather conditions.",
+            "source_video_ids": [
+              "6m3u0rB2HXs"
+            ]
+          },
+          {
+            "text": "Be prepared for cold weather that feels colder than expected - temperatures in the 40s can feel like the 30s.",
+            "source_video_ids": [
+              "6m3u0rB2HXs"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "I think I could have left my bike at home and still had a great time this weekend. The writing was just kind of in between all the fun hangs and the great conversations.",
+            "source_video_id": "6m3u0rB2HXs",
+            "source_channel": "10 Percent More Complicated",
+            "source_view_count": 877,
+            "category": "community",
+            "curated": true
+          },
+          {
+            "text": "It's cold as hell out here. I don't know what it is. It's in the 40s, but it feels like it's in the 30s.",
+            "source_video_id": "6m3u0rB2HXs",
+            "source_channel": "10 Percent More Complicated",
+            "source_view_count": 877,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "The Heywood is organized by Heath Creek Cycles in Northfield, Minnesota, offering both 30-mile and longer distance options. Riders emphasize being prepared for cold weather conditions that can feel much colder than expected, with temperatures in the 40s feeling like the 30s. The most challenging section is the final seven miles which features a brutal headwind that riders describe as the hardest part of the event. The race has a strong community atmosphere, with riders noting the event is more about the people and connections than just the riding itself. The course includes bridge crossings and sections through state park areas. Cold weather preparation is essential, with local tips including using buck bags for feet warmth. Wind conditions can be significant, particularly affecting the final portions of the ride."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "heywood-ride-video-1.jpg",
+        "url": "/race-photos/heywood-ride/heywood-ride-video-1.jpg",
+        "alt": "Cyclist riding gravel bike on dirt forest trail surrounded by lush green trees during Heywood Ride race - Northfield, Minnesota",
+        "credit": "YouTube / Aaron Deutchman",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel trail",
+          "forest riding",
+          "dirt road",
+          "woodland cycling",
+          "gravel bike"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "heywood-ride-video-2.jpg",
+        "url": "/race-photos/heywood-ride/heywood-ride-video-2.jpg",
+        "alt": "Female cyclist in red jersey and helmet riding gravel bike past farmland with barn buildings in background - Heywood Ride - Northfield, Minnesota",
+        "credit": "YouTube / Aaron Deutchman",
+        "primary": false,
+        "ai_relevance": 4,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "gravel cycling",
+          "farmland",
+          "rural roads",
+          "barn",
+          "agricultural terrain"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "heywood-ride-video-3.jpg",
+        "url": "/race-photos/heywood-ride/heywood-ride-video-3.jpg",
+        "alt": "Person with camera filming at rural farm setting with red barns and green grass, bicycle visible in frame - Heywood Ride - Northfield, Minnesota",
+        "credit": "YouTube / Aaron Deutchman",
+        "primary": false,
+        "ai_relevance": 2,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "farm buildings",
+          "rural setting",
+          "red barn",
+          "filming",
+          "countryside"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "heywood-ride-preview.gif",
+        "url": "/race-photos/heywood-ride/heywood-ride-preview.gif",
+        "alt": "Course preview from Heywood Ride race footage",
+        "credit": "YouTube / Aaron Deutchman",
+        "gif": true
+      }
+    ]
   }
 }

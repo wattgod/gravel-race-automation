@@ -482,7 +482,58 @@
           "curated": false
         }
       ],
-      "quotes": []
-    }
+      "quotes": [],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [],
+        "terrain_notes": [],
+        "gear_mentions": [],
+        "race_day_tips": [],
+        "additional_quotes": [],
+        "search_text": "No race-specific content available in the provided transcript. The transcript appears to be focused on bicycle restoration and maintenance rather than race coverage or rider experiences from the Rust Buster Gravel Fondo in Memphis, TN."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "rust-buster-gravel-fondo-video-1.jpg",
+        "url": "/race-photos/rust-buster-gravel-fondo/rust-buster-gravel-fondo-video-1.jpg",
+        "alt": "Close-up of rusted yellow metal bicycle frame tube being held in repair clamp in bike shop workshop - Rust Buster Gravel Fondo - Memphis, TN",
+        "credit": "YouTube / MonkeyShred",
+        "primary": true,
+        "ai_relevance": 1,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "bike repair",
+          "frame tube",
+          "workshop",
+          "rust damage"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "rust-buster-gravel-fondo-video-2.jpg",
+        "url": "/race-photos/rust-buster-gravel-fondo/rust-buster-gravel-fondo-video-2.jpg",
+        "alt": "Corroded metal bicycle component or tube sitting on anvil in bike repair workshop with tools in background - Rust Buster Gravel Fondo - Memphis, TN",
+        "credit": "YouTube / MonkeyShred",
+        "primary": false,
+        "ai_relevance": 1,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "bike maintenance",
+          "metal tube",
+          "workshop anvil",
+          "corrosion repair"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "rust-buster-gravel-fondo-preview.gif",
+        "url": "/race-photos/rust-buster-gravel-fondo/rust-buster-gravel-fondo-preview.gif",
+        "alt": "Course preview from Rust Buster Gravel Fondo race footage",
+        "credit": "YouTube / MonkeyShred",
+        "gif": true
+      }
+    ]
   }
 }

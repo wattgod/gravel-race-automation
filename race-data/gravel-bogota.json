@@ -521,6 +521,67 @@
         }
       ],
       "quotes": []
-    }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "gravel-bogota-video-1.jpg",
+        "url": "/race-photos/gravel-bogota/gravel-bogota-video-1.jpg",
+        "alt": "Cyclist in orange jersey riding on unpaved gravel road through Colombian countryside with trees and stone walls - Gravel Bogotá - Bogotá, Colombia",
+        "credit": "YouTube / Todos Los Dias En Bici",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel road",
+          "Colombian countryside",
+          "unpaved terrain",
+          "rural cycling",
+          "stone walls"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "gravel-bogota-video-2.jpg",
+        "url": "/race-photos/gravel-bogota/gravel-bogota-video-2.jpg",
+        "alt": "Gravel cyclist wearing helmet and sunglasses taking selfie on paved road near Peluqueria Barberia sign in Colombian town - Gravel Bogotá - Bogotá, Colombia",
+        "credit": "YouTube / Todos Los Dias En Bici",
+        "primary": false,
+        "ai_relevance": 3,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "Colombian town",
+          "cycling selfie",
+          "gravel rider",
+          "paved road",
+          "town center"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "gravel-bogota-video-3.jpg",
+        "url": "/race-photos/gravel-bogota/gravel-bogota-video-3.jpg",
+        "alt": "Two gravel cyclists in helmets and cycling gear being interviewed under tent at night during race event - Gravel Bogotá - Bogotá, Colombia",
+        "credit": "YouTube / Todos Los Dias En Bici",
+        "primary": false,
+        "ai_relevance": 2,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "race interview",
+          "cycling event",
+          "night tent",
+          "gravel racers",
+          "post-race"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "gravel-bogota-preview.gif",
+        "url": "/race-photos/gravel-bogota/gravel-bogota-preview.gif",
+        "alt": "Course preview from Gravel Bogota race footage",
+        "credit": "YouTube / Todos Los Dias En Bici",
+        "gif": true
+      }
+    ]
   }
 }

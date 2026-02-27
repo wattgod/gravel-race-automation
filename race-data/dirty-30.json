@@ -418,7 +418,132 @@
           "category": "course_difficulty",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Sandy spots",
+            "description": "Multiple sandy sections that reduce control even on gravel-specific bikes.",
+            "source_video_ids": [
+              "ETvro3-MPMM"
+            ]
+          },
+          {
+            "name": "Potholes",
+            "description": "Lots of potholes throughout the course that riders need to watch out for.",
+            "source_video_ids": [
+              "ETvro3-MPMM"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Hard packed conditions despite recent wet weather, with multiple sandy spots that challenge bike control.",
+            "source_video_ids": [
+              "ETvro3-MPMM"
+            ]
+          }
+        ],
+        "gear_mentions": [],
+        "race_day_tips": [],
+        "additional_quotes": [
+          {
+            "text": "Last year was 23 degrees this year it's 34 so we're happy",
+            "source_video_id": "ETvro3-MPMM",
+            "source_channel": "STS, American Made Bicycles",
+            "source_view_count": 240,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "130 Miler has already went out so they're on the course for 130 mile race today",
+            "source_video_id": "ETvro3-MPMM",
+            "source_channel": "STS, American Made Bicycles",
+            "source_view_count": 240,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "The Dirty 30 in Saranac, Michigan features hard packed gravel conditions despite recent wet weather. Riders report multiple sandy spots throughout the course that reduce bike control, even on gravel-specific setups. The course contains numerous potholes that require careful navigation. Race day temperatures can vary dramatically year to year, from 23 degrees in previous years to 34 degrees. The event offers multiple distances including 30-mile and 130-mile options, with longer distance riders starting earlier in the day. The terrain provides good riding conditions when dry and hard packed, though the sandy sections present ongoing technical challenges for bike handling and control throughout the race."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "dirty-30-video-1.jpg",
+        "url": "/race-photos/dirty-30/dirty-30-video-1.jpg",
+        "alt": "Cyclists racing in tight peloton formation on dirt gravel road through rural countryside with bare winter trees - Dirty 30 - Saranac, Michigan",
+        "credit": "YouTube / Up The Road",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel peloton",
+          "dirt road",
+          "cycling race",
+          "rural terrain",
+          "winter cycling"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "dirty-30-video-2.jpg",
+        "url": "/race-photos/dirty-30/dirty-30-video-2.jpg",
+        "alt": "Gravel cyclists riding on unpaved dirt road cutting through wooded area with bare trees and earthen embankment - Dirty 30 - Saranac, Michigan",
+        "credit": "YouTube / Up The Road",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel road",
+          "wooded terrain",
+          "dirt path",
+          "cycling group",
+          "rural landscape"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "dirty-30-video-3.jpg",
+        "url": "/race-photos/dirty-30/dirty-30-video-3.jpg",
+        "alt": "Two men in cycling gear conducting interview or conversation at outdoor cycling event with spectators and red tent in background - Dirty 30 - Saranac, Michigan",
+        "credit": "YouTube / Up The Road",
+        "primary": false,
+        "ai_relevance": 2,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "cycling interview",
+          "race event",
+          "spectators",
+          "outdoor venue",
+          "cycling gear"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "dirty-30-preview.gif",
+        "url": "/race-photos/dirty-30/dirty-30-preview.gif",
+        "alt": "Course preview from Dirty 30 race footage",
+        "credit": "YouTube / Up The Road",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "dirty-30-preview-2.gif",
+        "url": "/race-photos/dirty-30/dirty-30-preview-2.gif",
+        "alt": "Course preview from Dirty 30 race footage",
+        "credit": "YouTube / Up The Road",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "dirty-30-preview-3.gif",
+        "url": "/race-photos/dirty-30/dirty-30-preview-3.gif",
+        "alt": "Course preview from Dirty 30 race footage",
+        "credit": "YouTube / Up The Road",
+        "gif": true
+      }
+    ]
   }
 }

@@ -622,7 +622,175 @@
           "category": "course_difficulty",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Early climbing in first 5 miles",
+            "mile_marker": "5",
+            "description": "16,000 ft of elevation in the first 5 miles with multiple climbs including a steep section hitting 12% before mile 9. Riders warn not to blow your wad right off the gate.",
+            "source_video_ids": [
+              "wWXcgBHC1Ek"
+            ]
+          },
+          {
+            "name": "Hidden left turn",
+            "mile_marker": "8.4",
+            "description": "Sneaky left turn at 8.4 miles that riders will miss, marks transition to dirt after ripping descent.",
+            "source_video_ids": [
+              "wWXcgBHC1Ek",
+              "7Tv5eDJ-YgU"
+            ]
+          },
+          {
+            "name": "Climb six",
+            "mile_marker": "33",
+            "description": "Brutal climb described as 2.7 miles with 650 ft gain on loose gravel. Hits 10% on chunky sections with riders running out of gears.",
+            "source_video_ids": [
+              "wWXcgBHC1Ek"
+            ]
+          },
+          {
+            "name": "Windy valley",
+            "mile_marker": "30",
+            "description": "Big empty valley with brutal headwind that riders battle through. Race finishes with extended headwind section.",
+            "source_video_ids": [
+              "wWXcgBHC1Ek",
+              "FcFvS9bN68A"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Extremely dusty conditions that will affect chain lubrication and visibility, especially in shadows through trees where riders can't see stumps.",
+            "source_video_ids": [
+              "7Tv5eDJ-YgU"
+            ]
+          },
+          {
+            "text": "Primo gravel sections mixed with washboards. Loose gravel on climbs that gets chunky and makes traction difficult.",
+            "source_video_ids": [
+              "wWXcgBHC1Ek"
+            ]
+          },
+          {
+            "text": "Water crossings that will dry out chain lubrication even quicker after dust exposure.",
+            "source_video_ids": [
+              "7Tv5eDJ-YgU"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "Make sure chains are lubed with wax, bring lube with you because dust and water crossings will dry it out quickly. One rider had to switch from wax to oil mid-race.",
+            "source_video_ids": [
+              "7Tv5eDJ-YgU",
+              "FcFvS9bN68A"
+            ]
+          },
+          {
+            "text": "Consider tire inserts to prevent pinch flats on technical sections.",
+            "source_video_ids": [
+              "FcFvS9bN68A"
+            ]
+          }
+        ],
+        "race_day_tips": [
+          {
+            "text": "Start off slow unless you really have stamina for the first 15 miles of climbing to avoid blowing up early.",
+            "source_video_ids": [
+              "wWXcgBHC1Ek"
+            ]
+          },
+          {
+            "text": "Position yourself in a good pack but not too far back because dust will make it hard to see.",
+            "source_video_ids": [
+              "7Tv5eDJ-YgU"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "I've done this race four or five times and that was by far the hardest it's ever been.",
+            "source_video_id": "FcFvS9bN68A",
+            "source_channel": "Ornot Bike",
+            "source_view_count": 805,
+            "category": "course_difficulty",
+            "curated": true
+          },
+          {
+            "text": "It's part reunion, part bike race, and all fun. We've been here for the past 10 years for a weekend of camping, being outdoors, and of course, riding bikes.",
+            "source_video_id": "FcFvS9bN68A",
+            "source_channel": "Ornot Bike",
+            "source_view_count": 805,
+            "category": "community",
+            "curated": true
+          }
+        ],
+        "search_text": "Lost and Found Gravel in Portola, California features 96-97 miles with 6,000-8,000 feet of climbing. The race starts with brutal early climbing including 16,000 feet of elevation in the first 5 miles, with steep sections hitting 12% grades before mile 9. Key challenges include a hidden left turn at mile 8.4 miles where the course transitions to dirt, and climb six around mile 33 - a 2.7-mile brutal climb with 650 feet of gain on loose, chunky gravel. Riders face a big empty valley around mile 30 with brutal headwinds that continue to the finish. The course features extremely dusty conditions that affect chain lubrication and visibility, mixed with water crossings. Terrain includes primo gravel sections, washboards, and loose gravel on climbs. Veterans recommend starting conservatively due to early climbing, positioning well in the pack for dust visibility, and bringing chain lube due to harsh conditions."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "lost-and-found-gravel-video-1.jpg",
+        "url": "/race-photos/lost-and-found-gravel/lost-and-found-gravel-video-1.jpg",
+        "alt": "Cyclist checking GPS computer on dirt road through burned forest area with rolling hills and scattered cattle in background - Lost and Found Gravel - Portola, California",
+        "credit": "YouTube / Nick Pinto",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel road",
+          "GPS computer",
+          "burned forest",
+          "rolling hills",
+          "dirt road"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "lost-and-found-gravel-video-2.jpg",
+        "url": "/race-photos/lost-and-found-gravel/lost-and-found-gravel-video-2.jpg",
+        "alt": "Close-up selfie of gravel cyclist wearing helmet on paved road through burned forest landscape with bare tree trunks - Lost and Found Gravel - Portola, California",
+        "credit": "YouTube / Nick Pinto",
+        "primary": false,
+        "ai_relevance": 4,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "gravel cyclist",
+          "burned forest",
+          "helmet",
+          "paved road",
+          "selfie"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "lost-and-found-gravel-video-3.jpg",
+        "url": "/race-photos/lost-and-found-gravel/lost-and-found-gravel-video-3.jpg",
+        "alt": "First-person view from gravel bike handlebars showing dirt road through burned forest with GPS displaying race data - Lost and Found Gravel - Portola, California",
+        "credit": "YouTube / Nick Pinto",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel bike",
+          "dirt road",
+          "burned forest",
+          "GPS data",
+          "first-person view"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "lost-and-found-gravel-preview.gif",
+        "url": "/race-photos/lost-and-found-gravel/lost-and-found-gravel-preview.gif",
+        "alt": "Course preview from Lost And Found Gravel race footage",
+        "credit": "YouTube / Nick Pinto",
+        "gif": true
+      }
+    ]
   }
 }

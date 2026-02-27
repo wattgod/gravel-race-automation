@@ -429,7 +429,204 @@
           "category": "race_atmosphere",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Tunnel",
+            "mile_marker": "4",
+            "description": "Can be a pinch point but if you're in the top 50 riders you're pretty fine through there.",
+            "source_video_ids": [
+              "b1y5o5WtFrc"
+            ]
+          },
+          {
+            "name": "First off-road section",
+            "mile_marker": "19",
+            "description": "First real off-road section with zigzags and climbing. One of four key points where being at the front matters.",
+            "source_video_ids": [
+              "b1y5o5WtFrc"
+            ]
+          },
+          {
+            "name": "Technical single track",
+            "description": "Pretty techy, probably the most technical single track ridden in BWR series including Kansas and California. Mountain bike background is a good advantage.",
+            "source_video_ids": [
+              "b1y5o5WtFrc"
+            ]
+          },
+          {
+            "name": "Last climb",
+            "description": "Super steep climb that requires low gearing to spin up.",
+            "source_video_ids": [
+              "tqPI-5TGcTg"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Technical single track that gets pretty rowdy and sketchy, requiring careful bike handling and clipping in and out capabilities.",
+            "source_video_ids": [
+              "tqPI-5TGcTg",
+              "b1y5o5WtFrc"
+            ]
+          },
+          {
+            "text": "12 miles of flat to rolling hills section with nothing crazy, good for forming groups and rotating together.",
+            "source_video_ids": [
+              "b1y5o5WtFrc"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "Running Pirelli Cinturato Gravel H tires size 40 with Tubolito inserts, 33 PSI front and 35 PSI rear.",
+            "source_video_ids": [
+              "b1y5o5WtFrc"
+            ]
+          },
+          {
+            "text": "Specialized Pathfinder Pro 42mm tires front and rear - described as the absolute be-all and end-all for gravel racing, better to be safe than sorry and let legs make up for the width.",
+            "source_video_ids": [
+              "tqPI-5TGcTg"
+            ]
+          },
+          {
+            "text": "SRAM XPLR groupset with 40-46 chainrings and 50t cassette gives options for everything encountered in gravel racing - super steep climbs and fast road downhills.",
+            "source_video_ids": [
+              "tqPI-5TGcTg"
+            ]
+          },
+          {
+            "text": "Swapping to mountain bike pedals for easier clip in and out on the technical single track sections.",
+            "source_video_ids": [
+              "tqPI-5TGcTg"
+            ]
+          },
+          {
+            "text": "K-edge chain guard added to ensure chain stays on during rowdy gravel conditions.",
+            "source_video_ids": [
+              "tqPI-5TGcTg"
+            ]
+          }
+        ],
+        "race_day_tips": [
+          {
+            "text": "There are four key points in the race where you want to be at the front, with the first being mile 19 heading into the first real off-road section.",
+            "source_video_ids": [
+              "b1y5o5WtFrc"
+            ]
+          },
+          {
+            "text": "Carrying seven bottles total with Scratch Super High Carb (400 calories, 100g carbs per bottle), planning to get one at each aid station and mix with other fuel sources.",
+            "source_video_ids": [
+              "b1y5o5WtFrc"
+            ]
+          },
+          {
+            "text": "The first climb takes about 8 minutes 49 seconds averaging 351 watts with the last 2.5 minutes at 432 watts.",
+            "source_video_ids": [
+              "b1y5o5WtFrc"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "Pancakes for breakfast and 100% pure maple syrup is the key ingredient there.",
+            "source_video_id": "b1y5o5WtFrc",
+            "source_channel": "Goettl Media",
+            "source_view_count": 43826,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "I've got a 42mm tire on here to keep things nice and safe and hopefully no issues. I'd rather be safe than sorry and hopefully let my legs make up for the width.",
+            "source_video_id": "tqPI-5TGcTg",
+            "source_channel": "Pure Gravel",
+            "source_view_count": 6164,
+            "category": "training",
+            "curated": true
+          }
+        ],
+        "search_text": "BWR Utah in Cedar City features 127 miles with technical single track that riders describe as the most technical in the BWR series. Key challenges include a potential pinch point at the tunnel at mile 4, and the first major off-road section at mile 19 with zigzags and climbing. The course includes 12 miles of flat to rolling hills and ends with a super steep final climb. Riders emphasize the technical single track gets pretty sketchy and rowdy, requiring mountain bike skills and careful gear selection. The race typically takes over 6 hours but the added single track increases completion time. Tire selection is critical with 40-42mm widths recommended. The course features eight aid stations and requires strategic positioning at four key points throughout the race. Technical terrain demands features like suspension, chain guards, and mountain bike pedals for easier clip-in/out on sketchy sections."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "bwr-utah-video-1.jpg",
+        "url": "/race-photos/bwr-utah/bwr-utah-video-1.jpg",
+        "alt": "First-person POV of cyclist riding gravel road through desert terrain with red rock formations and green hills in Utah - BWR Utah (Belgian Waffle Ride Utah) - Cedar City, Utah",
+        "credit": "YouTube / Goettl Media",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel road",
+          "desert terrain",
+          "red rock",
+          "Utah landscape",
+          "POV cycling"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "bwr-utah-video-2.jpg",
+        "url": "/race-photos/bwr-utah/bwr-utah-video-2.jpg",
+        "alt": "Close-up detail of SRAM crankset and drivetrain on gravel bike with rider's legs visible on grass background - BWR Utah (Belgian Waffle Ride Utah) - Cedar City, Utah",
+        "credit": "YouTube / Goettl Media",
+        "primary": false,
+        "ai_relevance": 4,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "SRAM crankset",
+          "gravel bike",
+          "drivetrain",
+          "cycling components"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "bwr-utah-video-3.jpg",
+        "url": "/race-photos/bwr-utah/bwr-utah-video-3.jpg",
+        "alt": "Cyclist's handlebars view of dirt gravel road stretching toward distant mountains through Utah desert landscape with desert vegetation - BWR Utah (Belgian Waffle Ride Utah) - Cedar City, Utah",
+        "credit": "YouTube / Goettl Media",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 5,
+        "ai_keywords": [
+          "gravel road",
+          "Utah mountains",
+          "desert landscape",
+          "handlebars view",
+          "dirt road"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "bwr-utah-preview.gif",
+        "url": "/race-photos/bwr-utah/bwr-utah-preview.gif",
+        "alt": "Course preview from Bwr Utah race footage",
+        "credit": "YouTube / Goettl Media",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "bwr-utah-preview-2.gif",
+        "url": "/race-photos/bwr-utah/bwr-utah-preview-2.gif",
+        "alt": "Course preview from Bwr Utah race footage",
+        "credit": "YouTube / Goettl Media",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "bwr-utah-preview-3.gif",
+        "url": "/race-photos/bwr-utah/bwr-utah-preview-3.gif",
+        "alt": "Course preview from Bwr Utah race footage",
+        "credit": "YouTube / Goettl Media",
+        "gif": true
+      }
+    ]
   }
 }

@@ -1,6 +1,7 @@
 {
   "slug": "lauf-true-grit",
   "race_name": "Lauf True Grit Gravel Epic",
+  "distance_mi": 84.0,
   "demands": {
     "durability": 4,
     "climbing": 8,
@@ -18,7 +19,8 @@
       "workouts": [
         "Surge and Settle",
         "Terrain Microbursts"
-      ]
+      ],
+      "workout_context": "Lauf True Grit Gravel Epic\u2019s extreme sandstone and slickrock terrain with mandatory dismounts and technical rock gardens demands rapid power changes \u2014 surge over obstacles, settle on smoother sections, repeat for hours."
     },
     {
       "category": "Race_Simulation",
@@ -27,7 +29,8 @@
         "Breakaway Simulation",
         "Variable Pace Chaos",
         "Sector Simulation"
-      ]
+      ],
+      "workout_context": "Racing Lauf True Grit Gravel Epic isn\u2019t just fitness \u2014 it\u2019s pacing, fueling, and executing when conditions deteriorate. This workout practices the race itself."
     },
     {
       "category": "TT_Threshold",
@@ -36,7 +39,8 @@
         "Single Sustained Threshold",
         "Threshold Ramps",
         "Descending Threshold"
-      ]
+      ],
+      "workout_context": "Lauf True Grit Gravel Epic rewards athletes who can hold sustained power without blowing up \u2014 threshold is the engine that drives everything above Zone 2."
     },
     {
       "category": "Over_Under",
@@ -44,7 +48,8 @@
       "workouts": [
         "Classic Over-Unders",
         "Ladder Over-Unders"
-      ]
+      ],
+      "workout_context": "Over-unders train the lactate clearance you\u2019ll need at Lauf True Grit Gravel Epic when surges push you above threshold and you have to recover while still riding hard."
     },
     {
       "category": "Critical_Power",
@@ -52,9 +57,81 @@
       "workouts": [
         "Above CP Repeats",
         "W-Prime Depletion"
-      ]
+      ],
+      "workout_context": "Critical power determines how long you can sustain above-threshold efforts at Lauf True Grit Gravel Epic \u2014 a higher CP means more time in the red before failure."
+    },
+    {
+      "category": "G_Spot",
+      "score": 58,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ],
+      "workout_context": "The G-Spot zone (88\u201392% FTP) is where you\u2019ll spend the hardest sustained miles of Lauf True Grit Gravel Epic. Make this intensity feel like home."
+    },
+    {
+      "category": "VO2max",
+      "score": 58,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ],
+      "workout_context": "Lauf True Grit Gravel Epic\u2019s extreme sandstone and slickrock terrain with mandatory dismounts and technical rock gardens and competitive field demand explosive aerobic capacity \u2014 the ability to respond to surges without blowing up."
+    },
+    {
+      "category": "Durability",
+      "score": 53,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ],
+      "workout_context": "At 84 miles, Lauf True Grit Gravel Epic punishes athletes who haven\u2019t trained their body to produce power when glycogen runs low."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 50,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "Lauf True Grit Gravel Epic\u2019s 9,000ft of climbing demands seated and standing versatility \u2014 the ability to change climbing style as gradient and fatigue dictate."
+    },
+    {
+      "category": "Anaerobic_Capacity",
+      "score": 46,
+      "workouts": [
+        "2min Killers",
+        "90sec Repeats"
+      ],
+      "workout_context": "Short, violent efforts are unavoidable at Lauf True Grit Gravel Epic \u2014 climbs demanding 2-minute maximal efforts, surges to close gaps, attacks on extreme sandstone and slickrock terrain with mandatory dismounts and technical rock gardens."
+    },
+    {
+      "category": "Cadence_Work",
+      "score": 42,
+      "workouts": [
+        "High Cadence Drills",
+        "Cadence Pyramids"
+      ],
+      "workout_context": "Cadence efficiency makes every pedal stroke at Lauf True Grit Gravel Epic count \u2014 smooth technique reduces muscular fatigue over long distances."
+    },
+    {
+      "category": "SFR_Muscle_Force",
+      "score": 33,
+      "workouts": [
+        "SFR Low Cadence",
+        "Force Repeats"
+      ],
+      "workout_context": "Low-cadence force work builds the muscular strength for Lauf True Grit Gravel Epic\u2019s 9,000ft of climbing \u2014 especially the grinding, low-speed ascents."
     }
   ],
+  "race_overlay": {
+    "nutrition": "Target 60\u201380g carbs/hour for Lauf True Grit Gravel Epic\u2019s 84 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
+    "altitude": "Moderate altitude at Lauf True Grit Gravel Epic. Arrive 2\u20133 days early. Reduce intensity expectations by 5\u201310%. Hydrate aggressively.",
+    "terrain": "Highly technical terrain at Lauf True Grit Gravel Epic demands practice on similar surfaces. Ride extreme sandstone and slickrock terrain with mandatory dismounts and technical rock gardens at race-day cadence weekly. Practice cornering, descending, and power delivery on unstable surfaces. Dial in tire pressure before race week \u2014 5 PSI wrong costs you 15+ minutes over 84 miles."
+  },
   "pack_summary": "This 10-workout pack focuses on Gravel Specific, Race Simulation, and TT Threshold to prepare you for 84 miles of extreme sandstone and slickrock terrain with mandatory dismounts and technical rock gardens in Santa Clara, Utah.",
   "generated_at": "2026-02-26"
 }

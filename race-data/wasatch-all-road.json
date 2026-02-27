@@ -571,7 +571,142 @@
           "curated": false
         }
       ],
-      "quotes": []
-    }
+      "quotes": [],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [],
+        "terrain_notes": [
+          {
+            "text": "UK gravel is typically a mix of walking tracks, bridal ways, mountain bike trails, and toe path style packed down gravel paths that aren't used by cars. It's more technical than smooth gravel tracks with new challenges around every corner.",
+            "source_video_ids": [
+              "TQ4CsyWOEas"
+            ]
+          },
+          {
+            "text": "Surfaces can vary from hard packed gravel like toe paths by rivers to muddy walking style tracks. Sometimes it's paths, sometimes trails, sometimes muddy, sometimes not - it's always muddy in the UK.",
+            "source_video_ids": [
+              "TQ4CsyWOEas",
+              "hWBgoc9b9sU"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "For hard packed gravel like toe paths or gravel roads, slick tires might still be the best choice. The gravel World Champs in Kansas was won on 34mm slicks with no real tread.",
+            "source_video_ids": [
+              "TQ4CsyWOEas"
+            ]
+          },
+          {
+            "text": "The wider you go the more comfortable ride you can have because you can lower the pressure without risk of pinch punctures.",
+            "source_video_ids": [
+              "TQ4CsyWOEas"
+            ]
+          },
+          {
+            "text": "For muddy walking style tracks you'll need knobblies. Closer together and smaller knobs are faster rolling but have less grip. Bigger and more spread out knobs give more grip but are slower rolling.",
+            "source_video_ids": [
+              "TQ4CsyWOEas"
+            ]
+          },
+          {
+            "text": "If you want to use a gravel bike on the road, changing to a set of road tires will make a massive difference. Road tires are faster due to lower rolling resistance and better aerodynamics.",
+            "source_video_ids": [
+              "u_xF8nmvKvc"
+            ]
+          }
+        ],
+        "race_day_tips": [
+          {
+            "text": "Work out what surfaces you're going to be riding before you choose your tires. Tire choice can make or break your ride depending on conditions like mud, grass, hard pack gravel, or rocks.",
+            "source_video_ids": [
+              "TQ4CsyWOEas"
+            ]
+          },
+          {
+            "text": "If you sign up to an event advertised as gravel, it might be more technical than just a smooth gravel track. Get off and walk if you need to, trust your equipment and enjoy yourself.",
+            "source_video_ids": [
+              "TQ4CsyWOEas"
+            ]
+          }
+        ],
+        "additional_quotes": [],
+        "search_text": "Riders describe gravel cycling as a broad term meaning riding off-road, with UK conditions typically involving walking tracks, bridal ways, mountain bike trails, and packed gravel paths. Terrain varies from hard-packed gravel suitable for slick tires to muddy tracks requiring knobby tires. Tire choice is crucial - slick tires work for hard surfaces and the gravel World Champs was won on 34mm slicks, while muddy conditions need knobblies with bigger, spread-out knobs for grip despite slower rolling. Modern gravel bikes are highly capable, more so than 1990s mountain bikes according to experienced riders. The key is matching tire choice to expected surface conditions, as this can make or break the ride experience. Events may be more technical than expected, so riders should be prepared to walk sections if needed."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "wasatch-all-road-video-1.jpg",
+        "url": "/race-photos/wasatch-all-road/wasatch-all-road-video-1.jpg",
+        "alt": "Cyclist in helmet and sunglasses taking selfie on wooded trail surrounded by green trees - Wasatch All-Road - Francis, Utah",
+        "credit": "YouTube / CADE Media",
+        "primary": true,
+        "ai_relevance": 3,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "cyclist selfie",
+          "wooded trail",
+          "cycling helmet",
+          "mountain bike trail"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "wasatch-all-road-video-2.jpg",
+        "url": "/race-photos/wasatch-all-road/wasatch-all-road-video-2.jpg",
+        "alt": "Road cyclist in aerodynamic position riding time trial bike on paved country road through rural landscape - Wasatch All-Road - Francis, Utah",
+        "credit": "YouTube / CADE Media",
+        "primary": false,
+        "ai_relevance": 4,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "time trial bike",
+          "aero position",
+          "country road",
+          "rural cycling"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "wasatch-all-road-video-3.jpg",
+        "url": "/race-photos/wasatch-all-road/wasatch-all-road-video-3.jpg",
+        "alt": "Cyclist from behind riding on paved residential street past houses with trees and parked cars - Wasatch All-Road - Francis, Utah",
+        "credit": "YouTube / CADE Media",
+        "primary": false,
+        "ai_relevance": 2,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "residential cycling",
+          "paved road",
+          "suburban street",
+          "road bike"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "wasatch-all-road-preview.gif",
+        "url": "/race-photos/wasatch-all-road/wasatch-all-road-preview.gif",
+        "alt": "Course preview from Wasatch All Road race footage",
+        "credit": "YouTube / CADE Media",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "wasatch-all-road-preview-2.gif",
+        "url": "/race-photos/wasatch-all-road/wasatch-all-road-preview-2.gif",
+        "alt": "Course preview from Wasatch All Road race footage",
+        "credit": "YouTube / CADE Media",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "wasatch-all-road-preview-3.gif",
+        "url": "/race-photos/wasatch-all-road/wasatch-all-road-preview-3.gif",
+        "alt": "Course preview from Wasatch All Road race footage",
+        "credit": "YouTube / CADE Media",
+        "gif": true
+      }
+    ]
   }
 }

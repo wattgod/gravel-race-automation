@@ -606,7 +606,206 @@
           "category": "course_difficulty",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "County Road 70",
+            "description": "Choice double track with old bridges, described as challenging terrain that riders have never hit before on the west side of I-35.",
+            "source_video_ids": [
+              "jTiRIUZJWlM"
+            ]
+          },
+          {
+            "name": "Triple XXX section",
+            "description": "Fully covered by trees, creating very dark conditions where riders mention needing lights.",
+            "source_video_ids": [
+              "jTiRIUZJWlM"
+            ]
+          },
+          {
+            "name": "Back 50 miles",
+            "description": "More hilly than previous years with continuous climbing - riders warn there's going to be one climb coming after every descent.",
+            "source_video_ids": [
+              "2i76d_4bhhY"
+            ]
+          },
+          {
+            "name": "East-West roads",
+            "description": "Don't get sunlight this time of year, expect to see much mud and ice conditions.",
+            "source_video_ids": [
+              "jTiRIUZJWlM"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Red dirt roads that can be chunky in sections. If the mud gets wet, it becomes very problematic for traction and bike handling.",
+            "source_video_ids": [
+              "2i76d_4bhhY",
+              "jTiRIUZJWlM"
+            ]
+          },
+          {
+            "text": "Surprisingly not sketchy on descents despite being DIY roads, though riders report being puckered up on the descents due to conditions.",
+            "source_video_ids": [
+              "jTiRIUZJWlM"
+            ]
+          },
+          {
+            "text": "Beautiful destruction and despair - terrain that requires big tires for clearance issues, with winding roads through varied conditions.",
+            "source_video_ids": [
+              "jTiRIUZJWlM"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "Big tires are essential - riders with big tires report clearance problems but better handling on the chunky and muddy sections.",
+            "source_video_ids": [
+              "jTiRIUZJWlM"
+            ]
+          },
+          {
+            "text": "Single speed riders warn it's extremely challenging - one rider said it was killing him and felt 90 years old after 15 miles.",
+            "source_video_ids": [
+              "jTiRIUZJWlM"
+            ]
+          }
+        ],
+        "race_day_tips": [
+          {
+            "text": "Drink a lot of water the whole day, especially when it gets hot. Temperature management is crucial for the full distance.",
+            "source_video_ids": [
+              "9fbaPylpEzE"
+            ]
+          },
+          {
+            "text": "Use momentum from descents to carry into the next climb because there's going to be one coming every time.",
+            "source_video_ids": [
+              "2i76d_4bhhY"
+            ]
+          },
+          {
+            "text": "First 28 miles to Mulhall aid station are shared between 50 and 100 mile courses, expect it to be super fast with 1500 riders together.",
+            "source_video_ids": [
+              "jTiRIUZJWlM"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "There's no point in carrying the tube you're not changing. I haven't even washed my bike since we did Mega mid south in September - it's perfect it needs nothing.",
+            "source_video_id": "jTiRIUZJWlM",
+            "source_channel": "The Mid South",
+            "source_view_count": 12626,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "You're never more than 50 miles from Still Water, but it doesn't feel like that. It feels like a genuine adventure.",
+            "source_video_id": "9fbaPylpEzE",
+            "source_channel": "The Mid South",
+            "source_view_count": 6072,
+            "category": "community",
+            "curated": true
+          }
+        ],
+        "search_text": "The Mid South features over 6000-7000 feet of climbing across 100+ miles of Oklahoma red dirt roads. Key challenges include County Road 70 with old bridges and double track on the west side of I-35, and the back 50 miles which are more hilly than previous years with continuous climbing. The course runs through Stillwater to Mulhall aid station at mile 28, then becomes significantly more challenging. Terrain includes chunky red dirt that becomes very problematic when wet, requiring big tires for clearance. East-west roads don't get sunlight and can have mud and ice. The Triple XXX section is fully tree-covered requiring lights. Riders emphasize drinking water constantly due to heat, using descent momentum for climbs, and warn that single speed attempts are extremely challenging. The first 28 miles are shared between 50 and 100 mile courses with 1500 riders creating fast early pace."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "mid-south-video-1.jpg",
+        "url": "/race-photos/mid-south/mid-south-video-1.jpg",
+        "alt": "Empty gravel road stretching through dormant winter landscape with bare trees and dry grasslands under clear blue sky - The Mid South - Stillwater, Oklahoma",
+        "credit": "YouTube / Back of the Gravel Pack",
+        "primary": true,
+        "ai_relevance": 4,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel road",
+          "winter landscape",
+          "bare trees",
+          "rural terrain"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "mid-south-video-2.jpg",
+        "url": "/race-photos/mid-south/mid-south-video-2.jpg",
+        "alt": "Cyclist riding on concrete path through bare winter trees with bright sun creating dramatic backlighting - The Mid South - Stillwater, Oklahoma",
+        "credit": "YouTube / Back of the Gravel Pack",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel cyclist",
+          "winter riding",
+          "concrete path",
+          "bare trees",
+          "backlighting"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "mid-south-video-3.jpg",
+        "url": "/race-photos/mid-south/mid-south-video-3.jpg",
+        "alt": "Gravel cyclist in Austria jersey riding through red dirt terrain with open plains and distant tree line - The Mid South - Stillwater, Oklahoma",
+        "credit": "YouTube / Back of the Gravel Pack",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "red dirt",
+          "gravel cycling",
+          "open plains",
+          "Austria jersey",
+          "rural landscape"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "mid-south-preview.gif",
+        "url": "/race-photos/mid-south/mid-south-preview.gif",
+        "alt": "Course preview from Mid South race footage",
+        "credit": "YouTube / Back of the Gravel Pack",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "mid-south-preview-2.gif",
+        "url": "/race-photos/mid-south/mid-south-preview-2.gif",
+        "alt": "Course preview from Mid South race footage",
+        "credit": "YouTube / Back of the Gravel Pack",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "mid-south-preview-3.gif",
+        "url": "/race-photos/mid-south/mid-south-preview-3.gif",
+        "alt": "Course preview from Mid South race footage",
+        "credit": "YouTube / Back of the Gravel Pack",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "mid-south-preview-4.gif",
+        "url": "/race-photos/mid-south/mid-south-preview-4.gif",
+        "alt": "Course preview from Mid South race footage",
+        "credit": "YouTube / Back of the Gravel Pack",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "mid-south-preview-5.gif",
+        "url": "/race-photos/mid-south/mid-south-preview-5.gif",
+        "alt": "Course preview from Mid South race footage",
+        "credit": "YouTube / Back of the Gravel Pack",
+        "gif": true
+      }
+    ]
   }
 }

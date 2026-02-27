@@ -511,6 +511,67 @@
         }
       ],
       "quotes": []
-    }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "iceman-cometh-video-1.jpg",
+        "url": "/race-photos/iceman-cometh/iceman-cometh-video-1.jpg",
+        "alt": "Cyclist riding through autumn forest on leaf-covered dirt trail with performance metrics displayed during Iceman Cometh race - Kalkaska, Michigan",
+        "credit": "YouTube / Justin Jewell",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "autumn trail",
+          "forest cycling",
+          "leaf-covered path",
+          "dirt trail",
+          "fall foliage"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "iceman-cometh-video-2.jpg",
+        "url": "/race-photos/iceman-cometh/iceman-cometh-video-2.jpg",
+        "alt": "Gravel cyclist powering down paved forest road at 20 MPH through dense Michigan woodland during autumn race - Iceman Cometh - Kalkaska, Michigan",
+        "credit": "YouTube / Justin Jewell",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "paved road",
+          "forest cycling",
+          "Michigan woodland",
+          "autumn racing",
+          "tree-lined route"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "iceman-cometh-video-3.jpg",
+        "url": "/race-photos/iceman-cometh/iceman-cometh-video-3.jpg",
+        "alt": "Mountain biker navigating rocky forest singletrack trail through autumn trees at 20 MPH with 181 BPM heart rate - Iceman Cometh - Kalkaska, Michigan",
+        "credit": "YouTube / Justin Jewell",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "rocky trail",
+          "forest singletrack",
+          "autumn trees",
+          "technical terrain",
+          "woodland path"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "iceman-cometh-preview.gif",
+        "url": "/race-photos/iceman-cometh/iceman-cometh-preview.gif",
+        "alt": "Course preview from Iceman Cometh race footage",
+        "credit": "YouTube / Justin Jewell",
+        "gif": true
+      }
+    ]
   }
 }

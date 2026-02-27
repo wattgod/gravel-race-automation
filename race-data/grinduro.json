@@ -828,7 +828,181 @@
           "category": "course_difficulty",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Mud Canyon",
+            "description": "Totally crazy section that caused a lot of issues for a lot of people according to riders.",
+            "source_video_ids": [
+              "lRwGtPek1FQ"
+            ]
+          },
+          {
+            "name": "Cow Path of Death",
+            "description": "Described by riders as probably the most spectacular spot of the course.",
+            "source_video_ids": [
+              "lRwGtPek1FQ"
+            ]
+          },
+          {
+            "name": "45 Percent Grade Hike-a-Bike Section",
+            "description": "Insane climbing section that requires riders to get off and push their bikes.",
+            "source_video_ids": [
+              "lRwGtPek1FQ"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Very bumpy gravel sections that riders describe as quite jarring on the bike.",
+            "source_video_ids": [
+              "KfiKeDnswvY"
+            ]
+          },
+          {
+            "text": "Course includes single track segments in the woods along with varied gravel surfaces.",
+            "source_video_ids": [
+              "UPzh9ct-RJE",
+              "KfiKeDnswvY"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "IRC Double Cross 42mm tires with Orange Seal - rider reports never flatting those tires.",
+            "source_video_ids": [
+              "lRwGtPek1FQ"
+            ]
+          },
+          {
+            "text": "SRAM XX1 mountain bike derailleur with 11-52 cassette setup for the wide gear range needed.",
+            "source_video_ids": [
+              "lRwGtPek1FQ"
+            ]
+          },
+          {
+            "text": "30mm of travel fork completely changes how the bike handles on rough terrain.",
+            "source_video_ids": [
+              "lRwGtPek1FQ"
+            ]
+          },
+          {
+            "text": "Dropper post with 50mm of travel for technical sections.",
+            "source_video_ids": [
+              "lRwGtPek1FQ"
+            ]
+          }
+        ],
+        "race_day_tips": [
+          {
+            "text": "Pace yourself for the full distance - one rider used the Dylan Johnson approach of setting power targets and not caring about other riders around them for an 80-mile race.",
+            "source_video_ids": [
+              "lRwGtPek1FQ"
+            ]
+          },
+          {
+            "text": "The fast road section at the start gets spicy quickly with 1000 riders in four waves of 250 each, so positioning matters before hitting single track.",
+            "source_video_ids": [
+              "lRwGtPek1FQ"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "The green churro is an event like no other and it encompasses everything I love about cycling an unreal location some epic riding and some of the same partying",
+            "source_video_id": "UPzh9ct-RJE",
+            "source_channel": "Global Cycling Network",
+            "source_view_count": 188090,
+            "category": "community",
+            "curated": true
+          },
+          {
+            "text": "This is going to be a really big test, but I'm not doing it alone. Riding epics like this is in my DNA.",
+            "source_video_id": "KfiKeDnswvY",
+            "source_channel": "Global Mountain Bike Network",
+            "source_view_count": 47868,
+            "category": "community",
+            "curated": true
+          }
+        ],
+        "search_text": "Grinduro features multiple challenging sections including the notorious Mud Canyon that causes issues for many riders, the Cow Path of Death described as the most spectacular spot, and an insane 45 percent grade hike-a-bike section. The race starts fast with 1000 riders in four waves fighting for position before single track. Terrain includes very bumpy gravel sections and single track segments in woods. The format uses timed stages within longer loops - four different stage types including hill climbs, downhill sections, and technical single track. Riders recommend wide-range gearing like 11-52 cassettes, 42mm tires, suspension forks with 30mm travel, and dropper posts. Pacing strategy is crucial for the 60+ mile distance. The event combines serious racing with an epic party atmosphere and camping, creating a bucket list experience in locations like Tuscany and Scotland."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "grinduro-video-1.jpg",
+        "url": "/race-photos/grinduro/grinduro-video-1.jpg",
+        "alt": "Mountain biker in helmet and GMBN jersey speaking to camera on forested trail with trees in background - Grinduro - Multi-Location Global Series",
+        "credit": "YouTube / Global Mountain Bike Network",
+        "primary": true,
+        "ai_relevance": 3,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "mountain biker",
+          "forest trail",
+          "cycling helmet",
+          "interview"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "grinduro-video-2.jpg",
+        "url": "/race-photos/grinduro/grinduro-video-2.jpg",
+        "alt": "Motion-blurred cyclist riding through wooded singletrack trail with heavy forest canopy overhead - Grinduro - Multi-Location Global Series",
+        "credit": "YouTube / Global Mountain Bike Network",
+        "primary": false,
+        "ai_relevance": 4,
+        "ai_quality": 2,
+        "ai_keywords": [
+          "singletrack",
+          "forest trail",
+          "motion blur",
+          "wooded terrain"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "grinduro-video-3.jpg",
+        "url": "/race-photos/grinduro/grinduro-video-3.jpg",
+        "alt": "Cyclist in racing kit on dirt road with rolling hills and bright sunshine in rural landscape - Grinduro - Multi-Location Global Series",
+        "credit": "YouTube / Global Mountain Bike Network",
+        "primary": false,
+        "ai_relevance": 4,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "dirt road",
+          "rolling hills",
+          "cycling kit",
+          "rural landscape"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "grinduro-preview.gif",
+        "url": "/race-photos/grinduro/grinduro-preview.gif",
+        "alt": "Course preview from Grinduro race footage",
+        "credit": "YouTube / Global Mountain Bike Network",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "grinduro-preview-2.gif",
+        "url": "/race-photos/grinduro/grinduro-preview-2.gif",
+        "alt": "Course preview from Grinduro race footage",
+        "credit": "YouTube / Global Mountain Bike Network",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "grinduro-preview-3.gif",
+        "url": "/race-photos/grinduro/grinduro-preview-3.gif",
+        "alt": "Course preview from Grinduro race footage",
+        "credit": "YouTube / Global Mountain Bike Network",
+        "gif": true
+      }
+    ]
   }
 }

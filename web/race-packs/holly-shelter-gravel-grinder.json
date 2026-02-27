@@ -1,6 +1,7 @@
 {
   "slug": "holly-shelter-gravel-grinder",
   "race_name": "Holly Shelter Gravel Grinder",
+  "distance_mi": 75.0,
   "demands": {
     "durability": 4,
     "climbing": 2,
@@ -19,7 +20,8 @@
         "Tired VO2max",
         "Double Day Simulation",
         "Progressive Fatigue"
-      ]
+      ],
+      "workout_context": "Holly Shelter Gravel Grinder\u2019s coastal plain gravel drains energy reserves faster than the distance suggests \u2014 durability training bridges the gap."
     },
     {
       "category": "TT_Threshold",
@@ -28,7 +30,8 @@
         "Single Sustained Threshold",
         "Threshold Ramps",
         "Descending Threshold"
-      ]
+      ],
+      "workout_context": "Holly Shelter Gravel Grinder rewards athletes who can hold sustained power without blowing up \u2014 threshold is the engine that drives everything above Zone 2."
     },
     {
       "category": "Gravel_Specific",
@@ -36,7 +39,8 @@
       "workouts": [
         "Surge and Settle",
         "Terrain Microbursts"
-      ]
+      ],
+      "workout_context": "Holly Shelter Gravel Grinder\u2019s coastal plain gravel, holly shelter game land demands rapid power changes \u2014 surge over obstacles, settle on smoother sections, repeat for hours."
     },
     {
       "category": "Race_Simulation",
@@ -45,7 +49,8 @@
         "Breakaway Simulation",
         "Variable Pace Chaos",
         "Sector Simulation"
-      ]
+      ],
+      "workout_context": "Racing Holly Shelter Gravel Grinder isn\u2019t just fitness \u2014 it\u2019s pacing, fueling, and executing when conditions deteriorate. This workout practices the race itself."
     },
     {
       "category": "G_Spot",
@@ -54,9 +59,79 @@
         "G-Spot Standard",
         "G-Spot Extended",
         "Criss-Cross"
-      ]
+      ],
+      "workout_context": "The G-Spot zone (88\u201392% FTP) is where you\u2019ll spend the hardest sustained miles of Holly Shelter Gravel Grinder. Make this intensity feel like home."
+    },
+    {
+      "category": "VO2max",
+      "score": 63,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ],
+      "workout_context": "Holly Shelter Gravel Grinder\u2019s coastal plain gravel and competitive field demand explosive aerobic capacity \u2014 the ability to respond to surges without blowing up."
+    },
+    {
+      "category": "Endurance",
+      "score": 57,
+      "workouts": [
+        "Pre-Race Openers",
+        "Terrain Simulation Z2"
+      ],
+      "workout_context": "Every session at Holly Shelter Gravel Grinder intensity builds on this aerobic foundation \u2014 the endurance base is the soil everything else grows in."
+    },
+    {
+      "category": "Over_Under",
+      "score": 57,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ],
+      "workout_context": "Over-unders train the lactate clearance you\u2019ll need at Holly Shelter Gravel Grinder when surges push you above threshold and you have to recover while still riding hard."
+    },
+    {
+      "category": "Critical_Power",
+      "score": 52,
+      "workouts": [
+        "Above CP Repeats",
+        "W-Prime Depletion"
+      ],
+      "workout_context": "Critical power determines how long you can sustain above-threshold efforts at Holly Shelter Gravel Grinder \u2014 a higher CP means more time in the red before failure."
+    },
+    {
+      "category": "Norwegian_Double",
+      "score": 52,
+      "workouts": [
+        "Norwegian 4x8 Classic",
+        "Double Threshold"
+      ],
+      "workout_context": "The Norwegian double-threshold method builds the sustained power base for Holly Shelter Gravel Grinder \u2014 massive training stimulus without the recovery cost of VO2max work."
+    },
+    {
+      "category": "HVLI_Extended",
+      "score": 48,
+      "workouts": [
+        "HVLI Extended Z2",
+        "Multi-Hour Z2",
+        "Back-to-Back Long"
+      ],
+      "workout_context": "High-volume endurance builds the aerobic base that makes Holly Shelter Gravel Grinder\u2019s race-day efforts sustainable rather than destructive."
+    },
+    {
+      "category": "Blended",
+      "score": 44,
+      "workouts": [
+        "Z2 + VO2 Combo",
+        "Endurance with Spikes"
+      ],
+      "workout_context": "Blended sessions combine endurance with intensity spikes \u2014 exactly what Holly Shelter Gravel Grinder\u2019s coastal plain gravel delivers on race day."
     }
   ],
+  "race_overlay": {
+    "nutrition": "Target 40\u201360g carbs/hour for Holly Shelter Gravel Grinder\u2019s 75 miles. Front-load calories in the first half. One bottle per hour minimum, more in heat.",
+    "terrain": "Mixed terrain at Holly Shelter Gravel Grinder requires surface adaptability. Include weekly rides on coastal plain gravel to build confidence. Expect: coastal plain gravel, holly shelter game land, regional event."
+  },
   "pack_summary": "This 10-workout pack focuses on Durability, TT Threshold, and Gravel Specific to prepare you for 75 miles of coastal plain gravel in Southeast North Carolina (Holly Shelter Game Land).",
   "generated_at": "2026-02-26"
 }

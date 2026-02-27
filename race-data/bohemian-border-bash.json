@@ -610,7 +610,145 @@
           "category": "course_difficulty",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "cp1 to cp2 dense forest section",
+            "description": "Dense forest section with limited visibility at night, riders described being alone in the forest as very scary with difficulty finding the trail in darkness.",
+            "source_video_ids": [
+              "0JlofG_vW50"
+            ]
+          },
+          {
+            "name": "checkpoint 2 hike-a-bike",
+            "description": "Long hike-a-bike section to reach checkpoint 2, described as a rock in the middle of nowhere in the mountains, very challenging to navigate at night.",
+            "source_video_ids": [
+              "0JlofG_vW50"
+            ]
+          },
+          {
+            "name": "Bohemian Forest sections",
+            "description": "Multiple hike-a-bike sections throughout the Bohemian Forest area, with riders doing more walking than riding on gravel bikes.",
+            "source_video_ids": [
+              "0JlofG_vW50"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Start features fast tarmac sections and light gravel with many twists and turns, making it tricky to find a way through.",
+            "source_video_ids": [
+              "0JlofG_vW50"
+            ]
+          },
+          {
+            "text": "Dense forest sections with trails that are difficult to see at night, requiring riders to just follow the line.",
+            "source_video_ids": [
+              "0JlofG_vW50"
+            ]
+          },
+          {
+            "text": "Forest gravel roads described as perfect, with fair amount of climbing followed by fun descents, nothing super technical but consistently challenging.",
+            "source_video_ids": [
+              "Bmk7iMq1ylQ"
+            ]
+          }
+        ],
+        "gear_mentions": [],
+        "race_day_tips": [
+          {
+            "text": "At race start, riders fight for position and you have to defend your space on the trail due to the fast pace and technical sections.",
+            "source_video_ids": [
+              "0JlofG_vW50"
+            ]
+          },
+          {
+            "text": "Consider taking naps at ghost checkpoints or between checkpoints - one rider took a 3-hour nap before cp2 and a 6-hour sleep break after cp3.",
+            "source_video_ids": [
+              "0JlofG_vW50"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "Not many places to resupply in Germany during Sunday",
+            "source_video_id": "0JlofG_vW50",
+            "source_channel": "BuzzAlong",
+            "source_view_count": 55879,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "Gets into your hands all the humidity and it's so cold from the mountains, warming up at the gas station even for a 7 Day",
+            "source_video_id": "0JlofG_vW50",
+            "source_channel": "BuzzAlong",
+            "source_view_count": 55879,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "The Bohemian Border Bash is described as one of the toughest self-supported off-road races in the world, covering 1,300 km with 24,000 meters of climbing along Bohemian borderlands. The race starts fast with tarmac and light gravel sections featuring many twists and turns where riders fight for position. Key challenges include dense forest sections between checkpoints that become very difficult to navigate at night, with long hike-a-bike sections particularly around checkpoint 2, described as a rock in the middle of mountains. The Bohemian Forest area requires significant walking with riders doing more walking than riding on gravel bikes. Terrain varies from perfect forest gravel roads with fair climbing and fun descents to technical sections requiring careful navigation. Resupply opportunities are limited, especially in Germany on Sundays. Weather conditions include high humidity and cold temperatures when descending from mountains."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "bohemian-border-bash-video-1.jpg",
+        "url": "/race-photos/bohemian-border-bash/bohemian-border-bash-video-1.jpg",
+        "alt": "Cyclist in helmet and sunglasses riding through forested trail with mixed terrain and tall trees - Bohemian Border Bash - Czech Republic",
+        "credit": "YouTube / Juliet Elliott",
+        "primary": true,
+        "ai_relevance": 4,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "forest trail",
+          "mountain biking",
+          "wooded terrain",
+          "cyclist helmet"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "bohemian-border-bash-video-2.jpg",
+        "url": "/race-photos/bohemian-border-bash/bohemian-border-bash-video-2.jpg",
+        "alt": "Gravel cyclist navigating rocky forest trail with dense green canopy and natural stone features - Bohemian Border Bash - Czech Republic",
+        "credit": "YouTube / Juliet Elliott",
+        "primary": false,
+        "ai_relevance": 4,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "rocky trail",
+          "forest gravel",
+          "stone path",
+          "wooded cycling"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "bohemian-border-bash-video-3.jpg",
+        "url": "/race-photos/bohemian-border-bash/bohemian-border-bash-video-3.jpg",
+        "alt": "Muddy forest trail with wet conditions showing challenging gravel race terrain through green woodland - Bohemian Border Bash - Czech Republic",
+        "credit": "YouTube / Juliet Elliott",
+        "primary": false,
+        "ai_relevance": 3,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "muddy trail",
+          "wet conditions",
+          "forest path",
+          "challenging terrain"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "bohemian-border-bash-preview.gif",
+        "url": "/race-photos/bohemian-border-bash/bohemian-border-bash-preview.gif",
+        "alt": "Course preview from Bohemian Border Bash race footage",
+        "credit": "YouTube / Juliet Elliott",
+        "gif": true
+      }
+    ]
   }
 }

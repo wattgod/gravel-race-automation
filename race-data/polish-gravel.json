@@ -589,7 +589,104 @@
           "curated": false
         }
       ],
-      "quotes": []
-    }
+      "quotes": [],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [],
+        "terrain_notes": [
+          {
+            "text": "City features surprisingly bike-friendly smooth surfaces under the wheels, making it easy to navigate between attractions.",
+            "source_video_ids": [
+              "hUbr35rWP04"
+            ]
+          },
+          {
+            "text": "Medieval streets in the old town present confusing cycling rules with some pedestrian-only parts, limited traffic areas, and one-way streets where bikes can go both ways.",
+            "source_video_ids": [
+              "hUbr35rWP04"
+            ]
+          }
+        ],
+        "gear_mentions": [],
+        "race_day_tips": [],
+        "additional_quotes": [
+          {
+            "text": "The cool thing about Krakov is you don't need to ride for hours to see the main attractions. What makes this city great is how perfectly compact it is. The old town and its iconic spots are only a short ride away. Everything is within easy reach.",
+            "source_video_id": "hUbr35rWP04",
+            "source_channel": "Tetiana Sim",
+            "source_view_count": 6327,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "You are allowed to cycle in most pedestrian areas, including the main square, but cars are mostly bent unless you have a special permit. Some parts are pedestrian only, others have limited traffic. And then there are one-way streets where bikes can actually go both ways.",
+            "source_video_id": "hUbr35rWP04",
+            "source_channel": "Tetiana Sim",
+            "source_view_count": 6327,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "This transcript covers casual cycling in Kraków city rather than the Polish Gravel race. The rider describes urban cycling conditions around major tourist attractions like Wawel Castle and the main square. Key features include surprisingly bike-friendly smooth surfaces throughout the city center and compact distances between attractions. The old town presents navigation challenges with confusing cycling rules - some areas are pedestrian-only, others have limited traffic, and one-way streets where bikes can travel both directions. The rider notes that cyclists are allowed in most pedestrian areas including the main square. The medieval streets of the UNESCO World Heritage old town require careful navigation due to mixed traffic rules and varying restrictions for different vehicle types."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "polish-gravel-video-1.jpg",
+        "url": "/race-photos/polish-gravel/polish-gravel-video-1.jpg",
+        "alt": "Modern hotel building with Park Inn signage alongside tree-lined bike path and road infrastructure in urban setting - Polish Gravel - Kraków, Poland",
+        "credit": "YouTube / Tetiana Sim",
+        "primary": true,
+        "ai_relevance": 2,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "bike path",
+          "urban cycling",
+          "hotel",
+          "tree-lined path"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "polish-gravel-video-2.jpg",
+        "url": "/race-photos/polish-gravel/polish-gravel-video-2.jpg",
+        "alt": "Historic cobblestone street with traditional European architecture and parked cars in old town district - Polish Gravel - Kraków, Poland",
+        "credit": "YouTube / Tetiana Sim",
+        "primary": false,
+        "ai_relevance": 2,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "cobblestone street",
+          "European architecture",
+          "historic district",
+          "urban setting"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "polish-gravel-video-3.jpg",
+        "url": "/race-photos/polish-gravel/polish-gravel-video-3.jpg",
+        "alt": "Cyclist in racing gear examining bike drivetrain and chain while seated on cobblestone pavement during maintenance break - Polish Gravel - Kraków, Poland",
+        "credit": "YouTube / Tetiana Sim",
+        "primary": false,
+        "ai_relevance": 3,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "bike maintenance",
+          "drivetrain",
+          "cycling gear",
+          "cobblestone"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "polish-gravel-preview.gif",
+        "url": "/race-photos/polish-gravel/polish-gravel-preview.gif",
+        "alt": "Course preview from Polish Gravel race footage",
+        "credit": "YouTube / Tetiana Sim",
+        "gif": true
+      }
+    ]
   }
 }

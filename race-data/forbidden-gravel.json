@@ -581,7 +581,136 @@
           "category": "course_difficulty",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Snow on practice route",
+            "description": "Riders encountered snow this deep during practice runs, forcing some to consider dropping down from media to piccolo distance.",
+            "source_video_ids": [
+              "Kr8iV7wr-WA"
+            ]
+          },
+          {
+            "name": "Route changes",
+            "description": "The downloaded practice route was not the actual race route being used on race day, causing confusion for participants.",
+            "source_video_ids": [
+              "Kr8iV7wr-WA"
+            ]
+          },
+          {
+            "name": "Washboardy descent to Comox Lake",
+            "description": "The downhill section was really washboardy and rough, with flat sections that were also washboardy.",
+            "source_video_ids": [
+              "t_BrOE_0-UM"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Logging roads that were originally intended for logging are now being repurposed for gravel riding, providing access to places people never thought they could reach on a bike.",
+            "source_video_ids": [
+              "z_gBJGHkaBI"
+            ]
+          },
+          {
+            "text": "The downhill sections can be really washboardy and rough, making for challenging descents.",
+            "source_video_ids": [
+              "t_BrOE_0-UM"
+            ]
+          }
+        ],
+        "gear_mentions": [],
+        "race_day_tips": [
+          {
+            "text": "Come out for a practice run to verify the actual route, as downloaded routes may not match the race day course.",
+            "source_video_ids": [
+              "Kr8iV7wr-WA"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "They really wanted to encourage more women to register so they were holding more spots for women and giving them a little bit of a discount.",
+            "source_video_id": "Kr8iV7wr-WA",
+            "source_channel": "Heyjude's Adventures",
+            "source_view_count": 42664,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "Cumberland is a very big mountain biking destination, one of the most popular places to ride on the island.",
+            "source_video_id": "t_BrOE_0-UM",
+            "source_channel": "TheJakePopper",
+            "source_view_count": 808,
+            "category": "community",
+            "curated": true
+          }
+        ],
+        "search_text": "Forbidden Gravel takes riders into the mountains around Cumberland, British Columbia, utilizing logging roads that provide access to remote areas. The course features challenging washboardy descents, particularly on the downhill to Comox Lake. Riders report encountering snow during practice runs, which forced some to drop from longer distances to the piccolo category. A key challenge is route navigation, as practice routes downloaded beforehand may not match the actual race day course. The race organizers encouraged female participation by holding additional spots and offering discounts. Cumberland serves as the race hub and is known as one of the most popular mountain biking destinations on Vancouver Island, with Rider's Pizza serving as a popular stop for cyclists."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "forbidden-gravel-video-1.jpg",
+        "url": "/race-photos/forbidden-gravel/forbidden-gravel-video-1.jpg",
+        "alt": "Aid station table with food, drinks and supplies set up on wooded gravel path for cycling race support - Forbidden Gravel - Cumberland, British Columbia, Canada",
+        "credit": "YouTube / Heyjude's Adventures",
+        "primary": true,
+        "ai_relevance": 3,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "aid station",
+          "gravel path",
+          "race support",
+          "wooded trail",
+          "cycling supplies"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "forbidden-gravel-video-2.jpg",
+        "url": "/race-photos/forbidden-gravel/forbidden-gravel-video-2.jpg",
+        "alt": "Large group of gravel cyclists gathered on grass field with mountain backdrop under cloudy sky at race start - Forbidden Gravel - Cumberland, British Columbia, Canada",
+        "credit": "YouTube / Heyjude's Adventures",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel cyclists",
+          "race start",
+          "mountain backdrop",
+          "grass field",
+          "cycling peloton"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "forbidden-gravel-video-3.jpg",
+        "url": "/race-photos/forbidden-gravel/forbidden-gravel-video-3.jpg",
+        "alt": "Trail map display showing Cumberland mountain biking trails with various colored route lines on computer screen - Forbidden Gravel - Cumberland, British Columbia, Canada",
+        "credit": "YouTube / Heyjude's Adventures",
+        "primary": false,
+        "ai_relevance": 2,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "trail map",
+          "Cumberland trails",
+          "mountain biking",
+          "route planning",
+          "screen display"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "forbidden-gravel-preview.gif",
+        "url": "/race-photos/forbidden-gravel/forbidden-gravel-preview.gif",
+        "alt": "Course preview from Forbidden Gravel race footage",
+        "credit": "YouTube / Heyjude's Adventures",
+        "gif": true
+      }
+    ]
   }
 }

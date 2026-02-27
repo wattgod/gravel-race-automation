@@ -477,7 +477,122 @@
           "category": "race_atmosphere",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Race start",
+            "description": "Always really really hard, something riders really struggle with. It's so hard in the beginning and you're just trying to hang on.",
+            "source_video_ids": [
+              "FYPF4vUIaUU"
+            ]
+          },
+          {
+            "name": "Small grass pot section",
+            "description": "Small grass pot caused a crash when front wheel disappeared suddenly, resulting in finding yourself on the ground.",
+            "source_video_ids": [
+              "FYPF4vUIaUU"
+            ]
+          }
+        ],
+        "terrain_notes": [],
+        "gear_mentions": [],
+        "race_day_tips": [
+          {
+            "text": "You really need to have a good group around you because the race is long and doing a lot on your own is not ideal.",
+            "source_video_ids": [
+              "FYPF4vUIaUU"
+            ]
+          },
+          {
+            "text": "After the hard race start, the race always slows down a bit, at least the groups you're in, and then the real race can start.",
+            "source_video_ids": [
+              "FYPF4vUIaUU"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "I almost did 20 hours that week, which is something I definitely don't do a lot. At the start line I felt that my legs were a bit tired but I was very much looking forward to racing.",
+            "source_video_id": "FYPF4vUIaUU",
+            "source_channel": "Laurens Claeys",
+            "source_view_count": 211,
+            "category": "training",
+            "curated": true
+          },
+          {
+            "text": "It's almost as if when I'm doing a lot, I'm really pushing my body that in my head I feel way more confident about myself than when I'm having just a regular week.",
+            "source_video_id": "FYPF4vUIaUU",
+            "source_channel": "Laurens Claeys",
+            "source_view_count": 211,
+            "category": "training",
+            "curated": true
+          }
+        ],
+        "search_text": "The Dusty Gravel Series race in Andenne features an extremely challenging start that riders describe as really hard, where you're just trying to hang on before the pace eventually settles. The course includes technical sections with small grass pots that can catch your front wheel and cause crashes. Mechanical issues are common, with riders experiencing problems like pedals falling out and chains dropping multiple times during the race. The race is long enough that group dynamics become crucial - riders emphasize the importance of finding a good group since doing a lot of the race alone is not ideal. After the intense opening, the race typically slows down and groups form, which is when the real racing begins. The level of competition is described as high even at the amateur level, with riders using this race as qualification attempts for World Championships."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "dusty-gravel-series-andenne-video-1.jpg",
+        "url": "/race-photos/dusty-gravel-series-andenne/dusty-gravel-series-andenne-video-1.jpg",
+        "alt": "Gravel cyclists riding on dirt forest road through wooded countryside during Dusty Gravel Series Andenne race - Dusty Gravel Series - Andenne - Andenne, Belgium",
+        "credit": "YouTube / Jo Pirotte",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel road",
+          "forest cycling",
+          "dirt track",
+          "Belgian countryside",
+          "gravel race"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "dusty-gravel-series-andenne-video-2.jpg",
+        "url": "/race-photos/dusty-gravel-series-andenne/dusty-gravel-series-andenne-video-2.jpg",
+        "alt": "Cyclist climbing steep paved hill section with race number 126 during gravel race event - Dusty Gravel Series - Andenne - Andenne, Belgium",
+        "credit": "YouTube / Jo Pirotte",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "gravel climb",
+          "steep gradient",
+          "race number",
+          "hill climb",
+          "cycling competition"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "dusty-gravel-series-andenne-video-3.jpg",
+        "url": "/race-photos/dusty-gravel-series-andenne/dusty-gravel-series-andenne-video-3.jpg",
+        "alt": "Peloton of gravel cyclists riding on paved road through Belgian countryside with construction visible - Dusty Gravel Series - Andenne - Andenne, Belgium",
+        "credit": "YouTube / Jo Pirotte",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "cycling peloton",
+          "gravel race",
+          "Belgian roads",
+          "group ride",
+          "countryside cycling"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "dusty-gravel-series-andenne-preview.gif",
+        "url": "/race-photos/dusty-gravel-series-andenne/dusty-gravel-series-andenne-preview.gif",
+        "alt": "Course preview from Dusty Gravel Series Andenne race footage",
+        "credit": "YouTube / Jo Pirotte",
+        "gif": true
+      }
+    ]
   }
 }

@@ -563,7 +563,119 @@
           "category": "race_atmosphere",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Monte du Plato de Glier",
+            "description": "Very steep six kilometer climb described as the middle categorized climb of the day, leads onto gravel roads across the top of the plateau.",
+            "source_video_ids": [
+              "9xkXEgn7YUM"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Gravel roads across the top of the plateau described as strada bianchi style unmade gravel roads, presenting a different proposition for riders.",
+            "source_video_ids": [
+              "9xkXEgn7YUM"
+            ]
+          }
+        ],
+        "gear_mentions": [],
+        "race_day_tips": [
+          {
+            "text": "Teams ride tactically on the steep climb, keeping riders fresh by setting a relatively modest pace even when the peloton gets thinned out and stretched.",
+            "source_video_ids": [
+              "9xkXEgn7YUM"
+            ]
+          },
+          {
+            "text": "There are pinch points at the top where riders pick up bottles from helpers during the transition to the gravel section.",
+            "source_video_ids": [
+              "9xkXEgn7YUM"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "A place of significance in french national history, a place of emotional importance the martyrdom of the 121 french resistance fighters that took to this plateau awaited air drops from the allied forces",
+            "source_video_id": "9xkXEgn7YUM",
+            "source_channel": "Major Esterhazy",
+            "source_view_count": 1270,
+            "category": "community",
+            "curated": true
+          },
+          {
+            "text": "Very moving indeed, the tour de france paying respect and even the riders who very rarely do this just glancing to the side and knowing the significance of this moment",
+            "source_video_id": "9xkXEgn7YUM",
+            "source_channel": "Major Esterhazy",
+            "source_view_count": 1270,
+            "category": "community",
+            "curated": true
+          }
+        ],
+        "search_text": "La Resistance features the Monte du Plato de Glier, a very steep six kilometer categorized climb that leads onto gravel roads across the plateau. The gravel section is described as strada bianchi style unmade roads, providing a different challenge for riders. The course holds deep historical significance as a memorial to 121 French resistance fighters who died on this plateau in 1944. Teams typically ride tactically on the steep climb, maintaining modest pacing to keep riders fresh despite the peloton getting thinned and stretched out. There are logistical pinch points at the top where riders collect bottles from support before transitioning to the gravel section. The plateau offers stunning scenery and riders often acknowledge the emotional importance of the location during the race."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "la-resistance-video-1.jpg",
+        "url": "/race-photos/la-resistance/la-resistance-video-1.jpg",
+        "alt": "Gravel road descending through alpine meadows with mountains and clear blue sky, showing 1.9km course segment from 1450m to 1400m elevation - La Resistance - French Alps",
+        "credit": "YouTube / Cycling in the Alps",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel descent",
+          "alpine meadows",
+          "mountain pass",
+          "elevation profile"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "la-resistance-video-2.jpg",
+        "url": "/race-photos/la-resistance/la-resistance-video-2.jpg",
+        "alt": "Cyclist's perspective riding on paved mountain road through green alpine valley with sun flare and rolling hills - La Resistance - French Alps",
+        "credit": "YouTube / Cycling in the Alps",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "mountain cycling",
+          "alpine valley",
+          "paved road",
+          "first person view"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "la-resistance-video-3.jpg",
+        "url": "/race-photos/la-resistance/la-resistance-video-3.jpg",
+        "alt": "Aerial view of period reenactment group with French flag on grassy field during historical cycling event - La Resistance - French Alps",
+        "credit": "YouTube / Cycling in the Alps",
+        "primary": false,
+        "ai_relevance": 3,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "historical reenactment",
+          "French flag",
+          "grassy field",
+          "aerial view"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "la-resistance-preview.gif",
+        "url": "/race-photos/la-resistance/la-resistance-preview.gif",
+        "alt": "Course preview from La Resistance race footage",
+        "credit": "YouTube / Cycling in the Alps",
+        "gif": true
+      }
+    ]
   }
 }

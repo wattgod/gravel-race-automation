@@ -532,7 +532,187 @@
           "category": "course_difficulty",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Race start",
+            "description": "Race starts on a descent with 6,000 other riders, many pushing hard pace, creating chaotic and dangerous conditions.",
+            "source_video_ids": [
+              "_WuRbS1Q2t0"
+            ]
+          },
+          {
+            "name": "Monte Santi media",
+            "description": "Technical section where crashes can happen and riders get dropped from lead groups.",
+            "source_video_ids": [
+              "5nDSt83_xBM"
+            ]
+          },
+          {
+            "name": "First climb",
+            "description": "Flavored chaos with a generous sprinkling of carnage, includes traffic jam on closed road despite being organized event.",
+            "source_video_ids": [
+              "_WuRbS1Q2t0"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Relentless lumpy terrain, some of it proper steep, with gravel sectors that are fast and furious.",
+            "source_video_ids": [
+              "_WuRbS1Q2t0"
+            ]
+          },
+          {
+            "text": "Rougher terrain where bike handling becomes crucial, especially on gravel climbs threading through hundreds of riders.",
+            "source_video_ids": [
+              "_WuRbS1Q2t0"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "Thick thick tires recommended for improved handling and lower puncture risk - reliability trumps weight savings in this event.",
+            "source_video_ids": [
+              "_WuRbS1Q2t0"
+            ]
+          },
+          {
+            "text": "Pinella gravel bike with one by groupset pays dividends on rougher terrain.",
+            "source_video_ids": [
+              "_WuRbS1Q2t0"
+            ]
+          }
+        ],
+        "race_day_tips": [
+          {
+            "text": "Get to the sanctuary of an upward gradient quickly after the chaotic descent start to avoid crashes.",
+            "source_video_ids": [
+              "_WuRbS1Q2t0"
+            ]
+          },
+          {
+            "text": "Anticipate attacks at exactly 80km to go - this is where major moves historically happen.",
+            "source_video_ids": [
+              "5nDSt83_xBM"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "I don't know about you but I prefer to start all of my events on a descent with 6,000 other Riders many of them hell bent on smashing today's time",
+            "source_video_id": "_WuRbS1Q2t0",
+            "source_channel": "Bike Racing Without Mercy",
+            "source_view_count": 3944,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "does life get any better than threading the eye of a needle through hundreds of riders up a gravel climb in Tuscany",
+            "source_video_id": "_WuRbS1Q2t0",
+            "source_channel": "Bike Racing Without Mercy",
+            "source_view_count": 3944,
+            "category": "race_atmosphere",
+            "curated": true
+          }
+        ],
+        "search_text": "The Gran Fondo Strade Bianche features 16 gravel sectors totaling 82km off road over 213km total distance with elevation of a mountain stage. The race starts chaotically on a descent with 6,000 riders, creating dangerous conditions before hitting relentless lumpy terrain with proper steep sections. Key challenges include the technical Monte Santi media section where crashes occur and historical attacks at 80km to go. The gravel sectors are described as fast and furious, requiring thick tires for improved handling and lower puncture risk over weight savings. Riders recommend getting quickly to upward gradients after the chaotic start to avoid crashes. The course features traffic jams even on closed roads and requires threading through hundreds of riders on gravel climbs through Tuscany's challenging terrain."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "strade-bianche-gran-fondo-video-1.jpg",
+        "url": "/race-photos/strade-bianche-gran-fondo/strade-bianche-gran-fondo-video-1.jpg",
+        "alt": "Cyclists riding on white gravel road through rural Italian countryside with bare trees and power lines during Strade Bianche race - Gran Fondo Strade Bianche - Siena, Tuscany, Italy",
+        "credit": "YouTube / ik ke",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "white gravel road",
+          "Strade Bianche",
+          "Italian countryside",
+          "gravel racing",
+          "rural terrain"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "strade-bianche-gran-fondo-video-2.jpg",
+        "url": "/race-photos/strade-bianche-gran-fondo/strade-bianche-gran-fondo-video-2.jpg",
+        "alt": "Motion-blurred view of historic Italian town square with cream-colored buildings and cyclists during gravel race passage - Gran Fondo Strade Bianche - Siena, Tuscany, Italy",
+        "credit": "YouTube / ik ke",
+        "primary": false,
+        "ai_relevance": 3,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "Italian piazza",
+          "historic buildings",
+          "town square",
+          "race passage",
+          "Tuscan architecture"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "strade-bianche-gran-fondo-video-3.jpg",
+        "url": "/race-photos/strade-bianche-gran-fondo/strade-bianche-gran-fondo-video-3.jpg",
+        "alt": "Peloton of gravel cyclists following motorcycle on dirt road through wooded area with power metrics display overlay - Gran Fondo Strade Bianche - Siena, Tuscany, Italy",
+        "credit": "YouTube / ik ke",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel peloton",
+          "dirt road",
+          "wooded terrain",
+          "cycling group",
+          "race motorcycle"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "strade-bianche-gran-fondo-preview.gif",
+        "url": "/race-photos/strade-bianche-gran-fondo/strade-bianche-gran-fondo-preview.gif",
+        "alt": "Course preview from Strade Bianche Gran Fondo race footage",
+        "credit": "YouTube / ik ke",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "strade-bianche-gran-fondo-preview-2.gif",
+        "url": "/race-photos/strade-bianche-gran-fondo/strade-bianche-gran-fondo-preview-2.gif",
+        "alt": "Course preview from Strade Bianche Gran Fondo race footage",
+        "credit": "YouTube / ik ke",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "strade-bianche-gran-fondo-preview-3.gif",
+        "url": "/race-photos/strade-bianche-gran-fondo/strade-bianche-gran-fondo-preview-3.gif",
+        "alt": "Course preview from Strade Bianche Gran Fondo race footage",
+        "credit": "YouTube / ik ke",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "strade-bianche-gran-fondo-preview-4.gif",
+        "url": "/race-photos/strade-bianche-gran-fondo/strade-bianche-gran-fondo-preview-4.gif",
+        "alt": "Course preview from Strade Bianche Gran Fondo race footage",
+        "credit": "YouTube / ik ke",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "strade-bianche-gran-fondo-preview-5.gif",
+        "url": "/race-photos/strade-bianche-gran-fondo/strade-bianche-gran-fondo-preview-5.gif",
+        "alt": "Course preview from Strade Bianche Gran Fondo race footage",
+        "credit": "YouTube / ik ke",
+        "gif": true
+      }
+    ]
   }
 }

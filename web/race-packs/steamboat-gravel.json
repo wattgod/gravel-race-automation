@@ -1,6 +1,7 @@
 {
   "slug": "steamboat-gravel",
   "race_name": "SBT GRVL",
+  "distance_mi": 108.0,
   "demands": {
     "durability": 6,
     "climbing": 8,
@@ -19,7 +20,8 @@
         "5x3 VO2 Classic",
         "Descending VO2 Pyramid",
         "Norwegian 4x8"
-      ]
+      ],
+      "workout_context": "SBT GRVL\u2019s famous 'champagne gravel' - smooth, high-quality gravel roads through working ranches, aspen groves, and sage-studded hills at high altitude and competitive field demand explosive aerobic capacity \u2014 the ability to respond to surges without blowing up."
     },
     {
       "category": "Race_Simulation",
@@ -28,7 +30,8 @@
         "Breakaway Simulation",
         "Variable Pace Chaos",
         "Sector Simulation"
-      ]
+      ],
+      "workout_context": "Racing SBT GRVL isn\u2019t just fitness \u2014 it\u2019s pacing, fueling, and executing when conditions deteriorate. This workout practices the race itself."
     },
     {
       "category": "Gravel_Specific",
@@ -36,7 +39,8 @@
       "workouts": [
         "Surge and Settle",
         "Terrain Microbursts"
-      ]
+      ],
+      "workout_context": "SBT GRVL\u2019s famous 'champagne gravel' - smooth, high-quality gravel roads through working ranches, aspen groves, and sage-studded hills at high altitude demands rapid power changes \u2014 surge over obstacles, settle on smoother sections, repeat for hours."
     },
     {
       "category": "TT_Threshold",
@@ -45,7 +49,8 @@
         "Single Sustained Threshold",
         "Threshold Ramps",
         "Descending Threshold"
-      ]
+      ],
+      "workout_context": "SBT GRVL rewards athletes who can hold sustained power without blowing up \u2014 threshold is the engine that drives everything above Zone 2."
     },
     {
       "category": "Durability",
@@ -54,9 +59,79 @@
         "Tired VO2max",
         "Double Day Simulation",
         "Progressive Fatigue"
-      ]
+      ],
+      "workout_context": "At 108 miles, SBT GRVL punishes athletes who haven\u2019t trained their body to produce power when glycogen runs low."
+    },
+    {
+      "category": "Over_Under",
+      "score": 64,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ],
+      "workout_context": "Over-unders train the lactate clearance you\u2019ll need at SBT GRVL when surges push you above threshold and you have to recover while still riding hard."
+    },
+    {
+      "category": "G_Spot",
+      "score": 56,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ],
+      "workout_context": "The G-Spot zone (88\u201392% FTP) is where you\u2019ll spend the hardest sustained miles of SBT GRVL. Make this intensity feel like home."
+    },
+    {
+      "category": "Critical_Power",
+      "score": 54,
+      "workouts": [
+        "Above CP Repeats",
+        "W-Prime Depletion"
+      ],
+      "workout_context": "Critical power determines how long you can sustain above-threshold efforts at SBT GRVL \u2014 a higher CP means more time in the red before failure."
+    },
+    {
+      "category": "Anaerobic_Capacity",
+      "score": 52,
+      "workouts": [
+        "2min Killers",
+        "90sec Repeats"
+      ],
+      "workout_context": "Short, violent efforts are unavoidable at SBT GRVL \u2014 climbs demanding 2-minute maximal efforts, surges to close gaps, attacks on famous 'champagne gravel' - smooth, high-quality gravel roads through working ranches, aspen groves, and sage-studded hills at high altitude."
+    },
+    {
+      "category": "Endurance",
+      "score": 48,
+      "workouts": [
+        "Pre-Race Openers",
+        "Terrain Simulation Z2"
+      ],
+      "workout_context": "Every session at SBT GRVL intensity builds on this aerobic foundation \u2014 the endurance base is the soil everything else grows in."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 48,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "SBT GRVL\u2019s 8,189ft of climbing demands seated and standing versatility \u2014 the ability to change climbing style as gradient and fatigue dictate."
+    },
+    {
+      "category": "Blended",
+      "score": 38,
+      "workouts": [
+        "Z2 + VO2 Combo",
+        "Endurance with Spikes"
+      ],
+      "workout_context": "Blended sessions combine endurance with intensity spikes \u2014 exactly what SBT GRVL\u2019s famous 'champagne gravel' - smooth, high-quality gravel roads through working ranches, aspen groves, and sage-studded hills at high altitude delivers on race day."
     }
   ],
+  "race_overlay": {
+    "nutrition": "Target 60\u201380g carbs/hour for SBT GRVL\u2019s 108 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
+    "altitude": "SBT GRVL with 8,189ft of climbing, much of it above 8,000ft demands altitude preparation. Arrive 5\u20137 days early for acclimatization. Expect 5\u201315% power reduction at altitude. Increase iron intake 4 weeks out. Hydrate aggressively \u2014 altitude increases fluid loss by 20\u201340%.",
+    "terrain": "Mixed terrain at SBT GRVL requires surface adaptability. Include weekly rides on famous 'champagne gravel' - smooth, high-quality gravel roads through working ranches, aspen groves, and sage-studded hills at high altitude to build confidence."
+  },
   "pack_summary": "This 10-workout pack focuses on VO2max, Race Simulation, and Gravel Specific to prepare you for 108 miles of famous 'champagne gravel' - smooth, high-quality gravel roads through working ranches, aspen groves, and sage-studded hills at high altitude in Steamboat Springs, Colorado.",
   "generated_at": "2026-02-26"
 }

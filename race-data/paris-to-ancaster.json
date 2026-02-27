@@ -599,7 +599,167 @@
           "category": "race_atmosphere",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Race Start",
+            "description": "Super fast start on gravel with stones flying everywhere, described as carnage with nearly 3,000 riders creating bottlenecks.",
+            "source_video_ids": [
+              "AcMLZSoYfhk",
+              "TJ6zn_6TbiY"
+            ]
+          },
+          {
+            "name": "Powerline Mudslide",
+            "description": "Epic muddy section that's one of the race highlights and creates a mudfest experience.",
+            "source_video_ids": [
+              "-a1ziH_EqMQ"
+            ]
+          },
+          {
+            "name": "Martin Road Climb",
+            "description": "Notable climb section mentioned as one of the race highlights.",
+            "source_video_ids": [
+              "-a1ziH_EqMQ"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "A mixture of road, gravel and technical sections with some of the toughest farm lanes, trails, tracks and gravel roads.",
+            "source_video_ids": [
+              "AcMLZSoYfhk"
+            ]
+          },
+          {
+            "text": "Super fast start on gravel with stones flying everywhere before hitting nice big wide road sections.",
+            "source_video_ids": [
+              "AcMLZSoYfhk"
+            ]
+          },
+          {
+            "text": "Features muddy conditions that create an epic mudfest experience.",
+            "source_video_ids": [
+              "-a1ziH_EqMQ"
+            ]
+          }
+        ],
+        "gear_mentions": [],
+        "race_day_tips": [
+          {
+            "text": "Get near the front early and stay out of trouble when hitting the wide road sections after the chaotic gravel start.",
+            "source_video_ids": [
+              "AcMLZSoYfhk"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "Paris ancaster was a gravel race before gravel races even existed. The race came about in 1994 and we were actually sort of copying parry bay at the time a tribute race. For the first bunch of years we ran it on the same date as perry rip a and then being canada we decided that was actually even colder than in france so we moved it to later in april.",
+            "source_video_id": "AcMLZSoYfhk",
+            "source_channel": "Global Cycling Network",
+            "source_view_count": 229523,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "It's really cool that the male and female riders all started together so that doesn't really happen that often in pro races so it was nice to do something a little bit different.",
+            "source_video_id": "AcMLZSoYfhk",
+            "source_channel": "Global Cycling Network",
+            "source_view_count": 229523,
+            "category": "community",
+            "curated": true
+          },
+          {
+            "text": "Literally the best group of people ever. Everybody has their own experience in it so they all have their own epic ride.",
+            "source_video_id": "AcMLZSoYfhk",
+            "source_channel": "Global Cycling Network",
+            "source_view_count": 229523,
+            "category": "community",
+            "curated": true
+          }
+        ],
+        "search_text": "Paris to Ancaster is described as the OG of gravel racing, existing since 1994 as a tribute to Paris-Roubaix. The 100km course features a mixture of road, gravel and technical sections including farm lanes, trails and tracks. Key challenges include a chaotic race start with nearly 3,000 riders creating bottlenecks and stones flying everywhere on the opening gravel sections. Notable course features mentioned by riders include the epic Powerline Mudslide section and the Martin Road climb. The race moves from fast gravel starts to wide road sections where positioning becomes crucial. Conditions can be muddy, creating what riders call a mudfest experience. The event uniquely starts male and female riders together and attracts both professional and amateur cyclists. Riders emphasize getting to the front early to avoid trouble in the technical sections after the fast opening."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "paris-to-ancaster-video-1.jpg",
+        "url": "/race-photos/paris-to-ancaster/paris-to-ancaster-video-1.jpg",
+        "alt": "First-person view from cyclist's handlebars riding across grassy field terrain with other riders visible in distance during Paris to Ancaster gravel race - Paris to Ancaster, Ontario, Canada",
+        "credit": "YouTube / FThisFThat",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "first-person cycling",
+          "grassy field",
+          "gravel racing",
+          "handlebars view",
+          "Paris to Ancaster"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "paris-to-ancaster-video-2.jpg",
+        "url": "/race-photos/paris-to-ancaster/paris-to-ancaster-video-2.jpg",
+        "alt": "Group of cyclists racing on dirt gravel road through rural countryside with power lines and agricultural fields during Paris to Ancaster - Paris to Ancaster, Ontario, Canada",
+        "credit": "YouTube / FThisFThat",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "dirt road",
+          "gravel peloton",
+          "rural cycling",
+          "countryside race",
+          "group riding"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "paris-to-ancaster-video-3.jpg",
+        "url": "/race-photos/paris-to-ancaster/paris-to-ancaster-video-3.jpg",
+        "alt": "Aerial view of large crowd of cyclists at race start/finish line with banner and spectators on grass field at Paris to Ancaster event - Paris to Ancaster, Ontario, Canada",
+        "credit": "YouTube / FThisFThat",
+        "primary": false,
+        "ai_relevance": 4,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "race start",
+          "cycling crowd",
+          "aerial view",
+          "finish line",
+          "spectators"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "paris-to-ancaster-preview.gif",
+        "url": "/race-photos/paris-to-ancaster/paris-to-ancaster-preview.gif",
+        "alt": "Course preview from Paris To Ancaster race footage",
+        "credit": "YouTube / FThisFThat",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "paris-to-ancaster-preview-2.gif",
+        "url": "/race-photos/paris-to-ancaster/paris-to-ancaster-preview-2.gif",
+        "alt": "Course preview from Paris To Ancaster race footage",
+        "credit": "YouTube / FThisFThat",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "paris-to-ancaster-preview-3.gif",
+        "url": "/race-photos/paris-to-ancaster/paris-to-ancaster-preview-3.gif",
+        "alt": "Course preview from Paris To Ancaster race footage",
+        "credit": "YouTube / FThisFThat",
+        "gif": true
+      }
+    ]
   }
 }

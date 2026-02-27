@@ -1,6 +1,7 @@
 {
   "slug": "66-south-pyrenees",
   "race_name": "66\u00b0 South Pyr\u00e9n\u00e9es",
+  "distance_mi": 65.0,
   "demands": {
     "durability": 2,
     "climbing": 7,
@@ -19,7 +20,8 @@
         "Single Sustained Threshold",
         "Threshold Ramps",
         "Descending Threshold"
-      ]
+      ],
+      "workout_context": "66\u00b0 South Pyr\u00e9n\u00e9es rewards athletes who can hold sustained power without blowing up \u2014 threshold is the engine that drives everything above Zone 2."
     },
     {
       "category": "Over_Under",
@@ -27,7 +29,8 @@
       "workouts": [
         "Classic Over-Unders",
         "Ladder Over-Unders"
-      ]
+      ],
+      "workout_context": "Over-unders train the lactate clearance you\u2019ll need at 66\u00b0 South Pyr\u00e9n\u00e9es when surges push you above threshold and you have to recover while still riding hard."
     },
     {
       "category": "Gravel_Specific",
@@ -35,7 +38,8 @@
       "workouts": [
         "Surge and Settle",
         "Terrain Microbursts"
-      ]
+      ],
+      "workout_context": "66\u00b0 South Pyr\u00e9n\u00e9es\u2019s pyr\u00e9n\u00e9es mountains, mountain gravel demands rapid power changes \u2014 surge over obstacles, settle on smoother sections, repeat for hours."
     },
     {
       "category": "Race_Simulation",
@@ -44,7 +48,8 @@
         "Breakaway Simulation",
         "Variable Pace Chaos",
         "Sector Simulation"
-      ]
+      ],
+      "workout_context": "Racing 66\u00b0 South Pyr\u00e9n\u00e9es isn\u2019t just fitness \u2014 it\u2019s pacing, fueling, and executing when conditions deteriorate. This workout practices the race itself."
     },
     {
       "category": "G_Spot",
@@ -53,9 +58,80 @@
         "G-Spot Standard",
         "G-Spot Extended",
         "Criss-Cross"
-      ]
+      ],
+      "workout_context": "The G-Spot zone (88\u201392% FTP) is where you\u2019ll spend the hardest sustained miles of 66\u00b0 South Pyr\u00e9n\u00e9es. Make this intensity feel like home."
+    },
+    {
+      "category": "VO2max",
+      "score": 77,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ],
+      "workout_context": "66\u00b0 South Pyr\u00e9n\u00e9es\u2019s pyr\u00e9n\u00e9es mountain gravel and competitive field demand explosive aerobic capacity \u2014 the ability to respond to surges without blowing up."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 74,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "66\u00b0 South Pyr\u00e9n\u00e9es\u2019s 5,500ft of climbing demands seated and standing versatility \u2014 the ability to change climbing style as gradient and fatigue dictate."
+    },
+    {
+      "category": "Durability",
+      "score": 53,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ],
+      "workout_context": "66\u00b0 South Pyr\u00e9n\u00e9es\u2019s pyr\u00e9n\u00e9es mountain gravel drains energy reserves faster than the distance suggests \u2014 durability training bridges the gap."
+    },
+    {
+      "category": "SFR_Muscle_Force",
+      "score": 49,
+      "workouts": [
+        "SFR Low Cadence",
+        "Force Repeats"
+      ],
+      "workout_context": "Low-cadence force work builds the muscular strength for 66\u00b0 South Pyr\u00e9n\u00e9es\u2019s 5,500ft of climbing \u2014 especially the grinding, low-speed ascents."
+    },
+    {
+      "category": "Critical_Power",
+      "score": 49,
+      "workouts": [
+        "Above CP Repeats",
+        "W-Prime Depletion"
+      ],
+      "workout_context": "Critical power determines how long you can sustain above-threshold efforts at 66\u00b0 South Pyr\u00e9n\u00e9es \u2014 a higher CP means more time in the red before failure."
+    },
+    {
+      "category": "Anaerobic_Capacity",
+      "score": 42,
+      "workouts": [
+        "2min Killers",
+        "90sec Repeats"
+      ],
+      "workout_context": "Short, violent efforts are unavoidable at 66\u00b0 South Pyr\u00e9n\u00e9es \u2014 climbs demanding 2-minute maximal efforts, surges to close gaps, attacks on pyr\u00e9n\u00e9es mountain gravel."
+    },
+    {
+      "category": "Norwegian_Double",
+      "score": 42,
+      "workouts": [
+        "Norwegian 4x8 Classic",
+        "Double Threshold"
+      ],
+      "workout_context": "The Norwegian double-threshold method builds the sustained power base for 66\u00b0 South Pyr\u00e9n\u00e9es \u2014 massive training stimulus without the recovery cost of VO2max work."
     }
   ],
+  "race_overlay": {
+    "nutrition": "Target 40\u201360g carbs/hour for 66\u00b0 South Pyr\u00e9n\u00e9es\u2019s 65 miles. Front-load calories in the first half. One bottle per hour minimum, more in heat.",
+    "altitude": "Moderate altitude at 66\u00b0 South Pyr\u00e9n\u00e9es. Arrive 2\u20133 days early. Reduce intensity expectations by 5\u201310%. Hydrate aggressively.",
+    "terrain": "Mixed terrain at 66\u00b0 South Pyr\u00e9n\u00e9es requires surface adaptability. Include weekly rides on pyr\u00e9n\u00e9es mountain gravel to build confidence. Expect: pyr\u00e9n\u00e9es mountains, mountain gravel, regional event."
+  },
   "pack_summary": "This 10-workout pack focuses on TT Threshold, Over Under, and Gravel Specific to prepare you for 65 miles of pyr\u00e9n\u00e9es mountain gravel in Pyr\u00e9n\u00e9es, France.",
   "generated_at": "2026-02-26"
 }

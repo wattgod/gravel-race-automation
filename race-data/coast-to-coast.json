@@ -518,7 +518,124 @@
           "category": "course_difficulty",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "11-mile straight section",
+            "description": "Mind-numbingly boring straight stretch with headwinds, described as excessively boring by riders",
+            "source_video_ids": [
+              "4tKYvBK91L8"
+            ]
+          },
+          {
+            "name": "Tight sections at start",
+            "description": "First stretch has tight sections requiring neutral rollout to avoid early crashes",
+            "source_video_ids": [
+              "4tKYvBK91L8"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Generally flat gravel covering the way to Gladwin, with headwinds that riders describe as nasty",
+            "source_video_ids": [
+              "4tKYvBK91L8"
+            ]
+          },
+          {
+            "text": "Course described as having a bottle graveyard from dropped bottles during headwind sections",
+            "source_video_ids": [
+              "4tKYvBK91L8"
+            ]
+          }
+        ],
+        "gear_mentions": [],
+        "race_day_tips": [
+          {
+            "text": "Remember chamois cream - one rider suffered significant discomfort forgetting it on the long straight sections",
+            "source_video_ids": [
+              "4tKYvBK91L8"
+            ]
+          },
+          {
+            "text": "Team up for aerodynamic advantages during the flat gravel sections to get to the finish faster",
+            "source_video_ids": [
+              "4tKYvBK91L8"
+            ]
+          },
+          {
+            "text": "Pace yourself around 12-13 mph as a comfortable cruising speed to avoid getting winded",
+            "source_video_ids": [
+              "4tKYvBK91L8"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "The relay option seemed like a good opportunity for my wife to ride her first Century ever and give me a solid training ride. The race is split into four legs, each roughly 50 miles.",
+            "source_video_id": "4tKYvBK91L8",
+            "source_channel": "Wild Giant",
+            "source_view_count": 639,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "Not every day I burn 2,000 calories at 9:30 in the morning.",
+            "source_video_id": "4tKYvBK91L8",
+            "source_channel": "Wild Giant",
+            "source_view_count": 639,
+            "category": "training",
+            "curated": true
+          }
+        ],
+        "search_text": "The Coast to Coast Gravel Grinder is a 204-mile point-to-point race from Au Gres to Ludington, Michigan, with both solo and relay options. The race splits into four legs of roughly 50 miles each. The course features generally flat gravel terrain with significant headwinds that riders describe as nasty. Key challenges include tight sections at the start requiring a neutral rollout, and an 11-mile straight section that riders find mind-numbingly boring. The route passes through Gladwin and includes areas where dropped bottles accumulate from the challenging headwind conditions. Riders report burning around 2,000 calories by mid-morning and recommend pacing around 12-13 mph for sustainable effort. The flat gravel sections allow for drafting opportunities where riders can team up for aerodynamic advantages."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "coast-to-coast-video-1.jpg",
+        "url": "/race-photos/coast-to-coast/coast-to-coast-video-1.jpg",
+        "alt": "Dirt gravel road stretching through forested countryside with wooden signage and mixed terrain visible on sides - Coast to Coast - Au Gres to Ludington, Michigan",
+        "credit": "YouTube / Wild Giant",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel road",
+          "dirt surface",
+          "forest",
+          "rural terrain",
+          "cycling route"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "coast-to-coast-video-2.jpg",
+        "url": "/race-photos/coast-to-coast/coast-to-coast-video-2.jpg",
+        "alt": "Straight gravel road with tire tracks running through dense forest corridor with cyclists visible in distance - Coast to Coast - Au Gres to Ludington, Michigan",
+        "credit": "YouTube / Wild Giant",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel road",
+          "forest corridor",
+          "tire tracks",
+          "remote cycling",
+          "wooded terrain"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "coast-to-coast-preview.gif",
+        "url": "/race-photos/coast-to-coast/coast-to-coast-preview.gif",
+        "alt": "Course preview from Coast To Coast race footage",
+        "credit": "YouTube / Wild Giant",
+        "gif": true
+      }
+    ]
   }
 }

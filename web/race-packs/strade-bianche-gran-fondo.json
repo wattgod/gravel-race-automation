@@ -1,6 +1,7 @@
 {
   "slug": "strade-bianche-gran-fondo",
   "race_name": "Gran Fondo Strade Bianche",
+  "distance_mi": 86.0,
   "demands": {
     "durability": 4,
     "climbing": 6,
@@ -19,7 +20,8 @@
         "Tired VO2max",
         "Double Day Simulation",
         "Progressive Fatigue"
-      ]
+      ],
+      "workout_context": "At 86 miles, Gran Fondo Strade Bianche punishes athletes who haven\u2019t trained their body to produce power when glycogen runs low."
     },
     {
       "category": "Race_Simulation",
@@ -28,7 +30,8 @@
         "Breakaway Simulation",
         "Variable Pace Chaos",
         "Sector Simulation"
-      ]
+      ],
+      "workout_context": "Racing Gran Fondo Strade Bianche isn\u2019t just fitness \u2014 it\u2019s pacing, fueling, and executing when conditions deteriorate. This workout practices the race itself."
     },
     {
       "category": "Gravel_Specific",
@@ -36,7 +39,8 @@
       "workouts": [
         "Surge and Settle",
         "Terrain Microbursts"
-      ]
+      ],
+      "workout_context": "Gran Fondo Strade Bianche\u2019s strade bianche (white roads), compacted clay demands rapid power changes \u2014 surge over obstacles, settle on smoother sections, repeat for hours."
     },
     {
       "category": "TT_Threshold",
@@ -45,7 +49,8 @@
         "Single Sustained Threshold",
         "Threshold Ramps",
         "Descending Threshold"
-      ]
+      ],
+      "workout_context": "Gran Fondo Strade Bianche rewards athletes who can hold sustained power without blowing up \u2014 threshold is the engine that drives everything above Zone 2."
     },
     {
       "category": "VO2max",
@@ -54,9 +59,80 @@
         "5x3 VO2 Classic",
         "Descending VO2 Pyramid",
         "Norwegian 4x8"
-      ]
+      ],
+      "workout_context": "Gran Fondo Strade Bianche\u2019s compacted earth/clay with crushed stones\u2014the famous 'strade bianche' and competitive field demand explosive aerobic capacity \u2014 the ability to respond to surges without blowing up."
+    },
+    {
+      "category": "Over_Under",
+      "score": 69,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ],
+      "workout_context": "Over-unders train the lactate clearance you\u2019ll need at Gran Fondo Strade Bianche when surges push you above threshold and you have to recover while still riding hard."
+    },
+    {
+      "category": "G_Spot",
+      "score": 67,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ],
+      "workout_context": "The G-Spot zone (88\u201392% FTP) is where you\u2019ll spend the hardest sustained miles of Gran Fondo Strade Bianche. Make this intensity feel like home."
+    },
+    {
+      "category": "Critical_Power",
+      "score": 65,
+      "workouts": [
+        "Above CP Repeats",
+        "W-Prime Depletion"
+      ],
+      "workout_context": "Critical power determines how long you can sustain above-threshold efforts at Gran Fondo Strade Bianche \u2014 a higher CP means more time in the red before failure."
+    },
+    {
+      "category": "Anaerobic_Capacity",
+      "score": 62,
+      "workouts": [
+        "2min Killers",
+        "90sec Repeats"
+      ],
+      "workout_context": "Short, violent efforts are unavoidable at Gran Fondo Strade Bianche \u2014 climbs demanding 2-minute maximal efforts, surges to close gaps, attacks on compacted earth/clay with crushed stones\u2014the famous 'strade bianche'."
+    },
+    {
+      "category": "Endurance",
+      "score": 51,
+      "workouts": [
+        "Pre-Race Openers",
+        "Terrain Simulation Z2"
+      ],
+      "workout_context": "Every session at Gran Fondo Strade Bianche intensity builds on this aerobic foundation \u2014 the endurance base is the soil everything else grows in."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 46,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "Gran Fondo Strade Bianche\u2019s 6,560ft of climbing demands seated and standing versatility \u2014 the ability to change climbing style as gradient and fatigue dictate."
+    },
+    {
+      "category": "HVLI_Extended",
+      "score": 41,
+      "workouts": [
+        "HVLI Extended Z2",
+        "Multi-Hour Z2",
+        "Back-to-Back Long"
+      ],
+      "workout_context": "High-volume endurance builds the aerobic base that makes Gran Fondo Strade Bianche\u2019s race-day efforts sustainable rather than destructive."
     }
   ],
+  "race_overlay": {
+    "heat": "March in Siena, Tuscany, Italy can bring heat. Complete 3\u20134 heat exposure sessions in the final 2 weeks before Gran Fondo Strade Bianche. Increase sodium intake 48 hours before race day.",
+    "nutrition": "Target 60\u201380g carbs/hour for Gran Fondo Strade Bianche\u2019s 86 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
+    "terrain": "Mixed terrain at Gran Fondo Strade Bianche requires surface adaptability. Include weekly rides on compacted earth/clay with crushed stones\u2014the famous 'strade bianche' to build confidence. Expect: strade bianche (white roads), compacted clay, paved roads."
+  },
   "pack_summary": "This 10-workout pack focuses on Durability, Race Simulation, and Gravel Specific to prepare you for 86 miles of compacted earth/clay with crushed stones\u2014the famous 'strade bianche' in Siena, Tuscany, Italy.",
   "generated_at": "2026-02-26"
 }

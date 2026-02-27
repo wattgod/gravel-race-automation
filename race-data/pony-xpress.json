@@ -489,6 +489,67 @@
         }
       ],
       "quotes": []
-    }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "pony-xpress-video-1.jpg",
+        "url": "/race-photos/pony-xpress/pony-xpress-video-1.jpg",
+        "alt": "Group of gravel cyclists riding on paved road through rolling countryside with green hills and blue sky - Pony Xpress - Cokedale, Colorado",
+        "credit": "YouTube / A T",
+        "primary": true,
+        "ai_relevance": 4,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel cycling",
+          "rolling hills",
+          "countryside",
+          "peloton",
+          "paved road"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "pony-xpress-video-2.jpg",
+        "url": "/race-photos/pony-xpress/pony-xpress-video-2.jpg",
+        "alt": "Competitive cyclists in racing position riding gravel bikes on paved road through hilly terrain with desert-like landscape - Pony Xpress - Cokedale, Colorado",
+        "credit": "YouTube / A T",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel race",
+          "competitive cycling",
+          "desert terrain",
+          "racing position",
+          "hills"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "pony-xpress-video-3.jpg",
+        "url": "/race-photos/pony-xpress/pony-xpress-video-3.jpg",
+        "alt": "Dirt gravel road stretching through valley with green rolling hills and forested areas under blue sky - Pony Xpress - Cokedale, Colorado",
+        "credit": "YouTube / A T",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel road",
+          "dirt road",
+          "valley",
+          "rolling hills",
+          "rural landscape"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "pony-xpress-preview.gif",
+        "url": "/race-photos/pony-xpress/pony-xpress-preview.gif",
+        "alt": "Course preview from Pony Xpress race footage",
+        "credit": "YouTube / A T",
+        "gif": true
+      }
+    ]
   }
 }

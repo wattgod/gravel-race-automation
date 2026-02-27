@@ -389,7 +389,154 @@
           "category": "course_difficulty",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Steep Kicker Climb",
+            "description": "A steep climb early in the TT stage that most people usually walk",
+            "source_video_ids": [
+              "VdlxufhT2eY"
+            ]
+          },
+          {
+            "name": "First Gravel Climb",
+            "description": "Five minute climb where the group splits up - crucial moment that can make or break your race position",
+            "source_video_ids": [
+              "cklGaMIf_Dg"
+            ]
+          },
+          {
+            "name": "Twisty Single Track",
+            "description": "Technical section after the steep kicker with tight corners where it's easy to miss turns",
+            "source_video_ids": [
+              "VdlxufhT2eY"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "The time trial course is pretty technical in the first 10 minutes, but then opens up to farm roads",
+            "source_video_ids": [
+              "VdlxufhT2eY"
+            ]
+          },
+          {
+            "text": "Course was pretty dry during this race, which made it faster compared to previous muddy years",
+            "source_video_ids": [
+              "VdlxufhT2eY"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "Aero bars can make a difference on the open farm road sections of the TT stage",
+            "source_video_ids": [
+              "VdlxufhT2eY"
+            ]
+          }
+        ],
+        "race_day_tips": [
+          {
+            "text": "Start the UCI race as far forward as possible in the neutral zone - being too far back affects your position going into the first climb",
+            "source_video_ids": [
+              "cklGaMIf_Dg"
+            ]
+          },
+          {
+            "text": "Don't work too hard trying to move forward after a bad start position - you might blow up on the crucial five minute climb",
+            "source_video_ids": [
+              "cklGaMIf_Dg"
+            ]
+          },
+          {
+            "text": "The TT stage is a good leg opener for the longer UCI race the next day",
+            "source_video_ids": [
+              "VdlxufhT2eY"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "I actually only going to do stage two and stage three because I did the stage race last year and I just think that for me it's more important to get a better result on stage two which is the UCI race",
+            "source_video_id": "cklGaMIf_Dg",
+            "source_channel": "Maddy Nutt",
+            "source_view_count": 9747,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "It's 17 km with like a steep hill in the beginning and a steep one almost before the finish line. Um, which are the tough parts especially for me.",
+            "source_video_id": "VdlxufhT2eY",
+            "source_channel": "Pad",
+            "source_view_count": 2115,
+            "category": "course_difficulty",
+            "curated": true
+          }
+        ],
+        "search_text": "Gravel Grit 'n Grind is a 3-day stage race in Halmstad, Sweden featuring a time trial on Friday, UCI race on Saturday, and swap race on Sunday. The TT course is 17km with technical sections in the first 10 minutes before opening to farm roads, including a steep kicker that most riders walk and another steep climb near the finish. The UCI race begins with a mass start neutral section followed by a crucial 5-minute gravel climb where groups split. Riders emphasize the importance of starting well-positioned in the neutral zone, as being too far back affects placement on the decisive climb. The course can vary dramatically based on weather conditions - dry years produce fast racing while muddy conditions make it significantly harder. The TT stage serves as a good leg opener for the longer UCI race."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "gravel-grit-n-grind-video-1.jpg",
+        "url": "/race-photos/gravel-grit-n-grind/gravel-grit-n-grind-video-1.jpg",
+        "alt": "Peloton of gravel cyclists racing on forest road through dense woodland during organized race event - Gravel Grit 'n Grind - Halmstad, Sweden",
+        "credit": "YouTube / Justin McQuerry",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel peloton",
+          "forest road",
+          "woodland racing",
+          "cycling group",
+          "tree-lined course"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "gravel-grit-n-grind-video-2.jpg",
+        "url": "/race-photos/gravel-grit-n-grind/gravel-grit-n-grind-video-2.jpg",
+        "alt": "Tight pack of gravel racers with race numbers competing on dirt road through forested terrain - Gravel Grit 'n Grind - Halmstad, Sweden",
+        "credit": "YouTube / Justin McQuerry",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "race numbers",
+          "gravel racing",
+          "dirt road",
+          "forest course",
+          "competitive cycling"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "gravel-grit-n-grind-video-3.jpg",
+        "url": "/race-photos/gravel-grit-n-grind/gravel-grit-n-grind-video-3.jpg",
+        "alt": "Close-up of cyclist with text overlay defining 'spectathleting' in urban setting with buildings visible - Gravel Grit 'n Grind - Halmstad, Sweden",
+        "credit": "YouTube / Justin McQuerry",
+        "primary": false,
+        "ai_relevance": 2,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "text overlay",
+          "urban cycling",
+          "spectator",
+          "close-up portrait"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "gravel-grit-n-grind-preview.gif",
+        "url": "/race-photos/gravel-grit-n-grind/gravel-grit-n-grind-preview.gif",
+        "alt": "Course preview from Gravel Grit N Grind race footage",
+        "credit": "YouTube / Justin McQuerry",
+        "gif": true
+      }
+    ]
   }
 }

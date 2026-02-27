@@ -407,7 +407,58 @@
           "curated": false
         }
       ],
-      "quotes": []
-    }
+      "quotes": [],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [],
+        "terrain_notes": [],
+        "gear_mentions": [],
+        "race_day_tips": [],
+        "additional_quotes": [],
+        "search_text": "No race-specific content found in provided transcript. The transcript appears to be from a historical documentary about Boulder Dam construction rather than gravel cycling race coverage or rider experiences from Tour de Nebraska. Unable to extract cycling-related intelligence, course conditions, terrain descriptions, or rider advice from this material."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "tour-de-nebraska-video-1.jpg",
+        "url": "/race-photos/tour-de-nebraska/tour-de-nebraska-video-1.jpg",
+        "alt": "Blurry black and white image showing damaged metal framework or bridge structure among rocky terrain - Tour de Nebraska - Southwest Nebraska (Curtis, Elwood, Cambridge, McCook)",
+        "credit": "YouTube / US National Archives",
+        "primary": true,
+        "ai_relevance": 1,
+        "ai_quality": 2,
+        "ai_keywords": [
+          "metal framework",
+          "rocky terrain",
+          "damage",
+          "bridge structure"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "tour-de-nebraska-video-2.jpg",
+        "url": "/race-photos/tour-de-nebraska/tour-de-nebraska-video-2.jpg",
+        "alt": "Black and white image of vintage military tanks or heavy machinery positioned near rocky cliff formations - Tour de Nebraska - Southwest Nebraska (Curtis, Elwood, Cambridge, McCook)",
+        "credit": "YouTube / US National Archives",
+        "primary": false,
+        "ai_relevance": 1,
+        "ai_quality": 2,
+        "ai_keywords": [
+          "military tanks",
+          "rocky cliffs",
+          "vintage machinery",
+          "quarry site"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "tour-de-nebraska-preview.gif",
+        "url": "/race-photos/tour-de-nebraska/tour-de-nebraska-preview.gif",
+        "alt": "Course preview from Tour De Nebraska race footage",
+        "credit": "YouTube / US National Archives",
+        "gif": true
+      }
+    ]
   }
 }

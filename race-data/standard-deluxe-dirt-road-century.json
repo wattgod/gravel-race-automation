@@ -562,7 +562,135 @@
           "category": "course_difficulty",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Punchy Hills",
+            "description": "Short, punchy climbs that wreak havoc in the group and cause separations rather than long sustained climbs.",
+            "source_video_ids": [
+              "oePV6qERmDE"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "When rain starts, everyone's bike and ass get covered in crap from the muddy conditions.",
+            "source_video_ids": [
+              "oePV6qERmDE"
+            ]
+          },
+          {
+            "text": "This part of Alabama is hardly flat with punchy hills throughout the course.",
+            "source_video_ids": [
+              "oePV6qERmDE"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "You could use a fender but nah not at this race, even though riders get covered in mud when it rains.",
+            "source_video_ids": [
+              "oePV6qERmDE"
+            ]
+          }
+        ],
+        "race_day_tips": [
+          {
+            "text": "Nice and relaxed neutral roll out is in effect before the fun of the day begins.",
+            "source_video_ids": [
+              "oePV6qERmDE"
+            ]
+          },
+          {
+            "text": "The leaders launch attacks against each other in the final miles, so expect aggressive racing toward the finish.",
+            "source_video_ids": [
+              "oePV6qERmDE"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "There's no rules or any organizational overlords in gravel cycling and racing, so let's hope it stays that way.",
+            "source_video_id": "oePV6qERmDE",
+            "source_channel": "Gravel Cyclist",
+            "source_view_count": 3837,
+            "category": "community",
+            "curated": true
+          },
+          {
+            "text": "Anything goes in gravel cycling and racing as you can see from some of the bicycles in this video.",
+            "source_video_id": "oePV6qERmDE",
+            "source_channel": "Gravel Cyclist",
+            "source_view_count": 3837,
+            "category": "community",
+            "curated": true
+          }
+        ],
+        "search_text": "The Standard Deluxe Dirt Road Century in Waverly, Alabama features punchy, short climbs rather than long sustained efforts that wreak havoc on the peloton and cause group separations. The terrain is hardly flat throughout this part of Alabama. When rain falls during the race, muddy conditions coat riders and bikes, though fenders aren't typically used. The race begins with a relaxed neutral rollout before aggressive racing develops, with leaders launching attacks in the final miles. The event allows any type of bicycle and maintains an informal, rule-free atmosphere typical of gravel racing. Organized by Terrafirma Cycling, the race offers both 60-mile and 100-mile distance options, attracting riders of various ages and abilities to Alabama's challenging gravel roads."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "standard-deluxe-dirt-road-century-video-1.jpg",
+        "url": "/race-photos/standard-deluxe-dirt-road-century/standard-deluxe-dirt-road-century-video-1.jpg",
+        "alt": "Gravel cyclists riding on paved rural road through tree-lined countryside with green fields - Standard Deluxe Dirt Road Century - Waverly, Alabama",
+        "credit": "YouTube / Gravel Cyclist",
+        "primary": true,
+        "ai_relevance": 4,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "gravel cycling",
+          "rural road",
+          "tree-lined",
+          "countryside",
+          "peloton"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "standard-deluxe-dirt-road-century-video-2.jpg",
+        "url": "/race-photos/standard-deluxe-dirt-road-century/standard-deluxe-dirt-road-century-video-2.jpg",
+        "alt": "Hardwick Gregg riding gravel bike on dusty dirt road through wooded terrain with blue sky overhead - Standard Deluxe Dirt Road Century - Waverly, Alabama",
+        "credit": "YouTube / Gravel Cyclist",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "dirt road",
+          "gravel racing",
+          "wooded terrain",
+          "dust",
+          "solo rider"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "standard-deluxe-dirt-road-century-video-3.jpg",
+        "url": "/race-photos/standard-deluxe-dirt-road-century/standard-deluxe-dirt-road-century-video-3.jpg",
+        "alt": "Group of gravel cyclists racing on dirt road through forested area with dappled sunlight - Standard Deluxe Dirt Road Century - Waverly, Alabama",
+        "credit": "YouTube / Gravel Cyclist",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel race",
+          "dirt road",
+          "forest",
+          "group ride",
+          "dappled light"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "standard-deluxe-dirt-road-century-preview.gif",
+        "url": "/race-photos/standard-deluxe-dirt-road-century/standard-deluxe-dirt-road-century-preview.gif",
+        "alt": "Course preview from Standard Deluxe Dirt Road Century race footage",
+        "credit": "YouTube / Gravel Cyclist",
+        "gif": true
+      }
+    ]
   }
 }

@@ -563,7 +563,170 @@
           "category": "race_atmosphere",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Rolling hills throughout course",
+            "description": "87 hills along the 150 mile course with no flat roads in Nebraska. Roller coaster hills that slowly ramp up causing you to lose speed over the top and then having to accelerate down, which zaps your legs.",
+            "source_video_ids": [
+              "t8ub32393ak",
+              "HtH-6K_ElSk"
+            ]
+          },
+          {
+            "name": "Deep gravel sections",
+            "description": "Many sections of deep gravel that put riders into difficulty. You need to be very relaxed and allow the bike to float, especially if you start slipping and sliding around.",
+            "source_video_ids": [
+              "HtH-6K_ElSk"
+            ]
+          },
+          {
+            "name": "Long straight roads",
+            "description": "Plenty of long and straight roads that can wreak havoc if the wind is blowing, though winds were almost non-existent on race day which is rare for this area.",
+            "source_video_ids": [
+              "HtH-6K_ElSk"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "The terrain is more relentless than Unbound according to riders, with constant up and down roller coasters. While technically easier than some races, there are no flat roads in Nebraska.",
+            "source_video_ids": [
+              "t8ub32393ak"
+            ]
+          },
+          {
+            "text": "Roads are in primo shape for much of the course, but deep gravel sections require riders to stay relaxed and let the bike float to avoid slipping and sliding.",
+            "source_video_ids": [
+              "HtH-6K_ElSk"
+            ]
+          },
+          {
+            "text": "About 95% of the course is gravel with significant climbing - over 5,000 feet for the 75-mile course and 11,000 feet for the 150-mile course.",
+            "source_video_ids": [
+              "HtH-6K_ElSk",
+              "-d0RaRHuT48"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "Rider chose Teras 45mm tires for the race conditions.",
+            "source_video_ids": [
+              "t8ub32393ak"
+            ]
+          },
+          {
+            "text": "Zenta Scapa 650b carbon four-spoke wheelset was used by one rider during the race.",
+            "source_video_ids": [
+              "HtH-6K_ElSk"
+            ]
+          }
+        ],
+        "race_day_tips": [
+          {
+            "text": "No outside support allowed - riders must be self-sufficient for flats, mechanical issues, and nutrition. Some choose to carry all water for the day while others use the 2-3 water oases along the course.",
+            "source_video_ids": [
+              "t8ub32393ak"
+            ]
+          },
+          {
+            "text": "Strategy around nutrition and feed zone stops is important since there are only two official checkpoints plus oases and convenience stores for refueling.",
+            "source_video_ids": [
+              "t8ub32393ak",
+              "HtH-6K_ElSk"
+            ]
+          },
+          {
+            "text": "One rider planned to carry 6 liters of water to avoid stopping, estimating about 7 hours total race time.",
+            "source_video_ids": [
+              "t8ub32393ak"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "Another unique thing about the race this weekend is there's no outside support, which means we're on our own should we flat, break a chain, anything like that. Definitely a little bit more strategy around nutrition and feed zone stops this weekend compared to your average gravel race, which is kind of cool. Just adds another dynamic to the weekend.",
+            "source_video_id": "t8ub32393ak",
+            "source_channel": "Russell Finsterwald",
+            "source_view_count": 54218,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "The $100,000 prize purse draws a lot of riders. I think in North America, not as many people are chasing the Graler series, but with a prize purse like that, I think we'll see a lot more North American riders than we historically do at this Gravel Worlds event.",
+            "source_video_id": "t8ub32393ak",
+            "source_channel": "Russell Finsterwald",
+            "source_view_count": 54218,
+            "category": "community",
+            "curated": true
+          }
+        ],
+        "search_text": "Gravel Worlds in Lincoln, Nebraska features a challenging 150-mile course with 11,000 feet of climbing and 87 hills throughout. Riders describe it as harder than Unbound despite being 50 miles shorter, with relentless roller coaster terrain and no flat roads. The course is 95% gravel with sections of deep gravel requiring riders to stay relaxed and let the bike float. Key logistics include no outside support - riders must be self-sufficient for mechanicals and nutrition, with only 2-3 water oases and two official checkpoints for refueling. The race attracts top talent due to a $100,000 prize purse and Graler series status. Long straight roads can create challenges with crosswinds and echelons. Towns along the route include Tui, Valparaiso, and Malcolm. Weather was favorable with low winds and humidity, though dust was present. The terrain constantly zaps riders' legs with up-and-down sections that cause speed loss over climbs followed by acceleration on descents."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "gravel-worlds-amateur-video-1.jpg",
+        "url": "/race-photos/gravel-worlds-amateur/gravel-worlds-amateur-video-1.jpg",
+        "alt": "Aerial view of small rural town with residential streets, buildings and surrounding farmland in Nebraska countryside - Gravel Worlds Amateur - Lincoln, Nebraska",
+        "credit": "YouTube / Gravel Cyclist",
+        "primary": true,
+        "ai_relevance": 2,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "rural town",
+          "Nebraska",
+          "farmland",
+          "aerial view",
+          "countryside"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "gravel-worlds-amateur-video-2.jpg",
+        "url": "/race-photos/gravel-worlds-amateur/gravel-worlds-amateur-video-2.jpg",
+        "alt": "Aerial view of industrial warehouse buildings with white roofs and parking areas in small midwestern town - Gravel Worlds Amateur - Lincoln, Nebraska",
+        "credit": "YouTube / Gravel Cyclist",
+        "primary": false,
+        "ai_relevance": 1,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "warehouse",
+          "industrial",
+          "aerial view",
+          "buildings",
+          "parking"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "gravel-worlds-amateur-video-3.jpg",
+        "url": "/race-photos/gravel-worlds-amateur/gravel-worlds-amateur-video-3.jpg",
+        "alt": "Person standing in residential garage with travel trailer visible outside during golden hour lighting - Gravel Worlds Amateur - Lincoln, Nebraska",
+        "credit": "YouTube / Gravel Cyclist",
+        "primary": false,
+        "ai_relevance": 1,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "garage",
+          "indoor",
+          "travel trailer",
+          "residential",
+          "golden hour"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "gravel-worlds-amateur-preview.gif",
+        "url": "/race-photos/gravel-worlds-amateur/gravel-worlds-amateur-preview.gif",
+        "alt": "Course preview from Gravel Worlds Amateur race footage",
+        "credit": "YouTube / Gravel Cyclist",
+        "gif": true
+      }
+    ]
   }
 }

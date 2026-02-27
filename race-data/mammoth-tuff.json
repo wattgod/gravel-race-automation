@@ -501,7 +501,174 @@
           "category": "race_atmosphere",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Chadago Canyon",
+            "description": "Beautiful red rock canyons with challenging terrain that riders encounter during the descent portion of the course.",
+            "source_video_ids": [
+              "0E5S38Xxy4Y"
+            ]
+          },
+          {
+            "name": "High Altitude Start",
+            "description": "Race starts at 8,500 feet elevation, requiring altitude acclimatization. Riders report feeling effects of altitude even at moderate elevations during pre-rides.",
+            "source_video_ids": [
+              "0E5S38Xxy4Y",
+              "8KpFuX86yvY"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "The pumice is light and airy and it moves away from your tires - a whole new learning experience that's completely unique because of all the old volcanic activity. You're not going to find it anywhere else so you gotta learn how to ride it specifically.",
+            "source_video_ids": [
+              "8VCDZY9Jvko"
+            ]
+          },
+          {
+            "text": "Course features sand, descents, and chunky stuff that can be fatiguing and uncomfortable on aggressive bike setups.",
+            "source_video_ids": [
+              "0E5S38Xxy4Y"
+            ]
+          },
+          {
+            "text": "White pacey sand at elevation that doesn't come off as too soft, making trails playful rather than difficult.",
+            "source_video_ids": [
+              "8KpFuX86yvY"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "50mm tires recommended for the course conditions, with one rider using Victoria T50s on a bike that can handle up to 50mm tires.",
+            "source_video_ids": [
+              "0E5S38Xxy4Y"
+            ]
+          },
+          {
+            "text": "Get tires that work up here specifically for the unique pumice terrain - it's a whole learning experience.",
+            "source_video_ids": [
+              "8VCDZY9Jvko"
+            ]
+          },
+          {
+            "text": "Bring along a jacket for descents due to temperature changes at elevation.",
+            "source_video_ids": [
+              "8VCDZY9Jvko"
+            ]
+          }
+        ],
+        "race_day_tips": [
+          {
+            "text": "You want to ride it in your endurance pace, like five to six all day and save those efforts that are a little above it because eight might be kind of at your limiter's threshold. Respect the altitude, drink extra, stay hydrated.",
+            "source_video_ids": [
+              "8VCDZY9Jvko"
+            ]
+          },
+          {
+            "text": "Smart plan is to make this a destination weekend not just to acclimate to the elevation but for all the activities as well.",
+            "source_video_ids": [
+              "8VCDZY9Jvko"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "I'm excited for everybody that is coming for their first gravel event so I'm hoping people walk away with a true experience of what it means to go out into the middle of nowhere have a fun adventure come back and just celebrate that with a bunch of people who did the same thing that you did.",
+            "source_video_id": "8VCDZY9Jvko",
+            "source_channel": "Gravel Bike California",
+            "source_view_count": 13473,
+            "category": "community",
+            "curated": true
+          },
+          {
+            "text": "The village is perfectly situated in the heart of it all - you run into people all over the place here at the same time you've got plenty of time to go out and about in so much gorgeous Majesty just nearby.",
+            "source_video_id": "8KpFuX86yvY",
+            "source_channel": "Gravel Bike California",
+            "source_view_count": 12573,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "Mammoth Tuff is a challenging high-altitude gravel race in California's Eastern Sierra starting at 8,500 feet with 8,000 feet of climbing over 80+ miles. The course features unique pumice terrain from volcanic activity that feels light and airy under tires, requiring specific riding techniques and tire selection. Key sections include beautiful Chadago Canyon with red rock formations and challenging descents. Riders encounter sand, chunky terrain, and white pacey sand that remains playful rather than soft at elevation. The race demands altitude acclimatization and conservative pacing at endurance levels to manage the thin air. Recommended gear includes 50mm tires for the conditions and extra layers for temperature changes. The event serves as a destination weekend in Mammoth Lakes village, offering 360-degree mountain views and a strong community atmosphere for both first-time gravel racers and experienced riders."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "mammoth-tuff-video-1.jpg",
+        "url": "/race-photos/mammoth-tuff/mammoth-tuff-video-1.jpg",
+        "alt": "Cyclist in yellow jersey and helmet taking selfie in front of white stone building with green shutters - Mammoth Tuff - Mammoth Lakes, California",
+        "credit": "YouTube / The Ride with Ben Delaney",
+        "primary": true,
+        "ai_relevance": 2,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "cyclist selfie",
+          "yellow jersey",
+          "stone building",
+          "helmet"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "mammoth-tuff-video-2.jpg",
+        "url": "/race-photos/mammoth-tuff/mammoth-tuff-video-2.jpg",
+        "alt": "First-person view of gravel trail winding through dense pine forest with dappled sunlight - Mammoth Tuff - Mammoth Lakes, California",
+        "credit": "YouTube / The Ride with Ben Delaney",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel trail",
+          "pine forest",
+          "forest riding",
+          "wooded trail"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "mammoth-tuff-video-3.jpg",
+        "url": "/race-photos/mammoth-tuff/mammoth-tuff-video-3.jpg",
+        "alt": "Two cyclists with gravel bikes sitting in forest campground discussing their ride - Mammoth Tuff - Mammoth Lakes, California",
+        "credit": "YouTube / The Ride with Ben Delaney",
+        "primary": false,
+        "ai_relevance": 3,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel bikes",
+          "forest campground",
+          "cyclist interview",
+          "mountain biking"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "mammoth-tuff-preview.gif",
+        "url": "/race-photos/mammoth-tuff/mammoth-tuff-preview.gif",
+        "alt": "Course preview from Mammoth Tuff race footage",
+        "credit": "YouTube / The Ride with Ben Delaney",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "mammoth-tuff-preview-2.gif",
+        "url": "/race-photos/mammoth-tuff/mammoth-tuff-preview-2.gif",
+        "alt": "Course preview from Mammoth Tuff race footage",
+        "credit": "YouTube / The Ride with Ben Delaney",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "mammoth-tuff-preview-3.gif",
+        "url": "/race-photos/mammoth-tuff/mammoth-tuff-preview-3.gif",
+        "alt": "Course preview from Mammoth Tuff race footage",
+        "credit": "YouTube / The Ride with Ben Delaney",
+        "gif": true
+      }
+    ]
   }
 }

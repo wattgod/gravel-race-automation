@@ -526,7 +526,81 @@
           "category": "course_difficulty",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [],
+        "terrain_notes": [
+          {
+            "text": "Great terrain with nice hills in the foothills area described as awesome with beautiful scenery.",
+            "source_video_ids": [
+              "oua4P4A_EMI"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "Kona Libre mentioned as a travel bike option for the race.",
+            "source_video_ids": [
+              "oua4P4A_EMI"
+            ]
+          }
+        ],
+        "race_day_tips": [],
+        "additional_quotes": [
+          {
+            "text": "There's bacon beats here there's cookie stops I think the the super EXTREME like the racing I did for a living for a long time it's like a little bit too aggro for a lot of folks and people are just into like having a good time",
+            "source_video_id": "oua4P4A_EMI",
+            "source_channel": "Kandoo Ooo",
+            "source_view_count": 1091,
+            "category": "race_atmosphere",
+            "curated": true
+          }
+        ],
+        "search_text": "Ghost of the Gravel in Alberta, Canada features terrain in the foothills with nice hills and beautiful scenery. The race has a relaxed atmosphere with bacon beats and cookie stops along the course. Riders describe it as less aggressive than extreme racing, focusing more on having a good time rather than intense competition. The course takes place on gravel roads through the foothills area with awesome terrain that riders find enjoyable. The event appears to emphasize the fun and social aspects of gravel cycling over hardcore racing mentality."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "ghost-of-the-gravel-video-1.jpg",
+        "url": "/race-photos/ghost-of-the-gravel/ghost-of-the-gravel-video-1.jpg",
+        "alt": "Cyclist in red helmet and white jersey being interviewed at gravel race finish area with support vehicles and spectators - Ghost of the Gravel - Alberta, Canada",
+        "credit": "YouTube / Kokanee RedBike",
+        "primary": true,
+        "ai_relevance": 4,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "gravel race finish",
+          "cyclist interview",
+          "red helmet",
+          "race support"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "ghost-of-the-gravel-video-2.jpg",
+        "url": "/race-photos/ghost-of-the-gravel/ghost-of-the-gravel-video-2.jpg",
+        "alt": "Hand-painted Beer + Bacon sign positioned along wooded gravel road course offering refreshments to passing cyclists - Ghost of the Gravel - Alberta, Canada",
+        "credit": "YouTube / Kokanee RedBike",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "Beer Bacon sign",
+          "gravel road",
+          "wooded course",
+          "race refreshments"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "ghost-of-the-gravel-preview.gif",
+        "url": "/race-photos/ghost-of-the-gravel/ghost-of-the-gravel-preview.gif",
+        "alt": "Course preview from Ghost Of The Gravel race footage",
+        "credit": "YouTube / Kokanee RedBike",
+        "gif": true
+      }
+    ]
   }
 }

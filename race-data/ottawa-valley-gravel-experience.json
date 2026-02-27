@@ -596,7 +596,158 @@
           "category": "race_atmosphere",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "English Road",
+            "description": "Banking on inside of turns but unnerving off-camber on the outside. Has loose patches that can cause tire spin and loss of traction.",
+            "source_video_ids": [
+              "baBIXeyJQao"
+            ]
+          },
+          {
+            "name": "Snowmobile trail section",
+            "description": "Leaves covering big rocks underneath making hazards hard to spot. Trail appears groomed but has hidden obstacles.",
+            "source_video_ids": [
+              "baBIXeyJQao"
+            ]
+          },
+          {
+            "name": "Last 5 km",
+            "description": "Gusty wind conditions that can impact riders significantly at the end of the race.",
+            "source_video_ids": [
+              "hzepaOSfj9M"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Right tire track is fairly packed down while the middle section has loose patches that can cause tire spin and rooster tails of gravel.",
+            "source_video_ids": [
+              "baBIXeyJQao"
+            ]
+          },
+          {
+            "text": "Some roads have banking on the inside of turns but become off-camber and unnerving on the outside.",
+            "source_video_ids": [
+              "baBIXeyJQao"
+            ]
+          },
+          {
+            "text": "Snowmobile trail sections have leaves covering big rocks underneath, making hazards difficult to identify.",
+            "source_video_ids": [
+              "baBIXeyJQao"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "VCI Hatchet carbon aluminum frame with SRAM components and 1x drivetrain setup mentioned as race equipment.",
+            "source_video_ids": [
+              "hzepaOSfj9M"
+            ]
+          }
+        ],
+        "race_day_tips": [
+          {
+            "text": "Stay in the right tire track where the surface is more packed down rather than riding in the loose middle section.",
+            "source_video_ids": [
+              "baBIXeyJQao"
+            ]
+          },
+          {
+            "text": "Be prepared for gusty wind conditions in the final 5 kilometers of the race.",
+            "source_video_ids": [
+              "hzepaOSfj9M"
+            ]
+          },
+          {
+            "text": "Watch for hidden rocks under leaf coverage on trail sections.",
+            "source_video_ids": [
+              "baBIXeyJQao"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "It's 1 and 3/4 hours from Ottawa. And yet we didn't seem to exist to a lot of people until the last few years. This what we're offering is the best kept secret.",
+            "source_video_id": "zmZZgNlYQmw",
+            "source_channel": "Ride the Highlands",
+            "source_view_count": 8216,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "Have you ever done a 100K ride? No what's the furthest you've done? 40K with David. So today's your PR? Yes sir dude I'm putting numbers on the board man.",
+            "source_video_id": "hzepaOSfj9M",
+            "source_channel": "Kunstadt Sports",
+            "source_view_count": 652,
+            "category": "community",
+            "curated": true
+          }
+        ],
+        "search_text": "The Ottawa Valley Gravel Experience near Calabogie features challenging mixed terrain including snowmobile trail sections with leaves hiding rocks, and roads like English Road with banking on inside turns but dangerous off-camber sections on the outside. Riders report packed-down right tire tracks versus loose middle sections that cause tire spin and gravel rooster tails. Key challenges include the final 5 kilometers with gusty wind conditions. The area offers twisty roads with natural scenery and is located 1.75 hours from Ottawa. Riders mention using gravel-specific bikes like the VCI Hatchet with SRAM 1x drivetrains. The event attracts both experienced racers and newcomers attempting their first century distances, with emphasis on having fun and community atmosphere over pure competition."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "ottawa-valley-gravel-experience-video-1.jpg",
+        "url": "/race-photos/ottawa-valley-gravel-experience/ottawa-valley-gravel-experience-video-1.jpg",
+        "alt": "Lakeside camping setup with canoes and chairs at Spectacle Lake Lodge in Barry's Bay, Ontario showing race accommodation facilities - Ottawa Valley Gravel Experience - Calabogie, Ontario, Canada",
+        "credit": "YouTube / Ride the Highlands",
+        "primary": true,
+        "ai_relevance": 2,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "Spectacle Lake Lodge",
+          "Barry's Bay Ontario",
+          "lakeside camping",
+          "race accommodation"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "ottawa-valley-gravel-experience-video-2.jpg",
+        "url": "/race-photos/ottawa-valley-gravel-experience/ottawa-valley-gravel-experience-video-2.jpg",
+        "alt": "Female cyclist with helmet and race gear being interviewed next to support vehicle at what appears to be a race venue or arena - Ottawa Valley Gravel Experience - Calabogie, Ontario, Canada",
+        "credit": "YouTube / Ride the Highlands",
+        "primary": false,
+        "ai_relevance": 3,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "cyclist interview",
+          "race support",
+          "female rider",
+          "cycling helmet"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "ottawa-valley-gravel-experience-video-3.jpg",
+        "url": "/race-photos/ottawa-valley-gravel-experience/ottawa-valley-gravel-experience-video-3.jpg",
+        "alt": "Motorcycle riders at Flynn's General Store in Buckhorn, Ontario during what appears to be a cycling event or race stop - Ottawa Valley Gravel Experience - Calabogie, Ontario, Canada",
+        "credit": "YouTube / Ride the Highlands",
+        "primary": false,
+        "ai_relevance": 2,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "Flynn's General Store",
+          "Buckhorn Ontario",
+          "race stop",
+          "support motorcycle"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "ottawa-valley-gravel-experience-preview.gif",
+        "url": "/race-photos/ottawa-valley-gravel-experience/ottawa-valley-gravel-experience-preview.gif",
+        "alt": "Course preview from Ottawa Valley Gravel Experience race footage",
+        "credit": "YouTube / Ride the Highlands",
+        "gif": true
+      }
+    ]
   }
 }

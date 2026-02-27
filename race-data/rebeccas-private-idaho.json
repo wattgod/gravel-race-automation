@@ -579,7 +579,190 @@
           "category": "race_atmosphere",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Trail Creek Summit",
+            "mile_marker": "10-15",
+            "description": "A 20-30 minute climb that's the crux section of the whole course. Half paved, half dirt, about six percent average grade. Critical to be in a good group going over the top or you'll be chasing for a long time on the fast sections that follow.",
+            "source_video_ids": [
+              "W8Al4GSNPVY"
+            ]
+          },
+          {
+            "name": "Copper Basin Loop",
+            "mile_marker": "40-62",
+            "description": "A huge 22 mile loop with pretty rough roads, bumpy washboard surfaces. Gets hot and dusty, described as a sufferfest. Pretty rolling terrain, nothing too crazy for climbing but it goes on forever.",
+            "source_video_ids": [
+              "W8Al4GSNPVY"
+            ]
+          },
+          {
+            "name": "10-Mile Slog Back to Trail Creek",
+            "mile_marker": "70-80",
+            "description": "The hardest, most intensely mental part of the whole course. Really straight, slightly uphill, usually has a huge headwind and is insanely brutal at the end of the race.",
+            "source_video_ids": [
+              "W8Al4GSNPVY"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "The road surface is pretty rocky and bumpy throughout the course. You definitely can pick a good line. Course has washboards because a lot of four-wheelers and vehicles use these roads during summer.",
+            "source_video_ids": [
+              "W8Al4GSNPVY"
+            ]
+          },
+          {
+            "text": "The descent off Trail Creek has very washboard roads with a lot of pretty big chunky rocks, so you have to pick your line pretty well and not take it too fast.",
+            "source_video_ids": [
+              "W8Al4GSNPVY"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "You probably shouldn't need more than a 35mm tire to get through the day. You could even probably run a 32 if you're feeling ambitious.",
+            "source_video_ids": [
+              "W8Al4GSNPVY"
+            ]
+          }
+        ],
+        "race_day_tips": [
+          {
+            "text": "It's paramount to be in a good group over Trail Creek Summit. A big mistake people make is going too hard over the climb and getting into a group that's too hard for them, then getting dropped in no-man's land during the rolling section.",
+            "source_video_ids": [
+              "W8Al4GSNPVY"
+            ]
+          },
+          {
+            "text": "You have to be prepared and ready to kind of suffer through to get into a good group on the first climb. It uses a lot of energy and it's really early on in the race.",
+            "source_video_ids": [
+              "W8Al4GSNPVY"
+            ]
+          },
+          {
+            "text": "There will be an aid station at the top of Trail Creek Summit but you probably won't need to stop because it's very early on in the race.",
+            "source_video_ids": [
+              "W8Al4GSNPVY"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "Rebecca Rush is the Rebecca of Rebecca's Private Idaho. She is a female athlete of renown, a multi-sport athlete with a long long palm maris of victories and races won. She's a significant person in the history of mountain biking and gravel racing.",
+            "source_video_id": "zu9WdwBfoIw",
+            "source_channel": "Old Guy And A Bike",
+            "source_view_count": 3178,
+            "category": "community",
+            "curated": true
+          },
+          {
+            "text": "We rolled into Ketchum Sun Valley on Friday, Saturday morning got up, walked over to the registration area, got my number, all that stuff taken care of. Then rolled over to the expo that was set up around the registration area.",
+            "source_video_id": "zu9WdwBfoIw",
+            "source_channel": "Old Guy And A Bike",
+            "source_view_count": 3178,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "Rebecca's Private Idaho features Trail Creek Summit as its crux climb, a 20-30 minute ascent that's half paved, half dirt with six percent average grade. Riders emphasize the critical importance of staying with a good group over this summit, as the following sections are fast rolling terrain where dropped riders face long chases. The 22-mile Copper Basin Loop presents rough, washboard roads that get hot and dusty, described as a sufferfest with rolling terrain. The final 10-mile return to Trail Creek is considered the most mentally challenging section, featuring straight roads with slight uphills and brutal headwinds. Course surfaces are rocky and bumpy throughout, with washboards from vehicle traffic, but riders report 32-35mm tires are sufficient. The event includes registration and expo areas in Ketchum, with aid stations available though early ones may be skippable."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "rebeccas-private-idaho-video-1.jpg",
+        "url": "/race-photos/rebeccas-private-idaho/rebeccas-private-idaho-video-1.jpg",
+        "alt": "Cyclists preparing gear and bikes at dawn staging area with U-Haul support vehicles and forested mountains in background at gravel race start - Rebecca's Private Idaho - Ketchum, Idaho",
+        "credit": "YouTube / iowagravelgang",
+        "primary": true,
+        "ai_relevance": 4,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "race staging",
+          "dawn preparation",
+          "mountain forest",
+          "gravel cycling",
+          "support crew"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "rebeccas-private-idaho-video-2.jpg",
+        "url": "/race-photos/rebeccas-private-idaho/rebeccas-private-idaho-video-2.jpg",
+        "alt": "Race interview setup with bearded cyclist in bright yellow jersey under red tent canopy with desert mountains visible in background - Rebecca's Private Idaho - Ketchum, Idaho",
+        "credit": "YouTube / iowagravelgang",
+        "primary": false,
+        "ai_relevance": 3,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "race interview",
+          "yellow jersey",
+          "desert mountains",
+          "cycling event",
+          "tent setup"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "rebeccas-private-idaho-video-3.jpg",
+        "url": "/race-photos/rebeccas-private-idaho/rebeccas-private-idaho-video-3.jpg",
+        "alt": "Garmin cycling computer data display showing elevation profile and heart rate metrics from 89.6 mile gravel race stage with major climbing section highlighted - Rebecca's Private Idaho - Ketchum, Idaho",
+        "credit": "YouTube / iowagravelgang",
+        "primary": false,
+        "ai_relevance": 2,
+        "ai_quality": 2,
+        "ai_keywords": [
+          "Garmin data",
+          "elevation profile",
+          "heart rate",
+          "gravel race metrics",
+          "climbing section"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "rebeccas-private-idaho-preview.gif",
+        "url": "/race-photos/rebeccas-private-idaho/rebeccas-private-idaho-preview.gif",
+        "alt": "Course preview from Rebeccas Private Idaho race footage",
+        "credit": "YouTube / iowagravelgang",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "rebeccas-private-idaho-preview-2.gif",
+        "url": "/race-photos/rebeccas-private-idaho/rebeccas-private-idaho-preview-2.gif",
+        "alt": "Course preview from Rebeccas Private Idaho race footage",
+        "credit": "YouTube / iowagravelgang",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "rebeccas-private-idaho-preview-3.gif",
+        "url": "/race-photos/rebeccas-private-idaho/rebeccas-private-idaho-preview-3.gif",
+        "alt": "Course preview from Rebeccas Private Idaho race footage",
+        "credit": "YouTube / iowagravelgang",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "rebeccas-private-idaho-preview-4.gif",
+        "url": "/race-photos/rebeccas-private-idaho/rebeccas-private-idaho-preview-4.gif",
+        "alt": "Course preview from Rebeccas Private Idaho race footage",
+        "credit": "YouTube / iowagravelgang",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "rebeccas-private-idaho-preview-5.gif",
+        "url": "/race-photos/rebeccas-private-idaho/rebeccas-private-idaho-preview-5.gif",
+        "alt": "Course preview from Rebeccas Private Idaho race footage",
+        "credit": "YouTube / iowagravelgang",
+        "gif": true
+      }
+    ]
   }
 }

@@ -567,7 +567,161 @@
           "category": "logistics",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "11 km Berg",
+            "description": "Major climb during the route with significant elevation gain before descent.",
+            "source_video_ids": [
+              "LJoIp4H9Sos"
+            ]
+          },
+          {
+            "name": "Day Three Queen Stage",
+            "description": "3,000 meters of climbing over 40K, described as extremely challenging and arguably harder than the 190K day.",
+            "source_video_ids": [
+              "LJoIp4H9Sos"
+            ]
+          },
+          {
+            "name": "Athens Exit",
+            "description": "Big highways with lots of traffic, takes about an hour to get off the main trunk road. Direct but unpleasant route to better roads.",
+            "source_video_ids": [
+              "LJoIp4H9Sos",
+              "0-cfug7anbg"
+            ]
+          },
+          {
+            "name": "Second Tallest Hill in Paras",
+            "description": "Significant climb when riding out of Athens towards the port area.",
+            "source_video_ids": [
+              "0-cfug7anbg"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Roads get better once away from civilization, becoming quiet with lovely rolling hills and descents.",
+            "source_video_ids": [
+              "LJoIp4H9Sos"
+            ]
+          },
+          {
+            "text": "Nice windy roads once off the big trunk roads, more tranquil and scenic.",
+            "source_video_ids": [
+              "LJoIp4H9Sos"
+            ]
+          },
+          {
+            "text": "Dense urban sprawl around ports gets replaced with quiet country living after small climbs.",
+            "source_video_ids": [
+              "0-cfug7anbg"
+            ]
+          }
+        ],
+        "gear_mentions": [],
+        "race_day_tips": [
+          {
+            "text": "Plan nutrition carefully - riders experienced problems with no breakfast and lunch on longer days.",
+            "source_video_ids": [
+              "LJoIp4H9Sos"
+            ]
+          },
+          {
+            "text": "Consider the heat and wildfire conditions when planning routes and timing.",
+            "source_video_ids": [
+              "0-cfug7anbg"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "My problem is I made the whole route just as a route and then divide it into six days where there accommodation didn't really look at a day by day but it's fine",
+            "source_video_id": "LJoIp4H9Sos",
+            "source_channel": "Josh Reid",
+            "source_view_count": 9442,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "I find it freeing not to have to decide where I'm staying or which way I'm going until the last minute basically when I'm Already There",
+            "source_video_id": "0-cfug7anbg",
+            "source_channel": "Biking Places",
+            "source_view_count": 3243,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "There was a heatwave drought and Wildfire situation in the country around the time of our arrival which influenced some of our decisions",
+            "source_video_id": "0-cfug7anbg",
+            "source_channel": "Biking Places",
+            "source_view_count": 3243,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "Riders describe the Greek Gravel race in the Peloponnese as having significant climbing challenges, particularly an 11 km berg and a queen stage with 3,000 meters of elevation over 40K. The route starts with a difficult exit from Athens involving big highways and heavy traffic for about an hour before reaching quieter, more scenic windy roads. Terrain improves away from civilization with lovely rolling hills and descents. Riders encountered heat, wildfire conditions, and haze during their trips. The second tallest hill in Paras presents a notable challenge when heading towards the port areas. Nutrition planning is crucial as riders experienced issues with inadequate breakfast and lunch on longer riding days. The coastal sections offer relief opportunities for cooling off. Local accommodation requires flexible planning due to the tourist destination nature of Greece."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "greek-gravel-video-1.jpg",
+        "url": "/race-photos/greek-gravel/greek-gravel-video-1.jpg",
+        "alt": "Rolling hills covered in Mediterranean vegetation with distant mountains showing typical Greek gravel race terrain - Peloponnese, Greece",
+        "credit": "YouTube / Josh Reid",
+        "primary": true,
+        "ai_relevance": 3,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "Mediterranean hills",
+          "Greek terrain",
+          "rolling landscape",
+          "mountain backdrop"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "greek-gravel-video-2.jpg",
+        "url": "/race-photos/greek-gravel/greek-gravel-video-2.jpg",
+        "alt": "Tree-lined paved street in Greek town with graffiti-covered buildings and urban infrastructure - Greek Gravel - Peloponnese, Greece",
+        "credit": "YouTube / Josh Reid",
+        "primary": false,
+        "ai_relevance": 2,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "Greek town",
+          "urban street",
+          "paved road",
+          "Mediterranean architecture"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "greek-gravel-video-3.jpg",
+        "url": "/race-photos/greek-gravel/greek-gravel-video-3.jpg",
+        "alt": "Ancient Greek fortress ruins with Byzantine church dome surrounded by Mediterranean vegetation and stone walls - Greek Gravel - Peloponnese, Greece",
+        "credit": "YouTube / Josh Reid",
+        "primary": false,
+        "ai_relevance": 2,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "Greek fortress",
+          "Byzantine architecture",
+          "ancient ruins",
+          "Mediterranean landscape"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "greek-gravel-preview.gif",
+        "url": "/race-photos/greek-gravel/greek-gravel-preview.gif",
+        "alt": "Course preview from Greek Gravel race footage",
+        "credit": "YouTube / Josh Reid",
+        "gif": true
+      }
+    ]
   }
 }

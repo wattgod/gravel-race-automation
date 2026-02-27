@@ -526,7 +526,142 @@
           "category": "race_atmosphere",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "HC road climb",
+            "description": "Long HC category road climb that comes right in the middle of the race, though it didn't end up being very decisive in this edition.",
+            "source_video_ids": [
+              "ofPwlYrgogQ"
+            ]
+          },
+          {
+            "name": "First descent after high point",
+            "description": "Poor visibility descent due to dust thrown up in dry conditions combined with sunrise glare, making it difficult to see. Non-technical but straight with a few kickers.",
+            "source_video_ids": [
+              "ofPwlYrgogQ"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Roads have recently been regraded. Initial portion features low gradient climbing, mostly 1 to 2% grades.",
+            "source_video_ids": [
+              "ofPwlYrgogQ"
+            ]
+          },
+          {
+            "text": "Dry and dusty conditions with a lot of dust thrown up in the air, creating visibility issues especially during sunrise.",
+            "source_video_ids": [
+              "ofPwlYrgogQ"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "Understanding the appeal of investing in a gravel bike now because of hand soreness from regular bike.",
+            "source_video_ids": [
+              "vwCsKggSaOs"
+            ]
+          }
+        ],
+        "race_day_tips": [
+          {
+            "text": "Attack and be first over the first high point to take the descent at your own speed with clean line and vision, especially important in dusty conditions with poor visibility.",
+            "source_video_ids": [
+              "ofPwlYrgogQ"
+            ]
+          },
+          {
+            "text": "Start temperatures were below 40 degrees but warm up quickly once moving and once sun rises.",
+            "source_video_ids": [
+              "ofPwlYrgogQ"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "Coffee truck opens at 5:00. Line up around 8 and start at 8:15. Slept decent car camping, no worse than at home.",
+            "source_video_id": "vwCsKggSaOs",
+            "source_channel": "Knitter by Day, Cage Fighter by Night",
+            "source_view_count": 79,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "The 20ish mile distance was the perfect distance for me. Things I did well include how I carb loaded and hydrated, though maybe overhydrated since I stopped to pee at the halfway point.",
+            "source_video_id": "vwCsKggSaOs",
+            "source_channel": "Knitter by Day, Cage Fighter by Night",
+            "source_view_count": 79,
+            "category": "training",
+            "curated": true
+          }
+        ],
+        "search_text": "The Chino Grinder is Arizona's longest running gravel race featuring one big long out and back course. The 2025 edition was shortened from 120 to 108 miles with addition of fire roads near Flagstaff. Key features include a long HC category road climb in the middle of the race and recently regraded roads with low gradient climbing of 1-2% in initial sections. Race conditions were dry and dusty with poor visibility issues, especially during sunrise descents. Start temperatures were below 40 degrees but warmed quickly. The first major descent after the high point is non-technical but straight with some kickers. Riders recommend attacking early to secure clean lines and visibility on descents. Coffee truck opens at 5:00 AM with 8:15 AM start time."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "chino-grinder-video-1.jpg",
+        "url": "/race-photos/chino-grinder/chino-grinder-video-1.jpg",
+        "alt": "Cyclist climbing paved road through forested mountain terrain with performance data overlay during gravel race - Chino Grinder - Chino Valley, Arizona",
+        "credit": "YouTube / Stephen Schaefer",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "mountain climb",
+          "forest road",
+          "cycling metrics",
+          "elevation gain",
+          "paved ascent"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "chino-grinder-video-2.jpg",
+        "url": "/race-photos/chino-grinder/chino-grinder-video-2.jpg",
+        "alt": "Solo rider ascending steep paved mountain road through dense forest with performance tracking display - Chino Grinder - Chino Valley, Arizona",
+        "credit": "YouTube / Stephen Schaefer",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "steep climb",
+          "mountain forest",
+          "solo rider",
+          "paved road",
+          "gradient ascent"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "chino-grinder-video-3.jpg",
+        "url": "/race-photos/chino-grinder/chino-grinder-video-3.jpg",
+        "alt": "Group of cyclists riding on open desert road with rolling hills and bright sun creating lens flare - Chino Grinder - Chino Valley, Arizona",
+        "credit": "YouTube / Stephen Schaefer",
+        "primary": false,
+        "ai_relevance": 4,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "desert riding",
+          "group ride",
+          "rolling hills",
+          "open road",
+          "bright sun"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "chino-grinder-preview.gif",
+        "url": "/race-photos/chino-grinder/chino-grinder-preview.gif",
+        "alt": "Course preview from Chino Grinder race footage",
+        "credit": "YouTube / Stephen Schaefer",
+        "gif": true
+      }
+    ]
   }
 }

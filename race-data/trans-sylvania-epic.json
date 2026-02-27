@@ -554,7 +554,146 @@
           "category": "course_difficulty",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "two and a half mile climb out of Woodward",
+            "description": "One of the key climbs mentioned by riders where pacing becomes critical.",
+            "source_video_ids": [
+              "c_rRaJZW3Ks"
+            ]
+          },
+          {
+            "name": "very rocky very steep climb",
+            "description": "A climb described as particularly nasty with lots of suffering, requiring focus on staying upright.",
+            "source_video_ids": [
+              "wjyoSD2fwYQ"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "The roads are honestly so nice here that you don't need cushcore according to experienced riders.",
+            "source_video_ids": [
+              "c_rRaJZW3Ks"
+            ]
+          },
+          {
+            "text": "Very rocky very steep sections that are described as nasty with lots of suffering required.",
+            "source_video_ids": [
+              "wjyoSD2fwYQ"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "Maxis Ramblers 40c silk Shield tires with 35 pounds front tire pressure and 40 in rear worked well for the conditions.",
+            "source_video_ids": [
+              "c_rRaJZW3Ks"
+            ]
+          },
+          {
+            "text": "Road cleats can be challenging for the run sections, with riders expressing concern about this gear choice.",
+            "source_video_ids": [
+              "wjyoSD2fwYQ"
+            ]
+          }
+        ],
+        "race_day_tips": [
+          {
+            "text": "For 47 mile stages taking around 2.5 hours, riders used 160 grams of carbohydrates in a 250ml flask plus 90 in each bottle.",
+            "source_video_ids": [
+              "c_rRaJZW3Ks"
+            ]
+          },
+          {
+            "text": "On longer climbs like the 2.5 mile climb out of Woodward, try to keep power around 400 watts and stay in the big ring on subsequent climbs.",
+            "source_video_ids": [
+              "c_rRaJZW3Ks"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "Day four baby. 61 miles 6000 feet of climbing. I'm a little concerned about the run section we have today with these road cleats but chris froome did it in the tour why can't we do it here.",
+            "source_video_id": "wjyoSD2fwYQ",
+            "source_channel": "DirtWireTV",
+            "source_view_count": 1130,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "I've never ridden around here these national forests are super green super lush very beautiful had a blast this was an amazing experience. Four days in a row it's like immersion gravel I loved it.",
+            "source_video_id": "wjyoSD2fwYQ",
+            "source_channel": "DirtWireTV",
+            "source_view_count": 1130,
+            "category": "community",
+            "curated": true
+          }
+        ],
+        "search_text": "Trans-Sylvania Epic is a multi-day stage race in Pennsylvania's national forests featuring 47-mile opener stages and longer 60-65 mile days with significant climbing. Day four includes 61 miles with 6000 feet of elevation gain. The course features very rocky steep climbs that riders describe as nasty, including a key 2.5 mile climb out of Woodward. Roads are generally in good condition according to experienced riders. The race includes run sections that can be challenging with road cleats. Riders describe the Pennsylvania national forests as super green, lush and beautiful. Four-wheelers on course present some safety concerns. The multi-day format creates an immersion gravel experience through scenic wooded terrain with substantial daily elevation gains and technical climbing sections."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "trans-sylvania-epic-video-1.jpg",
+        "url": "/race-photos/trans-sylvania-epic/trans-sylvania-epic-video-1.jpg",
+        "alt": "Musicians playing guitars inside a van at what appears to be a cycling event campground with other vans visible in the background - Trans-Sylvania Epic - Pennsylvania",
+        "credit": "YouTube / Kerry Werner",
+        "primary": true,
+        "ai_relevance": 1,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "van camping",
+          "event atmosphere",
+          "cyclist lifestyle",
+          "race campground"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "trans-sylvania-epic-video-2.jpg",
+        "url": "/race-photos/trans-sylvania-epic/trans-sylvania-epic-video-2.jpg",
+        "alt": "Person standing between vans at a cycling event campground with other participants visible in the background on grass - Trans-Sylvania Epic - Pennsylvania",
+        "credit": "YouTube / Kerry Werner",
+        "primary": false,
+        "ai_relevance": 1,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "event campground",
+          "van camping",
+          "race logistics",
+          "cyclist community"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "trans-sylvania-epic-video-3.jpg",
+        "url": "/race-photos/trans-sylvania-epic/trans-sylvania-epic-video-3.jpg",
+        "alt": "Cyclist riding through dense Pennsylvania forest on dirt trail surrounded by green trees and natural terrain - Trans-Sylvania Epic",
+        "credit": "YouTube / Kerry Werner",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "forest trail",
+          "Pennsylvania woods",
+          "dirt path",
+          "mountain biking",
+          "wooded terrain"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "trans-sylvania-epic-preview.gif",
+        "url": "/race-photos/trans-sylvania-epic/trans-sylvania-epic-preview.gif",
+        "alt": "Course preview from Trans Sylvania Epic race footage",
+        "credit": "YouTube / Kerry Werner",
+        "gif": true
+      }
+    ]
   }
 }

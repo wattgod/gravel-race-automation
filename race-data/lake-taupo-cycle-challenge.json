@@ -540,7 +540,60 @@
           "curated": false
         }
       ],
-      "quotes": []
-    }
+      "quotes": [],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [],
+        "terrain_notes": [],
+        "gear_mentions": [],
+        "race_day_tips": [],
+        "additional_quotes": [],
+        "search_text": "The available transcript content for the Lake Taupo Cycle Challenge consists primarily of music or promotional content rather than substantive rider commentary about the race experience. No specific information about course features, terrain conditions, key challenges, or race atmosphere could be extracted from the provided transcript. Riders seeking intelligence about this 100-mile New Zealand event with 4000 feet of elevation gain would need to reference additional sources for actionable race preparation insights."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "lake-taupo-cycle-challenge-video-1.jpg",
+        "url": "/race-photos/lake-taupo-cycle-challenge/lake-taupo-cycle-challenge-video-1.jpg",
+        "alt": "Cyclist following another rider on paved road with forested hills and lake views during Lake Taupo Cycle Challenge - Lake Taupo, New Zealand",
+        "credit": "YouTube / Philip Taramai",
+        "primary": true,
+        "ai_relevance": 4,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "Lake Taupo",
+          "paved road",
+          "forested hills",
+          "cycling race",
+          "New Zealand"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "lake-taupo-cycle-challenge-video-2.jpg",
+        "url": "/race-photos/lake-taupo-cycle-challenge/lake-taupo-cycle-challenge-video-2.jpg",
+        "alt": "Road construction workers with orange cones blocking paved road during cycling event in rolling green hills landscape - Lake Taupo Cycle Challenge - Lake Taupo, New Zealand",
+        "credit": "YouTube / Philip Taramai",
+        "primary": false,
+        "ai_relevance": 2,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "road construction",
+          "traffic cones",
+          "paved road",
+          "rolling hills",
+          "cycling event"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "lake-taupo-cycle-challenge-preview.gif",
+        "url": "/race-photos/lake-taupo-cycle-challenge/lake-taupo-cycle-challenge-preview.gif",
+        "alt": "Course preview from Lake Taupo Cycle Challenge race footage",
+        "credit": "YouTube / Philip Taramai",
+        "gif": true
+      }
+    ]
   }
 }

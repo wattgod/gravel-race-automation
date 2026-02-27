@@ -618,6 +618,67 @@
         }
       ],
       "quotes": []
-    }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "veneto-gravel-video-1.jpg",
+        "url": "/race-photos/veneto-gravel/veneto-gravel-video-1.jpg",
+        "alt": "First-person view of cyclist riding on gravel trail with autumn foliage and rural buildings in Veneto countryside - Veneto Gravel - Asolo, Veneto, Italy",
+        "credit": "YouTube / TRIX",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel trail",
+          "first-person cycling",
+          "autumn foliage",
+          "Veneto countryside",
+          "rural path"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "veneto-gravel-video-2.jpg",
+        "url": "/race-photos/veneto-gravel/veneto-gravel-video-2.jpg",
+        "alt": "Cyclist's perspective on muddy gravel path through wooded area with wooden fence and autumn trees in Veneto - Veneto Gravel - Asolo, Veneto, Italy",
+        "credit": "YouTube / TRIX",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "muddy gravel",
+          "wooded trail",
+          "autumn cycling",
+          "Veneto forest",
+          "wooden fence"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "veneto-gravel-video-3.jpg",
+        "url": "/race-photos/veneto-gravel/veneto-gravel-video-3.jpg",
+        "alt": "Cyclist in Castelli jacket giving interview outdoors among bare trees during Veneto gravel race event - Asolo, Veneto, Italy",
+        "credit": "YouTube / TRIX",
+        "primary": false,
+        "ai_relevance": 2,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "cycling interview",
+          "Castelli jersey",
+          "race participant",
+          "Veneto gravel",
+          "outdoor interview"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "veneto-gravel-preview.gif",
+        "url": "/race-photos/veneto-gravel/veneto-gravel-preview.gif",
+        "alt": "Course preview from Veneto Gravel race footage",
+        "credit": "YouTube / TRIX",
+        "gif": true
+      }
+    ]
   }
 }

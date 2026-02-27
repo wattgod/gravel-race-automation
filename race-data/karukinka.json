@@ -557,6 +557,64 @@
         }
       ],
       "quotes": []
-    }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "karukinka-video-1.jpg",
+        "url": "/race-photos/karukinka/karukinka-video-1.jpg",
+        "alt": "Cyclist in quilted jacket giving selfie interview outdoors with rural buildings and trees in background at Karukinka race location - Tierra del Fuego, Chile",
+        "credit": "YouTube / Oscar Pujol",
+        "primary": true,
+        "ai_relevance": 2,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "cyclist interview",
+          "rural setting",
+          "race participant",
+          "outdoor selfie"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "karukinka-video-2.jpg",
+        "url": "/race-photos/karukinka/karukinka-video-2.jpg",
+        "alt": "Person indoors showing smartphone with GPS tracking app displaying route map on screen - Karukinka - Tierra del Fuego, Chile",
+        "credit": "YouTube / Oscar Pujol",
+        "primary": false,
+        "ai_relevance": 1,
+        "ai_quality": 2,
+        "ai_keywords": [
+          "GPS tracking",
+          "route map",
+          "smartphone app",
+          "indoor"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "karukinka-video-3.jpg",
+        "url": "/race-photos/karukinka/karukinka-video-3.jpg",
+        "alt": "Cyclist in winter cap working on bicycle maintenance indoors in workshop setting - Karukinka - Tierra del Fuego, Chile",
+        "credit": "YouTube / Oscar Pujol",
+        "primary": false,
+        "ai_relevance": 1,
+        "ai_quality": 2,
+        "ai_keywords": [
+          "bike maintenance",
+          "workshop",
+          "cyclist",
+          "indoor repair"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "karukinka-preview.gif",
+        "url": "/race-photos/karukinka/karukinka-preview.gif",
+        "alt": "Course preview from Karukinka race footage",
+        "credit": "YouTube / Oscar Pujol",
+        "gif": true
+      }
+    ]
   }
 }

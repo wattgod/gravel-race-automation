@@ -495,8 +495,94 @@
           "category": "course_difficulty",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [],
+        "terrain_notes": [],
+        "gear_mentions": [],
+        "race_day_tips": [],
+        "additional_quotes": [
+          {
+            "text": "Racers won't have to worry about burning daylight as the sun will not set here until 10 49 pm on June 10th",
+            "source_video_id": "FZowwaAytxE",
+            "source_channel": "FNLD GRVL",
+            "source_view_count": 118,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "we'll be partying late into the evening with Music Awards and of course plenty of beer and food",
+            "source_video_id": "FZowwaAytxE",
+            "source_channel": "FNLD GRVL",
+            "source_view_count": 118,
+            "category": "race_atmosphere",
+            "curated": true
+          },
+          {
+            "text": "here we are at the lofty Sports Complex the finish line for our race as well as the location of the weekend Expo",
+            "source_video_id": "36it280wEPI",
+            "source_channel": "FNLD GRVL",
+            "source_view_count": 96,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "The Finnish Gravel race starts in downtown Lahti harbor and finishes at the Lahti Sports Complex, known for its world famous ski jumps that serve as a beacon for riders approaching the finish line. The race takes place in June when Finland experiences extended daylight, with sunset not occurring until 10:49 PM on race day, giving riders plenty of natural light for the 110-mile course. The finish area hosts a weekend expo at the Sports Complex. Post-race festivities extend late into the evening and include music, awards ceremony, food and beer. The race attracts hundreds of international riders who gather in the harbor area for the start."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "finnish-gravel-video-1.jpg",
+        "url": "/race-photos/finnish-gravel/finnish-gravel-video-1.jpg",
+        "alt": "Aerial view of cycling race infrastructure with parking areas, support vehicles, and stone barriers along forested waterfront venue - Finnish Gravel - Lahti, Paijanne Tavastia, Finland",
+        "credit": "YouTube / FNLD GRVL @grvlevents",
+        "primary": true,
+        "ai_relevance": 3,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "aerial view",
+          "race infrastructure",
+          "support vehicles",
+          "waterfront venue",
+          "parking area"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "finnish-gravel-video-2.jpg",
+        "url": "/race-photos/finnish-gravel/finnish-gravel-video-2.jpg",
+        "alt": "Cyclists riding through wooded forest trail on natural dirt and gravel path during Finnish gravel race - Lahti, Paijanne Tavastia, Finland",
+        "credit": "YouTube / FNLD GRVL @grvlevents",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "forest trail",
+          "wooded path",
+          "gravel cycling",
+          "dirt trail",
+          "Finnish forest"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "finnish-gravel-preview.gif",
+        "url": "/race-photos/finnish-gravel/finnish-gravel-preview.gif",
+        "alt": "Course preview from Finnish Gravel race footage",
+        "credit": "YouTube / FNLD GRVL @grvlevents",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "finnish-gravel-preview-2.gif",
+        "url": "/race-photos/finnish-gravel/finnish-gravel-preview-2.gif",
+        "alt": "Course preview from Finnish Gravel race footage",
+        "credit": "YouTube / FNLD GRVL @grvlevents",
+        "gif": true
+      }
+    ]
   },
   "dataQuality": "High"
 }

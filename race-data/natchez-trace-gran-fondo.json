@@ -568,7 +568,104 @@
           "category": "course_difficulty",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [],
+        "terrain_notes": [
+          {
+            "text": "444 miles of continuous pavement with no traffic lights or stop signs, described as a smooth country road winding through forest and farmland.",
+            "source_video_ids": [
+              "gZv5_t-8ayQ"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "Rider chose the Priority Gemini bike for the speedier pavement sections instead of his usual mountain bike.",
+            "source_video_ids": [
+              "gZv5_t-8ayQ"
+            ]
+          }
+        ],
+        "race_day_tips": [
+          {
+            "text": "The scenic byway is safer for cyclists because it's closed to commercial traffic and cars aren't supposed to go faster than 50 mph.",
+            "source_video_ids": [
+              "gZv5_t-8ayQ"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "This scenic byway is safer for cyclists because it's closed to commercial traffic and cars aren't supposed to go faster than 50 m an hour.",
+            "source_video_id": "gZv5_t-8ayQ",
+            "source_channel": "Ryan Van Duzer",
+            "source_view_count": 59919,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "The Natchez Trace features 444 miles of continuous pavement from Natchez, Mississippi to Nashville, Tennessee. Riders describe it as a smooth country road winding through forest, farmland, and historical areas with no traffic lights or stop signs. The route is noted as safer for cyclists because it's closed to commercial traffic with vehicle speed limits of 50 mph. The scenic byway traverses homelands of American Indian nations and Civil War battle sites. One rider specifically chose a road bike over their usual mountain bike for the speedier pavement conditions. The route offers opportunities to experience Southern culture and history while traveling through beautiful countryside at a cycling pace."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "natchez-trace-gran-fondo-video-1.jpg",
+        "url": "/race-photos/natchez-trace-gran-fondo/natchez-trace-gran-fondo-video-1.jpg",
+        "alt": "Mountain bikers with colorful jerseys taking a break at wooded trail area with scattered bike components and forest backdrop - Natchez Trace Gran Fondo - Nashville, Tennessee",
+        "credit": "YouTube / Everything's Been Done",
+        "primary": true,
+        "ai_relevance": 3,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "mountain bikers",
+          "forest trail",
+          "wooded terrain",
+          "cycling break"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "natchez-trace-gran-fondo-video-2.jpg",
+        "url": "/race-photos/natchez-trace-gran-fondo/natchez-trace-gran-fondo-video-2.jpg",
+        "alt": "White SUV driving past historic brick Victorian house with wraparound porch in tree-lined residential neighborhood - Natchez Trace Gran Fondo - Nashville, Tennessee",
+        "credit": "YouTube / Everything's Been Done",
+        "primary": false,
+        "ai_relevance": 1,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "Victorian house",
+          "residential street",
+          "historic architecture",
+          "tree-lined"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "natchez-trace-gran-fondo-video-3.jpg",
+        "url": "/race-photos/natchez-trace-gran-fondo/natchez-trace-gran-fondo-video-3.jpg",
+        "alt": "Bearded man in purple polo shirt and baseball cap standing in expansive cotton field under clear blue sky - Natchez Trace Gran Fondo - Nashville, Tennessee",
+        "credit": "YouTube / Everything's Been Done",
+        "primary": false,
+        "ai_relevance": 1,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "cotton field",
+          "agricultural landscape",
+          "rural setting",
+          "farmland"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "natchez-trace-gran-fondo-preview.gif",
+        "url": "/race-photos/natchez-trace-gran-fondo/natchez-trace-gran-fondo-preview.gif",
+        "alt": "Course preview from Natchez Trace Gran Fondo race footage",
+        "credit": "YouTube / Everything's Been Done",
+        "gif": true
+      }
+    ]
   }
 }

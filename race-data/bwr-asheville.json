@@ -508,7 +508,164 @@
           "category": "course_difficulty",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Late climb near end",
+            "description": "Very steep climb in final 15 miles where riders stand in third gear going only two miles per hour. One rider noted they really like to lay it on at the end.",
+            "source_video_ids": [
+              "4EGThIcsKhs"
+            ]
+          },
+          {
+            "name": "Downhill turn",
+            "description": "Technical downhill turn where tire can slide out. One rider crashed here when their tire came out from under them on a turn coming down the hill.",
+            "source_video_ids": [
+              "76g65LWSm8k"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Some gravel roads described as sick and riders wanting to live on them. However, some South Carolina road sections worse than the gravel.",
+            "source_video_ids": [
+              "4EGThIcsKhs"
+            ]
+          },
+          {
+            "text": "Almost all the climbing is on gravel, making it extremely difficult and demanding on your bike.",
+            "source_video_ids": [
+              "76g65LWSm8k"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "Upgraded from 11-26 to 11-36 cassette for the climbing. Rider said they definitely didn't have enough gears with the 11-26 from previous race.",
+            "source_video_ids": [
+              "76g65LWSm8k"
+            ]
+          },
+          {
+            "text": "35mm tires used for the 50 percent gravel, 50 percent road mix.",
+            "source_video_ids": [
+              "76g65LWSm8k"
+            ]
+          }
+        ],
+        "race_day_tips": [
+          {
+            "text": "This is going to be the longest hundred miles you've ever done. From mile five to mile 95 people are going to be in the hurt locker all day long.",
+            "source_video_ids": [
+              "76g65LWSm8k"
+            ]
+          },
+          {
+            "text": "No long pavement roll out or cruise into finish - it's going to be demanding from start to finish all day long with sections coming fast.",
+            "source_video_ids": [
+              "76g65LWSm8k"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "Race was shortened twice due to flooding from rain during the week, going from originally 140 miles down to 98 miles.",
+            "source_video_id": "76g65LWSm8k",
+            "source_channel": "Kris Webster",
+            "source_view_count": 4073,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "This is the first year they're doing the asheville edition. It was supposed to be last year but due to covid they had to cancel that and then it was supposed to be earlier this year and then they moved it to August.",
+            "source_video_id": "4EGThIcsKhs",
+            "source_channel": "Alan Cross",
+            "source_view_count": 9061,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "Belgian Waffle Ride Asheville is described as an extremely demanding 98-mile course with 10,000 feet of climbing, split 50 percent gravel and 50 percent road. Almost all climbing occurs on gravel surfaces. The race presents continuous difficulty with no easy roll-out or cruise sections, keeping riders in the hurt locker from mile 5 to 95. Key challenges include very steep late-race climbs where riders stand in third gear moving only two miles per hour, and technical downhill turns where tires can slide out. The course was shortened twice from an original 140 miles due to flooding. Riders recommend 35mm tires and suggest upgrading to an 11-36 cassette for adequate gearing. The inaugural Asheville edition was delayed from 2020 due to COVID and moved to August 2021. Race conditions included some rain during the final sections."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "bwr-asheville-video-1.jpg",
+        "url": "/race-photos/bwr-asheville/bwr-asheville-video-1.jpg",
+        "alt": "First-person view from cyclist handlebars on wooded gravel road with aerobars visible during BWR Asheville race - Belgian Waffle Ride Asheville - Asheville, North Carolina",
+        "credit": "YouTube / Alan Cross",
+        "primary": true,
+        "ai_relevance": 4,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel road",
+          "wooded trail",
+          "aerobars",
+          "first person view",
+          "forest cycling"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "bwr-asheville-video-2.jpg",
+        "url": "/race-photos/bwr-asheville/bwr-asheville-video-2.jpg",
+        "alt": "Two cyclists racing on gravel forest trail with power meter data overlay showing BWR Asheville competition - Belgian Waffle Ride Asheville - Asheville, North Carolina",
+        "credit": "YouTube / Alan Cross",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel racing",
+          "forest trail",
+          "peloton",
+          "power meter",
+          "Asheville cycling"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "bwr-asheville-video-3.jpg",
+        "url": "/race-photos/bwr-asheville/bwr-asheville-video-3.jpg",
+        "alt": "Group of cyclists in colorful jerseys riding through wooded gravel section during BWR Asheville with performance data visible - Belgian Waffle Ride Asheville - Asheville, North Carolina",
+        "credit": "YouTube / Alan Cross",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel peloton",
+          "forest cycling",
+          "racing group",
+          "wooded gravel",
+          "BWR Asheville"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "bwr-asheville-preview.gif",
+        "url": "/race-photos/bwr-asheville/bwr-asheville-preview.gif",
+        "alt": "Course preview from Bwr Asheville race footage",
+        "credit": "YouTube / Alan Cross",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "bwr-asheville-preview-2.gif",
+        "url": "/race-photos/bwr-asheville/bwr-asheville-preview-2.gif",
+        "alt": "Course preview from Bwr Asheville race footage",
+        "credit": "YouTube / Alan Cross",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "bwr-asheville-preview-3.gif",
+        "url": "/race-photos/bwr-asheville/bwr-asheville-preview-3.gif",
+        "alt": "Course preview from Bwr Asheville race footage",
+        "credit": "YouTube / Alan Cross",
+        "gif": true
+      }
+    ]
   }
 }

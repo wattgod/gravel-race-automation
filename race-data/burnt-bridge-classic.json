@@ -590,7 +590,150 @@
           "category": "course_difficulty",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "15K Mark Active Logging Area",
+            "mile_marker": "9",
+            "description": "Riders go through an area that is actively being logged with equipment present. There are two big signs that say stop but riders should proceed through.",
+            "source_video_ids": [
+              "RVzCp_80ywk"
+            ]
+          },
+          {
+            "name": "First Climb",
+            "description": "Riders report this as a steep hill that creates gaps early in the race. Racers were hammering pretty good right away and it requires steady pacing to get over the top.",
+            "source_video_ids": [
+              "RVzCp_80ywk",
+              "TEDTfHS9D5I"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Logging roads are great for gravel riding with nothing super technical, allowing for smooth riding.",
+            "source_video_ids": [
+              "RVzCp_80ywk",
+              "TEDTfHS9D5I"
+            ]
+          },
+          {
+            "text": "Mixed terrain includes pavement, lots of gravel paths, epic fire roads, and some single track sections.",
+            "source_video_ids": [
+              "K3J6uOLb8bY"
+            ]
+          },
+          {
+            "text": "Course is quite hilly throughout with significant climbing that provides a good workout even on the shorter routes.",
+            "source_video_ids": [
+              "RVzCp_80ywk"
+            ]
+          }
+        ],
+        "gear_mentions": [],
+        "race_day_tips": [
+          {
+            "text": "Start steady on the climbs rather than hammering early when gaps get created on the first climb.",
+            "source_video_ids": [
+              "TEDTfHS9D5I"
+            ]
+          },
+          {
+            "text": "Be prepared for flats as quite a few people were seen with flat tires during the race.",
+            "source_video_ids": [
+              "RVzCp_80ywk"
+            ]
+          },
+          {
+            "text": "Weather can change quickly so having rain jackets is recommended as riders raced to beat incoming rain.",
+            "source_video_ids": [
+              "RVzCp_80ywk"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "We were told this morning during the safety briefing that there has been a cougar sighting out on this course which is not really surprising given that the last time we were here for the Cowichan Crusher we ran into Rangers who are out here with their dogs looking for a cougar.",
+            "source_video_id": "RVzCp_80ywk",
+            "source_channel": "PIQUE PICTURES",
+            "source_view_count": 1108,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "The course is incredibly well marked. Never gonna make a wrong turn and the aid stations right where they needed to be.",
+            "source_video_id": "TEDTfHS9D5I",
+            "source_channel": "Burnt Bridge Classic Gravel Fondo",
+            "source_view_count": 910,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "The Burnt Bridge Classic features mixed terrain including logging roads, gravel paths, pavement, fire roads and single track sections in the Cowichan Valley. The course is quite hilly throughout with a particularly challenging first climb that creates early gaps and requires steady pacing. At the 15K mark, riders pass through an active logging area with equipment present. The terrain is described as great for gravel riding with nothing super technical, allowing for smooth riding after the initial climbs. Riders report the course is incredibly well marked with aid stations positioned appropriately. Weather can change quickly with potential rain, and flat tires are common. Wildlife including cougars have been sighted in the area. The event offers multiple distance options and maintains a grassroots, low-key atmosphere while providing solid climbing challenges and beautiful scenery around Shawnigan Lake."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "burnt-bridge-classic-video-1.jpg",
+        "url": "/race-photos/burnt-bridge-classic/burnt-bridge-classic-video-1.jpg",
+        "alt": "First-person view of cyclist following another rider up a dirt gravel road through dense Pacific Northwest forest with moss-covered trees and ferns - Burnt Bridge Classic - Cowichan Valley, British Columbia",
+        "credit": "YouTube / PIQUE PICTURES",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel road",
+          "forest trail",
+          "Pacific Northwest",
+          "dirt climb",
+          "moss covered trees"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "burnt-bridge-classic-video-2.jpg",
+        "url": "/race-photos/burnt-bridge-classic/burnt-bridge-classic-video-2.jpg",
+        "alt": "Gravel cyclist riding dirt road through logged forest area with cleared ferns and evergreen trees under overcast sky - Burnt Bridge Classic - Cowichan Valley, British Columbia",
+        "credit": "YouTube / PIQUE PICTURES",
+        "primary": false,
+        "ai_relevance": 4,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "dirt road",
+          "logged forest",
+          "overcast",
+          "evergreen trees",
+          "forest clearing"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "burnt-bridge-classic-video-3.jpg",
+        "url": "/race-photos/burnt-bridge-classic/burnt-bridge-classic-video-3.jpg",
+        "alt": "Handlebar-mounted camera view showing cyclist's hands on aerobars following other riders on dirt gravel road through lush green forest - Burnt Bridge Classic - Cowichan Valley, British Columbia",
+        "credit": "YouTube / PIQUE PICTURES",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "aerobars",
+          "dirt gravel",
+          "forest road",
+          "first person view",
+          "lush forest"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "burnt-bridge-classic-preview.gif",
+        "url": "/race-photos/burnt-bridge-classic/burnt-bridge-classic-preview.gif",
+        "alt": "Course preview from Burnt Bridge Classic race footage",
+        "credit": "YouTube / PIQUE PICTURES",
+        "gif": true
+      }
+    ]
   }
 }

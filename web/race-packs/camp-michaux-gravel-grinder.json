@@ -1,6 +1,7 @@
 {
   "slug": "camp-michaux-gravel-grinder",
   "race_name": "Camp Michaux Gravel Grinder",
+  "distance_mi": 50.0,
   "demands": {
     "durability": 2,
     "climbing": 5,
@@ -19,7 +20,8 @@
         "Single Sustained Threshold",
         "Threshold Ramps",
         "Descending Threshold"
-      ]
+      ],
+      "workout_context": "Camp Michaux Gravel Grinder rewards athletes who can hold sustained power without blowing up \u2014 threshold is the engine that drives everything above Zone 2."
     },
     {
       "category": "Over_Under",
@@ -27,7 +29,8 @@
       "workouts": [
         "Classic Over-Unders",
         "Ladder Over-Unders"
-      ]
+      ],
+      "workout_context": "Over-unders train the lactate clearance you\u2019ll need at Camp Michaux Gravel Grinder when surges push you above threshold and you have to recover while still riding hard."
     },
     {
       "category": "G_Spot",
@@ -36,7 +39,8 @@
         "G-Spot Standard",
         "G-Spot Extended",
         "Criss-Cross"
-      ]
+      ],
+      "workout_context": "The G-Spot zone (88\u201392% FTP) is where you\u2019ll spend the hardest sustained miles of Camp Michaux Gravel Grinder. Make this intensity feel like home."
     },
     {
       "category": "Gravel_Specific",
@@ -44,7 +48,8 @@
       "workouts": [
         "Surge and Settle",
         "Terrain Microbursts"
-      ]
+      ],
+      "workout_context": "Camp Michaux Gravel Grinder\u2019s pennsylvania rolling, local event demands rapid power changes \u2014 surge over obstacles, settle on smoother sections, repeat for hours."
     },
     {
       "category": "Mixed_Climbing",
@@ -52,9 +57,80 @@
       "workouts": [
         "Seated/Standing Climbs",
         "Variable Grade Simulation"
-      ]
+      ],
+      "workout_context": "The varied gradients at Camp Michaux Gravel Grinder reward climbing adaptability \u2014 knowing when to sit, when to stand, and when to switch."
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 59,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ],
+      "workout_context": "Racing Camp Michaux Gravel Grinder isn\u2019t just fitness \u2014 it\u2019s pacing, fueling, and executing when conditions deteriorate. This workout practices the race itself."
+    },
+    {
+      "category": "Durability",
+      "score": 49,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ],
+      "workout_context": "Camp Michaux Gravel Grinder\u2019s pennsylvania rolling gravel drains energy reserves faster than the distance suggests \u2014 durability training bridges the gap."
+    },
+    {
+      "category": "Norwegian_Double",
+      "score": 47,
+      "workouts": [
+        "Norwegian 4x8 Classic",
+        "Double Threshold"
+      ],
+      "workout_context": "The Norwegian double-threshold method builds the sustained power base for Camp Michaux Gravel Grinder \u2014 massive training stimulus without the recovery cost of VO2max work."
+    },
+    {
+      "category": "VO2max",
+      "score": 43,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ],
+      "workout_context": "Camp Michaux Gravel Grinder\u2019s pennsylvania rolling gravel and competitive field demand explosive aerobic capacity \u2014 the ability to respond to surges without blowing up."
+    },
+    {
+      "category": "Critical_Power",
+      "score": 43,
+      "workouts": [
+        "Above CP Repeats",
+        "W-Prime Depletion"
+      ],
+      "workout_context": "Critical power determines how long you can sustain above-threshold efforts at Camp Michaux Gravel Grinder \u2014 a higher CP means more time in the red before failure."
+    },
+    {
+      "category": "SFR_Muscle_Force",
+      "score": 39,
+      "workouts": [
+        "SFR Low Cadence",
+        "Force Repeats"
+      ],
+      "workout_context": "Low-cadence force work builds the muscular strength for Camp Michaux Gravel Grinder\u2019s 4,000ft of climbing \u2014 especially the grinding, low-speed ascents."
+    },
+    {
+      "category": "Endurance",
+      "score": 33,
+      "workouts": [
+        "Pre-Race Openers",
+        "Terrain Simulation Z2"
+      ],
+      "workout_context": "Every session at Camp Michaux Gravel Grinder intensity builds on this aerobic foundation \u2014 the endurance base is the soil everything else grows in."
     }
   ],
+  "race_overlay": {
+    "nutrition": "Target 40\u201360g carbs/hour for Camp Michaux Gravel Grinder\u2019s 50 miles. Front-load calories in the first half. One bottle per hour minimum, more in heat.",
+    "terrain": "Mixed terrain at Camp Michaux Gravel Grinder requires surface adaptability. Include weekly rides on pennsylvania rolling gravel to build confidence. Expect: pennsylvania rolling, local event, northeast gravel."
+  },
   "pack_summary": "This 10-workout pack focuses on TT Threshold, Over Under, and G Spot to prepare you for 50 miles of pennsylvania rolling gravel in Gardners, Pennsylvania.",
   "generated_at": "2026-02-26"
 }

@@ -637,6 +637,67 @@
         }
       ],
       "quotes": []
-    }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "serenissima-gravel-video-1.jpg",
+        "url": "/race-photos/serenissima-gravel/serenissima-gravel-video-1.jpg",
+        "alt": "First-person view from handlebars cycling on gravel road through rural countryside with green fields and small bridge - Serenissima Gravel - Venice, Italy",
+        "credit": "YouTube / Non solo GravelAndre",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel road",
+          "first-person cycling",
+          "rural countryside",
+          "bridge crossing",
+          "handlebar view"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "serenissima-gravel-video-2.jpg",
+        "url": "/race-photos/serenissima-gravel/serenissima-gravel-video-2.jpg",
+        "alt": "Historic Italian villa with classical architecture and brick walls along paved street in Veneto region - Serenissima Gravel - Venice, Italy",
+        "credit": "YouTube / Non solo GravelAndre",
+        "primary": false,
+        "ai_relevance": 2,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "Italian villa",
+          "Veneto architecture",
+          "classical building",
+          "brick walls",
+          "historic mansion"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "serenissima-gravel-video-3.jpg",
+        "url": "/race-photos/serenissima-gravel/serenissima-gravel-video-3.jpg",
+        "alt": "Indoor scene of cyclist eating meal at table with coffee and food during race interview or break - Serenissima Gravel - Venice, Italy",
+        "credit": "YouTube / Non solo GravelAndre",
+        "primary": false,
+        "ai_relevance": 1,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "cyclist meal",
+          "race nutrition",
+          "indoor dining",
+          "coffee break",
+          "rider interview"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "serenissima-gravel-preview.gif",
+        "url": "/race-photos/serenissima-gravel/serenissima-gravel-preview.gif",
+        "alt": "Course preview from Serenissima Gravel race footage",
+        "credit": "YouTube / Non solo GravelAndre",
+        "gif": true
+      }
+    ]
   }
 }

@@ -1,6 +1,7 @@
 {
   "slug": "fuego-xl",
   "race_name": "Sea Otter Fuego XL",
+  "distance_mi": 70.0,
   "demands": {
     "durability": 2,
     "climbing": 8,
@@ -19,7 +20,8 @@
         "Breakaway Simulation",
         "Variable Pace Chaos",
         "Sector Simulation"
-      ]
+      ],
+      "workout_context": "Racing Sea Otter Fuego XL isn\u2019t just fitness \u2014 it\u2019s pacing, fueling, and executing when conditions deteriorate. This workout practices the race itself."
     },
     {
       "category": "Gravel_Specific",
@@ -27,7 +29,8 @@
       "workouts": [
         "Surge and Settle",
         "Terrain Microbursts"
-      ]
+      ],
+      "workout_context": "Sea Otter Fuego XL\u2019s mixed terrain demands rapid power changes \u2014 surge over obstacles, settle on smoother sections, repeat for hours."
     },
     {
       "category": "VO2max",
@@ -36,7 +39,8 @@
         "5x3 VO2 Classic",
         "Descending VO2 Pyramid",
         "Norwegian 4x8"
-      ]
+      ],
+      "workout_context": "Sea Otter Fuego XL\u2019s mixed terrain and competitive field demand explosive aerobic capacity \u2014 the ability to respond to surges without blowing up."
     },
     {
       "category": "TT_Threshold",
@@ -45,7 +49,8 @@
         "Single Sustained Threshold",
         "Threshold Ramps",
         "Descending Threshold"
-      ]
+      ],
+      "workout_context": "Sea Otter Fuego XL rewards athletes who can hold sustained power without blowing up \u2014 threshold is the engine that drives everything above Zone 2."
     },
     {
       "category": "Over_Under",
@@ -53,9 +58,79 @@
       "workouts": [
         "Classic Over-Unders",
         "Ladder Over-Unders"
-      ]
+      ],
+      "workout_context": "Over-unders train the lactate clearance you\u2019ll need at Sea Otter Fuego XL when surges push you above threshold and you have to recover while still riding hard."
+    },
+    {
+      "category": "Critical_Power",
+      "score": 69,
+      "workouts": [
+        "Above CP Repeats",
+        "W-Prime Depletion"
+      ],
+      "workout_context": "Critical power determines how long you can sustain above-threshold efforts at Sea Otter Fuego XL \u2014 a higher CP means more time in the red before failure."
+    },
+    {
+      "category": "Anaerobic_Capacity",
+      "score": 67,
+      "workouts": [
+        "2min Killers",
+        "90sec Repeats"
+      ],
+      "workout_context": "Short, violent efforts are unavoidable at Sea Otter Fuego XL \u2014 climbs demanding 2-minute maximal efforts, surges to close gaps, attacks on mixed terrain."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 62,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "Sea Otter Fuego XL\u2019s 7,800ft of climbing demands seated and standing versatility \u2014 the ability to change climbing style as gradient and fatigue dictate."
+    },
+    {
+      "category": "G_Spot",
+      "score": 59,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ],
+      "workout_context": "The G-Spot zone (88\u201392% FTP) is where you\u2019ll spend the hardest sustained miles of Sea Otter Fuego XL. Make this intensity feel like home."
+    },
+    {
+      "category": "Durability",
+      "score": 54,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ],
+      "workout_context": "Sea Otter Fuego XL\u2019s mixed terrain drains energy reserves faster than the distance suggests \u2014 durability training bridges the gap."
+    },
+    {
+      "category": "SFR_Muscle_Force",
+      "score": 41,
+      "workouts": [
+        "SFR Low Cadence",
+        "Force Repeats"
+      ],
+      "workout_context": "Low-cadence force work builds the muscular strength for Sea Otter Fuego XL\u2019s 7,800ft of climbing \u2014 especially the grinding, low-speed ascents."
+    },
+    {
+      "category": "Blended",
+      "score": 33,
+      "workouts": [
+        "Z2 + VO2 Combo",
+        "Endurance with Spikes"
+      ],
+      "workout_context": "Blended sessions combine endurance with intensity spikes \u2014 exactly what Sea Otter Fuego XL\u2019s mixed terrain delivers on race day."
     }
   ],
+  "race_overlay": {
+    "nutrition": "Target 40\u201360g carbs/hour for Sea Otter Fuego XL\u2019s 70 miles. Front-load calories in the first half. One bottle per hour minimum, more in heat.",
+    "terrain": "Mixed terrain at Sea Otter Fuego XL requires surface adaptability. Include weekly rides on mixed terrain to build confidence."
+  },
   "pack_summary": "This 10-workout pack focuses on Race Simulation, Gravel Specific, and VO2max to prepare you for 70 miles of mixed terrain in Monterey, California.",
   "generated_at": "2026-02-26"
 }

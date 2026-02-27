@@ -546,7 +546,131 @@
           "category": "race_atmosphere",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "sand dispatch",
+            "mile_marker": "80",
+            "description": "6.8 miles of sand that was just unbelievable and took a lot of time to get through",
+            "source_video_ids": [
+              "ZoCCyzmw5Eg"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Pretty sandy conditions throughout, with rocks all over the place that require careful cornering",
+            "source_video_ids": [
+              "ZoCCyzmw5Eg"
+            ]
+          },
+          {
+            "text": "Sandy grovely surface that requires taking corners carefully",
+            "source_video_ids": [
+              "ZoCCyzmw5Eg"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "Redshift cruise control system was loved by the rider",
+            "source_video_ids": [
+              "ZoCCyzmw5Eg"
+            ]
+          }
+        ],
+        "race_day_tips": [],
+        "additional_quotes": [
+          {
+            "text": "It was about a seven hour drive to Cable, Wisconsin on small lane single lane roads",
+            "source_video_id": "ZoCCyzmw5Eg",
+            "source_channel": "iowagravelgang",
+            "source_view_count": 2009,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "The campsite was about 30 bucks for the night with water, electricity and a lake view - not a bad price",
+            "source_video_id": "ZoCCyzmw5Eg",
+            "source_channel": "iowagravelgang",
+            "source_view_count": 2009,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "It feels like being out west in Montana - the landscape here, the trees, it was really good course I definitely recommend this race",
+            "source_video_id": "ZoCCyzmw5Eg",
+            "source_channel": "iowagravelgang",
+            "source_view_count": 2009,
+            "category": "course_difficulty",
+            "curated": true
+          }
+        ],
+        "search_text": "The Hungry Bear 100 in Cable, Wisconsin features challenging sandy terrain throughout the course, with rocks scattered across the route requiring careful cornering. The most significant challenge comes around mile 80 with a 6.8-mile section called sand dispatch that riders describe as unbelievable and time-consuming to navigate. The actual distance was 91 miles with about 7000 feet of climbing rather than the expected 10,000 feet. The sandy, grovely surface demands technical handling skills. Despite the challenges, riders praise the beautiful landscape that feels like being out west in Montana, with stunning trees and scenery. The course offers a mix of steep hills and technical terrain, making it a memorable and recommended gravel race experience in Wisconsin's northwoods."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "hungry-bear-100-video-1.jpg",
+        "url": "/race-photos/hungry-bear-100/hungry-bear-100-video-1.jpg",
+        "alt": "Large peloton of cyclists racing on paved road through wooded area with green grass fields during Hungry Bear 100 gravel race - Cable, Wisconsin",
+        "credit": "YouTube / Dave",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "cycling peloton",
+          "gravel race",
+          "wooded terrain",
+          "group ride",
+          "paved road"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "hungry-bear-100-video-2.jpg",
+        "url": "/race-photos/hungry-bear-100/hungry-bear-100-video-2.jpg",
+        "alt": "First-person view from cyclist following another rider on paved road through forested area during gravel cycling event - Hungry Bear 100 - Cable, Wisconsin",
+        "credit": "YouTube / Dave",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "first person cycling",
+          "paved road",
+          "forest ride",
+          "gravel cycling",
+          "bike computer"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "hungry-bear-100-video-3.jpg",
+        "url": "/race-photos/hungry-bear-100/hungry-bear-100-video-3.jpg",
+        "alt": "Vehicle crossing concrete bridge over river with construction barrels and metal arch structure during race support - Hungry Bear 100 - Cable, Wisconsin",
+        "credit": "YouTube / Dave",
+        "primary": false,
+        "ai_relevance": 2,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "bridge crossing",
+          "river bridge",
+          "construction zone",
+          "concrete bridge",
+          "support vehicle"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "hungry-bear-100-preview.gif",
+        "url": "/race-photos/hungry-bear-100/hungry-bear-100-preview.gif",
+        "alt": "Course preview from Hungry Bear 100 race footage",
+        "credit": "YouTube / Dave",
+        "gif": true
+      }
+    ]
   }
 }

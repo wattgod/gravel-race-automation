@@ -527,7 +527,196 @@
           "category": "course_difficulty",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "First Gravel Section",
+            "description": "Immediately after neutral section ends, course becomes extremely dusty. Riders report being covered in dust and bikes becoming filthy after just the first gravel section.",
+            "source_video_ids": [
+              "8Sk4C2E9jVU"
+            ]
+          },
+          {
+            "name": "Single Track Section",
+            "description": "Very bumpy and fun section described as almost like a cyclocross race before returning to smooth tarmac.",
+            "source_video_ids": [
+              "8Sk4C2E9jVU"
+            ]
+          },
+          {
+            "name": "Five Mile Climb",
+            "description": "Described as a 1,000 foot climb which riders note as bigger than most have done before. Steep climbs throughout the course challenge even fast gravel climbers.",
+            "source_video_ids": [
+              "OiFzXrA_oko",
+              "vkgC2H8lgOY"
+            ]
+          },
+          {
+            "name": "Washboardy Downhill",
+            "description": "Technical downhill section with washboard surface where excited riders pass frequently, described as scary by some participants.",
+            "source_video_ids": [
+              "OiFzXrA_oko"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "The champagne gravel is described as fine little pebbles like bubbles in champagne. It's fast, so fast, making Steamboat Gravel historically a fast course.",
+            "source_video_ids": [
+              "OiFzXrA_oko"
+            ]
+          },
+          {
+            "text": "Course becomes extremely dusty immediately after the first gravel section. Riders report being covered in dust and bikes becoming completely filthy very early in the race.",
+            "source_video_ids": [
+              "8Sk4C2E9jVU"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "Rider used Ribble Gravel SL with carbon frame, noting all components are completely changeable so you can adjust stem or handlebar sizes unlike other brands where you get what you're given.",
+            "source_video_ids": [
+              "8Sk4C2E9jVU"
+            ]
+          }
+        ],
+        "race_day_tips": [
+          {
+            "text": "Better to ride your own pace rather than trying to stay with a group pushing out of your comfort zone. Slow and steady definitely wins the race in this case.",
+            "source_video_ids": [
+              "8Sk4C2E9jVU"
+            ]
+          },
+          {
+            "text": "Start out slow and just see how the day comes. See how you feel. You need to keep checking in with yourself because sometimes you can forget how far you have to go.",
+            "source_video_ids": [
+              "8Sk4C2E9jVU",
+              "OiFzXrA_oko"
+            ]
+          },
+          {
+            "text": "Pack as much food as possible in back pockets. One rider reported physically not being able to fit any more food in their pockets before the race.",
+            "source_video_ids": [
+              "8Sk4C2E9jVU"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "Three months and two days ago I threw my name into the hat to try and ride the steamboat gravel race in the heart of the rockies and it wasn't just any of the four loops that you could choose from but the longest one 224 kilometer gravel loop",
+            "source_video_id": "8Sk4C2E9jVU",
+            "source_channel": "Global Cycling Network",
+            "source_view_count": 415205,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "SBT gravel is an event that takes place over 4 days. So, the first two days are an expo. Saturday is our ride day with three course distances: blue course 100 miles, red course 55 miles, and green course 37 miles. Sunday we have our race for both amateurs and professionals.",
+            "source_video_id": "OiFzXrA_oko",
+            "source_channel": "Outside TV",
+            "source_view_count": 12794,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "SBT Gravel in Steamboat Springs features the famous champagne gravel - fine pebbles that create an extremely fast racing surface. The course becomes intensely dusty immediately after the first gravel section, covering riders and bikes completely. Key challenges include a grueling five-mile, 1,000-foot climb that tests even elite gravel climbers, technical single track sections resembling cyclocross, and scary washboard downhills where excited riders frequently pass. The altitude makes racing feel insanely fast and presents a significant challenge. The event spans four days with expo activities, multiple course distances from 37 to 100+ miles, and attracts 1,800+ riders from all backgrounds. Riders emphasize pacing strategy over group riding, recommending starting slow and checking in with yourself throughout the long distance. The course plays to different strengths with 90% favoring certain rider types, but steep climbs require conservative pacing and altitude management."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "steamboat-gravel-video-1.jpg",
+        "url": "/race-photos/steamboat-gravel/steamboat-gravel-video-1.jpg",
+        "alt": "Cyclists racing on gravel road through rolling hills with aspen groves and mountain views in Colorado terrain - SBT GRVL - Steamboat Springs, Colorado",
+        "credit": "YouTube / Outside TV",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel road",
+          "Colorado hills",
+          "aspen trees",
+          "cycling peloton",
+          "mountain terrain"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "steamboat-gravel-video-2.jpg",
+        "url": "/race-photos/steamboat-gravel/steamboat-gravel-video-2.jpg",
+        "alt": "Steamboat Gravel race finish line with cyclists sprinting under SBT GRVL banner and spectator crowds - Steamboat Springs, Colorado",
+        "credit": "YouTube / Outside TV",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "SBT GRVL",
+          "finish line",
+          "race sprint",
+          "Steamboat Gravel",
+          "cycling event"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "steamboat-gravel-video-3.jpg",
+        "url": "/race-photos/steamboat-gravel/steamboat-gravel-video-3.jpg",
+        "alt": "Gravel cyclists at aid station refueling with support crew in rural Colorado mountain setting - SBT GRVL - Steamboat Springs, Colorado",
+        "credit": "YouTube / Outside TV",
+        "primary": false,
+        "ai_relevance": 4,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "aid station",
+          "gravel cycling",
+          "Colorado mountains",
+          "race support",
+          "cyclist refueling"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "steamboat-gravel-preview.gif",
+        "url": "/race-photos/steamboat-gravel/steamboat-gravel-preview.gif",
+        "alt": "Course preview from Steamboat Gravel race footage",
+        "credit": "YouTube / Outside TV",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "steamboat-gravel-preview-2.gif",
+        "url": "/race-photos/steamboat-gravel/steamboat-gravel-preview-2.gif",
+        "alt": "Course preview from Steamboat Gravel race footage",
+        "credit": "YouTube / Outside TV",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "steamboat-gravel-preview-3.gif",
+        "url": "/race-photos/steamboat-gravel/steamboat-gravel-preview-3.gif",
+        "alt": "Course preview from Steamboat Gravel race footage",
+        "credit": "YouTube / Outside TV",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "steamboat-gravel-preview-4.gif",
+        "url": "/race-photos/steamboat-gravel/steamboat-gravel-preview-4.gif",
+        "alt": "Course preview from Steamboat Gravel race footage",
+        "credit": "YouTube / Outside TV",
+        "gif": true
+      },
+      {
+        "type": "preview-gif",
+        "file": "steamboat-gravel-preview-5.gif",
+        "url": "/race-photos/steamboat-gravel/steamboat-gravel-preview-5.gif",
+        "alt": "Course preview from Steamboat Gravel race footage",
+        "credit": "YouTube / Outside TV",
+        "gif": true
+      }
+    ]
   }
 }

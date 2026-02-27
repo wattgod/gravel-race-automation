@@ -373,7 +373,137 @@
           "category": "course_difficulty",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "River Crossings",
+            "description": "More than 10 river crossings throughout the course with a lot of mud.",
+            "source_video_ids": [
+              "aPbFnls1RJI"
+            ]
+          },
+          {
+            "name": "Final 4km",
+            "mile_marker": "51",
+            "description": "Thick mud in the final 4 kilometers after already completing 85km, requiring riders to push their bikes.",
+            "source_video_ids": [
+              "AKd4A6QANvI"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Very muddy conditions due to heavy rain, with thick mud that forces riders to push their bikes rather than ride.",
+            "source_video_ids": [
+              "aPbFnls1RJI",
+              "AKd4A6QANvI"
+            ]
+          },
+          {
+            "text": "Course features more than 10 river crossings combined with extensive muddy sections.",
+            "source_video_ids": [
+              "aPbFnls1RJI"
+            ]
+          }
+        ],
+        "gear_mentions": [],
+        "race_day_tips": [
+          {
+            "text": "Get comprehensive travel insurance - one rider got sick from traveling and needed to see doctors three times, costing over 200 dollars but was fully covered.",
+            "source_video_ids": [
+              "aPbFnls1RJI"
+            ]
+          },
+          {
+            "text": "Plan to focus on finishing rather than competing for position due to the extreme conditions.",
+            "source_video_ids": [
+              "AKd4A6QANvI"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "I would actually say this was the hardest gravel race I actually participated in but also a very very fun trip.",
+            "source_video_id": "aPbFnls1RJI",
+            "source_channel": "Jasper Tan",
+            "source_view_count": 22608,
+            "category": "course_difficulty",
+            "curated": true
+          },
+          {
+            "text": "My legs are shot. My arms are shot. I have nothing in the building. I'm pushing. He's pushing with my hand. Pushing.",
+            "source_video_id": "AKd4A6QANvI",
+            "source_channel": "junglechef1",
+            "source_view_count": 157,
+            "category": "course_difficulty",
+            "curated": true
+          }
+        ],
+        "search_text": "The UCI Gravel Dustman in Kanchanaburi, Thailand presents extreme muddy conditions due to heavy rainfall, earning it the nickname 'mud man' from participants. The 81-mile course features more than 10 river crossings combined with extensive muddy terrain that forces riders to dismount and push their bikes, particularly in the final 4 kilometers. One experienced rider described it as the hardest gravel race they had participated in. The thick mud becomes especially challenging after 85 kilometers when riders report their legs and arms being completely exhausted from the conditions. The race takes place at the Eva Hotel with registration expo the day before. Despite the brutal conditions that leave riders physically drained, participants describe the experience as very fun and rewarding, though the muddy terrain dominates the racing experience throughout the course."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "uci-gravel-dustman-video-1.jpg",
+        "url": "/race-photos/uci-gravel-dustman/uci-gravel-dustman-video-1.jpg",
+        "alt": "Empty wet gravel road with yellow center line curves through lush green tropical vegetation under overcast skies - UCI Gravel Dustman - Kanchanaburi, Thailand",
+        "credit": "YouTube / Christopher Kröner",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel road",
+          "wet conditions",
+          "tropical terrain",
+          "curved road",
+          "yellow centerline"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "uci-gravel-dustman-video-2.jpg",
+        "url": "/race-photos/uci-gravel-dustman/uci-gravel-dustman-video-2.jpg",
+        "alt": "Cycling peloton racing on wet paved road through tropical landscape during gravel race event - UCI Gravel Dustman - Kanchanaburi, Thailand",
+        "credit": "YouTube / Christopher Kröner",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "cycling peloton",
+          "wet road racing",
+          "tropical cycling",
+          "group ride",
+          "road racing"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "uci-gravel-dustman-video-3.jpg",
+        "url": "/race-photos/uci-gravel-dustman/uci-gravel-dustman-video-3.jpg",
+        "alt": "Two people in cycling helmets conducting indoor interview at covered pavilion with tropical landscape visible in background - UCI Gravel Dustman - Kanchanaburi, Thailand",
+        "credit": "YouTube / Christopher Kröner",
+        "primary": false,
+        "ai_relevance": 2,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "cycling interview",
+          "indoor pavilion",
+          "tropical setting",
+          "cycling helmets",
+          "post-race"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "uci-gravel-dustman-preview.gif",
+        "url": "/race-photos/uci-gravel-dustman/uci-gravel-dustman-preview.gif",
+        "alt": "Course preview from Uci Gravel Dustman race footage",
+        "credit": "YouTube / Christopher Kröner",
+        "gif": true
+      }
+    ]
   }
 }

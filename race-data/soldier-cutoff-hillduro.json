@@ -455,7 +455,83 @@
           "display_order": 1
         }
       ],
-      "quotes": []
-    }
+      "quotes": [],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [],
+        "terrain_notes": [],
+        "gear_mentions": [],
+        "race_day_tips": [],
+        "additional_quotes": [
+          {
+            "text": "My time actually this year was slower than last year, but it was a different course.",
+            "source_video_id": "IAyyK-W3tXY",
+            "source_channel": "Iowa Gravel Series",
+            "source_view_count": 45,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "The transcripts contain limited specific information about the Soldier Cutoff Hillduro race itself. One rider mentions that course changes can affect finishing times even when placement improves, noting their time was slower despite moving from third to second place. The discussions focus primarily on rider backgrounds, with mentions of Nebraska off-road racing experience and participation in various gravel events including Gravel Worlds in Spearfish, South Dakota. Riders discuss cross-training between mountain biking and gravel racing, with technical mountain bike skills helping with gravel racing while gravel endurance training supports mountain biking performance. The conversations include references to Prairie Bloom cycling team and participation in multiple racing formats throughout the season."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "soldier-cutoff-hillduro-video-1.jpg",
+        "url": "/race-photos/soldier-cutoff-hillduro/soldier-cutoff-hillduro-video-1.jpg",
+        "alt": "Bald man with beard gesturing during indoor interview or video call with extensive bookshelf background - Soldier Cutoff Hillduro - Pisgah, Iowa",
+        "credit": "YouTube / Iowa Gravel Series",
+        "primary": true,
+        "ai_relevance": 1,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "interview",
+          "indoor",
+          "bookshelf",
+          "video call"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "soldier-cutoff-hillduro-video-2.jpg",
+        "url": "/race-photos/soldier-cutoff-hillduro/soldier-cutoff-hillduro-video-2.jpg",
+        "alt": "Bald man in black shirt speaking indoors with floor-to-ceiling bookshelf and window visible behind - Soldier Cutoff Hillduro - Pisgah, Iowa",
+        "credit": "YouTube / Iowa Gravel Series",
+        "primary": false,
+        "ai_relevance": 1,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "interview",
+          "indoor",
+          "bookshelf",
+          "speaking"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "soldier-cutoff-hillduro-video-3.jpg",
+        "url": "/race-photos/soldier-cutoff-hillduro/soldier-cutoff-hillduro-video-3.jpg",
+        "alt": "Person wearing colorful face mask or filter during video call in indoor setting with poor lighting - Soldier Cutoff Hillduro - Pisgah, Iowa",
+        "credit": "YouTube / Iowa Gravel Series",
+        "primary": false,
+        "ai_relevance": 1,
+        "ai_quality": 2,
+        "ai_keywords": [
+          "video call",
+          "indoor",
+          "face mask",
+          "interview"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "soldier-cutoff-hillduro-preview.gif",
+        "url": "/race-photos/soldier-cutoff-hillduro/soldier-cutoff-hillduro-preview.gif",
+        "alt": "Course preview from Soldier Cutoff Hillduro race footage",
+        "credit": "YouTube / Iowa Gravel Series",
+        "gif": true
+      }
+    ]
   }
 }

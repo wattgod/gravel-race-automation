@@ -1,6 +1,7 @@
 {
   "slug": "grasshopper-series",
   "race_name": "Grasshopper Adventure Series",
+  "distance_mi": 70.0,
   "demands": {
     "durability": 2,
     "climbing": 7,
@@ -19,7 +20,8 @@
         "Breakaway Simulation",
         "Variable Pace Chaos",
         "Sector Simulation"
-      ]
+      ],
+      "workout_context": "Racing Grasshopper Adventure Series isn\u2019t just fitness \u2014 it\u2019s pacing, fueling, and executing when conditions deteriorate. This workout practices the race itself."
     },
     {
       "category": "Gravel_Specific",
@@ -27,7 +29,8 @@
       "workouts": [
         "Surge and Settle",
         "Terrain Microbursts"
-      ]
+      ],
+      "workout_context": "Grasshopper Adventure Series\u2019s diverse - gravel roads, logging roads, singletrack, pavement. varies significantly by event from 95% dirt (low gap) to 96% paved (king ridge) to 100% off-road (jackson forest) demands rapid power changes \u2014 surge over obstacles, settle on smoother sections, repeat for hours."
     },
     {
       "category": "VO2max",
@@ -36,7 +39,8 @@
         "5x3 VO2 Classic",
         "Descending VO2 Pyramid",
         "Norwegian 4x8"
-      ]
+      ],
+      "workout_context": "Grasshopper Adventure Series\u2019s diverse - gravel roads, logging roads, singletrack, pavement. varies significantly by event from 95% dirt (low gap) to 96% paved (king ridge) to 100% off-road (jackson forest) and competitive field demand explosive aerobic capacity \u2014 the ability to respond to surges without blowing up."
     },
     {
       "category": "TT_Threshold",
@@ -45,7 +49,8 @@
         "Single Sustained Threshold",
         "Threshold Ramps",
         "Descending Threshold"
-      ]
+      ],
+      "workout_context": "Grasshopper Adventure Series rewards athletes who can hold sustained power without blowing up \u2014 threshold is the engine that drives everything above Zone 2."
     },
     {
       "category": "Over_Under",
@@ -53,9 +58,80 @@
       "workouts": [
         "Classic Over-Unders",
         "Ladder Over-Unders"
-      ]
+      ],
+      "workout_context": "Over-unders train the lactate clearance you\u2019ll need at Grasshopper Adventure Series when surges push you above threshold and you have to recover while still riding hard."
+    },
+    {
+      "category": "Critical_Power",
+      "score": 62,
+      "workouts": [
+        "Above CP Repeats",
+        "W-Prime Depletion"
+      ],
+      "workout_context": "Critical power determines how long you can sustain above-threshold efforts at Grasshopper Adventure Series \u2014 a higher CP means more time in the red before failure."
+    },
+    {
+      "category": "G_Spot",
+      "score": 56,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ],
+      "workout_context": "The G-Spot zone (88\u201392% FTP) is where you\u2019ll spend the hardest sustained miles of Grasshopper Adventure Series. Make this intensity feel like home."
+    },
+    {
+      "category": "Anaerobic_Capacity",
+      "score": 56,
+      "workouts": [
+        "2min Killers",
+        "90sec Repeats"
+      ],
+      "workout_context": "Short, violent efforts are unavoidable at Grasshopper Adventure Series \u2014 climbs demanding 2-minute maximal efforts, surges to close gaps, attacks on diverse - gravel roads, logging roads, singletrack, pavement. varies significantly by event from 95% dirt (low gap) to 96% paved (king ridge) to 100% off-road (jackson forest)."
+    },
+    {
+      "category": "Durability",
+      "score": 54,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ],
+      "workout_context": "Grasshopper Adventure Series\u2019s diverse - gravel roads, logging roads, singletrack, pavement. varies significantly by event from 95% dirt (low gap) to 96% paved (king ridge) to 100% off-road (jackson forest) drains energy reserves faster than the distance suggests \u2014 durability training bridges the gap."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 54,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "The varied gradients at Grasshopper Adventure Series reward climbing adaptability \u2014 knowing when to sit, when to stand, and when to switch."
+    },
+    {
+      "category": "SFR_Muscle_Force",
+      "score": 36,
+      "workouts": [
+        "SFR Low Cadence",
+        "Force Repeats"
+      ],
+      "workout_context": "Low-cadence force work builds the muscular strength for Grasshopper Adventure Series\u2019s 4,500ft of climbing \u2014 especially the grinding, low-speed ascents."
+    },
+    {
+      "category": "Blended",
+      "score": 33,
+      "workouts": [
+        "Z2 + VO2 Combo",
+        "Endurance with Spikes"
+      ],
+      "workout_context": "Blended sessions combine endurance with intensity spikes \u2014 exactly what Grasshopper Adventure Series\u2019s diverse - gravel roads, logging roads, singletrack, pavement. varies significantly by event from 95% dirt (low gap) to 96% paved (king ridge) to 100% off-road (jackson forest) delivers on race day."
     }
   ],
+  "race_overlay": {
+    "nutrition": "Target 40\u201360g carbs/hour for Grasshopper Adventure Series\u2019s 70 miles. Front-load calories in the first half. One bottle per hour minimum, more in heat.",
+    "altitude": "Moderate altitude at Grasshopper Adventure Series. Arrive 2\u20133 days early. Reduce intensity expectations by 5\u201310%. Hydrate aggressively.",
+    "terrain": "Mixed terrain at Grasshopper Adventure Series requires surface adaptability. Include weekly rides on diverse - gravel roads, logging roads, singletrack, pavement. varies significantly by event from 95% dirt (low gap) to 96% paved (king ridge) to 100% off-road (jackson forest) to build confidence."
+  },
   "pack_summary": "This 10-workout pack focuses on Race Simulation, Gravel Specific, and VO2max to prepare you for 70 miles of diverse - gravel roads, logging roads, singletrack, pavement. varies significantly by event from 95% dirt (low gap) to 96% paved (king ridge) to 100% off-road (jackson forest) in Northern California.",
   "generated_at": "2026-02-26"
 }

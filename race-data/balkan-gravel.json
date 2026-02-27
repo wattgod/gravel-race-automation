@@ -587,7 +587,137 @@
           "category": "race_atmosphere",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Tunnel section",
+            "description": "Riders describe going through a tunnel with potentially livestock inside as one of the most frightening experiences. One rider called it 'top five of most scary in my life' though they found it empty when they went through.",
+            "source_video_ids": [
+              "hwuapiVeDhY"
+            ]
+          },
+          {
+            "name": "Mountain mechanicals",
+            "description": "Riders got separated due to mechanical issues in the mountains, with one rider experiencing tire problems that caused delays and concern from the group.",
+            "source_video_ids": [
+              "hwuapiVeDhY"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "The gravel is described as 'very rough' and demanding. The route includes rolling gravel with some asphalt sections, but is mostly gravel terrain.",
+            "source_video_ids": [
+              "hwuapiVeDhY",
+              "ofDb7gX1dgw"
+            ]
+          },
+          {
+            "text": "Northern Slovenia has lots of tarmac and big hard packed gravel roads, while southern sections had unexpected challenging bits that caught riders off guard.",
+            "source_video_ids": [
+              "67ICnTbV47E"
+            ]
+          }
+        ],
+        "gear_mentions": [],
+        "race_day_tips": [
+          {
+            "text": "Carry extra drinks for teammates who might have mechanical issues, as riders can get separated in the mountains and lose time.",
+            "source_video_ids": [
+              "hwuapiVeDhY"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "We start by climbing out of the bustling Bay of cotor and once we leave the adventure really begins",
+            "source_video_id": "hwuapiVeDhY",
+            "source_channel": "Lawrence Carpenter",
+            "source_view_count": 938091,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "20 hours in the car man I can't feel my legs ready to race",
+            "source_video_id": "67ICnTbV47E",
+            "source_channel": "The Scandi Flick",
+            "source_view_count": 23841,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "It's the Journey of the destination a cliche you would have heard a thousand times before but as you know cliches exist because they're true",
+            "source_video_id": "67ICnTbV47E",
+            "source_channel": "The Scandi Flick",
+            "source_view_count": 23841,
+            "category": "community",
+            "curated": true
+          }
+        ],
+        "search_text": "The Balkan Gravel race takes riders through challenging terrain across Slovenia and Croatia, featuring demanding and dynamic rolling gravel with some asphalt sections. Riders describe the gravel as very rough and the conditions as very hot. Key challenges include a frightening tunnel section that riders warn about, and mountain terrain where mechanical issues can separate groups and cause significant delays. The northern Slovenia sections feature hard packed gravel roads and tarmac, while southern areas contain unexpected challenging terrain. The route climbs out of the Bay of Kotor and passes through dramatically changing landscapes from bustling areas to remote farmland. Weather conditions have been described as perfect despite expectations of horrible weather, though the heat presents a significant challenge for riders tackling this demanding course through the breathtaking but unforgiving Balkan mountains."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "balkan-gravel-video-1.jpg",
+        "url": "/race-photos/balkan-gravel/balkan-gravel-video-1.jpg",
+        "alt": "First-person view from motorcycle or ATV navigating through dense forest trail with ferns and equipment visible - Balkan Gravel - Slovenia/Croatia",
+        "credit": "YouTube / The Scandi Flick",
+        "primary": true,
+        "ai_relevance": 2,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "forest trail",
+          "first-person view",
+          "dense vegetation",
+          "motorcycle perspective"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "balkan-gravel-video-2.jpg",
+        "url": "/race-photos/balkan-gravel/balkan-gravel-video-2.jpg",
+        "alt": "Two people walking along grassy lakeside path with small boat moored at peaceful forest lake - Balkan Gravel - Slovenia/Croatia",
+        "credit": "YouTube / The Scandi Flick",
+        "primary": false,
+        "ai_relevance": 1,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "lakeside path",
+          "forest lake",
+          "walking",
+          "boat",
+          "peaceful setting"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "balkan-gravel-video-3.jpg",
+        "url": "/race-photos/balkan-gravel/balkan-gravel-video-3.jpg",
+        "alt": "Motorcyclists riding on dirt road through rolling hills and forest landscape in countryside setting - Balkan Gravel - Slovenia/Croatia",
+        "credit": "YouTube / The Scandi Flick",
+        "primary": false,
+        "ai_relevance": 4,
+        "ai_quality": 5,
+        "ai_keywords": [
+          "dirt road",
+          "rolling hills",
+          "countryside",
+          "motorcycle riders",
+          "forest landscape"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "balkan-gravel-preview.gif",
+        "url": "/race-photos/balkan-gravel/balkan-gravel-preview.gif",
+        "alt": "Course preview from Balkan Gravel race footage",
+        "credit": "YouTube / The Scandi Flick",
+        "gif": true
+      }
+    ]
   }
 }

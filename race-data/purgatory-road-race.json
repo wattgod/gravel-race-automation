@@ -594,7 +594,126 @@
           "category": "logistics",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [],
+        "terrain_notes": [
+          {
+            "text": "Texas Hill Country limestone surface that requires checking traction before committing to climbs. Loose gravel descents punish late braking. Embedded rock gardens require precise tire placement.",
+            "source_video_ids": [
+              "TdT5zpslp0U"
+            ]
+          },
+          {
+            "text": "Limestone climbs demand steady momentum, not bursts. Terrain changes mid-climb and traction can shift unexpectedly.",
+            "source_video_ids": [
+              "TdT5zpslp0U"
+            ]
+          }
+        ],
+        "gear_mentions": [
+          {
+            "text": "Riders curious about what tire sizes others will be using for this course.",
+            "source_video_ids": [
+              "EFcD9X-UZaM"
+            ]
+          }
+        ],
+        "race_day_tips": [
+          {
+            "text": "Aid stations are spaced every 50 miles apart, so plan water carefully as you might need three bottles between stops.",
+            "source_video_ids": [
+              "EFcD9X-UZaM"
+            ]
+          },
+          {
+            "text": "No support cars allowed on course, so you must be self-sufficient between aid stations.",
+            "source_video_ids": [
+              "EFcD9X-UZaM"
+            ]
+          },
+          {
+            "text": "Race starts and ends in the dark, so proper lighting is essential.",
+            "source_video_ids": [
+              "EFcD9X-UZaM"
+            ]
+          },
+          {
+            "text": "Two 100-mile loops allow for resupply at the midpoint.",
+            "source_video_ids": [
+              "EFcD9X-UZaM"
+            ]
+          },
+          {
+            "text": "Poor cell phone signal in Hill Country Texas, so conserve phone battery.",
+            "source_video_ids": [
+              "EFcD9X-UZaM"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "No support cars allowed on course so it's not like I can have a follow car that keeps me resupplied the entire time so I will have to take a lot of things along with me",
+            "source_video_id": "EFcD9X-UZaM",
+            "source_channel": "Eric Barnett Cycling",
+            "source_view_count": 1238,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "It's going to be pretty bad cell phone signal here in Hill Country of Texas so I do not want that phone to run out of batteries",
+            "source_video_id": "EFcD9X-UZaM",
+            "source_channel": "Eric Barnett Cycling",
+            "source_view_count": 1238,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "The Purgatory Road Race in Fredericksburg, Texas features challenging Texas Hill Country terrain with limestone surfaces that demand steady momentum rather than power surges. The course includes loose gravel descents that punish late braking and embedded rock gardens requiring precise tire placement. Riders describe traction that can shift unexpectedly mid-climb. Race logistics include aid stations every 50 miles where water refills are available, but no support vehicles are allowed on course, making self-sufficiency critical. The race format uses two 100-mile loops allowing midpoint resupply. Starting and finishing in darkness requires proper lighting equipment. Cell phone signal is poor throughout the Hill Country area. Riders report significant elevation gain with just over 10,000 feet of climbing across the full distance. The limestone climbs and technical rock sections test bike handling skills and pacing strategy."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "purgatory-road-race-video-1.jpg",
+        "url": "/race-photos/purgatory-road-race/purgatory-road-race-video-1.jpg",
+        "alt": "White mountain bike with disc brakes displayed indoors on patterned carpet - Purgatory Road Race - Fredericksburg, Texas",
+        "credit": "YouTube / Eric Barnett Cycling",
+        "primary": true,
+        "ai_relevance": 1,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "mountain bike",
+          "disc brakes",
+          "indoor display",
+          "bicycle"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "purgatory-road-race-video-2.jpg",
+        "url": "/race-photos/purgatory-road-race/purgatory-road-race-video-2.jpg",
+        "alt": "Cycling gear and clothing laid out on bed including blue jersey, yellow jacket and bike helmet - Purgatory Road Race - Fredericksburg, Texas",
+        "credit": "YouTube / Eric Barnett Cycling",
+        "primary": false,
+        "ai_relevance": 2,
+        "ai_quality": 2,
+        "ai_keywords": [
+          "cycling gear",
+          "bike helmet",
+          "cycling clothing",
+          "race preparation"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "purgatory-road-race-preview.gif",
+        "url": "/race-photos/purgatory-road-race/purgatory-road-race-preview.gif",
+        "alt": "Course preview from Purgatory Road Race race footage",
+        "credit": "YouTube / Eric Barnett Cycling",
+        "gif": true
+      }
+    ]
   }
 }

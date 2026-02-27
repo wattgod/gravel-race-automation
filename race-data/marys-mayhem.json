@@ -567,7 +567,135 @@
           "category": "race_atmosphere",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "First little climb from TAC",
+            "description": "As soon as tires hit gravel, the pace becomes intense despite being marketed as an easy social ride. Riders maintain 33 km/hour average through first 50km.",
+            "source_video_ids": [
+              "ZBciAAnu73Q"
+            ]
+          },
+          {
+            "name": "Last Loop towards Frog Rock",
+            "description": "Several tough hours on the bike with cramping issues. Riders were tempted to cut the ride short with smell of beer in the air.",
+            "source_video_ids": [
+              "ZBciAAnu73Q"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Day one gravel becomes intense immediately when tires hit the surface, despite being marketed as easy.",
+            "source_video_ids": [
+              "ZBciAAnu73Q"
+            ]
+          },
+          {
+            "text": "Day two features some of the smoothest TAC ever ridden on a gravel bike, with recently graded roads that are perfect to ride.",
+            "source_video_ids": [
+              "ZBciAAnu73Q"
+            ]
+          }
+        ],
+        "gear_mentions": [],
+        "race_day_tips": [
+          {
+            "text": "Take advantage of the excellent feed stations with homemade food, plenty of water and brownies to fuel through the rest of the ride.",
+            "source_video_ids": [
+              "ZBciAAnu73Q"
+            ]
+          },
+          {
+            "text": "Day two has a more relaxed vibe with no timing chips - some riders cruise with their kids and share lollies around.",
+            "source_video_ids": [
+              "ZBciAAnu73Q"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "Having the finish line at the brewery might be the best idea I've ever seen and we sat back in the sun cheered on the other finishers enjoyed the late back atmosphere",
+            "source_video_id": "ZBciAAnu73Q",
+            "source_channel": "Bryce Waters",
+            "source_view_count": 4310,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "I'm pretty emotional right now it's just blown me away we will be back we love this event",
+            "source_video_id": "3aC8J8cFul0",
+            "source_channel": "Mushypea Adventure Cycling",
+            "source_view_count": 470,
+            "category": "community",
+            "curated": true
+          }
+        ],
+        "search_text": "Mary's Mayhem in Mudgee is marketed as an easy, laid-back social ride across two days, but riders report the pace becomes intense immediately when tires hit gravel on day one. The 98km first day starts at Small Batch Brewery with climbs toward Gong through Barrel, featuring a challenging first climb from the TAC and a difficult final loop toward Frog Rock where cramping becomes an issue. Day two offers a more relaxed 100km route from Ralston toward Cox Creek through state forest, with some of the smoothest recently-graded gravel roads riders have experienced. Feed stations provide excellent homemade food, water, and brownies. The event finishes at the brewery with a relaxed atmosphere. Despite being called non-competitive, winning times around 3 hours suggest a strong pace throughout."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "marys-mayhem-video-1.jpg",
+        "url": "/race-photos/marys-mayhem/marys-mayhem-video-1.jpg",
+        "alt": "Cyclist riding on dusty gravel road through Australian bush landscape with eucalyptus trees and rolling hills under blue sky - Marys Mayhem - Mudgee, New South Wales, Australia",
+        "credit": "YouTube / Mushypea Adventure Cycling",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel road",
+          "Australian bush",
+          "eucalyptus trees",
+          "dirt road",
+          "outback cycling"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "marys-mayhem-video-2.jpg",
+        "url": "/race-photos/marys-mayhem/marys-mayhem-video-2.jpg",
+        "alt": "Two cyclists taking selfie during gravel race break in open grassland terrain with sparse trees and blue sky - Marys Mayhem - Mudgee, New South Wales, Australia",
+        "credit": "YouTube / Mushypea Adventure Cycling",
+        "primary": false,
+        "ai_relevance": 4,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "gravel cyclists",
+          "race break",
+          "grassland terrain",
+          "cycling selfie",
+          "open country"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "marys-mayhem-video-3.jpg",
+        "url": "/race-photos/marys-mayhem/marys-mayhem-video-3.jpg",
+        "alt": "Cyclist riding through dramatic sandstone canyon on gravel road with layered rock formations and native vegetation - Marys Mayhem - Mudgee, New South Wales, Australia",
+        "credit": "YouTube / Mushypea Adventure Cycling",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 5,
+        "ai_keywords": [
+          "sandstone canyon",
+          "gravel road",
+          "rock formations",
+          "canyon cycling",
+          "geological terrain"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "marys-mayhem-preview.gif",
+        "url": "/race-photos/marys-mayhem/marys-mayhem-preview.gif",
+        "alt": "Course preview from Marys Mayhem race footage",
+        "credit": "YouTube / Mushypea Adventure Cycling",
+        "gif": true
+      }
+    ]
   }
 }

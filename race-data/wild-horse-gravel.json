@@ -521,7 +521,149 @@
           "category": "race_atmosphere",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "First timed segment climb",
+            "description": "The segment saved the best for last with a very steep climb finishing proceedings followed by another steep hill to reach the neutral water station",
+            "source_video_ids": [
+              "0WV5kzM-ouI"
+            ]
+          },
+          {
+            "name": "Cut-off time in De Beque",
+            "description": "There was a cut-off time in the town of De Beque for the long course",
+            "source_video_ids": [
+              "0WV5kzM-ouI"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Conditions were loose and rutted in places requiring a careful choice of one's line",
+            "source_video_ids": [
+              "0WV5kzM-ouI"
+            ]
+          },
+          {
+            "text": "Course provides a better idea of how rough some areas really were",
+            "source_video_ids": [
+              "0WV5kzM-ouI"
+            ]
+          }
+        ],
+        "gear_mentions": [],
+        "race_day_tips": [
+          {
+            "text": "Don't ride above your ability on the descents",
+            "source_video_ids": [
+              "0WV5kzM-ouI"
+            ]
+          },
+          {
+            "text": "At ride start it was a tad cool enough for arm warmers and a base layer but by late morning the temperatures had warmed up to the low 70s Fahrenheit",
+            "source_video_ids": [
+              "0WV5kzM-ouI"
+            ]
+          },
+          {
+            "text": "Ben maintains a relaxed position on the drops with his weight positioned towards the rear of the bike",
+            "source_video_ids": [
+              "0WV5kzM-ouI"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "Wild horse scramble isn't a race rather a ride although there are two possible timed segments I'd wager one or two riders are taking the segment's seriously whilst most of us are there to take in the scenery and a pile of photographs",
+            "source_video_id": "0WV5kzM-ouI",
+            "source_channel": "Gravel Cyclist",
+            "source_view_count": 6444,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "Writers had the choice of two courses a longer Alton back course featuring two timed segments or a shorter course with one timed segment both courses stop in this small western Colorado town of de Becque",
+            "source_video_id": "0WV5kzM-ouI",
+            "source_channel": "Gravel Cyclist",
+            "source_view_count": 6444,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "The grinder au format of racing is a ton of fun and quite relaxing versus focusing completely on an ever running clock",
+            "source_video_id": "0WV5kzM-ouI",
+            "source_channel": "Gravel Cyclist",
+            "source_view_count": 6444,
+            "category": "training",
+            "curated": true
+          }
+        ],
+        "search_text": "Wild Horse Gravel is an inaugural event in De Beque, Colorado featuring two course options - a longer Alton back course with two timed segments and a shorter course with one timed segment. The event follows a grinder format where it's more of a ride than a race, though some riders take the timed segments seriously. The course features loose and rutted conditions requiring careful line choice, with the first timed segment ending in a very steep climb followed by another steep hill to the neutral water station. There's a cut-off time in De Beque for the long course. Riders encounter high desert scenery, wildlife including cows and wild horses, and several flatter open areas with expansive views. Weather starts cool requiring arm warmers but warms to low 70s Fahrenheit by late morning. The format emphasizes scenery and photography over pure racing, making it relaxing compared to traditional timed events."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "wild-horse-gravel-video-1.jpg",
+        "url": "/race-photos/wild-horse-gravel/wild-horse-gravel-video-1.jpg",
+        "alt": "Gravel cyclist's perspective riding through desert terrain with sandy wash, juniper trees, and red rock formations under blue sky - Wild Horse Gravel - De Beque, Colorado",
+        "credit": "YouTube / Gravel Cyclist",
+        "primary": true,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "desert gravel",
+          "sandy wash",
+          "red rock",
+          "juniper trees",
+          "first person view"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "wild-horse-gravel-video-2.jpg",
+        "url": "/race-photos/wild-horse-gravel/wild-horse-gravel-video-2.jpg",
+        "alt": "Gravel cyclist in colorful jersey and helmet pointing across green agricultural fields with dirt roads and distant mountains - Wild Horse Gravel - De Beque, Colorado",
+        "credit": "YouTube / Gravel Cyclist",
+        "primary": false,
+        "ai_relevance": 4,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel cyclist",
+          "agricultural fields",
+          "dirt roads",
+          "green landscape",
+          "mountain backdrop"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "wild-horse-gravel-video-3.jpg",
+        "url": "/race-photos/wild-horse-gravel/wild-horse-gravel-video-3.jpg",
+        "alt": "Gravel race aid station with white tent, cyclists gathering around support tables, gazebo structure, and mountain lake backdrop - Wild Horse Gravel - De Beque, Colorado",
+        "credit": "YouTube / Gravel Cyclist",
+        "primary": false,
+        "ai_relevance": 3,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "aid station",
+          "race support",
+          "mountain lake",
+          "gravel event",
+          "cyclist gathering"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "wild-horse-gravel-preview.gif",
+        "url": "/race-photos/wild-horse-gravel/wild-horse-gravel-preview.gif",
+        "alt": "Course preview from Wild Horse Gravel race footage",
+        "credit": "YouTube / Gravel Cyclist",
+        "gif": true
+      }
+    ]
   }
 }

@@ -513,7 +513,105 @@
           "curated": false
         }
       ],
-      "quotes": []
-    }
+      "quotes": [],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Shades of Death Road",
+            "description": "A gravel back road with a legendary name where ghost stories and folklore abound.",
+            "source_video_ids": [
+              "6nU7fWUQN_A"
+            ]
+          },
+          {
+            "name": "Alageney Plateau",
+            "description": "Route climbs almost 6,000 ft through the heavily dissected plateau, creating a 56 mile roller coaster of a route.",
+            "source_video_ids": [
+              "6nU7fWUQN_A"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "A patchwork of gravel and lightly traveled pavement, following old Native American trails along the ridges to avoid wet valley bottoms.",
+            "source_video_ids": [
+              "6nU7fWUQN_A"
+            ]
+          },
+          {
+            "text": "Gravel road in West Virginia along Amspoker Ridge described as worth all the pavement riding to reach.",
+            "source_video_ids": [
+              "6nU7fWUQN_A"
+            ]
+          }
+        ],
+        "gear_mentions": [],
+        "race_day_tips": [],
+        "additional_quotes": [
+          {
+            "text": "Cross Creek's gravel goodness is relatively forgotten about. Some decent gravel segments along this route only have a handful of cyclists enjoying them.",
+            "source_video_id": "6nU7fWUQN_A",
+            "source_channel": "Kevin Keys",
+            "source_view_count": 19651,
+            "category": "community",
+            "curated": true
+          },
+          {
+            "text": "43 minutes southwest of Pittsburgh is a lesser-known gravel biking area which sits between Hillman State Park and the Whiskey Rebellion routes.",
+            "source_video_id": "6nU7fWUQN_A",
+            "source_channel": "Kevin Keys",
+            "source_view_count": 19651,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "This gravel route in Pennsylvania covers 56 miles with almost 6,000 feet of climbing through the heavily dissected Alageney Plateau. Starting at Cross Creek Park in West Middletown, the course follows old Native American trails along ridges, featuring a patchwork of gravel and lightly traveled pavement. Key sections include the legendary Shades of Death Road and gravel segments in West Virginia along Amspoker Ridge. The route crosses the Pennsylvania-West Virginia border multiple times and passes through historical areas including former coal mining communities. Located 43 minutes southwest of Pittsburgh, this lesser-known gravel area sits between Hillman State Park and the Whiskey Rebellion routes. Riders describe it as a roller coaster route with relatively forgotten gravel segments that only see a handful of cyclists, making it an alternative to Pittsburgh's more popular gravel destinations."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "trough-creek-gravel-grinder-video-1.jpg",
+        "url": "/race-photos/trough-creek-gravel-grinder/trough-creek-gravel-grinder-video-1.jpg",
+        "alt": "Gravel road approaching wooden bridge through dense green forest canopy during Trough Creek race - Trough Creek Gravel Grinder - Trough Creek State Park, Pennsylvania",
+        "credit": "YouTube / Kevin Keys",
+        "primary": true,
+        "ai_relevance": 4,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "gravel road",
+          "wooden bridge",
+          "forest trail",
+          "tree canopy",
+          "rural bridge"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "trough-creek-gravel-grinder-video-2.jpg",
+        "url": "/race-photos/trough-creek-gravel-grinder/trough-creek-gravel-grinder-video-2.jpg",
+        "alt": "Tree-lined gravel road with dappled sunlight filtering through lush green forest during cycling race - Trough Creek Gravel Grinder - Trough Creek State Park, Pennsylvania",
+        "credit": "YouTube / Kevin Keys",
+        "primary": false,
+        "ai_relevance": 4,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "forest gravel",
+          "dappled sunlight",
+          "tree tunnel",
+          "wooded trail",
+          "shaded road"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "trough-creek-gravel-grinder-preview.gif",
+        "url": "/race-photos/trough-creek-gravel-grinder/trough-creek-gravel-grinder-preview.gif",
+        "alt": "Course preview from Trough Creek Gravel Grinder race footage",
+        "credit": "YouTube / Kevin Keys",
+        "gif": true
+      }
+    ]
   }
 }

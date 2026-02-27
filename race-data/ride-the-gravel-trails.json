@@ -563,7 +563,129 @@
           "category": "course_difficulty",
           "curated": true
         }
-      ]
-    }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [],
+        "terrain_notes": [
+          {
+            "text": "Super hard packed gravel that you could probably tap dance on it, very similar to what riders find in North Central Florida",
+            "source_video_ids": [
+              "2iiTJ4t8_Jo"
+            ]
+          },
+          {
+            "text": "Hard-packed clay surface that changes to thicker gravel in sections",
+            "source_video_ids": [
+              "2iiTJ4t8_Jo"
+            ]
+          },
+          {
+            "text": "River road sections that are a little bit loose in places",
+            "source_video_ids": [
+              "2iiTJ4t8_Jo"
+            ]
+          },
+          {
+            "text": "Some sections got super steep and chatter towards the end of climbs",
+            "source_video_ids": [
+              "2iiTJ4t8_Jo"
+            ]
+          }
+        ],
+        "gear_mentions": [],
+        "race_day_tips": [
+          {
+            "text": "Ride at parade pace where you can take photographs and wave to locals while still maintaining a good rhythm",
+            "source_video_ids": [
+              "2iiTJ4t8_Jo"
+            ]
+          },
+          {
+            "text": "Watch out for school bus residue ahead with dust flying all over the place on farm roads",
+            "source_video_ids": [
+              "2iiTJ4t8_Jo"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "Today's route is 100 of my own design mind you it's pretty easy to design a route around this neck of the woods there is well there are copious amounts of mixed service gravel dirt roads",
+            "source_video_id": "2iiTJ4t8_Jo",
+            "source_channel": "Gravel Cyclist",
+            "source_view_count": 2740,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "The farmlands around here are not flat lots of rollers",
+            "source_video_id": "2iiTJ4t8_Jo",
+            "source_channel": "Gravel Cyclist",
+            "source_view_count": 2740,
+            "category": "course_difficulty",
+            "curated": true
+          }
+        ],
+        "search_text": "Based on rider experiences in Dakota County Minnesota, this 60-mile gravel race features predominantly hard-packed gravel surfaces that riders describe as solid enough to tap dance on, similar to North Central Florida terrain. The course runs through extensive farmland with soybean and corn fields, featuring numerous roller hills rather than flat terrain. Riders encounter diverse surface conditions including hard-packed clay, thicker gravel sections, and some loose areas along river roads. The route includes climbs that become steeper and more technical toward the end. Farm roads dominate the course with arrow-straight sections and plenty of rollers throughout. Riders should expect dust from farm equipment and school buses. The terrain varies from super hard-packed sections to areas with chatter on climbs. Multiple small towns dot the route including Welch Minnesota, with brief pavement sections between gravel segments."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "ride-the-gravel-trails-video-1.jpg",
+        "url": "/race-photos/ride-the-gravel-trails/ride-the-gravel-trails-video-1.jpg",
+        "alt": "Gravel road winding through lush green hills and forest terrain with cloudy skies overhead - Ride the Gravel Trails - Dakota County, Minnesota",
+        "credit": "YouTube / Gravel Cyclist",
+        "primary": true,
+        "ai_relevance": 4,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel road",
+          "forest terrain",
+          "rolling hills",
+          "rural cycling"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "ride-the-gravel-trails-video-2.jpg",
+        "url": "/race-photos/ride-the-gravel-trails/ride-the-gravel-trails-video-2.jpg",
+        "alt": "Large industrial grain elevator building surrounded by green grass under bright blue sky - Ride the Gravel Trails - Dakota County, Minnesota",
+        "credit": "YouTube / Gravel Cyclist",
+        "primary": false,
+        "ai_relevance": 2,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "grain elevator",
+          "agricultural building",
+          "rural landmark",
+          "prairie infrastructure"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "ride-the-gravel-trails-video-3.jpg",
+        "url": "/race-photos/ride-the-gravel-trails/ride-the-gravel-trails-video-3.jpg",
+        "alt": "Dusty gravel road stretching ahead through farmland with corn fields and trees lining both sides - Ride the Gravel Trails - Dakota County, Minnesota",
+        "credit": "YouTube / Gravel Cyclist",
+        "primary": false,
+        "ai_relevance": 4,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "dusty gravel road",
+          "farmland",
+          "corn fields",
+          "rural cycling route"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "ride-the-gravel-trails-preview.gif",
+        "url": "/race-photos/ride-the-gravel-trails/ride-the-gravel-trails-preview.gif",
+        "alt": "Course preview from Ride The Gravel Trails race footage",
+        "credit": "YouTube / Gravel Cyclist",
+        "gif": true
+      }
+    ]
   }
 }

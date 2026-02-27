@@ -21,7 +21,7 @@
         "Double Day Simulation",
         "Progressive Fatigue"
       ],
-      "workout_context": "At 100 miles, Almanzo 100 punishes athletes who haven\u2019t trained their body to produce power when glycogen runs low."
+      "workout_context": "At mile 60 of 100, glycogen is gone. This workout teaches your body to produce watts on fumes."
     },
     {
       "category": "Race_Simulation",
@@ -31,7 +31,7 @@
         "Variable Pace Chaos",
         "Sector Simulation"
       ],
-      "workout_context": "Racing Almanzo 100 isn\u2019t just fitness \u2014 it\u2019s pacing, fueling, and executing when conditions deteriorate. This workout practices the race itself."
+      "workout_context": "Race-pace efforts that mimic Almanzo 100's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before May."
     },
     {
       "category": "Gravel_Specific",
@@ -40,7 +40,7 @@
         "Surge and Settle",
         "Terrain Microbursts"
       ],
-      "workout_context": "Almanzo 100\u2019s mixed gravel \u2014 well-maintained early, freshly laid loose stone mid-race demands rapid power changes \u2014 surge over obstacles, settle on smoother sections, repeat for hours."
+      "workout_context": "Almanzo 100's mixed gravel \u2014 well-maintained early, freshly forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 100 miles."
     },
     {
       "category": "TT_Threshold",
@@ -50,7 +50,7 @@
         "Threshold Ramps",
         "Descending Threshold"
       ],
-      "workout_context": "Almanzo 100 rewards athletes who can hold sustained power without blowing up \u2014 threshold is the engine that drives everything above Zone 2."
+      "workout_context": "65ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
     },
     {
       "category": "Over_Under",
@@ -59,7 +59,7 @@
         "Classic Over-Unders",
         "Ladder Over-Unders"
       ],
-      "workout_context": "Over-unders train the lactate clearance you\u2019ll need at Almanzo 100 when surges push you above threshold and you have to recover while still riding hard."
+      "workout_context": "At Almanzo 100, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
     },
     {
       "category": "G_Spot",
@@ -69,7 +69,7 @@
         "G-Spot Extended",
         "Criss-Cross"
       ],
-      "workout_context": "The G-Spot zone (88\u201392% FTP) is where you\u2019ll spend the hardest sustained miles of Almanzo 100. Make this intensity feel like home."
+      "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of Almanzo 100. Train it until it feels boring."
     },
     {
       "category": "Endurance",
@@ -78,7 +78,7 @@
         "Pre-Race Openers",
         "Terrain Simulation Z2"
       ],
-      "workout_context": "Every session at Almanzo 100 intensity builds on this aerobic foundation \u2014 the endurance base is the soil everything else grows in."
+      "workout_context": "Every hard session works better with a bigger aerobic base. At 100 miles, base fitness is the difference between racing and surviving."
     },
     {
       "category": "VO2max",
@@ -88,7 +88,7 @@
         "Descending VO2 Pyramid",
         "Norwegian 4x8"
       ],
-      "workout_context": "Almanzo 100\u2019s mixed gravel \u2014 well-maintained early, freshly laid loose stone mid-race and competitive field demand explosive aerobic capacity \u2014 the ability to respond to surges without blowing up."
+      "workout_context": "6,500ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
     },
     {
       "category": "HVLI_Extended",
@@ -98,7 +98,7 @@
         "Multi-Hour Z2",
         "Back-to-Back Long"
       ],
-      "workout_context": "At 100 miles, Almanzo 100 rewards a massive aerobic engine. This volume work builds the fat-oxidation capacity that keeps you moving when glycogen runs low."
+      "workout_context": "100 miles rewards fat oxidation. This volume work shifts your fuel mix so you're still burning fat at hour 5, not bonking at hour 3."
     },
     {
       "category": "Critical_Power",
@@ -107,7 +107,7 @@
         "Above CP Repeats",
         "W-Prime Depletion"
       ],
-      "workout_context": "Critical power determines how long you can sustain above-threshold efforts at Almanzo 100 \u2014 a higher CP means more time in the red before failure."
+      "workout_context": "How long can you hold 105% FTP before you blow? At Almanzo 100, that number decides whether you bridge or get dropped."
     },
     {
       "category": "Blended",
@@ -116,7 +116,7 @@
         "Z2 + VO2 Combo",
         "Endurance with Spikes"
       ],
-      "workout_context": "Blended sessions combine endurance with intensity spikes \u2014 exactly what Almanzo 100\u2019s mixed gravel \u2014 well-maintained early, freshly laid loose stone mid-race delivers on race day."
+      "workout_context": "Endurance with intensity spikes baked in. Exactly what 6,500ft of climbing on mixed gravel \u2014 well-maintained early, freshly does to your power file on race day."
     },
     {
       "category": "Mixed_Climbing",
@@ -125,7 +125,7 @@
         "Seated/Standing Climbs",
         "Variable Grade Simulation"
       ],
-      "workout_context": "Almanzo 100\u2019s 6,500ft of climbing demands seated and standing versatility \u2014 the ability to change climbing style as gradient and fatigue dictate."
+      "workout_context": "6,500ft of climbing on grades that change every minute. You need to switch from seated to standing without losing rhythm."
     }
   ],
   "race_overlay": {

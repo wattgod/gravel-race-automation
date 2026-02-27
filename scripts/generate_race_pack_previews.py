@@ -443,20 +443,58 @@ def generate_race_overlay(race: dict, demands: dict) -> dict:
     return overlay
 
 
+def _poss(name: str) -> str:
+    """Return possessive form: 'Badlands' -> \"Badlands'\", 'Mid South' -> \"Mid South's\"."""
+    if name.endswith('s') or name.endswith('S'):
+        return f"{name}'"
+    return f"{name}'s"
+
+
 def generate_workout_context(race: dict, demands: dict, category: str) -> str:
     """Generate a 1-sentence race-specific context for why a workout category matters.
 
     Uses actual race data (distance, elevation, terrain, month, location) to produce
-    genuinely race-specific text that varies across races.
+    genuinely race-specific text. Brand voice: specific over inspiring, numbers not
+    feelings, short sentences, no LinkedIn words.
     """
     vitals = race.get('vitals') or {}
     distance = _safe_numeric(vitals, 'distance_mi', 0)
     race_name = race.get('display_name') or race.get('name', 'this race')
     location = _extract_location(race)
     terrain_primary = _extract_terrain_primary(race)
-    terrain_str = terrain_primary.rstrip('.').lower() if terrain_primary else 'mixed terrain'
+    terrain_str = terrain_primary.rstrip('.') if terrain_primary else 'mixed terrain'
+    # Title-case state/country names at start of terrain strings
+    _US_STATES = {'alabama','alaska','arizona','arkansas','california','colorado',
+        'connecticut','delaware','florida','georgia','hawaii','idaho','illinois',
+        'indiana','iowa','kansas','kentucky','louisiana','maine','maryland',
+        'massachusetts','michigan','minnesota','mississippi','missouri','montana',
+        'nebraska','nevada','new hampshire','new jersey','new mexico','new york',
+        'north carolina','north dakota','ohio','oklahoma','oregon','pennsylvania',
+        'rhode island','south carolina','south dakota','tennessee','texas','utah',
+        'vermont','virginia','washington','west virginia','wisconsin','wyoming'}
+    terrain_lower = terrain_str.lower()
+    for state in sorted(_US_STATES, key=len, reverse=True):
+        if terrain_lower.startswith(state):
+            terrain_str = terrain_str[:len(state)].title() + terrain_str[len(state):]
+            break
+    else:
+        terrain_str = terrain_str[0].lower() + terrain_str[1:] if terrain_str else terrain_str
+    # Truncate terrain_str if absurdly long (some race profiles have full descriptions)
+    if len(terrain_str) > 50:
+        terrain_str = terrain_str[:50].rsplit(' ', 1)[0]
     elevation = _safe_numeric(vitals, 'elevation_ft', 0)
     terrain_types = vitals.get('terrain_types', []) or []
+    # Title-case terrain_types entries that start with state names
+    clean_terrain_types = []
+    for tt in terrain_types:
+        tt_lower = tt.lower()
+        for state in sorted(_US_STATES, key=len, reverse=True):
+            if tt_lower.startswith(state):
+                tt = tt[:len(state)].title() + tt[len(state):]
+                break
+        clean_terrain_types.append(tt)
+    terrain_types = clean_terrain_types
+    elev_per_mi = round(elevation / distance) if distance > 0 else 0
 
     # Extract month
     date_str = vitals.get('date', '') or vitals.get('date_specific', '') or ''
@@ -467,65 +505,90 @@ def generate_workout_context(race: dict, demands: dict, category: str) -> str:
             month = m
             break
 
-    dist_str = f"{int(distance)}-mile" if distance >= 1 else "full"
-
     if category == 'Durability':
         if distance >= 150:
-            return f"{race_name}\u2019s {dist_str} distance demands power production deep into fatigue \u2014 the defining challenge of ultra-distance gravel."
+            return f"{int(distance)} miles. Your legs will beg to quit after 120. This trains the power output you need from mile 130 onward."
         elif distance >= 80:
-            return f"At {int(distance)} miles, {race_name} punishes athletes who haven\u2019t trained their body to produce power when glycogen runs low."
+            return f"At mile 60 of {int(distance)}, glycogen is gone. This workout teaches your body to produce watts on fumes."
         else:
-            return f"{race_name}\u2019s {terrain_str} drains energy reserves faster than the distance suggests \u2014 durability training bridges the gap."
+            return f"{int(distance)} miles on {terrain_str} burns energy faster than the distance suggests. Train the fade resistance now."
     elif category == 'VO2max':
-        return f"{race_name}\u2019s {terrain_str} and competitive field demand explosive aerobic capacity \u2014 the ability to respond to surges without blowing up."
+        if elevation >= 5000:
+            return f"{int(elevation):,}ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
+        else:
+            return f"When someone attacks on {terrain_str}, you have 10 seconds to respond or you're off the back. This builds that response."
     elif category == 'HVLI_Extended':
         if distance >= 100:
-            return f"At {int(distance)} miles, {race_name} rewards a massive aerobic engine. This volume work builds the fat-oxidation capacity that keeps you moving when glycogen runs low."
+            return f"{int(distance)} miles rewards fat oxidation. This volume work shifts your fuel mix so you're still burning fat at hour 5, not bonking at hour 3."
         else:
-            return f"High-volume endurance builds the aerobic base that makes {race_name}\u2019s race-day efforts sustainable rather than destructive."
+            return f"The aerobic base that lets you ride {terrain_str} at tempo for {int(distance)} miles without cracking. No shortcuts."
     elif category == 'Race_Simulation':
-        return f"Racing {race_name} isn\u2019t just fitness \u2014 it\u2019s pacing, fueling, and executing when conditions deteriorate. This workout practices the race itself."
+        if month:
+            return f"Race-pace efforts that mimic {_poss(race_name)} demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before {month}."
+        else:
+            return f"Race-pace efforts that mimic {_poss(race_name)} demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before race day."
     elif category == 'TT_Threshold':
-        return f"{race_name} rewards athletes who can hold sustained power without blowing up \u2014 threshold is the engine that drives everything above Zone 2."
+        if elev_per_mi >= 50:
+            return f"{elev_per_mi}ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
+        else:
+            return f"{_poss(race_name)} {terrain_str} rewards steady threshold power. Surging and recovering costs more watts than just holding."
     elif category == 'G_Spot':
-        return f"The G-Spot zone (88\u201392% FTP) is where you\u2019ll spend the hardest sustained miles of {race_name}. Make this intensity feel like home."
+        return f"88\u201392% FTP is where you'll spend the hardest sustained miles of {race_name}. Train it until it feels boring."
     elif category == 'Mixed_Climbing':
         if elevation >= 5000:
-            return f"{race_name}\u2019s {int(elevation):,}ft of climbing demands seated and standing versatility \u2014 the ability to change climbing style as gradient and fatigue dictate."
+            return f"{int(elevation):,}ft of climbing on grades that change every minute. You need to switch from seated to standing without losing rhythm."
         else:
-            return f"The varied gradients at {race_name} reward climbing adaptability \u2014 knowing when to sit, when to stand, and when to switch."
+            return f"Varied gradients on {terrain_str} demand climbing versatility. Sit the shallow stuff, stand the steep stuff, switch without thinking."
     elif category == 'Over_Under':
-        return f"Over-unders train the lactate clearance you\u2019ll need at {race_name} when surges push you above threshold and you have to recover while still riding hard."
+        return f"At {race_name}, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
     elif category == 'Gravel_Specific':
-        terrain_detail = ', '.join(terrain_types[:2]).lower() if terrain_types else terrain_str
-        return f"{race_name}\u2019s {terrain_detail} demands rapid power changes \u2014 surge over obstacles, settle on smoother sections, repeat for hours."
+        terrain_detail = ', '.join(terrain_types[:2]) if terrain_types else terrain_str
+        # Truncate absurdly long terrain descriptions
+        if len(terrain_detail) > 60:
+            terrain_detail = terrain_detail[:60].rsplit(' ', 1)[0]
+        return f"{_poss(race_name)} {terrain_detail} forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for {int(distance)} miles."
     elif category == 'Endurance':
-        return f"Every session at {race_name} intensity builds on this aerobic foundation \u2014 the endurance base is the soil everything else grows in."
+        if distance >= 80:
+            return f"Every hard session works better with a bigger aerobic base. At {int(distance)} miles, base fitness is the difference between racing and surviving."
+        else:
+            return f"Base fitness for {race_name}. Without this, the hard workouts break you down instead of building you up."
     elif category == 'Critical_Power':
-        return f"Critical power determines how long you can sustain above-threshold efforts at {race_name} \u2014 a higher CP means more time in the red before failure."
+        return f"How long can you hold 105% FTP before you blow? At {race_name}, that number decides whether you bridge or get dropped."
     elif category == 'Anaerobic_Capacity':
-        return f"Short, violent efforts are unavoidable at {race_name} \u2014 climbs demanding 2-minute maximal efforts, surges to close gaps, attacks on {terrain_str}."
+        if elevation >= 3000:
+            return f"Short, max efforts are unavoidable. Punchy climbs, gap closures, attacks on {terrain_str}. If you haven't trained them, you'll crack."
+        else:
+            return f"2-minute all-out efforts on {terrain_str}. Closing gaps, responding to attacks, sprinting for position. Train the burn."
     elif category == 'Sprint_Neuromuscular':
-        return f"Neuromuscular power closes gaps and wins field sprints at {race_name}. The ability to produce massive short-burst power is a tactical weapon."
+        return f"5-second power closes gaps and wins field sprints. At {race_name}, neuromuscular snap is a tactical tool, not just a finish-line move."
     elif category == 'Norwegian_Double':
-        return f"The Norwegian double-threshold method builds the sustained power base for {race_name} \u2014 massive training stimulus without the recovery cost of VO2max work."
+        if distance >= 80:
+            return f"Two threshold sessions per week without the recovery cost of VO2max work. For {int(distance)} miles, sustainable FTP gains matter more than peak power."
+        else:
+            return f"Double-threshold training builds sustained power with less fatigue. More FTP per hour of training."
     elif category == 'SFR_Muscle_Force':
         if elevation >= 3000:
-            return f"Low-cadence force work builds the muscular strength for {race_name}\u2019s {int(elevation):,}ft of climbing \u2014 especially the grinding, low-speed ascents."
+            return f"Low-cadence force work for {int(elevation):,}ft of climbing. The slow, grinding ascents where you can't spin\u2014you push."
         else:
-            return f"Muscular force work builds the torque for headwinds and {terrain_str} at {race_name} \u2014 when you can\u2019t spin, you grind."
+            return f"Torque for headwinds and {terrain_str}. When cadence drops below 70rpm, muscular strength keeps the watts up."
     elif category == 'Cadence_Work':
-        return f"Cadence efficiency makes every pedal stroke at {race_name} count \u2014 smooth technique reduces muscular fatigue over long distances."
+        return f"Smooth pedaling at {int(distance)} miles saves muscle. Bad technique at mile 10 is invisible. At mile 80 it's a cramp."
     elif category == 'Blended':
-        return f"Blended sessions combine endurance with intensity spikes \u2014 exactly what {race_name}\u2019s {terrain_str} delivers on race day."
+        if elevation >= 3000:
+            return f"Endurance with intensity spikes baked in. Exactly what {int(elevation):,}ft of climbing on {terrain_str} does to your power file on race day."
+        else:
+            return f"Long rides with hard efforts mixed in. Simulates what {_poss(race_name)} {terrain_str} actually does to you."
     elif category == 'Tempo':
-        return f"Tempo is the race-day intensity of {race_name}. Harder than Z2, easier than threshold \u2014 the pace you\u2019ll hold for hours on {terrain_str}."
+        if distance >= 80:
+            return f"Tempo is {_poss(race_name)} race pace. The wattage you'll hold for {int(distance)} miles on {terrain_str}. Train it until it's automatic."
+        else:
+            return f"76\u201385% FTP for extended efforts. At {race_name}, tempo is the floor you'll live on. Make it feel easy."
     elif category == 'LT1_MAF':
-        return f"Aerobic development below LT1 builds the fat-burning engine for {race_name}\u2019s endurance demands \u2014 the foundation everything else rides on."
+        return f"Below LT1, you burn fat. Above it, you burn glycogen. For {int(distance)} miles, a higher LT1 means slower bonk."
     elif category == 'Recovery':
-        return f"Strategic recovery enables the hard work. At {race_name}\u2019s training intensity, active recovery rides prevent overtraining."
+        return f"Hard training without recovery is just fatigue. These easy spins keep the adaptations coming between the real sessions."
     else:
-        return f"Targeted training for {race_name}\u2019s specific demands."
+        return f"Targeted training for {_poss(race_name)} specific demands."
 
 
 # =============================================================================

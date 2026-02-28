@@ -80,7 +80,7 @@ def build_hero() -> str:
   <div class="gg-wp-hero-inner">
     <span class="gg-wp-hero-eyebrow">FUELING METHODOLOGY</span>
     <h1 class="gg-wp-hero-title">How Many Carbs Do You Actually Need?</h1>
-    <p class="gg-wp-hero-subtitle">Everyone says 60 to 90 grams per hour. That range is the difference between bonking at mile 80 of Unbound and cruising to the finish. Which number is yours?</p>
+    <p class="gg-wp-hero-subtitle">Everyone says 60 to 90 grams per hour. For a 95-kilo rider at 2.3&nbsp;W/kg, the right number is 63. For a 70-kilo rider at 4.0&nbsp;W/kg, it&#8217;s 75. Same race, same bracket, different bodies. Which number is yours?</p>
     <div class="gg-wp-counters">
 {counter_html}    </div>
   </div>
@@ -147,10 +147,6 @@ def build_duration_problem() -> str:
     {bars_html}
     <div class="gg-wp-figure-takeaway">The old flat formula recommended 80 g/hr for Murphy &#8212; 27% higher than the W/kg-adjusted recommendation of 63 g/hr. Lab data confirms: at 2.3 W/kg, exogenous absorption is closer to 60&ndash;80 g/hr.</div>
   </figure>
-  <div class="gg-wp-prose">
-    <p>Within the same duration bracket, a 95&nbsp;kg rider at 220W FTP and a 62&nbsp;kg rider at 280W FTP have very different engines. The heavier rider burns more fat at endurance pace. The lighter rider burns more carbs. Giving them the same number means one of them is eating too much (hello, GI distress) and the other isn&#8217;t eating enough (hello, bonk).</p>
-    <p>We needed a formula that accounts for <em>who you are</em>, not just how long you&#8217;re racing.</p>
-  </div>
 </section>'''
 
 

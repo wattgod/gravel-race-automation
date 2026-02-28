@@ -497,13 +497,14 @@ def build_scroll_crossover() -> str:
       <p class="gg-wp-prose">Your body does burn fat &#8212; and the rate <em>increases</em> as you ride harder. But only up to a point. Then it drops. This rise-and-fall is your fat oxidation curve. A pro rider&#8217;s fat burning peaks at <strong>0.99&nbsp;g/min</strong> around 3.5&nbsp;W/kg. A recreational rider peaks at <strong>0.53&nbsp;g/min</strong> around 2.5&nbsp;W/kg.</p>
     </div>
     <div class="gg-wp-scroll-step" data-step="2">
-      <h3 class="gg-wp-subsection-title">That Gap Is Your Fueling Problem</h3>
-      <p class="gg-wp-prose">Look at 3.0&nbsp;W/kg &#8212; a typical gravel race effort. A pro is still burning 0.96&nbsp;g/min of fat, covering <strong>32%</strong> of their energy. A recreational rider? Just 0.49&nbsp;g/min &#8212; only <strong>21%</strong>. That&#8217;s a nearly <strong>2&#215; gap</strong> in free energy from fat.</p>
-      <p class="gg-wp-prose">Here&#8217;s what that means: the recreational rider&#8217;s body provides less energy from fat, so a <em>bigger</em> share of their energy must come from carbs they eat. <strong>The less fit you are, the more aggressively you need to fuel.</strong> This is the opposite of what most people assume &#8212; and it&#8217;s why generic &#8220;60&#8211;90&nbsp;g/hr&#8221; advice is dangerous. A recreational rider sitting at the bottom of that range may be underfueling relative to what their body actually demands.</p>
+      <h3 class="gg-wp-subsection-title">That Gap Changes the Problem</h3>
+      <p class="gg-wp-prose">At 3.0&nbsp;W/kg, a pro burns 0.96&nbsp;g/min of fat (<strong>32%</strong> of their energy). A recreational rider burns just 0.49&nbsp;g/min (<strong>21%</strong>). That&#8217;s a <strong>2&#215; gap</strong> in free energy from fat. But here&#8217;s the twist: the pro&#8217;s <em>total</em> carb demand is also much higher &#8212; 123&nbsp;g/hr vs 103. And at realistic race pace, the picture changes even more.</p>
+      <p class="gg-wp-prose">A recreational rider racing at 1.5&#8211;2.0&nbsp;W/kg burns only <strong>41&#8211;58&nbsp;g/hr</strong> of carbs. The gut can absorb 90&#8211;120&nbsp;g/hr. They have massive headroom &#8212; if they actually eat. A pro racing at 3.5&nbsp;W/kg burns <strong>156&nbsp;g/hr</strong> &#8212; well beyond what any gut can absorb. Their fat buffer is the only thing keeping them from bonking faster.</p>
+      <p class="gg-wp-prose"><strong>Everyone has a carb gap. Fitness determines where it bites.</strong> For the recreational rider, the gap is behavioral &#8212; they eat 30&nbsp;g/hr when they could absorb 90. For the pro, the gap is physiological &#8212; they burn more than any gut can replace.</p>
     </div>
     <div class="gg-wp-scroll-step" data-step="3">
       <h3 class="gg-wp-subsection-title">At Race Pace, You&#8217;re Carb-Powered</h3>
-      <p class="gg-wp-prose">Gravel race intensity is typically 2.5&#8211;3.5&nbsp;W/kg. At that effort, a recreational rider&#8217;s fat burning is already declining. A pro still has some, but carbs provide <strong>65&#8211;73%</strong> of their energy. This is why fueling correctly &#8212; getting enough carbs in &#8212; matters for <strong>everyone</strong>.</p>
+      <p class="gg-wp-prose">Whatever your fitness, carbs dominate at race intensity: <strong>65&#8211;79%</strong> of your energy comes from carbohydrate. The difference is scale. A recreational rider at 2.0&nbsp;W/kg burns 58&nbsp;g/hr and can replace every gram if they practice. A pro at 3.5&nbsp;W/kg burns 156&nbsp;g/hr and will always run a deficit. That&#8217;s why the right number depends on <strong>your</strong> body, <strong>your</strong> fitness, and <strong>your</strong> race.</p>
     </div>
   </div>
 </section>'''

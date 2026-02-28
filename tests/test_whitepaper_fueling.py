@@ -825,10 +825,13 @@ class TestScrollytelling:
         assert "fat. carbohydrate is barely touched" not in page_html.lower()
 
     def test_crossover_gap_implication(self, page_html):
-        """Page explains the 2x fat-burning gap and its practical implication."""
+        """Page explains the 2x fat-burning gap and the gut-limit dimension."""
         lower = page_html.lower()
         assert "2" in lower and "gap" in lower, "Must mention the 2x gap"
-        assert "the less fit you are, the more aggressively you need to fuel" in lower
+        assert "everyone has a carb gap" in lower
+        # Must acknowledge both sides: rec rider behavioral gap AND pro physiological gap
+        assert "behavioral" in lower
+        assert "physiological" in lower
 
     def test_no_white_paper_language(self, page_html):
         """Prose content should not reference 'this paper' (academic language)."""

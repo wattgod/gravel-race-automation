@@ -351,96 +351,137 @@ def build_scroll_fitness() -> str:
 
 
 def build_scroll_crossover() -> str:
-    """Scrollytelling section: Why even fit riders need carbs — fuel mix area chart."""
-    # SVG stacked area chart for fuel mix
+    """Scrollytelling section: fat oxidation rate curves — Pro vs Recreational.
+
+    Key science (from metabolic reference data):
+    - Carbs ALWAYS provide >57% of energy at all intensities for all fitness levels.
+    - Fat never dominates. Even at 0.75 W/kg, fat% is only ~39%.
+    - Fat oxidation RATE (g/min) rises, peaks, then falls as intensity increases.
+    - Pro peak: 0.99 g/min at 3.5 W/kg. Recreational peak: 0.53 g/min at 2.5 W/kg.
+    - The story: fitter riders sustain fat burning longer, but carbs always run the show.
+    """
     svg_w, svg_h = 400, 280
-    # X: intensity from 0 (rest) to 100 (max), mapped to 50-370
-    # Y: energy contribution 0-100%, mapped to 240-40
+    # Chart area: x 60-370 (W/kg 0.5-6.0), y 40-230 (0-1.1 g/min)
+    x_min_wkg, x_max_wkg = 0.5, 6.0
+    y_max_rate = 1.1  # g/min ceiling
 
-    def _x(pct):
-        return 50 + pct / 100 * 320
+    def _x(wkg: float) -> float:
+        return 60 + (wkg - x_min_wkg) / (x_max_wkg - x_min_wkg) * 310
 
-    def _y(pct):
-        return 240 - pct / 100 * 200
+    def _y(rate: float) -> float:
+        return 230 - rate / y_max_rate * 190
 
-    # Carb contribution curve (approximation): rises from ~20% at rest to ~95% at max
-    # Fat is the complement
-    intensity_pts = list(range(0, 101, 5))
+    # Actual data from metabolic-reference.csv (fat oxidation rate in g/min)
+    pro_data = [
+        (0.75, 0.28), (1.0, 0.37), (1.5, 0.55), (2.0, 0.72), (2.5, 0.86),
+        (3.0, 0.96), (3.5, 0.99), (4.0, 0.93), (4.5, 0.77), (5.0, 0.50),
+        (5.5, 0.14), (5.8, 0.00),
+    ]
+    rec_data = [
+        (0.75, 0.21), (1.0, 0.28), (1.5, 0.41), (2.0, 0.50), (2.5, 0.53),
+        (3.0, 0.49), (3.5, 0.36), (4.0, 0.16), (4.5, 0.00),
+    ]
 
-    # Well-trained crossover at ~55% intensity
-    def carb_trained(i):
-        return min(95, 20 + 75 * (i / 100) ** 1.3)
+    # Build filled-area polygons (area under curve to x-axis)
+    def _area_path(data):
+        top = " ".join(f"{_x(w):.0f},{_y(r):.0f}" for w, r in data)
+        bottom = f"{_x(data[-1][0]):.0f},{_y(0):.0f} {_x(data[0][0]):.0f},{_y(0):.0f}"
+        return f"{top} {bottom}"
 
-    # Recreational crossover at ~35% intensity
-    def carb_rec(i):
-        return min(95, 25 + 75 * (i / 100) ** 1.0)
+    # Build line polyline (just the curve, no fill)
+    def _line_points(data):
+        return " ".join(f"{_x(w):.0f},{_y(r):.0f}" for w, r in data)
 
-    # Build trained carb area path (bottom = x-axis, top = carb curve)
-    trained_top = " ".join(f"{_x(i):.0f},{_y(carb_trained(i)):.0f}" for i in intensity_pts)
-    trained_bottom = f"{_x(100):.0f},{_y(0):.0f} {_x(0):.0f},{_y(0):.0f}"
-    trained_path = f"{trained_top} {trained_bottom}"
+    pro_area = _area_path(pro_data)
+    rec_area = _area_path(rec_data)
+    pro_line = _line_points(pro_data)
+    rec_line = _line_points(rec_data)
 
-    # Recreational carb area
-    rec_top = " ".join(f"{_x(i):.0f},{_y(carb_rec(i)):.0f}" for i in intensity_pts)
-    rec_path = f"{rec_top} {trained_bottom}"
+    # Peak annotations
+    pro_peak_x, pro_peak_y = _x(3.5), _y(0.99)
+    rec_peak_x, rec_peak_y = _x(2.5), _y(0.53)
 
-    # Fat area = space above carb curve to 100%
-    fat_top = f"{_x(0):.0f},{_y(100):.0f} {_x(100):.0f},{_y(100):.0f}"
-    fat_bottom_trained = " ".join(
-        f"{_x(i):.0f},{_y(carb_trained(i)):.0f}" for i in reversed(intensity_pts)
-    )
-    fat_path = f"{fat_top} {fat_bottom_trained}"
+    # Race pace zone: 2.5-3.5 W/kg (typical gravel intensity)
+    race_lo, race_hi = _x(2.5), _x(3.5)
 
-    # Crossover point (trained): where carb > 50%
-    # carb_trained(i) = 50 → solve: 50 = 20 + 75*(i/100)^1.3 → (30/75)^(1/1.3) * 100 ≈ 33
-    crossover_trained_x = _x(33)
-    # Recreational crossover: carb_rec(i) = 50 → 50 = 25 + 75*(i/100)^1.0 → 25/75*100 ≈ 33
-    crossover_rec_x = _x(33)
-    # Actually recalculate properly
-    # Trained: 50 = 20 + 75*(i/100)^1.3 → (30/75)^(1/1.3) = 0.4^0.769 ≈ 0.478 → ~48%
-    crossover_trained_x = _x(48)
-    # Rec: 50 = 25 + 75*(i/100) → i = 33.3%
-    crossover_rec_x = _x(33)
+    # Horizontal gridlines at 0.25, 0.50, 0.75, 1.00 g/min
+    gridlines = ""
+    for rate in [0.25, 0.50, 0.75, 1.00]:
+        gy = _y(rate)
+        gridlines += (
+            f'    <line x1="60" y1="{gy:.0f}" x2="370" y2="{gy:.0f}" '
+            f'stroke="{COLORS["tan"]}" stroke-width="0.5" stroke-dasharray="3 3"/>\n'
+        )
 
-    # Race intensity zone: 60-80% of max
-    race_lo, race_hi = _x(60), _x(80)
+    # X-axis tick marks at 1, 2, 3, 4, 5 W/kg
+    x_ticks = ""
+    for wkg in [1, 2, 3, 4, 5]:
+        tx = _x(wkg)
+        x_ticks += (
+            f'    <line x1="{tx:.0f}" y1="230" x2="{tx:.0f}" y2="235" '
+            f'stroke="{COLORS["dark_brown"]}" stroke-width="1"/>\n'
+            f'    <text x="{tx:.0f}" y="248" fill="{COLORS["secondary_brown"]}" '
+            f'font-family="\'Sometype Mono\', monospace" font-size="9" '
+            f'text-anchor="middle">{wkg}</text>\n'
+        )
 
-    chart_svg = f'''<svg viewBox="0 0 {svg_w} {svg_h}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Fuel mix chart showing fat and carbohydrate contribution across intensity">
-    <title>Fuel Mix: Why carbs dominate at race intensity</title>
-    <!-- Fat area (above carb curve) -->
-    <polygon points="{fat_path}" fill="{COLORS['teal']}" opacity="0.25" class="gg-wp-scroll-fat-area"/>
-    <!-- Trained carb area -->
-    <polygon points="{trained_path}" fill="{COLORS['gold']}" opacity="0.35" class="gg-wp-scroll-carb-trained"/>
-    <!-- Recreational carb area (hidden by default) -->
-    <polygon points="{rec_path}" fill="{COLORS['gold']}" opacity="0" class="gg-wp-scroll-carb-rec" data-chart-rec/>
-    <!-- Race intensity zone -->
-    <rect x="{race_lo:.0f}" y="40" width="{race_hi - race_lo:.0f}" height="200" fill="{COLORS['dark_brown']}" opacity="0" class="gg-wp-scroll-race-zone" data-chart-race-zone/>
-    <text x="{(race_lo + race_hi) / 2:.0f}" y="35" fill="{COLORS['dark_brown']}" font-family="'Sometype Mono', monospace" font-size="9" text-anchor="middle" opacity="0" class="gg-wp-scroll-race-label" data-chart-race-label>RACE PACE</text>
-    <!-- Crossover point (trained) -->
-    <line x1="{crossover_trained_x:.0f}" y1="40" x2="{crossover_trained_x:.0f}" y2="240" stroke="{COLORS['dark_brown']}" stroke-width="1.5" stroke-dasharray="6 3" opacity="0" class="gg-wp-scroll-crossover-line" data-chart-crossover/>
-    <text x="{crossover_trained_x + 4:.0f}" y="52" fill="{COLORS['dark_brown']}" font-family="'Sometype Mono', monospace" font-size="9" opacity="0" class="gg-wp-scroll-crossover-label" data-chart-crossover-label>Crossover</text>
-    <!-- Recreational crossover line -->
-    <line x1="{crossover_rec_x:.0f}" y1="40" x2="{crossover_rec_x:.0f}" y2="240" stroke="{COLORS['secondary_brown']}" stroke-width="1.5" stroke-dasharray="4 4" opacity="0" class="gg-wp-scroll-rec-line" data-chart-rec-line/>
-    <text x="{crossover_rec_x - 4:.0f}" y="52" fill="{COLORS['secondary_brown']}" font-family="'Sometype Mono', monospace" font-size="9" text-anchor="end" opacity="0" class="gg-wp-scroll-rec-label" data-chart-rec-label>Recreational</text>
+    chart_svg = f'''<svg viewBox="0 0 {svg_w} {svg_h}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Fat oxidation rate chart comparing pro and recreational riders across intensity">
+    <title>Fat Burning Rate: How fitness changes the curve</title>
+    <!-- Gridlines -->
+{gridlines}
+    <!-- Pro filled area (under curve) -->
+    <polygon points="{pro_area}" fill="{COLORS['teal']}" opacity="0.15" class="gg-wp-scroll-pro-area"/>
+    <!-- Recreational filled area (hidden by default) -->
+    <polygon points="{rec_area}" fill="{COLORS['gold']}" opacity="0" class="gg-wp-scroll-rec-area" data-chart-rec-area/>
+    <!-- Pro curve line -->
+    <polyline points="{pro_line}" fill="none" stroke="{COLORS['teal']}" stroke-width="2.5" class="gg-wp-scroll-pro-line"/>
+    <!-- Recreational curve line (hidden by default) -->
+    <polyline points="{rec_line}" fill="none" stroke="{COLORS['gold']}" stroke-width="2.5" opacity="0" class="gg-wp-scroll-rec-line" data-chart-rec-line/>
+    <!-- Race pace zone (hidden by default) -->
+    <rect x="{race_lo:.0f}" y="40" width="{race_hi - race_lo:.0f}" height="190" fill="{COLORS['dark_brown']}" opacity="0" class="gg-wp-scroll-race-zone" data-chart-race-zone/>
+    <text x="{(race_lo + race_hi) / 2:.0f}" y="35" fill="{COLORS['dark_brown']}" font-family="'Sometype Mono', monospace" font-size="9" text-anchor="middle" opacity="0" data-chart-race-label>RACE PACE</text>
+    <!-- Pro peak annotation (hidden by default) -->
+    <circle cx="{pro_peak_x:.0f}" cy="{pro_peak_y:.0f}" r="4" fill="{COLORS['teal']}" stroke="{COLORS['dark_brown']}" stroke-width="1" opacity="0" data-chart-pro-peak/>
+    <text x="{pro_peak_x + 6:.0f}" y="{pro_peak_y - 6:.0f}" fill="{COLORS['teal']}" font-family="'Sometype Mono', monospace" font-size="8" opacity="0" data-chart-pro-peak-label>0.99 g/min</text>
+    <!-- Rec peak annotation (hidden by default) -->
+    <circle cx="{rec_peak_x:.0f}" cy="{rec_peak_y:.0f}" r="4" fill="{COLORS['gold']}" stroke="{COLORS['dark_brown']}" stroke-width="1" opacity="0" data-chart-rec-peak/>
+    <text x="{rec_peak_x + 6:.0f}" y="{rec_peak_y - 6:.0f}" fill="{COLORS['gold']}" font-family="'Sometype Mono', monospace" font-size="8" opacity="0" data-chart-rec-peak-label>0.53 g/min</text>
+    <!-- Carb-dominant annotation (visible at step 0) -->
+    <text x="215" y="218" fill="{COLORS['secondary_brown']}" font-family="'Sometype Mono', monospace" font-size="8" text-anchor="middle" opacity="0.7" data-chart-carb-note>Carbs provide 60%+ of energy at every intensity</text>
+    <!-- Curve labels (hidden by default) -->
+    <text x="{_x(4.2):.0f}" y="{_y(0.85) - 4:.0f}" fill="{COLORS['teal']}" font-family="'Sometype Mono', monospace" font-size="10" font-weight="bold" opacity="0" data-chart-pro-label>PRO</text>
+    <text x="{_x(3.6):.0f}" y="{_y(0.30) + 14:.0f}" fill="{COLORS['gold']}" font-family="'Sometype Mono', monospace" font-size="10" font-weight="bold" opacity="0" data-chart-rec-label>RECREATIONAL</text>
+    <!-- Gap bracket at 3.0 W/kg — hidden until step 2 -->
+    <!-- Pro at 3.0: FATox=0.96, fat_pct=32%. Rec at 3.0: FATox=0.49, fat_pct=21%. -->
+    <line x1="{_x(3.0):.0f}" y1="40" x2="{_x(3.0):.0f}" y2="230" stroke="{COLORS['dark_brown']}" stroke-width="1" stroke-dasharray="4 3" opacity="0" data-chart-gap-line/>
+    <circle cx="{_x(3.0):.0f}" cy="{_y(0.96):.0f}" r="3.5" fill="{COLORS['teal']}" stroke="{COLORS['dark_brown']}" stroke-width="1" opacity="0" data-chart-gap-pro-dot/>
+    <circle cx="{_x(3.0):.0f}" cy="{_y(0.49):.0f}" r="3.5" fill="{COLORS['gold']}" stroke="{COLORS['dark_brown']}" stroke-width="1" opacity="0" data-chart-gap-rec-dot/>
+    <!-- Bracket line between the two dots -->
+    <line x1="{_x(3.0) + 6:.0f}" y1="{_y(0.96):.0f}" x2="{_x(3.0) + 6:.0f}" y2="{_y(0.49):.0f}" stroke="{COLORS['dark_brown']}" stroke-width="1.5" opacity="0" data-chart-gap-bracket/>
+    <line x1="{_x(3.0) + 3:.0f}" y1="{_y(0.96):.0f}" x2="{_x(3.0) + 9:.0f}" y2="{_y(0.96):.0f}" stroke="{COLORS['dark_brown']}" stroke-width="1.5" opacity="0" data-chart-gap-bracket-top/>
+    <line x1="{_x(3.0) + 3:.0f}" y1="{_y(0.49):.0f}" x2="{_x(3.0) + 9:.0f}" y2="{_y(0.49):.0f}" stroke="{COLORS['dark_brown']}" stroke-width="1.5" opacity="0" data-chart-gap-bracket-bot/>
+    <!-- Gap labels -->
+    <text x="{_x(3.0) + 14:.0f}" y="{_y(0.96) + 3:.0f}" fill="{COLORS['teal']}" font-family="'Sometype Mono', monospace" font-size="7.5" opacity="0" data-chart-gap-pro-text>32% from fat</text>
+    <text x="{_x(3.0) + 14:.0f}" y="{_y(0.49) + 3:.0f}" fill="{COLORS['gold']}" font-family="'Sometype Mono', monospace" font-size="7.5" opacity="0" data-chart-gap-rec-text>21% from fat</text>
+    <text x="{_x(3.0) + 14:.0f}" y="{(_y(0.96) + _y(0.49)) / 2 + 3:.0f}" fill="{COLORS['dark_brown']}" font-family="'Sometype Mono', monospace" font-size="8" font-weight="bold" opacity="0" data-chart-gap-diff>2&#215; gap</text>
     <!-- Axes -->
-    <line x1="50" y1="240" x2="370" y2="240" stroke="{COLORS['dark_brown']}" stroke-width="2"/>
-    <line x1="50" y1="40" x2="50" y2="240" stroke="{COLORS['dark_brown']}" stroke-width="2"/>
-    <!-- X labels -->
-    <text x="50" y="258" fill="{COLORS['secondary_brown']}" font-family="'Sometype Mono', monospace" font-size="9" text-anchor="middle">Easy ride</text>
-    <text x="210" y="258" fill="{COLORS['secondary_brown']}" font-family="'Sometype Mono', monospace" font-size="9" text-anchor="middle">Race pace</text>
-    <text x="370" y="258" fill="{COLORS['secondary_brown']}" font-family="'Sometype Mono', monospace" font-size="9" text-anchor="middle">Max</text>
-    <!-- Y labels -->
-    <text x="42" y="244" fill="{COLORS['secondary_brown']}" font-family="'Sometype Mono', monospace" font-size="9" text-anchor="end">0%</text>
-    <text x="42" y="44" fill="{COLORS['secondary_brown']}" font-family="'Sometype Mono', monospace" font-size="9" text-anchor="end">100%</text>
-    <!-- Area labels -->
-    <text x="120" y="100" fill="{COLORS['teal']}" font-family="'Sometype Mono', monospace" font-size="11" font-weight="bold" opacity="0.7">FAT</text>
-    <text x="280" y="190" fill="{COLORS['gold']}" font-family="'Sometype Mono', monospace" font-size="11" font-weight="bold" opacity="0.7">CARB</text>
+    <line x1="60" y1="230" x2="370" y2="230" stroke="{COLORS['dark_brown']}" stroke-width="2"/>
+    <line x1="60" y1="40" x2="60" y2="230" stroke="{COLORS['dark_brown']}" stroke-width="2"/>
+    <!-- X-axis ticks + labels -->
+{x_ticks}
+    <!-- Axis titles -->
+    <text x="215" y="265" fill="{COLORS['dark_brown']}" font-family="'Sometype Mono', monospace" font-size="9" text-anchor="middle">INTENSITY (W/kg)</text>
+    <text x="14" y="135" fill="{COLORS['dark_brown']}" font-family="'Sometype Mono', monospace" font-size="9" text-anchor="middle" transform="rotate(-90, 14, 135)">FAT BURN (g/min)</text>
+    <!-- Y-axis labels -->
+    <text x="54" y="233" fill="{COLORS['secondary_brown']}" font-family="'Sometype Mono', monospace" font-size="8" text-anchor="end">0</text>
+    <text x="54" y="{_y(0.50):.0f}" fill="{COLORS['secondary_brown']}" font-family="'Sometype Mono', monospace" font-size="8" text-anchor="end">0.50</text>
+    <text x="54" y="{_y(1.0):.0f}" fill="{COLORS['secondary_brown']}" font-family="'Sometype Mono', monospace" font-size="8" text-anchor="end">1.00</text>
   </svg>'''
 
     return f'''<section class="gg-wp-scroll-section" id="scroll-crossover">
   <div class="gg-wp-scroll-chart">
     <div class="gg-wp-scroll-chart-inner" data-scroll-chart="crossover">
-      <div class="gg-wp-figure-title">Why Even Fit Riders Need Carbs</div>
+      <div class="gg-wp-figure-title">Fat Burning: How Fitness Changes the Curve</div>
       <div class="gg-wp-chart-wrap">
         {chart_svg}
       </div>
@@ -448,20 +489,21 @@ def build_scroll_crossover() -> str:
   </div>
   <div class="gg-wp-scroll-steps">
     <div class="gg-wp-scroll-step gg-step-active" data-step="0">
-      <h3 class="gg-wp-subsection-title">Fat Runs the Show at Low Intensity</h3>
-      <p class="gg-wp-prose">At low intensity &#8212; a coffee ride &#8212; your body burns mostly fat. Carbohydrate is barely touched. This is the metabolic sweet spot that fat-adaptation advocates love to talk about.</p>
+      <h3 class="gg-wp-subsection-title">Carbs Always Run the Show</h3>
+      <p class="gg-wp-prose">Even on the easiest ride you&#8217;ll ever do, your body burns more carbs than fat. At a casual 1.5&nbsp;W/kg, carbohydrate provides <strong>61% of your energy</strong> &#8212; whether you&#8217;re a pro or a weekend rider. Fat never dominates. Not at any intensity, for any fitness level.</p>
     </div>
     <div class="gg-wp-scroll-step" data-step="1">
-      <h3 class="gg-wp-subsection-title">The Crossover Point</h3>
-      <p class="gg-wp-prose">As intensity rises, carbohydrate takes over. The crossover point &#8212; where carbs become the dominant fuel &#8212; happens earlier than you&#8217;d think. Even for well-trained riders, it&#8217;s well below race pace.</p>
+      <h3 class="gg-wp-subsection-title">Fat Burning Peaks, Then Drops</h3>
+      <p class="gg-wp-prose">Your body does burn fat &#8212; and the rate <em>increases</em> as you ride harder. But only up to a point. Then it drops. This rise-and-fall is your fat oxidation curve. A pro rider&#8217;s fat burning peaks at <strong>0.99&nbsp;g/min</strong> around 3.5&nbsp;W/kg. A recreational rider peaks at <strong>0.53&nbsp;g/min</strong> around 2.5&nbsp;W/kg.</p>
     </div>
     <div class="gg-wp-scroll-step" data-step="2">
-      <h3 class="gg-wp-subsection-title">Carb-Dominant at Race Intensity</h3>
-      <p class="gg-wp-prose">Even a well-trained rider with a crossover at ~5.4&nbsp;W/kg is carb-dominant at gravel race intensity (60&#8211;80% of FTP). A recreational rider crosses over even sooner. At race pace, <strong>almost everyone is burning mostly carbs</strong>.</p>
+      <h3 class="gg-wp-subsection-title">That Gap Is Your Fueling Problem</h3>
+      <p class="gg-wp-prose">Look at 3.0&nbsp;W/kg &#8212; a typical gravel race effort. A pro is still burning 0.96&nbsp;g/min of fat, covering <strong>32%</strong> of their energy. A recreational rider? Just 0.49&nbsp;g/min &#8212; only <strong>21%</strong>. That&#8217;s a nearly <strong>2&#215; gap</strong> in free energy from fat.</p>
+      <p class="gg-wp-prose">Here&#8217;s what that means: the recreational rider&#8217;s body provides less energy from fat, so a <em>bigger</em> share of their energy must come from carbs they eat. <strong>The less fit you are, the more aggressively you need to fuel.</strong> This is the opposite of what most people assume &#8212; and it&#8217;s why generic &#8220;60&#8211;90&nbsp;g/hr&#8221; advice is dangerous. A recreational rider sitting at the bottom of that range may be underfueling relative to what their body actually demands.</p>
     </div>
     <div class="gg-wp-scroll-step" data-step="3">
-      <h3 class="gg-wp-subsection-title">Why the Carb Revolution Happened</h3>
-      <p class="gg-wp-prose">The old advice said &#8220;eat 40&#8211;60&nbsp;g/hr&#8221; because models assumed you&#8217;d burn mostly fat at race pace. But at race intensity, almost everyone is carb-dominant. The question isn&#8217;t <em>whether</em> to eat carbs &#8212; it&#8217;s how many <strong>your</strong> body needs.</p>
+      <h3 class="gg-wp-subsection-title">At Race Pace, You&#8217;re Carb-Powered</h3>
+      <p class="gg-wp-prose">Gravel race intensity is typically 2.5&#8211;3.5&nbsp;W/kg. At that effort, a recreational rider&#8217;s fat burning is already declining. A pro still has some, but carbs provide <strong>65&#8211;73%</strong> of their energy. This is why fueling correctly &#8212; getting enough carbs in &#8212; matters for <strong>everyone</strong>.</p>
     </div>
   </div>
 </section>'''
@@ -1746,21 +1788,41 @@ def build_whitepaper_js() -> str:
   }
 
   function updateCrossoverChart(chart, step) {
-    var crossover = chart.querySelector('[data-chart-crossover]');
-    var crossoverLabel = chart.querySelector('[data-chart-crossover-label]');
+    var recLine = chart.querySelector('[data-chart-rec-line]');
+    var recArea = chart.querySelector('[data-chart-rec-area]');
+    var recLabel = chart.querySelector('[data-chart-rec-label]');
+    var proLabel = chart.querySelector('[data-chart-pro-label]');
+    var proPeak = chart.querySelector('[data-chart-pro-peak]');
+    var proPeakLabel = chart.querySelector('[data-chart-pro-peak-label]');
+    var recPeak = chart.querySelector('[data-chart-rec-peak]');
+    var recPeakLabel = chart.querySelector('[data-chart-rec-peak-label]');
     var raceZone = chart.querySelector('[data-chart-race-zone]');
     var raceLabel = chart.querySelector('[data-chart-race-label]');
-    var recLine = chart.querySelector('[data-chart-rec-line]');
-    var recLabel = chart.querySelector('[data-chart-rec-label]');
-    var recArea = chart.querySelector('[data-chart-rec]');
+    var carbNote = chart.querySelector('[data-chart-carb-note]');
+    /* Gap bracket elements */
+    var gapEls = chart.querySelectorAll('[data-chart-gap-line],[data-chart-gap-pro-dot],[data-chart-gap-rec-dot],[data-chart-gap-bracket],[data-chart-gap-bracket-top],[data-chart-gap-bracket-bot],[data-chart-gap-pro-text],[data-chart-gap-rec-text],[data-chart-gap-diff]');
 
-    if (crossover) crossover.setAttribute('opacity', step >= 1 ? '0.8' : '0');
-    if (crossoverLabel) crossoverLabel.setAttribute('opacity', step >= 1 ? '1' : '0');
-    if (raceZone) raceZone.setAttribute('opacity', step >= 2 ? '0.08' : '0');
-    if (raceLabel) raceLabel.setAttribute('opacity', step >= 2 ? '1' : '0');
-    if (recLine) recLine.setAttribute('opacity', step >= 2 ? '0.8' : '0');
-    if (recLabel) recLabel.setAttribute('opacity', step >= 2 ? '1' : '0');
-    if (recArea) recArea.setAttribute('opacity', step >= 2 ? '0.2' : '0');
+    /* Step 0: Pro curve + carb-note visible. Everything else hidden. */
+    if (carbNote) carbNote.setAttribute('opacity', step === 0 ? '0.7' : '0.3');
+
+    /* Step 1: Rec curve appears + both curve labels + peak annotations */
+    var showRec = step >= 1 ? '1' : '0';
+    if (recLine) recLine.setAttribute('opacity', showRec);
+    if (recArea) recArea.setAttribute('opacity', step >= 1 ? '0.12' : '0');
+    if (proLabel) proLabel.setAttribute('opacity', showRec);
+    if (recLabel) recLabel.setAttribute('opacity', showRec);
+    if (proPeak) proPeak.setAttribute('opacity', step >= 1 ? '1' : '0');
+    if (proPeakLabel) proPeakLabel.setAttribute('opacity', step >= 1 ? '1' : '0');
+    if (recPeak) recPeak.setAttribute('opacity', step >= 1 ? '1' : '0');
+    if (recPeakLabel) recPeakLabel.setAttribute('opacity', step >= 1 ? '1' : '0');
+
+    /* Step 2: Gap bracket at 3.0 W/kg — the 2x gap visualization */
+    var showGap = step >= 2 ? '1' : '0';
+    gapEls.forEach(function(el) { el.setAttribute('opacity', showGap); });
+
+    /* Step 3: Race pace zone */
+    if (raceZone) raceZone.setAttribute('opacity', step >= 3 ? '0.08' : '0');
+    if (raceLabel) raceLabel.setAttribute('opacity', step >= 3 ? '1' : '0');
   }
 
   function updateChart(chartEl, sectionId, stepIndex) {

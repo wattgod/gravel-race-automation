@@ -806,16 +806,29 @@ class TestScrollytelling:
         assert "<svg" in html
         assert "polyline" in html
 
-    def test_scroll_crossover_has_fuel_mix(self):
-        """Crossover scroll section has fuel mix area chart."""
+    def test_scroll_crossover_has_fat_ox_curves(self):
+        """Crossover scroll section has fat oxidation rate curves for pro + recreational."""
         html = build_scroll_crossover()
         assert "<svg" in html
-        assert "gg-wp-scroll-fat-area" in html
-        assert "gg-wp-scroll-carb-trained" in html
+        assert "gg-wp-scroll-pro-area" in html
+        assert "gg-wp-scroll-pro-line" in html
+        assert "gg-wp-scroll-rec-line" in html
 
     def test_crossover_correct_framing(self, page_html):
-        """Page contains corrected crossover insight about carb dominance."""
-        assert "carb-dominant" in page_html.lower()
+        """Page contains corrected crossover insight — carbs always dominate."""
+        assert "carbs always run the show" in page_html.lower()
+
+    def test_crossover_no_fat_dominates_myth(self, page_html):
+        """Page must NOT claim fat dominates at low intensity (scientifically wrong)."""
+        assert "fat runs the show" not in page_html.lower()
+        assert "burns mostly fat" not in page_html.lower()
+        assert "fat. carbohydrate is barely touched" not in page_html.lower()
+
+    def test_crossover_gap_implication(self, page_html):
+        """Page explains the 2x fat-burning gap and its practical implication."""
+        lower = page_html.lower()
+        assert "2" in lower and "gap" in lower, "Must mention the 2x gap"
+        assert "the less fit you are, the more aggressively you need to fuel" in lower
 
     def test_no_white_paper_language(self, page_html):
         """Prose content should not reference 'this paper' (academic language)."""
@@ -1021,16 +1034,25 @@ class TestChartDataAttributeCrossRef:
         assert 'data-chart-exponent' in html
 
     def test_crossover_chart_attributes(self):
-        """Crossover chart: JS references data-chart-crossover, rec, race-zone, etc."""
+        """Crossover chart: JS references data-chart-* attrs for pro/rec curves + gap + race zone."""
         html = build_scroll_crossover()
         for attr in [
-            'data-chart-crossover',
-            'data-chart-crossover-label',
-            'data-chart-race-zone',
-            'data-chart-race-label',
+            'data-chart-rec-area',
             'data-chart-rec-line',
             'data-chart-rec-label',
-            'data-chart-rec',
+            'data-chart-pro-label',
+            'data-chart-pro-peak',
+            'data-chart-pro-peak-label',
+            'data-chart-rec-peak',
+            'data-chart-rec-peak-label',
+            'data-chart-race-zone',
+            'data-chart-race-label',
+            'data-chart-carb-note',
+            'data-chart-gap-line',
+            'data-chart-gap-pro-dot',
+            'data-chart-gap-rec-dot',
+            'data-chart-gap-bracket',
+            'data-chart-gap-diff',
         ]:
             assert attr in html, f"Missing {attr} in crossover chart HTML"
 

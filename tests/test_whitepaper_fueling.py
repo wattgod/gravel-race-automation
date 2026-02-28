@@ -1,7 +1,8 @@
 """Tests for the fueling methodology white paper page generator.
 
 Validates page structure, infographics, CSS, JS, nav integration,
-accessibility, brand compliance, deploy function, and content accuracy.
+accessibility, brand compliance, deploy function, content accuracy,
+scrollytelling sections, and inline calculator.
 """
 from __future__ import annotations
 
@@ -20,17 +21,21 @@ sys.path.insert(0, str(REPO_ROOT / "scripts"))
 
 from generate_whitepaper_fueling import (
     build_cta,
-    build_duration_problem,
     build_hero,
+    build_inline_calculator,
     build_inline_cta,
     build_jensen,
     build_limitations,
     build_metabolic_testing,
+    build_murphy,
     build_nav,
     build_phenotype,
     build_power_curve,
     build_practical,
     build_references,
+    build_scroll_crossover,
+    build_scroll_duration,
+    build_scroll_fitness,
     build_tldr,
     build_whitepaper_css,
     build_whitepaper_js,
@@ -105,11 +110,12 @@ class TestPageGeneration:
         assert 'name="twitter:card"' in page_html
 
     def test_has_all_sections(self, page_html):
-        """All 8 paper sections + TL;DR + CTA present."""
+        """All sections present in new narrative arc."""
         section_ids = [
-            "hero", "tldr", "duration-problem", "metabolic-testing",
-            "power-curve", "jensen", "practical", "phenotype",
-            "limitations", "references", "cta",
+            "hero", "murphy", "inline-calculator", "practical",
+            "scroll-duration", "scroll-fitness", "scroll-crossover",
+            "tldr", "phenotype", "jensen", "power-curve",
+            "metabolic-testing", "limitations", "references", "cta",
         ]
         for sid in section_ids:
             assert f'id="{sid}"' in page_html, f"Missing section: {sid}"
@@ -119,7 +125,7 @@ class TestPageGeneration:
 
     def test_has_json_ld(self, page_html):
         assert "application/ld+json" in page_html
-        assert "ScholarlyArticle" in page_html
+        assert '"Article"' in page_html
 
     def test_has_viewport_meta(self, page_html):
         assert 'name="viewport"' in page_html
@@ -129,7 +135,7 @@ class TestPageGeneration:
 
 
 class TestHero:
-    """Test hero section with stat counters."""
+    """Test hero section — clean, no counters."""
 
     def test_has_title(self):
         html = build_hero()
@@ -139,21 +145,11 @@ class TestHero:
         html = build_hero()
         assert "yours" in html.lower()
 
-    def test_has_counters(self):
+    def test_no_counters(self):
+        """Hero should not have stat counters (removed in scrollytelling rebuild)."""
         html = build_hero()
-        assert "gg-wp-counter" in html
-
-    def test_has_data_counter_attributes(self):
-        html = build_hero()
-        assert 'data-counter="328"' in html
-        assert 'data-counter="38"' in html
-        assert 'data-counter="3"' in html
-
-    def test_counter_labels(self):
-        html = build_hero()
-        assert "race calculators" in html
-        assert "peer-reviewed" in html
-        assert "weight" in html
+        assert "gg-wp-counter" not in html
+        assert "data-counter" not in html
 
 
 # ── TestInfographics ──────────────────────────────────────────
@@ -163,13 +159,13 @@ class TestInfographics:
     """Test infographic elements: SVG charts, bars, tables, accordions."""
 
     def test_murphy_comparison_bars(self):
-        html = build_duration_problem()
+        html = build_murphy()
         assert "gg-wp-compare-row" in html
         assert "80 g/hr" in html
         assert "63 g/hr" in html
 
     def test_murphy_bars_animate(self):
-        html = build_duration_problem()
+        html = build_murphy()
         assert 'data-animate="bars"' in html
         assert "data-target-w" in html
 
@@ -312,7 +308,7 @@ class TestCSS:
 
 
 class TestJS:
-    """Test JS functionality: animations, accordion, digit roller."""
+    """Test JS functionality: animations, accordion, scrollytelling, calculator."""
 
     def test_has_script_tag(self, page_js):
         assert "<script>" in page_js
@@ -326,10 +322,6 @@ class TestJS:
     def test_accordion_handler(self, page_js):
         assert "data-accordion" in page_js
         assert "aria-expanded" in page_js
-
-    def test_digit_roller(self, page_js):
-        assert "data-counter" in page_js
-        assert "animateCounter" in page_js
 
     def test_reduced_motion_check(self, page_js):
         assert "prefers-reduced-motion" in page_js
@@ -379,7 +371,7 @@ class TestAccessibility:
         assert "#hero" in page_html
 
     def test_aria_labels_on_svgs(self):
-        html = build_duration_problem()
+        html = build_murphy()
         assert "aria-label" in html
 
     def test_aria_labels_on_tables(self):
@@ -486,10 +478,6 @@ class TestContentAccuracy:
 
     def test_race_count(self, page_html):
         assert "328" in page_html
-
-    def test_counter_in_page(self, page_html):
-        """Hero counters are present in the page."""
-        assert 'data-counter="328"' in page_html
 
     def test_overestimate_percentage(self, page_html):
         """83% fat oxidation overestimate from Jensen's inequality."""
@@ -629,8 +617,8 @@ class TestProgressiveEnhancement:
 
     def test_lab_range_bar_uses_ml_not_inline_margin(self, page_html):
         """Lab range bar offset must use --ml custom property, not inline margin-left."""
-        duration_html = build_duration_problem()
-        gold_bars = re.findall(r'<div[^>]*gg-wp-bar-fill--gold[^>]*>', duration_html)
+        murphy_html = build_murphy()
+        gold_bars = re.findall(r'<div[^>]*gg-wp-bar-fill--gold[^>]*>', murphy_html)
         for bar in gold_bars:
             if 'data-target-w' in bar:
                 assert '--ml:' in bar, (
@@ -650,7 +638,7 @@ class TestBarProportionality:
 
     def test_murphy_bars_proportional(self):
         """Murphy comparison: 80g bar > 63g bar. Old formula > new formula."""
-        html = build_duration_problem()
+        html = build_murphy()
         bars = re.findall(r'--tw:(\d+)%', html)
         assert len(bars) >= 2, f"Expected at least 2 bars, got {len(bars)}"
         # First bar (old formula, 80g) should be wider than second (new, 63g)
@@ -776,6 +764,132 @@ class TestFooterNavLinks:
         assert "/insights/" in page_html
 
 
+# ── TestScrollytelling ───────────────────────────────────────
+
+
+class TestScrollytelling:
+    """Test scrollytelling sections: scroll steps, sticky charts, SVGs."""
+
+    def test_scroll_sections_present(self, page_html):
+        """Page has 3 scroll sections."""
+        count = page_html.count('class="gg-wp-scroll-section"')
+        assert count == 3, f"Expected 3 scroll sections, got {count}"
+
+    def test_scroll_steps_have_data_attributes(self, page_html):
+        """Every scroll step has data-step attribute."""
+        steps = re.findall(r'class="gg-wp-scroll-step[^"]*"[^>]*data-step="(\d+)"', page_html)
+        assert len(steps) >= 10, f"Expected at least 10 scroll steps, got {len(steps)}"
+        for step_val in steps:
+            assert step_val.isdigit(), f"Invalid data-step value: {step_val}"
+
+    def test_scroll_chart_sticky_css(self, page_css):
+        """CSS contains position: sticky for scroll chart."""
+        assert "position: sticky" in page_css
+
+    def test_scroll_mobile_breakpoint(self, page_css):
+        """CSS has media query for scroll section stacking on mobile."""
+        assert "max-width: 768px" in page_css
+
+    def test_scroll_observer_js(self, page_js):
+        """JS contains scroll step observer."""
+        assert "gg-wp-scroll-step" in page_js
+
+    def test_scroll_duration_has_brackets(self):
+        """Duration scroll section has bracket chart with 5 brackets."""
+        html = build_scroll_duration()
+        count = html.count('data-chart-bracket=')
+        assert count == 5, f"Expected 5 brackets, got {count}"
+
+    def test_scroll_fitness_has_power_curve(self):
+        """Fitness scroll section has power curve SVG."""
+        html = build_scroll_fitness()
+        assert "<svg" in html
+        assert "polyline" in html
+
+    def test_scroll_crossover_has_fuel_mix(self):
+        """Crossover scroll section has fuel mix area chart."""
+        html = build_scroll_crossover()
+        assert "<svg" in html
+        assert "gg-wp-scroll-fat-area" in html
+        assert "gg-wp-scroll-carb-trained" in html
+
+    def test_crossover_correct_framing(self, page_html):
+        """Page contains corrected crossover insight about carb dominance."""
+        assert "carb-dominant" in page_html.lower()
+
+    def test_no_white_paper_language(self, page_html):
+        """Prose content should not reference 'this paper' (academic language)."""
+        # Check prose sections only — not nav/footer which legitimately say "White Papers"
+        prose_blocks = re.findall(r'class="gg-wp-prose">(.*?)</div>', page_html, re.DOTALL)
+        for block in prose_blocks:
+            text = block.lower()
+            assert 'this paper' not in text, "Found 'this paper' in prose section"
+
+    def test_fuel_mix_svg(self, page_html):
+        """Page contains fuel-mix area chart SVG."""
+        assert "Fuel Mix" in page_html or "fuel mix" in page_html.lower()
+
+
+# ── TestInlineCalculator ─────────────────────────────────────
+
+
+class TestInlineCalculator:
+    """Test inline carb calculator."""
+
+    def test_inline_calculator_present(self, page_html):
+        """Page has calculator section."""
+        assert "gg-wp-calculator" in page_html
+
+    def test_calculator_js_compute_function(self, page_js):
+        """JS contains computeInline function."""
+        assert "computeInline" in page_js
+
+    def test_calculator_no_email_gate(self):
+        """Calculator section has no email input."""
+        html = build_inline_calculator()
+        assert 'type="email"' not in html
+
+    def test_calculator_progressive_fallback(self):
+        """Calculator has fallback div for no-JS."""
+        html = build_inline_calculator()
+        assert "gg-wp-calc-fallback" in html
+
+    def test_calculator_has_weight_input(self):
+        """Calculator has weight input field."""
+        html = build_inline_calculator()
+        assert 'id="gg-calc-weight"' in html
+
+    def test_calculator_has_ftp_input(self):
+        """Calculator has FTP input field."""
+        html = build_inline_calculator()
+        assert 'id="gg-calc-ftp"' in html
+
+    def test_calculator_has_hours_input(self):
+        """Calculator has race duration input field."""
+        html = build_inline_calculator()
+        assert 'id="gg-calc-hours"' in html
+
+    def test_calculator_has_result_area(self):
+        """Calculator has result display area."""
+        html = build_inline_calculator()
+        assert 'id="gg-calc-number"' in html
+
+    def test_calculator_has_unit_toggle(self):
+        """Calculator has kg/lbs toggle."""
+        html = build_inline_calculator()
+        assert 'id="gg-calc-unit-toggle"' in html
+
+    def test_calculator_aria_live(self):
+        """Calculator result area has aria-live for screen readers."""
+        html = build_inline_calculator()
+        assert 'aria-live="polite"' in html
+
+    def test_calculator_form_role(self):
+        """Calculator form has role attribute."""
+        html = build_inline_calculator()
+        assert 'role="form"' in html
+
+
 # ── TestMainCLI ──────────────────────────────────────────────
 
 
@@ -790,3 +904,370 @@ class TestMainCLI:
         content = output.read_text()
         assert "<!DOCTYPE html>" in content
         assert len(content) > 10000
+
+
+# ── TestSVGBrandCompliance ──────────────────────────────────
+
+
+class TestSVGBrandCompliance:
+    """SVG presentation attributes must use COLORS dict hex, never var().
+    Lesson #3: SVG attrs can't resolve var()/color-mix()."""
+
+    def test_no_svg_var_in_fill(self, page_html):
+        """SVG fill attributes must not use CSS custom properties."""
+        # Extract all SVG blocks
+        svg_blocks = re.findall(r'<svg[^>]*>.*?</svg>', page_html, re.DOTALL)
+        for svg in svg_blocks:
+            fills = re.findall(r'fill="(var\(--[^"]*)"', svg)
+            assert fills == [], (
+                f"SVG fill uses var(): {fills[:3]}. "
+                "SVG presentation attributes can't resolve CSS custom properties. "
+                "Use COLORS dict hex values instead (lesson #3)."
+            )
+
+    def test_no_svg_var_in_stroke(self, page_html):
+        """SVG stroke attributes must not use CSS custom properties."""
+        svg_blocks = re.findall(r'<svg[^>]*>.*?</svg>', page_html, re.DOTALL)
+        for svg in svg_blocks:
+            strokes = re.findall(r'stroke="(var\(--[^"]*)"', svg)
+            assert strokes == [], (
+                f"SVG stroke uses var(): {strokes[:3]}. "
+                "Use COLORS dict hex values instead (lesson #3)."
+            )
+
+    def test_svg_fills_are_hex_or_none(self, page_html):
+        """All SVG fill values should be hex colors, 'none', or named colors."""
+        svg_blocks = re.findall(r'<svg[^>]*>.*?</svg>', page_html, re.DOTALL)
+        for svg in svg_blocks:
+            fills = re.findall(r'fill="([^"]+)"', svg)
+            for fill in fills:
+                assert not fill.startswith('var('), (
+                    f"SVG fill '{fill}' uses var(). Must use hex color."
+                )
+                assert not fill.startswith('color-mix'), (
+                    f"SVG fill '{fill}' uses color-mix(). Not supported in SVG attrs."
+                )
+
+
+# ── TestScrollSVGAccessibility ──────────────────────────────
+
+
+class TestScrollSVGAccessibility:
+    """Scroll section SVGs must have role='img' + aria-label + title."""
+
+    def test_duration_svg_accessible(self):
+        html = build_scroll_duration()
+        assert 'role="img"' in html
+        assert 'aria-label=' in html
+        assert '<title>' in html
+
+    def test_fitness_svg_accessible(self):
+        html = build_scroll_fitness()
+        assert 'role="img"' in html
+        assert 'aria-label=' in html
+        assert '<title>' in html
+
+    def test_crossover_svg_accessible(self):
+        html = build_scroll_crossover()
+        assert 'role="img"' in html
+        assert 'aria-label=' in html
+        assert '<title>' in html
+
+
+# ── TestDataStepIntegrity ───────────────────────────────────
+
+
+class TestDataStepIntegrity:
+    """Scroll step data-step values must be sequential with no gaps."""
+
+    def _check_section_steps(self, html, expected_count):
+        """Helper: verify data-step values are 0,1,2,...,n-1."""
+        steps = re.findall(r'data-step="(\d+)"', html)
+        assert len(steps) == expected_count, (
+            f"Expected {expected_count} steps, got {len(steps)}"
+        )
+        for i, step in enumerate(steps):
+            assert int(step) == i, (
+                f"data-step gap: expected {i}, got {step}"
+            )
+
+    def test_duration_steps_sequential(self):
+        self._check_section_steps(build_scroll_duration(), 3)
+
+    def test_fitness_steps_sequential(self):
+        self._check_section_steps(build_scroll_fitness(), 3)
+
+    def test_crossover_steps_sequential(self):
+        self._check_section_steps(build_scroll_crossover(), 4)
+
+
+# ── TestChartDataAttributeCrossRef ──────────────────────────
+
+
+class TestChartDataAttributeCrossRef:
+    """JS-referenced data-chart-* attributes must exist in HTML."""
+
+    def test_duration_chart_attributes(self):
+        """Duration chart: JS references data-chart-bracket and data-chart-murphy."""
+        html = build_scroll_duration()
+        assert 'data-chart-bracket=' in html
+        assert 'data-chart-murphy' in html
+
+    def test_fitness_chart_attributes(self):
+        """Fitness chart: JS references data-chart-murphy, data-chart-comp, data-chart-exponent."""
+        html = build_scroll_fitness()
+        assert 'data-chart-murphy' in html
+        assert 'data-chart-comp' in html
+        assert 'data-chart-exponent' in html
+
+    def test_crossover_chart_attributes(self):
+        """Crossover chart: JS references data-chart-crossover, rec, race-zone, etc."""
+        html = build_scroll_crossover()
+        for attr in [
+            'data-chart-crossover',
+            'data-chart-crossover-label',
+            'data-chart-race-zone',
+            'data-chart-race-label',
+            'data-chart-rec-line',
+            'data-chart-rec-label',
+            'data-chart-rec',
+        ]:
+            assert attr in html, f"Missing {attr} in crossover chart HTML"
+
+    def test_scroll_chart_id_matches_js(self):
+        """data-scroll-chart values match section IDs used by JS dispatcher."""
+        dur = build_scroll_duration()
+        fit = build_scroll_fitness()
+        cross = build_scroll_crossover()
+        assert 'data-scroll-chart="duration"' in dur
+        assert 'data-scroll-chart="fitness"' in fit
+        assert 'data-scroll-chart="crossover"' in cross
+
+
+# ── TestFormulaParity ───────────────────────────────────────
+
+
+class TestFormulaParity:
+    """Calculator formula must match prep-kit formula exactly.
+    Python equivalent tested against known reference outputs."""
+
+    @staticmethod
+    def _compute_inline_python(weight_kg, ftp, hours):
+        """Python equivalent of JS computeInline() function."""
+        if hours <= 4:
+            b_lo, b_hi = 80, 100
+        elif hours <= 8:
+            b_lo, b_hi = 60, 80
+        elif hours <= 12:
+            b_lo, b_hi = 50, 70
+        elif hours <= 16:
+            b_lo, b_hi = 40, 60
+        else:
+            b_lo, b_hi = 30, 50
+
+        if ftp and ftp > 0 and weight_kg > 0:
+            wkg = ftp / weight_kg
+            lin = max(0, min(1, (wkg - 1.5) / 3.0))
+            factor = lin ** 1.4
+            rate = round(b_lo + factor * (b_hi - b_lo))
+        else:
+            rate = round((b_lo + b_hi) / 2)
+        return rate, b_lo, b_hi
+
+    def test_murphy_rate(self):
+        """Murphy: 95kg, 220W, 6.5hrs → 63 g/hr."""
+        rate, lo, hi = self._compute_inline_python(95, 220, 6.5)
+        assert rate == 63, f"Murphy rate {rate} != 63"
+        assert lo == 60
+        assert hi == 80
+
+    def test_competitive_racer(self):
+        """70kg, 280W (4.0 W/kg), 6.5hrs → 75 g/hr."""
+        rate, lo, hi = self._compute_inline_python(70, 280, 6.5)
+        assert rate == 75, f"Competitive rate {rate} != 75"
+
+    def test_short_race(self):
+        """70kg, 280W, 3hrs → 2-4hr bracket (80-100)."""
+        rate, lo, hi = self._compute_inline_python(70, 280, 3)
+        assert lo == 80
+        assert hi == 100
+        assert 80 <= rate <= 100
+
+    def test_ultra_race(self):
+        """95kg, 220W, 18hrs → 16+ bracket (30-50)."""
+        rate, lo, hi = self._compute_inline_python(95, 220, 18)
+        assert lo == 30
+        assert hi == 50
+        assert 30 <= rate <= 50
+
+    def test_no_ftp_gives_midpoint(self):
+        """No FTP → bracket midpoint."""
+        rate, lo, hi = self._compute_inline_python(75, 0, 6)
+        assert rate == 70  # midpoint of 60-80
+        rate2, _, _ = self._compute_inline_python(75, None, 6)
+        assert rate2 == 70
+
+    def test_formula_constants_in_js(self):
+        """JS contains the same constants as the Python formula."""
+        js = build_whitepaper_js()
+        assert '1.5' in js  # WKG_FLOOR
+        assert '3.0' in js  # WKG_CEIL - WKG_FLOOR
+        assert '1.4' in js  # WKG_EXP
+        assert 'Math.pow(lin, 1.4)' in js
+
+    def test_all_five_brackets_in_js(self):
+        """JS has all 5 duration bracket boundaries."""
+        js = build_whitepaper_js()
+        assert 'bLo = 80; bHi = 100' in js
+        assert 'bLo = 60; bHi = 80' in js
+        assert 'bLo = 50; bHi = 70' in js
+        assert 'bLo = 40; bHi = 60' in js
+        assert 'bLo = 30; bHi = 50' in js
+
+
+# ── TestSectionOrder ────────────────────────────────────────
+
+
+class TestSectionOrder:
+    """Sections must appear in the correct narrative arc order."""
+
+    def test_narrative_arc_order(self, page_html):
+        """Sections follow: hook → answer → why → deeper → act."""
+        section_order = [
+            'id="hero"',
+            'id="murphy"',
+            'id="inline-calculator"',
+            'id="practical"',
+            'id="scroll-duration"',
+            'id="scroll-fitness"',
+            'id="scroll-crossover"',
+            'id="tldr"',
+            'id="phenotype"',
+            'id="jensen"',
+            'id="power-curve"',
+            'id="metabolic-testing"',
+            'id="limitations"',
+            'id="references"',
+            'id="cta"',
+        ]
+        positions = []
+        for section_id in section_order:
+            pos = page_html.find(section_id)
+            assert pos != -1, f"Section {section_id} not found in page"
+            positions.append(pos)
+        # Verify monotonically increasing
+        for i in range(len(positions) - 1):
+            assert positions[i] < positions[i + 1], (
+                f"Section order violation: {section_order[i]} (pos {positions[i]}) "
+                f"appears after {section_order[i+1]} (pos {positions[i+1]})"
+            )
+
+
+# ── TestCalculatorEdgeCases ─────────────────────────────────
+
+
+class TestCalculatorEdgeCases:
+    """Edge case tests for calculator formula and JS behavior."""
+
+    def test_wkg_floor_clamp(self):
+        """W/kg below 1.5 should clamp to floor (rate = bracket low)."""
+        rate, lo, hi = TestFormulaParity._compute_inline_python(100, 100, 6)
+        # 100W / 100kg = 1.0 W/kg, below floor → factor = 0 → rate = lo
+        assert rate == lo, f"Below-floor W/kg should give bracket low, got {rate}"
+
+    def test_wkg_ceiling_clamp(self):
+        """W/kg above 4.5 should clamp to ceiling (rate = bracket high)."""
+        rate, lo, hi = TestFormulaParity._compute_inline_python(60, 300, 6)
+        # 300W / 60kg = 5.0 W/kg, above ceiling → factor = 1 → rate = hi
+        assert rate == hi, f"Above-ceiling W/kg should give bracket high, got {rate}"
+
+    def test_boundary_hours_4(self):
+        """At exactly 4 hours, should be in 2-4hr bracket."""
+        rate, lo, hi = TestFormulaParity._compute_inline_python(75, 225, 4)
+        assert lo == 80 and hi == 100
+
+    def test_boundary_hours_8(self):
+        """At exactly 8 hours, should be in 4-8hr bracket."""
+        rate, lo, hi = TestFormulaParity._compute_inline_python(75, 225, 8)
+        assert lo == 60 and hi == 80
+
+    def test_boundary_hours_12(self):
+        """At exactly 12 hours, should be in 8-12hr bracket."""
+        rate, lo, hi = TestFormulaParity._compute_inline_python(75, 225, 12)
+        assert lo == 50 and hi == 70
+
+    def test_boundary_hours_16(self):
+        """At exactly 16 hours, should be in 12-16hr bracket."""
+        rate, lo, hi = TestFormulaParity._compute_inline_python(75, 225, 16)
+        assert lo == 40 and hi == 60
+
+    def test_rate_always_within_bracket(self):
+        """Rate should always be >= lo and <= hi for any valid inputs."""
+        test_cases = [
+            (60, 150, 3),
+            (75, 225, 6),
+            (95, 220, 6.5),
+            (110, 180, 14),
+            (50, 350, 20),
+            (80, 0, 10),
+        ]
+        for wkg, ftp, hrs in test_cases:
+            rate, lo, hi = TestFormulaParity._compute_inline_python(wkg, ftp, hrs)
+            assert lo <= rate <= hi, (
+                f"Rate {rate} outside bracket [{lo}, {hi}] "
+                f"for weight={wkg}, ftp={ftp}, hours={hrs}"
+            )
+
+    def test_js_has_input_validation(self):
+        """JS calculator validates inputs before computing."""
+        js = build_whitepaper_js()
+        assert 'isNaN(rawWeight)' in js or 'isNaN' in js
+        assert 'rawWeight <= 0' in js or 'rawWeight > 0' in js
+
+    def test_js_has_ga4_debounce(self):
+        """GA4 event should be debounced, not fire on every keystroke."""
+        js = build_whitepaper_js()
+        assert 'setTimeout' in js
+        assert 'clearTimeout' in js
+        assert 'calcGa4Timer' in js
+
+    def test_js_chart_init_on_load(self):
+        """Charts should be initialized at step 0 on page load."""
+        js = build_whitepaper_js()
+        assert 'updateChart(chart, section.id, 0)' in js
+
+    def test_js_unit_toggle_updates_min_max(self):
+        """Unit toggle must update min/max constraints."""
+        js = build_whitepaper_js()
+        assert "calcWeight.min" in js
+        assert "calcWeight.max" in js
+
+
+# ── TestProgressiveEnhancementCalculator ────────────────────
+
+
+class TestProgressiveEnhancementCalculator:
+    """Calculator must work without JS via progressive enhancement."""
+
+    def test_calc_form_hidden_by_default_css(self, page_css):
+        """Without JS, form should be display:none."""
+        # Look for the standalone .gg-wp-calc-form { display: none; } rule
+        # (not the .gg-has-js override)
+        pattern = re.search(
+            r'\.gg-wp-calc-form\s*\{\s*display:\s*none',
+            page_css,
+        )
+        assert pattern, (
+            "Missing .gg-wp-calc-form { display: none } default rule. "
+            "Calculator form must be hidden without JS."
+        )
+
+    def test_calc_fallback_shown_by_default_css(self, page_css):
+        """Without JS, fallback should be display:block."""
+        # Find the gg-has-js override
+        assert '.gg-has-js .gg-wp-calc-fallback' in page_css
+        assert '.gg-has-js .gg-wp-calc-form' in page_css
+
+    def test_calc_form_visible_with_js(self, page_css):
+        """With .gg-has-js, form should be visible."""
+        assert '.gg-has-js .gg-wp-calc-form' in page_css

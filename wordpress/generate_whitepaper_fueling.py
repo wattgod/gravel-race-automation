@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
 """
-Generate the Intensity-Aware Fueling Methodology white paper page.
+Generate the Intensity-Aware Fueling Methodology page.
 
-A research-grade white paper (38 citations, peer-reviewed structure) on the
-W/kg fueling framework that powers the carb calculator in all 328 Race Prep
-Kits. Published as a branded, infographic-enriched HTML page.
+A scrollytelling narrative visual essay (38 citations) on the W/kg fueling
+framework that powers the carb calculator in all 328 Race Prep Kits. Features
+an inline calculator, sticky-chart scroll sections, and corrected crossover
+science. Published as a branded, infographic-enriched HTML page.
 
-Uses brand tokens exclusively — zero hardcoded hex, no border-radius, no
-box-shadow, <rect> only (no <circle>).
+Uses brand tokens exclusively — zero hardcoded hex in CSS, COLORS dict for
+SVG fills/strokes, no border-radius, no box-shadow, <rect> only (no <circle>).
 
 Usage:
     python generate_whitepaper_fueling.py
@@ -63,26 +64,12 @@ def build_nav() -> str:
 
 
 def build_hero() -> str:
-    """Section: Hero with animated stat counters."""
-    counters = [
-        ("328", "personalized race calculators"),
-        ("38", "peer-reviewed sources"),
-        ("3", "inputs: weight, FTP, race"),
-    ]
-    counter_html = ""
-    for value, label in counters:
-        counter_html += f'''      <div class="gg-wp-counter">
-        <span class="gg-wp-counter-value" data-counter="{esc(value)}">{esc(value)}</span>
-        <span class="gg-wp-counter-label">{esc(label)}</span>
-      </div>
-'''
+    """Section: Hero — eyebrow + title + subtitle."""
     return f'''<section class="gg-wp-hero" id="hero">
   <div class="gg-wp-hero-inner">
     <span class="gg-wp-hero-eyebrow">FUELING METHODOLOGY</span>
     <h1 class="gg-wp-hero-title">How Many Carbs Do You Actually Need?</h1>
     <p class="gg-wp-hero-subtitle">Everyone says 60 to 90 grams per hour. For a 95-kilo rider at 2.3&nbsp;W/kg, the right number is 63. For a 70-kilo rider at 4.0&nbsp;W/kg, it&#8217;s 75. Same race, same bracket, different bodies. Which number is yours?</p>
-    <div class="gg-wp-counters">
-{counter_html}    </div>
   </div>
 </section>'''
 
@@ -102,13 +89,13 @@ def build_tldr() -> str:
     </div>
 '''
     return f'''<section class="gg-wp-section gg-wp-section--alt" id="tldr">
-  <h2 class="gg-wp-section-title">How It Works in 60 Seconds</h2>
+  <h2 class="gg-wp-section-title">The Formula in 60 Seconds</h2>
   <div class="gg-wp-tldr-grid">
 {cards_html}  </div>
 </section>'''
 
 
-def build_duration_problem() -> str:
+def build_murphy() -> str:
     """Section 1: Two Riders, One Number — with comparison bar chart."""
     # HTML div bar chart: generic vs personalized vs lab range
     bars_html = '''<div class="gg-wp-chart-wrap" data-animate="bars" role="img" aria-label="Comparison of fueling formulas for a 95kg/220W rider in a 6.5-hour race">
@@ -136,17 +123,347 @@ def build_duration_problem() -> str:
   <div class="gg-wp-compare-annotation">Murphy: SBT GRVL, 95 kg, 220W FTP (2.32 W/kg)</div>
 </div>'''
 
-    return f'''<section class="gg-wp-section" id="duration-problem">
+    return f'''<section class="gg-wp-section" id="murphy">
   <h2 class="gg-wp-section-title">Two Riders, One Number</h2>
   <div class="gg-wp-prose">
     <p>It&#8217;s hour six at SBT GRVL in Steamboat Springs. You&#8217;ve been eating 80 grams of carbs per hour because that&#8217;s what the internet told you. Your stomach is revolting. Meanwhile the rider next to you &#8212; twenty kilos lighter, twenty watts higher &#8212; is eating 75 and feeling fine. Same race. Same bracket. Same generic advice. One of you got the wrong number.</p>
     <p>Murphy is a 95-kilo masters racer who signed up for SBT GRVL because his buddy wouldn&#8217;t stop talking about it. His FTP is 220 watts &#8212; respectable, not elite. At 2.3&nbsp;W/kg, he&#8217;s solidly mid-pack. He read every fueling guide online. They all said eat 60&#8211;90 grams per hour. He picked 80. He was wrong by 27%.</p>
+    <p><strong>Three inputs tell you which number is yours: your weight, your FTP, your race.</strong></p>
   </div>
   <figure class="gg-wp-figure" id="murphy-comparison-figure">
     <div class="gg-wp-figure-title">The Murphy Problem: Same Bracket, Wrong Answer</div>
     {bars_html}
     <div class="gg-wp-figure-takeaway">Generic advice gave Murphy 80 g/hr &#8212; 27% higher than his personalized target of 63 g/hr. Lab data confirms: at 2.3 W/kg, exogenous absorption is closer to 60&ndash;80 g/hr.</div>
   </figure>
+</section>'''
+
+
+def build_inline_calculator() -> str:
+    """Section: Inline carb calculator — 3 inputs, instant result, no email gate."""
+    return f'''<section class="gg-wp-section" id="inline-calculator">
+  <div class="gg-wp-calculator">
+    <h2 class="gg-wp-section-title">Your Number</h2>
+    <div class="gg-wp-prose">
+      <p>Three inputs. Ten seconds. No email required.</p>
+    </div>
+    <div class="gg-wp-calc-form" role="form" aria-label="Carb rate calculator">
+      <div class="gg-wp-calc-inputs">
+        <div class="gg-wp-calc-field">
+          <label class="gg-wp-calc-label" for="gg-calc-weight">Weight</label>
+          <div class="gg-wp-calc-input-row">
+            <input type="number" id="gg-calc-weight" class="gg-wp-calc-input" placeholder="75" min="30" max="200" step="0.1" aria-describedby="gg-calc-weight-unit">
+            <button type="button" id="gg-calc-unit-toggle" class="gg-wp-calc-unit-btn" aria-label="Toggle weight unit">
+              <span id="gg-calc-weight-unit">kg</span>
+            </button>
+          </div>
+        </div>
+        <div class="gg-wp-calc-field">
+          <label class="gg-wp-calc-label" for="gg-calc-ftp">FTP <span class="gg-wp-calc-optional">(optional)</span></label>
+          <div class="gg-wp-calc-input-row">
+            <input type="number" id="gg-calc-ftp" class="gg-wp-calc-input" placeholder="220" min="50" max="500" step="1">
+            <span class="gg-wp-calc-unit">W</span>
+          </div>
+        </div>
+        <div class="gg-wp-calc-field">
+          <label class="gg-wp-calc-label" for="gg-calc-hours">Race duration</label>
+          <div class="gg-wp-calc-input-row">
+            <input type="number" id="gg-calc-hours" class="gg-wp-calc-input" placeholder="6" min="1" max="30" step="0.5">
+            <span class="gg-wp-calc-unit">hrs</span>
+          </div>
+        </div>
+      </div>
+      <div class="gg-wp-calc-output" aria-live="polite" aria-atomic="true">
+        <div class="gg-wp-calc-result" id="gg-calc-result">
+          <span class="gg-wp-calc-result-number" id="gg-calc-number">&mdash;</span>
+          <span class="gg-wp-calc-result-unit">g/hr</span>
+        </div>
+        <div class="gg-wp-calc-bracket-bar" id="gg-calc-bracket" aria-hidden="true">
+          <div class="gg-wp-calc-bracket-track">
+            <div class="gg-wp-calc-bracket-fill" id="gg-calc-bracket-fill"></div>
+            <div class="gg-wp-calc-bracket-marker" id="gg-calc-bracket-marker"></div>
+          </div>
+          <div class="gg-wp-calc-bracket-labels">
+            <span id="gg-calc-bracket-lo"></span>
+            <span id="gg-calc-bracket-hi"></span>
+          </div>
+        </div>
+        <div class="gg-wp-calc-food" id="gg-calc-food"></div>
+      </div>
+    </div>
+    <div class="gg-wp-calc-fallback">
+      <p>Visit <a href="{SITE_BASE_URL}/gravel-races/">your race page</a> for a personalized carb calculator.</p>
+    </div>
+  </div>
+</section>'''
+
+
+def build_scroll_duration() -> str:
+    """Scrollytelling section: Duration sets the range — sticky bracket chart."""
+    brackets = [
+        ("2&#8211;4 hrs", "80&#8211;100 g/hr", 80, 100),
+        ("4&#8211;8 hrs", "60&#8211;80 g/hr", 60, 80),
+        ("8&#8211;12 hrs", "50&#8211;70 g/hr", 50, 70),
+        ("12&#8211;16 hrs", "40&#8211;60 g/hr", 40, 60),
+        ("16+ hrs", "30&#8211;50 g/hr", 30, 50),
+    ]
+    # SVG bracket chart — 5 horizontal bars
+    svg_w, svg_h = 400, 260
+    bar_h, gap = 36, 8
+    y_start = 20
+    bars_svg = ""
+    for i, (label, rate, lo, hi) in enumerate(brackets):
+        y = y_start + i * (bar_h + gap)
+        # Muted state by default — step classes added by JS
+        bars_svg += f'''    <g class="gg-wp-scroll-bracket" data-chart-bracket="{i}">
+      <text x="90" y="{y + bar_h // 2 + 4}" fill="{COLORS['secondary_brown']}" font-family="'Sometype Mono', monospace" font-size="11" text-anchor="end">{label}</text>
+      <rect x="100" y="{y}" width="{hi * 2.5}" height="{bar_h}" fill="{COLORS['tan']}" class="gg-wp-scroll-bracket-bg"/>
+      <rect x="100" y="{y}" width="{hi * 2.5}" height="{bar_h}" fill="{COLORS['teal']}" class="gg-wp-scroll-bracket-fill" opacity="0.2"/>
+      <text x="{100 + hi * 2.5 + 8}" y="{y + bar_h // 2 + 4}" fill="{COLORS['dark_brown']}" font-family="'Sometype Mono', monospace" font-size="11">{rate}</text>
+    </g>
+'''
+    # Murphy dot (at 4-8hr bracket, position ~63 within 60-80 range → 15% of bracket)
+    murphy_y = y_start + 1 * (bar_h + gap) + bar_h // 2
+    murphy_x = 100 + 63 * 2.5  # scaled position
+    bars_svg += f'''    <g class="gg-wp-scroll-murphy-dot" data-chart-murphy opacity="0">
+      <rect x="{murphy_x - 4}" y="{murphy_y - 4}" width="8" height="8" fill="{COLORS['gold']}"/>
+      <text x="{murphy_x + 10}" y="{murphy_y + 4}" fill="{COLORS['gold']}" font-family="'Sometype Mono', monospace" font-size="10">63 g/hr</text>
+    </g>
+'''
+
+    chart_svg = f'''<svg viewBox="0 0 {svg_w} {svg_h}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Duration brackets showing carb rate ranges">
+    <title>Duration Brackets: How race length sets your carb range</title>
+{bars_svg}  </svg>'''
+
+    return f'''<section class="gg-wp-scroll-section" id="scroll-duration">
+  <div class="gg-wp-scroll-chart">
+    <div class="gg-wp-scroll-chart-inner" data-scroll-chart="duration">
+      <div class="gg-wp-figure-title">Duration Sets the Range</div>
+      <div class="gg-wp-chart-wrap">
+        {chart_svg}
+      </div>
+    </div>
+  </div>
+  <div class="gg-wp-scroll-steps">
+    <div class="gg-wp-scroll-step gg-step-active" data-step="0">
+      <h3 class="gg-wp-subsection-title">Your Race Picks the Bracket</h3>
+      <p class="gg-wp-prose">Murphy&#8217;s race is 6.5 hours. That puts him in the 4&#8211;8 hour bracket: 60&#8211;80&nbsp;g/hr. The bracket is his floor and ceiling.</p>
+    </div>
+    <div class="gg-wp-scroll-step" data-step="1">
+      <h3 class="gg-wp-subsection-title">Longer Races, Lower Rate</h3>
+      <p class="gg-wp-prose">Longer races need fewer carbs per hour &#8212; not more. As intensity drops, fat oxidation rises and carbohydrate demand falls. A 14-hour Unbound needs less per hour than a 4-hour SBT GRVL.</p>
+    </div>
+    <div class="gg-wp-scroll-step" data-step="2">
+      <h3 class="gg-wp-subsection-title">But the Range Is Wide</h3>
+      <p class="gg-wp-prose">60&#8211;80 is still a 20&nbsp;g/hr gap. Over a 6.5-hour race, that&#8217;s the difference between 390g and 520g of carbs. Your fitness narrows it down.</p>
+    </div>
+  </div>
+</section>'''
+
+
+def build_scroll_fitness() -> str:
+    """Scrollytelling section: Fitness moves you within the bracket — power curve chart."""
+    # SVG power curve with Murphy and competitive racer dots
+    svg_w, svg_h = 400, 280
+
+    def _x(wkg):
+        return 50 + (wkg - 1.5) / 3.0 * 320
+
+    def _y(factor):
+        return 240 - factor * 200
+
+    # Power curve polyline
+    curve_pts = []
+    for w in range(15, 46):
+        wkg = w / 10.0
+        linear = (wkg - 1.5) / 3.0
+        factor = linear ** 1.4
+        curve_pts.append(f"{_x(wkg):.0f},{_y(factor):.0f}")
+    curve_path = " ".join(curve_pts)
+
+    # Murphy: 2.32 W/kg
+    murphy_lin = (2.32 - 1.5) / 3.0
+    murphy_factor = murphy_lin ** 1.4
+    mx, my = _x(2.32), _y(murphy_factor)
+
+    # Competitive: 4.0 W/kg
+    comp_lin = (4.0 - 1.5) / 3.0
+    comp_factor = comp_lin ** 1.4
+    cx, cy = _x(4.0), _y(comp_factor)
+
+    chart_svg = f'''<svg viewBox="0 0 {svg_w} {svg_h}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Power curve showing how W/kg positions you within your bracket">
+    <title>Fitness Effect: How W/kg moves your position within the bracket</title>
+    <!-- Axes -->
+    <line x1="50" y1="240" x2="370" y2="240" stroke="{COLORS['dark_brown']}" stroke-width="2"/>
+    <line x1="50" y1="40" x2="50" y2="240" stroke="{COLORS['dark_brown']}" stroke-width="2"/>
+    <!-- X labels -->
+    <text x="50" y="258" fill="{COLORS['secondary_brown']}" font-family="'Sometype Mono', monospace" font-size="10" text-anchor="middle">1.5</text>
+    <text x="157" y="258" fill="{COLORS['secondary_brown']}" font-family="'Sometype Mono', monospace" font-size="10" text-anchor="middle">2.5</text>
+    <text x="263" y="258" fill="{COLORS['secondary_brown']}" font-family="'Sometype Mono', monospace" font-size="10" text-anchor="middle">3.5</text>
+    <text x="370" y="258" fill="{COLORS['secondary_brown']}" font-family="'Sometype Mono', monospace" font-size="10" text-anchor="middle">4.5</text>
+    <text x="210" y="275" fill="{COLORS['dark_brown']}" font-family="'Sometype Mono', monospace" font-size="11" text-anchor="middle">W/kg</text>
+    <!-- Y labels -->
+    <text x="42" y="244" fill="{COLORS['secondary_brown']}" font-family="'Sometype Mono', monospace" font-size="10" text-anchor="end">Floor</text>
+    <text x="42" y="44" fill="{COLORS['secondary_brown']}" font-family="'Sometype Mono', monospace" font-size="10" text-anchor="end">Ceiling</text>
+    <!-- Grid -->
+    <line x1="50" y1="140" x2="370" y2="140" stroke="{COLORS['tan']}" stroke-width="1" stroke-dasharray="4"/>
+    <!-- Power curve -->
+    <polyline points="{curve_path}" fill="none" stroke="{COLORS['teal']}" stroke-width="2.5"/>
+    <!-- Murphy dot -->
+    <g class="gg-wp-scroll-murphy" data-chart-murphy>
+      <rect x="{mx - 5:.0f}" y="{my - 5:.0f}" width="10" height="10" fill="{COLORS['gold']}"/>
+      <text x="{mx + 12:.0f}" y="{my + 4:.0f}" fill="{COLORS['gold']}" font-family="'Sometype Mono', monospace" font-size="10">Murphy 2.3 W/kg</text>
+    </g>
+    <!-- Competitive racer dot -->
+    <g class="gg-wp-scroll-comp" data-chart-comp opacity="0">
+      <rect x="{cx - 5:.0f}" y="{cy - 5:.0f}" width="10" height="10" fill="{COLORS['teal']}"/>
+      <text x="{cx + 12:.0f}" y="{cy + 4:.0f}" fill="{COLORS['teal']}" font-family="'Sometype Mono', monospace" font-size="10">4.0 W/kg</text>
+    </g>
+    <!-- Exponent annotation -->
+    <g class="gg-wp-scroll-exponent" data-chart-exponent opacity="0">
+      <text x="210" y="30" fill="{COLORS['dark_brown']}" font-family="'Sometype Mono', monospace" font-size="10" text-anchor="middle">Exponent 1.4: steepens at higher W/kg</text>
+    </g>
+  </svg>'''
+
+    return f'''<section class="gg-wp-scroll-section" id="scroll-fitness">
+  <div class="gg-wp-scroll-chart">
+    <div class="gg-wp-scroll-chart-inner" data-scroll-chart="fitness">
+      <div class="gg-wp-figure-title">Your Fitness Moves You Within It</div>
+      <div class="gg-wp-chart-wrap">
+        {chart_svg}
+      </div>
+    </div>
+  </div>
+  <div class="gg-wp-scroll-steps">
+    <div class="gg-wp-scroll-step gg-step-active" data-step="0">
+      <h3 class="gg-wp-subsection-title">Murphy Lands Low</h3>
+      <p class="gg-wp-prose">Murphy&#8217;s FTP is 220W at 95&nbsp;kg &#8212; that&#8217;s 2.3&nbsp;W/kg. He lands near the bottom of his 60&#8211;80 bracket. His personalized number: <strong>63&nbsp;g/hr</strong>.</p>
+    </div>
+    <div class="gg-wp-scroll-step" data-step="1">
+      <h3 class="gg-wp-subsection-title">Same Bracket, Different Spot</h3>
+      <p class="gg-wp-prose">A 70&nbsp;kg rider with 280W FTP &#8212; 4.0&nbsp;W/kg &#8212; lands near the top. Same bracket, 12&nbsp;g/hr apart. His number: <strong>75&nbsp;g/hr</strong>.</p>
+    </div>
+    <div class="gg-wp-scroll-step" data-step="2">
+      <h3 class="gg-wp-subsection-title">The Curve Steepens</h3>
+      <p class="gg-wp-prose">The relationship isn&#8217;t linear. It steepens at higher W/kg because carbohydrate oxidation accelerates near threshold. The 1.4 exponent captures this: gains are compressed at low W/kg and amplified at high W/kg.</p>
+    </div>
+  </div>
+</section>'''
+
+
+def build_scroll_crossover() -> str:
+    """Scrollytelling section: Why even fit riders need carbs — fuel mix area chart."""
+    # SVG stacked area chart for fuel mix
+    svg_w, svg_h = 400, 280
+    # X: intensity from 0 (rest) to 100 (max), mapped to 50-370
+    # Y: energy contribution 0-100%, mapped to 240-40
+
+    def _x(pct):
+        return 50 + pct / 100 * 320
+
+    def _y(pct):
+        return 240 - pct / 100 * 200
+
+    # Carb contribution curve (approximation): rises from ~20% at rest to ~95% at max
+    # Fat is the complement
+    intensity_pts = list(range(0, 101, 5))
+
+    # Well-trained crossover at ~55% intensity
+    def carb_trained(i):
+        return min(95, 20 + 75 * (i / 100) ** 1.3)
+
+    # Recreational crossover at ~35% intensity
+    def carb_rec(i):
+        return min(95, 25 + 75 * (i / 100) ** 1.0)
+
+    # Build trained carb area path (bottom = x-axis, top = carb curve)
+    trained_top = " ".join(f"{_x(i):.0f},{_y(carb_trained(i)):.0f}" for i in intensity_pts)
+    trained_bottom = f"{_x(100):.0f},{_y(0):.0f} {_x(0):.0f},{_y(0):.0f}"
+    trained_path = f"{trained_top} {trained_bottom}"
+
+    # Recreational carb area
+    rec_top = " ".join(f"{_x(i):.0f},{_y(carb_rec(i)):.0f}" for i in intensity_pts)
+    rec_path = f"{rec_top} {trained_bottom}"
+
+    # Fat area = space above carb curve to 100%
+    fat_top = f"{_x(0):.0f},{_y(100):.0f} {_x(100):.0f},{_y(100):.0f}"
+    fat_bottom_trained = " ".join(
+        f"{_x(i):.0f},{_y(carb_trained(i)):.0f}" for i in reversed(intensity_pts)
+    )
+    fat_path = f"{fat_top} {fat_bottom_trained}"
+
+    # Crossover point (trained): where carb > 50%
+    # carb_trained(i) = 50 → solve: 50 = 20 + 75*(i/100)^1.3 → (30/75)^(1/1.3) * 100 ≈ 33
+    crossover_trained_x = _x(33)
+    # Recreational crossover: carb_rec(i) = 50 → 50 = 25 + 75*(i/100)^1.0 → 25/75*100 ≈ 33
+    crossover_rec_x = _x(33)
+    # Actually recalculate properly
+    # Trained: 50 = 20 + 75*(i/100)^1.3 → (30/75)^(1/1.3) = 0.4^0.769 ≈ 0.478 → ~48%
+    crossover_trained_x = _x(48)
+    # Rec: 50 = 25 + 75*(i/100) → i = 33.3%
+    crossover_rec_x = _x(33)
+
+    # Race intensity zone: 60-80% of max
+    race_lo, race_hi = _x(60), _x(80)
+
+    chart_svg = f'''<svg viewBox="0 0 {svg_w} {svg_h}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Fuel mix chart showing fat and carbohydrate contribution across intensity">
+    <title>Fuel Mix: Why carbs dominate at race intensity</title>
+    <!-- Fat area (above carb curve) -->
+    <polygon points="{fat_path}" fill="{COLORS['teal']}" opacity="0.25" class="gg-wp-scroll-fat-area"/>
+    <!-- Trained carb area -->
+    <polygon points="{trained_path}" fill="{COLORS['gold']}" opacity="0.35" class="gg-wp-scroll-carb-trained"/>
+    <!-- Recreational carb area (hidden by default) -->
+    <polygon points="{rec_path}" fill="{COLORS['gold']}" opacity="0" class="gg-wp-scroll-carb-rec" data-chart-rec/>
+    <!-- Race intensity zone -->
+    <rect x="{race_lo:.0f}" y="40" width="{race_hi - race_lo:.0f}" height="200" fill="{COLORS['dark_brown']}" opacity="0" class="gg-wp-scroll-race-zone" data-chart-race-zone/>
+    <text x="{(race_lo + race_hi) / 2:.0f}" y="35" fill="{COLORS['dark_brown']}" font-family="'Sometype Mono', monospace" font-size="9" text-anchor="middle" opacity="0" class="gg-wp-scroll-race-label" data-chart-race-label>RACE PACE</text>
+    <!-- Crossover point (trained) -->
+    <line x1="{crossover_trained_x:.0f}" y1="40" x2="{crossover_trained_x:.0f}" y2="240" stroke="{COLORS['dark_brown']}" stroke-width="1.5" stroke-dasharray="6 3" opacity="0" class="gg-wp-scroll-crossover-line" data-chart-crossover/>
+    <text x="{crossover_trained_x + 4:.0f}" y="52" fill="{COLORS['dark_brown']}" font-family="'Sometype Mono', monospace" font-size="9" opacity="0" class="gg-wp-scroll-crossover-label" data-chart-crossover-label>Crossover</text>
+    <!-- Recreational crossover line -->
+    <line x1="{crossover_rec_x:.0f}" y1="40" x2="{crossover_rec_x:.0f}" y2="240" stroke="{COLORS['secondary_brown']}" stroke-width="1.5" stroke-dasharray="4 4" opacity="0" class="gg-wp-scroll-rec-line" data-chart-rec-line/>
+    <text x="{crossover_rec_x - 4:.0f}" y="52" fill="{COLORS['secondary_brown']}" font-family="'Sometype Mono', monospace" font-size="9" text-anchor="end" opacity="0" class="gg-wp-scroll-rec-label" data-chart-rec-label>Recreational</text>
+    <!-- Axes -->
+    <line x1="50" y1="240" x2="370" y2="240" stroke="{COLORS['dark_brown']}" stroke-width="2"/>
+    <line x1="50" y1="40" x2="50" y2="240" stroke="{COLORS['dark_brown']}" stroke-width="2"/>
+    <!-- X labels -->
+    <text x="50" y="258" fill="{COLORS['secondary_brown']}" font-family="'Sometype Mono', monospace" font-size="9" text-anchor="middle">Easy ride</text>
+    <text x="210" y="258" fill="{COLORS['secondary_brown']}" font-family="'Sometype Mono', monospace" font-size="9" text-anchor="middle">Race pace</text>
+    <text x="370" y="258" fill="{COLORS['secondary_brown']}" font-family="'Sometype Mono', monospace" font-size="9" text-anchor="middle">Max</text>
+    <!-- Y labels -->
+    <text x="42" y="244" fill="{COLORS['secondary_brown']}" font-family="'Sometype Mono', monospace" font-size="9" text-anchor="end">0%</text>
+    <text x="42" y="44" fill="{COLORS['secondary_brown']}" font-family="'Sometype Mono', monospace" font-size="9" text-anchor="end">100%</text>
+    <!-- Area labels -->
+    <text x="120" y="100" fill="{COLORS['teal']}" font-family="'Sometype Mono', monospace" font-size="11" font-weight="bold" opacity="0.7">FAT</text>
+    <text x="280" y="190" fill="{COLORS['gold']}" font-family="'Sometype Mono', monospace" font-size="11" font-weight="bold" opacity="0.7">CARB</text>
+  </svg>'''
+
+    return f'''<section class="gg-wp-scroll-section" id="scroll-crossover">
+  <div class="gg-wp-scroll-chart">
+    <div class="gg-wp-scroll-chart-inner" data-scroll-chart="crossover">
+      <div class="gg-wp-figure-title">Why Even Fit Riders Need Carbs</div>
+      <div class="gg-wp-chart-wrap">
+        {chart_svg}
+      </div>
+    </div>
+  </div>
+  <div class="gg-wp-scroll-steps">
+    <div class="gg-wp-scroll-step gg-step-active" data-step="0">
+      <h3 class="gg-wp-subsection-title">Fat Runs the Show at Low Intensity</h3>
+      <p class="gg-wp-prose">At low intensity &#8212; a coffee ride &#8212; your body burns mostly fat. Carbohydrate is barely touched. This is the metabolic sweet spot that fat-adaptation advocates love to talk about.</p>
+    </div>
+    <div class="gg-wp-scroll-step" data-step="1">
+      <h3 class="gg-wp-subsection-title">The Crossover Point</h3>
+      <p class="gg-wp-prose">As intensity rises, carbohydrate takes over. The crossover point &#8212; where carbs become the dominant fuel &#8212; happens earlier than you&#8217;d think. Even for well-trained riders, it&#8217;s well below race pace.</p>
+    </div>
+    <div class="gg-wp-scroll-step" data-step="2">
+      <h3 class="gg-wp-subsection-title">Carb-Dominant at Race Intensity</h3>
+      <p class="gg-wp-prose">Even a well-trained rider with a crossover at ~5.4&nbsp;W/kg is carb-dominant at gravel race intensity (60&#8211;80% of FTP). A recreational rider crosses over even sooner. At race pace, <strong>almost everyone is burning mostly carbs</strong>.</p>
+    </div>
+    <div class="gg-wp-scroll-step" data-step="3">
+      <h3 class="gg-wp-subsection-title">Why the Carb Revolution Happened</h3>
+      <p class="gg-wp-prose">The old advice said &#8220;eat 40&#8211;60&nbsp;g/hr&#8221; because models assumed you&#8217;d burn mostly fat at race pace. But at race intensity, almost everyone is carb-dominant. The question isn&#8217;t <em>whether</em> to eat carbs &#8212; it&#8217;s how many <strong>your</strong> body needs.</p>
+    </div>
+  </div>
 </section>'''
 
 
@@ -177,7 +494,7 @@ def build_metabolic_testing() -> str:
   <h2 class="gg-wp-section-title">Why Fitness Changes Your Fuel Mix</h2>
   <div class="gg-wp-prose">
     <p>Inside a metabolic lab, riders pedal on an ergometer while a mask captures every breath. As intensity rises, the body&#8217;s fuel mix shifts. At low watts, fat dominates. Cross a threshold &#8212; and carbohydrate takes over. Where that crossover happens depends almost entirely on how fit you are.</p>
-    <p>At the &#8220;crossover point&#8221; &#8212; the intensity where carbohydrate becomes the dominant fuel source &#8212; fat oxidation drops toward zero. Where this crossover happens depends heavily on the rider&#8217;s training status.</p>
+    <p>Notice that even the well-trained rider&#8217;s crossover (~5.4&nbsp;W/kg) is below typical gravel race intensity for most athletes. This is the core insight: at race pace, riders across all fitness levels are carb-dominant. The question is how <em>much</em> carbohydrate they burn &#8212; and therefore how much they need to replace.</p>
   </div>
   <figure class="gg-wp-figure" id="crossover-figure">
     <div class="gg-wp-figure-title">Crossover Point by Fitness Level</div>
@@ -709,35 +1026,6 @@ def build_whitepaper_css() -> str:
   letter-spacing: var(--gg-letter-spacing-wide);
 }}
 
-/* ── Counters ── */
-.gg-wp-counters {{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: var(--gg-spacing-lg);
-}}
-.gg-wp-counter {{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--gg-spacing-xs);
-  min-width: 100px;
-}}
-.gg-wp-counter-value {{
-  font-family: var(--gg-font-data);
-  font-size: clamp(22px, 3.5vw, 32px);
-  font-weight: var(--gg-font-weight-bold);
-  color: var(--gg-color-dark-brown);
-  letter-spacing: var(--gg-letter-spacing-wide);
-}}
-.gg-wp-counter-label {{
-  font-family: var(--gg-font-data);
-  font-size: var(--gg-font-size-2xs);
-  color: var(--gg-color-secondary-brown);
-  text-transform: uppercase;
-  letter-spacing: var(--gg-letter-spacing-wide);
-}}
-
 /* ── Sections ── */
 .gg-wp-section {{
   padding: var(--gg-spacing-2xl) var(--gg-spacing-xl);
@@ -1135,17 +1423,219 @@ def build_whitepaper_css() -> str:
   color: var(--gg-color-gold);
 }}
 
+/* ── Scrollytelling ── */
+.gg-wp-scroll-section {{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--gg-spacing-xl);
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: var(--gg-spacing-2xl) var(--gg-spacing-xl);
+}}
+.gg-wp-scroll-chart {{
+  position: sticky;
+  top: 80px;
+  height: fit-content;
+  align-self: start;
+}}
+.gg-wp-scroll-chart-inner {{
+  padding: var(--gg-spacing-md);
+  border: 2px solid var(--gg-color-dark-brown);
+  background: var(--gg-color-warm-paper);
+}}
+.gg-wp-scroll-steps {{
+  display: flex;
+  flex-direction: column;
+  gap: 60vh;
+}}
+.gg-wp-scroll-step {{
+  min-height: 40vh;
+  opacity: 0.3;
+  transition: opacity 0.4s ease;
+}}
+.gg-wp-scroll-step.gg-step-active {{
+  opacity: 1;
+}}
+.gg-wp-scroll-step .gg-wp-prose {{
+  max-width: none;
+  margin: 0;
+}}
+
+/* ── Inline Calculator ── */
+.gg-wp-calculator {{
+  max-width: 720px;
+  margin: 0 auto;
+}}
+.gg-wp-calc-form {{
+  border: 3px solid var(--gg-color-dark-brown);
+  padding: var(--gg-spacing-lg);
+  background: var(--gg-color-warm-paper);
+}}
+.gg-wp-calc-inputs {{
+  display: flex;
+  gap: var(--gg-spacing-md);
+  margin: 0 0 var(--gg-spacing-lg) 0;
+}}
+.gg-wp-calc-field {{
+  flex: 1;
+}}
+.gg-wp-calc-label {{
+  display: block;
+  font-family: var(--gg-font-data);
+  font-size: var(--gg-font-size-2xs);
+  font-weight: var(--gg-font-weight-bold);
+  letter-spacing: var(--gg-letter-spacing-wide);
+  text-transform: uppercase;
+  color: var(--gg-color-dark-brown);
+  margin: 0 0 var(--gg-spacing-xs) 0;
+}}
+.gg-wp-calc-optional {{
+  font-weight: normal;
+  text-transform: none;
+  color: var(--gg-color-secondary-brown);
+}}
+.gg-wp-calc-input-row {{
+  display: flex;
+  align-items: center;
+  gap: var(--gg-spacing-xs);
+}}
+.gg-wp-calc-input {{
+  width: 100%;
+  padding: var(--gg-spacing-xs) var(--gg-spacing-sm);
+  font-family: var(--gg-font-data);
+  font-size: var(--gg-font-size-sm);
+  color: var(--gg-color-dark-brown);
+  background: var(--gg-color-warm-paper);
+  border: 3px solid var(--gg-color-dark-brown);
+}}
+.gg-wp-calc-input:focus {{
+  outline: 3px solid var(--gg-color-teal);
+  outline-offset: -3px;
+}}
+.gg-wp-calc-unit {{
+  font-family: var(--gg-font-data);
+  font-size: var(--gg-font-size-xs);
+  color: var(--gg-color-secondary-brown);
+  white-space: nowrap;
+}}
+.gg-wp-calc-unit-btn {{
+  font-family: var(--gg-font-data);
+  font-size: var(--gg-font-size-xs);
+  color: var(--gg-color-teal);
+  background: none;
+  border: 2px solid var(--gg-color-teal);
+  padding: var(--gg-spacing-xs) var(--gg-spacing-sm);
+  cursor: pointer;
+  white-space: nowrap;
+}}
+.gg-wp-calc-unit-btn:hover {{
+  background: var(--gg-color-teal);
+  color: var(--gg-color-white);
+}}
+.gg-wp-calc-output {{
+  text-align: center;
+  padding: var(--gg-spacing-md) 0;
+}}
+.gg-wp-calc-result {{
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: var(--gg-spacing-xs);
+}}
+.gg-wp-calc-result-number {{
+  font-family: var(--gg-font-data);
+  font-size: clamp(36px, 8vw, 56px);
+  font-weight: var(--gg-font-weight-bold);
+  color: var(--gg-color-teal);
+  line-height: 1;
+}}
+.gg-wp-calc-result-unit {{
+  font-family: var(--gg-font-data);
+  font-size: var(--gg-font-size-lg);
+  color: var(--gg-color-secondary-brown);
+}}
+.gg-wp-calc-bracket-bar {{
+  max-width: 320px;
+  margin: var(--gg-spacing-md) auto 0;
+}}
+.gg-wp-calc-bracket-track {{
+  position: relative;
+  height: 12px;
+  background: var(--gg-color-tan);
+}}
+.gg-wp-calc-bracket-fill {{
+  height: 100%;
+  background: var(--gg-color-teal);
+  opacity: 0.3;
+  width: 100%;
+}}
+.gg-wp-calc-bracket-marker {{
+  position: absolute;
+  top: -2px;
+  width: 4px;
+  height: 16px;
+  background: var(--gg-color-gold);
+  transform: translateX(-50%);
+  transition: left 0.3s ease;
+}}
+.gg-wp-calc-bracket-labels {{
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--gg-font-data);
+  font-size: var(--gg-font-size-2xs);
+  color: var(--gg-color-secondary-brown);
+  margin: var(--gg-spacing-xs) 0 0 0;
+}}
+.gg-wp-calc-food {{
+  font-family: var(--gg-font-editorial);
+  font-size: var(--gg-font-size-xs);
+  color: var(--gg-color-secondary-brown);
+  margin: var(--gg-spacing-sm) 0 0 0;
+  font-style: italic;
+}}
+.gg-wp-calc-fallback {{
+  text-align: center;
+  padding: var(--gg-spacing-md);
+  font-family: var(--gg-font-editorial);
+  font-size: var(--gg-font-size-sm);
+  color: var(--gg-color-secondary-brown);
+}}
+.gg-wp-calc-fallback a {{
+  color: var(--gg-color-teal);
+}}
+/* No JS: show fallback, hide form.
+   .gg-has-js reverses this so calculator works when JS loads. */
+.gg-wp-calc-form {{ display: none; }}
+.gg-wp-calc-fallback {{ display: block; }}
+.gg-has-js .gg-wp-calc-form {{ display: block; }}
+.gg-has-js .gg-wp-calc-fallback {{ display: none; }}
+
 /* ── Responsive ── */
+@media (max-width: 768px) {{
+  .gg-wp-scroll-section {{
+    grid-template-columns: 1fr;
+  }}
+  .gg-wp-scroll-chart {{
+    position: relative;
+    top: auto;
+  }}
+  .gg-wp-scroll-steps {{
+    gap: var(--gg-spacing-2xl);
+  }}
+  .gg-wp-scroll-step {{
+    opacity: 1;
+  }}
+}}
 @media (max-width: 600px) {{
   .gg-wp-hero {{ padding: var(--gg-spacing-xl) var(--gg-spacing-md); }}
   .gg-wp-section {{ padding: var(--gg-spacing-xl) var(--gg-spacing-md); }}
   .gg-wp-section--alt {{ padding-left: var(--gg-spacing-md); padding-right: var(--gg-spacing-md); }}
   .gg-wp-breadcrumb {{ padding: var(--gg-spacing-xs) var(--gg-spacing-md); }}
   .gg-wp-tldr-grid {{ grid-template-columns: 1fr; }}
-  .gg-wp-counters {{ gap: var(--gg-spacing-md); }}
-  .gg-wp-counter {{ min-width: 80px; }}
   .gg-wp-formula-block {{ padding: var(--gg-spacing-sm) var(--gg-spacing-md); }}
   .gg-wp-compare-label {{ flex: 0 0 140px; font-size: 10px; }}
+  .gg-wp-calc-inputs {{ flex-direction: column; }}
+  .gg-wp-scroll-section {{ padding: var(--gg-spacing-xl) var(--gg-spacing-md); }}
 }}
 
 /* ── Progressive enhancement: bars visible by default, zeroed only when JS loads ── */
@@ -1159,6 +1649,8 @@ def build_whitepaper_css() -> str:
 @media (prefers-reduced-motion: reduce) {{
   .gg-wp-bar-fill, [data-target-w] {{ transition: none !important; }}
   .gg-has-js [data-animate="bars"] .gg-wp-bar-fill {{ width: var(--tw, 100%); }}
+  .gg-wp-scroll-step {{ opacity: 1; transition: none !important; }}
+  .gg-wp-calc-bracket-marker {{ transition: none !important; }}
 }}
 </style>'''
 
@@ -1224,36 +1716,175 @@ def build_whitepaper_js() -> str:
   });
 
   /* ══════════════════════════════════════════════════════════════
-     DIGIT ROLLER — Hero counters
+     SCROLLYTELLING — Step observer + chart updaters
      ══════════════════════════════════════════════════════════════ */
 
-  var counterEls = document.querySelectorAll('[data-counter]');
-  function animateCounter(el) {
-    var target = parseInt(el.getAttribute('data-counter'), 10);
-    if (isNaN(target) || target <= 0) return;
-    var duration = 1200;
-    var start = 0;
-    var startTime = null;
-    function step(ts) {
-      if (!startTime) startTime = ts;
-      var progress = Math.min((ts - startTime) / duration, 1);
-      var eased = 1 - Math.pow(1 - progress, 3);
-      var current = Math.round(eased * target);
-      el.textContent = current.toLocaleString();
-      if (progress < 1) requestAnimationFrame(step);
+  function updateDurationChart(chart, step) {
+    var brackets = chart.querySelectorAll('[data-chart-bracket]');
+    var murphy = chart.querySelector('[data-chart-murphy]');
+    brackets.forEach(function(g) {
+      var fill = g.querySelector('.gg-wp-scroll-bracket-fill');
+      if (!fill) return;
+      if (step === 0) {
+        fill.setAttribute('opacity', g.getAttribute('data-chart-bracket') === '1' ? '0.6' : '0.15');
+      } else if (step === 1) {
+        fill.setAttribute('opacity', '0.4');
+      } else {
+        fill.setAttribute('opacity', g.getAttribute('data-chart-bracket') === '1' ? '0.6' : '0.15');
+      }
+    });
+    if (murphy) {
+      murphy.setAttribute('opacity', step >= 2 ? '1' : '0');
     }
-    requestAnimationFrame(step);
   }
-  if ('IntersectionObserver' in window && !reducedMotion) {
-    var counterObserver = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          animateCounter(entry.target);
-          counterObserver.unobserve(entry.target);
+
+  function updateFitnessChart(chart, step) {
+    var comp = chart.querySelector('[data-chart-comp]');
+    var exponent = chart.querySelector('[data-chart-exponent]');
+    if (comp) comp.setAttribute('opacity', step >= 1 ? '1' : '0');
+    if (exponent) exponent.setAttribute('opacity', step >= 2 ? '1' : '0');
+  }
+
+  function updateCrossoverChart(chart, step) {
+    var crossover = chart.querySelector('[data-chart-crossover]');
+    var crossoverLabel = chart.querySelector('[data-chart-crossover-label]');
+    var raceZone = chart.querySelector('[data-chart-race-zone]');
+    var raceLabel = chart.querySelector('[data-chart-race-label]');
+    var recLine = chart.querySelector('[data-chart-rec-line]');
+    var recLabel = chart.querySelector('[data-chart-rec-label]');
+    var recArea = chart.querySelector('[data-chart-rec]');
+
+    if (crossover) crossover.setAttribute('opacity', step >= 1 ? '0.8' : '0');
+    if (crossoverLabel) crossoverLabel.setAttribute('opacity', step >= 1 ? '1' : '0');
+    if (raceZone) raceZone.setAttribute('opacity', step >= 2 ? '0.08' : '0');
+    if (raceLabel) raceLabel.setAttribute('opacity', step >= 2 ? '1' : '0');
+    if (recLine) recLine.setAttribute('opacity', step >= 2 ? '0.8' : '0');
+    if (recLabel) recLabel.setAttribute('opacity', step >= 2 ? '1' : '0');
+    if (recArea) recArea.setAttribute('opacity', step >= 2 ? '0.2' : '0');
+  }
+
+  function updateChart(chartEl, sectionId, stepIndex) {
+    if (sectionId === 'scroll-duration') updateDurationChart(chartEl, stepIndex);
+    else if (sectionId === 'scroll-fitness') updateFitnessChart(chartEl, stepIndex);
+    else if (sectionId === 'scroll-crossover') updateCrossoverChart(chartEl, stepIndex);
+  }
+
+  var scrollSections = document.querySelectorAll('.gg-wp-scroll-section');
+  if ('IntersectionObserver' in window) {
+    scrollSections.forEach(function(section) {
+      var steps = section.querySelectorAll('.gg-wp-scroll-step');
+      var chart = section.querySelector('.gg-wp-scroll-chart-inner');
+      if (!steps.length || !chart) return;
+
+      var stepObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            steps.forEach(function(s) { s.classList.remove('gg-step-active'); });
+            entry.target.classList.add('gg-step-active');
+            var stepIndex = parseInt(entry.target.getAttribute('data-step'), 10);
+            updateChart(chart, section.id, stepIndex);
+          }
+        });
+      }, { threshold: 0.5, rootMargin: '-20% 0px -20% 0px' });
+      steps.forEach(function(s) { stepObserver.observe(s); });
+      /* Initialize chart at step 0 on page load */
+      updateChart(chart, section.id, 0);
+    });
+  }
+
+  /* ══════════════════════════════════════════════════════════════
+     INLINE CALCULATOR — Reactive carb rate
+     ══════════════════════════════════════════════════════════════ */
+
+  function computeInline(weightKg, ftp, hours) {
+    var bLo, bHi;
+    if (hours <= 4)       { bLo = 80; bHi = 100; }
+    else if (hours <= 8)  { bLo = 60; bHi = 80; }
+    else if (hours <= 12) { bLo = 50; bHi = 70; }
+    else if (hours <= 16) { bLo = 40; bHi = 60; }
+    else                  { bLo = 30; bHi = 50; }
+
+    var rate;
+    if (ftp && ftp > 0 && weightKg > 0) {
+      var wkg = ftp / weightKg;
+      var lin = Math.max(0, Math.min(1, (wkg - 1.5) / 3.0));
+      var factor = Math.pow(lin, 1.4);
+      rate = Math.round(bLo + factor * (bHi - bLo));
+    } else {
+      rate = Math.round((bLo + bHi) / 2);
+    }
+    return { rate: rate, lo: bLo, hi: bHi };
+  }
+
+  var calcWeight = document.getElementById('gg-calc-weight');
+  var calcFtp = document.getElementById('gg-calc-ftp');
+  var calcHours = document.getElementById('gg-calc-hours');
+  var calcNumber = document.getElementById('gg-calc-number');
+  var calcBracket = document.getElementById('gg-calc-bracket');
+  var calcBracketFill = document.getElementById('gg-calc-bracket-fill');
+  var calcBracketMarker = document.getElementById('gg-calc-bracket-marker');
+  var calcBracketLo = document.getElementById('gg-calc-bracket-lo');
+  var calcBracketHi = document.getElementById('gg-calc-bracket-hi');
+  var calcFood = document.getElementById('gg-calc-food');
+  var calcUnitToggle = document.getElementById('gg-calc-unit-toggle');
+  var calcUnitLabel = document.getElementById('gg-calc-weight-unit');
+  var usingLbs = false;
+
+  var calcGa4Timer = null;
+  function updateCalc() {
+    if (!calcWeight || !calcHours) return;
+    var rawWeight = parseFloat(calcWeight.value);
+    var rawFtp = parseFloat(calcFtp.value);
+    var rawHours = parseFloat(calcHours.value);
+    if (isNaN(rawWeight) || rawWeight <= 0 || isNaN(rawHours) || rawHours <= 0) {
+      calcNumber.textContent = '\\u2014';
+      if (calcBracket) calcBracket.setAttribute('aria-hidden', 'true');
+      if (calcFood) calcFood.textContent = '';
+      return;
+    }
+    var weightKg = usingLbs ? rawWeight * 0.453592 : rawWeight;
+    if (weightKg < 20 || weightKg > 250) return;
+    var result = computeInline(weightKg, rawFtp, rawHours);
+    calcNumber.textContent = result.rate;
+    if (calcBracket) {
+      calcBracket.setAttribute('aria-hidden', 'false');
+      if (calcBracketLo) calcBracketLo.textContent = result.lo + ' g/hr';
+      if (calcBracketHi) calcBracketHi.textContent = result.hi + ' g/hr';
+      var pct = (result.rate - result.lo) / (result.hi - result.lo) * 100;
+      if (calcBracketMarker) calcBracketMarker.style.left = Math.max(0, Math.min(100, pct)) + '%';
+    }
+    if (calcFood) {
+      var gels = (result.rate / 25).toFixed(1);
+      calcFood.textContent = 'That\\u2019s about ' + gels + ' gels + 500ml sports drink per hour';
+    }
+    /* GA4: debounce — only fire once all 3 inputs have values, with 1s delay */
+    if (rawWeight > 0 && rawHours > 0) {
+      clearTimeout(calcGa4Timer);
+      calcGa4Timer = setTimeout(function() {
+        if (typeof gtag === 'function') {
+          gtag('event', 'whitepaper_calculator', { rate: result.rate, weight_kg: Math.round(weightKg), hours: rawHours });
         }
-      });
-    }, { threshold: 0.5 });
-    counterEls.forEach(function(el) { counterObserver.observe(el); });
+      }, 1000);
+    }
+  }
+
+  if (calcWeight) calcWeight.addEventListener('input', updateCalc);
+  if (calcFtp) calcFtp.addEventListener('input', updateCalc);
+  if (calcHours) calcHours.addEventListener('input', updateCalc);
+  if (calcUnitToggle) {
+    calcUnitToggle.addEventListener('click', function() {
+      usingLbs = !usingLbs;
+      if (calcUnitLabel) calcUnitLabel.textContent = usingLbs ? 'lbs' : 'kg';
+      if (calcWeight.value) {
+        var v = parseFloat(calcWeight.value);
+        if (usingLbs) calcWeight.value = Math.round(v * 2.20462);
+        else calcWeight.value = Math.round(v * 0.453592);
+      }
+      calcWeight.placeholder = usingLbs ? '165' : '75';
+      calcWeight.min = usingLbs ? '66' : '30';
+      calcWeight.max = usingLbs ? '440' : '200';
+      updateCalc();
+    });
   }
 
   /* ══════════════════════════════════════════════════════════════
@@ -1286,7 +1917,7 @@ def build_jsonld() -> str:
     return f'''<script type="application/ld+json">
 {{
   "@context": "https://schema.org",
-  "@type": "ScholarlyArticle",
+  "@type": "Article",
   "headline": "How Many Carbs Do You Actually Need? Personalized Fueling for Gravel Racing",
   "description": "Everyone says 60-90 grams per hour. The science behind personalized fueling in every Gravel God Race Prep Kit.",
   "author": {{
@@ -1312,15 +1943,19 @@ def generate_whitepaper_page(external_assets: dict = None) -> str:
     """Generate the complete white paper page HTML."""
     nav = build_nav()
     hero = build_hero()
-    duration_problem = build_duration_problem()
+    murphy_problem = build_murphy()
+    inline_calculator = build_inline_calculator()
     practical = build_practical()
     inline_cta_1 = build_inline_cta("CHECK YOUR NUMBER", "Find your race. Get your personalized carb target.", "check_your_number")
+    scroll_duration = build_scroll_duration()
+    scroll_fitness = build_scroll_fitness()
+    scroll_crossover = build_scroll_crossover()
     tldr = build_tldr()
-    phenotype = build_phenotype()
     inline_cta_2 = build_inline_cta("FIND YOUR RACE PREP KIT", "Personalized fueling for 328 races.", "find_race_prep_kit")
-    metabolic_testing = build_metabolic_testing()
-    power_curve = build_power_curve()
+    phenotype = build_phenotype()
     jensen = build_jensen()
+    power_curve = build_power_curve()
+    metabolic_testing = build_metabolic_testing()
     limitations = build_limitations()
     references = build_references()
     cta = build_cta()
@@ -1378,23 +2013,31 @@ def generate_whitepaper_page(external_assets: dict = None) -> str:
 
   {hero}
 
-  {duration_problem}
+  {murphy_problem}
+
+  {inline_calculator}
 
   {practical}
 
   {inline_cta_1}
 
-  {tldr}
+  {scroll_duration}
 
-  {phenotype}
+  {scroll_fitness}
+
+  {scroll_crossover}
+
+  {tldr}
 
   {inline_cta_2}
 
-  {metabolic_testing}
+  {phenotype}
+
+  {jensen}
 
   {power_curve}
 
-  {jensen}
+  {metabolic_testing}
 
   {limitations}
 

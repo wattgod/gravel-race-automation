@@ -9,7 +9,7 @@ crons = ["0 14 * * *"]
 [[d1_databases]]
 binding = "DB"
 database_name = "course-platform"
-database_id = "REPLACE_WITH_D1_DATABASE_ID"
+database_id = "e9ce1ef3-46df-4bd8-9f49-c3b4a6bd9a9f"
 
 # Secrets (set via: wrangler secret put SECRET_NAME)
 # SENDGRID_API_KEY         — SendGrid API key (mail send)

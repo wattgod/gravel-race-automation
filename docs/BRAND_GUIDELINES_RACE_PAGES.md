@@ -42,8 +42,20 @@ Effective February 2026. Applies to all generated HTML across race profiles, sta
 
 | Token | Family | Usage |
 |---|---|---|
+| `--gg-font-display` | Unbounded (900/Black) | Logo lockups, display headlines, event titles |
 | `--gg-font-editorial` | Source Serif 4 | Headlines, scores, editorial prose, taglines |
 | `--gg-font-data` | Sometype Mono | Labels, kickers, metadata, nav, buttons, stat labels |
+
+### Display Font (Unbounded)
+
+Unbounded is the **display/logo** typeface -- used sparingly for maximum impact. It does NOT replace Source Serif 4 (editorial) or Sometype Mono (data/labels).
+
+- **Weight**: 900 (Black) only
+- **Transform**: Always uppercase (`text-transform: uppercase`)
+- **Letter-spacing**: 2-6px depending on size (`--gg-letter-spacing-wider` to `--gg-letter-spacing-display`)
+- **Use cases**: Logo lockups, hero display text, event title treatments, merch/branding
+- **Not for**: Body text, section titles, stat labels, metadata, editorial prose
+- **Source**: [Google Fonts](https://fonts.googleapis.com/css2?family=Unbounded:wght@900&display=swap) (self-hosted as woff2)
 
 ### Type Scale
 
@@ -209,5 +221,5 @@ The critical CSS block inlined in `<style>` before the external stylesheet must 
 
 ---
 
-*Last updated: February 14, 2026*
+*Last updated: February 27, 2026*
 *Applies to: generate_neo_brutalist.py, generate_state_hubs.py, generate_homepage.py, generate_series_hubs.py*

@@ -11,7 +11,7 @@ from pathlib import Path
 BRAND_DIR = Path(__file__).resolve().parent.parent.parent / "gravel-god-brand"
 BRAND_FONTS_DIR = BRAND_DIR / "assets" / "fonts"
 
-# 8 woff2 font files to self-host
+# 10 woff2 font files to self-host
 FONT_FILES = [
     "SometypeMono-normal-latin.woff2",
     "SometypeMono-normal-latin-ext.woff2",
@@ -21,6 +21,8 @@ FONT_FILES = [
     "SourceSerif4-normal-latin-ext.woff2",
     "SourceSerif4-italic-latin.woff2",
     "SourceSerif4-italic-latin-ext.woff2",
+    "Unbounded-900-latin.woff2",
+    "Unbounded-900-latin-ext.woff2",
 ]
 
 
@@ -79,6 +81,7 @@ def get_tokens_css() -> str:
   --gg-color-tier-4: #5e6868;
 
   /* font */
+  --gg-font-display: 'Unbounded', sans-serif;
   --gg-font-data: 'Sometype Mono', monospace;
   --gg-font-editorial: 'Source Serif 4', Georgia, serif;
   --gg-font-size-2xs: 10px;
@@ -95,6 +98,7 @@ def get_tokens_css() -> str:
   --gg-font-weight-regular: 400;
   --gg-font-weight-semibold: 600;
   --gg-font-weight-bold: 700;
+  --gg-font-weight-black: 900;
 
   /* line-height */
   --gg-line-height-tight: 1.1;
@@ -109,6 +113,7 @@ def get_tokens_css() -> str:
   --gg-letter-spacing-wider: 2px;
   --gg-letter-spacing-ultra-wide: 3px;
   --gg-letter-spacing-extreme: 4px;
+  --gg-letter-spacing-display: 6px;
 
   /* spacing */
   --gg-spacing-2xs: 4px;
@@ -230,6 +235,24 @@ def get_font_face_css(font_path_prefix: str = "/race/assets/fonts") -> str:
   font-display: swap;
   src: url('{p}/SourceSerif4-italic-latin.woff2') format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}}
+/* Unbounded — 900 (Black) — Latin Extended */
+@font-face {{
+  font-family: 'Unbounded';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url('{p}/Unbounded-900-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}}
+/* Unbounded — 900 (Black) — Latin */
+@font-face {{
+  font-family: 'Unbounded';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url('{p}/Unbounded-900-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }}"""
 
 
@@ -237,7 +260,8 @@ def get_preload_hints(font_path_prefix: str = "/race/assets/fonts") -> str:
     """Return <link rel=preload> tags for the Latin (most common) font subsets."""
     p = font_path_prefix.rstrip("/")
     return f"""<link rel="preload" href="{p}/SometypeMono-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="{p}/SourceSerif4-normal-latin.woff2" as="font" type="font/woff2" crossorigin>"""
+  <link rel="preload" href="{p}/SourceSerif4-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="{p}/Unbounded-900-latin.woff2" as="font" type="font/woff2" crossorigin>"""
 
 
 # ── Color mapping for SVG attributes (can't use CSS vars) ────

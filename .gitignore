@@ -69,6 +69,13 @@ reports/daily/*.html
 reports/daily/*.json
 !reports/daily/.gitkeep
 
+# Cloudflare Wrangler build artifacts
+.wrangler/
+workers/*/.wrangler/
+
+# Claude design session artifacts
+.claude-design/
+
 # OS
 .DS_Store
 Thumbs.db

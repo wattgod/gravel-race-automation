@@ -145,15 +145,15 @@ class TestHero:
 
     def test_has_data_counter_attributes(self):
         html = build_hero()
-        assert 'data-counter="27"' in html
-        assert 'data-counter="83"' in html
-        assert 'data-counter="8"' in html
+        assert 'data-counter="328"' in html
+        assert 'data-counter="38"' in html
+        assert 'data-counter="3"' in html
 
     def test_counter_labels(self):
         html = build_hero()
-        assert "overshoots" in html
-        assert "fat burn" in html
-        assert "gut training" in html
+        assert "race calculators" in html
+        assert "peer-reviewed" in html
+        assert "weight" in html
 
 
 # ── TestInfographics ──────────────────────────────────────────
@@ -489,7 +489,7 @@ class TestContentAccuracy:
 
     def test_counter_in_page(self, page_html):
         """Hero counters are present in the page."""
-        assert 'data-counter="27"' in page_html
+        assert 'data-counter="328"' in page_html
 
     def test_overestimate_percentage(self, page_html):
         """83% fat oxidation overestimate from Jensen's inequality."""

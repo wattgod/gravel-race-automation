@@ -65,9 +65,9 @@ def build_nav() -> str:
 def build_hero() -> str:
     """Section: Hero with animated stat counters."""
     counters = [
-        ("27", "how much the old formula overshoots"),
-        ("83", "how much average power overestimates fat burn"),
-        ("8", "weeks minimum gut training"),
+        ("328", "personalized race calculators"),
+        ("38", "peer-reviewed sources"),
+        ("3", "inputs: weight, FTP, race"),
     ]
     counter_html = ""
     for value, label in counters:
@@ -110,17 +110,17 @@ def build_tldr() -> str:
 
 def build_duration_problem() -> str:
     """Section 1: Two Riders, One Number — with comparison bar chart."""
-    # HTML div bar chart: old formula vs new formula vs lab range
+    # HTML div bar chart: generic vs personalized vs lab range
     bars_html = '''<div class="gg-wp-chart-wrap" data-animate="bars" role="img" aria-label="Comparison of fueling formulas for a 95kg/220W rider in a 6.5-hour race">
   <div class="gg-wp-compare-row">
-    <span class="gg-wp-compare-label">Old formula (flat 60&ndash;80)</span>
+    <span class="gg-wp-compare-label">Generic advice (60&ndash;90)</span>
     <div class="gg-wp-bar-track">
       <div class="gg-wp-bar-fill gg-wp-bar-fill--brown" style="--tw:80%" data-target-w="80%"></div>
     </div>
     <span class="gg-wp-compare-value">80 g/hr</span>
   </div>
   <div class="gg-wp-compare-row">
-    <span class="gg-wp-compare-label">W/kg formula (this paper)</span>
+    <span class="gg-wp-compare-label">Personalized (W/kg-adjusted)</span>
     <div class="gg-wp-bar-track">
       <div class="gg-wp-bar-fill gg-wp-bar-fill--teal" style="--tw:63%" data-target-w="63%"></div>
     </div>
@@ -145,7 +145,7 @@ def build_duration_problem() -> str:
   <figure class="gg-wp-figure" id="murphy-comparison-figure">
     <div class="gg-wp-figure-title">The Murphy Problem: Same Bracket, Wrong Answer</div>
     {bars_html}
-    <div class="gg-wp-figure-takeaway">The old flat formula recommended 80 g/hr for Murphy &#8212; 27% higher than the W/kg-adjusted recommendation of 63 g/hr. Lab data confirms: at 2.3 W/kg, exogenous absorption is closer to 60&ndash;80 g/hr.</div>
+    <div class="gg-wp-figure-takeaway">Generic advice gave Murphy 80 g/hr &#8212; 27% higher than his personalized target of 63 g/hr. Lab data confirms: at 2.3 W/kg, exogenous absorption is closer to 60&ndash;80 g/hr.</div>
   </figure>
 </section>'''
 
@@ -289,7 +289,7 @@ def build_power_curve() -> str:
           <li>rate = round(60 + 0.167 &times; 20) = <strong>63 g/hr</strong></li>
           <li>Total: 63 &times; 6.5 = <strong>410g</strong> (~16 gels equivalent)</li>
         </ul>
-        <p class="gg-wp-example-note">The previous formula recommended 80 g/hr &#8212; 27% higher.</p>
+        <p class="gg-wp-example-note">Generic 60&#8211;90 advice would give Murphy 80 g/hr &#8212; 27% higher.</p>
       </div>
     </div>
     <div class="gg-wp-accordion" data-accordion>

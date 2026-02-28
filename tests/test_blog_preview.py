@@ -339,7 +339,7 @@ def test_blog_index_page_responsive(tmp_path):
 
 
 def test_blog_sitemap_structure(tmp_path):
-    """Blog sitemap should be valid XML with correct URLs."""
+    """Blog sitemap should be valid XML with correct URLs (previews excluded)."""
     blog_index = [
         {"slug": "unbound-200", "category": "preview", "date": "2026-02-12"},
         {"slug": "roundup-march-2026", "category": "roundup", "date": "2026-02-12"},
@@ -354,15 +354,15 @@ def test_blog_sitemap_structure(tmp_path):
     root = tree.getroot()
     ns = {"s": "http://www.sitemaps.org/schemas/sitemap/0.9"}
     urls = root.findall("s:url", ns)
-    # Blog index page + 3 entries = 4
-    assert len(urls) == 4
+    # Blog index page + roundup + recap = 3 (preview excluded — noindexed)
+    assert len(urls) == 3
 
 
 def test_blog_sitemap_priorities(tmp_path):
-    """Roundups should have higher priority than previews/recaps."""
+    """Roundups should have higher priority than recaps."""
     blog_index = [
         {"slug": "roundup-march-2026", "category": "roundup", "date": "2026-02-12"},
-        {"slug": "unbound-200", "category": "preview", "date": "2026-02-12"},
+        {"slug": "unbound-200-recap", "category": "recap", "date": "2026-02-12"},
     ]
     output = tmp_path / "blog-sitemap.xml"
     generate_blog_sitemap(blog_index, output)
@@ -379,10 +379,10 @@ def test_blog_sitemap_priorities(tmp_path):
         pri = url.find("s:priority", ns).text
         if "roundup" in loc:
             priorities["roundup"] = float(pri)
-        elif "unbound" in loc:
-            priorities["preview"] = float(pri)
+        elif "recap" in loc:
+            priorities["recap"] = float(pri)
 
-    assert priorities.get("roundup", 0) > priorities.get("preview", 0)
+    assert priorities.get("roundup", 0) > priorities.get("recap", 0)
 
 
 def test_blog_sitemap_has_blog_index_page(tmp_path):
@@ -397,12 +397,12 @@ def test_blog_sitemap_has_blog_index_page(tmp_path):
 
 def test_blog_sitemap_url_format(tmp_path):
     """Blog URLs should use /blog/{slug}/ format."""
-    blog_index = [{"slug": "my-race", "category": "preview", "date": "2026-02-12"}]
+    blog_index = [{"slug": "my-race-recap", "category": "recap", "date": "2026-02-12"}]
     output = tmp_path / "blog-sitemap.xml"
     generate_blog_sitemap(blog_index, output)
 
     content = output.read_text()
-    assert "/blog/my-race/" in content
+    assert "/blog/my-race-recap/" in content
 
 
 def test_blog_sitemap_empty(tmp_path):

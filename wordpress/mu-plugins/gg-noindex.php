@@ -49,8 +49,10 @@ function gg_noindex_junk_pages() {
     }
 
     // Noindex blog preview pages (/blog/{slug}/) — thin content that duplicates
-    // race profiles. Keep /blog/ index page indexed.
-    if (preg_match('#^/blog/[a-z0-9-]+/?$#', $uri)) {
+    // race profiles. Keep /blog/ index, roundups, and recaps indexed.
+    if (preg_match('#^/blog/[a-z0-9-]+/?$#', $uri)
+        && strpos($uri, 'roundup') === false
+        && strpos($uri, 'recap') === false) {
         $dominated = true;
     }
     foreach ($noindex_patterns as $pattern) {

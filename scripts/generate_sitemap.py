@@ -363,13 +363,15 @@ def generate_blog_sitemap(blog_index: list, output_path: Path) -> Path:
     SubElement(url, 'changefreq').text = 'weekly'
     SubElement(url, 'priority').text = '0.8'
 
-    # Blog entries
-    priority_map = {"roundup": "0.7", "preview": "0.6", "recap": "0.6"}
+    # Blog entries — skip preview pages (hardcoded noindex in HTML)
+    priority_map = {"roundup": "0.7", "recap": "0.6"}
     for entry in blog_index:
         slug = entry.get("slug", "")
         if not slug:
             continue
         category = entry.get("category", "preview")
+        if category == "preview":
+            continue
         priority = priority_map.get(category, "0.6")
         lastmod = entry.get("date", today)
 

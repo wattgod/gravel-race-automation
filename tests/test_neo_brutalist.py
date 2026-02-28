@@ -368,10 +368,10 @@ class TestJsonLD:
         jsonld = build_sports_event_jsonld(normalized_data)
         assert jsonld["startDate"] == "2026-06-15"
 
-    def test_sports_event_has_review(self, normalized_data):
+    def test_sports_event_no_self_review(self, normalized_data):
+        """Self-authored reviews trigger GSC Product snippet errors."""
         jsonld = build_sports_event_jsonld(normalized_data)
-        assert jsonld["review"]["@type"] == "Review"
-        assert jsonld["review"]["reviewRating"]["ratingValue"] == "72"
+        assert "review" not in jsonld
 
     def test_faq_jsonld_has_questions(self, normalized_data):
         faq = build_faq_jsonld(normalized_data)

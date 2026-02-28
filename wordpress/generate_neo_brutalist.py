@@ -1320,25 +1320,7 @@ def build_sports_event_jsonld(rd: dict) -> Optional[dict]:
         }
         if official_site and official_site.startswith('http'):
             offer["url"] = official_site
-        if jsonld.get("startDate"):
-            offer["validFrom"] = jsonld["startDate"]
         jsonld["offers"] = offer
-
-    if rd['overall_score']:
-        jsonld["review"] = {
-            "@type": "Review",
-            "author": {
-                "@type": "Organization",
-                "name": "Gravel God",
-                "url": SITE_BASE_URL,
-            },
-            "reviewRating": {
-                "@type": "Rating",
-                "ratingValue": str(rd['overall_score']),
-                "bestRating": "100",
-                "worstRating": "0",
-            },
-        }
 
     # Racer Rating → AggregateRating (only with 3+ ratings)
     racer_rating = rd.get('racer_rating', {})
@@ -1354,10 +1336,6 @@ def build_sports_event_jsonld(rd: dict) -> Optional[dict]:
 
     if official_site and official_site.startswith('http'):
         jsonld["url"] = official_site
-
-    # Performer — use organizer as the event performer
-    if jsonld.get("organizer"):
-        jsonld["performer"] = jsonld["organizer"]
 
     return jsonld
 
@@ -4736,9 +4714,13 @@ def write_shared_assets(output_dir: Path) -> dict:
     assets_dir = output_dir / "assets"
     assets_dir.mkdir(parents=True, exist_ok=True)
 
-    # Copy self-hosted font files
+    # Copy self-hosted font files (clean stale files first)
     fonts_dir = assets_dir / "fonts"
     fonts_dir.mkdir(parents=True, exist_ok=True)
+    wanted = set(FONT_FILES)
+    for old in fonts_dir.glob("*.woff2"):
+        if old.name not in wanted:
+            old.unlink()
     for font_file in FONT_FILES:
         src = BRAND_FONTS_DIR / font_file
         dst = fonts_dir / font_file
@@ -4852,22 +4834,12 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
 
     # Use external assets if provided, otherwise inline
     if external_assets:
-        # Inline minimal critical CSS to prevent flash of white while stylesheet loads
-        critical_css = '''<style>
-body{margin:0;background:#ede4d8}
-.gg-neo-brutalist-page{max-width:960px;margin:0 auto;padding:0 20px;font-family:'Sometype Mono',monospace;color:#3a2e25;background:#ede4d8}
-.gg-neo-brutalist-page *,.gg-neo-brutalist-page *::before,.gg-neo-brutalist-page *::after{border-radius:0!important;box-shadow:none!important;box-sizing:border-box}
-.gg-site-header{padding:16px 24px;border-bottom:2px solid #9a7e0a}
-.gg-site-header-inner{display:flex;align-items:center;justify-content:space-between;max-width:960px;margin:0 auto}
-.gg-site-header-logo img{display:block;height:50px;width:auto}
-.gg-site-header-nav{display:flex;gap:24px;align-items:center}
-.gg-site-header-nav>a,.gg-site-header-item>a{color:#3a2e25;text-decoration:none;font-family:'Sometype Mono',monospace;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase}
-.gg-site-header-item{position:relative}
-.gg-site-header-dropdown{display:none}
-.gg-hero{background:#f5efe6;color:#3a2e25;padding:48px 32px;border-bottom:2px solid #9a7e0a;display:flex;align-items:flex-end;justify-content:space-between;gap:32px}
-</style>
-  '''
-        css = critical_css + external_assets['css_tag']
+        # Inline @font-face so browser discovers fonts immediately and downloads
+        # them in parallel with the external CSS (instead of sequentially).
+        # External CSS stays render-blocking (prevents CLS from late style loads).
+        fonts_inline = get_font_face_css("/race/assets/fonts")
+        critical_css = f'<style>{fonts_inline}</style>'
+        css = critical_css + '\n  ' + external_assets['css_tag']
         inline_js = external_assets['js_tag']
     else:
         css = get_page_css()
@@ -5063,8 +5035,9 @@ def main():
             print(f"  Searched: {', '.join(str(d) for d in data_dirs)}", file=sys.stderr)
             sys.exit(1)
 
+        assets = write_shared_assets(output_dir)
         rd = load_race_data(filepath)
-        page_html = generate_page(rd, race_index)
+        page_html = generate_page(rd, race_index, external_assets=assets)
         out = output_dir / f"{args.slug}.html"
         out.write_text(page_html, encoding='utf-8')
         print(f"Generated: {out}")

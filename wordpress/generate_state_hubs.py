@@ -29,13 +29,11 @@ from datetime import date
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
-from brand_tokens import COLORS, GA_MEASUREMENT_ID, RACER_RATING_THRESHOLD, SITE_BASE_URL, get_font_face_css, get_tokens_css
+from brand_tokens import COLORS, GA_MEASUREMENT_ID, RACER_RATING_THRESHOLD, SITE_BASE_URL, TIER_NAMES, get_font_face_css, get_tokens_css
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 CURRENT_YEAR = date.today().year
 MIN_RACES = 3
-
-TIER_NAMES = {1: "Elite", 2: "Contender", 3: "Solid", 4: "Roster"}
 TIER_COLORS = {
     1: COLORS["primary_brown"],
     2: COLORS["secondary_brown"],
@@ -102,7 +100,7 @@ def group_races_by_state(races: list) -> dict:
 # ── SVG map builder ─────────────────────────────────────────────
 
 def build_dot_map_svg(races: list) -> str:
-    """Simple dot map showing race locations."""
+    """Interactive dot map showing race locations with clickable links."""
     lats = [r.get("lat", 0) for r in races if r.get("lat")]
     lngs = [r.get("lng", 0) for r in races if r.get("lng")]
     if len(lats) < 2:
@@ -128,13 +126,22 @@ def build_dot_map_svg(races: list) -> str:
         y = padding + (max_lat - lat) / (max_lat - min_lat) * (vh - 2 * padding)
         return x, y
 
-    parts = [f'<svg viewBox="0 0 {vw} {vh}" class="gg-state-map-svg" role="img" '
-             f'aria-label="Map showing race locations">']
+    parts = [f'<svg viewBox="0 0 {vw} {vh}" class="gg-state-map-svg" '
+             f'xmlns="http://www.w3.org/2000/svg" '
+             f'xmlns:xlink="http://www.w3.org/1999/xlink" '
+             f'role="img" aria-label="Interactive map showing race locations">']
+
+    # Hover style for interactive dots
+    parts.append('  <style>')
+    parts.append('    .gg-map-dot { cursor: pointer; transition: opacity 0.15s; }')
+    parts.append('    .gg-map-dot:hover circle { opacity: 1; stroke: #9a7e0a; stroke-width: 2; }')
+    parts.append('    .gg-map-dot:hover text { fill: #9a7e0a; font-weight: 700; }')
+    parts.append('  </style>')
 
     # Background
     parts.append(f'  <rect width="{vw}" height="{vh}" fill="{COLORS["sand"]}" rx="0"/>')
 
-    # Plot dots with labels
+    # Plot dots with labels — wrapped in <a> links
     placed_labels = []
     for r in races:
         lat = r.get("lat")
@@ -145,20 +152,33 @@ def build_dot_map_svg(races: list) -> str:
         tier = r.get("tier", 3)
         color = TIER_COLORS.get(tier, COLORS["warm_brown"])
         radius = 7 if tier <= 2 else 5
-
-        parts.append(f'  <circle cx="{x:.1f}" cy="{y:.1f}" r="{radius}" fill="{color}" opacity="0.85">'
-                     f'<title>{esc(r["name"])} — T{tier} ({r.get("overall_score",0)})</title></circle>')
+        slug = r.get("slug", "")
+        score = r.get("overall_score", 0)
+        name = r.get("name", "")
 
         # Label (avoid collision)
-        label = r["name"][:20]
+        label = name[:20]
         ly = y - 12
         for px, py in placed_labels:
             if abs(x - px) < 80 and abs(ly - py) < 12:
                 ly -= 14
         placed_labels.append((x, ly))
-        parts.append(f'  <text x="{x:.1f}" y="{ly:.1f}" text-anchor="middle" '
-                     f'font-family="Sometype Mono,monospace" font-size="8" '
-                     f'fill="{COLORS["dark_brown"]}">{esc(label)}</text>')
+
+        # Wrap dot + label in an <a> link if race has a profile
+        if slug and r.get("has_profile"):
+            parts.append(f'  <a href="/race/{esc(slug)}/" class="gg-map-dot">')
+            parts.append(f'    <circle cx="{x:.1f}" cy="{y:.1f}" r="{radius}" fill="{color}" opacity="0.85">'
+                         f'<title>{esc(name)} — {score}/100</title></circle>')
+            parts.append(f'    <text x="{x:.1f}" y="{ly:.1f}" text-anchor="middle" '
+                         f'font-family="Sometype Mono,monospace" font-size="8" '
+                         f'fill="{COLORS["dark_brown"]}">{esc(label)}</text>')
+            parts.append('  </a>')
+        else:
+            parts.append(f'  <circle cx="{x:.1f}" cy="{y:.1f}" r="{radius}" fill="{color}" opacity="0.85">'
+                         f'<title>{esc(name)} — T{tier} ({score})</title></circle>')
+            parts.append(f'  <text x="{x:.1f}" y="{ly:.1f}" text-anchor="middle" '
+                         f'font-family="Sometype Mono,monospace" font-size="8" '
+                         f'fill="{COLORS["dark_brown"]}">{esc(label)}</text>')
 
     parts.append("</svg>")
     return "\n".join(parts)
@@ -235,7 +255,7 @@ def build_race_cards(races: list) -> str:
         else:
             racer_html = f'''<div class="gg-state-card-racer gg-state-card-racer--empty">
   <div class="gg-state-card-racer-num">&mdash;</div>
-  <div class="gg-state-card-racer-label">NO RATINGS</div>
+  <div class="gg-state-card-racer-label">NOT YET RATED</div>
 </div>'''
 
         cards.append(f'''<a href="/race/{esc(slug)}/" class="gg-state-card">
@@ -272,7 +292,7 @@ def build_faq(state: str, races: list) -> tuple:
     pairs.append((
         f"How many gravel races are in {state}?",
         f"We track {total} gravel races in {state}, including "
-        f"{len(t1)} Elite (Tier 1) and {len(t2)} Contender (Tier 2) events. "
+        f"{len(t1)} The Icons (Tier 1) and {len(t2)} Elite (Tier 2) events. "
         f"See the full list above, ranked by our 14-dimension Gravel God Rating."
     ))
 
@@ -352,7 +372,7 @@ def build_state_page(state: str, races: list, total_races: int) -> str:
     title = f"Best Gravel Races in {state} ({CURRENT_YEAR}) | Gravel God"
     description = (
         f"All {len(races)} gravel races in {state}, ranked by our 14-dimension Gravel God Rating. "
-        f"{'Including ' + str(t1_count) + ' Elite and ' + str(t2_count) + ' Contender events. ' if t1_count or t2_count else ''}"
+        f"{'Including ' + str(t1_count) + ' The Icons and ' + str(t2_count) + ' Elite events. ' if t1_count or t2_count else ''}"
         f"Find your next gravel race in {state}."
     )
 
@@ -397,14 +417,14 @@ def build_state_page(state: str, races: list, total_races: int) -> str:
     if t1_count:
         intro = (
             f"{state} is home to {len(races)} gravel races in our database, "
-            f"including {t1_count} Elite-tier events that rank among the best in the world. "
+            f"including {t1_count} Icons-tier events that rank among the best in the world. "
             f"Whether you're chasing a bucket-list finish or exploring new gravel, "
             f"{state} has a race for every rider."
         )
     elif t2_count:
         intro = (
             f"With {len(races)} gravel races tracked, {state} offers a deep bench of "
-            f"quality events — including {t2_count} Contender-tier races with strong reputations "
+            f"quality events — including {t2_count} Elite-tier races with strong reputations "
             f"and competitive fields. Here's every gravel race in {state}, ranked."
         )
     else:
@@ -425,7 +445,7 @@ def build_state_page(state: str, races: list, total_races: int) -> str:
   <meta name="description" content="{esc(description)}">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="{esc(canonical)}">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%233a2e25'/><text x='16' y='24' text-anchor='middle' font-family='serif' font-size='24' font-weight='700' fill='%239a7e0a'>G</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2032%2032%27%3E%3Crect%20width%3D%2732%27%20height%3D%2732%27%20fill%3D%27%233a2e25%27%2F%3E%3Ctext%20x%3D%2716%27%20y%3D%2724%27%20text-anchor%3D%27middle%27%20font-family%3D%27serif%27%20font-size%3D%2724%27%20font-weight%3D%27700%27%20fill%3D%27%239a7e0a%27%3EG%3C%2Ftext%3E%3C%2Fsvg%3E">
   <meta property="og:title" content="{esc(title)}">
   <meta property="og:description" content="{esc(description)}">
   <meta property="og:type" content="website">

@@ -182,7 +182,7 @@ def test_card_contains_name(sample_races):
 def test_card_contains_tier(sample_races):
     html = build_race_card_html(sample_races[0])
     assert "T1" in html
-    assert "Elite" in html
+    assert "The Icons" in html
 
 
 def test_card_contains_score(sample_races):

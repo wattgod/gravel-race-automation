@@ -795,6 +795,19 @@ RewriteRule ^crusher-in-the-tushar/?$ /race/crusher-in-the-tushar/ [R=301,L]
 RewriteRule ^gravel-worlds/?$ /race/gravel-worlds/ [R=301,L]
 RewriteRule ^big-sugar/?$ /race/big-sugar/ [R=301,L]
 
+# Duplicate race pages → canonical versions (dedup Feb 2026)
+RewriteRule ^race/rad-dirt-fest/?$ /race/salida-76/ [R=301,L]
+RewriteRule ^race/spring-valley-100/?$ /race/almanzo-100/ [R=301,L]
+RewriteRule ^race/bighorn-gravel/?$ /race/big-horn-gravel/ [R=301,L]
+RewriteRule ^race/bwr-san-diego/?$ /race/bwr-california/ [R=301,L]
+RewriteRule ^race/bwr-cedar-city/?$ /race/bwr-utah/ [R=301,L]
+RewriteRule ^race/bwr-north-carolina/?$ /race/bwr-asheville/ [R=301,L]
+RewriteRule ^race/gravel-worlds-amateur/?$ /race/gravel-worlds/ [R=301,L]
+RewriteRule ^race/garmin-gravel-worlds/?$ /race/gravel-worlds/ [R=301,L]
+RewriteRule ^race/gravel-suisse/?$ /race/gravel-fondo-switzerland/ [R=301,L]
+RewriteRule ^race/rasputitsa-spring-classic/?$ /race/rasputitsa/ [R=301,L]
+RewriteRule ^race/pony-xpress-gravel-160/?$ /race/pony-xpress/ [R=301,L]
+
 # Broken URL from GSC → parent page (404 fix)
 RewriteRule ^training-plans-faq/gravelgodcoaching@gmail\\.com$ /training-plans-faq/ [R=301,L]
 </IfModule>

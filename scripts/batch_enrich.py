@@ -85,10 +85,16 @@ def get_enrichment_candidates(n, min_research_kb=5.0):
 
 
 def load_research(slug):
-    """Load research dump or brief for a slug."""
+    """Load research dump(s) or brief for a slug."""
+    parts = []
     dump = RESEARCH_DUMPS / f"{slug}-raw.md"
     if dump.exists():
-        return dump.read_text()
+        parts.append(dump.read_text())
+    community = RESEARCH_DUMPS / f"{slug}-community.md"
+    if community.exists():
+        parts.append(community.read_text())
+    if parts:
+        return "\n\n---\n\n".join(parts)
     brief = BRIEFS / f"{slug}-brief.md"
     if brief.exists():
         return brief.read_text()

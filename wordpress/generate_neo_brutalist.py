@@ -35,6 +35,7 @@ from brand_tokens import (
     COLORS,
     FONT_FILES,
     RACER_RATING_THRESHOLD,
+    TIER_NAMES,
     get_font_face_css,
     get_preload_hints,
     get_tokens_css,
@@ -198,7 +199,7 @@ def build_seo_description(rd: dict) -> str:
     tagline = rd.get('tagline', '').rstrip('.')
     score = rd.get('overall_score', 0)
     tier = rd.get('tier', 4)
-    tier_label = {1: 'Elite', 2: 'Contender', 3: 'Solid', 4: 'Roster'}.get(tier, f'Tier {tier}')
+    tier_label = TIER_NAMES.get(tier, f'Tier {tier}')
     location = rd.get('vitals', {}).get('location', '')
     if location == '--':
         location = ''
@@ -3094,7 +3095,7 @@ body{margin:0;background:#ede4d8}
   <meta name="description" content="{esc(seo_description)}">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="{esc(canonical_url)}">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%233a2e25'/><text x='16' y='24' text-anchor='middle' font-family='serif' font-size='24' font-weight='700' fill='%239a7e0a'>G</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2032%2032%27%3E%3Crect%20width%3D%2732%27%20height%3D%2732%27%20fill%3D%27%233a2e25%27%2F%3E%3Ctext%20x%3D%2716%27%20y%3D%2724%27%20text-anchor%3D%27middle%27%20font-family%3D%27serif%27%20font-size%3D%2724%27%20font-weight%3D%27700%27%20fill%3D%27%239a7e0a%27%3EG%3C%2Ftext%3E%3C%2Fsvg%3E">
   <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
   <link rel="dns-prefetch" href="https://ridewithgps.com">
   <link rel="dns-prefetch" href="https://api.rss2json.com">

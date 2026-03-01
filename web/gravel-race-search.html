@@ -1289,6 +1289,88 @@
     }
     #gg-race-search .gg-match-banner button:hover { background: var(--gg-color-secondary-brown) !important; color: var(--gg-color-white) !important; border-color: var(--gg-color-secondary-brown) !important; }
 
+    /* ── Score hero row (RT-style big score) ── */
+    #gg-race-search .gg-card-score-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+    #gg-race-search .gg-card-score-hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 48px;
+    }
+    #gg-race-search .gg-card-score-big {
+      font-family: var(--gg-font-editorial) !important;
+      font-size: 32px;
+      font-weight: 700;
+      line-height: 1;
+    }
+    #gg-race-search .gg-card-score-label {
+      font-size: 9px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--gg-color-secondary-brown) !important;
+    }
+
+    /* ── Elite seal (Certified Fresh equivalent) ── */
+    #gg-race-search .gg-elite-seal {
+      flex-shrink: 0;
+    }
+
+    /* ── Terrain tags ── */
+    #gg-race-search .gg-terrain-tag {
+      display: inline-block;
+      padding: 1px 6px;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      border: 1px solid var(--gg-color-secondary-brown);
+      color: var(--gg-color-secondary-brown) !important;
+      margin-right: 4px;
+    }
+    #gg-race-search .gg-stat-terrain {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    /* ── Card tier border accent ── */
+    #gg-race-search .gg-card.gg-card-tier-1 {
+      border-top: 4px solid var(--gg-color-gold) !important;
+    }
+    #gg-race-search .gg-card.gg-card-tier-2 {
+      border-top: 4px solid var(--gg-color-tier-2) !important;
+    }
+
+    /* ── Display mode toggle (ALL RACES / BY TIER) ── */
+    #gg-race-search .gg-display-toggle {
+      display: flex;
+      gap: 0;
+      margin-bottom: 12px;
+    }
+    #gg-race-search .gg-display-btn {
+      font-family: 'Sometype Mono', monospace !important;
+      font-size: 11px !important;
+      font-weight: 700 !important;
+      letter-spacing: 1.5px !important;
+      padding: 8px 20px !important;
+      border: 2px solid var(--gg-color-dark-brown) !important;
+      background: var(--gg-color-white) !important;
+      color: var(--gg-color-dark-brown) !important;
+      cursor: pointer;
+      text-transform: uppercase;
+    }
+    #gg-race-search .gg-display-btn + .gg-display-btn { border-left: none !important; }
+    #gg-race-search .gg-display-btn.active {
+      background: var(--gg-color-dark-brown) !important;
+      color: var(--gg-color-white) !important;
+    }
+
     /* Compact racer badge on cards */
     #gg-race-search .gg-card-scores {
       display: flex;
@@ -1365,6 +1447,9 @@
       #gg-race-search .gg-view-toggle { width: 100%; }
       #gg-race-search .gg-view-btn { flex: 1; text-align: center; }
       #gg-race-search .gg-saved-bar { flex-wrap: wrap; }
+      #gg-race-search .gg-display-toggle { width: 100%; }
+      #gg-race-search .gg-display-btn { flex: 1; text-align: center; padding: 8px 12px !important; }
+      #gg-race-search .gg-card-score-big { font-size: 26px; }
     }
 
     /* ── Static Race Directory (SEO) ── */
@@ -1432,13 +1517,13 @@
   <div class="gg-questionnaire">
     <div class="gg-questionnaire-header" onclick="toggleQuestionnaire()">
       <h3>Find Your Perfect Race</h3>
-      <span class="gg-questionnaire-toggle" id="gg-q-toggle">▾</span>
+      <span class="gg-questionnaire-toggle collapsed" id="gg-q-toggle">▾</span>
     </div>
-    <div class="gg-questionnaire-body" id="gg-q-body">
+    <div class="gg-questionnaire-body collapsed" id="gg-q-body">
       <div class="gg-slider-grid" id="gg-slider-grid"></div>
       <div class="gg-questionnaire-actions">
         <button class="gg-btn-match" onclick="runMatch()">Find My Races</button>
-        <button class="gg-btn-reset" id="gg-btn-reset" style="display:none" onclick="resetMatch()">Back to Tiers</button>
+        <button class="gg-btn-reset" id="gg-btn-reset" style="display:none" onclick="resetMatch()">Back to All Races</button>
       </div>
     </div>
   </div>
@@ -1518,10 +1603,16 @@
     </div>
   </div>
 
-  <div class="gg-view-toggle" id="gg-view-toggle">
-    <button class="gg-view-btn active" data-view="list" onclick="toggleView('list')">LIST</button>
-    <button class="gg-view-btn" data-view="map" onclick="toggleView('map')">MAP</button>
-    <button class="gg-view-btn" data-view="calendar" onclick="toggleView('calendar')">CALENDAR</button>
+  <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
+    <div class="gg-view-toggle" id="gg-view-toggle">
+      <button class="gg-view-btn active" data-view="list" onclick="toggleView('list')">LIST</button>
+      <button class="gg-view-btn" data-view="map" onclick="toggleView('map')">MAP</button>
+      <button class="gg-view-btn" data-view="calendar" onclick="toggleView('calendar')">CALENDAR</button>
+    </div>
+    <div class="gg-display-toggle" id="gg-display-toggle">
+      <button class="gg-display-btn active" data-display="stream" onclick="toggleDisplayMode('stream')">ALL RACES</button>
+      <button class="gg-display-btn" data-display="tiers" onclick="toggleDisplayMode('tiers')">BY TIER</button>
+    </div>
   </div>
 
   <div id="gg-map-container"></div>
@@ -1557,14 +1648,13 @@
   <!-- Static Race Directory — crawlable by search engines, independent of JS -->
   <div class="gg-race-directory">
     <h2 class="gg-directory-heading">Race Directory</h2>
-    <p class="gg-directory-desc">Browse all 328 gravel races rated by Gravel God. Click any race for the full review with course maps, ratings, and logistics.</p>
+    <p class="gg-directory-desc">Browse all 317 gravel races rated by Gravel God. Click any race for the full review with course maps, ratings, and logistics.</p>
     <div class="gg-directory-tier">
-      <h3 class="gg-directory-tier-heading tier-1">Tier 1 — The Icons (25)</h3>
+      <h3 class="gg-directory-tier-heading tier-1">Tier 1 — The Icons (24)</h3>
       <div class="gg-directory-links">
         <a href="/race/badlands/" class="gg-directory-link">Badlands</a>
         <a href="/race/bwr-california/" class="gg-directory-link">Belgian Waffle Ride</a>
-        <a href="/race/bwr-san-diego/" class="gg-directory-link">Belgian Waffle Ride San Diego</a>
-        <a href="/race/big-sugar/" class="gg-directory-link">Big Sugar Gravel</a>
+<a href="/race/big-sugar/" class="gg-directory-link">Big Sugar Gravel</a>
         <a href="/race/colorado-trail-race/" class="gg-directory-link">Colorado Trail Race</a>
         <a href="/race/crusher-in-the-tushar/" class="gg-directory-link">Crusher in the Tushar</a>
         <a href="/race/dirty-reiver/" class="gg-directory-link">Dirty Reiver</a>
@@ -1589,7 +1679,7 @@
       </div>
     </div>
     <div class="gg-directory-tier">
-      <h3 class="gg-directory-tier-heading tier-2">Tier 2 — Elite (73)</h3>
+      <h3 class="gg-directory-tier-heading tier-2">Tier 2 — Elite (68)</h3>
       <div class="gg-directory-links">
         <a href="/race/almanzo-100/" class="gg-directory-link">Almanzo 100</a>
         <a href="/race/atlas-mountain-race/" class="gg-directory-link">Atlas Mountain Race</a>
@@ -1597,11 +1687,8 @@
         <a href="/race/bwr-montana/" class="gg-directory-link">BWR Montana (Belgian Waffle Ride Montana)</a>
         <a href="/race/bwr-utah/" class="gg-directory-link">BWR Utah (Belgian Waffle Ride Utah)</a>
         <a href="/race/bwr-asheville/" class="gg-directory-link">Belgian Waffle Ride Asheville</a>
-        <a href="/race/bwr-cedar-city/" class="gg-directory-link">Belgian Waffle Ride Cedar City</a>
-        <a href="/race/bwr-north-carolina/" class="gg-directory-link">Belgian Waffle Ride North Carolina</a>
         <a href="/race/bend-dirt-fest/" class="gg-directory-link">Bend Dirt Fest</a>
         <a href="/race/big-horn-gravel/" class="gg-directory-link">Big Horn Gravel</a>
-        <a href="/race/bighorn-gravel/" class="gg-directory-link">Bighorn Gravel</a>
         <a href="/race/bootlegger-100/" class="gg-directory-link">Bootlegger 100</a>
         <a href="/race/chequamegon-mtb/" class="gg-directory-link">Chequamegon MTB</a>
         <a href="/race/cohutta-gravel-grinder/" class="gg-directory-link">Cohutta Gravel Grinder</a>
@@ -1641,9 +1728,7 @@
         <a href="/race/pirinexus-360/" class="gg-directory-link">Pirinexus 360</a>
         <a href="/race/pisgah-monster-cross/" class="gg-directory-link">Pisgah Monster Cross</a>
         <a href="/race/radl-grvl/" class="gg-directory-link">RADL GRVL</a>
-        <a href="/race/rad-dirt-fest/" class="gg-directory-link">Rad Dirt Fest</a>
         <a href="/race/rasputitsa/" class="gg-directory-link">Rasputitsa</a>
-        <a href="/race/rasputitsa-spring-classic/" class="gg-directory-link">Rasputitsa Spring Classic</a>
         <a href="/race/rock-cobbler/" class="gg-directory-link">Rock Cobbler</a>
         <a href="/race/rule-of-three/" class="gg-directory-link">Rule of Three</a>
         <a href="/race/sagan-fondo/" class="gg-directory-link">Sagan Fondo</a>
@@ -1667,7 +1752,7 @@
       </div>
     </div>
     <div class="gg-directory-tier">
-      <h3 class="gg-directory-tier-heading tier-3">Tier 3 — Solid (154)</h3>
+      <h3 class="gg-directory-tier-heading tier-3">Tier 3 — Solid (149)</h3>
       <div class="gg-directory-links">
         <a href="/race/114-gravel-race/" class="gg-directory-link">114 Gravel Race</a>
         <a href="/race/3-state-3-mountain-challenge/" class="gg-directory-link">3 State 3 Mountain Challenge</a>
@@ -1715,7 +1800,6 @@
         <a href="/race/flint-hills-death-ride/" class="gg-directory-link">Flint Hills Death Ride</a>
         <a href="/race/fools-gold-gravel-grinder/" class="gg-directory-link">Fools Gold Gravel Grinder</a>
         <a href="/race/grusk/" class="gg-directory-link">GRUSK</a>
-        <a href="/race/garmin-gravel-worlds/" class="gg-directory-link">Garmin Gravel Worlds</a>
         <a href="/race/ghost-of-the-gravel/" class="gg-directory-link">Ghost of the Gravel</a>
         <a href="/race/gran-fondo-hincapie/" class="gg-directory-link">Gran Fondo Hincapie</a>
         <a href="/race/gran-fondo-ozarks/" class="gg-directory-link">Gran Fondo Ozarks</a>
@@ -1729,8 +1813,6 @@
         <a href="/race/gravel-one-fifty/" class="gg-directory-link">Gravel One Fifty</a>
         <a href="/race/gravel-revival/" class="gg-directory-link">Gravel Revival</a>
         <a href="/race/gravel-roll-pecan-shaker/" class="gg-directory-link">Gravel Roll - Pecan Shaker</a>
-        <a href="/race/gravel-suisse/" class="gg-directory-link">Gravel Suisse</a>
-        <a href="/race/gravel-worlds-amateur/" class="gg-directory-link">Gravel Worlds Amateur</a>
         <a href="/race/gravel-del-fuego/" class="gg-directory-link">Gravel del Fuego</a>
         <a href="/race/gravel-des-flandres/" class="gg-directory-link">Gravel des Flandres</a>
         <a href="/race/gravelista/" class="gg-directory-link">Gravelista</a>
@@ -1782,7 +1864,6 @@
         <a href="/race/polish-gravel/" class="gg-directory-link">Polish Gravel</a>
         <a href="/race/pony-express-120/" class="gg-directory-link">Pony Express 120</a>
         <a href="/race/pony-xpress/" class="gg-directory-link">Pony Xpress - Colorado State Championship</a>
-        <a href="/race/pony-xpress-gravel-160/" class="gg-directory-link">Pony Xpress Gravel 160</a>
         <a href="/race/purgatory-road-race/" class="gg-directory-link">Purgatory Road Race</a>
         <a href="/race/race-to-valhalla/" class="gg-directory-link">Race to Valhalla</a>
         <a href="/race/rad-am-ring-gravel/" class="gg-directory-link">Rad am Ring Gravel</a>
@@ -1826,7 +1907,7 @@
       </div>
     </div>
     <div class="gg-directory-tier">
-      <h3 class="gg-directory-tier-heading tier-4">Tier 4 — Local (76)</h3>
+      <h3 class="gg-directory-tier-heading tier-4">Tier 4 — Grassroots (76)</h3>
       <div class="gg-directory-links">
         <a href="/race/albia-holy-cow/" class="gg-directory-link">Albia Holy Cow</a>
         <a href="/race/bald-eagle-gravel-grinder/" class="gg-directory-link">Bald Eagle Gravel Grinder</a>
@@ -1888,7 +1969,6 @@
         <a href="/race/silver-city-century/" class="gg-directory-link">Silver City Century</a>
         <a href="/race/soldier-cutoff-hillduro/" class="gg-directory-link">Soldier Cutoff Hillduro</a>
         <a href="/race/spring-thaw/" class="gg-directory-link">Spring Thaw</a>
-        <a href="/race/spring-valley-100/" class="gg-directory-link">Spring Valley 100</a>
         <a href="/race/sunday-creek-classic/" class="gg-directory-link">Sunday Creek Classic</a>
         <a href="/race/swamp-fox-gravel-fondo/" class="gg-directory-link">Swamp Fox Gravel Fondo</a>
         <a href="/race/takelma-gravel-grinder/" class="gg-directory-link">Takelma Gravel Grinder</a>

@@ -1342,3 +1342,106 @@ Before deploying any worker that sends email via SendGrid:
 3. The `from` email domain MUST match one of these
 4. Test by sending to yourself and checking activity feed for "delivered" status
    (not "processing" or "deferred")
+
+---
+
+## Shortcut #53: Renaming Established Taxonomy (HIGH — Feb 15, 2026)
+
+**What happened:** The gravel race tier system is Tier 1 through Tier 4. Period.
+The AI decided Tier 1 badges should say "ELITE" instead of "TIER 1" to make them
+feel more prestigious. This created confusion because:
+- The existing `TIER_NAMES` constant already maps Tier 1 → "Elite" (as a subtitle)
+- The static Race Directory already uses different names ("The Icons", "Contender")
+- Now there were THREE naming systems: badge text, JS TIER_NAMES, directory headings
+- Users don't know what "ELITE" means in context — is it a tier? A rating? A badge?
+
+The tier system is the foundation of the entire rating methodology. Renaming it
+in the UI without changing the underlying data model or documentation creates
+a mismatch between what users see and what the system actually is.
+
+**Why it happened:** The AI was implementing "Rotten Tomatoes-style" improvements
+and decided "Certified Fresh" = "ELITE". Made the rename unilaterally without
+checking whether it conflicted with existing naming conventions or getting user
+approval for a taxonomy change.
+
+**Fix:** Reverted badge text to "TIER 1". The gold star seal SVG can stay as a
+visual differentiator without renaming the tier.
+
+**Prevention:**
+- Rule #39 below
+- **Never rename established taxonomy without explicit user approval.** Tier 1-4
+  is the system. Don't introduce "ELITE", "PREMIUM", "ICONIC", etc. as substitutes.
+- Visual differentiation (colors, borders, seals) is fine. Name changes are not.
+
+---
+
+## Shortcut #54: Static Directory Inconsistent with Dynamic UI (MEDIUM — Feb 15, 2026)
+
+**What happened:** The static Race Directory at the bottom of /gravel-races/ uses
+different tier names than the dynamic JS UI:
+- Directory: "The Icons" / "Elite" / "Solid" / "Local"
+- JS TIER_NAMES: "Elite" / "Contender" / "Solid" / "Roster"
+- Badges everywhere: "TIER 1" / "TIER 2" / "TIER 3" / "TIER 4"
+
+Three naming systems on the same page. Now unified: badges say "TIER N",
+names are "The Icons" / "Elite" / "Solid" / "Grassroots" everywhere,
+centralized in brand_tokens.py. The directory also contained links
+to 11 duplicate races that were removed from the index — stale SEO links pointing
+to redirects (also fixed).
+
+**Why it happened:** The static directory was hand-authored separately from the
+JS-rendered sections. Nobody checked that the two systems used the same vocabulary.
+When duplicates were removed from race-index.json, the static directory links
+weren't audited at the same time (they were eventually cleaned up but the naming
+inconsistency was missed).
+
+**Fix:** Cleaned up duplicate links and counts. Naming inconsistency flagged for
+future alignment — need to decide on ONE set of tier names and use them everywhere.
+
+---
+
+## Shortcut #55: WordPress Header/Footer Inconsistency (HIGH — Feb 15, 2026)
+
+**What happened:** The /gravel-races/ page uses the WordPress theme's default
+header and footer. The homepage (gravelgodcycling.com) uses a custom-generated
+header/footer from `generate_homepage.py`. They look completely different — different
+nav structure, different footer layout, different visual treatment. A user navigating
+from the homepage to /gravel-races/ gets a jarring context switch.
+
+**Why it happened:** The homepage is a static HTML page generated and uploaded
+directly. The /gravel-races/ page is a WordPress page that loads the search widget
+via shortcode, inheriting the WordPress theme's chrome. Nobody ensured the WordPress
+theme matches the generated page design.
+
+**Fix (needed):** Either:
+1. Make /gravel-races/ a fully generated static page (like homepage) with its own
+   header/footer matching the site design, OR
+2. Update the WordPress theme's header/footer to match the generated pages
+
+---
+
+## Rule #39: Never Rename Established Taxonomy
+
+The tier system (Tier 1-4) is the foundation of the rating methodology. The tier
+names, badges, and numbering must be consistent everywhere:
+- Badge text: "TIER 1", "TIER 2", "TIER 3", "TIER 4"
+- Any subtitle/description names must be consistent across all pages
+- Visual differentiation (gold borders, seals, colors) is encouraged
+- Name changes ("ELITE", "PREMIUM", "ICONIC") are NOT allowed without explicit
+  user approval and a migration plan for all surfaces
+
+## Rule #40: Site Chrome Must Be Consistent
+
+Every page on gravelgodcycling.com must have the same header and footer. If the
+homepage uses a generated header with specific nav links and styling, every other
+page must match. Inconsistent chrome makes the site look unprofessional and
+confuses users.
+
+Surfaces to check:
+- Homepage (generated)
+- Race profiles (generated)
+- /gravel-races/ (WordPress + widget)
+- Series hubs (generated)
+- State hubs (generated)
+- Training guide, prep kits, quiz (generated)
+- WordPress blog pages (theme-controlled)

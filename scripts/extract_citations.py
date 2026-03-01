@@ -245,7 +245,7 @@ def extract_urls_from_dumps(slug: str) -> list:
     """Extract unique URLs from research dump files for a given slug."""
     urls = set()
 
-    for suffix in ['-raw.md', '-raw.bak.md']:
+    for suffix in ['-raw.md', '-raw.bak.md', '-community.md']:
         path = DUMP_DIR / f"{slug}{suffix}"
         if path.exists():
             content = path.read_text(errors='replace')

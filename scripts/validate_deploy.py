@@ -544,6 +544,19 @@ def check_insights(v):
         v.check("insights_page_view" in body, "Insights page has GA4 tracking", "Missing GA4 events")
 
 
+def check_whitepaper(v):
+    """Verify white paper page is deployed with expected content."""
+    print("\n[White Paper Page]")
+    code = curl_status(f"{BASE_URL}/fueling-methodology/")
+    v.check(code == "200", "/fueling-methodology/ accessible", f"HTTP {code}")
+    if code == "200":
+        body = curl_body(f"{BASE_URL}/fueling-methodology/")
+        v.check("How Many Carbs" in body, "White paper has title", "Missing title")
+        v.check("gg-wp-hero" in body, "White paper has hero section", "Missing hero")
+        v.check("data-accordion" in body, "White paper has accordions", "Missing accordions")
+        v.check('"Article"' in body and "application/ld+json" in body, "White paper has JSON-LD", "Missing structured data")
+
+
 def check_meta_descriptions(v):
     """Verify meta descriptions are deployed and appearing on pages."""
     import html as html_mod
@@ -702,6 +715,7 @@ def main():
     check_series_hubs(v)
     check_guide_cluster(v)
     check_insights(v)
+    check_whitepaper(v)
     check_legal_pages(v)
     check_meta_descriptions(v)
 

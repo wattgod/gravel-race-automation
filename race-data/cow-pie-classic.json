@@ -249,23 +249,23 @@
       },
       "length": {
         "score": 3,
-        "explanation": "John Keepers \"flew off the line with a serious mission and 300 plus watts\" to win his age group, demonstrating how the 62-mile distance rewards aggressive early tactics. However, riders report \"hard to pass from wave 12 and the pace took a large hit in the middle of the course,\" suggesting the length creates tactical bottlenecks that affect race dynamics throughout the field."
+        "explanation": "John Keepers \"flew off the line with a serious mission and 300 plus watts\" to win his age group, demonstrating how the 62-mile distance rewards aggressive early tactics. However, riders report \"hard to pass from wave 12 and the pace took a large hit in the middle of the course,\" suggesting the length creates tactical bottlenecks that affect race dynamics throughout the field. Similar distance to Crusher in the Tushar."
       },
       "technicality": {
         "score": 2,
-        "explanation": "MI-XC, who races \"Cat 1 XCO and MTB 100s,\" warns that \"slicks are fine until you go off road into the farms\" where \"there are MTB sections and some very sketchy downhills.\" The farm sections demand technical handling skills, with MI-XC noting \"People were taken out by ambulance from that section and someone crashed right in front of me in our group.\""
+        "explanation": "MI-XC, who races \"Cat 1 XCO and MTB 100s,\" warns that \"slicks are fine until you go off road into the farms\" where \"there are MTB sections and some very sketchy downhills.\" The farm sections demand technical handling skills, with MI-XC noting \"People were taken out by ambulance from that section and someone crashed right in front of me in our group.\" Less technical than The Mid South."
       },
       "elevation": {
         "score": 2,
-        "explanation": "The Bodacious Century lists \"Hyde, Tallman, Jessup and Welch\" as \"difference maker hills,\" with chip-timed \"Welch Wall\" offering $200 cash prizes for fastest ascent times. These named climbs provide tactical inflection points within Michigan's rolling terrain, though the 2500 feet over 62 miles indicates sustained effort rather than dramatic elevation changes."
+        "explanation": "The Bodacious Century lists \"Hyde, Tallman, Jessup and Welch\" as \"difference maker hills,\" with chip-timed \"Welch Wall\" offering $200 cash prizes for fastest ascent times. These named climbs provide tactical inflection points within Michigan's rolling terrain, though the 2500 feet over 62 miles indicates sustained effort rather than dramatic elevation changes. Less climbing than The Mid South."
       },
       "climate": {
         "score": 2,
-        "explanation": "Ken Carl experienced \"cool and perfect\" race day conditions \"under a perfect blue sky morning,\" while other reports confirm \"weather was about perfect, and the course was fast.\" Mid-June in Michigan typically delivers favorable racing conditions, though the agricultural setting means weather can significantly impact the farm sections and gravel road surfaces."
+        "explanation": "Historical weather data shows average highs of 81°F and lows of 59°F, with a 46% chance of rain on any given day. Ken Carl experienced \"cool and perfect\" race day conditions \"under a perfect blue sky morning,\" while other reports confirm \"weather was about perfect, and the course was fast.\" Mid-June in Michigan typically delivers favorable racing conditions, though the agricultural setting means weather can significantly impact the farm sections and gravel road surfaces. More weather exposure than Belgian Waffle Ride San Diego."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Racing in Ionia, Michigan at approximately 650-700 feet above sea level means altitude is irrelevant to performance. The elevation profile focuses entirely on rolling terrain features rather than any meaningful altitude considerations for endurance racing."
+        "explanation": "Racing in Ionia, Michigan at approximately 650-700 feet above sea level means altitude is irrelevant to performance. The elevation profile focuses entirely on rolling terrain features rather than any meaningful altitude considerations for endurance racing. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 2,
@@ -289,7 +289,7 @@
       },
       "field_depth": {
         "score": 1,
-        "explanation": "aarondeutchman notes that competitive riders \"plan to be in the longer distance next year\" with \"the next group 5 min back,\" indicating shallow fields in shorter distances. The crashes and safety issues in Pro/Cat 1 waves, combined with riders using this as training rather than peak objectives, suggest limited competitive depth across categories."
+        "explanation": "aarondeutchman notes that competitive riders \"plan to be in the longer distance next year\" with \"the next group 5 min back,\" indicating shallow fields in shorter distances. The crashes and safety issues in Pro/Cat 1 waves, combined with riders using this as training rather than peak objectives, suggest limited competitive depth across categories. Thinner field than Ouray Gravel Grinder."
       },
       "value": {
         "score": 4,
@@ -297,7 +297,7 @@
       },
       "expenses": {
         "score": 4,
-        "explanation": "Free camping eliminates major race weekend costs, while the 2026 start in \"Ionia's social district\" allows purchasing drinks within walking distance of the finish. The taco bar and awards ceremony occur \"just 200 meters from the finish line\" at Steele Street Hall, keeping all activities centralized and minimizing transportation expenses throughout the weekend."
+        "explanation": "Registration runs $60-90. Free camping eliminates major race weekend costs, while the 2026 start in \"Ionia's social district\" allows purchasing drinks within walking distance of the finish. The taco bar and awards ceremony occur \"just 200 meters from the finish line\" at Steele Street Hall, keeping all activities centralized and minimizing transportation expenses throughout the weekend. More affordable than Crusher in the Tushar."
       }
     },
     "citations": [
@@ -351,6 +351,74 @@
         "category": "community",
         "label": "granfondodailynews.com: Is Michigan Gravel Heaven Local Race Series Now Biggest I..."
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 38,
+          "msrp_usd": 54.99,
+          "weight_grams": 380,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 2,
+          "tire_id": "vittoria-terreno-mix",
+          "name": "Vittoria Terreno Mix",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 420,
+          "crr_watts": 33.5,
+          "why": "Graphene versatility. Mixed-terrain grip with reasonable rolling speed."
+        },
+        {
+          "rank": 3,
+          "tire_id": "continental-terra-trail",
+          "name": "Continental Terra Trail",
+          "brand": "Continental",
+          "recommended_width_mm": 40,
+          "msrp_usd": 74.99,
+          "weight_grams": 450,
+          "crr_watts": 33.5,
+          "why": "excellent wet grip"
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 38
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 38,
+      "pressure_psi": {
+        "140_160lb_dry": "36-40",
+        "140_160lb_mixed": "33-37",
+        "140_160lb_wet": "31-35",
+        "160_180lb_dry": "39-43",
+        "160_180lb_mixed": "36-40",
+        "160_180lb_wet": "34-38",
+        "180_200lb_dry": "42-46",
+        "180_200lb_mixed": "39-43",
+        "180_200lb_wet": "37-41",
+        "200pluslb_dry": "45-49",
+        "200pluslb_mixed": "42-46",
+        "200pluslb_wet": "40-44"
+      }
+    }
   }
 }

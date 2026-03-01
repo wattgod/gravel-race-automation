@@ -256,23 +256,23 @@
       },
       "length": {
         "score": 3,
-        "explanation": "The 67-mile distance proved challenging with aid stations spaced 28 miles apart between stops. One rider noted being \"still in very good spirits\" at mile 40 Aid #2, saying \"nothing up until this point was all that physically exhausting,\" but the final 27 miles broke many riders on the endless CR-50 climb."
+        "explanation": "The 67-mile distance proved challenging with aid stations spaced 28 miles apart between stops. One rider noted being \"still in very good spirits\" at mile 40 Aid #2, saying \"nothing up until this point was all that physically exhausting,\" but the final 27 miles broke many riders on the endless CR-50 climb. Similar distance to Crusher in the Tushar."
       },
       "technicality": {
         "score": 3,
-        "explanation": "Course shifts from smooth gravel to \"teeth chattering rough\" washboard descents at 25-30mph. One rider described it as \"where I was officially introduced to what a gravel race is all about – those who can handle the downhills and those who can't,\" noting the technical challenge of \"flying down a rough dirt road with no suspension.\""
+        "explanation": "Course shifts from smooth gravel to \"teeth chattering rough\" washboard descents at 25-30mph. One rider described it as \"where I was officially introduced to what a gravel race is all about – those who can handle the downhills and those who can't,\" noting the technical challenge of \"flying down a rough dirt road with no suspension.\" Similar technical demands to Gravel Worlds."
       },
       "elevation": {
         "score": 4,
-        "explanation": "The main climb on CR-50 delivers \"2,500 ft of vertical over 13 miles\" with the first climb topping out \"shy of 10,400 ft.\" One rider called it \"basically 11 miles of a 5-10% grade…..for eternity\" along The Blue Ridge, forcing a goal change from sub-5 hours to just staying on the bike."
+        "explanation": "The main climb on CR-50 delivers \"2,500 ft of vertical over 13 miles\" with the first climb topping out \"shy of 10,400 ft.\" One rider called it \"basically 11 miles of a 5-10% grade…..for eternity\" along The Blue Ridge, forcing a goal change from sub-5 hours to just staying on the bike. More climbing than SBT GRVL at the same score."
       },
       "climate": {
         "score": 3,
-        "explanation": "August temperatures hit 70-75°F during the race with biting flies that \"almost broke\" one rider who had to maintain pace \"quick enough to keep the flies from overwhelming me.\" Official warnings note afternoon thunderstorms are common with unpredictable mountain weather requiring rain gear."
+        "explanation": "August temperatures hit 70-75°F during the race with biting flies that \"almost broke\" one rider who had to maintain pace \"quick enough to keep the flies from overwhelming me.\" Official warnings note afternoon thunderstorms are common with unpredictable mountain weather requiring rain gear. Similar climate challenges to SBT GRVL."
       },
       "altitude": {
         "score": 4,
-        "explanation": "Starting at 8,700 feet with climbing to 10,400+ feet creates sustained oxygen debt. One rider noted \"I'd still recommend low gears. Climbing at elevation is a challenge,\" while another found \"riding on flattish gravel/dirt was more difficult than riding on a slight uphill on paved asphalt\" due to thin air effects."
+        "explanation": "Starting at 8,700 feet with climbing to 10,400+ feet creates sustained oxygen debt. One rider noted \"I'd still recommend low gears. Climbing at elevation is a challenge,\" while another found \"riding on flattish gravel/dirt was more difficult than riding on a slight uphill on paved asphalt\" due to thin air effects. Higher altitude racing, comparable to SBT GRVL."
       },
       "adventure": {
         "score": 3,
@@ -296,7 +296,7 @@
       },
       "field_depth": {
         "score": 2,
-        "explanation": "Field size of 350 riders suggests healthy participation, but competitive depth appears modest with sub-5 hour finishing times considered strong performances. The addition of untimed recreational categories and e-bikes indicates organizers are expanding participation rather than focusing on elite competition."
+        "explanation": "Field size of 350 riders suggests healthy participation, but competitive depth appears modest with sub-5 hour finishing times considered strong performances. The addition of untimed recreational categories and e-bikes indicates organizers are expanding participation rather than focusing on elite competition. Less competitive depth than Almanzo 100."
       },
       "value": {
         "score": 3,
@@ -304,7 +304,7 @@
       },
       "expenses": {
         "score": 2,
-        "explanation": "Winter Park resort town pricing hits hard with recommended lodging at Winter Park Mountain Lodge and dining at Boca Winter Park. One rider invested in a dedicated gravel bike, noting the Canyon Grizl \"was $1,000 cheaper than the Trek Checkpoint\" for similar specs, showing equipment costs add up for this terrain."
+        "explanation": "Winter Park resort town pricing hits hard with recommended lodging at Winter Park Mountain Lodge and dining at Boca Winter Park. One rider invested in a dedicated gravel bike, noting the Canyon Grizl \"was $1,000 cheaper than the Trek Checkpoint\" for similar specs, showing equipment costs add up for this terrain. Higher total cost than Badlands."
       }
     },
     "citations": [
@@ -343,6 +343,74 @@
         "category": "community",
         "label": "skyhinews.com: Guest Column A Wonderful Day Spent In Grand County At Cro..."
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "vittoria-terreno-wet",
+          "name": "Vittoria Terreno Wet",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 460,
+          "crr_watts": 39.0,
+          "why": "excellent wet grip"
+        },
+        {
+          "rank": 2,
+          "tire_id": "pirelli-cinturato-gravel-s",
+          "name": "Pirelli Cinturato Gravel S",
+          "brand": "Pirelli",
+          "recommended_width_mm": 40,
+          "msrp_usd": 73.99,
+          "weight_grams": 430,
+          "crr_watts": null,
+          "why": "excellent wet grip"
+        },
+        {
+          "rank": 3,
+          "tire_id": "schwalbe-g-one-overland",
+          "name": "Schwalbe G-One Overland",
+          "brand": "Schwalbe",
+          "recommended_width_mm": 40,
+          "msrp_usd": 69.9,
+          "weight_grams": 490,
+          "crr_watts": 40.0,
+          "why": "excellent wet grip"
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "vittoria-terreno-wet",
+          "name": "Vittoria Terreno Wet",
+          "width_mm": 40
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "wet",
+      "recommended_width_mm": 40,
+      "pressure_psi": {
+        "140_160lb_dry": "34-38",
+        "140_160lb_mixed": "30-34",
+        "140_160lb_wet": "28-32",
+        "160_180lb_dry": "36-40",
+        "160_180lb_mixed": "34-38",
+        "160_180lb_wet": "32-36",
+        "180_200lb_dry": "40-44",
+        "180_200lb_mixed": "36-40",
+        "180_200lb_wet": "34-38",
+        "200pluslb_dry": "42-46",
+        "200pluslb_mixed": "40-44",
+        "200pluslb_wet": "38-42"
+      }
+    }
   }
 }

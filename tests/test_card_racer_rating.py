@@ -105,14 +105,14 @@ class TestStateHubCards:
     def test_card_shows_no_ratings_when_empty(self, race_without_racer_rating):
         html = build_race_cards([race_without_racer_rating])
         assert "gg-state-card-racer--empty" in html
-        assert "NO RATINGS" in html
+        assert "NOT YET RATED" in html
         # Must NOT say "RATE IT" — that's a lie (no rating form exists)
         assert "RATE IT" not in html
 
     def test_card_shows_no_ratings_below_threshold(self, race_below_threshold):
         html = build_race_cards([race_below_threshold])
         assert "gg-state-card-racer--empty" in html
-        assert "NO RATINGS" in html
+        assert "NOT YET RATED" in html
         # The 90% should NOT be shown since below threshold
         assert "90%" not in html
 
@@ -217,7 +217,7 @@ class TestSeriesHubCards:
         }}
         html = build_event_card(event, race_lookup)
         assert "gg-series-event-racer--empty" in html
-        assert ">RATE</small>" in html  # Series uses "RATE" (shorter label)
+        assert ">RACER</small>" in html  # Series uses "RACER" label
 
     def test_event_card_below_threshold(self):
         event = {"name": "BWR Utah", "slug": "bwr-utah",

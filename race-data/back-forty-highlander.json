@@ -263,23 +263,23 @@
       },
       "length": {
         "score": 3,
-        "explanation": "The Epic Course (108.5 km) produces competitive racing, with Michael Joannisse winning in 3:13:32 and the top 8 men finishing within 4:32 of each other. Three distance options accommodate different abilities, from 35km to the full Epic distance that tests endurance without requiring multi-day recovery."
+        "explanation": "The Epic Course (108.5 km) produces competitive racing, with Michael Joannisse winning in 3:13:32 and the top 8 men finishing within 4:32 of each other. Three distance options accommodate different abilities, from 35km to the full Epic distance that tests endurance without requiring multi-day recovery. Similar distance to Crusher in the Tushar."
       },
       "technicality": {
         "score": 2,
-        "explanation": "Single lane treed gravel roads through challenging sections at Ranger Camp, North Shore, and Clarendon test bike handling skills. The marble-white roads from nearby Tatlock Quarry create a Strada Bianche aesthetic but don't demand advanced technical abilities beyond standard gravel competency."
+        "explanation": "Single lane treed gravel roads through challenging sections at Ranger Camp, North Shore, and Clarendon test bike handling skills. The marble-white roads from nearby Tatlock Quarry create a Strada Bianche aesthetic but don't demand advanced technical abilities beyond standard gravel competency. Less technical than The Mid South."
       },
       "elevation": {
         "score": 2,
-        "explanation": "Rolling hills through North Frontenac and Lanark Highlands create steady climbing rather than explosive ascents. The terrain features enough elevation to separate the field - Jennifer Stephenson's 26.47 km/h winning pace in the women's Epic shows the hills demand respect without approaching mountain territory."
+        "explanation": "Rolling hills through North Frontenac and Lanark Highlands create steady climbing rather than explosive ascents. The terrain features enough elevation to separate the field - Jennifer Stephenson's 26.47 km/h winning pace in the women's Epic shows the hills demand respect without approaching mountain territory. Less climbing than The Mid South."
       },
       "climate": {
         "score": 2,
-        "explanation": "The 2024 event experienced \"not ideal\" weather conditions that still allowed riders to have \"an amazing time\" according to race coverage. September in rural Ontario brings unpredictable conditions, with regional gravel events noting potential for muddy courses depending on rainfall."
+        "explanation": "Historical weather data shows average highs of 70°F and lows of 53°F, with a 35% chance of rain on any given day. The 2024 event experienced \"not ideal\" weather conditions that still allowed riders to have \"an amazing time\" according to race coverage. September in rural Ontario brings unpredictable conditions, with regional gravel events noting potential for muddy courses depending on rainfall. More weather exposure than Belgian Waffle Ride San Diego."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Mississippi Station sits in the Canadian Shield near sea level. Altitude plays no role whatsoever in this race - the challenge comes entirely from distance and terrain, not thin air."
+        "explanation": "Mississippi Station sits in the Canadian Shield near sea level. Altitude plays no role whatsoever in this race - the challenge comes entirely from distance and terrain, not thin air. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 2,
@@ -303,7 +303,7 @@
       },
       "field_depth": {
         "score": 1,
-        "explanation": "The Epic Course men's field spread from Michael Joannisse's winning 3:13:32 to finish times over 6:47:49, indicating primarily recreational participation. With 36 starters and 5 DNFs in the men's Epic, competitive depth remains limited to regional riders."
+        "explanation": "The Epic Course men's field spread from Michael Joannisse's winning 3:13:32 to finish times over 6:47:49, indicating primarily recreational participation. With 36 starters and 5 DNFs in the men's Epic, competitive depth remains limited to regional riders. Thinner field than Ouray Gravel Grinder."
       },
       "value": {
         "score": 4,
@@ -311,7 +311,7 @@
       },
       "expenses": {
         "score": 4,
-        "explanation": "Rural Mississippi Station, Ontario offers affordable lodging and dining options far from tourist pricing. The remote location requires driving but keeps accommodation costs low, with the biggest expense being the artisan cheese farm venue that enhances rather than gouges the race experience."
+        "explanation": "Registration runs $50-80 CAD. Rural Mississippi Station, Ontario offers affordable lodging and dining options far from tourist pricing. The remote location requires driving but keeps accommodation costs low, with the biggest expense being the artisan cheese farm venue that enhances rather than gouges the race experience. More affordable than Crusher in the Tushar."
       }
     },
     "citations": [
@@ -345,6 +345,74 @@
         "category": "community",
         "label": "granfondoguide.com: Back Forty Highlander "
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 38,
+          "msrp_usd": 54.99,
+          "weight_grams": 380,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 2,
+          "tire_id": "vittoria-terreno-mix",
+          "name": "Vittoria Terreno Mix",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 420,
+          "crr_watts": 33.5,
+          "why": "Graphene versatility. Mixed-terrain grip with reasonable rolling speed."
+        },
+        {
+          "rank": 3,
+          "tire_id": "continental-terra-trail",
+          "name": "Continental Terra Trail",
+          "brand": "Continental",
+          "recommended_width_mm": 40,
+          "msrp_usd": 74.99,
+          "weight_grams": 450,
+          "crr_watts": 33.5,
+          "why": "excellent wet grip"
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 38
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 38,
+      "pressure_psi": {
+        "140_160lb_dry": "36-40",
+        "140_160lb_mixed": "33-37",
+        "140_160lb_wet": "31-35",
+        "160_180lb_dry": "39-43",
+        "160_180lb_mixed": "36-40",
+        "160_180lb_wet": "34-38",
+        "180_200lb_dry": "42-46",
+        "180_200lb_mixed": "39-43",
+        "180_200lb_wet": "37-41",
+        "200pluslb_dry": "45-49",
+        "200pluslb_mixed": "42-46",
+        "200pluslb_wet": "40-44"
+      }
+    }
   }
 }

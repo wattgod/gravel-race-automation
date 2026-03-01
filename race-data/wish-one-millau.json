@@ -258,23 +258,23 @@
       },
       "length": {
         "score": 3,
-        "explanation": "Elite pacing patterns show the 130km distance creates tactical racing opportunities. Toby Perry launched his winning attack at 59.5km to go in 2023, finishing solo in 4:34:43, while 2024 saw sprint finishes with top contenders matching times at 4:25:26. The distance allows for sustained efforts without soul-crushing single climbs."
+        "explanation": "Elite pacing patterns show the 130km distance creates tactical racing opportunities. Toby Perry launched his winning attack at 59.5km to go in 2023, finishing solo in 4:34:43, while 2024 saw sprint finishes with top contenders matching times at 4:25:26. The distance allows for sustained efforts without soul-crushing single climbs. Similar distance to Crusher in the Tushar."
       },
       "technicality": {
         "score": 2,
-        "explanation": "Course features 50/50 split between gravel and road surfaces and is \"designed to be fast\" according to organizers. The route includes \"technical sections throughout the course\" with \"little time to rest,\" though the overall emphasis on speed suggests moderate rather than extreme technical demands through the Causses terrain."
+        "explanation": "Course features 50/50 split between gravel and road surfaces and is \"designed to be fast\" according to organizers. The route includes \"technical sections throughout the course\" with \"little time to rest,\" though the overall emphasis on speed suggests moderate rather than extreme technical demands through the Causses terrain. Less technical than The Mid South."
       },
       "elevation": {
         "score": 3,
-        "explanation": "The 2000m elevation gain creates consistent selection pressure through rolling terrain. Race reports note \"another hard climb awaits between kilometers 30 and 40\" following the opening climb out of Millau valley, with the finish featuring a \"paved 2km climb\" under the viaduct that determines final positions in close races."
+        "explanation": "The 2000m elevation gain creates consistent selection pressure through rolling terrain. Race reports note \"another hard climb awaits between kilometers 30 and 40\" following the opening climb out of Millau valley, with the finish featuring a \"paved 2km climb\" under the viaduct that determines final positions in close races. Similar elevation profile to Gravel Worlds."
       },
       "climate": {
         "score": 3,
-        "explanation": "Puncture rates suggest challenging surface conditions, with Rosa Kloser suffering double punctures at km 95 in 2023 and Noah Adhemard forced to DNF from similar mechanical issues. The Causses limestone terrain appears demanding on equipment, though no severe weather disruptions reported across recent editions."
+        "explanation": "Puncture rates suggest challenging surface conditions, with Rosa Kloser suffering double punctures at km 95 in 2023 and Noah Adhemard forced to DNF from similar mechanical issues. The Causses limestone terrain appears demanding on equipment, though no severe weather disruptions reported across recent editions. Similar climate challenges to SBT GRVL."
       },
       "altitude": {
         "score": 2,
-        "explanation": "Starting in Millau valley with course majority across Causses plateaus keeps altitude impacts minimal. The terrain rolls between moderate elevations without reaching performance-affecting heights, allowing riders from sea level backgrounds to compete without acclimatization concerns across the limestone landscape features."
+        "explanation": "Starting in Millau valley with course majority across Causses plateaus keeps altitude impacts minimal. The terrain rolls between moderate elevations without reaching performance-affecting heights, allowing riders from sea level backgrounds to compete without acclimatization concerns across the limestone landscape features. Modest altitude compared to Belgian Waffle Ride San Diego."
       },
       "adventure": {
         "score": 3,
@@ -298,7 +298,7 @@
       },
       "field_depth": {
         "score": 2,
-        "explanation": "Elite competitions show limited depth with large finishing gaps typical. Carolin Schiff won by 12+ minutes in 2023, while race reports note \"significant gaps between the following riders\" as standard. The field attracts quality leaders but lacks the depth for close racing throughout categories."
+        "explanation": "Elite competitions show limited depth with large finishing gaps typical. Carolin Schiff won by 12+ minutes in 2023, while race reports note \"significant gaps between the following riders\" as standard. The field attracts quality leaders but lacks the depth for close racing throughout categories. Less competitive depth than Almanzo 100."
       },
       "value": {
         "score": 3,
@@ -306,7 +306,7 @@
       },
       "expenses": {
         "score": 2,
-        "explanation": "International access requires flights to distant airports plus rental car necessity for rural Aveyron travel. June timing hits peak tourism season in the Millau region, increasing accommodation costs without race-specific lodging partnerships or shuttle services to reduce the logistical expense burden for visiting riders."
+        "explanation": "Registration runs €60-100. International access requires flights to distant airports plus rental car necessity for rural Aveyron travel. June timing hits peak tourism season in the Millau region, increasing accommodation costs without race-specific lodging partnerships or shuttle services to reduce the logistical expense burden for visiting riders. Higher total cost than Badlands."
       }
     },
     "citations": [
@@ -390,6 +390,74 @@
         "category": "community",
         "label": "wishonecycles.com: Gravel Races"
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 38,
+          "msrp_usd": 54.99,
+          "weight_grams": 380,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 2,
+          "tire_id": "panaracer-gravelking-sk",
+          "name": "Panaracer GravelKing SK",
+          "brand": "Panaracer",
+          "recommended_width_mm": 40,
+          "msrp_usd": 64.9,
+          "weight_grams": 380,
+          "crr_watts": 32.5,
+          "why": "Affordable all-rounder. Light knobs add grip without killing speed."
+        },
+        {
+          "rank": 3,
+          "tire_id": "vittoria-terreno-mix",
+          "name": "Vittoria Terreno Mix",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 420,
+          "crr_watts": 33.5,
+          "why": "Graphene versatility. Mixed-terrain grip with reasonable rolling speed."
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 38
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 38,
+      "pressure_psi": {
+        "140_160lb_dry": "36-40",
+        "140_160lb_mixed": "33-37",
+        "140_160lb_wet": "31-35",
+        "160_180lb_dry": "39-43",
+        "160_180lb_mixed": "36-40",
+        "160_180lb_wet": "34-38",
+        "180_200lb_dry": "42-46",
+        "180_200lb_mixed": "39-43",
+        "180_200lb_wet": "37-41",
+        "200pluslb_dry": "45-49",
+        "200pluslb_mixed": "42-46",
+        "200pluslb_wet": "40-44"
+      }
+    }
   }
 }

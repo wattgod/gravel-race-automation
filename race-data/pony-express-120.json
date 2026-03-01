@@ -261,11 +261,11 @@
     "biased_opinion_ratings": {
       "logistics": {
         "score": 2,
-        "explanation": "Race directors Renee and Mark Hoffman coordinate aid stations and volunteers, with checkpoints at Barnes (mile 21) and Palmer Cafe (mile 43). When 2022 weather threatened, they implemented a 'wet route' alternative to avoid muddy dirt roads. Basic operations function, but no packet pickup details or clear start times surface in rider reports."
+        "explanation": "Race directors Renee and Mark Hoffman coordinate aid stations and volunteers, with checkpoints at Barnes (mile 21) and Palmer Cafe (mile 43). When 2022 weather threatened, they implemented a 'wet route' alternative to avoid muddy dirt roads. Basic operations function, but no packet pickup details or clear start times surface in rider reports. As CrossTrail (on camp experience) puts it: \"Jon Naaf marks our campsite with a cozy oasis of chairs and coolers wedged into the camper's sliver of shade.\""
       },
       "length": {
         "score": 4,
-        "explanation": "Sue Hageman called it her \"longest and hardest event this year,\" noting strong nutrition strategy paid off: \"I drank and ate very well. First time ever I had to go to bathroom 20-30 miles in.\" Multiple riders took the shortcut at Palmer Cafe rather than continuing the full route, showing the distance demands real commitment."
+        "explanation": "Sue Hageman called it her \"longest and hardest event this year,\" noting strong nutrition strategy paid off: \"I drank and ate very well. First time ever I had to go to bathroom 20-30 miles in.\" Multiple riders took the shortcut at Palmer Cafe rather than continuing the full route, showing the distance demands real commitment. Longer than Belgian Waffle Ride San Diego."
       },
       "technicality": {
         "score": 2,
@@ -277,11 +277,11 @@
       },
       "climate": {
         "score": 2,
-        "explanation": "Weather swings wildly—Sue enjoyed \"perfect\" conditions while 2022 riders endured \"oppressive 95-degree heat\" on Friday followed by \"50-some degree rain\" and wind on Saturday. One blogger described \"shadeless heat\" and sudden cold fronts that \"scatter the group to individual shelters.\""
+        "explanation": "Weather swings wildly—Sue enjoyed \"perfect\" conditions while 2022 riders endured \"oppressive 95-degree heat\" on Friday followed by \"50-some degree rain\" and wind on Saturday. One blogger described \"shadeless heat\" and sudden cold fronts that \"scatter the group to individual shelters.\" More weather exposure than Belgian Waffle Ride San Diego."
       },
       "altitude": {
         "score": 1,
-        "explanation": "This is Kansas prairie country with no altitude considerations. Sue's elevation data refers to climbing gain, not starting altitude, and the rolling farmland poses zero breathing concerns from thin air."
+        "explanation": "This is Kansas prairie country with no altitude considerations. Sue's elevation data refers to climbing gain, not starting altitude, and the rolling farmland poses zero breathing concerns from thin air. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 3,
@@ -305,7 +305,7 @@
       },
       "field_depth": {
         "score": 2,
-        "explanation": "Results show recreational participation with winning times around six hours and wide finishing spreads. Sue's learning \"not to compare myself to other riders\" reflects the grassroots rather than competitive focus, with first-time bikepackers mixing with longtime enthusiasts but no elite talent mentioned."
+        "explanation": "With a field of 200-400 riders, results show recreational participation with winning times around six hours and wide finishing spreads. Sue's learning \"not to compare myself to other riders\" reflects the grassroots rather than competitive focus, with first-time bikepackers mixing with longtime enthusiasts but no elite talent mentioned. Less competitive depth than Almanzo 100."
       },
       "value": {
         "score": 3,
@@ -313,7 +313,7 @@
       },
       "expenses": {
         "score": 3,
-        "explanation": "Hotels in Marysville maintain normal rates during race weekend, keeping accommodation reasonable. The modest $45 entry fee contrasts sharply with premium gravel events, and small-town Kansas dining like the Palmer Cafe checkpoint offers affordable refueling options throughout the weekend."
+        "explanation": "Hotels in Marysville maintain normal rates during race weekend, keeping accommodation reasonable. The modest $45 entry fee contrasts sharply with premium gravel events, and small-town Kansas dining like the Palmer Cafe checkpoint offers affordable refueling options throughout the weekend. Similar expense level to Belgian Waffle Ride San Diego."
       }
     },
     "citations": [
@@ -342,6 +342,74 @@
         "category": "community",
         "label": "onemarysville.com: Pony Express 120 Gravel Dash"
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 38,
+          "msrp_usd": 54.99,
+          "weight_grams": 380,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 2,
+          "tire_id": "panaracer-gravelking-sk",
+          "name": "Panaracer GravelKing SK",
+          "brand": "Panaracer",
+          "recommended_width_mm": 40,
+          "msrp_usd": 64.9,
+          "weight_grams": 380,
+          "crr_watts": 32.5,
+          "why": "Affordable all-rounder. Light knobs add grip without killing speed."
+        },
+        {
+          "rank": 3,
+          "tire_id": "vittoria-terreno-mix",
+          "name": "Vittoria Terreno Mix",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 420,
+          "crr_watts": 33.5,
+          "why": "Graphene versatility. Mixed-terrain grip with reasonable rolling speed."
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "vittoria-terreno-dry",
+          "name": "Vittoria Terreno Dry",
+          "width_mm": 40
+        },
+        "rear": {
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 38
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 38,
+      "pressure_psi": {
+        "140_160lb_dry": "36-40",
+        "140_160lb_mixed": "33-37",
+        "140_160lb_wet": "31-35",
+        "160_180lb_dry": "39-43",
+        "160_180lb_mixed": "36-40",
+        "160_180lb_wet": "34-38",
+        "180_200lb_dry": "42-46",
+        "180_200lb_mixed": "39-43",
+        "180_200lb_wet": "37-41",
+        "200pluslb_dry": "45-49",
+        "200pluslb_mixed": "42-46",
+        "200pluslb_wet": "40-44"
+      }
+    }
   }
 }

@@ -258,23 +258,23 @@
       },
       "length": {
         "score": 3,
-        "explanation": "The 100km option hits the sweet spot for most gravel riders, with 25km and 50km alternatives for beginners. YoBooMaFoo described completing \"~100 km of gravel with breathtaking old train trestle views of the Myra canyon.\""
+        "explanation": "The 100km option hits the sweet spot for most gravel riders, with 25km and 50km alternatives for beginners. YoBooMaFoo described completing \"~100 km of gravel with breathtaking old train trestle views of the Myra canyon.\" Similar distance to Crusher in the Tushar."
       },
       "technicality": {
         "score": 3,
-        "explanation": "Built on railway grades with maximum 2.2% incline, the KVR trail stays flow-friendly though riders report \"coarse gravel\" and \"steeper\" sections. Most use gravel or cyclocross bikes; \"suspension mountain bikes are not necessary for the event.\""
+        "explanation": "Built on railway grades with maximum 2.2% incline, the KVR trail stays flow-friendly though riders report \"coarse gravel\" and \"steeper\" sections. Most use gravel or cyclocross bikes; \"suspension mountain bikes are not necessary for the event.\" Similar technical demands to Gravel Worlds."
       },
       "elevation": {
         "score": 3,
-        "explanation": "The 7000ft over 80 miles provides steady climbing without brutal pitches, thanks to the historic railway grade design. One rider described a \"relentless climb through the dry, rocky hills\" that builds gradually rather than punishing with steep walls."
+        "explanation": "The 7000ft over 80 miles provides steady climbing without brutal pitches, thanks to the historic railway grade design. One rider described a \"relentless climb through the dry, rocky hills\" that builds gradually rather than punishing with steep walls. Similar elevation profile to Gravel Worlds."
       },
       "climate": {
         "score": 3,
-        "explanation": "Weather conditions vary significantly by season. Fall riders plan for \"10-15 degrees and that light drizzly rain,\" while summer events feature \"hot sun\" during midday sections and the historic \"sunshine and great times\" reputation."
+        "explanation": "Historical weather data shows average highs of 65°F and lows of 44°F, with a 56% chance of rain on any given day. Weather conditions vary significantly by season. Fall riders plan for \"10-15 degrees and that light drizzly rain,\" while summer events feature \"hot sun\" during midday sections and the historic \"sunshine and great times\" reputation. Similar climate challenges to SBT GRVL."
       },
       "altitude": {
         "score": 2,
-        "explanation": "Princeton sits at moderate elevation in the Okanagan Valley, low enough that oxygen isn't a limiting factor. Starting and maximum elevations aren't specified, but altitude doesn't factor into the challenge here."
+        "explanation": "Princeton sits at moderate elevation in the Okanagan Valley, low enough that oxygen isn't a limiting factor. Starting and maximum elevations aren't specified, but altitude doesn't factor into the challenge here. Modest altitude compared to Belgian Waffle Ride San Diego."
       },
       "adventure": {
         "score": 3,
@@ -298,7 +298,7 @@
       },
       "field_depth": {
         "score": 2,
-        "explanation": "Marketed as suitable for \"beginner to intermediate\" riders with three distance options catering to novices and families. The wide accessibility focus means competitive depth stays shallow, drawing regional recreational riders more than elite talent."
+        "explanation": "With a field of 200-400 riders, marketed as suitable for \"beginner to intermediate\" riders with three distance options catering to novices and families. The wide accessibility focus means competitive depth stays shallow, drawing regional recreational riders more than elite talent. Less competitive depth than Almanzo 100."
       },
       "value": {
         "score": 3,
@@ -306,7 +306,7 @@
       },
       "expenses": {
         "score": 2,
-        "explanation": "Princeton's remote location requires significant travel from population centers, with limited local lodging options. Most riders need road bikes rather than specialized equipment, but getting to this corner of BC represents the major expense beyond registration fees."
+        "explanation": "Registration runs $100-150 CAD. Princeton's remote location requires significant travel from population centers, with limited local lodging options. Most riders need road bikes rather than specialized equipment, but getting to this corner of BC represents the major expense beyond registration fees. Higher total cost than Badlands."
       }
     },
     "citations": [
@@ -370,6 +370,74 @@
         "category": "community",
         "label": "granfondoguide.com: 8Th Edition Of Kettle Mettle Dirty Fondo Takes Place This..."
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "vittoria-terreno-wet",
+          "name": "Vittoria Terreno Wet",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 460,
+          "crr_watts": 39.0,
+          "why": "excellent wet grip"
+        },
+        {
+          "rank": 2,
+          "tire_id": "pirelli-cinturato-gravel-s",
+          "name": "Pirelli Cinturato Gravel S",
+          "brand": "Pirelli",
+          "recommended_width_mm": 40,
+          "msrp_usd": 73.99,
+          "weight_grams": 430,
+          "crr_watts": null,
+          "why": "excellent wet grip"
+        },
+        {
+          "rank": 3,
+          "tire_id": "schwalbe-g-one-overland",
+          "name": "Schwalbe G-One Overland",
+          "brand": "Schwalbe",
+          "recommended_width_mm": 40,
+          "msrp_usd": 69.9,
+          "weight_grams": 490,
+          "crr_watts": 40.0,
+          "why": "excellent wet grip"
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "vittoria-terreno-wet",
+          "name": "Vittoria Terreno Wet",
+          "width_mm": 40
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "wet",
+      "recommended_width_mm": 40,
+      "pressure_psi": {
+        "140_160lb_dry": "34-38",
+        "140_160lb_mixed": "30-34",
+        "140_160lb_wet": "28-32",
+        "160_180lb_dry": "36-40",
+        "160_180lb_mixed": "34-38",
+        "160_180lb_wet": "32-36",
+        "180_200lb_dry": "40-44",
+        "180_200lb_mixed": "36-40",
+        "180_200lb_wet": "34-38",
+        "200pluslb_dry": "42-46",
+        "200pluslb_mixed": "40-44",
+        "200pluslb_wet": "38-42"
+      }
+    }
   }
 }

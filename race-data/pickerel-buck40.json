@@ -258,23 +258,23 @@
       },
       "length": {
         "score": 2,
-        "explanation": "40 miles with a sub-10-hour benchmark and only two resupply options at Pickerel or Waubee Lodge. The route offers bikepacking as an alternative to the single-day format for Ironbear 1000 eligibility."
+        "explanation": "40 miles with a sub-10-hour benchmark and only two resupply options at Pickerel or Waubee Lodge. The route offers bikepacking as an alternative to the single-day format for Ironbear 1000 eligibility. More compact than Grinduro. As Shane Hitz puts it: \"This route is hard, no doubt about it. It has two sections of old school singletrack the first being four miles long... It has about 20% roads that are gnarly chunk or unrelenting sand.\""
       },
       "technicality": {
         "score": 2,
-        "explanation": "33% pavement balances technical sections including four miles of old school singletrack and shouldering bikes over downed trees. Nick Holzem notes the steep ATV trails are \"even harder at night despite trail repairs.\""
+        "explanation": "33% pavement balances technical sections including four miles of old school singletrack and shouldering bikes over downed trees. Nick Holzem notes the steep ATV trails are \"even harder at night despite trail repairs.\" Less technical than The Mid South."
       },
       "elevation": {
         "score": 2,
-        "explanation": "2500 feet over 40 miles includes climbs up Big Rock and Thunder Mountain. Nick Holzem describes pushing his full suspension rig up Big Rock then \"had a blast riding down the steep technical chute.\""
+        "explanation": "2500 feet over 40 miles includes climbs up Big Rock and Thunder Mountain. Nick Holzem describes pushing his full suspension rig up Big Rock then \"had a blast riding down the steep technical chute.\" Less climbing than The Mid South."
       },
       "climate": {
         "score": 3,
-        "explanation": "June conditions bring \"muddy two-track\" and river ford crossings. Shane Hitz notes drought years worsen sand sections since \"this area hasn't had meaningful rain since the beginning of May.\""
+        "explanation": "June conditions bring \"muddy two-track\" and river ford crossings. Shane Hitz notes drought years worsen sand sections since \"this area hasn't had meaningful rain since the beginning of May.\" Similar climate challenges to SBT GRVL."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Northern Wisconsin lowlands provide zero altitude training benefit. Heat management becomes the priority - Shane Hitz used \"almost all of the four liters I was carrying on one section\" during hot conditions."
+        "explanation": "Northern Wisconsin lowlands provide zero altitude training benefit. Heat management becomes the priority - Shane Hitz used \"almost all of the four liters I was carrying on one section\" during hot conditions. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 2,
@@ -298,7 +298,7 @@
       },
       "field_depth": {
         "score": 2,
-        "explanation": "Self-supported format attracts adventure seekers over competitive racers. Elite riders use it for training on longer IRONBULL routes, but the flexible timing window spreads out any potential field concentration."
+        "explanation": "With a field of 200-400 riders, self-supported format attracts adventure seekers over competitive racers. Elite riders use it for training on longer IRONBULL routes, but the flexible timing window spreads out any potential field concentration. Less competitive depth than Almanzo 100."
       },
       "value": {
         "score": 3,
@@ -306,7 +306,7 @@
       },
       "expenses": {
         "score": 2,
-        "explanation": "Remote Pickerel location limits lodging options, with Waubee Lodge serving as key resupply. Elite riders recommend 700x50 tires minimum for the technical sections, with some choosing full suspension setups."
+        "explanation": "Registration runs $50-100. Remote Pickerel location limits lodging options, with Waubee Lodge serving as key resupply. Elite riders recommend 700x50 tires minimum for the technical sections, with some choosing full suspension setups. Higher total cost than Badlands."
       }
     },
     "unsplash_photos": [
@@ -349,6 +349,74 @@
         "category": "community",
         "label": "ironbull.org: Pickerel Buck40"
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 38,
+          "msrp_usd": 54.99,
+          "weight_grams": 380,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 2,
+          "tire_id": "panaracer-gravelking-sk",
+          "name": "Panaracer GravelKing SK",
+          "brand": "Panaracer",
+          "recommended_width_mm": 40,
+          "msrp_usd": 64.9,
+          "weight_grams": 380,
+          "crr_watts": 32.5,
+          "why": "Affordable all-rounder. Light knobs add grip without killing speed."
+        },
+        {
+          "rank": 3,
+          "tire_id": "vittoria-terreno-mix",
+          "name": "Vittoria Terreno Mix",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 420,
+          "crr_watts": 33.5,
+          "why": "Graphene versatility. Mixed-terrain grip with reasonable rolling speed."
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 38
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 38,
+      "pressure_psi": {
+        "140_160lb_dry": "36-40",
+        "140_160lb_mixed": "33-37",
+        "140_160lb_wet": "31-35",
+        "160_180lb_dry": "39-43",
+        "160_180lb_mixed": "36-40",
+        "160_180lb_wet": "34-38",
+        "180_200lb_dry": "42-46",
+        "180_200lb_mixed": "39-43",
+        "180_200lb_wet": "37-41",
+        "200pluslb_dry": "45-49",
+        "200pluslb_mixed": "42-46",
+        "200pluslb_wet": "40-44"
+      }
+    }
   }
 }

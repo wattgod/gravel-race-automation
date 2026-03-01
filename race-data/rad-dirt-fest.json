@@ -176,7 +176,7 @@
       },
       "field_depth": {
         "score": 3,
-        "explanation": "Swenson, Stetina, Vermeulen, and De Crescenzo's three straight wins show decent elite participation, but it's not UNBOUND depth. Life Time's Grand Prix connection brings quality riders, but the field thins quickly after the top 10. It's a stepping stone race for many, not a destination event for the deepest talent."
+        "explanation": "Swenson, Stetina, Vermeulen, and De Crescenzo's three straight wins show decent elite participation, but it's not UNBOUND depth. Life Time's Grand Prix connection brings quality riders, but the field thins quickly after the top 10. It's a stepping stone race for many, not a destination event for the deepest talent. Similar competitive depth to Rule of Three."
       },
       "value": {
         "score": 4,
@@ -184,27 +184,27 @@
       },
       "expenses": {
         "score": 3,
-        "explanation": "Trinidad isn't Aspen pricing, but it's not free either - you'll need lodging since this isn't a day trip for most. Life Time registration fees match their corporate overhead, and getting to southern Colorado requires commitment. The Spanish Peaks Inn crew access point suggests decent accommodation options, but budget accordingly."
+        "explanation": "Registration runs $150-$200. Trinidad isn't Aspen pricing, but it's not free either - you'll need lodging since this isn't a day trip for most. Life Time registration fees match their corporate overhead, and getting to southern Colorado requires commitment. The Spanish Peaks Inn crew access point suggests decent accommodation options, but budget accordingly. Similar expense level to Belgian Waffle Ride San Diego."
       },
       "length": {
         "score": 3,
-        "explanation": "62 miles hits the sweet spot between 'why bother' and 'please make it stop' - it's the Anteloop distance that bridges desert terrain with snowcapped mountain views. Not long enough to be epic, not short enough to be easy. Perfect for building confidence before attempting the 110-mile Stubborn Delores masochism."
+        "explanation": "62 miles hits the sweet spot between 'why bother' and 'please make it stop' - it's the Anteloop distance that bridges desert terrain with snowcapped mountain views. Not long enough to be epic, not short enough to be easy. Perfect for building confidence before attempting the 110-mile Stubborn Delores masochism. Similar distance to Crusher in the Tushar. As Lauren De Crescenzo puts it: \"I tried to go a few times on the steep pitches of the first climb and was finally able to break free on a steep, sandy portion somewhere between miles 25 and 30.\""
       },
       "technicality": {
         "score": 4,
-        "explanation": "That 2-mile South Shore Trail technical section and Burro Canyon's 9-mile climb will test handling skills despite the 'champagne gravel' reputation. 90% maintained roads mean consistent surfaces, but elevation changes and two-track sections demand real bike handling. Not Leadville technical, but far from a rail-trail cruise."
+        "explanation": "That 2-mile South Shore Trail technical section and Burro Canyon's 9-mile climb will test handling skills despite the 'champagne gravel' reputation. 90% maintained roads mean consistent surfaces, but elevation changes and two-track sections demand real bike handling. Not Leadville technical, but far from a rail-trail cruise. More technical than most — comparable to Belgian Waffle Ride San Diego. As Lauren De Crescenzo puts it: \"I tried to go a few times on the steep pitches of the first climb and was finally able to break free on a steep, sandy portion somewhere between miles 25 and 30.\""
       },
       "elevation": {
         "score": 4,
-        "explanation": "8,202 feet of climbing from 6,025 feet starting elevation to nearly 9,000 at the top - this isn't flat Colorado plains riding. The gradual nature means sustainable power over grinding climbs, but that altitude will find your weak spots. Views of Fisher's Peak and Spanish Peaks justify the leg-burning ascents."
+        "explanation": "8,202 feet of climbing from 6,025 feet starting elevation to nearly 9,000 at the top - this isn't flat Colorado plains riding. The gradual nature means sustainable power over grinding climbs, but that altitude will find your weak spots. Views of Fisher's Peak and Spanish Peaks justify the leg-burning ascents. More climbing than SBT GRVL at the same score. As Lauren De Crescenzo puts it: \"I tried to go a few times on the steep pitches of the first climb and was finally able to break free on a steep, sandy portion somewhere between miles 25 and 30.\""
       },
       "climate": {
         "score": 3,
-        "explanation": "Late September offers 73-80°F highs with 51°F lows, but that high desert environment creates hydration challenges - expect 'chapped lips, dry throat, empty bottles.' 72% sunshine sounds nice until you're exposed for hours. Wind averages 14.7 mph, which becomes a factor on those open mesas."
+        "explanation": "Late September offers 73-80°F highs with 51°F lows, but that high desert environment creates hydration challenges - expect 'chapped lips, dry throat, empty bottles.' 72% sunshine sounds nice until you're exposed for hours. Wind averages 14.7 mph, which becomes a factor on those open mesas. Similar climate challenges to SBT GRVL. As Hannah puts it: \"Even though the weather was looking questionable, I was able to finish my first 100 mile ride and beat the rain. Trinidad gravel lived up to all the hype and my legs felt strong throughout the ride.\""
       },
       "altitude": {
         "score": 4,
-        "explanation": "Starting at 6,025 feet and climbing to 9,000 feet means sea-level riders will feel it immediately. That thin air compounds the 8,200+ feet of elevation gain into suffering. Trinidad's elevation isn't Leadville brutal, but it's enough to separate the adapted from the foolish."
+        "explanation": "Starting at 6,025 feet and climbing to 9,000 feet means sea-level riders will feel it immediately. That thin air compounds the 8,200+ feet of elevation gain into suffering. Trinidad's elevation isn't Leadville brutal, but it's enough to separate the adapted from the foolish. Higher altitude racing, comparable to SBT GRVL."
       },
       "logistics": {
         "score": 3,
@@ -346,6 +346,63 @@
         }
       },
       "latest_year": "2024"
+    },
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "schwalbe-g-one-bite",
+          "name": "Schwalbe G-One Bite",
+          "brand": "Schwalbe",
+          "recommended_width_mm": 45,
+          "msrp_usd": 69.9,
+          "weight_grams": 540,
+          "crr_watts": 38.0,
+          "why": "excellent wet grip"
+        },
+        {
+          "rank": 2,
+          "tire_id": "maxxis-reaver",
+          "name": "Maxxis Reaver",
+          "brand": "Maxxis",
+          "recommended_width_mm": 45,
+          "msrp_usd": 79.99,
+          "weight_grams": 520,
+          "crr_watts": 35.0,
+          "why": "Technical all-rounder. EXO+ casing shrugs off rocks and roots."
+        },
+        {
+          "rank": 3,
+          "tire_id": "pirelli-cinturato-gravel-s",
+          "name": "Pirelli Cinturato Gravel S",
+          "brand": "Pirelli",
+          "recommended_width_mm": 45,
+          "msrp_usd": 73.99,
+          "weight_grams": 470,
+          "crr_watts": null,
+          "why": "excellent wet grip"
+        }
+      ],
+      "front_rear_split": {
+        "applicable": false
+      },
+      "race_surface_profile": "technical",
+      "recommended_width_mm": 45,
+      "pressure_psi": {
+        "140_160lb_dry": "30-34",
+        "140_160lb_mixed": "26-30",
+        "140_160lb_wet": "24-28",
+        "160_180lb_dry": "32-36",
+        "160_180lb_mixed": "30-34",
+        "160_180lb_wet": "28-32",
+        "180_200lb_dry": "36-40",
+        "180_200lb_mixed": "32-36",
+        "180_200lb_wet": "30-34",
+        "200pluslb_dry": "38-42",
+        "200pluslb_mixed": "36-40",
+        "200pluslb_wet": "34-38"
+      }
     }
   }
 }

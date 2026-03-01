@@ -250,23 +250,23 @@
       },
       "length": {
         "score": 3,
-        "explanation": "100 miles with 7,300 feet of climbing hits serious gravel distance territory. Whitney Allison rode 'the next ~92 miles almost entirely alone, passing dozens of age groupers' after the opening 13-mile climb separated the field. The double-lap 85K format provides bailout options but the full distance demands self-reliance in remote terrain."
+        "explanation": "100 miles with 7,300 feet of climbing hits serious gravel distance territory. Whitney Allison rode 'the next ~92 miles almost entirely alone, passing dozens of age groupers' after the opening 13-mile climb separated the field. The double-lap 85K format provides bailout options but the full distance demands self-reliance in remote terrain. Similar distance to Crusher in the Tushar. As Holly Geilman puts it: \"Miles 41-50.1 were more focused but full of more mountain and desert views. Ok, let's get this done! When I passed the finish line the first time, another checkpoint, I kept running to complete the sh...\""
       },
       "technicality": {
         "score": 2,
-        "explanation": "Course organizers recommend 'lighter tires can be run' on these 'fine gravel' county roads, suggesting manageable surfaces. However, Whitney Allison found that 'the higher elevation parts of the course were quite technical' in 2022 conditions. Road bikes can finish but gravel or mountain bikes handle the 'endless curvy areas' better."
+        "explanation": "Course organizers recommend 'lighter tires can be run' on these 'fine gravel' county roads, suggesting manageable surfaces. However, Whitney Allison found that 'the higher elevation parts of the course were quite technical' in 2022 conditions. Road bikes can finish but gravel or mountain bikes handle the 'endless curvy areas' better. Less technical than The Mid South. As Surface Quality puts it: \"These roads are fine gravel, so lighter tires can be run. Rain or snow makes the conditions fast.\""
       },
       "elevation": {
         "score": 4,
-        "explanation": "4,500 feet of climbing over 100 miles with a range from 6,000 to 8,800 feet elevation. That's vertical in the Sangre de Cristo Mountains. Not crushing, but enough to separate the climbers from the pretenders."
+        "explanation": "4,500 feet of climbing over 100 miles with a range from 6,000 to 8,800 feet elevation. That's vertical in the Sangre de Cristo Mountains. Not crushing, but enough to separate the climbers from the pretenders. More climbing than SBT GRVL at the same score."
       },
       "climate": {
         "score": 3,
-        "explanation": "50°F start to 75°F midday in May is nearly perfect gravel weather. Southern Colorado location reduces snow risk, and 70% tree/canyon shelter protects from wind. Hard to complain about those conditions."
+        "explanation": "50°F start to 75°F midday in May is nearly perfect gravel weather. Southern Colorado location reduces snow risk, and 70% tree/canyon shelter protects from wind. Hard to complain about those conditions. Similar climate challenges to SBT GRVL. As Surface Quality puts it: \"These roads are fine gravel, so lighter tires can be run. Rain or snow makes the conditions fast.\""
       },
       "altitude": {
         "score": 4,
-        "explanation": "Starting at 6,000 feet and maxing out at 8,800 feet will humble sea-level riders quickly. That's altitude that affects performance and requires acclimatization. The thin air doesn't care about your FTP."
+        "explanation": "Starting at 6,000 feet and maxing out at 8,800 feet will humble sea-level riders quickly. That's altitude that affects performance and requires acclimatization. The thin air doesn't care about your FTP. Higher altitude racing, comparable to SBT GRVL."
       },
       "adventure": {
         "score": 3,
@@ -290,7 +290,7 @@
       },
       "field_depth": {
         "score": 2,
-        "explanation": "Limited entries noted but no actual field sizes or competitive depth mentioned. Zero notable riders or race reports found. The pro/open categories start just 5 minutes apart, which tells you everything about the 'depth' of competition."
+        "explanation": "Limited entries noted but no actual field sizes or competitive depth mentioned. Zero notable riders or race reports found. The pro/open categories start just 5 minutes apart, which tells you everything about the 'depth' of competition. Less competitive depth than Almanzo 100. As Whitney Allison puts it: \"I was the only 'pro class' woman and there were 16 men in the same 'pro class' field with a separate start.\""
       },
       "value": {
         "score": 3,
@@ -298,7 +298,7 @@
       },
       "expenses": {
         "score": 3,
-        "explanation": "Trinidad, Colorado isn't a destination resort, so lodging and food should be reasonable. No airport mentioned means you're driving, probably from Denver. Middle-of-nowhere location keeps costs down once you're there."
+        "explanation": "Registration runs $80-120. Trinidad, Colorado isn't a destination resort, so lodging and food should be reasonable. No airport mentioned means you're driving, probably from Denver. Middle-of-nowhere location keeps costs down once you're there. Similar expense level to Belgian Waffle Ride San Diego."
       }
     },
     "citations": [
@@ -337,6 +337,74 @@
         "category": "community",
         "label": "granfondoguide.com: Pony Xpress"
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 38,
+          "msrp_usd": 54.99,
+          "weight_grams": 380,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 2,
+          "tire_id": "panaracer-gravelking-sk",
+          "name": "Panaracer GravelKing SK",
+          "brand": "Panaracer",
+          "recommended_width_mm": 40,
+          "msrp_usd": 64.9,
+          "weight_grams": 380,
+          "crr_watts": 32.5,
+          "why": "Affordable all-rounder. Light knobs add grip without killing speed."
+        },
+        {
+          "rank": 3,
+          "tire_id": "vittoria-terreno-mix",
+          "name": "Vittoria Terreno Mix",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 420,
+          "crr_watts": 33.5,
+          "why": "Graphene versatility. Mixed-terrain grip with reasonable rolling speed."
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 38
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 38,
+      "pressure_psi": {
+        "140_160lb_dry": "36-40",
+        "140_160lb_mixed": "33-37",
+        "140_160lb_wet": "31-35",
+        "160_180lb_dry": "39-43",
+        "160_180lb_mixed": "36-40",
+        "160_180lb_wet": "34-38",
+        "180_200lb_dry": "42-46",
+        "180_200lb_mixed": "39-43",
+        "180_200lb_wet": "37-41",
+        "200pluslb_dry": "45-49",
+        "200pluslb_mixed": "42-46",
+        "200pluslb_wet": "40-44"
+      }
+    }
   }
 }

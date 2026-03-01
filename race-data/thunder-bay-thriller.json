@@ -258,23 +258,23 @@
       },
       "length": {
         "score": 2,
-        "explanation": "The 50-mile distance sits in standard gravel territory with 27-mile and 16-mile options available. Tracy Gravlin noted the final three miles \"back to the finish\" allowed her to \"take off and felt great\" after the technical sand sections eased up."
+        "explanation": "The 50-mile distance sits in standard gravel territory with 27-mile and 16-mile options available. Tracy Gravlin noted the final three miles \"back to the finish\" allowed her to \"take off and felt great\" after the technical sand sections eased up. More compact than Grinduro."
       },
       "technicality": {
         "score": 2,
-        "explanation": "Tracy Gravlin faced \"potholes to look out for and many deep sand areas\" in the final 14 miles, plus \"7 miles of that and then on to a single track that was even more deep sand!\" She had to dismount four times and fell once through these sections."
+        "explanation": "Tracy Gravlin faced \"potholes to look out for and many deep sand areas\" in the final 14 miles, plus \"7 miles of that and then on to a single track that was even more deep sand!\" She had to dismount four times and fell once through these sections. Less technical than The Mid South."
       },
       "elevation": {
         "score": 2,
-        "explanation": "Tracy Gravlin described \"some good climbing in the middle part of the course\" through rolling terrain that reminded her of \"Nebraska with the long roads and farm fields.\" The 2000ft gain provides modest but honest climbing for northern Michigan."
+        "explanation": "Tracy Gravlin described \"some good climbing in the middle part of the course\" through rolling terrain that reminded her of \"Nebraska with the long roads and farm fields.\" The 2000ft gain provides modest but honest climbing for northern Michigan. Less climbing than The Mid South."
       },
       "climate": {
         "score": 2,
-        "explanation": "September race date in northern Michigan near Lake Huron means you're gambling on fall weather that could be perfect or miserable. No historical weather data provided, but you know the drill - potential for everything from crisp autumn perfection to cold rain and mud. The lake effect could work for or against you depending on wind direction and systems moving through."
+        "explanation": "Historical weather data shows average highs of 79°F and lows of 60°F, with a 47% chance of rain on any given day. September race date in northern Michigan near Lake Huron means you're gambling on fall weather that could be perfect or miserable. No historical weather data provided, but you know the drill - potential for everything from crisp autumn perfection to cold rain and mud. The lake effect could work for or against you depending on wind direction and systems moving through. More weather exposure than Belgian Waffle Ride San Diego. As Race Day Conditions puts it: \"Race day was beautiful! No wind. Great temps and sunshine.\""
       },
       "altitude": {
         "score": 1,
-        "explanation": "Starting near Lake Huron at roughly 600 feet elevation means zero altitude considerations. Pure Great Lakes terrain where fitness is the only limiting factor, not thin air."
+        "explanation": "Starting near Lake Huron at roughly 600 feet elevation means zero altitude considerations. Pure Great Lakes terrain where fitness is the only limiting factor, not thin air. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 2,
@@ -298,7 +298,7 @@
       },
       "field_depth": {
         "score": 1,
-        "explanation": "New race, no field size data, no mention of competitive riders - this is strictly local curiosity territory. They have age groups from 11-14 up to 70+ and categories for singlespeed/fat bikes, which suggests they're casting a wide amateur net. Don't expect any meaningful competition beyond whoever shows up from the Alpena cycling scene."
+        "explanation": "New race, no field size data, no mention of competitive riders - this is strictly local curiosity territory. They have age groups from 11-14 up to 70+ and categories for singlespeed/fat bikes, which suggests they're casting a wide amateur net. Don't expect any meaningful competition beyond whoever shows up from the Alpena cycling scene. Thinner field than Ouray Gravel Grinder. As Tracy Gravlin puts it: \"The gravel was fast and easy. There was some good climbing in the middle part of the course. There were several areas that reminded me of Nebraska with the long roads and farm fields with corn.\""
       },
       "value": {
         "score": 4,
@@ -306,7 +306,7 @@
       },
       "expenses": {
         "score": 3,
-        "explanation": "Alpena offers affordable small-town lodging and dining near Lake Huron without resort pricing. The recommended minimum 38c tires work for the entire course on a standard gravel bike, though mountain bikes provide extra comfort in sand sections."
+        "explanation": "Registration runs $50-75. Alpena offers affordable small-town lodging and dining near Lake Huron without resort pricing. The recommended minimum 38c tires work for the entire course on a standard gravel bike, though mountain bikes provide extra comfort in sand sections. Similar expense level to Belgian Waffle Ride San Diego."
       }
     },
     "citations": [
@@ -341,6 +341,74 @@
         }
       },
       "latest_year": "2024"
+    },
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 38,
+          "msrp_usd": 54.99,
+          "weight_grams": 380,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 2,
+          "tire_id": "vittoria-terreno-mix",
+          "name": "Vittoria Terreno Mix",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 420,
+          "crr_watts": 33.5,
+          "why": "Graphene versatility. Mixed-terrain grip with reasonable rolling speed."
+        },
+        {
+          "rank": 3,
+          "tire_id": "continental-terra-trail",
+          "name": "Continental Terra Trail",
+          "brand": "Continental",
+          "recommended_width_mm": 40,
+          "msrp_usd": 74.99,
+          "weight_grams": 450,
+          "crr_watts": 33.5,
+          "why": "excellent wet grip"
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 38
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 38,
+      "pressure_psi": {
+        "140_160lb_dry": "36-40",
+        "140_160lb_mixed": "33-37",
+        "140_160lb_wet": "31-35",
+        "160_180lb_dry": "39-43",
+        "160_180lb_mixed": "36-40",
+        "160_180lb_wet": "34-38",
+        "180_200lb_dry": "42-46",
+        "180_200lb_mixed": "39-43",
+        "180_200lb_wet": "37-41",
+        "200pluslb_dry": "45-49",
+        "200pluslb_mixed": "42-46",
+        "200pluslb_wet": "40-44"
+      }
     }
   }
 }

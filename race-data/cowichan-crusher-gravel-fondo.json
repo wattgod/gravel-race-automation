@@ -256,23 +256,23 @@
       },
       "length": {
         "score": 4,
-        "explanation": "98km Full Fondo winner finished in 3:05:56, proving this isn't a coffee ride despite the shorter distance than advertised. Four options from 25km Piccolo to 160km Full Fondo Plus means everyone finds their pain threshold. The tight Medio Fondo podium with top 3 within 6 seconds shows real racing depth."
+        "explanation": "98km Full Fondo winner finished in 3:05:56, proving this isn't a coffee ride despite the shorter distance than advertised. Four options from 25km Piccolo to 160km Full Fondo Plus means everyone finds their pain threshold. The tight Medio Fondo podium with top 3 within 6 seconds shows real racing depth. Longer than Belgian Waffle Ride San Diego."
       },
       "technicality": {
         "score": 3,
-        "explanation": "Elite rider Kai Vander Veen described \"the mixture of climbs and then descents made for a great race\" with roads in excellent condition. Course runs at least 75% gravel with challenging climbs, descents, and technical sections through Mosaic private property that organizers guard carefully."
+        "explanation": "Elite rider Kai Vander Veen described \"the mixture of climbs and then descents made for a great race\" with roads in excellent condition. Course runs at least 75% gravel with challenging climbs, descents, and technical sections through Mosaic private property that organizers guard carefully. Similar technical demands to Gravel Worlds."
       },
       "elevation": {
         "score": 3,
-        "explanation": "Vander Veen's emphasis on \"climbs and then descents\" through Cowichan Valley's rolling hills suggests consistent elevation changes rather than one monster climb. The 4500 feet over 75 miles creates respectable climbing that tests gearing choices without breaking you."
+        "explanation": "Vander Veen's emphasis on \"climbs and then descents\" through Cowichan Valley's rolling hills suggests consistent elevation changes rather than one monster climb. The 4500 feet over 75 miles creates respectable climbing that tests gearing choices without breaking you. Similar elevation profile to Gravel Worlds."
       },
       "climate": {
         "score": 3,
-        "explanation": "2024 race saw \"a bit of rain but overall mostly cloudy\" conditions that elite rider Kai Vander Veen called \"great\" weather. Rain and showers held off until much later in the day, creating ideal conditions with gravel roads in good shape for the May/June timeframe."
+        "explanation": "Historical weather data shows average highs of 65°F and lows of 45°F, with a 61% chance of rain on any given day. 2024 race saw \"a bit of rain but overall mostly cloudy\" conditions that elite rider Kai Vander Veen called \"great\" weather. Rain and showers held off until much later in the day, creating ideal conditions with gravel roads in good shape for the May/June timeframe. Similar climate challenges to SBT GRVL."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Cowichan Valley sits near sea level on Vancouver Island – zero altitude considerations for training or race day strategy. Your biggest breathing concern is the guy drafting behind you, not oxygen debt from elevation."
+        "explanation": "Cowichan Valley sits near sea level on Vancouver Island – zero altitude considerations for training or race day strategy. Your biggest breathing concern is the guy drafting behind you, not oxygen debt from elevation. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 3,
@@ -296,7 +296,7 @@
       },
       "field_depth": {
         "score": 2,
-        "explanation": "BC regional talent dominates the podium – Nieuwesteeg, Meier from Cumberland, Wright from Victoria. These are solid riders but we're not seeing international depth or pro team representation. The 5:15 winning time for 160km suggests decent competition, but this isn't where careers are made."
+        "explanation": "BC regional talent dominates the podium – Nieuwesteeg, Meier from Cumberland, Wright from Victoria. These are solid riders but we're not seeing international depth or pro team representation. The 5:15 winning time for 160km suggests decent competition, but this isn't where careers are made. Less competitive depth than Almanzo 100."
       },
       "value": {
         "score": 3,
@@ -304,7 +304,7 @@
       },
       "expenses": {
         "score": 3,
-        "explanation": "Organizers recommend \"any bike with fatter tires\" including gravel, cyclocross, mountain, hybrid, touring, or even road bikes and e-bikes, keeping equipment barriers low. Lake Cowichan isn't a tourist trap, though Vancouver Island ferry costs add geography overhead that's unavoidable."
+        "explanation": "Registration runs $70-110 CAD. Organizers recommend \"any bike with fatter tires\" including gravel, cyclocross, mountain, hybrid, touring, or even road bikes and e-bikes, keeping equipment barriers low. Lake Cowichan isn't a tourist trap, though Vancouver Island ferry costs add geography overhead that's unavoidable. Similar expense level to Belgian Waffle Ride San Diego."
       }
     },
     "citations": [
@@ -348,6 +348,74 @@
         "category": "community",
         "label": "triplecrownofgravel.ca: Cowichan Crusher"
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "vittoria-terreno-wet",
+          "name": "Vittoria Terreno Wet",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 460,
+          "crr_watts": 39.0,
+          "why": "excellent wet grip"
+        },
+        {
+          "rank": 2,
+          "tire_id": "pirelli-cinturato-gravel-s",
+          "name": "Pirelli Cinturato Gravel S",
+          "brand": "Pirelli",
+          "recommended_width_mm": 40,
+          "msrp_usd": 73.99,
+          "weight_grams": 430,
+          "crr_watts": null,
+          "why": "excellent wet grip"
+        },
+        {
+          "rank": 3,
+          "tire_id": "schwalbe-g-one-overland",
+          "name": "Schwalbe G-One Overland",
+          "brand": "Schwalbe",
+          "recommended_width_mm": 40,
+          "msrp_usd": 69.9,
+          "weight_grams": 490,
+          "crr_watts": 40.0,
+          "why": "excellent wet grip"
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "vittoria-terreno-wet",
+          "name": "Vittoria Terreno Wet",
+          "width_mm": 40
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "wet",
+      "recommended_width_mm": 40,
+      "pressure_psi": {
+        "140_160lb_dry": "34-38",
+        "140_160lb_mixed": "30-34",
+        "140_160lb_wet": "28-32",
+        "160_180lb_dry": "36-40",
+        "160_180lb_mixed": "34-38",
+        "160_180lb_wet": "32-36",
+        "180_200lb_dry": "40-44",
+        "180_200lb_mixed": "36-40",
+        "180_200lb_wet": "34-38",
+        "200pluslb_dry": "42-46",
+        "200pluslb_mixed": "40-44",
+        "200pluslb_wet": "38-42"
+      }
+    }
   }
 }

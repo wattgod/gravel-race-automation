@@ -60,7 +60,7 @@
       },
       "field_depth": {
         "score": 2,
-        "explanation": "Strong regional competitors attend but lacks national pro presence. No major series affiliation means elite riders generally absent. Competitive but not deep."
+        "explanation": "Strong regional competitors attend but lacks national pro presence. No major series affiliation means elite riders generally absent. Competitive but not deep. Less competitive depth than Almanzo 100."
       },
       "value": {
         "score": 4,
@@ -68,27 +68,27 @@
       },
       "expenses": {
         "score": 3,
-        "explanation": "Moderate total costs - affordable lodging in Chillicothe area, reasonable travel for Midwest residents. Easy driving distance from major Ohio cities keeps expenses manageable."
+        "explanation": "Registration runs $50-200. Moderate total costs - affordable lodging in Chillicothe area, reasonable travel for Midwest residents. Easy driving distance from major Ohio cities keeps expenses manageable. Similar expense level to Belgian Waffle Ride San Diego."
       },
       "length": {
         "score": 4,
-        "explanation": "100 miles places this in substantial territory. Not ultra-distance but a full day of demanding riding through Ohio's toughest terrain."
+        "explanation": "100 miles places this in substantial territory. Not ultra-distance but a full day of demanding riding through Ohio's toughest terrain. Longer than Belgian Waffle Ride San Diego."
       },
       "technicality": {
         "score": 3,
-        "explanation": "Mixed terrain with steep Appalachian gravel roads, technical descents, and challenging loose surfaces. Not extreme singletrack but demands respect and bike handling skills."
+        "explanation": "Mixed terrain with steep Appalachian gravel roads, technical descents, and challenging loose surfaces. Not extreme singletrack but demands respect and bike handling skills. Similar technical demands to Gravel Worlds."
       },
       "elevation": {
         "score": 4,
-        "explanation": "9,000+ feet of climbing in 100 miles is exceptional for the Midwest. Relentless punchy climbs through Appalachian foothills create leg-destroying accumulated vertical."
+        "explanation": "9,000+ feet of climbing in 100 miles is exceptional for the Midwest. Relentless punchy climbs through Appalachian foothills create leg-destroying accumulated vertical. More climbing than SBT GRVL at the same score."
       },
       "climate": {
         "score": 3,
-        "explanation": "Ohio spring weather is a dice roll - temps in the 50s-70s with real potential for rain and mud. Not extreme but variable conditions keep riders guessing."
+        "explanation": "Historical weather data shows average highs of 73°F and lows of 54°F, with a 52% chance of rain on any given day. Ohio spring weather is a dice roll - temps in the 50s-70s with real potential for rain and mud. Not extreme but variable conditions keep riders guessing. Similar climate challenges to SBT GRVL."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Low elevation throughout at roughly 700-1,200 feet above sea level. No altitude considerations - pure climbing difficulty without thin air complications."
+        "explanation": "Low elevation throughout at roughly 700-1,200 feet above sea level. No altitude considerations - pure climbing difficulty without thin air complications. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "logistics": {
         "score": 3,
@@ -197,6 +197,74 @@
     ],
     "logistics": {
       "official_site": "https://www.frenchdivide.com/en/"
+    },
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "vittoria-terreno-wet",
+          "name": "Vittoria Terreno Wet",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 460,
+          "crr_watts": 39.0,
+          "why": "excellent wet grip"
+        },
+        {
+          "rank": 2,
+          "tire_id": "continental-terra-trail",
+          "name": "Continental Terra Trail",
+          "brand": "Continental",
+          "recommended_width_mm": 40,
+          "msrp_usd": 74.99,
+          "weight_grams": 450,
+          "crr_watts": 33.5,
+          "why": "excellent wet grip"
+        },
+        {
+          "rank": 3,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 38,
+          "msrp_usd": 54.99,
+          "weight_grams": 380,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "vittoria-terreno-wet",
+          "name": "Vittoria Terreno Wet",
+          "width_mm": 40
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "wet",
+      "recommended_width_mm": 40,
+      "pressure_psi": {
+        "140_160lb_dry": "35-39",
+        "140_160lb_mixed": "32-36",
+        "140_160lb_wet": "30-34",
+        "160_180lb_dry": "38-42",
+        "160_180lb_mixed": "35-39",
+        "160_180lb_wet": "33-37",
+        "180_200lb_dry": "41-45",
+        "180_200lb_mixed": "38-42",
+        "180_200lb_wet": "36-40",
+        "200pluslb_dry": "44-48",
+        "200pluslb_mixed": "41-45",
+        "200pluslb_wet": "39-43"
+      }
     }
   }
 }

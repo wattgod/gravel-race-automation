@@ -258,23 +258,23 @@
       },
       "length": {
         "score": 3,
-        "explanation": "The multi-lap format creates strategic complexity as breaks form early and time gaps grow quickly on the twisting roads. PJ McQuade noted \"10 dudes/2 ladies gas it as soon as they drop the flag\" catching positioned riders off-guard, while the repeated Lackey Road climbing over 5-7 laps creates cumulative fatigue that destroys even strong riders."
+        "explanation": "The multi-lap format creates strategic complexity as breaks form early and time gaps grow quickly on the twisting roads. PJ McQuade noted \"10 dudes/2 ladies gas it as soon as they drop the flag\" catching positioned riders off-guard, while the repeated Lackey Road climbing over 5-7 laps creates cumulative fatigue that destroys even strong riders. Similar distance to Crusher in the Tushar."
       },
       "technicality": {
         "score": 2,
-        "explanation": "\"One thing about Purgatory is there are lots of twists and turns in narrow wooded roads,\" explains PJ McQuade, with limited sight lines that make Lackey Road particularly challenging. The course features technical corners where aggressive positioning leads to crashes, as one rider \"heard a crash behind me\" that \"sounded ugly.\""
+        "explanation": "\"One thing about Purgatory is there are lots of twists and turns in narrow wooded roads,\" explains PJ McQuade, with limited sight lines that make Lackey Road particularly challenging. The course features technical corners where aggressive positioning leads to crashes, as one rider \"heard a crash behind me\" that \"sounded ugly.\" Less technical than The Mid South."
       },
       "elevation": {
         "score": 2,
-        "explanation": "Lackey Road delivers the key climbing challenge - a 200-foot rise over one kilometer that finishes each lap. Carlshimer admits \"this hill has my number\" due to visibility issues, while the cumulative effect of 5-7 repetitions causes severe cramping and complete implosions even among breakaway riders."
+        "explanation": "Lackey Road delivers the key climbing challenge - a 200-foot rise over one kilometer that finishes each lap. Carlshimer admits \"this hill has my number\" due to visibility issues, while the cumulative effect of 5-7 repetitions causes severe cramping and complete implosions even among breakaway riders. Less climbing than The Mid South."
       },
       "climate": {
         "score": 2,
-        "explanation": "June weather reached 88°F in 2014, creating \"a war of attrition\" with only 29 finishers from 70 starters - a 41% DNF rate. Matt Moon noted the \"mercury tickling 88 degrees\" combined with seven laps of climbing \"began to take its tole on the field,\" while feedzone battles erupted over precious water bottles."
+        "explanation": "June weather reached 88°F in 2014, creating \"a war of attrition\" with only 29 finishers from 70 starters - a 41% DNF rate. Matt Moon noted the \"mercury tickling 88 degrees\" combined with seven laps of climbing \"began to take its tole on the field,\" while feedzone battles erupted over precious water bottles. More weather exposure than Belgian Waffle Ride San Diego."
       },
       "altitude": {
         "score": 1,
-        "explanation": "New England elevation poses zero acclimatization concerns. The 200-foot Lackey Road climb represents the major elevation gain on each 11-mile lap, with no altitude-related performance impacts affecting the Massachusetts-based racing circuit."
+        "explanation": "New England elevation poses zero acclimatization concerns. The 200-foot Lackey Road climb represents the major elevation gain on each 11-mile lap, with no altitude-related performance impacts affecting the Massachusetts-based racing circuit. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 2,
@@ -298,7 +298,7 @@
       },
       "field_depth": {
         "score": 2,
-        "explanation": "Cat 3 fields of 50+ include \"fiery juniors using this as a stepping stone\" and \"tri freaks who are clearly Cat 2s sticking around for glory,\" while Masters 45+ draws \"absolutely stacked field of 60\" including McCormacks, Tobi Schultze of Clif Bar/Pactimo, and other regional powerhouses creating competitive depth."
+        "explanation": "Cat 3 fields of 50+ include \"fiery juniors using this as a stepping stone\" and \"tri freaks who are clearly Cat 2s sticking around for glory,\" while Masters 45+ draws \"absolutely stacked field of 60\" including McCormacks, Tobi Schultze of Clif Bar/Pactimo, and other regional powerhouses creating competitive depth. Less competitive depth than Almanzo 100."
       },
       "value": {
         "score": 3,
@@ -306,7 +306,7 @@
       },
       "expenses": {
         "score": 3,
-        "explanation": "Central Massachusetts location keeps travel costs manageable for the established New England racing community. Local parking at the little league field and familiar roads mean minimal lodging needs for area riders, while organized race support provides good value for the technical course and competitive fields."
+        "explanation": "Registration runs $60-100. Central Massachusetts location keeps travel costs manageable for the established New England racing community. Local parking at the little league field and familiar roads mean minimal lodging needs for area riders, while organized race support provides good value for the technical course and competitive fields. Similar expense level to Belgian Waffle Ride San Diego."
       }
     },
     "unsplash_photos": [
@@ -374,6 +374,74 @@
         }
       },
       "latest_year": "2024"
+    },
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 38,
+          "msrp_usd": 54.99,
+          "weight_grams": 380,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 2,
+          "tire_id": "panaracer-gravelking-sk",
+          "name": "Panaracer GravelKing SK",
+          "brand": "Panaracer",
+          "recommended_width_mm": 40,
+          "msrp_usd": 64.9,
+          "weight_grams": 380,
+          "crr_watts": 32.5,
+          "why": "Affordable all-rounder. Light knobs add grip without killing speed."
+        },
+        {
+          "rank": 3,
+          "tire_id": "vittoria-terreno-mix",
+          "name": "Vittoria Terreno Mix",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 420,
+          "crr_watts": 33.5,
+          "why": "Graphene versatility. Mixed-terrain grip with reasonable rolling speed."
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 38
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 38,
+      "pressure_psi": {
+        "140_160lb_dry": "36-40",
+        "140_160lb_mixed": "33-37",
+        "140_160lb_wet": "31-35",
+        "160_180lb_dry": "39-43",
+        "160_180lb_mixed": "36-40",
+        "160_180lb_wet": "34-38",
+        "180_200lb_dry": "42-46",
+        "180_200lb_mixed": "39-43",
+        "180_200lb_wet": "37-41",
+        "200pluslb_dry": "45-49",
+        "200pluslb_mixed": "42-46",
+        "200pluslb_wet": "40-44"
+      }
     }
   }
 }

@@ -258,23 +258,23 @@
       },
       "length": {
         "score": 3,
-        "explanation": "The three-stage format totals around 110 miles over the weekend - 11-mile Friday TT, 56-mile Saturday road stage, and 45-mile Sunday circuit race. Peter L's power data shows the TT takes ~20 minutes while Saturday requires 2+ hours of sustained effort. The format allows single-stage entries for riders not wanting the full omnium commitment."
+        "explanation": "The three-stage format totals around 110 miles over the weekend - 11-mile Friday TT, 56-mile Saturday road stage, and 45-mile Sunday circuit race. Peter L's power data shows the TT takes ~20 minutes while Saturday requires 2+ hours of sustained effort. The format allows single-stage entries for riders not wanting the full omnium commitment. Similar distance to Crusher in the Tushar."
       },
       "technicality": {
         "score": 3,
-        "explanation": "Only the Friday TT runs 100% gravel, while Saturday and Sunday stages mix significant pavement with gravel sections. Peter L describes course modifications due to conditions: \"definitely good call to avoid the twisty descent that was already pretty fucked before it rained more.\" Technical challenge comes from variable surfaces and weather-dependent routing rather than sustained gravel difficulty."
+        "explanation": "Only the Friday TT runs 100% gravel, while Saturday and Sunday stages mix significant pavement with gravel sections. Peter L describes course modifications due to conditions: \"definitely good call to avoid the twisty descent that was already pretty fucked before it rained more.\" Technical challenge comes from variable surfaces and weather-dependent routing rather than sustained gravel difficulty. Similar technical demands to Gravel Worlds."
       },
       "elevation": {
         "score": 3,
-        "explanation": "Saturday packs 3,000 feet into 56 miles while other stages stay moderate - 756 feet Friday, 1,711 feet Sunday. Peter L notes the TT \"is rolling and uphill finish so having something left for that is good.\" Sunday's circuit includes \"about 2k generally uphill to the finish\" after each lap's climb and descent."
+        "explanation": "Saturday packs 3,000 feet into 56 miles while other stages stay moderate - 756 feet Friday, 1,711 feet Sunday. Peter L notes the TT \"is rolling and uphill finish so having something left for that is good.\" Sunday's circuit includes \"about 2k generally uphill to the finish\" after each lap's climb and descent. Similar elevation profile to Gravel Worlds."
       },
       "climate": {
         "score": 2,
-        "explanation": "Late April timing delivers unpredictable conditions. Peter L experienced the 2024 reality: \"This weekend was the 3-day montana gravel challenge, and it's raining.\" He dressed \"for cold and rain which was forecast but didn't really happen,\" then faced muddy sections that \"has only gotten worse over the last few days of periodic rain and cool temps.\""
+        "explanation": "Late April timing delivers unpredictable conditions. Peter L experienced the 2024 reality: \"This weekend was the 3-day montana gravel challenge, and it's raining.\" He dressed \"for cold and rain which was forecast but didn't really happen,\" then faced muddy sections that \"has only gotten worse over the last few days of periodic rain and cool temps.\" More weather exposure than Belgian Waffle Ride San Diego."
       },
       "altitude": {
         "score": 3,
-        "explanation": "Huson sits around 3,000-4,000 feet elevation in the Missoula valley. Peter L's power numbers (338w average, 361w normalized for the TT) suggest the altitude impact is manageable for most riders. The elevation affects pacing more through the rolling terrain profile than thin air, based on his race experience data."
+        "explanation": "Huson sits around 3,000-4,000 feet elevation in the Missoula valley. Peter L's power numbers (338w average, 361w normalized for the TT) suggest the altitude impact is manageable for most riders. The elevation affects pacing more through the rolling terrain profile than thin air, based on his race experience data. Similar altitude considerations to Grinduro."
       },
       "adventure": {
         "score": 3,
@@ -298,7 +298,7 @@
       },
       "field_depth": {
         "score": 1,
-        "explanation": "Recreation and paracyclist divisions suggest limited competitive depth, with virtual participation options further indicating registration challenges. Peter L's race reports focus on small group tactics and local age group battles rather than deep fields. The $40-150 price range and same-day registration availability point to accessibility over exclusivity."
+        "explanation": "Recreation and paracyclist divisions suggest limited competitive depth, with virtual participation options further indicating registration challenges. Peter L's race reports focus on small group tactics and local age group battles rather than deep fields. The $40-150 price range and same-day registration availability point to accessibility over exclusivity. Thinner field than Ouray Gravel Grinder. As Peter L puts it: \"Day 2 has been the long gravel stage of the race with 3 being a more road circuit.\""
       },
       "value": {
         "score": 3,
@@ -306,7 +306,7 @@
       },
       "expenses": {
         "score": 3,
-        "explanation": "Recommended lodging at City Center Motel in Missoula keeps costs reasonable, with free onsite camping as an alternative. Peter L ran 34mm tires at 42-46 psi on his Orbea Terra with road wheels, noting \"The bike, wheel, and tire setup was perfect all weekend.\" Late April timing avoids peak Montana tourism pricing while maintaining access to Missoula's amenities."
+        "explanation": "Registration runs $80-100. Recommended lodging at City Center Motel in Missoula keeps costs reasonable, with free onsite camping as an alternative. Peter L ran 34mm tires at 42-46 psi on his Orbea Terra with road wheels, noting \"The bike, wheel, and tire setup was perfect all weekend.\" Late April timing avoids peak Montana tourism pricing while maintaining access to Missoula's amenities. Similar expense level to Belgian Waffle Ride San Diego."
       }
     },
     "citations": [
@@ -340,6 +340,74 @@
         "category": "community",
         "label": "bikesignup.com: Montanahellride"
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 42,
+          "msrp_usd": 54.99,
+          "weight_grams": 420,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 2,
+          "tire_id": "irc-boken-double-cross",
+          "name": "IRC Boken Double Cross",
+          "brand": "IRC",
+          "recommended_width_mm": 42,
+          "msrp_usd": 59.99,
+          "weight_grams": 400,
+          "crr_watts": null,
+          "why": "Underrated mixed-terrain tire. Fast center with confident shoulder grip."
+        },
+        {
+          "rank": 3,
+          "tire_id": "panaracer-gravelking-sk",
+          "name": "Panaracer GravelKing SK",
+          "brand": "Panaracer",
+          "recommended_width_mm": 43,
+          "msrp_usd": 64.9,
+          "weight_grams": 410,
+          "crr_watts": 32.5,
+          "why": "Affordable all-rounder. Light knobs add grip without killing speed."
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "panaracer-gravelking-tlc",
+          "name": "Panaracer GravelKing TLC",
+          "width_mm": 43
+        },
+        "rear": {
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 42
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 42,
+      "pressure_psi": {
+        "140_160lb_dry": "32-36",
+        "140_160lb_mixed": "30-34",
+        "140_160lb_wet": "28-32",
+        "160_180lb_dry": "36-40",
+        "160_180lb_mixed": "32-36",
+        "160_180lb_wet": "30-34",
+        "180_200lb_dry": "38-42",
+        "180_200lb_mixed": "36-40",
+        "180_200lb_wet": "34-38",
+        "200pluslb_dry": "42-46",
+        "200pluslb_mixed": "38-42",
+        "200pluslb_wet": "36-40"
+      }
+    }
   }
 }

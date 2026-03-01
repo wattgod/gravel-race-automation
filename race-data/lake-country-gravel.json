@@ -258,23 +258,23 @@
       },
       "length": {
         "score": 3,
-        "explanation": "70 miles hits the sweet spot for serious gravel without crossing into sufferfest territory. It's long enough to separate recreational riders from committed racers, but short enough to avoid the logistical nightmare of ultra-distance events."
+        "explanation": "70 miles hits the sweet spot for serious gravel without crossing into sufferfest territory. It's long enough to separate recreational riders from committed racers, but short enough to avoid the logistical nightmare of ultra-distance events. Similar distance to Crusher in the Tushar."
       },
       "technicality": {
         "score": 2,
-        "explanation": "Wisconsin lake country features what riders describe as \"some of the best crushed gravel trails around\" through forest preserves. The terrain offers consistent surfaces rather than technical rock gardens or challenging descents."
+        "explanation": "Wisconsin lake country features what riders describe as \"some of the best crushed gravel trails around\" through forest preserves. The terrain offers consistent surfaces rather than technical rock gardens or challenging descents. Less technical than The Mid South."
       },
       "elevation": {
         "score": 2,
-        "explanation": "3200 feet over 70 miles averages just 46 feet per mile through Wisconsin's glaciated landscape. The rolling terrain provides gentle undulation but nothing approaching mountain or serious hill country profiles."
+        "explanation": "3200 feet over 70 miles averages just 46 feet per mile through Wisconsin's glaciated landscape. The rolling terrain provides gentle undulation but nothing approaching mountain or serious hill country profiles. Less climbing than The Mid South."
       },
       "climate": {
         "score": 3,
-        "explanation": "Wisconsin summer weather delivers everything from perfect 70-degree mornings to humid 90-degree sufferfests with afternoon thunderstorms. The variability keeps things interesting, but humidity and potential weather changes require preparation."
+        "explanation": "Historical weather data shows average highs of 82°F and lows of 64°F, with a 53% chance of rain on any given day. Wisconsin summer weather delivers everything from perfect 70-degree mornings to humid 90-degree sufferfests with afternoon thunderstorms. The variability keeps things interesting, but humidity and potential weather changes require preparation. Similar climate challenges to SBT GRVL."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Oconomowoc sits around 900 feet above sea level with zero impact on breathing, pacing, or performance from elevation effects."
+        "explanation": "Oconomowoc sits around 900 feet above sea level with zero impact on breathing, pacing, or performance from elevation effects. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 2,
@@ -298,7 +298,7 @@
       },
       "field_depth": {
         "score": 1,
-        "explanation": "Without published results or presence in competitive cycling databases, the racing field remains unknown. No documented competitive field means minimal depth for serious racers."
+        "explanation": "With a field of 100-200 riders, without published results or presence in competitive cycling databases, the racing field remains unknown. No documented competitive field means minimal depth for serious racers. Thinner field than Ouray Gravel Grinder."
       },
       "value": {
         "score": 4,
@@ -306,7 +306,7 @@
       },
       "expenses": {
         "score": 3,
-        "explanation": "Oconomowoc sits close to Milwaukee and Madison, providing decent lodging options without resort pricing. Wisconsin generally keeps accommodation and food costs reasonable, though weekend rates near lake areas bump up slightly."
+        "explanation": "Registration runs $50-75. Oconomowoc sits close to Milwaukee and Madison, providing decent lodging options without resort pricing. Wisconsin generally keeps accommodation and food costs reasonable, though weekend rates near lake areas bump up slightly. Similar expense level to Belgian Waffle Ride San Diego."
       }
     },
     "citations": [
@@ -315,6 +315,74 @@
         "category": "community",
         "label": "youtube.com: Watch"
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "vittoria-terreno-wet",
+          "name": "Vittoria Terreno Wet",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 460,
+          "crr_watts": 39.0,
+          "why": "excellent wet grip"
+        },
+        {
+          "rank": 2,
+          "tire_id": "continental-terra-trail",
+          "name": "Continental Terra Trail",
+          "brand": "Continental",
+          "recommended_width_mm": 40,
+          "msrp_usd": 74.99,
+          "weight_grams": 450,
+          "crr_watts": 33.5,
+          "why": "excellent wet grip"
+        },
+        {
+          "rank": 3,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 38,
+          "msrp_usd": 54.99,
+          "weight_grams": 380,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "vittoria-terreno-wet",
+          "name": "Vittoria Terreno Wet",
+          "width_mm": 40
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "wet",
+      "recommended_width_mm": 40,
+      "pressure_psi": {
+        "140_160lb_dry": "35-39",
+        "140_160lb_mixed": "32-36",
+        "140_160lb_wet": "30-34",
+        "160_180lb_dry": "38-42",
+        "160_180lb_mixed": "35-39",
+        "160_180lb_wet": "33-37",
+        "180_200lb_dry": "41-45",
+        "180_200lb_mixed": "38-42",
+        "180_200lb_wet": "36-40",
+        "200pluslb_dry": "44-48",
+        "200pluslb_mixed": "41-45",
+        "200pluslb_wet": "39-43"
+      }
+    }
   }
 }

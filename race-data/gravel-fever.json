@@ -258,23 +258,23 @@
       },
       "length": {
         "score": 3,
-        "explanation": "KHS91 demonstrates solid pacing strategy: \"from the start I hold the rhythm that I'm starting to master and that I know I can hold and even accelerate until the end.\" When tempted to follow a fast rider post-CP2, he notes \"I'm at 200W, it's not reasonable, I let him go\" - showing the distance teaches disciplined power management."
+        "explanation": "KHS91 demonstrates solid pacing strategy: \"from the start I hold the rhythm that I'm starting to master and that I know I can hold and even accelerate until the end.\" When tempted to follow a fast rider post-CP2, he notes \"I'm at 200W, it's not reasonable, I let him go\" - showing the distance teaches disciplined power management. Similar distance to Crusher in the Tushar."
       },
       "technicality": {
         "score": 2,
-        "explanation": "The Ultra route includes a chain-pulled ferry crossing over the Sarthe River where \"riders pull themselves across on a chain,\" plus long climbs in the Alpes Mancelles including the Belvédère de Perseigne. KHS91's upgrade to a Fox 32 TC suspension fork eliminated vibrations, suggesting the course demands more than typical gravel smoothness."
+        "explanation": "The Ultra route includes a chain-pulled ferry crossing over the Sarthe River where \"riders pull themselves across on a chain,\" plus long climbs in the Alpes Mancelles including the Belvédère de Perseigne. KHS91's upgrade to a Fox 32 TC suspension fork eliminated vibrations, suggesting the course demands more than typical gravel smoothness. Less technical than The Mid South."
       },
       "elevation": {
         "score": 2,
-        "explanation": "The section between CP1 and CP2 through the Perche and Alpes Mancelles features \"long climbs including the Belvédère de Perseigne\" according to KHS91. Post-Le Mans terrain offers \"beautiful rolling paths\" with \"valley and hillside landscapes,\" while the first 150km presents no notable difficulties - suggesting climbing is back-loaded."
+        "explanation": "The section between CP1 and CP2 through the Perche and Alpes Mancelles features \"long climbs including the Belvédère de Perseigne\" according to KHS91. Post-Le Mans terrain offers \"beautiful rolling paths\" with \"valley and hillside landscapes,\" while the first 150km presents no notable difficulties - suggesting climbing is back-loaded. Less climbing than The Mid South."
       },
       "climate": {
         "score": 3,
-        "explanation": "2025 conditions were cold and wet with \"no more than 12°C outside\" during the day and night temperatures requiring thermal gear. KHS91 appreciated hot soup at checkpoints: \"it feels good to eat hot and always the delicious vermicelli soup that every year gives me back so much strength\" in the grey, humid conditions."
+        "explanation": "2025 conditions were cold and wet with \"no more than 12°C outside\" during the day and night temperatures requiring thermal gear. KHS91 appreciated hot soup at checkpoints: \"it feels good to eat hot and always the delicious vermicelli soup that every year gives me back so much strength\" in the grey, humid conditions. Similar climate challenges to SBT GRVL."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Starting from Meudon near Paris and finishing in Châtellerault puts the entire route in low-elevation western France. No altitude considerations mentioned anywhere in rider reports, confirming this races at near sea level throughout with zero acclimatization concerns."
+        "explanation": "Starting from Meudon near Paris and finishing in Châtellerault puts the entire route in low-elevation western France. No altitude considerations mentioned anywhere in rider reports, confirming this races at near sea level throughout with zero acclimatization concerns. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 2,
@@ -298,7 +298,7 @@
       },
       "field_depth": {
         "score": 2,
-        "explanation": "2024 sub-24 hour finishers included Fabien Duffossé (23:04) and Sébastien Botte (23:17), while 2025 saw Trans Continental Race winner Victor Bosoni participate. However, KHS91 observed many riders starting too fast due to \"probably a lack of experience with the distance\" - suggesting growing participation but inconsistent race experience."
+        "explanation": "2024 sub-24 hour finishers included Fabien Duffossé (23:04) and Sébastien Botte (23:17), while 2025 saw Trans Continental Race winner Victor Bosoni participate. However, KHS91 observed many riders starting too fast due to \"probably a lack of experience with the distance\" - suggesting growing participation but inconsistent race experience. Less competitive depth than Almanzo 100."
       },
       "value": {
         "score": 3,
@@ -306,7 +306,7 @@
       },
       "expenses": {
         "score": 2,
-        "explanation": "Less than 2 hours from major French airports provides flight access, but KHS91's equipment upgrade to Fox suspension fork suggests the rough terrain may demand gear investments beyond typical gravel setups. Châtellerault's industrial heritage as a former weapons manufacturing site likely offers basic rather than luxury accommodation options."
+        "explanation": "Registration runs €60-100. Less than 2 hours from major French airports provides flight access, but KHS91's equipment upgrade to Fox suspension fork suggests the rough terrain may demand gear investments beyond typical gravel setups. Châtellerault's industrial heritage as a former weapons manufacturing site likely offers basic rather than luxury accommodation options. Higher total cost than Badlands."
       }
     },
     "citations": [
@@ -380,6 +380,74 @@
         }
       },
       "latest_year": "2024"
+    },
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 38,
+          "msrp_usd": 54.99,
+          "weight_grams": 380,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 2,
+          "tire_id": "vittoria-terreno-mix",
+          "name": "Vittoria Terreno Mix",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 420,
+          "crr_watts": 33.5,
+          "why": "Graphene versatility. Mixed-terrain grip with reasonable rolling speed."
+        },
+        {
+          "rank": 3,
+          "tire_id": "continental-terra-trail",
+          "name": "Continental Terra Trail",
+          "brand": "Continental",
+          "recommended_width_mm": 40,
+          "msrp_usd": 74.99,
+          "weight_grams": 450,
+          "crr_watts": 33.5,
+          "why": "excellent wet grip"
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 38
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 38,
+      "pressure_psi": {
+        "140_160lb_dry": "36-40",
+        "140_160lb_mixed": "33-37",
+        "140_160lb_wet": "31-35",
+        "160_180lb_dry": "39-43",
+        "160_180lb_mixed": "36-40",
+        "160_180lb_wet": "34-38",
+        "180_200lb_dry": "42-46",
+        "180_200lb_mixed": "39-43",
+        "180_200lb_wet": "37-41",
+        "200pluslb_dry": "45-49",
+        "200pluslb_mixed": "42-46",
+        "200pluslb_wet": "40-44"
+      }
     }
   }
 }

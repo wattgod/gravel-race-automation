@@ -258,23 +258,23 @@
       },
       "length": {
         "score": 3,
-        "explanation": "65 miles creates solid endurance challenge with 5-hour cutoffs for the shorter option. Heather Hart describes the 177.6-mile Moultrie Militia version: \"Sure, 177.6 miles is a long way to ride your bike, but we kept our effort in an easy Z1 and below the entire time.\" Multiple distance options from 27 miles to the overnight raid provide scaling challenges."
+        "explanation": "65 miles creates solid endurance challenge with 5-hour cutoffs for the shorter option. Heather Hart describes the 177.6-mile Moultrie Militia version: \"Sure, 177.6 miles is a long way to ride your bike, but we kept our effort in an easy Z1 and below the entire time.\" Multiple distance options from 27 miles to the overnight raid provide scaling challenges. Similar distance to Crusher in the Tushar."
       },
       "technicality": {
         "score": 2,
-        "explanation": "Forest roads range from \"prime condition for riding, fast and smooth\" to problem areas like Old Georgetown road which is \"a little sandier than ideal\" and Forest Murrell Road \"slowly being reabsorbed by the forest itself.\" Hell Hole Road A proved particularly troublesome where one rider's chain jammed so badly \"it took at least 5 minutes to get it unstuck.\""
+        "explanation": "Forest roads range from \"prime condition for riding, fast and smooth\" to problem areas like Old Georgetown road which is \"a little sandier than ideal\" and Forest Murrell Road \"slowly being reabsorbed by the forest itself.\" Hell Hole Road A proved particularly troublesome where one rider's chain jammed so badly \"it took at least 5 minutes to get it unstuck.\" Less technical than The Mid South."
       },
       "elevation": {
         "score": 1,
-        "explanation": "1500 feet over 65 miles averages minimal climbing in South Carolina's coastal plain. Francis Marion National Forest sits near sea level with \"rolling short steep hills\" rather than sustained climbs. The terrain allows riders to maintain steady pacing in easy Zone 1 efforts according to race reports."
+        "explanation": "1500 feet over 65 miles averages minimal climbing in South Carolina's coastal plain. Francis Marion National Forest sits near sea level with \"rolling short steep hills\" rather than sustained climbs. The terrain allows riders to maintain steady pacing in easy Zone 1 efforts according to race reports. Flatter profile than Croatan Buck Fifty."
       },
       "climate": {
         "score": 2,
-        "explanation": "March 2025 conditions were ideal with \"absolutely perfect temperature - a balmy 60 degrees with light wind and a bit of fog/mist in the air.\" However, past years brought \"cold temperatures and demoralizing rain\" creating course mud pits. The remote forest location means limited cell reception during weather emergencies."
+        "explanation": "March 2025 conditions were ideal with \"absolutely perfect temperature - a balmy 60 degrees with light wind and a bit of fog/mist in the air.\" However, past years brought \"cold temperatures and demoralizing rain\" creating course mud pits. The remote forest location means limited cell reception during weather emergencies. More weather exposure than Belgian Waffle Ride San Diego."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Francis Marion National Forest operates at sea level in South Carolina's coastal plain near Charleston. Zero altitude considerations affect performance or acclimatization across all distance options from the 27-mile route to the 177.6-mile overnight raid."
+        "explanation": "Francis Marion National Forest operates at sea level in South Carolina's coastal plain near Charleston. Zero altitude considerations affect performance or acclimatization across all distance options from the 27-mile route to the 177.6-mile overnight raid. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 2,
@@ -298,7 +298,7 @@
       },
       "field_depth": {
         "score": 2,
-        "explanation": "The 100-mile event drew 58 starters in 2024 with a 7% DNF rate, showing modest regional participation. The overnight raid attracted only 16 riders from nearly 450 weekend registrants, indicating limited competitive depth. South Carolina's developing gravel scene provides regional competition without national-level talent concentration."
+        "explanation": "The 100-mile event drew 58 starters in 2024 with a 7% DNF rate, showing modest regional participation. The overnight raid attracted only 16 riders from nearly 450 weekend registrants, indicating limited competitive depth. South Carolina's developing gravel scene provides regional competition without national-level talent concentration. Less competitive depth than Almanzo 100."
       },
       "value": {
         "score": 3,
@@ -306,7 +306,7 @@
       },
       "expenses": {
         "score": 3,
-        "explanation": "Huger, SC location near Charleston provides reasonable lodging costs with accessible airport connections. March timing avoids peak tourist season pricing while delivering ideal riding weather - \"absolutely perfect temperature\" according to recent participants. Multi-day festival format from Friday through Sunday maximizes travel investment value."
+        "explanation": "Registration runs $60-100. Huger, SC location near Charleston provides reasonable lodging costs with accessible airport connections. March timing avoids peak tourist season pricing while delivering ideal riding weather - \"absolutely perfect temperature\" according to recent participants. Multi-day festival format from Friday through Sunday maximizes travel investment value. Similar expense level to Belgian Waffle Ride San Diego."
       }
     },
     "citations": [
@@ -350,6 +350,63 @@
         "category": "community",
         "label": "webscorer.com: Results"
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "schwalbe-g-one-ultrabite",
+          "name": "Schwalbe G-One Ultrabite",
+          "brand": "Schwalbe",
+          "recommended_width_mm": 40,
+          "msrp_usd": 69.9,
+          "weight_grams": 500,
+          "crr_watts": 42.0,
+          "why": "strong mud clearance"
+        },
+        {
+          "rank": 2,
+          "tire_id": "tufo-gravel-swampero",
+          "name": "Tufo Gravel Swampero",
+          "brand": "Tufo",
+          "recommended_width_mm": 40,
+          "msrp_usd": 69.95,
+          "weight_grams": 480,
+          "crr_watts": null,
+          "why": "strong mud clearance"
+        },
+        {
+          "rank": 3,
+          "tire_id": "vittoria-terreno-wet",
+          "name": "Vittoria Terreno Wet",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 460,
+          "crr_watts": 39.0,
+          "why": "strong mud clearance"
+        }
+      ],
+      "front_rear_split": {
+        "applicable": false
+      },
+      "race_surface_profile": "muddy",
+      "recommended_width_mm": 40,
+      "pressure_psi": {
+        "140_160lb_dry": "35-39",
+        "140_160lb_mixed": "32-36",
+        "140_160lb_wet": "30-34",
+        "160_180lb_dry": "38-42",
+        "160_180lb_mixed": "35-39",
+        "160_180lb_wet": "33-37",
+        "180_200lb_dry": "41-45",
+        "180_200lb_mixed": "38-42",
+        "180_200lb_wet": "36-40",
+        "200pluslb_dry": "44-48",
+        "200pluslb_mixed": "41-45",
+        "200pluslb_wet": "39-43"
+      }
+    }
   }
 }

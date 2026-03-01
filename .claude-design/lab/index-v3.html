@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gravel God Cycling — Dot Ring Monograms — 20 Concepts</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400;1,8..60,700&family=Sometype+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:#1a1613;padding:24px;font-family:'Sometype Mono',monospace;color:#d4c5b9;}
+  .hdr{border-bottom:3px solid #59473c;padding-bottom:16px;margin-bottom:24px;max-width:1400px;margin-left:auto;margin-right:auto;}
+  .hdr .kicker{font-size:10px;color:#9a7e0a;letter-spacing:3px;font-weight:700;margin-bottom:6px;}
+  .hdr h1{font-family:'Source Serif 4',Georgia,serif;font-size:28px;color:#f5efe6;margin-bottom:6px;font-weight:700;}
+  .hdr p{font-size:11px;color:#7d695d;letter-spacing:1px;line-height:1.6;max-width:700px;}
+  .row{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-bottom:14px;max-width:1400px;margin-left:auto;margin-right:auto;}
+  .card{border:2px solid #3a2e25;display:flex;flex-direction:column;align-items:center;padding:12px 8px 10px;transition:border-color .2s;cursor:pointer;}
+  .card:hover{border-color:#9a7e0a;}
+  .num{font-size:10px;color:#9a7e0a;letter-spacing:2px;font-weight:700;}
+  .nm{font-size:9px;color:#f5efe6;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;margin:3px 0;}
+  .ds{font-size:8px;color:#7d695d;letter-spacing:.5px;text-align:center;line-height:1.4;margin-bottom:8px;min-height:22px;}
+  .pv{background:#f5efe6;padding:12px;display:flex;flex-direction:column;align-items:center;gap:6px;width:100%;}
+  .wm{font-weight:700;letter-spacing:3px;font-size:9px;color:#3a2e25;font-family:'Sometype Mono',monospace;}
+  .mn{display:flex;gap:8px;align-items:center;margin-top:6px;}
+  .overlay{position:fixed;inset:0;background:rgba(26,22,19,.96);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:24px;z-index:100;cursor:pointer;}
+  .overlay .tag{font-size:13px;color:#9a7e0a;letter-spacing:4px;font-weight:700;}
+  .overlay .wmb{font-size:14px;color:#d4c5b9;letter-spacing:6px;font-weight:700;font-family:'Sometype Mono',monospace;}
+  .footer{max-width:1400px;margin:32px auto 0;padding-top:16px;border-top:2px solid #9a7e0a;font-size:9px;color:#7d695d;text-align:center;letter-spacing:1px;line-height:1.8;}
+  @media(max-width:900px){.row{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:500px){.row{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<div class="hdr">
+  <div class="kicker">[DESIGN LAB] DOT RING MONOGRAMS</div>
+  <h1>Gravel God Cycling</h1>
+  <p>20 circular dot-ring monogram variations using brand fonts (Source Serif 4 + Sometype Mono) and brand colors. Click any card to enlarge. Shown on light paper with dark ring, plus small previews at favicon scale.</p>
+</div>
+<div id="app"></div>
+<script>
+const DB='#3a2e25', PB='#59473c', SB='#7d695d', WB='#A68E80',
+      TN='#d4c5b9', SD='#ede4d8', WP='#f5efe6', GL='#9a7e0a',
+      TL='#178079', NB='#1a1613', WH='#ffffff';
+
+function sv(sz,c){
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="${sz}" height="${sz}">${c}</svg>`;
+}
+
+// Standard dot ring - dark dots on light, light inner
+function ring(dotColor=DB, outerFill=DB, innerFill=WP){
+  let d=`<circle cx="200" cy="200" r="196" fill="${outerFill}"/>`;
+  for(let i=0;i<36;i++){
+    const a=(i/36)*Math.PI*2;
+    d+=`<circle cx="${(200+178*Math.cos(a)).toFixed(1)}" cy="${(200+178*Math.sin(a)).toFixed(1)}" r="7" fill="${dotColor}"/>`;
+  }
+  d+=`<circle cx="200" cy="200" r="156" fill="${innerFill}"/>`;
+  return d;
+}
+
+// Square dot ring variant
+function squareRing(dotColor=DB, outerFill=DB, innerFill=WP){
+  let d=`<rect x="4" y="4" width="392" height="392" fill="${outerFill}"/>`;
+  // dots along perimeter
+  const positions=[];
+  for(let i=0;i<10;i++){positions.push({x:22+i*40,y:18});positions.push({x:22+i*40,y:382});}
+  for(let i=1;i<10;i++){positions.push({x:18,y:18+i*40});positions.push({x:382,y:18+i*40});}
+  positions.forEach(p=>{d+=`<rect x="${p.x-5}" y="${p.y-5}" width="10" height="10" fill="${dotColor}"/>`;});
+  d+=`<rect x="36" y="36" width="328" height="328" fill="${innerFill}"/>`;
+  return d;
+}
+
+const C=[
+  // 1. GG side by side — Source Serif bold
+  {
+    name:'GG SERIF',
+    desc:'Source Serif 4 Bold — classic side-by-side',
+    mk(s){return sv(s,ring()+
+      `<text x="200" y="230" font-family="'Source Serif 4',Georgia,serif" font-size="140" text-anchor="middle" fill="${DB}" font-weight="700" letter-spacing="-5">GG</text>`
+    );}
+  },
+  // 2. GG stacked vertical
+  {
+    name:'GG STACKED',
+    desc:'Source Serif 4 — two Gs stacked tight with gold rule',
+    mk(s){return sv(s,ring()+
+      `<text x="200" y="195" font-family="'Source Serif 4',Georgia,serif" font-size="130" text-anchor="middle" fill="${DB}" font-weight="700">G</text>`+
+      `<line x1="120" y1="215" x2="280" y2="215" stroke="${GL}" stroke-width="3"/>`+
+      `<text x="200" y="330" font-family="'Source Serif 4',Georgia,serif" font-size="130" text-anchor="middle" fill="${DB}" font-weight="700">G</text>`
+    );}
+  },
+  // 3. GG overlapping offset
+  {
+    name:'GG OVERLAP',
+    desc:'Source Serif 4 — offset overlap, dark + gold',
+    mk(s){return sv(s,ring()+
+      `<text x="165" y="250" font-family="'Source Serif 4',Georgia,serif" font-size="180" text-anchor="middle" fill="${DB}" font-weight="700" opacity=".9">G</text>`+
+      `<text x="235" y="250" font-family="'Source Serif 4',Georgia,serif" font-size="180" text-anchor="middle" fill="${GL}" font-weight="700" opacity=".75">G</text>`
+    );}
+  },
+  // 4. GGC horizontal tight
+  {
+    name:'GGC TIGHT',
+    desc:'Source Serif 4 — tight three-letter lockup',
+    mk(s){return sv(s,ring()+
+      `<text x="200" y="240" font-family="'Source Serif 4',Georgia,serif" font-size="110" text-anchor="middle" fill="${DB}" font-weight="700" letter-spacing="-8">GGC</text>`
+    );}
+  },
+  // 5. Big G, small G subscript
+  {
+    name:'G + g',
+    desc:'Source Serif 4 — dominant G, subscript g in gold',
+    mk(s){return sv(s,ring()+
+      `<text x="175" y="280" font-family="'Source Serif 4',Georgia,serif" font-size="220" text-anchor="middle" fill="${DB}" font-weight="700">G</text>`+
+      `<text x="290" y="310" font-family="'Source Serif 4',Georgia,serif" font-size="90" text-anchor="middle" fill="${GL}" font-weight="700">G</text>`
+    );}
+  },
+  // 6. Split tone — serif on both sides
+  {
+    name:'SPLIT TONE',
+    desc:'Source Serif 4 — dark G left / gold G right, split bg',
+    mk(s){
+      const id='sp'+Math.random().toString(36).substr(2,5);
+      return sv(s,
+        ring()+
+        `<defs><clipPath id="${id}l"><rect x="0" y="0" width="200" height="400"/></clipPath><clipPath id="${id}r"><rect x="200" y="0" width="200" height="400"/></clipPath><clipPath id="${id}c"><circle cx="200" cy="200" r="155"/></clipPath></defs>`+
+        `<g clip-path="url(#${id}c)"><rect x="0" y="0" width="200" height="400" fill="${DB}"/></g>`+
+        `<text x="150" y="260" font-family="'Source Serif 4',Georgia,serif" font-size="190" text-anchor="middle" fill="${WP}" font-weight="700">G</text>`+
+        `<text x="250" y="260" font-family="'Source Serif 4',Georgia,serif" font-size="190" text-anchor="middle" fill="${DB}" font-weight="700">G</text>`
+      );
+    }
+  },
+  // 7. GG diagonal
+  {
+    name:'GG DIAGONAL',
+    desc:'Source Serif 4 — letters on a -25° diagonal',
+    mk(s){return sv(s,ring()+
+      `<g transform="rotate(-25 200 200)"><text x="200" y="245" font-family="'Source Serif 4',Georgia,serif" font-size="130" text-anchor="middle" fill="${DB}" font-weight="700" letter-spacing="-4">GG</text></g>`
+    );}
+  },
+  // 8. GG angled mono — rear tilted
+  {
+    name:'ANGLED MONO',
+    desc:'Source Serif 4 — rear G tilted 15°, front G straight',
+    mk(s){return sv(s,ring()+
+      `<text x="200" y="260" font-family="'Source Serif 4',Georgia,serif" font-size="200" text-anchor="middle" fill="${SB}" font-weight="700" transform="rotate(15 200 200)">G</text>`+
+      `<text x="200" y="260" font-family="'Source Serif 4',Georgia,serif" font-size="200" text-anchor="middle" fill="${DB}" font-weight="700">G</text>`
+    );}
+  },
+  // 9. GG monospace version
+  {
+    name:'GG MONO',
+    desc:'Sometype Mono Bold — the data font as monogram',
+    mk(s){return sv(s,ring()+
+      `<text x="200" y="235" font-family="'Sometype Mono',monospace" font-size="130" text-anchor="middle" fill="${DB}" font-weight="700" letter-spacing="5">GG</text>`
+    );}
+  },
+  // 10. G serif | G mono (the split personality)
+  {
+    name:'SERIF|MONO',
+    desc:'Source Serif G + Sometype Mono G — editorial vs data',
+    mk(s){return sv(s,ring()+
+      `<text x="150" y="250" font-family="'Source Serif 4',Georgia,serif" font-size="160" text-anchor="middle" fill="${DB}" font-weight="700">G</text>`+
+      `<line x1="200" y1="90" x2="200" y2="310" stroke="${GL}" stroke-width="3"/>`+
+      `<text x="250" y="245" font-family="'Sometype Mono',monospace" font-size="130" text-anchor="middle" fill="${DB}" font-weight="700">G</text>`
+    );}
+  },
+  // 11. GG with crown above
+  {
+    name:'CROWNED GG',
+    desc:'Source Serif 4 — angular gold crown sits above GG',
+    mk(s){return sv(s,ring()+
+      `<polygon points="140,90 158,130 170,100 182,130 194,100 206,130 218,100 230,130 248,90 258,145 130,145" fill="none" stroke="${GL}" stroke-width="3" stroke-linejoin="miter"/>`+
+      `<text x="200" y="280" font-family="'Source Serif 4',Georgia,serif" font-size="130" text-anchor="middle" fill="${DB}" font-weight="700" letter-spacing="-5">GG</text>`
+    );}
+  },
+  // 12. G·G with gold dot
+  {
+    name:'G · G',
+    desc:'Source Serif 4 — Gs separated by centered gold dot',
+    mk(s){return sv(s,ring()+
+      `<text x="135" y="255" font-family="'Source Serif 4',Georgia,serif" font-size="160" text-anchor="middle" fill="${DB}" font-weight="700">G</text>`+
+      `<rect x="193" y="195" width="14" height="14" fill="${GL}"/>`+
+      `<text x="265" y="255" font-family="'Source Serif 4',Georgia,serif" font-size="160" text-anchor="middle" fill="${DB}" font-weight="700">G</text>`
+    );}
+  },
+  // 13. Ghost GG — solid + outline
+  {
+    name:'GHOST GG',
+    desc:'Source Serif 4 — solid G layered over outline G',
+    mk(s){return sv(s,ring()+
+      `<text x="200" y="265" font-family="'Source Serif 4',Georgia,serif" font-size="210" text-anchor="middle" fill="none" stroke="${TN}" stroke-width="3" font-weight="700">G</text>`+
+      `<text x="200" y="250" font-family="'Source Serif 4',Georgia,serif" font-size="160" text-anchor="middle" fill="${DB}" font-weight="700">G</text>`
+    );}
+  },
+  // 14. GG mirrored
+  {
+    name:'MIRROR GG',
+    desc:'Source Serif 4 — Gs mirrored, openings facing center',
+    mk(s){return sv(s,ring()+
+      `<text x="140" y="260" font-family="'Source Serif 4',Georgia,serif" font-size="175" text-anchor="middle" fill="${DB}" font-weight="700">G</text>`+
+      `<g transform="translate(400,0) scale(-1,1)"><text x="140" y="260" font-family="'Source Serif 4',Georgia,serif" font-size="175" text-anchor="middle" fill="${DB}" font-weight="700">G</text></g>`
+    );}
+  },
+  // 15. Gold dot ring
+  {
+    name:'GOLD RING',
+    desc:'Gold dots instead of dark — premium feel',
+    mk(s){return sv(s,ring(GL,GL,WP)+
+      `<text x="200" y="240" font-family="'Source Serif 4',Georgia,serif" font-size="140" text-anchor="middle" fill="${DB}" font-weight="700" letter-spacing="-5">GG</text>`
+    );}
+  },
+  // 16. Teal dot ring
+  {
+    name:'TEAL RING',
+    desc:'Teal accent ring — secondary brand color',
+    mk(s){return sv(s,ring(TL,TL,WP)+
+      `<text x="200" y="240" font-family="'Source Serif 4',Georgia,serif" font-size="140" text-anchor="middle" fill="${DB}" font-weight="700" letter-spacing="-5">GG</text>`
+    );}
+  },
+  // 17. Square dot ring
+  {
+    name:'SQUARE RING',
+    desc:'Square frame with square dots — full brutalist',
+    mk(s){return sv(s,squareRing()+
+      `<text x="200" y="240" font-family="'Source Serif 4',Georgia,serif" font-size="140" text-anchor="middle" fill="${DB}" font-weight="700" letter-spacing="-5">GG</text>`
+    );}
+  },
+  // 18. GG with terrain inside
+  {
+    name:'TERRAIN GG',
+    desc:'Source Serif 4 — mountain ridge fills bottom of circle',
+    mk(s){return sv(s,ring()+
+      `<text x="200" y="210" font-family="'Source Serif 4',Georgia,serif" font-size="120" text-anchor="middle" fill="${DB}" font-weight="700" letter-spacing="-3">GG</text>`+
+      `<clipPath id="tc${s}"><circle cx="200" cy="200" r="154"/></clipPath>`+
+      `<polygon points="46,355 80,280 110,300 140,260 170,290 200,240 230,270 255,245 280,280 310,255 340,290 355,265 355,355" fill="${DB}" opacity=".25" clip-path="url(#tc${s})"/>`+
+      `<line x1="60" y1="240" x2="340" y2="240" stroke="${GL}" stroke-width="2" stroke-dasharray="4,4"/>`
+    );}
+  },
+  // 19. Inverted — dark inner, light ring
+  {
+    name:'INVERTED',
+    desc:'Dark center, warm paper ring — reversed polarity',
+    mk(s){return sv(s,ring(WP,WP,DB)+
+      `<text x="200" y="240" font-family="'Source Serif 4',Georgia,serif" font-size="140" text-anchor="middle" fill="${WP}" font-weight="700" letter-spacing="-5">GG</text>`+
+      `<line x1="120" y1="260" x2="280" y2="260" stroke="${GL}" stroke-width="3"/>`
+    );}
+  },
+  // 20. GG italic editorial
+  {
+    name:'GG ITALIC',
+    desc:'Source Serif 4 Italic — editorial elegance in the ring',
+    mk(s){return sv(s,ring()+
+      `<text x="200" y="230" font-family="'Source Serif 4',Georgia,serif" font-size="130" text-anchor="middle" fill="${DB}" font-weight="700" font-style="italic" letter-spacing="5">GG</text>`+
+      `<line x1="100" y1="255" x2="300" y2="255" stroke="${GL}" stroke-width="2"/>`+
+      `<text x="200" y="290" font-family="'Sometype Mono',monospace" font-size="24" text-anchor="middle" fill="${GL}" font-weight="700" letter-spacing="8">CYCLING</text>`
+    );}
+  }
+];
+
+// Render 4x5 grid
+const app=document.getElementById('app');
+for(let r=0;r<4;r++){
+  const row=document.createElement('div');
+  row.className='row';
+  for(let c=0;c<5;c++){
+    const i=r*5+c;
+    if(i>=C.length)break;
+    const con=C[i];
+    const card=document.createElement('div');
+    card.className='card';
+    card.innerHTML=`
+      <div class="num">${String(i+1).padStart(2,'0')}</div>
+      <div class="nm">${con.name}</div>
+      <div class="ds">${con.desc}</div>
+      <div class="pv">${con.mk(150)}<div class="wm">GRAVEL GOD CYCLING</div></div>
+      <div class="mn">${con.mk(40)} ${con.mk(24)}</div>
+    `;
+    card.addEventListener('click',()=>{
+      const ov=document.createElement('div');
+      ov.className='overlay';
+      ov.innerHTML=`<div class="tag">${String(i+1).padStart(2,'0')} · ${con.name}</div>${con.mk(400)}<div class="wmb">GRAVEL GOD CYCLING</div>`;
+      ov.addEventListener('click',()=>ov.remove());
+      document.body.appendChild(ov);
+    });
+    row.appendChild(card);
+  }
+  app.appendChild(row);
+}
+</script>
+<div class="footer">
+  Gravel God Cycling — Dot Ring Monograms — 20 Concepts<br>
+  Fonts: Source Serif 4 + Sometype Mono · Colors: Dark Brown / Gold / Teal / Warm Paper<br>
+  Click any card to view full size
+</div>
+</body>
+</html>

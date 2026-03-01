@@ -258,23 +258,23 @@
       },
       "length": {
         "score": 3,
-        "explanation": "Multiple distance options from 40 to 200 miles let riders match ambition to fitness. K-Dogg warned his group early: 'I'm pretty sure this pace isn't sustainable for another 140 miles' after just 10 miles on the 150-mile route. Dave chose the 80-mile option knowing he'd be dropped by the century group, finding it 'perfectly fine.'"
+        "explanation": "Multiple distance options from 40 to 200 miles let riders match ambition to fitness. K-Dogg warned his group early: 'I'm pretty sure this pace isn't sustainable for another 140 miles' after just 10 miles on the 150-mile route. Dave chose the 80-mile option knowing he'd be dropped by the century group, finding it 'perfectly fine.' Similar distance to Crusher in the Tushar. As K-Dogg puts it: \"The first 15ish miles was a bike race and of course my fellow Blackwater Gravel Grinders wanted to be near the front.\""
       },
       "technicality": {
         "score": 2,
-        "explanation": "Red clay roads become 'sticky and criss crossed by washouts' when conditions deteriorate. K-Dogg described 12 miles of 'slippery, dead flat wet sand' where 'every stroke was an effort' and drafting was 'virtually useless.' Dave found the 2025 route was 'mostly packed sand' with occasional 'random red mud spots.'"
+        "explanation": "Red clay roads become 'sticky and criss crossed by washouts' when conditions deteriorate. K-Dogg described 12 miles of 'slippery, dead flat wet sand' where 'every stroke was an effort' and drafting was 'virtually useless.' Dave found the 2025 route was 'mostly packed sand' with occasional 'random red mud spots.' Less technical than The Mid South. As K-Dogg puts it: \"The web site promised that conditions were superb and that skilled riders would 'do fine' on 28 or 30 tires but we knew better. Team Gravel Cyclist rocked 40mm wide tires and up.\""
       },
       "elevation": {
         "score": 1,
-        "explanation": "North Florida's rolling terrain offers minimal climbing despite K-Dogg noting 'hills got longer and steeper' on red clay. One rider nearly bonked on 'one particularly long hill' with five miles to go in the 150-mile route. Dave's 2025 ride included 'scores of hills' in the final paved miles, but nothing approaching serious elevation."
+        "explanation": "North Florida's rolling terrain offers minimal climbing despite K-Dogg noting 'hills got longer and steeper' on red clay. One rider nearly bonked on 'one particularly long hill' with five miles to go in the 150-mile route. Dave's 2025 ride included 'scores of hills' in the final paved miles, but nothing approaching serious elevation. Flatter profile than Croatan Buck Fifty."
       },
       "climate": {
         "score": 3,
-        "explanation": "March conditions started 'chilly but beautiful' at 42 degrees in 2025, warming significantly by ride's end to 'good hard and hot' temperatures. The early-season timing provides ideal weather before Florida heat becomes oppressive, though riders face full sun between oak canopy sections."
+        "explanation": "Historical weather data shows average highs of 83°F and lows of 62°F, with a 30% chance of rain on any given day. March conditions started 'chilly but beautiful' at 42 degrees in 2025, warming significantly by ride's end to 'good hard and hot' temperatures. The early-season timing provides ideal weather before Florida heat becomes oppressive, though riders face full sun between oak canopy sections. Similar climate challenges to SBT GRVL."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Monticello, Florida sits in low-elevation North Florida with no altitude considerations whatsoever. Sea-level riding means no acclimatization needs or breathing challenges for any rider category."
+        "explanation": "Monticello, Florida sits in low-elevation North Florida with no altitude considerations whatsoever. Sea-level riding means no acclimatization needs or breathing challenges for any rider category. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 2,
@@ -298,7 +298,7 @@
       },
       "field_depth": {
         "score": 2,
-        "explanation": "The charity ride attracts adventure-seekers rather than competitive fields, with riders explicitly told 'if you need a juice box and a hug every 20 miles, this is not the ride for you.' A crusty older rider's comment 'Goddamn cross bikes! I thought I could hold you guys off!' captures the casual racing spirit."
+        "explanation": "The charity ride attracts adventure-seekers rather than competitive fields, with riders explicitly told 'if you need a juice box and a hug every 20 miles, this is not the ride for you.' A crusty older rider's comment 'Goddamn cross bikes! I thought I could hold you guys off!' captures the casual racing spirit. Less competitive depth than Almanzo 100."
       },
       "value": {
         "score": 3,
@@ -306,7 +306,7 @@
       },
       "expenses": {
         "score": 2,
-        "explanation": "The $25 registration fee is exceptionally low, but Monticello's limited lodging options create accommodation challenges. Riders need specialized equipment including 40mm+ tires and navigation devices for the unmarked, unsupported routes. The UF extension service venue provides free parking and basic facilities."
+        "explanation": "The $25 registration fee is exceptionally low, but Monticello's limited lodging options create accommodation challenges. Riders need specialized equipment including 40mm+ tires and navigation devices for the unmarked, unsupported routes. The UF extension service venue provides free parking and basic facilities. Higher total cost than Badlands."
       }
     },
     "citations": [
@@ -350,6 +350,74 @@
         "category": "community",
         "label": "granfondoguide.com: Dirty Pecan"
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 38,
+          "msrp_usd": 54.99,
+          "weight_grams": 380,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 2,
+          "tire_id": "panaracer-gravelking-sk",
+          "name": "Panaracer GravelKing SK",
+          "brand": "Panaracer",
+          "recommended_width_mm": 40,
+          "msrp_usd": 64.9,
+          "weight_grams": 380,
+          "crr_watts": 32.5,
+          "why": "Affordable all-rounder. Light knobs add grip without killing speed."
+        },
+        {
+          "rank": 3,
+          "tire_id": "vittoria-terreno-mix",
+          "name": "Vittoria Terreno Mix",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 420,
+          "crr_watts": 33.5,
+          "why": "Graphene versatility. Mixed-terrain grip with reasonable rolling speed."
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 38
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 38,
+      "pressure_psi": {
+        "140_160lb_dry": "36-40",
+        "140_160lb_mixed": "33-37",
+        "140_160lb_wet": "31-35",
+        "160_180lb_dry": "39-43",
+        "160_180lb_mixed": "36-40",
+        "160_180lb_wet": "34-38",
+        "180_200lb_dry": "42-46",
+        "180_200lb_mixed": "39-43",
+        "180_200lb_wet": "37-41",
+        "200pluslb_dry": "45-49",
+        "200pluslb_mixed": "42-46",
+        "200pluslb_wet": "40-44"
+      }
+    }
   }
 }

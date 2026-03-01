@@ -240,23 +240,23 @@
       },
       "length": {
         "score": 3,
-        "explanation": "Chad Grice's elite performance data shows the course's punishing nature: 5:08:10 finish time at 185W average power, with complete bonking on the second lap where he \"cracked so hard\" at 190W and 10 kph. The distance separates fitness levels decisively—even seasoned racers struggle to maintain power through the full route."
+        "explanation": "Chad Grice's elite performance data shows the course's punishing nature: 5:08:10 finish time at 185W average power, with complete bonking on the second lap where he \"cracked so hard\" at 190W and 10 kph. The distance separates fitness levels decisively—even seasoned racers struggle to maintain power through the full route. Similar distance to Crusher in the Tushar."
       },
       "technicality": {
         "score": 2,
-        "explanation": "The Kapoor main descent features a corner technical enough that multiple riders \"slid one by one\" into the trees in 2025, requiring search and rescue mobilization. Chad Grice specifically ran 2.1-inch tires and a 75mm dropper post for the technical sections, indicating meaningful skill requirements beyond fire road grinding."
+        "explanation": "The Kapoor main descent features a corner technical enough that multiple riders \"slid one by one\" into the trees in 2025, requiring search and rescue mobilization. Chad Grice specifically ran 2.1-inch tires and a 75mm dropper post for the technical sections, indicating meaningful skill requirements beyond fire road grinding. Less technical than The Mid South."
       },
       "elevation": {
         "score": 2,
-        "explanation": "3200 feet over 62 miles averages about 52 feet per mile—respectable but not mountain brutal. The 'decisive climbs' description suggests the elevation is concentrated into meaningful ascents rather than constant grinding. It's enough climbing to matter in the final results without being the defining characteristic of the race."
+        "explanation": "3200 feet over 62 miles averages about 52 feet per mile—respectable but not mountain brutal. The 'decisive climbs' description suggests the elevation is concentrated into meaningful ascents rather than constant grinding. It's enough climbing to matter in the final results without being the defining characteristic of the race. Less climbing than The Mid South."
       },
       "climate": {
         "score": 3,
-        "explanation": "June 14th date hits Vancouver Island's prime weather window—typically dry with moderate temperatures perfect for gravel racing. The coastal Pacific climate means less extreme heat than interior locations but potential for marine weather changes. Cowichan Valley's sheltered position provides more stable conditions than exposed coastal areas."
+        "explanation": "Historical weather data shows average highs of 70°F and lows of 50°F, with a 52% chance of rain on any given day. June 14th date hits Vancouver Island's prime weather window—typically dry with moderate temperatures perfect for gravel racing. The coastal Pacific climate means less extreme heat than interior locations but potential for marine weather changes. Cowichan Valley's sheltered position provides more stable conditions than exposed coastal areas. Similar climate challenges to SBT GRVL."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Vancouver Island terrain keeps riders at sea level with no altitude considerations affecting performance or equipment needs."
+        "explanation": "Vancouver Island terrain keeps riders at sea level with no altitude considerations affecting performance or equipment needs. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 2,
@@ -280,7 +280,7 @@
       },
       "field_depth": {
         "score": 1,
-        "explanation": "Regional Vancouver Island draw limits the talent pool significantly. Even with 2026 Canadian Championships bringing national attention, it's still an island race requiring ferry travel for most serious competitors. The research shows final results exist but zero indication of competitive depth or notable past winners."
+        "explanation": "Regional Vancouver Island draw limits the talent pool significantly. Even with 2026 Canadian Championships bringing national attention, it's still an island race requiring ferry travel for most serious competitors. The research shows final results exist but zero indication of competitive depth or notable past winners. Thinner field than Ouray Gravel Grinder. As Chad Grice puts it: \"When the neutral ended, we rolled along at a fast but not unreasonable pace; however, moments later, when we hit the bottom of the climb and my power numbers went well north of 400w, I knew that I nee...\""
       },
       "value": {
         "score": 4,
@@ -288,7 +288,7 @@
       },
       "expenses": {
         "score": 3,
-        "explanation": "Vancouver Island location means ferry costs and limited lodging options drive up total trip expense. Victoria International Airport access helps for fly-in participants, but you're still looking at island logistics and pricing. The BC setting keeps baseline costs reasonable compared to premium destinations, but geography adds unavoidable transportation overhead."
+        "explanation": "Registration runs $60-100 CAD. Vancouver Island location means ferry costs and limited lodging options drive up total trip expense. Victoria International Airport access helps for fly-in participants, but you're still looking at island logistics and pricing. The BC setting keeps baseline costs reasonable compared to premium destinations, but geography adds unavoidable transportation overhead. Similar expense level to Belgian Waffle Ride San Diego."
       }
     },
     "citations": [
@@ -327,6 +327,74 @@
         "category": "community",
         "label": "bcgravelseries.com: Burntbridgeclassic"
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "vittoria-terreno-wet",
+          "name": "Vittoria Terreno Wet",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 460,
+          "crr_watts": 39.0,
+          "why": "excellent wet grip"
+        },
+        {
+          "rank": 2,
+          "tire_id": "continental-terra-trail",
+          "name": "Continental Terra Trail",
+          "brand": "Continental",
+          "recommended_width_mm": 40,
+          "msrp_usd": 74.99,
+          "weight_grams": 450,
+          "crr_watts": 33.5,
+          "why": "excellent wet grip"
+        },
+        {
+          "rank": 3,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 38,
+          "msrp_usd": 54.99,
+          "weight_grams": 380,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "vittoria-terreno-wet",
+          "name": "Vittoria Terreno Wet",
+          "width_mm": 40
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "wet",
+      "recommended_width_mm": 40,
+      "pressure_psi": {
+        "140_160lb_dry": "35-39",
+        "140_160lb_mixed": "32-36",
+        "140_160lb_wet": "30-34",
+        "160_180lb_dry": "38-42",
+        "160_180lb_mixed": "35-39",
+        "160_180lb_wet": "33-37",
+        "180_200lb_dry": "41-45",
+        "180_200lb_mixed": "38-42",
+        "180_200lb_wet": "36-40",
+        "200pluslb_dry": "44-48",
+        "200pluslb_mixed": "41-45",
+        "200pluslb_wet": "39-43"
+      }
+    }
   }
 }

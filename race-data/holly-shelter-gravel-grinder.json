@@ -258,23 +258,23 @@
       },
       "length": {
         "score": 3,
-        "explanation": "Official long course at 54.7 miles with 32.5-mile short course option provides solid distance choices for different fitness levels. The mass start combines approximately 180 riders across all distances, creating early congestion but manageable overall field management."
+        "explanation": "Official long course at 54.7 miles with 32.5-mile short course option provides solid distance choices for different fitness levels. The mass start combines approximately 180 riders across all distances, creating early congestion but manageable overall field management. Similar distance to Crusher in the Tushar."
       },
       "technicality": {
         "score": 2,
-        "explanation": "Course features 'all types of road surfaces' including gravel roads, dirt roads, and both packed and loose sand roads once you enter Holly Shelter Game Land. Organizers note 'a few wet areas depending on what kind of rain we get before the race' with mud holes considered part of the experience."
+        "explanation": "Course features 'all types of road surfaces' including gravel roads, dirt roads, and both packed and loose sand roads once you enter Holly Shelter Game Land. Organizers note 'a few wet areas depending on what kind of rain we get before the race' with mud holes considered part of the experience. Less technical than The Mid South."
       },
       "elevation": {
         "score": 1,
-        "explanation": "Long course delivers only 293 feet of elevation gain over 54.7 miles, with short course at 192 feet over 32.5 miles. Despite official description of 'moderate terrain with rolling short steep hills,' the numbers confirm this is essentially flat coastal riding."
+        "explanation": "Long course delivers only 293 feet of elevation gain over 54.7 miles, with short course at 192 feet over 32.5 miles. Despite official description of 'moderate terrain with rolling short steep hills,' the numbers confirm this is essentially flat coastal riding. Flatter profile than Croatan Buck Fifty."
       },
       "climate": {
         "score": 2,
-        "explanation": "Late March timing in coastal North Carolina provides variable spring conditions, with course including wet areas and mud holes that depend on pre-race rainfall. The proximity to Atlantic weather patterns creates unpredictable race day conditions for the Holly Shelter Game Land venue."
+        "explanation": "Late March timing in coastal North Carolina provides variable spring conditions, with course including wet areas and mud holes that depend on pre-race rainfall. The proximity to Atlantic weather patterns creates unpredictable race day conditions for the Holly Shelter Game Land venue. More weather exposure than Belgian Waffle Ride San Diego."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Holly Shelter Game Land sits at sea level with minimal elevation variation—the 293 feet of total climbing means you never get meaningfully above starting elevation. Zero altitude considerations for this coastal North Carolina location."
+        "explanation": "Holly Shelter Game Land sits at sea level with minimal elevation variation—the 293 feet of total climbing means you never get meaningfully above starting elevation. Zero altitude considerations for this coastal North Carolina location. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 2,
@@ -298,7 +298,7 @@
       },
       "field_depth": {
         "score": 2,
-        "explanation": "2021 short course results show Josh Bennett winning in 1:45:19 with top 10 spread from 1:45 to 2:09, but field spreads significantly to 4:18 for last finisher. The 180-rider total field suggests decent participation without elite competition depth."
+        "explanation": "2021 short course results show Josh Bennett winning in 1:45:19 with top 10 spread from 1:45 to 2:09, but field spreads significantly to 4:18 for last finisher. The 180-rider total field suggests decent participation without elite competition depth. Less competitive depth than Almanzo 100."
       },
       "value": {
         "score": 3,
@@ -306,7 +306,7 @@
       },
       "expenses": {
         "score": 3,
-        "explanation": "Rocky Point, North Carolina location in rural coastal area should provide reasonable lodging and dining costs compared to resort markets. Race insurance 'strongly encouraged' by organizers, but the non-destination location keeps overall trip expenses manageable for regional participants."
+        "explanation": "Registration runs $60-100. Rocky Point, North Carolina location in rural coastal area should provide reasonable lodging and dining costs compared to resort markets. Race insurance 'strongly encouraged' by organizers, but the non-destination location keeps overall trip expenses manageable for regional participants. Similar expense level to Belgian Waffle Ride San Diego."
       }
     },
     "citations": [
@@ -330,6 +330,74 @@
         "category": "community",
         "label": "webscorer.com: Results"
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 38,
+          "msrp_usd": 54.99,
+          "weight_grams": 380,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 2,
+          "tire_id": "panaracer-gravelking-sk",
+          "name": "Panaracer GravelKing SK",
+          "brand": "Panaracer",
+          "recommended_width_mm": 40,
+          "msrp_usd": 64.9,
+          "weight_grams": 380,
+          "crr_watts": 32.5,
+          "why": "Affordable all-rounder. Light knobs add grip without killing speed."
+        },
+        {
+          "rank": 3,
+          "tire_id": "vittoria-terreno-mix",
+          "name": "Vittoria Terreno Mix",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 420,
+          "crr_watts": 33.5,
+          "why": "Graphene versatility. Mixed-terrain grip with reasonable rolling speed."
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 38
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 38,
+      "pressure_psi": {
+        "140_160lb_dry": "36-40",
+        "140_160lb_mixed": "33-37",
+        "140_160lb_wet": "31-35",
+        "160_180lb_dry": "39-43",
+        "160_180lb_mixed": "36-40",
+        "160_180lb_wet": "34-38",
+        "180_200lb_dry": "42-46",
+        "180_200lb_mixed": "39-43",
+        "180_200lb_wet": "37-41",
+        "200pluslb_dry": "45-49",
+        "200pluslb_mixed": "42-46",
+        "200pluslb_wet": "40-44"
+      }
+    }
   }
 }

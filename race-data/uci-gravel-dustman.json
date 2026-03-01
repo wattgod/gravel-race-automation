@@ -58,23 +58,23 @@
       },
       "length": {
         "score": 3,
-        "explanation": "The 130km course with 840m elevation delivered 4+ hour winning times, with Toki Sawada taking 4:07:52 and Caroline Livesey finishing in 4:50:31. At 81 miles, it's substantial enough to separate contenders without crossing into masochistic territory, though muddy conditions extended race times significantly."
+        "explanation": "The 130km course with 840m elevation delivered 4+ hour winning times, with Toki Sawada taking 4:07:52 and Caroline Livesey finishing in 4:50:31. At 81 miles, it's substantial enough to separate contenders without crossing into masochistic territory, though muddy conditions extended race times significantly. Similar distance to Crusher in the Tushar."
       },
       "technicality": {
         "score": 3,
-        "explanation": "Courses are described as 'challenging' and 'demanding' but with zero specifics about surface breakdown, technical features, or skill requirements. Racing 'in the woods' around historical sites could mean anything from smooth gravel to jungle singletrack."
+        "explanation": "Courses are described as 'challenging' and 'demanding' but with zero specifics about surface breakdown, technical features, or skill requirements. Racing 'in the woods' around historical sites could mean anything from smooth gravel to jungle singletrack. Similar technical demands to Gravel Worlds."
       },
       "elevation": {
         "score": 2,
-        "explanation": "840m over 130km creates rolling terrain rather than concentrated climbing, with the course described as heavily-forested roads through manageable elevation changes. The climbing load didn't define race outcomes - muddy surface conditions and equipment choices mattered more than pure watts-per-kilo in these conditions."
+        "explanation": "840m over 130km creates rolling terrain rather than concentrated climbing, with the course described as heavily-forested roads through manageable elevation changes. The climbing load didn't define race outcomes - muddy surface conditions and equipment choices mattered more than pure watts-per-kilo in these conditions. Less climbing than The Mid South."
       },
       "climate": {
         "score": 3,
-        "explanation": "November in Thailand should offer post-monsoon conditions with manageable heat and humidity, but we have zero historical weather data to confirm this theory. Courses are weather-dependent suggests conditions can turn challenging quickly. Racing in tropical climates is always a gamble - you're either getting perfect shoulder season or getting cooked."
+        "explanation": "Historical weather data shows average highs of 87°F and lows of 73°F, with a 51% chance of rain on any given day. November in Thailand should offer post-monsoon conditions with manageable heat and humidity, but we have zero historical weather data to confirm this theory. Courses are weather-dependent suggests conditions can turn challenging quickly. Racing in tropical climates is always a gamble - you're either getting perfect shoulder season or getting cooked. Similar climate challenges to SBT GRVL."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Kanchanaburi sits at low elevation with negligible altitude impact on performance. The 840m total elevation gain refers to accumulated climbing rather than starting altitude, so no acclimatization concerns for international riders."
+        "explanation": "Kanchanaburi sits at low elevation with negligible altitude impact on performance. The 840m total elevation gain refers to accumulated climbing rather than starting altitude, so no acclimatization concerns for international riders. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 4,
@@ -82,7 +82,7 @@
       },
       "prestige": {
         "score": 3,
-        "explanation": "This is the only UCI Gravel World Series event in all of Asia, which sounds impressive until you realize it's because nobody else wants to deal with the logistics. It's a direct qualifier for the World Championships in Australia, but being the sole representative in a massive continent doesn't automatically make you elite. The UCI rubber stamp is real, but prestige requires more than geographic monopoly."
+        "explanation": "This is the only UCI Gravel World Series event in all of Asia, which sounds impressive until you realize it's because nobody else wants to deal with the logistics. It's a direct qualifier for the World Championships in Australia, but being the sole representative in a massive continent doesn't automatically make you elite. The UCI rubber stamp is real, but prestige requires more than geographic monopoly. As Caroline Livesey puts it: \"This is the first time Thailand has been host to a UCI Gravel World Series race, and when the opportunity came up for me to race I couldn't refuse. I'm so glad I came, it's been a special week.\""
       },
       "race_quality": {
         "score": 2,
@@ -98,7 +98,7 @@
       },
       "field_depth": {
         "score": 2,
-        "explanation": "Being the only UCI qualifier in Asia means you'll get serious riders willing to travel for World Championship points, but the shallow regional gravel talent pool limits true depth. The age-based course divisions (men over 60 and women over 50 on the shorter course) suggest they're manufacturing categories to fill fields. Quality over quantity might work, but we have zero data on who actually shows up."
+        "explanation": "Being the only UCI qualifier in Asia means you'll get serious riders willing to travel for World Championship points, but the shallow regional gravel talent pool limits true depth. The age-based course divisions (men over 60 and women over 50 on the shorter course) suggest they're manufacturing categories to fill fields. Quality over quantity might work, but we have zero data on who actually shows up. Less competitive depth than Almanzo 100."
       },
       "value": {
         "score": 3,
@@ -106,7 +106,7 @@
       },
       "expenses": {
         "score": 2,
-        "explanation": "Getting to Kanchanaburi requires international flights plus domestic connections for most riders, making this an expensive pilgrimage regardless of entry fees. Thailand offers reasonable accommodation and food costs once you're there, but the travel commitment is substantial. For Asian riders it's manageable; for everyone else, this better be worth the carbon footprint."
+        "explanation": "Getting to Kanchanaburi requires international flights plus domestic connections for most riders, making this an expensive pilgrimage regardless of entry fees. Thailand offers reasonable accommodation and food costs once you're there, but the travel commitment is substantial. For Asian riders it's manageable; for everyone else, this better be worth the carbon footprint. Higher total cost than Badlands."
       }
     },
     "final_verdict": {
@@ -157,6 +157,74 @@
     ],
     "history": {
       "founder": "Bike Zone Events"
+    },
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "vittoria-terreno-wet",
+          "name": "Vittoria Terreno Wet",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 460,
+          "crr_watts": 39.0,
+          "why": "excellent wet grip"
+        },
+        {
+          "rank": 2,
+          "tire_id": "schwalbe-g-one-overland",
+          "name": "Schwalbe G-One Overland",
+          "brand": "Schwalbe",
+          "recommended_width_mm": 40,
+          "msrp_usd": 69.9,
+          "weight_grams": 490,
+          "crr_watts": 40.0,
+          "why": "excellent wet grip"
+        },
+        {
+          "rank": 3,
+          "tire_id": "pirelli-cinturato-gravel-s",
+          "name": "Pirelli Cinturato Gravel S",
+          "brand": "Pirelli",
+          "recommended_width_mm": 40,
+          "msrp_usd": 73.99,
+          "weight_grams": 430,
+          "crr_watts": null,
+          "why": "excellent wet grip"
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "vittoria-terreno-wet",
+          "name": "Vittoria Terreno Wet",
+          "width_mm": 40
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "wet",
+      "recommended_width_mm": 40,
+      "pressure_psi": {
+        "140_160lb_dry": "34-38",
+        "140_160lb_mixed": "30-34",
+        "140_160lb_wet": "28-32",
+        "160_180lb_dry": "36-40",
+        "160_180lb_mixed": "34-38",
+        "160_180lb_wet": "32-36",
+        "180_200lb_dry": "40-44",
+        "180_200lb_mixed": "36-40",
+        "180_200lb_wet": "34-38",
+        "200pluslb_dry": "42-46",
+        "200pluslb_mixed": "40-44",
+        "200pluslb_wet": "38-42"
+      }
     }
   }
 }

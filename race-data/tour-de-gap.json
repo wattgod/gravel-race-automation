@@ -258,23 +258,23 @@
       },
       "length": {
         "score": 3,
-        "explanation": "The 100K at 62.5 miles hits solid gravel distance territory with multiple bailout options. Cutoff times give 5.5 hours from start to course closure at 1:00 p.m., creating reasonable pressure without being punitive for the distance."
+        "explanation": "The 100K at 62.5 miles hits solid gravel distance territory with multiple bailout options. Cutoff times give 5.5 hours from start to course closure at 1:00 p.m., creating reasonable pressure without being punitive for the distance. Similar distance to Crusher in the Tushar."
       },
       "technicality": {
         "score": 2,
-        "explanation": "Reever calls it \"a very hilly course--definitely designed for an upright\" after riding recumbent and hitting over 40 mph on descents. The Callahan Divide creates rolling challenge through South Taylor County backroads, but this reads more like power climbing than technical terrain navigation."
+        "explanation": "Reever calls it \"a very hilly course--definitely designed for an upright\" after riding recumbent and hitting over 40 mph on descents. The Callahan Divide creates rolling challenge through South Taylor County backroads, but this reads more like power climbing than technical terrain navigation. Less technical than The Mid South."
       },
       "elevation": {
         "score": 2,
-        "explanation": "The \"challenging hills of the Callahan Divide\" provide enough climbing that reever averaged 18.6 mph in 2015 while winner Oscar Salazar hit 24.47 mph in 2024. The descents allow 40+ mph speeds, indicating meaningful elevation changes without being mountainous."
+        "explanation": "The \"challenging hills of the Callahan Divide\" provide enough climbing that reever averaged 18.6 mph in 2015 while winner Oscar Salazar hit 24.47 mph in 2024. The descents allow 40+ mph speeds, indicating meaningful elevation changes without being mountainous. Less climbing than The Mid South."
       },
       "climate": {
         "score": 2,
-        "explanation": "Late July in central Texas creates the heat challenge that defines this event more than the terrain. The 7:30 a.m. start acknowledges brutal summer conditions, but you're still finishing in Texas midday heat. Weather survival becomes part of the race equation."
+        "explanation": "Historical weather data shows average highs of 91°F and lows of 73°F, with a 68% chance of rain on any given day. Late July in central Texas creates the heat challenge that defines this event more than the terrain. The 7:30 a.m. start acknowledges brutal summer conditions, but you're still finishing in Texas midday heat. Weather survival becomes part of the race equation. More weather exposure than Belgian Waffle Ride San Diego."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Central Texas hill country means sea level elevation with zero altitude impact on performance. Buffalo Gap sits in typical Texas terrain that won't affect anyone's breathing or pacing strategies."
+        "explanation": "Central Texas hill country means sea level elevation with zero altitude impact on performance. Buffalo Gap sits in typical Texas terrain that won't affect anyone's breathing or pacing strategies. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 2,
@@ -298,7 +298,7 @@
       },
       "field_depth": {
         "score": 2,
-        "explanation": "Reever finished 30th overall and 8th in his 50-59 age group in 2015, while 2024 winner Oscar Salazar averaged 24.47 mph over 62.5 hilly miles. Solid regional racing depth with age group prizes, but the generous cutoffs indicate recreational participation focus."
+        "explanation": "Reever finished 30th overall and 8th in his 50-59 age group in 2015, while 2024 winner Oscar Salazar averaged 24.47 mph over 62.5 hilly miles. Solid regional racing depth with age group prizes, but the generous cutoffs indicate recreational participation focus. Less competitive depth than Almanzo 100."
       },
       "value": {
         "score": 3,
@@ -306,7 +306,7 @@
       },
       "expenses": {
         "score": 3,
-        "explanation": "Buffalo Gap sits 13 miles from Abilene for lodging access, with small-town Texas typically offering reasonable accommodation costs. The suggestion to visit Abilene Zoo indicates affordable family weekend options, keeping total trip expenses manageable for a Texas location."
+        "explanation": "Registration runs $60-100. Buffalo Gap sits 13 miles from Abilene for lodging access, with small-town Texas typically offering reasonable accommodation costs. The suggestion to visit Abilene Zoo indicates affordable family weekend options, keeping total trip expenses manageable for a Texas location. Similar expense level to Belgian Waffle Ride San Diego."
       }
     },
     "citations": [
@@ -350,6 +350,74 @@
         "category": "community",
         "label": "wheelbrothers.com: Tour De Gap"
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "vittoria-terreno-wet",
+          "name": "Vittoria Terreno Wet",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 460,
+          "crr_watts": 39.0,
+          "why": "excellent wet grip"
+        },
+        {
+          "rank": 2,
+          "tire_id": "continental-terra-trail",
+          "name": "Continental Terra Trail",
+          "brand": "Continental",
+          "recommended_width_mm": 40,
+          "msrp_usd": 74.99,
+          "weight_grams": 450,
+          "crr_watts": 33.5,
+          "why": "excellent wet grip"
+        },
+        {
+          "rank": 3,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 38,
+          "msrp_usd": 54.99,
+          "weight_grams": 380,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "vittoria-terreno-wet",
+          "name": "Vittoria Terreno Wet",
+          "width_mm": 40
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "wet",
+      "recommended_width_mm": 40,
+      "pressure_psi": {
+        "140_160lb_dry": "35-39",
+        "140_160lb_mixed": "32-36",
+        "140_160lb_wet": "30-34",
+        "160_180lb_dry": "38-42",
+        "160_180lb_mixed": "35-39",
+        "160_180lb_wet": "33-37",
+        "180_200lb_dry": "41-45",
+        "180_200lb_mixed": "38-42",
+        "180_200lb_wet": "36-40",
+        "200pluslb_dry": "44-48",
+        "200pluslb_mixed": "41-45",
+        "200pluslb_wet": "39-43"
+      }
+    }
   }
 }

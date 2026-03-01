@@ -249,23 +249,23 @@
       },
       "length": {
         "score": 3,
-        "explanation": "The TTT 103 offers a proper century-length challenge with resupply in Tripoli at mile 77 and lunch available in Ogema at mile 52. The Willow 63 requires complete self-support with no resupply points along its route."
+        "explanation": "The TTT 103 offers a proper century-length challenge with resupply in Tripoli at mile 77 and lunch available in Ogema at mile 52. The Willow 63 requires complete self-support with no resupply points along its route. Similar distance to Crusher in the Tushar."
       },
       "technicality": {
         "score": 2,
-        "explanation": "The course features 74% gravel through Lincoln, Taylor, and Oneida County Forests with numerous bridges over waterways. Rail-to-trails sections on Mountain-Bay, Hiawatha, and Wiouwash Trails contain many boardwalks rather than challenging technical terrain."
+        "explanation": "The course features 74% gravel through Lincoln, Taylor, and Oneida County Forests with numerous bridges over waterways. Rail-to-trails sections on Mountain-Bay, Hiawatha, and Wiouwash Trails contain many boardwalks rather than challenging technical terrain. Less technical than The Mid South."
       },
       "elevation": {
         "score": 2,
-        "explanation": "The signature climb reaches Timm's Hill at mile 60, Wisconsin's highest point at 1,951 feet. The 3,000 feet of total elevation gain over the course distance provides moderate climbing without mountain-level challenges."
+        "explanation": "The signature climb reaches Timm's Hill at mile 60, Wisconsin's highest point at 1,951 feet. The 3,000 feet of total elevation gain over the course distance provides moderate climbing without mountain-level challenges. Less climbing than The Mid South."
       },
       "climate": {
         "score": 2,
-        "explanation": "June conditions in northern Wisconsin present variable weather possibilities, but no historical race weather data is available from the research. The event had a hiatus in 2020-2021, limiting weather pattern documentation."
+        "explanation": "Historical weather data shows average highs of 76°F and lows of 58°F, with a 53% chance of rain on any given day. June conditions in northern Wisconsin present variable weather possibilities, but no historical race weather data is available from the research. The event had a hiatus in 2020-2021, limiting weather pattern documentation. More weather exposure than Belgian Waffle Ride San Diego."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Timm's Hill at 1,951 feet represents Wisconsin's highest elevation, which poses zero altitude concerns. The course runs through northern Wisconsin forests at modest elevations throughout."
+        "explanation": "Timm's Hill at 1,951 feet represents Wisconsin's highest elevation, which poses zero altitude concerns. The course runs through northern Wisconsin forests at modest elevations throughout. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 2,
@@ -289,7 +289,7 @@
       },
       "field_depth": {
         "score": 1,
-        "explanation": "The event actively courts beginners with multiple shorter route options and focuses on accessibility over competition. No past winners or competitive talent depth is documented in the available research."
+        "explanation": "With a field of 100-250 riders, the event actively courts beginners with multiple shorter route options and focuses on accessibility over competition. No past winners or competitive talent depth is documented in the available research. Thinner field than Ouray Gravel Grinder."
       },
       "value": {
         "score": 4,
@@ -297,7 +297,7 @@
       },
       "expenses": {
         "score": 4,
-        "explanation": "Free entry eliminates the primary race expense, with SARA Park camping providing affordable lodging. Riders only pay for travel costs and whatever food they purchase in Tripoli during the resupply stop."
+        "explanation": "Registration runs $60-90. Free entry eliminates the primary race expense, with SARA Park camping providing affordable lodging. Riders only pay for travel costs and whatever food they purchase in Tripoli during the resupply stop. More affordable than Crusher in the Tushar."
       }
     },
     "citations": [
@@ -311,6 +311,74 @@
         "category": "community",
         "label": "silentsportsmagazine.com: Ironbull Brings More Free Gravel Riding To North Central ..."
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "vittoria-terreno-wet",
+          "name": "Vittoria Terreno Wet",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 460,
+          "crr_watts": 39.0,
+          "why": "excellent wet grip"
+        },
+        {
+          "rank": 2,
+          "tire_id": "continental-terra-trail",
+          "name": "Continental Terra Trail",
+          "brand": "Continental",
+          "recommended_width_mm": 40,
+          "msrp_usd": 74.99,
+          "weight_grams": 450,
+          "crr_watts": 33.5,
+          "why": "excellent wet grip"
+        },
+        {
+          "rank": 3,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 38,
+          "msrp_usd": 54.99,
+          "weight_grams": 380,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "vittoria-terreno-wet",
+          "name": "Vittoria Terreno Wet",
+          "width_mm": 40
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "wet",
+      "recommended_width_mm": 40,
+      "pressure_psi": {
+        "140_160lb_dry": "35-39",
+        "140_160lb_mixed": "32-36",
+        "140_160lb_wet": "30-34",
+        "160_180lb_dry": "38-42",
+        "160_180lb_mixed": "35-39",
+        "160_180lb_wet": "33-37",
+        "180_200lb_dry": "41-45",
+        "180_200lb_mixed": "38-42",
+        "180_200lb_wet": "36-40",
+        "200pluslb_dry": "44-48",
+        "200pluslb_mixed": "41-45",
+        "200pluslb_wet": "39-43"
+      }
+    }
   }
 }

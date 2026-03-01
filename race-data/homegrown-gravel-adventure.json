@@ -258,23 +258,23 @@
       },
       "length": {
         "score": 3,
-        "explanation": "The 100-mile option delivers 8,700 feet of climbing across Georgia and Alabama. Jason Lopez called his effort \"quite pleased with my race performance\" despite 7,500 feet of climbing over nearly six hours. Four distance options from 20 to 100 miles let riders pick their suffering level appropriately."
+        "explanation": "The 100-mile option delivers 8,700 feet of climbing across Georgia and Alabama. Jason Lopez called his effort \"quite pleased with my race performance\" despite 7,500 feet of climbing over nearly six hours. Four distance options from 20 to 100 miles let riders pick their suffering level appropriately. Similar distance to Crusher in the Tushar."
       },
       "technicality": {
         "score": 2,
-        "explanation": "The course features a 23% grade section and \"gravel with random chunks that could cause a pinch flat if hit wrong\" according to Jason Lopez. Creek crossings and sketchy bridge crossings add complexity, while sand sections \"can definitely catch you out\" per rider warnings. Technical descents lack Strava segments because they're too gnarly to map."
+        "explanation": "The course features a 23% grade section and \"gravel with random chunks that could cause a pinch flat if hit wrong\" according to Jason Lopez. Creek crossings and sketchy bridge crossings add complexity, while sand sections \"can definitely catch you out\" per rider warnings. Technical descents lack Strava segments because they're too gnarly to map. Less technical than The Mid South."
       },
       "elevation": {
         "score": 2,
-        "explanation": "8,700 feet over 100 miles creates sustained climbing across two states, with the course featuring \"quite a bit of climbing\" and fast technical descents per Jason Lopez. Elite men's racing stayed controlled early with \"riders mindful of the grueling course ahead\" before splintering by mile 30. The climbing is relentless but not Alpine-severe."
+        "explanation": "8,700 feet over 100 miles creates sustained climbing across two states, with the course featuring \"quite a bit of climbing\" and fast technical descents per Jason Lopez. Elite men's racing stayed controlled early with \"riders mindful of the grueling course ahead\" before splintering by mile 30. The climbing is relentless but not Alpine-severe. Less climbing than The Mid South."
       },
       "climate": {
         "score": 2,
-        "explanation": "February temperatures plunged to mid-20s°F at start, climbing to 50s°F by day in 2025 after seven inches of rain the previous week. Jason Lopez noted the 38°F to 60°F swing \"made it a bit tough to dress for.\" One rider emphasized: \"Be prepared for ANY weather\" including full winter conditions."
+        "explanation": "February temperatures plunged to mid-20s°F at start, climbing to 50s°F by day in 2025 after seven inches of rain the previous week. Jason Lopez noted the 38°F to 60°F swing \"made it a bit tough to dress for.\" One rider emphasized: \"Be prepared for ANY weather\" including full winter conditions. More weather exposure than Belgian Waffle Ride San Diego."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Georgia piedmont terrain means sea-level elevation with zero impact on racing. The 8,700 feet referenced is elevation gain, not altitude above sea level. Andrew L'Esperance came straight from Quebec's eight feet of snow to perfect breathing conditions in Franklin's rolling hills."
+        "explanation": "Georgia piedmont terrain means sea-level elevation with zero impact on racing. The 8,700 feet referenced is elevation gain, not altitude above sea level. Andrew L'Esperance came straight from Quebec's eight feet of snow to perfect breathing conditions in Franklin's rolling hills. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 2,
@@ -298,7 +298,7 @@
       },
       "field_depth": {
         "score": 2,
-        "explanation": "524 registered riders from 17 states in 2025 with 25 women in the elite field. The $10,000 prize purse attracts heavy hitters like De Crescenzo and Garrison annually. Andrew L'Esperance made this only his second outdoor ride of 2025, showing it draws talent for early-season fitness testing despite the remote location."
+        "explanation": "524 registered riders from 17 states in 2025 with 25 women in the elite field. The $10,000 prize purse attracts heavy hitters like De Crescenzo and Garrison annually. Andrew L'Esperance made this only his second outdoor ride of 2025, showing it draws talent for early-season fitness testing despite the remote location. Less competitive depth than Almanzo 100. As Jason Lopez puts it: \"I am quite pleased with my race performance in the 2024 Border Wars Gravel, I finished 11th in my category, even with 7500 ft of climbing. My average speed was 16.\""
       },
       "value": {
         "score": 3,
@@ -306,7 +306,7 @@
       },
       "expenses": {
         "score": 3,
-        "explanation": "Franklin offers one great Mexican restaurant (Del Rio with \"massive margaritas\"), free public restrooms by the police station, and small-town pricing. Community park camping keeps costs minimal while being one hour from Atlanta's airport. The downtown takeover atmosphere comes without destination race pricing premiums."
+        "explanation": "Registration runs $60-100. Franklin offers one great Mexican restaurant (Del Rio with \"massive margaritas\"), free public restrooms by the police station, and small-town pricing. Community park camping keeps costs minimal while being one hour from Atlanta's airport. The downtown takeover atmosphere comes without destination race pricing premiums. Similar expense level to Belgian Waffle Ride San Diego."
       }
     },
     "citations": [
@@ -350,6 +350,74 @@
         "category": "community",
         "label": "granfondoguide.com: 8309"
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 38,
+          "msrp_usd": 54.99,
+          "weight_grams": 380,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 2,
+          "tire_id": "panaracer-gravelking-sk",
+          "name": "Panaracer GravelKing SK",
+          "brand": "Panaracer",
+          "recommended_width_mm": 40,
+          "msrp_usd": 64.9,
+          "weight_grams": 380,
+          "crr_watts": 32.5,
+          "why": "Affordable all-rounder. Light knobs add grip without killing speed."
+        },
+        {
+          "rank": 3,
+          "tire_id": "vittoria-terreno-mix",
+          "name": "Vittoria Terreno Mix",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 420,
+          "crr_watts": 33.5,
+          "why": "Graphene versatility. Mixed-terrain grip with reasonable rolling speed."
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 38
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 38,
+      "pressure_psi": {
+        "140_160lb_dry": "36-40",
+        "140_160lb_mixed": "33-37",
+        "140_160lb_wet": "31-35",
+        "160_180lb_dry": "39-43",
+        "160_180lb_mixed": "36-40",
+        "160_180lb_wet": "34-38",
+        "180_200lb_dry": "42-46",
+        "180_200lb_mixed": "39-43",
+        "180_200lb_wet": "37-41",
+        "200pluslb_dry": "45-49",
+        "200pluslb_mixed": "42-46",
+        "200pluslb_wet": "40-44"
+      }
+    }
   }
 }

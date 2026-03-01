@@ -263,23 +263,23 @@
       },
       "length": {
         "score": 3,
-        "explanation": "Four distance options from 22 to 120.5 miles accommodate different abilities, with time estimates ranging from 'under 2 hours' for the Pleasant Valley Loop to '8-12 hours' for the Ruby Loop. Elite locals completed the long course 'in just over 8 hours moving time while training for the Nevada State 508.'"
+        "explanation": "Four distance options from 22 to 120.5 miles accommodate different abilities, with time estimates ranging from 'under 2 hours' for the Pleasant Valley Loop to '8-12 hours' for the Ruby Loop. Elite locals completed the long course 'in just over 8 hours moving time while training for the Nevada State 508.' Similar distance to Crusher in the Tushar. As Elite-level reference [UNKNOWN LEVEL] puts it: \"A couple of local riders completed the long course in just over 8 hours moving time while training for the Nevada State 508 (which they won in the 2-person category)\""
       },
       "technicality": {
         "score": 2,
-        "explanation": "Course conditions span 'well compacted dirt, washboards, loose sand-gravel, some areas of well compacted rocky road' with 'several significant segments with energy-sucking loose sand-gravel.' Organizers warn that 'anything less than a 35mm tire will result in a lot of bad words and a very long day.'"
+        "explanation": "Course conditions span 'well compacted dirt, washboards, loose sand-gravel, some areas of well compacted rocky road' with 'several significant segments with energy-sucking loose sand-gravel.' Organizers warn that 'anything less than a 35mm tire will result in a lot of bad words and a very long day.' Less technical than The Mid South."
       },
       "elevation": {
         "score": 4,
-        "explanation": "The Harrison Pass descent features 'the steepest downhill grades (up to 10%) on a twisting gravel road with choppy washboards and loose gravel.' Secret Pass and Ruby Valley climbs create challenging elevation profiles through northern Nevada's high desert terrain at the base of the Ruby Mountains."
+        "explanation": "The Harrison Pass descent features 'the steepest downhill grades (up to 10%) on a twisting gravel road with choppy washboards and loose gravel.' Secret Pass and Ruby Valley climbs create challenging elevation profiles through northern Nevada's high desert terrain at the base of the Ruby Mountains. More climbing than SBT GRVL at the same score."
       },
       "climate": {
         "score": 3,
-        "explanation": "Late June conditions range from 40-60°F starts to afternoon highs in the 80s-90s, with typical SSW winds that 'can be any direction.' Organizers note the weather variability: 'It can be hotter, and it is not unknown to be snowing on the summer solstice.'"
+        "explanation": "Late June conditions range from 40-60°F starts to afternoon highs in the 80s-90s, with typical SSW winds that 'can be any direction.' Organizers note the weather variability: 'It can be hotter, and it is not unknown to be snowing on the summer solstice.' Similar climate challenges to SBT GRVL."
       },
       "altitude": {
         "score": 4,
-        "explanation": "Lamoille sits at the base of the Ruby Mountains with routes climbing through Secret Pass and Harrison Pass summits. The high desert altitude compounds difficulty across the vast expanses of lightly traveled roads through Ruby Valley and Pleasant Valley terrain."
+        "explanation": "Lamoille sits at the base of the Ruby Mountains with routes climbing through Secret Pass and Harrison Pass summits. The high desert altitude compounds difficulty across the vast expanses of lightly traveled roads through Ruby Valley and Pleasant Valley terrain. Higher altitude racing, comparable to SBT GRVL."
       },
       "adventure": {
         "score": 4,
@@ -303,7 +303,7 @@
       },
       "field_depth": {
         "score": 1,
-        "explanation": "Results show local winners like Jared Kosanovic and Mark Freedle across distance categories, with E-bike divisions alongside traditional timing. Mcschne10's first-race excitement and the recreational-focused fondo format indicate community participation over competitive depth."
+        "explanation": "Results show local winners like Jared Kosanovic and Mark Freedle across distance categories, with E-bike divisions alongside traditional timing. Mcschne10's first-race excitement and the recreational-focused fondo format indicate community participation over competitive depth. Thinner field than Ouray Gravel Grinder."
       },
       "value": {
         "score": 4,
@@ -311,7 +311,7 @@
       },
       "expenses": {
         "score": 4,
-        "explanation": "Elko area lodging avoids major city pricing, with camping options at Thomas Canyon Campground or dispersed sites in Lamoille Canyon. Remote location limits race weekend inflation, though riders need tubeless setups and self-sufficiency gear for the challenging loose gravel segments."
+        "explanation": "Registration runs $60-90. Elko area lodging avoids major city pricing, with camping options at Thomas Canyon Campground or dispersed sites in Lamoille Canyon. Remote location limits race weekend inflation, though riders need tubeless setups and self-sufficiency gear for the challenging loose gravel segments. More affordable than Crusher in the Tushar."
       }
     },
     "unsplash_photos": [
@@ -389,6 +389,74 @@
         "category": "community",
         "label": "elkodaily.com: Article 2C987F8E F0E4 4063 9952 646213A00873.Html"
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 38,
+          "msrp_usd": 54.99,
+          "weight_grams": 380,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 2,
+          "tire_id": "vittoria-terreno-mix",
+          "name": "Vittoria Terreno Mix",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 420,
+          "crr_watts": 33.5,
+          "why": "Graphene versatility. Mixed-terrain grip with reasonable rolling speed."
+        },
+        {
+          "rank": 3,
+          "tire_id": "continental-terra-trail",
+          "name": "Continental Terra Trail",
+          "brand": "Continental",
+          "recommended_width_mm": 40,
+          "msrp_usd": 74.99,
+          "weight_grams": 450,
+          "crr_watts": 33.5,
+          "why": "excellent wet grip"
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 38
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 38,
+      "pressure_psi": {
+        "140_160lb_dry": "36-40",
+        "140_160lb_mixed": "33-37",
+        "140_160lb_wet": "31-35",
+        "160_180lb_dry": "39-43",
+        "160_180lb_mixed": "36-40",
+        "160_180lb_wet": "34-38",
+        "180_200lb_dry": "42-46",
+        "180_200lb_mixed": "39-43",
+        "180_200lb_wet": "37-41",
+        "200pluslb_dry": "45-49",
+        "200pluslb_mixed": "42-46",
+        "200pluslb_wet": "40-44"
+      }
+    }
   }
 }

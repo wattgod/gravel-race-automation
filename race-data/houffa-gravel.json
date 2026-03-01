@@ -258,23 +258,23 @@
       },
       "length": {
         "score": 3,
-        "explanation": "Ben Thomas described how \"The first lap was savage, I clung to the leaders until five of them edged away\" before being swept into a twenty-rider group. Three 47km laps create tactical depth where early aggression gets punished - Thomas noted \"I was paying for all the work I'd done in the first two laps\" when fresh legs attacked on lap three."
+        "explanation": "Ben Thomas described how \"The first lap was savage, I clung to the leaders until five of them edged away\" before being swept into a twenty-rider group. Three 47km laps create tactical depth where early aggression gets punished - Thomas noted \"I was paying for all the work I'd done in the first two laps\" when fresh legs attacked on lap three. Similar distance to Crusher in the Tushar."
       },
       "technicality": {
         "score": 2,
-        "explanation": "The 2025 redesign specifically included \"fewer technical downhills but was still challenging,\" suggesting the original version wasn't pushing limits. Ben Thomas mentioned \"rocky singletrack\" sections, but his confidence that \"my descending was on fire\" with 55mm tires and a suspension fork indicates manageable technical demands for prepared riders."
+        "explanation": "The 2025 redesign specifically included \"fewer technical downhills but was still challenging,\" suggesting the original version wasn't pushing limits. Ben Thomas mentioned \"rocky singletrack\" sections, but his confidence that \"my descending was on fire\" with 55mm tires and a suspension fork indicates manageable technical demands for prepared riders. Less technical than The Mid South."
       },
       "elevation": {
         "score": 3,
-        "explanation": "The Côte du Saint Roch hits immediately with 506 watts needed \"for just over 3 minutes to crest the 0.8km hill with an average gradient of 12.4%.\" Ben Thomas noted the race \"is already in bits\" after this opening climb. 700m per lap totaling 2,100m creates cumulative damage through rolling Ardennes terrain."
+        "explanation": "The Côte du Saint Roch hits immediately with 506 watts needed \"for just over 3 minutes to crest the 0.8km hill with an average gradient of 12.4%.\" Ben Thomas noted the race \"is already in bits\" after this opening climb. 700m per lap totaling 2,100m creates cumulative damage through rolling Ardennes terrain. Similar elevation profile to Gravel Worlds."
       },
       "climate": {
         "score": 3,
-        "explanation": "Late August in the Belgian Ardennes means you avoid the spring mud season and summer heat waves that can destroy European races. Weather's typically cooperative without being boring, and you're not dealing with altitude or extreme temperature swings. The research lacks specific weather horror stories, which in Belgium usually means conditions stay rideable rather than epic."
+        "explanation": "Late August in the Belgian Ardennes means you avoid the spring mud season and summer heat waves that can destroy European races. Weather's typically cooperative without being boring, and you're not dealing with altitude or extreme temperature swings. The research lacks specific weather horror stories, which in Belgium usually means conditions stay rideable rather than epic. Similar climate challenges to SBT GRVL."
       },
       "altitude": {
         "score": 1,
-        "explanation": "This is the Belgian Ardennes, not the Alps. You're talking rolling hills and river valleys where the biggest physiological challenge is lactate buildup, not oxygen debt. Sea level fitness translates directly with zero acclimatization concerns. If altitude is part of your race selection criteria, you're looking at the wrong continent."
+        "explanation": "This is the Belgian Ardennes, not the Alps. You're talking rolling hills and river valleys where the biggest physiological challenge is lactate buildup, not oxygen debt. Sea level fitness translates directly with zero acclimatization concerns. If altitude is part of your race selection criteria, you're looking at the wrong continent. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 2,
@@ -298,7 +298,7 @@
       },
       "field_depth": {
         "score": 2,
-        "explanation": "It's a regional qualifier that happens to have UCI backing, not a destination race that pulls international talent. The top 25% qualification rate suggests they're not drowning in elite depth - compare that to races where making the top 10% is an achievement. No mention of notable winners or standout performances means you're racing weekend warriors with good engines, not future world champions."
+        "explanation": "It's a regional qualifier that happens to have UCI backing, not a destination race that pulls international talent. The top 25% qualification rate suggests they're not drowning in elite depth - compare that to races where making the top 10% is an achievement. No mention of notable winners or standout performances means you're racing weekend warriors with good engines, not future world champions. Less competitive depth than Almanzo 100. As Ben Thomas puts it: \"By lap three all the people who'd saved their energy and still had fresh legs came to the front and whacked it on the front! The pace went nuclear.\""
       },
       "value": {
         "score": 3,
@@ -306,7 +306,7 @@
       },
       "expenses": {
         "score": 2,
-        "explanation": "Belgium in August means peak tourist season pricing in a region that caters to cycling tourism year-round. No specific airport mentioned, but you're looking at Brussels or maybe Luxembourg connections, then ground transport to the Ardennes. Houffalize isn't overflowing with budget accommodations, and being a mountain bike capital means everything's priced for cycling tourists with money."
+        "explanation": "Registration runs €60-100. Belgium in August means peak tourist season pricing in a region that caters to cycling tourism year-round. No specific airport mentioned, but you're looking at Brussels or maybe Luxembourg connections, then ground transport to the Ardennes. Houffalize isn't overflowing with budget accommodations, and being a mountain bike capital means everything's priced for cycling tourists with money. Higher total cost than Badlands."
       }
     },
     "citations": [
@@ -360,6 +360,74 @@
         "category": "community",
         "label": "ucigravelworldseries.com: Houffa Gravel For Wurtz Schmid And Frain"
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 38,
+          "msrp_usd": 54.99,
+          "weight_grams": 380,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 2,
+          "tire_id": "panaracer-gravelking-sk",
+          "name": "Panaracer GravelKing SK",
+          "brand": "Panaracer",
+          "recommended_width_mm": 40,
+          "msrp_usd": 64.9,
+          "weight_grams": 380,
+          "crr_watts": 32.5,
+          "why": "Affordable all-rounder. Light knobs add grip without killing speed."
+        },
+        {
+          "rank": 3,
+          "tire_id": "vittoria-terreno-mix",
+          "name": "Vittoria Terreno Mix",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 420,
+          "crr_watts": 33.5,
+          "why": "Graphene versatility. Mixed-terrain grip with reasonable rolling speed."
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 38
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 38,
+      "pressure_psi": {
+        "140_160lb_dry": "36-40",
+        "140_160lb_mixed": "33-37",
+        "140_160lb_wet": "31-35",
+        "160_180lb_dry": "39-43",
+        "160_180lb_mixed": "36-40",
+        "160_180lb_wet": "34-38",
+        "180_200lb_dry": "42-46",
+        "180_200lb_mixed": "39-43",
+        "180_200lb_wet": "37-41",
+        "200pluslb_dry": "45-49",
+        "200pluslb_mixed": "42-46",
+        "200pluslb_wet": "40-44"
+      }
+    }
   }
 }

@@ -265,23 +265,23 @@
       },
       "length": {
         "score": 3,
-        "explanation": "The 90km gravel course with 1250m climbing hits endurance territory without extreme suffering. Course designers note it's 'a more widely achievable' distance compared to their 100km MTB option, with a noon cutoff at Woondum National Park providing reasonable time limits for varied fitness levels."
+        "explanation": "The 90km gravel course with 1250m climbing hits endurance territory without extreme suffering. Course designers note it's 'a more widely achievable' distance compared to their 100km MTB option, with a noon cutoff at Woondum National Park providing reasonable time limits for varied fitness levels. Similar distance to Crusher in the Tushar."
       },
       "technicality": {
         "score": 3,
-        "explanation": "The course is '20% single track, 50% forest road, 30% bitumen' with varied surfaces including 'pitted fields, rocky sections, rapid downhills and some very technical sections.' Organizers removed 'a few of the most difficult trail sections' to create 'a course that you should be able to ride around with no dismount sections required.'"
+        "explanation": "The course is '20% single track, 50% forest road, 30% bitumen' with varied surfaces including 'pitted fields, rocky sections, rapid downhills and some very technical sections.' Organizers removed 'a few of the most difficult trail sections' to create 'a course that you should be able to ride around with no dismount sections required.' Similar technical demands to Gravel Worlds."
       },
       "elevation": {
         "score": 4,
-        "explanation": "The signature challenge is the 6km climb up Mother Mountain, described as one of 'the most challenging climbs at Mt Tinbeerwah, Sheppersons Hill and Cooran Tablelands Range.' With 1250m total elevation and front-loaded climbing, it creates decisive early separation before easier terrain home."
+        "explanation": "The signature challenge is the 6km climb up Mother Mountain, described as one of 'the most challenging climbs at Mt Tinbeerwah, Sheppersons Hill and Cooran Tablelands Range.' With 1250m total elevation and front-loaded climbing, it creates decisive early separation before easier terrain home. More climbing than SBT GRVL at the same score."
       },
       "climate": {
         "score": 2,
-        "explanation": "July in Queensland hinterland means cool, dry winter conditions - pleasant for riding but hardly inspiring. You're looking at mild temperatures that won't create memorable stories about heat survival or weather battles. Safe, predictable conditions that won't add drama to your day."
+        "explanation": "July in Queensland hinterland means cool, dry winter conditions - pleasant for riding but hardly inspiring. You're looking at mild temperatures that won't create memorable stories about heat survival or weather battles. Safe, predictable conditions that won't add drama to your day. More weather exposure than Belgian Waffle Ride San Diego."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Noosa Hinterland maxes out around 500 meters above sea level - basically nothing for altitude considerations. Starting near sea level and climbing to low hills means zero physiological challenge from thin air."
+        "explanation": "Noosa Hinterland maxes out around 500 meters above sea level - basically nothing for altitude considerations. Starting near sea level and climbing to low hills means zero physiological challenge from thin air. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 3,
@@ -305,7 +305,7 @@
       },
       "field_depth": {
         "score": 2,
-        "explanation": "Course options range from 30km 'suitable for any ability' to elite-level challenges, but the non-competitive format with 'no prizes given' attracts participation-focused riders. The 100km MTB course 'can take even the most experienced riders up to ten hours,' suggesting the serious athletes choose that over gravel."
+        "explanation": "Course options range from 30km 'suitable for any ability' to elite-level challenges, but the non-competitive format with 'no prizes given' attracts participation-focused riders. The 100km MTB course 'can take even the most experienced riders up to ten hours,' suggesting the serious athletes choose that over gravel. Less competitive depth than Almanzo 100."
       },
       "value": {
         "score": 3,
@@ -313,7 +313,7 @@
       },
       "expenses": {
         "score": 3,
-        "explanation": "Noosa in July means peak tourist season pricing for accommodation, though winter rates beat summer madness. The Sunshine Coast location keeps flights reasonable compared to remote Australian destinations. Entry fee includes AusCycling membership if needed, but expect typical resort town markups on food and lodging around the famous beach destination."
+        "explanation": "Registration runs $80-130 AUD. Noosa in July means peak tourist season pricing for accommodation, though winter rates beat summer madness. The Sunshine Coast location keeps flights reasonable compared to remote Australian destinations. Entry fee includes AusCycling membership if needed, but expect typical resort town markups on food and lodging around the famous beach destination. Similar expense level to Belgian Waffle Ride San Diego."
       }
     },
     "citations": [
@@ -362,6 +362,74 @@
         "category": "community",
         "label": "bicyclingaustralia.com.au: Australias Gravel Boom Adventure Not Just Racing"
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "schwalbe-g-one-bite",
+          "name": "Schwalbe G-One Bite",
+          "brand": "Schwalbe",
+          "recommended_width_mm": 40,
+          "msrp_usd": 69.9,
+          "weight_grams": 480,
+          "crr_watts": 38.0,
+          "why": "excellent wet grip"
+        },
+        {
+          "rank": 2,
+          "tire_id": "maxxis-reaver",
+          "name": "Maxxis Reaver",
+          "brand": "Maxxis",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 460,
+          "crr_watts": 35.0,
+          "why": "Technical all-rounder. EXO+ casing shrugs off rocks and roots."
+        },
+        {
+          "rank": 3,
+          "tire_id": "pirelli-cinturato-gravel-s",
+          "name": "Pirelli Cinturato Gravel S",
+          "brand": "Pirelli",
+          "recommended_width_mm": 40,
+          "msrp_usd": 73.99,
+          "weight_grams": 430,
+          "crr_watts": null,
+          "why": "excellent wet grip"
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "schwalbe-g-one-bite",
+          "name": "Schwalbe G-One Bite",
+          "width_mm": 40
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "technical",
+      "recommended_width_mm": 40,
+      "pressure_psi": {
+        "140_160lb_dry": "34-38",
+        "140_160lb_mixed": "30-34",
+        "140_160lb_wet": "28-32",
+        "160_180lb_dry": "36-40",
+        "160_180lb_mixed": "34-38",
+        "160_180lb_wet": "32-36",
+        "180_200lb_dry": "40-44",
+        "180_200lb_mixed": "36-40",
+        "180_200lb_wet": "34-38",
+        "200pluslb_dry": "42-46",
+        "200pluslb_mixed": "40-44",
+        "200pluslb_wet": "38-42"
+      }
+    }
   }
 }

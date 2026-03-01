@@ -258,23 +258,23 @@
       },
       "length": {
         "score": 3,
-        "explanation": "65 miles hits the sweet spot for weekend warriors - long enough to matter, short enough to finish before dark. Not the suffer-fest distance that separates pretenders from contenders, but respectable middle ground."
+        "explanation": "65 miles hits the sweet spot for weekend warriors - long enough to matter, short enough to finish before dark. Not the suffer-fest distance that separates pretenders from contenders, but respectable middle ground. Similar distance to Crusher in the Tushar."
       },
       "technicality": {
         "score": 3,
-        "explanation": "Paris Mountain features two distinct climbing approaches - Old Buncome at 2.17 miles and State Park Road at 3.69 miles. The terrain offers \"two steep pitches\" with grades reaching 10% at the summit and \"a few switch backs\" on the descent."
+        "explanation": "Paris Mountain features two distinct climbing approaches - Old Buncome at 2.17 miles and State Park Road at 3.69 miles. The terrain offers \"two steep pitches\" with grades reaching 10% at the summit and \"a few switch backs\" on the descent. Similar technical demands to Gravel Worlds."
       },
       "elevation": {
         "score": 4,
-        "explanation": "5000 feet over 65 miles delivers serious climbing at 77 feet per mile. Paris Mountain alone gains 1,565 feet from Old Buncome side, with the climb averaging \"6% but there are only two steep pitches\" including a final 10% grade to the summit."
+        "explanation": "5000 feet over 65 miles delivers serious climbing at 77 feet per mile. Paris Mountain alone gains 1,565 feet from Old Buncome side, with the climb averaging \"6% but there are only two steep pitches\" including a final 10% grade to the summit. More climbing than SBT GRVL at the same score."
       },
       "climate": {
         "score": 2,
-        "explanation": "South Carolina humidity turns any effort into a sweat lodge experience. Summer heat makes racing miserable, winter brings unpredictable ice storms, spring delivers pollen apocalypse."
+        "explanation": "South Carolina humidity turns any effort into a sweat lodge experience. Summer heat makes racing miserable, winter brings unpredictable ice storms, spring delivers pollen apocalypse. More weather exposure than Belgian Waffle Ride San Diego."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Paris Mountain starts at 1,168 feet on Old Buncome side and tops out at 1,972 feet - minimal altitude with zero physiological impact. You'll get more altitude driving to the race than racing it."
+        "explanation": "Paris Mountain starts at 1,168 feet on Old Buncome side and tops out at 1,972 feet - minimal altitude with zero physiological impact. You'll get more altitude driving to the race than racing it. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 3,
@@ -298,7 +298,7 @@
       },
       "field_depth": {
         "score": 2,
-        "explanation": "Greenville attracts strong cyclists to Paris Mountain as a go-to training climb (6% average grade, 10% at the top), but the gravel grinder draws from local riders rather than traveling specialists. The Swamp Rabbit Trail cycling corridor near Furman University provides a deep recreational base, though the competitive field stays regional without attracting dedicated gravel racers from outside the Upstate area."
+        "explanation": "Greenville attracts strong cyclists to Paris Mountain as a go-to training climb (6% average grade, 10% at the top), but the gravel grinder draws from local riders rather than traveling specialists. The Swamp Rabbit Trail cycling corridor near Furman University provides a deep recreational base, though the competitive field stays regional without attracting dedicated gravel racers from outside the Upstate area. Less competitive depth than Almanzo 100."
       },
       "value": {
         "score": 3,
@@ -306,7 +306,7 @@
       },
       "expenses": {
         "score": 3,
-        "explanation": "Travelers Rest keeps costs reasonable without Asheville tourist pricing or Atlanta metro expense. Greenville area offers decent lodging options without breaking budgets, supported by established cycling tourism infrastructure."
+        "explanation": "Registration runs $60-100. Travelers Rest keeps costs reasonable without Asheville tourist pricing or Atlanta metro expense. Greenville area offers decent lodging options without breaking budgets, supported by established cycling tourism infrastructure. Similar expense level to Belgian Waffle Ride San Diego."
       }
     },
     "unsplash_photos": [
@@ -344,6 +344,74 @@
         "category": "community",
         "label": "trimarni.blogspot.com: Greenville Cycling Paris Mountain.Html"
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 42,
+          "msrp_usd": 54.99,
+          "weight_grams": 420,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 2,
+          "tire_id": "irc-boken-double-cross",
+          "name": "IRC Boken Double Cross",
+          "brand": "IRC",
+          "recommended_width_mm": 42,
+          "msrp_usd": 59.99,
+          "weight_grams": 400,
+          "crr_watts": null,
+          "why": "Underrated mixed-terrain tire. Fast center with confident shoulder grip."
+        },
+        {
+          "rank": 3,
+          "tire_id": "panaracer-gravelking-sk",
+          "name": "Panaracer GravelKing SK",
+          "brand": "Panaracer",
+          "recommended_width_mm": 43,
+          "msrp_usd": 64.9,
+          "weight_grams": 410,
+          "crr_watts": 32.5,
+          "why": "Affordable all-rounder. Light knobs add grip without killing speed."
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "panaracer-gravelking-tlc",
+          "name": "Panaracer GravelKing TLC",
+          "width_mm": 43
+        },
+        "rear": {
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 42
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 42,
+      "pressure_psi": {
+        "140_160lb_dry": "32-36",
+        "140_160lb_mixed": "30-34",
+        "140_160lb_wet": "28-32",
+        "160_180lb_dry": "36-40",
+        "160_180lb_mixed": "32-36",
+        "160_180lb_wet": "30-34",
+        "180_200lb_dry": "38-42",
+        "180_200lb_mixed": "36-40",
+        "180_200lb_wet": "34-38",
+        "200pluslb_dry": "42-46",
+        "200pluslb_mixed": "38-42",
+        "200pluslb_wet": "36-40"
+      }
+    }
   }
 }

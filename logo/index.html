@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gravel God Logo System</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Sometype+Mono:wght@400;700&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #d4c5b9;
+    padding: 60px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 60px;
+    font-family: 'Sometype Mono', monospace;
+    align-items: flex-start;
+  }
+  .section { display: flex; flex-direction: column; gap: 12px; }
+  .section-label {
+    font-size: 11px; font-weight: 700; letter-spacing: 3px;
+    color: #7d695d; text-transform: uppercase;
+  }
+  .card {
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center; padding: 60px;
+  }
+  .bg-light { background: #f5efe6; }
+  .bg-dark { background: #1a1613; }
+  .wordmark {
+    font-family: 'Sometype Mono', monospace;
+    font-weight: 700; letter-spacing: 4px;
+    text-align: center; margin-top: 24px;
+  }
+  .wm-dark { color: #1a1613; }
+  .wm-light { color: #f5efe6; }
+  .wm-md { font-size: 24px; }
+  .wm-lg { font-size: 32px; }
+  .square-frame {
+    border: 3px solid #1a1613;
+    display: inline-flex; align-items: center;
+    justify-content: center; padding: 24px;
+  }
+  .square-frame-light {
+    border: 3px solid #f5efe6;
+    display: inline-flex; align-items: center;
+    justify-content: center; padding: 24px;
+  }
+  .sizes-row { display: flex; gap: 40px; align-items: flex-end; }
+</style>
+<script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+</head>
+<body>
+<script>
+// --- Helpers ---
+function p2xy(cx, cy, r, deg) {
+  const rad = deg * Math.PI / 180;
+  return [cx + r * Math.cos(rad), cy + r * Math.sin(rad)];
+}
+
+function arcSector(cx, cy, rOut, rIn, startDeg, endDeg) {
+  // Thick arc segment (annular sector)
+  const [sx, sy] = p2xy(cx, cy, rOut, startDeg);
+  const [ex, ey] = p2xy(cx, cy, rOut, endDeg);
+  const [ix, iy] = p2xy(cx, cy, rIn, endDeg);
+  const [jx, jy] = p2xy(cx, cy, rIn, startDeg);
+  let span = ((endDeg - startDeg) % 360 + 360) % 360;
+  const lg = span > 180 ? 1 : 0;
+  return `M${sx.toFixed(1)},${sy.toFixed(1)} ` +
+    `A${rOut},${rOut} 0 ${lg} 1 ${ex.toFixed(1)},${ey.toFixed(1)} ` +
+    `L${ix.toFixed(1)},${iy.toFixed(1)} ` +
+    `A${rIn},${rIn} 0 ${lg} 0 ${jx.toFixed(1)},${jy.toFixed(1)} Z`;
+}
+
+// --- Logo builder ---
+function logoSVG(w, fill, bg) {
+  const vb = 400, cx = 200, cy = 200;
+
+  // Outer ring with dots (matching reference image)
+  const ringOuter = 196;
+  const ringInner = 156;
+  const dotR = 178;     // radius of dot circle
+  const dotSize = 7;    // each dot radius
+  const nDots = 36;
+
+  // GG monogram radii
+  const ggOuter = 152;  // outer edge of GG area
+  const ggMid = 105;    // boundary between outer arm and inner arm
+  const ggInner = 52;   // innermost extent of GG
+
+  // GG angles (SVG convention: 0=right, CW positive)
+  // G1: opening faces upper-right (~330° area)
+  // Outer arm sweeps CW from ~45° through bottom to ~190°
+  // Inner arm sweeps CW from ~190° through left/top to ~325°
+  const g1OuterStart = 50;
+  const g1OuterEnd = 195;
+  const g1InnerStart = 195;
+  const g1InnerEnd = 325;
+
+  // G2 = G1 + 180°
+  const g2OuterStart = g1OuterStart + 180;
+  const g2OuterEnd = g1OuterEnd + 180;
+  const g2InnerStart = g1InnerStart + 180;
+  const g2InnerEnd = g1InnerEnd + 180;
+
+  let s = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${vb} ${vb}" width="${w}" height="${w}">`;
+
+  // 1. Outer ring (solid black circle)
+  s += `<circle cx="${cx}" cy="${cy}" r="${ringOuter}" fill="${fill}"/>`;
+
+  // 2. White dots in the ring
+  for (let i = 0; i < nDots; i++) {
+    const a = (i / nDots) * 360;
+    const [dx, dy] = p2xy(cx, cy, dotR, a);
+    s += `<circle cx="${dx.toFixed(1)}" cy="${dy.toFixed(1)}" r="${dotSize}" fill="${bg}"/>`;
+  }
+
+  // 3. White interior circle (background for GG)
+  s += `<circle cx="${cx}" cy="${cy}" r="${ringInner}" fill="${bg}"/>`;
+
+  // 4. GG Monogram — two interlocking Gs, each made of 2 arc sectors
+  // G1 outer arm
+  s += `<path d="${arcSector(cx, cy, ggOuter, ggMid, g1OuterStart, g1OuterEnd)}" fill="${fill}"/>`;
+  // G1 inner arm
+  s += `<path d="${arcSector(cx, cy, ggMid, ggInner, g1InnerStart, g1InnerEnd)}" fill="${fill}"/>`;
+
+  // G2 outer arm
+  s += `<path d="${arcSector(cx, cy, ggOuter, ggMid, g2OuterStart, g2OuterEnd)}" fill="${fill}"/>`;
+  // G2 inner arm
+  s += `<path d="${arcSector(cx, cy, ggMid, ggInner, g2InnerStart, g2InnerEnd)}" fill="${fill}"/>`;
+
+  s += `</svg>`;
+  return s;
+}
+
+// --- Build artboards ---
+const html = [];
+
+html.push(`
+<div class="section">
+  <div class="section-label">Primary Mark</div>
+  <div class="card bg-light">
+    ${logoSVG(300, '#1a1613', '#f5efe6')}
+    <div class="wordmark wm-dark wm-md">GRAVEL GOD</div>
+  </div>
+</div>`);
+
+html.push(`
+<div class="section">
+  <div class="section-label">Reversed</div>
+  <div class="card bg-dark">
+    ${logoSVG(300, '#f5efe6', '#1a1613')}
+    <div class="wordmark wm-light wm-md">GRAVEL GOD</div>
+  </div>
+</div>`);
+
+html.push(`
+<div class="section">
+  <div class="section-label">Square Frame</div>
+  <div class="card bg-light">
+    <div class="square-frame">
+      ${logoSVG(240, '#1a1613', '#f5efe6')}
+    </div>
+    <div class="wordmark wm-dark wm-md">GRAVEL GOD</div>
+  </div>
+</div>`);
+
+html.push(`
+<div class="section">
+  <div class="section-label">Square Frame — Dark</div>
+  <div class="card bg-dark">
+    <div class="square-frame-light">
+      ${logoSVG(240, '#f5efe6', '#1a1613')}
+    </div>
+    <div class="wordmark wm-light wm-md">GRAVEL GOD</div>
+  </div>
+</div>`);
+
+html.push(`
+<div class="section">
+  <div class="section-label">Scale Test</div>
+  <div class="card bg-light">
+    <div class="sizes-row">
+      ${logoSVG(32, '#1a1613', '#f5efe6')}
+      ${logoSVG(48, '#1a1613', '#f5efe6')}
+      ${logoSVG(64, '#1a1613', '#f5efe6')}
+      ${logoSVG(128, '#1a1613', '#f5efe6')}
+      ${logoSVG(200, '#1a1613', '#f5efe6')}
+    </div>
+  </div>
+</div>`);
+
+html.push(`
+<div class="section">
+  <div class="section-label">Full Lockup</div>
+  <div class="card bg-light" style="padding:80px 120px;">
+    ${logoSVG(340, '#1a1613', '#f5efe6')}
+    <div class="wordmark wm-dark wm-lg">GRAVEL GOD</div>
+  </div>
+</div>`);
+
+document.body.innerHTML = html.join('');
+</script>
+</body>
+</html>

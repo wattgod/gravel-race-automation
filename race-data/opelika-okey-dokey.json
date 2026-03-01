@@ -258,23 +258,23 @@
       },
       "length": {
         "score": 3,
-        "explanation": "The timed-segment Gran Fondo format lets riders \"enjoy a relaxed pace between the all out efforts\" with only cumulative segment times counting for results. At 102 miles with \"constant rolling hills,\" it's substantial without being punishing. One experienced rider finished \"feeling strong without cramping\" despite the tougher-than-expected course."
+        "explanation": "The timed-segment Gran Fondo format lets riders \"enjoy a relaxed pace between the all out efforts\" with only cumulative segment times counting for results. At 102 miles with \"constant rolling hills,\" it's substantial without being punishing. One experienced rider finished \"feeling strong without cramping\" despite the tougher-than-expected course. Similar distance to Crusher in the Tushar."
       },
       "technicality": {
         "score": 2,
-        "explanation": "Post-rain conditions reveal the true character: \"logging activities had filled some roads with large rocks, making a mountain bike more suitable in some spots.\" The red clay mud challenges standard gravel setups, with one rider's 50 psi tires struggling \"with mud and loose-gravel climbs.\" Bike handling matters more than pure technical skills."
+        "explanation": "Post-rain conditions reveal the true character: \"logging activities had filled some roads with large rocks, making a mountain bike more suitable in some spots.\" The red clay mud challenges standard gravel setups, with one rider's 50 psi tires struggling \"with mud and loose-gravel climbs.\" Bike handling matters more than pure technical skills. Less technical than The Mid South."
       },
       "elevation": {
         "score": 2,
-        "explanation": "The 6,300 feet of gain across 102 miles creates \"constant rolling hills\" rather than sustained climbs. The undulating terrain through Alabama timberland keeps pressure on without major suffering. As the organizer notes, the recurring short climbs \"mimic much of what you will experience at Unbound.\""
+        "explanation": "The 6,300 feet of gain across 102 miles creates \"constant rolling hills\" rather than sustained climbs. The undulating terrain through Alabama timberland keeps pressure on without major suffering. As the organizer notes, the recurring short climbs \"mimic much of what you will experience at Unbound.\" Less climbing than The Mid South."
       },
       "climate": {
         "score": 2,
-        "explanation": "The 2024 race enjoyed \"perfect weather—cool temperatures, low winds, and an almost cloudless sky,\" but pre-race rains left \"heavy mud patches on the course.\" Moving from May to April 2025 aims to dodge Alabama's heat buildup, though spring weather remains unpredictable in the Southeast."
+        "explanation": "The 2024 race enjoyed \"perfect weather—cool temperatures, low winds, and an almost cloudless sky,\" but pre-race rains left \"heavy mud patches on the course.\" Moving from May to April 2025 aims to dodge Alabama's heat buildup, though spring weather remains unpredictable in the Southeast. More weather exposure than Belgian Waffle Ride San Diego."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Opelika sits around 800 feet above sea level with negligible physiological impact. The elevation gain comes from rolling terrain, not meaningful altitude changes. Sea level fitness translates directly without acclimatization concerns."
+        "explanation": "Opelika sits around 800 feet above sea level with negligible physiological impact. The elevation gain comes from rolling terrain, not meaningful altitude changes. Sea level fitness translates directly without acclimatization concerns. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 2,
@@ -298,7 +298,7 @@
       },
       "field_depth": {
         "score": 2,
-        "explanation": "The Gran Fondo format with timed segments attracts serious riders without pure racing focus. One elite rider finishing \"second-to-last\" while training for other events suggests recreational depth without deep competitive field. The 200+ turnout shows participation but not necessarily racing talent concentration."
+        "explanation": "The Gran Fondo format with timed segments attracts serious riders without pure racing focus. One elite rider finishing \"second-to-last\" while training for other events suggests recreational depth without deep competitive field. The 200+ turnout shows participation but not necessarily racing talent concentration. Less competitive depth than Almanzo 100."
       },
       "value": {
         "score": 3,
@@ -306,7 +306,7 @@
       },
       "expenses": {
         "score": 3,
-        "explanation": "Small-town Alabama economics work in riders' favor for lodging and food costs. The recommended Chewacla State Park camping provides budget-friendly accommodation that \"usually sells out.\" Rural location means driving rather than flying, but lower overall costs offset travel considerations for regional riders."
+        "explanation": "Registration runs $60-100. Small-town Alabama economics work in riders' favor for lodging and food costs. The recommended Chewacla State Park camping provides budget-friendly accommodation that \"usually sells out.\" Rural location means driving rather than flying, but lower overall costs offset travel considerations for regional riders. Similar expense level to Belgian Waffle Ride San Diego."
       }
     },
     "unsplash_photos": [
@@ -369,6 +369,74 @@
         "category": "community",
         "label": "gravelroll.com: First Stop Opelika Okey Dokey"
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 38,
+          "msrp_usd": 54.99,
+          "weight_grams": 380,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 2,
+          "tire_id": "panaracer-gravelking-sk",
+          "name": "Panaracer GravelKing SK",
+          "brand": "Panaracer",
+          "recommended_width_mm": 40,
+          "msrp_usd": 64.9,
+          "weight_grams": 380,
+          "crr_watts": 32.5,
+          "why": "Affordable all-rounder. Light knobs add grip without killing speed."
+        },
+        {
+          "rank": 3,
+          "tire_id": "vittoria-terreno-mix",
+          "name": "Vittoria Terreno Mix",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 420,
+          "crr_watts": 33.5,
+          "why": "Graphene versatility. Mixed-terrain grip with reasonable rolling speed."
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 38
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 38,
+      "pressure_psi": {
+        "140_160lb_dry": "36-40",
+        "140_160lb_mixed": "33-37",
+        "140_160lb_wet": "31-35",
+        "160_180lb_dry": "39-43",
+        "160_180lb_mixed": "36-40",
+        "160_180lb_wet": "34-38",
+        "180_200lb_dry": "42-46",
+        "180_200lb_mixed": "39-43",
+        "180_200lb_wet": "37-41",
+        "200pluslb_dry": "45-49",
+        "200pluslb_mixed": "42-46",
+        "200pluslb_wet": "40-44"
+      }
+    }
   }
 }

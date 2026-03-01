@@ -169,23 +169,23 @@
       },
       "length": {
         "score": 5,
-        "explanation": "The 300-mile distance across Emporia's roads creates sustained suffering over mixed terrain. Team racing option allows groups of three to tackle the distance together, departing in time trial intervals. Chasteen notes the team format \"creates a lower barrier of intimidation\" for riders too intimidated to attempt 100+ miles solo."
+        "explanation": "The 300-mile distance across Emporia's roads creates sustained suffering over mixed terrain. Team racing option allows groups of three to tackle the distance together, departing in time trial intervals. Chasteen notes the team format \"creates a lower barrier of intimidation\" for riders too intimidated to attempt 100+ miles solo. Among the longest in gravel, comparable to Badlands."
       },
       "technicality": {
         "score": 2,
-        "explanation": "Andy Chasteen describes the singletrack as \"not super techy, it's pretty smooth, fast, and flowy, but very climby.\" The course breaks down to 30 miles pavement, 50 miles gravel, 20 miles singletrack. Technical challenge comes from surface transitions rather than features—riders debate hardtail versus gravel setups for optimal speed."
+        "explanation": "Andy Chasteen describes the singletrack as \"not super techy, it's pretty smooth, fast, and flowy, but very climby.\" The course breaks down to 30 miles pavement, 50 miles gravel, 20 miles singletrack. Technical challenge comes from surface transitions rather than features—riders debate hardtail versus gravel setups for optimal speed. Less technical than The Mid South."
       },
       "elevation": {
         "score": 4,
-        "explanation": "The 15,000 feet over 300 miles creates relentless climbing rather than dramatic peaks. Chasteen notes the singletrack sections are \"very climby\" with the kind that leaves \"your mouth hurting because you've been smiling the whole time.\" The elevation accumulates steadily across all three surface types."
+        "explanation": "The 15,000 feet over 300 miles creates relentless climbing rather than dramatic peaks. Chasteen notes the singletrack sections are \"very climby\" with the kind that leaves \"your mouth hurting because you've been smiling the whole time.\" The elevation accumulates steadily across all three surface types. More climbing than SBT GRVL at the same score."
       },
       "climate": {
         "score": 4,
-        "explanation": "Weather varies dramatically from year to year across the extended distance. The 300-mile format means experiencing whatever conditions develop over the full day and potentially into night. Kansas spring weather can shift from rain to heat over the long hours required to complete the course."
+        "explanation": "Historical weather data shows average highs of 83°F and lows of 63°F, with a 23% chance of rain on any given day. Weather varies dramatically from year to year across the extended distance. The 300-mile format means experiencing whatever conditions develop over the full day and potentially into night. Kansas spring weather can shift from rain to heat over the long hours required to complete the course. Milder conditions than Crusher in the Tushar."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Emporia sits around 1,100 feet elevation. Zero altitude impact on performance for riders from anywhere above sea level."
+        "explanation": "Emporia sits around 1,100 feet elevation. Zero altitude impact on performance for riders from anywhere above sea level. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 5,
@@ -209,7 +209,7 @@
       },
       "field_depth": {
         "score": 3,
-        "explanation": "Team format creates accessibility for riders intimidated by solo ultra-distance racing. Chasteen notes teams departing in time trial style after solo racers, with checkpoint requirements keeping groups together. The quirky categories and Burning Man atmosphere attract participants focused on experience over pure competition."
+        "explanation": "With a field of ~100 riders (ultra distance, limited field), team format creates accessibility for riders intimidated by solo ultra-distance racing. Chasteen notes teams departing in time trial style after solo racers, with checkpoint requirements keeping groups together. The quirky categories and Burning Man atmosphere attract participants focused on experience over pure competition. Similar competitive depth to The Rift."
       },
       "value": {
         "score": 3,
@@ -217,7 +217,7 @@
       },
       "expenses": {
         "score": 3,
-        "explanation": "Andy Chasteen warns about tire durability: \"The rock is sharp, too, so you're gonna have to run durable tires or you're gonna slash a sidewall.\" Equipment strategy varies significantly—\"A hardtail rigid mountain bike on 2.0 tires might win this. Or an Able with 650b wheels and 50mm tires.\""
+        "explanation": "Registration runs $200-$250. Andy Chasteen warns about tire durability: \"The rock is sharp, too, so you're gonna have to run durable tires or you're gonna slash a sidewall.\" Equipment strategy varies significantly—\"A hardtail rigid mountain bike on 2.0 tires might win this. Or an Able with 650b wheels and 50mm tires.\" Similar expense level to Belgian Waffle Ride San Diego."
       }
     },
     "final_verdict": {
@@ -326,6 +326,74 @@
         "category": "community",
         "label": "velo.outsideonline.com: Three Reasons Why The Rule Of Three Is Not Your Realistic..."
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 38,
+          "msrp_usd": 54.99,
+          "weight_grams": 380,
+          "crr_watts": 32.0,
+          "why": "high puncture protection for sharp surfaces"
+        },
+        {
+          "rank": 2,
+          "tire_id": "continental-terra-trail",
+          "name": "Continental Terra Trail",
+          "brand": "Continental",
+          "recommended_width_mm": 40,
+          "msrp_usd": 74.99,
+          "weight_grams": 450,
+          "crr_watts": 33.5,
+          "why": "high puncture protection for sharp surfaces. excellent wet grip"
+        },
+        {
+          "rank": 3,
+          "tire_id": "goodyear-connector",
+          "name": "Goodyear Connector",
+          "brand": "Goodyear",
+          "recommended_width_mm": 40,
+          "msrp_usd": 64.99,
+          "weight_grams": 430,
+          "crr_watts": 34.5,
+          "why": "high puncture protection for sharp surfaces"
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "vittoria-terreno-dry",
+          "name": "Vittoria Terreno Dry",
+          "width_mm": 40
+        },
+        "rear": {
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 38
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 38,
+      "pressure_psi": {
+        "140_160lb_dry": "36-40",
+        "140_160lb_mixed": "33-37",
+        "140_160lb_wet": "31-35",
+        "160_180lb_dry": "39-43",
+        "160_180lb_mixed": "36-40",
+        "160_180lb_wet": "34-38",
+        "180_200lb_dry": "42-46",
+        "180_200lb_mixed": "39-43",
+        "180_200lb_wet": "37-41",
+        "200pluslb_dry": "45-49",
+        "200pluslb_mixed": "42-46",
+        "200pluslb_wet": "40-44"
+      }
+    }
   }
 }

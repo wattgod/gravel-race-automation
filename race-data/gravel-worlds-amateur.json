@@ -273,23 +273,23 @@
       },
       "length": {
         "score": 5,
-        "explanation": "150 miles through rural farmlands with over 10,000 feet of climbing separates serious endurance athletes from weekend warriors. The 9:59pm cutoff acknowledges this is about surviving the distance, not racing the clock. Starting at 6:30am for general field gives riders over 15 hours to complete what the organizers call an 'unparalleled challenge.'"
+        "explanation": "150 miles through rural farmlands with over 10,000 feet of climbing separates serious endurance athletes from weekend warriors. The 9:59pm cutoff acknowledges this is about surviving the distance, not racing the clock. Starting at 6:30am for general field gives riders over 15 hours to complete what the organizers call an 'unparalleled challenge.' Among the longest in gravel, comparable to Badlands."
       },
       "technicality": {
         "score": 2,
-        "explanation": "The course ventures through rural farmlands of southeastern Nebraska with constant rolling hills rather than technical features. This is Nebraska grassroots gravel focused on grinding power through rolling gravel seas, not advanced bike handling skills through rock gardens or steep technical descents."
+        "explanation": "The course ventures through rural farmlands of southeastern Nebraska with constant rolling hills rather than technical features. This is Nebraska grassroots gravel focused on grinding power through rolling gravel seas, not advanced bike handling skills through rock gardens or steep technical descents. Less technical than The Mid South. As Organizer Jason Strohbehn puts it: \"We're proud to be leaders in moving our sport forward. But this isn't just about the pro race.\""
       },
       "elevation": {
         "score": 2,
-        "explanation": "Over 10,000 feet of climbing across 150 miles comes from constant rolling hills that accumulate gradually. The GW300 description emphasizes how Nebraska terrain builds elevation through persistent moderate grades rather than dramatic climbs, creating death by a thousand small hills across southeastern farmland."
+        "explanation": "Over 10,000 feet of climbing across 150 miles comes from constant rolling hills that accumulate gradually. The GW300 description emphasizes how Nebraska terrain builds elevation through persistent moderate grades rather than dramatic climbs, creating death by a thousand small hills across southeastern farmland. Less climbing than The Mid South."
       },
       "climate": {
         "score": 2,
-        "explanation": "Late August in Nebraska means potential extreme heat conditions, evidenced by early start times and organizer warnings. The 6:30am general field start suggests awareness of heat building across exposed farmland with minimal tree cover during the 15+ hour event window."
+        "explanation": "Late August in Nebraska means potential extreme heat conditions, evidenced by early start times and organizer warnings. The 6:30am general field start suggests awareness of heat building across exposed farmland with minimal tree cover during the 15+ hour event window. More weather exposure than Belgian Waffle Ride San Diego."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Lincoln, Nebraska sits around 1,200 feet above sea level with no meaningful altitude training effect. The constant rolling hills provide elevation gain through climbing, not thin-air challenges from starting elevation."
+        "explanation": "Lincoln, Nebraska sits around 1,200 feet above sea level with no meaningful altitude training effect. The constant rolling hills provide elevation gain through climbing, not thin-air challenges from starting elevation. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 3,
@@ -313,7 +313,7 @@
       },
       "field_depth": {
         "score": 2,
-        "explanation": "The amateur field rides behind elite pro starters in the general field category starting at 6:30am. While the pro field draws serious talent with the massive prize purse, the age group categories receive jerseys but Nebraska location limits the depth of amateur competition."
+        "explanation": "The amateur field rides behind elite pro starters in the general field category starting at 6:30am. While the pro field draws serious talent with the massive prize purse, the age group categories receive jerseys but Nebraska location limits the depth of amateur competition. Less competitive depth than Almanzo 100. As Organizer Jason Strohbehn puts it: \"We're proud to be leaders in moving our sport forward. But this isn't just about the pro race.\""
       },
       "value": {
         "score": 3,
@@ -321,7 +321,7 @@
       },
       "expenses": {
         "score": 3,
-        "explanation": "Lincoln, Nebraska location keeps lodging and food costs reasonable compared to destination races. Camping available at Sandhills Global Event Center provides budget option. Related run events show $140 pricing structure, suggesting entry fees won't require major budget planning."
+        "explanation": "Lincoln, Nebraska location keeps lodging and food costs reasonable compared to destination races. Camping available at Sandhills Global Event Center provides budget option. Related run events show $140 pricing structure, suggesting entry fees won't require major budget planning. Similar expense level to Belgian Waffle Ride San Diego."
       }
     },
     "citations": [
@@ -335,6 +335,74 @@
         "category": "community",
         "label": "granfondodailynews.com: 2026 Gravel Worlds Not The Uci Version Offering Massive 1..."
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 38,
+          "msrp_usd": 54.99,
+          "weight_grams": 380,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 2,
+          "tire_id": "panaracer-gravelking-sk",
+          "name": "Panaracer GravelKing SK",
+          "brand": "Panaracer",
+          "recommended_width_mm": 40,
+          "msrp_usd": 64.9,
+          "weight_grams": 380,
+          "crr_watts": 32.5,
+          "why": "Affordable all-rounder. Light knobs add grip without killing speed."
+        },
+        {
+          "rank": 3,
+          "tire_id": "vittoria-terreno-mix",
+          "name": "Vittoria Terreno Mix",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 420,
+          "crr_watts": 33.5,
+          "why": "Graphene versatility. Mixed-terrain grip with reasonable rolling speed."
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "vittoria-terreno-dry",
+          "name": "Vittoria Terreno Dry",
+          "width_mm": 40
+        },
+        "rear": {
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 38
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 38,
+      "pressure_psi": {
+        "140_160lb_dry": "36-40",
+        "140_160lb_mixed": "33-37",
+        "140_160lb_wet": "31-35",
+        "160_180lb_dry": "39-43",
+        "160_180lb_mixed": "36-40",
+        "160_180lb_wet": "34-38",
+        "180_200lb_dry": "42-46",
+        "180_200lb_mixed": "39-43",
+        "180_200lb_wet": "37-41",
+        "200pluslb_dry": "45-49",
+        "200pluslb_mixed": "42-46",
+        "200pluslb_wet": "40-44"
+      }
+    }
   }
 }

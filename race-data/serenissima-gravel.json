@@ -258,23 +258,23 @@
       },
       "length": {
         "score": 3,
-        "explanation": "Lutsenko's winning solo attack came with 80km remaining, sustaining \"3.5 hours of 100 percent full gas\" through the 132km parcours. The distance allows for tactical racing as Robin Froidevaux demonstrated in 2022, attacking 10km from home: \"I knew if I stayed with the group, it would be hard technically against the best on the last lap.\""
+        "explanation": "Lutsenko's winning solo attack came with 80km remaining, sustaining \"3.5 hours of 100 percent full gas\" through the 132km parcours. The distance allows for tactical racing as Robin Froidevaux demonstrated in 2022, attacking 10km from home: \"I knew if I stayed with the group, it would be hard technically against the best on the last lap.\" Similar distance to Crusher in the Tushar."
       },
       "technicality": {
         "score": 2,
-        "explanation": "Lutsenko described \"very narrow roads and so many corners\" on the technical parcours, with 83% gravel surfaces including single-track through the Po Delta. Community observers noted sections \"so tight that even on a leisure ride on them, you'd have to single out,\" though the course lacks \"wide-open stretches of stones like those found in races Stateside.\""
+        "explanation": "Lutsenko described \"very narrow roads and so many corners\" on the technical parcours, with 83% gravel surfaces including single-track through the Po Delta. Community observers noted sections \"so tight that even on a leisure ride on them, you'd have to single out,\" though the course lacks \"wide-open stretches of stones like those found in races Stateside.\" Less technical than The Mid South."
       },
       "elevation": {
         "score": 1,
-        "explanation": "The Po Delta and Villa Contarini terrain offers minimal climbing challenge, staying near sea level throughout the Veneto countryside. The 2000 feet over 65 miles reflects gentle agricultural landscape where tactical positioning on narrow gravel sectors matters more than climbing power."
+        "explanation": "The Po Delta and Villa Contarini terrain offers minimal climbing challenge, staying near sea level throughout the Veneto countryside. The 2000 feet over 65 miles reflects gentle agricultural landscape where tactical positioning on narrow gravel sectors matters more than climbing power. Flatter profile than Croatan Buck Fifty. As Robin Froidevaux puts it: \"For sure it was unexpected. I'm not too much of a gravel specialist and even in mountain bike, I'm not so good technically, but I took the opportunity and went on the attack.\""
       },
       "climate": {
         "score": 3,
-        "explanation": "Mid-October in the Veneto region typically delivers stable gravel conditions before winter sets in. The Po Delta climate stays moderate during late autumn, though the coastal proximity near Porto Barricata and agricultural valleys can create variable micro-weather across the changing course layouts."
+        "explanation": "Mid-October in the Veneto region typically delivers stable gravel conditions before winter sets in. The Po Delta climate stays moderate during late autumn, though the coastal proximity near Porto Barricata and agricultural valleys can create variable micro-weather across the changing course layouts. Similar climate challenges to SBT GRVL."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Racing from the Po Delta through Villa Contarini keeps the entire route at essentially sea level elevation. The coastal start points near Venice and agricultural finish locations maintain consistent low altitude throughout, making oxygen availability irrelevant to race outcomes."
+        "explanation": "Racing from the Po Delta through Villa Contarini keeps the entire route at essentially sea level elevation. The coastal start points near Venice and agricultural finish locations maintain consistent low altitude throughout, making oxygen availability irrelevant to race outcomes. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 3,
@@ -298,7 +298,7 @@
       },
       "field_depth": {
         "score": 2,
-        "explanation": "WorldTour teams bring serious depth with Astana-Premier Tech, Cofidis, and Alpecin-Deceuninck participating alongside Italian ProTeams. The small ~40-rider fields concentrate talent effectively, though Macy0161 noted that with larger pelotons \"it becomes more about the fight for position on the tarmac sections entering the sectors.\""
+        "explanation": "WorldTour teams bring serious depth with Astana-Premier Tech, Cofidis, and Alpecin-Deceuninck participating alongside Italian ProTeams. The small ~40-rider fields concentrate talent effectively, though Macy0161 noted that with larger pelotons \"it becomes more about the fight for position on the tarmac sections entering the sectors.\" Less competitive depth than Almanzo 100."
       },
       "value": {
         "score": 3,
@@ -306,7 +306,7 @@
       },
       "expenses": {
         "score": 2,
-        "explanation": "Venice proximity inflates accommodation costs in one of Europe's most expensive tourist regions. The race requires premium equipment like Lutsenko's \"brand new: almost literally fresh out of the factory\" Wilier Rave SLR, while Filippo Pozzato uses custom Passoni titanium frames with \"same geometry as when I was racing\" - reflecting the professional-grade investment expected."
+        "explanation": "Registration runs €60-100. Venice proximity inflates accommodation costs in one of Europe's most expensive tourist regions. The race requires premium equipment like Lutsenko's \"brand new: almost literally fresh out of the factory\" Wilier Rave SLR, while Filippo Pozzato uses custom Passoni titanium frames with \"same geometry as when I was racing\" - reflecting the professional-grade investment expected. Higher total cost than Badlands."
       }
     },
     "citations": [
@@ -365,6 +365,74 @@
         "category": "community",
         "label": "dirttanbikeclub.com: A Thousand To None Grassroots And Pro Gravel Keep Differe..."
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 38,
+          "msrp_usd": 54.99,
+          "weight_grams": 380,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 2,
+          "tire_id": "panaracer-gravelking-sk",
+          "name": "Panaracer GravelKing SK",
+          "brand": "Panaracer",
+          "recommended_width_mm": 40,
+          "msrp_usd": 64.9,
+          "weight_grams": 380,
+          "crr_watts": 32.5,
+          "why": "Affordable all-rounder. Light knobs add grip without killing speed."
+        },
+        {
+          "rank": 3,
+          "tire_id": "vittoria-terreno-mix",
+          "name": "Vittoria Terreno Mix",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 420,
+          "crr_watts": 33.5,
+          "why": "Graphene versatility. Mixed-terrain grip with reasonable rolling speed."
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 38
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 38,
+      "pressure_psi": {
+        "140_160lb_dry": "36-40",
+        "140_160lb_mixed": "33-37",
+        "140_160lb_wet": "31-35",
+        "160_180lb_dry": "39-43",
+        "160_180lb_mixed": "36-40",
+        "160_180lb_wet": "34-38",
+        "180_200lb_dry": "42-46",
+        "180_200lb_mixed": "39-43",
+        "180_200lb_wet": "37-41",
+        "200pluslb_dry": "45-49",
+        "200pluslb_mixed": "42-46",
+        "200pluslb_wet": "40-44"
+      }
+    }
   }
 }

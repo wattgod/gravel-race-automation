@@ -258,23 +258,23 @@
       },
       "length": {
         "score": 2,
-        "explanation": "Ben Gabardi won the 50-mile distance in 2:33:59.9, placing it in that awkward middle ground between morning spin and epic. The course offers 25 and 50-mile options with ride leaders for beginners, while the 100-mile distance conquers over 7,000 feet of climbing for those wanting a full day out."
+        "explanation": "Ben Gabardi won the 50-mile distance in 2:33:59.9, placing it in that awkward middle ground between morning spin and epic. The course offers 25 and 50-mile options with ride leaders for beginners, while the 100-mile distance conquers over 7,000 feet of climbing for those wanting a full day out. More compact than Grinduro."
       },
       "technicality": {
         "score": 2,
-        "explanation": "Holly Springs National Forest terrain features 'rolling hills, fun descents, gorgeous forest views and well-packed gravel service roads.' The course runs on service roads rather than gnarly singletrack, making it rideable but not technically demanding compared to rockier gravel events."
+        "explanation": "Holly Springs National Forest terrain features 'rolling hills, fun descents, gorgeous forest views and well-packed gravel service roads.' The course runs on service roads rather than gnarly singletrack, making it rideable but not technically demanding compared to rockier gravel events. Less technical than The Mid South."
       },
       "elevation": {
         "score": 2,
-        "explanation": "The 100-mile route gains over 7,000 feet through sustained rolling hills rather than major climbs. For the 50-mile distance, expect proportionally less elevation but still meaningful climbing through Mississippi's surprisingly hilly national forest terrain."
+        "explanation": "The 100-mile route gains over 7,000 feet through sustained rolling hills rather than major climbs. For the 50-mile distance, expect proportionally less elevation but still meaningful climbing through Mississippi's surprisingly hilly national forest terrain. Less climbing than The Mid South."
       },
       "climate": {
         "score": 2,
-        "explanation": "January weather proved memorable in 2021 when Bart Luther noted 'Having snowflakes in Mississippi was a bonus!' Multiple team DNFs in 2024 suggest conditions can turn challenging quickly. January timing avoids summer humidity but brings winter weather uncertainty to the Deep South."
+        "explanation": "January weather proved memorable in 2021 when Bart Luther noted 'Having snowflakes in Mississippi was a bonus!' Multiple team DNFs in 2024 suggest conditions can turn challenging quickly. January timing avoids summer humidity but brings winter weather uncertainty to the Deep South. More weather exposure than Belgian Waffle Ride San Diego."
       },
       "altitude": {
         "score": 1,
-        "explanation": "This is Mississippi, not Colorado. You're riding at low elevation throughout the Holly Springs National Forest. Altitude won't factor into your performance or preparation strategy."
+        "explanation": "This is Mississippi, not Colorado. You're riding at low elevation throughout the Holly Springs National Forest. Altitude won't factor into your performance or preparation strategy. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 2,
@@ -298,7 +298,7 @@
       },
       "field_depth": {
         "score": 1,
-        "explanation": "Scott Kuppersmith won the 100-mile elite division in 5:24:37.9 in 2025, showing some competitive depth. However, multiple Marx-Bensdorf/BPC Cycling Team riders DNF'd after strong first laps in 2024, suggesting the field lacks consistent national-level depth despite regional competition."
+        "explanation": "Scott Kuppersmith won the 100-mile elite division in 5:24:37.9 in 2025, showing some competitive depth. However, multiple Marx-Bensdorf/BPC Cycling Team riders DNF'd after strong first laps in 2024, suggesting the field lacks consistent national-level depth despite regional competition. Thinner field than Ouray Gravel Grinder."
       },
       "value": {
         "score": 3,
@@ -306,7 +306,7 @@
       },
       "expenses": {
         "score": 3,
-        "explanation": "Oxford is a college town with reasonable lodging options, and Mississippi generally keeps costs manageable. The January date likely helps with accommodation availability and pricing. No major airport means driving, but regional access keeps travel costs reasonable for most participants."
+        "explanation": "Registration runs $65-85. Oxford is a college town with reasonable lodging options, and Mississippi generally keeps costs manageable. The January date likely helps with accommodation availability and pricing. No major airport means driving, but regional access keeps travel costs reasonable for most participants. Similar expense level to Belgian Waffle Ride San Diego."
       }
     },
     "citations": [
@@ -325,6 +325,74 @@
         "category": "community",
         "label": "webscorer.com: Race"
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 38,
+          "msrp_usd": 54.99,
+          "weight_grams": 380,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 2,
+          "tire_id": "panaracer-gravelking-sk",
+          "name": "Panaracer GravelKing SK",
+          "brand": "Panaracer",
+          "recommended_width_mm": 40,
+          "msrp_usd": 64.9,
+          "weight_grams": 380,
+          "crr_watts": 32.5,
+          "why": "Affordable all-rounder. Light knobs add grip without killing speed."
+        },
+        {
+          "rank": 3,
+          "tire_id": "vittoria-terreno-mix",
+          "name": "Vittoria Terreno Mix",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 420,
+          "crr_watts": 33.5,
+          "why": "Graphene versatility. Mixed-terrain grip with reasonable rolling speed."
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 38
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 38,
+      "pressure_psi": {
+        "140_160lb_dry": "36-40",
+        "140_160lb_mixed": "33-37",
+        "140_160lb_wet": "31-35",
+        "160_180lb_dry": "39-43",
+        "160_180lb_mixed": "36-40",
+        "160_180lb_wet": "34-38",
+        "180_200lb_dry": "42-46",
+        "180_200lb_mixed": "39-43",
+        "180_200lb_wet": "37-41",
+        "200pluslb_dry": "45-49",
+        "200pluslb_mixed": "42-46",
+        "200pluslb_wet": "40-44"
+      }
+    }
   }
 }

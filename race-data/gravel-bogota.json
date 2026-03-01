@@ -258,23 +258,23 @@
       },
       "length": {
         "score": 3,
-        "explanation": "80 miles hits the standard distance for UCI Gravel World Series events without being an ultra-endurance challenge. Long enough to create field separation and reward endurance, short enough that riders from different backgrounds can compete for Worlds qualification spots."
+        "explanation": "80 miles hits the standard distance for UCI Gravel World Series events without being an ultra-endurance challenge. Long enough to create field separation and reward endurance, short enough that riders from different backgrounds can compete for Worlds qualification spots. Similar distance to Crusher in the Tushar."
       },
       "technicality": {
         "score": 3,
-        "explanation": "Course details unpublished for the 2026 debut, but the Colombian highland terrain around Chía suggests technical gravel and climbing challenges. The region's elevation and geography imply surface variety beyond simple dirt roads."
+        "explanation": "Course details unpublished for the 2026 debut, but the Colombian highland terrain around Chía suggests technical gravel and climbing challenges. The region's elevation and geography imply surface variety beyond simple dirt roads. Similar technical demands to Gravel Worlds."
       },
       "elevation": {
         "score": 3,
-        "explanation": "8,000 feet of climbing over 80 miles averages 100 feet per mile, creating steady selection without extreme brutality. Respectable elevation gain that matches Colombian terrain expectations and will reward climbing strength throughout the race."
+        "explanation": "8,000 feet of climbing over 80 miles averages 100 feet per mile, creating steady selection without extreme brutality. Respectable elevation gain that matches Colombian terrain expectations and will reward climbing strength throughout the race. Similar elevation profile to Gravel Worlds."
       },
       "climate": {
         "score": 3,
-        "explanation": "May scheduling in Bogotá targets dry season conditions, smart planning for the highland climate. No race-specific weather data available, but the region typically offers stable conditions during this period if altitude doesn't affect performance."
+        "explanation": "May scheduling in Bogotá targets dry season conditions, smart planning for the highland climate. No race-specific weather data available, but the region typically offers stable conditions during this period if altitude doesn't affect performance. Similar climate challenges to SBT GRVL."
       },
       "altitude": {
         "score": 4,
-        "explanation": "Starting at 2,564 meters (8,412 feet) in Chía makes this a serious high-altitude challenge that separates sea-level athletes immediately. The thin air creates a physiological hurdle most gravel races can't match, defining the entire race experience."
+        "explanation": "Starting at 2,564 meters (8,412 feet) in Chía makes this a serious high-altitude challenge that separates sea-level athletes immediately. The thin air creates a physiological hurdle most gravel races can't match, defining the entire race experience. Higher altitude racing, comparable to SBT GRVL."
       },
       "adventure": {
         "score": 4,
@@ -298,7 +298,7 @@
       },
       "field_depth": {
         "score": 2,
-        "explanation": "Worlds qualification potential attracts serious competitors, but South American gravel fields typically run smaller than European or US events. The 2,564-meter starting elevation will limit international participation from sea-level-based athletes."
+        "explanation": "Worlds qualification potential attracts serious competitors, but South American gravel fields typically run smaller than European or US events. The 2,564-meter starting elevation will limit international participation from sea-level-based athletes. Less competitive depth than Almanzo 100. As Janosch Wintermantel puts it: \"Stage 5 was a hot and mainly flat one. We wrestled the field down to 8 riders before entering the last few kilometres. The last 3 kilometres were then a crazy hunt in open traffic.\""
       },
       "value": {
         "score": 3,
@@ -306,7 +306,7 @@
       },
       "expenses": {
         "score": 1,
-        "explanation": "International flights to El Dorado Airport plus lodging near Chía with no logistical guidance creates expensive travel requirements. Getting to high-altitude Colombian gravel racing means significant costs for anyone outside South America, regardless of favorable peso exchange rates."
+        "explanation": "Registration runs $100-150. International flights to El Dorado Airport plus lodging near Chía with no logistical guidance creates expensive travel requirements. Getting to high-altitude Colombian gravel racing means significant costs for anyone outside South America, regardless of favorable peso exchange rates. More expensive than Atlas Mountain Race."
       }
     },
     "citations": [
@@ -335,6 +335,63 @@
         "category": "community",
         "label": "corywallace.com: Early Season Racing 25"
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "tufo-gravel-swampero",
+          "name": "Tufo Gravel Swampero",
+          "brand": "Tufo",
+          "recommended_width_mm": 40,
+          "msrp_usd": 69.95,
+          "weight_grams": 480,
+          "crr_watts": null,
+          "why": "strong mud clearance"
+        },
+        {
+          "rank": 2,
+          "tire_id": "schwalbe-g-one-ultrabite",
+          "name": "Schwalbe G-One Ultrabite",
+          "brand": "Schwalbe",
+          "recommended_width_mm": 40,
+          "msrp_usd": 69.9,
+          "weight_grams": 500,
+          "crr_watts": 42.0,
+          "why": "strong mud clearance"
+        },
+        {
+          "rank": 3,
+          "tire_id": "vittoria-terreno-wet",
+          "name": "Vittoria Terreno Wet",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 460,
+          "crr_watts": 39.0,
+          "why": "strong mud clearance"
+        }
+      ],
+      "front_rear_split": {
+        "applicable": false
+      },
+      "race_surface_profile": "muddy",
+      "recommended_width_mm": 40,
+      "pressure_psi": {
+        "140_160lb_dry": "34-38",
+        "140_160lb_mixed": "30-34",
+        "140_160lb_wet": "28-32",
+        "160_180lb_dry": "36-40",
+        "160_180lb_mixed": "34-38",
+        "160_180lb_wet": "32-36",
+        "180_200lb_dry": "40-44",
+        "180_200lb_mixed": "36-40",
+        "180_200lb_wet": "34-38",
+        "200pluslb_dry": "42-46",
+        "200pluslb_mixed": "40-44",
+        "200pluslb_wet": "38-42"
+      }
+    }
   }
 }

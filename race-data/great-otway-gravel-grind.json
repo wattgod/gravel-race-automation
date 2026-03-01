@@ -258,23 +258,23 @@
       },
       "length": {
         "score": 3,
-        "explanation": "The new 106km option hits proper gravel distance while the 49km provides entry-level access. Sayers133's training plan for the previous 97km course - \"back to back 4week FTP building plans on zwift followed by an 8week race prep and taper\" - shows riders take the distance seriously without venturing into ultra territory."
+        "explanation": "The new 106km option hits proper gravel distance while the 49km provides entry-level access. Sayers133's training plan for the previous 97km course - \"back to back 4week FTP building plans on zwift followed by an 8week race prep and taper\" - shows riders take the distance seriously without venturing into ultra territory. Similar distance to Crusher in the Tushar."
       },
       "technicality": {
         "score": 3,
-        "explanation": "Course features \"predominantly smooth hard-packed earth\" on 2WD dirt roads that \"require minimal technical bike skills\" but still challenge riders. The long climb through rainforest on Delany Road demands proper pacing, while organizers recommend 40-45mm tires and tubeless setup for the mixed gravel sections."
+        "explanation": "Course features \"predominantly smooth hard-packed earth\" on 2WD dirt roads that \"require minimal technical bike skills\" but still challenge riders. The long climb through rainforest on Delany Road demands proper pacing, while organizers recommend 40-45mm tires and tubeless setup for the mixed gravel sections. Similar technical demands to Gravel Worlds."
       },
       "elevation": {
         "score": 3,
-        "explanation": "The 49km course delivers 1,180m of climbing with a \"long and consistent climb through the rainforest\" to the high point, while the previous 97km featured \"just over 2,000m of climbing.\" The final 16km descent is described as \"magnificent\" where \"hardly a pedal stroke is needed\" - proper elevation reward."
+        "explanation": "The 49km course delivers 1,180m of climbing with a \"long and consistent climb through the rainforest\" to the high point, while the previous 97km featured \"just over 2,000m of climbing.\" The final 16km descent is described as \"magnificent\" where \"hardly a pedal stroke is needed\" - proper elevation reward. Similar elevation profile to Gravel Worlds."
       },
       "climate": {
         "score": 2,
-        "explanation": "Late February conditions earn consistent \"brutal\" descriptions from multiple riders including David's race report. Kathryn noted \"30 seconds into the race I had a face full of dust,\" suggesting dry conditions that create challenging riding environments in the Australian summer heat."
+        "explanation": "Late February conditions earn consistent \"brutal\" descriptions from multiple riders including David's race report. Kathryn noted \"30 seconds into the race I had a face full of dust,\" suggesting dry conditions that create challenging riding environments in the Australian summer heat. More weather exposure than Belgian Waffle Ride San Diego."
       },
       "altitude": {
         "score": 1,
-        "explanation": "High point over 600m starting from Forrest's low elevation means zero altitude considerations. This remains coastal Victorian hill country where thin air never factors into performance or race strategy."
+        "explanation": "High point over 600m starting from Forrest's low elevation means zero altitude considerations. This remains coastal Victorian hill country where thin air never factors into performance or race strategy. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 3,
@@ -298,7 +298,7 @@
       },
       "field_depth": {
         "score": 1,
-        "explanation": "Field includes recreational riders like Sayers133 doing their first race and age-group participants like 51-year-old Mark, with elite presence limited to Peta Mullens testimonials. The timeout zone format accommodates varying abilities but doesn't attract deep competitive fields."
+        "explanation": "Field includes recreational riders like Sayers133 doing their first race and age-group participants like 51-year-old Mark, with elite presence limited to Peta Mullens testimonials. The timeout zone format accommodates varying abilities but doesn't attract deep competitive fields. Thinner field than Ouray Gravel Grinder. As Inclusivity puts it: \"Whether you're an elite chomping at the bit to 'win the big one', an age-grouper looking to battle it out for podiums, a newbie wanting to try your hand in the 30km MTB, or a social-rider wanting to c...\""
       },
       "value": {
         "score": 3,
@@ -306,7 +306,7 @@
       },
       "expenses": {
         "score": 2,
-        "explanation": "Equipment recommendations include 40-45mm tubeless tires, quality chain lube for 4-6 hour events, and avoiding lightweight bottle cages on gravel roads. The Forrest location requires travel planning for most riders, though multi-event weekend packages help distribute costs across multiple race experiences."
+        "explanation": "Registration runs $75-100 AUD. Equipment recommendations include 40-45mm tubeless tires, quality chain lube for 4-6 hour events, and avoiding lightweight bottle cages on gravel roads. The Forrest location requires travel planning for most riders, though multi-event weekend packages help distribute costs across multiple race experiences. Higher total cost than Badlands."
       }
     },
     "citations": [
@@ -345,6 +345,74 @@
         "category": "community",
         "label": "granfondoguide.com: Great Otway Gravel Grind"
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 42,
+          "msrp_usd": 54.99,
+          "weight_grams": 420,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 2,
+          "tire_id": "irc-boken-double-cross",
+          "name": "IRC Boken Double Cross",
+          "brand": "IRC",
+          "recommended_width_mm": 42,
+          "msrp_usd": 59.99,
+          "weight_grams": 400,
+          "crr_watts": null,
+          "why": "Underrated mixed-terrain tire. Fast center with confident shoulder grip."
+        },
+        {
+          "rank": 3,
+          "tire_id": "panaracer-gravelking-sk",
+          "name": "Panaracer GravelKing SK",
+          "brand": "Panaracer",
+          "recommended_width_mm": 43,
+          "msrp_usd": 64.9,
+          "weight_grams": 410,
+          "crr_watts": 32.5,
+          "why": "Affordable all-rounder. Light knobs add grip without killing speed."
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "panaracer-gravelking-tlc",
+          "name": "Panaracer GravelKing TLC",
+          "width_mm": 43
+        },
+        "rear": {
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 42
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 42,
+      "pressure_psi": {
+        "140_160lb_dry": "32-36",
+        "140_160lb_mixed": "30-34",
+        "140_160lb_wet": "28-32",
+        "160_180lb_dry": "36-40",
+        "160_180lb_mixed": "32-36",
+        "160_180lb_wet": "30-34",
+        "180_200lb_dry": "38-42",
+        "180_200lb_mixed": "36-40",
+        "180_200lb_wet": "34-38",
+        "200pluslb_dry": "42-46",
+        "200pluslb_mixed": "38-42",
+        "200pluslb_wet": "36-40"
+      }
+    }
   }
 }

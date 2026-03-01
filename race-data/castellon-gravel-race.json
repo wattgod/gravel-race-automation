@@ -258,23 +258,23 @@
       },
       "length": {
         "score": 3,
-        "explanation": "The 97km distance let Alejandro Valverde average 28 km/h for a 3:27:53 finish, while Carolin Schiff rode solo for the entire second half to win in 4:20:08. Padrones confirms \"the first flew at more than 25 km/h average\" on this fast course that balances serious climbing with manageable distance."
+        "explanation": "The 97km distance let Alejandro Valverde average 28 km/h for a 3:27:53 finish, while Carolin Schiff rode solo for the entire second half to win in 4:20:08. Padrones confirms \"the first flew at more than 25 km/h average\" on this fast course that balances serious climbing with manageable distance. Similar distance to Crusher in the Tushar."
       },
       "technicality": {
         "score": 2,
-        "explanation": "Padrones describes \"descending a gravel path at 65 km/h with some sharp corners\" but clarifies \"this was not a very technically demanding race\" with no singletrack or rocky sections. The 72% gravel surface prioritizes speed over technical skills, creating what riders call \"a fast course\" through Spanish fire roads."
+        "explanation": "Padrones describes \"descending a gravel path at 65 km/h with some sharp corners\" but clarifies \"this was not a very technically demanding race\" with no singletrack or rocky sections. The 72% gravel surface prioritizes speed over technical skills, creating what riders call \"a fast course\" through Spanish fire roads. Less technical than The Mid South."
       },
       "elevation": {
         "score": 2,
-        "explanation": "The 2,600m of climbing over 97km includes a 6.3km climb at 5.4% as the longest sustained ascent, plus the race-deciding final 1km at 10% gradient. Padrones acknowledges the climbing load as \"a hard test\" befitting a World Series event, but the varied gradients spread the suffering across multiple ascents rather than one monster climb."
+        "explanation": "The 2,600m of climbing over 97km includes a 6.3km climb at 5.4% as the longest sustained ascent, plus the race-deciding final 1km at 10% gradient. Padrones acknowledges the climbing load as \"a hard test\" befitting a World Series event, but the varied gradients spread the suffering across multiple ascents rather than one monster climb. Less climbing than The Mid South."
       },
       "climate": {
         "score": 3,
-        "explanation": "Padrones reports \"temperatures around the 15 degrees Celsius along the race itself\" with morning chill giving way to comfortable conditions. The February timing attracts international riders \"encouraged... attracted by the mild weather we are used to having in the Mediterranean area at this time of the year.\""
+        "explanation": "Historical weather data shows average highs of 60°F and lows of 41°F, with a 23% chance of rain on any given day, and gusts reaching 32 mph. Padrones reports \"temperatures around the 15 degrees Celsius along the race itself\" with morning chill giving way to comfortable conditions. The February timing attracts international riders \"encouraged... attracted by the mild weather we are used to having in the Mediterranean area at this time of the year.\" Similar climate challenges to SBT GRVL."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Starting and finishing in Llucena keeps you at Mediterranean coastal elevations despite the mountainous terrain. The 2,600m refers to elevation gain through climbing, not high-altitude racing conditions that would affect performance or require acclimatization."
+        "explanation": "Starting and finishing in Llucena keeps you at Mediterranean coastal elevations despite the mountainous terrain. The 2,600m refers to elevation gain through climbing, not high-altitude racing conditions that would affect performance or require acclimatization. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 3,
@@ -298,7 +298,7 @@
       },
       "field_depth": {
         "score": 2,
-        "explanation": "The 2025 elite fields included Carolin Schiff, Tiago Ferreira, Jan Bakelants, and 41-year-old UCI Gran Fondo World Champion Johnny Hoogerland alongside repeat winner Valverde. Top-25% finishers earn \"the appreciated golden UCI medal\" for Worlds qualification, attracting serious competitors to this 800-rider international field."
+        "explanation": "The 2025 elite fields included Carolin Schiff, Tiago Ferreira, Jan Bakelants, and 41-year-old UCI Gran Fondo World Champion Johnny Hoogerland alongside repeat winner Valverde. Top-25% finishers earn \"the appreciated golden UCI medal\" for Worlds qualification, attracting serious competitors to this 800-rider international field. Less competitive depth than Almanzo 100."
       },
       "value": {
         "score": 3,
@@ -306,7 +306,7 @@
       },
       "expenses": {
         "score": 2,
-        "explanation": "Llucena's rural mountain location limits accommodation options despite attracting 250 international riders who must navigate the logistics independently. February timing helps with seasonal pricing, but the limited infrastructure around this small Spanish village requires self-sufficient travel planning for visiting riders."
+        "explanation": "Registration runs €50-80. Llucena's rural mountain location limits accommodation options despite attracting 250 international riders who must navigate the logistics independently. February timing helps with seasonal pricing, but the limited infrastructure around this small Spanish village requires self-sufficient travel planning for visiting riders. Higher total cost than Badlands."
       }
     },
     "citations": [
@@ -375,6 +375,74 @@
         "category": "community",
         "label": "granfondodailynews.com: 2025 Uci Gravel Worlds Qualifying Old Man Valverde Wins A..."
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 38,
+          "msrp_usd": 54.99,
+          "weight_grams": 380,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 2,
+          "tire_id": "panaracer-gravelking-sk",
+          "name": "Panaracer GravelKing SK",
+          "brand": "Panaracer",
+          "recommended_width_mm": 40,
+          "msrp_usd": 64.9,
+          "weight_grams": 380,
+          "crr_watts": 32.5,
+          "why": "Affordable all-rounder. Light knobs add grip without killing speed."
+        },
+        {
+          "rank": 3,
+          "tire_id": "vittoria-terreno-mix",
+          "name": "Vittoria Terreno Mix",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 420,
+          "crr_watts": 33.5,
+          "why": "Graphene versatility. Mixed-terrain grip with reasonable rolling speed."
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 38
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 38,
+      "pressure_psi": {
+        "140_160lb_dry": "36-40",
+        "140_160lb_mixed": "33-37",
+        "140_160lb_wet": "31-35",
+        "160_180lb_dry": "39-43",
+        "160_180lb_mixed": "36-40",
+        "160_180lb_wet": "34-38",
+        "180_200lb_dry": "42-46",
+        "180_200lb_mixed": "39-43",
+        "180_200lb_wet": "37-41",
+        "200pluslb_dry": "45-49",
+        "200pluslb_mixed": "42-46",
+        "200pluslb_wet": "40-44"
+      }
+    }
   }
 }

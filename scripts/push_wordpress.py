@@ -1462,6 +1462,130 @@ def sync_photos(photos_dir: str):
     return f"{wp_url}/race-photos/"
 
 
+def sync_tires(tires_dir: str):
+    """Upload tire guide pages to /race/{slug}/tires/ on SiteGround via tar+ssh.
+
+    Converts flat {slug}.html files to {slug}/tires/index.html directory
+    structure under /race/. Same tar+ssh pattern as sync_prep_kits().
+    """
+    ssh = get_ssh_credentials()
+    if not ssh:
+        return None
+    host, user, port = ssh
+
+    tires_path = Path(tires_dir)
+    if not tires_path.exists():
+        print(f"\u2717 Tire guide directory not found: {tires_path}")
+        return None
+
+    html_files = sorted(tires_path.glob("*.html"))
+    if not html_files:
+        print(f"\u2717 No .html files found in {tires_path}")
+        return None
+
+    remote_base = "~/www/gravelgodcycling.com/public_html/race"
+
+    with tempfile.TemporaryDirectory() as tmpdir:
+        tmpdir = Path(tmpdir)
+        page_count = 0
+        for html_file in html_files:
+            slug = html_file.stem
+            tire_dir = tmpdir / slug / "tires"
+            tire_dir.mkdir(parents=True)
+            shutil.copy2(html_file, tire_dir / "index.html")
+            page_count += 1
+
+        print(f"  Uploading {page_count} tire guide pages via tar+ssh...")
+
+        try:
+            items = [p.name for p in sorted(tmpdir.iterdir())]
+            tar_cmd = ["tar", "-cf", "-", "-C", str(tmpdir)] + items
+            ssh_cmd = [
+                "ssh", "-i", str(SSH_KEY), "-p", port,
+                f"{user}@{host}",
+                f"tar -xf - -C {remote_base}",
+            ]
+
+            tar_proc = subprocess.Popen(tar_cmd, stdout=subprocess.PIPE)
+            ssh_proc = subprocess.Popen(ssh_cmd, stdin=tar_proc.stdout,
+                                        stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            tar_proc.stdout.close()
+            stdout, stderr = ssh_proc.communicate(timeout=300)
+
+            if ssh_proc.returncode != 0:
+                print(f"\u2717 tar+ssh failed: {stderr.decode().strip()}")
+                return None
+        except subprocess.TimeoutExpired:
+            print("\u2717 Upload timed out (300s)")
+            tar_proc.kill()
+            ssh_proc.kill()
+            return None
+        except Exception as e:
+            print(f"\u2717 Error uploading tire guide pages: {e}")
+            return None
+
+    wp_url = os.environ.get("WP_URL", "https://gravelgodcycling.com")
+    print(f"\u2713 Uploaded {page_count} tire guide pages to {wp_url}/race/*/tires/")
+    return f"{wp_url}/race/"
+
+
+def sync_tire_pages(tire_pages_dir: str):
+    """Upload per-tire + tire-vs-tire pages to /tire/{slug}/ on SiteGround via tar+ssh.
+
+    Each subdirectory in tire_pages_dir already has an index.html.
+    Maps to /tire/{slug}/index.html on the server.
+    """
+    ssh = get_ssh_credentials()
+    if not ssh:
+        return None
+    host, user, port = ssh
+
+    pages_path = Path(tire_pages_dir)
+    if not pages_path.exists():
+        print(f"\u2717 Tire pages directory not found: {pages_path}")
+        return None
+
+    subdirs = sorted([p for p in pages_path.iterdir() if p.is_dir() and (p / "index.html").exists()])
+    if not subdirs:
+        print(f"\u2717 No tire page subdirectories found in {pages_path}")
+        return None
+
+    remote_base = "~/www/gravelgodcycling.com/public_html/tire"
+
+    print(f"  Uploading {len(subdirs)} tire pages via tar+ssh...")
+
+    try:
+        items = [p.name for p in subdirs]
+        tar_cmd = ["tar", "-cf", "-", "-C", str(pages_path)] + items
+        ssh_cmd = [
+            "ssh", "-i", str(SSH_KEY), "-p", port,
+            f"{user}@{host}",
+            f"mkdir -p {remote_base} && tar -xf - -C {remote_base}",
+        ]
+
+        tar_proc = subprocess.Popen(tar_cmd, stdout=subprocess.PIPE)
+        ssh_proc = subprocess.Popen(ssh_cmd, stdin=tar_proc.stdout,
+                                    stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        tar_proc.stdout.close()
+        stdout, stderr = ssh_proc.communicate(timeout=300)
+
+        if ssh_proc.returncode != 0:
+            print(f"\u2717 tar+ssh failed: {stderr.decode().strip()}")
+            return None
+    except subprocess.TimeoutExpired:
+        print("\u2717 Upload timed out (300s)")
+        tar_proc.kill()
+        ssh_proc.kill()
+        return None
+    except Exception as e:
+        print(f"\u2717 Error uploading tire pages: {e}")
+        return None
+
+    wp_url = os.environ.get("WP_URL", "https://gravelgodcycling.com")
+    print(f"\u2713 Uploaded {len(subdirs)} tire pages to {wp_url}/tire/*/")
+    return f"{wp_url}/tire/"
+
+
 def sync_prep_kits(prep_kit_dir: str):
     """Upload prep kit pages to /race/{slug}/prep-kit/ on SiteGround via tar+ssh.
 
@@ -1900,6 +2024,22 @@ if __name__ == "__main__":
         help="Path to race photos directory (default: race-photos)"
     )
     parser.add_argument(
+        "--sync-tires", action="store_true",
+        help="Upload tire guide pages to /race/{slug}/tires/ via tar+ssh"
+    )
+    parser.add_argument(
+        "--tires-dir", default="wordpress/output/tires",
+        help="Path to tire guide directory (default: wordpress/output/tires)"
+    )
+    parser.add_argument(
+        "--sync-tire-pages", action="store_true",
+        help="Upload per-tire + tire-vs-tire pages to /tire/{slug}/ via tar+ssh"
+    )
+    parser.add_argument(
+        "--tire-pages-dir", default="wordpress/output/tire",
+        help="Path to tire pages directory (default: wordpress/output/tire)"
+    )
+    parser.add_argument(
         "--sync-prep-kits", action="store_true",
         help="Upload prep kit pages to /race/{slug}/prep-kit/ via tar+ssh"
     )
@@ -1973,6 +2113,8 @@ if __name__ == "__main__":
         args.sync_noindex = True
         args.sync_ctas = True
         args.sync_ga4 = True
+        args.sync_tires = True
+        args.sync_tire_pages = True
         args.sync_prep_kits = True
         args.sync_series = True
         args.sync_blog = True
@@ -1985,8 +2127,8 @@ if __name__ == "__main__":
                       args.sync_guide, args.sync_og, args.sync_homepage, args.sync_about,
                       args.sync_coaching, args.sync_coaching_apply, args.sync_pages,
                       args.sync_sitemap, args.sync_redirects,
-                      args.sync_noindex, args.sync_ctas, args.sync_ga4, args.sync_prep_kits,
-                      args.sync_series, args.sync_blog,
+                      args.sync_noindex, args.sync_ctas, args.sync_ga4, args.sync_tires,
+                      args.sync_tire_pages, args.sync_prep_kits, args.sync_series, args.sync_blog,
                       args.sync_blog_index, args.sync_photos, args.sync_ab, args.purge_cache])
     if not has_action:
         parser.error("Provide a sync flag (--sync-pages, --sync-index, etc.), --deploy-content, or --deploy-all")
@@ -2025,6 +2167,10 @@ if __name__ == "__main__":
         sync_ga4()
     if args.sync_photos:
         sync_photos(args.photos_dir)
+    if args.sync_tires:
+        sync_tires(args.tires_dir)
+    if args.sync_tire_pages:
+        sync_tire_pages(args.tire_pages_dir)
     if args.sync_prep_kits:
         sync_prep_kits(args.prep_kit_dir)
     if args.sync_series:

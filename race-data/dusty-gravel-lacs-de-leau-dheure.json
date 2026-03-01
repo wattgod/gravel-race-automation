@@ -258,23 +258,23 @@
       },
       "length": {
         "score": 2,
-        "explanation": "The XL format covers 96-110km with 1,500m elevation as \"a 54 km loop, then two additional 21 km loops,\" while the L option does 70-75km with one shorter loop. Early breakaway dynamics show the distance creates tactical racing: \"After about twenty kilometers, a quartet broke away from the rest of the peloton.\""
+        "explanation": "The XL format covers 96-110km with 1,500m elevation as \"a 54 km loop, then two additional 21 km loops,\" while the L option does 70-75km with one shorter loop. Early breakaway dynamics show the distance creates tactical racing: \"After about twenty kilometers, a quartet broke away from the rest of the peloton.\" More compact than Grinduro."
       },
       "technicality": {
         "score": 2,
-        "explanation": "The Gran Fondo Guide rates terrain as \"moderate terrain with rolling short steep hills or moderate, sustained climbs.\" Routes explore \"chemins et sentiers cachés\" (hidden paths and trails) around Belgium's largest lake system, requiring steady bike handling without extreme technical features."
+        "explanation": "The Gran Fondo Guide rates terrain as \"moderate terrain with rolling short steep hills or moderate, sustained climbs.\" Routes explore \"chemins et sentiers cachés\" (hidden paths and trails) around Belgium's largest lake system, requiring steady bike handling without extreme technical features. Less technical than The Mid South."
       },
       "elevation": {
         "score": 2,
-        "explanation": "The shorter 21km loops pack the punch: \"The second loop may be shorter, but it is littered with small bumps that hurt the legs!\" With 1,500m total gain on the XL route, the repeated loops create cumulative fatigue rather than single brutal climbs through the rolling lake terrain."
+        "explanation": "The shorter 21km loops pack the punch: \"The second loop may be shorter, but it is littered with small bumps that hurt the legs!\" With 1,500m total gain on the XL route, the repeated loops create cumulative fatigue rather than single brutal climbs through the rolling lake terrain. Less climbing than The Mid South."
       },
       "climate": {
         "score": 2,
-        "explanation": "\"And this time the promised layer of dust was indeed present!\" The 2025 edition delivered dry conditions requiring \"maximum concentration\" for \"tight corners on a dry surface.\" Multiple riders suffered flats on the early gravel sections, suggesting surface conditions affecting equipment."
+        "explanation": "Historical weather data shows average highs of 55°F and lows of 39°F, with a 50% chance of rain on any given day, and gusts reaching 28 mph. \"And this time the promised layer of dust was indeed present!\" The 2025 edition delivered dry conditions requiring \"maximum concentration\" for \"tight corners on a dry surface.\" Multiple riders suffered flats on the early gravel sections, suggesting surface conditions affecting equipment. More weather exposure than Belgian Waffle Ride San Diego."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Starting from the Lacs de l'Eau d'Heure area around 246m elevation means minimal altitude considerations. The rolling lake terrain stays at low European elevations with zero impact on performance or equipment needs."
+        "explanation": "Starting from the Lacs de l'Eau d'Heure area around 246m elevation means minimal altitude considerations. The rolling lake terrain stays at low European elevations with zero impact on performance or equipment needs. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 2,
@@ -298,7 +298,7 @@
       },
       "field_depth": {
         "score": 1,
-        "explanation": "Early race dynamics show competitive depth: Owen Valcke, Steven Dillen, Kamiel Notebaert and Sander Hubrechts formed the leading quartet, with \"a dozen riders chasing, but more than two and a half minutes behind.\" However, marketing as open to \"all levels\" suggests recreational focus over elite competition."
+        "explanation": "With a field of 50-100 riders, early race dynamics show competitive depth: Owen Valcke, Steven Dillen, Kamiel Notebaert and Sander Hubrechts formed the leading quartet, with \"a dozen riders chasing, but more than two and a half minutes behind.\" However, marketing as open to \"all levels\" suggests recreational focus over elite competition. Thinner field than Ouray Gravel Grinder."
       },
       "value": {
         "score": 4,
@@ -306,7 +306,7 @@
       },
       "expenses": {
         "score": 2,
-        "explanation": "Belgium offers moderate accommodation and food costs, with the Lacs de l'Eau d'Heure being a regional destination rather than expensive tourist center. Central European location makes travel accessible, though specific lodging strategies around the lake area remain unspecified from available data."
+        "explanation": "Registration runs €50-75. Belgium offers moderate accommodation and food costs, with the Lacs de l'Eau d'Heure being a regional destination rather than expensive tourist center. Central European location makes travel accessible, though specific lodging strategies around the lake area remain unspecified from available data. Higher total cost than Badlands."
       }
     },
     "citations": [
@@ -345,6 +345,74 @@
         "category": "community",
         "label": "le-sportif.com: Gravel"
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "vittoria-terreno-wet",
+          "name": "Vittoria Terreno Wet",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 460,
+          "crr_watts": 39.0,
+          "why": "excellent wet grip"
+        },
+        {
+          "rank": 2,
+          "tire_id": "continental-terra-trail",
+          "name": "Continental Terra Trail",
+          "brand": "Continental",
+          "recommended_width_mm": 40,
+          "msrp_usd": 74.99,
+          "weight_grams": 450,
+          "crr_watts": 33.5,
+          "why": "excellent wet grip"
+        },
+        {
+          "rank": 3,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 38,
+          "msrp_usd": 54.99,
+          "weight_grams": 380,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "vittoria-terreno-wet",
+          "name": "Vittoria Terreno Wet",
+          "width_mm": 40
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "wet",
+      "recommended_width_mm": 40,
+      "pressure_psi": {
+        "140_160lb_dry": "35-39",
+        "140_160lb_mixed": "32-36",
+        "140_160lb_wet": "30-34",
+        "160_180lb_dry": "38-42",
+        "160_180lb_mixed": "35-39",
+        "160_180lb_wet": "33-37",
+        "180_200lb_dry": "41-45",
+        "180_200lb_mixed": "38-42",
+        "180_200lb_wet": "36-40",
+        "200pluslb_dry": "44-48",
+        "200pluslb_mixed": "41-45",
+        "200pluslb_wet": "39-43"
+      }
+    }
   }
 }

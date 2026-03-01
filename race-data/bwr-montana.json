@@ -164,23 +164,23 @@
       },
       "length": {
         "score": 4,
-        "explanation": "Russell Finsterwald made his winning move after 105 miles on technical singletrack, finishing in 5:03:22 after launching his sprint early. Stella Hobbs \"stormed away from the field on the first climb\" and rode solo across the line in 5:31:33, showing the 87-mile distance breaks riders at different points."
+        "explanation": "Russell Finsterwald made his winning move after 105 miles on technical singletrack, finishing in 5:03:22 after launching his sprint early. Stella Hobbs \"stormed away from the field on the first climb\" and rode solo across the line in 5:31:33, showing the 87-mile distance breaks riders at different points. Longer than Belgian Waffle Ride San Diego."
       },
       "technicality": {
         "score": 4,
-        "explanation": "MikeMckinney describes \"loose over hard gravel\" where \"if you got out of the ruts you were surfing around in the soft stuff.\" The final 4 miles of singletrack was \"pretty rocky\" with mandatory walking on steep sections, while eric_quiat found 42c tires \"pretty perfect\" for the varied terrain mix."
+        "explanation": "MikeMckinney describes \"loose over hard gravel\" where \"if you got out of the ruts you were surfing around in the soft stuff.\" The final 4 miles of singletrack was \"pretty rocky\" with mandatory walking on steep sections, while eric_quiat found 42c tires \"pretty perfect\" for the varied terrain mix. More technical than most — comparable to Belgian Waffle Ride San Diego."
       },
       "elevation": {
         "score": 4,
-        "explanation": "MikeMckinney logged 7,900 feet of elevation gain with \"19 climbs on my head unit\" including one punchy 11% section around mile 90. Siena Hermon got a hand-up \"at the bottom of a 900-foot climb,\" learning that accepting feeds before major ascents isn't ideal for heavier riders."
+        "explanation": "MikeMckinney logged 7,900 feet of elevation gain with \"19 climbs on my head unit\" including one punchy 11% section around mile 90. Siena Hermon got a hand-up \"at the bottom of a 900-foot climb,\" learning that accepting feeds before major ascents isn't ideal for heavier riders. More climbing than SBT GRVL at the same score."
       },
       "climate": {
         "score": 2,
-        "explanation": "Flavia Oliveira Parks suffered electronic shifting failures at miles 40 and 97, getting stuck in single gears during the event. The exposed, windy sections demanded strategic racing to avoid \"burning too many matches,\" while altitude and fast gravel conditions created additional challenges beyond pure weather."
+        "explanation": "Historical weather data shows average highs of 86°F and lows of 57°F, with a 21% chance of rain on any given day. Flavia Oliveira Parks suffered electronic shifting failures at miles 40 and 97, getting stuck in single gears during the event. The exposed, windy sections demanded strategic racing to avoid \"burning too many matches,\" while altitude and fast gravel conditions created additional challenges beyond pure weather. More weather exposure than Belgian Waffle Ride San Diego."
       },
       "altitude": {
         "score": 2,
-        "explanation": "MikeMckinney warns \"Don't forget Bozeman is at 4800 ft, and you ride up to 5500 feet numerous times which you will notice if you don't normally ride that high.\" Todd Melton observed \"The elevation was definitely a challenge for a number of people\" during the event."
+        "explanation": "MikeMckinney warns \"Don't forget Bozeman is at 4800 ft, and you ride up to 5500 feet numerous times which you will notice if you don't normally ride that high.\" Todd Melton observed \"The elevation was definitely a challenge for a number of people\" during the event. Modest altitude compared to Belgian Waffle Ride San Diego."
       },
       "adventure": {
         "score": 5,
@@ -204,7 +204,7 @@
       },
       "field_depth": {
         "score": 4,
-        "explanation": "Todd Melton observed \"The level of competition was higher than what I've seen in other events\" with many participants having \"participated in other BWR events this year.\" The 350-rider cap creates a competitive field where Russell Finsterwald's technical skills and sprint strength determined victory."
+        "explanation": "Todd Melton observed \"The level of competition was higher than what I've seen in other events\" with many participants having \"participated in other BWR events this year.\" The 350-rider cap creates a competitive field where Russell Finsterwald's technical skills and sprint strength determined victory. Deeper field than most — comparable to Badlands."
       },
       "value": {
         "score": 3,
@@ -212,7 +212,7 @@
       },
       "expenses": {
         "score": 3,
-        "explanation": "Missoula lodging hits $149/night at DoubleTree during race weekend, with budget options starting at $89 if you book early—but 'everything sells out.' Direct flights from major hubs keep travel reasonable, though MSO isn't cheap. The $20 camping option at Fort Missoula helps budget-conscious masochists, but factor in tire replacement after the mud destroys your rubber."
+        "explanation": "Missoula lodging hits $149/night at DoubleTree during race weekend, with budget options starting at $89 if you book early—but 'everything sells out.' Direct flights from major hubs keep travel reasonable, though MSO isn't cheap. The $20 camping option at Fort Missoula helps budget-conscious masochists, but factor in tire replacement after the mud destroys your rubber. Similar expense level to Belgian Waffle Ride San Diego."
       }
     },
     "final_verdict": {
@@ -296,6 +296,63 @@
     "series": {
       "id": "belgian-waffle-ride",
       "name": "Belgian Waffle Ride"
+    },
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "schwalbe-g-one-bite",
+          "name": "Schwalbe G-One Bite",
+          "brand": "Schwalbe",
+          "recommended_width_mm": 45,
+          "msrp_usd": 69.9,
+          "weight_grams": 540,
+          "crr_watts": 38.0,
+          "why": "excellent wet grip"
+        },
+        {
+          "rank": 2,
+          "tire_id": "maxxis-reaver",
+          "name": "Maxxis Reaver",
+          "brand": "Maxxis",
+          "recommended_width_mm": 45,
+          "msrp_usd": 79.99,
+          "weight_grams": 520,
+          "crr_watts": 35.0,
+          "why": "Technical all-rounder. EXO+ casing shrugs off rocks and roots."
+        },
+        {
+          "rank": 3,
+          "tire_id": "pirelli-cinturato-gravel-s",
+          "name": "Pirelli Cinturato Gravel S",
+          "brand": "Pirelli",
+          "recommended_width_mm": 45,
+          "msrp_usd": 73.99,
+          "weight_grams": 470,
+          "crr_watts": null,
+          "why": "excellent wet grip"
+        }
+      ],
+      "front_rear_split": {
+        "applicable": false
+      },
+      "race_surface_profile": "technical",
+      "recommended_width_mm": 45,
+      "pressure_psi": {
+        "140_160lb_dry": "30-34",
+        "140_160lb_mixed": "26-30",
+        "140_160lb_wet": "24-28",
+        "160_180lb_dry": "32-36",
+        "160_180lb_mixed": "30-34",
+        "160_180lb_wet": "28-32",
+        "180_200lb_dry": "36-40",
+        "180_200lb_mixed": "32-36",
+        "180_200lb_wet": "30-34",
+        "200pluslb_dry": "38-42",
+        "200pluslb_mixed": "36-40",
+        "200pluslb_wet": "34-38"
+      }
     }
   }
 }

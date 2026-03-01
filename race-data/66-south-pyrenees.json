@@ -258,23 +258,23 @@
       },
       "length": {
         "score": 3,
-        "explanation": "110km hits the sweet spot for challenging gravel without becoming an endurance death march. The 74km option provides racing for age group qualifiers while skipping the Formiguères-Matemale section. Multiple distance choices prevent the race from being a one-dimensional sufferfest, though none approach epic proportions."
+        "explanation": "110km hits the sweet spot for challenging gravel without becoming an endurance death march. The 74km option provides racing for age group qualifiers while skipping the Formiguères-Matemale section. Multiple distance choices prevent the race from being a one-dimensional sufferfest, though none approach epic proportions. Similar distance to Crusher in the Tushar."
       },
       "technicality": {
         "score": 2,
-        "explanation": "Course features forest trails, rocky paths and mountain roads with singletracks through underbrush. The 20km route includes \"a playful single track in the underbrush, technical but smooth\" with views of Lake Matemale. Terrain \"plays with your nerves\" but reads more like mountain fire roads than technical gravel challenges."
+        "explanation": "Course features forest trails, rocky paths and mountain roads with singletracks through underbrush. The 20km route includes \"a playful single track in the underbrush, technical but smooth\" with views of Lake Matemale. Terrain \"plays with your nerves\" but reads more like mountain fire roads than technical gravel challenges. Less technical than The Mid South."
       },
       "elevation": {
         "score": 4,
-        "explanation": "2,134m over 110km delivers Pyrenees climbing with three major ascents including a two-step monster from km 72-87. Racing between 1600-2000m altitude adds respiratory stress to the physical demands. Even the 74km option packs 1,462m of climbing—this race earns every meter of vertical."
+        "explanation": "2,134m over 110km delivers Pyrenees climbing with three major ascents including a two-step monster from km 72-87. Racing between 1600-2000m altitude adds respiratory stress to the physical demands. Even the 74km option packs 1,462m of climbing—this race earns every meter of vertical. More climbing than SBT GRVL at the same score."
       },
       "climate": {
         "score": 3,
-        "explanation": "September in the Pyrenees offers stable weather windows, though mountain conditions change rapidly at racing altitude of 1600-2000m. Mandatory warm and waterproof clothing requirements suggest organizers expect temperature swings and potential weather exposure during the event."
+        "explanation": "Historical weather data shows average highs of 60°F and lows of 42°F, with a 47% chance of rain on any given day. September in the Pyrenees offers stable weather windows, though mountain conditions change rapidly at racing altitude of 1600-2000m. Mandatory warm and waterproof clothing requirements suggest organizers expect temperature swings and potential weather exposure during the event. Similar climate challenges to SBT GRVL."
       },
       "altitude": {
         "score": 2,
-        "explanation": "Racing between 1600-2000m provides noticeable but manageable altitude effects, with routes peaking at 2,400m featuring \"rocky trails and forest paths.\" High enough to feel lung burn on climbs through Scots pine forests around Formiguères station, not high enough to require serious acclimatization."
+        "explanation": "Racing between 1600-2000m provides noticeable but manageable altitude effects, with routes peaking at 2,400m featuring \"rocky trails and forest paths.\" High enough to feel lung burn on climbs through Scots pine forests around Formiguères station, not high enough to require serious acclimatization. Modest altitude compared to Belgian Waffle Ride San Diego."
       },
       "adventure": {
         "score": 3,
@@ -298,7 +298,7 @@
       },
       "field_depth": {
         "score": 2,
-        "explanation": "UCI qualifier status attracts riders chasing World Championship spots with separate age-group qualification categories (men 60+/women 50+ for 74km option). Time gates enforce competitive standards by stopping riders who miss cutoffs, though field size and notable participants remain unknown."
+        "explanation": "UCI qualifier status attracts riders chasing World Championship spots with separate age-group qualification categories (men 60+/women 50+ for 74km option). Time gates enforce competitive standards by stopping riders who miss cutoffs, though field size and notable participants remain unknown. Less competitive depth than Almanzo 100."
       },
       "value": {
         "score": 3,
@@ -306,9 +306,77 @@
       },
       "expenses": {
         "score": 2,
-        "explanation": "Les Angles mountain resort location means paying peak season rates with limited lodging options. Mandatory equipment includes hard helmet, repair kit, and weather-appropriate clothing, adding gear costs. The 30% local activity discount helps slightly but you're paying Pyrenees resort pricing."
+        "explanation": "Registration runs €60-100. Les Angles mountain resort location means paying peak season rates with limited lodging options. Mandatory equipment includes hard helmet, repair kit, and weather-appropriate clothing, adding gear costs. The 30% local activity discount helps slightly but you're paying Pyrenees resort pricing. Higher total cost than Badlands."
       }
     },
-    "citations": []
+    "citations": [],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 38,
+          "msrp_usd": 54.99,
+          "weight_grams": 380,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 2,
+          "tire_id": "vittoria-terreno-mix",
+          "name": "Vittoria Terreno Mix",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 420,
+          "crr_watts": 33.5,
+          "why": "Graphene versatility. Mixed-terrain grip with reasonable rolling speed."
+        },
+        {
+          "rank": 3,
+          "tire_id": "continental-terra-trail",
+          "name": "Continental Terra Trail",
+          "brand": "Continental",
+          "recommended_width_mm": 40,
+          "msrp_usd": 74.99,
+          "weight_grams": 450,
+          "crr_watts": 33.5,
+          "why": "excellent wet grip"
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 38
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 38,
+      "pressure_psi": {
+        "140_160lb_dry": "36-40",
+        "140_160lb_mixed": "33-37",
+        "140_160lb_wet": "31-35",
+        "160_180lb_dry": "39-43",
+        "160_180lb_mixed": "36-40",
+        "160_180lb_wet": "34-38",
+        "180_200lb_dry": "42-46",
+        "180_200lb_mixed": "39-43",
+        "180_200lb_wet": "37-41",
+        "200pluslb_dry": "45-49",
+        "200pluslb_mixed": "42-46",
+        "200pluslb_wet": "40-44"
+      }
+    }
   }
 }

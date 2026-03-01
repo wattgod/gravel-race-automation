@@ -258,23 +258,23 @@
       },
       "length": {
         "score": 3,
-        "explanation": "The 65-mile distance sits between typical century training and ultra-endurance demands. pwandoff completed \"my first century this year with roughly 4,600 ft climb with a majority between 40 - 80 miles\" and found the experience manageable enough to plan \"two in 2019.\""
+        "explanation": "The 65-mile distance sits between typical century training and ultra-endurance demands. pwandoff completed \"my first century this year with roughly 4,600 ft climb with a majority between 40 - 80 miles\" and found the experience manageable enough to plan \"two in 2019.\" Similar distance to Crusher in the Tushar."
       },
       "technicality": {
         "score": 2,
-        "explanation": "Pete Dusel describes the Natchez Trace as having \"No stop signs, and except for a few tiny roads in Mississippi, no cross roads at grade. They're all handled with overpasses.\" Surface quality is pristine: \"Not a pot hole the entire length we rode and, in general, the pavement in excellent condition.\""
+        "explanation": "Pete Dusel describes the Natchez Trace as having \"No stop signs, and except for a few tiny roads in Mississippi, no cross roads at grade. They're all handled with overpasses.\" Surface quality is pristine: \"Not a pot hole the entire length we rode and, in general, the pavement in excellent condition.\" Less technical than The Mid South."
       },
       "elevation": {
         "score": 2,
-        "explanation": "Pete Dusel characterizes the terrain as \"Not terribly hilly, but generally rolling enough to keep it interesting.\" The 3,500-foot gain over 65 miles creates consistent undulation without major climbs, described as suitable for tandem riding by experienced distance cyclists."
+        "explanation": "Pete Dusel characterizes the terrain as \"Not terribly hilly, but generally rolling enough to keep it interesting.\" The 3,500-foot gain over 65 miles creates consistent undulation without major climbs, described as suitable for tandem riding by experienced distance cyclists. Less climbing than The Mid South."
       },
       "climate": {
         "score": 2,
-        "explanation": "Tennessee weather remains unpredictable, but the Trace offers seasonal advantages. Winter riding benefits from ridge placement - \"good in the winter cause there is very little shade and most of it is on a ridge which makes it warmer\" compared to valley roads that \"can be brutal.\""
+        "explanation": "Tennessee weather remains unpredictable, but the Trace offers seasonal advantages. Winter riding benefits from ridge placement - \"good in the winter cause there is very little shade and most of it is on a ridge which makes it warmer\" compared to valley roads that \"can be brutal.\" More weather exposure than Belgian Waffle Ride San Diego."
       },
       "altitude": {
         "score": 1,
-        "explanation": "The Trace runs mostly on ridges rather than valley floors, but Nashville sits around 500 feet above sea level. The route \"starts to get flatter\" heading south, meaning minimal altitude impact on performance. No acclimatization needed."
+        "explanation": "The Trace runs mostly on ridges rather than valley floors, but Nashville sits around 500 feet above sea level. The route \"starts to get flatter\" heading south, meaning minimal altitude impact on performance. No acclimatization needed. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 2,
@@ -298,7 +298,7 @@
       },
       "field_depth": {
         "score": 2,
-        "explanation": "The aerobars-friendly terrain attracts time trial and triathlon training rather than technical gravel racing talent. Nashville area cycling community exists but focuses on roads like \"Old Hwy 96 or Waddell Hollow\" for variety rather than challenging gravel competition."
+        "explanation": "The aerobars-friendly terrain attracts time trial and triathlon training rather than technical gravel racing talent. Nashville area cycling community exists but focuses on roads like \"Old Hwy 96 or Waddell Hollow\" for variety rather than challenging gravel competition. Less competitive depth than Almanzo 100."
       },
       "value": {
         "score": 3,
@@ -306,7 +306,7 @@
       },
       "expenses": {
         "score": 3,
-        "explanation": "Nashville costs stay moderate compared to coastal markets, though local cycling services command premium pricing. The Gran Fondo shop reputation for being \"the only bike shop that can survive even when they sell over retail price\" suggests cyclists accept higher costs for quality service."
+        "explanation": "Registration runs $60-100. Nashville costs stay moderate compared to coastal markets, though local cycling services command premium pricing. The Gran Fondo shop reputation for being \"the only bike shop that can survive even when they sell over retail price\" suggests cyclists accept higher costs for quality service. Similar expense level to Belgian Waffle Ride San Diego."
       }
     },
     "citations": [
@@ -335,6 +335,74 @@
         "category": "community",
         "label": "granfondoguide.com: Natchez Trace Century Ride"
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 38,
+          "msrp_usd": 54.99,
+          "weight_grams": 380,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 2,
+          "tire_id": "panaracer-gravelking-sk",
+          "name": "Panaracer GravelKing SK",
+          "brand": "Panaracer",
+          "recommended_width_mm": 40,
+          "msrp_usd": 64.9,
+          "weight_grams": 380,
+          "crr_watts": 32.5,
+          "why": "Affordable all-rounder. Light knobs add grip without killing speed."
+        },
+        {
+          "rank": 3,
+          "tire_id": "vittoria-terreno-mix",
+          "name": "Vittoria Terreno Mix",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 420,
+          "crr_watts": 33.5,
+          "why": "Graphene versatility. Mixed-terrain grip with reasonable rolling speed."
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 38
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 38,
+      "pressure_psi": {
+        "140_160lb_dry": "36-40",
+        "140_160lb_mixed": "33-37",
+        "140_160lb_wet": "31-35",
+        "160_180lb_dry": "39-43",
+        "160_180lb_mixed": "36-40",
+        "160_180lb_wet": "34-38",
+        "180_200lb_dry": "42-46",
+        "180_200lb_mixed": "39-43",
+        "180_200lb_wet": "37-41",
+        "200pluslb_dry": "45-49",
+        "200pluslb_mixed": "42-46",
+        "200pluslb_wet": "40-44"
+      }
+    }
   }
 }

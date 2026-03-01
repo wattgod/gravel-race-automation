@@ -162,23 +162,23 @@
       },
       "length": {
         "score": 3,
-        "explanation": "The medium course runs approximately 50 miles according to Valley of Tears, though some sources list 62 miles. Jake Rytlewski notes collegiate races \"can be short\" and recommends doubling up with category races to build training load - this distance hits the collegiate sweet spot."
+        "explanation": "The medium course runs approximately 50 miles according to Valley of Tears, though some sources list 62 miles. Jake Rytlewski notes collegiate races \"can be short\" and recommends doubling up with category races to build training load - this distance hits the collegiate sweet spot. Similar distance to Crusher in the Tushar."
       },
       "technicality": {
         "score": 2,
-        "explanation": "The course mixes gravel roads, old rail trail, and singletrack within Caprock Canyon State Park - unusual for gravel racing to include actual MTB sections. Pete Gossett warns his gravel setup \"doesn't like sand at all\" and carries a cleaning brush for sandy sections that clog the bottom bracket."
+        "explanation": "The course mixes gravel roads, old rail trail, and singletrack within Caprock Canyon State Park - unusual for gravel racing to include actual MTB sections. Pete Gossett warns his gravel setup \"doesn't like sand at all\" and carries a cleaning brush for sandy sections that clog the bottom bracket. Less technical than The Mid South."
       },
       "elevation": {
         "score": 3,
-        "explanation": "4,921 feet over the course distance provides steady climbing without massive sustained efforts. The Texas Panhandle's Caprock Canyon terrain delivers ups and downs that will separate riders without requiring specialized hill climbing preparation for collegiate racers."
+        "explanation": "4,921 feet over the course distance provides steady climbing without massive sustained efforts. The Texas Panhandle's Caprock Canyon terrain delivers ups and downs that will separate riders without requiring specialized hill climbing preparation for collegiate racers. Similar elevation profile to Gravel Worlds."
       },
       "climate": {
         "score": 3,
-        "explanation": "March 7th in Turkey, Texas presents typical spring weather uncertainty - could range from 40 degrees with wind to 70 and perfect conditions. The Texas Panhandle's notorious wind can make or break races, adding tactical complexity without being consistently miserable."
+        "explanation": "Historical weather data shows average highs of 78°F and lows of 51°F, with a 20% chance of rain on any given day, and gusts reaching 30 mph. March 7th in Turkey, Texas presents typical spring weather uncertainty - could range from 40 degrees with wind to 70 and perfect conditions. The Texas Panhandle's notorious wind can make or break races, adding tactical complexity without being consistently miserable. Similar climate challenges to SBT GRVL."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Turkey, Texas sits around 2,200 feet - irrelevant for altitude considerations. Sea level riders won't notice any performance difference, mountain riders get no advantage. Pure prairie elevation that doesn't factor into race preparation."
+        "explanation": "Turkey, Texas sits around 2,200 feet - irrelevant for altitude considerations. Sea level riders won't notice any performance difference, mountain riders get no advantage. Pure prairie elevation that doesn't factor into race preparation. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 4,
@@ -202,7 +202,7 @@
       },
       "field_depth": {
         "score": 5,
-        "explanation": "Every serious collegiate gravel racer will target this race - it's the only place to win a national title in this discipline. Jake Rytlewski's competitive collegiate background shows the level of dedicated racers who've been \"waiting years for this opportunity\" to exist."
+        "explanation": "With a field of 200-400 collegiate riders, every serious collegiate gravel racer will target this race - it's the only place to win a national title in this discipline. Jake Rytlewski's competitive collegiate background shows the level of dedicated racers who've been \"waiting years for this opportunity\" to exist. Elite-level competition, on par with Belgian Waffle Ride San Diego."
       },
       "value": {
         "score": 5,
@@ -210,7 +210,7 @@
       },
       "expenses": {
         "score": 3,
-        "explanation": "Turkey, Texas requires flying into Lubbock or Amarillo and driving to reach the venue. March timing avoids peak season lodging rates, but options remain limited in a small town hosting a national championship. Plan on camping or driving from larger towns for accommodation."
+        "explanation": "Registration runs $50-$75. Turkey, Texas requires flying into Lubbock or Amarillo and driving to reach the venue. March timing avoids peak season lodging rates, but options remain limited in a small town hosting a national championship. Plan on camping or driving from larger towns for accommodation. Similar expense level to Belgian Waffle Ride San Diego."
       }
     },
     "final_verdict": {
@@ -250,6 +250,74 @@
         "category": "community",
         "label": "cyclingnews.com: Lizzy Gunsalus To Debut Us Champions Jersey At Uci Cycloc..."
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 38,
+          "msrp_usd": 54.99,
+          "weight_grams": 380,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 2,
+          "tire_id": "vittoria-terreno-mix",
+          "name": "Vittoria Terreno Mix",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 420,
+          "crr_watts": 33.5,
+          "why": "Graphene versatility. Mixed-terrain grip with reasonable rolling speed."
+        },
+        {
+          "rank": 3,
+          "tire_id": "continental-terra-trail",
+          "name": "Continental Terra Trail",
+          "brand": "Continental",
+          "recommended_width_mm": 40,
+          "msrp_usd": 74.99,
+          "weight_grams": 450,
+          "crr_watts": 33.5,
+          "why": "excellent wet grip"
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 38
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 38,
+      "pressure_psi": {
+        "140_160lb_dry": "36-40",
+        "140_160lb_mixed": "33-37",
+        "140_160lb_wet": "31-35",
+        "160_180lb_dry": "39-43",
+        "160_180lb_mixed": "36-40",
+        "160_180lb_wet": "34-38",
+        "180_200lb_dry": "42-46",
+        "180_200lb_mixed": "39-43",
+        "180_200lb_wet": "37-41",
+        "200pluslb_dry": "45-49",
+        "200pluslb_mixed": "42-46",
+        "200pluslb_wet": "40-44"
+      }
+    }
   }
 }

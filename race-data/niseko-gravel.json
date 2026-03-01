@@ -258,23 +258,23 @@
       },
       "length": {
         "score": 3,
-        "explanation": "Pro cyclist Takahito Kishi on his first gravel event: \"It was surprisingly long so I took it easy from the start and enjoyed the scenery.\" The 2022 Extra Long course hit 72 miles with 7,303 feet of climbing—serious distance without becoming survival mode. Multiple distance options from 26 to 72 miles let riders pick their suffering level."
+        "explanation": "Pro cyclist Takahito Kishi on his first gravel event: \"It was surprisingly long so I took it easy from the start and enjoyed the scenery.\" The 2022 Extra Long course hit 72 miles with 7,303 feet of climbing—serious distance without becoming survival mode. Multiple distance options from 26 to 72 miles let riders pick their suffering level. Similar distance to Crusher in the Tushar."
       },
       "technicality": {
         "score": 2,
-        "explanation": "Courses consist of \"gravel sections connected by paved roads\" with forest roads and \"private gravel paths in between rice fields.\" Takeshita describes \"dry, fast, and chunky\" gravel through thickly wooded areas. One long gravel descent proved \"fairly straight and really long\" rather than technical—more about endurance than bike handling skills."
+        "explanation": "Courses consist of \"gravel sections connected by paved roads\" with forest roads and \"private gravel paths in between rice fields.\" Takeshita describes \"dry, fast, and chunky\" gravel through thickly wooded areas. One long gravel descent proved \"fairly straight and really long\" rather than technical—more about endurance than bike handling skills. Less technical than The Mid South."
       },
       "elevation": {
         "score": 3,
-        "explanation": "The 2022 Extra Long delivered 7,303 feet over 72 miles, while the Medium course provided 3,990 feet over 40 miles. Takeshita notes \"some nasty climbs\" and \"one last gravel climb no one probably expected getting so close to the end.\" Consistent climbing through Hokkaido's mountain terrain without soul-crushing gradients."
+        "explanation": "The 2022 Extra Long delivered 7,303 feet over 72 miles, while the Medium course provided 3,990 feet over 40 miles. Takeshita notes \"some nasty climbs\" and \"one last gravel climb no one probably expected getting so close to the end.\" Consistent climbing through Hokkaido's mountain terrain without soul-crushing gradients. Similar elevation profile to Gravel Worlds."
       },
       "climate": {
         "score": 3,
-        "explanation": "September 2022 brought perfect conditions—\"the weather could not be better\"—with gravel that was \"dry, fast, and chunky.\" But the 2023 Spring Ride endured \"rain-soaked gravel tracks,\" \"biting cold,\" and \"relentless downpour.\" Weather variability in Hokkaido's mountains can transform the same course completely."
+        "explanation": "September 2022 brought perfect conditions—\"the weather could not be better\"—with gravel that was \"dry, fast, and chunky.\" But the 2023 Spring Ride endured \"rain-soaked gravel tracks,\" \"biting cold,\" and \"relentless downpour.\" Weather variability in Hokkaido's mountains can transform the same course completely. Similar climate challenges to SBT GRVL."
       },
       "altitude": {
         "score": 2,
-        "explanation": "Forest roads wind through thickly wooded terrain and rice field paths rather than high alpine zones. Hokkaido's mountains don't reach altitudes that affect breathing or performance. The elevation gain matters more than absolute altitude—climbing through the Niseko mountain range without thin-air concerns."
+        "explanation": "Forest roads wind through thickly wooded terrain and rice field paths rather than high alpine zones. Hokkaido's mountains don't reach altitudes that affect breathing or performance. The elevation gain matters more than absolute altitude—climbing through the Niseko mountain range without thin-air concerns. Modest altitude compared to Belgian Waffle Ride San Diego."
       },
       "adventure": {
         "score": 4,
@@ -298,7 +298,7 @@
       },
       "field_depth": {
         "score": 2,
-        "explanation": "Regional Japanese riders only, capped at 200 per distance with no competitive structure visible. No prize money, no pro field, no mention of racing categories beyond distance selection. This is participation cycling, not competition."
+        "explanation": "Regional Japanese riders only, capped at 200 per distance with no competitive structure visible. No prize money, no pro field, no mention of racing categories beyond distance selection. This is participation cycling, not competition. Less competitive depth than Almanzo 100. As Initial Descent puts it: \"The first few kilometers were nice and fast downhill. I started in the mid pack, but quickly came up to the front once the road went up.\""
       },
       "value": {
         "score": 2,
@@ -306,7 +306,7 @@
       },
       "expenses": {
         "score": 1,
-        "explanation": "Flying to Hokkaido costs serious money, then you're dealing with Niseko resort area pricing year-round. Race entry hits ¥15,000 before accommodation or meals. One rider suffered three flats on gravel sections, adding mechanical costs. The ski town infrastructure that enables the event also drives up every expense."
+        "explanation": "Flying to Hokkaido costs serious money, then you're dealing with Niseko resort area pricing year-round. Race entry hits ¥15,000 before accommodation or meals. One rider suffered three flats on gravel sections, adding mechanical costs. The ski town infrastructure that enables the event also drives up every expense. More expensive than Atlas Mountain Race. As Getting There puts it: \"If flying in, one would go to New Chitose (CTS), rent a car, and drive for a little over 2 hours. The car is needed to get around as public transportation is scarce there.\""
       }
     },
     "citations": [
@@ -365,6 +365,74 @@
         }
       },
       "latest_year": "2024"
+    },
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 38,
+          "msrp_usd": 54.99,
+          "weight_grams": 380,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 2,
+          "tire_id": "panaracer-gravelking-sk",
+          "name": "Panaracer GravelKing SK",
+          "brand": "Panaracer",
+          "recommended_width_mm": 40,
+          "msrp_usd": 64.9,
+          "weight_grams": 380,
+          "crr_watts": 32.5,
+          "why": "Affordable all-rounder. Light knobs add grip without killing speed."
+        },
+        {
+          "rank": 3,
+          "tire_id": "vittoria-terreno-mix",
+          "name": "Vittoria Terreno Mix",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 420,
+          "crr_watts": 33.5,
+          "why": "Graphene versatility. Mixed-terrain grip with reasonable rolling speed."
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 38
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 38,
+      "pressure_psi": {
+        "140_160lb_dry": "36-40",
+        "140_160lb_mixed": "33-37",
+        "140_160lb_wet": "31-35",
+        "160_180lb_dry": "39-43",
+        "160_180lb_mixed": "36-40",
+        "160_180lb_wet": "34-38",
+        "180_200lb_dry": "42-46",
+        "180_200lb_mixed": "39-43",
+        "180_200lb_wet": "37-41",
+        "200pluslb_dry": "45-49",
+        "200pluslb_mixed": "42-46",
+        "200pluslb_wet": "40-44"
+      }
     }
   }
 }

@@ -262,23 +262,23 @@
       },
       "length": {
         "score": 3,
-        "explanation": "Three distance options hit standard gravel sweet spots: 40km Impulso for accessibility, 72km Intermedio as the middle ground, and 113-120km Esperto for commitment. Canadian Masters Gravel Champion John Vanderveen designed the routes to balance challenge with ridability."
+        "explanation": "Three distance options hit standard gravel sweet spots: 40km Impulso for accessibility, 72km Intermedio as the middle ground, and 113-120km Esperto for commitment. Canadian Masters Gravel Champion John Vanderveen designed the routes to balance challenge with ridability. Similar distance to Crusher in the Tushar."
       },
       "technicality": {
         "score": 3,
-        "explanation": "Course features \"fun and fast rollers through the forest to Campbell Lake and back\" with \"moderate terrain with rolling short steep hills or moderate, sustained climbs.\" Mostly gravel surface keeps technical demands reasonable while the Intermedio's 621m over 72km provides steady climbing challenges."
+        "explanation": "Course features \"fun and fast rollers through the forest to Campbell Lake and back\" with \"moderate terrain with rolling short steep hills or moderate, sustained climbs.\" Mostly gravel surface keeps technical demands reasonable while the Intermedio's 621m over 72km provides steady climbing challenges. Similar technical demands to Gravel Worlds."
       },
       "elevation": {
         "score": 3,
-        "explanation": "The Intermedio delivers 621m elevation gain over 72km through rolling forest terrain rather than massive sustained climbs. Riders describe \"moderate terrain with rolling short steep hills\" that test fitness without breaking legs on Vancouver Island's forgiving gradient profile."
+        "explanation": "The Intermedio delivers 621m elevation gain over 72km through rolling forest terrain rather than massive sustained climbs. Riders describe \"moderate terrain with rolling short steep hills\" that test fitness without breaking legs on Vancouver Island's forgiving gradient profile. Similar elevation profile to Gravel Worlds."
       },
       "climate": {
         "score": 3,
-        "explanation": "April timing as the gravel season opener means dealing with Pacific Northwest spring conditions. The race has successfully run multiple years without weather-related cancellations, though riders should prepare for typical Vancouver Island variability during shoulder season."
+        "explanation": "Historical weather data shows average highs of 54°F and lows of 39°F, with a 60% chance of rain on any given day, and gusts reaching 28 mph. April timing as the gravel season opener means dealing with Pacific Northwest spring conditions. The race has successfully run multiple years without weather-related cancellations, though riders should prepare for typical Vancouver Island variability during shoulder season. Similar climate challenges to SBT GRVL."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Campbell River sits at sea level and forest roads stay low throughout the route to Campbell Lake. Zero physiological altitude considerations - pure fitness and pacing race without thin air factors affecting performance or acclimatization needs."
+        "explanation": "Campbell River sits at sea level and forest roads stay low throughout the route to Campbell Lake. Zero physiological altitude considerations - pure fitness and pacing race without thin air factors affecting performance or acclimatization needs. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 3,
@@ -302,7 +302,7 @@
       },
       "field_depth": {
         "score": 2,
-        "explanation": "Michael Van Den Ham's 3:16:10 Esperto win and Sofia Donnecke's 3:59:27 women's time show solid competitive depth. Strong master's fields led by course designer John Vanderveen's 3:30:57, but lacks international or pro tour participation depth."
+        "explanation": "Michael Van Den Ham's 3:16:10 Esperto win and Sofia Donnecke's 3:59:27 women's time show solid competitive depth. Strong master's fields led by course designer John Vanderveen's 3:30:57, but lacks international or pro tour participation depth. Less competitive depth than Almanzo 100."
       },
       "value": {
         "score": 3,
@@ -310,7 +310,7 @@
       },
       "expenses": {
         "score": 3,
-        "explanation": "Campbell River location avoids Vancouver pricing while the series promotes \"hospitality partners and restaurants\" for visiting riders. Ferry costs to reach Vancouver Island add expense for mainland participants but Campbell River itself remains reasonably priced for lodging and dining."
+        "explanation": "Registration runs $80-120 CAD. Campbell River location avoids Vancouver pricing while the series promotes \"hospitality partners and restaurants\" for visiting riders. Ferry costs to reach Vancouver Island add expense for mainland participants but Campbell River itself remains reasonably priced for lodging and dining. Similar expense level to Belgian Waffle Ride San Diego."
       }
     },
     "unsplash_photos": [
@@ -388,6 +388,74 @@
         "category": "community",
         "label": "mosaicforests.com: Continuation Of Great Partnership Results In 2025 Edition..."
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "vittoria-terreno-wet",
+          "name": "Vittoria Terreno Wet",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 460,
+          "crr_watts": 39.0,
+          "why": "excellent wet grip"
+        },
+        {
+          "rank": 2,
+          "tire_id": "pirelli-cinturato-gravel-s",
+          "name": "Pirelli Cinturato Gravel S",
+          "brand": "Pirelli",
+          "recommended_width_mm": 40,
+          "msrp_usd": 73.99,
+          "weight_grams": 430,
+          "crr_watts": null,
+          "why": "excellent wet grip"
+        },
+        {
+          "rank": 3,
+          "tire_id": "schwalbe-g-one-overland",
+          "name": "Schwalbe G-One Overland",
+          "brand": "Schwalbe",
+          "recommended_width_mm": 40,
+          "msrp_usd": 69.9,
+          "weight_grams": 490,
+          "crr_watts": 40.0,
+          "why": "excellent wet grip"
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "vittoria-terreno-wet",
+          "name": "Vittoria Terreno Wet",
+          "width_mm": 40
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "wet",
+      "recommended_width_mm": 40,
+      "pressure_psi": {
+        "140_160lb_dry": "34-38",
+        "140_160lb_mixed": "30-34",
+        "140_160lb_wet": "28-32",
+        "160_180lb_dry": "36-40",
+        "160_180lb_mixed": "34-38",
+        "160_180lb_wet": "32-36",
+        "180_200lb_dry": "40-44",
+        "180_200lb_mixed": "36-40",
+        "180_200lb_wet": "34-38",
+        "200pluslb_dry": "42-46",
+        "200pluslb_mixed": "40-44",
+        "200pluslb_wet": "38-42"
+      }
+    }
   }
 }

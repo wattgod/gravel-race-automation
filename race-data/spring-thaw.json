@@ -258,7 +258,7 @@
       },
       "length": {
         "score": 2,
-        "explanation": "50 miles sits awkwardly between casual and serious distances. Ray George's report shows the group \"naturally broke into smaller packs\" early on climbs, suggesting riders of varying abilities find different comfort levels with the distance and terrain demands."
+        "explanation": "50 miles sits awkwardly between casual and serious distances. Ray George's report shows the group \"naturally broke into smaller packs\" early on climbs, suggesting riders of varying abilities find different comfort levels with the distance and terrain demands. More compact than Grinduro."
       },
       "technicality": {
         "score": 2,
@@ -266,15 +266,15 @@
       },
       "elevation": {
         "score": 2,
-        "explanation": "2000 feet over 50 miles is gentle rolling - 40 feet per mile average. Michigan doesn't offer massive climbs, so this fits the geography. Enough to feel it in your legs but won't destroy anyone accustomed to actual hills."
+        "explanation": "2000 feet over 50 miles is gentle rolling - 40 feet per mile average. Michigan doesn't offer massive climbs, so this fits the geography. Enough to feel it in your legs but won't destroy anyone accustomed to actual hills. Less climbing than The Mid South."
       },
       "climate": {
         "score": 2,
-        "explanation": "Spring conditions create variable weather challenges. Pittsburgh's event had \"parts of the course were more windy than others\" with \"one weird spot where it was always drizzling.\" Ohio's 2025 edition started with \"rainy conditions\" requiring shelter time."
+        "explanation": "Spring conditions create variable weather challenges. Pittsburgh's event had \"parts of the course were more windy than others\" with \"one weird spot where it was always drizzling.\" Ohio's 2025 edition started with \"rainy conditions\" requiring shelter time. More weather exposure than Belgian Waffle Ride San Diego."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Lake Michigan proximity means sea-level racing with zero altitude considerations. No acclimatization needed - fitness translates directly to performance without elevation variables affecting pacing or recovery strategies."
+        "explanation": "Lake Michigan proximity means sea-level racing with zero altitude considerations. No acclimatization needed - fitness translates directly to performance without elevation variables affecting pacing or recovery strategies. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 2,
@@ -298,7 +298,7 @@
       },
       "field_depth": {
         "score": 1,
-        "explanation": "No field data exists because no confirmed race exists. Michigan has strong gravel talent that migrates to known events like Barry-Roubaix and Iceman, but they're not showing up to phantom races. Expect small local turnout at best."
+        "explanation": "With a field of 100-200 riders, no field data exists because no confirmed race exists. Michigan has strong gravel talent that migrates to known events like Barry-Roubaix and Iceman, but they're not showing up to phantom races. Expect small local turnout at best. Thinner field than Ouray Gravel Grinder."
       },
       "value": {
         "score": 4,
@@ -306,7 +306,7 @@
       },
       "expenses": {
         "score": 3,
-        "explanation": "Organizers provided waterproof route maps and Kenda contributed tires or tubes to participants, reducing rider equipment costs. The community sponsor involvement from local businesses like Brioso Coffee suggests reasonable regional pricing without resort town premiums."
+        "explanation": "Registration runs $50-75. Organizers provided waterproof route maps and Kenda contributed tires or tubes to participants, reducing rider equipment costs. The community sponsor involvement from local businesses like Brioso Coffee suggests reasonable regional pricing without resort town premiums. Similar expense level to Belgian Waffle Ride San Diego."
       }
     },
     "citations": [
@@ -335,6 +335,74 @@
         "category": "community",
         "label": "ohiogravelgrinders.com: 11Th Annual Great Big Spring Thaw Ride"
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 38,
+          "msrp_usd": 54.99,
+          "weight_grams": 380,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 2,
+          "tire_id": "panaracer-gravelking-sk",
+          "name": "Panaracer GravelKing SK",
+          "brand": "Panaracer",
+          "recommended_width_mm": 40,
+          "msrp_usd": 64.9,
+          "weight_grams": 380,
+          "crr_watts": 32.5,
+          "why": "Affordable all-rounder. Light knobs add grip without killing speed."
+        },
+        {
+          "rank": 3,
+          "tire_id": "vittoria-terreno-mix",
+          "name": "Vittoria Terreno Mix",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 420,
+          "crr_watts": 33.5,
+          "why": "Graphene versatility. Mixed-terrain grip with reasonable rolling speed."
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 38
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 38,
+      "pressure_psi": {
+        "140_160lb_dry": "36-40",
+        "140_160lb_mixed": "33-37",
+        "140_160lb_wet": "31-35",
+        "160_180lb_dry": "39-43",
+        "160_180lb_mixed": "36-40",
+        "160_180lb_wet": "34-38",
+        "180_200lb_dry": "42-46",
+        "180_200lb_mixed": "39-43",
+        "180_200lb_wet": "37-41",
+        "200pluslb_dry": "45-49",
+        "200pluslb_mixed": "42-46",
+        "200pluslb_wet": "40-44"
+      }
+    }
   }
 }

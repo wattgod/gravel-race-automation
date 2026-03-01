@@ -258,23 +258,23 @@
       },
       "length": {
         "score": 3,
-        "explanation": "The long course spans 72 miles with 7,300 feet of climbing, won by Johnny Mitchell in 3:45:51. Winding Stairs Road alone \"can take the better part of a half hour to climb,\" making every mile count more than flat centuries."
+        "explanation": "The long course spans 72 miles with 7,300 feet of climbing, won by Johnny Mitchell in 3:45:51. Winding Stairs Road alone \"can take the better part of a half hour to climb,\" making every mile count more than flat centuries. Similar distance to Crusher in the Tushar."
       },
       "technicality": {
         "score": 3,
-        "explanation": "Course features \"lots of long punishing climbs and tricky, fast, loose descents\" with Forest Service road surfaces ranging from \"some smooth crush, some chunky.\" The Chattooga River sections and steep winding gravel on Winding Stairs Road demand real bike handling skills."
+        "explanation": "Course features \"lots of long punishing climbs and tricky, fast, loose descents\" with Forest Service road surfaces ranging from \"some smooth crush, some chunky.\" The Chattooga River sections and steep winding gravel on Winding Stairs Road demand real bike handling skills. Similar technical demands to Gravel Worlds."
       },
       "elevation": {
         "score": 4,
-        "explanation": "7,300 feet of climbing over 72 miles delivers mountain gravel suffering rare in the Southeast. The signature Winding Stairs Road climb from Lake Cherokee takes \"the better part of a half hour\" and comes early in the course, setting the tone for sustained mountain terrain."
+        "explanation": "7,300 feet of climbing over 72 miles delivers mountain gravel suffering rare in the Southeast. The signature Winding Stairs Road climb from Lake Cherokee takes \"the better part of a half hour\" and comes early in the course, setting the tone for sustained mountain terrain. More climbing than SBT GRVL at the same score."
       },
       "climate": {
         "score": 2,
-        "explanation": "Late April timing hits \"the best time to ride in the Carolinas\" with \"temps cool to start and won't be too hot yet.\" But spring weather in the mountains means anything from perfect conditions to cold rain with zero predictability."
+        "explanation": "Late April timing hits \"the best time to ride in the Carolinas\" with \"temps cool to start and won't be too hot yet.\" But spring weather in the mountains means anything from perfect conditions to cold rain with zero predictability. More weather exposure than Belgian Waffle Ride San Diego."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Starting around 1,000 feet in Walhalla doesn't create altitude training effects or breathing issues. The elevation gain comes from climbing volume through Oconee County mountains, not thin air that affects your lungs."
+        "explanation": "Starting around 1,000 feet in Walhalla doesn't create altitude training effects or breathing issues. The elevation gain comes from climbing volume through Oconee County mountains, not thin air that affects your lungs. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 3,
@@ -298,7 +298,7 @@
       },
       "field_depth": {
         "score": 2,
-        "explanation": "Johnny Mitchell won the long course in 3:45:51 among 116 finishers, while the short course drew 151 riders. The field spans age groups from teens to 70+, but lacks the competitive depth where podium times drive each other to elite levels."
+        "explanation": "Johnny Mitchell won the long course in 3:45:51 among 116 finishers, while the short course drew 151 riders. The field spans age groups from teens to 70+, but lacks the competitive depth where podium times drive each other to elite levels. Less competitive depth than Almanzo 100."
       },
       "value": {
         "score": 3,
@@ -306,7 +306,7 @@
       },
       "expenses": {
         "score": 3,
-        "explanation": "Camping at Oconee State Park or South Cove County Park keeps lodging cheap near the start. Downtown Walhalla offers \"sweet container house with a view\" and \"Lofts in Downtown Walhalla,\" with budget hotels 10 minutes away in Seneca."
+        "explanation": "Registration runs $60-100. Camping at Oconee State Park or South Cove County Park keeps lodging cheap near the start. Downtown Walhalla offers \"sweet container house with a view\" and \"Lofts in Downtown Walhalla,\" with budget hotels 10 minutes away in Seneca. Similar expense level to Belgian Waffle Ride San Diego."
       }
     },
     "citations": [
@@ -345,6 +345,74 @@
         "category": "community",
         "label": "webscorer.com: Results"
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "irc-boken-double-cross",
+          "name": "IRC Boken Double Cross",
+          "brand": "IRC",
+          "recommended_width_mm": 42,
+          "msrp_usd": 59.99,
+          "weight_grams": 400,
+          "crr_watts": null,
+          "why": "Underrated mixed-terrain tire. Fast center with confident shoulder grip."
+        },
+        {
+          "rank": 2,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 42,
+          "msrp_usd": 54.99,
+          "weight_grams": 420,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 3,
+          "tire_id": "panaracer-gravelking-sk",
+          "name": "Panaracer GravelKing SK",
+          "brand": "Panaracer",
+          "recommended_width_mm": 43,
+          "msrp_usd": 64.9,
+          "weight_grams": 410,
+          "crr_watts": 32.5,
+          "why": "Affordable all-rounder. Light knobs add grip without killing speed."
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "panaracer-gravelking-tlc",
+          "name": "Panaracer GravelKing TLC",
+          "width_mm": 43
+        },
+        "rear": {
+          "tire_id": "irc-boken-double-cross",
+          "name": "IRC Boken Double Cross",
+          "width_mm": 42
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 42,
+      "pressure_psi": {
+        "140_160lb_dry": "32-36",
+        "140_160lb_mixed": "30-34",
+        "140_160lb_wet": "28-32",
+        "160_180lb_dry": "36-40",
+        "160_180lb_mixed": "32-36",
+        "160_180lb_wet": "30-34",
+        "180_200lb_dry": "38-42",
+        "180_200lb_mixed": "36-40",
+        "180_200lb_wet": "34-38",
+        "200pluslb_dry": "42-46",
+        "200pluslb_mixed": "38-42",
+        "200pluslb_wet": "36-40"
+      }
+    }
   }
 }

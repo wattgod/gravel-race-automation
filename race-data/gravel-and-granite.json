@@ -258,7 +258,7 @@
       },
       "length": {
         "score": 3,
-        "explanation": "At 65 miles through NSW granite country, riders face sustained challenges without survival scenarios. Jacob learned pacing discipline on early climbs: \"I had to keep reminding myself not to push too hard on this climb, there was still an entire course to finish afterwards.\" Four feed stations at strategic intervals support the distance properly."
+        "explanation": "At 65 miles through NSW granite country, riders face sustained challenges without survival scenarios. Jacob learned pacing discipline on early climbs: \"I had to keep reminding myself not to push too hard on this climb, there was still an entire course to finish afterwards.\" Four feed stations at strategic intervals support the distance properly. Similar distance to Crusher in the Tushar."
       },
       "technicality": {
         "score": 3,
@@ -266,15 +266,15 @@
       },
       "elevation": {
         "score": 3,
-        "explanation": "The 4,500 feet of climbing includes extended ascents and technical descents through national parks. Range Rumble course delivers \"about 10km\" of climbing at the 50km crux, with wall-grade pitches that matter without requiring mountaineering skills. The granite country terrain provides sustained vertical challenge."
+        "explanation": "The 4,500 feet of climbing includes extended ascents and technical descents through national parks. Range Rumble course delivers \"about 10km\" of climbing at the 50km crux, with wall-grade pitches that matter without requiring mountaineering skills. The granite country terrain provides sustained vertical challenge. Similar elevation profile to Gravel Worlds."
       },
       "climate": {
         "score": 2,
-        "explanation": "Jacob rode through active snowfall: \"I spent the next 15 minutes grinding in my lowest gear with snow falling off the trees as we ascended,\" with \"muddy and sloppy\" conditions creating traction challenges. The May date change specifically targets \"cooler weather\" after previous timing proved problematic for rider comfort."
+        "explanation": "Historical weather data shows average highs of 64°F and lows of 48°F, with a 50% chance of rain on any given day. Jacob rode through active snowfall: \"I spent the next 15 minutes grinding in my lowest gear with snow falling off the trees as we ascended,\" with \"muddy and sloppy\" conditions creating traction challenges. The May date change specifically targets \"cooler weather\" after previous timing proved problematic for rider comfort. More weather exposure than Belgian Waffle Ride San Diego."
       },
       "altitude": {
         "score": 2,
-        "explanation": "NSW granite country elevations stay within manageable bands while delivering mountain character. The 4,500 feet total gain indicates significant vertical through Great Dividing Range terrain without alpine complications. Creek crossings and extended climbing occur at modest absolute altitudes."
+        "explanation": "NSW granite country elevations stay within manageable bands while delivering mountain character. The 4,500 feet total gain indicates significant vertical through Great Dividing Range terrain without alpine complications. Creek crossings and extended climbing occur at modest absolute altitudes. Modest altitude compared to Belgian Waffle Ride San Diego."
       },
       "adventure": {
         "score": 3,
@@ -298,7 +298,7 @@
       },
       "field_depth": {
         "score": 1,
-        "explanation": "Todd Meerdink worried that losing the lead group early would turn \"this race would quickly turn into just a group ride,\" indicating thin competitive depth. The explicit welcome for adaptive bikes and e-bikes alongside traditional categories prioritizes inclusivity over racing field strength in this regional NSW event."
+        "explanation": "With a field of 50-100 riders, todd Meerdink worried that losing the lead group early would turn \"this race would quickly turn into just a group ride,\" indicating thin competitive depth. The explicit welcome for adaptive bikes and e-bikes alongside traditional categories prioritizes inclusivity over racing field strength in this regional NSW event. Thinner field than Ouray Gravel Grinder."
       },
       "value": {
         "score": 3,
@@ -306,7 +306,7 @@
       },
       "expenses": {
         "score": 2,
-        "explanation": "Multi-bike welcome policy means riders can use existing mountain bikes rather than buying gravel-specific equipment, with Todd Meerdink successfully using 40mm tires on technical sections. Rural Tenterfield location requires travel from major cities, while Todd's Camelback strategy shows self-sufficient riders can minimize aid station dependencies."
+        "explanation": "Registration runs $75-100 AUD. Multi-bike welcome policy means riders can use existing mountain bikes rather than buying gravel-specific equipment, with Todd Meerdink successfully using 40mm tires on technical sections. Rural Tenterfield location requires travel from major cities, while Todd's Camelback strategy shows self-sufficient riders can minimize aid station dependencies. Higher total cost than Badlands."
       }
     },
     "citations": [
@@ -345,6 +345,74 @@
         "category": "community",
         "label": "flowmountainbibe.com: Gravel N Granite Is Returns In 2025"
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "vittoria-terreno-wet",
+          "name": "Vittoria Terreno Wet",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 460,
+          "crr_watts": 39.0,
+          "why": "excellent wet grip"
+        },
+        {
+          "rank": 2,
+          "tire_id": "schwalbe-g-one-overland",
+          "name": "Schwalbe G-One Overland",
+          "brand": "Schwalbe",
+          "recommended_width_mm": 40,
+          "msrp_usd": 69.9,
+          "weight_grams": 490,
+          "crr_watts": 40.0,
+          "why": "excellent wet grip"
+        },
+        {
+          "rank": 3,
+          "tire_id": "pirelli-cinturato-gravel-s",
+          "name": "Pirelli Cinturato Gravel S",
+          "brand": "Pirelli",
+          "recommended_width_mm": 40,
+          "msrp_usd": 73.99,
+          "weight_grams": 430,
+          "crr_watts": null,
+          "why": "excellent wet grip"
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "vittoria-terreno-wet",
+          "name": "Vittoria Terreno Wet",
+          "width_mm": 40
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "wet",
+      "recommended_width_mm": 40,
+      "pressure_psi": {
+        "140_160lb_dry": "34-38",
+        "140_160lb_mixed": "30-34",
+        "140_160lb_wet": "28-32",
+        "160_180lb_dry": "36-40",
+        "160_180lb_mixed": "34-38",
+        "160_180lb_wet": "32-36",
+        "180_200lb_dry": "40-44",
+        "180_200lb_mixed": "36-40",
+        "180_200lb_wet": "34-38",
+        "200pluslb_dry": "42-46",
+        "200pluslb_mixed": "40-44",
+        "200pluslb_wet": "38-42"
+      }
+    }
   }
 }

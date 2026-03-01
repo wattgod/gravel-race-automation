@@ -258,23 +258,23 @@
       },
       "length": {
         "score": 3,
-        "explanation": "Steve Maas learned the hard way: \"A lot of people go too hard climbing the first two hills and do not leave enough in the tank for the last one.\" His advice to pace early and save energy for Burkhalter Gap shows 65 miles creates proper strategic consequences without ultra-endurance demands."
+        "explanation": "Steve Maas learned the hard way: \"A lot of people go too hard climbing the first two hills and do not leave enough in the tank for the last one.\" His advice to pace early and save energy for Burkhalter Gap shows 65 miles creates proper strategic consequences without ultra-endurance demands. Similar distance to Crusher in the Tushar."
       },
       "technicality": {
         "score": 3,
-        "explanation": "The three climbs escalate in difficulty - Suck Mountain runs 5 miles at 4-6% gradients, Sand Mountain comes \"shorter and steeper,\" then Burkhalter Gap hits 20-22% grades for the final 500 yards. Steve Maas saw riders walking that last pitch despite having a 28-tooth low gear."
+        "explanation": "The three climbs escalate in difficulty - Suck Mountain runs 5 miles at 4-6% gradients, Sand Mountain comes \"shorter and steeper,\" then Burkhalter Gap hits 20-22% grades for the final 500 yards. Steve Maas saw riders walking that last pitch despite having a 28-tooth low gear. Similar technical demands to Gravel Worlds."
       },
       "elevation": {
         "score": 4,
-        "explanation": "6000 feet over 65 miles delivers serious climbing density - nearly 100 feet per mile. The three major climbs create distinct suffering sessions rather than endless grinding, which builds character without destroying souls. Past riders called it 'challenging but very satisfying when completed' - that's honest elevation work."
+        "explanation": "6000 feet over 65 miles delivers serious climbing density - nearly 100 feet per mile. The three major climbs create distinct suffering sessions rather than endless grinding, which builds character without destroying souls. Past riders called it 'challenging but very satisfying when completed' - that's honest elevation work. More climbing than SBT GRVL at the same score. As Rolling terrain after climbs puts it: \"The rolling stretch atop Lookout Mountain has more climbing than I recalled. Or my legs were just tired.\""
       },
       "climate": {
         "score": 2,
-        "explanation": "Alabama in cycling season means heat, humidity, and unpredictable spring weather. 'Rain or shine' policy acknowledges you might get hammered by conditions. No specific weather data for typical race dates, but Lookout Mountain region can serve up everything from perfect temps to swamp-level misery."
+        "explanation": "Historical weather data shows average highs of 76°F and lows of 57°F, with a 57% chance of rain on any given day. Alabama in cycling season means heat, humidity, and unpredictable spring weather. 'Rain or shine' policy acknowledges you might get hammered by conditions. No specific weather data for typical race dates, but Lookout Mountain region can serve up everything from perfect temps to swamp-level misery. More weather exposure than Belgian Waffle Ride San Diego. As Pedal Wench puts it: \"I've done it twice - third attempt was rained out. It's a wonderful ride, great support, and really interesting route.\""
       },
       "altitude": {
         "score": 1,
-        "explanation": "Lookout Mountain region tops out around 2000 feet - basically sea level for mountain standards. Zero altitude considerations for training or performance. If you need altitude challenge, you're in the wrong state and definitely the wrong race."
+        "explanation": "Lookout Mountain region tops out around 2000 feet - basically sea level for mountain standards. Zero altitude considerations for training or performance. If you need altitude challenge, you're in the wrong state and definitely the wrong race. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 4,
@@ -298,7 +298,7 @@
       },
       "field_depth": {
         "score": 2,
-        "explanation": "Tennessee's 'biggest bike ride' claim from the Chattanooga days sounds impressive until you realize it's disappeared from the calendar. No current field size data, no pro participation beyond historical Hincapie connection, no competitive depth indicators. Shallow fields happen when races can't maintain consistent scheduling."
+        "explanation": "With a field of 200-400 riders, tennessee's 'biggest bike ride' claim from the Chattanooga days sounds impressive until you realize it's disappeared from the calendar. No current field size data, no pro participation beyond historical Hincapie connection, no competitive depth indicators. Shallow fields happen when races can't maintain consistent scheduling. Less competitive depth than Almanzo 100."
       },
       "value": {
         "score": 3,
@@ -306,7 +306,7 @@
       },
       "expenses": {
         "score": 3,
-        "explanation": "Mentone area offers DeSoto State Park lodging and waterfront cabins that sleep 16, so group splits work. No current entry fees available, but rural Alabama typically runs cheaper than destination gravel scenes. Travel costs depend on where you're coming from - this isn't a cycling mecca."
+        "explanation": "Registration runs $60-100. Mentone area offers DeSoto State Park lodging and waterfront cabins that sleep 16, so group splits work. No current entry fees available, but rural Alabama typically runs cheaper than destination gravel scenes. Travel costs depend on where you're coming from - this isn't a cycling mecca. Similar expense level to Belgian Waffle Ride San Diego."
       }
     },
     "citations": [
@@ -345,6 +345,74 @@
         "category": "community",
         "label": "youtube.com: Watch"
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "vittoria-terreno-wet",
+          "name": "Vittoria Terreno Wet",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 460,
+          "crr_watts": 39.0,
+          "why": "excellent wet grip"
+        },
+        {
+          "rank": 2,
+          "tire_id": "pirelli-cinturato-gravel-s",
+          "name": "Pirelli Cinturato Gravel S",
+          "brand": "Pirelli",
+          "recommended_width_mm": 40,
+          "msrp_usd": 73.99,
+          "weight_grams": 430,
+          "crr_watts": null,
+          "why": "excellent wet grip"
+        },
+        {
+          "rank": 3,
+          "tire_id": "schwalbe-g-one-overland",
+          "name": "Schwalbe G-One Overland",
+          "brand": "Schwalbe",
+          "recommended_width_mm": 40,
+          "msrp_usd": 69.9,
+          "weight_grams": 490,
+          "crr_watts": 40.0,
+          "why": "excellent wet grip"
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "vittoria-terreno-wet",
+          "name": "Vittoria Terreno Wet",
+          "width_mm": 40
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "wet",
+      "recommended_width_mm": 40,
+      "pressure_psi": {
+        "140_160lb_dry": "34-38",
+        "140_160lb_mixed": "30-34",
+        "140_160lb_wet": "28-32",
+        "160_180lb_dry": "36-40",
+        "160_180lb_mixed": "34-38",
+        "160_180lb_wet": "32-36",
+        "180_200lb_dry": "40-44",
+        "180_200lb_mixed": "36-40",
+        "180_200lb_wet": "34-38",
+        "200pluslb_dry": "42-46",
+        "200pluslb_mixed": "40-44",
+        "200pluslb_wet": "38-42"
+      }
+    }
   }
 }

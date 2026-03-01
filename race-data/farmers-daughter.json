@@ -258,23 +258,23 @@
       },
       "length": {
         "score": 3,
-        "explanation": "Distance varies by source (62-68 miles) but consistently lands in gravel's sweet spot. Jason Gonzalez on his fatbike \"wanted to quit at 45 miles in, but stayed the course,\" while sportsfan42069 noted feeling less sore than after his ultras, suggesting the distance challenges without destroying."
+        "explanation": "Distance varies by source (62-68 miles) but consistently lands in gravel's sweet spot. Jason Gonzalez on his fatbike \"wanted to quit at 45 miles in, but stayed the course,\" while sportsfan42069 noted feeling less sore than after his ultras, suggesting the distance challenges without destroying. Similar distance to Crusher in the Tushar."
       },
       "technicality": {
         "score": 2,
-        "explanation": "Mix of gravel roads, pavement, and technical singletrack creates bottlenecks. sportsfan42069 described \"a section of singletrack that was so technical it was a Conga line of people walking their bikes. After what must have been 10 minutes we were through the thick of it.\""
+        "explanation": "Mix of gravel roads, pavement, and technical singletrack creates bottlenecks. sportsfan42069 described \"a section of singletrack that was so technical it was a Conga line of people walking their bikes. After what must have been 10 minutes we were through the thick of it.\" Less technical than The Mid South."
       },
       "elevation": {
         "score": 2,
-        "explanation": "6,000-7,000 feet of climbing over 65 miles with grades hitting 20%. Jason Gonzalez detailed \"15 climbs each varying between .5 mile to 4 miles with grades starting at 5% and going up to 17%,\" including \"one 4 mile climb from 6%-, 17% gradients.\""
+        "explanation": "6,000-7,000 feet of climbing over 65 miles with grades hitting 20%. Jason Gonzalez detailed \"15 climbs each varying between .5 mile to 4 miles with grades starting at 5% and going up to 17%,\" including \"one 4 mile climb from 6%-, 17% gradients.\" Less climbing than The Mid South."
       },
       "climate": {
         "score": 3,
-        "explanation": "Mid-May weather ranges from challenging to ideal. Cullen MacDonald experienced \"hottest days so far this year\" with conditions \"from outright soup to bright sun,\" while another rider needed medical attention on \"the first hot day of the year in NYC.\""
+        "explanation": "Historical weather data shows average highs of 70°F and lows of 52°F, with a 43% chance of rain on any given day, and gusts reaching 27 mph. Mid-May weather ranges from challenging to ideal. Cullen MacDonald experienced \"hottest days so far this year\" with conditions \"from outright soup to bright sun,\" while another rider needed medical attention on \"the first hot day of the year in NYC.\" Similar climate challenges to SBT GRVL."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Chatham, NY sits under 500 feet elevation with no meaningful altitude gained on course. Altitude is completely irrelevant for training or race day performance."
+        "explanation": "Chatham, NY sits under 500 feet elevation with no meaningful altitude gained on course. Altitude is completely irrelevant for training or race day performance. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 2,
@@ -298,7 +298,7 @@
       },
       "field_depth": {
         "score": 2,
-        "explanation": "Non-competitive format attracts mixed abilities, from trail runners like sportsfan42069 to elite riders like Cullen MacDonald. The technical sections and steep climbs create natural selection, but the lack of official timing means no competitive field development or depth measurement."
+        "explanation": "Non-competitive format attracts mixed abilities, from trail runners like sportsfan42069 to elite riders like Cullen MacDonald. The technical sections and steep climbs create natural selection, but the lack of official timing means no competitive field development or depth measurement. Less competitive depth than Almanzo 100. As Cullen MacDonald puts it: \"In my daze I plopped my 35mm Cross Boss tires right in the gap in between the planks which promptly flipped me straight over the bars, leaving my bike in a bizarre-looking yoga pose with its front whe...\""
       },
       "value": {
         "score": 3,
@@ -306,7 +306,7 @@
       },
       "expenses": {
         "score": 2,
-        "explanation": "Registration costs remain unlisted across all sources, which typically signals higher-than-advertised pricing. Chatham, NY location during peak May tourism season adds accommodation costs, while the extensive finish line package and multiple aid stations suggest premium pricing structure."
+        "explanation": "Registration runs $75-125. Registration costs remain unlisted across all sources, which typically signals higher-than-advertised pricing. Chatham, NY location during peak May tourism season adds accommodation costs, while the extensive finish line package and multiple aid stations suggest premium pricing structure. Higher total cost than Badlands."
       }
     },
     "citations": [
@@ -355,6 +355,74 @@
         "category": "community",
         "label": "adkforum.com: 23613 Farmer S Daughter Gravel Grinder"
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 38,
+          "msrp_usd": 54.99,
+          "weight_grams": 380,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 2,
+          "tire_id": "vittoria-terreno-mix",
+          "name": "Vittoria Terreno Mix",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 420,
+          "crr_watts": 33.5,
+          "why": "Graphene versatility. Mixed-terrain grip with reasonable rolling speed."
+        },
+        {
+          "rank": 3,
+          "tire_id": "continental-terra-trail",
+          "name": "Continental Terra Trail",
+          "brand": "Continental",
+          "recommended_width_mm": 40,
+          "msrp_usd": 74.99,
+          "weight_grams": 450,
+          "crr_watts": 33.5,
+          "why": "excellent wet grip"
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 38
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 38,
+      "pressure_psi": {
+        "140_160lb_dry": "36-40",
+        "140_160lb_mixed": "33-37",
+        "140_160lb_wet": "31-35",
+        "160_180lb_dry": "39-43",
+        "160_180lb_mixed": "36-40",
+        "160_180lb_wet": "34-38",
+        "180_200lb_dry": "42-46",
+        "180_200lb_mixed": "39-43",
+        "180_200lb_wet": "37-41",
+        "200pluslb_dry": "45-49",
+        "200pluslb_mixed": "42-46",
+        "200pluslb_wet": "40-44"
+      }
+    }
   }
 }

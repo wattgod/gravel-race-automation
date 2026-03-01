@@ -173,19 +173,19 @@
       },
       "technicality": {
         "score": 4,
-        "explanation": "650bisnotdead built specifically for Brazilian conditions: \"I choose 650b for being far versatile than 700c for different tires. I can run 650x47 or 27,5x2.3.\" The need for such tire versatility suggests varied technical terrain demands."
+        "explanation": "650bisnotdead built specifically for Brazilian conditions: \"I choose 650b for being far versatile than 700c for different tires. I can run 650x47 or 27,5x2.3.\" The need for such tire versatility suggests varied technical terrain demands. More technical than most — comparable to Belgian Waffle Ride San Diego."
       },
       "elevation": {
         "score": 4,
-        "explanation": "6,562 feet in 62 miles delivers over 100 feet of climbing per mile. The triple crankset setup with 50-39-30 and 11-40 cassette that local riders run suggests sustained climbing that demands very easy gearing options."
+        "explanation": "6,562 feet in 62 miles delivers over 100 feet of climbing per mile. The triple crankset setup with 50-39-30 and 11-40 cassette that local riders run suggests sustained climbing that demands very easy gearing options. More climbing than SBT GRVL at the same score."
       },
       "climate": {
         "score": 3,
-        "explanation": "March 8th puts you in Brazilian autumn—theoretically cooler than summer madness but still tropical humidity. Santa Catarina's coast means unpredictable weather patterns and potential for everything from blazing sun to sudden storms."
+        "explanation": "March 8th puts you in Brazilian autumn—theoretically cooler than summer madness but still tropical humidity. Santa Catarina's coast means unpredictable weather patterns and potential for everything from blazing sun to sudden storms. Similar climate challenges to SBT GRVL."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Balneário Camboriú starts at sea level—your lungs won't notice any difference. Even with significant climbing, you're not reaching altitudes that affect oxygen availability. This is elevation gain, not altitude training."
+        "explanation": "Balneário Camboriú starts at sea level—your lungs won't notice any difference. Even with significant climbing, you're not reaching altitudes that affect oxygen availability. This is elevation gain, not altitude training. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 5,
@@ -209,7 +209,7 @@
       },
       "field_depth": {
         "score": 3,
-        "explanation": "Elite category at 111km draws World Championship qualification seekers, but international depth is still building. Being the only official Brazilian gravel race draws local talent. The real killers might still be figuring out this race exists."
+        "explanation": "Elite category at 111km draws World Championship qualification seekers, but international depth is still building. Being the only official Brazilian gravel race draws local talent. The real killers might still be figuring out this race exists. Similar competitive depth to Rule of Three."
       },
       "value": {
         "score": 5,
@@ -217,7 +217,7 @@
       },
       "expenses": {
         "score": 3,
-        "explanation": "Getting to Balneário Camboriú means international flights for most riders, then domestic connections through Brazil's airport system. March timing avoids peak tourist season pricing. The real cost is in travel logistics, not local expenses."
+        "explanation": "Registration runs R$400. Getting to Balneário Camboriú means international flights for most riders, then domestic connections through Brazil's airport system. March timing avoids peak tourist season pricing. The real cost is in travel logistics, not local expenses. Similar expense level to Belgian Waffle Ride San Diego."
       }
     },
     "final_verdict": {
@@ -307,6 +307,63 @@
         "category": "community",
         "label": "ticketsports.com.br: 2026 Uci Gravel World Series Brazil 73922"
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "schwalbe-g-one-bite",
+          "name": "Schwalbe G-One Bite",
+          "brand": "Schwalbe",
+          "recommended_width_mm": 45,
+          "msrp_usd": 69.9,
+          "weight_grams": 540,
+          "crr_watts": 38.0,
+          "why": "excellent wet grip"
+        },
+        {
+          "rank": 2,
+          "tire_id": "pirelli-cinturato-gravel-s",
+          "name": "Pirelli Cinturato Gravel S",
+          "brand": "Pirelli",
+          "recommended_width_mm": 45,
+          "msrp_usd": 73.99,
+          "weight_grams": 470,
+          "crr_watts": null,
+          "why": "excellent wet grip"
+        },
+        {
+          "rank": 3,
+          "tire_id": "maxxis-reaver",
+          "name": "Maxxis Reaver",
+          "brand": "Maxxis",
+          "recommended_width_mm": 45,
+          "msrp_usd": 79.99,
+          "weight_grams": 520,
+          "crr_watts": 35.0,
+          "why": "Technical all-rounder. EXO+ casing shrugs off rocks and roots."
+        }
+      ],
+      "front_rear_split": {
+        "applicable": false
+      },
+      "race_surface_profile": "technical",
+      "recommended_width_mm": 45,
+      "pressure_psi": {
+        "140_160lb_dry": "30-34",
+        "140_160lb_mixed": "26-30",
+        "140_160lb_wet": "24-28",
+        "160_180lb_dry": "32-36",
+        "160_180lb_mixed": "30-34",
+        "160_180lb_wet": "28-32",
+        "180_200lb_dry": "36-40",
+        "180_200lb_mixed": "32-36",
+        "180_200lb_wet": "30-34",
+        "200pluslb_dry": "38-42",
+        "200pluslb_mixed": "36-40",
+        "200pluslb_wet": "34-38"
+      }
+    }
   }
 }

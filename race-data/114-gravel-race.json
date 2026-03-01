@@ -258,23 +258,23 @@
       },
       "length": {
         "score": 3,
-        "explanation": "123km hits the sweet spot for gravel racing — long enough to matter, short enough to avoid death march territory. Matthew Holmes covered the distance in 3:13:25, while Lucía González Blanco needed 3:36:14, suggesting 4-6 hours for most riders."
+        "explanation": "123km hits the sweet spot for gravel racing — long enough to matter, short enough to avoid death march territory. Matthew Holmes covered the distance in 3:13:25, while Lucía González Blanco needed 3:36:14, suggesting 4-6 hours for most riders. Similar distance to Crusher in the Tushar."
       },
       "technicality": {
         "score": 2,
-        "explanation": "Course features 65% gravel and 35% paved roads through rolling terrain with no major sustained climbs. The steepest section is 6-7% for 1km, with the longest climb being 4km at 4-5% gradient — more about endurance than bike handling skills."
+        "explanation": "Course features 65% gravel and 35% paved roads through rolling terrain with no major sustained climbs. The steepest section is 6-7% for 1km, with the longest climb being 4km at 4-5% gradient — more about endurance than bike handling skills. Less technical than The Mid South."
       },
       "elevation": {
         "score": 2,
-        "explanation": "864m of climbing over 123km is modest for gravel racing, with major climbs concentrated in the mid-course. Starting at 300m and finishing at 150m with gentle rollers throughout keeps the elevation challenge manageable for most riders."
+        "explanation": "864m of climbing over 123km is modest for gravel racing, with major climbs concentrated in the mid-course. Starting at 300m and finishing at 150m with gentle rollers throughout keeps the elevation challenge manageable for most riders. Less climbing than The Mid South."
       },
       "climate": {
         "score": 3,
-        "explanation": "Late March timing in Portugal-Spain border region typically offers mild spring temperatures ideal for long gravel efforts. The low elevation between 150-300m keeps weather moderate without altitude complications."
+        "explanation": "Historical weather data shows average highs of 62°F and lows of 47°F, with a 46% chance of rain on any given day, and gusts reaching 26 mph. Late March timing in Portugal-Spain border region typically offers mild spring temperatures ideal for long gravel efforts. The low elevation between 150-300m keeps weather moderate without altitude complications. Similar climate challenges to SBT GRVL."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Maximum elevation of 300m at the start means sea-level racing with zero altitude impact on performance. Finishing at 150m in Badajoz keeps you firmly in the oxygen-rich zone throughout the course."
+        "explanation": "Maximum elevation of 300m at the start means sea-level racing with zero altitude impact on performance. Finishing at 150m in Badajoz keeps you firmly in the oxygen-rich zone throughout the course. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 3,
@@ -282,7 +282,7 @@
       },
       "prestige": {
         "score": 2,
-        "explanation": "515 riders from 30 countries registered for 2025, including former MotoGP star Aleix Espargaro and gravel specialists like Annabel Fisher and Freddy Ovett. UCI Gravel World Series qualification adds legitimacy despite being one of 40+ qualifier events."
+        "explanation": "515 riders from 30 countries registered for 2025, including former MotoGP star Aleix Espargaro and gravel specialists like Annabel Fisher and Freddy Ovett. UCI Gravel World Series qualification adds legitimacy despite being one of 40+ qualifier events. As Aleix Espargaró puts it: \"Riding is fun! Despite having little technique with the gravel bike and premiering the Checkmate [Trek gravel bike] yesterday, I enjoyed it a lot and I have good legs to finish seventh overall in my f...\""
       },
       "race_quality": {
         "score": 2,
@@ -298,7 +298,7 @@
       },
       "field_depth": {
         "score": 2,
-        "explanation": "Matthew Holmes used road professional experience to edge Jose Maria Sanchez Ruiz by one second after 3:13:25. The presence of former pros and gravel specialists like Annabel Fisher elevates competition beyond typical amateur fields."
+        "explanation": "Matthew Holmes used road professional experience to edge Jose Maria Sanchez Ruiz by one second after 3:13:25. The presence of former pros and gravel specialists like Annabel Fisher elevates competition beyond typical amateur fields. Less competitive depth than Almanzo 100. As Jorge Padrones puts it: \"The first part of the course was very fast and seemed to go always downhill which made the first hour fly by.\""
       },
       "value": {
         "score": 3,
@@ -306,7 +306,7 @@
       },
       "expenses": {
         "score": 2,
-        "explanation": "Cross-border logistics between Elvas and Badajoz create transportation headaches with no clear accommodation guidance provided. You're dealing with two countries and zero information on parking or packet pickup locations beyond the reasonable race entry fees."
+        "explanation": "Registration runs €50-80. Cross-border logistics between Elvas and Badajoz create transportation headaches with no clear accommodation guidance provided. You're dealing with two countries and zero information on parking or packet pickup locations beyond the reasonable race entry fees. Higher total cost than Badlands."
       }
     },
     "citations": [
@@ -350,6 +350,74 @@
         "category": "community",
         "label": "ucigravelworldseries.com: Elvas"
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 38,
+          "msrp_usd": 54.99,
+          "weight_grams": 380,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 2,
+          "tire_id": "vittoria-terreno-mix",
+          "name": "Vittoria Terreno Mix",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 420,
+          "crr_watts": 33.5,
+          "why": "Graphene versatility. Mixed-terrain grip with reasonable rolling speed."
+        },
+        {
+          "rank": 3,
+          "tire_id": "continental-terra-trail",
+          "name": "Continental Terra Trail",
+          "brand": "Continental",
+          "recommended_width_mm": 40,
+          "msrp_usd": 74.99,
+          "weight_grams": 450,
+          "crr_watts": 33.5,
+          "why": "excellent wet grip"
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 38
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 38,
+      "pressure_psi": {
+        "140_160lb_dry": "36-40",
+        "140_160lb_mixed": "33-37",
+        "140_160lb_wet": "31-35",
+        "160_180lb_dry": "39-43",
+        "160_180lb_mixed": "36-40",
+        "160_180lb_wet": "34-38",
+        "180_200lb_dry": "42-46",
+        "180_200lb_mixed": "39-43",
+        "180_200lb_wet": "37-41",
+        "200pluslb_dry": "45-49",
+        "200pluslb_mixed": "42-46",
+        "200pluslb_wet": "40-44"
+      }
+    }
   }
 }

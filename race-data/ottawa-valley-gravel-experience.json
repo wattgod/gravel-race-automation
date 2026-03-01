@@ -258,23 +258,23 @@
       },
       "length": {
         "score": 2,
-        "explanation": "The 97km Epic course hits respectable gravel distance, with Josh Tyers winning in 3:01:37. Three options (34km/55km/97km) provide choice, but none push into truly demanding territory. Sean Reilly's 1:53:57 winning time on the Medio suggests steady but not punishing effort."
+        "explanation": "The 97km Epic course hits respectable gravel distance, with Josh Tyers winning in 3:01:37. Three options (34km/55km/97km) provide choice, but none push into truly demanding territory. Sean Reilly's 1:53:57 winning time on the Medio suggests steady but not punishing effort. More compact than Grinduro."
       },
       "technicality": {
         "score": 2,
-        "explanation": "Course uses \"single lane maintained old logging roads\" with \"a few unmaintained sections including a lane through a farm field.\" All courses are described as \"entirely rideable, flowy, fast, and extremely fun,\" indicating smooth surfaces rather than technical challenge."
+        "explanation": "Course uses \"single lane maintained old logging roads\" with \"a few unmaintained sections including a lane through a farm field.\" All courses are described as \"entirely rideable, flowy, fast, and extremely fun,\" indicating smooth surfaces rather than technical challenge. Less technical than The Mid South."
       },
       "elevation": {
         "score": 2,
-        "explanation": "Gorra Hill stands out as a named climb, but the \"rolling country roads of West Carleton\" suggests accumulated elevation rather than true mountain suffering. The 6.7% DNF rate on Epic course indicates manageable climbing that doesn't break riders."
+        "explanation": "Gorra Hill stands out as a named climb, but the \"rolling country roads of West Carleton\" suggests accumulated elevation rather than true mountain suffering. The 6.7% DNF rate on Epic course indicates manageable climbing that doesn't break riders. Less climbing than The Mid South."
       },
       "climate": {
         "score": 2,
-        "explanation": "Mid-April in Ontario creates weather uncertainty, evidenced by varying DNF rates across distances. The Medio course achieved perfect completion (0 DNFs from 40 starters) while Petit had 9.1% DNF rate, suggesting conditions can affect shorter efforts unexpectedly."
+        "explanation": "Mid-April in Ontario creates weather uncertainty, evidenced by varying DNF rates across distances. The Medio course achieved perfect completion (0 DNFs from 40 starters) while Petit had 9.1% DNF rate, suggesting conditions can affect shorter efforts unexpectedly. More weather exposure than Belgian Waffle Ride San Diego."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Calabogie sits in Ontario farmland well below any altitude that affects performance. Elevation above sea level remains irrelevant to race preparation or physiological demands."
+        "explanation": "Calabogie sits in Ontario farmland well below any altitude that affects performance. Elevation above sea level remains irrelevant to race preparation or physiological demands. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 2,
@@ -298,7 +298,7 @@
       },
       "field_depth": {
         "score": 1,
-        "explanation": "Josh Tyers won Epic in 3:01:37 with tight competition at front, but 94 total participants across three distances indicates small regional field. No documented pro riders or competitive racing history beyond local Ontario gravel series participation."
+        "explanation": "Josh Tyers won Epic in 3:01:37 with tight competition at front, but 94 total participants across three distances indicates small regional field. No documented pro riders or competitive racing history beyond local Ontario gravel series participation. Thinner field than Ouray Gravel Grinder."
       },
       "value": {
         "score": 4,
@@ -306,7 +306,7 @@
       },
       "expenses": {
         "score": 3,
-        "explanation": "Calabogie location keeps travel costs reasonable for Ontario riders as a drive-to day event. No lodging required, though April weather may demand gear investment. Route files available in GPX and Strava formats for pre-race reconnaissance."
+        "explanation": "Registration runs $50-75 CAD. Calabogie location keeps travel costs reasonable for Ontario riders as a drive-to day event. No lodging required, though April weather may demand gear investment. Route files available in GPX and Strava formats for pre-race reconnaissance. Similar expense level to Belgian Waffle Ride San Diego."
       }
     },
     "citations": [
@@ -365,6 +365,74 @@
         "category": "community",
         "label": "ontariocycling.org: Gravel"
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 38,
+          "msrp_usd": 54.99,
+          "weight_grams": 380,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 2,
+          "tire_id": "panaracer-gravelking-sk",
+          "name": "Panaracer GravelKing SK",
+          "brand": "Panaracer",
+          "recommended_width_mm": 40,
+          "msrp_usd": 64.9,
+          "weight_grams": 380,
+          "crr_watts": 32.5,
+          "why": "Affordable all-rounder. Light knobs add grip without killing speed."
+        },
+        {
+          "rank": 3,
+          "tire_id": "vittoria-terreno-mix",
+          "name": "Vittoria Terreno Mix",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 420,
+          "crr_watts": 33.5,
+          "why": "Graphene versatility. Mixed-terrain grip with reasonable rolling speed."
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 38
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 38,
+      "pressure_psi": {
+        "140_160lb_dry": "36-40",
+        "140_160lb_mixed": "33-37",
+        "140_160lb_wet": "31-35",
+        "160_180lb_dry": "39-43",
+        "160_180lb_mixed": "36-40",
+        "160_180lb_wet": "34-38",
+        "180_200lb_dry": "42-46",
+        "180_200lb_mixed": "39-43",
+        "180_200lb_wet": "37-41",
+        "200pluslb_dry": "45-49",
+        "200pluslb_mixed": "42-46",
+        "200pluslb_wet": "40-44"
+      }
+    }
   }
 }

@@ -18,13 +18,13 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
-from brand_tokens import COLORS, GA_MEASUREMENT_ID, get_font_face_css, get_tokens_css
+from brand_tokens import COLORS, GA_MEASUREMENT_ID, get_font_face_css, get_tokens_css, TIER_NAMES, TIER_DESCS
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
 TIER_META = {
     1: {
-        "name": "Elite",
+        "name": "The Icons",
         "slug": "tier-1",
         "title": "The 25 Best Gravel Races in the World | Gravel God",
         "h1": "Tier 1 — The Icons",
@@ -38,14 +38,14 @@ TIER_META = {
         ),
     },
     2: {
-        "name": "Contender",
+        "name": "Elite",
         "slug": "tier-2",
-        "title": "73 Must-Do Gravel Races | Contender Tier | Gravel God",
-        "h1": "Tier 2 — The Contenders",
+        "title": "68 Must-Do Gravel Races | Elite Tier | Gravel God",
+        "h1": "Tier 2 — Elite",
         "description": "Established gravel races with strong reputations and competitive fields. "
                        "The next tier of must-do events for serious gravel riders.",
         "intro": (
-            "Contender-tier races are the backbone of competitive gravel. Each one brings "
+            "Elite-tier races are the backbone of competitive gravel. Each one brings "
             "something distinctive — whether it's a legendary climb, a grassroots-to-big-time "
             "origin story, or a course that punches well above its profile. These are the races "
             "that regulars swear by and newcomers discover with delight."
@@ -66,10 +66,10 @@ TIER_META = {
         ),
     },
     4: {
-        "name": "Roster",
+        "name": "Grassroots",
         "slug": "tier-4",
-        "title": "Grassroots Gravel Events | Roster Tier | Gravel God",
-        "h1": "Tier 4 — Grassroots Gravel",
+        "title": "Grassroots Gravel Events | Gravel God",
+        "h1": "Tier 4 — Grassroots",
         "description": "Up-and-coming races and local grinders. Small fields, raw vibes, "
                        "and the future of the sport.",
         "intro": (
@@ -167,7 +167,7 @@ def build_hub_page(tier: int, races: list, all_races: list) -> str:
   <meta name="description" content="{esc(meta["description"])}">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="{esc(canonical)}">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%233a2e25'/><text x='16' y='24' text-anchor='middle' font-family='serif' font-size='24' font-weight='700' fill='%239a7e0a'>G</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2032%2032%27%3E%3Crect%20width%3D%2732%27%20height%3D%2732%27%20fill%3D%27%233a2e25%27%2F%3E%3Ctext%20x%3D%2716%27%20y%3D%2724%27%20text-anchor%3D%27middle%27%20font-family%3D%27serif%27%20font-size%3D%2724%27%20font-weight%3D%27700%27%20fill%3D%27%239a7e0a%27%3EG%3C%2Ftext%3E%3C%2Fsvg%3E">
   <meta property="og:title" content="{esc(meta["title"])}">
   <meta property="og:description" content="{esc(meta["description"])}">
   <meta property="og:type" content="website">

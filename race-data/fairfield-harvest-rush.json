@@ -258,23 +258,23 @@
       },
       "length": {
         "score": 2,
-        "explanation": "The 50K option at ~35 miles is barely a gravel workout. Even the 100K at ~65 miles won't challenge anyone's endurance limits. When your shorter option needs a rain route backup, you're not pushing boundaries."
+        "explanation": "The 50K option at ~35 miles is barely a gravel workout. Even the 100K at ~65 miles won't challenge anyone's endurance limits. When your shorter option needs a rain route backup, you're not pushing boundaries. More compact than Grinduro."
       },
       "technicality": {
         "score": 2,
-        "explanation": "Jefferson County has \"more dirt roads than any neighboring county\" according to race organizers, but \"difficult terrain with longer, steeper hills\" doesn't translate to technical challenge. This is still Iowa B-roads - more grinding than handling skills required."
+        "explanation": "Jefferson County has \"more dirt roads than any neighboring county\" according to race organizers, but \"difficult terrain with longer, steeper hills\" doesn't translate to technical challenge. This is still Iowa B-roads - more grinding than handling skills required. Less technical than The Mid South."
       },
       "elevation": {
         "score": 2,
-        "explanation": "The \"difficult terrain with longer, steeper hills\" description suggests more bite than typical Iowa rolling country. Jefferson County's B-roads deliver 1500-3000 feet of climbing that'll work your legs without breaking your spirit."
+        "explanation": "The \"difficult terrain with longer, steeper hills\" description suggests more bite than typical Iowa rolling country. Jefferson County's B-roads deliver 1500-3000 feet of climbing that'll work your legs without breaking your spirit. Less climbing than The Mid South."
       },
       "climate": {
         "score": 3,
-        "explanation": "October 4th in Iowa is prime riding weather - cool mornings, crisp afternoons, minimal heat stress. They prep rain routes because weather gets unpredictable, but that's smart planning. Fall in the Midwest beats summer anywhere for gravel grinding."
+        "explanation": "Historical weather data shows average highs of 66°F and lows of 48°F, with a 34% chance of rain on any given day, and gusts reaching 27 mph. October 4th in Iowa is prime riding weather - cool mornings, crisp afternoons, minimal heat stress. They prep rain routes because weather gets unpredictable, but that's smart planning. Fall in the Midwest beats summer anywhere for gravel grinding. Similar climate challenges to SBT GRVL."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Fairfield sits around 700-800 feet above sea level. Your biggest altitude challenge is getting out of bed at the hotel. If elevation affects your performance here, altitude won't be the deciding factor."
+        "explanation": "Fairfield sits around 700-800 feet above sea level. Your biggest altitude challenge is getting out of bed at the hotel. If elevation affects your performance here, altitude won't be the deciding factor. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 2,
@@ -298,7 +298,7 @@
       },
       "field_depth": {
         "score": 1,
-        "explanation": "Over 150 racers sounds decent until you realize that's across three different courses. No mention of notable riders, pro categories, or competitive depth. When the race description focuses on being 'friendly to new racers,' the sharks aren't circling these waters."
+        "explanation": "Over 150 racers sounds decent until you realize that's across three different courses. No mention of notable riders, pro categories, or competitive depth. When the race description focuses on being 'friendly to new racers,' the sharks aren't circling these waters. Thinner field than Ouray Gravel Grinder."
       },
       "value": {
         "score": 4,
@@ -306,7 +306,7 @@
       },
       "expenses": {
         "score": 3,
-        "explanation": "Fairfield, Iowa won't bankrupt you on lodging or dining. The Fishback and Stephenson Cider House venue suggests easy access without big city markup. Day-of registration accepts cash or card, keeping logistics simple."
+        "explanation": "Registration runs $50-75. Fairfield, Iowa won't bankrupt you on lodging or dining. The Fishback and Stephenson Cider House venue suggests easy access without big city markup. Day-of registration accepts cash or card, keeping logistics simple. Similar expense level to Belgian Waffle Ride San Diego."
       }
     },
     "citations": [
@@ -353,6 +353,74 @@
         }
       },
       "latest_year": "2024"
+    },
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 38,
+          "msrp_usd": 54.99,
+          "weight_grams": 380,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 2,
+          "tire_id": "panaracer-gravelking-sk",
+          "name": "Panaracer GravelKing SK",
+          "brand": "Panaracer",
+          "recommended_width_mm": 40,
+          "msrp_usd": 64.9,
+          "weight_grams": 380,
+          "crr_watts": 32.5,
+          "why": "Affordable all-rounder. Light knobs add grip without killing speed."
+        },
+        {
+          "rank": 3,
+          "tire_id": "vittoria-terreno-mix",
+          "name": "Vittoria Terreno Mix",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 420,
+          "crr_watts": 33.5,
+          "why": "Graphene versatility. Mixed-terrain grip with reasonable rolling speed."
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 38
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 38,
+      "pressure_psi": {
+        "140_160lb_dry": "36-40",
+        "140_160lb_mixed": "33-37",
+        "140_160lb_wet": "31-35",
+        "160_180lb_dry": "39-43",
+        "160_180lb_mixed": "36-40",
+        "160_180lb_wet": "34-38",
+        "180_200lb_dry": "42-46",
+        "180_200lb_mixed": "39-43",
+        "180_200lb_wet": "37-41",
+        "200pluslb_dry": "45-49",
+        "200pluslb_mixed": "42-46",
+        "200pluslb_wet": "40-44"
+      }
     }
   }
 }

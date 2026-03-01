@@ -248,23 +248,23 @@
       },
       "length": {
         "score": 3,
-        "explanation": "Three distance options: 85, 50, and 26 miles with 9:00 AM starts and afternoon cutoffs. Event promotes flexibility: \"Ride at your own pace. Enjoy some slow gravel or get your hustle on!\""
+        "explanation": "Three distance options: 85, 50, and 26 miles with 9:00 AM starts and afternoon cutoffs. Event promotes flexibility: \"Ride at your own pace. Enjoy some slow gravel or get your hustle on!\" Similar distance to Crusher in the Tushar."
       },
       "technicality": {
         "score": 2,
-        "explanation": "Described as \"some of the best gravel the Northwoods has to offer\" with \"challenging climbs\" even on the shortest route. Course features \"beautiful forest roads\" without serious technical obstacles."
+        "explanation": "Described as \"some of the best gravel the Northwoods has to offer\" with \"challenging climbs\" even on the shortest route. Course features \"beautiful forest roads\" without serious technical obstacles. Less technical than The Mid South."
       },
       "elevation": {
         "score": 2,
-        "explanation": "3000 feet over 62 miles provides rolling terrain rather than major climbs. Even the 26-mile route includes \"challenging climbs\" according to event descriptions, keeping legs engaged without breaking riders."
+        "explanation": "3000 feet over 62 miles provides rolling terrain rather than major climbs. Even the 26-mile route includes \"challenging climbs\" according to event descriptions, keeping legs engaged without breaking riders. Less climbing than The Mid South."
       },
       "climate": {
         "score": 2,
-        "explanation": "Late September timing in northern Wisconsin puts riders in shoulder season uncertainty. No historical weather data available, but timing suggests potential for anything from perfect fall conditions to early winter weather."
+        "explanation": "Late September timing in northern Wisconsin puts riders in shoulder season uncertainty. No historical weather data available, but timing suggests potential for anything from perfect fall conditions to early winter weather. More weather exposure than Belgian Waffle Ride San Diego."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Northern Wisconsin location means negligible altitude considerations. No elevation-related performance factors or acclimatization needed for this race."
+        "explanation": "Northern Wisconsin location means negligible altitude considerations. No elevation-related performance factors or acclimatization needed for this race. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 2,
@@ -288,7 +288,7 @@
       },
       "field_depth": {
         "score": 1,
-        "explanation": "Explicitly positioned as \"great opportunity to train\" for other regional races rather than destination event itself. \"Ride at your own pace\" philosophy attracts recreational riders more than competitive depth."
+        "explanation": "With a field of 50-150 riders, explicitly positioned as \"great opportunity to train\" for other regional races rather than destination event itself. \"Ride at your own pace\" philosophy attracts recreational riders more than competitive depth. Thinner field than Ouray Gravel Grinder."
       },
       "value": {
         "score": 4,
@@ -296,7 +296,7 @@
       },
       "expenses": {
         "score": 4,
-        "explanation": "Minimal entry fee and Nelma, Wisconsin location keeps costs low. No premium race amenities or tourist destination pricing to inflate weekend expenses beyond basic travel and lodging."
+        "explanation": "Registration runs $50-80. Minimal entry fee and Nelma, Wisconsin location keeps costs low. No premium race amenities or tourist destination pricing to inflate weekend expenses beyond basic travel and lodging. More affordable than Crusher in the Tushar."
       }
     },
     "citations": [
@@ -315,6 +315,74 @@
         "category": "community",
         "label": "bikesignup.com: Thehardwoodhustle"
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 38,
+          "msrp_usd": 54.99,
+          "weight_grams": 380,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 2,
+          "tire_id": "vittoria-terreno-mix",
+          "name": "Vittoria Terreno Mix",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 420,
+          "crr_watts": 33.5,
+          "why": "Graphene versatility. Mixed-terrain grip with reasonable rolling speed."
+        },
+        {
+          "rank": 3,
+          "tire_id": "continental-terra-trail",
+          "name": "Continental Terra Trail",
+          "brand": "Continental",
+          "recommended_width_mm": 40,
+          "msrp_usd": 74.99,
+          "weight_grams": 450,
+          "crr_watts": 33.5,
+          "why": "excellent wet grip"
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 38
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 38,
+      "pressure_psi": {
+        "140_160lb_dry": "36-40",
+        "140_160lb_mixed": "33-37",
+        "140_160lb_wet": "31-35",
+        "160_180lb_dry": "39-43",
+        "160_180lb_mixed": "36-40",
+        "160_180lb_wet": "34-38",
+        "180_200lb_dry": "42-46",
+        "180_200lb_mixed": "39-43",
+        "180_200lb_wet": "37-41",
+        "200pluslb_dry": "45-49",
+        "200pluslb_mixed": "42-46",
+        "200pluslb_wet": "40-44"
+      }
+    }
   }
 }

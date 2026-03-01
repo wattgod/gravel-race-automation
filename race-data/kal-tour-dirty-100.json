@@ -258,23 +258,23 @@
       },
       "length": {
         "score": 4,
-        "explanation": "100 miles hits the sweet spot for gravel centuries - proper distance that demands respect without requiring overnight logistics. Long enough to separate fitness levels, short enough to finish in daylight and drive home same day."
+        "explanation": "100 miles hits the sweet spot for gravel centuries - proper distance that demands respect without requiring overnight logistics. Long enough to separate fitness levels, short enough to finish in daylight and drive home same day. Longer than Belgian Waffle Ride San Diego."
       },
       "technicality": {
         "score": 2,
-        "explanation": "Southwest Michigan gravel tends toward agricultural roads and rail-trails rather than technical terrain. The region's glacial geology creates maintained gravel surfaces with occasional sand patches - manageable on standard gravel setups without requiring specialized skills."
+        "explanation": "Southwest Michigan gravel tends toward agricultural roads and rail-trails rather than technical terrain. The region's glacial geology creates maintained gravel surfaces with occasional sand patches - manageable on standard gravel setups without requiring specialized skills. Less technical than The Mid South."
       },
       "elevation": {
         "score": 2,
-        "explanation": "4,500 feet over 100 miles averages 45 feet per mile - rolling rather than mountainous terrain. Michigan's glacial landscape creates steady undulation without sustained climbs that would require alpine gearing or extended suffering."
+        "explanation": "4,500 feet over 100 miles averages 45 feet per mile - rolling rather than mountainous terrain. Michigan's glacial landscape creates steady undulation without sustained climbs that would require alpine gearing or extended suffering. Less climbing than The Mid South."
       },
       "climate": {
         "score": 3,
-        "explanation": "Michigan weather creates unpredictable conditions - spring mud season extends late, summer humidity builds, fall delivers ideal riding before winter shutdown. Lake effect generates microclimates that demand careful weather monitoring and layered clothing strategies."
+        "explanation": "Michigan weather creates unpredictable conditions - spring mud season extends late, summer humidity builds, fall delivers ideal riding before winter shutdown. Lake effect generates microclimates that demand careful weather monitoring and layered clothing strategies. Similar climate challenges to SBT GRVL."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Kalamazoo sits around 750 feet above sea level in classic Midwest flatlander territory. Sea level lungs work fine here - altitude never factors into performance or training considerations for any Michigan gravel event."
+        "explanation": "Kalamazoo sits around 750 feet above sea level in classic Midwest flatlander territory. Sea level lungs work fine here - altitude never factors into performance or training considerations for any Michigan gravel event. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 2,
@@ -298,7 +298,7 @@
       },
       "field_depth": {
         "score": 1,
-        "explanation": "No competitive field exists for a race that doesn't actually happen. The YouTube video reference to 'DIRTY KANZA 100 Training \\ Newbie Gravel Grinder' points to the Kansas event, which does attract strong fields."
+        "explanation": "No competitive field exists for a race that doesn't actually happen. The YouTube video reference to 'DIRTY KANZA 100 Training \\ Newbie Gravel Grinder' points to the Kansas event, which does attract strong fields. Thinner field than Ouray Gravel Grinder."
       },
       "value": {
         "score": 4,
@@ -306,7 +306,7 @@
       },
       "expenses": {
         "score": 3,
-        "explanation": "Kalamazoo provides decent access via I-94 corridor between Chicago and Grand Rapids with reasonable lodging costs outside peak summer season. Food and gas remain affordable, though travel expenses are moot without an actual event to attend."
+        "explanation": "Registration runs $75-100. Kalamazoo provides decent access via I-94 corridor between Chicago and Grand Rapids with reasonable lodging costs outside peak summer season. Food and gas remain affordable, though travel expenses are moot without an actual event to attend. Similar expense level to Belgian Waffle Ride San Diego."
       }
     },
     "citations": [
@@ -315,6 +315,74 @@
         "category": "community",
         "label": "youtube.com: Watch"
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 38,
+          "msrp_usd": 54.99,
+          "weight_grams": 380,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 2,
+          "tire_id": "panaracer-gravelking-sk",
+          "name": "Panaracer GravelKing SK",
+          "brand": "Panaracer",
+          "recommended_width_mm": 40,
+          "msrp_usd": 64.9,
+          "weight_grams": 380,
+          "crr_watts": 32.5,
+          "why": "Affordable all-rounder. Light knobs add grip without killing speed."
+        },
+        {
+          "rank": 3,
+          "tire_id": "vittoria-terreno-mix",
+          "name": "Vittoria Terreno Mix",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 420,
+          "crr_watts": 33.5,
+          "why": "Graphene versatility. Mixed-terrain grip with reasonable rolling speed."
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "vittoria-terreno-dry",
+          "name": "Vittoria Terreno Dry",
+          "width_mm": 40
+        },
+        "rear": {
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 38
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 38,
+      "pressure_psi": {
+        "140_160lb_dry": "36-40",
+        "140_160lb_mixed": "33-37",
+        "140_160lb_wet": "31-35",
+        "160_180lb_dry": "39-43",
+        "160_180lb_mixed": "36-40",
+        "160_180lb_wet": "34-38",
+        "180_200lb_dry": "42-46",
+        "180_200lb_mixed": "39-43",
+        "180_200lb_wet": "37-41",
+        "200pluslb_dry": "45-49",
+        "200pluslb_mixed": "42-46",
+        "200pluslb_wet": "40-44"
+      }
+    }
   }
 }

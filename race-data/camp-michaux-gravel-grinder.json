@@ -258,23 +258,23 @@
       },
       "length": {
         "score": 2,
-        "explanation": "Elite rider Evan McGregor \"overspent\" energy in the first hour and \"was unable to follow the front 5\" after pacing mistakes on the 50-mile course. Big Pond Hollow delivered \"a bad cramp\" that \"cost me a few minutes off the bike,\" showing the distance has enough teeth to punish tactical errors even among experienced racers coming off BaseCamp training camps."
+        "explanation": "Elite rider Evan McGregor \"overspent\" energy in the first hour and \"was unable to follow the front 5\" after pacing mistakes on the 50-mile course. Big Pond Hollow delivered \"a bad cramp\" that \"cost me a few minutes off the bike,\" showing the distance has enough teeth to punish tactical errors even among experienced racers coming off BaseCamp training camps. More compact than Grinduro."
       },
       "technicality": {
         "score": 2,
-        "explanation": "Lynn Botelho crashed \"at the entrance to the single track\" about 3 miles from the finish, then \"caught up and passed her in a mud pit\" before the final road section. Evan McGregor suffered a race-ending sidewall slash \"on a bit of single track near the end\" that couldn't be plugged, demonstrating technical sections sharp enough to end races for elite-level riders."
+        "explanation": "Lynn Botelho crashed \"at the entrance to the single track\" about 3 miles from the finish, then \"caught up and passed her in a mud pit\" before the final road section. Evan McGregor suffered a race-ending sidewall slash \"on a bit of single track near the end\" that couldn't be plugged, demonstrating technical sections sharp enough to end races for elite-level riders. Less technical than The Mid South."
       },
       "elevation": {
         "score": 3,
-        "explanation": "The afternoon heat and climbing combination left \"longer distance riders feeling the heat and the big climbs were taking a toll,\" according to Kathy Peters. Big Pond Hollow specifically triggered cramping severe enough to force elite rider Evan McGregor off his bike for several minutes, indicating sustained climbing pressure that breaks down even well-trained riders."
+        "explanation": "The afternoon heat and climbing combination left \"longer distance riders feeling the heat and the big climbs were taking a toll,\" according to Kathy Peters. Big Pond Hollow specifically triggered cramping severe enough to force elite rider Evan McGregor off his bike for several minutes, indicating sustained climbing pressure that breaks down even well-trained riders. Similar elevation profile to Gravel Worlds."
       },
       "climate": {
         "score": 2,
-        "explanation": "The 2025 race \"started with perfect weather after a long hot and humid streak in the east,\" but \"by the afternoon the longer distance riders were feeling the heat and the big climbs were taking a toll.\" Pennsylvania's variable weather window means you're gambling on conditions — perfect morning starts can deteriorate into punishing afternoon heat that compounds the climbing difficulty."
+        "explanation": "Historical weather data shows average highs of 83°F and lows of 62°F, with a 48% chance of rain on any given day. The 2025 race \"started with perfect weather after a long hot and humid streak in the east,\" but \"by the afternoon the longer distance riders were feeling the heat and the big climbs were taking a toll.\" Pennsylvania's variable weather window means you're gambling on conditions — perfect morning starts can deteriorate into punishing afternoon heat that compounds the climbing difficulty. More weather exposure than Belgian Waffle Ride San Diego."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Central Pennsylvania elevation presents zero altitude considerations. The climbing difficulty comes from sustained grades and technical terrain, not thin air — Big Pond Hollow cramped an elite rider through power demand, not oxygen debt."
+        "explanation": "Central Pennsylvania elevation presents zero altitude considerations. The climbing difficulty comes from sustained grades and technical terrain, not thin air — Big Pond Hollow cramped an elite rider through power demand, not oxygen debt. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 2,
@@ -298,7 +298,7 @@
       },
       "field_depth": {
         "score": 1,
-        "explanation": "No field size data, no notable past winners, no professional rider participation documented. The explicit focus on recreational pace options and 'personal statistics' timing suggests this attracts weekend warriors, not serious competitive depth. Prize structure for 'top 3 in each category when 3+ riders exist' basically tells you they're hoping to scrape together podiums."
+        "explanation": "No field size data, no notable past winners, no professional rider participation documented. The explicit focus on recreational pace options and 'personal statistics' timing suggests this attracts weekend warriors, not serious competitive depth. Prize structure for 'top 3 in each category when 3+ riders exist' basically tells you they're hoping to scrape together podiums. Thinner field than Ouray Gravel Grinder."
       },
       "value": {
         "score": 4,
@@ -306,7 +306,7 @@
       },
       "expenses": {
         "score": 3,
-        "explanation": "Central Pennsylvania location keeps lodging reasonable, Caledonia State Park and Biglerville venues aren't resort destinations demanding premium accommodation costs. No entry fee data available but the infrastructure level suggests mid-range pricing. Packet pickup at Waynesboro's Michaux Brewing Co indicates they're working with local businesses, not gouging visitors with overpriced partnerships."
+        "explanation": "Registration runs $50-75. Central Pennsylvania location keeps lodging reasonable, Caledonia State Park and Biglerville venues aren't resort destinations demanding premium accommodation costs. No entry fee data available but the infrastructure level suggests mid-range pricing. Packet pickup at Waynesboro's Michaux Brewing Co indicates they're working with local businesses, not gouging visitors with overpriced partnerships. Similar expense level to Belgian Waffle Ride San Diego."
       }
     },
     "citations": [
@@ -353,6 +353,74 @@
         }
       },
       "latest_year": "2024"
+    },
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 38,
+          "msrp_usd": 54.99,
+          "weight_grams": 380,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 2,
+          "tire_id": "vittoria-terreno-mix",
+          "name": "Vittoria Terreno Mix",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 420,
+          "crr_watts": 33.5,
+          "why": "Graphene versatility. Mixed-terrain grip with reasonable rolling speed."
+        },
+        {
+          "rank": 3,
+          "tire_id": "continental-terra-trail",
+          "name": "Continental Terra Trail",
+          "brand": "Continental",
+          "recommended_width_mm": 40,
+          "msrp_usd": 74.99,
+          "weight_grams": 450,
+          "crr_watts": 33.5,
+          "why": "excellent wet grip"
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 38
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 38,
+      "pressure_psi": {
+        "140_160lb_dry": "36-40",
+        "140_160lb_mixed": "33-37",
+        "140_160lb_wet": "31-35",
+        "160_180lb_dry": "39-43",
+        "160_180lb_mixed": "36-40",
+        "160_180lb_wet": "34-38",
+        "180_200lb_dry": "42-46",
+        "180_200lb_mixed": "39-43",
+        "180_200lb_wet": "37-41",
+        "200pluslb_dry": "45-49",
+        "200pluslb_mixed": "42-46",
+        "200pluslb_wet": "40-44"
+      }
     }
   }
 }

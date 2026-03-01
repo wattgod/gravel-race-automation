@@ -258,23 +258,23 @@
       },
       "length": {
         "score": 3,
-        "explanation": "Four distances from 15 miles (The Mild, 600ft gain) up to 113 miles (The Whole, 7,900ft gain) with tactical racing possible - Van Werven's bunch sprint finish on the 75-miler proves the courses support pack dynamics, not just solo suffering."
+        "explanation": "Four distances from 15 miles (The Mild, 600ft gain) up to 113 miles (The Whole, 7,900ft gain) with tactical racing possible - Van Werven's bunch sprint finish on the 75-miler proves the courses support pack dynamics, not just solo suffering. Similar distance to Crusher in the Tushar."
       },
       "technicality": {
         "score": 2,
-        "explanation": "The Twelvemile climb hits 16% grades briefly but riders report 'shockingly good' surface quality ranging from 'fine champagne goodness to moderate classic gravel.' As one rider noted, 'the terrain and texture don't present a typical technical challenge.'"
+        "explanation": "The Twelvemile climb hits 16% grades briefly but riders report 'shockingly good' surface quality ranging from 'fine champagne goodness to moderate classic gravel.' As one rider noted, 'the terrain and texture don't present a typical technical challenge.' Less technical than The Mid South."
       },
       "elevation": {
         "score": 3,
-        "explanation": "The Twelvemile climb delivers 3,400 feet of gain over 11 miles at 5.7% average grade, starting at 6,275 feet and summiting at 9,585 feet. One rider warns: 'Don't get fooled' by occasional flat sections - 'You're not done yet.'"
+        "explanation": "The Twelvemile climb delivers 3,400 feet of gain over 11 miles at 5.7% average grade, starting at 6,275 feet and summiting at 9,585 feet. One rider warns: 'Don't get fooled' by occasional flat sections - 'You're not done yet.' Similar elevation profile to Gravel Worlds."
       },
       "climate": {
         "score": 2,
-        "explanation": "October in Pueblo means fall weather at elevation with potential temperature swings. The race starts downtown at Main Street and Alan Hamel Avenue, providing some urban shelter before heading into open country exposure."
+        "explanation": "Historical weather data shows average highs of 73°F and lows of 45°F, with a 10% chance of rain on any given day, and gusts reaching 32 mph. October in Pueblo means fall weather at elevation with potential temperature swings. The race starts downtown at Main Street and Alan Hamel Avenue, providing some urban shelter before heading into open country exposure. More weather exposure than Belgian Waffle Ride San Diego."
       },
       "altitude": {
         "score": 2,
-        "explanation": "Starting around 6,275 feet in Pueblo and climbing to 9,585 feet on Twelvemile creates noticeable altitude impact. As one rider described breathing 'deep the mountain air, rich with ponderosa,' the elevation is present but manageable for most fitness levels."
+        "explanation": "Starting around 6,275 feet in Pueblo and climbing to 9,585 feet on Twelvemile creates noticeable altitude impact. As one rider described breathing 'deep the mountain air, rich with ponderosa,' the elevation is present but manageable for most fitness levels. Modest altitude compared to Belgian Waffle Ride San Diego."
       },
       "adventure": {
         "score": 2,
@@ -298,7 +298,7 @@
       },
       "field_depth": {
         "score": 1,
-        "explanation": "Elite riders like Sudduth, Van Werven, and York placed well in 2024, with Martin finishing 5th despite it being his first gravel race. Competitive sprints between sponsored teams show regional depth but limited national elite participation."
+        "explanation": "Elite riders like Sudduth, Van Werven, and York placed well in 2024, with Martin finishing 5th despite it being his first gravel race. Competitive sprints between sponsored teams show regional depth but limited national elite participation. Thinner field than Ouray Gravel Grinder. As Boudewijn Van Werven puts it: \"claimed second in the 75-miler from a bunch sprint against several Subaru-Groove and Cinch Cycling racers\""
       },
       "value": {
         "score": 3,
@@ -306,7 +306,7 @@
       },
       "expenses": {
         "score": 2,
-        "explanation": "Pueblo location keeps accommodation costs reasonable compared to resort towns, though they're still finalizing 2026 lodging partnerships. Denver International Airport is 110 miles away, adding drive time and gas costs to your weekend budget."
+        "explanation": "Registration runs $75-100. Pueblo location keeps accommodation costs reasonable compared to resort towns, though they're still finalizing 2026 lodging partnerships. Denver International Airport is 110 miles away, adding drive time and gas costs to your weekend budget. Higher total cost than Badlands."
       }
     },
     "citations": [
@@ -358,6 +358,74 @@
         }
       },
       "latest_year": "2024"
+    },
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 38,
+          "msrp_usd": 54.99,
+          "weight_grams": 380,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 2,
+          "tire_id": "panaracer-gravelking-sk",
+          "name": "Panaracer GravelKing SK",
+          "brand": "Panaracer",
+          "recommended_width_mm": 40,
+          "msrp_usd": 64.9,
+          "weight_grams": 380,
+          "crr_watts": 32.5,
+          "why": "Affordable all-rounder. Light knobs add grip without killing speed."
+        },
+        {
+          "rank": 3,
+          "tire_id": "vittoria-terreno-mix",
+          "name": "Vittoria Terreno Mix",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 420,
+          "crr_watts": 33.5,
+          "why": "Graphene versatility. Mixed-terrain grip with reasonable rolling speed."
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 38
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 38,
+      "pressure_psi": {
+        "140_160lb_dry": "36-40",
+        "140_160lb_mixed": "33-37",
+        "140_160lb_wet": "31-35",
+        "160_180lb_dry": "39-43",
+        "160_180lb_mixed": "36-40",
+        "160_180lb_wet": "34-38",
+        "180_200lb_dry": "42-46",
+        "180_200lb_mixed": "39-43",
+        "180_200lb_wet": "37-41",
+        "200pluslb_dry": "45-49",
+        "200pluslb_mixed": "42-46",
+        "200pluslb_wet": "40-44"
+      }
     }
   }
 }

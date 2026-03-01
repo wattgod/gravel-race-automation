@@ -258,23 +258,23 @@
       },
       "length": {
         "score": 3,
-        "explanation": "Multiple gravel options run 27km, 55km, and 75km across the weekend format. The 75km course delivers 1300m climbing through Drôme valleys with two feed stations at KM 23 and 61. Solidly middle-distance without being a sprint or epic suffer-fest, letting you pick your challenge level."
+        "explanation": "Multiple gravel options run 27km, 55km, and 75km across the weekend format. The 75km course delivers 1300m climbing through Drôme valleys with two feed stations at KM 23 and 61. Solidly middle-distance without being a sprint or epic suffer-fest, letting you pick your challenge level. Similar distance to Crusher in the Tushar."
       },
       "technicality": {
         "score": 3,
-        "explanation": "Course mixes 'petites routes goudronnées et de pistes caillouteuses avec certains passages techniques courts' through Drôme terrain. The 75km route warns 'un parcours très exigeant à destination des spécialistes du gravel.' Expect rocky gravel sections that demand bike handling without requiring special skills."
+        "explanation": "Course mixes 'petites routes goudronnées et de pistes caillouteuses avec certains passages techniques courts' through Drôme terrain. The 75km route warns 'un parcours très exigeant à destination des spécialistes du gravel.' Expect rocky gravel sections that demand bike handling without requiring special skills. Similar technical demands to Gravel Worlds."
       },
       "elevation": {
         "score": 3,
-        "explanation": "The 75km delivers 1300m climbing through valleys of the Drôme and Bez with 'vue imprenable sur les falaises du Vercors sud.' Course moved to opposite slopes of Glandasse at the foot of Châtillon vineyard terrain. Respectable elevation gain that specialists will feel without being punitive."
+        "explanation": "The 75km delivers 1300m climbing through valleys of the Drôme and Bez with 'vue imprenable sur les falaises du Vercors sud.' Course moved to opposite slopes of Glandasse at the foot of Châtillon vineyard terrain. Respectable elevation gain that specialists will feel without being punitive. Similar elevation profile to Gravel Worlds."
       },
       "climate": {
         "score": 2,
-        "explanation": "September conditions vary significantly - one rider experienced 'le vent et le froid' but noted 'Le soleil était au rendez vous.' Another mentioned 'Vent frais pour la saison' during mid-September timing. Cool winds and variable conditions are typical for the season in this region."
+        "explanation": "Historical weather data shows average highs of 72°F and lows of 54°F, with a 43% chance of rain on any given day. September conditions vary significantly - one rider experienced 'le vent et le froid' but noted 'Le soleil était au rendez vous.' Another mentioned 'Vent frais pour la saison' during mid-September timing. Cool winds and variable conditions are typical for the season in this region. More weather exposure than Belgian Waffle Ride San Diego. As Participant feedback puts it: \"Congratulations to the top organization. I discovered the magnificent landscapes of the Vercors that I didn't really know, although coming from the Ardèche plateau.\""
       },
       "altitude": {
         "score": 2,
-        "explanation": "Course runs through Drôme valley terrain at the foot of Vercors cliffs rather than high mountain elevations. Now positioned on opposite slopes of Glandasse near vineyard country, suggesting moderate hill country altitude without oxygen concerns or dramatic elevation changes."
+        "explanation": "Course runs through Drôme valley terrain at the foot of Vercors cliffs rather than high mountain elevations. Now positioned on opposite slopes of Glandasse near vineyard country, suggesting moderate hill country altitude without oxygen concerns or dramatic elevation changes. Modest altitude compared to Belgian Waffle Ride San Diego."
       },
       "adventure": {
         "score": 4,
@@ -298,7 +298,7 @@
       },
       "field_depth": {
         "score": 1,
-        "explanation": "Events are explicitly 'non chronométré, il n'y aura donc pas de classement' - no timing, no rankings. Over 3,600 participants spread across multiple distances and three days dilutes competitive depth. Format attracts recreational riders rather than serious racing field."
+        "explanation": "Events are explicitly 'non chronométré, il n'y aura donc pas de classement' - no timing, no rankings. Over 3,600 participants spread across multiple distances and three days dilutes competitive depth. Format attracts recreational riders rather than serious racing field. Thinner field than Ouray Gravel Grinder."
       },
       "value": {
         "score": 3,
@@ -306,7 +306,7 @@
       },
       "expenses": {
         "score": 2,
-        "explanation": "Die location in provincial Drôme keeps accommodation costs regional rather than resort pricing. No major airport nearby requires driving or multiple connections through Lyon. Basic French village logistics work but expect regional standards rather than tourist amenities or luxury options."
+        "explanation": "Registration runs €70-90. Die location in provincial Drôme keeps accommodation costs regional rather than resort pricing. No major airport nearby requires driving or multiple connections through Lyon. Basic French village logistics work but expect regional standards rather than tourist amenities or luxury options. Higher total cost than Badlands."
       }
     },
     "citations": [
@@ -363,6 +363,74 @@
         }
       },
       "latest_year": "2024"
+    },
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "irc-boken-double-cross",
+          "name": "IRC Boken Double Cross",
+          "brand": "IRC",
+          "recommended_width_mm": 42,
+          "msrp_usd": 59.99,
+          "weight_grams": 400,
+          "crr_watts": null,
+          "why": "Underrated mixed-terrain tire. Fast center with confident shoulder grip."
+        },
+        {
+          "rank": 2,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 42,
+          "msrp_usd": 54.99,
+          "weight_grams": 420,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 3,
+          "tire_id": "vittoria-terreno-mix",
+          "name": "Vittoria Terreno Mix",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 420,
+          "crr_watts": 33.5,
+          "why": "Graphene versatility. Mixed-terrain grip with reasonable rolling speed."
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "irc-boken-double-cross",
+          "name": "IRC Boken Double Cross",
+          "width_mm": 42
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 42,
+      "pressure_psi": {
+        "140_160lb_dry": "32-36",
+        "140_160lb_mixed": "30-34",
+        "140_160lb_wet": "28-32",
+        "160_180lb_dry": "36-40",
+        "160_180lb_mixed": "32-36",
+        "160_180lb_wet": "30-34",
+        "180_200lb_dry": "38-42",
+        "180_200lb_mixed": "36-40",
+        "180_200lb_wet": "34-38",
+        "200pluslb_dry": "42-46",
+        "200pluslb_mixed": "38-42",
+        "200pluslb_wet": "36-40"
+      }
     }
   }
 }

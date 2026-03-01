@@ -258,23 +258,23 @@
       },
       "length": {
         "score": 2,
-        "explanation": "110km with three feed stations at 23km, 53km, and 76km intervals provides solid structure, though organizers warn riders \"do not rely solely on the feed station.\" The distance hits that middle ground where it's substantial work but won't destroy your weekend - respectable without being epic."
+        "explanation": "110km with three feed stations at 23km, 53km, and 76km intervals provides solid structure, though organizers warn riders \"do not rely solely on the feed station.\" The distance hits that middle ground where it's substantial work but won't destroy your weekend - respectable without being epic. More compact than Grinduro."
       },
       "technicality": {
         "score": 2,
-        "explanation": "The \"Infamous White Cliff Rigg\" climb and technical corners through Crosscliff Wood with \"short, sharp kickers\" provide challenge, plus fast descents marked with double/triple arrows. The \"perfect Dalby gravel\" on forest access roads offers technical engagement without being intimidating."
+        "explanation": "The \"Infamous White Cliff Rigg\" climb and technical corners through Crosscliff Wood with \"short, sharp kickers\" provide challenge, plus fast descents marked with double/triple arrows. The \"perfect Dalby gravel\" on forest access roads offers technical engagement without being intimidating. Less technical than The Mid South."
       },
       "elevation": {
         "score": 2,
-        "explanation": "1800m over 110km delivers steady climbing work with the long pull up White Cliff Rigg as the main test. One elite rider noted they \"quickly ran out of steam on the relentless\" climbs, suggesting the sustained elevation gain accumulates into serious suffering without being brutal."
+        "explanation": "1800m over 110km delivers steady climbing work with the long pull up White Cliff Rigg as the main test. One elite rider noted they \"quickly ran out of steam on the relentless\" climbs, suggesting the sustained elevation gain accumulates into serious suffering without being brutal. Less climbing than The Mid South."
       },
       "climate": {
         "score": 2,
-        "explanation": "Late June in North York Moors remains a weather gamble with no historical data from this young event. Course warnings about not being \"fooled by initial flatter sections\" suggest conditions can catch riders off-guard, but the forest setting provides some shelter from typical British summer variability."
+        "explanation": "Historical weather data shows average highs of 62°F and lows of 50°F, with a 70% chance of rain on any given day. Late June in North York Moors remains a weather gamble with no historical data from this young event. Course warnings about not being \"fooled by initial flatter sections\" suggest conditions can catch riders off-guard, but the forest setting provides some shelter from typical British summer variability. More weather exposure than Belgian Waffle Ride San Diego."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Dalby Forest sits in the North York Moors lowlands where altitude simply doesn't factor into racing considerations. The elevation profile focuses on accumulated climbing rather than high-altitude challenges - this is forest trail racing, not mountain territory."
+        "explanation": "Dalby Forest sits in the North York Moors lowlands where altitude simply doesn't factor into racing considerations. The elevation profile focuses on accumulated climbing rather than high-altitude challenges - this is forest trail racing, not mountain territory. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 3,
@@ -298,7 +298,7 @@
       },
       "field_depth": {
         "score": 1,
-        "explanation": "Elite categories exist with lead vehicle support, and The Coeliac Cyclist noted issues with \"the category system\" suggesting competitive fields. However, as a second-year event, the depth remains thin compared to established races - serious riders are still discovering it exists."
+        "explanation": "With a field of 100-150 riders, elite categories exist with lead vehicle support, and The Coeliac Cyclist noted issues with \"the category system\" suggesting competitive fields. However, as a second-year event, the depth remains thin compared to established races - serious riders are still discovering it exists. Thinner field than Ouray Gravel Grinder."
       },
       "value": {
         "score": 3,
@@ -306,7 +306,7 @@
       },
       "expenses": {
         "score": 2,
-        "explanation": "Entry fee of £87.50 sits reasonably for UK gravel events, with camping at £10 per night and campervan slots at £18. Required self-sufficient kit including spare tubes, tools, and nutrition adds gear costs, though free weekend parking and Dalby Forest location keep accommodation expenses manageable."
+        "explanation": "Entry fee of £87.50 sits reasonably for UK gravel events, with camping at £10 per night and campervan slots at £18. Required self-sufficient kit including spare tubes, tools, and nutrition adds gear costs, though free weekend parking and Dalby Forest location keep accommodation expenses manageable. Higher total cost than Badlands."
       }
     },
     "citations": [
@@ -355,6 +355,74 @@
         "category": "community",
         "label": "granfondo.com: Cycling"
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "vittoria-terreno-wet",
+          "name": "Vittoria Terreno Wet",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 460,
+          "crr_watts": 39.0,
+          "why": "excellent wet grip"
+        },
+        {
+          "rank": 2,
+          "tire_id": "continental-terra-trail",
+          "name": "Continental Terra Trail",
+          "brand": "Continental",
+          "recommended_width_mm": 40,
+          "msrp_usd": 74.99,
+          "weight_grams": 450,
+          "crr_watts": 33.5,
+          "why": "excellent wet grip"
+        },
+        {
+          "rank": 3,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 38,
+          "msrp_usd": 54.99,
+          "weight_grams": 380,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "vittoria-terreno-wet",
+          "name": "Vittoria Terreno Wet",
+          "width_mm": 40
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "wet",
+      "recommended_width_mm": 40,
+      "pressure_psi": {
+        "140_160lb_dry": "35-39",
+        "140_160lb_mixed": "32-36",
+        "140_160lb_wet": "30-34",
+        "160_180lb_dry": "38-42",
+        "160_180lb_mixed": "35-39",
+        "160_180lb_wet": "33-37",
+        "180_200lb_dry": "41-45",
+        "180_200lb_mixed": "38-42",
+        "180_200lb_wet": "36-40",
+        "200pluslb_dry": "44-48",
+        "200pluslb_mixed": "41-45",
+        "200pluslb_wet": "39-43"
+      }
+    }
   }
 }

@@ -266,23 +266,23 @@
       },
       "length": {
         "score": 5,
-        "explanation": "204 miles earns maximum respect as ultra-distance that separates endurance racers from weekend warriors. Selene Yeager learned this reality: \"Experience has taught me that burning even a few matches that early in a 200+ mile day will fry you three-quarters of the way in.\" The distance creates proper time pressure with strategic checkpoint management at mile 166."
+        "explanation": "204 miles earns maximum respect as ultra-distance that separates endurance racers from weekend warriors. Selene Yeager learned this reality: \"Experience has taught me that burning even a few matches that early in a 200+ mile day will fry you three-quarters of the way in.\" The distance creates proper time pressure with strategic checkpoint management at mile 166. Among the longest in gravel, comparable to Badlands."
       },
       "technicality": {
         "score": 2,
-        "explanation": "Matt Acker designed the route as \"quintessential Michigan; rural country roads, farmland, dense forest, creeks, rivers, rolling hills, white pine stands, two-tracks.\" While forest sections include snowmobile trails and single-track, this isn't technical mountain terrain. The challenge comes from sand and navigation rather than gnarly descents or rock gardens."
+        "explanation": "Matt Acker designed the route as \"quintessential Michigan; rural country roads, farmland, dense forest, creeks, rivers, rolling hills, white pine stands, two-tracks.\" While forest sections include snowmobile trails and single-track, this isn't technical mountain terrain. The challenge comes from sand and navigation rather than gnarly descents or rock gardens. Less technical than The Mid South."
       },
       "elevation": {
         "score": 2,
-        "explanation": "Jackie Gregory noted the 100-mile version has \"maybe 3,000 feet of climbing,\" suggesting the 204-mile route's 5,000 feet provides gentle rolling terrain. Matt Acker describes \"rolling hills\" through hardwoods and uplands, but this is Michigan's lower peninsula - barely noticeable undulations that won't challenge riders familiar with mountain climbing."
+        "explanation": "Jackie Gregory noted the 100-mile version has \"maybe 3,000 feet of climbing,\" suggesting the 204-mile route's 5,000 feet provides gentle rolling terrain. Matt Acker describes \"rolling hills\" through hardwoods and uplands, but this is Michigan's lower peninsula - barely noticeable undulations that won't challenge riders familiar with mountain climbing. Less climbing than The Mid South."
       },
       "climate": {
         "score": 2,
-        "explanation": "Matt Acker warns \"weather in Michigan is largely a question mark in the spring months. We've been known to be graced with 80 degrees and sunshine but also 35 degrees and freezing rain.\" Sarah Porch experienced this volatility when temperatures \"escalated\" beyond the predicted low 80s, creating unexpected heat and humidity challenges."
+        "explanation": "Historical weather data shows average highs of 81°F and lows of 59°F, with a 44% chance of rain on any given day. Matt Acker warns \"weather in Michigan is largely a question mark in the spring months. We've been known to be graced with 80 degrees and sunshine but also 35 degrees and freezing rain.\" Sarah Porch experienced this volatility when temperatures \"escalated\" beyond the predicted low 80s, creating unexpected heat and humidity challenges. More weather exposure than Belgian Waffle Ride San Diego."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Michigan's lower peninsula between two Great Lakes provides zero altitude training effect. Jackie Gregory noted it's \"about 10 degrees cooler there\" compared to Nebraska, but that's climate difference, not altitude. You're essentially at sea level with zero thin air challenges throughout the entire 204-mile route."
+        "explanation": "Michigan's lower peninsula between two Great Lakes provides zero altitude training effect. Jackie Gregory noted it's \"about 10 degrees cooler there\" compared to Nebraska, but that's climate difference, not altitude. You're essentially at sea level with zero thin air challenges throughout the entire 204-mile route. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 4,
@@ -306,7 +306,7 @@
       },
       "field_depth": {
         "score": 2,
-        "explanation": "Zero data on field size or competitive depth. No notable winners or pro participation mentioned anywhere. When your biggest endorsement comes from \"Minister of Gravel,\" you're not drawing the sport's elite to Michigan's lower peninsula."
+        "explanation": "With a field of 100-300 riders, zero data on field size or competitive depth. No notable winners or pro participation mentioned anywhere. When your biggest endorsement comes from \"Minister of Gravel,\" you're not drawing the sport's elite to Michigan's lower peninsula. Less competitive depth than Almanzo 100."
       },
       "value": {
         "score": 3,
@@ -314,7 +314,7 @@
       },
       "expenses": {
         "score": 3,
-        "explanation": "Ludington offers lodging options as a tourist town, but you'll need transportation between Au Gres start and Ludington finish unless you're doing the 100-mile loop. Michigan isn't cheap but isn't Colorado resort pricing either. Crew requirements could add vehicle costs for some."
+        "explanation": "Registration runs $100-150. Ludington offers lodging options as a tourist town, but you'll need transportation between Au Gres start and Ludington finish unless you're doing the 100-mile loop. Michigan isn't cheap but isn't Colorado resort pricing either. Crew requirements could add vehicle costs for some. Similar expense level to Belgian Waffle Ride San Diego."
       }
     },
     "citations": [
@@ -358,6 +358,74 @@
         "category": "community",
         "label": "dietitianapproved.com: Newzealandcoasttocoastracereport"
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 38,
+          "msrp_usd": 54.99,
+          "weight_grams": 380,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 2,
+          "tire_id": "vittoria-terreno-mix",
+          "name": "Vittoria Terreno Mix",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 420,
+          "crr_watts": 33.5,
+          "why": "Graphene versatility. Mixed-terrain grip with reasonable rolling speed."
+        },
+        {
+          "rank": 3,
+          "tire_id": "continental-terra-trail",
+          "name": "Continental Terra Trail",
+          "brand": "Continental",
+          "recommended_width_mm": 40,
+          "msrp_usd": 74.99,
+          "weight_grams": 450,
+          "crr_watts": 33.5,
+          "why": "excellent wet grip"
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 38
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 38,
+      "pressure_psi": {
+        "140_160lb_dry": "36-40",
+        "140_160lb_mixed": "33-37",
+        "140_160lb_wet": "31-35",
+        "160_180lb_dry": "39-43",
+        "160_180lb_mixed": "36-40",
+        "160_180lb_wet": "34-38",
+        "180_200lb_dry": "42-46",
+        "180_200lb_mixed": "39-43",
+        "180_200lb_wet": "37-41",
+        "200pluslb_dry": "45-49",
+        "200pluslb_mixed": "42-46",
+        "200pluslb_wet": "40-44"
+      }
+    }
   }
 }

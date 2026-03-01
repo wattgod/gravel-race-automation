@@ -164,23 +164,23 @@
       },
       "length": {
         "score": 1,
-        "explanation": "The 50K option at 32.8 miles feels short for a marquee mountain bike event, though jdietrich notes \"the 90% single track is much more taxing—constant tight single track mile for mile.\" Sofía Gómez Villafañe launched an attack within the first five miles and rode solo to win, suggesting the distance rewards tactical racing over pure endurance grinding."
+        "explanation": "The 50K option at 32.8 miles feels short for a marquee mountain bike event, though jdietrich notes \"the 90% single track is much more taxing—constant tight single track mile for mile.\" Sofía Gómez Villafañe launched an attack within the first five miles and rode solo to win, suggesting the distance rewards tactical racing over pure endurance grinding. Shorter than Walburg Dirty 30."
       },
       "technicality": {
         "score": 5,
-        "explanation": "Tgoods describes \"85% singletrack, with most being loose over hard with a lot of chatter\" and \"little kickers that will require your lowest gear.\" The Ledges section at mile 39 is particularly brutal—cassinonorth flatted there on sidewall cuts, while treyspillman had to walk short sections. MN_XC recommends \"120/120 is probably sweet spot\" over 100mm bikes for the punishment."
+        "explanation": "Tgoods describes \"85% singletrack, with most being loose over hard with a lot of chatter\" and \"little kickers that will require your lowest gear.\" The Ledges section at mile 39 is particularly brutal—cassinonorth flatted there on sidewall cuts, while treyspillman had to walk short sections. MN_XC recommends \"120/120 is probably sweet spot\" over 100mm bikes for the punishment. Among the most technical in gravel, on par with Badlands."
       },
       "elevation": {
         "score": 3,
-        "explanation": "Tgoods measured \"130 ft of climbing per mile\" in the first half, creating what webdev511 calls \"lots of short sweet spot/threshold efforts.\" The longest climb is just 1.5km with the longest descent at 1.9km, so you're \"going up and down non-stop the whole way\" rather than facing sustained mountain punishment."
+        "explanation": "Tgoods measured \"130 ft of climbing per mile\" in the first half, creating what webdev511 calls \"lots of short sweet spot/threshold efforts.\" The longest climb is just 1.5km with the longest descent at 1.9km, so you're \"going up and down non-stop the whole way\" rather than facing sustained mountain punishment. Similar elevation profile to Gravel Worlds."
       },
       "climate": {
         "score": 3,
-        "explanation": "October conditions proved wildly unpredictable—2024 brought unseasonably hot and dusty conditions that had riders suffering. treyspillman reported \"I must have passed 50+ people on the side of the trail\" with mechanicals, many attributed to the harsh, dry conditions. When it's good, Arkansas October delivers crisp fall perfection for racing."
+        "explanation": "Historical weather data shows average highs of 68°F and lows of 48°F, with a 45% chance of rain on any given day. October conditions proved wildly unpredictable—2024 brought unseasonably hot and dusty conditions that had riders suffering. treyspillman reported \"I must have passed 50+ people on the side of the trail\" with mechanicals, many attributed to the harsh, dry conditions. When it's good, Arkansas October delivers crisp fall perfection for racing. Similar climate challenges to SBT GRVL."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Bentonville sits around 1,300 feet above sea level—essentially a rounding error for altitude considerations. Sofía Gómez Villafañe joked after winning that \"maybe too much altitude training\" helped her legs, but the elevation gain during the race itself dwarfs any ambient altitude effects."
+        "explanation": "Bentonville sits around 1,300 feet above sea level—essentially a rounding error for altitude considerations. Sofía Gómez Villafañe joked after winning that \"maybe too much altitude training\" helped her legs, but the elevation gain during the race itself dwarfs any ambient altitude effects. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 4,
@@ -204,7 +204,7 @@
       },
       "field_depth": {
         "score": 5,
-        "explanation": "Life Time Grand Prix status brings out the entire US XC elite field, plus international talent like Matt Beers. Ages 12-70 with category depth means your placing actually means something. The Leadville qualifier spots ensure the fast guys show up ready to suffer."
+        "explanation": "Life Time Grand Prix status brings out the entire US XC elite field, plus international talent like Matt Beers. Ages 12-70 with category depth means your placing actually means something. The Leadville qualifier spots ensure the fast guys show up ready to suffer. Elite-level competition, on par with Belgian Waffle Ride San Diego."
       },
       "value": {
         "score": 4,
@@ -212,7 +212,7 @@
       },
       "expenses": {
         "score": 4,
-        "explanation": "Bentonville isn't cheap during Big Sugar weekend—hotels book up fast, driving prices up significantly. However, the town's infrastructure investment shows in practical details like bike racks at restaurants and cycling-friendly accommodations. Race week pricing reflects demand, but the cycling-focused amenities justify the premium over typical Arkansas rates."
+        "explanation": "Registration runs $100-$150. Bentonville isn't cheap during Big Sugar weekend—hotels book up fast, driving prices up significantly. However, the town's infrastructure investment shows in practical details like bike racks at restaurants and cycling-friendly accommodations. Race week pricing reflects demand, but the cycling-focused amenities justify the premium over typical Arkansas rates. More affordable than Crusher in the Tushar."
       }
     },
     "final_verdict": {
@@ -368,6 +368,63 @@
         }
       },
       "latest_year": "2024"
+    },
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "schwalbe-g-one-bite",
+          "name": "Schwalbe G-One Bite",
+          "brand": "Schwalbe",
+          "recommended_width_mm": 45,
+          "msrp_usd": 69.9,
+          "weight_grams": 540,
+          "crr_watts": 38.0,
+          "why": "excellent wet grip"
+        },
+        {
+          "rank": 2,
+          "tire_id": "maxxis-reaver",
+          "name": "Maxxis Reaver",
+          "brand": "Maxxis",
+          "recommended_width_mm": 45,
+          "msrp_usd": 79.99,
+          "weight_grams": 520,
+          "crr_watts": 35.0,
+          "why": "Technical all-rounder. EXO+ casing shrugs off rocks and roots."
+        },
+        {
+          "rank": 3,
+          "tire_id": "pirelli-cinturato-gravel-s",
+          "name": "Pirelli Cinturato Gravel S",
+          "brand": "Pirelli",
+          "recommended_width_mm": 45,
+          "msrp_usd": 73.99,
+          "weight_grams": 470,
+          "crr_watts": null,
+          "why": "excellent wet grip"
+        }
+      ],
+      "front_rear_split": {
+        "applicable": false
+      },
+      "race_surface_profile": "technical",
+      "recommended_width_mm": 45,
+      "pressure_psi": {
+        "140_160lb_dry": "30-34",
+        "140_160lb_mixed": "26-30",
+        "140_160lb_wet": "24-28",
+        "160_180lb_dry": "32-36",
+        "160_180lb_mixed": "30-34",
+        "160_180lb_wet": "28-32",
+        "180_200lb_dry": "36-40",
+        "180_200lb_mixed": "32-36",
+        "180_200lb_wet": "30-34",
+        "200pluslb_dry": "38-42",
+        "200pluslb_mixed": "36-40",
+        "200pluslb_wet": "34-38"
+      }
     }
   }
 }

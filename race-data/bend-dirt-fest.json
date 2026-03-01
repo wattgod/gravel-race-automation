@@ -158,23 +158,23 @@
       },
       "length": {
         "score": 3,
-        "explanation": "Matthew Bird used the 54-mile gravel race as a \"leg-stretcher\" before competing in the High Cascades 100-mile mountain bike race the following weekend, describing it as \"good, hard racing for three hours.\" Multi-discipline format with gravel cycling, MTB, and half marathon options creates variety beyond typical single-distance events."
+        "explanation": "Matthew Bird used the 54-mile gravel race as a \"leg-stretcher\" before competing in the High Cascades 100-mile mountain bike race the following weekend, describing it as \"good, hard racing for three hours.\" Multi-discipline format with gravel cycling, MTB, and half marathon options creates variety beyond typical single-distance events. Similar distance to Crusher in the Tushar."
       },
       "technicality": {
         "score": 3,
-        "explanation": "Gravel course features nearly 4,000 feet of elevation gain over the first 30 miles, then mostly downhill over the final 24 miles. Mountain bike course delivers more than 3,000 feet of climbing in the first 22 miles using singletrack trails in Deschutes National Forest west of Bend. Mike Ripley describes conditions: \"It's dusty and loose. Gravel in Central Oregon is not your typical gravel, it's dirt combined with cinder. It's definitely spicy.\""
+        "explanation": "Gravel course features nearly 4,000 feet of elevation gain over the first 30 miles, then mostly downhill over the final 24 miles. Mountain bike course delivers more than 3,000 feet of climbing in the first 22 miles using singletrack trails in Deschutes National Forest west of Bend. Mike Ripley describes conditions: \"It's dusty and loose. Gravel in Central Oregon is not your typical gravel, it's dirt combined with cinder. It's definitely spicy.\" Similar technical demands to Gravel Worlds."
       },
       "elevation": {
         "score": 3,
-        "explanation": "Mountain bike course climbs more than 3,000 feet in the first 22 miles, followed by downhill riding over the final 14 miles. Gravel riders face nearly 4,000 feet of elevation gain over the first 30 miles before descending the final 24 miles. The front-loaded climbing profile creates sustained suffering through volcanic terrain before rewarding descents."
+        "explanation": "Mountain bike course climbs more than 3,000 feet in the first 22 miles, followed by downhill riding over the final 14 miles. Gravel riders face nearly 4,000 feet of elevation gain over the first 30 miles before descending the final 24 miles. The front-loaded climbing profile creates sustained suffering through volcanic terrain before rewarding descents. Similar elevation profile to Gravel Worlds."
       },
       "climate": {
         "score": 2,
-        "explanation": "July courses receive \"full sun\" with official warnings to \"dress for conditions, heat and potential dehydration.\" Terrain varies between \"red hero cinder dirt or fine moon dust\" depending on conditions. The high desert sun combined with exposed volcanic terrain demands serious hydration planning and UV protection throughout the day."
+        "explanation": "Historical weather data shows average highs of 87°F and lows of 56°F, with a 8% chance of rain on any given day. July courses receive \"full sun\" with official warnings to \"dress for conditions, heat and potential dehydration.\" Terrain varies between \"red hero cinder dirt or fine moon dust\" depending on conditions. The high desert sun combined with exposed volcanic terrain demands serious hydration planning and UV protection throughout the day. More weather exposure than Belgian Waffle Ride San Diego."
       },
       "altitude": {
         "score": 2,
-        "explanation": "Bend sits around 3600 feet base elevation with gravel and MTB courses climbing into Deschutes National Forest west of town. Both courses share the Wanoga area at higher elevations. The combination of starting altitude plus significant climbing gains will remind sea-level riders their lungs are working harder than usual."
+        "explanation": "Bend sits around 3600 feet base elevation with gravel and MTB courses climbing into Deschutes National Forest west of town. Both courses share the Wanoga area at higher elevations. The combination of starting altitude plus significant climbing gains will remind sea-level riders their lungs are working harder than usual. Modest altitude compared to Belgian Waffle Ride San Diego."
       },
       "adventure": {
         "score": 4,
@@ -198,7 +198,7 @@
       },
       "field_depth": {
         "score": 2,
-        "explanation": "Inaugural 2025 event means no established field hierarchy or proven ability to attract top talent. Regional series finals status within Oregon pulls local racers, but that remains a limited talent pool for a first-year event."
+        "explanation": "Inaugural 2025 event means no established field hierarchy or proven ability to attract top talent. Regional series finals status within Oregon pulls local racers, but that remains a limited talent pool for a first-year event. Less competitive depth than Almanzo 100."
       },
       "value": {
         "score": 4,
@@ -206,7 +206,7 @@
       },
       "expenses": {
         "score": 4,
-        "explanation": "Designated parking at OSU-Cascades eliminates race-day parking fees and stress. Peppertree Inn sits directly across from the Athletic Club venue allowing walk/ride to start line. Event directs participants to local shops like Sagebrush Cycles for bike services and Footzone for trail running expertise, supporting established Bend outdoor infrastructure."
+        "explanation": "Registration runs $75-$100. Designated parking at OSU-Cascades eliminates race-day parking fees and stress. Peppertree Inn sits directly across from the Athletic Club venue allowing walk/ride to start line. Event directs participants to local shops like Sagebrush Cycles for bike services and Footzone for trail running expertise, supporting established Bend outdoor infrastructure. More affordable than Crusher in the Tushar."
       }
     },
     "final_verdict": {
@@ -251,6 +251,74 @@
         "category": "community",
         "label": "mudslingerevents.com: Bend Dirt Fest"
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "schwalbe-g-one-bite",
+          "name": "Schwalbe G-One Bite",
+          "brand": "Schwalbe",
+          "recommended_width_mm": 40,
+          "msrp_usd": 69.9,
+          "weight_grams": 480,
+          "crr_watts": 38.0,
+          "why": "excellent wet grip"
+        },
+        {
+          "rank": 2,
+          "tire_id": "maxxis-reaver",
+          "name": "Maxxis Reaver",
+          "brand": "Maxxis",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 460,
+          "crr_watts": 35.0,
+          "why": "Technical all-rounder. EXO+ casing shrugs off rocks and roots."
+        },
+        {
+          "rank": 3,
+          "tire_id": "pirelli-cinturato-gravel-s",
+          "name": "Pirelli Cinturato Gravel S",
+          "brand": "Pirelli",
+          "recommended_width_mm": 40,
+          "msrp_usd": 73.99,
+          "weight_grams": 430,
+          "crr_watts": null,
+          "why": "excellent wet grip"
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "schwalbe-g-one-bite",
+          "name": "Schwalbe G-One Bite",
+          "width_mm": 40
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "technical",
+      "recommended_width_mm": 40,
+      "pressure_psi": {
+        "140_160lb_dry": "34-38",
+        "140_160lb_mixed": "30-34",
+        "140_160lb_wet": "28-32",
+        "160_180lb_dry": "36-40",
+        "160_180lb_mixed": "34-38",
+        "160_180lb_wet": "32-36",
+        "180_200lb_dry": "40-44",
+        "180_200lb_mixed": "36-40",
+        "180_200lb_wet": "34-38",
+        "200pluslb_dry": "42-46",
+        "200pluslb_mixed": "40-44",
+        "200pluslb_wet": "38-42"
+      }
+    }
   }
 }

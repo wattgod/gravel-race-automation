@@ -96,23 +96,23 @@
       },
       "length": {
         "score": 4,
-        "explanation": "The Colonel Drake route spans 71-75 miles with relentless climbing. Women's pre-ride participants quit after the first two climbs on a 13-mile loop, deciding 'to take the bike path back to the venue and rest our legs because with non-stop climbs like that, race day would be no joke!'"
+        "explanation": "The Colonel Drake route spans 71-75 miles with relentless climbing. Women's pre-ride participants quit after the first two climbs on a 13-mile loop, deciding 'to take the bike path back to the venue and rest our legs because with non-stop climbs like that, race day would be no joke!' Longer than Belgian Waffle Ride San Diego."
       },
       "technicality": {
         "score": 4,
-        "explanation": "Otto Road presents 'a somewhat rutted and rocky jeep road in the middle of the forest.' The finish on Drake Well BMX track 'proved to be quite the challenge for some at the end of a long ride.' All routes boast 95% gravel coverage across nearly 2,200 miles of public gravel roads."
+        "explanation": "Otto Road presents 'a somewhat rutted and rocky jeep road in the middle of the forest.' The finish on Drake Well BMX track 'proved to be quite the challenge for some at the end of a long ride.' All routes boast 95% gravel coverage across nearly 2,200 miles of public gravel roads. More technical than most — comparable to Belgian Waffle Ride San Diego. As Kari puts it: \"Around mile 18, I noticed it was loose again but I didn't want to lose any more time and I thought I'd be able to make it to the aid station. I was wrong.\""
       },
       "elevation": {
         "score": 4,
-        "explanation": "Over 7,800 feet of climbing with 'epic climbs that virtually start in the Allegheny River and traverse six miles to the summit.' Kari confirms 'there isn't a single stretch of flat on the Colonel Drake route until you hop on the bike path in the last mile.'"
+        "explanation": "Over 7,800 feet of climbing with 'epic climbs that virtually start in the Allegheny River and traverse six miles to the summit.' Kari confirms 'there isn't a single stretch of flat on the Colonel Drake route until you hop on the bike path in the last mile.' More climbing than SBT GRVL at the same score. As Kari puts it: \"This race is not for the faint of heart. With 71 miles and over 7,800 ft. of elevation gain, it will test your legs and your capacity for suffering.\""
       },
       "climate": {
         "score": 3,
-        "explanation": "April conditions started 'in the mid 40's and chilly' with 'temps climbing along with the elevation gain' throughout the day. A 2019 edition featured 'a very windy day for this race.' Dry conditions create dusty roads with recently graded sections having scatter gravel."
+        "explanation": "Historical weather data shows average highs of 60°F and lows of 40°F, with a 51% chance of rain on any given day. April conditions started 'in the mid 40's and chilly' with 'temps climbing along with the elevation gain' throughout the day. A 2019 edition featured 'a very windy day for this race.' Dry conditions create dusty roads with recently graded sections having scatter gravel. Similar climate challenges to SBT GRVL."
       },
       "altitude": {
         "score": 2,
-        "explanation": "Pennsylvania terrain tops out around 2,500 feet elevation with minimal altitude impact. The challenge comes from accumulated elevation gain rather than thin air - routes climb from the Allegheny River valley repeatedly without high-altitude concerns."
+        "explanation": "Pennsylvania terrain tops out around 2,500 feet elevation with minimal altitude impact. The challenge comes from accumulated elevation gain rather than thin air - routes climb from the Allegheny River valley repeatedly without high-altitude concerns. Modest altitude compared to Belgian Waffle Ride San Diego."
       },
       "adventure": {
         "score": 4,
@@ -136,7 +136,7 @@
       },
       "field_depth": {
         "score": 3,
-        "explanation": "Field size doubled from 150 to 300+ riders between 2022-2023, reaching 400 cyclists in 2024. Regional competitors like Anthony Grinnell provide competitive depth, but the field remains primarily Pennsylvania and Ohio gravel riders rather than national contenders."
+        "explanation": "Field size doubled from 150 to 300+ riders between 2022-2023, reaching 400 cyclists in 2024. Regional competitors like Anthony Grinnell provide competitive depth, but the field remains primarily Pennsylvania and Ohio gravel riders rather than national contenders. Similar competitive depth to Rule of Three. As Kari puts it: \"I did not have a single negative car or dog interaction on this whole route - a rarity even on the best of routes! All of the roads were dry and dusty; many were flat pack and fast with some pretty bu...\""
       },
       "value": {
         "score": 4,
@@ -144,7 +144,7 @@
       },
       "expenses": {
         "score": 4,
-        "explanation": "Budget-friendly lodging includes the Caboose Motel's converted train cars and Oil Creek Family Campground 10 minutes south. Regional location keeps travel costs reasonable for Mid-Atlantic and Ohio gravel riders, with modest small-town pricing throughout Titusville."
+        "explanation": "Budget-friendly lodging includes the Caboose Motel's converted train cars and Oil Creek Family Campground 10 minutes south. Regional location keeps travel costs reasonable for Mid-Atlantic and Ohio gravel riders, with modest small-town pricing throughout Titusville. More affordable than Crusher in the Tushar."
       }
     },
     "final_verdict": {
@@ -295,6 +295,74 @@
     ],
     "logistics": {
       "official_site": "https://barry-roubaix.com/"
+    },
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "vittoria-terreno-wet",
+          "name": "Vittoria Terreno Wet",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 460,
+          "crr_watts": 39.0,
+          "why": "excellent wet grip"
+        },
+        {
+          "rank": 2,
+          "tire_id": "continental-terra-trail",
+          "name": "Continental Terra Trail",
+          "brand": "Continental",
+          "recommended_width_mm": 40,
+          "msrp_usd": 74.99,
+          "weight_grams": 450,
+          "crr_watts": 33.5,
+          "why": "high puncture protection for sharp surfaces. excellent wet grip"
+        },
+        {
+          "rank": 3,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 38,
+          "msrp_usd": 54.99,
+          "weight_grams": 380,
+          "crr_watts": 32.0,
+          "why": "high puncture protection for sharp surfaces"
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "vittoria-terreno-wet",
+          "name": "Vittoria Terreno Wet",
+          "width_mm": 40
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "wet",
+      "recommended_width_mm": 40,
+      "pressure_psi": {
+        "140_160lb_dry": "35-39",
+        "140_160lb_mixed": "32-36",
+        "140_160lb_wet": "30-34",
+        "160_180lb_dry": "38-42",
+        "160_180lb_mixed": "35-39",
+        "160_180lb_wet": "33-37",
+        "180_200lb_dry": "41-45",
+        "180_200lb_mixed": "38-42",
+        "180_200lb_wet": "36-40",
+        "200pluslb_dry": "44-48",
+        "200pluslb_mixed": "41-45",
+        "200pluslb_wet": "39-43"
+      }
     }
   }
 }

@@ -262,15 +262,15 @@
       },
       "technicality": {
         "score": 3,
-        "explanation": "Two natural creek crossings through Burton's Burke Creek Ranch (established 1890) plus single truss bridges create technical moments. The route includes 2-track ranch roads, 'The Wall' climb, and 'the incredible Skyline road' - described as one of Alberta's best kept secrets."
+        "explanation": "Two natural creek crossings through Burton's Burke Creek Ranch (established 1890) plus single truss bridges create technical moments. The route includes 2-track ranch roads, 'The Wall' climb, and 'the incredible Skyline road' - described as one of Alberta's best kept secrets. Similar technical demands to Gravel Worlds."
       },
       "elevation": {
         "score": 3,
-        "explanation": "The classic Range route climbs 1,606 meters over 122km through the Porcupine hills, while The Frontier tackles 3,000m over 211km. The terrain includes 'The Wall' and varied ecosystems from grasslands to dense forest with Rocky Mountain views."
+        "explanation": "The classic Range route climbs 1,606 meters over 122km through the Porcupine hills, while The Frontier tackles 3,000m over 211km. The terrain includes 'The Wall' and varied ecosystems from grasslands to dense forest with Rocky Mountain views. Similar elevation profile to Gravel Worlds."
       },
       "climate": {
         "score": 3,
-        "explanation": "Mid-July in southern Alberta typically runs 70-85°F with afternoon thunderstorm potential. Standard prairie weather - manageable without the furnace heat of Kansas summer gravel or hypothermia risk of early season mountain races."
+        "explanation": "Mid-July in southern Alberta typically runs 70-85°F with afternoon thunderstorm potential. Standard prairie weather - manageable without the furnace heat of Kansas summer gravel or hypothermia risk of early season mountain races. Similar climate challenges to SBT GRVL."
       },
       "altitude": {
         "score": 2,
@@ -298,7 +298,7 @@
       },
       "field_depth": {
         "score": 2,
-        "explanation": "2025 results show modest fields: The Rustler drew 125 starters with DNF rates around 25-29%. TransRockies partnership aims to elevate the event internationally, but current field sizes reflect regional Alberta gravel scene rather than elite depth."
+        "explanation": "2025 results show modest fields: The Rustler drew 125 starters with DNF rates around 25-29%. TransRockies partnership aims to elevate the event internationally, but current field sizes reflect regional Alberta gravel scene rather than elite depth. Less competitive depth than Almanzo 100."
       },
       "value": {
         "score": 3,
@@ -306,7 +306,7 @@
       },
       "expenses": {
         "score": 2,
-        "explanation": "Claresholm lodging options include Best Seven Inn, Lazy J Motel, and Centennial Park camping. Flying into Calgary adds 90-minute drive south plus car rental costs. Small Alberta town keeps lodging basic but affordable compared to destination resort pricing."
+        "explanation": "Registration runs $100-150 CAD. Claresholm lodging options include Best Seven Inn, Lazy J Motel, and Centennial Park camping. Flying into Calgary adds 90-minute drive south plus car rental costs. Small Alberta town keeps lodging basic but affordable compared to destination resort pricing. Higher total cost than Badlands."
       }
     },
     "citations": [
@@ -330,6 +330,74 @@
         "category": "community",
         "label": "therangegravel.com"
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 42,
+          "msrp_usd": 54.99,
+          "weight_grams": 420,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 2,
+          "tire_id": "pirelli-cinturato-gravel-m",
+          "name": "Pirelli Cinturato Gravel M",
+          "brand": "Pirelli",
+          "recommended_width_mm": 40,
+          "msrp_usd": 73.99,
+          "weight_grams": 440,
+          "crr_watts": 34.0,
+          "why": "Mixed-terrain specialist. Balanced grip and speed for variable conditions."
+        },
+        {
+          "rank": 3,
+          "tire_id": "panaracer-gravelking-sk",
+          "name": "Panaracer GravelKing SK",
+          "brand": "Panaracer",
+          "recommended_width_mm": 43,
+          "msrp_usd": 64.9,
+          "weight_grams": 410,
+          "crr_watts": 32.5,
+          "why": "Affordable all-rounder. Light knobs add grip without killing speed."
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "vittoria-terreno-dry",
+          "name": "Vittoria Terreno Dry",
+          "width_mm": 40
+        },
+        "rear": {
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 42
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 42,
+      "pressure_psi": {
+        "140_160lb_dry": "32-36",
+        "140_160lb_mixed": "30-34",
+        "140_160lb_wet": "28-32",
+        "160_180lb_dry": "36-40",
+        "160_180lb_mixed": "32-36",
+        "160_180lb_wet": "30-34",
+        "180_200lb_dry": "38-42",
+        "180_200lb_mixed": "36-40",
+        "180_200lb_wet": "34-38",
+        "200pluslb_dry": "42-46",
+        "200pluslb_mixed": "38-42",
+        "200pluslb_wet": "36-40"
+      }
+    }
   }
 }

@@ -258,23 +258,23 @@
       },
       "length": {
         "score": 3,
-        "explanation": "Ted King took \"approaching two hours\" to climb Bon Jon Pass, with \"most of the climbing done by the half-way point\" before \"motoring to the finish line.\" The 2024 long course was shortened from 80 to 55 miles due to severe weather, showing distance flexibility when conditions demand it."
+        "explanation": "Ted King took \"approaching two hours\" to climb Bon Jon Pass, with \"most of the climbing done by the half-way point\" before \"motoring to the finish line.\" The 2024 long course was shortened from 80 to 55 miles due to severe weather, showing distance flexibility when conditions demand it. Similar distance to Crusher in the Tushar."
       },
       "technicality": {
         "score": 3,
-        "explanation": "King describes \"a rough double-track section around mile 25\" as \"a 4x4 track\" with \"plenty of whoops and dips\" over \"nearly three rough miles.\" The technical challenge peaks on \"screaming fast descents with wheel-eating potholes which would end your day badly if you weren't paying close attention.\""
+        "explanation": "King describes \"a rough double-track section around mile 25\" as \"a 4x4 track\" with \"plenty of whoops and dips\" over \"nearly three rough miles.\" The technical challenge peaks on \"screaming fast descents with wheel-eating potholes which would end your day badly if you weren't paying close attention.\" Similar technical demands to Gravel Worlds."
       },
       "elevation": {
         "score": 3,
-        "explanation": "The Bon Jon Pass climb gains 4,000 feet from sea level in a sustained effort that King calls \"just so long!\" The long course forces riders to \"climb Bon Jon again\" - hitting the pass twice. King set his \"best 60-minute power for the year\" on the opening climb that \"shredded the peloton to just four riders.\""
+        "explanation": "The Bon Jon Pass climb gains 4,000 feet from sea level in a sustained effort that King calls \"just so long!\" The long course forces riders to \"climb Bon Jon again\" - hitting the pass twice. King set his \"best 60-minute power for the year\" on the opening climb that \"shredded the peloton to just four riders.\" Similar elevation profile to Gravel Worlds."
       },
       "climate": {
         "score": 2,
-        "explanation": "Weather varies dramatically from \"showers and even sleet\" in 2024 to \"good conditions\" in 2025, though riders still faced \"cloud and fog at high elevations.\" King experienced \"cold fingers\" affecting bike handling, while elevation changes create \"an entirely different climate\" requiring careful clothing strategy for the 4,000-foot elevation range."
+        "explanation": "Weather varies dramatically from \"showers and even sleet\" in 2024 to \"good conditions\" in 2025, though riders still faced \"cloud and fog at high elevations.\" King experienced \"cold fingers\" affecting bike handling, while elevation changes create \"an entirely different climate\" requiring careful clothing strategy for the 4,000-foot elevation range. More weather exposure than Belgian Waffle Ride San Diego."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Starting from Quilcene at sea level and topping out \"a bit shy of 4,000 feet\" on Bon Jon Pass means zero altitude considerations. This is pure climbing volume without thin air effects."
+        "explanation": "Starting from Quilcene at sea level and topping out \"a bit shy of 4,000 feet\" on Bon Jon Pass means zero altitude considerations. This is pure climbing volume without thin air effects. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 3,
@@ -298,7 +298,7 @@
       },
       "field_depth": {
         "score": 1,
-        "explanation": "King's early breakaway of \"just four riders taking pulls\" after twenty minutes shows how quickly the field splits on Bon Jon Pass. With 400 riders across three distances and multiple age groups, competitive depth stays thin despite quality like King's presence and close elite finishes."
+        "explanation": "King's early breakaway of \"just four riders taking pulls\" after twenty minutes shows how quickly the field splits on Bon Jon Pass. With 400 riders across three distances and multiple age groups, competitive depth stays thin despite quality like King's presence and close elite finishes. Thinner field than Ouray Gravel Grinder."
       },
       "value": {
         "score": 3,
@@ -306,7 +306,7 @@
       },
       "expenses": {
         "score": 3,
-        "explanation": "King's accommodation at \"the historic Worthington mansion\" put him \"20 steps\" from the start line, while camping options keep costs down. Quilcene location avoids resort pricing while staying accessible from Seattle metro without flight requirements."
+        "explanation": "Registration runs $80-100. King's accommodation at \"the historic Worthington mansion\" put him \"20 steps\" from the start line, while camping options keep costs down. Quilcene location avoids resort pricing while staying accessible from Seattle metro without flight requirements. Similar expense level to Belgian Waffle Ride San Diego."
       }
     },
     "citations": [
@@ -340,6 +340,74 @@
         "category": "community",
         "label": "peninsuladailynews.com: Gravel Unravel Big Hills Thick Clouds And Close Finishes"
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "irc-boken-double-cross",
+          "name": "IRC Boken Double Cross",
+          "brand": "IRC",
+          "recommended_width_mm": 42,
+          "msrp_usd": 59.99,
+          "weight_grams": 400,
+          "crr_watts": null,
+          "why": "Underrated mixed-terrain tire. Fast center with confident shoulder grip."
+        },
+        {
+          "rank": 2,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 42,
+          "msrp_usd": 54.99,
+          "weight_grams": 420,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 3,
+          "tire_id": "panaracer-gravelking-sk",
+          "name": "Panaracer GravelKing SK",
+          "brand": "Panaracer",
+          "recommended_width_mm": 43,
+          "msrp_usd": 64.9,
+          "weight_grams": 410,
+          "crr_watts": 32.5,
+          "why": "Affordable all-rounder. Light knobs add grip without killing speed."
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "panaracer-gravelking-tlc",
+          "name": "Panaracer GravelKing TLC",
+          "width_mm": 43
+        },
+        "rear": {
+          "tire_id": "irc-boken-double-cross",
+          "name": "IRC Boken Double Cross",
+          "width_mm": 42
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 42,
+      "pressure_psi": {
+        "140_160lb_dry": "32-36",
+        "140_160lb_mixed": "30-34",
+        "140_160lb_wet": "28-32",
+        "160_180lb_dry": "36-40",
+        "160_180lb_mixed": "32-36",
+        "160_180lb_wet": "30-34",
+        "180_200lb_dry": "38-42",
+        "180_200lb_mixed": "36-40",
+        "180_200lb_wet": "34-38",
+        "200pluslb_dry": "42-46",
+        "200pluslb_mixed": "38-42",
+        "200pluslb_wet": "36-40"
+      }
+    }
   }
 }

@@ -247,23 +247,23 @@
       },
       "length": {
         "score": 3,
-        "explanation": "111 miles is a century-plus distance that requires real preparation and commitment. It's long enough to hurt but not so long that it becomes a sufferfest for its own sake. The research shows a discrepancy with the listed 62 miles, but 111 miles is what's consistently reported across sources and represents solid gravel race distance."
+        "explanation": "111 miles is a century-plus distance that requires real preparation and commitment. It's long enough to hurt but not so long that it becomes a sufferfest for its own sake. The research shows a discrepancy with the listed 62 miles, but 111 miles is what's consistently reported across sources and represents solid gravel race distance. Similar distance to Crusher in the Tushar. As Ken Lemieux puts it: \"Before the Watermoo race, I had only done two rides that were 100 miles long, and my longest race was 35 miles.\""
       },
       "technicality": {
         "score": 2,
-        "explanation": "The course features a knee-deep river crossing at mile 78 with no bridge, plus terrain described as 'mostly gravel, some tarmac, and a road that is no longer a road.' Race creator Nicholas Stanko notes the route covers 'the most challenging terrain in the region' through Waterloo Recreation Area, though it remains accessible to recreational riders."
+        "explanation": "The course features a knee-deep river crossing at mile 78 with no bridge, plus terrain described as 'mostly gravel, some tarmac, and a road that is no longer a road.' Race creator Nicholas Stanko notes the route covers 'the most challenging terrain in the region' through Waterloo Recreation Area, though it remains accessible to recreational riders. Less technical than The Mid South."
       },
       "elevation": {
         "score": 2,
-        "explanation": "The course delivers '4,000 feet of punchy climbing that can destroy the strongest of rider's legs if they aren't careful,' according to race creator Nicholas Stanko. This elevation comes through southeastern Michigan's rolling farmland and Waterloo Recreation Area terrain, creating sustained challenge without major mountain climbs."
+        "explanation": "The course delivers '4,000 feet of punchy climbing that can destroy the strongest of rider's legs if they aren't careful,' according to race creator Nicholas Stanko. This elevation comes through southeastern Michigan's rolling farmland and Waterloo Recreation Area terrain, creating sustained challenge without major mountain climbs. Less climbing than The Mid South."
       },
       "climate": {
         "score": 2,
-        "explanation": "Ken Lemieux experienced challenging August conditions in 2023: 'It rained three times during the race, and as a result, I ended up very dirty.' The weather forecast was concerning enough that 75 registered riders chose not to start. Early August timing means potential heat, humidity, and afternoon thunderstorms in southeastern Michigan."
+        "explanation": "Historical weather data shows average highs of 81°F and lows of 64°F, with a 50% chance of rain on any given day. Ken Lemieux experienced challenging August conditions in 2023: 'It rained three times during the race, and as a result, I ended up very dirty.' The weather forecast was concerning enough that 75 registered riders chose not to start. Early August timing means potential heat, humidity, and afternoon thunderstorms in southeastern Michigan. More weather exposure than Belgian Waffle Ride San Diego."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Dexter, Michigan sits at roughly 900 feet above sea level, making altitude a non-factor. Riders can arrive the day before from any elevation without physiological impact. The course runs through southeastern Michigan farmland where altitude never becomes a consideration for performance or acclimatization."
+        "explanation": "Dexter, Michigan sits at roughly 900 feet above sea level, making altitude a non-factor. Riders can arrive the day before from any elevation without physiological impact. The course runs through southeastern Michigan farmland where altitude never becomes a consideration for performance or acclimatization. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 2,
@@ -287,7 +287,7 @@
       },
       "field_depth": {
         "score": 1,
-        "explanation": "No mention of pros, no prize purse, and it's described as 'a great 100 mile challenge' for people looking for that distance. That's code for 'recreational field looking to check a box.' Part of a regional points series that attracts local enthusiasts, not riders who make this their target race of the year."
+        "explanation": "No mention of pros, no prize purse, and it's described as 'a great 100 mile challenge' for people looking for that distance. That's code for 'recreational field looking to check a box.' Part of a regional points series that attracts local enthusiasts, not riders who make this their target race of the year. Thinner field than Ouray Gravel Grinder. As Nicholas Stanko (Race Creator) puts it: \"At 88-miles, THE WATERMOO will be no walk in the park for those looking to get a taste of what makes longer gravel racing so rewarding.\""
       },
       "value": {
         "score": 4,
@@ -295,7 +295,7 @@
       },
       "expenses": {
         "score": 3,
-        "explanation": "Dexter, Michigan offers small-town pricing for lodging and dining without resort or big-city premiums. The post-race party at Jolly Pumpkin provides included food and craft beer, reducing additional meal costs. Detroit Metro Airport provides reasonable access for out-of-state riders, though specific entry fees weren't available in race data."
+        "explanation": "Registration runs $60-90. Dexter, Michigan offers small-town pricing for lodging and dining without resort or big-city premiums. The post-race party at Jolly Pumpkin provides included food and craft beer, reducing additional meal costs. Detroit Metro Airport provides reasonable access for out-of-state riders, though specific entry fees weren't available in race data. Similar expense level to Belgian Waffle Ride San Diego."
       }
     },
     "citations": [
@@ -324,6 +324,74 @@
         "category": "community",
         "label": "komcycling.com: Dirty Chain Podcast Episode 16 Nick Stanko Introduces The..."
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "vittoria-terreno-wet",
+          "name": "Vittoria Terreno Wet",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 460,
+          "crr_watts": 39.0,
+          "why": "excellent wet grip"
+        },
+        {
+          "rank": 2,
+          "tire_id": "continental-terra-trail",
+          "name": "Continental Terra Trail",
+          "brand": "Continental",
+          "recommended_width_mm": 40,
+          "msrp_usd": 74.99,
+          "weight_grams": 450,
+          "crr_watts": 33.5,
+          "why": "excellent wet grip"
+        },
+        {
+          "rank": 3,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 38,
+          "msrp_usd": 54.99,
+          "weight_grams": 380,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "vittoria-terreno-wet",
+          "name": "Vittoria Terreno Wet",
+          "width_mm": 40
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "wet",
+      "recommended_width_mm": 40,
+      "pressure_psi": {
+        "140_160lb_dry": "35-39",
+        "140_160lb_mixed": "32-36",
+        "140_160lb_wet": "30-34",
+        "160_180lb_dry": "38-42",
+        "160_180lb_mixed": "35-39",
+        "160_180lb_wet": "33-37",
+        "180_200lb_dry": "41-45",
+        "180_200lb_mixed": "38-42",
+        "180_200lb_wet": "36-40",
+        "200pluslb_dry": "44-48",
+        "200pluslb_mixed": "41-45",
+        "200pluslb_wet": "39-43"
+      }
+    }
   }
 }

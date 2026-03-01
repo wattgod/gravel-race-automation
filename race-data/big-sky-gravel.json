@@ -258,23 +258,23 @@
       },
       "length": {
         "score": 3,
-        "explanation": "Three distance options (22, 50, 100 miles) with staggered starts from 7:00 AM to 9:30 AM accommodate different capabilities well. Hailey Peterson completed the multi-day format at 225 miles in 15hrs 34min with normalized power of 149 watts, noting she \"decided to settle in with the veterans and see what they considered an acceptable pace.\""
+        "explanation": "Three distance options (22, 50, 100 miles) with staggered starts from 7:00 AM to 9:30 AM accommodate different capabilities well. Hailey Peterson completed the multi-day format at 225 miles in 15hrs 34min with normalized power of 149 watts, noting she \"decided to settle in with the veterans and see what they considered an acceptable pace.\" Similar distance to Crusher in the Tushar."
       },
       "technicality": {
         "score": 3,
-        "explanation": "Course description promises \"rolling hills and mostly smooth gravel roads\" through Montana ranching country. The Saturday Cocktail Loop preview runs \"mostly downhill\" in reverse, suggesting climbing on race day. Beartooth Mountain foothills terrain means business beyond rail-trail cruising."
+        "explanation": "Course description promises \"rolling hills and mostly smooth gravel roads\" through Montana ranching country. The Saturday Cocktail Loop preview runs \"mostly downhill\" in reverse, suggesting climbing on race day. Beartooth Mountain foothills terrain means business beyond rail-trail cruising. Similar technical demands to Gravel Worlds."
       },
       "elevation": {
         "score": 3,
-        "explanation": "The 100-mile route delivers \"over 6,000 ft in elevation gain along the foothills of the Beartooth mountains\" with meaningful climbs including Virginia City. Peterson had \"done this climb before and performed much better\" but struggled with pacing decisions, showing the elevation demand is substantive for the distance."
+        "explanation": "The 100-mile route delivers \"over 6,000 ft in elevation gain along the foothills of the Beartooth mountains\" with meaningful climbs including Virginia City. Peterson had \"done this climb before and performed much better\" but struggled with pacing decisions, showing the elevation demand is substantive for the distance. Similar elevation profile to Gravel Worlds."
       },
       "climate": {
         "score": 2,
-        "explanation": "Late August Montana weather proved challenging with poor air quality from California wildfire smoke. Peterson reports \"My chest wall became tender to the touch from the act of trying to breathe\" and \"The Tobacco Root Mountains that are normally readily viewable had been entirely obscured,\" plus rain on climbs."
+        "explanation": "Historical weather data shows average highs of 77°F and lows of 55°F, with a 28% chance of rain on any given day. Late August Montana weather proved challenging with poor air quality from California wildfire smoke. Peterson reports \"My chest wall became tender to the touch from the act of trying to breathe\" and \"The Tobacco Root Mountains that are normally readily viewable had been entirely obscured,\" plus rain on climbs. More weather exposure than Belgian Waffle Ride San Diego."
       },
       "altitude": {
         "score": 3,
-        "explanation": "Red Lodge sits in Beartooth foothills with the race reaching elevations high enough to impact performance. Peterson experienced \"heart rate markedly higher than anticipated all day\" during her effort, suggesting altitude plays a role for riders coming from lower elevations despite not being extreme Colorado territory."
+        "explanation": "Red Lodge sits in Beartooth foothills with the race reaching elevations high enough to impact performance. Peterson experienced \"heart rate markedly higher than anticipated all day\" during her effort, suggesting altitude plays a role for riders coming from lower elevations despite not being extreme Colorado territory. Similar altitude considerations to Grinduro."
       },
       "adventure": {
         "score": 3,
@@ -298,7 +298,7 @@
       },
       "field_depth": {
         "score": 1,
-        "explanation": "Limited competitive depth with three distance options spreading participation thin. Peterson's race report suggests small field sizes with riders knowing each other personally, and the original \"no placements or awards\" philosophy indicates focus on participation over competitive talent attraction."
+        "explanation": "With a field of 100-200 riders, limited competitive depth with three distance options spreading participation thin. Peterson's race report suggests small field sizes with riders knowing each other personally, and the original \"no placements or awards\" philosophy indicates focus on participation over competitive talent attraction. Thinner field than Ouray Gravel Grinder."
       },
       "value": {
         "score": 3,
@@ -306,7 +306,7 @@
       },
       "expenses": {
         "score": 2,
-        "explanation": "Peterson chose \"a bed every night to get better sleep\" using local lodging options, with Redlodge.com/stay accommodations plus Custer Gallatin camping for budget travelers. Getting to Carbon County requires serious travel commitment, but small mountain town costs beat resort destination pricing once there."
+        "explanation": "Registration runs $75-100. Peterson chose \"a bed every night to get better sleep\" using local lodging options, with Redlodge.com/stay accommodations plus Custer Gallatin camping for budget travelers. Getting to Carbon County requires serious travel commitment, but small mountain town costs beat resort destination pricing once there. Higher total cost than Badlands."
       }
     },
     "citations": [
@@ -355,6 +355,74 @@
         "category": "community",
         "label": "redlodgeevents.com: Other Races We Love"
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 42,
+          "msrp_usd": 54.99,
+          "weight_grams": 420,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 2,
+          "tire_id": "irc-boken-double-cross",
+          "name": "IRC Boken Double Cross",
+          "brand": "IRC",
+          "recommended_width_mm": 42,
+          "msrp_usd": 59.99,
+          "weight_grams": 400,
+          "crr_watts": null,
+          "why": "Underrated mixed-terrain tire. Fast center with confident shoulder grip."
+        },
+        {
+          "rank": 3,
+          "tire_id": "panaracer-gravelking-sk",
+          "name": "Panaracer GravelKing SK",
+          "brand": "Panaracer",
+          "recommended_width_mm": 43,
+          "msrp_usd": 64.9,
+          "weight_grams": 410,
+          "crr_watts": 32.5,
+          "why": "Affordable all-rounder. Light knobs add grip without killing speed."
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "panaracer-gravelking-tlc",
+          "name": "Panaracer GravelKing TLC",
+          "width_mm": 43
+        },
+        "rear": {
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 42
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 42,
+      "pressure_psi": {
+        "140_160lb_dry": "32-36",
+        "140_160lb_mixed": "30-34",
+        "140_160lb_wet": "28-32",
+        "160_180lb_dry": "36-40",
+        "160_180lb_mixed": "32-36",
+        "160_180lb_wet": "30-34",
+        "180_200lb_dry": "38-42",
+        "180_200lb_mixed": "36-40",
+        "180_200lb_wet": "34-38",
+        "200pluslb_dry": "42-46",
+        "200pluslb_mixed": "38-42",
+        "200pluslb_wet": "36-40"
+      }
+    }
   }
 }

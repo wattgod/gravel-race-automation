@@ -1,10 +1,10 @@
 (function() {
-  const DATA_URL = '/wp-content/uploads/race-index.json?v=20260214';
+  const DATA_URL = '/wp-content/uploads/race-index.json?v=20260215';
   const TIER_PAGE_SIZE = 20;
 
   let allRaces = [];
   let currentSort = 'score';
-  let displayMode = 'tiers'; // 'tiers' or 'match'
+  let displayMode = 'stream'; // 'stream', 'tiers', or 'match'
   let matchScores = {};      // slug → match pct
   let tierVisibleCounts = { 1: TIER_PAGE_SIZE, 2: TIER_PAGE_SIZE, 3: TIER_PAGE_SIZE, 4: TIER_PAGE_SIZE };
   let matchVisibleCount = TIER_PAGE_SIZE;
@@ -43,12 +43,12 @@
   let viewMode = 'list'; // 'list' or 'map'
   let leafletLoaded = false;
 
-  const TIER_NAMES = { 1: 'Elite', 2: 'Contender', 3: 'Solid', 4: 'Roster' };
+  const TIER_NAMES = { 1: 'The Icons', 2: 'Elite', 3: 'Solid', 4: 'Grassroots' };
   const TIER_DESCS = {
     1: 'The definitive gravel events. World-class fields, iconic courses, bucket-list status.',
     2: 'Established races with strong reputations and competitive fields. The next tier of must-do events.',
     3: 'Regional favorites and emerging races. Strong local scenes, genuine gravel character.',
-    4: 'Up-and-coming races and local grinders. Grassroots gravel — small fields, raw vibes.'
+    4: 'Up-and-coming races and local grinders. Small fields, raw vibes, grassroots gravel.'
   };
   const US_REGIONS = new Set(['West', 'Midwest', 'South', 'Northeast']);
   const TIER_COLORS_MAP = { 1: '#59473c', 2: '#7d695d', 3: '#766a5e', 4: '#5e6868' };
@@ -185,11 +185,14 @@
   window.runMatch = runMatch;
 
   function resetMatch() {
-    displayMode = 'tiers';
+    displayMode = 'stream';
     matchScores = {};
     matchVisibleCount = TIER_PAGE_SIZE;
     document.getElementById('gg-btn-reset').style.display = 'none';
     tierVisibleCounts = { 1: TIER_PAGE_SIZE, 2: TIER_PAGE_SIZE, 3: TIER_PAGE_SIZE, 4: TIER_PAGE_SIZE };
+    document.querySelectorAll('.gg-display-btn').forEach(function(b) {
+      b.classList.toggle('active', b.dataset.display === 'stream');
+    });
     render();
     saveToURL();
   }
@@ -451,6 +454,11 @@
     if (params.has('discipline')) document.getElementById('gg-discipline').value = params.get('discipline');
     if (params.get('sort')) currentSort = params.get('sort');
 
+    // Restore display mode from URL
+    if (params.get('display') === 'tiers') {
+      displayMode = 'tiers';
+    }
+
     // Restore match mode from URL
     if (params.get('match') === '1') {
       SLIDERS.forEach(function(s) {
@@ -513,6 +521,7 @@
       if (nearMeRadius && nearMeRadius !== 500) params.set('radius', nearMeRadius);
     }
 
+    if (displayMode === 'tiers') params.set('display', 'tiers');
     if (showFavoritesOnly) params.set('favs', '1');
     if (viewMode && viewMode !== 'list') params.set('view', viewMode);
 
@@ -722,18 +731,52 @@
     '</svg>';
   }
 
+  // Elite seal SVG — "Certified Fresh" equivalent for Tier 1 races
+  var ELITE_SEAL = '<svg class="gg-elite-seal" width="28" height="28" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg">' +
+    '<polygon points="14,1 17.5,9.5 27,10 20,16.5 22,26 14,21 6,26 8,16.5 1,10 10.5,9.5" fill="#9a7e0a" stroke="#3a2e25" stroke-width="1"/>' +
+    '<text x="14" y="17" text-anchor="middle" font-family="Sometype Mono,monospace" font-size="7" font-weight="700" fill="#fff">GG</text>' +
+  '</svg>';
+
+  // Terrain tag based on dominant race characteristic
+  function getTerrainTag(race) {
+    if (!race.scores) return '';
+    var s = race.scores;
+    var tags = [];
+    if (s.technicality >= 4) tags.push('TECHNICAL');
+    else if (s.technicality >= 3) tags.push('MIXED');
+    if (s.elevation >= 4) tags.push('CLIMBING');
+    if (s.adventure >= 4) tags.push('REMOTE');
+    if (s.length >= 4) tags.push('ULTRA');
+    if (tags.length === 0) {
+      if (s.technicality <= 2) tags.push('SMOOTH');
+      else tags.push('GRAVEL');
+    }
+    return tags.slice(0, 2).map(function(t) {
+      return '<span class="gg-terrain-tag">' + t + '</span>';
+    }).join('');
+  }
+
   function renderCard(race) {
     var nameTag = race.has_profile
       ? '<a class="gg-card-name" href="' + race.profile_url + '">' + race.name + '</a>'
       : '<span class="gg-card-name no-link">' + race.name + '</span>';
 
     var breakdown = renderScoreBreakdown(race.scores);
+
+    // Score hero — prominent score number with bar below
+    var scoreHero = '';
+    if (race.overall_score) {
+      scoreHero = '<div class="gg-card-score-hero">' +
+        '<span class="gg-card-score-big" style="color:' + scoreColor(race.overall_score) + '">' + race.overall_score + '</span>' +
+        '<span class="gg-card-score-label">GG</span>' +
+      '</div>';
+    }
+
     var scoreBar = race.overall_score
       ? '<div class="gg-score-bar" onclick="this.nextElementSibling&&this.nextElementSibling.classList.toggle(\'open\')" title="Click for score breakdown">' +
           '<div class="gg-score-track">' +
             '<div class="gg-score-fill" style="width:' + race.overall_score + '%;background:' + scoreColor(race.overall_score) + '"></div>' +
           '</div>' +
-          '<span class="gg-score-num">' + race.overall_score + '</span>' +
         '</div>' + breakdown
       : '';
 
@@ -786,7 +829,13 @@
       seriesBadge = '<a href="/race/series/' + race.series_id + '/" class="gg-series-badge">' + race.series_name + '</a>';
     }
 
-    return '<div class="gg-card">' +
+    // Elite seal for Tier 1
+    var eliteSeal = race.tier === 1 ? ELITE_SEAL : '';
+
+    // Terrain tags
+    var terrainTags = getTerrainTag(race);
+
+    return '<div class="gg-card gg-card-tier-' + race.tier + '">' +
       '<div class="gg-card-header">' +
         compareCheck +
         favBtn +
@@ -796,15 +845,21 @@
           distBadge +
           seriesBadge +
           discBadge +
-          '<span class="gg-tier-badge gg-tier-' + race.tier + '">TIER ' + race.tier + '</span>' +
+          '<span class="gg-tier-badge gg-tier-' + race.tier + '">' + 'TIER ' + race.tier + '</span>' +
         '</div>' +
       '</div>' +
+      '<div class="gg-card-score-row">' +
+        scoreHero +
+        eliteSeal +
+        racerBadge +
+      '</div>' +
+      scoreBar +
       '<div class="gg-card-meta">' + (race.location || 'Location TBD') + (race.month ? ' &middot; ' + race.month : '') + '</div>' +
       '<div class="gg-card-stats">' +
         (race.distance_mi ? '<div class="gg-stat"><span class="gg-stat-val">' + race.distance_mi + '</span><span class="gg-stat-label">Miles</span></div>' : '') +
         (race.elevation_ft ? '<div class="gg-stat"><span class="gg-stat-val">' + Number(race.elevation_ft).toLocaleString() + '</span><span class="gg-stat-label">Ft Elev</span></div>' : '') +
+        (terrainTags ? '<div class="gg-stat gg-stat-terrain">' + terrainTags + '</div>' : '') +
       '</div>' +
-      '<div class="gg-card-scores">' + scoreBar + racerBadge + '</div>' +
       radar +
       (race.tagline ? '<div class="gg-card-tagline">' + race.tagline + '</div>' : '') +
     '</div>';
@@ -868,7 +923,7 @@
 
     var html = '<div class="gg-match-banner">' +
       '<span>Showing results ranked by match score</span>' +
-      '<button onclick="resetMatch()">Back to Tiers</button>' +
+      '<button onclick="resetMatch()">Back to All Races</button>' +
     '</div>';
 
     if (visible.length > 0) {
@@ -882,6 +937,41 @@
     }
     container.innerHTML = html;
   }
+
+  var streamVisibleCount = TIER_PAGE_SIZE * 2; // show 40 at a time in stream
+
+  function renderStreamResults(filtered) {
+    var container = document.getElementById('gg-tier-container');
+    var visible = filtered.slice(0, streamVisibleCount);
+    var remaining = filtered.length - visible.length;
+
+    var html = '<div class="gg-results-count">Showing ' + visible.length + ' of ' + filtered.length + ' races</div>';
+
+    if (visible.length > 0) {
+      html += '<div class="gg-grid">' + visible.map(renderCard).join('') + '</div>';
+      if (remaining > 0) {
+        html += '<button class="gg-load-more" onclick="loadMoreStream()">Show ' + Math.min(remaining, TIER_PAGE_SIZE) + ' more of ' + remaining + ' remaining</button>';
+      }
+    } else {
+      html += noResultsHtml();
+    }
+    container.innerHTML = html;
+  }
+
+  function loadMoreStream() {
+    streamVisibleCount += TIER_PAGE_SIZE;
+    render(false);
+  }
+  window.loadMoreStream = loadMoreStream;
+
+  function toggleDisplayMode(mode) {
+    displayMode = mode;
+    document.querySelectorAll('.gg-display-btn').forEach(function(b) {
+      b.classList.toggle('active', b.dataset.display === mode);
+    });
+    render(true);
+  }
+  window.toggleDisplayMode = toggleDisplayMode;
 
   function toggleTier(t) {
     tierCollapsed[t] = !tierCollapsed[t];
@@ -1344,6 +1434,7 @@
     if (resetPages !== false) {
       tierVisibleCounts = { 1: TIER_PAGE_SIZE, 2: TIER_PAGE_SIZE, 3: TIER_PAGE_SIZE, 4: TIER_PAGE_SIZE };
       matchVisibleCount = TIER_PAGE_SIZE;
+      streamVisibleCount = TIER_PAGE_SIZE * 2;
     }
 
     var filtered = sortRaces(filterRaces());
@@ -1369,6 +1460,8 @@
 
     if (displayMode === 'match') {
       renderMatchResults(filtered);
+    } else if (displayMode === 'stream') {
+      renderStreamResults(filtered);
     } else {
       renderTierSections(filtered);
     }
@@ -1396,7 +1489,7 @@
     });
 
     window.addEventListener('gg-reset-filters', function() {
-      displayMode = 'tiers';
+      displayMode = 'stream';
       matchScores = {};
       matchVisibleCount = TIER_PAGE_SIZE;
       nearMeRadius = 0;

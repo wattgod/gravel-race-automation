@@ -258,23 +258,23 @@
       },
       "length": {
         "score": 3,
-        "explanation": "Trevor Irwin podiumed the 50km in 1:58:09, noting the distance was 'right in his wheelhouse' for triathletes trying gravel. Another rider set 'a personal goal to complete the race in 4:30' on the longer distance but 'came in just late of the goal.'"
+        "explanation": "Trevor Irwin podiumed the 50km in 1:58:09, noting the distance was 'right in his wheelhouse' for triathletes trying gravel. Another rider set 'a personal goal to complete the race in 4:30' on the longer distance but 'came in just late of the goal.' Similar distance to Crusher in the Tushar."
       },
       "technicality": {
         "score": 2,
-        "explanation": "Course founder discovered 'a number of Class B roads' with 'river crossings' and cattle encounters through moderate terrain. Officially classified as 'rolling short steep hills or moderate, sustained climbs' - countryside exploration without technical skill demands."
+        "explanation": "Course founder discovered 'a number of Class B roads' with 'river crossings' and cattle encounters through moderate terrain. Officially classified as 'rolling short steep hills or moderate, sustained climbs' - countryside exploration without technical skill demands. Less technical than The Mid South."
       },
       "elevation": {
         "score": 2,
-        "explanation": "Course founder describes 'a fairly hill route, but there are a lot of long descents and nice flats to help you recharge and get ready for the next Class B challenge.' 2,500 feet over 60 miles with recovery opportunities."
+        "explanation": "Course founder describes 'a fairly hill route, but there are a lot of long descents and nice flats to help you recharge and get ready for the next Class B challenge.' 2,500 feet over 60 miles with recovery opportunities. Less climbing than The Mid South."
       },
       "climate": {
         "score": 2,
-        "explanation": "Mid-July in Iowa delivers heat, humidity, and potential thunderstorms. Classic midwest summer conditions create endurance challenges without altitude or desert extremes affecting Monroe County fairgrounds start."
+        "explanation": "Historical weather data shows average highs of 85°F and lows of 68°F, with a 48% chance of rain on any given day. Mid-July in Iowa delivers heat, humidity, and potential thunderstorms. Classic midwest summer conditions create endurance challenges without altitude or desert extremes affecting Monroe County fairgrounds start. More weather exposure than Belgian Waffle Ride San Diego."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Iowa farmland through Monroe County stays near sea level. Altitude isn't a factor for Class B road challenges through cattle country and Historic Mormon Trail segments."
+        "explanation": "Iowa farmland through Monroe County stays near sea level. Altitude isn't a factor for Class B road challenges through cattle country and Historic Mormon Trail segments. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 2,
@@ -298,7 +298,7 @@
       },
       "field_depth": {
         "score": 1,
-        "explanation": "Performance spread from Trevor Irwin's competitive 1:58:09 podium to riders missing 4:30 completion goals demonstrates wide participation range. 200-rider cap shows recreational focus over competitive depth."
+        "explanation": "Performance spread from Trevor Irwin's competitive 1:58:09 podium to riders missing 4:30 completion goals demonstrates wide participation range. 200-rider cap shows recreational focus over competitive depth. Thinner field than Ouray Gravel Grinder."
       },
       "value": {
         "score": 4,
@@ -306,7 +306,7 @@
       },
       "expenses": {
         "score": 3,
-        "explanation": "Monroe County Fairgrounds RV camping keeps lodging affordable in rural Iowa. $40-60 entry fees and regional driving accessibility create midwest racing economics without premium destination costs."
+        "explanation": "Monroe County Fairgrounds RV camping keeps lodging affordable in rural Iowa. $40-60 entry fees and regional driving accessibility create midwest racing economics without premium destination costs. Similar expense level to Belgian Waffle Ride San Diego."
       }
     },
     "citations": [
@@ -340,6 +340,74 @@
         "category": "community",
         "label": "gravel-results.com: 20001"
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 38,
+          "msrp_usd": 54.99,
+          "weight_grams": 380,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 2,
+          "tire_id": "vittoria-terreno-mix",
+          "name": "Vittoria Terreno Mix",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 420,
+          "crr_watts": 33.5,
+          "why": "Graphene versatility. Mixed-terrain grip with reasonable rolling speed."
+        },
+        {
+          "rank": 3,
+          "tire_id": "continental-terra-trail",
+          "name": "Continental Terra Trail",
+          "brand": "Continental",
+          "recommended_width_mm": 40,
+          "msrp_usd": 74.99,
+          "weight_grams": 450,
+          "crr_watts": 33.5,
+          "why": "excellent wet grip"
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 38
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 38,
+      "pressure_psi": {
+        "140_160lb_dry": "36-40",
+        "140_160lb_mixed": "33-37",
+        "140_160lb_wet": "31-35",
+        "160_180lb_dry": "39-43",
+        "160_180lb_mixed": "36-40",
+        "160_180lb_wet": "34-38",
+        "180_200lb_dry": "42-46",
+        "180_200lb_mixed": "39-43",
+        "180_200lb_wet": "37-41",
+        "200pluslb_dry": "45-49",
+        "200pluslb_mixed": "42-46",
+        "200pluslb_wet": "40-44"
+      }
+    }
   }
 }

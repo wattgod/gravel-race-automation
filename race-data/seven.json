@@ -93,7 +93,7 @@
       },
       "field_depth": {
         "score": 4,
-        "explanation": "UCI World Series status attracts international elite gravel racers. Strong Australian domestic field. The 2026 Worlds hosting will only increase competition level."
+        "explanation": "UCI World Series status attracts international elite gravel racers. Strong Australian domestic field. The 2026 Worlds hosting will only increase competition level. Deeper field than most — comparable to Badlands."
       },
       "value": {
         "score": 3,
@@ -101,7 +101,7 @@
       },
       "expenses": {
         "score": 2,
-        "explanation": "Major travel commitment for most international riders. Perth flights, rental car, accommodation in a tiny town that books out. Budget for a multi-day adventure, not a quick race trip."
+        "explanation": "Registration runs AUD $200-$250. Major travel commitment for most international riders. Perth flights, rental car, accommodation in a tiny town that books out. Budget for a multi-day adventure, not a quick race trip. Higher total cost than Badlands."
       },
       "logistics": {
         "score": 4,
@@ -109,23 +109,23 @@
       },
       "length": {
         "score": 3,
-        "explanation": "78 miles sounds reasonable until you realize it's 3,200m of climbing through pine plantations on parallel singletrack. This isn't a distance game—it's a suffering-per-kilometer optimization problem. The mileage is modest but the terrain makes it feel twice as long."
+        "explanation": "78 miles sounds reasonable until you realize it's 3,200m of climbing through pine plantations on parallel singletrack. This isn't a distance game—it's a suffering-per-kilometer optimization problem. The mileage is modest but the terrain makes it feel twice as long. Similar distance to Crusher in the Tushar."
       },
       "technicality": {
         "score": 4,
-        "explanation": "These aren't wide gravel highways—they're essentially two tire tracks through state forests with sharp quartz grit that slices thin sidewalls. The Crucible hits 20% gradients on loose surface, and the parallel singletrack means constant line choice through narrow, winding sectors. You need reinforced sidewalls and actual bike handling skills, not just fitness."
+        "explanation": "These aren't wide gravel highways—they're essentially two tire tracks through state forests with sharp quartz grit that slices thin sidewalls. The Crucible hits 20% gradients on loose surface, and the parallel singletrack means constant line choice through narrow, winding sectors. You need reinforced sidewalls and actual bike handling skills, not just fitness. More technical than most — comparable to Belgian Waffle Ride San Diego. As Surface Description puts it: \"The 2026 route has no single track and no fire trails. All the roads used in SEVEN are unpaved and well-formed with a mix of dirt, gravel, hard-packed clay, quartz grit and mica.\""
       },
       "elevation": {
         "score": 5,
-        "explanation": "10,500 feet in 78 miles is a climber's nightmare with 12-13 categorized climbs including The Crucible's 20% gradients. The climbing ratio here rivals rigorous mountain stages, which is why everyone runs mullet drivetrains with 50-52t granny gears. Standard 1:1 ratios leave mortals walking."
+        "explanation": "10,500 feet in 78 miles is a climber's nightmare with 12-13 categorized climbs including The Crucible's 20% gradients. The climbing ratio here rivals rigorous mountain stages, which is why everyone runs mullet drivetrains with 50-52t granny gears. Standard 1:1 ratios leave mortals walking. Among the hilliest in gravel, comparable to Badlands. As Climbs puts it: \"Ten major climbs of SEVEN are amongst the best that the State has to offer. These climbs range in length from 1.2km to 4.5km long with gradients frequently touching on 20%.\""
       },
       "climate": {
         "score": 3,
-        "explanation": "Australian autumn means cool 45°F mornings warming to pleasant 70°F days—no outback furnace here. May marks the start of wet season with 600mm annual rainfall, so rain can turn clay sections slick and make descents sketchy. It's actually civilized weather, which is probably why this race attracts 1,500 masochists."
+        "explanation": "Australian autumn means cool 45°F mornings warming to pleasant 70°F days—no outback furnace here. May marks the start of wet season with 600mm annual rainfall, so rain can turn clay sections slick and make descents sketchy. It's actually civilized weather, which is probably why this race attracts 1,500 masochists. Similar climate challenges to SBT GRVL."
       },
       "altitude": {
         "score": 2,
-        "explanation": "Nannup sits in Western Australia's coastal forests, not the mountains. You're dealing with rolling terrain through pine plantations and state forests, so oxygen isn't your enemy here. The elevation gain comes from constant undulations, not thin air."
+        "explanation": "Nannup sits in Western Australia's coastal forests, not the mountains. You're dealing with rolling terrain through pine plantations and state forests, so oxygen isn't your enemy here. The elevation gain comes from constant undulations, not thin air. Modest altitude compared to Belgian Waffle Ride San Diego."
       },
       "adventure": {
         "score": 5,
@@ -386,6 +386,63 @@
         }
       },
       "latest_year": "2024"
+    },
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "schwalbe-g-one-ultrabite",
+          "name": "Schwalbe G-One Ultrabite",
+          "brand": "Schwalbe",
+          "recommended_width_mm": 45,
+          "msrp_usd": 69.9,
+          "weight_grams": 560,
+          "crr_watts": 42.0,
+          "why": "high puncture protection for sharp surfaces. strong mud clearance"
+        },
+        {
+          "rank": 2,
+          "tire_id": "tufo-gravel-swampero",
+          "name": "Tufo Gravel Swampero",
+          "brand": "Tufo",
+          "recommended_width_mm": 44,
+          "msrp_usd": 69.95,
+          "weight_grams": 530,
+          "crr_watts": null,
+          "why": "strong mud clearance"
+        },
+        {
+          "rank": 3,
+          "tire_id": "vittoria-terreno-wet",
+          "name": "Vittoria Terreno Wet",
+          "brand": "Vittoria",
+          "recommended_width_mm": 45,
+          "msrp_usd": 79.99,
+          "weight_grams": 520,
+          "crr_watts": 39.0,
+          "why": "strong mud clearance"
+        }
+      ],
+      "front_rear_split": {
+        "applicable": false
+      },
+      "race_surface_profile": "muddy",
+      "recommended_width_mm": 45,
+      "pressure_psi": {
+        "140_160lb_dry": "30-34",
+        "140_160lb_mixed": "26-30",
+        "140_160lb_wet": "24-28",
+        "160_180lb_dry": "32-36",
+        "160_180lb_mixed": "30-34",
+        "160_180lb_wet": "28-32",
+        "180_200lb_dry": "36-40",
+        "180_200lb_mixed": "32-36",
+        "180_200lb_wet": "30-34",
+        "200pluslb_dry": "38-42",
+        "200pluslb_mixed": "36-40",
+        "200pluslb_wet": "34-38"
+      }
     }
   }
 }

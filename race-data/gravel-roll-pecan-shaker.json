@@ -258,23 +258,23 @@
       },
       "length": {
         "score": 3,
-        "explanation": "Three distance options accommodate different riders: 41-mile short course, 72-mile intermediate, and 106-mile long course. The timed-segment format covers only 30-50% of each course distance, allowing riders to 'take advantage of being able to ride with friends of different fitness and skill levels' during untimed sections."
+        "explanation": "Three distance options accommodate different riders: 41-mile short course, 72-mile intermediate, and 106-mile long course. The timed-segment format covers only 30-50% of each course distance, allowing riders to 'take advantage of being able to ride with friends of different fitness and skill levels' during untimed sections. Similar distance to Crusher in the Tushar."
       },
       "technicality": {
         "score": 2,
-        "explanation": "Course features 'Georgia red clay, red dirt, white kaolin, loam, dust over crust, and of course....the loose stuff' across diverse agricultural terrain. Officially rated as 'difficult terrain with longer, steeper hills,' the varied surface conditions through pecan groves and timberlands provide moderate technical challenges."
+        "explanation": "Course features 'Georgia red clay, red dirt, white kaolin, loam, dust over crust, and of course....the loose stuff' across diverse agricultural terrain. Officially rated as 'difficult terrain with longer, steeper hills,' the varied surface conditions through pecan groves and timberlands provide moderate technical challenges. Less technical than The Mid South."
       },
       "elevation": {
         "score": 2,
-        "explanation": "The 'longer, steeper hills' mentioned in official descriptions align with the 3,000 feet over 75 miles, creating sustained climbing through Georgia's rolling agricultural landscape. Terrain includes passages through fish hatcheries, private timberlands, and crop fields with consistent elevation changes rather than dramatic peaks."
+        "explanation": "The 'longer, steeper hills' mentioned in official descriptions align with the 3,000 feet over 75 miles, creating sustained climbing through Georgia's rolling agricultural landscape. Terrain includes passages through fish hatcheries, private timberlands, and crop fields with consistent elevation changes rather than dramatic peaks. Less climbing than The Mid South."
       },
       "climate": {
         "score": 2,
-        "explanation": "Samson Large reported that 'Pecan Shaker 2024 wasn't without tragedy, as we did have quite the rain before raceday, making for soggy conditions on certain areas of the course.' The event moved from fall to spring in 2024 due to scheduling conflicts, with one rider requiring medical attention during challenging conditions."
+        "explanation": "Historical weather data shows average highs of 78°F and lows of 58°F, with a 21% chance of rain on any given day. Samson Large reported that 'Pecan Shaker 2024 wasn't without tragedy, as we did have quite the rain before raceday, making for soggy conditions on certain areas of the course.' The event moved from fall to spring in 2024 due to scheduling conflicts, with one rider requiring medical attention during challenging conditions. More weather exposure than Belgian Waffle Ride San Diego."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Central Georgia terrain near sea level eliminates any altitude considerations. The course travels through low-elevation agricultural areas including watermelon, sunflower and peanut fields with no meaningful elevation above sea level to impact performance."
+        "explanation": "Central Georgia terrain near sea level eliminates any altitude considerations. The course travels through low-elevation agricultural areas including watermelon, sunflower and peanut fields with no meaningful elevation above sea level to impact performance. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 2,
@@ -298,7 +298,7 @@
       },
       "field_depth": {
         "score": 2,
-        "explanation": "Field limited to 300 riders with age group categories and open divisions receiving podium prizes. The 'no gravel bike? No worries!' philosophy and community-focused approach attracts recreational riders rather than elite competitive fields, though all participants remain eligible for the community raffle and finisher awards."
+        "explanation": "Field limited to 300 riders with age group categories and open divisions receiving podium prizes. The 'no gravel bike? No worries!' philosophy and community-focused approach attracts recreational riders rather than elite competitive fields, though all participants remain eligible for the community raffle and finisher awards. Less competitive depth than Almanzo 100."
       },
       "value": {
         "score": 3,
@@ -306,7 +306,7 @@
       },
       "expenses": {
         "score": 3,
-        "explanation": "Hawkinsville, Georgia offers small-town lodging and dining costs without destination pricing. The event provides 'a huge shoutout to the town of Hawkinsville for being such great hosts each year,' suggesting local community support that typically translates to reasonable accommodation options for visiting riders."
+        "explanation": "Registration runs $60-100. Hawkinsville, Georgia offers small-town lodging and dining costs without destination pricing. The event provides 'a huge shoutout to the town of Hawkinsville for being such great hosts each year,' suggesting local community support that typically translates to reasonable accommodation options for visiting riders. Similar expense level to Belgian Waffle Ride San Diego."
       }
     },
     "citations": [
@@ -338,6 +338,74 @@
         }
       },
       "latest_year": "2024"
+    },
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 38,
+          "msrp_usd": 54.99,
+          "weight_grams": 380,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 2,
+          "tire_id": "panaracer-gravelking-sk",
+          "name": "Panaracer GravelKing SK",
+          "brand": "Panaracer",
+          "recommended_width_mm": 40,
+          "msrp_usd": 64.9,
+          "weight_grams": 380,
+          "crr_watts": 32.5,
+          "why": "Affordable all-rounder. Light knobs add grip without killing speed."
+        },
+        {
+          "rank": 3,
+          "tire_id": "vittoria-terreno-mix",
+          "name": "Vittoria Terreno Mix",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 420,
+          "crr_watts": 33.5,
+          "why": "Graphene versatility. Mixed-terrain grip with reasonable rolling speed."
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 38
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 38,
+      "pressure_psi": {
+        "140_160lb_dry": "36-40",
+        "140_160lb_mixed": "33-37",
+        "140_160lb_wet": "31-35",
+        "160_180lb_dry": "39-43",
+        "160_180lb_mixed": "36-40",
+        "160_180lb_wet": "34-38",
+        "180_200lb_dry": "42-46",
+        "180_200lb_mixed": "39-43",
+        "180_200lb_wet": "37-41",
+        "200pluslb_dry": "45-49",
+        "200pluslb_mixed": "42-46",
+        "200pluslb_wet": "40-44"
+      }
     }
   }
 }

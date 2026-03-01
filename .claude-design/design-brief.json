@@ -1,0 +1,36 @@
+{
+  "scope": "branding",
+  "type": "logo-exploration",
+  "targetName": "Gravel God Cycling Logo",
+  "count": 20,
+  "brand": {
+    "name": "Gravel God Cycling",
+    "site": "gravelgodcycling.com",
+    "philosophy": "Desert Editorial — warm, airy, readable, neo-brutalist",
+    "adjectives": ["rugged", "editorial", "premium", "neo-brutalist"],
+    "colors": {
+      "dark_brown": "#3a2e25",
+      "primary_brown": "#59473c",
+      "secondary_brown": "#7d695d",
+      "warm_brown": "#A68E80",
+      "tan": "#d4c5b9",
+      "sand": "#ede4d8",
+      "warm_paper": "#f5efe6",
+      "gold": "#9a7e0a",
+      "teal": "#178079",
+      "near_black": "#1a1613"
+    },
+    "fonts": {
+      "editorial": "Source Serif 4",
+      "data": "Sometype Mono"
+    },
+    "rules": [
+      "NO border-radius",
+      "NO shadows",
+      "NO gradients",
+      "Sharp 90-degree corners",
+      "Solid borders",
+      "Flat design"
+    ]
+  }
+}

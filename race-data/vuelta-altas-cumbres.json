@@ -260,23 +260,23 @@
       },
       "length": {
         "score": 4,
-        "explanation": "The 112km UCI course with 1,930m elevation gain hits that sweet spot where you're working hard but not entering ultramarathon territory. 35km of continuous climbing until km 68 gives you one massive sustained effort, then a beautiful 33km descent to the finish in Villa Cura Brochero."
+        "explanation": "The 112km UCI course with 1,930m elevation gain hits that sweet spot where you're working hard but not entering ultramarathon territory. 35km of continuous climbing until km 68 gives you one massive sustained effort, then a beautiful 33km descent to the finish in Villa Cura Brochero. Longer than Belgian Waffle Ride San Diego."
       },
       "technicality": {
         "score": 4,
-        "explanation": "92% dirt roads in 'varying states of repair' through what organizers describe as 'demanding technical challenges in unique, ever-changing, inhospitable natural setting.' The route passes through Villa Cura Brochero, Ambul, San Lorenzo, and Panaholma across serious mountain terrain."
+        "explanation": "92% dirt roads in 'varying states of repair' through what organizers describe as 'demanding technical challenges in unique, ever-changing, inhospitable natural setting.' The route passes through Villa Cura Brochero, Ambul, San Lorenzo, and Panaholma across serious mountain terrain. More technical than most — comparable to Belgian Waffle Ride San Diego."
       },
       "elevation": {
         "score": 4,
-        "explanation": "1,930m of elevation gain with 35km of climbing concentrated in the first two-thirds makes this a proper mountain gravel race. Starting at 900m and topping out at 2,270m means you're getting Alpine-style climbing through the Traslasierra Valley to Achala Peak. Trail runner Luciano Vaccalluzzo needed 8:32 for the 60km course."
+        "explanation": "1,930m of elevation gain with 35km of climbing concentrated in the first two-thirds makes this a proper mountain gravel race. Starting at 900m and topping out at 2,270m means you're getting Alpine-style climbing through the Traslasierra Valley to Achala Peak. Trail runner Luciano Vaccalluzzo needed 8:32 for the 60km course. More climbing than SBT GRVL at the same score."
       },
       "climate": {
         "score": 2,
-        "explanation": "Villa Cura Brochero markets its 'mild and inviting year-round microclimate,' but 2025 reality hit different. Race day temperatures approached 40°C (104°F) with intense north wind, making conditions 'aún más exigente' according to race reports. That's brutal climbing weather."
+        "explanation": "Villa Cura Brochero markets its 'mild and inviting year-round microclimate,' but 2025 reality hit different. Race day temperatures approached 40°C (104°F) with intense north wind, making conditions 'aún más exigente' according to race reports. That's brutal climbing weather. More weather exposure than Belgian Waffle Ride San Diego."
       },
       "altitude": {
         "score": 4,
-        "explanation": "Topping out at 2,270m after starting at 900m is serious altitude that'll make you notice if you're coming from sea level. You're climbing through significant elevation zones in the Córdoba mountains, and that final altitude is where the air starts getting thin enough to matter for pacing."
+        "explanation": "Topping out at 2,270m after starting at 900m is serious altitude that'll make you notice if you're coming from sea level. You're climbing through significant elevation zones in the Córdoba mountains, and that final altitude is where the air starts getting thin enough to matter for pacing. Higher altitude racing, comparable to SBT GRVL."
       },
       "adventure": {
         "score": 5,
@@ -300,7 +300,7 @@
       },
       "field_depth": {
         "score": 2,
-        "explanation": "2025 winners included Darío 'El Mono' Gascón from Tucumán and Chiquita Cantelmi from La Pampa, with strong regional representation. Age group podiums featured riders like Pedro Navarro and Manuel Camaño, but the field remains primarily South American without deep international talent."
+        "explanation": "2025 winners included Darío 'El Mono' Gascón from Tucumán and Chiquita Cantelmi from La Pampa, with strong regional representation. Age group podiums featured riders like Pedro Navarro and Manuel Camaño, but the field remains primarily South American without deep international talent. Less competitive depth than Almanzo 100."
       },
       "value": {
         "score": 3,
@@ -308,7 +308,7 @@
       },
       "expenses": {
         "score": 1,
-        "explanation": "160km from Córdoba city means rental car mandatory, plus tourist valley lodging during peak event weekend. International flights to Córdoba aren't cheap, and the multi-sport format with Friday-Saturday packet pickup forces multiple nights in what organizers admit is a premium tourism region."
+        "explanation": "Registration runs $100-150. 160km from Córdoba city means rental car mandatory, plus tourist valley lodging during peak event weekend. International flights to Córdoba aren't cheap, and the multi-sport format with Friday-Saturday packet pickup forces multiple nights in what organizers admit is a premium tourism region. More expensive than Atlas Mountain Race."
       }
     },
     "citations": [
@@ -347,6 +347,63 @@
         "category": "community",
         "label": "rac.vueltaaltascumbres.com.ar"
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "schwalbe-g-one-bite",
+          "name": "Schwalbe G-One Bite",
+          "brand": "Schwalbe",
+          "recommended_width_mm": 45,
+          "msrp_usd": 69.9,
+          "weight_grams": 540,
+          "crr_watts": 38.0,
+          "why": "excellent wet grip"
+        },
+        {
+          "rank": 2,
+          "tire_id": "maxxis-reaver",
+          "name": "Maxxis Reaver",
+          "brand": "Maxxis",
+          "recommended_width_mm": 45,
+          "msrp_usd": 79.99,
+          "weight_grams": 520,
+          "crr_watts": 35.0,
+          "why": "Technical all-rounder. EXO+ casing shrugs off rocks and roots."
+        },
+        {
+          "rank": 3,
+          "tire_id": "pirelli-cinturato-gravel-s",
+          "name": "Pirelli Cinturato Gravel S",
+          "brand": "Pirelli",
+          "recommended_width_mm": 45,
+          "msrp_usd": 73.99,
+          "weight_grams": 470,
+          "crr_watts": null,
+          "why": "excellent wet grip"
+        }
+      ],
+      "front_rear_split": {
+        "applicable": false
+      },
+      "race_surface_profile": "technical",
+      "recommended_width_mm": 45,
+      "pressure_psi": {
+        "140_160lb_dry": "30-34",
+        "140_160lb_mixed": "26-30",
+        "140_160lb_wet": "24-28",
+        "160_180lb_dry": "32-36",
+        "160_180lb_mixed": "30-34",
+        "160_180lb_wet": "28-32",
+        "180_200lb_dry": "36-40",
+        "180_200lb_mixed": "32-36",
+        "180_200lb_wet": "30-34",
+        "200pluslb_dry": "38-42",
+        "200pluslb_mixed": "36-40",
+        "200pluslb_wet": "34-38"
+      }
+    }
   }
 }

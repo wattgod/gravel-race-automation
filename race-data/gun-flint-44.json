@@ -258,23 +258,23 @@
       },
       "length": {
         "score": 2,
-        "explanation": "44 miles sits in the awkward middle distance between morning blast and epic bragging rights. All documented evidence points to a 20-mile Gunflint Scramble mountain bike race instead, making the actual distance questionable."
+        "explanation": "44 miles sits in the awkward middle distance between morning blast and epic bragging rights. All documented evidence points to a 20-mile Gunflint Scramble mountain bike race instead, making the actual distance questionable. More compact than Grinduro."
       },
       "technicality": {
         "score": 2,
-        "explanation": "The related Gunflint Scramble is described as 'fairly non-technical' with caution needed only on steep fast descents with loose terrain. Mix of wide nordic ski trails and forest roads suggests more grinding than technical challenge."
+        "explanation": "The related Gunflint Scramble is described as 'fairly non-technical' with caution needed only on steep fast descents with loose terrain. Mix of wide nordic ski trails and forest roads suggests more grinding than technical challenge. Less technical than The Mid South."
       },
       "elevation": {
         "score": 2,
-        "explanation": "2500 feet over 44 miles averages 57 feet per mile of climbing. Course promises 'punishing climbs' described as 'steep, long, loose, grassy' but no detailed elevation profile exists to verify the actual challenge level."
+        "explanation": "2500 feet over 44 miles averages 57 feet per mile of climbing. Course promises 'punishing climbs' described as 'steep, long, loose, grassy' but no detailed elevation profile exists to verify the actual challenge level. Less climbing than The Mid South."
       },
       "climate": {
         "score": 3,
-        "explanation": "October weather brings proper variability with highs in mid-50s but warnings to 'bring clothing for wide range of conditions.' Race runs rain or shine with backup gravel loops if trails get oversaturated by Forest Service requirements."
+        "explanation": "October weather brings proper variability with highs in mid-50s but warnings to 'bring clothing for wide range of conditions.' Race runs rain or shine with backup gravel loops if trails get oversaturated by Forest Service requirements. Similar climate challenges to SBT GRVL."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Northern Minnesota location means minimal elevation gain with no respiratory challenge. Starting elevation likely around 1000 feet with modest high points providing zero altitude training effect."
+        "explanation": "Northern Minnesota location means minimal elevation gain with no respiratory challenge. Starting elevation likely around 1000 feet with modest high points providing zero altitude training effect. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 3,
@@ -298,7 +298,7 @@
       },
       "field_depth": {
         "score": 2,
-        "explanation": "No field size data available with confusion over actual race format. The mountain bike version explicitly states gravel bikes 'wouldn't be any fun,' which would severely limit serious gravel participation."
+        "explanation": "With a field of 200-400 riders, no field size data available with confusion over actual race format. The mountain bike version explicitly states gravel bikes 'wouldn't be any fun,' which would severely limit serious gravel participation. Less competitive depth than Almanzo 100."
       },
       "value": {
         "score": 3,
@@ -306,7 +306,7 @@
       },
       "expenses": {
         "score": 2,
-        "explanation": "Remote Grand Marais location requires driving time and distance with Bearskin Lodge accommodation likely at premium rates. No airport data available, meaning costly travel to Duluth or extended drive times."
+        "explanation": "Registration runs $50-100. Remote Grand Marais location requires driving time and distance with Bearskin Lodge accommodation likely at premium rates. No airport data available, meaning costly travel to Duluth or extended drive times. Higher total cost than Badlands."
       }
     },
     "citations": [
@@ -325,6 +325,74 @@
         "category": "community",
         "label": "mtecresults.com: 2023 The Gunflint Scramble 20 Miles"
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 38,
+          "msrp_usd": 54.99,
+          "weight_grams": 380,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 2,
+          "tire_id": "panaracer-gravelking-sk",
+          "name": "Panaracer GravelKing SK",
+          "brand": "Panaracer",
+          "recommended_width_mm": 40,
+          "msrp_usd": 64.9,
+          "weight_grams": 380,
+          "crr_watts": 32.5,
+          "why": "Affordable all-rounder. Light knobs add grip without killing speed."
+        },
+        {
+          "rank": 3,
+          "tire_id": "vittoria-terreno-mix",
+          "name": "Vittoria Terreno Mix",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 420,
+          "crr_watts": 33.5,
+          "why": "Graphene versatility. Mixed-terrain grip with reasonable rolling speed."
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 38
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 38,
+      "pressure_psi": {
+        "140_160lb_dry": "36-40",
+        "140_160lb_mixed": "33-37",
+        "140_160lb_wet": "31-35",
+        "160_180lb_dry": "39-43",
+        "160_180lb_mixed": "36-40",
+        "160_180lb_wet": "34-38",
+        "180_200lb_dry": "42-46",
+        "180_200lb_mixed": "39-43",
+        "180_200lb_wet": "37-41",
+        "200pluslb_dry": "45-49",
+        "200pluslb_mixed": "42-46",
+        "200pluslb_wet": "40-44"
+      }
+    }
   }
 }

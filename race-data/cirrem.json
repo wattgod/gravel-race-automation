@@ -259,23 +259,23 @@
       },
       "length": {
         "score": 3,
-        "explanation": "The 100k distance produces finish times from Dillon McNeill's 3:06:38 record down to 6+ hour survivors. Recent Masters winner Ross Eoriatti finished in 4:14:50 with tight gaps behind him. In 2025's thawing gravel conditions, that translates to plenty of suffering without excessive dark-hours grinding."
+        "explanation": "The 100k distance produces finish times from Dillon McNeill's 3:06:38 record down to 6+ hour survivors. Recent Masters winner Ross Eoriatti finished in 4:14:50 with tight gaps behind him. In 2025's thawing gravel conditions, that translates to plenty of suffering without excessive dark-hours grinding. Similar distance to Crusher in the Tushar. As Post-race scene puts it: \"Please stay around afterwards and have a good time at the Tap as long as you like. The Tap is pretty awesome, and it's in Cumming, for crying out loud.\""
       },
       "technicality": {
         "score": 2,
-        "explanation": "Madison County's winding hills include bridges with \"spaces between the boards that eat wheels for lunch—seriously, a friend separated his shoulder last weekend on it.\" The 5000+ feet of climbing comes via grinding rollers rather than technical descents, though conditions create handling challenges when gravel turns to \"peanut-buttery build up.\""
+        "explanation": "Madison County's winding hills include bridges with \"spaces between the boards that eat wheels for lunch—seriously, a friend separated his shoulder last weekend on it.\" The 5000+ feet of climbing comes via grinding rollers rather than technical descents, though conditions create handling challenges when gravel turns to \"peanut-buttery build up.\" Less technical than The Mid South."
       },
       "elevation": {
         "score": 2,
-        "explanation": "Over 5000 feet of climbing across 63 miles through Madison County's rolling terrain. The race organizers describe it as \"winding hills\" that test persistence rather than explosive power. It's Iowa elevation—death by a thousand papercuts rather than mountain passes."
+        "explanation": "Over 5000 feet of climbing across 63 miles through Madison County's rolling terrain. The race organizers describe it as \"winding hills\" that test persistence rather than explosive power. It's Iowa elevation—death by a thousand papercuts rather than mountain passes. Less climbing than The Mid South."
       },
       "climate": {
         "score": 2,
-        "explanation": "Late February timing delivers everything from 2019's \"foggy with periods of rain turning to snow late, low 30's\" to 2022's \"4 inches of snow two days prior.\" Race organizer remembers \"stopping several times to wring the water out of my mittens\" and riders with \"bright-red gloveless hands.\" It's winter warfare, not marketing copy."
+        "explanation": "Historical weather data shows average highs of 42°F and lows of 24°F, with a 41% chance of rain on any given day, and gusts reaching 26 mph. Late February timing delivers everything from 2019's \"foggy with periods of rain turning to snow late, low 30's\" to 2022's \"4 inches of snow two days prior.\" Race organizer remembers \"stopping several times to wring the water out of my mittens\" and riders with \"bright-red gloveless hands.\" It's winter warfare, not marketing copy. More weather exposure than Belgian Waffle Ride San Diego."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Cumming, Iowa sits at corn-growing elevation—essentially sea level for racing purposes. The thin air you'll experience comes from 30-degree temperatures hitting your lungs, not altitude. Any breathing difficulty stems from frozen February conditions, not oxygen deprivation."
+        "explanation": "Cumming, Iowa sits at corn-growing elevation—essentially sea level for racing purposes. The thin air you'll experience comes from 30-degree temperatures hitting your lungs, not altitude. Any breathing difficulty stems from frozen February conditions, not oxygen deprivation. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 2,
@@ -299,7 +299,7 @@
       },
       "field_depth": {
         "score": 2,
-        "explanation": "Men's Masters category saw 18% DNF rate in 2025 with tight racing—8-minute gap from first to third. Winners have emerged from singlespeeds and fender'ed cross bikes, indicating more heart than horsepower. Categories include tandem and fat bike divisions, suggesting inclusive rather than elite competitive depth."
+        "explanation": "Men's Masters category saw 18% DNF rate in 2025 with tight racing—8-minute gap from first to third. Winners have emerged from singlespeeds and fender'ed cross bikes, indicating more heart than horsepower. Categories include tandem and fat bike divisions, suggesting inclusive rather than elite competitive depth. Less competitive depth than Almanzo 100. As Race morning schedule puts it: \"8:00AM – Breakfast, 8-9:45AM – Rider check-in, 10:00AM – CIRREM begins, 3:00PM – Awards\""
       },
       "value": {
         "score": 3,
@@ -307,7 +307,7 @@
       },
       "expenses": {
         "score": 3,
-        "explanation": "Cumming, Iowa doesn't command destination race pricing for lodging and meals. Nearest major airport likely Des Moines, about 40 miles out, keeping travel costs reasonable. The race's \"absolutely no transfers and no refunds\" policy and minute-long sellout suggest pricing hits the sweet spot for committed winter racers."
+        "explanation": "Registration runs $60-100. Cumming, Iowa doesn't command destination race pricing for lodging and meals. Nearest major airport likely Des Moines, about 40 miles out, keeping travel costs reasonable. The race's \"absolutely no transfers and no refunds\" policy and minute-long sellout suggest pricing hits the sweet spot for committed winter racers. Similar expense level to Belgian Waffle Ride San Diego."
       }
     },
     "citations": [
@@ -371,6 +371,74 @@
         "category": "community",
         "label": "cirrem.com"
       }
-    ]
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 38,
+          "msrp_usd": 54.99,
+          "weight_grams": 380,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 2,
+          "tire_id": "vittoria-terreno-mix",
+          "name": "Vittoria Terreno Mix",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 420,
+          "crr_watts": 33.5,
+          "why": "Graphene versatility. Mixed-terrain grip with reasonable rolling speed."
+        },
+        {
+          "rank": 3,
+          "tire_id": "continental-terra-trail",
+          "name": "Continental Terra Trail",
+          "brand": "Continental",
+          "recommended_width_mm": 40,
+          "msrp_usd": 74.99,
+          "weight_grams": 450,
+          "crr_watts": 33.5,
+          "why": "excellent wet grip"
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 38
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 38,
+      "pressure_psi": {
+        "140_160lb_dry": "36-40",
+        "140_160lb_mixed": "33-37",
+        "140_160lb_wet": "31-35",
+        "160_180lb_dry": "39-43",
+        "160_180lb_mixed": "36-40",
+        "160_180lb_wet": "34-38",
+        "180_200lb_dry": "42-46",
+        "180_200lb_mixed": "39-43",
+        "180_200lb_wet": "37-41",
+        "200pluslb_dry": "45-49",
+        "200pluslb_mixed": "42-46",
+        "200pluslb_wet": "40-44"
+      }
+    }
   }
 }

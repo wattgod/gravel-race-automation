@@ -112,8 +112,8 @@ class TestPageGeneration:
     def test_has_all_sections(self, page_html):
         """All sections present in new narrative arc."""
         section_ids = [
-            "hero", "murphy", "inline-calculator", "practical",
-            "scroll-duration", "scroll-fitness", "scroll-crossover",
+            "hero", "scroll-crossover", "inline-calculator",
+            "scroll-duration", "scroll-fitness", "practical",
             "tldr", "phenotype", "jensen", "power-curve",
             "metabolic-testing", "limitations", "references", "cta",
         ]
@@ -720,9 +720,9 @@ class TestContentLanguage:
         assert 'criterium' not in page_html
 
     def test_inline_ctas_present(self, page_html):
-        """Page should have at least 2 inline CTAs."""
+        """Page should have at least 1 inline CTA."""
         count = page_html.count("gg-wp-inline-cta")
-        assert count >= 2, f"Expected at least 2 inline CTAs, got {count}"
+        assert count >= 1, f"Expected at least 1 inline CTA, got {count}"
 
     def test_hero_has_eyebrow(self):
         """Hero should have eyebrow text."""
@@ -806,32 +806,36 @@ class TestScrollytelling:
         assert "<svg" in html
         assert "polyline" in html
 
-    def test_scroll_crossover_has_fat_ox_curves(self):
-        """Crossover scroll section has fat oxidation rate curves for pro + recreational."""
+    def test_scroll_crossover_has_multi_panel_svg(self):
+        """Crossover scroll section has 7-panel SVG with data-chart-step groups."""
         html = build_scroll_crossover()
         assert "<svg" in html
-        assert "gg-wp-scroll-pro-area" in html
-        assert "gg-wp-scroll-pro-line" in html
-        assert "gg-wp-scroll-rec-line" in html
+        for i in range(7):
+            assert f'data-chart-step="{i}"' in html, f"Missing panel for step {i}"
 
     def test_crossover_correct_framing(self, page_html):
         """Page contains corrected crossover insight — carbs always dominate."""
-        assert "carbs always run the show" in page_html.lower()
+        assert "carbs always dominate" in page_html.lower()
 
     def test_crossover_no_fat_dominates_myth(self, page_html):
-        """Page must NOT claim fat dominates at low intensity (scientifically wrong)."""
-        assert "fat runs the show" not in page_html.lower()
-        assert "burns mostly fat" not in page_html.lower()
-        assert "fat. carbohydrate is barely touched" not in page_html.lower()
-
-    def test_crossover_gap_implication(self, page_html):
-        """Page explains the 2x fat-burning gap and the gut-limit dimension."""
+        """Page must NOT claim fat dominates at low intensity (scientifically wrong).
+        'Fat never runs the show' is fine — it's the negation. Bare 'fat runs the show'
+        without the negation is what we're guarding against."""
         lower = page_html.lower()
-        assert "2" in lower and "gap" in lower, "Must mention the 2x gap"
-        assert "everyone has a carb gap" in lower
-        # Must acknowledge both sides: rec rider behavioral gap AND pro physiological gap
-        assert "behavioral" in lower
-        assert "physiological" in lower
+        # Remove all negated forms, then check the myth isn't stated positively
+        cleaned = lower.replace("fat never runs the show", "")
+        assert "fat runs the show" not in cleaned
+        assert "burns mostly fat" not in lower
+        assert "fat. carbohydrate is barely touched" not in lower
+
+    def test_crossover_first_principles_narrative(self, page_html):
+        """Page builds from first principles: energy → fuel tanks → O2 → zones → absolutes."""
+        lower = page_html.lower()
+        assert "you are the engine" in lower or "you are the motor" in lower
+        assert "two fuel tanks" in lower
+        assert "oxygen" in lower
+        assert "gut ceiling" in lower or "gut capacity" in lower
+        assert "w/kg normalizes performance" in lower
 
     def test_no_white_paper_language(self, page_html):
         """Prose content should not reference 'this paper' (academic language)."""
@@ -841,9 +845,10 @@ class TestScrollytelling:
             text = block.lower()
             assert 'this paper' not in text, "Found 'this paper' in prose section"
 
-    def test_fuel_mix_svg(self, page_html):
-        """Page contains fuel-mix area chart SVG."""
-        assert "Fuel Mix" in page_html or "fuel mix" in page_html.lower()
+    def test_crossover_svg_present(self, page_html):
+        """Page contains crossover multi-panel SVG chart."""
+        assert "gg-wp-crossover-svg" in page_html
+        assert 'data-chart-step="0"' in page_html
 
 
 # ── TestInlineCalculator ─────────────────────────────────────
@@ -1014,7 +1019,7 @@ class TestDataStepIntegrity:
         self._check_section_steps(build_scroll_fitness(), 3)
 
     def test_crossover_steps_sequential(self):
-        self._check_section_steps(build_scroll_crossover(), 4)
+        self._check_section_steps(build_scroll_crossover(), 7)
 
 
 # ── TestChartDataAttributeCrossRef ──────────────────────────
@@ -1037,27 +1042,10 @@ class TestChartDataAttributeCrossRef:
         assert 'data-chart-exponent' in html
 
     def test_crossover_chart_attributes(self):
-        """Crossover chart: JS references data-chart-* attrs for pro/rec curves + gap + race zone."""
+        """Crossover chart: JS toggles data-chart-step groups (0-6)."""
         html = build_scroll_crossover()
-        for attr in [
-            'data-chart-rec-area',
-            'data-chart-rec-line',
-            'data-chart-rec-label',
-            'data-chart-pro-label',
-            'data-chart-pro-peak',
-            'data-chart-pro-peak-label',
-            'data-chart-rec-peak',
-            'data-chart-rec-peak-label',
-            'data-chart-race-zone',
-            'data-chart-race-label',
-            'data-chart-carb-note',
-            'data-chart-gap-line',
-            'data-chart-gap-pro-dot',
-            'data-chart-gap-rec-dot',
-            'data-chart-gap-bracket',
-            'data-chart-gap-diff',
-        ]:
-            assert attr in html, f"Missing {attr} in crossover chart HTML"
+        for i in range(7):
+            assert f'data-chart-step="{i}"' in html, f"Missing data-chart-step={i} in crossover chart"
 
     def test_scroll_chart_id_matches_js(self):
         """data-scroll-chart values match section IDs used by JS dispatcher."""
@@ -1157,15 +1145,14 @@ class TestSectionOrder:
     """Sections must appear in the correct narrative arc order."""
 
     def test_narrative_arc_order(self, page_html):
-        """Sections follow: hook → answer → why → deeper → act."""
+        """Sections follow: hook → why → your number → how → what to do → recap → deeper → act."""
         section_order = [
             'id="hero"',
-            'id="murphy"',
+            'id="scroll-crossover"',
             'id="inline-calculator"',
-            'id="practical"',
             'id="scroll-duration"',
             'id="scroll-fitness"',
-            'id="scroll-crossover"',
+            'id="practical"',
             'id="tldr"',
             'id="phenotype"',
             'id="jensen"',
@@ -1296,3 +1283,183 @@ class TestProgressiveEnhancementCalculator:
     def test_calc_form_visible_with_js(self, page_css):
         """With .gg-has-js, form should be visible."""
         assert '.gg-has-js .gg-wp-calc-form' in page_css
+
+
+# ── TestCrossoverScienceHardening ─────────────────────────
+
+
+class TestCrossoverScienceHardening:
+    """Verify crossover section numbers match metabolic-reference.csv
+    and all stated values are internally consistent.
+
+    These tests catch:
+    - Silent data drift if CSV is updated but chart is not
+    - Rounding errors in watts → kcal/hr → g/hr chains
+    - Zone label mistakes (Z1/Z2 boundary at 56% FTP)
+    - SVG layout overflow (text outside viewBox)
+    - JS/HTML step count mismatches
+    """
+
+    @pytest.fixture(scope="class")
+    def csv_data(self):
+        """Load metabolic-reference.csv as dict keyed by (category, wkg)."""
+        import csv as csv_mod
+
+        data = {}
+        csv_path = (
+            Path(__file__).resolve().parent.parent
+            / "data"
+            / "metabolic-reference.csv"
+        )
+        with open(csv_path) as f:
+            reader = csv_mod.DictReader(f)
+            for row in reader:
+                key = (row["category"], float(row["wkg"]))
+                data[key] = {
+                    "fat_pct": float(row["fat_pct"]),
+                    "cho_pct": float(row["cho_pct"]),
+                }
+        return data
+
+    def test_bars_data_internally_consistent(self):
+        """Step 1 stacked bars: every visible fat+carb pair sums to 100.
+        The 5.5 W/kg row has 2% fat (hidden label) + 98% carb."""
+        html = build_scroll_crossover()
+        fat_values = re.findall(r">(\d+)% fat<", html)
+        carb_values = re.findall(r">(\d+)% carb<", html)
+        # 5 carb bars, 4 visible fat bars (2% fat label hidden when < 10%)
+        assert len(carb_values) == 5, f"Expected 5 carb bars, got {len(carb_values)}"
+        assert len(fat_values) == 4, f"Expected 4 visible fat labels, got {len(fat_values)}"
+        for i, (f, c) in enumerate(zip(fat_values, carb_values)):
+            assert int(f) + int(c) == 100, f"Row {i}: {f}%+{c}% != 100"
+        # The 5th bar (FTP) has 2% fat (hidden) + 98% carb = 100
+        assert int(carb_values[4]) == 98, "FTP bar should show 98% carb"
+
+    def test_bars_match_csv_within_tolerance(self, csv_data):
+        """Step 1 stacked bars must match metabolic-reference.csv within ±2%.
+        Bars use Pro category at specific W/kg values."""
+        expected_wkg = [1.0, 2.0, 3.0, 4.0, 5.5]
+        html = build_scroll_crossover()
+        carb_values = [int(x) for x in re.findall(r">(\d+)% carb<", html)]
+        assert len(carb_values) == len(expected_wkg)
+        for i, wkg in enumerate(expected_wkg):
+            csv_cho = csv_data[("Pro", wkg)]["cho_pct"]
+            assert abs(carb_values[i] - csv_cho) <= 2, (
+                f"CHO% at {wkg} W/kg: SVG={carb_values[i]}, CSV={csv_cho:.1f}"
+            )
+
+    def test_csv_fat_cho_sum_to_100(self, csv_data):
+        """Metabolic CSV fat_pct + cho_pct must always sum to ~100."""
+        for (cat, wkg), row in csv_data.items():
+            total = row["fat_pct"] + row["cho_pct"]
+            assert abs(total - 100) < 0.1, (
+                f"CSV {cat} at {wkg} W/kg: fat+cho={total:.2f} (expected ~100)"
+            )
+
+    def test_svg_panel_count_matches_html_steps(self):
+        """Number of SVG data-chart-step groups must equal HTML data-step count."""
+        html = build_scroll_crossover()
+        svg_panels = len(re.findall(r'data-chart-step="\d+"', html))
+        html_steps = len(re.findall(r'data-step="\d+"', html))
+        assert svg_panels == html_steps, (
+            f"SVG has {svg_panels} panels but HTML has {html_steps} steps"
+        )
+
+    def test_stated_watts_kcal_consistency(self):
+        """All watts → kcal/hr pairs in crossover section follow 3.6× rule.
+        Catches rounding errors where displayed watts × 3.6 ≠ displayed kcal."""
+        html = build_scroll_crossover()
+        # Known pairs: watts (displayed) → kcal/hr (must equal round(watts × 3.6))
+        must_appear = {
+            150: 540,   # Step 5: 75 kg × 2.0 W/kg (exact)
+            180: 648,   # Step 5: 90 kg × 2.0 W/kg (exact)
+            288: 1037,  # Step 6 female: 60 kg × 4.8 W/kg (exact)
+            413: 1487,  # Step 6 male: round(75 × 5.5) = 413, 413 × 3.6 ≈ 1487
+        }
+        for watts, kcal in must_appear.items():
+            kcal_str = f"{kcal:,}"
+            assert f"{watts}W" in html, f"{watts}W not found"
+            assert kcal_str in html or str(kcal) in html, (
+                f"{kcal_str} kcal not found"
+            )
+            expected = round(watts * 3.6)
+            assert abs(kcal - expected) <= 2, (
+                f"{watts}W × 3.6 = {expected}, stated as {kcal}"
+            )
+
+    def test_step4_kcal_present(self):
+        """Step 4 states 188W → 677 kcal/hr (188 × 3.6 = 676.8 ≈ 677)."""
+        html = build_scroll_crossover()
+        assert "188W" in html
+        assert "677" in html
+        assert round(188 * 3.6) == 677
+
+    def test_all_svg_text_within_viewbox(self):
+        """All SVG text y-coordinates must be within the viewBox height (300px).
+        Catches layout overflow when content is added."""
+        html = build_scroll_crossover()
+        y_coords = [int(y) for y in re.findall(r"<text[^>]* y=\"(\d+)\"", html)]
+        assert y_coords, "No SVG text elements found"
+        over = [y for y in y_coords if y > 300]
+        assert not over, (
+            f"SVG text elements at y={over} exceed viewBox height 300"
+        )
+
+    def test_pro_3wkg_is_z1_not_z2(self):
+        """Pro at 3.0 W/kg (54.5% of FTP 5.5) is Z1, not Z2.
+        Z2 starts at 56% FTP = ~3.08 W/kg. If Z2 appears 3+ times
+        in the zone table, someone mislabeled 3.0 as Z2."""
+        html = build_scroll_crossover()
+        z2_count = html.count(">Z2<")
+        assert z2_count == 2, (
+            f"Expected exactly 2 Z2 labels (Pro 3.5 + Rec 1.5), "
+            f"got {z2_count}. Pro at 3.0 W/kg must be Z1."
+        )
+
+    def test_js_crossover_nan_safety(self):
+        """updateCrossoverChart must handle NaN/out-of-range step gracefully."""
+        js = build_whitepaper_js()
+        assert "isNaN(step)" in js, "Missing NaN check in updateCrossoverChart"
+
+    def test_threshold_correction_documented(self):
+        """The threshold correction (CSV ≠ chart for Rec at FTP) must be
+        documented in source code. Without this, a future dev will 'fix'
+        the ~3%/~97% back to the CSV's 28.6% and break the science."""
+        import inspect
+
+        source = inspect.getsource(build_scroll_crossover)
+        assert "threshold correction" in source.lower() or "THRESHOLD" in source, (
+            "Threshold correction must be documented in build_scroll_crossover"
+        )
+
+    def test_pro_endurance_cho_range_defensible(self):
+        """Pro at endurance pace (3.0-3.5 W/kg, 75 kg) burns 138-173 g/hr CHO.
+        The stated range in prose must be within ±5 of the calculated range."""
+        import csv as csv_mod
+
+        csv_path = (
+            Path(__file__).resolve().parent.parent
+            / "data"
+            / "metabolic-reference.csv"
+        )
+        pro_data = {}
+        with open(csv_path) as f:
+            for row in csv_mod.DictReader(f):
+                if row["category"] == "Pro":
+                    pro_data[float(row["wkg"])] = float(row["cho_pct"])
+        # At 3.0 W/kg: 75 × 3.0 = 225W → 810 kcal/hr × 68.29% CHO / 4
+        cho_3_0 = round(225 * 3.6) * pro_data[3.0] / 100 / 4
+        # At 3.5 W/kg: 75 × 3.5 = 262.5 → 263W → 947 kcal/hr × 73.24% CHO / 4
+        cho_3_5 = round(round(75 * 3.5) * 3.6) * pro_data[3.5] / 100 / 4
+        # The prose says "140-175 g/hr"
+        html = build_scroll_crossover()
+        # Extract the range from the prose — anchor to "endurance pace"
+        match = re.search(r"endurance pace.*?(\d+)&#8211;(\d+)&nbsp;g/hr", html)
+        assert match, "Pro endurance CHO range not found in prose"
+        stated_lo, stated_hi = int(match.group(1)), int(match.group(2))
+        assert abs(stated_lo - cho_3_0) <= 5, (
+            f"Stated low {stated_lo} vs calculated {cho_3_0:.0f} at 3.0 W/kg"
+        )
+        assert abs(stated_hi - cho_3_5) <= 5, (
+            f"Stated high {stated_hi} vs calculated {cho_3_5:.0f} at 3.5 W/kg"
+        )

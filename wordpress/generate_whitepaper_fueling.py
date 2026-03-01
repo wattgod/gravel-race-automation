@@ -351,137 +351,328 @@ def build_scroll_fitness() -> str:
 
 
 def build_scroll_crossover() -> str:
-    """Scrollytelling section: fat oxidation rate curves — Pro vs Recreational.
+    """Scrollytelling section: 7-act narrative from first principles to fueling.
 
-    Key science (from metabolic reference data):
-    - Carbs ALWAYS provide >57% of energy at all intensities for all fitness levels.
-    - Fat never dominates. Even at 0.75 W/kg, fat% is only ~39%.
-    - Fat oxidation RATE (g/min) rises, peaks, then falls as intensity increases.
-    - Pro peak: 0.99 g/min at 3.5 W/kg. Recreational peak: 0.53 g/min at 2.5 W/kg.
-    - The story: fitter riders sustain fat burning longer, but carbs always run the show.
+    Arc:
+    0. First principles — you are the motor, watts = speed
+    1. Two fuel tanks — fat vs carbs, substrate split at different intensities
+    2. Why the mix differs — O2 physiology (VO2max, heart, capillaries, mitochondria)
+    3. The zone table — same W/kg, different metabolic universes
+    4. Absolute terms — what the percentages cost in g/hr, the gut ceiling
+    5. Body size — same W/kg, different weight = different fueling crisis
+    6. Sex differences — engine size vs fuel economy, ultra-distance convergence
     """
-    svg_w, svg_h = 400, 280
-    # Chart area: x 60-370 (W/kg 0.5-6.0), y 40-230 (0-1.1 g/min)
-    x_min_wkg, x_max_wkg = 0.5, 6.0
-    y_max_rate = 1.1  # g/min ceiling
+    # ── SVG chart area: multi-panel, one group per step ──
+    svg_w, svg_h = 420, 300
+    mono = "'Sometype Mono', monospace"
+    C = COLORS  # shorthand
 
-    def _x(wkg: float) -> float:
-        return 60 + (wkg - x_min_wkg) / (x_max_wkg - x_min_wkg) * 310
+    # ROUNDING CONVENTION: Watts are displayed as nearest integer for
+    # readability (e.g., 187.5W → 188W). kcal/hr is computed from the
+    # DISPLAYED integer watts × 3.6, then rounded to the nearest integer.
+    # This keeps all stated math verifiable: reader can do watts × 3.6
+    # and get the kcal/hr value shown. Example: 188 × 3.6 = 676.8 → 677.
+    #
+    # THRESHOLD CORRECTION: The metabolic-reference.csv models substrate
+    # split as a smooth curve, but at FTP the body's carb reliance is
+    # ~95-100% regardless of fitness category. The CSV shows Recreational
+    # at 2.5 W/kg with fat_pct=28.6%—but 2.5 IS their FTP. At threshold,
+    # fat oxidation collapses due to zero O2 headroom. The zone table
+    # uses ~3%/~97% for Rec at FTP, not the CSV value. This is intentional
+    # and physiologically correct (Romijn 1993, van Loon 2001).
 
-    def _y(rate: float) -> float:
-        return 230 - rate / y_max_rate * 190
+    # ── Step 0: "YOU ARE THE ENGINE" — simple energy flow diagram ──
+    step0_svg = f'''<g data-chart-step="0">
+    <text x="210" y="40" fill="{C['dark_brown']}" font-family="{mono}" font-size="11" text-anchor="middle" font-weight="bold">WHERE SPEED COMES FROM</text>
+    <!-- Food → You → Watts → Speed -->
+    <rect x="30" y="70" width="80" height="40" fill="{C['sand']}" stroke="{C['dark_brown']}" stroke-width="2"/>
+    <text x="70" y="95" fill="{C['dark_brown']}" font-family="{mono}" font-size="9" text-anchor="middle">FOOD</text>
+    <text x="125" y="93" fill="{C['secondary_brown']}" font-family="{mono}" font-size="14" text-anchor="middle">&#8594;</text>
+    <rect x="140" y="65" width="90" height="50" fill="{C['teal']}" stroke="{C['dark_brown']}" stroke-width="2"/>
+    <text x="185" y="87" fill="{C['white']}" font-family="{mono}" font-size="10" text-anchor="middle" font-weight="bold">YOU</text>
+    <text x="185" y="102" fill="{C['white']}" font-family="{mono}" font-size="7" text-anchor="middle">(the engine)</text>
+    <text x="245" y="93" fill="{C['secondary_brown']}" font-family="{mono}" font-size="14" text-anchor="middle">&#8594;</text>
+    <rect x="260" y="70" width="80" height="40" fill="{C['gold']}" stroke="{C['dark_brown']}" stroke-width="2"/>
+    <text x="300" y="88" fill="{C['white']}" font-family="{mono}" font-size="9" text-anchor="middle" font-weight="bold">WATTS</text>
+    <text x="300" y="102" fill="{C['white']}" font-family="{mono}" font-size="7" text-anchor="middle">(power)</text>
+    <text x="355" y="93" fill="{C['secondary_brown']}" font-family="{mono}" font-size="14" text-anchor="middle">&#8594;</text>
+    <text x="395" y="95" fill="{C['dark_brown']}" font-family="{mono}" font-size="10" text-anchor="end" font-weight="bold">SPEED</text>
+    <!-- Forces that resist motion -->
+    <text x="210" y="145" fill="{C['secondary_brown']}" font-family="{mono}" font-size="8" text-anchor="middle">Watts must overcome:</text>
+    <text x="90" y="168" fill="{C['secondary_brown']}" font-family="{mono}" font-size="7.5" text-anchor="middle">GRAVITY</text>
+    <text x="190" y="168" fill="{C['secondary_brown']}" font-family="{mono}" font-size="7.5" text-anchor="middle">AIR RESISTANCE</text>
+    <text x="310" y="168" fill="{C['secondary_brown']}" font-family="{mono}" font-size="7.5" text-anchor="middle">ROLLING RESISTANCE</text>
+    <!-- Key equation -->
+    <line x1="50" y1="195" x2="370" y2="195" stroke="{C['tan']}" stroke-width="1"/>
+    <text x="210" y="220" fill="{C['dark_brown']}" font-family="{mono}" font-size="9" text-anchor="middle">More watts = faster. Period.</text>
+    <text x="210" y="240" fill="{C['dark_brown']}" font-family="{mono}" font-size="9" text-anchor="middle">The question is: where do the watts come from?</text>
+    <text x="210" y="265" fill="{C['teal']}" font-family="{mono}" font-size="10" text-anchor="middle" font-weight="bold">Two fuel tanks. One body. Let&#8217;s look inside.</text>
+  </g>'''
 
-    # Actual data from metabolic-reference.csv (fat oxidation rate in g/min)
-    pro_data = [
-        (0.75, 0.28), (1.0, 0.37), (1.5, 0.55), (2.0, 0.72), (2.5, 0.86),
-        (3.0, 0.96), (3.5, 0.99), (4.0, 0.93), (4.5, 0.77), (5.0, 0.50),
-        (5.5, 0.14), (5.8, 0.00),
+    # ── Step 1: "TWO FUEL TANKS" — stacked bars at different intensities ──
+    # Horizontal stacked bars: fat% (teal) + carb% (gold) at Z1, Z2, Z3, FTP
+    # Using Pro data for substrate splits
+    bars_data = [
+        ("1.0 W/kg", "Easy spin", 39, 61),
+        ("2.0 W/kg", "Endurance", 38, 62),
+        ("3.0 W/kg", "Tempo", 32, 68),
+        ("4.0 W/kg", "Threshold", 21, 79),
+        ("5.5 W/kg", "FTP (pro)", 2, 98),
     ]
-    rec_data = [
-        (0.75, 0.21), (1.0, 0.28), (1.5, 0.41), (2.0, 0.50), (2.5, 0.53),
-        (3.0, 0.49), (3.5, 0.36), (4.0, 0.16), (4.5, 0.00),
+    bar_y_start = 60
+    bar_h = 30
+    bar_gap = 12
+    bar_left = 110
+    bar_width = 250
+
+    bars_svg_parts = [
+        f'<text x="210" y="38" fill="{C["dark_brown"]}" font-family="{mono}" '
+        f'font-size="11" text-anchor="middle" font-weight="bold">YOUR TWO FUEL TANKS</text>'
     ]
-
-    # Build filled-area polygons (area under curve to x-axis)
-    def _area_path(data):
-        top = " ".join(f"{_x(w):.0f},{_y(r):.0f}" for w, r in data)
-        bottom = f"{_x(data[-1][0]):.0f},{_y(0):.0f} {_x(data[0][0]):.0f},{_y(0):.0f}"
-        return f"{top} {bottom}"
-
-    # Build line polyline (just the curve, no fill)
-    def _line_points(data):
-        return " ".join(f"{_x(w):.0f},{_y(r):.0f}" for w, r in data)
-
-    pro_area = _area_path(pro_data)
-    rec_area = _area_path(rec_data)
-    pro_line = _line_points(pro_data)
-    rec_line = _line_points(rec_data)
-
-    # Peak annotations
-    pro_peak_x, pro_peak_y = _x(3.5), _y(0.99)
-    rec_peak_x, rec_peak_y = _x(2.5), _y(0.53)
-
-    # Race pace zone: 2.5-3.5 W/kg (typical gravel intensity)
-    race_lo, race_hi = _x(2.5), _x(3.5)
-
-    # Horizontal gridlines at 0.25, 0.50, 0.75, 1.00 g/min
-    gridlines = ""
-    for rate in [0.25, 0.50, 0.75, 1.00]:
-        gy = _y(rate)
-        gridlines += (
-            f'    <line x1="60" y1="{gy:.0f}" x2="370" y2="{gy:.0f}" '
-            f'stroke="{COLORS["tan"]}" stroke-width="0.5" stroke-dasharray="3 3"/>\n'
+    for i, (label, zone, fat_pct, cho_pct) in enumerate(bars_data):
+        y = bar_y_start + i * (bar_h + bar_gap)
+        fat_w = bar_width * fat_pct / 100
+        cho_w = bar_width * cho_pct / 100
+        bars_svg_parts.append(
+            f'<text x="{bar_left - 5}" y="{y + 14}" fill="{C["dark_brown"]}" '
+            f'font-family="{mono}" font-size="8" text-anchor="end">{label}</text>'
+        )
+        bars_svg_parts.append(
+            f'<text x="{bar_left - 5}" y="{y + 24}" fill="{C["secondary_brown"]}" '
+            f'font-family="{mono}" font-size="6.5" text-anchor="end">{zone}</text>'
+        )
+        # Fat portion (teal)
+        bars_svg_parts.append(
+            f'<rect x="{bar_left}" y="{y}" width="{fat_w:.1f}" height="{bar_h}" '
+            f'fill="{C["teal"]}" stroke="{C["dark_brown"]}" stroke-width="1"/>'
+        )
+        if fat_pct >= 10:
+            bars_svg_parts.append(
+                f'<text x="{bar_left + fat_w / 2:.0f}" y="{y + 18}" fill="{C["white"]}" '
+                f'font-family="{mono}" font-size="8" text-anchor="middle">{fat_pct}% fat</text>'
+            )
+        # Carb portion (gold)
+        bars_svg_parts.append(
+            f'<rect x="{bar_left + fat_w:.1f}" y="{y}" width="{cho_w:.1f}" height="{bar_h}" '
+            f'fill="{C["gold"]}" stroke="{C["dark_brown"]}" stroke-width="1"/>'
+        )
+        bars_svg_parts.append(
+            f'<text x="{bar_left + fat_w + cho_w / 2:.0f}" y="{y + 18}" fill="{C["white"]}" '
+            f'font-family="{mono}" font-size="8" text-anchor="middle">{cho_pct}% carb</text>'
         )
 
-    # X-axis tick marks at 1, 2, 3, 4, 5 W/kg
-    x_ticks = ""
-    for wkg in [1, 2, 3, 4, 5]:
-        tx = _x(wkg)
-        x_ticks += (
-            f'    <line x1="{tx:.0f}" y1="230" x2="{tx:.0f}" y2="235" '
-            f'stroke="{COLORS["dark_brown"]}" stroke-width="1"/>\n'
-            f'    <text x="{tx:.0f}" y="248" fill="{COLORS["secondary_brown"]}" '
-            f'font-family="\'Sometype Mono\', monospace" font-size="9" '
-            f'text-anchor="middle">{wkg}</text>\n'
-        )
+    # Annotation
+    bars_svg_parts.append(
+        f'<text x="210" y="282" fill="{C["dark_brown"]}" font-family="{mono}" '
+        f'font-size="8" text-anchor="middle">Carbs dominate at EVERY intensity. Fat never runs the show.</text>'
+    )
+    step1_svg = f'<g data-chart-step="1" opacity="0">\n    ' + '\n    '.join(bars_svg_parts) + '\n  </g>'
 
-    chart_svg = f'''<svg viewBox="0 0 {svg_w} {svg_h}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Fat oxidation rate chart comparing pro and recreational riders across intensity">
-    <title>Fat Burning Rate: How fitness changes the curve</title>
-    <!-- Gridlines -->
-{gridlines}
-    <!-- Pro filled area (under curve) -->
-    <polygon points="{pro_area}" fill="{COLORS['teal']}" opacity="0.15" class="gg-wp-scroll-pro-area"/>
-    <!-- Recreational filled area (hidden by default) -->
-    <polygon points="{rec_area}" fill="{COLORS['gold']}" opacity="0" class="gg-wp-scroll-rec-area" data-chart-rec-area/>
-    <!-- Pro curve line -->
-    <polyline points="{pro_line}" fill="none" stroke="{COLORS['teal']}" stroke-width="2.5" class="gg-wp-scroll-pro-line"/>
-    <!-- Recreational curve line (hidden by default) -->
-    <polyline points="{rec_line}" fill="none" stroke="{COLORS['gold']}" stroke-width="2.5" opacity="0" class="gg-wp-scroll-rec-line" data-chart-rec-line/>
-    <!-- Race pace zone (hidden by default) -->
-    <rect x="{race_lo:.0f}" y="40" width="{race_hi - race_lo:.0f}" height="190" fill="{COLORS['dark_brown']}" opacity="0" class="gg-wp-scroll-race-zone" data-chart-race-zone/>
-    <text x="{(race_lo + race_hi) / 2:.0f}" y="35" fill="{COLORS['dark_brown']}" font-family="'Sometype Mono', monospace" font-size="9" text-anchor="middle" opacity="0" data-chart-race-label>RACE PACE</text>
-    <!-- Pro peak annotation (hidden by default) -->
-    <circle cx="{pro_peak_x:.0f}" cy="{pro_peak_y:.0f}" r="4" fill="{COLORS['teal']}" stroke="{COLORS['dark_brown']}" stroke-width="1" opacity="0" data-chart-pro-peak/>
-    <text x="{pro_peak_x + 6:.0f}" y="{pro_peak_y - 6:.0f}" fill="{COLORS['teal']}" font-family="'Sometype Mono', monospace" font-size="8" opacity="0" data-chart-pro-peak-label>0.99 g/min</text>
-    <!-- Rec peak annotation (hidden by default) -->
-    <circle cx="{rec_peak_x:.0f}" cy="{rec_peak_y:.0f}" r="4" fill="{COLORS['gold']}" stroke="{COLORS['dark_brown']}" stroke-width="1" opacity="0" data-chart-rec-peak/>
-    <text x="{rec_peak_x + 6:.0f}" y="{rec_peak_y - 6:.0f}" fill="{COLORS['gold']}" font-family="'Sometype Mono', monospace" font-size="8" opacity="0" data-chart-rec-peak-label>0.53 g/min</text>
-    <!-- Carb-dominant annotation (visible at step 0) -->
-    <text x="215" y="218" fill="{COLORS['secondary_brown']}" font-family="'Sometype Mono', monospace" font-size="8" text-anchor="middle" opacity="0.7" data-chart-carb-note>Carbs provide 60%+ of energy at every intensity</text>
-    <!-- Curve labels (hidden by default) -->
-    <text x="{_x(4.2):.0f}" y="{_y(0.85) - 4:.0f}" fill="{COLORS['teal']}" font-family="'Sometype Mono', monospace" font-size="10" font-weight="bold" opacity="0" data-chart-pro-label>PRO</text>
-    <text x="{_x(3.6):.0f}" y="{_y(0.30) + 14:.0f}" fill="{COLORS['gold']}" font-family="'Sometype Mono', monospace" font-size="10" font-weight="bold" opacity="0" data-chart-rec-label>RECREATIONAL</text>
-    <!-- Gap bracket at 3.0 W/kg — hidden until step 2 -->
-    <!-- Pro at 3.0: FATox=0.96, fat_pct=32%. Rec at 3.0: FATox=0.49, fat_pct=21%. -->
-    <line x1="{_x(3.0):.0f}" y1="40" x2="{_x(3.0):.0f}" y2="230" stroke="{COLORS['dark_brown']}" stroke-width="1" stroke-dasharray="4 3" opacity="0" data-chart-gap-line/>
-    <circle cx="{_x(3.0):.0f}" cy="{_y(0.96):.0f}" r="3.5" fill="{COLORS['teal']}" stroke="{COLORS['dark_brown']}" stroke-width="1" opacity="0" data-chart-gap-pro-dot/>
-    <circle cx="{_x(3.0):.0f}" cy="{_y(0.49):.0f}" r="3.5" fill="{COLORS['gold']}" stroke="{COLORS['dark_brown']}" stroke-width="1" opacity="0" data-chart-gap-rec-dot/>
-    <!-- Bracket line between the two dots -->
-    <line x1="{_x(3.0) + 6:.0f}" y1="{_y(0.96):.0f}" x2="{_x(3.0) + 6:.0f}" y2="{_y(0.49):.0f}" stroke="{COLORS['dark_brown']}" stroke-width="1.5" opacity="0" data-chart-gap-bracket/>
-    <line x1="{_x(3.0) + 3:.0f}" y1="{_y(0.96):.0f}" x2="{_x(3.0) + 9:.0f}" y2="{_y(0.96):.0f}" stroke="{COLORS['dark_brown']}" stroke-width="1.5" opacity="0" data-chart-gap-bracket-top/>
-    <line x1="{_x(3.0) + 3:.0f}" y1="{_y(0.49):.0f}" x2="{_x(3.0) + 9:.0f}" y2="{_y(0.49):.0f}" stroke="{COLORS['dark_brown']}" stroke-width="1.5" opacity="0" data-chart-gap-bracket-bot/>
-    <!-- Gap labels -->
-    <text x="{_x(3.0) + 14:.0f}" y="{_y(0.96) + 3:.0f}" fill="{COLORS['teal']}" font-family="'Sometype Mono', monospace" font-size="7.5" opacity="0" data-chart-gap-pro-text>32% from fat</text>
-    <text x="{_x(3.0) + 14:.0f}" y="{_y(0.49) + 3:.0f}" fill="{COLORS['gold']}" font-family="'Sometype Mono', monospace" font-size="7.5" opacity="0" data-chart-gap-rec-text>21% from fat</text>
-    <text x="{_x(3.0) + 14:.0f}" y="{(_y(0.96) + _y(0.49)) / 2 + 3:.0f}" fill="{COLORS['dark_brown']}" font-family="'Sometype Mono', monospace" font-size="8" font-weight="bold" opacity="0" data-chart-gap-diff>2&#215; gap</text>
-    <!-- Axes -->
-    <line x1="60" y1="230" x2="370" y2="230" stroke="{COLORS['dark_brown']}" stroke-width="2"/>
-    <line x1="60" y1="40" x2="60" y2="230" stroke="{COLORS['dark_brown']}" stroke-width="2"/>
-    <!-- X-axis ticks + labels -->
-{x_ticks}
-    <!-- Axis titles -->
-    <text x="215" y="265" fill="{COLORS['dark_brown']}" font-family="'Sometype Mono', monospace" font-size="9" text-anchor="middle">INTENSITY (W/kg)</text>
-    <text x="14" y="135" fill="{COLORS['dark_brown']}" font-family="'Sometype Mono', monospace" font-size="9" text-anchor="middle" transform="rotate(-90, 14, 135)">FAT BURN (g/min)</text>
-    <!-- Y-axis labels -->
-    <text x="54" y="233" fill="{COLORS['secondary_brown']}" font-family="'Sometype Mono', monospace" font-size="8" text-anchor="end">0</text>
-    <text x="54" y="{_y(0.50):.0f}" fill="{COLORS['secondary_brown']}" font-family="'Sometype Mono', monospace" font-size="8" text-anchor="end">0.50</text>
-    <text x="54" y="{_y(1.0):.0f}" fill="{COLORS['secondary_brown']}" font-family="'Sometype Mono', monospace" font-size="8" text-anchor="end">1.00</text>
+    # ── Step 2: "O2 HEADROOM" — VO2max capacity comparison ──
+    step2_svg = f'''<g data-chart-step="2" opacity="0">
+    <text x="210" y="35" fill="{C['dark_brown']}" font-family="{mono}" font-size="11" text-anchor="middle" font-weight="bold">OXYGEN IS THE KEY</text>
+    <!-- Pro VO2max bar -->
+    <rect x="60" y="55" width="120" height="200" fill="{C['sand']}" stroke="{C['dark_brown']}" stroke-width="2"/>
+    <text x="120" y="75" fill="{C['dark_brown']}" font-family="{mono}" font-size="9" text-anchor="middle" font-weight="bold">PRO</text>
+    <text x="120" y="88" fill="{C['secondary_brown']}" font-family="{mono}" font-size="7" text-anchor="middle">VO2max: 75 ml/kg/min</text>
+    <!-- Pro at 2.5 W/kg: ~40% of VO2max used -->
+    <rect x="62" y="175" width="116" height="78" fill="{C['teal']}" opacity="0.3"/>
+    <text x="120" y="220" fill="{C['dark_brown']}" font-family="{mono}" font-size="7" text-anchor="middle">~40% used</text>
+    <text x="120" y="232" fill="{C['dark_brown']}" font-family="{mono}" font-size="7" text-anchor="middle">at 2.5 W/kg</text>
+    <!-- Pro headroom label -->
+    <text x="120" y="130" fill="{C['teal']}" font-family="{mono}" font-size="9" text-anchor="middle" font-weight="bold">60% HEADROOM</text>
+    <text x="120" y="145" fill="{C['teal']}" font-family="{mono}" font-size="7" text-anchor="middle">O2 to spare &#8594; burns fat</text>
+    <!-- Rec VO2max bar (shorter — lower VO2max) -->
+    <rect x="240" y="145" width="120" height="110" fill="{C['sand']}" stroke="{C['dark_brown']}" stroke-width="2"/>
+    <text x="300" y="162" fill="{C['dark_brown']}" font-family="{mono}" font-size="9" text-anchor="middle" font-weight="bold">RECREATIONAL</text>
+    <text x="300" y="175" fill="{C['secondary_brown']}" font-family="{mono}" font-size="7" text-anchor="middle">VO2max: 40 ml/kg/min</text>
+    <!-- Rec at 2.5 W/kg: ~90% of VO2max used -->
+    <rect x="242" y="157" width="116" height="96" fill="{C['gold']}" opacity="0.3"/>
+    <text x="300" y="220" fill="{C['dark_brown']}" font-family="{mono}" font-size="7" text-anchor="middle">~90% used</text>
+    <text x="300" y="232" fill="{C['dark_brown']}" font-family="{mono}" font-size="7" text-anchor="middle">at 2.5 W/kg</text>
+    <!-- Rec no headroom -->
+    <text x="300" y="148" fill="{C['gold']}" font-family="{mono}" font-size="8" text-anchor="middle" font-weight="bold">NO HEADROOM</text>
+    <!-- Bottom text -->
+    <text x="210" y="275" fill="{C['dark_brown']}" font-family="{mono}" font-size="8" text-anchor="middle">Same pace. Same watts. Completely different O2 budgets.</text>
+    <text x="210" y="290" fill="{C['dark_brown']}" font-family="{mono}" font-size="7.5" text-anchor="middle">Fat oxidation is an aerobic luxury. It requires oxygen you can spare.</text>
+  </g>'''
+
+    # ── Step 3: "THE ZONE TABLE" — same W/kg, different zones ──
+    # Table showing at 2.5 W/kg: Pro = Z1, Rec = Z4 (FTP)
+    table_rows = [
+        ("1.5", "Z1", "39%", "61%", "Z2", "39%", "61%"),
+        ("2.0", "Z1", "38%", "62%", "Z3", "35%", "65%"),
+        ("2.5", "Z1", "35%", "65%", "FTP", "~3%", "~97%"),
+        ("3.0", "Z1", "32%", "68%", "Z5+", "~0%", "100%"),  # 3.0/5.5=54.5%→Z1 (<56%)
+        ("3.5", "Z2", "27%", "73%", "&#8212;", "0%", "100%"),
+    ]
+    # Build as SVG table
+    th = 22  # row height
+    ty_start = 75
+    step3_parts = [
+        f'<text x="210" y="35" fill="{C["dark_brown"]}" font-family="{mono}" '
+        f'font-size="10" text-anchor="middle" font-weight="bold">SAME PACE, DIFFERENT UNIVERSE</text>',
+        f'<text x="210" y="50" fill="{C["secondary_brown"]}" font-family="{mono}" '
+        f'font-size="7.5" text-anchor="middle">Both riders: 75 kg male. Same road. Same watts.</text>',
+        # Header row
+        f'<rect x="20" y="58" width="380" height="18" fill="{C["dark_brown"]}"/>',
+        f'<text x="45" y="71" fill="{C["white"]}" font-family="{mono}" font-size="7" text-anchor="middle">W/kg</text>',
+        f'<text x="120" y="64" fill="{C["white"]}" font-family="{mono}" font-size="6" text-anchor="middle">PRO (FTP 5.5)</text>',
+        f'<text x="120" y="73" fill="{C["white"]}" font-family="{mono}" font-size="6" text-anchor="middle">Zone | Fat | Carb</text>',
+        f'<text x="305" y="64" fill="{C["white"]}" font-family="{mono}" font-size="6" text-anchor="middle">REC (FTP 2.5)</text>',
+        f'<text x="305" y="73" fill="{C["white"]}" font-family="{mono}" font-size="6" text-anchor="middle">Zone | Fat | Carb</text>',
+    ]
+    for i, (wkg, pz, pf, pc, rz, rf, rc) in enumerate(table_rows):
+        y = ty_start + i * th
+        is_key = wkg == "2.5"
+        bg = C['sand'] if is_key else (C['warm_paper'] if i % 2 == 0 else C['sand'])
+        step3_parts.append(
+            f'<rect x="20" y="{y}" width="380" height="{th}" fill="{bg}" '
+            f'stroke="{C["tan"]}" stroke-width="0.5"/>'
+        )
+        if is_key:
+            step3_parts.append(
+                f'<rect x="20" y="{y}" width="380" height="{th}" fill="none" '
+                f'stroke="{C["dark_brown"]}" stroke-width="2"/>'
+            )
+        ty = y + 15
+        step3_parts.append(f'<text x="45" y="{ty}" fill="{C["dark_brown"]}" font-family="{mono}" font-size="8" text-anchor="middle" font-weight="bold">{wkg}</text>')
+        step3_parts.append(f'<text x="90" y="{ty}" fill="{C["teal"]}" font-family="{mono}" font-size="7.5" text-anchor="middle">{pz}</text>')
+        step3_parts.append(f'<text x="120" y="{ty}" fill="{C["teal"]}" font-family="{mono}" font-size="7.5" text-anchor="middle">{pf}</text>')
+        step3_parts.append(f'<text x="155" y="{ty}" fill="{C["teal"]}" font-family="{mono}" font-size="7.5" text-anchor="middle">{pc}</text>')
+        # separator
+        step3_parts.append(f'<line x1="195" y1="{y + 3}" x2="195" y2="{y + th - 3}" stroke="{C["tan"]}" stroke-width="1"/>')
+        rz_color = C['gold'] if rz in ('FTP', 'Z5+') else C['secondary_brown']
+        step3_parts.append(f'<text x="235" y="{ty}" fill="{rz_color}" font-family="{mono}" font-size="7.5" text-anchor="middle" font-weight="{"bold" if is_key else "normal"}">{rz}</text>')
+        step3_parts.append(f'<text x="290" y="{ty}" fill="{C["gold"]}" font-family="{mono}" font-size="7.5" text-anchor="middle">{rf}</text>')
+        step3_parts.append(f'<text x="340" y="{ty}" fill="{C["gold"]}" font-family="{mono}" font-size="7.5" text-anchor="middle">{rc}</text>')
+
+    # Key row callout
+    step3_parts.append(
+        f'<text x="210" y="{ty_start + 5 * th + 15}" fill="{C["dark_brown"]}" font-family="{mono}" font-size="8" text-anchor="middle">'
+        f'At 2.5 W/kg: the pro is on a recovery ride.</text>'
+    )
+    step3_parts.append(
+        f'<text x="210" y="{ty_start + 5 * th + 30}" fill="{C["dark_brown"]}" font-family="{mono}" font-size="8" text-anchor="middle">'
+        f'The recreational rider is at threshold, burning ~100% carbs.</text>'
+    )
+    # O2 explanation below
+    step3_parts.append(
+        f'<text x="210" y="{ty_start + 5 * th + 55}" fill="{C["secondary_brown"]}" font-family="{mono}" font-size="7" text-anchor="middle">'
+        f'Why? The rec rider has no oxygen headroom. Every O2 molecule</text>'
+    )
+    step3_parts.append(
+        f'<text x="210" y="{ty_start + 5 * th + 67}" fill="{C["secondary_brown"]}" font-family="{mono}" font-size="7" text-anchor="middle">'
+        f'goes to fast carb pathways. Fat oxidation is shut down.</text>'
+    )
+    step3_svg = f'<g data-chart-step="3" opacity="0">\n    ' + '\n    '.join(step3_parts) + '\n  </g>'
+
+    # ── Step 4: "ABSOLUTE TERMS" — CHO g/hr + gut ceiling ──
+    step4_svg = f'''<g data-chart-step="4" opacity="0">
+    <text x="210" y="35" fill="{C['dark_brown']}" font-family="{mono}" font-size="10" text-anchor="middle" font-weight="bold">WHAT THE PERCENTAGES COST</text>
+    <text x="210" y="50" fill="{C['secondary_brown']}" font-family="{mono}" font-size="7.5" text-anchor="middle">At 2.5 W/kg = 188W (75 kg rider). kcal/hr = 3.6 &#215; watts = 677.</text>
+    <!-- Pro column -->
+    <rect x="30" y="65" width="160" height="30" fill="{C['teal']}" stroke="{C['dark_brown']}" stroke-width="2"/>
+    <text x="110" y="85" fill="{C['white']}" font-family="{mono}" font-size="9" text-anchor="middle" font-weight="bold">PRO (Zone 1)</text>
+    <text x="110" y="112" fill="{C['dark_brown']}" font-family="{mono}" font-size="8" text-anchor="middle">CHO: 110 g/hr</text>
+    <text x="110" y="128" fill="{C['dark_brown']}" font-family="{mono}" font-size="8" text-anchor="middle">Fat: 27 g/hr</text>
+    <text x="110" y="148" fill="{C['teal']}" font-family="{mono}" font-size="7.5" text-anchor="middle">Fat covers 35% of the bill</text>
+    <!-- Rec column -->
+    <rect x="230" y="65" width="160" height="30" fill="{C['gold']}" stroke="{C['dark_brown']}" stroke-width="2"/>
+    <text x="310" y="85" fill="{C['white']}" font-family="{mono}" font-size="9" text-anchor="middle" font-weight="bold">REC (Threshold)</text>
+    <text x="310" y="112" fill="{C['dark_brown']}" font-family="{mono}" font-size="8" text-anchor="middle">CHO: 164 g/hr</text>
+    <text x="310" y="128" fill="{C['dark_brown']}" font-family="{mono}" font-size="8" text-anchor="middle">Fat: ~2 g/hr</text>
+    <text x="310" y="148" fill="{C['gold']}" font-family="{mono}" font-size="7.5" text-anchor="middle">Fat covers ~3% of the bill</text>
+    <!-- Gut ceiling line -->
+    <line x1="30" y1="180" x2="390" y2="180" stroke="{C['dark_brown']}" stroke-width="1.5" stroke-dasharray="6 3"/>
+    <text x="210" y="175" fill="{C['dark_brown']}" font-family="{mono}" font-size="8" text-anchor="middle" font-weight="bold">GUT CEILING: 60&#8211;90 g/hr (untrained) | 90&#8211;120 g/hr (trained)</text>
+    <!-- CHO demand bars relative to gut ceiling -->
+    <rect x="60" y="195" width="{110 * 1.2:.0f}" height="20" fill="{C['teal']}" opacity="0.4" stroke="{C['dark_brown']}" stroke-width="1"/>
+    <text x="{60 + 110 * 1.2 + 5:.0f}" y="209" fill="{C['dark_brown']}" font-family="{mono}" font-size="7.5">110 g/hr</text>
+    <rect x="60" y="220" width="{164 * 1.2:.0f}" height="20" fill="{C['gold']}" opacity="0.4" stroke="{C['dark_brown']}" stroke-width="1"/>
+    <text x="{60 + 164 * 1.2 + 5:.0f}" y="234" fill="{C['dark_brown']}" font-family="{mono}" font-size="7.5">164 g/hr</text>
+    <!-- 90 g/hr gut line on the bars -->
+    <line x1="{60 + 90 * 1.2:.0f}" y1="190" x2="{60 + 90 * 1.2:.0f}" y2="245" stroke="{C['dark_brown']}" stroke-width="1.5" stroke-dasharray="3 2"/>
+    <text x="{60 + 90 * 1.2:.0f}" y="258" fill="{C['dark_brown']}" font-family="{mono}" font-size="7" text-anchor="middle">90 g/hr gut</text>
+    <text x="210" y="280" fill="{C['dark_brown']}" font-family="{mono}" font-size="7.5" text-anchor="middle">Both exceed gut capacity. The rec rider can&#8217;t even hold this pace.</text>
+  </g>'''
+
+    # ── Step 5: "BODY SIZE PENALTY" — 75kg vs 90kg at same W/kg ──
+    step5_svg = f'''<g data-chart-step="5" opacity="0">
+    <text x="210" y="35" fill="{C['dark_brown']}" font-family="{mono}" font-size="10" text-anchor="middle" font-weight="bold">SAME W/KG, DIFFERENT FUEL BILL</text>
+    <text x="210" y="50" fill="{C['secondary_brown']}" font-family="{mono}" font-size="7.5" text-anchor="middle">Both recreational, both 2.5 W/kg FTP, riding at 80% FTP (2.0 W/kg).</text>
+    <!-- 75kg rider -->
+    <rect x="30" y="70" width="160" height="95" fill="{C['sand']}" stroke="{C['dark_brown']}" stroke-width="2"/>
+    <text x="110" y="90" fill="{C['dark_brown']}" font-family="{mono}" font-size="10" text-anchor="middle" font-weight="bold">75 KG</text>
+    <text x="110" y="108" fill="{C['secondary_brown']}" font-family="{mono}" font-size="8" text-anchor="middle">150W &#8594; 540 kcal/hr</text>
+    <text x="110" y="125" fill="{C['dark_brown']}" font-family="{mono}" font-size="9" text-anchor="middle">CHO: 88 g/hr</text>
+    <text x="110" y="142" fill="{C['teal']}" font-family="{mono}" font-size="8" text-anchor="middle">Gut covers it (60&#8211;90)</text>
+    <text x="110" y="158" fill="{C['teal']}" font-family="{mono}" font-size="8" text-anchor="middle" font-weight="bold">&#10003; Manageable</text>
+    <!-- 90kg rider -->
+    <rect x="230" y="70" width="160" height="95" fill="{C['sand']}" stroke="{C['dark_brown']}" stroke-width="2"/>
+    <text x="310" y="90" fill="{C['dark_brown']}" font-family="{mono}" font-size="10" text-anchor="middle" font-weight="bold">90 KG</text>
+    <text x="310" y="108" fill="{C['secondary_brown']}" font-family="{mono}" font-size="8" text-anchor="middle">180W &#8594; 648 kcal/hr</text>
+    <text x="310" y="125" fill="{C['dark_brown']}" font-family="{mono}" font-size="9" text-anchor="middle">CHO: 106 g/hr</text>
+    <text x="310" y="142" fill="{C['gold']}" font-family="{mono}" font-size="8" text-anchor="middle">Exceeds gut (60&#8211;90)</text>
+    <text x="310" y="158" fill="{C['gold']}" font-family="{mono}" font-size="8" text-anchor="middle" font-weight="bold">&#10007; Deficit every hour</text>
+    <!-- Explanation -->
+    <line x1="30" y1="185" x2="390" y2="185" stroke="{C['tan']}" stroke-width="1"/>
+    <text x="210" y="205" fill="{C['dark_brown']}" font-family="{mono}" font-size="8" text-anchor="middle">Same W/kg. Same speed uphill. Same perceived effort.</text>
+    <text x="210" y="222" fill="{C['dark_brown']}" font-family="{mono}" font-size="8" text-anchor="middle" font-weight="bold">But 20% more absolute watts = 20% more carbs burned.</text>
+    <text x="210" y="242" fill="{C['dark_brown']}" font-family="{mono}" font-size="8" text-anchor="middle">The gut doesn&#8217;t scale with body weight.</text>
+    <text x="210" y="257" fill="{C['secondary_brown']}" font-family="{mono}" font-size="7" text-anchor="middle">SGLT1 transporter density is set by diet/training, not body mass.</text>
+    <text x="210" y="272" fill="{C['secondary_brown']}" font-family="{mono}" font-size="7" text-anchor="middle">(Jeukendrup 2014: no correlation between BW and exogenous CHO oxidation)</text>
+    <text x="210" y="292" fill="{C['dark_brown']}" font-family="{mono}" font-size="8" text-anchor="middle" font-weight="bold">W/kg normalizes performance. It does not normalize fueling.</text>
+  </g>'''
+
+    # ── Step 6: "SEX DIFFERENCES" — engine vs fuel economy ──
+    step6_svg = f'''<g data-chart-step="6" opacity="0">
+    <text x="210" y="30" fill="{C['dark_brown']}" font-family="{mono}" font-size="10" text-anchor="middle" font-weight="bold">ENGINE SIZE vs FUEL ECONOMY</text>
+    <!-- Male column -->
+    <rect x="30" y="48" width="160" height="120" fill="{C['sand']}" stroke="{C['dark_brown']}" stroke-width="2"/>
+    <text x="110" y="66" fill="{C['dark_brown']}" font-family="{mono}" font-size="9" text-anchor="middle" font-weight="bold">MALE (75 kg, 5.5 W/kg)</text>
+    <text x="110" y="82" fill="{C['dark_brown']}" font-family="{mono}" font-size="7.5" text-anchor="middle">VO2max: 75 ml/kg/min</text>
+    <text x="110" y="97" fill="{C['dark_brown']}" font-family="{mono}" font-size="7.5" text-anchor="middle">FTP: 413W &#8594; 1,487 kcal/hr</text>
+    <text x="110" y="112" fill="{C['gold']}" font-family="{mono}" font-size="8" text-anchor="middle" font-weight="bold">CHO at 75% FTP: 225 g/hr</text>
+    <text x="110" y="127" fill="{C['secondary_brown']}" font-family="{mono}" font-size="7" text-anchor="middle">Crossover: ~50% VO2max</text>
+    <text x="110" y="142" fill="{C['secondary_brown']}" font-family="{mono}" font-size="7" text-anchor="middle">Bigger engine. Worse fuel economy.</text>
+    <text x="110" y="160" fill="{C['dark_brown']}" font-family="{mono}" font-size="8" text-anchor="middle" font-weight="bold">Gut deficit: &#8722;135 g/hr</text>
+    <!-- Female column -->
+    <rect x="230" y="48" width="160" height="120" fill="{C['sand']}" stroke="{C['dark_brown']}" stroke-width="2"/>
+    <text x="310" y="66" fill="{C['dark_brown']}" font-family="{mono}" font-size="9" text-anchor="middle" font-weight="bold">FEMALE (60 kg, 4.8 W/kg)</text>
+    <text x="310" y="82" fill="{C['dark_brown']}" font-family="{mono}" font-size="7.5" text-anchor="middle">VO2max: 65 ml/kg/min</text>
+    <text x="310" y="97" fill="{C['dark_brown']}" font-family="{mono}" font-size="7.5" text-anchor="middle">FTP: 288W &#8594; 1,037 kcal/hr</text>
+    <text x="310" y="112" fill="{C['teal']}" font-family="{mono}" font-size="8" text-anchor="middle" font-weight="bold">CHO at 75% FTP: 145 g/hr</text>
+    <text x="310" y="127" fill="{C['secondary_brown']}" font-family="{mono}" font-size="7" text-anchor="middle">Crossover: ~58% VO2max</text>
+    <text x="310" y="142" fill="{C['secondary_brown']}" font-family="{mono}" font-size="7" text-anchor="middle">Smaller engine. Better fuel economy.</text>
+    <text x="310" y="160" fill="{C['dark_brown']}" font-family="{mono}" font-size="8" text-anchor="middle" font-weight="bold">Gut deficit: &#8722;55 g/hr</text>
+    <!-- The paradox -->
+    <line x1="30" y1="178" x2="390" y2="178" stroke="{C['tan']}" stroke-width="1"/>
+    <text x="210" y="198" fill="{C['dark_brown']}" font-family="{mono}" font-size="7.5" text-anchor="middle">Women burn ~7% more fat at the same relative intensity (estrogen-mediated).</text>
+    <text x="210" y="212" fill="{C['dark_brown']}" font-family="{mono}" font-size="7.5" text-anchor="middle">Women&#8217;s crossover point is higher (~58% vs ~50% VO2max). Less glycogen used.</text>
+    <text x="210" y="228" fill="{C['dark_brown']}" font-family="{mono}" font-size="8" text-anchor="middle" font-weight="bold">So why are men faster?</text>
+    <text x="210" y="245" fill="{C['dark_brown']}" font-family="{mono}" font-size="7.5" text-anchor="middle">Bigger heart. More hemoglobin. More muscle. ~20% higher VO2max per kg LBM.</text>
+    <text x="210" y="258" fill="{C['dark_brown']}" font-family="{mono}" font-size="7.5" text-anchor="middle">More watts. More speed. But more fuel burn &#8212; and the same gut ceiling.</text>
+    <text x="210" y="276" fill="{C['teal']}" font-family="{mono}" font-size="8" text-anchor="middle" font-weight="bold">In ultra-distance, fuel economy starts winning.</text>
+    <text x="210" y="292" fill="{C['secondary_brown']}" font-family="{mono}" font-size="7" text-anchor="middle">The performance gap narrows as races get longer. Some women win outright.</text>
+  </g>'''
+
+    # ── Combine all SVG groups ──
+    chart_svg = f'''<svg viewBox="0 0 {svg_w} {svg_h}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Fueling science: from first principles to personalized nutrition" class="gg-wp-crossover-svg">
+    <title>The Science of Fueling: Why Your Body Burns What It Burns</title>
+    {step0_svg}
+    {step1_svg}
+    {step2_svg}
+    {step3_svg}
+    {step4_svg}
+    {step5_svg}
+    {step6_svg}
   </svg>'''
 
     return f'''<section class="gg-wp-scroll-section" id="scroll-crossover">
   <div class="gg-wp-scroll-chart">
     <div class="gg-wp-scroll-chart-inner" data-scroll-chart="crossover">
-      <div class="gg-wp-figure-title">Fat Burning: How Fitness Changes the Curve</div>
+      <div class="gg-wp-figure-title">The Science of Fueling</div>
       <div class="gg-wp-chart-wrap">
         {chart_svg}
       </div>
@@ -489,22 +680,51 @@ def build_scroll_crossover() -> str:
   </div>
   <div class="gg-wp-scroll-steps">
     <div class="gg-wp-scroll-step gg-step-active" data-step="0">
-      <h3 class="gg-wp-subsection-title">Carbs Always Run the Show</h3>
-      <p class="gg-wp-prose">Even on the easiest ride you&#8217;ll ever do, your body burns more carbs than fat. At a casual 1.5&nbsp;W/kg, carbohydrate provides <strong>61% of your energy</strong> &#8212; whether you&#8217;re a pro or a weekend rider. Fat never dominates. Not at any intensity, for any fitness level.</p>
+      <h3 class="gg-wp-subsection-title">You Are the Engine</h3>
+      <p class="gg-wp-prose">A bike has no motor. <strong>You</strong> are the motor. You convert chemical energy &#8212; food stored in your body &#8212; into mechanical energy at the pedals. The rate of that conversion is <strong>power</strong>, measured in watts.</p>
+      <p class="gg-wp-prose">How fast the bike moves depends on what those watts must overcome: gravity, air resistance, rolling resistance. Control for those, and <strong>more watts = faster</strong>. Period.</p>
+      <p class="gg-wp-prose">So the first question isn&#8217;t <em>what should I eat?</em> It&#8217;s: <strong>how much energy does my body need to produce, and where does that energy come from?</strong></p>
     </div>
     <div class="gg-wp-scroll-step" data-step="1">
-      <h3 class="gg-wp-subsection-title">Fat Burning Peaks, Then Drops</h3>
-      <p class="gg-wp-prose">Your body does burn fat &#8212; and the rate <em>increases</em> as you ride harder. But only up to a point. Then it drops. This rise-and-fall is your fat oxidation curve. A pro rider&#8217;s fat burning peaks at <strong>0.99&nbsp;g/min</strong> around 3.5&nbsp;W/kg. A recreational rider peaks at <strong>0.53&nbsp;g/min</strong> around 2.5&nbsp;W/kg.</p>
+      <h3 class="gg-wp-subsection-title">Two Fuel Tanks, One Body</h3>
+      <p class="gg-wp-prose">Your body runs on two fuels: <strong>fat</strong> and <strong>carbohydrate</strong>. Fat is an enormous tank &#8212; even a lean rider carries 30,000&#8211;80,000 kcal of it. But fat burns slow and demands extra oxygen. Carbohydrate is a small, fast tank &#8212; only 1,600&#8211;2,400 kcal of glycogen &#8212; but it produces energy quickly under pressure.</p>
+      <p class="gg-wp-prose">At every intensity, your body burns <strong>both</strong>. But carbs always dominate. Even on the easiest ride, carbohydrate provides 60%+ of your energy. As intensity rises, the carb share grows. At threshold, it&#8217;s nearly 100%.</p>
+      <p class="gg-wp-prose"><strong>Fat never runs the show.</strong> It supplements. The question is how much supplementing it can do &#8212; and that depends on your fitness.</p>
     </div>
     <div class="gg-wp-scroll-step" data-step="2">
-      <h3 class="gg-wp-subsection-title">That Gap Changes the Problem</h3>
-      <p class="gg-wp-prose">At 3.0&nbsp;W/kg, a pro burns 0.96&nbsp;g/min of fat (<strong>32%</strong> of their energy). A recreational rider burns just 0.49&nbsp;g/min (<strong>21%</strong>). That&#8217;s a <strong>2&#215; gap</strong> in free energy from fat. But here&#8217;s the twist: the pro&#8217;s <em>total</em> carb demand is also much higher &#8212; 123&nbsp;g/hr vs 103. And at realistic race pace, the picture changes even more.</p>
-      <p class="gg-wp-prose">A recreational rider racing at 1.5&#8211;2.0&nbsp;W/kg burns only <strong>41&#8211;58&nbsp;g/hr</strong> of carbs. The gut can absorb 90&#8211;120&nbsp;g/hr. They have massive headroom &#8212; if they actually eat. A pro racing at 3.5&nbsp;W/kg burns <strong>156&nbsp;g/hr</strong> &#8212; well beyond what any gut can absorb. Their fat buffer is the only thing keeping them from bonking faster.</p>
-      <p class="gg-wp-prose"><strong>Everyone has a carb gap. Fitness determines where it bites.</strong> For the recreational rider, the gap is behavioral &#8212; they eat 30&nbsp;g/hr when they could absorb 90. For the pro, the gap is physiological &#8212; they burn more than any gut can replace.</p>
+      <h3 class="gg-wp-subsection-title">Why Fitness Changes the Mix</h3>
+      <p class="gg-wp-prose">The answer is <strong>oxygen</strong>. Fat oxidation is aerobic &#8212; it requires more O2 per calorie than carbs. You can only burn fat when you have oxygen to spare.</p>
+      <p class="gg-wp-prose">A pro&#8217;s VO2max is roughly <strong>2&#215;</strong> a recreational rider&#8217;s (75 vs 40 ml/kg/min). At the same absolute pace, the pro has massive O2 headroom. Their mitochondria can run the slow fat-burning pathway alongside carb burning.</p>
+      <p class="gg-wp-prose">The recreational rider at that same pace is near their oxygen ceiling. Every O2 molecule is spoken for. The body triages: all oxygen goes to <strong>glycolysis</strong> (fast ATP from carbs). Fat oxidation is shut down &#8212; not by choice, but by physics.</p>
+      <p class="gg-wp-prose">Four structural differences drive this: <strong>heart stroke volume</strong> (1.7&#215; more blood per beat), <strong>capillary density</strong> (2&#8211;3&#215; more oxygen delivery routes), <strong>mitochondrial density</strong> (2&#8211;3&#215; more engines per cell), and <strong>Type&nbsp;I fiber proportion</strong> (more fat-preferring muscle fibers).</p>
     </div>
     <div class="gg-wp-scroll-step" data-step="3">
-      <h3 class="gg-wp-subsection-title">At Race Pace, You&#8217;re Carb-Powered</h3>
-      <p class="gg-wp-prose">Whatever your fitness, carbs dominate at race intensity: <strong>65&#8211;79%</strong> of your energy comes from carbohydrate. The difference is scale. A recreational rider at 2.0&nbsp;W/kg burns 58&nbsp;g/hr and can replace every gram if they practice. A pro at 3.5&nbsp;W/kg burns 156&nbsp;g/hr and will always run a deficit. That&#8217;s why the right number depends on <strong>your</strong> body, <strong>your</strong> fitness, and <strong>your</strong> race.</p>
+      <h3 class="gg-wp-subsection-title">Same Road, Different Universe</h3>
+      <p class="gg-wp-prose">Put both riders on the same gravel road at <strong>2.5&nbsp;W/kg</strong> (188W for a 75&nbsp;kg rider). Same pace. Same watts. Same energy cost.</p>
+      <p class="gg-wp-prose">The <strong>pro</strong> is in <strong>Zone&nbsp;1</strong> &#8212; a recovery ride. Fat covers 35% of the energy bill. Heart rate barely above resting. Could hold this pace all day.</p>
+      <p class="gg-wp-prose">The <strong>recreational rider</strong> is at <strong>threshold</strong>. Heart rate 170+. Gasping. Fat oxidation has collapsed to near zero because there is no O2 headroom. <strong>~100% of energy comes from carbs.</strong> Every watt is draining glycogen. And they can&#8217;t sustain it for more than an hour.</p>
+      <p class="gg-wp-prose">The pro is still in <strong>Zone&nbsp;1</strong> at 3.0&nbsp;W/kg &#8212; that&#8217;s active recovery (54% of FTP). The rec rider&#8217;s FTP <em>is</em> 2.5&nbsp;W/kg. <strong>The pro&#8217;s recovery pace exceeds the rec rider&#8217;s maximum sustainable effort.</strong></p>
+    </div>
+    <div class="gg-wp-scroll-step" data-step="4">
+      <h3 class="gg-wp-subsection-title">What the Percentages Cost</h3>
+      <p class="gg-wp-prose">At 188W, both riders burn <strong>677&nbsp;kcal/hr</strong> (3.6 &#215; watts). But the split is everything.</p>
+      <p class="gg-wp-prose">The pro at 35% fat / 65% carb: <strong>110&nbsp;g/hr</strong> of carbs. The rec rider at ~3% fat / ~97% carb: <strong>164&nbsp;g/hr</strong>. Same watts. 50% more carb burn for the rec rider.</p>
+      <p class="gg-wp-prose">Now introduce the <strong>gut ceiling</strong>. Your intestines can absorb 60&#8211;90&nbsp;g/hr of carbs untrained, up to 90&#8211;120&nbsp;g/hr with trained dual-transport (glucose + fructose). That ceiling doesn&#8217;t care how hard you&#8217;re riding. Both riders exceed it at this pace.</p>
+      <p class="gg-wp-prose">But the rec rider can&#8217;t even hold 2.5&nbsp;W/kg. Their actual race pace is Z2: 1.4&#8211;1.9&nbsp;W/kg, burning 60&#8211;90&nbsp;g/hr &#8212; manageable, <strong>if they eat</strong>. The pro cruising at endurance pace (3.0&#8211;3.5&nbsp;W/kg) burns 140&#8211;175&nbsp;g/hr. <strong>No gut can keep up.</strong></p>
+    </div>
+    <div class="gg-wp-scroll-step" data-step="5">
+      <h3 class="gg-wp-subsection-title">Weight Is a Fueling Penalty</h3>
+      <p class="gg-wp-prose">Two recreational riders, both 2.5&nbsp;W/kg. One weighs 75&nbsp;kg, the other 90&nbsp;kg. Same fitness. Same speed uphill. Same perceived effort.</p>
+      <p class="gg-wp-prose">But the 75&nbsp;kg rider at 80% FTP pushes <strong>150W</strong> and burns <strong>88&nbsp;g/hr</strong> of carbs. The 90&nbsp;kg rider pushes <strong>180W</strong> and burns <strong>106&nbsp;g/hr</strong>. That&#8217;s <strong>20% more carbs</strong> &#8212; with the same gut.</p>
+      <p class="gg-wp-prose">The gut doesn&#8217;t scale with body weight. SGLT1 transporter density &#8212; the molecular bottleneck for glucose absorption &#8212; is set by dietary carbohydrate exposure, not body mass (Jeukendrup, 2014).</p>
+      <p class="gg-wp-prose"><strong>W/kg normalizes performance. It does not normalize fueling.</strong> The heavier rider climbs at the same speed but bonks first.</p>
+    </div>
+    <div class="gg-wp-scroll-step" data-step="6">
+      <h3 class="gg-wp-subsection-title">The Engine vs. the Fuel Economy</h3>
+      <p class="gg-wp-prose">Women have <strong>genuinely different substrate utilization</strong> &#8212; not just lower body weight. Estrogen upregulates fat metabolism: women burn ~7 percentage points more fat at the same relative intensity, their crossover point is higher (~58% vs ~50% VO2max), and they use 25&#8211;50% less muscle glycogen than matched men.</p>
+      <p class="gg-wp-prose">So why are men faster? <strong>The engine is bigger.</strong> ~20% higher VO2max per kg lean body mass. Larger hearts. More hemoglobin. More muscle mass producing force. Men are the V8 &#8212; more power, worse fuel economy. Women are the hybrid &#8212; less power, better efficiency per watt.</p>
+      <p class="gg-wp-prose">In short-course racing, the bigger engine wins. But as races get longer, <strong>fuel economy starts mattering more than horsepower</strong>. The male fueling deficit compounds every hour. The female efficiency advantage accumulates. This is why the performance gap <strong>narrows in ultra-distance</strong> &#8212; and why some women win 200+ mile races outright.</p>
+      <p class="gg-wp-prose"><strong>Speed comes from the engine. The fueling crisis comes from the engine too.</strong></p>
     </div>
   </div>
 </section>'''
@@ -1789,41 +2009,14 @@ def build_whitepaper_js() -> str:
   }
 
   function updateCrossoverChart(chart, step) {
-    var recLine = chart.querySelector('[data-chart-rec-line]');
-    var recArea = chart.querySelector('[data-chart-rec-area]');
-    var recLabel = chart.querySelector('[data-chart-rec-label]');
-    var proLabel = chart.querySelector('[data-chart-pro-label]');
-    var proPeak = chart.querySelector('[data-chart-pro-peak]');
-    var proPeakLabel = chart.querySelector('[data-chart-pro-peak-label]');
-    var recPeak = chart.querySelector('[data-chart-rec-peak]');
-    var recPeakLabel = chart.querySelector('[data-chart-rec-peak-label]');
-    var raceZone = chart.querySelector('[data-chart-race-zone]');
-    var raceLabel = chart.querySelector('[data-chart-race-label]');
-    var carbNote = chart.querySelector('[data-chart-carb-note]');
-    /* Gap bracket elements */
-    var gapEls = chart.querySelectorAll('[data-chart-gap-line],[data-chart-gap-pro-dot],[data-chart-gap-rec-dot],[data-chart-gap-bracket],[data-chart-gap-bracket-top],[data-chart-gap-bracket-bot],[data-chart-gap-pro-text],[data-chart-gap-rec-text],[data-chart-gap-diff]');
-
-    /* Step 0: Pro curve + carb-note visible. Everything else hidden. */
-    if (carbNote) carbNote.setAttribute('opacity', step === 0 ? '0.7' : '0.3');
-
-    /* Step 1: Rec curve appears + both curve labels + peak annotations */
-    var showRec = step >= 1 ? '1' : '0';
-    if (recLine) recLine.setAttribute('opacity', showRec);
-    if (recArea) recArea.setAttribute('opacity', step >= 1 ? '0.12' : '0');
-    if (proLabel) proLabel.setAttribute('opacity', showRec);
-    if (recLabel) recLabel.setAttribute('opacity', showRec);
-    if (proPeak) proPeak.setAttribute('opacity', step >= 1 ? '1' : '0');
-    if (proPeakLabel) proPeakLabel.setAttribute('opacity', step >= 1 ? '1' : '0');
-    if (recPeak) recPeak.setAttribute('opacity', step >= 1 ? '1' : '0');
-    if (recPeakLabel) recPeakLabel.setAttribute('opacity', step >= 1 ? '1' : '0');
-
-    /* Step 2: Gap bracket at 3.0 W/kg — the 2x gap visualization */
-    var showGap = step >= 2 ? '1' : '0';
-    gapEls.forEach(function(el) { el.setAttribute('opacity', showGap); });
-
-    /* Step 3: Race pace zone */
-    if (raceZone) raceZone.setAttribute('opacity', step >= 3 ? '0.08' : '0');
-    if (raceLabel) raceLabel.setAttribute('opacity', step >= 3 ? '1' : '0');
+    /* 7-panel chart: each <g data-chart-step="N"> is a self-contained panel.
+       Show the active step, hide all others. Fallback to step 0 on bad input. */
+    if (isNaN(step) || step < 0 || step > 6) step = 0;
+    var panels = chart.querySelectorAll('[data-chart-step]');
+    panels.forEach(function(g) {
+      var panelStep = parseInt(g.getAttribute('data-chart-step'), 10);
+      g.setAttribute('opacity', panelStep === step ? '1' : '0');
+    });
   }
 
   function updateChart(chartEl, sectionId, stepIndex) {
@@ -2006,15 +2199,13 @@ def generate_whitepaper_page(external_assets: dict = None) -> str:
     """Generate the complete white paper page HTML."""
     nav = build_nav()
     hero = build_hero()
-    murphy_problem = build_murphy()
+    scroll_crossover = build_scroll_crossover()
     inline_calculator = build_inline_calculator()
-    practical = build_practical()
-    inline_cta_1 = build_inline_cta("CHECK YOUR NUMBER", "Find your race. Get your personalized carb target.", "check_your_number")
     scroll_duration = build_scroll_duration()
     scroll_fitness = build_scroll_fitness()
-    scroll_crossover = build_scroll_crossover()
+    practical = build_practical()
     tldr = build_tldr()
-    inline_cta_2 = build_inline_cta("FIND YOUR RACE PREP KIT", "Personalized fueling for 328 races.", "find_race_prep_kit")
+    inline_cta_1 = build_inline_cta("FIND YOUR RACE PREP KIT", "Personalized fueling for 328 races.", "find_race_prep_kit")
     phenotype = build_phenotype()
     jensen = build_jensen()
     power_curve = build_power_curve()
@@ -2076,23 +2267,19 @@ def generate_whitepaper_page(external_assets: dict = None) -> str:
 
   {hero}
 
-  {murphy_problem}
+  {scroll_crossover}
 
   {inline_calculator}
-
-  {practical}
-
-  {inline_cta_1}
 
   {scroll_duration}
 
   {scroll_fitness}
 
-  {scroll_crossover}
+  {practical}
 
   {tldr}
 
-  {inline_cta_2}
+  {inline_cta_1}
 
   {phenotype}
 

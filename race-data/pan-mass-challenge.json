@@ -1,0 +1,322 @@
+{
+  "race": {
+    "name": "Pan-Mass Challenge",
+    "slug": "pan-mass-challenge",
+    "display_name": "Pan-Mass Challenge (PMC)",
+    "tagline": "The world's most successful athletic fundraiser. 6,500 riders. Up to 177 miles across Massachusetts. $1.125 billion raised for Dana-Farber Cancer Institute — and 100% of every rider-raised dollar goes to cancer research.",
+    "vitals": {
+      "distance_mi": 177,
+      "elevation_ft": 6800,
+      "location": "Worcester to Provincetown, Massachusetts, USA (multiple routes across Massachusetts)",
+      "location_badge": "MASSACHUSETTS, USA",
+      "date": "First weekend of August annually",
+      "date_specific": "2026: August 1-2",
+      "terrain_types": [
+        "Rolling New England backroads through Central Massachusetts",
+        "Paved state highways and county roads",
+        "Cape Cod Canal crossing and coastal roads",
+        "Flat-to-rolling Cape Cod terrain to Provincetown"
+      ],
+      "field_size": "~6,500 riders + 3,500 volunteers",
+      "start_time": "Saturday 6:00 AM from College of the Holy Cross, Worcester (or Babson College, Wellesley)",
+      "registration": "Online via pmc.org. Alumni and Heavy Hitters register in January. New riders open mid-January. Fundraising commitment required.",
+      "prize_purse": "None. This is a fundraiser, not a race. Every dollar raised goes to Dana-Farber Cancer Institute.",
+      "aid_stations": "5 water stops on Day 1 (Worcester to Bourne): Mendon (mi 21), Franklin (mi 33), Dighton-Rehoboth (mi 60, lunch), Lakeville (mi 74), Wareham (mi 90). 3 water stops on Day 2 (Bourne to Provincetown): Barnstable (mi 25), Brewster (mi 40), Wellfleet (mi 58). Full mechanical and medical support at every stop and on-course.",
+      "cutoff_time": "Generous. SAG support available on all routes. This is a fundraiser — every rider is supported to finish.",
+      "lat": 42.2373,
+      "lng": -71.8078,
+      "distance_options": [
+        "Worcester to Provincetown Monument: 177 miles (2 days, flagship route)",
+        "Wellesley to Provincetown Monument: 162 miles (2 days)",
+        "Worcester to Bourne + Wellesley 50-mile Loop: 150 miles (2 days)",
+        "Worcester to Bourne + Wellesley 25-mile Loop: 125 miles (2 days)",
+        "Wellesley to Bourne + Wellesley 50-mile Loop: 135 miles (2 days)",
+        "Wellesley to Bourne + Wellesley 25-mile Loop: 110 miles (2 days)",
+        "Worcester to Bourne: 100 miles (1 day)",
+        "Wellesley to Bourne: 85 miles (1 day)",
+        "Bourne to Provincetown Monument: 77 miles (1 day, Sunday)",
+        "Wellesley 50-mile Loop: 50 miles (1 day)",
+        "Wellesley 25-mile Loop: 25 miles (1 day)",
+        "Reimagined (self-supported): varies"
+      ],
+      "entry_fee": "$125-$375 registration fee depending on route + fundraising commitment of $2,000-$6,000+ (100% goes to Dana-Farber). Heavy Hitter level: $12,000+."
+    },
+    "climate": {
+      "primary": "Massachusetts early August — hot, humid, potential thunderstorms",
+      "description": "Early August in Massachusetts delivers summer at its peak. Temperatures of 75-90F (24-32C) with high humidity typical of New England summers. Morning starts at 6 AM are cool (60-65F), but by midday the heat and humidity build. Afternoon thunderstorms are possible, especially in the inland sections of Day 1. Day 2 on Cape Cod is slightly moderated by ocean breezes but still hot. Sun exposure across open farmland and coastal roads is significant.",
+      "challenges": [
+        "August heat and humidity — 75-90F with New England humidity making efforts feel harder",
+        "Sun exposure across open Massachusetts farmland and Cape Cod roads",
+        "Possible afternoon thunderstorms, especially during Day 1 inland sections",
+        "Multi-day fatigue compounded by summer heat for two-day riders",
+        "Wind exposure on Cape Cod, especially approaching Provincetown"
+      ]
+    },
+    "terrain": {
+      "primary": "Rolling New England backroads and Cape Cod coastal roads",
+      "surface": "Paved roads throughout — a mix of state highways, county roads, and rural New England backroads. Day 1 (Worcester/Wellesley to Bourne) features rolling terrain with genuine climbing in the first 50 miles of the Worcester route, flattening as riders approach the Cape Cod Canal. Day 2 (Bourne to Provincetown) is rolling-to-flat Cape Cod terrain with short, steep climbs near Truro before the Provincetown finish.",
+      "technical_rating": 1,
+      "features": [
+        "Day 1 — hilly central Massachusetts: long climbs and fast descents in the first 50 miles",
+        "Day 1 — gradual flattening as the route approaches Bourne and the Cape Cod Canal",
+        "Overnight at Mass Maritime Academy — dorm rooms, tents, ship quarters, or gym floor",
+        "Day 2 — rolling Cape Cod terrain through Barnstable, Brewster, and Wellfleet",
+        "Day 2 — punchy climbs in Truro before the final stretch to Provincetown",
+        "Finish at Provincetown Monument — the tip of Cape Cod"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 67,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "logistics": 5,
+      "length": 4,
+      "technicality": 1,
+      "elevation": 2,
+      "climate": 3,
+      "altitude": 1,
+      "adventure": 3,
+      "prestige": 4,
+      "race_quality": 5,
+      "experience": 5,
+      "community": 5,
+      "field_depth": 1,
+      "value": 2,
+      "expenses": 2,
+      "cultural_impact": 4,
+      "tier_note": "The world's most successful athletic fundraiser. $1.125 billion raised since 1980. T2 by score (67). p4 would promote one tier, but p4 cannot promote into T1, so remains T2.",
+      "score_note": "Sum of 14 criteria = 43. cultural_impact=4 for transforming athletic fundraising and raising over $1B. Total = 47. Score = round(47/70 * 100) = 67. Community=5 and experience=5 reflect the unmatched emotional depth of riding for cancer research. Race_quality=5 and logistics=5 for 46 years of world-class event execution. Value=2 and expenses=2 reflect the substantial fundraising minimums ($2,000-$6,000+).",
+      "editorial_tier": 2,
+      "editorial_tier_label": "TIER 2",
+      "business_tier": 2,
+      "business_tier_label": "TIER 2",
+      "display_tier": 2,
+      "display_tier_label": "TIER 2",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 5,
+        "explanation": "46 years of operational refinement have made the PMC a logistical masterpiece. 14 routes from 25 to 177 miles accommodate every ability level. 3,500 volunteers staff every water stop, intersection, and finish line. Mechanical and medical support ride the route alongside you. Luggage is transported to your overnight and finish. Mass Maritime Academy hosts 4,000+ overnight riders with dorm rooms, tent camping, ship quarters, and a gym floor — plus hot food, showers, and live music. Charter buses shuttle riders and bikes. This is the gold standard for large-scale cycling event logistics in America."
+      },
+      "length": {
+        "score": 4,
+        "explanation": "The flagship Worcester to Provincetown route covers 177 miles over two days — 100 miles on Saturday, 77 on Sunday. That is a serious multi-day effort. The Wellesley to Provincetown variant is 162 miles. Single-day options range from 25 to 100 miles. The two-day routes demand genuine endurance, especially with the rolling terrain of Day 1 followed by the Cape Cod miles on Day 2. Not ultra-distance, but the multi-day format with overnight recovery at MMA creates a distinctive physical challenge."
+      },
+      "technicality": {
+        "score": 1,
+        "explanation": "Paved roads throughout. The biggest technical challenge is navigating 6,500 riders on narrow New England backroads while staying in your lane. Descents in the hilly first 50 miles of the Worcester route require basic bike handling, but this is a straight-ahead fitness and endurance event. No gravel, no singletrack, no technical demands beyond riding a road bike on roads."
+      },
+      "elevation": {
+        "score": 2,
+        "explanation": "Day 1 from Worcester accumulates approximately 4,700 feet of climbing over 100 miles — rolling New England terrain with genuine hills in the first half, flattening toward the coast. Day 2 from Bourne to Provincetown adds roughly 2,000 feet over 77 miles, mostly flat with punchy climbs in Truro. Total two-day climbing of approximately 6,800 feet is moderate. The hills are honest but short — this is Massachusetts, not the mountains. The heat and distance are harder than the elevation."
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "Early August in Massachusetts is reliably hot and humid. 75-90F with humidity that makes every mile heavier. The 6 AM start is a mercy — the first two hours are comfortable before the heat builds. By midday on the open roads of central Massachusetts, riders are baking. Day 2 on Cape Cod gets some ocean breeze but also exposure to coastal wind. Afternoon thunderstorms are possible. Not extreme by Southern or Desert standards, but the combination of heat, humidity, and multi-day fatigue is a real factor."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "Massachusetts. Sea level to a few hundred feet. The highest point on the route is in the rolling hills west of Worcester. Altitude is completely irrelevant. Your lungs will be fine; it is your fundraising capacity that will be tested."
+      },
+      "adventure": {
+        "score": 3,
+        "explanation": "The PMC traverses Massachusetts from the rolling farmland of central Mass through suburban and rural New England to the Cape Cod Canal and down the outer Cape to Provincetown. The scenery is pleasant — stone walls, white churches, cranberry bogs, ocean views — but this is not wilderness adventure. The adventure is emotional, not geographical: riding alongside cancer survivors, seeing names on jerseys of people being honored, and arriving in Provincetown knowing that every pedal stroke funded research. The adventure is human, not landscape."
+      },
+      "prestige": {
+        "score": 4,
+        "explanation": "The PMC is the most successful athletic fundraiser on Earth. $1.125 billion raised for Dana-Farber since 1980. 100% of rider-raised dollars go to cancer research — a model the PMC pioneered. 'I ride the PMC' carries enormous weight in the cycling and philanthropic communities, particularly in the Northeast. Billy Starr built something that transcended sport. The prestige is not competitive — there are no race results — but the cultural and institutional gravity of the PMC is unmatched in American cycling fundraising."
+      },
+      "race_quality": {
+        "score": 5,
+        "explanation": "46 years of continuous improvement. 14 route options. 3,500 trained volunteers. Mechanical and medical support on every mile of every route. Water stops with food, hydration, and shade. Overnight at Mass Maritime Academy with lodging, meals, entertainment, and showers for 4,000+ riders. Luggage transport. Charter buses. A post-ride celebration in Provincetown that feels like crossing a finish line and attending a family reunion simultaneously. The PMC has the operational polish of a professional sports event applied to a community ride. Nothing in American charity cycling comes close."
+      },
+      "experience": {
+        "score": 5,
+        "explanation": "The PMC is cycling's most emotionally powerful event. Riders wear jerseys with names of loved ones — parents, children, friends — who are fighting cancer or who they have lost. You ride past cheering crowds who hold signs saying 'Thank you — I am a survivor.' Pedaling strangers cry together at water stops. The overnight at Mass Maritime Academy creates a summer-camp-for-adults atmosphere where 4,000 people who share a mission eat, sleep, and prepare to ride again. The finish in Provincetown — at the very tip of Cape Cod — is an emotional crescendo that combines physical achievement with the knowledge that your effort is directly funding the fight against cancer. There is nothing else like it in cycling."
+      },
+      "community": {
+        "score": 5,
+        "explanation": "6,500 riders united by a mission larger than cycling. The PMC community is built on a foundation of loss, hope, and purpose. Many riders are cancer survivors. Many ride for someone who did not survive. The Heavy Hitters — riders who raise $12,000+ annually — include people who have been riding the PMC for decades, returning year after year because the cause demands it. Team dynamics are deeply personal. The volunteer community of 3,500 is equally committed. The PMC is not a cycling club — it is a movement. The community extends year-round through fundraising events, team rides, and the shared identity of being a PMC rider."
+      },
+      "field_depth": {
+        "score": 1,
+        "explanation": "Zero competitive element. No timing chips, no age groups, no results, no podium. The front of the field includes fast riders, but nobody is here to race. If you try to attack the group on Route 6, you have misunderstood the assignment. The PMC's 'field depth' is measured in fundraising dollars and emotional commitment, not watts per kilogram."
+      },
+      "value": {
+        "score": 2,
+        "explanation": "The registration fee ($125-$375 depending on route) is reasonable for the level of support provided. But registration is just the door — the fundraising commitment is the real cost. One-day riders commit to raising $2,000. Two-day riders to Provincetown commit to $6,000. Heavy Hitters raise $12,000+. Since 2007, 100% of rider-raised funds go directly to Dana-Farber, which is extraordinary. But the personal financial commitment — guaranteed by credit card — is significant. The value proposition is not what you get for your money; it is what cancer patients get from your effort. That reframes value entirely."
+      },
+      "expenses": {
+        "score": 2,
+        "explanation": "The fundraising minimum is the dominant expense. $2,000-$6,000+ in raised funds, backed by a personal credit card guarantee, is a substantial financial commitment. Registration adds $125-$375. Travel to Massachusetts (flights to Boston Logan are plentiful), a hotel night before the start, and meals add perhaps $500-800. The overnight at MMA is included for two-day riders. Total all-in for a two-day rider: $6,500-$7,500+ when you include the fundraising commitment. This is the most expensive event in this database — not because the organization overcharges, but because the fundraising model demands it."
+      }
+    },
+    "biased_opinion": {
+      "verdict": "The Mission",
+      "summary": "The Pan-Mass Challenge is not a bike ride. It is a $78-million-a-year cancer research funding machine that uses bicycles as its engine. Since 1980, when Billy Starr convinced 36 riders to cycle from Springfield to Provincetown, the PMC has raised $1.125 billion for Dana-Farber Cancer Institute — 100% of every rider-raised dollar going directly to research, treatment, and patient care. Today, 6,500 riders cross Massachusetts on routes from 25 to 177 miles, supported by 3,500 volunteers and an organization refined over 46 years. The cycling is honest New England terrain — rolling hills, coastal roads, and a two-day format that demands real fitness. But the experience transcends sport. You ride past signs that say 'Thank you — my daughter is alive because of Dana-Farber.' You pedal alongside survivors wearing jerseys with their diagnosis dates. You finish in Provincetown knowing that your effort — every dollar you raised, every mile you rode — went directly to the fight. The PMC does not ask you to race. It asks you to matter.",
+      "strengths": [
+        "The cause: 100% of rider-raised funds go to Dana-Farber. $1.125 billion and counting. This is the single most impactful thing you can do on a bicycle.",
+        "The organization: 46 years of refinement, 3,500 volunteers, 14 routes — this is the gold standard for large-scale cycling event execution in America.",
+        "The community: 6,500 riders united by loss, hope, and purpose. Cancer survivors, families, teams riding for decades. The most emotionally powerful peloton in cycling.",
+        "The experience: the overnight at Mass Maritime, the cheering crowds, the finish in Provincetown. Nothing else in cycling produces this level of emotional resonance."
+      ],
+      "weaknesses": [
+        "The cost: fundraising minimums of $2,000-$6,000+ are a real barrier. This is the most financially demanding cycling event in the database.",
+        "Not competitive: zero racing, zero results. If you need a timing chip and a podium, this is not your event.",
+        "Massachusetts terrain: pleasant but not dramatic. The scenery serves the ride; it does not define it."
+      ],
+      "bottom_line": "The PMC is the most important bike ride in America. Not the hardest, not the most scenic, not the most competitive — the most important. If you can raise the money and ride the miles, you will be part of something that has funded over a billion dollars of cancer research. That is the bottom line."
+    },
+    "final_verdict": {
+      "score": "67 / 100",
+      "one_liner": "6,500 riders. 177 miles. $1.125 billion raised. The bike ride that fights cancer.",
+      "should_you_race": "You do not race the PMC — you ride it with purpose. Yes if you are ready to commit to raising $2,000-$6,000+ for cancer research and want the most emotionally powerful cycling experience in America. Yes if you can handle 100+ miles of rolling New England roads in August heat. Skip if you need competitive cycling, dramatic terrain, or cannot commit to the fundraising requirement.",
+      "alternatives": "If you want a competitive road event in the Northeast: try the Tour of the Battenkill or Green Mountain Stage Race. If you want a large-scale US charity ride without the fundraising commitment: try El Tour de Tucson. If you want multi-day cycling across a state: try RAGBRAI.",
+      "alternative_slugs": [
+        "tour-of-the-battenkill-road",
+        "ragbrai",
+        "tour-de-tucson"
+      ]
+    },
+    "logistics": {
+      "airport": "Boston Logan International Airport (BOS) — 45 miles to Wellesley, 50 miles to Worcester. Major hub with flights from everywhere. Worcester Regional Airport (ORH) is closer to the Worcester start but has limited flights. Providence (PVD) is an option for Wellesley starters.",
+      "lodging_strategy": "Two-day riders staying overnight at Mass Maritime Academy in Bourne have lodging included in registration — dorm rooms (up to 4 riders), tent camping (bring your own), ship quarters with A/C, or gym floor. Bring a light sleeping bag, pillow, and eye mask. For the night before the start, book hotels near Holy Cross in Worcester or near Babson College in Wellesley depending on your route. Provincetown accommodations for post-ride celebrations book early — this is peak Cape Cod season.",
+      "food": "Water stops provide food, hydration, and shade. Dighton-Rehoboth (Day 1, mile 60) is a full lunch stop. Mass Maritime Academy overnight includes dinner and breakfast. Post-ride celebration in Provincetown includes food and festivities. Pre-ride: Worcester and Wellesley have abundant dining.",
+      "packet_pickup": "Pre-ride events and packet pickup at your start location (College of the Holy Cross, Worcester or Babson College, Wellesley) on the Friday before PMC Weekend. Check pmc.org for specific times.",
+      "parking": "Parking available at start locations. Charter bus service transports riders and bikes between key locations. Luggage transport provided to overnight and finish locations.",
+      "official_site": "https://www.pmc.org/"
+    },
+    "history": {
+      "founded": 1980,
+      "founder": "Billy Starr",
+      "origin_story": "In 1980, Billy Starr — still reeling from the melanoma death of his mother Betty at age 49 — channeled his grief into action. He organized a two-day bicycle ride from Springfield to Provincetown, Massachusetts, to raise money for Dana-Farber Cancer Institute. 36 riders showed up. They raised $10,200. From that modest beginning, Starr built the Pan-Mass Challenge into the most successful athletic fundraiser in the world. The PMC has raised $1.125 billion for Dana-Farber — more than any other single athletic event has raised for any charity, anywhere. Since 2007, 100% of every rider-raised dollar goes directly to Dana-Farber, with all operational costs covered by corporate sponsors. The PMC is 67% of the Jimmy Fund's annual revenue and Dana-Farber's single largest supporter. Billy Starr remains founder and executive director, still riding every mile, 46 years later.",
+      "notable_moments": [
+        "1980: First PMC — 36 riders, Springfield to Provincetown, $10,200 raised",
+        "1990s: Growth to thousands of riders; PMC pioneers credit card guarantee for fundraising pledges",
+        "2007: Achieves 100% pass-through — every rider-raised dollar goes to Dana-Farber",
+        "2024: 45th PMC — 6,800 riders, lifetime fundraising surpasses $1 billion ($1.047B)",
+        "2025: Record $78 million gift to Dana-Farber — largest single-year donation in PMC history",
+        "2026: Route reimagined — Worcester replaces Sturbridge as Saturday start city"
+      ],
+      "reputation": "The most successful athletic fundraiser on Earth. Where the bicycle is the instrument and cancer research is the music."
+    },
+    "course_description": {
+      "character": "A two-day crossing of Massachusetts on paved roads, from the rolling hills of central Mass to the windswept tip of Cape Cod. Day 1 is the harder day — 100 miles from Worcester featuring genuine New England climbing in the first 50 miles (long, rolling ascents and fast descents), gradually flattening as the route approaches the Cape Cod Canal and the finish at Mass Maritime Academy in Bourne. The overnight at MMA is a PMC institution — thousands of riders sleeping in dorms, tents, and ship quarters, fueling for Day 2. Sunday's 77 miles from Bourne to Provincetown are rolling-to-flat Cape Cod terrain with ocean breezes, cranberry bogs, and the charming towns of the outer Cape, punctuated by short steep climbs in Truro before the emotional finish at the Provincetown Monument.",
+      "suffering_zones": [
+        {
+          "mile": 0,
+          "label": "Holy Cross — The Rolling Out",
+          "desc": "6 AM start from the College of the Holy Cross in Worcester. Cool morning air, 6,500 riders streaming onto Massachusetts backroads. The energy is electric — this is the moment the fundraising becomes physical. Find your team, settle your pace, and prepare for the rolling hills ahead.",
+          "terrain_detail": "Rolling suburban roads leaving Worcester",
+          "named_section": "Worcester Start"
+        },
+        {
+          "mile": 30,
+          "label": "The Central Mass Hills",
+          "desc": "The hardest terrain of the entire PMC. The first 50 miles out of Worcester are genuinely hilly — long, grinding climbs and fast descents through rural New England. Stone walls, white churches, and relentless rollers. This is where your training shows. The legs that burn now will flatten toward Bourne.",
+          "terrain_detail": "Rolling to hilly, 300-500 ft climbs, paved backroads",
+          "named_section": "The Hills"
+        },
+        {
+          "mile": 60,
+          "label": "Dighton-Rehoboth — The Lunch Stop",
+          "desc": "The midpoint of Day 1 and the full lunch stop. 60 miles in, the hills have given way to gentler terrain. Eat. Hydrate. The second half is flatter. Riders swap stories of the morning's hills and fuel for the push to Bourne.",
+          "terrain_detail": "Rolling, gradually flattening",
+          "named_section": "Lunch Stop"
+        },
+        {
+          "mile": 100,
+          "label": "Mass Maritime Academy — The Overnight",
+          "desc": "Day 1 finish at MMA in Bourne. 100 miles done. Food, showers, live music, and 4,000 riders settling in for the night. Dorm rooms, tents, ship quarters. The atmosphere is summer camp meets mission control. Rest well — Provincetown is 77 miles away.",
+          "terrain_detail": "Finish line — Mass Maritime Academy campus",
+          "named_section": "MMA Overnight"
+        },
+        {
+          "mile": 145,
+          "label": "The Truro Climbs",
+          "desc": "After 68 miles of rolling Cape Cod, the terrain throws a late punch. The climbs in Truro are short but steep — the kind that hurt on Day 2 legs. The ocean is close now. Provincetown is within reach. These hills are the PMC's final physical test before the emotional finish.",
+          "terrain_detail": "Short, steep climbs, 100-200 ft each",
+          "named_section": "Truro Hills"
+        },
+        {
+          "mile": 177,
+          "label": "Provincetown — The Finish",
+          "desc": "The tip of Cape Cod. The Provincetown Monument rises above the crowd. You have crossed Massachusetts by bicycle. The cheering is for you — and for every person whose name is on a jersey, every survivor in the crowd, every dollar that will become research. This is why you ride the PMC.",
+          "terrain_detail": "Flat approach to Provincetown finish",
+          "named_section": "The Finish"
+        }
+      ],
+      "signature_challenge": "The emotional weight. The PMC's signature challenge is not a climb or a headwind — it is riding 177 miles while carrying the names and stories of people fighting cancer. The physical effort is real. The emotional effort is greater."
+    },
+    "guide_variables": {
+      "race_name": "Pan-Mass Challenge",
+      "race_distance": "177 miles over 2 days (100 + 77)",
+      "race_elevation": "6,800 feet total",
+      "race_date": "August",
+      "race_location": "Worcester to Provincetown, Massachusetts",
+      "race_terrain": "Rolling New England backroads (Day 1) and flat-to-rolling Cape Cod coastal roads (Day 2)",
+      "race_weather": "Hot and humid: 75-90F with August humidity and possible thunderstorms",
+      "race_challenges": [
+        "Two consecutive days of 77-100 mile riding in August heat and humidity",
+        "Rolling hills in first 50 miles of Day 1 — genuine New England climbing",
+        "Multi-day fatigue: Day 2 starts after sleeping on a dorm mattress or tent floor",
+        "Sun exposure across open Massachusetts farmland and Cape Cod roads",
+        "Fundraising commitment: $2,000-$6,000+ raised before you clip in"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Back-to-back long ride capability — 80+ miles Saturday, 60+ miles Sunday",
+        "by_when": "Week 6",
+        "why": "The PMC flagship is 100 miles on Saturday and 77 miles on Sunday with an overnight on a dorm mattress between them. Your body must be conditioned for consecutive long days. Complete at least two back-to-back weekend rides of 80+ and 60+ miles to simulate the PMC format. Single-day centuries do not prepare you for the Day 2 fatigue."
+      },
+      {
+        "requirement": "Heat and humidity training — extended rides in warm conditions",
+        "by_when": "Week 8",
+        "why": "Massachusetts in early August is 75-90F with significant humidity. Heat adaptation takes 10-14 days of progressive exposure. Train through midday heat at least twice per week in the final month. Develop a hydration and electrolyte strategy that works across 100-mile distances."
+      },
+      {
+        "requirement": "Fundraising commitment met and confirmed",
+        "by_when": "Week 1",
+        "why": "Your fundraising minimum ($2,000-$6,000+ depending on route) is guaranteed by personal credit card. Start fundraising immediately upon registration — do not wait for training to begin. The PMC provides tools, templates, and team support for fundraising. Riders who leave fundraising until the last month face unnecessary stress that undermines training."
+      }
+    ],
+    "citations": [
+      {
+        "url": "https://www.pmc.org/",
+        "title": "Pan-Mass Challenge — Official Site",
+        "category": "official"
+      },
+      {
+        "url": "https://www.pmc.org/routes-logistics",
+        "title": "PMC Routes & Logistics — Official Site",
+        "category": "official"
+      },
+      {
+        "url": "https://www.pmc.org/about",
+        "title": "About PMC — Official Site",
+        "category": "official"
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Pan-Mass_Challenge",
+        "title": "Pan-Mass Challenge — Wikipedia",
+        "category": "reference"
+      },
+      {
+        "url": "https://www.dana-farber.org/newsroom/news-releases/2025/pan-mass-challenge-raises-record-78-million-for-dana-farber-cancer-institute",
+        "title": "PMC Raises Record $78 Million — Dana-Farber Cancer Institute",
+        "category": "media"
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "high",
+      "validation_status": "validated",
+      "research_strength": "A",
+      "sources_count": 5,
+      "last_updated": "2026-02-27"
+    }
+  }
+}

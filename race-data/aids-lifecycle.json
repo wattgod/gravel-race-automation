@@ -1,0 +1,375 @@
+{
+  "race": {
+    "name": "AIDS/LifeCycle",
+    "slug": "aids-lifecycle",
+    "display_name": "AIDS/LifeCycle",
+    "tagline": "545 miles. 7 days. 1 mission. The most emotionally powerful cycling event ever created. San Francisco to Los Angeles. $300 million raised. Where the cycling community rides to end AIDS.",
+    "vitals": {
+      "distance_mi": 545,
+      "elevation_ft": 25000,
+      "location": "San Francisco to Los Angeles, California, USA",
+      "location_badge": "SAN FRANCISCO TO LOS ANGELES, CALIFORNIA",
+      "county": "Multiple counties (San Mateo, Santa Cruz, Monterey, San Luis Obispo, Santa Barbara, Ventura, Los Angeles)",
+      "date": "First week of June annually",
+      "date_specific": "2025 was the final ride (June 1-7, 2025). Successor event: Cycle to Zero (3-day ride, May 29-31, 2026, SFAF only)",
+      "terrain_types": [
+        "Paved California coastal highways",
+        "Rolling inland farm roads through Central Coast",
+        "Pacific Coast Highway sections",
+        "Skyline Boulevard ridge climbing",
+        "Gaviota Pass mountain crossing"
+      ],
+      "field_size": "~2,000-2,500 cyclists + 600-800 roadie volunteers",
+      "start_time": "Sunday ~7:00 AM from Cow Palace, Daly City (San Francisco)",
+      "registration": "Online registration. $125 registration fee + $3,500 minimum fundraising commitment. Roadie (volunteer) registration has no fundraising minimum. All funds benefit San Francisco AIDS Foundation and Los Angeles LGBT Center.",
+      "prize_purse": "None. This is a fundraiser, not a race. Every dollar supports HIV/AIDS services.",
+      "aid_stations": "Rest stops every 15-20 miles with water, electrolyte solutions, and snacks. Full lunch stop each day (Boudin catering). Medical support at every rest stop. Chiropractic and sports medicine at lunch. 20-30 sweep vehicles on course. SAG buses available for transport to camp.",
+      "cutoff_time": "Generous. SAG buses and sweep vehicles support all riders. No one is left behind. This is a ride, not a race.",
+      "lat": 37.7083,
+      "lng": -122.4367,
+      "distance_options": [
+        "Full ride: 545 miles over 7 days (San Francisco to Los Angeles)",
+        "Single-day options available on some days (join for one day as a registered participant)"
+      ],
+      "entry_fee": "$125 registration fee + $3,500 minimum fundraising commitment. Heavy Hitter levels available for higher fundraising goals."
+    },
+    "climate": {
+      "primary": "California coastal — fog, sun, inland heat, and coastal wind across 7 days and 545 miles",
+      "description": "Seven days on the California coast in June means experiencing nearly every microclimate the state offers. San Francisco departs in classic morning fog and chill (55-60F). Day 1 over Skyline can be windy and cool. Central Coast days through King City and Paso Robles bring inland heat (85-95F) with dry air and intense sun. Coastal sections near Santa Barbara and Ventura moderate back to 65-75F with ocean breezes. Wind is a constant companion, particularly afternoon headwinds along the coast. Evening camp temperatures drop to 50-55F, requiring warm layers for sleeping.",
+      "challenges": [
+        "Temperature swings from 50F morning fog to 95F inland heat within a single day",
+        "Persistent coastal headwinds, particularly in afternoon riding",
+        "Sun exposure across 7 days of riding — cumulative sunburn and dehydration risk",
+        "Inland heat through Paso Robles and Santa Maria valleys",
+        "Cool, windy camps requiring warm sleeping gear despite daytime heat"
+      ]
+    },
+    "terrain": {
+      "primary": "Paved California roads from San Francisco to Los Angeles",
+      "surface": "All paved roads. A mix of California state highways, county roads, Pacific Coast Highway sections, and rural farm roads. Day 1 features the hardest climbing — Skyline Boulevard out of San Francisco with 4,700+ feet of elevation gain. Day 3 includes the notorious Quadbuster (15% grade) and rolling terrain into Paso Robles. Day 4 features the Evil Twins — two (or three) steep peaks marking the halfway point. Days 5-7 include Gaviota Pass and coastal riding into Ventura and Santa Monica.",
+      "technical_rating": 1,
+      "features": [
+        "Day 1: Skyline Boulevard — 4,700+ feet of climbing out of San Francisco, the ride's hardest day",
+        "Day 3: Quadbuster — a 15% grade hill that lives up to its name",
+        "Day 4: Evil Twins — two steep peaks marking the emotional and physical halfway point",
+        "Day 6: Gaviota Pass — 1,100 feet of climbing before dropping to the Santa Barbara coast",
+        "Day 7: Pacific Coast Highway into Santa Monica — the triumphant finish along the ocean",
+        "Rest stops every 15-20 miles — you are never far from support"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 71,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "logistics": 5,
+      "length": 4,
+      "technicality": 1,
+      "elevation": 3,
+      "climate": 3,
+      "altitude": 1,
+      "adventure": 4,
+      "prestige": 4,
+      "race_quality": 5,
+      "experience": 5,
+      "community": 5,
+      "field_depth": 1,
+      "value": 3,
+      "expenses": 1,
+      "cultural_impact": 5,
+      "tier_note": "One of the most culturally significant cycling events ever created. $300M+ raised for HIV/AIDS services since 1994. p4 prestige would promote one tier but p4 cannot promote into T1, so remains T2.",
+      "score_note": "Sum of 14 criteria = 45. cultural_impact=5 for maximum cultural significance — 30+ year LGBTQ+ cycling tradition, $300M+ raised, memorializing those lost to AIDS. Total = 50. Score = round(50/70 * 100) = 71. Community=5 and experience=5 reflect the universally described 'life-changing' emotional depth. Logistics=5 and race_quality=5 for moving a camp city of 3,000+ people 545 miles over 7 days. Field_depth=1 because this is a ride, not a race. Expenses=1 reflects $3,500+ fundraising commitment.",
+      "editorial_tier": 2,
+      "editorial_tier_label": "TIER 2",
+      "business_tier": 2,
+      "business_tier_label": "TIER 2",
+      "display_tier": 2,
+      "display_tier_label": "TIER 2",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 5,
+        "explanation": "Thirty years of operational refinement created what might be the most impressive mobile logistics operation in cycling. Over 600 roadie volunteers wake before dawn and work past dark to move an entire camp city — tents, showers, food service, medical facilities, bike tech — 545 miles down the California coast. Rest stops every 15-20 miles provide water, electrolytes, snacks, and medical support. Boudin caters full lunches. SAG buses and 20-30 sweep vehicles ensure no rider is ever stranded. Bike tech support is on-course and at every camp. Chiropractic care is available at lunch. This is not a race with aid stations — this is a traveling village with full infrastructure."
+      },
+      "length": {
+        "score": 4,
+        "explanation": "545 miles over 7 days averages 78 miles per day, with individual days ranging from roughly 50 to 110 miles. Day 2 to King City is typically the longest at 100+ miles. The cumulative toll of 7 consecutive days in the saddle is the real challenge — Day 1's 96-mile opener with 4,700 feet of climbing sets the tone, and by Day 4, rider accounts consistently describe the strange mental territory of four straight days on a bike. One veteran noted burning 3,800 calories on Day 1 alone. The daily distances are manageable individually but the multi-day accumulation transforms routine mileage into genuine endurance."
+      },
+      "technicality": {
+        "score": 1,
+        "explanation": "All paved roads, all the time. The course uses California state highways, county roads, and Pacific Coast Highway sections. There is zero technical terrain. The challenge is purely physical and emotional, not technical. Group riding skills are helpful given the 2,000+ rider field, but official training rides prepare participants for group dynamics. The most technical moment might be navigating camp after dark."
+      },
+      "elevation": {
+        "score": 3,
+        "explanation": "The route accumulates approximately 25,000 feet of climbing over 7 days, with significant variation between days. Day 1 out of San Francisco is the hardest — Skyline Boulevard delivers 4,700+ feet of climbing including some brutal grades through the Santa Cruz Mountains. Day 3 includes the Quadbuster, a hill with a 15% grade that earns its name. Day 4 features the Evil Twins — two steep peaks that mark the halfway point. Gaviota Pass on Day 6 adds 1,100 feet of climbing before the descent to the coast. The climbing is real and cumulative but spread across 7 days, keeping daily elevation manageable for trained riders."
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "California's coast in June serves every weather condition the state has. Morning departures in San Francisco fog (55F) give way to inland heat reaching 95F in Paso Robles by midday. Coastal winds are persistent, particularly afternoon headwinds. One rider described Day 3 as 'brutally hot and hilly' with inland temperatures soaring. Yet evening camps drop to 50-55F, and the coastal days near Ventura and Santa Barbara deliver that perfect 65-75F with ocean breezes. The variety is part of the adventure — but the inland heat days require serious hydration discipline."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "The entire route stays near sea level to approximately 1,500 feet at its highest points. No altitude concerns whatsoever. The suffering comes from distance, heat, climbing, and emotion — not thin air."
+      },
+      "adventure": {
+        "score": 4,
+        "explanation": "Riding 545 miles down the California coast over 7 days is an adventure by any measure. The route passes through redwood forests, over mountain ridges, through agricultural valleys, past Hearst Castle, over Gaviota Pass, along the Santa Barbara coastline, and finishes on the Pacific Coast Highway into Santa Monica. Each night is a camp city in a new town — Santa Cruz, King City, Paso Robles, Santa Maria, Lompoc, Ventura. The journey from fog-shrouded San Francisco to sun-drenched Los Angeles traverses the full diversity of California's Central Coast. What elevates it beyond a scenic tour is the emotional dimension — riding past memorial panels, hearing names read aloud, feeling the weight of the mission in every pedal stroke."
+      },
+      "prestige": {
+        "score": 4,
+        "explanation": "AIDS/LifeCycle and its predecessor the California AIDS Ride have been operating since 1994, raising over $300 million for HIV/AIDS services. It is the largest HIV/AIDS fundraising event in the world. Media coverage spans national outlets, with the final 2025 ride drawing attention from the San Francisco Chronicle, ABC News, and national LGBTQ+ press. Completing the 545 is a genuine achievement that earns deep respect in cycling and philanthropic communities. It is not a race with competitive prestige — it is something arguably more meaningful."
+      },
+      "race_quality": {
+        "score": 5,
+        "explanation": "Event execution is world-class despite not being a race. Moving 3,000+ people, their bikes, and full camp infrastructure 545 miles over 7 days is a logistical achievement that few events in any sport can match. The co-production between San Francisco AIDS Foundation and Los Angeles LGBT Center has been refined over 30 years. Orientation day, opening ceremony, daily ride-outs, camp setup, gear trucks, breakfast and dinner service, shower facilities, entertainment, closing ceremony, and finish line festival — all executed seamlessly year after year. The 2025 final ride hosted 2,067 cyclists and 750+ roadies with the same operational precision."
+      },
+      "experience": {
+        "score": 5,
+        "explanation": "Universally described as 'life-changing' by participants across 30 years. The opening ceremony at the Cow Palace sets the emotional tone. Each day brings disco music on climbs, sparkly tutus, Red Vines, dance breaks, bear hugs, and breathtaking coastal views. But beneath the celebration is profound gravity — memorial services honoring those lost to AIDS, riders wearing jerseys with photos of loved ones, names read aloud at camp. The Finish Line Festival in Santa Monica is a catharsis that draws thousands of spectators. A UCSF professor who completed nine rides wrote that it 'shaped my life in profound ways.' Another participant called it 'the one week of my life I wish the rest of my life was like.' There is no other cycling event that produces this depth of emotional experience."
+      },
+      "community": {
+        "score": 5,
+        "explanation": "AIDS/LifeCycle has the strongest community of any cycling event in existence. Year-round training rides led by certified leaders across Northern and Southern California create bonds months before the ride. Teams fundraise together all year. The LGBTQ+ community connection runs deep — this is not just a cycling event but a cultural touchstone. Riders return for decades — one drag performer lost count at 'either 10 or 11' rides. Veterans set up tents for slower arrivals. The roadie volunteer culture is equally intense — 600+ people dedicating a full week of physical labor purely to serve riders. When the 2025 final ride was announced, the community response demonstrated that AIDS/LifeCycle was never just an event — it was an identity."
+      },
+      "field_depth": {
+        "score": 1,
+        "explanation": "This is explicitly not a race. There is no competitive field, no timing, no results. Riders range from first-timers who can barely finish 50 miles to multi-decade veterans who could race competitively. The headphone and music ban on bikes and the pace-grouped training rides indicate the priority is safety and community, not competition. The field is deep in humanity, not in watts."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "The experience is genuinely life-changing and the cause is vital — but the financial commitment is substantial. The $3,500 fundraising minimum (plus $125 registration) means most participants invest significant time and social capital in fundraising. Once on the ride, everything is included — meals, camping, mechanical support, medical care, entertainment. For what you get — 7 days of fully supported riding, transformative community, and the knowledge that 100% of fundraised dollars go to HIV/AIDS services — many participants consider it priceless. But the barrier to entry is real."
+      },
+      "expenses": {
+        "score": 1,
+        "explanation": "The $3,500 minimum fundraising commitment is the primary cost, and it is steep by any measure. Add $125 registration, travel to/from San Francisco and Los Angeles (many participants fly one direction), potential bike shipping ($75-200), and personal gear for a week of camping. Total out-of-pocket can easily exceed $1,000 before counting the $3,500 in raised funds. Heavy Hitter designations start at $12,000+. This is the most expensive cycling event in America to participate in, though the funds go to a cause that has saved countless lives."
+      }
+    },
+    "biased_opinion": {
+      "verdict": "Legend",
+      "summary": "AIDS/LifeCycle is not a race. It is not a gran fondo. It is not a charity ride in the way most people understand charity rides. It is 545 miles of collective grief, joy, defiance, and love, pedaled down the California coast by thousands of people who refuse to let a disease define or defeat their community. You will climb the Quadbuster with disco music blasting. You will cry at camp listening to names of the dead read aloud. You will finish in Santa Monica having raised thousands of dollars and having been fundamentally changed by the experience. Over 30 years, this event raised more than $300 million and created a community that transcends cycling. The 2025 final ride ended an era — but the legacy is permanent.",
+      "strengths": [
+        "The community: Nothing in cycling compares. Year-round training, team fundraising, and shared purpose create bonds that last decades. Veterans return 10, 15, 20 times.",
+        "The emotional depth: Memorial services, riders wearing photos of lost loved ones, names read aloud at camp. This is cycling as an act of remembrance and resistance.",
+        "The logistics: A traveling camp city for 3,000+ people with full meals, showers, medical, bike tech, and entertainment — moved 545 miles in 7 days by 600+ volunteers.",
+        "The California coast: 545 miles from San Francisco's fog to Santa Monica's sun. Redwoods, farmland, vineyards, ocean cliffs, PCH. One of the most beautiful cycling routes in America."
+      ],
+      "weaknesses": [
+        "The fundraising minimum: $3,500 is a significant barrier. Many potential riders never register because the financial commitment feels insurmountable.",
+        "It ended: The 2025 ride was the final AIDS/LifeCycle. Rising production costs and declining post-pandemic ridership led to the announcement in September 2024. SFAF launched Cycle to Zero as a 3-day successor.",
+        "Camping for 7 nights: Not everyone thrives sleeping on the ground for a week. Some veterans eventually self-support in hotels along the route.",
+        "No competitive element: If you need a timing chip and a finish time to feel motivated, this event will not give you that. The value is entirely experiential and emotional."
+      ],
+      "bottom_line": "If you were fortunate enough to ride AIDS/LifeCycle during its 30-year run, you experienced something that no other cycling event has ever replicated — and likely never will. The successor Cycle to Zero carries the spirit forward in a 3-day format, but the 545 was singular. It was cycling at its most human."
+    },
+    "final_verdict": {
+      "score": "71 / 100",
+      "one_liner": "The most emotionally powerful cycling event ever created. 545 miles of purpose, community, and remembrance down the California coast.",
+      "should_you_race": "AIDS/LifeCycle ended in 2025 after 30 years and $300 million raised. If you rode it, you know what it meant. If you never did, the successor event Cycle to Zero (3-day, SFAF-produced) launches in May 2026. The 545-mile journey from San Francisco to Los Angeles is gone, but the community and mission endure. This was never about the miles — it was about why you rode them.",
+      "alternatives": "If you want the charity ride experience: Pan-Mass Challenge (177 miles, Dana-Farber Cancer Institute, $1B+ raised). If you want a multi-day California ride: Cycle to Zero (3-day successor, May 2026, SFAF). If you want a long-distance community experience: RAGBRAI (week-long ride across Iowa, ~400 miles). If you want cycling with deep purpose: Ring of Kerry Charity Cycle (Ireland, 112 miles, charity-focused).",
+      "alternative_slugs": [
+        "pan-mass-challenge",
+        "ragbrai",
+        "ring-of-kerry-charity-cycle"
+      ]
+    },
+    "logistics": {
+      "airport": "SFO (San Francisco International) for start. LAX (Los Angeles International) for finish. Many participants fly one direction and have bikes shipped.",
+      "lodging_strategy": "Camp cities are provided each night at designated locations: Harvey West Park (Santa Cruz), San Lorenzo County Park (King City), Mid-State Fairgrounds (Paso Robles), Preisker Park (Santa Maria), River Bend Park (Lompoc), San Buenaventura State Beach (Ventura). Tents provided or bring your own. Some veterans self-support in hotels along the route. Gear trucks transport personal bags between camps.",
+      "food": "All meals included. Breakfast and dinner at camp. Lunch provided by Boudin at midday stops. Rest stop snacks and hydration every 15-20 miles. Vegetarian and omnivorous options available. You will not go hungry.",
+      "packet_pickup": "Orientation Day at the Cow Palace (Daly City) the day before ride start. Mandatory check-in for all participants. Bike check, gear drop, and opening ceremony.",
+      "parking": "Cow Palace parking available for Orientation Day. Most participants arrange transportation to/from start and finish. Charter bus and shuttle options organized by the event.",
+      "official_site": "https://www.aidslifecycle.org",
+      "camping": "Camp cities at designated parks and fairgrounds each night. Tent camping with shower facilities, hot food service, entertainment, and medical support. Some veterans arrange hotel accommodations along the route."
+    },
+    "history": {
+      "founded": 1994,
+      "founder": "Pallotta Teamworks (as California AIDS Ride, 1994-2002). Relaunched as AIDS/LifeCycle in 2002 by Kevin Honeycutt, co-produced by San Francisco AIDS Foundation and Los Angeles LGBT Center.",
+      "origin_story": "The California AIDS Ride launched in 1994 as a week-long cycling event from San Francisco to Los Angeles to raise money and awareness for HIV/AIDS services. After Pallotta Teamworks faced controversy over overhead costs, the event was restructured in 2002 as AIDS/LifeCycle, directly co-produced by San Francisco AIDS Foundation and Los Angeles LGBT Center. Over 30 years, the event raised more than $300 million and became the largest HIV/AIDS fundraiser in the world. In September 2024, the organizations announced that the 2025 ride would be the final AIDS/LifeCycle, citing rising production costs and declining post-pandemic participation. The final ride on June 1-7, 2025 drew 2,067 cyclists and 750+ roadies. SFAF launched Cycle to Zero as a 3-day successor event for 2026.",
+      "notable_moments": [
+        "1994: California AIDS Ride launches — first major multi-day cycling fundraiser for HIV/AIDS",
+        "2002: Restructured as AIDS/LifeCycle under direct nonprofit co-production",
+        "Over 30 years: $300 million+ raised for HIV/AIDS services",
+        "Peak participation: approximately 3,000 cyclists in banner years",
+        "2024: Announcement that 2025 would be the final ride",
+        "2025: Final ride — 2,067 cyclists and 750+ roadies complete the last 545 miles",
+        "2026: Cycle to Zero launches as 3-day SFAF successor event"
+      ],
+      "reputation": "The most culturally significant cycling event in American history. Not just a ride but a movement — a 30-year tradition of LGBTQ+ community, activism, remembrance, and defiance."
+    },
+    "course_description": {
+      "character": "Seven days of California coastal beauty and emotional intensity. The route traverses the full diversity of the state's Central Coast — from San Francisco fog through redwood forests, over mountain ridges, through agricultural valleys, past wine country, over coastal passes, and along the Pacific Coast Highway to a Santa Monica finish. The terrain is varied but always paved, with significant climbing concentrated on Days 1, 3, 4, and 6. The real challenge is cumulative: 545 miles over 7 consecutive days in the saddle, compounded by camping, emotional weight, and California's variable June weather.",
+      "suffering_zones": [
+        {
+          "mile": 0,
+          "label": "Day 1 — Skyline Boulevard",
+          "desc": "The ride's hardest climbing day. 96 miles from San Francisco to Santa Cruz with 4,700+ feet of elevation gain. Skyline Boulevard climbs out of the fog and into the redwoods. Burns 3,800+ calories. Welcome to the 545.",
+          "terrain_detail": "Paved highway climbing through San Mateo County hills and Santa Cruz Mountains",
+          "named_section": "Skyline Boulevard"
+        },
+        {
+          "mile": 196,
+          "label": "Day 3 — The Quadbuster",
+          "desc": "A 15% grade hill that earns its name. 75 miles through rolling terrain into Paso Robles with 1,800+ feet of climbing. Can be brutally hot. The second hilliest day of the ride.",
+          "terrain_detail": "Steep paved climb followed by rolling inland roads through vineyard country",
+          "named_section": "The Quadbuster"
+        },
+        {
+          "mile": 275,
+          "label": "Day 4 — Evil Twins",
+          "desc": "Two (or three, depending on who you ask) steep peaks that mark the halfway point. 88 miles from Paso Robles to Santa Maria. Emotionally and physically the midpoint crucible. The halfway celebration at the top is unforgettable.",
+          "terrain_detail": "Multiple steep paved climbs through San Luis Obispo County rolling terrain",
+          "named_section": "Evil Twins"
+        },
+        {
+          "mile": 430,
+          "label": "Day 6 — Gaviota Pass",
+          "desc": "1,100 feet of climbing over the pass before dropping to the Santa Barbara coast. 84 miles from Lompoc to Ventura. The last major climbing day before the coastal finish.",
+          "terrain_detail": "Paved highway climb over Gaviota Pass, descent to Highway 101 and coastal riding",
+          "named_section": "Gaviota Pass"
+        }
+      ],
+      "signature_challenge": "The cumulative toll of 545 miles over 7 days. No single day is impossible, but the relentless accumulation of miles, climbing, weather, camping, and emotional weight creates an endurance challenge that transforms riders. The body adapts; the spirit grows. By Day 7, riding into Santa Monica feels like crossing into a different version of your life."
+    },
+    "guide_variables": {
+      "race_name": "AIDS/LifeCycle",
+      "race_distance": "545 miles (7 days)",
+      "race_elevation": "~25,000 feet total",
+      "race_date": "June (first week)",
+      "race_location": "San Francisco to Los Angeles, California",
+      "race_terrain": "Paved California coastal highways and rural roads",
+      "race_weather": "Variable — fog, coastal wind, inland heat (85-95F in valleys), cool coastal temperatures (65-75F)",
+      "race_challenges": [
+        "Seven consecutive days of riding averaging 78 miles per day",
+        "Significant climbing on Days 1, 3, 4, and 6",
+        "Temperature swings from 50F fog to 95F inland heat",
+        "Cumulative fatigue and saddle soreness across the week",
+        "Emotional intensity of riding for a cause"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Multi-day endurance base — build to back-to-back 80-mile days in training",
+        "by_when": "Week 8",
+        "why": "The cumulative toll of 7 consecutive days is the real challenge. Single-day fitness does not prepare you for Day 5 legs on Day 1 training."
+      },
+      {
+        "requirement": "Saddle time and bike fit dialed — test your setup on 3+ consecutive riding days",
+        "by_when": "Week 6",
+        "why": "Saddle sores and fit issues become debilitating by Day 3 if not resolved in training. A professional bike fit is non-negotiable for 545 miles."
+      },
+      {
+        "requirement": "Fundraising complete — $3,500 minimum raised before ride week",
+        "by_when": "Week 1 (start early)",
+        "why": "Fundraising stress during training undermines both. Start fundraising the day you register. Most successful riders treat fundraising as its own training block."
+      }
+    ],
+    "citations": [
+      {
+        "url": "https://www.aidslifecycle.org",
+        "category": "official",
+        "label": "AIDS/LifeCycle Official Website"
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/AIDS/LifeCycle",
+        "category": "other",
+        "label": "Wikipedia — AIDS/LifeCycle"
+      },
+      {
+        "url": "https://giving.aidslifecycle.org/pages/1081",
+        "category": "route",
+        "label": "AIDS/LifeCycle — The Route"
+      },
+      {
+        "url": "https://giving.aidslifecycle.org/pages/1057",
+        "category": "other",
+        "label": "AIDS/LifeCycle — Cyclist Training"
+      },
+      {
+        "url": "https://www.sfaf.org/collections/breaking-news/aids-lifecycle-fundraiser-to-end-after-2025-event/",
+        "category": "media",
+        "label": "SFAF — AIDS/LifeCycle Fundraiser to End After 2025"
+      },
+      {
+        "url": "https://www.sfchronicle.com/bayarea/article/aids-lifecycle-final-ride-20351504.php",
+        "category": "media",
+        "label": "San Francisco Chronicle — AIDS/LifeCycle Final Ride"
+      },
+      {
+        "url": "https://medium.com/@samamesesq/the-final-545-on-the-road-for-the-last-aids-lifecycle-c5b30d4700b5",
+        "category": "community",
+        "label": "Medium — The World Only Spins Forward: The Final AIDS LifeCycle"
+      },
+      {
+        "url": "https://epibiostat.ucsf.edu/news/aids-lifecycle-final-ride-continuous-journey",
+        "category": "media",
+        "label": "UCSF — AIDS LifeCycle: A Final Ride, a Continuous Journey"
+      },
+      {
+        "url": "https://lovelettersunderstated.blog/2019/06/23/aids-lifecycle-2019-reflections-the-maps/",
+        "category": "community",
+        "label": "AIDS LifeCycle 2019 Reflections — Daily Route Maps and Elevation Data"
+      },
+      {
+        "url": "https://www.losangelesblade.com/2018/06/07/aidslifecycle-diary-day-4-kit-reaches-halfway-point-and-surmounts-the-evil-twins/",
+        "category": "community",
+        "label": "LA Blade — AIDS/LifeCycle Day 4: Evil Twins"
+      },
+      {
+        "url": "https://abc7news.com/post/heres-look-preparations-final-ride-aids-lifecycle-ending-more-3-decades/16622794/",
+        "category": "media",
+        "label": "ABC7 — Final Ride of AIDS LifeCycle"
+      },
+      {
+        "url": "https://cycletozero.donordrive.com/",
+        "category": "official",
+        "label": "Cycle to Zero 2026 — SFAF Successor Event"
+      },
+      {
+        "url": "https://www.calcoastadventures.com/aids-lifecycle-riders-cycle-through-santa-barbara-for-aids-awareness/",
+        "category": "community",
+        "label": "CalCoast Adventures — AIDS/LifeCycle Through Santa Barbara"
+      },
+      {
+        "url": "https://sfstandard.com/2024/08/09/aids-lifecycle-ridership-is-down/",
+        "category": "media",
+        "label": "SF Standard — End of the LifeCycle: Ridership Decline"
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "high",
+      "validation_status": "validated",
+      "sources": [
+        "official_website",
+        "wikipedia",
+        "media_coverage",
+        "participant_accounts",
+        "nonprofit_press_releases"
+      ],
+      "migration_notes": [
+        "New profile created February 2026. Event concluded after 2025 final ride.",
+        "Successor event Cycle to Zero (3-day, SFAF) launching May 2026.",
+        "Elevation data estimated from participant GPS records and rider accounts.",
+        "Daily mileage varies by year due to route changes, road construction, and campsite availability."
+      ],
+      "research_strength": {
+        "overall": 85.0,
+        "grade": "B+",
+        "weakest": "elevation_data",
+        "has_research_dump": false,
+        "dimensions": {
+          "source_diversity": 95,
+          "citation_density": 80,
+          "temporal_depth": 100,
+          "specificity": 75,
+          "statistical_backing": 80,
+          "voice_authenticity": 90,
+          "completeness": 85,
+          "cross_reference": 75
+        },
+        "scored_at": "2026-02-27"
+      }
+    }
+  }
+}

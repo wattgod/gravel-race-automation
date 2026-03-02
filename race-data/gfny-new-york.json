@@ -1,0 +1,314 @@
+{
+  "race": {
+    "name": "GFNY New York",
+    "slug": "gfny-new-york",
+    "display_name": "GFNY New York",
+    "tagline": "The original Gran Fondo New York. 5,000 riders from 90+ countries start on the closed George Washington Bridge and race 100 miles through the Hudson Valley to Bear Mountain and back.",
+    "vitals": {
+      "distance_mi": 100,
+      "elevation_ft": 8500,
+      "location": "Fort Lee, New Jersey / Hudson Valley, New York, USA",
+      "location_badge": "NEW YORK CITY, USA",
+      "date": "Mid-May annually (third Sunday)",
+      "date_specific": "2026: May 17",
+      "terrain_types": [
+        "Paved Hudson Valley roads",
+        "Sustained mountain climbs",
+        "Rolling ridgeline terrain",
+        "River-adjacent flats"
+      ],
+      "field_size": "~5,000 riders from 90+ countries",
+      "start_time": "Sunday 7:00 AM (pros), ~7:10 AM (mass start)",
+      "registration": "Online via gfny.cc. Tiered pricing increases monthly. Includes official race jersey, finisher medal, chip timing, aid stations, post-race meal.",
+      "prize_purse": "GFNY World Championship competitive classification — age-group podiums, overall awards. No cash purse for mass-start field.",
+      "aid_stations": "Multiple fully stocked aid stations at miles ~17, ~32 (pre-Bear Mountain), ~55 (Bear Mountain summit), ~68 (Ramapo), and ~80 (West Nyack). Water, nutrition, mechanical support.",
+      "cutoff_time": "Course support closes approximately 8.5-9 hours after start",
+      "lat": 40.8517,
+      "lng": -73.9527,
+      "distance_options": [
+        "GFNY Gran Fondo: ~100 miles, ~8,500 ft (full Bear Mountain route)",
+        "GFNY Medio: ~50 miles, ~3,500 ft (turns back before Bear Mountain)"
+      ],
+      "entry_fee": "~$200-300 (tiered pricing, increases closer to race day)"
+    },
+    "climate": {
+      "primary": "Mid-May Northeast spring — mild with variable conditions",
+      "description": "Mid-May in the lower Hudson Valley delivers comfortable cycling weather most years. Temperatures typically range 55-75F at the start, warming to 65-80F by midday. The inland valleys can trap heat on warm years. Morning fog along the Hudson River is possible. Rain is the primary wild card — a cold, wet May day in the 50s with rain turns a gran fondo into a survival exercise. But most years, conditions are close to ideal for hard riding.",
+      "challenges": [
+        "Rain risk: a cold, wet mid-May day drops temperatures into the 50s and makes descents treacherous",
+        "Morning chill on the GWB: standing on the bridge at 6:30 AM in cycling kit can be genuinely cold",
+        "Afternoon warming in inland valleys — mild dehydration risk on hot years",
+        "Wind exposure on the George Washington Bridge and along the Hudson River corridor"
+      ]
+    },
+    "terrain": {
+      "primary": "Paved Hudson Valley roads with sustained climbs and rolling ridgeline terrain",
+      "surface": "Paved roads throughout — Route 9W, county roads, and state park roads. Surface quality varies: 9W along the river is smooth; some of the Rockland County ridge roads have rougher patches. Bear Mountain's Perkins Memorial Drive is well-maintained but steep.",
+      "technical_rating": 1,
+      "features": [
+        "Bear Mountain: 4.5 miles, 1,260 ft gain, ~5% average — the course's signature climb, reaching 1,283 ft elevation",
+        "Alpine climb: 1 mile, 390 ft gain, 7.4% average with 10% peaks — early punch at mile 9",
+        "Gate Hill (Colle Andrea Pinarello): 2 miles at 4.9%, 12% maximum — the steepest sustained pitches on course",
+        "Cheesecote Mountain: 1 mile at 4.6% average, 18% maximum gradient — short but vicious",
+        "Leg-sapping Rockland County ridgeline: sharp climbs, longer drags, twisting descents between miles 45-68"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 69,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "logistics": 5,
+      "length": 4,
+      "technicality": 1,
+      "elevation": 4,
+      "climate": 2,
+      "altitude": 1,
+      "adventure": 3,
+      "prestige": 4,
+      "race_quality": 4,
+      "experience": 4,
+      "community": 4,
+      "field_depth": 4,
+      "value": 3,
+      "expenses": 2,
+      "cultural_impact": 3,
+      "tier_note": "The flagship GFNY event — the original Gran Fondo New York that launched a global series of 30+ events across 15 countries. The World Championship draws 5,000 riders from 90+ nations. T2 by score (69). Prestige=4 grants a 1-tier promotion but T2 cannot be promoted into T1, so T2 stands.",
+      "score_note": "Sum of 14 criteria = 45, cultural_impact = 3, total = 48. (48/70)*100 = 68.57, rounded = 69. logistics=5 (NYC metro airports, transit, hotels). altitude=1 (Bear Mountain summit is 1,283 ft — altitude is irrelevant). prestige=4 (world championship, global franchise flagship, anti-doping pioneer — but not European Monument or Tour de France brand). cultural_impact=3 (launched the GFNY global franchise, pioneered anti-doping in American gran fondos, GWB start is iconic).",
+      "editorial_tier": 2,
+      "editorial_tier_label": "TIER 2",
+      "business_tier": 2,
+      "business_tier_label": "TIER 2",
+      "display_tier": 2,
+      "display_tier_label": "TIER 2",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 5,
+        "explanation": "This is the New York City metro area. Three major airports — JFK, Newark, LaGuardia — with direct flights from virtually everywhere on Earth. Hotels at every price point from Fort Lee to Manhattan. The NJ Transit bus from the Port Authority terminal drops you a mile from the start. The finish village is in Fort Lee, right off the GWB, with easy highway access to every direction. The NYC Bike Expo runs Friday-Saturday for packet pickup and gear shopping. For an event of this caliber, logistics are essentially frictionless."
+      },
+      "length": {
+        "score": 4,
+        "explanation": "100 miles with 8,500 feet of climbing is a proper day of suffering. This isn't a flat century — the rolling Rockland County terrain and sustained Bear Mountain ascent make those miles feel longer than the number suggests. The Medio option at 50 miles provides a legitimate shorter alternative. Most riders finish the full route in 5-8 hours. The distance-to-climbing ratio creates a ride that demands both endurance and climbing ability."
+      },
+      "technicality": {
+        "score": 1,
+        "explanation": "Paved roads throughout. No gravel, no cobbles, no off-road sectors. The technical demands are limited to descending Bear Mountain and the Rockland County ridgeline roads at speed, where fatigue and the occasional rough patch require attention. But this is a road bike event on normal roads. Technicality is not a factor."
+      },
+      "elevation": {
+        "score": 4,
+        "explanation": "8,500 feet of climbing across 100 miles is genuinely challenging. Bear Mountain alone delivers 1,260 feet in 4.5 miles. The Rockland County ridgeline between miles 45-68 is a relentless series of sharp climbs and drags that shred tired legs. Alpine at mile 9, Gate Hill with its 12% pitches, Cheesecote with a vicious 18% maximum — the climbing is varied and persistent. It's not the Dolomites, but for the northeastern United States, this is serious vertical."
+      },
+      "climate": {
+        "score": 2,
+        "explanation": "Mid-May in the Hudson Valley is usually pleasant cycling weather — 60-75F, low humidity, green and mild. That's precisely why climate scores low: it's not a significant challenge factor. A cold rain can make things miserable, but most years the weather cooperates. There's no extreme heat, no altitude-driven temperature swings, no desert exposure. You'll be comfortable, which means the climate isn't testing you."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "The highest point on course is the Bear Mountain summit at 1,283 feet above sea level. That's a parking garage in Denver. Altitude has zero physiological impact. You could ride this course at sea level and not notice the difference. Score accordingly."
+      },
+      "adventure": {
+        "score": 3,
+        "explanation": "Starting on the closed George Washington Bridge with the Manhattan skyline behind you and the Hudson River below — that is a genuinely dramatic cycling moment. The ride up the Hudson Valley past the Palisades is scenic. Bear Mountain State Park is beautiful. But much of the route threads through suburban New Jersey and Rockland County. It's not wilderness. It's not the Alps. It's a well-organized ride through the New York metropolitan area's prettier backyard. Scenic, yes. Epic adventure, no."
+      },
+      "prestige": {
+        "score": 4,
+        "explanation": "This is the original GFNY — the event that launched a global franchise now spanning 30+ races across 15 countries and 4 continents. The NYC event is the World Championship, drawing the strongest field in the GFNY calendar. Anti-doping testing has been in place since 2012 — a genuine differentiator in the gran fondo world. But GFNY is not the Tour de France. It's not a Monument. It's the most prestigious American gran fondo, and the World Championship title carries real weight among competitive amateur cyclists worldwide."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "GFNY runs a polished, professional operation refined over 15 editions. Chip timing from start to finish. Closed George Washington Bridge for the start — a logistical feat that costs the organizers $50,000+ and creates one of cycling's great start lines. Police-monitored intersections. Well-stocked aid stations. Professional competitive classification with age-group results. The mandatory GFNY jersey creates visual unity. The finish village has food, music, and podium ceremonies. It's a tier below ASO-level production, but above most American gran fondos."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "The start on the George Washington Bridge is unforgettable. Standing on the world's busiest bridge, closed to traffic, with 5,000 cyclists and the Manhattan skyline — nothing else in American cycling looks like that. The ride north along the Hudson has genuine beauty. Bear Mountain's final steep ramps and the summit views over the Hudson Highlands reward the suffering. The Rockland County ridgeline tests you when you're already tired. And the finish in Fort Lee completes a loop that started with one of cycling's most dramatic roll-outs. Four experiences in one ride."
+      },
+      "community": {
+        "score": 4,
+        "explanation": "Ninety-plus countries represented in a single cycling event. That's not marketing fluff — GFNY NYC genuinely attracts the most international amateur cycling field in the world. The NYC Bike Expo on Friday-Saturday creates a pre-race festival atmosphere. GFNY's loyal global community treats the NYC championship as their annual pilgrimage. The mandatory jersey creates tribal identity. The post-race village is a legitimate celebration. For a city that can feel anonymizing, GFNY creates real community around shared suffering."
+      },
+      "field_depth": {
+        "score": 4,
+        "explanation": "This is the World Championship — the strongest field on the GFNY calendar. Qualifying times from 30+ global GFNY events funnel the fastest riders to NYC. Anti-doping testing since 2012 adds competitive legitimacy that most gran fondos lack entirely. The front of the race is genuinely fast — strong domestic and international age-group racers pushing hard for championship classification. The back of the field is riding for the experience, but the competitive depth at the sharp end is real."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "Entry is approximately $200-300 depending on when you register, with prices increasing monthly. For that you get a custom Italian-made race jersey, finisher medal, chip timing, fully stocked aid stations, police-monitored course, and a post-race meal and celebration. That's a lot of included value compared to events that charge similar fees and hand you a paper number. The jersey alone is worth $80-100. Whether the total package justifies the premium depends on what you're comparing it to — but the inclusions are substantive."
+      },
+      "expenses": {
+        "score": 2,
+        "explanation": "This is the New York City metropolitan area. Hotels in Fort Lee or along the GWB corridor run $150-300+/night for race weekend. Manhattan hotels are more. Food, parking, transit — everything is priced at NYC rates. Budget $1,000-2,000+ for a weekend trip including registration, 2 nights lodging, food, and transport. Domestic travelers can keep costs down; international visitors face the full weight of NYC pricing. The event itself is good value. The ecosystem around it is expensive."
+      }
+    },
+    "biased_opinion": {
+      "verdict": "The Bridge That Started Everything",
+      "summary": "GFNY New York is the race that proved American gran fondos could be taken seriously. When Uli and Lidia Fluhme paid the Port Authority $50,000 to close the George Washington Bridge for a cycling event in 2011, they were making a bet that the US market wanted European-style competitive cycling with real timing, real anti-doping, and real racing — not another charity ride with a fruit cup at the finish. Fifteen years and 30+ global editions later, that bet has paid off spectacularly. The NYC World Championship draws 5,000 riders from 90+ countries to race 100 miles through the Hudson Valley, summit Bear Mountain, and grind through the Rockland County ridgeline. The course is demanding without being mythical. The organization is professional without being corporate. And that start on the closed GWB — with the Manhattan skyline receding behind you as 5,000 riders roll out together — remains one of the most visually stunning moments in amateur cycling.",
+      "strengths": [
+        "The George Washington Bridge start: the world's busiest bridge closed to traffic for 5,000 cyclists — nothing else in American cycling matches this visual",
+        "World Championship draws the deepest competitive field in the GFNY calendar, with anti-doping since 2012",
+        "Bear Mountain climb: 4.5 miles at 5% with summit views over the Hudson Highlands — a proper signature ascent",
+        "90+ countries represented — the most international amateur cycling event in the world",
+        "NYC logistics: three airports, unlimited lodging, world-class transit — getting here is the easy part"
+      ],
+      "weaknesses": [
+        "The course is suburban Northeast, not Alpine grandeur — much of the route passes through residential New Jersey and Rockland County",
+        "NYC-area expenses compound quickly: hotels, food, and parking at metropolitan pricing",
+        "Entry fee escalation: tiered pricing punishes late registrants, with costs approaching $300 near race day",
+        "Not technically challenging: paved roads throughout, no gravel sectors, no cobbled sections, no surface variety"
+      ],
+      "bottom_line": "The GFNY World Championship in New York is the best competitive gran fondo in America — full stop. The GWB start is iconic, the course is honest, the organization is professional, and the international field gives it a cosmopolitan edge that no other US event matches. It's not L'Etape and it's not a Monument. But for a one-day test of fitness, strategy, and nerve on roads an hour from Times Square, GFNY NYC delivers exactly what it promises."
+    },
+    "final_verdict": {
+      "score": "69 / 100",
+      "one_liner": "100 miles from the George Washington Bridge to Bear Mountain and back. The world championship of gran fondos, started by two people who paid $50K to close the busiest bridge in America.",
+      "should_you_race": "Yes if you want the most competitive, most international gran fondo in North America. Yes if starting on a closed George Washington Bridge with the NYC skyline behind you is on your bucket list. Yes if you want anti-doping, real timing, and a world championship classification. Skip if you want Alpine grandeur — this is the Hudson Valley, not the Dolomites. Skip if NYC-area costs are a dealbreaker.",
+      "alternatives": "If you want European-level climbing prestige: L'Etape du Tour. If you want a US gran fondo with bigger mountains: the Death Ride in California. If you want a GFNY event with less expense: GFNY Miami (flat) or any of the 30+ global GFNY locations.",
+      "alternative_slugs": [
+        "letape-du-tour",
+        "death-ride",
+        "gfny-miami"
+      ]
+    },
+    "logistics": {
+      "airport": "JFK International (JFK) — 1 hour to Fort Lee. Newark Liberty (EWR) — 30 minutes. LaGuardia (LGA) — 45 minutes. All three have direct flights from major cities worldwide. Newark is closest and easiest for Fort Lee access.",
+      "lodging_strategy": "Fort Lee, NJ is the epicenter — walking distance to start/finish. Hotels along the GWB corridor (Fort Lee, Edgewater, Cliffside Park) book up early for race weekend. Manhattan is 20 minutes away via the GWB or A-train to 175th St. Budget travelers: look at hotels along I-95 in northern NJ. Book 2-3 months in advance for best rates.",
+      "food": "It's New York City. The food situation needs no explanation. Fort Lee itself has excellent Korean restaurants and delis. Post-race meal is included with registration. Pre-race carb-loading options are limitless.",
+      "packet_pickup": "NYC Bike Expo at Fort Lee, Friday and Saturday 10 AM - 6 PM. You MUST pick up Friday or Saturday — no race-day pickup. The expo includes vendor booths, bike brands, and GFNY merchandise. Arrive before 6 PM Saturday or you don't race.",
+      "parking": "Fort Lee parking is urban and limited on race weekend. Arrive early or use transit. NJ Transit buses from Port Authority (Manhattan) serve Fort Lee. Parking garages in Fort Lee fill up — some riders park in Manhattan and taxi/bus to the start.",
+      "official_site": "https://nyc.gfny.com/"
+    },
+    "history": {
+      "founded": 2011,
+      "founder": "Uli Fluhme and Lidia Fluhme",
+      "origin_story": "Uli Fluhme first experienced the gran fondo concept in 1995 at the Oetztaler Radmarathon — 235 km with 5,000m of climbing in Austria. He and his partner Lidia recognized that nothing like it existed in the United States: American cycling events were either casual charity rides or closed-circuit criteriums, with nothing in between. They set out to bring authentic Italian-style gran fondo racing to New York City. Lidia negotiated directly with the Port Authority for access to the George Washington Bridge — the authority initially quoted $50,000, expecting to kill the idea, but the Fluhmes agreed. On May 8, 2011, 1,900 riders lined up on the GWB for the first GFNY. By 2012, the field had grown to 4,000+. The concept proved the market existed: competitive, timed, anti-doping-tested mass-participation cycling events in America. GFNY expanded internationally in 2014 (Italy and Mexico), and now operates 30+ events across 15 countries on 4 continents. The NYC event remains the World Championship — the crown jewel of the global calendar.",
+      "notable_moments": [
+        "2011: Inaugural GFNY on May 8 — 1,900 riders start on the George Washington Bridge for the first time",
+        "2012: Field doubles to 4,000+ riders; anti-doping testing introduced — a first for American gran fondos",
+        "2014: International expansion begins with GFNY Italia (Terracina) and GFNY Cozumel (Mexico)",
+        "2017-2019: Series grows to 20+ global events; NYC field stabilizes at ~5,000 from 90+ countries",
+        "2024: Gran Premio NYC launched — combining UCI professional racing with the amateur GFNY World Championship",
+        "2026: 16th edition — Michelob ULTRA GFNY World Championship NYC on May 17"
+      ],
+      "reputation": "The event that proved American gran fondos could be serious. The GWB start is iconic. The anti-doping program is genuine. The World Championship draws the most international amateur cycling field on the planet. GFNY NYC is to competitive gran fondos what the New York City Marathon is to mass-participation running — the flagship that defines the category."
+    },
+    "course_description": {
+      "character": "An out-and-back loop that starts with one of cycling's most dramatic send-offs — 5,000 riders rolling across the closed George Washington Bridge — and then heads north through the Hudson Valley's mix of river flats, suburban rollers, and genuine mountain terrain. The first half builds toward Bear Mountain, the course's physical and emotional apex. The second half punishes you with the Rockland County ridgeline — a relentless sequence of sharp climbs and technical descents that hit when your legs are already compromised. The final miles back along 9W are a flat-road time trial to the finish in Fort Lee. The course rewards riders who can climb, recover on descents, and still produce power in the final 30 miles.",
+      "suffering_zones": [
+        {
+          "mile": 0,
+          "label": "George Washington Bridge Start",
+          "desc": "The world's busiest bridge, closed to traffic, with the Manhattan skyline on one side and the Palisades on the other. The peloton launches south initially before looping north. The adrenaline of 5,000 riders surging off the bridge together is unlike anything else in American cycling. Control the pace — the real race hasn't started yet.",
+          "terrain_detail": "Flat bridge deck and urban roads, initial southbound loop before heading north",
+          "named_section": "The Bridge"
+        },
+        {
+          "mile": 9,
+          "label": "Alpine Climb",
+          "desc": "The first real test. One mile at 7.4% average with pitches touching 10%. This is where groups start to fragment. Riders who treated the bridge start as a criterium pay for it here. The climb punches you back to the elevation of the GWB deck — a useful reminder that the real climbing hasn't even started.",
+          "terrain_detail": "1.6 km, 106m gain, 6.4% avg, 10.2% max",
+          "named_section": "Alpine"
+        },
+        {
+          "mile": 40,
+          "label": "Bear Mountain",
+          "desc": "The signature climb. 4.5 miles and 1,260 feet of sustained 5% gradient with steeper ramps near the summit touching double digits. The initial approach from the river is rough-surfaced. The middle section on Seven Lakes Drive is smooth and deceptively gradual. The final two miles on Perkins Memorial Drive deliver the real suffering — steep pitches with views over the Hudson Highlands that you're too oxygen-deprived to appreciate. The summit aid station near Perkins Memorial Tower is the emotional halfway point. You've climbed the mountain. Now you have to get home.",
+          "terrain_detail": "4.5 miles, 1,260 ft gain, ~5% average, steep finishing ramps approaching 10%",
+          "named_section": "Bear Mountain"
+        },
+        {
+          "mile": 55,
+          "label": "Rockland County Ridgeline",
+          "desc": "The section that breaks people. After descending Bear Mountain and retracing 9W, the route turns west into the ridges of Rockland County. Gate Hill (Colle Andrea Pinarello): 2 miles at 4.9% with a 12% maximum that feels vertical on tired legs. Cheesecote Mountain: barely a mile but with an 18% maximum gradient that stops riders cold. Interspersed with sharp descents and false flats that offer no real recovery. This is where the race is won and lost.",
+          "terrain_detail": "Constant undulation, Gate Hill 3.5 km at 5.2% avg / 8.9% max, Cheesecote 1.5 km at 5.2% avg / 9.6% max",
+          "named_section": "The Ridgeline"
+        },
+        {
+          "mile": 80,
+          "label": "Dyckman Hill and the Run Home",
+          "desc": "The major climbing is done but the legs know it. Rejoining 9W for the southbound return, there's a final sting from Dyckman Hill — a short, sharp ramp that has no business being this hard at mile 80+. Then it's a flat-road time trial back to Fort Lee. The riders who managed nutrition and pacing through the ridgeline have power left. Everyone else is surviving.",
+          "terrain_detail": "Rolling to flat, one final sharp climb, then flat run to Fort Lee finish",
+          "named_section": "The Run Home"
+        }
+      ],
+      "signature_challenge": "Bear Mountain gets the name recognition, but the Rockland County ridgeline is the real race-breaker. Gate Hill and Cheesecote hit when you're 55-65 miles deep with 5,000+ feet already in the legs. The 18% maximum on Cheesecote stops riders who are already cooked. The course is designed to punish poor pacing — it's back-loaded by design."
+    },
+    "guide_variables": {
+      "race_name": "GFNY New York",
+      "race_distance": "100 miles",
+      "race_elevation": "8,500 feet",
+      "race_date": "May",
+      "race_location": "Fort Lee, NJ / Hudson Valley, NY",
+      "race_terrain": "Paved Hudson Valley roads with sustained climbs and rolling ridgeline terrain",
+      "race_weather": "Mild spring conditions (55-80F), variable — rain possible",
+      "race_challenges": [
+        "Bear Mountain: 4.5 miles at 5% average — the signature climb at the midpoint",
+        "Rockland County ridgeline: relentless sharp climbs including 18% maximum on Cheesecote",
+        "100 miles of accumulated fatigue — the back half punishes poor pacing",
+        "Competitive field: World Championship classification and anti-doping attract fast riders"
+      ],
+      "altitude_section": false,
+      "altitude_feet": 1283
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Back-to-back climbing endurance over 5+ hours with repeated efforts",
+        "by_when": "Week 6",
+        "why": "8,500 feet of climbing across 100 miles with the hardest terrain loaded after mile 55. Your long rides must include repeated climbing efforts to simulate the Gate Hill and Cheesecote attacks on already-fatigued legs. A single 90-minute climb won't prepare you for this course."
+      },
+      {
+        "requirement": "Pacing discipline for a back-loaded course",
+        "by_when": "Week 4",
+        "why": "Bear Mountain at mile 40 is the emotional climax but not the hardest terrain. The Rockland County ridgeline from miles 55-68 is where the race is won and lost. If you bury yourself on Bear Mountain, Cheesecote's 18% ramps will end you. Practice restraint on early climbs."
+      },
+      {
+        "requirement": "Tested nutrition strategy for 5-8 hours of variable-intensity riding",
+        "by_when": "Week 8",
+        "why": "The course alternates between hard climbing and recovery flats, making fueling timing tricky. A bonk at mile 60 with 40 miles of rolling terrain ahead is unrecoverable. Use training rides to dial in your intake schedule — especially during and immediately after hard efforts."
+      }
+    ],
+    "citations": [
+      {
+        "url": "https://nyc.gfny.com/",
+        "title": "GFNY New York — Official Site",
+        "category": "official"
+      },
+      {
+        "url": "https://nyc.gfny.com/course/",
+        "title": "GFNY New York — Course Details",
+        "category": "official"
+      },
+      {
+        "url": "https://gfny.com/story/",
+        "title": "GFNY Story — Founding History and Timeline",
+        "category": "official"
+      },
+      {
+        "url": "https://gfny.com/about/",
+        "title": "About GFNY — Global Series Overview",
+        "category": "official"
+      },
+      {
+        "url": "https://www.granfondo.com/cycling/535535/gfny-preview-making-the-most-of-gran-fondo-new-york-start-to-finish",
+        "title": "GFNY Preview: Start to Finish — GranFondo.com",
+        "category": "review"
+      },
+      {
+        "url": "https://strambecco.com/event/gfny-new-york-city/",
+        "title": "GFNY New York City — Strambecco Rating",
+        "category": "review"
+      },
+      {
+        "url": "https://pjammcycling.com/climb/751.Bear%20Mountain",
+        "title": "Bear Mountain Climb Profile — PJAMM Cycling",
+        "category": "reference"
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "high",
+      "validation_status": "validated",
+      "research_strength": "A",
+      "sources_count": 7,
+      "last_updated": "2026-02-27"
+    }
+  }
+}

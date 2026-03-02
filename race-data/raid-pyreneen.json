@@ -1,0 +1,291 @@
+{
+  "race": {
+    "name": "Raid Pyreneen",
+    "slug": "raid-pyreneen",
+    "display_name": "Raid Pyreneen Randonneur",
+    "tagline": "Atlantic to Mediterranean. 18 cols. 720 km. 100 hours. The Pyrenees from ocean to ocean since 1950.",
+    "vitals": {
+      "distance_mi": 447,
+      "elevation_ft": 36100,
+      "location": "Hendaye (Atlantic) to Cerbere (Mediterranean), France",
+      "location_badge": "PYRENEES, FRANCE",
+      "date": "June 1 to September 30 annually (self-timed, no fixed date)",
+      "date_specific": "2026: Rider's choice, June 1 - September 30",
+      "terrain_types": [
+        "Paved Pyrenean mountain passes",
+        "Tour de France cols",
+        "Basque country roads",
+        "Mediterranean coastal roads"
+      ],
+      "field_size": "~300 successful completions per year (no cap, no lottery)",
+      "start_time": "Rider's choice — self-organized departure",
+      "registration": "Contact Cyclo Club Bearnais (CCB), Pau, France. Phone Fridays only 6-7:30 PM. Receive carnet (logbook), cue sheet, numbered bike tag. Cost: EUR9-19",
+      "prize_purse": "None. Certificate and medal for successful completion.",
+      "aid_stations": "None. Fully self-supported. Control points are local cafes/shops where you collect stamps in your carnet.",
+      "cutoff_time": "Randonneur: 100 hours. Touriste: 10 days.",
+      "lat": 43.362,
+      "lng": -1.789,
+      "distance_options": [
+        "Randonneur: 720 km (447 mi), 11,000 m gain, 18 cols, 100-hour limit",
+        "Touriste: 790 km (491 mi), 18,000 m gain, 28 cols, 10-day limit"
+      ],
+      "entry_fee": "EUR9-19"
+    },
+    "climate": {
+      "primary": "Summer Pyrenees — variable mountain weather",
+      "description": "June-September in the Pyrenees. Valley temperatures 22-27C (72-81F) in summer. Summit temperatures (Tourmalet at 2,115m) can drop to 5-10C even in July. Afternoon thunderstorms are a major risk, building from noon onward with lightning at altitude.",
+      "challenges": [
+        "Afternoon thunderstorms with lightning at high altitude — a real hazard",
+        "Summit temperatures 5-10C even in midsummer with severe wind chill",
+        "Fog and low cloud on Atlantic-side Basque passes",
+        "Multi-day exposure means encountering multiple weather systems"
+      ]
+    },
+    "terrain": {
+      "primary": "Paved Pyrenean mountain passes",
+      "surface": "All paved public roads, open to traffic. Quality ranges from excellent (Tourmalet, Aubisque) to narrow and rough (lesser Basque passes at western end).",
+      "technical_rating": 1,
+      "features": [
+        "Col du Tourmalet (2,115m) — highest point, legendary Tour de France summit",
+        "Col d'Aubisque (1,709m) — exposed, dramatic Pyrenean pass",
+        "Col d'Aspin (1,489m) and Col de Peyresourde (1,569m) — classic Tour duo",
+        "Port de Pailheres (2,001m) — second highest, remote and dramatic",
+        "18 named cols on the Randonneur route, 28 on the Touriste"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 76,
+      "tier": 1,
+      "tier_label": "TIER 1",
+      "logistics": 2,
+      "length": 5,
+      "technicality": 1,
+      "elevation": 5,
+      "climate": 4,
+      "altitude": 3,
+      "adventure": 5,
+      "prestige": 5,
+      "race_quality": 3,
+      "experience": 5,
+      "community": 3,
+      "field_depth": 1,
+      "value": 5,
+      "expenses": 2,
+      "cultural_impact": 4,
+      "tier_note": "Prestige 5 + score >= 75 — promoted to Tier 1. The Pyrenees ocean-to-ocean crossing has run continuously since 1950. A pilgrimage for serious cyclists.",
+      "score_note": "Unique brevet format: no mass start, no race infrastructure, no field depth. Adventure=5 and experience=5 reflect the epic self-supported ocean-to-ocean crossing. Value=5 (EUR9-19!). cultural_impact=4 for 75+ year French cyclotourisme institution.",
+      "tier_override_reason": "Prestige 5 + score >= 75 — promoted to Tier 1",
+      "editorial_tier": 1,
+      "editorial_tier_label": "TIER 1",
+      "business_tier": 1,
+      "business_tier_label": "TIER 1",
+      "display_tier": 1,
+      "display_tier_label": "TIER 1",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 2,
+        "explanation": "This is not a race with registration portals and timing chips. You phone the Cyclo Club Bearnais on a Friday evening between 6-7:30 PM, pay EUR9-19, and receive a logbook in the mail. You organize everything else yourself: start date, accommodation, food, navigation, mechanical support. The control points are unstaffed local cafes where you collect stamps. The start (Hendaye) and finish (Cerbere) are on opposite sides of the Pyrenees, requiring a one-way travel plan. This is old-school French cyclotourisme at its most beautiful and most inconvenient."
+      },
+      "length": {
+        "score": 5,
+        "explanation": "720 km (447 miles) for the Randonneur, 790 km (491 miles) for the Touriste. Within a 100-hour window, you cross the entire Pyrenean chain from the Atlantic to the Mediterranean. Most Randonneur attempts involve 3-5 days of riding with 6-12 hours of sleep. The Touriste version adds 7,000m of additional climbing through more remote passes over 10 days. This is not a sportive — it's an expedition on a road bike."
+      },
+      "technicality": {
+        "score": 1,
+        "explanation": "All paved public roads. The technical demands are limited to descending mountain passes on tired legs in variable weather on roads open to traffic. Some of the lesser Basque passes at the western end have narrow, rough road surfaces, but nothing requiring off-road skills."
+      },
+      "elevation": {
+        "score": 5,
+        "explanation": "11,000 meters (36,100 feet) of climbing on the Randonneur route across 18 named cols. The Touriste version packs 18,000 meters (59,000 feet) across 28 cols. The Tourmalet (2,115m), Aubisque (1,709m), Aspin, Peyresourde, Pailheres (2,001m) — these are the mountains that made the Tour de France. You climb them all, one after another, for days."
+      },
+      "climate": {
+        "score": 4,
+        "explanation": "Multi-day mountain exposure amplifies every weather variable. Valley floors bake at 27C while summits hover at 5-10C. Afternoon thunderstorms build from noon daily in July and August — lightning at altitude on exposed summit roads is a genuine safety concern. Fog envelops Atlantic-side passes without warning. Over 3-5 days, you will encounter multiple weather systems. Clothing and planning for all conditions is mandatory."
+      },
+      "altitude": {
+        "score": 3,
+        "explanation": "The Tourmalet at 2,115m and Pailheres at 2,001m are meaningful altitude but not extreme. The effects are real — reduced oxygen, faster breathing, slower recovery — and compounded by the multi-day format. But this isn't the Galibier's 2,642m or Andean passes. The altitude is a factor, not the defining challenge."
+      },
+      "adventure": {
+        "score": 5,
+        "explanation": "Atlantic Ocean to Mediterranean Sea. Self-supported. 18 mountain passes. 100 hours. No aid stations, no course marshals, no timing chips. You carry a stamped logbook through cafe control points like a cyclist from the 1950s — because this format hasn't changed since the 1950s. The point-to-point ocean-to-ocean crossing gives it a continental, expedition character that no loop event can match. This is the purest cycling adventure available on paved roads in Europe."
+      },
+      "prestige": {
+        "score": 5,
+        "explanation": "Running continuously since 1950 — 75+ years. What Paris-Brest-Paris is to randonneuring, the Raid Pyreneen is to mountain cycling. The certificate and medal from the Cyclo Club Bearnais carry weight in French cycling culture that no modern sportive can replicate. Completing the Raid is a declaration of self-reliance and mountain competence. The deliberate rejection of commercial trappings — EUR9 entry, no timing chips, no Instagram sponsorships — is itself a statement of prestige."
+      },
+      "race_quality": {
+        "score": 3,
+        "explanation": "This is not a 'race' in any conventional sense. There are no start waves, no feed stations, no medical teams. But the 75-year-old brevet system — the carnet, the stamps, the CCB certification — is its own form of quality. The stamp card is the timing system. The local cafes are the aid stations. The honor-based 100-hour clock is the enforcement. It's a different philosophy of event quality, rooted in French cyclotourisme tradition rather than modern sportive culture."
+      },
+      "experience": {
+        "score": 5,
+        "explanation": "Arriving at Cerbere on the Mediterranean coast after days of Pyrenean passes — having started at Hendaye on the Atlantic — is one of cycling's most profound experiences. The scale of crossing an entire mountain range from ocean to ocean gives the Raid Pyreneen an emotional weight that single-day events can't match. Each col is a chapter. Each stamp in the carnet is a milestone. The certificate at the end is not a finisher's medal — it's proof of passage."
+      },
+      "community": {
+        "score": 3,
+        "explanation": "By design, this is a solitary experience. You ride alone or with chosen companions, not in a field of thousands. ~300 riders complete it each year. The community is small, self-selected, and deeply committed to the cyclotourisme philosophy. There's a quiet brotherhood among Raid finishers, but you won't find festival villages or post-race parties. The community lives in the shared understanding of what the crossing means."
+      },
+      "field_depth": {
+        "score": 1,
+        "explanation": "Not competitive. There are no rankings, no age groups, no podium. The only competition is between you and the 100-hour clock. Some riders attempt fast unsupported completions as personal challenges, but these are unofficial. The field 'depth' is approximately 300 completions per year — all of them personal journeys, not races."
+      },
+      "value": {
+        "score": 5,
+        "explanation": "EUR9-19 for one of cycling's most legendary challenges. That's not a typo. The Cyclo Club Bearnais charges less than the cost of two cafe stops for a certificate, medal, carnet, and numbered bike tag that carry 75 years of French cycling heritage. This is the best value in organized cycling, period. Nothing else comes close."
+      },
+      "expenses": {
+        "score": 2,
+        "explanation": "The entry fee is negligible. The real cost is 3-10 days of French mountain travel: hotels, chambres d'hotes, or camping each night; meals at mountain restaurants; getting to Hendaye and back from Cerbere (opposite sides of the Pyrenees). Guided tour operator packages (Marmot Tours, Pyrenees Cycling) run EUR1,500-3,000+ with support vehicle and pre-booked accommodation. Independent travelers budget EUR500-1,000 for a self-supported Randonneur attempt."
+      }
+    },
+    "biased_opinion": {
+      "verdict": "The Pilgrimage",
+      "summary": "The Raid Pyreneen is not an event. It's a tradition. Since 1950, cyclists have collected stamps in a logbook as they cross the Pyrenees from ocean to ocean — no timing chips, no aid stations, no spectators. Just you, 18 mountain passes, and 100 hours. The format hasn't changed because it doesn't need to. In an era of sold-out sportives with Instagram hashtags and finisher's beer gardens, the Raid stands apart as a declaration of what cycling adventure was always meant to be: self-reliant, mountain-focused, and earned.",
+      "strengths": [
+        "Atlantic to Mediterranean: the most epic point-to-point cycling challenge in Europe",
+        "75+ years of unbroken tradition — the Cyclo Club Bearnais format hasn't changed since 1950",
+        "EUR9-19 entry: the best value in organized cycling, anywhere",
+        "18 legendary cols including Tourmalet, Aubisque, Aspin, Peyresourde"
+      ],
+      "weaknesses": [
+        "Fully self-supported: no aid stations, no medical team, no broom wagon",
+        "Logistics are demanding: point-to-point requires one-way travel planning",
+        "The CCB office is open Fridays 6-7:30 PM only — registration requires patience",
+        "Solitary by design: if you want a cycling festival, look elsewhere"
+      ],
+      "bottom_line": "If you've done the sportives and want something that means more, the Raid Pyreneen is waiting. It's been waiting since 1950."
+    },
+    "final_verdict": {
+      "score": "76 / 100",
+      "one_liner": "Ocean to ocean. 18 cols. 100 hours. The Pyrenees crossing that's been humbling cyclists since 1950.",
+      "should_you_race": "Yes if you want cycling's most authentic mountain challenge — no frills, no crowds, pure self-supported adventure. Yes if you value tradition over Instagram. Skip if you need organized support — this is fully on you. Skip if you want a single-day event.",
+      "alternatives": "If you want Pyrenean cols in an organized sportive: try L'Etape du Tour (single day, different route each year). If you want similar self-supported multi-day challenge: try Tour Divide (bikepacking). If you want organized multi-day mountain cycling: try Haute Route.",
+      "alternative_slugs": []
+    },
+    "logistics": {
+      "airport": "Start (Hendaye): Biarritz (BIQ) 30 km, or Bilbao (BIO) 85 km. Finish (Cerbere): Perpignan (PGF) 30 km. Toulouse (TLS) useful mid-route.",
+      "lodging_strategy": "Self-organized. Hotels, chambres d'hotes, and gites d'etape along the route in cycling-heavy towns: Argeles-Gazost, Luz-Saint-Sauveur, Bagneres-de-Luchon, Tarascon-sur-Ariege. Book ahead in July/August. Most 100-hour attempts involve 3-5 sleep stops.",
+      "food": "Self-supported. Mountain towns have restaurants, cafes, and small shops. Control points are local cafes — buy a coffee when you get your stamp.",
+      "packet_pickup": "Carnet and bike tag mailed by CCB after registration. No event village, no expo, no packet pickup.",
+      "parking": "Not applicable — point-to-point route. Arrange one-way travel or use Hendaye/Cerbere train connections.",
+      "official_site": "https://ccb-cyclo.fr/en/raid-pyreneen.html"
+    },
+    "history": {
+      "founded": 1950,
+      "founder": "Paul Mathis and the Cyclo Club Bearnais",
+      "origin_story": "In 1949, Paul Mathis and companion Piege made the first informal Hendaye-Cerbere crossing, inspired by a project by Maurice Bugard. Mathis formalized the route for the Cyclo Club Bearnais in 1950, creating a permanent challenge open to all cyclists. The format — self-timed, self-supported, stamped logbook — has remained essentially unchanged for 75+ years. The Raid predates most commercial cycling events in Europe by decades.",
+      "notable_moments": [
+        "1949: First informal crossing by Paul Mathis and Piege",
+        "1950: Formalized as a permanent challenge by the Cyclo Club Bearnais",
+        "75+ years of continuous operation — one of the oldest cycling challenges in the world",
+        "~300 successful completions per year; record years have seen 600+"
+      ],
+      "reputation": "The Paris-Brest-Paris of mountain cycling. A pilgrimage, not a race."
+    },
+    "course_description": {
+      "character": "Epic. Point-to-point, ocean to ocean, 18 mountain passes over 3-5 days. The Pyrenees from west to east, starting in the green, rain-prone Basque country and finishing on the sun-baked Mediterranean coast. Each day brings a new set of cols, a new landscape, and a new challenge. The format — self-navigated with a stamped logbook — strips cycling back to its essentials: you, the mountains, and the road.",
+      "suffering_zones": [
+        {
+          "mile": 0,
+          "label": "The Basque Passes",
+          "desc": "The opening 100 km through Basque country. Lower passes (Col de St-Ignace 169m, Col d'Osquich 392m) ease you in, but the fog, rain, and narrow roads of the Atlantic Pyrenees set the tone.",
+          "terrain_detail": "Rolling Basque hills, narrow roads, fog-prone",
+          "named_section": "Basque Country"
+        },
+        {
+          "mile": 150,
+          "label": "The Big Cols: Aubisque-Tourmalet-Aspin-Peyresourde",
+          "desc": "The heart of the Raid. Four Tour de France giants in succession. The Tourmalet at 2,115m is the high point — exposed, barren, legendary. This block defines whether you finish.",
+          "terrain_detail": "Four cols above 1,450m in succession",
+          "named_section": "The Central Pyrenees"
+        },
+        {
+          "mile": 300,
+          "label": "The Ariege Cols",
+          "desc": "Portet d'Aspet, Col de Port, Port de Pailheres (2,001m). The eastern Pyrenees are steeper, quieter, and more remote. By day 3-4, cumulative fatigue makes every col harder than the last.",
+          "terrain_detail": "Remote eastern Pyrenean passes, steeper gradients",
+          "named_section": "Ariege Mountains"
+        },
+        {
+          "mile": 420,
+          "label": "The Run to the Mediterranean",
+          "desc": "Col de Jau, then the descent through the Fenouillèdes to Cerbere on the Mediterranean coast. The relief of seeing the sea after days of mountains is the Raid's emotional climax.",
+          "terrain_detail": "Final cols then descent to the coast",
+          "named_section": "The Mediterranean Finish"
+        }
+      ],
+      "signature_challenge": "The Tourmalet at 2,115m is the symbolic peak, but the real challenge is the cumulative toll of 18 passes over 3-5 days with no support. The Raid tests self-reliance as much as fitness."
+    },
+    "guide_variables": {
+      "race_name": "Raid Pyreneen Randonneur",
+      "race_distance": "447 miles",
+      "race_elevation": "36,100 feet",
+      "race_date": "June-September",
+      "race_location": "Hendaye to Cerbere, French Pyrenees",
+      "race_terrain": "Paved mountain passes — 18 cols including Tourmalet, Aubisque, Aspin, Peyresourde",
+      "race_weather": "Summer mountain weather with afternoon storms, cold summits, and multi-day exposure",
+      "race_challenges": [
+        "720 km self-supported across 18 Pyrenean cols in 100 hours",
+        "Multi-day cumulative fatigue with no organized support",
+        "Summit temperatures 5-10C even in summer with storm risk",
+        "Point-to-point logistics — ocean to ocean"
+      ],
+      "altitude_section": true,
+      "altitude_feet": 6939
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Multi-day endurance base — back-to-back 200+ km mountain days",
+        "by_when": "Week 6",
+        "why": "The Randonneur demands 3-5 consecutive days of 150-250 km riding with massive climbing. Train consecutive big days, not just single big days."
+      },
+      {
+        "requirement": "Self-sufficiency skills — navigation, nutrition, mechanical, sleep strategy",
+        "by_when": "Week 8",
+        "why": "No aid stations, no broom wagon, no race support. You must be able to navigate by cue sheet, fuel from village shops, fix mechanical issues, and manage sleep deprivation across multiple days."
+      },
+      {
+        "requirement": "Weather readiness — full Alpine kit for summit and valley conditions",
+        "by_when": "Week 10",
+        "why": "Multi-day Pyrenean crossing will encounter rain, cold summits, and potentially hot valleys. Carry layers for all conditions every day."
+      }
+    ],
+    "citations": [
+      {
+        "url": "https://ccb-cyclo.fr/en/raid-pyreneen.html",
+        "title": "The Pyrenean Raid — Cyclo Club Bearnais Official",
+        "category": "official"
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Raid_Pyr%C3%A9n%C3%A9en",
+        "title": "Raid Pyreneen — Wikipedia",
+        "category": "reference"
+      },
+      {
+        "url": "https://epicroadrides.com/cycling-blog/raid-pyrenees/",
+        "title": "Raid Pyrenees: Cycling Pyrenees Coast to Coast — Epic Road Rides",
+        "category": "review"
+      },
+      {
+        "url": "https://marmot-tours.co.uk/holidays/raid-pyrenean",
+        "title": "Raid Pyrenean — Marmot Tours",
+        "category": "review"
+      },
+      {
+        "url": "https://www.broleur.com/raid-pyrenean/",
+        "title": "The Raid Pyrenean — Broleur",
+        "category": "review"
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "high",
+      "validation_status": "validated",
+      "research_strength": "A",
+      "sources_count": 5,
+      "last_updated": "2026-02-27"
+    }
+  }
+}

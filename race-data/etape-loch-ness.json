@@ -1,0 +1,390 @@
+{
+  "race": {
+    "name": "Etape Loch Ness",
+    "slug": "etape-loch-ness",
+    "display_name": "Etape Loch Ness",
+    "tagline": "Scotland's largest closed-road sportive. 66 miles around the world's most famous loch. 900 metres of climbing. The King of the Mountain at 12%. Dawn start in the Highland capital.",
+    "vitals": {
+      "distance_mi": 66,
+      "elevation_ft": 2953,
+      "location": "Inverness, Scottish Highlands",
+      "location_badge": "INVERNESS, SCOTTISH HIGHLANDS",
+      "county": "Highland",
+      "date": "Late April annually",
+      "date_specific": "2026: April 26",
+      "terrain_types": [
+        "Fully paved closed public roads",
+        "Single-carriageway Highland roads along Loch Ness",
+        "Sustained mountain climb at Glen Doe (KOM stage)"
+      ],
+      "field_size": "~6,000 riders (sells out in days)",
+      "start_time": "Wave starts between 06:00-06:50",
+      "registration": "Priority entry for previous riders, then general entry. Sells out quickly. Cost: £77-83.",
+      "prize_purse": "Non-competitive sportive. KOM/QOM recognition on timed climb segment.",
+      "aid_stations": "Multiple support stations along the 66-mile route with hydration, nutrition (HIGH5 products), and mechanical support",
+      "cutoff_time": "Roads reopen on schedule — riders must maintain reasonable pace to complete before road closures lift",
+      "lat": 57.4778,
+      "lng": -4.2247,
+      "distance_options": [
+        "66 miles (106km) — single distance, 360-degree loop around Loch Ness with 900m ascent"
+      ],
+      "entry_fee": "£77-83 (~$95-105 USD)"
+    },
+    "climate": {
+      "primary": "Scottish Highland spring — unpredictable, cool, potentially wet",
+      "description": "Late April in the Scottish Highlands delivers temperatures ranging from 4°C (39°F) at the dawn start to 10-12°C (50-54°F) by midday. Rain probability is significant — Inverness averages 76mm of precipitation across approximately 16 rain days in April, though it is statistically the driest month. The Loch Ness corridor funnels wind along the Great Glen, creating headwinds or tailwinds depending on route direction. Morning fog can obscure the loch-side roads early. Sunshine hours average around 137 for the month — meaning bright spells are possible but not guaranteed. Riders have experienced everything from stunning bluebird Highland days to driving rain and near-freezing conditions at the start line.",
+      "challenges": [
+        "Dawn start at 06:00 in 4°C temperatures — layering strategy is critical",
+        "Rain probability is high — waterproof layers are mandatory kit",
+        "Wind channeling through the Great Glen creates exposed sections along the loch",
+        "Temperature can feel 5-10°C colder on exposed climbs and descents with wind chill",
+        "Weather can change rapidly in the Highlands — four seasons in one ride is not hyperbole"
+      ]
+    },
+    "terrain": {
+      "primary": "Fully paved closed public roads through the Scottish Highlands",
+      "surface": "All tarmac on closed public roads. The route follows the A82 and B-roads around Loch Ness in a complete 360-degree loop, starting and finishing in Inverness. Road surfaces range from well-maintained A-road to narrower single-carriageway Highland roads on the south side of the loch. No gravel, no off-road sections — this is a pure road event on fully closed roads with no traffic.",
+      "technical_rating": 1,
+      "features": [
+        "King of the Mountain — 4.8-mile (7.72km) timed climb above Fort Augustus gaining 380m with gradients reaching 12%",
+        "South side loch road — narrower B-road with rolling terrain and scenic viewpoints",
+        "North side A82 — faster, wider road with more traffic infrastructure",
+        "Inverness city finish — final section uses left-lane closure only through the city"
+      ],
+      "gravel_percentage": 0,
+      "pavement_percentage": 100
+    },
+    "gravel_god_rating": {
+      "overall_score": 63,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "logistics": 4,
+      "length": 3,
+      "technicality": 1,
+      "elevation": 3,
+      "climate": 3,
+      "altitude": 1,
+      "adventure": 3,
+      "prestige": 3,
+      "race_quality": 4,
+      "experience": 4,
+      "community": 4,
+      "field_depth": 2,
+      "value": 3,
+      "expenses": 3,
+      "cultural_impact": 3,
+      "tier_note": "Scotland's largest closed-road sportive with 6,000 riders around one of the world's most iconic lochs. Prestige=3 for national-level recognition as Scotland's flagship sportive with international draw from 20+ countries, but not globally elite-tier. Cultural_impact=3 for the Loch Ness mythology, £2M+ raised for Macmillan Cancer Support over 10+ years, and the event's role as a Highland tourism anchor.",
+      "score_note": "Sum of 14 criteria: 4+3+1+3+3+1+3+3+4+4+4+2+3+3 = 41. Cultural_impact=3. Total=44. Score=round(44/70*100)=63. Tier from score: T2 (>=60). Prestige=3, no override applies.",
+      "editorial_tier": 2,
+      "editorial_tier_label": "TIER 2",
+      "business_tier": 2,
+      "business_tier_label": "TIER 2",
+      "display_tier": 2,
+      "display_tier_label": "TIER 2",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 4,
+        "explanation": "Twelve editions of operational refinement show in every detail. The Event Hub at Eden Court in Inverness centralizes registration, merchandise, Q&A sessions, mechanical support, and socializing into a polished weekend experience. Saturday registration (10:00-19:00) with mandatory photo ID is strictly enforced — no Sunday morning registration, no event-day entries, no exceptions. Four start waves (A-D) based on estimated finish time release riders in groups at 3-minute intervals between 06:00 and 06:50, preventing the chaos of a mass start with 6,000 riders. Inverness Airport (INV) is 15 minutes from the city center with connections to London, Manchester, and European hubs. The start area is 0.6 miles from Eden Court. Multiple support stations with HIGH5 nutrition, on-course mechanical support, and chip timing are standard. The only logistical friction: accommodation in Inverness fills quickly on event weekend, and parking requires early arrival."
+      },
+      "length": {
+        "score": 3,
+        "explanation": "At 66 miles (106km), this is a proper sportive distance that demands respect without entering ultra-endurance territory. For seasoned road cyclists, this is a solid day out. For newcomers — and the event actively welcomes first-time sportive riders — the combination of distance, climbing, and Highland weather creates a genuine challenge. The single-distance format means everyone rides the same route — no shorter escape options, no cutting corners. With 900m of climbing folded into those 66 miles, the average gradient pressure is moderate but constant. The King of the Mountain section adds a concentrated dose of suffering that elevates the overall difficulty above a flat century equivalent."
+      },
+      "technicality": {
+        "score": 1,
+        "explanation": "This is a fully paved, closed-road event on tarmac throughout. No gravel, no cobbles, no off-road sections. The technical demands are minimal — any competent road cyclist can handle the surface. The descents off the King of the Mountain require basic descending skills, and the narrower south-side loch roads demand awareness in a dense pack, but bike handling is not the differentiator here. The final section through Inverness uses left-lane closure only rather than full road closure, which is the only point where traffic awareness matters. Ebikes are permitted if UK road-legal. Triathlon bars, aero bars, and clip-ons are banned for safety in the mass-participation format."
+      },
+      "elevation": {
+        "score": 3,
+        "explanation": "The headline number is 900 metres (approximately 2,950 feet) of total ascent across 66 miles — meaningful but not mountainous. The King of the Mountain is where the climbing concentrates: a 4.8-mile (7.72km) timed climb above Fort Augustus gaining 380m with gradients reaching 12% at points. This is a proper climb by any standard — 25-40 minutes of sustained effort depending on fitness, with ramps steep enough to force riders out of the saddle. Beyond the KOM, the route features rolling terrain, particularly on the south side of the loch, but nothing approaching the relentless vertical of Alpine or Pyrenean sportives. The elevation profile rewards steady pacing over pure climbing power."
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "Scottish Highlands in late April is a weather gamble that every rider must take seriously. Temperatures at the 06:00 start hover around 4°C (39°F), climbing to maybe 10-12°C by midday — this is not warm. Rain probability is significant, and the event mandates waterproof layers in the recommended kit list. Wind channeled through the Great Glen along Loch Ness can create biting headwinds on exposed sections. Riders have reported everything from glorious spring sunshine to driving rain and near-freezing wind chill. The event posts pre-ride weather advisories on social media. Climate is a genuine variable that separates prepared riders from miserable ones, but it rarely reaches the extreme conditions of winter Highland cycling."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "Inverness sits at sea level. The highest point on the course — the summit of the King of the Mountain climb above Fort Augustus — reaches approximately 500 metres (1,640 feet). There is zero physiological altitude effect. The challenge here is gradient, not thin air. No acclimatization needed, no altitude considerations whatsoever."
+      },
+      "adventure": {
+        "score": 3,
+        "explanation": "Loch Ness is one of the most recognizable natural landmarks on Earth, and cycling a complete 360-degree loop around it on closed roads is genuinely special. The route passes through the Great Glen — a geological fault line that bisects Scotland — with views of Urquhart Castle, the Caledonian Canal, and the Highland mountains rising from the loch shores. Fort Augustus at the halfway point offers a quintessential Highland village scene. The dawn start adds atmosphere as riders roll out into the early morning Highland light. But this is a well-supported sportive on closed public roads with support stations, mechanical assistance, and thousands of fellow riders — the adventure is scenic and atmospheric rather than wild or self-reliant."
+      },
+      "prestige": {
+        "score": 3,
+        "explanation": "Scotland's largest closed-road cycle sportive and one of the UK's most recognized cycling events. The 2025 edition drew riders from over 20 countries, with a third of participants traveling from outside Scotland. General entry sells out within days of opening. The event has hosted celebrities like Stephen Roche (1987 Triple Crown winner) as official starter for the 10th edition. It is part of the London Classics qualification pathway. However, this is a mass-participation sportive, not a UCI race or globally elite event — prestige is national and regional rather than international racing significance."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "Twelve editions of continuous operation by Caledonian Concepts (Scotland) Ltd — the same team behind the Loch Ness Marathon — delivers professional-grade event management. Chip timing with KOM/QOM split times, digital finisher certificates, multiple support stations with HIGH5 nutrition products, on-course mechanical support, and a full Event Hub at Eden Court with merchandise, Q&A sessions, food vendors, and pop-up bars. The wave start system efficiently manages 6,000 riders. Police Scotland, Transport Scotland, BEAR Scotland, the Scottish Ambulance Service, and Highland Council all provide support. The event coordinates road closures across multiple agencies — a logistical achievement that smaller events simply cannot replicate."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "Rolling out of Inverness at dawn with 6,000 riders on fully closed roads, watching Loch Ness emerge from morning mist as you ride along its shores — this is a cycling experience that rivals any sportive in the UK. The 360-degree route means you see the loch from every angle: the wider A82 on the north side, the narrower atmospheric roads on the south side, Fort Augustus at the southern tip where the Caledonian Canal meets the loch. The King of the Mountain climb above Fort Augustus is the crucible — gradients hitting 12%, lungs burning, then the reward of Highland panoramas from the summit. The finisher medal, the warm Highland welcome from volunteers, the post-ride atmosphere at Eden Court — rider feedback consistently rates this among the best sportive experiences in Britain. One participant called it 'an excellent event, organisation spot on, stunning scenery and a warm Scottish welcome.'"
+      },
+      "community": {
+        "score": 4,
+        "explanation": "The Etape Loch Ness has raised over £2 million for Macmillan Cancer Support since its inception — with over 1,000 riders each year cycling specifically for the charity. The 2022 edition raised £220,000 alone. This is not token charity branding — it is central to the event's identity and community spirit. The 6,000-rider field creates a festival atmosphere, with the Event Hub at Eden Court serving as a weekend gathering point. The event actively welcomes first-time sportive riders alongside experienced cyclists, creating a broad community that spans ability levels. International participation from 20+ countries adds diversity. The Strava cycling club, social media engagement, and training webinars (including a free pre-event webinar hosted by a Commonwealth Games athlete) build community year-round, not just on event day."
+      },
+      "field_depth": {
+        "score": 2,
+        "explanation": "This is a mass-participation sportive, not a competitive race. Finisher times are recorded and results published, but the field is overwhelmingly recreational — from first-time sportive riders to experienced club cyclists. The fastest riders complete the course in under 3 hours (the 2022 record was 2:46:04 by Scott Davidson and Andrew MacRae of Moray Firth Cycling Club), but these are strong local club riders, not professional racing talent. The KOM/QOM timed segment adds a competitive element, but the overall format prioritizes participation and personal achievement over racing depth. The 6,000-rider field is impressive for its scale but not for its competitive concentration."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "Entry at £77-83 (~$95-105 USD) includes closed-road access for 66 miles, chip timing with KOM/QOM splits, finisher medal, digital certificate, support stations, and mechanical support. For a UK sportive of this scale and quality, pricing is competitive — similar closed-road events in England charge comparable or higher fees. The Event Hub weekend adds value beyond the ride itself. However, you are paying a premium for the closed-road logistics, which require multi-agency coordination. No jersey, no significant swag beyond the medal. The charity place option at £150 minimum Macmillan fundraising pledge provides an alternative entry route but at higher effective cost."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Registration is £77-83. The major expense variable is travel and accommodation: Inverness is remote for most UK riders and requires significant travel from England or central Scotland. Inverness accommodation fills rapidly on event weekend — hotels book up months in advance, and Highland pricing applies. Inverness Airport has limited connections, so many riders drive or take the train (4+ hours from Edinburgh or Glasgow). Saturday registration means arriving at least the day before, adding a night's accommodation. Budget £300-500 for the weekend excluding travel for most riders from within the UK, significantly more for international participants. The Highlands are not cheap — food, fuel, and lodging all carry rural tourism premiums."
+      }
+    },
+    "biased_opinion": {
+      "verdict": "Scotland's Signature Sportive",
+      "summary": "Etape Loch Ness is what happens when you take one of the world's most famous natural landmarks, close the roads around it, and let 6,000 cyclists loose at dawn. The result is a sportive that trades on scenery and atmosphere rather than raw difficulty, and it delivers on that promise completely. The 66-mile loop around Loch Ness on fully closed roads is a cycling experience that few UK events can match — the loch emerging from morning mist, the Highland mountains rising on either side, Fort Augustus at the halfway point, and the King of the Mountain climb to test your legs and your resolve. This is not a race that will break elite cyclists, but it is an experience that will stay with every rider who does it. The £2 million raised for Macmillan Cancer Support gives it a soul that pure sporting events often lack.",
+      "strengths": [
+        "The setting: Loch Ness is globally iconic, and the 360-degree closed-road loop maximizes the scenery",
+        "The organization: 12 editions of refinement by a professional events company show in every detail",
+        "The community: 6,000 riders, £2M+ for Macmillan, genuine Highland welcome from local volunteers",
+        "The King of the Mountain: 4.8 miles at up to 12% gives the route legitimate climbing credibility",
+        "The accessibility: welcomes first-time sportive riders alongside experienced cyclists without diluting the experience"
+      ],
+      "weaknesses": [
+        "The weather: Scottish Highlands in April is a genuine gamble — prepare for cold, wet conditions",
+        "The distance: 66 miles is meaningful but won't challenge riders seeking ultra-endurance suffering",
+        "The technicality: fully paved closed roads offer zero technical challenge beyond basic descending",
+        "The location: Inverness is remote — significant travel required from most UK population centers",
+        "The accommodation: Highland lodging fills fast and prices spike on event weekend"
+      ],
+      "bottom_line": "If you want to cycle around one of the most famous lochs in the world on closed roads with 6,000 other riders at dawn, there is exactly one event that offers that. Etape Loch Ness is not the hardest sportive in Britain, but it might be the most memorable."
+    },
+    "final_verdict": {
+      "score": "63 / 100",
+      "one_liner": "Scotland's largest closed-road sportive — 66 miles around one of the world's most iconic lochs with 900m of climbing and a King of the Mountain at 12%.",
+      "should_you_race": "Yes, if riding closed roads around Loch Ness at dawn with 6,000 cyclists appeals to you as an experience. Yes, if you want a well-organized sportive that welcomes all abilities while still offering a legitimate climbing challenge. Skip if you need serious competitive racing depth — this is participatory. Skip if sub-100km on paved roads doesn't challenge you. And check the weather forecast before packing — Scottish April weather demands respect and proper kit.",
+      "alternatives": "For a harder UK sportive: Fred Whitton Challenge (112mi, 3,960m climbing, Lake District). For Scottish gravel: Dirty Reiver crosses the border into proper off-road suffering. For a similar closed-road European sportive: L'Etape du Tour (France, mountain stages on closed roads).",
+      "alternative_slugs": [
+        "dirty-reiver",
+        "letape-du-tour-femmes"
+      ]
+    },
+    "logistics": {
+      "airport": "Inverness Airport (INV) — 15 minutes from city center. Connections to London (Heathrow, Gatwick, Luton), Manchester, Bristol, and seasonal European routes via easyJet and Loganair. Edinburgh (EDI) or Glasgow (GLA) are 3-4 hours by road or rail.",
+      "lodging_strategy": "Book immediately upon securing entry. Inverness accommodation fills rapidly on event weekend — hotels, B&Bs, and Airbnb properties all get snapped up months in advance. The city center puts you within walking distance of the Event Hub at Eden Court and the start area. Budget travelers can look at hostels or accommodation in Beauly, Dingwall, or Nairn (20-30 minute drive). Many riders and families extend the weekend to explore the Highlands.",
+      "food": "Inverness has a solid food and drink scene for a Highland city. The Victorian Market and surrounding streets offer restaurants, pubs, and cafes. The Event Hub at Eden Court features local food vendors, coffee, and pop-up bars. Fort Augustus at the halfway point is a small Highland village — do not expect extensive options. Bring your own on-bike nutrition and hydration strategy; do not rely solely on support stations.",
+      "packet_pickup": "Saturday 25 April 2026, 10:00-19:00 at the Event Hub, Eden Court, Bishops Road, Inverness, IV3 5SA. Mandatory — no Sunday morning registration. Bring photo ID. Combined with event expo, merchandise sales, Q&A sessions, and mechanical support.",
+      "parking": "Designated event parking in Inverness — details communicated in rider instructions. Arrive early. The start area is 0.6 miles from the Event Hub. Many riders walk or ride from accommodation.",
+      "official_site": "https://www.etapelochness.com"
+    },
+    "history": {
+      "founded": 2014,
+      "founder": "Caledonian Concepts (Scotland) Ltd — the same team behind the Baxters Loch Ness Marathon and Festival of Running",
+      "origin_story": "The inaugural Etape Loch Ness took place in 2014 as the first-ever closed-road cycling event around Loch Ness. Over 1,000 cyclists took part in that first edition, which was won by Alan Dean from Edinburgh in 2 hours 55 minutes, with Lynne Fraser from Deeside Thistle the fastest woman at 3 hours 26 minutes. Organiser Malcolm Sutherland said 'the route is absolutely incredible' and expressed confidence it would become an annual fixture. It grew rapidly — by 2022, the field had expanded to 6,100 riders and general entry was selling out in 36 hours. The partnership with Macmillan Cancer Support has been central since the beginning, with riders raising over £2 million for the cancer charity across the event's history. The 2024 10th edition was officially started by 1987 Triple Crown winner Stephen Roche, with 5,650 riders from 24 countries. The 2026 edition — the 12th — sold out its general entry, with remaining places available only through Macmillan charity entry.",
+      "notable_moments": [
+        "2014: Inaugural edition — first closed-road cycling event around Loch Ness, 1,000+ riders",
+        "2022: Record 6,100 riders, general entry sells out in 36 hours, £220,000 raised for Macmillan",
+        "2024: 10th edition started by Stephen Roche (1987 Triple Crown winner), 5,650 riders from 24 countries",
+        "2025: Record broken — Edinburgh cyclist sets fastest time in event history; riders from 20+ countries, a third from outside Scotland",
+        "Cumulative: Over £2 million raised for Macmillan Cancer Support across all editions"
+      ],
+      "reputation": "Scotland's largest and most iconic closed-road cycle sportive. The combination of Loch Ness mythology, Highland scenery, closed-road access, and Macmillan Cancer Support partnership creates an event identity that transcends cycling — it is a Highland experience that happens to involve bicycles.",
+      "random_facts": [
+        "Named 'Etape' (French for 'stage') in the tradition of French cycling sportives",
+        "Riders from over 20 countries participated in 2025",
+        "General entry consistently sells out within days of opening",
+        "The King of the Mountain timed segment at Glen Doe is the only competitive element",
+        "Part of the London Classics qualification pathway — can substitute for RideLondon",
+        "Ebikes are permitted if UK road-legal with pedal assist up to 15.5mph",
+        "Penny Farthings and unicycles are explicitly banned in the event rules"
+      ]
+    },
+    "course_description": {
+      "character": "A 360-degree loop around one of the world's most famous bodies of water on fully closed roads. The route departs Inverness heading west along the north shore of Loch Ness on the A82, following the loch through the Great Glen — a geological fault line that splits Scotland diagonally from Inverness to Fort William. At Fort Augustus, the route reaches the southern tip of the loch where the Caledonian Canal connects Loch Ness to Loch Oich. Here, riders face the King of the Mountain: a 4.8-mile timed climb above the village gaining 380 metres with gradients reaching 12%. The summit delivers Highland panoramas before the descent to the south shore. The return leg follows narrower, quieter B-roads along the south side of Loch Ness — more atmospheric, more exposed to wind, and with rolling terrain that keeps the legs honest. The final miles approach Inverness from the south, with the last section through the city operating on left-lane closure rather than full road closure. The finish returns riders to the event area near Eden Court, completing the circumnavigation.",
+      "suffering_zones": [
+        {
+          "mile": 0,
+          "label": "Inverness to North Shore",
+          "desc": "The dawn start sends 6,000 riders west from Inverness on closed roads. The first miles are flat to gently rolling along the north shore of Loch Ness. Groups form quickly in the wave starts as riders settle into pace. The A82 is wide enough to accommodate the field without dangerous bunching. Morning mist over the loch and the first views of the Highland mountains create the atmosphere that defines the event.",
+          "terrain_detail": "Flat to gently rolling A-road along the north shore of Loch Ness",
+          "named_section": "North Shore"
+        },
+        {
+          "mile": 34,
+          "label": "King of the Mountain",
+          "desc": "At Fort Augustus, the route turns uphill for the signature challenge: a 4.8-mile (7.72km) timed climb gaining 380 metres with gradients reaching 12%. This is where the sportive earns its right to be called a challenge. The KOM/QOM split time is the only competitive element, and it separates riders definitively. Steep ramps force riders out of the saddle, and the sustained effort at near-threshold for 20-40 minutes exposes any fitness gaps. The summit rewards with Highland views before a descent that demands concentration.",
+          "terrain_detail": "4.8 miles, 380m gain, gradients to 12%. Timed KOM/QOM segment.",
+          "named_section": "King of the Mountain — Glen Doe"
+        },
+        {
+          "mile": 45,
+          "label": "South Shore Return",
+          "desc": "After the KOM descent, the route follows the south side of Loch Ness on narrower B-roads. This section is more exposed to wind — the Great Glen funnels air along the loch, and headwinds can sap energy from already-tired legs. The terrain is rolling rather than flat, with constant small climbs and descents that prevent recovery. The scenery is spectacular — closer to the water, more intimate than the north side — but by this point, riders are focused on the remaining 20+ miles rather than sightseeing.",
+          "terrain_detail": "Narrow B-roads with rolling terrain, exposed to wind along the loch",
+          "named_section": "South Shore"
+        },
+        {
+          "mile": 60,
+          "label": "Final Approach to Inverness",
+          "desc": "The last six miles bring riders back into Inverness. The final section uses left-lane closure rather than full road closure, meaning awareness of the road environment increases. Fatigue, 900m of accumulated climbing, and potentially 4-6 hours in the saddle make these final miles feel longer than the map suggests. The finish line and the medal are within reach, but the legs know they have been around a loch.",
+          "terrain_detail": "Urban approach on partially closed roads into Inverness",
+          "named_section": "The Homecoming"
+        }
+      ],
+      "signature_challenge": "The King of the Mountain at Glen Doe above Fort Augustus. 4.8 miles gaining 380 metres with gradients reaching 12%. The only timed competitive element in a non-competitive sportive, it is where the Etape Loch Ness transforms from a scenic ride into a proper cycling challenge.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "Etape Loch Ness",
+      "race_distance": "66 miles (106km)",
+      "race_elevation": "900m (2,953 ft)",
+      "race_date": "April",
+      "race_location": "Inverness, Scottish Highlands",
+      "race_terrain": "Fully paved closed public roads around Loch Ness",
+      "race_weather": "Scottish Highland spring — 4-12°C, rain possible, wind along the Great Glen, changeable conditions",
+      "race_challenges": [
+        "King of the Mountain: 4.8 miles, 380m gain, gradients to 12% — the signature timed climb",
+        "900m total climbing across 66 miles — sustained rolling terrain on the south shore",
+        "April Highland weather: cold dawn starts, rain risk, wind channeling through the Great Glen",
+        "Pacing discipline: the KOM at mile 34 must not empty the tank for 32 remaining miles",
+        "6,000 riders on closed roads — group riding awareness critical in early miles"
+      ],
+      "altitude_section": false,
+      "altitude_feet": 1640
+    },
+    "non_negotiables": [
+      {
+        "requirement": "KOM climbing fitness — sustained 20-40 minute efforts at threshold on 6-12% gradients",
+        "by_when": "Week 8",
+        "why": "The King of the Mountain is 4.8 miles gaining 380m with ramps to 12%. This translates to 20-40 minutes of sustained effort depending on fitness. If you cannot hold a steady effort on a 20-minute climb, the KOM will crack you and leave 32 miles of rolling terrain to suffer through on empty legs. Train with hill repeats of 15-30 minutes at tempo to threshold."
+      },
+      {
+        "requirement": "70+ mile endurance base with 800m+ climbing in a single ride",
+        "by_when": "Week 10",
+        "why": "66 miles with 900m of climbing in Highland weather is a genuine endurance test, especially for riders new to sportives. Your longest training ride should exceed the event distance and approximate the climbing load. The combination of distance and elevation — not either factor alone — is what exhausts riders in the final 20 miles."
+      },
+      {
+        "requirement": "Cold and wet weather riding experience — at least 3 long rides in sub-10°C and rain",
+        "by_when": "Week 6",
+        "why": "April in the Scottish Highlands can deliver near-freezing temperatures at dawn, rain, and wind chill that makes it feel colder still. If you only train in comfortable conditions, the shock of 4-6 hours in Highland weather will compromise both your performance and your enjoyment. Waterproof layers, proper gloves, and cold-weather pacing are skills that must be practiced, not improvised."
+      }
+    ],
+    "citations": [
+      {
+        "url": "https://www.etapelochness.com",
+        "category": "official",
+        "label": "Official Website — Etape Loch Ness"
+      },
+      {
+        "url": "https://www.etapelochness.com/event/etape-loch-ness/",
+        "category": "official",
+        "label": "Etape Loch Ness — Event Details"
+      },
+      {
+        "url": "https://www.etapelochness.com/event-info/event-information/",
+        "category": "official",
+        "label": "Etape Loch Ness — Event Information (Registration, Start, Support)"
+      },
+      {
+        "url": "https://www.etapelochness.com/event-info/faqs/",
+        "category": "official",
+        "label": "Etape Loch Ness — FAQ"
+      },
+      {
+        "url": "https://www.etapelochness.com/rider-zone/on-the-day/",
+        "category": "official",
+        "label": "Etape Loch Ness — On the Day Information"
+      },
+      {
+        "url": "https://www.etapelochness.com/rider-zone/pre-event/event-rules/",
+        "category": "official",
+        "label": "Etape Loch Ness — Event Rules & Regulations"
+      },
+      {
+        "url": "https://www.bbc.com/news/uk-scotland-highlands-islands-27282674",
+        "category": "media",
+        "label": "BBC News — First-ever closed-road event around Loch Ness (2014 inaugural)"
+      },
+      {
+        "url": "https://www.highland.gov.uk/news/article/16018/etape_loch_ness_returns_for_tenth_edition",
+        "category": "media",
+        "label": "Highland Council — Etape Loch Ness 10th Edition (2024)"
+      },
+      {
+        "url": "https://www.bike-mag.com/etape-loch-ness-2026-uks-biggest-closed-road-sportive-returns-to-the-highlands",
+        "category": "media",
+        "label": "BIKE Magazine — Etape Loch Ness 2026"
+      },
+      {
+        "url": "https://www.endurancesportswire.com/cyclists-gear-up-for-greatness-at-etape-loch-ness-2026/",
+        "category": "media",
+        "label": "Endurance Sportswire — Etape Loch Ness 2026 Press Release"
+      },
+      {
+        "url": "https://www.etapelochness.com/2022/04/record-rider-numbers-tackle-etape-loch-ness/",
+        "category": "media",
+        "label": "Etape Loch Ness — 2022 Record Rider Numbers (6,100 riders, £220K for Macmillan)"
+      },
+      {
+        "url": "https://www.sportive.com/events/etape-loch-ness-2026/2026-04-26/7033/cycling",
+        "category": "reference",
+        "label": "Sportive.com — Etape Loch Ness 2026"
+      },
+      {
+        "url": "https://www.timeoutdoors.com/events/etape-loch-ness",
+        "category": "reference",
+        "label": "TimeOutdoors — Etape Loch Ness 2026"
+      },
+      {
+        "url": "https://www.cyclinguk.org/routes/weekender-etape-loch-ness",
+        "category": "reference",
+        "label": "Cycling UK — Weekender: Etape Loch Ness Route Guide"
+      },
+      {
+        "url": "https://www.komoot.com/smarttour/e1079111872/etape-loch-ness",
+        "category": "route",
+        "label": "Komoot — Etape Loch Ness Route (67.2mi, 3,125ft)"
+      },
+      {
+        "url": "https://www.macmillan.org.uk/fundraise/charity-cycle-rides/etape-loch-ness",
+        "category": "reference",
+        "label": "Macmillan Cancer Support — Etape Loch Ness Charity Entry"
+      },
+      {
+        "url": "https://www.inverness-courier.co.uk/sport/watch-men-s-record-broken-at-etape-loch-ness-as-cyclist-tak-380583/",
+        "category": "media",
+        "label": "Inverness Courier — 2025 Record Broken"
+      },
+      {
+        "url": "https://www.pressandjournal.co.uk/fp/news/inverness/6739014/all-you-need-to-know-etape-loch-ness/",
+        "category": "media",
+        "label": "Press and Journal — Etape Loch Ness: All You Need to Know"
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "high",
+      "validation_status": "validated",
+      "sources_count": 18,
+      "last_updated": "2026-02-27",
+      "research_strength": {
+        "overall": 88.0,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": false,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 90,
+          "specificity": 85,
+          "statistical_backing": 80,
+          "voice_authenticity": 70,
+          "completeness": 90,
+          "cross_reference": 50
+        },
+        "scored_at": "2026-02-27"
+      }
+    }
+  }
+}

@@ -1,0 +1,313 @@
+{
+  "race": {
+    "name": "Quebrantahuesos",
+    "slug": "quebrantahuesos",
+    "display_name": "Marcha Cicloturista Quebrantahuesos",
+    "tagline": "Spain's legendary bone breaker. 198 km through the Pyrenees. Four mountain passes. Two countries. Named after the bearded vulture that rules these skies.",
+    "vitals": {
+      "distance_mi": 123,
+      "elevation_ft": 11483,
+      "location": "Sabinanigo, Huesca, Spain",
+      "location_badge": "SABINANIGO, SPAIN",
+      "date": "Third Saturday of June annually",
+      "date_specific": "2026: June 20",
+      "terrain_types": [
+        "Paved Pyrenean mountain roads",
+        "Tour de France / Vuelta a Espana mountain passes",
+        "Long sustained climbs",
+        "Technical descents",
+        "Cross-border Spain-France route"
+      ],
+      "field_size": "~9,000 (QH Gran Fondo) + ~2,500 (Treparriscos) = ~11,000 total",
+      "start_time": "7:15 AM (QH Gran Fondo), 7:45 AM (Treparriscos)",
+      "registration": "Online via quebrantahuesos.com. Lottery system (EUR4 non-refundable entry fee for draw). Direct group places available Nov-Dec. Registration EUR90-108. Cyclists with 15+ finishes get automatic entry. UCI federation license required.",
+      "prize_purse": "None (cicloturista / non-competitive sportive)",
+      "aid_stations": "6 aid stations strategically distributed along the 198 km route, stocked with energy bars, cakes, bananas, dried fruit, nuts, sandwiches, sports drinks, Coca-Cola, and water.",
+      "cutoff_time": "7:30 PM (12 hours 15 minutes from start). Strict enforcement at control points.",
+      "lat": 42.519,
+      "lng": -0.366,
+      "distance_options": [
+        "Quebrantahuesos Gran Fondo: 198 km (123 mi), 3,500 m gain — the full event with 4 cols",
+        "Treparriscos Medio Fondo: 85 km (53 mi), 1,350 m gain — shorter alternative from Sabinanigo"
+      ],
+      "entry_fee": "EUR90-108 (after winning lottery or securing direct place; EUR4 lottery entry fee)"
+    },
+    "climate": {
+      "primary": "Pyrenean mountain — variable with altitude-driven temperature swings",
+      "description": "Mid-June in the Pyrenees brings comfortable valley temperatures (18-26C / 64-79F) but significant cooling at altitude. The Portalet summit (1,794m) and Somport (1,640m) can be 10-15C cooler than the valley floor. The 2025 edition was notably hot. Mountain weather can shift rapidly — clear skies at the start can become thunderstorms by afternoon above 1,500m. The French side (Marie Blanque, Ossau Valley) often has different weather than the Spanish approach.",
+      "challenges": [
+        "Altitude cooling: summits 10-15C colder than valleys, wind chill significant on exposed passes",
+        "Afternoon heat in valleys and on exposed climbs, particularly the final ascent to Hoz de Jaca",
+        "Mountain thunderstorms can develop from midday — lightning is a real risk at altitude",
+        "Wind on the Portalet's 28 km exposed approach can be decisive"
+      ]
+    },
+    "terrain": {
+      "primary": "Paved Pyrenean mountain passes",
+      "surface": "Well-maintained Spanish and French paved roads. Mix of national roads (N-roads) and departmental/comarcal roads. All tarmac throughout — no gravel or unpaved sections. Roads are fully closed to traffic on race day.",
+      "technical_rating": 1,
+      "features": [
+        "Col du Somport (1,640m) — 27 km progressive climb from Canfranc, ideal for warming up",
+        "Col de Marie Blanque (1,035m) — 9 km with gradients up to 13%, the short savage of the route",
+        "Col du Portalet (1,794m) — 28 km from the Ossau Valley, the longest climb with constant gradients",
+        "Alto de Hoz de Jaca (1,276m) — short but devastating final effort with ramps at 10%"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 86,
+      "tier": 1,
+      "tier_label": "TIER 1",
+      "logistics": 4,
+      "length": 4,
+      "technicality": 1,
+      "elevation": 5,
+      "climate": 3,
+      "altitude": 3,
+      "adventure": 4,
+      "prestige": 5,
+      "race_quality": 5,
+      "experience": 5,
+      "community": 5,
+      "field_depth": 4,
+      "value": 4,
+      "expenses": 3,
+      "cultural_impact": 5,
+      "tier_note": "Spain's most iconic sportive since 1991. The original Pyrenean bone breaker — 198 km, four legendary cols, crossing the Franco-Spanish border through bearded vulture territory. Over 10,000 riders from 47+ nationalities.",
+      "score_note": "cultural_impact=5 for Spain's cycling institution — inspired by La Marmotte, now its Pyrenean equal. prestige=5: lottery system, 10,000+ riders, pro cyclists like Indurain and Valverde participate. technicality=1 (all paved roads) but elevation=5 reflects four HC-caliber cols totaling 3,500m.",
+      "editorial_tier": 1,
+      "editorial_tier_label": "TIER 1",
+      "business_tier": 1,
+      "business_tier_label": "TIER 1",
+      "display_tier": 1,
+      "display_tier_label": "TIER 1",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 4,
+        "explanation": "Thirty-four editions of organizational refinement by Pena Ciclista Edelweiss, backed by over 1,000 volunteers. Six aid stations, medical support, broom wagon, full road closures across both Spain and France — coordinating an international border crossing for 11,000 cyclists is genuinely impressive. The lottery system manages demand fairly (though the EUR4 non-refundable fee stings if you lose). The only knock: Sabinanigo is a small Pyrenean town requiring 1.5-2.5 hour transfers from Zaragoza or Pau airports."
+      },
+      "length": {
+        "score": 4,
+        "explanation": "198 km (123 miles) is a genuinely long day in the saddle. But it's the 3,500m of climbing across four mountain passes that transforms the distance into something brutal. The route is almost exclusively climbing or descending — there are valley sections but no true flat respite. Fastest times are around 5:12-5:27, most finishers take 7-10 hours. The 85 km Treparriscos option exists for those not ready for the full monster."
+      },
+      "technicality": {
+        "score": 1,
+        "explanation": "All paved roads throughout. The technical demands are limited to fast mountain descents where tired legs and cold hands create risk — particularly the descent from Portalet back into Spain. The roads themselves are well-maintained Spanish and French tarmac. The challenge is cardiovascular and muscular, not bike handling. This is a road bike event through and through."
+      },
+      "elevation": {
+        "score": 5,
+        "explanation": "3,500 meters of climbing across four mountain passes, three of which would be classified Hors Categorie in professional racing. The Portalet alone (28 km) is a monster. Stack it on top of Somport (27 km), Marie Blanque (9 km of savage gradients), and the leg-breaking Hoz de Jaca finale, and you have one of Europe's most demanding single-day elevation challenges. Comparable to a high-mountain Tour de France stage."
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "Mid-June Pyrenees is generally favorable — warm valleys, cooler summits, long daylight hours. The temperature range is less extreme than the high Alps (no 2,600m summits here). However, Pyrenean weather is notoriously fickle. The 2025 edition was marked by significant heat, which can be devastating on the exposed 28 km Portalet climb. Wind on the high passes is the other factor that can turn a good day bad."
+      },
+      "altitude": {
+        "score": 3,
+        "explanation": "The Portalet at 1,794m is the highest point. The Somport reaches 1,640m. These are significant but not extreme altitudes — oxygen reduction is measurable but not dramatic for most riders. The effects are more about temperature and wind exposure than physiological altitude stress. Riders from sea-level locations will notice the thin air on the Portalet's upper reaches but won't face the debilitating effects of 2,500m+ passes."
+      },
+      "adventure": {
+        "score": 4,
+        "explanation": "The route crosses an international border — departing Spain via the Somport, winding through the French Bearnais valleys and the Ossau Valley beneath the Pic du Midi d'Ossau, then returning to Spain over the Portalet. This is bearded vulture territory: the lammergeier (quebrantahuesos) soars above the same cols you're climbing. The Pyrenean landscape — dramatic limestone peaks, glacial valleys, medieval villages — is genuinely spectacular and wilder than the Alps."
+      },
+      "prestige": {
+        "score": 5,
+        "explanation": "Spain's most famous sportive, period. Running since 1991, inspired by La Marmotte, and now standing as its Pyrenean equal. The lottery system exists because 20,000+ riders chase 9,000 spots. Professional cyclists — Miguel Indurain, Alejandro Valverde, Haimar Zubeldia, Luis Leon Sanchez, Aleix Espargaro — ride alongside amateurs. The event is a UCI Gran Fondo qualifier. In Spain, saying 'I did the Quebrantahuesos' carries the same weight as saying 'I did La Marmotte' in France."
+      },
+      "race_quality": {
+        "score": 5,
+        "explanation": "Chip timing, UCI qualification, closed roads across two countries, six stocked aid stations, medical support on every col, 1,000+ volunteers, and 34 editions of refinement. The event expo in Sabinanigo the day before is a proper cycling festival with manufacturers' stands. The organization coordinates with both Spanish and French authorities for full road closures — a logistical feat. The Treparriscos medio fondo option adds accessibility without diluting the main event."
+      },
+      "experience": {
+        "score": 5,
+        "explanation": "The experience is transcendent. Departing Sabinanigo at dawn with 9,000 cyclists. Climbing through the Canfranc valley to the Somport as the Pyrenees open up around you. Crossing into France, descending into the Aspe Valley, suffering up the savage Marie Blanque gradients, rolling through the fairy-tale Ossau Valley beneath the Pic du Midi d'Ossau. Then the 28 km Portalet — the signature climb — before returning to Spain and the final leg-breaking Hoz de Jaca. Finishing in Sabinanigo to rapturous crowds. This is cycling at its most epic."
+      },
+      "community": {
+        "score": 5,
+        "explanation": "Over 10,000 riders from 47+ nationalities. The event is deeply embedded in the Aragonese community — the entire town of Sabinanigo and surrounding Pyrenean villages come alive for the weekend. The peloton creates a moving city through the mountains. The shared suffering on the Portalet bonds riders across languages and nationalities. The cycling culture in this corner of the Pyrenees is genuine and deep — this is not a corporate event parachuted into a destination."
+      },
+      "field_depth": {
+        "score": 4,
+        "explanation": "The front group is genuinely fast — course record is 5:12:24 (Alexis Guerin, 2024). Retired and active professionals ride: Valverde set the previous record in 2023 (5:14:32), Indurain participates regularly, Imanol Arizmendi won 2025 in 5:27:39. The competitive depth comes from Spain's strong amateur cycling culture — thousands of trained club cyclists take this seriously. However, most of the 9,000-rider field is riding for the experience rather than the clock."
+      },
+      "value": {
+        "score": 4,
+        "explanation": "EUR90-108 for a world-class sportive on fully closed roads through two countries, with six aid stations, chip timing, UCI qualification, and an event jersey is exceptional value. Spain offers significantly better value than France, Italy, or the Alps for an event of this caliber. The only cost annoyance is the EUR4 non-refundable lottery fee if you don't secure a place."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "The Aragonese Pyrenees are cheaper than the French Alps or Italian Dolomites, but you still need to get there. Zaragoza airport (ZAZ, 1.5-2 hours) has limited international flights. Most international travelers fly to Barcelona (BCN, 4 hours) or Bilbao (BIO, 3 hours). Accommodation in Sabinanigo and Jaca during event week books up months ahead. Budget EUR800-1,500 from within Europe, EUR1,500-2,500 from North America."
+      }
+    },
+    "biased_opinion": {
+      "verdict": "Legendary",
+      "summary": "Quebrantahuesos is Spain's cycling soul distilled into a single day. Born in 1991 when a handful of riders from Pena Ciclista Edelweiss decided to build their own Marmotte in the Pyrenees, it has grown into an 11,000-rider institution that shuts down roads across two countries and draws cycling royalty — Indurain, Valverde, Zubeldia — to ride alongside club cyclists and weekend warriors. The name says it all: the bearded vulture, the bone breaker, the bird that drops bones from great heights to crack them open. This event does the same to your legs.",
+      "strengths": [
+        "The route: four Pyrenean mountain passes including three HC-caliber climbs, crossing the Franco-Spanish border",
+        "The scale: 9,000 riders on the Gran Fondo, 11,000 total, from 47+ nationalities on fully closed roads",
+        "The prestige: Spain's most iconic sportive, with professional cyclists riding alongside amateurs",
+        "The scenery: dramatic Pyrenean limestone peaks, glacial valleys, bearded vulture territory, the Ossau Valley beneath Pic du Midi d'Ossau",
+        "The value: world-class organization at Spanish prices — significantly cheaper than equivalent Alpine events"
+      ],
+      "weaknesses": [
+        "Access: Sabinanigo is remote — 1.5-4 hours from the nearest airports with limited international connections",
+        "Lottery: demand outstrips supply 2:1 — you may not get a spot, and the EUR4 fee is non-refundable",
+        "Heat exposure: the 28 km Portalet climb can bake in afternoon sun, and the Pyrenees offer less shade than Alpine forests"
+      ],
+      "bottom_line": "If La Marmotte is the Alpine cathedral of European sportives, Quebrantahuesos is the Pyrenean fortress. Wilder, rawer, more dramatic. The route crosses an international border. The bearded vulture circles above you. Indurain might be in the group ahead. There is no better day on a bike in Spain."
+    },
+    "final_verdict": {
+      "score": "86 / 100",
+      "one_liner": "Spain's legendary bone breaker. 198 km. Four Pyrenean cols. Two countries. 11,000 riders. Named after the bird that shatters bones from the sky.",
+      "should_you_race": "Yes if you want the definitive Pyrenean cycling experience and can sustain 7-12 hours of mountain climbing. Yes if you want to ride the same cols as Indurain and Valverde alongside 9,000 other cyclists on fully closed roads. Yes if you've done La Marmotte and want its Pyrenean counterpart. Skip if lottery frustration will ruin your planning (backup options exist through tour operators). Skip if you need technical off-road terrain — this is pure road climbing.",
+      "alternatives": [
+        "La Marmotte Granfondo Alpes — the original French Alpine cyclosportive, 177 km with 5,180m climbing finishing atop Alpe d'Huez",
+        "Marmotte Granfondo Pyrenees — same organizer as La Marmotte, Pyrenean version with Tourmalet and Aubisque",
+        "L'Etape du Tour — ride a real Tour de France stage, different route each year",
+        "Granfondo Alberto Contador — another prestigious Spanish gran fondo in Olot, Catalonia"
+      ],
+      "alternative_slugs": [
+        "la-marmotte",
+        "marmotte-granfondo-pyrenees",
+        "letape-du-tour",
+        "granfondo-alberto-contador"
+      ]
+    },
+    "logistics": {
+      "nearest_airport": "Zaragoza (ZAZ) — 1.5-2 hours (limited international flights). Pau Pyrenees (PUF) — 2 hours via N-134/Somport tunnel (France, limited flights). Barcelona (BCN) — 4 hours (best international connections). Bilbao (BIO) — 3 hours. Toulouse (TLS) — 3 hours via France.",
+      "travel_tips": "Rent a car — public transport to Sabinanigo is limited. The A-23 motorway from Zaragoza is the most direct route. If flying to Barcelona, the AP-2/A-23 route is straightforward but long. Book accommodation 6+ months in advance. Consider staying in Jaca (20 min from Sabinanigo) for more hotel options. Tour operators (Bikefriendly, Cycling Friendly, Cafe Ciclista) offer packages with guaranteed entry, bypassing the lottery.",
+      "accommodation": "Sabinanigo hotels book out months ahead for event week. Jaca (20 km south) offers more options and is a lively base. Biescas, Tramacastilla de Tena, and Panticosa are also viable. Look for 'Bikefriendly' certified hotels with bike storage, early breakfast, and cyclist-adapted meals. Rural casas rurales (guesthouses) throughout the Alto Gallego comarca offer character and value.",
+      "gear_recommendations": "Road bike with compact gearing (34/32 minimum recommended for Marie Blanque's 13% gradients). Lightweight climbing wheels. Arm warmers and a gilet for summit descents — the Portalet and Somport summits are significantly cooler. Two bottle cages minimum (aid stations are well-spaced but the 28 km Portalet has long gaps). Sunscreen — high-altitude Pyrenean UV is intense. UCI federation license and valid medical certificate are mandatory."
+    },
+    "history": {
+      "first_edition": 1991,
+      "notable_editions": [
+        "1991: Inaugural edition — 134 riders depart Sabinanigo, inspired by members of Pena Ciclista Edelweiss who rode La Marmotte in 1988-1989",
+        "2001: Participation crosses 1,000 riders as the event establishes itself as Spain's premier sportive",
+        "2019: Pre-pandemic peak — riders from 47 nationalities participate",
+        "2023: Alejandro Valverde (recently retired from professional cycling) sets course record of 5:14:32 in the 32nd edition",
+        "2024: Alexis Guerin shatters Valverde's record with 5:12:24; Ester Ruiz records 6:21:12 women's best; 11,000 riders from 32+ nationalities",
+        "2025: 34th edition — Imanol Arizmendi repeats his 2022 victory with 5:27:39; Ester Ruiz defends women's title with 6:14:01 (PB by 7 minutes); Miguel Indurain participates; 10,000+ riders; marked by significant heat"
+      ],
+      "records": "Men's course record: 5:12:24 (Alexis Guerin, 2024). Previous record: 5:14:32 (Alejandro Valverde, 2023). Women's best: 6:14:01 (Ester Ruiz, 2025). Notable participants include Miguel Indurain, Alejandro Valverde, Haimar Zubeldia, Luis Leon Sanchez, Aleix Espargaro (MotoGP), Jorge Martin (MotoGP), and David Ferrer (tennis).",
+      "growth": "From 134 riders in 1991 to 11,000+ across both events. Crossed 1,000 participants within its first decade. Now Spain's largest and most prestigious cyclosportive, with 20,000+ applications for 9,000 Gran Fondo spots, requiring a lottery system. Has grown from a local Aragonese cycling event into an international institution attracting 47+ nationalities."
+    },
+    "course_description": {
+      "overview": "A 198 km circular route departing and returning to Sabinanigo in the Aragonese Pyrenees. The course crosses the Franco-Spanish border twice, traversing four mountain passes — Somport, Marie Blanque, Portalet, and Hoz de Jaca — through some of the most dramatic mountain scenery in Europe. The route passes through Jaca, Canfranc, Laruns, Panticosa, and Biescas, climbing through the same Pyrenean passes used by the Tour de France and Vuelta a Espana.",
+      "segments": [
+        {
+          "mile": 0,
+          "label": "Sabinanigo to Col du Somport",
+          "desc": "Depart Sabinanigo and head north through Jaca and the Canfranc valley toward the Spanish-French border. The Somport (1,640m) is a 27 km progressive climb — gradients are moderate and the pass is ideal for warming up without burning matches. The old Canfranc International railway station, a stunning Art Deco ruin, sits at the base. Cross into France at the summit.",
+          "terrain_detail": "27 km at moderate gradient to 1,640m",
+          "named_section": "Col du Somport"
+        },
+        {
+          "mile": 45,
+          "label": "Aspe Valley to Col de Marie Blanque",
+          "desc": "Descend into the French Aspe Valley toward Escot. Then face Marie Blanque — only 9 km, but with ramps up to 13%. This is the sharp, savage climb that catches riders who overcook the Somport. The gradients are relentless and the climb connects the Aspe Valley to the Ossau Valley. Short but brutal.",
+          "terrain_detail": "9 km with gradients up to 13%, summit at 1,035m",
+          "named_section": "Col de Marie Blanque"
+        },
+        {
+          "mile": 65,
+          "label": "Ossau Valley to Col du Portalet",
+          "desc": "Descend into the fairy-tale Ossau Valley, rolling through Bielle beneath the towering Pic du Midi d'Ossau (2,884m). This is bearded vulture territory — the bird the event is named for nests in these cliffs. Then the signature climb begins: 28 km up the Portalet (1,794m) with constant gradients. The climb is long rather than steep, but wind and heat on the exposed upper reaches can be decisive. Cross back into Spain at the summit.",
+          "terrain_detail": "28 km at constant gradient to 1,794m, the highest and longest climb",
+          "named_section": "Col du Portalet"
+        },
+        {
+          "mile": 105,
+          "label": "Tena Valley to Alto de Hoz de Jaca",
+          "desc": "Descend into the Tena Valley through Panticosa and Biescas. With 170+ km in the legs and three cols behind you, face the final sting: Alto de Hoz de Jaca (1,276m). It is short but devastating — ramps hit 10% on legs that have nothing left. The crowd support on this final climb drives you to the finish. Return to Sabinanigo for the final run-in to rapturous crowds.",
+          "terrain_detail": "Short punchy climb with sections at 10%, summit at 1,276m",
+          "named_section": "Alto de Hoz de Jaca"
+        }
+      ],
+      "key_features": [
+        "Four mountain passes totaling 3,500m of climbing in 198 km",
+        "International border crossing: Spain to France (Somport) and back (Portalet)",
+        "Three HC-caliber climbs including the 28 km Col du Portalet",
+        "Marie Blanque's savage 13% gradients — the sharpest climb on the route",
+        "Fully closed roads across two countries with 1,000+ volunteers",
+        "Bearded vulture (lammergeier) territory in the Ossau Valley and high Pyrenean passes"
+      ],
+      "strategy": "Pace the Somport conservatively — it's long but moderate, and burning matches here will cost you on Marie Blanque. The Marie Blanque is where positioning matters: its 13% ramps are the steepest on the route, and you must ride your own rhythm, not the group's. Eat and drink heavily through the Ossau Valley before the Portalet — the 28 km climb is the crux, and running out of fuel here with 30+ km still to ride is catastrophic. Save something for Hoz de Jaca — it's short, but 10% gradients on 170 km legs require reserves. Wind direction on the Portalet is the X-factor: a headwind adds 15-20 minutes."
+    },
+    "guide_variables": {
+      "race_name": "Marcha Cicloturista Quebrantahuesos",
+      "race_distance": "123 miles",
+      "race_elevation": "11,483 feet",
+      "race_date": "June",
+      "race_location": "Sabinanigo, Aragonese Pyrenees, Spain",
+      "race_terrain": "Paved Pyrenean mountain passes across Spain and France",
+      "race_weather": "Variable Pyrenean mountain: 18-26C in valleys, 10-15C cooler at summits, potential heat on exposed climbs",
+      "race_challenges": [
+        "3,500m of climbing across 4 mountain passes in 198 km",
+        "Marie Blanque's 13% gradients — the sharpest climb on the route",
+        "28 km Col du Portalet — the signature climb where wind and heat can be decisive",
+        "Hoz de Jaca's 10% ramps on completely depleted legs at km 180+",
+        "Managing nutrition across 7-12 hours of mountain riding"
+      ],
+      "altitude_section": true,
+      "altitude_feet": 5886
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Long climbing endurance — 4-5 hour sustained climbing sessions in training",
+        "by_when": "Week 6",
+        "why": "Quebrantahuesos demands 7-12 hours of near-continuous climbing across four major passes. Mountain endurance cannot be faked — it requires progressive overload with sustained tempo efforts on climbs."
+      },
+      {
+        "requirement": "Steep gradient training — repeated efforts at 10-13% gradients",
+        "by_when": "Week 7",
+        "why": "Marie Blanque's 13% ramps and Hoz de Jaca's 10% finale will destroy riders who haven't trained on steep terrain. Your gearing must handle these gradients comfortably."
+      },
+      {
+        "requirement": "Full dress rehearsal — 5+ hours of climbing with complete nutrition strategy",
+        "by_when": "Week 9",
+        "why": "Fueling through 3,500m of climbing across 198 km requires a tested nutrition plan. The 28 km Portalet demands fuel reserves — bonking on this climb with Hoz de Jaca still ahead is catastrophic."
+      }
+    ],
+    "citations": [
+      {
+        "url": "https://www.quebrantahuesos.com/en/quebrantahuesos-en/",
+        "title": "Quebrantahuesos Gran Fondo — Official Site",
+        "category": "official"
+      },
+      {
+        "url": "https://es.wikipedia.org/wiki/Marcha_cicloturista_Quebrantahuesos",
+        "title": "Marcha cicloturista Quebrantahuesos — Wikipedia (Spanish)",
+        "category": "reference"
+      },
+      {
+        "url": "https://www.cyclingweekly.com/sportives/sportive-reviews/looking-next-cycling-challenge-quebrantahuesos-absolute-monster-289699",
+        "title": "Quebrantahuesos Review — Cycling Weekly",
+        "category": "review"
+      },
+      {
+        "url": "https://www.cafeciclista.com/quebrantahuesos/",
+        "title": "Quebrantahuesos — Cafe Ciclista",
+        "category": "review"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/4389/quebrantahuesos-gran-fondo",
+        "title": "Quebrantahuesos Gran Fondo — Gran Fondo Guide",
+        "category": "reference"
+      },
+      {
+        "url": "https://rfec.com/es/smartweb/seccion/noticia/rfec/home/46000-La-marcha-cicloturista-Quebrantahuesos-cumple-este-sabado-30-anos-de-historia",
+        "title": "La marcha cicloturista Quebrantahuesos cumple 30 anos — RFEC",
+        "category": "reference"
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "high",
+      "validation_status": "validated",
+      "research_strength": "A",
+      "sources_count": 6,
+      "last_updated": "2026-02-28"
+    }
+  }
+}

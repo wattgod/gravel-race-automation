@@ -1003,6 +1003,24 @@ def check_insights_js_syntax():
         check("Insights page JS syntax", False, f"Error: {e}")
 
 
+def check_whitepaper_js_syntax():
+    """Validate white paper page JS via Node.js."""
+    print("\n── White Paper Page JS Syntax ──")
+    sys.path.insert(0, str(WORDPRESS_DIR))
+    try:
+        from generate_whitepaper_fueling import build_whitepaper_js
+        js = build_whitepaper_js().replace("<script>", "").replace("</script>", "")
+        result = subprocess.run(
+            ["node", "-e", f"try {{ new Function({json.dumps(js)}); console.log('OK'); }}"
+             f" catch(e) {{ console.error(e.message); process.exit(1); }}"],
+            capture_output=True, text=True, timeout=10
+        )
+        check("White paper page JS syntax", result.returncode == 0,
+              result.stderr.strip() if result.returncode != 0 else "")
+    except Exception as e:
+        check("White paper page JS syntax", False, f"Error: {e}")
+
+
 # ── Check 21: Raw transition values in generator CSS ─────────
 
 
@@ -1351,6 +1369,7 @@ def main():
         check_all_generators_token_refs()
         check_success_js_syntax()
         check_insights_js_syntax()
+        check_whitepaper_js_syntax()
         check_no_raw_transitions()
         check_ab_config_sync()
         check_meta_descriptions()

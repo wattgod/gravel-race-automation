@@ -19,6 +19,7 @@ import pytest
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "wordpress"))
 
 from generate_neo_brutalist import (
+    _merge_youtube_quotes,
     build_from_the_field,
     build_toc,
     _format_view_count,
@@ -123,6 +124,24 @@ def race_with_youtube(minimal_race):
                 "curated": False,
             },
         ],
+        "rider_intel": {
+            "extracted_at": "2026-02-23",
+            "key_challenges": [],
+            "terrain_notes": [],
+            "gear_mentions": [],
+            "race_day_tips": [],
+            "additional_quotes": [
+                {
+                    "text": "Aid stations were well-organized this year.",
+                    "source_video_id": "vKCSt1e392M",
+                    "source_channel": "Far Beyond by EF Pro Cycling",
+                    "source_view_count": 68980,
+                    "category": "logistics",
+                    "curated": True,
+                },
+            ],
+            "search_text": "A test race with interesting course features and great atmosphere.",
+        },
     }
     return minimal_race
 
@@ -142,10 +161,14 @@ class TestNormalizeYouTubePassthrough:
         assert len(rd['youtube_videos']) == 2
         assert all(v['curated'] for v in rd['youtube_videos'])
 
-    def test_curated_quotes_only(self, race_with_youtube):
+    def test_curated_quotes_merged_with_additional(self, race_with_youtube):
+        """Curated quotes + additional_quotes from rider_intel should be merged."""
         rd = normalize_race_data(race_with_youtube)
-        assert len(rd['youtube_quotes']) == 1
-        assert rd['youtube_quotes'][0]['curated'] is True
+        # 1 curated quote + 1 additional quote from rider_intel
+        assert len(rd['youtube_quotes']) == 2
+        texts = [q['text'] for q in rd['youtube_quotes']]
+        assert "The landscapes here are harsh" in texts[0]
+        assert "Aid stations were well-organized" in texts[1]
 
     def test_max_3_videos(self, race_with_youtube):
         """Even with many curated videos, max 3 are passed through."""
@@ -162,8 +185,8 @@ class TestNormalizeYouTubePassthrough:
         rd = normalize_race_data(race_with_youtube)
         assert len(rd['youtube_videos']) <= 3
 
-    def test_max_3_quotes(self, race_with_youtube):
-        """Even with many curated quotes, max 3 are passed through."""
+    def test_max_4_quotes(self, race_with_youtube):
+        """Even with many curated quotes + additional, max 4 are passed through."""
         quotes = race_with_youtube["race"]["youtube_data"]["quotes"]
         for i in range(5):
             quotes.append({
@@ -175,7 +198,7 @@ class TestNormalizeYouTubePassthrough:
                 "curated": True,
             })
         rd = normalize_race_data(race_with_youtube)
-        assert len(rd['youtube_quotes']) <= 3
+        assert len(rd['youtube_quotes']) <= 4
 
 
 # ── HTML Builder ──────────────────────────────────────────────

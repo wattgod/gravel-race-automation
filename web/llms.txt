@@ -1,0 +1,31 @@
+# Gravel God Race Database
+
+> The definitive gravel race database. 328 races rated on 14 criteria, scored 0-100, and tiered 1-4.
+> Last generated: 2026-02-25
+
+## Overview
+
+Gravel God is an independent gravel cycling database covering 328 races across North America and beyond. Every race is scored on 14 dimensions (logistics, length, technicality, elevation, climate, altitude, adventure, prestige, race quality, experience, community, field depth, value, expenses) on a 1-5 scale, producing an overall score out of 100 and a tier assignment (T1=elite, T2=strong, T3=solid, T4=developing).
+
+- **Tier 1 (Elite)**: 29 races — score >= 80 or prestige override
+- **Tier 2 (Strong)**: 69 races — score >= 60
+- **Tier 3 (Solid)**: 154 races — score >= 45
+- **Tier 4 (Developing)**: 76 races — score < 45
+
+Disciplines: gravel, MTB, bikepacking.
+Regions: Africa, Asia, Europe, Midwest, North America, Northeast, Oceania, South, South America, West.
+
+## Machine-Readable Resources
+
+- [Full LLM context (this database as text)](https://gravelgodcycling.com/llms-full.txt)
+- [Race index JSON (328 entries)](https://gravelgodcycling.com/race-index.json)
+- [REST API (OpenAPI)](https://gravelgodcycling.com/api/v1/docs)
+- [RSS feed](https://gravelgodcycling.com/feed/races.xml)
+- [MCP Server (GitHub)](https://github.com/wattgod/gravel-race-automation)
+- [Individual race profiles](https://gravelgodcycling.com/race/{slug}/)
+- [Markdown profiles](https://gravelgodcycling.com/race/{slug}/index.md)
+
+## Contact
+
+- Website: https://gravelgodcycling.com
+- Email: matt@gravelgodcycling.com

@@ -1,0 +1,353 @@
+{
+  "race": {
+    "name": "Gran Fondo Milano-Sanremo",
+    "slug": "milano-sanremo-gran-fondo",
+    "display_name": "Gran Fondo Milano-Sanremo",
+    "tagline": "La Classicissima. 296 km from Milan to the Ligurian Riviera. The Turchino, the Capi, Cipressa, Poggio. The longest Monument sportive in the world.",
+    "vitals": {
+      "distance_mi": 184,
+      "elevation_ft": 14474,
+      "location": "Milan to Sanremo, Liguria, Italy",
+      "location_badge": "MILAN TO SANREMO, ITALY",
+      "date": "First Sunday of June annually",
+      "date_specific": "2026: June 7",
+      "terrain_types": [
+        "Paved Italian roads throughout",
+        "Flat Lombardy and Piedmont plains",
+        "Mountain pass (Turchino)",
+        "Rolling Ligurian coastal capi",
+        "Short punchy coastal climbs (Cipressa, Poggio)"
+      ],
+      "field_size": "~2,000 riders from 30+ countries",
+      "start_time": "6:30 AM and 7:00 AM waves from Hotel IBIS Style Settala (south of Milan)",
+      "registration": "Online via milano-sanremo.org. PayPal, credit card, or bank transfer. Registration typically opens in autumn and remains available until late spring.",
+      "prize_purse": "Age-group awards and category prizes",
+      "aid_stations": "2 private feed/support stations on course",
+      "cutoff_time": "Broom wagon enforced — no strict published cutoff, but riders who fall too far behind are swept",
+      "lat": 44.0389,
+      "lng": 8.4064,
+      "distance_options": [
+        "Gran Fondo: ~296 km / 184 mi — full route from Pieve Emanuele (Milan) to Sanremo via the Turchino, three Capi, Cipressa, and Poggio"
+      ],
+      "entry_fee": "EUR 60-80 (varies by registration period). Includes race number, souvenir jersey, feed stations, broom wagon, chip timing, and finisher recognition. Italian day license (EUR 20) required for non-FCI riders."
+    },
+    "climate": {
+      "primary": "Early-summer Mediterranean — warm plains transitioning to coastal warmth",
+      "description": "Early June offers generally favorable cycling weather, but the sheer length of the route means you experience multiple climate zones in a single day. Departure from Milan at dawn is cool (14-18C), ideal for the first flat hours. By midday on the Lombardy and Piedmont plains, temperatures can reach 28-32C — relentless sun with no shade on exposed agricultural roads. The Turchino pass provides brief respite at 530m elevation. The Ligurian coast from Genoa to Sanremo is warm and humid (24-28C), moderated by sea breezes. Late afternoon on the Capi and Poggio can be hot and draining after 250+ km in the saddle. Thunderstorms are possible, particularly in the mountains around the Turchino.",
+      "challenges": [
+        "Heat exposure on the open Lombardy/Piedmont plains (potentially 30C+ by midday)",
+        "10-14 hours of riding means temperature swings from cool dawn to peak afternoon heat",
+        "Humidity on the Ligurian coast amplifies perceived effort",
+        "Thunderstorm risk around the Turchino pass",
+        "Sun exposure over 296 km demands serious hydration and sun protection strategy"
+      ]
+    },
+    "terrain": {
+      "primary": "Paved — Italian state and provincial roads, coastal roads, mountain pass",
+      "surface": "Entirely paved. The route traverses several distinct terrain types: flat, well-surfaced Lombardy plains for the first 100 km; gradually climbing Piedmont roads approaching the Turchino; the mountain pass itself on narrower, steeper Italian mountain roads; a long descent to the Ligurian coast; then the rolling, scenic coastal road through the Riviera di Ponente with the famous Capi. The final 30 km are on narrow coastal roads with the punchy climbs of Cipressa and Poggio before the descent to the Via Roma finish in Sanremo. Road quality is generally good throughout, with occasional rough patches on secondary mountain roads around the Turchino.",
+      "technical_rating": 2,
+      "features": [
+        "Passo del Turchino: 9.5 km at 5.1% average from the Mele side, summit at 530m — the traditional first selection point of Milan-Sanremo",
+        "Capo Mele: 2.5 km at 5.2% average — first of the Tre Capi, punchy and exposed",
+        "Capo Cervo: 2.5 km at 4.1% average — second of the Tre Capi along the Ligurian coast",
+        "Capo Berta: 3 km at 4.3% average — third of the Tre Capi, sea views on the descent",
+        "Cipressa: 5.6 km at 4.1% average, max 9% — the penultimate climb where the race begins to fracture",
+        "Poggio di Sanremo: 3.7 km at 3.7% average, max 8% — the iconic final climb, just 6 km from the finish",
+        "100+ km of flat plains — deceptively draining at 40+ km/h in large groups",
+        "Sweeping descent from Poggio to the Via Roma finish in Sanremo"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 74,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "logistics": 3,
+      "length": 5,
+      "technicality": 2,
+      "elevation": 4,
+      "climate": 3,
+      "altitude": 1,
+      "adventure": 4,
+      "prestige": 5,
+      "race_quality": 3,
+      "experience": 5,
+      "community": 3,
+      "field_depth": 3,
+      "value": 3,
+      "expenses": 3,
+      "cultural_impact": 5,
+      "tier_note": "Monument sportive. The amateur version of Milan-Sanremo — the longest and oldest of cycling's five Monuments, first raced in 1907. The Gran Fondo has been run since 1970 by the Unione Cicloturistica Sanremo, making it one of the oldest cyclosportives in Italy. Prestige=5 as a Monument sportive. With score=74 (<75), the p5 override caps tier at T2.",
+      "score_note": "prestige=5 for Monument status — Milan-Sanremo is La Classicissima, the first and longest of cycling's five Monuments, contested since 1907. length=5 for 296 km — the longest one-day amateur cycling event in the world, an extraordinary endurance test. experience=5 for riding the complete Monument route: the Turchino, the Ligurian coast, the Tre Capi, Cipressa, Poggio, and the Via Roma finish. cultural_impact=5 for 119 years of professional racing heritage (Merckx 7 wins, Coppi 6, Girardengo 6), plus 56 years of continuous amateur editions. adventure=4 for the epic point-to-point journey from the Lombardy plains across the Apennines to the Riviera. elevation=4 for 4,411m of total climbing. altitude=1 for a maximum of 530m at the Turchino — no meaningful altitude stress. technicality=2 for fully paved roads. race_quality=3 because while the event has deep tradition (49th edition in 2026), the organization is modest compared to RCS-run sportives — only 2 feed stations for nearly 300 km.",
+      "editorial_tier": 2,
+      "editorial_tier_label": "TIER 2",
+      "business_tier": 2,
+      "business_tier_label": "TIER 2",
+      "display_tier": 2,
+      "display_tier_label": "TIER 2",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 3,
+        "explanation": "Milan is one of the best-connected cities in Europe — Malpensa (MXP), Linate (LIN), and Bergamo Orio al Serio (BGY) between them serve virtually every European and intercontinental route. Getting to Milan is easy. The complication is the point-to-point format. The start is at the Hotel IBIS Style Settala, southeast of Milan — not central Milan. Packet pickup is Saturday at the same location. The finish is in Sanremo, 296 km away. You need to arrange transport back to Milan (organized coaches are available post-race), or have someone drive your gear to Sanremo. Most international riders stay in Milan the night before and Sanremo the night after, which means booking two different hotels. Tour operators (Sportive Breaks, Cycle Classic Tours) smooth this out with package deals including transfers, hotels, and entry. Workable, but requires planning."
+      },
+      "length": {
+        "score": 5,
+        "explanation": "296 kilometers. Let that sink in. This is the longest one-day amateur cycling event in the world. The professional race is already the longest Monument at 298 km — the gran fondo matches it almost exactly. For context: the average sportive is 120-160 km. Even the most ambitious gran fondos rarely exceed 200 km. This race is 296 km on open roads, in one day, with a 7 AM start. Fast riders finish in 9-10 hours. Mid-pack riders are looking at 11-13 hours in the saddle. The length alone makes this a defining endurance challenge. There is nothing else like it in amateur cycling. A perfect 5 on the length scale — because if 296 km is not a 5, nothing is."
+      },
+      "technicality": {
+        "score": 2,
+        "explanation": "Fully paved roads throughout. The technical demands are modest: this is a road race on Italian state roads. The Turchino descent requires basic bike handling on mountain roads with hairpins. The Poggio descent is narrow and fast with some tight bends — this is where the pros attack, and for amateurs it requires concentration on tired legs. The coastal roads through the Capi have some undulation and narrow sections. But there is no gravel, no cobbles, no off-road, no navigation. The main technical challenge is managing a bicycle for 10-13 hours, which is a different kind of technical than surface difficulty."
+      },
+      "elevation": {
+        "score": 4,
+        "explanation": "4,411 meters of total climbing across 296 km. That is 14,474 feet — not dissimilar to a mountain gran fondo, but distributed very differently. The first 100 km across the Lombardy plains are essentially flat. Then the Turchino (530m summit, 9.5 km at 5.1%) provides the first real climbing. After the Turchino descent, the rolling Ligurian coast and the five climbs — Mele, Cervo, Berta, Cipressa, Poggio — pile up the meters. None of the individual climbs are monstrous (the Cipressa at 5.6 km is the longest), but after 200+ km of riding, every gradient feels doubled. The elevation profile is deceptive: it looks mild on paper but the cumulative effect on pre-exhausted legs is savage."
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "Early June is generally kind to cycling in northern Italy. The professional race runs in March — often in cold rain — so the gran fondo's June date is a deliberate improvement. Morning temperatures around 14-18C are perfect for the opening flat hours. The risk is heat: by midday on the exposed Lombardy and Piedmont plains, temperatures can climb to 28-32C, and you are still 150 km from the finish. The Ligurian coast is warm and humid. You will ride from dawn to late afternoon, experiencing the full range of a June day. Heat management, hydration, and electrolyte strategy become genuine performance factors. Not extreme, but over 296 km, the climate matters."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "The highest point on the course is the Passo del Turchino at approximately 530 meters above sea level. This is well below any altitude that would affect performance or require acclimatization. The climb itself is meaningful, but the altitude is not. The Poggio tops out at 162m. No altitude consideration whatsoever."
+      },
+      "adventure": {
+        "score": 4,
+        "explanation": "This is one of the great journeys in amateur cycling. You begin on the outskirts of Milan — industrial, flat, unremarkable. You cross the vast agricultural plains of Lombardy and Piedmont — an experience in monotony that is part of the challenge. Then the Apennines rise ahead and you climb the Turchino — suddenly you are in the mountains, with forest and stone. The descent drops you onto the Ligurian coast at Voltri, and the entire character of the ride transforms: you are on the Italian Riviera, palm trees and blue sea, the Mediterranean light that makes every photograph look like a painting. The Tre Capi climb and dive along the coast. Cipressa rises through olive groves. The Poggio gives you one final panoramic view before the descent to the Via Roma in Sanremo, where the pro race has finished for over a century. Point-to-point from industrial Milan to the Riviera dei Fiori — the journey itself is the adventure."
+      },
+      "prestige": {
+        "score": 5,
+        "explanation": "Milan-Sanremo is La Classicissima — the Spring Classic. It is the first and longest of cycling's five Monuments. The professional race has been held every year since 1907 (excepting wartime), making it one of the oldest events in all of sport. Seven wins by Eddy Merckx. Six by Costante Girardengo and Fausto Coppi. Victories by Cancellara, Nibali, van der Poel, Pogacar. The Poggio is one of the most famous climbs in cycling — not for its gradient, but for what happens on it. The Via Roma finish is as iconic as the Champs-Elysees or the Piazza del Campo. The amateur gran fondo has been running continuously since 1970 — 56 years on the same roads — making it one of the oldest cyclosportives in Italy. There is no higher prestige for a one-day amateur road cycling event."
+      },
+      "race_quality": {
+        "score": 3,
+        "explanation": "The Gran Fondo Milano-Sanremo is organized by the Unione Cicloturistica Sanremo — a local cycling union, not a corporate sports organization. The 49th edition in 2026 speaks to longevity and commitment, but the production quality is Italian amateur cycling, not RCS Sport. Two private feed stations for 296 km is lean — you need to be self-sufficient with nutrition. Chip timing, broom wagon, and medical support are provided. The souvenir jersey is included. The start logistics (Hotel IBIS Style Settala, outside Milan proper) feel functional rather than glamorous. The event lacks UCI sanctioning and official age-group World Championship qualifying that would elevate it. What it offers instead is authenticity — this is an Italian cicloturistica run by cycling people, not a commercial product."
+      },
+      "experience": {
+        "score": 5,
+        "explanation": "You ride 296 km from Milan to Sanremo. The exact route of the most famous one-day race in cycling. You climb the Turchino where the first selection has been made since 1907. You ride the Ligurian coast where the peloton strings out in the crosswinds. You tackle Capo Mele, Capo Cervo, Capo Berta — the Tre Capi that begin the final act. You climb the Cipressa where Sean Kelly and Laurent Fignon once dueled. You ride the Poggio — 3.7 km that have decided more Monument winners than any other climb in cycling. And then you descend to the Via Roma in Sanremo and cross the same finish line where Merckx, Coppi, Cancellara, and van der Poel have raised their arms in triumph. With 296 km in your legs. In one day. If you care about cycling history, there is no experience in the amateur calendar that comes close to this."
+      },
+      "community": {
+        "score": 3,
+        "explanation": "Approximately 2,000 riders, predominantly Italian with a growing international contingent from across Europe, plus riders from as far as Australia, New Zealand, Brazil, and North America. The atmosphere is Italian cicloturistica — competitive but communal, with group riding on the plains and a shared sense of suffering in the final 100 km. The Italian fans on the Cipressa and Poggio are enthusiastic. The finish in Sanremo has a celebratory feel — you have just ridden 296 km, and everyone around you understands what that means. But this is not a large-scale festival event. The community is that of serious Italian amateur cycling: respectful, experienced, focused on the road."
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "Two thousand riders who choose to ride 296 km in a single day are, by definition, a self-selected population of fit and committed cyclists. The front of the field includes strong Italian amateur racers and international sportive specialists. Finishing times range from around 9 hours for the fastest to 13+ hours for the steadiest. The international draw is growing — participants from 30+ countries — but the field is modest compared to mega-sportives like the Maratona dles Dolomites (9,000) or L'Eroica (8,000). Without UCI sanctioning, the event does not attract riders specifically chasing World Championship qualification. The depth comes from the self-selection: anyone who signs up for 296 km is serious."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "Entry at EUR 60-80 (plus EUR 20 for an Italian day license if needed) for the longest amateur cycling event in the world is objectively reasonable. You get chip timing, a souvenir jersey, two feed stations, broom wagon, medical support, and the right to say you rode Milan-Sanremo. The feed station provision is thin for the distance — you will spend significantly on additional nutrition and hydration. But the core value proposition — riding 296 km of Monument roads for under EUR 100 — is fair. The comparators charge similar or more for half the distance."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Flights to Milan are cheap from anywhere in Europe (budget carriers serve all three Milan airports). Accommodation requires two bookings: a night near the start (Settala/south Milan, budget options available) and a night in Sanremo post-race. Return transport from Sanremo to Milan adds cost (organized coach, train, or hired car). Budget EUR 80-150/night for Italian hotels. Italian food is reasonable (EUR 30-50/day eating well). Tour operator packages bundle everything for GBP 500-800. Total budget for a European rider: EUR 600-1,200 for a long weekend including flights, 2-3 nights, food, entry, and transfers. The point-to-point format adds logistical cost compared to loop-route sportives, but this is Italy, not Switzerland — prices are manageable."
+      }
+    },
+    "biased_opinion": {
+      "verdict": "The Longest Day in Amateur Cycling",
+      "summary": "There are five Monuments in professional cycling. Milan-Sanremo is the longest, the oldest continuously run, and — for many — the most beautiful. La Classicissima. The Spring Classic. 296 kilometers from the industrial flatlands of Lombardy across the Apennines to the flower-scented Riviera di Ponente. The gran fondo version has been running since 1970, making it older than most of the riders who line up for it. You leave Settala at dawn and ride through the flat agricultural plains, the Turchino pass, the Ligurian coast, the three Capi, and then — with nearly 280 km in your legs — you climb the Cipressa and the Poggio. Two climbs that are not objectively hard. Two climbs that, after 280 km, will feel like the steepest roads you have ever ridden. Then you descend to the Via Roma in Sanremo and you are done. You have ridden La Classicissima. The same road Merckx rode seven times to victory. The same Poggio where Cancellara attacked from the front. The same Via Roma where van der Poel sprinted. No other amateur event in the world offers 296 km of Monument history in a single day.",
+      "strengths": [
+        "296 km: the longest one-day amateur cycling event in the world — an extraordinary test of endurance, nutrition, and mental fortitude",
+        "Monument pedigree: rides the exact route of La Classicissima, cycling's first and longest Monument, contested since 1907",
+        "The Poggio: 3.7 km that have decided more Monuments than any climb in cycling — you ride it with 280+ km in your legs",
+        "Epic point-to-point journey from the Lombardy plains across the Apennines to the Italian Riviera — a true cycling odyssey",
+        "56 years of continuous amateur editions (2026 is the 49th) — one of the oldest cyclosportives in Italy"
+      ],
+      "weaknesses": [
+        "Only 2 feed stations for 296 km — you must be completely self-sufficient on nutrition and hydration strategy",
+        "The first 100 km across the Lombardy/Piedmont plains are flat and tedious — hours of agricultural roads at high speed before the scenery begins",
+        "Point-to-point format creates logistical complexity: start in Settala, finish in Sanremo, need return transport",
+        "Modest organizational production compared to RCS-run sportives — this is a passionate local cycling club, not a corporate event machine",
+        "Heat risk in June on the exposed plains and Ligurian coast — 10-13 hours of sun exposure is a genuine health consideration"
+      ],
+      "bottom_line": "This is not a race you sign up for on a whim. 296 km demands months of specific preparation, meticulous nutrition planning, and the mental resilience to keep pedaling when your body insists you stop. But if you want to know what it means to ride a Monument — the full Monument, not a shortened sportive version — this is the only event in the world that offers the complete experience. Milan to Sanremo. The Turchino. The Capi. Cipressa. Poggio. Via Roma. La Classicissima is yours."
+    },
+    "final_verdict": {
+      "score": "74 / 100",
+      "one_liner": "La Classicissima — 296 km from Milan to the Ligurian Riviera. The Turchino, the Capi, Cipressa, Poggio, Via Roma. The longest day in amateur cycling.",
+      "should_you_race": "Yes if you are an endurance cyclist who wants the ultimate one-day road challenge — 296 km is a threshold experience that changes how you think about distance. Yes if you care about cycling history and want to ride every meter of the oldest, longest Monument. Yes if you have the discipline to train specifically for ultra-endurance and the self-sufficiency to manage nutrition for 10-13 hours with minimal feed station support. Skip if 296 km genuinely exceeds your ambition or your available training time. Skip if you want a well-serviced, festival-atmosphere sportive with aid stations every 30 km. Skip if you are looking for technical terrain or off-road riding — this is road cycling, pure and relentless.",
+      "alternatives": "If you want another Italian Monument sportive with better organization: try Gran Fondo Il Lombardia for the Muro di Sormano and Lake Como in autumn. If you want Italian Monument white roads: try Gran Fondo Strade Bianche for Tuscany's strade bianche and Siena's Piazza del Campo. If you want the ultimate Alpine road challenge: try La Marmotte with 5,000m+ of climbing. If you want a shorter taste of the Italian Riviera: the Granfondo Sanremo-Sanremo (La Classicissima) offers a 130 km coastal loop from Sanremo.",
+      "alternative_slugs": [
+        "gran-fondo-il-lombardia",
+        "strade-bianche-gran-fondo",
+        "la-marmotte",
+        "amstel-gold-race-toerversie"
+      ]
+    },
+    "logistics": {
+      "airport": "Milan Malpensa (MXP) — Italy's second-largest international airport, 50 km northwest of Milan, extensive European and intercontinental connections. Milan Linate (LIN) — city airport, 15 km from center, mainly European routes. Bergamo Orio al Serio (BGY) — 55 km, major budget airline hub (Ryanair). All three airports are well-connected to the start area via road. For the return from Sanremo: Nice Cote d'Azur (NCE) is 60 km from Sanremo across the French border — an option for one-way logistics.",
+      "lodging_strategy": "The point-to-point format requires two accommodation bookings. Night before: stay near the start at Hotel IBIS Style Settala (the packet pickup and start location) or in central Milan (30-40 minutes by car). Night after: stay in Sanremo — the Ligurian Riviera resort town has abundant hotel options from budget to luxury along the seafront. Many riders extend to a second night in Sanremo to recover and enjoy the coast. Tour operator packages (Sportive Breaks, Cycle Classic Tours, Velo Ventoux) bundle Milan and Sanremo hotels with transfers, entry, and logistical support. Book the Sanremo hotel early — it fills for the gran fondo weekend.",
+      "food": "Pre-race: Milan offers world-class dining — risotto alla Milanese, ossobuco, cotoletta. Load carbs at any of the city's countless excellent restaurants. On-course: only 2 feed stations, so carry substantial nutrition. Plan to carry 6-8 hours of food and refill bottles at cafes/fountains en route (Italian villages always have a bar). Post-race: Sanremo's seafront restaurants serve outstanding Ligurian cuisine — focaccia di Recco, trofie al pesto, fresh seafood, farinata. The post-race meal in Sanremo, after 296 km, will be the best food you have ever tasted.",
+      "packet_pickup": "Saturday, June 6, at Hotel IBIS Style Settala (southeast of Milan). Hours: 10:00-12:30 and 14:30-18:30. Collect race number, souvenir jersey, and event materials. The hotel also serves as the staging area for the Sunday morning start.",
+      "parking": "Parking available at the Hotel IBIS Style Settala start area. Arrive early as spaces fill. Many riders use tour operator transfers from Milan hotels. For the return: organized coach transfers from Sanremo back to Settala/Milan are available (book in advance). Alternatively, the Sanremo-Milan train takes approximately 4 hours with bike carriage on some services.",
+      "official_site": "https://milano-sanremo.org/en/"
+    },
+    "history": {
+      "founded": 1970,
+      "founder": "Unione Cicloturistica Sanremo",
+      "origin_story": "Milan-Sanremo the professional race was born on April 14, 1907, when La Gazzetta dello Sport sent 33 riders on a 288 km odyssey from Milan to the Ligurian coast. Lucien Petit-Breton won the inaugural edition. By 1970, the race had grown into arguably the most prestigious one-day event in cycling — seven categories of champions had inscribed their names on its roll of honor. That year, the Unione Cicloturistica Sanremo decided that ordinary cyclists deserved the same experience. They organized the first Gran Fondo Milano-Sanremo — the same route, the same climbs, the same finish in Sanremo — and a tradition was born. The event has been held every year since without interruption, through economic crises, pandemics, and organizational challenges, making it one of the oldest continuously-run cyclosportives in Italy. By the 2020s, the gran fondo was attracting 2,000+ riders from 30+ countries, all sharing the same compulsion: to ride La Classicissima from start to finish.",
+      "notable_moments": [
+        "1907: First professional Milan-Sanremo — Lucien Petit-Breton wins the inaugural Monument. 33 riders start, the race covers 288 km",
+        "1970: Unione Cicloturistica Sanremo organizes the first amateur Gran Fondo Milano-Sanremo — one of Italy's earliest cyclosportives",
+        "1960s-present: The Poggio added to the professional route in 1960 transforms the race's character — and the gran fondo inherits every change to the Monument course",
+        "The event survives unbroken through five decades — COVID-19 in 2020 being the only significant disruption to the calendar",
+        "2026: The 49th edition — approaching a half-century of continuous amateur editions on Monument roads"
+      ],
+      "reputation": "The original Monument sportive. While newer, better-funded gran fondos based on Monuments have emerged (Strade Bianche, Il Lombardia), the Gran Fondo Milano-Sanremo has been sending amateurs from Milan to Sanremo since 1970. It is not the most polished event. It is not the best-organized. But it is 296 km of the most famous one-day race route in cycling, and no amount of production value can replicate that."
+    },
+    "course_description": {
+      "character": "A race of three acts across three regions of Italy. Act One: the Lombardy and Piedmont plains — 100+ km of flat, fast, relentless agricultural roads where the peloton moves at 40+ km/h and the only challenge is staying in the group and out of the wind. Act Two: the Turchino — the first real climb, the passage through the Apennines where Lombardy becomes Liguria and the grey plains give way to the blue Mediterranean. Act Three: the Ligurian coast — 100 km of increasingly dramatic riding as the three Capi, the Cipressa, and the Poggio pile suffering onto legs that have already ridden 200+ km. The course is deceptive in its simplicity. No individual climb is fearsome. The Poggio averages 3.7%. The Cipressa averages 4.1%. But at kilometer 270 and kilometer 280, those modest percentages become the hardest climbs of your life. The pro peloton calls this phenomenon 'the course that bites you at the end.' For amateurs riding 2-3 hours longer than the professionals, the bite is sharper.",
+      "suffering_zones": [
+        {
+          "mile": 0,
+          "label": "The Lombardy Plains",
+          "desc": "The first 60+ miles from Settala across the Lombardy and Piedmont plains. Dead flat agricultural roads stretching to the horizon. The peloton moves fast — 35-45 km/h — and the drafting is critical to energy conservation. This is the most boring section of the most famous race route in cycling, and it is essential that you ride it smart. Burn matches here and you will pay on the Cipressa. Sit in the wheels, eat steadily, stay hydrated. The plains are where the race is not won but is frequently lost.",
+          "terrain_detail": "Flat, paved, exposed agricultural roads. Crosswinds possible. Large group riding.",
+          "named_section": "Pianura Padana — The Po Plain"
+        },
+        {
+          "mile": 75,
+          "label": "Passo del Turchino",
+          "desc": "The gateway from the Po Plain to the Ligurian Sea. 9.5 km at 5.1% average from the Mele side, topping out at 530m. After 120 km of flat riding, the Turchino feels like a wall — your legs have been spinning at high cadence on the plains and now must grind at low cadence on gradients up to 11.8%. The Turchino has been the first selection point of Milan-Sanremo since 1907. For amateurs, it is the moment the race changes character entirely. The descent off the Turchino brings the first glimpse of the Mediterranean — a psychological boost that is genuinely powerful.",
+          "terrain_detail": "9.5 km, 5.1% average, max 11.8%, forested mountain road, summit at 530m",
+          "named_section": "Passo del Turchino — The Gateway to Liguria"
+        },
+        {
+          "mile": 105,
+          "label": "The Ligurian Coast — Voltri to Capo Mele",
+          "desc": "The long run down the Ligurian coast from Voltri (where the Turchino descent ends) through Genova, Savona, and along the Riviera di Ponente to the Tre Capi. Rolling coastal roads with occasional headwinds and crosswinds from the sea. The scenery transforms — palm trees, blue sea, pastel-colored towns — but the kilometers are relentless. This section is a war of nutrition and pacing. You are past 170 km and the real climbing has not yet begun.",
+          "terrain_detail": "Rolling coastal road, minor undulations, exposed to sea winds, paved throughout",
+          "named_section": "Riviera di Ponente — The Coast Road"
+        },
+        {
+          "mile": 147,
+          "label": "The Tre Capi",
+          "desc": "Capo Mele (2.5 km at 5.2%), Capo Cervo (2.5 km at 4.1%), and Capo Berta (3 km at 4.3%) — the three coastal headland climbs that begin the final act. In the professional race, these are where sprinters' teams start to struggle. For amateurs with 240+ km in their legs, each of these short, punchy climbs hurts far more than the gradient suggests. The descents offer brief Mediterranean panoramas — turquoise water, rocky headlands, fishing villages — that would be stunning if you were not counting the kilometers to the finish.",
+          "terrain_detail": "Short, punchy climbs (2.5-3 km, 4-5% average) separated by coastal descents",
+          "named_section": "I Tre Capi — Mele, Cervo, Berta"
+        },
+        {
+          "mile": 162,
+          "label": "Cipressa",
+          "desc": "5.6 km at 4.1% average with a 9% maximum section halfway up. This is the climb that fractures the race. After 260+ km, a 4% gradient feels like 8%. The Cipressa rises through olive groves above the coast, with views back along the Riviera that you will not have the energy to appreciate. The 9% ramp in the middle of the climb is the point where many riders accept that they will finish this ride, but not quickly. The professional race's decisive attacks have come on the Cipressa since 1982. Your decisive moment will be deciding whether to ride it or survive it.",
+          "terrain_detail": "5.6 km, 4.1% average, max 9%, narrow road through olive groves",
+          "named_section": "Cipressa — Where the Race Fractures"
+        },
+        {
+          "mile": 170,
+          "label": "Poggio di Sanremo",
+          "desc": "The most famous 3.7 km in one-day cycling. Average gradient 3.7%, maximum 8%. The Poggio is not a hard climb by any objective measure. But you have ridden 280 km. Your legs are empty. Your back is screaming. You have been on the bike for 10-12 hours. And now 3.7 km at under 4% feels like the steepest climb you have ever attempted. The Poggio rises through the outskirts of Sanremo — suburban houses, garden walls, a narrow road that the professional peloton transforms into a crucible of attacks every March. At the summit, you can see the Mediterranean spread out below, and Sanremo — the finish — waiting on the coast. The descent is fast, technical, and exhilarating. Then the Via Roma. Then you are done.",
+          "terrain_detail": "3.7 km, 3.7% average, max 8%, narrow suburban road, 4 hairpin bends in first 2 km",
+          "named_section": "Poggio di Sanremo — The Final Act"
+        }
+      ],
+      "signature_challenge": "The distance. 296 kilometers. Not the Turchino, not the Cipressa, not the Poggio — those are just climbs. The signature challenge of the Gran Fondo Milano-Sanremo is the distance itself. It is the longest one-day amateur cycling event in the world, and there is no way to simulate it in training. You can ride 200 km. You can ride 250 km. But the zone between 250 km and 296 km is uncharted territory for nearly every rider who lines up. The legs stop working normally. The nutrition strategy that seemed bulletproof starts to fail. The mind begins its negotiations with the body. The Poggio at kilometer 280 is the cruelest joke in cycling — a climb that would be trivial at kilometer 80, transformed by distance into a monument of suffering."
+    },
+    "guide_variables": {
+      "race_name": "Gran Fondo Milano-Sanremo",
+      "race_distance": "184 miles (296 km)",
+      "race_elevation": "14,474 feet (4,411 m)",
+      "race_date": "June",
+      "race_location": "Milan to Sanremo, Italy",
+      "race_terrain": "Paved Italian roads — flat Lombardy plains, Turchino mountain pass, rolling Ligurian coastal roads, punchy capi, Cipressa (5.6 km, 4.1%), Poggio (3.7 km, 3.7%)",
+      "race_weather": "Early June: cool dawn start (14-18C), potentially hot plains (28-32C midday), warm Ligurian coast (24-28C). Full sun exposure for 10-13 hours.",
+      "race_challenges": [
+        "296 km: the longest one-day amateur cycling event in the world — extreme endurance demand",
+        "Self-sufficiency: only 2 feed stations means you must carry and manage 10+ hours of nutrition independently",
+        "Passo del Turchino: 9.5 km at 5.1% after 120 km of flat riding — abrupt transition from plains to climbing",
+        "Cipressa (5.6 km, max 9%) and Poggio (3.7 km, max 8%) after 260-280 km — moderate climbs made savage by fatigue",
+        "Heat management across 10-13 hours in June Italian sun — hydration and electrolyte failure is the primary DNF cause",
+        "High-speed group riding on the plains (40+ km/h) — drafting skills are essential for energy conservation"
+      ],
+      "altitude_section": false,
+      "altitude_feet": 1739
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Ultra-endurance base — at least three rides of 200+ km (125+ miles) in the final 8 weeks of preparation",
+        "by_when": "Week 6",
+        "why": "296 km is beyond the experience of virtually every amateur cyclist. You cannot simulate the full distance in training, but you must push into the 200-250 km range to understand how your body responds beyond 8 hours of riding. These rides must include nutrition rehearsal — eating and drinking on a rigid schedule, testing your race-day fueling plan under real fatigue. The zone beyond 200 km is where mechanical eating discipline replaces appetite, and you must train this skill."
+      },
+      {
+        "requirement": "Race-day nutrition plan tested to failure — 80-100g carbohydrates per hour for 10+ hours",
+        "by_when": "Week 5",
+        "why": "At 296 km, nutrition is not a support system — it is the race. You will burn 7,000-10,000 calories. You cannot carry enough food for the full ride with only 2 feed stations. Plan to carry 5-6 hours of nutrition, supplement at Italian village bars and cafes en route, and know exactly how many grams of carbohydrate you consume per hour. GI distress at hour 8 ends your race. Test your plan on long training rides until you know it works. Then test it again."
+      },
+      {
+        "requirement": "Climbing on pre-fatigued legs — practice riding climbs of 3-6% gradient after 150+ km of riding",
+        "by_when": "Week 7",
+        "why": "The Cipressa and Poggio are not hard climbs. They are 4% average gradient — manageable for any trained cyclist. But you will ride them after 260-280 km, with depleted glycogen, aching muscles, and a heart rate that refuses to rise. You must specifically train the sensation of climbing on empty legs. Your long rides should end with 30-40 minutes of climbing. The goal is not power output but familiarity with the feeling of grinding up a modest gradient when your body has nothing left."
+      },
+      {
+        "requirement": "Group riding and drafting efficiency — practice sitting in a peloton at 35-45 km/h for extended periods",
+        "by_when": "Week 4",
+        "why": "The first 100+ km across the Lombardy plains are ridden at 35-45 km/h in large groups. If you cannot sit in a peloton comfortably, you will burn 30-40% more energy on the flat section and arrive at the Turchino with legs that have already done their hardest work. Join fast group rides. Practice holding a wheel at speed. Learn to eat, drink, and manage clothing changes while riding in a group. The plains are where amateurs who train alone get punished."
+      }
+    ],
+    "citations": [
+      {
+        "url": "https://milano-sanremo.org/en/",
+        "title": "Gran Fondo Milano-Sanremo 2026 — Official Site (Unione Cicloturistica Sanremo)",
+        "category": "official"
+      },
+      {
+        "url": "https://milano-sanremo.org/en/regulation/",
+        "title": "Regulations for the Milan-San Remo Amatori Cyclosportive 2026",
+        "category": "official"
+      },
+      {
+        "url": "https://milano-sanremo.org/en/register/registration/",
+        "title": "Registration for the Gran Fondo Milano-Sanremo 2026",
+        "category": "official"
+      },
+      {
+        "url": "https://milano-sanremo.org/en/altimetry/",
+        "title": "Altimetry — Gran Fondo Milano-Sanremo Route Profile",
+        "category": "official"
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Milan%E2%80%93San_Remo",
+        "title": "Milan-San Remo — Wikipedia (Professional Race History)",
+        "category": "reference"
+      },
+      {
+        "url": "https://strambecco.com/event/gran-fondo-milano-sanremo/",
+        "title": "Gran Fondo Milano-San Remo 2026 — Strambecco Rating and Review",
+        "category": "reference"
+      },
+      {
+        "url": "https://sportivebreaks.com/sportives/classics/gran-fondo-milan-sanremo/",
+        "title": "Gran Fondo Milan Sanremo — Sportive Breaks",
+        "category": "reference"
+      },
+      {
+        "url": "https://cycleclassictours.com/tours/uci-cycling-classic-guided/gran-fondo-milan-san-remo/",
+        "title": "Gran Fondo Milan San Remo 2026 — Cycle Classic Tours",
+        "category": "reference"
+      },
+      {
+        "url": "https://www.cyclist.co.uk/in-depth/euro-sportive-planner-granfondo-milano-san-remo",
+        "title": "Euro Sportive Planner: Granfondo Milano-San Remo — Cyclist Magazine",
+        "category": "review"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/549/gran-fondo-milan-san-remo",
+        "title": "Gran Fondo Milan San Remo — Gran Fondo Guide",
+        "category": "reference"
+      },
+      {
+        "url": "https://battistrada.com/en/cycling-calendar/edition/granfondo-milano-sanremo-2026/49298/",
+        "title": "Granfondo Milano-Sanremo 2026 Edition — Battistrada Calendar",
+        "category": "reference"
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "high",
+      "validation_status": "validated",
+      "research_strength": "A",
+      "sources_count": 11,
+      "last_updated": "2026-02-27"
+    }
+  }
+}

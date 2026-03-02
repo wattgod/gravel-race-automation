@@ -52,6 +52,9 @@ from generate_prep_kit import (
     SODIUM_BASE_MG_PER_L,
     SODIUM_HEAT_BOOST,
     SODIUM_CRAMP_BOOST,
+    WKG_FLOOR,
+    WKG_CEIL,
+    WKG_EXPONENT,
 )
 
 from generate_neo_brutalist import load_race_data, find_data_file
@@ -646,13 +649,19 @@ class TestSectionNumbering:
 
 
 class TestComputePersonalizedFueling:
+    """Tests for W/kg intensity-aware fueling formula.
+
+    The formula uses W/kg (FTP / weight) to position the rider within
+    the validated duration bracket.  Reference range: 1.5–4.5 W/kg.
+    Power curve (exponent 1.4) compresses low-W/kg toward bracket floor.
+    """
+
     def test_with_ftp_and_weight(self):
-        # 75kg rider, 250W FTP, 8 hours
+        # 75kg rider, 250W FTP, 8 hours → 3.33 W/kg
         result = compute_personalized_fueling(75.0, 250.0, 8.0)
         assert result is not None
-        # raw_rate = 75 * 0.7 * (250/100) * 0.7 = 75 * 0.7 * 2.5 * 0.7 = 91.875
-        # 8h bracket = 60-80, clamp 92 → 80
-        assert result["personalized_rate"] == 80
+        # wkg=3.33, lin=0.611, factor=0.611^1.4=0.502, rate=60+0.502*20=70
+        assert result["personalized_rate"] == 70
         assert result["bracket_lo"] == 60
         assert result["bracket_hi"] == 80
 
@@ -665,31 +674,32 @@ class TestComputePersonalizedFueling:
         assert "FTP" in result["note"]
 
     def test_clamps_to_bracket_ceiling(self):
-        # Very high FTP on a short race — should not exceed 100g/hr
-        result = compute_personalized_fueling(90.0, 400.0, 3.0)
+        # Very high W/kg on a short race — should not exceed 100g/hr
+        result = compute_personalized_fueling(65.0, 320.0, 3.0)
         assert result is not None
-        # raw = 90 * 0.7 * 4.0 * 0.7 = 176.4 → clamp to 100
+        # wkg=4.92, lin=1.0 (clamped), factor=1.0, rate=80+20=100
         assert result["personalized_rate"] == 100
 
     def test_clamps_to_bracket_floor(self):
-        # Very light rider, low FTP, ultra race
-        result = compute_personalized_fueling(50.0, 80.0, 20.0)
+        # Very low W/kg rider, ultra race — lands at bracket floor
+        result = compute_personalized_fueling(80.0, 100.0, 20.0)
         assert result is not None
-        # raw = 50 * 0.7 * 0.8 * 0.7 = 19.6 → clamp to 30 (20h+ bracket floor)
+        # wkg=1.25, lin=0 (below 1.5 floor), factor=0, rate=30
         assert result["personalized_rate"] == 30
         assert result["bracket_lo"] == 30
 
-    def test_light_rider_lower_rate(self):
-        # 55kg rider vs 85kg rider, same FTP and duration
-        light = compute_personalized_fueling(55.0, 200.0, 6.0)
-        heavy = compute_personalized_fueling(85.0, 200.0, 6.0)
-        assert light["personalized_rate"] <= heavy["personalized_rate"]
+    def test_higher_wkg_higher_rate(self):
+        # Lighter rider at same absolute FTP has HIGHER W/kg → higher rate.
+        # This is the key behavioral fix: W/kg drives intensity, not body mass.
+        light = compute_personalized_fueling(55.0, 200.0, 6.0)  # 3.64 W/kg → 72
+        heavy = compute_personalized_fueling(85.0, 200.0, 6.0)  # 2.35 W/kg → 63
+        assert light["personalized_rate"] > heavy["personalized_rate"]
 
     def test_high_ftp_high_rate(self):
         # 300W FTP should produce higher rate than 150W (same weight/duration)
-        high = compute_personalized_fueling(75.0, 300.0, 10.0)
-        low = compute_personalized_fueling(75.0, 150.0, 10.0)
-        assert high["personalized_rate"] >= low["personalized_rate"]
+        high = compute_personalized_fueling(75.0, 300.0, 10.0)  # 4.0 W/kg → 65
+        low = compute_personalized_fueling(75.0, 150.0, 10.0)   # 2.0 W/kg → 52
+        assert high["personalized_rate"] > low["personalized_rate"]
 
     def test_short_race_high_ceiling(self):
         # 3-hour race allows up to 100g/hr
@@ -704,6 +714,7 @@ class TestComputePersonalizedFueling:
     def test_total_carbs_and_gels(self):
         result = compute_personalized_fueling(75.0, 200.0, 10.0)
         assert result is not None
+        # wkg=2.67, rate=55, total=550, gels=22
         assert result["total_carbs"] == result["personalized_rate"] * 10
         assert result["gels"] == result["total_carbs"] // 25
 
@@ -711,6 +722,52 @@ class TestComputePersonalizedFueling:
         assert compute_personalized_fueling(0, 200, 5) is None
         assert compute_personalized_fueling(75, 200, 0) is None
         assert compute_personalized_fueling(None, 200, 5) is None
+
+    def test_murphy_scenario(self):
+        """Heavy rider with low FTP should NOT get inflated recommendation.
+
+        Murphy: 95kg, 220W FTP, 6.5hr → 2.32 W/kg (recreational).
+        Old Couzens formula gave 80 g/hr (bracket ceiling — 35% overshoot).
+        New W/kg formula with power curve gives 63 g/hr (low-end of bracket).
+        Actual CHO demand at ~44% VO2max ≈ 59 g/hr.
+        """
+        result = compute_personalized_fueling(95.0, 220.0, 6.5)
+        assert result is not None
+        # wkg=2.32, lin=0.272, factor=0.272^1.4=0.162, rate=60+0.162*20=63
+        assert result["personalized_rate"] == 63
+        assert 60 <= result["personalized_rate"] <= 67  # low end of bracket
+
+    def test_competitive_rider_upper_bracket(self):
+        """Competitive rider with high W/kg should get upper-bracket rate."""
+        result = compute_personalized_fueling(70.0, 280.0, 6.5)
+        assert result is not None
+        # wkg=4.0, lin=0.833, factor=0.833^1.4=0.775, rate=60+0.775*20=75
+        assert result["personalized_rate"] == 75
+        assert result["personalized_rate"] >= 73  # upper end of bracket
+
+    def test_wkg_below_floor_clamps_to_zero(self):
+        """W/kg below 1.5 should clamp intensity_factor to 0 → bracket floor."""
+        result = compute_personalized_fueling(100.0, 140.0, 8.0)
+        assert result is not None
+        # wkg=1.4, lin=0 (clamped), factor=0, rate=60
+        assert result["personalized_rate"] == 60
+
+    def test_wkg_above_ceiling_clamps_to_one(self):
+        """W/kg above 4.5 should clamp intensity_factor to 1 → bracket ceiling."""
+        result = compute_personalized_fueling(60.0, 300.0, 8.0)
+        assert result is not None
+        # wkg=5.0, lin=1.0 (clamped), factor=1.0, rate=80
+        assert result["personalized_rate"] == 80
+
+    def test_power_curve_compresses_low_wkg(self):
+        """Power curve (exp 1.4) should push low-W/kg riders closer to floor
+        vs linear — matching the non-linear CHO oxidation physiology."""
+        # 2.0 W/kg: linear would give factor=0.167, curve gives 0.081
+        result = compute_personalized_fueling(75.0, 150.0, 8.0)
+        # lin=0.167, factor=0.167^1.4=0.081, rate=60+0.081*20=62
+        assert result["personalized_rate"] == 62
+        # With linear interpolation this would be 63 — curve pushes 1g lower.
+        # The effect is larger at mid-range W/kg values.
 
 
 class TestFuelingCalculatorHTML:
@@ -1285,3 +1342,81 @@ console.log(JSON.stringify(results));
             # Compare hour 1 carbs (ramp-up)
             assert py_plan[0]["carbs_g"] == js_r["plan_h1_carbs"], \
                 f"Case {i}: hour 1 carbs mismatch: py={py_plan[0]['carbs_g']} js={js_r['plan_h1_carbs']}"
+
+    def test_personalized_fueling_matches_js(self):
+        """Run identical inputs through Python and JS W/kg formula, compare rates."""
+        import subprocess
+        import json as _json
+
+        node_script = f"""
+var WKG_FLOOR={WKG_FLOOR},WKG_CEIL={WKG_CEIL},WKG_EXP={WKG_EXPONENT};
+function computePersonalized(weightLbs,ftp,hours){{
+    if(!weightLbs||weightLbs<=0||!hours||hours<=0) return null;
+    var weightKg=weightLbs*0.453592;
+    var bLo,bHi;
+    if(hours<=4){{bLo=80;bHi=100;}}
+    else if(hours<=8){{bLo=60;bHi=80;}}
+    else if(hours<=12){{bLo=50;bHi=70;}}
+    else if(hours<=16){{bLo=40;bHi=60;}}
+    else{{bLo=30;bHi=50;}}
+    var rate;
+    if(ftp&&ftp>0){{
+      var wkg=ftp/weightKg;
+      var lin=Math.max(0,Math.min(1,(wkg-WKG_FLOOR)/(WKG_CEIL-WKG_FLOOR)));
+      var factor=Math.pow(lin,WKG_EXP);
+      rate=Math.round(bLo+factor*(bHi-bLo));
+    }}else{{
+      rate=Math.round((bLo+bHi)/2);
+    }}
+    return{{rate:rate,totalCarbs:Math.round(rate*hours)}};
+}}
+
+var cases = [
+    {{w:210, ftp:220, h:6.5}},  // Murphy: heavy, low W/kg
+    {{w:154, ftp:280, h:6.5}},  // Competitive: light, high W/kg
+    {{w:165, ftp:250, h:8}},    // Mid-pack endurance
+    {{w:143, ftp:300, h:3}},    // Elite short race
+    {{w:220, ftp:100, h:20}},   // Below W/kg floor, ultra
+    {{w:132, ftp:300, h:8}},    // Above W/kg ceiling
+    {{w:165, ftp:0, h:6}},      // No FTP → midpoint fallback
+];
+var results = cases.map(function(c) {{
+    return computePersonalized(c.w, c.ftp, c.h);
+}});
+console.log(JSON.stringify(results));
+"""
+        result = subprocess.run(
+            ["node", "-e", node_script],
+            capture_output=True, text=True, timeout=10
+        )
+        assert result.returncode == 0, f"Node.js failed: {result.stderr}"
+        js_results = _json.loads(result.stdout.strip())
+
+        # Same cases through Python (convert lbs → kg)
+        py_cases = [
+            (210 * 0.453592, 220, 6.5),
+            (154 * 0.453592, 280, 6.5),
+            (165 * 0.453592, 250, 8),
+            (143 * 0.453592, 300, 3),
+            (220 * 0.453592, 100, 20),
+            (132 * 0.453592, 300, 8),
+            (165 * 0.453592, 0, 6),
+        ]
+
+        for i, (wkg, ftp, hrs) in enumerate(py_cases):
+            py = compute_personalized_fueling(wkg, ftp if ftp > 0 else None, hrs)
+            js = js_results[i]
+            if py is None:
+                assert js is None, f"Case {i}: Python returned None but JS returned {js}"
+                continue
+            assert py["personalized_rate"] == js["rate"], \
+                f"Case {i}: rate mismatch: py={py['personalized_rate']} js={js['rate']}"
+            assert py["total_carbs"] == js["totalCarbs"], \
+                f"Case {i}: total_carbs mismatch: py={py['total_carbs']} js={js['totalCarbs']}"
+
+    def test_wkg_constants_in_js(self):
+        """JS must use the same WKG_FLOOR, WKG_CEIL, and exponent as Python."""
+        js = build_prep_kit_js()
+        assert f"WKG_FLOOR={WKG_FLOOR}" in js, f"JS missing WKG_FLOOR={WKG_FLOOR}"
+        assert f"WKG_CEIL={WKG_CEIL}" in js, f"JS missing WKG_CEIL={WKG_CEIL}"
+        assert f"WKG_EXP={WKG_EXPONENT}" in js, f"JS missing WKG_EXP={WKG_EXPONENT}"

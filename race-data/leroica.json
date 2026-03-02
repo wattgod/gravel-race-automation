@@ -1,0 +1,369 @@
+{
+  "race": {
+    "name": "L'Eroica",
+    "slug": "leroica",
+    "display_name": "L'Eroica",
+    "tagline": "209 kilometers, 3,800 meters of climbing, and 112 kilometers of strade bianche on vintage steel bikes through Tuscany's Chianti, Crete Senesi, and Val d'Orcia. 8,000 riders in wool jerseys and toe clips reliving the golden age of cycling since 1997.",
+    "vitals": {
+      "distance_mi": 130,
+      "distance_km": 209,
+      "elevation_ft": 12467,
+      "elevation_m": 3800,
+      "location": "Gaiole in Chianti, Tuscany, Italy",
+      "location_badge": "GAIOLE IN CHIANTI, ITALY",
+      "date": "First weekend of October annually",
+      "date_specific": "2026: October 3-4",
+      "terrain_types": [
+        "Strade bianche (white gravel roads) — 112 km of the 209 km route",
+        "Paved Tuscan provincial roads through Chianti vineyards",
+        "Loose gravel climbs through Crete Senesi clay hills",
+        "Shared sectors with the professional Strade Bianche race",
+        "Rolling terrain with steep, punchy climbs between 8-15% gradient"
+      ],
+      "field_size": "8,000 riders (split over 2 days, 1,500 non-Italian spots)",
+      "start_time": "5:30 AM (209 km route, Saturday)",
+      "registration": "Online via eroica.cc. Opens December 10 of prior year at 9:00 AM CET. Sells out rapidly — 1,500 international spots go within minutes. Ciclo Club Eroica members get priority. EUR 80-125 depending on category and timing.",
+      "prize_purse": "None — non-competitive event. No timing, no rankings.",
+      "aid_stations": "Multiple ristori (refreshment stops) along all routes serving local wine, cheese, cured meats, bread, and water. The food stops are legendary — this is Tuscany, not a gel station.",
+      "cutoff_time": "None formal — riders complete at their own pace, but routes must be finished by evening",
+      "lat": 43.4685,
+      "lng": 11.4349,
+      "distance_options": [
+        "Leisure Ride (Valle del Chianti): 46 km / 755m elevation",
+        "Short Route (Gallo Nero): 81 km / 1,300m elevation",
+        "Medium Route (Crete Senesi): 106 km / 1,800m elevation",
+        "Medium-Long (Crete Senesi): 135 km / 2,600m elevation",
+        "Long Route: 209 km / 3,800m elevation"
+      ],
+      "entry_fee": "EUR 80-125 (Ciclo Club: EUR 80, Privilege: EUR 90, Standard: EUR 100, Late: EUR 125)"
+    },
+    "climate": {
+      "primary": "Tuscan autumn — warm days, cool mornings, rain risk",
+      "description": "Early October in Chianti delivers average highs of 20-22C (68-72F) with morning lows around 10-12C (50-54F). The Tuscan autumn is typically dry but October brings the first real rain risk after the summer drought. The 5:30 AM start for long routes means riding in darkness and cool conditions for the first 90 minutes. By midday, the sun warms exposed gravel roads. The famous Tuscan light — golden and low-angled — makes October the most photogenic month to ride these landscapes. Dust on dry strade bianche can be significant; mud after rain transforms white roads into slippery clay nightmares.",
+      "challenges": [
+        "Pre-dawn start on the 209 km route — 5:30 AM departure in darkness and 10-12C temperatures",
+        "Rain transforms strade bianche into treacherous clay mud — vintage tire clearance compounds the problem",
+        "Dust on dry gravel roads reduces visibility in the peloton — no modern aero helmets or sealed bearings to protect",
+        "Afternoon heat on exposed Crete Senesi terrain — minimal shade on the clay hills south of Siena",
+        "Variable conditions across a 12+ hour ride on the 209 km route"
+      ]
+    },
+    "terrain": {
+      "primary": "Strade bianche (white gravel roads) mixed with paved Tuscan roads",
+      "surface": "The defining feature is the strade bianche — unpaved white gravel roads made of galestro clay and limestone. These roads range from hard-packed and fast in dry conditions to slippery, energy-sapping mud after rain. The 209 km route covers 112 km of gravel and 97 km of paved roads. Gravel sectors feature steep, punchy climbs of 8-15% on loose surfaces. Paved sections roll through classic Tuscan landscapes — vineyards, olive groves, and medieval hill towns. Mandatory vintage equipment (steel frames, toe clips, downtube shifters) amplifies every surface imperfection.",
+      "technical_rating": 3,
+      "features": [
+        "112 km of strade bianche on the 209 km route — the largest concentration of white roads in any cycling event",
+        "Shared sectors with the professional Strade Bianche race through Crete Senesi",
+        "Steep, loose gravel climbs between 8-15% gradient on vintage equipment with limited gearing",
+        "Val d'Orcia UNESCO World Heritage landscape — cypress-lined roads and clay hills",
+        "Descent into Montalcino: fast gravel with loose corners and limited vintage braking",
+        "Final 30 km features the most demanding gravel sectors back to Gaiole in Chianti"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 81,
+      "tier": 1,
+      "tier_label": "TIER 1",
+      "editorial_tier": 1,
+      "editorial_tier_label": "TIER 1",
+      "business_tier": 1,
+      "business_tier_label": "TIER 1",
+      "display_tier": 1,
+      "display_tier_label": "TIER 1",
+      "logistics": 3,
+      "length": 4,
+      "technicality": 3,
+      "elevation": 4,
+      "climate": 3,
+      "altitude": 1,
+      "adventure": 5,
+      "prestige": 5,
+      "race_quality": 4,
+      "experience": 5,
+      "community": 5,
+      "field_depth": 3,
+      "value": 4,
+      "expenses": 3,
+      "cultural_impact": 5,
+      "tier_note": "The event that invented the vintage cycling movement and inspired a global franchise of Eroica events. T1 by prestige override (p5 + score 81 >= 75). Founded 1997, 8,000 riders, sold-out within minutes. Cultural significance is off the charts — L'Eroica is not just an event, it is a philosophy of cycling preserved in Tuscan gravel.",
+      "score_note": "logistics=3 for rural Tuscany location requiring car access (Gaiole in Chianti has no train station, nearest airports Florence/Pisa 90-120 min away). length=4 for 209 km flagship with 112 km of gravel on vintage equipment — the real-world difficulty exceeds the raw distance. technicality=3 for strade bianche requiring bike handling on loose surfaces, amplified by vintage equipment constraints. elevation=4 for 3,800m of climbing with steep gravel ramps hitting 15%. climate=3 for October rain risk and pre-dawn cold, but generally favorable Tuscan autumn. altitude=1 for Tuscan hills maxing around 600-800m elevation. adventure=5 for UNESCO World Heritage landscapes, strade bianche, medieval villages, and the time-travel experience of vintage equipment. prestige=5 for the original vintage cycling event, global cultural phenomenon, 27+ years of history, and the spiritual ancestor of every retro cycling movement. race_quality=4 for excellent ristori, route marking, and organization — though non-competitive format means no timing infrastructure. experience=5 for a genuinely transformative day — Tuscan food, wine, scenery, camaraderie, and the romance of suffering on vintage bikes through golden autumn light. community=5 for the strongest cycling community identity of any event — Ciclo Club Eroica has a global membership, the wool jersey is a badge of belonging. field_depth=3 for a non-competitive event — no racing per se, but the field includes ex-professionals and serious amateurs alongside complete beginners. value=4 for EUR 80-125 including legendary food stations with local wine and cheese. expenses=3 for Tuscany in October — accommodation is moderately expensive in Chianti, but the area offers range from agriturismos to luxury hotels. cultural_impact=5 for creating and sustaining the global vintage cycling movement, protecting strade bianche from asphalt, and establishing Tuscany as a cycling pilgrimage destination. Sum of 14 = 52, cultural_impact = 5, total = 57, score = round(57/70 * 100) = 81.",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 3,
+        "explanation": "Gaiole in Chianti is a tiny village in the Chianti hills with no train station and limited road access. The nearest airports are Florence (FLR, 90 km) and Pisa (PSA, 170 km), both requiring a rental car for the final leg. Siena is the closest city with a train station, roughly 30 km away. Accommodation in Gaiole is extremely limited and books out a year in advance — most riders stay in surrounding towns (Radda, Castellina, Siena) and drive to the start. Parking is chaotic on event weekend. The 1,500 international spots sell out within minutes of opening in December, creating a frenzied registration process. Once you are there, the compact village makes the event walkable, and the organization — honed over 27 editions — handles the logistics of 8,000 riders with remarkable efficiency."
+      },
+      "length": {
+        "score": 4,
+        "explanation": "The flagship 209 km route with 3,800m of climbing would be a serious day on any modern bike. On vintage steel with downtube shifters, toe clips, and 6-speed freewheels, it is genuinely heroic — expect 10-14 hours in the saddle. The 112 km of gravel adds rolling resistance that inflates the effective difficulty well beyond a comparable road ride. Five route options from 46 km to 209 km mean every level of rider can participate, but the long route is a legitimate endurance test that separates those who prepared from those who showed up for the costumes."
+      },
+      "technicality": {
+        "score": 3,
+        "explanation": "Strade bianche demand real bike handling — loose gravel on descents, ruts from farm traffic, steep climbs where traction breaks on the galestro clay surface. The vintage equipment amplifies everything: no clipless pedals for power transfer on climbs, limited braking on descents, downtube shifters requiring hand removal from bars mid-effort. In wet conditions, the technical difficulty jumps a full point — clay mud fills tire clearance, brakes become decorative, and descents become controlled slides. Dry conditions are manageable for any experienced cyclist. Rain transforms the course into something significantly more demanding."
+      },
+      "elevation": {
+        "score": 4,
+        "explanation": "3,800 meters of climbing across 209 km averages 18.2 meters per kilometer — that is persistent climbing with virtually no flat sections. The gravel sectors feature the steepest pitches, with ramps regularly hitting 12-15% on loose surfaces where 32mm vintage tires struggle for traction. The cumulative fatigue of climbing on heavy steel bikes without modern gearing (most vintage bikes max at 42x23) makes the final 50 km through the most demanding gravel sectors feel like a genuine ordeal. This is not alpine climbing — no single climb exceeds 800m elevation — but the relentless undulation across Tuscan terrain demands sustained endurance."
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "Early October in Tuscany is a gamble. Good years deliver 22C sunshine, golden light, and perfect riding conditions. Bad years bring cold rain that turns strade bianche into nightmarish clay mud — 2019 famously saw riders walking through ankle-deep mud on sectors that were impassable. The 5:30 AM start for the long route means 90 minutes of cold, dark riding before sunrise. By midday, exposed sections through the Crete Senesi can be surprisingly warm. The variable conditions across a 12+ hour ride mean layering strategy is critical. Wool jerseys — part of the vintage dress code — actually handle temperature swings well. One of the few events where the costume is also practical."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "Tuscan hills top out around 600-800 meters above sea level. There is zero altitude concern here. Gaiole in Chianti sits at approximately 350 meters. The highest point on the route barely exceeds 700 meters. This is a non-factor in preparation and performance. Sea-level athletes have no physiological disadvantage whatsoever."
+      },
+      "adventure": {
+        "score": 5,
+        "explanation": "L'Eroica delivers an adventure experience unmatched in organized cycling events. You ride vintage steel bikes through the same landscapes Bartali and Coppi raced across in the 1940s and 1950s. The strade bianche are UNESCO World Heritage territory — Val d'Orcia, Crete Senesi, Chianti Classico vineyards. The ristori stops serve Brunello di Montalcino, Pecorino cheese, and fresh bread. Riders in full vintage kit — wool jerseys, leather hairnet helmets, vintage sunglasses — create a rolling time capsule. You pass medieval villages, Romanesque churches, and cypress-lined ridgelines. The combination of landscape, equipment, culture, and cuisine makes this unlike any other cycling event on Earth."
+      },
+      "prestige": {
+        "score": 5,
+        "explanation": "L'Eroica is the original. Founded in 1997 by Giancarlo Brocci with 92 riders, it spawned a global franchise with Eroica events now held in California, Japan, South Africa, and beyond. It inspired the professional Strade Bianche race (now a UCI WorldTour event) and is credited with saving Tuscany's gravel roads from being paved. The waiting list runs into the thousands. The Ciclo Club Eroica has members in 50+ countries. Cycling media treat it as a cultural institution rather than merely an event. Completing the 209 km route is a genuine badge of honor in the cycling world. This is tier-zero prestige — the reference standard for experiential cycling."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "L'Eroica is non-competitive — there is no timing, no rankings, no prizes. This is deliberate: the event explicitly rejects the quantification that dominates modern cycling. What it does deliver is outstanding course management for 8,000 riders across 6 routes: well-marked intersections, ristori at strategic intervals with legendary food and wine, mechanical support, and medical coverage. The two-day format (long routes Saturday, shorter routes Sunday) spreads the field effectively. The event village in Gaiole features a vintage bike market, the Eroica Cafe, and live music. The absence of racing does not mean an absence of quality."
+      },
+      "experience": {
+        "score": 5,
+        "explanation": "L'Eroica delivers something no other cycling event can: genuine time travel. From the moment you put on a wool jersey and swing a leg over a steel frame with toe clips, you enter a different world. The suffering is real — 209 km on vintage equipment over gravel is physically brutal — but it is suffering with purpose, beauty, and community. The food stops alone justify entry: local wine, aged cheese, fresh bread, cured meats, served by villagers who treat riders like returning heroes. The finish in Gaiole, as the Tuscan sun drops below the Chianti hills, is an emotional experience that veteran riders describe as life-changing. The three words that define the experience: beauty, fatigue, conquest."
+      },
+      "community": {
+        "score": 5,
+        "explanation": "The Eroica community is the strongest tribal identity in recreational cycling. The Ciclo Club Eroica has a global membership with chapters worldwide. Vintage bike culture — restoration, collecting, trading — is a year-round hobby for devotees. Social media accounts dedicated to Eroica preparation, equipment, and ride reports have massive followings. The event attracts everyone from retired professionals to complete beginners united by a shared love of cycling history and Tuscan culture. The international community (30+ nationalities annually) bonds over shared suffering and shared wine. This is not a race community — it is a movement."
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "L'Eroica is explicitly non-competitive, so field depth in the traditional sense is irrelevant. There are no results, no timing chips, no podiums. That said, the 8,000-rider field includes ex-professionals, club racers, and former Giro riders alongside first-timers on borrowed bikes. The self-selecting nature of the 209 km route — 13+ hours on vintage equipment over gravel — ensures that long-route finishers are genuinely strong. But without a competitive structure, the concept of field depth does not apply in the way it does for racing events."
+      },
+      "value": {
+        "score": 4,
+        "explanation": "EUR 80-125 buys entry to cycling's most iconic experiential event plus some of the finest refreshment stops in sport. The ristori serve food and wine that would cost EUR 30+ in a Tuscan restaurant — Brunello, Pecorino, prosciutto, fresh bread, local olives. Course support, marking, and medical coverage are included. The event village with its vintage bike market and cultural programming adds further value. For an event of this caliber and cultural significance, with multiple food stops serving world-class Tuscan produce, the pricing is remarkably fair."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Tuscany in October is moderately expensive. Accommodation near Gaiole ranges from agriturismos at EUR 80-120/night to luxury hotels at EUR 250+/night, but availability is extremely limited on event weekend — booking 6-12 months ahead is standard. Many riders stay in Siena (EUR 100-180/night) or Florence (EUR 120-200/night) and drive to the start. A rental car is essentially mandatory — public transport to Gaiole is minimal. Flights to Florence or Pisa are competitive from most European cities. For North American riders, expect $2,500-4,000 for the full trip including flights, car rental, 3-4 nights accommodation, and meals. Vintage bike rental adds EUR 100-200 if you do not bring your own."
+      }
+    },
+    "biased_opinion": {
+      "verdict": "Cycling's Sacred Pilgrimage",
+      "summary": "L'Eroica is not a race. It is a religion. Founded in 1997 by Giancarlo Brocci with 92 riders and a romantic idea — relive the golden age of cycling on Tuscany's endangered gravel roads — it has grown into an 8,000-rider cultural phenomenon that sells out within minutes of registration opening. The 209 km flagship route delivers 3,800 meters of climbing across 112 km of strade bianche on mandatory vintage steel bikes with downtube shifters and toe clips. This is cycling stripped to its essence: beauty, fatigue, and conquest, wrapped in wool jerseys and Tuscan autumn light.\n\nThe event transcends cycling in ways that no other ride can claim. The ristori — refreshment stops serving Brunello di Montalcino, aged Pecorino, and fresh bread — are worth the entry fee alone. The landscapes through Val d'Orcia and Crete Senesi are UNESCO World Heritage territory. The community, organized through the Ciclo Club Eroica with chapters in 50+ countries, represents the strongest tribal identity in recreational cycling. L'Eroica did not just create an event; it created a movement that saved Tuscany's white roads from being paved and inspired the professional Strade Bianche race.\n\nThe 209 km route is no joke. Vintage equipment with limited gearing, heavy frames, and questionable brakes turns a challenging gravel course into a genuine ordeal. Rain years are legendary for their suffering — clay mud that fills tire clearance and turns descents into controlled crashes. But that suffering is exactly the point. Brocci's founding philosophy — 'the beauty of fatigue and the thrill of conquest' — is not marketing copy. It is the lived experience of every rider who finishes the long route as the sun sets over Chianti.",
+      "strengths": [
+        "The original vintage cycling event — 27+ years of history and a global cultural movement",
+        "112 km of strade bianche through UNESCO World Heritage landscapes in Chianti, Crete Senesi, and Val d'Orcia",
+        "Legendary ristori serving Tuscan wine, cheese, and cured meats — food stops that are destinations in themselves",
+        "8,000-rider community spanning 30+ nationalities united by cycling history and Tuscan culture",
+        "Inspired the professional Strade Bianche race and saved Tuscany's gravel roads from being paved",
+        "Five route options from 46 km to 209 km accommodate every level of rider"
+      ],
+      "weaknesses": [
+        "Registration chaos — 1,500 international spots sell out in minutes, requiring Ciclo Club membership for reliable access",
+        "Rural Tuscany location with no train station — rental car mandatory, accommodation books out a year ahead",
+        "Rain transforms the event from challenging to brutal — clay mud on vintage equipment is genuinely dangerous",
+        "Non-competitive format means no timing, results, or structured racing for those who want it",
+        "Vintage equipment requirement is an additional expense and logistical challenge for international riders",
+        "Two-day format splits long routes (Saturday) from short routes (Sunday) — you cannot ride with friends on different distances"
+      ],
+      "bottom_line": "L'Eroica is the most important experiential cycling event in the world. If you care about cycling culture, history, or the romance of suffering on gravel roads through the most beautiful landscape in Italy, you must ride this at least once. The 209 km route on vintage equipment is a genuine test of character and endurance. The shorter routes deliver the same cultural experience in a more accessible package. Either way, this is not an event you simply attend — it is one that changes how you think about cycling."
+    },
+    "final_verdict": {
+      "score": "81 / 100",
+      "one_liner": "209 km of strade bianche on vintage steel through UNESCO Tuscany — the event that created a movement and remains cycling's most profound cultural experience.",
+      "should_you_race": "Ride this if you care about cycling history, Tuscan culture, and the kind of suffering that comes with beauty attached. Skip it if you need a competitive format with timing and results, cannot handle the registration lottery, or dislike the idea of riding vintage equipment on gravel. If you own a modern bike and want a Tuscan gravel experience, look at Nova Eroica instead.",
+      "alternatives": "For competitive Tuscan gravel: Nova Eroica (modern bikes allowed). For the professional version: Strade Bianche (WorldTour race on the same roads). For vintage cycling elsewhere: Eroica California, Eroica Britannia, Eroica Japan. For a similarly iconic Italian gran fondo: Maratona dles Dolomites.",
+      "alternative_slugs": [
+        "maratona-dles-dolomites",
+        "strade-bianche"
+      ]
+    },
+    "logistics": {
+      "airport": "Florence (FLR) 90 km northwest (~1.5 hr drive). Pisa (PSA) 170 km west (~2 hr drive). Rome (FCO) 270 km south (~3 hr drive). Siena is the nearest city with a train station, 30 km from Gaiole. Rental car strongly recommended — public transport to Gaiole is minimal.",
+      "lodging_strategy": "Book 6-12 months ahead. Gaiole in Chianti has limited accommodation — agriturismos and small hotels fill immediately. Radda in Chianti (10 km) and Castellina in Chianti (20 km) offer alternatives. Siena (30 km) has the most options and is accessible by train. Many riders use Florence or Siena as a base and drive to the start. Expect EUR 80-200/night depending on location and accommodation type.",
+      "food": "This is Tuscany — the food is world-class. Gaiole has several excellent restaurants and wine bars. The event ristori serve local specialties: Brunello di Montalcino, Pecorino di Pienza, wild boar salami, fresh schiacciata bread, and Chianti Classico wine. Post-ride, the town of Gaiole becomes an outdoor festival with food and wine. The surrounding Chianti region is one of Italy's premier wine and food destinations.",
+      "packet_pickup": "Available in Gaiole in Chianti on Friday and Saturday before the event. Check eroica.cc for exact dates and locations. The Eroica Village with vintage bike market and cultural programming opens Friday.",
+      "parking": "Limited in Gaiole — the village was not designed for 8,000 cyclists with cars. Shuttle services from designated parking areas are typically available. Arriving early Friday is strongly recommended.",
+      "official_site": "https://www.eroica.cc/en/events/leroica/"
+    },
+    "history": {
+      "founded": 1997,
+      "founder": "Giancarlo Brocci",
+      "origin_story": "L'Eroica was born from a romantic and political idea: save Tuscany's strade bianche from being paved. In 1997, Giancarlo Brocci gathered 92 'hunters of feelings and emotions' — as he called them — in Gaiole in Chianti to ride vintage bikes on the white gravel roads that were rapidly disappearing under asphalt. The event was both a cycling celebration and a conservation statement. Brocci's vision — 'the beauty of fatigue and the thrill of conquest' — resonated immediately. Within a decade, L'Eroica had grown to thousands of riders and inspired a global franchise. The event is widely credited with saving the strade bianche by demonstrating their cultural and tourism value, leading to their protection by provincial authorities. Today, many of the same roads feature in the professional Strade Bianche race (UCI WorldTour since 2017).",
+      "notable_moments": [
+        "1997: First edition with 92 riders in Gaiole in Chianti — Giancarlo Brocci's founding vision realized",
+        "2007: Strade Bianche professional race launched on L'Eroica's roads — now a UCI WorldTour event",
+        "2010s: Eroica franchise expands globally — events in California, Japan, South Africa, UK, Netherlands, and beyond",
+        "2013: Ciclo Club Eroica formalized as a global membership organization with priority registration rights",
+        "2019: Legendary rain edition — clay mud made several sectors impassable, riders walked through ankle-deep conditions",
+        "2021: Post-COVID return with 8,500 riders — new two-day format introduced (long routes Saturday, short routes Sunday)",
+        "2025: 28th edition continues the tradition with 8,000 riders across 6 routes"
+      ],
+      "reputation": "The most culturally significant cycling event in the world. L'Eroica is cited in cycling media, academic papers on cultural heritage, and Italian tourism marketing as a reference standard for experiential cycling events. The Eroica brand represents a philosophy — slow cycling, vintage equipment, respect for history and landscape — that has influenced cycling culture globally."
+    },
+    "course_description": {
+      "character": "A circular route radiating from Gaiole in Chianti through the heart of Tuscany's most celebrated landscapes. The 209 km flagship alternates between paved roads and strade bianche — unpaved white gravel roads of galestro clay and limestone that have been the region's farm tracks for centuries. The terrain is relentlessly rolling — there is no flat section longer than 2 km on the entire route. Every gravel sector features at least one steep, punchy climb. On vintage equipment, the course is an endurance test that demands patience, pacing, and a willingness to suffer beautifully.",
+      "suffering_zones": [
+        {
+          "km": 0,
+          "label": "Pre-Dawn Departure",
+          "desc": "5:30 AM mass start from Gaiole in Chianti in darkness. Cold autumn air, 1,500 riders rolling out on vintage bikes with inadequate lighting. The sound of toe clips engaging and downtube shifters clunking sets the tone.",
+          "terrain_detail": "Village roads, initial paved section",
+          "named_section": "Gaiole Start"
+        },
+        {
+          "km": 40,
+          "label": "First Strade Bianche Sectors",
+          "desc": "The initial gravel sectors through Chianti vineyards. Hard-packed white roads with punchy climbs to 12%. On dry days, dust clouds from the riders ahead. On wet days, the first taste of Tuscan clay mud.",
+          "terrain_detail": "Strade bianche, 10-12% climbs on loose gravel",
+          "named_section": "Chianti Sectors"
+        },
+        {
+          "km": 80,
+          "label": "Crete Senesi",
+          "desc": "The iconic clay hills south of Siena. Exposed, treeless terrain with long gravel sectors on undulating ridgelines. This is where the Strade Bianche professional race delivers its decisive moments. The landscape is lunar — grey clay, scattered farmhouses, no shelter from wind or sun.",
+          "terrain_detail": "Clay-based strade bianche, exposed ridgelines, 12-15% ramps",
+          "named_section": "Crete Senesi"
+        },
+        {
+          "km": 120,
+          "label": "Val d'Orcia Loop",
+          "desc": "UNESCO World Heritage territory. The route descends to Montalcino through the Val d'Orcia — cypress-lined roads, Renaissance hill towns, and the vineyards that produce Brunello. The ristoro here serves the finest wine of any cycling event on Earth.",
+          "terrain_detail": "Mixed paved and gravel through Val d'Orcia",
+          "named_section": "Val d'Orcia"
+        },
+        {
+          "km": 170,
+          "label": "Final Gravel Sectors",
+          "desc": "The last 40 km back to Gaiole features the most demanding gravel sectors. Tired legs, fading light, and increasingly rough roads. Vintage brakes provide diminishing returns on descents. The final climb back into Gaiole, as the Tuscan sun drops below the hills, is the emotional crescendo.",
+          "terrain_detail": "Strade bianche with steep climbs, loose descents",
+          "named_section": "Return to Gaiole"
+        }
+      ],
+      "signature_challenge": "The cumulative effect: 112 km of strade bianche on vintage steel bikes with 3,800m of climbing, limited gearing, toe clips, and questionable brakes across 12+ hours of riding through some of the most beautiful terrain on Earth. No single sector breaks you — the totality does."
+    },
+    "guide_variables": {
+      "race_name": "L'Eroica",
+      "race_distance": "209 km (130 miles)",
+      "race_elevation": "3,800 m (12,467 ft)",
+      "race_date": "Early October",
+      "race_location": "Gaiole in Chianti, Italy",
+      "race_terrain": "Strade bianche (white gravel roads) and paved Tuscan roads",
+      "race_weather": "Tuscan autumn — warm days (20-22C), cool mornings (10-12C), rain risk",
+      "race_challenges": [
+        "112 km of strade bianche on vintage equipment with limited gearing",
+        "3,800m of climbing with steep gravel ramps to 15%",
+        "12+ hour day on the 209 km route",
+        "Pre-dawn start in cold, dark conditions",
+        "Rain transforms white roads into treacherous clay mud",
+        "Vintage brakes limit control on gravel descents"
+      ],
+      "altitude_section": false,
+      "altitude_feet": 2300
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Gravel endurance on vintage equipment",
+        "by_when": "Week 8-12",
+        "why": "112 km of strade bianche on steel bikes with toe clips and limited gearing demands specific preparation. Practice long rides on heavy, poorly-geared bikes over mixed surfaces."
+      },
+      {
+        "requirement": "Back-to-back climbing on tired legs",
+        "by_when": "Week 8-10",
+        "why": "3,800m of climbing with no flat recovery sections requires sustained endurance across 12+ hours. The final gravel sectors between km 170-209 demand reserves that most riders have already depleted."
+      },
+      {
+        "requirement": "Vintage equipment familiarity",
+        "by_when": "Week 4-6",
+        "why": "Downtube shifters, toe clips, and rim brakes on steel frames are fundamentally different from modern equipment. Practice shifting, braking, and climbing on your event bike well before race day."
+      },
+      {
+        "requirement": "Wet conditions preparation",
+        "by_when": "Week 6-8",
+        "why": "October rain is a real possibility. Practice riding in wet conditions on loose gravel surfaces. Pack appropriate rain gear that fits under a wool jersey."
+      }
+    ],
+    "citations": [
+      {
+        "url": "https://www.eroica.cc/en/events/leroica/",
+        "category": "official",
+        "label": "L'Eroica Official Website"
+      },
+      {
+        "url": "https://www.eroica.cc/en/the-leroica-race/",
+        "category": "official",
+        "label": "L'Eroica Official Race Description"
+      },
+      {
+        "url": "https://eroica.cc/en/gaiole/registration-eroica-gaiole",
+        "category": "official",
+        "label": "L'Eroica Registration"
+      },
+      {
+        "url": "https://gustocycling.com/leroica/",
+        "category": "reference",
+        "label": "Gusto Cycling: L'Eroica Guide"
+      },
+      {
+        "url": "https://www.terraeroica.cc/en/eroica-gaiole-2026-race-registration-accommodation",
+        "category": "reference",
+        "label": "Terra Eroica: 2026 Registration & Accommodation"
+      },
+      {
+        "url": "https://www.bike-tour-tuscany.com/uploads/kcFinder/files/Eroica%20in%204%20stages-ENG-2025.pdf",
+        "category": "reference",
+        "label": "Anima Toscana: Eroica Route in 4 Stages (PDF)"
+      },
+      {
+        "url": "https://www.komoot.com/smarttour/e1630177355/l-eroica-permanent-route",
+        "category": "reference",
+        "label": "Komoot: L'Eroica Permanent Route"
+      },
+      {
+        "url": "https://roadcyclinguk.com/sportive/riding-leroica.html",
+        "category": "review",
+        "label": "Road Cycling UK: Riding L'Eroica"
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "high",
+      "validation_status": "validated",
+      "sources": [
+        "eroica.cc (official event website)",
+        "gustocycling.com (tour operator partner)",
+        "terraeroica.cc (official accommodation partner)",
+        "bike-tour-tuscany.com (route details and elevation data)",
+        "komoot.com (permanent route GPS data)",
+        "roadcyclinguk.com (participant review)",
+        "visittuscany.com (tourism board)",
+        "tuscanytravelexperience.com (event calendar)"
+      ],
+      "migration_notes": [
+        "Profile created 2026-03-01 from comprehensive web research",
+        "2026 event dates confirmed: October 3-4",
+        "209 km route: 3,800m elevation, 112 km gravel confirmed across multiple sources",
+        "Entry fee structure confirmed: EUR 80 (CCE) / 90 (Privilege) / 100 (Standard) / 125 (Late)",
+        "Registration opens December 10, 2025 confirmed",
+        "Five route options confirmed: 46, 81, 106, 135, 209 km"
+      ],
+      "research_strength": {
+        "overall": 92.0,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": false,
+        "dimensions": {
+          "source_diversity": 95,
+          "citation_density": 95,
+          "temporal_depth": 95,
+          "specificity": 90,
+          "statistical_backing": 85,
+          "voice_authenticity": 95,
+          "completeness": 92,
+          "cross_reference": 80
+        },
+        "scored_at": "2026-03-01"
+      }
+    }
+  }
+}

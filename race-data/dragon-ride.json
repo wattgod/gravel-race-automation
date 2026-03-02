@@ -1,0 +1,430 @@
+{
+  "race": {
+    "name": "Dragon Ride L'Etape Wales",
+    "slug": "dragon-ride",
+    "display_name": "Dragon Ride L'Etape Wales",
+    "tagline": "Britain's hardest sportive. 230 km. 3,500 m of climbing. Brecon Beacons mountain roads. Devil's Elbow at 10.3%. Twenty-two years of slaying dragons in South Wales.",
+    "vitals": {
+      "distance_mi": 143,
+      "elevation_ft": 11483,
+      "location": "Margam Park, Port Talbot, South Wales, UK",
+      "location_badge": "SOUTH WALES, UK",
+      "date": "Mid-June annually",
+      "date_specific": "2026: June 14",
+      "terrain_types": [
+        "Paved Welsh mountain roads through the Brecon Beacons",
+        "Sustained long climbs with constant gradients",
+        "Narrow single-track mountain passes",
+        "Fast descents on exposed moorland roads"
+      ],
+      "field_size": "4,700+ riders across four distances (5,000 cap)",
+      "start_time": "Wave starts from 6:45 AM (Dragon Devil departs first, 6:45-6:55 AM)",
+      "registration": "Online via dragonride.co.uk / TimeOutdoors. Opens autumn prior year. GBP70-109 depending on distance. Charity entries via Macmillan Cancer Support with reduced fee and guaranteed place.",
+      "prize_purse": "None. Timed climbs with KOM/QOM recognition. Finisher medals.",
+      "aid_stations": "6 fully stocked feed stations on the Gran Fondo (at approximately 59km, 96km, 122km, 154km, 219km, 256km) plus a water station at approximately 185km. Hot drinks, gels, snacks, and water at each stop. Mechanical and medical support on course.",
+      "cutoff_time": "Finish gantry closes at 10:00 PM. Intermediate checkpoints redirect riders who fall behind pace.",
+      "lat": 51.5577,
+      "lng": -3.722,
+      "distance_options": [
+        "Dragon Devil: 305 km (190 mi), ~4,600 m climbing — the ultimate endurance test, two timed climbs",
+        "Gran Fondo: 230 km (143 mi), ~3,500 m climbing — the flagship distance, one timed climb (Devil's Elbow)",
+        "Medio Fondo: 153 km (95 mi), ~2,200 m climbing — still brutal by most sportive standards",
+        "Cymru Classic: 98 km (61 mi), ~1,354 m climbing — the entry point, formerly Macmillan 100"
+      ],
+      "entry_fee": "GBP70-109 depending on distance"
+    },
+    "climate": {
+      "primary": "Maritime Welsh mountain weather — unpredictable, wet, windy",
+      "description": "Mid-June in South Wales delivers the best of British summer — which in the Brecon Beacons means anything from scorching sunshine to horizontal rain and near-freezing headwinds on exposed mountain summits. The valleys around Margam Park and Port Talbot sit at sea level with mild coastal conditions, but the route climbs into the Beacons where exposed ridgelines and mountain passes create their own weather systems. June averages highs of 17-19C in the valleys, but summit temperatures can drop to 8-10C with wind chill making it feel colder. The Atlantic maritime influence means weather changes rapidly — clear skies at the start can give way to driving rain by the time you reach Black Mountain. Experienced Dragon riders pack for four seasons.",
+      "challenges": [
+        "Brecon Beacons create their own weather — summit conditions can be dramatically different from valleys",
+        "Atlantic maritime influence brings sudden rain, fog, and wind on exposed mountain roads",
+        "Temperature swings of 10C+ between sea-level start and mountain summits",
+        "Headwinds on exposed moorland stretches (Rhigos, Black Mountain) sap energy over hours",
+        "Wet Welsh roads on steep descents demand caution — limestone surfaces get slick"
+      ]
+    },
+    "terrain": {
+      "primary": "Paved Welsh mountain roads through the Brecon Beacons National Park",
+      "surface": "All tarmac on Welsh B-roads and single-track mountain passes. Road surfaces vary from well-maintained valley roads to rougher, patched mountain lanes. The narrow B-roads through the Beacons are two vehicles wide at best, often with no central line and hedge-lined blind corners. The climbs — Bwlch, Rhigos, Black Mountain, Devil's Elbow — are on roads that would be single-track in any other country but pass for Welsh mountain roads. Surfaces are generally good but expect potholes, drain covers, and gravel wash-off on mountain sections. Roads are open to traffic but marshalled at key junctions.",
+      "technical_rating": 2,
+      "features": [
+        "Devil's Elbow — 1.8 km at 10.3% average gradient through two savage hairpin bends in the Senni valley",
+        "Rhigos — nearly 11 km of sustained climbing on a constant gradient, fully exposed to weather",
+        "The Bwlch — long, steady climb through the Afan valley with exposed upper sections and ramps to 11%",
+        "Black Mountain — remote mountain pass through the western Beacons, nearly 12 km with deceptive 3.6% average masking 8-9% sections",
+        "Devil's Staircase — Dragon Devil only, the second timed climb at approximately 190km when legs are destroyed"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 71,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "logistics": 4,
+      "length": 5,
+      "technicality": 2,
+      "elevation": 4,
+      "climate": 3,
+      "altitude": 1,
+      "adventure": 4,
+      "prestige": 4,
+      "race_quality": 4,
+      "experience": 4,
+      "community": 4,
+      "field_depth": 2,
+      "value": 3,
+      "expenses": 3,
+      "cultural_impact": 3,
+      "tier_note": "The UK's oldest and most iconic sportive, founded 2004 by Lou Lusardi. Part of the L'Etape by Tour de France series since 2016 through ASO partnership. Prestige=4 for 22 years as Britain's benchmark sportive with Tour de France branding and 4,700+ annual entries. Cultural_impact=3 for establishing the UK sportive scene, the Macmillan Cancer Support charity partnership, and its role as the gold standard against which all British sportives are measured.",
+      "score_note": "Sum of 14 criteria: 4+5+2+4+3+1+4+4+4+4+4+2+3+3 = 47. Cultural_impact=3. Total=50. Score=round(50/70*100)=71. Tier from score: T2 (>=60). Prestige=4 would promote 1 tier but cannot promote into T1, so remains T2.",
+      "editorial_tier": 2,
+      "editorial_tier_label": "TIER 2",
+      "business_tier": 2,
+      "business_tier_label": "TIER 2",
+      "display_tier": 2,
+      "display_tier_label": "TIER 2",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 4,
+        "explanation": "Twenty-two editions have polished the Dragon Ride into a well-oiled machine. Margam Park provides an ideal event village — a 1,000-acre country park with a Tudor Gothic mansion, free car parking, and direct access from Junction 38 of the M4 motorway. Six fully stocked feed stations with hot drinks and mechanical support. Wave starts manage 4,700+ riders efficiently across four distances. Packet pickup the day before with bike racking options. The only logistical friction is for international visitors: Cardiff Airport is 30 minutes away but has limited international flights; Bristol Airport at 60 minutes offers more options. For UK riders, the M4 corridor makes South Wales accessible from London (3 hours), Bristol (1.5 hours), and the Midlands (2.5 hours). Port Talbot Parkway train station is a short taxi ride from Margam Park. Roads are open to traffic but marshalled at key junctions throughout."
+      },
+      "length": {
+        "score": 5,
+        "explanation": "The Gran Fondo at 230 km with 3,500 m of climbing is a monstrous day in the saddle — this is not a Sunday morning chain-gang. Riders report finishing times of 10-12 hours for the Gran Fondo. And that is only the second-longest option: the Dragon Devil pushes to 305 km with 4,600 m of vertical, a genuine 13-15 hour odyssey that places it among the longest single-day sportives in the world. Even the Medio Fondo at 153 km and 2,200 m would be the flagship distance at most other UK events. The length score reflects the Gran Fondo as the primary distance — it is a genuine test of endurance that separates those who train from those who merely hope."
+      },
+      "technicality": {
+        "score": 2,
+        "explanation": "This is a road sportive on paved surfaces throughout. No gravel, no singletrack, no river crossings. The technical demands come from narrow Welsh mountain roads — single-track B-roads with blind corners, hedge-lined lanes, and the occasional sheep in your path. Descending the Bwlch and Rhigos at speed requires confidence on wet tarmac. Devil's Elbow throws two vicious hairpins at you on a 10.3% gradient where gear selection and line choice matter. But fundamentally, if you can ride a road bike on public roads and descend with confidence, you can handle the course. The difficulty is in your legs, not your bike handling. Scores above a 1 because narrow Welsh mountain roads on open traffic do add a genuine handling dimension beyond typical road sportives."
+      },
+      "elevation": {
+        "score": 4,
+        "explanation": "The Gran Fondo delivers approximately 3,500 m (11,483 ft) of climbing across 230 km. The Dragon Devil ratchets this to 4,600 m (15,092 ft) across 305 km. These are serious numbers by any global standard — comparable to a hard Tour de France mountain stage. The climbs are long and steady rather than savage: Rhigos is nearly 11 km at a relentless but manageable gradient, while Black Mountain and The Bwlch grind on for miles. Devil's Elbow is the exception — 1.8 km at 10.3% is a short, brutal punch that demands real climbing power. The cumulative effect of four major climbs separated by rolling Welsh valleys is devastating. Does not reach a 5 because individual climb altitudes are modest (summits around 500-600 m) and the gradients, Devil's Elbow excepted, rarely exceed 8%."
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "Welsh weather is the event's wild card. June is statistically among the driest months in the Beacons, but statistics mean nothing when Atlantic weather systems roll in. Riders have faced everything from blazing sunshine to torrential rain, gale-force headwinds, and near-zero visibility fog — sometimes all in the same edition. Summit temperatures on the Beacons can be 10C colder than the sea-level start at Margam Park. Wet limestone roads on steep descents become genuinely treacherous. The organisers advise packing arm warmers, a gilet, and a rain jacket regardless of the forecast. The climate adds genuine unpredictability and tactical complexity — packing decisions matter, and getting it wrong can end your ride through hypothermia as much as exhaustion."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "The Brecon Beacons top out at around 886 m (Pen y Fan), and the Dragon Ride's highest point is approximately 600 m on the mountain passes. These are mountains by Welsh standards but foothills by Alpine or Andean measures. Zero altitude effect on performance — no reduced oxygen, no acclimatization required. The challenge here is gradient and distance, not thin air. A Dutch flatlander who has never ridden above 50 m will feel no physiological altitude penalty on this course."
+      },
+      "adventure": {
+        "score": 4,
+        "explanation": "The Brecon Beacons — now officially Bannau Brycheiniog — are among the most spectacular landscapes in the British Isles. The route traverses remote valleys where the only signs of civilization are stone farmhouses, sheep, and the occasional village pub. Black Mountain feels genuinely wild, with vast moorland stretching to the horizon. The Senni valley's Devil's Elbow is a hidden gem of savage beauty. Even riders who live in South Wales describe discovering roads they never knew existed. The adventure score reflects the genuine sense of remoteness and Welsh mountain grandeur — this is not the Cotswolds with better hills. It is borderline wilderness that happens to have tarmac. The 2027 Tour de France Grand Depart will include a stage cresting Rhigos, confirming the terrain's international-class merit."
+      },
+      "prestige": {
+        "score": 4,
+        "explanation": "The Dragon Ride is the UK's oldest continuously running sportive, founded in 2004 when Lou Lusardi brought the Italian gran fondo concept to Wales with 280 riders. By 2010 it was the largest UK sportive with 3,700 entries. The 2016 partnership with ASO (Tour de France organisers) brought official L'Etape by Tour de France branding — a legitimacy stamp that only a handful of events worldwide carry. Twenty-two editions and 4,700+ annual entries have made 'I slayed the Dragon' part of British cycling vernacular. Within British cycling, this is the gold standard sportive. Does not reach prestige=5 because it remains a national rather than truly global event — it does not draw the international pilgrimage of L'Etape du Tour or the Maratona dles Dolomites."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "Human Race Events took over organisation in 2012 and refined the operation through a decade of continuous improvement. ASO UK provides the L'Etape quality framework on top. Six feed stations with hot drinks, snacks, gels, and mechanical support. Timed climbs with King and Queen of the Mountain recognition (Devil's Elbow returning in 2026 as a timed segment). Professional chip timing, finisher medals, and comprehensive on-course signage. The Margam Park event village with expo, food vendors, and post-ride facilities is a proper festival. Rider reviews consistently praise the organisation, feed station quality, and marshal support across forums and review sites. One recurring criticism: the road closures are not complete, so riders share the route with traffic on some sections."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "Starting from the grounds of a Tudor Gothic mansion in Margam Park sets the tone. The early-morning wave departure into the pre-dawn Welsh countryside creates atmosphere that most sportives cannot manufacture. The route builds through progressively more dramatic scenery as you leave the industrial coast and climb into the Beacons — Black Mountain's vast moorland panorama is the visual reward for the suffering. Devil's Elbow's hairpins deliver the defining moment: 10.3% through two bends with spectacular Senni valley views below. The Rhigos summit panorama across the Beacons is one of the finest cycling vistas in Britain. The post-ride festival at Margam Park with hot food, beer, and the camaraderie of 4,700 fellow dragon slayers. Riders describe it as the closest the UK gets to a Grand Tour mountain stage experience."
+      },
+      "community": {
+        "score": 4,
+        "explanation": "The Dragon Ride has built a genuine tribe over 22 years. Riders who have completed ten or more editions wear their 'Dragon Slayer' status with pride. The Macmillan Cancer Support charity partnership gives the event a purpose beyond personal achievement — Team Macmillan riders in their distinctive jerseys are a visible, emotional presence throughout the field, with dedicated VIP marquee and post-race massage. Local Welsh cycling clubs turn out in force. The event supports local communities along the route. The TrainerRoad forum has an annual Dragon Ride prep thread that runs for months. The field doubled every year from 2004-2006 and has sustained 4,000-5,000 entries through the 2020s — evidence of a community that keeps coming back."
+      },
+      "field_depth": {
+        "score": 2,
+        "explanation": "This is a mass-participation sportive, not a race. The field is predominantly recreational club cyclists — weekend warriors who have trained specifically for the Dragon as their annual challenge event. The timed climbs add a competitive element, and the KOM/QOM recognition rewards the fast climbers, but the vast majority of the 4,700+ riders are racing their own clocks and their own demons. There is no prize purse, no racing licence required, no elite start pen. The field depth reflects participation, not competition. The strongest British amateur road racers are at circuit races and time trials, not sportives."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "At GBP70-109 depending on distance, the Dragon Ride sits in the mid-to-upper range for UK sportives. For that entry fee you get six feed stations, timed climbs, professional chip timing, a finisher medal, the L'Etape by Tour de France branding, and 22 years of refined event management. Macmillan charity entries offer a reduced fee in exchange for fundraising commitment, plus a Team Macmillan jersey, virtual coaching sessions, and VIP marquee access. Premium entry adds event photos and an engraved medal insert. The swag is modest compared to US gran fondos — no custom kit or comprehensive goodie bags. Value is adequate: you are paying for the route, the organisation, and the experience. Compared to continental European gran fondos at EUR100-130, it is competitive."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Entry runs GBP70-109. Accommodation in the Port Talbot, Bridgend, and Neath area is affordable by UK standards — budget hotels from GBP60-80 per night, B&Bs and Airbnbs available. Swansea (20 minutes west) and Cardiff (30 minutes east) provide more options and better dining. Camping is available at Margam Park and nearby sites. Car parking at Margam Park is free. For UK-based riders, the M4 corridor keeps travel costs modest. International visitors face higher costs: Cardiff Airport has limited connections, Bristol Airport at 60 minutes is better served, and London Heathrow plus M4 drive is 3-4 hours. Overall weekend budget for a UK-based rider: GBP150-300 including entry, lodging, fuel, and food. International visitors: GBP500-1,000 including flights and lodging."
+      }
+    },
+    "biased_opinion": {
+      "verdict": "The Original British Sufferfest",
+      "summary": "The Dragon Ride is the event that invented the UK sportive scene. Before it existed, British cyclists went to France to suffer on mountain roads. Lou Lusardi looked at the Brecon Beacons in 2004, saw Italian gran fondo terrain hiding in plain sight, and built an event that has drawn 4,700+ riders annually for over two decades. The Gran Fondo at 230 km with 3,500 m of climbing is a legitimate monster — longer and harder than most L'Etape du Tour editions. The Brecon Beacons deliver climbing that riders describe as the closest the UK gets to the Alps: Rhigos grinds on for 11 km, Black Mountain feels like the end of the world, and Devil's Elbow hits you with 10.3% through hairpins that would not look out of place on the Stelvio. Welsh weather adds a dimension that Italian gran fondos never deliver — you might get baked in June sunshine or hammered by horizontal rain, and the organisers tell you to pack for both.\n\nThe 2016 ASO partnership brought L'Etape by Tour de France branding and international credibility, but the Dragon Ride had already earned its reputation the hard way: 22 years of riders crawling up Welsh mountains and declaring it the hardest thing they have ever done on a bike. Starting from the gothic grandeur of Margam Park's Tudor mansion, climbing through increasingly wild terrain until you are alone on a windswept mountain with sheep for company, then descending through valleys that feel like they belong in Middle-earth — this is an experience that no amount of branding can manufacture. It is authentically, brutally, beautifully Welsh. The 2027 Tour de France Grand Depart will include a stage cresting Rhigos mountain, bringing international attention to climbs Welsh cyclists have known for decades.",
+      "strengths": [
+        "The UK's longest-running and most iconic sportive — 22 years of unbroken heritage since 2004",
+        "Gran Fondo distance (230 km, 3,500 m) rivals European gran fondo classics for sheer scale",
+        "Brecon Beacons scenery — Black Mountain, Senni valley, Rhigos — is genuinely world-class",
+        "L'Etape by Tour de France branding since 2016 adds official Tour de France credibility",
+        "Four distance options (98 km to 305 km) make it accessible while preserving the flagship challenge"
+      ],
+      "weaknesses": [
+        "Welsh weather is genuinely unpredictable — horizontal rain on exposed summits is a real possibility",
+        "Not a race: mass-participation sportive with no competitive depth beyond timed climbs",
+        "Roads are not fully closed — traffic on some sections, particularly valley roads",
+        "International access is awkward — Cardiff Airport is small, Bristol is 60 minutes away",
+        "Port Talbot start area is industrial, not picturesque — Margam Park compensates but the surrounding area does not"
+      ],
+      "bottom_line": "Britain's hardest sportive, and it is not close. The Dragon Ride earns its reputation every June on the mountain roads of the Brecon Beacons. If you ride in the UK, this is the one your cycling club talks about."
+    },
+    "final_verdict": {
+      "score": "71 / 100",
+      "one_liner": "The UK's oldest and hardest sportive. 230 km through the Brecon Beacons. Devil's Elbow at 10.3%. L'Etape by Tour de France branding earned through 22 years of Welsh mountain suffering.",
+      "should_you_race": "Yes if you want to ride Britain's most iconic sportive on roads that rival Alpine passes for scenery and suffering. Yes if a 230 km day with 3,500 m of climbing through Welsh mountain weather sounds like your definition of a good time. Skip if you need competitive racing — this is participatory, not a race. Skip if you cannot handle unpredictable weather — Welsh mountains do not care about your forecast. Skip if you demand continental European sportive prestige — this is the biggest fish in the UK pond.",
+      "alternatives": [
+        "L'Etape du Tour (the original — actual Tour de France stage, higher Alps, bigger prestige)",
+        "Etape Caledonia (Scotland's answer — shorter but similarly scenic and well-organised)",
+        "Maratona dles Dolomites (the Italian gold standard — harder climbing, warmer weather, Dolomite drama)",
+        "Tour of Flanders Sportive (cobblestone suffering instead of mountain climbing — different beast, same spirit)"
+      ],
+      "alternative_slugs": [
+        "letape-du-tour",
+        "etape-caledonia",
+        "maratona-dles-dolomites",
+        "tour-of-flanders-sportive"
+      ]
+    },
+    "logistics": {
+      "nearest_airport": "Cardiff Wales Airport (CWL) — 30 minutes to Margam Park, limited international connections but serves some European and domestic routes. Bristol Airport (BRS) — 60 minutes, better served with European and domestic flights. London Heathrow (LHR) — 3 hours via M4 motorway, the best option for intercontinental arrivals. Birmingham (BHX) — 2.5 hours via M5/M4.",
+      "travel_tips": "From the M4 motorway, take Junction 38 and follow event signage to Margam Park (postcode SA13 2TJ). Free car parking on site but limited — car sharing is strongly recommended by the organisers. The nearest train station is Port Talbot Parkway, a short taxi ride from Margam Park. For those driving from London, allow 3 hours on the M4. From Bristol, 1.5 hours. From Birmingham, 2.5 hours via M5 and M4. Book accommodation early — the event fills local options months in advance.",
+      "accommodation": "Port Talbot, Bridgend, and Neath offer the closest accommodation — budget hotels from GBP60-80 per night. The Twelve Knights hotel is on the doorstep of Margam Park. Swansea (20 minutes west) and Cardiff (30 minutes east) provide more options and better dining. Afan Lodge (7 miles from Margam) offers secure bike storage. Camping is available at Margam Park and nearby caravan sites. Airbnb options in the Port Talbot and Afan valley area. For pre-ride training on course climbs, stay in the Brecon Beacons themselves — Brecon, Merthyr Tydfil, and Sennybridge have accommodation with direct access to the mountain roads. Book 2-4 months ahead.",
+      "gear_recommendations": "Road bike with compact or sub-compact chainring (34/32 minimum recommended for the sustained climbs). Rain jacket and arm warmers are mandatory regardless of forecast — Welsh mountain weather changes without warning. Carry a gilet for summit descents. Mudguards optional but wise if rain is forecast. Two bottle cages minimum — the gaps between feed stations on the later climbs can be long. Spare inner tubes and a multi-tool. Shoe covers if wet weather is expected. Clear or yellow lens glasses for low-visibility mountain conditions. Sunscreen for the hopeful alternative. Disc brakes are a significant advantage on wet Welsh descents."
+    },
+    "history": {
+      "first_edition": 2004,
+      "notable_editions": [
+        "2004: Lou Lusardi launches the inaugural Dragon Ride with 280 riders, inspired by Italian gran fondos from his home country",
+        "2006: Entries more than double for the third consecutive year — the UK sportive movement is born",
+        "2010: 3,700 entrants makes it the largest UK open-road sportive, a record at the time",
+        "2012: Human Race Events takes over organisation; start/finish moves to Margam Park near Port Talbot from the original base",
+        "2016: ASO partnership brings L'Etape by Tour de France branding — renamed Dragon Ride L'Etape Wales by Le Tour de France",
+        "2019: Vitus announced as headline sponsor for the 16th edition",
+        "2020-2021: COVID-19 disruption — event cancelled or significantly modified during pandemic restrictions",
+        "2024: 20th Anniversary edition draws post-COVID record 4,500 riders across four distances",
+        "2025: 21st edition sees 4,700+ entries — the largest Dragon Ride to date",
+        "2026: 22nd edition on June 14, route reversed for the first time, King and Queen of the Mountain challenge returns with Devil's Elbow as timed climb"
+      ],
+      "records": "Specific course records are not formally published due to the non-competitive sportive format. The timed climbs (Devil's Elbow at 1.8 km / 10.3%, Devil's Staircase on the Dragon Devil) generate KOM/QOM times but are tracked informally through Strava segments rather than official course records. Typical Gran Fondo completion times range from 8-12 hours depending on fitness and conditions. Dragon Devil completions typically range from 12-15 hours. The 10:00 PM finish gantry closure sets the effective maximum time from the earliest wave start.",
+      "growth": "From 280 riders in 2004 to 4,700+ in 2025. The Dragon Ride doubled in size every year from 2004-2006, reached 3,700 in 2010 (then the UK's largest sportive), and has maintained 4,000-5,000 entries through the 2020s despite the proliferation of competing events and the COVID-19 disruption. The 5,000 cap ensures quality of experience on narrow mountain roads. Growth reflects both the event's own reputation and the broader explosion of UK sportive culture that the Dragon Ride helped create. The 2016 ASO L'Etape partnership provided a second growth inflection by attracting international riders seeking the Tour de France branding."
+    },
+    "course_description": {
+      "overview": "The Gran Fondo departs Margam Park at the crack of dawn and heads north into the Brecon Beacons, climbing progressively through the valleys of South Wales into the wild mountain country of Bannau Brycheiniog (Brecon Beacons National Park). Four major climbs — Black Mountain, Devil's Elbow, Rhigos, and The Bwlch — punctuate the route with sustained suffering separated by rolling valley roads that never truly let you recover. The cumulative effect of 3,500 m of climbing across 230 km is devastating: each climb feels harder than the last as the legs accumulate fatigue. The return to Margam Park through the Afan and Neath valleys provides a final stretch of rolling terrain before the finish. The 2026 edition reverses the course direction for the first time, changing the order of the climbs and creating a fresh tactical challenge for veteran Dragon Slayers.",
+      "segments": [
+        {
+          "mile": 0,
+          "label": "Margam Park to the Valleys",
+          "desc": "Rolling out of Margam Park's deer park and through the South Wales valleys toward the Brecon Beacons. The opening kilometres are deceptively pleasant — rolling terrain through green Welsh valleys with the mountains building on the horizon. Groups form, legs warm up, and the rolling terrain provides an early test of pacing discipline. The scenery transitions from coastal lowlands to the green valley approaches of the Beacons. Save your matches — the real work starts when the road tilts upward.",
+          "terrain_detail": "Flat to gently rolling valley roads, well-surfaced tarmac",
+          "named_section": "Valley Approach"
+        },
+        {
+          "mile": 35,
+          "label": "Black Mountain",
+          "desc": "The first major climb takes riders into the remote western reaches of the Brecon Beacons. Black Mountain is nearly 12 km of climbing with a deceptive 3.6% average that masks sections of 8-9%. The climb is brutal not because of any single savage ramp but because it never ends — you round one false summit only to see the road rising again through the barren moorland. Stone farmhouses give way to open moorland, the road narrows, and the sense of isolation builds. The summit views across the Beacons are spectacular — vast moorland stretching to the horizon with the Carmarthen Fans in the distance. This is where the Dragon Ride reveals its adventure credentials.",
+          "terrain_detail": "Nearly 12 km, 3.6% average, 8-9% sections, exposed moorland at summit",
+          "named_section": "Black Mountain"
+        },
+        {
+          "mile": 56,
+          "label": "Devil's Elbow",
+          "desc": "The signature climb of the Dragon Ride and the defining moment of British sportive cycling. Devil's Elbow is 1.8 km of pure savagery at 10.3% average gradient through two brutal hairpin bends in the Senni valley. This is the timed climb for KOM/QOM recognition on the Gran Fondo. The mile-long grind punches through dense woodland before spitting you out at the top of the valley with panoramic views below. The hairpins are the crux — the gradient kicks up on the inside of each bend, demanding precise gear selection and the legs to match. At just 1.8 km, it is short enough to hurt intensely and long enough to crack riders who start too hard. You ride it or you walk it. The mountain does not negotiate.",
+          "terrain_detail": "1.8 km, 10.3% average gradient, two hairpin bends, timed KOM/QOM segment",
+          "named_section": "Devil's Elbow"
+        },
+        {
+          "mile": 80,
+          "label": "Rhigos",
+          "desc": "The longest and most mentally demanding climb on the course. Rhigos stretches nearly 11 km at a constant moderate gradient that never relents and never steepens enough to provide an excuse to stop. The road climbs from the valley floor through woodland before emerging onto exposed moorland where headwinds can make the final kilometres feel endless. After Black Mountain and Devil's Elbow, the legs are already deep in oxygen debt, and Rhigos demands sustained effort at a time when most riders want to coast. On a clear day, the summit panorama across the Brecon Beacons is one of the finest cycling views in Britain. On a wet day, you see nothing but grey mist and your own suffering. This is where the Dragon Ride breaks people — not through savage gradient, but through relentless, grinding distance.",
+          "terrain_detail": "Nearly 11 km at constant moderate gradient (~5%), exposed upper section, summit at approximately 500 m",
+          "named_section": "Rhigos"
+        },
+        {
+          "mile": 110,
+          "label": "The Bwlch and Return",
+          "desc": "The final major climb. The Bwlch rises from the Afan valley through dense Welsh woodland with a long, steady gradient averaging 5% with ramps to 11%. By this point in the Gran Fondo, 180+ km and 2,800+ m of climbing have passed under the wheels. The Bwlch is not the hardest climb on paper, but it arrives at the worst possible moment — legs shattered, energy reserves depleted, with 40+ km still to ride back to Margam Park. The gradient varies between sheltered tree-lined slopes and exposed open mountain. The descent off the Bwlch is fast and technical through tight valley roads, demanding concentration from exhausted riders. The final stretch back to Margam Park through the Neath and Afan valleys is rolling rather than flat, extracting every last kilojoule before the finish gantry.",
+          "terrain_detail": "Approximately 6.5 km, 5% average, 11% maximum, Category 2 equivalent. Technical descent, rolling final approach.",
+          "named_section": "The Bwlch"
+        }
+      ],
+      "key_features": [
+        "Four major classified climbs on the Gran Fondo: Black Mountain, Devil's Elbow, Rhigos, The Bwlch",
+        "Timed KOM/QOM segment on Devil's Elbow (1.8 km at 10.3%) returning in 2026",
+        "Six fully stocked feed stations plus one water station with mechanical and medical support",
+        "Route through Bannau Brycheiniog (Brecon Beacons) National Park — UK Dark Sky Reserve",
+        "2026 route reversal creates a fresh tactical challenge for the 22nd edition",
+        "Dragon Devil adds Devil's Staircase as second timed climb for the 305 km distance"
+      ],
+      "strategy": "Pacing is everything. The Dragon Ride destroys riders who go too hard on Black Mountain and Devil's Elbow. The critical discipline is saving matches for Rhigos — the 11 km grinder that comes third in the sequence and breaks the most riders. Start 10% easier than you think you should on Black Mountain. Attack Devil's Elbow only if you are competing for KOM; otherwise, ride it steady and save the legs. Eat and drink at every feed station — 230 km demands 60-90 grams of carbohydrate per hour, and the cumulative caloric deficit from four major climbs will destroy you if you fall behind on nutrition. Carry a rain jacket from the start regardless of the forecast; conditions change on the Beacons in minutes. Layer up for summit descents — hypothermia from a fast, wet descent after a long climb is a real risk. On the Bwlch, the finish is closer than it feels — grind it out, keep eating, and trust that the rolling descent back to Margam Park will carry you home."
+    },
+    "guide_variables": {
+      "race_name": "Dragon Ride L'Etape Wales",
+      "race_distance": "143 miles (230 km)",
+      "race_elevation": "11,483 feet (3,500 m)",
+      "race_date": "June",
+      "race_location": "Margam Park, Port Talbot, South Wales (Brecon Beacons National Park)",
+      "race_terrain": "Paved Welsh mountain roads through the Brecon Beacons",
+      "race_weather": "Maritime Welsh mountain weather — anything from sunshine to horizontal rain. Summit temps 10C colder than valleys. Pack for four seasons.",
+      "race_challenges": [
+        "Devil's Elbow: 1.8 km at 10.3% average — the timed climb that defines the Dragon Ride",
+        "Rhigos: nearly 11 km of relentless moderate-gradient climbing that breaks riders mentally",
+        "230 km total distance with 3,500 m climbing — a 10-12 hour day in the saddle",
+        "Welsh mountain weather: rain, wind, and 10C temperature swings between valley and summit",
+        "Four major climbs in sequence — cumulative fatigue is the real enemy, not any single gradient"
+      ],
+      "altitude_section": false,
+      "altitude_feet": 1969
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Sustained climbing endurance — back-to-back 30-60 minute threshold efforts on 5-10% gradients",
+        "by_when": "Week 8",
+        "why": "The Dragon Ride throws four major climbs at you in sequence. Rhigos alone is nearly 11 km of sustained effort at 5%. You need the specific muscular endurance to climb for 30-60 minutes at tempo-to-threshold, recover on the descent, then do it again three more times. Hill repeats of 20-40 minutes at 5-8% gradient are essential preparation. If you cannot sustain 45 minutes at 75-85% FTP on a climb, the Bwlch will finish you."
+      },
+      {
+        "requirement": "200+ km endurance base with 2,500+ m of climbing in a single ride",
+        "by_when": "Week 10",
+        "why": "The Gran Fondo is 230 km with 3,500 m of climbing. Riders who have not ridden this distance in training will hit a wall somewhere between Rhigos and the Bwlch — typically around the 150-180 km mark when glycogen stores are depleted and the final major climb looms. Your long ride needs to approximate the demands: 200+ km with significant vertical. If you live in flat terrain, indoor trainer sessions with sustained climbing blocks can supplement, but nothing replaces time in the saddle at distance."
+      },
+      {
+        "requirement": "Wet weather descending confidence and full foul-weather kit",
+        "by_when": "Week 6",
+        "why": "Welsh mountain descents on wet limestone roads are genuinely treacherous. The Bwlch descent through tight valley roads demands confident bike handling when exhausted. Practice descending in rain — know your braking distances on wet rims or disc brakes, know how your rain jacket affects your riding position, and know your limits. Carry a rain jacket, arm warmers, and a gilet on every training ride to build the habit of layering on the move. Getting the kit decision wrong on a Beacons summit can mean hypothermia on the descent."
+      },
+      {
+        "requirement": "Nutrition strategy tested over 8+ hours of riding",
+        "by_when": "Week 4",
+        "why": "230 km with 3,500 m of climbing burns through glycogen reserves long before you reach the Bwlch. Feed stations provide supplementary nutrition every 30-40 km, but you must carry and test your primary fuelling plan for the gaps between stops. Aim for 60-90 grams of carbohydrate per hour from the start — falling behind on nutrition in the first 100 km creates a deficit you cannot recover from when the climbs get harder. Bonking at the 150 km mark with two mountain passes still ahead is a day-ending crisis."
+      }
+    ],
+    "citations": [
+      {
+        "url": "https://www.dragonride.co.uk/",
+        "category": "official",
+        "label": "Official Website — Dragon Ride L'Etape Wales"
+      },
+      {
+        "url": "https://www.dragonride.co.uk/event-info/our-routes/",
+        "category": "official",
+        "label": "Dragon Ride — Routes and Distances"
+      },
+      {
+        "url": "https://www.dragonride.co.uk/event-info/history-dragon-ride/",
+        "category": "official",
+        "label": "Dragon Ride — History of the Dragon Ride"
+      },
+      {
+        "url": "https://www.dragonride.co.uk/entry-types-2026/",
+        "category": "official",
+        "label": "Dragon Ride — 2026 Entry Types and Pricing"
+      },
+      {
+        "url": "https://www.dragonride.co.uk/preparation/travel-accommodation/",
+        "category": "official",
+        "label": "Dragon Ride — Travel and Accommodation Guide"
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Dragon_Ride_Wales",
+        "category": "reference",
+        "label": "Wikipedia — Dragon Ride Wales"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/8738/dragon-ride",
+        "category": "reference",
+        "label": "Gran Fondo Guide — Dragon Ride Event Profile"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Contents/Index/2838/dragon-ride-l%E2%80%99%C3%A9tape-wales-returns-for-fourteenth-year",
+        "category": "reference",
+        "label": "Gran Fondo Guide — Dragon Ride L'Etape Wales Returns for Fourteenth Year"
+      },
+      {
+        "url": "https://www.cyclingweekly.com/news/latest-news/aso-partners-human-race-to-bring-dragon-ride-letape-wales-by-le-tour-de-france-211869",
+        "category": "reference",
+        "label": "Cycling Weekly — ASO Partners Human Race for L'Etape Wales (2016)"
+      },
+      {
+        "url": "https://www.cyclingplus.com/cycling-routes/dancing-with-the-devil",
+        "category": "review",
+        "label": "Cycling Plus — Dancing with the Devil: 300km Dragon Devil Route"
+      },
+      {
+        "url": "https://www.cyclist.co.uk/in-depth/taming-the-dragon-and-the-devil-at-letape-wales",
+        "category": "review",
+        "label": "Cyclist Magazine — Taming the Dragon and the Devil at L'Etape Wales"
+      },
+      {
+        "url": "https://road.cc/content/news/have-you-got-what-it-takes-slay-dragon-ride-2024-303729",
+        "category": "review",
+        "label": "road.cc — Have You Got What It Takes to Slay the Dragon Ride 2024"
+      },
+      {
+        "url": "https://hiplok.com/dragon-ride/",
+        "category": "review",
+        "label": "Hiplok — Dragon Ride 2023: Taming the Dragon"
+      },
+      {
+        "url": "https://racecheck.com/races/dragon-ride/",
+        "category": "community",
+        "label": "Racecheck — Dragon Ride Reviews"
+      },
+      {
+        "url": "https://www.trainerroad.com/forum/t/anyone-else-here-doing-the-dragon-ride-this-year-now-training-and-prep-thread/92992",
+        "category": "community",
+        "label": "TrainerRoad Forum — Dragon Ride Training and Prep Thread"
+      },
+      {
+        "url": "https://www.timeoutdoors.com/events/dragon-ride",
+        "category": "official",
+        "label": "TimeOutdoors — Dragon Ride 2026 Event Listing"
+      },
+      {
+        "url": "https://www.macmillan.org.uk/fundraise/charity-cycle-rides/dragon-ride",
+        "category": "official",
+        "label": "Macmillan Cancer Support — Dragon Ride Charity Partnership"
+      },
+      {
+        "url": "https://aso-uk.com/event/dragonride/",
+        "category": "official",
+        "label": "ASO UK — Dragon Ride L'Etape Wales"
+      },
+      {
+        "url": "https://strambecco.com/event/dragon-ride/",
+        "category": "review",
+        "label": "Strambecco — Dragon Ride 2025 Rating"
+      },
+      {
+        "url": "https://hrcycling.zendesk.com/hc/en-us/articles/360004334371-Dragon-Ride-Gran-Fondo-Cut-offs",
+        "category": "reference",
+        "label": "Human Race Cycling — Gran Fondo Cut-offs, Feed Stations and Climbs"
+      },
+      {
+        "url": "https://www.dragonride.co.uk/gran-fondo/",
+        "category": "official",
+        "label": "Dragon Ride — Gran Fondo Route Details"
+      },
+      {
+        "url": "https://www.dragonride.co.uk/dragon-devil/",
+        "category": "official",
+        "label": "Dragon Ride — Dragon Devil Route Details"
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "high",
+      "validation_status": "validated",
+      "sources_count": 22,
+      "last_updated": "2026-02-28",
+      "research_strength": {
+        "overall": 86.0,
+        "grade": "B+",
+        "weakest": "voice_authenticity",
+        "has_research_dump": false,
+        "dimensions": {
+          "source_diversity": 95,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 85,
+          "statistical_backing": 80,
+          "voice_authenticity": 60,
+          "completeness": 85,
+          "cross_reference": 75
+        },
+        "scored_at": "2026-02-28"
+      }
+    }
+  }
+}

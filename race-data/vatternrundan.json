@@ -1,0 +1,345 @@
+{
+  "race": {
+    "name": "Vatternrundan",
+    "slug": "vatternrundan",
+    "display_name": "Vätternrundan",
+    "tagline": "315 km around Sweden's second-largest lake. Through the midsummer night. 22,000 riders. The world's largest recreational cycling event.",
+    "vitals": {
+      "distance_mi": 196,
+      "elevation_ft": 6565,
+      "location": "Motala, Östergötland, Sweden",
+      "location_badge": "MOTALA, SWEDEN",
+      "date": "Mid-June annually (Friday evening start)",
+      "date_specific": "2026: June 12-13",
+      "terrain_types": [
+        "Paved Swedish roads",
+        "Rolling agricultural terrain",
+        "Lakeside roads",
+        "Small-town throughways"
+      ],
+      "field_size": "22,000-28,000 riders across all distances",
+      "start_time": "First wave 7:30 PM Friday, staggered waves every 2 minutes through ~5:30 AM Saturday. Groups of 60-70 riders. Sub-9 group starts 9:00-9:30 AM Saturday.",
+      "registration": "Online via vatternrundan.se. Registration of interest required Sep-Oct, main registration opens late October. First-come, first-served — not all applicants guaranteed entry due to 22,000+ demand.",
+      "prize_purse": "None (non-competitive — no race results or rankings. Medal and certificate of completion at finish.)",
+      "aid_stations": "9 official service stations around the lake circuit with food, drinks, medical support, mechanical assistance, and massage. Major stations at Jönköping (~halfway), Hjo (171 km, cutoff 16:00), and Karlsborg (204 km). Additional SUB 9 stations at Bankeryd (110 km) and Karlsborg (210 km).",
+      "cutoff_time": "Midnight Saturday. Intermediate cutoff at Hjo (171 km) by 16:00. First starters (7:30 PM Friday) have ~28.5 hours; last starters (~5:30 AM Saturday) have ~18.5 hours.",
+      "lat": 58.5371,
+      "lng": 15.0470,
+      "distance_options": [
+        "Vätternrundan: 315 km (196 mi) — the full circumnavigation",
+        "Halvvättern: 150 km — half the lake",
+        "Vätternrundan 100 km — shorter option",
+        "Tjejvättern: 100 km — women-only event",
+        "MTB-Vättern: 50/25 km — mountain bike events"
+      ],
+      "entry_fee": "1,950-2,200 SEK (~$180-210 USD) depending on registration period"
+    },
+    "climate": {
+      "primary": "Swedish midsummer — long daylight, cool nights, variable weather",
+      "description": "Mid-June near the summer solstice means extraordinary daylight: sunrise around 3:30 AM, sunset around 10:00 PM, with only 2-3 hours of twilight and never true darkness. Daytime temperatures average 15-20C (59-68F) but can drop to 5-8C (41-46F) near the lake overnight. Lake Vättern creates its own microclimate — cold katabatic winds roll off the water, and fog can form without warning. Average June rainfall is 21mm over 10-11 rain days. Wind averages 17 km/h. Riders must carry warm layers, lights, and rain protection as mandatory equipment.",
+      "challenges": [
+        "Overnight temperature drops to 5-8C (41-46F) near the lake — hypothermia risk for underdressed riders",
+        "Variable weather: rain, wind, and fog can appear and disappear within an hour",
+        "Lake effect: cold air off Vättern creates localized headwinds and temperature drops along the shore",
+        "Fatigue management through 12-18 hours including overnight riding in unfamiliar twilight conditions",
+        "18+ hours of daylight disrupts normal circadian cues — riders lose sense of time"
+      ]
+    },
+    "terrain": {
+      "primary": "Paved Swedish roads around Lake Vättern",
+      "surface": "Well-maintained Swedish national and regional roads. All tarmac throughout. Generally excellent surface quality. No unpaved sections.",
+      "technical_rating": 1,
+      "features": [
+        "Lake Vättern shoreline — Sweden's second-largest lake, 135 km long, up to 130m deep, crystal-clear water",
+        "Omberg ridge — gentle climbs through ancient oak forest, rising 170m above the lake on the eastern shore",
+        "Gränna approach — rolling terrain above the lake with views to the island of Visingsö",
+        "Jönköping — the halfway point at the southern tip of the lake, major service station",
+        "Karlsborg — fortress town on the western shore at km 204, scenic lakeside setting"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 64,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "logistics": 3,
+      "length": 5,
+      "technicality": 1,
+      "elevation": 2,
+      "climate": 3,
+      "altitude": 1,
+      "adventure": 4,
+      "prestige": 3,
+      "race_quality": 4,
+      "experience": 5,
+      "community": 5,
+      "field_depth": 1,
+      "value": 3,
+      "expenses": 3,
+      "cultural_impact": 2,
+      "tier_note": "The world's largest recreational cycling event (22,000-28,000 riders). 60th anniversary in 2026. Night riding through the Swedish midsummer is a genuinely unique experience in global cycling. Part of the Swedish Classic Circuit alongside Vasaloppet, Vansbrosimningen, and Lidingöloppet.",
+      "score_note": "experience=5 and community=5 carry this profile — riding through the Swedish midsummer night with 22,000 others is unlike anything else in cycling. length=5 for 315 km ultra distance. field_depth=1 because this is explicitly non-competitive with no results or rankings. elevation=2 for 2,001m over 315 km (gentle rollers, no real climbs). altitude=1 at 89-300m above sea level.",
+      "editorial_tier": 2,
+      "editorial_tier_label": "TIER 2",
+      "business_tier": 2,
+      "business_tier_label": "TIER 2",
+      "display_tier": 2,
+      "display_tier_label": "TIER 2",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 3,
+        "explanation": "Well-organized for 22,000+ riders with 60 years of operational refinement. Staggered start waves every 2 minutes keep things manageable. Nine service stations around the lake are well-stocked with hot food and mechanical support. The challenge is getting there: Motala is a small Swedish town with no commercial airport. Linköping City Airport (53 km) has limited domestic flights. Most international riders fly to Stockholm Arlanda (3 hours by car) or Gothenburg Landvetter (3 hours). The first-come registration system means you may not secure a spot if you hesitate. Accommodation in Motala is extremely limited for event weekend."
+      },
+      "length": {
+        "score": 5,
+        "explanation": "315 km is ultra distance by any standard. This is not a ride you finish on enthusiasm and fitness alone — it requires genuine long-distance preparation, pacing strategy, and nutrition planning for 12-18 hours of riding. The staggered overnight start means you are managing fatigue, darkness, cold, and distance simultaneously. Very few cycling events in the world match this distance outside of audax/randonneuring."
+      },
+      "technicality": {
+        "score": 1,
+        "explanation": "Flat to gently rolling on well-maintained Swedish roads. No technical demands whatsoever. The roads are wide, the surface is excellent, and there are no significant descents requiring bike handling skills. The only 'technical' challenge is riding in groups at night with limited visibility — but that is a fatigue and awareness issue, not a bike handling one."
+      },
+      "elevation": {
+        "score": 2,
+        "explanation": "2,001m of climbing over 315 km averages to a barely perceptible 0.6% grade. The terrain is gently rolling with the Omberg ridge providing the most notable elevation change at 170m above the lake. No individual climb is sustained or steep enough to require climbing-specific preparation. This is a distance event, not a climbing event. Riders from hilly terrain will find the profile unremarkable."
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "The Swedish midsummer climate is the event's defining variable. During the day: pleasant 15-20C with long sunshine hours. Overnight: 5-8C near the lake with potential fog and wind. The extraordinary daylight (only 2-3 hours of twilight, never true darkness) is magical but disorienting. Rain can appear at any point. The challenge is managing clothing layers through a 12-18 hour ride that spans dusk, midnight, dawn, and full daylight. Hypothermia from underestimating the overnight cold is the primary risk."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "Lake Vättern sits at 89m above sea level. The route barely exceeds 300m above sea level at any point. There are zero altitude effects. This is one of the lowest-altitude major cycling events in the world."
+      },
+      "adventure": {
+        "score": 4,
+        "explanation": "Circumnavigating a 135 km-long Swedish lake through the midsummer night is genuinely adventurous in a way that most organized cycling events are not. The overnight element — riding through twilight and dawn, seeing the sun barely dip below the horizon before rising again — creates an experience that transcends cycling and enters Nordic mythology. The lake itself is ancient, deep, and atmospheric. Small Swedish towns with red wooden houses line the route. It feels like an expedition, not an event."
+      },
+      "prestige": {
+        "score": 3,
+        "explanation": "The world's largest recreational cycling event, a Swedish national institution since 1966, and a cornerstone of the Swedish Classic Circuit. Well-known in Scandinavia and increasingly recognized internationally — featured in Smithsonian Magazine. But it lacks the deep cycling-culture mythology of events like L'Etape du Tour, La Marmotte, or RAGBRAI. The non-competitive format limits its prestige among performance-oriented cyclists. In Sweden, Vätternrundan is a household name. Globally, it is respected but not iconic."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "Impeccably organized for an event of this scale. Sixty years of operational refinement shows. The staggered start system (waves of 60-70 riders every 2 minutes from 7:30 PM to 5:30 AM) is a logistics masterpiece. Nine service stations are comprehensive and well-stocked. Mechanical support, medical teams, and course marshalling are professional. The 1974 switch to clockwise routing eliminated dangerous left-hand crossings. The 'quality' here is in the participant experience — warm food at midnight, coffee at dawn, the quiet efficiency that Scandinavians excel at. But it is not a race, and there is no competitive structure to evaluate."
+      },
+      "experience": {
+        "score": 5,
+        "explanation": "Riding through the Swedish midsummer night. That is the experience, and there is nothing else like it in cycling. The sun sets around 10 PM and rises around 3:30 AM, but true darkness never arrives — the sky glows in shades of amber and blue throughout the night. You ride through sleeping villages lit by midsummer bonfires. The lake shimmers in the twilight. Dawn breaks over the eastern shore as you ride north toward Motala with 50 km to go. At midnight, hot soup and coffee at a service station in the Swedish countryside with strangers who will become friends by dawn. This is not a cycling event. It is a Nordic ritual."
+      },
+      "community": {
+        "score": 5,
+        "explanation": "22,000-28,000 riders from 30+ countries. The non-competitive format eliminates racing tension and creates an atmosphere of shared adventure. Riders help each other through the night — sharing food, encouragement, and drafting. The Swedish tradition of 'lagom' permeates the event. Groups form spontaneously and ride together for hours. The service stations at midnight have the camaraderie of a mountain hut — strangers sharing coffee and war stories. A veterans' club recognizes riders who have completed 25+ editions, with around 500 members. This is community cycling at its purest."
+      },
+      "field_depth": {
+        "score": 1,
+        "explanation": "Explicitly non-competitive. There are no race results, no rankings, no age groups, no prizes. Timing is by RF transponder on the helmet, measuring only personal time. This is a personal challenge, full stop. Fast riders certainly participate — the record by Team Tre Berg is 6 hours 33 minutes, and the Sub-9 group starts separately — but they are riding against themselves, not each other. If you want to race, Vätternrundan is not for you."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "1,950-2,200 SEK ($180-210 USD) for a 315 km fully supported ride with 9 service stations, mechanical support, medical coverage, and a completion medal is reasonable. Not cheap by mass-participation standards — comparable to L'Etape du Tour — but the scale of support over 315 km justifies the cost. The first-come registration system means you may not get in at all, which effectively reduces value if you plan travel before securing entry."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Sweden is expensive. Accommodation in Motala for event weekend books out early and carries premium pricing. Stockholm or Gothenburg as access cities add hotel nights and 3-hour ground transfers. Flights from the US to Sweden run $600-1,200. Swedish food and accommodation costs are 20-40% higher than Western European averages. Credit cards are widely accepted but the Swedish krona fluctuates. Budget $1,500-3,000 total from the US. Scandinavian riders have a significant cost advantage."
+      }
+    },
+    "biased_opinion": {
+      "verdict": "The Midsummer Night",
+      "summary": "Vätternrundan is not a race. It has never been a race. Since 1966, when a sports medicine physician and a bike shop owner sent 334 riders around Lake Vättern to study what happens to the human body over 315 km, it has been a personal challenge wrapped in a Nordic ritual. There are no results. No rankings. No prizes. There is only the lake, the midsummer night, and the 22,000 other riders sharing the road.\n\nThe sun barely sets — the sky glows amber and indigo through the night hours, never reaching true darkness this close to the solstice. You ride through sleeping villages, past midsummer bonfires, past fields of barley lit by twilight. At midnight, you eat hot soup in a Swedish countryside service station with strangers who will become friends by dawn. At 3:30 AM, the sun rises over the eastern shore and you ride the final 80 km home to Motala with the lake on your left and 230 km in your legs.\n\nIt is 315 km of gently rolling road around a lake. And it is one of the most extraordinary experiences in cycling.",
+      "strengths": [
+        "The midsummer night: riding through Swedish twilight that never becomes true darkness is unique in world cycling",
+        "Community at scale: 22,000 non-competitive riders creates pure shared-adventure atmosphere",
+        "Ultra distance: 315 km is a genuine physical and mental challenge requiring serious preparation",
+        "Service infrastructure: 9 stations with hot food, coffee, and mechanical support through the night",
+        "Swedish Classic Circuit: completing Vätternrundan is one leg of Sweden's four-event endurance challenge"
+      ],
+      "weaknesses": [
+        "Remote access: Motala has no airport — 3 hours from Stockholm or Gothenburg for international riders",
+        "No competitive structure: if you want to race, this is the wrong event — there are literally no results",
+        "Flat and unremarkable terrain: the scenery is pleasant but not dramatic — this is agricultural Sweden, not the Alps",
+        "First-come entry: spots fill quickly and not all registrants are guaranteed a place"
+      ],
+      "bottom_line": "You do Vätternrundan for the midsummer night. For the twilight that never becomes darkness. For 22,000 riders sharing 315 km of Swedish road with no results, no rankings, no prizes — only the lake, the night, and the distance."
+    },
+    "final_verdict": {
+      "score": "64 / 100",
+      "one_liner": "315 km around Lake Vättern through the Swedish midsummer night. 22,000 riders. No results. No rankings. Pure cycling.",
+      "should_you_race": "Yes if you want an ultra-distance experience unlike anything else in cycling — the midsummer night is genuinely magical. Yes if you value community and shared adventure over competition. Yes if you are pursuing the Swedish Classic Circuit. Skip if you want to race — there are no results. Skip if you need dramatic terrain — this is flat Swedish farmland around a lake. Skip if remote Scandinavian logistics are a dealbreaker.",
+      "alternatives": [
+        "RAGBRAI — America's largest multi-day community ride, 468 miles across Iowa, if you want massive non-competitive community at even greater distance",
+        "Mallorca 312 — 312 km around Mallorca with Mediterranean climate and real climbing, if you want similar ultra distance with warmer weather and competition",
+        "Paris-Brest-Paris — 1,200 km randonneuring, if you want the ultimate ultra-distance challenge with deeper endurance culture",
+        "Styrkeprøven — 540 km Trondheim to Oslo, if you want Scandinavian ultra distance with more elevation and a competitive edge",
+        "Cyclassics Hamburg — Germany's largest one-day cycling event, if you want a large European mass-participation ride with shorter distances"
+      ],
+      "alternative_slugs": [
+        "ragbrai",
+        "mallorca-312",
+        "paris-brest-paris",
+        "styrkeproven",
+        "cyclassics-hamburg"
+      ]
+    },
+    "logistics": {
+      "nearest_airport": "Linköping City Airport (LPI) — 53 km from Motala (limited domestic flights). Stockholm Arlanda (ARN) — 3 hours by car, best international option. Gothenburg Landvetter (GOT) — 3 hours by car. Train from Stockholm Central to Motala: ~3 hours via SJ (Swedish Railways).",
+      "travel_tips": "Most international riders fly to Stockholm Arlanda and either rent a car (3 hours) or take the train to Motala via Linköping. SJ trains are comfortable and bike-friendly with advance booking. Sweden is cashless-friendly — credit cards accepted everywhere. English is widely spoken. The event runs during Bike Week in Motala (June 5-13, 2026) with expo, test rides, and related events. Packet pickup includes mandatory equipment verification: front and rear lights, reflective vest, and helmet with RF transponder are required.",
+      "accommodation": "Book as early as possible — Motala is a small town and event weekend demand massively exceeds supply. Best Western Motala Statt is the main hotel (78 rooms). Alternatives: Vadstena (30 km, charming medieval town), Linköping (53 km, more hotel options). The event offers temporary camping at Råssnäsudden and budget Ride & Rest lodging at Motala Sporthall. Many riders stay with local families through the event's host accommodation program. Svecia Travels offers official booking packages.",
+      "gear_recommendations": "Road bike or endurance bike with standard gearing — no climbing-specific setup needed. Puncture protection tires recommended for overnight riding on unfamiliar roads. Mandatory equipment: front and rear lights, reflective vest, helmet. Warm layers essential: arm warmers, gilet, and rain jacket for 5-8C overnight temperatures near the lake. Two bottles minimum. Tested nutrition plan for 12-18 hours including hot food strategy at service stations. Caffeine timing plan for overnight riding."
+    },
+    "history": {
+      "first_edition": "1966 — 344 starters, 334 finishers. Organized by Dr. Sten-Otto Liljedahl (sports medicine physician) and Ewert Rydell (Motala bike shop owner) as a physiological study of extreme-distance cycling on amateur riders.",
+      "notable_editions": [
+        "1966: First edition — 334 riders complete Dr. Liljedahl's physiological experiment around Lake Vättern",
+        "1974: Route direction changed from counterclockwise to clockwise at police request — eliminated dangerous left-hand crossings, improved logistics at energy stations",
+        "1980s: Growth from hundreds to thousands of riders as the event becomes a Swedish national institution",
+        "1990: Veterans' club founded for riders completing 25+ editions — now has approximately 500 members",
+        "2010: Sub-9 group introduced for faster cyclists aiming to complete the course in under 9 hours, with a Saturday morning start",
+        "2011: Record year — 27,973 cyclists complete the event across all distances (18,272 on the 315 km course)",
+        "2013: Peak participation — approximately 30,000 riders across all events",
+        "2026: 60th anniversary edition — June 12-13"
+      ],
+      "records": "Fastest known completion: Team Tre Berg in 6 hours 33 minutes. Individual record times are not officially tracked as the event is non-competitive. Sub-9 group (under 9 hours) represents the fast end of the field.",
+      "growth": "From 334 riders in 1966 to 28,000+ annually, Vätternrundan's growth mirrors Sweden's embrace of mass-participation endurance sport. The event expanded from a single 315 km ride to include the 150 km Halvvättern, 100 km Vätternrundan, women-only Tjejvättern, and MTB-Vättern distances. International participation has grown steadily — riders now come from 30+ countries. A 30% growth in 18-29 year-old participants in recent years suggests the event is reaching new generations. The Smithsonian featured Vätternrundan as one of the biggest recreational bike rides on the planet. It anchors the Swedish Classic Circuit alongside Vasaloppet (skiing), Vansbrosimningen (swimming), and Lidingöloppet (running)."
+    },
+    "course_description": {
+      "overview": "The 315 km route circumnavigates Lake Vättern clockwise from Motala — south along the eastern shore through Omberg, Gränna, and down to Jönköping at the southern tip, then north along the western shore through Hjo and Karlsborg back to Motala. The terrain is agricultural Sweden: fields of barley and canola, small red-roofed villages, birch forests, and the ever-present lake. Total elevation gain is 2,001m — gently rolling with no sustained climbs. The challenge is purely distance, time, and conditions. The overnight format, dictated by the midsummer light, transforms what would be a pleasant but unremarkable lakeside ride into one of the most distinctive experiences in cycling.",
+      "segments": [
+        {
+          "mile": 0,
+          "label": "Motala to Ödeshög — Eastern Shore Opening",
+          "desc": "The opening section south along the eastern shore of Lake Vättern. Evening light over the lake as waves of riders settle into rhythm. The route passes through Omberg — a ridge rising 170m above the lake, covered in ancient oak forest and now a nature reserve. Gentle rollers through agricultural countryside. The distance ahead is abstract — 315 km is an idea, not yet a reality.",
+          "terrain_detail": "Gently rolling, 89-260m elevation, well-maintained roads through Omberg nature reserve",
+          "named_section": "Eastern Shore — Omberg"
+        },
+        {
+          "mile": 35,
+          "label": "Ödeshög to Gränna — Lake Views and Visingsö",
+          "desc": "Continuing south along the eastern shore, the route climbs gently above the lake toward Gränna with panoramic views of the island of Visingsö. The famous Gränna polkagris (peppermint candy) town marks the transition toward the southern tip. Rolling terrain with the lake always visible to the right. Twilight begins as the sun sinks toward the horizon.",
+          "terrain_detail": "Rolling terrain above the lake, 150-250m elevation, scenic views",
+          "named_section": "Gränna Approach"
+        },
+        {
+          "mile": 62,
+          "label": "Gränna to Jönköping — The Halfway Point",
+          "desc": "Descent to Jönköping at the southern end of the lake. The major service station here is a psychological milestone — you are half done. But the night is coming. Refuel with hot food, add layers, check lights. The second half is where Vätternrundan becomes Vätternrundan. The city of Jönköping provides the only urban environment on the entire route.",
+          "terrain_detail": "Rolling descent to lake level, major service station, urban roads",
+          "named_section": "Jönköping — Halfway"
+        },
+        {
+          "mile": 80,
+          "label": "Jönköping to Hjo — Western Shore Night Section",
+          "desc": "The night section begins. Temperature drops toward 5-8C. The lake generates cold headwinds along the exposed western shore. The sky glows amber and indigo but never darkens — midsummer twilight creates an otherworldly atmosphere. Fatigue sets in. Service stations serve hot soup and coffee. This is where riders bond — sharing the night, sharing the cold, sharing the distance. Hjo at 171 km has a strict 16:00 cutoff for earlier starters.",
+          "terrain_detail": "Flat to gently rolling lakeside roads, exposed to wind and cold",
+          "named_section": "Western Shore — Night Section"
+        },
+        {
+          "mile": 106,
+          "label": "Hjo to Karlsborg — Through the Darkness",
+          "desc": "The deepest part of the night ride, between the Hjo and Karlsborg depots. By 3:30 AM, the sun begins to rise over the eastern shore. Karlsborg's fortress and lakeside beach at km 204 provide a scenic and welcome stop. Coffee at dawn with strangers who have become companions through 200 km of shared riding. The psychological corner has been turned.",
+          "terrain_detail": "Flat lakeside roads, Karlsborg fortress setting, dawn light",
+          "named_section": "Karlsborg — The Dawn Station"
+        },
+        {
+          "mile": 130,
+          "label": "Karlsborg to Motala — The Final 110 km",
+          "desc": "Dawn. The sun is back. You have 110 km to go and 200+ in your legs. The final push north along the western shore toward Motala. The lake is on your left, morning light on the water. Groups re-form as riders wake up mentally. Boviken and Hammarsundet provide the final service stations before the approach to Motala. The last 55 km are flat and direct. The finish line in Motala — medal, certificate, and a hot meal — feels earned in a way that 315 km of gentle road should not.",
+          "terrain_detail": "Flat to gently rolling, direct roads back to Motala, morning sun",
+          "named_section": "Return to Motala"
+        }
+      ],
+      "key_features": [
+        "Overnight midsummer riding — the sun barely sets and true darkness never arrives near the summer solstice",
+        "Lake Vättern — Sweden's second-largest lake, 135 km long, crystal-clear water, ever-present companion for 315 km",
+        "Omberg nature reserve — ancient oak forest ridge rising 170m above the lake on the eastern shore",
+        "Gränna views — panoramic vistas of Visingsö island from the rolling eastern shore terrain",
+        "Jönköping halfway station — the psychological and logistical midpoint at the southern tip",
+        "Karlsborg fortress — dawn stop beside a 19th-century fortress on the western shore",
+        "Nine fully stocked service stations with hot food, coffee, and mechanical support through the night"
+      ],
+      "strategy": "Pacing and nutrition are everything. Start conservatively — 315 km demands respect. Eat early and often at service stations; gel-only strategies fail after 8 hours. Layer up before Jönköping for the overnight cold on the western shore. Time caffeine intake carefully — too early and you crash at 3 AM, too late and you cannot sleep afterward. Ride in groups when possible for drafting and morale, especially through the night section. The first 150 km are a warmup for the second 150 km. Save mental energy for the 3-4 AM low point when fatigue, cold, and darkness converge."
+    },
+    "guide_variables": {
+      "race_name": "Vätternrundan",
+      "race_distance": "196 miles",
+      "race_elevation": "6,565 feet",
+      "race_date": "June",
+      "race_location": "Motala, Sweden (circumnavigation of Lake Vättern)",
+      "race_terrain": "Flat to gently rolling paved roads around Lake Vättern",
+      "race_weather": "Midsummer: 15-20C days, 5-8C nights near the lake. Very long daylight (18+ hours). Variable rain and wind.",
+      "race_challenges": [
+        "315 km ultra distance: 12-18 hours of riding requiring genuine long-distance preparation",
+        "Overnight temperature drops to 5-8C near the lake — warm layers mandatory",
+        "Fatigue management through night riding — mental and physical endurance",
+        "Lake effect winds: cold headwinds off Vättern's western shore",
+        "Nutrition for 12-18 hours: 6,000-10,000 calories required with hot food strategy"
+      ],
+      "altitude_section": false,
+      "altitude_feet": 984
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Progressive long rides reaching 200+ km in training",
+        "by_when": "Week 8",
+        "why": "315 km is ultra distance. You cannot extrapolate from a 150 km ride to a 315 km ride — the body encounters different physiological demands beyond 200 km (glycogen management, saddle pressure, mental fatigue). You need at least two rides over 200 km before attempting Vätternrundan."
+      },
+      {
+        "requirement": "Night riding experience — minimum 3 rides of 2+ hours in darkness or twilight",
+        "by_when": "Week 6",
+        "why": "Riding at night changes everything: depth perception, temperature management, fatigue response, and group dynamics. Riders who have never ridden at night make dangerous mistakes. Practice with your exact lighting setup on familiar roads before trusting it on unfamiliar Swedish roads at midnight."
+      },
+      {
+        "requirement": "Tested nutrition plan for 12+ hours — including hot food and caffeine strategy",
+        "by_when": "Week 8",
+        "why": "Over 315 km you will consume 6,000-10,000 calories. Gel-only strategies fail after 8 hours. You must practice eating solid food and drinking hot liquids while riding. Caffeine timing for overnight riding requires specific planning — too early and you crash at 3 AM, too late and you cannot sleep afterward."
+      }
+    ],
+    "citations": [
+      {
+        "url": "https://vatternrundan.se/en/",
+        "title": "Vätternrundan — Official Site",
+        "category": "official"
+      },
+      {
+        "url": "https://vatternrundan.se/vatternrundan/en/about-the-race/the-route/",
+        "title": "Vätternrundan — The Course (Official)",
+        "category": "official"
+      },
+      {
+        "url": "https://vatternrundan.se/vatternrundan/en/about-the-race/history/",
+        "title": "Vätternrundan — History (Official)",
+        "category": "official"
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/V%C3%A4tternrundan",
+        "title": "Vätternrundan — Wikipedia",
+        "category": "reference"
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/V%C3%A4ttern",
+        "title": "Lake Vättern — Wikipedia",
+        "category": "reference"
+      },
+      {
+        "url": "https://www.smithsonianmag.com/travel/how-swedens-vatternrundan-became-the-biggest-recreational-bike-ride-on-the-planet-180986794/",
+        "title": "Smithsonian — How Sweden's Vätternrundan Became One of the Biggest Recreational Bike Rides on the Planet",
+        "category": "review"
+      },
+      {
+        "url": "https://endurancekollective.co/blogs/hints-and-tips/vatternrundan-sweden-s-iconic-315km-ride-and-what-you-need-to-know-to-crush-it",
+        "title": "Endurance Kollective — Vätternrundan Fuel Guide",
+        "category": "review"
+      },
+      {
+        "url": "https://www.bicycles.net.au/2021/06/vatternrundan-tales-from-swedens-legendary-cycle-tour/",
+        "title": "Bicycles Network Australia — Tales from Sweden's Legendary Cycle Tour",
+        "category": "review"
+      }
+    ],
+    "research_metadata": {
+      "last_updated": "2026-02-28",
+      "confidence_score": "high",
+      "sources_consulted": 8
+    }
+  }
+}

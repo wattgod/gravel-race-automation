@@ -1,0 +1,300 @@
+{
+  "race": {
+    "name": "UCI Gran Fondo World Championships",
+    "slug": "uci-gran-fondo-world-championships",
+    "display_name": "UCI Gran Fondo World Championships",
+    "tagline": "The only world championship in amateur road cycling. Qualify through 36 global events, race for the rainbow jersey against 2,000 age-group riders from 58 countries. Venue rotates annually.",
+    "vitals": {
+      "distance_mi": 87,
+      "elevation_ft": 7776,
+      "location": "Venue rotates annually (2026: Niseko, Hokkaido, Japan)",
+      "location_badge": "NISEKO, JAPAN (2026)",
+      "date": "Late August to October annually (varies by venue)",
+      "date_specific": "2026: August 26-30 (Niseko, Japan)",
+      "terrain_types": [
+        "Paved roads (surface varies by venue)",
+        "Mountain/hilly terrain (typical)",
+        "Individual time trial course",
+        "Team relay course"
+      ],
+      "field_size": "~2,000 qualified riders from 55-60 countries",
+      "start_time": "Varies by discipline — Time Trial (Thursday), Team Relay (Friday), Gran Fondo Road Race (Sunday)",
+      "registration": "By qualification only. Top 25% in each age group at any UCI Gran Fondo World Series qualifier event (36 events globally in 2026). Qualified riders receive email invitation to register. Entry fee ~EUR200-350 depending on venue.",
+      "prize_purse": "UCI Rainbow Jersey awarded to age-group winners — the most coveted prize in amateur cycling. Medals for top 3 in each age group.",
+      "aid_stations": "Full professional support: feed zones, mechanical assistance, medical teams. UCI-standard organization at all venues.",
+      "cutoff_time": "Course-dependent. Strict enforcement to allow road reopening.",
+      "lat": 42.8684,
+      "lng": 140.6873,
+      "distance_options": [
+        "Gran Fondo: ~140 km (87 mi), ~2,370 m gain (2026 Niseko, younger age groups)",
+        "Medio Fondo: ~80 km (50 mi), ~1,572 m gain (2026 Niseko, men 60+ and women 50+)",
+        "Individual Time Trial: ~16.3 km (2026 Niseko)",
+        "Team Relay: varies by venue"
+      ],
+      "entry_fee": "~EUR200-350 (varies by venue, qualification required)"
+    },
+    "climate": {
+      "primary": "Venue-dependent — varies dramatically by host location and season",
+      "description": "Climate varies with each host venue. The 2026 Niseko edition in late August offers cool Hokkaido conditions: average temperatures around 20C (68F) with low humidity — close to ideal cycling weather. Hokkaido avoids Japan's mainland rainy season. Previous venues have ranged from Mediterranean heat (Trento, Varese) to Scandinavian cool (Aalborg, Glasgow) to Australian coastal conditions (Great Ocean Road). The rotating venue means climate preparation must be venue-specific each year.",
+      "challenges": [
+        "2026 Niseko: comfortable Hokkaido late-summer conditions — 15-25C, low humidity, possible Pacific weather systems",
+        "Venue rotation creates unpredictable climate year-to-year — Mediterranean, Scandinavian, Asian, and Southern Hemisphere hosts all possible",
+        "Mountain courses at some venues introduce temperature variation with altitude",
+        "Rain and wind exposure varies dramatically by host geography"
+      ]
+    },
+    "terrain": {
+      "primary": "Paved mountain/hilly road course — profile varies by venue",
+      "surface": "UCI-inspected paved roads. Quality varies by host country — European venues typically offer excellent tarmac; other venues may have variable surface quality. The course is fully inspected before each championship.",
+      "technical_rating": 2,
+      "features": [
+        "2026 Niseko: 140 km Gran Fondo starting from sea level with an 840m main climb at the midpoint, steep final kilometer to finish",
+        "2026 Niseko: 80 km Medio Fondo with 1,572m elevation and the same steep finish",
+        "2026 Niseko: flat 16.3 km individual time trial",
+        "Courses are typically designed to challenge climbing ability while remaining accessible — venues are chosen for varied terrain and spectator-friendly finishes",
+        "Past courses have featured Italian Dolomite-adjacent terrain (Trento), Danish coastal flatlands (Aalborg), and Great Ocean Road coastal climbs (Australia)"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 73,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "logistics": 2,
+      "length": 3,
+      "technicality": 2,
+      "elevation": 3,
+      "climate": 2,
+      "altitude": 2,
+      "adventure": 4,
+      "prestige": 5,
+      "race_quality": 5,
+      "experience": 4,
+      "community": 5,
+      "field_depth": 5,
+      "value": 3,
+      "expenses": 2,
+      "cultural_impact": 4,
+      "tier_note": "The only UCI-sanctioned amateur road cycling world championship. Rainbow jerseys, age-group racing, 58 countries represented. Prestige=5 and score=70 (<75) triggers T2 cap per prestige override rules. T2 confirmed.",
+      "score_note": "Sum of 14 criteria = 47, cultural_impact = 4, total = 51. (51/70)*100 = 72.86, rounded = 73. prestige=5: the UCI rainbow jersey is the single most prestigious prize in amateur cycling. field_depth=5: qualification-only entry from 36 global events creates the deepest amateur field assembled anywhere. community=5: 58 countries, 2,000 qualified riders — the most international competitive cycling event outside the professional peloton. expenses=2: international travel to a different country each year, plus qualifying event travel, makes this one of the most expensive amateur cycling commitments. p5 + score<75 caps at T2.",
+      "editorial_tier": 2,
+      "editorial_tier_label": "TIER 2",
+      "business_tier": 2,
+      "business_tier_label": "TIER 2",
+      "display_tier": 2,
+      "display_tier_label": "TIER 2",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 2,
+        "explanation": "The rotating venue is both the event's greatest strength and its biggest logistical headache. Every year, logistics reset from zero. The 2026 Niseko venue is 1.5 hours from Sapporo New Chitose Airport by car — manageable but remote. A ski resort town in summer has ample hotel capacity. But previous venues have ranged from well-connected European cities (Aalborg, Trento) to genuinely challenging destinations. Add the qualification requirement — you must first race a qualifying event somewhere in the world — and the logistical burden compounds. International travel to a different country each year, often with a bike, is demanding."
+      },
+      "length": {
+        "score": 3,
+        "explanation": "The Gran Fondo distance is typically 130-150 km with 2,000-3,000m of climbing — serious but not extreme. The 2026 Niseko course is 140 km with 2,370m of elevation. The Medio Fondo option at 80 km provides an alternative for older age groups. The 16.3 km time trial adds a separate discipline. The course is designed to be challenging enough to separate riders on ability while remaining completable for qualified amateurs. This is not an endurance ultra — it is a race."
+      },
+      "technicality": {
+        "score": 2,
+        "explanation": "Paved roads throughout at all venues. UCI course inspection ensures safety standards are met. Technicality varies mildly by venue — coastal courses (Great Ocean Road) may have more wind exposure; mountain courses (Trento) have descending demands. But this is road racing on inspected courses. The technical demands are limited to peloton riding, descending at speed in a competitive group, and tactical awareness. No off-road, no gravel, no cobbles."
+      },
+      "elevation": {
+        "score": 3,
+        "explanation": "Climbing profiles vary by venue but typically fall in the 2,000-3,000m range for the Gran Fondo distance. The 2026 Niseko course has 2,370m of elevation with one 840m main climb from sea level. This is not Dolomite-level climbing, but the course is designed to reward strong climbers. The Medio Fondo delivers 1,572m in 80 km. The elevation challenge is moderate — enough to separate the field but not enough to reduce this to a pure climbing competition."
+      },
+      "climate": {
+        "score": 2,
+        "explanation": "Climate varies so dramatically by venue that scoring climate challenge for the concept is difficult. Niseko 2026 offers near-ideal cycling weather (15-25C, low humidity). Aalborg 2024 had Scandinavian late-summer conditions. Trento 2022 brought Italian autumn warmth. The rotating venue means climate is rarely a dominant challenge factor — UCI tends to select venues and dates where conditions are manageable. You won't face Saharan heat or Arctic cold. You might face rain."
+      },
+      "altitude": {
+        "score": 2,
+        "explanation": "Most host venues are at moderate elevations. The 2026 Niseko course starts at sea level and climbs to approximately 840m — altitude has zero physiological impact. Even mountain-adjacent venues like Trento don't push above 1,500m. Altitude is almost never a factor at the Gran Fondo World Championships. The course designs reward power-to-weight and sustained climbing ability, not altitude tolerance."
+      },
+      "adventure": {
+        "score": 4,
+        "explanation": "The rotating venue IS the adventure. Racing in Japan one year, Australia the next, Denmark the year before — this is a global cycling odyssey. The 2026 Niseko edition places you in Hokkaido's volcanic mountain landscape, 1.5 hours from Tokyo by flight. Previous venues have ranged from the Scottish Highlands to the Great Ocean Road. Each year is a completely different adventure. Add the qualification journey — racing qualifier events across the globe to earn your start — and the cumulative adventure is unmatched in amateur cycling."
+      },
+      "prestige": {
+        "score": 5,
+        "explanation": "This is a UCI World Championship. Full stop. The rainbow jersey — THE rainbow jersey, the same band design worn by professional world champions — is awarded to age-group winners. There is no more prestigious prize available to an amateur road cyclist. The qualification system ensures every starter earned their place through competitive results. You are racing against the top 25% of age-group riders from 36 qualifying events worldwide. Winning a rainbow jersey at the Gran Fondo Worlds is a career-defining achievement in amateur cycling."
+      },
+      "race_quality": {
+        "score": 5,
+        "explanation": "UCI-sanctioned events meet the highest organizational standards in cycling. Professional timing, commissaire panels, anti-doping testing, and neutral support are standard. The host city organization is evaluated by UCI before selection. Medical teams, feed zones, closed or controlled roads, and professional results processing. The time trial and team relay add distinct competitive disciplines. This is not a sportive with timing — this is a sanctioned championship race."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "Lining up with 2,000 riders from 58 countries, all of whom qualified through competitive results, creates an electric atmosphere. The rainbow jersey ceremony carries genuine emotion — amateur athletes crying on podiums is not uncommon. The multi-day format (time trial, team relay, road race) creates a multi-sport feel. The 2026 Niseko venue adds Japanese hospitality, volcanic landscapes, and onsen recovery. The experience is world-class. It loses one point only because the course itself changes annually — you cannot build a lifelong relationship with a specific route."
+      },
+      "community": {
+        "score": 5,
+        "explanation": "58 countries. 2,000 riders. All qualified through competitive results. This is the most internationally diverse competitive cycling event outside the professional peloton. The qualification system creates a global community — riders race qualifiers in Spain, Australia, Colombia, Japan, and the United States, all pursuing the same goal. The UCI Gran Fondo World Series connects 36 events into a unified competitive ecosystem. National team kits, flag ceremonies, and the shared pursuit of the rainbow jersey create bonds that transcend language barriers."
+      },
+      "field_depth": {
+        "score": 5,
+        "explanation": "This is the deepest amateur road cycling field assembled anywhere in the world. Every rider qualified by finishing in the top 25% of their age group at a UCI qualifier event. Anti-doping testing is real. Age-group classifications are strictly enforced. The front of every age group features riders who would be competitive at national championship level. The 19-34 and 35-39 categories attract former professionals, current national-level racers, and dedicated age-group competitors. This is not a participation event. This is a race."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "Entry at EUR200-350 is premium pricing, but this is a UCI World Championship with a rainbow jersey on offer. Professional timing, commissaire panels, anti-doping, neutral support — the operational quality justifies the fee. However, the total cost of participation is much higher: you must first travel to and race a qualifying event, then travel to the World Championship venue. The entry fee is a fraction of the total investment required."
+      },
+      "expenses": {
+        "score": 2,
+        "explanation": "The expense burden is the event's most significant barrier. International travel to a different country each year, with a bicycle, is expensive. The 2026 Niseko venue requires flights to Japan plus domestic transfer to Hokkaido. Add the qualifying event expenses — traveling to race a qualifier, potentially in another country. Hotel accommodation for 4-5 nights at the championship venue. Total budget from the US for the 2026 Niseko edition: $3,000-6,000 including flights, accommodation, entry, qualifying event, and local expenses. From Europe, similar or higher."
+      }
+    },
+    "biased_opinion": {
+      "verdict": "The Only Rainbow Jersey You Can Earn",
+      "summary": "The UCI Gran Fondo World Championships are the only event in amateur road cycling where you can earn the rainbow jersey — the single most recognizable symbol of cycling supremacy. This is not a participation sportive. It is a qualified-entry world championship with anti-doping, commissaire panels, and age-group classifications that attract the strongest amateur road cycling field assembled anywhere on the planet. You earn your start by finishing in the top 25% of your age group at one of 36 qualifying events worldwide. Then you race 2,000 riders from 58 countries on a course that changes every year — from Italian mountains to Danish flatlands to Japanese volcanoes. The 2026 edition in Niseko, Hokkaido is the first ever held in Asia: 140 km with 2,370m of climbing through volcanic mountain terrain, 1.5 hours from Tokyo. The rainbow jersey awaits at the finish. One winner per age group. For the rest, there is the knowledge that you raced the deepest amateur field in the world.",
+      "strengths": [
+        "The UCI rainbow jersey: the single most prestigious prize available to an amateur road cyclist — no other event can offer this",
+        "Qualification-only entry ensures every rider earned their start through competitive results — no pay-to-play",
+        "58 countries, 2,000 riders, real anti-doping — the deepest amateur cycling field assembled anywhere in the world",
+        "The rotating venue creates a global cycling adventure — Japan 2026, France 2027, with past editions in Australia, Denmark, Scotland, and Italy",
+        "Multi-discipline format: time trial, team relay, and road race in one championship week"
+      ],
+      "weaknesses": [
+        "Venue rotation means zero course familiarity — you cannot train on the course or build year-over-year knowledge",
+        "Expense burden is severe: qualifying event travel plus world championship travel to a different country each year",
+        "Qualification requirement creates a two-event minimum commitment — you must race a qualifier before you can even register",
+        "Course difficulty varies dramatically by venue — some editions favor climbers, others favor sprinters or time trialists",
+        "Remote venues (Niseko 2026, Great Ocean Road 2025) compound travel complexity and cost"
+      ],
+      "bottom_line": "If you are a competitive amateur road cyclist and you have not raced the UCI Gran Fondo World Championships, you are leaving the biggest accomplishment in amateur cycling on the table. No other event offers the rainbow jersey. No other event assembles this depth of qualified, tested, anti-doping-controlled competition from 58 countries. The rotating venue is expensive and logistically complex — but it also means you get to race in Japan this year, France next year, and wherever the UCI sends you after that. This is the world championship. Act accordingly."
+    },
+    "final_verdict": {
+      "score": "73 / 100",
+      "one_liner": "The only UCI World Championship for amateur road cyclists. Qualify through 36 global events. Race 2,000 riders from 58 countries. Win the rainbow jersey.",
+      "should_you_race": "Yes if you are a competitive age-group cyclist who wants the ultimate test against your global peers. Yes if the rainbow jersey means something to you. Yes if you want a multi-year global cycling adventure — different country, different course, every year. Skip if you want a fixed, repeatable course to benchmark against. Skip if the qualification requirement and international travel expense are dealbreakers. Skip if you want a participation experience — this is a race.",
+      "alternatives": "If you want a world-class gran fondo without qualification: GFNY New York. If you want the Tour de France brand: L'Etape du Tour. If you want the hardest single-day road event: Otztaler Radmarathon.",
+      "alternative_slugs": [
+        "gfny-new-york",
+        "letape-du-tour",
+        "otztaler-radmarathon"
+      ]
+    },
+    "logistics": {
+      "airport": "2026 Niseko: Sapporo New Chitose Airport (CTS) — 2 hours to Niseko by car/bus. Direct flights from Tokyo Haneda/Narita (1.5 hours). International connections via Tokyo. Venue changes annually — logistics must be researched fresh each edition.",
+      "lodging_strategy": "2026 Niseko: ample ski resort accommodation in summer off-season — hotels, pensions, and vacation rentals at reasonable rates. Book 3-6 months ahead as the championship draws 2,000+ riders plus support teams. Kutchan town offers budget alternatives 15 minutes away. The venue rotation means lodging strategy changes completely each year — research early.",
+      "food": "2026 Niseko: Japanese cuisine — fresh seafood, ramen, soba, rice bowls, and excellent convenience store nutrition (onigiri, bento). Post-ride onsen (hot spring) culture offers ideal recovery. Hokkaido is famous for its dairy, seafood, and produce. Previous venues have offered their own culinary traditions — Italian cuisine (Trento/Varese), Danish pastries (Aalborg), Australian cafe culture (Great Ocean Road).",
+      "packet_pickup": "Championship event village, typically 1-2 days before racing begins. Credential verification required — bring qualification documentation, UCI license, passport. The multi-day format (TT Thursday, relay Friday, road race Sunday) means arriving by Wednesday is advisable.",
+      "parking": "Venue-dependent. Resort towns like Niseko have ample parking. Urban venues may require transit planning. Shuttle services typically organized between hotels and race venues.",
+      "official_site": "https://ucigranfondoworldseries.com/en/world-championships/"
+    },
+    "history": {
+      "founded": 2012,
+      "founder": "Union Cycliste Internationale (UCI)",
+      "origin_story": "The UCI Gran Fondo World Series launched in 2011 as the governing body's answer to the growing global appetite for competitive mass-participation cycling. The concept was straightforward: create an official qualification pathway through sanctioned events worldwide, culminating in a world championship where amateur riders could earn the coveted rainbow jersey — the same band design worn by professional world champions. The first World Championships were held in 2012 in Pietermaritzburg, South Africa. The event quickly grew as national federations and event organizers recognized the commercial and sporting value of UCI-sanctioned status. By 2026, 36 qualifying events across five continents feed into the World Championship, and the host venue rotation has taken the championship to Italy, Slovenia, Denmark, Australia, France, Poland, Bosnia, Scotland, and Japan.",
+      "notable_moments": [
+        "2011: UCI Gran Fondo World Series launched — creating the first global qualification system for amateur road cycling",
+        "2012: First UCI Gran Fondo World Championships held in Pietermaritzburg, South Africa",
+        "2015-2019: Series matures with consistent European venues (Aarhus, Perth, Albi, Varese, Poznan)",
+        "2020: Vancouver edition cancelled due to COVID-19 pandemic",
+        "2023: Gran Fondo World Championships included in the inaugural combined UCI Cycling World Championships in Glasgow, Scotland",
+        "2025: Great Ocean Road, Australia — Southern Hemisphere showcase",
+        "2026: Niseko, Japan — first ever Asian venue, expanding the championship's global reach",
+        "2027: Thones-La Clusaz, Haute-Savoie, France — Alpine setting"
+      ],
+      "reputation": "The pinnacle of amateur road cycling competition. The rainbow jersey is the most coveted prize available to an age-group cyclist — no other award in amateur cycling carries equivalent prestige. The qualification system ensures competitive integrity. The rotating venue creates a global cycling adventure. Winning a UCI Gran Fondo World Championship is a permanent credential."
+    },
+    "course_description": {
+      "character": "Course character changes completely with each host venue, but the UCI imposes design principles that create consistency: the Gran Fondo road race must challenge climbing ability, reward tactical racing, and culminate in a decisive finale. The 2026 Niseko course epitomizes this: 140 km through Hokkaido's volcanic mountain landscape, starting near sea level, building to an 840m main climb at the halfway mark, and finishing with a steep final kilometer that rewards explosive power on tired legs. The Medio Fondo at 80 km delivers the same decisive finish with 1,572m of climbing. The individual time trial on a flat 16.3 km course tests pure power. Three disciplines, three different demands, one championship.",
+      "suffering_zones": [
+        {
+          "mile": 0,
+          "label": "Opening Roads (2026 Niseko)",
+          "desc": "The road race begins near sea level in the Niseko area and heads toward the coast. The opening kilometers allow the peloton to form and groups to establish. Hokkaido's roads pass through agricultural flatlands and gentle rolling terrain. The tension builds as riders anticipate the main climb at the halfway point. Positioning and energy conservation are critical — the main climb will decide the race.",
+          "terrain_detail": "Flat to gently rolling, sea level, group formation phase",
+          "named_section": "Hokkaido Flats"
+        },
+        {
+          "mile": 43,
+          "label": "Main Climb (2026 Niseko)",
+          "desc": "An 840m climb from sea level — the decisive selection point. The sustained ascent strips away riders who have been hiding in the draft. The gradient ramps as the climb progresses, punishing anyone who misjudged pacing on the opening section. This is where rainbow jersey ambitions are either validated or crushed. The top of the climb offers brief respite before the descent and run-in to the finish.",
+          "terrain_detail": "840m vertical gain from sea level, sustained climb, gradients increasing",
+          "named_section": "The Selector"
+        },
+        {
+          "mile": 80,
+          "label": "Steep Finish (2026 Niseko)",
+          "desc": "The final kilometer pitches dramatically upward — a steep, punchy finish designed to separate riders of equal climbing ability. After 140 km and 2,370m of climbing, this final ramp demands the kind of explosive power that only the best-prepared riders have left. Rainbow jerseys are won and lost in this final kilometer. The crowd lines the steep road. One last effort.",
+          "terrain_detail": "Steep final kilometer, 2,370m total elevation",
+          "named_section": "The Ramp"
+        }
+      ],
+      "signature_challenge": "The qualification system IS the signature challenge. Before you even reach the start line, you must race a UCI-sanctioned qualifier event and finish in the top 25% of your age group. Then you must travel to the championship venue — a different country each year — and race against 2,000 of the best amateur cyclists from 58 nations. The course varies, but the depth of competition does not. Winning a rainbow jersey requires not just fitness, but a year-long competitive commitment."
+    },
+    "guide_variables": {
+      "race_name": "UCI Gran Fondo World Championships",
+      "race_distance": "87 miles",
+      "race_elevation": "7,776 feet",
+      "race_date": "August-October (varies by venue)",
+      "race_location": "Rotating venue (2026: Niseko, Hokkaido, Japan)",
+      "race_terrain": "Paved mountain/hilly road course — profile varies by venue",
+      "race_weather": "Venue-dependent — 2026 Niseko: cool Hokkaido summer (15-25C, low humidity)",
+      "race_challenges": [
+        "Qualification requirement: must finish top 25% in age group at a UCI Gran Fondo World Series event",
+        "Deepest amateur field in the world: 2,000 qualified riders from 58 countries",
+        "Course varies annually: no ability to pre-ride or build course-specific knowledge",
+        "Multi-discipline format: time trial and road race demand different preparation"
+      ],
+      "altitude_section": false,
+      "altitude_feet": 2756
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Qualify at a UCI Gran Fondo World Series event — top 25% in your age group",
+        "by_when": "Week 1 (this must happen before championship training begins)",
+        "why": "No qualification, no start. Identify a qualifier event on the UCI Gran Fondo World Series calendar, travel to it, and finish in the top 25% of your age group. Plan this as a peak race performance 3-6 months before the World Championship. Your qualifier result determines whether you race the Worlds at all."
+      },
+      {
+        "requirement": "Race-specific fitness for the championship course profile",
+        "by_when": "Week 8",
+        "why": "Once the course is published, analyze the profile and train specifically for it. The 2026 Niseko course demands sustained climbing power and an explosive finish. Other venues may favor different attributes. Your training in the final 8-12 weeks should mirror the championship course demands — not generic fitness."
+      },
+      {
+        "requirement": "Peloton tactics and race craft for a competitive field",
+        "by_when": "Week 6",
+        "why": "This is a race, not a sportive. The field is qualified, aggressive, and racing for age-group glory. You need experience riding in a fast, competitive group: drafting efficiency, cornering in a pack, knowing when to attack and when to conserve. If you have been training alone, join group rides and criteriums to sharpen race craft before the championship."
+      }
+    ],
+    "citations": [
+      {
+        "url": "https://ucigranfondoworldseries.com/en/world-championships/",
+        "title": "UCI Gran Fondo World Championships — Official Site",
+        "category": "official"
+      },
+      {
+        "url": "https://www.uci.org/gran-fondo-uci/4WWg0UQUssLquAqXQGDGXZ",
+        "title": "Gran Fondo UCI — Union Cycliste Internationale",
+        "category": "official"
+      },
+      {
+        "url": "https://nisekoclassic.com/en/",
+        "title": "2026 UCI Gran Fondo World Championships Niseko — Official Host Site",
+        "category": "official"
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/UCI_Gran_Fondo_World_Championships",
+        "title": "UCI Gran Fondo World Championships — Wikipedia",
+        "category": "reference"
+      },
+      {
+        "url": "https://sportivebreaks.com/sportives/uci-gran-fondo-world-championships/",
+        "title": "UCI Gran Fondo World Championships — Sportive Breaks",
+        "category": "review"
+      },
+      {
+        "url": "https://granfondodailynews.com/historical-uci-gran-fondo-world-championship-results-archive/",
+        "title": "UCI Gran Fondo World Championship Results Archive — Gran Fondo Daily",
+        "category": "reference"
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "high",
+      "validation_status": "validated",
+      "research_strength": "A",
+      "sources_count": 6,
+      "last_updated": "2026-02-27"
+    }
+  }
+}

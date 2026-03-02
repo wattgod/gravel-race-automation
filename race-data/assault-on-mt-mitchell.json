@@ -1,0 +1,349 @@
+{
+  "race": {
+    "name": "The Assault on Mt. Mitchell",
+    "slug": "assault-on-mt-mitchell",
+    "display_name": "The Assault on Mt. Mitchell — Beast of the East",
+    "tagline": "102.7 miles from Spartanburg to the highest peak east of the Mississippi. 11,000 feet of climbing. The Southeast's most iconic cycling challenge since 1975.",
+    "vitals": {
+      "distance_mi": 102.7,
+      "elevation_ft": 11000,
+      "location": "Spartanburg, South Carolina to Mt. Mitchell, North Carolina",
+      "location_badge": "SPARTANBURG, SC → MT. MITCHELL, NC",
+      "date": "Third Monday of May annually",
+      "date_specific": "2026: May 18",
+      "terrain_types": [
+        "Paved rural highways through Carolina Piedmont",
+        "Rolling Blue Ridge foothills",
+        "Blue Ridge Parkway alpine road",
+        "Steep mountain summit road to 6,684 ft"
+      ],
+      "field_size": "~600-800 riders (sells out)",
+      "start_time": "Monday 6:30 AM from Spartanburg Memorial Auditorium",
+      "registration": "Online via BikeReg. Sells out. Early bird ~$225, standard ~$250. Registration opens fall of prior year.",
+      "prize_purse": "None. Self-paced charity ride. Fastest finishers recognized but no formal prize structure.",
+      "aid_stations": "9 rest stops with food, beverages, first aid, toilets, mechanical support, and SAG vehicles along the route.",
+      "cutoff_time": "Blue Ridge Parkway by 2:15 PM. Mt. Mitchell Parkway (rest stop 9) by 4:00 PM. Finish by 5:30 PM. Total: ~11 hours.",
+      "lat": 34.9567,
+      "lng": -81.9361,
+      "distance_options": [
+        "The Assault on Mt. Mitchell: 102.7 miles, 11,000+ ft gain — Spartanburg, SC to Mt. Mitchell summit (6,684 ft)",
+        "The Assault on Marion: 74.2 miles — Same start, finishes in Marion, NC (stepping-stone course)"
+      ],
+      "entry_fee": "~$225-250"
+    },
+    "climate": {
+      "primary": "Southern Appalachian spring — warm start, cold summit",
+      "description": "Third week of May in Spartanburg means warm, humid conditions at the start (65-80F at 800 ft). As you climb northwest through the foothills, temperatures gradually drop. The Blue Ridge Parkway at 3,000-5,000 ft is typically 10-15 degrees cooler. The Mt. Mitchell summit at 6,684 ft can be 25-35 degrees colder than Spartanburg — fog, wind, and temperatures in the 40s-50s F are common even in May. Rain and mountain storms can roll in without warning at elevation.",
+      "challenges": [
+        "Temperature drop of 25-35F from Spartanburg start to Mt. Mitchell summit",
+        "May humidity in the Carolina Piedmont — oppressive heat in the first 50 miles",
+        "Mountain weather at elevation: fog, wind, and sudden rain on the Blue Ridge Parkway",
+        "Summit conditions can feel like early spring while the start feels like summer",
+        "Headwinds on exposed Parkway sections above 4,000 ft"
+      ]
+    },
+    "terrain": {
+      "primary": "Paved roads from Piedmont through Appalachian foothills to alpine summit",
+      "surface": "Paved state highways and the Blue Ridge Parkway. Well-maintained roads throughout. The first 80 miles are rolling Piedmont and foothills roads through rural South Carolina and North Carolina. The final 20 miles climb aggressively through the Blue Ridge Parkway to the Mt. Mitchell summit road.",
+      "technical_rating": 1,
+      "features": [
+        "First 80 miles: rolling Piedmont and foothills roads from 800 ft to ~1,300 ft — deceptively easy terrain that burns matches",
+        "Mile 85-87: The grade steepens sharply — 1,000+ feet of gain in under 2 miles entering the Blue Ridge Parkway",
+        "Blue Ridge Parkway section (mile 87-98): sustained climbing through 3,000-5,000 ft with sweeping mountain views",
+        "Final 5 miles to Mt. Mitchell summit: brutal climb from Parkway to 6,684 ft — the steepest sustained grades of the day",
+        "Cross two state lines: start in South Carolina, finish in North Carolina",
+        "9 rest stops with full support along the route",
+        "Marion alternative course splits at mile 74 for riders not tackling the summit"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 73,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "logistics": 3,
+      "length": 4,
+      "technicality": 1,
+      "elevation": 5,
+      "climate": 3,
+      "altitude": 3,
+      "adventure": 4,
+      "prestige": 4,
+      "race_quality": 3,
+      "experience": 5,
+      "community": 4,
+      "field_depth": 2,
+      "value": 3,
+      "expenses": 3,
+      "cultural_impact": 4,
+      "tier_note": "The Beast of the East since 1975. 102.7 miles from downtown Spartanburg to the highest point east of the Mississippi. T2 by score (73). p4 cannot promote into T1 — T2 stays.",
+      "score_note": "Elevation=5 for 11,000+ ft of climbing backloaded into the final 20 miles — one of the most punishing elevation profiles in US road cycling. Experience=5 for the singular achievement of summiting Mt. Mitchell by bicycle. Community=4 for the Freewheelers' 50+ year tradition and devoted returning riders. Prestige=4 for Beast of the East status and being one of America's oldest cycling events. Altitude=3 (summit at 6,684 ft is meaningful but not extreme). Technicality=1 (all paved). Field_depth=2 (self-paced, not competitive). cultural_impact=4 for half a century of continuous tradition. Sum=47, cultural=4, total=51, score=round(51/70*100)=73.",
+      "editorial_tier": 2,
+      "editorial_tier_label": "TIER 2",
+      "business_tier": 2,
+      "business_tier_label": "TIER 2",
+      "display_tier": 2,
+      "display_tier_label": "TIER 2",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 3,
+        "explanation": "Spartanburg sits on I-85 in upstate South Carolina — a real city with real infrastructure, not some mountain hamlet. Greenville-Spartanburg International Airport (GSP) is 20 minutes away with decent domestic connections. Charlotte (CLT) is 80 minutes and a major hub. Hotels in Spartanburg are plentiful and affordable. The start at Spartanburg Memorial Auditorium is well-organized with packet pickup the day before. The catch: the finish is 102 miles away on top of a mountain. You need to arrange shuttle transport back to Spartanburg after the ride, which the organizers provide but which adds hours to an already 11-hour day. The point-to-point logistics are the main complexity — this is not a loop course."
+      },
+      "length": {
+        "score": 4,
+        "explanation": "102.7 miles with 11,000 feet of climbing. This is a full century with more climbing than most riders will experience in a week of normal riding. The deceptive part is the first 80 miles — rolling Piedmont roads that feel manageable but silently drain your legs for what comes next. The real ride starts at mile 85 when the climbing turns vicious. Most riders take 7-10 hours; the fastest finish in just over 5. The 5:30 PM hard cutoff creates genuine time pressure for anyone averaging under 12 mph. The Marion alternative at 74 miles exists for a reason — the organizers know that last 28 miles breaks people."
+      },
+      "technicality": {
+        "score": 1,
+        "explanation": "Paved roads the entire route. State highways through the Piedmont, rural North Carolina roads, the Blue Ridge Parkway, and the Mt. Mitchell summit road. The road surfaces are good. There are no gravel sections, no technical descents to navigate (you barely descend at all — this is essentially a one-way trip uphill). The challenge is entirely physiological: can your legs and lungs survive 11,000 feet of climbing over 102 miles? The road does not care about your bike handling skills."
+      },
+      "elevation": {
+        "score": 5,
+        "explanation": "11,000+ feet of climbing with an elevation profile that is genuinely sadistic in its design. The first 80 miles gain only about 500 feet net — rolling terrain that whispers 'this is fine.' Then the road tilts upward and does not stop. From mile 85 to the summit, you gain over 5,000 feet in roughly 18 miles. The Blue Ridge Parkway section averages 4% but has sustained pitches of 8-10%. The final 5 miles to the Mt. Mitchell summit are relentless. The backloaded nature of this climbing — saving the hardest for the end when you are most depleted — is what makes the Beast of the East earn its name."
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "Mid-May in the Carolina Piedmont is warm and humid — expect 70-80F at the 6:30 AM start in Spartanburg and climbing into the low 80s through the foothills. The heat and humidity in the first 50 miles will drain your hydration budget before the real climbing starts. Once you hit the Blue Ridge Parkway above 3,000 feet, the temperature drops meaningfully. At the Mt. Mitchell summit (6,684 ft), conditions can be 25-35 degrees colder than Spartanburg — fog, 45F temperatures, and gusty wind are normal for May. You need to ride in summer kit for the first half and have a vest and arm warmers for the summit. The weather is not extreme, but the spread from start to finish demands preparation."
+      },
+      "altitude": {
+        "score": 3,
+        "explanation": "The Mt. Mitchell summit at 6,684 feet is the highest point east of the Mississippi — an impressive geographic fact, but in altitude terms, it is moderate. East Coast riders will feel the thinner air on the final climb, but this is not the oxygen-depleted suffering of 10,000+ foot Western climbs. The altitude effect is real but manageable: maybe 5-8% power loss at the summit compared to sea level. Most riders' bigger problem is the 80+ miles of riding they have already completed, not the oxygen deficit. The altitude is a factor, not the factor."
+      },
+      "adventure": {
+        "score": 4,
+        "explanation": "You start in a South Carolina city and end on the highest mountain east of the Mississippi River. You cross state lines. You ride through rural Piedmont farmland, Carolina foothills, the Blue Ridge Parkway's sweeping mountain vistas, and finish in a high-elevation spruce-fir forest that feels transported from New England or the Pacific Northwest. The transformation from urban start to alpine summit is dramatic. The Blue Ridge Parkway section is one of America's most scenic roads. Standing at 6,684 feet with your bicycle, looking out over the Black Mountains, knowing you rode there from South Carolina — that is an adventure. It loses a point only because the first 80 miles of rolling Piedmont highway, while pleasant, are not what anyone would call wild."
+      },
+      "prestige": {
+        "score": 4,
+        "explanation": "The Beast of the East. One of the oldest continuously running cycling events in the United States, founded in 1975 when John Bryan and a group of Freewheelers rode from Spartanburg to the summit of Mt. Mitchell. Nearly 50 years later, the ride is an institution. Completing the full Mitchell course carries weight in Southeast cycling circles — it is the region's defining long-distance climbing challenge. The event is not internationally famous like La Marmotte or the Maratona, and it does not have the brand recognition of events like RAGBRAI, but within American road cycling — especially east of the Rockies — saying you finished the Assault means something. The course record of 4:54 (Scottie Weiss, 2012) stands as a benchmark that even strong riders cannot approach."
+      },
+      "race_quality": {
+        "score": 3,
+        "explanation": "This is a community charity ride run by the Freewheelers Cycling Association, a 501(c)(3) nonprofit. The organization is experienced — they have been doing this for nearly 50 years. Nine rest stops with food, beverages, first aid, mechanical support, and SAG vehicles. Shuttle service back to Spartanburg. The cutoff system (Parkway by 2:15 PM, finish by 5:30 PM) is well-managed. But this is not a corporate sportive with chip timing, GPS tracking, and professional-grade production. There are no timed segments, no age-group awards, no finisher medals or elaborate schwag. The Freewheelers run a tight, caring operation on a nonprofit budget. The quality is in the reliability and the routes support, not in polish."
+      },
+      "experience": {
+        "score": 5,
+        "explanation": "There is exactly one highest point east of the Mississippi River, and you are going to ride your bicycle there from South Carolina. The Assault on Mt. Mitchell delivers an experience that cannot be replicated at any other event east of the Rockies. The journey itself — 102 miles through changing landscapes and climbing ecosystems from Piedmont to alpine — is a miniature epic. The final push from the Blue Ridge Parkway to the summit, on legs that have been working for 7-10 hours, through ancient spruce-fir forest at an elevation that feels impossible for the Eastern US, is transcendent. When you reach the top, you are standing at 6,684 feet, the highest point that any road east of the Mississippi can deliver. The summit marker, the panoramic view, the realization of what you just did — this sticks with you. Veterans return year after year because the experience does not diminish."
+      },
+      "community": {
+        "score": 4,
+        "explanation": "The Freewheelers have been building this community since 1973. The Assault is not just a ride — it is the annual gathering of Southeast cycling culture. Many riders return year after year, decade after decade. The Freewheelers' roots in Spartanburg cycling run deep. Packet pickup feels like a reunion. The ride itself fosters camaraderie through shared suffering — 9 rest stops become social checkpoints where strangers bond over the miles ahead. The event gives back to local organizations including Mt. Mitchell State Park, the Blue Ridge Parkway, and Spartanburg-area nonprofits. At 600-800 riders, the field is large enough to generate energy but small enough that you are not anonymous. This is a community that knows each other."
+      },
+      "field_depth": {
+        "score": 2,
+        "explanation": "The Assault is a self-paced charity ride, not a race. There are no timing chips, no age-group categories, no official competition. The fastest riders (5:00-5:30) are recognized informally, and strong cyclists use Strava to compare times, but the event structure has no competitive layer. The 2024 edition saw Jonathan Patterson finish fastest in 5:20:58 and Hannah Gibson in 6:16:42 — these are impressive times on a hard course, but they are not fighting for prize money or points. If you need head-to-head competition with ranked results, this is not your event. If you need to prove something to yourself, it is."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "$225-250 for a one-day ride is not cheap, but you get 102 miles of supported road, 9 rest stops with food and mechanics, SAG vehicle coverage, medical support, and shuttle transport from the summit back to Spartanburg. The proceeds support a 501(c)(3) that gives back to local communities. There is no elaborate finisher kit or premium schwag. The value proposition is the ride itself — you are paying for the infrastructure that makes a 102-mile point-to-point mountain ride logistically possible, and for the nonprofit's continued existence. For what the event delivers, the price is fair."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Spartanburg is an affordable city. Hotels run $80-150/night. Greenville-Spartanburg airport (GSP) has reasonable domestic fares, and Charlotte (CLT) is 80 minutes away with cheap flights from everywhere. Restaurant prices in upstate South Carolina are below the national average. The main additional expense is getting back from the mountain — but shuttle transport is included. Total trip cost for a domestic traveler: $500-900 including flights, 2 nights lodging, entry fee, and meals. This is one of the more affordable iconic cycling events in the US, thanks to Spartanburg's cost of living being well below cycling event hubs like Boulder or San Francisco."
+      }
+    },
+    "biased_opinion": {
+      "verdict": "The Eastern Ceiling",
+      "summary": "There is no higher point east of the Mississippi River. There is no older cycling challenge to reach it. Since 1975, when John Bryan and a handful of Freewheelers pedaled from Spartanburg into the clouds above western North Carolina, the Assault on Mt. Mitchell has been the defining endurance cycling event east of the Rockies. The Beast of the East does not care about your FTP, your Strava KOMs, or your deep-section carbon wheels. It cares about whether you can ride 102 miles through the Carolina Piedmont, turn upward at mile 85 when your legs are already spent, and then climb 5,000 feet to the summit of a mountain that has no business being this tall on the East Coast. The first 80 miles are a long, hot warm-up. The last 20 are the ride. At the top, you stand at 6,684 feet in a spruce-fir forest that looks like it belongs in Canada, not North Carolina. You rode there from South Carolina. That fact will matter to you for a very long time.",
+      "strengths": [
+        "The highest finish line east of the Mississippi: 6,684 ft on Mt. Mitchell — a geographic superlative that cannot be replicated",
+        "50+ years of continuous tradition — one of the oldest cycling events in the United States",
+        "Backloaded climbing profile that delivers the hardest 5,000 ft when you are most exhausted — genuinely cruel and memorable",
+        "The Freewheelers community: a nonprofit cycling club with half a century of institutional knowledge running this event",
+        "Point-to-point journey from Piedmont to alpine summit — the transformation of landscape over 102 miles is dramatic",
+        "Affordable base: Spartanburg hotels, GSP airport, and reasonable entry fee for what you get"
+      ],
+      "weaknesses": [
+        "Not a race: no timing, no categories, no competition. If you need a result, you will not get one here.",
+        "First 80 miles are rolling Piedmont highway — pleasant but unremarkable riding that requires patience and discipline",
+        "Point-to-point logistics: your car is 102 miles behind you when you finish. Shuttle is included but adds hours.",
+        "2025 edition canceled due to Mt. Mitchell State Park infrastructure work — future editions may face similar disruptions",
+        "Field has shrunk from 800+ to ~533 riders in 2024 — the event's growth trajectory has plateaued"
+      ],
+      "bottom_line": "If you ride east of the Rockies and you climb, this is the one. The Beast of the East has been waiting since 1975. It knows you are coming."
+    },
+    "final_verdict": {
+      "score": "73 / 100",
+      "one_liner": "102.7 miles. 11,000 feet. The highest summit east of the Mississippi. The Beast of the East since 1975.",
+      "should_you_race": "Yes if you want the defining climbing challenge east of the Rockies. Yes if a century ride with 11,000 feet of backloaded climbing and a geographic superlative finish appeals to you. Yes if you value tradition and community over timing chips and podiums. Skip if you need competitive structure, technical terrain, or cannot handle 80 miles of rolling warm-up before the real climbing begins.",
+      "alternatives": "If you want more climbing with Western altitude: try Death Ride. If you want a US hill climb at extreme elevation: try Mt. Evans Hill Climb. If you want a competitive US gran fondo with major climbing: try Amy's Gran Fondo.",
+      "alternative_slugs": [
+        "death-ride",
+        "mt-evans-hill-climb",
+        "amys-gran-fondo"
+      ]
+    },
+    "logistics": {
+      "airport": "Greenville-Spartanburg International (GSP) — 20 minutes. Charlotte Douglas (CLT) — 80 minutes, major hub with cheap flights. Atlanta (ATL) — 3.5 hours, largest US hub.",
+      "lodging_strategy": "Stay in Spartanburg — affordable hotels along I-85 and in downtown ($80-150/night). Book well ahead. Some riders stay in nearby Greenville (30 min) for more dining and nightlife options. The start is at Spartanburg Memorial Auditorium, 385 N Church St — easy access from I-85 hotels.",
+      "food": "Spartanburg has a solid restaurant scene for a mid-size Southern city. Carb-loading options abound. Pre-race morning: eat at your hotel and arrive early. On-course nutrition is provided at 9 rest stops. Post-ride: the Freewheelers organize food at the finish and at packet pickup. Bring summit layers and cold-weather nutrition for the final climb.",
+      "packet_pickup": "Sunday before the Monday ride at Spartanburg Memorial Auditorium, 1:00-5:00 PM. In-person registration available at packet pickup.",
+      "parking": "Spartanburg Memorial Auditorium parking. Arrive by 5:30 AM for a 6:30 AM start. Shuttle buses return riders from Mt. Mitchell summit to Spartanburg after the ride.",
+      "official_site": "https://theassaults.com/"
+    },
+    "history": {
+      "founded": 1975,
+      "founder": "John Bryan and the Freewheelers Cycling Club of Spartanburg, SC",
+      "origin_story": "In 1975, John Bryan — an early member of the Freewheelers, a Spartanburg-based cycling club founded in 1973 — set out to ride from his hometown to the summit of Mt. Mitchell with a group of hardy clubmates. That 103-mile ride through the Carolina Piedmont and up the Blue Ridge Parkway became the template for what would evolve into one of America's most iconic cycling events. The Freewheelers formalized the ride, and it grew from a club challenge into a nationally recognized endurance event. In the late 1990s, demand led the Freewheelers to add a second course ending in Marion, NC at mile 74 — a stepping stone for riders building toward the full Mitchell summit. In 2015, the Freewheelers created a 501(c)(3) sister organization, the Freewheelers Cycling Association, to formalize their charitable mission. The event now gives back more than $8,000-10,000 annually to organizations including Mt. Mitchell State Park, the Blue Ridge Parkway, Partners for Active Living, and other Upstate SC and Western NC nonprofits. The 47th edition in 2024 drew 533 cyclists. The 2025 edition was canceled due to infrastructure work at Mt. Mitchell State Park, with the 2026 return scheduled for May 18.",
+      "notable_moments": [
+        "1975: John Bryan and the Freewheelers ride from Spartanburg to the Mt. Mitchell summit for the first time",
+        "Late 1990s: Marion course added as a 74-mile stepping stone, expanding access to a broader range of riders",
+        "2012: Scottie Weiss sets the course record at 4:54 — a time that still stands",
+        "2015: Freewheelers Cycling Association established as 501(c)(3) to formalize charitable giving",
+        "2022: 45th annual edition draws a full field of 800+ riders from across the world",
+        "2024: 47th edition — Jonathan Patterson fastest at 5:20:58, Hannah Gibson fastest female at 6:16:42, 533 cyclists participate",
+        "2025: Canceled due to Mt. Mitchell State Park water main infrastructure project",
+        "2026: 48th edition scheduled for May 18 — the return of the Beast of the East"
+      ],
+      "reputation": "The Beast of the East. The longest-running cycling challenge to the highest point east of the Mississippi. An institution of Southeast cycling culture."
+    },
+    "course_description": {
+      "character": "The Assault on Mt. Mitchell is a study in patience and delayed devastation. The first 80 miles lull you into thinking this is a pleasant century ride — rolling Piedmont roads through South Carolina and the North Carolina foothills, gaining barely 500 feet of net elevation as you pass through rural towns between Spartanburg and Marion. The road is flat enough to make you forget what you signed up for. Then mile 85 arrives, and the road tilts upward, and it does not stop tilting for the next 18 miles. The climb to the Blue Ridge Parkway gains over 1,000 feet in under 2 miles. The Parkway itself is a sustained grind at 3,000-5,000 feet with no flat recovery. At mile 98, you turn off the Parkway toward Mt. Mitchell State Park, and those final 5 miles to the summit are the cruelest on the course — steep, relentless grades through ancient spruce-fir forest to the summit at 6,684 feet. The air is cooler. The trees are different. You are standing at the highest point east of the Mississippi River, and your legs stopped working two miles ago.",
+      "suffering_zones": [
+        {
+          "mile": 0,
+          "label": "Spartanburg — The Warm-Up Lie",
+          "desc": "6:30 AM start from Spartanburg Memorial Auditorium at 800 feet elevation. The morning is warm, the group energy is high, and the road rolls north through South Carolina. You are riding at 15-18 mph in a peloton and the legs feel great. This will not last. The first 40 miles through the Piedmont are flat-to-rolling, gaining almost nothing in elevation. The danger is going too hard too early because the road lets you.",
+          "terrain_detail": "Rolling Piedmont highways, 800-1,000 ft elevation, warm and humid",
+          "named_section": "Spartanburg to the NC Border"
+        },
+        {
+          "mile": 40,
+          "label": "The Foothills — Quiet Attrition",
+          "desc": "Crossing into North Carolina, the terrain begins to undulate. Nothing savage — just enough grade to remind your legs they have been working for 2-3 hours. Rest stops are welcome oases. The road passes through small Carolina towns. You are gaining elevation slowly, almost imperceptibly. The mountains ahead are visible now.",
+          "terrain_detail": "Gentle foothills, 1,000-1,300 ft elevation, gradual rollers",
+          "named_section": "NC Foothills to Marion"
+        },
+        {
+          "mile": 74,
+          "label": "Marion — The Decision Point",
+          "desc": "Rest stop 5 at Marion, NC. This is where the Marion course ends and where Mitchell riders say goodbye to the flatland. You have ridden 74 miles and gained only about 500 feet of net elevation. You feel good. You should not feel good — you should be saving everything you have. From here forward, every mile goes up.",
+          "terrain_detail": "Marion, NC at ~1,300 ft elevation, last rest stop before the climbing begins",
+          "named_section": "Marion Rest Stop"
+        },
+        {
+          "mile": 85,
+          "label": "The Wall Begins",
+          "desc": "At mile 85, the road begins to climb with intent. You are at 2,300 feet. By mile 87, turning onto the Blue Ridge Parkway, you are suddenly at 3,365 feet — over 1,000 feet of gain in less than 2 miles. The gears you thought you would not need are now your only friends. Your legs, which have been rolling at tempo for 5-6 hours, are being asked to climb. The adjustment is violent.",
+          "terrain_detail": "Sharp climb to Blue Ridge Parkway, 2,300-3,365 ft, 8-10% grades",
+          "named_section": "The Parkway Entrance"
+        },
+        {
+          "mile": 87,
+          "label": "Blue Ridge Parkway — The Long Grind",
+          "desc": "America's Favorite Drive becomes your personal punishment. The Parkway is a sustained climb through 3,000-5,000 feet with sweeping mountain vistas that would be gorgeous if you could look up from your stem. The average grade is 4% but with pitches to 8%. There is no flat. There is no descent. The views are spectacular and you cannot appreciate a single one of them because every pedal stroke costs more than the last.",
+          "terrain_detail": "Blue Ridge Parkway, 3,365-5,000 ft, sustained 4% avg with 8% pitches",
+          "named_section": "Blue Ridge Parkway"
+        },
+        {
+          "mile": 98,
+          "label": "Mt. Mitchell Summit Road — The Beast",
+          "desc": "Turn off the Parkway at mile 98. The final 5 miles to the summit are the hardest you will ride all day, on the most exhausted legs you have ever had. The road climbs from roughly 5,000 feet to 6,684 feet through dense spruce-fir forest — trees that look like they belong in Canada, not North Carolina. The grades are relentless. Your heart rate is maxed. Your glycogen is gone. The summit marker at 6,684 feet — the highest point east of the Mississippi River — appears through the fog. You are done. You rode here from South Carolina.",
+          "terrain_detail": "Mt. Mitchell summit road, 5,000-6,684 ft, steep and sustained, spruce-fir forest",
+          "named_section": "The Summit Push"
+        }
+      ],
+      "signature_challenge": "The final 18 miles from Marion to the summit. After 80+ miles of rolling Piedmont riding, the course demands 5,000+ feet of climbing in the final stretch — a backloaded elevation profile that punishes anyone who did not respect the first 80 miles. The last 5 miles up the Mt. Mitchell summit road, on legs that have been working for 7-10 hours, through gradients that would be hard on fresh legs, is where the Beast of the East earns every letter of its name."
+    },
+    "guide_variables": {
+      "race_name": "The Assault on Mt. Mitchell",
+      "race_distance": "102.7 miles",
+      "race_elevation": "11,000 feet",
+      "race_date": "May",
+      "race_location": "Spartanburg, SC to Mt. Mitchell, NC",
+      "race_terrain": "Paved roads from Carolina Piedmont through Blue Ridge Parkway to Mt. Mitchell summit (6,684 ft)",
+      "race_weather": "Warm and humid at start (70-80F in Spartanburg), cold at summit (45-55F at 6,684 ft), variable mountain weather",
+      "race_challenges": [
+        "11,000+ feet of climbing with the hardest 5,000 ft packed into the final 18 miles",
+        "102.7 miles of total distance — century-length ride before the real climbing begins",
+        "Temperature swing of 25-35F from Piedmont start to mountain summit",
+        "Strict cutoff: must reach Blue Ridge Parkway by 2:15 PM, finish by 5:30 PM",
+        "No competitive pacing reference — you must manage your own effort across 7-11 hours"
+      ],
+      "altitude_section": true,
+      "altitude_feet": 6684
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Century-distance climbing endurance — at least two training rides of 80+ miles with 5,000+ ft of climbing",
+        "by_when": "Week 6",
+        "why": "The Assault demands sustained climbing on pre-fatigued legs. The first 80 miles are deceptively easy but they burn glycogen and accumulate muscular fatigue. If your longest training ride is 60 miles and flat, you will hit a wall at mile 85 when the climbing starts. Simulate the backloaded climbing profile: ride 4-5 hours at moderate effort, then do your hardest climb on tired legs."
+      },
+      {
+        "requirement": "Heat management strategy for the Piedmont section (miles 0-80)",
+        "by_when": "Week 4",
+        "why": "May humidity in the Carolinas is no joke. The first 50 miles at 800-1,300 ft can be 75-85F with high humidity. If you let dehydration or heat fatigue accumulate in the Piedmont, you will pay the price on the Parkway. Practice riding in warm, humid conditions. Develop a hydration plan that accounts for 5-6 hours in the heat before the climbing begins."
+      },
+      {
+        "requirement": "Summit layers packed and accessible — vest, arm warmers, light gloves",
+        "by_when": "Race day",
+        "why": "The Mt. Mitchell summit can be 25-35 degrees colder than Spartanburg. Fog, wind, and 45F temperatures are normal at 6,684 ft in May. You will be sweating in the Piedmont and shivering at the summit. Pack layers in your jersey pockets or have them available at the higher rest stops. Descending from the summit in wet kit at 45F without a vest is a hypothermia risk."
+      },
+      {
+        "requirement": "Pacing plan that reverses the cutoff times — work backward from 5:30 PM finish",
+        "by_when": "Race day",
+        "why": "The cutoffs are real: Parkway by 2:15 PM, finish by 5:30 PM. With a 6:30 AM start, you have 11 hours. Reverse-engineer your pace: if the climb from Marion takes you 3 hours, you must leave Marion by 2:30 PM at the latest. Build buffer time. Going out too fast in the Piedmont to 'bank time' is a trap — you need those legs for the climb."
+      }
+    ],
+    "citations": [
+      {
+        "url": "https://theassaults.com/assault-on-mt-mitchell/",
+        "title": "The Assault on Mt. Mitchell — Official Site",
+        "category": "official"
+      },
+      {
+        "url": "https://theassaults.com/our-history/",
+        "title": "Our History — The Assaults",
+        "category": "official"
+      },
+      {
+        "url": "https://theassaults.com/about-the-freewheelers/",
+        "title": "About The Freewheelers — The Assaults",
+        "category": "official"
+      },
+      {
+        "url": "https://usacycling.org/article/facing-the-beast-the-11-000-foot-climb-of-the-assault-on-mount-mitchell",
+        "title": "Facing the Beast: The 11,000-foot climb of The Assault on Mount Mitchell — USA Cycling",
+        "category": "media"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Contents/Index/7977/gibson-and-patterson-fastest-at-47th-assault-on-mount-mitchell",
+        "title": "533 Cyclists Tackle The 47th Annual Assaults on Mt. Mitchell & Marion — Gran Fondo Guide",
+        "category": "media"
+      },
+      {
+        "url": "https://www.visitspartanburg.com/to-the-mountaintop-with-the-founder-of-the-assault-on-mt-mitchell/",
+        "title": "To the Mountaintop with the Founder of The Assault on Mt. Mitchell — Visit Spartanburg",
+        "category": "media"
+      },
+      {
+        "url": "https://www.bikereg.com/47279",
+        "title": "The Assault on Mt. Mitchell and Marion — BikeReg Registration",
+        "category": "official"
+      },
+      {
+        "url": "https://battistrada.com/en/cycling-calendar/edition/the-assaults-on-mt-mitchell-and-marion-2026/48628/",
+        "title": "The Assaults on Mt. Mitchell and Marion edition 2026 — Battistrada",
+        "category": "reference"
+      },
+      {
+        "url": "https://www.elite-wheels.com/events/assault-on-mount-mitchell-2025/",
+        "title": "Assault on Mount Mitchell 2025 — Elitewheels",
+        "category": "reference"
+      },
+      {
+        "url": "https://granfondodailynews.com/2024/09/26/mount-mitchell-assault-2025-canceled-what-you-need-to-know/",
+        "title": "Mount Mitchell Assault 2025 Canceled: What You Need to Know — Gran Fondo Daily",
+        "category": "media"
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "high",
+      "validation_status": "validated",
+      "research_strength": "A",
+      "sources_count": 10,
+      "last_updated": "2026-02-27"
+    }
+  }
+}

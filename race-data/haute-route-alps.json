@@ -1,0 +1,311 @@
+{
+  "race": {
+    "name": "Haute Route Alps",
+    "slug": "haute-route-alps",
+    "display_name": "Haute Route Alps",
+    "tagline": "Seven stages. 800 km. 19,000 meters of climbing. The highest and toughest amateur stage race in the world crosses the Alps from city to city.",
+    "vitals": {
+      "distance_mi": 502,
+      "elevation_ft": 63170,
+      "location": "Nice to Thonon-les-Bains, French Alps / Italy",
+      "location_badge": "FRENCH ALPS / ITALY",
+      "date": "Late August annually (7 consecutive days)",
+      "date_specific": "2026: August 23-29",
+      "terrain_types": [
+        "Paved Alpine mountain roads",
+        "Tour de France and Giro d'Italia cols",
+        "Cross-border route (France-Italy)",
+        "High-altitude passes above 2,700m"
+      ],
+      "field_size": "~500 riders (7-day), ~300 riders (3-day)",
+      "start_time": "Varies by stage, typically 7:00-8:00 AM daily",
+      "registration": "Online via hauteroute.fr. Tiered pricing with early-bird phases. Sells out. 7-day entry: EUR2,099. 3-day entry available.",
+      "prize_purse": "None (General Classification by overall timed results, age categories)",
+      "aid_stations": "Multiple professional feed stations per stage with sports nutrition, water, mechanical and medical support.",
+      "cutoff_time": "Strict daily cutoff times enforced at key checkpoints. Riders swept by broom wagon if behind pace. Must reach stage finish within time limit.",
+      "lat": 43.7102,
+      "lng": 7.2620,
+      "distance_options": [
+        "Haute Route Alps 7-day: ~808 km (502 mi), ~19,255 m gain — the full event across 6 road stages + 1 ITT",
+        "Haute Route Alps 3-day: ~370 km (230 mi), ~9,600 m gain — final 3 stages of the 7-day event"
+      ],
+      "entry_fee": "EUR2,099 (7-day entry fee only; accommodation and travel additional)"
+    },
+    "climate": {
+      "primary": "High Alpine — extreme temperature and weather variability over 7 days",
+      "description": "Late August in the Alps delivers warm valley starts (20-30C / 68-86F) but near-freezing conditions above 2,500m. The Col d'Agnel at 2,744m and Col de la Bonette at 2,715m can see temperatures below 5C with severe wind chill even in August. Over 7 consecutive days, riders will encounter the full spectrum of Alpine weather — blazing sun in the valleys, fog and rain on passes, and potentially snow at the highest summits. Afternoon thunderstorms build predictably from noon onward, with lightning at altitude a real hazard on exposed cols.",
+      "challenges": [
+        "Summit temperatures below 5C at 2,700m+ with wind chill well below zero",
+        "Valley heat: 28-35C on lower stages in late August",
+        "7 consecutive days of weather exposure — guaranteed to encounter storms",
+        "Rapid weather changes at altitude: clear to whiteout in 20 minutes on exposed cols",
+        "Must carry full rain and cold-weather kit daily despite valley heat"
+      ]
+    },
+    "terrain": {
+      "primary": "Paved Alpine mountain passes",
+      "surface": "Well-maintained French and Italian mountain roads. All tarmac throughout. No gravel or unpaved sections. Road quality generally excellent on major cols, occasionally rougher on lesser-used Italian approaches.",
+      "technical_rating": 1,
+      "features": [
+        "Col d'Agnel (2,744m) — highest paved pass on the route, Italian approach: raw, long, wild",
+        "Col d'Izoard (2,360m) — the legendary Casse Deserte moonscape, Tour de France history",
+        "Col de la Lombarde (2,340m) — brutal first-day baptism, France-Italy border crossing",
+        "Col de la Bonette (2,715m) — among the highest paved roads in Europe",
+        "Col de Vars (2,108m), Col de la Cayolle (2,326m), and numerous cols above 2,000m throughout the week"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 86,
+      "tier": 1,
+      "tier_label": "TIER 1",
+      "logistics": 4,
+      "length": 5,
+      "technicality": 1,
+      "elevation": 5,
+      "climate": 4,
+      "altitude": 5,
+      "adventure": 5,
+      "prestige": 5,
+      "race_quality": 5,
+      "experience": 5,
+      "community": 4,
+      "field_depth": 4,
+      "value": 2,
+      "expenses": 2,
+      "cultural_impact": 4,
+      "tier_note": "Prestige 5 + score 86 >= 75 — Tier 1. The definitive premium amateur stage race. 7 days across the Alps on Tour de France roads with professional race infrastructure.",
+      "score_note": "cultural_impact=4 for global brand recognition as 'the Tour de France for amateurs.' technicality=1 (all paved roads). value=2 and expenses=2 reflect the premium pricing — EUR2,099 entry alone, total trip cost EUR3,000-8,000+. altitude=5 for multiple cols above 2,700m including Agnel (2,744m) and Bonette (2,715m).",
+      "editorial_tier": 1,
+      "editorial_tier_label": "TIER 1",
+      "business_tier": 1,
+      "business_tier_label": "TIER 1",
+      "display_tier": 1,
+      "display_tier_label": "TIER 1",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 4,
+        "explanation": "Premium-level organization refined over 15 editions. Daily briefings, escort vehicles, course marshals, broom wagon, medical teams, and mechanical support on every stage. Feed stations are professional and well-stocked. Luggage transported hotel-to-hotel. The event runs like a pro stage race for amateurs. The one limitation: the Alps are inherently remote, and the point-to-point format (Nice to Thonon-les-Bains in 2026) means complex travel logistics to reach the start and return from the finish. But the organization handles everything between those two points."
+      },
+      "length": {
+        "score": 5,
+        "explanation": "~808 km with ~19,255m of climbing over 7 stages. Individual stages range from 100-182 km with 2,500-4,020m of climbing each. Stage 1 alone — 182 km with 4,020m — would be a formidable single-day event. Then you do it again the next day. And the next. For a week. The cumulative load is staggering: by stage 5, legs that handled 3,000m of climbing on day 1 are struggling with every gradient. The 3-day option exists for those who want the Haute Route experience without the full 7-day commitment."
+      },
+      "technicality": {
+        "score": 1,
+        "explanation": "All paved roads throughout. This is a pure road cycling event — the challenge is cardiovascular and muscular, not bike handling. The descents from 2,700m passes are fast and demanding, requiring confidence and good braking technique, but the road surfaces are well-maintained French and Italian mountain roads. You want a road bike with a compact or sub-compact crankset, not a gravel bike."
+      },
+      "elevation": {
+        "score": 5,
+        "explanation": "~19,255 meters of climbing over 7 stages — averaging nearly 2,750m of climbing per day. For context, that daily average alone exceeds many single-day sportives in total. Stage 1 packs 4,020m into 182 km. The cumulative toll of 19,000+ meters across a week is a fundamentally different challenge than a single big day. Your body never fully recovers between stages. By day 5, you're climbing on accumulated fatigue that no amount of single-day training can prepare you for."
+      },
+      "climate": {
+        "score": 4,
+        "explanation": "Late August in the Alps is generally the most stable weather window, but 'stable' in the high Alps is relative. Over 7 days, you will encounter everything: scorching valley heat, freezing summit conditions, rain, wind, and likely at least one thunderstorm. The temperature differential between valley starts at 25C and summit passes at 2,700m where it can be 3-5C is 20+ degrees in the same stage. Clothing strategy over a multi-day Alpine crossing is genuinely complex — pack wrong and you suffer, pack too heavy and you carry it over 2,700m passes."
+      },
+      "altitude": {
+        "score": 5,
+        "explanation": "The Col d'Agnel at 2,744m is among the highest paved passes in the Alps. The Col de la Bonette at 2,715m is close behind. Multiple cols above 2,300m (Izoard, Lombarde, Cayolle) appear throughout the week. At 2,700m+, oxygen availability is reduced by roughly 25% compared to sea level — a measurable physiological handicap that compounds with each day of multi-stage effort. Acclimatization is a genuine performance factor. Riders from sea-level climates feel the altitude acutely on the highest cols."
+      },
+      "adventure": {
+        "score": 5,
+        "explanation": "Seven days crossing the Alps from city to city, summit to summit. You ride the same roads that defined Tour de France and Giro d'Italia legends. The Col d'Agnel's Italian approach feels like the edge of the world. The Casse Deserte below the Izoard summit is a Martian landscape. Crossing from France to Italy and back through high mountain passes gives the event a genuine expedition quality. Unlike single-day sportives, the multi-day format creates a narrative arc — each stage is a chapter, each col a plot point, and the cumulative journey from start to finish is genuinely epic."
+      },
+      "prestige": {
+        "score": 5,
+        "explanation": "The Haute Route is the gold standard of amateur multi-stage cycling. Founded in 2011 by Jean-Francois Alcan — the former director of L'Etape du Tour — it was designed from the start to give amateurs the professional stage-race experience. 'The highest and toughest cyclosportive in the world' is the tagline, and it delivers. Completing the 7-day Alps edition is one of the most respected achievements in amateur cycling. The event regularly sells out, the finisher's medal carries genuine weight, and the GC ranking against a field of serious international riders gives the result meaning."
+      },
+      "race_quality": {
+        "score": 5,
+        "explanation": "This is the closest an amateur can get to racing a professional Grand Tour. Full chip timing on every stage with timed sections (dangerous descents neutralized). General Classification across 7 stages with daily and overall rankings by age category. Professional race infrastructure: escort vehicles, course signage, marshals, medical and mechanical teams, broom wagons. Daily safety briefings. Post-stage massage, lunch, and event village. The organizational standard is genuinely premium — this is what EUR2,099 buys you."
+      },
+      "experience": {
+        "score": 5,
+        "explanation": "The Haute Route Alps is a once-in-a-lifetime cycling experience. Summiting the Col d'Agnel at 2,744m on day 2, with the entire Italian Alps stretched below you, is transcendent. Riding the Casse Deserte on the Izoard, where Coppi and Bobet became legends, gives you goosebumps regardless of how much your legs hurt. The cumulative emotional arc of 7 stages — from nervous anticipation on the start line in Nice to euphoric exhaustion at the finish in Thonon-les-Bains — creates memories that single-day events simply cannot match. You live like a pro for a week, and you earn every kilometer."
+      },
+      "community": {
+        "score": 4,
+        "explanation": "A tight-knit international field of ~500 riders who share 7 days of Alpine suffering. The multi-day format forges genuine bonds — by stage 3, strangers become riding partners, and by stage 7, they're friends for life. The field draws from across Europe, North America, and Australia, united by the shared insanity of choosing to do this voluntarily. Evening pasta parties, daily briefings, and the intimate field size create a community atmosphere that 10,000-rider sportives can't replicate. The Haute Route has a devoted alumni culture — many riders return year after year."
+      },
+      "field_depth": {
+        "score": 4,
+        "explanation": "The EUR2,099 entry fee and 7-day commitment self-select for serious, committed riders. The front of the GC is fast — strong amateur racers chasing overall classification push hard on every stage. Age-group competition is fierce, with experienced sportive riders from across Europe battling for category podiums. The field is smaller than mass-participation sportives, but the average rider quality is very high. You don't pay EUR2,099 and take a week off work unless you're taking this seriously."
+      },
+      "value": {
+        "score": 2,
+        "explanation": "EUR2,099 for the entry fee alone — before accommodation, travel, and meals. That buys you 7 days of premium race infrastructure, daily support, timing, jersey, massage, feed stations, and the full Haute Route experience. Per-day, the value proposition is reasonable for what you get — but the absolute cost is high. Tour operator packages (Sportive Breaks, Two Wheel Tours) run EUR4,000-8,000+ with accommodation, transfers, and additional support. This is premium cycling for those who can afford it."
+      },
+      "expenses": {
+        "score": 2,
+        "explanation": "The most expensive amateur cycling event in the world. EUR2,099 entry fee. 7+ nights of Alpine accommodation (not always included). Flights to Nice, return from Geneva or Thonon-les-Bains. Meals beyond the included daily lunch. Bike transport. Tour operator packages push total cost to EUR4,000-8,000+ from Europe, even more from North America or Australia. This is a cycling holiday that rivals the cost of a luxury European vacation. Budget EUR3,000 absolute minimum, EUR5,000-8,000 more realistically."
+      }
+    },
+    "biased_opinion": {
+      "verdict": "The Grand Tour",
+      "summary": "The Haute Route Alps is the closest an amateur cyclist can get to riding a professional Grand Tour. Seven stages across the Alps, 800 km, 19,000+ meters of climbing, cols above 2,700m, timed stages with a General Classification, professional support from start to finish. It is expensive. It is brutally hard. It will break you at least once during the week. And it will deliver cycling experiences that nothing else in the amateur calendar can match. The Col d'Agnel at 2,744m on stage 2, the Casse Deserte of the Izoard, the Bonette standing alone above 2,700m — these are not just climbs, they are the cathedrals of European cycling, and you ride them consecutively for a week. The Haute Route doesn't apologize for its price or its difficulty. It simply delivers the definitive Alpine cycling experience.",
+      "strengths": [
+        "The ultimate amateur stage race: 7 days, 800 km, 19,000m of climbing across the heart of the Alps",
+        "Professional race infrastructure: timing, GC classification, daily support, medical and mechanical teams",
+        "Iconic cols above 2,700m: Agnel, Bonette, Izoard, Lombarde — the highest paved roads in the Alps",
+        "Multi-day format creates emotional depth and community bonds that single-day events cannot replicate"
+      ],
+      "weaknesses": [
+        "The most expensive amateur cycling event: EUR2,099 entry before accommodation and travel",
+        "Requires a full week commitment — 9+ days including travel, which limits accessibility",
+        "The difficulty is genuine: DNF rates reflect the brutal cumulative toll of 7 Alpine stages",
+        "Accommodation logistics across 7 stage towns add significant planning complexity"
+      ],
+      "bottom_line": "If you want the pinnacle of amateur road cycling — the full multi-stage Alpine experience with professional infrastructure — the Haute Route Alps is it. Nothing else comes close. Bring your legs, your wallet, and your willingness to suffer."
+    },
+    "final_verdict": {
+      "score": "86 / 100",
+      "one_liner": "Seven stages. 800 km. 19,000 meters. Cols above 2,700m. The definitive amateur stage race across the Alps.",
+      "should_you_race": "Yes if you want the ultimate amateur cycling challenge — 7 days of Alpine stage racing with professional infrastructure. Yes if you can commit the time, training, and budget for a premium event. Skip if the EUR2,099 entry fee (before travel and accommodation) is prohibitive. Skip if you prefer single-day events — the multi-day format is a fundamentally different challenge.",
+      "alternatives": "If you want a single-day Alpine test at a fraction of the cost: try La Marmotte (4 cols, Alpe d'Huez finish, EUR110-130). If you want multi-day Pyrenean crossing self-supported: try Raid Pyreneen (18 cols, EUR9-19, 100-hour brevet). If you want a multi-day sportive with Italian Dolomites: try Haute Route Dolomites.",
+      "alternative_slugs": [
+        "la-marmotte",
+        "raid-pyreneen"
+      ]
+    },
+    "logistics": {
+      "airport": "Nice (NCE) — 2026 start city, direct flights from across Europe and international hubs. Geneva (GVA) — near 2026 finish (Thonon-les-Bains), strong international connections. Lyon (LYS) — 2-3 hours from finish.",
+      "lodging_strategy": "For 2026: arrive Nice area day before start. Accommodation moves nightly across stage towns — most riders book through official Haute Route accommodation packages or tour operators (Sportive Breaks, Two Wheel Tours, La Fuga) who handle hotel-to-hotel logistics and luggage transport. Independent booking is possible but requires reserving 7+ different hotels across Alpine towns. Book 6-12 months in advance.",
+      "food": "Daily lunch included at stage finish. Evening pasta party included. Breakfast arrangements vary by accommodation. Feed stations on course provide sports nutrition, fruit, water. Alpine France and Italy offer excellent restaurant options in stage towns for dinners.",
+      "packet_pickup": "Registration day in the start city (Nice for 2026), typically the day before Stage 1. Riders receive event jersey, race numbers, timing chip, event briefing.",
+      "parking": "Tour operator transfers handle logistics between stages. If driving independently, the point-to-point format requires a car transfer service. Event organization offers luggage and travel bag transport between stages.",
+      "official_site": "https://hauteroute.fr/"
+    },
+    "history": {
+      "founded": 2011,
+      "founder": "Jean-Francois Alcan and OC Sport (now OC ThirdPole)",
+      "origin_story": "Created by Jean-Francois Alcan, who had directed L'Etape du Tour from 1992 to 2008 and saw an opportunity to give amateur cyclists a full multi-stage experience. The inaugural Haute Route ran from Geneva to Nice in August 2011, covering 720 km with 14 Alpine cols over 7 stages. Organized by OC Sport under CEO Remi Duchemin, it was billed as 'the highest and most challenging cycling event in Europe for amateur cyclists' — filling the gap between single-day sportives and the professional Grand Tours. The event sold out its first edition and has continued to sell out annually since, expanding to include Pyrenees and Dolomites editions.",
+      "notable_moments": [
+        "2011: Inaugural edition — Geneva to Nice, 720 km, 7 stages, up to 1,000 riders",
+        "Expansion to include Haute Route Pyrenees and Haute Route Dolomites editions",
+        "Introduction of 3-day and 5-day formats to broaden accessibility",
+        "2026: Nice to Thonon-les-Bains — route includes Col d'Agnel (2,744m) and Col de la Bonette (2,715m)",
+        "Consistent sell-out status and devoted alumni community who return year after year"
+      ],
+      "reputation": "The definitive amateur multi-stage cycling event. What the Tour de France is to professional cycling, the Haute Route Alps aims to be for amateurs — a week-long Alpine stage race with professional infrastructure, timed stages, and a General Classification."
+    },
+    "course_description": {
+      "character": "A 7-stage point-to-point crossing of the Alps, alternating between massive road stages (100-182 km with 2,500-4,020m climbing each) and an uphill individual time trial. The route changes annually but consistently features the most iconic and highest cols in the French and Italian Alps. The 2026 edition runs Nice to Thonon-les-Bains, opening with a brutal 182 km / 4,020m stage crossing into Italy via the Col de la Lombarde, and continuing through the Agnel, Izoard, Vars, Bonette, and other legendary passes. Each day is a standalone epic; together they form the most demanding week in amateur cycling.",
+      "suffering_zones": [
+        {
+          "mile": 0,
+          "label": "Stage 1: Nice to Cuneo — The Baptism",
+          "desc": "182 km with 4,020m of climbing. La Colmiane (1,513m) opens the day gently before the Col de la Lombarde (2,340m) delivers the first true Alpine test. Over 4,000m of climbing on day 1 is the Haute Route's statement of intent: no warm-up, no compromise. You cross into Italy at altitude. Welcome to the deep end.",
+          "terrain_detail": "Col de la Lombarde (2,340m), La Colmiane (1,513m). France-Italy border crossing.",
+          "named_section": "Col de la Lombarde"
+        },
+        {
+          "mile": 115,
+          "label": "Stage 2: Cuneo to Col d'Izoard — The Ceiling",
+          "desc": "141 km with 3,610m of climbing. The Col d'Agnel (2,744m) from the Italian side is the highest point of the entire event — raw, long, and wild. Above 2,500m, the air thins noticeably. Then the Col d'Izoard (2,360m) rises with the lunar Casse Deserte, where Coppi and Bobet are immortalized in stone. Two passes above 2,300m in a single stage on day 2.",
+          "terrain_detail": "Col d'Agnel (2,744m) — highest paved pass on the route. Col d'Izoard (2,360m) — Casse Deserte.",
+          "named_section": "Col d'Agnel + Col d'Izoard"
+        },
+        {
+          "mile": 250,
+          "label": "Stages 3-5: The Accumulation",
+          "desc": "The middle stages stack cols between 2,000m and 2,700m as cumulative fatigue sets in. Col de Vars (2,108m), Col de la Bonette (2,715m), and potentially Col de la Cayolle (2,326m) appear across these stages. By stage 4, every gradient feels steeper than it is. The multi-day fatigue transforms manageable 7% grades into walls. This is where the Haute Route separates finishers from DNFs.",
+          "terrain_detail": "Multiple cols above 2,000m daily. Bonette (2,715m) among the highest paved roads in Europe.",
+          "named_section": "The Alpine Heartland"
+        },
+        {
+          "mile": 430,
+          "label": "Stages 6-7: The Finale",
+          "desc": "The final stages push toward Thonon-les-Bains with legs carrying a week of Alpine fatigue. Whatever cols remain, they are climbed on bodies that have already absorbed 15,000+ meters of climbing. The Individual Time Trial — a single climb against the clock — distills the entire week into one pure effort. The GC is decided here. The run into Thonon-les-Bains is the earned reward.",
+          "terrain_detail": "Final Alpine cols plus ITT climb. Cumulative fatigue is the primary terrain.",
+          "named_section": "The Finale"
+        }
+      ],
+      "signature_challenge": "The Col d'Agnel at 2,744m is the physical peak — one of the highest paved passes in the Alps, where oxygen debt compounds the climbing effort. But the Haute Route's true signature challenge is the cumulative toll: 19,000+ meters of climbing spread across 7 consecutive days, with no rest days. By stage 5, even flat roads feel like climbs. The event tests not just fitness but the ability to recover, refuel, and race again when every fiber demands rest."
+    },
+    "guide_variables": {
+      "race_name": "Haute Route Alps",
+      "race_distance": "502 miles",
+      "race_elevation": "63,170 feet",
+      "race_date": "August",
+      "race_location": "Nice to Thonon-les-Bains, French Alps / Italy",
+      "race_terrain": "Paved Alpine mountain passes, Tour de France cols, multiple summits above 2,700m",
+      "race_weather": "Late August Alps: 20-30C in valleys, below 5C at 2,700m+ summits. Thunderstorms likely. Full range of conditions across 7 days.",
+      "race_challenges": [
+        "~19,255m of climbing across 7 consecutive stages with no rest days",
+        "Multiple cols above 2,700m including Agnel (2,744m) and Bonette (2,715m)",
+        "Cumulative multi-day fatigue: recovering overnight to race again each morning",
+        "Extreme temperature swings within stages: valley heat to summit cold",
+        "Stage 1 opens with 182 km and 4,020m of climbing — no warm-up day"
+      ],
+      "altitude_section": true,
+      "altitude_feet": 9003
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Multi-day endurance base — consecutive 100+ km mountain days in training",
+        "by_when": "Week 6",
+        "why": "The Haute Route demands 7 consecutive days of 100-182 km stages with 2,500-4,000m of climbing each. Single big days in training are insufficient. You must train back-to-back mountain days to build the specific recovery capacity and muscular durability the event demands."
+      },
+      {
+        "requirement": "Altitude preparation — exposure or acclimatization above 2,500m",
+        "by_when": "Week 8",
+        "why": "The Col d'Agnel (2,744m) and Bonette (2,715m) sit at altitudes where oxygen reduction is physiologically significant. If you train at sea level, altitude camps or hypoxic training are strongly recommended. The cumulative altitude exposure across 7 days compounds the oxygen deficit."
+      },
+      {
+        "requirement": "Stage-race recovery protocol — nutrition, sleep, and fueling strategy tested across multi-day efforts",
+        "by_when": "Week 9",
+        "why": "Daily caloric expenditure of 4,000-6,000 kcal requires aggressive recovery nutrition between stages. Your overnight recovery routine — carbohydrate replenishment, protein, hydration, sleep optimization — is as important as your on-bike training. Test it in a multi-day training camp."
+      },
+      {
+        "requirement": "Mental preparation for DNF risk and deep suffering",
+        "by_when": "Week 10",
+        "why": "The Haute Route has meaningful DNF rates. By stage 4-5, you will question why you are doing this. Having a mental strategy for the low points — and knowing your personal non-negotiable limits — is the difference between finishing and abandoning."
+      }
+    ],
+    "citations": [
+      {
+        "url": "https://hauteroute.fr/",
+        "title": "Haute Route — Official Site",
+        "category": "official"
+      },
+      {
+        "url": "https://hauteroute.fr/gb-haute-route-alpes-2026-race-route-2/",
+        "title": "Haute Route Alps 2026 — Race Route",
+        "category": "official"
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Haute_Route_(cycling)",
+        "title": "Haute Route (cycling) — Wikipedia",
+        "category": "reference"
+      },
+      {
+        "url": "https://sportivebreaks.com/sportives/haute-route-alps/",
+        "title": "Haute Route Alps — Sportive Breaks",
+        "category": "review"
+      },
+      {
+        "url": "https://www.bikeradar.com/news/haute-route-launched",
+        "title": "Haute Route Launched — BikeRadar (2010)",
+        "category": "reference"
+      },
+      {
+        "url": "https://lafuga.cc/product/country/italy/haute-route-alps/",
+        "title": "Haute Route Alps — La Fuga",
+        "category": "review"
+      },
+      {
+        "url": "https://www.bikeradar.com/features/routes-and-rides/what-is-the-haute-route",
+        "title": "What is the Haute Route? — BikeRadar",
+        "category": "review"
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "high",
+      "validation_status": "validated",
+      "research_strength": "A",
+      "sources_count": 7,
+      "last_updated": "2026-02-27"
+    }
+  }
+}

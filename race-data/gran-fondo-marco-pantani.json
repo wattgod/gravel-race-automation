@@ -1,0 +1,324 @@
+{
+  "race": {
+    "name": "Gran Fondo Marco Pantani",
+    "slug": "gran-fondo-marco-pantani",
+    "display_name": "Gran Fondo Marco Pantani",
+    "tagline": "Il Pirata's training roads. His family's event. Cesenatico to the Romagnol hills and back. Since 2005.",
+    "vitals": {
+      "distance_mi": 90,
+      "elevation_ft": 7054,
+      "location": "Cesenatico, Emilia-Romagna, Italy",
+      "location_badge": "CESENATICO, ITALY",
+      "date": "Mid-September",
+      "date_specific": "2025: September 13 (21st edition)",
+      "terrain_types": [
+        "Paved Italian provincial roads",
+        "Steep Romagnol hill climbs (max 14-16%)",
+        "Rolling Emilia-Romagna and Marche countryside",
+        "Adriatic coastal roads"
+      ],
+      "field_size": "~3,000-5,000 riders",
+      "start_time": "7:30 AM (mass start from Marco Pantani monument, Cesenatico waterfront)",
+      "registration": "Online via gfmarcopantani.com. Registration typically opens spring. Entry: EUR55-75 depending on timing and route. Race pack and bib included.",
+      "prize_purse": "None (timed event with age-group rankings and finisher medals)",
+      "aid_stations": "Feed zones at strategic points between climbs — Italian hospitality standard. Water, energy food, fruit, Italian pastries. The Pantani family oversees an event that reflects the warmth of Romagnol cycling culture.",
+      "cutoff_time": "Time limits at intermediate checkpoints. Broom wagon support.",
+      "lat": 44.199,
+      "lng": 12.395,
+      "distance_options": [
+        "Lungo (Long): 145 km (90 mi), 2,150 m (7,054 ft) gain — Ciola, Botticella, Montevecchio and more",
+        "Medio (Medium): 107 km (66 mi), 1,254 m (4,114 ft) gain — Ciola, Montevecchio",
+        "Corto (Short): 70 km (43 mi), ~600 m (1,969 ft) gain — Montevecchio, Pantani monument"
+      ],
+      "entry_fee": "EUR55-75 (includes race pack and bib)"
+    },
+    "climate": {
+      "primary": "Mid-September Emilia-Romagna — warm, dry, near-ideal cycling conditions",
+      "description": "Mid-September in Cesenatico is close to perfect for cycling. Average highs of 24-26C (75-79F), lows around 17-18C (63-65F). The summer heat has broken but the Adriatic warmth lingers. Rainfall probability is moderate — roughly 19% chance of rain on any given day, with 50mm average for the month spread across 6-8 rainy days. Significantly drier than the May conditions of Nove Colli. Morning starts are comfortable, afternoons are warm but not oppressive. The hills inland can be slightly cooler. This is the tail end of peak cycling season on the Adriatic coast.",
+      "challenges": [
+        "Afternoon warmth (24-27C) on exposed hillside climbs if conditions are clear",
+        "Occasional September thunderstorms over the Romagnol hills — brief but intense",
+        "Morning start temperature (17-19C) is pleasant — no cold-weather concerns",
+        "Wind exposure on the coastal sections near Cesenatico"
+      ]
+    },
+    "terrain": {
+      "primary": "Paved Italian provincial roads through hilly Romagnol and Marche countryside",
+      "surface": "Italian provincial roads — well-maintained tarmac through the Emilia-Romagna and Marche hills. Road quality is generally good, with some rougher sections on minor hill roads. All paved throughout. The terrain is rolling to punchy — a mix of sustained climbs and sharp kickers that reflect the varied geography Pantani used to build his legendary climbing engine.",
+      "technical_rating": 2,
+      "features": [
+        "Ciola (Passo della Ciola, ~560m) — 6 km at 6.4% average from Linaro, a Category 2 climb. One of Pantani's signature training hills, punchy and relentless through the Romagnol countryside",
+        "Botticella — sustained hill climb through the Marche border country. Part of Pantani's extended training loops into the hinterland",
+        "Montevecchio — the climb crowned by the monument to Marco Pantani. Every route passes here. The emotional heart of the event, where Il Pirata trained endlessly before his greatest achievements",
+        "Rolling inland roads through vineyards, olive groves, and stone villages between Cesenatico and the pre-Apennine foothills",
+        "Adriatic coastal approach — flat run from Cesenatico before the hills begin, and the return to the coast after the final descent"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 67,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "logistics": 4,
+      "length": 3,
+      "technicality": 2,
+      "elevation": 3,
+      "climate": 3,
+      "altitude": 1,
+      "adventure": 3,
+      "prestige": 4,
+      "race_quality": 3,
+      "experience": 4,
+      "community": 3,
+      "field_depth": 3,
+      "value": 3,
+      "expenses": 3,
+      "cultural_impact": 5,
+      "tier_note": "Named after Marco Pantani, organized by his family, riding his actual training roads from Cesenatico into the Romagnol hills. cultural_impact=5 reflects the profound emotional weight of a family-run memorial event for cycling's most tragic legend. prestige=4 earns a one-tier promotion but cannot promote T2 into T1 — remains Tier 2.",
+      "score_note": "Sum of 14 criteria = 42. cultural_impact=5 for a direct family-organized memorial honoring the last man to win the Giro and Tour in the same year, held on his actual training roads, starting from his monument in his hometown. 42 + 5 = 47. (47/70)*100 = 67.14, rounded to 67. prestige=4 (Pantani's name, family involvement, deeply emotional cycling pilgrimage, but not a globally televised Monument-level event). altitude=1 — hills top out around 560-700m. climate=3 — September is near-ideal but not a climate challenge. p4 promotion blocked at T2 — cannot enter T1.",
+      "editorial_tier": 2,
+      "editorial_tier_label": "TIER 2",
+      "business_tier": 2,
+      "business_tier_label": "TIER 2",
+      "display_tier": 2,
+      "display_tier_label": "TIER 2",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 4,
+        "explanation": "Cesenatico is the same start town as Nove Colli — well-connected and easy to reach. Rimini airport is 25 minutes away with budget European connections. Bologna is 1.5 hours with wider international flights. The start and finish are at the Marco Pantani monument on the Cesenatico waterfront — a single-location loop that eliminates transfer headaches. September is post-peak beach season, so accommodation availability is good and rates drop from summer highs. The Pantani family has been running this event for two decades and the logistics are straightforward."
+      },
+      "length": {
+        "score": 3,
+        "explanation": "The Lungo route at 145 km (90 miles) with 2,150m of climbing is a solid day but not an ultra-endurance test. It sits in the middle ground of Italian gran fondos — harder than a casual sportive, easier than Nove Colli's 200 km monster. The Medio at 107 km and the Corto at 70 km provide accessible alternatives. For riders who want Pantani's roads without Pantani's suffer-level distance, this is well-calibrated."
+      },
+      "technicality": {
+        "score": 2,
+        "explanation": "All paved throughout. The Romagnol hills feature gradients that peak around 14-16% on the steeper pitches of the Ciola and surrounding climbs — not flat-road riding, but nothing that requires specific bike handling skills beyond being comfortable on steep grades. The descents from the hills involve tight corners and narrow provincial roads that demand attention, especially in groups. Not cobblestone-level technicality, but the steep gradients add a physical dimension beyond pure endurance."
+      },
+      "elevation": {
+        "score": 3,
+        "explanation": "2,150 meters of climbing on the Lungo route across multiple distinct hills. Respectable, but not Alpine grandeur. The Ciola at 6.4% average over 6 km is the most sustained effort; other climbs are shorter and punchier. The cumulative effect of repeated climb-descend cycles over 145 km creates genuine fatigue, but riders who have done Nove Colli or any Dolomite gran fondo will find this more moderate. The climbing is honest, not heroic."
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "Mid-September on the Adriatic coast of Italy is close to cycling perfection. Warm but not hot (24-26C highs), dry more often than not, with long daylight hours and the golden light of early autumn. Rain probability is around 19% — dramatically better than Nove Colli's wet May. The morning start is comfortable, the afternoon sun is warm on the exposed hillsides. Not the extreme conditions that earn high climate scores (no Alpine storms, no desert heat), but genuinely pleasant riding weather that makes the experience better, not harder."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "The highest point on any route tops out around 560-700m above sea level. Altitude is completely irrelevant. The pre-Apennine foothills of Emilia-Romagna are hills, not mountains. Oxygen levels are indistinguishable from sea level. Pantani built his climbing engine on these hills precisely because he lived at sea level in Cesenatico — the altitude challenge came when he reached the Alps and Dolomites."
+      },
+      "adventure": {
+        "score": 3,
+        "explanation": "The Romagnol countryside is charming in the way that provincial Italy is always charming — rolling green hills, small stone villages, vineyards, olive groves, the occasional roadside shrine. The route passes through landscapes that shaped one of cycling's greatest climbers, which adds an emotional dimension that pure scenery cannot match. The Montevecchio monument to Pantani is a genuine pilgrimage site. But this is not the Dolomites, not Tuscany's postcard views, and not the Alpine grandeur of La Marmotte. The adventure is internal — riding the roads of Il Pirata — rather than geographical."
+      },
+      "prestige": {
+        "score": 4,
+        "explanation": "The event bears the name of Marco Pantani — the last man to win the Tour de France and the Giro d'Italia in the same year (1998), one of the most gifted and tragic figures in cycling history. It is organized by the Pantani family themselves, through the Marco Pantani foundation. The routes follow his actual training roads from Cesenatico into the hills where he built the legs that conquered the Galibier and the Mortirolo. In Italian cycling culture, this is a pilgrimage. Globally, it lacks the scale and broadcast reach of L'Etape or Maratona, but for those who know the story of Il Pirata, the prestige is deeply personal."
+      },
+      "race_quality": {
+        "score": 3,
+        "explanation": "The Pantani family and the Marco Pantani association have been organizing this event for two decades. The logistics are competent — timed start, age-group rankings, feed zones, medical support. The event weekend includes ancillary programming: Spazio Pantani museum visits, pasta party, and in some years a dinner with former professional cyclists who rode alongside Pantani. Route design by Vanotti Cycling Camp ensures the courses are well-planned. But this is a family-run tribute event, not a corporate machine. The production is warm and genuine rather than slick and polished."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "Starting from the Marco Pantani monument on the Cesenatico waterfront — the bronze statue of Il Pirata overlooking the canal port — sets a tone that no other gran fondo can replicate. You ride out of his hometown, through the flat coastal roads, and into the hills where he trained as a teenager and as a champion. The Ciola, the Botticella, the Montevecchio — these are not just climbs, they are the chapters of his story. At the Montevecchio summit, you pass his memorial. The return to Cesenatico completes the loop. Afterward, you can visit Spazio Pantani, the museum his family maintains. For anyone who has read about Pantani, watched the footage of his attacks on the Galibier, or felt moved by his story, this is an experience that transcends a bike ride."
+      },
+      "community": {
+        "score": 3,
+        "explanation": "The field is smaller and more intimate than Nove Colli's 10,000-rider spectacle. The Pantani Gran Fondo attracts devoted cycling enthusiasts — many of them Italians who grew up watching Il Pirata, plus an international contingent of cycling history pilgrims. The family's involvement gives the event an emotional warmth that corporate sportives cannot manufacture. The pasta party, the museum visits, and the shared experience of riding Pantani's roads create genuine camaraderie. But the field is smaller and less diverse than the major Italian GFs."
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "The event format is a standard Italian gran fondo — competitive at the front with age-group rankings, recreational toward the back. Recent editions have attracted pro and continental team representation at the sharp end. The front group moves fast on these punchy Romagnol hills. Italian club riders take age-group competition seriously, and the steep gradients reward pure climbing ability. But with a smaller field than the marquee Italian GFs, the depth thins more quickly beyond the top tier."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "EUR55-75 entry fee for a well-organized event with timed results, feed zones, and race-day support is fair but not exceptional value compared to Nove Colli's EUR99-110 with a collector's jersey. The Pantani event does not include a jersey. The three route options provide flexibility. The emotional value — riding Pantani's actual roads, starting from his monument, visiting his museum — is impossible to price. The tangible value is average; the intangible value is immeasurable."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Identical cost profile to Nove Colli — same town, same airport options, same Adriatic coast accommodation market. September rates are slightly lower than May as the beach season winds down. Hotels run EUR70-140/night. Rimini airport (25 min) has budget connections across Europe. Bologna (1.5h) provides wider options. Italian food is outstanding and reasonably priced. Budget EUR700-1,400 from Europe, EUR1,100-1,800 from the US for a 3-5 day trip that combines cycling pilgrimage with Adriatic coast relaxation."
+      }
+    },
+    "biased_opinion": {
+      "verdict": "The Pilgrimage",
+      "summary": "The Gran Fondo Marco Pantani is not the hardest ride in Italy, not the most scenic, and not the most famous. It is the most personal. Organized by the Pantani family, starting from the bronze statue of Il Pirata on the Cesenatico waterfront, following the roads he rode as a teenager and as a Tour de France champion, passing the monument at Montevecchio where his spirit lives in the hills. Marco Pantani — born in Cesenatico 1970, dead in Rimini 2004, the last man to win the Giro and the Tour in the same year — built his legendary climbing legs on these Romagnol hills before he ever touched the Galibier or the Mortirolo. This event lets you ride in his ghost. The climbs are honest, the countryside is charming, and the emotional weight is unlike anything else in amateur cycling.",
+      "strengths": [
+        "Pantani's actual training roads — the Ciola, Botticella, and Montevecchio where Il Pirata built his climbing engine",
+        "Family-organized: the Pantani family runs this event through their foundation, giving it an authenticity no corporate sportive can match",
+        "September timing: near-perfect cycling weather on the Adriatic coast, significantly drier than Nove Colli's wet May",
+        "Three route options (70-145 km) make it accessible to riders of all abilities",
+        "Spazio Pantani museum in Cesenatico — trophies, bikes, jerseys, and the story of the greatest climber of his generation"
+      ],
+      "weaknesses": [
+        "Not Alpine grandeur — the hills top out below 700m with pleasant rather than spectacular scenery",
+        "Smaller and less polished than Nove Colli, which shares the same start town and overlapping roads",
+        "The emotional weight depends on knowing Pantani's story — without that context, it is a good mid-tier Italian GF",
+        "No collector's jersey or equivalent memento included with entry",
+        "Route distances and configurations have varied year to year — check the current edition's specifics"
+      ],
+      "bottom_line": "If you know the story of Marco Pantani — if you have watched the footage of his solo attack on Les Deux Alpes in 1998, if you have read about his tragic end in a Rimini hotel room, if the nickname Il Pirata means something to you — then this event is a pilgrimage that no other gran fondo can replicate. You start at his statue, ride his roads, pass his memorial, and return to his hometown. If you want a harder ride on similar roads, do Nove Colli in May. If you want the emotional weight of cycling's most haunting legend, do the Pantanissima in September."
+    },
+    "final_verdict": {
+      "score": "67 / 100",
+      "one_liner": "Il Pirata's training roads. His family's event. Cesenatico to the Romagnol hills and back. Since 2005.",
+      "should_you_race": "Yes if Pantani's story moves you and you want to ride the roads where he built his legendary climbing engine. Yes if September in Italy with warm weather and honest Romagnol hills sounds like your kind of weekend. Skip if you want pure athletic challenge — Nove Colli in the same town offers more distance and climbing. Skip if you have no connection to Pantani's legacy — without that context, this is a pleasant but mid-tier Italian sportive.",
+      "alternatives": "If you want more distance on the same roads: Gran Fondo Nove Colli (200 km, 9 hills, same start town, May). If you want Italian mountains: Maratona dles Dolomites (7 Dolomite passes). If you want another Italian cycling legend tribute: Granfondo Strade Bianche (white roads of Tuscany). If you want Pantani's ultimate training climb: ride the Cippo di Carpegna independently — 6 km at 10.2% average, where he said 'the Carpegna is enough for me.'",
+      "alternative_slugs": [
+        "nove-colli",
+        "maratona-dles-dolomites"
+      ]
+    },
+    "logistics": {
+      "airport": "Rimini (RMI) — 25 minutes (closest, budget airline connections across Europe). Bologna (BLQ) — 1.5 hours (wider international connections). Forli (FRL) — 30 minutes (limited flights).",
+      "lodging_strategy": "Stay in Cesenatico — the start/finish town on the Adriatic coast. Hotels and apartments line the beach promenade and the canal port area. September is late beach season, so rates drop from summer peaks (EUR70-140/night). Book 2-4 months in advance for event weekend. Cesenatico is smaller and more authentic than nearby Rimini — the canal port designed by Leonardo da Vinci, the seafood restaurants, and Spazio Pantani are all within walking distance. Alternatively, Rimini (25 min) has a larger hotel selection.",
+      "food": "Emilia-Romagna is Italy's culinary heartland. Piadina romagnola (flatbread with squacquerone cheese and arugula), passatelli in brodo, tagliatelle al ragu, strozzapreti pasta, and fresh Adriatic seafood. September brings late-summer produce at its peak. Cesenatico's fish restaurants along the canal port are outstanding. The event's pasta party is a communal carb-loading celebration that captures the warmth of Romagnol hospitality.",
+      "packet_pickup": "Event village near the Cesenatico waterfront, 1-2 days before the race. Packet pickup is combined with the expo area. Many riders combine pickup with a visit to Spazio Pantani (the Pantani museum), which is nearby.",
+      "parking": "Cesenatico manages event parking in designated areas. The start is at the Pantani monument on the waterfront, so the town center is affected. Arriving the day before and walking to the start from your hotel is the simplest approach.",
+      "official_site": "https://gfmarcopantani.com/"
+    },
+    "history": {
+      "founded": 2005,
+      "founder": "The Pantani family, through the Fondazione Marco Pantani / Associazione Marco Pantani",
+      "origin_story": "Marco Pantani died on February 14, 2004, in a hotel room in Rimini. He was 34. He had won the Tour de France and the Giro d'Italia in the same year — 1998 — the last man to achieve that double. His nickname was Il Pirata, the Pirate, for the bandana he always wore. His climbing style was unmistakable: explosive, savage, beautiful. A year after his death, his family created the Gran Fondo Marco Pantani — originally held in Aprica (site of one of his famous Giro victories) in 2005, later relocated to Cesenatico, his birthplace and the town where he learned to ride. The routes were designed to follow the roads Marco actually trained on — the Ciola, the Botticella, the Montevecchio — the hills between the Adriatic coast and the Apennine foothills where a skinny kid from a seaside town built the legs that would conquer the highest mountains in Europe. The start from his bronze statue on the Cesenatico waterfront is both a tribute and a starting gun.",
+      "notable_moments": [
+        "2005: First edition held in Aprica with 1,534 riders. Pantani's parents Paolo and Tonina were officials at the start.",
+        "Event relocated to Cesenatico — Pantani's birthplace — to honor his roots and ride his actual training roads",
+        "Route design by Vanotti Cycling Camp ensures courses trace Pantani's real training loops through the Romagnol hills",
+        "Former professional rivals and teammates of Pantani regularly attend as guests of honor",
+        "Spazio Pantani museum opened in Cesenatico in 2006, managed by the family, featuring his bikes, jerseys, trophies, and videos",
+        "The Montevecchio monument to Pantani — included on every route — has become a cycling pilgrimage site",
+        "2025: 21st edition. Two decades of the Pantani family honoring their son through the sport he lived for."
+      ],
+      "reputation": "The most emotionally charged gran fondo in cycling. Not the hardest, not the most famous, but the one that carries the weight of a legend's life and death. A family's tribute to their son, on the roads where he became Il Pirata."
+    },
+    "course_description": {
+      "character": "Three routes of increasing ambition, all starting from the Marco Pantani monument on the Cesenatico waterfront and heading inland through the Romagnol hills. The terrain transitions from flat Adriatic coastal roads to rolling countryside to the punchy, steep-gradient hills that characterize the pre-Apennine foothills. The Lungo route ventures into the Marche border country, adding the Botticella and additional climbing to the Ciola and Montevecchio that feature on all routes. The rhythm is distinctly Romagnol — short, sharp climbs separated by rolling valleys with small villages, vineyards, and stone walls. These are not long Alpine grinds; they are the repeated punchy efforts that Pantani used to build explosive power before translating it to the high mountains.",
+      "suffering_zones": [
+        {
+          "mile": 30,
+          "label": "Ciola — Pantani's Training Climb",
+          "desc": "The Passo della Ciola from Linaro: 6 km at 6.4% average, rising from 188m to 560m with 383m of elevation gain. A Category 2 climb that Marco Pantani rode countless times in training. The gradient is steady and honest — no flat respite sections, just a sustained effort through the Romagnol hillside. The steeper pitches touch 10-12%. Not the savage 18% of Nove Colli's Barbotto, but a longer, more grinding effort that tests sustained climbing power.",
+          "terrain_detail": "6 km, 383m gain, 6.4% average gradient, max ~12%",
+          "named_section": "Passo della Ciola"
+        },
+        {
+          "mile": 55,
+          "label": "Botticella — Into the Marche Border Country",
+          "desc": "The Botticella climb takes the Lungo route deeper into the hinterland, crossing the border between Emilia-Romagna and the Marche. This was part of Pantani's extended training loops — the rides where he would leave Cesenatico at sea level and not return until he had accumulated thousands of meters of climbing across every hill between the coast and the Apennines. A sustained effort through isolated countryside that rewards steady pacing.",
+          "terrain_detail": "Sustained hill climb through Marche border country",
+          "named_section": "Botticella"
+        },
+        {
+          "mile": 75,
+          "label": "Montevecchio — The Emotional Summit",
+          "desc": "Every route in the Gran Fondo Marco Pantani passes through Montevecchio, where a monument to Il Pirata marks the hilltop. This was one of Marco's most frequent training destinations — the hill closest to Cesenatico that offered meaningful climbing. Reaching the monument, seeing the tributes left by cycling pilgrims, and knowing that Pantani rode this exact road thousands of times is the emotional core of the event. The climb itself is moderate, but the weight it carries is immense.",
+          "terrain_detail": "Moderate hill climb crowned by the Pantani monument",
+          "named_section": "Montevecchio"
+        },
+        {
+          "mile": 85,
+          "label": "The Return to Cesenatico",
+          "desc": "The descent from the final hills back toward the Adriatic coast. The terrain flattens progressively as you leave the Romagnol foothills and re-enter the coastal plain. The last kilometers into Cesenatico are flat and fast — a tailwind if you are lucky, a headwind if the Adriatic decides otherwise. The finish at the Pantani monument completes the loop. You started at his statue; you end at his statue.",
+          "terrain_detail": "Descending roads transitioning to flat coastal approach into Cesenatico",
+          "named_section": "Return to Cesenatico"
+        }
+      ],
+      "signature_challenge": "The cumulative climbing across the Ciola, Botticella, and Montevecchio is honest rather than heroic — 2,150m on the Lungo route. The real challenge is emotional. These are the roads where Marco Pantani trained. The gradients he ground out on winter mornings. The hills he repeated until his legs could dance on the pedals at 90 rpm uphill. Riding them with the knowledge of what he became — and how it ended — adds a dimension that no elevation profile can capture."
+    },
+    "guide_variables": {
+      "race_name": "Gran Fondo Marco Pantani",
+      "race_distance": "90 miles",
+      "race_elevation": "7,054 feet",
+      "race_date": "September",
+      "race_location": "Cesenatico, Emilia-Romagna, Italy",
+      "race_terrain": "Paved Italian provincial roads — Romagnol hills with gradients up to 12-16%",
+      "race_weather": "Mid-September Emilia-Romagna — warm (24-26C), mostly dry, near-ideal cycling conditions",
+      "race_challenges": [
+        "2,150m of climbing across multiple distinct hills over 145 km (Lungo route)",
+        "Ciola: 6 km at 6.4% average with steeper pitches — Pantani's signature training climb",
+        "Cumulative fatigue from repeated climb-descend cycles through the Romagnol hills",
+        "Afternoon warmth (24-27C) on exposed hillside climbs in September sun"
+      ],
+      "altitude_section": false,
+      "altitude_feet": 0
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Hill repeat training — sustained efforts on 6-8% gradients for 15-25 minutes",
+        "by_when": "Week 6",
+        "why": "The Ciola is 6 km at 6.4% — a sustained, honest climb that demands steady threshold power. Your legs need to be comfortable holding tempo on a gradient that never relents. Find a 5-8% climb in your area and ride it 3-4 times in a session, simulating the repeated nature of the Romagnol hills."
+      },
+      {
+        "requirement": "Multi-climb endurance — 4+ distinct climbs in a single training ride",
+        "by_when": "Week 7",
+        "why": "The Lungo route strings multiple climbs together with rolling valleys between. Your body needs to climb, recover on the descent, roll through the valley, and climb again — repeatedly across 145 km. Train with multi-climb loop rides to build the specific fatigue resistance this event demands."
+      },
+      {
+        "requirement": "145 km distance capability with climbing — full dress rehearsal",
+        "by_when": "Week 9",
+        "why": "145 km with 2,150m of climbing is a 5-7 hour day depending on fitness. Your nutrition, pacing, and hydration strategy need to be tested at this duration, especially in warm September conditions. A September event means training through summer — heat adaptation is a bonus if you live in a warm climate."
+      }
+    ],
+    "citations": [
+      {
+        "url": "https://gfmarcopantani.com/",
+        "title": "Gran Fondo Marco Pantani — Official Site",
+        "category": "official"
+      },
+      {
+        "url": "https://www.pantani.it/pantanissima/",
+        "title": "GF Marco Pantani — Pantani Foundation",
+        "category": "official"
+      },
+      {
+        "url": "https://www.endu.net/en/events/gran_fondo_marco_pantani/info",
+        "title": "Gran Fondo Marco Pantani — ENDU",
+        "category": "reference"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Contents/Index/3802/ride-the-marco-pantani-gran-fondo-with-italy-bike-tours",
+        "title": "Ride the Marco Pantani Gran Fondo — Gran Fondo Guide",
+        "category": "review"
+      },
+      {
+        "url": "https://www.hookedoncycling.co.uk/granfondo/pantanissima-gran-fondo-marco-pantani/",
+        "title": "Ride the Pantanissima — Hooked on Cycling",
+        "category": "review"
+      },
+      {
+        "url": "https://www.sportive.com/cycling-reports/538518/gran-fondo-marco-pantani-chasing-shadows-in-cesenatico",
+        "title": "Gran Fondo Marco Pantani: Chasing Shadows in Cesenatico — Sportive.com",
+        "category": "review"
+      },
+      {
+        "url": "https://road.cc/content/feature/117559-close-marco",
+        "title": "Close to the Marco — road.cc",
+        "category": "review"
+      },
+      {
+        "url": "https://www.outdooractive.com/en/route/road-cycling/cesenatico/gran-fondo-marco-pantani-long-route/30108871/",
+        "title": "Gran Fondo Marco Pantani Long Route — Outdooractive",
+        "category": "reference"
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Marco_Pantani",
+        "title": "Marco Pantani — Wikipedia",
+        "category": "reference"
+      },
+      {
+        "url": "https://cycletoursglobal.com/tour/bikelife/gran-fondo-marco-pantani",
+        "title": "Gran Fondo Marco Pantani Weekend Challenge — Cycle Tours Global",
+        "category": "review"
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "high",
+      "validation_status": "validated",
+      "research_strength": "A",
+      "sources_count": 10,
+      "last_updated": "2026-02-27"
+    }
+  }
+}

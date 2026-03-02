@@ -1,0 +1,333 @@
+{
+  "race": {
+    "name": "Tour de l'Île de Montréal",
+    "slug": "tour-de-lile-de-montreal",
+    "display_name": "Tour de l'Île de Montréal",
+    "tagline": "25,000 riders. Car-free Montreal. The island circumnavigation that once held the Guinness World Record as the largest gathering of cyclists on the planet.",
+    "vitals": {
+      "distance_mi": 31,
+      "elevation_ft": 500,
+      "location": "Montreal, Quebec, Canada",
+      "location_badge": "MONTREAL, QUEBEC, CANADA",
+      "date": "Late May / early June annually (last day of Go Bike Montreal Festival)",
+      "date_specific": "2026: May 31",
+      "terrain_types": [
+        "Paved city streets",
+        "Urban bike paths",
+        "Riverside boulevards",
+        "Park roads"
+      ],
+      "field_size": "~25,000 riders (Tour de l'Île alone; ~40,000 across the full Go Bike Montreal Festival)",
+      "start_time": "Morning departure — staggered waves",
+      "registration": "Online via velo.qc.ca. Adult regular rate ~$42-50 CAD. Youth (13-17) ~$10. Children 12 and under free (registration required). Vélo Québec members receive a discount. Prices before taxes.",
+      "prize_purse": "None. This is not a race.",
+      "aid_stations": "3 rest stops along the route (Parc La Fontaine, Parc Champdoré, Parc Maisonneuve) with snacks, water, entertainment, first aid, washrooms, INFO booths, and bike repair services.",
+      "cutoff_time": "None. Ride at your own pace. Streets remain closed for the duration of the event.",
+      "lat": 45.5017,
+      "lng": -73.5673,
+      "distance_options": [
+        "Classic: ~50 km (31 mi) — the flagship route through Montreal's neighborhoods on car-free streets",
+        "Discovery: 70-100 km — longer routes for experienced road cyclists",
+        "Express: ~55 km — a streamlined option",
+        "Shorter options: ~25 km — family-friendly and accessible routes"
+      ],
+      "entry_fee": "~$42-50 CAD (~$30-36 USD)"
+    },
+    "climate": {
+      "primary": "Late spring in Montreal — warm, long daylight, mild humidity",
+      "description": "Late May and early June in Montreal average 13-24C (56-75F). Mornings are cool and pleasant, warming through the day. Humidity is moderate — comfortable compared to the sticky July-August peak. Daylight exceeds 15 hours. Rain is possible (roughly 40-50% chance on any given day), and the event runs rain or shine. Overall, one of the best times of year to ride in Montreal.",
+      "challenges": [
+        "Rain is possible — the event runs regardless of weather",
+        "Cool morning temperatures (10-14C) warming to 22-25C by midday",
+        "Moderate humidity that can feel sticky on warmer days",
+        "Wind exposure along the St. Lawrence River and open waterfront sections"
+      ]
+    },
+    "terrain": {
+      "primary": "Flat paved city streets and bike paths",
+      "surface": "Paved urban roads, dedicated bike paths, park roads, and riverside boulevards. All tarmac. No unpaved sections.",
+      "technical_rating": 1,
+      "features": [
+        "St. Lawrence River waterfront — long stretches along the river with views of the South Shore and bridges",
+        "Neighborhoods of Montreal — the route passes through diverse boroughs from the Plateau to Verdun, Lachine to Pointe-aux-Trembles",
+        "Lachine Canal bike path — a scenic corridor through Montreal's industrial heritage",
+        "Parc Jean-Drapeau and Île Sainte-Hélène — island park sections with views of downtown Montreal",
+        "Boulevard Gouin — the northern shore of the island along the Rivière des Prairies"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 67,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "logistics": 4,
+      "length": 1,
+      "technicality": 1,
+      "elevation": 1,
+      "climate": 2,
+      "altitude": 1,
+      "adventure": 4,
+      "prestige": 4,
+      "race_quality": 4,
+      "experience": 5,
+      "community": 5,
+      "field_depth": 1,
+      "value": 5,
+      "expenses": 4,
+      "cultural_impact": 5,
+      "tier_note": "Once recognized by the Guinness Book of World Records as the largest gathering of cyclists on Earth (45,000 at peak, 1992-1997). 41st edition in 2026. Organized by Vélo Québec — the most influential cycling advocacy organization in Canada. T2 by score (67). Prestige=4, p4 promotion would push to T1 which is blocked — stays T2.",
+      "score_note": "experience=5 and community=5 are the dominant scores — 25,000 riders on car-free Montreal streets, exploring the island's neighborhoods by bicycle, is a genuinely extraordinary civic event. cultural_impact=5 for the Guinness World Record, 41-year institution status, and the event's role in transforming Montreal into one of North America's premier cycling cities. value=5 for $30-36 USD entry — one of the best-value major cycling events on Earth. length=1, technicality=1, elevation=1, altitude=1 because this is flat urban cycling with zero technical or endurance challenge. Sum of 14 = 42, + cultural_impact 5 = 47. (47/70)*100 = 67.",
+      "editorial_tier": 2,
+      "editorial_tier_label": "TIER 2",
+      "business_tier": 2,
+      "business_tier_label": "TIER 2",
+      "display_tier": 2,
+      "display_tier_label": "TIER 2",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 4,
+        "explanation": "Vélo Québec has been running this event since 1985. Forty-one editions of refinement for 25,000+ riders. Streets are fully closed to automobile traffic — no sharing lanes with cars, no intersection conflicts, no ambiguity. Three rest stops at city parks provide snacks, water, entertainment, first aid, and bike repair services. Wave-based departures manage flow. Montreal-Trudeau International Airport is 25 minutes from downtown. The Metro system can get you to the start area. The only friction: the sheer scale of 25,000 cyclists means rest stop congestion and slow movement in the first kilometers before the field spreads out."
+      },
+      "length": {
+        "score": 1,
+        "explanation": "The Classic route is 50 km — a comfortable half-day for any regular cyclist. The shorter 25 km option is a casual morning spin. Even the Discovery routes at 70-100 km are modest distances for road cyclists. The event is deliberately accessible. Families with young children complete it. This is not an endurance challenge. If you can ride a bicycle for a few hours, you can finish."
+      },
+      "technicality": {
+        "score": 1,
+        "explanation": "Flat paved city streets and bike paths. The island of Montreal is essentially a flood plain with gentle undulation and one volcanic hill that the route does not climb. Zero technical demands. People ride this on cruiser bikes, cargo bikes, tandems, and utility bicycles with baskets. You need to know how to ride a bicycle and hold a line in a crowd. That is the complete skill requirement."
+      },
+      "elevation": {
+        "score": 1,
+        "explanation": "Montreal is functionally flat. The island sits at 15-30 meters above sea level. Mont Royal rises to 233 meters but the Tour de l'Île route circumnavigates the island at river level and does not climb it. Total elevation gain across 50 km is negligible — roughly 100-150 meters of cumulative undulation from road grade changes and bridge approaches. This is as flat as urban cycling gets."
+      },
+      "climate": {
+        "score": 2,
+        "explanation": "Late May in Montreal is pleasant cycling weather — 13-24C, moderate humidity, long daylight. The 1985 inaugural edition was held in October rain at 8C, which was miserable, but the event wisely moved to the late spring calendar. Rain is possible and the event runs regardless. Neither heat nor cold is extreme. Wind along the waterfront can be brisk but not dangerous. Climate is not a significant preparation factor — dress in layers and check the forecast."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "Sea level to 30 meters. Montreal sits on an island in the St. Lawrence River. Altitude is irrelevant. Your lungs will have no complaints whatsoever."
+      },
+      "adventure": {
+        "score": 4,
+        "explanation": "Riding a bicycle through car-free Montreal streets is a rare and joyful experience. The route circumnavigates the island, passing through neighborhoods most visitors and even many locals never explore by bike — from the gentrified Plateau to working-class Saint-Laurent, from the leafy streets of Outremont to the industrial canal banks of Lachine. The waterfront sections along the St. Lawrence offer panoramic views of the river, the bridges, and the South Shore mountains. Montreal is a beautiful, complex, multilingual city, and seeing it from a bicycle at a relaxed pace reveals layers that cars and Metro stations hide."
+      },
+      "prestige": {
+        "score": 4,
+        "explanation": "The Guinness Book of World Records once certified this as the largest gathering of cyclists on Earth. Peak attendance of 45,000 riders, sustained over six consecutive years from 1992 to 1997. Vélo Québec — the organizing body — is the most influential cycling advocacy organization in Canada, and the Tour de l'Île is its flagship event. The prestige is civic and participatory, not athletic. No competitive credentials are earned. But the historical significance is real — this event helped transform Montreal into one of North America's premier cycling cities."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "Vélo Québec is a professional cycling advocacy and event organization with decades of experience managing mass-participation rides. The Tour de l'Île is their crown jewel — logistics are polished, road closures are comprehensive, volunteer support is deep, and the rest stop experience is well-curated with entertainment and services. The Go Bike Montreal Festival context (a full week of cycling events including Tour la Nuit on Friday night) adds production value. The only limitation is that this is not a timed or competitive event — there is no results infrastructure because there are no results."
+      },
+      "experience": {
+        "score": 5,
+        "explanation": "This is why people come. Twenty-five thousand cyclists rolling through car-free Montreal on a late spring day. The city transforms. Streets that normally carry 40,000 cars belong to bicycles. You ride through neighborhoods you have never visited, past murals and parks and corner stores. The St. Lawrence River appears and disappears as the route winds around the island. Children ride alongside retirees. Families alongside club riders. The atmosphere is festive and communal — more block party than bike ride. Montreal in late May is gorgeous: lilacs blooming, terrasses opening, the city shaking off winter. The Tour de l'Île captures the city at its most alive."
+      },
+      "community": {
+        "score": 5,
+        "explanation": "Peak attendance of 45,000 riders. Current field of ~25,000 for the Tour de l'Île alone, ~40,000 across the full Go Bike Montreal Festival. The field spans every demographic in Quebec — francophone and anglophone, immigrant and native, urban and suburban, 8-year-olds and 80-year-olds. Neighborhoods along the route come out to watch and cheer. The event is woven into Montreal's civic identity — it is as much a part of the city's summer calendar as the Montreal Jazz Festival or Grand Prix. Vélo Québec uses the event to advocate for cycling infrastructure. The community extends beyond the ride itself."
+      },
+      "field_depth": {
+        "score": 1,
+        "explanation": "Not a race. No timing. No results. No competitive element. The field includes fit club riders, families with training wheels, tourists on rental bikes, and commuters on fixies. Field depth is measured in human diversity, not athletic caliber."
+      },
+      "value": {
+        "score": 5,
+        "explanation": "~$42-50 CAD ($30-36 USD) for an event of this scale and quality. That buys you car-free access to Montreal's streets, rest stops with food and entertainment, bike repair services, and participation in one of the world's most storied cycling events. Children 12 and under ride free. Youth rates are $10. Vélo Québec members get a discount. By any measure — per-kilometer, per-hour, per-experience — this is one of the best-value cycling events on Earth."
+      },
+      "expenses": {
+        "score": 4,
+        "explanation": "Montreal is significantly more affordable than comparably sized North American cities. Hotels average $120-200 CAD/night ($85-145 USD). The food scene is excellent and reasonably priced — particularly by Canadian standards. Public transit is clean, reliable, and cheap. Montreal-Trudeau International Airport has extensive North American and European connections. The favorable CAD-to-USD exchange rate further reduces costs for American riders. Budget $300-600 USD for a full weekend including the ride, accommodation, food, and city exploration."
+      }
+    },
+    "biased_opinion": "The Tour de l'Île de Montréal is not about the cycling. It is about 25,000 people on bicycles claiming an entire island for a day. Montreal — a city that lives and breathes cycling culture — shuts down its streets and hands them to riders of every age, every ability, every bicycle type imaginable. The ride is flat, short, and easy. The experience is singular.\n\nYou will see Montreal the way it was meant to be seen: from a bicycle, in late spring, with the St. Lawrence glittering beside you and 25,000 strangers sharing the same improbable joy. The route circumnavigates the island at river level, threading through neighborhoods that range from gentrified to gritty, from leafy suburban streets to industrial canal banks. Children ride alongside retirees. Cargo bikes alongside carbon road machines. The atmosphere is festive and communal — more block party than bike ride.\n\nThis event once held the Guinness World Record as the largest gathering of cyclists on Earth, with 45,000 riders sustained for six consecutive years in the 1990s. It helped transform Montreal into North America's most bike-friendly city. At $30-36 USD entry, it is one of the best-value cycling events anywhere. Do this ride for the experience of Montreal, not the experience of cycling. Come for the ride, stay for the poutine.",
+    "final_verdict": {
+      "score": "67 / 100",
+      "one_liner": "25,000 riders circle the island of Montreal on car-free streets. A former Guinness World Record holder, now in its 41st year.",
+      "should_you_race": "You do not race the Tour de l'Île — you ride it. Yes if you want to experience Montreal from a bicycle on car-free streets with 25,000 other cyclists. Yes if you want a family-friendly, affordable, superbly organized mass-participation event. Yes if you want to visit one of the world's great cycling cities during its most beautiful season. Skip if you need athletic challenge, competitive racing, elevation, or technical terrain.",
+      "alternatives": [
+        "TD Five Boro Bike Tour (32,000 riders in NYC — similar urban mass-participation ride)",
+        "Cape Town Cycle Tour (35,000 riders around the Cape Peninsula — the world's largest timed cycling event)",
+        "Lévis GranFondo (competitive cycling near Montreal with real climbing)"
+      ],
+      "alternative_slugs": [
+        "five-boro-bike-tour",
+        "cape-town-cycle-tour",
+        "levis-granfondo"
+      ]
+    },
+    "logistics": {
+      "nearest_airport": "Montréal-Pierre Elliott Trudeau International Airport (YUL) — 25 minutes from downtown Montreal by taxi or the 747 express bus. Extensive North American and European connections.",
+      "travel_tips": "Use public transit. Montreal's Metro system is clean, efficient, and bike-friendly during off-peak hours (each train car accommodates up to 2 bikes, except the first car). Tandem bikes, tricycles, and bike trailers are not permitted on the Metro. Multiple bus routes serve the start/finish areas. Driving to a 25,000-person cycling event with comprehensive road closures is inadvisable. The 747 express bus runs directly from YUL airport to downtown for $11 CAD.",
+      "accommodation": "Downtown Montreal hotels ($120-200 CAD/night) are convenient and walkable to the start area. The Plateau-Mont-Royal and Mile End neighborhoods offer character-filled Airbnb options at slightly lower prices with easy Metro access. Book early if visiting during the Go Bike Montreal Festival week. Budget travelers: HI Montreal downtown hostel is clean, cheap, and central. Airport hotels (Sheraton, Marriott In-Terminal) are available from $150 CAD/night if arriving late.",
+      "gear_recommendations": "Any bicycle in working condition. Road bike, hybrid, cruiser, cargo bike — all are welcome. Carry at least one water bottle and a pocket snack. Light rain jacket for unpredictable weather. Layers for cool morning start. Sunscreen and sunglasses for late-spring sun. Bike lock if you plan to stop at cafes or restaurants along the route. No special equipment or gear is required."
+    },
+    "history": {
+      "first_edition": "October 13, 1985 — organized at the request of Quebec Transport Minister Guy Tardif to inaugurate new bike paths in East Montreal. 3,500 riders showed up in pouring rain and 8C temperatures out of 7,000 registered, pedaling 60 km to the Olympic Park.",
+      "notable_editions": [
+        "1985: First edition — 3,500 riders in pouring rain and 8C temperatures on October 13. Some used grocery bags as shoe covers.",
+        "1987: Sun finally shone all day long — 26,000 participants. The event found its identity.",
+        "1988: Guinness Book of World Records recognition as the largest gathering of cyclists on Earth.",
+        "1992-1997: Peak attendance of 45,000 participants sustained for six consecutive years.",
+        "1999: Tour de l'Île becomes the flagship event of the Montreal Bike Fest.",
+        "2014: Festival rebranded as the Go Bike Montreal Festival (Festival Go vélo Montréal).",
+        "2020-2021: Event paused due to COVID-19 pandemic.",
+        "2022: Return to in-person riding — 19,000 cyclists for the 37th edition.",
+        "2024: 39th edition — 18,000 riders for the Tour de l'Île.",
+        "2025: 40th anniversary edition, June 1 — celebrated with a 1980s retro theme honoring the founding year."
+      ],
+      "records": "Guinness Book of World Records — largest gathering of cyclists on Earth (45,000 participants, sustained 1992-1997). The event was modeled after New York's Five Boro Bike Tour (launched 1977) but surpassed it in scale within a decade.",
+      "growth": "From 3,500 rain-soaked riders in 1985 to 45,000 at peak in the 1990s. Current participation stabilized around 18,000-25,000 for the Tour de l'Île, with ~40,000 across the full Go Bike Montreal Festival including Tour la Nuit. The event has endured for 41 editions and remains the flagship event of Vélo Québec, Canada's most influential cycling advocacy organization."
+    },
+    "course_description": {
+      "overview": "Flat, festive, and scenic. This is a city tour, not an athletic course. The Classic route covers approximately 50 km of car-free Montreal streets, circumnavigating the island at river level. The route winds through the city's diverse neighborhoods — from the dense urban core to the leafy suburbs, from the industrial canal banks to the riverside parks. The terrain is essentially flat, with only minor undulation from bridge approaches and road grade changes. The Discovery route extends to 70-100 km for riders wanting more distance, while the shorter 25 km option serves families and casual riders.",
+      "segments": [
+        {
+          "mile": 0,
+          "label": "Festival Start",
+          "desc": "The departure zone buzzes with 25,000 riders assembling in waves. The energy of a city about to hand its streets to bicycles is palpable. Volunteers guide you to your wave. The road ahead is empty of cars.",
+          "terrain_detail": "Flat city streets — downtown Montreal",
+          "named_section": "The Launch"
+        },
+        {
+          "mile": 8,
+          "label": "The Neighborhoods",
+          "desc": "Through Montreal's residential boroughs — the architecture shifts from downtown towers to duplexes with exterior staircases, balconies draped with laundry, corner depanneurs, and murals on every second wall. This is the real Montreal, seen from a bicycle.",
+          "terrain_detail": "Flat urban streets, tree-lined boulevards",
+          "named_section": "The Heart"
+        },
+        {
+          "mile": 16,
+          "label": "The Waterfront",
+          "desc": "The St. Lawrence River appears. Long stretches along the waterfront with panoramic views of the South Shore, the Jacques Cartier Bridge, and the distant Monteregian Hills. The breeze off the river is welcome. The pace slows as riders stop for photos.",
+          "terrain_detail": "Flat riverside paths and boulevards",
+          "named_section": "The River"
+        },
+        {
+          "mile": 24,
+          "label": "The West Island",
+          "desc": "Into the quieter western reaches of the island — Lachine, Dorval, Pointe-Claire. Suburban streets give way to waterfront parks. The Lachine Canal bike path is one of Montreal's cycling jewels. The crowd thins slightly. The ride feels more peaceful.",
+          "terrain_detail": "Flat bike paths and suburban streets",
+          "named_section": "The Canal"
+        },
+        {
+          "mile": 31,
+          "label": "The Finish Festival",
+          "desc": "Return to the finish zone. Live music, food vendors, celebrations. You rode around an island with 25,000 other cyclists on car-free streets. Montreal gave you its roads for a day. The terrasses await.",
+          "terrain_detail": "Flat — festival grounds",
+          "named_section": "The Festival"
+        }
+      ],
+      "key_features": [
+        "Entire route on car-free city streets — no automobile traffic",
+        "St. Lawrence River waterfront views along multiple segments",
+        "Passage through 10+ distinct Montreal neighborhoods and boroughs",
+        "Lachine Canal bike path — scenic industrial heritage corridor",
+        "Three staffed rest stops with food, water, entertainment, first aid, and bike repair",
+        "Wave-based departures to manage flow of 25,000 riders"
+      ],
+      "strategy": "There is no physical challenge. The signature experience is the sheer scale — 25,000 cyclists occupying car-free city streets, circumnavigating an island in a river, through neighborhoods that reveal themselves differently from a bicycle than from any other vantage point. Ride at a conversational pace. Stop at the rest areas. Take photos. Explore the neighborhoods. This is not a ride to rush through — it is a ride to savor."
+    },
+    "guide_variables": {
+      "race_name": "Tour de l'Île de Montréal",
+      "race_distance": "50 km (Classic)",
+      "race_elevation": "~150 meters",
+      "race_date": "Late May / early June",
+      "race_location": "Montreal, Quebec, Canada",
+      "race_terrain": "Flat paved city streets and bike paths",
+      "race_weather": "Late spring conditions: 13-24C (56-75F), moderate humidity, possible rain",
+      "race_challenges": [
+        "Riding in dense pack of 25,000 cyclists",
+        "Variable spring weather — event runs rain or shine",
+        "French-language event communications (bilingual signage but French-first environment)"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Comfort riding in dense groups — practice holding a line in traffic",
+        "by_when": "Week 3",
+        "why": "25,000 riders on city streets means close-quarters cycling. You need to ride straight, brake smoothly, signal intentions, and remain calm in a dense, slow-moving pack — especially in the first 10 km before the field spreads."
+      },
+      {
+        "requirement": "Rain gear and layering strategy — check the forecast",
+        "by_when": "Day before",
+        "why": "The event runs rain or shine. Late May in Montreal can range from 10C to 25C. Have a light rain jacket, arm warmers, and a plan for either cool drizzle or warm sunshine."
+      },
+      {
+        "requirement": "Hydration and nutrition plan — do not rely solely on rest stops",
+        "by_when": "Day of",
+        "why": "Rest stops exist but can be crowded with 25,000 riders. Carry at least one water bottle and a pocket snack. The ride is short enough that bonking is unlikely, but dehydration on a warm day is real."
+      }
+    ],
+    "citations": [
+      {
+        "url": "https://www.velo.qc.ca/en/event/go-bike-montreal-festival/tour-de-lile-de-montreal/classique/",
+        "title": "Tour de l'Île de Montréal — Classic — Vélo Québec (Official)",
+        "category": "official"
+      },
+      {
+        "url": "https://www.velo.qc.ca/en/event/go-bike-montreal-festival/tour-de-lile-de-montreal/decouverte/",
+        "title": "Tour de l'Île de Montréal — Discovery — Vélo Québec (Official)",
+        "category": "official"
+      },
+      {
+        "url": "https://www.velo.qc.ca/en/the-history-of-cycling/tour-de-lile-de-montreal-genesis-of-a-classic/",
+        "title": "Tour de l'Île de Montréal: Genesis of a Classic — Vélo Québec",
+        "category": "official"
+      },
+      {
+        "url": "https://www.velo.qc.ca/en/go-bike-mtl-festival/tour-ile-montreal-participantinfos/",
+        "title": "Useful Info for Participants — Tour de l'Île — Vélo Québec",
+        "category": "official"
+      },
+      {
+        "url": "https://fr.wikipedia.org/wiki/Tour_de_l'%C3%AEle_de_Montr%C3%A9al",
+        "title": "Tour de l'île de Montréal — Wikipédia",
+        "category": "reference"
+      },
+      {
+        "url": "https://ici.radio-canada.ca/nouvelle/2167258/velo-tour-ile-nuit-montreal-entrave-circulation-rues-barree",
+        "title": "Environ 40 000 cyclistes attendus à Montréal pour les 40 ans du Tour de l'île — Radio-Canada",
+        "category": "media"
+      },
+      {
+        "url": "https://www.cbc.ca/news/canada/montreal/tour-de-l-ile-tour-la-nuit-cycling-event-1.7217216",
+        "title": "Beloved by cyclists but reviled by some drivers, Tour de l'Île strives for peaceful co-existence — CBC News",
+        "category": "media"
+      },
+      {
+        "url": "https://montreal-daily.com/tour-de-ile-montreal/",
+        "title": "Montreal Welcomes Thousands of Riders for 40th Tour de l'Île — Montreal Daily",
+        "category": "media"
+      },
+      {
+        "url": "https://www.cbc.ca/news/canada/montreal/tour-de-lile-montreal-1.7547528",
+        "title": "Tour de l'Île to roll through Montreal's east end this weekend — CBC News",
+        "category": "media"
+      },
+      {
+        "url": "https://www.veloquebecvoyages.com/en/destination/festival-go-velo-montreal/",
+        "title": "Go Bike Montreal Festival 2026 — Vélo Québec Voyages",
+        "category": "official"
+      }
+    ],
+    "research_metadata": {
+      "last_updated": "2026-02-27",
+      "confidence_score": "high",
+      "sources_consulted": [
+        "Vélo Québec official website (velo.qc.ca) — event pages, participant info, history",
+        "CBC News — event coverage (2024, 2025 editions)",
+        "Radio-Canada — 40th anniversary coverage",
+        "Montreal Daily — 40th edition coverage",
+        "Vélo Québec Voyages — 2026 festival details",
+        "Wikipedia (French) — historical overview",
+        "Bikemap / RideWithGPS — route elevation and distance data",
+        "Climate data sources — Montreal late May weather averages"
+      ]
+    }
+  }
+}

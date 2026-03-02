@@ -1,0 +1,576 @@
+{
+  "race": {
+    "name": "LoToJa Classic",
+    "slug": "lotoja-classic",
+    "display_name": "LoToJa Classic — Logan to Jackson",
+    "tagline": "203 miles. Three mountain passes. Three states. Dawn in Logan, dusk beneath the Tetons. America's longest single-day USAC-sanctioned road race since 1983.",
+    "vitals": {
+      "distance_mi": 203,
+      "elevation_ft": 9800,
+      "location": "Logan, Utah to Teton Village, Wyoming",
+      "location_badge": "LOGAN, UT → JACKSON HOLE, WY",
+      "county": "Cache County, UT / Bear Lake, ID / Teton County, WY",
+      "date": "First Saturday after Labor Day annually",
+      "date_specific": "2026: September 12",
+      "terrain_types": [
+        "Paved rural highways through Cache Valley",
+        "Mountain pass roads through southeastern Idaho",
+        "Snake River Canyon highway",
+        "High-altitude mountain roads to 7,630 ft"
+      ],
+      "field_size": "~1,300-1,800 riders (solo, tandem, relay)",
+      "start_time": "Saturday pre-dawn (5:30-6:30 AM staggered wave starts from Sunrise Cyclery, Logan)",
+      "registration": "Online at lotoja.com. Opens early spring. Licensed Race and Cyclosportive Ride classes. Solo $285, Tandem $295, Relay $185/person. Sells out. Waitlist operates first-come, first-served by category.",
+      "prize_purse": "None. USAC-sanctioned categories with podium recognition. King/Queen of the Mountain at Salt River Pass.",
+      "aid_stations": "3 crew-access feed zones + 3 neutral-only feed zones with water, bananas, gels. 50+ neutral support vehicles with wheel/mechanical service. 600+ volunteers.",
+      "cutoff_time": "Must finish before dark (~8:00 PM). Most riders finish in 10-13 hours. Course record 8:18:29 (Spencer Johnson, 2018).",
+      "lat": 41.7352,
+      "lng": -111.8344,
+      "distance_options": [
+        "LoToJa Classic: 203 miles, ~9,800 ft gain — Logan, UT to Teton Village, WY (full course)",
+        "Relay: 2- or 3-person teams splitting the course at designated exchange zones"
+      ],
+      "entry_fee": "$285 solo / $295 tandem / $185 per relay rider"
+    },
+    "climate": {
+      "primary": "Mountain West early autumn — cold starts, warm valleys, exposed passes",
+      "description": "Early September in the northern Rockies delivers wildly variable conditions across 203 miles and three states. Pre-dawn starts in Logan see temperatures in the low 40s-50s F. Valley floors through Idaho warm to the 70s-80s F by midday. Mountain passes at 7,000+ feet can drop 20 degrees from the valley floor, with wind chill making it feel colder. The Snake River Canyon section is typically pleasant. The final stretch to Teton Village at 6,300 feet cools as afternoon fades. Rain, crosswinds, and headwinds are possible anywhere on the course — the 2021 edition saw heavy rain and strong crosswinds all day.",
+      "challenges": [
+        "Temperature swings of 30-40F between pre-dawn start and midday valleys",
+        "Exposed mountain pass descents at 7,000+ feet — hypothermia risk on cold, wet years",
+        "Crosswinds and headwinds through Star Valley and Snake River Canyon",
+        "Sun exposure across long, open Idaho valley sections",
+        "Weather can change rapidly at altitude — rain and wind without warning"
+      ]
+    },
+    "terrain": {
+      "primary": "Paved roads from valley floor through three mountain passes to Jackson Hole",
+      "surface": "Entirely paved. State highways, US routes, and county roads through Utah, Idaho, and Wyoming. Road surfaces range from smooth highway to rougher rural pavement. No gravel or off-road sections. The challenge is entirely physiological — 203 miles, 9,800 feet of climbing, and three mountain passes.",
+      "technical_rating": 1,
+      "features": [
+        "Leg 1: Logan to Preston (30+ miles) — moderate rolling terrain through Cache Valley, warm-up miles at 4,500 ft",
+        "Leg 2: Preston to Montpelier (47 miles) — 60% climbing, including 22-mile ascent to Strawberry/Emigration Canyon summit at 7,424 ft, then descent to Bear Lake Valley",
+        "Leg 3: Montpelier to Afton (47 miles) — two major climbs: Geneva Summit (6,923 ft, 7% final grades) and Salt River Pass (7,630 ft, 6-9% final 4 miles, KOM/QOM)",
+        "Leg 4: Afton to Alpine (30 miles) — Star Valley descent and rolling terrain, recovery section before final push",
+        "Leg 5: Alpine to Teton Village (47 miles) — Snake River Canyon, Hoback Junction, final approach beneath the Teton Range to finish at 6,307 ft"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 77,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "logistics": 3,
+      "length": 5,
+      "technicality": 1,
+      "elevation": 4,
+      "climate": 3,
+      "altitude": 3,
+      "adventure": 5,
+      "prestige": 4,
+      "race_quality": 4,
+      "experience": 5,
+      "community": 4,
+      "field_depth": 3,
+      "value": 3,
+      "expenses": 3,
+      "cultural_impact": 4,
+      "tier_note": "America's longest single-day USAC-sanctioned road race. 203 miles across three states with three mountain passes. T2 by score (77). p4 promotes 1 tier but cannot promote into T1 — T2 stays.",
+      "score_note": "Length=5 for 203 miles — one of the longest single-day road races in the world. Adventure=5 for three states, three mountain passes, and a finish beneath the Grand Teton. Experience=5 for the singular dawn-to-dusk odyssey from Logan to Jackson Hole. Elevation=4 for 9,800 ft across three major passes including Cat 1 Salt River Pass. Prestige=4 for longest USAC one-day race status and 40+ years of history. Race_quality=4 for USAC sanctioning, 600+ volunteers, 50 neutral support vehicles. Community=4 for multi-generational tradition and crew/rider bonds. Field_depth=3 for strong regional field but primarily Western US amateurs. Technicality=1 (all paved). cultural_impact=4 for 40+ years of continuous tradition as America's defining ultra-distance road race. Sum of 14=50, cultural=4, total=54, score=round(54/70*100)=77.",
+      "editorial_tier": 2,
+      "editorial_tier_label": "TIER 2",
+      "business_tier": 2,
+      "business_tier_label": "TIER 2",
+      "display_tier": 2,
+      "display_tier_label": "TIER 2",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 3,
+        "explanation": "This is a 203-mile point-to-point race across three states. That is inherently complex logistics. You start in Logan, Utah at dawn and finish in Teton Village, Wyoming at dusk — your car is 200 miles behind you. You need a support crew with a vehicle, and that crew needs to navigate between designated feed zones while you ride. The event provides excellent neutral support — 50+ roving vehicles, 600+ volunteers — but you are still fundamentally dependent on someone driving alongside your effort across Utah, Idaho, and Wyoming. Salt Lake City International Airport is 80 miles south of Logan. Hotels in Logan are affordable and available but Jackson Hole is expensive. The point-to-point logistics and crew requirement are the main complexity."
+      },
+      "length": {
+        "score": 5,
+        "explanation": "203 miles in a single day. This is the longest USAC-sanctioned one-day bicycle race in America, and that designation exists for a reason. The first LoToJa in 1983 started with seven riders — and finishing 200+ miles in one day was considered borderline insane. Most riders take 10 to 13 hours. The course record of 8:18:29 set by Spencer Johnson in 2018 represents an average speed of nearly 25 mph for over eight hours. For context: the average recreational rider who finishes LoToJa has been pedaling since before sunrise and crosses the line as the September sun drops behind the Tetons. This is not a long ride. This is an odyssey."
+      },
+      "technicality": {
+        "score": 1,
+        "explanation": "Paved roads the entire 203 miles. State highways, US routes, and county roads across three states. The surfaces are generally good, though some rural Idaho and Wyoming sections have rough patches. There are no gravel sections, no singletrack, no technical descents that require special bike handling skills. The descents off Strawberry Canyon, Geneva Summit, and Salt River Pass are fast — 40+ mph — but they are standard paved road descents. The challenge is entirely physiological and mental: can you sustain effort for 200+ miles across three mountain passes? The road does not care about your bike handling."
+      },
+      "elevation": {
+        "score": 4,
+        "explanation": "9,800 feet of climbing concentrated into three major mountain passes in the first 110 miles. The 22-mile ascent to Strawberry/Emigration Canyon (7,424 ft) is long and grinding. Geneva Summit (6,923 ft) finishes with 2 miles at 7% gradient. Salt River Pass (7,630 ft) — the course's apex and KOM/QOM point — ramps to 6-9% over the final 4 miles and is classified as a Category 1 climb. This is serious climbing by any standard. The backloaded nature of the passes — all three in the first half — means you face the remaining 90+ flat-to-rolling miles on already-depleted climbing legs. Not quite the 11,000 ft of an Assault on Mt. Mitchell, but three distinct mountain passes at altitude is a different kind of punishment."
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "Early September in the northern Rockies is meteorological roulette across 203 miles. Pre-dawn Logan starts see temperatures in the low 40s — arm warmers, vest, possibly leg warmers for the first hour. By midday in the Idaho valleys, you could be riding in 80°F sunshine. The mountain passes at 7,000+ feet drop temperatures 15-20 degrees from the valley floor, and descents at 40+ mph amplify the wind chill. The 2024 edition was a hot day that challenged riders with heat. The 2021 edition saw heavy rain and crosswinds all day. You pack for four seasons and hope for one. The climate is not extreme in any single dimension, but the variability across 200+ miles and 7,000+ feet of elevation range demands preparation."
+      },
+      "altitude": {
+        "score": 3,
+        "explanation": "Salt River Pass at 7,630 feet is the high point — meaningful altitude where sea-level riders will feel a 5-10% power reduction. Strawberry Canyon tops out at 7,424 feet. Geneva Summit reaches 6,923 feet. The finish at Teton Village sits at 6,307 feet. You spend significant portions of the day above 6,000 feet. This is not the 12,000-foot suffering of Colorado's mountain passes, but it is real altitude that compounds the physiological challenge of a 200-mile day. Riders from the coasts will notice it on the climbs. Riders from the Mountain West have a genuine advantage."
+      },
+      "adventure": {
+        "score": 5,
+        "explanation": "You start in a Utah college town at dawn. You climb through Logan Canyon. You cross into Idaho and summit three mountain passes above 7,000 feet. You descend through Star Valley. You ride 25 miles through the Snake River Canyon with whitewater rapids below you. You cross into Wyoming. In the final 14 miles, the Grand Teton and the entire Teton Range reveal themselves, growing larger with every pedal stroke until you cross the finish line at the base of Jackson Hole Mountain Resort. Three states. Three mountain passes. Bear Lake's turquoise water. The Snake River. The Tetons. This is not just a bike race — it is a crossing."
+      },
+      "prestige": {
+        "score": 4,
+        "explanation": "The longest single-day USAC-sanctioned bicycle race in America. Founded in 1983 by David Bern and Jeff Keller in Logan, Utah, inspired by European one-day monuments like Paris-Roubaix. LoToJa has run continuously for 40+ years. In Western US road cycling circles, saying you finished LoToJa carries weight — the distance alone is a statement. The race is not internationally famous like the gran fondos of Europe, and it does not have the cultural penetration of events like RAGBRAI, but within American ultra-distance cycling, LoToJa is the standard. The KOM/QOM designation at Salt River Pass and the USAC sanctioning give it competitive legitimacy that most gran fondos lack."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "USAC-sanctioned with both licensed Race and Cyclosportive Ride categories. The organization manages 1,300-1,800 riders across 203 miles and three states with impressive infrastructure: 50+ neutral support vehicles, 600+ volunteers, HAM radio operators at strategic locations, neutral feed zones, and mechanical support throughout the course. The event has refined operations over 40+ years. Staggered wave starts manage traffic flow. The crew-access feed zone system balances rider support with road safety. The main limitation is the inherent complexity of managing a 200-mile point-to-point race across three states — some logistical friction is unavoidable at this scale."
+      },
+      "experience": {
+        "score": 5,
+        "explanation": "LoToJa is not a race you forget. You begin in pre-dawn darkness in a small Utah city. You climb into mountain wilderness. You cross state lines. You summit passes at 7,000+ feet where the air thins and the world opens up. You descend at 40+ mph into Idaho valleys. You ride through Snake River Canyon as rafters float below. And then — exhausted, 190 miles into the longest day of your cycling life — the Grand Teton appears on the horizon and grows steadily until you cross the line at the base of Jackson Hole Mountain Resort. The transformation from Logan to Jackson Hole — from college town to mountain cathedral — is one of the most dramatic arcs in American cycling."
+      },
+      "community": {
+        "score": 4,
+        "explanation": "LoToJa's community is built on the crew-rider bond that 200+ miles demands. Your crew meets you at feed zones, hands you bottles at speed, wraps you in a jacket at the top of a freezing pass. That shared suffering creates something deeper than typical race-day camaraderie. The event has attracted a devoted following across Utah, Idaho, and Wyoming — riders who return year after year, often with the same crew. The 40+ year tradition has created multi-generational participation. The first LoToJa had seven riders. Now 1,500+ start each year, and the community grows. The limiting factor is geographic concentration — this is primarily a Mountain West institution."
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "The licensed Race categories attract strong USAC-licensed amateurs — Pro/1/2/3 through Category 5, with age-group masters divisions up to 75+. The 2024 winner Danny Van Wagoner finished in 8:50:24 in a tight sprint with the top three separated by 7 seconds. That is legitimate racing. But the field is primarily regional — strong Western US amateurs, not the international or professional depth you find at major European gran fondos or Life Time Grand Prix events. The Cyclosportive Ride categories make up a significant portion of participants. The competitive depth is real but localized."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "$285 for 203 miles of fully supported racing across three states. Per mile, this is among the cheapest race entries in American cycling. You get neutral support vehicles, 600+ volunteers, feed zones with food and mechanical service, and a USAC-sanctioned race. The issue is that $285 is just the entry fee. The real cost of LoToJa includes crew logistics (their fuel, food, lodging), your lodging at both ends, travel to Logan, and the considerable expense of getting home from Jackson Hole. The race itself is well-priced. The total LoToJa experience is not cheap."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Beyond the $285 entry, budget for: flights to Salt Lake City ($200-500 depending on origin), hotel in Logan ($80-150/night), hotel in Jackson Hole or return transport ($200-400/night in Jackson), crew vehicle fuel for 200+ miles of support driving, crew food and lodging, and transport back to Logan to retrieve your car. A bare-minimum LoToJa weekend costs $600-800 beyond the entry fee. If flying in and staying in Jackson Hole post-race, easily $1,000-1,500. The crew requirement — while central to the LoToJa experience — adds logistical cost that self-supported events avoid."
+      }
+    },
+    "biased_opinion": {
+      "verdict": "Legend",
+      "summary": "LoToJa is the American one-day classic that European cycling traditions inspired but the Mountain West made its own. Two hundred three miles from a Utah college town to the foot of the Tetons, across three states and three mountain passes, in a single day. It is not the hardest race in America. It is not the most famous. But it might be the most audacious — a race conceived in 1983 when two Logan cyclists decided that Americans deserved their own Paris-Roubaix and built it through sheer mileage.",
+      "strengths": [
+        "The distance: 203 miles in a day is a statement. Finishing LoToJa earns you the right to tell the story for the rest of your life.",
+        "The journey: Three states, three mountain passes, Snake River Canyon, and a finish beneath the Grand Teton. No American one-day race covers this much geographic drama.",
+        "The crew bond: Your support vehicle drives alongside your suffering for 10-13 hours. That shared experience creates something deeper than a finisher medal."
+      ],
+      "weaknesses": [
+        "Crew requirement: You cannot meaningfully do LoToJa without a dedicated support crew and vehicle. That is a significant logistical and social ask.",
+        "Point-to-point logistics: Your car is 200 miles behind you at the finish. Getting home is its own adventure.",
+        "Geographic isolation: This is a Mountain West event. If you do not live in Utah, Idaho, or Wyoming, the travel logistics compound the already-complex race logistics."
+      ],
+      "bottom_line": "If you want to test the outer boundary of what you can accomplish on a bicycle in a single day, LoToJa is the answer. 203 miles. Three states. Three mountain passes. A finish beneath the Tetons. There is nothing else like it in America."
+    },
+    "final_verdict": {
+      "score": "77 / 100",
+      "one_liner": "America's longest one-day road race. Three states. Three passes. One unforgettable day.",
+      "should_you_race": "LoToJa is for riders who want more than a century ride — who want a genuine odyssey. If you can sustain moderate effort for 10-13 hours, have a reliable crew, and want a finishing story that few other events can match, this is your race. But be honest with yourself: 203 miles is a very long day, and the three mountain passes in the first half ensure you will face the final 90 miles on tired legs.",
+      "alternatives": "If you want ultra-distance without the crew logistics: try RAGBRAI (supported, 7-day format across Iowa). If you want a similar mountain experience in a shorter package: try the Assault on Mt. Mitchell (102 miles, 11,000 ft climbing). If you want the European one-day classic vibe that inspired LoToJa: try Paris-Roubaix Challenge (pave, prestige, pain).",
+      "alternative_slugs": [
+        "ragbrai",
+        "assault-on-mt-mitchell",
+        "paris-roubaix-challenge"
+      ]
+    },
+    "logistics": {
+      "airport": "Salt Lake City International (SLC) — 80 miles south of Logan, 1.5 hour drive. Logan-Cache Airport (LGU) for private aviation only.",
+      "lodging_strategy": "Book Logan hotels for pre-race night (Best Western Plus Weston Inn, University Inn, SpringHill Suites — $80-150/night). Jackson Hole is expensive ($200-400+/night) if staying post-race. Many riders arrange return transport to Logan same evening. Book early — race weekend fills Logan hotels.",
+      "food": "Pre-race dinner in Logan: multiple restaurant options along Main Street. Race morning: eat at your hotel — don't depend on finding food at 4:30 AM. Pack crew vehicle with 12+ hours of nutrition for the rider and crew food.",
+      "packet_pickup": "Friday evening before the race at Sunrise Cyclery in Logan. Mandatory rider check-in. Crew receives course maps and feed zone instructions.",
+      "parking": "Free parking near the start line at Sunrise Cyclery in Logan. Arrive early race morning for best spots. Crew vehicles stage separately for course access.",
+      "official_site": "https://lotoja.com",
+      "camping": "Cache Valley has KOA and several campgrounds. Bear Lake area campgrounds along the route for crews who want to camp mid-race."
+    },
+    "history": {
+      "founded": 1983,
+      "founder": "David Bern and Jeff Keller",
+      "origin_story": "Started in 1983 when David Bern, a Utah State University student, and Jeff Keller, owner of Sunrise Cyclery in Logan, wanted a race that resembled the difficulty of European one-day classics like Paris-Roubaix. Seven riders lined up at dawn and raced 186 miles north to Jackson. Bob VanSlyke of Logan won in just over nine hours. From those seven pioneers, LoToJa has grown to 1,500+ riders annually over 40+ years.",
+      "notable_moments": [
+        "1983: Seven riders start the first LoToJa. Bob VanSlyke wins in ~9 hours.",
+        "2012: 30th anniversary celebration, 1,800+ riders on course.",
+        "2018: Spencer Johnson sets current course record of 8:18:29.",
+        "2022: 40th anniversary — four decades of continuous running.",
+        "2024: Danny Van Wagoner wins the 42nd edition in a sprint finish (8:50:24), beating Adrian Rips by 6 seconds.",
+        "Women's record: Melinda MacFarlane, 9:35:00, set in 2013."
+      ],
+      "reputation": "The longest single-day USAC-sanctioned bicycle race in America. A Mountain West institution and the defining test of one-day endurance cycling in the United States."
+    },
+    "course_description": {
+      "character": "An odyssey across three states and three mountain passes. The front half punishes you with climbing; the back half tests whether anything remains. At 203 miles, LoToJa is not about any single climb or feature — it is about the accumulation of everything across an entire day.",
+      "suffering_zones": [
+        {
+          "mile": 55,
+          "label": "Strawberry Summit",
+          "desc": "22-mile grind to 7,424 feet. The first real test. Legs that felt fine in Cache Valley discover what 'long day' means.",
+          "terrain_detail": "Sustained climbing through Strawberry/Emigration Canyon, topping out at 7,424 ft elevation",
+          "named_section": "Strawberry/Emigration Canyon"
+        },
+        {
+          "mile": 110,
+          "label": "Salt River Pass — The Apex",
+          "desc": "7,630 feet. KOM/QOM. The final 4 miles at 6-9% gradient on legs that have already climbed two passes. The highest and hardest point on the course.",
+          "terrain_detail": "Category 1 climb to the course's highest point at 7,630 ft with gradients reaching 9%",
+          "named_section": "Salt River Pass (KOM/QOM)"
+        },
+        {
+          "mile": 160,
+          "label": "Snake River Canyon Grind",
+          "desc": "You have ridden 160 miles. You have 43 to go. The canyon is beautiful but your legs are filing divorce papers. The Tetons are still just a promise on the horizon.",
+          "terrain_detail": "25-mile stretch through Snake River Canyon — rolling, exposed, mentally demanding at this distance",
+          "named_section": "Snake River Canyon"
+        },
+        {
+          "mile": 190,
+          "label": "The Teton Reveal",
+          "desc": "The Grand Teton appears. The final 14 miles with the range growing in front of you. Your body is destroyed but the view pulls you forward.",
+          "terrain_detail": "Final approach to Teton Village with the Teton Range filling the horizon",
+          "named_section": "Teton Approach"
+        }
+      ],
+      "signature_challenge": "Three mountain passes in the first 110 miles — then 90+ miles on depleted legs. The front-loaded climbing ensures that the 'flat' back half of the course is anything but easy. At mile 150, every false flat feels like a climb. At mile 180, you still have a marathon of cycling remaining. The signature challenge is not any single climb — it is the relentless accumulation of 203 miles."
+    },
+    "guide_variables": {
+      "race_name": "LoToJa Classic",
+      "race_distance": "203 miles",
+      "race_elevation": "9,800 feet",
+      "race_date": "September (first Saturday after Labor Day)",
+      "race_location": "Logan, Utah to Teton Village, Wyoming",
+      "race_terrain": "Paved mountain roads across three states",
+      "race_weather": "Variable mountain West: 40s-80s F, possible rain and crosswinds",
+      "race_challenges": [
+        "203 miles of sustained effort requiring 10-13 hours",
+        "Three mountain passes in the first 110 miles — front-loaded climbing on depleted legs",
+        "Altitude above 6,000-7,600 ft for significant portions of the course"
+      ],
+      "altitude_section": true,
+      "altitude_feet": 7630
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Long ride progression to 7+ hour sustained efforts",
+        "by_when": "Week 8",
+        "why": "Most riders spend 10-13 hours in the saddle. If your longest training ride is 4 hours, you are fundamentally unprepared for the physiological and nutritional demands of a 200-mile day."
+      },
+      {
+        "requirement": "Crew logistics planned and rehearsed",
+        "by_when": "Week 6",
+        "why": "Your crew must know feed zone locations, timing estimates, and what to hand you at each stop. A disorganized crew costs you 10-30 minutes across the day and can derail your nutrition plan."
+      },
+      {
+        "requirement": "Mountain climbing block with sustained efforts at threshold",
+        "by_when": "Week 7-9",
+        "why": "Three passes in the first 110 miles — including a Cat 1 climb — demand specific climbing fitness. Flat-terrain training will not prepare you for sustained grades at altitude."
+      }
+    ],
+    "race_specific": {
+      "surface": {
+        "terrain_type": "paved_road",
+        "description": "Entirely paved. State highways, US routes, and county roads across Utah, Idaho, and Wyoming. Road surfaces are generally good with some rough rural patches. No gravel or off-road.",
+        "hazard_sectors": [
+          {
+            "name": "Strawberry Canyon Descent",
+            "mile_marker": "57-65",
+            "risk_level": "moderate",
+            "tactics": "Fast descent after first major climb. Speeds can reach 40+ mph. Road surface generally good but patches exist. Tired hands on brake levers after 22-mile climb. Stay focused."
+          },
+          {
+            "name": "Salt River Pass Descent",
+            "mile_marker": "112-120",
+            "risk_level": "moderate",
+            "tactics": "Fastest descent on course from 7,630 ft. Wind and fatigue make handling less precise. Control your speed. A crash at mile 115 ends a 200-mile day."
+          },
+          {
+            "name": "Snake River Canyon Traffic",
+            "mile_marker": "155-180",
+            "risk_level": "low",
+            "tactics": "Highway 89/26 through the canyon carries some traffic. Stay right. Ride predictably. The canyon road is scenic but demands attention at 160+ miles of fatigue."
+          }
+        ]
+      },
+      "mechanicals": {
+        "recommended_tires": [
+          "Continental GP 5000 700x28mm",
+          "Vittoria Corsa N.EXT 700x28mm",
+          "Schwalbe Pro One 700x28mm",
+          "Specialized Turbo Cotton 700x28mm"
+        ],
+        "pressure_by_weight": {
+          "140_160_lbs": {
+            "dry": "80F / 85R psi",
+            "mixed": "75F / 80R psi"
+          },
+          "160_180_lbs": {
+            "dry": "85F / 90R psi",
+            "mixed": "80F / 85R psi"
+          },
+          "180_200_lbs": {
+            "dry": "90F / 95R psi",
+            "mixed": "85F / 90R psi"
+          },
+          "200_plus_lbs": {
+            "dry": "95F / 100R psi",
+            "mixed": "90F / 95R psi"
+          }
+        }
+      },
+      "wind_protocol": {
+        "prevailing_direction": "Variable. Crosswinds through Star Valley. Headwinds possible through Snake River Canyon.",
+        "when_it_matters": "Miles 130-180 through Star Valley and Snake River Canyon. Afternoon winds build as the day progresses.",
+        "group_tactics": "In race categories, work with your group through exposed sections. Echelon formation through crosswinds in Star Valley. Don't pull at the front if you cannot sustain the effort — sit in and conserve.",
+        "solo_tactics": "Tuck low, reduce frontal area, accept slower speed. Do not fight headwinds — they will outlast you at mile 160. Conserve energy for the final 25 miles to Teton Village."
+      },
+      "environment": {
+        "time_drift": {
+          "note": "LoToJa typically runs 1-2 hours longer than optimistic estimates. The back half always takes longer than expected.",
+          "neutral": "+1 hour over predicted finish time",
+          "headwinds": "+1.5-2 hours (Snake River Canyon headwinds can be punishing at 160+ miles)",
+          "rain_cold": "+2-3 hours (wet descents require caution, cold saps energy reserves)"
+        }
+      },
+      "in_race_decision_tree": {
+        "bonking": [
+          "STOP riding hard immediately — drop to Zone 1",
+          "Signal your crew at the next feed zone",
+          "Consume 300+ calories as fast as possible — gels, bars, whatever you have",
+          "Drink 16-20 oz of fluid with calories",
+          "Wait 15-20 minutes at reduced effort before attempting to resume pace",
+          "If your crew is near, have them hand you real food — PB&J, rice cakes",
+          "Resume at Zone 2 only. Do not attempt to 'make up time.' Survival mode."
+        ],
+        "cramping": [
+          "Begin aggressive sodium intake immediately — salt tabs, electrolyte mix",
+          "Reduce effort to Zone 1-2 and spin easy",
+          "Stretch at next feed zone if needed",
+          "Do not resume hard efforts until cramping fully resolves",
+          "Continue elevated sodium intake for the remainder of the race",
+          "If cramping persists after 20 minutes and sodium, consider whether you can safely complete 200+ miles"
+        ],
+        "hypothermia_on_descent": [
+          "Have crew hand you a jacket and arm warmers at the TOP of each pass before descending",
+          "If you are already cold and descending: brake to reduce speed and wind chill",
+          "Stop at the next warm location — a feed zone, a sunny valley stretch",
+          "Change into dry layers if available from your crew",
+          "Consume warm fluids and calories",
+          "Do not resume until you can control your hands on the brake levers"
+        ],
+        "dropped_from_group": [
+          "Assess honestly: were you overextended or did they surge?",
+          "Find YOUR sustainable pace for the remaining distance — you may have 100+ miles left",
+          "Do not panic-chase. Burning matches at mile 80 to rejoin a group destroys your mile 180.",
+          "Look for riders at similar pace and form a new working group",
+          "Use solo time to eat, drink, and recover mentally",
+          "Remember: LoToJa is finished by everyone who does not quit. Your time matters less than your finish."
+        ]
+      },
+      "psychological_landmarks": {
+        "dark_patch": {
+          "miles": "140-170",
+          "description": "You have passed all three mountain passes. You have ridden 140+ miles. You have 60+ miles to go. The Snake River Canyon is beautiful but you cannot appreciate beauty when your legs are screaming. The Tetons are still invisible behind the canyon walls. This is where LoToJa becomes a mental game. Keep pedaling. The finish will reveal itself."
+        },
+        "where_field_shatters": {
+          "miles": "95-115",
+          "description": "Salt River Pass. The third mountain pass, the highest point, the steepest grades. Riders who went out too fast in Cache Valley and pushed too hard on Strawberry Canyon crack here. The 6-9% gradients in the final 4 miles to 7,630 feet are where the field separates into those who paced wisely and those who did not."
+        },
+        "late_relief": {
+          "miles": "190-203",
+          "description": "The Teton Reveal. The Grand Teton appears on the horizon and grows with every pedal stroke. After 190 miles of effort, the sight of the Tetons pulls riders forward with a force that tired legs alone cannot generate. The final 14 miles pass faster than any other section. The finish line at Jackson Hole Mountain Resort is ahead. You are going to make it."
+        },
+        "the_honeymoon": {
+          "miles": "0-30",
+          "description": "Cache Valley is flat and beautiful. Pre-dawn cool air. Fresh legs. The group is together. Everything feels easy. This is the trap. Three mountain passes and 170 miles of increasingly difficult riding await. PACE YOURSELF. Every watt saved in the first 30 miles is a watt available at mile 180."
+        },
+        "second_wind": {
+          "miles": "120-135",
+          "description": "The descent off Salt River Pass and the ride through Star Valley to Afton. After the hardest climbing is behind you, a genuine second wind often arrives. Use this window wisely — eat aggressively, maintain steady effort, enjoy the psychological relief of knowing the three passes are done. Bank this energy for the Snake River Canyon grind ahead."
+        }
+      }
+    },
+    "research_metadata": {
+      "data_confidence": "web_research",
+      "validation_status": "initial",
+      "sources": [
+        "lotoja.com",
+        "wikipedia",
+        "cyclingwest.com",
+        "deseret.com",
+        "altovelo.org",
+        "granfondoguide.com",
+        "cachevalleydaily.com",
+        "strambecco.com"
+      ],
+      "migration_notes": [
+        "Created 2026-02-27 from web research. No research dump file."
+      ],
+      "research_strength": {
+        "overall": 65,
+        "grade": "B-",
+        "weakest": "citation_density",
+        "has_research_dump": false,
+        "dimensions": {
+          "source_diversity": 80,
+          "citation_density": 40,
+          "temporal_depth": 70,
+          "specificity": 70,
+          "statistical_backing": 50,
+          "voice_authenticity": 60,
+          "completeness": 75,
+          "cross_reference": 60
+        },
+        "scored_at": "2026-02-27"
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "heat_training": {
+          "enabled": false
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 9,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 5,
+            "finisher": 7,
+            "compete": 9,
+            "podium": 10
+          }
+        },
+        "aggressive_fueling": {
+          "enabled": true,
+          "target_carbs_per_hour": 60,
+          "long_ride_min_hours": 4
+        },
+        "robust_taper": {
+          "enabled": true,
+          "weeks": [
+            11,
+            12
+          ]
+        },
+        "climbing_block": {
+          "enabled": true,
+          "weeks": [
+            7,
+            8,
+            9
+          ]
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "fueling",
+          "pacing",
+          "climbing",
+          "mental",
+          "execution",
+          "recovery"
+        ],
+        "race_specific": true,
+        "topics": {
+          "fueling": "Nutrition for 10-13 hours — caloric targets, crew handoff strategy, real food vs gels",
+          "pacing": "Front-loaded climbing demands conservative pacing through Cache Valley and first pass",
+          "climbing": "Three mountain passes at altitude — power targets and pacing for sustained grades",
+          "mental": "The Snake River Canyon dark patch at 160 miles and how to push through",
+          "execution": "Crew coordination at feed zones — seconds matter across 200 miles",
+          "recovery": "What to do in the 72 hours after a 200-mile day"
+        }
+      },
+      "tier_overrides": {
+        "ayahuasca": {
+          "dress_rehearsal_hours": 5,
+          "weekly_hours": "0-5"
+        },
+        "finisher": {
+          "dress_rehearsal_hours": 7,
+          "weekly_hours": "8-12"
+        },
+        "compete": {
+          "dress_rehearsal_hours": 9,
+          "weekly_hours": "12-18"
+        },
+        "podium": {
+          "dress_rehearsal_hours": 10,
+          "weekly_hours": "18+"
+        }
+      },
+      "marketplace_variables": {
+        "race_name": "LoToJa Classic",
+        "race_hook": "203 miles from Logan, Utah to Jackson Hole, Wyoming. Three mountain passes. Three states. America's longest single-day road race.",
+        "race_hook_detail": "LoToJa is not survived by accident. Three mountain passes in the first 110 miles, then 90 more miles on depleted legs to a finish beneath the Grand Teton.",
+        "distance": "203",
+        "dark_mile": "160",
+        "non_negotiable_1": "Long ride progression to 7+ hour sustained efforts",
+        "non_negotiable_2": "Mountain climbing block with sustained threshold efforts",
+        "non_negotiable_3": "Crew logistics planned and rehearsed by week 6"
+      }
+    },
+    "citations": [
+      {
+        "url": "https://lotoja.com/",
+        "category": "organizer",
+        "label": "LoToJa Classic Official Website"
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/LOTOJA",
+        "category": "other",
+        "label": "Wikipedia — LOTOJA"
+      },
+      {
+        "url": "https://www.cyclingwest.com/racing/road-racing/lotoja-classic/43rd-annual-lotoja-classic-to-roll-on-sept-6-2025/",
+        "category": "media",
+        "label": "Cycling West — 43rd Annual LoToJa Classic"
+      },
+      {
+        "url": "https://www.deseret.com/sports/2024/09/08/2024-lotoja-bike-race-results-logan-utah-jackson-wyoming/",
+        "category": "media",
+        "label": "Deseret News — 2024 LoToJa Results"
+      },
+      {
+        "url": "https://www.altovelo.org/race-reports/race-report-2024-lotoja",
+        "category": "community",
+        "label": "Alto Velo Racing Club — 2024 LoToJa Race Report"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/4698/lotoja-classic",
+        "category": "media",
+        "label": "Gran Fondo Guide — LoToJa Classic"
+      },
+      {
+        "url": "https://www.cachevalleydaily.com/news/local/lotoja-classic-to-celebrate-40-years-on-saturday/article_3f911f47-76cf-58c8-bfb9-d920aca547b4.html",
+        "category": "media",
+        "label": "Cache Valley Daily — LoToJa 40th Anniversary"
+      },
+      {
+        "url": "https://saltlakemagazine.com/utah-cycling-lotoja-ride/",
+        "category": "media",
+        "label": "Salt Lake Magazine — Tackling the 203-mile LoToJa"
+      },
+      {
+        "url": "https://strambecco.com/event/lotoja/",
+        "category": "other",
+        "label": "Strambecco — LoToJa Classic 2026"
+      },
+      {
+        "url": "https://lotoja.com/eventinfo/CourseInfo",
+        "category": "organizer",
+        "label": "LoToJa Official Course Info"
+      }
+    ],
+    "results": {
+      "years": {
+        "2024": {
+          "winner_male": "Danny Van Wagoner",
+          "winner_female": "Aileen Pannecouke",
+          "winning_time_male": "8:50:24",
+          "winning_time_female": "9:43:26",
+          "conditions": "Hot day — warmer-than-usual September temperatures with sunshine throughout",
+          "field_size_actual": 1400,
+          "key_takeaways": [
+            "42nd edition. Nearly 1,400 riders on course.",
+            "Men's top 3 separated by just 7 seconds in a sprint finish — Van Wagoner (8:50:24), Rips (8:50:30), Ellis (8:50:31).",
+            "Women's winner Aileen Pannecouke finished in 9:43:26.",
+            "Warmer-than-usual conditions made heat management a significant factor.",
+            "Course record remains Spencer Johnson's 8:18:29 from 2018."
+          ]
+        }
+      },
+      "latest_year": "2024"
+    }
+  }
+}

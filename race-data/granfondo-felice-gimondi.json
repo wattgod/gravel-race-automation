@@ -1,0 +1,320 @@
+{
+  "race": {
+    "name": "Granfondo Felice Gimondi",
+    "slug": "granfondo-felice-gimondi",
+    "display_name": "BGY Airport Granfondo (Granfondo Felice Gimondi)",
+    "tagline": "30 years in the saddle of a legend. Six valleys. Selvino's 19 hairpins. Bergamo's cycling soul, named for the man who won all three Grand Tours.",
+    "vitals": {
+      "distance_mi": 101,
+      "elevation_ft": 10007,
+      "location": "Bergamo, Lombardy, Italy",
+      "location_badge": "BERGAMO, LOMBARDY, ITALY",
+      "date": "First or second Sunday of May",
+      "date_specific": "2026: May 10 (30th edition)",
+      "terrain_types": [
+        "Paved Lombardy provincial roads",
+        "Pre-Alpine foothills and valley climbs",
+        "Bergamasque Alps approaches",
+        "Rolling valley floors between climbs"
+      ],
+      "field_size": "~2,000-3,000 riders",
+      "start_time": "7:00 AM (mass start from Via Marzabotto, near Gewiss Stadium — Lazzaretto area)",
+      "registration": "Online via granfondobgy.it. Registration typically opens in autumn. Entry: EUR45 for bib only. EUR95 for bib plus limited-edition Santini jersey.",
+      "prize_purse": "None (timed event with FCI age-group classifications and finisher awards)",
+      "aid_stations": "Feed zones at strategic points between climbs — Italian granfondo standard. Water, fruit, energy food, cola. The Bergamasque valleys deliver reliable Italian hospitality at altitude.",
+      "cutoff_time": "Time limits at intermediate checkpoints. Broom wagon enforced.",
+      "lat": 45.694,
+      "lng": 9.670,
+      "distance_options": [
+        "Sprint: 63 km (39 mi), 800 m gain — NEW for 2026, includes Selvino only (most accessible option)",
+        "Short: 91 km (57 mi), 1,400 m gain — Colle dei Pasta + Colle Gallo + Selvino",
+        "Medium: 130 km (81 mi), 2,100 m gain — adds Costa d'Olda + Forcella di Bura (884m asl)",
+        "Long: 148 km (92 mi), 2,800 m gain — adds Forcella di Berbenno + Costa Valle Imagna (formerly 162 km)"
+      ],
+      "entry_fee": "EUR45 (bib) / EUR95 (bib + limited-edition Santini jersey)"
+    },
+    "climate": {
+      "primary": "Early May Lombardy — pleasant but rain-prone",
+      "description": "Early May in Bergamo and the pre-Alpine foothills is generally pleasant: temperatures range from 12-22C (54-72F), with warm afternoons in the valleys and cooler conditions on the higher climbs approaching 900-950m. However, May is one of the rainiest months in Lombardy (averaging 120mm across 12-13 days), and afternoon thunderstorms over the pre-Alpine foothills can materialize quickly. The 7:00 AM start can be cool, especially in the higher valleys. The proximity of the Alps increases shower frequency compared to the lower Po Plain.",
+      "challenges": [
+        "May is one of the rainiest months in Lombardy — significant probability of wet roads",
+        "Descents from Selvino (946m) and Colle Gallo in rain are treacherous — steep, narrow, exposed",
+        "Early morning start (7:00 AM) can be cool at Bergamo's 250m elevation — 12-14C",
+        "Afternoon warmth (20-25C) in the lower valleys if conditions clear, but summit temperatures 5-8C cooler",
+        "Pre-Alpine thunderstorms can develop rapidly over the higher valleys"
+      ]
+    },
+    "terrain": {
+      "primary": "Paved Lombardy roads through pre-Alpine valleys and foothills",
+      "surface": "Italian provincial and communal roads — generally well-maintained tarmac through the Bergamasque valleys. Road quality is good on the main approaches, with some rougher sections on narrow mountain roads, particularly the upper reaches of Selvino and the approach to Forcella di Bura. All routes are fully paved. The terrain is rolling to mountainous, with sustained valley climbs rather than the short punchy walls of Emilia-Romagna.",
+      "technical_rating": 2,
+      "features": [
+        "Selvino (946m asl) — the signature climb. 10.9 km, 605m vertical gain, 5.5% average, max 10.6%. 19 hairpin bends, each named after a famous Bergamasque cyclist. The defining ascent of the event.",
+        "Colle Gallo (Colle del Gallo) — 7.5 km, 445m gain, 6% average, max 12%. Home to the Santuario della Madonna del Ghisallo dei Ciclisti — the Sanctuary of Our Lady of Cyclists, where a candlelit vigil is held annually.",
+        "Colle dei Pasta — 3.4 km, 143m gain, 4.2% average, max 12%. Short opener, deceptively steep in places.",
+        "Costa d'Olda — sustained valley climb through classic Bergamasque scenery (medium route and above)",
+        "Forcella di Bura — 884m asl summit, the second-highest point on the route (medium route and above)",
+        "Forcella di Berbenno — long route addition at km 116.7, through the Valle Imagna",
+        "Costa Valle Imagna — the final major climb on the long route before the descent back to Bergamo"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 70,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "logistics": 4,
+      "length": 4,
+      "technicality": 2,
+      "elevation": 3,
+      "climate": 2,
+      "altitude": 2,
+      "adventure": 3,
+      "prestige": 4,
+      "race_quality": 4,
+      "experience": 4,
+      "community": 3,
+      "field_depth": 3,
+      "value": 4,
+      "expenses": 3,
+      "cultural_impact": 4,
+      "tier_note": "Named for Felice Gimondi — one of only seven cyclists to win all three Grand Tours. Bianchi connection, 30 years of continuous operation, Bergamo cycling heartland. prestige=4 earns a one-tier promotion but cannot promote T2 into T1 — remains Tier 2.",
+      "score_note": "cultural_impact=4 for Gimondi's Grand Tour triple crown legacy, Bianchi heritage, the Sanctuary of Our Lady of Cyclists on route at Colle Gallo, and Bergamo's deep cycling identity. prestige=4 (named after a legendary champion, long-running Italian GF with Bianchi co-branding, FCI Serie A calendar, but not Monument-level global stature). altitude=2 — Selvino reaches 946m, Forcella di Bura 884m; moderate but not physiologically demanding. climate=2 — May Lombardy rain is likely but temperatures are temperate. Sum: 45 base + 4 cultural = 49. Score = round(49/70 * 100) = 70. p4 promotion would push T2→T1, which is blocked.",
+      "editorial_tier": 2,
+      "editorial_tier_label": "TIER 2",
+      "business_tier": 2,
+      "business_tier_label": "TIER 2",
+      "display_tier": 2,
+      "display_tier_label": "TIER 2",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 4,
+        "explanation": "Bergamo is one of the best-connected mid-size cities in northern Italy. Bergamo Orio al Serio airport (BGY) — the event's title sponsor — is 5 km from the start line, and it serves budget carriers across Europe (Ryanair's Italian hub). Milan Malpensa (MXP) is 1 hour, Milan Linate (LIN) 50 minutes, both with global connections. The start and finish are in the same location in central Bergamo, near the Gewiss Stadium. Bergamo itself is a manageable city with good accommodation options at Italian (not Milanese) prices. Thirty years of organizational experience, FCI calendar status, and professional event management from the same organizing committee make race-day logistics polished and predictable."
+      },
+      "length": {
+        "score": 4,
+        "explanation": "The long route at 148 km with 2,800m of climbing is a genuine endurance test — a full day in the saddle through six valleys and multiple sustained climbs. The medium (130 km, 2,100m) offers a comparable challenge with fewer summit finishes. Even the short route (91 km, 1,400m) includes three real climbs including Selvino. The 2026 Sprint addition (63 km) lowers the barrier to entry. For the long and medium distances, the climbing is sustained and cumulative — valley approaches that go on for 7-11 km at a time, not short punchy walls. This is a proper Italian gran fondo distance."
+      },
+      "technicality": {
+        "score": 2,
+        "explanation": "All paved throughout, with road surfaces that are generally good by Italian provincial standards. The climbs — particularly Selvino's 19 hairpins — require basic bike handling on descents: tight corners, narrow roads, limited visibility on the upper switchbacks. Colle Gallo's 12% maximum gradient demands confident climbing. The descents from Selvino and Forcella di Bura are fast with technical hairpins, but not cobblestone or off-road-level technicality. You need climbing gears and descending confidence, nothing exotic."
+      },
+      "elevation": {
+        "score": 3,
+        "explanation": "2,800m of climbing on the long route across six named ascents is solid but not Alpine-pass territory. The individual climbs are sustained (Selvino is nearly 11 km) with moderate-to-steep gradients, peaking at 10-12% rather than the 15-18% walls of Emilia-Romagna events. The cumulative climbing over 148 km is genuinely taxing, but the highest point (Selvino at 946m) would barely register as a minor col in the Dolomites. This is pre-Alpine climbing — demanding, beautiful, and relentless, but a tier below the big mountain gran fondos."
+      },
+      "climate": {
+        "score": 2,
+        "explanation": "Early May in the Bergamo pre-Alps is pleasant on a good day — 15-22C, spring light, green valleys. But May is one of Lombardy's wettest months, and the proximity of the Alpine foothills amplifies thunderstorm activity. Wet descents from Selvino at 946m on narrow hairpins are no joke. The morning start at 7 AM can be cool, especially in the valley bottoms that hold overnight chill. Compared to the extremes of Alpine events at 2,500m+ or midsummer desert gran fondos, the climate challenge here is moderate — rain is the primary risk, not temperature or altitude."
+      },
+      "altitude": {
+        "score": 2,
+        "explanation": "Selvino tops out at 946m above sea level, Forcella di Bura at 884m. These are pre-Alpine foothills, not high mountains. Oxygen levels are functionally identical to sea level. There is zero altitude-related performance impact or acclimatization requirement. The altitude score reflects that you do spend meaningful time above 500m — it is not pancake-flat coastal riding — but this is not an event where altitude is a factor."
+      },
+      "adventure": {
+        "score": 3,
+        "explanation": "The route threads through six distinct Bergamasque valleys — Val Cavallina, Valseriana, Val Serina, Val Brembana, Val Taleggio, Valle Imagna — each with its own character. The pre-Alpine scenery is beautiful: green valley floors, stone villages clinging to hillsides, river gorges, and forested climbs. Bergamo's Città Alta (the medieval walled upper town) is genuinely stunning. The Sanctuary of Our Lady of Cyclists at Colle Gallo is a unique cycling pilgrimage site. But this is not the dramatic high-Alpine spectacle of the Dolomites or the barren lunar landscapes of southern Spain. The adventure is cultural and historical rather than geographical."
+      },
+      "prestige": {
+        "score": 4,
+        "explanation": "Named after Felice Gimondi — born in Sedrina, 10 km from Bergamo, one of only seven cyclists in history to win all three Grand Tours (Tour 1965, Giro 1967/69/76, Vuelta 1968). The Bianchi co-branding (Bianchi's factory is in Treviglio, just outside Bergamo) adds heritage weight. The event has run continuously since 1996, is a permanent fixture on the FCI Serie A granfondo calendar, and has attracted 70,000+ cumulative riders. Since Gimondi's death in 2019, the event also honors all seven Triple Crown winners. In Italian cycling culture, this is deeply respected. Globally, it lacks the Monument brand power of Paris-Roubaix or the Tour de France association of L'Etape, but among those who know their cycling history, Gimondi's name carries enormous weight."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "Thirty editions of continuous operation by a dedicated organizing committee that has refined every aspect. FCI Serie A granfondo status means official timing, age-group classifications, and regulatory oversight. The Santini limited-edition jersey is a quality product from one of cycling's best apparel makers. Multiple route options (four in 2026) accommodate all ability levels. Road closures, medical support, and feed zones are well-managed across 37 municipalities and six valleys — a logistical achievement. The airport title sponsorship (BGY) provides commercial stability. Not quite ASO-level production, but deeply competent Italian event management with genuine cycling passion."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "Starting from central Bergamo — a city where cycling is woven into the cultural fabric, with the medieval Città Alta perched above — sets a tone that few gran fondos match. The climb of Selvino through 19 hairpins, each named for a Bergamasque cycling legend, is a rolling history lesson. At the summit of Colle Gallo sits the Sanctuary of Our Lady of Cyclists, a genuine pilgrimage site with cycling memorabilia and an annual candlelit vigil. The six valleys each offer distinct scenery — from the industrial Valseriana to the pastoral Val Taleggio, famous for its cheese. The descent back to Bergamo from the final climb is a long, satisfying reward. This is an event where the cultural weight of the location elevates the physical experience."
+      },
+      "community": {
+        "score": 3,
+        "explanation": "The field of 2,000-3,000 riders creates a focused, engaged atmosphere rather than a mass-participation festival. The event draws heavily from Italian cycling clubs, particularly the Bergamo and Lombardy cycling ecosystem, giving it an authentic character that larger international events sometimes lose. Bergamo's pre-race atmosphere — espresso culture, the cycling-obsessed local bars, the Gimondi legacy — is genuine. But the field size is modest by European gran fondo standards, and the international contingent is smaller than events like Maratona or L'Etape. This is an insider's event — beloved by those who know it."
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "FCI Serie A calendar status means the front of the race attracts competitive Italian club riders who take age-group classifications seriously. The Lombardy cycling scene produces strong riders, and the sharp end of the Gimondi is sharp. But with 2,000-3,000 total riders, the field spans from competitive to recreational across four route distances. The depth is genuine in the Italian context — competitive at the front, social in the middle, touring at the back. Not the international depth of UCI-affiliated events, but honest Italian granfondo racing."
+      },
+      "value": {
+        "score": 4,
+        "explanation": "EUR45 for a timed, FCI-sanctioned granfondo with multiple route options, organized feed zones, medical support, and road closures across 37 municipalities is outstanding value. The EUR95 jersey upgrade includes a limited-edition Santini product that retails for EUR60-80 on its own. Compared to European gran fondos charging EUR100-150 for similar organization, the Gimondi offers more for less. The airport sponsorship clearly subsidizes entry costs. The cost-to-experience ratio is among the best in Italian gran fondos."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Bergamo offers Italian quality at sub-Milan prices. Hotels run EUR70-140/night. The BGY airport (Ryanair hub) provides budget connections across Europe — flights as low as EUR30-50 within the continent. Milan airports add international options at modest transfer cost. Italian food is outstanding and reasonably priced outside tourist traps. Budget EUR700-1,300 from Europe, EUR1,200-2,000 from the US for a 3-5 day trip that can combine with visits to Bergamo's stunning Città Alta, nearby Lake Iseo, or a short train ride to Milan."
+      }
+    },
+    "biased_opinion": {
+      "verdict": "The Cycling Heartland",
+      "summary": "The Granfondo Felice Gimondi is what happens when a cycling-obsessed city names its signature ride after its greatest son. Felice Gimondi — born in Sedrina, 10 km from Bergamo — won the Tour de France, the Giro d'Italia three times, and the Vuelta a Espana. One of only seven riders to complete the Grand Tour triple crown. The event bearing his name threads through six Bergamasque valleys, climbs 19 hairpins up to Selvino where each bend carries a local cycling legend's name, passes the Sanctuary of Our Lady of Cyclists at Colle Gallo, and returns to a medieval city that breathes cycling the way other cities breathe football. Thirty years of continuous operation. Bianchi co-branding. A EUR45 entry fee that feels like a gift. This is not the most famous gran fondo in Italy — it is perhaps the most authentically Italian.",
+      "strengths": [
+        "Named for Felice Gimondi — one of seven riders to win all three Grand Tours, born 10 km from the start line",
+        "Selvino: 19 hairpins, each named for a Bergamasque cycling legend — a rolling monument to the sport",
+        "Sanctuary of Our Lady of Cyclists at Colle Gallo — a genuine cycling pilgrimage on the route",
+        "EUR45 entry for a 30-year FCI Serie A granfondo with Santini jersey option — remarkable value",
+        "Bergamo: Città Alta, cycling culture, Bianchi factory nearby, and budget airport on the doorstep"
+      ],
+      "weaknesses": [
+        "Pre-Alpine scenery is beautiful but not the dramatic spectacle of the Dolomites or high Alps",
+        "May rain in Lombardy is a genuine probability — 120mm average, thunderstorms over the foothills",
+        "Field of 2,000-3,000 lacks the mass-participation energy of 10,000-rider events",
+        "Limited international recognition — overshadowed by Maratona, Nove Colli, and L'Etape in the European calendar",
+        "Gimondi's name, while revered by cycling historians, may not resonate with casual riders outside Italy"
+      ],
+      "bottom_line": "The Granfondo Felice Gimondi is the kind of event you discover through word of mouth from Italian cyclists who ride it every year and can't believe the rest of the world hasn't caught on. The price is right, the organization is polished, the cultural weight is immense, and the riding — six valleys, sustained climbs, a summit shrine to cycling — is genuinely excellent. It is not the hardest event in Italy, not the most famous, and not the most scenic. It is the most cycling. If you want to understand what the sport means in the land where it was built, start here."
+    },
+    "final_verdict": {
+      "score": "70 / 100",
+      "one_liner": "30 years in the saddle of a legend. Six valleys. Selvino's 19 hairpins. Bergamo's cycling soul, named for the man who won all three Grand Tours.",
+      "should_you_race": "Yes if you want an authentically Italian gran fondo in cycling's heartland — great value, deep heritage, and honest climbing through beautiful pre-Alpine valleys. Yes if Gimondi's name means something to you. Yes if EUR45 for a well-organized FCI event with a Santini jersey option sounds like a bargain. Skip if you want Alpine drama at 2,500m — Selvino tops out under 1,000m. Skip if you need a massive international field and English-language everything — this event is proudly Italian first.",
+      "alternatives": "If you want Italian mountains: Maratona dles Dolomites (7 Dolomite passes). If you want longer Italian heritage: Gran Fondo Nove Colli (200 km, 9 hills, since 1971). If you want Bianchi-adjacent: Granfondo Pinarello in nearby Treviso. If you want a similar Italian GF with more altitude: Sportful Dolomiti Race.",
+      "alternative_slugs": [
+        "maratona-dles-dolomites",
+        "nove-colli",
+        "granfondo-pinarello",
+        "sportful-dolomiti-race"
+      ]
+    },
+    "logistics": {
+      "airport": "Bergamo Orio al Serio (BGY) — 5 km from start line (Ryanair hub, budget connections across Europe). Milan Malpensa (MXP) — 1 hour (intercontinental connections). Milan Linate (LIN) — 50 minutes (European connections).",
+      "lodging_strategy": "Stay in Bergamo — the start/finish city. The lower town (Città Bassa) has the widest hotel selection, with the event start near Gewiss Stadium. The upper town (Città Alta) is a stunning medieval walled city with boutique options — worth the premium for atmosphere. Hotels run EUR70-140/night in early May, before peak tourist season. Book 2-4 months in advance for event weekend. Alternatively, the towns along the route (Selvino, Clusone, San Pellegrino Terme) offer quieter accommodation in the valleys.",
+      "food": "Bergamo is Lombardy's culinary hidden gem. Polenta taragna (buckwheat polenta with local cheese), casoncelli alla bergamasca (stuffed pasta with butter, sage, and pancetta), Taleggio cheese (the Val Taleggio is on the route), and stracciatella soup (Bergamo's invention). San Pellegrino Terme — the mineral water's birthplace — is in the Val Brembana on the medium and long routes. Carb loading in Bergamo means handmade pasta in medieval trattorias with views over the Po Plain.",
+      "packet_pickup": "Event village in Bergamo, 1-2 days before the race. Registration, bib collection, jersey pickup, and expo. Well-organized for the field size.",
+      "parking": "Event parking in designated areas near Gewiss Stadium and the Lazzaretto start area. Follow event instructions — the city center has limited access during the race. Arriving the day before and parking at your accommodation is the simplest approach.",
+      "official_site": "https://www.granfondobgy.it/en/"
+    },
+    "history": {
+      "founded": 1996,
+      "founder": "Giuseppe Manenti and organizing committee, in collaboration with Felice Gimondi and Bianchi",
+      "origin_story": "In 1996, the city of Bergamo launched a gran fondo in honor of its most famous cycling son: Felice Gimondi, born in nearby Sedrina in 1942. Gimondi personally designed the routes — threading through the six valleys of his youth, over the climbs where he first developed the legs that would carry him to victories in all three Grand Tours. The partnership with Bianchi — the legendary Italian bicycle manufacturer headquartered in Treviglio, just outside Bergamo — was natural. Gimondi had ridden Bianchi throughout his career. The event grew steadily, accumulating over 70,000 total participants across its first three decades. When Gimondi died of a heart attack while swimming on holiday in Sicily on August 16, 2019, the event became more than a ride — it became a memorial. Since 2019, the event honors all seven cyclists who have won all three Grand Tours, celebrating the exclusive club that Gimondi joined in 1968. The 2026 edition marks the 30th anniversary, with a new Sprint route making the event more accessible than ever.",
+      "notable_moments": [
+        "1996: First edition — Felice Gimondi personally designs the routes through his home valleys",
+        "Bianchi partnership established from inception — factory in nearby Treviglio, Gimondi's career bike",
+        "Routes traverse 6 valleys (Val Cavallina, Valseriana, Val Serina, Val Brembana, Val Taleggio, Valle Imagna) and 37 municipalities",
+        "70,000+ cumulative participants across first 29 editions",
+        "2019: Felice Gimondi dies August 16, aged 76. The event becomes his memorial.",
+        "Post-2019: Event honors all seven Grand Tour triple crown winners",
+        "2022: Restart after COVID hiatus — 24th edition sells out, Bergamo's cycling community rallies",
+        "2024: BGY Airport becomes title sponsor, rebranding to BGY Airport Granfondo",
+        "2026: 30th edition — new Sprint route (63 km) added as fourth distance option"
+      ],
+      "reputation": "The cycling heartland's tribute to its greatest champion. Thirty years of riding through Gimondi's valleys on routes he personally drew, in a city where cycling is not a hobby but an identity."
+    },
+    "course_description": {
+      "character": "Six Bergamasque valleys connected by sustained climbs, starting and finishing in the cultural city of Bergamo. The climbs are not short punchy walls — they are genuine valley ascents of 7-11 km at 5-7% average gradients, with steeper pitches up to 12%. Selvino's 19 hairpins are the signature feature: nearly 11 km of climbing through switchbacks named after local cycling legends, reaching 946m above sea level. Between climbs, the valleys offer rolling terrain through stone villages, river gorges, and alpine meadows. The rhythm is valley-floor recovery, gradual approach, sustained climb, hairpin descent, repeat. The long route does this six times across 148 km.",
+      "suffering_zones": [
+        {
+          "mile": 15,
+          "label": "Colle dei Pasta — The Deceptive Opener",
+          "desc": "3.4 km at 4.2% average with a sting in the tail: 12% maximum gradient sections that surprise riders expecting a gentle warm-up. Only 143m of elevation gain, but the steep pitches test your gearing choices early. This is where you discover whether your cassette is large enough for the day ahead.",
+          "terrain_detail": "3.4 km, 143m gain, 4.2% average, 12% max gradient",
+          "named_section": "Colle dei Pasta"
+        },
+        {
+          "mile": 25,
+          "label": "Colle Gallo — The Cyclists' Shrine",
+          "desc": "7.5 km of sustained climbing with a 6% average gradient and 12% maximum pitches, gaining 445 meters. The upper sections steepen through forest switchbacks. At the summit sits the Santuario della Madonna del Ghisallo dei Ciclisti — the Sanctuary of Our Lady of Cyclists, a genuine pilgrimage site with cycling memorabilia and an annual candlelit vigil. Even non-religious riders feel something at the top. The descent off the back is fast and technical.",
+          "terrain_detail": "7.5 km, 445m gain, 6% average, 12% max gradient",
+          "named_section": "Colle Gallo"
+        },
+        {
+          "mile": 38,
+          "label": "Selvino — The 19 Hairpins",
+          "desc": "The defining climb of the Granfondo Gimondi. 10.9 km of sustained ascending, gaining 605 vertical meters at 5.5% average with a 10.6% maximum gradient. Nineteen hairpin bends, each dedicated to a famous cyclist from Bergamo province. The rhythm is mesmerizing and relentless: climb, hairpin, climb, hairpin. The gradient never relents but never brutalizes — this is not a wall, it is a war of attrition. At 946m, the summit is the roof of the route. The descent back down the 19 hairpins requires full concentration.",
+          "terrain_detail": "10.9 km, 605m gain, 5.5% average, 10.6% max gradient, 19 hairpins",
+          "named_section": "Selvino"
+        },
+        {
+          "mile": 70,
+          "label": "Costa d'Olda and Forcella di Bura — The Valley Double",
+          "desc": "The medium and long routes continue deeper into the valleys with two more sustained climbs. Costa d'Olda takes riders through classic Bergamasque scenery — stone villages, terraced hillsides, narrow valley roads. Forcella di Bura reaches 884m above sea level, the second-highest point on the route. The cumulative climbing through these two ascents, after Selvino, begins to genuinely drain reserves. The valleys between offer brief respite and stunning views of the pre-Alpine peaks.",
+          "terrain_detail": "Two sustained climbs to 884m asl, combined ~700m additional gain",
+          "named_section": "Costa d'Olda + Forcella di Bura"
+        },
+        {
+          "mile": 85,
+          "label": "Forcella di Berbenno and Costa Valle Imagna — The Long-Route Finale",
+          "desc": "Only the long-route riders face these final two climbs. Forcella di Berbenno at km 116.7 comes deep into the day, when legs are heavy and the six valleys have extracted their toll. Costa Valle Imagna is the final sustained effort before the long, rewarding descent back to Bergamo. At this point in the long route, it is not the gradient that hurts — it is the accumulation of 120+ km of climbing. The descent back to Bergamo, with the medieval Città Alta visible on its hilltop, is the earned reward.",
+          "terrain_detail": "Two final climbs on the long route, ~500m combined additional gain",
+          "named_section": "Forcella di Berbenno + Costa Valle Imagna"
+        }
+      ],
+      "signature_challenge": "Selvino's 19 hairpins — 10.9 km of sustained climbing through switchbacks named after Bergamasque cycling legends. It is not the steepest climb on the route (Colle Gallo has steeper pitches), but it is the most sustained and the most iconic. The 19 bends create a hypnotic rhythm that either carries you upward or slowly grinds you down. On the long route, Selvino comes early enough to be manageable but late enough that the remaining four climbs are ridden on Selvino-depleted legs."
+    },
+    "guide_variables": {
+      "race_name": "BGY Airport Granfondo (Granfondo Felice Gimondi)",
+      "race_distance": "92 miles (long route)",
+      "race_elevation": "9,186 feet (long route)",
+      "race_date": "May",
+      "race_location": "Bergamo, Lombardy, Italy",
+      "race_terrain": "Paved Lombardy roads — sustained pre-Alpine valley climbs through six distinct valleys",
+      "race_weather": "Early May Lombardy — pleasant (12-22C) with significant rain probability in the pre-Alpine foothills",
+      "race_challenges": [
+        "2,800m of climbing across 6 named ascents over 148 km (long route)",
+        "Selvino: 10.9 km at 5.5% average with 19 hairpins — sustained climbing that drains reserves",
+        "Colle Gallo: 12% maximum gradient on narrow mountain roads",
+        "Cumulative fatigue from repeated valley-to-summit cycles across 6 Bergamasque valleys",
+        "May rain on hairpin descents from 946m — wet switchbacks demand full concentration"
+      ],
+      "altitude_section": false,
+      "altitude_feet": 0
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Sustained climbing endurance — repeated 7-11 km efforts at 5-7% gradient",
+        "by_when": "Week 6",
+        "why": "The Gimondi climbs are not short walls — they are sustained valley ascents that last 20-40 minutes each. Selvino alone is 10.9 km. Your training needs to include climbs of 7+ km at moderate gradients where you settle into a sustainable rhythm. Find the longest local climb and ride it at 5-6% effort, multiple times in a single session."
+      },
+      {
+        "requirement": "Multi-climb day simulation — 4+ distinct climbs in a single training ride",
+        "by_when": "Week 7",
+        "why": "The long route includes six major climbs with valley recoveries between them. Your body needs to learn the rhythm: climb hard for 25-40 minutes, descend, recover on the valley floor, then go again. The fifth and sixth climbs arrive on legs that have already climbed 2,000+ meters. Train with back-to-back climbing days or multi-climb circuits."
+      },
+      {
+        "requirement": "Hairpin descending confidence — technical descents from 900m+ through switchbacks",
+        "by_when": "Week 8",
+        "why": "Selvino's 19 hairpins must be descended after climbing them. In a gran fondo field, with 2,000+ riders on narrow mountain roads, descent skills are safety-critical. Practice descending through tight hairpins at speed. If you can, practice in the wet — May rain in Lombardy is likely."
+      }
+    ],
+    "citations": [
+      {
+        "url": "https://www.granfondobgy.it/en/",
+        "title": "BGY Airport Granfondo (formerly Granfondo Felice Gimondi) — Official Site",
+        "category": "official"
+      },
+      {
+        "url": "https://www.cyclist.co.uk/in-depth/gran-fondo-felice-gimondi-bianchi",
+        "title": "Gran Fondo Felice Gimondi-Bianchi — Cyclist Magazine",
+        "category": "review"
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Felice_Gimondi",
+        "title": "Felice Gimondi — Wikipedia",
+        "category": "reference"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/3740/la-felice-gimondi",
+        "title": "Gran Fondo Felice Gimondi — GranFondo Guide",
+        "category": "reference"
+      },
+      {
+        "url": "https://gfilombardia.it/en/",
+        "title": "Gran Fondo Il Lombardia Felice Gimondi — Official Site",
+        "category": "official"
+      },
+      {
+        "url": "https://climbfinder.com/en/climbs/selvino-nembro",
+        "title": "Selvino Climb Profile — ClimbFinder",
+        "category": "reference"
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "high",
+      "validation_status": "validated",
+      "research_strength": "A",
+      "sources_count": 6,
+      "last_updated": "2026-02-27"
+    }
+  }
+}

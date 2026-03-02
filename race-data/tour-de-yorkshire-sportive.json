@@ -1,0 +1,288 @@
+{
+  "race": {
+    "name": "Tour de Yorkshire Sportive",
+    "slug": "tour-de-yorkshire-sportive",
+    "display_name": "Tour de Yorkshire Sportive",
+    "tagline": "Up to 140 km on the same roads as the pros. Yorkshire's brutal climbs, Tour de France heritage, and 2.6 million screaming roadside fans — all cancelled since 2019.",
+    "vitals": {
+      "distance_mi": 87,
+      "elevation_ft": 6890,
+      "location": "Yorkshire, England, United Kingdom",
+      "location_badge": "YORKSHIRE, ENGLAND",
+      "date": "Historically late April / early May (linked to Tour de Yorkshire pro race)",
+      "date_specific": "2026: TBD (event on hiatus since 2019 — pro race and sportive both cancelled 2020-2025)",
+      "terrain_types": [
+        "Paved roads — English country lanes and A-roads",
+        "Yorkshire Dales climbs — steep, exposed, relentless",
+        "North York Moors rolling terrain",
+        "Pro-race roads shared with amateur sportive"
+      ],
+      "field_size": "~4,000-6,000 riders (at peak)",
+      "start_time": "7:00 AM (staggered wave starts)",
+      "registration": "Historically via Human Race Events (organizer). Places limited and sold quickly. Status uncertain for 2026.",
+      "prize_purse": "None — timed sportive",
+      "aid_stations": "Feed stations on each route (1-3 depending on distance). Water, energy food, basic mechanical support.",
+      "cutoff_time": "Route-dependent — typically 8-10 hours for the long route",
+      "lat": 53.959,
+      "lng": -1.080,
+      "distance_options": [
+        "Long route: ~129-140 km — full pro-route experience with major climbs",
+        "Medium route: ~84-108 km — key climbs without the full distance",
+        "Short route: ~49-50 km — accessible option covering the pro finish"
+      ],
+      "entry_fee": "GBP 45-65 (historically, depending on route and timing)"
+    },
+    "climate": {
+      "primary": "Late-spring English weather — unpredictable and often brutal",
+      "description": "Late April / early May in Yorkshire is a meteorological lottery. Temperatures range from 5-18C (41-64F), with anything from bright spring sunshine to horizontal rain, hail, sleet, or even late-season snow on exposed moorland. The Yorkshire Dales and North York Moors are among the most exposed cycling terrain in England — wind is a constant factor, and shelter is scarce. The 2015 inaugural sportive was soaked in rain. Yorkshire weather doesn't wait for sportive riders.",
+      "challenges": [
+        "Horizontal rain and wind on exposed moorland — Yorkshire does not do gentle weather",
+        "Temperature swings: warm sheltered valleys to near-freezing exposed hilltops in the same ride",
+        "Late-season cold snaps — hail and sleet possible in late April at altitude",
+        "Wet roads on steep Yorkshire descents — poor visibility and cold hands"
+      ]
+    },
+    "terrain": {
+      "primary": "Paved — English country roads",
+      "surface": "English country lanes and B-roads in varying condition. Some sections on well-maintained A-roads, but many of the classic Yorkshire climbs use narrow lanes with rougher surfaces, potholes, and loose edges. The road surface in the Yorkshire Dales is a lottery — some sections are smooth, others are scarred by winter damage. This is England, not Switzerland.",
+      "technical_rating": 2,
+      "features": [
+        "Yorkshire Dales climbs: Buttertubs, Grinton Moor, Cote de Harwood Dale — short, steep, exposed",
+        "Narrow English country lanes with limited visibility on descents",
+        "Rolling North York Moors terrain with constant elevation changes",
+        "Pro-race roads — riding the same final 50 km as the Tour de Yorkshire pro peloton"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 67,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "logistics": 4,
+      "length": 3,
+      "technicality": 2,
+      "elevation": 3,
+      "climate": 3,
+      "altitude": 1,
+      "adventure": 3,
+      "prestige": 4,
+      "race_quality": 3,
+      "experience": 4,
+      "community": 4,
+      "field_depth": 2,
+      "value": 4,
+      "expenses": 3,
+      "cultural_impact": 4,
+      "tier_note": "The amateur sportive linked to the Tour de Yorkshire pro race — itself a legacy of the 2014 Tour de France Grand Depart in Yorkshire. Enormous cultural impact and prestige from the TdF heritage. Currently on hiatus since 2019. If it returns, the combination of pro-race roads and Yorkshire cycling passion makes it a genuine Tier 2 event.",
+      "score_note": "prestige=4 for the Tour de France heritage and UCI ProSeries pro race link. cultural_impact=4 for the 2014 Grand Depart legacy — 2.6 million roadside spectators in 2015 proved Yorkshire's cycling passion. experience=4 for riding the same roads as the pros in one of England's most dramatic landscapes. community=4 for Yorkshire's extraordinary cycling culture. logistics=4 as Yorkshire is easily accessible within the UK. value=4 at GBP 45-65 for a well-organized sportive on iconic roads.",
+      "editorial_tier": 2,
+      "editorial_tier_label": "TIER 2",
+      "business_tier": 2,
+      "business_tier_label": "TIER 2",
+      "display_tier": 2,
+      "display_tier_label": "TIER 2",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 4,
+        "explanation": "Yorkshire is accessible within the UK. Leeds Bradford Airport (LBA) serves the region, and Leeds, York, Harrogate, and Scarborough are all well-connected by rail and road. The start locations varied each year — Leeds, Scarborough, Sheffield — all with reasonable accommodation and transport links. For UK-based riders, this is a straightforward weekend trip. For international riders, fly into Manchester or Leeds Bradford and drive."
+      },
+      "length": {
+        "score": 3,
+        "explanation": "The long route at 129-140 km is a solid day on the bike but not extreme. The medium (84-108 km) and short (49-50 km) routes offer accessible alternatives. The distance is manageable for most experienced riders. What makes the distance feel longer is the terrain — Yorkshire's constant climbing turns 140 km into something that rides like 180 km anywhere flatter."
+      },
+      "technicality": {
+        "score": 2,
+        "explanation": "Paved roads throughout, but English country lanes add their own technical challenges: narrow roads with poor surfaces, blind corners on descents, wet tarmac in rain, and the occasional pothole. Not technical in a gravel or mountain biking sense, but Yorkshire's descents in wet conditions demand attention and respect. The steep gradients on classic climbs like Buttertubs require good bike handling."
+      },
+      "elevation": {
+        "score": 3,
+        "explanation": "The long route typically packs 1,800-2,100m of climbing into 140 km — respectable but not Alpine. Yorkshire's climbs are short and steep rather than long and sustained: Buttertubs (6 km at 6% with 20% pitches), Grinton Moor, Cote de Harwood Dale. The constant up-and-down terrain means you never get a flat recovery section. It is the frequency and steepness of the climbs, not the total vertical, that defines Yorkshire cycling."
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "Late April in Yorkshire is a coin flip. You might get a glorious spring day. You might get horizontal rain, near-freezing temperatures, and visibility measured in meters on the moors. The first edition in 2015 was rain-soaked. The exposed moorland terrain amplifies whatever weather arrives — there is no shelter on Buttertubs. Pack for every eventuality and hope for the best."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "The Yorkshire Dales top out at around 700m. Altitude is completely irrelevant. The climbs are steep but low. This is sea-level cycling on hills, not mountain riding."
+      },
+      "adventure": {
+        "score": 3,
+        "explanation": "The Yorkshire Dales and North York Moors are genuinely beautiful — dry stone walls, sweeping moorland, sheep-dotted valleys, charming villages. The landscape is dramatic in a quintessentially English way. But this is a single-day sportive on English roads, not a multi-day adventure through uncharted terrain. The adventure is in the weather and the climbs, not the geography."
+      },
+      "prestige": {
+        "score": 4,
+        "explanation": "The Tour de Yorkshire sportive inherits enormous prestige from its parent event. The 2014 Tour de France Grand Depart in Yorkshire attracted 2.6 million roadside spectators and created a cycling cultural phenomenon. The professional Tour de Yorkshire was a UCI 2.HC race (later ProSeries). The sportive — riding the same roads as the pros on the same day — carried that prestige directly. If it returns, the prestige is instant."
+      },
+      "race_quality": {
+        "score": 3,
+        "explanation": "Organized by Human Race Events (experienced UK sportive organizers), the Tour de Yorkshire Sportive was well-run: chip timing, feed stations, route signage, medical support, results. The route changed each year to match the pro race, keeping it fresh. The wave start system and signposted route were standard for UK sportives. Not luxury HotChillee-level organization, but solid, reliable British sportive infrastructure."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "Riding the same roads as the Tour de Yorkshire pro peloton — the same climbs, the same final 50 km, crossing the same finish line — hours before the pros is a powerful experience. The roadside crowds for the pro race created an electric atmosphere that spilled into the sportive. Yorkshire's passion for cycling, born from the 2014 Grand Depart, made every rider feel like part of something bigger than a normal sportive."
+      },
+      "community": {
+        "score": 4,
+        "explanation": "Yorkshire's cycling community is fierce, passionate, and enormous. The 2014 Tour de France Grand Depart ignited a cycling culture that was already simmering — cycling clubs, sportive regulars, and thousands of casual riders all united around 'their' race. The roadside support from local communities — villages decorating roads, pubs opening early, farmers clearing their walls for spectators — is unmatched in UK cycling."
+      },
+      "field_depth": {
+        "score": 2,
+        "explanation": "The sportive was amateur throughout — no competitive categories of significance. Strong club riders from Yorkshire and the north of England made up the faster end. The field was enthusiastic amateur, not competitively deep. This was never a race — it was a mass-participation celebration of Yorkshire cycling."
+      },
+      "value": {
+        "score": 4,
+        "explanation": "GBP 45-65 for a well-organized sportive on iconic roads with chip timing, feed stations, and the pro-race connection was excellent value. By UK sportive standards, the pricing was mid-range. The experience — riding Tour de Yorkshire roads with thousands of fellow riders — far exceeded what the entry fee suggested."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Yorkshire is not an expensive destination. Hotels in Leeds, Harrogate, York, or Scarborough range from GBP 60-150 per night. Food and drink are standard English pricing. For UK-based riders, total weekend cost (entry, accommodation, fuel, food) is GBP 200-400. For international riders, add flights to Manchester or Leeds Bradford. Budget-friendly by sportive standards."
+      }
+    },
+    "biased_opinion": {
+      "verdict": "Yorkshire's Legacy",
+      "summary": "The Tour de Yorkshire Sportive was born from the most electrifying moment in British cycling history: the 2014 Tour de France Grand Depart. When the Tour came to Yorkshire, 2.6 million people lined the roads. A cycling culture was ignited. The professional Tour de Yorkshire launched in 2015, and the sportive gave amateurs the chance to ride the same roads, hours before the pros.\n\nThe format was simple and powerful: ride the route of the final stage — including its iconic Yorkshire climbs — then watch the pro race from the finish line. The routes varied each year: Leeds, Scarborough, Sheffield, each bringing different Yorkshire terrain. Buttertubs, Grinton Moor, Cote de Harwood Dale — the classic climbs rotated through, keeping each edition fresh.\n\nThe event is currently on hiatus. The professional Tour de Yorkshire was cancelled from 2020 onwards (COVID, then financial difficulties with Welcome to Yorkshire), and the sportive has not returned. If it does, the combination of Tour de France heritage, Yorkshire's passionate cycling community, and the county's beautiful-brutal terrain makes it one of the UK's strongest sportive propositions.",
+      "strengths": [
+        "Tour de France Grand Depart heritage — 2.6 million roadside spectators created a cycling cultural phenomenon",
+        "Ride the same roads as the pro peloton: iconic Yorkshire climbs and the pro finish line",
+        "Yorkshire's extraordinary cycling community: fierce, passionate, and enormous",
+        "Excellent value at GBP 45-65 for a sportive on iconic roads with full event infrastructure"
+      ],
+      "weaknesses": [
+        "Currently on hiatus since 2019 — the professional race and sportive both cancelled",
+        "Yorkshire weather is genuinely unpredictable: horizontal rain, cold, and exposed moorland",
+        "English road surfaces in the Dales can be poor — potholes and winter damage",
+        "Not internationally significant as a standalone sportive — prestige depends entirely on the pro race link"
+      ],
+      "bottom_line": "The best sportive in the UK when it ran. Currently dormant. If it returns, ride it immediately — Yorkshire cycling culture is a force of nature."
+    },
+    "final_verdict": {
+      "score": "67 / 100",
+      "one_liner": "Tour de France heritage. Yorkshire climbs. Roadside passion. On hiatus since 2019 — but if it returns, ride it.",
+      "should_you_race": "Yes if the event returns and you want to ride iconic Yorkshire climbs with the Tour de France heritage and passionate roadside support. Yes if English cycling culture and the Dales landscape appeal to you. Skip if the event remains on hiatus. Skip if you need guaranteed good weather — Yorkshire in late April is a gamble.",
+      "alternatives": "If you want Yorkshire climbing now: Struggle Dales (Harrogate, annual). If you want Tour de France heritage in England: RideLondon. If you want a UK sportive with guaranteed dramatic scenery: Etape Caledonia or Dragon Ride.",
+      "alternative_slugs": [
+        "ridelondon",
+        "dragon-ride"
+      ]
+    },
+    "logistics": {
+      "airport": "Leeds Bradford (LBA) — 30-60 minutes depending on start location. Manchester (MAN) — 1.5-2 hours. London airports — 3-4 hours by car or 2 hours by train to Leeds/York.",
+      "lodging_strategy": "Start locations varied each year (Leeds, Scarborough, Sheffield, Harrogate). Leeds and Harrogate offer the widest accommodation range. York is a charming base within easy reach of most start points. Book early — the event weekend draws thousands. Budget hotels, B&Bs, and Airbnbs throughout Yorkshire.",
+      "food": "Yorkshire is hearty English food territory. Pubs and cafes in every village. Yorkshire pudding, fish and chips, real ale. The cycling cafe culture in the Dales and around Harrogate has exploded since 2014. Expect excellent cafe stops and pub lunches.",
+      "packet_pickup": "Historically at the start venue on the day before or morning of the event. Registration, timing chip, bib number, route information.",
+      "parking": "Varied by start location. Large events typically provide designated parking areas. Public transport (rail) is an option for Leeds and Scarborough starts.",
+      "official_site": "https://letouryorkshire.com/ (historical — currently inactive)"
+    },
+    "history": {
+      "founded": 2015,
+      "founder": "Welcome to Yorkshire and Amaury Sport Organisation (ASO) — sportive organized by Human Race Events",
+      "origin_story": "The Tour de Yorkshire Sportive was created as the amateur companion event to the professional Tour de Yorkshire, itself a legacy of the 2014 Tour de France Grand Depart in Yorkshire. When the Tour de France started in Leeds and rode through the Yorkshire Dales to Harrogate, then from York to Sheffield, 2.6 million people lined the roads. The response was so overwhelming that Welcome to Yorkshire and ASO (the Tour de France organizers) created an annual professional race. The sportive launched alongside the first edition in 2015, giving 4,000 amateur riders the chance to ride the final stage route hours before the pros. The sportive ran annually from 2015-2019, varying the start city each year.",
+      "notable_moments": [
+        "2014: Tour de France Grand Depart in Yorkshire — 2.6 million roadside spectators create a cultural phenomenon",
+        "2015: First Tour de Yorkshire and first sportive — 4,000 riders, Leeds start, massive roadside support",
+        "2016: Sportive moves to Scarborough — North York Moors terrain introduced",
+        "2017: Sheffield start — 194 km pro route through South and West Yorkshire",
+        "2019: Final edition before COVID cancellations. Pro race achieves UCI ProSeries status for 2020",
+        "2020-2025: Event cancelled — COVID initially, then financial difficulties with Welcome to Yorkshire"
+      ],
+      "reputation": "The UK's most prestigious sportive when it ran. Born from the Tour de France and sustained by Yorkshire's extraordinary cycling passion. Currently dormant, deeply missed."
+    },
+    "course_description": {
+      "character": "The Tour de Yorkshire Sportive changed its route each year to mirror the professional race's final stage, giving riders a rotating tour of Yorkshire's finest cycling terrain. The consistent element was the terrain character: short, steep, punishing climbs with exposed moorland between them, narrow English lanes, and descents that demanded respect in wet conditions. Buttertubs (6 km at 6% with 20% ramps), Grinton Moor, Cote de Harwood Dale, and similar Yorkshire classics rotated through. The route always included the final 50 km and finish line of the pro race, and riders could watch the professional peloton cross the same line hours later.",
+      "suffering_zones": [
+        {
+          "mile": 0,
+          "label": "The Opening Climbs",
+          "desc": "Each edition opened with an early climb to separate the field. Yorkshire doesn't believe in warm-up miles. Within the first 10 km, the road tilts upward and the field stretches. The opening climbs varied by year but consistently set the tone: this will hurt.",
+          "terrain_detail": "Steep opening climbs: English country lanes, 10-15% gradients",
+          "named_section": "Opening Climbs (varied by year)"
+        },
+        {
+          "mile": 30,
+          "label": "The Dales Classics",
+          "desc": "The heart of the route traversed the Yorkshire Dales or North York Moors, delivering the event's signature climbs. Buttertubs — 6 km at 6% average with ramps hitting 20% — is the most famous. Grinton Moor, an exposed moorland drag, strips away any remaining illusions. These are not long climbs, but they are steep, exposed, and relentless in their frequency.",
+          "terrain_detail": "Classic Yorkshire climbs: steep (10-20% pitches), short, exposed moorland",
+          "named_section": "Yorkshire Dales Classics (Buttertubs, Grinton Moor, etc.)"
+        },
+        {
+          "mile": 60,
+          "label": "The Pro Route — Final 50 km",
+          "desc": "The sportive's final section followed the exact route of the pro race's final 50 km. The same climbs, the same corners, the same finish line. This section carried the most emotional weight — you were riding the roads the professionals would race on that same afternoon. The finish line — sometimes in Leeds, sometimes Harrogate, sometimes Sheffield — was the shared experience.",
+          "terrain_detail": "Pro-race roads: mixed terrain, signature climbs, finish-line sprint",
+          "named_section": "Pro Race Route — Final 50 km and Finish Line"
+        }
+      ],
+      "signature_challenge": "Buttertubs. Six kilometers at 6% average with pitches hitting 20%. Exposed, relentless, and iconic. The quintessential Yorkshire climb — short enough to be over quickly, steep enough to make you wish it was over sooner."
+    },
+    "guide_variables": {
+      "race_name": "Tour de Yorkshire Sportive",
+      "race_distance": "87 miles (140 km long route)",
+      "race_elevation": "6,890 feet (2,100m long route)",
+      "race_date": "Late April / early May (when active)",
+      "race_location": "Yorkshire, England",
+      "race_terrain": "Paved — English country lanes, Yorkshire Dales climbs",
+      "race_weather": "Late-spring English: 5-18C, unpredictable — rain, wind, sun, all possible",
+      "race_challenges": [
+        "Yorkshire Dales climbs: Buttertubs (20% pitches), Grinton Moor, Cote de Harwood Dale",
+        "Unpredictable late-April weather on exposed moorland",
+        "Wet English road surfaces with poor visibility on descents",
+        "Constant elevation changes — Yorkshire doesn't do flat"
+      ],
+      "altitude_section": false,
+      "altitude_feet": 0
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Short, steep hill repeats — 5-10 minute efforts at 10-15% gradient, minimum 8 repetitions",
+        "by_when": "Week 6",
+        "why": "Yorkshire climbs are short and steep, not long and steady. Your training must mirror this: repeated high-intensity efforts on steep gradients with incomplete recovery between. Buttertubs' 20% ramps demand specific power at steep gradients that flat training cannot prepare you for."
+      },
+      {
+        "requirement": "Wet weather riding practice — descending on wet English roads with confidence",
+        "by_when": "Week 8",
+        "why": "Yorkshire in late April will likely include rain. Descending narrow, wet English lanes at speed after steep climbs requires practiced skills: smooth braking, corner entry speed management, and cold-hand control. One in-the-rain training ride is worth ten indoor sessions."
+      },
+      {
+        "requirement": "Full kit for all conditions — rain jacket, arm warmers, gilet, overshoes packed and accessible",
+        "by_when": "Week 9",
+        "why": "Yorkshire weather can change from sunshine to hail in 20 minutes. You need a layering system that fits in your pockets and can be deployed on the bike. Being cold and wet on Buttertubs with 50 km remaining is a ride-ending scenario without proper gear."
+      }
+    ],
+    "citations": [
+      {
+        "url": "https://en.wikipedia.org/wiki/Tour_de_Yorkshire",
+        "title": "Tour de Yorkshire — Wikipedia",
+        "category": "reference"
+      },
+      {
+        "url": "https://www.sportive.com/tour-de-yorkshire/516393/tour-de-yorkshire-sportive-routes-announced",
+        "title": "Tour de Yorkshire Sportive Routes Announced 2015 — Sportive.com",
+        "category": "reference"
+      },
+      {
+        "url": "https://www.ridetheroutes.co.uk/2016-tour-de-yorkshire-sportive/",
+        "title": "Tour de Yorkshire Sportive 2016 — Ride the Routes",
+        "category": "review"
+      },
+      {
+        "url": "https://www.sportive.com/cycling/536392/routes-revealed-and-entries-open-for-2018-tour-de-yorkshire-ride",
+        "title": "Tour de Yorkshire Ride 2018 — Sportive.com",
+        "category": "reference"
+      },
+      {
+        "url": "https://www.britishcycling.org.uk/road/article/20181210-road-Routes-for-2019-Tour-de-Yorkshire-announced-0",
+        "title": "Routes for 2019 Tour de Yorkshire Announced — British Cycling",
+        "category": "reference"
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "high",
+      "validation_status": "validated",
+      "research_strength": "A",
+      "sources_count": 5,
+      "last_updated": "2026-03-01"
+    }
+  }
+}

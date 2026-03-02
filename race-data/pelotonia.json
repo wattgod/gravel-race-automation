@@ -1,0 +1,318 @@
+{
+  "race": {
+    "name": "Pelotonia",
+    "slug": "pelotonia",
+    "display_name": "Pelotonia",
+    "tagline": "17 to 165 miles across Central Ohio. $339 million raised. 100% of every rider-raised dollar to cancer research. This isn't a bike race — it's a movement on two wheels.",
+    "vitals": {
+      "distance_mi": 100,
+      "elevation_ft": 2500,
+      "location": "Columbus, Ohio, USA",
+      "location_badge": "COLUMBUS, OHIO, USA",
+      "date": "First weekend of August annually (Saturday-Sunday)",
+      "date_specific": "2026: August 1-2 (Opening Ceremony July 31)",
+      "terrain_types": [
+        "Paved roads through Central Ohio farmland and suburbs",
+        "Rolling rural highways between Columbus and Kenyon College",
+        "Urban streets through downtown Columbus and New Albany"
+      ],
+      "field_size": "~7,500 riders",
+      "start_time": "Saturday morning from McFerson Commons (long routes) and North Bank Park (short routes), downtown Columbus",
+      "registration": "Online at pelotonia.org. Registration fee ~$234. All riders must meet fundraising commitment ($1,250-$3,000+ depending on route). 100% of rider-raised funds go directly to cancer research.",
+      "prize_purse": "None. This is a charity ride, not a race.",
+      "aid_stations": "Rest stops every 10-15 miles with water, sports drink, food, mechanical support, and medical staff. SAG vehicles on all routes.",
+      "cutoff_time": "Generous time limits. Full SAG support available for all routes.",
+      "lat": 39.9612,
+      "lng": -82.9988,
+      "distance_options": [
+        "17 miles (Downtown Columbus Loop — new in 2026)",
+        "23 miles (Downtown Columbus to New Albany)",
+        "46 miles (Downtown Columbus to New Albany)",
+        "100 miles (Downtown Columbus to Kenyon College, Gambier — Saturday)",
+        "165 miles (Two-day: Columbus to Kenyon College Saturday, Kenyon to New Albany Sunday)"
+      ],
+      "entry_fee": "Registration ~$234 + fundraising commitment: $1,250 (17-23 mi), $1,500 (46 mi), $2,000 (100 mi), $3,000 (165 mi). High Roller: $5,000+."
+    },
+    "climate": {
+      "primary": "Early August Ohio — hot, humid, with afternoon thunderstorm risk",
+      "description": "Early August in Central Ohio delivers classic Midwest summer heat. Morning temperatures of 65-70F climb to 82-88F by midday, with humidity frequently pushing heat index into the 90s. The air is thick and heavy — a sharp contrast to western US charity rides. Thunderstorms are a real possibility, especially in the afternoon. Long-route riders (100+ miles) will spend 6-10 hours in the heat, making hydration and heat management the primary physical challenge regardless of fitness.",
+      "challenges": [
+        "Heat and humidity — heat index regularly exceeds 90F by midday in early August",
+        "Afternoon thunderstorm risk — lightning can halt the ride and rain makes open roads dangerous",
+        "Cumulative sun exposure across 6-10 hours for long-route riders",
+        "Dehydration risk amplified by humidity — sweat doesn't evaporate efficiently",
+        "Early morning humidity means you're already damp before the first mile"
+      ]
+    },
+    "terrain": {
+      "primary": "Paved rural and suburban roads across Central Ohio",
+      "surface": "Paved state and county roads from downtown Columbus east and northeast through Licking, Knox, and Franklin counties. The terrain is gently rolling Ohio farmland — no sustained climbs, but a steady accumulation of short rollers that add up over distance. Road surfaces range from smooth suburban boulevards to rougher rural county roads. The 100-mile route to Kenyon College traverses the most varied terrain, moving from urban Columbus through suburban sprawl into genuinely rural Ohio countryside.",
+      "technical_rating": 1,
+      "features": [
+        "Urban start through downtown Columbus streets",
+        "Suburban transition through New Albany and Licking County",
+        "Rolling rural farmland roads through Knox County to Gambier",
+        "Kenyon College campus as the 100-mile finish — a hilltop liberal arts college in rural Ohio",
+        "Paved roads throughout — open to traffic, not closed course"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 63,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "logistics": 5,
+      "length": 3,
+      "technicality": 1,
+      "elevation": 1,
+      "climate": 3,
+      "altitude": 1,
+      "adventure": 2,
+      "prestige": 4,
+      "race_quality": 4,
+      "experience": 4,
+      "community": 5,
+      "field_depth": 1,
+      "value": 2,
+      "expenses": 3,
+      "cultural_impact": 5,
+      "tier_note": "Pelotonia is not a hard ride — it's a meaningful one. The physical challenge is modest by endurance cycling standards, but the community energy, emotional weight, and sheer fundraising scale make it one of the most impactful cycling events in America. T2 reflects the gap between physical demands and cultural significance — the community and mission carry what the terrain cannot.",
+      "score_note": "logistics=5 (major airport, 17 years of professional management, 7,500 riders). length=3 (165-mile two-day option, but most ride 100 or less). technicality=1 (paved roads, no technical demands). elevation=1 (Central Ohio is flat to gently rolling). climate=3 (August Ohio heat and humidity are a genuine challenge). altitude=1 (Columbus at 900 ft). adventure=2 (pleasant farmland, not spectacular). prestige=4 (nationally recognized, $339M raised). race_quality=4 (17 years of refinement, massive volunteer corps, Opening Ceremony concert). experience=4 (emotional Opening Ceremony, cancer survivor stories, Kenyon College overnight, finish line celebrations). community=5 (deeply personal cancer connections, 7,500 riders, peloton teams, 100% to research). field_depth=1 (not a race). value=2 ($1,250-$3,000 fundraising commitment is a significant barrier). expenses=3 (Columbus is affordable but fundraising commitment is the real cost). cultural_impact=5 ($339M raised, 100% to research, funded breakthrough immunotherapy, nationally recognized institution). Sum of 14 = 39. Plus cultural_impact = 5. Total = 44. Score = round(44/70 * 100) = 63.",
+      "editorial_tier": 2,
+      "editorial_tier_label": "TIER 2",
+      "business_tier": 2,
+      "business_tier_label": "TIER 2",
+      "display_tier": 2,
+      "display_tier_label": "TIER 2",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 5,
+        "explanation": "John Glenn Columbus International Airport (CMH) is 15 minutes from downtown Columbus — 250+ daily flights with nonstop service to most major US cities. Hotels are plentiful and affordable by event-city standards. Pelotonia has been running for 17 years with a full-time professional staff of 17+, corporate funding partners covering all operational costs, and a volunteer army of thousands. McFerson Commons and North Bank Park in the Arena District are purpose-built event spaces. Rest stops, SAG vehicles, mechanical support, and medical teams are deployed across every route. This is one of the most logistically polished cycling events in America."
+      },
+      "length": {
+        "score": 3,
+        "explanation": "Seven route options in 2026 span from a 17-mile urban loop to a 165-mile two-day odyssey. The flagship experience is the 100-mile Saturday ride from Columbus to Kenyon College in Gambier — a genuine century on rolling Ohio roads. The 165-mile option adds a Sunday return leg from Kenyon to New Albany. Most riders choose 46-100 miles. The range of distances makes Pelotonia accessible to nearly everyone, but the marquee routes are legitimate endurance efforts, especially in August heat."
+      },
+      "technicality": {
+        "score": 1,
+        "explanation": "Paved roads throughout. Open to traffic — this is not a closed course. The most technical demand is navigating intersections in the urban sections of Columbus and sharing rural roads with vehicles. There are no climbs, no descents, no gravel, no singletrack. If you can ride a bicycle on a road, you have the technical skills for Pelotonia."
+      },
+      "elevation": {
+        "score": 1,
+        "explanation": "Central Ohio is flat to gently rolling. The 100-mile route to Kenyon College accumulates roughly 2,500 feet of climbing through a series of short rollers — none individually significant, but they add up over a century in the heat. The 46-mile route gains approximately 1,200 feet. There are no named climbs, no sustained grades, no mountain passes. The elevation profile is a gentle sine wave across Ohio farmland."
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "Early August in Columbus averages 82-85F highs with 60-70% humidity. Heat index regularly pushes into the 90s. This is not Death Valley, but the combination of heat, humidity, and 6-10 hours of riding makes thermal management the primary physical challenge of Pelotonia. Afternoon thunderstorms are a real possibility — Pelotonia has weather contingency plans and will halt riders if lightning threatens. The climate is an obstacle, not an asset. You are fighting the weather every mile after 10 AM."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "Columbus sits at approximately 900 feet above sea level. The highest point on any route is maybe 1,200 feet. Altitude is a complete non-factor. Your lungs will work fine. It is the humidity that will make breathing feel hard, not the elevation."
+      },
+      "adventure": {
+        "score": 2,
+        "explanation": "Central Ohio farmland is pleasant, not spectacular. You ride through corn and soybean fields, past white farmhouses, along tree-lined country roads with the occasional covered bridge or small town. The Kenyon College campus in Gambier is genuinely charming — a hilltop liberal arts college that serves as a satisfying finish line. But this is not a ride you do for the scenery. The adventure is internal — the emotional journey of riding for a cause, alongside thousands of others who have been touched by cancer. That is the real landscape of Pelotonia."
+      },
+      "prestige": {
+        "score": 4,
+        "explanation": "Pelotonia is one of the most recognized charity cycling events in America. $339 million raised since 2009 — with 100% of rider-raised dollars going directly to cancer research at Ohio State. It has funded breakthrough immunotherapy research and helped establish the Pelotonia Institute for Immuno-Oncology. The prestige is not competitive — nobody cares about your finishing time — but institutional. Saying 'I ride Pelotonia' carries weight in the cycling and philanthropic communities. A record-breaking $29.2 million in 2025 alone. This is a serious organization doing serious work."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "Seventeen years of continuous improvement with full-time professional staff and corporate-funded operations. Rest stops every 10-15 miles are well-stocked with food, water, sports drink, and mechanical support. Medical teams and SAG vehicles patrol every route. The Opening Ceremony on Friday evening at McFerson Commons features live music (O.A.R. in 2025), inspirational storytelling from cancer survivors, and a community rally that sets the emotional tone for the weekend. Finish line celebrations, Kenyon College overnight hospitality for 100+ mile riders, and a post-ride festival complete the experience. The organizational quality rivals events that charge three times the entry fee."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "The Pelotonia experience is not about the riding — it is about the meaning. Opening Ceremony on Friday night is genuinely emotional — cancer survivors sharing their stories, researchers explaining what the funding has made possible, 15,000 people united by a single goal. Saturday morning at McFerson Commons, 7,500 riders roll out at dawn with that emotional charge still fresh. The 100-mile riders arrive at Kenyon College after a long day in the Ohio heat to find a campus transformed into a celebration. Volunteers hand you food, students cheer, and the weight of what you have accomplished — both physically and philanthropically — settles in. Sunday, the 165-mile riders complete the return to New Albany. The finish line is not a timing mat. It is a community embracing you."
+      },
+      "community": {
+        "score": 5,
+        "explanation": "This is the heart of Pelotonia and the reason it exists. 7,500 riders from 40+ states and 10+ countries. Peloton teams — workplace, family, and friend groups who train and fundraise together for months. Cancer survivors riding alongside researchers who used Pelotonia-funded grants. Families riding in memory of someone they lost. The fundraising requirement ensures every single rider has skin in the game — nobody is here casually. The 100% model (all rider-raised funds to research, operations funded by corporate partners) means every dollar has direct impact. This is one of the strongest cycling communities in America — bound not by speed or competition but by shared purpose."
+      },
+      "field_depth": {
+        "score": 1,
+        "explanation": "Pelotonia is explicitly not a race. There is no timing, no age group awards, no podium, no competition of any kind. The event handbook states it clearly: 'Pelotonia is not a race.' The front of the group will have fast riders, but they are riding fast for their own reasons, not for a result. If you need competition, Pelotonia is not the event."
+      },
+      "value": {
+        "score": 2,
+        "explanation": "The registration fee is approximately $234 — reasonable for an event of this scale. But registration is just the door. The fundraising commitment ranges from $1,250 for the shortest routes to $3,000 for the 165-mile two-day option, with High Rollers committing $5,000+. This is a significant financial barrier that puts Pelotonia out of reach for some riders. The value proposition is unusual — you are not paying for a ride experience, you are investing in cancer research. The ride is the vehicle for the fundraising, not the other way around. For riders who embrace the mission, the value is immeasurable. For riders evaluating it as a cycling event, the cost-per-mile is steep."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Columbus is one of the more affordable major US cities. Hotels near the Arena District run $120-200/night on event weekend. Restaurants are reasonably priced. The airport is close and flights are moderate from most US cities. The real expense is the fundraising commitment, which dwarfs travel and lodging costs. A rider doing the 100-mile route faces: $234 registration + $2,000 fundraising commitment + $300-600 travel/lodging = $2,500-2,800 total. The fundraising component makes Pelotonia one of the most expensive cycling events in America in total outlay, even though the city itself is affordable."
+      }
+    },
+    "biased_opinion": {
+      "verdict": "The Ride That Means Something",
+      "summary": "Pelotonia is the rare cycling event where the suffering has a point beyond personal satisfaction. $339 million raised for cancer research — every dollar from riders going directly to the Ohio State Comprehensive Cancer Center, operational costs covered by corporate partners so nothing leaks to overhead. The riding itself is honest but unremarkable: flat-to-rolling Ohio farmland in August heat, paved roads, no technical demands. What makes Pelotonia extraordinary is the community — 7,500 riders who have raised thousands of dollars each, many riding for deeply personal reasons, united by a single goal that is bigger than any of them. The Opening Ceremony will give you chills. The finish line might make you cry. The terrain will not.",
+      "strengths": [
+        "Mission and impact: $339 million raised with 100% of rider funds to cancer research — a model other charity rides aspire to",
+        "Community depth: 7,500 riders from 40+ states, peloton teams, cancer survivors riding alongside the researchers their money funded",
+        "Organizational excellence: 17 years of professional operations, corporate-funded overhead, rest stops every 10-15 miles, SAG on every route",
+        "Accessibility: seven route options from 17 to 165 miles welcome everyone from first-time riders to century veterans"
+      ],
+      "weaknesses": [
+        "Fundraising barrier: $1,250-$3,000+ commitment puts this out of reach for riders who cannot or will not fundraise",
+        "Terrain is unremarkable: Central Ohio farmland is pleasant but will not make anyone's scenic cycling highlight reel",
+        "Zero competition: no timing, no awards, no racing. This is a charity ride, full stop.",
+        "August Ohio heat: 85F and humid is not dangerous but it is not fun, especially for 100+ mile riders"
+      ],
+      "bottom_line": "You don't ride Pelotonia for the route. You ride it for what the route represents. 100 miles of Ohio farmland, powered by the most emotionally charged community in American cycling, directed at a goal that matters more than any finish time."
+    },
+    "final_verdict": {
+      "score": "63 / 100",
+      "one_liner": "$339 million raised. 7,500 riders. 100% of every dollar to cancer research. The terrain is Ohio. The mission is everything.",
+      "should_you_race": "Yes if you want to be part of one of the most impactful cycling communities in America. Yes if cancer has touched your life and you want to ride with meaning. Yes if you value community and mission over scenery and competition. Skip if you cannot commit to the fundraising requirement, need competitive racing, or want dramatic terrain.",
+      "alternatives": "If you want a large US charity century with warmer-climate scenery: try El Tour de Tucson. If you want a massive community ride with more dramatic terrain: try America's Most Beautiful Bike Ride (Lake Tahoe). If you want Ohio gravel instead of road: try Mohican 100 or Mid Ohio Gravel.",
+      "alternative_slugs": [
+        "tour-de-tucson",
+        "americas-most-beautiful-bike-ride"
+      ]
+    },
+    "logistics": {
+      "airport": "John Glenn Columbus International Airport (CMH) — 15 minutes from downtown Columbus. 250+ daily flights with nonstop service to most major US cities. Uber/Lyft readily available. Rental cars unnecessary if staying near the Arena District.",
+      "lodging_strategy": "Downtown Columbus Arena District hotels are closest to the McFerson Commons start — Hilton Columbus Downtown, Hyatt Regency, and several others within walking distance. Book early — 7,500 riders plus volunteers fill hotels fast. Budget $120-200/night. Short North and German Village neighborhoods offer boutique options. For the 165-mile two-day route, overnight accommodations at Kenyon College in Gambier are provided by the event.",
+      "food": "Columbus has a genuinely excellent food scene — Short North, German Village, and the Arena District offer everything from craft breweries to upscale dining. Pre-ride carb loading at any of the Italian or pizza spots on High Street. Post-ride food is provided at finish line celebrations. Kenyon College provides dinner and breakfast for overnight riders.",
+      "packet_pickup": "McFerson Commons, Arena District, downtown Columbus. Friday evening during Opening Ceremony (check-in opens 11:30 AM). Saturday morning pickup available but arrive early. Rider credential packet includes bike plate, wristband, and event materials.",
+      "parking": "McFerson Commons and surrounding Arena District garages for Saturday start. Specific parking instructions communicated via email and text message before ride weekend. Arrive 60-90 minutes before start time for long routes.",
+      "official_site": "https://www.pelotonia.org"
+    },
+    "history": {
+      "founded": 2008,
+      "founder": "Tom Lennox",
+      "origin_story": "Pelotonia was founded in 2008 by Tom Lennox with a simple premise: create a cycling event where 100% of every rider-raised dollar goes directly to cancer research. The name comes from 'peloton' — the group of cyclists in a road race who go faster together than any individual can alone. The first Ride Weekend in 2009 proved the concept. Corporate and philanthropic partners agreed to fund all operational costs, creating the 100% model that has become Pelotonia's defining characteristic. The partnership with Ohio State University Comprehensive Cancer Center (OSUCCC-James) directed all funds toward innovative research. Over 17 years, tens of thousands of riders have transformed that simple premise into $339 million for cancer research — funding breakthroughs in immunotherapy, establishing the Pelotonia Institute for Immuno-Oncology, and accelerating treatments that have turned once-fatal diagnoses into manageable conditions.",
+      "notable_moments": [
+        "2008: Pelotonia founded by Tom Lennox as a 501(c)(3) nonprofit in Columbus, Ohio",
+        "2009: First Ride Weekend draws thousands of riders to Central Ohio roads",
+        "2012: Longest route begins finishing at Kenyon College in Gambier — a tradition that endures",
+        "2018: Previous single-year fundraising record of $27.4 million set",
+        "2023: 15th anniversary — cumulative fundraising surpasses $250 million",
+        "2024: Joe Apgar, a cancer survivor and longtime Pelotonia member, named CEO",
+        "2025: Record-breaking $29.2 million raised in a single year, bringing all-time total to $339 million",
+        "2026: New 17-mile Ride Weekend loop and mountain biking added to Gravel Day"
+      ],
+      "reputation": "The gold standard of charity cycling events in America. Where 100% means 100%, the community is bound by purpose not podiums, and the money has funded research that is saving lives."
+    },
+    "course_description": {
+      "character": "A point-to-point ride from downtown Columbus across Central Ohio's gently rolling farmland. The route leaves the urban grid within the first 10 miles, transitioning through suburbs and into genuinely rural countryside — corn and soybean fields, white farmhouses, quiet county roads lined with hardwood trees. The terrain is a series of short rollers, none individually significant but cumulatively honest over 100 miles in August heat. The 100-mile route culminates at Kenyon College in Gambier — a hilltop liberal arts campus that transforms into a finish line celebration. The 165-mile two-day option adds a Sunday return from Kenyon through different countryside to New Albany.",
+      "suffering_zones": [
+        {
+          "mile": 0,
+          "label": "The Downtown Start",
+          "desc": "Rolling out of McFerson Commons in the Arena District of downtown Columbus. 7,500 riders channeling through city streets at dawn. The emotional energy from Friday's Opening Ceremony is still fresh — cancer survivors' stories, the community rally, the sheer scale of what this group has committed to. The first miles are urban: East Broad Street, traffic lights, the cityscape of Columbus receding behind you.",
+          "terrain_detail": "Flat urban streets, paved, 780 ft elevation",
+          "named_section": "Downtown Columbus Start"
+        },
+        {
+          "mile": 25,
+          "label": "The Suburban Transition",
+          "desc": "Leaving the eastern suburbs of Columbus behind as the route enters Licking County. The road narrows, the houses thin out, and the Ohio countryside opens up. Corn fields on both sides, the occasional farm stand, and the first real rollers of the day. Rest stops are well-stocked and frequent. The riders around you are settling into their rhythm — talking, laughing, sharing why they ride.",
+          "terrain_detail": "Rolling rural roads, paved, 900-1,000 ft",
+          "named_section": "Licking County"
+        },
+        {
+          "mile": 50,
+          "label": "The Long Middle",
+          "desc": "The halfway point of the 100-mile route and the finish for the 46-mile riders. From here, the century riders continue northeast into Knox County. The terrain becomes more rolling, the shade more sparse, and the August heat more insistent. This is where fitness separates from willpower — the road is not hard, but 50 miles of cumulative heat and humidity are.",
+          "terrain_detail": "Rolling rural roads, paved, 1,000-1,100 ft",
+          "named_section": "Knox County"
+        },
+        {
+          "mile": 80,
+          "label": "The Grind to Gambier",
+          "desc": "Twenty miles to go. The rollers feel bigger than they are because your legs have been working for six-plus hours in the heat. The route winds through the farms and small towns east of Mount Vernon. You can feel Kenyon College pulling you forward — the promise of a finish line, a celebration, and the knowledge that every dollar you raised is already at work in the lab.",
+          "terrain_detail": "Rolling, occasional short climbs, paved, 1,000-1,200 ft",
+          "named_section": "Approach to Gambier"
+        },
+        {
+          "mile": 100,
+          "label": "Kenyon College — The Finish",
+          "desc": "The hilltop campus of Kenyon College in Gambier. Volunteers line the final stretch, cheering every rider across the line. Students, faculty, and community members have transformed the campus into a celebration. Food, music, and the emotional release of completing 100 miles in the Ohio heat for a cause that matters. For 165-mile riders, this is the overnight stop — dinner, rest, and the knowledge that tomorrow's 65-mile return leg awaits.",
+          "terrain_detail": "Short climb to hilltop campus, 1,100 ft",
+          "named_section": "Kenyon College Finish"
+        }
+      ],
+      "signature_challenge": "The heat. Not the terrain, not the distance, not the climbing — the August Ohio heat and humidity that turns an otherwise moderate century into a genuine test of preparation and resilience. Every experienced Pelotonia rider will tell you the same thing: respect the weather."
+    },
+    "guide_variables": {
+      "race_name": "Pelotonia",
+      "race_distance": "100 miles (flagship route; 17-165 mile options available)",
+      "race_elevation": "~2,500 feet (100-mile route)",
+      "race_date": "August",
+      "race_location": "Columbus, Ohio",
+      "race_terrain": "Paved rural and suburban roads across gently rolling Central Ohio farmland",
+      "race_weather": "Hot and humid (82-88F, 60-70% humidity), afternoon thunderstorm risk",
+      "race_challenges": [
+        "August heat and humidity — heat index regularly in the 90s, cumulative exposure over 6-10 hours",
+        "Dehydration risk amplified by humidity — sweat does not evaporate efficiently",
+        "Afternoon thunderstorm risk on long routes — lightning halts the ride",
+        "Open roads with motor vehicle traffic throughout the route",
+        "Fundraising commitment of $1,250-$3,000+ is a significant pre-event challenge"
+      ],
+      "altitude_section": false,
+      "altitude_feet": 1200
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Heat acclimatization training — train in heat and humidity before August",
+        "by_when": "Week 6",
+        "why": "Columbus in early August averages 82-88F with 60-70% humidity. The heat index routinely exceeds 90F by midday. Long-route riders will spend 6-10 hours in these conditions. If you train exclusively in air conditioning or cool mornings, the heat will break you regardless of fitness. Spend at least 3-4 weeks doing key rides in the hottest part of the day. Practice your hydration and nutrition strategy in heat. Your body needs time to adapt its cooling mechanisms — sweat rate, plasma volume, perceived exertion — and that adaptation cannot happen on race day."
+      },
+      {
+        "requirement": "Hydration and electrolyte strategy tested on rides of 60+ miles",
+        "by_when": "Week 4",
+        "why": "Humidity prevents efficient sweat evaporation, meaning you lose fluid faster than your body can cool itself. Rest stops every 10-15 miles provide water and sports drink, but you need to know your personal fluid and sodium needs before Ride Weekend. Test your strategy on at least two long rides in similar conditions. The most common medical tent visit at Pelotonia is dehydration-related. This is preventable with preparation."
+      },
+      {
+        "requirement": "Fundraising commitment fulfilled before ride weekend",
+        "by_when": "Week 8",
+        "why": "The fundraising commitment ($1,250-$3,000+ depending on route) is the actual entry requirement for Pelotonia. Start fundraising the day you register — do not wait until the final weeks. Personal emails to friends, family, and colleagues are the most effective fundraising tool. Share your story — why you ride, who you ride for. Pelotonia provides fundraising tools and coaching. The riders who struggle with fundraising are the ones who start late."
+      }
+    ],
+    "citations": [
+      {
+        "url": "https://www.pelotonia.org",
+        "title": "Pelotonia — Official Website",
+        "category": "official"
+      },
+      {
+        "url": "https://www.pelotonia.org/get-involved/ride-weekend/",
+        "title": "Pelotonia Ride Weekend 2026 — Routes and Registration",
+        "category": "official"
+      },
+      {
+        "url": "https://www.pelotonia.org/news/pelotonia-breaks-fundraising-record-with-29-2-million-in-2025/",
+        "title": "Pelotonia Breaks Fundraising Record with $29.2 Million in 2025",
+        "category": "official"
+      },
+      {
+        "url": "https://www.pelotonia.org/our-impact",
+        "title": "Pelotonia Impact — $339 Million for Cancer Research",
+        "category": "official"
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Pelotonia",
+        "title": "Pelotonia — Wikipedia",
+        "category": "reference"
+      },
+      {
+        "url": "https://health.osu.edu/expert-guides/pelotonia-funded-cancer-research",
+        "title": "Pelotonia-Funded Cancer Research — Ohio State Health & Discovery",
+        "category": "reference"
+      },
+      {
+        "url": "https://www.kenyon.edu/news/archive/pelotonia-proud/",
+        "title": "Pelotonia Proud — Kenyon College",
+        "category": "reference"
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "high",
+      "validation_status": "validated",
+      "research_strength": "A",
+      "sources_count": 7,
+      "last_updated": "2026-02-27"
+    }
+  }
+}

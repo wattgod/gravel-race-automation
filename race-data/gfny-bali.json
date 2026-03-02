@@ -1,0 +1,337 @@
+{
+  "race": {
+    "name": "GFNY Bali",
+    "slug": "gfny-bali",
+    "display_name": "GFNY Bali",
+    "tagline": "A GFNY World series gran fondo that climbs from Bali's black-sand coast to the crater rim of Kintamani volcano. Tropical heat, 2,230 meters of climbing through rice terraces and temple villages, and the Island of the Gods as your backdrop.",
+    "vitals": {
+      "distance_mi": 85,
+      "elevation_ft": 7316,
+      "location": "Lebih, Klungkung, Bali, Indonesia",
+      "location_badge": "BALI, INDONESIA",
+      "date": "February annually (historically variable — August in 2022-2023, February in 2025-2026)",
+      "date_specific": "2026: February 15 (tentative)",
+      "terrain_types": [
+        "Paved coastal roads",
+        "Steep volcanic mountain roads",
+        "Rolling roads through rice terraces",
+        "Village streets through temple towns"
+      ],
+      "field_size": "~1,200-1,500 riders from 45+ countries",
+      "start_time": "Sunday 6:30 AM",
+      "registration": "Online via gfny.cc. Cost: ~$210 USD. Includes race jersey, finisher medal, chip timing, aid stations, after-race buffet.",
+      "prize_purse": "GFNY competitive classification awards for age-group podiums. No cash purse for mass-start field. GFNY Asia Championship title through 2025.",
+      "aid_stations": "Multiple aid stations along course supplying water, isotonic drinks, and fruit",
+      "cutoff_time": "Course support closes approximately 8 hours after start",
+      "lat": -8.5765,
+      "lng": 115.4072,
+      "distance_options": [
+        "Long Course: 134 km (~85 miles), ~2,230m (~7,316 ft) elevation gain — full Kintamani volcano ascent",
+        "Medium Course: 94 km (~58 miles), ~1,112m (~3,648 ft) elevation gain — shorter mountain route"
+      ],
+      "entry_fee": "~$210"
+    },
+    "climate": {
+      "primary": "Tropical equatorial — hot, humid, with potential monsoon rain",
+      "description": "Bali sits 8 degrees south of the equator, delivering year-round tropical heat. Race-day temperatures range from 75-90F (24-32C) depending on elevation, with humidity averaging 75-85%. The coastal start zone is the hottest — sticky, airless tropical heat at sea level. As the course climbs toward Kintamani at 1,500 meters, temperatures drop noticeably but humidity persists. February falls within Bali's wet season, meaning afternoon thunderstorms are common, though the early morning start usually beats the worst rain. The combination of equatorial sun, high humidity, and sustained climbing creates a thermoregulation crisis that northern-hemisphere riders consistently underestimate. Sweat doesn't evaporate. Core temperature rises. The volcano doesn't care about your FTP.",
+      "challenges": [
+        "Equatorial heat (up to 90F/32C at sea level) with 75-85% humidity — sweat evaporation is severely compromised",
+        "Sustained climbing in tropical heat: 2,230m of elevation gain while overheating is a dangerous combination",
+        "February wet season: potential monsoon rain on descent, making steep volcanic roads slippery",
+        "Temperature swing from ~32C at the coast to ~20C at the Kintamani crater rim — body must adapt mid-ride",
+        "Direct equatorial sun exposure on open road sections with limited shade"
+      ]
+    },
+    "terrain": {
+      "primary": "Paved volcanic mountain roads with sustained climbing",
+      "surface": "Paved roads throughout. Surface quality varies from smooth main highways to rougher village roads with occasional cracks and debris. The climb to Kintamani is on well-maintained provincial road but steep gradients (8-12% in sections) demand low gearing. Descents are fast and technical with sharp switchbacks through village areas. No gravel or unpaved sections.",
+      "technical_rating": 2,
+      "features": [
+        "Km 0-20: Coastal start from Lebih, rolling terrain through lowland villages and rice paddies",
+        "Km 20-50: Progressive climbing begins — the road tilts upward through terraced rice fields and jungle",
+        "Km 50-75: The main Kintamani ascent — sustained climbing to the volcanic crater rim at ~1,500m elevation",
+        "Kintamani crater rim: Spectacular views of Lake Danau Batur and Mount Batur volcano",
+        "Km 75-100: Technical descent through mountain villages, temple towns, and monkey forest areas",
+        "Km 100-134: Return to coastal plain, rolling terrain back to Lebih finish"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 70,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "logistics": 3,
+      "length": 4,
+      "technicality": 2,
+      "elevation": 4,
+      "climate": 4,
+      "altitude": 2,
+      "adventure": 5,
+      "prestige": 3,
+      "race_quality": 3,
+      "experience": 4,
+      "community": 3,
+      "field_depth": 2,
+      "value": 3,
+      "expenses": 3,
+      "cultural_impact": 4,
+      "tier_note": "A GFNY franchise event elevated by its extraordinary setting. The volcanic climbing, tropical heat, and Balinese cultural immersion push this well above typical franchise satellites. The adventure and experience scores are world-class, but limited field depth and franchise status prevent T1 consideration. T2 by score (70). Prestige=3, no override applies.",
+      "score_note": "Sum of 14 criteria: 3+4+2+4+4+2+5+3+3+4+3+2+3+3 = 45. cultural_impact = 4. Total = 49. (49/70)*100 = 70.00, rounded = 70. logistics=3 (Ngurah Rai International Airport is well-served by Asian carriers and some direct European flights, but US/Americas require connections). elevation=4 (2,230m of climbing on the long course is serious vertical for a gran fondo). adventure=5 (volcanic crater rim, rice terraces, Hindu temples, tropical jungle, monkey forests — one of the most exotic cycling settings on earth). cultural_impact=4 (Balinese Hindu culture is unique in majority-Muslim Indonesia; temple ceremonies, offerings, and spiritual traditions permeate every village on course).",
+      "editorial_tier": 2,
+      "editorial_tier_label": "TIER 2",
+      "business_tier": 2,
+      "business_tier_label": "TIER 2",
+      "display_tier": 2,
+      "display_tier_label": "TIER 2",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 3,
+        "explanation": "Ngurah Rai International Airport (DPS) in Denpasar is Bali's gateway — a major hub for Southeast Asian carriers with direct flights from Singapore, Kuala Lumpur, Bangkok, Hong Kong, Tokyo, Sydney, and several European cities via Middle Eastern connections. From the US, you're looking at 20-30 hours of travel with one or two connections. Once on the island, ground transport to the Lebih/Klungkung area is 60-90 minutes depending on Bali's notorious traffic. The GFNY VIP package includes airport shuttles and hotel, which simplifies things significantly. Bike boxes are manageable through DPS. The logistics are not difficult, but they are long for Western riders."
+      },
+      "length": {
+        "score": 4,
+        "explanation": "134 km (85 miles) with 2,230 meters (7,316 feet) of climbing is a serious day on the bike by any standard. This is not a flat century — the sustained climb to Kintamani means riders are grinding uphill for 30-40 km in tropical heat. The front of the field finishes in roughly 3.5-4 hours; mid-pack riders face 5-7 hours in equatorial conditions. The 94 km medium course with 1,112m of climbing is a legitimate alternative that still includes meaningful mountain terrain. The combination of distance and vertical in this climate makes the long course feel significantly harder than its numbers suggest."
+      },
+      "technicality": {
+        "score": 2,
+        "explanation": "The course is entirely paved, so technical demands are limited in the traditional sense. But steep volcanic gradients (8-12% in sections), sharp switchback descents through village areas, occasional motorbike traffic, ceremonial processions that may briefly block the road, and the potential for wet monsoon conditions on the descent add layers of practical difficulty. You don't need mountain bike skills, but you do need confidence descending steep, potentially wet roads through populated areas. It's more technically demanding than a flat European gran fondo, less than anything involving actual off-road terrain."
+      },
+      "elevation": {
+        "score": 4,
+        "explanation": "2,230 meters of elevation gain on the long course puts GFNY Bali in serious climbing territory. The signature Kintamani ascent is a 25-30 km sustained climb from near sea level to approximately 1,500 meters at the volcanic crater rim. That is a genuine mountain pass in tropical conditions. The climb isn't Alpine-steep — average gradients are 4-6% with steeper pitches of 8-12% — but the relentless length combined with equatorial heat makes it brutal. The 2024 edition reported 1,824m of climbing; the 2025 edition measured 2,230m, suggesting course variations between years. Either way, this is a climbing race."
+      },
+      "climate": {
+        "score": 4,
+        "explanation": "Racing at 8 degrees south of the equator is a physiological event unto itself. Sea-level temperatures of 30-32C with 80%+ humidity at the start give way to a moderate 20-24C at the Kintamani crater rim, then plummet back to furnace conditions on the coastal return. February is Bali's wet season — monsoon rain is a real possibility, particularly on the afternoon descent. The combination of extreme heat at low elevation, rapid temperature changes with altitude, and the omnipresent humidity creates conditions that European and North American riders are profoundly unprepared for. Your cooling system fails before your muscles do."
+      },
+      "altitude": {
+        "score": 2,
+        "explanation": "The Kintamani crater rim tops out at approximately 1,500 meters (4,900 feet). That is moderate altitude — enough to notice slightly reduced oxygen availability at threshold efforts, but not enough to cause genuine altitude sickness or require pre-acclimatization. Sea-level riders will feel the thin air on the steepest pitches of the climb, but the effect is marginal compared to the heat and humidity. Altitude is a footnote here, not a feature."
+      },
+      "adventure": {
+        "score": 5,
+        "explanation": "This is where GFNY Bali earns its distinction. The course climbs from a black-sand volcanic beach through emerald rice terraces carved into hillsides over centuries, past Hindu temples draped in offerings and incense, through jungle corridors alive with monkeys, to the rim of an active volcanic crater overlooking Lake Danau Batur. Then you descend back through it all. The Island of the Gods is not marketing hyperbole — Bali's landscape is genuinely one of the most visually stunning places on earth to ride a bicycle. No European sportive, no American gran fondo, no Australian ride can replicate this combination of volcanic geology, tropical ecology, and living spiritual culture experienced from the saddle."
+      },
+      "prestige": {
+        "score": 3,
+        "explanation": "GFNY Bali served as the GFNY Asia Championship from 2022-2025, giving it a legitimate title within the GFNY ecosystem. Six editions establish it as a proven, recurring event. The GFNY brand carries weight in the gran fondo world — professional timing, anti-doping, competitive classification, and World Championship qualification. But this is still a franchise satellite, not the flagship. The Asian Championship designation has moved to GFNY Belitung for 2026, which may reduce Bali's standing within the series. Prestige is earned through the GFNY infrastructure, not through decades of independent history."
+      },
+      "race_quality": {
+        "score": 3,
+        "explanation": "GFNY delivers its standard professional package: chip timing, competitive age-group classification, anti-doping protocols, professional photography via Sportograf, police escort with hundreds of officers monitoring intersections for fully closed roads, medical support, and a proper expo and packet pickup. The VIP package adds hotel, airport shuttle, and welcome dinner. Aid stations supply water, isotonic drinks, and fruit at regular intervals. The post-race buffet and award ceremony cap the day. It's a well-oiled franchise operation — professional, reliable, but not extraordinary beyond the GFNY baseline."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "The Kintamani crater rim moment is the experience that justifies the entire trip. After 50+ km of climbing in tropical heat, you reach the volcanic caldera edge and look out over Lake Danau Batur shimmering below Mount Batur's cone. It is one of the most dramatic viewpoints accessible by road bike anywhere in the world. Before that, the climb through rice terraces — UNESCO-worthy landscapes of tiered green paddies with farmers working knee-deep in water — is cycling through a living postcard. Temple villages with stone carvings and ceremonial decorations line the route. The descent through the Ubud area passes the famous Monkey Forest. The finish back at the coast closes a vertical and cultural loop that few cycling events can match."
+      },
+      "community": {
+        "score": 3,
+        "explanation": "GFNY Bali draws 1,200-1,500 riders from 45+ countries, anchored by a strong Indonesian cycling community. Local teams like Barong Cycling Team (Bali) and Jakarta's KGB bring serious domestic competition. International riders come primarily from Singapore, Australia, Hong Kong, South Africa, and Europe. The Balinese community lines the route with enthusiasm — this is a culture that celebrates ceremony, and a cycling race fits naturally into the fabric of village life. But the field is modest in absolute numbers, and the international community is transient — riders fly in for race week and leave. There is no year-round GFNY Bali cycling culture."
+      },
+      "field_depth": {
+        "score": 2,
+        "explanation": "The competitive field is regionally strong but internationally shallow. Indonesian riders, particularly from Jakarta and Bali-based teams, form the core of the racing field. Riders from Singapore, Hong Kong, and Australia add international depth. The 2024 5th edition saw Chambers (Hong Kong) and Brittain (South Africa) battle for the win; the 2025 6th edition saw Mitchell and Brittain take the Asian Championship titles. These are strong regional riders, but this is not a field that attracts European or North American elites. The front of the race is decided among 15-20 serious competitors. For a World Championship qualifier, the field depth is limited."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "The ~$210 entry fee includes a custom race jersey, finisher medal, chip timing, aid stations, after-race buffet, professional photography, and medical support. The VIP package (additional cost) adds hotel, airport transfers, and welcome dinner. For a GFNY franchise event in an exotic tropical location, the entry fee is reasonable — comparable to GFNY Cozumel but higher than most domestic gran fondos. The jersey and medal are tangible takeaways. The racing infrastructure (timing, classification, World Championship qualification) adds value beyond a casual charity ride. Dollar for dollar, you're getting a professional racing experience."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Bali is remarkably affordable once you arrive. Hotels range from $30-50/night for clean guesthouses to $200+/night for luxury resorts. Food is extremely cheap — a full meal at a warung (local restaurant) costs $2-5. Taxis and ride-hailing (Grab) are inexpensive. The expensive part is getting there: flights from the US run $800-1,500+ depending on routing, and from Europe $600-1,200. The total trip cost — registration, 4-5 nights lodging, food, flights, and local transport — ranges from $1,200-2,500 depending on origin city and hotel choice. That's expensive by Southeast Asian standards but competitive with European or American destination events."
+      }
+    },
+    "biased_opinion": {
+      "verdict": "The Volcano Gran Fondo",
+      "summary": "GFNY Bali is the rare franchise event that transcends its brand. Strip away the GFNY timing chips and age-group classifications, and you still have one of the most visually spectacular road cycling courses on earth: a 134 km loop from a black-sand volcanic coast through UNESCO-worthy rice terraces and Hindu temple villages to the crater rim of an active volcano, then back down through monkey forests and the cultural heart of Ubud. The Kintamani ascent — 25-30 km of sustained climbing in equatorial heat to 1,500 meters — is a genuine test that combines European mountain-pass difficulty with Southeast Asian thermal punishment. The field is regionally competitive but internationally thin, and the franchise structure means the prestige caps below what this setting deserves. But no other GFNY event — and frankly, very few road cycling events anywhere — can match the combination of volcanic terrain, tropical ecology, and living spiritual culture that Bali delivers from the saddle.",
+      "strengths": [
+        "The Kintamani crater rim ascent: 25-30 km of sustained climbing from sea level to a volcanic caldera overlooking Lake Danau Batur — one of the most dramatic cycling destinations on earth",
+        "Adventure setting without parallel in the GFNY series: rice terraces, Hindu temples, monkey forests, and volcanic geology",
+        "Tropical heat and humidity create a genuine physiological challenge that amplifies every kilometer of climbing",
+        "Bali's affordability once on the ground: world-class hospitality at Southeast Asian prices",
+        "Fully closed roads with extensive police support — the GFNY 'Be a Pro for a Day' experience works exceptionally well in Indonesian culture, where authorities commit seriously to road closures"
+      ],
+      "weaknesses": [
+        "Limited international field depth: the competitive front is decided among 15-20 riders, mostly from the Asia-Pacific region",
+        "Long-haul travel required from the Americas: 20-30 hours of transit time each way, with at least one connection",
+        "Franchise event ceiling: GFNY Bali is not the World Championship, and the Asian Championship title has moved to Belitung for 2026",
+        "February wet season timing: monsoon rain on the volcanic descent is a real risk that could turn a spectacular ride dangerous",
+        "Course variations between editions: reported climbing ranges from 1,824m to 2,230m across years, suggesting the route is not fully standardized"
+      ],
+      "bottom_line": "GFNY Bali is the most beautiful course in the GFNY calendar and arguably the most visually stunning gran fondo in Asia. The volcanic climbing is real, the tropical conditions are punishing, and the cultural immersion is profound. It loses points for franchise structure, limited field depth, and the logistical reality of getting to an Indonesian island. But if you want to climb a volcano through rice terraces and finish on a tropical beach, this is the event. No amount of franchise branding can diminish what Bali delivers as a cycling destination."
+    },
+    "final_verdict": {
+      "score": "70 / 100",
+      "one_liner": "Climb from Bali's black-sand coast to a volcanic crater rim through rice terraces and Hindu temples — the most spectacular setting in the GFNY franchise.",
+      "should_you_race": "Yes if you want a world-class adventure cycling experience wrapped in a GFNY competitive framework. Yes if volcanic terrain, tropical conditions, and Balinese culture sound like the ride of a lifetime. Yes if you're based in the Asia-Pacific region and want a serious climbing gran fondo with professional organization. Skip if field depth matters to you — the competitive front is thin. Skip if you can't handle sustained climbing in equatorial heat. Skip if 20-30 hours of travel from the Americas is a dealbreaker.",
+      "alternatives": "If you want a GFNY with real climbing closer to home: GFNY New York (8,500 ft, World Championship). If you want a tropical GFNY without the climbing: GFNY Cozumel. If you want the GFNY Asia Championship: GFNY Belitung (as of 2026). If you want a volcanic road cycling challenge: Tour de Okinawa or Haute Route Pyrenees.",
+      "alternative_slugs": [
+        "gfny-new-york",
+        "gfny-cozumel"
+      ]
+    },
+    "logistics": {
+      "airport": "Ngurah Rai International Airport (DPS) in Denpasar — Bali's sole airport and a major Southeast Asian hub. Direct flights from Singapore (~2.5 hrs), Kuala Lumpur (~3 hrs), Sydney (~6 hrs), Tokyo (~7 hrs), and several Middle Eastern hubs connecting Europe. From the US, connections via Tokyo, Singapore, or Doha are typical, with total travel times of 20-30 hours.",
+      "lodging_strategy": "The start/finish area near Lebih in Klungkung regency is the practical base. Budget guesthouses from $30-50/night are plentiful. Mid-range hotels $50-120/night. The GFNY VIP package includes accommodation at a partner hotel (historically The Mansion in Ubud). Ubud — Bali's cultural capital — is 30-40 minutes from the start and offers world-class hotels, restaurants, and cultural attractions. Beachside resorts in Sanur or Seminyak are 60-90 minutes away and may appeal for post-race vacation days. Book 2-4 weeks in advance for race weekend.",
+      "food": "Bali's food scene is exceptional and affordable. Warungs (local restaurants) serve nasi goreng, satay, gado-gado, and fresh seafood for $2-5 per meal. Ubud offers international cuisine, vegan restaurants, and high-end dining. Pre-race carb-loading is easy with abundant rice and noodle dishes. Hydration strategy is critical — start loading fluids 48 hours before the race and supplement with electrolytes in the tropical heat. Coconut water is everywhere and makes an excellent natural hydration option.",
+      "packet_pickup": "Race expo and packet pickup typically held Friday-Saturday before the race at the start area or host hotel. Check the official GFNY Bali site for exact hours and location each year. Riders must pick up packets before race day.",
+      "parking": "Not a major concern — most riders take taxi, Grab (ride-hailing), or GFNY shuttle to the start. Bali traffic can be severe, especially around Denpasar. Plan extra time for ground transport on race morning. The GFNY VIP package includes organized transport to the start.",
+      "official_site": "https://bali.gfny.com/"
+    },
+    "history": {
+      "founded": 2019,
+      "founder": "GFNY / Uli Fluhme (GFNY series founder), co-organized with local Indonesian partners",
+      "origin_story": "GFNY Bali launched in 2019 as the franchise's Southeast Asian expansion play, leveraging Bali's global reputation as a tropical paradise and Indonesia's growing road cycling culture. The Island of the Gods offered what no other GFNY location could: a volcanic mountain climb through rice terraces and Hindu temples, combined with world-class tourism infrastructure. The inaugural edition proved the concept — competitive racing on fully closed roads in one of the most photogenic settings in world cycling. COVID cancelled or disrupted 2020-2021, but the event returned strong in 2022 with the GFNY Asia Championship designation and a record 1,500 riders. The course has evolved across editions, with the start/finish shifting between Sayan Village (Ubud) and Lebih (Klungkung coast), but the Kintamani volcano ascent has remained the consistent centerpiece. In 2025, the 6th edition served as the opening event of the GFNY global season, cementing Bali's role as a flagship Asian location. For 2026, the GFNY Asia Championship title moves to a new GFNY Belitung event, but GFNY Bali appears set to continue as its own edition.",
+      "notable_moments": [
+        "2019: Inaugural GFNY Bali — debut on the 'Island of the Gods' with the Kintamani volcano course",
+        "2020-2021: COVID pandemic disrupts the Indonesian event calendar",
+        "2022: Return with GFNY Asia Championship designation — 1,500 riders set a participation record; Chambers (Hong Kong) and Brittain (South Africa) battle to the finish",
+        "2023: 5th edition hosted by Sayan-Ubud with 1,200 riders; Chambers and Brittain fastest again on the 132 km course with 1,824m climbing",
+        "2025: 6th edition opens the 2025 GFNY season in February — Mitchell and Brittain win Asian Championship titles; 1,000+ riders from 45+ countries",
+        "2026: GFNY Asia Championship moves to new GFNY Belitung event; GFNY Bali continues as standalone edition"
+      ],
+      "reputation": "The most beautiful course in the GFNY calendar. A genuine climbing gran fondo in an exotic tropical setting that delivers adventure, culture, and physiological challenge in equal measure. Regionally prestigious as the GFNY Asia Championship (through 2025), but limited international field depth keeps it below the series' European and NYC events in competitive terms."
+    },
+    "course_description": {
+      "character": "A point-to-summit-and-back volcanic mountain gran fondo that starts at Bali's coast, climbs relentlessly through the island's cultural and agricultural heartland to the rim of the Kintamani volcanic caldera, then descends back to the sea. The course is defined by one sustained ascent and one sustained descent, bookended by rolling coastal terrain. The climbing is not Alpine-steep but it is Alpine-long, and the tropical heat transforms moderate gradients into savage efforts. The Kintamani crater rim provides the emotional and physical summit — a view of Lake Danau Batur and Mount Batur that rewards every watt spent getting there.",
+      "suffering_zones": [
+        {
+          "mile": 0,
+          "label": "Coastal Start — Lebih to Lowland Villages",
+          "desc": "The peloton rolls out from the Lebih coastal area at 6:30 AM, racing south of Semarapura in the Klungkung regency. The first 20 km are rolling terrain through lowland villages and rice paddies at near sea level. Temperatures are already 26-28C at dawn with high humidity. Groups form quickly as the road is relatively flat and wide. This is the calm before the climb — use this section to settle into a paceline and manage your core temperature before the gradient kicks in.",
+          "terrain_detail": "Flat to gently rolling paved roads, rice paddy views, village sections",
+          "named_section": "The Coastal Warm-Up"
+        },
+        {
+          "mile": 12,
+          "label": "The Rice Terrace Climb — Ascending Through the Paddies",
+          "desc": "The road tilts upward as the course leaves the coastal plain and enters Bali's terraced agricultural zone. For the next 20 km, the gradient averages 3-5% through some of the most visually stunning landscape in world cycling: tiered emerald rice paddies cascading down volcanic hillsides, punctuated by Hindu temple compounds with stone-carved gates and ceremonial offerings. The climbing is steady rather than steep, but the tropical heat at this elevation (200-700m) is at its worst — hot, humid, and airless between the paddies. Pacing here determines whether you survive the Kintamani wall above.",
+          "terrain_detail": "Paved provincial road, steady 3-5% gradient, rice terrace views, temple villages",
+          "named_section": "The Terrace Road"
+        },
+        {
+          "mile": 31,
+          "label": "Kintamani — The Volcano Wall",
+          "desc": "The main event. The road steepens to 6-12% as the course attacks the final 15-20 km to the Kintamani crater rim at approximately 1,500 meters elevation. The landscape shifts from rice terraces to denser jungle and volcanic terrain. The temperature drops noticeably — from 32C at the coast to 20-24C at the rim — but the humidity persists and the gradient is unrelenting. The climb to Penelokan-Kintamani splits the peloton every year: in 2024, only seven riders from a lead group of 17 survived to the summit together. When you crest the rim and the caldera opens up — Lake Danau Batur shimmering below the cone of Mount Batur — you have earned one of cycling's great views.",
+          "terrain_detail": "Steep paved mountain road, 6-12% gradients, volcanic jungle terrain, altitude ~1,500m",
+          "named_section": "Kintamani"
+        },
+        {
+          "mile": 47,
+          "label": "The Descent — Crater Rim to Ubud",
+          "desc": "The descent from Kintamani back toward the coast is fast, technical, and potentially dangerous. Steep switchbacks through mountain villages demand confident bike handling, especially if wet-season rain has arrived. The road passes through the Ubud area — Bali's cultural capital — where narrow village streets, temple walls, and the famous Monkey Forest create a sensory overload at speed. Traffic management is strong (GFNY police support is extensive), but the descent requires full attention. The temperature climbs rapidly as you lose altitude, and the heat hits like a wall when you reach the lowlands.",
+          "terrain_detail": "Steep descent on paved mountain road, switchbacks, village sections, Ubud cultural zone",
+          "named_section": "The Volcano Descent"
+        },
+        {
+          "mile": 62,
+          "label": "The Coastal Return — Rolling Heat to Finish",
+          "desc": "The final 30+ km back to the Lebih coast are rolling terrain in the worst heat of the day. After 100 km including a volcano climb and technical descent, the flat-to-undulating coastal roads feel far harder than they look. The equatorial sun is directly overhead, shade is minimal, and dehydration accumulated during the climb now manifests as power loss and cramping. The front of the field races this section; everyone else survives it. The finish line at the coast closes the elevation loop — volcano summit to sea level — and delivers you to the post-race buffet.",
+          "terrain_detail": "Rolling paved coastal roads, minimal shade, maximum heat, fatigued legs",
+          "named_section": "The Hot Run Home"
+        }
+      ],
+      "signature_challenge": "The Kintamani volcano ascent. A 25-30 km sustained climb from the lowland rice terraces to the volcanic crater rim at 1,500 meters, performed in equatorial tropical heat. The gradient is steady (4-6% average, 8-12% pitches) but the length and conditions make it brutal. This is where the race breaks apart every year — the lead group of 15-20 fragments to 5-7 by the summit. The crater rim view of Lake Danau Batur is the payoff: one of the most dramatic summit finishes (mid-course) in world gran fondo cycling."
+    },
+    "guide_variables": {
+      "race_name": "GFNY Bali",
+      "race_distance": "134 km (85 miles)",
+      "race_elevation": "2,230 meters (7,316 feet)",
+      "race_date": "February",
+      "race_location": "Lebih, Klungkung, Bali, Indonesia",
+      "race_terrain": "Paved volcanic mountain roads with sustained climbing through rice terraces",
+      "race_weather": "Tropical equatorial: 75-90F (24-32C), humidity 75-85%, potential monsoon rain",
+      "race_challenges": [
+        "Sustained 25-30 km volcanic ascent to Kintamani crater rim in equatorial heat",
+        "Tropical humidity severely compromises cooling — core temperature management is critical",
+        "Temperature swing from 32C at coast to 20C at crater rim and back to 32C",
+        "Wet-season rain risk on the technical volcanic descent",
+        "2,230 meters of total climbing combined with extreme heat creates compounding fatigue"
+      ],
+      "altitude_section": true,
+      "altitude_feet": 4921
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Tropical heat acclimatization protocol",
+        "by_when": "Week 4",
+        "why": "Racing at 8 degrees south of the equator with 80%+ humidity demands a prepared thermoregulatory system. If you train in cool or temperate climates, your body will overheat on the Kintamani climb before your legs fail. Implement heat acclimatization: sauna sessions, hot indoor trainer rides, or 10-14 days of training in tropical conditions. Arrive in Bali 2-3 days early to adjust to the heat and humidity. This is non-negotiable — the tropical conditions are the race's primary challenge."
+      },
+      {
+        "requirement": "Sustained climbing endurance at tempo in heat",
+        "by_when": "Week 6",
+        "why": "The Kintamani ascent is 25-30 km of sustained climbing at 4-6% average gradient. In tropical heat, you cannot attack this climb — you must pace it at 60-70% FTP and let the gradient and conditions do the sorting. Train with long tempo climbs (45-90 minutes) at moderate intensity. If you don't have mountains, use indoor trainer climbs with heat simulation. The volcano rewards patience and punishes aggression."
+      },
+      {
+        "requirement": "Aggressive hydration and cooling strategy tested in heat",
+        "by_when": "Week 8",
+        "why": "In equatorial humidity, fluid losses can exceed 1.5-2 liters per hour during sustained climbing efforts. You must carry sufficient fluids between aid stations and have a tested electrolyte strategy. Practice pouring water over your head and neck for external cooling. Pre-load with 500ml of electrolyte drink 2 hours before the start. If your hydration plan isn't tested before race day, the Kintamani climb will expose every gap."
+      },
+      {
+        "requirement": "Confident descending skills on steep, potentially wet roads",
+        "by_when": "Race day",
+        "why": "The descent from Kintamani through mountain villages and the Ubud area involves steep switchbacks, narrow roads, and the possibility of wet conditions from monsoon rain. This is not a controlled Alpine descent on smooth tarmac — it's a volcanic mountain road through populated areas. Practice descending at speed on steep, twisting roads. If you're uncomfortable descending in rain, have a conservative plan ready — there is no shame in braking on a wet volcanic road."
+      }
+    ],
+    "citations": [
+      {
+        "url": "https://bali.gfny.com/",
+        "title": "GFNY Bali — Official Site",
+        "category": "official"
+      },
+      {
+        "url": "https://gfny.com/gfny-opens-2025-in-bali-this-sunday/",
+        "title": "GFNY Opens 2025 in Bali This Sunday — GFNY World",
+        "category": "official"
+      },
+      {
+        "url": "https://gfny.com/bali-opened-the-2025-gfny-season/",
+        "title": "Bali Opened the 2025 GFNY Season — Mitchell and Brittain Win Asian Championship — GFNY World",
+        "category": "official"
+      },
+      {
+        "url": "https://gfny.com/1500-racers-at-gfny-championship-asia-in-bali/",
+        "title": "1500 Racers at GFNY Championship Asia in Bali — GFNY World",
+        "category": "official"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Contents/IndexFull/7574/chambers-and-brittain-fastest-at-5th-annual-gfny-bali",
+        "title": "Chambers and Brittain Fastest at 5th Annual GFNY Bali — Gran Fondo Guide",
+        "category": "review"
+      },
+      {
+        "url": "https://veloracycling.com/events/gfny-bali-2026",
+        "title": "GFNY Bali 2026 — Velora Cycling",
+        "category": "review"
+      },
+      {
+        "url": "https://blog.sportograf.com/2020/05/05/gfny-bali-debut-on-the-island-of-gods/",
+        "title": "GFNY Bali — Debut on the Island of Gods — Sportograf",
+        "category": "review"
+      },
+      {
+        "url": "https://balicycling.com/2022/07/05/road-bike-gfny-route/",
+        "title": "Road Bike — GFNY Route — Bali Cycling",
+        "category": "review"
+      },
+      {
+        "url": "https://www.indonesia.travel/nl/en/events/event-detail/gfny-bali-grand-fondo-new-york/",
+        "title": "GFNY Bali (Grand Fondo New York) — Indonesia Travel",
+        "category": "review"
+      },
+      {
+        "url": "https://bali.live/p/a-major-marathon-is-coming-to-bali-while-gfny-bali-2025-has-just-concluded",
+        "title": "GFNY Bali 2025 Has Just Concluded — Bali.live",
+        "category": "news"
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "high",
+      "validation_status": "validated",
+      "research_strength": "A",
+      "sources_count": 10,
+      "last_updated": "2026-02-27"
+    }
+  }
+}

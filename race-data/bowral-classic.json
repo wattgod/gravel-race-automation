@@ -1,0 +1,382 @@
+{
+  "race": {
+    "name": "Bowral Classic",
+    "slug": "bowral-classic",
+    "display_name": "Bowral Classic",
+    "tagline": "Australia's premier cycling gran fondo through the rolling hills and heritage towns of the Southern Highlands -- 150 km, 2,393 m climbing, spring in Don Bradman's country.",
+    "vitals": {
+      "distance_mi": 94,
+      "elevation_ft": 7851,
+      "location": "Bowral, New South Wales, Australia",
+      "location_badge": "BOWRAL, NSW, AUSTRALIA",
+      "county": "Wingecarribee Shire",
+      "date": "Mid-October annually (Southern Hemisphere spring)",
+      "date_specific": "2026: October 18",
+      "terrain_types": [
+        "Paved roads (100%)",
+        "Rolling hills and undulating terrain",
+        "Short steep climbs (max 15.2%)",
+        "Southern Highlands countryside"
+      ],
+      "field_size": "2,500-3,000 riders across all distances",
+      "start_time": "6:30 AM (150km Maxi Classic), 7:00 AM (120km), 7:30 AM (85km)",
+      "registration": "Online via bowralclassic.com.au or cyclingclassics.com.au. Cost: AUD $165-315 depending on distance and registration tier.",
+      "prize_purse": "None (timed ride, not a race). K/QOM segments on course for climbing bragging rights.",
+      "aid_stations": "Fully resourced rest stops along all courses with water, electrolytes, snacks, and mechanical support",
+      "cutoff_time": "Course-specific cut-off times enforced at rest stops",
+      "lat": -34.4783,
+      "lng": 150.4186,
+      "distance_options": [
+        "150km Maxi Classic: 152.1 km (94 mi), 2,393 m climbing, 15.2% max gradient, 3 K/QOM segments",
+        "120km Challenge Classic: 122.9 km (76 mi), 2,029 m climbing, 15.2% max gradient, 3 K/QOM segments",
+        "85km Rouleurs Classic: 85.7 km (53 mi), 1,324 m climbing, 11% max gradient, 1 K/QOM segment"
+      ],
+      "entry_fee": "AUD $165-315 (varies by distance and registration tier)"
+    },
+    "climate": {
+      "primary": "Southern Hemisphere spring (October)",
+      "description": "Mid-October in the Southern Highlands brings pleasant spring cycling conditions. Bowral sits at 690 m elevation, creating a cooler microclimate than coastal Sydney. Expect daytime temperatures of 15-22C (59-72F) with cool mornings around 8-12C (46-54F). Rainfall averages 54-80 mm for October -- scattered showers are possible but prolonged rain is uncommon. The region is known for four distinct seasons, and October delivers the best of spring: clear skies, moderate temperatures, and green rolling countryside.",
+      "challenges": [
+        "Morning chill at 690 m elevation -- arm warmers needed for early start",
+        "Spring rain showers possible -- descents can become slick on painted road markings",
+        "Occasional strong westerly winds across exposed highland ridges",
+        "UV exposure is significant in Australian spring even at moderate temperatures"
+      ]
+    },
+    "terrain": {
+      "primary": "Paved rolling hills through Southern Highlands countryside",
+      "surface": "100% sealed roads through the Southern Highlands region. Mix of B-roads and rural lanes connecting historic towns. Generally well-maintained country roads with some rough patches on quieter sections. All courses start from Bong Bong Street, Bowral and finish at Loseby Park, Bowral.",
+      "technical_rating": 1,
+      "features": [
+        "Mt Gibraltar -- the final K/QOM climb for Maxi and Challenge riders, returning through Range Road to the finish",
+        "Robertson climbs -- undulating terrain through the rainforest-edge town at the southern end of the course",
+        "Kangaloon and Glenquarry rollers -- relentless short climbs through dairy country",
+        "Maximum gradient 15.2% on the steepest pitches",
+        "3 K/QOM segments on 150km and 120km courses, 1 on 85km course",
+        "Rolling terrain throughout -- very few flat sections, constant up and down"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 57,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "logistics": 3,
+      "length": 3,
+      "technicality": 1,
+      "elevation": 3,
+      "climate": 3,
+      "altitude": 1,
+      "adventure": 3,
+      "prestige": 2,
+      "race_quality": 3,
+      "experience": 4,
+      "community": 4,
+      "field_depth": 2,
+      "value": 3,
+      "expenses": 3,
+      "cultural_impact": 2,
+      "score_note": "Well-organized Australian gran fondo with strong community atmosphere and scenic Southern Highlands setting. Lacks international prestige and competitive depth. (38 base + 2 cultural) / 70 = 57.",
+      "discipline": "road",
+      "editorial_tier": 3,
+      "editorial_tier_label": "TIER 3",
+      "business_tier": 3,
+      "business_tier_label": "TIER 3",
+      "display_tier": 3,
+      "display_tier_label": "TIER 3"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 3,
+        "explanation": "Yaffa Media (publisher of Bicycling Australia) runs this event, and they know what they are doing. Professional timing by Tomato Timing, fully resourced rest stops, mechanical support, clear course marking, and an Event Village at Loseby Park with food, bars, and live music. The Highlanders elite group of 100 gets a controlled wave with lead and follow vehicles. Registration via Race Roster is smooth. The limiting factor is location: Bowral is 90 minutes south of Sydney and two hours from the nearest international airport. No train-friendly bike transport option. You need a car. On-course, the execution is excellent. Getting there requires planning."
+      },
+      "length": {
+        "score": 3,
+        "explanation": "The 150km Maxi Classic with 2,393m of climbing is a genuine full-day challenge -- this is not a morning spin. The 15.2% maximum gradient and three K/QOM segments ensure you earn every kilometre. But by European gran fondo standards, 150km and 2,400m is mid-tier. Compare to Maratona dles Dolomites (138km, 4,230m) or La Marmotte (174km, 5,000m). The three distance options (85/120/150km) provide good accessibility. The Maxi Classic will challenge fit recreational riders without destroying them."
+      },
+      "technicality": {
+        "score": 1,
+        "explanation": "Sealed roads throughout. Road bikes only (tri/TT bars and aero bars explicitly prohibited for safety, e-bikes permitted). The terrain is rolling rather than technical -- no gravel, no cobbles, no mountain switchbacks requiring bike handling. The descents are moderate, the road surfaces are good, and the gradients are manageable on standard gearing. This is a fitness test on paved roads, pure and simple."
+      },
+      "elevation": {
+        "score": 3,
+        "explanation": "2,393m of climbing across 152km means the road tilts upward about 16m per kilometre on average -- not flat, but not alpine either. The character is relentless rolling rather than long sustained passes. Maximum gradient of 15.2% on the steepest pitches will test your climbing legs, and Mt Gibraltar as the final climb is well-placed to hurt tired riders. Three K/QOM segments provide structure to the vertical. This is genuine climbing by Australian standards, moderate by European alpine standards."
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "October in the Southern Highlands is genuinely pleasant cycling weather. At 690m elevation, Bowral avoids the coastal humidity of Sydney and the summer heat that plagues Australian events held in January-March. Spring temperatures of 15-22C are close to ideal for endurance cycling. The morning chill at 6:30 AM start (8-12C) means layering, but you warm up fast. Rain risk exists but is moderate. Compared to events like Cadel Evans (extreme January heat) or L'Etape Australia (cancellation-level storms), the Bowral Classic climate is predictable and favourable."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "Bowral sits at 690m above sea level. Mt Gibraltar, the highest point on course, reaches 863m. There is zero altitude factor. No adaptation needed, no oxygen debt, no thin-air considerations. The elevation is enough to create cooler temperatures than sea-level Sydney, which is a positive for riding conditions, but it has no physiological impact on performance."
+      },
+      "adventure": {
+        "score": 3,
+        "explanation": "The Southern Highlands is genuinely beautiful -- rolling green hills, historic sandstone towns, cool-climate vineyards, and views that stretch to the escarpment edge. Riding through Berrima (Australia's best-preserved Georgian village), past the turn-off to Fitzroy Falls, and through the rainforest edge of Robertson is scenic and characterful. The towns have personality: antique shops, pubs, galleries, and the unmistakable feel of a region that has been settled for 200 years. But this is pastoral countryside 90 minutes from a major city, not remote wilderness. The adventure is cultural and aesthetic rather than geographical."
+      },
+      "prestige": {
+        "score": 2,
+        "explanation": "Within Australian cycling, the Bowral Classic has established itself as a fixture -- it won Best New Event and Best Community Event at the 2017 Australian Event Awards, consistently attracts 2,500-3,000 riders, and has spawned sister events (Clare Classic, Noosa Classic). Bicycling Australia magazine's backing gives it media visibility domestically. But it carries no international prestige: no UCI affiliation, no pro-am category, no notable professional cyclists participating, and no recognition outside the Australian cycling bubble. It is a well-regarded domestic gran fondo, not a destination event on the world stage."
+      },
+      "race_quality": {
+        "score": 3,
+        "explanation": "The event explicitly positions itself as 'a ride, not a race' -- timing is provided for personal reference only. That said, the infrastructure is professional: Tomato Timing handles results, rest stops are fully resourced, mechanical support is available on course, and the Highlanders wave provides a pseudo-competitive environment for the 100 strongest riders. K/QOM segments add competitive structure within a non-competitive framework. Medical support and course marshals are present. The gap between this and a true competitive gran fondo (like GFNY or Nove Colli) is the absence of ranked results, prize categories, and UCI points."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "This is where the Bowral Classic punches above its weight. The Event Village at Loseby Park on Saturday is a genuine cycling festival -- gourmet food stalls (this is the Southern Highlands, not a suburban car park), bars, cycling exhibitors, and live music. The start on Bong Bong Street in the heart of Bowral is atmospheric. On course, the Southern Highlands scenery provides constant visual reward: green rolling hills, heritage towns, vineyards, and escarpment views. The finish back at Loseby Park with food and drinks waiting is a satisfying conclusion. Spring weather (not too hot, not too cold) enhances everything. For a domestic sportive, the experiential package is excellent."
+      },
+      "community": {
+        "score": 4,
+        "explanation": "The Bowral Classic has built genuine community on multiple levels. The cycling community: 2,500-3,000 riders from across Australia, strong club representation, and the shared experience of grinding through the Southern Highlands together. The local community: Wingecarribee Shire Council actively supports the event, local businesses benefit from the economic boost, and the region embraces rather than resents the influx of cyclists. The charitable community: the 'choose your charity' program has raised over $500,000 since 2016 for charities across Australia. Teams get 10% discount, encouraging group participation. This is an event that builds connection rather than just hosting riders."
+      },
+      "field_depth": {
+        "score": 2,
+        "explanation": "The field is overwhelmingly recreational and club-level riders. The Highlanders wave (100 self-nominated strong riders with AusCycling race licences) provides a fast group at the front, but these are experienced club racers, not professional or semi-professional cyclists. There are no elite categories, no prize money, and no significant competitive incentive. The fastest riders are quick, but field depth measured against national or international standards is shallow. If you want competitive road racing in Australia, the National Road Series and criterium circuits offer far deeper fields."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "The 150km Maxi Classic ranges from $255 (early bird) to $315 (late entry) AUD. The 85km Rouleurs runs $165-225 AUD. For that money you get professional timing, fully stocked rest stops, mechanical support, event village access, and a well-marked course through beautiful countryside. Compared to European gran fondos charging EUR 80-120 for similar amenities, the Bowral Classic is on the expensive side. Compared to L'Etape Australia at $300+ AUD but with closed roads and a TdF jersey, the Bowral Classic offers less for similar money. The value is fair without being exceptional."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Bowral accommodation is more affordable than Sydney -- AUD $150-300/night for decent options, with Airbnb and B&Bs well-represented. The Southern Highlands is a popular weekend getaway so prices are not rock-bottom. Fuel from Sydney is modest (~$30-40 AUD round trip). Flights from interstate add $200-500 AUD return. For international visitors, the long-haul flight to Sydney is the major cost. Total weekend budget for an interstate Australian participant: $600-1,000 AUD. For a Sydney-based rider, this is a day trip or one-night stay costing $300-500 all-in."
+      }
+    },
+    "biased_opinion": {
+      "verdict": "Southern Highlands Charm, Club Cyclist's Paradise",
+      "summary": "The Bowral Classic is what happens when a cycling magazine publisher decides to build their dream gran fondo. Yaffa Media (Bicycling Australia) created this event in 2016 and nailed the formula: scenic rolling terrain through heritage towns, professional organization, an event village with actual good food, and October spring weather that makes riding a pleasure rather than a survival exercise. At 150km with 2,393m of climbing, the Maxi Classic is a genuine challenge without being a suffer-fest. The Southern Highlands -- Berrima, Robertson, Bundanoon, Kangaloon -- provide the kind of pastoral scenery that makes you forget you are working hard. Mt Gibraltar as the final climb before the finish is well-placed to reward the prepared and punish the ambitious. The charity fundraising ($500K+ since 2016) and community support from Wingecarribee Shire give the event a warmth that purely commercial gran fondos lack. What it is not: an international destination event, a competitive race, or a mountain epic. It is a beautifully executed domestic sportive in one of Australia's most charming regions.",
+      "strengths": [
+        "October spring weather in the Southern Highlands -- 15-22C, near-ideal cycling conditions",
+        "Professional organization by Yaffa Media with strong Bicycling Australia media support",
+        "Event Village at Loseby Park with gourmet food, bars, cycling exhibitors, and live music",
+        "Three distance options (85/120/150km) accommodate all fitness levels",
+        "Scenic course through historic Southern Highlands towns: Berrima, Robertson, Bundanoon",
+        "Strong community support from Wingecarribee Shire Council and local businesses",
+        "Charity fundraising program has raised over $500,000 since 2016",
+        "Highlanders wave provides competitive structure for strong riders"
+      ],
+      "weaknesses": [
+        "No international prestige -- unknown outside Australian cycling",
+        "Not a race: timing is for personal reference only, no competitive categories or prizes",
+        "Expensive for a domestic sportive: $255-315 AUD for the Maxi Classic",
+        "Bowral is 90 minutes from Sydney with no practical public transport option for cyclists",
+        "Field depth is shallow -- recreational and club riders, no elite presence",
+        "Climbing is relentless rolling rather than dramatic alpine passes",
+        "All sealed roads with zero technical terrain -- pure fitness test"
+      ],
+      "bottom_line": "The Bowral Classic is the best domestic gran fondo experience in New South Wales -- maybe in Australia outside the Victorian alpine events. The combination of charming Southern Highlands scenery, pleasant spring weather, professional organization, and genuine community makes it a satisfying day on the bike. It will not appear on any international bucket lists, and competitive riders will find the non-race format underwhelming. But if you live in Sydney, ride a road bike, and want one big autumn-spring event on your calendar, this is the one. The fact that it has run successfully every year since 2016 (including through COVID disruptions) while higher-profile events like L'Etape Australia were being cancelled repeatedly says something about the organisers' competence."
+    },
+    "final_verdict": {
+      "score": "57 / 100",
+      "one_liner": "NSW's premier cycling gran fondo -- Southern Highlands charm, rolling hills, spring weather, and a finish-line festival worth riding for.",
+      "should_you_race": "If you are based in Sydney or eastern Australia and want a well-organized, scenic gran fondo without the logistical complexity of traveling to the Victorian Alps or the cancellation risk of L'Etape Australia, the Bowral Classic delivers. The 150km Maxi Classic with 2,393m of climbing is a genuine fitness challenge, the Southern Highlands scenery rewards you for every pedal stroke, and the Event Village at the finish is a proper celebration. Spring weather in October makes the riding enjoyable rather than a battle against heat or cold. Skip if you need international prestige, competitive depth, or mountain-scale climbing. Skip if you are flying internationally specifically for this event -- there are better-value destinations for that level of travel investment.",
+      "alternatives": "For more climbing in Australia: Peaks Challenge Falls Creek (Victoria, 235km, 4,000m). For the Tour de France experience in Australia: L'Etape Australia (NSW, 143km, closed roads). For the pro race connection: Cadel Evans Great Ocean Road Ride (Victoria, WorldTour weekend). For a similar format in a different Australian setting: Clare Classic (South Australia, same Cycling Classics organiser).",
+      "alternative_slugs": [
+        "peaks-challenge-falls-creek",
+        "letape-australia",
+        "cadel-evans-great-ocean-road-ride"
+      ]
+    },
+    "logistics": {
+      "nearest_airport": "Sydney Kingsford Smith (SYD) -- 120 km / 90 minutes drive south via the Hume Highway and Old Hume Highway.",
+      "alternate_airports": "Canberra (CBR) -- 200 km / 2.5 hours drive north. No closer commercial airports.",
+      "lodging_note": "Bowral and surrounding towns (Mittagong, Moss Vale, Berrima) have a wide range of accommodation: boutique hotels, B&Bs, motels, and Airbnb. The Southern Highlands is a popular weekend getaway from Sydney, so accommodation is plentiful but prices rise on event weekend. Book 4-8 weeks ahead. Budget AUD $150-300/night. Premium heritage properties in Bowral and Berrima run higher.",
+      "parking": "Designated event parking in Bowral township. Arrive early -- the 6:30 AM Maxi Classic start means parking fills quickly.",
+      "packet_pickup": "Event Village at Loseby Park, Bowral on Saturday (day before). Combined with cycling exhibitors, food stalls, and entertainment.",
+      "travel_summary": "Drive from Sydney: 90 minutes via the M5/Hume Highway -- straightforward highway driving. Train from Sydney: 2 hours via the Southern Highlands Line to Bowral station, but impractical with a bike. The Bowral Sydney Airport Service shuttle runs 3x daily on weekdays, once on weekends. Car is the practical choice. The Southern Highlands is well-signposted and easy to navigate.",
+      "food_options": "Bowral has an excellent cafe and restaurant scene -- this is a food-and-wine region. Post-race, the Event Village at Loseby Park has gourmet food stalls and bars. On-course rest stops provide water, electrolytes, fruit, bars, and snacks. Pre-race carb loading: try the restaurants along Bong Bong Street.",
+      "camping": "Limited camping in the Bowral township area. Caravan parks and camping grounds in Moss Vale and Mittagong. Morton National Park campgrounds (Bundanoon area) for the outdoors-oriented.",
+      "official_site": "https://www.bowralclassic.com.au"
+    },
+    "history": {
+      "founded": "2016",
+      "founder": "Yaffa Media (publisher of Bicycling Australia magazine). Event conceived by James Yaffa.",
+      "origin_story": "The Bowral Classic was born in 2016 when Sydney-based Yaffa Media, publisher of Australia's leading cycling magazine Bicycling Australia, decided to create a cycling gran fondo worthy of the Southern Highlands region. James Yaffa devised a media and marketing campaign that generated $3 million in exposure from a $50,000 investment. An initial target of 1,000 riders was obliterated when more than 3,000 cyclists from across Australia and eight overseas countries descended on Bowral on 23 October 2016 for the inaugural event. Participants raised $109,000 for charity in that first edition alone. The event was centred on Bowral -- the largest town in the Southern Highlands, famous as the birthplace of cricket legend Sir Donald Bradman -- and the surrounding countryside that had long been a favourite of Sydney cyclists for its rolling terrain and picturesque villages. The success of the Bowral Classic spawned the Cycling Classics series, including the Clare Classic (South Australia) and Noosa Classic (Queensland). By 2024, the events had collectively raised over $500,000 for Australian charities.",
+      "notable_moments": [
+        "2016: Inaugural event. 3,000+ riders from across Australia and 8 countries. $109,000 raised for charity. Immediate success.",
+        "2017: Wins 'Best New Event' and 'Best Community Event' at the Australian Event Awards. Establishes credibility beyond cycling.",
+        "2018: Cycling Classics brand expands with Clare Classic (SA) and Noosa Classic (QLD) sister events.",
+        "2019-2021: Navigates COVID disruptions. Event adapts and continues while other Australian cycling events fold.",
+        "2024: Ninth edition. Close to 3,000 riders. Maxi Classic distance nearly sold out. Over 2,500 riders on course.",
+        "2025: Tenth anniversary edition on 19 October. Hosted in Extreme Fire Danger conditions (event proceeded). Continues to attract international entries.",
+        "2026: Eleventh edition announced for 18 October."
+      ],
+      "reputation": "Australia's most consistently delivered cycling gran fondo. While flashier events (L'Etape Australia, Cadel Evans) carry bigger names, the Bowral Classic has built its reputation on reliability, community, and a course that genuinely showcases one of Australia's most beautiful regions. Within the Australian cycling community, it is the accessible bucket-list event -- challenging enough to require training, scenic enough to justify the effort, and social enough to bring friends."
+    },
+    "course_description": {
+      "character": "A rolling pastoral odyssey through the Southern Highlands of New South Wales. The course is characterised by relentless undulation rather than sustained alpine climbing -- the road is almost never flat, constantly rising and falling through green hills, dairy country, and heritage villages. The 150km Maxi Classic passes through Bowral, Berrima, Moss Vale, Sutton Forest, Bundanoon, Robertson, Kangaloon, and Glenquarry before the final assault on Mt Gibraltar and the finish at Loseby Park. The terrain rewards steady tempo riding and punishes early heroics. Three K/QOM segments provide competitive structure within the rolling landscape.",
+      "suffering_zones": [
+        {
+          "name": "Bundanoon to Robertson",
+          "miles": "50-70",
+          "description": "The middle section of the Maxi Classic takes riders south through Bundanoon and into Robertson via the undulating terrain at the southern edge of the Southern Highlands. The gradients steepen here, the road becomes more isolated, and the accumulated kilometres start to tell. Robertson sits near the escarpment edge with views east toward the Illawarra coast. The climbs out of Robertson heading back north through Kangaloon are where the day's intentions are revised downward.",
+          "survival_strategy": "Eat and drink consistently through the first 50km. By the time you reach Robertson, you need to be well-fuelled. The climbs here are short but repeated -- settle into a sustainable rhythm rather than attacking each rise. Save your matches for Mt Gibraltar."
+        },
+        {
+          "name": "Kangaloon and Glenquarry Rollers",
+          "miles": "70-85",
+          "description": "The approach to the Glenquarry K/QOM is a grinding succession of short climbs through dairy farming country. Each individual rise is manageable, but the relentless up-and-down on tired legs creates a cumulative fatigue that saps the spirit. There is nowhere to hide on these exposed highland roads. The Glenquarry K/QOM segment tests climbing legs that have already done 70+ km of rolling terrain.",
+          "survival_strategy": "Find a group and share the work on the false flats. Standing on the pedals burns matches -- stay seated and spin through the rollers. The K/QOM is your penultimate test. After Glenquarry, the final rest stop lets you regroup for Mt Gibraltar."
+        },
+        {
+          "name": "Mt Gibraltar -- Final K/QOM",
+          "miles": "88-92",
+          "description": "The course returns to Bowral via Range Road and the climb of Mt Gibraltar -- a short, sharp ascent to the summit at 863m. After 140+ km of rolling terrain, the gradient hits hard. This is the final K/QOM for the Maxi and Challenge courses, and the last significant effort before the descent to the Loseby Park finish. The climb is steep enough to separate riders who paced intelligently from those who went too deep too early.",
+          "survival_strategy": "This is the moment everything you saved pays off. Gear down early, find a tempo you can sustain, and commit. The summit is the last hard effort of the day. The descent to the finish is short and sweet. Leave nothing on Mt Gibraltar."
+        }
+      ],
+      "signature_challenge": "The relentless undulation. There is no single monster climb -- the Southern Highlands course kills you with a thousand cuts. Constant rolling terrain across 150km means your legs never fully recover between efforts. Mt Gibraltar at the finish is the exclamation point, but the real challenge is managing fatigue through 140km of terrain that never lets you rest.",
+      "surface_breakdown": {
+        "overall": {
+          "pavement": 100
+        }
+      }
+    },
+    "guide_variables": {
+      "race_name": "Bowral Classic",
+      "race_distance": "94 miles",
+      "race_elevation": "7,851 feet",
+      "race_date": "October",
+      "race_location": "Bowral, Southern Highlands, New South Wales, Australia",
+      "race_terrain": "Paved rolling hills through Southern Highlands countryside, constant undulation, short steep climbs",
+      "race_weather": "Spring conditions: 15-22C daytime, cool 8-12C mornings. Moderate rain risk. Pleasant cycling weather.",
+      "race_challenges": [
+        "Relentless rolling terrain -- the road is almost never flat across 150km",
+        "Mt Gibraltar final climb at 140+ km on tired legs",
+        "Maximum gradient 15.2% on steepest pitches",
+        "Morning chill at 690m elevation requires layering strategy",
+        "UV exposure in Australian spring requires sun protection"
+      ],
+      "altitude_section": false,
+      "altitude_feet": 2830
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Long endurance base -- ability to ride 130+ km at tempo with 2,000+ m of climbing",
+        "by_when": "Week 8",
+        "why": "The Bowral Classic's 150km course with 2,393m of climbing rewards aerobic endurance above all. The relentless rolling terrain means you are always working -- there are almost no recovery sections. A minimum of two 120+ km training rides with significant climbing is essential to build the fatigue resistance needed for the final 30km."
+      },
+      {
+        "requirement": "Repeated short climb efforts -- 2-5 minute hill repetitions at threshold",
+        "by_when": "Week 7",
+        "why": "The course profile is constant short climbs of 2-8 minutes rather than long alpine grinds. Train specifically for this effort profile: hill repeats of 2-5 minutes at threshold power with short recoveries. The Kangaloon-Glenquarry section and Mt Gibraltar demand this repeated short-climb capacity on tired legs."
+      },
+      {
+        "requirement": "Pacing strategy rehearsal -- negative split a 100+ km ride",
+        "by_when": "Week 9",
+        "why": "The Southern Highlands course punishes early heroics. Riders who go hard through Berrima and Bundanoon pay the price in Kangaloon and on Mt Gibraltar. Practice disciplined pacing on a training ride of similar duration, holding back in the first half and riding strongly in the second. Your Mt Gibraltar time is your race."
+      }
+    ],
+    "citations": [
+      {
+        "url": "https://www.bowralclassic.com.au",
+        "category": "official",
+        "label": "Bowral Classic official website"
+      },
+      {
+        "url": "https://cyclingclassics.com.au/bowral/",
+        "category": "official",
+        "label": "Cycling Classics: Bowral Classic"
+      },
+      {
+        "url": "https://cyclingclassics.com.au/bowral/course-overview/",
+        "category": "official",
+        "label": "Bowral Classic course overview and route details"
+      },
+      {
+        "url": "https://cyclingclassics.com.au/bowral/2025/05/19/bowral-is-for-climbing/",
+        "category": "official",
+        "label": "Bowral Classic: K/QOM climbing segments and course stats"
+      },
+      {
+        "url": "https://raceroster.com/events/2026/111355/bowral-classic-2026",
+        "category": "official",
+        "label": "Race Roster: Bowral Classic 2026 registration"
+      },
+      {
+        "url": "https://bicyclingaustralia.com.au/news/bowral-classic-in-its-ninth-year-a-stunning-success/",
+        "category": "media",
+        "label": "Bicycling Australia: Bowral Classic ninth year review (2024)"
+      },
+      {
+        "url": "https://bicyclingaustralia.com.au/news/the-bowral-classic-is-back-for-2025/",
+        "category": "media",
+        "label": "Bicycling Australia: Bowral Classic 2025 announcement"
+      },
+      {
+        "url": "https://bicyclingaustralia.com.au/news/bowral-classic-wins-best-new-event-best-community-event-at-2017-australian-event-awards/",
+        "category": "media",
+        "label": "Bicycling Australia: Bowral Classic wins Australian Event Awards 2017"
+      },
+      {
+        "url": "https://www.destinationnsw.com.au/newsroom/bowral-classic-returns-in-2025",
+        "category": "official",
+        "label": "Destination NSW: Bowral Classic 2025 media release"
+      },
+      {
+        "url": "https://www.visitnsw.com/destinations/country-nsw/southern-highlands/bowral/events/bowral-classic",
+        "category": "official",
+        "label": "Visit NSW: Bowral Classic event listing"
+      },
+      {
+        "url": "https://www.wsc.nsw.gov.au/Places/MyShire/MyShire-Events-Directory/Bowral-Classic-2025",
+        "category": "official",
+        "label": "Wingecarribee Shire Council: Bowral Classic 2025"
+      },
+      {
+        "url": "https://cyclingclassics.com.au/bowral/community-information/",
+        "category": "official",
+        "label": "Bowral Classic community information and event details"
+      },
+      {
+        "url": "https://www.adnews.com.au/news/yaffa-media-pedals-home-to-win-two-australian-event-awards",
+        "category": "media",
+        "label": "AdNews: Yaffa Media wins Australian Event Awards for Bowral Classic"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/5907/bowral-classic",
+        "category": "other",
+        "label": "Gran Fondo Guide: Bowral Classic event listing"
+      },
+      {
+        "url": "https://cycledownunder.com/rides/bowral-classic/",
+        "category": "other",
+        "label": "Cycle Down Under: Bowral Classic"
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "researched",
+      "validation_status": "pending",
+      "sources": [
+        "bowral_classic_official",
+        "cycling_classics",
+        "bicycling_australia",
+        "destination_nsw",
+        "wingecarribee_shire_council",
+        "race_roster",
+        "gran_fondo_guide",
+        "cycle_down_under",
+        "adnews",
+        "visit_nsw"
+      ],
+      "research_date": "2026-02-27",
+      "research_strength": {
+        "overall": 76.5,
+        "grade": "B+",
+        "weakest": "statistical_backing",
+        "has_research_dump": false,
+        "dimensions": {
+          "source_diversity": 85,
+          "citation_density": 80,
+          "temporal_depth": 80,
+          "specificity": 80,
+          "statistical_backing": 55,
+          "voice_authenticity": 75,
+          "completeness": 75,
+          "cross_reference": 80
+        },
+        "scored_at": "2026-02-27"
+      }
+    }
+  }
+}

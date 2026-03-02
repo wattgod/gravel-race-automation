@@ -179,6 +179,7 @@ function gg_shared_header_html() {
           <a href="<?php echo $substack; ?>" target="_blank" rel="noopener">Slow Mid 38s</a>
           <a href="<?php echo $base; ?>/articles/">Hot Takes</a>
           <a href="<?php echo $base; ?>/insights/">The State of Gravel</a>
+          <a href="<?php echo $base; ?>/fueling-methodology/">White Papers</a>
         </div>
       </div>
       <a href="<?php echo $base; ?>/about/"<?php echo $aria('about'); ?>>ABOUT</a>

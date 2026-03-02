@@ -1,0 +1,418 @@
+{
+  "race": {
+    "name": "Race Across America",
+    "slug": "race-across-america",
+    "display_name": "Race Across America (RAAM)",
+    "tagline": "3,000 miles. Coast to coast. 12 days. The most extreme endurance cycling race on Earth. Oceanside to Atlantic City, nonstop since 1982.",
+    "vitals": {
+      "distance_mi": 3000,
+      "elevation_ft": 175000,
+      "location": "Oceanside, CA to Atlantic City, NJ",
+      "location_badge": "COAST TO COAST, USA",
+      "county": "12 states: CA, AZ, UT, CO, KS, MO, IL, IN, OH, WV, PA, NJ",
+      "date": "Mid-June annually",
+      "date_specific": "2026: June 16-28",
+      "terrain_types": [
+        "Desert highways",
+        "Mountain passes",
+        "Great Plains",
+        "Appalachian ridges",
+        "Paved roads throughout"
+      ],
+      "field_size": "~30-40 solo riders, 100+ total entries (solo + teams)",
+      "start_time": "Solo: Tuesday noon from Oceanside Pier. Teams: Saturday.",
+      "registration": "Qualification required. Solo riders must complete approved ultra-distance qualifying events within time limits. All information due by March 1. Cost: ~$2,750 solo entry fee (does not include crew, vehicles, or logistics).",
+      "prize_purse": "None. Finishers receive buckle and name in RAAM history.",
+      "aid_stations": "None provided. Riders rely entirely on personal crew and support vehicles. 10 primary time stations for check-in only.",
+      "cutoff_time": "12 days (men under 60). 12 days 21 hours (women under 60, men 60-69). 13 days 5 hours (women 60-69, men 70+).",
+      "lat": 33.1959,
+      "lng": -117.3795,
+      "entry_fee": "~$2,750 solo (2025 pricing)"
+    },
+    "climate": {
+      "primary": "Full American climate spectrum — desert heat to mountain cold to Midwest storms to Eastern humidity",
+      "description": "RAAM traverses every climate zone in the continental United States. Riders start in California coastal morning and within hours enter the Mojave and Sonoran Deserts where temperatures exceed 110F (43C). The Rockies bring freezing mountain passes above 10,000 feet. Kansas and the Great Plains deliver 95F+ heat, brutal headwinds, and violent thunderstorms. The Appalachians and Eastern Seaboard bring humidity, rain, and fog. All of this happens in a single continuous effort over 8-12 days with no shelter except what the crew provides.",
+      "challenges": [
+        "Desert heat exceeding 110F (43C) through California, Arizona, and Utah",
+        "Mountain cold and potential snow above 10,000 ft in the Rockies",
+        "Midwest thunderstorms with lightning, hail, and torrential rain across Kansas and Missouri",
+        "Eastern humidity and summer heat through the Appalachians",
+        "Extreme thermal swings — 110F desert to below-freezing mountain passes within 24 hours",
+        "Night riding in total darkness for 8-12 consecutive nights"
+      ]
+    },
+    "terrain": {
+      "primary": "Paved roads across the full diversity of American landscape",
+      "surface": "100% paved roads. US highways, state routes, and county roads of varying quality. Desert straightaways, mountain switchbacks, prairie two-lanes, and Appalachian ridgelines. No off-road or gravel sections.",
+      "technical_rating": 1,
+      "features": [
+        "Mojave and Sonoran Desert — flat, exposed, relentless heat",
+        "Monument Valley — iconic American Southwest scenery",
+        "Rocky Mountain passes exceeding 10,000 ft — sustained climbing",
+        "Great Plains of Kansas — hundreds of miles of flat, exposed, wind-battered highway",
+        "Appalachian ridges — rolling climbs through West Virginia and Pennsylvania",
+        "175,000 feet of cumulative climbing across 3,000 miles",
+        "Finish on the Atlantic City boardwalk"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 79,
+      "tier": 1,
+      "tier_label": "TIER 1",
+      "logistics": 2,
+      "length": 5,
+      "technicality": 1,
+      "elevation": 5,
+      "climate": 5,
+      "altitude": 4,
+      "adventure": 5,
+      "prestige": 5,
+      "race_quality": 4,
+      "experience": 5,
+      "community": 3,
+      "field_depth": 2,
+      "value": 3,
+      "expenses": 1,
+      "cultural_impact": 5,
+      "tier_note": "The most extreme ultra-endurance cycling race on Earth. 3,000 miles coast to coast since 1982. Prestige=5 + score>=75 triggers automatic Tier 1 override.",
+      "score_note": "Sum of 14 criteria = 50 (logistics=2, length=5, technicality=1, elevation=5, climate=5, altitude=4, adventure=5, prestige=5, race_quality=4, experience=5, community=3, field_depth=2, value=3, expenses=1). cultural_impact=5. (50+5)/70*100 = 78.57 -> 79. Prestige=5 with score>=75 -> T1 override.",
+      "editorial_tier": 1,
+      "editorial_tier_label": "TIER 1",
+      "business_tier": 1,
+      "business_tier_label": "TIER 1",
+      "display_tier": 1,
+      "display_tier_label": "TIER 1",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 2,
+        "explanation": "RAAM is a logistical nightmare by design. Solo riders need a crew of 8-12 people, two or more support vehicles, and a leapfrogging operation that runs 24 hours a day for 8-12 days across 3,000 miles and 12 states. Marko Baloh explains: the crew must manage 'nutrition, navigation, safety, medical monitoring, and morale around the clock while leapfrogging vehicles across 3,000 miles.' You need qualifying ultra-distance results just to enter. Crew members take shifts following the rider through the night on unlit highways. The entry fee is just the beginning — vehicles, fuel, food, lodging for a dozen people across 12 days is where the real cost lives. There is no event infrastructure beyond 10 time station checkpoints. Everything else is on you."
+      },
+      "length": {
+        "score": 5,
+        "explanation": "Three thousand miles. Coast to coast. There is nothing else like it. The Tour de France covers 2,100 miles over 21 stages with rest days, team support, and designated stops. RAAM covers 3,000 miles as a single continuous stage with no mandated rest. The clock starts in Oceanside and does not stop until Atlantic City. Christoph Strasser's record of 7 days, 15 hours, 56 minutes means he averaged nearly 400 miles per day. Most solo finishers average 250+ miles per day, riding 20-22 hours and sleeping 1-3 hours. The distance is so vast that riders experience multiple weather systems, cross three mountain ranges, and watch the landscape transform from Pacific coastline to desert to prairie to forest to Atlantic boardwalk. This is the maximum possible score."
+      },
+      "technicality": {
+        "score": 1,
+        "explanation": "RAAM is ridden entirely on paved roads. US highways, state routes, county roads — all asphalt. There are no gravel sections, no technical descents, no off-road challenges. Any competent road cyclist can handle the surface. The difficulty is not in what the road asks of your bike handling — it is in what 3,000 continuous miles ask of your body, mind, and crew. Sleep-deprived riders at 3 AM on day seven are not processing technical terrain. The roads are straightforward. The suffering is not."
+      },
+      "elevation": {
+        "score": 5,
+        "explanation": "175,000 feet of cumulative climbing. That is the equivalent of climbing Mount Everest from sea level six times. The route crosses three major mountain ranges — Sierra Nevada, Rocky Mountains, and Appalachians — plus countless smaller climbs in between. The Rockies alone deliver sustained passes above 10,000 feet. But unlike a mountain stage race, there is no recovery day after the big climbs. You descend one range and immediately begin crossing the next terrain feature. The cumulative toll is extraordinary. Even the 'flat' sections through Kansas include rolling terrain that grinds down exhausted riders."
+      },
+      "climate": {
+        "score": 5,
+        "explanation": "No cycling event on Earth subjects riders to a wider range of climate conditions. The Mojave Desert pushes temperatures above 110F. Rocky Mountain passes bring near-freezing temperatures and potential snow in June. Kansas delivers 95-degree heat, massive headwinds, and violent thunderstorms with lightning. The Appalachians bring humidity and fog. Riders experience thermal swings of 60+ degrees Fahrenheit within a single 24-hour period. One RAAM veteran described crossing the desert as 'riding inside a convection oven' followed by 'shivering uncontrollably on a Rocky Mountain descent twelve hours later.' The body never adapts because the climate never stabilizes."
+      },
+      "altitude": {
+        "score": 4,
+        "explanation": "The route crosses multiple passes above 10,000 feet in the Rocky Mountains, including Wolf Creek Pass in Colorado at over 10,800 feet. Riders who live at sea level face genuine altitude challenges — reduced oxygen, impaired recovery, altitude headaches — all compounded by severe sleep deprivation and days of continuous exertion. However, the time spent at extreme altitude is relatively brief compared to events like Leadville, which holds riders above 10,000 feet for the entire race. RAAM's altitude challenge is intense but transient — you climb it, you descend it, and you move on to the next obstacle."
+      },
+      "adventure": {
+        "score": 5,
+        "explanation": "RAAM is a coast-to-coast crossing of the United States by bicycle. Monument Valley at sunrise. The Continental Divide. The Kansas prairie stretching to every horizon. Appalachian ridgelines in morning mist. The Atlantic City boardwalk finish after 3,000 miles. The adventure is not just physical — it is psychological. Riders hallucinate from sleep deprivation. They experience emotional breakdowns and euphoric breakthroughs. They watch the sun rise and set eight to twelve times in a single continuous effort. The documentary 'Bicycle Dreams' captures this perfectly: riders pushed so far beyond normal human limits that the experience becomes almost spiritual. This is adventure in its most distilled form."
+      },
+      "prestige": {
+        "score": 5,
+        "explanation": "RAAM is the most prestigious ultra-endurance cycling event in the world. Founded in 1982 as The Great American Bike Race, it has crowned legends like Lon Haldeman, Pete Penseyres, Jure Robic, and Christoph Strasser. Fewer than 300 solo cyclists have ever finished. The 50% solo DNF rate means that starting RAAM is an achievement; finishing it is extraordinary. The race has been featured in multiple documentaries, books, and global media coverage. Christoph Strasser's six victories and the late Jure Robic's legendary battles have become cycling mythology. In 2021, Leah Goldstein became the first woman to win the overall solo division, adding another chapter to RAAM's storied history."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "RAAM has been refined over 40+ years of continuous operation. The 55-section route with 10 primary time stations provides structure and safety checkpoints across 3,000 miles. GPS tracking monitors every racer. Race officials enforce rules, monitor cutoff compliance, and manage the complex logistics of 100+ entries, 350+ racers, 1,000+ crew, and 200+ vehicles moving simultaneously across America. The organization is professional and experienced. It loses a point only because RAAM is not a mass-participation event — the infrastructure serves a small, elite field rather than thousands of recreational riders. But for what it is, the execution is excellent."
+      },
+      "experience": {
+        "score": 5,
+        "explanation": "There is no cycling experience comparable to RAAM. Riders describe it as the most transformative, grueling, and rewarding thing they have ever done. The combination of extreme physical suffering, total sleep deprivation, dramatic landscape changes, and the raw vulnerability of crossing a continent by bicycle creates something that transcends sport. Riders cry at the finish. Crews are bonded for life. The hallucinations, the 3 AM desert riding, the Kansas thunderstorms, the final miles along the Atlantic — every RAAM finisher carries these memories permanently. Marko Baloh calls it 'not just a race but a life-changing journey that redefines your understanding of what is possible.'"
+      },
+      "community": {
+        "score": 3,
+        "explanation": "RAAM's community is small but fiercely devoted. The ultra-cycling world is a tight-knit group where everyone knows everyone. Past finishers crew for current riders. The RAAM family extends across decades — riders from the 1980s still attend and support. But the community is inherently limited by the event's extreme nature. With only 30-40 solo starters per year and total entries around 100, this is not a mass gathering. There are no beer gardens, no expo tents, no spectator zones along 3,000 miles of open road. The community exists in crew vans at 3 AM, at time station checkpoints, and in the tight bonds formed through shared suffering."
+      },
+      "field_depth": {
+        "score": 2,
+        "explanation": "RAAM's solo field is tiny — typically 30-40 starters in a given year. Including teams, total entries reach around 100. The qualification requirements, extreme costs, and sheer insanity of the undertaking limit the field to the most committed ultra-endurance athletes on the planet. This is not a criticism — a 3,000-mile nonstop race should have a small field. But compared to events with thousands of participants, RAAM's competitive depth is narrow. The riders who show up are extraordinary, but there simply are not many of them."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "RAAM delivers an experience that literally no other event can match — a coast-to-coast crossing of America by bicycle, nonstop, in under 12 days. That experience is, in a meaningful sense, priceless. But the total cost of $15,000-$100,000 (entry fee, crew expenses, vehicles, fuel, food, lodging for 8-12 people across 12 days) means you are making a massive financial commitment for a single event. The entry fee alone is around $2,750, but that is a fraction of the true cost. For what you receive — a life-defining experience with 40 years of history — there is genuine value. But the raw dollar figure puts it beyond the reach of most cyclists."
+      },
+      "expenses": {
+        "score": 1,
+        "explanation": "RAAM is almost certainly the most expensive amateur cycling event in the world. The entry fee of approximately $2,750 is merely the starting point. A competitive solo campaign requires a crew of 8-12 people, two or more support vehicles (often RVs), fuel for 3,000+ miles of leapfrogging, food and lodging for the entire crew across 8-12 days, race-specific equipment, and months of qualifying events. Christoph Strasser's 2019 campaign cost approximately $50,000. Bare-bones budgets start around $15,000, while some riders report total costs approaching $100,000. This is an event where the entry fee is less than 10% of the total expenditure."
+      }
+    },
+    "biased_opinion": {
+      "verdict": "The Ultimate Test of Human Endurance on a Bicycle",
+      "summary": "Race Across America is not a bike race in any conventional sense. It is a 3,000-mile, coast-to-coast war of attrition against sleep deprivation, extreme climate, and the fundamental limits of the human body. Running since 1982, with fewer than 300 solo finishers in history and a 50% DNF rate, RAAM occupies a category of one. The logistics are staggering — you need a crew, vehicles, and a budget that rivals a small expedition. The experience is transformative. The prestige is unmatched in ultra-cycling. This is not an event most people should attempt. It is an event everyone should know about.",
+      "strengths": [
+        "3,000 miles coast to coast — the longest point-to-point cycling race on Earth",
+        "175,000 feet of climbing across three mountain ranges",
+        "Unmatched prestige in ultra-endurance cycling since 1982",
+        "Full climate spectrum from 110F desert to freezing mountain passes",
+        "Life-changing, once-in-a-lifetime experience with fewer than 300 solo finishers in history",
+        "Iconic American landscapes — Monument Valley, Rockies, Great Plains, Appalachians"
+      ],
+      "weaknesses": [
+        "Total cost $15,000-$100,000+ makes it prohibitively expensive for most",
+        "Requires crew of 8-12 people and multiple support vehicles",
+        "50% solo DNF rate — half of all starters do not finish",
+        "Extreme qualification requirements limit accessibility",
+        "Very small field (~30-40 solo starters) — limited community and field depth",
+        "Sleep deprivation and physical demands carry genuine health risks"
+      ],
+      "bottom_line": "RAAM is the Everest of cycling. You do not do it for value or community or convenience. You do it because crossing America by bicycle, nonstop, coast to coast, is one of the purest and most extreme tests of human endurance ever conceived. If you can afford it, qualify for it, crew it, and survive it — you join a club smaller than the astronaut corps."
+    },
+    "final_verdict": {
+      "score": "79 / 100",
+      "one_liner": "3,000 miles. Coast to coast. 12 days. The most extreme endurance cycling race on Earth.",
+      "should_you_race": "If you are an elite ultra-endurance cyclist with $15,000-$100,000 to spend, a crew of 8-12 people willing to sacrifice two weeks, qualifying results from approved ultra events, and the physical and mental capacity to ride 20+ hours a day for 8-12 consecutive days across the entire continental United States — yes. For everyone else, RAAM is best appreciated from the crew van, the documentary couch, or the dot-watching screen.",
+      "alternatives": "For ultra-endurance road: Paris-Brest-Paris (1,200 km, far more accessible, fraction of the cost). For transcontinental adventure: TransAmerica Bike Route (self-paced touring). For extreme gravel ultra: Unbound XL (350 miles, Kansas Flint Hills). For US ultra-cycling on a budget: Race Across the West (930 miles, RAAM's first third).",
+      "alternative_slugs": [
+        "paris-brest-paris",
+        "unbound-xl"
+      ]
+    },
+    "logistics": {
+      "airport": "San Diego International (SAN) — 35 miles from Oceanside start. For finish: Atlantic City International (ACY) or Philadelphia (PHL).",
+      "lodging_strategy": "Pre-race lodging in Oceanside, CA. During the race, crew and rider operate from support vehicles — RVs, vans, and motels along the route. Post-race accommodation in Atlantic City, NJ. Crew lodging is the largest variable cost.",
+      "food": "All nutrition is self-supplied via crew. Riders consume 8,000-10,000 calories per day. Crew prepares food in support vehicles and hands off at designated exchange points. No aid stations or race-provided nutrition.",
+      "packet_pickup": "Pre-race briefing and vehicle inspection in Oceanside, typically 2-3 days before start. All vehicles and crew must pass safety inspection.",
+      "parking": "Oceanside Pier area for start. Support vehicles follow prescribed rules for leapfrogging along the route.",
+      "official_site": "https://www.raceacrossamerica.org"
+    },
+    "history": {
+      "founded": 1982,
+      "founder": "John Marino",
+      "origin_story": "In 1982, John Marino organized The Great American Bike Race with four competitors: himself, John Howard, Michael Shermer, and Lon Haldeman. They raced from Santa Monica, California to the Empire State Building in New York City. Haldeman won that first edition. The following year, the event was renamed Race Across America and participation shifted from invitation to qualification-based entry. Over four decades, RAAM has grown from a four-person novelty into the most prestigious ultra-endurance cycling event on the planet, spawning solo, two-person, four-person, and eight-person team categories.",
+      "notable_moments": [
+        "1982: First edition as The Great American Bike Race — Lon Haldeman wins the inaugural coast-to-coast race",
+        "1986: Pete Penseyres sets solo record of 8 days, 9 hours, 47 minutes that stood for years",
+        "2004: Team Action Sports sets 4-person record averaging 23.06 mph across 2,959 miles",
+        "2005-2010: Jure Robic's legendary era — the Slovenian won five times and became RAAM's most iconic figure before his death in 2011",
+        "2014: Christoph Strasser sets the current solo record of 7 days, 15 hours, 56 minutes",
+        "2019: Strasser claims his sixth victory, passing Robic as the all-time solo wins leader",
+        "2021: Leah Goldstein becomes the first woman to win the overall solo division",
+        "2022: Team Bemer sets 8-person record of 5 days, 1 hour, 52 minutes at 24.85 mph average"
+      ],
+      "reputation": "The most extreme ultra-endurance cycling event in the world. The Everest of cycling. Featured in the documentaries 'Bicycle Dreams' and 'Race Across America.' Fewer than 300 solo finishers in 40+ years of history."
+    },
+    "course_description": {
+      "character": "A 3,000-mile transcontinental odyssey across the full diversity of the American landscape. Desert, mountains, plains, ridgelines, and coastline — all in a single continuous effort.",
+      "suffering_zones": [
+        {
+          "mile": 300,
+          "label": "Mojave and Sonoran Deserts",
+          "desc": "Temperatures exceed 110F as riders cross the California and Arizona deserts. The first major attrition point. Heat management defines survival.",
+          "terrain_detail": "Flat to rolling desert highways with full sun exposure",
+          "named_section": "The Desert"
+        },
+        {
+          "mile": 600,
+          "label": "Monument Valley to the Rockies",
+          "desc": "The Utah-Colorado transition. Iconic Southwest scenery gives way to serious mountain climbing. Elevation begins its relentless accumulation.",
+          "terrain_detail": "Desert transitioning to mountain passes",
+          "named_section": "Southwest Crossing"
+        },
+        {
+          "mile": 1000,
+          "label": "Rocky Mountain Passes",
+          "desc": "Multiple passes above 10,000 feet including Wolf Creek Pass. Freezing temperatures, thin air, and the first major climbing block. The Rockies break riders who survived the desert.",
+          "terrain_detail": "Sustained mountain climbing above 10,000 ft",
+          "named_section": "The Rockies"
+        },
+        {
+          "mile": 1500,
+          "label": "Kansas and the Great Plains",
+          "desc": "Hundreds of miles of flat, exposed prairie. Wind becomes the primary adversary. Thunderstorms appear without warning. The psychological toll of endless straight roads compounds sleep deprivation.",
+          "terrain_detail": "Flat prairie highways with extreme wind exposure",
+          "named_section": "The Plains"
+        },
+        {
+          "mile": 2200,
+          "label": "Mississippi River to the Ozarks",
+          "desc": "Crossing the Mississippi marks the eastern half of the race. Missouri's Ozark hills are deceptively punishing for riders on day 7-9 of continuous effort.",
+          "terrain_detail": "Rolling Ozark terrain with humidity",
+          "named_section": "The Ozarks"
+        },
+        {
+          "mile": 2700,
+          "label": "Appalachian Mountains",
+          "desc": "The final mountain range. West Virginia and Pennsylvania deliver relentless climbing on exhausted legs. Humidity and rain compound the suffering. The last major physical barrier before the Atlantic.",
+          "terrain_detail": "Appalachian ridge and valley terrain",
+          "named_section": "The Appalachians"
+        },
+        {
+          "mile": 3000,
+          "label": "Atlantic City Finish",
+          "desc": "The final miles to the Atlantic City boardwalk. After 3,000 miles, riders finish where the continent ends. The emotional release at the finish line is legendary.",
+          "terrain_detail": "Flat New Jersey coastal roads to the boardwalk",
+          "named_section": "The Finish"
+        }
+      ],
+      "signature_challenge": "3,000 miles across the entire continental United States — desert heat, Rocky Mountain passes, Great Plains wind, Appalachian climbs, and 175,000 feet of elevation gain — all in a single continuous, nonstop effort under 12 days.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "Race Across America",
+      "race_distance": "3,000 miles",
+      "race_elevation": "175,000 feet",
+      "race_date": "Mid-June",
+      "race_location": "Oceanside, CA to Atlantic City, NJ",
+      "race_terrain": "Paved roads across desert, mountains, plains, and ridgelines",
+      "race_weather": "Full spectrum — 110F desert to freezing mountain passes to Midwest thunderstorms",
+      "race_challenges": [
+        "3,000 continuous miles with no mandated rest",
+        "175,000 feet of climbing across three mountain ranges",
+        "Desert heat exceeding 110F",
+        "Rocky Mountain passes above 10,000 ft",
+        "Sleep deprivation — riders sleep 1-3 hours per day",
+        "Crew coordination across 12 states for 8-12 days",
+        "Total budget $15,000-$100,000+"
+      ],
+      "altitude_section": true,
+      "altitude_feet": 10800
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Qualifying ultra-distance results",
+        "by_when": "12+ months before race",
+        "why": "RAAM requires completion of approved qualifying events within specified time limits. Most riders spend 1-2 years building qualifying credentials."
+      },
+      {
+        "requirement": "Crew recruitment and training",
+        "by_when": "6+ months before race",
+        "why": "Solo riders need 8-12 dedicated crew members willing to commit 2+ weeks. Crew must understand nutrition protocols, vehicle leapfrogging, safety procedures, and sleep management."
+      },
+      {
+        "requirement": "Support vehicle acquisition and preparation",
+        "by_when": "3-6 months before race",
+        "why": "Minimum two vehicles (often RV + follow van). All vehicles must pass RAAM safety inspection. Outfitting for 3,000 miles of continuous operation."
+      },
+      {
+        "requirement": "Heat acclimatization training",
+        "by_when": "Week 8-12",
+        "why": "The desert section (first 300+ miles) regularly exceeds 110F. Riders without heat adaptation DNF in Arizona."
+      },
+      {
+        "requirement": "Ultra-endurance base building",
+        "by_when": "6-12 months before race",
+        "why": "250+ miles per day for 8-12 days requires a massive aerobic base. Most RAAM riders train 20-30 hours per week for 6+ months."
+      },
+      {
+        "requirement": "Budget of $15,000-$50,000 minimum",
+        "by_when": "6+ months before race",
+        "why": "Entry fee, vehicles, fuel, crew expenses, food, lodging, and equipment for a 3,000-mile transcontinental expedition. Many riders fundraise or seek sponsorship."
+      }
+    ],
+    "citations": [
+      {
+        "url": "https://www.raceacrossamerica.org",
+        "category": "official",
+        "label": "Race Across America Official Site"
+      },
+      {
+        "url": "https://raceacrossamerica.bike/en/race/route/",
+        "category": "route",
+        "label": "RAAM Route — 3,000 Miles Coast to Coast"
+      },
+      {
+        "url": "https://raceacrossamerica.bike/en/race/categories/",
+        "category": "official",
+        "label": "RAAM Categories and Rules — Race Divisions and Requirements"
+      },
+      {
+        "url": "https://raceacrossamerica.bike/en/race/about/",
+        "category": "official",
+        "label": "About RAAM — The World's Toughest Bicycle Race"
+      },
+      {
+        "url": "https://raceacrossamerica.org/results.html",
+        "category": "results",
+        "label": "RAAM Historical Results"
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Race_Across_America",
+        "category": "reference",
+        "label": "Wikipedia: Race Across America"
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Christoph_Strasser",
+        "category": "reference",
+        "label": "Wikipedia: Christoph Strasser — Six-time RAAM Champion"
+      },
+      {
+        "url": "https://stories.strava.com/articles/story-record-breaking-race-across-america-raam",
+        "category": "community",
+        "label": "Strava: The Story of a Record-Breaking Race Across America"
+      },
+      {
+        "url": "https://epicroadrides.com/cycling-blog/raam-race-across-america/",
+        "category": "community",
+        "label": "Epic Road Rides: RAAM Behind the Scenes"
+      },
+      {
+        "url": "https://nduranz.com/blogs/blogs/race-across-america-advice-marco-baloh",
+        "category": "community",
+        "label": "Marko Baloh: RAAM Advice and Insights"
+      },
+      {
+        "url": "https://www.cyclingweekly.com/news/new-raam-record-colin-obrady-and-lucas-clarke-complete-the-3064-mile-race-in-6-days-6-hours-and-43-minutes",
+        "category": "community",
+        "label": "Cycling Weekly: New RAAM Record — Colin O'Brady and Lucas Clarke"
+      },
+      {
+        "url": "https://life.bemergroup.com/race-across-america-2022-recap-breaking-world-records-with-bemer/",
+        "category": "community",
+        "label": "BEMER: Race Across America 2022 Recap — Breaking World Records"
+      },
+      {
+        "url": "https://ultracycling.com/calendar/race-across-america-2025/",
+        "category": "reference",
+        "label": "World UltraCycling Association: RAAM 2025"
+      },
+      {
+        "url": "https://visitoceanside.org/events/race-across-america-raam-and-raw/",
+        "category": "official",
+        "label": "Visit Oceanside: RAAM June 16, 2026"
+      },
+      {
+        "url": "https://velo.outsideonline.com/road/road-racing/how-to-watch-race-across-america-raam-route-map-elevation-live-dot-watching/",
+        "category": "community",
+        "label": "VeloNews: How to Follow the Race Across America"
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "high",
+      "validation_status": "validated",
+      "sources": [
+        "official_site",
+        "wikipedia",
+        "cycling_weekly",
+        "strava",
+        "rider_reports",
+        "ultra_cycling_association",
+        "results_data"
+      ],
+      "migration_notes": [],
+      "research_strength": {
+        "overall": 88,
+        "grade": "A",
+        "weakest": "voice_authenticity",
+        "has_research_dump": false,
+        "dimensions": {
+          "source_diversity": 95,
+          "citation_density": 90,
+          "temporal_depth": 100,
+          "specificity": 85,
+          "statistical_backing": 80,
+          "voice_authenticity": 75,
+          "completeness": 90,
+          "cross_reference": 85
+        },
+        "scored_at": "2026-02-27"
+      }
+    }
+  }
+}

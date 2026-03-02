@@ -57,6 +57,7 @@ def get_site_header_html(active: str | None = None) -> str:
           <a href="{SUBSTACK_URL}" target="_blank" rel="noopener">Slow Mid 38s</a>
           <a href="{SITE_BASE_URL}/articles/">Hot Takes</a>
           <a href="{SITE_BASE_URL}/insights/">The State of Gravel</a>
+          <a href="{SITE_BASE_URL}/fueling-methodology/">White Papers</a>
         </div>
       </div>
       <a href="{SITE_BASE_URL}/about/"{_aria("about")}>ABOUT</a>

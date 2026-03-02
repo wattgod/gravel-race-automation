@@ -1,0 +1,272 @@
+{
+  "race": {
+    "name": "Tour of the Gila",
+    "slug": "tour-of-the-gila",
+    "display_name": "Tour of the Gila",
+    "tagline": "America's only UCI stage race — open to amateurs. 5 stages. 7,400 feet of summit finish. The Gila Monster awaits in the New Mexico wilderness.",
+    "vitals": {
+      "distance_mi": 170,
+      "elevation_ft": 15000,
+      "location": "Silver City, Grant County, New Mexico, USA",
+      "location_badge": "SILVER CITY, NEW MEXICO",
+      "date": "Late April / early May annually",
+      "date_specific": "2026: April 29 – May 3",
+      "terrain_types": [
+        "Paved mountain roads through Gila National Forest",
+        "High-altitude climbing (5,900-7,400 ft)",
+        "Downtown criterium circuit",
+        "Individual time trial"
+      ],
+      "field_size": "~350 elite + 200-300 amateur category riders",
+      "start_time": "Varies by stage — morning starts",
+      "registration": "Online via bikereg.com. USA Cycling license required for amateur categories. Cost: $180-240 (amateur stage race)",
+      "prize_purse": "Professional categories: prize purse. Amateur categories: awards by category/age.",
+      "aid_stations": "Feed zones on road stages. Neutral support on course.",
+      "cutoff_time": "Time limits per stage",
+      "lat": 32.770,
+      "lng": -108.280,
+      "distance_options": [
+        "Pro/1/2 Amateur: 4 stages (3 road races + criterium), ~170 miles total",
+        "Cat 3/4/5 Amateur: 3 stages (2 road races + criterium), ~110 miles total",
+        "Women 4/5: 2 stages (1 road race + criterium)",
+        "Gila Monster Gran Fondo (separate October event): 80/60/30 mile options"
+      ],
+      "entry_fee": "$180-240 (amateur stage race)"
+    },
+    "climate": {
+      "primary": "High desert spring — warm days, cold nights, altitude sun",
+      "description": "Late April/early May in Silver City sits at 5,900 ft in the high desert. Days are warm (70-85F) with intense sun at altitude. Nights drop to the 40s. The Gila Monster climb reaches 7,400 ft where temperatures are notably cooler. Afternoon thunderstorms are possible but less common than in summer monsoon season.",
+      "challenges": [
+        "Altitude: racing at 5,900-7,400 ft reduces oxygen availability",
+        "Temperature swings from 40F mornings to 80F+ afternoon sun",
+        "High-altitude UV exposure — intense and relentless",
+        "Dry air causes rapid dehydration"
+      ]
+    },
+    "terrain": {
+      "primary": "Paved mountain roads through Gila National Forest",
+      "surface": "Paved New Mexico state highways and county roads. The Gila Monster route follows NM Highway 15 — a narrow, twisting single-lane mountain road with no shoulder through the Gila Wilderness. Downtown Silver City criterium is on city streets.",
+      "technical_rating": 2,
+      "features": [
+        "Gila Monster climb (NM-15): 10.3 miles, 1,964 ft gain, finishing at 7,436 ft — narrow, winding, European-style gradients of 6-14%",
+        "Tyrone ITT: 16-mile individual time trial with 1,200 ft climbing",
+        "Silver City downtown criterium: technical 1.1-mile circuit",
+        "Racing at altitude: entire event above 5,900 ft",
+        "Car-free mountain roads through the Gila National Forest"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 76,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "logistics": 2,
+      "length": 4,
+      "technicality": 2,
+      "elevation": 4,
+      "climate": 3,
+      "altitude": 4,
+      "adventure": 5,
+      "prestige": 4,
+      "race_quality": 4,
+      "experience": 5,
+      "community": 3,
+      "field_depth": 4,
+      "value": 3,
+      "expenses": 3,
+      "cultural_impact": 3,
+      "tier_note": "America's only UCI stage race with amateur categories. Racing the Gila Monster at 7,400 ft alongside professionals. T2 by score (76). p4 cannot promote into T1.",
+      "score_note": "Adventure=5 for the Gila Wilderness remoteness. Experience=5 for the unique opportunity to race a UCI stage race course. Altitude=4 for genuine racing above 5,900 ft. Prestige=4 as the only US UCI stage race. Logistics=2 — Silver City is remote (3+ hours from Albuquerque/El Paso).",
+      "editorial_tier": 2,
+      "editorial_tier_label": "TIER 2",
+      "business_tier": 2,
+      "business_tier_label": "TIER 2",
+      "display_tier": 2,
+      "display_tier_label": "TIER 2",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 2,
+        "explanation": "Silver City is genuinely remote. 3+ hours from Albuquerque, 3+ hours from El Paso, in a corner of New Mexico that most Americans couldn't locate on a map. Grant County has about 27,000 people. Accommodation is limited — motels, Airbnbs, and camping. The organization is professional (39 years of experience), but getting there and finding lodging is a real challenge. USA Cycling license requirement adds a registration step."
+      },
+      "length": {
+        "score": 4,
+        "explanation": "The amateur P/1/2 stage race covers ~170 miles across 4 stages over 4 days. The Cat 3/4/5 version covers ~110 miles in 3 stages. Each stage is a distinct racing effort — road races of 50-100 miles, a 16-mile ITT, and a criterium. The cumulative toll of multi-day stage racing is real, even at amateur distances."
+      },
+      "technicality": {
+        "score": 2,
+        "explanation": "Paved roads throughout. The Gila Monster climb is on narrow NM-15 — single lane, no shoulder, winding — which adds technical descent challenge. The criterium requires pack-handling skills. But this isn't technical terrain in the gravel/MTB sense."
+      },
+      "elevation": {
+        "score": 4,
+        "explanation": "The Gila Monster road race delivers ~5,200 ft of climbing in 69 miles for amateur categories, with European-style gradients of 6-14%. The queen stage for pros covers 9,360 ft in 100 miles. The ITT adds 1,200 ft. For a multi-day stage race, the cumulative climbing is substantial — all of it at altitude."
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "Spring in Silver City is generally pleasant — 70-85F days, low humidity, clean high-desert air. But the temperature swings (40F mornings to 80F+ afternoons) and intense altitude UV require preparation. Not extreme weather by any standard, but the dry air and altitude sun catch unprepared riders."
+      },
+      "altitude": {
+        "score": 4,
+        "explanation": "Racing at 5,900-7,400 ft is real altitude. The Gila Monster summit at 7,436 ft reduces oxygen availability by 20-25% compared to sea level. Multi-day racing at altitude compounds the effect — each stage erodes recovery more than at sea level. Sea-level riders who arrive without acclimatization feel this acutely."
+      },
+      "adventure": {
+        "score": 5,
+        "explanation": "The Gila Wilderness is one of the most remote places in the Lower 48. Aldo Leopold designated it as America's first wilderness area. NM-15 through the Gila National Forest is a road that makes you feel like you've left the United States — narrow, winding through ponderosa pine and desert canyon, with no cell service and no civilization for miles. Racing here feels genuinely wild."
+      },
+      "prestige": {
+        "score": 4,
+        "explanation": "The only UCI stage race in the United States. One of only two in North America. The Tour of the Gila has been a proving ground for American professionals since 1987 — riders like Levi Leipheimer, Floyd Landis, and Tejay van Garderen won here before racing in Europe. For an amateur to race the same courses alongside the UCI peloton is a unique credential in American road cycling."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "39 years of organizational experience at the UCI level. The amateur categories are run with proper stage-race infrastructure — neutral support, feed zones, timing, classifications. The criterium has full course marshaling. The event operates at a higher standard than most US amateur races because it must meet UCI requirements for the pro field."
+      },
+      "experience": {
+        "score": 5,
+        "explanation": "Where else in America can an amateur race a UCI stage race? The Gila Monster climb — 10.3 miles of narrow, winding mountain road finishing at 7,400 ft in the wilderness — is one of the most memorable finishes in American cycling. The multi-day format builds narrative: the ITT sets the stakes, the road stages shuffle the GC, the criterium adds drama, and the Gila Monster decides everything. Four days of racing in the New Mexico wilderness is an experience that stays."
+      },
+      "community": {
+        "score": 3,
+        "explanation": "Silver City embraces the race — it's the biggest sporting event in Grant County. But the total amateur field is modest (200-300 riders) and the remote location limits the community atmosphere. This isn't a 10,000-person festival. The community is small, dedicated, and distinctly Western — cowboys and cyclists sharing the same downtown."
+      },
+      "field_depth": {
+        "score": 4,
+        "explanation": "The amateur categories draw serious racers — P/1/2 fields are strong regional competitors, and the Masters categories attract experienced riders. Because it's a multi-day stage race (not a single-day fondo), the field self-selects for fitness and racing experience. USA Cycling license requirement further filters the field. Cat 3/4/5 fields are competitive within their categories."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "$180-240 for a multi-day stage race with UCI-level organization is fair but not cheap. You're getting 3-4 stages of legitimate racing, timed and classified, on iconic courses. The value is in the uniqueness of the experience — no other US event offers this."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Silver City is cheap once you're there — lodging and food in rural New Mexico are well below national averages. But getting there is expensive: flights to Albuquerque or El Paso, then a 3+ hour drive. Car rental is mandatory. Budget $800-1,400 for a 5-day trip including travel, lodging, food, and entry."
+      }
+    },
+    "biased_opinion": {
+      "verdict": "The Wilderness Stage Race",
+      "summary": "Tour of the Gila is the most unique amateur road racing opportunity in the United States. It's the only place an amateur can pin on a number and race a UCI stage race course — the same climbs, the same roads, the same New Mexico wilderness that the professional peloton tackles. The Gila Monster climb is a genuine mountain summit finish that rivals anything in European professional cycling for atmosphere and difficulty. Silver City is remote, rugged, and authentically Western. This is not a corporate gran fondo with a finish-line festival — it's real stage racing in real wilderness.",
+      "strengths": [
+        "The only amateur access to a UCI stage race in the United States",
+        "The Gila Monster climb: 10.3 miles to 7,400 ft through the Gila Wilderness — one of America's great summit finishes",
+        "Multi-day stage race format provides genuine GC racing, not just a single-day effort",
+        "The Gila Wilderness setting: remote, wild, and unlike anywhere else in American cycling"
+      ],
+      "weaknesses": [
+        "Extremely remote: Silver City is 3+ hours from the nearest major airport",
+        "Small amateur fields (200-300 riders) — not a mass-participation event",
+        "Requires USA Cycling license and category classification"
+      ],
+      "bottom_line": "If you want to race a real stage race in the American wilderness, the Gila is the only address."
+    },
+    "final_verdict": {
+      "score": "76 / 100",
+      "one_liner": "America's only UCI stage race — open to amateurs. The Gila Monster at 7,400 ft is waiting.",
+      "should_you_race": "Yes if you want the unique experience of racing a UCI stage race as an amateur. Yes if you can handle altitude and remote logistics. Skip if you want a mass-participation gran fondo atmosphere.",
+      "alternatives": "If you want US stage racing without UCI: try Redlands Bicycle Classic. If you want US mountain climbing without stage racing: try Death Ride. If you want a high-altitude gran fondo in the same region: try Lael Wilcox Gila Monster Gran Fondo (October).",
+      "alternative_slugs": [
+        "redlands-bicycle-classic",
+        "death-ride"
+      ]
+    },
+    "logistics": {
+      "airport": "Albuquerque (ABQ) — 3.5 hours drive. El Paso (ELP) — 3 hours drive. Both require car rental.",
+      "lodging_strategy": "Limited but affordable. Silver City motels ($70-120/night), Airbnbs, and campgrounds. Book early — race week fills the town. Some riders stay in nearby Cliff or Deming.",
+      "food": "Silver City has solid restaurants — Diane's Restaurant, Tre Rosat Café, and the Buckhorn Saloon in Pinos Altos (the finish area). Stock up on race nutrition before arriving — options are limited.",
+      "packet_pickup": "Wednesday/Thursday at race HQ in Silver City.",
+      "parking": "Ample free parking. Silver City is a small town — everything is walkable during race week.",
+      "official_site": "https://tourofthegila.com/"
+    },
+    "history": {
+      "founded": 1987,
+      "founder": "Silver City cycling community",
+      "origin_story": "Launched in 1987 as a regional stage race in the remote mountains of southwestern New Mexico. Earned UCI designation in 2012, becoming the only UCI men's stage race in the United States. The women's race gained UCI status in 2015. For nearly four decades, the Tour of the Gila has served as a proving ground for American professionals — many who went on to race the Tour de France first won on the Gila Monster.",
+      "notable_moments": [
+        "1987: Inaugural edition in Silver City",
+        "2012: Elevated to UCI 2.2 status — America's only UCI men's stage race",
+        "2015: Women's race gains UCI status",
+        "2026: 39th edition — the longest-running UCI stage race in the US"
+      ],
+      "reputation": "America's proving ground. Where the Gila Monster separates the climbers from the pretenders."
+    },
+    "course_description": {
+      "character": "Multi-day stage racing at altitude through the Gila Wilderness. Each stage is a distinct test — the ITT sets the opening gaps, the road stages include genuine mountain climbs on narrow wilderness roads, and the criterium rewards tactical racing. The Gila Monster road race is the queen stage: 69 miles for amateurs with 5,200 ft of climbing, finishing at 7,436 ft on a narrow, winding mountain road through ponderosa pine forest.",
+      "suffering_zones": [
+        {
+          "mile": 0,
+          "label": "Tyrone ITT",
+          "desc": "16 miles against the clock with 1,200 ft of climbing. The truth of your form is revealed on day one. No hiding in the pack.",
+          "terrain_detail": "Paved, rolling, 5,900 ft altitude",
+          "named_section": "The Time Trial"
+        },
+        {
+          "mile": 50,
+          "label": "Silver City Criterium",
+          "desc": "1.1-mile downtown circuit. Sharp corners, pack dynamics, and tactical racing. A different kind of suffering — intensity over endurance.",
+          "terrain_detail": "Downtown Silver City streets",
+          "named_section": "Downtown Crit"
+        },
+        {
+          "mile": 100,
+          "label": "The Gila Monster",
+          "desc": "The queen stage. 10.3 miles of narrow, winding NM-15 climbing to 7,436 ft through the Gila National Forest. European-style gradients of 6-14%. No cell service. No escape. The race is decided here.",
+          "terrain_detail": "NM-15, narrow single lane, 6-14% gradients, summit 7,436 ft",
+          "named_section": "Gila Monster"
+        }
+      ],
+      "signature_challenge": "The Gila Monster — 10.3 miles of narrow wilderness mountain road finishing at 7,436 ft. The only summit finish in American amateur stage racing that rivals European HC climbs for difficulty and atmosphere."
+    },
+    "guide_variables": {
+      "race_name": "Tour of the Gila",
+      "race_distance": "170 miles over 4 stages (P/1/2 amateur)",
+      "race_elevation": "15,000+ feet cumulative",
+      "race_date": "Late April / early May",
+      "race_location": "Silver City, New Mexico",
+      "race_terrain": "Paved mountain roads, ITT, criterium",
+      "race_weather": "High desert spring: 70-85F days, 40F mornings, intense UV at altitude",
+      "race_challenges": [
+        "Multi-day stage racing: cumulative fatigue across 4 stages",
+        "Altitude: racing at 5,900-7,400 ft reduces oxygen availability",
+        "The Gila Monster: 10.3 miles at 6-14% to 7,436 ft",
+        "Remote location with limited recovery infrastructure"
+      ],
+      "altitude_section": true,
+      "altitude_feet": 7436
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Stage race fitness — ability to recover between racing days",
+        "by_when": "Week 6",
+        "why": "Multi-day stage racing demands different fitness than a single-day event. You must be able to race hard, recover overnight, and race hard again. Back-to-back hard training days are essential preparation."
+      },
+      {
+        "requirement": "Altitude acclimatization or pre-adaptation strategy",
+        "by_when": "Week 8",
+        "why": "Racing at 5,900-7,400 ft is real altitude. Sea-level riders lose 15-25% performance. Arrive 3-5 days early to acclimatize, or use altitude tent/simulation in training."
+      },
+      {
+        "requirement": "USA Cycling license and category classification",
+        "by_when": "Registration deadline",
+        "why": "The amateur categories require a valid USA Cycling license and appropriate category classification. If you're new to racing, start the upgrade process well before registration."
+      }
+    ],
+    "citations": [
+      {
+        "url": "https://tourofthegila.com/",
+        "title": "Tour of the Gila — Official Site",
+        "category": "official"
+      },
+      {
+        "url": "https://www.bikereg.com/tour-of-the-gila",
+        "title": "Tour of the Gila — BikeReg Registration",
+        "category": "official"
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "high",
+      "validation_status": "validated",
+      "research_strength": "A-",
+      "sources_count": 2,
+      "last_updated": "2026-02-27"
+    }
+  }
+}

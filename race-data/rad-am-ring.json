@@ -1,0 +1,377 @@
+{
+  "race": {
+    "name": "Rad am Ring",
+    "slug": "rad-am-ring",
+    "display_name": "Rad am Ring",
+    "tagline": "Race the Green Hell. 12,000 cyclists on the world's most famous motorsport circuit — the Nurburgring Nordschleife.",
+    "vitals": {
+      "distance_mi": 93,
+      "elevation_ft": 11024,
+      "location": "Nurburgring, Nurburg, Rhineland-Palatinate, Germany",
+      "location_badge": "NURBURGRING, GERMANY",
+      "county": "Rhineland-Palatinate",
+      "date": "Late July annually",
+      "date_specific": "2026: July 24-26",
+      "terrain_types": [
+        "Closed motorsport circuit",
+        "Perfect racetrack tarmac",
+        "Nordschleife and Grand Prix circuit",
+        "Punchy climbs with 17% gradient"
+      ],
+      "field_size": "~12,000 participants across all disciplines (2025 record: 11,948)",
+      "start_time": "Saturday morning for public races, Saturday 12:00 for 24h races",
+      "registration": "Online via radamring.de. 24h slots sell out within 1 hour. Public races and touring still available.",
+      "prize_purse": "None for public races. Finisher medals and certificates.",
+      "aid_stations": "Feed zones on course. Full mechanical and medical support from motorsport-grade infrastructure.",
+      "cutoff_time": "Varies by discipline. 24h race runs midnight to midnight.",
+      "lat": 50.3356,
+      "lng": 6.9475,
+      "distance_options": [
+        "Public Race 25 km (1 lap): 560m elevation — entry level",
+        "Public Race 75 km (3 laps): 1,680m elevation — intermediate",
+        "Public Race 150 km (6 laps): 3,360m elevation — ambitious",
+        "24h Road Race: as many 25.9 km laps as possible in 24 hours (solo or teams of 2/4/8)",
+        "22 km Time Trial: Friday evening on GP circuit",
+        "Gravel Race 25/50/100 km: on and off the Nordschleife (added 2025)",
+        "Touring Rides: non-competitive, multiple distances"
+      ],
+      "entry_fee": "Varies by discipline. Public races estimated EUR50-120."
+    },
+    "climate": {
+      "primary": "Temperate oceanic, Eifel highlands",
+      "description": "Late July in the Eifel region at 600m elevation delivers mild summer temperatures averaging 22C highs and 12C lows. The Nurburgring's microclimate is notoriously variable — the Eifel's proximity to Atlantic weather systems means rain can appear without warning. July averages 17 rainy days. Morning fog and humidity (76% average) are common, particularly dangerous on the Nordschleife's fast descents where grip disappears.",
+      "challenges": [
+        "Eifel weather volatility: rain can arrive mid-lap with zero warning",
+        "Morning fog on the Nordschleife — reduced visibility through forest sections",
+        "Wet tarmac on racing circuit at high-speed descent points (Fuchsrohre)",
+        "Cool overnight temperatures for 24h participants: can drop to 8-10C"
+      ]
+    },
+    "terrain": {
+      "primary": "Closed motorsport circuit — racetrack tarmac",
+      "surface": "Purpose-built racing circuit tarmac in immaculate condition. The Nordschleife surface provides excellent grip in dry conditions but becomes treacherous when wet. No public roads, no traffic, no gravel. Pure racetrack.",
+      "technical_rating": 2,
+      "features": [
+        "Nordschleife: 20.8 km, 73 bends, 500+ meters of elevation change — the legendary Green Hell",
+        "Grand Prix circuit: 5.1 km modern F1-grade track completing the full lap",
+        "Hohe Acht climb: the roof of the course at 17% gradient, where even road cyclists understand the Green Hell nickname",
+        "Fuchsrohre descent: speeds up to 100 km/h have been measured on bicycles",
+        "84 turns per full lap combining both circuits — relentless direction changes",
+        "Elevation range: 330m to 625m within each lap — constant undulation, no flat sections"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 70,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "logistics": 4,
+      "length": 3,
+      "technicality": 2,
+      "elevation": 3,
+      "climate": 2,
+      "altitude": 1,
+      "adventure": 4,
+      "prestige": 4,
+      "race_quality": 4,
+      "experience": 5,
+      "community": 4,
+      "field_depth": 3,
+      "value": 3,
+      "expenses": 3,
+      "cultural_impact": 4,
+      "tier_note": "Score 70 places Rad am Ring solidly in Tier 2. Prestige=4 (p4) would promote one tier, but cannot promote into Tier 1 from Tier 2. Remains Tier 2. The experience score of 5 reflects the utterly unique proposition of racing bicycles on the world's most famous motorsport circuit.",
+      "score_note": "Sum of 14 criteria: 4+3+2+3+2+1+4+4+4+5+4+3+3+3=45. cultural_impact=4. Total=49. overall_score=round((49/70)*100)=70. experience=5 is the standout — there is simply no other cycling event where you race through an active F1/endurance racing venue. altitude=1 because 600m produces zero physiological effect. technicality=2 because it is perfect tarmac throughout.",
+      "editorial_tier": 2,
+      "editorial_tier_label": "TIER 2",
+      "business_tier": 2,
+      "business_tier_label": "TIER 2",
+      "display_tier": 2,
+      "display_tier_label": "TIER 2",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 4,
+        "explanation": "The Nurburgring is a world-class motorsport complex with infrastructure built to handle 150,000 spectators for F1 and the ADAC 24 Hours. Participant center operates from the F1 pit buildings. Ample parking across the complex. Cologne-Bonn airport (CGN) is 70 km / 1 hour. Frankfurt (FRA) is 160 km / 1.5 hours. The Eifel region has solid road connections via the A1 and A61 motorways. Three-day event with Friday time trial, Saturday races and 24h start, Sunday finish. Packet pickup is well-organized in the pit lane complex. One weakness: Nurburg itself is a tiny village — accommodation books out fast."
+      },
+      "length": {
+        "score": 3,
+        "explanation": "The flexible distance structure — 25 km, 75 km, 150 km public races plus the 24h endurance format — serves every level from first-time sportive riders to extreme endurance athletes. The 150 km option packs 3,360m of climbing into six laps, creating serious demands. The 24h solo record involves extraordinary endurance over hundreds of kilometers. But the signature experience — a single Nordschleife lap — is 24.4 km. Most participants ride 1-3 laps rather than the full 150 km distance. The event's strength is accessibility, not extreme distance."
+      },
+      "technicality": {
+        "score": 2,
+        "explanation": "This is purpose-built racetrack tarmac maintained to motorsport standards. No gravel, no dirt, no potholes, no traffic. The technical demands are entirely about speed management: 84 turns per lap, many of them blind or off-camber by road cycling standards, plus the Fuchsrohre descent where cyclists have been clocked at 100 km/h. Wet conditions transform the difficulty — racing tarmac becomes ice-slick. But in dry conditions, this is road cycling on the best surface available anywhere. Bring a road bike with 25mm tires."
+      },
+      "elevation": {
+        "score": 3,
+        "explanation": "560 meters of climbing per 24.4 km lap is punishing for a road circuit. The Hohe Acht section punches up to 17% gradient — a proper wall that separates riders every lap. Over six laps (150 km), total climbing reaches 3,360m / 11,000+ feet, which rivals many mountain gran fondos. The relentless undulation means there are no recovery flats — you are either climbing or descending for the entire lap. This is not Alpine climbing, but the accumulated vertical in the 24h race is brutal."
+      },
+      "climate": {
+        "score": 2,
+        "explanation": "Late July in the Eifel is mild by any standard — average highs of 22C, lows of 12C. Not hot enough to create heat stress, not cold enough to be uncomfortable during daytime riding. The risk factor is rain: the Eifel receives precipitation on 17 days in July, and the Nurburgring's forested microclimate amplifies local weather variability. A sudden rain shower on the Nordschleife turns the high-speed descent sections genuinely dangerous. But compared to Alpine passes, desert gravel, or tropical humidity — this is benign climate territory."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "The Nurburgring sits at approximately 600 meters above sea level. The highest point on the course (Hohe Acht area) reaches 625m. There is zero altitude-related performance effect. No thin air, no acclimatization needed. Sea-level riders will feel exactly the same as local riders. This is the Eifel highlands, not the Alps."
+      },
+      "adventure": {
+        "score": 4,
+        "explanation": "The adventure here is entirely about context. You are racing a bicycle through the Green Hell — the most famous, most dangerous, most storied motorsport circuit ever built. The Nordschleife that Jackie Stewart named. The track where Niki Lauda nearly died. You ride through Caracciola-Karussell, past Flugplatz, down through Fuchsrohre, up and over Hohe Acht. The forest closes in around you. The elevation changes are relentless. At night during the 24h race, with headlamps cutting through fog on the Nordschleife, this is adventure riding that no other road event can replicate."
+      },
+      "prestige": {
+        "score": 4,
+        "explanation": "Rad am Ring connects to one of the deepest sporting legacies in the world — the Nurburgring has hosted racing since 1927. Rudi Altig won the Road World Championship here in 1966, and the pro race was named in his honor. The event formerly hosted UCI Europe Tour 1.1 racing. Nearly 12,000 participants in 2025 make it one of Germany's largest cycling events. The 24h race slots sell out in under an hour. Hosting the 2026 German Gravel Championship adds further credibility. Not quite prestige-5 (reserved for Tour de France-level cultural dominance), but this venue carries serious weight."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "The closed-circuit format eliminates traffic, potholes, navigation confusion, and road hazards — you simply cannot get lost. Professional timing via transponders. Medical teams on standby with motorsport-grade response infrastructure. The F1 pit lane serves as race HQ. Course marshals at key points. Multiple race categories create competition for every level. The 24h format produces its own athletic drama — managing pace, nutrition, sleep deprivation, and mechanical support across 24 hours. This is professional-grade event production applied to amateur cycling."
+      },
+      "experience": {
+        "score": 5,
+        "explanation": "There is nothing else like this in cycling. You line up in the Formula 1 start area, ride out onto the Grand Prix circuit, and then plunge into the Nordschleife — the same 20.8 km of relentless, undulating, forest-enclosed tarmac where motorsport legends were made. The atmosphere when 12,000 cyclists flood the Green Hell is electric. The 24h race adds another dimension: riding through the Nordschleife at 2 AM with nothing but your headlamp, the forest pressing in, fog forming in the hollows, the bizarre reality that this is where F1 cars race at 300 km/h. The cycling expo fills the F1 paddock. This experience is utterly singular."
+      },
+      "community": {
+        "score": 4,
+        "explanation": "Rad am Ring has cultivated a strong community identity — the hashtag #wirsindradamring (we are Rad am Ring) is not just marketing, it reflects a genuine tribal belonging. The 24h race in particular breeds intense camaraderie: teams share paddock space, support each other through the night, and the shared suffering of riding the Nordschleife at 4 AM creates bonds. The multi-discipline format (road, gravel, MTB, touring, time trial) means the community is broad. The event has grown from 70 participants in 2003 to nearly 12,000 — a growth curve driven by word-of-mouth community energy."
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "Primarily a German field with growing European participation. The professional race attracted riders like Emanuel Buchmann, Davide Rebellin, and Paul Voss (all from Bora-Argon 18 era), but that pro element was discontinued after 2019 and folded into the German Bundesliga. The 24h race attracts serious endurance athletes — solo riders completing 30+ laps represent genuine athletic achievement. The public races draw strong German amateur racers. But this is not a field that draws international elite amateurs the way L'Etape or Maratona dles Dolomites does."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "Access to a world-class motorsport facility on fully closed roads with professional infrastructure, timing, and support — at sportive-level pricing. The multi-discipline format means a single weekend trip covers road racing, time trials, gravel, and touring options. The expo in the F1 paddock adds value. However, the experience is primarily lap-based rather than point-to-point, which can feel repetitive over multiple laps. The 24h race represents extraordinary value for endurance athletes — 24 hours of closed-circuit racing is rare at any price."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "The Eifel region is affordable by German standards. Budget hotels and guesthouses in Adenau, Nurburg, and surrounding villages are reasonable (EUR60-120/night). Camping is available on-site for 24h participants (paddock plots). Entry fees are moderate for European events. The main expense driver is travel — Cologne is the closest major airport at 70 km, requiring a rental car. From the US, budget EUR1,000-1,800 for a 4-5 day trip including flights to Frankfurt or Cologne, car rental, accommodation, entry, and meals."
+      }
+    },
+    "biased_opinion": {
+      "verdict": "The Green Hell on Two Wheels",
+      "summary": "Rad am Ring does something no other cycling event can: it puts you on the Nurburgring Nordschleife. The same 20.8 km of relentless, forest-enclosed circuit where motorsport legends were forged since 1927. Where Rudi Altig won the Road World Championship in 1966. Where Jackie Stewart coined the name 'Green Hell.' Nearly 12,000 cyclists now invade this sacred motorsport ground every July, racing through 84 turns per lap, surviving the 17% Hohe Acht climb, and hitting 100 km/h on the Fuchsrohre descent. The 24h race adds a surreal dimension — riding the Nordschleife at 3 AM through fog with only a headlamp. This is not gravel, this is not a gran fondo — this is road cycling on the most storied racing circuit on Earth, and the experience is absolutely singular.",
+      "strengths": [
+        "The Nurburgring Nordschleife: literally no other cycling event on Earth offers this venue",
+        "World-class motorsport infrastructure applied to cycling: F1 pit lane, closed circuit, medical teams",
+        "12,000 participants and growing — one of Germany's biggest cycling festivals",
+        "Multi-discipline format: 24h, public races, time trial, gravel, touring — something for everyone",
+        "Perfect racetrack surface with 560m climbing per lap and gradients up to 17%",
+        "Rich history: Rudi Altig's 1966 World Championship, pro race legacy, event running since 2003"
+      ],
+      "weaknesses": [
+        "Lap-based racing on a circuit can feel repetitive compared to point-to-point events",
+        "No meaningful altitude challenge — the Eifel sits at only 600m",
+        "Primarily German/regional field — lacks the international depth of top European sportives",
+        "Tiny village of Nurburg has limited accommodation — books out fast for the weekend",
+        "Eifel weather is unpredictable — rain on the Nordschleife's fast descents is genuinely dangerous",
+        "Not a gravel event — this is pure road cycling on tarmac (gravel discipline added 2025 but secondary)"
+      ],
+      "bottom_line": "If you have ever watched a Formula 1 race, a Nurburgring 24 Hours, or read about the Green Hell and thought 'I want to experience that' — Rad am Ring is how you do it on a bicycle. The venue elevates what would otherwise be a solid German sportive into something genuinely unique. The 24h race is the bucket-list version. The experience score earns a perfect 5 because nothing else compares. For German and European cyclists, this should be on the short list. For international travelers, pair it with a European cycling trip — the Nurburgring alone justifies the detour."
+    },
+    "final_verdict": {
+      "score": "70 / 100",
+      "one_liner": "Race the Green Hell. 12,000 cyclists on the world's most famous motorsport circuit — the Nurburgring Nordschleife.",
+      "should_you_race": "If you have any connection to motorsport culture, this is a mandatory pilgrimage on two wheels. The 24h race is the crown jewel — 24 hours of closed-circuit racing through the Nordschleife, including surreal night laps through forest fog. The public races (25/75/150 km) offer the venue experience in a single day. For German and European cyclists, this is one of the continent's most unique events. For international visitors, combine with a broader European cycling trip.",
+      "alternatives": "For other iconic European circuit events: Tour de Okinawa (road racing on closed circuit, Japan). For German cycling festivals: 3Rides Aachen (gravel, nearby), Cyclassics Hamburg (road). For 24h endurance cycling: 24h Montabaur, 24h Duisburg. For the ultimate European sportive experience: L'Etape du Tour, Maratona dles Dolomites.",
+      "alternative_slugs": [
+        "tour-de-okinawa",
+        "3rides-aachen",
+        "letape-du-tour"
+      ]
+    },
+    "logistics": {
+      "airport": "Cologne-Bonn (CGN) 70 km / 1 hour. Frankfurt (FRA) 160 km / 1.5 hours. Dusseldorf (DUS) 130 km / 1.5 hours. Rental car required — Nurburg has no rail connection.",
+      "lodging_strategy": "Book early. Nurburg village is tiny with limited capacity. Adenau (5 km) has more options. Mayen, Bad Munstereifel, and Kelberg offer budget alternatives 20-30 km away. 24h participants can use paddock camping plots (book with race entry). Consider Cologne as a base with 1-hour commute if local lodging is sold out.",
+      "food": "Limited dining in Nurburg village. Adenau has restaurants and supermarkets. The Nurburgring complex has catering during the event weekend. Stock race nutrition in advance — this is rural Eifel, not a city. 24h teams should plan self-sufficient catering from paddock area.",
+      "packet_pickup": "Participant Center in Pit Lane buildings (Pit 18-21). Friday 16:00-22:00 and Saturday morning from 07:00. Late registration available.",
+      "parking": "Multiple large parking areas across the Nurburgring complex. Entry tickets provided to participants (1-6 depending on team size). Paddock access for 24h participants from Friday.",
+      "official_site": "https://radamring.de/en/"
+    },
+    "history": {
+      "founded": 2003,
+      "founder": "Eventwerkstatt GmbH (Hanns-Martin Fraas, chief organizer)",
+      "origin_story": "Rad am Ring began in 2003 as a small 24-hour road bike race with approximately 70 participants on the Nurburgring. The concept was simple but audacious: use the world's most famous motorsport circuit for bicycle racing. The Nurburgring's Nordschleife, built in 1927 and nicknamed the 'Green Hell' by Jackie Stewart, had never hosted organized cycling competition at scale. The event grew steadily, adding public races, mountain bike disciplines, and touring options. In 2016, a professional road race — the Rudi Altig Race — was added to honor German cyclist Rudi Altig, who won the Road World Championship at the Nurburgring in 1966. Altig died weeks before the inaugural pro race, adding poignant significance. Paul Voss won the first edition in a 70 km solo breakaway. The pro race ran as a UCI Europe Tour 1.1 event before moving to the German Bundesliga. By 2025, the event had grown to nearly 12,000 participants, with 24h race slots selling out in under one hour. In 2025, a gravel race was added, and the 2026 edition will host the German Gravel Championship.",
+      "notable_moments": [
+        "2003: First edition with approximately 70 riders in the 24h race",
+        "2016: Inaugural Rudi Altig Race (pro road race, UCI 1.1). Paul Voss wins with 70 km solo breakaway. Emanuel Buchmann and Davide Rebellin in the field",
+        "1966: Rudi Altig wins Road World Championship at the Nurburgring — the event's spiritual origin",
+        "2025: Record 11,948 participants across all disciplines",
+        "2025: Gravel race added for the first time, 550 participants in inaugural edition",
+        "2026: German Gravel Championship awarded to Rad am Ring"
+      ],
+      "reputation": "Germany's premier motorsport-circuit cycling festival. The 24h race is the crown jewel — a unique endurance challenge on sacred motorsport ground. Growing rapidly with a passionate community and institutional support from Nurburgring 1927 GmbH."
+    },
+    "course_description": {
+      "character": "A relentless, undulating closed circuit combining the legendary Nordschleife (20.8 km) with the modern Grand Prix circuit (5.1 km). No flat sections exist — you are always either climbing or descending through 84 turns per lap. The forest-enclosed Nordschleife feels otherworldly, while the GP circuit provides the F1 arena start/finish spectacle. Perfect tarmac throughout, but the elevation profile punishes anyone who starts too fast.",
+      "suffering_zones": [
+        {
+          "mile": 3,
+          "label": "Hatzenbach to Flugplatz",
+          "desc": "Early undulations through forest that set the rhythm. Fast, twisting, deceptively demanding. The Nordschleife announces its intentions here.",
+          "terrain_detail": "Tight forest corners, constant grade changes, 73 bends total on the Nordschleife section",
+          "named_section": "Hatzenbach"
+        },
+        {
+          "mile": 7,
+          "label": "Fuchsrohre Descent",
+          "desc": "The famous plunging descent where cyclists have been clocked at 100 km/h. Steep, fast, and terrifying in wet conditions. Followed immediately by the Adenauer Forst climb.",
+          "terrain_detail": "Extreme speed descent on racing tarmac followed by immediate climb",
+          "named_section": "Fuchsrohre"
+        },
+        {
+          "mile": 10,
+          "label": "Hohe Acht Climb",
+          "desc": "The crux of every lap. Gradients hit 17% on the approach to the highest point of the circuit. This is where the Green Hell earns its name for cyclists. Legs burn, pace collapses, and the relentless nature of the Nordschleife becomes undeniable.",
+          "terrain_detail": "Sustained climb with 17% maximum gradient, highest point of circuit at 625m",
+          "named_section": "Hohe Acht"
+        },
+        {
+          "mile": 13,
+          "label": "Caracciola-Karussell to Pflanzgarten",
+          "desc": "The iconic banked corner followed by the roller-coaster Pflanzgarten section. Technical descending demands full attention on tired legs. Motorsport history soaked into every meter.",
+          "terrain_detail": "Banked corner, technical undulating descents, forest sections",
+          "named_section": "Caracciola-Karussell"
+        }
+      ],
+      "signature_challenge": "The Hohe Acht climb at 17% gradient — the roof of the Nordschleife where every lap extracts its toll. Combined with the relentless undulation of the full circuit (560m elevation per lap), there is no recovery. The Green Hell simply grinds you down."
+    },
+    "guide_variables": {
+      "race_name": "Rad am Ring",
+      "race_distance": "24.4 km per lap (150 km / 6 laps for longest public race)",
+      "race_elevation": "560m per lap / 3,360m for 150 km race (11,024 feet)",
+      "race_date": "Late July",
+      "race_location": "Nurburgring, Nurburg, Germany",
+      "race_terrain": "Closed motorsport circuit — perfect racetrack tarmac",
+      "race_weather": "Eifel highlands summer, mild but unpredictable",
+      "race_challenges": [
+        "Hohe Acht climb at 17% gradient every lap",
+        "Relentless undulation — no flat recovery sections",
+        "84 turns per lap demanding constant attention",
+        "Eifel weather variability — rain makes descents dangerous",
+        "Pacing discipline over repeated laps"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Repeated climbing endurance",
+        "by_when": "Week 8-10",
+        "why": "560m of climbing per lap with 17% gradients means your legs must handle sustained power output on repeated climbs. Six laps (150 km) means 3,360m of total climbing. Train hill repeats specifically."
+      },
+      {
+        "requirement": "High-speed descending confidence",
+        "by_when": "Week 6-8",
+        "why": "The Fuchsrohre descent produces speeds approaching 100 km/h. The Nordschleife has blind corners, off-camber turns, and potential wet patches. You must be confident descending at speed on a road bike."
+      },
+      {
+        "requirement": "Lap pacing strategy",
+        "by_when": "Week 4-6",
+        "why": "The circuit format means every lap hits the same climbs. Going too hard on lap 1 of 6 destroys the remaining five. Practice even-paced climbing efforts and understand your sustainable repeatable power."
+      }
+    ],
+    "citations": [
+      {
+        "url": "https://radamring.de/en/",
+        "category": "official",
+        "label": "Rad am Ring Official Website"
+      },
+      {
+        "url": "https://radamring.de/en/disciplines/public-race/",
+        "category": "official",
+        "label": "Rad am Ring: Public Race Discipline Details"
+      },
+      {
+        "url": "https://radamring.de/en/disciplines/24h-bike-race/",
+        "category": "official",
+        "label": "Rad am Ring: 24h Bike Race Discipline Details"
+      },
+      {
+        "url": "https://radamring.de/en/service-en/lap-records/",
+        "category": "official",
+        "label": "Rad am Ring: Lap Records and Nordschleife History"
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Rad_am_Ring",
+        "category": "reference",
+        "label": "Wikipedia: Rad am Ring"
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/1966_UCI_Road_World_Championships_%E2%80%93_Men%27s_road_race",
+        "category": "reference",
+        "label": "Wikipedia: 1966 UCI Road World Championships — Men's Road Race (Rudi Altig at Nurburgring)"
+      },
+      {
+        "url": "https://nuerburgring.de/events/categories/entertainment/rad-am-ring?locale=en",
+        "category": "official",
+        "label": "Nurburgring Official: Rad am Ring Event Page"
+      },
+      {
+        "url": "https://radsport-events.de/news-en/360-degrees-of-cycling-at-nuerburgring",
+        "category": "media",
+        "label": "Radsport Events: 360 Degrees of Cycling at Nurburgring (2016 first pro race recap)"
+      },
+      {
+        "url": "https://radamring.de/en/gravel-race_eng/",
+        "category": "official",
+        "label": "Rad am Ring: Gravel Race Discipline (added 2025)"
+      },
+      {
+        "url": "https://radamring.de/en/thank-you-for-2025-together-into-an-action-packed-2026/",
+        "category": "official",
+        "label": "Rad am Ring: 2025 Recap and 2026 Preview"
+      },
+      {
+        "url": "https://www.outdooractive.com/mobile/en/route/road-cycling/nuerburg/rad-am-ring-amateur-races/32031395/",
+        "category": "route",
+        "label": "Outdooractive: Rad am Ring Amateur Race Route (24.3 km, 550m elevation)"
+      },
+      {
+        "url": "https://www.weather-atlas.com/en/germany/nurburg-weather-july",
+        "category": "reference",
+        "label": "Weather Atlas: July Weather in Nurburg, Germany"
+      },
+      {
+        "url": "https://nurburginfo.com/en/weather-at-the-nurburgring/",
+        "category": "reference",
+        "label": "NurburgInfo: Weather at the Nurburgring (year-round climate data)"
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "high",
+      "validation_status": "validated",
+      "sources": [
+        "official_website",
+        "wikipedia",
+        "nurburgring_official",
+        "weather_data",
+        "route_data",
+        "race_reports"
+      ],
+      "migration_notes": [
+        "New profile created 2026-02-27 from comprehensive web research",
+        "Road discipline — primarily a motorsport circuit cycling event",
+        "Multiple disciplines: 24h, public race, time trial, gravel (2025+), touring",
+        "Profile focuses on the public race (mass participation road) and 24h as primary formats",
+        "Vitals distance_mi=93 and elevation_ft=11024 based on 150 km / 6 lap public race option"
+      ],
+      "research_strength": {
+        "overall": 82.5,
+        "grade": "A-",
+        "weakest": "voice_authenticity",
+        "has_research_dump": false,
+        "dimensions": {
+          "source_diversity": 95,
+          "citation_density": 90,
+          "temporal_depth": 85,
+          "specificity": 90,
+          "statistical_backing": 75,
+          "voice_authenticity": 55,
+          "completeness": 85,
+          "cross_reference": 85
+        },
+        "scored_at": "2026-02-27"
+      }
+    }
+  }
+}

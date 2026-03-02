@@ -1,0 +1,404 @@
+{
+  "race": {
+    "name": "Hotter'N Hell Hundred",
+    "slug": "hottern-hell-hundred",
+    "display_name": "Hotter'N Hell Hundred",
+    "tagline": "100 miles. 100 degrees. Since 1982. The largest sanctioned century ride in America, where 10,000+ riders battle the brutal Texas heat in Wichita Falls every August. Birthplace of CamelBak. Where hydration is survival.",
+    "vitals": {
+      "distance_mi": 100,
+      "elevation_ft": 1700,
+      "location": "Wichita Falls, Texas, USA",
+      "location_badge": "WICHITA FALLS, TEXAS",
+      "county": "Wichita County (route extends into Clay County)",
+      "date": "4th or 5th Saturday in August (always 9 days before Labor Day)",
+      "date_specific": "August 29, 2026 (Saturday endurance ride). Full weekend: August 27-30, 2026.",
+      "terrain_types": [
+        "Paved Texas farm-to-market roads",
+        "Flat to gently rolling North Texas plains",
+        "Open prairie with minimal tree cover",
+        "Wind-exposed straightaways through Wichita and Clay counties"
+      ],
+      "field_size": "~8,000-14,000 riders across all distances (100-mile, 75-mile, 100K, 50-mile, 25-mile, 10K)",
+      "start_time": "7:05 AM from downtown Wichita Falls (Scott Avenue)",
+      "registration": "Online registration via BikeReg opens January 1 annually. Early registration $50 (Jan 1 - Mar 31). Regular registration $60 (Apr 1 - Aug 23). Late/on-site registration $75 (Aug 27-29). Golden Wheel VIP package $500-$550.",
+      "prize_purse": "None for the endurance ride. Separate USA Cycling-sanctioned criterium races on Friday evening feature category-based prizes.",
+      "aid_stations": "19 staffed rest stops spaced approximately every 10 miles on all routes (closer together toward the end of the 100-mile route). Water, electrolytes, fruit, snacks, and medical support at each. SAG support available.",
+      "cutoff_time": "Hell's Gate cutoff at mile 61 — riders must arrive by 12:30 PM or be diverted to the 75-mile route through Sheppard Air Force Base. No overall cutoff published for 100-mile finishers who clear Hell's Gate.",
+      "lat": 33.9137,
+      "lng": -98.4934,
+      "distance_options": [
+        "100 miles (the classic century)",
+        "75 miles (via Sheppard Air Force Base)",
+        "100K / 62 miles",
+        "50 miles",
+        "25 miles",
+        "10K",
+        "Gravel Grind: 60, 42, or 27 miles (Saturday evening)",
+        "Mountain Bike Race: 12 miles (Friday)",
+        "Trail Run: 12 miles or 10K (Sunday)"
+      ],
+      "entry_fee": "$50 early registration (Jan 1 - Mar 31), $60 regular (Apr 1 - Aug 23), $75 late/on-site (Aug 27-29). Golden Wheel VIP: $500-$550."
+    },
+    "climate": {
+      "primary": "Extreme Texas summer heat — average highs of 97-100F with heat index exceeding 110F. The defining challenge of the event.",
+      "description": "The name says it all. Late August in Wichita Falls, Texas delivers average high temperatures of 97F with regular excursions past 100F and occasional spikes to 106-108F. The heat index — factoring in humidity — routinely exceeds 111F. Temperatures begin climbing past 100F as early as 9:45 AM, meaning 100-mile riders face 4-5 hours of triple-digit riding. August is the least humid month in Wichita Falls (average 50% relative humidity), but the dry heat is relentless and unshaded. Direct sun exposure on open prairie roads compounds the perceived temperature by 10-15F beyond the official heat index. This is North Texas — the wind never stops, but in August it blows hot, full of dust, and smells of baked asphalt and prairie.",
+      "challenges": [
+        "Sustained temperatures of 100-108F from mid-morning through afternoon",
+        "Heat index exceeding 111F with direct sun exposure adding 10-15F",
+        "Minimal shade — flat open prairie with sparse tree cover along the route",
+        "Relentless south/southwest headwinds that feel like a furnace blast",
+        "Dehydration and heat illness are serious medical risks — heat exhaustion and heatstroke send riders to medical tents every year",
+        "Wind-driven road grit and dust on exposed farm roads"
+      ]
+    },
+    "terrain": {
+      "primary": "Flat to gently rolling North Texas plains — paved farm-to-market roads through Wichita and Clay counties",
+      "surface": "All paved roads. The route uses Texas farm-to-market roads (FM roads) and county roads through agricultural land and small towns. Road surfaces are generally good but can be rough in spots with heat-induced pavement buckles and chip-seal patches. The route is pancake flat by any mountain standard — approximately 1,700 feet of total elevation gain over 100 miles, spread across long, barely perceptible rollers. The terrain challenge is not elevation but exposure: endless straight roads with zero shade, relentless wind, and heat radiating off sun-baked pavement.",
+      "technical_rating": 1,
+      "features": [
+        "Downtown Wichita Falls mass start — 10,000+ riders launching on Scott Avenue",
+        "Open prairie straightaways through Wichita and Clay counties with no shade",
+        "Farm-to-market road rollers — barely perceptible but energy-sapping in heat",
+        "Hell's Gate at mile 61 — the infamous cutoff checkpoint where riders must arrive by 12:30 PM or be diverted",
+        "Sheppard Air Force Base section on the 75-mile diversion route",
+        "Finish line in downtown Wichita Falls at the Multi-Purpose Events Center (MPEC)"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 73,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "logistics": 4,
+      "length": 4,
+      "technicality": 1,
+      "elevation": 1,
+      "climate": 5,
+      "altitude": 1,
+      "adventure": 2,
+      "prestige": 4,
+      "race_quality": 4,
+      "experience": 4,
+      "community": 5,
+      "field_depth": 3,
+      "value": 4,
+      "expenses": 4,
+      "cultural_impact": 5,
+      "tier_note": "America's largest sanctioned century ride earns T2 through sheer cultural weight, community scale, and the singular challenge of 100 miles in 100-degree heat. p4 prestige would promote one tier but p4 cannot promote into T1, so remains T2.",
+      "score_note": "Sum of 14 criteria: 4+4+1+1+5+1+2+4+4+4+5+3+4+4 = 46. cultural_impact=5 for maximum cultural significance — 40+ year tradition, birthplace of CamelBak, Texas Historical Marker, $10M annual economic impact, USA Today 'Best Road Cycling Event' 2024. Total = 51. Score = round(51/70 * 100) = 73. Climate=5 is the signature — this event exists because of the heat. Community=5 for 10,000+ riders and a weekend that transforms Wichita Falls. Technicality=1 and elevation=1 because it is flat paved roads. Adventure=2 because flat Texas prairie is not scenic wilderness.",
+      "editorial_tier": 2,
+      "editorial_tier_label": "TIER 2",
+      "business_tier": 2,
+      "business_tier_label": "TIER 2",
+      "display_tier": 2,
+      "display_tier_label": "TIER 2",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 4,
+        "explanation": "Forty-plus years of operational refinement shows. Nineteen staffed rest stops spaced every 10 miles keep riders hydrated and fed through the heat. The Hell's Gate cutoff at mile 61 is a smart safety mechanism that diverts slower riders before the worst afternoon heat. The multi-day festival is well-orchestrated — expo, criterium races, mountain bike races, gravel grind, trail runs, and the Saturday century all run smoothly for 12,000+ visitors. Registration is straightforward via BikeReg. The one knock: Wichita Falls is remote. The municipal airport (SPS) offers only American Eagle commuter flights to DFW. Most riders drive, and the 2-hour haul from DFW or 3 hours from OKC keeps this from a 5."
+      },
+      "length": {
+        "score": 4,
+        "explanation": "One hundred miles is a genuine century — a meaningful endurance challenge for any cyclist. But the distance alone undersells the difficulty. In 70F weather with shade and no wind, 100 miles is a long day. In 100-108F direct sun with headwinds on exposed prairie, 100 miles becomes a survival exercise. Riders routinely describe the last 30 miles as a sufferfest that rivals events twice the distance. The heat transforms a standard century into something that earns its own category. Fastest times around 4 hours for the elite; 6-8 hours is typical for recreational riders; the Hell's Gate cutoff at 12:30 PM (mile 61) forces a 16.5 mph average pace for the first 61 miles."
+      },
+      "technicality": {
+        "score": 1,
+        "explanation": "There is nothing technical about this course. Flat paved farm-to-market roads through North Texas prairie. No gravel, no singletrack, no descents worth mentioning, no corners that require bike handling skill. The most technical moment is navigating 10,000 riders at the mass start on Scott Avenue. The challenge is entirely environmental — heat, wind, and distance. Your bike handling skills are irrelevant; your heat tolerance is everything."
+      },
+      "elevation": {
+        "score": 1,
+        "explanation": "Approximately 1,700 feet of elevation gain over 100 miles. That is 17 feet per mile — functionally flat. The route has long, barely perceptible rollers that you would not notice in normal conditions but become noticeable when your core temperature is 103F and the wind is in your face. No named climbs. No switchbacks. No summit views. Wichita Falls sits at approximately 1,000 feet above sea level and the course never strays meaningfully from that. The wind is the simulated climbing — riders describe it as 'turning the flatlands into a simulated mountain range.'"
+      },
+      "climate": {
+        "score": 5,
+        "explanation": "This is the reason the event exists. The triple entendre in the name — 100 miles, 100 degrees, 100th anniversary — puts climate at the absolute center. Average August highs in Wichita Falls hit 97F. The heat index averages 111F. Temperatures on race day routinely pass 100F by 9:45 AM and can spike to 106-108F by late morning. Direct sun on open, unsheltered prairie roads adds 10-15F of perceived temperature. One rider described the wind as 'a hot hand in your face, full of dust and the ominous scent of road kills.' Heat exhaustion and heatstroke are annual medical realities. CamelBak was literally invented at this event because the heat was so extreme that a paramedic jury-rigged an IV bag into a hydration system. Climate is not a factor here — it is THE factor."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "Wichita Falls sits at approximately 1,000 feet above sea level. The course never exceeds 1,200 feet. Zero altitude concerns. The suffering here comes from heat, not thin air. You could ride this course at sea-level oxygen saturation the entire time — the problem is that the air itself feels like it is on fire."
+      },
+      "adventure": {
+        "score": 2,
+        "explanation": "Let us be honest: flat Texas farm roads through Wichita and Clay counties are not scenic adventure. The landscape is open prairie, agricultural land, scattered oil derricks, and small rural towns. There are no mountain vistas, no river crossings, no forest canopy. The adventure here is entirely internal — the battle against heat, wind, and your own body's desire to stop. The mass start with 10,000 riders is exhilarating, and the Hell's Gate drama at mile 61 adds genuine tension. But if adventure means scenic grandeur, this is not your event. If adventure means pushing yourself to a limit defined by nature's hostility, few events deliver more."
+      },
+      "prestige": {
+        "score": 4,
+        "explanation": "The largest sanctioned century ride in the United States. Running continuously since 1982 (except the 2020 COVID virtual pivot). Voted 'Best Road Cycling Event' by USA Today readers in 2024. Birthplace of CamelBak — a piece of cycling history invented on this very course in 1988. Has earned its own Texas Historical Marker. Generates $10 million in annual economic impact for Wichita Falls. The event has hosted professional criterium racing alongside the endurance ride for decades. Every serious century rider in America knows the name. It is not an international prestige event like Paris-Roubaix, but within American road cycling, 'I finished HHH in 100-degree heat' carries real weight."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "For a participant-driven endurance ride (not a race), the organization is excellent. Nineteen rest stops staffed by an army of volunteers, well-marked routes, medical support, SAG vehicles, and the Hell's Gate cutoff system all reflect decades of refinement. The multi-day festival adds criterium races (USA Cycling sanctioned), mountain bike races, gravel grind, trail runs, expo, and entertainment. The Friday evening criterium on the Figure 8 course is a genuine spectacle. Timing and results are available for riders who want them. The weekend infrastructure moves 12,000-18,000 visitors through a city of 105,000 — a massive logistical achievement. Loses a point because the endurance ride itself is not a race — there is no competitive wave structure, just a mass start."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "The experience is singular: you will never forget your first HHH. The pre-dawn assembly in downtown Wichita Falls, the mass start as 10,000 riders roll out on Scott Avenue, the progressive heat as the sun climbs, the drama of Hell's Gate — all of it burns into memory. The multi-day festival creates a cycling carnival atmosphere that few events match. Finishing 100 miles in triple-digit heat produces a primal sense of accomplishment. The weekend community — expo, entertainment, criterium spectating, Friday night gravel grind — adds layers beyond the ride itself. It scores 4, not 5, because the course itself is not scenic or varied. The experience is about surviving the conditions, not savoring the landscape."
+      },
+      "community": {
+        "score": 5,
+        "explanation": "This is where HHH earns its crown. Ten thousand to fourteen thousand riders. Thousands of volunteers. The entire city of Wichita Falls organizes around this weekend — hotels book by March, restaurants staff up, the MPEC transforms into race headquarters. The event generates $10 million annually for a city that considers HHH its signature weekend. The Wichita Falls Bicycle Club, which proposed the original ride in 1981, still anchors the organizing committee. Riders return year after year, many with 10, 20, 30+ finishes. Training groups form across Texas months in advance. The event launched CamelBak into existence and earned a Texas Historical Marker. When 1,203 riders showed up for that first ride in 1982 — at a time when most centuries drew 200-250 — it was clear this community would be different. It has only grown."
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "The endurance ride is not a race, so there is no competitive field in the traditional sense. However, the sheer scale brings quality. Over 8,000 participants in 2025, with the fastest finishing the 100-mile course in 4:04:49. Strong regional road racers treat the century as an unofficial time trial. The Friday criterium races draw USAC-licensed racers across multiple categories. The overall field spans the full spectrum — Cat 1 racers to first-time century riders to recumbent enthusiasts to families on the shorter routes. It is wide, not deep. But find the right paceline on the 100-mile route and you will ride with serious cyclists pushing serious watts."
+      },
+      "value": {
+        "score": 4,
+        "explanation": "Fifty dollars for early registration gets you the largest century ride in America with 19 staffed aid stations, full route support, timing, a finisher medal, event swag, and access to a multi-day cycling festival. Even late registration at $75 is outstanding value. For comparison, many supported centuries charge $100-$150 for a fraction of the infrastructure. The expo is free. The Friday criterium spectating is free. The community atmosphere costs nothing. The only question is whether you value riding 100 miles in 100-degree heat — and for the 10,000+ who show up annually, the answer is an emphatic yes."
+      },
+      "expenses": {
+        "score": 4,
+        "explanation": "This is one of the most affordable major cycling events in America. Registration is $50-75. Hotels in Wichita Falls run $70-$150 per night (book early — they sell out by March). Gas from DFW is about $40 round trip. Meals in Wichita Falls are Texas-priced — affordable. Total out-of-pocket for a DFW-based rider: under $300 for the weekend. For a fly-in participant, the Wichita Falls airport is limited (American Eagle commuters to DFW only), so most fly into DFW and drive 2 hours, adding rental car and potentially a night in DFW. Still, total costs stay well under $1,000 even for out-of-state participants. No altitude acclimation needed. No specialty gear beyond hydration strategy."
+      }
+    },
+    "biased_opinion": {
+      "verdict": "Iconic",
+      "summary": "Hotter'N Hell Hundred is not the hardest century in America. It is not the most scenic. It is not the most technical. It is the most hostile — and that hostility is the entire point. Every late August, 10,000+ cyclists assemble in downtown Wichita Falls, Texas, and voluntarily ride 100 miles through conditions that would make a sensible person stay indoors with the air conditioning on full blast. Temperatures crack 100F by mid-morning. The heat index exceeds 111F. The wind blows hot and gritty across flat, shadeless prairie. And yet they come — year after year, decade after decade, since 1982 — because surviving HHH is a cycling rite of passage that no other event replicates. This is the ride that made a paramedic duct-tape an IV bag to his jersey and accidentally invent CamelBak. If that does not tell you everything you need to know about the conditions, nothing will.",
+      "strengths": [
+        "The heat: No other major cycling event in America uses extreme climate as its primary challenge with such deliberate, joyful intent. The name is the dare.",
+        "The community: 10,000+ riders, thousands of volunteers, an entire city mobilized. Hotels sell out by March. $10 million in annual economic impact. This is Wichita Falls' Super Bowl.",
+        "The history: Running since 1982. Birthplace of CamelBak. Texas Historical Marker. USA Today Best Road Cycling Event 2024. Forty-plus years of continuous operation.",
+        "The value: $50-75 for 19 aid stations, full support, timing, a multi-day festival, and bragging rights. Name another century ride this well-supported at this price."
+      ],
+      "weaknesses": [
+        "The scenery: Flat Texas prairie is flat Texas prairie. Oil derricks, fence lines, farm roads, and heat shimmer. If you need mountain views, look elsewhere.",
+        "The remoteness: Wichita Falls is 2 hours north of DFW with a limited municipal airport. Getting there is a commitment, especially for out-of-state riders.",
+        "The medical risk: This is not theoretical. Heat exhaustion and heatstroke send riders to medical tents every year. Inadequate heat preparation is genuinely dangerous.",
+        "No competitive structure: The endurance ride is a ride, not a race. If you need a competitive wave start and age-group podiums, the criterium is Friday evening."
+      ],
+      "bottom_line": "If you have never ridden a century in triple-digit heat with 10,000 other people who think this is a good idea, Hotter'N Hell Hundred is the original and the best. Train your heat tolerance, pack twice the hydration you think you need, and earn the right to say you survived the most brutal century in America."
+    },
+    "final_verdict": {
+      "score": "73 / 100",
+      "one_liner": "100 miles. 100 degrees. 10,000 riders. The largest and most hostile century ride in America, where the heat is the course and survival is the victory.",
+      "should_you_race": "If you live in Texas or the southern plains, this is a mandatory bucket-list century. If you are flying in from out of state, it is worth the trip exactly once — to prove to yourself that you can ride 100 miles when the thermometer says you should not. Train your heat tolerance for at least 6 weeks beforehand. Arrive hydrated, start early, respect Hell's Gate at mile 61, and do not underestimate the Texas wind. The multi-day festival and Friday criterium make it a worthy cycling weekend even beyond the century ride.",
+      "alternatives": [
+        "Tour de Tucson (100 miles, Arizona, November — desert century without the extreme heat)",
+        "Pan-Mass Challenge (192 miles, Massachusetts — America's other iconic mass-participation century, but for charity)",
+        "RAGBRAI (week-long ride across Iowa — similar community scale and Midwest cycling culture)",
+        "Ride the Rockies (Colorado — if you want mountain scenery instead of flat prairie)"
+      ],
+      "alternative_slugs": [
+        "tour-de-tucson",
+        "pan-mass-challenge",
+        "ragbrai",
+        "ride-the-rockies"
+      ]
+    },
+    "logistics": {
+      "airport": "Wichita Falls Municipal Airport (SPS) — American Eagle commuter flights to DFW only, 6 flights daily. Most riders fly into Dallas/Fort Worth International Airport (DFW) and drive 2 hours north on I-44/US-287. Oklahoma City (OKC) is 3 hours northeast.",
+      "lodging_strategy": "Book early — Wichita Falls hotels sell out by March for HHH weekend. This is a near-100% occupancy event for the city. Call hotels directly using local numbers rather than national reservation systems or websites, which may show sold out when rooms exist. Delta Hotels by Marriott Wichita Falls Convention Center ($119+), Best Western North Side Inn ($68+), Fairfield Inn & Suites ($97+). Hotels within 60 miles of Wichita Falls are an option if the city proper is full. RV and camping accommodations also available.",
+      "food": "Texas does not let you go hungry. Wichita Falls has standard chain and local restaurants. Event rest stops provide water, electrolytes, fruit, and snacks at 19 locations. Pre-ride breakfast buffet at 5:00 AM on Saturday. Post-ride food and beverages at the finish festival. Hydration strategy is critical — plan to consume 1-2 bottles per hour minimum in the heat.",
+      "packet_pickup": "Wichita Falls Multi-Purpose Events Center (MPEC) and Convention Center. Packet pickup available Thursday through Saturday morning. Expo and trade show run concurrently.",
+      "parking": "Downtown Wichita Falls staging area. Specific parking instructions provided with registration. Arrive early on Saturday — 10,000+ riders converge on downtown.",
+      "official_site": "https://www.hh100.org",
+      "camping": "RV and camping options available in the Wichita Falls area. Contact the Convention & Visitors Bureau at discoverwichitafalls.com for listings."
+    },
+    "history": {
+      "founded": 1982,
+      "founder": "Roby Christie and the Wichita Falls Bicycle Club. Christie, a 37-year-old assistant postmaster and avid cyclist, proposed a century ride to celebrate Wichita Falls' 100th anniversary to the Board of Commerce and Industry in 1981.",
+      "origin_story": "In 1981, the Wichita Falls Board of Commerce and Industry asked for ideas to celebrate the city's upcoming centennial. Roby Christie, a member of the newly formed Wichita Falls Bicycle Club, proposed a ride that would become a triple entendre: 100 miles, in 100-degree heat, to celebrate 100 years. Most century rides of that era drew 200-250 riders. Christie insisted on reaching 1,000. On August 27, 1982, 1,203 riders left the parking lot of Memorial Stadium in 98-degree heat, exceeding all expectations. The event has run every year since (virtual only in 2020 due to COVID-19), growing into the largest sanctioned century ride in the United States.",
+      "notable_moments": [
+        "1982: Inaugural ride — 1,203 riders start from Memorial Stadium in 98-degree heat, far exceeding the 1,000-rider goal",
+        "1988: Paramedic Michael Eidson invents the prototype for CamelBak at HHH — an IV bag in a tube sock stuffed in his jersey with a hose clamped by a clothespin",
+        "2009: Peak participation — over 14,000 riders registered for the weekend events",
+        "2020: First virtual-only year due to COVID-19 pandemic — 2,500 riders participated remotely",
+        "2021: Return to in-person riding with virtual option maintained",
+        "2024: Voted 'Best Road Cycling Event' by USA Today readers in the Reader's Choice Awards",
+        "2025: 44th edition — over 8,000 participants; Les Akins (age 61) posts fastest century time of 4:04:49"
+      ],
+      "reputation": "The original heat-challenge century ride. Four decades of continuous operation, the largest sanctioned century in America, and the birthplace of CamelBak have made HHH a permanent fixture in American cycling culture. Earning a Texas Historical Marker and USA Today's Best Road Cycling Event recognition cemented its status as more than a ride — it is an institution."
+    },
+    "course_description": {
+      "character": "One hundred miles of flat, exposed North Texas prairie in conditions that redefine the word 'hot.' The course loops through Wichita and Clay counties on paved farm-to-market roads, starting and finishing in downtown Wichita Falls. There are no climbs worth naming, no technical features, no scenic distractions — just relentless sun, wind, and heat radiating off pavement. The challenge is entirely atmospheric. The route's most famous feature is Hell's Gate at mile 61, where riders must arrive by 12:30 PM or be diverted to the shorter 75-mile route. Everything about this course is designed to test whether you can manage your body temperature, hydration, and pacing across 100 miles of hostile conditions.",
+      "suffering_zones": [
+        {
+          "mile": 0,
+          "label": "Mass Start — Downtown Wichita Falls",
+          "desc": "Seven-oh-five AM. Ten thousand riders roll out on Scott Avenue in the relative cool of early morning (80-85F). The energy is electric, the pace too fast, and the temptation to overcook the first 20 miles is real. Experienced riders settle in and save matches — the heat has not arrived yet, but it is coming.",
+          "terrain_detail": "Paved downtown streets transitioning to farm-to-market roads heading north/west",
+          "named_section": "The Start"
+        },
+        {
+          "mile": 30,
+          "label": "The Heat Arrives",
+          "desc": "By mile 30, the temperature has been climbing steadily and crosses 95F. The shade is gone — there was never much to begin with. The wind picks up from the southwest, hot and gritty. Riders who skipped rest stops or underhydrated in the first 30 miles begin to feel it. The prairie stretches endlessly in every direction. This is where HHH begins to earn its name.",
+          "terrain_detail": "Open prairie farm roads with no tree cover, long straightaways into headwind",
+          "named_section": "Heat Wall"
+        },
+        {
+          "mile": 61,
+          "label": "Hell's Gate",
+          "desc": "The most famous checkpoint in American century riding. Arrive by 12:30 PM or you are diverted to the 75-mile route. By now the temperature has passed 100F and may be pushing 106-108F. Riders who make the cutoff face another 39 miles of increasing heat. Riders who miss it get a shorter but still brutal finish. The drama of Hell's Gate — the math of pacing, the anxiety of the clock, the relief or despair at the checkpoint — is the signature emotional moment of HHH.",
+          "terrain_detail": "Checkpoint at approximately mile 61 on farm-to-market road",
+          "named_section": "Hell's Gate"
+        },
+        {
+          "mile": 75,
+          "label": "The Furnace — Miles 70-90",
+          "desc": "The worst stretch. Peak afternoon heat (100-108F), accumulated fatigue, depleted hydration, and 15-25 more miles to go. The wind has not relented. The road shimmers with heat mirage. Aid stations every 10 miles are survival checkpoints, not convenience stops. Riders describe this stretch as 'the longest 20 miles of their lives.' Heat cramps, nausea, and mental fog are common. This is where HHH breaks people.",
+          "terrain_detail": "Exposed prairie farm roads returning toward Wichita Falls, sun at peak intensity",
+          "named_section": "The Furnace"
+        },
+        {
+          "mile": 95,
+          "label": "Final 5 — Return to Wichita Falls",
+          "desc": "The outskirts of Wichita Falls appear through the heat haze. Five miles to go. Riders who have survived the furnace dig deep for a finish that feels disproportionately emotional for a flat century ride. The MPEC finish line, the cheering crowds, the cold water, the air conditioning — all of it hits differently when you have been baking for 5-8 hours. You did not conquer a mountain. You survived a climate.",
+          "terrain_detail": "Paved roads into Wichita Falls city limits, finishing at MPEC downtown",
+          "named_section": "The Finish"
+        }
+      ],
+      "signature_challenge": "The heat. Full stop. One hundred miles on flat roads is a standard century. One hundred miles on flat roads at 100-108F with a heat index over 111F and relentless wind is a survival exercise that tests hydration strategy, heat acclimatization, and mental resilience in ways that climbing and technical terrain cannot. CamelBak was invented here because the conditions demanded a solution that did not yet exist. That tells you everything."
+    },
+    "guide_variables": {
+      "race_name": "Hotter'N Hell Hundred",
+      "race_distance": "100 miles",
+      "race_elevation": "~1,700 feet",
+      "race_date": "Late August (4th or 5th Saturday, always 9 days before Labor Day)",
+      "race_location": "Wichita Falls, Texas",
+      "race_terrain": "Flat paved farm-to-market roads through North Texas prairie",
+      "race_weather": "Extreme heat — 97-108F ambient, 111F+ heat index, dry with hot southwest winds, no shade on course",
+      "race_challenges": [
+        "Sustained triple-digit temperatures from mid-morning through afternoon",
+        "Heat index exceeding 111F with direct sun adding 10-15F of perceived temperature",
+        "Relentless hot headwinds across exposed, shadeless prairie",
+        "Hell's Gate cutoff at mile 61 — arrive by 12:30 PM or be diverted to 75-mile route",
+        "Dehydration and heat illness risk requiring disciplined hydration strategy (1-2 bottles/hour minimum)",
+        "Cumulative heat load over 5-8 hours of riding"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Heat acclimatization — minimum 6 weeks of progressive heat training before the event",
+        "by_when": "Week 8",
+        "why": "Riding in 100-108F is not something you can fake. Your body needs physiological adaptation — increased plasma volume, earlier sweat onset, lower core temperature at a given effort. Train in heat, wear extra layers on the trainer, or use a sauna protocol. Without heat acclimatization, you are a medical tent candidate."
+      },
+      {
+        "requirement": "Hydration strategy tested and locked — practice race-day fluid and electrolyte intake on long training rides in heat",
+        "by_when": "Week 6",
+        "why": "CamelBak was invented at this event because hydration is survival. Plan 1-2 bottles per hour minimum plus electrolyte supplementation. Test your stomach with your exact race-day nutrition in training. By the time you feel thirsty, you are already behind."
+      },
+      {
+        "requirement": "Century distance completed in training — at least one 80-100 mile ride, preferably in warm conditions",
+        "by_when": "Week 4",
+        "why": "The last 30 miles of HHH in 100-degree heat are unlike any other riding. You need to know what mile 80 feels like before you experience it at 106F with wind in your face."
+      }
+    ],
+    "citations": [
+      {
+        "url": "https://www.hh100.org",
+        "category": "official",
+        "label": "Hotter'N Hell Hundred — Official Website"
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Hotter'N_Hell_Hundred",
+        "category": "other",
+        "label": "Wikipedia — Hotter'N Hell Hundred"
+      },
+      {
+        "url": "https://www.hh100.org/hhh-endurance-ride",
+        "category": "route",
+        "label": "Hotter'N Hell — Endurance Ride Info & Maps"
+      },
+      {
+        "url": "https://www.hh100.org/sign-up",
+        "category": "official",
+        "label": "Hotter'N Hell — Registration"
+      },
+      {
+        "url": "https://www.hh100.org/history/",
+        "category": "other",
+        "label": "Hotter'N Hell — History"
+      },
+      {
+        "url": "https://www.bikereg.com/73684",
+        "category": "official",
+        "label": "BikeReg — 2026 HHH Registration"
+      },
+      {
+        "url": "https://granfondodailynews.com/2025/08/29/44th-hotter-n-hell-results-huge-turnout-in-texas-as-cool-old-racers-rule/",
+        "category": "media",
+        "label": "Gran Fondo Daily — 44th HHH 2025 Results"
+      },
+      {
+        "url": "https://www.newschannel6now.com/2025/08/22/hottern-hell-hundred-brings-millions-wichita-falls-economy/",
+        "category": "media",
+        "label": "NewsChannel 6 — HHH Economic Impact on Wichita Falls"
+      },
+      {
+        "url": "https://authentictexas.com/hottern-hell-hundred/",
+        "category": "community",
+        "label": "Authentic Texas — Hotter'N Hell Hundred"
+      },
+      {
+        "url": "https://www.wichitafallstx.gov/2665/HotterN-Hell",
+        "category": "official",
+        "label": "City of Wichita Falls — Hotter'N Hell"
+      },
+      {
+        "url": "https://1063thebuzz.com/hotter-n-hell-hundred-invention/",
+        "category": "media",
+        "label": "106.3 The Buzz — CamelBak Invented at HHH"
+      },
+      {
+        "url": "https://www.wenzelcoaching.com/blog/surviving-the-hotter-n-hell/",
+        "category": "community",
+        "label": "Wenzel Coaching — Surviving the Hotter'N Hell"
+      },
+      {
+        "url": "https://www.wichitacountyhistoricalcommission.org/hotter-n-hell-hundred.html",
+        "category": "other",
+        "label": "Wichita County Historical Commission — Hotter'N Hell Hundred"
+      },
+      {
+        "url": "https://ridewithgps.com/routes/2032492",
+        "category": "route",
+        "label": "Ride with GPS — HHH 100 Mile Endurance Ride Route"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/240/hotter-n-hell-hundred",
+        "category": "other",
+        "label": "Gran Fondo Guide — Hotter'N Hell Hundred"
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "high",
+      "validation_status": "validated",
+      "sources": [
+        "official_website",
+        "wikipedia",
+        "media_coverage",
+        "participant_accounts",
+        "city_government",
+        "historical_commission",
+        "route_mapping_services"
+      ],
+      "migration_notes": [
+        "New profile created February 2026.",
+        "Elevation data (1,700 ft) estimated from multiple Ride with GPS route recordings — individual recordings range from 966 to 2,153 ft depending on GPS accuracy and route year.",
+        "Field size varies by year: peak of 14,000+ in 2009, 8,000+ in 2025, typically 10,000-13,000 in standard years.",
+        "2026 date confirmed as August 27-30 (Thursday-Sunday) with Saturday century ride on August 29.",
+        "Registration fees confirmed for 2026: $50 early, $60 regular, $75 late."
+      ],
+      "research_strength": {
+        "overall": 88.0,
+        "grade": "B+",
+        "weakest": "elevation_data",
+        "has_research_dump": false,
+        "dimensions": {
+          "source_diversity": 95,
+          "citation_density": 85,
+          "temporal_depth": 100,
+          "specificity": 80,
+          "statistical_backing": 85,
+          "voice_authenticity": 90,
+          "completeness": 90,
+          "cross_reference": 80
+        },
+        "scored_at": "2026-02-28"
+      }
+    }
+  }
+}

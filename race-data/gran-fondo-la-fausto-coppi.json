@@ -1,0 +1,344 @@
+{
+  "race": {
+    "name": "Gran Fondo La Fausto Coppi",
+    "slug": "gran-fondo-la-fausto-coppi",
+    "display_name": "Granfondo La Fausto Coppi",
+    "tagline": "The Campionissimo's mountains. Cuneo to the summit of Colle Fauniera at 2,481 meters. Three Piedmont cols. Since 1987.",
+    "vitals": {
+      "distance_mi": 107,
+      "elevation_ft": 14108,
+      "location": "Cuneo, Piedmont, Italy",
+      "location_badge": "CUNEO, ITALY",
+      "date": "Late June",
+      "date_specific": "2026: June 28 (37th edition)",
+      "terrain_types": [
+        "Paved Italian mountain and provincial roads",
+        "High-altitude Alpine cols (Colle Fauniera at 2,481m)",
+        "Rolling Piedmont countryside",
+        "Steep Maritime Alps gradients"
+      ],
+      "field_size": "~2,600-3,000 riders from 42+ countries",
+      "start_time": "7:00 AM (mass start from Piazza Galimberti, Cuneo)",
+      "registration": "Online via ENDU.net. Registration typically opens September. Entry: EUR50-70 depending on timing tier. First 500 entries at EUR50, increasing to EUR70 after April. Solidarity Grid: 200 spots at EUR120 with front-row start, supporting mountain road maintenance.",
+      "prize_purse": "None (timed event with age-group rankings and finisher medals)",
+      "aid_stations": "Feed zones at strategic points along the route — Monterosso Grana (km 95), Festiona (km 143), and other intermediate stops. Water, energy food, fruit, Italian hospitality standard. The event also supports 'Salviamo le Strade di Montagna' — since 2014, over EUR100,000 invested in maintaining the high-altitude roads.",
+      "cutoff_time": "10 hours from official start. Riders must arrive at Piazza Galimberti by 17:00 to be classified. Intermediate cutoffs at Monterosso Grana (12:30) and Festiona (15:30).",
+      "lat": 44.384,
+      "lng": 7.549,
+      "distance_options": [
+        "Granfondo: 172 km (107 mi), 4,300 m (14,108 ft) gain — Colle Fauniera, Colle di Sampeyre, Madonna del Colletto",
+        "Mediofondo: 111 km (69 mi), 2,550 m (8,366 ft) gain — Colle Fauniera via shorter approach",
+        "Fauniera Classic: 101 km (63 mi), 2,100 m (6,890 ft) gain — Non-competitive with timing, no ranking"
+      ],
+      "entry_fee": "EUR50-70 (tiered pricing; Solidarity Grid EUR120 with priority start)"
+    },
+    "climate": {
+      "primary": "Late June Piedmont — warm valleys, significantly cooler Alpine summits",
+      "description": "Late June in Cuneo brings warm conditions at valley level — average highs of 27C (81F), lows of 17C (63F). July temperatures in Cuneo average 27C high and 17C low. However, the Colle Fauniera summit at 2,481m can be 10-15C cooler than the valley floor, meaning summit temperatures of 8-14C are common even in late June. The Maritime Alps generate afternoon convective storms with minimal warning. Cuneo receives approximately 98mm of rainfall in July across 9 rain days — not extreme, but the mountains amplify storm probability. Sunshine hours are generous at 342 hours for July, with 15+ hours of daylight.",
+      "challenges": [
+        "Summit temperatures at Colle Fauniera (2,481m) can drop to 8-12C even in late June — a 15-18C differential from the valley start",
+        "Afternoon thunderstorms build rapidly over the Maritime Alps — lightning exposure on the upper reaches of the Fauniera",
+        "Morning start temperature (17-19C) is pleasant, but riders must carry warmth for the descent from 2,481m",
+        "Heat exposure on the lower valleys and approach roads before the mountain climbing begins (25-30C possible)"
+      ]
+    },
+    "terrain": {
+      "primary": "Paved Italian mountain roads through the Maritime Alps and Piedmont foothills",
+      "surface": "Italian provincial and mountain roads — quality varies from excellent on the main approach roads to rougher, narrower tarmac on the upper reaches of Colle Fauniera. The Fauniera road is notorious for patchy surfaces, potholes, and steep ramps on the final kilometers approaching the summit. All paved throughout, but the mountain road surfaces demand attention, especially at speed on descents. The lower valleys and Piedmont countryside feature well-maintained provincial roads.",
+      "technical_rating": 2,
+      "features": [
+        "Colle Fauniera (2,481m) — The King of the Mountains. 22.3 km of climbing from the Grana Valley, averaging 7.6% with the upper half averaging 9.2% and pitches reaching 14-15%. The summit hosts the Marco Pantani memorial, erected after his death in 2004. One of Italy's highest and most demanding road climbs.",
+        "Colle di Sampeyre (2,284m) — 16 km of regular, sustained climbing from Valle Varaita. The first major ascent on the Granfondo route, a gateway to the high mountains with long, steady gradients.",
+        "Madonna del Colletto (1,304m) — 7.3 km with highs of 13%. The final climb of the day — shorter but vicious after 140+ km of accumulated fatigue. A sting-in-the-tail before the descent to Cuneo.",
+        "Colletta di Rossana — transitional climb from the Cuneo plain into the Varaita Valley, the first gradient of the day after 20 km of flat terrain",
+        "Fast, technical descent from Colle di Sampeyre toward Valle Maira — 17.7 km of twisting mountain road requiring concentration and bike handling",
+        "Rolling Piedmont countryside between Cuneo and the mountain valleys — vineyards, orchards, and stone villages in the foothills of the Maritime Alps"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 80,
+      "tier": 1,
+      "tier_label": "TIER 1",
+      "logistics": 3,
+      "length": 4,
+      "technicality": 2,
+      "elevation": 5,
+      "climate": 3,
+      "altitude": 4,
+      "adventure": 5,
+      "prestige": 4,
+      "race_quality": 4,
+      "experience": 5,
+      "community": 3,
+      "field_depth": 3,
+      "value": 3,
+      "expenses": 3,
+      "cultural_impact": 5,
+      "tier_note": "Named after Fausto Coppi — Il Campionissimo, arguably the greatest Italian cyclist in history. Five Giro d'Italia titles, two Tour de France victories, the first man to win both in the same year. The event has run since 1987 in Coppi's adopted Piedmont mountains. The Colle Fauniera summit at 2,481m is a genuine high-Alpine test. cultural_impact=5 reflects the weight of Coppi's name in Italian cycling culture. Raw score reaches T1 (80) on merit; prestige=4 promotion is moot.",
+      "score_note": "Sum of 14 criteria = 51 (logistics 3 + length 4 + technicality 2 + elevation 5 + climate 3 + altitude 4 + adventure 5 + prestige 4 + race_quality 4 + experience 5 + community 3 + field_depth 3 + value 3 + expenses 3). cultural_impact=5 for an event bearing the name of the Campionissimo, embedded in Italian cycling heritage since 1987. 51 + 5 = 56. (56/70)*100 = 80.0, rounded to 80. Tier 1 on raw score (>=80). prestige=4 would promote one tier but cannot enter T1 — irrelevant here as T1 is achieved on merit. altitude=4 for sustained time at 2,481m summit. elevation=5 for 4,300m of total climbing. adventure=5 for the Fauniera — one of Italy's highest and most dramatic road climbs with the Pantani memorial at the summit.",
+      "editorial_tier": 1,
+      "editorial_tier_label": "TIER 1",
+      "business_tier": 1,
+      "business_tier_label": "TIER 1",
+      "display_tier": 1,
+      "display_tier_label": "TIER 1",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 3,
+        "explanation": "Cuneo is the capital of the Granda Province in southern Piedmont, positioned on a plateau at 550m between the Maritime Alps and the Piedmont plain. It is a handsome, walkable city with Piazza Galimberti as its grand centerpiece — and the start/finish line. Cuneo-Levaldigi Airport (CUF) is 23 km away but has limited connections. Turin-Caselle Airport (TRN) is 1.5 hours by car with better European coverage. Nice (NCE) in France is 2 hours through the Tenda tunnel. Milan-Malpensa (MXP) is 3 hours. Accommodation in Cuneo is adequate but not abundant for event weekend — book 2-4 months ahead. The single-location loop from Piazza Galimberti eliminates transfer logistics. A well-run event for 37 editions, but the limited airport access and smaller city infrastructure keep logistics at 3."
+      },
+      "length": {
+        "score": 4,
+        "explanation": "The Granfondo at 172 km with 4,300m of climbing is a genuinely long day. This is not a casual sportive — it is a mountain marathon that demands 6-9 hours of riding depending on ability. The distance alone would be substantial; combined with three major climbs including the 22.3 km ascent of Colle Fauniera, this is one of the longer and more demanding one-day events in the Italian gran fondo calendar. The Mediofondo at 111 km and the Fauniera Classic at 101 km provide shorter alternatives that still include the defining Fauniera ascent. The combination of distance and vertical makes the Granfondo route a serious endurance test."
+      },
+      "technicality": {
+        "score": 2,
+        "explanation": "All paved throughout. The primary technical demand is the descent from Colle Fauniera — narrow mountain roads with switchbacks, patchy surfaces, and potential for loose debris. The Fauniera road surface on the upper reaches is notoriously rough — patchy asphalt, potholes, and steep ramps that demand attention. The descent from Colle di Sampeyre is 17.7 km of twisting mountain road where speed and concentration are required. But no gravel, no cobblestones, no off-road sections. A standard road bike handles everything. The technical challenge is managing poor road surfaces at altitude and navigating mountain descents safely in a group."
+      },
+      "elevation": {
+        "score": 5,
+        "explanation": "4,300 meters of climbing across three named cols. The Colle Fauniera alone contributes approximately 1,700m of vertical gain over 22.3 km. Colle di Sampeyre adds another sustained 16 km of climbing to 2,284m. Madonna del Colletto delivers a final 7.3 km sting after 140+ km of accumulated fatigue. This is Dolomite-level vertical in a single day. The climbing never relents — from the first ramps of the Colletta di Rossana through the summit of the Fauniera and the final kick of Madonna del Colletto, your legs are either climbing or recovering on descents. Among Italian gran fondos, only the Maratona dles Dolomites and the Sportful Dolomiti Race match or exceed this vertical."
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "Late June in Piedmont delivers warm but not oppressive conditions at valley level — 25-27C highs in Cuneo with comfortable morning start temperatures around 17-19C. The challenge is the altitude differential. The Colle Fauniera summit at 2,481m can be 15C cooler than the valley, meaning riders transition from warm approach roads to near-Alpine conditions at the top. Afternoon convective storms over the Maritime Alps are a real risk — lightning on the exposed upper reaches of the Fauniera is dangerous. The weather is not extreme enough to define the event (unlike a desert or Arctic race), but the temperature range from valley to summit requires layering strategy, and the storm risk adds unpredictability."
+      },
+      "altitude": {
+        "score": 4,
+        "explanation": "Colle Fauniera reaches 2,481 meters — one of the highest road passes accessible by gran fondo in Italy. Colle di Sampeyre adds another 2,284m summit. Riders spend substantial time above 2,000m across two of the three major climbs. This is meaningful altitude. Sea-level riders will notice reduced oxygen on the steeper pitches above 2,000m, and the Fauniera's final kilometers above 2,200m — where the gradient averages 9%+ — compound the altitude effect with the physical demand. Not extreme high altitude (the Stelvio reaches 2,758m, the Galibier 2,642m), but the Fauniera is in the same conversation. The start altitude of 550m in Cuneo means the full 1,900m ascent from valley to summit is felt."
+      },
+      "adventure": {
+        "score": 5,
+        "explanation": "The Colle Fauniera is one of the most remote and dramatic road climbs in the Alps. The upper reaches are narrow, isolated, and wind through a landscape that feels genuinely wild — sparse vegetation, rocky terrain, and sweeping views across the Maritime Alps toward the French border. At the summit, the Marco Pantani memorial stands as a testament to one of cycling's most beloved and tragic figures — erected in 2004, months after his death, on the pass where he placed his devastating attack during the 1999 Giro d'Italia. The route traverses three distinct mountain valleys — the Varaita, the Maira, and the Grana — each with its own character. Stone villages, alpine meadows, chestnut forests, and the dramatic contrast between the refined city of Cuneo and the raw Alpine wilderness above 2,000m create an adventure that is both civilized and wild."
+      },
+      "prestige": {
+        "score": 4,
+        "explanation": "The event bears the name of Fausto Coppi — Il Campionissimo, the Champion of Champions. Born in Castellania in 1919, Coppi won the Giro d'Italia five times, the Tour de France twice, the World Championship, Milan-San Remo three times, and set the hour record. He was the first man to win the Giro and the Tour in the same year (1949, and again in 1952). He died of malaria in 1960 at age 40. In Italian cycling culture, Coppi is the foundational legend — the name against which all others are measured. The event, running since 1987, is consistently rated among the top five granfondos in Italy, attracting riders from 42+ countries. It lacks the lottery exclusivity of the Maratona or the Monument-name association of Strade Bianche, but the Coppi name carries weight that few cycling events in the world can match."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "Thirty-seven editions of continuous refinement by ASD Fausto Coppi on the Road. The event manages 2,600-3,000 riders across three routes through narrow mountain valleys with competence born of decades of experience. Fully timed with age-group rankings. Feed zones at strategic points between climbs. The Solidarity Grid program — EUR120 for priority start with proceeds funding mountain road maintenance — demonstrates organizational maturity and community investment. The 2022 edition was voluntarily cancelled to allow time for road repairs on the Fauniera, rather than compromising rider safety. The event resumed in 2023 with renewed infrastructure. Three route options serve different abilities while sharing the defining Fauniera climb. This is not a corporate-run mega-event, but it is a deeply experienced organization that has been sending riders up the Fauniera for nearly four decades."
+      },
+      "experience": {
+        "score": 5,
+        "explanation": "The day begins in Piazza Galimberti — one of the grandest public squares in Piedmont, ringed by elegant arcaded buildings — with 2,800 riders assembled at dawn. The first 20 km roll through flat Piedmont countryside before the road tilts upward and does not flatten again for 150 km. Colle di Sampeyre — 16 km of sustained climbing to 2,284m — is the first encounter with high altitude. The descent into Valle Maira is fast and technical. Then the Fauniera: 22.3 km of relentless climbing through increasingly remote, wild terrain until you reach 2,481m and the Pantani memorial — a summit that has witnessed Giro d'Italia drama and commemorates one of cycling's greatest climbers. The descent, the transition through the Grana Valley, and the final kick up Madonna del Colletto at km 140+ test everything that remains in your legs. The return to Piazza Galimberti completes a loop that traverses three alpine valleys and two summits above 2,200m. Few one-day cycling events deliver this range of experience."
+      },
+      "community": {
+        "score": 3,
+        "explanation": "The field of 2,600-3,000 riders is international — 42+ countries represented — but more intimate than the mega-events like Nove Colli (10,000+) or the Maratona (9,000). The Italian gran fondo culture runs deep: espresso before the start, animated conversations at feed zones, age-group competition taken seriously by the club riders. The Cuneo Bike Festival surrounding event weekend adds community programming. Denmark was named the guest country for 2026, reflecting the event's international outreach. The 'Salviamo le Strade di Montagna' charity initiative creates a shared purpose beyond the ride itself. But the field size limits the community scale compared to the largest Italian granfondos."
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "Open registration without lottery means the field is a genuine cross-section: serious Italian club racers, international cycling tourists, and dedicated amateurs. The front of the race is competitive — recent winners like Luca Raggio and Luca Vergallito from Officine Mattio Cycling Club are strong regional riders. Italian club culture means the age-group competition at the pointy end is fierce. Enrico Zen's 2016 winning time of 5:46:36 for 177 km with 4,125m of climbing reflects genuine racing pace. But with 2,800 riders spread across three routes, the depth thins quickly beyond the top tier."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "EUR50-70 for a 172 km mountain marathon with 4,300m of climbing, timed results, feed zones, and age-group rankings is fair value for the Italian gran fondo market. The tiered pricing rewards early registration. The Solidarity Grid at EUR120 adds a premium start position with charitable purpose. No collector's jersey or elaborate race pack is included at the base price. The value proposition is the ride itself — three named cols including the Fauniera at 2,481m, starting from one of Piedmont's most beautiful squares. Comparable to other major Italian granfondos but not notably cheaper or richer in inclusions."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Cuneo is a mid-size Piedmont city with moderate accommodation costs — EUR80-150/night for event weekend. The city is not a major tourist destination, so prices are reasonable compared to the Dolomites or Tuscan destinations. The Cuneo Hotel near Piazza Galimberti is positioned for the start line. Cuneo-Levaldigi Airport is small with limited routes. Turin Airport (1.5h drive) is the most practical gateway with European connections. Nice Airport (2h via Tenda tunnel) offers an alternative. Car rental or transfer is recommended. Italian food in Piedmont is extraordinary and reasonably priced — this is the region of Barolo wine, white truffles, and agnolotti. Budget EUR800-1,500 from Europe, EUR1,200-2,000 from the US for a 3-5 day trip. Piedmont delivers outstanding culinary value alongside the cycling."
+      }
+    },
+    "biased_opinion": {
+      "verdict": "The Campionissimo's Mountain",
+      "summary": "The Gran Fondo La Fausto Coppi is one of the hardest and most historically resonant one-day cycling events in Italy. Named after the man who defined Italian cycling — five Giri, two Tours, the first to win both in the same year — the event sends 2,800 riders from Cuneo's grand Piazza Galimberti into the Maritime Alps for 172 km and 4,300m of climbing across three named cols. The centerpiece is Colle Fauniera: 22.3 km of relentless climbing to 2,481 meters, one of Italy's highest and most dramatic road passes, where the Pantani memorial at the summit bridges two eras of Italian cycling legend. This is not a tourist sportive. The climbing is Alpine in scale, the road surfaces on the Fauniera are raw and demanding, and the 10-hour time limit is generous but not a gift. Cuneo to the clouds and back, since 1987.",
+      "strengths": [
+        "Colle Fauniera at 2,481m — one of Italy's highest and most dramatic road climbs, with the Marco Pantani memorial at the summit",
+        "4,300m of total climbing across three named cols — Dolomite-level vertical in a single day",
+        "37 editions since 1987 — one of Italy's longest-running and most respected granfondos",
+        "Named after Fausto Coppi (Il Campionissimo) — the foundational legend of Italian cycling",
+        "Three route options (101-172 km) all include the defining Fauniera ascent",
+        "Solidarity Grid and 'Salviamo le Strade di Montagna' — the event actively maintains the mountain roads it uses"
+      ],
+      "weaknesses": [
+        "Colle Fauniera road surface is notoriously rough on the upper reaches — potholes, patchy asphalt, steep ramps",
+        "Limited airport access — Cuneo-Levaldigi is small; Turin is 1.5 hours away",
+        "Smaller field (2,800) and less internationally recognized than the Maratona or L'Etape, despite comparable climbing",
+        "Afternoon Maritime Alps thunderstorms can turn the Fauniera summit dangerous — lightning exposure above 2,200m",
+        "2022 edition cancelled for road repairs — the mountain infrastructure requires constant maintenance"
+      ],
+      "bottom_line": "If you want to climb to 2,481 meters on one of Italy's most remote and demanding mountain roads, starting from a Piedmont city square named after a resistance hero and finishing with your legs hollowed out from 4,300m of vertical, this is the event. The Fauniera is not the Alpe d'Huez — it is wilder, rougher, and more isolated. The Pantani memorial at the summit connects the event to Italian cycling's tragic modern chapter. Coppi's name on the jersey connects it to the sport's golden age. Between those two legends, across 172 km and three mountain passes, lies one of the finest days of riding in Europe."
+    },
+    "final_verdict": {
+      "score": "80 / 100",
+      "one_liner": "The Campionissimo's mountains. Cuneo to the summit of Colle Fauniera at 2,481 meters. Three Piedmont cols. Since 1987.",
+      "should_you_race": "Yes if you want genuine Alpine climbing — 4,300m of vertical including a summit at 2,481m — in a historically significant Italian granfondo. Yes if the names Fausto Coppi and Marco Pantani mean something to you and you want to ride the mountain where their legacies intersect. Yes if you are a strong climber looking for a demanding one-day event that rivals the Dolomite granfondos in vertical gain. Skip if you need polished road surfaces — the upper Fauniera is rough and remote. Skip if the limited airport access to Cuneo is a dealbreaker. Skip if 4,300m of climbing in 172 km exceeds your current fitness.",
+      "alternatives": "If you want Italian Dolomites instead of Maritime Alps: Maratona dles Dolomites (7 passes, lottery entry). If you want French Alpine grandeur: La Marmotte (Galibier + Alpe d'Huez). If you want another Italian legend-named granfondo with less climbing: Gran Fondo Marco Pantani (Cesenatico, 2,150m gain). If you want Piedmont cycling with more moderate terrain: Granfondo Pinarello.",
+      "alternative_slugs": [
+        "maratona-dles-dolomites",
+        "la-marmotte",
+        "gran-fondo-marco-pantani"
+      ]
+    },
+    "logistics": {
+      "airport": "Cuneo-Levaldigi (CUF) — 23 km (closest, but very limited flight connections). Turin-Caselle (TRN) — 1.5 hours (best practical option for European flights). Nice (NCE) — 2 hours via Tenda tunnel (alternative with wider international connections). Milan-Malpensa (MXP) — 3 hours (widest international connections).",
+      "lodging_strategy": "Stay in Cuneo — the start and finish are at Piazza Galimberti in the city center. The Cuneo Hotel is 600m from the station and meters from the start line. Hotels and B&Bs in the city center run EUR80-150/night for event weekend. Book 2-4 months in advance. Cuneo is a smaller city than Turin or Milan, so accommodation options are limited but the city itself is elegant and walkable. The Piedmont Bike Hotel near Alba (20 km south) caters specifically to cyclists with bike storage, guides, and Pinarello rentals. For a more rural experience, agriturismi in the Cuneo countryside offer excellent value and Piedmont ambiance.",
+      "food": "Piedmont is one of Italy's greatest culinary regions. Agnolotti del plin (hand-pinched stuffed pasta), tajarin al ragu, vitello tonnato, bagna cauda, and the renowned cheeses of the Langhe. Cuneo is famous for its chocolate — the cuneesi al rhum are a local icon. The region produces Barolo, Barbaresco, and Nebbiolo wines. Pre-race carb loading in Piedmont is an experience unto itself. Post-race, the trattorias around Piazza Galimberti serve honest Piemontese cooking that rewards every calorie burned on the Fauniera.",
+      "packet_pickup": "Event village at Piazza Galimberti or nearby expo area, 1-2 days before the race. The Cuneo Bike Festival typically runs alongside event weekend with ancillary programming and cycling expo. Registration desk opens at 5:45 AM on race day; grid opens at 6:15 AM.",
+      "parking": "Cuneo manages event parking in designated areas around the city center. Piazza Galimberti and surrounding streets are closed for the start. Walking to the start from central accommodation is the simplest approach. The city's position on a plateau between the Stura and Gesso rivers means approach roads are limited — follow event signage.",
+      "official_site": "https://www.faustocoppi.net/"
+    },
+    "history": {
+      "founded": 1987,
+      "founder": "ASD Fausto Coppi on the Road (Cuneo cycling association)",
+      "origin_story": "Fausto Coppi was born in Castellania, near Alessandria, on September 15, 1919. He became the greatest Italian cyclist of the twentieth century — Il Campionissimo, the Champion of Champions. Five Giro d'Italia victories (1940, 1947, 1949, 1952, 1953), two Tour de France triumphs (1949, 1952), the World Championship (1953), Milan-San Remo three times, the Giro di Lombardia five times, and the hour record. He was the first man to win the Giro and the Tour in the same year, and he did it twice. He died of undiagnosed malaria on January 2, 1960, at age 40. In 1987, the cycling community of Cuneo — at the foot of the Maritime Alps where the road to Colle Fauniera begins — created a granfondo in his name. The route was built around the Fauniera, a 22.3 km monster of a climb that rises to 2,481 meters through wild, remote mountain terrain. The event grew from a regional tribute into one of Italy's premier international granfondos, attracting riders from over 40 countries. In 1999, Marco Pantani placed a legendary attack on the Fauniera during the Giro d'Italia; after Pantani's death in 2004, a memorial was erected at the summit, creating an extraordinary intersection of cycling history — Coppi's name on the event, Pantani's spirit at the summit.",
+      "notable_moments": [
+        "1987: Inaugural edition — a local Cuneo cycling event honoring the Campionissimo",
+        "Event builds its identity around Colle Fauniera — one of Italy's highest and most demanding road climbs at 2,481m",
+        "1999: Marco Pantani's devastating Giro d'Italia attack on the Fauniera during Stage 14 — one of the most iconic moments in modern cycling",
+        "2004: Memorial to Marco Pantani erected at the Fauniera summit after his death, creating a bridge between two Italian cycling legends",
+        "2014: 'Salviamo le Strade di Montagna' project launched — over EUR100,000 invested in maintaining the high-altitude roads used by the event",
+        "2020-2021: COVID-19 disruption; the 33rd edition in 2021 was a post-pandemic return with reduced capacity",
+        "2022: Edition voluntarily cancelled to allow critical road repairs on the Fauniera and surrounding mountain routes",
+        "2023: Event returns with restored infrastructure; 2,200 registered riders from 42+ countries",
+        "2024: 35th edition on June 30 — three route options established (Granfondo, Mediofondo, Fauniera Classic)",
+        "2025: 36th edition with 2,600 registered participants and 2,300 starters from 42 countries",
+        "2026: 37th edition announced for June 28 — Denmark named as guest country"
+      ],
+      "reputation": "One of the five greatest granfondos in Italy. Named after the foundational legend of Italian cycling, built around one of the country's most demanding mountain climbs, and crowned with the memorial to cycling's most tragic modern hero. The combination of Coppi's name, the Fauniera's brutality, and Pantani's ghost at the summit gives this event a historical weight that few cycling events in the world can match."
+    },
+    "course_description": {
+      "character": "A mountain marathon that begins in the elegant city of Cuneo and ventures deep into the Maritime Alps before returning. The route is defined by three major climbs — Colle di Sampeyre, Colle Fauniera, and Madonna del Colletto — connected by rolling valley roads and demanding descents. The first 20 km are flat, rolling through the Piedmont countryside. Then the road tilts upward and does not genuinely flatten again until the return approach to Cuneo. The Granfondo traverses three distinct alpine valleys — the Varaita, the Maira, and the Grana — each with its own character, before the final sting of Madonna del Colletto delivers the last 7.3 km of climbing. The terrain transitions from refined Piedmont civilization to raw Alpine wilderness and back again over 172 km.",
+      "suffering_zones": [
+        {
+          "mile": 25,
+          "label": "Colle di Sampeyre — The First Wall",
+          "desc": "After 20 km of flat approach through the Piedmont countryside and the transitional Colletta di Rossana, the route enters Valle Varaita and begins the 16 km sustained ascent of Colle di Sampeyre. Rising to 2,284m, this is a long, steady climb with regular gradients that test pacing discipline early in the day. The terrain shifts from cultivated valley floor to alpine meadows as the altitude builds. Sampeyre is the gateway — a serious climb in its own right, but a prelude to what follows.",
+          "terrain_detail": "16 km, approximately 1,100m gain, regular gradients averaging 6-7%, summit at 2,284m",
+          "named_section": "Colle di Sampeyre"
+        },
+        {
+          "mile": 48,
+          "label": "Sampeyre Descent + Valle Maira Transfer",
+          "desc": "The descent from Colle di Sampeyre into Valle Maira is 17.7 km of fast, technical mountain road with tight switchbacks and variable surfaces. Speed builds quickly on the descent, and concentration is critical. The valley transfer through Maira is brief respite — rolling terrain that allows legs to recover before the main event begins. The approach to the Fauniera from the Grana Valley marks the psychological turning point of the day.",
+          "terrain_detail": "17.7 km technical descent, valley transition to Grana Valley approach",
+          "named_section": "Discesa Sampeyre + Valle Maira"
+        },
+        {
+          "mile": 58,
+          "label": "Colle Fauniera — The King of the Mountains",
+          "desc": "The defining challenge. 22.3 km of climbing from the Grana Valley to the summit at 2,481 meters. The first 8 km average a deceptive 5-6% through the lower valley. Then the road steepens dramatically: the upper 14 km average 9.2% with pitches reaching 14-15%. The road narrows, the surface deteriorates, and the landscape becomes increasingly wild and remote. Above 2,000m, the vegetation thins to alpine scrub and rock. The final kilometers are the steepest — grinding ramps on rough asphalt at altitude, where reduced oxygen compounds the physical demand. At the summit: the Marco Pantani memorial, erected in 2004, stands at 2,481 meters overlooking the Maritime Alps. This is where Pantani attacked during the 1999 Giro. This is where Coppi's name meets Pantani's legend.",
+          "terrain_detail": "22.3 km, ~1,700m gain, 7.6% average (upper half 9.2%, max 14-15%), summit at 2,481m",
+          "named_section": "Colle Fauniera"
+        },
+        {
+          "mile": 87,
+          "label": "Madonna del Colletto — The Final Sting",
+          "desc": "After the descent from the Fauniera and the transition through the lower valley, Madonna del Colletto arrives at approximately km 143 — a 7.3 km climb with gradients reaching 13%. On fresh legs, this would be a moderate effort. After 140+ km and 3,500+ meters of accumulated climbing, it is a test of everything that remains. The steeper pitches above 10% on hollowed-out legs separate those who paced correctly from those who spent too much on the Fauniera. The summit at 1,304m is the last high point before the descent to Cuneo.",
+          "terrain_detail": "7.3 km, approximately 500m gain, max gradient 13%, summit at 1,304m",
+          "named_section": "Madonna del Colletto"
+        },
+        {
+          "mile": 100,
+          "label": "The Return to Piazza Galimberti",
+          "desc": "The descent from Madonna del Colletto merges into the Cuneo approach — rolling to flat terrain as the Maritime Alps recede behind. The final kilometers into the city are fast and flat, returning to Piazza Galimberti where the day began. The grand square, the arcaded buildings, the cheering crowd — the civilization at the finish provides a sharp contrast to the wild isolation of the Fauniera summit. You started in a piazza; you climbed to 2,481 meters; you return to the piazza.",
+          "terrain_detail": "Descending roads transitioning to flat approach into Cuneo city center",
+          "named_section": "Return to Cuneo"
+        }
+      ],
+      "signature_challenge": "Colle Fauniera: 22.3 km of climbing to 2,481 meters, with the upper half averaging 9.2% on deteriorating road surfaces through increasingly remote and wild Alpine terrain. The combination of sustained gradient, altitude, rough roads, and the psychological weight of the Pantani memorial at the summit makes the Fauniera the defining challenge of the event — and one of the most demanding single climbs accessible by gran fondo anywhere in Europe."
+    },
+    "guide_variables": {
+      "race_name": "Gran Fondo La Fausto Coppi",
+      "race_distance": "107 miles",
+      "race_elevation": "14,108 feet",
+      "race_date": "Late June",
+      "race_location": "Cuneo, Piedmont, Italy",
+      "race_terrain": "Paved Italian mountain roads — Maritime Alps cols with gradients up to 14-15%",
+      "race_weather": "Late June Piedmont — warm valleys (25-27C), cool summits (8-14C), afternoon thunderstorm risk over Maritime Alps",
+      "race_challenges": [
+        "4,300m of climbing across three named cols in 172 km",
+        "Colle Fauniera: 22.3 km to 2,481m summit — upper half averages 9.2% with pitches to 14-15%",
+        "Altitude effect above 2,000m on two of the three major climbs",
+        "Madonna del Colletto (7.3 km, max 13%) arriving at km 143 with legs depleted",
+        "Rough road surfaces on the upper reaches of Colle Fauniera"
+      ],
+      "altitude_section": true,
+      "altitude_feet": 8140
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Sustained steep gradient climbing — repeated 20-40 minute efforts at 8-10%",
+        "by_when": "Week 6",
+        "why": "The upper Fauniera averages 9.2% for 14 km. This is not a shallow Alpine grind — it is a sustained, steep effort that demands specific muscular endurance for high-torque, low-cadence climbing. Find the steepest local climb you can access and repeat it. If you can hold threshold power at 9% for 40 minutes, you are prepared for the Fauniera. If you cannot, you will walk."
+      },
+      {
+        "requirement": "Multi-climb mountain day — minimum three major climbs totaling 3,000m+ vertical in a single ride",
+        "by_when": "Week 8",
+        "why": "The Granfondo strings three major climbs together with demanding descents between. Your body needs to climb, descend at speed, transition through a valley, and climb again — three times across 172 km. The cumulative fatigue of 4,300m of vertical is different from any single climb. Train with multi-climb days that simulate the repeated ascent-descent-ascent pattern."
+      },
+      {
+        "requirement": "Full distance simulation — 160-170 km with 3,500m+ climbing, including nutrition and pacing strategy",
+        "by_when": "Week 10",
+        "why": "172 km with 4,300m of climbing is a 7-10 hour day. Your nutrition strategy must sustain output across the full duration — especially on the Fauniera, where the climb alone takes 90-150 minutes. Practice eating on steep gradients. Practice descending at speed after prolonged climbing efforts. The Madonna del Colletto at km 143 punishes riders who have not fueled correctly for the preceding 8 hours."
+      }
+    ],
+    "citations": [
+      {
+        "url": "https://www.faustocoppi.net/",
+        "title": "Granfondo La Fausto Coppi — Official Site",
+        "category": "official"
+      },
+      {
+        "url": "https://www.endu.net/en/events/fausto-coppi",
+        "title": "Granfondo La Fausto Coppi — ENDU Registration",
+        "category": "official"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/3739/la-fausto-coppi",
+        "title": "La Fausto Coppi — Gran Fondo Guide",
+        "category": "reference"
+      },
+      {
+        "url": "https://www.bikeradar.com/features/routes-and-rides/granfondo-la-fausto-coppi-faustian-pact",
+        "title": "Riding the brutal Colle Fauniera — BikeRadar",
+        "category": "review"
+      },
+      {
+        "url": "https://cycleclassictours.com/tours/road-cycling/gran-fondo-la-fausto-coppi/",
+        "title": "Gran Fondo La Fausto Coppi 2026 — Cycle Classic Tours",
+        "category": "review"
+      },
+      {
+        "url": "https://cyclinghero.cc/event/faustocoppi-granfondo-italy-2026",
+        "title": "Fausto Coppi Granfondo — CyclingHero",
+        "category": "review"
+      },
+      {
+        "url": "https://www.cyclonline.com/granfondo-2026-event-calendars/granfondo-la-fausto-coppi-2026-date,-course,-elevation,-registration,-and-contact-info",
+        "title": "GranFondo La Fausto Coppi 2026 — CyclOnline",
+        "category": "reference"
+      },
+      {
+        "url": "https://climbfinder.com/us/climbs/colle-fauniera-demonte",
+        "title": "Colle Fauniera Climb Profile — ClimbFinder",
+        "category": "reference"
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Fausto_Coppi",
+        "title": "Fausto Coppi — Wikipedia",
+        "category": "reference"
+      },
+      {
+        "url": "https://endurance.biz/2026/industry-news/denmark-named-guest-country-for-2026-la-fausto-coppi-generali-gran-fondo/",
+        "title": "Denmark named guest country for 2026 La Fausto Coppi — endurance.biz",
+        "category": "reference"
+      },
+      {
+        "url": "https://battistrada.com/en/cycling-calendar/edition/la-granfondo-la-fausto-coppi-2026/47727/",
+        "title": "La Granfondo La Fausto Coppi 2026 — Battistrada",
+        "category": "reference"
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "high",
+      "validation_status": "validated",
+      "research_strength": "A",
+      "sources_count": 11,
+      "last_updated": "2026-02-27"
+    }
+  }
+}

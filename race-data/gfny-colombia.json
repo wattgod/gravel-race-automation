@@ -1,0 +1,366 @@
+{
+  "race": {
+    "name": "GFNY Bogota",
+    "slug": "gfny-colombia",
+    "display_name": "GFNY Bogota",
+    "tagline": "The world's highest gran fondo starts inside a salt cathedral 200 meters underground, then climbs into the Colombian Andes above 3,000 meters. Race where Egan Bernal learned to pedal, where oxygen is rationed, and where cycling is a national religion.",
+    "vitals": {
+      "distance_mi": 63,
+      "elevation_ft": 7614,
+      "location": "Zipaquira, Cundinamarca, Colombia",
+      "location_badge": "ZIPAQUIRA, COLOMBIA",
+      "date": "Late April / Early May annually (varies)",
+      "date_specific": "2026: TBD (check bogota.gfny.com for date announcement)",
+      "terrain_types": [
+        "Paved Colombian mountain roads",
+        "Andean highland valley flats",
+        "Sustained mountain passes above 3,000m",
+        "Urban streets through colonial towns"
+      ],
+      "field_size": "~1,000-1,800 riders, primarily Colombian with international participants",
+      "start_time": "Sunday 6:30 AM from inside the Salt Cathedral",
+      "registration": "Online via bogota.gfny.com. Cost: ~$80-120 USD (varies by registration tier). Includes race jersey, finisher medal, chip timing, aid stations, post-race celebrations.",
+      "prize_purse": "GFNY competitive classification awards for age-group podiums. No cash purse for mass-start field.",
+      "aid_stations": "Multiple aid stations along the route supplying water, sports drink, and fruit. Mechanical support on course.",
+      "cutoff_time": "8 hours from start",
+      "lat": 5.0224,
+      "lng": -73.9871,
+      "distance_options": [
+        "Long Course: ~101 km (~63 miles), ~2,321m elevation gain — full route with Aguila summit finish",
+        "Medium Course: ~60 km (~37 miles), ~1,200m elevation gain — shortened route turning back before full Aguila descent"
+      ],
+      "entry_fee": "~$80-120 USD"
+    },
+    "climate": {
+      "primary": "Tropical highland — cool, variable, altitude-dependent",
+      "description": "Zipaquira and the surrounding Andean highlands sit at 2,650 meters above sea level. Daytime temperatures range from 10-18C (50-64F) — cool by tropical-latitude standards but deceptive because the equatorial sun at altitude delivers intense UV radiation even when the air feels mild. Morning starts can be cold (8-10C), particularly inside the salt mines before dawn. As the route climbs above 3,000 meters, temperatures drop further and wind chill becomes a factor on exposed ridgelines. Afternoon rain showers are common in Colombia's highland weather pattern — the race starts at 6:30 AM specifically to avoid afternoon storms. Humidity is moderate (60-70%). The real atmospheric challenge is not temperature but oxygen: at 2,650m the air contains roughly 73% of sea-level oxygen, and above 3,000m it drops further. Your cardiovascular system is the first thing the course attacks.",
+      "challenges": [
+        "Altitude: 2,650m at the start, racing above 3,000m — oxygen availability is 73-75% of sea level",
+        "Temperature swings: cold starts (8-10C) in the salt mines, mild at valley floor, cold again at summit",
+        "Intense equatorial UV radiation at altitude — sunburn risk is extreme even on cloudy days",
+        "Afternoon rain showers are common in the Colombian highlands — early start is strategic",
+        "Wind exposure on mountain passes above 3,000m compounds the cold at altitude"
+      ]
+    },
+    "terrain": {
+      "primary": "Paved Colombian mountain roads with sustained climbing at extreme altitude",
+      "surface": "Paved roads throughout. Surface quality ranges from smooth main highways to rougher secondary mountain roads. The course is entirely closed to traffic on race day. No gravel, no cobbles, no technical terrain — the challenge is purely physiological: sustained climbing at altitudes where oxygen debt compounds every effort.",
+      "technical_rating": 1,
+      "features": [
+        "Km 0-4: Controlled start inside and exiting the Salt Cathedral of Zipaquira at 2,650m — a tunnel start unlike any other race",
+        "Km 4-20: Flat to rolling roads through the Bogota savanna toward Cajica — leg-warming at altitude",
+        "Km 20-33: Urban circuit returning through Zipaquira with rolling terrain",
+        "Km 33: Short but vicious 500m climb at 9.9% gradient — the first real punch of the day",
+        "Km 34-49: Aguila via Zipa climb — 15 km at 3.3% average gradient, 523m elevation gain, racing above 3,000m with views over the Subachoque river valley",
+        "Summit finish / descent to Pacho (medium turns back, long continues to descent and return)"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 73,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "logistics": 3,
+      "length": 3,
+      "technicality": 1,
+      "elevation": 4,
+      "climate": 3,
+      "altitude": 5,
+      "adventure": 4,
+      "prestige": 3,
+      "race_quality": 3,
+      "experience": 4,
+      "community": 4,
+      "field_depth": 3,
+      "value": 3,
+      "expenses": 4,
+      "cultural_impact": 4,
+      "tier_note": "The world's highest gran fondo earns its T2 on the strength of extreme altitude, Colombian cycling culture, and genuinely unique start logistics. The Salt Cathedral start, Egan Bernal's hometown setting, and racing above 3,000m create an experience no other gran fondo can match. Prestige=3, no override applies. Score 73 places it solidly in T2.",
+      "score_note": "Sum of 14 criteria: 3+3+1+4+3+5+4+3+3+4+4+3+3+4 = 47. cultural_impact = 4. Total = 51. (51/70)*100 = 72.86, rounded = 73. altitude=5 (2,650m start, racing above 3,000m is extreme-altitude cycling — maximum score). elevation=4 (2,321m/7,614ft of climbing in 101km is serious vertical). adventure=4 (starting inside a salt cathedral in the Colombian Andes, birthplace of Egan Bernal). community=4 (cycling is Colombia's #2 sport; 900,000+ daily bike trips in Bogota). expenses=4 (Colombia is very affordable for international travelers). cultural_impact=4 (Zipaquira is Bernal and Forero's hometown; cycling is woven into Colombian national identity). technicality=1 (paved roads, no technical demands — the course kills you with altitude, not terrain).",
+      "editorial_tier": 2,
+      "editorial_tier_label": "TIER 2",
+      "business_tier": 2,
+      "business_tier_label": "TIER 2",
+      "display_tier": 2,
+      "display_tier_label": "TIER 2",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 3,
+        "explanation": "Bogota's El Dorado International Airport (BOG) is a major hub with direct flights from Miami, Houston, Dallas, New York, Madrid, and dozens of Latin American cities. Getting to Colombia is straightforward. Getting to Zipaquira adds a layer: it's about 50 km (1 hour) north of Bogota by car. Race organizers offer bike transport packages from Bogota and the airport (120,000-600,000 COP depending on service level). Expo and packet pickup are in Zipaquira's Plaza de la Independencia. The race starts at 6:30 AM from inside the Salt Cathedral, which means you need to be in Zipaquira the night before or very early morning — Bogota traffic at 4 AM is not something you want to gamble on. Hotels in Zipaquira are limited; most riders stay in Bogota and transfer. That two-step logistics chain (fly to BOG, transfer to Zipaquira with bike) is manageable but not seamless."
+      },
+      "length": {
+        "score": 3,
+        "explanation": "The 2023 edition measured 101.1 km (63 miles) with 2,321m of elevation gain. Earlier editions ran up to 121 km with 2,565m of climbing when based in Guatavita. Either way, this is a sub-century distance. On paper, 100 km sounds moderate. At 2,650-3,200m altitude, those 100 km ride like 140 km at sea level. The reduced oxygen availability means every pedal stroke costs more, recovery between efforts takes longer, and the effective physiological load far exceeds what the distance suggests. The medium option (~60 km) allows less-experienced riders to participate. The distance is not the challenge; the altitude-adjusted effort is."
+      },
+      "technicality": {
+        "score": 1,
+        "explanation": "This is a paved road race on Colombian mountain roads. The surface quality is generally good — these are the roads Colombian pros train on daily. There are no gravel sectors, no cobbles, no technical descents that demand bike-handling skill. The descents from the mountain passes are fast and sweeping but not hairpin-heavy. The urban sections through Zipaquira require basic cornering awareness. The only remotely technical moment is the 500m ramp at 9.9% gradient, which demands power, not skill. Your lungs and legs fail long before your handling does."
+      },
+      "elevation": {
+        "score": 4,
+        "explanation": "2,321 meters (7,614 feet) of elevation gain in 101 km is serious climbing by any measure. The route packs a short, brutal 9.9% ramp and the 15 km Aguila climb (3.3% average, 523m gain) into a course that never drops below 2,600m. Earlier editions with the Guatavita-La Cuchilla route delivered 2,565m of climbing and summited at 3,365m. The climbing is not Alpine-steep — the gradients are moderate by European standards — but the altitude transforms moderate gradients into lung-searing efforts. A 3.3% average grade at 3,000m feels like 6% at sea level. The elevation score reflects both the vertical gained and the altitude at which you gain it."
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "The Bogota savanna sits in the tropics but at 2,650m it doesn't feel tropical. Morning temperatures hover around 8-12C, rising to 16-18C by midday. The equatorial sun at altitude delivers intense UV that burns through cloud cover. The Colombian highland weather pattern brings reliable afternoon rain — the 6:30 AM start is designed to beat the storms. Humidity is moderate. The climate itself is not extreme in any single dimension, but the combination of cold starts, altitude-amplified UV, temperature swings as you climb above 3,000m, and the possibility of rain on the descents creates a layered challenge. You need arm warmers at the start, sunscreen all day, and a vest for the summit."
+      },
+      "altitude": {
+        "score": 5,
+        "explanation": "This is the defining feature of GFNY Bogota and arguably the single highest-impact factor in any mass-participation road cycling event worldwide. The race starts at 2,650m — higher than the summit of most European mountain passes. The Aguila climb takes riders above 3,000m, and earlier editions on the La Cuchilla route summited at 3,365m. At 2,650m, the air contains roughly 73% of sea-level oxygen. At 3,200m, it drops to about 69%. Your VO2max is reduced by 15-25% before you even clip in. Riders who arrive from sea level without acclimatization will bonk earlier, recover slower between efforts, and face altitude-related symptoms (headache, nausea, lightheadedness) that no amount of fitness can override. GFNY markets this as 'the world's highest gran fondo' and they're not wrong. Altitude is a 5 because there is no higher-scoring scenario in mass-participation road cycling."
+      },
+      "adventure": {
+        "score": 4,
+        "explanation": "Starting a road race 200 meters underground inside a salt cathedral — one of Colombia's most visited landmarks — is an experience no other cycling event on earth offers. The Salt Cathedral of Zipaquira is carved from a working salt mine and features a massive underground crucifix and nave lit by colored lights. Riders warm up inside the mine with music and atmospheric lighting before being released into the Andean dawn. The course then climbs through the Cundinamarca highlands — green rolling hills, eucalyptus forests, and views across the Subachoque river valley. You're racing in Egan Bernal's hometown, on roads Colombian pros train on daily. The cultural immersion is deep. The only reason this isn't a 5 is that the course itself — paved roads, familiar gran fondo format — doesn't venture into genuinely remote or self-supported territory."
+      },
+      "prestige": {
+        "score": 3,
+        "explanation": "GFNY Bogota has been running since 2015, making it one of the oldest and most established GFNY franchise events. It credibly claims to be the world's highest gran fondo. It's part of the GFNY World series with competitive classification, anti-doping, and qualification for the NYC World Championship. The Colombian cycling heritage adds cultural weight that most franchise events lack — this isn't a generic GFNY stamp on a random city; it's the GFNY stamp on one of cycling's most important countries. A separate UCI Gran Fondo qualifier now also runs in Bogota. But prestige=3 because it remains a franchise event, not a standalone institution. The deepest GFNY talent races in NYC. The Colombian cycling pantheon lives in the Vuelta a Colombia and the European grand tours, not in a GFNY franchise."
+      },
+      "race_quality": {
+        "score": 3,
+        "explanation": "GFNY delivers its standard professional package: chip timing, competitive age-group classification, closed roads, anti-doping protocols, aid stations, mechanical support, and an expo at the Plaza de la Independencia in Zipaquira. The race start from inside the Salt Cathedral is a production — music, lights, controlled tunnel exit. The finish area has ceremonies, food, and awards. Saturday includes a group ride with pros. It's competent and well-organized by Latin American event standards. But it's the same GFNY template applied globally. Nothing about the race operations is notably superior to other GFNY events — the distinction is the setting, not the operations."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "The Salt Cathedral start alone is worth a point. No other cycling event begins inside a mine carved from rock salt, 200 meters underground, with atmospheric lighting and music echoing off the walls. Then you emerge into the Andean dawn, race through Egan Bernal's hometown, and climb into mountains where the air thins noticeably with every kilometer. The views over the Subachoque valley, the passionate Colombian crowds, and the cultural weight of racing in a country that treats cyclists as national heroes create an experience that transcends the course profile. The post-race atmosphere in Zipaquira's colonial plaza adds to it. This is not just a gran fondo — it's a cultural immersion in Colombian cycling. The only limitation is the relatively modest course distance and format."
+      },
+      "community": {
+        "score": 4,
+        "explanation": "Colombia is one of the cycling-obsessed nations on earth. More than 900,000 bike trips happen daily in Bogota alone. Professional cyclists — Bernal, Quintana, Uran, Gaviria — are treated as national heroes. The Vuelta a Colombia is a national institution. When GFNY rolls through Zipaquira, local crowds turn out with genuine passion — not the polite applause of a suburban American event but the fervent cheering of a cycling-mad culture. Zipaquira specifically is the hometown of Egan Bernal and Colombia's first cycling legend Efrain 'El Zipa' Forero. You are racing on sacred ground. The GFNY franchise format attracts 1,000-1,800 riders, with a strong Colombian majority and growing international participation. The community isn't just event-week — it's embedded in the nation's identity."
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "The field draws 1,000-1,800 riders, predominantly Colombian. The 3rd edition in 2017 sold out at 1,800 and had 1,700 starters with 1,378 finishers. The Colombian cycling talent pool is deep — Cat 1 and elite amateur riders from the local scene produce fast front-of-pack racing. Camila Cortes, a 7-time GFNY Champion, has dominated the women's field repeatedly. The GFNY competitive classification gives structure to the racing. But 1,000-1,800 riders is a mid-sized field by global gran fondo standards. The event lacks the international field depth of GFNY NYC or the UCI-qualifying draw of larger European sportives. The altitude itself thins the field — many international riders cannot perform at 2,650m+."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "Registration costs approximately $80-120 USD (pricing varies by tier and registration period). This includes the standard GFNY package: custom race jersey, finisher medal, chip timing, aid stations, mechanical support, expo access, and post-race celebrations. For a closed-road, professionally timed international gran fondo, that's competitive pricing — cheaper than GFNY NYC ($300+) and comparable to other GFNY franchise events. The jersey and medal alone represent tangible value. Colombia's low cost of living means on-the-ground expenses are dramatically lower than equivalent events in Europe or the US."
+      },
+      "expenses": {
+        "score": 4,
+        "explanation": "Colombia is remarkably affordable for international travelers. Hotels in Bogota range from $30-60/night for mid-range options to $100+/night for premium properties. A full meal at a local restaurant costs $5-10. Ground transportation to Zipaquira is cheap by taxi or bus. Flights to Bogota from major US cities run $300-500 roundtrip. A full race weekend — registration, 3 nights lodging, food, ground transport, and flights — can realistically be done for $600-1,000 from the US. That's roughly half the cost of a GFNY NYC weekend and a fraction of any European sportive trip. Colombia's exchange rate makes everything from bike mechanics to post-race celebrations extraordinarily affordable."
+      }
+    },
+    "biased_opinion": {
+      "verdict": "The World's Highest Gran Fondo in Cycling's Most Passionate Country",
+      "summary": "GFNY Bogota is what happens when you take a franchise gran fondo template and drop it into one of cycling's spiritual homelands at an altitude that reduces your VO2max by 20% before you even clip in. The course itself is straightforward — paved roads, moderate gradients, 100 km — but the 2,650m starting elevation transforms every watt into an existential negotiation with the atmosphere. You warm up inside a salt cathedral carved from a mountain, emerge into the Andean dawn in Egan Bernal's hometown, and climb into mountains where the air gets noticeably thin. The Colombian cycling culture does the rest: crowds that actually care, a nation that treats cyclists as heroes, and a post-race atmosphere that feels earned in a way that manufactured expo-village celebrations never do. The franchise format is the ceiling — this is still a GFNY satellite, not a standalone institution — but the Colombian setting is the floor, and that floor is higher than most events' ceilings.",
+      "strengths": [
+        "Extreme altitude: 2,650m start, racing above 3,000m — the single most impactful physiological challenge in mass-participation road cycling",
+        "Salt Cathedral start: beginning a race 200m underground inside a UNESCO-heritage salt mine is a once-in-a-lifetime moment",
+        "Colombian cycling culture: racing in Egan Bernal and Efrain Forero's hometown, surrounded by cycling-obsessed crowds",
+        "Exceptional affordability: Colombia's cost of living makes this one of the cheapest destination gran fondos on earth",
+        "Andean scenery: Subachoque valley views, highland eucalyptus forests, and the green rolling hills of Cundinamarca"
+      ],
+      "weaknesses": [
+        "Franchise format: GFNY Bogota is a satellite event, not a standalone institution — the deepest competition is at GFNY NYC",
+        "Course distance is modest: 101 km is a mid-length gran fondo, even accounting for altitude amplification",
+        "Zero technical demands: paved roads throughout — the course challenges your lungs, not your handling",
+        "Two-step logistics: Bogota airport is easy, but transferring to Zipaquira with a bike adds friction",
+        "Altitude is a barrier to entry: sea-level riders without acclimatization will have a miserable experience regardless of fitness"
+      ],
+      "bottom_line": "GFNY Bogota is the gran fondo that will humble you. Not with distance, not with technicality, not with gradient — with atmosphere, and not the kind you feel at the finish line. The atmosphere that's 27% thinner than what your lungs expect. If you've never raced above 2,500m, this event will recalibrate your understanding of effort. If you have, you know this is the real thing. Add the Salt Cathedral start, Egan Bernal's hometown, and a cycling culture that makes the Belgians look casual, and you have an event that transcends its franchise format."
+    },
+    "final_verdict": {
+      "score": "73 / 100",
+      "one_liner": "Start inside a salt cathedral. Climb into the thin Andean air above 3,000 meters. Race where Egan Bernal learned that oxygen is optional.",
+      "should_you_race": "Yes if you want to experience the world's highest gran fondo and test yourself at extreme altitude. Yes if Colombian cycling culture — the passionate crowds, the heritage of Bernal and Quintana and Forero — means something to you. Yes if you want a destination gran fondo that costs half of what European events charge. Skip if you haven't acclimatized to altitude and don't plan to arrive early — sea-level fitness is worthless above 3,000m. Skip if you want technical terrain, gravel, or a course that challenges handling. Skip if you need a massive international field.",
+      "alternatives": "If you want a GFNY with sea-level oxygen and the deepest field: GFNY New York (World Championship). If you want Colombian cycling without the franchise format: Vuelta a Colombia or Gran Fondo Bogota (UCI qualifier, December). If you want high-altitude road cycling in Latin America: L'Etape du Tour Colombia or Gran Fondo Antioquia. If you want a GFNY in Latin America without altitude: GFNY Cozumel.",
+      "alternative_slugs": [
+        "gfny-new-york",
+        "gfny-cozumel",
+        "letape-brazil"
+      ]
+    },
+    "logistics": {
+      "airport": "Bogota El Dorado International Airport (BOG) — Colombia's primary hub with direct flights from Miami, Houston, Dallas/Fort Worth, New York (JFK/EWR), Atlanta, Los Angeles, Madrid, and dozens of Latin American cities. Major carriers include Avianca, LATAM, Copa, American, Delta, United, Spirit, and Wingo. From BOG, Zipaquira is approximately 50 km (1 hour) north via taxi, private transfer, or race-organized transport. TransMilenio bus service also connects Bogota to Zipaquira but is impractical with bike luggage.",
+      "lodging_strategy": "Most riders stay in Bogota and transfer to Zipaquira on race morning or the night before. Bogota offers hotels at every price point from $30/night hostels to $150+ premium properties in Usaquen or the Zona T. Zipaquira has limited hotel options — a handful of boutique hotels and guesthouses near the colonial center. For race logistics, staying in Zipaquira the night before eliminates the early-morning transfer gamble. Race organizers offer bike transport packages (120,000-600,000 COP) from Bogota and the airport to the race venue. Book transfers in advance — race-morning demand is high.",
+      "food": "Colombian cuisine: ajiaco (chicken and potato soup, a Bogota specialty), bandeja paisa, empanadas, arepas, and abundant fresh tropical fruit. Zipaquira has restaurants around the Plaza de la Independencia. Bogota's dining scene is world-class and affordable — from street food at $2-3 to fine dining at $30-40. Pre-race carb-loading is easy with rice, potatoes, and bread staples. At altitude, digestion can be sluggish — eat lighter than you would at sea level. Hydration is critical: altitude increases respiratory water loss significantly.",
+      "packet_pickup": "Expo and mandatory packet pickup at Plaza de la Independencia, Zipaquira. Friday before race day (your flight must land by 11 AM or you risk missing pickup). No race-day pickup available — you cannot start without your race materials. The expo includes sponsors, bike brands, and GFNY merchandise. Saturday includes a traditional group ride with pros.",
+      "parking": "Limited parking in Zipaquira's colonial center. Race organizers may designate parking areas. Most international riders arrive via organized transport from Bogota. If driving, arrive early — race-morning roads around the Salt Cathedral are closed for staging.",
+      "official_site": "https://bogota.gfny.com/"
+    },
+    "history": {
+      "founded": 2015,
+      "founder": "GFNY / Uli Fluhme (GFNY series founder) and Juan Carlos Martinez (local organizer)",
+      "origin_story": "GFNY Colombia launched in April 2015 as one of the first international expansion events for the Gran Fondo New York series, branded as CRM GFNY Colombia. The event was the brainchild of GFNY CEO Uli Fluhme and Colombian organizer Juan Carlos Martinez, who saw an opportunity to bring the world's first competitive gran fondo format to one of cycling's most passionate countries. Colombia — home to Lucho Herrera, Nairo Quintana, and the rising Egan Bernal — had a deep cycling culture but lacked a mass-participation international cycling event. The inaugural edition started in Bogota at 2,640m and climbed to over 3,350m, immediately establishing it as the world's highest gran fondo. Early editions were based around La Cuchilla mountain near Guatavita, with the long route summiting at 3,365m. By the 3rd edition in 2017, the event sold out at 1,800 places and attracted 1,700 starters — making it the largest cycling race in Colombian history at the time. The course evolved in 2023 when the start moved to the Salt Cathedral of Zipaquira, Egan Bernal's hometown, adding a dramatic underground start and shifting the primary climb to El Aguila. The event has run 8+ editions through varying COVID disruptions and continues as a cornerstone of the GFNY World series calendar.",
+      "notable_moments": [
+        "2015: Inaugural CRM GFNY Colombia — the world's highest gran fondo launches in Bogota, finishing above 3,350m",
+        "2017: 3rd edition sells out at 1,800 places; 1,700 starters and 1,378 finishers make it Colombia's largest cycling race",
+        "2017: Camila Cortes adds to her GFNY dynasty with another dominant women's victory, eventually collecting 8 GFNY titles",
+        "2022: 6th edition returns to a new Guatavita-based course — 121 km, 2,565m climbing, tackling La Cuchilla twice",
+        "2023: 7th edition moves start to Salt Cathedral of Zipaquira (Egan Bernal's hometown) — 101.1 km, 2,321m climbing, hilltop finish at El Aguila",
+        "2023: 1,000+ participants race above 3,000m from inside Colombia's most iconic landmark",
+        "2025: UCI Gran Fondo Bogota qualifier launches separately (December 7, 2025), with 1,500 cyclists racing a 128 km route"
+      ],
+      "reputation": "The altitude gran fondo. GFNY Bogota's identity is inseparable from its elevation — starting at 2,650m and racing above 3,000m puts it in a physiological category that no other mass-participation road event can match. The Colombian cycling culture elevates it beyond a standard GFNY franchise event. Riders come for the altitude challenge and stay for the cultural immersion."
+    },
+    "course_description": {
+      "character": "A high-altitude road race that uses moderate gradients and paved Colombian mountain roads to deliver a physiological challenge that the course profile alone cannot explain. The route starts inside the Salt Cathedral of Zipaquira at 2,650m — an underground cavern carved from a salt mountain — before climbing through the Cundinamarca highlands to summits above 3,000m. The terrain is not technically demanding and the gradients are not extreme by European standards, but every effort is amplified by the 27% reduction in available oxygen. A 3.3% average gradient at 3,000m delivers the suffering of a 6% climb at sea level. The course rewards acclimatized climbers, punishes sea-level sprinters, and humbles everyone who arrives thinking fitness alone will suffice.",
+      "suffering_zones": [
+        {
+          "mile": 0,
+          "label": "Salt Cathedral Tunnel Start",
+          "desc": "The race begins 200 meters underground inside the Salt Cathedral of Zipaquira. Riders warm up in the atmospheric cavern with music and colored lights reflecting off rock-salt walls. The controlled tunnel exit covers the first 4 km — rolling out from darkness into the Andean dawn. It's theatrical, otherworldly, and serves as a reminder that nothing about this event is normal. The altitude is already working on you at 2,650m, but the adrenaline of the start masks it. That's temporary.",
+          "terrain_detail": "Underground salt mine tunnel to controlled road start, paved, 2,650m elevation",
+          "named_section": "Catedral de Sal"
+        },
+        {
+          "mile": 2.5,
+          "label": "Bogota Savanna — Zipaquira to Cajica",
+          "desc": "The first 20 km are flat to gently rolling through the highland savanna north of Bogota. The road heads toward the municipality of Cajica before returning to Zipaquira. Groups form here, and the pace is deceptively fast on the flat roads. The altitude is already costing you 15-20% of your VO2max, but on flat terrain the deficit feels manageable. Enjoy it — this is the last time riding will feel normal today.",
+          "terrain_detail": "Flat to rolling paved roads, highland savanna, 2,600-2,700m elevation",
+          "named_section": "The Savanna"
+        },
+        {
+          "mile": 12.5,
+          "label": "Zipaquira Urban Circuit",
+          "desc": "The route threads through Zipaquira's urban streets before looping back through town. Rolling terrain with some short rises. The colonial architecture and local crowds lining the streets give this section character. At km 33, the course hooks right onto Calle 17 and everything changes.",
+          "terrain_detail": "Urban paved roads, rolling terrain, colonial town setting, 2,650m elevation",
+          "named_section": "Zipaquira Town Loop"
+        },
+        {
+          "mile": 20.5,
+          "label": "The 9.9% Wall",
+          "desc": "A short but brutal 500-meter ramp at 9.9% gradient. At sea level, this would be a 30-second power surge. At 2,700m, it's a gasping, leg-burning reminder that gradient means something different when the air is thin. This is the appetizer before the main course. Riders who attack here will pay for it on the Aguila. Riders who survive it comfortably are acclimatized. Riders who crack are in for a very long afternoon.",
+          "terrain_detail": "Steep paved ramp, 500m at 9.9% gradient, ~2,700m elevation",
+          "named_section": "The Wall (Calle 17)"
+        },
+        {
+          "mile": 21,
+          "label": "Aguila via Zipa — The Main Event",
+          "desc": "The defining climb: 15 km at 3.3% average gradient with 523 meters of elevation gain. By European standards, this is a gentle mountain pass. At 2,800-3,200m altitude, it's a sustained threshold effort that empties your reserves with surgical precision. The road climbs through eucalyptus forests with views over the Subachoque river valley. The air thins noticeably as you pass 3,000m. Breathing becomes audible. Heart rate drifts upward despite steady power. Riders from sea level who haven't acclimatized will experience the full altitude penalty here: dizziness, nausea, tunnel vision. The official timing ends at the summit. For the medium course, this is where you turn around.",
+          "terrain_detail": "15 km sustained mountain climb, 3.3% average gradient, 523m gain, 2,800-3,200m+ elevation, paved",
+          "named_section": "El Aguila"
+        },
+        {
+          "mile": 30,
+          "label": "Descent and Return",
+          "desc": "Long-course riders continue over the summit and descend toward the municipality of Pacho. The descent is fast and provides physical relief but demands concentration — cold air at altitude, potentially wet roads, and fatigued hands on the brakes. The return leg adds additional climbing before the route circles back to Zipaquira for the finish at the Plaza de la Independencia. The total damage: 101 km and 2,321m of climbing, all above 2,600m.",
+          "terrain_detail": "Fast paved descent from summit, return climbing, finish in Zipaquira, 2,600-3,200m elevation range",
+          "named_section": "The Return"
+        }
+      ],
+      "signature_challenge": "Altitude. Not the climbing gradient, not the distance, not the technical terrain — the air. GFNY Bogota starts at 2,650m and races above 3,000m. At these elevations, atmospheric oxygen is 25-30% lower than sea level, your VO2max drops 15-25%, and physiological systems that function flawlessly at sea level begin to fail. Heart rate creeps higher at the same power output. Lactate accumulates faster. Recovery between efforts takes longer. A 3.3% gradient that you'd spin up at sea level becomes a gasping, vision-narrowing ordeal. The course doesn't need steep grades or long distances to destroy you — it has physics. No amount of sea-level fitness compensates for unacclimatized lungs at 3,000 meters."
+    },
+    "guide_variables": {
+      "race_name": "GFNY Bogota",
+      "race_distance": "101 km (63 miles)",
+      "race_elevation": "2,321 meters (7,614 feet)",
+      "race_date": "Late April / Early May",
+      "race_location": "Zipaquira, Cundinamarca, Colombia",
+      "race_terrain": "Paved Colombian mountain roads with sustained climbing at extreme altitude",
+      "race_weather": "Cool highland (8-18C / 46-64F), intense equatorial UV, possible afternoon rain, moderate humidity",
+      "race_challenges": [
+        "Extreme altitude: 2,650m start, racing above 3,000m — oxygen availability is 73-75% of sea level",
+        "Altitude-amplified climbing: moderate gradients feel 50-80% harder than equivalent grades at sea level",
+        "VO2max reduction of 15-25% — your sea-level FTP is irrelevant above 2,600m without acclimatization",
+        "Temperature swings from cold tunnel start to potential sun exposure at summit",
+        "Respiratory water loss at altitude increases dehydration risk beyond what humidity readings suggest"
+      ],
+      "altitude_section": true,
+      "altitude_feet": 8694
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Altitude acclimatization protocol — arrive minimum 3-5 days early",
+        "by_when": "Week 1 of race week",
+        "why": "Racing at 2,650-3,200m with sea-level acclimatization is physiologically reckless. Your VO2max drops 15-25%, lactate threshold plummets, and altitude sickness symptoms (headache, nausea, dizziness) can onset within hours of arrival. Arrive in Bogota (2,640m) at least 3-5 days before the race to allow partial acclimatization. Spend the days riding easy at altitude — not testing fitness, acclimatizing. If you can arrange altitude training or a pre-camp in Colombia 2-3 weeks before, the benefit is exponential. Altitude tents or simulated altitude training at home (if available) provide meaningful preparation."
+      },
+      {
+        "requirement": "Altitude-adjusted pacing strategy — plan for 15-25% power reduction",
+        "by_when": "Race day",
+        "why": "Your sea-level FTP is a fiction above 2,600m. Plan to ride at 75-85% of your sea-level power zones for sustained efforts. The Aguila climb will tempt you to push early — the gradient is gentle, the legs feel fresh, the group is moving fast. Ignore all of it. At 3,000m, going into the red zone means you don't come back. The altitude debt compounds: once you cross your lactate threshold at altitude, the recovery time is dramatically longer than at sea level. Pace for the air, not the gradient."
+      },
+      {
+        "requirement": "Layered clothing system for temperature swings",
+        "by_when": "Race morning",
+        "why": "The start inside the Salt Cathedral is cool (~12-15C underground). The early-morning road temperatures can be 8-10C. As you climb above 3,000m, wind chill drops the effective temperature further. The descent off the summit demands arm warmers and a vest minimum. But the equatorial sun, when it appears, heats exposed skin rapidly — sunburn at altitude is severe because UV intensity increases approximately 10% per 1,000m of elevation. Pack arm warmers, a vest, and high-SPF sunscreen. You'll use all of them."
+      },
+      {
+        "requirement": "Aggressive hydration beginning 48 hours pre-race",
+        "by_when": "Two days before the race",
+        "why": "Altitude accelerates dehydration through two mechanisms: increased respiratory rate (you breathe harder, losing more water vapor) and reduced thirst sensation (your body's thirst response is blunted at altitude). Combined, these mean you'll lose more fluid than you feel and drink less than you need. Begin aggressive hydration 48 hours before the race. On race day, drink earlier and more than your sea-level habits dictate. By the time you feel thirsty at 3,000m, you're already significantly dehydrated."
+      }
+    ],
+    "citations": [
+      {
+        "url": "https://bogota.gfny.com/",
+        "title": "GFNY Bogota — Official Site",
+        "category": "official"
+      },
+      {
+        "url": "https://bogota.gfny.com/course/?lang=en",
+        "title": "GFNY Bogota — Course Details",
+        "category": "official"
+      },
+      {
+        "url": "https://bogota.gfny.com/schedule-of-events/?lang=en",
+        "title": "GFNY Bogota — Schedule of Events",
+        "category": "official"
+      },
+      {
+        "url": "https://bogota.gfny.com/getting-here/?lang=en",
+        "title": "GFNY Bogota — Getting Here",
+        "category": "official"
+      },
+      {
+        "url": "https://gfny.com/7th-gfny-colombia-bogota-this-sunday/",
+        "title": "7th GFNY Colombia Bogota — GFNY World",
+        "category": "official"
+      },
+      {
+        "url": "https://gfny.com/gfny-returns-to-colombia-for-6th-gfny-bogota/",
+        "title": "GFNY Returns to Colombia for 6th GFNY Bogota — GFNY World",
+        "category": "official"
+      },
+      {
+        "url": "https://gfny.com/gfny-announces-gfny-bogota/",
+        "title": "Race up La Cuchilla at GFNY Bogota — GFNY World",
+        "category": "official"
+      },
+      {
+        "url": "https://gfny.com/gfny-colombia-is-back/",
+        "title": "GFNY Colombia is Back — GFNY World",
+        "category": "official"
+      },
+      {
+        "url": "https://www.copaci.org/en/gfny-bogota-2023-everything-ready-to-welcome-more-than-1000-participants/",
+        "title": "GFNY Bogota 2023: Everything Ready for 1,000+ Participants — COPACI",
+        "category": "review"
+      },
+      {
+        "url": "https://www.granfondo.com/cycling-reports/522423/crm-gfny-colombia-hitting-the-heights-in-a-cycling-hotbed",
+        "title": "CRM GFNY Colombia: Hitting the Heights in a Cycling Hotbed — GranFondo.com",
+        "category": "review"
+      },
+      {
+        "url": "https://www.granfondo.com/cycling-news/534065/gfny-colombia-sets-record-with-1700-riders",
+        "title": "GFNY Colombia Sets Record With 1,700 Riders — GranFondo.com",
+        "category": "review"
+      },
+      {
+        "url": "https://www.endurancesportswire.com/racing-high-at-6th-gfny-colombia-bogota-this-sunday/",
+        "title": "Racing High at 6th GFNY Colombia Bogota — Endurance Sportswire",
+        "category": "review"
+      },
+      {
+        "url": "https://pezcyclingnews.com/amp/newswire/crm-gfny-colombia-the-worlds-highest-gran-fondo/",
+        "title": "CRM GFNY Colombia — The World's Highest Gran Fondo — PezCycling News",
+        "category": "review"
+      },
+      {
+        "url": "https://granfondodailynews.com/2025/12/07/uci-gran-fondo-colombia-results-bogota-hosts-world-championship-qualifier/",
+        "title": "UCI Gran Fondo Colombia Results: Bogota Hosts 2026 World Championship Qualifying Race — Gran Fondo Daily",
+        "category": "review"
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "high",
+      "validation_status": "validated",
+      "research_strength": "A",
+      "sources_count": 14,
+      "last_updated": "2026-02-27"
+    }
+  }
+}

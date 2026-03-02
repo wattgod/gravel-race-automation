@@ -1,0 +1,315 @@
+{
+  "race": {
+    "name": "Granfondo Via del Sale",
+    "slug": "granfondo-via-del-sale",
+    "display_name": "Granfondo Via del Sale",
+    "tagline": "The Salt Road. From Cervia's ancient salt pans to the Romagna hills. Pantani showed up at the first one.",
+    "vitals": {
+      "distance_mi": 97,
+      "elevation_ft": 7260,
+      "location": "Cervia, Emilia-Romagna, Italy",
+      "location_badge": "CERVIA, ITALY",
+      "date": "Late March",
+      "date_specific": "2026: March 29 (29th edition)",
+      "terrain_types": [
+        "Paved Italian provincial roads",
+        "Adriatic coastal roads",
+        "Rolling Romagna hills (max 18%)",
+        "Flat plains between climbs"
+      ],
+      "field_size": "~4,500 riders",
+      "start_time": "7:00 AM (Bike Breakfast at 6:30 AM — free coffee on the grid)",
+      "registration": "Online via granfondoviadelsale.com or ENDU. Standard entry EUR35. VIP grid (bib 11-20) EUR300. VIP grid (bib 1-5) EUR1,000. Black Friday early-bird EUR30 (first 100 registrants).",
+      "prize_purse": "None (timed event with age-group rankings, finisher certificates)",
+      "aid_stations": "Feed zones at strategic points along the route. Italian gran fondo standard: water, energy food, fruit. The organization is experienced after 29 editions.",
+      "cutoff_time": "Time limits enforced at intermediate checkpoints. Broom wagon coverage.",
+      "lat": 44.264,
+      "lng": 12.348,
+      "distance_options": [
+        "Gran Fondo: 156 km (97 mi), 2,213 m gain — full route with all climbs including Santa Maria Riopetra and Ciola",
+        "Medio Fondo: 100 km (62 mi), 971 m gain — manageable challenge with Monte Cavallo"
+      ],
+      "entry_fee": "EUR35 (standard)"
+    },
+    "climate": {
+      "primary": "Late March Adriatic coast — cool spring transition with peak wind season",
+      "description": "Late March in Cervia marks the transition from winter to spring. Temperatures range from 7-13C (45-56F), with cool mornings and mild afternoons. March is the windiest month on this stretch of the Adriatic coast — the cold bora wind from Eastern Europe can blow in gusts. Rain is possible but not dominant. The early-season timing means riders should prepare for variable conditions: cool, potentially windy, with a chance of rain. Not extreme Alpine cold, but the wind factor is genuine.",
+      "challenges": [
+        "March is the windiest month on the Adriatic coast — bora gusts from eastern Europe",
+        "Cool morning start: 7-10C at the Adriatic coast",
+        "Variable spring weather — dress in layers",
+        "Wind exposure on the flat coastal sections before and after the hills"
+      ]
+    },
+    "terrain": {
+      "primary": "Paved Italian provincial roads from the Adriatic coast through Romagna hills",
+      "surface": "All paved throughout. Well-maintained Italian provincial roads through the Emilia-Romagna countryside. The route starts flat from Cervia at sea level, heads inland into the Romagna hills, and returns to the coast. Road quality is generally good. The terrain transitions from flat coastal plains to rolling hills with some punchy gradients up to 18%.",
+      "technical_rating": 2,
+      "features": [
+        "Monte Cavallo (438m) — 9 km climb, 6% average gradient, max 14%. First major selection point on both routes",
+        "Santa Maria Riopetra — 10 km climb, 6% average, max 18%. The steepest gradient on the course (long route only)",
+        "Ciola (557m) — 9 km climb, 7% average, max 10%. Sustained effort at the route's highest point (long route only)",
+        "Cima Pantani (Montevecchio) — 373m gain over 4 km, max 14%. The emotional heart of the race — 'VAI MARCO... FORZA PIRATA' painted on the road",
+        "Paderno-Collinello — 7% average, sections to 15%. The timed climb; last hill before 32 km of flat back to Cervia",
+        "Formignano — 2.7 km, 7.5% average, max 14%. Short, sharp sting"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 60,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "logistics": 4,
+      "length": 3,
+      "technicality": 2,
+      "elevation": 3,
+      "climate": 2,
+      "altitude": 1,
+      "adventure": 3,
+      "prestige": 3,
+      "race_quality": 3,
+      "experience": 3,
+      "community": 3,
+      "field_depth": 2,
+      "value": 4,
+      "expenses": 3,
+      "cultural_impact": 3,
+      "tier_note": "A well-established Italian gran fondo with 29 editions, a Pantani connection, and excellent value. prestige=3 — no prestige override applies. Score of 60 places it precisely at the T2 threshold.",
+      "score_note": "cultural_impact=3 for 29 years of continuous operation, salt road history from Etruscan times, Pantani's famous first-edition appearance, and Cima Pantani homage. prestige=3 — well-known in Italian cycling but limited global recognition compared to Maratona, Nove Colli, or L'Etape. altitude=1 — highest point 557m, altitude is irrelevant. value=4 — EUR35 entry fee is remarkably cheap for a well-organized GF. Sum of 14 criteria = 39, cultural_impact = 3, total = 42. Score = round((42/70)*100) = 60.",
+      "editorial_tier": 2,
+      "editorial_tier_label": "TIER 2",
+      "business_tier": 2,
+      "business_tier_label": "TIER 2",
+      "display_tier": 2,
+      "display_tier_label": "TIER 2",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 4,
+        "explanation": "Cervia is well-connected for a mid-size Italian town. Rimini airport is 25 minutes away with budget airline connections across Europe. Bologna airport is 1.5 hours with broader international service. Forli is 30 minutes with limited flights. The Adriatic coast has abundant accommodation at reasonable pre-season rates. Start and finish are in the same location — no point-to-point transfer logistics. Twenty-nine years of organizational experience from Sportur and Fantini Club means race-day logistics are well-rehearsed."
+      },
+      "length": {
+        "score": 3,
+        "explanation": "156 km (97 mi) for the Gran Fondo with 2,213m of climbing is a demanding day but not ultra-distance. The Medio Fondo at 100 km provides a meaningful shorter alternative. The challenge is proportionate: not a 200 km marathon like Nove Colli, not a short sharp sportive either. The climbing is concentrated in the middle section, with flat coastal sections at the start and finish. Most riders finish in 5-7 hours."
+      },
+      "technicality": {
+        "score": 2,
+        "explanation": "All paved throughout. The steep gradients — up to 18% on Santa Maria Riopetra — create a form of technical demand that flat-road riders do not encounter. Holding a line and maintaining traction on an 18% gradient requires bike control. The descents from the Romagna hills are narrow and winding. But there are no cobblestones, no unpaved sections, no extreme technical challenges. The technicality is limited to gradient management."
+      },
+      "elevation": {
+        "score": 3,
+        "explanation": "2,213m (7,260ft) of climbing for the long route across multiple named climbs. The hills are not Alpine monsters — the longest is 10 km (Santa Maria Riopetra) and the highest point is 557m. But the cumulative effect of Monte Cavallo, Santa Maria Riopetra, Ciola, Cima Pantani, Paderno-Collinello, and Formignano across 156 km creates a genuinely demanding climbing day. Not 3,800m like Nove Colli or 5,000m+ like Maratona, but the steep gradients (up to 18%) make every meter count."
+      },
+      "climate": {
+        "score": 2,
+        "explanation": "Late March on the Adriatic coast of Italy is not extreme — temperatures of 7-13C are cool but manageable. The genuine climate challenge is wind: March is the windiest month in Cervia, with the cold bora from eastern Europe capable of turning flat coastal sections into headwind battles. Rain is possible but not the dominant concern. Compared to Alpine events at altitude or monsoon-season races, the climate challenge is moderate — but the wind can make a meaningful difference to the experience."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "The highest point on the route is 557m above sea level at Ciola. Altitude is completely irrelevant. These are Romagna foothills, not Apennine passes. Oxygen levels are identical to sea level. No acclimatization needed. No altitude-related physiological challenges."
+      },
+      "adventure": {
+        "score": 3,
+        "explanation": "The route has a compelling narrative: following the ancient salt road from Cervia's salt pans into the hills where salt miners once delivered their cargo. The salt pans themselves — dating to Etruscan times — are a genuine historical landscape. The Romagna hills are charming: rolling green countryside, stone villages, vineyards. Cima Pantani with its painted road ('VAI MARCO... FORZA PIRATA') is an emotional landmark. But this is not the Dolomites or the Stelvio. The scenery is pleasant and culturally rich, not geographically spectacular."
+      },
+      "prestige": {
+        "score": 3,
+        "explanation": "Twenty-nine editions make this a well-established event in the Italian gran fondo calendar. The Pantani connection — his surprise appearance at the first edition in 1997 — gives it a unique piece of cycling folklore. Cima Pantani is a recognized landmark in Italian amateur cycling. Within the Italian scene, the Via del Sale is respected. But globally, it lacks the recognition of Nove Colli (the original GF), Maratona dles Dolomites (the most coveted), or the pro-race sportives (Strade Bianche, Paris-Roubaix Challenge). A solid regional event, not a bucket-list destination."
+      },
+      "race_quality": {
+        "score": 3,
+        "explanation": "Twenty-nine years of organizational refinement from Sportur and the Fantini Club partnership. The event is timed with age-group rankings. Feed zones are well-managed. The bike breakfast tradition — free coffee on the grid at 6:30 AM — is a warm Italian touch. Road closures and safety measures are reliable. The event expo and cycling festival add pre-race atmosphere. Competent and warm-hearted, but not the polished production of the biggest Italian GFs."
+      },
+      "experience": {
+        "score": 3,
+        "explanation": "Starting from Cervia's seafront, riding past the ancient salt pans, climbing into the Romagna hills, and hitting Cima Pantani with its painted encouragement to Il Pirata — the narrative arc is strong. The views from the hilltops across the Romagna countryside toward the distant Apennines are genuine. The return descent to the Adriatic coast and the finish in Cervia is a satisfying closure. But the individual moments do not reach the transcendence of Alpine summits or Dolomite passes. A deeply enjoyable Italian cycling day, not a life-changing one."
+      },
+      "community": {
+        "score": 3,
+        "explanation": "Approximately 4,500 riders create a festive atmosphere rooted in Italian cycling culture. The bike breakfast, the Romagna hospitality, and the shared Pantani reverence create genuine warmth. The event draws predominantly from the Italian cycling community, with a growing international contingent. The cycling festival that accompanies the event adds social dimension. But the field is smaller than the mega-GFs (Nove Colli at 10,000, Maratona at 9,000), and the community, while warm, is more regional than global."
+      },
+      "field_depth": {
+        "score": 2,
+        "explanation": "The field is predominantly Italian amateur riders — competitive at the front with Italian gran fondo culture's characteristic intensity, but limited international draw. Age-group competition is taken seriously, and the timed climbs (particularly Paderno-Collinello) create genuine racing dynamics. But with 4,500 riders and limited global visibility, the field depth is modest compared to the marquee Italian GFs."
+      },
+      "value": {
+        "score": 4,
+        "explanation": "EUR35 for a well-organized gran fondo with 156 km of riding, multiple timed climbs, feed zones, age-group rankings, and a cycling festival is exceptional value. This is roughly one-third the cost of comparable Italian GFs like Nove Colli (EUR99-110) or Maratona (EUR100+). Even the VIP grid options (EUR300-1,000) are in line with normal entry fees elsewhere. The cost-to-experience ratio is among the best in European gran fondos."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Cervia is an Adriatic beach town — accommodation is affordable in late March (pre-season). Hotels run EUR60-120/night. Rimini airport is 25 minutes away with budget airline connections. Bologna provides wider international service at 1.5 hours. Italian food is outstanding and reasonably priced in this region. Budget EUR600-1,200 from Europe for a 3-4 day trip. Not the cheapest cycling destination, but well below Alpine resort pricing."
+      }
+    },
+    "biased_opinion": {
+      "verdict": "The Salt Road",
+      "summary": "The Granfondo Via del Sale traces the ancient route of Cervia's salt miners — from the Adriatic coast's salt pans into the Romagna hills. Twenty-nine editions, a famously low entry fee, and the legend of Marco Pantani showing up unannounced at the first race in 1997. The climbs are not Alpine — Monte Cavallo at 438m, Ciola at 557m — but gradients reach 18% on Santa Maria Riopetra, and Cima Pantani on Montevecchio has 'VAI MARCO... FORZA PIRATA' painted on the road where the champion once rode. This is a solid Italian gran fondo at an exceptional price point, steeped in salt and cycling history.",
+      "strengths": [
+        "EUR35 entry fee — among the cheapest well-organized gran fondos in Europe",
+        "Pantani's surprise appearance at the 1997 first edition is genuine cycling folklore",
+        "Cima Pantani (Montevecchio) — 'VAI MARCO... FORZA PIRATA' painted on the tarmac",
+        "Salt road narrative: Etruscan-era salt pans to Romagna hill villages, historically grounded"
+      ],
+      "weaknesses": [
+        "Not Alpine grandeur — the hills top out at 557m with charming rather than spectacular scenery",
+        "Late March wind on the Adriatic coast can be harsh — bora gusts are a genuine factor",
+        "Limited international recognition compared to Nove Colli, Maratona, or L'Etape",
+        "Smaller field (~4,500) than the marquee Italian GFs, reducing the atmosphere density"
+      ],
+      "bottom_line": "The Via del Sale is the value play of Italian gran fondos. EUR35 buys you 156 km through the Romagna hills, a Pantani pilgrimage, and 29 years of organizational competence. The climbs are punchy and the wind is real. If you are in Italy in late March and want a proper road day without the lottery entry or three-figure price tag, this is your event. The salt miners knew the way."
+    },
+    "final_verdict": {
+      "score": "60 / 100",
+      "one_liner": "The Salt Road. From Cervia's ancient salt pans to the Romagna hills. Pantani showed up at the first one.",
+      "should_you_race": "Yes if you want an affordable, well-established Italian gran fondo with genuine historical narrative and a Pantani pilgrimage. Yes if punchy Romagna hills with 18% gradients at EUR35 sounds like your kind of value. Skip if you want Alpine spectacle — these are foothills, not mountains. Skip if you need a large international field — this is an Italian event for Italian cyclists.",
+      "alternatives": "If you want the original Italian GF: Nove Colli (200 km, 9 hills, Pantani's hometown). If you want Italian mountains: Maratona dles Dolomites (7 Dolomite passes). If you want a similar early-season Italian sportive: Gran Fondo Marco Pantani (Cesenatico, July). If you want the Romagna Pantani experience at a pro-race level: Strade Bianche Gran Fondo.",
+      "alternative_slugs": [
+        "nove-colli",
+        "maratona-dles-dolomites",
+        "gran-fondo-marco-pantani",
+        "strade-bianche-gran-fondo"
+      ]
+    },
+    "logistics": {
+      "airport": "Rimini (RMI) — 25 minutes (closest, budget airline connections across Europe). Bologna (BLQ) — 1.5 hours (wider international connections). Forli (FRL) — 30 minutes (very limited flights).",
+      "lodging_strategy": "Stay in Cervia — the start/finish town on the Adriatic coast. Late March is pre-season, so rates are very reasonable (EUR60-120/night). Hotels and apartments line the seafront. Book 2-4 months in advance for event weekend. Alternatively, Milano Marittima (adjacent to Cervia) offers slightly more upscale options. Rimini (25 min) has the widest hotel selection.",
+      "food": "Emilia-Romagna is Italy's culinary heartland. Piadina romagnola (flatbread with squacquerone cheese and prosciutto), passatelli in brodo, tagliatelle al ragu, and fresh Adriatic seafood. Carb loading is not a chore — it is a privilege. Cervia's restaurants along the seafront are excellent and reasonably priced in late March.",
+      "packet_pickup": "Event village in Cervia, Saturday before the race. The expo combines registration, sponsor village, and the Cervia Cycling Festival activities. Well-organized for 4,500 riders.",
+      "parking": "Cervia manages event parking in designated areas. The seafront area near the start/finish is closed for the event. Arrive the day before and park at your hotel.",
+      "official_site": "https://www.granfondoviadelsale.com/en/"
+    },
+    "history": {
+      "founded": 1997,
+      "founder": "Sportur (then BVC Sport) — linked a sports award with a cycling event, choosing Cervia as the start/finish point with routes inspired by the historical salt trade",
+      "origin_story": "The idea was born in spring 1996, when Sportur (then called BVC Sport) conceived of linking a sports award with a sports event. Cervia was chosen as the starting point because of its ancient salt pans — the 'Via del Sale' (Salt Road) was the historical route that salt miners traveled from the Adriatic coast into the Romagna hills to deliver salt to distant villages. The first edition took place on April 6, 1997, with 750 participants. Among them, unexpectedly, was Marco Pantani. A group of cyclists in unmistakable yellow jerseys arrived at the start line, and when asked if they could participate, one of them replied: 'They told me there is a race. I came with a group of friends. Can we do it too?' It was Il Pirata himself. That moment — Pantani showing up at a brand-new gran fondo — became founding mythology.",
+      "notable_moments": [
+        "1997: First edition — 750 riders. Marco Pantani arrives unannounced with friends and rides the inaugural race.",
+        "Growth from 750 to 4,500+ riders over 29 editions",
+        "Cima Pantani (Montevecchio) established as the emotional heart of the route — 'VAI MARCO... FORZA PIRATA' painted on the road",
+        "Fantini Club partnership elevates the event's hospitality and beach-club atmosphere",
+        "2026: 29th edition with redesigned routes — 156 km long, 100 km medium",
+        "Strade Bianche del Sale (gravel sister event) launched, expanding the cycling festival format"
+      ],
+      "reputation": "A well-established Italian gran fondo known for its historical salt road narrative, exceptional value, and the founding legend of Pantani's surprise appearance. Respected in the Italian cycling community as a reliable early-season event."
+    },
+    "course_description": {
+      "character": "A road gran fondo that traces the ancient salt trading route from the Adriatic coast into the Romagna hills. The route starts flat from Cervia at sea level, passes the historic salt pans, and heads inland through rolling countryside to a series of punchy climbs. The hills are not long — the longest is 10 km — but gradients reach 18%. The rhythm is distinctive: flat coastal start, progressive climbing through the Romagna foothills, emotional climax at Cima Pantani, a final timed climb, and 32 km of flat back to the Adriatic finish. The salt road runs both ways.",
+      "suffering_zones": [
+        {
+          "mile": 20,
+          "label": "Monte Cavallo — The First Selection",
+          "desc": "438m summit reached via 9 km of climbing at 6% average with pitches to 14%. This is the first significant climb on both routes and the point where the field separates. The gradient is honest: steep enough to demand gear selection, long enough to require pacing. The front of the race opens gaps here.",
+          "terrain_detail": "9 km, 438m summit, 6% avg, max 14%",
+          "named_section": "Monte Cavallo"
+        },
+        {
+          "mile": 45,
+          "label": "Santa Maria Riopetra — The Steepest Gradient",
+          "desc": "10 km of climbing at 6% average with a maximum gradient of 18% — the steepest section on the entire course. This climb is only on the long route. The 18% pitches are short but vicious, demanding your lowest gear and your strongest legs. The reward is the view from the summit across the Romagna hills.",
+          "terrain_detail": "10 km, 6% avg, max 18%",
+          "named_section": "Santa Maria Riopetra"
+        },
+        {
+          "mile": 60,
+          "label": "Ciola — The Highest Point",
+          "desc": "The route's ceiling at 557m, reached via 9 km of climbing at a steady 7% average. Maximum gradients are a manageable 10%, making this the most sustained and consistent climb on the course. No single savage pitch, just unrelenting upward progress. At 557m, you are as high as the Via del Sale goes — the salt road starts its return toward the sea.",
+          "terrain_detail": "9 km, 557m summit, 7% avg, max 10%",
+          "named_section": "Ciola"
+        },
+        {
+          "mile": 75,
+          "label": "Cima Pantani (Montevecchio) — The Emotional Heart",
+          "desc": "373m of elevation gain over 4 km with gradients reaching 14%. This is the climb where 'VAI MARCO... FORZA PIRATA' is painted on the tarmac — words that once encouraged Marco Pantani. Every rider who passes over these words is participating in a small act of cycling memory. The Grand Prix Via del Sale is awarded here. The gradient is fierce for 4 km, but the significance outweighs the suffering.",
+          "terrain_detail": "4 km, 373m gain, max 14%",
+          "named_section": "Cima Pantani — Montevecchio"
+        },
+        {
+          "mile": 85,
+          "label": "Paderno-Collinello — The Timed Climb",
+          "desc": "The official timed segment: 7% average gradient with sections reaching 15%. The last hill before 32 km of flat back to Cervia's seafront. This is where the race is decided on the clock. Legs that have already climbed 1,800+ meters across four previous ascents must now produce one more meaningful effort. The summit at approximately km 104 is the last high point before the coast.",
+          "terrain_detail": "7% avg, max 15%, timed segment",
+          "named_section": "Paderno-Collinello"
+        }
+      ],
+      "signature_challenge": "Cima Pantani on Montevecchio — not the longest or the steepest climb, but the one that matters. 373m of gain at up to 14% with Pantani's name painted on the road. The Grand Prix Via del Sale is awarded here. But the real challenge is cumulative: five distinct climbs across 156 km, with the timed segment at Paderno-Collinello coming after 85+ miles of riding. The salt road demands endurance, not just climbing power."
+    },
+    "guide_variables": {
+      "race_name": "Granfondo Via del Sale",
+      "race_distance": "97 miles",
+      "race_elevation": "7,260 feet",
+      "race_date": "March",
+      "race_location": "Cervia, Emilia-Romagna, Italy",
+      "race_terrain": "Paved Italian provincial roads — Adriatic coast to Romagna hills with climbs up to 18%",
+      "race_weather": "Late March Adriatic coast — cool (7-13C) with peak wind season, variable spring conditions",
+      "race_challenges": [
+        "2,213m of climbing across multiple named hills with gradients up to 18%",
+        "March wind — bora gusts on flat coastal sections can turn into headwind battles",
+        "Cumulative fatigue from 5+ climbs over 156 km with a timed segment near the end",
+        "Cool early-season temperatures requiring layering strategy"
+      ],
+      "altitude_section": false,
+      "altitude_feet": 0
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Steep gradient readiness — repeated efforts on 12-18% grades",
+        "by_when": "Week 6",
+        "why": "Santa Maria Riopetra hits 18% and Cima Pantani reaches 14%. Your normal climbing legs will not handle these gradients without specific preparation. Find your steepest local climb and repeat it. Gearing: bring at minimum a compact crank with a 34x32. If you only ride 4-6% gradients in training, these double-digit pitches will be a shock."
+      },
+      {
+        "requirement": "Wind management — sustained riding in crosswind and headwind conditions",
+        "by_when": "Week 5",
+        "why": "March is the windiest month on the Adriatic coast. The flat sections before and after the hills will expose you to bora gusts. Train in wind: practice holding an aero position, drafting efficiently in a group, and managing energy output when riding into a headwind. The 32 km flat return to Cervia can be brutal if the wind is up."
+      },
+      {
+        "requirement": "Multi-climb endurance — 4+ distinct climbs in a single training ride over 130+ km",
+        "by_when": "Week 8",
+        "why": "The timed segment at Paderno-Collinello comes after 85+ miles and four previous climbs. Your body needs to produce a race effort after hours of accumulated fatigue. Build toward a long training day with multiple climbs that simulates the ride pattern: flat start, concentrated climbing in the middle, flat finish. Nutrition strategy must be tested at this duration."
+      }
+    ],
+    "citations": [
+      {
+        "url": "https://www.granfondoviadelsale.com/en/",
+        "title": "Granfondo Via del Sale — Official Site",
+        "category": "official"
+      },
+      {
+        "url": "https://www.granfondoviadelsale.com/en/story-of-the-gran-fondo.php",
+        "title": "Story of the Gran Fondo Via del Sale — Official History",
+        "category": "official"
+      },
+      {
+        "url": "https://www.turismo.comunecervia.it/en/events/events-and-initiatives/sports-and-games/Granfondo-the-salt-way-sportur-bicycle-expo",
+        "title": "Granfondo Via del Sale — Cervia Tourism",
+        "category": "reference"
+      },
+      {
+        "url": "https://www.cycleclassictours.com/tours/road-cycling/gran-fondo-via-del-sale/",
+        "title": "Gran Fondo Via del Sale 2025 — Cycle Classic Tours",
+        "category": "review"
+      },
+      {
+        "url": "https://www.endu.net/en/events/granfondo-la-via-del-sale",
+        "title": "Granfondo Via Del Sale Fantini Club — ENDU",
+        "category": "reference"
+      },
+      {
+        "url": "https://www.elite-wheels.com/events/gran-fondo-via-del-sale-2025",
+        "title": "Gran Fondo Via del Sale Fantini Club 2025 — Elitewheels",
+        "category": "review"
+      },
+      {
+        "url": "https://www.salinadicervia.it/the-cervia-salt-pan",
+        "title": "Cervia Salt Pan — Salina di Cervia",
+        "category": "reference"
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "high",
+      "validation_status": "validated",
+      "research_strength": "A",
+      "sources_count": 7,
+      "last_updated": "2026-02-27"
+    }
+  }
+}

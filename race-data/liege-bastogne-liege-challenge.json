@@ -1,0 +1,384 @@
+{
+  "race": {
+    "name": "Liège-Bastogne-Liège Challenge",
+    "slug": "liege-bastogne-liege-challenge",
+    "display_name": "Liège-Bastogne-Liège Challenge",
+    "tagline": "La Doyenne's amateur sportive — 257km through the Belgian Ardennes, 4,500m of climbing, and every legendary côte that has defined Monument cycling since 1892.",
+    "vitals": {
+      "distance_mi": 160,
+      "elevation_ft": 14764,
+      "location": "Banneux, Belgium",
+      "location_badge": "BANNEUX, BELGIUM",
+      "date": "Late April annually",
+      "date_specific": "2026: April 25",
+      "terrain_types": [
+        "Paved roads (100%)",
+        "Steep côtes (10-20% gradients)",
+        "Ardennes rollers",
+        "Narrow descents"
+      ],
+      "field_size": "~8,000 riders across all distances",
+      "start_time": "Rolling start from 6:00 AM",
+      "registration": "Online registration via lblchallenge.be. Limited to 8,000. Early registration gets reduced pricing. Cost: ~€60-€95 depending on distance and registration phase",
+      "prize_purse": "None — amateur sportive",
+      "aid_stations": "5 feed zones on 257km route, 3 on 147km, 1 on 70km. Maurten nutrition, fruit, waffles, cookies. Frame plate chip required for supplies.",
+      "cutoff_time": "Not published — rolling start format",
+      "lat": 50.5458,
+      "lng": 5.7153,
+      "distance_options": [
+        "257 km (4,500m elevation)",
+        "147 km (2,650m elevation)",
+        "70 km (1,250m elevation)"
+      ],
+      "entry_fee": "€60-€95 depending on distance and registration phase"
+    },
+    "climate": {
+      "primary": "Belgian spring — unpredictable and often brutal",
+      "description": "Late April in the Ardennes means anything from 5°C rain and fog to 18°C sunshine, sometimes in the same ride. Expect 8-14°C average with 50%+ chance of precipitation.",
+      "challenges": [
+        "Cold rain (5-10°C with windchill)",
+        "High precipitation risk (50%+)",
+        "Exposed ridgelines in Ardennes valleys",
+        "Rapid temperature swings between valleys and summits",
+        "Wet descents on narrow roads"
+      ]
+    },
+    "terrain": {
+      "primary": "Paved Ardennes roads with punchy, steep côtes",
+      "surface": "100% paved Belgian roads. The challenge is not the surface — it's the gradient. Côtes regularly hit 10-15% with ramps over 20%. Short, savage climbs separated by rolling Ardennes terrain through dense forest and river valleys. The 257km route features 11+ classified climbs.",
+      "technical_rating": 2,
+      "features": [
+        "Côte de La Redoute (1.7km at 9% avg, 20%+ max)",
+        "Côte de la Roche-aux-Faucons (1.4km at 11.4%)",
+        "Côte de Saint-Nicolas (1.2km at 8.5%)",
+        "Côte de Stockeu (1.1km at 11.9%)",
+        "Côte de Wanne (3.6km at 5.1%)",
+        "Côte de Saint-Roch (1km at 11.2%)",
+        "Col du Rosier (4.5km at 5.9%)",
+        "Electronic chip timing on 3 iconic climbs",
+        "Narrow descent roads through Ardennes forests"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 79,
+      "tier": 1,
+      "tier_label": "TIER 1",
+      "logistics": 4,
+      "length": 5,
+      "technicality": 2,
+      "elevation": 4,
+      "climate": 3,
+      "altitude": 1,
+      "adventure": 4,
+      "prestige": 5,
+      "race_quality": 4,
+      "experience": 5,
+      "community": 4,
+      "field_depth": 3,
+      "value": 3,
+      "expenses": 3,
+      "cultural_impact": 5,
+      "tier_note": "Prestige override: p5 + score>=75 → T1. La Doyenne is the oldest Monument in cycling — the amateur sportive carries that weight.",
+      "score_note": "14-criteria sum=50, cultural_impact=5, total=55. (55/70)*100=78.57, rounded=79. Prestige 5 + score 79 >= 75 triggers T1 override.",
+      "editorial_tier": 1,
+      "editorial_tier_label": "TIER 1",
+      "business_tier": 1,
+      "business_tier_label": "TIER 1",
+      "display_tier": 1,
+      "display_tier_label": "TIER 1",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 4,
+        "explanation": "Golazo (the ASO-affiliate organizer) runs a tight ship for 8,000 riders. Rolling start windows mean you pick your departure time — no 6 AM cattle-pen chaos. Banneux is 25 minutes from Liège-Guillemins station and under 90 minutes from Brussels Airport. Feed zones every 40-50km are stocked with Maurten, waffles, fruit, and everything you'd expect from a Belgian sportive. Chip timing on La Redoute, Roche-aux-Faucons, and Saint-Nicolas gives you bragging data for years. The only friction is that this is Belgium — you're navigating Wallonian logistics in French, and the parking situation at Banneux on sportive morning requires early arrival."
+      },
+      "length": {
+        "score": 5,
+        "explanation": "The full 257km route is one of the longest one-day sportives in Europe. You're looking at 8-14 hours in the saddle depending on fitness, and that's not 257km of flat Flanders — it's 257km of constant Ardennes undulation with 4,500 meters of climbing woven in. The 147km and 70km options exist for a reason: most riders cannot finish the full distance. Even strong club riders describe the last 80km as a death march through legs that stopped cooperating somewhere around Stockeu."
+      },
+      "technicality": {
+        "score": 2,
+        "explanation": "This is road cycling on Belgian infrastructure — well-maintained asphalt throughout. The technical challenge is gradient management, not surface navigation. You need to know how to pace a 20% ramp without blowing up, and the descents off some côtes are narrow with sharp turns, but nobody is picking through rocks or navigating singletrack. Your road bike with 25-28mm tires is the correct tool. The difficulty here is physiological, not technical."
+      },
+      "elevation": {
+        "score": 4,
+        "explanation": "4,500 meters of elevation gain across the full route is serious work — comparable to a hard Alpine stage. But the Ardennes don't give you one big climb to pace yourself up. Instead, they deliver 11+ classified côtes that punch you in the legs with 10-20% ramps, let you recover just enough on a short descent, then punch you again. Côte de Stockeu hits 11.9% average over barely a kilometer. La Redoute averages 9% but spikes to 20%. Roche-aux-Faucons at 11.4% average comes when your legs are already destroyed. The accumulated damage is relentless."
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "Late April in the Belgian Ardennes is a weather lottery. You might get 15°C sunshine that makes you feel blessed to be alive on a bicycle. You might get 6°C sideways rain that makes you question every life decision. The 2024 edition saw temperatures around 10°C with intermittent rain — classic Belgian conditions. The Ardennes valleys create microclimates where you descend into fog and cold that the summits don't prepare you for. Pack arm warmers, a vest, a rain jacket, and accept that you might use all of them or none of them."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "The Ardennes plateau sits at roughly 400-600 meters above sea level. The highest point on the course barely touches 570m. There is zero altitude consideration here — your lungs will burn from gradient and accumulated fatigue, not thin air. Sea-level riders face no acclimatization concerns whatsoever."
+      },
+      "adventure": {
+        "score": 4,
+        "explanation": "You're riding the same roads where Eddy Merckx, Bernard Hinault, and Tadej Pogačar wrote cycling history. The route plunges through dense Ardennes forest, climbs out of river valleys, passes through villages that have watched cyclists suffer since 1892. At Bastogne, you touch the turnaround point that gives the race its name before beginning the brutal return north. The Ardennes landscape — thick forest, narrow valleys, stone-walled villages — creates a riding experience that feels timeless. It's not wilderness adventure. It's Monument pilgrimage."
+      },
+      "prestige": {
+        "score": 5,
+        "explanation": "Liège-Bastogne-Liège is La Doyenne — the oldest of the five Monuments, first raced in 1892. It is, alongside Paris-Roubaix, the most storied one-day race in professional cycling. The amateur Challenge sportive allows you to ride the same iconic climbs the day before the pros. When you crest La Redoute or grind up Saint-Nicolas, you're on the exact roads where Hinault attacked in the snow, where Contador launched from 70km out, where Pogačar soloed away. No sportive in cycling carries more historical weight per kilometer."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "Professional-grade organization from the same stable that runs the pro Monument. Electronic chip timing on three iconic climbs gives you segment data and video footage. Five well-stocked feed zones with Maurten products and Belgian waffles. Rolling start windows eliminate mass-start chaos. Course marshals and signage guide you through the Ardennes. The frame plate / chip deposit system (€5, refundable) ensures proper participant tracking. It's a step below the slickest US gran fondos in some logistical polish, but the course infrastructure and safety management are excellent."
+      },
+      "experience": {
+        "score": 5,
+        "explanation": "This is a cycling pilgrimage. You ride La Redoute — the most famous côte in cycling — and feel the ghosts of a century of suffering in your legs. You climb Roche-aux-Faucons and understand why it's the launchpad for Monument victories. You grind up the Côte de Saint-Nicolas past fans who will be screaming for the pros the next day. Then you finish in Banneux knowing you've completed one of the hardest sportives in Europe on the eve of one of the hardest races in professional cycling. The combination of historical resonance, physical challenge, and Belgian cycling culture creates an experience that no other sportive replicates."
+      },
+      "community": {
+        "score": 4,
+        "explanation": "Eight thousand riders create a massive peloton of amateur cycling passion. The field is heavily Belgian and Dutch — club riders who grew up watching La Doyenne on television and finally get to ride it themselves. The atmosphere in the Ardennes villages along the route ranges from enthusiastic locals offering water to full-blown party zones at the base of the major côtes. Post-ride at Banneux, the vibe is exhausted euphoria. This isn't the hyper-social American gravel scene — it's European cycling culture, more stoic, more reverent, but deeply communal."
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "This is an amateur sportive — no prize money, no pro contracts on the line. The field is strong club riders, dedicated amateurs, and cycling tourists making a pilgrimage. You'll find some genuinely fast Belgian and Dutch racers at the front of the rolling start, but this isn't a competitive race with podium implications. The depth comes from the sheer volume of experienced cyclists — 8,000 riders who self-selected for a 257km Monument sportive are not casual participants — but the competitive edge of a true race field is absent."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "At €60-95 for the entry fee, you're getting professional organization, chip timing on three iconic climbs, five feed zones, and the right to ride the oldest Monument in cycling. That's fair value. But the total cost of participation — flights to Belgium, lodging in the Liège area, ground transport — pushes the all-in price well north of what most domestic sportives cost. For European riders, particularly those in Belgium, Netherlands, and northern France, the value proposition is excellent. For international riders, the Monument experience justifies the spend, but you're paying for the pilgrimage."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Brussels Airport to Banneux is 90 minutes by car. Liège hotels run €80-150/night for race weekend. Car rental is the practical option for getting to Banneux and transporting your bike. Entry fee is €60-95. Add in meals, insurance (€14 optional), and the finisher T-shirt (€25), and a European-based rider is looking at €300-500 all-in for the weekend. North American riders should budget $1,500-2,500 including flights and bike transport. It's not cheap, but it's comparable to other European Monument sportives like Paris-Roubaix Challenge or L'Étape du Tour."
+      }
+    },
+    "biased_opinion": {
+      "verdict": "Monument Pilgrimage",
+      "summary": "The Liège-Bastogne-Liège Challenge is the amateur version of the oldest Monument in professional cycling — 257km through the Belgian Ardennes with 4,500m of climbing across the most famous côtes in the sport. You ride La Redoute, Roche-aux-Faucons, and Saint-Nicolas the day before Pogačar and the WorldTour peloton do the same. Eight thousand riders tackle three distance options on roads that have defined one-day racing since 1892. This is not a gravel race — it is a road cycling pilgrimage through the Ardennes, and it carries the full weight of La Doyenne's 130-year legacy.",
+      "strengths": [
+        "Oldest Monument in cycling: 130+ years of history on every kilometer of road",
+        "Iconic côtes: La Redoute, Roche-aux-Faucons, Stockeu, Saint-Nicolas — names that define professional cycling",
+        "Professional organization with chip timing on three signature climbs",
+        "Rides the day before the pro race — the Ardennes atmosphere is electric",
+        "Three distance options (70km, 147km, 257km) make it accessible without diluting the challenge",
+        "Belgian cycling culture at its finest — waffles at feed zones, fans on the côtes"
+      ],
+      "weaknesses": [
+        "Not a race — it's a timed sportive with rolling starts, which some competitive riders find unsatisfying",
+        "Late April Belgian weather is genuinely miserable 50% of the time — pack for rain and cold",
+        "International travel costs push the all-in budget significantly for non-European riders",
+        "The 257km distance is brutally long — many riders underestimate the accumulated damage of Ardennes côtes",
+        "Logistics are French-language dominant in Wallonia, which can frustrate English-only visitors"
+      ],
+      "bottom_line": "If you care about cycling history — if the names La Redoute, Roche-aux-Faucons, and La Doyenne mean something to you — this sportive is mandatory. You will suffer on the côtes. You will question your preparation on Stockeu. You will want to quit somewhere between Bastogne and the finish. And when you cross the line, you will understand why this race has endured for 130 years. The 257km distance is not for tourists. Show up fit, or choose the 147km route and save your ego."
+    },
+    "final_verdict": {
+      "score": "79 / 100",
+      "one_liner": "The oldest Monument in cycling opens its roads to 8,000 amateurs — and the Ardennes côtes don't care about your amateur status.",
+      "should_you_race": "You need the fitness for 257km and 4,500m of climbing on roads that never stay flat for long. The côtes are short but vicious — La Redoute's 20% ramps and Stockeu's 11.9% average will expose any weakness in your climbing. Late April Belgian weather demands full wet-weather gear and the mental toughness to ride 8+ hours in conditions that might be cold, wet, or both. If you've done L'Étape du Tour or Paris-Roubaix Challenge, you know the format. If this is your first Monument sportive, consider the 147km option — it still includes the iconic finale climbs without the 257km death march through the Ardennes.",
+      "alternatives": "Paris-Roubaix Challenge offers a similar Monument sportive format on cobbles rather than côtes — different suffering, equal prestige. L'Étape du Tour delivers Alpine climbing in summer conditions if Belgian spring weather terrifies you. For a gravel-specific Ardennes experience, Ardenne Gravel Stages covers similar terrain on unpaved roads.",
+      "alternative_slugs": [
+        "ardenne-gravel-stages"
+      ]
+    },
+    "logistics": {
+      "airport": "Brussels Airport (BRU) — 90 minutes to Banneux by car. Liège Airport (LGG) is closer (30 min) but has limited commercial flights.",
+      "lodging_strategy": "Liège city center (25 min drive) offers the widest hotel selection at €80-150/night. Spa (20 min) is a charming alternative with more character. Book early — race weekend coincides with the pro LBL, and the region fills up. Airbnb in Ardennes villages is viable but requires a car.",
+      "food": "Belgian cuisine is not the problem. Waffles, frites, and beer are everywhere. Pre-race carb loading at Liège brasseries is a genuine pleasure. Feed zones on course provide Maurten, fruit, cookies, and waffles from Lidl. Post-ride: find a friterie and order the biggest portion available.",
+      "packet_pickup": "Frame plate collection at Banneux on Friday or Saturday morning before the start. €5 chip deposit refunded when you return the plate at the finish.",
+      "parking": "Free parking at Banneux — arrive early. The site at Rue de l'Esplanade fills up quickly with 8,000 participants. Carpooling from Liège hotels is common.",
+      "official_site": "https://lblchallenge.be/en/"
+    },
+    "history": {
+      "founded": 2005,
+      "founder": "Golazo Sports (in partnership with ASO)",
+      "origin_story": "The professional Liège-Bastogne-Liège was first raced in 1892, making it the oldest of cycling's five Monuments — La Doyenne, the Old Lady. The amateur Challenge sportive was launched in the mid-2000s to allow recreational cyclists to ride the same iconic Ardennes roads. It quickly grew to its current 8,000-rider cap, becoming one of the most popular Monument sportives in Europe alongside Paris-Roubaix Challenge and the Tour of Flanders sportive.",
+      "notable_moments": [
+        "1892: First Liège-Bastogne-Liège race — 33 riders, Léon Houa wins in 10h48m",
+        "1980: Bernard Hinault wins the pro race in a legendary snowstorm — the 'Neiges-Bastogne-Neiges' edition",
+        "2005: Amateur Challenge sportive launched, opening the Monument roads to recreational riders",
+        "2019: Pro race finish moves from Ans back to Liège center; sportive adapts route accordingly",
+        "2024: Tadej Pogačar wins the pro race the day after 8,000 amateurs tackle the same roads",
+        "2026: Start/finish consolidated at Banneux with updated distance options (257km, 147km, 70km)"
+      ],
+      "reputation": "The oldest Monument's amateur sportive. Where Belgian cycling heritage meets 8,000 riders willing to suffer on La Redoute. Not the hardest sportive in Europe, but arguably the most historically significant."
+    },
+    "course_description": {
+      "character": "The Ardennes don't do flat. From the moment you leave Banneux, the road undulates through dense forest, drops into river valleys, and then kicks up into côtes that have been breaking professional cyclists since before your grandparents were born. The route heads south to Bastogne through increasingly remote Ardennes terrain, turns around, and then delivers the iconic finale sequence — La Redoute, Roche-aux-Faucons, and Saint-Nicolas — when your legs are most destroyed. Every côte is short but savage. The recovery between them is never enough. The total elevation accumulates like interest on a debt you can't repay.",
+      "suffering_zones": [
+        {
+          "mile": 80,
+          "label": "Côte de Saint-Roch",
+          "desc": "1km at 11.2% average — the first real gut-check. Comes after 80 miles of Ardennes rollers have already softened your legs. The gradient hits double digits immediately and doesn't relent. If you're not in your easiest gear within 100 meters, you miscalculated.",
+          "terrain_detail": "Paved road, narrow, steep — 11.2% average with ramps to 15%",
+          "named_section": "Côte de Saint-Roch"
+        },
+        {
+          "mile": 100,
+          "label": "Côte de Stockeu",
+          "desc": "1.1km at 11.9% average — the steepest classified climb on the route. This is where the old Côte de Stockeu earned its reputation: barely over a kilometer but averaging nearly 12%. Your cadence drops to 50 RPM. Your heart rate doesn't.",
+          "terrain_detail": "Paved, extremely steep — 11.9% average, 22% max gradient",
+          "named_section": "Côte de Stockeu"
+        },
+        {
+          "mile": 105,
+          "label": "Côte de Wanne + Haute-Levée",
+          "desc": "A one-two punch that comes just 5km after Stockeu. Wanne (3.6km at 5.1%) is merely relentless, then Haute-Levée (2.2km at 7.5%) finishes what Stockeu started. Your legs are accumulating damage faster than you can process it.",
+          "terrain_detail": "Paved Ardennes roads through forest — sustained climbing with no flat recovery",
+          "named_section": "Wanne-Haute-Levée sequence"
+        },
+        {
+          "mile": 140,
+          "label": "Côte de La Redoute",
+          "desc": "The most famous côte in professional cycling. 1.7km averaging 9% with ramps over 20%. La Redoute is where Bernard Hinault attacked in the snow. Where Moreno Argentin launched his signature moves. Where amateurs discover the true meaning of Belgian suffering. The gradient spikes are brief but devastating — 20%+ on legs that have already absorbed 140 miles of Ardennes punishment.",
+          "terrain_detail": "Paved, narrow residential road — 9% average with 20%+ spikes. Wall of spectators on race weekend.",
+          "named_section": "Côte de La Redoute"
+        },
+        {
+          "mile": 148,
+          "label": "Côte de la Roche-aux-Faucons",
+          "desc": "The final classified climb — 1.4km at a brutal 11.4% average. This is where Monument winners launch their decisive attacks in the pro race. For amateurs, it's 1.4 kilometers of questioning whether 257km was a reasonable life choice. The gradient is unrelenting: 11.4% average means there's no flat spot to recover on.",
+          "terrain_detail": "Paved climb through woodland — 11.4% average, consistent and brutal",
+          "named_section": "Côte de la Roche-aux-Faucons"
+        },
+        {
+          "mile": 155,
+          "label": "Côte de Saint-Nicolas",
+          "desc": "The final côte before the finish — 1.2km at 8.5% average through the streets of Liège. Known as the 'côte des Italiens' for the Italian immigrants who settled the neighborhood. Your legs are finished. The road doesn't care. One last painful kilometer of climbing before the finish.",
+          "terrain_detail": "Urban paved climb through residential Liège — 8.5% average, cobbled sections",
+          "named_section": "Côte de Saint-Nicolas"
+        }
+      ],
+      "signature_challenge": "La Redoute is the signature — the most iconic côte in Monument cycling. But the true challenge is the accumulation: 11+ classified climbs across 257km, each one steeper and more painful than your legs can handle. The Ardennes don't have one killer climb. They have a dozen that work together to destroy you systematically.",
+      "surface_breakdown": {
+        "overall": {
+          "pavement": 100
+        }
+      }
+    },
+    "guide_variables": {
+      "race_name": "Liège-Bastogne-Liège Challenge",
+      "race_distance": "257 km (160 mi) — full route",
+      "race_elevation": "4,500m (14,764 ft)",
+      "race_date": "April 25, 2026",
+      "race_location": "Banneux, Belgium (Belgian Ardennes)",
+      "race_terrain": "100% paved roads with 11+ classified côtes (10-20% gradients)",
+      "race_weather": "Late April Belgian Ardennes: 5-18°C, 50%+ rain chance, variable spring conditions",
+      "race_challenges": [
+        "257km of constant Ardennes undulation with 4,500m climbing",
+        "Côte de Stockeu at 11.9% average — steepest climb on the route",
+        "Côte de La Redoute with 20%+ gradient spikes after 140 miles",
+        "Côte de la Roche-aux-Faucons at 11.4% average as the decisive finale climb",
+        "Belgian spring weather — cold rain is more likely than sunshine",
+        "Accumulated fatigue from repeated short, steep côtes with insufficient recovery"
+      ],
+      "altitude_section": false,
+      "altitude_feet": 0
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Build to 180km+ ride with 3,000m+ climbing",
+        "by_when": "Week 12",
+        "why": "The full 257km route with 4,500m climbing requires deep endurance and accumulated climbing volume. Your long rides must include repeated steep efforts."
+      },
+      {
+        "requirement": "Train steep intervals (10-15% grade, 2-5 min efforts)",
+        "by_when": "Week 8",
+        "why": "Ardennes côtes are short (1-4km) but steep (10-12% avg). You need the ability to sustain high watts on steep gradients repeatedly, not just once."
+      },
+      {
+        "requirement": "Cold/wet weather riding experience",
+        "by_when": "Week 6",
+        "why": "Late April Belgian weather regularly delivers 6-10°C rain. If you've never ridden 8+ hours in cold rain, the course difficulty compounds catastrophically."
+      },
+      {
+        "requirement": "Nutrition strategy for 8-14 hour effort",
+        "by_when": "Week 10",
+        "why": "Five feed zones over 257km means 40-50km between fueling. You must be able to eat on the bike and carry enough calories between stops. Test your strategy on training rides over 6 hours."
+      },
+      {
+        "requirement": "Full wet-weather gear (jacket, vest, arm warmers, shoe covers)",
+        "by_when": "Race week",
+        "why": "There is a >50% chance you will need rain protection. Belgian spring weather changes rapidly. Pack as if it will rain, and be pleasantly surprised if it doesn't."
+      }
+    ],
+    "citations": [
+      {
+        "url": "https://lblchallenge.be/en/",
+        "title": "Liège-Bastogne-Liège Challenge — Official Website",
+        "category": "official"
+      },
+      {
+        "url": "https://lblchallenge.be/en/practical-info/",
+        "title": "LBL Challenge — Practical Information",
+        "category": "official"
+      },
+      {
+        "url": "https://lblchallenge.be/en/register/",
+        "title": "LBL Challenge — Registration",
+        "category": "official"
+      },
+      {
+        "url": "https://www.liege-bastogne-liege.be/en/",
+        "title": "Liège-Bastogne-Liège Official Race Website (Pro)",
+        "category": "official"
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Li%C3%A8ge%E2%80%93Bastogne%E2%80%93Li%C3%A8ge",
+        "title": "Liège–Bastogne–Liège — Wikipedia",
+        "category": "reference"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/7314/liege-bastogne-liege-challenge",
+        "title": "LBL Challenge — Gran Fondo Guide",
+        "category": "reference"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Contents/IndexFull/8770/register-now-for-2026-liege-bastogne-liege-challenge",
+        "title": "Register for 2026 LBL Challenge — Gran Fondo Guide",
+        "category": "reference"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Contents/IndexFull/8497/8000-cyclists-tackled-2025-liege-bastogne-liege-challenge",
+        "title": "8000 Cyclists Tackled 2025 LBL Challenge — Gran Fondo Guide",
+        "category": "reference"
+      },
+      {
+        "url": "https://sportivebreaks.com/sportives/classics/liege-bastogne-liege/",
+        "title": "LBL Challenge — Sportive Breaks",
+        "category": "reference"
+      },
+      {
+        "url": "https://sportive.com/event/liege-bastogne-liege-challenge-2026/",
+        "title": "LBL Challenge 2026 — Sportive.com",
+        "category": "reference"
+      },
+      {
+        "url": "https://www.finishers.com/en/event/liege-bastogne-liege-challenge",
+        "title": "LBL Challenge 2026 — Finishers",
+        "category": "reference"
+      },
+      {
+        "url": "https://battistrada.com/en/cycling-calendar/edition/liege-bastogne-liege-challenge-2026/48359/",
+        "title": "LBL Challenge 2026 — Battistrada",
+        "category": "reference"
+      },
+      {
+        "url": "https://www.cyclingnews.com/liege-bastogne-liege/",
+        "title": "Liège-Bastogne-Liège Ultimate Guide — Cycling News",
+        "category": "reference"
+      },
+      {
+        "url": "https://www.bike-components.de/blog/en/rides/the-liege-bastogne-liege-challenge/",
+        "title": "The Liège-Bastogne-Liège Challenge — bike-components",
+        "category": "review"
+      },
+      {
+        "url": "https://www.cycloworld.cc/en/gran-fondo/belgium/liege-bastogne-liege-challenge/38251",
+        "title": "LBL Challenge — Cycloworld",
+        "category": "reference"
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "high",
+      "validation_status": "validated",
+      "research_strength": "A",
+      "sources_count": 15,
+      "last_updated": "2026-02-27"
+    }
+  }
+}

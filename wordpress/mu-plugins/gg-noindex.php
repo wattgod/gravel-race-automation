@@ -50,9 +50,11 @@ function gg_noindex_junk_pages() {
 
     // Noindex blog preview pages (/blog/{slug}/) — thin content that duplicates
     // race profiles. Keep /blog/ index, roundups, and recaps indexed.
+    // Structural regex mirrors Python classify_blog_slug(): roundups start with
+    // "roundup-", recaps end with "-recap". All other /blog/{slug}/ are noindexed.
     if (preg_match('#^/blog/[a-z0-9-]+/?$#', $uri)
-        && strpos($uri, 'roundup') === false
-        && strpos($uri, 'recap') === false) {
+        && !preg_match('#^/blog/roundup-#', $uri)
+        && !preg_match('#-recap/?$#', $uri)) {
         $dominated = true;
     }
     foreach ($noindex_patterns as $pattern) {

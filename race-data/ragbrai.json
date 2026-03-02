@@ -1,0 +1,411 @@
+{
+  "race": {
+    "name": "RAGBRAI",
+    "slug": "ragbrai",
+    "display_name": "RAGBRAI (Register's Annual Great Bicycle Ride Across Iowa)",
+    "tagline": "America's oldest, largest, and longest multi-day recreational bicycle ride. 10,000+ riders. 7 days. ~400 miles across Iowa from the Missouri River to the Mississippi. Running since 1973. Where an entire state becomes your aid station.",
+    "vitals": {
+      "distance_mi": 391,
+      "elevation_ft": 16027,
+      "location": "Across Iowa, USA (Missouri River to Mississippi River, west to east)",
+      "location_badge": "ACROSS IOWA, USA",
+      "county": "Multiple counties (varies by route year — RAGBRAI has visited all 99 Iowa counties since 1973)",
+      "date": "Last full week of July annually (Saturday to Saturday)",
+      "date_specific": "2026: July 18-25 (RAGBRAI LIII). Route: Onawa to Dubuque.",
+      "terrain_types": [
+        "Paved Iowa county roads and state highways",
+        "Rolling western Iowa hills (Loess Hills)",
+        "Flat-to-rolling central Iowa farmland",
+        "Hilly eastern Iowa terrain approaching the Mississippi River bluffs"
+      ],
+      "field_size": "~10,000-20,000 registered weeklong riders + thousands of day riders and unregistered riders. Peak single-day attendance exceeded 50,000 (2023 RAGBRAI L, Ames to Des Moines).",
+      "start_time": "No official start time. Riders depart at will, typically beginning at dawn (5:30-7:00 AM). Baggage truck deadline is 8:00 AM.",
+      "registration": "Online registration at ragbrai.com. Weeklong, non-rider, and day pass options available. Registration opens November each year.",
+      "prize_purse": "None. This is a recreational ride, not a race. The prize is Iowa itself.",
+      "aid_stations": "Pass-through towns every 10-20 miles serve as de facto aid stations, with local communities providing food, water, entertainment, and bike repair. SAG (Support and Gear) wagons patrol the route for riders with medical or mechanical emergencies. Official RAGBRAI support includes main campground facilities, showers, bike shop, and info tent at each overnight town.",
+      "cutoff_time": "No formal cutoff. Riders are encouraged to finish before dusk. SAG wagon support operates during published route hours only.",
+      "lat": 42.0308,
+      "lng": -93.6319,
+      "distance_options": [
+        "Weeklong: ~391-470 miles over 7 days (varies by year; 2026 is 391 miles, the shortest ever)",
+        "Day pass: ride one or more individual days",
+        "Century Loop: optional 100-mile extended route on select days",
+        "KARRAS Loop: shorter alternative loops available on some stages"
+      ],
+      "entry_fee": "$250 for weeklong rider (2026, before rate increase). $45 for weeklong non-rider. Day pass pricing varies."
+    },
+    "climate": {
+      "primary": "Iowa late July — hot, humid, with potential severe thunderstorms",
+      "description": "Late July in Iowa is summer at its most intense. Daytime highs typically reach 85-95F (29-35C) with high humidity, creating heat indices well above 100F on the worst days. Mornings start in the 60s-70F with heavy dew. Afternoon thunderstorms are common and can be severe — Iowa sits squarely in the Great Plains storm track. Nighttime temperatures drop to the 50s-60s in camp. Wind is a factor, particularly on exposed farmland stretches, though the prevailing westerly tailwinds generally favor the west-to-east route. Riders will experience every Iowa summer weather condition across seven days.",
+      "challenges": [
+        "Sustained heat and humidity — 85-95F with Midwest humidity making efforts feel brutal",
+        "Severe thunderstorms possible on any day, including lightning and high winds",
+        "Sun exposure across open Iowa farmland with minimal tree shade",
+        "Temperature swings from 55F overnight in camp to 95F+ afternoon riding",
+        "Wind exposure on open prairie — beneficial tailwinds most days but headwinds and crosswinds happen",
+        "Cumulative heat stress over 7 consecutive days of riding"
+      ]
+    },
+    "terrain": {
+      "primary": "Paved Iowa roads — rolling hills, farm country, and river bluffs",
+      "surface": "All paved roads. Iowa county roads and state highways through agricultural heartland. Western Iowa features the Loess Hills with steep, punchy climbs and fast descents. Central Iowa is gently rolling with long stretches through corn and soybean fields. Eastern Iowa gets hillier approaching the Mississippi River bluffs, with the final descent into river towns often being dramatic. Road surfaces vary from smooth state highways to rough chip-seal county roads.",
+      "technical_rating": 1,
+      "features": [
+        "Western Iowa Loess Hills: steep, punchy climbs through some of Iowa's hilliest terrain",
+        "Central Iowa farm country: long, rolling stretches through corn and soybean fields with wide-open views",
+        "Eastern Iowa bluffs: hilly terrain climbing toward the Mississippi River with dramatic descents into the final town",
+        "Pass-through towns every 10-20 miles: each one a mini-festival with food, music, and cheering crowds",
+        "Missouri River dip at the start and Mississippi River dip at the finish — the iconic RAGBRAI bookends",
+        "2026 route: 391 miles with 16,027 feet of climb — shortest but 10th hilliest in 53-year history"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 73,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "logistics": 5,
+      "length": 4,
+      "technicality": 1,
+      "elevation": 2,
+      "climate": 3,
+      "altitude": 1,
+      "adventure": 4,
+      "prestige": 3,
+      "race_quality": 4,
+      "experience": 5,
+      "community": 5,
+      "field_depth": 1,
+      "value": 4,
+      "expenses": 4,
+      "cultural_impact": 5,
+      "tier_note": "America's oldest, largest, and longest multi-day recreational bicycle ride. 53 years running. T2 by score (73). Prestige=3, no tier override. The cultural impact is maximal (5) — RAGBRAI has visited all 99 Iowa counties and has inspired 200+ similar rides worldwide. A T2 event that functions as a cultural institution.",
+      "score_note": "Sum of 14 criteria = 46 (logistics=5, length=4, technicality=1, elevation=2, climate=3, altitude=1, adventure=4, prestige=3, race_quality=4, experience=5, community=5, field_depth=1, value=4, expenses=4). cultural_impact=5 for 53 years of defining American cycling culture. Total = 51. Score = round(51/70 * 100) = 73. Community=5 and experience=5 are the defining scores — entire Iowa towns transform for RAGBRAI. Value=4 and expenses=4 reflect the exceptional affordability ($250 for a week). Field_depth=1 because this is a ride, not a race.",
+      "editorial_tier": 2,
+      "editorial_tier_label": "TIER 2",
+      "business_tier": 2,
+      "business_tier_label": "TIER 2",
+      "display_tier": 2,
+      "display_tier_label": "TIER 2",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 5,
+        "explanation": "Fifty-three years of operational refinement have made RAGBRAI a logistical marvel. Baggage trucks move your gear from town to town — pack your duffel by 8 AM, ride all day, and your stuff is waiting at the next campground. SAG wagons patrol the route. The main campground at each overnight town includes showers, a bike shop, an info tent, and shuttle service. Pass-through towns every 10-20 miles function as fully stocked aid stations run by enthusiastic Iowans. Charter services like Pork Belly Ventures offer premium campgrounds with bunkhouses, shower trailers, and concierge tent service. BikeFlights and Unlimited Biking handle bike shipping. You can fly into Omaha or Des Moines and shuttle to the start. The machine runs like clockwork."
+      },
+      "length": {
+        "score": 4,
+        "explanation": "The 2026 route covers 391 miles over 7 days — the shortest in RAGBRAI history but still a legitimate endurance undertaking. Daily stages range from 33.7 miles (Day 7, Dyersville to Dubuque) to 81.4 miles (Day 5, Marshalltown to Independence). The historical average is closer to 468 miles with 67-mile daily averages. Century Loops on select days push motivated riders to 100+ miles. The cumulative toll of 7 consecutive riding days, combined with camping and Iowa heat, makes this harder than the daily mileage suggests. By Day 5, your legs know they have ridden all week."
+      },
+      "technicality": {
+        "score": 1,
+        "explanation": "All paved roads, all the time. Iowa county roads and state highways. The most technical challenge is navigating 10,000+ riders on a two-lane road while avoiding potholes in aging chip-seal. There is zero off-road terrain, zero gravel, zero singletrack. Group riding awareness matters given the massive field, but this is a ride you can do on any road bike, hybrid, cruiser, tandem, recumbent, or unicycle — and people do all of the above."
+      },
+      "elevation": {
+        "score": 2,
+        "explanation": "Iowa is not flat, despite the stereotype. The 2026 route accumulates 16,027 feet of climbing — the 10th hilliest in RAGBRAI history. Western Iowa's Loess Hills deliver genuinely punchy climbs, and the eastern Iowa bluffs approaching the Mississippi are steep. But spread across 7 days, daily climbing averages 1,500-3,500 feet, which is manageable for any prepared rider. The hills are real but never sustained — short, steep rollers rather than mountain passes. You will feel them on Day 6, but altitude sickness is not in the program."
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "Late July Iowa is a heat and humidity crucible. Daytime temperatures of 85-95F with Midwest humidity create conditions that feel far worse than the thermometer reads. The hottest RAGBRAIs have topped triple digits. Afternoon thunderstorms are a genuine concern — severe storms with lightning, high winds, and heavy rain hit the ride periodically. In 1981, 'Soggy Monday' became RAGBRAI legend for the worst weather day in the ride's history. But the prevailing west-to-east route benefits from tailwinds, and Iowa mornings can be gorgeous — cool, dewy, golden light over cornfields. Pack for all conditions."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "Iowa. The highest point on any RAGBRAI route is approximately 1,670 feet above sea level (Ocheyedan Mound area). The 2026 route stays between roughly 600 and 1,400 feet. Altitude is a complete non-factor. The air is thick, humid, and full of corn pollen — but it is definitely not thin."
+      },
+      "adventure": {
+        "score": 4,
+        "explanation": "A week-long bicycle journey across an entire state is an adventure by definition. You dip your tire in the Missouri River on Day 1 and the Mississippi River on Day 7. Between those rivers, you traverse 300+ miles of Iowa heartland — Loess Hills, prairie farmland, small towns, covered bridges, river bluffs. Every pass-through town is a pop-up festival with local food, live music, and residents cheering from lawn chairs. Overnight towns transform into cycling villages. The adventure is not wilderness or remoteness — it is cultural immersion on two wheels. You will eat pork chops on a stick, drink beer at 9 AM because RAGBRAI, and sleep in a tent in a stranger's yard."
+      },
+      "prestige": {
+        "score": 3,
+        "explanation": "RAGBRAI has enormous name recognition in American cycling — it is the ride that launched a thousand imitators. Over 200 similar events worldwide trace their inspiration to RAGBRAI. But it carries no competitive prestige because it is not a race. There is no timing, no results, no podium. The prestige is cultural and experiential: completing RAGBRAI marks you as someone who has lived inside America's original cycling pilgrimage. For many Midwest cyclists, RAGBRAI is the event that defined their love of cycling. That carries weight, but it is not podium weight."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "RAGBRAI is not a race, but the event organization is excellent. Fifty-three years of continuous operation under the Des Moines Register's stewardship (now Ventures Endurance) have produced a well-oiled machine. Route planning, baggage logistics, SAG support, town coordination, and campground management all run smoothly for a massive field. The partnership with Iowa communities is deeply embedded — towns lobby to be on the route. Deductions come from the sheer scale creating occasional bottleneck chaos in small pass-through towns and the inherent unpredictability of 10,000+ riders on county roads. But for an event of this size and complexity, the execution is remarkably consistent."
+      },
+      "experience": {
+        "score": 5,
+        "explanation": "RAGBRAI is the experience. It is not about the riding — a week of 50-80 mile days on paved Iowa roads is not going to challenge a strong cyclist. It is about riding into a town of 500 people that has set up a festival stage, five pie stands, a mechanical bull, and a slip-and-slide — just for you. It is about the farmer on the hill playing saxophone at sunrise. The homemade signs. The kids spraying hoses. The church basements serving pancakes at 6 AM. The small-town bars overflowing with riders. The nightly camping community. One veteran described it as 'a county fair that moves.' Another called it 'the best week of my life, every year.' RAGBRAI delivers an experience that no other cycling event in the world replicates."
+      },
+      "community": {
+        "score": 5,
+        "explanation": "RAGBRAI may have the strongest host community of any cycling event on Earth. It is not just the 10,000+ riders — it is the entire state of Iowa. Communities spend months preparing to host riders. Residents open their yards for camping, their bathrooms for showers, their kitchens for meals. Towns that see 500 people year-round welcome 10,000 in a day. The riding community itself is equally remarkable — teams form around themes, costumes, causes, and beer preferences. RAGBRAI has created cycling communities across the Midwest that persist year-round. The event has visited all 99 Iowa counties, and nearly every county has a story about their RAGBRAI year."
+      },
+      "field_depth": {
+        "score": 1,
+        "explanation": "This is explicitly not a race. There is no competitive field, no timing, no podium, no prize money. The field includes everything from first-time riders on department store bikes to Cat 1 racers to a man on a unicycle. Recumbents, tandems, cargo bikes, and trailers hauling coolers full of beer are all common. The fastest rider finishes hours before the slowest, and nobody cares. The depth of RAGBRAI's field is measured in humanity, diversity, and enthusiasm — not in watts or FTP."
+      },
+      "value": {
+        "score": 4,
+        "explanation": "For $250 you get a week of supported riding across an entire state with daily baggage transport, campground access, showers, SAG support, a bike shop, and pass-through town after pass-through town of community-provided food and entertainment. Iowa is inexpensive — food and lodging costs on the road are minimal by cycling event standards. Most riders budget $30-50/day for food and drinks purchased from pass-through town vendors, churches, and civic groups. Compared to the $3,500+ fundraising minimums of charity rides or the $300+ entry fees of single-day gran fondos, RAGBRAI delivers extraordinary value for the money."
+      },
+      "expenses": {
+        "score": 4,
+        "explanation": "Registration is $250 for the full week. Iowa food and drink along the route runs $30-50/day. Camping is included. Total on-route costs for a week can stay under $600-800 for frugal riders. The biggest expense is getting there — flights to Des Moines or Omaha plus shuttle to the start/finish ($185-200 for charter shuttles). Bike shipping runs $75-200 if you fly. Charter services like Pork Belly Ventures cost more ($1,500-2,500) but include premium camping, meals, and logistics. Even with travel, the total cost for a week at RAGBRAI is remarkably reasonable compared to almost any multi-day cycling event."
+      }
+    },
+    "biased_opinion": {
+      "verdict": "Institution",
+      "summary": "RAGBRAI is not a race. It is not even really a ride, in the way most cyclists understand rides. It is a 400-mile rolling block party across the entire state of Iowa, powered by pedals and sustained by the most extraordinary host community in sports. You will ride through towns where the entire population has turned out to feed you pie, spray you with garden hoses, and blast classic rock from a flatbed trailer. You will camp in church yards, drink beer at breakfast, and discover that Iowa is not flat. You will dip your tire in the Missouri River on Saturday and the Mississippi River the following Saturday and wonder where the week went.\n\nSince 1973, RAGBRAI has defined American recreational cycling. It inspired over 200 similar events worldwide. It has been visited upon all 99 Iowa counties. Nearly half a million riders have completed it. The oldest, largest, and longest multi-day bicycle ride in the world is not a race — and that is precisely why it matters. RAGBRAI proves that the best reason to ride a bicycle is to ride a bicycle, preferably through a small town that has been waiting all year for you to arrive.\n\nDo not come to RAGBRAI expecting a challenge. Come expecting a transformation. Come expecting the farmer playing saxophone on the hilltop at sunrise, the 90-year-old woman handing out cookies from her porch, and the moment on Day 5 when you realize you have been smiling for five straight days and you cannot remember the last time that happened. That is RAGBRAI. That is Iowa. That is cycling at its most fundamentally, unapologetically joyful.",
+      "strengths": [
+        "The host communities: Nothing in cycling — or arguably all of sports — compares. Entire Iowa towns transform into festivals for riders. Residents open homes, yards, kitchens, and hearts.",
+        "The experience: Seven days of rolling cultural immersion. Pie stands, live music, slip-and-slides, church pancake breakfasts, pork chops on sticks, and 10,000 friends you have not met yet.",
+        "The value: $250 for a week of supported riding with baggage transport, campgrounds, SAG support, and a bike shop. Iowa is inexpensive. The cost-per-day-of-joy ratio is unmatched.",
+        "The legacy: 53 years. 474,000+ riders. All 99 counties. Over 200 imitator events worldwide. RAGBRAI is American cycling's foundational experience."
+      ],
+      "weaknesses": [
+        "The heat: Late July Iowa is hot, humid, and prone to severe thunderstorms. The worst days feel brutal, and there is no mountain shade to hide in.",
+        "The crowds: 10,000+ riders on narrow county roads create bottlenecks, especially in small pass-through towns. Patience is required.",
+        "Not a challenge: If you need competitive racing, technical terrain, or serious climbing to feel fulfilled, RAGBRAI will not scratch that itch. The difficulty is cumulative, not acute.",
+        "Camping for a week: The default accommodation is a tent in a field. If sleeping on the ground for seven nights sounds miserable, budget for charter services or creative hotel arrangements."
+      ],
+      "bottom_line": "RAGBRAI is the event that every cyclist should do at least once. Not for the fitness, not for the challenge, not for the Strava data — but for the irreplaceable experience of riding across an entire state while an entire state cheers you on. There is nothing else like it."
+    },
+    "final_verdict": {
+      "score": "73 / 100",
+      "one_liner": "America's oldest, largest, and longest multi-day bicycle ride. 53 years of Iowa towns turning themselves inside out for 10,000+ riders.",
+      "should_you_race": "You do not race RAGBRAI. You ride it. You experience it. You eat pie at every stop and drink beer before noon and sleep in a tent in a stranger's yard and discover that Iowa is hillier, friendlier, and more beautiful than you imagined. If you have ever wanted to know what happens when an entire state decides to throw a week-long party for cyclists, register for RAGBRAI. Registration opens November each year and fills steadily. $250 for the week. Bring a bike, a tent, sunscreen, and an appetite. Leave the power meter at home.",
+      "alternatives": [
+        "Cycle Oregon (week-long supported ride across Oregon, ~500 miles, more climbing and scenery variety)",
+        "Bike Across Kansas (BAK) (8-day ride across Kansas, flatter, similar Midwest community spirit)",
+        "Pan-Mass Challenge (2-day Massachusetts charity ride, 177 miles, $1B+ raised for Dana-Farber)",
+        "AIDS/LifeCycle successor Cycle to Zero (3-day California ride, cause-driven, coastal)"
+      ],
+      "alternative_slugs": [
+        "cycle-oregon",
+        "bike-across-kansas",
+        "pan-mass-challenge",
+        "aids-lifecycle"
+      ]
+    },
+    "logistics": {
+      "nearest_airport": "Des Moines International Airport (DSM) is the most practical for most riders — central Iowa location with major carrier service. Omaha Eppley Airfield (OMA) is closest to western Iowa start towns. Eastern Iowa Airport (CID, Cedar Rapids) and Dubuque Regional Airport (DBQ) are options for the finish. Charter shuttles connect airports to start/finish towns ($185-200 per person).",
+      "travel_tips": "RAGBRAI runs west to east, so you need to get to the western start town and get home from the eastern finish town. Most riders fly into Des Moines or Omaha and take charter buses to the start. After the ride, charter buses return riders to their origin airports. Book shuttles early — they fill up. BikeFlights.com and Unlimited Biking offer bike shipping to/from RAGBRAI, eliminating the hassle of flying with a bike. If driving, many riders park at the finish town and shuttle to the start, so their car is waiting at the end. Iowa is easy to drive across — Des Moines to either border is roughly 3 hours.",
+      "accommodation": "Main campground access is included with registration — pack a tent, sleeping bag, and pad. Baggage trucks transport your gear daily. Charter services (Pork Belly Ventures, Pedaling Pandas, Padre's Cycle Inn) offer premium campgrounds with bunkhouses, shower trailers, meals, and concierge service ($1,500-2,500 for the week). Hotels, motels, and B&Bs in overnight towns exist but book up months in advance and vary wildly by town size. Host housing — generous Iowa residents opening their homes — can be requested after registration, with town housing forms typically available in March.",
+      "gear_recommendations": "A comfortable road bike, hybrid, or touring bike in good mechanical condition. Iowa is paved — any road-worthy bike works. Bring a spare tube, tire levers, multi-tool, and pump. Two water bottles minimum. Sunscreen, chamois cream, and lip balm are essential for 7 days in Iowa sun. Rain gear (light jacket) for afternoon thunderstorms. Warm layers for cool mornings and cold camp nights (50s-60F). Camping gear: tent, sleeping bag, pad, pillow, headlamp. A bike lock for town stops. Leave the aero bars and race wheels at home — this is about comfort over 400 miles, not speed."
+    },
+    "history": {
+      "first_edition": 1973,
+      "notable_editions": [
+        "1973: The first ride — columnist Don Kaul and writer John Karras ride from Sioux City to Davenport. 300 riders gather at the start; 114 complete the full route. An American institution is born.",
+        "1975: Officially named RAGBRAI (Register's Annual Great Bicycle Ride Across Iowa) after two years as 'The Great Six-Day Bicycle Ride' and 'SAGBRAI.'",
+        "1981: RAGBRAI IX — 'Soggy Monday' becomes legend as the worst weather day in ride history, commemorated with an official Des Moines Register bicycle patch.",
+        "1985: Attendance rises above 10,000 for the first time and has remained above that number every year since.",
+        "2007: One of the hottest RAGBRAIs ever — the second-warmest on record with temperatures topping triple digits.",
+        "2013: 2,300 riders in Fairfield set the Guinness World Record for Largest Gathering of People Wearing Fake Moustaches. Peak RAGBRAI.",
+        "2020: Cancelled for the first time in 47 years due to COVID-19 pandemic.",
+        "2023: RAGBRAI L (50th ride) — the Ames to Des Moines stage draws an estimated 50,000+ riders in a single day, the most in ride history.",
+        "2026: RAGBRAI LIII — the shortest route ever (391 miles) but the 10th hilliest (16,027 feet of climb). Onawa to Dubuque."
+      ],
+      "records": "474,103+ total riders across 50+ editions. Routes have visited all 99 Iowa counties. Over 23,247 miles of Iowa roads ridden. 40-year route average: 467.9 miles. Single-day attendance record: 50,000+ (2023, Ames to Des Moines). Inspired 200+ similar rides worldwide.",
+      "growth": "From 300 riders in 1973 to consistently 10,000-20,000+ registered weeklong riders since 1985. RAGBRAI has grown from a newspaper publicity stunt into a cultural institution. The ride is now managed by Ventures Endurance (formerly under the Des Moines Register). Growth has stabilized rather than exponentially increased — the event is constrained by Iowa infrastructure and deliberately maintains a manageable (if massive) scale. The cultural footprint, however, has only expanded: RAGBRAI has become shorthand for community-powered cycling in America."
+    },
+    "course_description": {
+      "overview": "RAGBRAI traverses the state of Iowa from west to east over seven days, starting at the Missouri River and finishing at the Mississippi River. The route changes every year, visiting different Iowa towns, but the west-to-east trajectory and the iconic tire-dip ceremonies at each river remain constant. The 2026 route (RAGBRAI LIII) covers 391 miles from Onawa to Dubuque with 16,027 feet of climbing — the shortest route in 53 years but the 10th hilliest. Daily stages range from 33.7 to 81.4 miles. Terrain varies from the steep Loess Hills in western Iowa to rolling central Iowa farmland to the Mississippi River bluffs in eastern Iowa. Pass-through towns every 10-20 miles break each stage into manageable segments with food, water, entertainment, and rest.",
+      "segments": [
+        {
+          "name": "Day 1: Onawa to Harlan",
+          "distance_mi": 58.5,
+          "elevation_ft": 3465,
+          "description": "The ride begins with the traditional Missouri River tire dip and immediately confronts western Iowa's Loess Hills — some of the steepest terrain on the entire route. The opening day is a statement: Iowa is not flat. Riders climb through rolling farmland with punchy ascents before arriving in Harlan, a community of 5,000 that will feel much larger tonight."
+        },
+        {
+          "name": "Day 2: Harlan to Guthrie Center",
+          "distance_mi": 53.9,
+          "elevation_ft": 3554,
+          "description": "The hilliest day of RAGBRAI LIII with 3,554 feet of climbing. Western Iowa continues to assert itself with relentless rollers through Audubon and Cass counties. By the time riders reach Guthrie Center, they have earned every pie and pork chop available."
+        },
+        {
+          "name": "Day 3: Guthrie Center to Boone",
+          "distance_mi": 59.5,
+          "elevation_ft": 1503,
+          "description": "The terrain begins to moderate as the route crosses into central Iowa. Rolling farmland with long sight lines across corn and soybean fields. Boone, population 12,000, offers the first larger overnight town with more amenities. The High Trestle Trail Bridge nearby is an Iowa cycling landmark."
+        },
+        {
+          "name": "Day 4: Boone to Marshalltown",
+          "distance_mi": 62.2,
+          "elevation_ft": 1563,
+          "description": "Classic central Iowa riding through the heart of the state's agricultural country. Gently rolling terrain with wide-open prairie views. The corn is at its tallest in late July, creating green corridors on either side of the road. Marshalltown provides midweek rest for legs that have climbed 10,000+ feet in four days."
+        },
+        {
+          "name": "Day 5: Marshalltown to Independence",
+          "distance_mi": 81.4,
+          "elevation_ft": 2713,
+          "description": "The longest day of RAGBRAI LIII at 81.4 miles. The route pushes northeast through Tama, Grundy, and Buchanan counties. Terrain becomes more varied as central Iowa transitions toward the eastern hills. Mental and physical fatigue from five consecutive days of riding makes this the stage where RAGBRAI gets real."
+        },
+        {
+          "name": "Day 6: Independence to Dyersville",
+          "distance_mi": 42.2,
+          "elevation_ft": 1441,
+          "description": "A shorter recovery day before the finale. Dyersville is home to the Field of Dreams movie site — and yes, people ride out to see it. Eastern Iowa's dairy country provides a scenic and cultural contrast to the western prairies. By Day 6, the ride community has fully bonded."
+        },
+        {
+          "name": "Day 7: Dyersville to Dubuque",
+          "distance_mi": 33.7,
+          "elevation_ft": 1788,
+          "description": "The shortest day but a memorable one. The route descends through eastern Iowa's river bluffs toward the Mississippi. The final miles into Dubuque drop dramatically toward the river for the celebratory Mississippi tire dip — the emotional culmination of a week-long journey. The 1,788 feet of climbing on a 33.7-mile day means the hills hit hard right when you think the ride is giving you a gift."
+        }
+      ],
+      "key_features": [
+        "Missouri River tire dip at the start and Mississippi River tire dip at the finish",
+        "Pass-through towns every 10-20 miles with community-provided food, music, and celebration",
+        "Western Iowa Loess Hills climbing — genuinely steep and punchy",
+        "Central Iowa prairie farmland — endless green corridors of corn at peak height",
+        "Eastern Iowa Mississippi River bluffs — dramatic descent into the finish",
+        "Overnight town festivals with live music, local food, and community welcome",
+        "Optional Century Loop and KARRAS Loop extensions for extra mileage"
+      ],
+      "strategy": "RAGBRAI is not about speed. Start early (5:30-6:30 AM) to beat the afternoon heat. Stop at every pass-through town — the food and entertainment are the point. Pace for the full week, not the individual day. Hydrate aggressively in Iowa humidity. Day 5 (81.4 miles) is the endurance test — eat and drink steadily from the start. The western Iowa hills (Days 1-2) front-load the climbing, so do not go out too hard on Day 1. Save emotional energy for the Day 7 Mississippi dip. Most importantly: this is not a race. If you are looking at your cycling computer more than you are looking at Iowa, you are doing it wrong."
+    },
+    "guide_variables": {
+      "race_name": "RAGBRAI",
+      "race_distance": "391 miles (7 days, 2026 route)",
+      "race_elevation": "16,027 feet total (2026 route)",
+      "race_date": "July 18-25, 2026",
+      "race_location": "Onawa to Dubuque, Iowa (west to east across the state)",
+      "race_terrain": "Paved Iowa county roads and state highways — rolling hills, farmland, river bluffs",
+      "race_weather": "Hot and humid late July Iowa — 85-95F daytime highs, 55-65F overnight lows, afternoon thunderstorm risk",
+      "race_challenges": [
+        "Seven consecutive days of riding averaging 56 miles per day",
+        "Cumulative climbing of 16,000+ feet, front-loaded in western Iowa",
+        "Heat and humidity — late July Iowa can feel brutal by midday",
+        "Severe thunderstorm risk on any day",
+        "Camping logistics — packing a tent and sleeping gear for a week",
+        "Crowd management — 10,000+ riders on narrow county roads"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Multi-day endurance base — build to consecutive 60-80 mile days on the bike",
+        "by_when": "Week 8",
+        "why": "The cumulative toll of 7 consecutive days is RAGBRAI's real challenge. Single-day fitness does not prepare you for Day 5 legs after 250+ miles already in them."
+      },
+      {
+        "requirement": "Heat acclimation — train in warm conditions or layer up to simulate July Iowa humidity",
+        "by_when": "Week 6",
+        "why": "Iowa in late July is 85-95F with high humidity. Riders unprepared for sustained heat exposure fade badly by midday and accumulate dangerous heat stress over the week."
+      },
+      {
+        "requirement": "Saddle and bike fit dialed — test your exact setup on 3+ consecutive riding days",
+        "by_when": "Week 6",
+        "why": "Saddle sores, knee pain, and hand numbness become debilitating by Day 3 if not resolved in training. A professional bike fit is strongly recommended for 400 miles of riding."
+      }
+    ],
+    "citations": [
+      {
+        "url": "https://ragbrai.com/",
+        "category": "official",
+        "label": "RAGBRAI Official Website"
+      },
+      {
+        "url": "https://ragbrai.com/route/",
+        "category": "route",
+        "label": "RAGBRAI Route — Official Route Page"
+      },
+      {
+        "url": "https://ragbrai.com/ragbrai-liii-route-revealed/",
+        "category": "route",
+        "label": "RAGBRAI LIII (2026) Route Revealed"
+      },
+      {
+        "url": "https://ragbrai.com/registration/",
+        "category": "official",
+        "label": "RAGBRAI Registration"
+      },
+      {
+        "url": "https://ragbrai.com/facts-and-figures/",
+        "category": "official",
+        "label": "RAGBRAI Facts and Figures"
+      },
+      {
+        "url": "https://ragbrai.com/about/ragbrai-history/",
+        "category": "official",
+        "label": "RAGBRAI History"
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/RAGBRAI",
+        "category": "other",
+        "label": "Wikipedia — RAGBRAI"
+      },
+      {
+        "url": "https://ragbrai.com/ragbrai-101/",
+        "category": "official",
+        "label": "RAGBRAI 101 — First-Timer Guide"
+      },
+      {
+        "url": "https://ragbrai.com/logistics/",
+        "category": "official",
+        "label": "RAGBRAI Logistics"
+      },
+      {
+        "url": "https://ragbrai.com/ragbrai-packing-tips/",
+        "category": "official",
+        "label": "RAGBRAI Packing Tips"
+      },
+      {
+        "url": "https://www.kcrg.com/2026/01/25/ragbrai-route-released-2026/",
+        "category": "media",
+        "label": "KCRG — 2026 RAGBRAI Route Released"
+      },
+      {
+        "url": "https://www.bikelegalfirm.com/ragbrai-2025-guide",
+        "category": "media",
+        "label": "RAGBRAI 2025 Guide — Route, Rider Essentials, and Training Tips"
+      },
+      {
+        "url": "https://www.weareiowa.com/article/news/local/outreach/ragbrai/ragbrai-history-register-annual-great-bike-ride-across-iowa/524-bd35a004-5947-432c-bec8-cdd409d2deed",
+        "category": "media",
+        "label": "We Are Iowa — RAGBRAI History"
+      },
+      {
+        "url": "https://www.smithsonianmag.com/arts-culture/the-great-bicycle-ride-across-iowa-32871478/",
+        "category": "media",
+        "label": "Smithsonian Magazine — The Great Bicycle Ride Across Iowa"
+      },
+      {
+        "url": "https://khak.com/ragbrai-2026-shortest-route/",
+        "category": "media",
+        "label": "KHAK — RAGBRAI 2026 Shortest Route"
+      }
+    ],
+    "research_metadata": {
+      "last_updated": "2026-02-28",
+      "confidence_score": 0.92,
+      "sources_consulted": [
+        "official_website",
+        "wikipedia",
+        "media_coverage",
+        "participant_accounts",
+        "event_registration_pages"
+      ],
+      "migration_notes": [
+        "Profile rewritten February 2026 with full research and 2026 route data.",
+        "2026 route data (RAGBRAI LIII) used for vitals — route changes annually.",
+        "Historical averages (~468 miles, ~67 mi/day) noted alongside 2026-specific data.",
+        "Total rider count (474,103+) sourced from RAGBRAI Facts and Figures as of RAGBRAI LI (2024).",
+        "Single-day attendance record (50,000+) from RAGBRAI L 50th anniversary ride (2023)."
+      ],
+      "research_strength": {
+        "overall": 90.0,
+        "grade": "A-",
+        "weakest": "elevation_data",
+        "has_research_dump": false,
+        "dimensions": {
+          "source_diversity": 95,
+          "citation_density": 85,
+          "temporal_depth": 100,
+          "specificity": 85,
+          "statistical_backing": 90,
+          "voice_authenticity": 90,
+          "completeness": 90,
+          "cross_reference": 85
+        },
+        "scored_at": "2026-02-28"
+      }
+    }
+  }
+}

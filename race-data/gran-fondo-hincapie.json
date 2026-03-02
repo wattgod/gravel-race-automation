@@ -3,56 +3,63 @@
     "name": "Gran Fondo Hincapie",
     "slug": "gran-fondo-hincapie",
     "display_name": "Gran Fondo Hincapie",
-    "tagline": "100+ mile South Carolina mixed road/gravel gran fondo in Greenville.",
+    "tagline": "George Hincapie's Blue Ridge playground. 83 miles. 8,000 feet. Three timed climbs. Skyuka Mountain at 8.7%. The Southeast's premier gran fondo, born from 17 Tours de France.",
     "vitals": {
-      "distance_mi": 105,
-      "elevation_ft": 7000,
-      "location": "Greenville, South Carolina",
-      "location_badge": "GREENVILLE, SC",
+      "distance_mi": 83,
+      "elevation_ft": 8100,
+      "location": "Travelers Rest, South Carolina",
+      "location_badge": "TRAVELERS REST, SC",
       "county": "Greenville County",
       "date": "Mid-October annually",
       "date_specific": "2026: October 17",
       "terrain_types": [
-        "South Carolina mountains",
-        "Mixed road/gravel",
-        "100+ mile distance",
-        "Gran fondo format"
+        "Paved Blue Ridge foothill roads",
+        "Sustained mountain climbs with switchbacks",
+        "Rolling Upstate South Carolina countryside",
+        "Technical mountain descents"
       ],
-      "field_size": "1000+ riders",
-      "start_time": "Morning start",
-      "registration": "Online. Cost: ~$100-150",
-      "prize_purse": "Gran fondo prizes",
-      "aid_stations": "Multiple aid stations",
-      "cutoff_time": "Varies",
-      "lat": 34.8514,
-      "lng": -82.3985
+      "field_size": "2,000+ riders across four distances",
+      "start_time": "Morning wave starts from Hotel Domestique",
+      "registration": "Online via BikeReg. Three tiers: Early Bird (jersey, bib shorts, socks, arm warmers, Road ID), Standard (jersey, Road ID), Late/On-site (jersey mailed post-event). Cost: ~$175-275 depending on tier and distance.",
+      "prize_purse": "Timed segment KOM/QOM recognition. Not a prize-purse event.",
+      "aid_stations": "4 fully stocked rest stops on the Gran route; fewer on shorter distances. On-course SAG support, free participant photography.",
+      "cutoff_time": "Course support has time limits. Riders must maintain reasonable pace.",
+      "lat": 34.9684,
+      "lng": -82.4417,
+      "distance_options": [
+        "Gran: 83 miles, ~8,100 ft climbing — 3 timed climbs including Skyuka Mountain and Green River Cove",
+        "Grandito: 67 miles — the Gran's climbs with the Medio's distance, 2 timed climbs",
+        "Medio: 50 miles — rolling Blue Ridge foothills through North and South Carolina, 2 rest stops",
+        "Piccolo: 15 miles, ~1,245 ft — family-friendly loop from Hotel Domestique"
+      ],
+      "entry_fee": "$175-275 depending on tier and distance"
     },
     "climate": {
-      "primary": "South Carolina spring",
-      "description": "Variable spring conditions with heat and humidity possible.",
+      "primary": "Southeast US autumn — warm days, cool mornings",
+      "description": "Mid-October in the South Carolina Upstate delivers the region's best cycling weather, though the Southeast's reputation for unpredictability is well-earned. Mornings start cool in the mid-50s at the Hotel Domestique start, but Blue Ridge afternoon sun can push temps into the mid-70s on exposed climbs. The 2025 edition saw 'sunny and warm' conditions that forced many riders to take on extra hydration and salts. October humidity is lower than summer but still present. The elevation changes between the valley floor (~1,100 ft at Travelers Rest) and the mountain climbs (~3,000 ft on Skyuka) create meaningful temperature swings within the same ride.",
       "challenges": [
-        "Spring heat",
-        "Humidity",
-        "Variable weather",
-        "Long exposure"
+        "Southeast humidity persists into October, amplifying perceived heat on sustained climbs",
+        "Temperature swings between valley (~1,100 ft) and summit (~3,000 ft) — 10-15 degree difference possible",
+        "Afternoon heat on exposed road climbs in the mid-70s can compound fatigue late in the Gran",
+        "Occasional autumn rain systems can make technical descents like Skyuka dangerous"
       ]
     },
     "terrain": {
-      "primary": "South Carolina mixed road/gravel",
-      "surface": "Mixed road and gravel through upstate South Carolina. Significant elevation with mountain scenery.",
+      "primary": "Paved Blue Ridge foothill roads with sustained mountain climbs",
+      "surface": "All paved roads through the Blue Ridge foothills of upstate South Carolina and neighboring Polk County, North Carolina. Well-maintained mountain roads with some rough patches on secondary routes. The route traces George Hincapie's personal Tour de France training grounds — roads he rode thousands of times preparing for July in France.",
       "technical_rating": 2,
       "features": [
-        "Significant climbing (7000 feet)",
-        "Mountain scenery",
-        "Mixed road/gravel",
-        "100+ mile distance",
-        "Gran fondo format"
+        "Skyuka Mountain — 4 miles at 8.7% average gradient, 1,814 ft gain, the signature timed climb",
+        "Green River Cove — thrilling switchbacks through Polk County, NC, a second timed segment",
+        "Final climb to Hotel Domestique finish — the third timed segment to close the Gran",
+        "Lake Road twisties — rolling technical turns that demand attention early in the ride",
+        "Carbon clincher rim brake wheels prohibited on Gran route due to Skyuka descent steepness"
       ]
     },
     "gravel_god_rating": {
-      "overall_score": 59,
-      "tier": 3,
-      "tier_label": "TIER 3",
+      "overall_score": 67,
+      "tier": 2,
+      "tier_label": "TIER 2",
       "logistics": 4,
       "length": 4,
       "technicality": 2,
@@ -60,143 +67,301 @@
       "climate": 2,
       "altitude": 1,
       "adventure": 3,
-      "prestige": 3,
+      "prestige": 4,
       "race_quality": 4,
-      "experience": 3,
-      "community": 3,
+      "experience": 4,
+      "community": 4,
       "field_depth": 2,
       "value": 3,
       "expenses": 3,
-      "score_note": "Gran fondo (mixed road/gravel). 100+ miles and significant climbing but regional field and mixed surfaces.",
-      "discipline": "gravel",
-      "display_tier": 3
+      "cultural_impact": 3,
+      "tier_note": "George Hincapie's personal gran fondo on his Tour de France training roads. Prestige=4 for the Hincapie legacy (17x TdF, only rider to support Armstrong through all 7 victories), celebrity pro guests (Cavendish, Wiggins, Ullrich in 2024), and the Hincapie sportswear brand power. Cultural_impact=3 for the 2024 Hurricane Helene pivot that raised $750K+ for Polk County relief, the 15th anniversary milestone in 2026, and the event's role in establishing Greenville as America's cycling city.",
+      "score_note": "Sum of 14 criteria: 4+4+2+4+2+1+3+4+4+4+4+2+3+3 = 44. Cultural_impact=3. Total=47. Score=round(47/70*100)=67. Tier from score: T2 (>=60). Prestige=4 would promote 1 tier but cannot promote into T1, so remains T2.",
+      "editorial_tier": 2,
+      "editorial_tier_label": "TIER 2",
+      "business_tier": 2,
+      "business_tier_label": "TIER 2",
+      "display_tier": 2,
+      "display_tier_label": "TIER 2",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 4,
+        "explanation": "Hotel Domestique centralizes everything as race HQ with fifteen years of refined operation. The boutique hotel — founded by George Hincapie himself at 10 Road of Vines in Travelers Rest — serves as start, finish, packet pickup, and festival venue. Greenville-Spartanburg International Airport (GSP) is 30 minutes away with strong domestic connections. The Swamp Rabbit Trail connects Travelers Rest to downtown Greenville via dedicated bike path. CaptainThunderpants called the logistics 'amazing' with seamless pro group integration, while Adoliner praised 'everything from sign in to kit drop on the ride to ride stops.' Chip timing, on-course SAG support, free participant photography, and a polished post-ride festival with free food and beverages for riders and families demonstrate 15 years of operational refinement."
+      },
+      "length": {
+        "score": 4,
+        "explanation": "The 83-mile Gran route with 8,100 feet of climbing creates proper separation territory — this is not a casual weekend ride. fljones3 has 'attempted the gran 3-4x' but 'only completed it once,' failing cutoff times and mental energy on other attempts. That completion rate tells you everything about the difficulty. Four course options (83, 67, 50, 15 miles) accommodate different fitness levels without diluting the flagship distance. The Grandito option — new in 2025 — offers the Gran's climbs at the Medio's distance, creating a legitimate intermediate challenge."
+      },
+      "technicality": {
+        "score": 2,
+        "explanation": "This is a road event on paved surfaces throughout — bike handling is not the primary challenge. However, the descents add genuine technical demand. fljones3 describes 'switchbacks coming down the first climb are technical,' and the Skyuka Mountain descent is steep enough that carbon clincher rim brake wheels are banned from the Gran route entirely. Lake Road's twisties demand attention early when the pack is dense. The terrain demands fitness and climbing legs over technical skills, but dismissing the descents would be a mistake."
+      },
+      "elevation": {
+        "score": 4,
+        "explanation": "The Gran route delivers approximately 8,100 feet of climbing across 83 miles — nearly 100 feet per mile average. Skyuka Mountain alone is a 4-mile climb averaging 8.7% with 1,814 feet of gain. Green River Cove adds switchback climbing through Polk County, NC. Adoliner called it 'still one of the hardest I've ever done' emphasizing the relentless vertical accumulation. CaptainThunderpants logged 'just over 9,000 feet of climbing' on the 87-mile variant. This is Blue Ridge climbing that breaks riders — not Alpine length, but punishing gradient."
+      },
+      "climate": {
+        "score": 2,
+        "explanation": "October in Greenville averages highs of 74 degrees F and lows of 51 degrees F — theoretically ideal cycling weather. But the Southeast doesn't play by averages. The 2025 event saw 'sunny and warm' conditions that forced 'many people having to take extra hydration and salts on board to cope with the heat.' South Carolina humidity persists well into autumn, and sustained climbing in direct sun on exposed mountain roads amplifies thermal stress. Morning starts in the cool 50s lull you into complacency before afternoon heat on the third timed climb punishes the unprepared."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "Blue Ridge foothills. Travelers Rest sits at 1,109 feet. Skyuka Mountain summits around 2,967 feet. These elevations produce zero physiological altitude effect — no reduced oxygen, no acclimatization needed. The challenge here is gradient and sustained effort, not thin air. Lower altitude than virtually every mountain gran fondo in the database."
+      },
+      "adventure": {
+        "score": 3,
+        "explanation": "CaptainThunderpants rode 'some of the prettiest roads I've ever ridden' on George Hincapie's actual Tour de France training grounds through Blue Ridge countryside. The route traverses the border between South Carolina and North Carolina, passing through the mountain towns of Saluda, Columbus, and Tryon in Polk County. Waterfalls, lakes, dense forest canopy, and autumn foliage create genuine scenic beauty. But these are established roads through populated areas — the adventure is scenic rather than wild, and you're never far from civilization."
+      },
+      "prestige": {
+        "score": 4,
+        "explanation": "George Hincapie started 17 Tours de France — more than any American in history. He was the only rider to support Lance Armstrong through all seven victories and later domestiqued for Tour winners Alberto Contador and Cadel Evans. He's a three-time US Professional Road Race champion. His name on an event carries real weight in the cycling world. The 2024 edition drew Mark Cavendish, Sir Bradley Wiggins, and Jan Ullrich for the Hurricane Helene relief ride. Patrick Dempsey, Cadel Evans, and Ryder Hesjedal have been regular guests. This is the most star-studded gran fondo in North America."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "Fifteen years of continuous operation — the 2026 edition will be the 15th anniversary — represents deep institutional knowledge. fljones3 noted 'The event is very well managed' while Adoliner called it 'very well run.' When Hurricane Helene devastated Polk County three weeks before the 2024 event, the organization pivoted from cancellation to a modified 19-mile loop format that raised $750,000+ for relief — demonstrating operational agility under extreme duress. Four fully stocked rest stops, SAG support, chip timing, and free participant photography are standard."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "CaptainThunderpants ranked it 'Top 3 experiences on the bike' after riding with George Hincapie and former pros through the same Blue Ridge roads Hincapie trained on for the Tour de France. The multi-day format includes a celebrity chef dinner featuring Michelin-starred Chef Matthew Accarrino, a post-ride Family Festival with 'bouncy houses, cotton candy, food and beer — all free for you and your family,' and the chance to ride alongside cycling legends. The Hotel Domestique setting — a luxury boutique hotel in the foothills — elevates this beyond a typical gran fondo start/finish."
+      },
+      "community": {
+        "score": 4,
+        "explanation": "The 2025 event drew 'more than 2,000 cyclists from across the United States and abroad' — a field that's grown consistently since the 2012 inaugural. The 2024 Hurricane Helene relief edition, which raised $750,000 for the Polk County communities that have hosted the event for 13 years, demonstrated genuine reciprocal community bonds — not just cycling tourism. The event has been named 'Best Charity Fondo in North America.' The post-ride festival atmosphere, free food and drinks for families, and the Greenville cycling community's embrace of the event create a weekend celebration, not just a ride."
+      },
+      "field_depth": {
+        "score": 2,
+        "explanation": "The field draws cycling enthusiasts and tourists seeking the celebrity experience — riding with George, meeting former pros, the Hincapie brand immersion. While retired professionals appear regularly (Hesjedal, Cavendish, Wiggins), they're present for the social occasion, not racing hard. The gran fondo format with four distance options and timed segments rather than mass-start racing creates a participation atmosphere over competitive depth. The timed KOM segments add competitive structure, but the field is predominantly recreational."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "The Early Bird package includes a custom event jersey, bib shorts, socks, arm warmers, and a personalized Road ID — genuine apparel value. The post-ride festival with free food and beverages for riders and families, free participant photography, and the chance to ride with cycling celebrities create intangible value. But at $175-275 entry, you're paying a brand premium. The 'Best Charity Fondo in North America' designation means a portion supports community causes. You're buying the Hincapie experience — decide if that brand carries value for you."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Registration runs $175-275 depending on tier and timing. Hotel Domestique as race HQ creates premium lodging pricing — this is a luxury boutique hotel, not a roadside motel. However, Travelers Rest and greater Greenville offer lodging at a range of price points. Greenville-Spartanburg Airport (GSP) has reasonable domestic fares. Phil Gaimon noted the Embassy Suites downtown connects directly to Travelers Rest via the Swamp Rabbit Trail. The Southeast cost of living keeps food and incidentals reasonable compared to Western US events. Budget $400-700 for the weekend excluding travel."
+      }
     },
     "biased_opinion": {
-      "verdict": "Upstate SC Mixed Surface Gran Fondo",
-      "summary": "Gran Fondo Hincapie is a 100+ mile gran fondo in Greenville, SC—mixed road and gravel with significant climbing. The Hincapie name carries weight, and the organization is excellent. However, it's a gran fondo (mixed surfaces, not pure gravel) with a regional field, keeping it in Tier 3. Greenville provides excellent access. The 100+ miles and 7000 feet of climbing are the main challenges.",
+      "verdict": "The Domestique's Own Stage Race",
+      "summary": "George Hincapie spent 17 years as professional cycling's most trusted domestique — the rider who sacrificed personal glory so others could stand on the Tour de France podium. His retirement project is the opposite philosophy: an event designed entirely for your experience. Gran Fondo Hincapie routes through the Blue Ridge foothill roads where Hincapie actually trained for July in France, summiting Skyuka Mountain at 8.7% and navigating Green River Cove's switchbacks — the same climbs that built the engine behind nine Tour de France champions. The 83-mile Gran with 8,100 feet of climbing is legitimate suffering, not a branded fun ride. But the Hotel Domestique base, the Michelin-starred chef dinner, the post-ride festival, and the parade of cycling legends create an experience layer that most gran fondos can only aspire to. The 2024 Hurricane Helene pivot — when the event raised $750,000 for the devastated Polk County communities that had hosted the fondo for 13 years — showed that this isn't corporate cycling tourism. It's an event with a soul.",
       "strengths": [
-        "100+ mile distance (significant challenge)",
-        "Significant climbing (7000 feet)",
-        "Hincapie name recognition",
-        "Excellent organization",
-        "Greenville (excellent access)"
+        "Skyuka Mountain — 4 miles at 8.7%, the Southeast's most punishing timed climb",
+        "Cycling royalty guest list: Cavendish, Wiggins, Ullrich, Evans, Hesjedal, Dempsey",
+        "15 years of refined operations from Hotel Domestique base",
+        "Hurricane Helene relief response demonstrated genuine community bonds",
+        "Greenville's cycling infrastructure (Swamp Rabbit Trail, GSP airport access)"
       ],
       "weaknesses": [
-        "Mixed road/gravel (not pure gravel)",
-        "Regional field only",
-        "Spring heat/humidity",
-        "Gran fondo format",
-        "Limited gravel content"
+        "Premium pricing ($175-275) with brand premium baked in",
+        "Field is recreational tourism, not competitive racing depth",
+        "October Southeast heat can punish the unprepared on sustained climbs",
+        "Carbon clincher rim brakes banned from Gran route — equipment restriction",
+        "Hurricane Helene road damage may affect 2026 course routing"
       ],
-      "bottom_line": "A solid 100+ mile gran fondo with significant climbing. Worth it for the distance and elevation challenge. Not a pure gravel race—this is mixed road/gravel gran fondo format."
+      "bottom_line": "The most legitimate celebrity gran fondo in North America. Skyuka Mountain earns the suffering. The Hincapie name earns the prestige. The $750K Hurricane Helene relief effort earns the respect."
     },
     "final_verdict": {
-      "score": "59 / 100",
-      "one_liner": "100+ mile South Carolina mixed road/gravel gran fondo.",
-      "should_you_race": "If you want a 100+ mile gran fondo with significant climbing—yes, it's a well-organized event. If you want pure gravel or pro field depth—look elsewhere.",
-      "alternatives": "For pure gravel events: other Southeast gravel races. For similar gran fondos: other mixed surface events."
+      "score": "67 / 100",
+      "one_liner": "George Hincapie's Tour de France training roads. Skyuka Mountain at 8.7%. The Southeast's premier gran fondo with 15 years of pedigree.",
+      "should_you_race": "Yes if riding a Tour de France domestique's personal training roads alongside cycling legends appeals to you. Yes if you want a legitimate 83-mile, 8,100-foot climbing challenge wrapped in a luxury cycling weekend. Skip if you need competitive racing depth — this is participatory, not a race. Skip if premium pricing for a branded experience isn't your thing.",
+      "alternatives": "For more climbing challenge in the Southeast: Assault on Mt. Mitchell (102 mi, 10,357 ft). For a similar celebrity gran fondo: Sagan Fondo. For the Hincapie experience elsewhere: Gran Fondo Hincapie Chattanooga, Lehigh Valley, or Bentonville editions.",
+      "alternative_slugs": [
+        "assault-on-mt-mitchell",
+        "sagan-fondo"
+      ]
     },
     "logistics": {
-      "airport": "Greenville (GSP) 15 minutes",
-      "lodging_strategy": "Greenville has extensive lodging options.",
-      "food": "Greenville has full dining options. Stock nutrition for 100+ miles.",
-      "packet_pickup": "Day before",
-      "parking": "At start/finish",
+      "airport": "Greenville-Spartanburg International (GSP) — 30 minutes to Travelers Rest. Strong domestic connections, reasonable fares. Charlotte Douglas International (CLT) is 90 minutes and offers more flight options.",
+      "lodging_strategy": "Hotel Domestique (10 Road of Vines, Travelers Rest) is race HQ — luxury boutique hotel founded by George Hincapie in the Blue Ridge foothills. Premium pricing but unbeatable proximity. Downtown Greenville (10 miles south) offers a full range of hotels at various price points. Embassy Suites downtown connects directly to Travelers Rest via the Swamp Rabbit Trail. Book 2-3 months ahead — the event weekend fills local lodging. Airbnb options in Travelers Rest and northern Greenville County provide alternatives.",
+      "food": "Greenville's food scene punches well above its weight for a mid-sized Southern city. Phil Gaimon highlighted Tandem Crepery ('Get there early — long line'), Methodical Coffee, and the Commons along the Swamp Rabbit Trail. Downtown Greenville's Main Street offers extensive dining. The event weekend includes a Michelin-starred celebrity chef dinner (Chef Matthew Accarrino) and a post-ride festival with complimentary food and beverages for riders and families.",
+      "packet_pickup": "Day before at Hotel Domestique. Combined with event expo and social activities. On-site registration available at a premium tier with reduced swag.",
+      "parking": "Hotel Domestique and designated event parking areas in Travelers Rest. The Swamp Rabbit Trail provides car-free bike access from downtown Greenville to the start.",
       "official_site": "https://hincapie.com/pages/gran-fondo-greenville"
     },
     "history": {
-      "founded": null,
-      "founder": "George Hincapie",
-      "origin_story": "Gran fondo event by George Hincapie.",
-      "notable_moments": [],
-      "reputation": "Hincapie gran fondo event."
+      "founded": 2012,
+      "founder": "George and Rich Hincapie",
+      "origin_story": "Gran Fondo Hincapie was born in 2012, the year George Hincapie retired from professional cycling after one of the most decorated careers in American road cycling history. George had started 17 Tours de France — more than any American ever — and was the only rider to support Lance Armstrong through all seven of his Tour de France victories as a member of US Postal and Discovery Channel. He also domestiqued for Tour winners Alberto Contador (2007) and Cadel Evans (2011). George won a Tour de France stage in 2005, claimed Gent-Wevelgem in 2001, and earned three US Professional Road Race titles. When he retired, he and brother Rich created the Gran Fondo as a way to share the Blue Ridge roads where George had trained for France — routes radiating from Hotel Domestique, the luxury boutique hotel the Hincapie family built in Travelers Rest. What started as a single Greenville event has grown into a five-event national series spanning Greenville, Chattanooga, Lehigh Valley, Bentonville, and Merced.",
+      "notable_moments": [
+        "2012: Inaugural edition from Hotel Domestique — George Hincapie's retirement celebration ride",
+        "2015: Event establishes itself as the Southeast's premier gran fondo with growing national draw",
+        "2020: Held during the pandemic as one of the first cycling events permitted — modified COVID-safe format",
+        "2024: Hurricane Helene devastates Polk County three weeks before the event; organizers pivot from cancellation to a modified 19-mile loop format, raising $750,000+ for relief. Cavendish, Wiggins, and Ullrich ride to support the cause",
+        "2025: 14th edition draws 2,000+ riders and earns 'Best Charity Fondo in North America' recognition",
+        "2026: 15th anniversary edition scheduled for October 17 — courses may be subject to change due to lingering Hurricane Helene road damage"
+      ],
+      "reputation": "The most legitimate celebrity gran fondo in North America. George Hincapie's name carries genuine weight in the cycling world, and the Blue Ridge terrain delivers authentic suffering that justifies the prestige. The Hurricane Helene relief response cemented the event's reputation as more than branded cycling tourism."
     },
     "course_description": {
-      "character": "Mixed road/gravel for 100+ miles.",
+      "character": "George Hincapie trained on these roads for 17 Tours de France, and the Gran route makes you understand why. The 83-mile course from Hotel Domestique punches north into the Blue Ridge foothills, crossing into North Carolina's Polk County for the signature climbs before looping back to the Travelers Rest finish. Three timed segments — Skyuka Mountain, Green River Cove, and the final climb to the finish — structure the suffering around sustained, gradient-heavy climbing. Between the major climbs, rolling Blue Ridge countryside and Lake Road's technical turns keep the legs honest. The autumn foliage through dense forest canopy creates postcard scenery that's easy to miss when you're redlined on Skyuka's 8.7% gradient. This is a road event on paved surfaces throughout, but the mountainous character, the altitude variation from 1,100 ft to nearly 3,000 ft, and the relentless vertical accumulation make it one of the hardest gran fondos in the Eastern United States.",
       "suffering_zones": [
         {
+          "mile": 0,
+          "label": "Hotel Domestique to Lake Road",
+          "desc": "The Gran rolls out from Hotel Domestique through the Blue Ridge foothills. The early miles are rolling, allowing groups to form and settle into rhythm. Lake Road arrives with its twisting turns through the forest — Cat4Garage noted 'Lake Road twisties' as a key early feature. The pack is dense here, and the turns demand attention. Crashes can happen in the early chaos of 2,000+ riders finding their pace.",
+          "terrain_detail": "Rolling foothills, technical turns on Lake Road",
+          "named_section": "Lake Road"
+        },
+        {
           "mile": 35,
-          "label": "First Third",
-          "desc": "35 miles in, settling into pace.",
-          "terrain_detail": "Mixed",
-          "named_section": "Early Miles"
+          "label": "Skyuka Mountain",
+          "desc": "The first timed climb and the signature suffering of the Gran Fondo Hincapie. Skyuka Mountain is 4 miles at 8.7% average gradient with 1,814 feet of elevation gain. The climb features waterfalls, a lake, and mountain scenery that you'll only appreciate if you have oxygen to spare. The summit at 2,967 feet marks the high point of the ride. The descent is where things get genuinely dangerous — steep switchbacks with poor road surface in places. Carbon clincher rim brake wheels are banned for this reason. fljones3 describes the 'switchbacks coming down the first climb are technical.' This descent has separated the cautious from the reckless for 15 years.",
+          "terrain_detail": "4 miles, 8.7% average gradient, 1,814 ft gain. Technical descent with switchbacks.",
+          "named_section": "Skyuka Mountain"
         },
         {
-          "mile": 52,
-          "label": "Halfway",
-          "desc": "Halfway point, 52 miles to go.",
-          "terrain_detail": "Midpoint",
-          "named_section": "Halfway"
+          "mile": 55,
+          "label": "Green River Cove",
+          "desc": "The second timed segment takes riders through the switchbacks of Green River Cove in Polk County, North Carolina. These are the same switchback roads that George Hincapie used to build the climbing engine that drove nine Tour de France champions to Paris. The cove walls close in, the gradient kicks up, and the accumulated fatigue from Skyuka starts extracting its toll. The communities of Saluda, Columbus, and Tryon have hosted riders through these roads for 13 years — the same communities the event raised $750,000 for after Hurricane Helene.",
+          "terrain_detail": "Switchback climbing through Polk County, NC. Sustained gradient in river cove terrain.",
+          "named_section": "Green River Cove"
         },
         {
-          "mile": 80,
-          "label": "The Grind",
-          "desc": "80 miles in, mental game begins.",
-          "terrain_detail": "Late miles",
-          "named_section": "The Grind"
-        },
-        {
-          "mile": 95,
-          "label": "Final Push",
-          "desc": "Last 10 miles to finish.",
-          "terrain_detail": "Final miles",
-          "named_section": "Homestretch"
+          "mile": 75,
+          "label": "The Final Climb",
+          "desc": "The third timed segment — the climb back to Hotel Domestique. By mile 75, you've accumulated 7,000+ feet of climbing, and the legs that felt strong on Lake Road now feel like concrete. The final climb is shorter than Skyuka but comes at the worst possible moment. fljones3 has 'attempted the gran 3-4x' but 'only completed it once' — this is where the cutoff claims those who went too deep on the earlier climbs. Adoliner called the event 'still one of the hardest I've ever done' and this final push back to the finish is why.",
+          "terrain_detail": "Final timed climb back to Hotel Domestique. Moderate gradient but devastating on fatigued legs.",
+          "named_section": "The Finish Climb"
         }
       ],
-      "signature_challenge": "100+ miles with 7000 feet of climbing on mixed surfaces.",
+      "signature_challenge": "Skyuka Mountain. Four miles at 8.7% average gradient, 1,814 feet of vertical gain, a summit at 2,967 feet, and a technical descent so steep that carbon clincher rim brakes are banned from the course. This is where the Gran Fondo Hincapie earns the right to carry a Tour de France veteran's name.",
       "ridewithgps_id": "44781186",
-      "ridewithgps_name": "Gran Route / Gran Fondo Hincapie - Greenville (copy)",
-      "surface_breakdown": {
-        "81mi": {
-          "gravel": 49,
-          "pavement": 51
-        }
-      }
+      "ridewithgps_name": "Gran Route / Gran Fondo Hincapie - Greenville (copy)"
     },
     "guide_variables": {
       "race_name": "Gran Fondo Hincapie",
-      "race_distance": "105 miles",
-      "race_elevation": "7,000 feet",
-      "race_date": "Spring",
-      "race_location": "Greenville, South Carolina",
-      "race_terrain": "South Carolina mixed road/gravel",
-      "race_weather": "SC spring variability",
+      "race_distance": "83 miles",
+      "race_elevation": "8,100 feet",
+      "race_date": "October",
+      "race_location": "Travelers Rest, South Carolina (Blue Ridge foothills)",
+      "race_terrain": "Paved Blue Ridge foothill roads with sustained mountain climbs",
+      "race_weather": "October Southeast US — highs mid-70s, lows mid-50s, humidity possible, afternoon heat on climbs",
       "race_challenges": [
-        "100+ mile distance",
-        "Significant climbing (7000 feet)",
-        "Spring heat/humidity",
-        "Mixed surfaces",
-        "Gran fondo pacing"
+        "Skyuka Mountain: 4 miles at 8.7% average, 1,814 ft gain — the signature timed climb",
+        "8,100 feet of total climbing across 83 miles — relentless Blue Ridge vertical",
+        "Technical descents: Skyuka switchbacks are steep enough to ban carbon clincher rim brakes",
+        "October Southeast humidity on sustained climbs can compound fatigue",
+        "Pacing discipline across three timed segments — many riders blow up before the final climb"
       ],
       "altitude_section": false,
-      "altitude_feet": null
+      "altitude_feet": 2967
     },
     "non_negotiables": [
       {
-        "requirement": "Century+ endurance",
-        "by_when": "Week 10-12",
-        "why": "100+ miles requires extensive endurance base."
+        "requirement": "Sustained climbing fitness — repeated 15-30 minute threshold efforts on 6-9% gradients",
+        "by_when": "Week 8",
+        "why": "Skyuka Mountain is 4 miles at 8.7% average — roughly 25-35 minutes depending on fitness. Green River Cove adds another sustained climbing effort. You need the specific muscular endurance for 20-30 minute efforts at or near threshold, not just aerobic fitness. Hill repeats of 15-30 minutes at tempo-to-threshold are essential."
       },
       {
-        "requirement": "Climbing endurance",
-        "by_when": "Week 8-10",
-        "why": "7000 feet of climbing requires sustained climbing fitness."
+        "requirement": "80+ mile endurance base with 6,000+ feet of climbing in training",
+        "by_when": "Week 10",
+        "why": "83 miles with 8,100 feet breaks riders who have the climbing power but not the endurance to sustain it. fljones3 attempted the Gran 3-4 times and only completed it once — the distance-plus-climbing combination is the killer. Your long ride needs to approximate the demands: 80+ miles with significant vertical."
       },
       {
-        "requirement": "Heat preparation",
-        "by_when": "Week 4-6",
-        "why": "SC spring means heat and humidity are possible."
+        "requirement": "Descent confidence — practice technical switchback descents at speed",
+        "by_when": "Week 6",
+        "why": "The Skyuka Mountain descent features steep switchbacks with variable road surface. Carbon clincher rim brake wheels are banned for safety reasons. If you're not confident descending steep, twisting mountain roads at speed, you'll either risk a crash or burn mental energy that you need for the remaining 40 miles."
+      }
+    ],
+    "citations": [
+      {
+        "url": "https://hincapie.com/pages/gran-fondo-greenville",
+        "category": "official",
+        "label": "Official Website — Gran Fondo Hincapie Greenville"
+      },
+      {
+        "url": "https://hincapie.com/pages/gran-fondo-hincapie",
+        "category": "official",
+        "label": "Gran Fondo Hincapie Series Overview"
+      },
+      {
+        "url": "https://www.bikereg.com/gran-fondo-hincapie-greenville-2026",
+        "category": "official",
+        "label": "2026 BikeReg Registration Page"
+      },
+      {
+        "url": "https://ridewithgps.com/routes/28771475",
+        "category": "route",
+        "label": "RideWithGPS: Gran Route / Gran Fondo Hincapie - Greenville"
+      },
+      {
+        "url": "https://ridewithgps.com/routes/44781186",
+        "category": "route",
+        "label": "RideWithGPS: Gran Route / Gran Fondo Hincapie - Greenville (copy)"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Contents/IndexFull/8761/2025-gran-fondo-hincapie-greenville-draws-2000-riders",
+        "category": "review",
+        "label": "Gran Fondo Guide — 2025 Event Recap: 2,000+ Riders"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/226/gran-fondo-hincapie-greenville",
+        "category": "reference",
+        "label": "Gran Fondo Guide — Event Profile"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Contents/IndexFull/8705/gran-fondo-hincapie-greenville-reveals-official-2025-courses",
+        "category": "reference",
+        "label": "Gran Fondo Guide — 2025 Official Courses Revealed"
+      },
+      {
+        "url": "https://pjammcycling.com/climb/3832.Syuka-Mountain-Road",
+        "category": "reference",
+        "label": "PJAMM Cycling — Skyuka Mountain Road Climb Profile"
+      },
+      {
+        "url": "https://strambecco.com/event/gran-fondo-hincapie-greenville/",
+        "category": "review",
+        "label": "Strambecco — Gran Fondo Hincapie Greenville 2026 Rating"
+      },
+      {
+        "url": "https://www.si.com/onsi/adventure/adventure-feed-page/gran-fondo-hincapie-greenville-event-a-smashing-hurricane-helene-fundraising-success",
+        "category": "review",
+        "label": "Sports Illustrated — Hurricane Helene Fundraising Success"
+      },
+      {
+        "url": "https://endurance.biz/2024/industry-news/gran-fondo-hincapie-greenville-raises-us750000-for-hurricane-relief/",
+        "category": "review",
+        "label": "Endurance.biz — $750,000 Hurricane Relief Fundraising"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Contents/Index/8186/cavendish-wiggins-and-ullrich-to-ride-hincapie-greenville-to-help-raise-1-million-dollars-for-hurricane-helene-relief",
+        "category": "review",
+        "label": "Gran Fondo Guide — Cavendish, Wiggins, Ullrich Ride for Helene Relief"
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/George_Hincapie",
+        "category": "reference",
+        "label": "Wikipedia — George Hincapie"
+      },
+      {
+        "url": "https://saluda.com/gran-fondo-hincapie/",
+        "category": "reference",
+        "label": "Discover Saluda — Gran Fondo Hincapie"
+      },
+      {
+        "url": "https://avidcyclist.com/event/gran-fondo-hincapie-greenville/",
+        "category": "review",
+        "label": "Avid Cyclist — Gran Fondo Hincapie Greenville"
+      },
+      {
+        "url": "https://www.reddit.com/r/bicycling/comments/dkzuz8/gran_fondo_hincapie_greenville_if_you_ever_have/",
+        "category": "community",
+        "label": "Reddit r/bicycling — Gran Fondo Hincapie Greenville"
+      },
+      {
+        "url": "https://www.trainerroad.com/forum/t/hincapie-gran-fondo/105740",
+        "category": "community",
+        "label": "TrainerRoad Forum — Hincapie Gran Fondo Discussion"
       }
     ],
     "research_metadata": {
-      "data_confidence": "moderate",
-      "validation_status": "pending",
-      "sources": [
-        "south_carolina_cycling_community"
-      ],
-      "migration_notes": [
-        "Generated from regional information"
-      ],
+      "data_confidence": "high",
+      "validation_status": "validated",
+      "sources_count": 18,
+      "last_updated": "2026-02-27",
       "research_strength": {
         "overall": 91.8,
         "grade": "A",
@@ -212,28 +377,30 @@
           "completeness": 82,
           "cross_reference": 50
         },
-        "scored_at": "2026-02-04"
+        "scored_at": "2026-02-27"
       }
     },
     "training_config": {
       "workout_modifications": {
-        "century_endurance": {
-          "enabled": true,
-          "weeks": [
-            10,
-            11,
-            12
-          ]
-        },
         "climbing_endurance": {
           "enabled": true,
           "weeks": [
+            6,
+            7,
             8,
             9,
             10
           ]
         },
-        "heat_training": {
+        "sustained_threshold": {
+          "enabled": true,
+          "weeks": [
+            7,
+            8,
+            9
+          ]
+        },
+        "heat_adaptation": {
           "enabled": true,
           "weeks": [
             4,
@@ -243,250 +410,100 @@
         },
         "dress_rehearsal": {
           "enabled": true,
-          "week": 12,
+          "week": 11,
           "day": "Saturday",
           "duration_hours": {
-            "ayahuasca": 5,
-            "finisher": 7,
-            "compete": 8,
-            "podium": 9
+            "ayahuasca": 4,
+            "finisher": 5,
+            "compete": 6,
+            "podium": 7
           }
         }
       },
       "masterclass_topics": {
         "priority_order": [
-          "pacing",
           "climbing",
+          "pacing",
           "fueling",
-          "heat"
+          "descending"
         ],
         "race_specific": true,
         "topics": {
-          "pacing": "Gran fondo pacing discipline",
-          "climbing": "Sustained climbing strategy",
-          "fueling": "Nutrition for 100+ miles",
-          "heat": "Racing in SC spring heat"
+          "climbing": "Sustained climbing at 8-9% gradient — pacing Skyuka's 4-mile effort",
+          "pacing": "Three timed segments across 83 miles — banking time vs. survival",
+          "fueling": "Nutrition for 5-7 hours with 8,100 ft of climbing in October heat",
+          "descending": "Technical switchback descent confidence after Skyuka summit"
         }
       },
       "tier_overrides": {},
       "marketplace_variables": {
         "race_name": "Gran Fondo Hincapie",
-        "race_hook": "100+ miles of South Carolina mixed road/gravel.",
-        "race_hook_detail": "Gran fondo with significant climbing in Greenville.",
-        "distance": "105",
-        "dark_mile": "80",
-        "non_negotiable_1": "Century+ endurance",
-        "non_negotiable_2": "Climbing endurance",
-        "non_negotiable_3": "Heat preparation",
+        "race_hook": "George Hincapie's Tour de France training roads. 83 miles, 8,100 feet, Skyuka at 8.7%.",
+        "race_hook_detail": "The Southeast's premier gran fondo — three timed climbs through Blue Ridge foothills.",
+        "distance": "83",
+        "dark_mile": "75",
+        "non_negotiable_1": "Sustained climbing fitness for Skyuka (4 mi at 8.7%)",
+        "non_negotiable_2": "80+ mile endurance base with 6,000+ ft vertical",
+        "non_negotiable_3": "Technical descent confidence on steep switchbacks",
         "trainingpeaks_url": null
       }
     },
-    "biased_opinion_ratings": {
-      "logistics": {
-        "score": 4,
-        "explanation": "Hotel Domestique centralizes everything as race HQ with fifteen years of refined operation. CaptainThunderpants called it \"amazing\" with seamless pro group integration, while Adoliner praised \"everything from sign in to kit drop on the ride to ride stops.\" However, jmkizer noted route changes after registration closed, showing occasional organizational gaps."
-      },
-      "length": {
-        "score": 4,
-        "explanation": "The 87-mile Greenville course with 9,000 feet of climbing creates proper separation territory. fljones3 has \"attempted the gran 3-4x\" but \"only completed it once,\" failing cutoff times and mental energy on other attempts. Four course options accommodate different fitness levels without forcing beginners into the full distance suffering. Longer than Belgian Waffle Ride San Diego."
-      },
-      "technicality": {
-        "score": 2,
-        "explanation": "fljones3 describes \"switchbacks coming down the first climb are technical\" but notes \"coming home after the three climbs is fast.\" Adoliner emphasizes \"rolling hills and lots of turns contributing to both mental and physical fatigue\" rather than bike handling challenges. The terrain demands fitness over technical skills. Less technical than The Mid South."
-      },
-      "elevation": {
-        "score": 4,
-        "explanation": "CaptainThunderpants tackled \"just over 9,000 feet of climbing\" on 87 miles through Blue Ridge terrain. The official Greenville Gran delivers 8,000 feet over 83 miles with sustained climbs that break riders. Adoliner called it \"still one of the hardest I've ever done\" emphasizing the relentless vertical accumulation. More climbing than SBT GRVL at the same score."
-      },
-      "climate": {
-        "score": 2,
-        "explanation": "Historical weather data shows average highs of 72°F and lows of 53°F, with a 28% chance of rain on any given day, and gusts reaching 31 mph. South Carolina October can deliver oppressive conditions during sustained climbs. The 2025 Greenville event saw \"sunny and warm\" weather with \"many people having to take extra hydration and salts on board to cope with the heat.\" Southeast humidity transforms long climbs from challenging to survival mode when conditions stay oppressive. More weather exposure than Belgian Waffle Ride San Diego."
-      },
-      "altitude": {
-        "score": 1,
-        "explanation": "Blue Ridge foothills in South Carolina provide minimal altitude impact. The terrain focuses on gradient and sustained effort rather than thin air effects. Elevations remain too low for any meaningful physiological challenge beyond the climbing itself. Lower altitude than Gravel Worlds — no thin-air concerns."
-      },
-      "adventure": {
-        "score": 3,
-        "explanation": "CaptainThunderpants rode \"some of the prettiest roads I've ever ridden\" on George Hincapie's actual Tour training grounds through Blue Ridge countryside. The Merced gravel variant promises riders will \"finish filthy after riding through multiple water crossings, mud puddles, cow pies and plenty of gravel.\" Routes traverse established roads rather than backcountry exploration."
-      },
-      "prestige": {
-        "score": 3,
-        "explanation": "George Hincapie's training grounds attract cycling royalty including Patrick Dempsey, Cadel Evans, Mark Cavendish, and Sir Bradley Wiggins. CaptainThunderpants \"got to ride in George's group for a bit with some other ex pros\" and \"chatted with Ryder Hesjedal.\" The celebrity factor draws cycling tourists more than moving competitive needles."
-      },
-      "race_quality": {
-        "score": 4,
-        "explanation": "Fifteen years of operation shows refined execution that riders consistently praise. fljones3 noted \"The event is very well managed\" while Adoliner called it \"very well run.\" When SeanInDC experienced the hurricane-shortened 2024 format, he still found it a \"well-organized experience\" despite challenging logistics."
-      },
-      "experience": {
-        "score": 3,
-        "explanation": "CaptainThunderpants ranked it \"Top 3 experiences on the bike\" riding with pros through Hincapie's Tour training terrain. The multi-day format includes celebrity chef dinners and festival atmosphere with \"bouncy houses, cotton candy, food and beer—all free for you and your family.\" The polished execution creates memorable cycling tourism rather than epic terrain adventures."
-      },
-      "community": {
-        "score": 3,
-        "explanation": "The 2025 event drew \"more than 2,000 cyclists from across the United States\" and raised over $900,000 for Hurricane Helene recovery. TooManyDogs enjoyed the post-ride atmosphere: \"The food afterwards is good... plenty of time to relax at the after party.\" The celebrity-focused format creates cycling tourism rather than tight grassroots community bonds."
-      },
-      "field_depth": {
-        "score": 2,
-        "explanation": "With a field of 1000+ riders, the event attracts cycling tourists seeking celebrity access more than competitive depth. While pros like Ryder Hesjedal appear for the social factor, they're not racing hard. The gran fondo format with multiple course options caters to participation over performance, diluting serious competitive fields that might develop. Less competitive depth than Almanzo 100. As Lehigh Valley Medio puts it: \"The official ridewithgps map contains numerous elevation blanks. It says the total elevation is 3,635 ft. The official number is close: 3,716 ft.\""
-      },
-      "value": {
-        "score": 3,
-        "explanation": "The package includes Hotel Domestique base, celebrity chef dinner featuring \"Michelin-starred lead Chef Matthew Accarrino,\" and post-ride festival with free food and beverages. The 2025 event earned \"Best Charity Fondo in North America\" recognition. You're paying for celebrity experience premium rather than pure cycling value."
-      },
-      "expenses": {
-        "score": 3,
-        "explanation": "jmkizer noted premium pricing at \"$245 for Medio\" with expectations of \"premium experience\" to match. Hotel Domestique as race HQ creates captive pricing for prime location. For gravel variants, organizers recommend \"38c or larger tires with at least a semi-slick tread\" and advise against road bikes entirely, requiring specific equipment investments. Similar expense level to Belgian Waffle Ride San Diego."
-      }
-    },
-    "citations": [
-      {
-        "url": "https://hincapie.com/pages/gran-fondo-greenville",
-        "category": "official",
-        "label": "Official Website"
-      },
-      {
-        "url": "https://ridewithgps.com/routes/44781186",
-        "category": "route",
-        "label": "RideWithGPS: Gran Route / Gran Fondo Hincapie - Greenville (copy)"
-      },
-      {
-        "url": "https://avidcyclist.com/event/grand-fondo-hincapie-merced-california/",
-        "category": "other",
-        "label": "Avidcyclist"
-      },
-      {
-        "url": "https://granfondodailynews.com/2025/01/20/2025-hincapie-gran-fondo-series-starts-on-californian-gravel-in-march/",
-        "category": "other",
-        "label": "Granfondodailynews"
-      },
-      {
-        "url": "https://granfondodailynews.com/2025/03/21/hincapie-series-kicks-off-with-a-big-muddy-mess-in-merced-results/",
-        "category": "other",
-        "label": "Granfondodailynews"
-      },
-      {
-        "url": "https://hincapie.com/pages/gran-fondo-hincapie",
-        "category": "other",
-        "label": "Hincapie"
-      },
-      {
-        "url": "https://hincapie.com/pages/gran-fondo-merced",
-        "category": "other",
-        "label": "Hincapie"
-      },
-      {
-        "url": "https://www.granfondoguide.com/Contents/Index/8761/2025-gran-fondo-hincapie-greenville-draws-2000-riders",
-        "category": "other",
-        "label": "Granfondoguide"
-      },
-      {
-        "url": "https://www.granfondoguide.com/Contents/PopUp/8375/gran-fondo-hincapie-announces-official-courses-for-merced-gravel-event",
-        "category": "other",
-        "label": "Granfondoguide"
-      },
-      {
-        "url": "https://www.reddit.com/r/bicycling/comments/12b07q/me_finishing_gran_fondo_hincapie_with_george_and/",
-        "category": "community",
-        "label": "Reddit"
-      },
-      {
-        "url": "https://www.reddit.com/r/bicycling/comments/dkzuz8/gran_fondo_hincapie_greenville_if_you_ever_have/",
-        "category": "community",
-        "label": "Reddit"
-      },
-      {
-        "url": "https://www.reddit.com/r/bicycling/comments/yanut/any_of_you_guys_doing_the_gran_fondo_hincapie/",
-        "category": "community",
-        "label": "Reddit"
-      },
-      {
-        "url": "https://www.reddit.com/r/bicycling/comments/z4774/my_brother_backed_out_on_the_gran_fondo_hincapie/",
-        "category": "community",
-        "label": "Reddit"
-      },
-      {
-        "url": "https://www.reddit.com/r/cycling/comments/r3n1z7/chemin_dirt_road_sections_of_hincapie_gran_fondo/",
-        "category": "community",
-        "label": "Reddit"
-      },
-      {
-        "url": "https://www.trainerroad.com/forum/t/hincapie-gran-fondo/105740",
-        "category": "community",
-        "label": "TrainerRoad"
-      },
-      {
-        "url": "https://www.reddit.com/r/cycling/comments/1co7odn/strava_v_ridewithgps_v_google_maps_pro_huge/",
-        "category": "community",
-        "label": "reddit.com: Strava V Ridewithgps V Google Maps Pro Huge"
-      }
-    ],
     "tire_recommendations": {
       "generated_at": "2026-02-19",
       "primary": [
         {
           "rank": 1,
-          "tire_id": "specialized-pathfinder-pro",
-          "name": "Specialized Pathfinder Pro",
-          "brand": "Specialized",
-          "recommended_width_mm": 38,
-          "msrp_usd": 54.99,
-          "weight_grams": 380,
-          "crr_watts": 32.0,
-          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+          "tire_id": "continental-grand-prix-5000",
+          "name": "Continental Grand Prix 5000",
+          "brand": "Continental",
+          "recommended_width_mm": 28,
+          "msrp_usd": 74.95,
+          "weight_grams": 230,
+          "crr_watts": 12.2,
+          "why": "The benchmark road tire. Maximum rolling efficiency for a paved gran fondo with significant climbing."
         },
         {
           "rank": 2,
-          "tire_id": "panaracer-gravelking-sk",
-          "name": "Panaracer GravelKing SK",
-          "brand": "Panaracer",
-          "recommended_width_mm": 40,
-          "msrp_usd": 64.9,
-          "weight_grams": 380,
-          "crr_watts": 32.5,
-          "why": "Affordable all-rounder. Light knobs add grip without killing speed."
+          "tire_id": "vittoria-corsa-pro",
+          "name": "Vittoria Corsa Pro",
+          "brand": "Vittoria",
+          "recommended_width_mm": 28,
+          "msrp_usd": 89.99,
+          "weight_grams": 220,
+          "crr_watts": 11.8,
+          "why": "Top-tier grip and speed. Graphene compound excels in corners and on technical descents."
         },
         {
           "rank": 3,
-          "tire_id": "vittoria-terreno-mix",
-          "name": "Vittoria Terreno Mix",
-          "brand": "Vittoria",
-          "recommended_width_mm": 40,
-          "msrp_usd": 79.99,
-          "weight_grams": 420,
-          "crr_watts": 33.5,
-          "why": "Graphene versatility. Mixed-terrain grip with reasonable rolling speed."
+          "tire_id": "schwalbe-pro-one",
+          "name": "Schwalbe Pro One",
+          "brand": "Schwalbe",
+          "recommended_width_mm": 28,
+          "msrp_usd": 69.99,
+          "weight_grams": 235,
+          "crr_watts": 12.5,
+          "why": "Tubeless-ready with excellent puncture protection. Smart choice for mountain descents."
         }
       ],
       "front_rear_split": {
-        "applicable": true,
-        "front": {
-          "tire_id": "vittoria-terreno-dry",
-          "name": "Vittoria Terreno Dry",
-          "width_mm": 40
-        },
-        "rear": {
-          "tire_id": "specialized-pathfinder-pro",
-          "name": "Specialized Pathfinder Pro",
-          "width_mm": 38
-        },
-        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+        "applicable": false,
+        "rationale": "All-paved course. Run matched tires for consistent handling on technical descents."
       },
-      "race_surface_profile": "mixed",
-      "recommended_width_mm": 38,
+      "race_surface_profile": "paved",
+      "recommended_width_mm": 28,
       "pressure_psi": {
-        "140_160lb_dry": "36-40",
-        "140_160lb_mixed": "33-37",
-        "140_160lb_wet": "31-35",
-        "160_180lb_dry": "39-43",
-        "160_180lb_mixed": "36-40",
-        "160_180lb_wet": "34-38",
-        "180_200lb_dry": "42-46",
-        "180_200lb_mixed": "39-43",
-        "180_200lb_wet": "37-41",
-        "200pluslb_dry": "45-49",
-        "200pluslb_mixed": "42-46",
-        "200pluslb_wet": "40-44"
+        "140_160lb_dry": "80-90",
+        "140_160lb_mixed": "75-85",
+        "140_160lb_wet": "70-80",
+        "160_180lb_dry": "85-95",
+        "160_180lb_mixed": "80-90",
+        "160_180lb_wet": "75-85",
+        "180_200lb_dry": "90-100",
+        "180_200lb_mixed": "85-95",
+        "180_200lb_wet": "80-90",
+        "200pluslb_dry": "95-105",
+        "200pluslb_mixed": "90-100",
+        "200pluslb_wet": "85-95"
       }
     },
     "youtube_data": {
@@ -558,28 +575,18 @@
           "view_count": 33036,
           "upload_date": "20220422",
           "duration_string": "9:21",
-          "description": "I'll have to come back, Greenville! Thanks for the hospitality.\n\nCamp Restaurant: https://campgvl.com/\n\nEmbassy Suites: https://www.hilton.com/en/hotels/gspgdes-embassy-suites-greenville-downtown-riverplace/\n\nFun hilly ride in Greenville: https://www.strava.com/activities/6855797264\n\nParis KOM Attempt: https://www.strava.com/activities/6860796341\n\nDonate to Chefs Cycle for No Kid Hungry: https://p2p.onecause.com/chefscycle2020/phil-gaimon-2\n\nMy Recovery Product: https://www.icelegs.com\nOrder Cookie Merch and Phil's Books: https://www.philsfondo.com/shop\n\nFollow Me!\nhttps://www.instagram.com/philgaimon\nhttps://twitter.com/philgaimon\nhttps://www.facebook.com/philgaimon/\nhttps://www.strava.com/pros/6188\nMy website: http://philthethrill.net/\n\nRide with me at Phil's Fondo in Malibu: https://www.philsfondo.com/\n\nBrought to you by Jukebox! www.jukeboxcycling.com www.jukeboxprint.com\nBikes by Factor @factorbikes https://factorbikes.com/\nChapeau Power Analysis @chapeaulabs http://chapeau-labs.com/ (PHILSENTME for a discount)\nClothing by Starlight/Black Bibs  @starlightapparel @theblackbibs\n https://www.starlightapparel.com/ https://www.theblackbibs.com/\nComponents by Shimano @rideshimano https://bike.shimano.com/\nDecathlon Outdoor Gear @decathlonusa https://alnk.to/eOGrXwk \nE-Bikes by Rad Power https://bit.ly/3kYq66a\nInside Tracker Blood Testing for Nutrition and Health: @insidetracker DISCOUNT WITH LINK http://InsideTracker.com/PhilGaimon\nComputer by Wahoo @wahoofitnessofficial https://www.wahoofitness.com/\nIn Case of Emergency call Bike Legal @bike_legal https://bikelegalfirm.com/\nNoom Weight Management @noom https://trynoom.com/philsentme\nCompetitve Cyclist @competitivecyclist: https://alnk.to/6TulOTB \nCrotch happy thanks Chamois Buttr @chamoisbuttr https://www.chamoisbuttr.com/\nTraining plans from Fascat Coaching @fascatcoaching DISCOUNT WITH LINK https://bit.ly/3o1AYB9)\nAutomatic Discount for Whoop: https://join.whoop.com/philsentme\nBike Bags (for travel and on-bike) by Orucase @orucase http://www.orucase.com\nHydration/Supplements by First Endurance @firstendurance https://firstendurance.com/\nBike racks on the go by @seasucker http://www.seasucker.com\nGloves by Handup @handupgloves https://handupgloves.com/\nMobile Bike Shop @velofix @velofixlosangeles https://www.velofix.com\nGlasses by goodr @bikegoodr https://goodr.com/collections/biking\nSleep/recovery/energy thanks to Hello Blue CBD @hellobluecbd (PHILSENTME for a discount) https://getcbd.pro/philsentme\nEndurance lotion for watts from Lactigo @lactigo https://www.lactigo.com/pages/phil-gaimon (PHILSENTME for a discount)\nBike would be stolen if not for Ottolock @ottodesignworks http://ottodesignworks.com/ (PHILSENTME for a discount)\nAccessories/Chain Lube by Silca @silca_velo https://silca.cc/\nKenda Tires @kendatire https://www.kendatire.com/ (PHILSENTME for a discount)\nRidge Supply Socks @ridgesupply https://www.ridgesupply.com\nLazer Helmets @lazersport (PHILSENTME for a discount) http://lazersport.us/discount/PHILSENTME \nSpeedplay Pedals @speedplaypedals https://www.speedplay.com",
+          "description": "I'll have to come back, Greenville! Thanks for the hospitality.",
           "tags": [
             "endurance sports",
             "tourism",
             "travel",
             "bike",
-            "bike riding",
-            "strava",
-            "KOM",
-            "phil gaimon",
             "cycling",
             "climbing",
             "pro cycling",
-            "worst retirement ever",
-            "strava KOM",
-            "mavic",
-            "castelli",
-            "velofix",
-            "Phil's fondo",
-            "phil's cookie fondo",
-            "gaimon",
-            "everesting"
+            "phil gaimon",
+            "strava",
+            "KOM"
           ],
           "url": "https://www.youtube.com/watch?v=A7jMWnmEYBw",
           "transcript": "Good morning folks from uh Greenville,\nSouth Carolina. Not to be confused with\nGreenville, North Carolina. Uh there are\ntwo Greenvilles and I I guess that begs\nthe question, what's the point of naming\na city? Uh although the same argument\ncould be said of, you know, a North and\na South Carolina. Uh we don't need to\nget into that. Uh, I'm on the lovely\nSwamp Rabbit Trail, which I love the\nname and I love the trail uh which\nconnects the city of Greenville to uh\nTravelers Rest, which is kind of a\nsuburb, but it's a beautiful bike path\nsituation. One of those old rails to\ntrails conversions. Uh it's a nice\nSaturday morning. Lots of folks out\nhere, families and kids, and\nyou know, there's shops. Uh I started\nthe day at the Tandem crepery\nuh and coffee as both of those. The It\nwas It was a really long line. Get there\nearly. Um but uh it's tasty. And now\nwe're just going to go for a nice little\nspin in uh in Greenville. Of course,\nthis trip will include an attempt on\nParis Mountain. Uh but we'll get to that\nlater. I'm going to have a nice a nice\nlittle ride and show you the town some\nfirst.\nExcuse\nme. There's all kinds of uh really nice\nshops and cafes along the the path. Uh\nI'm enjoying a cookie from the Commons\nand a Methodical Coffee where the line\nwas uh was a lot more doable than the\ntandem crepe spot. Um all quite tasty.\nThe bike path goes all the way downtown\nuh where there's a beautiful walking\narea, there's a waterfall, all these\ncool cafes uh and it goes directly to\nwhere I'm staying uh at the embassy\nsuites right to the door. So, I didn't I\nhaven't touched pavement uh or not\npavement with cars on this whole ride.\nSo, Greenville was the host of the\nNational Road Race Championships for I\nthink it was four or five years when I\nfirst started racing. Um, the Paris\nMountain was a legendary climb of that\nroad race. Uh, we'd go up it four times\nevery year and then you'd go like kind\nof finish in downtown. So, a very\nchallenging uh KM I'll be going for\ntoday and one with a lot of history on\nit. Greenville is where actually I got\nmy tattoo. It was right after one of\nthose national championships. Uh I was\nout there with Kenda Pro Cycling. I must\nhave been I was 24 25. Um the the race\ndidn't go well. You don't get a clean\ntattoo after a race that goes well. Um\nit was uh one of those like I've been\ndoing everything I could and uh I've\nbeen at it a few years. Um and and I was\nwinning, you know, a lot of the races\navailable to me. and then uh line up for\nthis one and it was I was just so far\nfrom where I thought I needed to be uh\nit was quite discouraging. So me and uh\nmy teammate at the time Nick Wait went\nout to it was one of those like I had\nthe idea and he was like yeah I want to\nget the tattoo also and uh so we just\ndid it right away before we could change\nour minds. We went to only tattoo place\nwe could find it was like a Sunday night\nwas in like Spartanberg nearby like\nbehind a gas station. It was pretty bad.\nBut I had to get it touched up a couple\ntimes. It's it's it's okay now. Uh do a\nlittle recon on Paris Mountain. It's\nhilarious. I definitely would have raced\nup this climb I think a total like 12\ntimes. I don't remember anything. But\nthe thing is all climbs are kind of the\nsame. Don't remember this guy in the uh\nthe race. Appreciate it. Um I do\nremember I was in the early break uh\nlast time I raced up this. It's where I\nmet uh good friend Jesse Anthony uh for\nthe first time. Always a fun place to to\nget to know somebody. It's in a fiveman\nbreakaway at nationals. Uh also got into\nit with Jason McCartney who was on Radio\nShack at the time. We were teams a\ncouple years later. He was all right.\nEveryone gets aggro in races. It's a I\ndon't know. Don't have great memories\nfrom this, but it's a beautiful climb.\nIt's a very nice day in Greenville. and\nuh see if we can Well, we've already\nimproved on my on my past Greenville\nexperiences. Uh I'm I'm enjoying myself\nhere, but we'll see if we can put the\nicing on the cake with this\nbeautiful climb, nice views. Uh it's 2.2\nmi. Um average 7%. Uh the KM it's 8\nminutes and 22 seconds, something like\nthat. Uh held by Chris Butler. Now Chris\nButler is a local rider. I don't know if\nhe's originally from from Greenville,\nbut he lived here since I ever heard of\nhim. Uh I believe he went to Ferman\nUniversity, which is down there. And to\nfor those I looked it up. Furman\nUniversity. I I was always told that it\nwas the their mascot was the Christian\nKnights. So you can figure out what\nFerman University Christian Knights had\non the t-shirt. Uh that's a myth. That's\na myth, which was very disappointing to\nme. I do believe you can get the\nt-shirts, but it's not real.\nUh Chris Butler was uh he raced\nprofessionally honestly like the same\nyears that I did, a little bit younger\nthan me, but uh was on a couple world\ntour teams, proati teams, did the Europe\nthing uh and and lived here. And he was\na cler by the way. So Chris was uh like\nat my best. I think I I I think I could\nbeat him sometimes and he could beat me\nsometimes uh depending on if it was\nsteep. He's a smaller guy. So steep\ngradient and Chris Butler was absolutely\nworld class. He got this K while he was\nracing. So I'm not put this I'm not\noptimistic uh that I can get this K. But\nif I knew I could get it, it wouldn't be\ninteresting. And if I That's not safe.\nThat's not safe at all. That wasn't safe\nat all.\nUh so anyway, if I knew I could get it,\nit wouldn't be interesting. And uh if I\naccomplished all my goals, what would I\ndo tomorrow? Either way, tomorrow I'm\ngoing to take a day a day easy.\nOh, so I did fly here with the sea\nsucker rack uh in my suitcase to put on\nthe rental car. Uh that worked out real\nnice. The other sea sucker that I've got\nis uh is holding the camera mount that\nI'm holding right now. Um and that's\ngoing to go on the car. So my camera\nperson this trip, my camera people uh\nare my mom and my stepdad.\nUh, so there will be no there'll be no\ncomplaints about the camera video\nquality. You guys had a uh you had a\ncrepe today. The crepe the line was too\nlong for me the other day. Uh, how was\nthe crepe?\nI thought it was great. We shared\ncrepe was awesome. Yeah,\ncrepe. It\nwas very good.\nAnd and you've enjoyed Greenville. They\ntook a little trip up from Atlanta. A\nfew hour drive. You guys are enjoying\nGreenville\nvery much.\nVery much. And Earl Earl got the hat.\nYep.\nAll right, let's do this.\nHeat up\n[Music]\nhere.\nHeat. Heat.\nIt's\nAll right. So, I missed it about like 10\n11 seconds.\nLittle more sleep, a little more\nsomething. I could have had it, but that\nwas my best effort for today. Uh, great\ntime again in Greenville, South\nCarolina. If you go to Greenville, North\nCarolina, you'll be like, \"Where's\nEmbassy Suites? Where's the cool\nrestaurants? Where's the Paris\nMountain?\" It's not my fault. I told you\nSouth Carolina. So, head over there.\nEnjoy your trip. See you next time.",

@@ -1,0 +1,318 @@
+{
+  "race": {
+    "name": "Marmotte Granfondo Pyrenees",
+    "slug": "marmotte-pyrenees",
+    "display_name": "Marmotte Granfondo Pyrénées",
+    "tagline": "Five Pyrenean passes. A double Tourmalet. 5,700 meters of climbing. Summit finish. The Alps' little sister bites harder than you think.",
+    "vitals": {
+      "distance_mi": 110,
+      "elevation_ft": 18701,
+      "location": "Argelès-Gazost / Luz-Saint-Sauveur, Hautes-Pyrénées, France",
+      "location_badge": "HAUTES-PYRÉNÉES, FRANCE",
+      "date": "Late August annually",
+      "date_specific": "2025: August 24",
+      "terrain_types": [
+        "Paved Pyrenean mountain roads",
+        "Tour de France legendary cols",
+        "Long sustained climbs with irregular gradients",
+        "Summit finish (Hautacam or Luz Ardiden, alternating years)"
+      ],
+      "field_size": "~1,000-1,500 riders",
+      "start_time": "7:30 AM from village start",
+      "registration": "Online via marmottegranfondopyrenees.com. Tiered pricing. LOOK Cycle as title sponsor. Medical certificate or FFC license required.",
+      "prize_purse": "None (Gold/Silver/Bronze diploma system by age category)",
+      "aid_stations": "4 feed stations on the Granfondo: Tourmalet (km 36), Cadéac (km 84), Tourmalet (km 128), Beaucens (km 161). Water, isotonic drinks, Coca-Cola, fruit, energy bars, gels, sweet and savory snacks. Pasta party at summit finish.",
+      "cutoff_time": "Intermediate cutoffs enforced at key cols. Riders must maintain required pace to continue. Last finishers typically cross around 13 hours.",
+      "lat": 42.975,
+      "lng": -0.098,
+      "distance_options": [
+        "Granfondo: 177 km (110 mi), 5,700 m gain — full event with 5 cols and summit finish",
+        "Défi du Tourmalet: 122 km (76 mi), 4,200 m gain — double Tourmalet with summit finish"
+      ],
+      "entry_fee": "EUR90-100 (tiered by registration batch)"
+    },
+    "climate": {
+      "primary": "High Pyrenean mountain conditions with late-summer heat in valleys",
+      "description": "Late August in the Pyrenees delivers warm valley starts (18-25°C) that give way to exposed mountain conditions at the Tourmalet summit (2,115m), where temperatures can drop to 5-10°C with wind chill. Afternoon sun in the valleys between climbs can push 30°C+. The Pyrenees are marginally more temperate than the Alps in August, but thunderstorms build rapidly over the high peaks and can hit without warning.",
+      "challenges": [
+        "Tourmalet summit (2,115m): 5-10°C with wind, especially on early morning first ascent",
+        "Valley sections between cols: potentially 28-32°C in afternoon sun",
+        "Afternoon thunderstorms: rapid buildup over Pyrenean peaks, lightning at altitude",
+        "Two Tourmalet crossings means double exposure to summit weather — conditions can change between ascents"
+      ]
+    },
+    "terrain": {
+      "primary": "Paved Pyrenean mountain passes",
+      "surface": "Well-maintained French departmental roads (D-roads). All tarmac throughout. No gravel or unpaved sections. Road surfaces are generally good but some high-altitude sections above 1,800m can be rougher than their Alpine equivalents.",
+      "technical_rating": 1,
+      "features": [
+        "Col du Tourmalet (2,115m) — first ascent from west: 19 km at 7.4%, the most-crossed col in Tour de France history",
+        "Hourquette d'Ancizan (1,564m) — 10.4 km at 7.6%, a Category 1 Tour de France climb",
+        "Col d'Aspin (1,489m) — 11.6 km at 6.7%, a Tour classic since 1910",
+        "Col du Tourmalet (2,115m) — second ascent from east: 17 km at 7.4%, the psychological crux",
+        "Hautacam (1,629m) — 15 km at 7.9%, up to 14.4%, the summit finish with savage irregular gradients"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 74,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "logistics": 3,
+      "length": 4,
+      "technicality": 1,
+      "elevation": 5,
+      "climate": 3,
+      "altitude": 3,
+      "adventure": 4,
+      "prestige": 4,
+      "race_quality": 4,
+      "experience": 5,
+      "community": 3,
+      "field_depth": 3,
+      "value": 4,
+      "expenses": 3,
+      "cultural_impact": 3,
+      "tier_note": "Pyrenean sister to La Marmotte Alpes. Double Tourmalet with summit finish. T2 by score (74). p4 promotion blocked at T2→T1 boundary.",
+      "score_note": "elevation=5 for 5,700m across 5 cols with higher m/km ratio than the Alpine original. experience=5 for the double Tourmalet and summit finish. cultural_impact=3 reflects immense Tour de France heritage of the cols themselves but the event is only ~9 years old.",
+      "editorial_tier": 2,
+      "editorial_tier_label": "TIER 2",
+      "business_tier": 2,
+      "business_tier_label": "TIER 2",
+      "display_tier": 2,
+      "display_tier_label": "TIER 2",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 3,
+        "explanation": "Professional organization backed by Golazo, the same outfit that runs the Alpine Marmotte. The Marmotte Pyrénées inherits institutional competence: four well-stocked feed stations, chip timing, medical support, broom wagon coverage. The alternating start/finish pattern — Argelès-Gazost to Hautacam one year, Luz-Saint-Sauveur to Luz Ardiden the next — keeps the course fresh but adds a wrinkle for repeat visitors planning logistics. Access requires flying into Toulouse (2 hours) or Pau (1 hour) and driving into the Pyrenean foothills. These are small mountain towns, not Alpine mega-resorts, which is both the charm and the limitation."
+      },
+      "length": {
+        "score": 4,
+        "explanation": "177 km with 5,700m of climbing gives this event a higher elevation-per-kilometer ratio than its Alpine sibling — at 34 meters of climbing per kilometer, this is relentlessly vertical. There is almost no flat on this route. The 122 km Défi du Tourmalet option with 4,200m of climbing offers a shorter but equally savage alternative. Most Granfondo riders will spend 8-12 hours on course. The distance alone is manageable for experienced riders; it is the stacking of five genuine mountain passes that makes the length feel infinite."
+      },
+      "technicality": {
+        "score": 1,
+        "explanation": "All paved roads throughout. The Pyrenean departmental roads are well-maintained, and the challenge is entirely cardiovascular and muscular. The descents from the Tourmalet are fast and sweeping rather than technically demanding. Cold hands on the early morning Tourmalet descent are the closest thing to a technical hazard. You want a lightweight road bike with climbing gears — 34x32 minimum, and compact cranks with a 34x34 if your pride allows it."
+      },
+      "elevation": {
+        "score": 5,
+        "explanation": "5,700 meters of climbing across five cols in 177 km. This is more total climbing than the Alpine Marmotte (5,180m) packed into a slightly shorter route, giving it the highest climbing density of any event in the Marmotte series. The double Tourmalet alone accounts for roughly 2,660m of ascending. Add the Hourquette d'Ancizan, Col d'Aspin, and a summit finish at Hautacam or Luz Ardiden, and you have one of the most vertically punishing single-day events in European cycling. The legs never get a chance to forget they are climbing."
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "Late August in the Pyrenees is generally more benign than late June in the Alps — warmer valleys, fewer sub-zero summit conditions. The Tourmalet at 2,115m is exposed and can deliver cold wind and rain, but it does not approach the Galibier's 2,642m extremes. The bigger climate risk is afternoon heat in the valley sections between cols, where 30°C+ is common, and the ever-present threat of Pyrenean thunderstorms that build rapidly over the high peaks. The double Tourmalet crossing means two rounds of summit weather exposure, which can differ dramatically between morning and afternoon."
+      },
+      "altitude": {
+        "score": 3,
+        "explanation": "The Tourmalet summit at 2,115m is the high point — significant, but 500 meters lower than the Alpine Marmotte's Galibier (2,642m). Altitude effects are noticeable at 2,115m but not debilitating for most riders. The Hourquette d'Ancizan (1,564m) and Col d'Aspin (1,489m) are comfortably below the altitude threshold where oxygen reduction becomes a meaningful factor. The Pyrenean Marmotte is a climbing challenge, not an altitude challenge — the suffering comes from the gradients and the volume, not from thin air."
+      },
+      "adventure": {
+        "score": 4,
+        "explanation": "Riding the same Pyrenean passes where Merckx, Hinault, Indurain, and Pogacar made and destroyed Tour de France campaigns is inherently adventurous. The double Tourmalet — climbing the most storied mountain in the Pyrenees from both sides in a single day — is a concept that borders on cruel brilliance. The Pyrenean landscape differs from the Alps: darker rock, steeper valleys, wilder vegetation, and a sense of remoteness that the more touristed Alps lack. The summit finish at Hautacam or Luz Ardiden adds genuine drama. The only thing keeping this from a 5 is that the infrastructure is professional enough to remove the raw adventure edge."
+      },
+      "prestige": {
+        "score": 4,
+        "explanation": "The Marmotte name carries serious weight in European cyclosportive culture, and the Pyrénées edition leverages that credibility directly. Organized by Golazo with LOOK as title sponsor, it is a professional operation with a respected pedigree. The Tourmalet is arguably the most prestigious climb in all of cycling — more Tour de France appearances than any other col. But the event itself launched in 2016 and has only around 9 editions behind it. It has not yet earned the generational prestige of the Alpine original (running since 1982). Give it another decade and this could be a 5."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "Golazo brings their full event management playbook: chip timing, Gold/Silver/Bronze diploma system by age group, well-stocked feed stations at 30-40 km intervals, medical support at key points, and broom wagon coverage. The tiered registration pricing (EUR90-100) is well-structured and affordable. The alternating route pattern between Hautacam and Luz Ardiden years keeps repeat riders engaged. The smaller field (~1,000-1,500) means less crowding on climbs and a more intimate feel than the 7,000+ rider Alpine event. The organization punches above the field size."
+      },
+      "experience": {
+        "score": 5,
+        "explanation": "The double Tourmalet is an experience that exists almost nowhere else in organized cycling. You climb the west side in the early morning — 19 km at 7.4%, emerging above the treeline into the barren moonscape of the Pic du Midi massif — then descend to Sainte-Marie-de-Campan. After the Hourquette d'Ancizan and Col d'Aspin — both beautiful passes steeped in Tour history — you turn around and climb the Tourmalet again from the east, this time on legs that have already done 100+ km and 3,000m of climbing. The summit monument to the Géant du Tourmalet statue hits differently the second time. And then, when you think the day is done, there is a summit finish at Hautacam with its savage irregular gradients. The Pyrenees deliver a raw, dramatic beauty that is distinct from the Alps — darker, wilder, more remote."
+      },
+      "community": {
+        "score": 3,
+        "explanation": "The field is predominantly French and Spanish, with a smaller international contingent than the Alpine Marmotte. The ~1,000-1,500 rider field creates a more intimate community feel — you will see the same faces on successive climbs. The Pyrenean cycling culture is deeply rooted: local clubs, the tradition of the cols, the afternoon coffee in small mountain towns. But the event has not yet developed the international pilgrimage status of the Alpine original. The 500 riders at the inaugural 2016 edition have grown steadily, and the community is building, but it is still a fraction of the Alpine Marmotte's global draw."
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "The smaller field means less competitive depth than the Alpine Marmotte's 7,000+ riders. Strong regional riders from southern France and northern Spain form the sharp end, and Gold diploma times require genuine fitness on a course this demanding. But the event does not yet attract the pan-European competitive field that the Alpine original commands. Most riders are here for the experience and the achievement rather than to race. The depth will grow as the event matures."
+      },
+      "value": {
+        "score": 4,
+        "explanation": "EUR90-100 for access to five legendary Tour de France cols with professional support, chip timing, Gold/Silver/Bronze diploma system, and four well-stocked feed stations is excellent value. This is notably cheaper than the Alpine Marmotte (EUR110-130) for an event with more total climbing. The tiered pricing rewards early registration. For what you get — one of the most demanding single-day cycling experiences in Europe on roads that have defined the Tour de France for a century — the cost is more than justified."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "The Pyrenees are slightly less expensive than the Alps, but you are still dealing with international travel logistics. Flights to Toulouse (2 hours drive) or Pau (1 hour drive) plus car rental. Accommodation in Argelès-Gazost or Luz-Saint-Sauveur is more affordable than Alpine resort towns — think EUR80-150 per night rather than EUR150-300. Total trip cost from the US is EUR800-1,800 depending on accommodation choices and flight deals. From elsewhere in Europe, a 3-day weekend trip can be done for EUR400-800."
+      }
+    },
+    "biased_opinion": "The Marmotte Pyrénées is the event that cycling insiders know but the broader world has not fully discovered yet. On paper, it is the younger sister of the legendary Alpine Marmotte. In practice, it might be the harder ride. The numbers do not lie: 5,700m of climbing in 177 km gives it a higher elevation-per-kilometer ratio than the Alps. The double Tourmalet — climbing the most storied mountain in the Pyrenees from both sides in a single day — is an act of organized cruelty that, after 120 km, will have you questioning the sanity of the route designers. And then, when the Tourmalet has taken everything, they send you up Hautacam with its irregular gradients that refuse to let you find a rhythm.\n\nThe Pyrenees are darker, wilder, and less forgiving than the Alps, and this event embraces that character completely. Where the Alpine Marmotte finishes on the iconic 21 hairpins of Alpe d'Huez with crowds four deep, the Pyrénées edition sends you up a ski station road where the only witnesses are sheep and your own suffering. The Tourmalet at dawn, with mist rolling off the Pic du Midi and the road rising endlessly above the treeline, is one of cycling's great sensory experiences. Doing it a second time, 100 km later on legs that have already climbed three other mountain passes, is one of cycling's great tests of character.\n\nIf the Alpine Marmotte is the bucket-list mountain sportive, the Pyrénées edition is the insider's version — harder per kilometer, less crowded, and set against the wild, dark drama of the Tour de France's spiritual home. Give it ten more years and this event will be spoken about in the same breath as its Alpine sibling. For now, it remains the connoisseur's choice.",
+    "final_verdict": {
+      "score": "74 / 100",
+      "one_liner": "Five Pyrenean cols. Double Tourmalet. 5,700m of climbing. Summit finish. The Marmotte's Pyrenean sister hits harder per kilometer than the Alpine original.",
+      "should_you_race": "Yes if you want the intensity of the Alpine Marmotte with more climbing per kilometer and fewer crowds. Yes if the Tourmalet means something to you — doing it twice in one day is a career cycling memory. Skip if you want the prestige and global atmosphere of the Alpine original. Skip if you need technical terrain — this is pure road climbing on tarmac.",
+      "alternatives": [
+        "La Marmotte Granfondo Alpes — the original Alpine experience with Galibier and Alpe d'Huez finish",
+        "L'Etape du Tour — when the Tour route visits the Pyrenees, same legendary cols",
+        "Tour du Mont-Blanc Cyclo — maximum climbing in a single day across three countries"
+      ],
+      "alternative_slugs": [
+        "la-marmotte",
+        "letape-du-tour",
+        "tour-du-mont-blanc-cyclo"
+      ]
+    },
+    "logistics": {
+      "nearest_airport": "Pau (PUF) — 1 hour drive, closest option with limited international flights. Toulouse (TLS) — 2 hours drive, major airport with most flight options. Lourdes (LDE) — 30 minutes, seasonal service with limited routes.",
+      "travel_tips": "Rent a car — public transport to these small Pyrenean towns is impractical on race weekend. The drive from Toulouse through Tarbes is straightforward. Check which year's route applies before booking: Argelès-Gazost start in Hautacam years, Luz-Saint-Sauveur in Luz Ardiden years. Arrive Friday to collect race pack and do a leg-opening spin. A French FFC license or medical certificate of fitness is required for registration.",
+      "accommodation": "Stay in Argelès-Gazost (Hautacam finish years) or Luz-Saint-Sauveur (Luz Ardiden finish years) — both are charming Pyrenean spa towns with hotels and guesthouses at EUR80-150/night. Book 2-3 months ahead for event week. Lourdes (20 min drive) has abundant affordable accommodation if mountain towns are full. These are small villages, not mega-resorts — limited options but genuine Pyrenean character.",
+      "gear_recommendations": "Lightweight road bike with climbing gears: compact 50/34 chainring with 11-32 or 11-34 cassette minimum. Arm warmers and a gilet are mandatory for the early morning Tourmalet descent (summit at 2,115m can be 5°C). Two bottles minimum between feed stations. Consider a lightweight rain jacket for unpredictable Pyrenean weather. Spare tube and CO2 — the nearest bike shop is in the valley."
+    },
+    "history": {
+      "first_edition": 2016,
+      "notable_editions": [
+        "2016: Inaugural edition — 500 riders tackle the double Tourmalet, establishing the Pyrenean Marmotte. Only half the field finishes, underlining the event's savage difficulty.",
+        "2018: Field growth continues. First rider finishes in just under 6 hours; last finisher crosses at nearly 13 hours, demonstrating the range of the challenge.",
+        "2024: Start and finish brought closer together in Argelès-Gazost to improve participant logistics and accessibility.",
+        "2025: Route shifts to Luz-Saint-Sauveur start with Luz Ardiden summit finish — 150 km / 5,400m variant."
+      ],
+      "records": "Fastest Granfondo completion: approximately 5 hours 50 minutes. The event does not publish official course records but uses a Gold/Silver/Bronze diploma system by age category.",
+      "growth": "From 500 riders at the 2016 inaugural edition to approximately 1,000-1,500 in recent years. Growth has been steady but deliberate — the event has not pursued the 7,000+ rider model of the Alpine original, maintaining a more intimate Pyrenean character. The alternating route pattern (Hautacam and Luz Ardiden finish years) was introduced to keep the event fresh and improve logistical flow."
+    },
+    "course_description": {
+      "overview": "Relentless Pyrenean verticality with a higher elevation-per-kilometer ratio than the Alpine Marmotte. The road is either going up or going down, with virtually no flat recovery. The route threads through five legendary Tour de France cols anchored by the double Tourmalet — climbing 2,115m from the west side in the fresh morning, descending, threading through the Hourquette d'Ancizan and Col d'Aspin, then turning around to climb the Tourmalet again from the east on destroyed legs. The summit finish at Hautacam with its savagely irregular gradients — or Luz Ardiden with its 30 hairpins — is the final reckoning. The Pyrenean landscape is darker and more dramatic than the Alps: deep gorges, black rock, waterfalls, and an ever-present wildness.",
+      "segments": [
+        {
+          "name": "Col du Tourmalet — West Side",
+          "distance_km": 19,
+          "elevation_gain_m": 1404,
+          "description": "The day opens with the biggest climb in the Pyrenees. From the start, you head toward Luz-Saint-Sauveur and begin the western ascent: 19 km at 7.4% average, climbing 1,404m. The gradient steepens immediately and stays there, with sections touching 10%. Above the treeline, the road traverses exposed mountainside with views of the Pic du Midi observatory. The summit at 2,115m features the iconic Géant du Tourmalet statue — the octopus-like sculpture marking the most-crossed pass in Tour de France history. First time up, legs are fresh. Remember this feeling."
+        },
+        {
+          "name": "Descent to Sainte-Marie-de-Campan",
+          "distance_km": 17,
+          "elevation_gain_m": 0,
+          "description": "Fast descent from 2,115m down the east side of the Tourmalet to Sainte-Marie-de-Campan at approximately 850m. Sweeping hairpins, good road surface, but cold hands are likely from the summit temperatures. This is the only genuine recovery window in the event — use it wisely."
+        },
+        {
+          "name": "Hourquette d'Ancizan",
+          "distance_km": 10.4,
+          "elevation_gain_m": 714,
+          "description": "From the Campan valley, the Hourquette d'Ancizan (1,564m) is a Category 1 Tour de France climb — 10.4 km at 7.6% average through forests and pastures. It deserves more respect than the mid-ride breather it appears to be on paper. The gradient is consistent and unforgiving on legs that have already climbed and descended the Tourmalet."
+        },
+        {
+          "name": "Col d'Aspin",
+          "distance_km": 11.6,
+          "elevation_gain_m": 780,
+          "description": "After descending the Hourquette to Arreau, a left turn sends you toward the Col d'Aspin (1,489m) — 11.6 km at 6.7%, a Tour classic since 1910. Beautiful forested climb with a series of hairpins and views that expand as you gain altitude. Marginally gentler than its neighbors, but at 80+ km into the ride, gentle is relative."
+        },
+        {
+          "name": "Col du Tourmalet — East Side (The Double)",
+          "distance_km": 17,
+          "elevation_gain_m": 1260,
+          "description": "The psychological crux. Descend from the Aspin back to Sainte-Marie-de-Campan and face the Tourmalet again — this time from the east: 17 km at 7.4%, climbing 1,260m. The first 4 km are deceptively gentle, then the road rears up and stays above 7% for the remainder. This is 120+ km into the ride with 3,500m of climbing already done. The east side feels steeper because your legs know what the west side took from them. The same summit monument that felt triumphant three hours ago now feels like mockery."
+        },
+        {
+          "name": "Hautacam — Summit Finish",
+          "distance_km": 15,
+          "elevation_gain_m": 1182,
+          "description": "After the second Tourmalet descent, the route turns toward Hautacam for the final reckoning. 15 km at 7.9% average with a maximum of 14.4% — but it is the savage irregularity that breaks you. The gradient lurches between 5% and 14% within single kilometers, destroying any attempt to find a climbing rhythm. At 160+ km and 5,000m of climbing, Hautacam asks for something you may not have left. The ski station at 1,629m is the finish line."
+        }
+      ],
+      "key_features": [
+        "Double Tourmalet: climbing cycling's most iconic Pyrenean col from both sides in a single day",
+        "Five legendary Tour de France cols in a single route",
+        "Summit finish at Hautacam (7.9% avg, 14.4% max) or Luz Ardiden (alternating years)",
+        "Higher elevation-per-kilometer ratio (34 m/km) than the Alpine Marmotte",
+        "Virtually no flat terrain — the road is always climbing or descending"
+      ],
+      "strategy": "Pace the first Tourmalet conservatively — it is the opening act, not the headline. The western ascent is where most riders burn too many matches in the excitement of a fresh start on a legendary climb. Save the legs for the second Tourmalet at km 120, which is the true crux. Between the two Tourmalet crossings, the Hourquette d'Ancizan and Col d'Aspin should be ridden at a sustainable tempo, eating and drinking steadily. Start the second Tourmalet at a pace you can hold for 90 minutes without blowing up — you will need reserves for Hautacam. On Hautacam's irregular gradients, abandon any attempt to hold a specific power target; instead, focus on cadence and perceived exertion. Eat real food through the feed stations and supplement with gels on the climbs. Carry arm warmers from the start — the early Tourmalet descent will be cold."
+    },
+    "guide_variables": {
+      "race_name": "Marmotte Granfondo Pyrénées",
+      "race_distance": "110 miles",
+      "race_elevation": "18,701 feet",
+      "race_date": "Late August",
+      "race_location": "Argelès-Gazost / Luz-Saint-Sauveur, French Pyrenees",
+      "race_terrain": "Paved Pyrenean mountain passes — five legendary Tour de France cols",
+      "race_weather": "Late August Pyrenees: 18-25°C valleys, 5-10°C at Tourmalet summit (2,115m), thunderstorm risk",
+      "race_challenges": [
+        "5,700m of climbing across 5 major cols in 177 km",
+        "Double Tourmalet: climbing 2,115m from both sides in a single day",
+        "Summit finish at Hautacam (7.9% avg, 14.4% max) on completely depleted legs",
+        "Higher elevation-per-kilometer ratio than the Alpine Marmotte",
+        "Pyrenean thunderstorms can build rapidly over high peaks in August"
+      ],
+      "altitude_section": true,
+      "altitude_feet": 6939
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Sustained climbing endurance — 4+ hour sessions with 2,500m+ of climbing in training",
+        "by_when": "Week 6",
+        "why": "The Marmotte Pyrénées demands 8-12 hours of near-continuous climbing across five mountain passes. The double Tourmalet alone is roughly 2,660m of ascending. You need progressive overload with back-to-back long climbs to prepare for the relentless vertical."
+      },
+      {
+        "requirement": "Back-to-back climbing simulation — two major climbs on pre-fatigued legs",
+        "by_when": "Week 8",
+        "why": "The second Tourmalet ascent at km 120 with 3,500m already in the legs is the crux. You must train your body and mind for sustained climbing when already deeply fatigued. Stack two 90+ minute climbs in a single ride, ideally with the second one feeling unreasonable."
+      },
+      {
+        "requirement": "Full nutrition strategy tested over 6+ hours of climbing",
+        "by_when": "Week 9",
+        "why": "Fueling through 5,700m of climbing requires a practiced nutrition plan — 60-90g carbs per hour, real food supplemented with gels, tested on rides long enough to reveal gut issues. Bonking on the second Tourmalet with Hautacam still ahead is a day-ending catastrophe."
+      }
+    ],
+    "citations": [
+      {
+        "url": "https://marmottegranfondopyrenees.com/en/",
+        "title": "Marmotte Granfondo Pyrénées — Official Site",
+        "category": "official"
+      },
+      {
+        "url": "https://marmottegranfondopyrenees.com/en/granfondo/",
+        "title": "Marmotte Granfondo Pyrénées Granfondo Route — Official",
+        "category": "official"
+      },
+      {
+        "url": "https://marmottegranfondopyrenees.com/en/defi-du-tourmalet/",
+        "title": "Marmotte Granfondo Pyrénées Défi du Tourmalet — Official",
+        "category": "official"
+      },
+      {
+        "url": "https://www.alpinecols.com/the-marmotte-granfondo-pyrenees/",
+        "title": "The Marmotte GranFondo Pyrenees — Alpine Cols",
+        "category": "review"
+      },
+      {
+        "url": "https://www.cyclist.co.uk/in-depth/marmotte-granfondo-pyrenees-sportive-second-helping",
+        "title": "Marmotte Granfondo Pyrenees: Second Helping — Cyclist Magazine",
+        "category": "review"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/5525/look-marmotte-gran-fondo-pyrenees",
+        "title": "Look Marmotte Gran Fondo Pyrénées — Gran Fondo Guide",
+        "category": "reference"
+      },
+      {
+        "url": "https://www.granfondo.com/cycling/521559/marmotte-adds-monster-in-pyrenees-to-gran-fondo-series",
+        "title": "Marmotte Adds Monster in Pyrenees to Gran Fondo Series — GranFondo.com",
+        "category": "reference"
+      },
+      {
+        "url": "https://en.3bikes.fr/2023/08/24/cyclosport-la-marmotte-pyrenees-le-parcours-en-detail/",
+        "title": "La Marmotte Pyrénées, the route in detail — 3bikes.fr",
+        "category": "review"
+      },
+      {
+        "url": "https://www.cycloworld.cc/en/gran-fondo/france/marmotte-granfondo-pyrenees/40535",
+        "title": "Marmotte Granfondo Pyrénées — Cycloworld",
+        "category": "reference"
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Col_du_Tourmalet",
+        "title": "Col du Tourmalet — Wikipedia",
+        "category": "reference"
+      }
+    ],
+    "research_metadata": {
+      "last_updated": "2026-02-28",
+      "confidence_score": "high",
+      "sources_consulted": 10
+    }
+  }
+}

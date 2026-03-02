@@ -1,0 +1,363 @@
+{
+  "race": {
+    "name": "London to Brighton Bike Ride",
+    "slug": "london-to-brighton",
+    "display_name": "London to Brighton Bike Ride",
+    "tagline": "54 miles. 15,000+ riders. Clapham Common to Brighton seafront. The ride that invented mass-participation charity cycling. Since 1976. Ditchling Beacon awaits.",
+    "vitals": {
+      "distance_mi": 54,
+      "elevation_ft": 2500,
+      "location": "London to Brighton, England, UK",
+      "location_badge": "LONDON TO BRIGHTON, ENGLAND",
+      "county": "Greater London, Surrey, West Sussex, East Sussex",
+      "date": "Mid-June annually (Sunday)",
+      "date_specific": "2026: June 21",
+      "terrain_types": [
+        "Paved suburban roads through South London",
+        "Quiet country lanes through Surrey and Sussex",
+        "Rolling countryside across the Weald",
+        "South Downs ascent via Ditchling Beacon",
+        "Coastal descent into Brighton"
+      ],
+      "field_size": "~15,000-27,000 riders (ballot entry system, typically sells out)",
+      "start_time": "Staggered starts from 6:00 AM to 9:30 AM from Clapham Common, South London",
+      "registration": "Online via British Heart Foundation. Ballot entry or guaranteed entry through charity partners. Entry fee GBP 30-65 depending on entry route. Charity fundraising encouraged (minimum GBP 150 for partner entries).",
+      "prize_purse": "None. This is a charity ride, not a race. All funds support the British Heart Foundation.",
+      "aid_stations": "Five well-stocked rest stops spread along the route at approximately 10-mile intervals. Each provides water, toilets, mechanics, and medical assistance. Riders should bring cash for refreshment purchases at stops.",
+      "cutoff_time": "Generous. Riders have all day to complete the 54 miles. Sweep vehicles and support available throughout.",
+      "lat": 51.4575,
+      "lng": -0.1483,
+      "distance_options": [
+        "54 miles (full route: Clapham Common to Brighton seafront)",
+        "20.5 miles (new shorter route from 2026: Ardingly to Brighton)"
+      ],
+      "entry_fee": "GBP 30-65 (varies by entry method: ballot GBP 45, charity partner GBP 35, general entry GBP 65)"
+    },
+    "climate": {
+      "primary": "English summer — mild, unpredictable, with rain always a possibility",
+      "description": "Mid-June in southern England delivers long daylight hours and generally mild temperatures. Expect 14-20C (57-68F) with variable cloud cover. The English summer is famously unreliable — the ride has seen scorching heat, persistent drizzle, and everything in between across its 50-year history. Morning starts can be cool, particularly in the 6:00 AM waves. By midday, sun exposure through the Surrey and Sussex countryside can be surprisingly warm. The route crosses exposed downland on the approach to Ditchling Beacon, where wind can be a factor. Rain showers are always possible and can arrive quickly.",
+      "challenges": [
+        "English weather unpredictability — rain gear should be carried regardless of forecast",
+        "Cool early morning starts (12-14C) for the first waves at 6:00 AM",
+        "Potential for strong headwinds on exposed South Downs sections near Ditchling",
+        "Sun exposure across 4-7 hours of riding through open countryside",
+        "Wet roads through Surrey and Sussex lanes can be slippery on descents"
+      ]
+    },
+    "terrain": {
+      "primary": "Paved English country roads from London to the South Coast",
+      "surface": "All paved roads throughout. The route departs Clapham Common through South London suburbs before transitioning to quiet Surrey country lanes through Chipstead, Hooley, and Merstham. The middle section rolls through the Sussex Weald via Smallfield, Turners Hill, Ardingly, and Haywards Heath on B-roads and country lanes. The final challenge is the ascent of Ditchling Beacon — a 1-mile climb averaging 9% with a maximum gradient of 16%, rising 143 metres (470 feet) to the top of the South Downs. The descent from the Beacon into Brighton is fast and exhilarating, finishing on Madeira Drive along the seafront.",
+      "technical_rating": 1,
+      "features": [
+        "Clapham Common start — mass departure from one of South London's largest green spaces",
+        "Surrey country lanes — quiet B-roads through the North Downs villages",
+        "Sussex Weald rolling terrain — undulating countryside through Ardingly and Haywards Heath",
+        "Ditchling Beacon — the infamous 1-mile South Downs climb at 9% average, 16% maximum",
+        "Brighton seafront finish on Madeira Drive — the triumphant coastal arrival"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 63,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "logistics": 4,
+      "length": 2,
+      "technicality": 1,
+      "elevation": 2,
+      "climate": 2,
+      "altitude": 1,
+      "adventure": 3,
+      "prestige": 4,
+      "race_quality": 4,
+      "experience": 4,
+      "community": 5,
+      "field_depth": 1,
+      "value": 3,
+      "expenses": 3,
+      "cultural_impact": 5,
+      "tier_note": "One of the oldest and largest mass-participation charity cycling events in the world. 50 years of history, 650,000+ total participants, GBP 50M+ raised for the British Heart Foundation. Cultural_impact=5 reflects its role in establishing the template for modern charity cycling events. p4 prestige would promote one tier but p4 cannot promote into T1, so remains T2.",
+      "score_note": "Sum of 14 criteria: logistics(4) + length(2) + technicality(1) + elevation(2) + climate(2) + altitude(1) + adventure(3) + prestige(4) + race_quality(4) + experience(4) + community(5) + field_depth(1) + value(3) + expenses(3) = 39. cultural_impact=5. Total = 44. Score = round(44/70 * 100) = round(62.86) = 63. Community=5 for 15,000-27,000 riders annually and 650,000+ lifetime participants. Prestige=4 for 50 years of history as Europe's largest charity cycling event. Field_depth=1 because this is a ride, not a race.",
+      "editorial_tier": 2,
+      "editorial_tier_label": "TIER 2",
+      "business_tier": 2,
+      "business_tier_label": "TIER 2",
+      "display_tier": 2,
+      "display_tier_label": "TIER 2",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 4,
+        "explanation": "Fifty years of operational refinement by the British Heart Foundation have made this a machine. Staggered starts from 6:00 AM to 9:30 AM manage the flow of 15,000+ riders. Five rest stops provide water, toilets, mechanics, and medical assistance at regular intervals. Ride Rangers patrol the route on bikes. Road closures on country lanes protect riders through the Surrey and Sussex sections. Clapham Common is accessible by London Underground, and British Heart Foundation arranges bike transport back from Brighton to London by lorry. The only logistical headache is the return journey — thousands of riders converging on Brighton station for the train home is an annual test of British patience."
+      },
+      "length": {
+        "score": 2,
+        "explanation": "54 miles is a solid day for a casual cyclist but moderate by event standards. Most reasonably fit riders complete it in 4-7 hours including rest stops. The new 20.5-mile option from 2026 (starting at Ardingly) opens the event to near-beginners. The distance is deliberately accessible — this is a mass-participation charity event, not an endurance challenge. The route's difficulty comes from its cumulative undulations and the sting in the tail at Ditchling Beacon, not from raw mileage."
+      },
+      "technicality": {
+        "score": 1,
+        "explanation": "All paved roads from start to finish. Country lanes through Surrey and Sussex are narrow in places but present no technical challenge. The descent from Ditchling Beacon into Brighton requires basic bike handling on a fast, open road. The most technically demanding aspect is navigating 15,000+ other riders — group riding awareness matters more than bike-handling skill. If you can ride a bike on a road, you can complete this course."
+      },
+      "elevation": {
+        "score": 2,
+        "explanation": "Approximately 2,500 feet of total climbing across 54 miles, with the route rolling through the Weald before the signature ascent. Ditchling Beacon is the centrepiece — 1 mile at 9% average gradient with pitches of 16%. It gains 143 metres (470 feet) and is the most famous climb in southern England. Many riders walk the steepest sections, and that is entirely normal. The rest of the route includes several short, sharp hills through Surrey and Sussex but nothing that would trouble experienced cyclists. The elevation score reflects the fact that one significant climb does not make a mountainous route."
+      },
+      "climate": {
+        "score": 2,
+        "explanation": "Mid-June in southern England is as good as British cycling weather gets — long days, mild temperatures, and reasonable odds of sunshine. Average temperatures of 14-20C (57-68F) are comfortable for sustained riding. But this is England, and the weather cannot be trusted. Rain has interrupted the ride many times across its 50-year history. The climate is generally an asset — you will not suffer from heat or extreme cold — but the ever-present threat of a shower keeps things interesting. The score reflects benign conditions, not hostile ones."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "The entire route runs from London at essentially sea level to Ditchling Beacon at 228 metres (748 feet) above sea level, then descends to Brighton at the coast. No altitude concerns whatsoever. The air is thick and sea-level oxygen-rich throughout. Whatever suffering occurs on Ditchling Beacon is purely gradient-induced, not altitude-related."
+      },
+      "adventure": {
+        "score": 3,
+        "explanation": "The concept itself is romantic — leave the capital city on a bicycle and ride to the seaside. The route passes through the green belt of Surrey, the rolling farmland of the Sussex Weald, and climbs over the South Downs before descending to Brighton's famous seafront. It is not wilderness adventure, but the transition from urban London to rural England to coastal Brighton in a single day has a narrative arc that resonates deeply. The mass-participation scale adds a dimension that solitary rides cannot replicate — 15,000 people sharing the same road, the same climbs, and the same euphoric finish. Ditchling Beacon, visible for miles as you approach across the Weald, gives the ride a final boss that transforms a pleasant countryside spin into something that feels earned."
+      },
+      "prestige": {
+        "score": 4,
+        "explanation": "The London to Brighton Bike Ride is one of the most recognised cycling events in the world. Running continuously since 1976 under the British Heart Foundation, it has hosted over 650,000 riders and raised more than GBP 50 million. It is frequently cited as Europe's largest annual charity cycling event. The route itself has been iconic for far longer — the first London to Brighton bicycle ride was completed in 1869 by John Mayall Jr on a velocipede. The 1994 Tour de France climbed Ditchling Beacon on its way to a Brighton stage finish. Saying 'I've done London to Brighton' is immediately understood across the UK and much of the cycling world."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "The British Heart Foundation has had half a century to refine this operation, and it shows. Staggered starts manage the enormous field. Five rest stops provide comprehensive support. Road closures on key sections protect riders. Ride Rangers on bicycles patrol the route. Medical teams and mechanics are stationed at every stop. Bike transport back to London is arranged. The sheer scale — managing 15,000-27,000 riders across 54 miles of public roads through four counties — is a logistical achievement that few events in the world attempt. The ballot entry system manages demand without diluting the experience."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "The emotional arc of London to Brighton is what keeps 15,000+ people coming back year after year. The early-morning departure from Clapham Common in a sea of cyclists. The gradual transition from London streets to Surrey countryside. The rolling green lanes of Sussex. The growing sense of anticipation as Ditchling Beacon looms. The climb itself — a mile of honest, leg-burning effort while hundreds of spectators line the roadside cheering. The view from the top of the South Downs, with the sea visible ahead. And then the descent — fast, free, and euphoric — into Brighton, down to the seafront, and across the finish line on Madeira Drive with the English Channel sparkling behind you. It is not the hardest ride in the world. It might be one of the most satisfying."
+      },
+      "community": {
+        "score": 5,
+        "explanation": "This is the defining community cycling event in the United Kingdom. Over 650,000 people have completed the ride since 1976. Families ride together across generations — parents who rode in the 1980s now bring their adult children. Corporate teams, cycling clubs, charity fundraisers, and complete beginners all share the same road. The event has a distinctly British warmth — strangers encourage each other up Ditchling Beacon, spectators hand out sweets on the climbs, and the Brighton finish is a celebration that takes over the seafront. The community extends beyond the day itself — the ride is a rite of passage, a first cycling challenge for thousands every year, and the entry point that converts non-cyclists into lifelong riders."
+      },
+      "field_depth": {
+        "score": 1,
+        "explanation": "There is no timing, no competition, no podium, no results. This is a mass-participation charity ride. Riders range from first-timers on borrowed bikes to experienced club cyclists who treat it as a fast training day. The front riders will complete the route in under 3 hours. The last arrivals may take 10+ hours. Everyone finishes the same ride and receives the same medal. If you need a timing chip, this is not your event."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "Entry costs GBP 30-65 depending on the registration route — ballot entry is GBP 45, charity partner entry is GBP 35 (with a GBP 150 fundraising commitment), and general entry is GBP 65. For that, you get five supported rest stops, road closures, mechanics, medical support, Ride Rangers, a finisher medal, and bike transport back to London. Fair value for a well-organised event of this scale. The charity fundraising component means many riders invest additional social capital in sponsorship, but the base entry fee is reasonable by UK cycling event standards."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "For UK residents, this is one of the most accessible events to attend. The start is in London, accessible by public transport. No hotel required for most riders who live in London or the South East. Brighton accommodation for those wanting to stay overnight ranges from GBP 80-200/night in June. Train fare back to London is GBP 15-25. Total out-of-pocket for a London resident can be as low as GBP 60-80 (entry fee plus a train ticket home). For international visitors, London is expensive but the ride itself adds minimal cost beyond getting there. The charity fundraising commitment is the main additional expense for partner entries."
+      }
+    },
+    "biased_opinion": {
+      "verdict": "The Original",
+      "summary": "The London to Brighton Bike Ride did not invent cycling from a capital city to the coast. But it did more than any other event to establish mass-participation charity cycling as a concept that millions of people now take for granted. Since 1976, over 650,000 riders have left Clapham Common on a Sunday morning in June, rolled through the green lanes of Surrey and Sussex, dragged themselves up Ditchling Beacon, and descended in triumph to Brighton seafront. Fifty million pounds raised for the British Heart Foundation. One climb that has become the most famous in southern England. And a finish on the seafront that feels like every good thing that cycling can deliver — exhaustion, achievement, community, and the sea.",
+      "strengths": [
+        "The history: Running since 1976, over 650,000 riders, GBP 50M+ raised. This is the event that showed the world what mass-participation charity cycling could be.",
+        "Ditchling Beacon: 1 mile at 9% average with a 16% maximum. The most famous climb in southern England. The spectators, the cheering, the walking — it is all part of the legend.",
+        "The narrative arc: Leave London. Ride through the English countryside. Climb the South Downs. Descend to the sea. Few rides anywhere offer such a satisfying story in 54 miles.",
+        "The community: 15,000-27,000 riders of every age and ability sharing the same road. First-timers alongside 30-year veterans. Families, clubs, corporate teams, solo riders. This is cycling at its most inclusive."
+      ],
+      "weaknesses": [
+        "The crowding: 15,000+ riders on narrow country lanes means congestion, particularly through the Surrey sections and on Ditchling Beacon itself. Expect to queue.",
+        "Not a challenge for experienced cyclists: 54 miles with one significant climb is a pleasant day out, not a test of endurance. Strong riders finish in under 3 hours.",
+        "The return journey: Getting yourself and your bike back from Brighton to London after the ride is the event's perennial logistical challenge. Trains are packed.",
+        "English weather: The ride has been held in glorious sunshine and in persistent rain. You will not know which until the morning. Pack for both."
+      ],
+      "bottom_line": "If you have ever owned a bicycle in the United Kingdom, this is the ride you should do at least once. It is not the hardest, the longest, or the most scenic. It is the most British. And when you crest Ditchling Beacon and see the sea, you will understand why 650,000 people have done it before you."
+    },
+    "final_verdict": {
+      "score": "63 / 100",
+      "one_liner": "54 miles from London to the sea. The ride that defined mass-participation charity cycling. Ditchling Beacon is the final exam.",
+      "should_you_race": "This is not a race — it is a rite of passage. Yes if you want to experience the most iconic one-day charity cycling event in Europe. Yes if Ditchling Beacon is on your bucket list. Yes if you believe that 15,000 people sharing a road and a purpose is what cycling should feel like. Skip if you need timing chips, competition, or serious distance. The 54 miles will not test a strong cyclist's fitness — but the experience will stay with you regardless.",
+      "alternatives": "If you want London with more distance and competition: RideLondon (60-100 miles, timed, closed roads through London and Essex). If you want a UK charity challenge with more terrain: Prudential RideLondon-Surrey 100 or Ride Across Britain (LEJOG, 9 days). If you want a European mass-participation classic: L'Etape du Tour (France) or La Marmotte.",
+      "alternative_slugs": [
+        "ride-london",
+        "la-marmotte"
+      ]
+    },
+    "logistics": {
+      "airport": "London Heathrow (LHR), London Gatwick (LGW), or London City (LCY). All within reasonable reach of Clapham Common via public transport. Gatwick is actually on the route corridor — 30 miles south of the start.",
+      "lodging_strategy": "Most London-based riders need no accommodation — the start at Clapham Common is accessible by Tube (Northern Line, Clapham Common station). For those staying overnight, Clapham and Brixton offer abundant hotel and Airbnb options. Post-ride in Brighton, seafront hotels book up early on event weekend — reserve months in advance. Budget GBP 80-200/night for Brighton accommodation in June.",
+      "food": "Pre-ride fuelling is self-arranged — cafes around Clapham Common open early on event day. Five rest stops along the route provide water and toilet facilities; riders should bring cash for food purchases at refreshment points. Brighton seafront has abundant fish-and-chips shops, restaurants, and pubs for the post-ride celebration. The traditional post-ride meal is fish and chips on the Brighton seafront.",
+      "packet_pickup": "Registration and number collection arrangements communicated by BHF in advance. Check the official British Heart Foundation London to Brighton page for specific year details.",
+      "parking": "Limited parking at Clapham Common. Public transport strongly recommended — Northern Line to Clapham Common station. For drivers, street parking in surrounding Clapham streets is possible but fills quickly. BHF arranges bike transport back to London from Brighton by lorry.",
+      "official_site": "https://www.bhf.org.uk/how-you-can-help/events/bike-rides/london-to-brighton-bike-ride",
+      "getting_home": "BHF organises bike transport by lorry from Brighton back to a London collection point. Riders can take the train from Brighton to London Victoria or London Bridge (Southern Rail, ~60 minutes, GBP 15-25). Event day trains are extremely busy — expect queues at Brighton station. Some riders arrange car collection in Brighton."
+    },
+    "history": {
+      "founded": 1976,
+      "founder": "British Heart Foundation / Friends of the Earth (original organiser). Robert Stredder conceived the original ride.",
+      "origin_story": "The London to Brighton route has been iconic since 1869, when John Mayall Jr became the first person to ride a velocipede (early bicycle) from London to Brighton. The modern charity ride began in 1976 as a Friends of the Earth event with just a handful of participants. The British Heart Foundation took over organisation and the event grew exponentially through the 1980s and 1990s, eventually attracting up to 27,000 riders in peak years. The ride became Europe's largest annual charity cycling event and a cornerstone of British cycling culture. Over its history, more than 650,000 cyclists have completed the route, raising over GBP 50 million for heart and circulatory disease research. The route has varied slightly over the years, but the core journey — Clapham Common to Brighton via Ditchling Beacon — has remained constant. In 1994, the Tour de France climbed Ditchling Beacon on its way to a Brighton stage finish, cementing the climb's international reputation.",
+      "notable_moments": [
+        "1869: John Mayall Jr completes the first London to Brighton bicycle ride on a velocipede",
+        "1976: The modern charity ride is founded, organised by Friends of the Earth with a handful of riders",
+        "1980s: British Heart Foundation assumes organisation; the event begins its growth to mass-participation scale",
+        "1994: Tour de France Stage 5 climbs Ditchling Beacon en route to Brighton — broadcast to millions worldwide",
+        "2012: Peak participation — approximately 27,000 cyclists complete the ride",
+        "2024: Over GBP 1 million raised in a single year; cumulative total exceeds GBP 50 million",
+        "2026: Introduction of a new 20.5-mile shorter route starting from Ardingly, opening the event to a wider audience"
+      ],
+      "reputation": "The original mass-participation charity cycling event. A rite of passage for British cyclists and the template that inspired thousands of similar events worldwide. Ditchling Beacon is southern England's most famous climb because of this ride."
+    },
+    "course_description": {
+      "character": "A 54-mile journey from the heart of London to the English seaside, crossing four counties and climbing over the South Downs. The route begins in the urban bustle of Clapham Common, transitions through South London's suburbs, and quickly enters the green countryside of Surrey. Rolling country lanes through the Weald of Sussex provide the middle miles — undulating terrain through small villages, past farms, and along hedgerow-lined roads. The final 10 miles deliver the ride's dramatic crescendo: the approach to Ditchling Beacon across open downland, the brutal 1-mile climb to the summit of the South Downs, the breathtaking view of the sea from the top, and the fast, euphoric descent into Brighton to finish on Madeira Drive along the seafront.",
+      "suffering_zones": [
+        {
+          "mile": 0,
+          "label": "Clapham Common — The Mass Departure",
+          "desc": "Fifteen thousand riders funnelling out of Clapham Common in staggered waves from 6:00 AM. The atmosphere is electric — nervous energy, charity jerseys, fancy dress, and the particular British optimism of setting off on a long ride before checking the weather. South London streets give way to suburban Surrey within the first 10 miles. Find your rhythm, stay patient in the crowds, and save your legs.",
+          "terrain_detail": "Flat to gently rolling paved suburban roads through South London and Carshalton",
+          "named_section": "Clapham Common Start"
+        },
+        {
+          "mile": 15,
+          "label": "The Surrey Hills — The Green Transition",
+          "desc": "The route enters the Surrey countryside through Chipstead, Hooley, and Merstham. Rolling hills with some sharp short climbs through the North Downs villages. The first rest stops appear. The field begins to spread out as faster riders pull ahead and the pace settles. Green lanes, birdsong, and the growing feeling that you have left London behind.",
+          "terrain_detail": "Rolling country lanes with short climbs through Surrey villages, 200-400 ft elevation",
+          "named_section": "Surrey Countryside"
+        },
+        {
+          "mile": 30,
+          "label": "The Sussex Weald — The Middle Miles",
+          "desc": "Through Smallfield, Turners Hill, and Ardingly into the heart of the Sussex Weald. Undulating terrain on quiet B-roads through farmland and woodland. The halfway point at Ardingly brings the main rest stop — the new 20.5-mile route joins here. These are pleasant, rolling miles that accumulate gradually. The legs are working but the crisis has not yet arrived.",
+          "terrain_detail": "Undulating paved country roads through Sussex farmland, multiple short climbs and descents",
+          "named_section": "Sussex Weald"
+        },
+        {
+          "mile": 46,
+          "label": "Ditchling Beacon — The Final Exam",
+          "desc": "The most famous climb in southern England. One mile at 9% average gradient with pitches reaching 16%. Rising 143 metres (470 feet) from the village of Ditchling to the summit of the South Downs at 228 metres above sea level. Spectators line the road. Riders walk. Riders weep. Riders dig deeper than they thought possible. The false flats are cruel. The gradient kicks again when you think it is easing. And then — the top. The view. The sea. The cheering. Eleven months of training distilled into eleven minutes of climbing. This is the ride.",
+          "terrain_detail": "Sustained paved climb, 1 mile, 9% average, 16% maximum gradient, 143m elevation gain",
+          "named_section": "Ditchling Beacon"
+        },
+        {
+          "mile": 50,
+          "label": "The Descent to Brighton — The Reward",
+          "desc": "From the summit of the South Downs, the road drops fast and free toward Brighton. The sea fills the horizon. The wind is in your face and you do not care. Four miles of descending through the outskirts of Brighton to Madeira Drive on the seafront — the finish line, the medal, the fish and chips, and the quiet knowledge that you rode from London to the sea under your own power.",
+          "terrain_detail": "Fast paved descent from South Downs summit to Brighton seafront, approximately 700 ft elevation loss over 4 miles",
+          "named_section": "Brighton Descent"
+        }
+      ],
+      "signature_challenge": "Ditchling Beacon — 1 mile at 9% average with a 16% maximum gradient. The most famous climb in southern England, tackled by 15,000+ riders every June. Spectators cheering, riders walking, and the view of the sea from the top. This single mile defines the entire ride."
+    },
+    "guide_variables": {
+      "race_name": "London to Brighton Bike Ride",
+      "race_distance": "54 miles",
+      "race_elevation": "~2,500 feet (primary climb: Ditchling Beacon, 470 ft at 9% average)",
+      "race_date": "June (mid-month, Sunday)",
+      "race_location": "London to Brighton, England",
+      "race_terrain": "Paved roads — suburban London, country lanes through Surrey and Sussex, South Downs ascent",
+      "race_weather": "Mild English summer (14-20C / 57-68F), variable cloud, rain possible",
+      "race_challenges": [
+        "Ditchling Beacon — 1 mile at 9% average, 16% maximum gradient, after 46 miles of riding",
+        "Crowded conditions with 15,000+ riders on narrow country lanes",
+        "English weather unpredictability — rain can arrive at any time",
+        "Cumulative effect of rolling Surrey and Sussex terrain before the main climb",
+        "Return logistics from Brighton to London after the ride"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Complete at least one 50+ mile training ride including sustained hill efforts",
+        "by_when": "Week 6",
+        "why": "Ditchling Beacon arrives after 46 miles of rolling terrain. If your longest ride is 30 miles on flat roads, the Beacon will break you. Build to 50+ miles with hills in the final third to simulate the fatigue pattern. The climb is 1 mile at 9% — you need to know what that feels like on tired legs."
+      },
+      {
+        "requirement": "Practice riding in a group on narrow roads",
+        "by_when": "Week 4",
+        "why": "You will be riding with 15,000+ people on country lanes that are sometimes barely two cars wide. Group riding awareness — holding your line, signalling, safe overtaking — is essential for your safety and everyone else's. Join a local club ride or sportive to build this skill before the day."
+      },
+      {
+        "requirement": "Plan your return journey from Brighton before the ride",
+        "by_when": "Week 1",
+        "why": "The post-ride exodus from Brighton is the event's perennial logistical challenge. BHF bike transport, train tickets, or a pre-arranged car collection should be booked in advance. Brighton station on event Sunday afternoon is not where you want to be improvising."
+      }
+    ],
+    "citations": [
+      {
+        "url": "https://www.bhf.org.uk/how-you-can-help/events/bike-rides/london-to-brighton-bike-ride",
+        "category": "official",
+        "label": "British Heart Foundation — London to Brighton Bike Ride 2026"
+      },
+      {
+        "url": "https://www.bhf.org.uk/how-you-can-help/events/london-to-brighton-bike-ride/faqs",
+        "category": "official",
+        "label": "BHF London to Brighton — Frequently Asked Questions"
+      },
+      {
+        "url": "https://brightonmuseums.org.uk/discovery/history-stories/150th-anniversary-of-the-first-london-to-brighton-bike-ride/",
+        "category": "media",
+        "label": "Brighton Museums — 150th Anniversary of the First London to Brighton Bike Ride (1869)"
+      },
+      {
+        "url": "https://www.bbc.com/news/uk-england-18476422",
+        "category": "media",
+        "label": "BBC News — London to Brighton Bike Ride Attracts 27,000 Cyclists (2012)"
+      },
+      {
+        "url": "https://cyclinguphill.com/100-climbs/ditchling-beacon/",
+        "category": "reference",
+        "label": "Cycling Uphill — Ditchling Beacon Climb Profile (Simon Warren's 100 Greatest Cycling Climbs #22)"
+      },
+      {
+        "url": "https://biketips.com/london-to-brighton-cycle/",
+        "category": "reference",
+        "label": "BikeTips — London to Brighton Cycle: Complete Guide"
+      },
+      {
+        "url": "https://welovebrighton.com/british-heart-foundation-london-to-brighton-cycle-ride/",
+        "category": "community",
+        "label": "We Love Brighton — Guide to the London to Brighton Bike Ride"
+      },
+      {
+        "url": "https://roadsofstone.com/2007/06/28/153-the-green-monster-ditchling-beacon-and-the-london-to-brighton-bike-ride/",
+        "category": "community",
+        "label": "Roads of Stone — Ditchling Beacon and the London to Brighton Bike Ride"
+      },
+      {
+        "url": "https://www.londonbrightoncycle.co.uk/",
+        "category": "reference",
+        "label": "London to Brighton Cycle Ride (Skyline Events alternate organised ride)"
+      },
+      {
+        "url": "https://cycle.travel/route/london_to_brighton",
+        "category": "route",
+        "label": "Cycle.travel — London to Brighton Full Route Guide"
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "high",
+      "validation_status": "validated",
+      "sources": [
+        "official_website",
+        "bbc_news",
+        "cycling_publications",
+        "climb_databases",
+        "community_accounts",
+        "museum_archives"
+      ],
+      "migration_notes": [
+        "New profile created February 2026.",
+        "Distance and elevation data from BHF official route maps and GPS route traces.",
+        "Ditchling Beacon climb stats from Cycling Uphill, ClimbFinder, and PJAMM Cycling databases.",
+        "Participation figures from BBC News (27,000 in 2012), BHF communications, and We Love Brighton (650,000+ lifetime).",
+        "2026 event date confirmed as June 21 via BHF official page.",
+        "New 20.5-mile shorter route introduced for 2026 starting from Ardingly."
+      ],
+      "research_strength": {
+        "overall": 82.0,
+        "grade": "B+",
+        "weakest": "elevation_data",
+        "has_research_dump": false,
+        "dimensions": {
+          "source_diversity": 90,
+          "citation_density": 80,
+          "temporal_depth": 95,
+          "specificity": 75,
+          "statistical_backing": 75,
+          "voice_authenticity": 85,
+          "completeness": 80,
+          "cross_reference": 80
+        },
+        "scored_at": "2026-02-27"
+      }
+    }
+  }
+}

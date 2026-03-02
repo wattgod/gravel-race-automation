@@ -1,0 +1,377 @@
+{
+  "race": {
+    "name": "Tour de Palm Springs",
+    "slug": "tour-de-palm-springs",
+    "display_name": "Tour de Palm Springs",
+    "tagline": "Desert charity century through the Coachella Valley. 28 years. 10,000 riders. 20 bands. $5 million raised. Wind, sun, and a post-ride party that rivals the ride itself.",
+    "vitals": {
+      "distance_mi": 102,
+      "elevation_ft": 2700,
+      "location": "Palm Springs, California, USA",
+      "location_badge": "PALM SPRINGS, CA, USA",
+      "county": "Riverside County",
+      "date": "First Saturday of February annually",
+      "date_specific": "2026: February 7. 2025: February 8.",
+      "terrain_types": [
+        "Paved desert roads through the Coachella Valley",
+        "Flat to gently rolling with gradual desert grades",
+        "Urban and suburban roads connecting Coachella Valley cities"
+      ],
+      "field_size": "6,000-10,000 riders annually from 46 states and 4 countries (all distances)",
+      "start_time": "Saturday morning, staggered by distance (century riders depart earliest)",
+      "registration": "Online via tourdepalmsprings.com or BikeReg. Military/veteran discount available. On-site registration adds $10.",
+      "prize_purse": "None. This is a charity ride, not a race. All proceeds benefit 150+ Coachella Valley nonprofit organizations through CVSPIN.",
+      "aid_stations": "SAG stops approximately every 20 miles with bike mechanics, first aid, live bands, hot pasta, wings, energy drinks, and refreshments. 20+ SAG vehicles and RACES HAM radio operators on course. 2,500 volunteers.",
+      "cutoff_time": "Generous. SAG support ensures all riders can complete their chosen distance.",
+      "lat": 33.8303,
+      "lng": -116.5453,
+      "distance_options": [
+        "102 miles (century — flagship distance)",
+        "85 miles",
+        "56 miles",
+        "34 miles",
+        "25 miles",
+        "7 miles",
+        "3-mile walk",
+        "1-mile walk"
+      ],
+      "entry_fee": "Varies by distance. Military/veteran discount to $100 for the 103-mile route. On-site registration adds $10."
+    },
+    "climate": {
+      "primary": "Southern California desert — mild February mornings, warm afternoons, and unpredictable wind",
+      "description": "February in Palm Springs delivers near-ideal cycling temperatures — morning lows around 45-55F warming to pleasant 65-75F afternoons with low humidity, clear skies, and abundant sunshine. The Coachella Valley sits in a desert basin surrounded by mountains, which means wind is the defining weather variable. Riders have reported calm, perfect mornings and also 40 mph headwinds with 60 mph gusts that sandblast exposed stretches near the dunes. Rain probability is low (~12%). The desert UV is intense even at moderate temperatures.",
+      "challenges": [
+        "Wind is the wildcard — Coachella Valley wind can reach 40+ mph with sandblasting gusts near the dunes",
+        "Desert sun exposure across open roads with minimal shade",
+        "Dry air requires proactive hydration despite comfortable temperatures",
+        "Morning starts can be cool (45-55F) — arm warmers needed early, shed by midday",
+        "Crosswinds on exposed desert stretches between cities"
+      ]
+    },
+    "terrain": {
+      "primary": "Flat to gently rolling desert roads through the Coachella Valley",
+      "surface": "All paved roads. The century route starts in downtown Palm Springs, heads north toward Twentynine Palms on gradual ascending grades, follows Dillon Road through the desert into Indio, then returns northwest through La Quinta, Palm Desert, and Cathedral City back to Palm Springs. Rolling hills and gradual climbs but nothing steep. The terrain is universally accessible — designed for mass participation across all ability levels.",
+      "technical_rating": 1,
+      "features": [
+        "Flat to gently rolling — ~2,700 ft of climbing across 102 miles",
+        "Desert scenery — San Jacinto Mountains, Santa Rosa Mountains, Coachella Valley panoramas",
+        "Paved roads throughout — no technical demands",
+        "Route passes through multiple Coachella Valley cities",
+        "Wind exposure on open desert stretches between towns"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 54,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "logistics": 4,
+      "length": 3,
+      "technicality": 1,
+      "elevation": 1,
+      "climate": 2,
+      "altitude": 1,
+      "adventure": 2,
+      "prestige": 2,
+      "race_quality": 3,
+      "experience": 4,
+      "community": 4,
+      "field_depth": 1,
+      "value": 3,
+      "expenses": 4,
+      "cultural_impact": 3,
+      "tier_note": "T3 by score (54). Prestige=2, no prestige override applicable. One of America's largest charity cycling events — 28 years, 10,000 riders, $5 million raised for Coachella Valley nonprofits. The experience and community scores reflect the festival atmosphere and charitable mission, but flat terrain, no competitive timing, and regional charity-ride identity keep it in T3.",
+      "score_note": "Sum of 14 criteria = 35 (logistics=4, length=3, technicality=1, elevation=1, climate=2, altitude=1, adventure=2, prestige=2, race_quality=3, experience=4, community=4, field_depth=1, value=3, expenses=4). cultural_impact=3 for 28 years of charitable impact, nearly $5M raised for 150+ nonprofits, military/veteran/first-responder honors, and riders from 46 states. Total = 38. Score = round(38/70 * 100) = round(54.29) = 54.",
+      "editorial_tier": 3,
+      "editorial_tier_label": "TIER 3",
+      "business_tier": 3,
+      "business_tier_label": "TIER 3",
+      "display_tier": 3,
+      "display_tier_label": "TIER 3",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 4,
+        "explanation": "Twenty-eight years of production and 2,500 volunteers create a charity ride that runs like a military operation — fitting, given the event honors military and first responders. SAG stops every 20 miles staffed with bike mechanics, first aid, and live bands serving hot pasta and wings. Twenty SAG vehicles and RACES HAM radio operators patrol the course. Packet pickup at downtown Palm Springs. Palm Springs International Airport (PSP) is 10 minutes from the start. Hotels, restaurants, and Uber are everywhere in the Coachella Valley. The only logistical challenge is wind — and no amount of volunteers can fix 40 mph gusts."
+      },
+      "length": {
+        "score": 3,
+        "explanation": "The flagship century at 102 miles is a proper long day in the desert. Eight distance options from 1-mile walk to 102-mile century mean everyone from your grandmother to your Cat 2 training partner can participate. The century is the real ride — flat terrain means strong riders finish in 5 hours and recreational riders in 7-8. The distance does the work that the elevation does not."
+      },
+      "technicality": {
+        "score": 1,
+        "explanation": "Paved roads, flat desert, zero technical demands. The most technically challenging moment is navigating 10,000 riders through the first mile. If you can ride a bike in a straight line, you can ride every route at Tour de Palm Springs. This is intentional — the event is designed for mass participation, not bike-handling tests."
+      },
+      "elevation": {
+        "score": 1,
+        "explanation": "Approximately 2,700 feet of climbing across 102 miles. The Coachella Valley sits at 400-500 feet elevation in a desert basin. The century route includes gradual ascending grades toward Twentynine Palms and gentle rolling terrain, but nothing that qualifies as a climb by any serious definition. Your legs will know they rode 102 miles, but your climbing muscles will wonder what happened."
+      },
+      "climate": {
+        "score": 2,
+        "explanation": "February in Palm Springs is near-ideal cycling weather — 65-75F, dry, sunny. That earns a low climate challenge score because the weather is a benefit, not a threat. The wind, however, is the great equalizer. Riders have been sandblasted crossing the dunes by 40 mph headwinds with 60 mph gusts. On a calm day, this ride is a desert paradise. On a windy day, it is survival cycling. Desert UV is sneaky — you burn before you feel it."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "Palm Springs sits at roughly 480 feet above sea level. The century route's highest point is well under 2,000 feet. Your lungs will function perfectly. The only thin air is between the ears of riders who skip sunscreen in the desert."
+      },
+      "adventure": {
+        "score": 2,
+        "explanation": "The Coachella Valley delivers decent desert scenery — San Jacinto Mountains rising 10,000 feet to the west, Santa Rosa Mountains to the south, wind farms, date palm groves, and open desert vistas. But the route passes through a chain of suburban desert cities — Palm Springs, Cathedral City, Rancho Mirage, Palm Desert, La Quinta, Indio — connected by commercial corridors. This is a charity ride through the greater Palm Springs metropolitan area, not a backcountry desert expedition. The adventure is social and atmospheric, not geographic."
+      },
+      "prestige": {
+        "score": 2,
+        "explanation": "Tour de Palm Springs is well-known in Southern California cycling circles and draws riders from 46 states, but it does not carry national cycling prestige. It is a regional charity ride — beloved and well-attended but not in the same conversation as Pan-Mass Challenge, AIDS/LifeCycle, or even El Tour de Tucson for name recognition. Tim Esser built something genuinely impressive from 400 riders in 1998, but the event's identity is charity-first, cycling-second."
+      },
+      "race_quality": {
+        "score": 3,
+        "explanation": "This is a ride, not a race — there is no timing, no competitive element, no results page. But as a charity ride, the production quality is strong. SAG stops with live bands, hot food, and bike mechanics. Twenty SAG vehicles. 2,500 volunteers. RACES HAM radio support. Post-ride festival with 20+ bands, vendor expo, beer garden, and cheerleaders. The event runs smoothly because Tim Esser and CVSPIN have been doing this for 28 years. Three points instead of four because the event lacks the multi-day logistical complexity and polish of PMC or AIDS/LifeCycle."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "This is where Tour de Palm Springs earns its keep. The experience is a rolling desert festival — 20+ bands performing at SAG stops and along the route, cheerleaders, a marching band, vendor expo, beer garden, and a post-ride party that rivals the ride itself. The honorary guest for 2026 is Frankie Andreu — nine-time Tour de France competitor and two-time Olympian. The military and first-responder honors add emotional weight. Riding through the Coachella Valley at sunrise with 10,000 other cyclists, live music at every stop, and San Jacinto towering over the desert floor — the experience transcends the flat terrain. You come for the cause. You stay for the party."
+      },
+      "community": {
+        "score": 4,
+        "explanation": "Tour de Palm Springs is a community event in the truest sense — not just a cycling community, but the Coachella Valley community. CVSPIN has distributed nearly $5 million to 150+ local nonprofits. The event honors military, veterans, and first responders. Riders come from 46 states and 4 countries, but the heart of the event is local — Palm Springs, Cathedral City, Rancho Mirage, Palm Desert, La Quinta, Indio all participate. 2,500 volunteers from local organizations staff every stop. This is the Coachella Valley's annual cycling block party."
+      },
+      "field_depth": {
+        "score": 1,
+        "explanation": "This is a charity ride, not a race. No timing chips. No competitive categories. No results. The field spans the full spectrum from children on the 7-mile route to experienced century riders, with the vast majority being recreational cyclists and charity supporters. Frankie Andreu shows up as an honorary guest, not a competitor. If you want to race, you are at the wrong event."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "For your registration fee you get eight distance options, SAG stops with live bands and hot food every 20 miles, 20+ SAG vehicles, full mechanical support, a post-ride festival with 20+ bands, beer garden, vendor expo, and the satisfaction of contributing to 150+ Coachella Valley nonprofits. The band-to-dollar ratio alone makes this one of the most entertaining charity rides in America. You will not find another century ride with this much live music on course."
+      },
+      "expenses": {
+        "score": 4,
+        "explanation": "Palm Springs in February is off-peak for the resort crowd, which means hotel rates are reasonable. The Coachella Valley has abundant lodging options from budget motels to mid-range hotels. Palm Springs International Airport keeps airfare competitive. Gas, food, and lodging are standard Southern California suburban pricing — not cheap, but not destination-resort expensive. This is a single-day event with no multi-day costs. Southern California residents can drive from LA in 2 hours. Military discount on registration. Total trip cost stays modest."
+      }
+    },
+    "biased_opinion": {
+      "verdict": "The Desert Block Party on Wheels",
+      "summary": "Tour de Palm Springs is what happens when a guy named Tim Esser has an idea about bikes and charity in the California desert, and then spends 28 years turning that idea into one of the largest cycling events in America. Starting with 400 riders in 1998 as 'Spokes for Different Folks,' the event now draws up to 10,000 cyclists from 46 states and 4 countries, with 2,500 volunteers and 20+ bands turning the Coachella Valley into a rolling festival. The cycling itself is straightforward — flat desert roads, gentle grades, zero technical demands — but the experience is anything but ordinary. Live music at every SAG stop. Cheerleaders. A marching band. Hot pasta and wings mid-ride. A post-ride party with a beer garden and vendor expo. Nearly $5 million raised for 150+ local nonprofits. This is not a race. It is a desert celebration that happens to involve bicycles.",
+      "strengths": [
+        "Festival atmosphere: 20+ bands on course and at the finish, cheerleaders, marching band, beer garden, vendor expo. No other charity ride in America puts this much entertainment on the route.",
+        "Charitable impact: Nearly $5 million raised for 150+ Coachella Valley nonprofits through CVSPIN since 1998. Military, veteran, and first-responder honors.",
+        "Scale and accessibility: 6,000-10,000 riders, 8 distance options from 1-mile walk to 102-mile century. Everyone from your kid to your grandparent can participate.",
+        "February desert weather: When most of the country is buried in winter, Palm Springs delivers 65-75F sunshine. The timing is the event's greatest asset.",
+        "Volunteer army: 2,500 volunteers ensure SAG stops are stocked, roads are safe, and riders are supported every 20 miles."
+      ],
+      "weaknesses": [
+        "Wind is the wildcard: Coachella Valley wind can turn a pleasant desert cruise into a sandblasting survival march. Riders have reported 40 mph headwinds with 60 mph gusts.",
+        "No competitive element: Zero timing, zero racing, zero results. If you want to test yourself against others, this is not your event.",
+        "Suburban route: The course passes through a chain of desert cities connected by commercial corridors — pleasant but not backcountry adventure.",
+        "Flat terrain: 2,700 feet over 102 miles will not challenge strong cyclists. The distance is the only physical test.",
+        "Regional identity: Well-known in Southern California but not nationally recognized as a premier cycling event."
+      ],
+      "bottom_line": "Tour de Palm Springs is the ride you do when you want to combine 100 miles of desert cycling with a music festival and a charitable mission. The terrain will not challenge you. The wind might destroy you. The experience will surprise you. Come for the cause, stay for the bands, and leave knowing your entry fee helped 150 nonprofits in the Coachella Valley."
+    },
+    "final_verdict": {
+      "score": "54 / 100",
+      "one_liner": "America's most festive charity century. Flat desert roads, 20 bands, 10,000 riders, and $5 million raised for the Coachella Valley.",
+      "should_you_race": "You do not race Tour de Palm Springs — you ride it, you eat hot pasta at mile 42, and you dance to live music at every SAG stop. Yes if you want a fully supported century in perfect February weather with a festival atmosphere that no other charity ride matches. Yes if you want to escape winter and ride through the Coachella Valley desert with 10,000 other cyclists. Yes if you want your registration fee to benefit 150+ local nonprofits. Skip if you want competitive timing, challenging terrain, or backcountry adventure — this is a celebration, not a suffer-fest.",
+      "alternatives": "If you want a bigger desert century with more terrain: El Tour de Tucson (100 miles, November, Sonoran Desert). If you want a more prestigious charity ride: Pan-Mass Challenge (192 miles, $6,000 fundraising minimum, Dana-Farber Cancer Institute). If you want a massive community ride with Southern California scenery: AIDS/LifeCycle (545 miles, San Francisco to Los Angeles). If you want a flat desert ride without the charity element: America's Most Beautiful Bike Ride (100 miles, Lake Tahoe).",
+      "alternative_slugs": [
+        "tour-de-tucson",
+        "pan-mass-challenge",
+        "aids-lifecycle",
+        "americas-most-beautiful-bike-ride"
+      ]
+    },
+    "logistics": {
+      "airport": "Palm Springs International Airport (PSP) — 10 minutes from downtown Palm Springs start. Also reachable from Ontario (ONT, 90 min) or LAX (2.5 hours).",
+      "lodging_strategy": "Single-day event — book one or two nights in Palm Springs or neighboring Coachella Valley cities. February is shoulder season for the resort crowd, so hotel rates are reasonable. Downtown Palm Springs puts you walking distance from the start. Cathedral City, Rancho Mirage, and Palm Desert offer budget-friendly alternatives 10-20 minutes away.",
+      "food": "SAG stops every ~20 miles serve hot pasta, wings, energy drinks, water, and snacks. Post-ride festival includes beer garden and vendor expo with food options. Palm Springs and the Coachella Valley have abundant dining from casual to upscale. Pre-ride dinner: downtown Palm Springs has dozens of restaurants on Palm Canyon Drive.",
+      "packet_pickup": "Check-in and packet pickup near S Palm Canyon Drive & Baristo Road in downtown Palm Springs. Available day-of (arrive early). On-site registration adds $10 surcharge.",
+      "parking": "Downtown Palm Springs. Arrive early for best spots — 10,000 riders fill parking quickly. Carpooling encouraged.",
+      "official_site": "https://tourdepalmsprings.com/"
+    },
+    "history": {
+      "founded": 1998,
+      "founder": "Tim Esser (Esser Air Conditioning and Heating)",
+      "origin_story": "On January 31, 1998, Tim Esser — president of Esser Air Conditioning and Heating in Palm Springs — had an idea for a charity bike ride in the desert. He envisioned routes of 5, 15, 25, and 50 miles to raise money for local nonprofits. The first event, originally called 'Spokes for Different Folks,' drew 400 cyclists. Tim and his mother Fran formed a nonprofit called CVSPIN (Coachella Valley Serving People In Need), and the first official Tour de Palm Springs was held in 1999 with 1,000 riders. From that modest beginning, the event grew into one of the largest charity cycling events in America — now attracting up to 10,000 riders from 46 states and 4 countries, supported by 2,500 volunteers, and raising nearly $5 million for over 150 Coachella Valley nonprofits. Esser Air Conditioning remains the title sponsor 28 years later.",
+      "notable_moments": [
+        "1998: Tim Esser launches 'Spokes for Different Folks' with 400 riders",
+        "1999: Rebranded as Tour de Palm Springs under the newly formed CVSPIN nonprofit. 1,000 riders participate.",
+        "2000s: Event grows steadily, adding distance options and entertainment along the route",
+        "2010s: Event matures into one of America's largest charity cycling events, attracting 6,000-10,000 riders annually",
+        "2023: 25th Annual Tour de Palm Springs honors first responders and veterans",
+        "2025: 27th Annual event, February 8. Continued growth and community impact.",
+        "2026: 28th Annual event, February 7. Honorary guest Frankie Andreu (9x Tour de France, 2x Olympian). Cumulative fundraising approaches $5 million for 150+ nonprofits."
+      ],
+      "reputation": "The Coachella Valley's annual cycling celebration. Not a race — a rolling desert festival that raises millions for local nonprofits while putting 10,000 riders on the road with 20 bands, 2,500 volunteers, and February sunshine."
+    },
+    "course_description": {
+      "character": "A 102-mile loop through the Coachella Valley on flat to gently rolling paved roads. The century route starts in downtown Palm Springs, heads north toward Twentynine Palms on gradual ascending grades, follows Dillon Road through open desert into Indio, then returns northwest through La Quinta, Palm Desert, Cathedral City, and back to Palm Springs. Five SAG stops at approximately miles 17, 42, 57, 68, and 90 — each staffed with mechanics, first aid, live bands, and hot food. The terrain is flat desert with gentle grades and occasional rollers. The challenge is distance and wind, not elevation.",
+      "suffering_zones": [
+        {
+          "mile": 0,
+          "label": "Downtown Palm Springs — The Mass Start",
+          "desc": "10,000 riders funnel out of downtown Palm Springs onto the desert roads. The energy is electric — bands playing, cheerleaders cheering, and the San Jacinto Mountains catching first light above the valley floor. The first miles are flat and social as the field stretches out by distance group.",
+          "terrain_detail": "Flat paved roads leaving downtown Palm Springs",
+          "named_section": "The Roll Out"
+        },
+        {
+          "mile": 17,
+          "label": "Northern Desert — First SAG Stop",
+          "desc": "The route heads north toward the open desert. This is where the wind makes its first introduction — or its first assault. The road grades up gently toward higher desert terrain. First SAG stop with a live band, hot food, and mechanical support. The shorter-distance riders have already peeled off.",
+          "terrain_detail": "Gradual ascending desert roads, exposed to wind",
+          "named_section": "The Wind Introduction"
+        },
+        {
+          "mile": 42,
+          "label": "Dillon Road — The Desert Crossing",
+          "desc": "Dillon Road cuts through open desert east toward Indio. This is the most exposed stretch of the century route — flat, straight, and windswept. Riders have reported sandblasting conditions with 40 mph headwinds and 60 mph gusts near the dunes. On a calm day, this is a pleasant desert cruise. On a windy day, this is where the ride earns its difficulty score. Second SAG stop with full support.",
+          "terrain_detail": "Flat exposed desert road, potential for extreme wind and sand",
+          "named_section": "The Sandblaster"
+        },
+        {
+          "mile": 68,
+          "label": "La Quinta to Palm Desert — The Suburban Return",
+          "desc": "The route turns northwest and begins threading through the Coachella Valley cities — La Quinta, Palm Desert, Rancho Mirage. The terrain is flat suburban riding with some gentle rollers. The wind typically shifts as you change direction. Fourth SAG stop provides relief before the final push.",
+          "terrain_detail": "Flat suburban desert roads through valley cities",
+          "named_section": "The Valley Run"
+        },
+        {
+          "mile": 90,
+          "label": "Cathedral City to Palm Springs — The Home Stretch",
+          "desc": "The final SAG stop at mile 90 marks the last 12 miles back to downtown Palm Springs. Cathedral City and Palm Springs blur together as you ride toward the finish. The San Jacinto Mountains grow larger ahead. The post-ride festival is audible before it is visible — 20+ bands, beer garden, vendor expo, and thousands of finishers celebrating.",
+          "terrain_detail": "Flat paved roads returning to downtown Palm Springs",
+          "named_section": "The Party Approaches"
+        }
+      ],
+      "signature_challenge": "Wind. The Coachella Valley sits in a natural wind corridor between the San Jacinto and San Gorgonio mountain passes. On calm February mornings, the ride is a desert paradise. When the wind arrives — and it can arrive without warning — riders face 40 mph headwinds and sandblasting gusts that turn a flat century into a grueling endurance test. The Dillon Road section is the most exposed and most notorious. You cannot train for this wind. You can only prepare mentally and ride through it.",
+      "ridewithgps_id": 38541342,
+      "ridewithgps_name": "Tour de Palm Springs 100 mile route"
+    },
+    "guide_variables": {
+      "race_name": "Tour de Palm Springs",
+      "race_distance": "102 miles (century — flagship distance)",
+      "race_elevation": "2,700 feet",
+      "race_date": "First Saturday of February",
+      "race_location": "Palm Springs, California",
+      "race_terrain": "Flat to gently rolling paved desert roads through the Coachella Valley",
+      "race_weather": "February desert — 65-75F, dry, sunny. Wind is the wildcard (potential 40+ mph gusts).",
+      "race_challenges": [
+        "Wind exposure on open desert stretches — potential for 40+ mph headwinds and sandblasting",
+        "Desert sun exposure despite moderate temperatures",
+        "Dry air requiring proactive hydration",
+        "102 miles of flat riding — distance is the challenge, not terrain",
+        "Morning chill (45-55F) transitioning to warm afternoon (65-75F)"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Century distance fitness — complete an 80-mile ride at least once before event day",
+        "by_when": "Week 4",
+        "why": "102 miles on flat terrain sounds easy until mile 70 in a headwind. Build to at least 80 miles in training so the final 22 miles are fatiguing, not devastating. The flat terrain tempts riders to skip long rides — do not skip long rides."
+      },
+      {
+        "requirement": "Wind riding experience — train in exposed, windy conditions",
+        "by_when": "Week 6",
+        "why": "Coachella Valley wind can transform this ride from a cruise to a survival test. Practice riding in crosswinds and headwinds. Learn to tuck, draft, and maintain pace when the wind is in your face. Mental preparation for sustained wind effort is as important as physical preparation."
+      },
+      {
+        "requirement": "Hydration and sun protection strategy tested in training",
+        "by_when": "Week 3",
+        "why": "Desert air is deceptively dry — you dehydrate faster than you realize. SAG stops are every 20 miles, so you need 40+ ounces of carrying capacity between stops. Sunscreen, arm sleeves, and sun-rated eyewear are non-negotiable. Test everything in training so event day has no surprises."
+      }
+    ],
+    "citations": [
+      {
+        "url": "https://tourdepalmsprings.com/",
+        "category": "official",
+        "label": "Tour de Palm Springs Official Website"
+      },
+      {
+        "url": "https://tourdepalmsprings.com/event-info/",
+        "category": "official",
+        "label": "Tour de Palm Springs Event Information"
+      },
+      {
+        "url": "https://tourdepalmsprings.com/event-info/routes/",
+        "category": "official",
+        "label": "Tour de Palm Springs Routes"
+      },
+      {
+        "url": "https://tourdepalmsprings.com/history/",
+        "category": "official",
+        "label": "Tour de Palm Springs Event History"
+      },
+      {
+        "url": "https://tourdepalmsprings.com/current-past-charities/",
+        "category": "official",
+        "label": "Tour de Palm Springs Current and Past Charities"
+      },
+      {
+        "url": "https://socalcycling.com/2025/12/17/esser-ac-tour-de-palm-springs-in-coachella-valley-announces-27th-annual-charity-bike-ride-walk-2025/",
+        "category": "media",
+        "label": "SoCal Cycling — Esser AC Tour de Palm Springs 28th Annual Announcement"
+      },
+      {
+        "url": "https://www.nbcpalmsprings.com/2026/02/02/tour-de-palm-springs-returns-saturday-with-thousands-of-cyclists-expected-across-the-valley",
+        "category": "media",
+        "label": "NBC Palm Springs — Tour de Palm Springs Returns 2026"
+      },
+      {
+        "url": "https://ridewithgps.com/routes/38541342",
+        "category": "other",
+        "label": "RideWithGPS — Tour de Palm Springs 100 Mile Route"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/2618/tour-de-palm-springs",
+        "category": "other",
+        "label": "GranFondoGuide — Tour de Palm Springs"
+      },
+      {
+        "url": "https://www.desertcharities.com/listing/cvspin-tour-de-palm-springs.html",
+        "category": "other",
+        "label": "Desert Charities News — CVSPIN / Tour de Palm Springs"
+      },
+      {
+        "url": "http://www.marcperkins.net/?p=2183",
+        "category": "participant",
+        "label": "Marc Perkins — Ride Report: Tour de Palm Springs Century 2016"
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "high",
+      "validation_status": "validated",
+      "sources": [
+        "official_website",
+        "media_coverage",
+        "event_listing_sites",
+        "ridewithgps",
+        "participant_reports"
+      ],
+      "migration_notes": [
+        "New profile created February 2026.",
+        "Tour de Palm Springs is an active, well-documented event with 28 years of history.",
+        "Elevation data (~2,700 ft for 100-mile route) from RideWithGPS and rider reports.",
+        "Wind conditions documented from multiple rider reports — the defining challenge of this event.",
+        "Distance options vary slightly year to year (2026: 102, 85, 56, 34, 25, 7 miles).",
+        "Registration pricing not fully confirmed — military discount to $100 for century is documented.",
+        "CVSPIN (Coachella Valley Serving People In Need) is the organizing nonprofit founded by Tim Esser and his mother Fran."
+      ],
+      "research_strength": {
+        "overall": 78.0,
+        "grade": "B+",
+        "weakest": "registration_pricing",
+        "has_research_dump": false,
+        "dimensions": {
+          "source_diversity": 85,
+          "citation_density": 80,
+          "temporal_depth": 85,
+          "specificity": 75,
+          "statistical_backing": 70,
+          "voice_authenticity": 80,
+          "completeness": 75,
+          "cross_reference": 75
+        },
+        "scored_at": "2026-02-27"
+      }
+    }
+  }
+}

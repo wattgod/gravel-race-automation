@@ -1,0 +1,344 @@
+{
+  "race": {
+    "name": "Haute Route Ventoux",
+    "slug": "haute-route-ventoux",
+    "display_name": "Haute Route Ventoux",
+    "tagline": "3 stages, 3 summits of Mont Ventoux, 270 kilometers, and 7,500 meters of climbing through Provence. Every stage finishes atop the Giant of Provence — from a different side each day.",
+    "vitals": {
+      "distance_mi": 168,
+      "distance_km": 270,
+      "elevation_ft": 24606,
+      "elevation_m": 7500,
+      "location": "Bedoin, Provence, France",
+      "location_badge": "BEDOIN, FRANCE",
+      "date": "Historically early October (check hauteroute.org for 2026 status)",
+      "date_specific": "2026: TBD (event may not run separately — Haute Route currently focuses on Alps 3-day and 7-day formats)",
+      "terrain_types": [
+        "Paved mountain roads through Provence lavender country",
+        "Three ascents of Mont Ventoux (1,912m) via Bedoin, Malaucene, and Sault",
+        "Exposed moonscape above treeline on Ventoux's final 6 km",
+        "Rolling Provencal roads through vineyards and gorges",
+        "Individual time trial format on one stage"
+      ],
+      "field_size": "300-500 riders",
+      "start_time": "7:00 AM daily stage start from Bedoin",
+      "registration": "Via hauteroute.org when event is scheduled. Historically part of the Haute Route Series. Entry includes full logistics, feed stations, timing, mechanical support, and post-stage meals. Haute Route now focuses on the Alps event; Ventoux may return as a standalone 3-day format.",
+      "prize_purse": "GC ranking with age category awards — no cash prizes",
+      "aid_stations": "Multiple feed stations per stage with water, energy food, and mechanical support. Post-stage hot meal included. Massage and recovery services at finish village.",
+      "cutoff_time": "Daily cut-off times enforced — typically 8-10 hours per stage depending on distance",
+      "lat": 44.1262,
+      "lng": 5.1784,
+      "distance_options": [
+        "Original Course: 270 km / 7,500m across 3 stages",
+        "Compact Course: ~215 km / 5,300m across 3 stages (shorter daily options)"
+      ],
+      "entry_fee": "EUR 600-900 (varies by registration phase; includes logistics, feed stations, timing, post-stage meals)"
+    },
+    "climate": {
+      "primary": "Provencal autumn — warm valleys, extreme exposure on Ventoux summit",
+      "description": "October in Provence brings average highs of 18-22C (64-72F) in the valleys around Bedoin with pleasant riding conditions on lower roads. Mont Ventoux's summit at 1,912m is a radically different climate zone: temperatures regularly drop 15-20C from the base, winds exceed 90 km/h on exposed days, and the barren moonscape above Chalet Reynard (km 15 of the Bedoin ascent) offers zero shelter. The mountain creates its own weather — clear skies at the base can coexist with cloud, rain, or even snow at the summit. The Mistral wind is the signature threat: this cold, dry northwesterly can gust to 100+ km/h and makes the exposed final 6 km genuinely dangerous.",
+      "challenges": [
+        "Mont Ventoux summit winds — the Mistral can exceed 90 km/h with gusts to 100+ km/h above treeline",
+        "15-20C temperature differential between Bedoin (300m) and Ventoux summit (1,912m)",
+        "Three consecutive days of summit finishes compound fatigue and exposure",
+        "Exposed moonscape above Chalet Reynard — no trees, no shelter for the final 6 km",
+        "October rain at altitude can produce near-freezing conditions on summit"
+      ]
+    },
+    "terrain": {
+      "primary": "Paved mountain roads with three ascents of Mont Ventoux",
+      "surface": "Entirely paved on well-maintained French departmental and national roads. The three routes up Mont Ventoux — Bedoin (south), Malaucene (north), and Sault (east) — are classic Tour de France roads with excellent surface quality. Valley roads through Provence feature rolling terrain through vineyards and orchards. The Gorges de la Nesque provides dramatic canyon riding. No gravel, no technical surfaces — the challenge is purely gradient, distance, and altitude combined with Ventoux's savage exposure.",
+      "technical_rating": 2,
+      "features": [
+        "Bedoin ascent: 21.5 km at 7.6% average, summit at 1,912m — the classic Tour de France route, steepest sustained climbing",
+        "Malaucene ascent: 21.0 km at 7.5% average — the north face, early steep gradients with brief respite mid-climb",
+        "Sault ascent: 26 km at 4.4% average — the gentlest approach through lavender fields, longest route to summit",
+        "Exposed moonscape above treeline: final 6 km of each route crosses barren limestone with zero wind shelter",
+        "Gorges de la Nesque: dramatic canyon road with 400m cliffs — featured on approach stages",
+        "Rolling Provencal wine country between stage segments"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 77,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "editorial_tier": 2,
+      "editorial_tier_label": "TIER 2",
+      "business_tier": 2,
+      "business_tier_label": "TIER 2",
+      "display_tier": 2,
+      "display_tier_label": "TIER 2",
+      "logistics": 3,
+      "length": 4,
+      "technicality": 2,
+      "elevation": 5,
+      "climate": 3,
+      "altitude": 3,
+      "adventure": 4,
+      "prestige": 4,
+      "race_quality": 5,
+      "experience": 5,
+      "community": 4,
+      "field_depth": 3,
+      "value": 3,
+      "expenses": 3,
+      "cultural_impact": 3,
+      "tier_note": "Three days, three summits of cycling's most iconic mountain. T2 by score (77). Prestige=4 yields 1-tier promotion from T2, but cannot promote into T1. Remains T2. The Haute Route Ventoux is the definitive Ventoux challenge — no other event delivers all three ascents in a supported stage race format.",
+      "score_note": "logistics=3 for rural Provence location requiring car access (Bedoin is a small village, Avignon TGV 60 km away). length=4 for 270 km across 3 stages with 7,500m of climbing — averaging 90 km and 2,500m per day. technicality=2 for paved roads throughout — the challenge is climbing, not technical terrain. elevation=5 for 7,500m of climbing across 3 days including three full ascents of Ventoux (1,912m) — one of cycling's most demanding vertical profiles. climate=3 for October Provence warmth offset by brutal Ventoux summit exposure and Mistral wind risk. altitude=3 for repeated summit finishes at 1,912m — moderate altitude but cumulative exposure across 3 days. adventure=4 for the mythology of Ventoux, Provencal landscapes, and the pilgrimage quality of three ascents. prestige=4 for the Haute Route brand and the unique challenge of three Ventoux summits — recognized globally in cycling media. race_quality=5 for Haute Route's professional-level organization: feed stations, timing, mechanical support, post-stage meals, and daily rankings. experience=5 for a bucket-list cycling experience — three sides of cycling's most legendary mountain in three days, with Provencal culture as the backdrop. community=4 for the dedicated Haute Route community of serious amateur cyclists (300-500 riders create intimate camaraderie). field_depth=3 for a strong amateur field with GC competition, but no professionals. value=3 for EUR 600-900 entry — expensive but includes extensive support services. expenses=3 for Provence accommodation and dining at moderate-to-expensive European rates. cultural_impact=3 for contributing to the Ventoux cycling pilgrimage culture. Sum of 14 = 51, cultural_impact = 3, total = 54, score = round(54/70 * 100) = 77.",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 3,
+        "explanation": "Bedoin is a picturesque Provencal village at the southern foot of Mont Ventoux, but it is not easy to reach. Avignon TGV station is 60 km southwest — reachable by car in about an hour. Marseille Provence Airport (MRS) is 120 km south. Rental car is the practical option for international arrivals. Bedoin itself has limited accommodation that fills rapidly for the event. The surrounding villages of Malaucene, Carpentras, and Vaison-la-Romaine offer alternatives within 15-30 km. Haute Route handles on-course logistics professionally, but getting yourself to Bedoin is entirely your problem."
+      },
+      "length": {
+        "score": 4,
+        "explanation": "270 km with 7,500m of climbing across 3 days translates to daily averages of 90 km and 2,500m of vertical — and every day finishes at 1,912m on the summit of Ventoux. The Original course pushes Stage 1 to 114 km with 3,000m of climbing, which is a serious Day 1 on fresh legs. The Compact option reduces daily distances by 20-30 km but still summits Ventoux each day. By Stage 3, cumulative fatigue from two prior summit finishes means that even the shortest stage feels like twice its actual distance. The 3-day format is intense enough to test experienced cyclists without requiring the week-long commitment of the Haute Route Alps."
+      },
+      "technicality": {
+        "score": 2,
+        "explanation": "The roads are excellent French departmental roads — well-maintained, well-surfaced, and clearly marked. The technical demand is zero for anyone who can ride a road bike on tarmac. The challenge is entirely cardiovascular and muscular: 21 km at 7.6% (Bedoin), 21 km at 7.5% (Malaucene), and 26 km at 4.4% (Sault). The descents require confidence at speed through hairpin turns, but the road surfaces are forgiving. If you can climb and descend on paved roads, you can handle this course. The mountain will punish your legs, not your bike handling."
+      },
+      "elevation": {
+        "score": 5,
+        "explanation": "7,500m of climbing in 3 days. Three summit finishes at 1,912m. The Bedoin ascent alone — 21.5 km at 7.6% average with a 10 km stretch through the forest averaging 9-10% — is among the most demanding climbs in world cycling. It has broken professional riders in the Tour de France. Doing it three times from three sides in three days, with cumulative fatigue building each day, is a genuinely elite-level climbing challenge. The Haute Route Ventoux concentrates more vertical suffering per kilometer and per day than almost any other organized amateur cycling event."
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "At the base in Bedoin, October in Provence is lovely — 20C, blue skies, vineyards turning gold. At the summit of Ventoux, 1,600 meters higher, it is a different planet. The Mistral wind is the defining weather feature: this cold, dry northwesterly can exceed 90 km/h on exposed days, making the barren final 6 km above Chalet Reynard genuinely dangerous for cyclists. Temperature at the summit can be 0-5C when the base is a comfortable 18C. Three consecutive summit finishes means three exposures to these conditions. The 2021 edition reportedly had one stage with summit temperatures near freezing. Bring a vest, arm warmers, and a plan for the descent."
+      },
+      "altitude": {
+        "score": 3,
+        "explanation": "Mont Ventoux summits at 1,912m — moderate altitude that produces a noticeable 5-8% reduction in power output compared to sea level. For a single ascent, this is manageable. For three consecutive days of summit finishes, the cumulative effect on recovery is real. Riders arriving from sea-level cities benefit from arriving 2-3 days early and doing at least one acclimatization ride on Ventoux before the event. The altitude is not the primary challenge — the gradient is — but dismissing the oxygen reduction at 1,900m across three consecutive days of hard climbing is a mistake."
+      },
+      "adventure": {
+        "score": 4,
+        "explanation": "Mont Ventoux is one of cycling's most mythological mountains. Tom Simpson's memorial at km 18 on the Bedoin side. The moonscape above treeline that looks like a lunar surface. The observatory at the summit. The Tour de France history etched into every hairpin. Combining this with Provencal wine country, the Gorges de la Nesque, lavender fields (past season in October, but the landscape remains), and the charming village of Bedoin creates a complete cycling pilgrimage. What keeps it at 4 rather than 5 is that Ventoux is well-traveled — this is not remote or undiscovered territory. It is cycling tourism at its most developed."
+      },
+      "prestige": {
+        "score": 4,
+        "explanation": "The Haute Route brand carries genuine weight in serious amateur cycling — it is widely recognized as the most professional multi-day event series for amateurs. The Ventoux edition adds the mythology of cycling's most famous standalone mountain. Three summits in three days is a specific, verifiable accomplishment that carries bragging rights in any cycling group. The event attracts motivated, well-prepared riders from across Europe and beyond. What keeps it at 4 is that the Ventoux edition is a smaller, secondary event compared to the flagship Haute Route Alps, and its future as a standalone offering is uncertain."
+      },
+      "race_quality": {
+        "score": 5,
+        "explanation": "Haute Route sets the standard for multi-day amateur cycling event production. Feed stations are frequent and well-stocked. Mavic mechanical support vehicles patrol the course. Medical assistance is positioned along climbing sections. Live timing provides daily and GC rankings. Post-stage hot meals are included. Daily safety briefings prepare riders for the next stage. Bike wash, secure parking, massage services, and professional photography are available at the finish village. The logistics of transporting luggage between stages and providing this level of support to 300-500 riders is executed at a professional-race standard."
+      },
+      "experience": {
+        "score": 5,
+        "explanation": "Summiting Mont Ventoux once is a bucket-list cycling experience. Summiting it three times in three days — each from a different side, each with its own character — is transformative. The Bedoin side delivers the classic Tour de France brutality through the forest. The Malaucene side punches you early with steep lower slopes. The Sault side lulls you with a gentle start through lavender country before the exposed final kilometers. Each summit finish, arriving at 1,912m with the Mistral howling and the Provence landscape spread below, is deeply moving. Add Provencal wine, cuisine, and the small-group camaraderie of 300-500 riders, and this is one of the finest cycling experiences available."
+      },
+      "community": {
+        "score": 4,
+        "explanation": "The Haute Route community is self-selecting — these are serious amateur cyclists who have invested significant time and money into a multi-day mountain stage race. This creates an instant bond. The 300-500 rider field is small enough that you recognize faces by Stage 2 and share war stories over post-stage meals. The evening briefings and pasta parties are genuine social events. The Haute Route maintains an alumni network and repeat riders form year-on-year friendships. It is not the grassroots community of a gravel race, but it is a tight, motivated group of like-minded cyclists."
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "The field is entirely amateur, but self-selects for serious riders — you do not sign up for three days of Ventoux climbing without being genuinely fit. The GC competition is real, with dedicated riders training specifically for the event and targeting age-group classifications. However, the field is small (300-500 riders) and does not include professionals. The fastest riders are strong club racers and age-group competitors, not nationally or internationally ranked athletes."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "EUR 600-900 is a significant entry fee, but it buys a comprehensive package: 3 days of professionally supported racing, feed stations, mechanical support, timing, post-stage hot meals, luggage transport, and finish village amenities. Compared to self-organizing three days of Ventoux riding, the Haute Route removes all logistical burden and adds professional-level support. The cost reflects the premium Haute Route brand positioning. For what you get, it is fair but not cheap."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Provence is a moderately expensive destination. Hotels in Bedoin and surrounding villages run EUR 80-150/night. Haute Route offers accommodation packages at additional cost. Dining in Provence is excellent but not cheap — expect EUR 25-50 for a proper dinner. Nearest airports (Marseille, Lyon) offer competitive European flights but add transfer costs. For North American riders, total trip cost including flights, accommodation, entry, and meals runs $3,000-5,000. European riders driving from Paris, Lyon, or Milan can keep costs lower at $2,000-3,000 all-in."
+      }
+    },
+    "biased_opinion": {
+      "verdict": "The Giant. Three Times.",
+      "summary": "Mont Ventoux is cycling's most mythological mountain — a barren, windswept colossus that has broken professionals in the Tour de France and claimed the life of Tom Simpson in 1967. The Haute Route Ventoux takes this legendary climb and demands you do it three times in three days, each from a different side. 270 km. 7,500 meters of climbing. Three summit finishes at 1,912m on the exposed moonscape where the Mistral can gust past 90 km/h.\n\nThe Bedoin ascent is the classic: 21.5 km at 7.6% average, with a murderous 10 km stretch through the forest averaging 9-10%. The Malaucene side hits you immediately with 12% gradients before a brief mid-climb reprieve. The Sault approach lulls you with 26 km of gentle lavender-country climbing before the exposed final kilometers deliver the same savage summit as the other two sides. By Stage 3, your legs have climbed to 1,912m twice already. The third ascent is where character is revealed.\n\nThe Haute Route organization is world-class — feed stations, mechanical support, timing, post-stage meals, and daily rankings make this feel like a professional stage race for amateur riders. The field of 300-500 creates genuine camaraderie forged through shared suffering. Provence as a backdrop — vineyards, gorges, medieval villages — adds culture and cuisine to complement the climbing. This is not a race for beginners. It is a pilgrimage for serious cyclists who understand that Ventoux is not just a mountain — it is a test of everything you are.",
+      "strengths": [
+        "Three ascents of cycling's most legendary mountain — each from a different side, each with distinct character",
+        "7,500m of climbing in 3 days with professional Haute Route support and logistics",
+        "Provencal setting — wine country, gorges, medieval villages, and world-class cuisine",
+        "Intimate field of 300-500 riders creates genuine stage-race camaraderie",
+        "Professional-level organization: feed stations, Mavic mechanical support, timing, post-stage meals",
+        "Achievable in a long weekend — 3-day format versus 7-day Alps commitment"
+      ],
+      "weaknesses": [
+        "EUR 600-900 entry fee is steep for a 3-day event — excludes budget-conscious cyclists",
+        "Event status uncertain — Haute Route has consolidated around the Alps format, Ventoux may not run annually",
+        "Bedoin is remote — rental car required, limited accommodation in the village itself",
+        "Mistral wind on exposed summit can be genuinely dangerous — events have been modified for safety",
+        "Three consecutive summit finishes at 1,912m with cumulative fatigue is a serious physiological challenge",
+        "No distance options within the competitive format — you summit Ventoux every day or you do not finish"
+      ],
+      "bottom_line": "If Mont Ventoux is on your bucket list, the Haute Route Ventoux is the definitive way to experience it. Three ascents, three sides, three days of world-class organization in Provence. The price is high and the climbing is brutal, but there is no other event that delivers this specific combination of legendary climbing, professional support, and Provencal culture. Confirm the event is running before booking — Haute Route's event calendar has evolved in recent years."
+    },
+    "final_verdict": {
+      "score": "77 / 100",
+      "one_liner": "Three summits of cycling's most legendary mountain in three days — the definitive Ventoux experience with professional stage-race support.",
+      "should_you_race": "Ride this if Mont Ventoux is your cycling grail and you want all three ascents in a professionally supported format. Skip it if you are on a budget (EUR 600-900 entry), prefer flat or gravel terrain, or cannot commit to 3 consecutive days of serious climbing. If you just want to climb Ventoux once, ride it independently — it is a public road.",
+      "alternatives": "For a single Ventoux ascent: ride independently from Bedoin, Malaucene, or Sault. For a longer Haute Route: Haute Route Alps (7 days, 800 km, 20,000m). For a similar 3-day alpine challenge: Haute Route Alps 3-day format. For a Ventoux-adjacent sportive: Cardiac Ventoux or Tour du ALS.",
+      "alternative_slugs": [
+        "haute-route-dolomites",
+        "arlberg-giro"
+      ]
+    },
+    "logistics": {
+      "airport": "Marseille Provence (MRS) 120 km south (~1.5 hr drive). Lyon Saint-Exupery (LYS) 240 km north (~2.5 hr drive). Avignon TGV station 60 km southwest (~1 hr drive). Rental car recommended from any arrival point.",
+      "lodging_strategy": "Bedoin has limited accommodation — small hotels and gites fill rapidly for the event. Malaucene (15 km north) and Carpentras (20 km south) offer more options. Vaison-la-Romaine (25 km north) is a charming base with good hotel selection. Haute Route offers accommodation packages at additional cost. Book early — Provencal tourism is strong even in October.",
+      "food": "Provence delivers exceptional cuisine. Bedoin has several restaurants and cafes. The regional specialties — ratatouille, tapenade, Provencal herbs, local wines from Cotes du Ventoux and Cotes du Rhone — are world-class. Haute Route provides post-stage hot meals. The ristori on course are well-stocked. After three summit finishes, the evening meals in Provencal restaurants are deeply satisfying.",
+      "packet_pickup": "At the Haute Route event village in Bedoin, typically the day before Stage 1. Registration includes bike check, bib number collection, and safety briefing.",
+      "parking": "Available in Bedoin — village parking areas designated for the event. Limited capacity, arrive early.",
+      "official_site": "https://www.hauteroute.org/"
+    },
+    "history": {
+      "founded": 2018,
+      "founder": "OC Sport (Haute Route Series)",
+      "origin_story": "The Haute Route Ventoux was created as a shorter-format addition to the Haute Route Series, which began with the flagship 7-day Alps event in 2011. The concept was compelling: take cycling's most legendary standalone mountain and create a 3-day stage race that summits it from every side. Based in the village of Bedoin at the southern foot of Ventoux, the event leveraged the Haute Route brand's professional-level organization and applied it to a focused, geographically concentrated challenge. The 3-day format made the event accessible to riders who could not commit to the week-long Alps or Dolomites events. Mont Ventoux's unique status — featured in the Tour de France 15+ times since 1951, site of Tom Simpson's death in 1967, and crowned by an iconic observatory on its barren summit — made it the perfect location for an event that transcends cycling into pilgrimage.",
+      "notable_moments": [
+        "2018: Inaugural Haute Route Ventoux — 3-day format established with daily summit finishes",
+        "2019: Event grows to attract international field of 400+ riders from 20+ nationalities",
+        "2021: Post-COVID return — October edition with memorable summit conditions including near-freezing temperatures",
+        "Haute Route Series evolves: Alps remains flagship, shorter-format events (including Ventoux) adjusted based on demand",
+        "Mont Ventoux continues to feature in Tour de France, including memorable double-ascent stage in 2021"
+      ],
+      "reputation": "Recognized as the definitive Ventoux multi-day challenge. The Haute Route brand brings credibility and professional-level support that distinguishes this from self-organized Ventoux rides. Cycling media consistently rate the Haute Route events as the gold standard for amateur multi-day racing."
+    },
+    "course_description": {
+      "character": "A 3-day stage race centered entirely on Mont Ventoux — cycling's most legendary standalone mountain. Each stage radiates from Bedoin through the surrounding Provencal countryside before converging on the summit at 1,912m via a different ascent route. The course design is elegant in its simplicity: three days, three sides, one mountain. The climbing is relentless, the exposure above treeline is savage, and the cumulative fatigue of three consecutive summit finishes separates those who trained from those who hoped.",
+      "suffering_zones": [
+        {
+          "km": 0,
+          "label": "Stage 1 — Bedoin Ascent",
+          "desc": "The classic Tour de France route. 21.5 km at 7.6% average from Bedoin. The first 6 km are gentle through vineyards, then the road enters the forest and the gradient jumps to 9-10% for 10 relentless kilometers. Above Chalet Reynard at km 15, the trees end and the moonscape begins — 6 km of exposed limestone with the Mistral and the observatory growing in the distance.",
+          "terrain_detail": "Paved road, sustained 9-10% through forest, exposed 7-8% above treeline",
+          "named_section": "Bedoin Ascent (South Face)"
+        },
+        {
+          "km": 90,
+          "label": "Stage 2 — Malaucene Ascent",
+          "desc": "The north face. 21 km at 7.5% average. Hits you immediately with steep lower gradients of 10-12% before a brief plateau mid-climb gives false hope. The final approach from Chalet Reynard merges with the Bedoin route for the familiar exposed moonscape. Cumulative fatigue from Stage 1 makes this feel 50% harder than the numbers suggest.",
+          "terrain_detail": "Paved road, early steep ramps 10-12%, exposed summit approach",
+          "named_section": "Malaucene Ascent (North Face)"
+        },
+        {
+          "km": 180,
+          "label": "Stage 3 — Sault Ascent",
+          "desc": "The gentlest approach — 26 km at 4.4% average through lavender country and forest. The deceptive ease lulls tired legs into false security. The final 6 km above Chalet Reynard — the same exposed moonscape as the other two sides — deliver the summit with your legs carrying the weight of two prior days. This is where the event is won or survived.",
+          "terrain_detail": "Paved road, gentle gradient through forest, exposed summit finish",
+          "named_section": "Sault Ascent (East Face)"
+        }
+      ],
+      "signature_challenge": "The cumulative summit assault: three ascents of Mont Ventoux (1,912m) in three days from three different sides. Each approach has distinct character, but all converge on the same exposed, wind-battered final 6 km of moonscape. By Stage 3, the climb you know is waiting breaks you mentally before the gradient breaks you physically."
+    },
+    "guide_variables": {
+      "race_name": "Haute Route Ventoux",
+      "race_distance": "270 km (168 miles) over 3 stages",
+      "race_elevation": "7,500 m (24,606 ft) over 3 stages",
+      "race_date": "Early October (confirm annually)",
+      "race_location": "Bedoin, Provence, France",
+      "race_terrain": "Paved mountain roads with three ascents of Mont Ventoux",
+      "race_weather": "Provencal autumn — warm valleys (18-22C), summit exposure (0-10C), Mistral wind risk",
+      "race_challenges": [
+        "Three consecutive summit finishes at 1,912m on Mont Ventoux",
+        "7,500m of climbing in 3 days with cumulative fatigue",
+        "Mistral wind on exposed summit — gusts to 90+ km/h",
+        "15-20C temperature differential between base and summit",
+        "Bedoin ascent: 10 km averaging 9-10% through the forest",
+        "Stage 3 summit on legs that already climbed to 1,912m twice"
+      ],
+      "altitude_section": true,
+      "altitude_feet": 6273
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Sustained climbing endurance for 60-90 minute efforts",
+        "by_when": "Week 8-12",
+        "why": "Each Ventoux ascent takes 60-90 minutes for strong amateurs. You need to sustain threshold or tempo power for this duration across 3 consecutive days with cumulative fatigue."
+      },
+      {
+        "requirement": "Multi-day recovery capacity",
+        "by_when": "Week 6-10",
+        "why": "Three summit finishes in three days with 2,500m daily climbing demands recovery ability. Back-to-back long climbing days in training are essential preparation."
+      },
+      {
+        "requirement": "Headwind and exposure strategy",
+        "by_when": "Week 4-6",
+        "why": "The Mistral on Ventoux's exposed summit is not hypothetical — it is probable. Practice riding in strong headwinds, pack appropriate layers, and develop a pacing strategy that accounts for 6 km of exposed climbing."
+      },
+      {
+        "requirement": "Confident high-speed descending",
+        "by_when": "Week 4-8",
+        "why": "Descending from 1,912m at speed through hairpin turns, potentially in cold and wind, three times in three days. The descent from Ventoux is fast and exposed."
+      }
+    ],
+    "citations": [
+      {
+        "url": "https://www.hauteroute.org/",
+        "category": "official",
+        "label": "Haute Route Official Website"
+      },
+      {
+        "url": "https://www.hauteroute.org/news/view/2021-haute-route-ventoux-stage-descriptions",
+        "category": "official",
+        "label": "2021 Haute Route Ventoux Stage Descriptions"
+      },
+      {
+        "url": "https://hauteroute.fr/",
+        "category": "official",
+        "label": "Haute Route France (Current Event Page)"
+      },
+      {
+        "url": "https://www.cycloworld.cc/nl/cyclo/frankrijk/haute-route-ventoux/12847",
+        "category": "reference",
+        "label": "CycloWorld: Haute Route Ventoux"
+      },
+      {
+        "url": "https://rides.bike/cycling-mont-ventoux",
+        "category": "reference",
+        "label": "Rides.bike: Complete Guide to Cycling Mont Ventoux"
+      },
+      {
+        "url": "https://medium.com/@fredriknorman/from-average-joe-to-top-33-amateur-stage-racer-in-5-years-277e6fa7b0a4",
+        "category": "review",
+        "label": "Fredrik Norman: Haute Route Experience (Medium)"
+      },
+      {
+        "url": "https://sportcoaching.com.au/haute-route-cycling-event-training/",
+        "category": "reference",
+        "label": "SportCoaching: Ultimate Guide to Haute Route"
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "medium",
+      "validation_status": "validated",
+      "sources": [
+        "hauteroute.org (official Haute Route website)",
+        "hauteroute.fr (current French event page)",
+        "cycloworld.cc (event listing and data)",
+        "rides.bike (Ventoux climbing guide)",
+        "sportcoaching.com.au (training guide)",
+        "medium.com (participant experience)",
+        "sportivebreaks.com (tour operator details)"
+      ],
+      "migration_notes": [
+        "Profile created 2026-03-01 from comprehensive web research",
+        "Haute Route now focuses on Alps 7-day and 3-day formats — Ventoux standalone status uncertain for 2026",
+        "Stage descriptions from 2021 edition used as reference (last confirmed Ventoux-specific event)",
+        "Distance and elevation data from CycloWorld: 270km/7500m (Original), 215km/5300m (Compact)",
+        "Haute Route Ventoux historically ran in October from Bedoin",
+        "Note: CIC-Mont Ventoux pro race is a separate event (cancelled 2024-2025 due to budget)"
+      ],
+      "research_strength": {
+        "overall": 78.0,
+        "grade": "B",
+        "weakest": "temporal_depth",
+        "has_research_dump": false,
+        "dimensions": {
+          "source_diversity": 80,
+          "citation_density": 80,
+          "temporal_depth": 65,
+          "specificity": 80,
+          "statistical_backing": 75,
+          "voice_authenticity": 85,
+          "completeness": 80,
+          "cross_reference": 70
+        },
+        "scored_at": "2026-03-01"
+      }
+    }
+  }
+}

@@ -1,0 +1,348 @@
+{
+  "race": {
+    "name": "Mt. Washington Auto Road Bicycle Hillclimb",
+    "slug": "mt-washington-hillclimb",
+    "display_name": "Mt. Washington Auto Road Bicycle Hillclimb (MWARBH)",
+    "tagline": "7.6 miles. 4,678 feet. Average grade 12%. The highest peak in the Northeast, home to the worst weather in America. The toughest hill climb in the United States since 1973.",
+    "vitals": {
+      "distance_mi": 7.6,
+      "elevation_ft": 4678,
+      "location": "Gorham, New Hampshire",
+      "location_badge": "GORHAM, NEW HAMPSHIRE",
+      "date": "Mid-August annually",
+      "date_specific": "2026: August 15",
+      "terrain_types": [
+        "Paved mountain auto road",
+        "Sustained 12% average gradient",
+        "Exposed alpine terrain above treeline"
+      ],
+      "field_size": "635 riders (cap)",
+      "start_time": "8:30 AM (Top Notch racers), followed by age-group waves every ~5 minutes",
+      "registration": "Online via BikeReg. Opens March 1. Sells out. $350 entry. Practice ride registration opens April 1.",
+      "prize_purse": "Category awards. Charity event benefiting Tin Mountain Conservation Center.",
+      "aid_stations": "Summit support: water, portable toilets, first aid, commemorative fleece blankets, finisher medals.",
+      "cutoff_time": "One-way uphill — riders finish at the summit. Support drivers descend from summit around noon.",
+      "lat": 44.2882,
+      "lng": -71.2261,
+      "distance_options": [
+        "Full Hillclimb: 7.6 miles, 4,678 ft gain — Auto Road base to Mt. Washington summit (6,288 ft)"
+      ],
+      "entry_fee": "$350"
+    },
+    "climate": {
+      "primary": "White Mountains summer — extreme summit weather on the mountain with the 'worst weather in America'",
+      "description": "Mid-August at the Auto Road base starts mild (60-75F) but conditions deteriorate rapidly with altitude. Mt. Washington holds the record for the highest wind gust directly measured at the Earth's surface: 231 mph. The summit's yearly average temperature is 33.9F — no temperature above 72F has ever been recorded there. Even on a calm August race day, summit conditions can include fog, rain, high winds, and temperatures 20-30 degrees colder than the base. The weather observatory on the summit exists specifically because this mountain produces some of the most extreme weather on Earth.",
+      "challenges": [
+        "Mt. Washington holds the world record for highest observed wind gust (231 mph) — summit winds of 40-60 mph are routine",
+        "Temperature drop of 20-30F from base to summit — hypothermia risk is real even in August",
+        "Fog and low visibility common above treeline — summit can be socked in with zero visibility",
+        "Rain, sleet, and even snow possible at the summit in any month of the year",
+        "Extreme wind chill above treeline with no shelter for the final exposed miles"
+      ]
+    },
+    "terrain": {
+      "primary": "Paved mountain auto road — extreme sustained gradient",
+      "surface": "Fully paved as of 2022. The Mt. Washington Auto Road was completely paved from base to summit in June 2022, ending decades of mixed pavement and gravel. Prior to 2022, a gravel section around mile 5 added difficulty. The road is well-maintained but narrow — a single-lane mountain auto road with no guardrails in many sections.",
+      "technical_rating": 1,
+      "features": [
+        "7.6 miles of continuous climbing from 1,600 ft to 6,288 ft",
+        "Average gradient 12% — one of the steepest sustained road grades raced anywhere in the US",
+        "Extended sections of 18% gradient through the middle miles",
+        "Final 50 yards at 22% — the steepest ramp to the finish",
+        "61% of the route (4.5 miles) between 10-15% grade",
+        "11% of the route (0.8 miles) between 15-20% grade",
+        "Steepest quarter-mile averages 16%, steepest mile averages 13.8%",
+        "Treeline crossing at approximately 4,400 ft — landscape transforms to exposed alpine rock",
+        "Single switchback near mile 2.9 — the only directional change on the course"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 71,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "logistics": 2,
+      "length": 1,
+      "technicality": 1,
+      "elevation": 5,
+      "climate": 5,
+      "altitude": 3,
+      "adventure": 4,
+      "prestige": 4,
+      "race_quality": 4,
+      "experience": 5,
+      "community": 4,
+      "field_depth": 3,
+      "value": 3,
+      "expenses": 2,
+      "cultural_impact": 4,
+      "tier_note": "America's most iconic hill climb since 1973, ascending the highest peak in the Northeast through the worst weather in America. T2 by score (71). p4 promotes one tier but cannot promote into T1 — remains T2.",
+      "score_note": "Elevation=5 for 4,678 ft of relentless climbing at 12% average grade in just 7.6 miles — the density of vertical gain is unmatched. Climate=5 is non-negotiable — Mt. Washington holds the world wind speed record (231 mph) and is home to the worst weather in America. Altitude=3 (summit at 6,288 ft is moderate — noticeable but not extreme). Length=1 for 7.6 miles. Technicality=1 (all paved). Experience=5 for a summit finish on the highest peak in the Northeast. cultural_impact=4 for 50+ years of continuous running. Sum=46, cultural=4, total=50, score=round(50/70*100)=71.",
+      "editorial_tier": 2,
+      "editorial_tier_label": "TIER 2",
+      "business_tier": 2,
+      "business_tier_label": "TIER 2",
+      "display_tier": 2,
+      "display_tier_label": "TIER 2",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 2,
+        "explanation": "The nearest major airport is Portland International Jetport (PWM) in Portland, Maine — 87 miles and a 2-hour-15-minute drive. Boston Logan (BOS) is 3+ hours. Manchester-Boston Regional (MHT) is about 2.5 hours. None of these are close. The Auto Road sits on NH Route 16 in Pinkham Notch — 8 miles south of Gorham, 12 miles north of Jackson. Both are small White Mountains towns with limited lodging that books up fast for race weekend. No public transit options. Rental car mandatory. Packet pickup logistics are smooth, but getting here requires planning."
+      },
+      "length": {
+        "score": 1,
+        "explanation": "7.6 miles. That is the entire race. Most competitive riders finish in under an hour, recreational riders in 1-2 hours. This is the shortest race distance in the database. The brevity is the point — there is nowhere to hide on a 7.6-mile hill climb at 12% average. No flat sections to recover. No descents to reset. No second chances. But by any distance metric, this is a 1."
+      },
+      "technicality": {
+        "score": 1,
+        "explanation": "Fully paved auto road since 2022. One lane wide, steady gradient, one switchback near mile 2.9. No technical descents because you never descend during the race. The challenge is entirely physiological — legs, lungs, and will. A rider who can clip in can navigate this course. They just might not reach the summit."
+      },
+      "elevation": {
+        "score": 5,
+        "explanation": "4,678 feet of vertical gain in 7.6 miles. The average gradient is 12%. The steepest mile averages 13.8%. Extended sections hit 18%. The final 50 yards ramp to 22%. This is not a mountain pass with rolling terrain — it is a wall that tilts upward and never relents. The elevation density (616 ft/mile average) is among the highest of any organized cycling event in the United States. Every pedal stroke is uphill. Every single one."
+      },
+      "climate": {
+        "score": 5,
+        "explanation": "Mt. Washington is home to the worst weather in America. This is not marketing — the Mount Washington Observatory exists because this 6,288-foot peak generates weather conditions that rival mountains three times its height. The summit has recorded the highest wind gust ever directly measured on Earth's surface (231 mph in 1934). The yearly average temperature at the summit is 33.9F. In August, summit temperatures can drop below 40F with wind chill in the 20s. Fog, rain, sleet, and gale-force winds are not unusual on race day. You are racing into a weather system, not through one."
+      },
+      "altitude": {
+        "score": 3,
+        "explanation": "The summit at 6,288 feet is moderate altitude. You will notice the thinner air in the final miles, and performance is measurably affected — expect 5-8% power loss compared to sea level. But this is not the extreme altitude of Mt. Evans (14,130 ft) or Leadville (10,200 ft start). The physiological challenge at 6,288 feet is real but manageable for acclimatized athletes. The mountain's danger comes from its weather, not its altitude."
+      },
+      "adventure": {
+        "score": 4,
+        "explanation": "You ride your bicycle to the summit of the highest peak in the Northeastern United States. You cross above treeline into an exposed alpine landscape of bare rock and scrub. The summit observatory, the cog railway tracks, and the panoramic views of the Presidential Range create an otherworldly finish. The weather adds genuine unpredictability — you might summit in sunshine or in a cloud. But the course is a paved auto road, 7.6 miles long, in New Hampshire. The adventure is real but compressed."
+      },
+      "prestige": {
+        "score": 4,
+        "explanation": "Running since 1973, this is one of the longest-running cycling events in the United States. The winners list reads like a who's who of American climbing: Tom Danielson (49:24, pre-paving record), Tyler Hamilton (four-time winner, records vacated), Phil Gaimon (50:38, first post-paving record), Ian Boswell (50:18, current record), and Jeannie Longo (58:14, pre-paving women's record). Called 'the toughest hillclimb in the US, if not the world.' Within American hill climb circles, this is the event. It does not have European monument status, but domestically, summiting Mt. Washington on a bicycle carries weight."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "52 editions and counting. Well-organized wave starts by category and age group (Top Notch racers first at 8:30 AM, then waves every 5 minutes). Professional timing by Granite State Race Services. Age categories from U20 through 60+. Summit support with water, medical, and the signature commemorative fleece blankets. The 2022 record reset when paving was completed showed organizational integrity — they acknowledged the course had fundamentally changed. Proceeds benefit Tin Mountain Conservation Center. This is a mature, well-run event with decades of operational refinement."
+      },
+      "experience": {
+        "score": 5,
+        "explanation": "The summit finish is the experience. You grind up 4,678 feet through forested switchbacks, break above treeline into exposed alpine terrain, and arrive at the 6,288-foot summit of the highest peak in the Northeast. The Sherman Adams Visitor Center, the weather observatory, the cog railway terminus — all of it waiting at the top. You get a fleece blanket because you might be hypothermic. You get a medal because you earned it. On clear days, you can see into four states and Canada. On bad days, you cannot see ten feet. Either way, you rode your bicycle up the mountain with the worst weather in America. That stays with you."
+      },
+      "community": {
+        "score": 4,
+        "explanation": "635 riders on a single 7.6-mile climb creates genuine camaraderie. Many riders return year after year — this is a pilgrimage event for Northeast cyclists and hill climb specialists nationwide. The race-week atmosphere in Gorham and the White Mountains communities is warm and inclusive. The event offers multiple participation options — race it, ride it, or enjoy the journey. The charity component (Tin Mountain Conservation Center) adds purpose. The crowd at the summit cheering riders over the final 22% ramp is electric. Small field, big community."
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "The 635-rider cap limits overall depth, but the race consistently attracts serious talent. Ian Boswell (former WorldTour pro) and Pete Stetina (former WorldTour pro) headlined 2025. Phil Gaimon set the post-paving record in 2022. Historical winners include Tom Danielson and Tyler Hamilton. Age-group competition across U20 through 60+ categories provides depth within divisions. There is even a unicycle category. But 635 riders spread across many categories means the sharp end of any single category is thin compared to mass-participation events."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "$350 for a single climb that most riders complete in 50-90 minutes. On a per-mile or per-hour basis, this is expensive. But you get professional timing, summit support, a commemorative fleece blanket, a finisher medal, and the right to say you rode up Mt. Washington. The charity component means your entry fee funds environmental conservation. The practice ride in July is a separate cost. The value is in the experience, not the deliverables."
+      },
+      "expenses": {
+        "score": 2,
+        "explanation": "The White Mountains are remote. Portland Jetport (PWM) is the closest major airport at 87 miles and 2+ hours. Boston Logan (BOS) is 3+ hours. Rental car is mandatory — no public transit to Pinkham Notch. Lodging in Gorham runs $58-150/night at motels and inns, but options are limited and book up fast. The Glen House (closest to the Auto Road) is premium-priced. Vacation rentals in the area are available but competitive during peak summer season. $350 entry fee is significant. Total trip cost for a domestic traveler: $700-1,200 including flights, 2-3 nights lodging, entry, rental car, and meals."
+      }
+    },
+    "biased_opinion": {
+      "verdict": "The Wall",
+      "summary": "There is no subtlety to the Mt. Washington Auto Road Bicycle Hillclimb. It is 7.6 miles of going uphill at 12% average gradient until you reach the summit of the highest peak in the Northeastern United States, a mountain so hostile that it holds the world record for the highest wind gust ever directly measured on Earth's surface. Since 1973, cyclists have lined up at the base of the Auto Road to race the clock, the gradient, and whatever weather the mountain decides to deliver. Tom Danielson did it in 49:24. Tyler Hamilton did it four times (though his records were vacated). Ian Boswell set the current mark at 50:18. Most riders take 60-90 minutes. All of them suffer.\n\nThe Mt. Washington Hillclimb is not a long race. It is not a technical race. It is not an altitude race. It is a gradient race on a mountain with a personality disorder — a 6,288-foot peak in New Hampshire that produces weather systems normally reserved for peaks three times its height. The 2022 completion of the road paving project reset the records and the conversation: every time set on the fully paved road is a modern mark. The 50th edition that year was a line in the sand. Everything before it was a different race on a different surface. Everything after is the pure, paved truth: how fast can you ride uphill at 12% for 7.6 miles into the worst weather in America?\n\nThis is not a race you enter casually. The $350 entry fee, the remote New Hampshire location, and the single-digit mileage all conspire to make this a deliberate choice. You come to Mt. Washington because you want to test yourself against the steepest sustained road climb in the Eastern United States. You stay because the summit finish — fleece blanket in hand, legs destroyed, staring out across the Presidential Range — is one of the most earned moments in American cycling.",
+      "strengths": [
+        "The steepest sustained road climb race in the Eastern US: 12% average, 18% extended sections, 22% finish",
+        "50+ years of continuous history since 1973 — one of the oldest cycling events in America",
+        "Summit finish at 6,288 ft on the highest peak in the Northeast with panoramic views into four states",
+        "Mt. Washington's extreme weather adds genuine unpredictability and danger to every edition",
+        "Winners list includes former WorldTour professionals — legitimate competitive pedigree"
+      ],
+      "weaknesses": [
+        "7.6 miles is extremely short — most riders finish in under 90 minutes",
+        "Remote New Hampshire location: nearest major airport is 2+ hours away",
+        "$350 for a sub-hour race is expensive on a per-minute basis",
+        "One-way uphill only — if you want varied terrain or descending, this is not your event"
+      ],
+      "bottom_line": "If you want to know what 12% average gradient feels like for 50 straight minutes, the Mt. Washington Hillclimb has been waiting since 1973. Bring the fleece blanket."
+    },
+    "final_verdict": {
+      "score": "71 / 100",
+      "one_liner": "7.6 miles. 4,678 feet. 12% average grade. Summit finish on the mountain with the worst weather in America. Since 1973.",
+      "should_you_race": "Yes if you are a hill climb specialist, power-to-weight obsessive, or simply need to know if you can ride up the steepest sustained paved climb in the Eastern US. Yes if you want a bucket-list summit finish on the highest peak in the Northeast. Skip if you want distance, technical terrain, or a mass-participation festival atmosphere. Skip if remote New Hampshire logistics are a dealbreaker.",
+      "alternatives": "If you want a higher-altitude US hill climb with more miles: try Mt. Evans Hill Climb (27 miles to 14,130 ft). If you want a European mountain time trial with global prestige: try Mont Ventoux Challenge. If you want East Coast gravel with serious climbing: try Rasputitsa.",
+      "alternative_slugs": [
+        "mt-evans-hill-climb",
+        "rasputitsa"
+      ]
+    },
+    "logistics": {
+      "nearest_airport": "Portland International Jetport (PWM) — 87 miles, approximately 2 hours 15 minutes via US-302 and NH-16. Boston Logan International (BOS) is 160 miles / 3+ hours but has more flight options. Manchester-Boston Regional (MHT) is 130 miles / 2.5 hours.",
+      "travel_tips": "Rental car is mandatory — no public transit to Pinkham Notch. The Mt. Washington Auto Road is on NH Route 16 in Pinkham Notch, 8 miles south of Gorham and 12 miles north of Jackson. Support drivers must head up between 6:15 AM and 8:00 AM — the Auto Road closes to uphill vehicle traffic at 8:00 AM sharp. Support drivers spend approximately 4-5 hours at the summit waiting for riders. Plan for variable weather — pack warm layers even in August.",
+      "accommodation": "Gorham NH (8 miles north) is the primary lodging hub: Top Notch Inn, Town and Country Inn and Resort, Northern Peak Motor Inn, and various motels from $58-150/night. The Glen House (closest to the Auto Road base) is a premium option. Jackson NH (12 miles south) offers charming inns and B&Bs. North Conway (25 miles south) has the most lodging volume. Book early — race weekend fills quickly in this small-town region. Alpine Garden Glamping is a unique option near the base.",
+      "gear_recommendations": "Lightweight road bike with hill climb gearing — compact crankset with 34x32 or lower recommended. Some riders use sub-6kg race builds (no UCI weight limit applies). Warm layers are essential: arm warmers, vest or gilet, full-finger gloves for the summit. The commemorative fleece blanket at the finish is not decorative — you may need it. Sunscreen for exposed climbing above treeline. Single water bottle sufficient for 50-90 minutes of effort. Clipless pedals and road shoes standard."
+    },
+    "history": {
+      "first_edition": "1973",
+      "notable_editions": [
+        "1973: Inaugural Mt. Washington Auto Road Bicycle Hillclimb held on a mixed pavement and gravel surface",
+        "2002: Tom Danielson sets the men's course record of 49:24 — a mark that would stand for 20 years (pre-paving era)",
+        "2006: Tyler Hamilton wins for the fourth time in 52:21, beating Ned Overend by 2:20. Hamilton's records were later vacated after admitting to performance-enhancing drug use",
+        "Jeannie Longo (France) sets women's record of 58:14 — one of the greatest female cyclists in history, dominating on the world's toughest hill climb (pre-paving era)",
+        "2011: Race organizers announce Tyler Hamilton's times will no longer be considered official records after his admission of PED use",
+        "2022: 50th edition marks a historic turning point — the Auto Road is fully paved for the first time in its 161-year history. Race organizers reset all course records. Phil Gaimon sets the new men's record at 50:38. The race is now run entirely on pavement.",
+        "2024: Kristen Kulchinsky sets women's record at 1:06:08 on the fully paved course",
+        "2025: Ian Boswell (former WorldTour pro) smashes the men's record with 50:18. Illi Gardner obliterates the women's record with 58:07 — finishing 6th overall and beating the previous mark by over 8 minutes. Pete Stetina (former WorldTour pro) finishes second in 51:36."
+      ],
+      "records": "Men's record (post-2022 paving): Ian Boswell, 50:18 (2025). Women's record (post-2022 paving): Illi Gardner, 58:07 (2025). Pre-paving records (vacated by road change): Tom Danielson 49:24 (men's, 2002), Jeannie Longo 58:14 (women's). Tyler Hamilton's records vacated for PED admission.",
+      "growth": "From a small New England cycling event in 1973 to America's most recognized hill climb over 50+ editions. The field has grown to a 635-rider cap that consistently sells out. The 2022 paving completion modernized the course and reset the competitive conversation. The race increasingly attracts former WorldTour professionals (Boswell, Stetina, Gaimon) who treat it as a marquee post-career challenge. The event raises money for Tin Mountain Conservation Center and has become a cornerstone of New Hampshire's summer cycling calendar."
+    },
+    "course_description": {
+      "overview": "One direction: up. The Mt. Washington Auto Road Bicycle Hillclimb is 7.6 miles of continuous ascending from the Auto Road base at approximately 1,600 feet to the summit of Mt. Washington at 6,288 feet — the highest peak in the Northeastern United States. The average gradient is 12%, with extended sections at 18% and a brutal 22% final ramp. Fully paved since 2022, the road is a narrow, single-lane mountain auto road with no guardrails in many sections. Riders climb through dense northern hardwood and spruce-fir forest before breaking above treeline into exposed alpine terrain. The summit houses the Mount Washington Observatory, the Cog Railway terminus, and the Sherman Adams Visitor Center. On a clear day, you can see into Maine, Vermont, New York, and Canada. On a bad day, you cannot see the rider ten meters ahead of you.",
+      "segments": [
+        {
+          "mile": 0,
+          "label": "The Tollbooth — Start",
+          "desc": "The race begins at the Auto Road base with a brief flat section before hitting the first 12% ramp. Adrenaline is high, legs are fresh, and the gradient feels honest. The first mile averages 10-10.5% — the closest thing to a warm-up you will get. Dense forest on both sides, the road climbing through northern hardwoods. Pace yourself. The next 6.6 miles are all harder.",
+          "terrain_detail": "Paved auto road, 10-10.5% average grade, dense forest canopy",
+          "named_section": "Base to Mile 1"
+        },
+        {
+          "mile": 1.9,
+          "label": "The Last Recovery",
+          "desc": "At mile 1.9, the grade eases briefly — your first and probably last actual recovery until the final mile. Enjoy the 8 seconds it takes to pass through it. The road then kicks up with rolling ramps of 12-15% through spruce-fir forest. The trees are thinning. The gradient is building. Your legs are beginning to understand what 12% average means over distance.",
+          "terrain_detail": "Brief grade easing, then 12-15% ramps, transitioning forest",
+          "named_section": "The Recovery Section"
+        },
+        {
+          "mile": 2.9,
+          "label": "The Switchback — Psychological Midpoint",
+          "desc": "The single switchback on the entire course. The grade briefly flattens to 8.4% — a number that would be steep on any other road but feels like a gift here. This is followed immediately by a series of 18-23% kickers that define the hardest section of the climb. Twenty distinct kickers between here and mile 4.9. Each one feels like it might be the last steep section. None of them are.",
+          "terrain_detail": "Single switchback, brief 8.4% 'flat', then 18-23% kickers",
+          "named_section": "The Switchback"
+        },
+        {
+          "mile": 3.8,
+          "label": "The Steepest Mile",
+          "desc": "The steepest mile on the course begins here — averaging an extraordinary 13.8% from mile 3.8 to 4.8. The road pitches relentlessly through tight, tree-lined corridors. This is where the Mt. Washington Hillclimb separates riders from finishers. Your gearing choices reveal themselves. If you brought a 34x28, you are standing. If you brought a 34x34, you are suffering seated. Either way, you are going slowly uphill.",
+          "terrain_detail": "13.8% average grade for one full mile, steepest sustained section",
+          "named_section": "The Wall"
+        },
+        {
+          "mile": 5.0,
+          "label": "Above Treeline — The Exposure",
+          "desc": "The trees end. The landscape transforms into exposed alpine terrain — bare rock, low scrub, and sky in every direction. Wind hits you for the first time without any windbreak. The gradient remains 10-15% but feels worse because there is nothing to focus on except the road tilting upward and the summit somewhere above. This is the most psychologically challenging section — you can see how far you have left, and it looks impossible.",
+          "terrain_detail": "Above treeline, exposed alpine terrain, 10-15% grade, wind exposure",
+          "named_section": "The Alpine Zone"
+        },
+        {
+          "mile": 7.0,
+          "label": "The Final Kickers",
+          "desc": "A kicker at mile 7.0 that feels worse than its gradient because your legs have nothing left. Keep your speed into the brief flat and use the momentum for the double kickers at mile 7.25. The crowd is audible now, cheering from the summit. The last 50 yards ramp to 22% — the steepest section of the entire course saved for when you are at your weakest. Sprint, grind, or crawl — you choose. The finish line is at the top.",
+          "terrain_detail": "Final kickers, then 22% ramp to summit finish at 6,288 ft",
+          "named_section": "The Summit Push"
+        }
+      ],
+      "key_features": [
+        "12% average gradient sustained for 7.6 miles — among the steepest road race courses in America",
+        "Extended 18% sections through the middle miles with twenty distinct kickers",
+        "22% finishing ramp — the steepest 50 yards saved for the very end",
+        "Treeline crossing with transition from forest to exposed alpine terrain",
+        "Summit finish at 6,288 ft with weather observatory and panoramic views",
+        "Fully paved since 2022 — records reset, all modern times on the same surface"
+      ],
+      "strategy": "Pacing is everything. The first mile at 10% feels easy — it is not. Going out too hard in the forest guarantees a catastrophic final 2 miles above treeline. Target your sustainable 50-70 minute power from the start and hold it. The steepest mile (3.8-4.8) is where most riders blow up — stay seated, keep cadence above 55 RPM, and do not chase riders who are about to crack. Above treeline, the wind becomes a factor — stay low and efficient. Save one final match for the 22% ramp. You will hear the crowd. Let them pull you to the top."
+    },
+    "guide_variables": {
+      "race_name": "Mt. Washington Auto Road Bicycle Hillclimb",
+      "race_distance": "7.6 miles",
+      "race_elevation": "4,678 feet",
+      "race_date": "Mid-August",
+      "race_location": "Gorham, New Hampshire (Pinkham Notch)",
+      "race_terrain": "Paved mountain auto road, 12% average gradient to 6,288 ft summit",
+      "race_challenges": [
+        "12% average gradient sustained for 7.6 miles — relentless climbing",
+        "Extended 18% sections and 22% summit finish ramp",
+        "Mt. Washington extreme weather — world record wind speeds, cold summit conditions",
+        "Above-treeline wind exposure for the final miles",
+        "Temperature drop of 20-30F from base to summit"
+      ],
+      "altitude_section": true,
+      "altitude_feet": 6288
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Hill climb-specific gearing — compact crankset with 34x32 or lower",
+        "by_when": "Week 8",
+        "why": "12% average gradient with extended 18% sections and a 22% finish ramp. A standard road cassette (11-28) is not enough for most riders. Many competitors run 34x34 or even MTB-range cassettes. Test your gearing on the steepest local climb and add 2 teeth to whatever you think you need."
+      },
+      {
+        "requirement": "Sustained threshold climbing — 45-60 minute continuous climbing intervals in training",
+        "by_when": "Week 6",
+        "why": "The race is 50-90 minutes of unbroken climbing at or near threshold power. If your longest sustained climbing effort in training is 20 minutes, you are not prepared. Simulate with long trainer sessions at threshold incline if you lack steep local climbs."
+      },
+      {
+        "requirement": "Cold-weather summit layers — vest, arm warmers, full-finger gloves",
+        "by_when": "Race day",
+        "why": "The summit can be 20-30 degrees colder than the base with wind chill dropping effective temperature below 40F in August. After 50+ minutes of maximal effort with depleted glycogen, your body's thermoregulation is compromised. The commemorative fleece blanket at the summit is functional, not decorative."
+      },
+      {
+        "requirement": "Pacing plan based on target power, not feel",
+        "by_when": "Race day",
+        "why": "The first mile at 10% feels deceptively easy compared to what follows. Going out 10% above your sustainable power guarantees blowing up in the 18% sections between miles 3-5. Set a target wattage for the full 50-70 minute effort and hold it from the gun, regardless of how easy the opening mile feels."
+      }
+    ],
+    "citations": [
+      {
+        "url": "https://www.mwarbh.org/",
+        "title": "Mt. Washington Auto Road Bicycle Hillclimb — Official Site",
+        "category": "official"
+      },
+      {
+        "url": "https://www.mwarbh.org/race-information",
+        "title": "MWARBH Race Information",
+        "category": "official"
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Mount_Washington_Auto_Road_Bicycle_Hillclimb",
+        "title": "Mount Washington Auto Road Bicycle Hillclimb — Wikipedia",
+        "category": "reference"
+      },
+      {
+        "url": "https://pjammcycling.com/climb/8.Mt-Washington-Auto-Rd",
+        "title": "Mt Washington Auto Road Bike Climb — PJAMM Cycling",
+        "category": "reference"
+      },
+      {
+        "url": "https://www.bikereg.com/mwarbh",
+        "title": "MWARBH 2026 Registration — BikeReg",
+        "category": "official"
+      },
+      {
+        "url": "https://escapecollective.com/boswell-and-gardner-set-new-course-records-atop-mt-washington/",
+        "title": "Boswell and Gardner set new course records atop Mt. Washington — Escape Collective",
+        "category": "media"
+      },
+      {
+        "url": "https://granfondodailynews.com/2025/08/18/mount-washington-hill-climb-results-boswell-gardner-smash-course-records-en-route-to-victory/",
+        "title": "Mount Washington Hill Climb Results: Boswell, Gardner Smash Course Records — Gran Fondo Daily",
+        "category": "media"
+      },
+      {
+        "url": "https://strambecco.com/event/mt-washington-auto-road-hillclimb/",
+        "title": "Mt. Washington Auto Road Bicycle Hillclimb 2026 — Strambecco",
+        "category": "reference"
+      },
+      {
+        "url": "https://www.cyclingweekly.com/news/its-harder-than-almost-every-climb-ive-done-illi-gardner-sets-the-all-time-record-on-mt-washington",
+        "title": "Illi Gardner sets the all-time record on Mt. Washington — Cycling Weekly",
+        "category": "media"
+      },
+      {
+        "url": "https://gsrs.com/node/5796",
+        "title": "Mount Washington Auto Road Bicycle Hillclimb 2025 — Granite State Race Services",
+        "category": "official"
+      }
+    ],
+    "research_metadata": {
+      "last_updated": "2026-02-28",
+      "confidence_score": "high",
+      "sources_consulted": 10
+    }
+  }
+}

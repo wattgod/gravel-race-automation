@@ -1,0 +1,289 @@
+{
+  "race": {
+    "name": "TORTOUR Ultracycling",
+    "slug": "tortour",
+    "display_name": "TORTOUR",
+    "tagline": "1,000 km. Multiple Alpine passes. Two days. Non-stop. The world's largest multi-day ultra-endurance cycling event — solo or in teams, day and night, across Switzerland.",
+    "vitals": {
+      "distance_mi": 621,
+      "elevation_ft": 39370,
+      "location": "Schaffhausen, Switzerland",
+      "location_badge": "SCHAFFHAUSEN, SWITZERLAND",
+      "date": "Mid-August annually",
+      "date_specific": "2026: August 12-16",
+      "terrain_types": [
+        "Paved Swiss roads — national and cantonal roads",
+        "Alpine pass roads — multiple passes above 2,000m",
+        "Flat lowland sections through Swiss midlands",
+        "Night riding through valleys and mountain passes"
+      ],
+      "field_size": "~2,000 riders across all formats",
+      "start_time": "TORTOUR 1000 Solo: midnight (00:00). TORTOUR 1000 Teams: varies by format. Prologue in the afternoon.",
+      "registration": "Online via tortour.com. Tiered pricing with early-bird discounts. Registration opens approximately one year before the event.",
+      "prize_purse": "None — timed ultra-endurance event with rankings",
+      "aid_stations": "Multiple checkpoints and feed stations along the 1,000 km route. Self-supported unsupported category requires carrying own nutrition.",
+      "cutoff_time": "48 hours for the TORTOUR 1000. Must complete 1,000 km non-stop within two days.",
+      "lat": 47.696,
+      "lng": 8.635,
+      "distance_options": [
+        "TORTOUR 1000: 1,000 km — the main event, non-stop in 2 days",
+        "TORTOUR 500: ~500 km",
+        "TORTOUR 250: ~250 km",
+        "TORTOUR Myself 50: 50 km — beginner format"
+      ],
+      "entry_fee": "CHF 390-980 solo (tiered: Solo Unsupported CHF 390-750, Solo CHF 590-980). Team pricing varies by team size."
+    },
+    "climate": {
+      "primary": "Mid-August Swiss conditions — day and night riding",
+      "description": "Mid-August in Switzerland delivers warm daytime temperatures in the lowlands (22-30C / 72-86F) and dramatically cooler conditions at Alpine pass summits (5-10C / 41-50F), especially at night. Riders will experience the full spectrum: scorching valley sun, freezing mountain summits at 2 AM, fog in pre-dawn valleys, and potential thunderstorms at any altitude. The non-stop format means riding through complete darkness for 8-10 hours. Night temperatures in Alpine valleys can drop to 5C even in August.",
+      "challenges": [
+        "Night riding: 8-10 hours in complete darkness with temperatures dropping to 5C in valleys",
+        "Alpine pass summits at night: near-freezing conditions at 2,000m+ while sleep-deprived",
+        "Extreme temperature swings: 30C valleys to 5C summits, repeated across the route",
+        "Thunderstorm risk across the Alps — lightning at altitude while exposed on a bike"
+      ]
+    },
+    "terrain": {
+      "primary": "Paved Swiss roads",
+      "surface": "Entirely paved. Swiss national and cantonal roads in excellent condition. The route traverses every terrain type Switzerland offers: flat lowland roads through the midlands, winding Alpine pass roads with sustained gradients, fast descents, and urban sections through Swiss cities. Road quality is universally high — this is Switzerland.",
+      "technical_rating": 2,
+      "features": [
+        "Multiple Alpine passes above 2,000m — route changes year to year",
+        "Night riding on unlit mountain roads requiring powerful lights",
+        "Urban navigation through Swiss cities and towns",
+        "1,000 km of non-stop riding with no sleep requirement"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 76,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "logistics": 3,
+      "length": 5,
+      "technicality": 2,
+      "elevation": 5,
+      "climate": 3,
+      "altitude": 4,
+      "adventure": 5,
+      "prestige": 4,
+      "race_quality": 4,
+      "experience": 5,
+      "community": 3,
+      "field_depth": 2,
+      "value": 2,
+      "expenses": 3,
+      "cultural_impact": 3,
+      "tier_note": "The world's largest multi-day non-stop ultra-endurance cycling event. 1,000 km across Switzerland in 48 hours is a genuine feat of human endurance. Strong prestige in the ultra-cycling community. Not mainstream but formidable.",
+      "score_note": "length=5 for 1,000 km non-stop in 48 hours — among the longest single-event road cycling distances. elevation=5 for ~12,000m+ across multiple Alpine passes. adventure=5 for the full Swiss traverse day and night. experience=5 for the transformative nature of non-stop riding through darkness and Alpine dawn. climate=3 for August Alpine conditions with night riding temperature swings. prestige=4 as the world's largest event of its type.",
+      "editorial_tier": 2,
+      "editorial_tier_label": "TIER 2",
+      "business_tier": 2,
+      "business_tier_label": "TIER 2",
+      "display_tier": 2,
+      "display_tier_label": "TIER 2",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 3,
+        "explanation": "Schaffhausen is well-connected by Swiss Rail and lies on the German border — reachable from Zurich in under an hour. The event HQ at the KSS ice rink provides a clear central point. But the logistics of a 1,000 km non-stop race are inherently complex: support crews need to meet riders at multiple checkpoints across Switzerland, vehicle logistics for team cars are considerable, and the non-stop format means no fixed overnight accommodation en route."
+      },
+      "length": {
+        "score": 5,
+        "explanation": "1,000 kilometers. Non-stop. In two days. This is extreme endurance by any standard — equivalent to riding from London to the Scottish Highlands and back, or crossing Texas. The shorter formats (500 km, 250 km) are still substantial distances, but the TORTOUR 1000 is the event. Solo unsupported riders cover the full distance carrying their own nutrition and equipment. The 48-hour cutoff means averaging 21 km/h including all stops."
+      },
+      "technicality": {
+        "score": 2,
+        "explanation": "The roads are paved and Swiss-maintained — no technical demands from the surface itself. But riding Alpine pass descents at 3 AM on 30 hours of no sleep, with impaired reaction time and cold hands, is a different kind of technical challenge. Night navigation requires good lighting and route awareness. The technical demands are not in the road but in managing the human body across 1,000 km of non-stop effort."
+      },
+      "elevation": {
+        "score": 5,
+        "explanation": "The TORTOUR 1000 typically accumulates 12,000+ meters of climbing across multiple Alpine passes. The exact route changes year to year, but always includes several major Swiss passes. That is more climbing than the Tour de France covers in its hardest mountain stages combined. And you do it in 48 hours, non-stop, with no team car to draft behind."
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "The climate score reflects the range, not just the severity. Daytime Alpine valleys in August can hit 30C. Alpine passes at 2 AM can be 3C. You ride through both, repeatedly, in a single continuous effort. The night riding component is the climate story — descending a mountain pass at 60 km/h at 3 AM in near-freezing temperatures while sleep-deprived is where hypothermia risk becomes real. Smart layering isn't a suggestion, it's survival."
+      },
+      "altitude": {
+        "score": 4,
+        "explanation": "Multiple passes above 2,000m, sometimes approaching 2,500m depending on the year's route. The altitude effect compounds with sleep deprivation and extreme fatigue — at 30+ hours of continuous riding, even moderate altitude hits differently. Riders who are fine at 2,000m on fresh legs discover that 2,000m on 800 km of fatigue is a different mountain entirely."
+      },
+      "adventure": {
+        "score": 5,
+        "explanation": "Riding across an entire country in two days is an adventure by any definition. The TORTOUR traverses Switzerland's full geographic range — from the Rhine at Schaffhausen through the Swiss midlands, over Alpine passes, into Italian-speaking Ticino, and back. You see Switzerland's dawn from a mountain pass, its midnight from a valley road, its villages sleeping as you ride through. This is not a loop, it is an odyssey."
+      },
+      "prestige": {
+        "score": 4,
+        "explanation": "The world's largest multi-day non-stop ultra-endurance cycling event. That title alone carries weight. Within the ultra-cycling community — RAAM aspirants, Transcontinental Race alumni, long-distance specialists — the TORTOUR is well-known and respected. It lacks the mainstream recognition of a Paris-Brest-Paris or RAAM, but among those who ride extreme distances, this event commands genuine respect."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "Well-organized with Swiss precision: chip timing, checkpoints, route marking, support vehicle coordination, finisher brunch, awards ceremony. The prologue adds a ceremonial element. The infrastructure handles 2,000 riders across multiple formats simultaneously. Medical support is available along the route. The team format with support cars adds a strategic dimension. For an ultra-distance event, the organization is among the best in the world."
+      },
+      "experience": {
+        "score": 5,
+        "explanation": "The TORTOUR 1000 is a transformative experience. You will ride through darkness. You will climb Alpine passes by starlight. You will watch the sun rise from a mountain road while your body screams for sleep. You will discover what happens to your mind at 800 km and 36 hours of continuous effort. The physical suffering is extreme, but the memories — Alpine dawn at 2,000m, the camaraderie of riders sharing the road at 4 AM, the finisher's brunch in Schaffhausen — are permanent."
+      },
+      "community": {
+        "score": 3,
+        "explanation": "The ultra-cycling community is small but fiercely bonded. Riders who complete 1,000 km non-stop share something that is hard to explain to non-participants. The team format builds deep bonds — support crews sacrifice sleep and comfort to keep riders moving. The pasta party, prologue, and finisher's brunch create bookend community moments. The returning-to-Schaffhausen 2026 edition adds homecoming energy."
+      },
+      "field_depth": {
+        "score": 2,
+        "explanation": "The TORTOUR attracts a mix of serious ultra-cyclists (solo unsupported category), strong amateurs (solo with support), and recreational riders (team formats, shorter distances). The solo unsupported category draws competitive ultra-endurance athletes. The field depth in shorter formats is more recreational. Not a deep competitive field by road racing standards, but the solo category attracts legitimate ultra-endurance talent."
+      },
+      "value": {
+        "score": 2,
+        "explanation": "CHF 590-980 for solo entry is substantial, and that is before Swiss-priced accommodation, meals, and support crew logistics. Team entries run CHF 1,180-5,900 depending on team size and timing. The total cost for a TORTOUR 1000 experience — including support vehicle, fuel, crew accommodation, rider nutrition across 48 hours — can exceed CHF 3,000-5,000 for a solo supported effort. This is an expensive event in an expensive country."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Switzerland compounds the expense. Accommodation in Schaffhausen, fuel for support vehicles traversing the country, meals for rider and crew across 48 hours, specialized equipment (lighting, warm clothing, nutrition for 1,000 km). Budget CHF 2,000-5,000 all-in depending on format and support level. The solo unsupported category is cheaper (no crew costs) but requires self-sufficiency gear."
+      }
+    },
+    "biased_opinion": {
+      "verdict": "The Swiss Odyssey",
+      "summary": "The TORTOUR is not a bike race. It is a 1,000 km argument with yourself about whether you can keep pedaling through the night, over Alpine passes, across an entire country, for 48 straight hours. The world's largest multi-day non-stop ultra-endurance cycling event takes everything Switzerland throws at you — 12,000m of climbing, 30-degree temperature swings, complete darkness, Alpine dawn — and compresses it into a single continuous effort.\n\nSolo unsupported is the purest form: you, your bike, and whatever you can carry for 1,000 km. Solo with support gives you a crew car and checkpoint assistance. Teams of 2-6 relay the distance. Every format is punishing. The TORTOUR 1000 solo finisher has earned something that no one-day sportive can replicate.\n\nThe 2026 edition returns to Schaffhausen, the event's birthplace, after six years in the Zurich canton. The prologue, pasta party, and finisher's brunch return to the original format. This is a homecoming for an event that has grown into the defining ultra-cycling challenge in Europe.",
+      "strengths": [
+        "1,000 km non-stop across Switzerland — the world's largest multi-day ultra-endurance cycling event",
+        "Multiple Alpine passes with 12,000m+ climbing — genuine mountain challenge, not flat ultra-distance",
+        "Night riding through the Swiss Alps is a transformative, once-in-a-lifetime experience",
+        "Multiple formats: solo unsupported, solo supported, teams of 2/4/6, plus 500/250/50 km options"
+      ],
+      "weaknesses": [
+        "Extreme expense: CHF 590-980 entry plus Swiss-priced support logistics can exceed CHF 5,000 total",
+        "The non-stop format requires months of ultra-endurance training and a support crew for most formats",
+        "Not a spectator-friendly event — riders are spread across 1,000 km of Switzerland for 48 hours",
+        "Sleep deprivation across two days creates real safety concerns on Alpine descents"
+      ],
+      "bottom_line": "1,000 km. Two days. Non-stop. If you want to cross an entire country on a bicycle, through darkness and Alpine dawn, this is where you prove it."
+    },
+    "final_verdict": {
+      "score": "76 / 100",
+      "one_liner": "1,000 km non-stop across Switzerland. Alpine passes by starlight. The world's ultimate ultra-endurance cycling test.",
+      "should_you_race": "Yes if ultra-endurance cycling is your discipline and you want to test yourself against 1,000 km of Swiss terrain in 48 hours. Yes if the idea of Alpine passes at 3 AM excites rather than terrifies you. Skip if you have never ridden through the night or covered more than 300 km in a single effort. Skip if the budget (CHF 3,000-5,000 all-in) is prohibitive.",
+      "alternatives": "If you want European ultra-distance but shorter: Paris-Brest-Paris (1,200 km with more generous time limits). If you want team ultra-endurance: Race Around Austria. If you want Swiss gran fondo without the ultra commitment: Granfondo San Gottardo or Arlberg Giro.",
+      "alternative_slugs": [
+        "granfondo-gottardo",
+        "arlberg-giro"
+      ]
+    },
+    "logistics": {
+      "airport": "Zurich (ZRH) — 45 minutes to Schaffhausen by train or car. Basel (BSL) — 1.5 hours. Stuttgart (STR) — 2 hours (across German border).",
+      "lodging_strategy": "Stay in Schaffhausen for the start and finish. Hotels near the KSS ice rink HQ are convenient. Book early — the event brings 2,000 riders plus support crews. For the ride itself, there is no accommodation — you ride non-stop. Support crews sleep in their vehicles or at checkpoints. Solo unsupported riders do not sleep.",
+      "food": "Schaffhausen is a charming Swiss city with restaurants, cafés, and the famous Rheinfall nearby. The pre-race pasta party and post-race finisher's brunch are included. During the ride, nutrition comes from checkpoints and support vehicles — plan for 48 hours of continuous fueling.",
+      "packet_pickup": "Check-in at the KSS ice rink in Schaffhausen. Briefing sessions for each format. Prologue takes place in the afternoon before the main start.",
+      "parking": "Available near the KSS ice rink. Support vehicles need designated parking and route planning for checkpoint rendezvous across Switzerland.",
+      "official_site": "https://tortour.com/en/"
+    },
+    "history": {
+      "founded": 2019,
+      "founder": "Tortour GmbH (Olivia Schoch and organizing team)",
+      "origin_story": "Launched in 2019 from Schaffhausen as a bold vision: create the world's largest multi-day non-stop ultra-endurance cycling event. The format was unique — 1,000 km across Switzerland with Alpine passes, completed non-stop in teams or solo within 48 hours. The event grew rapidly, attracting ultra-cycling enthusiasts from across Europe. After six editions based in the canton of Zurich (Küsnacht), the 2026 edition returns to Schaffhausen — the event's birthplace — with the original prologue, pasta party, and finisher's brunch format restored.",
+      "notable_moments": [
+        "2019: Inaugural TORTOUR from Schaffhausen — establishes the 1,000 km non-stop format",
+        "Event relocates to Küsnacht/Zurich area for several editions while growing the format",
+        "TORTOUR Gravel launched (2016 era) as companion gravel event — the Gravel 200",
+        "2026: Returns to Schaffhausen birthplace — 'Back to the Roots' edition with original format"
+      ],
+      "reputation": "The world's largest multi-day non-stop ultra-endurance cycling event. Respected in ultra-cycling circles, feared by everyone else."
+    },
+    "course_description": {
+      "character": "The TORTOUR 1000 route traverses Switzerland in a massive loop, changing year to year but always incorporating multiple Alpine passes, Swiss lowland roads, and urban transitions. The character is defined not by any single climb or descent but by the accumulation: 1,000 km of terrain changes, day-to-night-to-day temperature cycles, the psychological battle of sustained effort, and the Swiss Alps appearing on the horizon when your body is already finished. The route takes riders through multiple cantons, language regions, and climate zones. It is Switzerland distilled into a 48-hour continuous experience.",
+      "suffering_zones": [
+        {
+          "mile": 0,
+          "label": "The Prologue and Start",
+          "desc": "The event begins with an afternoon prologue in Schaffhausen — a short, ceremonial ride. The main TORTOUR 1000 starts at midnight for solo riders. The first hours are night riding through the Swiss lowlands, a surreal experience of empty roads and darkness as you begin to accumulate the first of 1,000 km.",
+          "terrain_detail": "Lowland roads, night riding, moderate terrain",
+          "named_section": "Schaffhausen Prologue and Night Start"
+        },
+        {
+          "mile": 200,
+          "label": "First Alpine Passes",
+          "desc": "By dawn of the first day, the route enters the Alps. The specific passes vary by year, but expect sustained climbing to 2,000m+ as daylight returns. The combination of accumulated fatigue from night riding and the sudden vertical demand creates the event's first real selection moment.",
+          "terrain_detail": "Alpine pass roads, 6-8% gradients, summits above 2,000m",
+          "named_section": "Alpine Passes (route varies by year)"
+        },
+        {
+          "mile": 500,
+          "label": "The Dark Hours",
+          "desc": "The second night is the crux of the TORTOUR 1000. At 500+ km, most riders have been moving for 24+ hours. Fatigue is extreme, sleep deprivation is setting in, and the route delivers more climbing in darkness. This is where the event breaks people — the decision to continue or stop is made somewhere on a dark Swiss road in the small hours.",
+          "terrain_detail": "Mixed terrain, night riding, potential Alpine climbing",
+          "named_section": "Second Night (varies by route)"
+        },
+        {
+          "mile": 800,
+          "label": "Final Push to Schaffhausen",
+          "desc": "The last 200 km is a battle of will. Your body has nothing left. Swiss roads that seemed flat on the outbound leg now reveal every gentle rise. The return to Schaffhausen becomes the only thought that matters. Riders who finish the TORTOUR 1000 describe the final approach to the KSS ice rink as one of the most emotional moments of their lives.",
+          "terrain_detail": "Lowland roads, gentle terrain, psychological challenge",
+          "named_section": "Return to Schaffhausen"
+        }
+      ],
+      "signature_challenge": "The second night. After 24+ hours and 500+ km of continuous riding, darkness falls again and the body demands sleep. Pushing through the second night — often on Alpine terrain — is the defining challenge of the TORTOUR 1000. Everyone can ride the first 500 km. The TORTOUR is decided in the dark hours."
+    },
+    "guide_variables": {
+      "race_name": "TORTOUR Ultracycling",
+      "race_distance": "621 miles (1,000 km)",
+      "race_elevation": "39,370 feet (12,000m+)",
+      "race_date": "August",
+      "race_location": "Schaffhausen, Switzerland",
+      "race_terrain": "Paved Swiss roads — lowlands and Alpine passes",
+      "race_weather": "August Swiss conditions: 22-30C valleys day, 3-10C Alpine summits night",
+      "race_challenges": [
+        "1,000 km non-stop in 48 hours — extreme endurance demand",
+        "12,000m+ climbing across multiple Alpine passes",
+        "Night riding: 16+ hours in darkness across two nights",
+        "Sleep deprivation combined with Alpine descents at speed"
+      ],
+      "altitude_section": true,
+      "altitude_feet": 8202
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Multiple 400+ km training rides with night riding segments — minimum 20 hours continuous",
+        "by_when": "Week 6",
+        "why": "The TORTOUR 1000 requires 40+ hours of continuous riding. Your body and mind must have experienced 20+ hours on the bike, including night segments, to have any reference point for what the event demands. No amount of 200 km rides prepares you for the 600 km mark."
+      },
+      {
+        "requirement": "Support crew logistics finalized — vehicle, driver rotation, checkpoint strategy",
+        "by_when": "Week 8",
+        "why": "Solo supported riders depend entirely on their crew. The crew's efficiency at checkpoints — providing food, clothing changes, mechanical support, and emotional encouragement in under 5 minutes — directly determines finishing time and probability. Practice the handoff at speed."
+      },
+      {
+        "requirement": "Night riding equipment tested — lights, reflective gear, warm layers for Alpine passes at 3 AM",
+        "by_when": "Week 9",
+        "why": "Alpine passes at 2,000m at 3 AM in August can be 3C. Your lighting must be powerful enough for 60 km/h descents on mountain roads. Your layering system must handle 30C valley to 3C summit transitions repeatedly. Every piece of night equipment must be tested in training, not discovered on race day."
+      }
+    ],
+    "citations": [
+      {
+        "url": "https://tortour.com/en/",
+        "title": "TORTOUR — Official Site",
+        "category": "official"
+      },
+      {
+        "url": "https://tortour.com/en/stage/tortour-1000/",
+        "title": "TORTOUR 1000 — Format Details and Pricing",
+        "category": "official"
+      },
+      {
+        "url": "https://www.myswitzerland.com/en-us/experiences/events/tortour-the-worlds-largest-nonstop-ultracycling-event/",
+        "title": "TORTOUR — Switzerland Tourism",
+        "category": "reference"
+      },
+      {
+        "url": "https://www.elite-wheels.com/events/tortour-2025/",
+        "title": "TORTOUR 2025 — Elite Wheels Event Guide",
+        "category": "review"
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "high",
+      "validation_status": "validated",
+      "research_strength": "A",
+      "sources_count": 4,
+      "last_updated": "2026-03-01"
+    }
+  }
+}

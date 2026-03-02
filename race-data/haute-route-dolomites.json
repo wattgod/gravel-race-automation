@@ -1,0 +1,357 @@
+{
+  "race": {
+    "name": "Haute Route Dolomites",
+    "slug": "haute-route-dolomites",
+    "display_name": "Haute Route Dolomites",
+    "tagline": "450 kilometers and 14,500 meters of climbing across 5 stages through the Italian Dolomites and Alps — Stelvio, Gavia, Pordoi, and the jagged spires of UNESCO World Heritage mountains. Professional stage-race format for amateur cyclists who want to suffer like the pros.",
+    "vitals": {
+      "distance_mi": 280,
+      "distance_km": 450,
+      "elevation_ft": 47572,
+      "elevation_m": 14500,
+      "location": "Cortina d'Ampezzo / Bormio, Dolomites, Italy",
+      "location_badge": "DOLOMITES, ITALY",
+      "date": "Historically late August / early September (check hauteroute.org for 2026 status)",
+      "date_specific": "2026: TBD (event currently not offered separately — Haute Route focuses on Alps formats)",
+      "terrain_types": [
+        "Paved Alpine and Dolomite mountain roads",
+        "Major Giro d'Italia passes: Stelvio (2,758m), Gavia (2,621m), Pordoi (2,239m)",
+        "Sustained climbing at 6-9% gradient on legendary switchback roads",
+        "High-altitude passes above 2,500m with exposed riding above treeline",
+        "Individual time trial stage on a signature climb"
+      ],
+      "field_size": "200-400 riders",
+      "start_time": "7:00-8:00 AM daily stage start",
+      "registration": "Via hauteroute.org when event is scheduled. Historically part of the Haute Route Series. Entry includes full logistics, feed stations, timing, mechanical support, post-stage meals, and luggage transport. The Haute Route Dolomites was a 5-stage event from Cortina d'Ampezzo to Bormio (or reverse). Currently not offered as a separate event — Haute Route focuses on the Alps.",
+      "prize_purse": "GC ranking with age category awards — no cash prizes",
+      "aid_stations": "Multiple feed stations per stage with water, energy food, and mechanical support. Mavic neutral support vehicles on course. Post-stage hot meal included. Massage and recovery services at finish village.",
+      "cutoff_time": "Daily cut-off times enforced — typically 8-10 hours per stage",
+      "lat": 46.5369,
+      "lng": 12.1354,
+      "distance_options": [
+        "Full Course: ~450 km / 14,500m across 5 stages (4 road stages + 1 time trial)",
+        "No shorter options within the event — riders must complete all stages for GC classification"
+      ],
+      "entry_fee": "EUR 900-1,500 (varies by registration phase; includes logistics, feed stations, timing, post-stage meals, luggage transport)"
+    },
+    "climate": {
+      "primary": "Late-summer Alpine — warm valleys, frigid high passes, rapid weather changes",
+      "description": "Late August and early September in the Italian Dolomites and Alps brings valley temperatures of 20-28C (68-82F) with dramatically cooler conditions at altitude. The Stelvio Pass at 2,758m and the Gavia at 2,621m regularly see temperatures near or below freezing even in late summer — snow on the Stelvio summit is not unusual in August. The Dolomite passes between 2,000-2,400m are 10-15C cooler than valley floors. Alpine weather is notoriously volatile: clear morning conditions can deteriorate into thunderstorms, rain, and fog within hours, particularly above 2,000m. The 2023 edition had its opening stage modified due to snow on the high passes.",
+      "challenges": [
+        "Stelvio (2,758m) and Gavia (2,621m) can see near-freezing temperatures and snow even in late August",
+        "20-25C temperature swings between valley floors and pass summits within a single stage",
+        "Five consecutive days of mountain riding compounds fatigue and cold exposure",
+        "Alpine thunderstorms can develop rapidly above 2,000m — lightning risk on exposed passes",
+        "Wet descents at altitude after summit finishes in rain or fog — reduced visibility and cold hands"
+      ]
+    },
+    "terrain": {
+      "primary": "Paved Alpine and Dolomite mountain pass roads",
+      "surface": "Entirely paved on Italian state roads, provincial roads, and military roads through the Dolomites and eastern Alps. The legendary passes — Stelvio (48 hairpins on the Bormio side), Gavia, Mortirolo, Pordoi, Falzarego — are classic Giro d'Italia roads with generally good surface quality. The Gavia road surface is noticeably rougher and narrower than others, with tunnels and rock overhangs that feel more like mountain adventure than road cycling. Some stages include lesser-known passes with less traffic and slightly variable surface quality. All climbing is on tarmac — no gravel, no off-road.",
+      "technical_rating": 2,
+      "features": [
+        "Passo dello Stelvio from Bormio: 21.5 km at 7.1%, 48 hairpins, summit at 2,758m — highest paved pass in the Eastern Alps",
+        "Passo Gavia: 17.3 km at 7.9% from Ponte di Legno, summit at 2,621m — narrow, exposed, and savage",
+        "Passo Pordoi: 9.4 km at 6.8% from Arabba, summit at 2,239m — classic Giro d'Italia Cima Coppi",
+        "Passo Falzarego: 15 km at 5.5%, summit at 2,105m — panoramic Dolomite approach to Cortina",
+        "Individual time trial on a signature climb — typically 10-20 km uphill",
+        "Daily stages averaging 90 km with 2,500-3,500m of climbing"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 83,
+      "tier": 1,
+      "tier_label": "TIER 1",
+      "editorial_tier": 1,
+      "editorial_tier_label": "TIER 1",
+      "business_tier": 1,
+      "business_tier_label": "TIER 1",
+      "display_tier": 1,
+      "display_tier_label": "TIER 1",
+      "logistics": 3,
+      "length": 5,
+      "technicality": 2,
+      "elevation": 5,
+      "climate": 3,
+      "altitude": 5,
+      "adventure": 5,
+      "prestige": 4,
+      "race_quality": 5,
+      "experience": 5,
+      "community": 4,
+      "field_depth": 3,
+      "value": 3,
+      "expenses": 3,
+      "cultural_impact": 3,
+      "tier_note": "The hardest amateur multi-day stage race in the Dolomites — Stelvio, Gavia, and the full Dolomite pass collection in 5 days. T1 by score (83). Prestige=4 yields 1-tier promotion eligible but score already qualifies for T1 directly. 14,500m of climbing in 5 stages across the most dramatic mountain terrain in European cycling.",
+      "score_note": "logistics=3 for Dolomite location requiring car access and complex multi-stage logistics handled by Haute Route. length=5 for 450 km across 5 stages with daily averages of 90 km — a full working week of mountain cycling. technicality=2 for paved roads throughout — challenging descents but standard road cycling skills. elevation=5 for 14,500m of climbing in 5 days including the Stelvio (2,758m), Gavia (2,621m), and multiple Dolomite passes — among the most vertical amateur events in the world. climate=3 for late-summer Alpine conditions with genuine cold and snow risk on high passes. altitude=5 for extended riding above 2,000m with summit altitudes of 2,758m (Stelvio) producing 10-15% power reduction — significant cumulative altitude exposure across 5 days. adventure=5 for riding the most legendary passes in cycling through UNESCO Dolomite landscapes. prestige=4 for the Haute Route brand and the specific challenge of the Dolomites edition — recognized globally. race_quality=5 for professional Haute Route organization across 5 stages. experience=5 for a transformative week of cycling through the Dolomites — Stelvio hairpins, Gavia wilderness, Cortina glamour. community=4 for intimate 200-400 rider field creating strong stage-race bonds. field_depth=3 for strong amateur field with GC competition but no professionals. value=3 for EUR 900-1,500 — expensive but comprehensive. expenses=3 for Dolomite accommodation at mountain resort prices. cultural_impact=3 for contributing to the Dolomite cycling pilgrimage culture. Sum of 14 = 55, cultural_impact = 3, total = 58, score = round(58/70 * 100) = 83.",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 3,
+        "explanation": "The Dolomites are remote. Cortina d'Ampezzo and Bormio — the typical start and finish towns — are mountain resort towns accessible by car but not by any convenient public transport for international arrivals. Venice (VCE) is the designated airport at 160 km from Cortina. Milan (MXP/LIN) is 200 km from Bormio. Haute Route provides airport transfers and handles the monumental logistics of moving 200-400 riders, their bikes, and their luggage across 5 stages through mountain terrain. Without Haute Route's infrastructure, self-organizing this route would be a project-management nightmare."
+      },
+      "length": {
+        "score": 5,
+        "explanation": "450 km with 14,500m of climbing across 5 stages. Daily averages of 90 km and 2,900m of vertical. Some stages push 120+ km with 3,500m of climbing. This is the volume of a Grand Tour week compressed into an amateur format. The time trial adds a day of maximum-intensity climbing. By Stage 4, the cumulative fatigue from 10,000+ meters of climbing makes every kilometer feel doubled. The 5-day format is long enough to test deep endurance reserves and expose any weakness in preparation, recovery, or mental resilience."
+      },
+      "technicality": {
+        "score": 2,
+        "explanation": "Paved roads throughout — the technical demand is standard road cycling. The Gavia is the most demanding surface: narrow, rough in sections, with tunnels and rock overhangs that feel more adventurous than typical Italian mountain roads. Descents from 2,500m+ require confidence at speed through switchbacks, but the roads are well-surfaced. The Stelvio's 48 hairpins on the Bormio side are technically straightforward — the challenge is gradient and altitude, not road quality."
+      },
+      "elevation": {
+        "score": 5,
+        "explanation": "14,500 meters of climbing in 5 days. Individual climbs include the Stelvio (21.5 km at 7.1%), Gavia (17.3 km at 7.9%), Pordoi (9.4 km at 6.8%), and multiple other Dolomite passes each day. This is among the highest vertical-gain amateur events in the world. The combination of individual climb severity (Gavia at 7.9% for 17 km) with daily cumulative climbing (2,500-3,500m per stage) with 5-day total volume (14,500m) creates a triple-stacked climbing challenge that is genuinely elite-level."
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "Late August in the Dolomite valleys is warm and pleasant. At 2,758m on the Stelvio, it is a different world — temperatures near freezing, potential snow, and winds that strip heat from exhausted bodies. The 2023 edition had Stage 1 modified due to snow on the Umbrail Pass. The temperature swing on a single stage can exceed 25C — leaving a warm valley in shorts and arriving at a frigid summit needing winter layers. Five days of this thermal yo-yo compounds the stress on the body. Rain at altitude is cold rain, and descending from 2,700m in wet conditions is genuinely dangerous."
+      },
+      "altitude": {
+        "score": 5,
+        "explanation": "The Stelvio at 2,758m and the Gavia at 2,621m are the highest paved passes in the Eastern Alps. At these altitudes, power output drops 12-18% compared to sea level. Five days of repeated exposure to altitudes above 2,000m compounds the physiological stress — sleep quality degrades, recovery slows, and appetite can suffer. Riders arriving from sea level without acclimatization are at a significant disadvantage. The event essentially spends 3-4 hours per day above 2,000m across the 5 stages. This is the most altitude-demanding amateur cycling event in Europe."
+      },
+      "adventure": {
+        "score": 5,
+        "explanation": "The Dolomites are the most visually dramatic mountain range in Europe — vertical limestone towers, alpine meadows, and the distinctive pink-orange glow at sunset (the enrosadira). The route links these landscapes with the savage Alpine passes of the Stelvio and Gavia, which feel like riding through a different geological era — exposed rock, glacial remnants, and military-road switchbacks from World War I. Cortina d'Ampezzo adds glamour (1956 Winter Olympics, 2026 venue). Bormio adds spa-town charm. The combination of Dolomite drama and Alpine severity across 5 stages is a cycling adventure of the highest order."
+      },
+      "prestige": {
+        "score": 4,
+        "explanation": "The Haute Route brand is the gold standard for amateur multi-day cycling events. The Dolomites edition carries the additional prestige of the Stelvio and Gavia — passes that define the Giro d'Italia. Completing 5 stages through these mountains is a verifiable accomplishment that commands respect in any cycling group. The event attracts riders who have trained specifically for months. The Netflix documentary 'Icarus' featured the Haute Route, raising its profile further. What keeps it at 4 is that the Dolomites edition is a smaller, secondary event to the Alps flagship, and its future scheduling is uncertain."
+      },
+      "race_quality": {
+        "score": 5,
+        "explanation": "Haute Route delivers professional-level event production. Mavic mechanical support vehicles patrol every stage. Feed stations are frequent and well-stocked. Medical support is positioned on all major climbs. Live timing provides daily stage results and GC rankings across multiple categories. Luggage transport between stage towns eliminates logistical burden. Post-stage hot meals, bike wash, secure parking, massage services, and evening briefings create the complete professional stage-race experience. This level of support across 5 mountain stages in remote Alpine and Dolomite terrain is a genuine logistical achievement."
+      },
+      "experience": {
+        "score": 5,
+        "explanation": "Five days of riding through the most legendary passes in Italian cycling — the Stelvio's 48 hairpins, the Gavia's savage wilderness, the Pordoi's Giro d'Italia switchbacks, and the Dolomite spires rising above every stage. The daily rhythm of a stage race — wake, ride, eat, sleep, repeat — creates a meditative focus that transforms your relationship with the bike. The small field (200-400) means you build real relationships forged through shared suffering. Finishing the final stage — after 450 km and 14,500m of climbing — delivers a sense of accomplishment that few cycling experiences can match."
+      },
+      "community": {
+        "score": 4,
+        "explanation": "The Haute Route Dolomites field of 200-400 riders is small enough that by Stage 3, you know the riders around you in the GC standings. The intimate scale creates genuine bonds — suffering up the Gavia together at hour 4 of a 6-hour stage tends to forge friendships. Evening briefings, pasta parties, and the shared logistics of a multi-day mountain event create natural social opportunities. The Haute Route alumni network connects riders across events and years. The community is self-selecting: these are motivated, serious cyclists who share a specific passion for mountain suffering."
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "The field is entirely amateur but self-selects for serious mountain cyclists. You do not enter a 5-day, 14,500m event on a whim — the participants have trained for months. The GC competition is real, with dedicated riders targeting age-group classifications. However, the field is small (200-400) and does not include professionals. The fastest riders are strong age-group competitors, not nationally ranked athletes."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "EUR 900-1,500 is a substantial entry fee, but the included package is comprehensive: 5 days of professionally supported stage racing, daily feed stations, Mavic mechanical support, timing, luggage transport between stage towns, post-stage hot meals, and finish village amenities. Self-organizing 5 days of cycling through the Dolomites and Alps with accommodation, luggage transport, and feed stations would cost more and deliver less. The Haute Route premium reflects genuine premium service."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Dolomite resort towns (Cortina, Bormio) are not budget destinations. Hotels run EUR 100-250/night. Haute Route offers accommodation packages at additional cost. Dining is excellent but not cheap — EUR 25-50 for dinner. Nearest airports (Venice, Milan) offer competitive European flights but add transfer costs of EUR 50-100 each way. For North American riders, total trip cost including flights, entry, accommodation, and meals runs $4,000-6,000. European riders can keep it to EUR 2,500-4,000. The 5-day format amplifies accommodation costs versus shorter events."
+      }
+    },
+    "biased_opinion": {
+      "verdict": "The Ultimate Dolomite Stage Race",
+      "summary": "The Haute Route Dolomites is the most demanding amateur multi-day cycling event in Italy. 450 km. 14,500 meters of climbing. 5 stages through the Stelvio (2,758m), Gavia (2,621m), Pordoi, Falzarego, and the full catalogue of Dolomite passes that define the Giro d'Italia. This is not a tourism ride with mountains in the background — it is a professional-format stage race where the mountains are trying to break you.\n\nThe Stelvio is the signature: 21.5 km at 7.1% with 48 switchbacks on the Bormio side, summiting at 2,758m where the air has 12-18% less oxygen. The Gavia is the wild card: 17.3 km at 7.9% on a narrow, rough road through alpine wilderness that feels more like an expedition than a bike race. The Dolomite stages deliver the visual drama — vertical limestone towers, meadow-filled valleys, and the unique pink glow of the enrosadira at sunset. Five days of this creates a complete experience that is equal parts athletic challenge and mountain pilgrimage.\n\nThe Haute Route organization makes it possible. Feed stations, mechanical support, timing, luggage transport, and post-stage meals remove the logistical complexity that would otherwise make this route inaccessible to amateur riders. The 200-400 rider field creates genuine stage-race camaraderie — by the final stage, you have shared enough suffering to build real bonds. The price is high, the climbing is relentless, and the altitude is genuine. But the experience of riding the Stelvio and Gavia in a professionally supported stage race through UNESCO World Heritage Dolomite scenery is worth every euro and every meter of vertical gain.",
+      "strengths": [
+        "14,500m of climbing in 5 days including the Stelvio (2,758m) and Gavia (2,621m) — the highest passes in the Eastern Alps",
+        "Professional Haute Route organization: feed stations, Mavic support, timing, luggage transport, post-stage meals",
+        "UNESCO Dolomite scenery — vertical limestone towers, alpine meadows, and Giro d'Italia pass history",
+        "Intimate 200-400 rider field creates genuine stage-race community and GC competition",
+        "Complete professional stage-race experience: daily rankings, time trials, and GC classification",
+        "Netflix 'Icarus' connection raises the event's profile in cycling culture"
+      ],
+      "weaknesses": [
+        "EUR 900-1,500 entry fee plus accommodation makes this one of the most expensive amateur events",
+        "Event future uncertain — Haute Route has consolidated around the Alps format, Dolomites may not run annually",
+        "Altitude at 2,600-2,758m causes real physiological impact — 12-18% power reduction at Stelvio summit",
+        "Five consecutive days of extreme climbing demands months of specific preparation",
+        "Remote Dolomite start/finish locations require complex travel logistics",
+        "Cold and snow risk at altitude even in late August — the 2023 edition was weather-affected"
+      ],
+      "bottom_line": "If you want to ride the greatest mountain passes in Italian cycling in a professionally supported stage-race format, the Haute Route Dolomites is the definitive experience. The Stelvio and Gavia alone justify the entry. The Dolomite stages add visual drama that no Alpine event can match. Confirm the event is running before committing — and train specifically for altitude, as the Stelvio and Gavia will humble any rider who arrives unprepared."
+    },
+    "final_verdict": {
+      "score": "83 / 100",
+      "one_liner": "450 km and 14,500m of climbing through the Stelvio, Gavia, and the full Dolomite pass collection in 5 days — the most demanding amateur stage race in Italy.",
+      "should_you_race": "Ride this if you are a serious mountain cyclist seeking a multi-day challenge through the most iconic passes in Italian cycling. Skip it if you are on a tight budget, cannot commit to months of altitude-specific climbing preparation, or prefer gravel/mixed terrain. Confirm the event is scheduled before planning — Haute Route's calendar has evolved.",
+      "alternatives": "For a 7-day Alps challenge: Haute Route Alps (800 km, 20,000m). For a single-day Dolomite gran fondo: Maratona dles Dolomites (138 km, 4,190m). For independent Dolomite touring: self-organized route through the same passes. For the Stelvio specifically: Stelvio Bike Day (car-free) or the Gran Fondo Stelvio Santini.",
+      "alternative_slugs": [
+        "maratona-dles-dolomites",
+        "haute-route-ventoux"
+      ]
+    },
+    "logistics": {
+      "airport": "Venice Marco Polo (VCE) 160 km from Cortina (~2 hr drive). Milan Malpensa (MXP) 200 km from Bormio (~3 hr drive). Milan Bergamo (BGY) 170 km from Bormio (~2.5 hr drive). Haute Route provides designated airport transfers (included or available at extra cost).",
+      "lodging_strategy": "Haute Route offers accommodation packages with hotels in stage towns. Independent accommodation is available in Cortina (EUR 100-250/night), Bormio (EUR 80-200/night), and intermediate stage towns. The multi-stage format means you need accommodation in 4-5 different locations unless using Haute Route's logistics package. Cortina is the most expensive — a glamorous resort town. Bormio is more moderate.",
+      "food": "Italian mountain cuisine: polenta, game, alpine cheeses, local wines from Trentino-Alto Adige and Lombardy. Haute Route provides post-stage hot meals included in entry. On-course feed stations supply energy food and water. Stage towns have excellent local restaurants. The culinary progression from Dolomite South Tyrolean cuisine (speck, canederli) in Cortina to Lombardian specialties (bresaola, pizzoccheri) in Bormio mirrors the geographic journey.",
+      "packet_pickup": "At the Haute Route event village in the start town (typically Cortina), the day before Stage 1. Registration includes bike check, bib number, timing chip, and mandatory safety briefing.",
+      "parking": "Available in stage start/finish towns. Multi-stage logistics make a personal vehicle less practical — Haute Route luggage transport is the standard approach.",
+      "official_site": "https://www.hauteroute.org/"
+    },
+    "history": {
+      "founded": 2014,
+      "founder": "OC Sport (Haute Route Series)",
+      "origin_story": "The Haute Route Dolomites was launched in 2014 as an expansion of the Haute Route Series beyond its original French Alps flagship event (founded 2011). The concept was to bring the same professional-level multi-day stage race format to the Italian Dolomites and eastern Alps — home to the most legendary climbs of the Giro d'Italia. The inaugural route connected Geneva to Venice via the Swiss Alps and Dolomites in a 7-day format. Later editions evolved to a 5-day format focused on the Dolomites (typically Cortina to Bormio or similar), incorporating the Stelvio, Gavia, and the signature Dolomite passes. The event gained global attention through its association with the Netflix documentary 'Icarus' (2017), which was filmed at a Haute Route event. The intimate field size (200-400 riders) and the dramatic Dolomite setting created a loyal following among serious amateur mountain cyclists.",
+      "notable_moments": [
+        "2014: Inaugural Haute Route Dolomites — 7-day format from Geneva to Venice via Swiss Alps and Dolomites",
+        "2017: Netflix documentary 'Icarus' releases — filmed at a Haute Route event, raising global awareness",
+        "2022: 5-stage format from Cortina to Bormio — 450 km and 14,500m of climbing across the Stelvio, Gavia, and Dolomite passes",
+        "2023: Weather disruption — opening stage modified due to snow on high passes, highlighting the altitude challenges",
+        "Haute Route Series evolves — Alps remains flagship, Dolomites and other formats adjusted based on demand",
+        "Two Wheel Tours (Australia) announces independent 'Best of the Dolomites' tour after Haute Route Dolomites discontinuation"
+      ],
+      "reputation": "Regarded as the most demanding Haute Route event due to the combination of the Stelvio and Gavia passes with the Dolomite's distinctive climbing profile. Cycling media and participant reviews consistently describe it as a transformative experience that combines the severity of the highest Alpine passes with the visual beauty of the Dolomites."
+    },
+    "course_description": {
+      "character": "A multi-stage traverse of the Italian Dolomites and eastern Alps, linking the glamour of Cortina d'Ampezzo to the alpine spa town of Bormio through the most legendary passes in Italian cycling. The route deliberately targets the giants — Stelvio, Gavia, Pordoi, Falzarego — and connects them with lesser-known climbs that are equally demanding but less crowded. Each stage averages 90 km with 2,500-3,500m of climbing, creating a daily rhythm of sustained mountain suffering punctuated by breathtaking descents through UNESCO World Heritage Dolomite scenery.",
+      "suffering_zones": [
+        {
+          "km": 0,
+          "label": "Stage 1 — Cortina Launch",
+          "desc": "Opening stage from Cortina d'Ampezzo through the western Dolomites. Typically 100+ km with 2,500-3,000m of climbing. Passes include Falzarego (2,105m) and surrounding Dolomite cols. Fresh legs meet the first major climbs — pacing discipline is critical for a 5-day event.",
+          "terrain_detail": "Paved Dolomite mountain roads, 6-8% gradients",
+          "named_section": "Dolomite Opening Stage"
+        },
+        {
+          "km": 100,
+          "label": "Stages 2-3 — Dolomite Heart",
+          "desc": "The central stages traverse the classic Dolomite passes — Pordoi (2,239m), Sella, Gardena, and connections through the Val di Sole and Val Camonica. Daily climbing loads of 2,500-3,500m. The Dolomite landscape shifts from dramatic spires to dense Alpine forest. Cumulative fatigue begins to accumulate.",
+          "terrain_detail": "Classic Giro d'Italia Dolomite passes, sustained climbing",
+          "named_section": "Dolomite Traverse"
+        },
+        {
+          "km": 300,
+          "label": "Stage 4 — The Big Mountains",
+          "desc": "The monster stage featuring either the Stelvio (2,758m) or the Gavia (2,621m) — or both. This is the Queen Stage of the event: 120+ km with 3,500m+ of climbing at altitudes where oxygen is thin and the temperature can drop below freezing. The Stelvio's 48 hairpins and the Gavia's savage narrow road are the defining climbs of the event.",
+          "terrain_detail": "High-altitude Alpine passes, 7-8% gradient, exposed above treeline",
+          "named_section": "Stelvio / Gavia"
+        },
+        {
+          "km": 420,
+          "label": "Time Trial",
+          "desc": "An individual time trial on a signature climb — typically 10-20 km of pure uphill effort. This is where GC positions are sealed. Maximum intensity on legs carrying 4 days of mountain fatigue. The final competitive effort before the finish.",
+          "terrain_detail": "Sustained uphill time trial on paved road",
+          "named_section": "Individual Time Trial"
+        }
+      ],
+      "signature_challenge": "The Stelvio from Bormio: 21.5 km at 7.1% with 48 switchbacks to 2,758m — arriving on Stage 4 with 10,000+ meters of climbing already in the legs and 12-18% less oxygen at the summit. The highest paved pass in the Eastern Alps, climbed when you are at your most depleted."
+    },
+    "guide_variables": {
+      "race_name": "Haute Route Dolomites",
+      "race_distance": "450 km (280 miles) over 5 stages",
+      "race_elevation": "14,500 m (47,572 ft) over 5 stages",
+      "race_date": "Late August / Early September (confirm annually)",
+      "race_location": "Cortina d'Ampezzo to Bormio, Dolomites, Italy",
+      "race_terrain": "Paved Alpine and Dolomite mountain pass roads",
+      "race_weather": "Late-summer Alpine — warm valleys (20-28C), frigid high passes (0-10C)",
+      "race_challenges": [
+        "14,500m of climbing in 5 days with daily averages of 2,900m",
+        "Stelvio (2,758m) and Gavia (2,621m) — extreme altitude passes",
+        "12-18% power reduction at summit altitudes",
+        "Five consecutive days of extreme mountain riding compounds fatigue",
+        "Near-freezing temperatures and potential snow on high passes",
+        "Complex multi-stage logistics across remote mountain terrain"
+      ],
+      "altitude_section": true,
+      "altitude_feet": 9049
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Multi-day mountain endurance base",
+        "by_when": "Week 12-16",
+        "why": "450 km with 14,500m of climbing across 5 consecutive days demands a deep aerobic base. You must be able to ride 80-120 km with 2,500-3,500m of climbing day after day. Build this with back-to-back long climbing rides in training."
+      },
+      {
+        "requirement": "Altitude acclimatization strategy",
+        "by_when": "Week 2-4 before event",
+        "why": "The Stelvio (2,758m) and Gavia (2,621m) cause 12-18% power reduction at altitude. Arrive in the Dolomites 3-5 days early to acclimatize. If possible, include altitude training camps in preparation."
+      },
+      {
+        "requirement": "Cold-weather riding capability",
+        "by_when": "Week 6-8",
+        "why": "Summit temperatures at 2,600-2,758m can approach freezing in late August. Pack arm warmers, vest, rain jacket, and full-finger gloves. Practice descending in cold, wet conditions."
+      },
+      {
+        "requirement": "Recovery and nutrition strategy",
+        "by_when": "Week 4-8",
+        "why": "Five days of extreme climbing demands aggressive recovery: post-stage nutrition within 30 minutes, sleep quality, and disciplined pacing. Practice your recovery routine during multi-day training blocks."
+      }
+    ],
+    "citations": [
+      {
+        "url": "https://www.hauteroute.org/",
+        "category": "official",
+        "label": "Haute Route Official Website"
+      },
+      {
+        "url": "https://hauteroute.fr/",
+        "category": "official",
+        "label": "Haute Route France (Current Event Page)"
+      },
+      {
+        "url": "https://alpinecadence.com/haute-route-dolomites/",
+        "category": "review",
+        "label": "Alpine Cadence: Haute Route Dolomites Race Report"
+      },
+      {
+        "url": "https://www.cycloworld.cc/en/article/haute-route-dolomites-race-report/2208",
+        "category": "review",
+        "label": "CycloWorld: Haute Route Dolomites 2022 Race Report"
+      },
+      {
+        "url": "https://www.cycloworld.cc/article/haute-route-dolomites-from-the-snow-to-the-sun/2735",
+        "category": "review",
+        "label": "CycloWorld: Haute Route Dolomites 2023 — From Snow to Sun"
+      },
+      {
+        "url": "https://cycletoursglobal.com/tour/alpcycles/haute-route-dolomites",
+        "category": "reference",
+        "label": "Cycle Tours Global: Haute Route Dolomites Package"
+      },
+      {
+        "url": "https://sportcoaching.com.au/haute-route-cycling-event-training/",
+        "category": "reference",
+        "label": "SportCoaching: Haute Route Training Guide"
+      },
+      {
+        "url": "https://www.twowheeltours.com.au/tours/dolomites",
+        "category": "reference",
+        "label": "Two Wheel Tours: Best of the Dolomites (successor event)"
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "medium",
+      "validation_status": "validated",
+      "sources": [
+        "hauteroute.org (official Haute Route website)",
+        "hauteroute.fr (current French event page)",
+        "alpinecadence.com (participant race report 2021)",
+        "cycloworld.cc (race reports 2022, 2023)",
+        "cycletoursglobal.com (tour operator details)",
+        "twowheeltours.com.au (successor tour information)",
+        "sportcoaching.com.au (training guide)"
+      ],
+      "migration_notes": [
+        "Profile created 2026-03-01 from comprehensive web research",
+        "Haute Route Dolomites currently not offered as separate event — Haute Route focuses on Alps 7-day and 3-day",
+        "Two Wheel Tours (Australia) running independent 10-day Dolomites tour as unofficial successor",
+        "2023 edition (last confirmed): Bormio to Cortina, 450 km, 14,500m, 5 stages — weather-affected opening stage",
+        "2022 edition confirmed via CycloWorld race report: 5 stages, Stelvio and Gavia featured",
+        "Distance and elevation data from CycloWorld 2023 report: 450 km, 14,500m"
+      ],
+      "research_strength": {
+        "overall": 76.0,
+        "grade": "B",
+        "weakest": "temporal_depth",
+        "has_research_dump": false,
+        "dimensions": {
+          "source_diversity": 80,
+          "citation_density": 80,
+          "temporal_depth": 60,
+          "specificity": 75,
+          "statistical_backing": 70,
+          "voice_authenticity": 85,
+          "completeness": 78,
+          "cross_reference": 75
+        },
+        "scored_at": "2026-03-01"
+      }
+    }
+  }
+}

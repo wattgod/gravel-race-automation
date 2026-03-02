@@ -1,0 +1,322 @@
+{
+  "race": {
+    "name": "Around the Bay in a Day",
+    "slug": "around-the-bay-in-a-day",
+    "display_name": "United Energy Around the Bay",
+    "tagline": "210 km around Port Phillip Bay. Ferry crossing, Beach Road, 10,000 riders, and 30 years of Melbourne cycling tradition. Australia's biggest one-day ride, and it is not even close.",
+    "vitals": {
+      "distance_mi": 130,
+      "elevation_ft": 1040,
+      "location": "Melbourne, Victoria, Australia",
+      "location_badge": "MELBOURNE, VICTORIA, AUSTRALIA",
+      "date": "Third or fourth Sunday of October annually",
+      "date_specific": "2026: October 18",
+      "terrain_types": [
+        "Flat paved coastal roads around Port Phillip Bay",
+        "Urban cycling through Melbourne suburbs and Beach Road",
+        "Bellarine Peninsula and Mornington Peninsula sealed roads"
+      ],
+      "field_size": "~10,000-16,000 riders across all distances",
+      "start_time": "Sunday pre-dawn from Albert Park, Pelican Lawn, Melbourne",
+      "registration": "Online via Bicycle Network / Race Roster. Classic 210km ~$210 AUD. Shorter distances from ~$50-$180 AUD. Bicycle Network members receive 10% discount. Early bird pricing available.",
+      "prize_purse": "None. This is a non-competitive recreational and fundraising ride.",
+      "aid_stations": "Multiple fully stocked rest stops with water, food, nutrition, mechanical support, and first aid. Ferry crossing included.",
+      "cutoff_time": "Generous time limit with SAG support for all distances. Riders typically finish between 7-12 hours for the Classic.",
+      "lat": -37.8448,
+      "lng": 144.9756,
+      "distance_options": [
+        "300 km (Legend — extended loop with additional climbing)",
+        "210 km (Classic — full circumnavigation of Port Phillip Bay)",
+        "135 km (Geelong start to Albert Park via ferry)",
+        "100 km (Mornington Peninsula to Albert Park)",
+        "50 km (shorter loop)",
+        "20 km (Family Ride — Lap the Track at Albert Park)"
+      ],
+      "entry_fee": "~$210 AUD (Classic 210km); varies by distance. Includes jersey, medal, ferry, rest stops, on-course support."
+    },
+    "climate": {
+      "primary": "Melbourne spring — mild, variable, 11-21C with possible wind and showers",
+      "description": "Mid-October in Melbourne delivers classic spring weather: cool mornings around 9-12C warming to 17-21C by afternoon. The city's reputation for four seasons in one day is earned — you can start in sunshine, ride through a rain squall at Geelong, and finish under clear skies on Beach Road. Wind is the primary weather variable, particularly on the exposed western shore between Werribee and Geelong where crosswinds off the bay can be relentless. The Bellarine Peninsula is typically windswept. The ferry crossing provides a 40-minute recovery break but also a temperature reset — dress in layers.",
+      "challenges": [
+        "Melbourne's famously variable spring weather — four seasons in one day is not a joke",
+        "Exposed crosswinds on the western shore between Werribee and Geelong",
+        "Possibility of rain at any point — pack a lightweight rain jacket",
+        "Cool pre-dawn start temperatures (8-12C) versus afternoon warmth (18-22C)",
+        "Wind on the Bellarine Peninsula can slow progress significantly"
+      ]
+    },
+    "terrain": {
+      "primary": "Flat paved coastal roads",
+      "surface": "Sealed roads and shared-use paths around Port Phillip Bay through Melbourne suburbs, Geelong, and the Bellarine and Mornington Peninsulas. The route is essentially flat — approximately 300 metres of total elevation gain across 210 km. Road quality varies from excellent (Beach Road) to fair (some rural sections near Little River). The route crosses the West Gate Bridge, follows the bay coastline through Geelong and the Bellarine Peninsula to Queenscliff, takes the Searoad Ferry to Sorrento, then returns along the Mornington Peninsula and Beach Road to Albert Park.",
+      "technical_rating": 1,
+      "features": [
+        "Complete circumnavigation of Port Phillip Bay — 210 km of coastal riding",
+        "Queenscliff to Sorrento ferry crossing — 40-minute scenic boat ride between peninsulas",
+        "Melbourne's iconic Beach Road — the spiritual home of Australian recreational cycling",
+        "West Gate Bridge crossing — normally closed to cyclists, opened exclusively for the event",
+        "Flat terrain throughout — less than 300 m total elevation gain"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 63,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "logistics": 4,
+      "length": 4,
+      "technicality": 1,
+      "elevation": 1,
+      "climate": 2,
+      "altitude": 1,
+      "adventure": 3,
+      "prestige": 3,
+      "race_quality": 4,
+      "experience": 4,
+      "community": 5,
+      "field_depth": 1,
+      "value": 4,
+      "expenses": 3,
+      "cultural_impact": 4,
+      "tier_note": "Australia's biggest one-day cycling event and a Melbourne institution for over three decades. The community score is a perfect 5 — few events on Earth gather 10,000+ riders of all abilities the way Around the Bay does. T2 at 63, lifted by the sheer scale of community, the quality of organization, and the cultural weight of an event that literally stops a city of five million people.",
+      "score_note": "Community=5 (10,000-16,000 riders, all abilities, fundraising culture, Melbourne icon). Length=4 (210 km is a genuine endurance test). Race_quality=4 (30+ years of Bicycle Network refinement). Experience=4 (ferry crossing, Beach Road, West Gate Bridge, coastal circumnavigation). Value=4 (jersey worth $120, medal, ferry, rest stops all included). Cultural_impact=4 (Melbourne institution since 1993, 'the ride that stops Melbourne'). Technicality=1 and elevation=1 (flat paved roads). Field_depth=1 (non-competitive). Sum=40 + cultural_impact=4 = 44. Score = round(44/70 * 100) = 63.",
+      "editorial_tier": 2,
+      "editorial_tier_label": "TIER 2",
+      "business_tier": 2,
+      "business_tier_label": "TIER 2",
+      "display_tier": 2,
+      "display_tier_label": "TIER 2",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 4,
+        "explanation": "Melbourne Tullamarine Airport (MEL) is a major international hub — direct flights from all Australian capitals, plus nonstop services from Asia, the Middle East, and North America. The airport is 25 km from Albert Park, 30-45 minutes by taxi or SkyBus. Melbourne's public transport network (trains, trams, buses) makes getting around the city straightforward. Albert Park is inner-city — walking distance to the CBD and St Kilda. Accommodation ranges from backpackers to five-star hotels within minutes of the start. Bicycle Network has been running this event since 1993; the logistics machine is battle-tested across 30+ editions with 10,000+ riders. Road closures, ferry coordination, rest stops, and SAG support all run with the precision of an organization that has done this more times than most events exist."
+      },
+      "length": {
+        "score": 4,
+        "explanation": "The Classic route is 210 km — a genuine all-day effort that separates the serious from the aspirational. Most riders spend 7-12 hours in the saddle (including the 40-minute ferry break). The distance alone makes this one of the longer single-day mass-participation rides in the world. The Legend option extends to 300 km for riders who find 210 km insufficiently painful. Six distance options (20 km to 300 km) mean there is literally a ride for every fitness level, but the Classic 210 km is the one that carries the cultural weight. At sea level with minimal climbing, the challenge is pure endurance — there is nowhere to hide across 210 km of flat road."
+      },
+      "technicality": {
+        "score": 1,
+        "explanation": "Sealed roads and shared-use paths throughout. The route is flat, paved, and technically trivial. The most demanding bike-handling moment is the descent off the West Gate Bridge, and even that is a wide, straight road. No gravel, no singletrack, no technical descents. If you can ride a bicycle in a straight line for 210 km, you have the technical skills for this event. The challenge is in your legs and your nutrition strategy, not your bike handling."
+      },
+      "elevation": {
+        "score": 1,
+        "explanation": "Approximately 300 metres of total elevation gain across 210 km. This is one of the flattest long-distance cycling events on Earth. The route follows the coastline of Port Phillip Bay, which is — as bays tend to be — at sea level. The only meaningful vertical comes from the West Gate Bridge approach and a few gentle rollers on the Bellarine Peninsula. If you are looking for climbing, you are looking at the wrong event. The suffering here comes from distance and wind, not gradient."
+      },
+      "climate": {
+        "score": 2,
+        "explanation": "Melbourne in October is mild but unpredictable. Average temperatures of 11-21C are comfortable for cycling, but the city's 'four seasons in one day' reputation exists for a reason. You can leave Albert Park in sunshine and hit rain at Geelong. The primary weather challenge is wind — the western shore between Werribee and Geelong is exposed, and crosswinds off Port Phillip Bay can turn a flat road into a grind. The Bellarine Peninsula is similarly wind-prone. The climate is not extreme in either direction — it does not bake you or freeze you — which keeps this score low. Bring layers, bring a rain jacket, and accept that Melbourne will do what Melbourne does."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "Sea level. The entire route sits between 0 and approximately 50 metres above sea level. Altitude is not a factor. Your lungs will work exactly as well at Queenscliff as they do at Albert Park. The only altitude you experience is the metaphorical high of boarding the ferry with 10,000 other riders."
+      },
+      "adventure": {
+        "score": 3,
+        "explanation": "The ferry crossing from Queenscliff to Sorrento is genuinely unique — a 40-minute boat ride across the mouth of Port Phillip Bay, bikes stacked on the deck, surrounded by other riders. It breaks up the riding and adds a maritime dimension that no other cycling event offers at this scale. The circumnavigation concept is inherently satisfying — you ride around an entire body of water and return to where you started. Melbourne's Beach Road, the You Yangs on the horizon, the Bellarine coastline, and the Mornington Peninsula all deliver scenic variety. But this is a coastal road ride through suburbs and farmland, not a wilderness expedition. The adventure is in the scale and the journey, not the terrain."
+      },
+      "prestige": {
+        "score": 3,
+        "explanation": "Australia's largest single-day cycling event. Full stop. When Australians say 'Around the Bay,' every cyclist on the continent knows what you mean. The event has been running since 1993 and has hosted up to 16,000 riders in a single edition. It is a Melbourne cultural institution on par with the Melbourne Cup or the Australian Open in terms of local recognition. Internationally, awareness is lower — this is an Australian icon rather than a global one. The non-competitive format means it carries community prestige rather than racing prestige. You do not win Around the Bay. You complete it."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "Bicycle Network is Australia's largest cycling advocacy organization, and Around the Bay is their flagship event. Thirty-plus years of refinement show in every detail: road closures coordinated with VicRoads and local councils, multiple rest stops with nutrition and mechanical support, ferry logistics for thousands of riders, SAG vehicles, medical support, and a finish-line festival at Albert Park. The free jersey (valued at $120 AUD) is a genuine piece of cycling apparel, not a cheap giveaway. The event village has food trucks, entertainment, and the atmosphere of a cycling festival. This is what happens when a well-funded national organization runs the same event for three decades — the rough edges are long gone."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "The pre-dawn start at Albert Park with thousands of riders rolling out under lights. The West Gate Bridge crossing — a freeway bridge normally forbidden to cyclists, opened exclusively for the event, with the Melbourne skyline behind you and the bay stretching ahead. The long, flat grind through Werribee and Little River with the You Yangs on the horizon. Geelong's waterfront. The Bellarine Peninsula rolling toward Queenscliff. Then the ferry — bikes stacked, riders stretching, the Heads of Port Phillip Bay passing below. Sorrento on the other side. The Mornington Peninsula. And finally, Beach Road — the most famous stretch of recreational cycling road in Australia — carrying you home to Albert Park as the afternoon light hits the bay. The experience is the event. The riding itself is flat and straightforward. The journey around an entire bay, through multiple towns and landscapes, across water and back, is what makes it unforgettable."
+      },
+      "community": {
+        "score": 5,
+        "explanation": "This is the community score against which all other Australian cycling events should be measured. Ten thousand to sixteen thousand riders. Office workers and weekend warriors. First-timers on hybrid bikes and club riders on carbon machines. Families on the 20 km loop and endurance athletes on the 300 km Legend. The Smith Family charity partnership adds a philanthropic dimension — hundreds of thousands of dollars raised annually for disadvantaged children. The event transcends cycling subcultures. You ride next to people who have never clipped in and people who race state criteriums. The rest stops become community hubs. The ferry is a floating cycling festival. The finish at Albert Park is a celebration of shared achievement. Around the Bay is not a race with a community attached. It is a community that happens to ride bikes."
+      },
+      "field_depth": {
+        "score": 1,
+        "explanation": "Zero competitive depth. There is no timing chip, no age group results, no podium, no prize money, no racing of any kind. This is a recreational ride and fundraiser. Fast club riders treat it as a training ride. Some informal group efforts will push hard on Beach Road. But officially, Around the Bay is about participation, not competition. If you want to race in Melbourne in October, enter a criterium."
+      },
+      "value": {
+        "score": 4,
+        "explanation": "The Classic entry fee of approximately $210 AUD (~$140 USD) includes a custom cycling jersey valued at $120 AUD, a finisher's medal, ferry crossing, multiple fully stocked rest stops, on-course mechanical and medical support, road closures and traffic management, and access to the finish-line festival. The jersey alone covers more than half the entry fee at retail. Shorter distance options are proportionally cheaper, and children under 15 ride free on the 50 km and Family Ride. Bicycle Network members get 10% off. For the scale of organization, the inclusions, and the quality of the jersey, this is strong value by any measure."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Melbourne is a major city with major-city prices, but it is not Paris or London. Hotels near Albert Park run $150-300 AUD per night on event weekend. Airbnb options in St Kilda and South Melbourne are plentiful. Domestic flights from Sydney or Brisbane are $100-300 AUD return. International visitors face typical long-haul costs to reach Australia, but Melbourne itself is a city you would visit anyway — the event can be wrapped into a broader trip. Food and transport in Melbourne are reasonable by global standards. For Australian riders driving from within Victoria, total costs (entry + fuel + food) can be under $300 AUD. For international visitors, budget $1,500-3,000 AUD for flights, accommodation, and event costs over a long weekend."
+      }
+    },
+    "biased_opinion": {
+      "verdict": "The People's Ride",
+      "summary": "Around the Bay is not the hardest ride in Australia. It is not the hilliest, the most technical, or the most remote. It is the biggest, the most inclusive, and the most culturally embedded cycling event on the continent. Ten thousand riders circumnavigating Port Phillip Bay on a single Sunday in October, crossing the water by ferry, finishing on Beach Road as the afternoon light hits the bay — this is Australian cycling at its most democratic. The flat terrain means the challenge is pure endurance. The 210 km distance means it is not trivial. The community means you never ride alone.",
+      "strengths": [
+        "Scale: 10,000-16,000 riders make this the largest single-day cycling event in the Southern Hemisphere",
+        "The ferry crossing: a 40-minute boat ride from Queenscliff to Sorrento is a genuinely unique feature no other mass-participation ride offers",
+        "Accessibility: six distance options from 20 km to 300 km welcome every ability level from children to ultra-endurance riders",
+        "Inclusions: the free jersey, medal, ferry, rest stops, and on-course support represent excellent value",
+        "Cultural weight: 30+ years of Melbourne tradition — this event has genuine institutional significance"
+      ],
+      "weaknesses": [
+        "Flat: 300 metres of climbing across 210 km offers zero challenge for climbers. The terrain is monotonously flat.",
+        "Non-competitive: no timing, no results, no racing. If you need a number and a podium, this is not your event.",
+        "Wind: the western shore is exposed. In a bad year, the headwind from Werribee to Geelong can be soul-destroying.",
+        "Urban sections: portions of the route pass through suburban Melbourne — not every kilometre is scenic."
+      ],
+      "bottom_line": "Australia's biggest ride. Not the hardest. Not the most beautiful. But the one that matters most to the most people. 210 km around a bay, across the water, and home on Beach Road. Thirty years and counting."
+    },
+    "final_verdict": {
+      "score": "63 / 100",
+      "one_liner": "210 km around Port Phillip Bay with 10,000 riders and a ferry. Australia's biggest one-day cycling event, and a Melbourne institution since 1993.",
+      "should_you_race": "Yes if you want to experience Australia's largest cycling event in one of the world's great cities. Yes if you value community over competition and want a well-supported 210 km endurance challenge on flat terrain. Skip if you need climbing, technical terrain, or a competitive racing environment.",
+      "alternatives": "If you want an Australian cycling event with climbing: try the 3 Peaks Challenge (Alpine region, ~235 km, 4,000+ m climbing). If you want a competitive Australian sportive: try Cadel Evans Great Ocean Road Race - People's Ride. If you want a Southern Hemisphere mass-participation ride with more terrain variety: try Cape Town Cycle Tour (South Africa).",
+      "alternative_slugs": [
+        "3-peaks-challenge",
+        "cadel-evans-great-ocean-road-race",
+        "cape-town-cycle-tour"
+      ]
+    },
+    "logistics": {
+      "airport": "Melbourne Tullamarine Airport (MEL) — major international hub with direct flights from all Australian capitals plus nonstop services from Asia, Middle East, and North America. 25 km from Albert Park, 30-45 minutes by taxi or SkyBus to Southern Cross Station then tram.",
+      "lodging_strategy": "Albert Park, St Kilda, and South Melbourne are all within cycling distance of the start and offer abundant accommodation. Hotels near Albert Park range from $150-300 AUD/night on event weekend. St Kilda has backpackers, mid-range hotels, and Airbnb options along the foreshore. The CBD is 3 km away with the full spectrum of Melbourne hotels. Book early — 10,000+ riders means nearby accommodation fills fast, particularly the Pullman Melbourne Albert Park and Mercure Melbourne Albert Park.",
+      "food": "Melbourne is one of the world's great food cities. Pre-ride carb loading options are endless — Italian on Lygon Street, Asian on Victoria Street, or any of the hundreds of restaurants in the CBD and inner suburbs. Post-ride, the Albert Park event village has food trucks and the finish-line celebration. St Kilda's Acland Street and Fitzroy Street offer everything from fish and chips to fine dining within walking distance of the event precinct.",
+      "packet_pickup": "Event weekend at Albert Park event village. Check Bicycle Network website for specific times. Ride kits include your numbered jersey, timing tag (for app tracking, not competition), ferry allocation sticker, and event guide.",
+      "parking": "Albert Park has limited parking — expect road closures and heavy demand on event morning. Public transport (trams to Albert Park / St Kilda Road) is strongly recommended. If driving, arrive very early or park in the CBD and tram to the start.",
+      "official_site": "https://bicyclenetwork.com.au/rides-and-events/around-the-bay/"
+    },
+    "history": {
+      "founded": 1993,
+      "founder": "Bicycle Victoria (now Bicycle Network)",
+      "origin_story": "Around the Bay in a Day was born on Sunday 17 October 1993, created by Bicycle Victoria (now Bicycle Network) following the success of their Great Victorian Bike Ride multi-day touring event. The concept was simple and audacious: ride around Port Phillip Bay in a single day. The inaugural event attracted 2,700 registered riders (with another 1,000 turned away due to ferry capacity), starting at 5:30 am from JL Murphy Reserve in Port Melbourne. Despite the long distance and many riders finishing in the dark, it was deemed an overwhelming success. The event grew rapidly — 8,600 riders in 2004, nearly 11,000 in 2005, over 14,000 in 2006, and a peak of more than 16,000 in 2008. What began as a cycling event became a Melbourne institution, known as 'the ride that stops Melbourne.' Multiple distance options were added over the years, a partnership with The Smith Family charity was established, and title sponsors including Bupa and United Energy brought the event to a mainstream audience far beyond the cycling community.",
+      "notable_moments": [
+        "1993: Inaugural event — 2,700 riders depart JL Murphy Reserve, Port Melbourne at 5:30 am. Another 1,000 turned away due to ferry capacity. Many finish in the dark.",
+        "2004: Over 8,600 riders participate as the event establishes itself as Australia's biggest one-day ride",
+        "2005: Nearly 11,000 riders register, raising $300,000 for The Smith Family charity",
+        "2006: Total entries exceed 14,000, raising $440,000 for charity",
+        "2008: Peak participation of over 16,000 riders — the largest single-day cycling event in Australian history",
+        "Multiple distance options introduced over the years, growing from the original 210 km to six routes (20 km to 300 km)",
+        "2024: 30th edition of the event — three decades of continuous operation as a Melbourne institution"
+      ],
+      "reputation": "Australia's biggest one-day cycling event and a Melbourne cultural institution. The ride that stops a city of five million people for a Sunday in October. Where 10,000 riders prove that cycling is not a sport, it is a community."
+    },
+    "course_description": {
+      "character": "A flat, coastal circumnavigation of Port Phillip Bay on sealed roads and paths, punctuated by a 40-minute ferry crossing between Queenscliff and Sorrento. The Classic route runs anti-clockwise: west from Albert Park over the West Gate Bridge, through Werribee and Little River to Geelong, along the Bellarine Peninsula to Queenscliff, across the water by ferry to Sorrento, then back along the Mornington Peninsula and Beach Road to the finish at Albert Park. The terrain is relentlessly flat — the challenge is distance, wind, and endurance rather than gradient. The scenery shifts from urban Melbourne to industrial western suburbs, open farmland, Geelong's waterfront, the coastal Bellarine Peninsula, and finally the iconic Beach Road run home.",
+      "suffering_zones": [
+        {
+          "mile": 0,
+          "label": "The Pre-Dawn Start",
+          "desc": "Rolling out of Albert Park in the dark with thousands of riders. Red tail lights stretching ahead like a river of stars. Cool spring air at 8-12C — arm warmers and a vest mandatory. The nervous energy of 10,000 people about to ride 210 km carries you through the first kilometres. Over the West Gate Bridge — a freeway bridge normally forbidden to cyclists, opened for you, with the Melbourne skyline glowing behind and Port Phillip Bay stretching into the darkness ahead.",
+          "terrain_detail": "Urban roads, West Gate Bridge crossing, flat, 0-20 m elevation",
+          "named_section": "Albert Park to West Gate Bridge"
+        },
+        {
+          "mile": 25,
+          "label": "The Western Grind",
+          "desc": "The least glamorous section of the route. Flat, exposed roads through Werribee and Little River, with the You Yangs visible to the west and Port Phillip Bay to the east. This is where the wind lives. In a good year, it is a tailwind and you sail. In a bad year, it is a headwind and you suffer. Drafting matters here. Stay in a group. The road is straight, the terrain is flat, and there is nothing to do but pedal and manage your effort for the 180 km still ahead.",
+          "terrain_detail": "Flat, exposed rural and suburban roads, wind-prone, sea level",
+          "named_section": "Werribee to Geelong"
+        },
+        {
+          "mile": 55,
+          "label": "Geelong and the Bellarine",
+          "desc": "Geelong's waterfront is a welcome break from the exposed western plains. The route picks up the Bellarine Peninsula, rolling through Portarlington and along the coast toward Queenscliff. The scenery improves markedly — coastal views, small towns, and the sense that the ferry is approaching. Queenscliff is the halfway psychological landmark. The rest stop here is a hive of activity as riders prepare for the ferry crossing.",
+          "terrain_detail": "Flat to gently rolling coastal roads, Bellarine Rail Trail sections, sea level",
+          "named_section": "Geelong to Queenscliff"
+        },
+        {
+          "mile": 80,
+          "label": "The Ferry",
+          "desc": "The signature moment of Around the Bay. Bikes stacked on the deck, riders stretching their legs, the Heads of Port Phillip Bay — the narrow gap between Point Nepean and Point Lonsdale — passing below. Forty minutes of recovery that no other cycling event offers. The ferry is both practical (it cuts off the inaccessible southern tip of the bay) and experiential (it transforms a road ride into a journey). Sorrento appears on the other side. You are now on the Mornington Peninsula. The second half begins.",
+          "terrain_detail": "Ferry crossing — Queenscliff to Sorrento, 40 minutes, no pedalling",
+          "named_section": "Queenscliff to Sorrento Ferry"
+        },
+        {
+          "mile": 95,
+          "label": "The Mornington Peninsula",
+          "desc": "From Sorrento down through Safety Beach, Dromana, and along the coast of the Mornington Peninsula. The afternoon sun is on the bay. The legs are starting to feel 150+ km of riding. The terrain remains flat but the accumulated distance is now the challenge. Rest stops on the peninsula keep nutrition topped up. The field thins as faster riders pull ahead and slower riders settle into survival mode.",
+          "terrain_detail": "Flat coastal roads, Mornington Peninsula, sea level",
+          "named_section": "Sorrento to Frankston"
+        },
+        {
+          "mile": 115,
+          "label": "Beach Road — The Run Home",
+          "desc": "The most famous stretch of recreational cycling road in Australia. Beach Road from Mordialloc to St Kilda is where Melbourne's cycling culture was born — and it is where Around the Bay brings you home. The bay is on your left, the afternoon light is golden, and you are riding the final 20 km of a 210 km journey with the finish at Albert Park ahead. The fatigue is real. The satisfaction is greater. The event village at Albert Park is a celebration of completion, not competition.",
+          "terrain_detail": "Flat, paved, iconic Beach Road, bike-lane protected, sea level",
+          "named_section": "Beach Road to Albert Park"
+        }
+      ],
+      "signature_challenge": "The sheer distance — 210 km of flat coastal riding with no hills to break the monotony and no shelter from the wind. The western shore between Werribee and Geelong is where Around the Bay reveals itself: in a headwind, this section is a war of attrition. The ferry provides a 40-minute reprieve, but you still have 80 km to ride on the other side."
+    },
+    "guide_variables": {
+      "race_name": "Around the Bay in a Day",
+      "race_distance": "210 km (Classic); 300 km (Legend) option available",
+      "race_elevation": "~300 metres (1,000 feet)",
+      "race_date": "October",
+      "race_location": "Melbourne, Victoria, Australia (circumnavigation of Port Phillip Bay)",
+      "race_terrain": "Flat sealed roads and shared-use paths around Port Phillip Bay coastline",
+      "race_weather": "Melbourne spring — cool mornings (9-12C), mild afternoons (17-21C), variable, possible wind and rain",
+      "race_challenges": [
+        "210 km of sustained flat riding — pure endurance with no terrain variety to break the effort",
+        "Wind exposure on the western shore between Werribee and Geelong — headwinds can be brutal",
+        "Nutrition management across 7-12 hours of riding at moderate intensity",
+        "Melbourne's variable spring weather — rain, wind shifts, and temperature changes mid-ride",
+        "Fatigue management for the final 80 km after the ferry — the Mornington Peninsula and Beach Road on tired legs"
+      ],
+      "altitude_section": false,
+      "altitude_feet": 0
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Minimum one 160+ km training ride at target pace",
+        "by_when": "Week 5",
+        "why": "210 km on flat terrain sounds manageable until you are 160 km in and your legs have been turning over for 6+ hours with no descents to recover. The challenge is cumulative fatigue, not any single effort. Complete at least one training ride of 160+ km to understand what your body needs nutritionally, mechanically, and psychologically across a full day in the saddle. Flat terrain does not mean easy — it means relentless."
+      },
+      {
+        "requirement": "Wind training — sustained efforts in crosswind and headwind conditions",
+        "by_when": "Week 4",
+        "why": "The western shore of Port Phillip Bay between Werribee and Geelong is exposed to crosswinds that can turn a flat 40 km section into a grinding ordeal. Practice riding in windy conditions, including drafting in groups and managing effort when the wind shifts direction. If you only train on calm days, the Bellarine Peninsula will break your spirit."
+      },
+      {
+        "requirement": "Nutrition strategy tested on a long ride — 200+ calories per hour for 7+ hours",
+        "by_when": "Week 3",
+        "why": "Seven to twelve hours of riding requires a nutrition plan, not a hope. Practice eating and drinking on the bike at race pace. Know what your stomach tolerates after 5 hours. The rest stops provide food and water, but relying entirely on aid stations across 210 km is a gamble. Carry your own proven nutrition and supplement with rest stop offerings."
+      }
+    ],
+    "citations": [
+      {
+        "url": "https://bicyclenetwork.com.au/rides-and-events/around-the-bay/",
+        "title": "United Energy Around the Bay — Bicycle Network (Official)",
+        "category": "official"
+      },
+      {
+        "url": "https://bicyclenetwork.com.au/rides-and-events/around-the-bay/routes-prices/",
+        "title": "Routes & Prices — United Energy Around the Bay — Bicycle Network",
+        "category": "official"
+      },
+      {
+        "url": "https://raceroster.com/events/2026/111768/united-energy-around-the-bay-2026",
+        "title": "United Energy Around The Bay 2026 — Race Roster Registration",
+        "category": "official"
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Around_the_Bay_in_a_Day",
+        "title": "Around the Bay in a Day — Wikipedia",
+        "category": "reference"
+      },
+      {
+        "url": "https://rideonmagazine.com.au/united-energy-around-the-bay-2025-the-ride-that-stops-melbourne/",
+        "title": "United Energy Around the Bay 2025: The Ride That Stops Melbourne — Ride On Magazine",
+        "category": "media"
+      },
+      {
+        "url": "https://bicyclenetwork.com.au/newsroom/2017/08/28/history-of-around-the-bay/",
+        "title": "History of Around the Bay — Bicycle Network",
+        "category": "reference"
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "high",
+      "validation_status": "validated",
+      "research_strength": "A",
+      "sources_count": 6,
+      "last_updated": "2026-02-27"
+    }
+  }
+}

@@ -2402,3 +2402,25 @@ values.
 34. **Dead conditionals after early returns are misleading.** If you `return None` when `not date_match`, the subsequent `if date_match:` is always true — remove it or factor the date-parsing result into the dict construction directly. Dead branches suggest there's a code path that doesn't exist.
 35. **Test the integration, not just the unit.** Testing that `build_sports_event_jsonld()` returns None is necessary but not sufficient — also test that `generate_page()` actually omits the `<script type="application/ld+json">` block for SportsEvent. A missing `if` guard in the caller silently re-introduces the bug.
 36. **Regression guard tests catch silent schema loss.** A parametrized test across all 328 race files with min/max thresholds (e.g., >=280 valid, <=50 skipped) catches new date formats that silently break parsing. Without this, a new race JSON with "2027: Sat., March 6" would lose its SportsEvent with no alert.
+
+---
+
+## Scrollytelling & Science Content
+
+37. **Displayed math must be verifiable.** When showing `watts → kcal/hr`, compute kcal from the DISPLAYED (rounded) watts, not the exact pre-rounding value. A reader who does `413 × 3.6 = 1,486.8` and sees "1,485" thinks you're sloppy. Display 413W → 1,487 kcal/hr so the math checks out. Same principle applies to any chained calculation (watts → kcal → g/hr → deficit).
+
+38. **Zone labels must match Coggan boundaries exactly.** Z1 ends at 55% FTP, Z2 starts at 56%. At 3.0 W/kg with FTP 5.5, that's 54.5% = Z1. Labeling it Z2 is wrong by 1.5 percentage points. In science content, "close enough" is never enough.
+
+39. **Threshold correction breaks the model.** Metabolic models predict a smooth curve of substrate utilization. But at FTP, the body's carb reliance is ~95-100% regardless of what the model says — O2 headroom collapses. The CSV says Rec at 2.5 W/kg (their FTP) uses 28.6% fat. Physiologically it's ~3%. Document the correction in code comments with citations (Romijn 1993, van Loon 2001) or a future dev will "fix" it back to the CSV value.
+
+40. **SVG panel count must match HTML step count.** In scrollytelling, JS toggles `<g data-chart-step="N">` groups based on `data-step` attributes on the scroll steps. If there are 7 HTML steps but only 6 SVG panels, step 6 shows a blank chart. Test this parity explicitly — it's the exact kind of thing that breaks during content additions.
+
+41. **Dead variables survive refactoring.** Python doesn't warn about unused locals. After removing or restructuring SVG elements, variables like `key_y = ...` that were used by deleted code stick around forever. The fix: grep for assignment-only variables (`= ... + ...` on lines that don't appear in subsequent code) after any SVG refactor.
+
+42. **JS chart updaters need NaN/range fallback.** `parseInt(el.getAttribute('data-step'), 10)` returns `NaN` if the attribute is missing or malformed. Without `if (isNaN(step)) step = 0`, the chart goes blank and the user sees nothing. Always clamp: `if (isNaN(step) || step < 0 || step > maxStep) step = 0`.
+
+43. **Regex tests must anchor to context, not just pattern.** `re.search(r"(\d+)&#8211;(\d+)&nbsp;g/hr", html)` matches the FIRST occurrence. If the page has "60–90 g/hr" (rec pace) and "140–175 g/hr" (pro pace), the regex grabs the wrong one. Anchor to surrounding text: `r"endurance pace.*?(\d+)&#8211;(\d+)"`.
+
+44. **Stacked bar percentages must sum to 100.** In SVG stacked bars (fat% + cho%), if the bars don't sum to 100, the visual representation is wrong AND a reader can check. Add a test that extracts percentage labels and verifies the sum. This also catches data entry typos.
+
+45. **CSV fat_pct + cho_pct must sum to ~100 for all rows.** The metabolic-reference.csv is the science source of truth. If a future edit introduces a row where fat + cho ≠ 100, every downstream calculation using these percentages is wrong. Test this invariant on every CSV row.

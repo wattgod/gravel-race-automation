@@ -1,0 +1,313 @@
+{
+  "race": {
+    "name": "Seattle to Portland Bicycle Classic",
+    "slug": "seattle-to-portland",
+    "display_name": "STP — Seattle to Portland",
+    "tagline": "206 miles from Seattle to Portland in one or two days. 6,000+ riders, 47 years of tradition, and the Pacific Northwest's defining cycling event. City-to-city on country roads through farmland, small towns, and the green corridor of western Washington and Oregon.",
+    "vitals": {
+      "distance_mi": 206,
+      "elevation_ft": 5100,
+      "location": "Seattle to Portland, Washington/Oregon, USA",
+      "location_badge": "SEATTLE TO PORTLAND, WA/OR, USA",
+      "date": "Second or third weekend of July annually",
+      "date_specific": "2026: July 11-12",
+      "terrain_types": [
+        "Paved country roads through western Washington and Oregon",
+        "Flat to gently rolling farmland and river valleys",
+        "Small-town main streets and rural highways"
+      ],
+      "field_size": "6,000-10,000 riders (varies by year)",
+      "start_time": "Saturday morning from University of Washington, Seattle (two-day riders); Saturday pre-dawn (one-day riders)",
+      "registration": "Online via cascade.org. Non-member $245, Cascade member $165, Youth (18 and under) $85. Group discounts available.",
+      "prize_purse": "None. This is a supported recreational ride, not a race.",
+      "aid_stations": "Fully supported with rest stops approximately every 25 miles. Free food at five major stops. Mechanic, medical, and SAG support throughout. Overnight camping and facilities at Centralia/Chehalis midpoint for two-day riders.",
+      "cutoff_time": "Generous time limits. SAG support available for riders who cannot continue.",
+      "lat": 47.6553,
+      "lng": -122.3035,
+      "distance_options": [
+        "206 miles in one day (the iron-rider challenge)",
+        "206 miles over two days (the flagship experience, overnight in Centralia/Chehalis)"
+      ],
+      "entry_fee": "$165 (Cascade member); $245 (non-member); $85 (youth)"
+    },
+    "climate": {
+      "primary": "Mid-July Pacific Northwest — usually warm and pleasant, with heat wave risk",
+      "description": "Mid-July in western Washington and Oregon typically delivers warm, dry cycling weather. Daytime highs of 70-85F with low humidity, long daylight hours, and generally clear skies. The Pacific Northwest's dry season is well established by mid-July, and rain is unusual but not impossible. However, PNW heat waves have become more frequent — temperatures above 90F have hit STP in recent years, with the 2023 edition seeing 92F on both days and significant heat-related dropouts. The route is largely exposed with limited shade, making heat management critical in warm years. Morning starts are cool (55-65F), and the Willamette Valley section near Portland can be several degrees warmer than Seattle.",
+      "challenges": [
+        "Heat waves: 90F+ temperatures have caused significant attrition in recent years",
+        "Limited shade on exposed rural roads — sustained sun exposure across 206 miles",
+        "Southerly headwinds are common on the Seattle-to-Portland route",
+        "Dry conditions require proactive hydration despite comfortable-feeling temperatures",
+        "Temperature can vary 10-15F between morning start and afternoon finish"
+      ]
+    },
+    "terrain": {
+      "primary": "Flat to gently rolling paved roads",
+      "surface": "Paved country roads, state highways, and rural routes through western Washington and Oregon. The route avoids Interstate 5, instead following a parallel corridor of two-lane roads through farmland, small towns, and river valleys. Approximately 5,100 feet of total climbing across 206 miles — almost entirely gentle rollers with one notable climb near Puyallup at mile 42 (roughly 1 mile at 7% grade). Road quality varies from smooth county roads to rougher rural patches. The final miles cross the St. Johns Bridge into Portland.",
+      "technical_rating": 1,
+      "features": [
+        "206-mile city-to-city route entirely on paved roads",
+        "Predominantly flat to gently rolling — 5,100 ft over 206 miles averages to nearly flat",
+        "One notable climb at mile 42 near Puyallup — 1 mile at roughly 7% grade",
+        "Country roads through the green corridor of the Puget Sound lowlands, Chehalis River valley, and Willamette Valley",
+        "Finish across the St. Johns Bridge into Portland's Holladay Park"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 61,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "logistics": 4,
+      "length": 4,
+      "technicality": 1,
+      "elevation": 2,
+      "climate": 2,
+      "altitude": 1,
+      "adventure": 3,
+      "prestige": 3,
+      "race_quality": 4,
+      "experience": 4,
+      "community": 5,
+      "field_depth": 1,
+      "value": 3,
+      "expenses": 3,
+      "cultural_impact": 3,
+      "tier_note": "The Pacific Northwest's defining cycling event and one of the ten largest recreational rides in America. Nearly five decades of tradition, thousands of riders, and 206 miles of country roads from Seattle to Portland. Community=5 is earned — this is a mass pilgrimage, not just a ride. T2 at 61 reflects the sheer scale and heritage of an event that has shaped PNW cycling culture since 1979.",
+      "score_note": "Community=5 (6,000-10,000 riders, 47-year tradition, largest multi-day ride in the Northwest). Length=4 (206 miles is a proper double century). Race_quality=4 (Cascade Bicycle Club's flagship, rest stops every 25 mi, decades of refinement). Experience=4 (city-to-city epic through the PNW). Logistics=4 (SEA-TAC, well-organized). Technicality=1 and field_depth=1 (paved, non-competitive). Cultural_impact=3 (PNW cycling institution). Sum=40 + cultural_impact=3 = 43. Score = round(43/70 * 100) = 61.",
+      "editorial_tier": 2,
+      "editorial_tier_label": "TIER 2",
+      "business_tier": 2,
+      "business_tier_label": "TIER 2",
+      "display_tier": 2,
+      "display_tier_label": "TIER 2",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 4,
+        "explanation": "Seattle-Tacoma International Airport (SEA) is one of the best-connected airports on the West Coast — direct flights from virtually everywhere. The start at the University of Washington is accessible via light rail from the airport. Portland (PDX) is equally well-connected for the return. Cascade Bicycle Club has been running this event since 1979 — 47 years of logistics refinement. Packet pickup, start logistics, rest stops, overnight camping at Centralia, baggage trucks, and finish-line operations are all dialed. Transportation add-ons (parking, bus passes, bike transport back to Seattle) are available. The only friction is the one-way logistics — you finish in Portland, 180 miles from your car in Seattle. Plan your return."
+      },
+      "length": {
+        "score": 4,
+        "explanation": "206 miles is a legitimate double century. The one-day option is an endurance test that puts STP in elite company — fewer than 2,000 riders attempt it each year. The two-day option splits the distance into two centuries, which is more accessible but still demands genuine fitness. Either way, you're riding 206 miles. The flat terrain makes the distance achievable for prepared riders, but 206 miles is 206 miles regardless of gradient. Expect 8-12 hours of saddle time for one-day riders and 5-7 hours each day for two-day riders."
+      },
+      "technicality": {
+        "score": 1,
+        "explanation": "Paved roads throughout. Zero technical demands. The most technical moment is navigating 6,000 riders through the mass start and merging onto country roads. The route follows flat-to-rolling two-lane roads through farmland and small towns. If you can ride a bike in a straight line and shift gears on gentle rollers, you have the technical skills for STP."
+      },
+      "elevation": {
+        "score": 2,
+        "explanation": "Approximately 5,100 feet of climbing across 206 miles — that's an average grade of essentially flat. The only notable climb is near Puyallup around mile 42, roughly a mile at 7% grade. Everything else is gentle rollers through river valleys and farmland. The rolling sections between Chehalis and Napavine can fatigue riders on tired legs, but nothing approaches a real climb. This is a flat double century with some bumps."
+      },
+      "climate": {
+        "score": 2,
+        "explanation": "Mid-July in the PNW is usually excellent cycling weather — warm, dry, long daylight hours. But the heat waves that have hit the Pacific Northwest in recent summers have changed the calculus. STP 2023 saw 92F both days, with widespread heat exhaustion and high dropout rates. When the weather cooperates, it's a 75F dream. When it doesn't, 206 miles of exposed rural roads in 90F+ heat is a serious survival exercise. The southerly headwind that commonly blows from Portland toward Seattle means you're often riding into the wind — a persistent energy tax that the flat terrain makes worse."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "Sea level to maybe 500 feet at the highest point. Altitude is not a factor on STP. You're riding through low-elevation river valleys and coastal plains the entire way."
+      },
+      "adventure": {
+        "score": 3,
+        "explanation": "The PNW countryside is pleasant but not spectacular on this route. You're riding through the Puget Sound lowlands, the Chehalis River valley, the Cowlitz River corridor, and the Willamette Valley — green farmland, small towns, Douglas fir forests, and river crossings. It's a pretty ride, not a jaw-dropping one. The adventure is in the journey itself: 206 miles city-to-city, passing through a dozen small towns, sleeping in a field in Centralia, and rolling into Portland under your own power. The finish across the St. Johns Bridge has a cinematic quality."
+      },
+      "prestige": {
+        "score": 3,
+        "explanation": "STP has been running since 1979 and has drawn up to 10,000 riders in peak years. Bicycling Magazine has called it 'one of the best cycling events in the nation.' In the Pacific Northwest, 'I rode STP' carries real weight — it's a rite of passage for PNW cyclists, a line on the bucket list. Nationally, it's recognized as one of the ten largest recreational rides in America. But it's a participatory ride, not a race — the prestige is in the tradition and the accomplishment, not in a competitive result."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "47 years of continuous refinement by Cascade Bicycle Club, one of the largest and most professional cycling organizations in the US. Rest stops every 25 miles with free food at five major stations. Full mechanic, medical, and SAG support. Overnight camping at Centralia with showers, food vendors, and a beer garden. Baggage truck service. Finisher medals, T-shirts, and a full celebration at Holladay Park in Portland with food and a beer garden. The event is sponsored by Alaska Airlines. This is not amateur hour — it's a professionally produced 206-mile supported ride."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "There's something about riding 206 miles from one major city to another under your own power that gets into your head and stays there. The experience builds across two days: the nervous energy of the mass start at UW, the grinding middle miles through rural Washington, the overnight camp at Centralia where thousands of cyclists take over a college campus, the second-day push through the Cowlitz and Columbia River corridors, and the emotional finish at Holladay Park in Portland. The one-day riders get the singular satisfaction of an iron-distance effort — 206 miles, dawn to dark, no sleeping. Either way, the city-to-city format gives STP a narrative arc that loop courses lack. You start somewhere. You end somewhere else. You covered 206 miles to get there."
+      },
+      "community": {
+        "score": 5,
+        "explanation": "This is STP's crown jewel. 6,000-10,000 riders spanning every demographic in cycling — roadies in team kits, families on tandems, retirees on recumbents, twenty-somethings on fixies, charity riders in matching jerseys, first-timers terrified and thrilled. The overnight camp at Centralia is a cycling festival — thousands of riders eating, drinking, swapping stories, and sleeping in a field together. Teams ride together, families ride together, cycling clubs make it their annual pilgrimage. The finish line in Portland is pure celebration. STP is a community event that happens to be 206 miles long, not a 206-mile ride that happens to have community. Jerry Baker and Paul Wantzelius rode every consecutive STP from 1979 until their deaths. That's what this ride means to people."
+      },
+      "field_depth": {
+        "score": 1,
+        "explanation": "Zero competitive depth. There is no timing, no categories, no podium, no racing. STP is explicitly a recreational ride. The front group includes fast club riders who treat it as a time trial, but there is no official competition. If you need to race, you're at the wrong event."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "$165 for Cascade members, $245 for non-members. For that you get 206 miles of fully supported riding with rest stops every 25 miles, five free food stations, mechanic and medical support, overnight camping facilities, baggage truck, finisher medal and T-shirt, and a finish-line celebration. The membership discount is significant — if you're doing STP, join Cascade ($45/year) and save $80. Transportation add-ons (bus back to Seattle, bike transport) cost extra. Fair value for a premium supported ride, but the non-member price is steep."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Seattle and Portland are expensive cities — hotels run $150-250/night in both. You'll need lodging in Seattle the night before and Portland the night after, plus potentially a night in Seattle for packet pickup. The overnight in Centralia is included (camping) or cheap. Flights to SEA or PDX are moderate from most US cities. Food on the route is provided at rest stops. The bus or Amtrak back to Seattle adds $30-60. Budget $900-1,500 for a long weekend including travel, two nights of city lodging, registration, and transportation. The cities are the expense — the ride itself is well-priced."
+      }
+    },
+    "biased_opinion": {
+      "verdict": "The PNW Pilgrimage",
+      "summary": "STP is less a bike ride and more a regional migration. Every July, 6,000+ cyclists ride 206 miles from Seattle to Portland on country roads, through farmland and small towns, sleeping in a field in Centralia, and finishing at Holladay Park with a medal and a beer. The terrain is flat. The competition is nonexistent. The technical demands are zero. None of that matters. What matters is that for 47 years, this ride has been the Pacific Northwest's defining cycling event — a two-day rolling community of thousands, stretching from the Puget Sound to the Willamette Valley, covering 206 miles that transform from intimidating to accomplished to annual tradition. You ride STP once because you want to see if you can. You ride it again because it's July and that's what you do.",
+      "strengths": [
+        "Community: 6,000-10,000 riders make this one of the largest cycling events in America — the overnight camp at Centralia is a festival",
+        "City-to-city format: riding 206 miles from Seattle to Portland gives the event a narrative arc that loop courses cannot match",
+        "47 years of tradition: STP is a PNW cycling institution, a rite of passage, a bucket-list ride",
+        "Cascade Bicycle Club production: professionally organized with rest stops, support, and infrastructure refined over nearly five decades"
+      ],
+      "weaknesses": [
+        "Not a race: zero competition, no timing, no podium. Competitive cyclists will find no racing here.",
+        "Flat and non-technical: 5,100 ft of climbing over 206 miles. The challenge is distance, not terrain.",
+        "Heat risk: recent PNW heat waves have turned STP from pleasant to punishing — 90F+ with no shade is dangerous at 206 miles",
+        "One-way logistics: you finish 180 miles from your car. Plan your return trip."
+      ],
+      "bottom_line": "The ride you do because 206 miles from Seattle to Portland in July is what Pacific Northwest cyclists do. Has been since 1979. Will be next July, too."
+    },
+    "final_verdict": {
+      "score": "61 / 100",
+      "one_liner": "206 miles from Seattle to Portland. 6,000 riders. 47 years. The Pacific Northwest's cycling pilgrimage.",
+      "should_you_race": "Yes if you want one of America's great city-to-city cycling experiences. Yes if community and tradition matter more than competition. Yes if riding 206 miles through the PNW countryside with thousands of fellow cyclists sounds like your idea of a perfect July weekend. Skip if you need racing, climbing, technical terrain, or anything beyond flat-road endurance.",
+      "alternatives": "If you want a PNW century with more climbing: try the Seattle to Vancouver (STV) or Oregon Gran Fondo. If you want a massive US charity ride with desert scenery: try El Tour de Tucson. If you want a flat double century with competition: try Furnace Creek 508 or the Hoodoo 500.",
+      "alternative_slugs": [
+        "oregon-gran-fondo",
+        "tour-de-tucson"
+      ]
+    },
+    "logistics": {
+      "airport": "Seattle-Tacoma International Airport (SEA) — one of the West Coast's busiest airports with direct flights from virtually every major US city and many international destinations. Light rail connects SEA to the University of Washington start area. Portland International Airport (PDX) is convenient for the return trip, with Amtrak Cascades or bus service back to Seattle.",
+      "lodging_strategy": "You need lodging in Seattle the night before the start — University District hotels are closest to the UW start, or stay downtown and take the light rail. Two-day riders camp overnight at Centralia College (included with registration — camping area, food vendors, showers, beer garden). Book a Portland hotel for Saturday night if riding two days. One-day riders need Portland lodging for Saturday night. Both options require planning your return to Seattle — Amtrak Cascades, bus, or arrange a ride. Budget $150-250/night in Seattle or Portland.",
+      "food": "Rest stops provide free food approximately every 25 miles. Five major food stations along the route. The Centralia overnight camp has food vendors and a beer garden. The Portland finish at Holladay Park includes a meal, beer garden, and celebration. Seattle and Portland both have exceptional dining — PNW cuisine, craft beer, and coffee culture. Pre-ride carb loading options are endless in both cities.",
+      "packet_pickup": "Event weekend at the University of Washington campus, Seattle. Check cascade.org for specific times and location details.",
+      "parking": "UW campus parking available (sold as add-on). Arrive early — 6,000+ riders competing for spots. Light rail from SEA-TAC is a parking-free alternative. Remember: your car will be in Seattle and you'll finish in Portland. Plan accordingly.",
+      "official_site": "https://cascade.org/rides-events/seattle-portland-2026"
+    },
+    "history": {
+      "founded": 1979,
+      "founder": "Cascade Bicycle Club",
+      "origin_story": "The Seattle to Portland Bicycle Classic was born in 1979, organized by the Cascade Bicycle Club as a competitive time-trial race from Seattle City Hall to Portland City Hall. The inaugural event attracted roughly 100 starters, with 69 finishers. Jerry Baker won the first edition, completing the 206-mile course in just over 10 hours. By 1981, Cascade Bicycle Club converted STP from a race to a recreational ride, opening it to cyclists of all abilities. The decision transformed STP from a niche competition into a mass-participation event. Participation peaked at 10,000 riders in 1989 — the event's tenth year — and STP has remained one of the largest recreational cycling events in America ever since. The ride has run every year since 1979 except 2020 and 2021, when COVID-19 forced cancellations. Even the eruption of Mount St. Helens in 1980 only rerouted the course — it didn't stop the ride.",
+      "notable_moments": [
+        "1979: First STP — a competitive time trial won by Jerry Baker in just over 10 hours, 69 finishers from ~100 starters",
+        "1980: Route rerouted due to Mount St. Helens eruption — the ride still happened",
+        "1981: Converted from race to recreational ride, opening STP to all abilities",
+        "1989: Peak participation of 10,000 riders — the tenth edition",
+        "Jerry Baker and Paul Wantzelius rode every consecutive STP from 1979 until their deaths (Baker in 2015, Wantzelius in 2010)",
+        "2020-2021: Only cancellations in event history due to COVID-19 pandemic",
+        "2025: 46th edition returns with largest ridership since 2019",
+        "Bicycling Magazine names STP one of the best cycling events in the nation"
+      ],
+      "reputation": "The Pacific Northwest's cycling pilgrimage. One of America's ten largest recreational rides. The event that turned 206 miles of country road into a regional tradition."
+    },
+    "course_description": {
+      "character": "A 206-mile south-bound corridor from Seattle to Portland on paved country roads, avoiding Interstate 5. The route threads through the green lowlands of western Washington and Oregon — Puget Sound farmland, the Nisqually and Chehalis river valleys, the Cowlitz corridor, and the Columbia River crossing into Oregon. The terrain is predominantly flat to gently rolling, with one honest climb near Puyallup and energy-sapping rollers between Chehalis and Napavine. Small towns punctuate the route every 15-25 miles, each one a checkpoint and a morale boost. The course crosses from Washington into Oregon via the Lewis and Clark Bridge over the Columbia River. The final miles run through St. Helens and Scappoose before crossing Portland's St. Johns Bridge to the finish at Holladay Park. The character is rural, green, and relentlessly forward — 206 miles in one direction, no turning back.",
+      "suffering_zones": [
+        {
+          "mile": 0,
+          "label": "The Mass Start — University of Washington",
+          "desc": "Rolling out from UW's parking lot E-18 with thousands of riders in the cool Seattle morning. The first 10 miles are the most crowded — finding your pace group, navigating the urban exit from Seattle, and settling in for a very long day (or two). Seward Park at mile 10 is the first mini-stop. The adrenaline of the mass start masks the reality of what's ahead: 196 more miles.",
+          "terrain_detail": "Flat, urban roads transitioning to suburban, sea level",
+          "named_section": "The Seattle Exit"
+        },
+        {
+          "mile": 42,
+          "label": "The Big Hill — Puyallup",
+          "desc": "The only real climb on the entire route. A mile-long grind at roughly 7% grade near Puyallup — not steep by any standard except the standard of a ride that is otherwise dead flat. First-timers are shocked. Veterans barely notice. The first major food stop at Spanaway Middle School is nearby. This is the last significant vertical you'll see for 160 miles.",
+          "terrain_detail": "1-mile climb at ~7% grade, first major food stop",
+          "named_section": "The Big Hill"
+        },
+        {
+          "mile": 88,
+          "label": "The Approach to Centralia — Tenino to the Midpoint",
+          "desc": "Tenino City Park at mile 88, then the psychological milestone: Centralia College at mile 101, the official midpoint. For two-day riders, this is the finish line — camping, showers, food vendors, beer garden, and the strange communal experience of sleeping in a field with thousands of other cyclists. For one-day riders, this is where the ride gets real. You're exactly halfway. The second hundred miles starts now.",
+          "terrain_detail": "Flat to gently rolling, farmland and small towns",
+          "named_section": "The Midpoint"
+        },
+        {
+          "mile": 108,
+          "label": "The Rolling Grind — Chehalis to Napavine",
+          "desc": "The most fatiguing section of the route. Deceptive rolling terrain between Chehalis and Napavine that drains tired legs. None of the rollers are individually hard, but the cumulative effect on mile-108 legs is significant. This is where riders who started too fast begin to crack. The flat sections between rollers offer false hope. Keep eating. Keep drinking. Keep pedaling.",
+          "terrain_detail": "Persistent rolling hills, exposed, possible headwind",
+          "named_section": "The Chehalis Rollers"
+        },
+        {
+          "mile": 163,
+          "label": "The Columbia Corridor — Longview to Goble",
+          "desc": "Crossing the Columbia River from Washington into Oregon marks a psychological shift — you're in Portland's state now. The Lewis and Clark Bridge is a moment. The route follows the Columbia River corridor through Goble, where the terrain flattens out and the miles begin counting down toward Portland. Legs are heavy, the day is long, but the finish is within reach.",
+          "terrain_detail": "Flat, river valley roads, Columbia River crossing",
+          "named_section": "The Columbia Crossing"
+        },
+        {
+          "mile": 188,
+          "label": "The Final Push — Scappoose to Portland",
+          "desc": "The last 18 miles from Scappoose into Portland. The route runs through St. Helens and along Highway 30 toward the city. The final climb to cross the St. Johns Bridge is a cruel joke after 200 miles — not long, not steep, but your legs will disagree. Then you're on the bridge, looking down at the Willamette River, and Portland is right there. The descent to Holladay Park. The finish arch. The medal. The beer. 206 miles, done.",
+          "terrain_detail": "Flat with one short climb to St. Johns Bridge, urban finish",
+          "named_section": "The Portland Finish"
+        }
+      ],
+      "signature_challenge": "The distance itself. STP has no single feature that defines the course — no brutal climb, no technical descent, no unrideable sector. The challenge is 206 miles of sustained forward motion, managing nutrition and hydration across 8-14 hours of saddle time, and the psychological discipline of riding one direction for an entire day (or two). The Chehalis-to-Napavine rollers on tired legs are the closest thing to a crux, but the real opponent is the odometer."
+    },
+    "guide_variables": {
+      "race_name": "Seattle to Portland Bicycle Classic (STP)",
+      "race_distance": "206 miles (one or two days)",
+      "race_elevation": "5,100 feet",
+      "race_date": "July",
+      "race_location": "Seattle to Portland, WA/OR",
+      "race_terrain": "Flat to gently rolling paved country roads",
+      "race_weather": "Mid-July PNW — usually 70-85F, dry, but heat waves (90F+) are increasingly common",
+      "race_challenges": [
+        "206-mile distance — a double century regardless of pace option",
+        "Heat risk in recent years — 90F+ with limited shade across exposed rural roads",
+        "Persistent southerly headwind on the Seattle-to-Portland corridor",
+        "Chehalis-to-Napavine rolling terrain on fatigued legs at mile 108+",
+        "One-way logistics — finish in Portland, 180 miles from your start",
+        "Nutrition and hydration management across 8-14 hours of riding"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Double-century fueling strategy — tested in training at 100+ miles",
+        "by_when": "Week 6",
+        "why": "206 miles requires 6,000-10,000 calories depending on pace and body weight. Your fueling plan — what you eat, when, and how much — must be tested and proven on rides of at least 100 miles before event day. Bonking at mile 130 with 76 miles to go is a different kind of suffering than bonking at mile 60 of a century. Rest stops provide food every 25 miles, but you need a strategy, not just opportunity. Practice eating on the bike at race pace. Know your hourly calorie and fluid targets. The distance will punish guesswork."
+      },
+      {
+        "requirement": "Minimum one 130+ mile training ride (two-day) or 160+ mile ride (one-day)",
+        "by_when": "Week 5",
+        "why": "The two-day option splits into roughly 103 and 103 miles — back-to-back centuries. The one-day option is 206 miles without sleeping. Either requires distance-specific training. A 130-mile ride simulates the worst-case day-one distance. A 160-mile ride is the minimum to understand what your body does past 10 hours in the saddle. The flat terrain makes the distance achievable but does not make it easy."
+      },
+      {
+        "requirement": "Heat contingency plan — hydration, electrolytes, cooling strategy for 90F+",
+        "by_when": "Week 4",
+        "why": "Recent STP editions have hit 90F+ with high dropout rates from heat exhaustion. On 206 miles of exposed rural roads, heat management is survival, not comfort. Plan for worst-case: extra electrolyte tabs, ice in jersey pockets, wet bandana, and a willingness to slow down when temperatures climb. Rest stops provide water, but you need to be drinking between stops. Train in heat if possible."
+      }
+    ],
+    "citations": [
+      {
+        "url": "https://cascade.org/rides-events/seattle-portland-2026",
+        "title": "Seattle to Portland 2026 — Cascade Bicycle Club",
+        "category": "official"
+      },
+      {
+        "url": "https://cascade.org/rides-events/seattle-portland-2026/route",
+        "title": "STP 2026 Route — Cascade Bicycle Club",
+        "category": "official"
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Seattle_to_Portland_Bicycle_Classic",
+        "title": "Seattle to Portland Bicycle Classic — Wikipedia",
+        "category": "reference"
+      },
+      {
+        "url": "https://portlandbicyclingclub.com/seattle-to-portland/",
+        "title": "Seattle to Portland — Portland Bicycling Club",
+        "category": "reference"
+      },
+      {
+        "url": "https://cascade.org/rides-events/seattle-portland-2026/transportation-details",
+        "title": "STP 2026 Transportation Details — Cascade Bicycle Club",
+        "category": "official"
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "high",
+      "validation_status": "validated",
+      "research_strength": "A",
+      "sources_count": 5,
+      "last_updated": "2026-02-27"
+    }
+  }
+}

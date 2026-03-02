@@ -1,0 +1,378 @@
+{
+  "race": {
+    "name": "NYC Century Bike Tour",
+    "slug": "nyc-century",
+    "display_name": "NYC Century Bike Tour",
+    "tagline": "America's only all-urban century ride. 100 miles through four NYC boroughs. Born in 1990 as an act of cycling protest. 35 years of staking cyclists' claim to New York City streets.",
+    "vitals": {
+      "distance_mi": 100,
+      "elevation_ft": 3000,
+      "location": "New York City, New York, USA — Meatpacking District start/finish, four-borough route through Manhattan, Brooklyn, Queens, and the Bronx",
+      "location_badge": "NEW YORK CITY, USA",
+      "county": "New York City (Kings, Queens, Bronx, New York counties)",
+      "date": "September (historically second or third Sunday)",
+      "date_specific": "2025: September 21. Returned after a six-year hiatus (2020-2024). Future editions TBD.",
+      "terrain_types": [
+        "Paved urban roads — city streets open to vehicular traffic",
+        "Protected bike lanes and greenway paths throughout all four boroughs",
+        "Iconic bridge crossings — Williamsburg, Manhattan, Brooklyn, and Queensboro bridges",
+        "Waterfront greenways along the East River, Hudson River, and Brooklyn shoreline"
+      ],
+      "field_size": "~3,000 cyclists across all distance options. Peak participation reached 7,000 registrations in 2013. The 2019 final edition drew 3,000+ riders.",
+      "start_time": "Staggered by distance — Century Champion (100 mi): 5:30-6:30 AM, Coastal Trailblazer (75 mi): 6:30 AM, City Adventurer (50 mi): 7:30 AM, Casual Explorer (35 mi): 8:00 AM. VIP riders get first-wave access.",
+      "registration": "Online via nyccentury.org. Registration typically opens in March. Sells out — the 2025 return sold out its registration window.",
+      "prize_purse": "None. This is a supported bike tour and fundraiser for Transportation Alternatives, not a race. No timing, no results.",
+      "aid_stations": "Six rest stops across Brooklyn, the Bronx, and Queens stocked with snacks and water. Trained marshals ride alongside participants and are stationed at rest stops. Finish Festival in the Meatpacking District with food, music, and celebration.",
+      "cutoff_time": "Generous. All riders expected to finish before dark. Self-paced, self-guided ride with marshal support.",
+      "lat": 40.7408,
+      "lng": -74.0059,
+      "distance_options": [
+        "Century Champion (100 miles) — the full four-borough urban century across Manhattan, Brooklyn, Queens, and the Bronx",
+        "Coastal Trailblazer (75 miles) — NYC's southern shorelines with sweeping Atlantic views",
+        "City Adventurer (50 miles) — Coney Island through waterfront parks and vibrant neighborhoods",
+        "Casual Explorer (35 miles) — Manhattan, Queens, and Brooklyn with iconic bridge crossings",
+        "Family Fun Ride (15 miles) — relaxed spin with NYPD escort, perfect for kids and first-timers"
+      ],
+      "entry_fee": "General Admission: $125 (water bottle, finisher medal, surprises). VIP Admission: $200 (first-wave start, t-shirt, water bottle, medal, extras). Youth Admission: $60 (ages 14 and under, guardian required for under 18). General Admission + TA Membership: $140."
+    },
+    "climate": {
+      "primary": "Late September in New York City — warm early fall with moderate humidity, temperatures typically 60-75F",
+      "description": "Late September is one of the best windows for cycling in New York City. Morning temperatures at the 5:30 AM century start hover around 55-62F — cool enough for arm warmers that come off by mid-morning. Afternoon highs reach 68-78F with moderate humidity. The city's urban heat island effect adds a few degrees in dense Manhattan and Brooklyn corridors compared to the waterfront greenways. September in NYC averages 3-4 days of rain, so there is a reasonable chance of a dry ride, but thunderstorms are possible. Wind off the water can be a factor along the waterfront greenways and across the bridges. The event coincides with Climate Week NYC, and the weather typically cooperates with cycling-friendly conditions.",
+      "challenges": [
+        "Urban heat island effect in dense Manhattan and Brooklyn corridors — pavement radiates stored heat",
+        "Potential for late-season humidity, particularly on warmer September days",
+        "Headwinds on bridge crossings and exposed waterfront greenways",
+        "Sun exposure on open stretches with limited shade — 100 miles of urban riding means hours in direct sun",
+        "Possibility of September thunderstorms, though statistically unlikely on any given day"
+      ]
+    },
+    "terrain": {
+      "primary": "All-paved urban roads, protected bike lanes, and greenway paths through four New York City boroughs",
+      "surface": "100% paved surfaces. The route mixes city streets open to vehicular traffic with protected bike lanes and dedicated greenway paths. Riders cross iconic bridges including the Williamsburg, Manhattan, Brooklyn, and Queensboro bridges. The greenway sections along the Hudson River, East River, and Brooklyn waterfront offer car-free riding, while street sections require navigating alongside NYC traffic with marshal support. Road surfaces range from smooth greenway asphalt to typical NYC street conditions — occasional potholes, construction plates, and uneven pavement are part of the urban century experience. The route is self-guided with GPS tracks provided via Ride with GPS approximately one week before the event.",
+      "technical_rating": 1,
+      "features": [
+        "Four-borough traverse — Manhattan, Brooklyn, Queens, and the Bronx (Staten Island excluded)",
+        "Iconic bridge crossings including Williamsburg, Manhattan, Brooklyn, and Queensboro bridges",
+        "Hudson River Greenway — car-free waterfront path along Manhattan's west side",
+        "Brooklyn Waterfront Greenway — 27-mile shoreline path connecting neighborhoods",
+        "Coney Island boardwalk and Atlantic shoreline on the 50+ mile routes",
+        "Bronx waterfront and South Bronx Greenway on the century route",
+        "Self-guided on roads open to traffic — no street closures, marshal-supported navigation"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 54,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "logistics": 4,
+      "length": 2,
+      "technicality": 1,
+      "elevation": 1,
+      "climate": 2,
+      "altitude": 1,
+      "adventure": 3,
+      "prestige": 3,
+      "race_quality": 3,
+      "experience": 4,
+      "community": 4,
+      "field_depth": 1,
+      "value": 3,
+      "expenses": 2,
+      "cultural_impact": 4,
+      "tier_note": "T3 by score (54). Prestige=3, no prestige override applicable. A historically significant urban cycling event with deep NYC advocacy roots and a genuinely unique format — America's only all-urban century — but flat terrain, open roads with traffic, and no competitive element keep it in the mid-range.",
+      "score_note": "Sum of 14 criteria = 34 (logistics=4, length=2, technicality=1, elevation=1, climate=2, altitude=1, adventure=3, prestige=3, race_quality=3, experience=4, community=4, field_depth=1, value=3, expenses=2). cultural_impact=4 for 35 years of NYC cycling advocacy, born as an act of protest, helped build the case for 1,000+ miles of bike infrastructure, returned from 6-year hiatus by popular demand, Climate Week NYC tie-in. Total = 38. Score = round(38/70 * 100) = round(54.29) = 54.",
+      "editorial_tier": 3,
+      "editorial_tier_label": "TIER 3",
+      "business_tier": 3,
+      "business_tier_label": "TIER 3",
+      "display_tier": 3,
+      "display_tier_label": "TIER 3",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 4,
+        "explanation": "Transportation Alternatives has been producing this event since 1990, and 35 years of institutional knowledge shows. The 2025 return featured staggered starts by distance from the Meatpacking District, six staffed rest stops across three boroughs, trained marshals riding alongside participants, stationary marshals at key intersections, GPS routes shared via Ride with GPS, and a Finish Festival with food and music. The start/finish in the Meatpacking District is transit-accessible and iconic. Multiple distance options from 15 to 100 miles accommodate everyone from families to century veterans. What keeps it from a 5: roads are open to traffic with no street closures, and the self-guided format means navigation responsibility falls on the rider. This is not a closed-course event — you are sharing the road with New York City."
+      },
+      "length": {
+        "score": 2,
+        "explanation": "The century option is 100 miles, which is a legitimate distance challenge. But most participants ride the 35 or 50-mile options, and the 15-mile Family Fun Ride brings the accessibility floor down to anyone who can pedal. The century distance is available, but it is not the event's center of gravity — the majority of riders are doing 35-75 miles at a self-guided pace. As a distance test, riding 100 miles through urban traffic is genuinely demanding, but the event is designed for participation across all levels, not as an endurance crucible."
+      },
+      "technicality": {
+        "score": 1,
+        "explanation": "All paved roads and greenway paths. Zero gravel, zero singletrack, zero technical descents. The most technical moments are navigating NYC traffic, crossing bridges with pedestrian traffic, and dodging the occasional pothole or construction plate. This is urban cycling, not backcountry adventure. The technical challenge is traffic awareness, not terrain. A rider who has done a few group rides can handle every inch of this course."
+      },
+      "elevation": {
+        "score": 1,
+        "explanation": "New York City is essentially flat. The century route gains approximately 2,800-3,400 feet over 100 miles — almost all of it from bridge crossings and gentle rollers through the Bronx. There is no sustained climbing. The steepest gradients are the approaches to the major bridges, and even those are moderate by any standard. If you can ride a flat road for 100 miles, you can handle the elevation on this course."
+      },
+      "climate": {
+        "score": 2,
+        "explanation": "Late September in New York City is pleasant cycling weather — typically 60-75F with moderate humidity. The early morning century start at 5:30 AM means cool conditions for the first few hours, warming to comfortable temperatures by midday. The urban heat island effect adds a few degrees in dense areas, and sun exposure over 100 miles of riding is real. Occasional September thunderstorms are possible but not probable. This is not a climate challenge event — the weather window is well-chosen. Two points because the conditions are manageable but not trivially easy: humidity, sun exposure, and the possibility of rain on open roads with traffic are legitimate considerations."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "Sea level. The entire route is at or near sea level across all four boroughs. The highest point on the course is a bridge deck, and that does not count. Altitude is not a factor whatsoever."
+      },
+      "adventure": {
+        "score": 3,
+        "explanation": "Riding 100 miles through four boroughs of New York City is, objectively, an adventure. You cross iconic bridges with skyline views, ride through Coney Island and the Brooklyn waterfront, push into the Bronx neighborhoods most cyclists never visit, and navigate the organized chaos of the world's most famous city entirely by bicycle. The diversity of neighborhoods — Meatpacking District to Williamsburg to Coney Island to the South Bronx — creates a genuine urban exploration experience. This is not wilderness adventure, but it is culturally rich and visually spectacular. Three points because the urban adventure factor is real and unique in American cycling, even if the terrain itself is unremarkable."
+      },
+      "prestige": {
+        "score": 3,
+        "explanation": "The NYC Century is America's only all-urban 100-mile bike tour, and that distinction carries weight. Founded in 1990 as Transportation Alternatives' flagship event, it has 35 years of history and a genuine legacy in NYC cycling culture. At its peak in 2013, 7,000 riders registered. The event's return in 2025 after a six-year hiatus generated significant media coverage from Gothamist, Time Out, Streetsblog, and others. Within the NYC cycling community, the Century is a respected milestone. Nationally, it does not carry the prestige of a gran fondo or a major charity ride like the Pan-Mass Challenge — most cyclists outside the tristate area have never heard of it. Three points for strong regional prestige and a unique format, but limited national recognition."
+      },
+      "race_quality": {
+        "score": 3,
+        "explanation": "This is not a race — there is no timing, no results, no competitive element. As a supported bike tour, the quality is solid: 35 years of event production experience, six staffed rest stops, trained marshals, GPS navigation, and a proper Finish Festival. The collaboration with WNYC for the 2025 edition added media visibility. What keeps it from higher marks: the self-guided format on open roads with traffic means the 'event quality' is fundamentally different from a closed-course ride. You are navigating alongside taxis, delivery trucks, and pedestrians. The marshals help, but the experience depends heavily on your own urban cycling confidence. Three points for a well-organized tour that knows what it is — not a race, not a closed course, but a supported urban cycling celebration."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "The NYC Century delivers an experience no other cycling event in America can match. Starting from the Meatpacking District before sunrise, watching the city wake up as you cross your first bridge, riding through the full spectrum of New York City neighborhoods — from Brooklyn brownstones to the Coney Island boardwalk to the Bronx waterfront — and returning to a festival in one of Manhattan's most iconic districts. The event coincides with Climate Week NYC, connecting cycling advocacy to the broader sustainability movement. The 2025 return honored Roger Herz, a longtime cycling and transit advocate who died in 2022, adding an emotional layer. Four points because the urban tapestry of this ride — four boroughs, iconic bridges, diverse neighborhoods, waterfront greenways — creates a cycling experience that exists nowhere else. Not five, because open-road traffic and self-guided navigation introduce friction that a closed-course event would eliminate."
+      },
+      "community": {
+        "score": 4,
+        "explanation": "The NYC Century is not just a bike tour — it is a statement by the New York City cycling community. Transportation Alternatives founded the event in 1990 when riding a bicycle in the five boroughs was practically an act of protest, and the Century remains the organization's most visible public event. The 2025 return after a six-year hiatus demonstrated that the community demand had not faded — registration sold out. The cycling advocacy community, the NYC bike shop community (Bicycle Habitat's Charlie McCorkell was part of the founding team), and the broader sustainable transportation movement all converge on this event. Four points for deep roots in NYC cycling culture, genuine advocacy significance, and a community that brought the event back from a six-year absence through sheer demand."
+      },
+      "field_depth": {
+        "score": 1,
+        "explanation": "No timing. No results. No competition. The field is recreational cyclists, families, advocacy supporters, and urban explorers. The 15-mile Family Fun Ride with NYPD escort and the 100-mile century start from the same venue. There is no competitive depth because there is no competition. If you want a race in New York City, join the CRCA in Central Park. The NYC Century is about the ride, not the racing."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "General admission at $125 includes a finisher medal, water bottle, six rest stops, marshal support, GPS navigation, and access to the Finish Festival. For a well-supported 100-mile urban tour through four boroughs of New York City — arguably the most expensive city in America to stage an event — that is reasonable. VIP at $200 adds a first-wave start and t-shirt. The event is a fundraiser for Transportation Alternatives, so your registration directly supports NYC cycling advocacy. Three points because the value proposition is fair — you are getting a unique experience with solid support — but $125 for a self-guided ride on open roads is not cheap compared to events with closed courses and more comprehensive support."
+      },
+      "expenses": {
+        "score": 2,
+        "explanation": "This is New York City. If you are local, expenses are manageable — $125 registration, ride your own bike, take the subway to the Meatpacking District. If you are traveling, prepare your wallet: NYC hotel rooms in September average $250-$400/night, flights to JFK/LGA/EWR are $200-$500 from most US cities, and everything from food to parking is priced accordingly. Even locals face NYC's general cost of living for any pre-event meals or gear needs. Two points because the registration fee itself is reasonable, but the NYC cost multiplier makes this an expensive event for any out-of-town participant."
+      }
+    },
+    "biased_opinion": {
+      "verdict": "The Urban Century That Built a Movement",
+      "summary": "In 1990, when New York City had a handful of bike lanes and riding a bicycle was practically an act of protest, Transportation Alternatives put 200 cyclists on the streets and called it a century ride. Thirty-five years later, NYC has over 1,000 miles of cycling infrastructure, and the NYC Century is the ride that helped build the case. This is America's only all-urban 100-mile bike tour — four boroughs, iconic bridges, waterfront greenways, and the full spectrum of New York City neighborhoods, all experienced at pedaling speed. It is not a race. There is no timing, no results, no KOM segments that matter. What matters is that 3,000 cyclists take over 100 miles of city streets on a single Sunday and remind everyone — drivers, pedestrians, politicians — that bikes belong here. The event's six-year hiatus and triumphant 2025 return proved what TransAlt always knew: the cycling community in New York City is not going away. The routes are flat, the roads are open to traffic, and the challenge is more navigational than physical. But crossing the Williamsburg Bridge at dawn, riding past the Coney Island boardwalk at midday, and rolling back into the Meatpacking District as the sun gets low — that is a day you remember.",
+      "strengths": [
+        "Truly unique format: America's only all-urban 100-mile bike tour. No other event takes you through four boroughs of New York City in a single day. The diversity of neighborhoods, bridges, and waterfront paths is unmatched.",
+        "Deep advocacy roots: Founded in 1990 by Transportation Alternatives, the NYC Century is inseparable from the movement that built NYC's cycling infrastructure. Your registration supports ongoing advocacy for safer streets.",
+        "Five distance options: From a 15-mile Family Fun Ride with NYPD escort to the full 100-mile century, the event accommodates every level. This is accessible cycling without sacrificing ambition for those who want it.",
+        "Cultural resonance: Timed to Climate Week NYC, honoring cycling advocates, and serving as a public demonstration that bikes are a viable urban transportation mode. This ride means something beyond the miles."
+      ],
+      "weaknesses": [
+        "Open roads with traffic: No street closures. You are riding alongside New York City traffic for 100 miles. Marshals help, but this requires genuine urban cycling confidence and constant situational awareness.",
+        "Self-guided navigation: GPS tracks are provided, but you are responsible for following the route through one of the most complex street grids on Earth. Missed turns happen, especially in unfamiliar boroughs.",
+        "Flat and physically straightforward: If you are looking for a climbing challenge or technical terrain, this is not it. The difficulty is duration and urban navigation, not gradient or surface.",
+        "Uncertain future: The 2019 edition was billed as the '30th and final.' The 2025 return may be a one-time comeback. Transportation Alternatives has not committed to annual editions going forward."
+      ],
+      "bottom_line": "The NYC Century is for cyclists who want to experience New York City in a way that no tourist bus, subway ride, or walking tour can deliver. One hundred miles of the most dynamic city on Earth, absorbed at 15 mph. If you care about cycling advocacy, urban infrastructure, and the simple act of claiming your right to the road, this is your ride. If you want closed courses, timing chips, and competitive fields, look elsewhere."
+    },
+    "final_verdict": {
+      "score": "54 / 100",
+      "one_liner": "America's only all-urban century ride. Four boroughs, iconic bridges, 35 years of cycling advocacy — experienced entirely on open streets shared with New York City traffic.",
+      "should_you_race": "You do not race the NYC Century — you ride it as a statement. Yes if you want to experience New York City by bicycle in a way no other event offers — 100 miles through four boroughs, across iconic bridges, along waterfronts, and through neighborhoods that most cyclists never visit. Yes if you support cycling advocacy and want your registration dollars to fund Transportation Alternatives' work building safer streets. Yes if you are an experienced urban cyclist comfortable navigating traffic without closed roads. Skip if you need competitive timing, challenging terrain, or a closed-course experience. Skip if you are uncomfortable riding in traffic — this is not a beginner-friendly century, despite the shorter distance options.",
+      "alternatives": "If you want a massive NYC cycling event with closed streets: Five Boro Bike Tour (40 miles, all five boroughs, 32,000 riders, fully closed course). If you want a competitive century near NYC: Gran Fondo New York (100 miles, George Washington Bridge to Bear Mountain, timed). If you want an urban century with more support: LA River Ride (various distances, Los Angeles). If you want a challenging century with real climbing: Climb to Kaiser (155 miles, 11,000 ft elevation, Northern California).",
+      "alternative_slugs": [
+        "five-boro-bike-tour",
+        "gran-fondo-new-york",
+        "la-river-ride",
+        "climb-to-kaiser"
+      ]
+    },
+    "logistics": {
+      "airport": "Three major airports serve NYC: John F. Kennedy International (JFK), LaGuardia (LGA), and Newark Liberty International (EWR). All are 30-60 minutes from the Meatpacking District start/finish by taxi or transit. JFK and EWR have direct AirTrain connections to the subway/NJ Transit. Most participants are local NYC-area residents.",
+      "lodging_strategy": "Single-day event — no overnight required for local riders. For out-of-town participants, book a hotel in Manhattan's Meatpacking District, Chelsea, or West Village neighborhoods for walking distance to the start. The 5:30 AM century start means you want to minimize morning logistics. NYC hotel rates in September average $250-$400/night. Budget options include hotels in Jersey City (PATH train to 14th Street) or Brooklyn (L train to 14th Street). Book early — September is peak NYC tourism season and Climate Week drives additional demand.",
+      "food": "Six rest stops across Brooklyn, Queens, and the Bronx with snacks, water, and marshal support. Finish Festival in the Meatpacking District with food and celebration. NYC's density means you are never far from a bodega, deli, or coffee shop if you need to supplement the official rest stops. Carry your own nutrition for the first 15-20 miles before the first rest stop.",
+      "packet_pickup": "Check-in at the Start Festival in the Meatpacking District (10th Avenue between 13th and 14th Streets). Staggered check-in times by distance: 100-mile riders at 5:30-6:30 AM, shorter distances later. VIP riders get priority first-wave access. Details shared via email approximately one week before the event.",
+      "parking": "NYC parking is expensive and limited. Strongly recommend taking public transit to the start — the Meatpacking District is served by the A/C/E and L subway lines (14th Street and 8th Avenue stations). If you must drive, expect to pay $30-$60 for a garage in the area. Street parking in the Meatpacking District is extremely limited on a Sunday morning.",
+      "official_site": "https://nyccentury.org/"
+    },
+    "history": {
+      "founded": 1990,
+      "founder": "Transportation Alternatives",
+      "origin_story": "When Transportation Alternatives launched the NYC Century in 1990, riding a bicycle in the five boroughs was practically an act of protest. New York City had a handful of bike lanes, cyclists were treated as obstacles by drivers and city planners alike, and the idea of 100 miles of urban cycling infrastructure was science fiction. TransAlt gathered 200 passionate cyclists and sent them on a 100-mile loop through New York City's neighborhoods — staking a claim to the streets and demanding to be seen and heard as a constituency. Over the next three decades, the NYC Century grew from that scrappy act of advocacy into America's only all-urban 100-mile bike tour, attracting up to 7,000 registrations at its 2013 peak. As New York City built over 1,000 miles of cycling infrastructure — protected bike lanes, greenways, bridge connections — the Century's route improved with the city. In 2019, Transportation Alternatives held what they called the '30th and final' NYC Century, citing declining registrations and the reality that producing a 100-mile urban event requires immense time, money, and coordination regardless of how many riders show up. But the cycling community would not let it go. In 2025, six years after the 'final' edition, the NYC Century returned — rebranded, refreshed, and sold out — proving that New York City's cycling community is larger, louder, and more committed than ever. The 2025 return honored Roger Herz, a longtime cycling and transit advocate who died in 2022 at age 88, and coincided with Climate Week NYC.",
+      "notable_moments": [
+        "1990: Transportation Alternatives launches the NYC Century with 200 riders — cycling as an act of protest on NYC streets with almost no bike infrastructure",
+        "2000s: Event grows to thousands of riders as NYC builds its first major protected bike lanes",
+        "2013: Peak registration year with approximately 7,000 riders signing up for the urban century",
+        "2019: Transportation Alternatives holds the '30th and final' NYC Century — 3,000+ riders take to the streets one last time",
+        "2020-2024: Six-year hiatus — COVID pandemic followed by organizational reassessment",
+        "2025: The NYC Century returns on September 21 after six years off — sold-out registration, five route options (15-100 miles), Meatpacking District start/finish, coinciding with Climate Week NYC and honoring Roger Herz"
+      ],
+      "reputation": "America's only all-urban century ride and a founding act of New York City's cycling advocacy movement. The ride that helped build the case for 1,000 miles of bike infrastructure — and then came back from the dead to prove the work is not finished."
+    },
+    "course_description": {
+      "character": "The NYC Century is urban cycling distilled into 100 miles. Starting from the Meatpacking District before dawn, century riders roll out into a city that is still waking up — quiet streets, early light on the Hudson, and the rare sensation of having New York to yourself on a bicycle. The route weaves through four boroughs, each with its own character and rhythm. Manhattan's west side greenway provides a car-free opening stretch along the Hudson. Bridge crossings — Williamsburg, Manhattan, Brooklyn, Queensboro — deliver the postcard skyline views that make outsiders understand why New Yorkers put up with everything else. Brooklyn's waterfront greenway connects Williamsburg to Red Hook to Bay Ridge to Coney Island, with the Verrazano Bridge looming in the distance. Queens offers the southern shoreline and a perspective on the city that most visitors never see. The Bronx, reserved for the century riders, takes you into neighborhoods where cycling infrastructure is still catching up to the rest of the city — a reminder of why Transportation Alternatives exists. The route is self-guided on roads open to traffic, with GPS navigation and marshal support but no street closures. This means the experience is shaped by the city itself: traffic patterns, pedestrians, delivery trucks, construction zones. It is exhilarating and exhausting in equal measure. The final miles back to the Meatpacking District deliver the emotional payoff — 100 miles of the most dynamic city on Earth, absorbed at pedaling speed, culminating in a festival finish among riders who just did something that very few cyclists ever attempt.",
+      "suffering_zones": [
+        {
+          "mile": 0,
+          "label": "Meatpacking District — Pre-Dawn Roll Out",
+          "desc": "Century riders check in at 5:30-6:30 AM on 10th Avenue between 13th and 14th Streets. The Meatpacking District is quiet at this hour — cobblestone streets, shuttered boutiques, and the High Line overhead. The energy at the start is nervous and electric. Roll out onto the Hudson River Greenway heading south, the river reflecting the first light of day. The field is small enough to feel intimate but large enough to feel like a movement.",
+          "terrain_detail": "Flat paved greenway along the Hudson River, car-free",
+          "named_section": "The Roll Out"
+        },
+        {
+          "mile": 20,
+          "label": "Brooklyn Bridges and Waterfront",
+          "desc": "By mile 20, you have crossed your first iconic bridge — the Williamsburg or Manhattan Bridge — and descended into Brooklyn. The borough unfolds along its waterfront greenway: DUMBO with its cobblestones and Manhattan Bridge framing, Red Hook with its industrial grit, and the long stretch of the Brooklyn shoreline heading toward Bay Ridge. Traffic picks up as the city wakes up. The rest stops begin appearing, and you settle into the rhythm of urban century riding — pedal, navigate, absorb, repeat.",
+          "terrain_detail": "Mixed paved roads and greenway paths, bridge climbs and descents, increasingly active traffic",
+          "named_section": "Brooklyn Waterfront"
+        },
+        {
+          "mile": 50,
+          "label": "Coney Island and the Shoreline",
+          "desc": "The halfway mark arrives at or near Coney Island — the boardwalk, the Atlantic Ocean, and the surreal juxtaposition of amusement park rides and the open sea. This is the emotional midpoint of the ride. You are 50 miles into a 100-mile urban ride, your legs are talking, and you are watching the ocean. The shoreline routes push along NYC's southern coast with sweeping Atlantic views. The wind off the water can be a factor here.",
+          "terrain_detail": "Flat shoreline roads and boardwalk-adjacent paths, exposed to ocean wind",
+          "named_section": "The Shore"
+        },
+        {
+          "mile": 75,
+          "label": "Queens and the Bronx — The Commitment Miles",
+          "desc": "The final quarter of the century route takes you into Queens and then the Bronx — boroughs where the cycling infrastructure is thinner and the riding demands more attention. These are the commitment miles. Your legs have 75 miles on them, the city is fully awake and at full volume, and you are navigating neighborhoods where bike lanes give way to shared roads. The Bronx waterfront offers a reward — river views and a sense that you are riding through the part of the city that needs cycling advocacy the most.",
+          "terrain_detail": "Mixed urban roads, some sections with limited cycling infrastructure, gentle rollers in the Bronx",
+          "named_section": "The Commitment"
+        },
+        {
+          "mile": 100,
+          "label": "The Meatpacking Finish — Festival",
+          "desc": "The final bridge crossing back into Manhattan delivers the skyline one last time, and the closing miles down the west side greenway return you to where you started — the Meatpacking District, now fully alive with the Finish Festival. Finisher medal, food, music, and the company of several thousand cyclists who just rode 100 miles through four boroughs of the most intense city on Earth. The High Line watches from above. You have done something very few cyclists ever do.",
+          "terrain_detail": "Flat greenway approach to the Meatpacking District finish",
+          "named_section": "The Festival Finish"
+        }
+      ],
+      "signature_challenge": "The signature challenge of the NYC Century is not a climb or a sprint — it is the sustained mental engagement of riding 100 miles on open roads through New York City. No street closures means you are sharing every mile with taxis, buses, delivery trucks, pedestrians, and the general organized chaos of a city of 8.3 million people. The physical effort is moderate — the terrain is flat — but the cognitive load of urban navigation, traffic awareness, and route-finding through four boroughs over 8-10 hours is unlike any other century ride in America."
+    },
+    "guide_variables": {
+      "race_name": "NYC Century Bike Tour",
+      "race_distance": "100 miles (century route); 15/35/50/75-mile options available",
+      "race_elevation": "~2,800-3,400 feet",
+      "race_date": "September 21, 2025 (returned after six-year hiatus; future editions TBD)",
+      "race_location": "New York City — Meatpacking District start/finish, four-borough route",
+      "race_terrain": "All paved — city streets, greenway paths, bridge crossings",
+      "race_weather": "Late September NYC — typically 60-75F, moderate humidity, possible rain",
+      "race_challenges": [
+        "100 miles on open roads shared with New York City traffic — no street closures",
+        "Self-guided navigation through four boroughs using GPS tracks",
+        "Urban heat island effect and sun exposure over a full day of riding",
+        "Bridge crossings with headwinds and shared pedestrian/cyclist traffic",
+        "Cognitive fatigue from sustained traffic awareness over 8-10 hours of urban riding"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Urban cycling confidence — ability to ride in traffic for extended periods without dedicated cycling infrastructure",
+        "by_when": "Baseline",
+        "why": "The NYC Century is on open roads with no street closures. You will ride alongside New York City traffic for the majority of 100 miles. If you are not comfortable holding a line in traffic, navigating intersections, and making split-second decisions around vehicles, this event is dangerous for you. Spend at least 10 hours riding in urban traffic during training before committing to the century distance."
+      },
+      {
+        "requirement": "Complete an 80-mile training ride — ideally on urban or mixed roads with some traffic",
+        "by_when": "Week 4",
+        "why": "The century route is 100 miles through four boroughs with no shortcut home. Unlike a rural century where you can bail to a support vehicle, the NYC Century requires you to navigate back to the Meatpacking District under your own power. Build to at least 80 miles in training so the final 20 miles are challenging but not overwhelming. Train on roads with traffic, not just greenways or bike paths."
+      },
+      {
+        "requirement": "Navigation setup tested — Ride with GPS or equivalent on handlebar-mounted device, fully charged with backup battery",
+        "by_when": "Week 2",
+        "why": "This is a self-guided ride through one of the most complex street grids in the world. GPS tracks are shared approximately one week before the event. You need a handlebar-mounted device (phone or cycling computer) with the route loaded and tested. Carry a backup battery. A wrong turn in the Bronx at mile 80 with a dead phone is not a situation you want to be in."
+      }
+    ],
+    "citations": [
+      {
+        "url": "https://nyccentury.org/",
+        "category": "official",
+        "label": "NYC Century Bike Tour — Official Website"
+      },
+      {
+        "url": "https://nyccentury.org/about",
+        "category": "official",
+        "label": "NYC Century — About Page"
+      },
+      {
+        "url": "https://nyccentury.org/faq",
+        "category": "official",
+        "label": "NYC Century — FAQ"
+      },
+      {
+        "url": "https://nyccentury.org/find-your-route",
+        "category": "official",
+        "label": "NYC Century — Find Your Route (Distance Options)"
+      },
+      {
+        "url": "https://transalt.org/events/lualbnjrxhtxblhpgju23t7oxzamz1",
+        "category": "official",
+        "label": "Transportation Alternatives — NYC Century Event Page"
+      },
+      {
+        "url": "https://nyc.streetsblog.org/2019/05/10/why-the-nyc-century-bike-tour-is-riding-into-the-sunset",
+        "category": "media",
+        "label": "Streetsblog NYC — Why The NYC Century Bike Tour Is Riding Into the Sunset (2019)"
+      },
+      {
+        "url": "https://gothamist.com/news/the-nyc-century-bike-tour-is-making-a-comeback-do-you-have-what-it-takes",
+        "category": "media",
+        "label": "Gothamist — The NYC Century Bike Tour Is Making a Comeback (2025)"
+      },
+      {
+        "url": "https://www.timeout.com/newyork/news/the-100-mile-long-nyc-century-bike-tour-is-coming-back-after-six-years-070725",
+        "category": "media",
+        "label": "Time Out New York — NYC Century Bike Tour Returns After 6-Year Break (2025)"
+      },
+      {
+        "url": "https://theexploreist.com/usa/nyc-century-bike-tour-returns-routes-all-levels-rest-stops",
+        "category": "media",
+        "label": "The Exploreist — NYC Century Bike Tour Returns: Routes, Rest Stops, All Levels (2025)"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Contents/Index/8630/nyc-century-bike-ride-returns-after-6-year-break",
+        "category": "media",
+        "label": "Gran Fondo Guide — NYC Century Bike Ride Returns After 6-Year Break"
+      },
+      {
+        "url": "https://ridewithgps.com/routes/10337908",
+        "category": "other",
+        "label": "Ride with GPS — NYC Century Bike Tour Route (Historical)"
+      },
+      {
+        "url": "https://medium.com/@ginamc/the-30th-and-final-f64ac7e78079",
+        "category": "other",
+        "label": "Medium — The 30th and Final: NYC Century 2019 Ride Report"
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "high",
+      "validation_status": "validated",
+      "sources": [
+        "official_website",
+        "event_organizer_pages",
+        "media_coverage",
+        "ride_reports",
+        "route_data"
+      ],
+      "migration_notes": [
+        "New profile created February 2026.",
+        "Event returned in September 2025 after a six-year hiatus (2020-2024). The 2019 edition was billed as the '30th and final.'",
+        "Future annual editions not confirmed by Transportation Alternatives as of February 2026.",
+        "Elevation data approximated from Ride with GPS historical route data — 2,800-3,400 ft across multiple route variations.",
+        "Peak registration of 7,000 riders (2013) from Streetsblog reporting. 2025 return expected ~3,000 participants.",
+        "Pricing data from 2025 edition: $125 GA, $200 VIP, $60 youth. Some sources cite $105 GA (possibly early-bird or member pricing).",
+        "Route covers four boroughs (Manhattan, Brooklyn, Queens, Bronx). Staten Island is not included despite '5 boroughs' sometimes being referenced loosely.",
+        "Distinct from the Five Boro Bike Tour (Bike New York) — which is 40 miles on closed streets through all five boroughs with 32,000 riders."
+      ],
+      "research_strength": {
+        "overall": 76.0,
+        "grade": "B",
+        "weakest": "post_event_results",
+        "has_research_dump": false,
+        "dimensions": {
+          "source_diversity": 85,
+          "citation_density": 80,
+          "temporal_depth": 80,
+          "specificity": 70,
+          "statistical_backing": 65,
+          "voice_authenticity": 80,
+          "completeness": 75,
+          "cross_reference": 75
+        },
+        "scored_at": "2026-02-27"
+      }
+    }
+  }
+}

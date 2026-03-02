@@ -1,0 +1,358 @@
+{
+  "race": {
+    "name": "Tour de Cure",
+    "slug": "tour-de-cure",
+    "display_name": "Tour de Cure",
+    "tagline": "America's premier diabetes cycling fundraiser. Multiple editions nationwide. 5 to 100 miles. Red Riders leading the charge. 30+ years of riding to stop diabetes — one pedal stroke at a time.",
+    "vitals": {
+      "distance_mi": 100,
+      "elevation_ft": 2000,
+      "location": "Multiple locations nationwide, USA (Arizona, Northern California, Chicagoland, New England, Greater New York, Mid-Atlantic, Texas, and more)",
+      "location_badge": "NATIONWIDE, USA",
+      "county": "Multiple (varies by edition)",
+      "date": "Year-round — editions held February through October depending on region",
+      "date_specific": "2026 Arizona: February 14 at Goodyear Ballpark. 2025 Northern California: September 28 at HP Palo Alto. 2025 Chicagoland: August 9 at St. Charles. 2025 New England: August 17 at Lexington.",
+      "terrain_types": [
+        "Paved roads — state highways, county roads, and suburban backroads",
+        "Flat to gently rolling terrain designed for all ability levels",
+        "Course character varies by edition — desert roads in Arizona, rolling farmland in Chicagoland, coastal roads in Northern California"
+      ],
+      "field_size": "~6,000+ cyclists total across all editions nationwide. Individual editions range from several hundred to over 1,000 riders.",
+      "start_time": "Typically 7:00-8:00 AM local time (varies by edition)",
+      "registration": "Online via tour.diabetes.org. Registration fee typically $10-$30 plus fundraising minimum of $250 ($50 for riders under 18). Some editions have different fee structures.",
+      "prize_purse": "None. This is a fundraiser, not a race. All funds benefit the American Diabetes Association's mission to prevent and cure diabetes.",
+      "aid_stations": "Fully supported routes with rest stops every 10-20 miles providing water, food, and shade. Bike mechanics on course. SAG vehicles for rider support. Medical support available. Volunteer route marshals at key intersections.",
+      "cutoff_time": "Generous. SAG support ensures every rider can complete their chosen distance. This is a ride, not a race.",
+      "lat": 33.4484,
+      "lng": -112.074,
+      "distance_options": [
+        "Century (100 miles) — available at select editions for experienced cyclists",
+        "Metric Century (~62 miles) — the long route at most editions",
+        "Half Century (~30-35 miles) — intermediate distance",
+        "Short Route (~15-20 miles) — recreational distance",
+        "Family Fun Ride (~5 miles) — family-friendly, minimal elevation"
+      ],
+      "entry_fee": "$10-$30 registration fee + $250 fundraising minimum ($50 for riders under 18). Some editions have higher fees with fundraising included."
+    },
+    "climate": {
+      "primary": "Varies by edition — desert warmth in Arizona (February), summer heat and humidity in the Midwest and Northeast (June-August), mild fall in Texas (October)",
+      "description": "With editions spanning February through October across the entire United States, Tour de Cure climate conditions depend entirely on which edition you ride. The Arizona edition in February offers mild desert mornings (50-65F) warming to comfortable afternoons (70-80F) with minimal humidity and abundant sunshine. Chicagoland in August means Midwest summer heat (75-90F) with humidity. New England in August delivers similar heat with coastal breeze for some routes. Northern California in September offers classic Bay Area conditions — morning fog burning off to warm, dry afternoons (65-80F). Texas in October can still deliver heat (80-90F) with some humidity.",
+      "challenges": [
+        "Summer editions (Chicagoland, New England, Greater New York) can deliver significant heat and humidity",
+        "Arizona edition in February has low humidity but direct sun exposure in open desert terrain",
+        "Sun exposure across all editions — routes are generally on open roads with limited shade",
+        "Afternoon wind at many locations, particularly in coastal and desert editions",
+        "Variable conditions within a single ride — morning chill giving way to midday heat"
+      ]
+    },
+    "terrain": {
+      "primary": "Paved roads — flat to gently rolling, designed for mass participation across all ability levels",
+      "surface": "All paved roads. Course profiles vary by edition but are universally designed to be accessible. The Arizona edition routes through the Estrella foothills with a mix of flat stretches and gentle rolling terrain — the 62-mile route includes approximately 1,289 feet of elevation and a lap around the Phoenix Raceway NASCAR track. Chicagoland routes through the Fox Valley on rolling Illinois farmland. New England courses traverse rolling Massachusetts countryside. Northern California winds through Silicon Valley and Peninsula roads. All routes are well-marked with course marshals at intersections.",
+      "technical_rating": 1,
+      "features": [
+        "All-abilities course design — every edition offers routes from 5 miles to 62-100 miles",
+        "Arizona: Estrella foothills and a unique lap around Phoenix Raceway (NASCAR track)",
+        "Northern California: Silicon Valley and Peninsula roads through Woodside and Portola Valley",
+        "Chicagoland: Fox Valley rolling farmland and the Fox River Trail",
+        "New England: Massachusetts countryside roads from Lexington",
+        "Fully marked courses with volunteer marshals, rest stops, and SAG vehicles"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 54,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "logistics": 4,
+      "length": 2,
+      "technicality": 1,
+      "elevation": 1,
+      "climate": 2,
+      "altitude": 1,
+      "adventure": 2,
+      "prestige": 3,
+      "race_quality": 4,
+      "experience": 4,
+      "community": 4,
+      "field_depth": 1,
+      "value": 3,
+      "expenses": 3,
+      "cultural_impact": 3,
+      "tier_note": "T3 by score (54). Prestige=3, no prestige override applicable. A well-established charity cycling event series with 30+ years of history and strong community, but individual editions are single-day, relatively flat, and accessible by design — not high-challenge cycling.",
+      "score_note": "Sum of 14 criteria = 35 (logistics=4, length=2, technicality=1, elevation=1, climate=2, altitude=1, adventure=2, prestige=3, race_quality=4, experience=4, community=4, field_depth=1, value=3, expenses=3). cultural_impact=3 for 30+ years of nationwide diabetes fundraising, Red Rider program, and hundreds of millions raised. Total = 38. Score = round(38/70 * 100) = round(54.29) = 54.",
+      "editorial_tier": 3,
+      "editorial_tier_label": "TIER 3",
+      "business_tier": 3,
+      "business_tier_label": "TIER 3",
+      "display_tier": 3,
+      "display_tier_label": "TIER 3",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 4,
+        "explanation": "Over 30 years of event production across dozens of editions has created a reliable, well-oiled operation. Each Tour de Cure edition is fully supported with rest stops every 10-20 miles, SAG vehicles, bike mechanics, volunteer route marshals, medical support, and a substantial post-ride festival. The American Diabetes Association's organizational infrastructure — corporate sponsors, regional teams, local volunteer networks — provides a level of support that most single-day charity rides cannot match. Multiple distance options at every edition accommodate everyone from families on a 5-mile fun ride to century riders. The nationwide franchise model means quality is consistent even as local flavor varies. Not quite at the PMC or AIDS/LifeCycle level of logistical complexity (those events move thousands of people over multiple days), but for a single-day charity ride, the Tour de Cure is exceptionally well-organized."
+      },
+      "length": {
+        "score": 2,
+        "explanation": "Most Tour de Cure editions top out at 62 miles (metric century), with select editions offering a full century (100 miles). The most popular distances are in the 15-35 mile range, designed for recreational cyclists and fundraisers rather than endurance athletes. The Arizona edition's longest route is 62 miles with 1,289 feet of elevation — a comfortable day for a trained cyclist. The family fun ride options at 5 miles bring the accessibility floor down to anyone who can ride a bike. This is intentional — the Tour de Cure prioritizes participation over athletic challenge. If you are a strong cyclist looking for a distance test, the century options exist but they are not the event's identity."
+      },
+      "technicality": {
+        "score": 1,
+        "explanation": "All paved roads, all editions. The courses are designed so that a rider who has been on a bike twice can complete the shortest distance safely. No gravel, no singletrack, no technical descents. The most technical moment at the Arizona edition might be the NASCAR track lap — which is about as flat and smooth as pavement gets. Route marshals at every turn. This is cycling at its most accessible, and that is entirely the point."
+      },
+      "elevation": {
+        "score": 1,
+        "explanation": "Tour de Cure courses are designed for mass participation, which means they avoid significant climbing. The Arizona edition's 62-mile route gains approximately 1,289 feet — barely rolling by cycling standards. The family fun ride in Arizona has 57 feet of elevation change. Chicagoland is Illinois flat with gentle Fox Valley rollers. New England editions have some rolling terrain on Massachusetts backroads but nothing resembling real hills. The courses are intentionally friendly to riders of all fitness levels. If you want climbing, this is not your event."
+      },
+      "climate": {
+        "score": 2,
+        "explanation": "The nationwide format means some editions face climate challenges and others are weather-perfect. Arizona in February is about as ideal as cycling weather gets — dry, mild, sunny. But Chicagoland in August means Midwest humidity and potential heat advisories. New England in August is similarly hot and humid. Texas in October can still deliver real heat. No single edition faces extreme conditions, and the organizers select dates and locations to avoid the worst weather windows. But sun exposure on open roads is universal across all editions, and hydration discipline matters for the longer distances."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "Every Tour de Cure edition operates at low elevation. Arizona is in the Phoenix valley (~1,000 feet). Chicagoland is essentially sea level. New England is low-lying. Northern California starts from Palo Alto at about 30 feet above sea level. Altitude is not a factor at any edition. Your lungs will work perfectly — it is your fundraising page that needs the elevation."
+      },
+      "adventure": {
+        "score": 2,
+        "explanation": "Tour de Cure routes pass through pleasant scenery — Arizona's Sonoran Desert foothills, Silicon Valley's oak-dotted hills, Illinois farmland, Massachusetts countryside. The NASCAR track lap in Arizona adds a unique novelty. But these are suburban and exurban roads, not backcountry wilderness. The adventure is social and emotional — riding alongside Red Riders who live with diabetes every day, raising money for a cause that affects 37 million Americans, and crossing a finish line knowing your effort matters. The geographic adventure is modest; the human adventure is real."
+      },
+      "prestige": {
+        "score": 3,
+        "explanation": "Tour de Cure is the American Diabetes Association's premier cycling event and one of the largest charity cycling series in the United States. At its peak in 2011, 55,000 cyclists participated in 80 events raising $18 million in a single year. The ADA brand carries institutional weight — diabetes affects 37 million Americans, and the Tour de Cure is how the cycling community responds. It does not carry the singular iconic status of the Pan-Mass Challenge ($1B+ raised) or the cultural gravity of AIDS/LifeCycle, but within the charity cycling landscape, Tour de Cure is a recognized and respected name. Completing a century at Tour de Cure earns genuine respect."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "The ADA has been producing Tour de Cure events for over 30 years, and the operational quality shows. Routes are well-marked with course marshals. Rest stops are fully stocked. Bike mechanics are on course. SAG vehicles patrol every route. Medical support is available. The post-ride festival — with finisher medals, catered lunch, beer garden, live music, health and wellness village, and kids zone — transforms the finish into a genuine celebration. Each regional edition has its own character and local personality while maintaining consistent quality standards. The franchise model works. Four points, not five, because individual editions are single-day events without the multi-day logistical complexity that earns a perfect score."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "The Tour de Cure experience is built on purpose. The Red Rider program — launched in 2007 by Mari Ruddy — gives riders living with type 1 or type 2 diabetes a special recognition that transforms the ride from a cycling event into a statement of defiance against disease. Red Riders wear distinctive jerseys and are celebrated at dedicated tents with special post-ride treats. Riding alongside someone who manages their blood sugar between rest stops while raising thousands of dollars to fight the disease they live with — that is a powerful experience. The post-ride festival is genuinely festive: finisher medals, catered food, beer garden, music, farmers markets, health screenings. The emotional depth does not reach the multi-day immersion of AIDS/LifeCycle or PMC, but for a single-day charity ride, Tour de Cure delivers a meaningful, memorable experience."
+      },
+      "community": {
+        "score": 4,
+        "explanation": "The diabetes community is massive — 37 million Americans have diabetes, and an estimated 96 million have prediabetes. Tour de Cure channels that community into cycling with remarkable effectiveness. Corporate teams ride together. Families ride together. Red Riders form bonds with each other and with the riders who fundraise on their behalf. The ADA's year-round engagement — through local offices, advocacy, education, and support programs — means Tour de Cure is not a one-day event but a focal point for an existing community. The nationwide franchise model means there is likely a Tour de Cure near you, lowering the barrier to participation. What it lacks compared to PMC or AIDS/LifeCycle is the intensity of a singular multi-day shared experience — the overnight camps, the communal suffering, the days-long emotional arc that forges deep bonds between strangers."
+      },
+      "field_depth": {
+        "score": 1,
+        "explanation": "Tour de Cure is explicitly not a race. There is no timing, no results, no competitive element whatsoever. The field ranges from children on training wheels doing the 5-mile family fun ride to experienced century riders, with the majority somewhere in the middle — recreational cyclists who ride a few times a month and want to do something meaningful with their fitness. The 'field' is measured in fundraising dollars and diabetes awareness, not finishing times. If you are looking for a race, you are in the wrong place."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "The registration fee of $10-$30 is nominal. The $250 fundraising minimum is significant but not prohibitive — it is within reach for most riders through personal donations and a simple fundraising page. In return, you get a fully supported ride with rest stops, mechanical support, SAG vehicles, a finisher medal, a catered post-ride meal, beer garden, live music, and a health and wellness village. The value equation is strong for a charity ride. You are getting a well-organized cycling event and the satisfaction of contributing to diabetes research and prevention. Compared to the $3,500-$6,000 fundraising minimums of AIDS/LifeCycle and PMC, Tour de Cure is remarkably accessible."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Tour de Cure is one of the most financially accessible charity cycling events in the country. Registration is $10-$30. The $250 fundraising minimum ($50 for riders under 18) is modest by charity ride standards — many riders cover this with a handful of personal donations. Most editions are local or regional, meaning participants drive to the start rather than flying. No hotel required for a single-day event. No multi-day gear investment. Total out-of-pocket for a typical participant: $50-$100 plus whatever portion of the $250 fundraising minimum they cover personally. Compare that to the thousands required for PMC, AIDS/LifeCycle, or Pelotonia, and Tour de Cure stands out as genuinely accessible."
+      }
+    },
+    "biased_opinion": {
+      "verdict": "The People's Ride",
+      "summary": "Tour de Cure is what happens when the American Diabetes Association hands the cycling community a simple assignment: ride your bike, raise some money, and help 37 million Americans who live with diabetes every single day. Since 1991, tens of thousands of cyclists have answered that call across dozens of editions nationwide, raising hundreds of millions of dollars for research, prevention, and education. This is not a race. This is not an endurance test. This is cycling at its most democratic — a 5-mile family fun ride and a 100-mile century starting from the same parking lot, united by the same cause. The Red Rider program gives riders living with diabetes the center stage they deserve, wearing distinctive jerseys that say: I have this disease, and I am still here, still riding, still fighting. The routes are flat, the distances are manageable, and the post-ride festival is a genuine celebration. Tour de Cure will never make a 'hardest rides' list. It was never trying to. It makes the list that matters — the one where cycling does something good for someone other than the rider.",
+      "strengths": [
+        "Accessibility: Routes from 5 to 100 miles at every edition. Fundraising minimum of $250 is within reach. No cycling experience required for the shortest distances. This is the most accessible major charity ride in America.",
+        "The Red Rider program: Riders living with type 1 or type 2 diabetes are recognized, celebrated, and centered. Riding alongside someone who manages their disease while raising money to fight it is powerful.",
+        "Nationwide reach: With editions across the country — Arizona, Northern California, Chicagoland, New England, Greater New York, Mid-Atlantic, Texas, and more — there is likely a Tour de Cure near you.",
+        "The post-ride festival: Finisher medals, catered lunch, beer garden, live music, health and wellness village, farmers market. The celebration matches the mission."
+      ],
+      "weaknesses": [
+        "Not challenging: The courses are designed for mass participation, which means experienced cyclists may find the routes too easy. The century options exist but are not the event's focus.",
+        "Franchise variability: With multiple editions, quality and atmosphere can vary. Some editions are large and vibrant; others are smaller and less polished.",
+        "Scale has contracted: From a peak of 55,000 cyclists in 80 events (2011) to approximately 6,000 cyclists in fewer editions. The event series has consolidated significantly since its peak.",
+        "No competitive element: Zero timing, zero results. If you want to test yourself against a course or a clock, this is not the event."
+      ],
+      "bottom_line": "Tour de Cure is the charity ride for everyone. Low barrier to entry, strong organizational support, meaningful cause, and a post-ride party that makes the effort worth it. It will not push your limits as a cyclist, but it will remind you why cycling matters beyond Strava segments and FTP tests."
+    },
+    "final_verdict": {
+      "score": "54 / 100",
+      "one_liner": "America's most accessible charity cycling event. Flat roads, big hearts, 30+ years of riding to stop diabetes.",
+      "should_you_race": "You do not race Tour de Cure — you ride it with purpose. Yes if you want a well-organized, fully supported charity ride with a low barrier to entry ($250 fundraising minimum) and routes from 5 to 100 miles. Yes if you want to ride alongside Red Riders who live with diabetes and channel your cycling into something meaningful. Yes if you want a post-ride festival with food, music, and community. Skip if you need challenging terrain, competitive timing, or a true endurance test — Tour de Cure is designed for participation, not performance.",
+      "alternatives": "If you want a more challenging charity ride with deeper emotional immersion: Pan-Mass Challenge (177 miles, $6,000 fundraising minimum, Dana-Farber Cancer Institute). If you want a large-scale single-day charity ride with more terrain: Pelotonia (25-200 miles, Ohio, cancer research). If you want a massive community ride with no fundraising requirement: El Tour de Tucson (102 miles, Arizona). If you want the biggest single-day charity ride experience: Five Boro Bike Tour (40 miles through all five NYC boroughs, 32,000 riders).",
+      "alternative_slugs": [
+        "pan-mass-challenge",
+        "pelotonia",
+        "tour-de-tucson",
+        "five-boro-bike-tour"
+      ]
+    },
+    "logistics": {
+      "airport": "Varies by edition. Arizona: Phoenix Sky Harbor (PHX), 25 miles to Goodyear Ballpark. Northern California: San Francisco (SFO) or San Jose (SJC), both within 30 miles of Palo Alto. Chicagoland: Chicago O'Hare (ORD) or Midway (MDW), ~45 miles to St. Charles. New England: Boston Logan (BOS), 15 miles to Lexington. Most participants drive to their local edition.",
+      "lodging_strategy": "Single-day events — no overnight required. Most participants drive from home to the start venue. For out-of-town riders, book a hotel near the start location the night before. Arizona: Goodyear/Litchfield Park hotels. Northern California: Palo Alto/Mountain View hotels. Chicagoland: St. Charles/Geneva hotels. New England: Lexington/Burlington hotels.",
+      "food": "Rest stops every 10-20 miles with water, electrolyte drinks, fruit, and snacks. Post-ride festival includes a complimentary catered lunch. Beer garden for adults. Vendors and food trucks at many editions. You will not go hungry.",
+      "packet_pickup": "Typically available on event morning at the start venue. Some editions offer pre-event pickup. Check your specific edition's page on tour.diabetes.org for details.",
+      "parking": "Free parking at all start venues. Arrive early for best spots — parking fills quickly at larger editions. Carpooling encouraged.",
+      "official_site": "https://tour.diabetes.org/"
+    },
+    "history": {
+      "founded": 1991,
+      "founder": "American Diabetes Association",
+      "origin_story": "The American Diabetes Association launched Tour de Cure in 1991 as its premier cycling fundraising event, bringing the cycling community together to raise money and awareness for diabetes research, prevention, and education. The concept was simple and powerful: ride your bike, raise money, fight diabetes. From a handful of regional events, Tour de Cure grew into a nationwide series held across 44 states at its peak. In 2007, the Red Rider program was created by Mari Ruddy, a rider in the Colorado Tour de Cure, to recognize and celebrate participants living with type 1 or type 2 diabetes — transforming them from riders into symbols of courage and resilience. By 2011, the event reached its peak with more than 55,000 cyclists participating in 80 events, raising over $18 million in a single year. Over three decades, Tour de Cure has cumulatively raised hundreds of millions of dollars for the American Diabetes Association's mission. The event series has consolidated in recent years, with fewer but more focused regional editions, but the core mission remains unchanged: get on your bike and ride to stop diabetes.",
+      "notable_moments": [
+        "1991: American Diabetes Association launches Tour de Cure as its premier cycling fundraiser",
+        "2007: Red Rider program created by Mari Ruddy — riders with diabetes recognized and celebrated",
+        "2007: Tour de Cure raises over $13 million for diabetes research",
+        "2008: 38,000 cyclists in 78 events raise nearly $16 million",
+        "2011: Peak year — 55,000+ cyclists in 80 events raise $18 million+",
+        "2017: Cumulative fundraising surpasses $250 million lifetime",
+        "2020s: Event series consolidates to fewer, more focused regional editions"
+      ],
+      "reputation": "America's most accessible charity cycling event. Where the cycling community rides to stop diabetes — one pedal stroke, one dollar, one Red Rider at a time."
+    },
+    "course_description": {
+      "character": "Tour de Cure courses are designed for mass participation, not athletic challenge. Every edition offers multiple distance options from 5 to 100 miles, all on paved roads with gentle-to-flat terrain. The Arizona edition is representative: starting from Goodyear Ballpark, riders head into the Estrella foothills on smooth desert roads with long sightlines and minimal traffic, then take a unique lap around the Phoenix Raceway NASCAR track before returning to the ballpark for the festival. The Northern California edition winds through the oak-dotted hills and quiet roads of Woodside and Portola Valley — some of the most scenic cycling in the Bay Area. Chicagoland routes follow the Fox River Valley through Illinois farmland. New England courses traverse Massachusetts countryside from Lexington. The terrain is universally forgiving — these are rides designed so that a first-time cyclist on the 5-mile family route and a century rider on the 100-mile route can both finish with smiles, finisher medals, and the knowledge that their effort matters.",
+      "suffering_zones": [
+        {
+          "mile": 0,
+          "label": "The Start — Roll Out",
+          "desc": "Every Tour de Cure begins with a mass start from the host venue — Goodyear Ballpark in Arizona, HP campus in Palo Alto, Pottawatomie Park in St. Charles. The energy is festive: Red Riders in distinctive jerseys, corporate teams in matching kits, families with kids on tag-alongs. The first miles are flat and social as the field spreads out across the opening roads.",
+          "terrain_detail": "Flat paved roads leaving the start venue",
+          "named_section": "The Roll Out"
+        },
+        {
+          "mile": 25,
+          "label": "The Mid-Route — Finding Your Rhythm",
+          "desc": "By mile 25, the shorter-distance riders have peeled off to their turnarounds and the metric century and century riders settle into their pace. Rest stops appear every 10-20 miles with water, fruit, and encouragement. The terrain rolls gently. This is the meditative stretch — the miles where you remember why you are riding.",
+          "terrain_detail": "Gently rolling paved roads with rest stop support",
+          "named_section": "The Rhythm"
+        },
+        {
+          "mile": 50,
+          "label": "The Long Route — Earning It",
+          "desc": "Only the century and metric century riders see mile 50. The terrain may include the most significant rollers of the day — the Estrella foothills in Arizona, the Portola Valley climbs in Northern California, the rolling farmland of the Fox Valley in Illinois. Nothing brutal, but at 50 miles on a warm day, even gentle terrain earns respect. The rest stops become more welcome.",
+          "terrain_detail": "Gently rolling to rolling paved roads, edition-dependent terrain",
+          "named_section": "The Earn"
+        },
+        {
+          "mile": 62,
+          "label": "The Finish — Festival and Celebration",
+          "desc": "The finish line is a party. Cheering volunteers, finisher medals, catered lunch, beer garden, live music, health and wellness village, farmers market, kids zone. Red Riders are celebrated at dedicated tents. Corporate teams gather for photos. The post-ride festival transforms the finish from an ending into a beginning — the moment your miles become dollars become research become hope.",
+          "terrain_detail": "Flat approach to finish venue",
+          "named_section": "The Festival"
+        }
+      ],
+      "signature_challenge": "Tour de Cure's signature challenge is not a climb or a headwind — it is the decision to ride. To register, raise $250, show up, and pedal alongside people who live with diabetes every day. The physical effort is modest by design. The emotional weight of riding for 37 million Americans with diabetes, riding alongside Red Riders who are fighting the disease while they ride — that is the challenge that matters."
+    },
+    "guide_variables": {
+      "race_name": "Tour de Cure",
+      "race_distance": "5-100 miles (multiple distances at each edition)",
+      "race_elevation": "~57-2,000 feet depending on edition and distance",
+      "race_date": "Year-round (February through October depending on edition)",
+      "race_location": "Multiple editions nationwide — Arizona, Northern California, Chicagoland, New England, Greater New York, Mid-Atlantic, Texas",
+      "race_terrain": "Paved roads, flat to gently rolling",
+      "race_weather": "Varies by edition — mild desert (Arizona Feb), summer heat and humidity (Midwest/Northeast Aug), warm fall (Texas Oct)",
+      "race_challenges": [
+        "Sun exposure across open roads at all editions",
+        "Summer heat and humidity at Midwest and Northeast editions",
+        "Gentle rolling terrain at metric century and century distances",
+        "Fundraising commitment of $250 minimum",
+        "Riding alongside Red Riders who live with diabetes — the emotional weight of the mission"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Base fitness for your chosen distance — complete a ride 75% of your target distance at least once",
+        "by_when": "Week 4",
+        "why": "Tour de Cure offers routes from 5 to 100 miles. Whatever distance you choose, complete at least 75% of it in training so that event day is challenging but not overwhelming. If you are riding the century, build to 75 miles. If you are riding the metric century, build to 45 miles. The goal is to finish strong and enjoy the post-ride festival."
+      },
+      {
+        "requirement": "Fundraising page active and shared — $250 minimum raised before event day",
+        "by_when": "Week 1",
+        "why": "The $250 fundraising minimum is modest but must be completed before event day. Start your fundraising page immediately upon registration. Share it with friends, family, and colleagues. Most riders hit $250 with 10-15 personal donations. Do not leave this until the last week — fundraising stress undermines training enjoyment."
+      },
+      {
+        "requirement": "Hydration and nutrition strategy tested — particularly for metric century and century distances",
+        "by_when": "Week 3",
+        "why": "Many Tour de Cure editions are held in warm weather. Rest stops are well-spaced but you need a personal hydration and fueling plan for rides over 30 miles. Test your water bottle setup, electrolyte strategy, and on-bike nutrition on training rides so event day has no surprises."
+      }
+    ],
+    "citations": [
+      {
+        "url": "https://tour.diabetes.org/",
+        "category": "official",
+        "label": "Tour de Cure Official Website — American Diabetes Association"
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Tour_de_Cure",
+        "category": "other",
+        "label": "Wikipedia — Tour de Cure"
+      },
+      {
+        "url": "https://diabetes.org/newsroom/press-releases/2025-tour-de-cure-northern-california-returns-palo-alto-0",
+        "category": "media",
+        "label": "ADA Press Release — 2025 Tour de Cure Northern California Returns to Palo Alto"
+      },
+      {
+        "url": "https://diabetes.org/newsroom/press-releases/2025-tour-de-cure-chicagoland-returns-st-charles",
+        "category": "media",
+        "label": "ADA Press Release — 2025 Tour de Cure Chicagoland Returns to St. Charles"
+      },
+      {
+        "url": "https://diabetes.org/newsroom/press-releases/2025-tour-de-cure-greater-new-york-be-held-manorhaven-beach-park",
+        "category": "media",
+        "label": "ADA Press Release — 2025 Tour de Cure Greater New York"
+      },
+      {
+        "url": "https://tour.diabetes.org/arizona",
+        "category": "official",
+        "label": "Tour de Cure Arizona Edition — Official Page"
+      },
+      {
+        "url": "https://tour.diabetes.org/ncatour",
+        "category": "official",
+        "label": "Tour de Cure Northern California Edition — Official Page"
+      },
+      {
+        "url": "https://cronkitenews.azpbs.org/2023/03/20/tour-de-cure-cyclists-raise-money-diabetes/",
+        "category": "media",
+        "label": "Cronkite News — Tour de Cure Cyclists Raise $580,000 for Diabetes"
+      },
+      {
+        "url": "https://www.cyclingva.com/events/tour-de-cure-hampton-roads-virginia/",
+        "category": "other",
+        "label": "Cycling Virginia — 2026 Tour de Cure Mid-Atlantic"
+      },
+      {
+        "url": "https://www.massbike.org/timnectdc/american_diabetes_association_new_england_tour_de_cure",
+        "category": "other",
+        "label": "MassBike — American Diabetes Association New England Tour de Cure"
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "high",
+      "validation_status": "validated",
+      "sources": [
+        "official_website",
+        "press_releases",
+        "wikipedia",
+        "media_coverage",
+        "event_listing_sites"
+      ],
+      "migration_notes": [
+        "New profile created February 2026.",
+        "Tour de Cure is a nationwide series — profile represents the event series as a whole with Arizona edition as primary reference.",
+        "Peak participation data (55,000 riders in 80 events, 2011) from Wikipedia and press coverage.",
+        "Cumulative fundraising exceeds $250 million (confirmed through 2017); exact all-time total not publicly reported.",
+        "Event series has consolidated significantly since 2011 peak — currently operating approximately 10-15 regional editions.",
+        "Elevation data approximated from RideWithGPS course data and event descriptions."
+      ],
+      "research_strength": {
+        "overall": 72.0,
+        "grade": "B-",
+        "weakest": "elevation_data",
+        "has_research_dump": false,
+        "dimensions": {
+          "source_diversity": 80,
+          "citation_density": 70,
+          "temporal_depth": 85,
+          "specificity": 60,
+          "statistical_backing": 65,
+          "voice_authenticity": 70,
+          "completeness": 75,
+          "cross_reference": 70
+        },
+        "scored_at": "2026-02-27"
+      }
+    }
+  }
+}

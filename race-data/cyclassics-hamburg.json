@@ -1,0 +1,312 @@
+{
+  "race": {
+    "name": "Cyclassics Hamburg",
+    "slug": "cyclassics-hamburg",
+    "display_name": "Cyclassics Hamburg",
+    "tagline": "Germany's only WorldTour race. 22,000 riders on closed roads. The Waseberg at 16%. Europe's biggest cycling festival — and registration is free.",
+    "vitals": {
+      "distance_mi": 68,
+      "elevation_ft": 1150,
+      "location": "Hamburg, Germany",
+      "location_badge": "HAMBURG, GERMANY",
+      "date": "Third Sunday of August annually",
+      "date_specific": "2026: August 16",
+      "terrain_types": [
+        "Paved urban roads — fully closed to traffic",
+        "Flat northern German countryside",
+        "Elbe River waterfront sections",
+        "Waseberg hill — 700m at up to 16% gradient"
+      ],
+      "field_size": "~22,000 amateur riders (capped)",
+      "start_time": "Wave starts from early morning (grids assigned by average speed and experience)",
+      "registration": "Online via timeto.com. Registration is free. Opens months in advance and fills quickly — 22,000 slots. Re-registration transfer fee of EUR 10 after deadline.",
+      "prize_purse": "None for amateur sportive. UCI WorldTour pro race held same day has professional prize purse.",
+      "aid_stations": "Multiple feed zones along both routes with water, nutrition, and mechanical support. Medical assistance throughout the course.",
+      "cutoff_time": "Reasonable pace required — course support has intermediate time limits based on distance.",
+      "lat": 53.551,
+      "lng": 9.994,
+      "distance_options": [
+        "Cyclassics 110: ~109 km (68 mi) — flagship distance, starts on Versmannstraße in HafenCity, extends into countryside with Waseberg climb",
+        "Cyclassics 60: ~57 km (35 mi) — accessible distance, starts between Binnenalster and Außenalster"
+      ],
+      "entry_fee": "Free (EUR 0). Re-registration transfer fee EUR 10."
+    },
+    "climate": {
+      "primary": "Maritime temperate — northern German summer",
+      "description": "Mid-August in Hamburg is the warmest period of the year, but this is northern Germany, not the Mediterranean. Average highs of 22-23C (72-73F) with lows around 13-14C (55-57F). Rain is always possible — August averages 70-80mm across 17-18 rain days, meaning there is roughly a 50% chance of some rain on any given day. The maritime climate means conditions can shift quickly. Coastal proximity moderates extremes — rarely truly hot, rarely cold, but often damp. Early morning starts will feel cool. Occasional summer heat waves can push temperatures above 30C, though uncommon.",
+      "challenges": [
+        "Rain probability: Hamburg averages 17-18 days with precipitation in August — pack a gilet",
+        "Wind: flat exposed terrain and Elbe proximity mean headwinds and crosswinds are a constant factor",
+        "Cool morning starts: 13-15C at dawn requires layering decisions",
+        "Occasional summer heat waves can push temperatures above 30C, though uncommon"
+      ]
+    },
+    "terrain": {
+      "primary": "Paved — urban and rural German roads, fully closed to traffic",
+      "surface": "Excellent German road infrastructure throughout. Urban streets in Hamburg's city center, waterfront roads along the Elbe, and rural roads through the northern German countryside. All sealed tarmac in generally excellent condition. Flat to gently rolling with the singular exception of the Waseberg.",
+      "technical_rating": 1,
+      "features": [
+        "Waseberg hill — 700m at up to 16% gradient, the course's only significant climb, rising 70m from the Elbe's north bank into Blankenese",
+        "Hamburg city center — riding through Mönckebergstraße, past the Alster lakes, the Speicherstadt, and the commercial district",
+        "Elbe River waterfront — flat riverside roads with port and harbor views",
+        "Northern German countryside — flat to gently rolling agricultural land on exposed, wind-prone roads"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 67,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "logistics": 5,
+      "length": 2,
+      "technicality": 1,
+      "elevation": 1,
+      "climate": 2,
+      "altitude": 1,
+      "adventure": 2,
+      "prestige": 4,
+      "race_quality": 5,
+      "experience": 4,
+      "community": 5,
+      "field_depth": 3,
+      "value": 5,
+      "expenses": 4,
+      "cultural_impact": 3,
+      "tier_note": "Germany's only UCI WorldTour race, paired with one of the world's largest mass-participation cycling events. Free registration for 22,000 amateur riders on fully closed roads through a major European city. The Waseberg is the only physical challenge on an otherwise pan-flat course.",
+      "score_note": "community=5 for 22,000 riders and massive spectator turnout creating a citywide cycling festival. value=5 because registration is literally free. race_quality=5 for WorldTour-level closed-road organization by ASO Germany. logistics=5 for a major European city with international airport 8 km from center. prestige=4 as Germany's sole UCI WorldTour race since the Deutschland Tour folded. elevation=1, altitude=1, technicality=1 reflect the dead-flat, paved, sea-level character. cultural_impact=3 as Germany's most important cycling event.",
+      "editorial_tier": 2,
+      "editorial_tier_label": "TIER 2",
+      "business_tier": 2,
+      "business_tier_label": "TIER 2",
+      "display_tier": 2,
+      "display_tier_label": "TIER 2",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 5,
+        "explanation": "Hamburg is Germany's second-largest city with its own international airport (HAM) just 8 km from the city center, connected by S-Bahn S1 in under 30 minutes. Major European and international connections fly direct. The Hauptbahnhof is one of Germany's busiest train stations with ICE high-speed rail links across the country. Public transport — U-Bahn, S-Bahn, buses — is excellent and covers the entire city. Both start areas are centrally located and accessible by public transport. ASO Germany brings Tour de France-level organizational competence. The Expo at Rathausmarkt and Jungfernstieg features 80+ exhibitors. Getting there and getting around is as frictionless as cycling logistics get."
+      },
+      "length": {
+        "score": 2,
+        "explanation": "The flagship Cyclassics 110 at 109 km is a solid half-day ride but not a long one by European sportive standards. Most fit riders finish in 3-4 hours. The Cyclassics 60 at 57 km is genuinely short — a morning ride for anyone with basic fitness. The distances are deliberately accessible: the Cyclassics wants maximum participation, not maximum suffering. Compare this to La Marmotte (174 km, 5,000m climbing) or the Tour of Flanders Sportive (273 km) and the scope difference is clear. This is a participation event, not an endurance event."
+      },
+      "technicality": {
+        "score": 1,
+        "explanation": "Flat paved roads on excellent German tarmac throughout. No cobblestones, no gravel, no technical descents. The Waseberg at 16% is a fitness test, not a bike-handling test. The primary technical demand is riding safely in enormous groups at speed on closed city roads — which is about awareness and group riding etiquette rather than bike handling. Any rider comfortable on a road bike can handle this course."
+      },
+      "elevation": {
+        "score": 1,
+        "explanation": "Hamburg sits at sea level on the North German Plain. The 110 km route accumulates approximately 300-500m of total elevation gain — nearly all of it concentrated in the Waseberg. The Waseberg's 70m of altitude gain over 700m is the most significant single effort on the course. Remove it and this would be a completely flat ride. For context, the pro race only accumulates around 840m of climbing over 207 km by riding the Waseberg five times. The amateur route is one of the flattest major cycling events in Europe."
+      },
+      "climate": {
+        "score": 2,
+        "explanation": "Mid-August in Hamburg is about as benign as Northern European cycling gets. Average highs around 22-23C, sunshine averaging 9 hours per day, and generally dry conditions. The maritime influence means it is rarely truly hot and rarely truly cold. Rain is always possible — this is northern Germany — but August is one of the warmer months. Compared to Flemish spring rain, Alpine cold, or Mediterranean heat, Hamburg in August is a non-issue. The climate is rarely extreme but frequently mediocre. Pack a gilet and hope for the best."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "The entire route stays within 100 meters of sea level. Hamburg is a port city on the Elbe estuary. The Waseberg summit in Blankenese reaches 87m — that is the ceiling. There are zero altitude effects, zero acclimatization concerns, and zero thin-air challenges. This is one of the lowest-altitude major cycling events in Europe."
+      },
+      "adventure": {
+        "score": 2,
+        "explanation": "This is an urban sportive through a major European city and its surrounding countryside. Hamburg is a beautiful city — the Alster lakes, the Elbe waterfront, the Elbphilharmonie, the Speicherstadt warehouse district — and the countryside is pleasant pastoral farmland. But there is no wilderness, no remoteness, no sense of exploration. The adventure is the scale of the event itself — 22,000 riders taking over the streets of a major city — rather than any geographical adventure. You will not discover something new. You will participate in something massive."
+      },
+      "prestige": {
+        "score": 4,
+        "explanation": "The Cyclassics is Germany's only UCI WorldTour race — the highest level of professional cycling. Since 1996 it has attracted the world's best sprinters: Elia Viviani (three-time winner), Tyler Farrar (back-to-back winner), Oscar Freire, Andre Greipel, Alexander Kristoff, Peter Sagan. The amateur event rides the same closed roads on the same day. After the Deutschland Tour folded in 2009, the Cyclassics became Germany's sole representation at cycling's top professional level. That WorldTour connection gives the event a prestige that no other German cycling event can match. It is not a Monument, but it is a serious professional one-day classic."
+      },
+      "race_quality": {
+        "score": 5,
+        "explanation": "WorldTour-level organization applied to a mass-participation event. ASO Germany — the organization behind the Tour de France — runs the show. Fully closed roads through a major city — no traffic, no negotiating with cars. Professional chip timing, multiple start waves sorted by ability, medical teams, feed zones, mechanical support, and marshaling across the entire course. The Expo features 80+ exhibitors. The finish on Mönckebergstraße has genuine grandstand energy. The infrastructure handles 22,000 riders smoothly, which is a logistical achievement of the highest order. This is how cycling events should be run."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "The experience is defined by scale and spectacle, not suffering. Twenty-two thousand riders flowing through Hamburg's city center on closed roads is genuinely exhilarating. The Waseberg climb — packed with spectators for the pro race — provides a focused moment of physical intensity. Finishing on Mönckebergstraße, Hamburg's main shopping street, with crowds cheering, is a proper cycling moment. The festival atmosphere before and after the ride amplifies everything. On the same weekend, you can watch WorldTour professionals race the same roads. The Expo, the city, the pro race, and the sportive combine into a complete cycling weekend. What it lacks in physical challenge, it compensates with sheer event quality."
+      },
+      "community": {
+        "score": 5,
+        "explanation": "At 22,000 amateur riders, the Cyclassics is one of the largest cycling events on Earth by participation. Over 400,000 amateur riders have participated since 1996. The field spans the full spectrum: serious club riders in matching kits, families, charity riders, corporate teams, and first-timers experiencing their first closed-road event. Spectators — reportedly up to 150,000 — line the route, especially at the Waseberg and the Mönckebergstraße finish. The event functions as a Hamburg civic institution. The city shuts down for cycling. The atmosphere is distinctly German: well-organized, enthusiastic, beer-friendly."
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "With 22,000 riders, the field is enormous but predominantly recreational. The starting grid system separates by ability and experience, so the front waves move at genuinely competitive speeds with strong German club riders. But the vast majority of participants are riding for the experience — the festival, the closed roads, the pro race connection. Competitive depth exists in the front groups but is diluted by the event's intentional accessibility. The Cyclassics is designed for participation, not podium contention."
+      },
+      "value": {
+        "score": 5,
+        "explanation": "Registration is free. Zero euros. A fully closed-road, WorldTour-associated cycling event through Germany's second-largest city with ASO-level organization, chip timing, feed zones, medical support, an 80-exhibitor Expo, and up to 150,000 spectators — for nothing. This is funded through sponsorship (ADAC, previously BEMER, EuroEyes, Vattenfall) and the city of Hamburg's investment in the event as a sporting showcase. There is no major cycling event of comparable scale and quality anywhere in the world that does not charge an entry fee. The value proposition is unbeatable."
+      },
+      "expenses": {
+        "score": 4,
+        "explanation": "Hamburg is a mid-range European city for accommodation — hotels range from EUR 80-200/night depending on area and timing. Event weekend pushes prices up, but Hamburg has enormous hotel capacity as Germany's second-largest city. Budget hostels run EUR 30-50/night. The entry fee is zero, which offsets accommodation costs entirely. Flights to Hamburg from across Europe are frequent and competitive via budget carriers. Budget EUR 200-500 for a weekend including accommodation and meals from within Europe. The free entry fee means the total cost is almost entirely travel and lodging."
+      }
+    },
+    "biased_opinion": "The Cyclassics Hamburg is not a race that tests your body. It tests your appreciation for what cycling events can be. Twenty-two thousand riders on closed roads through a major European city, alongside a UCI WorldTour professional race, with free registration — that combination exists nowhere else in the world. The physical challenge is minimal by any serious cyclist's standard: 109 km of flat roads with one 700-meter climb on the Waseberg, which is over before your heart rate settles into zone 5. You will not suffer here. You will not dig deep into reserves you did not know you had. What you will do is experience cycling as a mass cultural event — a city that shuts its streets for bikes, spectators lining the Waseberg and Mönckebergstraße, the energy of twenty thousand riders rolling through Hamburg's best scenery.\n\nThe prestige comes from the pro race connection. Since 1996, the Cyclassics has been Germany's flagship professional road race — the country's only event at cycling's highest level since the Deutschland Tour disappeared in 2009. Elia Viviani, Andre Greipel, Tyler Farrar, Peter Sagan, Alexander Kristoff — the sport's greatest sprinters have won on these roads. Riding the same tarmac, on the same day, on closed roads, with the same finish line on Mönckebergstraße: that means something. The Waseberg climb in Blankenese — 700 meters at gradients touching 16%, rising sharply from the Elbe's north bank — is the one moment where the amateur and professional experiences converge in physical effort. The rest is about the atmosphere, the city, and the sheer improbability of free entry to an event of this caliber.\n\nIf you want a cycling challenge, go elsewhere. If you want to experience European cycling culture at its most accessible and democratic — the biggest party on two wheels, in one of Europe's great cities, for zero euros — Hamburg in August is the answer.",
+    "final_verdict": {
+      "score": "67 / 100",
+      "one_liner": "Free entry. 22,000 riders. Closed roads through Germany's second city. The Waseberg at 16%. Europe's biggest cycling party — not its hardest ride.",
+      "should_you_race": "Yes if you want to experience the scale and energy of one of Europe's largest mass-participation cycling events. Yes if the WorldTour pro race connection matters to you. Yes if free registration and world-class ASO organization sound too good to pass up. Yes if a cycling festival weekend in Hamburg appeals. Skip if you need climbing, technical terrain, or a genuine physical test — this is flat and short. Skip if you want adventure, wilderness, or remoteness — this is a city sportive.",
+      "alternatives": [
+        "L'Etape du Tour for a WorldTour-connected sportive with serious climbing",
+        "Vatternrundan (Sweden) for another massive Nordic-European mass-participation ride (300 km, 25,000 riders)",
+        "RideLondon for a similar closed-road urban sportive experience in a major city",
+        "Ötztaler Radmarathon for a German-speaking sportive with real mountain suffering (238 km, 5,500m climbing)"
+      ],
+      "alternative_slugs": [
+        "ride-london",
+        "otztaler-radmarathon"
+      ]
+    },
+    "logistics": {
+      "nearest_airport": "Hamburg Airport (HAM) — 8 km from city center, connected by S-Bahn S1 in under 30 minutes. Direct flights from most major European cities. Connections via Frankfurt (FRA), Munich (MUC), or Amsterdam (AMS) for intercontinental travelers. Alternative: Hamburg Hauptbahnhof for ICE high-speed rail from across Germany and Europe.",
+      "travel_tips": "Hamburg's public transport (HVV) is excellent — U-Bahn, S-Bahn, and buses cover the entire city. Both start areas are centrally located and accessible by public transport. The Cyclassics 110 start at Versmannstraße is near Elbbrücken station (U4, S3, S5). The Cyclassics 60 start near Alsterglacis/Kennedybrücke is accessible via multiple U-Bahn and S-Bahn lines. Bike transport on local trains is straightforward. Consider arriving Saturday to attend the cycling expo and enjoy the pre-race atmosphere. Hamburg is a compact, bike-friendly city — riding to the start is practical.",
+      "accommodation": "Stay in Hamburg city center — Altstadt, Neustadt, St. Pauli, or HafenCity are all within easy reach of the start/finish. Hotels run EUR 100-200/night on event weekend. Budget hostels in St. Pauli from EUR 30-50/night. Airbnb is widely available. Book 2-3 months ahead — the combined amateur and pro race weekend attracts significant visitor numbers. The event offers discounted partner hotel rates.",
+      "gear_recommendations": "Road bike is the correct and only sensible choice. The course is entirely paved and predominantly flat. Aero matters more than gearing — you will spend 95% of the ride in the big ring. Pack a lightweight rain gilet (Hamburg weather is unpredictable in August). Compact gearing or a 28t cassette is more than adequate for the Waseberg. Standard road tires (25-28mm) are perfect. Hydration planning for 3-5 hours of riding."
+    },
+    "history": {
+      "first_edition": "1996 — inaugural HEW Cyclassics won by Rossano Brasi (Italy) over 160 km, the shortest route in event history. Created as a Category 1.5 professional race with an amateur Jedermann mass-participation event alongside.",
+      "notable_editions": [
+        "1996: First edition as HEW Cyclassics — Rossano Brasi (Polti) wins by 13 seconds from Bert Dietz (Telekom). Distance: 160 km.",
+        "1997: Jan Ullrich wins the pro race two weeks after his Tour de France victory — German cycling mania ignites.",
+        "1998: Elevated to UCI Road World Cup status, cycling's highest one-day race classification at the time.",
+        "2001: Erik Zabel wins — the second German winner, cementing the event's domestic importance.",
+        "2005: Joins the inaugural UCI ProTour, cycling's new top-tier structure.",
+        "2009-2010: Tyler Farrar (USA) wins back-to-back — the first and still only repeat winner.",
+        "2011: Promoted to UCI WorldTour status — one of 24 races at cycling's highest level. Andre Greipel wins.",
+        "2017-2019: Elia Viviani (Italy) wins three consecutive editions, becoming the most successful rider in event history.",
+        "2020-2021: Cancelled due to COVID-19 pandemic — the only interruptions in the event's nearly 30-year history.",
+        "2022: Event returns after two-year COVID hiatus with renewed energy and 22,000+ amateur participants.",
+        "2025: Rebranded as ADAC Cyclassics. Rory Townsend (Q36.5) wins from a late breakaway, ending a streak of mass sprint finishes dating back to 2004."
+      ],
+      "records": "Elia Viviani holds the record with 3 victories (2017, 2018, 2019). Tyler Farrar is the only back-to-back winner (2009, 2010). Over 400,000 amateur participants have ridden the Jedermann event since 1996. The pro race has ended in a mass sprint in nearly every edition since 2004, until Townsend's breakaway win in 2025.",
+      "growth": "From a Category 1.5 race in 1996 to UCI ProTour in 2005 to full WorldTour status in 2011. The amateur event has grown from a few thousand participants to a capped field of 22,000 — one of the largest cycling events in the world. Sponsorship has evolved through HEW (1996-2001), Vattenfall (2002-2015), EuroEyes (2016-2020), BEMER (2021-2024), and ADAC (2025-present). After the Deutschland Tour folded in 2009, the Cyclassics became Germany's sole representation at cycling's highest professional level."
+    },
+    "course_description": {
+      "overview": "A flat, fast sportive through Hamburg's city center, along the Elbe waterfront, and into the northern German countryside, with one singular challenge: the Waseberg. The Cyclassics 110 starts on Versmannstraße in HafenCity and finishes on Mönckebergstraße, Hamburg's main shopping street. The Cyclassics 60 starts between the Alster lakes. Both routes are on fully closed roads — no traffic, no intersections, no compromises. The terrain is relentlessly flat apart from the Waseberg climb in Blankenese, a 700-meter wall at up to 16% that rises 70 meters from the Elbe's north bank. The course is a sprinter's paradise — expect high average speeds, large group dynamics, and a fast, festive atmosphere throughout.",
+      "segments": [
+        {
+          "mile": 0,
+          "label": "HafenCity to Hamburg Center",
+          "desc": "The Cyclassics 110 launches from Versmannstraße in HafenCity, Hamburg's modern waterfront development district. The opening kilometers wind through Hamburg's city center — past the Speicherstadt warehouse district, through the commercial heart of the city. Groups form quickly as thousands of riders sort themselves by pace. The atmosphere is electric: spectators line the route from the start, cowbells ring, and the sense of a city given over to cycling is palpable. Flat and fast through urban streets with excellent tarmac.",
+          "terrain_detail": "Flat city streets, closed to traffic, excellent tarmac",
+          "named_section": "Hamburg City Center"
+        },
+        {
+          "mile": 15,
+          "label": "Elbe River and Western Suburbs",
+          "desc": "The route heads west along the Elbe, Hamburg's defining waterway. Long flat stretches with river views and potential headwinds off the water. The affluent suburbs of Altona and Blankenese appear, with tree-lined streets and the Elbe's north bank. Wind becomes a factor on exposed riverside roads — headwinds or crosswinds are common and can make this section deceptively hard. Group riding and drafting skills pay dividends here.",
+          "terrain_detail": "Flat riverside roads, exposed to wind, well-maintained suburban streets",
+          "named_section": "Elbchaussee and Blankenese"
+        },
+        {
+          "mile": 35,
+          "label": "North German Countryside",
+          "desc": "Beyond Hamburg's suburbs, the Cyclassics 110 enters the North German countryside. Rolling agricultural land, small towns, wind-exposed open roads stretching to the horizon. This is where drafting skills matter most — headwinds across flat terrain sap riders who cannot hold a wheel. The scenery is pleasant but unremarkable: fields, farms, church steeples. The pace in large groups is deceptively high. Alone, it is a grind. In a group, it flows.",
+          "terrain_detail": "Flat-to-gently-rolling open countryside, exposed to wind",
+          "named_section": "Hamburg Metropolitan Countryside"
+        },
+        {
+          "mile": 50,
+          "label": "The Waseberg — Blankenese",
+          "desc": "The Waseberg is the only significant climb on the course and the signature moment of the amateur ride. Rising 70 meters from the Elbe's north bank into the affluent suburb of Blankenese, the 700-meter climb hits gradients of up to 16% after a sharp corner at the base. It is short, steep, and over quickly — but on a course this flat, it is a shock to the system. Spectators pack the hillside. Gear selection matters: a compact crankset or 28t+ cassette takes the sting out. The contrast between 80 km of flat spinning and sudden 16% gradient is the physical crux of the entire event.",
+          "terrain_detail": "700m at up to 16% gradient, sharp corner at base, 70m altitude gain",
+          "named_section": "Waseberg"
+        },
+        {
+          "mile": 60,
+          "label": "Return to Hamburg — Mönckebergstraße Finish",
+          "desc": "After the Waseberg, the route returns through Hamburg's western districts and back into the city center. The final kilometers are flat and fast — the finish on Mönckebergstraße is Hamburg's main shopping street, a wide boulevard perfect for a crowd-lined finale. The atmosphere at the finish is genuine — thousands of spectators, music, and the energy of a city that embraces this event. Cross the same finish line that WorldTour professionals cross hours later. The Elbphilharmonie and Hamburg's skyline frame the approach.",
+          "terrain_detail": "Flat urban roads, wide finish straight, spectator-lined boulevard",
+          "named_section": "Mönckebergstraße Finish"
+        }
+      ],
+      "key_features": [
+        "Fully closed roads throughout — WorldTour-level traffic management for 22,000 amateurs",
+        "Waseberg: 700m at up to 16% — the one climb that defines the course, 70m of altitude gain from the Elbe's north bank",
+        "Mönckebergstraße finish — same finish line as the UCI WorldTour pro race",
+        "Hamburg's Alster lakes, Speicherstadt, and Elbe waterfront provide urban scenic highlights",
+        "Flat, fast course rewards aerodynamic positioning and group riding — wind is the real opponent"
+      ],
+      "strategy": "The Cyclassics 110 is not a climbing or endurance test — it is a speed and efficiency exercise. Find a group early and sit in the draft. The flat terrain and closed roads mean average speeds are high (30-35+ km/h for fit riders). Save energy for the Waseberg, which arrives after 80+ km of flat riding and will punish anyone who has not left something in reserve. The transition from high-cadence flat spinning to 16% gradient is jarring — shift early and stay seated. After the Waseberg, the return to Hamburg is flat and fast — open it up for the finish on Mönckebergstraße. Nutrition is straightforward for a 3-5 hour ride. The biggest variable is wind — check the forecast and plan your effort accordingly."
+    },
+    "guide_variables": {
+      "race_name": "Cyclassics Hamburg",
+      "race_distance": "68 miles",
+      "race_elevation": "1,150 feet",
+      "race_date": "August",
+      "race_location": "Hamburg, Germany",
+      "race_terrain": "Flat paved roads through Hamburg and northern German countryside, one steep climb (Waseberg, 700m at 16%)",
+      "race_weather": "Maritime temperate — 22-23C average, rain possible (50% chance any given August day), wind on exposed sections",
+      "race_challenges": [
+        "Waseberg: 700m at up to 16% — the only significant climb, arrives after 80+ km of flat riding",
+        "Wind: exposed flat terrain and Elbe proximity mean headwinds and crosswinds are a constant factor",
+        "Rain: Hamburg averages 17-18 rain days in August — be prepared for wet roads",
+        "Group dynamics: 22,000 riders on flat closed roads means high-speed bunch riding — pack skills essential"
+      ],
+      "altitude_section": false,
+      "altitude_feet": 285
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Group riding confidence — comfortable at 30-35+ km/h in a peloton of 100+ riders",
+        "by_when": "Week 4",
+        "why": "22,000 riders on closed roads means dense, fast-moving groups from the start. Riders who cannot hold a wheel, signal, or react to sudden braking create dangerous situations. Practice group rides at club level before entering an event of this scale. Holding your line and communicating in a group are non-negotiable safety skills here."
+      },
+      {
+        "requirement": "Short steep climb preparation — 1-3 minute all-out efforts after extended flat riding",
+        "by_when": "Week 6",
+        "why": "The Waseberg arrives after 80+ km of flat riding and hits 16% gradient immediately after a sharp corner. Your legs need to transition from high-cadence flat spinning to low-cadence steep climbing instantly. Include hill repeats of 1-2 minutes at maximum intensity after long flat rides to simulate this gear change. The Waseberg is only 700 meters but at 16% it demands full commitment."
+      },
+      {
+        "requirement": "Wind riding experience — ability to echelon and draft in crosswinds on flat, exposed roads",
+        "by_when": "Week 7",
+        "why": "The flat, exposed course means headwinds and crosswinds dominate the effort profile. Riders who cannot draft effectively will burn 30-40% more energy than those who can. Train on exposed, flat roads and learn to rotate in a paceline. On this course, aerodynamics determine your finishing time more than raw power."
+      }
+    ],
+    "citations": [
+      {
+        "url": "https://www.cyclassics-hamburg.de/en/",
+        "title": "ADAC Cyclassics Hamburg — Official Site",
+        "category": "official"
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Hamburg_Cyclassics",
+        "title": "Hamburg Cyclassics — Wikipedia",
+        "category": "reference"
+      },
+      {
+        "url": "https://www.procyclingstats.com/race/cyclassics-hamburg",
+        "title": "Cyclassics Hamburg Statistics and Records — ProCyclingStats",
+        "category": "reference"
+      },
+      {
+        "url": "https://climbfinder.com/en/climbs/waseberg-falkentaler-weg",
+        "title": "Waseberg — ClimbFinder Profile",
+        "category": "reference"
+      },
+      {
+        "url": "https://strambecco.com/event/hamburg-cyclassics-germany/",
+        "title": "BEMER Cyclassics Hamburg — Strambecco",
+        "category": "review"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/6013/2026-bemer-cyclassics",
+        "title": "2026 BEMER Cyclassics — Gran Fondo Guide",
+        "category": "reference"
+      },
+      {
+        "url": "https://spoferan.com/en/events/adac-cyclassics-hamburg-2026",
+        "title": "ADAC Cyclassics Hamburg 2026 — Spoferan",
+        "category": "reference"
+      },
+      {
+        "url": "https://www.hamburg-travel.com/see-explore/events/hamburg-cyclassics/",
+        "title": "Cyclassics Hamburg — Hamburg Tourism",
+        "category": "media"
+      }
+    ],
+    "research_metadata": {
+      "last_updated": "2026-02-28",
+      "confidence_score": "high",
+      "sources_consulted": 12
+    }
+  }
+}

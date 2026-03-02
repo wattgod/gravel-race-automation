@@ -1,6 +1,7 @@
 """Tests for wordpress/generate_neo_brutalist.py — race page generator."""
 
 import json
+import logging
 import re
 import sys
 from pathlib import Path
@@ -38,6 +39,7 @@ from generate_neo_brutalist import (
     build_ratings,
     build_similar_races,
     build_sports_event_jsonld,
+    parse_event_dates,
     build_faq_jsonld,
     build_sticky_cta,
     build_toc,
@@ -557,6 +559,120 @@ class TestJsonLD:
         assert skipped <= 50, \
             f"Too many skipped SportsEvent: {skipped}/{total}. " \
             f"Check for new unparseable date patterns."
+
+    def test_sports_event_no_valid_from(self, normalized_data):
+        """validFrom was removed — must never appear in offers."""
+        jsonld = build_sports_event_jsonld(normalized_data)
+        if "offers" in jsonld:
+            assert "validFrom" not in jsonld["offers"]
+
+    def test_sports_event_no_performer(self, normalized_data):
+        """performer was removed — must never appear in SportsEvent."""
+        jsonld = build_sports_event_jsonld(normalized_data)
+        assert "performer" not in jsonld
+
+    def test_aggregate_rating_omits_zero_review_count(self, sample_race_data):
+        """reviewCount=0 is invalid per Google schema — must be absent."""
+        sample_race_data["race"]["racer_rating"] = {
+            "star_average": 4.2,
+            "total_ratings": 10,
+            "total_reviews": 0,
+        }
+        rd = normalize_race_data(sample_race_data)
+        jsonld = build_sports_event_jsonld(rd)
+        assert jsonld is not None
+        agg = jsonld.get("aggregateRating", {})
+        assert "reviewCount" not in agg, \
+            "reviewCount=0 must not be emitted — Google rejects it"
+
+    def test_aggregate_rating_includes_nonzero_review_count(self, sample_race_data):
+        """reviewCount > 0 should be present when available."""
+        sample_race_data["race"]["racer_rating"] = {
+            "star_average": 4.5,
+            "total_ratings": 15,
+            "total_reviews": 8,
+        }
+        rd = normalize_race_data(sample_race_data)
+        jsonld = build_sports_event_jsonld(rd)
+        assert jsonld is not None
+        agg = jsonld.get("aggregateRating", {})
+        assert agg.get("reviewCount") == "8"
+
+    def test_sports_event_cross_month_range(self, sample_race_data):
+        """Cross-month: 'June 30 - July 2' must use correct months."""
+        sample_race_data["race"]["vitals"]["date_specific"] = "2026: June 30 - July 2"
+        rd = normalize_race_data(sample_race_data)
+        jsonld = build_sports_event_jsonld(rd)
+        assert jsonld is not None
+        assert jsonld["startDate"] == "2026-06-30"
+        assert jsonld["endDate"] == "2026-07-02"
+
+    def test_sports_event_cross_month_ordinal(self, sample_race_data):
+        """Cross-month with ordinals: 'October 3rd - November 1st'."""
+        sample_race_data["race"]["vitals"]["date_specific"] = "2026: October 3rd - November 1st"
+        rd = normalize_race_data(sample_race_data)
+        jsonld = build_sports_event_jsonld(rd)
+        assert jsonld is not None
+        assert jsonld["startDate"] == "2026-10-03"
+        assert jsonld["endDate"] == "2026-11-01"
+
+    def test_sports_event_long_cross_month(self, sample_race_data):
+        """Long cross-month: Raid Pyreneen 'June 1 - September 30'."""
+        sample_race_data["race"]["vitals"]["date_specific"] = "2026: June 1 - September 30"
+        rd = normalize_race_data(sample_race_data)
+        jsonld = build_sports_event_jsonld(rd)
+        assert jsonld is not None
+        assert jsonld["startDate"] == "2026-06-01"
+        assert jsonld["endDate"] == "2026-09-30"
+
+    def test_unparseable_date_logs_debug(self, sample_race_data, caplog):
+        """Unparseable dates should log at debug level for observability."""
+        sample_race_data["race"]["vitals"]["date_specific"] = "2026: TBD"
+        rd = normalize_race_data(sample_race_data)
+        with caplog.at_level(logging.DEBUG, logger="generate_neo_brutalist"):
+            result = build_sports_event_jsonld(rd)
+        assert result is None
+        assert any("nparseable" in r.message or "TBD" in r.message
+                    for r in caplog.records), \
+            f"Expected debug log for unparseable date, got: {[r.message for r in caplog.records]}"
+
+
+# ── parse_event_dates ────────────────────────────────────────
+
+class TestParseEventDates:
+    def test_single_day(self):
+        assert parse_event_dates("2026: June 15") == ("2026-06-15", "2026-06-15")
+
+    def test_same_month_range(self):
+        assert parse_event_dates("2026: August 19-23") == ("2026-08-19", "2026-08-23")
+
+    def test_cross_month(self):
+        assert parse_event_dates("2026: June 30 - July 2") == ("2026-06-30", "2026-07-02")
+
+    def test_ordinals(self):
+        assert parse_event_dates("2026: May 29th-30th") == ("2026-05-29", "2026-05-30")
+
+    def test_cross_month_ordinals(self):
+        assert parse_event_dates("2026: October 3rd - November 1st") == ("2026-10-03", "2026-11-01")
+
+    def test_tbd(self):
+        assert parse_event_dates("2026: TBD") == (None, None)
+
+    def test_empty(self):
+        assert parse_event_dates("") == (None, None)
+
+    def test_none(self):
+        assert parse_event_dates(None) == (None, None)
+
+    def test_day_of_week_prefix(self):
+        assert parse_event_dates("2026: Friday, June 12th at 8AM") == ("2026-06-12", "2026-06-12")
+
+    def test_year_only(self):
+        """Year with no month/day is unparseable."""
+        assert parse_event_dates("2026") == (None, None)
+
+    def test_seasonal_tbd(self):
+        assert parse_event_dates("2026: Spring/Fall TBD") == (None, None)
 
 
 # ── Sections ──────────────────────────────────────────────────

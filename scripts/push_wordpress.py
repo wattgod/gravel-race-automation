@@ -2690,6 +2690,99 @@ def sync_insights(insights_file: str):
     return f"{wp_url}/insights/"
 
 
+def sync_whitepaper(whitepaper_file: str):
+    """Upload whitepaper-fueling.html to /fueling-methodology/index.html on SiteGround via SSH+SCP."""
+    ssh = get_ssh_credentials()
+    if not ssh:
+        return None
+    host, user, port = ssh
+
+    html_path = Path(whitepaper_file)
+    if not html_path.exists():
+        print(f"✗ White paper HTML not found: {html_path}")
+        print("  Run: python3 wordpress/generate_whitepaper_fueling.py first")
+        return None
+
+    remote_base = "~/www/gravelgodcycling.com/public_html/fueling-methodology"
+
+    # Create remote directory
+    try:
+        subprocess.run(
+            [
+                "ssh", "-i", str(SSH_KEY), "-p", port,
+                f"{user}@{host}",
+                f"mkdir -p {remote_base}",
+            ],
+            check=True,
+            capture_output=True,
+            text=True,
+            timeout=15,
+        )
+    except subprocess.CalledProcessError as e:
+        print(f"✗ Failed to create remote directory: {e.stderr.strip()}")
+        return None
+
+    # Upload whitepaper-fueling.html as index.html
+    try:
+        subprocess.run(
+            [
+                "scp", "-i", str(SSH_KEY), "-P", port,
+                str(html_path),
+                f"{user}@{host}:{remote_base}/index.html",
+            ],
+            check=True,
+            capture_output=True,
+            text=True,
+            timeout=30,
+        )
+    except subprocess.CalledProcessError as e:
+        print(f"✗ SCP failed for white paper page: {e.stderr.strip()}")
+        return None
+    except Exception as e:
+        print(f"✗ Error uploading white paper page: {e}")
+        return None
+
+    # Upload shared CSS/JS assets (white paper page references them via /race/assets/)
+    assets_dir = html_path.parent / "assets"
+    remote_assets = "~/www/gravelgodcycling.com/public_html/race/assets"
+    for pattern in ("gg-styles.*.css", "gg-scripts.*.js"):
+        for asset in assets_dir.glob(pattern):
+            try:
+                subprocess.run(
+                    [
+                        "scp", "-i", str(SSH_KEY), "-P", port,
+                        str(asset),
+                        f"{user}@{host}:{remote_assets}/{asset.name}",
+                    ],
+                    check=True,
+                    capture_output=True,
+                    text=True,
+                    timeout=30,
+                )
+            except subprocess.CalledProcessError as e:
+                print(f"⚠ Asset upload skipped ({asset.name}): {e}")
+
+    # Fix permissions
+    try:
+        subprocess.run(
+            [
+                "ssh", "-i", str(SSH_KEY), "-p", port,
+                f"{user}@{host}",
+                f"chmod 755 {remote_base} && chmod 644 {remote_base}/index.html",
+            ],
+            check=True,
+            capture_output=True,
+            text=True,
+            timeout=15,
+        )
+    except subprocess.CalledProcessError as e:
+        print(f"⚠ Permission fix failed: {e}")
+
+    wp_url = os.environ.get("WP_URL", "https://gravelgodcycling.com")
+    print(f"✓ Uploaded white paper page: {wp_url}/fueling-methodology/")
+    return f"{wp_url}/fueling-methodology/"
+
+
 def sync_embed():
     """Upload embed widget files (JS, data JSON, demo) to /embed/ on SiteGround via SSH+SCP."""
     ssh = get_ssh_credentials()
@@ -3072,6 +3165,14 @@ if __name__ == "__main__":
         help="Path to insights page HTML (default: wordpress/output/insights.html)"
     )
     parser.add_argument(
+        "--sync-whitepaper", action="store_true",
+        help="Upload white paper page to /fueling-methodology/ via SCP"
+    )
+    parser.add_argument(
+        "--whitepaper-file", default="wordpress/output/whitepaper-fueling.html",
+        help="Path to white paper HTML (default: wordpress/output/whitepaper-fueling.html)"
+    )
+    parser.add_argument(
         "--sync-training-plans", action="store_true",
         help="Upload training plans page to /products/training-plans/ via SCP"
     )
@@ -3266,6 +3367,7 @@ if __name__ == "__main__":
         args.sync_courses = True
         args.sync_meta_descriptions = True
         args.sync_insights = True
+        args.sync_whitepaper = True
         args.sync_embed = True
         args.sync_rss = True
         args.sync_llms_txt = True
@@ -3284,7 +3386,7 @@ if __name__ == "__main__":
                       args.sync_series, args.sync_blog,
                       args.sync_blog_index, args.sync_photos, args.sync_ab, args.sync_courses,
                       args.sync_meta_descriptions, args.sync_mission_control,
-                      args.sync_insights, args.sync_embed, args.sync_rss,
+                      args.sync_insights, args.sync_whitepaper, args.sync_embed, args.sync_rss,
                       args.sync_llms_txt, args.sync_markdown,
                       args.purge_cache])
     if not has_action:
@@ -3358,6 +3460,8 @@ if __name__ == "__main__":
         sync_mission_control(args.mission_control_file)
     if args.sync_insights:
         sync_insights(args.insights_file)
+    if args.sync_whitepaper:
+        sync_whitepaper(args.whitepaper_file)
     if args.sync_embed:
         sync_embed()
     if args.sync_rss:

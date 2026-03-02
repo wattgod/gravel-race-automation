@@ -1,0 +1,339 @@
+{
+  "race": {
+    "name": "GFNY Cozumel",
+    "slug": "gfny-cozumel",
+    "display_name": "GFNY Cozumel",
+    "tagline": "Two flat laps around a Caribbean island where the wind does the climbing. Latin America's largest cycling event wraps a GFNY World series qualifier in tropical heat, trade winds, and turquoise ocean views.",
+    "vitals": {
+      "distance_mi": 96,
+      "elevation_ft": 650,
+      "location": "San Miguel de Cozumel, Quintana Roo, Mexico",
+      "location_badge": "COZUMEL, MEXICO",
+      "date": "Mid-November annually",
+      "date_specific": "2026: November 8",
+      "terrain_types": [
+        "Flat coastal roads",
+        "Sheltered inland corridors",
+        "Exposed Caribbean coastline",
+        "Urban streets in San Miguel"
+      ],
+      "field_size": "~2,000-3,000 riders from 50+ countries",
+      "start_time": "Sunday 7:30 AM",
+      "registration": "Online via gfreg.com. Cost: ~$100-150. Includes race jersey, finisher medal, chip timing, aid stations, post-race meal.",
+      "prize_purse": "GFNY competitive classification awards for age-group podiums. No cash purse for mass-start field.",
+      "aid_stations": "4 aid stations per lap supplying Powerade, water, and ice. 8 total stops on the long course.",
+      "cutoff_time": "Course support closes approximately 8 hours after start",
+      "lat": 20.5104,
+      "lng": -86.9460,
+      "distance_options": [
+        "Long Course: 154 km (~96 miles), ~650 ft — two laps around the island",
+        "Medium Course: 77 km (~48 miles), ~325 ft — one lap around the island"
+      ],
+      "entry_fee": "~$100-150"
+    },
+    "climate": {
+      "primary": "Tropical Caribbean November — hot, humid, windy",
+      "description": "November on Cozumel delivers classic Caribbean conditions. Daytime highs around 84F (29C) with lows near 73F (23C). Humidity averages 77%. The island sits in the Caribbean trade wind corridor, and the exposed east coast serves up relentless headwinds that define the racing. The tail end of hurricane season adds a marginal weather risk but November storms are rare. The real adversary is physiological: sustained output in tropical heat and humidity degrades performance far faster than riders from temperate climates expect. Sweat doesn't evaporate efficiently, core temperature rises, and the second lap punishes anyone who ignored hydration on the first.",
+      "challenges": [
+        "Sustained heat (84F/29C) and humidity (77%) — sweat evaporation is compromised",
+        "Caribbean trade winds on the exposed east coast: 15-25 mph headwinds are standard, gusts higher",
+        "Direct tropical sun with minimal shade on the eastern coastline",
+        "Dehydration risk compounds across 154 km with only 4 aid stations per lap",
+        "Second-lap heat accumulation: the hottest conditions hit when fatigue is highest"
+      ]
+    },
+    "terrain": {
+      "primary": "Flat coastal island loop with wind exposure",
+      "surface": "Paved roads throughout. Smooth coastal highway on the east side, standard Mexican roads through San Miguel and the western corridor. Surface quality is generally good with occasional rough patches in town. Zero technical demands beyond city-street cornering in the final 20 km.",
+      "technical_rating": 1,
+      "features": [
+        "Virtually zero climbing — the island's highest point is 17 meters above sea level",
+        "Km 0-28: Sheltered inland corridor with tree cover on both sides — minimal wind, good for group formation",
+        "Km 28-48: Exposed Caribbean east coast — the 'King of the Wind' section with sustained trade wind headwinds",
+        "Km 48-62: 14 km straightaway returning toward San Miguel — crosswind corridor",
+        "Final 20 km: Technical city streets in San Miguel with multiple turns requiring sharp cornering on tired legs",
+        "Long course repeats the full island loop twice — second lap amplifies every challenge"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 54,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "logistics": 4,
+      "length": 3,
+      "technicality": 1,
+      "elevation": 1,
+      "climate": 3,
+      "altitude": 1,
+      "adventure": 3,
+      "prestige": 2,
+      "race_quality": 3,
+      "experience": 3,
+      "community": 3,
+      "field_depth": 3,
+      "value": 3,
+      "expenses": 3,
+      "cultural_impact": 2,
+      "tier_note": "A GFNY franchise satellite on a flat Caribbean island. The tropical setting, trade wind challenge, and Latin American community give it more character than GFNY Miami, but the zero-climbing terrain and franchise status cap it well below the NYC flagship. T3 by score (54). Prestige=2, no override applies.",
+      "score_note": "Sum of 14 criteria: 4+3+1+1+3+1+3+2+3+3+3+3+3+3 = 36. cultural_impact = 2. Total = 38. (38/70)*100 = 54.29, rounded = 54. logistics=4 (Cozumel airport is small; most international travelers connect via Cancun + ferry or inter-island flight — doable but not seamless). elevation=1 and altitude=1 (the island is pancake-flat and barely above sea level). climate=3 (tropical heat, humidity, and trade winds are a genuine physiological challenge). adventure=3 (Caribbean island, turquoise ocean, coral reefs, Mayan heritage — genuinely exotic). community=3 (Latin America's largest cycling event, 3,000 riders from 50+ countries, strong local support).",
+      "editorial_tier": 3,
+      "editorial_tier_label": "TIER 3",
+      "business_tier": 3,
+      "business_tier_label": "TIER 3",
+      "display_tier": 3,
+      "display_tier_label": "TIER 3",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 4,
+        "explanation": "Getting to Cozumel requires a connection. Most international travelers fly into Cancun International Airport (CUN) — a major hub with direct flights from across the US, Canada, and Europe — then take either a 45-minute ferry from Playa del Carmen or a short inter-island flight to Cozumel. The ferry adds logistical friction, especially with a bike box. Once on the island, everything is compact: the airport, hotels, expo, and start/finish are all within San Miguel, a walkable town. Taxis are cheap. Hotels are plentiful. But the two-step transit (fly to Cancun, ground transfer to Playa del Carmen, ferry to Cozumel) with cycling luggage knocks this down from a 5."
+      },
+      "length": {
+        "score": 3,
+        "explanation": "154 km (96 miles) on the long course is a legitimate near-century distance. On flat roads, that's 3.5-6 hours depending on fitness and wind conditions. The front of the 2025 field finished in 3:31, averaging 47-48 km/h. Two laps means the distance is psychologically manageable — you know exactly what's coming the second time. The 77 km medium option lets less-experienced riders participate. But flat miles are easier miles: there's no vertical to multiply the suffering. The distance is real; the difficulty per kilometer is not."
+      },
+      "technicality": {
+        "score": 1,
+        "explanation": "There is nothing technically challenging about this course. It is paved road around a flat island. The only remotely technical section is the final 20 km through San Miguel's city streets, where multiple turns require cornering at speed on tired legs. That's basic road racing, not technical terrain. No gravel, no cobbles, no mountain descents. You pedal, you steer, you suffer in the wind. Technicality is a non-factor."
+      },
+      "elevation": {
+        "score": 1,
+        "explanation": "The island's highest point is 17 meters above sea level. Total elevation gain across 154 km is approximately 200 meters — roughly 650 feet. That is not climbing. That is road undulation caused by the curvature of the earth and occasional speed bumps. If you want vertical, you are on the wrong island. The GFNY organizers replaced the traditional KOM classification with a KOW — King of the Wind — because there is literally nothing to climb."
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "This is where Cozumel earns its difficulty. November means 84F (29C) with 77% humidity and relentless Caribbean trade winds. The east coast headwind section — branded 'The Ford King of the Wind Challenge' — delivers 15-25 mph sustained winds that turn a flat road into a grinding slog. The tropical sun is direct and unrelenting on the exposed coastline. Dehydration accumulates faster than northern riders expect. The second lap compounds everything: heat stress, fluid loss, and wind fatigue stack on top of 77 km already in the legs. Riders from cold climates routinely underestimate this."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "Sea level. The maximum elevation on course is 17 meters — roughly the height of a three-story building. Altitude has zero physiological impact. You could ride this entire course underwater and gain more vertical."
+      },
+      "adventure": {
+        "score": 3,
+        "explanation": "Cozumel is a genuinely beautiful Caribbean island. The east coast road delivers 50+ km of turquoise ocean views that rival anything in tropical cycling. The island is home to a national marine park with coral reefs, sea turtles, and crystal-clear waters. The Mayan heritage is real — the island was a sacred pilgrimage site for the goddess Ixchel. Post-race, you're on a vacation island with world-class snorkeling, cenotes, and Mexican cuisine. As a destination, Cozumel punches above most cycling events. As a course, it's a flat road around an island. The adventure is the setting, not the terrain."
+      },
+      "prestige": {
+        "score": 2,
+        "explanation": "GFNY Cozumel is a franchise event in a series known for competitive integrity. It's been running since 2014 — 12 editions and counting. It qualifies riders for the GFNY World Championship in NYC. It's described as Latin America's largest cycling event. The upcoming UCI Gran Premio Cozumel in 2026 will add a professional racing layer. But this is not the flagship. GFNY NYC is the brand; Cozumel is a franchise location. Finishing GFNY Cozumel doesn't carry the weight of a European Monument or the World Championship. It carries the weight of a well-run regional event in an appealing location."
+      },
+      "race_quality": {
+        "score": 3,
+        "explanation": "GFNY runs a competent, professional operation. Chip timing, competitive age-group classification, anti-doping protocols, well-stocked aid stations (4 per lap), mechanical support, and a proper expo at Centro de Convenciones Cozumel. The start and finish have been refined over 12 editions — the 2025 edition introduced a waterfront finish along San Miguel's malecón. Pre-race group rides with ex-pros Raúl Alcalá and Luis Lemus add character. GFNY Kids race on Saturday gives it a family dimension. It's professional without being exceptional."
+      },
+      "experience": {
+        "score": 3,
+        "explanation": "Circumnavigating a Caribbean island on a road bike is inherently memorable. The turquoise ocean views along the east coast are stunning. The trade wind battle creates a shared suffering narrative. The finish-line fiesta — food, music, podium ceremonies — delivers the Mexican warmth that makes this more than a suburban century ride. The 'Come for the race, stay for the fiesta' ethos is genuine. But the course itself is a flat loop repeated twice. There's no summit moment, no dramatic terrain shift, no single feature that becomes a story you tell for years. The experience is the destination, not the riding."
+      },
+      "community": {
+        "score": 3,
+        "explanation": "Cozumel draws 2,000-3,000 riders from 50+ countries, making it one of the most international cycling events in the Americas. The Mexican cycling community shows up in force — local crowds line the route and cheer enthusiastically. Race week includes the expo, group rides with former pros, GFNY Kids, and post-race celebrations that capture Mexican hospitality. The event has a genuine fiesta atmosphere that European sportives and American gravel races often lack. But the community is transient — riders fly in for the weekend and fly out. There's no year-round local cycling culture built around this event the way there is in cycling's European heartlands."
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "GFNY's competitive classification is its genuine differentiator. Anti-doping, chip timing, age-group rankings, and qualification for the NYC World Championship mean the front of the field is racing seriously. The 2025 winner Diego Galvez finished in 3:31:09 at an average pace of 47-48 km/h — that's genuinely fast for a gran fondo. The field draws strongly from Mexico, Central America, South America, and the US. The upcoming UCI Gran Premio in 2026 will add a professional field starting minutes ahead of the mass event. But this is not the World Championship field — the deepest GFNY talent saves itself for NYC."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "Entry fee of approximately $100-150 includes a custom race jersey, finisher medal, chip timing, 8 aid stations across the long course, mechanical support, expo access, and a post-race meal with celebrations. For a well-organized international gran fondo in a Caribbean destination, that's reasonable value. GFNY's competitive classification and anti-doping add tangible racing infrastructure. The jersey alone is worth $80+. You're getting a professional racing experience at roughly half the cost of GFNY NYC."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Cozumel is affordable by destination-cycling-event standards. Hotels on the island range from budget options at $50-80/night to resort properties at $200+/night. Food and drink are Mexican-priced, which means dramatically cheaper than comparable events in Europe or the US. The biggest expense variable is flights to Cancun plus the Playa del Carmen ferry ($15-20 each way) or inter-island flight. A full weekend — registration, 2-3 nights lodging, food, flights, and ferry — can be done for $600-1,200 depending on origin city and hotel choice. That's roughly half the cost of a GFNY NYC weekend."
+      }
+    },
+    "biased_opinion": {
+      "verdict": "The First Gran Fondo in Paradise",
+      "summary": "GFNY Cozumel is a flat road race disguised as a tropical cycling vacation. The terrain offers nothing — 200 meters of elevation across 154 km is topographic noise — but the Caribbean trade winds and November heat create a physiological challenge that riders from temperate climates routinely underestimate. The east coast 'King of the Wind' section delivers 20+ km of sustained headwind that turns a flat road into a power-sapping grind. The organizers knew they couldn't award a KOM jersey on a course with no mountains, so they invented the KOW instead. That tells you everything. Where Cozumel earns its keep is as a destination event: turquoise ocean views, Mexican hospitality, a genuine fiesta atmosphere at the finish, and the option to spend the rest of the week snorkeling coral reefs and eating ceviche. It's the GFNY franchise's warm-weather vacation play — and for that purpose, it works better than Miami ever will.",
+      "strengths": [
+        "Caribbean destination appeal: turquoise ocean, coral reefs, Mayan heritage, and Mexican cuisine make race week feel like a vacation",
+        "Trade wind challenge: the east coast headwind section is a genuine physiological test that flat-course skeptics won't expect",
+        "Latin America's largest cycling event: 2,000-3,000 riders from 50+ countries with enthusiastic local crowd support",
+        "Affordable by destination-race standards: Mexican pricing makes the total trip cost roughly half of equivalent US or European events",
+        "GFNY competitive infrastructure: anti-doping, chip timing, age-group classification, and World Championship qualification"
+      ],
+      "weaknesses": [
+        "The course is pancake-flat: 200m of elevation across 154 km makes the KOM jersey a physical impossibility",
+        "Two identical laps: the second loop offers zero novelty — you know exactly what's coming and it's the same flat road",
+        "Franchise satellite status: Cozumel is not the GFNY World Championship — the deepest fields and highest prestige remain in NYC",
+        "Logistics require a connection: Cancun airport + ferry to Cozumel with bike luggage is manageable but not seamless",
+        "Wind variability: low-wind years (like the 2025 edition) remove the course's primary challenge, leaving a flat criterium"
+      ],
+      "bottom_line": "GFNY Cozumel is the best cycling vacation in the GFNY calendar. The racing is legitimate, the setting is stunning, and the post-race fiesta delivers more warmth than any American gran fondo finish line. But don't confuse a destination event with a destination course. If you want to be challenged by terrain, look elsewhere. If you want to race 100 miles around a Caribbean island and eat tacos on the beach afterward, this is your event."
+    },
+    "final_verdict": {
+      "score": "54 / 100",
+      "one_liner": "Two flat laps around a Caribbean island where the trade winds do the climbing and the post-race fiesta does the rest.",
+      "should_you_race": "Yes if you want a GFNY World Championship qualifier wrapped in a Caribbean vacation. Yes if you want to race in Latin America's largest cycling event with 3,000 riders from 50+ countries. Yes if tropical heat and trade winds sound like a challenge worth testing. Skip if you need climbing, terrain variety, or any technical demand whatsoever. Skip if two identical flat laps sound monotonous.",
+      "alternatives": "If you want a GFNY with real climbing: GFNY New York (8,500 ft, World Championship). If you want a warm-weather Caribbean event with hills: try Gran Fondo Hincapie. If you want a flat GFNY closer to home: GFNY Miami. If you want a tropical destination event with mountains: Tour de Okinawa.",
+      "alternative_slugs": [
+        "gfny-new-york",
+        "gran-fondo-hincapie",
+        "gfny-miami",
+        "tour-de-okinawa"
+      ]
+    },
+    "logistics": {
+      "airport": "Cozumel International Airport (CZM) receives limited direct flights from US cities (Dallas, Houston, Miami). Most travelers fly into Cancun International Airport (CUN) — a major hub with direct flights from across North America and Europe — then take a 1-hour bus/taxi to Playa del Carmen followed by a 45-minute ferry to Cozumel. Some airlines offer direct inter-island flights from Cancun to Cozumel (30 minutes).",
+      "lodging_strategy": "San Miguel de Cozumel has hotels at every price point. Budget options from $50-80/night in town. Mid-range beachfront properties $100-200/night. All-inclusive resorts $200+/night along the western coast. The island is compact — most hotels are a short taxi ride from the start/finish area. Book 1-2 months in advance for race weekend rates. The start and finish line are centrally located along the San Miguel waterfront.",
+      "food": "Mexican cuisine is the main event. Ceviche, tacos, pozole, and fresh seafood from local restaurants in San Miguel. The island caters to tourists, so options range from street-food stalls to upscale dining. Post-race meal is included with registration. Pre-race carb-loading is easy with plentiful pasta and rice dishes. Hydration is critical — start loading fluids 48 hours before race day.",
+      "packet_pickup": "Centro de Convenciones Cozumel (Cozumel Convention Center). Friday and Saturday before the race. Check official site for exact hours. You must pick up before race day — no day-of pickup available. The expo includes sponsors, bike brands, and GFNY merchandise.",
+      "parking": "Parking is not a major concern on Cozumel. The island is small and most riders taxi or walk to the start. No large parking structures or urban parking pressure. Scooter and bike rentals are widely available for getting around the island during race week.",
+      "official_site": "https://cozumel.gfny.com/"
+    },
+    "history": {
+      "founded": 2014,
+      "founder": "GFNY / Uli Fluhme (GFNY series founder), co-organized with local partners Shaun Gad and Miguel",
+      "origin_story": "GFNY Cozumel launched in 2014 as one of the first international expansion events for the Gran Fondo New York series. The island of Cozumel — already established as a world-class endurance sports destination through the Ironman triathlon — offered the perfect combination of closed roads, scenic beauty, and international accessibility. Co-founders Shaun Gad and local organizers partnered with GFNY to bring competitive road cycling to the Mexican Caribbean. The inaugural edition attracted international riders drawn by the prospect of racing on a car-free coastal road around a tropical island. The concept was simple and effective: combine GFNY's professional timing, anti-doping, and competitive classification with Cozumel's vacation appeal. Over 12 editions, the event has grown to become Latin America's largest cycling event, regularly attracting 2,000-3,000 riders from 50+ countries. In 2026, GFNY plans to launch Gran Premio Cozumel — a UCI 1.2-classified professional road race held minutes before the mass-participation event — replicating the pro-am format pioneered at GFNY NYC in 2024.",
+      "notable_moments": [
+        "2014: Inaugural GFNY Cozumel — one of the first international GFNY expansion events alongside GFNY Italia",
+        "2014-2019: Rapid growth establishes Cozumel as the largest cycling event in Latin America",
+        "2021: 8th edition returns post-COVID with a sold-out field of 3,000 riders, establishing it as GFNY's second-largest event after NYC",
+        "2025: 12th edition draws 2,000 riders globally; Diego Galvez (Mexico) wins in 3:31:09; unusually calm winds produce fast racing at 47-48 km/h",
+        "2025: GFNY announces Gran Premio Cozumel — a UCI 1.2 professional road race to debut November 8, 2026, pending UCI calendar approval",
+        "Ford sponsors the 'King of the Wind' challenge on the east coast headwind section"
+      ],
+      "reputation": "The vacation race in the GFNY calendar. Not the deepest field, not the hardest course, but the best post-race party and the most appealing destination. Latin America's largest cycling event with genuine international reach."
+    },
+    "course_description": {
+      "character": "A flat, wind-exposed island circumnavigation that rewards aerodynamic positioning, drafting discipline, and heat management over climbing ability or technical skill. The course loops counter-clockwise around Cozumel — once for the medium course, twice for the long. The first 28 km are sheltered by trees and ideal for forming groups. Then the road swings onto the exposed east coast, where Caribbean trade winds turn a flat road into an hours-long headwind battle. The King of the Wind section separates riders who can hold a paceline from riders who can't. The final 20 km thread through San Miguel's city streets with sharp turns that demand cornering on fatigued legs. The long course repeats everything — and the second lap's heat and wind amplify every mistake made on the first.",
+      "suffering_zones": [
+        {
+          "mile": 0,
+          "label": "San Miguel Start and Sheltered Corridor",
+          "desc": "The peloton rolls out from the San Miguel waterfront at 7:30 AM. The first 28 km (17 miles) are sheltered by trees on both sides, providing cover from trade winds. This is where groups form and positioning matters. The road is flat, the pace is high — the front of the 2025 field averaged 47-48 km/h from the gun. Find a paceline early or spend the entire east coast section alone in the wind.",
+          "terrain_detail": "Flat paved road, tree-lined corridor, minimal wind exposure",
+          "named_section": "The Shelter"
+        },
+        {
+          "mile": 17,
+          "label": "East Coast — King of the Wind",
+          "desc": "The course swings onto the uninhabited east coast and the protection ends. Twenty kilometers of exposed Caribbean coastline with sustained trade wind headwinds of 15-25 mph. The turquoise ocean views are stunning; the headwind is relentless. Drafting is not optional — it's survival. Solo riders lose 20-30% more energy. The GFNY-branded 'Ford King of the Wind Challenge' awards the fastest rider through this section. On windy years, this is where the race breaks apart.",
+          "terrain_detail": "Flat coastal road, fully exposed to Caribbean trade winds, turquoise ocean views",
+          "named_section": "King of the Wind"
+        },
+        {
+          "mile": 30,
+          "label": "Southern Crosswind Corridor",
+          "desc": "A 14 km straightaway from the island's southeast corner back toward San Miguel. The wind shifts from headwind to crosswind, demanding echelon positioning. The road is straight and exposed — there is nowhere to hide from the wind or the sun. Speed picks up relative to the headwind section but the crosswind can be destabilizing.",
+          "terrain_detail": "Flat straight road, crosswind exposure, no shade",
+          "named_section": "The Straightaway"
+        },
+        {
+          "mile": 39,
+          "label": "San Miguel City Streets",
+          "desc": "The final 20 km of each lap thread through San Miguel's urban streets. Multiple turns, sharp corners, and the enthusiastic local crowd create a criterium-like atmosphere. Cornering on tired legs after 60+ km of sustained effort requires concentration. This section decided the 2025 race — multiple attacks in the final km reshaped the field before a high-speed sprint to the waterfront finish.",
+          "terrain_detail": "Urban paved streets, multiple turns, spectator-lined roads",
+          "named_section": "The Streets of San Miguel"
+        },
+        {
+          "mile": 48,
+          "label": "Second Lap (Long Course Only)",
+          "desc": "You know exactly what's coming and that makes it worse. The sheltered corridor feels shorter. The east coast headwind feels longer. The heat has risen — by the time you hit the King of the Wind section again, it's mid-morning tropical sun at full intensity. Core temperature rises, fluid reserves drop, and the second-lap wind section grinds riders who managed the first lap comfortably. The final city-street sprint is where accumulated fatigue produces mistakes.",
+          "terrain_detail": "Identical to lap 1 but with compounding heat, dehydration, and fatigue",
+          "named_section": "The Second Hot Lap"
+        }
+      ],
+      "signature_challenge": "Wind. There is no mountain, no gravel sector, no cobbled climb. The east coast 'King of the Wind' section is the entire race compressed into 20 km of flat, exposed Caribbean coastline. Sustained trade wind headwinds of 15-25 mph turn a flat road into a threshold effort. On the second lap, the combination of wind, heat, and dehydration creates a physiological challenge that the elevation profile cannot explain. The KOW jersey exists because the KOM jersey is physically impossible."
+    },
+    "guide_variables": {
+      "race_name": "GFNY Cozumel",
+      "race_distance": "154 km (96 miles)",
+      "race_elevation": "200 meters (650 feet)",
+      "race_date": "November",
+      "race_location": "Cozumel Island, Quintana Roo, Mexico",
+      "race_terrain": "Flat coastal island roads with trade wind exposure",
+      "race_weather": "Hot (84F/29C), humid (77%), Caribbean trade winds 15-25 mph",
+      "race_challenges": [
+        "Sustained Caribbean trade wind headwinds on the exposed east coast — 20+ km per lap",
+        "Tropical heat and humidity compound across 154 km and 4-6 hours of riding",
+        "Dehydration risk: sweat evaporation is compromised in 77% humidity",
+        "Second-lap heat accumulation: the hardest conditions hit when fatigue is highest",
+        "Drafting discipline is essential — solo riders lose 20-30% more energy in the wind"
+      ],
+      "altitude_section": false,
+      "altitude_feet": 56
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Heat and humidity acclimatization protocol",
+        "by_when": "Week 4",
+        "why": "Racing at 84F with 77% humidity for 4-6 hours demands a prepared cooling system. If you train in cool or temperate climates, your body will overheat before your legs fail. Implement heat acclimatization: sauna sessions, hot indoor trainer rides, or extended warm-weather training. Arrive on the island 2-3 days early to adjust."
+      },
+      {
+        "requirement": "Sustained flat-road endurance with wind simulation",
+        "by_when": "Week 6",
+        "why": "154 km on flat roads with sustained headwinds requires steady-state power output for 4-6 hours without the natural pacing breaks that climbs and descents provide. Train with long tempo rides into headwinds. Practice sustaining 60-70% FTP for extended blocks — the east coast section demands exactly this."
+      },
+      {
+        "requirement": "Drafting and paceline skills",
+        "by_when": "Race day",
+        "why": "On a flat, windy course, the difference between riding in a group and riding solo is 20-30% energy savings. Find a paceline in the sheltered first 28 km and stay in it. Practice rotating pulls, reading crosswind echelons, and maintaining tight formation at speed. This is a drafting race — aerobic fitness alone won't save you from the wind."
+      },
+      {
+        "requirement": "Aggressive hydration and fueling strategy tested in heat",
+        "by_when": "Week 8",
+        "why": "In tropical conditions, fluid losses can exceed 1.5-2 liters per hour. With only 4 aid stations per lap, you must carry sufficient fluids and have a tested nutrition plan. Practice your fueling in hot conditions during training. Do not experiment on race day — the consequences of getting it wrong at km 120 in Caribbean heat are severe."
+      }
+    ],
+    "citations": [
+      {
+        "url": "https://cozumel.gfny.com/",
+        "title": "GFNY Cozumel — Official Site",
+        "category": "official"
+      },
+      {
+        "url": "https://cozumel.gfny.com/course/?lang=en",
+        "title": "GFNY Cozumel — Course Details",
+        "category": "official"
+      },
+      {
+        "url": "https://gfny.com/gfny-cozumel-course-guide/",
+        "title": "GFNY Cozumel Course Guide — GFNY World",
+        "category": "official"
+      },
+      {
+        "url": "https://gfny.com/12th-edition-of-gfny-cozumel-this-sunday/",
+        "title": "12th Edition of GFNY Cozumel — GFNY World",
+        "category": "official"
+      },
+      {
+        "url": "https://gfny.com/12th-gfny-cozumel-successful-test-ahead-uci-pro-race-in-2026/",
+        "title": "12th GFNY Cozumel Results and UCI Gran Premio Plans — GFNY World",
+        "category": "official"
+      },
+      {
+        "url": "https://gfny.com/gfny-expands-its-pro-am-racing-model-with-gran-premio-cozumel/",
+        "title": "GFNY Expands Pro-Am Model with Gran Premio Cozumel — GFNY World",
+        "category": "official"
+      },
+      {
+        "url": "https://gfny.com/3000-riders-tackle-8th-gfny-cozumel/",
+        "title": "3,000 Riders Tackle 8th GFNY Cozumel — GFNY World",
+        "category": "official"
+      },
+      {
+        "url": "https://www.granfondo.com/cycling-reports/521147/gfny-cozumel-sun-sand-and-smiles-in-mexico",
+        "title": "GFNY Cozumel: Sun, Sand, and Smiles in Mexico — GranFondo.com",
+        "category": "review"
+      },
+      {
+        "url": "https://rouvy.com/blog/gfny-cozumel-cycling-paradise",
+        "title": "GFNY Cozumel — Cycling Paradise — Rouvy",
+        "category": "review"
+      },
+      {
+        "url": "https://roadbikeaction.com/being-there-cozumel-gran-fondo/",
+        "title": "Being There: Cozumel Gran Fondo — Road Bike Action",
+        "category": "review"
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "high",
+      "validation_status": "validated",
+      "research_strength": "A",
+      "sources_count": 10,
+      "last_updated": "2026-02-27"
+    }
+  }
+}

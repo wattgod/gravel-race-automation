@@ -1,0 +1,274 @@
+{
+  "race": {
+    "name": "Cadel Evans Great Ocean Road Ride",
+    "slug": "cadel-evans-great-ocean-road-ride",
+    "display_name": "Cadel Evans Great Ocean Road Ride",
+    "tagline": "Australia's Tour de France winner. The Great Ocean Road. Challambra Crescent at 10%. Ride the same roads as the pros.",
+    "vitals": {
+      "distance_mi": 95,
+      "elevation_ft": 5250,
+      "location": "Geelong, Victoria, Australia",
+      "location_badge": "GEELONG, VICTORIA, AUSTRALIA",
+      "date": "Late January annually",
+      "date_specific": "2026: January 31",
+      "terrain_types": [
+        "Paved coastal roads",
+        "Rolling Surf Coast hinterland",
+        "Short sharp climbs",
+        "Exposed ocean-front sections"
+      ],
+      "field_size": "~4,000-5,000 riders across distances",
+      "start_time": "Wave starts from 6:30 AM",
+      "registration": "Online via cadelevansgreatoceenroadride.com.au. Opens mid-year prior. Cost: AUD $120-180 (~$80-120 USD).",
+      "prize_purse": "None for sportive (UCI WorldTour pro race held same weekend has prize purse)",
+      "aid_stations": "Multiple feed stations along the route, including coastal and hinterland locations.",
+      "cutoff_time": "Course support has time limits. Reasonable pace required.",
+      "lat": -38.150,
+      "lng": 144.361,
+      "distance_options": [
+        "Ride the Road: 153 km (95 mi), 1,600m climbing — the full distance sharing pro race roads",
+        "Medio: 100 km (62 mi) — shorter coastal option",
+        "Challenge: 65 km (40 mi) — accessible distance"
+      ],
+      "entry_fee": "AUD $120-180 (~$80-120 USD)"
+    },
+    "climate": {
+      "primary": "Australian high summer coastal",
+      "description": "Late January is peak Australian summer. Expect hot conditions — 28-35C (82-95F) is typical, with occasional 40C+ heat waves possible. The coastal location provides some relief via ocean breezes, but inland hinterland sections lose that advantage. UV radiation is extreme. Early morning start helps, but riders finishing in the afternoon face the full force of the Australian sun.",
+      "challenges": [
+        "Peak summer heat: 30-35C is typical, 40C+ possible during heat waves",
+        "Extreme UV radiation — Australian sun requires serious sun protection",
+        "Coastal headwinds can be strong and energy-sapping on exposed ocean-front sections",
+        "Minimal shade on many road sections, especially along the Great Ocean Road"
+      ]
+    },
+    "terrain": {
+      "primary": "Paved coastal and hinterland roads",
+      "surface": "Well-maintained sealed roads throughout. Mix of coastal highway (Great Ocean Road sections) and Surf Coast hinterland back roads. All tarmac, generally good condition.",
+      "technical_rating": 1,
+      "features": [
+        "Challambra Crescent — 1.5 km at 10%+, the decisive climb of the pro race",
+        "Great Ocean Road coastal sections with ocean views",
+        "Rolling Surf Coast hinterland with short punchy climbs",
+        "Exposed coastal sections where crosswinds and headwinds factor heavily"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 63,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "logistics": 4,
+      "length": 3,
+      "technicality": 1,
+      "elevation": 2,
+      "climate": 3,
+      "altitude": 1,
+      "adventure": 3,
+      "prestige": 3,
+      "race_quality": 4,
+      "experience": 4,
+      "community": 4,
+      "field_depth": 3,
+      "value": 4,
+      "expenses": 3,
+      "cultural_impact": 2,
+      "tier_note": "Named for Australia's only Tour de France winner. Shares roads with the UCI WorldTour pro race held the same weekend. The Great Ocean Road provides the backdrop.",
+      "score_note": "experience=4 for riding the same roads as the WorldTour pros the same weekend. logistics=4 (Geelong is 75 min from Melbourne). elevation=2 and altitude=1 reflect the coastal, low-altitude character. cultural_impact=2 for the Cadel Evans legacy in Australian cycling.",
+      "editorial_tier": 2,
+      "editorial_tier_label": "TIER 2",
+      "business_tier": 2,
+      "business_tier_label": "TIER 2",
+      "display_tier": 2,
+      "display_tier_label": "TIER 2",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 4,
+        "explanation": "Geelong is 75 minutes from Melbourne by car or train — easily accessible from Australia's second-largest city. Melbourne Airport (Tullamarine) has excellent domestic and international connections. The event weekend coincides with the WorldTour pro race, meaning the region is geared up for cyclists. Public transport options to and from Geelong are solid. Event-day logistics are well-practiced after a decade of editions."
+      },
+      "length": {
+        "score": 3,
+        "explanation": "153 km (95 miles) is a solid day but not epic by gran fondo standards. The 1,600m of climbing is moderate — enough to provide a challenge but not enough to dominate the ride. Multiple distance options (65 km, 100 km, 153 km) accommodate different abilities. The full distance is respectable without being a survival test."
+      },
+      "technicality": {
+        "score": 1,
+        "explanation": "All paved roads throughout. The terrain is rolling with some short steep pitches (Challambra Crescent being the notable one at 10%+), but nothing requiring technical bike handling. Fast coastal descents in crosswinds demand awareness, but the roads are wide and well-maintained. A road bike is the correct choice."
+      },
+      "elevation": {
+        "score": 2,
+        "explanation": "1,600 meters of climbing across 153 km is moderate. The climbing is punchy — short efforts of 1-5 minutes rather than sustained mountain passes. Challambra Crescent at 1.5 km is the longest single effort and the route's signature climb. You'll work, but this isn't a mountain sportive. The accumulated vertical across dozens of small rollers is what makes the legs tired."
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "Late January is the heart of Australian summer, and the weather is a genuine factor. Heat is the primary concern — 30-35C is normal, and heat waves can push temperatures above 40C. The event has been held in extreme heat in past years. Coastal wind provides some cooling but can also be a challenge on exposed sections. UV radiation requires serious protection — this is not the European sun. The climate score reflects a legitimate challenge that shapes race strategy."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "Coastal event. Maximum elevation is negligible. Altitude is a complete non-factor. The highest point on the course is a few hundred meters above sea level."
+      },
+      "adventure": {
+        "score": 3,
+        "explanation": "The Great Ocean Road is iconic Australian scenery — dramatic coastal cliffs, crashing surf, wide ocean views. It's deservedly famous. But this is well-traveled tourist road, not remote backcountry. The Surf Coast hinterland behind Torquay and Anglesea adds some pleasant rural riding. The adventure factor is driven by the setting rather than any sense of wilderness or isolation."
+      },
+      "prestige": {
+        "score": 3,
+        "explanation": "Named for Cadel Evans — Australia's only Tour de France winner (2011) — and paired with a UCI WorldTour professional race held the same weekend. That pedigree is significant. The Cadel connection gives the event legitimacy that most Australian sportives lack. But it's still a relatively young event (est. 2015) and doesn't carry the weight of decades-old European cyclosportives."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "Professional organization backed by the same infrastructure that supports the WorldTour pro race. Timing, marshaling, feed stations, and medical support are all to a high standard. The event benefits from the halo effect of the professional race — roads are properly closed, support is extensive, and the overall production quality is well above average for an Australian cycling event."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "The magic of this event is the pro race connection. Riding the same roads — including Challambra Crescent — that WorldTour professionals race on the same weekend creates a tangible connection to the sport's highest level. Attacking Challambra knowing that riders like Pogacar and Van der Poel did the same thing 24 hours earlier elevates a standard sportive climb into something memorable. The Great Ocean Road scenery provides a worthy backdrop."
+      },
+      "community": {
+        "score": 4,
+        "explanation": "The event draws heavily from Melbourne's large and passionate cycling community. The combination of the sportive and the WorldTour pro race creates a cycling festival atmosphere across the Geelong-Surf Coast region. Spectators line the route, particularly at Challambra Crescent. The Cadel Evans legacy resonates deeply with Australian cycling fans. Post-ride celebrations along the Geelong waterfront are social and well-attended."
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "The sportive attracts strong Melbourne-based riders, and fast finishing times are competitive. But the majority of the field rides for the experience — the pro race connection, the Great Ocean Road scenery, and the community atmosphere. Competitive depth exists but isn't the primary draw. Some participants are weekend warriors riding their one big event of the year."
+      },
+      "value": {
+        "score": 4,
+        "explanation": "AUD $120-180 for a professionally organized sportive on closed roads with WorldTour-level support infrastructure is excellent value. The pro race connection — riding the same course the same weekend — adds intangible value that you can't put a price on. Three distance options provide flexibility. This is well-priced for what you get."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Geelong is more affordable than Melbourne, with hotels running AUD $120-250/night. The event weekend does push prices up, especially in Torquay and along the Surf Coast. Domestic Australian travel is straightforward. International visitors face long-haul flight costs to reach Melbourne. Budget AUD $400-800 for a weekend for domestic travelers, significantly more for international."
+      }
+    },
+    "biased_opinion": {
+      "verdict": "The Champion's Road",
+      "summary": "The Cadel Evans Great Ocean Road Ride trades on two things: a legendary name and a legendary road. It delivers on both. Riding the same course that WorldTour professionals race the same weekend — attacking Challambra Crescent where races are decided — gives this sportive a connection to elite cycling that most events can only dream of. The Great Ocean Road provides the visual payoff, and the Geelong-Surf Coast region's cycling culture creates a genuine festival atmosphere. The ride itself is moderate by gran fondo standards — 153 km with 1,600m of climbing won't break experienced riders — but the experience transcends the physical challenge.",
+      "strengths": [
+        "Pro race connection: ride the same roads as WorldTour professionals the same weekend",
+        "Challambra Crescent: attack the climb where professional races are decided",
+        "Great Ocean Road scenery: one of Australia's most iconic coastal roads",
+        "Excellent value and accessibility from Melbourne"
+      ],
+      "weaknesses": [
+        "Moderate climbing: 1,600m won't satisfy riders seeking a mountain challenge",
+        "Australian summer heat: 30-35C+ can make the ride a survival exercise in bad years",
+        "Relatively young event (est. 2015) without the historical depth of European sportives"
+      ],
+      "bottom_line": "The closest most of us will get to riding a WorldTour race. The Great Ocean Road and Cadel's name make it worth the trip."
+    },
+    "final_verdict": {
+      "score": "63 / 100",
+      "one_liner": "Cadel Evans' legacy. The Great Ocean Road. Challambra Crescent at 10%. Ride the pro course the same weekend.",
+      "should_you_race": "Yes if riding the same roads as WorldTour professionals appeals to you. Yes if the Great Ocean Road and the Cadel Evans connection are meaningful to your cycling fandom. Skip if you need a mountain challenge — this is a coastal sportive with moderate climbing. Skip if Australian summer heat is a dealbreaker.",
+      "alternatives": "If you want more climbing in Australia: try Peaks Challenge Falls Creek. If you want a coastal sportive in a different hemisphere: try the Mallorca 312. If you want the full WorldTour connection: watch the pro race and ride the sportive back-to-back.",
+      "alternative_slugs": [
+        "peaks-challenge-falls-creek"
+      ]
+    },
+    "logistics": {
+      "airport": "Melbourne Tullamarine (MEL) — 1.5 hours to Geelong. Melbourne Avalon (AVV) — 30 minutes to Geelong (limited flights). Direct train from Melbourne Southern Cross to Geelong is also available.",
+      "lodging_strategy": "Stay in Geelong for proximity to the start/finish and the pro race atmosphere. Hotels run AUD $120-250/night on event weekend. Torquay and Anglesea along the Surf Coast are alternatives with a beachside vibe. Book 2-3 months ahead — the WorldTour race weekend attracts both cyclists and general sports tourists.",
+      "food": "Geelong's waterfront dining precinct is excellent. The Surf Coast has strong cafe culture — Torquay in particular is well-served. Carb loading is easy. Feed stations provide standard cycling nutrition.",
+      "packet_pickup": "Geelong event village, day before. Combined with the pro race team presentations and festival atmosphere.",
+      "parking": "Event parking in Geelong. Public transport from Melbourne is a viable alternative — V/Line trains run frequently.",
+      "official_site": "https://www.cadelevansgreatoceenroadride.com.au/"
+    },
+    "history": {
+      "founded": 2015,
+      "founder": "Visit Victoria / Cycling Australia, honoring Cadel Evans",
+      "origin_story": "Created in 2015 to honor Cadel Evans, who retired from professional cycling in 2015 after a career that included winning the 2011 Tour de France — Australia's only winner of cycling's greatest race. Evans grew up in the Geelong-Barwon Heads area, and the event routes through his home roads along the Great Ocean Road and Surf Coast hinterland. The sportive is paired with a UCI WorldTour professional race, creating a cycling festival weekend.",
+      "notable_moments": [
+        "2015: Inaugural edition — honoring Cadel Evans' retirement from professional cycling",
+        "WorldTour pro race and public sportive create Australia's biggest cycling weekend",
+        "Challambra Crescent becomes the signature climb — decisive in both the pro race and the sportive",
+        "Event grows to 4,000-5,000 riders across distances"
+      ],
+      "reputation": "Australia's cycling celebration. Equal parts sportive, festival, and tribute to the country's greatest road cyclist."
+    },
+    "course_description": {
+      "character": "A coastal sportive with a sharp sting. The Great Ocean Road sections provide the visual spectacle — crashing surf, dramatic coastal cliffs, wide Pacific views — while the Surf Coast hinterland delivers the physical challenge through relentless short rollers. The route mimics the professional race course, with Challambra Crescent as the decisive climb. It's not a mountain sportive, but the accumulated climbing, the heat, and the coastal wind make 153 km harder than the distance suggests.",
+      "suffering_zones": [
+        {
+          "mile": 0,
+          "label": "Geelong to the Coast",
+          "desc": "The opening kilometers head south from Geelong toward the Surf Coast. Rolling terrain through the Bellarine Peninsula and hinterland warms the legs. The excitement of the pro race connection is palpable — you're riding roads that the peloton will contest hours later (or contested hours earlier). Heat begins to build as the morning progresses.",
+          "terrain_detail": "Rolling hinterland, moderate early climbing",
+          "named_section": "Bellarine and Surf Coast Hinterland"
+        },
+        {
+          "mile": 45,
+          "label": "Great Ocean Road",
+          "desc": "The coastal sections along the Great Ocean Road are the visual highlight. Dramatic ocean views, crashing surf, exposed coastal road. The riding is rolling rather than steep, but coastal headwinds can be energy-sapping. The heat and UV exposure are at their peak during the middle portion of the ride. Stay on top of hydration.",
+          "terrain_detail": "Coastal road, rolling, exposed to wind and sun",
+          "named_section": "Great Ocean Road"
+        },
+        {
+          "mile": 80,
+          "label": "Challambra Crescent",
+          "desc": "The signature climb. 1.5 km at 10%+ — short, sharp, and painful. In the pro race, this is where attacks are launched and races are decided. In the sportive, it's where the day's accumulated fatigue meets a gradient that demands full commitment. The crowd presence (on pro race day) and the knowledge that this climb matters make it feel steeper than it is.",
+          "terrain_detail": "1.5 km at 10%+, the decisive climb",
+          "named_section": "Challambra Crescent"
+        }
+      ],
+      "signature_challenge": "Challambra Crescent. At 1.5 km, it's over before it starts — but 10%+ gradients on tired legs, in the heat, on the same tarmac that WorldTour professionals contest, make it the most meaningful 1.5 km of the day."
+    },
+    "guide_variables": {
+      "race_name": "Cadel Evans Great Ocean Road Ride",
+      "race_distance": "95 miles",
+      "race_elevation": "5,250 feet",
+      "race_date": "January",
+      "race_location": "Geelong, Surf Coast, Victoria, Australia",
+      "race_terrain": "Paved coastal and hinterland roads along the Great Ocean Road",
+      "race_weather": "Australian summer heat (30-35C), extreme UV, coastal winds",
+      "race_challenges": [
+        "Summer heat: 30-35C is typical, heat waves can push above 40C",
+        "Challambra Crescent: 1.5 km at 10%+ — short, sharp, decisive",
+        "Coastal headwinds on exposed Great Ocean Road sections",
+        "UV radiation requires aggressive sun protection for a 5-7 hour ride"
+      ],
+      "altitude_section": false,
+      "altitude_feet": 800
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Heat adaptation training — riding in warm conditions regularly",
+        "by_when": "Week 6",
+        "why": "Late January Australian heat is the defining challenge. Training in warm conditions, practicing hydration strategies under heat stress, and understanding your body's cooling limits are essential. Indoor trainer sessions with reduced cooling can simulate heat if outdoor heat isn't available."
+      },
+      {
+        "requirement": "Short steep climb repetitions — 1-3 minute efforts at threshold and above",
+        "by_when": "Week 7",
+        "why": "Challambra Crescent is 1.5 km at 10%+ — a maximal effort on tired legs. Training should include repeated short steep climbs to build the specific fitness needed for this effort profile. Hill repeats of 1-3 minutes at VO2max are ideal preparation."
+      },
+      {
+        "requirement": "Full dress rehearsal — 130+ km in warm conditions with nutrition plan",
+        "by_when": "Week 9",
+        "why": "153 km in potential 35C heat requires a tested fueling and hydration strategy. Electrolyte concentration, intake volume, and caloric strategy all need validation under heat stress at near-race duration."
+      }
+    ],
+    "citations": [
+      {
+        "url": "https://www.cadelevansgreatoceenroadride.com.au/",
+        "title": "Cadel Evans Great Ocean Road Ride — Official Site",
+        "category": "official"
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Cadel_Evans_Great_Ocean_Road_Race",
+        "title": "Cadel Evans Great Ocean Road Race — Wikipedia",
+        "category": "reference"
+      },
+      {
+        "url": "https://www.cyclingtips.com/cadel-evans-great-ocean-road-race/",
+        "title": "Cadel Evans Great Ocean Road Race — CyclingTips",
+        "category": "review"
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "high",
+      "validation_status": "validated",
+      "research_strength": "A",
+      "sources_count": 3,
+      "last_updated": "2026-02-27"
+    }
+  }
+}

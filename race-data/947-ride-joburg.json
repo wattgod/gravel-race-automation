@@ -1,0 +1,331 @@
+{
+  "race": {
+    "name": "947 Ride Joburg",
+    "slug": "947-ride-joburg",
+    "display_name": "947 Ride Joburg",
+    "tagline": "Own the streets of Joburg. 97km through Africa's City of Gold on fully closed roads. The world's second-largest timed cycle race.",
+    "vitals": {
+      "distance_mi": 60,
+      "distance_km": 97,
+      "elevation_ft": 3937,
+      "elevation_m": 1200,
+      "location": "Johannesburg, South Africa",
+      "location_badge": "JOHANNESBURG, SOUTH AFRICA",
+      "county": "Gauteng Province",
+      "date": "Late October annually (4th weekend in October)",
+      "date_specific": "2025: October 26",
+      "terrain_types": [
+        "Paved roads",
+        "Highway",
+        "Grand Prix circuit",
+        "Urban streets"
+      ],
+      "field_size": "~20,000-30,000 riders across all distances",
+      "start_time": "Sunday 5:00 AM (seeded wave starts)",
+      "registration": "Online entry with seeding system. Seeded riders grouped by ability. Entry fee R735 (~$40 USD) including VAT and CSA rider levy. Entries close early September.",
+      "prize_purse": "Cash prizes for elite category",
+      "aid_stations": "Multiple water points along the 97km route with medical support",
+      "cutoff_time": "11 hours (course closes at 4:00 PM)",
+      "lat": -26.2348,
+      "lng": 27.9827
+    },
+    "climate": {
+      "primary": "Late Southern Hemisphere spring warmth",
+      "description": "Late October in Johannesburg brings warm days averaging 24-27C (75-81F) with possibility of afternoon thunderstorms. Morning starts are cool at 12-15C (54-59F). Altitude of 1,700m moderates heat but UV exposure is intense.",
+      "challenges": [
+        "Afternoon thunderstorm risk during slower riders' finish",
+        "Strong UV at altitude demands sunscreen",
+        "Wind exposure on M1 highway sections",
+        "Warm conditions by mid-morning for slower riders"
+      ]
+    },
+    "terrain": {
+      "primary": "Rolling urban road course at altitude",
+      "surface": "Fully paved roads with full road closure. Mix of highway, suburban roads, and the Kyalami Grand Prix Circuit.",
+      "technical_rating": 1,
+      "features": [
+        "M1 highway with rolling hills",
+        "Kyalami Grand Prix Circuit lap",
+        "Urban street sections",
+        "FNB Stadium finish in Soweto"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 71,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "logistics": 4,
+      "length": 2,
+      "technicality": 1,
+      "elevation": 2,
+      "climate": 3,
+      "altitude": 3,
+      "adventure": 3,
+      "prestige": 4,
+      "race_quality": 4,
+      "experience": 4,
+      "community": 5,
+      "field_depth": 3,
+      "value": 4,
+      "expenses": 4,
+      "tier_note": "World's second-largest timed cycle race. Massive community and cultural significance in South African cycling. Prestige p4 would promote T2 to T1 but p4 cannot promote into T1, so remains T2.",
+      "score_note": "14 criteria sum=46, cultural_impact=4, total=50. (50/70)*100=71.4, rounded=71. Prestige=4 (p4 promotion blocked from T1).",
+      "editorial_tier": 2,
+      "editorial_tier_label": "TIER 2",
+      "business_tier": 2,
+      "business_tier_label": "TIER 2",
+      "display_tier": 2,
+      "display_tier_label": "TIER 2",
+      "discipline": "road",
+      "cultural_impact": 4
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 4,
+        "explanation": "Twenty-eight editions of refinement show. Full road closure across 97km of Johannesburg's busiest streets is a logistical triumph. Seeding waves sort 20,000+ riders by ability. Multiple registration points including Specialized partner stores and the FNB Stadium Dome make pickup convenient. RaceTec chip timing, medical support, and water points are professional-grade. The sheer scale of shutting down the M1 highway and Kyalami circuit for a bicycle race is impressive."
+      },
+      "length": {
+        "score": 2,
+        "explanation": "At 97km, this is a standard road race distance. Not a century, not a gran fondo epic. Elite riders finish in around 2 hours 15 minutes, mid-pack in 3-4 hours, and back-of-pack inside 5-6 hours. The distance is accessible to anyone who can ride a bike for a morning. The challenge comes from the rolling terrain and altitude, not the raw kilometers."
+      },
+      "technicality": {
+        "score": 1,
+        "explanation": "Fully paved, fully closed roads. The most technical element is the Kyalami Grand Prix Circuit corners, which are banked and smooth. No gravel, no dirt, no technical descents. The M1 highway sections are wide-open multi-lane roads. You need to handle a bike in a large group and navigate some sweeping corners, but this is road cycling at its most accessible."
+      },
+      "elevation": {
+        "score": 2,
+        "explanation": "Approximately 1,200m of elevation gain over 97km. The course rolls through Johannesburg's northern suburbs and along the M1 highway, which is deceptively undulating. No single climb dominates, but the constant rollers at 1,500-1,700m altitude make the accumulated vertical harder than the numbers suggest. The M1 South section is described as 'much tougher than it looks in a car.'"
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "Late October is early summer in Johannesburg. Expect 24-27C highs with cool early mornings around 12-15C. The morning start means front-of-pack riders finish before the heat builds, but back markers face warming conditions. The real wildcard is afternoon thunderstorms, which hit Johannesburg frequently in October-November. Rain can turn the last hours miserable for slower riders."
+      },
+      "altitude": {
+        "score": 3,
+        "explanation": "Johannesburg sits at approximately 1,700m (5,577 feet), making it one of the highest major cities in the world. The race course ranges from roughly 1,300m to 1,600m. For international visitors arriving from sea level, the altitude is a genuine physiological factor. Reduced oxygen availability means higher heart rates and earlier fatigue. A few days of acclimatization before race day is advisable."
+      },
+      "adventure": {
+        "score": 3,
+        "explanation": "Riding on the M1 highway through Johannesburg is an experience you cannot replicate any other day of the year. The Kyalami Grand Prix Circuit adds motorsport heritage to a cycling event. Finishing at FNB Stadium in Soweto connects you to South Africa's cultural heart. For international visitors, the entire experience of racing through Africa's City of Gold is genuinely adventurous."
+      },
+      "prestige": {
+        "score": 4,
+        "explanation": "The world's second-largest individually timed cycle race, behind only the Cape Town Cycle Tour. Past winners include Marianne Vos (2014), Daryl Impey (2017), Ryan Gibbons (2024), and Ashleigh Moolman-Pasio (2021). The race has attracted WorldTour talent and is the pinnacle of South African road cycling. Named after Johannesburg's 947 radio station, it carries cultural weight that extends well beyond cycling."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "Professional chip timing by RaceTec, seeded wave starts, full road closure, medical teams, and water points every 25-30km. The seeding system ensures riders of similar ability race together. E-bike and handcycle categories demonstrate inclusivity. The event runs like clockwork after nearly three decades of refinement. Only the inevitable friction of managing 20,000+ people on a single course prevents a 5."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "The experience is about owning Johannesburg's streets. Riding down the M1 highway, which normally carries thousands of vehicles, is surreal. Lapping the Kyalami Grand Prix Circuit on a bicycle, then rolling into FNB Stadium in Soweto where the 2010 FIFA World Cup final was held - these are moments no training ride can replicate. The scale of 20,000-30,000 riders creates an energy that smaller events simply cannot match."
+      },
+      "community": {
+        "score": 5,
+        "explanation": "This is Johannesburg's race. Hosted by the City of Johannesburg, sponsored by the city's dominant radio station, and embraced by corporate South Africa. Companies enter teams. Charities ride for purpose. The Recovery Foundation, and dozens of other organizations, use it as a fundraising platform. The race has been part of Johannesburg's identity for 28 years. It is not just a cycling event - it is a civic celebration."
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "The elite field features South Africa's strongest road cyclists and occasional international stars. Ryan Gibbons (Lidl-Trek) won in 2024. Reinardt Janse van Rensburg (Lotto-Soudal) in 2022. Marianne Vos in 2014. But the elite field is thin compared to European classics. The race's strength is its massive amateur participation rather than its professional depth. Most years, the winner comes from South Africa's domestic continental scene."
+      },
+      "value": {
+        "score": 4,
+        "explanation": "R735 (approximately $40 USD) for a full road closure, chip-timed, professionally organized 97km race through one of Africa's great cities. That is extraordinary value by any global standard. The entry fee includes the CSA rider levy. Compare this to European gran fondos at 80-150 EUR or American century rides at $100-200 USD for similar or lesser production quality."
+      },
+      "expenses": {
+        "score": 4,
+        "explanation": "For South African participants, this is a very affordable race. Entry is R735, accommodation in Johannesburg is plentiful, and the event is in a major metropolitan area with full infrastructure. For international visitors, the favorable exchange rate (ZAR to USD/EUR/GBP) makes Johannesburg surprisingly affordable. Flights are the main expense for overseas participants. Budget R2,000-5,000 total for a domestic participant including entry, travel, and food."
+      }
+    },
+    "biased_opinion": {
+      "verdict": "Bucket List",
+      "summary": "The 947 Ride Joburg is not the hardest race you will ever do. It is not the most technical, the longest, or the most remote. But it might be the most electric. Twenty thousand riders taking over the M1 highway, lapping Kyalami, and finishing at FNB Stadium in Soweto creates an atmosphere that makes your chest tight before you even clip in. The race is Johannesburg itself - ambitious, energetic, slightly chaotic, and completely unforgettable. If you want to understand South African cycling culture, this is where you start.",
+      "strengths": [
+        "The atmosphere: 20,000-30,000 riders on fully closed roads through a world-class city. The energy at the start and finish is electric.",
+        "The M1 experience: Riding down a major highway that normally carries heavy traffic. You cannot do this any other day of the year.",
+        "The value: Under $50 USD entry for a professionally organized, chip-timed, full road closure event. Absurdly good value by global standards.",
+        "The history: 28 editions, iconic radio station naming rights, and a winners list that includes Marianne Vos and Ryan Gibbons."
+      ],
+      "weaknesses": [
+        "The field is enormous: 20,000+ riders means congestion, especially in slower seeding groups. Patience is required in the first 20km.",
+        "Not technically challenging: If you want gravel, climbs, or adventure riding, this is not your race. It is a flat-to-rolling road event.",
+        "Weather roulette: October thunderstorms in Johannesburg can arrive with dramatic speed. Slower riders may get caught in afternoon storms.",
+        "Security concerns: International visitors should exercise standard precautions in Johannesburg. The race itself is secure, but general city safety awareness is important."
+      ],
+      "bottom_line": "If you are anywhere near South Africa in late October, you ride this race. Full stop. For domestic riders, it is the annual cycling pilgrimage. For international visitors, it is an affordable, unforgettable introduction to African cycling culture at scale."
+    },
+    "final_verdict": {
+      "score": "71 / 100",
+      "one_liner": "Africa's greatest mass-participation cycling event. Own the streets of Joburg.",
+      "should_you_race": "If you want to experience the energy of 20,000+ riders owning the streets of one of Africa's great cities, this race delivers. It is not an extreme endurance test or a technical challenge. It is a celebration of cycling in Johannesburg, and the atmosphere alone makes it worth the entry fee. For international visitors, the favorable exchange rate and the unique experience of riding the M1 highway and Kyalami circuit make it a compelling bucket-list event.",
+      "alternatives": "If you want the biggest timed race in the world: Cape Town Cycle Tour (109km, 35,000 riders). If you want South African gravel: Trailseeker Series or joBerg2c. If you want a similar urban mass-participation road event in Europe: Vatternrundan (Sweden, 300km, 23,000 riders).",
+      "alternative_slugs": []
+    },
+    "logistics": {
+      "airport": "OR Tambo International Airport (JNB) - 30 minutes to Johannesburg CBD, 45 minutes to FNB Stadium",
+      "lodging_strategy": "Johannesburg has abundant accommodation at all price points. Stay in Sandton, Rosebank, or near FNB Stadium. Major hotel chains and Airbnb widely available. Book early for race weekend as domestic visitors fill nearby options.",
+      "food": "Johannesburg has a world-class restaurant scene. Race-morning nutrition should be pre-prepared. Post-race food available at the FNB Stadium finish area.",
+      "packet_pickup": "Multiple registration points at Specialized partner stores (Mon-Fri race week) and final registration at FNB Stadium Dome on Saturday. No race-day registration.",
+      "parking": "FNB Stadium precinct has large parking areas. Arrive early on race morning. Follow event signage.",
+      "official_site": "https://ridejoburg.co.za"
+    },
+    "history": {
+      "founded": 1997,
+      "founder": "947 Radio (94.7 Highveld Stereo) and Midrand Country Cyclists",
+      "origin_story": "In 1997, Johannesburg's 94.7 Highveld Stereo radio station partnered with the Midrand Country Cyclists club to create a world-class mass participation cycling event that would capture the city's competitive temperament. The first edition drew 4,500 cyclists, making it the biggest cycling event in Gauteng. It grew rapidly, becoming the world's second-largest timed cycle race. The event has evolved through several naming sponsors: 94.7 Highveld Stereo Cycle Challenge, Momentum 94.7, Telkom 947, Discovery 947, and currently Virgin Active 947 Ride Joburg. The route shifted to start and finish at FNB Stadium in Soweto's Nasrec precinct from 2021, connecting the race more directly to the broader Johannesburg community.",
+      "notable_moments": [
+        "1997: First edition with 4,500 riders, Gauteng's biggest cycling event",
+        "1999: Robert Hunter wins before his successful European professional career",
+        "2006: Martin Velits wins - future Giro d'Italia stage racer",
+        "2014: Marianne Vos wins the women's race - the greatest female cyclist in history",
+        "2017: Daryl Impey wins - Tour de France stage winner and South African cycling legend",
+        "2020: COVID-era adaptation keeps the event alive",
+        "2021: Route flipped to start/finish at FNB Stadium in Nasrec/Soweto",
+        "2024: Ryan Gibbons (Lidl-Trek) wins - current South African road champion"
+      ],
+      "reputation": "South Africa's premier road cycling event. A civic institution in Johannesburg that transcends sport. The race has launched careers, raised millions for charity, and given 20,000+ riders per year the right to own the city's streets."
+    },
+    "course_description": {
+      "character": "A rolling 97km urban road race at altitude through Johannesburg's streets, highways, and suburbs. The course is deceptively challenging - the constant altitude above 1,500m and rolling M1 highway sections wear riders down more than the elevation numbers suggest.",
+      "suffering_zones": [
+        {
+          "km": 25,
+          "label": "Kyalami Grand Prix Circuit",
+          "desc": "The iconic motorsport circuit. Fast, smooth, and technical corners on banked tarmac. Adrenaline peak of the race.",
+          "terrain_detail": "Smooth circuit tarmac with racing apexes",
+          "named_section": "Kyalami Grand Prix Circuit"
+        },
+        {
+          "km": 45,
+          "label": "M1 Highway South",
+          "desc": "A 17km section of rolling highway that is much tougher than it looks from a car. False flats and headwinds expose poor pacing.",
+          "terrain_detail": "Multi-lane highway with rolling hills",
+          "named_section": "M1 South"
+        },
+        {
+          "km": 80,
+          "label": "Final Suburbs Push",
+          "desc": "The last 17km through Johannesburg's southern suburbs toward FNB Stadium. Tired legs, warm conditions, and the stadium finish beckoning.",
+          "terrain_detail": "Urban roads with short sharp rises",
+          "named_section": "Soweto Approach"
+        }
+      ],
+      "signature_challenge": "The M1 highway. Seventeen kilometers of rolling highway that car drivers barely notice but cyclists feel in their legs. At 1,500m+ altitude, with 60km already in the legs, the false flats and headwinds of the M1 South section separate those who paced well from those who went out too hard on the Kyalami circuit."
+    },
+    "guide_variables": {
+      "race_name": "947 Ride Joburg",
+      "race_distance": "97 km (60 miles)",
+      "race_elevation": "1,200 m (3,937 ft)",
+      "race_date": "Late October",
+      "race_location": "Johannesburg, South Africa",
+      "race_terrain": "Fully paved roads with full road closure",
+      "race_weather": "Warm spring conditions, 24-27C, possible afternoon thunderstorms",
+      "race_challenges": [
+        "Altitude at 1,500-1,700m for unacclimatized riders",
+        "Rolling M1 highway deceptively demanding",
+        "Large field creating congestion in early kilometers"
+      ],
+      "altitude_section": true,
+      "altitude_feet": 5577
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Altitude acclimatization for sea-level visitors",
+        "by_when": "Arrive 2-3 days before race day",
+        "why": "Johannesburg sits at 1,700m. Reduced oxygen availability increases heart rate and perceived effort. Even 48 hours of acclimatization helps."
+      },
+      {
+        "requirement": "Group riding skills for large peloton",
+        "by_when": "Race day",
+        "why": "20,000+ riders on closed roads means tight group riding in the first 20-30km. Ability to hold a line, signal, and ride in close proximity is essential for safety."
+      },
+      {
+        "requirement": "Pacing strategy for M1 highway section",
+        "by_when": "Race day",
+        "why": "The Kyalami circuit adrenaline causes many riders to start too hard. The M1 South rolling hills at km 45-60 punish over-eager pacing. Target negative split."
+      }
+    ],
+    "citations": [
+      {
+        "url": "https://ridejoburg.co.za",
+        "category": "official",
+        "label": "Ride Joburg Official Website"
+      },
+      {
+        "url": "https://ridejoburg.co.za/road.html",
+        "category": "official",
+        "label": "Ride Joburg 97km Road Race Details"
+      },
+      {
+        "url": "https://ridejoburg.co.za/rules.html",
+        "category": "official",
+        "label": "Ride Joburg Rules and Regulations"
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/947_Ride_Joburg",
+        "category": "reference",
+        "label": "Wikipedia: 947 Ride Joburg"
+      },
+      {
+        "url": "https://www.citizen.co.za/randfontein-herald/sports-news/2016/11/20/history-of-the-cycle-challenge/",
+        "category": "media",
+        "label": "The Citizen: History of the Cycle Challenge"
+      },
+      {
+        "url": "https://www.bicycling.co.za/race-news/7-things-youll-love-947-cycle-challenge-route/",
+        "category": "media",
+        "label": "Bicycling SA: 7 Things About The Route"
+      },
+      {
+        "url": "https://coachparry.com/cycling-beginners-guide-947-cycle-challenge/",
+        "category": "other",
+        "label": "Coach Parry: Beginners Guide to 947"
+      },
+      {
+        "url": "https://ridejoburg.howler.co.za/events/ride-joburg-road-2025-cad8",
+        "category": "official",
+        "label": "Howler: Ride Joburg Road 2025 Entry"
+      },
+      {
+        "url": "https://joburg.org.za/media_/Newsroom/Pages/2021%20News%20Articles/May/947-Rides-new-Joburg-route.aspx",
+        "category": "official",
+        "label": "City of Johannesburg: 947 Rides New Route"
+      },
+      {
+        "url": "https://www.procyclingstats.com/race/94.7-cycle-challenge/2015/result",
+        "category": "results",
+        "label": "ProCyclingStats: 94.7 Cycle Challenge Results"
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "high",
+      "validation_status": "validated",
+      "sources": [
+        "official_website",
+        "wikipedia",
+        "media_coverage",
+        "entry_platform"
+      ],
+      "migration_notes": [
+        "New road discipline profile created 2026-02-27"
+      ],
+      "research_strength": {
+        "overall": 78.0,
+        "grade": "B+",
+        "weakest": "course_specifics",
+        "has_research_dump": false,
+        "dimensions": {
+          "source_diversity": 90,
+          "citation_density": 75,
+          "temporal_depth": 80,
+          "specificity": 65,
+          "statistical_backing": 70,
+          "voice_authenticity": 70,
+          "completeness": 85,
+          "cross_reference": 80
+        },
+        "scored_at": "2026-02-27"
+      }
+    }
+  }
+}

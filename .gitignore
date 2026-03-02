@@ -76,6 +76,15 @@ workers/*/.wrangler/
 # Claude design session artifacts
 .claude-design/
 
+# Race photos (900MB+, generated via: python3 scripts/generate_race_photos_v2.py)
+race-photos/
+
+# Generated markdown profiles (regenerate with: python3 scripts/generate_markdown_profiles.py)
+web/markdown/
+
+# Photo QC reports (generated via: python3 scripts/photo_qc.py)
+reports/photo-qc-*.html
+
 # OS
 .DS_Store
 Thumbs.db

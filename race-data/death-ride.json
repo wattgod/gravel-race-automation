@@ -1,0 +1,277 @@
+{
+  "race": {
+    "name": "Death Ride",
+    "slug": "death-ride",
+    "display_name": "Death Ride — Tour of the California Alps",
+    "tagline": "5 mountain passes. 14,000 feet of climbing. The Sierra Nevada's ultimate single-day climbing challenge since 1978.",
+    "vitals": {
+      "distance_mi": 103,
+      "elevation_ft": 14000,
+      "location": "Markleeville, Alpine County, California",
+      "location_badge": "MARKLEEVILLE, CALIFORNIA",
+      "date": "Second Saturday of July annually",
+      "date_specific": "2026: July 11",
+      "terrain_types": [
+        "Paved Sierra Nevada mountain passes",
+        "High-altitude Alpine roads",
+        "Exposed canyon roads"
+      ],
+      "field_size": "~3,500 riders (sells out)",
+      "start_time": "Saturday 5:00 AM",
+      "registration": "Online via bikereg.com. Sells out. Cost: ~$140-175",
+      "prize_purse": "None. Finisher certificate and 5-pass recognition.",
+      "aid_stations": "Support stations at each pass summit and base. Water, food, mechanics.",
+      "cutoff_time": "Must return to Turtle Rock Park by 3:00 PM. Self-paced within cutoff.",
+      "lat": 38.694,
+      "lng": -119.774,
+      "distance_options": [
+        "Full Death Ride: 103 miles, 14,000+ ft — 3 passes (6 summits, up and back)",
+        "Riders can turn around at any pass for partial completion"
+      ],
+      "entry_fee": "~$140-175"
+    },
+    "climate": {
+      "primary": "Sierra Nevada summer — hot valleys, cold summits",
+      "description": "July in the Sierra Nevada brings warm valley temperatures (80-95F) with significantly cooler conditions at pass summits (8,000+ ft). The 5:00 AM start means riding in cold darkness initially. Afternoon heat in exposed canyons is intense.",
+      "challenges": [
+        "Temperature range from near-freezing at dawn to 90F+ in afternoon canyons",
+        "High-altitude sun exposure — intense UV above 7,000 ft",
+        "Thin air above 8,000 ft affects performance",
+        "Afternoon heat in exposed Sierra canyons"
+      ]
+    },
+    "terrain": {
+      "primary": "Paved Sierra Nevada mountain passes",
+      "surface": "Paved mountain roads (California state highways). Roads are open to traffic but well-supported on event day.",
+      "technical_rating": 1,
+      "features": [
+        "Monitor Pass (Hwy 89) — sustained climb to 8,314 ft",
+        "Ebbetts Pass (Hwy 4) — steep, winding, rarely traveled mountain road",
+        "Pacific Grade (Hwy 4) — additional summit at 8,050 ft",
+        "All passes ridden up and back — 6 total summits",
+        "Sustained riding between 5,500 ft and 8,732 ft elevation"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 71,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "logistics": 3,
+      "length": 4,
+      "technicality": 1,
+      "elevation": 5,
+      "climate": 3,
+      "altitude": 4,
+      "adventure": 4,
+      "prestige": 4,
+      "race_quality": 3,
+      "experience": 5,
+      "community": 3,
+      "field_depth": 2,
+      "value": 3,
+      "expenses": 3,
+      "cultural_impact": 3,
+      "tier_note": "The California Alps' defining climbing challenge since 1978. 5 passes, 14,000 ft of climbing in one of America's least-populated counties. T2 by score (71). p4 cannot promote into T1.",
+      "score_note": "Elevation=5 and altitude=4 reflect the massive climbing volume and genuine high-altitude riding. Experience=5 for the achievement of completing all passes. Technicality=1 (all paved). cultural_impact=3 for American cycling institution status.",
+      "editorial_tier": 2,
+      "editorial_tier_label": "TIER 2",
+      "business_tier": 2,
+      "business_tier_label": "TIER 2",
+      "display_tier": 2,
+      "display_tier_label": "TIER 2",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 3,
+        "explanation": "Markleeville is one of the most remote start locations for any major US cycling event — Alpine County has a population under 1,200. Getting there requires a 2+ hour drive from Reno or Sacramento over mountain roads. Accommodation is extremely limited (camping and a few lodges). The organization manages 3,500 riders across remote mountain passes, which is impressive, but the remoteness is a genuine logistics challenge."
+      },
+      "length": {
+        "score": 4,
+        "explanation": "103 miles with 14,000+ feet of climbing is a serious single-day effort. The up-and-back format on each pass means you're constantly climbing or descending — there's minimal flat riding. The 5:00 AM start to 3:00 PM cutoff creates genuine time pressure. Most riders take 8-12 hours for the full route."
+      },
+      "technicality": {
+        "score": 1,
+        "explanation": "Paved California highways. The descents from Ebbetts Pass are winding and steep but on good asphalt. The challenge is climbing, not technical terrain."
+      },
+      "elevation": {
+        "score": 5,
+        "explanation": "14,000+ feet of climbing across 5 passes (6 summits counting both directions). Three HC-category climbs back to back. This is among the most climbing packed into any single-day US cycling event. The up-and-back format means every foot of elevation is earned twice."
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "July Sierra Nevada weather is generally favorable — sunny and dry. But the temperature range from the cold pre-dawn start to hot afternoon canyons requires layering strategy. High-altitude UV is intense. Not as extreme as La Marmotte's Galibier conditions, but the combination of heat and altitude creates real physiological stress."
+      },
+      "altitude": {
+        "score": 4,
+        "explanation": "Sustained riding between 5,500 ft and 8,732 ft. Pass summits above 8,000 ft deliver meaningful altitude effects — reduced oxygen, higher heart rate, slower recovery. Riders from sea level feel this acutely. The cumulative effect across 5 passes compounds the altitude impact."
+      },
+      "adventure": {
+        "score": 4,
+        "explanation": "Alpine County is wilderness. One of the least-populated counties in California — entirely undeveloped Sierra Nevada country. The Ebbetts Pass road is rarely traveled; on Death Ride day cyclists essentially own it. The Sierra Nevada scenery is spectacular — granite peaks, alpine meadows, rushing rivers. The remoteness is part of the appeal."
+      },
+      "prestige": {
+        "score": 4,
+        "explanation": "Nearly 50 years of history as the defining high-altitude road climbing event in the American West. Completing all 5 passes earns genuine respect in US cycling circles. The name alone carries weight. Not quite the international prestige of La Marmotte, but within US road cycling, the Death Ride is a bucket-list achievement."
+      },
+      "race_quality": {
+        "score": 3,
+        "explanation": "Solid organization for a remote mountain event. Aid stations at each pass summit and base with food, water, and mechanics. Medical support along the route. But this is not a professional sportive — it's a community cycling challenge run by Alpine County locals. The atmosphere is more grassroots than corporate."
+      },
+      "experience": {
+        "score": 5,
+        "explanation": "Completing 5 passes in the California Alps is a profound cycling experience. The pre-dawn start, the silent climb through darkness, the first summit as the sun rises, the rhythm of climb-descend-climb-descend, and the final return to Markleeville with all passes checked off — it's a day that stays with you. The Sierra Nevada scenery at altitude, the challenge of the climbing, and the achievement of finishing create a complete experience."
+      },
+      "community": {
+        "score": 3,
+        "explanation": "3,500 riders create a shared challenge, but the spread across 103 miles of mountain roads means you're often riding alone or in small groups. The Markleeville start/finish area has a warm, small-town atmosphere. Many riders are Death Ride veterans who return year after year. The community is dedicated but not the 10,000-person festival of RAGBRAI or Flanders."
+      },
+      "field_depth": {
+        "score": 2,
+        "explanation": "Not competitive. There are no timing chips, no age group awards, no podium. The Death Ride is a personal challenge — you versus the passes. Some fast riders push for time, but it's unofficial. The field is self-selecting: 3,500 people willing to climb 14,000 feet in a day are serious cyclists by definition."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "$140-175 for a single-day climbing event is moderate. The support is good but not lavish. The value is in the experience and the achievement rather than event perks."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Getting to Markleeville is expensive. Flights to Reno or Sacramento, then a 2+ hour drive. Accommodation is extremely limited — camping or the few lodges in Alpine County. You're self-sufficient in a remote mountain area. Budget $600-1,200 for travel, lodging, and event."
+      }
+    },
+    "biased_opinion": {
+      "verdict": "The Summit",
+      "summary": "The Death Ride is American road cycling's ultimate climbing challenge. 5 passes. 14,000 feet. One of the least-populated counties in California. No prize money, no timing chips, no Instagram-ready finish line — just you and the Sierra Nevada. Since 1978, serious cyclists have made the pilgrimage to Markleeville to test themselves against the California Alps. The name isn't hyperbole — it's a warning and a promise. If you finish all 5 passes, you've earned something that can't be bought.",
+      "strengths": [
+        "14,000+ feet of climbing: among the most in any single-day US cycling event",
+        "Sierra Nevada wilderness: remote, beautiful, and genuinely wild",
+        "The achievement: completing all 5 passes carries permanent cycling credibility",
+        "Nearly 50 years of tradition — a genuine American cycling institution"
+      ],
+      "weaknesses": [
+        "Remote: Markleeville is 2+ hours from the nearest city. Accommodation is minimal.",
+        "Not competitive: no timing, no awards. If you need racing, look elsewhere.",
+        "Altitude: riders from sea level will feel the 8,000+ ft summits"
+      ],
+      "bottom_line": "If you want to climb everything in a single California day, the Death Ride is waiting. It's been waiting since 1978."
+    },
+    "final_verdict": {
+      "score": "71 / 100",
+      "one_liner": "5 passes. 14,000 feet. The California Alps' ultimate climbing challenge since 1978.",
+      "should_you_race": "Yes if you want the defining high-altitude climbing experience in the American West. Yes if you can handle sustained riding above 8,000 ft. Skip if you need race infrastructure or a competitive field.",
+      "alternatives": "If you want more climbing with international prestige: try La Marmotte. If you want US climbing with a race atmosphere: try Levi's GranFondo Growler. If you want multi-pass alpine challenge in Europe: try Tour du Mont-Blanc Cyclo.",
+      "alternative_slugs": [
+        "la-marmotte",
+        "levis-granfondo",
+        "tour-du-mont-blanc-cyclo"
+      ]
+    },
+    "logistics": {
+      "airport": "Reno-Tahoe (RNO) — 2 hours. Sacramento (SMF) — 3 hours. Both require mountain driving.",
+      "lodging_strategy": "Extremely limited. Markleeville has a few lodges and campgrounds. Many riders camp at Turtle Rock Park. Book months ahead or commute from South Lake Tahoe (45 min).",
+      "food": "Limited options in Markleeville — bring supplies. Post-ride BBQ at Turtle Rock Park.",
+      "packet_pickup": "Friday at Turtle Rock Park. Small-town atmosphere.",
+      "parking": "Turtle Rock Park. Arrive early — 3,500 riders fill the area.",
+      "official_site": "https://deathride.com/"
+    },
+    "history": {
+      "founded": 1978,
+      "founder": "Five cyclists who rode the California Alps informally; formalized circa 1981",
+      "origin_story": "In 1978, five cyclists rode the mountain passes of Alpine County in a single day. The ride grew organically into an organized event, formalized around 1981. Nearly 50 years later, the Death Ride draws 3,500 riders to one of California's most remote counties for what has become the defining high-altitude cycling challenge in the American West.",
+      "notable_moments": [
+        "1978: Five cyclists complete the original ride",
+        "Grew from informal challenge to America's premier climbing event",
+        "3,500 riders annually in one of California's least-populated counties",
+        "Proceeds benefit Alpine County community organizations"
+      ],
+      "reputation": "The climbing test. America's answer to the European mountain passes."
+    },
+    "course_description": {
+      "character": "Relentless climbing. The up-and-back format on each pass means you're constantly ascending or descending. There is almost no flat riding. The passes come in waves — each summit brings the descent that takes you to the base of the next climb. By pass 4, the cumulative altitude exposure and climbing fatigue make every gradient feel steeper.",
+      "suffering_zones": [
+        {
+          "mile": 0,
+          "label": "Pre-Dawn Start",
+          "desc": "5:00 AM departure from Turtle Rock Park in darkness. Cold, quiet, and humbling. The first pass awaits.",
+          "terrain_detail": "Cold start, climbing begins immediately",
+          "named_section": "The Departure"
+        },
+        {
+          "mile": 30,
+          "label": "Monitor Pass",
+          "desc": "The first major summit at 8,314 ft. Sustained climbing at altitude. The Sierra Nevada reveals itself as the sun rises. Descend back, then head for Ebbetts.",
+          "terrain_detail": "Hwy 89, summit 8,314 ft",
+          "named_section": "Monitor Pass"
+        },
+        {
+          "mile": 60,
+          "label": "Ebbetts Pass",
+          "desc": "The steepest and most dramatic climb. A rarely traveled Sierra Nevada road that winds through granite canyons. Summit at 8,732 ft — the highest point of the day. On tired legs at altitude, this is where the Death Ride earns its name.",
+          "terrain_detail": "Hwy 4, summit 8,732 ft, steep and winding",
+          "named_section": "Ebbetts Pass"
+        },
+        {
+          "mile": 90,
+          "label": "Pacific Grade — The Final Summit",
+          "desc": "The last pass. Legs are empty, altitude has accumulated, and the clock is ticking toward the 3:00 PM cutoff. Summit at 8,050 ft. The descent back to Markleeville is the release.",
+          "terrain_detail": "Hwy 4, summit 8,050 ft",
+          "named_section": "Pacific Grade"
+        }
+      ],
+      "signature_challenge": "Ebbetts Pass — the steepest, most dramatic, and highest summit. Climbing to 8,732 ft on tired legs in the Sierra Nevada is the Death Ride's defining moment."
+    },
+    "guide_variables": {
+      "race_name": "Death Ride — Tour of the California Alps",
+      "race_distance": "103 miles",
+      "race_elevation": "14,000 feet",
+      "race_date": "July",
+      "race_location": "Markleeville, Alpine County, California",
+      "race_terrain": "Paved Sierra Nevada mountain passes",
+      "race_weather": "Hot valleys (80-95F), cool summits (8,000+ ft), pre-dawn cold start",
+      "race_challenges": [
+        "14,000 feet of climbing across 5 passes in a single day",
+        "Altitude effects above 8,000 ft — reduced oxygen",
+        "Temperature swings from pre-dawn cold to afternoon canyon heat",
+        "3:00 PM cutoff requires consistent pacing"
+      ],
+      "altitude_section": true,
+      "altitude_feet": 8732
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Mountain climbing endurance — back-to-back pass simulations",
+        "by_when": "Week 6",
+        "why": "5 passes demand climbing-specific endurance that flat-land training can't replicate. If you don't have mountains, use sustained threshold efforts to simulate."
+      },
+      {
+        "requirement": "Altitude exposure or preparation for riding above 8,000 ft",
+        "by_when": "Week 8",
+        "why": "Sea-level riders lose 10-15% performance at 8,000 ft. Arrive early to acclimatize or use altitude training preparation."
+      },
+      {
+        "requirement": "Pacing plan with 3:00 PM cutoff reverse-engineered",
+        "by_when": "Race day",
+        "why": "The cutoff is real. Calculate your required pace for each pass and stick to it. Starting too fast leads to bonking on pass 4."
+      }
+    ],
+    "citations": [
+      {
+        "url": "https://deathride.com/",
+        "title": "Death Ride — Official Site",
+        "category": "official"
+      },
+      {
+        "url": "https://www.bikereg.com/71807",
+        "title": "Death Ride 2026 — BikeReg Registration",
+        "category": "official"
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "high",
+      "validation_status": "validated",
+      "research_strength": "A-",
+      "sources_count": 2,
+      "last_updated": "2026-02-27"
+    }
+  }
+}

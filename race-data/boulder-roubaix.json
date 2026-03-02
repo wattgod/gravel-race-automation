@@ -1,0 +1,324 @@
+{
+  "race": {
+    "name": "Boulder Roubaix",
+    "slug": "boulder-roubaix",
+    "display_name": "Boulder Roubaix Road Race",
+    "tagline": "America's spring classic. 61% dirt, 39% pavement, 100% suffering. The original Paris-Roubaix tribute race on Colorado's Front Range farm roads.",
+    "vitals": {
+      "distance_mi": 30,
+      "elevation_ft": 1200,
+      "location": "Boulder Reservoir, Boulder County, Colorado, USA",
+      "location_badge": "BOULDER, COLORADO",
+      "county": "Boulder County",
+      "date": "April, biennial (every other year)",
+      "date_specific": "2026: April 26",
+      "terrain_types": [
+        "Packed dirt farm roads",
+        "Rutted unpaved county roads",
+        "Paved rural roads",
+        "Mixed-surface transitions"
+      ],
+      "field_size": "~1,000+ riders across all categories",
+      "start_time": "Sunday 8:00 AM (juniors), 10:00 AM (main fields)",
+      "registration": "Online via BikeReg + race-day registration ($10 surcharge, cash only). USA Cycling license required for competitive categories. Cost: $55-75 (adults), $10-30 (juniors/collegiate)",
+      "prize_purse": "$1,000 (Men Pro 1/2, split 10 places). Top 3 medals in all other categories.",
+      "aid_stations": "Neutral support based on volunteer availability — unlikely. Self-supported. Bring pump, spare tube, and do a bolt check.",
+      "cutoff_time": "None listed",
+      "lat": 40.07,
+      "lng": -105.22,
+      "distance_options": [
+        "1 lap: 30 miles (Cat 5, Juniors, Masters 65+, Masters Women 35+)",
+        "2 laps: 60 miles (Cat 3, Cat 4, Women Cat 3/4, Collegiate B/C)",
+        "3 laps: 90 miles (Pro/1/2, Masters 35+ 1/2/3, Collegiate A)"
+      ],
+      "entry_fee": "$55-75 adults, $10-30 juniors/collegiate"
+    },
+    "climate": {
+      "primary": "Colorado Front Range spring — highly variable, wind-dominated",
+      "description": "Late April on the Colorado Front Range means anything goes. Temperatures can range from freezing to 75F within the same week. Wind is the defining weather element — the 2024 edition saw 25-35 mph gusts with frequent higher gusts, forcing organizers to shorten the pro race from 93 miles to 36. Morning starts can be in the 40s with afternoon warmth. Snow, rain, sun, and gale-force wind are all possible on any given race day.",
+      "challenges": [
+        "Wind is the primary weather threat — open farmland offers zero shelter",
+        "Temperature swings of 20-30F between morning start and midday are common",
+        "Spring snowstorms are possible on the Colorado Front Range in late April",
+        "Dirt road conditions change dramatically based on preceding weather — dry and fast or wet and sloppy"
+      ]
+    },
+    "terrain": {
+      "primary": "Rolling mixed-surface — unpaved county roads and paved rural roads",
+      "surface": "61% unpaved, 39% paved (2026 course). The unpaved sections are real working county and farm roads — not manicured gravel. Surface quality ranges from smooth hard-pack to deeply rutted washboard depending on weather conditions leading up to race day. The 2026 course adds a challenging finish along the Boulder Feeder Canal and across the Boulder Reservoir dams.",
+      "technical_rating": 3,
+      "features": [
+        "Unpaved county roads — ranging from smooth to extremely rutted depending on weather",
+        "Rolling terrain with no sustained major climbs but constant undulation",
+        "Mixed-surface transitions between pavement and dirt — the defining tactical element",
+        "Winding curves through North Boulder County open space and farmland",
+        "New 2026 finish along Boulder Feeder Canal and across reservoir dams"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 61,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "logistics": 3,
+      "length": 2,
+      "technicality": 3,
+      "elevation": 2,
+      "climate": 3,
+      "altitude": 2,
+      "adventure": 3,
+      "prestige": 3,
+      "race_quality": 4,
+      "experience": 3,
+      "community": 3,
+      "field_depth": 4,
+      "value": 3,
+      "expenses": 3,
+      "cultural_impact": 2,
+      "tier_note": "America's original Paris-Roubaix tribute race. Running since 1992 on the dirt roads north of Boulder. 61% unpaved, USAC-sanctioned road race that predates the gravel movement. Colorado State Road Race Championships in 2026. T2 by score (61).",
+      "score_note": "Sum of 14 criteria = 41, cultural_impact = 2, total = 43. (43/70)*100 = 61.4, rounded = 61. Race_quality=4 for USAC sanctioning, chip timing, pro purse, and experienced DBC Events organization. Field_depth=4 for strong Pro/1/2 field drawing Boulder-based talent, 20+ categories, 1000+ riders. Prestige=3 for strong regional reputation and state championship status but limited national profile. Length=2 and elevation=2 reflect the per-lap distance (30 mi); pro field does 3 laps for 90 miles. Altitude=2 at ~5,100 ft — noticeable for sea-level visitors.",
+      "editorial_tier": 2,
+      "editorial_tier_label": "TIER 2",
+      "business_tier": 2,
+      "business_tier_label": "TIER 2",
+      "display_tier": 2,
+      "display_tier_label": "TIER 2",
+      "discipline": "gravel"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 3,
+        "explanation": "Boulder, Colorado is one of cycling's great meccas — Denver International Airport is 45 minutes away, and the entire Front Range corridor has abundant lodging, dining, and bike shops. The 2026 move to Boulder Reservoir as start/finish adds parking and on-site amenities including restrooms and showers. Packet pickup is available Thursday evening at Vecchio's Bike Shop in Boulder. The major logistical wrinkle: this race happens only every other year, making planning a two-year commitment."
+      },
+      "length": {
+        "score": 2,
+        "explanation": "The 30-mile circuit is short per lap. Most amateur categories do 1-2 laps (30-60 miles), which is moderate by any standard. The Pro/1/2 field does 3 laps for 90 miles — a legitimate endurance effort — but the majority of participants are doing a sub-marathon distance. The 2024 edition was shortened further by wind (93 miles reduced to 36). As a single-lap effort, 30 miles is over quickly."
+      },
+      "technicality": {
+        "score": 3,
+        "explanation": "The mixed surface is the technical challenge. The 2026 course is 61% unpaved, with roads that can be anywhere from smooth to extremely rutted depending on recent weather. Surface transitions from pavement to dirt demand attention and punish poor tire choices. In wet conditions, the dirt sectors become slippery and sloppy. The rolling terrain adds cornering challenge on loose surfaces. It is not singletrack or highly technical — it is the unpredictability of the surface that creates the difficulty."
+      },
+      "elevation": {
+        "score": 2,
+        "explanation": "Rolling terrain across North Boulder County farmland. No sustained climbs, no dramatic mountain passes. The constant undulation accumulates fatigue over multiple laps, but no single ascent dominates the race. The 2026 course adds the Boulder Reservoir dams and feeder canal for a challenging final stretch, but this is still fundamentally flat-to-rolling agricultural terrain."
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "Colorado Front Range spring weather is a coin flip. The 2024 edition demonstrated the extremes: winds increased to 25-35 mph with frequent higher gusts after the pro fields started, forcing officials to shorten the race for safety. High Wind Advisories were issued along the Front Range. On a good day, it is 60-70F with light wind and spectacular views of the Indian Peaks. On a bad day, it is survival cycling. The wind across open farmland is relentless and there is no shelter."
+      },
+      "altitude": {
+        "score": 2,
+        "explanation": "Boulder Reservoir sits at approximately 5,100 feet above sea level. This is meaningful for riders coming from sea level — reduced oxygen availability at this elevation is measurable and affects performance. It is not high-altitude suffering like racing above 10,000 feet, but visitors from coastal cities will feel it in their legs and lungs. Boulder-based riders have the home-field advantage."
+      },
+      "adventure": {
+        "score": 3,
+        "explanation": "North Boulder County is beautiful agricultural terrain with views of the Continental Divide and Indian Peaks to the west. The rolling farm roads wind through open space, past working ranches, and through the quiet rural landscape that sits just beyond Boulder's city limits. It is not dramatic alpine scenery — it is the accessible beauty of Colorado's Front Range foothills meeting the high plains. The new course along the Boulder Feeder Canal and across the reservoir dams adds scenic variety."
+      },
+      "prestige": {
+        "score": 3,
+        "explanation": "Gran Fondo Guide recognized Boulder Roubaix as one of the 'All Time Best Spring Classic Races in North America.' It serves as the 2026 Colorado State Road Race Championships. VeloNews has covered it extensively as a regional institution. Chris Grealish, co-founder of the CrossVegas UCI World Cup event, runs it through DBC Events. Strong regional prestige among western US racing — it is the highlight of Colorado's spring season — but limited national profile compared to events like the Tour of the Gila."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "USA Cycling sanctioned with chip timing, categorized fields from juniors through pro, and a $1,000 pro purse. DBC Events has organized this event since 1992 with the experience to manage 1,000+ riders across 20+ categories. Wave starts, timing chip system, and official results through USAC. Race-day officials shortened the 2024 edition for safety when winds became dangerous — a sign of responsible management. The organization is professional without being corporate."
+      },
+      "experience": {
+        "score": 3,
+        "explanation": "There is nothing else quite like Boulder Roubaix. It is a Paris-Roubaix homage that genuinely captures the spirit of the European classic — mixed surfaces, variable conditions, tactical racing on unpredictable roads. The biennial schedule creates scarcity: this race happens only every other year, which makes each edition feel like an event rather than routine. Racing on the dirt roads north of Boulder with the Continental Divide as a backdrop is a distinctively Colorado experience."
+      },
+      "community": {
+        "score": 3,
+        "explanation": "Boulder is a cycling community like few others in North America. Over 1,000 riders from 15 states converge for Boulder Roubaix, but the core community is the Colorado Front Range cycling scene — clubs, teams, and shops that treat this as the marquee spring race. The event draws collegiate teams, juniors, adaptive athletes on handcycles and trikes, and masters racers through age 70+. The breadth of categories reflects a community that values inclusion alongside competition."
+      },
+      "field_depth": {
+        "score": 4,
+        "explanation": "The Pro/1/2 field draws strong regional talent from the Boulder-Denver cycling corridor — one of the deepest talent pools in American road racing. The 2024 men's pro race was won by emerging gravel racer Finn Gullickson. Masters 35+ and 40+ fields regularly exceed 70-100 riders. Collegiate A and B fields add young talent. With 20+ categories and 1,000+ total riders, the competitive depth across the board is strong. This is not a recreational ride with a race attached — it is a race through and through."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "Entry fees of $55-75 for a USAC-sanctioned road race with chip timing, pro purse, and experienced organization is fair market value. Junior categories at $10-20 are particularly accessible. The race-day $10 surcharge for late registration is reasonable. For the quality of organization and the experience delivered, this is appropriately priced."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Boulder is not a cheap town. Hotels run $150-350/night in peak season. However, Denver International Airport is a major hub with competitive airfares, and the Front Range corridor from Denver to Longmont has abundant lodging options at various price points. Boulder Reservoir entry is free before 9AM, $5/person after. Budget $500-1,000 for an out-of-state weekend trip; Colorado-based riders can do it for the entry fee and gas."
+      }
+    },
+    "biased_opinion": {
+      "verdict": "The American Spring Classic",
+      "summary": "Boulder Roubaix is what happens when you take the spirit of Paris-Roubaix and transplant it to Colorado's Front Range farm roads. Since 1992, this biennial race has sent riders onto the unpaved county roads north of Boulder — roads that were 'gravel' decades before gravel became a category. The course does not need cobblestones to create chaos: rutted dirt roads, spring wind that can shut down the race, and surface conditions that change hourly deliver the unpredictability that defines a classic. It is a proper USAC road race with categorized fields and a pro purse, not a recreational ride. The 2026 edition moves to Boulder Reservoir with a new 30-mile loop that is 61% unpaved — further embracing the mixed-surface identity that has always defined this event.",
+      "strengths": [
+        "Legitimate competitive road race: USAC-sanctioned, chip-timed, 20+ categories from juniors to pro with $1,000 purse",
+        "Boulder cycling ecosystem: arguably the best cycling community in North America, with the infrastructure and culture to support a first-class event",
+        "Mixed-surface character predates the gravel movement: these dirt roads have been part of the course since 1992",
+        "Biennial scarcity: happening only every other year makes each edition feel like an event"
+      ],
+      "weaknesses": [
+        "Wind can and does shut down the race: 2024 was shortened from 93 to 36 miles due to dangerous gusts",
+        "30-mile loop is short for most categories: 1-2 lap riders are done in 1-3 hours",
+        "Regional reputation only: outside of Colorado and the western US, Boulder Roubaix does not register nationally",
+        "No neutral support on course: self-supported with no guaranteed mechanical assistance"
+      ],
+      "bottom_line": "Boulder Roubaix is the real thing — a hard, tactical, weather-dependent race on unpaved roads that has been testing Colorado cyclists since before gravel had a marketing department. Show up, pin on a number, and race."
+    },
+    "final_verdict": {
+      "score": "61 / 100",
+      "one_liner": "Colorado's 34-year spring classic. 61% dirt, USAC-sanctioned, and unapologetically hard.",
+      "should_you_race": "Yes if you are a competitive road or gravel racer who wants a legitimate USAC road race on mixed surfaces. Yes if you live in Colorado and want to test your early-season form on the defining spring race. Yes if you want to experience the event that was doing 'gravel racing' before the term existed. Skip if you want a long-distance endurance challenge (most categories are 30-60 miles), or if you need a destination event with a national profile.",
+      "alternatives": "If you want a bigger mixed-surface event in the West: try Belgian Waffle Ride California. If you want Colorado gravel with more distance: try SBT GRVL in Steamboat Springs. If you want another Paris-Roubaix tribute with more climbing: try the Paris-Roubaix Challenge sportive.",
+      "alternative_slugs": [
+        "bwr-california",
+        "sbt-grvl",
+        "paris-roubaix-challenge"
+      ]
+    },
+    "logistics": {
+      "airport": "Denver International Airport (DEN) — 45 minutes to Boulder. Major hub with direct flights from most US cities.",
+      "lodging_strategy": "Boulder has abundant hotels and vacation rentals ($150-350/night). Longmont (15 min north) and Louisville/Superior (15 min south) offer more affordable options. Book early — late April is pleasant weather season in Boulder and accommodations fill. Boulder Reservoir is between Boulder and Longmont, so lodging in either town works.",
+      "food": "Boulder has an exceptional restaurant and cafe scene. Pre-race carb loading is easy. Race morning, bring your own breakfast — no on-site food vendors confirmed. Post-race, Pearl Street Mall in downtown Boulder has dozens of options.",
+      "packet_pickup": "Thursday April 23, 5:00-8:30 PM at Vecchio's Bike Shop, 2725 Iris Ave, Boulder. Race-day pickup also available starting at 7:00 AM at Boulder Reservoir.",
+      "parking": "Free parking at Boulder Reservoir lots, 5275 Reservoir Rd, Boulder, CO 80301. Entry free before 9 AM, $5/person or $10/car after 9 AM. Arrive early for best parking.",
+      "official_site": "https://dbcevents.com/2026-roubaix/"
+    },
+    "history": {
+      "founded": 1992,
+      "founder": "Chris Grealish / DBC Events (Denver-Boulder Couriers)",
+      "origin_story": "The first Boulder Roubaix took place in 1992, inspired by the legendary Paris-Roubaix classic. Organizer Chris Grealish of Denver-Boulder Couriers — who later co-founded the CrossVegas UCI World Cup cyclocross event — built the race on the dirt roads north of Boulder as a spring rite of passage for Colorado cyclists. The biennial format (every other year) was established early, creating scarcity that enhanced the event's mystique. The 30th anniversary edition was held in 2022. For 2026, the course moves to a new start/finish at Boulder Reservoir with a longer 30-mile loop.",
+      "notable_moments": [
+        "1992: First edition launches on the dirt roads north of Boulder, predating the gravel movement by two decades",
+        "Biennial format established — the race happens only every other year, creating unique anticipation",
+        "2022: 30th anniversary edition draws riders from across the country",
+        "2024: High winds force organizers to shorten pro race from 93 miles to 36 miles — Finn Gullickson wins shortened men's pro field",
+        "2026: New course moves start/finish to Boulder Reservoir with 30-mile loop (61% unpaved), serves as Colorado State Road Race Championships",
+        "Recognized by Gran Fondo Guide as one of the 'All Time Best Spring Classic Races in North America'"
+      ],
+      "reputation": "Colorado's defining spring race. The original American Paris-Roubaix tribute. A biennial tradition that was riding dirt roads before gravel was a genre."
+    },
+    "course_description": {
+      "character": "Rolling mixed-surface through North Boulder County agricultural landscape. The 2026 course is a new 30-mile (48 km) loop — 61% unpaved, 39% paved — that starts and finishes at Boulder Reservoir. The terrain is constant undulation through working farm and county roads that can be anywhere from smooth to extremely rutted depending on weather. No single dramatic climb, but the accumulated rolling and the wind across open terrain create a war of attrition. The finishing stretch along the Boulder Feeder Canal and across the reservoir dams adds a challenging technical element to the final miles.",
+      "suffering_zones": [
+        {
+          "mile": 0,
+          "label": "Boulder Reservoir Start",
+          "desc": "Rolling out from the reservoir into North Boulder County. The field is together, the adrenaline is high, and the first surface transition from pavement to dirt separates the prepared from the hopeful. Tire choice is locked in. If recent weather was wet, the opening dirt sectors reveal conditions immediately.",
+          "terrain_detail": "Paved roads transitioning to unpaved county roads",
+          "named_section": "The Rollout"
+        },
+        {
+          "mile": 10,
+          "label": "North County Dirt Sectors",
+          "desc": "Deep into the unpaved roads north toward Hygiene. Rolling terrain on roads that range from smooth to brutal washboard. The wind picks up across open farmland with no shelter. Groups form and shatter based on surface conditions. Mechanical attrition begins here — bottles ejected, riders changing flats on the roadside.",
+          "terrain_detail": "Unpaved county roads, rolling terrain, exposed to wind",
+          "named_section": "The Farm Roads"
+        },
+        {
+          "mile": 20,
+          "label": "The Return",
+          "desc": "Turning south back toward Boulder Reservoir. If the wind has been in your face heading north, you get relief here — or the opposite. The dirt roads continue with winding curves and enough elevation change to wear down tired legs. The paved sections offer brief respite before the next dirt sector.",
+          "terrain_detail": "Mix of paved and unpaved, rolling with winding curves",
+          "named_section": "The Turnaround"
+        },
+        {
+          "mile": 27,
+          "label": "Feeder Canal and Reservoir Dams",
+          "desc": "The new 2026 finishing stretch along the Boulder Feeder Canal and across the reservoir dams. A challenging final few miles on tired legs with technical features that reward the rider who has saved something for the end. This is where the race is decided.",
+          "terrain_detail": "Canal path and dam crossings, technical finishing stretch",
+          "named_section": "The Dam Finish"
+        }
+      ],
+      "signature_challenge": "The wind. Not the terrain, not the climbing, not the distance — the wind across open North Boulder County farmland is what defines Boulder Roubaix. In 2024, it shut down the race. On any given edition, it determines whether the dirt roads are fast-rolling or soul-crushing. Combined with the unpredictable surface conditions and spring weather variability, the wind transforms a rolling 30-mile circuit into a legitimate test of tactical racing and survival."
+    },
+    "guide_variables": {
+      "race_name": "Boulder Roubaix Road Race",
+      "race_distance": "30 miles per lap (Pro: 90 miles / 3 laps)",
+      "race_elevation": "~1,200 feet per lap",
+      "race_date": "April (biennial, every other year)",
+      "race_location": "Boulder Reservoir, Boulder County, Colorado",
+      "race_terrain": "Mixed surface — 61% unpaved county roads, 39% paved",
+      "race_weather": "Highly variable Colorado spring: 40-75F, potential high winds, possible rain/snow",
+      "race_challenges": [
+        "Wind across open farmland — the defining weather element that can shut down the race",
+        "Mixed-surface transitions between pavement and rutted dirt roads",
+        "Altitude at 5,100 feet affects sea-level visitors",
+        "Spring weather variability — dress for everything from snow to sunshine"
+      ],
+      "altitude_section": true,
+      "altitude_feet": 5100
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Mixed-surface tire selection tested on dirt roads",
+        "by_when": "Week 3",
+        "why": "The course is 61% unpaved on roads that range from smooth to deeply rutted. Tire choice and pressure are critical. Too narrow means pinch flats on ruts; too wide means wasted energy on pavement. 32-38mm with moderate tread is the sweet spot. Test on similar surfaces before race day."
+      },
+      {
+        "requirement": "Wind-exposure training on open terrain",
+        "by_when": "Week 6",
+        "why": "Boulder Roubaix is defined by wind. Train on exposed roads in crosswind and headwind conditions. Practice group riding in wind, echelon formation, and the tactical decisions that wind demands. The 2024 edition was shortened due to dangerous gusts — wind is not optional preparation."
+      },
+      {
+        "requirement": "Self-sufficiency kit: pump, spare tube, multi-tool",
+        "by_when": "Race day",
+        "why": "Neutral support is based on volunteer availability and is unlikely. You must be self-sufficient on course. A flat tire with no pump or tube ends your race. Bottle cage bolt check is mandatory — the washboard roads eject bottles and shake hardware loose."
+      }
+    ],
+    "citations": [
+      {
+        "url": "https://dbcevents.com/2026-roubaix/",
+        "title": "2026 Boulder Roubaix — DBC Events Official Site",
+        "category": "official"
+      },
+      {
+        "url": "https://dbcevents.com/2026-roubaix/2026-course-description/",
+        "title": "2026 Course Description — DBC Events",
+        "category": "official"
+      },
+      {
+        "url": "https://dbcevents.com/2026-boulder-roubaix-press-release/",
+        "title": "Boulder Roubaix 2026 Press Release — DBC Events",
+        "category": "official"
+      },
+      {
+        "url": "https://dbcevents.com/2024-boulder-roubaix-race-recap/",
+        "title": "2024 Boulder Roubaix Race Recap — DBC Events",
+        "category": "official"
+      },
+      {
+        "url": "https://usacycling.org/article/boulder-roubaix-road-race-saturday-april-6-2024",
+        "title": "Boulder Roubaix Road Race — USA Cycling",
+        "category": "official"
+      },
+      {
+        "url": "https://velo.outsideonline.com/2017/03/the-other-roubaix-pros-and-amateurs-set-for-battle-on-colorados-dirt-roads",
+        "title": "The 'other Roubaix': Pros and amateurs set for battle on Colorado's dirt roads — VeloNews",
+        "category": "media"
+      },
+      {
+        "url": "https://www.cyclingwest.com/events/boulder-roubaix-announces-new-course-and-location-for-2026-edition/",
+        "title": "Boulder Roubaix Announces New Course and Location for 2026 — Cycling West",
+        "category": "media"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/4685/boulder-roubaix",
+        "title": "Boulder Roubaix Road Race — Gran Fondo Guide",
+        "category": "media"
+      },
+      {
+        "url": "https://www.bikereg.com/boulder-roubaix-road-race",
+        "title": "Boulder Roubaix Road Race — BikeReg Registration",
+        "category": "registration"
+      },
+      {
+        "url": "https://bicyclecolorado.org/event/boulder-roubaix-state-road-race-championships/",
+        "title": "Boulder Roubaix — State Road Race Championships — Bicycle Colorado",
+        "category": "media"
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "high",
+      "validation_status": "validated",
+      "research_strength": "B+",
+      "sources_count": 10,
+      "last_updated": "2026-02-27",
+      "notes": "Active event confirmed for April 26, 2026. New course for 2026 moves to Boulder Reservoir with 30-mile loop (61% unpaved, 39% paved). Biennial event — held every other year since 1992. Also serves as 2026 Colorado State Road Race Championships. Discipline classified as 'gravel' based on 61% unpaved surface despite USAC 'road race' sanctioning — the organizer themselves describes it as 'Call it a Road Race, a Gravel Race or a Mixed-Surface Race.' Founded 1992, not 1990 as some sources claim (30th anniversary confirmed in 2022)."
+    }
+  }
+}

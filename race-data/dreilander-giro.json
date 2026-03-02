@@ -1,0 +1,307 @@
+{
+  "race": {
+    "name": "Dreilander Giro",
+    "slug": "dreilander-giro",
+    "display_name": "Dreiländergiro",
+    "tagline": "Three countries. 48 hairpins up the Stelvio. 3,000 riders from 30 nations. The Alpine tri-border gran fondo that sells out in hours.",
+    "vitals": {
+      "distance_mi": 104,
+      "elevation_ft": 11811,
+      "location": "Nauders am Reschenpass, Tyrol, Austria",
+      "location_badge": "NAUDERS, AUSTRIA",
+      "date": "Last weekend of June",
+      "date_specific": "2026: June 28",
+      "terrain_types": [
+        "Paved Alpine roads",
+        "High mountain passes",
+        "Cross-border Austria-Italy-Switzerland route",
+        "Extended high-altitude climbing"
+      ],
+      "field_size": "3,000 riders (1,500 per route, sells out within hours)",
+      "start_time": "6:30 AM (mass start)",
+      "registration": "Online via dreilaendergiro.at. Opens October 1 each year. Three ticket tiers of 500 spots per route. Sells out within hours or days. Non-profit pricing from ~EUR94. 15% discount for public transport or carshare travel.",
+      "prize_purse": "None (timed event, finisher medals and certificates)",
+      "aid_stations": "6 feed stations on Route A (Stelvio Engadin), 4 on Route B (Stelvio Vinschgau). Well-stocked with food, water, and mechanical support.",
+      "cutoff_time": "Time limits at checkpoints along the route. Stelvio Pass must be reached before road closure.",
+      "lat": 46.888,
+      "lng": 10.501,
+      "distance_options": [
+        "Route A — Stelvio Engadin: 168 km (104 mi), 3,600 m gain — the full route through all three countries via Stelvio, Umbrail, and Ofenpass",
+        "Route B — Stelvio Vinschgau: 120 km (75 mi), 3,000 m gain — Stelvio and Umbrail, returning via Vinschgau"
+      ],
+      "entry_fee": "~EUR94-110 (tiered pricing, non-profit organization)"
+    },
+    "climate": {
+      "primary": "Late June Alpine conditions",
+      "description": "Late June in the high Alps delivers a wide range of conditions within a single ride. The 6:30 AM start in Nauders (1,394m) is cool (8-14C). Valley sections in the Italian Vinschgau warm quickly (20-28C). The Stelvio at 2,757m can be near freezing with fierce wind chill, even in summer. Snow on the Stelvio's upper hairpins is not uncommon in late June. The route crosses the main Alpine divide, exposing riders to different weather systems on the Austrian and Italian sides.",
+      "challenges": [
+        "Early morning start at 6:30 AM in an Alpine valley at 1,394m — cool to cold conditions",
+        "Stelvio summit at 2,757m: wind chill can bring effective temperature near freezing even in June",
+        "48 exposed hairpins on the Stelvio — no shelter from sun, wind, or rain on the upper switchbacks",
+        "Rapid weather changes crossing the Alpine divide between Austria, Italy, and Switzerland",
+        "Afternoon thunderstorms common above 2,000m — the Ofenpass and Norbertshöhe are exposed"
+      ]
+    },
+    "terrain": {
+      "primary": "Paved Alpine mountain passes",
+      "surface": "Well-maintained Austrian, Italian, and Swiss mountain roads. All tarmac throughout. The Stelvio Pass road is the centerpiece — the classic 48-hairpin ascent from Prad is one of cycling's most iconic stretches of asphalt. Road quality varies from excellent (Swiss Engadin roads) to good (Italian mountain roads with occasional patches).",
+      "technical_rating": 1,
+      "features": [
+        "Reschenpass (1,504m) — opening climb from Nauders, the Austria-Italy border crossing at Lago di Resia",
+        "Passo dello Stelvio (2,757m) — 24.9 km at 7.4% from Prad, 48 numbered hairpins, one of Europe's highest paved passes",
+        "Umbrail Pass (2,501m) — descent from near the Stelvio summit into Switzerland's Val Mustair",
+        "Ofenpass / Pass dal Fuorn (2,149m) — 13.3 km at 5.8% through the Swiss National Park (Route A only)",
+        "Norbertshöhe (1,405m) — 5.8 km at 6.4%, the final climb before descending to Nauders"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 79,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "logistics": 3,
+      "length": 4,
+      "technicality": 1,
+      "elevation": 5,
+      "climate": 4,
+      "altitude": 5,
+      "adventure": 5,
+      "prestige": 4,
+      "race_quality": 4,
+      "experience": 5,
+      "community": 3,
+      "field_depth": 3,
+      "value": 3,
+      "expenses": 3,
+      "cultural_impact": 3,
+      "tier_note": "One of Europe's most popular cycling marathons, running since 1994. Three countries, the Stelvio at 2,757m, 3,000 riders from 30 nations. Prestige=4 earns a one-tier promotion but cannot promote into Tier 1 — remains Tier 2.",
+      "score_note": "altitude=5 for Stelvio at 2,757m — among the highest paved passes in Europe. elevation=5 for 3,600m of climbing on Route A including the Stelvio's 48 hairpins. adventure=5 for crossing three countries in a single ride. experience=5 for the Stelvio ascent and tri-border Alpine epic. length=4 for 168 km — significant but not ultra distance. technicality=1 — all paved roads. cultural_impact=3 reflects strong DACH cycling culture but limited global recognition. Sum of 14 = 52, cultural_impact = 3, total = 55. 55/70 * 100 = 78.57 rounds to 79. p4 promotion would move T2→T1 but NEVER into T1 — remains Tier 2.",
+      "editorial_tier": 2,
+      "editorial_tier_label": "TIER 2",
+      "business_tier": 2,
+      "business_tier_label": "TIER 2",
+      "display_tier": 2,
+      "display_tier_label": "TIER 2",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 3,
+        "explanation": "Nauders is a mountain village of 1,500 people at 1,394m on the Austrian side of the Reschenpass. Innsbruck airport is the closest at roughly 1.5 hours, but has limited international flights. Munich (3.5h) and Zurich (3h) are the realistic gateway airports. A free Postbus from Landeck-Zams station with bike transport helps for train arrivals. The event sells out within hours — not a lottery, but you need to be ready the instant registration opens on October 1. Two route options (168 km and 120 km) give flexibility. Start and finish in the same village. No complaints about packet pickup or pre-event organization — the GiroDays festival week leading into race day is a genuine bonus."
+      },
+      "length": {
+        "score": 4,
+        "explanation": "168 km on Route A (Stelvio Engadin) is a full-day Alpine marathon. Not ultra-distance like the Otztaler's 227 km, but combined with 3,600m of climbing including the Stelvio, the effective difficulty far exceeds what the kilometer count suggests. Route B at 120 km and 3,000m of climbing is shorter but still substantial — no easy option exists. Most riders on Route A are looking at 7-10 hours in the saddle. The distance-to-difficulty ratio is punishing."
+      },
+      "technicality": {
+        "score": 1,
+        "explanation": "All paved roads throughout both routes. Austrian, Italian, and Swiss Alpine roads are well-maintained. The Stelvio's 48 hairpins require cornering skill on the descent but the road surface is good tarmac. This is a pure fitness event on road bikes. The only technical challenge is navigating 3,000 riders through Alpine switchbacks, which requires spatial awareness more than bike handling."
+      },
+      "elevation": {
+        "score": 5,
+        "explanation": "Route A packs 3,600 meters of climbing into 168 km — a climbing density of 21.4 m/km, which is genuinely brutal. The Stelvio alone accounts for nearly 1,850m of vertical gain over 24.9 km at 7.4% average. Add the Ofenpass (770m gain), the Norbertshöhe, and the Reschenpass approach, and you never stop climbing. Route B with 3,000m in 120 km is even steeper per kilometer. Either route demands serious climbing fitness."
+      },
+      "climate": {
+        "score": 4,
+        "explanation": "Late June in the Alps is prime season but far from predictable. The Stelvio at 2,757m can deliver snow, sleet, rain, fog, or blazing sun — sometimes all in the same day. The 48 hairpins are fully exposed above treeline with no shelter. Valley sections in the Italian Vinschgau can hit 28C while the summit hovers near freezing. The Umbrail descent into Switzerland is notorious for cold and wind. Pack for four seasons. The one mercy: late June days are long, with usable daylight past 9 PM."
+      },
+      "altitude": {
+        "score": 5,
+        "explanation": "The Stelvio Pass at 2,757m is one of the highest paved mountain passes in the entire Alps. At this altitude, oxygen availability drops meaningfully — you're working harder for every watt. The Umbrail Pass (2,501m) and Ofenpass (2,149m) keep you at altitude for extended periods on Route A. Nauders itself sits at 1,394m, so even the start line has moderate altitude. Riders from sea level will notice the thin air. Acclimatization — arriving 2-3 days early — is strongly recommended."
+      },
+      "adventure": {
+        "score": 5,
+        "explanation": "Three countries in a single ride. You leave Austria, cross into Italy at the Reschenpass, ascend the legendary Stelvio, descend the Umbrail into Switzerland, ride through the Swiss National Park over the Ofenpass, traverse the Engadin Valley, and re-enter Austria over the Norbertshöhe. Three languages, three currencies (though all use euros except Swiss francs), three distinct Alpine landscapes. The Stelvio's 48 numbered hairpins are cycling's most photographed switchbacks. The drowned church tower of Lago di Resia appears as you cross into Italy. This route is a geographic masterpiece."
+      },
+      "prestige": {
+        "score": 4,
+        "explanation": "Since 1994, the Dreiländergiro has grown into one of Europe's largest and most respected cycling marathons. The Stelvio alone confers legendary status — it is arguably the most famous climb in professional road cycling. The event sells out within hours and draws riders from 30 nations. In the DACH cycling world (Germany, Austria, Switzerland), completing the Dreiländergiro is a badge of honor. But it doesn't yet carry the global household-name recognition of La Marmotte, L'Etape du Tour, or the Maratona dles Dolomites. Hence p4, not p5."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "Over 30 years of experience from the Bikeclub Nauders shows in the execution. Six feed stations on Route A, four on Route B, all well-stocked. Medical coverage, mechanical support, broom wagons. The GiroDays festival week includes training rides, workshops, and lactate testing — this is an organization that cares about the participant experience. The non-profit structure means revenue goes back into the event. The green event commitment (free Postbus, carshare incentives) is genuine. The only knock: 1,500 riders on the Stelvio's narrow hairpins creates bottleneck moments."
+      },
+      "experience": {
+        "score": 5,
+        "explanation": "The Stelvio from Prad. 48 numbered hairpins carved into the mountainside, each one revealing a wider panorama of the Ortler Alps. This is not just a climb — it is a pilgrimage. The Giro d'Italia has summited here. Fausto Coppi conquered it. And now you are on the same road, grinding up the same switchbacks, counting down from 48. The descent off the Umbrail into Switzerland's Val Mustair is a world away — green valleys, Swiss precision, Alpine quiet. The Engadin stretch on Route A is among the most beautiful valley rides in Europe. And then the final push over the Norbertshöhe, legs screaming, before the descent back into Nauders and the finish. This ride delivers."
+      },
+      "community": {
+        "score": 3,
+        "explanation": "3,000 riders from 30 nations creates genuine international diversity, but the core community is Germanic — Austrian, German, and Swiss riders dominate the field. The GiroDays festival week builds camaraderie with group rides, workshops, and social events in the days leading up to the race. The event's non-profit ethos and village-scale setting create warmth. But Nauders is a small mountain village, not a cycling destination with year-round culture like Girona or Nice. The community is passionate but geographically concentrated."
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "Mass-participation gran fondo with 3,000 riders of mixed ability. The front of the race moves fast — competitive amateur climbers who can handle 168 km and 3,600m at race pace. But the majority are riding for the challenge and the experience, not for a podium. The Germanic focus limits the international competitive talent pool compared to Italian gran fondos that attract a broader European racing contingent. The Stelvio itself is a great equalizer — the climb doesn't care about your FTP-to-weight ratio, it just keeps going."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "Entry from approximately EUR94-110 for a fully supported Alpine marathon through three countries with 4-6 feed stations, timing, medical coverage, and the GiroDays festival week is fair pricing — especially from a non-profit organizer. The Stelvio alone would be worth the entry fee. But the remote Tyrolean location means significant travel investment to reach Nauders, which erodes the value proposition for anyone outside the DACH region. The public transport discount (15% off for green travel) is a nice touch."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Nauders is an established holiday destination with 4,200 beds across 209 accommodations — ranging from Alpine guesthouses (EUR60-90/night) to hotels (EUR100-200/night). Not cheap, but not ski-resort extortion either. The nearest practical airports are Innsbruck (1.5h), Munich (3.5h), and Zurich (3h) — all requiring ground transfers. The free Postbus from Landeck-Zams helps train travelers. Budget EUR800-1,500 from within Europe, EUR1,500-2,500 from the US. The single-day event format keeps the trip shorter than multi-stage holidays."
+      }
+    },
+    "biased_opinion": {
+      "verdict": "The Tri-Border Classic",
+      "summary": "The Dreiländergiro is what happens when a small Austrian cycling club in a village of 1,500 people decides to build one of Europe's greatest road cycling events — and succeeds for 30 years running. Three countries. The Stelvio. 3,000 riders from 30 nations. Sells out in hours. The route from Nauders crosses into Italy at the Reschenpass, climbs the legendary 48 hairpins of the Stelvio to 2,757m, drops into Switzerland over the Umbrail Pass, and returns through the Engadin and over the Norbertshöhe. It is not the longest Alpine marathon (the Otztaler is longer), not the most famous (La Marmotte and L'Etape are bigger names globally), but the Dreiländergiro may be the most complete Alpine cycling experience available in a single day: three countries, three languages, five major passes, and the single most iconic road in professional cycling.",
+      "strengths": [
+        "The Stelvio: 48 hairpins to 2,757m — cycling's most legendary climb, included on both route options",
+        "Three countries in one ride — Austria, Italy, and Switzerland with distinct landscapes and culture at each border",
+        "30+ years of organizational experience from a passionate non-profit cycling club",
+        "Two route options (168 km and 120 km) give riders realistic choices without compromising the Stelvio centerpiece",
+        "GiroDays festival week with training rides, workshops, and community events"
+      ],
+      "weaknesses": [
+        "Sells out within hours of registration opening — must be ready on October 1 or miss out entirely",
+        "Remote Tyrolean location — no major airport nearby, significant ground transfer required",
+        "Stelvio congestion — 1,500 riders on narrow switchbacks creates bottleneck moments on the climb and descent",
+        "Limited global recognition outside the DACH cycling world — deserves more attention than it receives",
+        "Late June Stelvio weather is volatile — snow on the upper hairpins is a real possibility"
+      ],
+      "bottom_line": "If you have ever looked at a photograph of the Stelvio's 48 hairpins and thought 'I need to ride that,' the Dreiländergiro is the best way to do it: fully supported, through three countries, with 3,000 fellow believers. Set an alarm for October 1."
+    },
+    "final_verdict": {
+      "score": "79 / 100",
+      "one_liner": "Three countries. The Stelvio at 2,757m. 48 hairpins. Since 1994. Europe's tri-border Alpine classic.",
+      "should_you_race": "Yes if the Stelvio is on your bucket list and you want to ride it in a fully supported, mass-start event through three countries. Yes if you thrive on major Alpine climbing and want 3,600m of vertical gain in a single day. Skip if you cannot commit to the October 1 registration scramble. Skip if remote Austrian Alpine logistics are a dealbreaker.",
+      "alternatives": "If you want the Stelvio in a different format: Granfondo Stelvio Santini (shorter, Stelvio-focused). If you want similar Alpine marathon challenge: Otztaler Radmarathon (227 km, 5,500m, harder). If you want the iconic Italian gran fondo experience: Maratona dles Dolomites (Dolomite scenery, lottery entry). If you want a shorter Alpine classic: Engadin Radmarathon (nearby, less climbing).",
+      "alternative_slugs": [
+        "granfondo-stelvio-santini",
+        "otztaler-radmarathon",
+        "maratona-dles-dolomites",
+        "engadin-radmarathon"
+      ]
+    },
+    "logistics": {
+      "airport": "Innsbruck (INN) — 1.5 hours (closest, limited international flights). Munich (MUC) — 3.5 hours (best connections). Zurich (ZRH) — 3 hours. Train to Landeck-Zams station, then free Postbus with bike transport to Nauders.",
+      "lodging_strategy": "Stay in Nauders — the start/finish village with 209 accommodations and 4,200 beds. Book immediately upon securing your entry. Alpine guesthouses (Pensionen) offer the best value at EUR60-90/night. Hotels run EUR100-200/night. The GiroDays festival week starts Tuesday before the Saturday race — arrive early for the training rides and atmosphere. Nearby alternatives: Reschen/Resia (10 min, Italian side) or Pfunds (20 min down-valley).",
+      "food": "Tyrolean Alpine cuisine — Kaspressknödel (cheese dumplings), Tiroler Gröstl (pan-fried potato and meat), Kaiserschmarrn (shredded pancake), strudel. Italian influence from across the Reschenpass — pasta, pizza, South Tyrolean Speck. The GiroDays program includes food-focused events. Feed stations on course provide a mix of Austrian and Italian provisions.",
+      "packet_pickup": "Bib collection and event expo in Nauders during GiroDays week. The multi-day festival format means pickup is relaxed and combined with training rides, workshops, and community events.",
+      "parking": "Follow event parking instructions in Nauders. Limited parking in the village — the event strongly encourages public transport (free Postbus) and carsharing with a 15% entry fee discount for green travel.",
+      "official_site": "https://www.dreilaendergiro.at/"
+    },
+    "history": {
+      "founded": 1994,
+      "founder": "Bikeclub Nauders",
+      "origin_story": "The Dreiländergiro was born in 1994 when the Bikeclub Nauders — a small, non-profit cycling club in a Tyrolean village of 1,500 people — created a road cycling marathon that would exploit Nauders' unique geographic position at the tri-border point of Austria, Italy, and Switzerland. The concept was simple and irresistible: start in Austria, cross into Italy, climb the legendary Stelvio Pass, descend into Switzerland, and return to Nauders — three countries, one ride. The Stelvio, already hallowed by decades of Giro d'Italia history, gave the event instant credibility. What began as a local cycling adventure grew steadily through the 2000s and 2010s, propelled by word of mouth in the German-speaking cycling world. By the 2020s, the event had become one of Europe's largest cycling marathons — 3,000 riders from 30 nations, selling out within hours. The 30th edition in 2023 was a milestone celebration. The 33rd edition in 2026 continues the tradition.",
+      "notable_moments": [
+        "1994: Inaugural Dreiländergiro — Bikeclub Nauders creates the tri-border Alpine marathon concept",
+        "Growth from local event to one of Europe's largest cycling marathons — 3,000 riders from 30 nations",
+        "Introduction of two route options: Stelvio Engadin (168 km) and Stelvio Vinschgau (120 km)",
+        "2023: 30th anniversary edition — milestone celebration of three decades of tri-border cycling",
+        "Green event certification — pioneering sustainable travel incentives including free Postbus and carshare discounts",
+        "Registration begins selling out within hours, with 1,500 bibs per route across three ticket tiers"
+      ],
+      "reputation": "The definitive tri-border Alpine cycling experience. In DACH cycling culture, the Dreiländergiro is the event that combines the Stelvio's legendary status with the unique adventure of riding through three countries in a single day. Organized by a non-profit cycling club that treats the event as a passion project, not a business."
+    },
+    "course_description": {
+      "character": "A geographic masterpiece disguised as a bike ride. Route A (Stelvio Engadin) is the complete experience: 168 km through Austria, Italy, and Switzerland, with the Stelvio as the centerpiece and the Engadin Valley as the reward. Route B (Stelvio Vinschgau) delivers the Stelvio and the Umbrail in a more compact 120 km format. Both routes start and finish in Nauders at 1,394m. The signature challenge is obvious — the Stelvio's 48 hairpins from Prad, 24.9 km at 7.4% average, ascending to 2,757m. But the route's genius is everything around the Stelvio: the approach through the Italian Vinschgau, the Umbrail descent into Switzerland, and (on Route A) the long Engadin traverse before the final push over the Norbertshöhe.",
+      "suffering_zones": [
+        {
+          "mile": 0,
+          "label": "Nauders to Reschenpass",
+          "desc": "The opening kilometers climb gently from Nauders (1,394m) to the Reschenpass at the Austrian-Italian border. The drowned church tower of Graun rises from Lago di Resia — your first sign that this ride deals in drama. The peloton of 1,500 riders is still bunched. Enjoy the company. It thins out on the Stelvio.",
+          "terrain_detail": "1,504m summit, gentle gradient, Austria-Italy border crossing",
+          "named_section": "Reschenpass"
+        },
+        {
+          "mile": 25,
+          "label": "Prad to Stelvio Summit",
+          "desc": "The main event. From Prad am Stilfserjoch (915m), the road begins its ascent to 2,757m — 24.9 km at 7.4% average with gradients reaching 15%. The 48 numbered hairpins are cycling's most iconic switchbacks, each one a marker of progress and pain. Below treeline, the road winds through forest. Above 2,000m, the landscape opens to bare rock, snow patches, and panoramic views of the Ortler massif. The final hairpins are exposed, cold, and relentless. Reaching the summit is the defining moment of the ride.",
+          "terrain_detail": "2,757m summit, 24.9 km at 7.4% average, 48 hairpins, gradients to 15%",
+          "named_section": "Passo dello Stelvio"
+        },
+        {
+          "mile": 50,
+          "label": "Stelvio to Umbrail Pass and Val Mustair",
+          "desc": "A brief climb from near the Stelvio summit reaches the Umbrail Pass (2,501m) — the highest paved pass in Switzerland and the border crossing from Italy. The descent into the Val Mustair is fast, exposed, and often cold. You are now in Switzerland. The contrast with the Italian side is immediate: Swiss precision, orderly villages, a different pace. Regroup and refuel in Santa Maria Val Mustair.",
+          "terrain_detail": "2,501m Umbrail summit, fast descent into Swiss Val Mustair",
+          "named_section": "Umbrail Pass"
+        },
+        {
+          "mile": 65,
+          "label": "Ofenpass (Route A only)",
+          "desc": "From Santa Maria, Route A tackles the Ofenpass (Pass dal Fuorn) — 13.3 km at 5.8% through the Swiss National Park. The climbing is steady but not savage. The landscape is pristine: Alpine meadows, ancient forests, and the quiet that comes with riding through a protected wilderness. The summit at 2,149m opens into the Engadin. Route B riders skip this pass and return via the Vinschgau.",
+          "terrain_detail": "2,149m summit, 13.3 km at 5.8% average, Swiss National Park",
+          "named_section": "Ofenpass"
+        },
+        {
+          "mile": 90,
+          "label": "Engadin Valley to Norbertshöhe (Route A)",
+          "desc": "The Engadin is a reward. Roughly 70 km of valley riding through one of Switzerland's most beautiful landscapes — Zernez, Susch, Lavin, Guarda, Scuol, Martina. The road trends gently downhill but the distance accumulates on tired legs. At the Swiss-Austrian border in Martina, the Norbertshöhe awaits: 5.8 km at 6.4%, the final climb before the descent to Nauders. Your legs know what they have done. The Norbertshöhe does not care.",
+          "terrain_detail": "Engadin valley traverse, then Norbertshöhe at 1,405m — 5.8 km at 6.4%",
+          "named_section": "Engadin and Norbertshöhe"
+        }
+      ],
+      "signature_challenge": "The Stelvio from Prad. 48 hairpins. 24.9 km at 7.4% average. 2,757 meters above sea level. This is the climb that has decided Giro d'Italia stages, broken professional cyclists, and inspired a million cycling photographs. On the Dreiländergiro, you ride it in a mass-start event with 1,500 others, counting down the numbered hairpins from 48 to 1. The upper switchbacks above treeline — exposed to weather, short of oxygen, spectacular in every direction — are the most dramatic kilometers in European sportive cycling."
+    },
+    "guide_variables": {
+      "race_name": "Dreiländergiro",
+      "race_distance": "104 miles",
+      "race_elevation": "11,811 feet",
+      "race_date": "June",
+      "race_location": "Nauders, Tyrol — Austrian/Italian/Swiss Alps",
+      "race_terrain": "Paved Alpine mountain passes — Stelvio (2,757m), Umbrail (2,501m), Ofenpass (2,149m), Norbertshöhe (1,405m)",
+      "race_weather": "Late June Alps — cool start (8-14C), warm valleys (20-28C), Stelvio summit near freezing",
+      "race_challenges": [
+        "Stelvio Pass — 24.9 km at 7.4% to 2,757m with 48 exposed hairpins",
+        "3,600m of total climbing on Route A in 168 km",
+        "Three-country border crossing with altitude and weather changes at each divide",
+        "Late June Stelvio weather — snow on upper hairpins is a real possibility"
+      ],
+      "altitude_section": true,
+      "altitude_feet": 9045
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Alpine climbing endurance — multiple rides of 120+ km with 2,500+ meters of climbing",
+        "by_when": "Week 6",
+        "why": "Route A demands 168 km and 3,600m of climbing. The Stelvio alone is 24.9 km at 7.4% — you need a deep base of sustained climbing fitness. Build to at least two training rides with back-to-back major climbs. Route B is shorter but still requires 120 km and 3,000m of capacity."
+      },
+      {
+        "requirement": "Stelvio-specific preparation — sustained efforts of 60-90 minutes at threshold on climbs of 1,500m+",
+        "by_when": "Week 8",
+        "why": "The Stelvio from Prad takes most riders 90-150 minutes of continuous climbing. Your training must include sustained threshold efforts of at least 60 minutes on the steepest terrain available to you. Practice pacing on long climbs — going too hard on hairpin 48 means cracking by hairpin 20."
+      },
+      {
+        "requirement": "Altitude acclimatization and cold-weather layering strategy",
+        "by_when": "Week 10",
+        "why": "The Stelvio at 2,757m has measurably less oxygen than sea level. Arrive in Nauders (1,394m) 2-3 days early for some adaptation. Your layering system must handle a 25-degree temperature range: warm valleys to near-freezing summits. Practice putting on and removing layers while riding — the Stelvio transitions happen fast."
+      }
+    ],
+    "citations": [
+      {
+        "url": "https://www.dreilaendergiro.at/",
+        "title": "Dreiländergiro — Official Site",
+        "category": "official"
+      },
+      {
+        "url": "https://www.tyrol.com/activities/events/all-events/dreilaendergiro",
+        "title": "Dreiländergiro — Tyrol Tourism",
+        "category": "reference"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/10231/dreilandergiro",
+        "title": "Dreiländergiro — Gran Fondo Guide",
+        "category": "reference"
+      },
+      {
+        "url": "https://www.cycloworld.cc/en/gran-fondo/austria/dreilandergiro/39760",
+        "title": "Dreiländergiro — CycloWorld",
+        "category": "reference"
+      },
+      {
+        "url": "https://www.nauders.com/en/Your-Nauders/In-Summer/Outdoor%20-%20adventure%20program/32.Dreilandergiro_ev-12469",
+        "title": "Dreiländergiro — Nauders Tourism",
+        "category": "reference"
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "high",
+      "validation_status": "validated",
+      "research_strength": "A",
+      "sources_count": 5,
+      "last_updated": "2026-02-27"
+    }
+  }
+}

@@ -1,0 +1,323 @@
+{
+  "race": {
+    "name": "L'Etape Czech Republic by Tour de France",
+    "slug": "letape-czech-republic",
+    "display_name": "L'Etape Czech Republic by Tour de France",
+    "tagline": "ASO's Tour de France franchise in Central Europe -- 3,000 riders on fully closed roads through Bohemian hills, starting and finishing in Prague.",
+    "vitals": {
+      "distance_mi": 82,
+      "elevation_ft": 5577,
+      "location": "Prague and Central Bohemia Region, Czech Republic",
+      "location_badge": "PRAGUE, CZECH REPUBLIC",
+      "country": "Czech Republic",
+      "continent": "Europe",
+      "lat": 50.0455,
+      "lng": 14.4378,
+      "elevation_gain": "1,700 m (5,577 ft) on long route",
+      "distance": "132 km (82 mi) long route",
+      "altitude_category": "low",
+      "terrain_type": "road",
+      "month": "June",
+      "founded_year": 2021,
+      "field_size": "3,000+ riders (Hilly Stage); 5,000+ annually across all Czech stages",
+      "time_limit": "Approximately 5-6 hours (long route, 25 km/h minimum average)",
+      "registration_opens": "Typically November for following year's June edition",
+      "entry_fee": "CZK 2,890-3,990 (~EUR 115-160 / ~USD 125-175)",
+      "website": "https://www.letapeczech.cz/en/",
+      "event_date": "Mid-to-late June annually (Hilly Stage)",
+      "date": "Mid-to-late June annually",
+      "date_specific": "2026: June 20",
+      "distance_options": [
+        "Long Route: 132 km, +1,700 m elevation gain (1,000 rider capacity)",
+        "Middle Route: 102 km, +1,200 m elevation gain (1,500 rider capacity)",
+        "Short Route: 57 km, +450 m elevation gain (1,000 rider capacity)"
+      ],
+      "terrain_types": [
+        "Paved roads (100%)",
+        "Fully closed course",
+        "Central Bohemian hills and forests",
+        "Czech Karst and Krivoklat region"
+      ],
+      "start_time": "Morning wave starts",
+      "registration": "Online via letapeczech.cz. Entry: CZK 2,890-3,990 (~EUR 115-160). Registration opens November. Medium route historically fills first.",
+      "prize_purse": "Classification jerseys: Yellow (GC), Polka-Dot (KOM), Green (Sprint), White (U25). No cash prizes.",
+      "aid_stations": "Multiple feed zones with water, energy drinks, fruit, bars. Shimano neutral mechanical support on course.",
+      "cutoff_time": "Long route: 25 km/h minimum average. Middle route: 22 km/h. Broom wagon enforced."
+    },
+    "climate": {
+      "primary": "Central European summer (late June)",
+      "description": "Late June in Prague and Central Bohemia delivers warm summer conditions ideal for cycling. Average daytime temperatures of 20-25C (68-77F) with occasional hot spells reaching 30C+. Mornings are pleasant at 12-15C. June is one of the wetter months with moderate rain risk -- sudden summer thunderstorms can develop in the afternoon. Long daylight hours with sunrise before 5 AM and sunset after 9 PM provide ample racing light. Humidity is moderate. Conditions are generally favorable and benign for road cycling.",
+      "challenges": [
+        "Summer thunderstorms: afternoon convective storms can develop suddenly with heavy downpours",
+        "Occasional heat: 30C+ days possible in late June, demanding hydration strategy",
+        "Rain on descents through forested Bohemian roads reduces visibility and grip",
+        "Morning starts can feel cool at 12-15C before warming rapidly"
+      ]
+    },
+    "terrain": {
+      "primary": "Paved roads through the Central Bohemian hills",
+      "surface": "100% sealed roads through the Czech countryside. Well-maintained regional roads winding through the Krivoklat region, Berounsko, and Czech Karst. Fully closed to traffic on race day. Rolling terrain with punchy climbs, forested descents, and passages through historic villages. Road surface quality is good -- inspected and prepared for the event. The 2026 route starts and finishes at Pankrac, Prague 4.",
+      "technical_rating": 1,
+      "features": [
+        "Fully closed roads -- no traffic, Tour de France race conditions",
+        "Central Bohemian countryside: deep forests, limestone karst, river valleys",
+        "Rolling hilly terrain with categorized climbs and sprint primes",
+        "Three distance options (57-132 km) accommodate different fitness levels",
+        "Tour de France classification jerseys (Yellow, Polka-Dot, Green, White)",
+        "Shimano neutral mechanical support on course",
+        "Wave starts for controlled field management",
+        "Start and finish in Prague -- major European capital"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 60,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "logistics": 3,
+      "length": 3,
+      "technicality": 1,
+      "elevation": 3,
+      "climate": 2,
+      "altitude": 1,
+      "adventure": 3,
+      "prestige": 3,
+      "race_quality": 4,
+      "experience": 4,
+      "community": 4,
+      "field_depth": 2,
+      "value": 3,
+      "expenses": 3,
+      "cultural_impact": 3,
+      "tier_note": "ASO's Tour de France franchise event in the Czech Republic, running since 2021. The largest amateur cycling race in Central Europe, held on fully closed roads with 3,000+ participants. 6th edition in 2026. Bradley Wiggins rode the 2025 edition. Strong Czech cycling culture and enthusiastic spectator atmosphere.",
+      "score_note": "race_quality=4 and experience=4: professional closed-road organization with ASO patronage, TdF branding, celebrity riders (Wiggins, Stybar, Schleck), and vibrant fan atmosphere. community=4 reflecting year-round Bootcamp program and Czech cycling enthusiasm. technicality=1 for 100% paved roads. altitude=1 for low-elevation Bohemian terrain (~200-500m). field_depth=2 as the field is primarily regional recreational riders. (39 base + 3 cultural) / 70 = 60.",
+      "editorial_tier": 2,
+      "editorial_tier_label": "TIER 2",
+      "business_tier": 2,
+      "business_tier_label": "TIER 2",
+      "display_tier": 2,
+      "display_tier_label": "TIER 2",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 3,
+        "explanation": "Prague is one of Europe's best-connected cities -- Vaclav Havel Airport (PRG) has direct flights from most European capitals and seasonal long-haul connections. The city has extensive public transport, affordable taxis, and every major hotel chain. The 2026 start/finish at Pankrac (Prague 4) is metro-accessible. Packet pickup is at the L'Etape Village in Centralni park Pankrac. The rural course through Central Bohemia means no mid-route bail-out options. For a closed-road event of this scale, the logistics are well-handled, but international visitors still need to navigate Czech-language signage and limited English outside Prague."
+      },
+      "length": {
+        "score": 3,
+        "explanation": "The long route at 132 km (82 miles) with 1,700 m of climbing is a solid day out but not an endurance epic. The middle route (102 km, 1,200 m) and short route (57 km, 450 m) offer accessible alternatives. Time limits enforce minimum averages of 22-25 km/h, which are achievable for trained recreational riders. This is not a 200+ km monster -- it is calibrated for a broad amateur field to finish within a reasonable day. The climbing-to-distance ratio is moderate."
+      },
+      "technicality": {
+        "score": 1,
+        "explanation": "This is a pure road cycling event on 100% paved, closed roads. There is zero technical terrain -- no gravel, no singletrack, no river crossings. The roads through Central Bohemia are well-maintained sealed surfaces. The only technical consideration is descending at speed through forested sections, which is standard road-race fare. Bring your lightest road bike."
+      },
+      "elevation": {
+        "score": 3,
+        "explanation": "1,700 meters of climbing over 132 km is meaningful but not mountainous. The Central Bohemian terrain delivers rolling hills with categorized climbs -- punchy efforts of 2-5 km rather than sustained Alpine passes. The 2024 edition included four new summits to add variety. For context, this is roughly one-third the climbing of L'Etape du Tour proper. The hills are honest work but will not break a prepared rider."
+      },
+      "climate": {
+        "score": 2,
+        "explanation": "Late June in Central Bohemia is about as benign as European cycling weather gets. Temperatures of 20-25C are ideal for racing. The 2025 edition saw 25C and sunny -- Bradley Wiggins called it 'a brilliant day on the bike.' The main risk is afternoon thunderstorms, which are common in Central European summers but typically brief. No altitude-driven temperature extremes, no desert heat, no Alpine cold. Climate is a non-factor here -- you dress for a nice summer day."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "The course through Central Bohemia never exceeds 500 meters above sea level. Prague itself sits at roughly 200 m. There is zero altitude effect on performance -- no thin air, no acclimatization concern, no summit exposure. This is lowland cycling in every physiological sense."
+      },
+      "adventure": {
+        "score": 3,
+        "explanation": "The route passes through genuinely beautiful Czech countryside -- the Krivoklat forests, Czech Karst limestone formations, the Berounka river valley, and ancient villages with medieval churches. Starting and finishing in Prague adds a major cultural dimension. But this is a fully supported, closed-road sportive with 3,000 riders, feed zones, and Shimano mechanics. The adventure is cultural and scenic, not wilderness or survival. If exploring Central Bohemia by bike with Tour de France production values counts as adventure, this delivers."
+      },
+      "prestige": {
+        "score": 3,
+        "explanation": "The Tour de France brand is the most powerful in cycling, and ASO's patronage gives this event legitimate credentials. Bradley Wiggins, Zdenek Stybar, Andy Schleck, Jan Svorada, and Martina Sablíkova have all participated. It is the largest amateur cycling event in Central Europe. But this is still a franchise event -- a satellite of the real L'Etape du Tour, which runs on the actual Tour de France stage in France. The Czech edition is 6 years old with a regional draw. Prestigious within Central Europe; a footnote globally."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "This is where L'Etape Czech Republic genuinely shines. Fully closed roads for all 3,000 riders -- a luxury that even many larger European sportives cannot offer. ASO audits and approves the event. Professional chip timing. Classification jerseys with KOM and sprint primes on course. Shimano neutral support. L'Etape Village with expo, discussions, and workshops. Wave starts for controlled field management. The organization has been repeatedly praised by ASO, which is the gold standard. For a 6-year-old event, the production quality is remarkably high."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "Starting in the heart of Prague, riding through closed roads with Tour de France branding, hearing cowbells and cheering from Czech villages, battling for classification jerseys on categorized climbs -- this is a well-crafted cycling experience. The 2025 edition drew over 3,000 riders and thousands of spectators. Bradley Wiggins described it as 'the fans were fantastic -- in some places wonderfully crazy, just like on the Tour de France.' The event has cultivated genuine spectator atmosphere that exceeds most sportives of this size. Prague as a start/finish location adds nightlife, culture, and food that Alpine village sportives cannot match."
+      },
+      "community": {
+        "score": 4,
+        "explanation": "L'Etape Czech Republic has built something unusual -- a year-round cycling community called Bootcamp that runs training camps, social rides, and workshops throughout the year. The annual membership includes a starter package and access to all community events. This is not just a one-day race; it is a cycling club with a race attached. Czech cycling culture is passionate -- the country has produced pros like Stybar and has deep roots in bicycle racing. Entire families and villages turn out on race day. The community feel punches well above the event's age."
+      },
+      "field_depth": {
+        "score": 2,
+        "explanation": "The field is overwhelmingly recreational and enthusiast-level. The draw is primarily Czech and Central European -- some German, Austrian, and Slovak riders cross over, but this is not a destination event for international racers. The front of the long route is competitive among strong Czech club riders, but there is no significant elite or international racing contingent. The 1,000-rider cap on the long route keeps that field relatively focused, while the 1,500-rider middle route is more recreational."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "The long route at CZK 3,990 (roughly EUR 160 / USD 175) is in line with premium European sportives. The middle route at CZK 3,690 (~EUR 148) and short route at CZK 2,890 (~EUR 115) offer cheaper entry points. For your money you get fully closed roads, TdF branding, Shimano support, chip timing, classification jerseys, and a well-organized event village. The value-for-money is reasonable by European sportive standards, though not a bargain. Compared to the original L'Etape du Tour at EUR 175 for a far more demanding day, the Czech edition is proportionally priced."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Prague is one of Europe's best-value major cities. Flights from Western Europe are cheap and frequent. Hotels range from EUR 40/night budget to EUR 150+ luxury. Excellent restaurants serve traditional Czech cuisine for EUR 10-20 per person. Beer is famously cheap. The event itself costs EUR 115-160. A long weekend trip from within Europe can be done for EUR 400-600 all-in. From the US, budget EUR 1,000-1,500 for flights plus 3-4 nights. By European cycling event standards, Prague is a bargain destination."
+      }
+    },
+    "biased_opinion": {
+      "verdict": "The Tour de France Brand on a Prague Budget",
+      "summary": "L'Etape Czech Republic delivers a polished Tour de France experience on fully closed roads through the scenic Bohemian countryside, starting and finishing in one of Europe's most appealing capitals. The organization -- under ASO patronage and run by Petr Cech Sport -- is genuinely impressive for a 6-year-old event: closed roads, classification jerseys, Shimano support, celebrity riders, and thousands of enthusiastic Czech fans lining the route. Bradley Wiggins rode the 2025 edition and praised the atmosphere. The course through Krivoklat forests and the Czech Karst is beautiful, if not brutal -- 1,700 m of climbing over 132 km is honest work but not Alpine suffering. The year-round Bootcamp community program is a smart differentiator that builds loyalty beyond race day. Prague as a host city is the real bonus: affordable, beautiful, excellent food and beer, direct flights from everywhere.",
+      "strengths": [
+        "Fully closed roads for all 3,000 riders -- genuine Tour de France race conditions",
+        "Prague start/finish: major European capital with world-class food, beer, culture, and flight connections",
+        "Year-round Bootcamp community program builds genuine rider loyalty beyond race day",
+        "Celebrity riders: Bradley Wiggins (2025), Zdenek Stybar, Andy Schleck, Jan Svorada, Martina Sablíkova",
+        "Beautiful Bohemian countryside: Krivoklat forests, Czech Karst, historic villages",
+        "Three distance options (57-132 km) accommodate beginners to strong amateurs",
+        "Affordable destination: Prague lodging, food, and beer are Europe's best value"
+      ],
+      "weaknesses": [
+        "Young event (est. 2021) -- still building international recognition and heritage",
+        "Moderate climbing (1,700 m) lacks the suffering factor of Alpine or Pyrenean sportives",
+        "Field is primarily regional -- limited international competitive depth",
+        "Low altitude and benign terrain mean minimal physical challenge beyond base fitness",
+        "Franchise satellite event -- not the 'real' L'Etape du Tour which runs on actual TdF stage roads in France",
+        "Route changes between editions reduce year-over-year benchmarking"
+      ],
+      "bottom_line": "L'Etape Czech Republic is the L'Etape franchise event that actually makes sense as a travel destination. Prague is a better city than any Alpine ski village, the beer costs less than a gel packet, the roads are fully closed, and the Czech fans create genuine atmosphere. The climbing will not destroy you -- this is rolling Bohemian hills, not Galibier-level suffering -- but the experience is polished and the community is real. If you want the hardest L'Etape, go to France. If you want the most enjoyable L'Etape weekend, come to Prague."
+    },
+    "final_verdict": {
+      "score": "60 / 100",
+      "one_liner": "ASO's Tour de France franchise in Prague: 3,000 riders on closed Bohemian roads, strong organization, and Europe's best post-ride beer.",
+      "should_you_race": "Yes if you want a professionally organized, closed-road sportive with Tour de France branding in one of Europe's most appealing and affordable cities. Yes if you want the L'Etape experience without Alpine-scale suffering. Skip if you need Alpine passes and 5,000 m of climbing to feel challenged. Skip if you want a globally prestigious event with international field depth -- this is still regional.",
+      "alternatives": "If you want the original Tour de France amateur stage: L'Etape du Tour (France). If you want more climbing in Central Europe: Otztaler Radmarathon (Austria, 227 km, 5,500 m). If you want another strong Central European sportive: Tour de Pologne Amatorow (Poland). If you want the Czech Republic on gravel: Bohemian Border Bash.",
+      "alternative_slugs": [
+        "letape-du-tour",
+        "otztaler-radmarathon",
+        "tour-de-pologne-amatorow",
+        "bohemian-border-bash"
+      ]
+    },
+    "logistics": {
+      "airport": "Vaclav Havel Airport Prague (PRG) -- direct flights from all major European hubs, seasonal long-haul. 30 minutes to city center by bus/metro. Car rental available but unnecessary for the event.",
+      "lodging_strategy": "Stay in Prague -- the start/finish is at Pankrac (Prague 4), easily metro-accessible. Wide range from EUR 40/night hostels to EUR 150+ luxury hotels. Book early for June as it overlaps with peak tourist season. Old Town and Vinohrady neighborhoods are cycling-friendly with good restaurants. No need for rural accommodation -- Prague is the venue.",
+      "food": "Czech cuisine is hearty and carb-friendly: svickova (beef in cream sauce with dumplings), koleno (roast pork knee), trdlo (pastry). Pre-race pasta is easy to find in Prague's many Italian restaurants. Czech beer (Pilsner Urquell, Staropramen, craft breweries) is world-class and EUR 1-3 per pint. Post-ride recovery at a beer garden is mandatory. Feed zones on course provide water, energy drinks, fruit, and bars.",
+      "packet_pickup": "L'Etape Village at Centralni park Pankrac (Prague 4). Opens Friday before the Saturday race. Presentations, workshops, and expo. Expect moderate queues -- arrive early.",
+      "parking": "Start/finish at Pujmanove street, Prague 4 (Pankrac). Metro accessible (Line C). Limited street parking. Shuttles or metro recommended over driving.",
+      "official_site": "https://www.letapeczech.cz/en/"
+    },
+    "history": {
+      "founded": 2021,
+      "founder": "Petr Cech Sport (organizing body), under ASO (Amaury Sport Organisation) patronage",
+      "origin_story": "L'Etape Czech Republic was born in 2021 as part of ASO's global expansion of the L'Etape by Tour de France franchise. Organized by Petr Cech Sport under the direction of Tomas Pravenec, the event immediately tapped into the Czech Republic's deep cycling culture. The inaugural edition took place in heavy rain on August 28, 2021, starting from Prague's Strahov district. Despite the weather, the event was a hit. By its fifth edition in 2025, it had grown to over 3,000 participants, attracted Bradley Wiggins as a guest rider, expanded to two annual stages (Hilly and Mountain), and earned recognition as the largest amateur cycling event in Central Europe. The addition of a Mountain Stage in Prachatice (2024) and a Flat Stage in Pardubice (2026) shows continued growth.",
+      "notable_moments": [
+        "2021: Inaugural edition in heavy rain -- Daniel Turek and Martina Sablíkova among the first winners",
+        "2024: Second stage added -- Mountain Stage in Prachatice with 2,300 m climbing in Sumava mountains",
+        "2025: Record-breaking 3,000+ participants; Bradley Wiggins rides as guest star",
+        "2025: First-ever cumulative overall winner crowned across Hilly and Mountain stages",
+        "2026: 6th edition moves start/finish to Pankrac (Prague 4); third stage added (Flat Stage in Pardubice, October)",
+        "Celebrity riders across editions: Jan Svorada, Martina Sablíkova, Zdenek Stybar, Tomas Babek, Andy Schleck, Bradley Wiggins"
+      ],
+      "reputation": "The largest and most professionally organized amateur cycling event in Central Europe. Tour de France branding and ASO patronage give it credibility that few regional sportives can match. Rapidly growing community with year-round engagement through the Bootcamp program. Within the Czech Republic, it has become a 'nationwide celebration' that draws entire villages to the roadside."
+    },
+    "course_description": {
+      "character": "Rolling Bohemian countryside on fully closed roads. The hilly stage winds through the Central Bohemia region, passing through the Krivoklat forests, Berounsko river valley, and the Czech Karst -- a landscape of limestone formations, deep forests, ancient alleys, and historic villages. The terrain is characterized by punchy hills rather than sustained mountain climbs: categorized ascents of 2-5 km with gradients that reward explosive power as much as steady-state climbing. The 2024 edition introduced four new summits to freshen the route. Descents wind through forested sections on well-maintained roads. The course delivers a classic European hilly sportive profile -- genuinely challenging but not destructive.",
+      "suffering_zones": [
+        {
+          "mile": 0,
+          "label": "Prague Start -- Pankrac",
+          "desc": "Rolling out from Pankrac in Prague 4, the first kilometers navigate Prague's western suburbs before breaking into open countryside. The field of 3,000 riders sorts itself on the early rollers. Pace is lively as competitive riders push to the front.",
+          "terrain_detail": "Urban start, transitioning to rural Central Bohemia",
+          "named_section": "Prague Neutralized Start"
+        },
+        {
+          "mile": 20,
+          "label": "Krivoklat Forests",
+          "desc": "Deep into the Krivoklat region -- UNESCO-recognized biosphere reserve. Dense forests, rolling terrain, and the first categorized climbs. Punchy ascents of 3-5% test early legs. The scenery is stunning: thick Bohemian woodland, medieval castle glimpses, and narrow valleys along the Berounka river.",
+          "terrain_detail": "Forested hills, 300-500 m elevation, rolling profile",
+          "named_section": "Krivoklat Region"
+        },
+        {
+          "mile": 45,
+          "label": "Berounsko and Czech Karst",
+          "desc": "The route passes through the karst landscape south of Prague -- limestone gorges, dramatic rock formations, and quiet villages. This is the climbing heart of the course where the steepest pitches live. KOM primes are contested on the categorized ascents. The iconic Uhonickak climb (2.9 km at 3.8%) is a recognized segment from the ROUVY partnership.",
+          "terrain_detail": "Limestone karst terrain, categorized climbs, 400-500 m elevation",
+          "named_section": "Czech Karst Climbs"
+        },
+        {
+          "mile": 70,
+          "label": "Final Approach to Prague",
+          "desc": "The closing kilometers bring riders back toward Prague through the southern suburbs. Tired legs face the last rollers before the finish at Pankrac. Sprint primes reward the fast finishers. The atmosphere builds as roadside fans thicken near the city. Crossing the finish line under the Tour de France arch in Prague is the payoff.",
+          "terrain_detail": "Rolling return to Prague, gradual transition from rural to urban",
+          "named_section": "Prague Finish"
+        }
+      ],
+      "signature_challenge": "The accumulated vertical across punchy Bohemian hills. No single climb is a monster, but 1,700 m of elevation gain delivered in short, sharp efforts across rolling terrain demands repeated high-intensity efforts. The long route's 25 km/h minimum average time limit adds pressure -- you cannot soft-pedal the hills and expect to make cutoff."
+    },
+    "guide_variables": {
+      "race_name": "L'Etape Czech Republic by Tour de France",
+      "race_distance": "82 miles",
+      "race_elevation": "5,577 feet",
+      "race_date": "June",
+      "race_location": "Prague and Central Bohemia, Czech Republic",
+      "race_terrain": "Paved roads -- fully closed, rolling Bohemian hills through forests and karst terrain",
+      "race_weather": "Warm summer conditions: 20-25C, moderate thunderstorm risk, long daylight",
+      "race_challenges": [
+        "1,700 m of climbing delivered in punchy repeated efforts across rolling terrain",
+        "25 km/h minimum average enforced on long route -- no coasting allowed",
+        "Afternoon thunderstorm risk typical of Central European summers",
+        "Managing effort across three distance options with different cutoff pressures"
+      ],
+      "altitude_section": false,
+      "altitude_feet": 1640
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Repeated-effort hill fitness -- 10-15 climbs of 2-5 km in a single ride",
+        "by_when": "Week 6",
+        "why": "The Bohemian terrain delivers elevation through many short, punchy climbs rather than sustained mountain passes. Train with interval-style hill repeats and rolling routes to build the muscular endurance and recovery needed for 1,700 m of accumulated climbing. Simulate the course profile: hard effort up, recover on descent, repeat."
+      },
+      {
+        "requirement": "Sustained tempo at 25 km/h average including climbs",
+        "by_when": "Week 8",
+        "why": "The long route enforces a 25 km/h minimum average -- meaning you must maintain this pace including all climbing sections. Practice riding at steady tempo over rolling terrain for 4-5 hours. If you cannot hold 25 km/h on hilly training rides, target the middle route instead."
+      },
+      {
+        "requirement": "Group riding confidence in a 1,000-rider peloton",
+        "by_when": "Week 9",
+        "why": "The long route has 1,000 riders on closed roads -- tight pack riding is inevitable, especially on descents and through feed zones. Practice group riding, cornering at speed in close company, and eating/drinking while maintaining position. Closed roads mean no cars but plenty of wheels to overlap."
+      }
+    ],
+    "citations": [
+      {
+        "url": "https://www.letapeczech.cz/en/",
+        "title": "L'Etape Czech Republic by Tour de France -- Official Site",
+        "category": "official"
+      },
+      {
+        "url": "https://www.letapeczech.cz/en/en/hilly-stage/",
+        "title": "Hilly Stage 2026 -- L'Etape Czech Republic",
+        "category": "official"
+      },
+      {
+        "url": "https://www.letapeseries.com/memories/events/look-back-at-l-etape-czech-republic-2025",
+        "title": "Look Back at L'Etape Czech Republic 2025 -- L'Etape Series",
+        "category": "review"
+      },
+      {
+        "url": "https://www.letapeczech.cz/en/news/record-breaking-turnout-and-bradley-wiggins-light-up-the-hilly-l-etape-czech-republic-2025/",
+        "title": "Record-Breaking Turnout and Bradley Wiggins -- L'Etape Czech Republic 2025",
+        "category": "review"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/9282/letape-czech-republic-by-tour-de-france",
+        "title": "L'Etape Czech Republic -- Gran Fondo Guide",
+        "category": "reference"
+      },
+      {
+        "url": "https://www.letapeseries.com/memories/events/l-etape-czech-republic-routes-are-known-",
+        "title": "L'Etape Czech Republic 2026 Routes Reveal -- L'Etape Series",
+        "category": "reference"
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "high",
+      "validation_status": "validated",
+      "research_strength": "A",
+      "sources_count": 6,
+      "last_updated": "2026-02-27"
+    }
+  }
+}

@@ -1,0 +1,335 @@
+{
+  "race": {
+    "name": "Bob Cook Memorial Mt. Evans Hill Climb",
+    "slug": "mt-evans-hill-climb",
+    "display_name": "Bob Cook Memorial Mt. Evans Hill Climb (Blue Sky Hill Climb)",
+    "tagline": "27 miles straight up to 14,130 feet. The highest paved road in North America. Colorado's ultimate test of lungs and legs since 1962.",
+    "vitals": {
+      "distance_mi": 27.4,
+      "elevation_ft": 6590,
+      "location": "Idaho Springs, Colorado",
+      "location_badge": "IDAHO SPRINGS, COLORADO",
+      "date": "Late July annually (road opening dependent)",
+      "date_specific": "2026: July 25",
+      "terrain_types": [
+        "Paved mountain highway",
+        "Extreme high-altitude road above treeline",
+        "Exposed alpine tundra"
+      ],
+      "field_size": "~500 riders",
+      "start_time": "Saturday morning, wave starts",
+      "registration": "Online via BikeReg or Race Roster. USA Cycling license required (or one-day $15). Cost: ~$125-185",
+      "prize_purse": "Category prizes. USA Cycling sanctioned.",
+      "aid_stations": "Support stations along the climb. Water, medical support at altitude.",
+      "cutoff_time": "Time limit enforced. One-way uphill — riders are shuttled or descend after finishing.",
+      "lat": 39.7417,
+      "lng": -105.5139,
+      "distance_options": [
+        "Full Hill Climb: 27.4 miles, 6,590 ft gain — Idaho Springs to Mt. Blue Sky summit (14,130 ft)",
+        "Gran Fondo option available in some years"
+      ],
+      "entry_fee": "~$125-185"
+    },
+    "climate": {
+      "primary": "Colorado Front Range summer — extreme altitude-driven temperature collapse",
+      "description": "Late July in Idaho Springs starts warm (65-75F at 7,540 ft) but temperatures plummet as you ascend. Above treeline at 11,500 ft, wind chill can drive effective temperatures below freezing even in July. The summit at 14,130 ft regularly sees temperatures in the 30s-40s F with sustained wind. Snow and sleet are possible at any time of year. The sun is brutally intense above 10,000 ft.",
+      "challenges": [
+        "Temperature drop of 30-40F from start to summit — hypothermia is a real risk",
+        "Extreme UV exposure above treeline — sunburn in under 20 minutes",
+        "Sudden weather changes: clear skies can become hail or lightning in minutes",
+        "40%+ reduction in oxygen at the summit — breathing is labored even standing still",
+        "Wind exposure above treeline with no shelter for the final 8+ miles"
+      ]
+    },
+    "terrain": {
+      "primary": "Paved mountain highway to extreme altitude",
+      "surface": "Paved state highway (CO-103 and CO-5). Well-maintained mountain road. Closed to general traffic on race day. Passes through three distinct life zones: montane forest, subalpine forest, and alpine tundra.",
+      "technical_rating": 1,
+      "features": [
+        "Continuous 27-mile uphill from 7,540 ft to 14,130 ft",
+        "Average gradient 4.5% (5.8% excluding brief descents)",
+        "Maximum gradient ~10% in steeper sections",
+        "Echo Lake flat section at mile ~13 — brief psychological respite",
+        "Treeline crossing at ~11,500 ft — landscape transforms to barren alpine tundra",
+        "Summit Lake area — exposed switchbacks at 12,800+ ft",
+        "Final push above 13,000 ft where oxygen is 40% less than sea level",
+        "Mountain goats commonly on or near the road near the summit"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 77,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "logistics": 3,
+      "length": 3,
+      "technicality": 1,
+      "elevation": 5,
+      "climate": 4,
+      "altitude": 5,
+      "adventure": 5,
+      "prestige": 4,
+      "race_quality": 3,
+      "experience": 5,
+      "community": 3,
+      "field_depth": 3,
+      "value": 3,
+      "expenses": 3,
+      "cultural_impact": 4,
+      "tier_note": "The highest paved road cycling race in North America since 1962. Summiting a fourteener on a bicycle is an extreme achievement. T2 by score (77). p4 cannot promote into T1.",
+      "score_note": "Altitude=5 is non-negotiable — summit at 14,130 ft with 40% less oxygen is the most extreme altitude in any paved cycling race on the continent. Elevation=5 for 6,590 ft of continuous climbing. Experience=5 and adventure=5 for riding above treeline among mountain goats to the roof of a fourteener. Technicality=1 (all paved). cultural_impact=4 for 60+ years of history honoring a fallen champion. Sum=50, cultural=4, total=54, score=round(54/70*100)=77.",
+      "editorial_tier": 2,
+      "editorial_tier_label": "TIER 2",
+      "business_tier": 2,
+      "business_tier_label": "TIER 2",
+      "display_tier": 2,
+      "display_tier_label": "TIER 2",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 3,
+        "explanation": "Idaho Springs sits 33 miles west of Denver on I-70 — one of the most accessible mountain towns in Colorado. Denver International Airport is a major hub with cheap flights from everywhere. The drive is easy. But Idaho Springs is a small town with limited lodging — a few motels, inns, and vacation rentals. Many riders stay in Denver or the I-70 corridor and drive up race morning. Packet pickup and staging are well-organized for a community event, but this is not a major metro start."
+      },
+      "length": {
+        "score": 3,
+        "explanation": "27.4 miles sounds manageable until you realize every single one of them goes uphill. There is no flat riding. There is no recovery. The climb is relentless from the gun to the summit. Most riders take 2-4 hours depending on fitness and altitude tolerance. The one-way format means you never get a descent to reset — just continuous climbing. The distance is moderate, but the format makes every mile count double."
+      },
+      "technicality": {
+        "score": 1,
+        "explanation": "Paved Colorado state highway the entire way. The road surface is good, the gradients are steady (averaging 4.5%), and the steepest sections top out around 10%. There are no technical descents because you do not descend during the race. The challenge is physiological, not technical. A first-year road cyclist could navigate this course — they just might not finish it."
+      },
+      "elevation": {
+        "score": 5,
+        "explanation": "6,590 feet of continuous, unbroken climbing. No reprieve. No descent to recover. The brief flat at Echo Lake is the only moment the road stops going up. This is not the most vertical gain in a single event (La Marmotte, the Death Ride have more total climbing), but it may be the most relentless. Every foot of elevation gain is forward progress up a single, 27-mile wall."
+      },
+      "climate": {
+        "score": 4,
+        "explanation": "The climate challenge here is unlike any other cycling event. You start in comfortable summer warmth at 7,540 ft and finish in conditions that can feel like winter at 14,130 ft. Temperature drops of 30-40 degrees Fahrenheit are standard. Above treeline, wind exposure is total — there are no trees, no shelter, nothing between you and whatever the mountain decides to throw at you. Snow, sleet, and hail in July are not unusual. Hypothermia risk is real at the summit. You need arm warmers, a vest, and gloves for a July bike race."
+      },
+      "altitude": {
+        "score": 5,
+        "explanation": "This is the maximum score and it is not close. The summit at 14,130 feet has roughly 40% less oxygen than sea level. The barometric pressure at the top is approximately 450 mmHg versus 760 at sea level. Riders report headaches, nausea, dizziness, and confusion in the final miles. Your FTP at the summit is 25-35% lower than at sea level. Some riders cannot clip in at the top because their motor skills are compromised. No other paved cycling race in North America reaches this altitude. This is the defining feature of the event."
+      },
+      "adventure": {
+        "score": 5,
+        "explanation": "You ride a bicycle to the summit of a fourteener. You pass through three distinct life zones — from pine forest to ancient bristlecone pines to barren alpine tundra where nothing grows. Mountain goats wander onto the road near the summit and do not care about your Strava time. The landscape above treeline is lunar — exposed rock, snowfields in July, and nothing but sky above you. The final miles are among the most otherworldly terrain accessible on a bicycle anywhere on Earth."
+      },
+      "prestige": {
+        "score": 4,
+        "explanation": "Running since 1962, this is one of the oldest continuously held cycling events in the United States. Named for Bob Cook, a five-time winner and US Olympian who died of brain cancer at 23, the memorial carries genuine emotional weight. Tom Danielson's 2004 course record (1:41:20) and Jeannie Longo's women's record stand as benchmarks. Within US hill climb circles, this is the event — the highest, the hardest, the most storied. It does not have European grand tour prestige, but within American cycling, completing Mt. Evans means something."
+      },
+      "race_quality": {
+        "score": 3,
+        "explanation": "USA Cycling sanctioned with proper timing, categories, and competitive structure. The organization has managed this event for 60+ years across a uniquely challenging venue. Aid stations along the route, medical support at altitude, and a closed road. But this is a community event run by dedicated locals, not a corporate production. The field is capped around 500 riders. Post-race celebration and shuttle logistics work, but this is grassroots infrastructure scaled to an extreme environment."
+      },
+      "experience": {
+        "score": 5,
+        "explanation": "Standing at the summit of Mt. Blue Sky at 14,130 feet with your bicycle, gasping for oxygen that is not there, looking out across the Continental Divide — this is one of the most singular experiences available in competitive cycling. The transformation from forested canyon to treeless alpine moonscape is dramatic and complete. Mountain goats graze indifferently as you suffer past them. The thin air makes everything feel surreal — sounds are muted, colors are sharper, and your body is operating on the ragged edge of what altitude allows. You will never forget this race."
+      },
+      "community": {
+        "score": 3,
+        "explanation": "The hill climb community is small, dedicated, and deeply knowledgeable. Many riders return year after year. The event draws from Colorado's strong cycling culture and attracts international participants from Europe and Australia. But 500 riders spread across a 27-mile climb means you spend most of the race alone with your suffering. The start and finish areas have a warm, familiar atmosphere — regulars know each other. This is not a mass-participation festival; it is a gathering of people who understand what altitude does to the human body."
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "USA Cycling sanctioned with competitive categories from juniors (as young as 9) to masters (as old as 85). The race attracts serious hill climb specialists who train specifically for this event. Tom Danielson's course record of 1:41:20 reflects genuine elite competition. Age group racing is real. But the total field of ~500 riders limits the competitive depth compared to larger events. The niche nature of hill climbing means the talent pool, while committed, is narrow."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "$125-185 for a single-day hill climb is moderate. You get a USA Cycling sanctioned race, closed road, aid stations, medical support at extreme altitude, and timing. The experience is priceless — few events offer anything comparable. But the tangible deliverables (no elaborate schwag, no extensive post-race festival) are standard for a community cycling event."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Denver is a major hub with competitive airfares. Idaho Springs is an easy 33-mile drive on I-70. Lodging in Idaho Springs is limited but affordable ($86-150/night for motels), and Denver hotels are plentiful. You can do this event on a reasonable budget if you stay in Denver and drive up. Total trip cost: $400-900 for a domestic traveler including flights, 2 nights lodging, entry, and meals. Gear note: you need cold-weather layers you would not normally bring to a July cycling event."
+      }
+    },
+    "biased_opinion": {
+      "verdict": "The Ceiling",
+      "summary": "There is no higher paved road you can race a bicycle on in North America. That sentence is the entire sales pitch, and it is enough. Since 1962, cyclists have lined up in Idaho Springs to ride 27 miles straight up into oxygen debt, hypothermia risk, and the company of mountain goats. The race honors Bob Cook, a five-time winner who died at 23 — a reminder that the mountain does not care about your credentials. At the summit, you will stand at 14,130 feet with 40% less oxygen and 100% more perspective. The Mt. Evans Hill Climb is not the hardest race. It is not the longest. It is not the most prestigious. But it is the highest, and nothing else comes close.",
+      "strengths": [
+        "Summit at 14,130 ft: the highest paved cycling race finish in North America, period",
+        "60+ years of continuous history — one of the oldest cycling events in the United States",
+        "The altitude experience is genuinely unique: three life zones, treeline crossing, alpine tundra, mountain goats",
+        "Named for Bob Cook, five-time winner and US Olympian who died at 23 — real memorial weight",
+        "33 miles from Denver — one of the most accessible extreme-altitude experiences anywhere"
+      ],
+      "weaknesses": [
+        "Altitude is a hard limiter: sea-level riders lose 25-35% of their power at the summit",
+        "Small field (~500 riders) means limited race-day energy compared to mass-participation events",
+        "One-way uphill only — if you want varied terrain or descending, look elsewhere",
+        "Weather at the summit is unpredictable and potentially dangerous even in July"
+      ],
+      "bottom_line": "If you want to ride your bicycle to the roof of a continent, the Mt. Evans Hill Climb is the only address. It has been waiting since 1962."
+    },
+    "final_verdict": {
+      "score": "77 / 100",
+      "one_liner": "27 miles. 6,590 feet. Summit at 14,130 ft. The highest paved cycling race in North America since 1962.",
+      "should_you_race": "Yes if you want the most extreme altitude experience available in competitive cycling on paved roads. Yes if you have trained for altitude or can arrive early enough to acclimatize. Skip if you have altitude sickness history, need technical terrain variety, or want a mass-participation atmosphere.",
+      "alternatives": "If you want more climbing volume with multiple passes: try Death Ride. If you want high-altitude European climbing with international prestige: try La Marmotte. If you want a Colorado climbing challenge at lower altitude: try the Triple Bypass.",
+      "alternative_slugs": [
+        "death-ride",
+        "la-marmotte"
+      ]
+    },
+    "logistics": {
+      "airport": "Denver International Airport (DEN) — 65 miles, ~75 minutes via I-70. One of the largest US hubs with cheap domestic and international flights.",
+      "lodging_strategy": "Idaho Springs has limited lodging — motels and inns from $86-150/night. Book early. Many riders stay in Denver or the I-70 corridor (Georgetown, Empire, Evergreen) and drive up race morning. The 33-mile drive is straightforward on I-70 westbound.",
+      "food": "Idaho Springs has several restaurants and the historic mining-town downtown. Post-race options available. Bring cold-weather nutrition — gels and bars that work at altitude and in cold.",
+      "packet_pickup": "Pre-race day in Idaho Springs. USA Cycling license verification required.",
+      "parking": "Idaho Springs start area. Arrive early — limited parking for ~500 riders.",
+      "official_site": "https://www.bicyclerace.com"
+    },
+    "history": {
+      "founded": 1962,
+      "founder": "Idaho Springs cycling community",
+      "origin_story": "The Mt. Evans Hill Climb began in 1962 as a test of nerve and lungs on the highest paved road in North America. In 1981, the race was renamed in honor of Bob Cook, a five-time winner who held the course record from 1975 to 1980. Cook was a US Olympian — a prodigious talent who first set the record as a junior. He died of brain cancer at age 23. The memorial carries his name forward through every rider who makes the climb. In September 2023, the mountain was officially renamed Mount Blue Sky by the US Board on Geographic Names, honoring the Arapaho people (the 'Blue Sky People') and addressing the legacy of territorial governor John Evans and the Sand Creek Massacre. The race is now also known as the Blue Sky Hill Climb. Sixty-plus years of continuous running (with a handful of cancellations for snow, the 1996 Olympics, and 2025 road construction) makes this one of the most enduring cycling events in the United States.",
+      "notable_moments": [
+        "1962: Inaugural race on the highest paved road in North America",
+        "1975-1980: Bob Cook sets and holds course record — first set as a junior",
+        "1981: Race renamed in honor of five-time winner Bob Cook after his death from brain cancer at age 23",
+        "2004: Tom Danielson shatters the course record with 1:41:20, taking 4+ minutes off the previous mark",
+        "Jeannie Longo (France) sets women's course record at 1:59:19",
+        "2023: Mountain officially renamed Mount Blue Sky; race becomes Blue Sky Hill Climb",
+        "2025: Canceled due to road construction — first non-weather cancellation in decades",
+        "Riders ages 9 to 85 have completed the climb"
+      ],
+      "reputation": "The altitude race. The highest finish line on pavement in North American cycling. A memorial to a champion who ran out of time."
+    },
+    "course_description": {
+      "character": "One direction: up. The Mt. Evans Hill Climb is 27.4 miles of continuous ascending from the town of Idaho Springs at 7,540 feet to the summit parking area at 14,130 feet. The gradient is never savage — averaging 4.5% with a maximum around 10% — but the relentlessness is the point. There are no descents, no flat recovery sections (save a brief respite at Echo Lake), and no escape from the altitude that builds with every pedal stroke. The course passes through three distinct life zones: montane forest, subalpine forest with ancient bristlecone pines, and finally barren alpine tundra where nothing grows and mountain goats outnumber cyclists. Above treeline at 11,500 feet, the landscape transforms into an exposed, wind-blasted moonscape. The final miles above 13,000 feet are ridden in a hypoxic fog where your body is operating on roughly 60% of sea-level oxygen.",
+      "suffering_zones": [
+        {
+          "mile": 0,
+          "label": "Idaho Springs — The Gun",
+          "desc": "Start at 7,540 feet in the mountain town of Idaho Springs. The climb begins immediately on CO-103. Spirits are high, legs are fresh, and the altitude feels irrelevant. It will not stay that way.",
+          "terrain_detail": "Paved highway, average 3.5% grade, montane forest",
+          "named_section": "Idaho Springs to Chicago Creek"
+        },
+        {
+          "mile": 7,
+          "label": "The Forest Wall",
+          "desc": "The grade steepens to 5.8% average through dense pine forest. The road switchbacks through shaded canyon walls. The air is thinning but you do not notice yet because the trees still feel normal. Your power meter begins to tell a different story than your legs.",
+          "terrain_detail": "Steeper grades (5-6%), forested switchbacks, 9,000-10,000 ft",
+          "named_section": "Chicago Creek to Echo Lake"
+        },
+        {
+          "mile": 13,
+          "label": "Echo Lake — False Hope",
+          "desc": "A brief flat section at Echo Lake (10,600 ft) provides the only horizontal pedaling of the entire race. Catch your breath. Look at the alpine lake. Appreciate the trees — they are about to disappear. The real climb starts now.",
+          "terrain_detail": "Brief flat at 10,600 ft, Echo Lake rest area, junction of CO-103 and CO-5",
+          "named_section": "Echo Lake"
+        },
+        {
+          "mile": 18,
+          "label": "Above Treeline — The Moonscape",
+          "desc": "At 11,500 feet, the trees end. Not thin out. End. The landscape transforms into exposed alpine tundra — rock, scrub, snowfields, and sky. Wind hits you for the first time without any windbreak. The grade averages 4-5% but your legs say 8%. Oxygen deficit is accumulating. Every pedal stroke costs more than the last.",
+          "terrain_detail": "Above treeline, exposed alpine tundra, 11,500-12,800 ft, wind exposure",
+          "named_section": "Treeline to Summit Lake"
+        },
+        {
+          "mile": 22,
+          "label": "Summit Lake — Oxygen Debt",
+          "desc": "Summit Lake sits at 12,830 feet. Mountain goats graze near the road, entirely indifferent to your suffering. The air has roughly 35% less oxygen than sea level. Your heart rate is elevated just sitting still. The final 5 miles and 1,300 feet of climbing loom above you on switchbacks carved into the mountainside. There is nowhere to hide.",
+          "terrain_detail": "12,830 ft, exposed switchbacks, 5.7% average grade, mountain goats",
+          "named_section": "Summit Lake to the Top"
+        },
+        {
+          "mile": 27,
+          "label": "The Summit — 14,130 Feet",
+          "desc": "The summit parking area at 14,130 feet. You are 130 feet below the true peak of Mt. Blue Sky. The air pressure is roughly 60% of sea level. Some riders cannot unclip. Some cannot speak. Some cry. You have ridden your bicycle higher than any paved road in North America will take you. The Continental Divide stretches in every direction. It is cold. It is windy. It is the most altitude you will ever reach on a bike.",
+          "terrain_detail": "Summit at 14,130 ft, 40% less oxygen, exposed, wind, cold",
+          "named_section": "The Summit"
+        }
+      ],
+      "signature_challenge": "The final 5 miles above Summit Lake. From 12,830 feet to 14,130 feet, exposed switchbacks climb through alpine nothing. The oxygen is gone. The trees are gone. The gradient is honest (5.7% average) but your body has been robbed of its ability to process it. This is where the Mt. Evans Hill Climb separates itself from every other cycling event on the continent."
+    },
+    "guide_variables": {
+      "race_name": "Bob Cook Memorial Mt. Evans Hill Climb",
+      "race_distance": "27.4 miles",
+      "race_elevation": "6,590 feet",
+      "race_date": "Late July",
+      "race_location": "Idaho Springs, Colorado",
+      "race_terrain": "Paved mountain highway, continuous uphill to 14,130 ft",
+      "race_challenges": [
+        "Summit at 14,130 ft — 40% less oxygen than sea level",
+        "Continuous 27-mile climb with no descents or flat recovery",
+        "Temperature drop of 30-40F from start to summit — hypothermia risk in July",
+        "Above-treeline wind exposure for final 8+ miles",
+        "Altitude-induced power loss of 25-35% at the summit"
+      ],
+      "altitude_section": true,
+      "altitude_feet": 14130
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Altitude acclimatization — arrive in Colorado at least 3-5 days before the race",
+        "by_when": "Week 10",
+        "why": "14,130 ft is extreme altitude. Sea-level riders lose 25-35% of their FTP at the summit. Arriving early allows partial acclimatization. If you cannot arrive early, altitude tent training or prior high-altitude exposure is essential. Acute mountain sickness at 14,000 ft during maximal exercise is dangerous."
+      },
+      {
+        "requirement": "Sustained climbing endurance — 2-3 hour continuous climbing efforts in training",
+        "by_when": "Week 6",
+        "why": "The climb is 27 miles with no rest. Most riders take 2-4 hours of continuous pedaling. If your longest sustained climbing effort in training is 45 minutes, you are not prepared. Simulate with long trainer sessions at threshold if you lack mountains."
+      },
+      {
+        "requirement": "Cold-weather gear for July — arm warmers, vest, full-finger gloves, ear cover",
+        "by_when": "Race day",
+        "why": "The summit can be 30-40 degrees colder than the start. Wind chill above treeline can push effective temperature below freezing. Hypothermia at altitude with depleted glycogen is a medical emergency, not an inconvenience. Pack layers even though you will sweat through the first 13 miles."
+      },
+      {
+        "requirement": "Pacing plan that accounts for progressive altitude power loss",
+        "by_when": "Race day",
+        "why": "Your power at 7,500 ft is not your power at 14,000 ft. Build a pacing plan that reduces target watts by 3-5% per 1,000 ft above 8,000 ft. Going out too hard in the forested lower sections guarantees a catastrophic final 5 miles."
+      }
+    ],
+    "citations": [
+      {
+        "url": "https://www.bicyclerace.com",
+        "title": "Mt. Blue Sky Hill Climb — Official Site",
+        "category": "official"
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Mount_Evans_Hill_Climb",
+        "title": "Mount Evans Hill Climb — Wikipedia",
+        "category": "reference"
+      },
+      {
+        "url": "https://pjammcycling.com/climb/50.Mt-Evans",
+        "title": "Cycling Mt Evans (Mt Blue Sky) — PJAMM Cycling",
+        "category": "reference"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Contents/Index/4036/american-icons-bob-cook-memorial-mt-evans-hill-climb",
+        "title": "American Icons: Bob Cook Memorial Mt. Evans Hill Climb — Gran Fondo Guide",
+        "category": "media"
+      },
+      {
+        "url": "https://www.bikereg.com/59485",
+        "title": "Bob Cook Memorial Mt. Evans Hill Climb — BikeReg Registration",
+        "category": "official"
+      },
+      {
+        "url": "https://www.doi.gov/pressreleases/board-geographic-names-completes-renaming-mount-evans",
+        "title": "Board on Geographic Names Completes Renaming of Mount Evans — US Dept of Interior",
+        "category": "reference"
+      },
+      {
+        "url": "https://www.denverpost.com/2024/02/14/mount-evans-blue-sky-hill-climb-cycling-name-change/",
+        "title": "Mount Evans Hill Climb gets a new name — Denver Post",
+        "category": "media"
+      },
+      {
+        "url": "https://strambecco.com/event/mt-evans-hill-climb/",
+        "title": "Blue Sky Hill Climb 2026 — Strambecco",
+        "category": "reference"
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "high",
+      "validation_status": "validated",
+      "research_strength": "A",
+      "sources_count": 8,
+      "last_updated": "2026-02-27"
+    }
+  }
+}

@@ -1,0 +1,416 @@
+{
+  "race": {
+    "name": "Ford RideLondon",
+    "slug": "ford-ridelondon",
+    "display_name": "Ford RideLondon",
+    "tagline": "Olympic legacy. 25,000 riders. 100 miles of closed London and Essex roads. The world's greatest festival of cycling — now on indefinite pause after 10 editions and £85 million raised for charity.",
+    "vitals": {
+      "distance_mi": 100,
+      "elevation_ft": 3900,
+      "location": "London / Essex, England",
+      "location_badge": "LONDON / ESSEX, ENGLAND",
+      "county": "Greater London / Essex",
+      "date": "Late May annually (paused indefinitely from 2025)",
+      "date_specific": "Last held: May 26, 2024. Cancelled 2025. Indefinite pause announced February 2026.",
+      "terrain_types": [
+        "Closed urban roads through central London",
+        "Flat to gently rolling Essex countryside lanes",
+        "Smooth paved surfaces throughout"
+      ],
+      "field_size": "25,000+ riders across all distances (20,000+ in the 100-mile alone)",
+      "start_time": "Wave starts from early morning, central London",
+      "registration": "Historically via public ballot, switched to first-come-first-served in 2024. Standard entry £99 (2024), VIP entry £275. Charity places via fundraising commitments. Not currently open — event on indefinite pause.",
+      "prize_purse": "Not a prize-money event. Mass participation sportive. The companion RideLondon Classique (UCI Women's World Tour) is a separate professional race.",
+      "aid_stations": "Multiple fully stocked aid stations across the 100-mile route with water, nutrition, and mechanical support",
+      "cutoff_time": "Approximately 8.5-9 hours for the 100-mile distance. Roads reopen on schedule.",
+      "lat": 51.5074,
+      "lng": -0.1278,
+      "distance_options": [
+        "100 miles: Flagship distance — London to Essex loop, start and finish in central London",
+        "60 miles: Shortened Essex loop with the same London start and finish",
+        "30 miles: Introductory distance through the London boroughs and into Essex",
+        "FreeCycle: Free 8-mile traffic-free loop around central London for all ages and abilities"
+      ],
+      "entry_fee": "£99 standard / £275 VIP (2024 pricing)"
+    },
+    "climate": {
+      "primary": "Temperate British late spring — mild but unpredictable",
+      "description": "Late May in London and Essex typically delivers temperatures between 12-20C (54-68F). The maritime climate means conditions can shift within hours — sunshine giving way to rain and wind without warning. The 2024 edition saw mostly dry conditions, but riders in earlier Surrey-era editions experienced everything from searing heat (2018) to torrential downpours (2017). Essex is flat and exposed, meaning headwinds can be a significant factor on the return leg. May is statistically one of London's driest months, but British weather respects no statistics.",
+      "challenges": [
+        "Rain is always possible in late May — pack a lightweight rain layer",
+        "Essex headwinds on exposed flat roads can sap energy on the return leg",
+        "Temperature can vary 10C+ between a cool early morning start and midday sunshine",
+        "Wet roads in London require extra caution on painted road markings and manhole covers"
+      ]
+    },
+    "terrain": {
+      "primary": "Flat to gently rolling closed paved roads",
+      "surface": "Entirely paved roads through central London and Essex countryside. The route starts in central London, passes through east London boroughs, enters Essex via Epping Forest, loops through the rolling Essex countryside via towns like Epping, Ongar, and Great Dunmow, then returns through London to finish near The Mall. Road surfaces are generally excellent on the London sections, with some rougher B-road surfaces in the Essex countryside. The Essex route includes a section of the 2014 Tour de France course. Zero off-road, zero gravel, zero technical terrain.",
+      "technical_rating": 1,
+      "features": [
+        "Central London iconic landmarks — Tower Bridge, Parliament, The Mall, Canary Wharf",
+        "Epping Forest — tree-lined road section marking the transition from London to Essex",
+        "Essex countryside loop through Epping, Ongar, and Great Dunmow",
+        "Part of the 2014 Tour de France Stage 3 route through Essex",
+        "Return through east London boroughs to central London finish"
+      ],
+      "gravel_percentage": 0,
+      "pavement_percentage": 100
+    },
+    "gravel_god_rating": {
+      "overall_score": 66,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "logistics": 5,
+      "length": 3,
+      "technicality": 1,
+      "elevation": 1,
+      "climate": 2,
+      "altitude": 1,
+      "adventure": 1,
+      "prestige": 5,
+      "race_quality": 5,
+      "experience": 4,
+      "community": 5,
+      "field_depth": 2,
+      "value": 3,
+      "expenses": 3,
+      "cultural_impact": 5,
+      "tier_note": "Prestige=5 for Olympic legacy status, world's largest closed-road sportive, Ford title sponsorship, £85M+ charity fundraising, and the companion UCI Women's World Tour Classique. Cultural_impact=5 for inspiring 500,000+ people to ride over 10 editions, transforming British cycling participation, establishing a post-Olympic sporting legacy model, and raising £85M+ for charity. Prestige=5 with score=66 (<75) triggers the T2 cap override — event is held at Tier 2.",
+      "score_note": "Sum of 14 criteria: 5+3+1+1+2+1+1+5+5+4+5+2+3+3 = 41. Cultural_impact=5. Total=46. Score=round(46/70*100)=66. Raw tier from score: T2 (>=60). Prestige=5 with score<75 = T2 cap. Final tier: T2.",
+      "editorial_tier": 2,
+      "editorial_tier_label": "TIER 2",
+      "business_tier": 2,
+      "business_tier_label": "TIER 2",
+      "display_tier": 2,
+      "display_tier_label": "TIER 2",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 5,
+        "explanation": "London Marathon Events is the gold standard in mass-participation event organization. The same people who manage the London Marathon — the world's most watched road race — apply that operational expertise to RideLondon. Central London start and finish with excellent public transport links (multiple Tube stations, mainline rail, bus routes). Wave start system manages 25,000+ riders without dangerous bottlenecks. Packet pickup at the ExCeL Centre or similar major venue with expo. On-course mechanical support, medical teams, and SAG vehicles throughout. The 2024 edition moved from ballot to first-come-first-served entry, simplifying access after years of oversubscription."
+      },
+      "length": {
+        "score": 3,
+        "explanation": "One hundred miles is a meaningful distance that requires genuine training, but the flat profile means it is achievable for any reasonably fit cyclist who puts in the preparation. The 60-mile and 30-mile options lower the barrier further. Most trained riders complete the 100 in 5-7 hours. This is a challenge, not a sufferfest — the distance tests endurance rather than destroying the body. For first-time century riders, it is a perfect introduction to the distance precisely because the flat terrain removes climbing as a variable."
+      },
+      "technicality": {
+        "score": 1,
+        "explanation": "Zero technical challenge. Smooth paved roads, closed to traffic, with the only hazards being manhole covers and painted road markings in wet conditions. Essex countryside sections are on well-maintained B-roads. No climbs demanding bike-handling skill, no descents requiring nerve, no off-road sections of any kind. The biggest technical challenge is navigating a dense peloton of 25,000 riders with varying abilities — which is a genuine skill, but not what this criterion measures."
+      },
+      "elevation": {
+        "score": 1,
+        "explanation": "Essex is flat. The original Surrey route featured Leith Hill and Box Hill — genuine climbs that added vertical challenge. When the route moved to Essex in 2022, the elevation profile flattened dramatically. Approximately 1,200 meters (3,900 feet) over 100 miles is negligible — averaging barely 12 meters per mile. There are undulations in the Essex countryside, but nothing that constitutes a proper climb. If you want hills, this is not your event."
+      },
+      "climate": {
+        "score": 2,
+        "explanation": "Late May in London is mild and rarely extreme, but British weather is British weather. Temperatures typically range 12-20C, comfortable for cycling. Rain is a possibility rather than a certainty — May is statistically one of London's drier months. The 2018 Surrey edition was ridden in unusual heat; the 2017 edition was hit by heavy rain. Essex adds wind exposure on flat, open roads. Climate is a minor factor rather than a defining challenge — pack a gilet and arm warmers and you will be fine in most years."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "The entire route sits at or near sea level. London averages 11 meters above sea level. The highest point in Essex is barely 140 meters. Altitude is completely irrelevant to this event. No physiological impact, no acclimatization needed, no thin air to consider. This is as close to sea level as a 100-mile road event can get."
+      },
+      "adventure": {
+        "score": 1,
+        "explanation": "This is the opposite of adventure cycling. Closed roads with full support every few miles. Medical teams on standby. SAG vehicles patrolling. Aid stations with food, water, and mechanics. Twenty-five thousand other riders surrounding you at all times. The route passes through suburban London and Essex countryside — pleasant, but not wild or remote. If adventure means self-reliance, uncertainty, and exposure to the elements, RideLondon scores zero. If adventure means riding through central London on traffic-free roads, it has a charm of its own."
+      },
+      "prestige": {
+        "score": 5,
+        "explanation": "Created as a direct legacy of the London 2012 Olympic and Paralympic Games, organized by London Marathon Events, with Ford as title sponsor. The companion RideLondon Classique is a UCI Women's World Tour event attracting the world's best female cyclists. Over 10 editions, more than 500,000 people have participated and more than £85 million has been raised for charity. This is one of the world's largest and most recognized cycling events — mentioned in the same breath as L'Etape du Tour and the Cape Town Cycle Tour. The 2013-2019 Surrey route followed the 2012 Olympic road race course. The prestige is institutional, not earned through difficulty."
+      },
+      "race_quality": {
+        "score": 5,
+        "explanation": "London Marathon Events does not cut corners. Chip timing for all participants. Live tracking available. Multiple well-stocked aid stations with water, nutrition, and mechanical support. Professional medical teams and SAG vehicles throughout the course. Finisher medals and post-event facilities. The ExCeL Centre expo provides a premium pre-event experience. Road closures are enforced by police and marshals. The quality of organization is world-class — this is the cycling equivalent of the London Marathon's operational excellence applied to two wheels."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "Riding 100 miles through central London on completely closed roads is a genuinely special experience that cannot be replicated on any other day of the year. Passing Tower Bridge, the Houses of Parliament, Canary Wharf, and The Mall without a single car in sight — that is memorable. The atmosphere of 25,000 riders creates an energy that smaller events simply cannot match. The Essex countryside sections are pleasant but unremarkable. The experience drops from a 5 to a 4 because the route change from Surrey (with Box Hill and Leith Hill) to Essex (flat farmland) removed the dramatic scenery and challenging climbs that defined the original."
+      },
+      "community": {
+        "score": 5,
+        "explanation": "This is perhaps the most community-oriented major cycling event in the world. The majority of riders participate through charity places, raising money for causes ranging from cancer research to children's hospitals. Over £85 million raised across 10 editions. The FreeCycle companion event opens central London to cyclists of all ages for free. Spectator support along the London sections is genuine and enthusiastic. The event has inspired more than 500,000 people to get on a bike. RideLondon is less a race and more a community celebration of cycling."
+      },
+      "field_depth": {
+        "score": 2,
+        "explanation": "This is a mass participation sportive, not a competitive race. The 25,000 riders range from first-time century riders to club racers, with the vast majority being recreational cyclists riding for charity or personal challenge. There is no prize money, no competitive classification, and no elite wave. The RideLondon Classique is a separate professional race for women. Fast club riders will finish in under 5 hours, but they are racing themselves, not a competitive field. The depth is in participation volume, not competitive quality."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "At £99 (approximately $125) for the 2024 standard entry to the 100-mile distance, RideLondon offers closed roads, full support, timing, and a finisher medal — reasonable for a major sportive. VIP entry at £275 adds hospitality. Charity places typically require a registration fee plus minimum fundraising commitment (often £300-500). Compared to European gran fondos charging similar amounts for inferior organization, the value is fair. Compared to free or low-cost club sportives, it is expensive for what is essentially a flat 100-mile ride on closed roads."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "London is one of the world's most expensive cities for accommodation and dining. A hotel near the start will cost £150-300+ per night for event weekend. Food and drink in central London adds up quickly. For UK-based riders, transport costs are low — the start is accessible by public transport. For international visitors, flights plus London accommodation make this a premium weekend. The entry fee itself is moderate, but the total cost of attending can easily exceed £400-500 for a UK resident and £800+ for international visitors. Essex accommodation is cheaper but requires transport logistics to the London start."
+      }
+    },
+    "biased_opinion": {
+      "verdict": "The People's Century",
+      "summary": "Ford RideLondon was the cycling equivalent of the London Marathon — a mass-participation event where the experience of riding through the capital on closed roads mattered more than your finishing time. Born from the 2012 Olympics, it inspired half a million people to ride and raised £85 million for charity across 10 editions. The move from Surrey to Essex removed the dramatic hills but kept the unique thrill of London's streets without traffic. Now on indefinite pause, it leaves a gap that no other British cycling event can fill.",
+      "strengths": [
+        "Riding through central London on completely closed roads — an experience unavailable on any other day",
+        "World-class organization from London Marathon Events with 25,000+ riders managed seamlessly",
+        "Massive charity impact: £85 million raised over 10 editions, giving riders purpose beyond personal challenge",
+        "Companion UCI Women's World Tour Classique elevated the weekend into a legitimate international cycling festival",
+        "Accessible: flat route, multiple distances, and FreeCycle make cycling available to everyone"
+      ],
+      "weaknesses": [
+        "The Essex route lacks the dramatic climbs (Leith Hill, Box Hill) that defined the original Surrey edition",
+        "Flat terrain means minimal physical challenge for experienced riders — this is about distance, not difficulty",
+        "Dense peloton of 25,000 riders with varying abilities creates congestion and crash risk",
+        "London accommodation costs inflate the total weekend expense significantly",
+        "Now on indefinite pause — the event may never return in its current form"
+      ],
+      "bottom_line": "RideLondon was the gateway drug for British cycling participation. If it returns, it will be the most accessible major sportive in Europe. If it does not, British cycling loses something irreplaceable."
+    },
+    "final_verdict": {
+      "score": "66 / 100",
+      "one_liner": "The world's greatest festival of cycling: 25,000 riders, 100 miles of closed London and Essex roads, and an Olympic legacy that raised £85 million for charity across 10 editions.",
+      "should_you_race": "If RideLondon returns from its indefinite pause, it is an automatic yes for anyone who wants to ride through central London on closed roads surrounded by 25,000 other cyclists. It is the perfect first century — flat, fully supported, brilliantly organized. It is not an event for riders seeking physical challenge, technical terrain, or competitive racing. It is an event for riders who want an unforgettable experience on two wheels in one of the world's great cities.",
+      "alternatives": "For UK closed-road sportives: Velothon Wales (closed roads through Welsh valleys). For the original RideLondon climbing experience: Prudential RideLondon Classique route replicas. For European mass-participation road events: L'Etape du Tour (France), Cape Town Cycle Tour (South Africa), Gran Fondo New York.",
+      "alternative_slugs": [
+        "letape-du-tour",
+        "gran-fondo-new-york"
+      ],
+      "best_for": [
+        "First-time century riders wanting a flat, fully supported 100-mile experience",
+        "Charity fundraisers using cycling as a vehicle for giving",
+        "Cyclists who dream of riding through central London without traffic",
+        "Families and casual riders (via FreeCycle and 30-mile options)",
+        "International visitors wanting a cycling event tied to London's Olympic legacy"
+      ],
+      "not_ideal_for": [
+        "Experienced riders seeking climbing challenge or technical terrain",
+        "Competitive racers wanting meaningful classification and prize money",
+        "Adventure cyclists looking for self-supported or remote riding",
+        "Riders who dislike large, crowded mass-participation events",
+        "Anyone on a tight budget — London accommodation costs are punishing"
+      ]
+    },
+    "logistics": {
+      "getting_there": "Central London start — accessible via Tube, mainline rail, and bus from anywhere in the UK. Major airports: Heathrow (LHR), Gatwick (LGW), Stansted (STN), Luton (LTN), City (LCY) — all within 1-2 hours of central London. Eurostar from Paris/Brussels arrives at St Pancras. For cycling-specific logistics, bike boxes can be stored at the expo. No car needed — public transport is the best option for reaching the start.",
+      "accommodation": "London accommodation for event weekend books up fast and is expensive. Budget £150-300+ per night for a central hotel. Premier Inn, Travelodge, and similar budget chains offer better value but sell out early. Airbnb can be cheaper in east London boroughs near the start. Essex-based accommodation (Epping, Chelmsford) is significantly cheaper but requires early transport to the London start. Book as soon as registration confirms.",
+      "gear_considerations": "Road bike with standard gearing is all you need — no climbing gears required for the flat Essex route. Aero wheels are an advantage on exposed Essex roads. Pack a lightweight rain jacket and arm warmers regardless of forecast — British weather. Ensure your bike is mechanically sound; on-course mechanics are available but queues can be long. Carry basic tools and a spare inner tube. Hydration and nutrition: aid stations are well-stocked but 25,000 riders means occasional queues at busy stops.",
+      "registration_tips": "Entry for the 2024 edition was first-come-first-served (previously ballot-based). Standard entry was £99. If the event returns, expect entries to sell quickly — set calendar reminders for the opening date. Charity places are available through partner charities with fundraising commitments. VIP entry (£275 in 2024) includes hospitality at start and finish. The event is currently on indefinite pause with no confirmed return date.",
+      "airport": "Heathrow (LHR), Gatwick (LGW), Stansted (STN), Luton (LTN), London City (LCY) — all within 1-2 hours of central London via rail",
+      "official_site": "https://www.londonmarathonevents.co.uk/ridelondon"
+    },
+    "history": {
+      "founded": 2013,
+      "founder": "London Marathon Events (with Mayor of London's office)",
+      "origin_story": "Announced in August 2012 by Mayor Boris Johnson alongside double Olympic gold medalist Laura Trott, RideLondon was conceived as a direct legacy of the London 2012 Olympic and Paralympic Games. Managed by London Marathon Events — the same organization behind the London Marathon — it was designed to deliver a world-class cycling festival that would inspire mass participation. The first edition took place on August 4, 2013, with the 100-mile route closely following the 2012 Olympic road race course through London and Surrey, including the iconic climbs of Leith Hill and Box Hill.",
+      "notable_moments": [
+        "2012: Announced by Mayor Boris Johnson with Laura Trott as Olympic cycling legacy event",
+        "2013: Inaugural edition — nearly 16,000 riders complete the RideLondon-Surrey 100 on the Olympic road race course",
+        "2013-2019: Annual editions through London and Surrey Hills, featuring Box Hill and Leith Hill climbs",
+        "2017: Torrential rain creates treacherous conditions — multiple crashes on the Surrey descents",
+        "2018: Heatwave edition — temperatures exceed 30C, causing heat-related withdrawals",
+        "2019: Last edition on the original London-Surrey route before COVID-19 pandemic",
+        "2020-2021: Cancelled due to COVID-19 pandemic",
+        "2022: Returns with entirely new London-Essex route, replacing the Surrey Hills with flat Essex countryside. Rebranded as Ford RideLondon-Essex",
+        "2023: Second Essex edition draws 25,000+ riders. Route passes through Epping, Ongar, and Great Dunmow",
+        "2024: Final edition held on May 26. Ford RideLondon-Essex 100 entries fail to sell out for the first time — demand has dropped since the route change from Surrey",
+        "2024 (September): 2025 edition cancelled. Organisers cite need to 'reimagine the world's greatest festival of cycling'",
+        "2026 (February): Placed on 'indefinite pause' following operational and financial considerations. May never return in current form"
+      ],
+      "reputation": "The world's greatest festival of cycling — a title earned through sheer scale. Over 10 editions, more than 500,000 people participated and more than £85 million was raised for charity. The Surrey-era editions (2013-2019) are remembered fondly for the Olympic road race course. The Essex-era editions (2022-2024) maintained the London magic but lost the dramatic climbs that made the original route special.",
+      "random_facts": [
+        "The 2012 Olympic road race that inspired the event was won by Alexander Vinokourov (men) and Marianne Vos (women)",
+        "Over 500,000 people have participated across all RideLondon events since 2013",
+        "More than £85 million raised for charity — making it one of the most impactful sporting events for fundraising in the UK",
+        "The companion RideLondon Classique grew into a three-day UCI Women's World Tour stage race",
+        "The route change from Surrey to Essex in 2022 was driven by financial and logistical disagreements with Surrey County Council",
+        "The 2024 edition was the first where entries did not sell out — a sign of the declining demand that led to the pause",
+        "FreeCycle — the free 8-mile traffic-free loop around central London — attracted over 100,000 riders in some years",
+        "Prudential was the original title sponsor (2013-2019), replaced by Ford for the Essex era (2022-2024)"
+      ]
+    },
+    "course_description": {
+      "character": "A tale of two halves: iconic London landmarks on closed roads bookend a flat, fast loop through the Essex countryside. The experience is the London sections; the miles are the Essex sections.",
+      "suffering_zones": [
+        {
+          "mile": 0,
+          "label": "Central London Start",
+          "desc": "Rolling out through central London on completely closed roads. Tower Bridge, the City, Canary Wharf. The energy of 25,000 riders creates an atmosphere that rivals any major sporting event. Enjoy it — this is the best part.",
+          "terrain_detail": "Flat urban roads, smooth tarmac, iconic landmarks",
+          "named_section": "London Showcase"
+        },
+        {
+          "mile": 15,
+          "label": "Epping Forest Transition",
+          "desc": "The route heads northeast through east London boroughs into Epping Forest, marking the transition from city to countryside. The dense pack begins to thin as faster riders pull away.",
+          "terrain_detail": "Tree-lined roads through ancient forest, gentle undulations",
+          "named_section": "Into Essex"
+        },
+        {
+          "mile": 50,
+          "label": "Deep Essex",
+          "desc": "The midpoint of the 100-mile route through the Essex countryside around Great Dunmow. Rolling farmland, exposed roads, and the potential for headwinds. This is where pacing matters — the return to London is still 50 miles away.",
+          "terrain_detail": "Flat to gently rolling B-roads through Essex farmland, exposed to wind",
+          "named_section": "The Essex Loop"
+        },
+        {
+          "mile": 85,
+          "label": "Return to London",
+          "desc": "Fatigue sets in as the route re-enters London. The final 15 miles through east London test tired legs on urban roads. The crowds build as you approach the finish.",
+          "terrain_detail": "Flat urban roads, increasing spectator support",
+          "named_section": "The Home Straight"
+        }
+      ],
+      "signature_challenge": "The challenge is not technical or vertical — it is completing 100 miles in the company of 25,000 other riders, navigating the dense peloton safely, and managing your energy across a flat course where the temptation to go too fast too early is constant. The Essex headwinds on the return leg have ended many riders' centuries prematurely.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null,
+      "map_url": null
+    },
+    "guide_variables": {
+      "race_name": "Ford RideLondon",
+      "race_distance": "100 miles",
+      "race_elevation": "3,900 feet (1,200 meters)",
+      "race_date": "Late May (currently on indefinite pause)",
+      "race_location": "London and Essex, England",
+      "race_terrain": "Flat to gently rolling closed paved roads through central London and Essex countryside",
+      "race_weather": "Late May British spring — 12-20C (54-68F), mild but unpredictable, rain possible, Essex headwinds likely",
+      "race_challenges": [
+        "100-mile distance on a flat course requires disciplined pacing to avoid blowing up",
+        "Dense peloton of 25,000 riders with varying abilities demands constant awareness",
+        "Essex headwinds on exposed flat roads can sap energy on the return leg",
+        "Potential for rain on any British May day — wet London roads require caution",
+        "London accommodation costs inflate total event budget significantly"
+      ],
+      "altitude_section": false,
+      "altitude_feet": 460
+    },
+    "non_negotiables": [
+      {
+        "requirement": "100-mile endurance base with at least two training rides of 80+ miles",
+        "by_when": "Week 10",
+        "why": "The flat profile is deceptive — 100 miles is 100 miles regardless of terrain. Without proper endurance preparation, the final 20 miles from Essex back into London become a death march. The dense peloton and available drafting can mask fitness deficiencies early, but they surface brutally after mile 70."
+      },
+      {
+        "requirement": "Group riding confidence in a dense peloton of mixed abilities",
+        "by_when": "Week 6",
+        "why": "Riding in close proximity to 25,000 cyclists of wildly varying skill levels is the single greatest safety challenge of this event. Sudden braking, overlapping wheels, and unpredictable movements are constant. Club rides and group sportives build the awareness needed to navigate safely."
+      },
+      {
+        "requirement": "Nutrition strategy tested over 5+ hours of sustained effort",
+        "by_when": "Week 8",
+        "why": "On a flat course where power output is steady, bonking sneaks up without warning. Aid stations can have queues of hundreds. Carry your own nutrition and have a plan for intake every 20-30 minutes. Do not rely entirely on aid stations."
+      }
+    ],
+    "citations": [
+      {
+        "url": "https://www.londonmarathonevents.co.uk/ridelondon",
+        "category": "official",
+        "label": "London Marathon Events — RideLondon Official Page"
+      },
+      {
+        "url": "https://www.londonmarathonevents.co.uk/ridelondon/course",
+        "category": "official",
+        "label": "London Marathon Events — RideLondon Course Information"
+      },
+      {
+        "url": "https://www.londonmarathonevents.co.uk/ridelondon/faqs",
+        "category": "official",
+        "label": "London Marathon Events — RideLondon FAQs"
+      },
+      {
+        "url": "https://www.londonmarathonevents.co.uk/ridelondon/article/route-confirmed-until-2026",
+        "category": "official",
+        "label": "London Marathon Events — Route Confirmed Until 2026"
+      },
+      {
+        "url": "https://www.bbc.com/news/articles/c4gzn3k2kz9o",
+        "category": "media",
+        "label": "BBC News — RideLondon organisers cancel 2025 edition"
+      },
+      {
+        "url": "https://www.bbc.com/news/articles/cy03gy0ejz6o",
+        "category": "media",
+        "label": "BBC News — RideLondon placed on indefinite pause (Feb 2026)"
+      },
+      {
+        "url": "https://road.cc/content/news/ridelondon-hiatus-2025-due-new-car-tunnel-310721",
+        "category": "media",
+        "label": "Road.cc — RideLondon hiatus for 2025"
+      },
+      {
+        "url": "https://sportive.com/2026/02/11/alas-ridelondon-we-knew-it-well/",
+        "category": "media",
+        "label": "Sportive.com — Alas RideLondon, we knew it well"
+      },
+      {
+        "url": "https://road.cc/content/news/entries-open-tuesday-2024s-ford-ridelondon-essex-303169",
+        "category": "media",
+        "label": "Road.cc — RideLondon 2024 entries first-come-first-served"
+      },
+      {
+        "url": "https://www.sportive.com/cycling/543604/last-call-for-entries-to-ridelondon-2024",
+        "category": "media",
+        "label": "Sportive.com — RideLondon 2024 fails to sell out"
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Prudential_RideLondon-Surrey_100",
+        "category": "reference",
+        "label": "Wikipedia — Prudential RideLondon-Surrey 100"
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Prudential_RideLondon",
+        "category": "reference",
+        "label": "Wikipedia — RideLondon"
+      },
+      {
+        "url": "https://www.london.gov.uk/press-releases-4616",
+        "category": "reference",
+        "label": "London City Hall — Mayor announces RideLondon (2012)"
+      },
+      {
+        "url": "https://www.essex.gov.uk/news/2023/ford-ridelondon-essex-100-route-confirmed-until-2026",
+        "category": "official",
+        "label": "Essex County Council — Route confirmed until 2026"
+      },
+      {
+        "url": "https://www.sportivecyclist.com/ridelondon-essex-100-2022-review/",
+        "category": "review",
+        "label": "Sportive Cyclist — Is The NEW RideLondon-Essex 100 Still Worth It?"
+      },
+      {
+        "url": "https://www.coachweb.com/cycling/9165/ridelondon",
+        "category": "review",
+        "label": "Coach — The Ultimate Rider's Guide To RideLondon 2023"
+      },
+      {
+        "url": "https://www.cyclist.co.uk/in-depth/ridelondon-2024",
+        "category": "media",
+        "label": "Cyclist — Get ready for RideLondon 2024"
+      },
+      {
+        "url": "https://www.reddit.com/r/londoncycling/comments/1fecgly/ride_london_2025_cancelled/",
+        "category": "community",
+        "label": "Reddit r/londoncycling — RideLondon 2025 cancelled discussion"
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "high",
+      "validation_status": "validated",
+      "sources_count": 18,
+      "last_updated": "2026-02-27",
+      "research_strength": {
+        "overall": 85.0,
+        "grade": "B+",
+        "weakest": "cross_reference",
+        "has_research_dump": false,
+        "dimensions": {
+          "source_diversity": 95,
+          "citation_density": 90,
+          "temporal_depth": 100,
+          "specificity": 80,
+          "statistical_backing": 80,
+          "voice_authenticity": 60,
+          "completeness": 85,
+          "cross_reference": 45
+        },
+        "scored_at": "2026-02-27"
+      }
+    }
+  }
+}

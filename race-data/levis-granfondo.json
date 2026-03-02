@@ -1,0 +1,273 @@
+{
+  "race": {
+    "name": "Levi's GranFondo",
+    "slug": "levis-granfondo",
+    "display_name": "Levi's GranFondo",
+    "tagline": "King Ridge through the redwoods. 8,500 feet of Sonoma County climbing. Wine country meets Pacific Coast. Northern California's signature gran fondo.",
+    "vitals": {
+      "distance_mi": 103,
+      "elevation_ft": 8500,
+      "location": "Santa Rosa, Sonoma County, California, USA",
+      "location_badge": "SANTA ROSA, CALIFORNIA",
+      "date": "First Saturday of October annually",
+      "date_specific": "2026: October 3",
+      "terrain_types": [
+        "Paved Sonoma County roads",
+        "Rolling wine country terrain",
+        "Punchy coastal climbs through redwoods",
+        "Exposed Pacific Coast ridgeline"
+      ],
+      "field_size": "~4,000-5,000 riders",
+      "start_time": "Wave starts beginning 7:00 AM",
+      "registration": "Online via levisgranfondo.com. Opens January/February. Cost: $175-225 depending on registration tier.",
+      "prize_purse": "Timed classifications with KOM/QOM awards",
+      "aid_stations": "Multiple fully stocked aid stations along the route, including at King Ridge summit.",
+      "cutoff_time": "Course time limit enforced. Riders must maintain reasonable pace or be swept.",
+      "lat": 38.440,
+      "lng": -122.714,
+      "distance_options": [
+        "Gran Fondo: 103 mi (166 km), ~8,500 ft — the full route with King Ridge",
+        "Medio Fondo: 80 mi (129 km) — skips the most remote coastal sections",
+        "Piccolo Fondo: 60 mi (97 km) — wine country focus without the coastal climbs",
+        "Growler: optional extra climbing challenge for the masochistic"
+      ],
+      "entry_fee": "$175-225 (tiered pricing)"
+    },
+    "climate": {
+      "primary": "Mild Northern California autumn",
+      "description": "Early October in Sonoma County offers near-ideal cycling conditions. Inland valleys warm to 70-75F by midday, while the coastal segments near the Pacific run 55-65F with possible marine fog. The temperature differential between the warm, sheltered wine country valleys and the exposed coastal ridgelines can be 15-20 degrees. Occasional autumn rain, but most years are dry and clear.",
+      "challenges": [
+        "Marine fog along the Pacific Coast — can be cold and damp for miles",
+        "Temperature swing between warm inland valleys and cool coastal ridgeline",
+        "Occasional gusty Pacific winds on exposed sections near the coast",
+        "Sun exposure on shadeless wine country roads in early afternoon"
+      ]
+    },
+    "terrain": {
+      "primary": "Paved Sonoma County roads",
+      "surface": "Well-maintained paved county roads throughout. Mix of smooth wine country thoroughfares and narrower coastal routes. No gravel or unpaved sections.",
+      "technical_rating": 2,
+      "features": [
+        "King Ridge — 4+ miles of sustained climbing through coastal redwood forest, the signature effort",
+        "Hauser Bridge climb — punchy ascent on narrow roads",
+        "Coleman Valley Road — rolling climb with Pacific views before the coastal descent",
+        "Descents through redwoods require attention — narrow, shaded, occasionally damp"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 64,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "logistics": 4,
+      "length": 4,
+      "technicality": 2,
+      "elevation": 3,
+      "climate": 2,
+      "altitude": 1,
+      "adventure": 4,
+      "prestige": 3,
+      "race_quality": 4,
+      "experience": 4,
+      "community": 3,
+      "field_depth": 3,
+      "value": 3,
+      "expenses": 3,
+      "cultural_impact": 2,
+      "tier_note": "Northern California's premier road gran fondo. Built around Levi Leipheimer's backyard roads and anchored by the King Ridge climb through coastal redwoods.",
+      "score_note": "adventure=4 for the Sonoma-to-Pacific variety (wine country, redwoods, coastal ridgeline). altitude=1 (sea-level to modest hilltops). technicality=2 reflects some technical descents through redwood canyons. cultural_impact=2 for Levi's legacy and the US gran fondo scene.",
+      "editorial_tier": 2,
+      "editorial_tier_label": "TIER 2",
+      "business_tier": 2,
+      "business_tier_label": "TIER 2",
+      "display_tier": 2,
+      "display_tier_label": "TIER 2",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 4,
+        "explanation": "Exceptionally accessible for a major gran fondo. Santa Rosa is 55 miles north of San Francisco — a straight shot up US-101. SFO, Oakland, and Santa Rosa (STS) airports all work. The Bay Area cycling infrastructure means bike shops, rental options, and experienced support are everywhere. Parking logistics on event morning are well-organized after 15+ years of refinement."
+      },
+      "length": {
+        "score": 4,
+        "explanation": "103 miles is a genuine century-plus effort, and the 8,500 feet of climbing ensures this isn't a flat-road century. The route's constant rolling character means there's very little recovery — you're either climbing, descending, or powering through rollers. Multiple distance options (60, 80, 103 miles) let riders self-select, but the Gran Fondo distance is the one that earns the t-shirt."
+      },
+      "technicality": {
+        "score": 2,
+        "explanation": "All paved, but not trivially so. The descents through redwood forests are narrow, shaded, and occasionally damp from coastal moisture. A few sections demand genuine bike-handling attention — tight switchbacks on the descent off King Ridge, narrow roads with limited sightlines. It's not Alpine technical descending, but it's more demanding than a typical US gran fondo."
+      },
+      "elevation": {
+        "score": 3,
+        "explanation": "8,500 feet of climbing is solid work — about 60% of what La Marmotte dishes out. The climbing is punchy and repeated rather than one sustained Alpine grind. King Ridge is the marquee effort at 4+ miles, but the rest is accumulated through dozens of shorter rollers and climbs. You'll feel every foot, but this isn't a mountain sportive."
+      },
+      "climate": {
+        "score": 2,
+        "explanation": "October in Sonoma is about as benign as cycling weather gets. Temperatures are mild, rain is unlikely, and the coastal fog adds atmosphere more than hardship. The challenge score is low because the climate rarely becomes a genuine factor — you won't be fighting hypothermia or heat stroke. The fog can chill you on the coastal sections, but that's manageable with an arm warmer."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "Maximum elevation is roughly 1,700 feet. Altitude is a non-factor. This is a sea-level-to-modest-hilltops route. Nobody is acclimatizing for Levi's GranFondo."
+      },
+      "adventure": {
+        "score": 4,
+        "explanation": "This is where Levi's GranFondo punches above its weight class. The route traverses three distinct landscapes in a single ride: sun-drenched Sonoma wine country with vineyard-lined roads, dark redwood forest canyons where the temperature drops 15 degrees, and exposed Pacific Coast ridgeline with ocean views stretching to the horizon. King Ridge through the redwoods is genuinely magical — cathedral groves of old-growth trees filtering sunlight onto a narrow climbing road."
+      },
+      "prestige": {
+        "score": 3,
+        "explanation": "One of the most popular gran fondos in the US, founded by a legitimate pro cyclist with Tour de France pedigree. Levi Leipheimer's name carries weight in American cycling, and the event has become a fixture on the US sportive calendar since 2009. But it lacks the international stature of European cyclosportives — it's a big deal in American cycling, less so globally."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "Well-run after 15+ years of iteration. Timed competitive classifications with KOM/QOM segments add genuine racing structure for those who want it. Multiple distance options accommodate different abilities. Aid stations are well-stocked. The wave start system manages 4,000+ riders without chaos. The post-ride festival in Santa Rosa is a proper celebration."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "The King Ridge climb is the payoff — emerging from a redwood canyon onto a sunlit ridgeline with the Pacific Ocean visible in the distance is one of American cycling's great moments. The variety of terrain — vineyards to redwoods to coast and back — keeps the ride visually engaging for 103 miles. The Levi connection gives it a backstory that most US gran fondos lack."
+      },
+      "community": {
+        "score": 3,
+        "explanation": "Strong Bay Area cycling community turnout, plus destination riders from across California and the West Coast. The wine country setting lends itself to a weekend trip with non-cycling partners. Post-ride atmosphere is social and well-fueled by Sonoma wine. But it's fundamentally a large American sportive — not the intimate community feel of smaller events."
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "Timed classifications and KOM/QOM segments attract competitive riders, and the front of the field is legitimately fast — Bay Area racers include former pros and strong cat 1/2 riders. But the majority of the 4,000+ field is riding for completion and experience. Competitive depth exists but isn't the defining character of the event."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "$175-225 for a well-supported century with multiple aid stations, timing, and a post-ride festival is fair but not exceptional by US gran fondo standards. The multiple distance options add flexibility. You're paying a premium for the Sonoma location and the Levi brand, but the product delivery justifies it."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Sonoma County is wine country — accommodation is not cheap, especially on event weekend. Hotels in Santa Rosa run $150-300/night, and the charming small-town options (Healdsburg, Guerneville) price accordingly. Food and wine are excellent but carry Sonoma markups. Riders from the Bay Area can day-trip, but destination riders should budget $500-1,000 for a weekend trip."
+      }
+    },
+    "biased_opinion": {
+      "verdict": "The Sonoma Showpiece",
+      "summary": "Levi's GranFondo is the best gran fondo in the western US, and it's not particularly close. The King Ridge climb through coastal redwoods is the reason — a 4-mile sustained effort through cathedral groves that opens onto Pacific Coast views, giving you the kind of ride-defining moment that most US sportives simply cannot manufacture. The rest of the route is a greatest-hits tour of Sonoma County: vineyard-lined roads, rolling wine country, and enough climbing to make 103 miles feel significantly harder than the distance suggests. It lacks the Alpine gravitas of European events, but what it delivers — variety, scenery, and a well-run experience — is genuinely excellent.",
+      "strengths": [
+        "King Ridge through the redwoods: 4+ miles of climbing through old-growth forest, the best single climb in American gran fondo cycling",
+        "Three-landscape variety: wine country, redwood forest, Pacific Coast — all in one ride",
+        "Bay Area accessibility: 55 miles from San Francisco, multiple airports, excellent cycling infrastructure",
+        "15+ years of organizational refinement under a legitimate pro cycling pedigree"
+      ],
+      "weaknesses": [
+        "Lacks international prestige: a big US event, but not on the global sportive radar",
+        "Sonoma County pricing: accommodation and dining carry wine country premiums",
+        "8,500 feet of climbing is solid but won't satisfy riders chasing Alpine-scale vertical"
+      ],
+      "bottom_line": "The best riding in Sonoma County, compressed into one October day. King Ridge alone is worth the entry fee."
+    },
+    "final_verdict": {
+      "score": "64 / 100",
+      "one_liner": "Levi Leipheimer's backyard roads. King Ridge through the redwoods. 103 miles of Sonoma County's finest.",
+      "should_you_race": "Yes if you want Northern California's premier cycling experience with world-class scenery and variety. Yes if King Ridge through the redwoods and Pacific Coast views sound like your kind of riding. Skip if you need Alpine-scale climbing or international competitive prestige. Skip if Sonoma County wine country pricing doesn't fit your budget.",
+      "alternatives": "If you want more climbing on the West Coast: try the Mount Tam Hill Climb or Tour of California GranFondo. If you want a destination US sportive with bigger mountains: try the Leadville Trail 100 MTB or Haute Route Asheville. If you want California coastal riding in a different format: try the Solvang Century.",
+      "alternative_slugs": []
+    },
+    "logistics": {
+      "airport": "San Francisco (SFO) — 1.5 hours. Oakland (OAK) — 1.5 hours. Santa Rosa (STS) — 15 minutes (limited flights, mostly Alaska Airlines).",
+      "lodging_strategy": "Stay in Santa Rosa for proximity to the start/finish. Hotels run $150-300/night on event weekend. Healdsburg (20 min north) and Petaluma (30 min south) are alternatives. Book early — wine country weekends fill fast. Airbnb options in the surrounding countryside can be excellent value.",
+      "food": "Sonoma County is one of America's great food regions. Carb loading is not a problem. Post-ride, the wine country dining scene rewards well — just pace yourself on the Pinot Noir the night before.",
+      "packet_pickup": "Event expo in downtown Santa Rosa, day before. Combined with a cycling expo and vendor village.",
+      "parking": "Designated parking areas in Santa Rosa with shuttle service to start. Arrive early — 4,000+ riders means parking fills quickly.",
+      "official_site": "https://www.levisgranfondo.com/"
+    },
+    "history": {
+      "founded": 2009,
+      "founder": "Levi Leipheimer",
+      "origin_story": "Created by Levi Leipheimer, a former Tour de France top-10 finisher and Sonoma County resident who wanted to share his training roads with the cycling public. The route was designed around Leipheimer's favorite local rides, anchored by King Ridge — the climb he considered the crown jewel of Sonoma County cycling. The event grew rapidly to become one of the largest and most respected gran fondos in the US, drawing 4,000-5,000 riders annually.",
+      "notable_moments": [
+        "2009: Inaugural edition — Levi designs the route from his personal training roads",
+        "King Ridge becomes the signature climb of American gran fondo cycling",
+        "Multiple distance options (Piccolo, Medio, Gran Fondo, Growler) broaden accessibility",
+        "Consistently ranks among the top US gran fondos by cycling media"
+      ],
+      "reputation": "The gold standard for US gran fondos. King Ridge through the redwoods is the single best climb in American sportive cycling."
+    },
+    "course_description": {
+      "character": "A greatest-hits reel of Sonoma County cycling compressed into 103 miles. The route oscillates between three distinct landscapes — sun-drenched wine country, dark redwood forest canyons, and exposed Pacific Coast ridgeline — with enough climbing to keep the legs honest throughout. The climbing is punchy and repeated rather than sustained Alpine grinding. King Ridge is the centerpiece: a 4-mile effort through cathedral redwoods that defines the entire ride.",
+      "suffering_zones": [
+        {
+          "mile": 0,
+          "label": "Wine Country Rollers",
+          "desc": "The opening miles traverse Sonoma County's vineyard-lined roads. Rolling terrain with short punchy climbs warms the legs without breaking them. The scenery is postcard-perfect — rows of grapevines, oak-studded hillsides, morning light across the valley. Save your matches.",
+          "terrain_detail": "Rolling, 200-500 ft gains per climb",
+          "named_section": "Sonoma Wine Country"
+        },
+        {
+          "mile": 50,
+          "label": "King Ridge",
+          "desc": "The signature climb. 4+ miles of sustained climbing through coastal redwood forest — the temperature drops 10-15 degrees as you enter the tree canopy. Gradients range from 5-9%, with a few punchy ramps near the top. Emerging from the forest onto the exposed ridgeline with Pacific views is the defining moment of the ride.",
+          "terrain_detail": "4+ miles, 5-9% gradient, through old-growth redwoods",
+          "named_section": "King Ridge"
+        },
+        {
+          "mile": 75,
+          "label": "Coastal Return",
+          "desc": "After King Ridge, the route works back through coastal terrain toward Santa Rosa. Coleman Valley Road and the Hauser Bridge area deliver additional climbing when the legs are already tired. The Pacific influence keeps temperatures cool, but the rollers are relentless. The final 20 miles back to Santa Rosa feel longer than they should.",
+          "terrain_detail": "Rolling coastal terrain, cumulative fatigue",
+          "named_section": "Coleman Valley and Return"
+        }
+      ],
+      "signature_challenge": "King Ridge through the coastal redwoods. The climb itself is honest — 4+ miles at 5-9% — but the setting elevates it beyond mere physical effort. The transition from dark forest to sunlit Pacific ridgeline is one of American cycling's great moments."
+    },
+    "guide_variables": {
+      "race_name": "Levi's GranFondo",
+      "race_distance": "103 miles",
+      "race_elevation": "8,500 feet",
+      "race_date": "October",
+      "race_location": "Santa Rosa, Sonoma County, California",
+      "race_terrain": "Paved Sonoma County roads — wine country, redwood forest, Pacific Coast",
+      "race_weather": "Mild (60-75F), possible marine fog on coast, warm inland valleys",
+      "race_challenges": [
+        "8,500 feet of climbing across punchy, repeated efforts",
+        "King Ridge: 4+ miles of sustained climbing through redwoods",
+        "Temperature differential between warm inland and cool coastal sections",
+        "103 miles with virtually no flat recovery — constant rollers"
+      ],
+      "altitude_section": false,
+      "altitude_feet": 1700
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Back-to-back long rides of 80-100 miles with 5,000+ feet of climbing",
+        "by_when": "Week 6",
+        "why": "The route's constant rolling character means you're never truly recovering. Building endurance for sustained climbing across 103 miles requires progressive weekend long rides with significant vertical."
+      },
+      {
+        "requirement": "Repeated short climb intervals (5-15 minutes at threshold)",
+        "by_when": "Week 7",
+        "why": "Sonoma's climbing is punchy — 5-15 minute efforts repeated throughout the day. Training should mirror this with repeated threshold intervals on short climbs, not single sustained mountain efforts."
+      },
+      {
+        "requirement": "Full dress rehearsal — 80+ miles with nutrition strategy on hilly terrain",
+        "by_when": "Week 9",
+        "why": "Eight hours of rolling terrain requires a tested fueling plan. The constant climbing burns through glycogen faster than flat riding, and the temperature swings between coast and inland affect hydration needs."
+      }
+    ],
+    "citations": [
+      {
+        "url": "https://www.levisgranfondo.com/",
+        "title": "Levi's GranFondo — Official Site",
+        "category": "official"
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Levi_Leipheimer",
+        "title": "Levi Leipheimer — Wikipedia",
+        "category": "reference"
+      },
+      {
+        "url": "https://www.bicycling.com/events/a20048735/levis-granfondo/",
+        "title": "Levi's GranFondo — Bicycling Magazine",
+        "category": "review"
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "high",
+      "validation_status": "validated",
+      "research_strength": "A",
+      "sources_count": 3,
+      "last_updated": "2026-02-27"
+    }
+  }
+}

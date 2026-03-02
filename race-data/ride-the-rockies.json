@@ -1,0 +1,376 @@
+{
+  "race": {
+    "name": "Ride the Rockies",
+    "slug": "ride-the-rockies",
+    "display_name": "Ride the Rockies",
+    "tagline": "Colorado's legendary multi-day bicycle tour through the Rocky Mountains. 37 years of crossing mountain passes above 10,000 feet. A Denver Post institution since 1986.",
+    "vitals": {
+      "distance_mi": 450,
+      "elevation_ft": 35000,
+      "location": "Colorado Rocky Mountains (route changed annually)",
+      "location_badge": "COLORADO, USA",
+      "county": "Statewide (rotating host communities)",
+      "date": "Mid-June annually (historically)",
+      "date_specific": "Event cancelled in 2024. Spiritual successor: Colorado's Ride (August 2026).",
+      "terrain_types": [
+        "Paved mountain roads",
+        "Colorado mountain passes",
+        "High-altitude highways",
+        "Small-town connectors"
+      ],
+      "field_size": "~2,000 riders at peak (lottery selected). Final years saw declining enrollment.",
+      "start_time": "Daily mass starts from overnight towns, typically 7:00 AM",
+      "registration": "Originally by lottery. Later years open registration. Cost: ~$400-500 in final years.",
+      "prize_purse": "None. This is a tour, not a race.",
+      "aid_stations": "Multiple aid stations per stage, SAG vehicles, mechanical support, and bag transport between host towns",
+      "cutoff_time": "Daily cutoffs varied by stage, typically 10-12 hours per day",
+      "lat": 39.5501,
+      "lng": -105.7821,
+      "distance_options": [
+        "Full tour: ~400-500 miles over 6-7 days (~60-80 mi/day)",
+        "Route varied annually — different Colorado regions each year"
+      ],
+      "entry_fee": "~$400-500 (final years)"
+    },
+    "climate": {
+      "primary": "Colorado mountain summer — high altitude, afternoon storms",
+      "description": "Mid-June in the Colorado Rockies brings warm valley temps (75-90F) with significantly cooler conditions at pass summits (40-55F). Afternoon thunderstorms are near-daily above treeline. Lightning exposure on open passes is a genuine safety concern. UV intensity at altitude is severe.",
+      "challenges": [
+        "Afternoon thunderstorms above treeline — lightning is a real hazard at 10,000+ feet",
+        "Massive temperature swings: 40F at dawn on passes to 85F in valleys",
+        "Intense UV radiation at altitude — sunburn happens fast above 9,000 feet",
+        "Thin, dry air accelerates dehydration",
+        "Occasional snow on high passes in June"
+      ]
+    },
+    "terrain": {
+      "primary": "Paved mountain highways and county roads",
+      "surface": "Fully paved. Colorado state highways, county roads, and scenic byways through the Rocky Mountains. No gravel or dirt. The challenge is entirely vertical.",
+      "technical_rating": 1,
+      "features": [
+        "Multiple named passes above 10,000 feet per edition",
+        "Descents reaching 50+ mph on mountain highways",
+        "Sustained 5-8% gradients on major passes",
+        "Valley recovery sections between climbs",
+        "Narrow mountain roads with vehicle traffic"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 79,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "logistics": 4,
+      "length": 5,
+      "technicality": 1,
+      "elevation": 5,
+      "climate": 4,
+      "altitude": 5,
+      "adventure": 5,
+      "prestige": 4,
+      "race_quality": 2,
+      "experience": 5,
+      "community": 4,
+      "field_depth": 1,
+      "value": 3,
+      "expenses": 3,
+      "cultural_impact": 4,
+      "tier_note": "37-year Colorado cycling institution, now defunct. Raw score 79 = T2. p4 prestige cannot promote into T1. Spiritual successor Colorado's Ride continues with 350 riders.",
+      "score_note": "Sum of 14 criteria = 51, cultural_impact = 4, total = 55. (55/70)*100 = 78.57, rounded = 79. Altitude=5 and elevation=5 reflect extreme Colorado mountain terrain. field_depth=1 (not competitive). race_quality=2 reflects organizational decline and 2024 cancellation.",
+      "editorial_tier": 2,
+      "editorial_tier_label": "TIER 2",
+      "business_tier": 2,
+      "business_tier_label": "TIER 2",
+      "display_tier": 2,
+      "display_tier_label": "TIER 2",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 4,
+        "explanation": "For 37 years the Denver Post Community Foundation ran a logistics machine — SAG vehicles, bag transport between host towns, nightly camping infrastructure, mechanical support, and aid stations every 15-20 miles. Route coordination with CDOT for road closures across active mountain highways was genuinely impressive. The 2016 edition moved 2,000 cyclists through Carbondale, Aspen, Copper Mountain, Grand Lake, Estes Park, and Fort Collins across six days without a major incident. Ron Baxendale, a seven-time veteran, describes the staging as something you 'prepare for' but don't worry about — the organization handled the hard parts."
+      },
+      "length": {
+        "score": 5,
+        "explanation": "400-500 miles over six to seven days, averaging 60-80 miles daily through mountains. The 2017 edition covered 447 miles in seven days from Alamosa through Pagosa Springs, Durango, Ridgway, Montrose, Gunnison, and Salida. The 2023 edition was 308 miles with 27,000+ feet of climbing from Fort Collins through Rocky Mountain National Park. Daily stages were not casual — 60 miles with 4,000-6,000 feet of climbing each day compounds brutally by day five."
+      },
+      "technicality": {
+        "score": 1,
+        "explanation": "Fully paved roads. The only technical skills required are descending mountain passes at speed and navigating traffic on state highways. There is no gravel, no singletrack, no off-road terrain. The challenge is entirely cardiovascular and vertical. A competent road cyclist with adequate fitness faces zero technical obstacles."
+      },
+      "elevation": {
+        "score": 5,
+        "explanation": "Consistently 30,000-40,000 feet of total climbing across the week. The 2016 route featured Independence Pass (12,095 ft), Fremont Pass (11,318 ft), Tennessee Pass (10,424 ft), Vail Pass (10,666 ft), Ute Pass, and Trail Ridge Road (12,183 ft) — six named passes in six days. The 2023 edition stacked 27,000+ feet of climbing into just 308 miles. These are not gravel rollers — these are sustained 15-25 mile climbs at 4-6% gradient."
+      },
+      "climate": {
+        "score": 4,
+        "explanation": "Colorado mountain weather is its own character in this event. Valley floors bake at 85F while pass summits hover at 45F — riders experience both extremes daily. Afternoon thunderstorms above treeline bring lightning, hail, and sudden temperature drops of 30 degrees in minutes. The 2020 and 2021 editions were disrupted by COVID and weather respectively. June snowfall on high passes has occurred in multiple editions. Layering strategy is not optional — it is survival."
+      },
+      "altitude": {
+        "score": 5,
+        "explanation": "Multiple passes above 10,000 feet every single day. Independence Pass at 12,095 feet, Trail Ridge Road at 12,183 feet, and Loveland Pass at 11,990 feet are Colorado cycling's most iconic high-altitude tests. Riders who arrive from sea level without acclimatization suffer visibly — headaches, nausea, and dramatically reduced power output. The event historically recommended arriving in Colorado 3-5 days early. At 12,000 feet, you have roughly 60% of sea-level oxygen."
+      },
+      "adventure": {
+        "score": 5,
+        "explanation": "A different route through the Colorado Rockies every year meant no two editions were the same. The 2017 route explored the San Juan Mountains. The 2016 route crossed Rocky Mountain National Park. The 2019 route hit Crested Butte, Monarch Pass, Independence Pass, and McClure Pass. Each edition was a guided tour of Colorado's most spectacular mountain scenery — and the route only revealed itself months before the event. Over 37 years, RTR visited more than 50 Colorado host communities."
+      },
+      "prestige": {
+        "score": 4,
+        "explanation": "Outside Magazine called it a 'celebration of fitness.' For 37 years, 'I did Ride the Rockies' was a badge of honor in Colorado cycling circles. The Denver Post backing gave it mainstream media coverage that most cycling events never achieve. At peak, 2,300+ applications flooded in annually for 2,000 lottery spots. Participants came from 49 states and nine countries. But it never quite reached RAGBRAI-level national cultural status, and the organizational decline in final years tarnished the legacy."
+      },
+      "race_quality": {
+        "score": 2,
+        "explanation": "The Denver Post ran a tight operation for decades. Then it was sold in 2021 to new operators, and quality collapsed. Reddit user digdugdiggy, riding the 2023 edition, reported 'people telling us to lock our bikes and they would have security, then no security showing up at all,' camping in a 'muddy cow pasture,' arriving in Estes Park to find 'they didn't have any water or food ready,' and 'confusion around the bus schedule.' Facebook comments from veteran riders echoed the sentiment — Pierre Mawet, a six-time rider, wrote that the new director 'single handily wrecked in a couple of years what took decades to build.' The 2024 edition was cancelled due to insufficient registration."
+      },
+      "experience": {
+        "score": 5,
+        "explanation": "At its best, Ride the Rockies delivered an experience unmatched in American cycling — cresting Independence Pass at sunrise, descending into the Roaring Fork Valley, rolling through Aspen, camping under stars at 9,000 feet, sharing stories with 2,000 fellow riders in Colorado mountain towns. The host communities threw festivals. The Denver Post Community Foundation granted $5,000 to a local nonprofit in each overnight town. The Durango & Silverton Narrow Gauge Railroad partnered for special cyclist excursions. Colorado's mountain scenery needs no embellishment."
+      },
+      "community": {
+        "score": 4,
+        "explanation": "At peak, the RTR community was fiercely loyal. Ron Baxendale did it seven times. Repeat riders formed the backbone — they knew the traditions, the camping etiquette, the after-ride rituals. Colorado host towns treated the arrival of 2,000 cyclists as a week's worth of economic and social boost. But the community eroded as organizational quality declined. The 2023 edition's chaos scattered trust, and the 2024 cancellation was the final blow. Many loyalists have migrated to Colorado's Ride (350 riders) or RAGBRAI."
+      },
+      "field_depth": {
+        "score": 1,
+        "explanation": "Ride the Rockies was never a race. No timing chips, no results, no podium, no competition. The 'field' was 2,000 recreational cyclists ranging from serious club riders to casual tourists on rental bikes. Some riders hammered the passes. Most stopped for photos at the summit signs. The competitive depth is zero by design — this was a supported tour, not a competition."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "At ~$400-500 in its final years, RTR included daily SAG support, bag transport, camping access, aid stations, and route support across six to seven days. Dollar per day, that was reasonable for a fully supported mountain tour. But competing events like RAGBRAI offered more days for less money (~$200 for 7 days). The declining quality in 2023 made the value proposition worse — paying premium prices for substandard execution eroded trust. The current spiritual successor, Colorado's Ride, charges similar rates for 350 riders."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Colorado is expensive. Mountain town lodging runs $150-300/night for those avoiding camping. Flights to Denver (DEN) are reasonable, but ground transport to start towns adds cost. Registration at $400-500 plus food, gear, and a week off work puts the all-in budget at $1,500-2,500 for the week. Camping keeps costs lower but requires gear investment. Colorado's altitude demands specific preparation — arriving early for acclimatization adds hotel nights in Denver or Summit County."
+      }
+    },
+    "biased_opinion": {
+      "verdict": "The Fallen Legend",
+      "summary": "Ride the Rockies was Colorado cycling's crown jewel for 37 years — a week-long pilgrimage through the highest paved passes in North America, organized by the Denver Post and drawing 2,000 riders from 49 states and nine countries. Then the Denver Post sold it in 2021, new management cratered the experience, and by 2024 it was dead. The riding was always spectacular — cresting Independence Pass, descending into Aspen, climbing Trail Ridge Road through Rocky Mountain National Park. But the institution that made it possible is gone. Colorado's Ride carries the spiritual torch with 350 riders. The mountains remain.",
+      "strengths": [
+        "The terrain: Colorado's Rocky Mountains provide the most spectacular road cycling scenery in North America. Period.",
+        "The passes: Independence Pass, Trail Ridge Road, Loveland Pass — these are bucket-list climbs on any cyclist's list",
+        "The adventure: a different route every year meant 37 unique tours through Colorado's most iconic landscapes",
+        "The altitude challenge: riding at 10,000-12,000 feet is a genuinely unique physiological test"
+      ],
+      "weaknesses": [
+        "Now defunct: Ride the Rockies as a Denver Post event is over. The 2024 edition was cancelled. The website is dark.",
+        "Organizational decline: the 2021 sale and subsequent management failures destroyed rider trust in the final years",
+        "Not a race: zero competitive element limits appeal for performance-oriented cyclists",
+        "Colorado expense: mountain town lodging, altitude acclimatization, and travel costs make this a premium-budget event"
+      ],
+      "bottom_line": "If you rode Ride the Rockies in its prime, you experienced one of American cycling's great traditions. If you missed it, Colorado's Ride (coloradosride.com) carries the format forward with 350 riders — smaller, but the mountain passes do not care about registration numbers."
+    },
+    "final_verdict": {
+      "score": "79 / 100",
+      "one_liner": "37 years of crossing Colorado's highest mountain passes. A Denver Post institution — now a memory.",
+      "should_you_race": "You cannot ride Ride the Rockies. It no longer exists. The spiritual successor, Colorado's Ride, runs annually in August with 350 riders through similarly spectacular Colorado mountain terrain. If multi-day supported mountain cycling through the Rockies is your goal, Colorado's Ride at coloradosride.com is the current option.",
+      "alternatives": "For multi-day US cycling tours: RAGBRAI (Iowa, 10,000 riders, flat). For Colorado mountain cycling: Triple Bypass (single day, 120 miles, 10,000 ft climbing). For multi-day European mountain tours: Haute Route or La Marmotte. For the successor event: Colorado's Ride (coloradosride.com).",
+      "alternative_slugs": [
+        "ragbrai",
+        "triple-bypass"
+      ]
+    },
+    "logistics": {
+      "airport": "Denver International Airport (DEN). Start towns varied annually — ground transport to start required. Charter bus services were available in peak years.",
+      "lodging_strategy": "Camping was the default experience — school gyms (indoor camping) and town parks. Hotels in Colorado mountain towns sell out fast and run $150-300/night. At peak, riders chose between outdoor camping, indoor camping (gym floors), and self-arranged hotels. Ron Baxendale, a seven-time veteran, always chose indoor camping: 'After riding 90 miles at elevation climbing mountains, I could sleep soundly on broken glass.'",
+      "food": "Aid stations every 15-20 miles on route. Host town restaurants and community dinners each evening. Colorado mountain towns typically have full dining options. Pack nutrition for high-altitude climbing days.",
+      "packet_pickup": "Day before at start-town venue. Mandatory rider meeting evening before Day 1.",
+      "parking": "Varied by start town. Shuttle services from Denver to start town were available. Car drop arrangements for point-to-point routes.",
+      "official_site": "https://ridetherockies.com/ (now defunct). Successor: https://coloradosride.com/",
+      "camping": "Outdoor camping at town parks and fairgrounds. Indoor camping at school gymnasiums. Showers provided at each overnight town."
+    },
+    "history": {
+      "founded": 1986,
+      "founder": "The Denver Post / Denver Post Community Foundation",
+      "origin_story": "In 1986, 1,500 cyclists pedaled off from Grand Junction on a 300-mile citizen's tour crossing three mountain passes through the Colorado Rockies. Organized by The Denver Post as a community event, Ride the Rockies became an annual tradition — a week-long supported tour on a route that changed every year, showcasing different regions of the Colorado high country. Over 37 editions, the ride visited more than 50 Colorado communities, granted thousands of dollars to local nonprofits through the Denver Post Community Foundation, and established itself as one of America's premier multi-day cycling events.",
+      "notable_moments": [
+        "1986: Inaugural ride — 1,500 cyclists from Grand Junction through three mountain passes",
+        "Peak years: 2,300+ applications for 2,000 lottery spots; riders from 49 states and 9 countries",
+        "2016: 31st edition — 2,000 riders, 403 miles from Carbondale to Fort Collins through Independence Pass, Fremont Pass, and Trail Ridge Road",
+        "2019: 34th edition — loop route from Crested Butte through Monarch Pass, Independence Pass, and McClure Pass",
+        "2020: 35th anniversary postponed due to COVID",
+        "2021: Denver Post sold the event to new operators",
+        "2023: Poorly organized edition drew heavy criticism from veteran riders",
+        "2024: Cancelled due to insufficient registration — the end of an era",
+        "2023-present: Colorado's Ride (separate organization) continues the multi-day Colorado tour format with ~350 riders"
+      ],
+      "reputation": "For 37 years, Colorado's signature multi-day cycling tour. A week of mountain passes, small-town hospitality, and shared suffering at altitude. The organizational decline and 2024 cancellation closed the chapter, but the legacy endures."
+    },
+    "course_description": {
+      "character": "Relentless vertical. Six to seven consecutive days of sustained climbing on Colorado's highest paved mountain passes, with 30,000-40,000 feet of total elevation gain over 400-500 miles. The route changed annually — some years favoring the San Juan Mountains of southwest Colorado, others crossing Rocky Mountain National Park or the central Sawatch Range. Valley sections between passes offered recovery, but the altitude never let up. Every day included at least one major pass above 10,000 feet.",
+      "suffering_zones": [
+        {
+          "mile": 0,
+          "label": "Day 1 — The Awakening",
+          "desc": "First major pass of the week. Riders discover whether their sea-level training translates at 10,000+ feet. The thin air hits immediately on the first sustained gradient.",
+          "terrain_detail": "Sustained 4-6% climb to first pass, 10,000+ ft summit",
+          "named_section": "Opening Pass"
+        },
+        {
+          "mile": 150,
+          "label": "Day 3 — The Queen Stage",
+          "desc": "Most editions featured a marquee day with the biggest climb and most elevation. Independence Pass at 12,095 feet or Trail Ridge Road at 12,183 feet. This is where altitude separates the prepared from the punished.",
+          "terrain_detail": "Signature pass of the edition, typically 12,000+ ft",
+          "named_section": "The Queen Stage"
+        },
+        {
+          "mile": 300,
+          "label": "Day 5 — The Accumulated Toll",
+          "desc": "Five consecutive days of mountain climbing breaks riders who underestimated cumulative fatigue. Legs that climbed fine on day 2 refuse to cooperate. The SAG wagon starts looking inviting.",
+          "terrain_detail": "Another major pass on depleted legs",
+          "named_section": "The Breaking Point"
+        },
+        {
+          "mile": 450,
+          "label": "Final Day — The Finish",
+          "desc": "The last pass and the descent into the finish town. Relief, exhaustion, and the realization that you just spent a week crossing the Rocky Mountains by bicycle.",
+          "terrain_detail": "Final pass and descent to finish",
+          "named_section": "The Final Climb"
+        }
+      ],
+      "signature_challenge": "Sustained altitude. Not one killer day, but six or seven consecutive days of climbing at 8,000-12,000 feet where oxygen is scarce, weather is volatile, and there is no flat. The cumulative altitude exposure is what breaks riders — you cannot fake acclimatization."
+    },
+    "guide_variables": {
+      "race_name": "Ride the Rockies",
+      "race_distance": "400-500 miles over 6-7 days",
+      "race_elevation": "30,000-40,000 feet total",
+      "race_date": "June (historically)",
+      "race_location": "Colorado Rocky Mountains (route changed annually)",
+      "race_terrain": "Paved mountain highways and county roads",
+      "race_weather": "Colorado mountain summer: 75-90F valleys, 40-55F passes, afternoon thunderstorms",
+      "race_challenges": [
+        "6-7 consecutive days of climbing at altitude",
+        "Multiple passes above 10,000 feet — sustained oxygen deficit",
+        "Afternoon thunderstorms with lightning exposure above treeline",
+        "Massive daily temperature swings (40+ degrees)",
+        "Cumulative fatigue from 30,000-40,000 feet of total climbing"
+      ],
+      "altitude_section": true,
+      "altitude_feet": 12183
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Altitude acclimatization — arrive in Colorado 3-5 days before start",
+        "by_when": "Week 12",
+        "why": "Riding at 10,000-12,000 feet with sea-level fitness results in headaches, nausea, and 15-25% power loss. Altitude acclimatization is the single biggest factor separating a great week from a miserable one."
+      },
+      {
+        "requirement": "Multi-day climbing endurance — back-to-back 4,000-6,000 ft climbing days",
+        "by_when": "Week 8",
+        "why": "Six consecutive days of 60-80 miles with 4,000-6,000 feet of climbing each requires specific multi-day endurance. Train consecutive climbing days, not just single big weekends."
+      },
+      {
+        "requirement": "Descending skills and cold-weather gear for mountain passes",
+        "by_when": "Week 6",
+        "why": "Descents from 12,000 feet at 40-50 mph in 45F conditions with sudden rain require proper gear and technique. A rain jacket, arm warmers, and full-finger gloves are mandatory on every climb."
+      }
+    ],
+    "citations": [
+      {
+        "url": "https://ridetherockies.com/",
+        "title": "Ride the Rockies — Official Site (now defunct)",
+        "category": "official"
+      },
+      {
+        "url": "https://coloradosride.com/",
+        "title": "Colorado's Ride — Spiritual Successor",
+        "category": "official"
+      },
+      {
+        "url": "https://www.denverpost.com/2024/04/18/ride-the-rockies-2024-canceled/",
+        "title": "Denver Post — Ride the Rockies Cancelled for 2024",
+        "category": "news"
+      },
+      {
+        "url": "https://www.denverpost.com/2017/02/05/ride-the-rockies-features-magnificent-views-over-447-miles-in-colorado-mountains/",
+        "title": "Denver Post — 2017 Route Announcement (447 miles)",
+        "category": "news"
+      },
+      {
+        "url": "https://www.denverpostcommunity.com/another-denver-post-ride-rockies-history-books/",
+        "title": "Denver Post Community — 2016 Ride the Rockies Recap",
+        "category": "news"
+      },
+      {
+        "url": "https://www.flexential.com/resources/press-release/35-years-ride-rockies-new-route-through-southwest-colorado-sponsored",
+        "title": "Flexential — 35 Years of Ride the Rockies (2020 Route Announcement)",
+        "category": "news"
+      },
+      {
+        "url": "https://velo.outsideonline.com/news/ride-the-rockies-canceled-due-to-low-registration-future-uncertain/",
+        "title": "VeloNews — Ride the Rockies Cancelled, Future Uncertain",
+        "category": "news"
+      },
+      {
+        "url": "https://www.coloradohometownweekly.com/2024/04/30/boulder-county-ties-run-deep-to-canceled-ride-the-rockies-event/",
+        "title": "Colorado Hometown Weekly — Boulder County Ties to Cancelled RTR",
+        "category": "community"
+      },
+      {
+        "url": "https://ronaldbax2.medium.com/colorados-ride-the-rockies-common-questions-honest-answers-ce4d0441e282",
+        "title": "Ron Baxendale — Ride the Rockies Common Questions, Honest Answers (7-time veteran)",
+        "category": "community"
+      },
+      {
+        "url": "https://michael-obrien.com/what-to-pack-for-a-staged-bike-tour-like-ride-the-rockies-or-ragbrai/",
+        "title": "Michael O'Brien — What To Pack For Ride the Rockies (7-time veteran packing list)",
+        "category": "community"
+      },
+      {
+        "url": "https://www.outsideonline.com/outdoor-adventure/biking/yes-you-can-ride-rockies/",
+        "title": "Outside Magazine — Yes You Can: Ride the Rockies",
+        "category": "media"
+      },
+      {
+        "url": "https://www.endurancesportswire.com/colorados-ride-announces-new-route/",
+        "title": "Endurance Sportswire — Colorado's Ride 2026 Route Announcement",
+        "category": "news"
+      },
+      {
+        "url": "https://www.denverpost.com/2015/06/15/five-photos-from-the-early-days-of-ride-the-rockies/",
+        "title": "Denver Post — Five Photos from the Early Days of Ride the Rockies",
+        "category": "media"
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Ride_the_Rockies",
+        "title": "Ride the Rockies — Wikipedia",
+        "category": "reference"
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "high",
+      "validation_status": "validated",
+      "sources": [
+        "denver_post",
+        "velonews",
+        "outside_magazine",
+        "endurance_sportswire",
+        "community_race_reports",
+        "colorado_hometown_weekly",
+        "reddit_cycling"
+      ],
+      "migration_notes": [
+        "Event is defunct as of 2024. Profile reflects historical peak and current status.",
+        "Spiritual successor Colorado's Ride operates separately since 2023.",
+        "Distance and elevation are approximate ranges — route changed annually.",
+        "Denver Post sold event in 2021; organizational decline followed."
+      ],
+      "research_strength": {
+        "overall": 88.5,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": false,
+        "dimensions": {
+          "source_diversity": 95,
+          "citation_density": 90,
+          "temporal_depth": 95,
+          "specificity": 85,
+          "statistical_backing": 80,
+          "voice_authenticity": 90,
+          "completeness": 88,
+          "cross_reference": 65
+        },
+        "scored_at": "2026-02-27"
+      }
+    }
+  }
+}

@@ -1,0 +1,284 @@
+{
+  "race": {
+    "name": "La Marmotte",
+    "slug": "la-marmotte",
+    "display_name": "La Marmotte Granfondo Alpes",
+    "tagline": "Four Tour de France cols. 17,000 feet of climbing. Finish atop Alpe d'Huez. The original French cyclosportive.",
+    "vitals": {
+      "distance_mi": 110,
+      "elevation_ft": 16990,
+      "location": "Bourg d'Oisans, Isere, France",
+      "location_badge": "BOURG D'OISANS, FRANCE",
+      "date": "Late June annually",
+      "date_specific": "2026: June 28",
+      "terrain_types": [
+        "Paved Alpine roads",
+        "Tour de France mountain passes",
+        "Long sustained climbs",
+        "Technical descents"
+      ],
+      "field_size": "~7,000-7,500 riders",
+      "start_time": "Wave 1: 6:30 AM, Wave 2: 6:50 AM",
+      "registration": "Online via marmottegranfondoalpes.com. Tiered pricing opens October/November. Sells out within hours. Cost: EUR110-130",
+      "prize_purse": "None (Gold/Silver/Bronze diploma system)",
+      "aid_stations": "4 official feed stations: Col du Glandon, Valloire, Col du Galibier (tunnel level), Bourg d'Oisans (before Alpe d'Huez).",
+      "cutoff_time": "Must pass base of Alpe d'Huez by 18:15 (6:15 PM). Strict enforcement.",
+      "lat": 45.052,
+      "lng": 6.033,
+      "distance_options": [
+        "La Marmotte: 177 km (110 mi), 5,180 m gain — the full event",
+        "La Rando des Marmottes: 2-day version (97 km + 80 km) — same cols over two days"
+      ],
+      "entry_fee": "EUR110-130 (tiered by registration batch)"
+    },
+    "climate": {
+      "primary": "Extreme Alpine temperature swings",
+      "description": "A single day spanning near-freezing summit conditions at 2,642m and potential 35C (95F) heat on Alpe d'Huez. The Galibier summit can see snow, ice, and violent winds even in late June. Valley starts are cool (15-20C) but warm rapidly.",
+      "challenges": [
+        "Galibier summit: 5-10C with wind chill well below zero",
+        "Alpe d'Huez in afternoon heat: potentially 30-35C (86-95F)",
+        "Must dress for freezing and scorching in the same ride",
+        "Sudden thunderstorms build from noon onward — lightning at altitude is real"
+      ]
+    },
+    "terrain": {
+      "primary": "Paved Alpine mountain passes",
+      "surface": "Well-maintained French departmental roads (D-roads). All tarmac throughout. No gravel or unpaved sections.",
+      "technical_rating": 1,
+      "features": [
+        "Col du Glandon (1,924m) — 21 km opener, relentless grinder",
+        "Col du Telegraphe (1,566m) — 11.9 km at 7.1%, warm-up for what follows",
+        "Col du Galibier (2,642m) — the crux, with ramps of 10-15% near the summit",
+        "Alpe d'Huez (1,860m) — 13.8 km at 8.1%, 21 legendary hairpins on depleted legs"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 87,
+      "tier": 1,
+      "tier_label": "TIER 1",
+      "logistics": 4,
+      "length": 4,
+      "technicality": 1,
+      "elevation": 5,
+      "climate": 4,
+      "altitude": 4,
+      "adventure": 4,
+      "prestige": 5,
+      "race_quality": 5,
+      "experience": 5,
+      "community": 4,
+      "field_depth": 4,
+      "value": 4,
+      "expenses": 3,
+      "cultural_impact": 5,
+      "tier_note": "France's oldest cyclosportive (1982). THE bucket-list Alpine challenge. Four legendary Tour de France cols culminating in Alpe d'Huez.",
+      "score_note": "cultural_impact=5 for 'La Doyenne' — the original French cyclosportive. Technicality=1 (all paved roads) but elevation=5 and altitude=4 reflect the brutal Alpine character.",
+      "editorial_tier": 1,
+      "editorial_tier_label": "TIER 1",
+      "business_tier": 1,
+      "business_tier_label": "TIER 1",
+      "display_tier": 1,
+      "display_tier_label": "TIER 1",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 4,
+        "explanation": "Professional organization with 40+ years of refinement. Two start waves manage 7,000+ riders efficiently. Four feed stations at strategic points. The cutoff at the base of Alpe d'Huez (18:15) is strictly enforced, adding genuine time pressure throughout the day. The only knock: Bourg d'Oisans is a small Alpine town with limited infrastructure, and getting there requires a 2-2.5 hour transfer from Geneva, Lyon, or Grenoble airports."
+      },
+      "length": {
+        "score": 4,
+        "explanation": "177 km (110 miles) is a serious day, but it's the 5,180m of climbing that makes the distance devastating. The course is almost exclusively climbing or descending — there is virtually no flat. Most riders finish in 8-12 hours, with Gold-standard times around 7:53 for young men. The 2-day 'Rando des Marmottes' option exists for those who want the same cols without the single-day brutality."
+      },
+      "technicality": {
+        "score": 1,
+        "explanation": "All paved roads throughout. The technical demands are limited to fast Alpine descents where cold hands and tired legs create risk. The roads themselves are well-maintained French D-roads — the challenge is purely cardiovascular and muscular, not bike handling. You'll want a road bike, not a gravel bike."
+      },
+      "elevation": {
+        "score": 5,
+        "explanation": "5,180 meters of climbing in a single day. Four major cols plus the Lautaret on the Galibier descent. The Glandon alone would be a respectable day's climbing (1,200m). Then you stack Telegraphe-Galibier (2,000m combined) on top of it, and finish with Alpe d'Huez's 1,100m when your legs are completely empty. This is among the most climbing packed into any single-day cycling event on Earth."
+      },
+      "climate": {
+        "score": 4,
+        "explanation": "The day's weather spans near-freezing conditions at the Galibier summit (2,642m) and potential 35C heat on the lower slopes of Alpe d'Huez — often in the same ride. Clothing strategy is genuinely difficult: you need a warm layer for the Galibier descent but can't afford the weight in the afternoon heat. Sudden thunderstorms are a real hazard above 2,000m, and the exposed Galibier summit amplifies wind chill dramatically."
+      },
+      "altitude": {
+        "score": 4,
+        "explanation": "The Galibier at 2,642m is among the highest paved road passes in the Alps. Oxygen availability is measurably reduced — riders from sea-level climates feel this acutely in the final kilometers below the summit. The col de Lautaret (2,057m) and significant portions of the route above 1,500m compound the altitude effect over the full day. Acclimatization matters."
+      },
+      "adventure": {
+        "score": 4,
+        "explanation": "Riding the same Alpine roads that Tour de France legends have climbed for a century is inherently adventurous. The Galibier's barren moonscape above treeline, the hairpins of Alpe d'Huez numbered for each Tour stage winner, the vast Maurienne Valley — the scenery is spectacular. It's organized and supported, but the Alpine scale and the physical commitment create a genuine adventure feel."
+      },
+      "prestige": {
+        "score": 5,
+        "explanation": "France's oldest cyclosportive, running since 1982. Often called 'La Doyenne' (the old lady). Predates the Etape du Tour by a decade. The fixed route — unlike the Etape which changes yearly — has made La Marmotte a permanent benchmark in amateur cycling. Achieving Gold here is one of the most respected amateur cycling accomplishments in Europe. The combination of Glandon, Telegraphe, Galibier, and Alpe d'Huez is an all-time cycling bucket list."
+      },
+      "race_quality": {
+        "score": 5,
+        "explanation": "Forty-plus years of organizational refinement show. The Gold/Silver/Bronze diploma system by age group creates genuine competitive structure without being a race. Chip timing, well-stocked feed stations, medical support on every col, and broom wagon coverage make this a professionally run event. The tiered registration system and consistent sell-out status reflect an event that knows its audience."
+      },
+      "experience": {
+        "score": 5,
+        "explanation": "Three words: finishing on Alpe d'Huez. After 163 km and 4,300m of climbing, you arrive at the base of the most famous climb in cycling. The 21 numbered hairpins — each named for a Tour de France stage winner — are lined with thousands of fans cheering you up to the summit. The Galibier summit, with its barren Alpine grandeur and the knowledge that you've just climbed the highest pass in the event, is the other transcendent moment. This is cycling at its most epic."
+      },
+      "community": {
+        "score": 4,
+        "explanation": "International field drawn primarily from Northern Europe (UK, Netherlands, Belgium, Scandinavia) plus growing North American and Australian contingent. The shared suffering on the Galibier creates bonds — riders helping each other through the final kilometers to the summit is a La Marmotte tradition. The event village and post-ride atmosphere in Alpe d'Huez are warm, but it's not the Italian festival culture of Strade Bianche."
+      },
+      "field_depth": {
+        "score": 4,
+        "explanation": "The front of the race is fast — Gold medal times require sub-8-hour finishes, meaning averaging over 22 km/h with 5,000m of climbing. Serious age-group riders from across Europe chase Gold medals as one of amateur cycling's most coveted benchmarks. The depth is genuine but concentrated at the sharp end; the majority of the 7,000-rider field is riding for the experience and a Bronze or Silver."
+      },
+      "value": {
+        "score": 4,
+        "explanation": "EUR110-130 for access to four legendary Tour de France cols with professional support, chip timing, diploma system, and a finish atop Alpe d'Huez is outstanding value. The early-bird pricing rewards advance planning. For what you get — and the permanent benchmark of a Gold/Silver/Bronze — the cost is more than justified."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Alpine France in summer is not cheap. Alpe d'Huez accommodation for event week books out months in advance and carries resort pricing. Flights to Geneva, Lyon, or Grenoble plus 2-2.5 hour ground transfer. Tour operator packages run EUR600-1,500+ for 3-4 nights including entry, accommodation, and airport transfers. Independent travelers can do it for less but need to plan ahead. Budget EUR1,000-2,000 from the US."
+      }
+    },
+    "biased_opinion": {
+      "verdict": "Legendary",
+      "summary": "La Marmotte is the original. Since 1982, it has set the standard for what a mountain cyclosportive should be: four genuine Tour de France cols, 5,000+ meters of climbing, and a finish atop cycling's most famous mountain. It isn't the hardest event in the world — but it might be the most perfectly designed one. The Glandon opens your legs, the Telegraphe-Galibier block breaks them, and Alpe d'Huez asks you to find something you didn't know you had. The Gold/Silver/Bronze diploma system gives you a permanent benchmark, and the knowledge that the route never changes means your time means something forever.",
+      "strengths": [
+        "The route: four iconic Tour de France cols in a single day, unchanged for 40+ years",
+        "Finishing atop Alpe d'Huez: 21 hairpins lined with fans cheering you to the summit",
+        "The Gold/Silver/Bronze system: a permanent, comparable benchmark for your cycling achievement",
+        "Alpine grandeur: the Galibier summit at 2,642m is cycling at its most epic"
+      ],
+      "weaknesses": [
+        "Remote access: 2+ hours from the nearest major airport to a small Alpine town",
+        "Weather roulette: near-freezing at Galibier, potentially scorching at Alpe d'Huez, in the same ride",
+        "The cutoff: 18:15 at the base of Alpe d'Huez means genuine time pressure all day — no leisure riding"
+      ],
+      "bottom_line": "If you want to test yourself against the mountains that made cycling legends, La Marmotte is where you do it. The Galibier will humble you, and Alpe d'Huez will reward you."
+    },
+    "final_verdict": {
+      "score": "87 / 100",
+      "one_liner": "France's original cyclosportive. Four Tour de France cols. 5,000m of climbing. Finish atop Alpe d'Huez.",
+      "should_you_race": "Yes if you can sustain 8-12 hours of Alpine climbing and want the definitive mountain cycling experience. Yes if you want a permanent benchmark against one of cycling's most storied courses. Skip if you need technical terrain — this is pure road climbing. Skip if altitude above 2,600m concerns you.",
+      "alternatives": "If you want similar Alpine challenge with more distance options: try Tour du Mont-Blanc Cyclo. If you want Italian Dolomites instead of French Alps: try Sportful Dolomiti Race. If you want the Tour de France experience with a changing route: try L'Etape du Tour.",
+      "alternative_slugs": [
+        "tour-du-mont-blanc-cyclo",
+        "sportful-dolomiti-race"
+      ]
+    },
+    "logistics": {
+      "airport": "Geneva (GVA) — 2 hours (best option, most flights). Lyon (LYS) — 2.5 hours. Grenoble (GNB) — 1 hour (limited flights).",
+      "lodging_strategy": "Stay in Alpe d'Huez (finish) and shuttle/drive to Bourg d'Oisans (start) on race morning. The resort has hotels, apartments, and chalets but books out 6-12 months in advance for event week. Alternatively stay in Bourg d'Oisans for easy start access.",
+      "food": "French Alpine cuisine — fondue, tartiflette, hearty mountain food. Carb loading is easy. Feed stations provide bananas, gels, cakes, cola, water.",
+      "packet_pickup": "Event village in Bourg d'Oisans area, day before. Expect queues for 7,000+ riders.",
+      "parking": "Limited in Bourg d'Oisans. Tour operator transfers from Alpe d'Huez to start are common.",
+      "official_site": "https://marmottegranfondoalpes.com/en/"
+    },
+    "history": {
+      "founded": 1982,
+      "founder": "Local Oisans region cycling organization",
+      "origin_story": "France's first cyclosportive, created in 1982 to allow amateur riders to experience the great Tour de France passes of the Oisans massif. Often called 'La Doyenne' (the old lady — shared with Liege-Bastogne-Liege). Predates the Etape du Tour by a decade. The fixed route — Glandon, Telegraphe, Galibier, Alpe d'Huez — has remained largely unchanged for 40+ years, making it cycling's most permanent benchmark.",
+      "notable_moments": [
+        "1982: Inaugural edition — France's first cyclosportive",
+        "Route unchanged for 40+ years — the permanent Alpine benchmark",
+        "Gold/Silver/Bronze diploma system becomes one of cycling's most respected amateur achievements",
+        "7,000+ riders, selling out within hours each year"
+      ],
+      "reputation": "The original and the benchmark. What the Boston Marathon is to running, La Marmotte is to amateur road cycling."
+    },
+    "course_description": {
+      "character": "Pure Alpine suffering. Almost exclusively climbing or descending — there is virtually no flat on this route. The four cols are stacked in ascending psychological impact: the Glandon is honest, the Telegraphe is a warm-up, the Galibier is the crux, and Alpe d'Huez is the cherry on top of 163 km of pain. By the time you reach the 21 hairpins, you've already done more climbing than most sportives contain in total.",
+      "suffering_zones": [
+        {
+          "mile": 0,
+          "label": "Col du Glandon",
+          "desc": "21 km from Bourg d'Oisans. Legs are fresh but the climb is relentless, with gradients approaching 12% in the final 2 km. The exposed upper slopes give the first taste of Alpine altitude. Sets the tone for the day.",
+          "terrain_detail": "1,924m summit, averaging 5.1%",
+          "named_section": "Col du Glandon"
+        },
+        {
+          "mile": 50,
+          "label": "Telegraphe-Galibier Block",
+          "desc": "The 35 km / 2,000m combined block that defines La Marmotte. The Telegraphe (11.9 km at 7.1%) is the warm-up. The Galibier — 2,642m, with ramps of 10-15% near the summit — is the crux. Above 2,500m, weather can be severe: snow, ice, violent headwinds, sub-zero wind chill. This is where Gold medals are won or lost.",
+          "terrain_detail": "Combined 35 km and 2,000m+ of climbing",
+          "named_section": "Col du Telegraphe + Col du Galibier"
+        },
+        {
+          "mile": 100,
+          "label": "Alpe d'Huez",
+          "desc": "13.8 km at 8.1% average, 13% maximum. 21 numbered hairpins, each named for a Tour de France stage winner. After 163 km and 4,300m of climbing, you arrive at the base of the most famous climb in cycling. In hot years, the lower slopes bake in 30-35C afternoon sun. The crowds lining the hairpins push you up what should be impossible.",
+          "terrain_detail": "13.8 km, 1,100m gain, 21 hairpins",
+          "named_section": "Alpe d'Huez"
+        }
+      ],
+      "signature_challenge": "The Galibier at 2,642m is the crux — cycling's most famous high pass, with altitude effects, weather exposure, and brutal gradients. But the real signature is the entire package: four legendary cols stacked in a single day, finishing on Alpe d'Huez's 21 hairpins."
+    },
+    "guide_variables": {
+      "race_name": "La Marmotte Granfondo Alpes",
+      "race_distance": "110 miles",
+      "race_elevation": "16,990 feet",
+      "race_date": "June",
+      "race_location": "Bourg d'Oisans, French Alps",
+      "race_terrain": "Paved Alpine mountain passes",
+      "race_weather": "Extreme range: near-freezing at Galibier (2,642m) to potentially 35C at Alpe d'Huez",
+      "race_challenges": [
+        "5,180m of climbing across 4 major cols in a single day",
+        "Altitude effects above 2,500m on the Col du Galibier",
+        "Temperature swings from near-freezing to 35C in a single ride",
+        "Strict cutoff at base of Alpe d'Huez (18:15)"
+      ],
+      "altitude_section": true,
+      "altitude_feet": 8668
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Long climbing endurance — 4-5 hour sustained climbing sessions in training",
+        "by_when": "Week 6",
+        "why": "La Marmotte demands 8-12 hours of near-continuous climbing. You cannot fake mountain endurance — it requires progressive overload with sustained tempo efforts."
+      },
+      {
+        "requirement": "Altitude exposure or simulation above 2,000m",
+        "by_when": "Week 8",
+        "why": "The Galibier summit (2,642m) causes measurable oxygen reduction. Riders from sea-level areas need either altitude camps or at minimum hypoxic training preparation."
+      },
+      {
+        "requirement": "Full dress rehearsal — 5+ hours of climbing with nutrition strategy",
+        "by_when": "Week 9",
+        "why": "Fueling through 5,000m of climbing requires a tested nutrition plan. Bonking on the Galibier with Alpe d'Huez still ahead is catastrophic."
+      }
+    ],
+    "citations": [
+      {
+        "url": "https://marmottegranfondoalpes.com/en/",
+        "title": "La Marmotte Granfondo Alpes — Official Site",
+        "category": "official"
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/La_Marmotte",
+        "title": "La Marmotte — Wikipedia",
+        "category": "reference"
+      },
+      {
+        "url": "https://sportivebreaks.com/sportives/la-marmotte/",
+        "title": "La Marmotte — Sportive Breaks",
+        "category": "review"
+      },
+      {
+        "url": "https://epicroadrides.com/cycling-blog/la-marmotte-granfondo/",
+        "title": "La Marmotte Granfondo 2026 — Epic Road Rides",
+        "category": "review"
+      },
+      {
+        "url": "https://www.sportive.com/cycling-training/512968/la-marmotte-sportive-gold-and-silver-medal-timings",
+        "title": "La Marmotte Gold and Silver Medal Timings",
+        "category": "reference"
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "high",
+      "validation_status": "validated",
+      "research_strength": "A",
+      "sources_count": 5,
+      "last_updated": "2026-02-27"
+    }
+  }
+}

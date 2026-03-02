@@ -1,0 +1,370 @@
+{
+  "race": {
+    "name": "RAMROD — Ride Around Mount Rainier in One Day",
+    "slug": "ramrod",
+    "display_name": "RAMROD — Ride Around Mount Rainier in One Day",
+    "tagline": "150+ miles circumnavigating an active volcano. 10,000 feet of climbing over alpine passes through Mount Rainier National Park. The Pacific Northwest's most iconic cycling challenge since 1984.",
+    "vitals": {
+      "distance_mi": 154,
+      "elevation_ft": 10000,
+      "location": "Enumclaw, Washington, USA",
+      "location_badge": "ENUMCLAW, WASHINGTON, USA",
+      "date": "Last Thursday of July annually (traditional). Route and date subject to National Park Service permitting.",
+      "date_specific": "2026: Canceled (NPS permitting dispute). Redmond Cycling Club pursuing 2027 return.",
+      "terrain_types": [
+        "Paved national park roads through old-growth forest",
+        "Alpine mountain pass highways (Cayuse Pass 4,675 ft, Chinook Pass 5,432 ft)",
+        "Paradise Road climb to 5,400 ft with volcano views",
+        "Stevens Canyon Road through glacial valleys",
+        "Rural Washington state highways through foothills and farmland"
+      ],
+      "field_size": "~800 riders (National Park Service special use permit cap)",
+      "start_time": "5:00 AM from Enumclaw Expo Center (formerly Enumclaw Fairgrounds)",
+      "registration": "Historically via lottery with $5 entry and ~$90-100 ride fee if selected. 2025 was first-come-first-served due to late permitting. Volunteering guarantees entry the following year.",
+      "prize_purse": "None. Self-paced endurance ride. No timing, no categories, no competition. Was a timed race for the first ten years (1984-1993).",
+      "aid_stations": "Multiple fully stocked rest stops with food, water, electrolytes, and mechanical support. Breakfast at the start provided by Enumclaw Rotary and Lions clubs (eggs, hash browns, sausage, oatmeal, coffee). Ice cream at the finish. Rest stop midway up Cayuse Pass climb.",
+      "cutoff_time": "Riders must complete the course in one day. No formal hard cutoff published, but daylight is the practical limit — approximately 16 hours from a 5 AM start in late July.",
+      "lat": 47.2037,
+      "lng": -121.9917,
+      "distance_options": [
+        "RAMROD: ~150-159 miles circumnavigating Mount Rainier (distance varies by route edition — 13 different routes have been used over 41 years)",
+        "No shorter distance option. This is one course, one ride, one day."
+      ],
+      "entry_fee": "~$90-100 (historically)"
+    },
+    "climate": {
+      "primary": "Pacific Northwest late summer — warm valleys, cool alpine passes, unpredictable mountain weather",
+      "description": "Late July in the Mount Rainier corridor delivers the best weather window the Pacific Northwest can offer, but 'best' is relative when you are circling a 14,411-foot active volcano. Valley temperatures in Enumclaw and along the lowland sections start cool at 5 AM (50-55F) and climb to 75-85F by mid-afternoon. The exposed climb up Cayuse Pass — typically reached at the hottest part of the day around mile 100 — can feel oppressive with full sun and minimal shade. At the alpine passes (4,675-5,432 ft), temperatures drop 15-25 degrees from the valley floor. Paradise at 5,400 ft offers cooler conditions but also unpredictable mountain weather: clouds, fog, and sudden showers can materialize at any time on the flanks of Rainier. The volcano creates its own weather systems.",
+      "challenges": [
+        "Temperature swing of 20-30F between lowland valleys and alpine passes — dressing for both extremes",
+        "Exposed Cayuse Pass climb in full afternoon sun with minimal shade at 100+ miles into the ride",
+        "Mount Rainier creates its own microclimate — sudden fog, clouds, and rain showers possible at altitude",
+        "Early morning cold at 5 AM start: 50-55F in Enumclaw requires arm warmers and vest for the first hour",
+        "Dehydration risk from sustained climbing in warm conditions across 150+ miles",
+        "Late July wildfire smoke can occasionally blanket the Cascade foothills, reducing air quality"
+      ]
+    },
+    "terrain": {
+      "primary": "Paved roads circumnavigating Mount Rainier through national park and Washington state highways",
+      "surface": "All paved. The route uses a combination of Mount Rainier National Park roads (Paradise Road, Stevens Canyon Road, SR 123), Washington state highways (SR 410, SR 706, SR 7, SR 161, SR 162, SR 165), and rural foothills roads. Road quality ranges from excellent (park roads and main state routes) to adequate (rural sections). The national park roads are narrow, winding, and designed for scenic touring — beautiful to ride but demanding of attention on descents.",
+      "technical_rating": 1,
+      "features": [
+        "Full circumnavigation of Mount Rainier — one of the world's most iconic volcanic peaks at 14,411 ft",
+        "Paradise Road climb: 18 miles from the Nisqually Entrance to Paradise at 5,400 ft — sustained climbing through old-growth forest with volcano views",
+        "Stevens Canyon Road: the crown jewel of the route, built in 1930s rustic National Park style with stone bridges, tunnels, and viaducts through glacial valleys",
+        "Cayuse Pass (4,675 ft): 8 miles at a constant 6% grade, typically reached at 100+ miles when legs and glycogen are depleted",
+        "Chinook Pass (5,432 ft): the highest point on the traditional route, skirting Tipsoo Lake with panoramic Cascade views",
+        "40 miles of rolling foothills through Eatonville, Elbe, and Ashford — quiet PNW towns in the shadow of Rainier",
+        "13 different route editions over 41 years — clockwise, counterclockwise, and various bypass configurations depending on NPS permitting"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 77,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "logistics": 3,
+      "length": 5,
+      "technicality": 1,
+      "elevation": 4,
+      "climate": 3,
+      "altitude": 2,
+      "adventure": 5,
+      "prestige": 4,
+      "race_quality": 4,
+      "experience": 5,
+      "community": 5,
+      "field_depth": 1,
+      "value": 4,
+      "expenses": 4,
+      "cultural_impact": 4,
+      "tier_note": "The Pacific Northwest's defining cycling challenge since 1984. 150+ miles around an active volcano through national park alpine passes. T2 by score (77). p4 promotes 1 tier but NEVER into T1 — T2 stays. Currently facing an existential threat: 2026 canceled due to NPS permitting dispute. The Redmond Cycling Club is fighting for a 2027 return.",
+      "score_note": "Length=5 for 150+ miles in a single day — one of the longest organized one-day rides in the US. Adventure=5 and Experience=5 for circumnavigating an active volcano through old-growth forest, alpine passes, glacial valleys, and national park architecture. Community=5 for 40+ years of devoted volunteer organization, Enumclaw Rotary breakfast, guaranteed entry for volunteers — a deep Pacific Northwest cycling institution. Prestige=4 for lottery-only entry, 800-rider NPS cap, sells out instantly, and a 40-year legacy that has survived repeated existential threats. Race_quality=4 for a volunteer-run operation that has refined logistics over 41 editions. Value=4 and Expenses=4 for ~$90-100 entry and affordable Enumclaw lodging. Elevation=4 for 10,000 ft of climbing over multiple alpine passes. Logistics=3 for Enumclaw being 60 minutes from SeaTac with limited lodging. Altitude=2 (highest pass at 5,432 ft is meaningful but not extreme). Technicality=1 (all paved). Field_depth=1 (no timing, no competition). Sum of 14 = 50. cultural_impact=4 for a 40-year tradition that has become inseparable from PNW cycling identity. Total = 54. Score = round(54/70*100) = 77.",
+      "editorial_tier": 2,
+      "editorial_tier_label": "TIER 2",
+      "business_tier": 2,
+      "business_tier_label": "TIER 2",
+      "display_tier": 2,
+      "display_tier_label": "TIER 2",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 3,
+        "explanation": "Enumclaw is a small foothill town about 60 minutes southeast of Seattle-Tacoma International Airport (SEA). SeaTac is a major hub with abundant domestic and international connections — getting to Seattle is easy. Getting to Enumclaw is the friction. It is a one-highway town at the base of the Cascades with limited hotel inventory. The Rodeway Inn, GuestHouse, and a handful of small motels are your options — book months ahead or they are gone. Auburn and Puyallup (30 minutes west) offer more chain hotels but lose the pre-ride convenience. The start at the Enumclaw Expo Center is well-organized after 40+ years of practice. Packet pickup the day before. Parking is straightforward at the fairgrounds. The loop course means your car is where you left it — a massive logistical advantage over point-to-point events. The biggest complexity is the NPS permitting situation, which has produced 13 different route editions and multiple cancellations. You may register for one route and ride another, or not ride at all."
+      },
+      "length": {
+        "score": 5,
+        "explanation": "150 to 159 miles depending on the route edition. This is not a century. This is not a metric double century. This is a full circumnavigation of an active volcano in a single day, starting at 5 AM and racing daylight. The 2025 'Reverse Skate Creek EFI Edition' covered 159.1 miles with 9,941 feet of elevation gain. Even the shorter route editions push past 150 miles. At any pace, you are looking at 10-15 hours in the saddle. The length alone puts RAMROD in rarified air among organized single-day rides in the US. There is no shorter option — you ride the whole thing or you do not ride. The ride does not care about your ambitions at mile 120 when you still have 30-40 miles to go and Cayuse Pass is staring at you."
+      },
+      "technicality": {
+        "score": 1,
+        "explanation": "Paved roads the entire route. State highways, national park scenic roads, and rural Washington backroads. The park roads — particularly Stevens Canyon and the descent from Paradise — are narrow and winding with some steep descents that demand attention, but this is standard road cycling. No gravel, no dirt, no technical terrain. The challenge is entirely in the distance and the climbing, not in the surface under your tires. Bring your road bike. Bring your deepest gearing."
+      },
+      "elevation": {
+        "score": 4,
+        "explanation": "Approximately 10,000 feet of climbing over 150+ miles. The climbing is distributed across multiple major efforts: Paradise Road is an 18-mile sustained climb from the Nisqually Entrance to 5,400 feet. Cayuse Pass is 8 miles at a constant 6% grade. Chinook Pass reaches 5,432 feet. The traditional route includes Stevens Canyon Road's undulating terrain through glacial valleys. None of these climbs is individually devastating — they are long, steady, and relentless. What makes the elevation brutal is the accumulation: by the time you hit Cayuse Pass at mile 100+, you have already climbed 6,000-7,000 feet and your glycogen stores are vapor. The climbing is not extreme by alpine standards, but 10,000 feet spread across 150+ miles with the hardest passes arriving when you are most depleted is a deeply punishing formula."
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "Late July in the Mount Rainier corridor is the best weather the Pacific Northwest offers — which means mostly dry, warm days with highs of 75-85F in the valleys and 55-65F at the passes. The early 5 AM start in Enumclaw is cool (50-55F) and requires layers. The exposed Cayuse Pass climb in the afternoon sun can be genuinely hot, particularly with no shade for miles. Mount Rainier is a 14,411-foot volcano that generates its own weather: clouds, fog, and rain showers can appear at any elevation without warning, even on a forecast-clear day. The temperature swing from valley floor to alpine pass summit demands planning — you will need different clothing for different parts of the ride. In recent years, late July wildfire smoke from Eastern Washington and Oregon has occasionally settled over the Cascade foothills, degrading air quality. The climate is manageable but demands respect."
+      },
+      "altitude": {
+        "score": 2,
+        "explanation": "The highest point on the traditional RAMROD route is Chinook Pass at 5,432 feet. Cayuse Pass sits at 4,675 feet. Paradise reaches approximately 5,400 feet. These are meaningful mountain pass elevations in the Pacific Northwest context, but they are not the oxygen-depleted suffering of 10,000+ foot Western climbs. Sea-level riders from the Puget Sound will notice the thinner air on the sustained climbs above 4,000 feet — perhaps 3-5% power reduction — but altitude is a secondary concern, not a primary one. Your bigger problem is that you have been riding for 8-10 hours when you reach the highest passes. The altitude adds insult to injury, but the injury comes from the distance and the cumulative climbing."
+      },
+      "adventure": {
+        "score": 5,
+        "explanation": "You are riding your bicycle around Mount Rainier. An active volcano. The most glaciated peak in the contiguous United States. A mountain so massive it creates its own weather systems. The ride takes you through old-growth forests where trees are 500 years old, past glacial rivers running milky with volcanic sediment, over alpine passes where the air thins and the Cascade Range unfolds in every direction, and through Stevens Canyon — a glacial valley with 1930s stone bridges and tunnels that look like they were built for a different century. You pass through tiny PNW foothills towns — Eatonville, Elbe, Ashford — where the local economy exists because Rainier exists. The mountain is always there: looming above the treeline, dominating the horizon, reminding you that you are a very small person on a very small bicycle riding around something ancient and indifferent. This is one of the great adventure rides in the United States."
+      },
+      "prestige": {
+        "score": 4,
+        "explanation": "RAMROD has been the Pacific Northwest's defining cycling challenge since John Dixon organized the first ride in 1984 with 52 starters. Forty-one editions later, it sells out through a lottery system with an 800-rider NPS permit cap. Saying you have done RAMROD carries weight in PNW cycling circles the way saying you have done L'Etape or the Haute Route carries weight in Europe. The lottery creates scarcity — not everyone who wants to ride can ride. Volunteering to guarantee a future entry is a commitment that demonstrates dedication. The event was a timed race for its first decade, giving it competitive roots that most charity rides lack. The ongoing NPS permitting battle — with 2024 moved to September, 2025 rerouted, and 2026 canceled entirely — has, paradoxically, increased its prestige. RAMROD is now fighting for its existence, and the cycling community has rallied to preserve it. Completing RAMROD may become rarer, not more common. The event is not internationally famous, which keeps it at 4 rather than 5."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "The Redmond Cycling Club has been organizing RAMROD for 41 years. That is four decades of institutional knowledge, volunteer networks, route planning, NPS negotiation, and logistical refinement. The operation runs on volunteer power — hundreds of club members staff aid stations, cook breakfast, manage traffic, and provide mechanical support across 150+ miles of national park and state highway. The Enumclaw Rotary and Lions clubs sponsor the pre-ride breakfast. Multiple rest stops are fully stocked with food, water, and support. The packet pickup, start logistics, and on-course support reflect decades of learning. This is not a corporate sportive with chip timing and GPS tracking — it is a deeply knowledgeable volunteer operation that knows this route, this mountain, and this community better than any professional events company ever could. The quality comes from experience, not from budget."
+      },
+      "experience": {
+        "score": 5,
+        "explanation": "There is exactly one road that circumnavigates Mount Rainier. You are going to ride it in a single day. The experience begins at 5 AM in the dark of Enumclaw, eating breakfast made by the local Rotary club alongside 800 other people who won a lottery to be here. The first light hits the mountain as you ride south. The Paradise climb delivers you to 5,400 feet through cathedral forests with the volcano overhead. Stevens Canyon Road is a master class in 1930s park architecture — stone bridges, tunnels, and viaducts through a glacial valley that feels like a different era. Cayuse Pass at mile 100+, on depleted legs, in afternoon sun, is where RAMROD becomes a test of character. The descent from Chinook Pass back toward Enumclaw, with the mountain behind you and the Puget Sound lowlands ahead, is the earned reward. You circumnavigated an active volcano. That fact will define how you think about cycling for a long time."
+      },
+      "community": {
+        "score": 5,
+        "explanation": "RAMROD is not an events company's product. It is the Redmond Cycling Club's labor of love, built and sustained by volunteer cyclists for 40+ years. The community infrastructure is deep: the Enumclaw Rotary and Lions clubs cook breakfast. Hundreds of RCC members volunteer to staff rest stops, manage traffic, and provide support. Volunteering guarantees entry the following year — tying participation to service in a way that reinforces community bonds. The NPS permitting crisis has galvanized the community further: riders, volunteers, and PNW cycling advocates have lobbied elected officials and park leadership to save the event. This is a community that has fought for its ride. The field of 800 is small enough that faces become familiar over decades. Returning riders are greeted by name. The parking lot at Enumclaw Expo Center on RAMROD morning is a reunion."
+      },
+      "field_depth": {
+        "score": 1,
+        "explanation": "RAMROD is not a race and has not been timed since 1993. There are no categories, no age groups, no awards, no official results. The field of 800 includes everything from elite cyclists to recreational riders making their one big ride of the year. Strong riders may finish in 8-9 hours; others will take 14-15. There is no competitive structure, no ranking, no points. If you need a result, you will need to look at your own Garmin. The event's first decade (1984-1993) was a timed race, giving it competitive heritage, but the modern RAMROD is purely about the accomplishment of completing the circumnavigation."
+      },
+      "value": {
+        "score": 4,
+        "explanation": "At approximately $90-100 for the ride entry (with a $5 lottery fee), RAMROD is remarkably affordable for what it delivers. You get 150+ miles of supported riding around Mount Rainier with multiple fully stocked aid stations, breakfast at the start, mechanical support, and the organizational infrastructure of a 40-year-old event. Compare that to $150-300+ for most major gran fondos and century rides that cover half the distance and offer a fraction of the scenery. The Redmond Cycling Club is a nonprofit volunteer organization — the entry fee covers permits, insurance, supplies, and event logistics, not profit margins. For the value of what you receive — a circumnavigation of an active volcano in a national park — this is one of the best deals in American cycling."
+      },
+      "expenses": {
+        "score": 4,
+        "explanation": "Enumclaw is not a resort town. Hotels run $80-130/night for basic motels. SeaTac airport is 60 minutes north with competitive domestic fares — Seattle is a major hub. Food in Enumclaw and the surrounding foothills towns is reasonably priced. You do not need to stay in an expensive mountain lodge or a ski resort village. The entry fee is ~$90-100. Total trip cost for a domestic traveler: $400-700 including flights, 2 nights lodging, entry, and meals. This is significantly cheaper than events in resort destinations like Tahoe, Aspen, or the California coast. The Pacific Northwest's relatively affordable cost of living extends to Enumclaw and the small towns along the route."
+      }
+    },
+    "biased_opinion": {
+      "verdict": "The Volcano Loop",
+      "summary": "Forty years ago, a cyclist named John Dixon convinced 51 other people to ride their bicycles all the way around Mount Rainier in a single day. Forty-one editions later, 800 people win a lottery each year for the privilege of doing the same thing. RAMROD is the Pacific Northwest condensed into a single day on a bicycle: old-growth forest, alpine passes, glacial rivers, quiet foothills towns, and a 14,411-foot active volcano that is always there — above the treeline, above the clouds, above everything. The ride starts in the dark of Enumclaw at 5 AM with breakfast cooked by the local Rotary club. It climbs to Paradise through cathedral forests with the mountain overhead. It crosses Stevens Canyon on 1930s stone bridges through a glacial valley. It grinds up Cayuse Pass at mile 100 on legs that stopped cooperating 20 miles ago. And it returns to Enumclaw 150 miles later, in the long Pacific Northwest twilight, with the mountain still watching. RAMROD is not the hardest ride in America. It is not the longest. But it may be the most complete — a full orbit of something genuinely magnificent, earned one pedal stroke at a time.",
+      "strengths": [
+        "The only organized ride that circumnavigates Mount Rainier — a geographic and cycling experience that cannot be replicated anywhere else",
+        "40+ years of volunteer tradition by the Redmond Cycling Club — deep institutional knowledge and a community that fights for its event",
+        "National park roads through old-growth forest, glacial valleys, and alpine passes — Stevens Canyon alone is worth the entry fee",
+        "150+ miles in a single day: one of the longest organized one-day rides in the US, with no shorter option",
+        "Lottery entry and 800-rider NPS cap create scarcity — this is earned access, not purchased access",
+        "Remarkably affordable: ~$90-100 entry for a 150-mile fully supported ride through a national park"
+      ],
+      "weaknesses": [
+        "Existential threat from NPS permitting: 2024 moved to September, 2025 rerouted without Paradise, 2026 canceled entirely. Future editions are not guaranteed.",
+        "Not a race: no timing, no categories, no competition since 1993. If you need a result sheet, look elsewhere.",
+        "Enumclaw has very limited lodging — a handful of motels that sell out immediately. Plan to stay in Auburn or Puyallup and drive in.",
+        "Route changes year to year depending on NPS permitting — you may not ride the 'classic' RAMROD with Paradise and Stevens Canyon",
+        "No shorter distance option: 150+ miles or nothing. This event does not accommodate riders who are not ready for an ultra-distance day.",
+        "Late July wildfire smoke risk in the Cascade foothills can degrade the experience and air quality"
+      ],
+      "bottom_line": "If RAMROD comes back — and the Pacific Northwest cycling community is fighting like hell to make sure it does — you enter the lottery. Every year. Until you get in. Because there is no other way to ride around an active volcano in a single day with 800 people who won the same lottery, eating breakfast made by the Enumclaw Rotary club, climbing passes through old-growth forest, and coming home in the twilight having completed something that has been happening since 1984 and may not happen forever."
+    },
+    "final_verdict": {
+      "score": "77 / 100",
+      "one_liner": "154 miles. 10,000 feet. One active volcano. The Pacific Northwest's defining cycling challenge since 1984.",
+      "should_you_race": "Yes if you want to circumnavigate an active volcano in a single day on one of America's most storied cycling routes. Yes if 150+ miles through national park alpine passes, old-growth forest, and glacial valleys is your idea of a perfect day. Yes if you value community tradition over timing chips and age-group podiums. Enter the lottery every year and volunteer when you can. Skip if you need competitive structure, technical terrain, or a ride shorter than 150 miles. Skip if you cannot handle uncertainty — the route changes annually and the event's future depends on National Park Service permitting decisions.",
+      "alternatives": "If you want a similar iconic US mountain circumnavigation: try the Death Ride (California, 5 passes, 103 miles). If you want a similar PNW endurance challenge: try STP (Seattle to Portland, 200 miles flat). If you want an epic US mountain ride with competition: try the Mt. Evans Hill Climb or Leadville Trail 100.",
+      "alternative_slugs": [
+        "death-ride",
+        "seattle-to-portland",
+        "mt-evans-hill-climb"
+      ]
+    },
+    "logistics": {
+      "airport": "Seattle-Tacoma International Airport (SEA) — 60 minutes north. Major domestic and international hub with abundant flight options. Portland International (PDX) — 3.5 hours south, viable as a backup.",
+      "lodging_strategy": "Enumclaw has very limited hotel inventory — the Rodeway Inn, GuestHouse Enumclaw, and a few small motels are your options. Book the moment you win the lottery or they will be gone. Overflow strategy: Auburn (30 min west) and Puyallup (35 min west) have chain hotels with more availability. Some riders stay in Tacoma or Federal Way and drive in for the 5 AM start. The Enumclaw Expo Center parking lot fills early — arrive by 4:00 AM.",
+      "food": "Enumclaw is a small town with basic dining: pizza, burgers, a few local restaurants. Carb-loading options are limited compared to a major city. The pre-ride breakfast at the start — hard-boiled eggs, hash browns, sausage, oatmeal, coffee, OJ — is provided by the Enumclaw Rotary and Lions clubs and is a beloved tradition. On-course aid stations provide food and water at multiple points. Ice cream at the finish line. Bring your own nutrition for 150+ miles — the aid stations supplement, they do not replace your fueling strategy.",
+      "packet_pickup": "Day before the ride at the Enumclaw Expo Center. In-person only. Includes route maps, rider packet, and event information for the specific route edition being used that year.",
+      "parking": "Enumclaw Expo Center (formerly Enumclaw Fairgrounds). Arrive by 4:00 AM for the 5:00 AM start. Loop course — your car will be there when you return. Free parking.",
+      "official_site": "https://www.redmondcycling.club/"
+    },
+    "history": {
+      "founded": 1984,
+      "founder": "John Dixon and the Redmond Cycling Club",
+      "origin_story": "In 1984, cyclist John Dixon organized a ride around Mount Rainier with 52 starters. Forty-five of them finished. The original course began and ended at the rustic fairgrounds in Enumclaw and was used without change for the first seven years. For its first decade, RAMROD was a timed race — an actual competition with results and rankings. In 1994, the event transitioned to an untimed endurance ride, reflecting a shift toward accessibility and the shared experience of the circumnavigation over competitive results. The Redmond Cycling Club has organized the event since its inception, building one of the most devoted volunteer cycling communities in the Pacific Northwest. The National Park Service's special use permit has always capped the field at 800 riders, creating a lottery system that generates scarcity and devotion in equal measure. Over 41 editions, 13 different routes have been used — clockwise, counterclockwise, with and without Paradise, with various bypass configurations — all dictated by the ongoing negotiation between a volunteer cycling club and the federal government over access to roads inside one of America's most visited national parks. That negotiation has become existential: after the NPS denied the 2024 permit, the cycling community rallied. The 2024 edition was moved to September. The 2025 edition was rerouted clockwise without the Paradise corridor. The 2026 edition has been canceled entirely. The Redmond Cycling Club calls it a pause, not an ending, and is fighting for a 2027 return that includes Stevens Canyon and a reasonable date.",
+      "notable_moments": [
+        "1984: John Dixon organizes the first RAMROD with 52 starters and 45 finishers from the Enumclaw Fairgrounds",
+        "1984-1993: RAMROD operates as a timed race for its first decade",
+        "1994: Transitions to an untimed endurance ride — the modern format",
+        "13 different route editions over 41 years: Original (7 years), Traditional (9 years), Modern Traditional (8 years), and 10 variant editions",
+        "2024: NPS denies traditional July permit; Rep. Kim Schrier intervenes; ride moved to September 4 as a pilot program with Paradise access restored",
+        "2025: 41st edition held July 31 as 'Reverse Skate Creek EFI Edition' — clockwise, 159.1 miles, 9,941 ft gain, routed through Crystal Mountain and Cayuse Pass but without the Paradise corridor",
+        "2026: Canceled — Redmond Cycling Club unable to reach agreement with NPS for any viable course. Club pursuing 2027 return.",
+        "Ongoing: PNW cycling community lobbying elected officials and NPS leadership to preserve RAMROD access to Stevens Canyon and Paradise"
+      ],
+      "reputation": "The Pacific Northwest's most iconic cycling challenge. Forty years of circumnavigating an active volcano. A lottery-entry event that sells out instantly and inspires lifelong devotion. Currently fighting for its survival against federal park bureaucracy."
+    },
+    "course_description": {
+      "character": "RAMROD is a circumnavigation. You ride all the way around an active volcano and come back to where you started. That simple premise — one loop, one mountain, one day — produces one of the most varied and rewarding days you will ever spend on a bicycle. The ride begins in the agricultural lowlands east of Tacoma, where Enumclaw sits at the Cascade foothills. Depending on the route edition, you may head counterclockwise toward the Nisqually Entrance and Paradise (the classic route) or clockwise toward Crystal Mountain and Cayuse Pass (the modern bypass). Either way, the terrain transitions dramatically: flat farmland gives way to rolling foothills, which give way to towering old-growth forest, which gives way to alpine passes where the air cools and the mountain dominates the sky. Stevens Canyon Road — when permitted — is the emotional heart of the ride: a 1930s-era park road through a glacial valley with stone bridges and tunnels. Cayuse Pass at mile 100+ is the physical heart: 8 miles at 6% when your legs have nothing left. The long descent back to Enumclaw in the Pacific Northwest's extended summer twilight is the reward. The mountain was always there. You rode all the way around it.",
+      "suffering_zones": [
+        {
+          "mile": 0,
+          "label": "Enumclaw — 5 AM in the Dark",
+          "desc": "The Enumclaw Expo Center parking lot at 4 AM. Eight hundred people eating Rotary club breakfast under fluorescent lights. The air is 50 degrees and the mountain is invisible in the pre-dawn darkness. At 5 AM, you roll out into the foothills. The first 20-30 miles are flat to rolling farmland and state highway — legs feel incredible, the group energy is high, and you are thinking about the 130 miles still to come. Discipline here is everything: the temptation to ride 18 mph in a group will cost you 10 hours later.",
+          "terrain_detail": "Flat to rolling Cascade foothills, 700-1,500 ft elevation, paved state highways",
+          "named_section": "Enumclaw to the Foothills"
+        },
+        {
+          "mile": 30,
+          "label": "The Foothills — Into the Trees",
+          "desc": "The terrain transitions from open farmland to forested foothills. Depending on the route, you are either climbing toward the Nisqually Entrance or heading southeast toward Crystal Mountain. The roads narrow. The trees grow taller. Douglas fir and western red cedar close in overhead. The first significant climbing begins — nothing savage, but the gradual vertical accumulation that will add up to 10,000 feet by day's end starts here. You are entering Mount Rainier's ecosystem.",
+          "terrain_detail": "Forested foothills, 1,500-2,500 ft, moderate climbing on state highways",
+          "named_section": "Foothills Transition"
+        },
+        {
+          "mile": 55,
+          "label": "Paradise Climb (Classic Route) — Cathedral Forest",
+          "desc": "On the traditional route, the climb from the Nisqually Entrance to Paradise is 18 miles of sustained ascending through old-growth forest — some of the largest trees in the Pacific Northwest. The road switchbacks through ancient Douglas fir and western hemlock, gaining over 3,000 feet. The gradient is steady (4-5% average) but relentless. Above treeline, Mount Rainier appears — all 14,411 feet of glaciated volcanic cone, close enough to make you feel insignificant. The Paradise rest stop at 5,400 feet is the highest point on the route and one of the most spectacular aid stations in American cycling.",
+          "terrain_detail": "Paradise Road, 2,000-5,400 ft, sustained 4-5% gradient through old-growth forest to alpine meadow",
+          "named_section": "Paradise Road Climb"
+        },
+        {
+          "mile": 75,
+          "label": "Stevens Canyon — The Crown Jewel",
+          "desc": "The descent from Paradise into Stevens Canyon is the emotional peak of RAMROD. The 1930s-era park road features stone bridges, tunnels, and viaducts built in the National Park Service rustic style. The glacial valley unfolds below — immense, ancient, and quiet. The road drops through old-growth forest along a glacial river. Box Canyon rest stop provides water and relief. This is the section that the Redmond Cycling Club has been fighting to preserve in the NPS permitting battle — without Stevens Canyon, RAMROD loses its soul.",
+          "terrain_detail": "Stevens Canyon Road, 5,400-2,400 ft descent then rolling, 1930s park road with stone architecture",
+          "named_section": "Stevens Canyon Road"
+        },
+        {
+          "mile": 100,
+          "label": "Cayuse Pass — The Breaking Point",
+          "desc": "The name that lives in infamy for every RAMROD veteran. You arrive at the base of Cayuse Pass at approximately mile 100, at the hottest part of the day, with the sun on your back, having already climbed 6,000-7,000 feet. The climb is 8 miles at a constant 6% grade, rising from 2,400 to 4,675 feet, with almost no shade. There is a rest stop halfway up — it is the most appreciated rest stop on the course. Your glycogen stores are depleted. Your legs are filing formal complaints. The mountain does not care. You grind up Cayuse Pass because there is no other way to get around the volcano.",
+          "terrain_detail": "Cayuse Pass climb, 2,400-4,675 ft, 8 miles at constant 6% grade, exposed and sun-baked",
+          "named_section": "Cayuse Pass"
+        },
+        {
+          "mile": 110,
+          "label": "Chinook Pass — The Final Summit",
+          "desc": "From Cayuse Pass, the traditional route continues to Chinook Pass at 5,432 feet — the highest point on the course. SR 410 skirts Tipsoo Lake with panoramic Cascade Range views. At this elevation, the air is noticeably thinner than the valley floor. You have been riding for 8-12 hours. The climb to Chinook is shorter and less brutal than Cayuse, but it arrives on legs that have already been destroyed. The summit marks the beginning of the end: the long descent back toward Enumclaw begins here.",
+          "terrain_detail": "SR 410 to Chinook Pass, 4,675-5,432 ft, shorter climb with Cascade panoramas and Tipsoo Lake",
+          "named_section": "Chinook Pass"
+        },
+        {
+          "mile": 130,
+          "label": "The Descent — Earned Twilight",
+          "desc": "From Chinook Pass, SR 410 descends steadily toward the Puget Sound lowlands. The road drops over 3,000 feet in approximately 25 miles. Your exhausted legs spin freely for the first time in hours. The trees change from subalpine fir back to Douglas fir. The air warms. Enumclaw materializes in the late-afternoon light. The final 10 miles of flat valley road back to the Expo Center feel like either a victory lap or a death march, depending on how well you managed the previous 140 miles. Ice cream is waiting.",
+          "terrain_detail": "SR 410 descent, 5,432-700 ft, sustained downhill through forest transitioning to valley floor",
+          "named_section": "Chinook Descent to Enumclaw"
+        }
+      ],
+      "signature_challenge": "Cayuse Pass at mile 100. Eight miles at a constant 6% grade in afternoon sun with no shade, on legs that have already climbed 6,000-7,000 feet over 100 miles. Every RAMROD veteran knows the name. The rest stop halfway up Cayuse is the most grateful you will ever be for a cup of water and a folding chair. The climb is not technically difficult — it is 6% and relentless — but arriving at its base after 100 miles of riding around a volcano transforms a moderate climb into a test of will. Cayuse Pass is where RAMROD separates the people who trained for 150 miles from the people who trained for 100."
+    },
+    "guide_variables": {
+      "race_name": "RAMROD — Ride Around Mount Rainier in One Day",
+      "race_distance": "154 miles",
+      "race_elevation": "10,000 feet",
+      "race_date": "Late July (traditional)",
+      "race_location": "Enumclaw, Washington — circumnavigating Mount Rainier",
+      "race_terrain": "Paved national park roads and Washington state highways over alpine mountain passes",
+      "race_weather": "PNW late summer: 50-55F at 5 AM start, 75-85F in valleys, 55-65F at alpine passes, unpredictable mountain weather around the volcano",
+      "race_challenges": [
+        "150+ miles in a single day — one of the longest organized one-day rides in the US, with no shorter option",
+        "10,000 feet of climbing over multiple alpine passes, with Cayuse Pass (8 miles at 6%) arriving at mile 100+",
+        "Temperature variation of 20-30F between valley floor and alpine summits — requires layering strategy",
+        "5:00 AM start with approximately 16 hours of available daylight to complete the circumnavigation",
+        "Mount Rainier creates unpredictable mountain weather — rain, fog, and wind possible at altitude even in late July",
+        "No competitive pacing reference — 800-person field with no timing means you must manage your own effort over 10-15 hours"
+      ],
+      "altitude_section": true,
+      "altitude_feet": 5432
+    },
+    "non_negotiables": [
+      {
+        "requirement": "At least two training rides of 120+ miles with 6,000+ feet of climbing in a single day",
+        "by_when": "Week 6",
+        "why": "RAMROD is 150+ miles with 10,000 feet of climbing. If your longest training ride is a flat century, you are not ready. The critical test is not whether you can ride 150 miles — it is whether you can climb Cayuse Pass at mile 100 after 6,000 feet of accumulated elevation gain. Simulate the backloaded climbing: ride 80-100 miles at moderate effort, then do your hardest climbing session on tired legs. If you cannot function at 6% for 45-60 minutes after 6 hours of riding, you need more endurance base."
+      },
+      {
+        "requirement": "Fueling strategy validated for 10-15 hours of sustained riding — 250-300 calories per hour minimum",
+        "by_when": "Week 4",
+        "why": "At 150+ miles, RAMROD is a nutrition event as much as a cycling event. Aid stations supplement but do not replace your fueling plan. Most riders who bonk on Cayuse Pass did not bonk because they are unfit — they bonked because they underfueled in miles 60-90 when they still felt fine. Practice your exact nutrition strategy on your longest training rides. Carry more food than you think you need. The rest stop on Cayuse Pass should be a supplement, not a rescue."
+      },
+      {
+        "requirement": "Layering system for 30-degree temperature swings: arm warmers, vest, light gloves packed and accessible",
+        "by_when": "Race day",
+        "why": "You will start at 5 AM in 50F darkness and climb to 5,400+ feet where conditions may be 55-65F with wind, then descend into 80F+ valley heat, then climb exposed Cayuse Pass in full afternoon sun. One kit does not work for all of this. Pack layers in jersey pockets and know when to add and remove them. A vest for the early morning and high-altitude descents is non-negotiable."
+      },
+      {
+        "requirement": "Gearing for sustained 6% climbing on exhausted legs — 34x32 minimum, compact with 34 or lower recommended",
+        "by_when": "Race day",
+        "why": "Cayuse Pass is 8 miles at a constant 6% grade at mile 100+. Your legs will not have the power they had at mile 10. If your lowest gear requires 200+ watts to maintain on a 6% grade, you need lower gearing. Many RAMROD veterans ride compact cranksets with 11-32 or 11-34 cassettes. This is not the ride to prove you can climb on a 53/39 with an 11-28. Swallow your pride. Install the gearing. Your knees will thank you at mile 108."
+      }
+    ],
+    "citations": [
+      {
+        "url": "https://www.redmondcycling.club/",
+        "title": "Redmond Cycling Club — Official RAMROD Organizer",
+        "category": "official"
+      },
+      {
+        "url": "https://www.redmondcycling.club/coursehistory",
+        "title": "RAMROD Course History — Redmond Cycling Club",
+        "category": "official"
+      },
+      {
+        "url": "https://www.redmondcycling.club/news/2026-ramrod-is-canceled",
+        "title": "2026 RAMROD is Canceled — Redmond Cycling Club",
+        "category": "official"
+      },
+      {
+        "url": "https://www.redmondcycling.club/news/2025-ramrod",
+        "title": "2025 RAMROD: 41st Edition Done — Redmond Cycling Club",
+        "category": "official"
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Ride_Around_Mount_Rainier_in_One_Day",
+        "title": "Ride Around Mount Rainier in One Day — Wikipedia",
+        "category": "reference"
+      },
+      {
+        "url": "https://wsdot.wa.gov/about/news/2025/hundreds-cyclists-circling-mount-rainier-july-31-annual-ramrod-bicycle-event",
+        "title": "Hundreds of cyclists circling Mount Rainier July 31 for annual RAMROD — WSDOT",
+        "category": "media"
+      },
+      {
+        "url": "https://www.seattlebikeblog.com/2024/03/01/after-39-years-mt-rainier-national-park-shuts-out-iconic-ramrod-bike-event/",
+        "title": "After 39 years, Mt Rainier National Park shuts out iconic RAMROD bike event — Seattle Bike Blog",
+        "category": "media"
+      },
+      {
+        "url": "https://www.seattlebikeblog.com/2024/04/26/ramrod-will-happen-in-2024-but-in-september-instead-of-july/",
+        "title": "RAMROD will happen in 2024, but in September instead of July — Seattle Bike Blog",
+        "category": "media"
+      },
+      {
+        "url": "https://www.courierherald.com/news/ramrod-back-on-but-with-some-changes/",
+        "title": "RAMROD back on — but with some changes — Courier-Herald",
+        "category": "media"
+      },
+      {
+        "url": "https://www.nationalparkstraveler.org/park/subpage/ramrod-ride-around-mount-rainier-one-day",
+        "title": "RAMROD: Ride Around Mount Rainier In One Day — National Parks Traveler",
+        "category": "media"
+      },
+      {
+        "url": "https://www.gregkroleski.com/2019/08/09/ride-report-ramrod-2019/",
+        "title": "Ride Report: RAMROD 2019 — Greg Kroleski",
+        "category": "media"
+      },
+      {
+        "url": "https://martin.criminale.com/2019/07/ramrod-ride-around-mt-rainier-one-day.html",
+        "title": "RAMROD (Ride Around Mt Rainier One Day) — Martin Criminale",
+        "category": "media"
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "high",
+      "validation_status": "validated",
+      "research_strength": "A",
+      "sources_count": 12,
+      "last_updated": "2026-02-27"
+    }
+  }
+}

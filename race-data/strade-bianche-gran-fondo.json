@@ -18,7 +18,7 @@
         "Paved roads",
         "Cobbled climbs"
       ],
-      "field_size": "~6,500 riders",
+      "field_size": "~8,500 riders from 50+ countries",
       "start_time": "Sunday morning",
       "registration": "Opens September. Sells out quickly.",
       "prize_purse": "Gran Fondo awards",
@@ -71,7 +71,7 @@
       "business_tier_label": "TIER 1",
       "display_tier": 1,
       "display_tier_label": "TIER 1",
-      "discipline": "gravel",
+      "discipline": "road",
       "cultural_impact": 4
     },
     "biased_opinion_ratings": {
@@ -148,7 +148,7 @@
       "bottom_line": "If you love cycling and have never ridden the strade bianche, fix that. It's the bucket-list ride."
     },
     "final_verdict": {
-      "score": "76 / 100",
+      "score": "81 / 100",
       "one_liner": "The cycling bucket list—Tuscan white roads and Piazza del Campo finish like the WorldTour pros.",
       "should_you_race": "Yes if you love cycling culture and want the iconic experience. Yes if you can handle March weather variability. Skip if you want pure gravel racing—this is Italian road cycling with gravel sectors.",
       "alternatives": "Paris-Roubaix Challenge (similar spring classic feel); L'Eroica (vintage Tuscan gravel); The Traka (harder gravel, Spain)"
@@ -162,9 +162,9 @@
       "official_site": "https://gfstradebianche.it"
     },
     "history": {
-      "founded": 2007,
-      "founder": "RCS Sport (same as pro race)",
-      "origin_story": "Created as the amateur companion to the WorldTour Strade Bianche, allowing fans to ride the same iconic white roads and finish in Piazza del Campo. Has grown to 6,500+ riders.",
+      "founded": 2015,
+      "founder": "RCS Sport / SSD RCS Active Team",
+      "origin_story": "Created in 2015 as the amateur companion to the WorldTour Strade Bianche (pro race est. 2007). Allows amateur riders to tackle the same iconic white gravel roads and finish in Piazza del Campo. Grew to 8,500 riders from 50+ countries by the 11th edition in 2026.",
       "notable_moments": [
         "Same finish as WorldTour race—Piazza del Campo",
         "Route varies slightly but includes signature sectors",
@@ -225,6 +225,40 @@
         "scored_at": "2026-02-04"
       }
     },
+    "guide_variables": {
+      "race_name": "Gran Fondo Strade Bianche",
+      "race_distance": "138 km (86 miles)",
+      "race_elevation": "6,560 feet (2,000m)",
+      "race_date": "March",
+      "race_location": "Siena, Tuscany, Italy",
+      "race_terrain": "White gravel roads (strade bianche), paved roads, cobbled climbs",
+      "race_weather": "March Tuscan spring — 8-18C (46-64F), rain/mud possible on white roads",
+      "race_challenges": [
+        "30+ km of strade bianche (white gravel roads) that become treacherous in rain",
+        "2,000m of climbing on rolling Tuscan terrain",
+        "March weather variability — cold rain transforms white roads to mud",
+        "7-hour cutoff requires consistent pacing"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Gravel/mixed-surface riding comfort on white roads",
+        "by_when": "Week 6",
+        "why": "The strade bianche sectors require confidence on loose, compacted clay — especially in wet conditions. Practice on gravel or unpaved roads."
+      },
+      {
+        "requirement": "Climbing endurance for 2,000m of Tuscan rollers",
+        "by_when": "Week 8",
+        "why": "The course is relentlessly rolling with no flat respite. Build sustained climbing ability through repeated hill efforts."
+      },
+      {
+        "requirement": "Wet-weather bike handling and layering strategy",
+        "by_when": "Race week",
+        "why": "March in Tuscany can deliver rain, cold, and mud on the white roads. Prepare for worst-case conditions even if the forecast looks good."
+      }
+    ],
     "citations": [
       {
         "url": "https://ridewithgps.com/routes/53843273",

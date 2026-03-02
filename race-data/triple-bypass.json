@@ -1,0 +1,327 @@
+{
+  "race": {
+    "name": "Triple Bypass",
+    "slug": "triple-bypass",
+    "display_name": "Triple Bypass — Colorado's Three-Pass Challenge",
+    "tagline": "3 mountain passes. 118 miles. Nearly 11,000 feet of climbing across the Continental Divide. Colorado's defining cycling challenge since 1988.",
+    "vitals": {
+      "distance_mi": 118,
+      "elevation_ft": 10800,
+      "location": "Evergreen to Avon, Colorado",
+      "location_badge": "EVERGREEN TO AVON, COLORADO",
+      "date": "Second Saturday of July annually",
+      "date_specific": "2026: July 11",
+      "terrain_types": [
+        "Paved Colorado mountain highways",
+        "High-altitude Alpine roads",
+        "Dedicated bike paths along I-70 corridor"
+      ],
+      "field_size": "~4,000-5,000 riders (sells out)",
+      "start_time": "Saturday 5:00 AM – 8:00 AM rolling start (earlier recommended)",
+      "registration": "Online via triplebypass.org. Sells out. Cost: ~$265",
+      "prize_purse": "None. Finisher medal and custom event jersey.",
+      "aid_stations": "4 fully stocked aid stations including lunch at Loveland Ski Area. SAG support entire route.",
+      "cutoff_time": "Aid station cutoffs enforced. Finish line closes at 8:00 PM.",
+      "lat": 39.634,
+      "lng": -105.317,
+      "distance_options": [
+        "Triple Bypass: 118 miles, 10,800 ft — 3 passes (Juniper, Loveland, Vail)",
+        "Double Bypass: 80 miles, 6,500 ft — 2 passes (Loveland, Vail), starts in Empire"
+      ],
+      "entry_fee": "~$265"
+    },
+    "climate": {
+      "primary": "Colorado Rocky Mountain summer — variable, altitude-dependent",
+      "description": "Mid-July in the Colorado Rockies means warm starts in Evergreen (50-65F at dawn), cold pass summits (40-55F at 11,000+ ft), and the ever-present threat of afternoon thunderstorms above treeline. Temperature drops approximately 3.5F per 1,000 feet of elevation gain. The early start is strategic — you want to be off Loveland Pass before the afternoon lightning arrives.",
+      "challenges": [
+        "Temperature range from cool dawn to warm valleys to cold pass summits",
+        "Afternoon thunderstorms — lightning above treeline is life-threatening",
+        "High-altitude sun exposure — intense UV above 9,000 ft",
+        "Thin air throughout — entire ride above 7,200 ft, passes approaching 12,000 ft",
+        "Rapidly changing conditions at altitude — sun to hail in minutes"
+      ]
+    },
+    "terrain": {
+      "primary": "Paved mountain highways and dedicated bike paths",
+      "surface": "Paved mountain roads and paved bike paths along I-70 corridor. Roads closed to traffic on key segments on event day.",
+      "technical_rating": 1,
+      "features": [
+        "Juniper Pass (11,140 ft) — first climb from Evergreen, rewarded with fast descent into Idaho Springs",
+        "Loveland Pass (11,990 ft) — the crux climb with switchbacks to nearly 12,000 ft, crossing the Continental Divide",
+        "Vail Pass (10,660 ft) — the final pass, primarily on dedicated bike path",
+        "Swan Mountain — the unofficial 'fourth pass' between Keystone and Frisco",
+        "28-mile descent from Vail Pass to Avon on the I-70 bike path to finish"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 79,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "logistics": 4,
+      "length": 4,
+      "technicality": 1,
+      "elevation": 5,
+      "climate": 3,
+      "altitude": 5,
+      "adventure": 4,
+      "prestige": 4,
+      "race_quality": 4,
+      "experience": 5,
+      "community": 4,
+      "field_depth": 2,
+      "value": 3,
+      "expenses": 3,
+      "cultural_impact": 4,
+      "tier_note": "Colorado's signature cycling challenge since 1988. Three mountain passes, nearly 12,000 ft at the summit of Loveland, and $4.6M donated to community nonprofits. T2 by score (79). p4 cannot promote into T1.",
+      "score_note": "Elevation=5 and altitude=5 reflect the massive climbing and sustained high-altitude riding (entire course above 7,200 ft, Loveland Pass at 11,990 ft). Experience=5 for crossing the Continental Divide across three iconic passes. Technicality=1 (all paved roads and bike paths). cultural_impact=4 for 37 years of Colorado cycling heritage and over $4.6M in charitable giving.",
+      "editorial_tier": 2,
+      "editorial_tier_label": "TIER 2",
+      "business_tier": 2,
+      "business_tier_label": "TIER 2",
+      "display_tier": 2,
+      "display_tier_label": "TIER 2",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 4,
+        "explanation": "Denver International Airport is barely an hour from the Evergreen start — that's exceptional for a mountain cycling event. The I-70 corridor provides straightforward access to the entire route. Accommodation in Evergreen proper is limited (one hotel that sells out immediately), but Golden is 20 minutes away with multiple options, and Denver is 30 miles east. The point-to-point format means arranging transport back from Avon, but the event provides bus shuttles. Organization has been refined over 37 editions."
+      },
+      "length": {
+        "score": 4,
+        "explanation": "118 miles with 10,800 feet of climbing is a genuine single-day mountain epic. The three major passes create distinct climbing blocks rather than one continuous slog. Most riders take 8-12 hours. The Double Bypass option (80 miles, 2 passes) provides a legitimate alternative for riders not ready for the full route. The final 28-mile descent to Avon is a reward, not a slog."
+      },
+      "technicality": {
+        "score": 1,
+        "explanation": "Fully paved throughout. Mountain highways on the climbs, dedicated bike paths along the I-70 corridor. The Loveland Pass descent has switchbacks that demand attention, and the Juniper Pass descent into Idaho Springs is fast, but this is road cycling on good surfaces. The challenge is cardiovascular, not technical."
+      },
+      "elevation": {
+        "score": 5,
+        "explanation": "10,800 feet of climbing across three mountain passes in a single day. Juniper at 11,140 ft, Loveland at 11,990 ft (with switchbacks that feel vertical on tired legs), and Vail at 10,660 ft. Swan Mountain between Keystone and Frisco adds what locals call the 'fourth pass.' The climbing is relentless from mile 1 to mile 90, and the altitude compounds every pedal stroke."
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "July Colorado weather is generally favorable — sunny mornings, warm valleys, spectacular visibility. But the afternoon thunderstorm risk above treeline is real and potentially lethal. Lightning at 11,990 ft on Loveland Pass is not theoretical. The temperature swings from dawn to the high passes require layering. You can experience four seasons in a single ride. Manageable with preparation, but the mountains always have the final word."
+      },
+      "altitude": {
+        "score": 5,
+        "explanation": "This is one of the highest cycling events in America. You start at 7,220 ft in Evergreen — already higher than most US cycling events finish — and spend the day between 7,200 and 11,990 ft. Loveland Pass at 11,990 ft delivers genuine high-altitude oxygen deprivation. The cumulative effect of three passes above 10,500 ft, all above 7,200 ft baseline, makes this a physiological war of attrition. Sea-level riders lose 15-20% of their power at the summits."
+      },
+      "adventure": {
+        "score": 4,
+        "explanation": "Crossing the Continental Divide at nearly 12,000 feet is a transformative cycling experience. The route traces the spine of the Rockies through some of Colorado's most iconic terrain — from the foothills above Denver to the ski resorts of Summit County to the Vail Valley. You ride past A-Basin, Keystone, Copper Mountain, and Vail. The scenery above treeline on Loveland Pass is alpine tundra — raw, exposed, and vast. Not remote wilderness like the Atlas Mountain Race, but genuine Rocky Mountain grandeur."
+      },
+      "prestige": {
+        "score": 4,
+        "explanation": "Alongside Ride the Rockies, the Triple Bypass is Colorado cycling. 37 years of continuous history. Sells out every year. In the Front Range cycling community, 'I did the Triple' carries weight. Nationally recognized as one of America's premier single-day climbing challenges. Not quite the international name recognition of l'Etape du Tour, but within US cycling, the Triple Bypass is a bucket-list institution."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "37 years of refinement shows. Four stocked aid stations with real food (not just gels), SAG support across the entire route, medical teams, road closures on critical segments, finish line beer and food in Avon, custom event jersey included in registration, and bus shuttles back to Evergreen. Shift Events (formerly Team Evergreen) runs a tight operation. The rider handbook is comprehensive. This is not a scrappy grassroots ride — it's a well-oiled machine."
+      },
+      "experience": {
+        "score": 5,
+        "explanation": "The Triple Bypass delivers a complete cycling narrative. Act One: pre-dawn departure from the Evergreen foothills, climbing Juniper Pass as the sun rises over the Front Range. Act Two: the Loveland Pass climb — switchbacks above treeline, lungs burning in thin air, crossing the Continental Divide with the entire Rocky Mountain panorama spread below. Act Three: the rolling terrain through Summit County ski country. The Denouement: 28 miles of downhill from Vail Pass to the finish in Avon, wind in your face, legs empty, grinning. That finishing descent alone is worth the entry fee."
+      },
+      "community": {
+        "score": 4,
+        "explanation": "Up to 5,000 riders create a massive rolling community across the Rockies. Over $4.6 million donated to nonprofits since inception — this event rides for something bigger than personal achievement. Shift Events emerged from Team Evergreen, Colorado's largest cycling club. The Front Range cycling community treats this as their annual reunion. Volunteers line the passes. Families camp at Copper Mountain to cheer riders through. The post-ride atmosphere in Avon is celebratory and genuine."
+      },
+      "field_depth": {
+        "score": 2,
+        "explanation": "Not a race. No timing chips, no age group awards, no podium. The Triple Bypass is a challenge ride — you versus the mountains. Some riders push for fast times informally (the Strava KOM crowd), but there's no official competition. The field is self-selecting: 5,000 people willing to climb 10,800 feet across three passes are serious cyclists. But if you need race competition, look elsewhere."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "$265 for a single-day event is not cheap, but you get a custom jersey, four aid stations with real food, full SAG support, a finisher medal, and post-ride beer and food. The charitable mission means your money goes somewhere meaningful. Compare to European gran fondos at similar price points with less support. Reasonable value, not exceptional."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Denver airport access keeps flights reasonable. But Summit County and Vail Valley lodging in July is peak tourist season pricing. A hotel near the start or finish will run $200-400/night. The point-to-point format means either coordinating a driver or using event shuttles. Budget $800-1,500 for a non-local including travel, lodging (2-3 nights), event registration, and food. Cheaper than European gran fondos, pricier than many US events."
+      }
+    },
+    "biased_opinion": {
+      "verdict": "The Continental Crossing",
+      "summary": "The Triple Bypass is Colorado's cycling identity made manifest. Three mountain passes. Nearly 12,000 feet at the summit of Loveland. The Continental Divide crossed on two wheels. Since 1988, this ride has been the measuring stick for Front Range cyclists — the annual question: can I get over all three? It's not a race, and it doesn't pretend to be. It's a 118-mile conversation between you and the Rocky Mountains, starting in the dark foothill pines of Evergreen and ending with a 28-mile victory lap descent into the Vail Valley. Over $4.6 million donated to community nonprofits. 37 years without interruption. This is what cycling for something looks like.",
+      "strengths": [
+        "Three iconic passes including Loveland at 11,990 ft — crossing the Continental Divide on a bike",
+        "Spectacular Rocky Mountain scenery from foothills to alpine tundra to ski country to Vail Valley",
+        "37 years of tradition with $4.6M donated — one of US cycling's great community institutions",
+        "The 28-mile finishing descent from Vail Pass to Avon is one of the best reward descents in American cycling",
+        "Denver airport proximity: unlike most mountain events, getting here is straightforward"
+      ],
+      "weaknesses": [
+        "Not competitive: no timing, no awards. If you need racing, this is not your event.",
+        "Altitude: the entire ride is above 7,200 ft. Sea-level riders will suffer more than expected.",
+        "Afternoon thunderstorms: lightning above treeline at 12,000 ft is genuinely dangerous. Start early.",
+        "Peak tourist season pricing: Summit County and Vail Valley hotels in July are expensive"
+      ],
+      "bottom_line": "If you own a road bike and have ever looked at the Rocky Mountains and thought 'I want to ride over those,' the Triple Bypass is the ride. Three passes. One day. Thirty-seven years of Colorado cyclists will tell you the same thing: it changes you."
+    },
+    "final_verdict": {
+      "score": "79 / 100",
+      "one_liner": "3 passes. 11,990 feet at the summit. Colorado's defining cycling challenge since 1988.",
+      "should_you_race": "Yes if you want to cross the Continental Divide on a bicycle and experience the full spectrum of Colorado mountain riding in a single day. Yes if sustained high-altitude climbing on paved roads is your definition of a good time. Skip if you need race competition or can't tolerate riding above 10,000 feet.",
+      "alternatives": "If you want more climbing with Sierra Nevada scenery: try Death Ride. If you want European mountain pass prestige: try La Marmotte. If you want a multi-day Colorado cycling adventure: try Ride the Rockies. If you want US climbing with a competitive edge: try Levi's GranFondo.",
+      "alternative_slugs": [
+        "death-ride",
+        "la-marmotte",
+        "levis-granfondo"
+      ]
+    },
+    "logistics": {
+      "airport": "Denver International (DEN) — 1 hour to Evergreen. Straightforward I-70 West access.",
+      "lodging_strategy": "Evergreen has very limited lodging — the one hotel sells out fast. Golden (20 min east) has multiple hotel options and is the recommended pre-ride base. For the finish, Avon and Vail have abundant (but expensive) hotels — SpringHill Suites and TownePlace Suites in Avon are official event sponsors. Book early: July is peak season in Summit County and Vail Valley.",
+      "food": "Aid stations provide real food including lunch at Loveland Ski Area. Finish line in Avon has beer and food. Evergreen has restaurants for pre-ride dinner. Avon and Vail have extensive post-ride dining.",
+      "packet_pickup": "Buchanan Park in Evergreen. Rider bag drop-off 5:00 AM – 7:30 AM on event day.",
+      "parking": "Buchanan Park, Evergreen. Arrive very early — 5,000 riders fill the area quickly. Event provides bus shuttle service from Avon back to Evergreen.",
+      "official_site": "https://www.triplebypass.org/"
+    },
+    "history": {
+      "founded": 1988,
+      "founder": "A group of avid cyclists from Team Evergreen Cycling",
+      "origin_story": "In 1988, a group of avid cyclists from Team Evergreen decided it would be fun and challenging to ride from Evergreen to the Vail Valley, crossing three mountain passes in a single day. What started as an informal sufferfest among friends grew into Colorado's signature cycling event. Team Evergreen — Colorado's largest cycling club — ran the event for decades before reorganizing into Shift Events on the production side and Evergreen Ride Club on the social side. Thirty-seven years and over $4.6 million in charitable donations later, the Triple Bypass is more than a ride — it's a Colorado institution.",
+      "notable_moments": [
+        "1988: Inaugural ride — a group of Team Evergreen cyclists ride Evergreen to the Vail Valley",
+        "Grew from informal challenge to Colorado's largest single-day cycling event",
+        "Over $4.6 million donated to community nonprofits including Special Olympics, American Diabetes Association, and Bicycle Colorado",
+        "Team Evergreen split into Shift Events (event production) and Evergreen Ride Club (2020s)",
+        "Field grew from a handful of friends to 5,000-rider sellout — annually one of the first events to fill"
+      ],
+      "reputation": "Colorado's cycling rite of passage. The three-pass challenge that every Front Range road cyclist puts on their list."
+    },
+    "course_description": {
+      "character": "A three-act mountain epic. The ride builds from forested foothills through the alpine tundra of the Continental Divide and into the heart of Colorado ski country. Each pass has its own personality — Juniper is the opener, Loveland is the crux, Vail is the closer. The final 28-mile descent from Vail Pass to Avon on the dedicated bike path is one of the great finishing stretches in American cycling. You earn every foot of that descent.",
+      "suffering_zones": [
+        {
+          "mile": 0,
+          "label": "Pre-Dawn Evergreen",
+          "desc": "Rolling out of Buchanan Park in the dark, 7,220 ft above sea level. Pine trees, cool mountain air, headlights on. The first pass is already climbing. Your lungs notice the altitude before your legs do.",
+          "terrain_detail": "Foothills roads, immediate climbing from 7,220 ft",
+          "named_section": "The Departure"
+        },
+        {
+          "mile": 20,
+          "label": "Juniper Pass — 11,140 ft",
+          "desc": "The first major summit. A sustained climb through ponderosa forest that opens to alpine views as you crest above 11,000 feet. The reward: a hair-raising descent into Idaho Springs where you join the I-70 bike path. First pass down, two to go.",
+          "terrain_detail": "Mountain highway, summit at 11,140 ft, fast technical descent",
+          "named_section": "Juniper Pass"
+        },
+        {
+          "mile": 40,
+          "label": "Georgetown — Aid Station 2",
+          "desc": "The historic mining town at 8,530 ft is a welcome mid-morning respite. Refuel here — the Loveland Pass climb starts from the base of the Loveland Ski Area ahead, and it does not forgive empty tanks.",
+          "terrain_detail": "Valley road through I-70 corridor, 8,530 ft",
+          "named_section": "Georgetown"
+        },
+        {
+          "mile": 55,
+          "label": "Loveland Pass — 11,990 ft",
+          "desc": "The crux of the Triple Bypass. From Loveland Ski Area, the road tilts upward and stays there — switchback after switchback above treeline, the air thinning with every turn. At 11,990 feet you cross the Continental Divide. The views are staggering. Your lungs are screaming. This is where the Triple earns its reputation. The descent past A-Basin and Keystone is the release valve.",
+          "terrain_detail": "US-6, sustained switchbacks above treeline, summit 11,990 ft, crossing Continental Divide",
+          "named_section": "Loveland Pass — The Continental Divide"
+        },
+        {
+          "mile": 75,
+          "label": "Swan Mountain — The Fourth Pass",
+          "desc": "Nobody warns you about Swan Mountain. Between Keystone and Frisco, this rolling climb is the unofficial fourth pass — not long, but on legs that have already crossed the Continental Divide, every gradient feels doubled. The locals know. Now you know.",
+          "terrain_detail": "Rolling climb between Keystone and Frisco, ~9,500 ft",
+          "named_section": "Swan Mountain"
+        },
+        {
+          "mile": 90,
+          "label": "Vail Pass — 10,660 ft",
+          "desc": "The final pass. A 7-mile gradual climb from Copper Mountain on the dedicated bike path. Less dramatic than Loveland but on empty legs after 90 miles, every percent of gradient registers. Summit at 10,660 ft. Once you crest Vail Pass, the suffering ends and the celebration begins.",
+          "terrain_detail": "Dedicated bike path, gradual climb to 10,660 ft",
+          "named_section": "Vail Pass"
+        },
+        {
+          "mile": 91,
+          "label": "The Victory Descent — 28 Miles to Avon",
+          "desc": "This is the payoff. Twenty-eight miles of paved bike path descending from Vail Pass through the town of Vail and into Avon. Downhill, wind-assisted, legs spinning freely, the Rockies behind you and a finisher medal ahead. One of the great reward descents in American cycling.",
+          "terrain_detail": "Paved bike path, 28-mile descent along I-70 to Avon at 7,400 ft",
+          "named_section": "The Victory Lap"
+        }
+      ],
+      "signature_challenge": "Loveland Pass — the switchbacks above treeline to 11,990 ft, crossing the Continental Divide. The thin air, the exposed alpine tundra, the endless turns — this is the moment that defines the Triple Bypass and the image that stays with every rider who completes it."
+    },
+    "guide_variables": {
+      "race_name": "Triple Bypass",
+      "race_distance": "118 miles",
+      "race_elevation": "10,800 feet",
+      "race_date": "July",
+      "race_location": "Evergreen to Avon, Colorado",
+      "race_terrain": "Paved mountain highways and dedicated bike paths",
+      "race_weather": "Cool dawn start (50-65F), cold pass summits (40-55F at 11,000+ ft), afternoon thunderstorm risk above treeline",
+      "race_challenges": [
+        "10,800 feet of climbing across three mountain passes in a single day",
+        "Sustained high-altitude riding — entire course above 7,200 ft, Loveland Pass at 11,990 ft",
+        "Afternoon thunderstorms above treeline — start early to clear Loveland Pass before lightning",
+        "Cumulative fatigue across three passes compounds altitude effects"
+      ],
+      "altitude_section": true,
+      "altitude_feet": 11990
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Sustained climbing endurance — back-to-back pass simulations of 45-90 minutes each",
+        "by_when": "Week 6",
+        "why": "Three passes demand climbing-specific endurance that flat riding cannot replicate. If you don't have mountains, chain together 3-4 sustained threshold efforts with short recovery between to simulate the pass rhythm."
+      },
+      {
+        "requirement": "Altitude acclimatization or preparation for riding above 10,000 ft",
+        "by_when": "Week 8",
+        "why": "The entire ride is above 7,200 ft. Loveland Pass at 11,990 ft delivers genuine oxygen deprivation. Sea-level riders lose 15-20% power at the summits. Arrive in Colorado 2-3 days early minimum to begin acclimatizing. Consider training with altitude simulation if available."
+      },
+      {
+        "requirement": "Early start pacing plan that clears Loveland Pass before 1:00 PM",
+        "by_when": "Race day",
+        "why": "Afternoon thunderstorms above treeline are not optional weather — they are near-daily occurrences in July Colorado. Lightning at 11,990 ft is lethal. Plan your pace to summit Loveland before the storms build. Starting at 5:00 AM gives experienced riders a comfortable margin."
+      }
+    ],
+    "citations": [
+      {
+        "url": "https://www.triplebypass.org/",
+        "title": "Triple Bypass — Official Site",
+        "category": "official"
+      },
+      {
+        "url": "https://www.triplebypass.org/triple-info-2026",
+        "title": "Triple Bypass 2026 Event Information",
+        "category": "official"
+      },
+      {
+        "url": "https://www.shiftevents.org/",
+        "title": "Shift Events — Event Producer (formerly Team Evergreen)",
+        "category": "official"
+      },
+      {
+        "url": "https://www.bikesignup.com/Race/CO/Evergreen/TripleBypass",
+        "title": "Triple Bypass — BikeSignUp Registration",
+        "category": "official"
+      },
+      {
+        "url": "https://www.avon.org/2449/Triple-Bypass",
+        "title": "Triple Bypass — Town of Avon",
+        "category": "official"
+      },
+      {
+        "url": "https://bicyclecolorado.org/event/triple-bypass/",
+        "title": "Triple Bypass — Bicycle Colorado",
+        "category": "community"
+      },
+      {
+        "url": "https://303magazine.com/2021/03/triple-bypass-110-mile-bike-ride-colorado/",
+        "title": "Triple Bypass — 303 Magazine",
+        "category": "media"
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "high",
+      "validation_status": "validated",
+      "research_strength": "A",
+      "sources_count": 7,
+      "last_updated": "2026-02-27"
+    }
+  }
+}

@@ -1,0 +1,327 @@
+{
+  "race": {
+    "name": "Granfondo Colnago — Colnago Cycling Festival",
+    "slug": "granfondo-colnago",
+    "display_name": "Granfondo Colnago",
+    "tagline": "140 km through Lake Garda's morainic hills. Colnago's name on the bib. Vineyards, olive groves, and the climb to Coste where the mountains begin. The legendary frame builder invites you to ride their festival.",
+    "vitals": {
+      "distance_mi": 87,
+      "elevation_ft": 6594,
+      "location": "Desenzano del Garda, Lombardy, Italy",
+      "location_badge": "DESENZANO DEL GARDA, LOMBARDY, ITALY",
+      "date": "Second weekend of April annually (three-day festival: Friday-Sunday)",
+      "date_specific": "2026: April 10-12 (18th edition). Granfondo on Sunday April 12.",
+      "terrain_types": [
+        "Lake Garda morainic hills",
+        "Valtenesi vineyard and olive grove roads",
+        "Val Sabbia valley approaches",
+        "Pre-Alpine foothill climbs"
+      ],
+      "field_size": "~4,000 riders (capped; 30+ countries represented in 2026)",
+      "start_time": "Sunday morning, staggered starts from central Desenzano del Garda",
+      "registration": "Online via ENDU portal. Tiered pricing: EUR60 (first 1,000 bibs), EUR70 (next 2,000 bibs), EUR100 (final 1,000 bibs). Non-FCI members add EUR10 for daily license.",
+      "prize_purse": "None. Participatory gran fondo with timed results.",
+      "aid_stations": "Multiple feed zones along the route — water, fruit, energy food. Italian granfondo standard. The short course finishers are greeted by a restaurant at the San Michele summit.",
+      "cutoff_time": "Time limits enforced at intermediate checkpoints. Broom wagon in operation.",
+      "lat": 45.4622,
+      "lng": 10.5526,
+      "distance_options": [
+        "140 km Granfondo Lungo (~87 mi, 2,010m climbing)",
+        "108 km Mediofondo (~67 mi, 1,384m climbing)",
+        "40 km Le Bellezze del D'Annunzio (~25 mi, 690m climbing)"
+      ],
+      "entry_fee": "EUR60-100 (tiered by registration window)"
+    },
+    "climate": {
+      "primary": "Mid-April Lake Garda — mild spring with rain probability",
+      "description": "Mid-April on the southern shore of Lake Garda is early spring at its most temperamental. Daytime highs reach 15-18C (59-64F) with mornings starting cooler at 7-9C (45-48F). The lake moderates temperatures compared to the Po Plain, but the morainic hills and higher Val Sabbia climbs can be several degrees cooler and windier. April averages around 96mm of rainfall across 11 days — not extreme, but enough that rain gear is not optional. When the sun cooperates, the riding conditions are genuinely pleasant: warm enough for short sleeves by midday, cool enough that climbing doesn't overheat you.",
+      "challenges": [
+        "April is transitional — mornings can be 7-9C (45-48F), especially on exposed hill climbs",
+        "Rain probability is meaningful: ~11 rainy days in the month, wet descents on narrow roads",
+        "Windiest month of the year in the Lake Garda basin — 7-8 km/h average with gusts on exposed ridges",
+        "Temperature differential between lakeside roads and hilltop climbs (3-5C cooler at 500m+)",
+        "Afternoon conditions can shift quickly — morning sun does not guarantee dry finishes"
+      ]
+    },
+    "terrain": {
+      "primary": "Paved Lombardy roads through morainic hills and pre-Alpine foothills",
+      "surface": "Italian provincial and communal roads — generally well-maintained tarmac. The route leaves Desenzano along the lakefront before climbing into the Valtenesi morainic hills, a landscape of vine-covered ridges, olive groves, and medieval villages. The longer routes push into the Val Sabbia toward more mountainous terrain. All courses are fully paved. The terrain is rolling to moderately mountainous, with sustained climbs rather than short walls.",
+      "technical_rating": 2,
+      "features": [
+        "Morainic hills of Valtenesi — rolling terrain through vineyards and olive groves south of Lake Garda",
+        "Ascent of San Michele — 5.3 km, 301m gain, 6.1% average. The short course's summit finish with views over the lake.",
+        "Ascent of Coste (Coste S. Eusebio) — 5.2 km, 289m gain, 4.1% average with 8.5% maximum. Where the morainic hills give way to mountain terrain.",
+        "Colle San Gallo — 9 km long, the final significant climb on the long route with a sting of 12.8% at the top",
+        "Val Sabbia valley roads — deeper penetration into the pre-Alpine foothills on the long course",
+        "Final 30 km of undulating terrain between Bedizzole and Lonato through the green hills of Garda"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 60,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "logistics": 4,
+      "length": 3,
+      "technicality": 2,
+      "elevation": 3,
+      "climate": 2,
+      "altitude": 1,
+      "adventure": 3,
+      "prestige": 3,
+      "race_quality": 4,
+      "experience": 4,
+      "community": 3,
+      "field_depth": 2,
+      "value": 3,
+      "expenses": 3,
+      "cultural_impact": 2,
+      "tier_note": "Colnago's brand festival on Lake Garda — 18 editions, 4,000 riders, 30+ countries. The Colnago name carries cycling heritage weight, the Lake Garda setting is beautiful, and the three-day festival format adds value. T2 by score (60). prestige=3 carries no tier override.",
+      "score_note": "Sum of 14 criteria: 4+3+2+3+2+1+3+3+4+4+3+2+3+3 = 40. cultural_impact=2 (Colnago brand history is significant, but the event itself is 18 years old and is a manufacturer's festival rather than a cycling monument). Total = 42. Score = round(42/70 * 100) = 60. Tier 2 (>=60).",
+      "editorial_tier": 2,
+      "editorial_tier_label": "TIER 2",
+      "business_tier": 2,
+      "business_tier_label": "TIER 2",
+      "display_tier": 2,
+      "display_tier_label": "TIER 2",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 4,
+        "explanation": "Desenzano del Garda sits on the southern shore of Italy's largest lake, at the intersection of the Milan-Venice motorway (A4) and the Brenner Pass route. Verona Villafranca airport (VRN) is 30 minutes east. Bergamo Orio al Serio (BGY) is 1 hour west — Ryanair's Italian hub. Milan airports are 90 minutes to 2 hours. The town itself is small, walkable, and well-practiced at hosting tourism. The festival has run 18 editions from the same location, with the start and finish in the town center. Registration through the ENDU portal is straightforward. The three-day festival format means logistics are spread across the weekend rather than compressed into a single morning of chaos."
+      },
+      "length": {
+        "score": 3,
+        "explanation": "The long route at 140 km with 2,010m of climbing is a legitimate gran fondo — roughly the same distance as the Gimondi medium route but with less total elevation. The Mediofondo at 108 km with 1,384m is the honest middle ground. The 40 km Le Bellezze del D'Annunzio is a cicloturistica that summits San Michele and stops. None of these distances are extreme by Italian GF standards — the Maratona is 138 km with 4,230m, the Gimondi long is 148 km with 2,800m. The Colnago is solidly mid-range: long enough to demand fitness, short enough that the distance itself is not the story."
+      },
+      "technicality": {
+        "score": 2,
+        "explanation": "All paved, all road bikes. The morainic hills produce rolling terrain with moderate gradients — the Ascent of Coste maxes at 8.5%, San Michele at 6.1% average, and only Colle San Gallo's summit punch at 12.8% approaches anything steep. Descents through the morainic hills are fast but not technically demanding. Narrow Italian communal roads in places require attention, particularly when descending in a gran fondo field. You need confident bike handling and appropriate gearing, nothing specialized."
+      },
+      "elevation": {
+        "score": 3,
+        "explanation": "2,010 meters of climbing across 140 km on the long route is solid mid-range. The climbing is distributed — morainic rollers in the first half, then the sustained efforts of Coste and Colle San Gallo in the second half. The Colle San Gallo finale, with its 12.8% summit ramp after 110+ km of riding, is the hardest moment. This is not alpine climbing, but the cumulative elevation through constant morainic undulation is more taxing than the raw numbers suggest. The hills never stop — even the 'flat' sections between climbs are rolling."
+      },
+      "climate": {
+        "score": 2,
+        "explanation": "April on Lake Garda is pleasant when it cooperates and miserable when it doesn't. The temperature range — 7-18C — is comfortable for riding, but April is one of the rainier months with roughly 96mm expected. Wet morainic hill descents on narrow Italian roads add risk. The lake moderates extremes, so you won't face alpine cold or Po Valley heat, but you could easily face a day of persistent drizzle at 12C. Pack for two seasons and hope for the warmer one."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "Desenzano sits at 67 meters above sea level. The highest point on the long course — the summit of Coste S. Eusebio — reaches 578 meters. Colle San Gallo is similarly modest. Altitude is physiologically irrelevant. You will not notice the oxygen difference between the lakeside start and the hilltop climbs."
+      },
+      "adventure": {
+        "score": 3,
+        "explanation": "Lake Garda is one of Italy's most beautiful settings — the largest lake in the country, ringed by mountains to the north and morainic hills to the south. The route through Valtenesi passes olive groves, Lugana vineyards, and medieval hilltop villages with views across the lake. The Val Sabbia sections push into more rugged pre-Alpine terrain. It is genuinely scenic and the kind of riding that makes you understand why the Italians consider cycling an art form. But it is not remote, not wild, and not frontier adventure. This is civilized Italian countryside at its finest — beautiful, accessible, and thoroughly mapped."
+      },
+      "prestige": {
+        "score": 3,
+        "explanation": "Ernesto Colnago founded his bicycle company in 1954 and built frames for some of cycling's greatest champions — Eddy Merckx's Hour Record bike, Saronni's World Championship, Indurain's early career. The Colnago name is cycling royalty. But this event is a manufacturer's festival, not a monument or a classic with its own competitive heritage. It has been running since 2009 — 18 editions — which is respectable but not venerable by Italian granfondo standards. The prestige is borrowed from the brand rather than earned by decades of racing history. In the Italian GF hierarchy, it sits below the Maratona, the Nove Colli, and the Gimondi, but above generic regional events."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "The Colnago Cycling Festival is a three-day production: Friday gravel and randonnee rides, Saturday gravel and family events, Sunday granfondo. The expo village features bike demos, Colnago brand displays, and the cycling industry presence you'd expect from a manufacturer's showcase event. The organization has refined across 18 editions — tiered registration pricing to manage demand, 30+ countries represented, country-specific bib allocations that sell out months in advance. Road closures, medical support, timing, and feed zones are professional. Colnago treats this as a brand statement, and the organizational quality reflects that investment."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "The three-day festival format is where the Colnago Cycling Festival distinguishes itself from a standard granfondo. Friday and Saturday offer gravel rides through the Garda hinterland. The expo village showcases Colnago's latest bikes — demo rides included. The lakeside setting in Desenzano del Garda provides the backdrop: aperitivo on the waterfront, gelato on the promenade, the kind of Italian atmosphere that elevates a cycling weekend into a cultural experience. Sunday's granfondo through olive groves and vineyards with Lake Garda views is the centerpiece, but the surrounding festival makes this more than a ride. For Colnago devotees, this is pilgrimage territory."
+      },
+      "community": {
+        "score": 3,
+        "explanation": "4,000 riders from 30+ countries creates genuine international energy — this is not a purely Italian affair. The country-specific bib allocations and sellouts (Spain, Greece, and others sold out for 2026) create national contingents that add tribal atmosphere. The festival format encourages multi-day socializing rather than a single-morning-and-done dynamic. Italian cycling culture provides the social foundation — espresso, pasta parties, post-ride lakeside gathering. But 4,000 is mid-range by European GF standards, and the community identity revolves around the Colnago brand rather than an organic cycling culture like Bergamo's."
+      },
+      "field_depth": {
+        "score": 2,
+        "explanation": "This is primarily a participatory event. The international field — 30+ countries — brings a wide range of abilities rather than concentrated competitive depth. The front group will include strong Italian club riders who know these roads, but the majority of the field is cycling tourists drawn by the Colnago brand, the Lake Garda setting, and the festival atmosphere. Unlike FCI Serie A events where age-group classifications drive competitive intensity, the Colnago is a timed event where most riders are racing the route, not each other."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "EUR60-100 for a tiered-registration granfondo through Lake Garda with a three-day festival, expo village, gravel rides, and Colnago brand access is fair but not exceptional. The tiered pricing means early registrants get better value (EUR60 for the first 1,000 bibs), while late registrants pay EUR100 — comparable to mid-range European gran fondos. The multi-day festival adds value beyond the Sunday ride. By Italian GF standards, where events like the Gimondi charge EUR45, the Colnago asks a premium justified partly by the brand experience and partly by Lake Garda's tourism economy."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Lake Garda is a popular tourist destination, and Desenzano del Garda prices reflect this. Hotels run EUR90-180/night during event weekend — higher than Bergamo or Treviso. However, the southern Garda shore is more affordable than Riva del Garda or Sirmione. Verona flights are reasonably priced from European hubs. Food is excellent and moderately priced — Lugana wine, lake fish, and Lombardy cuisine. Budget EUR600-1,100 from within Europe for a three-day festival weekend including travel, accommodation, food, and entry. From the US, add EUR800-1,200 for transatlantic flights."
+      }
+    },
+    "biased_opinion": {
+      "verdict": "The Brand Ride on the Lake",
+      "summary": "The Granfondo Colnago is what happens when one of cycling's most legendary manufacturers throws a party at one of Italy's most beautiful lakes. Ernesto Colnago started building frames in Cambiago in 1954 — bikes for Merckx's Hour Record, for Saronni's rainbow jersey, for the peloton's aristocracy. Sixty years later, the brand's annual festival draws 4,000 riders from over 30 countries to Desenzano del Garda for a three-day celebration that includes gravel rides, bike demos, an expo village, and the Sunday granfondo through the morainic hills of Valtenesi. The riding is honest: 140 km through olive groves and vineyards, 2,010 meters of climbing over rolling morainic terrain, a late sting from Colle San Gallo's 12.8% summit ramp. Lake Garda provides the scenery. Colnago provides the brand wrapper. What you're buying is not the hardest or most prestigious gran fondo in Italy — it's the most complete cycling weekend on one of Europe's prettiest lakes.",
+      "strengths": [
+        "Three-day festival format: Friday/Saturday gravel rides, expo village, bike demos, Sunday granfondo — more than just a race",
+        "Lake Garda setting: Desenzano del Garda provides arguably the best lifestyle backdrop of any Italian gran fondo",
+        "Colnago brand heritage: riding under the banner of one of cycling's most storied manufacturers",
+        "International atmosphere: 30+ countries, country-specific bib allocations, genuine cosmopolitan energy",
+        "Route variety: three road distances (40/108/140 km) plus gravel options across the weekend"
+      ],
+      "weaknesses": [
+        "Brand event: this is ultimately a Colnago marketing exercise with registration fees to match — the brand comes first, the racing second",
+        "Modest climbing challenge: 2,010m on the long route is respectable but won't change your definition of hard",
+        "April weather risk: Lake Garda in mid-April can deliver grey, drizzly days instead of the sunlit vineyard fantasy",
+        "Lake Garda tourist pricing: accommodation is more expensive than deeper Italian cycling heartlands like Bergamo",
+        "Limited competitive identity: the event's reputation is built on the Colnago name, not on decades of racing lore"
+      ],
+      "bottom_line": "The best cycling weekend on Lake Garda and a legitimate celebration of Italian cycling culture — just don't confuse a manufacturer's festival with a cycling monument."
+    },
+    "final_verdict": {
+      "score": "60 / 100",
+      "one_liner": "Colnago's annual cycling festival on Lake Garda: three days, 4,000 riders from 30+ countries, morainic hills, and the brand that built bikes for champions.",
+      "should_you_race": "Yes if you want a complete cycling weekend rather than a single-day event — the three-day festival with gravel rides, expo, and granfondo is the strongest draw. Yes if the Colnago name means something to your cycling soul and you want to ride under that banner. Yes if you want to combine serious riding with Lake Garda tourism. Skip if you want alpine suffering — 2,010m of climbing is honest but not transformative. Skip if you want a granfondo with deep competitive racing history. Skip if brand-sponsored events feel more like marketing than cycling to you.",
+      "alternatives": "If you want Italian GF with more climbing: Maratona dles Dolomites (4,230m, 7 Dolomite passes). If you want Italian cycling heritage: Granfondo Felice Gimondi (Bergamo, named for a Grand Tour triple crown winner). If you want another brand GF: Granfondo Pinarello (Treviso, Prosecco Hills, Muro di Ca' del Poggio). If you want Lake Garda gravel: the Colnago Garda Gravel runs Friday and Saturday of the same festival weekend.",
+      "alternative_slugs": [
+        "maratona-dles-dolomites",
+        "granfondo-felice-gimondi",
+        "granfondo-pinarello"
+      ]
+    },
+    "logistics": {
+      "airport": "Verona Villafranca (VRN) — 30 minutes east, good European connections. Bergamo Orio al Serio (BGY) — 1 hour west, Ryanair hub with budget European flights. Milan Malpensa (MXP) — 2 hours, intercontinental connections. Milan Linate (LIN) — 1.5 hours, European connections. Brescia Montichiari (VBS) — 20 minutes, limited seasonal service.",
+      "lodging_strategy": "Stay in Desenzano del Garda for walkable access to the start/finish and expo village. The town has a wide range of hotels and B&Bs — book 3-4 months ahead for event weekend as the festival and general Lake Garda spring tourism compress availability. Sirmione (15 minutes east) is more atmospheric but more expensive. Lonato and Bedizzole offer quieter, cheaper alternatives. Lake Garda event-weekend hotels run EUR90-180/night. Agriturismos in the Valtenesi hills offer vineyard atmosphere at slightly lower prices.",
+      "food": "Southern Lake Garda cuisine: lake fish (lavarello, pike perch), Lugana white wine from vineyards you'll ride through, extra-virgin olive oil from the Valtenesi groves on the route, tortelli di zucca. Desenzano has excellent lakeside restaurants — the Friday evening pre-festival dinner on the waterfront with a glass of Lugana is mandatory preparation. Post-ride: the pasta party is included. For real food, walk to Piazza Malvezzi.",
+      "packet_pickup": "Event village in central Desenzano del Garda — open Friday through Sunday. Bib collection, timing chip, expo area with Colnago displays and demo bikes. The expo runs Saturday and Sunday 10 AM to 5:30 PM with a Friday preview. Plan to arrive Friday to collect bibs and explore the festival.",
+      "parking": "Available in Desenzano — follow event parking instructions. The town center is partially closed for the race. Park at your accommodation or use designated event lots and walk in. Arriving Friday evening simplifies Sunday morning logistics.",
+      "official_site": "https://www.colnagocyclingfestival.com/en/"
+    },
+    "history": {
+      "founded": 2009,
+      "founder": "Colnago (in partnership with local organizing committee and the Comune di Desenzano del Garda)",
+      "origin_story": "In 2009, Colnago — the Cambiago-based bicycle manufacturer whose frames have carried champions from Eddy Merckx to Giuseppe Saronni — launched a cycling festival on the southern shore of Lake Garda. The choice of Desenzano del Garda was strategic: Italy's largest lake, a cycling-friendly landscape of morainic hills and pre-Alpine approaches, and a tourist infrastructure that could absorb thousands of international visitors. The festival format was deliberate from the start — not just a Sunday gran fondo but a multi-day cycling celebration with gravel rides, family events, and an expo village showcasing the Colnago brand. Over 18 editions, the event has grown from an Italian affair to a genuinely international festival, with 30+ countries represented and country-specific bib allocations selling out months in advance. The addition of the Colnago Garda Gravel and the short cicloturistica 'Le Bellezze del D'Annunzio' (named for the poet Gabriele D'Annunzio, whose estate Il Vittoriale degli Italiani sits on the western shore of Lake Garda) broadened the audience further.",
+      "notable_moments": [
+        "2009: First edition of the Granfondo Colnago from Desenzano del Garda",
+        "Festival grows to include Friday and Saturday gravel events through the Garda hinterland",
+        "Addition of the 40 km 'Le Bellezze del D'Annunzio' short course, summiting San Michele with views over the lake",
+        "Country-specific bib allocations introduced to manage international demand — multiple nations sell out",
+        "2025: 17th edition draws riders from 21+ countries, record international participation",
+        "2026: 18th edition — April 10-12 — over 30 countries represented, silver and bronze bibs sold out by February",
+        "Randonnee Giro del Lago di Garda added to the Friday program — a tour of Italy's largest lake"
+      ],
+      "reputation": "The Colnago brand's annual celebration on Lake Garda. A well-organized, internationally flavored cycling festival that delivers more as a weekend experience than as a single-day granfondo."
+    },
+    "course_description": {
+      "character": "Rolling morainic terrain through the wine and olive country south of Lake Garda, building toward pre-Alpine foothill climbs in the second half. The route leaves Desenzano along the lakefront, climbs into the Valtenesi — a landscape of vine-covered ridges and medieval villages — and pushes into the Val Sabbia on the long course. The morainic hills never let you rest: even the nominally flat sections are rolling, and the constant up-and-down accumulates. The climbs — San Michele, Coste, Colle San Gallo — are sustained rather than savage, but Colle San Gallo saves a 12.8% summit ramp for the last kilometers when legs are tired from 110+ km of undulation. The final 30 km of ups and downs between Bedizzole and Lonato through the green hills of Garda is a war of attrition against the morainic rollers.",
+      "suffering_zones": [
+        {
+          "mile": 0,
+          "label": "Desenzano Lakefront Start",
+          "desc": "Rolling out from the center of Desenzano del Garda along the southern shore of Italy's largest lake. The first kilometers are flat-to-rolling as you leave the town and head west toward the Valtenesi hills. Find your legs, settle into the group, and enjoy the lake views before the terrain starts to bite.",
+          "terrain_detail": "Flat to gently rolling lakeside roads, paved",
+          "named_section": "Lungolago"
+        },
+        {
+          "mile": 10,
+          "label": "Valtenesi Morainic Hills",
+          "desc": "The route enters the morainic hills south of Lake Garda — a landscape of Lugana vineyards, olive groves, and medieval hilltop villages like Padenghe, Soiano, Polpenazze, and Puegnago. The terrain is rolling and relentless: short climbs of 2-4%, descents, rises, repeats. No single effort is hard, but the accumulation across 20+ km of constant undulation is deceptive. Lake Garda appears and disappears between the ridges. The olive trees and vines are beautiful. Your legs are already working.",
+          "terrain_detail": "Rolling morainic hills, 2-4% gradients, paved",
+          "named_section": "The Valtenesi Rollers"
+        },
+        {
+          "mile": 19,
+          "label": "Ascent of San Michele",
+          "desc": "The first proper climb. 5.3 km at 6.1% average, gaining 301 meters from Gardone Riviera to the summit at 374m. The short-course riders summit here and stop at the restaurant. The longer routes push through. San Michele is a steady, honest effort — no brutal ramps, but no respite either. Views over the lake from the upper slopes are the reward. This climb sorts the field: riders who paced the Valtenesi rollers arrive fresh; those who surged every hilltop arrive depleted.",
+          "terrain_detail": "5.3 km, 301m gain, 6.1% average, paved",
+          "named_section": "Ascent of San Michele"
+        },
+        {
+          "mile": 58,
+          "label": "Ascent of Coste (Coste S. Eusebio)",
+          "desc": "The character of the route changes. The morainic hills give way to something more mountainous — rocks and forest replace vineyards and olive groves. The Ascent of Coste is 5.2 km with 289m of elevation gain, averaging 4.1% but spiking to 8.5% on the steeper pitches. The summit at 578m is the highest point on the medium course. The 8.5% sections arrive mid-climb when you've settled into a rhythm — they force a gear change and a recalculation. The descent off the back demands attention on narrow, twisting roads.",
+          "terrain_detail": "5.2 km, 289m gain, 4.1% average, 8.5% max, paved",
+          "named_section": "Coste S. Eusebio"
+        },
+        {
+          "mile": 70,
+          "label": "Colle San Gallo — The Long-Course Sting",
+          "desc": "Only the long-course riders face this. After 110+ km of morainic undulation and two proper climbs, Colle San Gallo arrives as the final significant ascent — 9 km of sustained climbing that builds toward a vicious 12.8% gradient at the summit. The first 7 km are manageable, lulling you into a false sense of security. Then the road tilts upward and the gradient doubles. At 120+ km into the ride, with tired legs and depleted glycogen, that 12.8% summit ramp is where the Granfondo Colnago reveals its teeth.",
+          "terrain_detail": "9 km total, summit ramp at 12.8%, paved",
+          "named_section": "Colle San Gallo"
+        },
+        {
+          "mile": 78,
+          "label": "Bedizzole-Lonato Finale",
+          "desc": "The final 30 km is not flat. A succession of ups and downs through the green hills between Bedizzole and Lonato, immersed in the Garda morainic landscape. After the climbs, your legs want flat road. They don't get it. The constant rolling terrain — 2-4% up, descent, 3-5% up, descent — is the kind of cumulative suffering that doesn't look hard on a profile but feels hard in the saddle at km 130. Desenzano eventually appears, and the lakefront finish line with it.",
+          "terrain_detail": "Rolling morainic hills, 2-5% repeated rises, paved",
+          "named_section": "The Morainic Gauntlet"
+        }
+      ],
+      "signature_challenge": "Colle San Gallo's summit ramp — 12.8% after 9 km of building gradient and 110+ km of riding. The morainic hills have been draining you since kilometer 10. The two previous climbs have taken their toll. And then the road tilts to nearly 13% for the final push. It is not the longest or steepest climb in Italian cycling, but its placement in the route — late, after relentless undulation — makes it the moment where the Granfondo Colnago stops being a scenic ride and starts being a test."
+    },
+    "guide_variables": {
+      "race_name": "Granfondo Colnago",
+      "race_distance": "140 km (87 miles)",
+      "race_elevation": "2,010 meters (6,594 feet)",
+      "race_date": "April",
+      "race_location": "Desenzano del Garda, Lombardy, Italy",
+      "race_terrain": "Paved Lake Garda morainic hills with sustained pre-Alpine climbs",
+      "race_weather": "Mid-April spring: 7-18C (45-64F) with meaningful rain probability",
+      "race_challenges": [
+        "Colle San Gallo summit ramp at 12.8% after 110+ km of riding",
+        "Relentless morainic rollers — the constant 2-5% undulation accumulates over 140 km",
+        "April weather variability — rain, wind, and cool temperatures are all possible",
+        "Ascent of Coste: 8.5% maximum gradient mid-climb when you've settled into a rhythm",
+        "140 km distance with 2,010m climbing demands pacing discipline across the full route"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Sustained endurance base for 140 km of constant morainic undulation",
+        "by_when": "Week 6",
+        "why": "The morainic hills never let you coast. Even the 'flat' sections are rolling 2-5% grades that slowly drain your reserves. By km 100, the cumulative elevation gain from these rollers outweighs the named climbs. You need a base that can absorb 4-5 hours of constant pedaling without cracking. Train with long rides on rolling terrain — not flat, not mountainous, just relentlessly undulating."
+      },
+      {
+        "requirement": "Late-race climbing capacity — train for hard efforts after 100+ km",
+        "by_when": "Week 8",
+        "why": "Colle San Gallo's 12.8% summit ramp arrives after 110+ km. If your training only includes climbs in the first half of rides, you'll have no reference for how your legs respond to steep gradients on depleted glycogen. Do your key climbing intervals at the end of long rides. Simulate the Colnago by riding 3+ hours of rolling terrain, then hitting the steepest local climb."
+      },
+      {
+        "requirement": "Rain-ready kit and wet descending confidence",
+        "by_when": "Week 4",
+        "why": "April on Lake Garda has roughly 11 rainy days. The morainic hill descents on narrow Italian roads with a gran fondo field are no place to discover your wet-weather limits. Pack a quality rain jacket, have mudguards if your bike accepts them, and train in the rain at least twice before event day. Wet Italian tarmac through vineyard roads with painted road markings requires recalibrated braking points."
+      }
+    ],
+    "citations": [
+      {
+        "url": "https://www.colnagocyclingfestival.com/en/",
+        "title": "Colnago Cycling Festival — Official Site",
+        "category": "official"
+      },
+      {
+        "url": "https://www.colnagocyclingfestival.com/en/granfondo-colnago-long-course-2/",
+        "title": "Granfondo Colnago Long Course — Official Route Details",
+        "category": "official"
+      },
+      {
+        "url": "https://www.colnagocyclingfestival.com/en/granfondo-colnago-regulation/",
+        "title": "Granfondo Colnago Regulation — Official Entry and Rules",
+        "category": "official"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/4293/gran-fondo-colnago",
+        "title": "Gran Fondo Colnago — GranFondo Guide",
+        "category": "reference"
+      },
+      {
+        "url": "https://www.cycleclassictours.com/tours/road-cycling/gran-fondo-colnago/",
+        "title": "Gran Fondo Colnago 2025 — Cycle Classic Tours",
+        "category": "review"
+      },
+      {
+        "url": "https://www.garda-outdoors.com/en/colnago-cycling-festival-2026-desenzano-celebrates-cycling/",
+        "title": "Colnago Cycling Festival 2026: Desenzano Celebrates Cycling — Garda Outdoors",
+        "category": "reference"
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Colnago",
+        "title": "Colnago — Wikipedia",
+        "category": "reference"
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "high",
+      "validation_status": "validated",
+      "research_strength": "A-",
+      "sources_count": 7,
+      "last_updated": "2026-02-27"
+    }
+  }
+}

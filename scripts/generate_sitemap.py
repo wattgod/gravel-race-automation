@@ -20,6 +20,9 @@ from xml.dom.minidom import parseString
 
 SITE_BASE_URL = "https://gravelgodcycling.com"
 
+# Only these blog categories are indexable — unknown categories excluded by default (safe)
+INDEXABLE_BLOG_CATEGORIES = frozenset({"roundup", "recap"})
+
 
 def load_series_slugs(project_root: Path) -> list:
     """Load series slugs from series-data/ directory."""
@@ -363,14 +366,14 @@ def generate_blog_sitemap(blog_index: list, output_path: Path) -> Path:
     SubElement(url, 'changefreq').text = 'weekly'
     SubElement(url, 'priority').text = '0.8'
 
-    # Blog entries — skip preview pages (hardcoded noindex in HTML)
+    # Blog entries — allowlist: only indexable categories get into sitemap
     priority_map = {"roundup": "0.7", "recap": "0.6"}
     for entry in blog_index:
         slug = entry.get("slug", "")
         if not slug:
             continue
         category = entry.get("category", "preview")
-        if category == "preview":
+        if category not in INDEXABLE_BLOG_CATEGORIES:
             continue
         priority = priority_map.get(category, "0.6")
         lastmod = entry.get("date", today)

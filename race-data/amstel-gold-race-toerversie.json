@@ -1,0 +1,317 @@
+{
+  "race": {
+    "name": "Amstel Gold Race Toerversie",
+    "slug": "amstel-gold-race-toerversie",
+    "display_name": "Amstel Gold Race Toerversie",
+    "tagline": "Thirty climbs. The steepest hills in the Netherlands. 15,000 riders on the same roads as the Ardennes classic.",
+    "vitals": {
+      "distance_mi": 149,
+      "elevation_ft": 10410,
+      "location": "Valkenburg, South Limburg, Netherlands",
+      "location_badge": "LIMBURG, NETHERLANDS",
+      "date": "Saturday in mid-April (day before pro race)",
+      "date_specific": "2026: April 18",
+      "terrain_types": [
+        "Steep paved climbs (hellingen)",
+        "Rolling Limburg countryside",
+        "Narrow farm lanes",
+        "Fast descents between climbs"
+      ],
+      "field_size": "~15,000 riders",
+      "start_time": "Saturday morning (multiple start waves)",
+      "registration": "Online via inschrijven.amstel.nl. Lottery system — registration window October, draw in November. Cost: EUR63 (2026).",
+      "prize_purse": "None (finisher medal and commemorative materials)",
+      "aid_stations": "Multiple feed zones along each route with food, drinks, and mechanical support.",
+      "cutoff_time": "Must finish by evening. Intermediate cutoffs at distance checkpoints.",
+      "lat": 50.8661,
+      "lng": 5.8318,
+      "distance_options": [
+        "240 km (149 mi), 3,173 m gain — full route, 30 climbs, categorized Extreme",
+        "200 km (124 mi), ~2,700 m gain",
+        "150 km (93 mi), 2,186 m gain",
+        "125 km (78 mi), ~1,600 m gain",
+        "100 km (62 mi), ~1,200 m gain",
+        "60 km (37 mi), 780 m gain — includes the Cauberg"
+      ],
+      "entry_fee": "EUR63"
+    },
+    "climate": {
+      "primary": "Dutch spring — cool, variable, often wet",
+      "description": "Mid-April in South Limburg is classic northern European spring: 8-15C (46-59F) with frequent cloud cover and a meaningful chance of rain. Temperatures can push toward 18-20C on a warm year or drop to 7C in a cold one. Wind across the open Limburg plateau adds wind chill on descents. The steep climbs generate heat; the descents strip it away.",
+      "challenges": [
+        "Rain showers are common — wet roads make steep descents more technical",
+        "Wind across open agricultural plateaus between climbs",
+        "Temperature swings between sheltered valleys and exposed ridgelines",
+        "Cool mornings for early start waves — arm warmers and gilet essential"
+      ]
+    },
+    "terrain": {
+      "primary": "Steep short climbs through rolling Limburg hills",
+      "surface": "Entirely paved roads — smooth asphalt on main roads, rougher surfaces on narrow farm lanes through villages. The defining feature is the gradient: the Limburg hills are short but brutally steep, with pitches of 15-22% that demand explosive power. Between climbs, the terrain rolls through agricultural plateaus and wooded valleys. No cobblestones, but the relentless succession of hills creates cumulative fatigue that rivals cobbled classics.",
+      "technical_rating": 3,
+      "features": [
+        "Keutenberg — 1.7 km at 5.6% average, 22% maximum. The steepest climb in the Netherlands.",
+        "Cauberg — 1.2 km at 5.5% average, 12.8% max. The iconic finish climb, ridden multiple times.",
+        "Gulperberg — 1.0 km at 5.8% average, 18% max. Short and savage.",
+        "Kruisberg — 800 m at 8.4% average, 17% max.",
+        "Eyserbosweg — 1.1 km at 8.1% average, 16% max.",
+        "Fromberg — 1.6 km at 4.4% average. The Alpe d'Huez of Limburg in local lore.",
+        "Geulhemmerberg — 1.0 km at 5%, ridden multiple times.",
+        "Bemelerberg — 900 m at 4.5%.",
+        "30 classified climbs on the 240 km route, 25 in the final 165 km"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 73,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "logistics": 4,
+      "length": 4,
+      "technicality": 3,
+      "elevation": 3,
+      "climate": 3,
+      "altitude": 1,
+      "adventure": 4,
+      "prestige": 4,
+      "race_quality": 4,
+      "experience": 4,
+      "community": 4,
+      "field_depth": 3,
+      "value": 4,
+      "expenses": 3,
+      "cultural_impact": 3,
+      "tier_note": "T2 by raw score (73). Prestige=4 would promote one tier, but p4 cannot promote into T1 — stays T2.",
+      "score_note": "Sum of 14 criteria = 48. cultural_impact = 3. Total = 51. (51/70)*100 = 72.86, rounded = 73. Prestige=4 for the amateur arm of a genuine Ardennes Monument. Altitude=1 — Limburg tops out at 320m.",
+      "tier_override_reason": "Prestige 4 — eligible for 1-tier promotion but already T2, promotion to T1 blocked by p4 rule",
+      "editorial_tier": 2,
+      "editorial_tier_label": "TIER 2",
+      "business_tier": 2,
+      "business_tier_label": "TIER 2",
+      "display_tier": 2,
+      "display_tier_label": "TIER 2",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 4,
+        "explanation": "15,000 riders managed across six distance options with staggered start waves from the Shimano Experience Center in Valkenburg. The Dutch organizational DNA is evident — clear signage, well-stocked feed zones, mechanical support, and efficient start/finish infrastructure. The lottery registration system means you need to plan months ahead, and it does sell out. Start and finish in the same town simplifies logistics enormously compared to point-to-point sportives."
+      },
+      "length": {
+        "score": 4,
+        "explanation": "The 240 km route with 3,173 m of climbing is categorized 'Extreme' by the organizers for good reason — that's 30 classified climbs, many with double-digit gradients, across a full day in the saddle. The genius is the six distance options: 60 km gets you the Cauberg experience; 150 km is the sweet spot for strong amateurs; 240 km is a proper monument-length day. Something for every ambition level."
+      },
+      "technicality": {
+        "score": 3,
+        "explanation": "These are paved roads, not cobblestones — the technicality comes from gradient, not surface. The Keutenberg at 22% demands proper gear selection and power management. Descents off steep, narrow climbs through villages require confidence on wet roads. The succession of 30 climbs on the long route creates cumulative fatigue that makes the final hills feel steeper than they are. Technically demanding for a road sportive, but not in the same dimension as cobbled events."
+      },
+      "elevation": {
+        "score": 3,
+        "explanation": "3,173 m of climbing on the 240 km route is respectable but not alpine. The character is entirely different from mountain sportives — no climb exceeds 2 km, but the gradients reach 22%. It's death by a thousand cuts: 30 short, steep efforts that individually are manageable but cumulatively destroy your legs. The Limburg hills punch far above their modest height."
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "April in the Netherlands is not the Dolomites in July. Expect 8-15C with meaningful probability of rain and persistent wind. The Limburg hills create microclimate variation — sheltered valleys are warmer, exposed plateaus are wind-blasted. Conditions are manageable but require proper kit selection and a willingness to ride through weather. Not as severe as Flemish classics, but the Dutch spring earns its reputation."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "South Limburg's highest point — the Vaalserberg — reaches 322 meters. The race terrain sits between 50 and 300 meters above sea level. Altitude is categorically not a factor. The hills are steep, not high."
+      },
+      "adventure": {
+        "score": 4,
+        "explanation": "Riding the same Limburg hills that Pogacar, Van der Poel, and Pidcock race over is a cycling pilgrimage. The route winds through medieval villages with half-timbered houses, past orchards and vineyards, through deep-cut valleys with streams and watermills. South Limburg is the Netherlands' least Dutch landscape — hills, forests, and charm that feels more Belgian Ardennes than Amsterdam. Starting from the Shimano Experience Center adds to the cycling-specific atmosphere."
+      },
+      "prestige": {
+        "score": 4,
+        "explanation": "The Amstel Gold Race is one of cycling's five Monuments — the Ardennes classic that opens the spring campaign in the Dutch hills. The Toerversie carries genuine prestige as the amateur companion event, held the day before the pros ride. Prestige=4 rather than 5 because the amateur sportive scene around Amstel Gold doesn't quite match the cultural weight of Flanders or Roubaix amateur events, and Limburg's hills, while iconic, are one step below the cobbled monuments in amateur cycling mythology."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "Organized by the same machine that runs the professional Amstel Gold Race, now under the Flanders Classics umbrella. Route marking, timing, feed zones, medical support, and mechanical assistance are all professional-grade. Six distance options mean the field is well-distributed rather than bottlenecked. The Shimano Experience Center start adds a polished touch. Deducting from a 5 only because the lottery system can feel impersonal compared to first-come-first-served events."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "The defining experience is the rhythm: climb, descend, roll, climb again. The Keutenberg at 22% is a genuine test of nerve and power — the steepest paved climb in the Netherlands. The Cauberg finish, with crowds lining the road, connects you directly to the professional race happening the next day. Post-ride in Valkenburg's medieval town center, with its caves, castle ruins, and terraced cafes, is a proper reward. Watching the pro race Sunday completes the weekend."
+      },
+      "community": {
+        "score": 4,
+        "explanation": "15,000 riders creates a massive shared experience. The Dutch cycling community is passionate and welcoming — club riders in matching kits, weekend warriors on carbon machines, tourists with luggage bikes all share the road. The event has genuine local support, with villages along the route turning out to watch and cheer. Not quite the religious fervor of Flanders, but South Limburg takes its cycling seriously."
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "Strong Dutch and Belgian club riders populate the front of the field, and the 240 km option attracts genuinely fast amateurs. But 15,000 participants across six distances means the majority are riding for the experience rather than racing. This is a sportive, not a race — no official timing or results. The competitive depth exists informally among the fast groups on the longer distances."
+      },
+      "value": {
+        "score": 4,
+        "explanation": "EUR63 for a professionally organized sportive with six distance options, feed zones, mechanical support, medical coverage, finisher medal, and the chance to ride Monument-level roads the day before the pros. That's remarkable value by any standard — especially compared to EUR85-150 for comparable European sportives. The lottery system means you earn your entry through luck, which oddly adds to the perceived value."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Maastricht-Aachen Airport (MST) is 15 minutes away but has limited connections. Most riders fly into Amsterdam Schiphol (2.5 hours) or Eindhoven (1.5 hours) or Brussels (2 hours) and drive. Accommodation in Valkenburg and surrounding villages is moderate by Western European standards — EUR80-150/night for decent options. Budget EUR500-1,000 for a race weekend from elsewhere in Europe, EUR1,000-1,800 from the US."
+      }
+    },
+    "biased_opinion": {
+      "verdict": "The Punchy Classic",
+      "summary": "The Amstel Gold Race Toerversie puts 15,000 riders on the steepest roads in the Netherlands, riding the same Limburg hills that define cycling's Ardennes classic. Thirty climbs on the 240 km route — none longer than 2 km, many steeper than 15%, the Keutenberg touching 22%. It's not about altitude or cobblestones; it's about the relentless accumulation of short, savage efforts through a countryside that looks nothing like the flat Netherlands you imagined. Start from the Shimano Experience Center, finish near the Cauberg, watch the pros do it Sunday.",
+      "strengths": [
+        "The climbs: Keutenberg at 22%, Gulperberg at 18%, Kruisberg at 17% — the steepest paved roads in the Netherlands",
+        "Six distance options from 60 to 240 km — accessible to strong recreational riders through serious endurance athletes",
+        "EUR63 entry for a Monument-level sportive with professional organization",
+        "Race weekend: ride the hills Saturday, watch the pros race them Sunday"
+      ],
+      "weaknesses": [
+        "Lottery registration: no guarantee of entry, must plan months ahead",
+        "April weather: rain and wind are more likely than sunshine in the Dutch spring",
+        "No competitive element: this is a sportive, not a race — no timing, no results",
+        "Limburg infrastructure: limited local airport means longer transfers from Amsterdam or Brussels"
+      ],
+      "bottom_line": "The most accessible way to ride a Monument course. Thirty climbs through the most un-Dutch landscape in the Netherlands, organized with Dutch precision, priced at EUR63."
+    },
+    "final_verdict": {
+      "score": "73 / 100",
+      "one_liner": "Thirty Limburg climbs including the steepest road in the Netherlands, ridden by 15,000 amateurs the day before the Ardennes Monument.",
+      "should_you_race": "Yes if you want to experience a Monument course without cobblestones or extreme distance. Yes if short, steep climbs are your kind of suffering. Skip if you need competitive racing — this is a sportive with no timing. Skip if lottery logistics frustrate you.",
+      "alternatives": "If you want a similar Classics sportive with cobblestones: Tour of Flanders Sportive or Paris-Roubaix Challenge. If you want steeper climbing in the Ardennes: Liege-Bastogne-Liege sportive. If you want a Dutch cycling festival with less climbing: Vattenfall CPC Loop Den Haag.",
+      "alternative_slugs": [
+        "tour-of-flanders-sportive",
+        "paris-roubaix-challenge"
+      ]
+    },
+    "logistics": {
+      "airport": "Maastricht-Aachen Airport (MST) — 15 min, but limited connections. Amsterdam Schiphol (AMS) — 2.5 hours, best international options. Eindhoven (EIN) — 1.5 hours, good budget carrier hub. Brussels (BRU) — 2 hours.",
+      "lodging_strategy": "Stay in Valkenburg (race start/finish, medieval town, plenty of hotels and B&Bs) or Maastricht (20 min, larger city with more options and nightlife). Book early — race weekend fills the region. The Hotel Thermae 2000 and Chateau St. Gerlach are premium options; budget riders find good value in surrounding villages like Gulpen, Margraten, and Mechelen.",
+      "food": "South Limburg has the best food culture in the Netherlands. Vlaai (Limburg fruit pie) is the post-ride reward. Maastricht's restaurant scene punches above its weight. Pre-race carb loading at local brasseries serving stamppot and poffertjes.",
+      "packet_pickup": "Shimano Experience Center, De Leeuwhof 2, Valkenburg. Day before the event.",
+      "parking": "Organized parking in Valkenburg with shuttle service. Arrive early — 15,000 riders in a small town creates congestion.",
+      "official_site": "https://www.amstel.nl/amstelgoldrace/toerversie"
+    },
+    "history": {
+      "founded": 2001,
+      "founder": "Amstel / Flanders Classics",
+      "origin_story": "The professional Amstel Gold Race has run through the Limburg hills since 1966, and in 2001 the organizers launched the Toerversie — the tour version — allowing amateur riders to experience the same roads the day before the professional race. What started as a local cycling event has grown to 15,000 participants, making it one of the largest sportives in Europe. The race is deeply tied to Amstel beer (the title sponsor) and the cycling culture of South Limburg, a region that considers itself the cycling capital of the Netherlands. The Shimano Experience Center in Valkenburg, opened in 2019, became the natural start location and added to the event's cycling-specific identity.",
+      "notable_moments": [
+        "First edition in 2001 — amateur riders on Monument roads",
+        "Growth to 15,000 riders, requiring a lottery registration system",
+        "Shimano Experience Center (2019) becomes the event hub",
+        "Same weekend as the professional Amstel Gold Race — ride Saturday, watch Sunday"
+      ],
+      "reputation": "The Ardennes sportive. Where amateur riders tackle the steepest paved climbs in the Netherlands on the same roads as cycling's spring Monument."
+    },
+    "course_description": {
+      "character": "Relentless accumulation. The Limburg hills are not long — the longest climb is under 2 km — but they are steep, frequent, and merciless in their succession. The 240 km route packs 30 classified climbs, with 25 of them concentrated in the final 165 km. Between climbs, the terrain rolls through agricultural plateaus and wooded valleys at deceptive gradients that never truly flatten. The rhythm is: climb hard, descend fast, roll through a village, climb hard again. By climb 20, every subsequent 15% pitch feels like 25%. The Cauberg, ridden multiple times, gets steeper with each repetition — not because the gradient changes, but because your legs remember.",
+      "suffering_zones": [
+        {
+          "mile": 25,
+          "label": "Opening Hills",
+          "desc": "The early climbs — Maasberg, Camerig — are manageable introductions. Rolling terrain through the Geul valley establishes the rhythm. You find your group, settle your effort, and think: this is beautiful. It is. That changes.",
+          "terrain_detail": "Rolling hills, 4-6% average gradients",
+          "named_section": "Geul Valley"
+        },
+        {
+          "mile": 60,
+          "label": "The Steepening",
+          "desc": "Gulperberg (18% max), Kruisberg (17% max), Eyserbosweg (16% max) and Fromberg arrive in quick succession within 11 km. This is where the Toerversie shows its teeth. The gradients jump from annoying to eye-watering. Riders who started too fast begin to crack here. The smart ones have been soft-pedaling the flats.",
+          "terrain_detail": "Four major climbs in 11 km, 16-18% max gradients",
+          "named_section": "Gulperberg-Fromberg sequence"
+        },
+        {
+          "mile": 85,
+          "label": "Keutenberg",
+          "desc": "The steepest climb in the Netherlands. 1.7 km averaging 5.6% sounds manageable until the road kicks to 22%. The narrow lane forces riders into single file. Some walk. Some grind 34x32 in survival mode. The gradient is not theoretical — it pins you to the tarmac and dares you to keep turning the pedals. This is the signature moment of the Toerversie.",
+          "terrain_detail": "1.7 km, 5.6% average, 22% maximum",
+          "named_section": "Keutenberg"
+        },
+        {
+          "mile": 130,
+          "label": "The Cauberg Gauntlet",
+          "desc": "The final 45 km packs 8 classified climbs including repeated ascents of the Cauberg, Geulhemmerberg, and Bemelerberg. The Cauberg — 1.2 km at 5.5% with a 12.8% kick — is where the pro race is decided. On amateur legs with 200+ km done, it hurts differently. The crowds lining the road remind you that the professionals will suffer here tomorrow. Small consolation.",
+          "terrain_detail": "8 climbs in final 45 km, including Cauberg at 12.8% max",
+          "named_section": "Cauberg finale"
+        }
+      ],
+      "signature_challenge": "The Keutenberg. 22% gradient on narrow tarmac through the Limburg countryside. The steepest paved climb in the Netherlands, and a moment where the gap between reading a gradient number and riding one becomes vividly, painfully clear."
+    },
+    "guide_variables": {
+      "race_name": "Amstel Gold Race Toerversie",
+      "race_distance": "149 miles (240 km)",
+      "race_elevation": "10,410 feet (3,173 m)",
+      "race_date": "April",
+      "race_location": "Valkenburg, South Limburg, Netherlands",
+      "race_terrain": "Steep short paved climbs, rolling countryside, fast descents",
+      "race_weather": "Dutch spring: 8-15C, rain and wind possible",
+      "race_challenges": [
+        "30 classified climbs with gradients up to 22%",
+        "Relentless succession of short steep efforts with minimal recovery",
+        "April weather — rain, wind, and cool temperatures likely",
+        "240 km distance with 3,173 m of cumulative climbing"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Short steep climbing power — repeated 1-3 minute maximal efforts",
+        "by_when": "Week 6",
+        "why": "The Limburg hills average 500m-1.5 km at 8-22%. This demands explosive power, not sustained threshold climbing. VO2max intervals of 1-3 minutes with short recovery replicate the berg demands. Over-under efforts at 90-110% FTP build the ability to recover between climbs."
+      },
+      {
+        "requirement": "Endurance base for 240 km (or chosen distance) with cumulative climbing fatigue",
+        "by_when": "Week 8",
+        "why": "The 240 km route takes 8-12 hours depending on fitness. The difficulty is not any single climb but the 30th climb after 200 km. Long rides with repeated hill efforts build the specific endurance required. Even the 150 km option demands a solid 6-8 hour base."
+      },
+      {
+        "requirement": "Gearing check — compact or sub-compact crankset with 32-34t cassette",
+        "by_when": "Week 10",
+        "why": "22% gradients on fatigued legs at hour 8 require low gears. A 34x34 setup is not overkill. Riders with standard 53/39 cranksets suffer unnecessarily on the Keutenberg and Gulperberg. Test your lowest gear on the steepest local climb before race day."
+      }
+    ],
+    "citations": [
+      {
+        "url": "https://www.amstel.nl/amstelgoldrace/toerversie",
+        "title": "Toerversie Amstel Gold Race — Official Site (Amstel)",
+        "category": "official"
+      },
+      {
+        "url": "https://inschrijven.amstel.nl/en/",
+        "title": "Amstel Gold Race Registration Portal",
+        "category": "official"
+      },
+      {
+        "url": "https://www.amstelgoldrace.nl/en/race/elite-men/race-info",
+        "title": "Amstel Gold Race — Race Info (Men Elite)",
+        "category": "official"
+      },
+      {
+        "url": "https://sportivebreaks.com/sportives/amstel-gold-race-sportive/",
+        "title": "Amstel Gold Race Sportive — Sportive Breaks",
+        "category": "review"
+      },
+      {
+        "url": "https://sportive.com/event/amstel-gold-race-sportive-2026/",
+        "title": "Amstel Gold Race Sportive 2026 — Sportive.com",
+        "category": "review"
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Amstel_Gold_Race",
+        "title": "Amstel Gold Race — Wikipedia",
+        "category": "reference"
+      },
+      {
+        "url": "https://join.cc/cycling-events/amstel-gold-race-tour-version",
+        "title": "How to Train for Amstel Gold Race Toerversie — JOIN Cycling",
+        "category": "review"
+      },
+      {
+        "url": "https://www.rouleur.cc/blogs/the-rouleur-journal/amstel-gold-race",
+        "title": "Amstel Gold Race: Everything You Need to Know — Rouleur",
+        "category": "reference"
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "high",
+      "validation_status": "validated",
+      "research_strength": "A-",
+      "sources_count": 8,
+      "last_updated": "2026-02-27"
+    }
+  }
+}

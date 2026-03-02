@@ -401,14 +401,27 @@ def compute_fueling_estimate(distance_mi) -> Optional[dict]:
     }
 
 
+# W/kg reference range for gravel cyclists (module-level for testability)
+WKG_FLOOR = 1.5   # recreational floor — maps to bracket low
+WKG_CEIL = 4.5    # elite ceiling — maps to bracket high
+WKG_EXPONENT = 1.4  # >1 pushes low-W/kg toward floor, steepens high-W/kg gains
+
+
 def compute_personalized_fueling(weight_kg: float, ftp: Optional[float],
                                   hours: float) -> Optional[dict]:
-    """Compute personalized carb targets using power-based formula.
+    """Compute personalized carb targets using W/kg intensity-aware formula.
 
-    Uses the IronmanHacks/Couzens model:
-        base_rate = weight_kg * 0.7 * (ftp / 100) * 0.7
-    Falls back to duration-scaled generic rate when FTP is not provided.
-    Clamps output to duration bracket ceiling/floor.
+    Uses W/kg (FTP / weight) as an intensity proxy to position the rider
+    within the validated duration bracket from the white paper.  Higher W/kg
+    riders burn more carbs per hour → placed toward the bracket ceiling.
+    Lower W/kg riders rely more on fat oxidation → placed toward the floor.
+
+    The mapping uses a power curve (exponent 1.4) rather than linear to match
+    the non-linear relationship between intensity and CHO oxidation observed
+    in van Loon et al. — oxidation rises steeply above ~60% VO2max.
+
+    Reference range: 1.5 W/kg (recreational floor) to 4.5 W/kg (elite ceiling).
+    Falls back to duration-scaled bracket midpoint when FTP is not provided.
 
     Returns dict with personalized_rate, total_carbs, gels, bracket, note.
     """
@@ -433,17 +446,21 @@ def compute_personalized_fueling(weight_kg: float, ftp: Optional[float],
         bracket = "Survival pace — palatability and GI tolerance are the limiters"
 
     if ftp and ftp > 0:
-        # Power-based formula
-        raw_rate = weight_kg * 0.7 * (ftp / 100) * 0.7
+        # W/kg intensity factor: maps rider into bracket position
+        # Power curve (exponent > 1) compresses low-W/kg recommendations
+        # toward the bracket floor, matching CHO oxidation physiology.
+        wkg = ftp / weight_kg
+        linear = max(0.0, min(1.0,
+                              (wkg - WKG_FLOOR) / (WKG_CEIL - WKG_FLOOR)))
+        intensity_factor = linear ** WKG_EXPONENT
+        rate = round(bracket_lo + intensity_factor * (bracket_hi - bracket_lo))
         note = "Personalized from your weight and FTP"
     else:
         # No FTP — use midpoint of bracket range
-        raw_rate = (bracket_lo + bracket_hi) / 2
+        rate = round((bracket_lo + bracket_hi) / 2)
         note = "Enter your FTP for a more precise estimate"
 
-    # Clamp to bracket bounds
-    rate = max(bracket_lo, min(bracket_hi, round(raw_rate)))
-    total_carbs = int(rate * hours)
+    total_carbs = round(rate * hours)
     gels = total_carbs // 25
 
     return {
@@ -2389,21 +2406,24 @@ document.querySelectorAll('.gg-guide-accordion-trigger').forEach(function(btn){
   function computePersonalized(weightLbs,ftp,hours){
     if(!weightLbs||weightLbs<=0||!hours||hours<=0) return null;
     var weightKg=weightLbs*0.453592;
+    var WKG_FLOOR=1.5,WKG_CEIL=4.5,WKG_EXP=1.4;
     var bLo,bHi,bracket;
     if(hours<=4){bLo=80;bHi=100;bracket='High-intensity race pace';}
     else if(hours<=8){bLo=60;bHi=80;bracket='Endurance pace';}
     else if(hours<=12){bLo=50;bHi=70;bracket='Lower intensity';}
     else if(hours<=16){bLo=40;bHi=60;bracket='Ultra pace';}
     else{bLo=30;bHi=50;bracket='Survival pace';}
-    var rawRate,note;
+    var rate,note;
     if(ftp&&ftp>0){
-      rawRate=weightKg*0.7*(ftp/100)*0.7;
+      var wkg=ftp/weightKg;
+      var lin=Math.max(0,Math.min(1,(wkg-WKG_FLOOR)/(WKG_CEIL-WKG_FLOOR)));
+      var factor=Math.pow(lin,WKG_EXP);
+      rate=Math.round(bLo+factor*(bHi-bLo));
       note='Personalized from your weight and FTP';
     }else{
-      rawRate=(bLo+bHi)/2;
+      rate=Math.round((bLo+bHi)/2);
       note='Enter your FTP for a more precise estimate';
     }
-    var rate=Math.max(bLo,Math.min(bHi,Math.round(rawRate)));
     var totalCarbs=Math.round(rate*hours);
     var gels=Math.floor(totalCarbs/25);
     return{rate:rate,totalCarbs:totalCarbs,gels:gels,bracket:bracket,bracketLo:bLo,bracketHi:bHi,note:note};
@@ -2489,7 +2509,7 @@ document.querySelectorAll('.gg-guide-accordion-trigger').forEach(function(btn){
     }
     html+='<div class="gg-pk-calc-result-row"><span class="gg-pk-calc-result-label">Duration Bracket</span>'+
       '<span class="gg-pk-calc-result-value">'+r.bracket+' ('+r.bracketLo+'-'+r.bracketHi+'g/hr)</span></div>';
-    html+='<p class="gg-pk-calc-result-note">'+r.note+'. Carb targets clamped to exercise physiology brackets (Jeukendrup 2014). Start low in training and build toward race-day targets.</p>';
+    html+='<p class="gg-pk-calc-result-note">'+r.note+'. Carb targets derived from W/kg intensity positioning within exercise physiology brackets (Jeukendrup 2014). Start low in training and build toward race-day targets. <a href="/fueling-methodology" style="color:var(--gg-color-teal);text-decoration:underline">How we calculate this</a></p>';
 
     /* Panel 2: HOUR-BY-HOUR RACE PLAN */
     if(plan&&plan.length>0){

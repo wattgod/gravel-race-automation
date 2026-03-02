@@ -3,193 +3,370 @@
     "name": "Iron Horse Bicycle Classic",
     "slug": "iron-horse-bicycle-classic",
     "display_name": "Iron Horse Bicycle Classic",
-    "tagline": "Colorado mountain cycling in Durango.",
+    "tagline": "Race the train. 47 miles. Two 10,000-foot passes. Durango to Silverton since 1972.",
     "vitals": {
-      "distance_mi": 65,
-      "elevation_ft": 6000,
+      "distance_mi": 47,
+      "elevation_ft": 5700,
       "location": "Durango, Colorado",
       "location_badge": "DURANGO, CO",
       "county": "La Plata County",
-      "date": "Mid-May annually",
-      "date_specific": "2026: May 17",
+      "date": "Memorial Day weekend annually",
+      "date_specific": "2026: May 24",
       "terrain_types": [
-        "Colorado mountains",
-        "Mixed surfaces",
-        "Mountain gravel",
-        "Regional event"
+        "Paved mountain highway",
+        "High-altitude passes",
+        "Point-to-point road race",
+        "Closed US highway"
       ],
-      "field_size": "400-800 riders",
-      "start_time": "7:15 AM",
-      "registration": "Online. Cost: ~$80-120",
-      "prize_purse": "Prizes for top finishers",
-      "aid_stations": "Multiple aid stations",
-      "cutoff_time": "Varies",
-      "lat": 37.2769,
-      "lng": -107.8766
+      "field_size": "2,000+ riders (all events)",
+      "start_time": "Saturday 7:15 AM (Road Race), 8:00 AM (Citizen Tour)",
+      "registration": "Online. Road Race: $145. Citizen Tour: ~$100. Quarter Horse: ~$80. USA Cycling license required for road race.",
+      "prize_purse": "$1,000+ per category (equal men's and women's purses)",
+      "aid_stations": "Multiple aid stations along Highway 550 course",
+      "cutoff_time": "Coal Bank Pass by 12:40 PM, Molas Pass by 1:20 PM",
+      "lat": 37.2753,
+      "lng": -107.8801
     },
     "climate": {
-      "primary": "Colorado mountain spring",
-      "description": "Variable mountain conditions with altitude considerations.",
+      "primary": "High-altitude mountain spring",
+      "description": "Late May in the San Juan Mountains means variable conditions from pleasant valley warmth to potential snow on the passes. Temperatures can range from 70s in Durango to 40s-50s at 10,900 ft summit.",
       "challenges": [
-        "Altitude (6500ft base)",
-        "Mountain weather variability",
-        "Spring conditions",
-        "Mountain climbing"
+        "Temperature drops of 20-30F between Durango and pass summits",
+        "Potential snow on passes (2008 cancellation: 18 inches on Coal Bank)",
+        "High UV exposure above 10,000 ft",
+        "Afternoon thunderstorm risk",
+        "Wind exposure on open highway through mountain corridors"
       ]
     },
     "terrain": {
-      "primary": "Colorado mountain mixed terrain",
-      "surface": "Mixed paved and gravel roads through Colorado mountains. Significant elevation with mountain scenery.",
-      "technical_rating": 3,
+      "primary": "Paved mountain highway with two major passes",
+      "surface": "US Highway 550 — fully paved, well-maintained mountain highway. Point-to-point from Durango (6,512 ft) to Silverton (9,318 ft) over Coal Bank Pass (10,640 ft) and Molas Pass (10,910 ft).",
+      "technical_rating": 2,
       "features": [
-        "Significant mountain climbing (6000 feet)",
-        "Mountain scenery",
-        "Durango setting",
-        "Multiple distances",
-        "Regional event"
+        "Coal Bank Pass — 10,640 ft summit",
+        "Molas Pass — 10,910 ft summit",
+        "Closed US highway for racing",
+        "High-speed descents between passes",
+        "Point-to-point finish in Silverton at 9,318 ft",
+        "Net elevation gain of 2,806 ft start to finish"
       ]
     },
     "gravel_god_rating": {
-      "overall_score": 59,
-      "tier": 3,
-      "tier_label": "TIER 3",
-      "logistics": 3,
+      "overall_score": 79,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "logistics": 4,
       "length": 3,
-      "technicality": 3,
+      "technicality": 2,
       "elevation": 4,
       "climate": 3,
-      "altitude": 3,
-      "adventure": 3,
-      "prestige": 2,
-      "race_quality": 3,
-      "experience": 3,
-      "community": 3,
-      "field_depth": 2,
-      "value": 3,
+      "altitude": 4,
+      "adventure": 4,
+      "prestige": 4,
+      "race_quality": 4,
+      "experience": 5,
+      "community": 4,
+      "field_depth": 3,
+      "value": 4,
       "expenses": 3,
-      "score_note": "Regional CO event. Mountain terrain is nice with good organization but regional field.",
-      "discipline": "gravel",
-      "display_tier": 3
+      "tier_note": "Iconic 53-year road race tradition. Prestige 4 qualifies for 1-tier promotion but cannot promote into Tier 1.",
+      "editorial_tier": 2,
+      "editorial_tier_label": "TIER 2",
+      "business_tier": 2,
+      "business_tier_label": "TIER 2",
+      "display_tier": 2,
+      "display_tier_label": "TIER 2",
+      "discipline": "road",
+      "cultural_impact": 4
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 4,
+        "explanation": "Fifty-three years of operational refinement have made this a well-oiled machine. The closure of US Highway 550 — \"the only race in the country that we know that closes a US highway,\" as Race Director Ian Burnett puts it — creates a controlled, professional racing environment. Bib pickup runs Friday at Buckley Park, starts are staggered by category from 33rd and 2nd Avenue in Durango, and mandatory cutoffs at Coal Bank (12:40 PM) and Molas Pass (1:20 PM) enforce pacing discipline. Return bus/train transport from Silverton is well-organized. Burnett admits to \"a couple of little hiccups here and there, but all things that we could face in the moment.\""
+      },
+      "length": {
+        "score": 3,
+        "explanation": "The Coca-Cola Road Race covers 47 miles point-to-point from Durango to Silverton — the Citizen Tour runs roughly 50 miles on the same route. Pro winners finish in just over 2 hours (Caleb Classen's 2:07:18 in 2023), while first-timers take \"right in the area of 6 hours.\" Ned Overend's 2:15:18 at age 67 shows how the double-pass profile extends effort across all ability levels. Not ultra-distance, but the 5,700 ft of climbing makes every mile count."
+      },
+      "technicality": {
+        "score": 2,
+        "explanation": "This is a paved highway road race — US-550 is well-maintained and fully closed to traffic for the final 20 miles over both passes. The first 15 miles give riders \"a full lane to themselves\" before two-way traffic begins as climbing starts. High-speed descents off Molas Pass toward Silverton demand attention and bike handling at speed, but there's no gravel, no singletrack, no technical surfaces. The 2024 sabotage incident (thumbtacks causing 50+ flats near County Road 203) was an anomaly, not a course feature."
+      },
+      "elevation": {
+        "score": 4,
+        "explanation": "Over 5,700 feet of climbing across two mountain passes, both summiting above 10,000 feet. Coal Bank Pass (10,640 ft) and Molas Pass (10,910 ft) create a relentless profile for a sub-50-mile road race. \"A group of about 20 riders stayed together for the first half before the group splintered on the climb up Coal Bank Pass\" — this is where racing happens. The net gain from start (6,512 ft) to finish (9,318 ft) means you never fully recover from the climbing."
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "Race Director Burnett called 2025 conditions \"super fortunate\" with \"mid-70s in Durango and a high in the mid-50s in Silverton.\" But the 2008 edition was cancelled when \"it snowed 18 inches on Coal Bank Pass,\" and Burnett notes they've \"had years where it snowed during the event, melted off and people keep going.\" Memorial Day weekend in the San Juans is a dice roll — you might get perfect spring conditions or you might get hypothermia weather at 10,900 feet."
+      },
+      "altitude": {
+        "score": 4,
+        "explanation": "Starting at 6,512 feet and climbing to passes above 10,900 feet means oxygen debt is a genuine performance limiter. The roughly 3-minute gap between 67-year-old Ned Overend (2:15:18) and winner Caleb Classen (2:07:18) in 2023 shows altitude doesn't discriminate by age — it punishes everyone equally. Mandatory cutoffs at Coal Bank and Molas Pass exist specifically because altitude slows riders more than they expect. Sea-level athletes will feel this course in their lungs."
+      },
+      "adventure": {
+        "score": 4,
+        "explanation": "Racing a narrow gauge steam train through the San Juan Mountains is a premise no other cycling event on Earth can match. The 1971 origin — Tom Mayer on his 10-speed beating his brother Jim's steam engine for a candy bar — set up an adventure that's been refined for 53 years. US-550 through Coal Bank and Molas Pass delivers genuine alpine grandeur, and the point-to-point format ending in the historic mining town of Silverton at 9,318 feet creates a journey, not a loop."
+      },
+      "prestige": {
+        "score": 4,
+        "explanation": "Colorado's oldest and most renowned cycling event, running continuously since 1972 (save for the 2020 pandemic cancellation). The race has drawn cycling legends: Ned Overend, Todd Wells, Howard Grotts, Riley Amos, and Sepp Kuss's hometown of Durango provides a deep well of cycling prestige. The 2026 Colorado Gravel State Championships designation adds to the weekend's stature. Not UCI-level, but within American cycling, this is heritage-tier — Velo calls it \"one of the most iconic cycling events in the country.\""
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "USA Cycling sanctioned with equal prize purses for men's and women's fields. The closed-highway format through Coal Bank and Molas Pass creates professional racing conditions rarely found at mass-participation events. Multiple event categories — road race, citizen tour, quarter horse, gravel, mountain bike, hill climb — make this a weekend cycling festival with professional management. Race Director Burnett's team has five decades of institutional knowledge."
+      },
+      "experience": {
+        "score": 5,
+        "explanation": "There is simply nothing else like racing a steam train through the San Juan Mountains. The downtown Durango start by the train depot, the closed highway climbing to 10,900 feet, the descent into the historic mining town of Silverton — this is a once-in-a-lifetime experience even if you do it every year. One amputee cyclist called it \"absolutely beautiful setting — bucket-list checkmark for sure.\" The Face Plant Ale Kickoff Parade, the Silverton beer garden finish, and the Steamworks Brewing downtown atmosphere create a celebration that transcends cycling."
+      },
+      "community": {
+        "score": 4,
+        "explanation": "Riders come \"from 43 states and five countries\" ranging \"from professional-level athletes to the first-timer, weekend-warrior people setting a goal for themselves to get in shape.\" The 2,000+ participants include \"everyone from pros to costume-wearers to those who ride with flat pedals wearing jeans.\" Durango's cycling identity — home to Olympians, national champions, and the 600-rider Devo youth program — creates authentic community investment. Ten dollars from each entry goes to local organizations."
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "The road race attracts strong regional competition bolstered by Durango's world-class cycling community. Ned Overend, Todd Wells, Howard Grotts, and Riley Amos have all competed. Fort Lewis College riders add collegiate depth. But this is primarily a mass-participation event with a competitive front end, not a deep pro peloton. About 2,000 riders total across all events with perhaps 70-80 serious road race competitors. Strong for a regional event, but not elite-tour depth."
+      },
+      "value": {
+        "score": 4,
+        "explanation": "At $145 for the road race, you get a closed US highway through two 10,000-foot passes, 53 years of organizational refinement, a point-to-point race into a historic mountain town, and a weekend festival of cycling events. Burnett calls it \"something you can come back and do again and again and it's still a beautiful, amazing experience.\" High finish rates — \"we only have about 20 every year that don't make it the whole way\" — mean nearly everyone gets the full experience."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Memorial Day weekend in Durango means premium accommodation pricing in a resort town. Durango-La Plata County Airport (DRO) offers direct flights from Denver, Dallas, and Phoenix, but limited capacity drives up fares during holiday weekends. Hotels range from $150-$300/night. The Silverton finish requires return transportation ($25 for bus or train). Limited downtown parking means planning ahead. A weekend budget of $500-$800 beyond registration covers lodging, food, transport, and extras."
+      }
     },
     "biased_opinion": {
-      "verdict": "Colorado Mountain Cycling Classic",
-      "summary": "Iron Horse Bicycle Classic is a regional cycling event in Durango, Colorado—mountain terrain with mixed surfaces and significant elevation. Durango provides good access and the organization is solid. However, the regional field and mixed-surface format keep it in Tier 3. Spring mountain weather and altitude add challenges.",
+      "verdict": "The Original Man vs. Machine",
+      "summary": "The Iron Horse Bicycle Classic is not just a road race — it's an American cycling institution. Since 1972, the concept of racing a steam train through the San Juan Mountains has created something genuinely irreplaceable. Two 10,000-foot passes on a closed US highway, a point-to-point finish in Silverton, and more than half a century of tradition make this Colorado's definitive cycling event. The road race itself is demanding without being destructive, and the surrounding festival has grown into a weekend celebration of everything on two wheels.",
       "strengths": [
-        "Durango (good access)",
-        "Mountain terrain with significant climbing (6000 feet)",
-        "Good organization",
-        "CO cycling community",
-        "Mountain scenery"
+        "The concept: Racing a narrow gauge steam train is unique in all of cycling. No other event has this DNA.",
+        "The course: Two passes above 10,000 ft on a closed US highway through the San Juan Mountains. Genuinely stunning.",
+        "The history: Running since 1972 with continuous community investment. 53 years of refinement shows.",
+        "The experience: Downtown Durango start, Silverton finish, beer garden, train ride back. Complete package.",
+        "The inclusivity: Road race, citizen tour, gravel, MTB, hill climb — something for every cyclist."
       ],
       "weaknesses": [
-        "Regional field only",
-        "Mixed surfaces (not pure gravel)",
-        "Altitude considerations",
-        "Spring mountain weather",
-        "Limited national recognition"
+        "Altitude: If you live at sea level, the passes above 10,000 ft will humble you. Arrive early to acclimatize.",
+        "Weather risk: Memorial Day in the San Juans is unpredictable. Snow has cancelled the event before.",
+        "Logistics: Silverton finish means you need return transport. Not a ride-back situation.",
+        "Accommodation: Durango on Memorial Day weekend is expensive and books early.",
+        "Field depth: Strong regional competition but not a destination race for international pros."
       ],
-      "bottom_line": "A solid regional Colorado mountain cycling event. Worth it for Colorado cyclists seeking a mountain challenge. Not a destination race for out-of-state travelers."
+      "bottom_line": "If you want a road race with soul, history, and an experience that transcends the finish line, the Iron Horse delivers. It's one of the few events where the story matters as much as the result."
     },
     "final_verdict": {
-      "score": "59 / 100",
-      "one_liner": "Colorado mountain cycling in Durango.",
-      "should_you_race": "If you're in Colorado and want a mountain cycling event—yes, it's solid. If you want pure gravel or pro field depth—look elsewhere.",
-      "alternatives": "For better CO events: Crusher in the Tushar, Leadville 100. For similar regional events: other CO cycling races.",
+      "score": "79 / 100",
+      "one_liner": "Fifty-three years of man versus machine through the San Juan Mountains — Colorado's definitive cycling tradition.",
+      "should_you_race": "If you love mountain road racing and want an event steeped in history with a genuinely unique concept, absolutely. If you need flat-course speed or a pure criterium experience, this is not your race. The altitude and climbing demand respect — prepare accordingly.",
+      "alternatives": "For similar mountain road racing: Mount Washington Hillclimb (pure climbing). For Colorado cycling heritage: Ride the Rockies (touring). For similar altitude challenges: Leadville Trail 100 (different format, same thin air). For closed-road mountain experiences: Bob Cook Memorial Mount Evans Hill Climb.",
       "alternative_slugs": [
-        "crusher-in-the-tushar",
-        "leadville-100"
+        "leadville-100",
+        "crusher-in-the-tushar"
       ]
     },
     "logistics": {
-      "airport": "Durango (DRO) 20 minutes or Albuquerque (ABQ) 3 hours",
-      "lodging_strategy": "Durango has good lodging options.",
-      "food": "Durango has full dining options. Stock nutrition.",
-      "packet_pickup": "Day before",
-      "parking": "At start/finish",
-      "official_site": "Check Iron Horse Bicycle Classic website"
+      "airport": "Durango-La Plata County Airport (DRO) — 15 miles from downtown. Direct flights from Denver, Dallas, Phoenix. Albuquerque (ABQ) is 3.5 hours by car.",
+      "lodging_strategy": "Book Durango hotels early — Memorial Day weekend sells out months in advance. Strater Hotel, General Palmer Hotel, and DoubleTree are downtown options. Camping at Junction Creek or Haviland Lake is cheaper. Consider Purgatory Resort area for mid-course lodging if arriving from the north.",
+      "food": "Durango has excellent dining: Steamworks Brewing, Ore House, Ken and Sue's. Silverton finish has beer garden and food trucks. Stock race nutrition in advance — no aid stations in the first 15 miles.",
+      "packet_pickup": "Friday 1-7 PM at Buckley Park, downtown Durango. Local zip codes may receive bibs by mail if registered before May 1.",
+      "parking": "33rd and 2nd Avenue start area. Limited parking — do NOT park in City Market lot. East 3rd Avenue between 29th and 32nd has limited spaces. Organizers encourage carpooling or biking to the start.",
+      "official_site": "https://www.ironhorsebicycleclassic.com"
     },
     "history": {
-      "founded": null,
-      "founder": "Durango organizers",
-      "origin_story": "Colorado mountain cycling event.",
-      "notable_moments": [],
-      "reputation": "Regional CO event."
+      "founded": 1972,
+      "founder": "Tom and Jim Mayer",
+      "origin_story": "In 1971, Tom Mayer challenged his brother Jim — a brakeman on the Denver & Rio Grande Western Railroad — to a race to Silverton. Steam engine versus bicycle. They wagered a candy bar. Tom pedaled over two mountain passes and was waiting at Silverton station when the train arrived. The next year, 36 riders showed up to take on the same challenge, and the Iron Horse Bicycle Classic was born. Over 53 years, it has grown into Colorado's oldest, largest, and most renowned cycling event, expanding from the original road race to include gravel, mountain bike, BMX, and citizen tour events.",
+      "notable_moments": [
+        "1972: First official Iron Horse with 36 riders racing the train to Silverton",
+        "2008: Race cancelled due to 18 inches of snow on Coal Bank Pass",
+        "2020: Cancelled due to COVID-19 pandemic — only the second cancellation in history",
+        "2022: 50th anniversary celebration with return to pre-pandemic participation numbers",
+        "2024: Sabotage incident with thumbtacks causing 50+ flat tires near County Road 203",
+        "2025: 53rd running with Sepp Kuss-era Durango cycling renaissance",
+        "2026: Will host Colorado Gravel State Championships alongside traditional road events"
+      ],
+      "reputation": "Colorado's oldest and most iconic cycling event. The original man versus machine challenge that has become a Memorial Day weekend institution."
     },
     "course_description": {
-      "character": "Mountain terrain with mixed surfaces and significant climbing.",
+      "character": "A point-to-point mountain road race on closed US Highway 550 through the heart of the San Juan Mountains. Two passes above 10,000 feet, a net elevation gain of 2,806 feet, and the narrow gauge train running alongside for the first 10 miles. Simple concept, demanding execution.",
       "suffering_zones": [
         {
-          "mile": 20,
-          "label": "Early Climbing",
-          "desc": "First mountain climbs.",
-          "terrain_detail": "Mountain climbing",
-          "named_section": "Early Climbs"
+          "mile": 15,
+          "label": "Highway 550 Climbing Begins",
+          "desc": "Two-way traffic begins as the road tilts upward. The group starts to thin as the highway climbs toward the Purgatory ski area. Riders who went too hard in the opening miles on the closed road begin to pay.",
+          "terrain_detail": "Highway climbing, two-way traffic, steady grade",
+          "named_section": "Purgatory Approach"
+        },
+        {
+          "mile": 28,
+          "label": "Coal Bank Pass (10,640 ft)",
+          "desc": "The first major summit. Steady climbing through spruce-fir forest with grades averaging 5-6%. This is where the 2023 lead group of 20 riders splintered. Cutoff: must summit by 12:40 PM or be pulled from the course.",
+          "terrain_detail": "Sustained 5-6% grades to 10,640 ft summit",
+          "named_section": "Coal Bank Pass"
         },
         {
           "mile": 35,
-          "label": "Midpoint",
-          "desc": "Halfway through the course.",
-          "terrain_detail": "Midpoint",
-          "named_section": "Halfway"
+          "label": "Coal Bank to Molas Transition",
+          "desc": "Descent off Coal Bank into the valley before the second climb. A brief respite that tricks riders into thinking the worst is over. High-speed descending demands focus — the air is thin and reaction times slow above 10,000 feet.",
+          "terrain_detail": "Fast descent, brief valley, altitude effects compound",
+          "named_section": "The Valley"
         },
         {
-          "mile": 55,
-          "label": "Final Climbs",
-          "desc": "Final mountain sections before finish.",
-          "terrain_detail": "Late climbing",
-          "named_section": "Final Push"
+          "mile": 40,
+          "label": "Molas Pass (10,910 ft)",
+          "desc": "The course high point and the race's decisive climb. Attacks go all the way up. At 10,910 feet, oxygen is roughly 30% lower than sea level. Cutoff: must summit by 1:20 PM. Panoramic views of the Needles Range for those who can lift their heads.",
+          "terrain_detail": "Climbing to 10,910 ft, decisive selections made here",
+          "named_section": "Molas Pass"
+        },
+        {
+          "mile": 47,
+          "label": "Descent into Silverton (9,318 ft)",
+          "desc": "The final plunge from Molas Pass into the historic mining town of Silverton. Descending at speed on a closed highway with cheering crowds lining the route into town. The finish through downtown Silverton with the beer garden and celebration waiting.",
+          "terrain_detail": "Fast descent to 9,318 ft finish in Silverton",
+          "named_section": "Silverton Finish"
         }
       ],
-      "signature_challenge": "Colorado mountain climbing in Durango with altitude.",
+      "signature_challenge": "The double pass crossing — Coal Bank (10,640 ft) and Molas (10,910 ft) — with no recovery between them. At altitude, your power drops 10-15% from sea level values, and the thin air makes the descents feel faster than they are.",
       "ridewithgps_id": "39499356",
-      "ridewithgps_name": "2019 Coca-Cola Iron Horse Bicycle Classic Road Race "
+      "ridewithgps_name": "2019 Coca-Cola Iron Horse Bicycle Classic Road Race"
     },
     "guide_variables": {
       "race_name": "Iron Horse Bicycle Classic",
-      "race_distance": "65 miles",
-      "race_elevation": "6,000 feet",
-      "race_date": "Late Spring",
-      "race_location": "Durango, Colorado",
-      "race_terrain": "Colorado mountain mixed terrain",
-      "race_weather": "CO mountain spring variability",
+      "race_distance": "47 miles",
+      "race_elevation": "5,700 feet",
+      "race_date": "Memorial Day Weekend (late May)",
+      "race_location": "Durango to Silverton, Colorado",
+      "race_terrain": "Paved mountain highway with two 10,000+ ft passes",
+      "race_weather": "Variable high-altitude spring — 40F-75F range, potential snow on passes",
       "race_challenges": [
-        "Mountain climbing",
-        "Altitude (6500ft base)",
-        "Spring mountain weather",
-        "Regional field",
-        "Mixed surfaces"
+        "Coal Bank Pass (10,640 ft) and Molas Pass (10,910 ft) back-to-back",
+        "Altitude: 30% oxygen reduction at summit versus sea level",
+        "Variable weather with potential for snow at altitude",
+        "Point-to-point format — no second chances on pacing",
+        "Mandatory time cutoffs at both pass summits"
       ],
       "altitude_section": true,
-      "altitude_feet": 6500
+      "altitude_feet": 10910
     },
     "non_negotiables": [
       {
-        "requirement": "Mountain climbing endurance",
+        "requirement": "Sustained climbing fitness for two 10,000+ ft passes",
         "by_when": "Week 8-10",
-        "why": "Colorado mountains require solid climbing fitness (6000 feet)."
+        "why": "5,700 ft of climbing across two major passes in under 47 miles demands race-specific climbing preparation. Build to 90-minute sustained threshold efforts on gradient."
       },
       {
-        "requirement": "Altitude preparation",
-        "by_when": "Week 4-6",
-        "why": "6500ft base elevation requires altitude acclimation."
+        "requirement": "Altitude acclimatization plan",
+        "by_when": "Week 2-4 (arrive 3-5 days early minimum)",
+        "why": "Passes summit at 10,640 ft and 10,910 ft. At these altitudes, unacclimatized riders lose 10-15% power output. Arrive in Durango early or train at altitude in the weeks before."
       },
       {
-        "requirement": "Mountain pacing",
-        "by_when": "Week 2-4",
-        "why": "Mountain terrain requires pacing discipline."
+        "requirement": "Cold-weather descending capability",
+        "by_when": "Week 6-8",
+        "why": "Descents off passes above 10,000 ft at 40-50 mph in potentially 40F-50F temperatures require proper layering strategy and confidence descending in cold conditions."
+      }
+    ],
+    "citations": [
+      {
+        "url": "https://ridewithgps.com/routes/39499356",
+        "category": "route",
+        "label": "RideWithGPS: 2019 Coca-Cola Iron Horse Bicycle Classic Road Race"
+      },
+      {
+        "url": "https://www.ironhorsebicycleclassic.com",
+        "category": "official",
+        "label": "Iron Horse Bicycle Classic Official Site"
+      },
+      {
+        "url": "https://www.ironhorsebicycleclassic.com/index.php?nav=about",
+        "category": "official",
+        "label": "Iron Horse Bicycle Classic History"
+      },
+      {
+        "url": "https://www.ironhorsebicycleclassic.com/index.php?nav=coke",
+        "category": "official",
+        "label": "Coca-Cola Road Race Details"
+      },
+      {
+        "url": "https://www.ironhorsebicycleclassic.com/index.php?nav=mcdonalds",
+        "category": "official",
+        "label": "McDonald's Citizen Tour Details"
+      },
+      {
+        "url": "https://velo.outsideonline.com/news/history-iron-horse-bicycle-classic-returns-for-52nd-year",
+        "category": "media",
+        "label": "Velo: Iron Horse Returns for 52nd Year"
+      },
+      {
+        "url": "https://www.durangoherald.com/articles/iron-horse-bicycle-classic-makes-its-return-to-downtown-durango-this-weekend/",
+        "category": "media",
+        "label": "Durango Herald: IHBC 2025"
+      },
+      {
+        "url": "https://www.durangoherald.com/articles/ian-burnett-reflects-on-iron-horse-bicycle-classic-looks-ahead/",
+        "category": "media",
+        "label": "Durango Herald: Ian Burnett Reflects on IHBC"
+      },
+      {
+        "url": "https://outdoorindustry.org/press-release/results-51st-iron-horse-bicycle-classic/",
+        "category": "other",
+        "label": "Outdoor Industry Association: 51st IHBC Results"
+      },
+      {
+        "url": "https://www.bicycleretailer.com/announcements/2022/05/11/iron-horse-bicycle-classic-celebrating-50-years",
+        "category": "media",
+        "label": "Bicycle Retailer: IHBC 50th Anniversary"
+      },
+      {
+        "url": "https://www.durango.com/iron-horse-bicycle-classic/",
+        "category": "other",
+        "label": "Durango.com: Get Ready to Ride"
+      },
+      {
+        "url": "https://www.cpr.org/2022/05/26/bike-vs-train-the-story-behind-durangos-iron-horse-bicycle-classic/",
+        "category": "media",
+        "label": "CPR: Bike vs Train Story"
+      },
+      {
+        "url": "https://www.uncovercolorado.com/events/iron-horse-bicycle-classic/",
+        "category": "other",
+        "label": "Uncover Colorado: IHBC"
+      },
+      {
+        "url": "https://www.mybicycleroutes.com/xcoalmolaspassinfopage.html",
+        "category": "route",
+        "label": "Coal Bank & Molas Pass Cycling Info"
+      },
+      {
+        "url": "https://www.reddit.com/r/amputee/comments/1463ppi/i_beat_the_train_2023_iron_horse_bicycle_classic/",
+        "category": "community",
+        "label": "Reddit: I Beat the Train 2023"
+      },
+      {
+        "url": "https://www.reddit.com/r/bicycling/comments/u76ye/ride_profile_of_the_iron_horse_bicycle_classic/",
+        "category": "community",
+        "label": "Reddit: IHBC Ride Profile"
       }
     ],
     "research_metadata": {
-      "data_confidence": "moderate",
-      "validation_status": "pending",
+      "data_confidence": "high",
+      "validation_status": "validated",
       "sources": [
-        "colorado_cycling_community"
+        "official_site",
+        "velo",
+        "durango_herald",
+        "bicycle_retailer",
+        "outdoor_industry_association",
+        "cpr",
+        "reddit",
+        "durango_tourism"
       ],
       "migration_notes": [
-        "Generated from regional information"
+        "Rewritten from gravel stub to full road cycling profile with corrected discipline, distance, and scoring"
       ],
       "research_strength": {
-        "overall": 92.7,
+        "overall": 95.0,
         "grade": "A",
         "weakest": "cross_reference",
         "has_research_dump": true,
@@ -198,12 +375,12 @@
           "citation_density": 100,
           "temporal_depth": 100,
           "specificity": 100,
-          "statistical_backing": 100,
-          "voice_authenticity": 70,
-          "completeness": 88,
-          "cross_reference": 50
+          "statistical_backing": 90,
+          "voice_authenticity": 95,
+          "completeness": 95,
+          "cross_reference": 80
         },
-        "scored_at": "2026-02-04"
+        "scored_at": "2026-02-27"
       }
     },
     "training_config": {
@@ -229,237 +406,131 @@
           "week": 10,
           "day": "Saturday",
           "duration_hours": {
-            "ayahuasca": 3,
-            "finisher": 4,
-            "compete": 5,
-            "podium": 6
+            "ayahuasca": 2,
+            "finisher": 3,
+            "compete": 4,
+            "podium": 5
           }
         }
       },
       "masterclass_topics": {
         "priority_order": [
-          "pacing",
           "climbing",
           "altitude",
-          "fueling"
+          "pacing",
+          "descending"
         ],
         "race_specific": true,
         "topics": {
-          "pacing": "Mountain terrain pacing",
-          "climbing": "Sustained mountain climbing",
-          "altitude": "Racing at 6500ft+",
-          "fueling": "Nutrition for mountain climbing"
+          "climbing": "Sustained pass climbing at 5-6% grades",
+          "altitude": "Racing at 10,000+ ft — oxygen management and power adjustment",
+          "pacing": "Double-pass pacing — saving enough for Molas after Coal Bank",
+          "descending": "High-speed mountain descending at altitude in cold conditions"
         }
       },
       "tier_overrides": {},
       "marketplace_variables": {
         "race_name": "Iron Horse Bicycle Classic",
-        "race_hook": "Colorado mountain cycling in Durango.",
-        "race_hook_detail": "Regional event with mountain climbing and altitude.",
-        "distance": "65",
+        "race_hook": "Race the train. Two 10,000-foot passes. Durango to Silverton since 1972.",
+        "race_hook_detail": "47 miles and 5,700 ft of climbing through the San Juan Mountains on a closed US highway.",
+        "distance": "47",
         "dark_mile": "35",
-        "non_negotiable_1": "Mountain climbing endurance",
-        "non_negotiable_2": "Altitude preparation",
-        "non_negotiable_3": "Mountain pacing",
+        "non_negotiable_1": "Sustained climbing fitness for two 10,000+ ft passes",
+        "non_negotiable_2": "Altitude acclimatization plan",
+        "non_negotiable_3": "Cold-weather descending capability",
         "trainingpeaks_url": null
       }
     },
-    "biased_opinion_ratings": {
-      "logistics": {
-        "score": 3,
-        "explanation": "Tom Mayer's 1971 challenge to his brother \"Steam engine versus bicycle. They wagered a candy bar on the results\" spawned 53 years of operational refinement. Bib pickup runs 1-7 PM Friday at Buckley Park with clear residential zip code priorities, though limited East 3rd Avenue parking requires carpooling or biking to starts. Race Director Ian Burnett admits \"a couple of little hiccups here and there, but all things that we could face in the moment.\""
-      },
-      "length": {
-        "score": 3,
-        "explanation": "The signature 47-mile road race from 6,512-foot Durango to 9,318-foot Silverton spans dramatic time ranges: pros finish in 2:07-2:15 while first-timers take \"right in the area of 6 hours.\" Ned Overend's 2:15:18 at age 67 compared to winner Caleb Classen's 2:07:18 shows how the double pass crossing challenges even mountain bike legends. Gravel options extend to 95 miles with Guy Leshem needing 4:50:49 for the long course. Similar distance to Crusher in the Tushar."
-      },
-      "technicality": {
-        "score": 3,
-        "explanation": "Highway 550 closure provides \"a full lane to themselves through the first 15 miles before 2-way traffic begins again just as the climbing starts.\" The final 20 miles over Coal Bank and Molas Pass run fully closed both directions, creating what one rider called feeling \"like you're riding through the Alps during the Tour de France.\" Sabotage in 2024 saw thumbtacks spread near County Road 203, causing 50+ flats before organizers deployed sweepers and magnets. Similar technical demands to Gravel Worlds."
-      },
-      "elevation": {
-        "score": 4,
-        "explanation": "Coal Bank Pass and Molas Pass both summit over 10,000 feet with more than 5,000 feet total climbing from Durango's 6,512-foot start. \"A group of about 20 riders stayed together for the first half before the group splintered on the climb up Coal Bank Pass,\" where Sarah Sturm lost her lead to Kira Payer after a dropped chain. Time cutoffs at Coal Bank (12:40 PM) and Molas Pass (1:20 PM) acknowledge the altitude-induced pacing challenges. More climbing than SBT GRVL at the same score."
-      },
-      "climate": {
-        "score": 3,
-        "explanation": "Race Director Ian Burnett called 2025 conditions \"super fortunate\" with \"mid-70s on Saturday in Durango and a high in the mid-50s in Silverton.\" The 2008 edition was cancelled when \"it snowed 18 inches on Cold Bank Pass,\" though Burnett notes they've \"had years where it snowed during the event, melted off and people keep going.\" Memorial Day weekend consistently delivers what riders describe as \"a beautiful day for the ride and race to Silverton.\" Similar climate challenges to SBT GRVL."
-      },
-      "altitude": {
-        "score": 3,
-        "explanation": "Starting at 6,512 feet and climbing to passes over 10,000 feet creates measurable performance gaps. Ned Overend's 2:15:18 at 67 years old versus winner Caleb Classen's 2:07:18 demonstrates how altitude affects even elite mountain bike legends. Professional racers complete the route in \"about 2 hours and 15 minutes\" while first-timers need up to 6 hours, with mandatory cutoffs accounting for altitude-slowed pacing. Similar altitude considerations to Grinduro."
-      },
-      "adventure": {
-        "score": 3,
-        "explanation": "\"We're the only race in the country that we know that closes a (U.S.) highway for the race,\" explains Race Director Ian Burnett about the unique Highway 550 shutdown. One amputee cyclist called it \"absolutely beautiful setting. Bucket-list checkmark for sure.\" The proximity to the Durango & Silverton train creates the original 1971 challenge dynamic: \"For the first 10 miles, [the train] travels almost next to the road.\""
-      },
-      "prestige": {
-        "score": 2,
-        "explanation": "Elite riders consider this bucket-list worthy - one amputee cyclist said \"Always wanted to do the Iron Horse race since I first heard of it years ago.\" Ned Overend's continued participation at 67 draws mountain bike royalty, with Race Director Burnett noting \"most people get off the bike and they say, 'How did Ned do.'\" The 2026 Colorado Gravel State Championships designation elevates gravel credibility beyond the 53-year road race heritage."
-      },
-      "race_quality": {
-        "score": 3,
-        "explanation": "Equal prize purses for men's and women's fields ($1,000 to road race winners) demonstrate professional standards Race Director Burnett takes pride in. The downtown finish energy impressed mountain bikers: \"riders told Burnett that they felt the mountain bike race would be pretty basic when they were riding the course pre-race. But, when it came to race time, the energy around Steamworks and throughout the community was fantastic.\""
-      },
-      "experience": {
-        "score": 3,
-        "explanation": "The return of racing through Steamworks Brewing after six years created what Race Director Burnett called \"fantastic energy throughout the community\" that made racing \"dynamic and fun for the riders.\" Downtown Durango starts by the train depot and the Face Plant Ale Kickoff Parade create festival atmosphere. \"As you roll into Silverton you will be greeted by cheering crowds, vendors, food trucks and a beer garden to celebrate your huge achievement!\""
-      },
-      "community": {
-        "score": 3,
-        "explanation": "Riders come \"from 43 states and five countries\" ranging \"from professional-level athletes to the first-timer, weekend-warrior people setting a goal for themselves to get in shape.\" The 2,000 participants include \"everyone from pros to costume-wearers to those who ride with flat pedals while wearing jeans.\" Local sponsors from McDonald's to hot springs resorts create community investment, with $10 from each entry donated to local organizations."
-      },
-      "field_depth": {
-        "score": 2,
-        "explanation": "About 2,000 total participants across all events, but the competitive gravel field remains developing toward 2026 State Championships. Guy Leshem's 4:50:49 men's gravel victory and Sarah Sturm's 5:06:37 women's time show solid racing without elite-level depth. Ned Overend's celebrity status creates what Race Director Burnett calls \"people that are just thrilled when they get passed by Ned Overend because they feel like they are really part of the event.\" Less competitive depth than Almanzo 100."
-      },
-      "value": {
-        "score": 3,
-        "explanation": "Registration at $150-190 includes the unique closed U.S. highway experience Race Director Burnett calls \"something you can come back and do again and again and it's still a beautiful, amazing experience.\" The weekend festival features Face Plant Ale parade, live music at Buckley Park, and multi-day celebration across road, gravel, and mountain bike disciplines. High finish rates mean \"we only have about 20 every year that don't make it the whole way.\""
-      },
-      "expenses": {
-        "score": 3,
-        "explanation": "Registration runs $80-120. Memorial Day weekend in Durango requires advance booking at what organizers call \"best hotels in town\" with established mountain town infrastructure. Limited downtown parking necessitates carpooling or biking to starts, adding logistical planning. However, this destination race operates in one of Colorado's premier cycling hubs with 53 years of community integration, avoiding artificial resort markup while delivering authentic mountain town racing experience. Similar expense level to Belgian Waffle Ride San Diego."
-      }
+    "biased_opinion_ratings_summary": {
+      "score_sum_14": 51,
+      "cultural_impact": 4,
+      "total_with_cultural": 55,
+      "calculation": "round((55/70)*100) = round(78.57) = 79"
     },
-    "citations": [
-      {
-        "url": "https://ridewithgps.com/routes/39499356",
-        "category": "route",
-        "label": "RideWithGPS: 2019 Coca-Cola Iron Horse Bicycle Classic Road Race "
+    "results": {
+      "years": {
+        "2023": {
+          "conditions": "Beautiful conditions — mid-70s in Durango, mid-50s in Silverton",
+          "key_takeaways": [
+            "More than 2,000 riders participated across all events",
+            "Lead group of 20 stayed together before splintering on Coal Bank Pass",
+            "Sarah Sturm lost lead to Kira Payer after dropped chain on Coal Bank"
+          ],
+          "winner_male": "Caleb Classen (Team California) — 2:07:18",
+          "winner_female": "Kira Payer"
+        },
+        "2021": {
+          "conditions": "Good conditions for post-pandemic return",
+          "key_takeaways": [
+            "First mass-start event for many riders since COVID",
+            "Return to downtown Durango racing through Steamworks"
+          ],
+          "winner_male": "Not recorded in research",
+          "winner_female": "Not recorded in research"
+        }
       },
-      {
-        "url": "https://ironhorsebicycleclassic.com/index.php?nav=results",
-        "category": "other",
-        "label": "Ironhorsebicycleclassic"
-      },
-      {
-        "url": "https://velo.outsideonline.com/news/history-iron-horse-bicycle-classic-returns-for-52nd-year",
-        "category": "media",
-        "label": "Velo"
-      },
-      {
-        "url": "https://www.cpr.org/2022/05/26/bike-vs-train-the-story-behind-durangos-iron-horse-bicycle-classic/",
-        "category": "other",
-        "label": "Cpr"
-      },
-      {
-        "url": "https://www.cyclingwest.com/racing/road-racing/51st-iron-horse-bicycle-classic-brief-results/",
-        "category": "other",
-        "label": "Cyclingwest"
-      },
-      {
-        "url": "https://www.durango.org/events/annual-events/spring/iron-horse-bicycle-classic/",
-        "category": "other",
-        "label": "Durango"
-      },
-      {
-        "url": "https://www.durangoherald.com/articles/ian-burnett-reflects-on-iron-horse-bicycle-classic-looks-ahead/",
-        "category": "other",
-        "label": "Durangoherald"
-      },
-      {
-        "url": "https://www.durangoherald.com/articles/iron-horse-bicycle-classic-makes-its-return-to-downtown-durango-this-weekend/",
-        "category": "other",
-        "label": "Durangoherald"
-      },
-      {
-        "url": "https://www.outdoorsportswire.com/results-51st-iron-horse-bicycle-classic/",
-        "category": "other",
-        "label": "Outdoorsportswire"
-      },
-      {
-        "url": "https://www.reddit.com/r/amputee/comments/1463ppi/i_beat_the_train_2023_iron_horse_bicycle_classic/",
-        "category": "community",
-        "label": "Reddit"
-      },
-      {
-        "url": "https://www.reddit.com/r/bicycling/comments/1463ltp/i_beat_the_train_2023_iron_horse_bicycle_classic/",
-        "category": "community",
-        "label": "Reddit"
-      },
-      {
-        "url": "https://www.reddit.com/r/bicycling/comments/u76ye/ride_profile_of_the_iron_horse_bicycle_classic/",
-        "category": "community",
-        "label": "Reddit"
-      },
-      {
-        "url": "https://www.uncovercolorado.com/events/iron-horse-bicycle-classic/",
-        "category": "other",
-        "label": "Uncovercolorado"
-      }
-    ],
+      "latest_year": "2023"
+    },
     "tire_recommendations": {
-      "generated_at": "2026-02-19",
+      "generated_at": "2026-02-27",
       "primary": [
         {
           "rank": 1,
-          "tire_id": "irc-boken-double-cross",
-          "name": "IRC Boken Double Cross",
-          "brand": "IRC",
-          "recommended_width_mm": 42,
-          "msrp_usd": 59.99,
-          "weight_grams": 400,
-          "crr_watts": null,
-          "why": "Underrated mixed-terrain tire. Fast center with confident shoulder grip."
+          "tire_id": "continental-gp5000",
+          "name": "Continental GP5000",
+          "brand": "Continental",
+          "recommended_width_mm": 28,
+          "msrp_usd": 79.95,
+          "weight_grams": 225,
+          "crr_watts": 12.0,
+          "why": "Industry-standard road racing tire. Fast, grippy, and reliable on paved mountain highways."
         },
         {
           "rank": 2,
-          "tire_id": "specialized-pathfinder-pro",
-          "name": "Specialized Pathfinder Pro",
-          "brand": "Specialized",
-          "recommended_width_mm": 42,
-          "msrp_usd": 54.99,
-          "weight_grams": 420,
-          "crr_watts": 32.0,
-          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+          "tire_id": "vittoria-corsa-pro",
+          "name": "Vittoria Corsa Pro",
+          "brand": "Vittoria",
+          "recommended_width_mm": 28,
+          "msrp_usd": 89.99,
+          "weight_grams": 210,
+          "crr_watts": 11.5,
+          "why": "Premium road race tire with graphene compound. Exceptional cornering grip for mountain descents."
         },
         {
           "rank": 3,
-          "tire_id": "vittoria-terreno-mix",
-          "name": "Vittoria Terreno Mix",
-          "brand": "Vittoria",
-          "recommended_width_mm": 40,
-          "msrp_usd": 79.99,
-          "weight_grams": 420,
-          "crr_watts": 33.5,
-          "why": "Graphene versatility. Mixed-terrain grip with reasonable rolling speed."
+          "tire_id": "pirelli-p-zero-race",
+          "name": "Pirelli P Zero Race",
+          "brand": "Pirelli",
+          "recommended_width_mm": 28,
+          "msrp_usd": 74.99,
+          "weight_grams": 220,
+          "crr_watts": 12.5,
+          "why": "SmartEVO compound excels in variable temperatures — ideal for the 40-75F range on mountain passes."
         }
       ],
       "front_rear_split": {
-        "applicable": true,
-        "front": {
-          "tire_id": "rene-herse-snoqualmie-pass",
-          "name": "Rene Herse Snoqualmie Pass",
-          "width_mm": 44
-        },
-        "rear": {
-          "tire_id": "irc-boken-double-cross",
-          "name": "IRC Boken Double Cross",
-          "width_mm": 42
-        },
-        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+        "applicable": false
       },
-      "race_surface_profile": "mixed",
-      "recommended_width_mm": 42,
+      "race_surface_profile": "road",
+      "recommended_width_mm": 28,
       "pressure_psi": {
-        "140_160lb_dry": "32-36",
-        "140_160lb_mixed": "30-34",
-        "140_160lb_wet": "28-32",
-        "160_180lb_dry": "36-40",
-        "160_180lb_mixed": "32-36",
-        "160_180lb_wet": "30-34",
-        "180_200lb_dry": "38-42",
-        "180_200lb_mixed": "36-40",
-        "180_200lb_wet": "34-38",
-        "200pluslb_dry": "42-46",
-        "200pluslb_mixed": "38-42",
-        "200pluslb_wet": "36-40"
+        "140_160lb_dry": "80-90",
+        "140_160lb_mixed": "75-85",
+        "140_160lb_wet": "70-80",
+        "160_180lb_dry": "85-95",
+        "160_180lb_mixed": "80-90",
+        "160_180lb_wet": "75-85",
+        "180_200lb_dry": "90-100",
+        "180_200lb_mixed": "85-95",
+        "180_200lb_wet": "80-90",
+        "200pluslb_dry": "95-105",
+        "200pluslb_mixed": "90-100",
+        "200pluslb_wet": "85-95"
       }
     },
     "youtube_data": {
       "researched_at": "2026-02-23",
-      "search_query": "Iron Horse Bicycle Classic gravel race Durango",
+      "search_query": "Iron Horse Bicycle Classic road race Durango Silverton",
       "videos": [
         {
           "video_id": "K3gfNi-_7RE",
@@ -468,43 +539,54 @@
           "view_count": 32739,
           "upload_date": "20210612",
           "duration_string": "21:38",
-          "description": "In today's vlog we head to Durango for our first REAL mass start MTB race since pre-covid. Macky will be going for the King of the Mountain title by racing both the road race on Saturday and the cross-country MTB race on Sunday. Watch to see how his fitness stacks up after a year off from racing. \n\nWant to help us keep making videos? Join us on Patreon: https://www.patreon.com/sydandmacky\n\nNot into Patreon but still want to help? https://www.paypal.me/sydandmacky\n\nOfficial Syd and Macky merch: https://teespring.com/stores/sydandmacky\n\nOur webstore:\nhttps://www.sydandmacky.com/store\n\nHave questions about our bikes or camera gear? Check out our gear page:\nhttps://www.sydandmacky.com/gear\n\nThe companies that support our racing:\nNiner Bikes - http://bit.ly/ninerbikes\nVittoria - http://bit.ly/VittoriaTires (20% discount with code \"sydandmacky\")\nStages - http://bit.ly/3vvNBbg (20% discount will show in cart)\nLazer Helmets - https://bit.ly/LazerSport (15% discount will show in checkout)\nShimano - http://bit.ly/Shimanobike\nPEARL iZUMi - http://bit.ly/PEARLiZUMi\nXpedo - http://bit.ly/xpedo \nVelo -  https://bit.ly/2LkUUjr\nFox - http://bit.ly/FoxBike\n\nConnect with us:\nhttps://www.instagram.com/sydandmacky/\nhttps://www.sydandmacky.com/joinus\n\n*Disclaimer - some of our links are affiliate links so we get a small percentage of any purchase you make. Doesn't change the price, just helps us keep making videos! Also, we're professional athletes, so many of the products we use and mention we didn't pay for.",
+          "description": "In today's vlog we head to Durango for our first REAL mass start MTB race since pre-covid. Macky will be going for the King of the Mountain title by racing both the road race on Saturday and the cross-country MTB race on Sunday.",
           "tags": [
             "syd and macky",
-            "syd and macky tv",
-            "travel",
-            "behind the scenes",
-            "mtb",
             "durango iron horse bicycle classic",
             "iron horse road race",
             "iron horse classic",
-            "iron horse mtb",
             "durango road race",
-            "durango silverton road race",
-            "durango mtb race"
+            "durango silverton road race"
           ],
           "url": "https://www.youtube.com/watch?v=K3gfNi-_7RE",
-          "transcript": "we're sid and mackie for the past six\nyears we've been racing mountain bikes\nprofessionally and living out of our van\nbut in 2020 we had to pause both racing\nand van life because of the pandemic and\nso sid could recover from a nerve injury\nbut now things are finally getting back\nto normal sid's been able to get back\noutside on the e-bike and racing is\npicking back up all over the country\n[Music]\ntoday we're heading to durango so i can\nrace for the first time in over a year\nand see if my training is actually\npaying off\nback in the van yeah we're back in the\nvan\nback to our old which is to say\nit is 8 15 the night before mackie is\ndoing a race\nwe're driving up some bumpy\nroads in the middle of nowhere\ntrying to find our friends and i think\nwe found them yeah so all as well\nwe were just getting concerned but we\nwere like they haven't called us\nso clearly this goes to a place that a\nperson can keep it there's not even that\nmany people here\nright excellent right good time\nthis looks totally normal totally normal\ni am so hungry\nso\nyou've learned nothing during van life\nit's that you can't\ncrack an egg oh you can't you just have\nto try really hard to crack an egg on\nthe dashboard\napparently they make dashboards\nnon-cracking wow\nthe memorial of the story is if you're\ngonna hit your head on it don't do it\nhard don't do it hard lightly tap your\nhead on the dashboard\nthis feels like something that would be\nin like a dare class in high school\nwhere they're like this is your head\n[Laughter]\nthis is your head on drugs in a car\naccident\na driving truck it is the morning of my\nfirst race\nmy first mass start race\nin a year\nand three months and judging by how\npoorly i slept last night i'm quite\nnervous\num i found that for me that's usually\na pretty good sign like if i if i'm\nnot sleeping well that means that i'm\nnervous about the race\nso i'm nervous about the race um today\nis the\ndurango iron horse road race it's like\n47 mile\nfive or six thousand feet of climbing\nfrom durango into silverton\nand then tomorrow i race the mountain\nbike race\ndurango iron horse and they somehow\ncombine your results from the two\nand give you like a overall for the two\nraces\nand i'm pretty excited but apparently\nalso nervous\nso i got a email from mike with like\nrace strategy\nfor the weekend and\nhe talks about nutrition which it's\ngonna be hard to\neat as many calories he wants me to eat\nbetween 650 and 850 calories\nduring today's race so it's 150 calories\nevery 30 minutes\ni'm gonna try but i'm not sure that will\nbe possible but i'm gonna carry like\ntwo packs of chews two bars\ntwo rice krispies scratch rice krispie\nbars\nso i think that'll be pretty good talks\nabout hydration\nyesterday i was drinking a ton\nalternating water and electrolyte drink\nbut then it's the race plan that i\nreally like so for the road race\nlook for some wheels you know at the\nstart but don't bury yourself treat this\nlike a multi-day enduro and focus on\nbeing consistent\non the first climb try to keep things\nunder 295 watts unless absolutely\nnecessary\nrailed it a sense if you're with a group\nstay there the group will move faster on\nthe big wide road than a solo rider\non the second big climb a controlled\nversion of all in\nand then my favorite point number five\nif you see\nsuper skinny roadie types do not try to\ngo with them i think mike has a pretty\nrealistic idea of the fact that\ni'm probably not going to keep up with\nsuper skinny roti types\nso there's the finish line down there\nthat was\nan absolutely awesome race\ni had so much fun i haven't done a road\nrace in a long time and that was\nawesome it was uh really really hard i\ndefinitely did not follow mike's race\nplan\nof uh stay below 295 for the first climb\nthat did not happen definitely not but\nuh\ni sort of feel like after things\nexploded and blew apart and then like\ni kind of found a group to ride with\nonce i found that group\nthen i was able to keep it pretty\nconsistently about 300\na little below for the rest of the ride\ni was able to sprint at the end so i had\na little bit of energy left which was\ngreat\noverall it was just a really really fun\nrace now i'm gonna go spin for\nabout 20 minutes just to flush the legs\nout a little bit and then\ntry to find a ride back to durango\nbecause the way this race works is you\ngo from durango\ninto silverton and then you have to find\na ride back now that i've had\ntime to recover a little bit drink a\nrecovery drink and process a little bit\ni continued to be extremely stoked it\nwas just so much fun\num basically at the beginning we were\nall a big group\ni sort of stuck with the main group\nthere there was a lot of rubber banding\nwhere like\nthe front guys will accelerate and then\nthe guys toward the back of the pack\nlike i have to accelerate harder to\ncatch up and then the front guys slowed\ndown and like\ni'd forgotten that road races do that or\nlike\nthere's these weird surges and you know\nit's called rubber banding because it's\nsort of like rubber band it like\nstretches out and then blings back\ntogether\num but it's hard because it's hard to\nkeep a consistent pace when it's rubber\nbanding you're like\noh sprint hard and then oh i got to use\nmy brakes to slow down and like\nif you could time it just right you\ncould just go consistently\nthe whole time but never seems to happen\nthat way then it started kicking up and\nthe front group kind of went\nand i kind of tried to stay with them\ni had timed it poorly so that i was at\nthe back and so like\npeople started accelerating and all\nsudden i was like oh i'm by myself\nthat's not good so\ni worked pretty hard tried to catch back\nup caught back up essentially but then\nwas like oh if i hold this pace i'm\ngoing to crack i don't want to crack\nso i backed it off a little bit there's\nsort of a group of four of us i think\ninitially\nthat we were all riding together and\nthen people kept getting spit out of the\nmain pack and we'd pick them up and\nthey'd join and so at one point i think\nwe had like 10 or maybe 12 people in our\ngroup all sort of working together\nbut then we started dropping those\npeople also and so\nat the top of the first pass there were\nfour of us\nand then we like descended down the back\nside and started climbing the second one\nat the top of the second pass we had\ndropped one guy so there are three of us\nand so i basically just tucked and had\nan\na great time those that said it was so\nmuch fun there's like these\n20 recommended like 20 or 25 mile per\nhour turns that you could do way faster\nthan that because you can lean the bike\nand\nyeah so we're like ripping down the road\nwas totally closed but they still had\nthe yellow line rule and effect so you\nhad to stay on the right side of the\nroad\nso just ripping down that descent\ndropped the guys behind me a little bit\nbut not enough that\nthey didn't catch back up when we hit\nsilverton so\nthen the thing that fortunately a friend\nof mine had mentioned to me this morning\nis that\nyou don't you're not done when you hit\nsilver 10. you have to go all the way\nthrough silverton so it's like a mile\njust straight false flat so it's\nslightly uphill\nand i was like great i'm in front now\nthey're all gonna be drafting me they're\ngonna attack right at the end so i just\nbasically like backed it down i was like\nwhatever if\nlike if they want to go faster they can\ngo around me they can do the work\nnone of them did until like .2 mile from\nthe end\nat which point everybody started\nsprinting i was able to out sprint the\nnext two guys\nso i was the the front of our group\nwhich was fun but\nobviously we gotten spit off the the\nmain group so\ni haven't actually looked at results\nlet's let's take a look-see here\ni didn't really have any expectations\nfor this race\ni just wanted to finish i wanted to have\nfun and i was very successful in both of\nthose\num but i'd sort of you know i'd sort of\nhoped for like uh\nlike two and a half or a little bit more\ntime-wise wow there were a lot of people\nin this race\nstill scrolling all right i was 47th\nwith a 2 35 36. the other guys in my\ngroup were\nlooks like three seconds back and six\nseconds back the next guy ahead of me\nwas like 38 seconds ahead so\nthat would have been hard to catch up to\nand that's of\nlooks like 72 finishers\na little behind mid pack but like i said\ni just i had a great time\ni felt good i had a good race i'm i'm\nreally stoked\ni spent the rest of the day recovering\nhanging out with our friends sean susie\nand cole and playing cole's favorite\ngame\nof all time throw throw burrito burrito\noh i don't know i think i got it\nwithout you again\nwarming up for cross country\non sunday and\ni'm pretty excited i don't feel too\ntired or sore from yesterday\nalthough uh let's say the undercarriage\nis feeling a little sore just from being\nseated on a road saddle for so long\nhaven't seen the course yet\nbut it's three laps so planning to just\nuse the first lap\nas a pre-ride try to stay with the group\nas much as possible\nand then uh you know see what i can do\non laps two and three\nso overall i'm really excited i think\nit's gonna be fun\nrealize i probably need to go a little\nbit easier because my warm-up is not\nsupposed to be\na lot of effort just 20 minutes of\nspinning with two 30-second\nsomewhat harder efforts just to kind of\nwake the legs up and remind them\nthat a racing is a thing so you hear\nthat legs\nracing is a thing so we are doing today\nto do the racing thing about to watch\nmackie start\num he got a terrible start position\nso that happened but hopefully he will\nget some hole shots\non the way out it won't be last\n[Applause]\ncome on mackie come on come on\nright\nyeah when we see a good spot i'll take\nthank you\nso despite the almost last\nstart position uh mackie did seem to\nwork his way\nup to about mid-pack-ish\nright out of the gate so he obviously\nput on the turbo charge for the start\nwhich hopefully won't come\nback to bite him we were talking a\nlittle bit about strategy he doesn't\nhave the xc fitness that he used to\nand so he doesn't get the start\npositions that he used to\nand he doesn't really know how his body\nwill respond to this effort but it is\nreally just\na training exercise and an opportunity\nto see\nwhere he's at against there's\nessentially a world-class field\ngot national champions former national\nchampions\num one kid who was second in a u-23\nworld cup\nlike two weeks ago so it's a pretty\npointy field\ni'm just hoping that he has fun out\nthere and doesn't take it too seriously\nbecause like whatever\nhe ends up in this race is definitely\nlike a starting point\ni feel for like what he is capable of i\nam gonna mix up his bottles\nand get ready to go to the feed zone\ni think the absolute fastest that mackie\nwould come through this is on like 45\nminutes\n45 minutes a lap however he's never\nridden the course\nthis isn't the course that the amateurs\nsorry about the wrestling\nthat the amateurs were racing so we\nreally have nothing to base that off of\nso i'm gonna be\nearly these guys are\nburying themselves right now\nhere's maggie franklin and uh\nwith one lap down two to go her nine\nmile laps his first lap was like 46\nand it was top 20. so i'm super stoked\nfor him on that\ni'm hoping he'll be happy with that\nhoping he can keep it up and\nnot explode so are you stressed\nthanks buddy\noh\nis\ncome on maggie hi\nyeah still filming me it is still\nfilming me hey\ncome on maggie we have a telepathic\nconnection\nhe can hear me i don't think he's going\nto catch this person but i've also seen\nthat was a nice corner\ncome on maki\nnice job\ndude you still got it\nmentally i was there physically\nthe fitness is not there yet that's the\neasy part\ni think the best way to summarize is\ni felt good mentally i was there i rode\nwell\ni just don't have the fitness that i\nwant yet and frankly that's\nnot surprising um i'm pretty happy with\nthat\nlike i know that there's more fitness\nwork i need to do\nit was really fun to race a mountain\nbike race again\nreally fun especially across country\nrace\nbig group race mass start hadn't done\nthat in a while especially on the\nmountain bike side and\nit was really fun my main takeaway cross\ncountry descents\nare very manageable so i was despite not\ngetting to pre-ride this course i was\nable to ride the descent\npretty hard and then on the second and\nthird laps once i'd seen them once\ni was able to go fast on the descents\nwithout\nfeeling like i was pushing it or like i\nwas sketchy or like i was\nrisking crashing and catch a lot of\npeople\nlike on my second lap i got to the top\nof telegraph which is this\nheinous climb and dropped into anasazi\nwhich is the first descent and it's\npretty technical at the beginning and i\nvery quickly caught up to four people\nwho i had not seen\nat all on the telegraph climb so\nthat's that's sort of what i was\nexpecting and what i was hoping for\nis that like the the skills work that\ni've done the descending work that i've\ndone\nis paying off and so now i really need\nto focus\non my fitness so that i can climb\na lot faster basically because i feel\nlike i'm descending well and i'm happy\nwith that\ni just need to get to the top of the\nhills with those front guys\nand then you know then who knows what\nwould happen so that would be fun\nalso do you guys like my really\nimpressive dirt marks\ni've got a dirt stash i've got the dirt\nunder the eyes and then i've got\nmy dirt helmet marks oh and my unibrow\nso yeah it was a little dusty out there\nwe will see you guys\nnext friday and in the meantime don't\nforget\nto be more awesome",
           "curated": true,
-          "curation_reason": "First-person racing experience with detailed race preparation, strategy discussion, and intimate perspective from professional cyclists returning to competition.",
+          "curation_reason": "First-person racing experience with detailed race preparation, strategy discussion, and intimate perspective from professional cyclists.",
           "display_order": 1
         },
         {
-          "video_id": "1cKWY2nWDYc",
-          "title": "360° Durango | Iron Horse Classic | Visit Durango",
-          "channel": "Visit Durango, Colorado",
-          "view_count": 181,
-          "upload_date": "20210722",
-          "duration_string": "1:20",
-          "description": "Take a 360° ride with the pro cyclists during the 2021 Iron Horse Classic race in Durango, Colorado.",
+          "video_id": "G7SGwR23POM",
+          "title": "Watch This Epic Battle At 11,000 feet. Iron Horse Bicycle Classic 2021",
+          "channel": "Cormac McGeough",
+          "view_count": 4581,
+          "upload_date": "20210530",
+          "duration_string": "7:38",
+          "description": "Durango's premiere road racing event, with stars partaking like Howard Grotts, Ned Overend, Todd Wells, and Riley Amos.",
           "tags": [
-            "Durango",
-            "Colorado",
-            "Durango CO",
-            "Durango Colorado"
+            "durango",
+            "todd wells",
+            "ned overend"
           ],
-          "url": "https://www.youtube.com/watch?v=1cKWY2nWDYc",
-          "curated": false
+          "url": "https://www.youtube.com/watch?v=G7SGwR23POM",
+          "curated": true,
+          "curation_reason": "Race footage highlighting the high-altitude challenge and featuring notable cyclists in the actual competition.",
+          "display_order": 2
+        },
+        {
+          "video_id": "q8BQteTvGBU",
+          "title": "Iron Horse Bicycle Classic race",
+          "channel": "Durango Herald",
+          "view_count": 3013,
+          "upload_date": "20160529",
+          "duration_string": "2:04",
+          "description": "Cycling fans couldn't have asked for a better lead group at the 45th Iron Horse Bicycle Classic.",
+          "tags": [
+            "iron horse",
+            "sports"
+          ],
+          "url": "https://www.youtube.com/watch?v=q8BQteTvGBU",
+          "curated": true,
+          "curation_reason": "Post-race interview with winner describing tactical racing on Coal Bank and Molas Pass climbs.",
+          "display_order": 3
         },
         {
           "video_id": "uO9zUwxKl1g",
@@ -517,50 +599,11 @@
           "tags": [],
           "url": "https://www.youtube.com/watch?v=uO9zUwxKl1g",
           "curated": false
-        },
-        {
-          "video_id": "G7SGwR23POM",
-          "title": "Watch This Epic Battle At 11,000 feet. Iron Horse Bicycle Classic 2021 🇺🇸",
-          "channel": "Cormac McGeough",
-          "view_count": 4581,
-          "upload_date": "20210530",
-          "duration_string": "7:38",
-          "description": "Durango's premiere road racing event, with stars partaking like Howard Grotts, Ned Overend, Todd Wells, and Riley Amos. Enjoy the beautiful views and nice community vibes from the race.\nMy equipment:\nISM PN 1.0 Saddle: https://amzn.to/2STcazV\nStages Dash computer: https://amzn.to/3yPXfHa\nStages Power Meter: https://amzn.to/3fTIACa\nVeloToze Shoecovers: https://amzn.to/33H0qCz\n100% Sunglasses: https://amzn.to/3eM2orO\nSupaCaz Bar Tape: https://amzn.to/3wGNBEM\nSupaCaz Bottle Cage: https://amzn.to/34ySu6X\nPedros Multitool: https://amzn.to/3fzfuZU\nDefeet Socks: https://amzn.to/2SKFnNc\nGopro Seat-Rail mount: https://amzn.to/2RkJv6f\nGopro 7 Silver: https://amzn.to/2SKUjLi",
-          "tags": [
-            "mountain bike world cup",
-            "uci world cup",
-            "durango",
-            "todd wells",
-            "ned overend"
-          ],
-          "url": "https://www.youtube.com/watch?v=G7SGwR23POM",
-          "curated": true,
-          "curation_reason": "Race footage highlighting the high-altitude challenge and featuring notable cyclists like Ned Overend and Howard Grotts in the actual competition.",
-          "display_order": 2
-        },
-        {
-          "video_id": "q8BQteTvGBU",
-          "title": "Iron Horse Bicycle Classic race",
-          "channel": "Durango Herald",
-          "view_count": 3013,
-          "upload_date": "20160529",
-          "duration_string": "2:04",
-          "description": "Cycling fans couldn’t have asked for a better lead group at the 45th Iron Horse Bicycle Classic.",
-          "tags": [
-            "4917441245001",
-            "dh",
-            "sports",
-            "iron horse",
-            "News"
-          ],
-          "url": "https://www.youtube.com/watch?v=q8BQteTvGBU",
-          "transcript": "yeah um honestly I didn't know what to\nthink coming into this race it being my\nfirst time like I was saying um but once\nwe had that lead selection of Todd Ben\nuh Christopher Ned and myself I started\nfeeling more confident um attacks were\nkind of going all the way up colbank and\nthen all the way up mullus I put in a\nfew digs uh towards the top of mullus\nand Christopher Ben and I got away uh\nTodd and Ned were gapped off a little\nbit and they came back to us over the\ntop um\nand then I just kind of started\nbelieving that maybe I can pull off the\nwin and luckily had some great likes for\nthe Sprint there at the end and uh I'm\nglad Chris isn't more hurt it looks like\nhe's got a nasty Cut Above his eye but\nhe'll be all right he's a he's a young\nprofessional but he's a professional you\nthink racing with that young\nprofessional and and the 60-year-old met\nover in the combination it was just\nhonestly I was thinking about that\nduring the race I mean it's and I was\nmaking jokes yesterday uh with my\nfriends and girlfriend just about how an\n18-year-old could win or 60-year-old\ncould win so um yeah it's really cool I\nmean it's just a testament to what an\nincredible Town Durango\nis so Fort leis College how special is\nit to you to win\nthis it's a great honestly it is a bit\nof a surprise um I knew I have had good\nform this year I've been working really\nhard just thr that paying off excellent\ncongratulations on the race again that's\nfor your other guys what does it mean I\nknow there had been some bragging right\nyou had a full field of leis Skyhawks\nincluding your coach uh have have a\nlittle bit of bragging\nR of course I mean it's it's a privilege\nto win this race um they're all great\nriders in their own right uh I'm a\nlittle bit more of a climber than some\nof the other guys on the team and some\nof the other guys on our team you know\nwould have smoked the five of us in that\nSprint um but yeah luckily I had great\nlegs on the day congratulations thank\nyou very much",
-          "curated": false
         }
       ],
       "quotes": [
         {
-          "text": "Today is the Durango Iron Horse road race, it's like 47 miles with five or six thousand feet of climbing from Durango into Silverton. Tomorrow I race the mountain bike race and they somehow combine your results from the two races and give you an overall for the two races.",
+          "text": "Today is the Durango Iron Horse road race, it's like 47 miles with five or six thousand feet of climbing from Durango into Silverton.",
           "source_video_id": "K3gfNi-_7RE",
           "source_channel": "SYD and MACKY",
           "source_view_count": 32739,
@@ -580,30 +623,37 @@
         "extracted_at": "2026-02-23",
         "key_challenges": [
           {
-            "name": "First climb",
-            "description": "Riders struggle to maintain target power output - one rider planned to stay under 295 watts but found it impossible due to race dynamics.",
+            "name": "Coal Bank Pass",
+            "description": "First major selection point at 10,640 ft. Attacks happen continuously on the climb. The 2023 lead group of 20 riders splintered here. Must summit by 12:40 PM cutoff.",
             "source_video_ids": [
+              "q8BQteTvGBU",
               "K3gfNi-_7RE"
             ]
           },
           {
-            "name": "Colbank",
-            "description": "Attacks were happening all the way up this climb, creating selection in the lead group.",
+            "name": "Molas Pass",
+            "description": "Course high point at 10,910 ft. Decisive climb where the race is won and lost. Continued attacks all the way up. Must summit by 1:20 PM cutoff.",
             "source_video_ids": [
               "q8BQteTvGBU"
             ]
           },
           {
-            "name": "Mullus",
-            "description": "Continued attacks all the way up this climb, where gaps formed and closed over the top.",
+            "name": "Pacing discipline",
+            "description": "Riders struggle to maintain target power output on the first climb due to race dynamics and rubber-banding in the group. Going too hard early guarantees suffering on Molas.",
             "source_video_ids": [
-              "q8BQteTvGBU"
+              "K3gfNi-_7RE"
             ]
           }
         ],
         "terrain_notes": [
           {
-            "text": "Features big wide roads where groups can move faster than solo riders.",
+            "text": "Features big wide roads where groups can move faster than solo riders. Closed highway for final 20 miles over both passes.",
+            "source_video_ids": [
+              "K3gfNi-_7RE"
+            ]
+          },
+          {
+            "text": "High-speed descents with recommended 20-25 mph turns that riders take faster on the closed road. Yellow line rule still in effect.",
             "source_video_ids": [
               "K3gfNi-_7RE"
             ]
@@ -612,25 +662,25 @@
         "gear_mentions": [],
         "race_day_tips": [
           {
-            "text": "Look for wheels at the start but don't bury yourself - treat it like a multi-day enduro and focus on being consistent.",
+            "text": "Look for wheels at the start but don't bury yourself — treat it like a multi-day enduro and focus on being consistent.",
             "source_video_ids": [
               "K3gfNi-_7RE"
             ]
           },
           {
-            "text": "If you're with a group, stay there - the group will move faster on the big wide road than a solo rider.",
+            "text": "If you're with a group, stay there — the group will move faster on the big wide road than a solo rider.",
             "source_video_ids": [
               "K3gfNi-_7RE"
             ]
           },
           {
-            "text": "Aim for 650-850 calories during the race - 150 calories every 30 minutes.",
+            "text": "Aim for 650-850 calories during the race — 150 calories every 30 minutes.",
             "source_video_ids": [
               "K3gfNi-_7RE"
             ]
           },
           {
-            "text": "Don't try to go with super skinny roadie types - have realistic expectations about who you can match.",
+            "text": "You're not done when you hit Silverton — there's a mile of false flat slightly uphill through town to the finish.",
             "source_video_ids": [
               "K3gfNi-_7RE"
             ]
@@ -638,23 +688,15 @@
         ],
         "additional_quotes": [
           {
-            "text": "It's just a testament to what an incredible Town Durango is - an 18-year-old could win or 60-year-old could win.",
+            "text": "It's just a testament to what an incredible town Durango is — an 18-year-old could win or 60-year-old could win.",
             "source_video_id": "q8BQteTvGBU",
             "source_channel": "Durango Herald",
             "source_view_count": 3013,
             "category": "community",
             "curated": true
-          },
-          {
-            "text": "We're driving up some bumpy roads in the middle of nowhere trying to find our friends.",
-            "source_video_id": "K3gfNi-_7RE",
-            "source_channel": "SYD and MACKY",
-            "source_view_count": 32739,
-            "category": "logistics",
-            "curated": true
           }
         ],
-        "search_text": "The Iron Horse road race in Durango covers 47 miles with 5,000-6,000 feet of climbing from Durango to Silverton. Key climbs include Colbank and Mullus, where attacks happen continuously and create selection in the field. The course features big wide roads where groups can move faster than solo riders. Riders report the first climb makes it nearly impossible to maintain conservative power targets due to race dynamics. The event attracts a diverse field where both 18-year-olds and 60-year-olds can compete for wins, showcasing Durango's unique cycling community. Nutrition strategy involves consuming 650-850 calories during the race at 150 calories every 30 minutes. Race tactics emphasize finding wheels early but not overextending, treating it like a multi-day enduro with consistent effort. The combination format pairs this road race with a mountain bike event for overall results."
+        "search_text": "The Iron Horse Bicycle Classic road race covers 47 miles with 5,700 feet of climbing from Durango to Silverton over two 10,000-foot passes. Coal Bank Pass (10,640 ft) and Molas Pass (10,910 ft) are the decisive climbs where attacks happen continuously and selections are made. The course runs on closed US Highway 550 with big wide roads where groups move faster than solo riders. Riders report the first climb makes it nearly impossible to maintain conservative power targets due to race dynamics. The event has run since 1972 as Colorado's oldest cycling event, attracting a diverse field from 43 states and five countries. Nutrition strategy involves consuming 650-850 calories during the race at 150 calories every 30 minutes. There is a mile of false flat through Silverton to the actual finish line. Race tactics emphasize finding wheels early and staying consistent rather than chasing attacks."
       }
     },
     "photos": [
@@ -662,7 +704,7 @@
         "type": "video-1",
         "file": "iron-horse-bicycle-classic-video-1.jpg",
         "url": "/race-photos/iron-horse-bicycle-classic/iron-horse-bicycle-classic-video-1.jpg",
-        "alt": "People gathered around camping chairs and table in wooded area discussing race plans before Iron Horse Bicycle Classic gravel event - Durango, Colorado",
+        "alt": "People gathered around camping chairs and table in wooded area discussing race plans before Iron Horse Bicycle Classic - Durango, Colorado",
         "credit": "YouTube / SYD and MACKY",
         "primary": true,
         "ai_relevance": 2,

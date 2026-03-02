@@ -1,0 +1,328 @@
+{
+  "race": {
+    "name": "Ride Across Wisconsin",
+    "slug": "ride-across-wisconsin",
+    "display_name": "RAW — Ride Across Wisconsin",
+    "tagline": "175 miles of paved Wisconsin backroads in a single day. Rolling farmland, river valleys, and the Chippewa Valley — the Wisconsin Bike Fed's flagship fundraiser and the state's defining one-day cycling event. ~1,000 riders, 11 years of tradition, and rest stops stocked with Midwestern hospitality every 20 miles.",
+    "vitals": {
+      "distance_mi": 175,
+      "elevation_ft": 6800,
+      "location": "Eau Claire, Wisconsin, USA",
+      "location_badge": "EAU CLAIRE, WI, USA",
+      "date": "Second Saturday of July annually",
+      "date_specific": "2026: July 11",
+      "terrain_types": [
+        "Paved country roads through western Wisconsin",
+        "Rolling farmland and river valleys",
+        "Quiet backroads through small towns in the Chippewa Valley"
+      ],
+      "field_size": "~1,000 riders (all distances combined)",
+      "start_time": "Morning rollout from Phoenix Park, Eau Claire (175-mile riders depart first)",
+      "registration": "Online via rideacrosswisconsin.com. Pay-per-mile pricing — $175 for the 175-mile option. Registration closes June 30. Special early-bird pay-per-mile week in early January.",
+      "prize_purse": "None. This is a fully supported charity ride, not a race.",
+      "aid_stations": "Rest stops approximately every 20 miles, fully stocked with food, hydration, and mechanical support. Bike Patrol and certified mechanics on course. SAG support for riders who miss cutoff times.",
+      "cutoff_time": "Rest stop cutoff times enforced — riders who miss cutoffs are sagged to the finish.",
+      "lat": 44.8113,
+      "lng": -91.4985,
+      "distance_options": [
+        "175-mile loop (the flagship ultra-distance challenge)",
+        "100-mile century loop",
+        "60-mile loop",
+        "10-mile Family Ride"
+      ],
+      "entry_fee": "~$175 (175-mile); ~$100 (century); ~$60 (60-mile). Pay-per-mile pricing structure."
+    },
+    "climate": {
+      "primary": "Mid-July Upper Midwest — warm, humid, with thunderstorm risk",
+      "description": "Mid-July in western Wisconsin delivers the full Midwestern summer experience. Daytime highs of 78-85F with moderate to high humidity, long daylight hours (sunrise before 5:30 AM, sunset after 8:45 PM), and generally sunny skies. However, the Upper Midwest summer is volatile — afternoon thunderstorms can build rapidly, and heat indices above 90F are common when humidity combines with summer temperatures. Morning starts are warm (60-68F) with dew on the roads. The Chippewa Valley's river corridors can channel both cooling breezes and headwinds. Wisconsin's July weather is rarely extreme but consistently humid, and 175 miles of sustained effort in 80F+ humidity is a different animal than 80F in dry Colorado air.",
+      "challenges": [
+        "Humidity: Wisconsin summers are humid — sweat doesn't evaporate efficiently, increasing heat stress over 175 miles",
+        "Afternoon thunderstorms: rapid-building convective storms are common in July, with lightning risk on exposed roads",
+        "Heat index: 80F with high humidity can feel like 90F+, making hydration and electrolyte management critical",
+        "Exposed roads: rolling farmland offers minimal shade for much of the route",
+        "Temperature swing: morning starts in the 60s can climb to mid-80s by afternoon"
+      ]
+    },
+    "terrain": {
+      "primary": "Paved country roads — flat to rolling",
+      "surface": "Paved roads exclusively for the 2026 edition. The route loops through Eau Claire, Buffalo, Dunn, and Trempealeau counties on quiet backroads. Rolling farmland with river valley descents and climbs — not flat, but nothing approaching mountain terrain. Approximately 6,800 feet of climbing over 175 miles, concentrated in the rolling hills of North Trempealeau County. Road quality is generally excellent — Wisconsin county roads are well-maintained and relatively smooth. The route passes through small towns, along river corridors, and across agricultural landscapes.",
+      "technical_rating": 1,
+      "features": [
+        "175-mile loop starting and finishing at Phoenix Park on the Eau Claire riverfront",
+        "Rolling terrain through the Chippewa Valley — not flat, but never steep",
+        "Approximately 6,800 ft of climbing spread across 175 miles of gentle rollers",
+        "Quiet paved backroads through Eau Claire, Buffalo, Dunn, and Trempealeau counties",
+        "River valley riding along the Chippewa and Buffalo rivers",
+        "Small-town passages through quintessential rural Wisconsin"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 51,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "logistics": 3,
+      "length": 4,
+      "technicality": 1,
+      "elevation": 2,
+      "climate": 2,
+      "altitude": 1,
+      "adventure": 3,
+      "prestige": 2,
+      "race_quality": 3,
+      "experience": 3,
+      "community": 4,
+      "field_depth": 1,
+      "value": 3,
+      "expenses": 2,
+      "cultural_impact": 2,
+      "tier_note": "Wisconsin's flagship one-day cycling event and the Bike Fed's largest annual fundraiser. Eleven years of tradition, ~1,000 riders, and 175 miles of rolling paved backroads through the Chippewa Valley. T3 at 51 reflects a well-organized regional charity ride that delivers a genuine endurance challenge and strong community atmosphere, but lacks the national prestige, competitive depth, or terrain difficulty to climb higher. The 2025 format change from point-to-point cross-state to loop-based is still finding its identity.",
+      "score_note": "Community=4 (~1,000 riders, strong Wisconsin cycling community, Bike Fed fundraiser, volunteer-driven). Length=4 (175 miles is a proper ultra-distance day). Logistics=3 (Eau Claire is accessible by car but the regional airport has limited flights). Adventure=3 (scenic Wisconsin countryside). Race_quality=3 (well-organized with rest stops every 20 mi, support, but not a race). Experience=3 (pleasant riding, community vibe). Value=3 ($1/mile is fair). Expenses=2 (Eau Claire is affordable but remote for non-Midwest riders). Prestige=2 (regional, 11 years). Technicality=1, field_depth=1, altitude=1 (paved, non-competitive, low elevation). Elevation=2, climate=2 (rolling, humid). Cultural_impact=2 (growing regional importance). Sum=34 + cultural_impact=2 = 36. Score = round(36/70 * 100) = 51.",
+      "editorial_tier": 3,
+      "editorial_tier_label": "TIER 3",
+      "business_tier": 3,
+      "business_tier_label": "TIER 3",
+      "display_tier": 3,
+      "display_tier_label": "TIER 3",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 3,
+        "explanation": "Eau Claire is a charming small city in western Wisconsin, but it is not a major travel hub. Chippewa Valley Regional Airport (EAU) offers limited commercial service — primarily connecting flights through Chicago O'Hare via United Express. Most riders will drive: Eau Claire is 90 minutes east of Minneapolis-St. Paul, 4.5 hours northwest of Chicago, and 3 hours northwest of Madison. The loop format starting and finishing at Phoenix Park simplifies logistics enormously compared to the old point-to-point La Crosse-to-Milwaukee route — no shuttles, no one-way car problem. The Wisconsin Bike Fed has been running this event for 11 years and the on-course support is solid: well-marked routes, rest stops every 20 miles, bike patrol, certified mechanics, SAG vehicles. Packet pickup and the start/finish at Phoenix Park are straightforward. The only real friction is getting to Eau Claire in the first place."
+      },
+      "length": {
+        "score": 4,
+        "explanation": "175 miles in a single day is a serious endurance effort by any standard. This is not a century — it is 75% longer than a century. Expect 9-14 hours of saddle time depending on pace. The rolling terrain adds to the physical demand — 6,800 feet of climbing is modest per mile but cumulative over 175 miles. The 100-mile and 60-mile options exist for riders who want the RAW experience without the ultra-distance commitment, but the 175-mile ride is the flagship and the reason RAW exists. You will need a fueling strategy, not just a water bottle."
+      },
+      "technicality": {
+        "score": 1,
+        "explanation": "Paved roads throughout. Zero technical demands. The route follows quiet Wisconsin county roads through farmland and small towns. If you can ride a road bike in a straight line and shift gears on gentle rollers, you have every technical skill required. The most complex navigation moment is following the route markers through small-town intersections. This is a pure fitness and endurance event."
+      },
+      "elevation": {
+        "score": 2,
+        "explanation": "Approximately 6,800 feet of climbing over 175 miles. The Chippewa Valley and North Trempealeau County deliver rolling terrain — short climbs and descents through river valleys and agricultural ridgelines. No individual climb is steep or sustained, but the constant undulation adds up. This is not flat-road cycling — Wisconsin's driftless area terrain creates relentless rollers that tax tired legs in the back half. But by any mountain-state standard, the elevation is modest. The challenge is the rollers at mile 140, not the gradient at mile 40."
+      },
+      "climate": {
+        "score": 2,
+        "explanation": "Mid-July in western Wisconsin means heat and humidity. Average highs of 80-85F sound manageable, but Wisconsin humidity turns 82F into a heat index of 90F+. You will be wet from sweat all day — it doesn't evaporate. Afternoon thunderstorms are a genuine risk: Midwestern convective storms build fast and hit hard, with lightning on exposed farmland roads. The long daylight hours help — sunrise before 5:30 AM gives organizers room for early starts. But 175 miles in humid 80F heat is a fundamentally different challenge than 175 miles in dry 80F heat. Plan for heat management, not just hydration."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "Eau Claire sits at roughly 850 feet above sea level. The route's highest points barely exceed 1,200 feet. Altitude is not a factor. Your lungs will not be the limiting factor — your legs, your hydration, and your tolerance for humidity will."
+      },
+      "adventure": {
+        "score": 3,
+        "explanation": "The Chippewa Valley is genuinely beautiful in midsummer — lush green farmland, winding river corridors, forested ridgelines, and quintessential small Wisconsin towns with white church steeples and Main Street diners. The route passes through Together Farms, Northwoods Brewpub, and Dells Mill. It is pleasant, pastoral, and distinctly Midwestern. It is not dramatic. You will not gasp at scenery. You will, however, find yourself smiling at the quiet beauty of backroad Wisconsin, the smoothness of the pavement, and the simplicity of 175 miles of countryside. The adventure is in the distance and the day — not the destination."
+      },
+      "prestige": {
+        "score": 2,
+        "explanation": "RAW is Wisconsin's defining cycling event and the Bike Fed's biggest fundraiser. Within Wisconsin and the Upper Midwest cycling community, it carries real weight — 'I rode RAW' means something. But nationally, RAW is not on the radar. Eleven years of history is respectable but young compared to STP (47 years), RAGBRAI (52 years), or Pan-Mass Challenge (44 years). The field of ~1,000 riders is healthy for a regional event but small by national standards. RAW is building its reputation — it is not yet established as a must-do."
+      },
+      "race_quality": {
+        "score": 3,
+        "explanation": "The Wisconsin Bike Fed has been refining RAW for 11 years and the execution is solid. Rest stops every 20 miles with food and hydration. Bike Patrol and certified mechanics on course. SAG support for riders who miss cutoffs. Well-marked routes. The start/finish at Phoenix Park in downtown Eau Claire is a good venue with riverfront access. The event benefits from Wheel & Sprocket providing ride support. But this is a charity ride, not a professional sporting event — the production quality reflects that. No timing chips, no results, no podium. The event is designed to be inclusive and supportive, not competitive and polished."
+      },
+      "experience": {
+        "score": 3,
+        "explanation": "Riding 175 miles through Wisconsin's Chippewa Valley in midsummer is a genuinely enjoyable experience. The backroads are quiet and smooth. The rest stops are stocked and staffed by enthusiastic volunteers. The small towns welcome you. The finish at Phoenix Park on the Eau Claire riverfront delivers a real sense of accomplishment. The experience is warm, friendly, and Midwestern in the best sense — not flashy, not dramatic, just good people riding bikes through beautiful countryside for a good cause. The 2025 shift to a loop format based in Eau Claire gives the event a home-base feel that the old point-to-point route lacked — you explore and return, rather than traverse and transfer."
+      },
+      "community": {
+        "score": 4,
+        "explanation": "RAW's community atmosphere is its strongest feature. The ~1,000 riders are predominantly Wisconsin and Upper Midwest cyclists — club riders, charity fundraisers, fitness enthusiasts, and cycling advocates who support the Bike Fed's mission. The volunteer force is large and enthusiastic. Rest stops feel like neighborhood block parties. The Family Ride option brings non-competitive cyclists and kids into the fold. The Bike Fed's advocacy mission gives riders a shared purpose beyond the miles — every dollar raised supports bike infrastructure, safety education, and cycling-friendly policy across Wisconsin. This is a community that rides together for a reason."
+      },
+      "field_depth": {
+        "score": 1,
+        "explanation": "Zero competitive depth. RAW is not a race. There is no timing, no categories, no podium, no results. The fastest riders will finish hours before the slowest. Neither will receive a ranking. If you want to race in Wisconsin, look elsewhere. RAW is about the ride, the cause, and the community — not competition."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "The pay-per-mile pricing (roughly $1/mile — $175 for 175 miles, $100 for 100 miles) is transparent and fair. For your registration fee you get fully supported riding with rest stops every 20 miles, on-course mechanical support, SAG service, bike patrol, and a start/finish venue at Phoenix Park. The fundraising option — raise $1,500 and receive complimentary registration, VIP accommodations, and a RAW jersey — adds value for charitable riders. The registration fee directly supports the Wisconsin Bike Fed's advocacy work, so your dollars serve double duty. Reasonable value for a well-organized charity ride."
+      },
+      "expenses": {
+        "score": 2,
+        "explanation": "Eau Claire itself is affordable — hotels run $100-160/night, restaurants are reasonably priced, and the cost of living is well below major cities. The expense challenge is getting there. Chippewa Valley Regional Airport has limited commercial service (United Express to Chicago O'Hare). Most out-of-state riders will fly into Minneapolis-St. Paul (MSP, 90 minutes away) and rent a car, or drive from Chicago (4.5 hours), Madison (3 hours), or Milwaukee (4.5 hours). Wisconsin and Upper Midwest residents have an easy drive; everyone else faces travel logistics. Budget $600-1,200 for a long weekend including travel, one-two nights lodging, registration, and meals."
+      }
+    },
+    "biased_opinion": {
+      "verdict": "The Heartland Haul",
+      "summary": "RAW is Wisconsin on two wheels. One hundred seventy-five miles of paved backroads through the Chippewa Valley — rolling farmland, river corridors, small towns with grain elevators and church steeples, and rest stops staffed by volunteers who genuinely want you to eat another cookie. The Wisconsin Bike Fed has been running this event for eleven years, and the experience is warm, well-organized, and distinctly Midwestern: no pretension, no flash, just good roads and good people. The 2025 pivot from a cross-state point-to-point to an Eau Claire-based loop simplifies logistics and gives the event a home base, though purists who loved the La Crosse-to-Milwaukee traverse may mourn the loss of the 'across' in Ride Across Wisconsin.\n\nThe challenge here is pure distance. 175 miles on paved roads in July humidity is a genuine endurance test — not because the terrain is hard (it isn't, really), but because mile 140 in 83-degree humidity with rollers is where your fueling plan either holds or collapses. The community carries you. The rest stops every 20 miles are lifelines. The cause — supporting bike infrastructure and safety education across Wisconsin — gives the miles meaning beyond personal achievement. RAW is not trying to be Unbound or RAGBRAI. It is trying to be the best one-day cycling event in Wisconsin, and it is succeeding.",
+      "strengths": [
+        "Community: ~1,000 riders united by the Bike Fed mission — rest stops feel like block parties, not gas stations",
+        "Distance: 175 miles is a legitimate ultra-endurance day that tests fitness, fueling, and mental toughness",
+        "Support: rest stops every 20 miles, bike patrol, certified mechanics, SAG service — you will not be left alone out there",
+        "Wisconsin backroads: smooth pavement, quiet country roads, rolling scenery through the Chippewa Valley"
+      ],
+      "weaknesses": [
+        "Not a race: zero competition, no timing, no podium. Competitive cyclists will be bored.",
+        "Humidity: mid-July Wisconsin humidity turns moderate heat into oppressive heat over 175 miles",
+        "Remote start: Eau Claire requires driving for most riders — the regional airport has minimal service",
+        "Identity in transition: the shift from cross-state epic to Eau Claire loop is still finding its narrative"
+      ],
+      "bottom_line": "The ride you do because 175 miles of Wisconsin backroads in July, with a thousand other riders and a cause worth supporting, is exactly the right way to spend a Saturday."
+    },
+    "final_verdict": {
+      "score": "51 / 100",
+      "one_liner": "175 miles of Wisconsin backroads. ~1,000 riders. The Bike Fed's flagship fundraiser and the state's defining one-day cycling event.",
+      "should_you_race": "Yes if you want a well-supported ultra-distance day on smooth Wisconsin backroads. Yes if supporting bike advocacy gives your miles purpose. Yes if you are a Wisconsin or Upper Midwest cyclist looking for the region's signature one-day ride. Skip if you need competition, technical terrain, mountain scenery, or a nationally prestigious event. Skip if July humidity is a dealbreaker.",
+      "alternatives": [
+        "RAGBRAI — the granddaddy of Midwestern charity rides, 7 days across Iowa, 10,000+ riders",
+        "Seattle to Portland — 206 miles city-to-city, 6,000+ riders, 47 years of PNW tradition",
+        "Pan-Mass Challenge — 192 miles across Massachusetts, cancer fundraiser, 6,000+ riders",
+        "Horribly Hilly Hundreds — Wisconsin's other signature ride, brutal climbing in the driftless area"
+      ],
+      "alternative_slugs": [
+        "ragbrai",
+        "seattle-to-portland",
+        "pan-mass-challenge"
+      ]
+    },
+    "logistics": {
+      "airport": "Chippewa Valley Regional Airport (EAU) in Eau Claire has limited commercial service — United Express connecting flights through Chicago O'Hare and seasonal Sun Country service. Most out-of-state riders should fly into Minneapolis-St. Paul International Airport (MSP), which is 90 minutes west of Eau Claire and has direct flights from every major US city. Alternatively, fly into Madison (Dane County Regional, MSN, 3 hours southeast) or Milwaukee (General Mitchell, MKE, 4.5 hours southeast).",
+      "lodging_strategy": "Book Eau Claire hotels early — the event recommends lodging partners and rooms fill quickly during RAW weekend. Hotels in downtown Eau Claire and along I-94 run $100-160/night. Campgrounds in the area are also an option. The loop format means you start and finish at Phoenix Park — no one-way logistics, no shuttle needed, your car stays where you left it. Arrive Friday for packet pickup, ride Saturday, recover Sunday. Eau Claire's downtown is walkable with restaurants, breweries, and the Eau Claire riverfront.",
+      "food": "Rest stops every 20 miles provide food, snacks, and hydration — fueled by volunteers and local sponsors. Together Farms, Northwoods Brewpub, and Dells Mill are notable stops on the route. Eau Claire's downtown dining scene includes craft breweries (The Brewing Projekt, Lazy Monk), farm-to-table restaurants, and classic Midwestern fare. Pre-ride carb loading at a local restaurant the night before is part of the tradition.",
+      "packet_pickup": "Event weekend at Phoenix Park in downtown Eau Claire. Check rideacrosswisconsin.com for specific times.",
+      "parking": "Phoenix Park and downtown Eau Claire parking areas. Arrive early for best spots. The loop format means your car will be waiting when you finish — a major logistical advantage over the old point-to-point route.",
+      "official_site": "https://www.rideacrosswisconsin.com"
+    },
+    "history": {
+      "founded": 2016,
+      "founder": "Wisconsin Bike Fed (Bicycle Federation of Wisconsin)",
+      "origin_story": "Ride Across Wisconsin was created by the Wisconsin Bike Fed — a 501(c)(3) nonprofit bicycle advocacy organization established in 1988 — as the organization's flagship fundraising event. The inaugural RAW in 2016 sent nearly 500 riders on a 175-mile one-day crossing from Dubuque, Iowa (across the Mississippi River) to Kenosha, Wisconsin on Lake Michigan. The concept was pure: ride across the entire state in a single day. For its first eight years, RAW maintained the cross-state point-to-point format, primarily using the La Crosse to Milwaukee corridor — a 235-mile route showcasing five state trails (La Crosse River, Elroy-Sparta, 400, Glacial Drumlin, and Hank Aaron). The event offered both mixed-surface and all-paved options. In 2024, the organizers revisited the La Crosse-to-Milwaukee route 'one last time' before pivoting to a new format. Starting in 2025, RAW shifted to a loop-based event centered on Eau Claire, offering 180-mile, 100-mile, 60-mile, and Family Ride options — the first time the event started and finished in the same location. The change was driven by a desire to showcase different parts of Wisconsin, give non-border communities the chance to host, provide more daylight for riders, and simplify logistics.",
+      "notable_moments": [
+        "2016: Inaugural RAW — nearly 500 riders cross Wisconsin from Dubuque to Kenosha, 175 miles in one day",
+        "2017: Route shifted to La Crosse to Milwaukee corridor, Team Trek-Segafredo pros rode with participants",
+        "2022: Route showcased Elroy-Sparta tunnels, Wisconsin Dells, Merrimac Ferry, and Trek World HQ",
+        "2023: New route options from La Crosse to Milwaukee with all-paved and mixed-surface choices",
+        "2024: Final La Crosse-to-Milwaukee edition — the last cross-state point-to-point RAW",
+        "2025: Format pivot to Eau Claire-based loop — 180-mile and 100-mile options, ~1,000 riders at Phoenix Park"
+      ],
+      "reputation": "Wisconsin's defining one-day cycling event and the Bike Fed's largest annual fundraiser. Well-regarded in the Upper Midwest cycling community as a challenging, well-supported, and mission-driven ride. Growing in recognition but still a regional event finding its identity after the 2025 format change."
+    },
+    "course_description": {
+      "character": "A 175-mile loop through western Wisconsin's Chippewa Valley, starting and finishing at Phoenix Park on the Eau Claire riverfront. The route heads south from Eau Claire into the rolling hills of North Trempealeau County before looping back through Eau Claire County. The terrain is classic driftless-area Wisconsin — not flat, not mountainous, but persistently rolling with short climbs and descents through river valleys, agricultural ridgelines, and forested corridors. Quiet county roads with minimal traffic. Small towns punctuate the route every 15-25 miles, each one a rest stop opportunity and a window into rural Wisconsin life. The river valleys of the Chippewa and Buffalo rivers provide scenic corridors of relief between the rolling farmland above. The character is pastoral, green, and honest — 175 miles of Wisconsin backroads that reward steady pacing and punish anyone who ignores the humidity.",
+      "suffering_zones": [
+        {
+          "mile": 0,
+          "label": "The Riverfront Rollout — Phoenix Park, Eau Claire",
+          "desc": "Rolling out from Phoenix Park on the Eau Claire riverfront with a thousand other riders in the warm July morning. Fresh legs, high energy, and the communal buzz of a charity ride start. The first miles follow the Chippewa River before heading south into the countryside. Enjoy this — you have 175 miles ahead of you. The humidity is already present at 7 AM.",
+          "terrain_detail": "Flat riverfront roads transitioning to rolling countryside, ~850 ft elevation",
+          "named_section": "The Eau Claire Exit"
+        },
+        {
+          "mile": 40,
+          "label": "The First Rest Stop Stretch — Into Dunn County",
+          "desc": "Two rest stops behind you, the initial excitement has settled into rhythm. The route winds through Dunn County farmland — rolling but manageable. The morning heat is building. Your fueling plan matters now. The volunteers at rest stop three will hand you food and encouragement in equal measure.",
+          "terrain_detail": "Rolling farmland, moderate grades, exposed to sun",
+          "named_section": "The Dunn County Rollers"
+        },
+        {
+          "mile": 80,
+          "label": "The Century Approach — Southern Loop",
+          "desc": "Deep into the southern loop through North Trempealeau County. This is the most rolling section of the course — river valley climbs and descents that individually are short but collectively drain your legs. The century riders have peeled off. It is now just you and the 175-mile riders. The afternoon heat is at its peak. The humidity is relentless. Rest stops are lifelines.",
+          "terrain_detail": "Rolling river valley terrain, short climbs and descents, ~1,200 ft high points",
+          "named_section": "The Trempealeau Rollers"
+        },
+        {
+          "mile": 120,
+          "label": "The Long Way Home — Miles 120-150",
+          "desc": "The deepest part of the ride. You have been riding for 7-10 hours. The route begins turning back toward Eau Claire but the miles still stretch ahead. This is where fueling failures manifest — bonking at mile 130 with 45 miles remaining is a special kind of suffering. The rollers have not stopped. The humidity has not relented. The rest stops are the only thing keeping you moving. Keep eating. Keep drinking. Keep pedaling.",
+          "terrain_detail": "Persistent rolling terrain, fatigue amplifies every grade",
+          "named_section": "The Grind Home"
+        },
+        {
+          "mile": 155,
+          "label": "The Final Push — Back to Eau Claire",
+          "desc": "The last 20 miles. The route flattens as you approach Eau Claire from the south, following river corridors back to the city. Tired legs on flat roads. The urban edge of Eau Claire appears. Phoenix Park is close. The emotional weight of 155 miles completed lifts you through the final stretch. The finish at the riverfront is a genuine celebration — you rode 175 miles through Wisconsin in a single day.",
+          "terrain_detail": "Flat to gently rolling, river valley approach to Eau Claire",
+          "named_section": "The Eau Claire Return"
+        }
+      ],
+      "signature_challenge": "The cumulative toll of 175 miles in Wisconsin humidity. No single feature defines this course — no monster climb, no technical descent, no gravel sector. The challenge is relentless rolling terrain plus Midwestern humidity plus ultra-distance fatigue. The rollers that felt easy at mile 20 feel like walls at mile 140. The humidity that felt manageable at 8 AM feels oppressive at 2 PM. And the distance — 175 miles is 175 miles regardless of terrain. Your fueling plan, your hydration strategy, and your pacing discipline will determine whether you finish strong or barely finish at all."
+    },
+    "guide_variables": {
+      "race_name": "Ride Across Wisconsin (RAW)",
+      "race_distance": "175 miles (loop)",
+      "race_elevation": "6,800 feet",
+      "race_date": "July",
+      "race_location": "Eau Claire, Wisconsin",
+      "race_terrain": "Paved country roads — flat to rolling",
+      "race_weather": "Mid-July Upper Midwest — 78-85F, high humidity, afternoon thunderstorm risk",
+      "race_challenges": [
+        "175-mile ultra-distance on a single day",
+        "Wisconsin summer humidity — sweat doesn't evaporate, heat stress accumulates",
+        "Persistent rolling terrain through the Chippewa Valley — cumulative fatigue from thousands of feet of small climbs",
+        "Afternoon thunderstorm risk with lightning on exposed farmland roads",
+        "Fueling and hydration management across 9-14 hours of riding",
+        "Limited shade on exposed county roads"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Ultra-distance fueling strategy — tested in training at 100+ miles",
+        "by_when": "Week 6",
+        "why": "175 miles requires 5,000-9,000 calories depending on pace and body weight. Rest stops every 20 miles provide food, but you need a systematic fueling plan — hourly calorie targets, electrolyte schedule, and tested foods that your gut tolerates at hour 10. Practice on rides of at least 100 miles. The humidity makes hydration even more critical — you are sweating constantly but the air is too saturated for evaporation. Carry electrolyte tabs. Know your sweat rate. Do not improvise nutrition at mile 80."
+      },
+      {
+        "requirement": "Minimum one 120+ mile training ride in similar conditions",
+        "by_when": "Week 5",
+        "why": "175 miles on rolling terrain in humidity demands distance-specific preparation. A 120-mile training ride teaches you what your body does past 7 hours — where the fatigue hits, where the nutrition gaps appear, and how your contact points (saddle, hands, feet) respond to extended time in the saddle. Do this ride in warm, humid conditions if possible. Wisconsin July humidity is a variable you cannot simulate indoors."
+      },
+      {
+        "requirement": "Heat acclimatization plan for humid conditions",
+        "by_when": "Week 4",
+        "why": "Riders from dry climates are particularly vulnerable to Wisconsin humidity. Your cooling system (sweating) works less efficiently when the air is already saturated with moisture. Acclimatize by training in heat and humidity — even 60-90 minutes of hot rides helps. Plan for worst-case: extra electrolyte tabs, ice in jersey pockets, pre-cooling strategy. Know the signs of heat exhaustion. The event has SAG support, but prevention is better than rescue."
+      }
+    ],
+    "citations": [
+      {
+        "url": "https://www.rideacrosswisconsin.com",
+        "title": "Ride Across Wisconsin — Official Website",
+        "category": "official"
+      },
+      {
+        "url": "https://www.rideacrosswisconsin.com/rideoverview",
+        "title": "Ride Overview — Ride Across Wisconsin",
+        "category": "official"
+      },
+      {
+        "url": "https://wisconsinbikefed.org/ride-across-wisconsin-raw/",
+        "title": "Ride Across Wisconsin (RAW) — Wisconsin Bike Fed",
+        "category": "official"
+      },
+      {
+        "url": "https://volumeone.org/photos/sets/2025/07/21/367363-photos-ride-across-wisconsin-2025-wisconsin-bike-fed",
+        "title": "1,000 Cyclists, One Day: 2025 Ride Across Wisconsin — Volume One",
+        "category": "media"
+      },
+      {
+        "url": "https://urbanmilwaukee.com/pressrelease/wisconsin-bike-feds-2024-ride-across-wisconsin-event-revisits-la-crosse-to-milwaukee-route-one-last-time/",
+        "title": "Wisconsin Bike Fed's 2024 RAW Revisits La Crosse to Milwaukee Route One Last Time — Urban Milwaukee",
+        "category": "media"
+      },
+      {
+        "url": "https://ridewithgps.com/routes/48839210",
+        "title": "2025 Ride Across Wisconsin — 180 MI Route — RideWithGPS",
+        "category": "route"
+      },
+      {
+        "url": "https://www.bikesignup.com/Race/WI/EauClaire/RideAcrossWisconsin",
+        "title": "Ride Across Wisconsin — BikeSignUp Registration",
+        "category": "registration"
+      },
+      {
+        "url": "https://paniaguaracing.wordpress.com/2016/09/05/event-report-ride-across-wisconsin-aug-27-2016/",
+        "title": "Event Report: Ride Across Wisconsin (Aug 27, 2016) — Bread And Water",
+        "category": "ride_report"
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "high",
+      "validation_status": "validated",
+      "research_strength": "A",
+      "sources_count": 8,
+      "last_updated": "2026-02-28"
+    }
+  }
+}

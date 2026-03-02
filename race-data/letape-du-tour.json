@@ -1,0 +1,283 @@
+{
+  "race": {
+    "name": "L'Etape du Tour",
+    "slug": "letape-du-tour",
+    "display_name": "L'Etape du Tour de France",
+    "tagline": "One stage. The real Tour de France route. 15,000 amateurs on closed roads, one week before the pros.",
+    "vitals": {
+      "distance_mi": 106,
+      "elevation_ft": 17700,
+      "location": "Route changes annually (2026: Bourg d'Oisans to Alpe d'Huez, French Alps)",
+      "location_badge": "FRENCH ALPS, FRANCE",
+      "date": "Mid-July annually (one week before Tour stage)",
+      "date_specific": "2026: July 19",
+      "terrain_types": [
+        "Paved Alpine roads",
+        "Tour de France mountain passes",
+        "Long sustained climbs",
+        "Technical high-speed descents"
+      ],
+      "field_size": "~15,000 entries (11,000-12,000 starters)",
+      "start_time": "Wave starts from 6:30 AM",
+      "registration": "Online via letapedutourdefrance.com. Opens November/December. Entry: EUR175. Sells out quickly.",
+      "prize_purse": "None (timed event, finisher medals and diplomas)",
+      "aid_stations": "Multiple official feed zones at col summits and valley points. Fully supported with nutrition, water, mechanical assistance.",
+      "cutoff_time": "Strict cutoffs at each col summit. Riders behind the broom wagon are pulled from the course.",
+      "lat": 45.052,
+      "lng": 6.033,
+      "distance_options": [
+        "L'Etape du Tour: 170 km (106 mi), 5,400 m gain — the full stage",
+        "Route changes annually to match the selected Tour de France stage"
+      ],
+      "entry_fee": "EUR175"
+    },
+    "climate": {
+      "primary": "Extreme Alpine temperature range",
+      "description": "Mid-July in the high Alps delivers scorching valley heat and near-freezing summit conditions in the same ride. The 2026 route crosses the Galibier at 2,642m where temperatures can drop below 5C even in July. Valley floors bake in 30-35C afternoon sun. The altitude swing from start to summit creates a 25-30 degree temperature delta.",
+      "challenges": [
+        "Galibier summit at 2,642m: near-freezing with severe wind chill",
+        "Valley heat: 30-35C (86-95F) in the Maurienne and Romanche valleys",
+        "Must carry warm layers for summits and strip down for valleys",
+        "Afternoon thunderstorms at altitude — lightning exposure above treeline"
+      ]
+    },
+    "terrain": {
+      "primary": "Paved Alpine mountain passes",
+      "surface": "Tour de France stage roads — well-maintained French departmental roads (D-roads). All tarmac. The route is professionally inspected and resurfaced ahead of the professional race.",
+      "technical_rating": 1,
+      "features": [
+        "Col de la Croix de Fer (2,067m) — 29 km ascent, relentless grinder through the Maurienne",
+        "Col du Telegraphe (1,566m) — 11.9 km at 7.1%, the warm-up for Galibier",
+        "Col du Galibier (2,642m) — the crux: sustained ramps of 10-15% in the final kilometers, barren moonscape above treeline",
+        "Col de Sarenne — quiet back-road descent bypassing main Alpe d'Huez approach",
+        "Alpe d'Huez (1,860m) — 13.8 km at 8.1%, 21 legendary hairpins to the finish"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 84,
+      "tier": 1,
+      "tier_label": "TIER 1",
+      "logistics": 3,
+      "length": 4,
+      "technicality": 1,
+      "elevation": 5,
+      "climate": 4,
+      "altitude": 5,
+      "adventure": 4,
+      "prestige": 5,
+      "race_quality": 5,
+      "experience": 5,
+      "community": 4,
+      "field_depth": 3,
+      "value": 3,
+      "expenses": 3,
+      "cultural_impact": 5,
+      "tier_note": "THE official Tour de France amateur event, run by ASO since 1993. Riders complete the actual Tour stage route one week before the pros, on fully closed roads. 34th edition in 2026.",
+      "score_note": "prestige=5 and cultural_impact=5: this IS the Tour de France brand — the single most recognized name in cycling. altitude=5 for Galibier at 2,642m. field_depth=3 reflects the mass-participation nature — 15,000 entries dilute competitive depth. value=3 at EUR175 — premium pricing justified by Tour de France access.",
+      "editorial_tier": 1,
+      "editorial_tier_label": "TIER 1",
+      "business_tier": 1,
+      "business_tier_label": "TIER 1",
+      "display_tier": 1,
+      "display_tier_label": "TIER 1",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 3,
+        "explanation": "ASO runs a tight operation — this is the same organization that produces the Tour de France. Wave starts manage 15,000 entries efficiently. Closed roads eliminate traffic stress. But the route changes every year, which means lodging, travel, and logistics planning starts from scratch each edition. The 2026 route finishes at Alpe d'Huez — a small Alpine resort that buckles under the weight of 15,000 riders and their families. Airports (Grenoble 1.5h, Lyon 2h, Geneva 3h) all require significant ground transfers."
+      },
+      "length": {
+        "score": 4,
+        "explanation": "170 km (106 miles) with 5,400m of climbing is a monster day by any standard. The 2026 route packs five major climbs — Croix de Fer, Telegraphe, Galibier, Sarenne, and Alpe d'Huez — into a single stage. Most riders finish in 8-13 hours. The cutoff pressure is real: fall behind the broom wagon and you're pulled off course. This is not a charity ride."
+      },
+      "technicality": {
+        "score": 1,
+        "explanation": "Perfectly paved Tour de France roads throughout. The technical demands are limited to high-speed Alpine descents where cold hands, fatigue, and 15,000 other riders create crash risk. The roads themselves are immaculate — inspected and resurfaced for the professional race. Bring a road bike. Leave the gravel bike at home."
+      },
+      "elevation": {
+        "score": 5,
+        "explanation": "5,400 meters of climbing in a single day. The 2026 route stacks five significant climbs — the Croix de Fer alone is 29 km. The Telegraphe-Galibier block adds another 2,000m. Then you finish on Alpe d'Huez when your legs are completely cooked. This is among the most vertical gain packed into any single-day cycling event on the planet."
+      },
+      "climate": {
+        "score": 4,
+        "explanation": "July in the high Alps is weather roulette. The Galibier summit at 2,642m can see temperatures approach freezing even in mid-July, while the valley floors hit 35C. You need clothing for a 30-degree temperature swing. Thunderstorms build from noon onward and the exposed summit of the Galibier offers no shelter from lightning. Rain on Alpine descents at 70 km/h with cold hands is genuinely dangerous."
+      },
+      "altitude": {
+        "score": 5,
+        "explanation": "The Galibier at 2,642m is one of the highest paved passes in the Alps. At that altitude, oxygen availability drops measurably — sea-level riders feel it acutely in the final 3-4 km below the summit. The Croix de Fer (2,067m) offers an earlier altitude taste. Combined with the enormous climbing volume, altitude is a genuine performance factor. Arrive early for acclimatization if you can."
+      },
+      "adventure": {
+        "score": 4,
+        "explanation": "Riding the exact same roads, on the exact same day's route, that the Tour de France peloton will race one week later — that is genuinely special. The Galibier's barren moonscape above treeline, the grandeur of the Maurienne Valley, and the 21 hairpins of Alpe d'Huez create a cinematic day. It's fully supported and organized, but the Alpine scale and physical commitment create real adventure."
+      },
+      "prestige": {
+        "score": 5,
+        "explanation": "This is the Tour de France. Not a ride inspired by the Tour, not a ride on Tour roads — this is ASO's official amateur Tour de France stage, run since 1993. You ride the actual stage route, on closed roads, one week before Pogacar and Vingegaard. There is no more prestigious name in cycling. Period. Finishing L'Etape — any edition — is a lifetime cycling credential."
+      },
+      "race_quality": {
+        "score": 5,
+        "explanation": "ASO is the gold standard in professional cycling event production. They bring Tour de France operational quality to L'Etape: fully closed roads, professional timing, medical teams, helicopter coverage, broom wagons, and feed zones that would shame most professional races. The wave-start system, while imperfect with 15,000 riders, is as good as mass-participation gets."
+      },
+      "experience": {
+        "score": 5,
+        "explanation": "The moment you ride through the Tour de France inflatable arch at the start and realize the roads are closed, the motorbikes are real, and you're riding the actual stage — that's when it hits. Cresting the Galibier and seeing the Tour banners. The 21 hairpins of Alpe d'Huez with fans lining every switchback. Crossing the finish line on the actual Tour stage finish. This is the single most iconic amateur cycling experience available."
+      },
+      "community": {
+        "score": 4,
+        "explanation": "Massively international field — riders from 70+ countries, drawn by the Tour de France brand. The shared suffering on the Galibier creates instant bonds between strangers. The event village buzzes with multiple languages and the universal language of cycling obsession. The scale (15,000 entries) makes it less intimate than smaller events, but the collective experience of surviving a Tour stage together is powerful."
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "The front of the race is fast — strong age-groupers from European cycling clubs push hard for top placings. But 15,000 entries means this is overwhelmingly a mass-participation event. The majority of the field is riding for the experience, not racing. Competitive depth is diluted by the sheer volume of bucket-list riders. If you want fierce age-group competition, look to smaller events."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "EUR175 is premium pricing for a sportive, but this is the Tour de France brand on fully closed roads with ASO production quality. You're paying for the name and the experience — and it delivers. But compared to La Marmotte (EUR110-130) or Maratona dles Dolomites (EUR180 for lottery-winning exclusivity), L'Etape's value proposition is less compelling on a pure cost basis."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Alpine France in July is peak-season pricing. The changing route means accommodation costs vary year to year — Alpe d'Huez (2026) is a ski resort that charges accordingly. Flights to Grenoble, Lyon, or Geneva plus ground transfers. Tour operator packages run EUR700-2,000+ for 3-5 nights including entry, accommodation, and transfers. Budget EUR1,200-2,500 from the US for a 4-5 day trip."
+      }
+    },
+    "biased_opinion": {
+      "verdict": "The Official Stage",
+      "summary": "L'Etape du Tour is not a ride inspired by the Tour de France. It IS the Tour de France — the amateur edition, run by ASO since 1993. You ride the actual stage route, on fully closed roads, one week before the professional peloton covers the same ground. The 2026 edition delivers a brutal day: Croix de Fer, Telegraphe, Galibier, and a finish on Alpe d'Huez's 21 hairpins. 5,400 meters of climbing. 170 km. And the knowledge that every switchback, every summit, every meter of road will be on television the following week.",
+      "strengths": [
+        "THE Tour de France brand: ASO-organized, closed roads, the actual stage route one week before the pros",
+        "Galibier at 2,642m: the highest and most iconic pass in the Tour's arsenal",
+        "Alpe d'Huez finish: 21 hairpins lined with fans — the ultimate cycling theatre",
+        "34 editions of operational excellence from the world's best event organizer"
+      ],
+      "weaknesses": [
+        "Route changes every year — logistics planning starts from scratch each edition",
+        "15,000 entries mean crowded roads, especially on descents and through feed zones",
+        "EUR175 is premium pricing that trades partly on brand prestige",
+        "Remote Alpine locations require significant travel from major airports"
+      ],
+      "bottom_line": "If you want to ride the Tour de France, this is it. Not an imitation — the real thing, in amateur form. The Galibier doesn't care about your FTP, and Alpe d'Huez doesn't care about your training plan. But crossing that finish line — on the actual Tour stage finish — is a moment that justifies every euro and every hour of suffering."
+    },
+    "final_verdict": {
+      "score": "84 / 100",
+      "one_liner": "The official Tour de France amateur stage. ASO-organized. Closed roads. The Galibier. Alpe d'Huez. 5,400m of climbing.",
+      "should_you_race": "Yes if you want the most prestigious name in cycling attached to your accomplishment. Yes if 5,400m of Alpine climbing and a finish on Alpe d'Huez is your bucket list. Skip if you want a fixed route to benchmark against year after year — L'Etape changes annually. Skip if you want intimate — 15,000 entries means crowds.",
+      "alternatives": "If you want the same Alpine challenge with a fixed route: La Marmotte. If you want Dolomites instead of French Alps: Maratona dles Dolomites. If you want a harder single day: Otztaler Radmarathon (227 km, 5,500m).",
+      "alternative_slugs": [
+        "la-marmotte",
+        "maratona-dles-dolomites",
+        "otztaler-radmarathon"
+      ]
+    },
+    "logistics": {
+      "airport": "Grenoble (GNB) — 1.5 hours (limited flights). Lyon (LYS) — 2 hours. Geneva (GVA) — 3 hours (most international connections).",
+      "lodging_strategy": "For the 2026 Alpe d'Huez finish: stay in Alpe d'Huez or Bourg d'Oisans. Book 6-12 months in advance — the entire Oisans valley sells out for L'Etape week. Tour operators (Sportive Breaks, Le Col, etc.) offer packages with guaranteed accommodation and transfers. Because the route changes annually, lodging strategy changes every year.",
+      "food": "French Alpine cuisine — fondue, tartiflette, raclette, and excellent local bakeries for carb loading. Feed zones are professionally stocked with gels, bars, bananas, cakes, cola, water. The post-ride finish area has food vendors.",
+      "packet_pickup": "Event village near the start, 1-2 days before. Expect significant queues with 15,000 entries. Arrive early.",
+      "parking": "Varies by route. Shuttle services typically organized from finish to start. For Alpe d'Huez: limited parking in the resort, shuttles to Bourg d'Oisans start.",
+      "official_site": "https://www.letapedutourdefrance.com/"
+    },
+    "history": {
+      "founded": 1993,
+      "founder": "ASO (Amaury Sport Organisation — Tour de France organizer)",
+      "origin_story": "Created by ASO in 1993 as the official amateur companion to the Tour de France. The concept was revolutionary: allow amateur riders to complete one actual mountain stage of that year's Tour, on closed roads, one week before the professional race. The idea caught fire immediately. By the 2000s, L'Etape was the most oversubscribed amateur cycling event in France, with entries selling out in hours. The Tour de France brand — the most powerful in cycling — gives L'Etape a prestige no other sportive can match.",
+      "notable_moments": [
+        "1993: Inaugural edition — ASO creates the official amateur Tour de France stage",
+        "Route changes annually to match a selected Tour mountain stage",
+        "Field grew from thousands to 15,000 entries, selling out within hours",
+        "2026: 34th edition — Bourg d'Oisans to Alpe d'Huez via Croix de Fer and Galibier",
+        "International expansion: L'Etape brand now hosts satellite events worldwide"
+      ],
+      "reputation": "The Tour de France, amateur edition. No other name in cycling carries more weight. Finishing any edition of L'Etape is a permanent credential in the cycling world."
+    },
+    "course_description": {
+      "character": "Pure Alpine mountain warfare on the world's most famous cycling roads. The 2026 route is a five-climb monster: Croix de Fer opens the day with 29 km of climbing, Telegraphe and Galibier form the iconic block at mid-course, and Alpe d'Huez finishes the job when you have nothing left. The roads are immaculate — inspected and resurfaced for the professional Tour. The scenery is staggering. The suffering is real.",
+      "suffering_zones": [
+        {
+          "mile": 0,
+          "label": "Col de la Croix de Fer",
+          "desc": "29 km from the valley floor to 2,067m. A long, grinding opener that chews through freshness. Gradients are manageable (6-7% average) but relentless. The upper section emerges above treeline into exposed Alpine terrain. Sets the tone: this is going to be a very long day.",
+          "terrain_detail": "2,067m summit, 29 km ascent",
+          "named_section": "Col de la Croix de Fer"
+        },
+        {
+          "mile": 55,
+          "label": "Telegraphe-Galibier Block",
+          "desc": "The Telegraphe (11.9 km at 7.1%) is the warm-up. The Galibier — 2,642m, the highest point of the day — is the crux. Final kilometers ramp to 10-15%, above treeline, exposed to wind, cold, and thin air. This is where the Tour de France is decided, and where L'Etape is survived.",
+          "terrain_detail": "Combined 35 km and 2,000m+ of climbing, Galibier summit 2,642m",
+          "named_section": "Col du Telegraphe + Col du Galibier"
+        },
+        {
+          "mile": 95,
+          "label": "Alpe d'Huez",
+          "desc": "13.8 km at 8.1% average, 13% maximum. 21 numbered hairpins. After 150+ km and 4,300m of climbing, you arrive at the base of cycling's most famous climb. Fans line every switchback. The finish line is the actual Tour de France stage finish. If you have anything left, this is where you spend it.",
+          "terrain_detail": "13.8 km, 1,100m gain, 21 hairpins",
+          "named_section": "Alpe d'Huez"
+        }
+      ],
+      "signature_challenge": "The Galibier at 2,642m — one of the highest paved passes in the Alps, the single most iconic climb in Tour de France history, and the crux of the 2026 L'Etape. But the real challenge is the accumulation: five climbs, 5,400m of vertical, and a finish on Alpe d'Huez's 21 hairpins when your body is completely spent."
+    },
+    "guide_variables": {
+      "race_name": "L'Etape du Tour de France",
+      "race_distance": "106 miles",
+      "race_elevation": "17,700 feet",
+      "race_date": "July",
+      "race_location": "French Alps (route changes annually)",
+      "race_terrain": "Paved Alpine mountain passes — Tour de France stage roads",
+      "race_weather": "Extreme range: near-freezing at Galibier (2,642m) to 30-35C in valley heat",
+      "race_challenges": [
+        "5,400m of climbing across 5 major climbs in a single day",
+        "Galibier summit at 2,642m — reduced oxygen and severe weather exposure",
+        "Temperature swings of 25-30 degrees from summit to valley",
+        "Strict cutoff times — broom wagon enforced throughout the course"
+      ],
+      "altitude_section": true,
+      "altitude_feet": 8668
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Sustained climbing endurance — multiple 90+ minute climbs in a single ride",
+        "by_when": "Week 6",
+        "why": "L'Etape 2026 packs five major climbs into 170 km. You need to climb for 6-10 hours total. Train with back-to-back long climbs to simulate the accumulated fatigue."
+      },
+      {
+        "requirement": "Altitude preparation above 2,000m",
+        "by_when": "Week 8",
+        "why": "The Galibier summit (2,642m) causes measurable performance reduction for sea-level riders. Arrive early for acclimatization or train with altitude simulation. The final kilometers to the summit at reduced oxygen feel dramatically harder."
+      },
+      {
+        "requirement": "Nutrition strategy tested over 6+ hours of climbing",
+        "by_when": "Week 9",
+        "why": "Burning 5,000-8,000 calories in a single day while climbing requires a fueling plan that works at race intensity. Practice eating and drinking on steep gradients. A bonk on the Galibier with Alpe d'Huez still ahead is race-ending."
+      }
+    ],
+    "citations": [
+      {
+        "url": "https://www.letapedutourdefrance.com/",
+        "title": "L'Etape du Tour de France — Official Site",
+        "category": "official"
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/L%27%C3%89tape_du_Tour",
+        "title": "L'Etape du Tour — Wikipedia",
+        "category": "reference"
+      },
+      {
+        "url": "https://sportivebreaks.com/sportives/letape-du-tour/",
+        "title": "L'Etape du Tour — Sportive Breaks",
+        "category": "review"
+      },
+      {
+        "url": "https://www.cyclingweekly.com/group-tests/letape-du-tour-guide",
+        "title": "L'Etape du Tour — Complete Guide — Cycling Weekly",
+        "category": "review"
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "high",
+      "validation_status": "validated",
+      "research_strength": "A",
+      "sources_count": 4,
+      "last_updated": "2026-02-27"
+    }
+  }
+}

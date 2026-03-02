@@ -83,13 +83,13 @@ class TestFontFaceCSS:
         assert "/fonts//" not in css
         assert "/fonts/SometypeMono" in css
 
-    def test_eight_font_faces(self):
+    def test_four_font_faces(self):
         css = get_font_face_css()
-        assert css.count("@font-face") == 8
+        assert css.count("@font-face") == 4
 
     def test_font_display_swap(self):
         css = get_font_face_css()
-        assert css.count("font-display: swap") == 8
+        assert css.count("font-display: swap") == 4
 
     def test_all_font_files_referenced(self):
         css = get_font_face_css()
@@ -147,7 +147,7 @@ class TestConstants:
         assert not SITE_BASE_URL.endswith("/")
 
     def test_font_files_count(self):
-        assert len(FONT_FILES) == 8
+        assert len(FONT_FILES) == 4
 
     def test_font_files_woff2(self):
         for f in FONT_FILES:

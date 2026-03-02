@@ -1,0 +1,403 @@
+{
+  "race": {
+    "name": "Paris-Brest-Paris",
+    "slug": "paris-brest-paris",
+    "display_name": "Paris-Brest-Paris Randonneur",
+    "tagline": "1,200km from Paris to the Atlantic and back. The oldest cycling event on earth (1891). 90 hours. No rankings. Just you, the road, and 130 years of history.",
+    "vitals": {
+      "distance_mi": 757,
+      "elevation_ft": 38550,
+      "location": "Rambouillet to Brest and back, France",
+      "location_badge": "RAMBOUILLET, FRANCE",
+      "county": "Yvelines / Brittany",
+      "date": "August, quadrennial (every 4 years)",
+      "date_specific": "2027: August 22-26",
+      "terrain_types": [
+        "Paved French departmental roads",
+        "Rolling Breton hills",
+        "French countryside backroads",
+        "Urban sections through control towns"
+      ],
+      "field_size": "~6,500-8,000 qualified riders from 67+ countries",
+      "start_time": "Multiple waves: 80h group from 4:00 PM Sunday, 90h group from 5:45 PM Sunday, 84h group from 5:00 AM Monday",
+      "registration": "Requires Super Randonneur qualification (200/300/400/600km brevets). Pre-registration opens January 2027 based on 2026 BRM completion. Limited to 8,000 riders. Cost: EUR190 (2023 price).",
+      "prize_purse": "None. Non-competitive randonnee. Finishers receive medal and name in the Great Book.",
+      "aid_stations": "16-18 staffed controls with food, water, and rest areas. Sleep facilities (cots) available at major controls for additional fee. Self-sufficient between controls.",
+      "cutoff_time": "90 hours (primary). Also 84-hour and 80-hour options for faster riders.",
+      "lat": 48.6433,
+      "lng": 1.8308,
+      "entry_fee": "EUR190 (2023 price; 2027 TBD)"
+    },
+    "climate": {
+      "primary": "Late French summer — warm days, cool Breton nights",
+      "description": "Late August in France ranges from pleasant to punishing. The 2023 edition coincided with the Cerberus heatwave, pushing temperatures above 30C (86F) and causing significant attrition. Brittany is cooler and wetter than the Paris basin. Night riding (inevitable across 3-4 days) brings temperatures down to 10-15C (50-59F). Rain in Brittany is always possible. Riders experience the full spectrum across 90 hours — scorching afternoon heat, chilling pre-dawn cold, potential coastal wind, and Breton drizzle.",
+      "challenges": [
+        "Heat possible in August — 2023 Cerberus heatwave exceeded 30C and caused widespread suffering",
+        "Night riding at 3-4 AM in 10-15C temperatures after riding all day in 25-30C",
+        "Brittany rain and coastal winds on the western half of the route",
+        "Sleep deprivation amplifies perceived cold and reduces thermoregulation",
+        "3-4 day exposure means weather can shift dramatically mid-event"
+      ]
+    },
+    "terrain": {
+      "primary": "Paved French roads through rolling countryside",
+      "surface": "100% paved roads. French departmental roads (D-roads) of varying quality — mostly good tarmac with some rougher sections. No gravel or unpaved surfaces. The route crosses the Ile-de-France basin, Normandy hills, and the rolling Breton interior.",
+      "technical_rating": 1,
+      "features": [
+        "Relentless rolling hills through Brittany — no single major climb but constant undulation",
+        "11,750m (38,550 ft) of cumulative elevation across 1,219 km — death by a thousand small climbs",
+        "Night riding through unlit French countryside for 2-3 nights",
+        "Control towns every 50-80 km provide structure",
+        "The turnaround at Brest — Atlantic coast, halfway point, psychological milestone"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 86,
+      "tier": 1,
+      "tier_label": "TIER 1",
+      "logistics": 4,
+      "length": 5,
+      "technicality": 1,
+      "elevation": 3,
+      "climate": 3,
+      "altitude": 1,
+      "adventure": 5,
+      "prestige": 5,
+      "race_quality": 5,
+      "experience": 5,
+      "community": 5,
+      "field_depth": 5,
+      "value": 5,
+      "expenses": 3,
+      "cultural_impact": 5,
+      "tier_note": "The oldest cycling event in the world (1891). Precursor to the Tour de France. The randonneuring equivalent of the Olympics. Prestige=5 + score>=75 triggers automatic Tier 1 override.",
+      "score_note": "Sum of 14 criteria = 55. cultural_impact=5. (55+5)/70*100 = 85.71 -> 86. Prestige=5 with score>=75 -> T1 override. technicality=1 (all paved roads), altitude=1 (max ~380m), but length=5 (1,219km is extraordinary), prestige=5 (cannot be higher — the original endurance cycling event), value=5 (EUR190 for a 4-day, 1,200km organized event is remarkable).",
+      "editorial_tier": 1,
+      "editorial_tier_label": "TIER 1",
+      "business_tier": 1,
+      "business_tier_label": "TIER 1",
+      "display_tier": 1,
+      "display_tier_label": "TIER 1",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 4,
+        "explanation": "The qualification pathway alone is a multi-year commitment. You need to complete a Super Randonneur series — 200, 300, 400, and 600 km brevets — in the year of PBP, plus a BRM in the prior year for priority registration. Then there's getting to France, navigating the Rambouillet start, and managing 16+ controls across 90 hours. Phil Neff describes the start scene: 'I'm waiting amongst thousands of anxious cyclists on the grounds of the sumptuous Rambouillet Estate. More than two years of training have led up to this August evening.' The Audax Club Parisien has 130+ years of practice running this, and the infrastructure is impressive — but PBP logistics are a personal challenge as much as an organizational one."
+      },
+      "length": {
+        "score": 5,
+        "explanation": "1,219 kilometers. 757 miles. To Brest and back. That number sits in a category almost nobody else occupies. Derek Minner frames it simply: 'the 762 mile out-and-back journey across France.' The 90-hour time limit means riders must average at least 13.6 km/h including all stops, sleep, and control time. Most riders need 10+ hours of sleep across three nights. The 2023 average finish time was 75:23:45 — meaning the typical finisher used 83% of their available time. This is not a race of speed. It is a race of attrition, sleep management, and the willingness to keep pedaling when every cell in your body says stop."
+      },
+      "technicality": {
+        "score": 1,
+        "explanation": "PBP is ridden entirely on paved roads. Standard road bikes dominate. There is no off-road, no cobbles, no technical challenge in the traditional sense. The difficulty comes from riding those perfectly smooth roads for 90 hours straight, navigating at 3 AM on zero sleep, and managing nutrition across 1,200 km. Any competent road cyclist can handle the surface. What they cannot handle is doing it for four days without adequate rest."
+      },
+      "elevation": {
+        "score": 3,
+        "explanation": "The official 2023 route featured 11,750 meters of climbing — roughly 38,550 feet — across 1,219 km. No single climb is dramatic. The Breton interior is a series of relentless rolling hills, rarely exceeding 200m of elevation change. But 11,750m of cumulative gain spread across 757 miles is death by a thousand cuts. Fresh legs handle each roller easily. After 800 km and two nights without proper sleep, a 3% grade feels like the Galibier. The terrain is sneaky, not spectacular."
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "Late August in France is usually pleasant for cycling — warm but manageable. The 2023 edition proved the exception: the Cerberus heatwave pushed temperatures above 30C and caused widespread suffering among riders unaccustomed to sustained heat. Brittany brings its own challenges — cooler temperatures, potential rain, and coastal wind. But the real climate challenge is exposure duration: riding through 3 AM cold after a 30C afternoon, then back into heat the next day. The body's thermoregulation breaks down after 48+ hours of exertion."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "The highest point on the PBP route barely exceeds 380 meters above sea level. There are zero altitude concerns. The Breton hills are rolling countryside, not mountains. No rider has ever suffered altitude-related issues at PBP. The challenge is horizontal, not vertical."
+      },
+      "adventure": {
+        "score": 5,
+        "explanation": "PBP is one of cycling's great adventures — not because of extreme terrain, but because of what 1,200 km does to the human mind. Sleep-deprived riders hallucinate. Villages appear like mirages at 4 AM. The turnaround at Brest, seeing the Atlantic Ocean after 600 km of riding, is a moment of profound emotional release. Marc-Olivier Meunier called it '1219km of party.' The adventure is internal — a multi-day exploration of your own limits, framed by the French countryside, village support, and the company of thousands of fellow travelers from every corner of the world."
+      },
+      "prestige": {
+        "score": 5,
+        "explanation": "There is no cycling event with more historical weight than Paris-Brest-Paris. Founded in 1891, it predates the Tour de France (1903) and the modern Olympics (1896). Charles Terront's victory in the first edition — 71 hours, 37 minutes on a fixed-gear bicycle over dirt roads — captivated an entire nation and inspired Pierre de Coubertin to revive the Olympic Games. The Paris-Brest pastry was invented to commemorate the event. Every finisher's name is inscribed in the Great Book alongside 26,000+ others dating back to 1891. There is simply nothing else like it in cycling."
+      },
+      "race_quality": {
+        "score": 5,
+        "explanation": "The Audax Club Parisien has organized PBP since 1931, refining operations over 20 editions. The 2023 edition deployed 2,500 volunteers across 16+ controls. GPS tracking monitors every rider. Multiple start waves manage 6,500+ riders efficiently. Controls offer food, mechanical support, medical assistance, and rest facilities. The event absorbs extreme situations — the 2023 heatwave, for instance — without fundamental breakdown. Route marking, safety vehicles, and communication systems reflect an organization that has had nearly a century to perfect its processes."
+      },
+      "experience": {
+        "score": 5,
+        "explanation": "PBP is universally described as life-changing by its finishers. Felix KA captured it: 'After a moment of bewilderment, I replied, Yes I am a cyclist, with a sense of pride. My recent success in Paris-Brest-Paris gave me the courage and confidence to introduce myself as a cyclist.' The experience spans the full human spectrum — euphoria at the start, despair at 3 AM in the Breton hills, hallucinations from sleep deprivation, tears at the finish, and a medal that means something because you know exactly what it cost. The 90-hour time limit ensures that finishing requires genuine sacrifice, not just fitness."
+      },
+      "community": {
+        "score": 5,
+        "explanation": "PBP is the world's largest gathering of long-distance cyclists — 6,500+ riders from 67 nations sharing 1,200 km of French road. Villages along the route transform for the event: children line the roads, residents set up impromptu aid stations, bands play at controls. The randonneuring community treats PBP as a quadrennial pilgrimage. The official ACP brochure captured the spirit: 'In a world where conflicts seem to be more and more numerous, 6496 participants representing 67 nationalities met, all smiles, in the park of the Chateau de Rambouillet.' There is no other event that unites the global cycling community quite like this."
+      },
+      "field_depth": {
+        "score": 5,
+        "explanation": "Every rider at PBP has earned their place through qualification — a full Super Randonneur series of 200, 300, 400, and 600 km brevets. There are no lottery winners, no charity entries, no bought spots. The 2023 field of 6,430 starters from 66 countries represents the global elite of endurance cycling. The 80-hour group includes riders capable of averaging 15+ km/h for three days straight. The depth is not measured in watts per kilogram but in demonstrated ability to suffer for days on end."
+      },
+      "value": {
+        "score": 5,
+        "explanation": "EUR190 for a 1,219 km organized event with 16+ staffed controls, GPS tracking, route marking, safety vehicles, a finisher's medal, a souvenir film, and your name inscribed in a book that dates back to 1891. There is no comparable value in organized cycling. The Paris-Roubaix Challenge charges similar money for 170 km. La Marmotte charges EUR110-130 for 177 km. PBP delivers seven times the distance at a comparable price. The volunteer-driven model keeps costs remarkably low for an event of this scale and prestige."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "The entry fee is modest, but the total cost adds up. International travel to France (flights, trains to Rambouillet). Accommodation before and after the event (3-5 nights at French summer rates). Qualifying brevets throughout the year (registration fees, travel, equipment). Bike setup optimized for ultra-distance (comfortable saddle, lighting systems, frame bags). Control zone services (meals, cots) cost extra. Non-European riders should budget USD2,000-3,000+ all-in. Europeans can do it for significantly less."
+      }
+    },
+    "biased_opinion": {
+      "verdict": "The Original",
+      "summary": "Paris-Brest-Paris is the event that started it all. Not gravel, not trail, not even road racing — just pure, distilled endurance cycling as it has existed since 1891. The concept is beautifully simple: ride from Paris to the Atlantic and back within 90 hours. No rankings. No podium. Just a medal and your name in the Great Book if you make it. What makes PBP extraordinary is not the terrain — it is rolling French countryside, pleasant rather than dramatic. It is the scale: 1,200 km of continuous effort, the sleep deprivation, the hallucinations, the 3 AM moments in Brittany where you question every decision that led you here. And then the finish, where you realize you have joined 26,000 people across 130 years who did the exact same thing.",
+      "strengths": [
+        "Historical weight that no other cycling event can match — 1891 founding, precursor to the Tour de France, 26,000+ names in the Great Book",
+        "The global community: 6,500 riders from 67 countries, villages cheering along 1,200 km of route, 2,500 volunteers",
+        "Extraordinary value: EUR190 for a 4-day, fully-organized 1,200 km event with 16+ staffed controls"
+      ],
+      "weaknesses": [
+        "Two-year qualification pathway is a serious commitment — requires completing a full Super Randonneur series before you can even register",
+        "Quadrennial schedule means if you miss it or DNF, you wait four years for another chance",
+        "Not technically or visually spectacular — the terrain is pleasant French countryside, not dramatic mountains or desert"
+      ],
+      "bottom_line": "If you ride a bicycle and care about endurance, PBP is the event you build toward. Not because it is the hardest — it is not. Not because the scenery is the best — it is not. But because it is THE event. The original. The one that started everything. And when you finish, your name goes in the same book as the riders who did it in 1891 on fixed-gear bicycles over dirt roads. That means something."
+    },
+    "final_verdict": {
+      "score": "86 / 100",
+      "one_liner": "The oldest cycling event on earth. 1,200 km from Paris to the Atlantic and back. Since 1891.",
+      "should_you_race": "Yes if you are a committed endurance cyclist willing to invest two years in qualification and training. Yes if the history and community of cycling matter to you. Yes if you want to join the most international cycling event in the world. Skip if you want dramatic terrain, technical challenge, or competitive rankings. Skip if you cannot commit to the multi-year qualification pathway. And skip if you cannot handle the idea of riding through the night for three consecutive nights.",
+      "alternatives": "London-Edinburgh-London (similar format, 1,500 km, UK-based, also quadrennial); Raid Pyreneen (600 km across the Pyrenees, more dramatic terrain); 1001 Miglia Italia (1,000 km Italian randonnee)",
+      "alternative_slugs": [
+        "raid-pyreneen"
+      ]
+    },
+    "logistics": {
+      "airport": "CDG (Paris Charles de Gaulle) or ORY (Paris Orly) — TGV/RER + regional train to Rambouillet (~1-1.5 hours). Rambouillet is 50 km southwest of Paris.",
+      "lodging_strategy": "Book Rambouillet accommodation 6-12 months early — the town of 26,000 fills completely. Alternatives: Versailles (20 min by train), Paris (45 min). During the ride, sleep at controls (cots available for a fee) or micro-nap roadside. Post-ride: stay in Rambouillet for recovery or take the train to Paris.",
+      "food": "Controls provide hot meals, sandwiches, coffee, and snacks (paid, not included in entry). Between controls, French bakeries and cafes along the route. Carry sufficient food for 50-80 km gaps between controls. Night closures of village shops require planning.",
+      "packet_pickup": "Saturday before the start at Rambouillet (Chateau de Rambouillet grounds). Includes mandatory reflective vest, brevet card, frame plates, timing chip, and safety briefing.",
+      "parking": "Limited parking at Rambouillet start/finish. Public transport strongly recommended. Shuttle services typically organized by ACP.",
+      "official_site": "https://www.paris-brest-paris.org",
+      "camping": "No official camping at start. Some riders use nearby campgrounds. During the ride, sleep at controls or improvise."
+    },
+    "history": {
+      "founded": 1891,
+      "founder": "Pierre Giffard (Le Petit Journal newspaper)",
+      "origin_story": "In 1891, journalist Pierre Giffard organized a bicycle race from Paris to Brest and back — 1,200 km — as a publicity stunt for his newspaper Le Petit Journal. Charles Terront won in 71 hours 37 minutes on a fixed-gear bicycle, captivating the entire nation. The race's success directly inspired the creation of the Tour de France (1903) and contributed to Pierre de Coubertin's revival of the Olympic Games (1896). The Paris-Brest pastry was invented by pâtissier Louis Durand to commemorate the first edition. Professional racing continued through 1951, but the Audax Club Parisien began organizing a parallel randonneur edition in 1931. Today, PBP is exclusively a randonneur event — non-competitive, timed, and open to all who qualify. Twenty editions have been held in the randonneur format, with the 21st scheduled for August 2027.",
+      "notable_moments": [
+        "1891: Charles Terront wins the first PBP in 71h37m, captivating France and inspiring the Tour de France",
+        "1891: The Paris-Brest pastry is created by Louis Durand to commemorate the event",
+        "1931: First randonneur edition organized by Audax Club Parisien — 44 participants including 5 women",
+        "1951: Final professional race; PBP becomes exclusively a randonneur event",
+        "2023: Record 6,496 participants from 67 countries; Cerberus heatwave tests riders with 30C+ temperatures",
+        "2023: Nick DeHaan sets new unofficial fastest time of 41:46:30 (averaging 29.18 km/h)"
+      ],
+      "reputation": "The oldest cycling event still running. The event that started everything. Every serious long-distance cyclist's ultimate goal."
+    },
+    "course_description": {
+      "character": "A 1,219 km journey through the heart of France. The route rolls southwest from Rambouillet through the gentle hills of Normandy and the Perche, then west through Brittany's increasingly rolling interior to the Atlantic coast at Brest. The return follows a similar path. No single climb is memorable. No section is particularly technical. The character emerges from the accumulation — 11,750 meters of relentless undulation over 757 miles, three nights of riding, and the psychological weight of knowing you are doing what cyclists have done since 1891.",
+      "suffering_zones": [
+        {
+          "mile": 180,
+          "label": "First Night",
+          "desc": "The sun sets somewhere past Mortagne-au-Perche. Your first experience of riding through the French countryside in darkness. Headlights pick out the road. The temperature drops. You discover whether your lighting and clothing strategy works."
+        },
+        {
+          "mile": 375,
+          "label": "Brest Turnaround",
+          "desc": "The Atlantic Ocean. Halfway. The emotional high of reaching Brest is immediately followed by the crushing realization: you have to ride all the way back. This is where PBP becomes a mental test."
+        },
+        {
+          "mile": 500,
+          "label": "The Breton Rollers (Return)",
+          "desc": "Hills that were manageable on fresh legs outbound are now instruments of torture. Two nights without proper sleep. Legs that feel like concrete. Every 3% grade is a personal affront."
+        },
+        {
+          "mile": 650,
+          "label": "Third Night / Hallucination Zone",
+          "desc": "Sleep deprivation peaks. Riders report seeing things — animals, people, buildings — that are not there. Decision-making deteriorates. The body operates on reserves it did not know it had. This is where PBP separates finishers from abandoners."
+        },
+        {
+          "mile": 720,
+          "label": "The Final Approach",
+          "desc": "Rambouillet is close enough to smell. The last 50 km are ridden on pure emotion. Tears at the finish are not uncommon. You have joined the Great Book."
+        }
+      ],
+      "signature_challenge": "Not a single climb or section — it is the totality. 1,219 km, 11,750m of climbing, 90 hours, three nights, sleep deprivation, and the knowledge that 130 years of cyclists have faced the same road. PBP's challenge is existential, not physical."
+    },
+    "guide_variables": {
+      "race_name": "Paris-Brest-Paris Randonneur",
+      "race_distance": "757 miles (1,219 km)",
+      "race_elevation": "38,550 feet (11,750 m)",
+      "race_date": "August (quadrennial — next: 2027)",
+      "race_location": "Rambouillet, France (Paris to Brest and back)",
+      "race_terrain": "Paved French roads through rolling countryside",
+      "race_weather": "Late August — warm days (20-30C), cool nights (10-15C), possible Breton rain",
+      "race_challenges": [
+        "1,219 km distance requiring 3-4 days of continuous effort",
+        "Sleep deprivation across three nights of riding",
+        "Cumulative fatigue from 11,750m of rolling elevation gain",
+        "Self-sufficiency between controls (50-80 km gaps)",
+        "Heat exposure in August conditions"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Complete Super Randonneur series (200/300/400/600 km brevets) in qualification year",
+        "by_when": "June 30 of PBP year",
+        "why": "Mandatory qualification. No exceptions. Every PBP rider has proven they can complete progressively longer brevets. This is not a barrier — it is preparation."
+      },
+      {
+        "requirement": "Night riding proficiency with tested lighting systems",
+        "by_when": "Week 8",
+        "why": "You will ride through three nights. Untested lights fail. Inadequate lumens cause crashes. Practice riding 4+ hours in darkness before PBP."
+      },
+      {
+        "requirement": "Sleep deprivation rehearsal during a 600 km brevet or equivalent",
+        "by_when": "Qualifying period",
+        "why": "The 600 km brevet is not just qualification — it is your dress rehearsal for multi-day riding. Use it to test your sleep strategy, nutrition plan, and equipment."
+      },
+      {
+        "requirement": "Control time management strategy",
+        "by_when": "Week 10",
+        "why": "PBP controls are crowded. 6,500 riders sharing the same food lines and sleep facilities. Your schedule must account for 30-45 minutes per control, not the 10 minutes you planned. Lost time at controls is the most common reason for DNF."
+      }
+    ],
+    "citations": [
+      {
+        "url": "https://www.paris-brest-paris.org",
+        "category": "official",
+        "label": "Paris-Brest-Paris Official Site (Audax Club Parisien)"
+      },
+      {
+        "url": "https://www.paris-brest-paris.org/en/paris-brest-paris-a-brief-history/",
+        "category": "official",
+        "label": "History of PBP — Official"
+      },
+      {
+        "url": "https://www.paris-brest-paris.org/en/rules-and-regulations-of-paris-brest-paris-randonneur/",
+        "category": "official",
+        "label": "PBP 2027 Regulations — Official"
+      },
+      {
+        "url": "https://www.paris-brest-paris.org/en/registration-content/",
+        "category": "official",
+        "label": "PBP Registration Fee and Content — Official"
+      },
+      {
+        "url": "https://www.paris-brest-paris.org/en/route/",
+        "category": "route",
+        "label": "PBP 2027 Route — Official"
+      },
+      {
+        "url": "https://www.paris-brest-paris.org/en/trends-and-figures/",
+        "category": "official",
+        "label": "PBP Trends and Figures — Official"
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Paris%E2%80%93Brest%E2%80%93Paris",
+        "category": "reference",
+        "label": "Wikipedia: Paris-Brest-Paris"
+      },
+      {
+        "url": "https://rusa.org/pages/PBP-short-history",
+        "category": "reference",
+        "label": "Randonneurs USA: A Short History of PBP"
+      },
+      {
+        "url": "https://rusa.org/pages/pbp-faq",
+        "category": "reference",
+        "label": "Randonneurs USA: PBP FAQ"
+      },
+      {
+        "url": "https://stories.strava.com/articles/a-true-classic-the-history-of-paris-brest-paris",
+        "category": "community",
+        "label": "Strava: A True Classic — The History of Paris-Brest-Paris"
+      },
+      {
+        "url": "https://medium.com/@phil.neff/paris-brest-paris-2023-reflections-of-a-rookie-randonneur-ee5238369073",
+        "category": "community",
+        "label": "Phil Neff: PBP 2023 — Reflections of a Rookie Randonneur"
+      },
+      {
+        "url": "https://medium.com/@derekminner/pbp-2023-failure-set-me-free-1e082ae48416",
+        "category": "community",
+        "label": "Derek Minner: PBP 2023 — Failure Set Me Free"
+      },
+      {
+        "url": "https://medium.com/@felixka/paris-brest-paris-pbp-2019-a-cycling-experience-to-treasure-a-lifetime-418440de8abb",
+        "category": "community",
+        "label": "Felix KA: PBP 2019 — A Cycling Experience to Treasure a Lifetime"
+      },
+      {
+        "url": "https://momeunier.fr/paris-brest-paris-2023/",
+        "category": "community",
+        "label": "Marc-Olivier Meunier: Paris-Brest-Paris 2023"
+      },
+      {
+        "url": "https://velo-tribe.com/2023/10/27/paris-brest-paris-2023/",
+        "category": "community",
+        "label": "Velo-Tribe Coaching: Paris-Brest-Paris 2023"
+      },
+      {
+        "url": "https://www.buzzalong.cc/post/insights-from-paris-brest-paris-1200-km",
+        "category": "community",
+        "label": "Buzzalong: Insights from Paris-Brest-Paris 1200 km"
+      },
+      {
+        "url": "https://granfondodailynews.com/2023/01/15/2023-paris-brest-paris-route-reveal-1219km-11750m-and-18-checkpoints-to-catch-cheaters/",
+        "category": "community",
+        "label": "Gran Fondo Daily: 2023 PBP Route Reveal"
+      },
+      {
+        "url": "https://www.cyclecharts.uk/pbp-2023",
+        "category": "data",
+        "label": "Cycling Charts: PBP 2023 Data Analysis"
+      },
+      {
+        "url": "https://www.pbpresults.com/2023",
+        "category": "results",
+        "label": "PBP Results 2023"
+      },
+      {
+        "url": "https://www.audax-club-parisien.com/download/pbp/2023/PBP-BROCHURE-R%C3%89SULTATS-2023-EN.pdf",
+        "category": "official",
+        "label": "ACP: PBP 2023 Results Brochure (PDF)"
+      },
+      {
+        "url": "https://www.boundarycycle.coach/knowledge/article/paris-brest-paris-qualification-guide",
+        "category": "community",
+        "label": "Boundary Cycle Coach: PBP 2027 Qualification and Event Guide"
+      },
+      {
+        "url": "https://dotwatcher.cc/race/paris-brest-paris-2019",
+        "category": "tracking",
+        "label": "DotWatcher: Paris-Brest-Paris 2019"
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "high",
+      "validation_status": "validated",
+      "sources": [
+        "official_site",
+        "acp_brochure",
+        "wikipedia",
+        "rusa",
+        "strava",
+        "rider_reports",
+        "results_data"
+      ],
+      "migration_notes": [],
+      "research_strength": {
+        "overall": 92,
+        "grade": "A",
+        "weakest": "voice_authenticity",
+        "has_research_dump": false,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 95,
+          "temporal_depth": 100,
+          "specificity": 90,
+          "statistical_backing": 85,
+          "voice_authenticity": 75,
+          "completeness": 90,
+          "cross_reference": 80
+        },
+        "scored_at": "2026-02-27"
+      }
+    }
+  }
+}

@@ -483,6 +483,32 @@
       line-height: 1.4;
     }
 
+    /* ── Transcript snippet ── */
+    #gg-race-search .gg-card-transcript-snippet {
+      font-family: var(--gg-font-editorial) !important;
+      font-size: 11px;
+      color: var(--gg-color-secondary-brown) !important;
+      margin-top: 8px;
+      line-height: 1.4;
+      border-left: 2px solid var(--gg-color-teal);
+      padding-left: 8px;
+    }
+    #gg-race-search .gg-card-transcript-label {
+      font-family: var(--gg-font-data) !important;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--gg-color-teal);
+      margin-right: 4px;
+    }
+    #gg-race-search .gg-card-transcript-snippet mark {
+      background: #d1f0ee;
+      background: color-mix(in srgb, var(--gg-color-teal) 20%, transparent);
+      color: #3a2e25;
+      color: var(--gg-color-dark-brown);
+    }
+
     /* ── Score bar + breakdown ── */
     #gg-race-search .gg-score-bar {
       margin-top: 8px;

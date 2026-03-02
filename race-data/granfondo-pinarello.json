@@ -1,0 +1,275 @@
+{
+  "race": {
+    "name": "Granfondo Pinarello — La Pina",
+    "slug": "granfondo-pinarello",
+    "display_name": "Granfondo Pinarello",
+    "tagline": "155 km through Pinarello's backyard. The Muro di Ca' del Poggio. The Prosecco Hills. The brand that built Indurain's and Froome's bikes invites you to ride their roads.",
+    "vitals": {
+      "distance_mi": 96,
+      "elevation_ft": 8200,
+      "location": "Treviso, Veneto, Italy",
+      "location_badge": "TREVISO, VENETO, ITALY",
+      "date": "Mid-July annually",
+      "date_specific": "2026: July 12",
+      "terrain_types": [
+        "Veneto pre-Alpine roads",
+        "Prosecco Hills (UNESCO)",
+        "Short, steep wall climbs"
+      ],
+      "field_size": "5,000-6,000 riders",
+      "start_time": "Sunday morning (staggered starts)",
+      "registration": "Online via granfondopinarello.com. Typically €50-75 depending on registration period.",
+      "prize_purse": "None. Participatory gran fondo.",
+      "aid_stations": "Multiple feed zones with Italian-style refreshments — water, fruit, energy bars, and the occasional Prosecco at the top of a climb.",
+      "cutoff_time": "Generous cutoff. SAG vehicles available on course.",
+      "lat": 45.6669,
+      "lng": 12.2430,
+      "distance_options": [
+        "155 km Gran Fondo (~96 mi, ~2,500m climbing)",
+        "90 km Medio Fondo (~56 mi)"
+      ],
+      "entry_fee": "€50-75"
+    },
+    "climate": {
+      "primary": "Mid-July Veneto heat — hot and humid",
+      "description": "Mid-July in the Treviso province is Italian summer at full intensity. Temperatures reach 85-95F (30-35C) with Po Valley humidity adding to the discomfort. The foothills provide occasional shade, but the valley floors and exposed road sections bake. Afternoon thunderstorms are possible but not common.",
+      "challenges": [
+        "Temperatures 85-95F (30-35C) with high humidity",
+        "Po Valley humidity amplifies the heat index",
+        "Exposed valley roads between climbs offer no shade",
+        "Steep wall climbs in heat compound the suffering"
+      ]
+    },
+    "terrain": {
+      "primary": "Veneto pre-Alpine roads with sharp wall climbs",
+      "surface": "Paved Italian roads — mostly good quality. Rolling terrain through Prosecco vineyards and pre-Alpine foothills with several sharp climbs. The Muro di Ca' del Poggio is the signature feature: a Giro d'Italia staple wall that ramps to 18% in places.",
+      "technical_rating": 2,
+      "features": [
+        "Muro di Ca' del Poggio — short, savage Giro d'Italia wall (18% ramps)",
+        "Prosecco Hills — UNESCO World Heritage vineyard rollers",
+        "Montello climb — forested ascent through the pre-Alps",
+        "Italian road surfaces — generally good but occasional rough patches on narrow climbs"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 63,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "logistics": 4,
+      "length": 3,
+      "technicality": 2,
+      "elevation": 3,
+      "climate": 3,
+      "altitude": 1,
+      "adventure": 3,
+      "prestige": 3,
+      "race_quality": 4,
+      "experience": 3,
+      "community": 3,
+      "field_depth": 3,
+      "value": 4,
+      "expenses": 3,
+      "cultural_impact": 2,
+      "tier_note": "Pinarello's own gran fondo through the Veneto pre-Alps and Prosecco Hills. The Muro di Ca' del Poggio is a Giro classic. T2 by score (63).",
+      "score_note": "Race_quality=4 (Pinarello runs this with brand-level polish). Logistics=4 (Treviso is 30 minutes from Venice). Value=4 (€50-75 for a well-organized Italian gran fondo). Prestige=3 (Pinarello brand cachet, but it's a manufacturer event, not a monument).",
+      "editorial_tier": 2,
+      "editorial_tier_label": "TIER 2",
+      "business_tier": 2,
+      "business_tier_label": "TIER 2",
+      "display_tier": 2,
+      "display_tier_label": "TIER 2",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 4,
+        "explanation": "Treviso is 30 minutes from Venice Marco Polo airport, which connects to everywhere in Europe. The city itself is small, manageable, and charming. Pinarello handles the organizational logistics with the precision you'd expect from a company that builds bikes for Grand Tour winners. Well-marked course, clear signage, Italian efficiency when motivated."
+      },
+      "length": {
+        "score": 3,
+        "explanation": "155 km with 2,500m of climbing is a proper gran fondo — long enough to demand respect, short enough that most trained cyclists finish. The Medio Fondo at 90 km offers an honest alternative. Neither distance is extreme, but the wall climbs and July heat make the kilometers harder than the numbers suggest."
+      },
+      "technicality": {
+        "score": 2,
+        "explanation": "The Muro di Ca' del Poggio is steep (18% ramps) but short — it's a power test, not a technical one. Descents off the Veneto hills require attention but aren't alpine-grade hairpins. Italian roads are narrow in places. Overall, you need gearing for the walls and basic descending skills, nothing more."
+      },
+      "elevation": {
+        "score": 3,
+        "explanation": "2,500 meters of climbing across 155 km is solid but not alpine. The climbs are punchy — short, steep walls and rolling hills rather than sustained mountain passes. The Muro is 1.2 km at savage gradients. Montello is longer but moderate. This is Giro classics-style terrain, not Dolomites."
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "Mid-July Veneto is genuinely hot — 85-95F with humidity. Not Texas-level extreme, but enough to affect performance and require serious hydration strategy. The Po Valley traps heat. Climbing in 35C adds a layer of suffering. Not the defining challenge of the event, but a meaningful factor."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "Treviso sits at 15 meters above sea level. The highest point on course is perhaps 400-500m. Altitude is irrelevant."
+      },
+      "adventure": {
+        "score": 3,
+        "explanation": "The Prosecco Hills are genuinely beautiful — UNESCO World Heritage for a reason. Vineyard-draped slopes, medieval villages, views across the Veneto plain to the distant Dolomites on clear days. It's lovely, but it's not remote or wild. This is civilized Italian countryside, not frontier adventure."
+      },
+      "prestige": {
+        "score": 3,
+        "explanation": "Pinarello is cycling royalty — the brand behind Indurain's five Tours, Wiggins' and Froome's dominant Sky era, Bernal's Giro. Riding their home event carries brand cachet. But this is a manufacturer's gran fondo, not a monument or a WorldTour sportive. The prestige is borrowed from the brand, not earned by the event's own competitive history."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "Pinarello treats this as a brand showcase, and it shows. The organization is polished — well-stocked feed zones, clear course marking, professional timing, and the kind of attention to detail you'd expect from a company obsessed with precision. They have their reputation on the line every year."
+      },
+      "experience": {
+        "score": 3,
+        "explanation": "Riding through Pinarello's home turf on roads that connect to the brand's history is meaningful for cycling nerds. The Muro di Ca' del Poggio is a genuine Giro landmark. The Prosecco Hills are beautiful. But the overall experience is a well-run Italian gran fondo — enjoyable, not transformative."
+      },
+      "community": {
+        "score": 3,
+        "explanation": "5,000-6,000 riders, predominantly Italian with a strong Veneto local contingent. The Pinarello fan base adds tribal energy. Italian cycling culture is inherently social — the post-ride atmosphere is warm. But this isn't the massive community event that something like L'Etape or an Eroica creates."
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "The front group will include strong Italian club riders and Pinarello-sponsored amateurs who know these roads. Veneto has deep cycling talent. But this is primarily a participatory gran fondo, not a competitive race. The depth is in the middle, not the sharp end."
+      },
+      "value": {
+        "score": 4,
+        "explanation": "€50-75 for a Pinarello-organized gran fondo through UNESCO Prosecco Hills with the Muro di Ca' del Poggio is excellent value. Italian gran fondos generally deliver more per euro than their northern European equivalents — better food at feed zones, better roads, lower entry fees."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Treviso is cheaper than Venice or Milan but still northern Italy pricing. Hotels run €80-150/night. Flights to Venice are reasonably priced from most European cities. Food is affordable by Italian standards. Budget €500-900 for a long weekend including travel from within Europe."
+      }
+    },
+    "biased_opinion": {
+      "verdict": "Pinarello's Backyard",
+      "summary": "Granfondo Pinarello is a brand ride, and it doesn't pretend otherwise. You're riding through the Veneto countryside that shaped one of cycling's most storied manufacturers — the same roads where Pinarello has tested frames for five decades. The Muro di Ca' del Poggio is a genuine Giro landmark: a short, vicious wall that separates riders who brought the right gearing from those who didn't. The Prosecco Hills are UNESCO-lovely. The organization reflects Pinarello's brand standards. What it isn't: a monument, a classic, or an event that transcends its corporate origins. It's a very good Italian gran fondo hosted by a very famous bike company.",
+      "strengths": [
+        "Pinarello heritage: riding the home roads of one of cycling's most iconic brands",
+        "Muro di Ca' del Poggio: a genuine Giro d'Italia wall climb — short, steep, and memorable",
+        "Prosecco Hills: UNESCO World Heritage scenery through working vineyards",
+        "Organization: Pinarello runs this like their brand depends on it (because it does)"
+      ],
+      "weaknesses": [
+        "Brand event: this is ultimately a manufacturer's marketing exercise, however well-executed",
+        "Not epic: 2,500m of climbing is solid but not alpine — won't transform your cycling identity",
+        "July heat: Veneto in mid-July is hot and humid, though not extreme by Italian standards"
+      ],
+      "bottom_line": "The best way to ride Pinarello's home roads and a legitimate Giro wall — just don't confuse a brand event with a monument."
+    },
+    "final_verdict": {
+      "score": "63 / 100",
+      "one_liner": "Pinarello's own gran fondo through the Prosecco Hills and over the Muro di Ca' del Poggio. The brand ride done right.",
+      "should_you_race": "Yes if you appreciate cycling heritage and want to ride roads shaped by one of the sport's great manufacturers. Yes if you want a well-organized Italian gran fondo with a Giro landmark climb. Skip if you want alpine epicness or an event with its own competitive identity beyond the brand.",
+      "alternatives": "If you want Italian gran fondo with more climbing: try Maratona dles Dolomites. If you want brand heritage with cobblestones: try Strade Bianche Gran Fondo. If you want Veneto cycling without the brand wrapper: try Granfondo Felice Gimondi.",
+      "alternative_slugs": [
+        "maratona-dles-dolomites",
+        "strade-bianche-gran-fondo"
+      ]
+    },
+    "logistics": {
+      "airport": "Venice Marco Polo (VCE) — 30 minutes to Treviso. Treviso Airport (TSF) — budget airline hub, even closer. Milan Malpensa (MXP) — 3 hours drive.",
+      "lodging_strategy": "Treviso has modest hotel options. Book early for race weekend. Venice hotels are 30 minutes away but more expensive. Agriturismos in the Prosecco Hills are the atmospheric choice. Budget €80-150/night.",
+      "food": "This is the Veneto. Prosecco, risotto, tiramisu (invented in Treviso). Pre-ride carbo-loading has never been more civilized. Post-ride: find a trattoria and don't rush.",
+      "packet_pickup": "Saturday before race day in Treviso. Pinarello expo included — expect brand displays, new bike tech, and the inevitable urge to upgrade.",
+      "parking": "Available in Treviso. Follow event signage. Arrive early on race morning.",
+      "official_site": "https://www.granfondopinarello.com/"
+    },
+    "history": {
+      "founded": 2004,
+      "founder": "Cicli Pinarello",
+      "origin_story": "Created by Pinarello, the Treviso-based bike manufacturer that has built frames for cycling's greatest champions — from Miguel Indurain's five consecutive Tour de France victories to the Sky/Ineos dynasty of Wiggins, Froome, Thomas, and Bernal. The gran fondo starts from Pinarello's hometown and explores the roads the company has used as a testing ground for decades. The inclusion of the Muro di Ca' del Poggio — a Giro d'Italia classic wall — gives the route legitimate racing heritage.",
+      "notable_moments": [
+        "~2004: First edition launched by Cicli Pinarello from their Treviso headquarters",
+        "Route incorporates the Muro di Ca' del Poggio, a Giro d'Italia stage staple",
+        "Prosecco Hills gained UNESCO World Heritage status in 2019, elevating the route's scenic credentials",
+        "Consistently draws 5,000-6,000 riders as one of the Veneto's signature cycling events"
+      ],
+      "reputation": "The bike brand's backyard ride. Well-organized, scenic, and carrying the weight of Pinarello's legacy."
+    },
+    "course_description": {
+      "character": "Rolling Veneto pre-Alpine terrain punctuated by short, savage wall climbs. The route leaves Treviso and winds through the Prosecco Hills — UNESCO-protected vineyard country — before hitting the Muro di Ca' del Poggio, a Giro d'Italia wall that ramps to 18% and leaves you wondering why you didn't fit a 34-tooth cassette. The Montello climb adds a longer, forested ascent. Between the signature climbs, the terrain is rolling and fast on good Italian tarmac.",
+      "suffering_zones": [
+        {
+          "mile": 0,
+          "label": "Treviso Start",
+          "desc": "Rolling out from Pinarello's hometown. Flat-to-rolling roads through the Veneto plain. Find your rhythm before the terrain bites.",
+          "terrain_detail": "Flat to gently rolling, paved",
+          "named_section": "The Pinarello Departure"
+        },
+        {
+          "mile": 40,
+          "label": "Prosecco Hills",
+          "desc": "The UNESCO section. Vineyard-draped hillsides with short, punchy rollers. Beautiful but not benign — the constant up-and-down accumulates. The views across the Prosecco terraces to the distant pre-Alps are worth the effort.",
+          "terrain_detail": "Rolling vineyard hills, repeated short climbs",
+          "named_section": "The Prosecco Rollers"
+        },
+        {
+          "mile": 60,
+          "label": "Muro di Ca' del Poggio",
+          "desc": "The wall. 1.2 km at an average of 12%, ramping to 18% on the steepest pitches. This is the climb where the Giro peloton explodes. It's short enough to survive but steep enough to destroy your legs if you misjudge the effort. Gearing below 34x32 is strongly recommended.",
+          "terrain_detail": "Steep wall climb, 12-18% gradients",
+          "named_section": "Il Muro"
+        },
+        {
+          "mile": 80,
+          "label": "Montello and Home",
+          "desc": "The Montello climb is the final significant effort — longer and more forested than the Muro, but more moderate in gradient. After Montello, the route descends back toward Treviso through rolling countryside.",
+          "terrain_detail": "Moderate climb then rolling descent to finish",
+          "named_section": "Montello"
+        }
+      ],
+      "signature_challenge": "The Muro di Ca' del Poggio — a 1.2 km Giro d'Italia wall with ramps to 18%. Short, savage, and impossible to pace if you don't know it's coming."
+    },
+    "guide_variables": {
+      "race_name": "Granfondo Pinarello",
+      "race_distance": "155 km (96 miles)",
+      "race_elevation": "2,500 meters (8,200 feet)",
+      "race_date": "July",
+      "race_location": "Treviso, Veneto, Italy",
+      "race_terrain": "Paved Veneto roads with wall climbs and Prosecco Hills rollers",
+      "race_weather": "Hot and humid: 85-95F (30-35C)",
+      "race_challenges": [
+        "Muro di Ca' del Poggio — 18% wall climb requires appropriate gearing",
+        "July heat and humidity in the Veneto — hydration critical",
+        "Accumulated climbing through Prosecco Hills rollers",
+        "155 km distance in summer heat demands pacing discipline"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Gearing for 18% walls — 34x32 minimum, compact with 34t cassette recommended",
+        "by_when": "Week 12",
+        "why": "The Muro di Ca' del Poggio hits 18%. If you're grinding a 39x28 up that wall in July heat, you'll blow up. Test your low gear on the steepest local climb you can find."
+      },
+      {
+        "requirement": "Heat acclimatization and hydration plan for July Veneto",
+        "by_when": "Week 6",
+        "why": "85-95F with humidity. You'll need 1-1.5 bottles per hour and a sodium strategy. Italian feed zones help, but you need to carry enough between them."
+      },
+      {
+        "requirement": "Punchy climb repeatability — train for short, steep efforts",
+        "by_when": "Week 8",
+        "why": "The Prosecco Hills rollers accumulate. The Muro is the headliner, but you'll hit 15-20 short climbs before it. Your legs need to absorb repeated 2-5 minute efforts without cracking."
+      }
+    ],
+    "citations": [
+      {
+        "url": "https://www.granfondopinarello.com/",
+        "title": "Granfondo Pinarello — Official Site",
+        "category": "official"
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Pinarello",
+        "title": "Pinarello — Wikipedia",
+        "category": "reference"
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "high",
+      "validation_status": "validated",
+      "research_strength": "B+",
+      "sources_count": 2,
+      "last_updated": "2026-02-27"
+    }
+  }
+}

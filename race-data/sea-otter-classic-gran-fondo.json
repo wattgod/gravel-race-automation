@@ -1,0 +1,303 @@
+{
+  "race": {
+    "name": "Sea Otter Classic Gran Fondo",
+    "slug": "sea-otter-classic-gran-fondo",
+    "display_name": "Sea Otter Classic Gran Fondo",
+    "tagline": "90 miles through Salinas Valley wine country with 5,500 feet of climbing, capped by the world's premier cycling festival.",
+    "vitals": {
+      "distance_mi": 90,
+      "elevation_ft": 5500,
+      "location": "Monterey, California, USA",
+      "location_badge": "MONTEREY, USA",
+      "date": "Mid-April annually",
+      "date_specific": "2026: April 18",
+      "terrain_types": [
+        "Paved road",
+        "Salinas Valley wine country",
+        "Coastal hills",
+        "Agricultural flats"
+      ],
+      "field_size": "500-800 riders",
+      "start_time": "7:40 AM",
+      "registration": "Online via seaotterclassic.com. Tiered pricing from $150-$205.",
+      "prize_purse": "None (untimed recreational ride)",
+      "aid_stations": "4 feed zones including Rustique Vineyards, Zabala Vineyards, Nix Ranch at Cahoon Summit, and Los Laureles Lodge",
+      "cutoff_time": "9+ hours",
+      "lat": 36.5841,
+      "lng": -121.7528,
+      "distance_options": [
+        "Gran Fondo Carmelo: 90 miles",
+        "Gran Fondo Pacifico: 50 miles"
+      ],
+      "entry_fee": "USD $150-$205"
+    },
+    "climate": {
+      "primary": "Mild California coastal spring",
+      "description": "Mid-April on the Monterey coast delivers near-perfect cycling weather. Morning fog burns off by 9 AM, giving way to sunshine and temperatures in the 55-70F range. The inland Salinas Valley can push into the mid-70s by afternoon. Wind is the wildcard: Pacific headwinds on the return leg through Carmel Valley can hit 15-20 mph. Rain is unlikely but not impossible in April.",
+      "challenges": [
+        "Morning coastal fog reducing visibility until 9 AM",
+        "Pacific headwinds on return through Carmel Valley",
+        "Temperature swing from cool coast to warm inland valley",
+        "Potential for unseasonable rain in El Nino years"
+      ]
+    },
+    "terrain": {
+      "primary": "Paved road through coastal hills and agricultural valley",
+      "surface": "100% paved roads. Mix of smooth valley highways, rolling vineyard roads, and the steep pitches of Laureles Grade. The Cahoon Summit climb on East Carmel Valley Road is the signature effort: 10+ miles of sustained 4-6% gradient. Course exits Fort Ord on fire roads before hitting pavement for the remainder.",
+      "technical_rating": 2,
+      "features": [
+        "Cahoon Summit climb: 10+ miles sustained 4-6% gradient",
+        "Laureles Grade: steep pitches reaching 10-12% on short ramps",
+        "Flat agricultural valley sections through Salinas",
+        "Rolling vineyard roads through wine country",
+        "Start/finish at Laguna Seca Raceway"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 64,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "logistics": 4,
+      "length": 4,
+      "technicality": 2,
+      "elevation": 3,
+      "climate": 4,
+      "altitude": 1,
+      "adventure": 3,
+      "prestige": 4,
+      "race_quality": 3,
+      "experience": 4,
+      "community": 5,
+      "field_depth": 2,
+      "value": 3,
+      "expenses": 3,
+      "tier_note": "The festival context elevates this above a typical gran fondo. World's largest cycling expo plus 14 race disciplines in one weekend creates an experience that transcends the ride itself.",
+      "score_note": "Strong logistics (4) and community (5) driven by Sea Otter Classic infrastructure. Prestige (4) from the festival's global brand recognition. Experience (4) for vineyards, coast, and Laguna Seca. Lower technicality (2) and field depth (2) reflect its recreational, untimed nature.",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 4,
+        "explanation": "Monterey is 75 miles south of San Jose (SJC) and 120 miles from San Francisco (SFO). Laguna Seca has massive parking infrastructure built for motorsports events. Packet pickup runs Wednesday through Friday at the expo. The Sea Otter organization is a well-oiled machine after 30+ years. The only friction: Monterey hotels spike prices during Sea Otter week, and you will fight 70,000+ festival attendees for rooms."
+      },
+      "length": {
+        "score": 4,
+        "explanation": "90 miles is proper gran fondo distance. The route through Salinas Valley and back over Cahoon Summit and Laureles Grade takes most riders 5-7 hours. It is long enough to require genuine fitness and fueling strategy, but not so long that you need an ultra-endurance mindset. The 50-mile Pacifico option exists for those wanting a shorter coastal ride."
+      },
+      "technicality": {
+        "score": 2,
+        "explanation": "This is a paved road ride on well-maintained California highways. The brief Fort Ord exit at mile 1-6 has some rough pavement, and the Laureles Grade descent demands attention with steep pitches and tight corners, but there is zero off-road, zero gravel, and zero technical bike handling required. Suitable for any road cyclist comfortable with group riding."
+      },
+      "elevation": {
+        "score": 3,
+        "explanation": "5,500 feet of climbing over 90 miles is moderate but not trivial. The Cahoon Summit climb is the centerpiece: 10+ miles of sustained 4-6% through East Carmel Valley Road. Laureles Grade adds steep 10-12% pitches near the finish. The first 40 miles are relatively flat through the valley, back-loading the climbing into the second half when legs are already tired."
+      },
+      "climate": {
+        "score": 4,
+        "explanation": "April in Monterey is about as good as it gets for cycling weather. The 55-70F temperature range is ideal for sustained effort. Morning fog adds atmosphere without causing real problems. The Salinas Valley can push warmer, but nothing extreme. Pacific headwinds on the return are the only consistent challenge, and they rarely exceed 20 mph."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "Maximum elevation is approximately 2,300 feet at Cahoon Summit. This is sea-level racing with zero altitude impact on performance. The ride starts at roughly 600 feet at Laguna Seca and never gets high enough to thin the air or affect oxygen delivery."
+      },
+      "adventure": {
+        "score": 3,
+        "explanation": "The route passes through genuine California wine country, with aid stations at working vineyards. The Mission Soledad historical site at mile 36 is worth a stop. Carmel Valley on the return is scenic and exclusive. But this is a supported road ride on public highways, not an expedition. The adventure quotient comes from the festival context, not the ride itself."
+      },
+      "prestige": {
+        "score": 4,
+        "explanation": "The Sea Otter Classic is the world's premier cycling festival, drawing 70,000+ attendees from 40+ countries. The gran fondo is one of 14 race disciplines. Being part of the Sea Otter brand lends enormous credibility, even though the fondo itself is untimed. Cycling legends walk the expo. Major product launches happen here. The festival context gives this ride prestige that no standalone gran fondo could match."
+      },
+      "race_quality": {
+        "score": 3,
+        "explanation": "Life Time Events runs a tight operation. Four well-stocked feed zones with vineyard settings, medical support, basic mechanical assistance, and clear course markings. But this is an untimed recreational ride, not a race. There are no chip times, no results, no competitive structure. The quality is in the experience, not the racing."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "Starting and finishing at the iconic Laguna Seca Raceway is genuinely special. The route through Salinas Valley wine country delivers stunning scenery: agricultural fields, vineyards, oak-studded hills, and the Carmel Valley corridor. Aid stations at working vineyards with post-ride beer from Sierra Nevada. The 4-day festival pass included with registration means the ride is just the beginning of the weekend."
+      },
+      "community": {
+        "score": 5,
+        "explanation": "This is the highest community score possible and it is earned. The Sea Otter Classic is where the cycling world gathers every April. 70,000+ attendees across all disciplines. The gran fondo riders share the weekend with gravel racers, mountain bikers, downhill shredders, and criterium sprinters. The expo is a reunion for the industry. Post-ride celebrations at Casa Amigos Rider Lounge with free Sierra Nevada beer. If you love cycling culture, there is no better weekend in North America."
+      },
+      "field_depth": {
+        "score": 2,
+        "explanation": "As an untimed recreational ride, there is no competitive field. Riders range from casual enthusiasts on e-bikes to strong amateurs pushing hard. No results, no rankings, no prize money. The gravel race at Sea Otter has competitive depth with Life Time Grand Prix pros, but the gran fondo is purely participatory."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "$150-$205 entry includes a 4-day festival pass (normally $25+), post-ride lunch, Sierra Nevada beer, course support, and virtual goodie bag. Given that the festival pass alone has value, the overall package is reasonable. But compared to a $50-80 entry fee for a standard century ride, you are paying a premium for the Sea Otter brand."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Registration is $150-$205. Monterey hotels during Sea Otter week run $200-$400/night, and you should book months in advance. Dining in Monterey/Carmel is upscale. Figure $800-$1,200 total for a long weekend from within California, $1,500-$2,000 if flying in. Not cheap, but the festival provides days of entertainment beyond the ride itself."
+      }
+    },
+    "biased_opinion": {
+      "verdict": "Festival Ride Royalty",
+      "summary": "The Sea Otter Classic Gran Fondo is not the hardest ride you will do this year, and it is not trying to be. It is 90 miles of gorgeous Salinas Valley wine country wrapped inside the world's largest cycling festival, and that combination is more powerful than either element alone.\n\nThe route is honest: flat valley roads for 40 miles, then the real work begins with the Cahoon Summit grind and the steep Laureles Grade kicker to finish. 5,500 feet of climbing will remind your legs that this is a proper fondo, not a parade. But the four vineyard-set aid stations, the April coastal weather, and the knowledge that Laguna Seca Raceway awaits at the finish soften the suffering.\n\nWhat makes this ride special is everything surrounding it. A 4-day festival pass comes with registration. 1,000+ bike brands at the expo. 14 race disciplines across the weekend. Cycling legends signing autographs. It is the season opener for American cycling, and riding the gran fondo puts you at the center of it.",
+      "strengths": [
+        "World's premier cycling festival context: 70,000+ attendees, 1,000+ brands",
+        "Stunning wine country route through Salinas Valley and Carmel Valley",
+        "4 vineyard-set aid stations with post-ride lunch and Sierra Nevada beer",
+        "Near-perfect April coastal weather: 55-70F, minimal rain risk"
+      ],
+      "weaknesses": [
+        "Untimed recreational ride with no competitive structure or results",
+        "Monterey hotel prices spike 2-3x during Sea Otter week",
+        "No elevation data published on official site makes training harder",
+        "The ride gets overshadowed by the gravel race and expo in media coverage"
+      ],
+      "bottom_line": "Do this ride if you love cycling culture as much as cycling itself. The 90 miles through wine country are beautiful and moderately challenging, but the real draw is the 4-day festival that surrounds it. Skip it if you want chip times and competitive racing."
+    },
+    "final_verdict": {
+      "score": "64 / 100",
+      "one_liner": "90 miles of wine country roads wrapped inside the world's biggest cycling festival.",
+      "should_you_race": "Yes if you want the ultimate cycling culture weekend with a beautiful ride attached. Skip if you need competitive racing, chip times, or want to avoid $300/night hotels.",
+      "alternatives": "For competitive road fondo: GFNY NYC or Hincapie Gran Fondo. For similar California coast riding: Levi's GranFondo (Sonoma). For Sea Otter racing: enter the gravel race instead.",
+      "alternative_slugs": []
+    },
+    "logistics": {
+      "airport": "San Jose (SJC) 75 miles, 1.5 hours. San Francisco (SFO) 120 miles, 2 hours. Monterey (MRY) has limited flights but is 5 miles from Laguna Seca.",
+      "lodging_strategy": "Book Monterey or Pacific Grove hotels 3-6 months in advance. Prices double during Sea Otter week. Salinas is 20 miles inland and significantly cheaper. Airbnb in Carmel Valley is another option. Camping at Laguna Seca is available for the truly committed.",
+      "food": "Monterey has excellent seafood (Fisherman's Wharf, Old Monterey). Carmel Valley wine tasting post-ride. Aid stations include substantial food at Zabala Vineyards (last chance before the climb). Post-ride lunch and Sierra Nevada beer included.",
+      "packet_pickup": "Athlete Registration at Sea Otter Expo, Wednesday-Friday. Can also pick up race morning up to 60 minutes before start. Must present valid photo ID in person.",
+      "parking": "Complimentary parking at Laguna Seca Raceway. Arrive early on Saturday as festival attendance is highest on the weekend.",
+      "official_site": "https://www.seaotterclassic.com/gran-fondo-carmelo/"
+    },
+    "history": {
+      "founded": 1991,
+      "founder": "Frank Yohannan",
+      "origin_story": "The Sea Otter Classic began in 1991 as a mountain bike race at Laguna Seca Raceway in Monterey, California. Founded by Frank Yohannan, it grew into the world's premier cycling festival spanning all disciplines. The gran fondo rides were added as the event expanded from racing into recreational cycling, leveraging the spectacular Monterey coastline and Salinas Valley wine country. Life Time acquired the event and has continued to expand it, adding new disciplines and growing attendance past 70,000.",
+      "notable_moments": [
+        "1991: Sea Otter Classic founded as mountain bike event at Laguna Seca",
+        "2000s: Event expands to include road cycling, criterium, and recreational rides",
+        "2020: COVID cancellation, first time in nearly 30 years",
+        "2024: Life Time Grand Prix gravel race added as flagship competitive event",
+        "2026: Trail run added as newest discipline, 14 total race categories"
+      ],
+      "reputation": "The world's premier cycling festival. The unofficial start of the North American cycling season."
+    },
+    "course_description": {
+      "character": "A tale of two halves. The first 40 miles lull you into comfort through flat agricultural valley roads and vineyard aid stations. Then the Cahoon Summit climb punishes complacency with 10+ miles of sustained effort before the Laureles Grade kicker reminds you that the finish is earned, not given.",
+      "suffering_zones": [
+        {
+          "mile": 6,
+          "label": "Fort Ord Exit",
+          "desc": "Exit the raceway through Fort Ord on rough pavement. Brief but jarring after the smooth track start.",
+          "terrain_detail": "Rough pavement, slight climb",
+          "named_section": "Barloy Canyon"
+        },
+        {
+          "mile": 42,
+          "label": "Zabala Vineyards",
+          "desc": "Last aid station before the climbing begins. 0.2 miles down a tree-lined road. Miss it and you are on your own for 20+ miles of climbing.",
+          "terrain_detail": "Flat vineyard roads, transition point",
+          "named_section": "Zabala Lunch Stop"
+        },
+        {
+          "mile": 53,
+          "label": "Cahoon Summit Climb",
+          "desc": "The signature effort. East Carmel Valley Road pitches up at 4-6% for 10+ miles. Self-service water at the halfway point. This is where the ride gets real.",
+          "terrain_detail": "Sustained 4-6% climb on paved road",
+          "named_section": "Cahoon Summit"
+        },
+        {
+          "mile": 64,
+          "label": "Nix Ranch Summit",
+          "desc": "Cresting Cahoon Summit at Nix Ranch. Rest stop on the left. Then a long, fast descent through Carmel Valley.",
+          "terrain_detail": "Summit rest stop, beginning of 18-mile descent",
+          "named_section": "Nix Ranch"
+        },
+        {
+          "mile": 84,
+          "label": "Laureles Grade",
+          "desc": "The final climb. Some very steep pitches reaching 10-12%. Watch your descent speed on the other side. This is where tired legs cramp.",
+          "terrain_detail": "Steep 10-12% pitches on narrow road",
+          "named_section": "Laureles Grade"
+        },
+        {
+          "mile": 90,
+          "label": "Laguna Seca Finish",
+          "desc": "Turn into Laguna Seca and climb the big hill on A Road. Right at the top and follow GF signs to the finish on the iconic raceway.",
+          "terrain_detail": "Final push up into raceway complex",
+          "named_section": "Laguna Seca Finish"
+        }
+      ],
+      "signature_challenge": "The Cahoon Summit climb: 10+ miles of sustained 4-6% gradient through East Carmel Valley Road, arriving after 50 miles of riding when glycogen stores are depleting."
+    },
+    "guide_variables": {
+      "race_name": "Sea Otter Classic Gran Fondo",
+      "race_distance": "90 miles",
+      "race_elevation": "5,500 feet",
+      "race_date": "April",
+      "race_location": "Monterey, USA",
+      "race_terrain": "Paved road through coastal hills and wine country",
+      "race_weather": "Mild coastal spring, 55-70F, possible fog and headwinds",
+      "race_challenges": [
+        "Cahoon Summit: 10+ mile sustained climb",
+        "Laureles Grade: steep 10-12% pitches near finish",
+        "Pacific headwinds on return",
+        "Back-loaded climbing after 40 flat miles"
+      ],
+      "altitude_section": false,
+      "altitude_feet": 2300
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Century-distance endurance base",
+        "by_when": "Week 8-10",
+        "why": "90 miles with 5,500 feet of climbing requires a solid endurance foundation. Complete at least two 70+ mile rides before race day."
+      },
+      {
+        "requirement": "Sustained climbing preparation",
+        "by_when": "Week 6-8",
+        "why": "Cahoon Summit is 10+ miles of sustained effort. Train with 20-30 minute threshold intervals and long hill repeats."
+      },
+      {
+        "requirement": "Fueling strategy for back-loaded course",
+        "by_when": "Week 4-6",
+        "why": "The first 40 miles are flat and deceptively easy. If you underfuel the valley section, you will bonk on Cahoon Summit."
+      }
+    ],
+    "citations": [
+      {
+        "url": "https://www.seaotterclassic.com/gran-fondo-carmelo/",
+        "title": "Gran Fondo Carmelo - Life Time Sea Otter Classic",
+        "category": "official"
+      },
+      {
+        "url": "https://www.seaotterclassic.com/register/",
+        "title": "Registration - Life Time Sea Otter Classic",
+        "category": "official"
+      },
+      {
+        "url": "https://www.seaotterclassic.com/gran-fondo-pacifico/",
+        "title": "Gran Fondo Pacifico - Life Time Sea Otter Classic",
+        "category": "official"
+      },
+      {
+        "url": "https://www.seaotterclassic.com/whats-new/",
+        "title": "New for 2026 - Life Time Sea Otter Classic",
+        "category": "official"
+      },
+      {
+        "url": "https://www.seaotterclassic.com/wp-content/uploads/2026/02/SO-2026-GF-Route-Turn-By-Turn-with-Arrow-Locations.pdf",
+        "title": "2026 Sea Otter Gran Fondo Carmelo Route Turn-by-Turn",
+        "category": "official"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/5370/life-time-sea-otter-classic-gravel",
+        "title": "Life Time Sea Otter Classic - Gran Fondo Guide",
+        "category": "reference"
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "high",
+      "validation_status": "validated",
+      "research_strength": "A",
+      "sources_count": 6,
+      "last_updated": "2026-03-01"
+    }
+  }
+}

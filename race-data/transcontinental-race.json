@@ -22,45 +22,41 @@
       ],
       "field_size": "~350 riders (selected from 1,000+ applicants)",
       "start_time": "Mass start",
-      "registration": "Application-based entry. ~350 GBP entry fee. Closes December for following year.",
+      "registration": "Application-based entry. 510 GBP entry fee + 130 GBP refundable tracker deposit. Applications typically close December for following July race.",
       "prize_purse": "Finisher recognition and legacy (self-supported ethos)",
-      "aid_stations": "None—completely self-supported. Commercial services only.",
+      "aid_stations": "None — completely self-supported. Commercial services only.",
       "cutoff_time": "15-16 days (clock never stops)",
       "lat": 48.2082,
       "lng": 16.3738
     },
     "climate": {
-      "primary": "Extreme variability—alpine cold to Balkan heat",
-      "description": "The TCR is 'two races in one.' Alpine sections can hit near-freezing with storms, sleet, and snow at high passes. Then the Balkans and Eastern Europe bring 40C+ heatwaves, brutal sun exposure, and zero shade. Riders must prepare for 0-40C temperature range within a single race. Flooding, thunderstorms, and heatwaves are all common.",
+      "primary": "Extreme variability — alpine cold to Balkan heat",
+      "description": "The TCR is two races in one. Alpine sections can hit near-freezing with storms, sleet, and snow at high passes. Then the Balkans and Eastern Europe bring 40C+ heatwaves, brutal sun exposure, and zero shade. Riders must prepare for a 0-40C temperature range within a single race. Flooding, thunderstorms, and heatwaves are all common. The 2026 edition starting from Trondheim adds Scandinavian weather variability on top of the traditional Alpine-to-Mediterranean gradient.",
       "challenges": [
-        "Near-freezing Alpine conditions",
-        "40C+ Balkan heat",
-        "Violent thunderstorms",
-        "Climate-related flooding",
-        "30-40C temperature swings"
+        "Near-freezing Alpine conditions with sleet and snow on passes above 2,000m",
+        "40C+ Balkan and Mediterranean heat with zero shade for hours",
+        "Violent thunderstorms — alpine and continental",
+        "Climate-related flooding (Slovenia 2023 put riders at risk)",
+        "30-40C temperature swings within a single day — freezing at dawn on a pass, boiling by afternoon in a valley"
       ]
     },
     "terrain": {
-      "primary": "Predominantly paved roads, mandatory gravel parcours, variable surfaces",
-      "surface": "~70-80% paved roads (quality varies dramatically), ~10-15% gravel parcours (mandatory), ~5-10% cobblestones and rough surfaces. Balkans feature 'horrible Albanian roads' with missing cobbles and rough gravel.",
+      "primary": "Predominantly paved roads with mandatory gravel parcours and variable surfaces",
+      "surface": "~70-80% paved roads (quality varies dramatically by country), ~10-15% mandatory gravel parcours at control points, ~5-10% cobblestones and rough surfaces. Western European roads are excellent. Balkan roads deteriorate sharply — Albanian and North Macedonian roads feature missing cobbles, rough gravel, and unpredictable surfaces. Belgian cobblestones at the start of some editions.",
       "technical_rating": 3,
       "features": [
-        "Alpine passes (Stelvio 2,757m)",
-        "Mandatory mountain parcours",
-        "Free route navigation",
-        "Balkan rough roads",
-        "Belgian cobblestones",
-        "Variable surface transitions"
+        "Alpine passes (Stelvio 2,757m, Gotthard, San Bernardino, Splugen)",
+        "Mandatory gravel parcours at control points (5-100+ km each)",
+        "Free-route navigation between checkpoints — riders choose their own path",
+        "Balkan rough roads — Albania, North Macedonia, Bosnia",
+        "Belgian cobblestones (when editions start in Belgium)",
+        "Variable surface transitions requiring adaptable tire choice"
       ]
     },
     "gravel_god_rating": {
-      "overall_score": 90,
-      "editorial_tier": 1,
-      "editorial_tier_label": "TIER 1",
-      "business_tier": 1,
-      "business_tier_label": "TIER 1",
-      "display_tier": 1,
-      "display_tier_label": "TIER 1",
+      "overall_score": 97,
+      "tier": 1,
+      "tier_label": "TIER 1",
       "logistics": 5,
       "length": 5,
       "technicality": 3,
@@ -75,100 +71,110 @@
       "field_depth": 5,
       "value": 4,
       "expenses": 2,
-      "tier": 1,
-      "tier_label": "TIER 1",
-      "discipline": "bikepacking"
+      "cultural_impact": 5,
+      "tier_note": "The flagship European ultra-endurance race. Founded by Mike Hall in 2013 — the man who defined self-supported racing before his death in 2017. Fiona Kolbinger's 2019 overall victory was a landmark moment in endurance cycling. Winners include 6x RAAM champion Christoph Strasser. Only ~60% of starters finish. The TCR set the template for every self-supported ultra race that followed.",
+      "score_note": "prestige=5 for the benchmark European ultra-endurance race — Mike Hall's legacy, Allegaert's 3 wins, Strasser's RAAM pedigree, Kolbinger's historic overall victory. adventure=5 for crossing an entire continent by bicycle through 10+ countries. logistics=5 for navigating 3,100+ miles across multiple countries with no support. elevation=5 for 40,000-64,000m climbing depending on edition and route choice. climate=5 for 0-40C range within a single race. field_depth=5 for 350 riders selected from 1,000+ applicants with ultra-cycling's global elite. expenses=2 for 2,000-3,500+ EUR total budget across multiple weeks in Europe. cultural_impact=5 for founding modern self-supported racing and producing sport-defining moments.",
+      "editorial_tier": 1,
+      "editorial_tier_label": "TIER 1",
+      "business_tier": 1,
+      "business_tier_label": "TIER 1",
+      "display_tier": 1,
+      "display_tier_label": "TIER 1",
+      "discipline": "road"
     },
     "biased_opinion_ratings": {
       "logistics": {
         "score": 5,
-        "explanation": "Vincent Nadon captures the self-supported complexity: \"Dead phone, GPS coordinates pointing to the wrong place… I ended up losing an hour trying to find the Checkpoint 1 hotel!\" Riders navigate 3,100+ miles across 10+ countries managing visas, languages, resupply, and accommodation entirely alone. Commercial services only—no third-party support across an entire continent."
+        "explanation": "Riders navigate 3,100+ miles across 10+ countries managing visas, languages, resupply, and accommodation entirely alone. Commercial services only — no third-party support across an entire continent. Dead phones, wrong GPS coordinates, closed mountain passes, and language barriers compound into logistical complexity unmatched in road cycling. Every rider is their own team director, mechanic, navigator, and nutritionist for 8-16 days straight."
       },
       "length": {
         "score": 5,
-        "explanation": "Christoph Strasser completed TCR9's 3,943 km in 8 days, 16 hours, 30 minutes, noting that \"2023 felt far harder than 2022.\" The 2026 edition spans ~5,000km from Trondheim to Greece. Fastest finishers take 8-10 days, mid-pack 12-14 days. This is continental crossing measured in weeks of sustained effort."
+        "explanation": "Christoph Strasser completed TCR9's 3,943 km in 8 days, 16 hours. Victor Bosoni completed the 2025 edition's ~5,000km in 10 days 16 hours 38 minutes. The 2026 edition spans ~5,000km from Trondheim to Kalamata. Fastest finishers take 8-10 days, mid-pack 12-14 days. This is continental crossing measured in weeks of sustained effort — the longest timed road cycling event in Europe."
       },
       "technicality": {
         "score": 3,
-        "explanation": "Vincent Nadon experienced equipment failures from vibration: \"A 3D-printed mount for my Garmin Varia that gave way under the vibrations of the Flemish cobblestones.\" TCR includes cobbled sections and gravel parcours. Nadon found \"32mm road tires were not enough for rough sections,\" highlighting mixed-surface technical demands."
+        "explanation": "Predominantly paved roads with mandatory gravel parcours at control points. TCR includes cobbled sections and gravel parcours that can be unrideable — riders sometimes walk. The CP3 parcours in Albania was described as 'absolutely horrendous' with 44+ km of walking. 32mm road tires are insufficient for rough sections. But the majority of the route is on paved roads where road bikes excel, keeping the technical rating moderate."
       },
       "elevation": {
         "score": 5,
-        "explanation": "The 2026 edition features 64,000m of climbing—equivalent to ascending Everest seven times. Routes cross Italian Alps, Julian Alps, and Mt Korab region. The 350-rider field faces \"mandatory gravel sections\" and sustained Alpine passes that create what one finisher called the race's \"suffering quotient.\" Among the hilliest in gravel racing."
+        "explanation": "The 2026 edition features 64,000m of climbing — equivalent to ascending Everest seven times. Past editions have ranged from 30,000-42,000m depending on route. Routes cross Italian Alps, Julian Alps, Tatra Mountains, and Norwegian mountains. Mandatory parcours at control points force riders over major passes. Riders on 'flat' route strategies (like Strasser's Rhine Valley detour) still accumulate enormous climbing over 4,000+ km."
       },
       "climate": {
         "score": 5,
-        "explanation": "Vincent Nadon struggled with extreme heat: \"The lowest point was on parcours 3, which seemed endless with the heat and the tough gravel for kilometers.\" Race organizers acknowledge \"severe flooding in Slovenia putting riders at risk while raging heatwaves in the south exacerbated riders' suffering.\" Temperature swings exceed 30°C across the continent."
+        "explanation": "Severe flooding in Slovenia put riders at risk while raging heatwaves in southern Europe exacerbated suffering. Temperature swings exceed 30C within a single day — near-freezing on the Gotthard at dawn, 30C+ in Italian valleys by afternoon. The 350-rider field faces storms, sleet, heatwaves, and thunderstorms across the full climate spectrum of a continent. The 2026 Trondheim start adds Scandinavian weather variability."
       },
       "altitude": {
         "score": 4,
-        "explanation": "Extended riding above 2,000m through Italian Alps, Julian Alps, and Mangartsko Sedlo. The 2026 route adds Norwegian mountain terrain and Tatra Mountains sections. Mt Korab region in North Macedonia provides sustained high-altitude terrain. Not Himalayan elevation, but significant altitude stress combined with sleep deprivation and multi-day exhaustion."
+        "explanation": "Extended riding above 2,000m through Italian Alps (Stelvio 2,757m, Gotthard 2,106m), Julian Alps, and Mangartsko Sedlo. The 2026 route adds Norwegian mountain terrain and Tatra Mountains sections. Mt Korab region in North Macedonia provides sustained high-altitude terrain. Not Himalayan elevation, but significant altitude stress compounded by sleep deprivation and multi-day exhaustion. Most passes are between 1,500-2,757m."
       },
       "adventure": {
         "score": 5,
-        "explanation": "Crossing an entire continent by bicycle—from Norwegian fjords to Greek antiquity in 2026. Alpine passes at sunrise, Bosnian villages off tourist tracks, sleeping behind churches, navigating remote terrain by GPS. The route spans from Winter Olympic host city to ancient Olympic Games site. This is bucket-list, life-defining continental adventure."
+        "explanation": "Crossing an entire continent by bicycle — from Norwegian fjords to Greek antiquity in 2026, from Belgian cobblestones to Turkish minarets in earlier editions. Alpine passes at sunrise, Bosnian villages off tourist tracks, sleeping behind churches and in bus shelters, navigating remote terrain by GPS through the night. The free-route format means no two riders take the same path. This is bucket-list, life-defining continental adventure on a bicycle."
       },
       "prestige": {
         "score": 5,
-        "explanation": "The flagship European ultra-endurance race founded by Mike Hall, the legend who won Tour Divide and Trans Am before his 2017 death. Winners include cycling legends: Kristof Allegaert (3x), Christoph Strasser (6x RAAM winner, 2x TCR), and Fiona Kolbinger's historic 2019 overall victory. Finishing TCR earns permanent respect in ultra-cycling."
+        "explanation": "The flagship European ultra-endurance race founded by Mike Hall — the man who won Tour Divide and Trans Am before his death in 2017 during the Indian Pacific Wheel Race. Winners include Kristof Allegaert (3x winner), Christoph Strasser (6x RAAM winner, 2x TCR winner), and Fiona Kolbinger whose 2019 overall victory — beating 264 men — was a defining moment in cycling history. Finishing TCR earns permanent respect in ultra-cycling."
       },
       "race_quality": {
         "score": 5,
-        "explanation": "Lost Dot provides meticulous organization with GPS tracking every 5 minutes, control point volunteers, and safety monitoring. Elite riders like Tim de Witte, Josh Ibbett, and Cynthia Carson compete in a professionally managed format despite self-supported rules. The 350-rider field selected from 1,000+ applicants ensures competitive integrity."
+        "explanation": "Lost Dot (formerly The Transcontinental Race) provides meticulous organization: GPS tracking updated every 5 minutes, mandatory equipment checks, control point volunteers, safety monitoring, and DotWatcher live commentary. The 350-rider field selected from 1,000+ applicants ensures competitive integrity. Application process filters for experience and preparedness. Professional race management within a self-supported format."
       },
       "experience": {
         "score": 5,
-        "explanation": "Vincent Nadon reflects: \"I had a lot to learn from this experience, which could be useful in other situations in my life.\" Sleep deprivation creates what riders describe as \"a never-ending continuum of pedaling, eating, and occasional short sleep.\" The suffering creates bonds and memories that define who you are forever."
+        "explanation": "Sleep deprivation creates what riders describe as a never-ending continuum of pedaling, eating, and occasional short sleep. Hallucinations become entertainment. The landscape changes from Scandinavian to Alpine to Mediterranean across a single race. One finisher reflected: 'I had a lot to learn from this experience, which could be useful in other situations in my life.' The suffering and beauty combine into something that reshapes identity permanently."
       },
       "community": {
         "score": 5,
-        "explanation": "The field demonstrates community evolution: \"Outside of the bikes and wheels, we were surprised to see just how slimmed down rider's luggage set-ups are getting—a sure sign of how serious this epic event is becoming.\" Equipment standardization around \"4Season Disc and 4Season Gravel Disc\" shows knowledge sharing across the 350-rider field."
+        "explanation": "The TCR community extends far beyond the 350 riders. DotWatcher provides live commentary and results tracking that engages thousands of followers. Equipment knowledge sharing across the field shows a mature, collaborative community — riders standardize around proven setups while innovating at the margins. Mike Hall's five watchwords (integrity, autonomy, community, history, technology) are not marketing — they are the cultural DNA of the event."
       },
       "field_depth": {
         "score": 5,
-        "explanation": "Elite-level competition with winners like Christoph Strasser (6x RAAM winner), Robin Gemperle, and Alex Kopp representing ultra-cycling's global elite. The 350 riders selected from 1,000+ applicants include pairs winners Sherry Cardona & Gereon Tewes. Marei Moldenhauer and Sebastian Breuer demonstrate the field's competitive depth across categories."
+        "explanation": "Elite-level competition with winners like Christoph Strasser (6x RAAM winner), Kristof Allegaert (3x TCR winner), Robin Gemperle (2024 winner in 8d 23h 59m), and Victor Bosoni (2025 youngest-ever winner at 23). Fiona Kolbinger's 2019 overall victory demonstrated depth across categories. The 350 riders selected from 1,000+ applicants include ultra-cycling's global elite alongside dedicated amateurs. Pairs category adds another competitive dimension."
       },
       "value": {
         "score": 4,
-        "explanation": "~350 GBP entry for continental crossing with GPS tracking, control point support, and safety monitoring represents solid value. Riders optimize with \"Apidura Expedition and Race series\" bags (14L + 2L + 4L setup). The experience transcends cost-benefit analysis for a life-defining challenge across Europe's breadth."
+        "explanation": "510 GBP entry (plus 130 GBP refundable tracker deposit) for a continental crossing with GPS tracking, control point support, and safety monitoring represents solid value for what you get. The experience transcends cost-benefit analysis — this is a life-defining challenge across Europe's breadth. Compared to supported ultra-distance events (RAAM costs $3,000+ entry alone plus $30,000+ support crew), TCR's self-supported model is extraordinary value."
       },
       "expenses": {
         "score": 2,
-        "explanation": "Budget 2,000-3,500 EUR total including entry, travel, accommodation, and food across multiple countries. Vincent Nadon's setup included specialized gear like \"Garmin Varia\" and premium bags for continental crossing. Western Europe costs more; prices halve in the Balkans. Self-supported means funding your own multi-week European expedition."
+        "explanation": "Budget 2,500-4,000 EUR total including entry (510 GBP), flights to start and from finish, accommodation (mix of hotels and bivvy), food across 10+ countries for 8-16 days, and gear. Western Europe is expensive; prices halve in the Balkans. Self-supported means funding your own multi-week European expedition. Gear investment is significant — dynamo hubs, bikepacking bags, GPS units, emergency bivvy, and multiple charging solutions. Not a cheap endeavor."
       }
     },
     "biased_opinion": {
       "verdict": "The Continental Crossing",
-      "summary": "The Transcontinental Race is ultra-distance cycling's most iconic European event. Founded by Mike Hall in 2013, it established the template for self-supported racing that defines the sport. 4,000-5,000km across a continent, free-route format, clock never stops, completely self-supported. TCR doesn't compare to other races—it's the standard against which all European ultra races are measured. Finishing is a lifetime achievement. Winning is legend.",
+      "summary": "The Transcontinental Race is ultra-distance cycling's most iconic European event. Founded by Mike Hall in 2013, it established the template for self-supported racing that defines the sport. 4,000-5,000km across a continent, free-route format, clock never stops, completely self-supported. TCR does not compare to other races — it is the standard against which all European ultra races are measured. Finishing is a lifetime achievement. Winning is legend.",
       "strengths": [
-        "The flagship European ultra—Mike Hall's legacy lives here",
-        "Free-route format creates unique strategic challenge",
-        "True continental crossing through 10+ countries",
-        "Elite field of ultra-endurance athletes"
+        "The flagship European ultra — Mike Hall's legacy lives in every edition",
+        "Free-route format creates unique strategic challenge unlike any other road race",
+        "True continental crossing through 10+ countries with dramatic landscape changes",
+        "Elite field of ultra-endurance athletes selected from 1,000+ applicants",
+        "DotWatcher community and live tracking create a global spectator experience"
       ],
       "weaknesses": [
-        "40-50% DNF rate—only 60% finish, only 37% make time cutoff",
-        "Requires 6+ months preparation and extensive ultra experience",
-        "Sleep deprivation effects last weeks post-race"
+        "40% DNF rate — only ~60% finish, only 37% make the time cutoff for the finish party",
+        "Requires 6+ months preparation and extensive ultra-distance experience",
+        "Sleep deprivation effects (mood alterations, physical recovery) last weeks post-race",
+        "Self-supported format means a single equipment failure can end your race instantly"
       ],
-      "bottom_line": "If you want to cross a continent by bicycle, self-supported, racing against the best in the world—TCR is the only answer."
+      "bottom_line": "If you want to cross a continent by bicycle, self-supported, racing against the best in the world — TCR is the only answer. But respect what 4,000+ km alone across Europe actually means."
     },
     "black_pill": {
       "title": "THE 40% WHO DON'T FINISH",
-      "reality": "Only about 60% of TCR starters finish. 40-50% scratch every year—2022 saw 45% DNF rate. Only 37% make the cutoff for the finish party. The second quarter of the race (days 3-6) is when most dreams die—'level of mental deflation' when you realize you're 18 hours behind leaders after 36 hours. Sleep deprivation brings hallucinations, microsleep crashes into fences, cycling around cities in a sleep-drunk daze. 'One of the women's favorites scratched on first day when charging system failed.' Equipment failure can end your race instantly.",
+      "reality": "Only about 60% of TCR starters finish. 40% scratch every year. Only 37% make the cutoff for the finish party. The second quarter of the race (days 3-6) is when most dreams die — the 'level of mental deflation' when you realize you are 18 hours behind leaders after 36 hours of riding. Sleep deprivation brings hallucinations, microsleep crashes into fences, cycling around cities in a sleep-drunk daze. Equipment failures can end your race instantly — one women's favorite scratched on day one when her charging system failed. Three deaths occurred in ultra-cycling in 2017 alone, including Mike Hall himself.",
       "consequences": [
-        "40-50% DNF rate every single year",
-        "Sleep deprivation hallucinations are 'your entertainment'",
-        "Mood alterations last up to a month post-race",
-        "Three deaths in ultra-cycling in 2017 alone, including Mike Hall"
+        "40% DNF rate every single year — these are not casual cyclists, they are dedicated athletes who trained for months",
+        "Sleep deprivation hallucinations become 'your entertainment' by day 5+",
+        "Mood alterations and physical recovery can last up to a month post-race",
+        "The Balkan heat (39C+) combined with rough roads breaks riders who survived the Alps",
+        "Self-supported means no safety net — mechanical failure at 2am on a Bosnian mountain road is your problem alone"
       ],
-      "expectation_reset": "This is not a race you 'try' without years of ultra-endurance experience. Complete a 1,200km+ audax. Finish a shorter bikepacking race. Practice sleep deprivation riding. Master route planning across multiple countries. The TCR is the final exam of ultra-cycling—and the failure rate proves most aren't ready."
+      "expectation_reset": "This is not a race you attempt without years of ultra-endurance experience. Complete a 1,200km+ audax or Paris-Brest-Paris. Finish a shorter unsupported bikepacking race (Badlands, Atlas Mountain Race). Practice sleep deprivation riding. Master route planning across multiple countries. Build a proven equipment setup and test it over 1,000+ km. The TCR is the final exam of ultra-cycling — and the 40% failure rate proves most are not ready."
     },
     "final_verdict": {
-      "score": "98 / 100",
-      "one_liner": "The flagship European ultra—4,000-5,000km self-supported across a continent. Mike Hall's legacy. The ultimate test.",
-      "should_you_race": "Yes if you have 2+ years ultra-distance experience, can ride 300-400km days consistently, handle extreme sleep deprivation, and want cycling's ultimate European challenge. Skip if you haven't completed multi-day unsupported rides, can't commit to 6+ months training, or expect it to be 'just a long race.'",
-      "alternatives": "Trans Am Bike Race (6,800km fixed route across USA), Tour Divide (4,400km MTB fixed route), The Accursed Race (Lost Dot's Balkans race), Badlands (800km Spanish ultra—shorter, similar self-supported intensity)",
+      "score": "97 / 100",
+      "one_liner": "The flagship European ultra — 4,000-5,000km self-supported across a continent. Mike Hall's legacy. The ultimate test of human endurance on a road bike.",
+      "should_you_race": "Yes if you have 2+ years ultra-distance experience, can ride 300-400km days consistently, handle extreme sleep deprivation, and want cycling's ultimate European challenge. Yes if you have completed Paris-Brest-Paris, a 1,200km+ audax, or a shorter ultra-distance race. Skip if you have not completed multi-day unsupported rides. Skip if you cannot commit to 6+ months of dedicated training. Skip if you expect it to be 'just a long race' — this is an expedition that happens to be timed.",
+      "alternatives": "Trans Am Bike Race (6,800km fixed route across USA — longer, paved), Tour Divide (4,400km MTB fixed route — mountain bike, not road), Badlands (800km self-supported in Spain — shorter, similar self-supported intensity), The Accursed Race (Lost Dot's Balkans race — same organizer, shorter distance)",
       "alternative_slugs": [
         "badlands",
         "tour-divide",
@@ -176,169 +182,246 @@
       ]
     },
     "logistics": {
-      "airport": "Varies by year. 2026: TRD (Trondheim) for start, ATH (Athens) + transfer for Kalamata finish",
-      "lodging_strategy": "Mix of hotels (when need wash/recovery) and bivvy (when time-pressed or remote). Budget 3-6 hotel nights during race plus bivvy nights. Western Europe hotels ~50 EUR/night, Balkans much cheaper.",
-      "food": "Self-supported—grocery stores, petrol stations (often 24hr with hot food), restaurants, bakeries. Budget 50-100 EUR/day. Prices halve in Balkans.",
-      "packet_pickup": "Pre-race briefing at start location with mandatory equipment check.",
-      "parking": "Varies by year—start/finish locations change each edition.",
+      "airport": "Varies by year. 2026: TRD (Trondheim Airport Vaernes) for start, ATH (Athens International) + transfer for Kalamata finish. 2025: SCQ (Santiago de Compostela) for start, CND (Constanta) for finish.",
+      "lodging_strategy": "Mix of hotels (when needing wash/recovery) and bivvy (when time-pressed or remote). Budget 3-6 hotel nights during race plus bivvy nights. Western Europe hotels ~50-80 EUR/night, Balkans ~15-30 EUR/night. Pre-race: book accommodation at start city early as race weekend fills up.",
+      "food": "Self-supported — grocery stores, petrol stations (often 24hr with hot food), restaurants, bakeries. Budget 30-80 EUR/day depending on country. Prices halve in the Balkans compared to Scandinavia and Western Europe. Petrol station food becomes a staple for overnight riding.",
+      "packet_pickup": "Pre-race briefing at start location with mandatory equipment check. GPS tracker issued. Bike inspection. Typically the day before the race start.",
+      "parking": "Varies by year — start and finish locations change each edition. 2026: Trondheim city center for start, Kalamata waterfront for finish.",
       "official_site": "https://www.lostdot.cc/tcr",
-      "camping": "camping more acceptable/legal\n\n4"
+      "camping": "Bivvy camping is essential. Wild camping laws vary by country — Scandinavian 'allemansratten' (right to roam) is permissive; southern European countries are more restrictive. Many riders sleep in bus shelters, behind churches, or in fields. Emergency bivvy and sleeping mat are mandatory equipment."
     },
     "history": {
       "founded": 2013,
       "founder": "Mike Hall",
-      "origin_story": "Founded by Mike Hall after his 2012 World Cycle Race experience. First edition ran London to Istanbul with 30 starters. Mike won Tour Divide (2013, 2016) and Trans Am (2014), establishing himself as ultra-cycling's greatest racer. His tragic death in March 2017 during the Indian Pacific Wheel Race shocked the cycling world. Lost Dot, created by his colleagues, continues TCR in his honor. TCR No.5 (2017) went ahead with the largest turnout to date as tribute.",
+      "origin_story": "Founded by Mike Hall in 2013 after his 2012 World Cycle Race experience. Hall saw demand for a European ultra-distance race on the scale of Race Across America but with a self-supported format. The first edition ran from London to Istanbul with just 30 starters. Interest grew explosively — by the 4th edition in 2016, over 1,000 people applied for 350 places. Mike Hall also won Tour Divide (2013, 2016) and Trans Am Bike Race (2014), establishing himself as ultra-cycling's greatest racer. His tragic death in March 2017 during the Indian Pacific Wheel Race in Australia shocked the cycling world. Lost Dot, created by his colleagues, continues TCR in his honor. TCR No.5 (2017) went ahead with the largest turnout to date as tribute to its founder.",
       "notable_moments": [
-        "2013: First edition, 30 starters, London to Istanbul",
-        "2017: Mike Hall's death; TCR continues in his honor with record turnout",
-        "2019: Fiona Kolbinger becomes first female overall winner, beating 264 riders",
-        "2022: Christoph Strasser (6x RAAM winner) wins in 9d 15h",
-        "2024: Robin Gemperle wins in 8d 23h 59m"
+        "2013: First edition — 30 starters, London to Istanbul. Kristof Allegaert wins.",
+        "2014: Kristof Allegaert wins again. Field grows to ~180 starters.",
+        "2015: Josh Ibbett wins. Over 1,000 applicants for the first time.",
+        "2016: Kristof Allegaert wins his third TCR. 350 starters from 1,000+ applicants.",
+        "2017: Mike Hall killed during Indian Pacific Wheel Race in March. TCR No.5 continues in his honor with record turnout. James Hayden wins.",
+        "2018: James Hayden wins his second TCR.",
+        "2019: Fiona Kolbinger becomes first female overall winner, beating 264 riders — a defining moment in cycling history.",
+        "2020-2021: No race due to COVID-19 pandemic.",
+        "2022: Christoph Strasser (6x RAAM winner) wins TCR No.8 in 9d 15h.",
+        "2023: Strasser wins again. 3,943 km in 8d 16h 30m. Severe flooding in Slovenia.",
+        "2024: Robin Gemperle wins in 8d 23h 59m. Finish on the Asian side of Istanbul.",
+        "2025: Victor Bosoni becomes youngest-ever winner at 23. ~5,000km from Santiago de Compostela to Constanta."
       ],
-      "reputation": "The benchmark for European ultra-endurance cycling. Where legends are made."
+      "reputation": "The benchmark for European ultra-endurance cycling. Where legends are made and the sport's boundaries are defined."
     },
     "course_description": {
-      "character": "A continental crossing by bicycle. Start and finish points change each year—London to Istanbul, Geraardsbergen to Thessaloniki, Roubaix to Istanbul, and now Trondheim to Kalamata. Free-route format means riders plan their own path between mandatory control points. Alpine passes, Balkan heat, multiple countries, zero support. The TCR isn't about any single course—it's about the concept: cross Europe by bike, self-supported, as fast as you can.",
+      "character": "A continental crossing by bicycle. Start and finish points change each year — London to Istanbul, Geraardsbergen to Thessaloniki, Roubaix to Istanbul, Santiago de Compostela to Constanta, and Trondheim to Kalamata. The free-route format means riders plan their own path between 4 mandatory control points, each spaced 500-1,200km apart. Between checkpoints, you could ride 800km on flat highways or 600km through mountain passes — the strategic choice is yours. Mandatory parcours at each control point (5-100+ km of prescribed route, often on gravel through mountains) force every rider through the same crucible. The TCR is not about any single course — it is about the concept: cross Europe by bike, self-supported, as fast as you can.",
       "suffering_zones": [
         {
           "mile": 500,
           "label": "The Alps",
-          "desc": "Near-freezing temperatures, storms, major passes like Stelvio at 2,757m. Where cold, altitude, and early fatigue test resolve."
+          "desc": "Near-freezing temperatures, storms on passes like Stelvio (2,757m), Gotthard (2,106m), and San Bernardino (2,065m). Where cold, altitude, and early fatigue test resolve. The transition from flat northern Europe into the wall of the Alps is the first psychological barrier."
         },
         {
           "mile": 1200,
-          "label": "Second Quarter",
-          "desc": "Days 3-6 where most scratches happen. Mental deflation sets in. '18 hours behind leaders in 36 hours' reality check."
+          "label": "The Second Quarter",
+          "desc": "Days 3-6 where most scratches happen. Mental deflation sets in when you realize you are 18 hours behind leaders after 36 hours of riding. Sleep deprivation begins to compound. The novelty has worn off and the finish is impossibly far away."
         },
         {
           "mile": 2000,
           "label": "The Balkans",
-          "desc": "40C+ heat, rough roads, remote terrain. 'The heat and rugged roads' where the race becomes survival."
+          "desc": "40C+ heat, rough roads, remote terrain. Albania's 'absolutely horrendous' gravel parcours where riders walk for 44+ km. Bosnia's beauty is offset by the suffering of heat and fatigue. The race becomes pure survival."
         },
         {
           "mile": 2800,
-          "label": "Final Push",
-          "desc": "Sleep deprivation peaks. Hallucinations are 'your entertainment.' Pure survival to finish."
+          "label": "The Final Push",
+          "desc": "Sleep deprivation peaks. Hallucinations become entertainment. Riders fall asleep on their bikes, crash into fences, cycle in circles through cities in a sleep-drunk daze. Pure survival mode to reach the finish line — which may still be 500+ km away."
         }
       ],
-      "signature_challenge": "4,000-5,000km self-supported across a continent. Free-route navigation. 40,000-64,000m climbing. 0-40C temperature range. Clock never stops. The ultimate test of human endurance."
+      "signature_challenge": "4,000-5,000km self-supported across a continent. Free-route navigation between mandatory control points. 30,000-64,000m climbing depending on edition and route choice. 0-40C temperature range. Clock never stops. No support. The ultimate test of human endurance, navigation, and self-reliance on a road bike."
     },
+    "guide_variables": {
+      "race_name": "Transcontinental Race",
+      "race_distance": "3,100 miles (varies by edition: 3,200-5,000 km)",
+      "race_elevation": "210,000 feet (varies: 30,000-64,000m depending on edition and route choice)",
+      "race_date": "Late July",
+      "race_location": "Across Europe (route changes annually — 2026: Trondheim, Norway to Kalamata, Greece)",
+      "race_terrain": "Predominantly paved roads with mandatory gravel parcours at control points, cobblestones, Alpine passes, and variable Balkan surfaces. Free-route format means riders choose their own path between checkpoints.",
+      "race_weather": "Extreme variability: 0-40C range within a single race. Alpine storms with near-freezing temperatures on passes. Mediterranean and Balkan heatwaves (39-42C). Thunderstorms, flooding, and 30C+ daily temperature swings.",
+      "race_challenges": [
+        "4,000-5,000km of continuous self-supported riding with clock never stopping — 8-16 days non-stop",
+        "Free-route navigation across 10+ countries requiring pre-race route planning and real-time adaptation",
+        "40,000-64,000m of climbing through Alpine, Tatra, and Balkan mountain ranges",
+        "Extreme climate variability: near-freezing Alpine passes to 40C+ Balkan heat within the same race",
+        "Complete self-sufficiency: no support vehicles, no drafting, no outside assistance of any kind",
+        "Sleep deprivation management: competitive riders sleep 2-4 hours per night for 8-10+ days",
+        "40% DNF rate — only 60% of starters finish, only 37% within the time cutoff"
+      ],
+      "altitude_section": true,
+      "altitude_feet": 9042
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Ultra-distance riding experience — minimum 1,200km+ unsupported ride completed",
+        "by_when": "6 months before race",
+        "why": "The TCR is the final exam of ultra-cycling. 40% of starters do not finish. You need proven experience managing sleep deprivation, nutrition over multiple days, equipment reliability, and mental resilience over 1,000+ km without support. Paris-Brest-Paris (1,200km) or a shorter bikepacking race (Badlands 800km, Atlas Mountain Race 1,200km) should be your baseline. If you have never ridden through the night and managed your own logistics for 48+ hours, the TCR will break you."
+      },
+      {
+        "requirement": "Proven equipment setup tested over 1,000+ km including charging system, lighting, and navigation",
+        "by_when": "8 weeks before race",
+        "why": "One women's favorite scratched on day one when her charging system failed. Equipment failures at 2am on a Bosnian mountain road have no support crew to fix them. Your dynamo hub, GPS, lights, power management, bikepacking bags, tire choice, and emergency bivvy must be proven over 1,000+ km of real-world riding. The race is too long and too remote for untested gear. If your charging setup fails, your race is over."
+      },
+      {
+        "requirement": "Route planning for all 4 checkpoint-to-checkpoint segments with contingency alternatives",
+        "by_when": "4 weeks before race",
+        "why": "Christoph Strasser's Rhine Valley detour — 100km longer but avoiding unknown gravel — was a race-winning strategic decision. You must plan primary and backup routes between every control point, considering elevation profiles, road quality, weather patterns, resupply points, and accommodation options. Real-time route changes during the race are inevitable (closed roads, flooding, weather), and riders without backup plans lose hours to improvisation. Google Street View, Strava heatmaps, Komoot, and Ride with GPS are all essential planning tools."
+      },
+      {
+        "requirement": "Sleep deprivation tolerance — ability to ride safely after 20+ hours awake",
+        "by_when": "12 weeks before race",
+        "why": "Competitive riders sleep 2-4 hours per night for 8-10 days. Sleep deprivation brings hallucinations, microsleep episodes, impaired judgment, and dramatically increased crash risk. You must practice extended riding (24-36 hour efforts) and develop a personal sleep strategy before the race. Know your warning signs for dangerous fatigue. A rider who cannot manage sleep deprivation is a safety risk to themselves and to motorists sharing the road."
+      },
+      {
+        "requirement": "Heat and cold management — functional in 0-40C temperature range with appropriate layering system",
+        "by_when": "8 weeks before race",
+        "why": "You will descend Alpine passes at 3am in near-freezing conditions and ride through 40C Balkan heat in the same race — sometimes in the same day (28C temperature swing from Gotthard summit to Italian valley). Your layering system must handle this range. Arm warmers, leg warmers, rain jacket, thermal layer, and summer kit must all fit in your bikepacking setup. Hypothermia on a descent and heatstroke in a valley are both real risks. Test your system in training."
+      }
+    ],
     "citations": [
       {
         "url": "https://www.lostdot.cc/tcr",
         "category": "official",
-        "label": "Official Website"
-      },
-      {
-        "url": "https://velo.outsideonline.com/gravel/gravel-culture/keeping-mike-halls-legacy-alive-transcontinental-needed-continue/",
-        "category": "media",
-        "label": "Velo"
-      },
-      {
-        "url": "https://www.gravelcyclist.com/training-rides/the-road-to-transcontinental-race-part-twelve-by-sebastian-breuer/",
-        "category": "media",
-        "label": "Gravel Cyclist"
-      },
-      {
-        "url": "https://www.reddit.com/r/randonneuring/comments/1ebq8t9/transcontinental_race_10/",
-        "category": "community",
-        "label": "Reddit"
-      },
-      {
-        "url": "https://www.reddit.com/r/ultracycling/comments/1583l8c/transcontinental_race/",
-        "category": "community",
-        "label": "Reddit"
-      },
-      {
-        "url": "https://www.panoramacycles.com/blogs/blog/tcr-2023-race-report",
-        "category": "community",
-        "label": "panoramacycles.com: Tcr 2023 Race Report"
-      },
-      {
-        "url": "https://www.lostdot.cc/blog/the-transcontinental-race-no10-pre-race-report",
-        "category": "community",
-        "label": "lostdot.cc: The Transcontinental Race No10 Pre Race Report"
-      },
-      {
-        "url": "https://cyclite.cc/en/blogs/news/10-long-distance-cycling-events-to-follow-in-2025",
-        "category": "community",
-        "label": "cyclite.cc: 10 Long Distance Cycling Events To Follow In 2025"
-      },
-      {
-        "url": "https://www.cyclingnews.com/features/transcontinental-racing-4000km-from-belgium-to-greece-in-less-than-nine-days/",
-        "category": "community",
-        "label": "cyclingnews.com: Transcontinental Racing 4000Km From Belgium To Greece In ..."
-      },
-      {
-        "url": "https://en.wikipedia.org/wiki/Mike_Hall_(cyclist",
-        "category": "reference",
-        "label": "Wikipedia"
+        "label": "Lost Dot — TCR Official Website"
       },
       {
         "url": "https://en.wikipedia.org/wiki/Transcontinental_Race",
         "category": "reference",
-        "label": "Wikipedia"
+        "label": "Wikipedia — Transcontinental Race"
       },
       {
-        "url": "https://dotwatcher.cc/feature/bikes-of-transcontinental-race-no11",
-        "category": "tracking",
-        "label": "DotWatcher"
+        "url": "https://en.wikipedia.org/wiki/Mike_Hall_(cyclist)",
+        "category": "reference",
+        "label": "Wikipedia — Mike Hall (cyclist)"
+      },
+      {
+        "url": "https://ridefar.info/races/transcontinental-race/overview/",
+        "category": "reference",
+        "label": "Ride Far — TCR Overview"
+      },
+      {
+        "url": "https://ridefar.info/races/transcontinental-race/overall/",
+        "category": "reference",
+        "label": "Ride Far — TCR Overall Results"
+      },
+      {
+        "url": "https://www.apidura.com/journal/the-transcontinental-race-everything-you-need-to-know/",
+        "category": "media",
+        "label": "Apidura — Everything You Need to Know About TCR"
+      },
+      {
+        "url": "https://bikepacking.com/event/2025-transcontinental-race/",
+        "category": "media",
+        "label": "Bikepacking.com — 2025 TCR"
+      },
+      {
+        "url": "https://bikepacking.com/news/robin-gemperle-wins-2024-transcontinental-race/",
+        "category": "media",
+        "label": "Bikepacking.com — Gemperle Wins 2024 TCR"
+      },
+      {
+        "url": "https://www.cyclingnews.com/features/transcontinental-racing-4000km-from-belgium-to-greece-in-less-than-nine-days/",
+        "category": "media",
+        "label": "Cyclingnews — TCR Feature"
+      },
+      {
+        "url": "https://escapecollective.com/how-a-decisive-ferry-crossing-helped-produce-the-transcontinental-races-youngest-ever-winner/",
+        "category": "media",
+        "label": "Escape Collective — Victor Bosoni 2025 Winner"
+      },
+      {
+        "url": "https://velo.outsideonline.com/gravel/gravel-culture/keeping-mike-halls-legacy-alive-transcontinental-needed-continue/",
+        "category": "media",
+        "label": "Velo — Keeping Mike Hall's Legacy Alive"
+      },
+      {
+        "url": "https://www.bikeradar.com/features/routes-and-rides/transcontinental-race-stats",
+        "category": "media",
+        "label": "BikeRadar — TCR Stats"
       },
       {
         "url": "https://dotwatcher.cc/race/transcontinental-race-no11-2025",
         "category": "tracking",
-        "label": "DotWatcher"
+        "label": "DotWatcher — TCR No.11 2025 Tracking"
       },
       {
         "url": "https://dotwatcher.cc/results/2024/transcontinental-race-2024",
         "category": "tracking",
-        "label": "DotWatcher"
+        "label": "DotWatcher — 2024 Results"
+      },
+      {
+        "url": "https://dotwatcher.cc/feature/bikes-of-transcontinental-race-no11",
+        "category": "tracking",
+        "label": "DotWatcher — Bikes of TCR No.11"
+      },
+      {
+        "url": "https://www.reddit.com/r/randonneuring/comments/1ebq8t9/transcontinental_race_10/",
+        "category": "community",
+        "label": "Reddit — r/randonneuring TCR Discussion"
+      },
+      {
+        "url": "https://www.reddit.com/r/ultracycling/comments/1583l8c/transcontinental_race/",
+        "category": "community",
+        "label": "Reddit — r/ultracycling TCR Discussion"
+      },
+      {
+        "url": "https://www.panoramacycles.com/blogs/blog/tcr-2023-race-report",
+        "category": "community",
+        "label": "Panorama Cycles — TCR 2023 Race Report"
+      },
+      {
+        "url": "https://www.lostdot.cc/blog/the-transcontinental-race-no10-pre-race-report",
+        "category": "community",
+        "label": "Lost Dot — TCR No.10 Pre-Race Report"
       },
       {
         "url": "https://3t.bike/blogs/news/transcontinental-race-no11-a-pilgrimage-to-the-black-sea",
         "category": "other",
-        "label": "3T"
+        "label": "3T — TCR No.11 Pilgrimage to Black Sea"
       },
       {
         "url": "https://bikepacking.com/bikes/2022-transcontinental-race-rigs/",
         "category": "other",
-        "label": "Bikepacking"
-      },
-      {
-        "url": "https://bikepacking.com/news/robin-gemperle-wins-2024-transcontinental-race/",
-        "category": "other",
-        "label": "Bikepacking"
-      },
-      {
-        "url": "https://cyclingtourist.com/2022/07/13/01-transcontinental-race-no-8-about-the-race-live-tracking-cap63-start-24-7/",
-        "category": "other",
-        "label": "Cyclingtourist"
+        "label": "Bikepacking.com — 2022 TCR Race Rigs"
       },
       {
         "url": "https://endurance.biz/2025/industry-news/transcontinental-race-no12-route-heads-from-norway-to-greece/",
         "category": "other",
-        "label": "Endurance"
-      },
-      {
-        "url": "https://eu.huntbikewheels.com/blogs/news/readers-rides-transcontinental-race-no-6-setups",
-        "category": "other",
-        "label": "Eu"
+        "label": "Endurance.biz — TCR No.12 Route Preview"
       }
     ],
     "results": {
       "years": {
         "2024": {
-          "winner_male": "Most Wins",
+          "winner_male": "Robin Gemperle",
+          "winner_time": "8d 23h 59m",
           "field_size_actual": 326,
           "key_takeaways": [
-            "com/news/robin-gemperle-wins-2024-transcontinental-race/)"
+            "Robin Gemperle wins in 8d 23h 59m",
+            "Finish on the Asian side of Istanbul",
+            "~60% finish rate maintained"
+          ]
+        },
+        "2025": {
+          "winner_male": "Victor Bosoni",
+          "winner_time": "10d 16h 38m",
+          "field_size_actual": 350,
+          "key_takeaways": [
+            "Victor Bosoni becomes youngest-ever winner at 23 years old",
+            "~5,000km route from Santiago de Compostela to Constanta",
+            "Decisive ferry crossing was key tactical move"
           ]
         }
       },
-      "latest_year": "2024"
+      "latest_year": "2025"
     },
     "tire_recommendations": {
-      "generated_at": "2026-02-19",
+      "generated_at": "2026-02-27",
       "primary": [
         {
           "rank": 1,
@@ -349,7 +432,7 @@
           "msrp_usd": 69.9,
           "weight_grams": 480,
           "crr_watts": 38.0,
-          "why": "excellent wet grip"
+          "why": "Reliable all-rounder for the TCR's mixed surfaces. Excellent wet grip for Alpine storms, tough enough for gravel parcours, and fast enough on paved roads. The go-to tire for riders who want one setup for the entire continent."
         },
         {
           "rank": 2,
@@ -360,7 +443,7 @@
           "msrp_usd": 79.99,
           "weight_grams": 460,
           "crr_watts": 35.0,
-          "why": "Technical all-rounder. EXO+ casing shrugs off rocks and roots."
+          "why": "Technical all-rounder. EXO+ casing handles Balkan rough roads and Albanian gravel parcours without puncture anxiety."
         },
         {
           "rank": 3,
@@ -371,7 +454,7 @@
           "msrp_usd": 73.99,
           "weight_grams": 430,
           "crr_watts": null,
-          "why": "excellent wet grip"
+          "why": "Excellent wet grip for Alpine conditions. Low rolling resistance on pavement for the 70-80% of the race on paved roads."
         }
       ],
       "front_rear_split": {
@@ -386,7 +469,7 @@
           "name": "Schwalbe G-One Bite",
           "width_mm": 40
         },
-        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+        "rationale": "Faster front for reduced rolling resistance on the 70-80% paved road sections, grippier rear for traction on loose gravel parcours climbs and wet Alpine descents."
       },
       "race_surface_profile": "technical",
       "recommended_width_mm": 40,
@@ -421,7 +504,7 @@
           "completeness": 100,
           "cross_reference": 100
         },
-        "scored_at": "2026-02-04"
+        "scored_at": "2026-02-27"
       }
     },
     "youtube_data": {
@@ -435,27 +518,7 @@
           "view_count": 327261,
           "upload_date": "20230917",
           "duration_string": "1:07:35",
-          "description": "The Transcontinental Race is a  is a self-supported bicycle race across Europe with no route! Riders have to create their own route and include the mandatory checkpoints and parcours. \n\nDefinitely the toughest ultra-distance cycling race in Europe that challenge your body and mind.\n\nThis is an insight into my story and my partner's as we complete the 3.800 km in 10 days and 21 H finishing as first pair and 16th position overall. \n\nSelf-supported you have to take care of all your needs and carry your equipment. \n\nSelf-routed, there’s no fixed course or route, you plan your own route passing through 4 different checkpoints ☑️\n\nAn ultra-endurance bikepacking adventure!\n\n*** Thumbnail photo by  Charlotte Gamus (@charlottegamus)\n\nSupport the channel and get the coolest Buzzalong cycling  or  ☕️ coffee T-shirt link below:\n\nhttps://www.buzzalongcoffee.com\n\n---------------------------------------------------------------------------\nSome discounts/referrals from my partners:\n\n🚲 Fara bicycles:  BUZZALONG23\nFree bottle cages and bottles with purchase of non-discounted bike \n\nhttps://faracycling.com\n\n⭐️ Find my favourite gear and more at Alltricks.com in the link below ⤵️\n\nhttps://fnty.co/c/r-uPbTvAhT\n\n⚡️ Bulk NL: https://tidd.ly/47U76wx\n\nSupernova Lights:     SHERRY-15\nThrive Beer:            SHERRY20\nKogel Bearings:   KOGELVIP23\n\nYou can help support this channel using the following links (or above) when ordering anything from Amazon. It will not cost you anything extra but a small commission will go to this channel. \n\nAmazon UK: https://amzn.to/47IPK5W\nAmazon US: https://amzn.to/3Rpjz5R\nAmazon NL: https://amzn.to/482S738\nAmazon DE: https://amzn.to/3Rr9JAg\n\n\nCheck and subscribe to my newsletter to receive the full report of my bikepacking trips and races⤵️\n\nhttps://buzzalong.cc/\n\nMy Bike:\n@faracycling1746 https://faracycling.com/models/F_AR\n\nOversized Derailleur Cage \n@kogelbearings\n\nMy Cycling Apparel:\n @velocioapparel  https://velocio.cc/\n @QuocShoes  https://quoc.cc/collections/gran-tourer\n\nMy Bike Lights:\n@supernova.design9092  https://supernova-lights.com/en\n\nBike Bags:\n @Restrapltd  https://eu.restrap.com\n@CYCLITE https://cyclite.cc/en\n\nSpecial thanks to  @dotwatcher  and  @TranscontinentalTCR  for the race commentary. Link below:\nhttps://dotwatcher.cc/race/transcontinental-race-2023",
-          "tags": [
-            "bikepacking",
-            "cycling",
-            "transcontinental race",
-            "ultra cycling",
-            "ultracycling race",
-            "eurovelo",
-            "biketouring",
-            "gcn tech",
-            "tcrn9",
-            "ultra distance cycling",
-            "ultra endurance cycling",
-            "ultra cycling documentary",
-            "race movie",
-            "transcontinental race documentary",
-            "transcontinental race bike",
-            "transcontinental race no 9"
-          ],
           "url": "https://www.youtube.com/watch?v=1pz44B5Q7_4",
-          "transcript": "it's over yeah it's over\nit is during our darkest moments that we\nmust Focus to see the light\n[Music]\nwell how many times\nthis is life from another world\nagain\nthis Granny's attack\nso today is finally\nrace day I don't know it's very strange\nwhen that day comes you look forward to\nit and all of the sudden is like oh okay\nso time for the bike check\nthree three four yeah\nwhatever\nthree three four lucky number I hope so\nI will need that luck I'm now waiting\nfor the bike chick really excited\nthank you\nthe Transcontinental race is a ultra\ndistance cycling race across Europe and\nprobably one of the toughest ones in the\nworld Riders have to create their own\nroute and it can be up to 4 000\nkilometers and go to the control points\nalong the way this year starts in\nBelgium then goes to Italy before going\nto Slovenia and heading into Eastern\nEurope towards Albania Crossing into\nGreece and reaching the Finish Line in\nThessaloniki\nso any words ready\noh you're never ready\nso finally the star of the\nTranscontinental race I don't know I was\nlike is this day gonna come it's so\nstrange to be here but uh yeah I think\nit's gonna be a great adventure I think\nthere's gonna be a lot of Adventures to\ntalk about but let's find out whoo\ngood morning nearly daylight\neverything ejected in the rain in the\nnight but somehow\nwe are keep on rolling\nfeeling good to be honest\nwas more race mode before\nrain pants mode\nvery hilly here\nit's more like Rolling Hills\ngood morning we are here in France we\nwere running out of water but the\nfollowing Ali found this Bakery right on\ntime so now continuing nearly 200k let's\nsee how the race goes let's do it rainy\nall day\nheadwind and rain all day\nhaving a deeper sleep I don't know\ncannot push the power now and he's so\nsleepy\nfeel like I want to throw up\nand it's like from Wayne's Highway\n287 kilometers\nall right\nthere without the rain jacket\nI was boiling and with this wind the\ndrug\nmy God I don't think what\nI know\norange red climb\nforeign\nhere in France\nraining not raining\ncycle Lane\nDutch Style\nwe're using recycling because we can\navoid a lot of up and downs in The\nVillages and traffic lights\nit's quite quick and it's very nice so\nnice for a change\nrainbow\nagain still taking a bit of shelter but\nI don't think he's gonna get better\nsoaked to the bone now\nDCR sunset\nsunsets are always nice\nI'm Karina Vivi but uh emergency baby I\nI like a bit more comfy so planning to\nstay in hotels mostly but you know if\nthere's a storm or something like that I\nwant to have an option to sleep in a\nbathtub let's say kill this race you\nstart in garious Bergen then we go\nthrough France uh arrive to Basel from\nBasel we have to go up a pass just to\nget to the start of the checkpoint and\nthen the checkpoint goes up this plugal\npass through a gravel road and\neverything and then levino so it's a lot\nof climbing maybe there's some storm in\nthe UPS so let's see\ngood morning day two we pushed it to 24\nhours yesterday nearly uh 885 nearly 600\nkilometers in 24 hours something like\nthat\nand uh yeah today we had a good night of\nsleep in a hotel trying everything\nbecause everything was wet and now Gary\nis ready to tackle the Hops on this\nalbum passes they do here he comes the\nelves but the bear is working well\ntogether\ntoday is the day\nearly morning\nI think it's like 3 36 or something like\nthis\nit's quite nice because it's quiet\nI like it like thieves in the night\ngetting every free speed we can\nlet's see\nbut beautiful\nAdventures\nthe Steep is gone Jesus Christ all right\nand this is not even the past\nwe are in the accent structure the part\nthat is allowed just came up the hiking\ntrail was freaking Steve and scary to be\nhonest I need to cry but now we are in\nthe artist Raza and then the proper\nclimb before the proper time\nthey got her\ntumale is a kindergarten compared to\non the way to the Gortat cortado\nhere we go the pass\nanimals\nthis is insane this is never ending my\nGod\ncooked\nCiao Bella\nit gets more and more difficult\nsaved\nsafe\nwe fall into heaven\njust when we were frozen crying of\nI don't wanna Rush\ning is freaking dumb\nso we couldn't sleep anymore we stay in\na hotel that we found because everything\nwas downtown was so cold\nand we try to try everything but it's\nlike a I don't know single digit time\nright\nare we going now Papas again so it's\ngonna be horrendously like\nI don't know how to cope with that many\nthe reason cannot be that long\nI don't know I I prefer that I didn't\nsee it scary all these channels and\neverything like a massive descent in the\ndark in the Alps I can't feel my hands\nof color breaking\na very\ngood morning I think\nday two or something again back to\nSwitzerland\nto the other\nAlpine pass again here we go\nhey I don't know some conflict\ngot lost\noh can you explain what happened\npass to belisona we were super cold and\nwe didn't have any food we had a small\nargument trying to decide on the route\nso it took us a while to figure out what\nto do so made it to the top of a bus\nabout to Bonk I don't know I think I\nclimbed out of here but uh really nice\nand there's more passes to come like a\nlot of elevation I know I think three\nthousand something like that\nleft or five thousand I don't know\nI don't know it gets harder I think\nthat is insane\nwe are going there\nhow's everything going\nfrom bonkin to freezing to freeze into\nboiling\neverything\nmoving basically\ncrazy\nI don't know how to describe this\nexperience\nI've been on that train\n[Applause]\nis his life from another world I will\nnever have come here otherwise\ncrazy like 2 500 meters of altitude air\nis quite in here\nfirst checkpoint of transcontinental\nrace\nfirst pair so far on pointy end of the\nfield and grow up bro to be honest\nthe conditions in the Alps were really\nhard during the three days there were\nrain and storms all the time with\nstopping hotels to warm up and dry our\nclothes we were doing quite well being\nat the top end of the field making our\nway towards cp1 we went through the Gold\nHeart instead of the double San\nBernardino like the race leader and\nafter that we made our way to livinho we\nbumped into some of the race favorites\nwhich gave us a moral boost as we were\nat the top end of the hill we decided to\ngo for General classification instead of\njust focusing on the purse preparation\nwe finished the route this week so let's\nsee how it goes there might be some\ngravel and Hiking so\nwe have our master plan for hiking so\nlet's see how this one plans out\nplan didn't work so we plan after\nleaving you to take a hiking trail next\nto a prohibited tunnel so you can go\naround the tunnel by taking a goat's\nTrail but first we had to get into the\nnational park and there were some\nberries and the lady there told us like\nyou can go hiking without the bike but\nyou cannot enter there with the bike so\nwe had to turn around lost an hour there\nand this hiking trail will have saved us\nthe stereo but instead we had to go\ntowards the stereo and we didn't have a\nroute for it so we just had a quick one\nwe did so there was a lot of drama we\ngot lost by the time we got to stelby we\nwere already exhausted\nfourth pass of the are having a really\nreally bad deep thin is all the stress\npanicking\nyeah it is what it is\nmade it to the top of the steel view now\ndown\nthanks\nfor touring boat I promise I'm not\ntouching the brakes it's just a win now\nyou go slow slow downhill\nstory mode 2.0\nday four I think\nI don't know\nI feel like I want to throw up\nlet's do it\nhow's it going I'm not good\nyeah really struggling since yesterday\nwaiting for the shop of the guys stay\nhere\nwell we know what's the problem no\nwe want to take the Euro Bello\nyou know feeling a bit better about the\nthousand kilometers mark\nit's really there\nit's really kind of the first Breaking\nPoint\nso now we are in the europello sunshine\nroute\ngrateful grateful for today\nvery much\nwe made it to Austria\nreally nice\nswim from the front\nthe shortcut was hard for his heart\nokay you want to say Something About\nSlovenia\nah really nice huh we are now again\ncycling\nnot that bad\ntouch Style\nsuper nice\nunbelievable\ninsane\nso beautiful\nso we just got cooked by one guy Nice\nShot he seem happy to catch us\ners\nwe are on the parkour it's a climb\nbut because of the wind\nfeels like a downhill\num\nwe continue to make our way through the\nAlps into Austria and from there to cp2\nwe are right there at night it was a\nhotel in Slovenia Slovenia was\nabsolutely beautiful and we were still\non the top end of the field we increase\nour advantage towards the second pair\nmaking progress\nparkour two in Slovenia\nfreaking Brute\nthe Parkour in Slovenia was challenging\nafter sleeping in the cp2 in a sofa I\npassed out there it was a hotel but they\ndidn't have rooms we started early in\nthe morning towards the parkour which\nwas like two in the morning it was\nreally dark and you start with a really\nsteep climb climbing for hours like 20K\nand when you think oh it's not that bad\nthen the real gravel starts and you're\nlike oh my God but we reached the top at\nthe Sunrise it was amazing and I started\nthinking it's not that bad and then\nthere was a really stiff gravel descent\nand I got a flat tire and I was like oh\nmy God's in the middle of the mountains\nnow what do I do I started screaming to\nGary on help help but he was Further\nDown The Descent as he is a good gravel\nRider not like me good morning just made\nit out of the ground parkour\nso cold and yeah when I thought it was\nokay then uh got a flat tire in the\nmiddle of The Descent of the Grove\nparkour but we managed to make it out of\nthere so now we have to figure out how\nto repair the tire but first warm enough\nwe found a Cafe open\nfive stars run on a hotel wind shade\na supermarket\nthe wind\nwhere are we\ntrying to make it to Slovakia and then\nBosnia\noperation\nCroatia we cross in Croatia I said\nCroatia\nmy personal favorite\nthe longest stretch between checkpoints\nwas from cp2 to CP3 so you had two\noptions you could go more by the coast\ntowards Croatia but sometimes you have a\nreally bad wind there that could be in\nthe wrong direction so we decided not to\ndo that as we did Bihar the year before\nwe went more Inland towards Bosnia and\nHerzegovina which is really nice and I I\ndon't know it's nice to write in a\ncountry that you know which is really\ncool the heart 2.0 now in Vania Luca\nhe's funny\nit's kind of nostalgic I'm painful as\npainful as we had I would say at this\npoint\nextremely tough to wake up\nTina was I woke up during a deep\nlet's see how the day goes\nit's gonna be hot\nbreaking progress\nand this is fresh here's some space not\nlike encourage\nCroatia was the same\nI'm happy we're not going through\nCroatia freaking win yesterday sorry for\nthe word\nhey\noh\nyeah\nso the good thing about Bosnia is that\nyou have a lot of\nfountains and drinking water so you\ndon't have to worry about not finding\nmood even in remote place\nokay I'm gonna put water\non my head\nhaving a really bad deep\ninto the night eh feeling good pakita\ngood morning we slept outside\nokay\nfive-star hotel but it is so cold now\ntrying to find uh the motivation to just\nget off the emergency baby\ngood morning from\nMontenegro another country\nso tough night\nneed breakfast huh\nreally cold there's not much around\nbut we're making progress\ngood morning sunrise in Montenegro wow\nAlbania\nhaving a break\nis insanely hot\nmy hands are ready\ntourism\nthis is like our adventure\nvery adventurous\nof the day during the hot hours uh found\nthis amazing hotel and decided to treat\nourselves to motivate for the\nparkour to come for tonight and the\nviews are amazing wash the clothes and\nfeeling fresh\nAlbania not my favorite country\ncountry\nat least they choose a nice checkpoint\nI'm about\none\nout of five today\non the way to cp2 foreign\nwe managed to get into the top 20 at\ncheckpoint 3. cp2s to CP3 is probably\nthe longest stretch then you get into\nEastern Europe when the race really\nstarts Europe changes a lot you go from\ncold temperatures into like really warm\ntemperatures it was around 39 degrees so\nyou had two options you could go through\nCroatia or towards Bosnia and\nHerzegovina more Inland we went through\nBosnia because we knew the area and we\ntook a lot of time there it was really\nnice and we arrived to the checkpoint in\nAlbania there but the checkpoint was in\nthe night and we decided to tackle the\nCP3 parkour during the night because it\nwas the toughest gravel parkour of\naround 65 kilometers and I had the\nfeeling I would have to walk the whole\nparkour\nthis year\nabsolutely horrendous\nI don't think this is\nyou can drive your own amount it's hard\ntrying to make it all this\nand just a more horrific power\nbut I can imagine\nit's over\ngood morning\njust made it I don't think foreign\non top of the world in a such a\nbeautiful country\nfrom Albania hey\nsleeveless grannies\ntry it again\nwalk the whole club for this 6 no 44\nkilometers\nthat's Granny's life but succeeded no\ncrush is nothing\nabout this because no fries\nanother flat tire\nand shitty roads I don't know how many\nSource I'm gonna get from this\nwe just hot enough over there\nall right hand says\ngood morning Dave I don't know but that\nmust be hopefully one of the final ones\nwe are in Greece our final destination\nuh fauna Bakery after riding through the\nnight\nI think it's five in the morning yeah so\nvery lucky and it's already 24 degrees\nso it's gonna be very hot\nI know in this race every kilometer\ncounts so much I even started to enjoy\nthe scents\nI fell twice this morning but still\nenjoy them\nthere's nothing here\nwe don't have food\nsometimes you have to stop and relax in\norder to erase it too\nyou're right as always I know I'm always\nwhat's the plan now\nso now resupply eat a lot and tackle the\nfirst parkour\nright insulting my phone back\nno\nso hold on\nI need to eat something\nat least I know what comes yeah\n[&nbsp;__&nbsp;]\nif you go ah yes they make you go down\nhere to then go back again but you want\nto make it slices\nhmm\nso what does she wants\nall that yeah\nfinish your parkour 4B\npetrifying\nbut yeah it's there feeling a way to be\nhonest and uh I think we are fifth\noverall in the race like which is\nsurprising I was like what\nso I will let you know let me know in\nthe comments if you think I'm in a\nmental state to say something right\nthe part of the race in Greece was a\nlittle bit tricky because you have a one\ncheckpoint but three parkours and you\ncan decide how to take the parkours and\nif you want to take more a gravel\noff-road version that is shorter or a\nbigger loop around that is a road and\nmostly main roads so after my experience\nwith pesh copy I didn't want to see more\ngravel so the first part cool was like a\nbit of some gravel that I was like oh my\nGod again\nbut uh yeah then Meteora was really nice\nprobably one of the highlights of the\nrace after Meteora we decided instead of\ntaking the shortcut of gravel towards\nthe next one we decided to go the longer\nLoop towards the coast which was the the\nbest decision that was what uh Christoph\nstrassa did also he's kind of like okay\nsimilar type of writer he likes going\nlike a fuss on the idle bars That's my\nkind of thing it was really nice to be\nhonest I really enjoyed but I was\nsuffering a bit with the heat in Greece\nMeteora\nepic\nthat's a long team on the move\n10 minutes\nyeah you called me in my good time of\nthe day\nbefore the dip starts so let's enjoy\nepic sunrise in Meteora\ncheckpoint\nit's so hot\nto take a break\nI can't see anymore\nsomewhere else to the last night hi\nI'm already getting cooked\nthis one I finished it 300 to go\nit is supposed to be a road race\nroad race\nI don't know how many times I felt on\nthis Racing Ground Road Race right\nI have nothing to do with gravel\nfive more years\nlet's push to the Finish\neven the way into the city\nsounds\nhe said it's about the Sun City\nso we finished those Continental number\nnine didn't expect that wouldn't have\nsaid it this morning\nwalking a lot but managed it was nice\nwe'd do a lot of driving\nfamous quotes of the trip granny gear\ngranny\n[Laughter]\ncongrats man thank you very much thank\nyou\nwelcome to your jersey\noh it started like that yeah\nit's a genius way to even out about\ncycling time yeah\nreverse it yeah no yeah\nboth raise reflections\nit was [&nbsp;__&nbsp;] and it was awesome at the\nsame time\nagreed just break it right\nalso his reflections\ntough ride nice yeah it's beautiful\nJamie finished transcontinental race\nany thoughts after race thoughts\nyeah no\num I was ready to finish because I was\nthat's the hottest I've ever been and\nactually cycle anymore yeah I was going\nfor petrol station\nfavorite parts of the course of the race\nI think I enjoyed nearly everything\nexcept for the part in Bosnia that I\nplanned it's been like badly I went\nthrough South which was really\nnot beautiful but I really loved the\nhouse and\nthe\nMontenegro and Albania I actually\nenjoyed the parkour\nI saw a bear whoa it was passing like\nthree meters in front of me which was\namazing impressive I went up there at\nSunset so yeah\nwe are at the finish line of TCR number\nnine in Thessaloniki a long journey with\nthe winners of this year edition Crystal\nstrasso congratulations\nyou are an inspiration for all the\nwriters we were following yourselves\nlooking where you were going so I'm\nwondering how did you come up with the\nroute and what was your strategy because\nI noticed you went for the flattest fast\nrolling roads taking a Time penalty\nsometimes uh I think you put a lot of\ntime into creating the route right\num first I have to say thank you for uh\ntalking to you I'm a big fan of your\nvideos I've also watched like some of\nyour videos for Preparation like from\nb-hatred something really cool and uh\ngreat to meet you and also congrats to\nyou yeah thank you and your partner\nbehind the camera\num yeah regarding my my roots\num you know I'm like I'm not the perfect\nrider in the mountains and I'm a little\nbit more heavy than other people so I\nreally like the flats I'm very strong in\nthe flat section very fast and\nsometimes it's very it's much work to\ncreate a route a lot of food planning\nand research and and you have to like\ncompare Google Street View and Google\nMaps and Strava and promote and the heat\nmap and everything to find the perfect\nRose uh it's still you never find the\nperfect Road it's always just like 90\nyeah great and not 100 but\nyeah I try to avoid the gravel sections\nbecause I really don't like it they are\nlike painful here in the fingers because\nof the shaking yeah you can uh destroy\nor damage the tires and the bike you can\nmaybe crash um and when especially when\nit's raining it's I think it's really\nnot nice to write too much gravel so I\nprefer a longer detour on the roads\nmaybe a little bit extra time but still\num after riding\nsome minutes more I still feel better\nthan when I do the shortcut on the\ngravel the Ukraine is on debate at the\nbeginning when you did this double San\nBernardino how did you come up with that\nidea I was like everybody's gonna do\ntheir gold hair and then you come up\nwith like doing double some Bernardino\nyeah you know\num the one main road was was banned so\nit was not allowed to go along with the\nSea on the accent strata so we had to\nfind like a new solution and to be\nhonest there has been like one crabby\nsection on the east\nshore of the Sea of the lake and one\nTravel section of the on the west side\nof the sea and I didn't really find a\nlot of information so I didn't really\nknow is it good to ride or is it maybe\nhike or is it you have to carry the bike\nand um I've also talked to Swiss people\nand asked if they know it and they said\nyeah it's it's not so nice and there are\na lot of steps and and I have road\nracing shoes and no mountain bike shoes\nah okay so I was really afraid and I\ncould no no no no never I will never do\nthis especially the forecast was rain\nyeah and so I took the I think 100\nkilometer detour along the Rhine Valley\num close to Liechtenstein three cooler\nand they came to the parkour from the\nnorth yeah and until there it was really\nperfect Road really flat I was really\nfast and strong and rolling along and\nenjoying the road and then I came San\nBernardino from the North Heights make\nthe U-turn from myself that again but I\ndidn't not need to go over the court\nheart so from the climbing it was pretty\nmuch the same it was a lot more distance\nbut no gravel and no hiki bike well yeah\nbut I have to say I was surprised nobody\ndid it but me I think maybe a handful of\npeople oh 99 took the gravel sections\nalong the lake yeah did you do it yes it\nwas soft and rainy so you you were right\nif you were trying to avoid that and I\nguess racing at such a high level is\nvery stressful and sometimes uh you can\nmake mistakes because you are stressed\ndo you have a strategy and you just\nstick to your strategy to avoid making\nmistakes because sometimes you are\nstressed you want to gain positions and\nyou start making mistakes just follow\nyour strategy or what's your take on\nthat yeah in the first few days\neverything goes to plan but in the last\nfew days everything like goes crazy so\nthat's that's I think ordinary that's\nlike it is\nbut um\nyeah sometimes the stress is because\nthere is so many things to do people\nalways think okay you're alone it is\nlike boring it's just going along and\nnothing else to do but just right but in\nreality you have to check\nwhat about my food what about my drinks\nwhat about the mechanical stuff is\neverything okay do I need to go to a\nshop then you have to check navigation\nthen you want to try to make like a\nselfie picture for the updates or a\nshort video then you find out oh my God\nthe next parkour is coming I need to\nprepare myself then you need to stop you\nneed to change uh like the west then you\nneed to put the light on you need to\nreflective West when it's getting dark\nin the morning you need to get the stuff\noff so there is always a lot of things\nto do and sometimes it's really\nstressful yeah how did you prepare for\nthe event in comparison for for this\nyear I guess you learned a lot because\nlast year was your first unsupported\nevent you did uh I mean you won't run\nsix either but how how is your\npreparation now now that you have the\nexperience from uh self-supported yeah\nfrom from the training perspective it's\nit's still quite the same because it's\nit's always the same thing you need to\nlike write fast in one hand and write\nvery long distance on the a hand tool\nthe combination of some internal\ntrainings and some long endurance rides\nis still the same but the preparation in\nlogistics is of course very different\nand I think\none of the toughest things to do is\nroute planning it really takes a lot of\nweeks or months when you go in the\ndetails and of course always checking\nyour your technical setup so just the\nsmall changes you need to do last year I\nwas really completely new I needed to\nfind the right way for electronic stuff\nfor the lighting for the Dynamo\num and try all the mini tools if\neverything is fitting together and that\nstuff this year was a bit easier because\nI already knew a lot of things but I\nfound some small problems like I had\nlast year I tried to avoid this year\nyeah like the very small thing you can\nput on the on the tube and you get the\nair pressure on a gas station into the\nah yeah I forgot it last year\nso I have just a small frame pump and it\nwas pumping like 20 minutes and there\nnothing happens yeah and this year I had\nthis very small thing and on the gas\nstation like it takes you 10 seconds and\nthe air is there wow yeah and you're\nrunning this year uh Dynamo cup the\nsupernova\nyeah yeah how do you find it I love it\nyeah it's the visibility is great\nespecially for night riding yes\nabsolutely great and I really like the\nthe Dynamo because you don't need to\ncare about anything you don't need the\nbig like power Banks they're heavy they\ncan maybe damage or get lost so the\nDynamo is just easy and during the day\nyou can charge the phone or or the back\nlights or the tracker and all that stuff\nyeah and one question debate\nwhy tubes versus tubeless\nthe tree punctures will you go to\ntubeless next year if you decide to do\nit again or are you planning to do the\nTranscontinental place again maybe it\nwould again maybe not I'm not sure\nthere's still a record to me\nthere is always something\nbut the most important thing is\ndefinitely to enjoy the race and if it's\nif if you have fun doing it and if you\nlike really love it then you can do it\nagain it's not just about the result\nwhat is about the DCR that you keep\ncoming back and what is what challenging\num you enjoy the most because it's not\nall suffering right no I would I would\neven like it more if there was no gravel\nthat's the only thing that really I do\nnot like at all but this part of the\ngame and what really for me is\noutstanding in this race is uh you have\nthe the change in landscape and\ncharacter you're starting in northern\nEurope you have Belgium the cobblestones\nand the houses with with the Reds um\nstones and and then you go through\nthrough the Alps you have the wooden\nhouses and everything is green and then\nyou come to the to the southeast parts\nof Europe to the belcans there is\na different mentality in the people and\nand Landscape is completely different so\nthat's really exciting and also it's\nit's really an important race there are\nso many races out there but this is one\nof the biggest and I think and with the\nmost competitors and the strongest\nRiders and that's what I really love\nabout it\nplease let me ask you one question\num you did some racist solo you did some\nraces in the two pairs team yeah\nwhen when I watch people racing solo and\npeople racing in a pair it seems that\npairs are sometimes slower\num because on the one side you can\nsupport each other and help each other\nbut on the one side there is like two\ntimes as many problems and two times as\nmainly like you need to stop for the\ntoilet you need to stop to sleep\num you have you can have a crisis your\napartment can have a crisis so there are\nmore problems than when you ride alone\nso how could you do it that you finished\nin the first place in the pair category\ntotally agree I think\nimpair can be slower than racing solo\nbecause you have double the problems and\nwe had for example our dips in different\ntimes of the day I'm really good at\nnight he's really good during the day\nand we could never push it because one\nof us was always down so it was very\ndifficult we have like five crises a day\nlike fighting I even punch it\nuh I think actually we will be faster it\nwill him or me will go by ourselves but\nuh in this case we had a strategy and we\nsaid no matter what happened in the race\nit will stay in the race it won't affect\nour relationship and uh you can push me\nto the limit so you have to agree with\nyour boundaries and sometimes very\ndifficult to inflict pain in somebody\nyou care about yeah of course so in\nflick pain when you know they're\nsuffering like keeping pushing them is\nvery difficult but you have to establish\nthese boundaries I know it's just in the\nrace and no matter what uh it's uh\nexperience so if it doesn't go as\nplanned we are competitive and we like\nto to to push as much as we can but at\nthe end of the day as you said it's an\nexperience so we take it as that and\nit's our added bonus so to perform very\nwell and we enjoy the competition but I\nthink solo event performance events we\ndo like the short one solo because it's\nabout performance and the ones that is\nlike a life experience\ngood together yeah it's kind of our\nthing to do what about the the fan so is\nit because when I I was used to like\nracing Across America you have the\nsupport crew you have your best friends\nand you have great people\num when you're down they can help you\nwhen you have like best time in your\nlife you can share the The Joy with them\nso you're never alone you always have\ngood company yeah when when you're\nraising pair is it more fun because you\ncan share the moments together the good\nmoments yeah I think that's the things\nyou remember you have somebody that\nunderstands what is exactly happened in\nthe moment and then you look back at the\nmemories together as like a life memory\nthat you know no many people can can\nunderstand what you went through and you\nhave somebody that shared their\nexperience I think that's something\nPriceless yes because sometimes I think\nokay I had great memories and great\nexperience in the race and it was it was\nlike exciting and fun but it's only me\nwho knows the story I'm alone with my\nstory that's a little bit frustrating I\nthink it's more difficult\nhe had like a lot of\nit's like a fight every three three\ntimes a day or something like this one\nof the podcasts I was listening to the\ntranscounty podcasts you told the to in\nthe interview that yesterday you had a\nbig fight and today you had a honeymoon\nbaby I was uh screaming at here and\nsaying are you selfish and the next day\nI was like please cuddle me I need\nand then super happy in the eurobello\nhappy holidays so it\nUltra cycling is a roller coaster of\nemotion you discover things you didn't\nknow feelings you didn't know existed\nyeah yeah\nyou know the time\nany words about transcontinental race\nI'm not allowed to do it again\nI was told it's too dangerous",
           "curated": true,
           "curation_reason": "Excellent first-person race documentary following riders through the 2023 TCR with high production value and detailed course experience.",
           "display_order": 1
@@ -467,372 +530,12 @@
           "view_count": 255104,
           "upload_date": "20180803",
           "duration_string": "15:02",
-          "description": "Katherine was on the ground at the 6th edition of the Transcontinental Race to check out the stories and setups of some of the riders. \n\nGCN Summer Sale - Enjoy Up to 50% Off: http://gcn.eu/Ly\nSubscribe to GCN: http://gcn.eu/SubscribeToGCN\nRegister your interest in the GCN Club: http://gcn.eu/Lx\nSubscribe to GCN en Español: http://gcn.eu/gcn-en-espanol\n\nCustom bikes, kit and a variety of bike storage options - there was lots on display at the start of the #TCRNO6. We caught up with favourite Bjorn Lenhard for his advice and found out the cool stories of riders such as pair 256, Nico and Charles of the US.\n\nAre you following the Transcontinental this year? Who do you think is going to win? 👇\n\nIf you enjoyed this video, make sure to give it a thumbs up and share it with your friends. 👍\n\nIf you'd like to contribute captions and video info in your language, here's the link - http://gcn.eu/Lw\n\nWatch more on GCN...\nWhat Is The Transcontinental? 📹 http://gcn.eu/TCRNO6\n\nMusic: Epidemic Sound\nSummer Is Here - Justnormal\nRotations - Friends With Animals\nZoofari - Friends With Animals\n\nPhotos: © Velo Collection (TDW) / Getty Images & © Bettiniphoto / http://www.bettiniphoto.net/\n\nAbout GCN:\n\nThe Global Cycling Network puts you in the centre of the action: from the iconic climbs of Alpe D’Huez and Mont Ventoux to the cobbles of Flanders, everywhere there is road or pavé, world-class racing and pro riders, we will be there bringing you action, analysis and unparalleled access every week, every month, and every year. We show you how to be a better cyclist with our bike maintenance videos, tips for improving your cycling, cycling top tens, and not forgetting the weekly GCN Show. Join us on YouTube’s biggest and best cycling channel to get closer to the action and improve your riding!\n\nWelcome to the Global Cycling Network | Inside cycling\n\nThanks to our sponsors:\n\nAlta Badia: http://gcn.eu/AltaBadia- // Maratona Dles Dolomites: http://gcn.eu/MaratonaDlesDolomites-\nAssos of Switzerland: http://gcn.eu/Assos\nKASK helmets: http://gcn.eu/KASK\nfi’zi:k shoes and saddles: http://gcn.eu/fizikshoes and http://gcn.eu/fiziksaddles\nWiggle: http://gcn.eu/wiggle\nTopeak tools: http://gcn.eu/Topeak\nCanyon bikes: http://gcn.eu/-Canyon\nQuarq: http://gcn.eu/Quarq\nOrbea bikes: http://gcn.eu/Orbea\nTrek Bicycles: http://gcn.eu/-Trek\nVision wheels: http://gcn.eu/Vision\nZipp wheels: http://gcn.eu/Zipp\npower2max: http://gcn.eu/power2max\nWahoo Fitness: http://gcn.eu/Wahoo-Fitness \nPark Tool: http://gcn.eu/-parktool\nContinental tyres: http://gcn.eu/continental-\nCamelbak: http://gcn.eu/camelbak-\n\nSuscribirse a GCN en Español: http://gcn.eu/Suscribirse\nThe GCN Club - http://gcn.eu/club\nYouTube Channel - http://gcn.eu/gcnYT\nFacebook - http://gcn.eu/gcnFb\nInstagram - http://gcn.eu/GCNInsta\nGoogle+ - http://gcn.eu/gcnGPlus\nTwitter - http://gcn.eu/gcnTW\nGMBN Tech - http://gmbn.tech/subscribe\nGCN Tech - http://gcntech.co/subscribe\nEMBN - http://embn.me/subscribe\n\nLeave us a comment below!",
-          "tags": [
-            "GCN",
-            "Global Cycling Network",
-            "Sports",
-            "Cycling",
-            "Bike",
-            "Bikes",
-            "Bicycle (Product Category)",
-            "Road Bike",
-            "Cyclist",
-            "transcontinental",
-            "tcr",
-            "tcrno6",
-            "tcr race",
-            "rider stories",
-            "bike setup",
-            "saddle bag",
-            "bike bags",
-            "custom shoes",
-            "custom bikes",
-            "transcontinental race",
-            "belgium",
-            "ultra endurance",
-            "Bjorn Lenhard",
-            "bikepacking",
-            "cycle touring",
-            "travel by bike",
-            "bike travel",
-            "endurance",
-            "GCN Cycling",
-            "Cycling tips",
-            "cycling workout",
-            "cycling training",
-            "velo",
-            "katherine moore",
-            "sec-feature",
-            "sca15",
-            "b1",
-            "r1",
-            "Ꮋ",
-            "n1",
-            "p1",
-            "Ա",
-            "Լ",
-            "Խ",
-            "Ձ",
-            "3315"
-          ],
           "url": "https://www.youtube.com/watch?v=ZEImemPWBnU",
-          "transcript": "it's the morning of the Transcontinental\nrace and here we are at sign on we're\ngonna have a little chat with the riders\nabout their bills and exactly why they\nare the way they are so if you could\nstart with your name your cap number and\nwhere you're from\nmy name is P&amp;N Hut my cap number\nobviously number two because of second\nplace last year and I'm coming from\ntwisting in Germany your second last\nyear just won the transatlantic way race\nas well a hot favorite I think certainly\nfrom what we've seen here what's your\nstrategy going into the race to this\nevening well it's just wired as fast as\nI can and as long as I can no it has no\nreal strategy I mean it depends on the\nwind and the weather or how far I can go\nto tomorrow evening and then every see\nhow I feel maybe what the weather say is\nI mean if you have nice timing maybe you\nrecycle one or two hours more if you\nhave had in May you stopped earlier if\nyou have weigh in you stop buzzer it's\nyou cannot really really make out the\nstrategy in the beginning and in terms\nof the races that you've done here\nbefore do you have any distinct memory\nthat's your favorite oh there are too\nmany memories to be honest there are too\nmany stories I could tell things I have\nexperienced it's just amazing it then\nit's every time you know you have new\nexperience new adventure and meet new\npeople just fantastic and obviously\nyou're a very seasoned ultra endurance\nrider for the people at home that might\nbe watching this and thinking oh that's\nmaybe something I could give it a go\nwhat's your piece of advice to a\nbeginner it's a good question may you\nshould start with shorter ways not just\nthrough a Tavares with the transatlantic\nair was the transcontinental and whether\nto finish such a race I mean you always\nhave to keep in mind you have to keep\nmoving every minute you stop somewhere\nit doesn't get you to the finish line\n[Music]\nokay guys so if we can start off with\nyour names where you've come from and\nyour cap numbers i'm nico de portago\nCabrera I'm from Chicago and I'm cap\nnumber two five six B my name is Charles\nKristensen I'm from San Francisco\nCalifornia and I'm two five six a so\nthese guys are writing as a pair and\nit's not your first time that\ntranscontinental is that right guys no\nthis is our second time around so what\nhappened last year well last year we had\na little bit of a problem with our\nscheduling and we committed to the\npsycho messenger World Championships in\nMontreal Canada and this was our first\nendurance race ever so we got a little\nbehind schedule with some routing\nmishaps and got to the fourth checkpoint\nand realized we were not going to be\nable to make our flights to compete in\nthe world we didn't have the budget to\nreschedule so we scratched a checkpoint\nfor to make world championships happen\nfor us which was very bittersweet\nbecause we got a taste of the greatness\nof this type of race but then had to\nscratch with one checkpoint to go so we\nvowed before we even left checkpoint 4\nthat we would be back again\nand here you are fantastic so what are\nyou doing this year having done the race\nlashes any things that you've changed\ntest your setup or your strategy with\nthe route or anything\ndefinitely so last year we kind of\nrouted ourselves as if it was an alley\ncat race like all right what's the\nstraightest line to get to the\ncheckpoint and we'll go there cuz that's\nwhere we come from and in doing so we\nwound up cutting a lot of mileage but\nadding a whole lot of elevation which\ndoesn't seem as you know stressful on\npaper but then when you get out there in\nthe field it's like oh this is why you\nride a little longer to go around the\nmountain so we definitely were smarter\nwith our outing this year but one of the\nbig things we did this year that we\ndidn't have last year was having a\ndynamo hub to power our lights and also\nbe able to charge stuff while we're\nmoving we wound up having to carry so\nmuch extra gear last year extra battery\npacks wall plugs everything we would\nhave to stop so much more often so we\ncould charge things and this set up this\nyear will help keep us moving we'll be\nable to ride longer into the night and\nspend more time in the saddle\nyeah sure nice one and Chad's just about\nyour bike and you just talked us a\nlittle bit through your frame something\nquite special you've got there yeah\ndefinitely this is a low frame it's\nhand-built in San Francisco by a friend\nof mine Angelo\nhe started out building track frames and\nhe's gone on to some say real bikes but\ngravel and road bikes so this is special\nto me because it was built six blocks\nfrom my house by a friend of mine and\nit's all set up with a SRAM you tap\nhydro which is nice because we can\ncharge our you tap shifter batteries\nwith our Dino hubs so we're kind of like\na weird closed ecosystem of cycling\nwhere we're like very high technology\nbut also very self-contained and I kind\nof have a menagerie of bags but all\nbuilt in San Francisco by a friend of\nmine outer shell to kind of just make it\nhappen try and carry as little as I can\nbut as much as I need you've definitely\ngone for the sort of like the shoe Joe\npink glasses doping approach for me it's\nthe it's the little bit of motivation it\nhelps when it gets really tough to just\nlike have that little bit of color or\nthat little bit of flair to just remind\nme like this is fun this is like stay\nlight-hearted this is a shout out to my\nfriend JP from Tokyo and squid bikes\nthey have the idea of painting the shoes\nto match the glasses and I saw them do\nit for track lacrosse Nationals and I\nwas like that's my TCR jam right there\nso best of luck guys we'll be following\nin the jacket of course if you could\nstart by telling us your name your cap\nnumber and where you're from\nsure so Roger Seton cap number 34 and\nI'm from the UK excellent thank you and\nI believe this isn't your first cran\ntranscontinental is that right yeah I\ndidn't last you able to pull down due to\nfamily reasons quite early after\nFranklin 14 was killed and this year\nyou're not just gonna try and do the\nsame thing again you've come for a\nslightly different tact you got for a\nprompting tell me a bit about that well\nI said if I was ever gonna be us again\nI'd do it my most fun biking I have fun\nevery time I ride this bike also I smile\non I'm thinking getting on the bike in\nthe morning off for a long previous day\nit's good to smile so decided to do this\non the chapter 3 Bronson excellent and I\nthink what we've noticed most about this\nbike is obviously there's not a massive\namount of storage space so it's used\nvery wisely\nwhat are your little hacks that we got\non this one so first of all you don't\nneed most of all you've got\nwe gotta carry so very very minimal gear\nbut obviously the luggage here the back\nhas got the minimum amount in it we've\ngot things like Spears tape between the\nframes a spare tire just in case because\nI reckon pram tires are gonna be hard to\nget somewhere ongoing and that's the\nhardest thing ties in this year they're\ngonna be quite hot source if you wreck\none so it's basically optimizing all the\nspace for performance and making sure\nthat it's as light as possible\nstreamline nothing gets in the way\nnothing's falling off or rattling which\nis really irritating fantastic and you\nsay it's something you've ridden a lot\nbefore is it something that you've been\ntraining on it both especially for their\nlonger distance side miles yeah sure so\nI commute on one of these daily and I've\ndone so for five or six years now but on\ndoing this on the Brompton gone for long\nback-to-back ride so 300 400 plus\nkilometer rides and back-to-back which\nis the key thing back to back hill\nrepeats which you know brings a smile to\nclub riders faces when they get past me\nyeah just making sure you know you can\nyou can get the speed up so the average\nspeeds are a bit slower and you take a\nbit more effort but it can be done so\nmaking sure that ultimately can this be\ndone on the Brompton many can be well I\nthink it could be a world first best of\nlow but since I say thank you thanks so\nbefore we get on to this bike will you\nstart by giving us your name your cap\nhi I'm Renee I'm cap number one five\neight and I'm from Germany\nfantastic thank you and we actually came\nacross this bike before we spotted Renee\nwe'll take a closer look at every\nindividual part because this is quite a\nspectacular home build so am i right in\nthinking that although I can only call\nhacks on this bike you've made yourself\nis that right yes so I don't even know\nwhere to start let's start in front of\nus on the Aero bars here you've got a\nlittle compartment well if you got in\nthere\nI've got mostly food in there so this is\njust Clif bars basically it also has my\nmy backup light and my main light here\nand my spot tracker and small computer\nwhich I have for my power meter and\ninterestingly we talked about suspension\nyou've got both the canyon seat post and\na suspension stem on the front there how\ndo what's that one there it's a red\nshift suspension stem and I think it's\nreally important in such a long race\nthat you're comfortable on your bike\nbecause it's not about going fast it's\nmore\nabout the time you can spend on your\nbike so if you can stay for half an hour\nlonger on your bike because you're not\nthat fatigued not that tired then it's\ntotally worth it absolutely and sort of\nnot just the stories you've got on front\nhere but all of the storage I can't even\ncall the bags that you've made on your\nbike they're all made of carbon fiber is\nthat right yeah it's made of carbon\nfiber and this one here this material on\ntop is called Cuban fiber it's a\nmaterial which is used in in sailing\nbecause it's super light and super\nstrong yes great\nso in addition to the pack on the front\nhere we've got the sort of extended top\ntube bag also one in the back of there\nwhat's that one for\nthe one in the back is a former sleeping\ngear so for my sleeping bag and my\nsleeping mattress and I also take a bivy\nwhich is in my pocket from my tri suit\nand then there's some other really\ninteresting parts that aren't for\nstorage so you've got two bottle cages\nwhat are they for\nthey're for coke because your you always\nneed caffeine and sugar so I have two\ncages which are a bit smaller for normal\ncoke bottles which you can get at a\npetrol station\nI noticed we've got some aero fairing is\nthat on the Fox yeah it's just a narrow\nfairing to make the for that little bit\nmore aerodynamic fantastic and just one\nother little thing that I've noticed on\nthe back there by your rear derailleur\nwhat's that for\noh it's for my toothbrush but the one\nfor cleaning the chain and also for the\nchain oil\nthat's brilliant so when will be\nexpecting to see you in meteor I'm not\nsure yet because it's such a long race\nso a lot of things can go wrong and can\nhappen good if it all goes well I would\nhope for finished ten days for maybe a\nbit faster we'll see so if you could\nstart off by telling us your name where\nyou're from and your cap number please\nokay my name is Anna pettish and I'm\noriginally from Sweden I'm living in\nFrance right now and my cap number is 97\nfantastic now I understand this isn't\nyour first long-distance event but it's\nyour first transcontinental is that\nright yes so have you done before this I\ndid the length\nSweden in 2016 and I finished that and I\nwas fun it was very hard but it was fun\nand how long is this length of Sweden\nthat's a bit more than 2,000 kilometers\nso it's about half the length of what\nyou're gonna be starting this evening I\nfelt like I was in for a bit of more and\nyour strategy in terms of how you gonna\nbe riding and sleeping what have you got\nplanned for that I think I'm gonna try\nto sleep out as much as possible because\nthat makes me more flexible and but I'm\nnot gonna torture myself if I find a\nnice hotel and it's right on time I'm\ngonna take it fantastic and we've talked\na little bit about your setup and your\nkit what's your one piece of little\nluxury that you're taking with you and\nwhy I think I'm gonna take my name\npolish I think it's fantastic nice\nlittle perk when you're feeling low yeah\nexactly and obviously you're a really\nstrong rider having got through that the\nlength of Sweden is not easy at all\nespecially with those weather conditions\nwhat do you do to prepare not\nnecessarily on the bike but mentally for\nwhen you're having a bit of a struggle\nwhen things get tough that is gonna get\nbetter because I know from touring solo\nall the time and doing everything myself\nI know that I can work through it I just\nneed a calm moment use my brain think\nabout it and then I know I will be fine\nin the end and it's it's just me biking\nand it's only a bike race and that's it\nso and we have 21 women on the start\nline this year out of 240 why do you\nthink that is and why aren't there more\nwomen here I think it's a lot about the\npreconceived ideas that a lot of women\nhave in themselves that being alone on\nthe road with a bike meeting people\nbeing afraid of being alone meeting\npeople and of course stuff can happen\nbut I think most people generally are\nkind and they want good for you and you\nshould have that closest to your heart\nand not be afraid\nI think that's one of the reasons that\nthere is less ladies but it's really not\nthat bad and you just have to trust\nyourself and that you can do it and you\ncan solve all the technical stuff but\nbasically those people around you are\nkind so here we are with Janice's bike\nyeah this is from Greece so it's\nessentially a ride home for him and\nunderneath this really stunning paint\nwhich Anstead himself is a true British\nclassic there's a hercules and it's\nactually got a custom-made fork there\nfor this bike it comes complete with a\nShimano ta grow group set so a little\nmore modern they're full aperture a bike\npacking bags and a very comfortable\nBrook saddle and some really sweet\nlittle finishing details flip-flops on\nthe top there there's some time off the\nbike and also a lucky charm on the front\nfrom one of his friends back home so\nYanis we're just over 24 hours before\nthe start now before you ride home back\nto Greece how are you feeling about this\nI'm exciting it's my first time here and\nit's amazing to be here for me because I\nshow this race years now and it was my\ndream to to be part of this race\nfantastic and and the build-up to this\nrace have you been doing lots of long\ndistance bike rides maybe at any other\nevents in the build-up to it I know I'm\na long-distance cyclist and it's my\nfirst time to go and race in race mode\nall my trips it's its classic with\nclassic pioneers with my classic bike\nthat's it maybe on your own oh yeah oh\nand so to be here in Harrodsburg and\nwith all these people who are into the\nsame sort of thing into this\nlong-distance atmosphere how does that\nfeel it's it's something new for me\nsomething new yeah absolutely yeah yeah\nwell best of luck we'll be watching\nso that's just a fraction of the riders\nand their setups from this year's\ntranscontinental race and all there's\nleft to do now is to see them off going\nup the mule and then follow their\nprogress over the next couple of weeks\nif you'd like to check out more from our\ntrip to the Transcontinental click just\ndown here and don't forget to subscribe",
           "curated": true,
-          "curation_reason": "High-quality GCN production featuring rider interviews and race insights from experienced ultra-endurance participants.",
+          "curation_reason": "GCN coverage of TCR No.6 start with equipment analysis and rider interviews including Bjorn Lenhard.",
           "display_order": 2
-        },
-        {
-          "video_id": "Q36ChPbMnIo",
-          "title": "When Cyclists Get Angry - Pro Cycling’s Most Heated Moments",
-          "channel": "GCN Racing",
-          "view_count": 5275170,
-          "upload_date": "20230126",
-          "duration_string": "4:53",
-          "description": "Our compilation of some of pro cycling’s most heated moments from the past couple of seasons. There is a lot on the line for pro cyclists when they take to the road but sometimes the stress of wanting to win goes too far and the red mist descends. From Pogačar to Cavendish, this is When Cyclists Get Angry!\n\n0:00 Intro\n0:13 Bouwman, Schmid & Vendrame\n0:59 Tadej Pogačar\n2:10 Jack Bauer\n2:44 Remco Evenepoel\n3:22 Mark Stewart\n3:41 Juan Sebastián Molano\n4:14 Mark Cavendish\n\nUseful Links:\nGCN+ | Every. Unmissable. Moment. 👉 https://gcn.eu/unmissable\nRide with us at the Global Bike Festival 👉 https://gcn.eu/GBF2023\nDownload the GCN App for free 👉 https://gcn.eu/app\nVisit the GCN Shop 👉 https://gcn.eu/shop-coldkit\nJoin the GCN Club 👉 https://gcnclub.com/\n\nWhat did we miss? Which angry cycling moments stick in your mind? Let us know in the comments below! 💬\n\nIf you liked this video, be sure to give it a thumbs up 👍 and share it with your friends!\n\n🎵 Music - licensed by Epidemic Sound 🎵\nRide the Storm - Got Happy\nSomethings Lurking in the Water - Sightless in Shadow\nLove Is Blind (Instrumental Version) - Coma Svensson\n\nPhotos: © Velo Collection (TDW) / Getty Images & © Bettiniphoto / http://www.bettiniphoto.net/\n\nBrought to you by the world’s biggest cycling channel, the Global Cycling Network (GCN), GCN Racing brings you the best of the world’s bike races to your screens, wherever you are: the finest live race commentary, in-depth analysis and behind the scenes access from your favourite events are all here. So get involved, join us, and get ready to be in the thick of the action.\n\nEngage with on the channel and across social media – we’re here to answer every question you’ve got on cycling racing.\n\nFacebook: https://gcn.eu/FBGCNRacing\nInstagram: https://gcn.eu/IG-GCNRacing\nTwitter: https://gcn.eu/TW-GCNRacing\n\nWatch our sister channels:\nGlobal Cycling Network - https://www.youtube.com/gcn \nGCN Tech - https://www.youtube.com/gcntech \nGlobal Triathlon Network - https://www.youtube.com/gtn \nGCN Italia - https://www.youtube.com/gcnitalia \nGCN en Español - https://www.youtube.com/gcnenespanol \nGCN auf Deutsch - https://www.youtube.com/gcnaufdeutsch \nGCN en Français - https://www.youtube.com/gcnenfrancais \nGCN Japan - https://www.youtube.com/gcnjapan \nGCN Training - https://www.youtube.com/gcntraining \nGlobal Mountain Bike Network - https://youtube.com/gmbn\nGMBN Tech - https://www.youtube.com/gmbntech \nElectric Mountain Bike Network - https://www.youtube.com/embn",
-          "tags": [
-            "angry cyclist",
-            "angry cyclists",
-            "cyclists angry",
-            "angry",
-            "when cyclists get angry",
-            "furious pro cyclists",
-            "furious",
-            "rage",
-            "pro cyclists",
-            "anger",
-            "road rage",
-            "mark cavendish",
-            "cavendish",
-            "pogacar",
-            "juan sebastian molano",
-            "evenepoel",
-            "compilation",
-            "GCN",
-            "Global Cycling Network",
-            "Sports",
-            "Cycling",
-            "Bike",
-            "Bikes",
-            "Bicycle (Product Category)",
-            "Road Bike",
-            "Cyclist",
-            "GCN Racing",
-            "race news",
-            "racing news",
-            "racing",
-            "bike racing",
-            "road racing",
-            "pro cycling",
-            "watch cycling",
-            "highlights",
-            "GCN Cycling",
-            "velo",
-            "ཁ",
-            "ළ",
-            "Ꮽ",
-            "Ա",
-            "Ձ",
-            "ፕ15",
-            "ዎ",
-            "4952"
-          ],
-          "url": "https://www.youtube.com/watch?v=Q36ChPbMnIo",
-          "transcript": "racing shoulder to shoulder heart rate\nthrough the roof DS screaming in your\nears it can be enough to make you lose\nyour cool we present to you when\ncyclists get angry\nracing incidents are commonplace in Pro\ncycling often it's down to the\ncommissary to deem what is fair or foul\nthis finish at the Duro features a\ntricky left hand though of less than 100\nmeters to go oh my words\nit's Bowman they didn't read the corner\nDouble Dutch for Barman that was a\nbizarre incident\nSchmidt just forcing Vin drama away\nthere Maro Smith clearly not happy with\nKuhn Bauman's position into that final\ncorner but despite his protest the\nresult stood\n[Music]\npoor old marrow needed a long sulky sit\ndown after that one back out the tour of\nFlanders in April today pagacha was on\none heck of a day dropping everybody\nexcept Machi Vanderpool on the outer\nClaremont and also nearly shaking the\nDutchman on the final Ascent of the\npatterburg\nhe had a great shot at taking a maiden\nvictory at this most prestigious\nMonument then this happened\n500 meets to go still they're gonna\ncatch it all over the place and they may\nwell oh and suddenly oh the pressure's\npouring on television here somebody's\ngonna have to break first and it's\nmanawatician could drive into them\nmanowas might have a bit of impetus here\nas well for grupelo presidential he's\ngoing to the barriers as they stand each\nother into the abyss Meadows is coming\nthrough here in Bat Valley is the\nresponse this event to the Fantastic at\nthe very last is he gonna get there yes\nhe does and can you believe it\ntelevision finishes fourth disgust by\npogachard Delight from Matthew Van Der\nPaul pogacho's Bluff well and truly\ncalled there but was he angry at madwas\nand van Barr or secretly a little mad at\nhimself for letting them back in the\nrace\nif he thought it was stressful in the\nbunch just try picking your way through\nthe Convoy team cars and motorbikes\nshuffling backwards and forwards among\nRiders who are just trying to get back\nto the front\nno no space being left by a press that\nwas terrible oh and indeed it's had\nreplications a little bit further on as\nwell\nJack Bauer justifiably upset when\nVehicles got in the way at the Tour de\nFrance but was able to pull justifiably\nangry here if Nepal is unhappy and no\nwonder\nhe is angry he wants that assistance\nquicker\neven if all wood with the help of his\nteammate safely make it back fast\nforward to the spring of brabant's\nappeal and going one further than\nsharpening the elbows he shoves Ben\nTurner aside to take his spot in the\npace line\na lot of riders might have reacted a lot\ndifferently to Turner who merely looked\non while his teammate Magnus Sheffield\ngave a shake at the head it would be in\nyour grenadiers who had the last laugh\non the day though with Sheffield going\non to take a fine solo win\nto the boards now and this from Mark\nStewart the parish round of the track\nChampions League seems he wasn't too\nkeen on the line choices of one rider in\nthe scratch race hey\nyou were warned about that man please\nsir yeah\nthat was all good hey good fun\nnext up the current bad boy of the\nPeloton Juan Sebastian Milano who was\ninvolved in a couple of incidents in\n2022 the first of which was at the\nCriterium de dofne where he was dequeued\nfor this punch in the direction of Hugo\npaj and later in the year he was\nretroactively relegated some six hours\nafter he was declared the winner of\nstage two of the Tour de Langkawi this\ntime for laying an arm on Raymond crater\nin the approach to the Sprint\ninterestingly though it wasn't deemed\ndangerous enough to disqualify this time\neither way keep your hands to yourself\none\nand finally here's Mark Cavendish\ngetting upset at uae's Max with cheesy\nwho after finishing his lead out swerve\nto the right blocking Cavendish\ndeliberate we'll never know but you can\nsee why he was upset having been denied\nthe opportunity to even try to Sprint\nfor the win\nthere is our recap of some of the times\nthat Riders have seen red but what have\nwe missed you can let us know in the\ncomments down below see you\nnext\nforeign",
-          "curated": false
-        },
-        {
-          "video_id": "tR8ZSHXV0KQ",
-          "title": "The 2023 BUCKSHOT: A BC Endurance Bike Race",
-          "channel": "Yeti Adventure Films",
-          "view_count": 8434,
-          "upload_date": "20230524",
-          "duration_string": "11:07",
-          "description": "What happens when over 45 endurance cyclists head out on a 380km Gravel Race in a scorching heat wave? This...  I guess?\n\nThe Buckshot is an annual endurance cycling event that starts and finishes in Kamloops, BC. The route changes every year but it's always extremely difficult, beautiful, and very rewarding.\n\nI raced the 2022 Buckshot, but a foolish crash at the mid-way point broke my camera, and I could not finish documenting the ride. One of my goals going into this year's event was to try and continuously record what was happening and how I was feeling. It added some extra, unwanted pressure at times, but I’m so happy with how much of the experience I was able to capture, while still trying to stay competitive.\n\nRoute Info:\nhttps://www.facebook.com/BCepic1000\nhttps://ridewithgps.com/routes/42559137\n\nRace Info:\nhttps://trackleaders.com/buckshot22\n\nMusic:\n“Lost” by Pluko\n“Kick the Dust” By Ryan Taubert\n“Dusk Bowl III” by Other Lives\n“Begin Again” by Abbott\n\nShot With:\nGoPro 7 Black\n\nBike and Kit:\n2018 Rocky Mountain Solo 70\nNOBL HR35 Wheels\n43mm Gravel King SK 700c Tires\nSRAM RIVAL AXS 10-44 x 38t\nRevelate Bike Bags\n7Mesh Kit, Smith Glasses and Helmet",
-          "tags": [
-            "BC Epic",
-            "Buckshot Gravel Route",
-            "gravel bike",
-            "ATB",
-            "Mountain Bike",
-            "Bike Touring",
-            "Thompson-nicola Regional District",
-            "tnrd",
-            "kamloops",
-            "ashcroft",
-            "Logan Lake",
-            "Spences Bridge",
-            "Cache Creek",
-            "Endurance Racing",
-            "cycling",
-            "bikepacking",
-            "bikepack",
-            "bc epic 100",
-            "great divide",
-            "mtb racing",
-            "bike race",
-            "gravel bike bikepacking",
-            "interior bc trails",
-            "unbound"
-          ],
-          "url": "https://www.youtube.com/watch?v=tR8ZSHXV0KQ",
-          "transcript": "this isn't our first film about The\nBuckshot it's an annual endurance\ncycling event that always starts and\nfinishes in cam loops the route changes\nevery year and it's never easy\nlast year I raced it for the first time\nthings were going great for me until\nthey weren't\nwell I'm a massive idiot and\ncrashed super hard punctured my front\ntire\nsmashed my shoulder my hip and my elbow\nup pretty good\nand just rattled me to my core\nI did end up finishing the race and in\nsecond place too I was thrilled but I\nhad broken my camera in the crash and\nunfortunately couldn't finish a film\nabout the race this year the route will\nbe shorter a little less climbing and\nfeatures a ton of New Roads I've never\nexplored before the forecast is calling\nfor some scorching daytime temperatures\nI've made some necessary adjustments to\nthe gearing on my bike picked up better\nlights I can carry more fluid and I\nthink overall I'm more prepared\nI think I'm ready\nit's uh 5 30 in the morning and we're\njust heading down to the start line\nwhere there's incredible so far it's the\nperfect temperature\nthe forecast looks pretty good it's\ngonna be crazy hot it's definitely the\nbiggest Buckshot of all time is 45\npeople signed up and we're gonna head\ndown to the start line and\ngo go meet everybody and\nhead off\n[Music]\noh absolutely beautiful morning great\nstart\ndigging into the first climb body feels\ngood front group's just gone off\nwe'll see what happens later\nnearing the end of the first big climb\nand the weather literally could not be\nbetter if it just stayed like this oh\nI'd be happy\nI don't know what's in store but\nwhat a great start\nlots of faster Riders\nI think I'm sitting\nmaybe like 10th I don't know it doesn't\nmatter at this point so we're on the\nfirst good section of pavement now to\nthe next\n75k\nso it's time to Pace up a bit the race\nstarts now kinda\nstarting to get a little warmer too\nuh once you get to Logan Lake\nquick water stop\nreplenish all the fluid\nand get going as soon as I can\ngood call\nhey we'll pay for that later\nthis is a lot closer than I thought\nI was at the gas station for\ntwo minutes and a pack of 25 came in\nall hunting for water\nthis is way closer than I thought\nit's gonna get spicy\nabout a hundred\nkilometers here now really starting to\nfeel the heat\nit's time to bring the pace down a\nlittle bit I think\nbut I think I'm in second\nwhich is kind of hard to believe\nheat of the day now\nit's starting to crack a bit\nnext few hours are gonna hurt\n[Applause]\nI know I have to eat real food\nbut\nI just tried eating a Clif Bar it's got\na couple bites and I just gagged so hard\nthey're not my favorite things anyway\nmy stomach doesn't feel\nlike it's loving this right now\nso back to the candy\noh I said I said I wouldn't walk but I\nhave to\nforeign\nhighway coming up\non the highway\nfrom Spence's bridge to Ashcroft now\njust got just a howling Tailwind feels\npretty good to be moving quick\nbloody's feeling okay these aren't great\nbut that's okay not enough water to get\nme there\nkilometers to Ashcroft now\nbut I'm in a dark place\nvery nauseous really queasy\nit's hard to eat and drink this heat is\njust overwhelming\njust like the window\nso it's kilometer 240. we're in the back\nhalf of it\nand I have been\nstruggling so hard with some vicious leg\ncramps which I never get\nand I just every\nfive minutes I have to get off the bike\nmy whole leg seizes up and oh here comes\nhere comes\nI'm uh I'm not gonna quit\nbut this is going to take a lot longer\nto get back now and I basically\nI've gone into survival mode I don't\nreally care who passes me anymore\nwhich is too bad because\nputting up a good fight there for a bit\nmaybe it'll improve\nI think I have a handle on the cramps\nnow I haven't been hit by one\nin a bit\nthank you\nthat's fine these races always have\nhighs and lows in a repetitious pattern\nback there was a real low for me but\nstarting to feel a lot better\nturns out I mean fourth too so\nif I can push\non these last few Hills\nthere's another\n120 kilometers left anything can happen\nI could get lost\nin the final 100K now\ngetting closer\nSun just went down behind the hill\ntemperature is a lot nicer\nthe big boss climbs coming up\nnext to the root\nlike 700 meters up\nkind of loose\nit's gonna be slow\nLake now pretty much the highest point\nthat we're going to reach before just\ndescending like crazy all the way down\noh I can't wait\nI can see home\ntwo more kilometers\nall flat\ncan't believe this day the ups and the\ndowns\noh\nthat's gonna take a while to process\nwhat an incredible Adventure\nI'll be honest there was a time I wasn't\nsure if it was gonna work out for me\nthis is great\nnow I gotta find out where I placed\nthanks for that heat\nno way oh\nI didn't know where anyone was",
-          "curated": false
-        },
-        {
-          "video_id": "Xggci4LFwbk",
-          "title": "Mike Hall and The Transcontinental Race  | Michael Broadwith | TEDxYouth@HABS",
-          "channel": "TEDx Talks",
-          "view_count": 992,
-          "upload_date": "20220909",
-          "duration_string": "8:32",
-          "description": "In this talk, Mr M Broadwith takes us on a journey through cycling history. He explores Innovation in Cycling by speaking about Mike Hall, the founder of The Transcontinental Race. Mr M Broadwith is known as a long-distance specialist, having won the National 24 Hour time trial no less than three times, with distances up to 530 miles. Not only this, but his fantastic record for the “End to End”: Land’s End to John O’Groats was completed on 17th June 2018 in a staggering time of 43 hours, 25 minutes and 13 seconds. In August 2022, Mr Broadwith competed in The Transcontinental Race No. 8, and is an inspiration to us all by persevering in this self-supported bicycle race across Europe. This talk was given at a TEDx event using the TED conference format but independently organized by a local community. Learn more at https://www.ted.com/tedx",
-          "tags": [
-            "Community",
-            "English",
-            "Exercise",
-            "Leadership",
-            "Life",
-            "Motivation",
-            "Personal growth",
-            "TEDxTalks",
-            "Travel",
-            "[TEDxEID:50554]"
-          ],
-          "url": "https://www.youtube.com/watch?v=Xggci4LFwbk",
-          "transcript": "foreign\n[Music]\nin terms of thinking about events\nthinking about things that you can do\nand actually I think the message that I\nwanted to give to people is to be brave\nenough to not always tread the normal\npath\nso I'm going to talk today very briefly\nabout Mike Hall and something called the\nTranscontinental this chat here is Mike\nHall\nhe talked about inspiration of the Tour\nde France of yesteryear we've got a\nphoto here of the Tour de France when it\nwas first started to make headlines\naround the world it was a journey across\nFrance and it was very much an element\nof self-sufficiency and of Adventure you\nmay have seen clips of people stopping\nby a boulangerie running in grabbing\nbread rolls and getting back on their\nbikes again or even in the most extreme\ncases of stopping at blacksmiths and\nhaving to repair their own bikes\nwhen might Hall\num got into cycling and then when he was\nwatching it in the early 2000s the Tour\nde France was a very different thing\nindeed chap on the left is Lance\nArmstrong who won a lot of Tour de\nFrance\num but then it was found out that he\nwasn't actually quite all that he was\ncracked up to be and I think what Mike\nall felt was a worry that we traveled\naway from those initial goals and it was\nbecoming something very different and he\nwanted to look for something he wasn't\ngetting out of that what he wanted from\nthe sport\nso he looked for a different type of\ncycling\nand he was doing what's now called long\ndistance Ultra racing he did a couple of\nevents called the tour divide and also\nthe TransAmerica bike race\nthis is the tour divide which goes from\nBanff in Canada all the way down the\ngreat Continental Divide to the Mexican\nborder\nas you can see four and a half thousand\nkilometers and he's still currently the\nrecord holder for that route which is\ndone on mountain bikes and he did it in\njust under two weeks and that happens\nevery year\nthe TransAmerica bike race goes the\nother way if you like you might have\nheard of the Race Across America but the\nway that Michael does his events is that\nyou have to be totally self-sufficient\nand you'll notice that all of these\nbikes that you're seeing photos of carry\nbags and have equipment with them that\nmeans that people need to do everything\nthemselves they need to choose where\nthey're going to sleep they need to\nchoose what they're going to eat and\nthey need to completely provide for\nthemselves the idea to kind of go back\nto how things used to be\num in the good old days\nso he founded What's called the\nTranscontinental he took those ideas\nthat he'd seen in America and he brought\nthem over to Europe with a little bit of\na twist all of the events that he'd done\nin America had what are called what\nfixed route events but he wanted to\ncombine those long distance fixed Street\nevents with elements of orienteering so\nrather than telling people which way\nthey had to go just give them a number\nof checkpoints that they had to visit on\ntheir journey across Europe\nand so there's a little bit of blurb\nthere talking about what his fundamental\nVision was in terms of creating this\ndream his Innovation if you like\nit's a single stage race in which the\nclock never stops and it's 4 000\nkilometers across Europe\nI'll let you just read that\nso in 2013 you organized the first\ntranscontinental race and that was a\ngroup of about 60 people who gathered\ntogether in London and they only had two\ncheckpoints that they had to visit on\ntheir way to Istanbul they firstly\nneeded to go to garage Bergen in Belgium\nwhich is a very famous place in Flanders\nwith a lot of cycling history and then\nalso visit stelvio pass in Northern\nItaly before going on to Istanbul and it\nwas won by this chap here Christoph\nalligat who's a teacher from Belgium who\nhad no idea that this was the kind of\nthing that he was going to be good at\nturns out he's absolutely fantastic at\nit and you can talk to him you can\nlisten to him and decide which of those\nattributes of his makes him good at this\nparticular type of racing but it took\nhim just seven days and 13 hours to\ncycle from London to Istanbul\nI think people were attracted by the\nkind of Back to Basics uh element and\nthe success of the Transcontinental grew\nand grew and within two years they were\ntaking four or five times as many\napplications as they were offering\nplaces on the race\ntwo years later they had so one year\nlater they added another couple of\ncheckpoints this time via Paris and also\nsomewhere in Montenegro and they started\nto take the route which was primarily\ndesigned for road bikes slightly off off\ncourse as you can see there this is\ngoing across the high mountains of\nMontenegro but again Christoph alligat\ncame back from Belgium and won it again\nfor a second year\ncarrying on from there\nuh you can see now they've established\nformat the next three years and that\npopularity had been founded so Michael\nhad found his Niche he was now I think\nmost people would argue the organizer of\nthe world's Premiere uh bike packing\nrights\nI think it was a feeling he'd come from\na position of being the best and he'd\nnow created especially this chat Crystal\nGallagher he thought he was the best as\nwell and there was a moment then in 2017\nwhere both of them entered a new race\nwhich was called the Indian Pacific\nwheel race in Australia\nI'll come back to that in a second but\nfirstly I just wanted to show you and I\nhope this will work a short clip from\nthe start of the Transcontinental race\nthe Transcontinental race shows its\nposition for beginning now in garage\nBergen in Belgium they start at 10 p.m\nat night so uh what Michael would\ndedicated to Simplicity he wanted to\ndesign a race or you could put the whole\nrules of the race just on one piece of\npaper which is what he did here\nthen he went with Christoph alligator to\nAustralia there's a tour that might fall\non the left elegant on the right and\nthey competed in the Indian Pacific\nwheel race it was a really interesting\nrace to watch and what it summed up is\nwhy this kind of racing is perfect for a\nmodern generation because plenty of\npeople who watch these races from the\ncontent of their own from the safety of\ntheir own home every Rider has a tracker\non their bike and you can load up a map\nand you can watch where the Riders are\nand essentially thousands and thousands\nof people were watching might call it\nalligator racing across Australia the\nproblem was alligators faster Michael\nwas in front and every day alligator was\ncatching him and the only thing that\nMichael could do was choose to have less\nand less sleep every day but Australia\nis a very very big place and as he was\nclosing in on him they're 500 kilometers\nto go until they got to Sydney so\nthey've got all the way over here\nthey've already gone through Melbourne\nthey're cutting their way up towards\nSydney and the media Court have got this\nfootage from the middle of the night\nthat's Christoph alligat closed\ncaptioning not available\nwrote to within 500 meters of the finish\nline which was a Sydney Opera house but\ndecided it wasn't appropriate to finish\nso posted this photo on social media and\nthen went home\nlater on they organize a tribute at the\nopera house and you can see Alec out\nthere placing flowers which was attended\nby over 2 000 members of the Sydney\ncycle Community the Transcontinental\nrace continues to the day on the left is\nMike Hall's partner at the time Anna\nhaslov she now organizes the event and\non the right it's the only cold Winger\nfrom Germany who won the event last year\nbecoming the first female Rider to win\nan international standard long distance\nevent this year's transcontinental race\nstarts in two and a half weeks time from\ngarage Bergen in Belgium and those\nthrough these four checkpoints to finish\nat Burgos in Romania if you're\ninterested I'm sure that you can look\nonline and see the Riders as they follow\ntheir route across Europe with the\nwinner probably expected to complete\nparticularly hard course this year in\nabout eight days time\nthanks very much for listening",
-          "curated": false
         }
-      ],
-      "quotes": [
-        {
-          "text": "The Transcontinental race is a ultra distance cycling race across Europe and probably one of the toughest ones in the world. Riders have to create their own route and it can be up to 4000 kilometers and go to the control points along the way this year starts in Belgium then goes to Italy before going to Slovenia and heading into Eastern Europe towards Albania Crossing into Greece and reaching the Finish Line in Thessaloniki.",
-          "source_video_id": "1pz44B5Q7_4",
-          "source_channel": "BuzzAlong",
-          "source_view_count": 327261,
-          "category": "course_difficulty",
-          "curated": true
-        },
-        {
-          "text": "I mean you cannot really really make out the strategy in the beginning and in terms of the races that you've done here before do you have any distinct memory that's your favorite oh there are too many memories to be honest there are too many stories I could tell things I have experienced it's just amazing it then it's every time you know you have new experience new adventure and meet new people just fantastic.",
-          "source_video_id": "ZEImemPWBnU",
-          "source_channel": "Global Cycling Network",
-          "source_view_count": 255104,
-          "category": "race_atmosphere",
-          "curated": true
-        }
-      ],
-      "rider_intel": {
-        "extracted_at": "2026-02-23",
-        "key_challenges": [
-          {
-            "name": "Splugen Pass",
-            "description": "Riders describe this as freaking steep and scary, accessed via hiking trail. One rider calls it insane and never ending, noting it gets more and more difficult as you climb.",
-            "source_video_ids": [
-              "1pz44B5Q7_4"
-            ]
-          },
-          {
-            "name": "The Alps passages",
-            "description": "Multiple challenging climbs with significant elevation gain. Riders note potential storm conditions in the Alps area.",
-            "source_video_ids": [
-              "1pz44B5Q7_4"
-            ]
-          }
-        ],
-        "terrain_notes": [
-          {
-            "text": "Very hilly terrain with rolling hills throughout much of the route. Gravel roads feature on mountain passes including the Splugen Pass.",
-            "source_video_ids": [
-              "1pz44B5Q7_4"
-            ]
-          },
-          {
-            "text": "Cycle lanes available in some sections, described as Dutch style, which help avoid ups and downs in villages and traffic lights, making travel quite quick.",
-            "source_video_ids": [
-              "1pz44B5Q7_4"
-            ]
-          }
-        ],
-        "gear_mentions": [
-          {
-            "text": "Dynamo hub recommended to power lights and charge devices while moving, eliminating need to carry extra battery packs and wall plugs that require stopping.",
-            "source_video_ids": [
-              "ZEImemPWBnU"
-            ]
-          }
-        ],
-        "race_day_tips": [
-          {
-            "text": "Keep moving every minute - any time you stop somewhere it doesn't get you to the finish line. Strategy depends on wind and weather conditions for determining daily distance.",
-            "source_video_ids": [
-              "ZEImemPWBnU"
-            ]
-          },
-          {
-            "text": "Smart routing is crucial - avoid cutting mileage by going straight to checkpoints as this adds significant elevation. Better to ride longer to go around mountains.",
-            "source_video_ids": [
-              "ZEImemPWBnU"
-            ]
-          },
-          {
-            "text": "Use cycle lanes when available to avoid traffic lights and elevation changes in villages, making travel faster and more efficient.",
-            "source_video_ids": [
-              "1pz44B5Q7_4"
-            ]
-          }
-        ],
-        "additional_quotes": [
-          {
-            "text": "You have to create their own route and it can be up to 4000 kilometers and go to the control points along the way",
-            "source_video_id": "1pz44B5Q7_4",
-            "source_channel": "BuzzAlong",
-            "source_view_count": 327261,
-            "category": "logistics",
-            "curated": true
-          },
-          {
-            "text": "We got a taste of the greatness of this type of race but then had to scratch with one checkpoint to go so we vowed before we even left checkpoint 4 that we would be back again",
-            "source_video_id": "ZEImemPWBnU",
-            "source_channel": "Global Cycling Network",
-            "source_view_count": 255104,
-            "category": "community",
-            "curated": true
-          }
-        ],
-        "search_text": "The Transcontinental Race is described by riders as one of the toughest ultra-distance cycling races in the world, covering up to 4000 kilometers across Europe with mandatory control points. Riders must create their own routes between checkpoints. Key challenges include the extremely steep and scary Splugen Pass accessed via hiking trail, and multiple Alpine climbs with potential storm conditions. Terrain varies from rolling hills to gravel mountain passes, with some Dutch-style cycle lanes available to avoid village traffic. Weather conditions include persistent rain, headwinds, and variable mountain weather. Successful riders emphasize the importance of continuous movement, smart routing around mountains rather than straight-line approaches, and proper gear including dynamo hubs for charging devices. The race demands both physical endurance and strategic route planning across diverse European terrain and weather conditions."
-      }
-    },
-    "photos": [
-      {
-        "type": "video-1",
-        "file": "transcontinental-race-video-1.jpg",
-        "url": "/race-photos/transcontinental-race/transcontinental-race-video-1.jpg",
-        "alt": "Silhouetted cyclist sitting in urban park setting with trees and buildings in background - Transcontinental Race - Across Europe (route changes annually)",
-        "credit": "YouTube / BuzzAlong",
-        "primary": true,
-        "ai_relevance": 2,
-        "ai_quality": 2,
-        "ai_keywords": [
-          "cyclist",
-          "urban park",
-          "trees",
-          "silhouette"
-        ]
-      },
-      {
-        "type": "video-2",
-        "file": "transcontinental-race-video-2.jpg",
-        "url": "/race-photos/transcontinental-race/transcontinental-race-video-2.jpg",
-        "alt": "Close-up detail of gravel bike drivetrain showing chainrings and rear derailleur in bike parking area - Transcontinental Race - Across Europe (route changes annually)",
-        "credit": "YouTube / BuzzAlong",
-        "primary": false,
-        "ai_relevance": 3,
-        "ai_quality": 4,
-        "ai_keywords": [
-          "gravel bike",
-          "drivetrain",
-          "chainrings",
-          "bike components"
-        ]
-      },
-      {
-        "type": "video-3",
-        "file": "transcontinental-race-video-3.jpg",
-        "url": "/race-photos/transcontinental-race/transcontinental-race-video-3.jpg",
-        "alt": "Time trial cyclist in aerodynamic position racing on paved road through rural countryside with green fields - Transcontinental Race - Across Europe (route changes annually)",
-        "credit": "YouTube / BuzzAlong",
-        "primary": false,
-        "ai_relevance": 5,
-        "ai_quality": 4,
-        "ai_keywords": [
-          "time trial",
-          "aerodynamic position",
-          "rural road",
-          "countryside",
-          "racing"
-        ]
-      },
-      {
-        "type": "preview-gif",
-        "file": "transcontinental-race-preview.gif",
-        "url": "/race-photos/transcontinental-race/transcontinental-race-preview.gif",
-        "alt": "Course preview from Transcontinental Race race footage",
-        "credit": "YouTube / BuzzAlong",
-        "gif": true
-      },
-      {
-        "type": "preview-gif",
-        "file": "transcontinental-race-preview-2.gif",
-        "url": "/race-photos/transcontinental-race/transcontinental-race-preview-2.gif",
-        "alt": "Course preview from Transcontinental Race race footage",
-        "credit": "YouTube / BuzzAlong",
-        "gif": true
-      },
-      {
-        "type": "preview-gif",
-        "file": "transcontinental-race-preview-3.gif",
-        "url": "/race-photos/transcontinental-race/transcontinental-race-preview-3.gif",
-        "alt": "Course preview from Transcontinental Race race footage",
-        "credit": "YouTube / BuzzAlong",
-        "gif": true
-      },
-      {
-        "type": "preview-gif",
-        "file": "transcontinental-race-preview-4.gif",
-        "url": "/race-photos/transcontinental-race/transcontinental-race-preview-4.gif",
-        "alt": "Course preview from Transcontinental Race race footage",
-        "credit": "YouTube / BuzzAlong",
-        "gif": true
-      },
-      {
-        "type": "preview-gif",
-        "file": "transcontinental-race-preview-5.gif",
-        "url": "/race-photos/transcontinental-race/transcontinental-race-preview-5.gif",
-        "alt": "Course preview from Transcontinental Race race footage",
-        "credit": "YouTube / BuzzAlong",
-        "gif": true
-      }
-    ]
+      ]
+    }
   }
 }

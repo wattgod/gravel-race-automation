@@ -1,0 +1,288 @@
+{
+  "race": {
+    "name": "L'Etape du Tour de France Femmes",
+    "slug": "letape-du-tour-femmes",
+    "display_name": "L'Etape du Tour de France Femmes avec Zwift",
+    "tagline": "The official amateur stage of the Tour de France Femmes. 7,000 riders on Mont Ventoux, one day before the pros, on fully closed roads through Provence.",
+    "vitals": {
+      "distance_mi": 75,
+      "elevation_ft": 9843,
+      "location": "Route changes annually (2026: Vaison-la-Romaine to Mont Ventoux, Provence)",
+      "location_badge": "PROVENCE, FRANCE",
+      "date": "Early August annually (one day before Tour de France Femmes stage)",
+      "date_specific": "2026: August 6",
+      "terrain_types": [
+        "Paved Provencal roads",
+        "Tour de France Femmes stage route",
+        "Iconic summit finish",
+        "Rolling vineyard terrain"
+      ],
+      "field_size": "~7,000 entries (2025 inaugural figure)",
+      "start_time": "Wave starts from early morning",
+      "registration": "Online via timeto.com. Opens several months in advance. Entry ~EUR120-150. Open to all riders 18+, men and women.",
+      "prize_purse": "None (timed event, finisher medals and diplomas)",
+      "aid_stations": "Multiple official feed zones along the route. Fully supported with nutrition, water, mechanical assistance. ASO-standard organization.",
+      "cutoff_time": "Strict cutoffs enforced. Riders behind the broom wagon are pulled from the course.",
+      "lat": 44.2417,
+      "lng": 5.2753,
+      "distance_options": [
+        "L'Etape du Tour de France Femmes: 120 km (75 mi), 3,000 m gain (2026 edition)",
+        "Route changes annually to match the selected Tour de France Femmes stage"
+      ],
+      "entry_fee": "~EUR120-150"
+    },
+    "climate": {
+      "primary": "Provencal summer heat with extreme summit exposure",
+      "description": "Early August in Provence is peak Mediterranean summer. Valley temperatures around Vaison-la-Romaine regularly hit 30-38C. The lower route passes through exposed vineyard and lavender terrain with minimal shade. Mont Ventoux's summit at 1,909m creates its own microclimate — temperatures can be 15-20 degrees cooler than the valley floor, with ferocious winds that give the mountain its name ('Windy Mountain'). The barren lunar landscape above Chalet Reynard offers zero shelter.",
+      "challenges": [
+        "Valley heat: 30-38C (86-100F) through Provencal lowlands in early August",
+        "Mont Ventoux summit exposure: wind speeds can exceed 90 km/h on the barren moonscape",
+        "15-20 degree temperature swing from Vaison-la-Romaine valley floor to Ventoux summit",
+        "Unrelenting sun on exposed vineyard roads below the mountain — dehydration risk is extreme",
+        "The Mistral wind can create dangerous conditions on the exposed upper slopes"
+      ]
+    },
+    "terrain": {
+      "primary": "Paved Provencal roads culminating in a legendary summit finish",
+      "surface": "Tour de France Femmes stage roads — well-maintained French departmental roads (D-roads). All tarmac. The route is professionally inspected ahead of the professional race. Mont Ventoux via Bedoin is one of the most iconic stretches of road in world cycling.",
+      "technical_rating": 1,
+      "features": [
+        "Provencal approach: rolling terrain through vineyards, olive groves, and lavender fields between Vaison-la-Romaine and Bedoin",
+        "Dentelles de Montmirail views: dramatic limestone ridges frame the approach to Ventoux",
+        "Mont Ventoux via Bedoin (21.8 km at 7.4%): the legendary three-phase climb — gentle through the village, savage through the forest, barren and exposed to the summit",
+        "Forest section: 9.5 km averaging 9% through dense pine forest with relentless gradients touching 12%",
+        "Lunar summit: the final 6 km above Chalet Reynard on the barren white limestone moonscape — exposed, windswept, iconic"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 79,
+      "tier": 1,
+      "tier_label": "TIER 1",
+      "logistics": 3,
+      "length": 3,
+      "technicality": 1,
+      "elevation": 4,
+      "climate": 4,
+      "altitude": 3,
+      "adventure": 4,
+      "prestige": 5,
+      "race_quality": 5,
+      "experience": 5,
+      "community": 4,
+      "field_depth": 3,
+      "value": 3,
+      "expenses": 3,
+      "cultural_impact": 5,
+      "tier_note": "The official Tour de France Femmes amateur stage, run by ASO alongside the women's Tour. Inaugural full edition in 2025 drew 7,000 riders. Prestige=5 and score=79 (>=75) triggers T1 override. Raw score of 79 would place this in T2, but p5 + score>=75 promotes to T1.",
+      "score_note": "Sum of 14 criteria = 50, cultural_impact = 5, total = 55. (55/70)*100 = 78.57, rounded = 79. prestige=5: this IS the Tour de France Femmes brand — ASO-organized, same roads as the pros. cultural_impact=5: the women's Tour de France is the most important development in women's cycling history, and this amateur edition extends that legacy to 7,000 participants. altitude=3 for Ventoux at 1,909m — significant but below the 2,500m+ threshold. length=3: 120 km is a serious day but shorter than the 170 km men's L'Etape.",
+      "editorial_tier": 1,
+      "editorial_tier_label": "TIER 1",
+      "business_tier": 1,
+      "business_tier_label": "TIER 1",
+      "display_tier": 1,
+      "display_tier_label": "TIER 1",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 3,
+        "explanation": "ASO organizes this at the same operational standard as L'Etape du Tour and the professional Tour itself. Closed roads, wave starts, full mechanical and medical support. But the Provence location creates logistical challenges: Marseille-Provence (MRS) is the nearest major airport at 2+ hours. Avignon TGV is closer at ~1 hour to Vaison-la-Romaine. The route changes annually, meaning accommodation and travel planning restarts from zero each edition. Vaison-la-Romaine is a small Roman town — 6,000 residents absorbing 7,000 cyclists and their entourages strains local capacity."
+      },
+      "length": {
+        "score": 3,
+        "explanation": "120 km with 3,000m of climbing is a serious day of riding. Mont Ventoux alone accounts for 21.8 km and 1,617m of vertical — more than half the total elevation in one climb. This is not a casual sportive. But compared to L'Etape du Tour's 170 km and 5,400m, this is more accessible. Most fit cyclists can complete it in 5-8 hours. The difficulty is concentrated rather than distributed — the approach is moderate, then Ventoux delivers the full 21.8 km of suffering in one block."
+      },
+      "technicality": {
+        "score": 1,
+        "explanation": "Perfectly paved roads throughout. Mont Ventoux via Bedoin is one of the most-ridden cycling roads in France — maintained to Tour de France standard. The technical demands are zero: wide roads, good sightlines, no gravel, no cobbles. The difficulty is purely cardiovascular. Bring a road bike with compact gearing."
+      },
+      "elevation": {
+        "score": 4,
+        "explanation": "3,000 meters of climbing in 120 km means the climbing ratio is punishing. Mont Ventoux via Bedoin — 21.8 km at 7.4% average — is one of the ten hardest climbs in France. The forest section sustains 9% for nearly 10 km with pitches touching 12%. The approach from Vaison-la-Romaine adds undulating Provencal terrain. This is not 5,400m like L'Etape du Tour, but the concentration of climbing into one devastating effort makes it brutally hard."
+      },
+      "climate": {
+        "score": 4,
+        "explanation": "Early August in Provence is one of the hottest cycling environments in European sportives. Valley temperatures around Vaison-la-Romaine regularly exceed 35C. The lower route crosses exposed terrain with minimal shade. Then Mont Ventoux creates its own weather: the summit can be 15-20 degrees cooler with ferocious wind. The Mistral can exceed 90 km/h on the exposed upper slopes. The combination of extreme heat below and wind above makes climate a genuine performance and safety factor."
+      },
+      "altitude": {
+        "score": 3,
+        "explanation": "Mont Ventoux's summit at 1,909m is significant but below the threshold where altitude becomes a dominant physiological factor for most riders. Sea-level athletes will notice reduced performance in the final 3-4 km, but it's not the Galibier at 2,642m. The real altitude issue on Ventoux is the exposure — above Chalet Reynard at ~1,400m, there is no shelter from wind, sun, or cold, and the psychological impact of the barren lunar landscape amplifies the physical difficulty."
+      },
+      "adventure": {
+        "score": 4,
+        "explanation": "Riding the same roads, on the same route, that the Tour de France Femmes professionals will race the very next day — that is special. The ride from ancient Roman Vaison-la-Romaine through lavender fields and vineyards with the Dentelles de Montmirail on the horizon, building toward the white dome of Mont Ventoux — this is Provence at its most dramatic. The lunar summit of Ventoux, barren and windswept above the treeline, is one of cycling's most otherworldly landscapes. Petrarch called it the 'Mountain of the Winds.' It lives up to the name."
+      },
+      "prestige": {
+        "score": 5,
+        "explanation": "This is the Tour de France Femmes — the most important women's cycling race on Earth, and the event that finally gave women their own Tour de France starting in 2022. The amateur L'Etape edition extends that historic brand to 7,000 participants. ASO organizes it. The route is the actual professional stage. The cultural moment of the women's Tour cannot be overstated — this is cycling correcting a 100-year wrong. Riding the official amateur stage of the Tour de France Femmes carries the full weight of that history."
+      },
+      "race_quality": {
+        "score": 5,
+        "explanation": "ASO is the gold standard in professional cycling event production. They apply the same operational framework as L'Etape du Tour and the professional Tour de France: fully closed roads, professional timing, medical teams, feed zones, broom wagons, mechanical support. The 2025 inaugural edition with 7,000 riders confirmed that ASO delivers the same quality for the women's event as the men's. This is not a second-tier product."
+      },
+      "experience": {
+        "score": 5,
+        "explanation": "The combination is unmatched: Provencal beauty through ancient Roman towns and lavender fields, building toward one of the most iconic climbs in all of cycling. Mont Ventoux is not just a climb — it is a place. The forest section that blocks out the sun for 10 km. The moment you emerge above Chalet Reynard and the entire landscape changes to barren white limestone. The Tom Simpson memorial. The final 6 km of exposed moonscape with the summit observatory growing closer. Then the finish on the very stage the professional women will race the next day. Five-star experience."
+      },
+      "community": {
+        "score": 4,
+        "explanation": "The 2025 inaugural edition drew 7,000 riders with over 30% women — a participation rate far above typical cycling sportives. The Tour de France Femmes brand attracts an international, diverse field that includes both dedicated cyclists and people motivated by the women's equality mission. The event is explicitly open to all genders. The shared suffering on Ventoux creates the same instant bonds as any great sportive. The community is still growing — this event is only 2-3 editions old."
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "7,000 entries in only its second/third edition is impressive growth. Strong age-groupers and competitive club riders populate the front of the field. But as with L'Etape du Tour, this is overwhelmingly a mass-participation experience-driven event. The majority ride for the Tour de France Femmes brand and the Ventoux challenge, not for competitive classification. Field depth will likely deepen as the event matures and earns its own competitive reputation."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "Estimated EUR120-150 entry is competitive with other premium European sportives. You get ASO production quality, closed roads, the Tour de France Femmes brand, and Mont Ventoux. Third-party tour packages through operators like Sportive Breaks run around GBP130 with hotel packages including an official Santini jersey. For what you receive — the brand, the organization, the roads — the pricing is fair if not cheap."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Provence in August is peak tourist season. Vaison-la-Romaine and surrounding villages have limited hotel capacity for 7,000 cyclists. Avignon, Carpentras, and Orange offer more options but require 30-60 minute drives. Flights to Marseille or the Avignon TGV train are reasonably priced from European cities. Budget EUR800-1,800 from within Europe for a 3-4 day trip. From the US, add EUR600-1,000 for transatlantic flights. Tour operator packages offer convenience but add cost."
+      }
+    },
+    "biased_opinion": {
+      "verdict": "The Stage That Changed Everything",
+      "summary": "L'Etape du Tour de France Femmes is not just another sportive — it is a statement. When ASO launched the Tour de France Femmes in 2022, it corrected a century-long omission in cycling's most important race. The amateur L'Etape edition, inaugurated in 2025 with 7,000 riders, extends that revolution to anyone willing to suffer up the same mountains as the professional women. The 2026 route delivers cycling's ultimate single-climb challenge: 120 km from ancient Vaison-la-Romaine through Provencal vineyards and lavender fields, building toward 21.8 km of Mont Ventoux via Bedoin. The forest section averages 9%. The barren moonscape above Chalet Reynard offers no shade, no shelter, and no mercy. And the next day, Demi Vollering and Katarzyna Niewiadoma will ride the same road.",
+      "strengths": [
+        "THE Tour de France Femmes brand: ASO-organized, closed roads, the actual professional stage route one day before the pros",
+        "Mont Ventoux via Bedoin: 21.8 km at 7.4% — one of the ten hardest climbs in France, one of the most iconic in world cycling",
+        "Cultural significance: the women's Tour de France corrects a century-long wrong, and this event lets 7,000 people be part of that history",
+        "Provencal setting: from Roman ruins through lavender fields to the lunar summit of Ventoux — this is France at its most dramatic"
+      ],
+      "weaknesses": [
+        "Only 2-3 editions old — still establishing its identity and competitive reputation separate from L'Etape du Tour",
+        "Route changes annually — logistics planning restarts each edition",
+        "Early August Provencal heat (35C+) combined with exposed Ventoux summit makes climate a serious safety factor",
+        "Remote Provence location: limited airport access, small towns absorbing thousands of cyclists"
+      ],
+      "bottom_line": "If L'Etape du Tour is the Tour de France in amateur form, L'Etape du Tour de France Femmes is the future of that concept. Shorter, more accessible, and carrying the cultural weight of women's cycling's most important moment. Mont Ventoux alone is a lifetime cycling accomplishment. Doing it on the official Tour de France Femmes stage route, the day before the world's best women race the same road, is something no other event can offer."
+    },
+    "final_verdict": {
+      "score": "79 / 100",
+      "one_liner": "The official Tour de France Femmes amateur stage. ASO-organized. Closed roads. Mont Ventoux via Bedoin. 3,000m of climbing through Provence.",
+      "should_you_race": "Yes if you want to be part of the most important development in women's cycling — the Tour de France Femmes brand, in amateur form. Yes if Mont Ventoux via Bedoin is on your lifetime cycling list. Yes if you want the prestige of L'Etape du Tour with a more accessible distance. Skip if you want a mature, established event with decades of history — this is only its 2nd/3rd edition. Skip if extreme heat is a dealbreaker.",
+      "alternatives": "If you want the men's Tour de France stage experience with more climbing: L'Etape du Tour. If you want Mont Ventoux without the Tour de France brand: Cingles du Mont Ventoux. If you want a similar Provencal experience with a different mountain: Marmotte Granfondo Pyrenees.",
+      "alternative_slugs": [
+        "letape-du-tour",
+        "cingles-du-mont-ventoux",
+        "marmotte-granfondo-pyrenees"
+      ]
+    },
+    "logistics": {
+      "airport": "Marseille-Provence (MRS) — 2+ hours to Vaison-la-Romaine. Avignon TGV station — ~1 hour by car (best option from Paris via high-speed rail). Lyon (LYS) — 2.5 hours. Geneva (GVA) — 4+ hours.",
+      "lodging_strategy": "For the 2026 Ventoux edition: stay in Vaison-la-Romaine (start town), Bedoin (base of Ventoux), Malaucene, or Carpentras. Book 4-6 months in advance — Provence in August is peak tourist season and 7,000 cyclists strain local capacity. Avignon (45 min) and Orange (30 min) offer more hotel options. Tour operators (Sportive Breaks, Sports Tours International) offer packages with guaranteed entry, accommodation, and transfers.",
+      "food": "Provencal cuisine — rosé, ratatouille, tapenade, fresh bread, and exceptional local produce. Vaison-la-Romaine has excellent restaurants in the medieval haute-ville. Feed zones are professionally stocked with gels, bars, water, fruit, and cola. Pre-race carb loading in Provence is not a hardship.",
+      "packet_pickup": "Event village near the start, 1-2 days before. Follow ASO instructions for timing and location. With 7,000 entries, expect queues — arrive early.",
+      "parking": "Varies by route. Shuttle services typically organized between key points. For the 2026 Ventoux edition, parking in Vaison-la-Romaine will be organized by ASO with designated areas and shuttle services.",
+      "official_site": "https://www.letourfemmes.fr/en/etape-du-tour-de-france-femmes-avec-zwift"
+    },
+    "history": {
+      "founded": 2024,
+      "founder": "ASO (Amaury Sport Organisation — Tour de France organizer)",
+      "origin_story": "The Tour de France Femmes avec Zwift was resurrected by ASO in 2022, giving women their own Tour de France for the first time since the Grande Boucle Feminine ended in 2009. The amateur companion followed naturally: in 2024, ASO opened the Alpe d'Huez ascent to amateur cyclists as a precursor event to the women's race. The concept proved wildly popular. In 2025, the first full-format L'Etape du Tour de France Femmes took place between Chambery and Col de la Madeleine, drawing 7,000 riders with over 30% women participants — a far higher female participation rate than typical cycling sportives. The 2026 edition on Mont Ventoux establishes L'Etape Femmes as an annual fixture alongside its older sibling, L'Etape du Tour.",
+      "notable_moments": [
+        "2022: Tour de France Femmes avec Zwift relaunched by ASO — women finally have their own Tour",
+        "2024: Inaugural amateur Alpe d'Huez ascent event held before the Tour de France Femmes stage",
+        "2025: First full-format L'Etape du Tour de France Femmes — 7,000 riders, Chambery to Col de la Madeleine (112 km, 3,490m)",
+        "2026: Second full edition — Vaison-la-Romaine to Mont Ventoux via Bedoin (120 km, 3,000m)"
+      ],
+      "reputation": "The newest jewel in ASO's amateur cycling crown, carrying the cultural significance of women's cycling's most important moment. Still building its own identity, but the Tour de France Femmes brand and ASO production quality establish immediate credibility. The 30%+ female participation rate demonstrates this event reaches an audience that traditional sportives miss."
+    },
+    "course_description": {
+      "character": "A Provencal masterpiece that builds from gentle beauty to savage finality. The route from Vaison-la-Romaine winds through the sun-baked vineyards and lavender fields of the Comtat Venaissin, with the limestone Dentelles de Montmirail and the white dome of Mont Ventoux dominating the horizon throughout. The approach is rolling but manageable — this is the calm before the storm. Then Bedoin arrives, and the real race begins. Mont Ventoux via Bedoin is 21.8 km of relentless climbing: gentle through the village, savage through the dark forest at 9%, then the barren exposed moonscape above Chalet Reynard where the wind howls and the summit observatory beckons. One climb. 1,617 meters of vertical. No hiding.",
+      "suffering_zones": [
+        {
+          "mile": 0,
+          "label": "Vaison-la-Romaine to Bedoin Approach",
+          "desc": "The Provencal warm-up. Rolling terrain through vineyards, olive groves, and lavender fields. The Dentelles de Montmirail provide dramatic limestone backdrops. This is beautiful riding on quiet roads — enjoy it while you can. The approach accumulates 1,400m of climbing across undulating terrain before the main event. Use this section to manage effort and fuel — everything after Bedoin demands full commitment.",
+          "terrain_detail": "Rolling D-roads through Provencal lowlands, ~1,400m cumulative gain",
+          "named_section": "Provencal Approach"
+        },
+        {
+          "mile": 55,
+          "label": "Mont Ventoux — Forest Section",
+          "desc": "The road tilts up at Bedoin and does not relent for 21.8 km. After a gentle first 6 km through the village outskirts (3.9% average), the forest swallows you whole. For the next 9.5 km, the gradient averages 9% with pitches hitting 12%. Dense pine forest blocks the sun and the views — your world shrinks to the road ahead and the burning in your legs. This is the hardest sustained section: relentless, dark, and claustrophobic. Most riders who crack on Ventoux crack here.",
+          "terrain_detail": "9.5 km at 9% average, 12% max, through dense pine forest",
+          "named_section": "The Forest"
+        },
+        {
+          "mile": 65,
+          "label": "Mont Ventoux — Lunar Summit",
+          "desc": "Emerging from the forest at Chalet Reynard (1,419m), the landscape transforms completely. The trees vanish. White limestone rubble extends in every direction. The summit observatory appears above. The final 6 km averages 7-8% but the exposure changes everything: wind, sun, and thin air combine with the psychological impact of the barren moonscape. The Tom Simpson memorial at km 19 is a solemn reminder of what this mountain demands. The last 1.5 km steepens to 10%. Then the summit at 1,909m.",
+          "terrain_detail": "6 km above treeline, 7-8% average, 10% final 1.5 km, summit at 1,909m",
+          "named_section": "The Moonscape"
+        }
+      ],
+      "signature_challenge": "Mont Ventoux via Bedoin — 21.8 km at 7.4% average. The three-phase structure is what makes Ventoux unique and devastating: gentle village approach that lulls you, the savage forest section at 9% that breaks you, and the barren exposed moonscape that finishes you. One climb. No recovery. No hiding. This is the climb that killed Tom Simpson and terrified Eddy Merckx. It is cycling's most feared mountain for a reason."
+    },
+    "guide_variables": {
+      "race_name": "L'Etape du Tour de France Femmes",
+      "race_distance": "75 miles",
+      "race_elevation": "9,843 feet",
+      "race_date": "August",
+      "race_location": "Provence, France (route changes annually)",
+      "race_terrain": "Paved Provencal roads culminating in Mont Ventoux summit finish",
+      "race_weather": "Extreme heat in Provence valleys (30-38C) with exposed, windy summit conditions",
+      "race_challenges": [
+        "Mont Ventoux via Bedoin: 21.8 km at 7.4% — one of cycling's hardest single climbs",
+        "Early August Provencal heat: 30-38C in exposed valley terrain",
+        "15-20 degree temperature swing from valley floor to Ventoux summit",
+        "Wind exposure above Chalet Reynard: the Mistral can exceed 90 km/h"
+      ],
+      "altitude_section": true,
+      "altitude_feet": 6263
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Single-climb sustained effort of 90+ minutes at threshold",
+        "by_when": "Week 6",
+        "why": "Mont Ventoux via Bedoin takes 90-150 minutes depending on fitness. The forest section alone demands 45-60 minutes at 9% average. Unlike multi-climb routes where you recover on descents, Ventoux is one continuous 21.8 km effort with zero respite. Train with sustained 90+ minute climbing efforts to build the specific endurance this mountain demands."
+      },
+      {
+        "requirement": "Heat acclimatization and hydration strategy for 30-38C riding",
+        "by_when": "Week 8",
+        "why": "Early August in Provence is brutally hot. The approach section crosses exposed terrain in peak sun. Arrive 2-3 days early to acclimatize. Practice racing in heat. Your hydration and sodium strategy must be tested — a bonk from dehydration at the base of Ventoux is unrecoverable."
+      },
+      {
+        "requirement": "Pacing strategy tested for a back-loaded course",
+        "by_when": "Week 9",
+        "why": "The Provencal approach is moderate but deceptive — 1,400m of rolling terrain in heat drains reserves before the main event. Arrive at Bedoin with enough in the tank for 21.8 km of sustained climbing. If you go too hard on the approach, the forest section will destroy you."
+      }
+    ],
+    "citations": [
+      {
+        "url": "https://www.letourfemmes.fr/en/etape-du-tour-de-france-femmes-avec-zwift",
+        "title": "L'Etape du Tour de France Femmes avec Zwift — Official Site",
+        "category": "official"
+      },
+      {
+        "url": "https://www.timeto.com/en/event/l-etape-du-tour-de-france-femmes-avec-zwift",
+        "title": "L'Etape du Tour de France Femmes — Registration (time to)",
+        "category": "official"
+      },
+      {
+        "url": "https://sportivebreaks.com/sportives/letape-du-tour-de-france-femmes/",
+        "title": "L'Etape du Tour de France Femmes — Sportive Breaks",
+        "category": "review"
+      },
+      {
+        "url": "https://www.cyclingweekly.com/news/2026-letape-du-tour-de-france-and-letape-du-tour-de-france-femmes-avec-zwift-to-tackle-iconic-tour-climbs",
+        "title": "2026 L'Etape du Tour de France Femmes — Cycling Weekly",
+        "category": "review"
+      },
+      {
+        "url": "https://escapecollective.com/letape-femmes-vs-the-tour-de-france-femmes-how-fast-are-the-worlds-best-women/",
+        "title": "L'Etape Femmes vs Tour de France Femmes — Escape Collective",
+        "category": "review"
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "high",
+      "validation_status": "validated",
+      "research_strength": "A",
+      "sources_count": 5,
+      "last_updated": "2026-02-27"
+    }
+  }
+}

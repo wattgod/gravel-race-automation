@@ -1,0 +1,280 @@
+{
+  "race": {
+    "name": "GFNY Miami",
+    "slug": "gfny-miami",
+    "display_name": "GFNY Miami",
+    "tagline": "100 flat miles through South Florida's wind corridors. The GFNY series' warm-weather edition where the bridges are the only climbing.",
+    "vitals": {
+      "distance_mi": 100,
+      "elevation_ft": 1500,
+      "location": "Miami, Florida, USA",
+      "location_badge": "MIAMI, FLORIDA",
+      "date": "November annually",
+      "date_specific": "2026: November 8",
+      "terrain_types": [
+        "Flat South Florida highways",
+        "Coastal roads",
+        "Everglades corridors",
+        "Bridge crossings"
+      ],
+      "field_size": "~2,000-3,000 riders",
+      "start_time": "Saturday 6:30 AM",
+      "registration": "Online via gfreg.com. Cost: ~$100-150",
+      "prize_purse": "GFNY competitive classification awards for age group winners",
+      "aid_stations": "Multiple rest stops with hydration, nutrition, and mechanical support",
+      "cutoff_time": "Course closes after approximately 8.5 hours",
+      "lat": 25.7617,
+      "lng": -80.1918,
+      "distance_options": [
+        "GFNY: ~100 miles, ~1,500 ft",
+        "Medium: ~60 miles",
+        "Short: ~30 miles"
+      ],
+      "entry_fee": "~$100-150"
+    },
+    "climate": {
+      "primary": "Subtropical November — warm, humid, hurricane season fading",
+      "description": "November in Miami means 75-85F with persistent humidity. Hurricane season is technically winding down but tropical weather remains volatile. Morning starts are muggy. Midday sun is strong. The combination of heat, humidity, and wind across exposed coastal flats creates physiological stress that northern riders underestimate.",
+      "challenges": [
+        "Sustained humidity (70-90%) — sweat doesn't evaporate efficiently",
+        "Crosswinds across the Everglades and coastal causeways",
+        "Strong subtropical sun even in November",
+        "Dehydration risk compounds across 100 flat miles with no shade"
+      ]
+    },
+    "terrain": {
+      "primary": "Flat South Florida roads with bridge crossings",
+      "surface": "Paved Florida highways and coastal roads. Smooth asphalt throughout. Zero technical demands.",
+      "technical_rating": 1,
+      "features": [
+        "Essentially zero climbing — bridges are the only vertical",
+        "Long exposed straightaways through the Everglades",
+        "Coastal causeways with crosswind exposure",
+        "Wide, flat roads suited to group riding and drafting",
+        "Wind is the primary obstacle, not terrain"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 46,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "logistics": 5,
+      "length": 3,
+      "technicality": 1,
+      "elevation": 1,
+      "climate": 2,
+      "altitude": 1,
+      "adventure": 2,
+      "prestige": 2,
+      "race_quality": 3,
+      "experience": 2,
+      "community": 2,
+      "field_depth": 3,
+      "value": 2,
+      "expenses": 2,
+      "cultural_impact": 1,
+      "tier_note": "A GFNY franchise event in the flattest major metro in America. The competitive classification and global series brand lift it slightly, but the terrain offers almost nothing. T3 by score (46).",
+      "score_note": "Logistics=5 (Miami International Airport is a global hub). Elevation=1 and altitude=1 (South Florida is as flat and low as cycling gets). Field_depth=3 for GFNY's competitive classification with anti-doping. Expenses=2 (Miami is expensive). cultural_impact=1.",
+      "editorial_tier": 3,
+      "editorial_tier_label": "TIER 3",
+      "business_tier": 3,
+      "business_tier_label": "TIER 3",
+      "display_tier": 3,
+      "display_tier_label": "TIER 3",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 5,
+        "explanation": "Miami is one of the most accessible cities on the planet. Miami International Airport (MIA) has direct flights from everywhere. Hotels at every price point. Uber everywhere. The start area is easy to reach. This is the polar opposite of driving 3 hours into Alpine County for the Death Ride. Logistics is the one category where GFNY Miami genuinely excels."
+      },
+      "length": {
+        "score": 3,
+        "explanation": "100 miles is a legitimate century distance. On flat roads with wind, that's 4-6 hours of sustained effort for most riders. The distance is real even if the terrain isn't. Multiple distance options let less-experienced riders participate."
+      },
+      "technicality": {
+        "score": 1,
+        "explanation": "There is nothing technically challenging about riding flat Florida roads. The surface is smooth asphalt. There are no descents to navigate, no gravel sectors, no cobbles. You pedal in a straight line and turn occasionally. Technicality is a non-factor."
+      },
+      "elevation": {
+        "score": 1,
+        "explanation": "~1,500 feet of elevation across 100 miles — and most of that comes from bridge approaches. South Florida is geologically incapable of providing climbing. If you want vertical, you are in the wrong state."
+      },
+      "climate": {
+        "score": 2,
+        "explanation": "November in Miami is warm and humid. For riders from northern climates, the humidity is the hidden tax — your cooling system works overtime and your hydration needs skyrocket. It's not dangerous heat, but it's a genuine performance factor. The tail end of hurricane season adds weather uncertainty."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "Sea level. The highest point on the course might be a bridge deck 40 feet above the water. Altitude is literally a non-factor."
+      },
+      "adventure": {
+        "score": 2,
+        "explanation": "The Everglades approach has a certain flat-horizon mystique, and the coastal causeways can be scenic. But Miami's suburban sprawl dominates much of the route. This is not the Scottish Highlands or the Sierra Nevada. The scenery is functional, not inspiring."
+      },
+      "prestige": {
+        "score": 2,
+        "explanation": "GFNY is a recognized global series with legitimate competitive credentials — anti-doping, age-group rankings, qualifying events. But the Miami edition is not the New York flagship. It's a franchise location. Finishing GFNY Miami doesn't carry the same weight as GFNY NYC, L'Etape, or the Maratona."
+      },
+      "race_quality": {
+        "score": 3,
+        "explanation": "GFNY runs a professional operation. Timing, competitive classification, rest stops, and support are all competent. The series has refined its logistics across 20+ global locations. You get a well-organized event. It's just not exceptional."
+      },
+      "experience": {
+        "score": 2,
+        "explanation": "A century ride through flat Florida is a cycling experience, but it's not a memorable one. There are no signature climbs, no dramatic scenery shifts, no suffering that transforms into achievement. You ride 100 miles, you finish, you eat. The wind might make it hard, but wind doesn't create stories the way mountains do."
+      },
+      "community": {
+        "score": 2,
+        "explanation": "Miami's cycling community is active but the GFNY event doesn't generate the same festival atmosphere as European sportives or US gravel events. The transient, tourism-driven nature of Miami means less local investment. Riders come, ride, and leave."
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "GFNY's competitive classification is its genuine differentiator. Anti-doping, chip timing, age-group rankings, and qualifying standards mean the front of the field is legitimately competitive. For a gran fondo series, GFNY takes racing seriously. The Miami field draws from Central and South America as well as North America."
+      },
+      "value": {
+        "score": 2,
+        "explanation": "$100-150 for a flat century ride is standard gran fondo pricing but the experience doesn't justify premium rates. You're paying for GFNY branding and timing infrastructure, not for an unforgettable course."
+      },
+      "expenses": {
+        "score": 2,
+        "explanation": "Miami is expensive. Hotels, food, rental cars, airport parking — everything costs more than it should. Budget $800-1,500+ for a weekend including registration, lodging, and travel. You could ride a more interesting event for less money."
+      }
+    },
+    "biased_opinion": {
+      "verdict": "The Flat Hundred",
+      "summary": "GFNY Miami is a competently organized century ride through the flattest major metro in America. The GFNY series brings legitimate competitive infrastructure — anti-doping, age-group classification, global qualifying — which elevates it above a casual club ride. But the course offers nothing. Zero climbing, zero technical terrain, zero adventure. The challenge is distance and wind, period. If you live in South Florida and want a local GFNY qualifier, this serves its purpose. If you're flying somewhere for a gran fondo experience, spend your airfare on literally any event with topography.",
+      "strengths": [
+        "GFNY competitive classification: anti-doping, chip timing, age-group rankings — rare in the gran fondo world",
+        "Logistics are effortless: MIA is a global hub, hotels everywhere, flat riding requires minimal bike prep",
+        "Winter-calendar timing: a century ride in November when the northern hemisphere is shutting down",
+        "Gateway to GFNY world championship qualification"
+      ],
+      "weaknesses": [
+        "The course is flatlined: 1,500 ft of 'climbing' across 100 miles is topographic noise",
+        "Miami is expensive — hotels, food, and logistics eat your budget for a forgettable course",
+        "Wind and humidity are the only adversity, and they're the boring kind",
+        "Not the GFNY flagship: NYC carries the brand prestige, Miami is a franchise satellite"
+      ],
+      "bottom_line": "The GFNY brand deserves respect. The Miami course does not. Ride it if you need a qualifier; skip it if you need a memory."
+    },
+    "final_verdict": {
+      "score": "46 / 100",
+      "one_liner": "100 flat miles through South Florida's wind corridors. GFNY timing, Miami hotels, zero climbing.",
+      "should_you_race": "Yes if you live in South Florida and want a competitive century with real timing. Yes if you need a GFNY world championship qualifier in warm weather. Skip if you want scenery, climbing, or any terrain variety whatsoever.",
+      "alternatives": "If you want a GFNY with actual terrain: try GFNY NYC (the flagship). If you want a warm-weather sportive with climbing: try Gran Fondo Hincapie. If you want flat-is-fast century racing: try the Triple Bypass in Colorado for a challenge upgrade.",
+      "alternative_slugs": [
+        "gfny-nyc",
+        "gran-fondo-hincapie",
+        "triple-bypass"
+      ]
+    },
+    "logistics": {
+      "airport": "Miami International Airport (MIA) — direct flights from major cities worldwide. Fort Lauderdale (FLL) also works, 30 minutes north.",
+      "lodging_strategy": "Unlimited options. Downtown Miami, Brickell, or Miami Beach hotels at every price point. Book early for November rates. No scarcity — this is Miami.",
+      "food": "Miami's food scene is world-class. Cuban, Haitian, Colombian, and everything else. Post-ride fueling is not a problem.",
+      "packet_pickup": "Pre-event expo, typically Saturday morning before the ride or Friday evening. Check GFNY site for specifics.",
+      "parking": "Varies by start location. Urban Miami parking applies — expect to pay.",
+      "official_site": "https://www.gfny.com/miami/"
+    },
+    "history": {
+      "founded": 2018,
+      "founder": "GFNY / Uli Fluhme (GFNY series founder)",
+      "origin_story": "GFNY launched in 2011 as Gran Fondo New York — a competitive mass-participation cycling event with European-style timing and anti-doping. The series expanded globally to 20+ locations. The Miami edition, added around 2018, brought the GFNY format to South Florida's winter cycling calendar. It leverages Miami's international accessibility and warm November weather to attract riders from across the Americas.",
+      "notable_moments": [
+        "2011: GFNY launches in New York City as a competitive gran fondo with anti-doping — unusual for the US market",
+        "2018: Miami edition added to the global GFNY calendar",
+        "GFNY series expands to 20+ locations worldwide including Colombia, Italy, Indonesia, and Brazil",
+        "Competitive classification with USADA-standard anti-doping remains GFNY's key differentiator"
+      ],
+      "reputation": "A franchise event in a series known for competitive integrity. Miami is the convenient option, not the inspiring one."
+    },
+    "course_description": {
+      "character": "Flat, exposed, and wind-driven. The course threads through Miami's urban fringe into the Everglades and along coastal causeways. The terrain never changes — it's flat from start to finish. The bridges provide the only vertical relief. Wind direction determines whether the ride is 4.5 hours or 6. Drafting is not optional; it's survival strategy. The course rewards aerodynamic positioning and peloton discipline over climbing ability or technical skill.",
+      "suffering_zones": [
+        {
+          "mile": 0,
+          "label": "Urban Start",
+          "desc": "Rolling out through Miami's streets in the early morning. Warm, humid air even at 6:30 AM. The peloton forms quickly on wide roads.",
+          "terrain_detail": "Flat urban roads, traffic-controlled intersections",
+          "named_section": "The Rollout"
+        },
+        {
+          "mile": 30,
+          "label": "Everglades Corridor",
+          "desc": "The route heads west into the Everglades on long, exposed straightaways. No trees, no buildings, no shelter. If the wind is southerly, this section is a relentless crosswind grind. The horizon is flat in every direction.",
+          "terrain_detail": "Dead-flat highway, fully exposed to wind",
+          "named_section": "The Glades"
+        },
+        {
+          "mile": 60,
+          "label": "Coastal Causeways",
+          "desc": "Bridge crossings and coastal road segments. The bridges are the course's only vertical — 30-40 feet of 'climbing' that feels absurd to call elevation. Crosswinds on the causeways can be fierce.",
+          "terrain_detail": "Flat causeways with bridge approaches, crosswind exposure",
+          "named_section": "The Bridges"
+        },
+        {
+          "mile": 90,
+          "label": "The Final Push",
+          "desc": "Back through suburban Miami toward the finish. Legs are tired from 90 miles of sustained pedaling into wind. The humidity has compounded dehydration. The finish line arrives without drama.",
+          "terrain_detail": "Flat urban/suburban roads",
+          "named_section": "The Return"
+        }
+      ],
+      "signature_challenge": "Wind. There is no signature climb, no famous sector, no dramatic terrain feature. The challenge is holding 100 miles of sustained effort across exposed, windy flatland in subtropical humidity."
+    },
+    "guide_variables": {
+      "race_name": "GFNY Miami",
+      "race_distance": "100 miles",
+      "race_elevation": "1,500 feet",
+      "race_date": "November",
+      "race_location": "Miami, Florida",
+      "race_terrain": "Flat South Florida roads with bridge crossings",
+      "race_weather": "Warm (75-85F), humid, possible crosswinds",
+      "race_challenges": [
+        "100 miles of sustained effort on flat, exposed roads",
+        "Persistent humidity increases dehydration risk",
+        "Crosswinds across Everglades and coastal causeways demand drafting discipline",
+        "Heat management for riders from cooler climates"
+      ],
+      "altitude_section": false,
+      "altitude_feet": 40
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Sustained century-distance endurance on flat terrain",
+        "by_when": "Week 6",
+        "why": "100 miles on flat roads requires sustained aerobic output without the natural pacing breaks that climbs and descents provide. Train for 4-6 hours of continuous pedaling."
+      },
+      {
+        "requirement": "Heat and humidity acclimatization",
+        "by_when": "Week 4",
+        "why": "If coming from a cooler climate, November Miami humidity will degrade performance. Sauna sessions or hot indoor training helps prepare your cooling system."
+      },
+      {
+        "requirement": "Drafting and group-riding skills",
+        "by_when": "Race day",
+        "why": "On flat, windy roads, riding alone costs 20-30% more energy than riding in a group. Find a paceline early and stay in it. This is a drafting race."
+      }
+    ],
+    "citations": [
+      {
+        "url": "https://www.gfny.com/miami/",
+        "title": "GFNY Miami — Official Site",
+        "category": "official"
+      },
+      {
+        "url": "https://www.gfny.com/",
+        "title": "GFNY Global Series — Official Site",
+        "category": "official"
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "medium",
+      "validation_status": "validated",
+      "research_strength": "B",
+      "sources_count": 2,
+      "last_updated": "2026-02-27"
+    }
+  }
+}

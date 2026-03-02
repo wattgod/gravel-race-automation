@@ -1,0 +1,360 @@
+{
+  "race": {
+    "name": "TD Five Boro Bike Tour",
+    "slug": "five-boro-bike-tour",
+    "display_name": "TD Five Boro Bike Tour",
+    "tagline": "32,000 riders. 40 miles. 5 boroughs. Zero cars. The largest cycling event in the United States — a rolling block party through the greatest city on earth.",
+    "vitals": {
+      "distance_mi": 40,
+      "elevation_ft": 780,
+      "location": "New York City, New York",
+      "location_badge": "NEW YORK CITY, NEW YORK",
+      "county": "New York City (all 5 boroughs)",
+      "date": "First Sunday of May annually",
+      "date_specific": "2026: May 3",
+      "terrain_types": [
+        "Paved city streets",
+        "Urban bridges",
+        "Park paths",
+        "Expressway lanes"
+      ],
+      "field_size": "~32,000 riders",
+      "start_time": "Staggered waves from 7:30 AM to 10:30 AM",
+      "registration": "Online via bike.nyc. Standard registration ~$168 (includes processing fees, $31 tax-deductible donation to Bike New York). VIP and charity entries available.",
+      "prize_purse": "None. This is not a race.",
+      "aid_stations": "Multiple rest areas along the route with snacks, entertainment, free bike repair (labor free, parts may cost extra).",
+      "cutoff_time": "None. Ride your own pace. Route closes behind final wave.",
+      "lat": 40.7043,
+      "lng": -74.0138,
+      "distance_options": [
+        "Full 40-mile route through all 5 boroughs (one distance only)"
+      ],
+      "entry_fee": "~$168"
+    },
+    "climate": {
+      "primary": "New York City spring — mild and variable",
+      "description": "Early May in New York City averages 55-70F (13-21C). Mornings at the 7:30 AM start can be cool (50F). Conditions vary year to year — 2024 brought steady rain and temperatures locked in the 50s, while 2025 offered clear skies and warm spring air. All Bike New York events are rain or shine.",
+      "challenges": [
+        "Variable spring weather — rain is possible and the event runs regardless",
+        "Cool morning start temperatures (50-55F) warming through the day",
+        "Wind exposure on bridges, especially the Verrazzano-Narrows",
+        "Urban heat pockets in sheltered sections between buildings"
+      ]
+    },
+    "terrain": {
+      "primary": "Flat paved city streets and bridges",
+      "surface": "Paved roads, expressways, bridge decks, and park paths. All tarmac. No unpaved sections.",
+      "technical_rating": 1,
+      "features": [
+        "Verrazzano-Narrows Bridge — 4.2 km crossing from Brooklyn to Staten Island, the event's signature moment",
+        "Central Park — riding through the interior on car-free park roads",
+        "FDR Drive — normally a highway, transformed into a cycling corridor along the East River",
+        "Queensboro Bridge — crossing into Queens with Manhattan skyline views",
+        "Madison Avenue Bridge — connecting Manhattan to the Bronx",
+        "Pulaski Bridge — from Queens into Brooklyn's Greenpoint neighborhood"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 61,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "logistics": 4,
+      "length": 1,
+      "technicality": 1,
+      "elevation": 1,
+      "climate": 2,
+      "altitude": 1,
+      "adventure": 4,
+      "prestige": 3,
+      "race_quality": 4,
+      "experience": 5,
+      "community": 5,
+      "field_depth": 1,
+      "value": 4,
+      "expenses": 3,
+      "cultural_impact": 4,
+      "tier_note": "The largest cycling event in the United States (32,000+ riders). 48th edition in 2026. Not a race — a charity ride through car-free NYC streets. T2 by score (61). Prestige=3, no override.",
+      "score_note": "experience=5 and community=5 are the dominant scores — riding car-free through all 5 NYC boroughs with 32,000 people is unmatched. length=1, technicality=1, elevation=1, altitude=1 because this is 40 flat paved miles with zero technical challenge. cultural_impact=4 for NYC institution status since 1977, riders from 65 countries, and funding Bike New York's free education programs. Sum of 14 = 39, + cultural_impact 4 = 43. (43/70)*100 = 61.",
+      "editorial_tier": 2,
+      "editorial_tier_label": "TIER 2",
+      "business_tier": 2,
+      "business_tier_label": "TIER 2",
+      "display_tier": 2,
+      "display_tier_label": "TIER 2",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 4,
+        "explanation": "48 years of organizational refinement for 32,000 riders. Staggered wave starts from 7:30 to 10:30 AM prevent bottlenecks at the Bowling Green start. Rest areas with snacks, entertainment, and free bike repair line the route. The Rider Identification Kit system (helmet cover, bib, bike plate) manages access cleanly. Wave assignments are color-coded and communicated via email. The only friction: navigating to Lower Manhattan on a Sunday morning, the sheer scale of 32,000 riders creating congestion at rest stops and bridge approaches, and the post-ride Staten Island Ferry wait that can stretch to 2+ hours in the early afternoon."
+      },
+      "length": {
+        "score": 1,
+        "explanation": "40 miles is an easy day for any regular cyclist. Most riders finish in 4-6 hours including rest stops, photos, and snacking. The distance is deliberately accessible — this event wants 32,000 participants, not 3,200. There is no endurance challenge here. If you can ride a bicycle for a few hours, you can complete this ride."
+      },
+      "technicality": {
+        "score": 1,
+        "explanation": "Paved city streets. Zero technical demands. The bridges have some slope but are wide and well-marked. The only 'skill' required is riding in proximity to thousands of other cyclists at casual pace. Riders on beach cruisers, Citi Bikes, tandems, recumbents, and cargo bikes all complete this ride. You need to know how to ride a bicycle. That is the complete skill requirement."
+      },
+      "elevation": {
+        "score": 1,
+        "explanation": "Roughly 780 feet of elevation gain over 40 miles, almost entirely from bridge crossings. The Verrazzano-Narrows Bridge is the 'climb' — a gentle grade over a 4.2 km span. Central Park has mild undulation. This is functionally flat cycling through a coastal city at sea level."
+      },
+      "climate": {
+        "score": 2,
+        "explanation": "Early May in New York is generally pleasant — 55-70F, spring conditions, occasional rain. The 2024 edition saw steady rain and 50s all day; 2025 was clear and warm. Neither scenario approaches extreme. The wind on the Verrazzano can bite, but this is a mild-weather urban ride. Climate is not a factor in preparation or performance."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "Sea level. New York City. Altitude is irrelevant."
+      },
+      "adventure": {
+        "score": 4,
+        "explanation": "Riding a bicycle through car-free New York City streets is genuinely extraordinary. The FDR Drive — normally a six-lane expressway — becomes a cycling path along the East River. You ride through the interior of Central Park, pedal through Harlem and the Bronx, cross the Queensboro Bridge with the Manhattan skyline behind you, traverse Brooklyn on the BQE, and finish by crossing the Verrazzano-Narrows Bridge with views of New York Harbor, the Statue of Liberty, and the towers of Lower Manhattan. For anyone who has ever been stuck in NYC traffic, cycling these roads in silence is borderline spiritual."
+      },
+      "prestige": {
+        "score": 3,
+        "explanation": "The largest cycling event in the United States and one of the largest in the world. Since 1977. Riders from 65 countries and all 50 states. The prestige is cultural and participatory, not athletic. Completing the Five Boro Bike Tour earns no competitive credentials — it earns bragging rights for experiencing New York City from the saddle. TD Bank title sponsorship and Bike New York's nonprofit mission add institutional weight."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "Bike New York has been running this event since 1977. Wave start management, route marshalling, rest area operations, and the Staten Island Finish Festival are executed with big-city event polish. Free bike repair along the route, medical support, and SAG vehicles provide a safety net. The post-ride logistics — getting 32,000 riders and bikes off Staten Island via ferry — remain the one persistent friction point, but the MTA runs enhanced 15-minute ferry service from 11 AM onward."
+      },
+      "experience": {
+        "score": 5,
+        "explanation": "This is the score that matters. Forty miles of car-free New York City. Pedaling up Sixth Avenue with skyscrapers on both sides and not a single taxi in sight. Gliding through Central Park in the morning light. Crossing into the Bronx and seeing a different New York. The FDR Drive — empty, quiet, yours. The Queensboro Bridge with all of Manhattan spread behind you. Brooklyn's neighborhoods rolling past. And then the Verrazzano — the longest suspension bridge in the US, normally forbidden to pedestrians and cyclists — opens just for you. The Finish Festival on Staten Island. The free ferry back to Manhattan with your bike. For one day, New York City belongs to cyclists."
+      },
+      "community": {
+        "score": 5,
+        "explanation": "32,000 riders from 65 countries and every US state. The field spans every demographic imaginable — over 100 blind riders with guides in 2025, families on tandems, corporate charity teams, first-generation cyclists, kids, octogenarians. Neighborhoods along the route come out to cheer. The event funds Bike New York's year-round free cycling education programs across all five boroughs. This is not just a cycling event — it is a civic celebration of what bicycles can do for a city."
+      },
+      "field_depth": {
+        "score": 1,
+        "explanation": "Not a race. No timing chips. No results. No podium. No competitive element whatsoever. The field includes world-class cyclists and people who learned to ride a bike last month. Field depth is measured in human diversity, not watts per kilogram."
+      },
+      "value": {
+        "score": 4,
+        "explanation": "~$168 buys you car-free access to 40 miles of New York City streets, rest area snacks and entertainment, free bike repair, a Finish Festival with live music and food trucks, and a free Staten Island Ferry ride back to Manhattan. A portion ($31) is a tax-deductible donation funding free cycling education. For what you get — the singular experience of cycling through car-free NYC — the value is strong. Bike rentals are available through Unlimited Biking for those without their own."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "New York City is expensive. The ~$168 entry is reasonable, but NYC hotel rooms average $250-400/night. Flights to JFK/LGA/EWR are domestic and plentiful but not cheap. Food, transit, and incidentals in Manhattan add up fast. Local riders avoid these costs entirely, but out-of-towners should budget $500-1,000+ for the full NYC weekend experience beyond the entry fee."
+      }
+    },
+    "biased_opinion": {
+      "verdict": "The Spectacle",
+      "summary": "The Five Boro Bike Tour is not about the cycling. It is about New York City handing its streets to 32,000 people on bicycles and saying: this is yours today. Forty miles of car-free NYC — the FDR Drive, Central Park, the Queensboro Bridge, the Verrazzano — is an experience that exists nowhere else on earth. The ride itself is flat, easy, and non-competitive. The experience is transcendent. You will not get fitter. You will not get faster. You will get a memory that lasts forever.",
+      "strengths": [
+        "Car-free New York City: riding the FDR Drive, crossing the Verrazzano, pedaling through Central Park — streets normally choked with traffic, empty and yours",
+        "Scale and diversity: 32,000 riders from 65 countries, every age, every ability, every kind of bicycle",
+        "The Verrazzano crossing: the longest suspension bridge in the US, normally closed to cyclists, opens for one day",
+        "Charity mission: your entry funds Bike New York's free cycling education for tens of thousands of New Yorkers"
+      ],
+      "weaknesses": [
+        "Not a race: zero competitive element. If you want to test yourself, look elsewhere.",
+        "Crowding: 32,000 riders means rest stop lines, bridge bottlenecks, and riding in dense packs",
+        "Staten Island exit: the post-ride ferry wait can exceed 2 hours. Plan accordingly.",
+        "NYC costs: the ride is $168 but the city is expensive. Hotels, food, and transit add up."
+      ],
+      "bottom_line": "Do this ride once. Not for the fitness. Not for the challenge. For the experience of riding a bicycle through the greatest city on earth with 32,000 other humans who all chose the same beautiful, impractical thing on a Sunday in May."
+    },
+    "final_verdict": {
+      "score": "61 / 100",
+      "one_liner": "32,000 riders claim New York City's streets for one spring Sunday. The largest cycling event in America.",
+      "should_you_race": "You don't 'race' the Five Boro Bike Tour — you experience it. Yes if you want the once-in-a-lifetime thrill of cycling car-free through all five NYC boroughs and crossing the Verrazzano-Narrows Bridge. Yes if you want to ride alongside 32,000 people from 65 countries. Skip if you need athletic challenge, competitive racing, or technical terrain.",
+      "alternatives": "If you want a competitive NYC cycling event: try GFNY New York (serious gran fondo with real climbing). If you want a massive US community ride with more distance: try RAGBRAI (7 days across Iowa). If you want another iconic urban cycling experience: try Cape Town Cycle Tour (35,000 riders around the Cape Peninsula).",
+      "alternative_slugs": [
+        "gfny-new-york",
+        "ragbrai",
+        "cape-town-cycle-tour"
+      ]
+    },
+    "logistics": {
+      "airport": "JFK, LaGuardia (LGA), or Newark (EWR) — all within 30-60 minutes of Lower Manhattan by transit.",
+      "lodging_strategy": "Manhattan hotels are convenient but expensive ($250-400/night). Brooklyn or Queens offer better value with easy subway access to Lower Manhattan. Book early — NYC hotels fill for any major event. Hostels and Airbnb are viable. Local riders: just take the subway.",
+      "food": "It's New York City. You have 27,000 restaurants. Pre-ride: grab a bagel. Rest areas along the route provide snacks. Post-ride: the Finish Festival on Staten Island has food trucks and vendors. Or take the ferry back to Manhattan and eat anywhere.",
+      "packet_pickup": "Pre-event Expo, typically at a Manhattan venue. Rider ID kits (helmet cover, bib, bike plate) can be shipped in advance for an additional fee — shipping deadline is usually mid-January.",
+      "parking": "Do not drive to this event. Take the subway. Seriously. Lower Manhattan on a Sunday morning with 32,000 cyclists converging is not a driving situation. MTA runs enhanced service for the event.",
+      "official_site": "https://www.bike.nyc/events/td-five-boro-bike-tour/"
+    },
+    "history": {
+      "founded": 1977,
+      "founder": "Bike New York (originally as the Five Boro Challenge)",
+      "origin_story": "On June 12, 1977, approximately 250 participants rode an 80-mile course through New York City as the Five Boro Challenge — originally conceived to provide training in bicycle safety for high school students. Then-Mayor Ed Koch championed the idea of a citywide bike tour, the distance was shortened, and the event grew into the TD Five Boro Bike Tour: the largest annual cycling event in the United States, organized by Bike New York to fund free cycling education programs across all five boroughs.",
+      "notable_moments": [
+        "1977: First edition as the Five Boro Challenge with ~250 riders on an 80-mile course",
+        "Grew to 32,000+ riders — the largest cycling event in the United States",
+        "48th edition in 2026",
+        "Riders from 65 countries and all 50 US states (2025)",
+        "Event funds Bike New York's free cycling education reaching tens of thousands annually"
+      ],
+      "reputation": "America's largest bike ride. 32,000 riders. Five boroughs. One day. The event that proves New York City can belong to cyclists."
+    },
+    "course_description": {
+      "character": "Flat and festive. This is a city tour, not an athletic course. The 40 miles wind through all five boroughs on car-free streets, crossing five major bridges. The route begins in Lower Manhattan at Bowling Green, heads north via Sixth Avenue through Central Park, continues into Harlem and the Bronx via the Madison Avenue Bridge, re-enters Manhattan along the FDR Drive, crosses the Queensboro Bridge into Queens, traverses the Pulaski Bridge into Brooklyn, rides the Brooklyn-Queens Expressway and Gowanus Parkway, and culminates with the crossing of the Verrazzano-Narrows Bridge into Staten Island. The Finish Festival at Fort Wadsworth and the free Staten Island Ferry ride back to Manhattan complete the experience.",
+      "suffering_zones": [
+        {
+          "mile": 0,
+          "label": "Bowling Green Start",
+          "desc": "Lower Manhattan. Waves depart from 7:30 AM. The energy of 32,000 cyclists filling the streets of the Financial District is electric. You are about to ride a bicycle through car-free New York City.",
+          "terrain_detail": "Flat city streets — Lower Manhattan",
+          "named_section": "The Launch"
+        },
+        {
+          "mile": 10,
+          "label": "Central Park & Harlem",
+          "desc": "Through the interior of Central Park on car-free roads, then north through Harlem. The city opens up. The architecture changes. You are seeing New York's neighborhoods from the inside.",
+          "terrain_detail": "Mild park undulation, then flat urban streets",
+          "named_section": "The Park"
+        },
+        {
+          "mile": 18,
+          "label": "The Bronx & FDR Drive",
+          "desc": "Cross into the Bronx via the Madison Avenue Bridge. Re-enter Manhattan and cruise south on the FDR Drive — a six-lane expressway, empty, quiet, yours. The East River on your left. The city skyline everywhere.",
+          "terrain_detail": "Flat expressway — normally closed to cyclists",
+          "named_section": "The Drive"
+        },
+        {
+          "mile": 28,
+          "label": "Queens & Brooklyn",
+          "desc": "The Queensboro Bridge into Long Island City. The Pulaski Bridge into Greenpoint. Brooklyn's neighborhoods roll past — the most culturally dense stretch of the route.",
+          "terrain_detail": "Bridge climbs (mild grade) and flat borough streets",
+          "named_section": "The Boroughs"
+        },
+        {
+          "mile": 36,
+          "label": "The Verrazzano Crossing",
+          "desc": "The signature moment. The Verrazzano-Narrows Bridge — the longest suspension bridge in the US, normally forbidden to pedestrians and cyclists — opens for one day. Views of New York Harbor, the Statue of Liberty, and the Manhattan skyline. Four kilometers of bridge deck between Brooklyn and Staten Island. This is why you came.",
+          "terrain_detail": "Gentle bridge grade, 4.2 km span over open water",
+          "named_section": "The Verrazzano"
+        },
+        {
+          "mile": 40,
+          "label": "Staten Island Finish Festival",
+          "desc": "Fort Wadsworth. Live music, food trucks, photo ops. You rode through all five boroughs of New York City. The free Staten Island Ferry takes you and your bike back to Manhattan.",
+          "terrain_detail": "Flat — festival grounds at Fort Wadsworth",
+          "named_section": "The Festival"
+        }
+      ],
+      "signature_challenge": "There is no physical challenge. The signature experience is the Verrazzano-Narrows Bridge crossing — the only day of the year this bridge opens to cyclists. The longest suspension bridge in the US, with New York Harbor spread beneath you and the Manhattan skyline behind you."
+    },
+    "guide_variables": {
+      "race_name": "TD Five Boro Bike Tour",
+      "race_distance": "40 miles",
+      "race_elevation": "780 feet",
+      "race_date": "May",
+      "race_location": "New York City, New York",
+      "race_terrain": "Flat paved city streets and bridges",
+      "race_weather": "Spring conditions: 55-70F, variable, possible rain",
+      "race_challenges": [
+        "Riding in dense pack of 32,000 cyclists",
+        "Variable spring weather — event runs rain or shine",
+        "Post-ride ferry logistics from Staten Island"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Comfort riding in dense groups — practice pack riding",
+        "by_when": "Week 4",
+        "why": "32,000 riders on city streets means close-quarters cycling. You need to be comfortable holding a line, braking smoothly, and riding within arm's reach of strangers."
+      },
+      {
+        "requirement": "Rain gear and layering strategy — check forecast",
+        "by_when": "Day before",
+        "why": "The event runs rain or shine. May weather in NYC is unpredictable. Have a light rain jacket, arm warmers, and a plan for either 50F rain or 70F sun."
+      },
+      {
+        "requirement": "Post-ride exit plan — know the ferry logistics",
+        "by_when": "Day before",
+        "why": "Getting off Staten Island is the one logistical challenge. The Staten Island Ferry is free but lines can exceed 2 hours in early afternoon. Plan timing or explore bike transport alternatives."
+      }
+    ],
+    "race_specific": {
+      "surface": {
+        "terrain_type": "paved_urban",
+        "description": "Paved city streets, expressway lanes, bridge decks, and park paths. All tarmac throughout. No unpaved sections.",
+        "hazard_sectors": [
+          {
+            "name": "Bridge Approach Congestion",
+            "mile_marker": "18, 24, 28, 36",
+            "risk_level": "low",
+            "tactics": "Bridge approaches create bottlenecks as 32,000 riders funnel onto narrower bridge decks. Slow down, stay patient, maintain spacing. Do not try to sprint through gaps."
+          },
+          {
+            "name": "Rest Area Merge Zones",
+            "mile_marker": "Various",
+            "risk_level": "low",
+            "tactics": "Riders entering and exiting rest areas create unpredictable movements. Stay alert when passing rest area exits. Signal and check surroundings before stopping."
+          }
+        ]
+      },
+      "environment": {
+        "time_drift": {
+          "note": "Most riders take 4-6 hours including stops. The ride itself is 2.5-4 hours of actual pedaling.",
+          "neutral": "4-5 hours total with moderate stops",
+          "with_rain": "5-6 hours (slower, more cautious, longer rest area stays)"
+        }
+      },
+      "in_race_decision_tree": {
+        "flat_tire": [
+          "Pull fully off the route to the side — do not stop in the flow of 32,000 riders",
+          "Free bike repair stations are along the route (labor is free, parts may cost extra)",
+          "If you can't fix it, SAG vehicles can transport you to the finish",
+          "Carry a spare tube and hand pump as backup"
+        ],
+        "rain": [
+          "The event runs rain or shine — have a waterproof layer accessible",
+          "Reduce speed on bridge decks and painted road markings — slippery when wet",
+          "Increase following distance in the pack",
+          "Rest areas provide shelter if you need to wait out heavy downpours"
+        ]
+      }
+    },
+    "citations": [
+      {
+        "url": "https://www.bike.nyc/events/td-five-boro-bike-tour/",
+        "title": "TD Five Boro Bike Tour — Bike New York (Official)",
+        "category": "official"
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Five_Boro_Bike_Tour",
+        "title": "Five Boro Bike Tour — Wikipedia",
+        "category": "reference"
+      },
+      {
+        "url": "https://www.bike.nyc/about/our-story/",
+        "title": "Our Story — Bike New York",
+        "category": "official"
+      },
+      {
+        "url": "https://voodoocycles.com/blogs/news/five-boro-bike-tour-2025-guide-overview-route-and-community-impact",
+        "title": "5 Boro Bike Tour 2025 Guide — Voodoo Cycles",
+        "category": "media"
+      },
+      {
+        "url": "https://www.cbsnews.com/newyork/news/nyc-five-boro-bike-tour-2024-route-map-road-closures/",
+        "title": "Five Boro Bike Tour takes over NYC — CBS New York",
+        "category": "media"
+      },
+      {
+        "url": "https://www.amny.com/nyc-transit/thousands-turn-out-for-td-five-boro-bike-tour/",
+        "title": "Thousands turn out for TD Five Boro Bike Tour — amNewYork",
+        "category": "media"
+      },
+      {
+        "url": "https://www.newyorkcity.ca/new-york-five-boro-bike-tour/",
+        "title": "New York Five Boro Bike Tour 2026 — NewYorkCity.ca",
+        "category": "media"
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "high",
+      "validation_status": "validated",
+      "research_strength": "B+",
+      "sources_count": 7,
+      "last_updated": "2026-02-27"
+    }
+  }
+}

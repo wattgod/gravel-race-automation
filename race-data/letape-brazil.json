@@ -1,0 +1,334 @@
+{
+  "race": {
+    "name": "L'Etape Brasil by Tour de France",
+    "slug": "letape-brazil",
+    "display_name": "L'Etape Brasil by Tour de France",
+    "tagline": "ASO's Tour de France franchise brings closed-road mountain racing to the Serra da Mantiqueira -- Latin America's biggest amateur cycling event, 10+ years deep.",
+    "vitals": {
+      "distance_mi": 66,
+      "elevation_ft": 7546,
+      "location": "Campos do Jordao, Sao Paulo State, Brazil (flagship stage; series also visits Cunha and Rio de Janeiro)",
+      "location_badge": "CAMPOS DO JORDAO, SAO PAULO, BRAZIL",
+      "country": "Brazil",
+      "continent": "South America",
+      "lat": -22.7396,
+      "lng": -45.5913,
+      "elevation_gain": "2,300 m (7,546 ft) on long course",
+      "distance": "107 km (66 mi) long course",
+      "altitude_category": "moderate",
+      "terrain_type": "road",
+      "month": "September",
+      "founded_year": 2015,
+      "field_size": "3,500+ riders (Campos do Jordao); 6,000+ annually across all Brazilian stages",
+      "time_limit": "Approximately 8 hours (long course)",
+      "registration_opens": "Typically 4-6 months before each stage; check letapebrasil.com.br",
+      "entry_fee": "~R$500-700 BRL (~$90-130 USD) per stage",
+      "website": "https://camposdojordao.letapeseries.com/",
+      "event_date": "Late September annually (Campos do Jordao stage); 2026: September 27",
+      "date": "Late September annually",
+      "date_specific": "2026: September 27",
+      "distance_options": [
+        "Long Course (Percurso Longo): 107 km, 2,300 m elevation gain",
+        "Short Course (Percurso Curto): 66 km, 1,300 m elevation gain"
+      ],
+      "terrain_types": [
+        "Paved mountain roads (100%)",
+        "Fully closed course",
+        "Serra da Mantiqueira mountain range",
+        "Steep climbs with switchbacks"
+      ],
+      "start_time": "Long course: 6:00 AM; Short course: 7:20 AM",
+      "registration": "Online via letapebrasil.com.br or ticketsports.com.br. Entry ~R$500-700 BRL per stage. Combo 'Tripler' discount for all three stages.",
+      "prize_purse": "Classification jerseys: Yellow (GC), Polka-Dot (KOM), Green (Sprint), White (U25). No cash prizes.",
+      "aid_stations": "Multiple feed zones with water, energy drinks, fruit, bars. Shimano neutral mechanical support on course.",
+      "cutoff_time": "Broom wagon enforced. Riders behind time cutoffs are pulled from course."
+    },
+    "climate": {
+      "primary": "Late Brazilian winter / early spring (September) at mountain altitude",
+      "description": "September marks the transition from dry winter to spring in the Serra da Mantiqueira. Campos do Jordao sits at 1,600-1,700m elevation, producing notably cooler temperatures than lowland Brazil. Morning starts can be genuinely cold -- the 2025 edition saw 5C wind chill at the 6:00 AM start. Afternoons warm to 18-22C (65-72F). September is among the driest months, with roughly 80mm of rain across the whole month. Humidity is moderate at 60-66%. The combination of cold starts and pleasant afternoon riding conditions is generally favorable for racing.",
+      "challenges": [
+        "Cold morning starts: 5-8C (41-46F) at 6:00 AM launch, with wind chill potentially lower",
+        "Temperature swing: 15-17 degree delta from dawn to midday requires layering strategy",
+        "Occasional spring storms can develop, though September is statistically dry",
+        "Mountain fog possible on higher elevations in early morning"
+      ]
+    },
+    "terrain": {
+      "primary": "Paved mountain roads through the Serra da Mantiqueira",
+      "surface": "100% sealed roads through Sao Paulo state countryside. Well-maintained Brazilian mountain highways and rural roads winding through the Serra da Mantiqueira range. Fully closed to traffic on race day. Steep pitches, switchback descents, and rolling terrain between major climbs. Road surface quality is generally good -- inspected and prepared for the event.",
+      "technical_rating": 1,
+      "features": [
+        "Fully closed roads -- no traffic, Tour de France race conditions",
+        "Serra da Mantiqueira mountain range -- 'Brazilian Switzerland'",
+        "Steep climbs with sustained gradients and punchy ramps",
+        "Sweeping descents through Atlantic Forest-adjacent terrain",
+        "Two distance options: 107 km (long) and 66 km (short)",
+        "Tour de France classification jerseys (Yellow, Polka-Dot, Green, White)",
+        "Shimano neutral mechanical support on course",
+        "Wave starts for controlled field management"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 63,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "logistics": 3,
+      "length": 3,
+      "technicality": 1,
+      "elevation": 4,
+      "climate": 2,
+      "altitude": 2,
+      "adventure": 3,
+      "prestige": 3,
+      "race_quality": 4,
+      "experience": 4,
+      "community": 4,
+      "field_depth": 2,
+      "value": 3,
+      "expenses": 3,
+      "cultural_impact": 3,
+      "tier_note": "ASO's Tour de France franchise event in Brazil, running since 2015. The largest and most prestigious amateur cycling event in Latin America, attracting 6,000+ riders annually across three stages. Campos do Jordao flagship delivers serious mountain climbing on closed roads with full TdF production values.",
+      "score_note": "race_quality=4 and experience=4: professional ASO-standard organization with closed roads, Shimano support, classification jerseys, and event village. elevation=4 for 2,300m of climbing. community=4 reflecting Brazil's enthusiastic cycling culture. field_depth=2 as the field is overwhelmingly recreational. technicality=1 for 100% paved roads. altitude=2 for moderate ~1,700m peak elevation. (41 base + 3 cultural) / 70 = 63.",
+      "editorial_tier": 2,
+      "editorial_tier_label": "TIER 2",
+      "business_tier": 2,
+      "business_tier_label": "TIER 2",
+      "display_tier": 2,
+      "display_tier_label": "TIER 2",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 3,
+        "explanation": "On-course logistics are strong: fully closed roads, Shimano mechanical support, multiple feed zones, professional timing, medical teams, and broom wagon enforcement. ASO's global standards are upheld by the Brazilian organizing partner. The event village in Campos do Jordao runs Friday through Sunday with expo, registration, and post-race celebration. But Campos do Jordao is a mountain resort town in the interior of Sao Paulo state -- roughly 180 km from Sao Paulo Guarulhos airport (GRU), requiring a 2.5-3 hour drive on winding mountain roads. International visitors face long-haul flights to Brazil followed by significant ground transfers. Domestic Brazilian riders from Sao Paulo and Rio have more manageable logistics."
+      },
+      "length": {
+        "score": 3,
+        "explanation": "107 km (66 mi) with 2,300m of climbing is a genuinely demanding day -- the climbing density is high, averaging over 21 meters of elevation per kilometer. But compared to other L'Etape franchise events (the French original is 170 km with 5,400m), this is a shorter course. The 66 km short course at 1,300m of climbing is accessible for intermediate riders. Most long-course finishers complete in 4-7 hours. It is serious but not epic in distance terms."
+      },
+      "technicality": {
+        "score": 1,
+        "explanation": "This is road cycling on sealed Brazilian highways and rural roads. Zero technical terrain. The challenge is entirely cardiovascular and muscular -- climbing steep gradients on good pavement. The descents have switchbacks that require competent bike handling, but nothing that would trouble an experienced road cyclist. Bring a road bike. This is not an event where tire choice or bike handling skills determine outcomes."
+      },
+      "elevation": {
+        "score": 4,
+        "explanation": "2,300 meters of climbing packed into 107 km creates a high climbing density. The Serra da Mantiqueira delivers sustained gradients with punchy steep sections. The Campos do Jordao course features multiple categorized climbs that fracture the field. The 2025 Cunha stage pushes to 2,400m over 110 km. For the average participant, this is a full day of mountain climbing that requires specific training. The steep pitches and accumulated vertical gain separate the prepared from the ambitious."
+      },
+      "climate": {
+        "score": 2,
+        "explanation": "September in Campos do Jordao is actually favorable for racing -- dry, mild, and far cooler than lowland Brazil. The 5C wind chill at the 2025 dawn start caught some riders off guard, but by mid-morning conditions warm to pleasant 18-22C. Rain probability is low. The climate is a minor factor rather than a defining challenge. It scores low not because conditions are bad, but because they do not add a meaningful difficulty dimension. If anything, the cool mountain air is a competitive advantage over the alternative of racing in Brazilian coastal heat."
+      },
+      "altitude": {
+        "score": 2,
+        "explanation": "Campos do Jordao sits at approximately 1,600-1,700m elevation, and the course peaks around 1,800m. This is moderate altitude -- perceptible for sea-level riders from Rio or the coast, but well below the threshold where altitude becomes a significant performance limiter. No acclimatization required for most riders. Brazilian riders from higher-elevation cities (Belo Horizonte, Brasilia) will feel no effect at all. This is not a mountain pass event in the Alpine or Andean sense."
+      },
+      "adventure": {
+        "score": 3,
+        "explanation": "Riding through the Serra da Mantiqueira -- nicknamed 'Brazilian Switzerland' for its Alpine-like scenery, cool climate, and European-influenced architecture -- is genuinely scenic. Pine forests, mountain vistas, and charming rural countryside create a photogenic backdrop. But this is a fully supported event on paved roads with feed zones, mechanical support, and broom wagons. The adventure quotient comes from the Tour de France atmosphere and the novelty of this event's South American context rather than from wilderness or remoteness."
+      },
+      "prestige": {
+        "score": 3,
+        "explanation": "The Tour de France brand carries real global weight, and L'Etape Brasil is an officially licensed ASO event with full TdF branding, classification jerseys, and production values. It is unquestionably the most prestigious amateur cycling event in Latin America and has been running for 10+ years with major corporate sponsors (Nubank, Shimano, Mitsubishi). However, this is a regional franchise -- one of 26 L'Etape events worldwide. It does not carry the same weight as the French original. Within Brazilian cycling, finishing L'Etape is a meaningful credential. Globally, it is one of many franchise editions."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "Professional organization that genuinely reflects ASO standards: fully closed roads, professional chip timing, Shimano neutral mechanical support, medical teams, multiple feed zones, wave starts, broom wagon enforcement, live streaming coverage, and a proper results infrastructure with classification jerseys. The event has run consistently since 2015 without the cancellation problems that plagued the Australian franchise. Major sponsor support from Nubank (Brazil's largest fintech) brings additional production quality. The 2025 Campos do Jordao edition drew 3,500 riders and ran smoothly."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "The Tour de France atmosphere translates well to Brazil. Classification jerseys (Yellow, Polka-Dot, Green, White) give riders genuine competitive goals. The event village runs all weekend with expo, brand activations, and social gatherings. Campos do Jordao itself is a charming mountain resort town with excellent restaurants, chocolate shops, and a festival atmosphere that extends beyond the race. Cold morning start under dawn light, warming into the Serra da Mantiqueira mountains, with Brazilian cycling culture's infectious enthusiasm at every turn. The included race jersey, professional photos, and TdF-branded finish line experience create a complete package."
+      },
+      "community": {
+        "score": 4,
+        "explanation": "Brazilian cycling culture is warm, social, and rapidly growing. The L'Etape Brasil community has built over 10 years into something genuinely strong -- 6,000+ riders across three annual stages, active social media communities, and a 'Tripler' program for riders who complete all three stages. Campos do Jordao embraces the event as a tourism driver, and the host city relationship is positive. The shared experience of climbing the Serra da Mantiqueira in TdF atmosphere creates bonds. The field is overwhelmingly Brazilian, which gives it a strong national cycling community feel rather than the diffuse internationalism of European L'Etape events."
+      },
+      "field_depth": {
+        "score": 2,
+        "explanation": "The field is overwhelmingly recreational and club-level riders pursuing a personal challenge. Brazil has a growing but still developing competitive road cycling scene. The front of the race features strong domestic riders -- the 2025 Campos do Jordao men's winner (Bruno Martins Lemes) and women's winners are solid national-level competitors -- but there is no significant international elite presence. The classification jerseys create competitive structure, but the depth of competition does not compare to established European sportives or the French original."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "At approximately R$500-700 BRL (~$90-130 USD) per stage, the entry fee is reasonable for the level of organization delivered. Fully closed roads, Shimano support, classification jerseys, event village, professional timing, and included race jersey represent genuine value. The 'Tripler' combo discount for all three stages adds further value for committed participants. Compared to European L'Etape events (EUR175 for France, ~$300 AUD for Australia), the Brazilian edition is more affordable while delivering comparable on-course experience."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Campos do Jordao is a popular weekend resort for Sao Paulo residents, with a range of accommodation from budget pousadas to upscale hotels. Expect R$300-800/night for decent lodging during race weekend. Food is affordable by international standards -- excellent Brazilian cuisine and the town's famous chocolate shops. For domestic Brazilian riders, total weekend costs run R$1,500-3,000 ($270-540 USD). For international visitors, trans-continental flights to Sao Paulo (GRU) plus ground transfers and accommodation push total costs to $1,500-2,500 USD -- reasonable for a destination cycling trip that includes experiencing Brazil."
+      }
+    },
+    "biased_opinion": {
+      "verdict": "The Tour de France Goes Tropical (Well, Almost)",
+      "summary": "L'Etape Brasil brings ASO's Tour de France franchise to South America with impressive execution -- 107 km of closed-road mountain climbing through the Serra da Mantiqueira, classification jerseys, Shimano support, and 3,500+ riders chasing yellow in the 'Brazilian Switzerland.' Now in its second decade, this is the largest amateur cycling event in Latin America, and it runs with the professional-grade infrastructure you expect from the Tour de France brand. Campos do Jordao delivers 2,300m of genuine climbing in a charming mountain resort town where dawn starts at 5C give way to warm afternoon celebrations. The Brazilian cycling community brings infectious energy that makes the event experience genuinely special. The limitation is scale and context: this is a franchise event, not the original, and the 107 km course is shorter than the French edition's 170 km. The competitive field is strong domestically but thin internationally. What it does brilliantly is bring world-class cycling event production to a growing market that deserves it.",
+      "strengths": [
+        "Fully closed roads with ASO-standard Tour de France production quality",
+        "10+ years of consistent operation -- no cancellation problems",
+        "2,300m of climbing through the stunning Serra da Mantiqueira mountains",
+        "Classification jerseys (Yellow, Polka-Dot, Green, White) create genuine competitive structure",
+        "Brazilian cycling community brings warmth and enthusiasm unmatched by more reserved European events",
+        "Affordable by L'Etape franchise standards -- ~$100 USD entry fee",
+        "Three-stage annual series (Cunha, Rio, Campos do Jordao) enables a season-long engagement",
+        "Major corporate sponsors (Nubank, Shimano, Mitsubishi) ensure sustained investment"
+      ],
+      "weaknesses": [
+        "Regional franchise event -- does not carry the prestige of the French original",
+        "107 km course is shorter than most L'Etape editions worldwide",
+        "Shallow international competitive field -- overwhelmingly domestic participation",
+        "Remote mountain location requires significant ground transfer from Sao Paulo airport",
+        "Limited international visibility despite being Latin America's largest amateur cycling event",
+        "Cold dawn starts surprise riders expecting tropical Brazilian weather"
+      ],
+      "bottom_line": "L'Etape Brasil is the real deal in franchise terms -- ASO production values, closed roads, serious climbing, and a cycling community that makes every rider feel like they belong. It is the gateway event for Brazilian cycling and the most professionally run mass-participation road event in South America. If you are traveling to Brazil or based in South America, this belongs on your calendar. The Campos do Jordao stage is the crown jewel: 2,300m of mountain climbing, a charming resort town, and Tour de France atmosphere without European pricing. For the pure L'Etape experience, the French original remains supreme. But for the combination of value, community, and the sheer novelty of chasing a yellow jersey through Brazilian mountains, this delivers."
+    },
+    "final_verdict": {
+      "score": "63 / 100",
+      "one_liner": "Latin America's biggest amateur cycling event: ASO-organized, closed-road mountain racing through Brazil's Serra da Mantiqueira with Tour de France classification jerseys and 3,500 riders.",
+      "should_you_race": "Yes if you want Tour de France atmosphere at a fraction of European pricing. Yes if you are based in South America and want the most professionally organized sportive on the continent. Yes if 2,300m of mountain climbing on closed roads through stunning scenery sounds like your kind of weekend. Skip if you want the prestige of the French original -- this is a franchise, not the main event. Skip if you need deep international competition -- the field is overwhelmingly domestic.",
+      "alternatives": "For the definitive L'Etape experience: L'Etape du Tour de France (France, July). For L'Etape in the Southern Hemisphere: L'Etape Australia (NSW, November). For a road gran fondo in the Americas with deeper competitive fields: GFNY New York or GFNY Miami.",
+      "alternative_slugs": [
+        "letape-du-tour",
+        "letape-australia",
+        "gfny-new-york",
+        "gfny-miami"
+      ]
+    },
+    "logistics": {
+      "airport": "Sao Paulo Guarulhos (GRU) -- international hub, 180 km / 2.5-3 hours drive to Campos do Jordao. Sao Jose dos Campos (SJK) -- domestic, 85 km / 1.5 hours.",
+      "alternate_airports": "Sao Paulo Congonhas (CGH) -- domestic flights, 190 km / 3 hours. Rio de Janeiro Galeao (GIG) -- 380 km / 5 hours (not recommended for Campos do Jordao stage).",
+      "lodging_strategy": "Campos do Jordao has abundant accommodation ranging from budget pousadas to upscale mountain resorts. The Capivari district (town center) offers the most options within walking distance of the event village. Book 2-3 months in advance for race weekend as the town fills with riders and supporters. Hotel Toriba is the official event hotel. Airbnb options are plentiful in the mountain chalets surrounding town.",
+      "food": "Campos do Jordao is known for fondue, trout, chocolate shops, and European-influenced mountain cuisine. Excellent carb-loading options. Post-race food vendors in the event village. Feed zones on course stocked with water, energy drinks, fruit, bars, and Brazilian snacks.",
+      "packet_pickup": "Event village in Campos do Jordao, Saturday before race day. Registration and kit collection including race jersey and race number.",
+      "parking": "Designated event parking areas. Campos do Jordao has limited parking in the town center during peak events -- arrive early or use shuttle services.",
+      "travel_summary": "Fly into Sao Paulo (GRU or CGH), rent a car, and drive 2.5-3 hours into the Serra da Mantiqueira mountains. The final approach to Campos do Jordao is on scenic mountain roads that preview the race terrain. Alternatively, bus services run from Sao Paulo to Campos do Jordao (3-4 hours). For the Cunha and Rio stages, logistics are different -- check specific stage websites.",
+      "official_site": "https://camposdojordao.letapeseries.com/"
+    },
+    "history": {
+      "founded": 2015,
+      "founder": "Local organizing partner under license from ASO (Amaury Sport Organisation -- Tour de France organizer)",
+      "origin_story": "L'Etape Brasil launched in October 2015 in Cunha, Sao Paulo state, as part of ASO's global expansion of the L'Etape brand to South America. The inaugural edition attracted strong interest as the first official Tour de France amateur cycling event in Latin America. Eder Amorim won the first edition, completing the 112 km course in 3 hours 31 minutes. The event grew rapidly, expanding from a single Cunha stage to a three-stage Brazilian series: Cunha (March), Rio de Janeiro (June), and Campos do Jordao (September). By 2024, the event celebrated its 10th anniversary and attracted over 6,000 participants annually. Major Brazilian fintech Nubank became presenting sponsor, and the event now represents the pinnacle of amateur road cycling in Latin America.",
+      "notable_moments": [
+        "2015: Inaugural edition in Cunha, SP. 112 km course. Eder Amorim wins in 3h31m.",
+        "Series expands to three annual stages: Cunha, Rio de Janeiro, and Campos do Jordao",
+        "Campos do Jordao becomes the flagship stage, hosting 8 consecutive editions through 2025",
+        "2022: 3,250 riders at Campos do Jordao; live streaming introduced for the first time",
+        "2024: 10th anniversary celebration. 6,000+ annual participants. Nubank as presenting sponsor.",
+        "2025: Cunha course reformulated to 110 km with 2,400m elevation. Campos do Jordao draws 3,500 riders.",
+        "2026: Three stages confirmed -- Cunha (March 29), Serra Negra (June 27), Campos do Jordao (September 27)"
+      ],
+      "reputation": "The most prestigious and professionally organized amateur cycling event in Latin America. The Tour de France brand, combined with 10+ years of consistent execution and strong corporate sponsorship, has established L'Etape Brasil as the gold standard for mass-participation cycling in South America. Within Brazilian cycling, completing a L'Etape stage -- especially the mountainous Campos do Jordao edition -- is a significant credential."
+    },
+    "course_description": {
+      "character": "Mountain road course through the Serra da Mantiqueira -- Brazil's 'Swiss Alps.' The 107 km long course packs 2,300m of climbing into a compact route that winds through pine forests, mountain ridges, and the scenic countryside surrounding Campos do Jordao. The terrain is relentlessly hilly: there is very little flat riding between the climbs. Gradients alternate between sustained 5-7% drags and punchy 10%+ ramps. The course starts and finishes in the Capivari district, creating a natural amphitheater for the start/finish spectacle.",
+      "suffering_zones": [
+        {
+          "mile": 0,
+          "label": "Morning Launch",
+          "desc": "6:00 AM start in 5-8C temperatures. The field rolls out through Campos do Jordao before hitting the first significant climb. Cold hands and lungs adjust to the altitude (1,600m+) while the race tempo establishes itself. The first 15 km sorts the field into groups.",
+          "terrain_detail": "Rolling departure through town, initial climb out of Campos do Jordao",
+          "named_section": "Campos do Jordao Departure"
+        },
+        {
+          "mile": 20,
+          "label": "Main Climbing Block",
+          "desc": "The heart of the course: sustained mountain climbs through the Serra da Mantiqueira with gradients that regularly hit 8-12%. This is where the classification battles are decided. The KOM points are contested on the steepest pitches. Brazilian domestic racing riders push hard here, and the field fractures. The scenery is stunning -- mountain vistas, pine forests, and rural valleys -- but you are too deep in oxygen debt to appreciate it fully.",
+          "terrain_detail": "Multiple categorized climbs, sustained gradients, 1,800m peak elevation",
+          "named_section": "Serra da Mantiqueira Climbs"
+        },
+        {
+          "mile": 50,
+          "label": "Final 20 km",
+          "desc": "The return to Campos do Jordao features a decisive final climb into the Capivari district. Legs are heavy from 80+ km of mountain riding. The gradient kicks up one last time, and the crowd noise from the finish area becomes audible. The final sprint through Capivari separates yellow jersey contenders from survivors.",
+          "terrain_detail": "Final climb back to Campos do Jordao, 1,600m+ finish elevation",
+          "named_section": "Return to Capivari"
+        }
+      ],
+      "signature_challenge": "The accumulated climbing density: 2,300m of elevation gain packed into 107 km means you are climbing for approximately 60% of the race. There is no extended flat recovery between climbs. Every descent transitions directly into the next ascent. The compact, relentless nature of the climbing separates this from longer, flatter gran fondos.",
+      "surface_breakdown": {
+        "overall": {
+          "pavement": 100
+        }
+      }
+    },
+    "guide_variables": {
+      "race_name": "L'Etape Brasil by Tour de France",
+      "race_distance": "66 miles",
+      "race_elevation": "7,546 feet",
+      "race_date": "September",
+      "race_location": "Campos do Jordao, Serra da Mantiqueira, Sao Paulo State, Brazil",
+      "race_terrain": "Paved mountain roads -- fully closed course through the Serra da Mantiqueira",
+      "race_weather": "Cold morning start (5-8C), warming to pleasant 18-22C. Dry season. Moderate altitude at 1,600-1,800m.",
+      "race_challenges": [
+        "2,300m of climbing in 107 km -- high climbing density with minimal flat recovery",
+        "Cold dawn start at 1,600m elevation -- 5-8C at 6:00 AM",
+        "Steep pitches with sustained 8-12% gradients on multiple categorized climbs",
+        "Broom wagon enforcement -- strict time cutoffs throughout the course"
+      ],
+      "altitude_section": true,
+      "altitude_feet": 5906
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Sustained climbing ability -- multiple 20-40 minute climbs at threshold in a single ride",
+        "by_when": "Week 6",
+        "why": "The Campos do Jordao course packs 2,300m of climbing into 107 km with minimal recovery between ascents. You need to climb for 3-5 hours total. Train with back-to-back climbs to simulate the accumulated fatigue of riding at 60%+ climbing density."
+      },
+      {
+        "requirement": "Cold-start preparation and layering strategy",
+        "by_when": "Week 8",
+        "why": "The 6:00 AM start at 1,600m elevation means 5-8C temperatures with potential wind chill. You will be generating minimal heat in the neutral rollout. Arm warmers, a vest, and full-finger gloves are essential for the first hour. Practice stripping layers efficiently while riding at tempo."
+      },
+      {
+        "requirement": "Nutrition plan tested over 4-6 hours of mountain riding",
+        "by_when": "Week 9",
+        "why": "Burning 3,000-5,000 calories on a compact mountain course requires consistent fueling from the first climb. The climbing intensity suppresses appetite -- practice eating on gradients. A bonk on the final 20 km with the last climb still ahead means walking."
+      }
+    ],
+    "citations": [
+      {
+        "url": "https://camposdojordao.letapeseries.com/",
+        "title": "L'Etape Campos do Jordao by Tour de France -- Official Site",
+        "category": "official"
+      },
+      {
+        "url": "https://www.letapeseries.com/memories/series/10-years-of-l-etape-brasil-by-tour-de-france",
+        "title": "10 Years of L'Etape Brasil by Tour de France -- L'Etape Series",
+        "category": "official"
+      },
+      {
+        "url": "https://www.letapeseries.com/memories/events/l-etape-campos-do-jordao-by-tour-de-france-2025-3-500-cyclists-in-the-heart-of-brazilian-switzerland",
+        "title": "L'Etape Campos do Jordao 2025: 3,500 Cyclists in the Heart of Brazilian Switzerland",
+        "category": "official"
+      },
+      {
+        "url": "https://www.letapeseries.com/memories/events/l-etape-brasil-by-tour-de-france-kicks-off-the-2025-season-in-cunha",
+        "title": "L'Etape Brasil Kicks Off the 2025 Season in Cunha",
+        "category": "official"
+      },
+      {
+        "url": "https://brasil.letapeseries.com/",
+        "title": "L'Etape Brasil -- All Stages Overview",
+        "category": "official"
+      },
+      {
+        "url": "https://bikemagazine.com.br/2015/10/letape-brasil-eder-amorim-vence-em-cunha-com-3h31min/",
+        "title": "L'Etape Brasil: Eder Amorim Wins in Cunha -- Bikemagazine (2015 inaugural edition)",
+        "category": "media"
+      },
+      {
+        "url": "https://www.letour.fr/en/news/2026/recap-of-an-exceptional-2025-season-for-letape-series/1333017",
+        "title": "Recap of an Exceptional 2025 Season for L'Etape Series -- Le Tour",
+        "category": "official"
+      },
+      {
+        "url": "https://weatherspark.com/y/30407/Average-Weather-in-Campos-do-Jord%C3%A3o-S%C3%A3o-Paulo-Brazil-Year-Round",
+        "title": "Average Weather in Campos do Jordao -- WeatherSpark",
+        "category": "reference"
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "high",
+      "validation_status": "validated",
+      "research_strength": "B+",
+      "sources_count": 8,
+      "last_updated": "2026-02-27"
+    }
+  }
+}

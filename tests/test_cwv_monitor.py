@@ -479,7 +479,8 @@ class TestAlerts:
         exit_code = check_alerts(snap)
         assert exit_code == 1
 
-    def test_no_snapshot_returns_zero(self):
+    def test_no_snapshot_returns_zero(self, tmp_path, monkeypatch):
+        monkeypatch.setattr("cwv_monitor.SNAPSHOT_DIR", tmp_path / "empty")
         exit_code = check_alerts(None)
         assert exit_code == 0
 
@@ -663,7 +664,8 @@ class TestReport:
         assert "Homepage" in output
         assert "MOBILE" in output
 
-    def test_report_no_snapshot(self, capsys):
+    def test_report_no_snapshot(self, capsys, tmp_path, monkeypatch):
+        monkeypatch.setattr("cwv_monitor.SNAPSHOT_DIR", tmp_path / "empty")
         print_report(None)
         output = capsys.readouterr().out
         assert "No snapshots found" in output

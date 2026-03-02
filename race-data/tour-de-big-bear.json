@@ -1,0 +1,316 @@
+{
+  "race": {
+    "name": "Tour de Big Bear",
+    "slug": "tour-de-big-bear",
+    "display_name": "Tour de Big Bear",
+    "tagline": "100 miles and 8,500 feet of climbing at 7,000-foot altitude through the San Bernardino Mountains. Onyx Summit at 8,443 feet is the highest paved road in Southern California.",
+    "vitals": {
+      "distance_mi": 100,
+      "elevation_ft": 8500,
+      "location": "Big Bear Lake, California, USA",
+      "location_badge": "BIG BEAR LAKE, USA",
+      "date": "Early August annually",
+      "date_specific": "2026: August 1",
+      "terrain_types": [
+        "Paved mountain roads",
+        "San Bernardino National Forest",
+        "Alpine lake roads",
+        "High-desert highway"
+      ],
+      "field_size": "2,500 riders (all distances)",
+      "start_time": "7:00 AM (100-mile), 8:00 AM (70-mile), 9:00 AM (50-mile)",
+      "registration": "Online via tourdebigbear.com. Tiered pricing with increases throughout the year. Approximately $100-$150 for the 100-mile course.",
+      "prize_purse": "None. Timed event with age group awards and KOM/QOM competitions on Onyx Summit.",
+      "aid_stations": "Legendary aid stations with full buffets, DJ booths, BBQ ribs, couch-lounging rest areas, and live music. On-course mechanics and SAG support.",
+      "cutoff_time": "100-mile riders must reach Blue Sky Meadows Aid Station by 12:30 PM or be rerouted to the 70-mile course",
+      "lat": 34.2439,
+      "lng": -116.9114,
+      "distance_options": [
+        "100 miles: The Climb (8,500+ ft elevation gain)",
+        "70 miles (6,000+ ft elevation gain)",
+        "50 miles (4,000+ ft elevation gain)",
+        "25 miles (1,500+ ft elevation gain)",
+        "Family Fun Ride"
+      ],
+      "entry_fee": "USD $100-$150"
+    },
+    "climate": {
+      "primary": "Southern California mountain summer at 7,000+ feet",
+      "description": "August at 7,000 feet in the San Bernardino Mountains delivers spectacular summer weather that is dramatically different from the lowland SoCal heat. Morning temperatures at the start are 55-65F, rising to 75-85F by midday. The altitude moderates what would be 100F+ temperatures at lower elevations. The air is dry with intense UV radiation. Afternoon thunderstorms are possible but not common in early August. The descent to lower elevations on the 100-mile course can push temperatures above 90F before the return climb to altitude.",
+      "challenges": [
+        "7,000+ foot altitude throughout: reduced oxygen for sea-level riders",
+        "Temperature swing from 55F at start to 90F+ at lower elevation descents",
+        "Intense UV radiation at altitude requires sunscreen and hydration",
+        "Possible afternoon thunderstorms in the San Bernardino Mountains",
+        "Dry mountain air accelerates dehydration"
+      ]
+    },
+    "terrain": {
+      "primary": "Paved mountain roads through San Bernardino National Forest",
+      "surface": "100% paved on mountain highways and forest roads. Highway 18 (Rim of the World) and Highway 38 are well-maintained two-lane mountain roads with some rough patches and narrow shoulders. The Onyx Summit climb on Highway 38 is the centerpiece: sustained climbing to 8,443 feet. Descents are fast with tight switchbacks on the Rim of the World section. Pine-scented forest roads alternate with exposed high-desert sections.",
+      "technical_rating": 2,
+      "features": [
+        "Onyx Summit: highest paved road in Southern California at 8,443 feet",
+        "Rim of the World Scenic Byway: Highway 18 with panoramic views",
+        "Big Bear Lake circuit: alpine lake at 6,752 feet",
+        "Cedar Falls descent and return climb",
+        "Timed KOM/QOM on Onyx Summit"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 69,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "logistics": 3,
+      "length": 4,
+      "technicality": 2,
+      "elevation": 4,
+      "climate": 4,
+      "altitude": 4,
+      "adventure": 3,
+      "prestige": 3,
+      "race_quality": 4,
+      "experience": 4,
+      "community": 4,
+      "field_depth": 2,
+      "value": 4,
+      "expenses": 3,
+      "tier_note": "Named the #1 Gran Fondo in North America by Gran Fondo Guide in 2023 and consistently in the Top 10. The combination of altitude, climbing, legendary aid stations, and the Big Bear Lake setting creates a distinctive SoCal mountain cycling experience.",
+      "score_note": "Strong altitude (4) and elevation (4) scores for 8,500 feet of climbing at 7,000+ foot altitude peaking at 8,443 feet on Onyx Summit. Climate (4) for ideal mountain summer weather. Community (4) and race quality (4) for legendary aid stations and volunteer culture. Value (4) for outstanding support relative to entry cost.",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 3,
+        "explanation": "Big Bear Lake is 100 miles from Los Angeles, but the drive takes 2-2.5 hours on winding mountain roads. Ontario International (ONT) is the closest airport at 75 miles. San Bernardino (no commercial flights) is closest by distance. The mountain roads to Big Bear are narrow and can be congested on summer weekends. Bear Mountain Resort serves as the start/finish with free lower-lot parking and paid upper-lot parking. No public transit to Big Bear. Accommodation should be booked early."
+      },
+      "length": {
+        "score": 4,
+        "explanation": "100 miles with 8,500 feet of climbing is a properly demanding century. The winning time in 2025 was 4:31:54 (Jonas Woodruff), with the top women finishing in 4:32:43 (Cory Bemis). Most recreational riders take 6-9 hours. The climbing is concentrated in the second half, with the Onyx Summit push and Cedar Falls descent-and-return adding the most brutal miles. At altitude, this ride feels like 120 miles at sea level."
+      },
+      "technicality": {
+        "score": 2,
+        "explanation": "Paved mountain roads throughout. No gravel, no off-road, no technical sections. The main technical demands are fast descents on narrow mountain roads with switchbacks (Rim of the World, Highway 38 from Onyx to Cedar Falls). Riders must be confident on descents at 35-45 mph with some tight corners. But this is standard mountain road cycling, not a skills test."
+      },
+      "elevation": {
+        "score": 4,
+        "explanation": "8,500 feet of climbing over 100 miles is serious. The profile is back-loaded: the first 50 miles around Big Bear Lake are rolling with moderate climbing, then the Onyx Summit push and Cedar Falls loop deliver the bulk of the vertical. The final return climb from lower elevations back to 7,000 feet is where exhausted riders crack. The 2025 KOM time for Onyx Summit was 25:17 -- that is a genuine climb."
+      },
+      "climate": {
+        "score": 4,
+        "explanation": "This is the secret weapon. While the rest of Southern California swelters in August heat, Big Bear Lake sits at 7,000 feet with morning temperatures in the 55-65F range and highs of 75-85F. The pine forest provides shade. The dry mountain air is invigorating. The only climate risk is the descent to lower elevations on the 100-mile course, where temperatures can jump 20-30F, and the intense UV radiation at altitude that demands aggressive sunscreen and hydration."
+      },
+      "altitude": {
+        "score": 4,
+        "explanation": "The start/finish at Bear Mountain Resort is at 7,000 feet. Onyx Summit reaches 8,443 feet -- the highest paved road in Southern California. The entire ride is above 5,000 feet, with most of it above 6,500 feet. For sea-level SoCal riders (the majority of participants), this altitude is a genuine factor: 5-10% reduction in power output, faster onset of fatigue, and accelerated dehydration. The trained medical personnel at the Blue Sky Meadows aid station specifically watch for altitude-related distress."
+      },
+      "adventure": {
+        "score": 3,
+        "explanation": "Big Bear Lake is a beautiful mountain setting with pine forests, alpine lake views, and towering San Bernardino peaks. The Onyx Summit approach through the national forest is scenic. But this is Southern California suburbia transported to the mountains: cabins, resorts, ski lifts, and tourist infrastructure. It is not wilderness. The adventure is in the altitude and the climbing, not in the remoteness."
+      },
+      "prestige": {
+        "score": 3,
+        "explanation": "Named the #1 Gran Fondo in North America by Gran Fondo Guide in 2023 and consistently in the Top 10. Big Bear has hosted AMGEN Tour of California stages (2010, 2012, 2015, 2017) and the Redlands Bicycle Classic. The Tour de Big Bear has been running since 2010 and is well-established in the SoCal cycling community. But it remains primarily a regional event with limited international draw."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "The legendary aid stations are the headline act: DJ booths, BBQ ribs, full buffets, couch-lounging rest areas, live music. This is not your standard water-and-banana rest stop. On-course mechanics, SAG repair vehicles, course marshals, emergency radio personnel, and trained medical staff at every aid station. Directional signage is comprehensive. Finisher medals are custom-designed annually. The Big Bear Cycling Association runs this event with genuine passion."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "Starting at Bear Mountain Resort at dawn with Big Bear Lake glittering below, climbing through pine forests and the San Bernardino National Forest, summiting Onyx at 8,443 feet with the world spread out below, then descending through Cedar Falls and grinding back up to altitude. The cycling expo, glow ride, poker ride, and three days of mountain-town festivities make it a weekend, not just a ride. The 2025 addition of mountain bike and gravel events expands the celebration."
+      },
+      "community": {
+        "score": 4,
+        "explanation": "2,500 riders from across Southern California and beyond create a warm, enthusiastic community. The Big Bear Cycling Association, Visit Big Bear, and the City of Big Bear Lake are genuine partners who treat cyclists as honored guests. The weekend festival format with Glow Ride, Poker Ride, Expo, and Recovery Rides builds connections. The aid station volunteers are locals who take genuine pride in their legendary hospitality. Return rates are high."
+      },
+      "field_depth": {
+        "score": 2,
+        "explanation": "Timed event with age group awards and KOM/QOM competitions, but not a sanctioned race. The front of the field is fast: Jonas Woodruff won the 2025 100-mile in 4:31:54, with margins of 1 second in the men's field. Local strong riders and SoCal racing clubs are well-represented. But there is no prize money, no professional field, and no USAC licensing. The competitive depth is in the community, not the podium."
+      },
+      "value": {
+        "score": 4,
+        "explanation": "$100-$150 entry for legendary aid stations, a full weekend of events (many free), a finisher medal, on-course support, and access to the cycling expo is excellent value. The aid station experience alone is worth the entry. Club and military discounts are available. Compared to $150-$300 gran fondos that offer water and bananas, Tour de Big Bear delivers dramatically more per dollar."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Registration is $100-$150. Big Bear Lake accommodation runs $100-$300/night for cabins and hotels. The mountain setting is more affordable than coastal resort towns. Dining is casual mountain fare at reasonable prices. No flights needed for most SoCal riders. Total cost for a weekend from LA: $300-$600. From outside California: $800-$1,500 with flights and accommodation."
+      }
+    },
+    "biased_opinion": {
+      "verdict": "SoCal's Altitude Test",
+      "summary": "The Tour de Big Bear is what happens when a Southern California cycling community builds their dream ride: 100 miles at 7,000 feet with 8,500 feet of climbing, legendary aid stations that serve BBQ ribs and have DJ booths, and a mountain lake setting that delivers 55-65F start temperatures while the rest of SoCal melts in August.\n\nThe climbing is real. Onyx Summit at 8,443 feet is the highest paved road in Southern California, and the KOM competition up its slopes draws genuine efforts. The profile is back-loaded and punishing: rolling lakeside roads lull you for 50 miles, then the Onyx push and Cedar Falls loop deliver the hurt. The 12:30 PM cutoff at Blue Sky Meadows is there for a reason -- undertrained riders bonk at altitude.\n\nBut the aid stations are what make this event legendary. Full buffets, DJs, couches, ribs, live music. The volunteers are locals who have been doing this for 15 years and take genuine pride in their hospitality. Named the #1 Gran Fondo in North America by Gran Fondo Guide in 2023. If you are a SoCal cyclist, this is your annual pilgrimage.",
+      "strengths": [
+        "8,500 feet of climbing peaking at Onyx Summit (8,443 ft) -- the highest paved road in SoCal",
+        "Legendary aid stations: BBQ ribs, DJ booths, couches, full buffets, live music",
+        "7,000+ foot altitude delivers ideal summer weather while lowland SoCal swelters",
+        "3-day festival: Glow Ride, Poker Ride, Expo, Recovery Rides, road/gravel/MTB events"
+      ],
+      "weaknesses": [
+        "2-2.5 hour drive from LA on winding mountain roads creates logistical friction",
+        "7,000+ foot altitude is a genuine performance limiter for sea-level riders",
+        "100-mile course has strict 12:30 PM cutoff that turns back slow riders",
+        "Primarily a SoCal regional event with limited national/international draw"
+      ],
+      "bottom_line": "If you live in Southern California and you have not done the Tour de Big Bear, you are missing the best gran fondo in the state. 100 miles at altitude with aid stations that belong in a restaurant. Go."
+    },
+    "final_verdict": {
+      "score": "69 / 100",
+      "one_liner": "100 miles at 7,000 feet with legendary aid stations that serve ribs, have DJs, and make you forget you are dying on a bike.",
+      "should_you_race": "Yes if you want the definitive SoCal mountain cycling experience with altitude, climbing, and aid stations that redefine hospitality. Skip if you cannot handle 7,000+ foot altitude, need a sanctioned race, or live far from California.",
+      "alternatives": "For a similar SoCal climbing challenge: Mammoth Gran Fondo (higher altitude, less festival). For competitive SoCal road racing: Belgian Waffle Ride. For a NorCal mountain century: Levi's GranFondo.",
+      "alternative_slugs": []
+    },
+    "logistics": {
+      "airport": "Ontario International (ONT) 75 miles, 2 hours. Los Angeles International (LAX) 110 miles, 2.5 hours. San Diego (SAN) 130 miles, 2.5 hours.",
+      "lodging_strategy": "Book Big Bear Lake accommodation early. Visit Big Bear (visitbigbear.com) lists cabins, condos, hotels, and vacation homes. Stay on the lake or near Bear Mountain Resort. Cabins are the local specialty and range from rustic to luxury. Prices are more reasonable than coastal resort towns: $100-$300/night.",
+      "food": "Big Bear Village has casual mountain dining: burgers, pizza, BBQ, and brewpubs. Peppercorn Grille is the local favorite for upscale. Nottingham's Tavern for post-ride beer. But honestly, the aid stations on course will feed you so well that dinner plans may change.",
+      "packet_pickup": "Upper Deck at Bear Mountain Resort, Thursday and Friday before the event. Late registration available. Strongly encouraged to check in before Saturday to avoid lines and missing start times.",
+      "parking": "Bear Mountain Resort: Upper Lot (limited, paid, advance purchase required) and Lower Lot (free). Arrive early on Saturday as parking fills up.",
+      "official_site": "https://tourdebigbear.com/"
+    },
+    "history": {
+      "founded": 2010,
+      "founder": "Big Bear Cycling Association / Chris Barnes (Director)",
+      "origin_story": "The Tour de Big Bear launched in 2010, the same year Big Bear Lake hosted the AMGEN Tour of California. The Big Bear Cycling Association saw an opportunity to establish a permanent cycling event that would leverage the mountain town's natural advantages: altitude, stunning scenery, ideal summer weather, and roads tested by professional cycling. The event grew rapidly from a modest first edition to 2,500+ riders across multiple distances. The legendary aid stations became the event's signature, with local volunteers transforming rest stops into mini-festivals. Named the #1 Gran Fondo in North America by Gran Fondo Guide in 2023.",
+      "notable_moments": [
+        "2010: Inaugural Tour de Big Bear launches alongside AMGEN Tour of California at Big Bear",
+        "2023: Named #1 Gran Fondo in North America by Gran Fondo Guide",
+        "2024: Moves to Bear Mountain Resort as permanent start/finish venue",
+        "2025: Adds Dirty Burro 50K XC mountain bike race and Dirty Bear/Dirty Cub gravel events",
+        "2025: Jonas Woodruff wins 100-mile in 4:31:54, Thomas Sullivan 1 second back",
+        "2026: Event expands to 3-day format with Thursday check-in, Friday festival, Saturday rides"
+      ],
+      "reputation": "Southern California's favorite ride. North America's #1 Gran Fondo (2023). Known for legendary aid stations and altitude challenge."
+    },
+    "course_description": {
+      "character": "A deceptive course that lulls you with rolling lakeside roads for 50 miles before delivering the altitude hammer in the second half. The Onyx Summit climb at 8,443 feet is the crown jewel, and the Cedar Falls descent-and-return is where tired legs at altitude learn about humility.",
+      "suffering_zones": [
+        {
+          "mile": 0,
+          "label": "Bear Mountain Start",
+          "desc": "Rolling out from Bear Mountain Resort at 7,000 feet in the cool mountain dawn. Big Bear Lake visible below. Pine-scented air. This feels easy. It will not last.",
+          "terrain_detail": "Mountain resort roads, gentle rolling",
+          "named_section": "Bear Mountain"
+        },
+        {
+          "mile": 25,
+          "label": "Big Bear Lake Circuit",
+          "desc": "Circling Big Bear Lake on Highway 18 and local roads. Rolling terrain with views of the alpine lake. Aid stations with entertainment. The course is building, not attacking.",
+          "terrain_detail": "Rolling lakeside roads at 6,750 feet",
+          "named_section": "Lake Circuit"
+        },
+        {
+          "mile": 50,
+          "label": "Onyx Summit Approach",
+          "desc": "The ride changes character. Highway 38 east begins the sustained climb to Onyx Summit. The grade is 3-5% for miles. The altitude starts to bite. The air thins. The timed KOM/QOM segment begins. The fastest man in 2025 climbed it in 25:17.",
+          "terrain_detail": "Sustained 3-5% climb to 8,443 feet",
+          "named_section": "Onyx Summit"
+        },
+        {
+          "mile": 60,
+          "label": "Blue Sky Meadows Cutoff",
+          "desc": "The 12:30 PM cutoff checkpoint. Trained medical personnel evaluate riders for altitude distress and dehydration. If you are not here by 12:30, you are rerouted to the 70-mile course. This is not arbitrary -- it is for your safety on the exposed descent to Cedar Falls.",
+          "terrain_detail": "High-altitude checkpoint at Onyx I aid station",
+          "named_section": "Blue Sky Meadows"
+        },
+        {
+          "mile": 70,
+          "label": "Cedar Falls Descent",
+          "desc": "After cresting Onyx Summit, a long, fast descent on Highway 38 into the Jenks Lake area. Temperatures jump 20-30F as you drop 2,000+ feet. The descent is exhilarating but the knowledge that you must climb back up is sobering.",
+          "terrain_detail": "Fast descent on narrow mountain highway, 2,000+ feet of elevation loss",
+          "named_section": "Cedar Falls"
+        },
+        {
+          "mile": 85,
+          "label": "The Return Climb",
+          "desc": "Climbing back from Cedar Falls to Onyx Summit and then returning to Big Bear Lake altitude. This is mile 85 at altitude after 7,000+ feet of climbing. The legs that felt good at mile 25 around the lake are now communicating through the language of pain.",
+          "terrain_detail": "Return climb to 8,443 feet, sustained 3-5%",
+          "named_section": "The Grind Back"
+        },
+        {
+          "mile": 100,
+          "label": "Bear Mountain Finish",
+          "desc": "Rolling back into Bear Mountain Resort through Big Bear City. The finish line, the medal, and the knowledge that you just conquered the highest paved road in Southern California.",
+          "terrain_detail": "Rolling return to start/finish at 7,000 feet",
+          "named_section": "Bear Mountain Finish"
+        }
+      ],
+      "signature_challenge": "Onyx Summit at 8,443 feet. The highest paved road in Southern California, reached after 50+ miles of riding at altitude. The KOM/QOM competition makes the climb honest. Then you descend 2,000 feet to Cedar Falls and must climb back up."
+    },
+    "guide_variables": {
+      "race_name": "Tour de Big Bear",
+      "race_distance": "100 miles",
+      "race_elevation": "8,500 feet",
+      "race_date": "August",
+      "race_location": "Big Bear Lake, USA",
+      "race_terrain": "Paved mountain roads through San Bernardino National Forest",
+      "race_weather": "Mountain summer: 55-85F, dry, intense UV, possible thunderstorms",
+      "race_challenges": [
+        "7,000+ foot altitude throughout entire course",
+        "8,500 feet of climbing peaking at Onyx Summit (8,443 ft)",
+        "Back-loaded course: real climbing starts after mile 50",
+        "12:30 PM cutoff at Blue Sky Meadows for 100-mile riders",
+        "20-30F temperature swing on Cedar Falls descent"
+      ],
+      "altitude_section": true,
+      "altitude_feet": 8443
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Altitude acclimatization strategy",
+        "by_when": "1-2 days before event",
+        "why": "The entire ride is above 5,000 feet with most above 6,500 feet and the summit at 8,443 feet. Sea-level riders lose 5-10% power output. Arrive in Big Bear 1-2 days early to acclimatize. Hydrate aggressively."
+      },
+      {
+        "requirement": "Century-distance climbing fitness",
+        "by_when": "Week 6-8",
+        "why": "8,500 feet of climbing over 100 miles at altitude requires specific preparation. Complete at least two training rides of 70+ miles with 5,000+ feet of climbing. The back-loaded profile means you need reserves at mile 60, not mile 20."
+      },
+      {
+        "requirement": "Heat management for Cedar Falls descent",
+        "by_when": "Week 4",
+        "why": "The descent from Onyx Summit to Cedar Falls drops 2,000+ feet and temperatures can jump 20-30F. Carry extra water bottles. Practice hydration discipline in hot conditions."
+      }
+    ],
+    "citations": [
+      {
+        "url": "https://tourdebigbear.com/",
+        "title": "Tour de Big Bear - Official Site",
+        "category": "official"
+      },
+      {
+        "url": "https://www.bigbear.com/events/tour-de-big-bear/",
+        "title": "Tour de Big Bear 2026 - Big Bear Lake Visitor Info",
+        "category": "reference"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Contents/IndexFull/8660/2025-tour-de-big-bear-big-climbs-big-vibes-and-big-smiles",
+        "title": "2025 Tour de Big Bear: Big Climbs, Big Vibes - Gran Fondo Guide",
+        "category": "review"
+      },
+      {
+        "url": "https://tourdebigbear.com/course-cutoff-times/",
+        "title": "Tour de Big Bear Course Cutoff Times",
+        "category": "official"
+      },
+      {
+        "url": "https://tourdebigbear.com/rider-guide/",
+        "title": "Tour de Big Bear Rider Guide",
+        "category": "official"
+      },
+      {
+        "url": "https://socalcycling.com/2025/08/03/2025-tour-de-big-bear-recap-official-results-for-road-gravel-mtb-rides/",
+        "title": "2025 Tour de Big Bear Recap - SoCalCycling",
+        "category": "review"
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "high",
+      "validation_status": "validated",
+      "research_strength": "A",
+      "sources_count": 6,
+      "last_updated": "2026-03-01"
+    }
+  }
+}

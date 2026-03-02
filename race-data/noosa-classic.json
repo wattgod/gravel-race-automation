@@ -1,0 +1,362 @@
+{
+  "race": {
+    "name": "Noosa Classic",
+    "slug": "noosa-classic",
+    "display_name": "Noosa Classic",
+    "tagline": "160km through the Noosa Hinterland. Queensland's finest gran fondo. Tewantin to Kandanga and back through rolling valleys, historic villages, and subtropical bushland. Currently on hiatus — but the roads remember.",
+    "vitals": {
+      "distance_mi": 99,
+      "elevation_ft": 6070,
+      "location": "Tewantin, Noosa, Queensland, Australia",
+      "location_badge": "NOOSA, QUEENSLAND, AUSTRALIA",
+      "county": "Noosa Shire, Sunshine Coast, Queensland",
+      "date": "August annually (Sunday) — currently on hiatus",
+      "date_specific": "TBD — no future date set as of February 2026",
+      "terrain_types": [
+        "Paved roads through the Noosa Hinterland",
+        "Rolling subtropical valleys and ridgelines",
+        "Quiet country roads through rural Queensland towns",
+        "Steep hinterland pinches through Imbil and Kandanga",
+        "Coastal lowland roads near Tewantin and Cootharaba"
+      ],
+      "field_size": "~1,100-1,200 riders across all distances",
+      "start_time": "Staggered starts from 6:30 AM to 7:30 AM from Sir Thomas Riley Park, Tewantin",
+      "registration": "Online via The Classics (cyclingclassics.com.au). Entry fee approximately AUD 120-180 depending on distance and timing. Early bird discounts up to 30% off. Riders insurance compulsory (AUD 10 if not otherwise covered).",
+      "prize_purse": "None. Mass-participation gran fondo, not a competitive race. KOM/QOM segments timed for bragging rights.",
+      "aid_stations": "Multiple well-stocked aid stations along the route providing water, electrolytes, food, and mechanical support. Medical teams and sweep vehicles throughout.",
+      "cutoff_time": "Riders must finish between 8:45 AM and 3:30 PM. Course cutoff times enforced at intermediate checkpoints.",
+      "lat": -26.3925,
+      "lng": 153.0378,
+      "distance_options": [
+        "160km Maxi Classic (~1,850m elevation gain)",
+        "120km Challenge Classic (~1,400m elevation gain)",
+        "65km Rouleurs Classic"
+      ],
+      "entry_fee": "AUD 120-180 (varies by distance and entry timing; early bird discounts available)"
+    },
+    "climate": {
+      "primary": "Queensland mid-winter — mild, dry, and near-perfect for cycling",
+      "description": "August is the last month of winter in the Noosa region, delivering what is arguably the finest cycling weather in Australia. Average temperatures range from 14C (57F) overnight to 21C (70F) during the day. Humidity is at its annual low — around 69% average. Rainfall is minimal, with August being the second driest month of the year. Mornings at the 6:30 AM start will be cool, possibly requiring arm warmers for the first hour, but conditions warm quickly as the sun rises over the hinterland. The subtropical latitude means even midwinter sunshine is strong enough to require sunscreen on exposed skin during a 5-7 hour ride. Wind is generally light and variable through the sheltered hinterland valleys.",
+      "challenges": [
+        "Cool early morning starts at 6:30 AM — temperatures around 14C require layering",
+        "Sun exposure across 5-7 hours despite winter calendar — subtropical UV is deceptive",
+        "Occasional overnight frost in elevated hinterland valleys, making early road surfaces slippery",
+        "Rare but possible winter rain events — a passing shower cannot be completely ruled out",
+        "Dehydration risk often underestimated in mild conditions — the dry air and steady effort catch riders out"
+      ]
+    },
+    "terrain": {
+      "primary": "Paved roads through the rolling Noosa Hinterland and Mary Valley",
+      "surface": "All paved roads throughout. The route departs Tewantin and heads southwest through Cooroy before entering the Noosa Hinterland proper. The Maxi Classic pushes deep into the Mary Valley, reaching Brooloo, Imbil, and Kandanga on quiet country roads that wind through dairy country and subtropical bushland. Undulating terrain with several sustained climbs — the route crosses ridgelines at Tinbeerwah, Sheppersons Hill, and the Cooran Tablelands. Roads are generally well-maintained two-lane country highways and rural B-roads. The final section returns through Kin Kin, Cooran, and Cootharaba before re-entering Tewantin. Maximum gradient reaches approximately 10-12% on the steepest hinterland pitches.",
+      "technical_rating": 1,
+      "features": [
+        "Tewantin start/finish — Sir Thomas Riley Park within the Noosa District Sports Complex",
+        "Tinbeerwah climb — the first significant ascent after departing the coastal lowlands",
+        "Mary Valley corridor — quiet pastoral roads through Brooloo, Imbil, and Kandanga",
+        "Cooran Tablelands — exposed ridgeline riding with panoramic hinterland views",
+        "Kin Kin and Cootharaba return — rolling bushland roads through the Noosa hinterland"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 50,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "logistics": 3,
+      "length": 3,
+      "technicality": 1,
+      "elevation": 3,
+      "climate": 2,
+      "altitude": 1,
+      "adventure": 3,
+      "prestige": 2,
+      "race_quality": 3,
+      "experience": 3,
+      "community": 3,
+      "field_depth": 1,
+      "value": 3,
+      "expenses": 3,
+      "cultural_impact": 1,
+      "tier_note": "Regional Australian gran fondo with only four completed editions (2018-2022, excluding COVID cancellation in 2020) before going on indefinite hiatus in 2023 due to rising costs and insufficient government support. Prestige=2 and cultural_impact=1 reflect a young event that had not yet established deep roots. No prestige override applies. Score of 50 places it in T3 (>=45, <60).",
+      "score_note": "Sum of 14 criteria: logistics(3) + length(3) + technicality(1) + elevation(3) + climate(2) + altitude(1) + adventure(3) + prestige(2) + race_quality(3) + experience(3) + community(3) + field_depth(1) + value(3) + expenses(3) = 34. cultural_impact=1. Total = 35. Score = round(35/70 * 100) = round(50.0) = 50.",
+      "editorial_tier": 3,
+      "editorial_tier_label": "TIER 3",
+      "business_tier": 3,
+      "business_tier_label": "TIER 3",
+      "display_tier": 3,
+      "display_tier_label": "TIER 3",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 3,
+        "explanation": "The Classics — the Yaffa Media events arm behind the Bowral Classic and Mudgee Classic — brought professional gran fondo organisation to Noosa. Staggered starts from Sir Thomas Riley Park managed the field of 1,100+ riders. Multiple aid stations provided water, food, and mechanical support. Medical teams and sweep vehicles covered the entire course. Road closures on key sections through the hinterland gave riders safe passage. Packet pickup and an event village at the Noosa District Sports Complex rounded out the experience. Solid operations for an event of this scale, though the field size never reached the levels of the Bowral Classic or major European gran fondos."
+      },
+      "length": {
+        "score": 3,
+        "explanation": "The 160km Maxi Classic is a proper day on the bike — 99 miles of rolling hinterland terrain that will take most riders 5-7 hours to complete. The 120km Challenge Classic and 65km Rouleurs Classic provide accessible alternatives. The Maxi is not ultra-distance, but 160km with 1,850 metres of climbing through the Mary Valley and Cooran Tablelands is enough to honest up any rider who underestimates it. The combination of distance, elevation, and cumulative fatigue from relentless undulations makes this a ride that earns its finisher jersey."
+      },
+      "technicality": {
+        "score": 1,
+        "explanation": "All sealed roads from start to finish. Queensland country roads are generally wide, well-maintained, and free of the potholes and loose gravel that plague road events in other states. The terrain is rolling rather than technical — no hairpin descents, no cobblestones, no single-lane mountain passes. The steepest hinterland pitches reach 10-12% but are straight and predictable. If you can ride a road bike on a paved surface, you can handle this course. The challenge is fitness, not bike handling."
+      },
+      "elevation": {
+        "score": 3,
+        "explanation": "The Maxi Classic accumulates approximately 1,850 metres (6,070 feet) of climbing across 160km — and it does so through relentless undulation rather than a few signature climbs. The route crosses multiple ridgelines through the Noosa Hinterland and Mary Valley, with the Tinbeerwah climb, Sheppersons Hill, and Cooran Tablelands providing the most sustained efforts. No single climb exceeds 5-6km, but they arrive in sequence across the entire course. CycloWorld lists the Maxi Classic at 2,500m of elevation for the 160km distance. Either figure represents a moderately hilly gran fondo that rewards riders who pace their climbing effort."
+      },
+      "climate": {
+        "score": 2,
+        "explanation": "August in Noosa delivers the mildest cycling conditions imaginable. Winter on the Sunshine Coast means 14-21C, dry air, low humidity, and almost no rain. You will not suffer from heat, cold, wind, or wet roads. The early morning start requires arm warmers at most — they come off within the first hour. Subtropical UV is the only climate-related hazard, and it is easily managed with sunscreen. This is not weather that tests you. It is weather that lets you ride in comfort for six hours and then eat lunch on Hastings Street in a T-shirt. Climate score reflects pleasant conditions, not demanding ones."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "The entire course runs between sea level and approximately 400-500 metres above sea level through the hinterland ridgelines. No altitude acclimatisation required. No thin air. No physiological challenge beyond the gradient itself. The oxygen is thick and subtropical throughout."
+      },
+      "adventure": {
+        "score": 3,
+        "explanation": "The concept has genuine appeal — ride out of a world-class beach resort and into the lush subtropical hinterland. The route passes through the Mary Valley, one of Queensland's most scenic pastoral corridors, with dairy farms, eucalyptus bushland, and small towns like Imbil and Kandanga that feel genuinely remote despite being ninety minutes from Brisbane. The transition from coastal Tewantin to the rolling green hills of the hinterland and back again gives the ride a satisfying narrative arc. It is not wilderness adventure, but the landscape diversity and the ever-changing mountain scapes through the Noosa hinterland keep the scenery fresh across 160km."
+      },
+      "prestige": {
+        "score": 2,
+        "explanation": "The Noosa Classic was billed as Queensland's premier gran fondo, but it ran only four completed editions (2018, 2019, 2021, 2022) before going on indefinite hiatus. It never achieved the participant numbers, media coverage, or calendar permanence of its sister event, the Bowral Classic. Within Australia, it was known and respected. Internationally, it barely registered. The event sits in a difficult space — too young to have accumulated prestige, and now too uncertain to be building any. If it returns, prestige could grow. As it stands, it is a well-regarded regional event with an interrupted history."
+      },
+      "race_quality": {
+        "score": 3,
+        "explanation": "The Classics organisation brought their Bowral Classic operational template to Noosa, and it worked well. Professional timing at KOM/QOM segments. Well-stocked aid stations. Road closures on critical sections. Medical support throughout. Event village with food, cycling exhibitors, and a festival atmosphere at Sir Thomas Riley Park. The quality was consistently praised by participants across its editions. What it lacked was the scale and depth that comes with larger, longer-running events — the kind of refinement that emerges after a decade of iteration rather than four years."
+      },
+      "experience": {
+        "score": 3,
+        "explanation": "Noosa is one of Australia's most desirable holiday destinations, and the event leveraged that brilliantly. Riders could combine a serious gran fondo with a winter escape to the Sunshine Coast — warm weather, beachside restaurants, national park walks, and some of the best cycling roads in Queensland. The ride itself passes through genuinely beautiful hinterland countryside. The event village atmosphere was warm and welcoming. For interstate riders, particularly from the cold southern states in August, the Noosa Classic offered something that few Australian cycling events could match — a bike ride that doubled as a holiday."
+      },
+      "community": {
+        "score": 3,
+        "explanation": "The 1,100-1,200 riders who attended the Noosa Classic formed a committed and enthusiastic community, drawn from the Sunshine Coast, Brisbane, and interstate. The event generated more than AUD 1.5 million for the local economy annually and was embraced by the Noosa Shire as a tourism asset. Bicycling Australia's media support gave it visibility in the national cycling community. But four editions is not enough time to build the deep, multi-generational community that events like the Bowral Classic or international gran fondos develop. The community existed and was passionate — it simply did not have enough years to mature."
+      },
+      "field_depth": {
+        "score": 1,
+        "explanation": "This is a mass-participation gran fondo, not a race. There is no prize purse, no competitive classification, and no results beyond KOM/QOM segment times. Riders range from first-timers on their first century to experienced club cyclists treating it as a fast training day. Some strong Australian domestic riders have participated, but the event does not attract professional or elite competitive fields. If you need a race number and a ranking, look elsewhere."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "Entry fees of AUD 120-180 delivered a well-organised gran fondo with multiple aid stations, mechanical support, medical coverage, event village access, and timing. Early bird discounts of up to 30% rewarded early commitment. The option to purchase the official event jersey at a discounted price was a nice touch. Fair value by Australian gran fondo standards — not cheap, not overpriced. The included rider insurance (AUD 10 if not already covered) was a sensible addition rather than a cost concern."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Noosa is a premium holiday destination, and accommodation costs reflect that — particularly in August when the Sunshine Coast is popular with winter escapees from southern states. Budget AUD 150-350/night for accommodation ranging from Airbnb to boutique hotels. Flights from Sydney or Melbourne to Sunshine Coast Airport (MCY) or Brisbane (BNE) range from AUD 100-300 return. The event itself is held in Tewantin, a less expensive suburb than Noosa Heads proper, but dining and accommodation in the broader Noosa area is consistently above average. For Brisbane and Sunshine Coast locals, expenses are minimal beyond the entry fee."
+      }
+    },
+    "biased_opinion": {
+      "verdict": "The Winter Escape",
+      "summary": "The Noosa Classic was Queensland's answer to the Bowral Classic — a premium gran fondo set in one of Australia's most beautiful coastal regions. Four editions between 2018 and 2022 established a template that worked: 160km of rolling hinterland roads, mild winter weather, a professional event organisation, and the irresistible lure of Noosa as a cycling holiday destination. Then rising costs and evaporating government support put it on indefinite hiatus. What remains is a well-designed course through genuinely stunning countryside, an organiser who knows how to run events, and a cycling community that would very much like to ride it again.",
+      "strengths": [
+        "The Noosa Hinterland: 160km of rolling subtropical countryside through the Mary Valley, Cooran Tablelands, and Kin Kin — some of the finest cycling roads in Queensland.",
+        "Winter cycling weather: August in Noosa delivers 14-21C, dry air, low humidity, and sunshine. Near-perfect conditions for a long day on the bike.",
+        "The holiday factor: Noosa is a world-class beach resort. Combining a gran fondo with a Sunshine Coast holiday is as good as it gets for Australian cycling tourism.",
+        "Professional organisation: The Classics brought their Bowral Classic operational playbook — aid stations, road closures, event village, medical support — and it translated well."
+      ],
+      "weaknesses": [
+        "Hiatus with no return date: The event has not been held since August 2022. No 2023, 2024, or 2025 editions. No confirmed date for 2026. The future is genuinely uncertain.",
+        "Limited history: Four completed editions is not enough to establish the deep reputation and rider loyalty that sustains cycling events through difficult periods.",
+        "Participant scale: 1,100-1,200 riders is respectable but modest. The event never achieved the critical mass that makes a gran fondo feel like a movement.",
+        "Noosa accommodation costs: Premium destination pricing means the total weekend cost is higher than comparable Australian cycling events in less resort-oriented locations."
+      ],
+      "bottom_line": "If the Noosa Classic returns, it deserves your attention. The course is beautiful, the weather is ideal, the organisation is proven, and the destination is outstanding. If it does not return, ride the route anyway — the roads through the Noosa Hinterland do not care whether there is an event village at the finish."
+    },
+    "final_verdict": {
+      "score": "50 / 100",
+      "one_liner": "160km through the Noosa Hinterland. Queensland's winter gran fondo. Beautiful roads, perfect weather, uncertain future.",
+      "should_you_race": "This is not a race — it is a gran fondo holiday. Yes if you want to combine serious road cycling with a Sunshine Coast escape in the middle of winter. Yes if rolling hinterland roads through the Mary Valley and Cooran Tablelands appeal more than flat coastal loops. Yes if the Noosa Classic returns from hiatus. Monitor The Classics website for announcements. If it comes back, book early — the combination of premium cycling and premium destination will not stay a secret.",
+      "alternatives": "If you want an Australian gran fondo that is definitely running: Bowral Classic (NSW, October, same organiser, three distances up to 150km). If you want Queensland cycling: Noosa Enduro (gravel/MTB in the same hinterland, July). If you want an international road gran fondo in a holiday destination: GFNY Bali or L'Etape Australia.",
+      "alternative_slugs": []
+    },
+    "logistics": {
+      "airport": "Sunshine Coast Airport (MCY) — 25 minutes drive to Tewantin. Brisbane Airport (BNE) — approximately 90 minutes drive north to Noosa. MCY has direct flights from Sydney, Melbourne, and Adelaide. BNE offers broader domestic and international connections.",
+      "lodging_strategy": "Noosa is a premium holiday destination with abundant accommodation ranging from backpacker hostels to five-star resorts. Tewantin (where the event starts and finishes) is more affordable than Noosa Heads or Hastings Street. Airbnb and holiday rentals are plentiful in the broader Noosa area. Budget AUD 150-350/night depending on accommodation type. Book early — August is peak season for southern state visitors escaping winter, and event weekend accommodation fills quickly.",
+      "food": "Noosa is renowned for its dining scene, particularly along Hastings Street and in Noosa Junction. Tewantin has more affordable dining options. Pre-ride fuelling is self-arranged — multiple cafes open early in Tewantin. The event village at Sir Thomas Riley Park features food stalls and refreshments at the finish. Post-ride dining in Noosa ranges from casual fish and chips to award-winning restaurants. Hastings Street is a 5km ride from the event venue.",
+      "packet_pickup": "Race pack collection at Sir Thomas Riley Park, Noosa District Sports Complex, 31 Butler Street, Tewantin. Typically available on the Saturday before the event. Race pack includes rider number, timing chip, event guide, and sponsor products.",
+      "parking": "Free parking available at Noosa District Sports Complex and surrounding streets in Tewantin. Additional overflow parking arrangements communicated by the organiser in the weeks before the event.",
+      "official_site": "https://cyclingclassics.com.au/noosa/",
+      "getting_home": "The course is a loop — start and finish at Sir Thomas Riley Park in Tewantin. No transport logistics required post-ride. Riders return to the same location where they parked or were dropped off."
+    },
+    "history": {
+      "founded": 2018,
+      "founder": "Yaffa Media / Bicycling Australia (James Yaffa). Part of The Classics series of Australian cycling gran fondos.",
+      "origin_story": "The Noosa Classic was conceived as the Queensland sibling of the award-winning Bowral Classic in New South Wales. Yaffa Media, publisher of Bicycling Australia magazine, had established The Classics as a series of premium gran fondo events set in stunning Australian tourist destinations. After the success of the Bowral Classic (launched 2016) and the Clare Classic in South Australia, Noosa — one of Australia's most iconic coastal holiday destinations — was a natural fit. The inaugural Noosa Classic was held on August 26, 2018, attracting over 1,100 riders to the Sunshine Coast for three courses through the Noosa Hinterland. The event quickly gained a reputation as Queensland's finest gran fondo, drawing riders from across Australia and overseas who combined the ride with a winter holiday in Noosa. Supported by the Queensland Government through Tourism and Events Queensland, the event returned annually (except 2020 due to COVID) until rising operational costs and insufficient government financial support forced its postponement in 2023. No edition has been held since August 2022.",
+      "notable_moments": [
+        "2018: Inaugural Noosa Classic held on August 26 — over 1,100 riders across three distances. Rain during the event tested riders on the hinterland roads.",
+        "2019: Second edition consolidates the event's reputation as Queensland's premier gran fondo.",
+        "2020: Cancelled due to COVID-19 pandemic restrictions.",
+        "2021: Returns as a Queensland-only event due to ongoing interstate travel restrictions. Local riders embrace the event.",
+        "2022: Fourth and most recent edition held on August 14. Interstate and international riders return. The event generates over AUD 1.5 million for the local Noosa economy.",
+        "2023: Postponed indefinitely. Organisers cite rising local costs and insufficient financial support from Local and State Government stakeholders.",
+        "2024-2026: No future date set. Register-your-interest page remains active on The Classics website."
+      ],
+      "reputation": "Queensland's premier road cycling gran fondo during its brief existence. Known for beautiful hinterland courses, excellent winter cycling weather, and the appeal of Noosa as a holiday destination. Currently on indefinite hiatus, casting uncertainty over its future. The broader Australian gran fondo scene has suffered multiple cancellations in recent years — the Noosa Classic is part of a wider pattern of rising costs and declining government support threatening mass-participation cycling events."
+    },
+    "course_description": {
+      "character": "A 160km loop through the Noosa Hinterland and Mary Valley, departing the coastal lowlands of Tewantin and rolling through some of Queensland's most scenic pastoral and bushland countryside. The route heads southwest from Sir Thomas Riley Park through Cooroy before entering the hinterland proper. The Maxi Classic pushes deep into the Mary Valley, reaching Brooloo, Imbil, and Kandanga on quiet country roads flanked by dairy farms and eucalyptus forest. The terrain is relentlessly rolling — ridgeline after ridgeline with short, punchy climbs separated by fast descents through lush valleys. The return leg passes through Pinbarren, Cooran, and Kin Kin before skirting Lake Cootharaba and re-entering Tewantin. The character of the ride is subtropical beauty and cumulative fatigue — no single climb destroys you, but the accumulation of 1,850 metres of elevation across 160km will expose anyone who has neglected their hill training.",
+      "suffering_zones": [
+        {
+          "mile": 0,
+          "label": "Tewantin to Cooroy — The Warm-Up",
+          "desc": "The first 20km depart Sir Thomas Riley Park in Tewantin and head southwest through the coastal lowlands toward Cooroy. Flat to gently rolling terrain on good roads. The field spreads out as riders find their groups and settle into pace. The hinterland ridgelines are visible ahead — a preview of what is coming. Use these early kilometres to warm up and fuel properly. The climbing starts soon.",
+          "terrain_detail": "Flat to gently rolling paved roads through suburban Tewantin and Cooroy",
+          "named_section": "Tewantin Start"
+        },
+        {
+          "mile": 12,
+          "label": "Tinbeerwah — The First Test",
+          "desc": "The route begins to climb as it leaves the coastal lowlands and ascends toward Tinbeerwah. This is the first significant elevation gain of the day and serves as a reality check for riders who have underestimated the hinterland terrain. The gradients are moderate but sustained, and the subtropical bushland closes in around the road. The views back toward the coast and Lake Weyba open up as you gain elevation.",
+          "terrain_detail": "Sustained paved climb through eucalyptus bushland, moderate gradients of 4-8%",
+          "named_section": "Tinbeerwah Climb"
+        },
+        {
+          "mile": 35,
+          "label": "Mary Valley — The Deep Hinterland",
+          "desc": "The Maxi Classic route pushes into the Mary Valley, reaching Brooloo, Imbil, and Kandanga on quiet country roads. This is the most remote section of the course — rolling dairy country and bushland with small-town Queensland charm. Aid stations at Imbil provide a critical refuelling point. The terrain is relentlessly undulating, with short punchy climbs and fast descents through green valleys. The cumulative elevation is building, and the legs are beginning to notice.",
+          "terrain_detail": "Rolling paved country roads through pastoral Mary Valley, repeated short climbs of 1-3km at 4-8%",
+          "named_section": "Mary Valley Corridor"
+        },
+        {
+          "mile": 62,
+          "label": "Cooran Tablelands — The Ridgeline",
+          "desc": "After turning north from the Mary Valley, the route climbs to the Cooran Tablelands — an exposed ridgeline section with panoramic views of the hinterland. This is where the cumulative climbing catches up with riders who started too fast. The gradients are not extreme, but after 100km of rolling terrain, every hill feels longer than it is. The wind can be a factor on the exposed tablelands. The descent from Cooran toward Kin Kin is the reward.",
+          "terrain_detail": "Exposed ridgeline roads with sustained climbing, panoramic hinterland views",
+          "named_section": "Cooran Tablelands"
+        },
+        {
+          "mile": 80,
+          "label": "Kin Kin to Cootharaba — The Home Stretch",
+          "desc": "The final 30km descend from the hinterland through Kin Kin and skirt the western shore of Lake Cootharaba before re-entering Tewantin. The terrain is gentler now — rolling rather than climbing — and the knowledge that the finish is close brings relief. The bushland gives way to more settled countryside as you approach the coast. The final kilometres into Tewantin are flat, fast, and filled with the quiet satisfaction of having earned your finish at Sir Thomas Riley Park.",
+          "terrain_detail": "Descending to rolling paved roads through Kin Kin and Cootharaba, returning to coastal lowlands",
+          "named_section": "Kin Kin Return"
+        }
+      ],
+      "signature_challenge": "The cumulative elevation. No single climb defines the Noosa Classic — instead, it is the relentless accumulation of 1,850 metres across 160km of rolling hinterland terrain. Tinbeerwah, the Mary Valley rollers, and the Cooran Tablelands arrive in sequence, each building on the fatigue of the last. By kilometre 120, every hill feels like a mountain. This is a ride that rewards steady pacing and punishes early heroics."
+    },
+    "guide_variables": {
+      "race_name": "Noosa Classic",
+      "race_distance": "160km (100 miles)",
+      "race_elevation": "~1,850m (6,070 ft) of cumulative climbing",
+      "race_date": "August (Sunday) — currently on hiatus",
+      "race_location": "Tewantin, Noosa, Queensland, Australia",
+      "race_terrain": "Paved roads — coastal lowlands, rolling hinterland, Mary Valley, Cooran Tablelands",
+      "race_weather": "Queensland mid-winter (14-21C / 57-70F), dry, low humidity, sunny",
+      "race_challenges": [
+        "Cumulative elevation — 1,850m of climbing through relentless hinterland rollers across 160km",
+        "Fatigue management — no single decisive climb means pacing over six hours is critical",
+        "Dehydration in mild conditions — dry subtropical air and steady effort catch riders unaware",
+        "Cool morning start transitioning to warm midday — clothing management across a 6-hour ride",
+        "Remote hinterland sections — mechanical issues between aid stations require self-sufficiency"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Complete at least two training rides of 120km+ with 1,000m+ of climbing",
+        "by_when": "Week 6",
+        "why": "The Noosa Classic Maxi is 160km with 1,850m of elevation, delivered through relentless rolling terrain. The cumulative fatigue is the defining challenge. If your longest ride is a flat century, the hinterland rollers will grind you down from kilometre 100 onward. Build distance and climbing volume together — this is not an event where fitness in one dimension compensates for the other."
+      },
+      {
+        "requirement": "Practice sustained riding in warm conditions with proper hydration strategy",
+        "by_when": "Week 4",
+        "why": "Queensland winter is mild but deceptive. Five to seven hours of steady riding in 14-21C with low humidity will drain your fluid reserves faster than you expect. Develop and test a hydration plan that delivers at least 500-750ml per hour, and practice consuming electrolytes alongside water. The aid stations are spaced to support this, but you need to arrive at each one before you are already depleted."
+      },
+      {
+        "requirement": "Arrange accommodation in Noosa well in advance",
+        "by_when": "Week 1",
+        "why": "Noosa in August is peak winter-escape season for visitors from southern states. Event weekend accommodation fills early. Tewantin offers more affordable options than Noosa Heads. If the event returns, book as soon as dates are announced — the combination of a cycling event and a Sunshine Coast holiday ensures demand will exceed supply."
+      }
+    ],
+    "citations": [
+      {
+        "url": "https://cyclingclassics.com.au/noosa/",
+        "category": "official",
+        "label": "The Classics — Noosa Classic Official Website"
+      },
+      {
+        "url": "https://cyclingclassics.com.au/noosa/2023/05/14/noosa-classic-2023-postponed/",
+        "category": "official",
+        "label": "Noosa Classic 2023 Postponed — Official Announcement"
+      },
+      {
+        "url": "https://cyclingclassics.com.au/noosa/2022/05/18/2022-event-coming-soon/",
+        "category": "official",
+        "label": "2022 Noosa Classic Officially Launched — The Classics"
+      },
+      {
+        "url": "https://bicyclingaustralia.com.au/news/game-on-noosa-classic-course-maps-free-jersey-offer/",
+        "category": "media",
+        "label": "Bicycling Australia — Noosa Classic Course Maps and Launch (2018)"
+      },
+      {
+        "url": "https://mytwowheellife.com/mytwowheellife/2022/8/25/the-noosa-classic",
+        "category": "community",
+        "label": "My Two Wheel Life — The Noosa Classic (2022 Rider Report)"
+      },
+      {
+        "url": "https://escapecollective.com/things-arent-looking-great-for-the-aussie-gran-fondo-scene/",
+        "category": "media",
+        "label": "Escape Collective — Things Aren't Going Well in the Aussie Gran Fondo Scene (2023)"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/8414/noosa-classic",
+        "category": "reference",
+        "label": "Gran Fondo Guide — Noosa Classic Event Listing"
+      },
+      {
+        "url": "https://cycledownunder.com/rides/noosa-classic/",
+        "category": "reference",
+        "label": "Cycle Down Under — Noosa Classic Event Calendar"
+      },
+      {
+        "url": "https://www.cycloworld.cc/en/gran-fondo/australia/noosa-classic/40421",
+        "category": "reference",
+        "label": "CycloWorld — Noosa Classic (160km/2500m, 120km/1400m)"
+      },
+      {
+        "url": "https://www.noosa.com/noosa-classic-currently-postponed/",
+        "category": "reference",
+        "label": "Noosa.com — Noosa Classic (Currently Postponed)"
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "medium",
+      "validation_status": "validated",
+      "sources": [
+        "official_website",
+        "cycling_publications",
+        "community_ride_reports",
+        "event_calendars",
+        "climate_databases"
+      ],
+      "migration_notes": [
+        "New profile created February 2026.",
+        "Event currently on indefinite hiatus since 2023 — no confirmed future date.",
+        "Distance and elevation data from official course pages and CycloWorld (160km/2500m listed; official site references ~1,850m). Elevation figures vary by source — CycloWorld lists 2,500m for Maxi Classic, other sources cite ~1,850m.",
+        "Participant numbers from inaugural event coverage (1,100+ in 2018) and Noosa cycling route guides (1,200+ cited).",
+        "Climate data from Weather Spark, Weather Atlas, and climate-data.org for Noosa Heads in August.",
+        "The Classics website redirects course overview pages to Bowral Classic content, indicating Noosa-specific course detail pages may no longer be maintained.",
+        "Entry fee data estimated from archived references and comparable Classics events — exact Noosa Classic pricing no longer displayed on website.",
+        "Discipline set to 'road' — this is a fully paved road cycling gran fondo event."
+      ],
+      "research_strength": {
+        "overall": 62.0,
+        "grade": "C+",
+        "weakest": "elevation_data",
+        "has_research_dump": false,
+        "dimensions": {
+          "source_diversity": 70,
+          "citation_density": 65,
+          "temporal_depth": 50,
+          "specificity": 60,
+          "statistical_backing": 45,
+          "voice_authenticity": 70,
+          "completeness": 65,
+          "cross_reference": 65
+        },
+        "scored_at": "2026-02-27"
+      }
+    }
+  }
+}

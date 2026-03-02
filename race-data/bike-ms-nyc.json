@@ -1,0 +1,322 @@
+{
+  "race": {
+    "name": "Bike MS: New York City",
+    "slug": "bike-ms-nyc",
+    "display_name": "Bike MS: New York City",
+    "tagline": "The flagship edition of the world's largest cycling fundraising series. 30 or 50 traffic-free miles around Manhattan — through Battery Park Tunnel, past the Brooklyn Bridge, across the George Washington Bridge — raising money to end multiple sclerosis.",
+    "vitals": {
+      "distance_mi": 50,
+      "elevation_ft": 2278,
+      "location": "Manhattan, New York City, New York, USA",
+      "location_badge": "NEW YORK CITY, NEW YORK",
+      "date": "Third Sunday of October annually",
+      "date_specific": "2026: October 18",
+      "terrain_types": [
+        "Traffic-free paved city streets and highways",
+        "East and West Side Highways",
+        "Battery Park Tunnel",
+        "George Washington Bridge and Route 9W (50-mile route)"
+      ],
+      "field_size": "~5,000 riders",
+      "start_time": "Opening ceremonies 7:15 AM, cyclists released 7:30 AM from West Side Highway at 35th Street. Route access closes at 8:00 AM.",
+      "registration": "Online via events.nationalmssociety.org. Registration fee $50 (increases to $70 after September 20). $250 fundraising minimum required.",
+      "prize_purse": "None. This is a charity ride benefiting the National Multiple Sclerosis Society.",
+      "aid_stations": "Rest stops along the route with water, snacks, and support. Mechanical and medical support available on course. Full celebration at Pier 76 finish area.",
+      "cutoff_time": "Not published. This is a supported charity ride — all riders are supported to finish.",
+      "lat": 40.7614,
+      "lng": -74.0014,
+      "distance_options": [
+        "30-mile route: Traffic-free loop around Manhattan via East and West Side Highways and Battery Park Tunnel",
+        "50-mile route: Manhattan loop plus George Washington Bridge crossing into New Jersey and climb up Route 9W"
+      ],
+      "entry_fee": "$50-$70 registration fee + $250 fundraising minimum"
+    },
+    "climate": {
+      "primary": "New York City mid-October — cool autumn conditions",
+      "description": "Mid-October in New York City delivers classic autumn weather. Average highs of 60-66F (16-19C) with morning lows around 50F (10C). The 7:30 AM start can feel crisp, especially along the Hudson River waterfront. By midday, conditions are ideal for cycling — cool, dry air with moderate sun. October averages about 3.1 inches of rain with roughly a 32% chance of precipitation on any given day. The fall foliage along the Palisades on the 50-mile route adds visual drama to the New Jersey section.",
+      "challenges": [
+        "Cool morning start temperatures (48-55F) along the Hudson River waterfront — dress in layers",
+        "Wind exposure on the George Washington Bridge and along the river corridors",
+        "Possible autumn rain — event runs rain or shine",
+        "Early sunset (around 6:15 PM) limits afternoon flexibility"
+      ]
+    },
+    "terrain": {
+      "primary": "Flat traffic-free urban roads with one significant climb (50-mile route)",
+      "surface": "Paved roads and highways throughout. The 30-mile route follows the East and West Side Highways around Manhattan — flat, wide, and traffic-free with NYPD escort. The route passes through the Battery Park Tunnel at Manhattan's southern tip. The 50-mile route adds a crossing of the George Washington Bridge and a climb up Route 9W through the New Jersey Palisades — the only significant elevation on either route.",
+      "technical_rating": 1,
+      "features": [
+        "West Side Highway — car-free cycling corridor along the Hudson River",
+        "Battery Park Tunnel — riding through the tunnel at Manhattan's southern tip",
+        "FDR Drive / East Side — northbound along the East River with skyline views",
+        "Harlem River Drive — connecting the East and West sides of upper Manhattan",
+        "George Washington Bridge crossing (50-mile route) — iconic bridge with Manhattan skyline views",
+        "Route 9W climb through the Palisades (50-mile route) — the only real climbing on either route"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 57,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "logistics": 4,
+      "length": 2,
+      "technicality": 1,
+      "elevation": 1,
+      "climate": 2,
+      "altitude": 1,
+      "adventure": 3,
+      "prestige": 3,
+      "race_quality": 4,
+      "experience": 4,
+      "community": 5,
+      "field_depth": 1,
+      "value": 3,
+      "expenses": 3,
+      "cultural_impact": 3,
+      "tier_note": "Flagship of the world's largest cycling fundraising series (Bike MS has raised $1.4B+ since 1980). 41st NYC edition in 2025. T3 by score (57). Prestige=3, no override.",
+      "score_note": "Sum of 14 criteria = 37 (logistics 4 + length 2 + technicality 1 + elevation 1 + climate 2 + altitude 1 + adventure 3 + prestige 3 + race_quality 4 + experience 4 + community 5 + field_depth 1 + value 3 + expenses 3). cultural_impact=3 for being the NYC flagship of the world's largest cycling fundraising series. Total = 37 + 3 = 40. Score = round(40/70 * 100) = 57. Community=5 reflects the deeply emotional MS cause-driven community. Experience=4 for the traffic-free Manhattan loop and cause-driven atmosphere. Value=3 for the low $50-70 registration fee with modest $250 fundraising minimum.",
+      "editorial_tier": 3,
+      "editorial_tier_label": "TIER 3",
+      "business_tier": 3,
+      "business_tier_label": "TIER 3",
+      "display_tier": 3,
+      "display_tier_label": "TIER 3",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 4,
+        "explanation": "Over 40 years of running this event in Manhattan have produced a well-oiled machine. NYPD provides full escort and traffic control. The route is completely traffic-free on the 30-mile Manhattan loop. Pier 76 on the West Side Highway serves as a clean start/finish hub — easy to find, easy to access, right on the waterfront. Packet pickup at the Courtyard by Marriott on 34th Street is convenient. Packets are mailed to riders who meet the $250 minimum by September 19. Rest stops and mechanical support line the route. The 50-mile route has signage through New Jersey. The only friction: the 8:00 AM hard close on route access means latecomers miss the ride entirely."
+      },
+      "length": {
+        "score": 2,
+        "explanation": "30 miles is an easy day for any regular cyclist — a scenic spin around Manhattan. The 50-mile route adds the George Washington Bridge crossing and a climb up 9W, making it a genuine morning workout, but still well within reach for anyone with a few months of riding. Neither distance constitutes an endurance challenge. This is deliberately accessible — the National MS Society wants participation, not attrition. The length serves the fundraising mission, not the fitness mission."
+      },
+      "technicality": {
+        "score": 1,
+        "explanation": "Paved roads and highways throughout. Traffic-free with NYPD escort. The Battery Park Tunnel is a novelty but not a technical challenge. The George Washington Bridge crossing on the 50-mile route has a gentle grade and protected cycling path. Route 9W has generous shoulders. Riders on any bicycle — road, hybrid, comfort, cruiser — can complete either route. The technical demand is effectively zero."
+      },
+      "elevation": {
+        "score": 1,
+        "explanation": "The 30-mile Manhattan loop is functionally flat — sea-level cycling on highways and city streets. The only climbing comes from the 50-mile route's George Washington Bridge crossing and the ascent up Route 9W through the Palisades, totaling approximately 2,278 feet of gain. That is modest climbing compressed into the New Jersey section. Most riders choosing the 30-mile route will experience less than 200 feet of total elevation change. Elevation is not a factor in preparing for or completing this ride."
+      },
+      "climate": {
+        "score": 2,
+        "explanation": "Mid-October in New York City is cycling's sweet spot — cool, dry, beautiful fall air. Highs in the low-to-mid 60s, lows around 50. The 7:30 AM start along the Hudson River can feel crisp in short sleeves, but by mid-morning the temperature is ideal. Rain is possible but not dominant. The fall foliage on the 50-mile route through the Palisades is a bonus. Climate is a friend here, not an adversary."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "Manhattan. Sea level. The George Washington Bridge is the highest point on the route, and it is a bridge, not a mountain pass. Altitude is completely irrelevant."
+      },
+      "adventure": {
+        "score": 3,
+        "explanation": "Riding traffic-free around Manhattan is genuinely special. The Battery Park Tunnel, the sweep up the East Side with skyline views, Harlem River Drive, and the West Side Highway along the Hudson — these are roads normally choked with traffic, and for one October morning they belong to cyclists. The 50-mile route adds the George Washington Bridge crossing — looking back at the Manhattan skyline from mid-span — and the scenic Palisades on 9W. It is urban adventure, not wilderness adventure. The setting is extraordinary; the terrain is not."
+      },
+      "prestige": {
+        "score": 3,
+        "explanation": "Bike MS is the largest cycling fundraising series in the world — $1.4 billion raised since 1980, 75,000 annual riders across all events. The New York City edition is the flagship, benefiting from the city's scale and visibility. But prestige in cycling terms is modest — this is one of approximately 70 Bike MS events nationwide. The prestige is philanthropic, not athletic. Saying you rode Bike MS NYC means you contributed to ending MS, not that you conquered a legendary course."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "Four decades of event execution in one of the most logistically complex cities on earth. NYPD escort and full street closures for a traffic-free experience. Pier 76 is a strong venue with Hudson River views. Rest stops are well-stocked. Mechanical and medical support ride the course. Route signage on the New Jersey section of the 50-mile route is clear. The celebration at the finish is festive and emotional. The National MS Society has deep institutional expertise in running these events — Bike MS NYC is their showcase."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "The experience is driven by two forces: the setting and the cause. Cycling traffic-free through Manhattan in October — past the Brooklyn Bridge, through the Battery Park Tunnel, along both waterfronts — is a memorable ride in any context. Layer on the MS cause and the experience deepens. You ride alongside people living with MS, their families, and their teams. Jerseys carry names of people fighting the disease. The finish at Pier 76 is emotional — cheering, hugging, the recognition that your pedaling funded something that matters. It is not the PMC's two-day emotional crucible, but it is powerful in its own right."
+      },
+      "community": {
+        "score": 5,
+        "explanation": "The MS cause creates an instant, deep community. Riders are fundraising for people they love — spouses, parents, children, friends living with multiple sclerosis. Teams form around shared connections to the disease. Many riders are living with MS themselves, which is profoundly visible on ride day. The National MS Society fosters this community year-round through fundraising tools, team-building events, and the shared identity of being a Bike MS rider. This is not a cycling community — it is a purpose-driven community that happens to use bicycles. The bonds are forged by something far more important than watts."
+      },
+      "field_depth": {
+        "score": 1,
+        "explanation": "Not a race. No timing, no results, no podium, no competitive element. The field ranges from serious roadies who could average 20 mph to families on hybrids riding their first 30 miles together. Field depth is measured in fundraising dollars and emotional commitment, not finishing times."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "The $50-70 registration fee is low for a fully-supported urban cycling event with NYPD escort and full street closures. The $250 fundraising minimum is modest compared to other major charity rides (the PMC requires $2,000-$6,000+). For $250 all-in, you get a traffic-free Manhattan cycling experience with full support, rest stops, and a finish celebration. That is reasonable value. The fundraising goes directly to MS research and services, which reframes the cost as investment in a cause rather than expense for an event."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "The event itself is affordable — $50-70 registration plus $250 fundraising minimum. But this is New York City. Hotel rooms in Manhattan average $250-400/night in October. Flights to JFK, LaGuardia, or Newark are domestic and frequent but not cheap. Food, transit, and incidentals in NYC add up fast. Local NYC-area riders avoid lodging and travel costs entirely, making this an exceptionally affordable event for the local rider. Out-of-towners should budget $600-1,200+ for the full NYC weekend beyond the event costs."
+      }
+    },
+    "biased_opinion": {
+      "verdict": "The Cause",
+      "summary": "Bike MS: New York City is the flagship edition of the world's largest cycling fundraising series, wrapped in one of the world's most recognizable backdrops. For one October morning, Manhattan's highways and tunnels go car-free and belong to cyclists raising money to end multiple sclerosis. The 30-mile loop around Manhattan is flat, scenic, and accessible to anyone who can ride a bicycle. The 50-mile route adds the George Washington Bridge and the Palisades climb for riders wanting genuine effort. Neither route is about the cycling — both are about the cause. Since 1980, Bike MS riders nationwide have raised over $1.4 billion for the National MS Society. The NYC edition puts that mission against the backdrop of the world's most famous skyline, the Battery Park Tunnel, the Hudson River, and thousands of people riding for someone they love.",
+      "strengths": [
+        "The cause: every dollar raised funds MS research and services through the National MS Society. $1.4 billion raised since 1980 across the Bike MS series.",
+        "The setting: traffic-free Manhattan in October. Battery Park Tunnel, both waterfronts, George Washington Bridge — NYC landmarks from the saddle with NYPD escort.",
+        "Accessibility: $50-70 registration and $250 fundraising minimum make this one of the most affordable major charity rides in America.",
+        "The community: deeply emotional cause-driven atmosphere. Riders living with MS, families, teams united by a mission larger than cycling."
+      ],
+      "weaknesses": [
+        "Not competitive: zero racing element. If you need a timing chip, look elsewhere.",
+        "Flat and short: the 30-mile route is a leisurely morning. Even the 50-mile route is not a serious physical test.",
+        "NYC costs for travelers: the event is cheap but the city is not. Hotels, flights, and meals add up.",
+        "The 8:00 AM hard close on route access is unforgiving for latecomers."
+      ],
+      "bottom_line": "This is not a bike ride you do for the cycling. It is a bike ride you do for the people in your life who are fighting multiple sclerosis. The Manhattan setting makes it scenic. The cause makes it meaningful. If you have a connection to MS — and millions of Americans do — Bike MS NYC is where you put that connection into motion."
+    },
+    "final_verdict": {
+      "score": "57 / 100",
+      "one_liner": "The world's largest cycling fundraising series meets the world's most famous skyline. Traffic-free Manhattan for multiple sclerosis.",
+      "should_you_race": "You do not race Bike MS — you ride it for a cause. Yes if you want a traffic-free cycling experience through Manhattan with full NYPD escort while raising money for MS research. Yes if you have a connection to multiple sclerosis and want to channel it into something physical and communal. The 50-mile route adds the George Washington Bridge and Palisades climbing for stronger riders. Skip if you need competitive cycling, serious distance, or technical terrain.",
+      "alternatives": "If you want a larger NYC cycling experience: try the TD Five Boro Bike Tour (32,000 riders, all 5 boroughs). If you want a more demanding charity ride with deeper emotional weight: try the Pan-Mass Challenge (177 miles, $6,000 fundraising commitment). If you want a competitive ride in the NYC area: try GFNY New York.",
+      "alternative_slugs": [
+        "five-boro-bike-tour",
+        "pan-mass-challenge",
+        "gfny-new-york"
+      ]
+    },
+    "logistics": {
+      "airport": "JFK, LaGuardia (LGA), or Newark (EWR) — all within 30-60 minutes of Midtown Manhattan by transit. LaGuardia is closest to the Pier 76 start area.",
+      "lodging_strategy": "Packet pickup is at the Courtyard by Marriott New York Manhattan/Midtown West (461 W 34th St.) — staying in the West 30s-40s near the Hudson puts you walking distance from both packet pickup and the Pier 76 start. Midtown West hotels run $200-400/night in October. Hell's Kitchen and Chelsea offer slightly better rates with easy subway access. For budget options, consider Brooklyn or Queens hotels with subway connections to 34th Street.",
+      "food": "It is New York City. Pre-ride: grab a bagel from any of the thousands of delis within walking distance of Pier 76. Rest stops along the route provide water and snacks. Post-ride celebration at Pier 76 with food and festivities overlooking the Hudson River. Hell's Kitchen restaurants are steps from the start/finish.",
+      "packet_pickup": "Courtyard by Marriott New York Manhattan/Midtown West, 461 W 34th St., New York, NY 10001 (corner of 10th Ave and 34th Street). Must have met $250 fundraising minimum and completed waiver. Packets mailed to riders who meet the minimum by September 19. Someone else can pick up your packet with written consent.",
+      "parking": "Pier 76 area has limited parking. Midtown Manhattan parking garages run $30-60/day. Strongly recommend taking the subway — the 34th Street-Hudson Yards (7 train) station is a short walk from Pier 76. If driving to NYC, park outside Manhattan and take transit in.",
+      "official_site": "https://events.nationalmssociety.org/"
+    },
+    "history": {
+      "founded": 1984,
+      "founder": "National Multiple Sclerosis Society",
+      "origin_story": "Bike MS began in 1980 when Will Munger, executive director of the Minnesota Chapter of the National MS Society, and his 10-year-old son rode their bicycles from Duluth to Minneapolis. Inspired by their success, Munger organized the first official Bike MS ride — 200 cyclists rode from Minneapolis to Duluth, raising $33,000. By 1981, other chapters heard about the Minnesota ride and started their own. In 1985, the National MS Society adopted Bike MS as an official event to be held in every chapter. The New York City edition launched in the mid-1980s and celebrated its 40th anniversary in 2024. Today, Bike MS is the largest cycling fundraising series in the world — 75,000 annual riders across approximately 70 events nationwide — with total lifetime fundraising exceeding $1.4 billion for MS research and services.",
+      "notable_moments": [
+        "1980: First Bike MS ride — 200 cyclists, Minneapolis to Duluth, $33,000 raised",
+        "1985: National MS Society officially adopts Bike MS as a nationwide event series",
+        "Mid-1980s: New York City edition launches, growing into the series' flagship urban event",
+        "2024: Bike MS NYC celebrates 40 years of cycling the Big Apple",
+        "Series milestone: Bike MS riders have raised over $1.4 billion for the National MS Society since 1980",
+        "2026: Bike MS NYC scheduled for October 18 at Pier 76, Manhattan"
+      ],
+      "reputation": "The flagship urban edition of the world's largest cycling fundraising series. Where Manhattan's highways go car-free and thousands ride together to end multiple sclerosis."
+    },
+    "course_description": {
+      "character": "An urban charity ride that transforms Manhattan's busiest corridors into a traffic-free cycling course. The 30-mile route is a complete loop around Manhattan — south down the West Side Highway, through the Battery Park Tunnel at the island's southern tip, north up the FDR Drive and East Side, across Harlem River Drive, and back south along 10th Avenue to the Pier 76 finish. It is flat, scenic, and fully escorted by NYPD. The 50-mile route adds 20 miles by crossing the George Washington Bridge into New Jersey and climbing Route 9W through the Palisades — the only real climbing on either route — before returning over the GWB to rejoin the Manhattan loop. Both routes start and finish at Pier 76 on the West Side Highway between 35th and 36th streets.",
+      "suffering_zones": [
+        {
+          "mile": 0,
+          "label": "Pier 76 — The Start",
+          "desc": "Opening ceremonies at 7:15 AM on the West Side Highway at 35th Street. Cyclists released at 7:30 AM with NYPD escort. The Hudson River is on your right. Manhattan's West Side towers above. Route access closes at 8:00 AM — do not be late.",
+          "terrain_detail": "Flat — West Side Highway southbound",
+          "named_section": "The Launch"
+        },
+        {
+          "mile": 5,
+          "label": "Battery Park Tunnel — The Underground",
+          "desc": "The route dips into the Battery Park Tunnel at Manhattan's southern tip — a unique experience, cycling through a vehicular tunnel that is normally off-limits to bicycles. You emerge on the East Side with views of the Brooklyn Bridge and the harbor.",
+          "terrain_detail": "Flat — tunnel passage, slight grade change at entries",
+          "named_section": "The Tunnel"
+        },
+        {
+          "mile": 15,
+          "label": "FDR Drive & East Side — The River Run",
+          "desc": "Northbound on the FDR Drive and East Side highways — normally six lanes of aggressive Manhattan traffic, today empty and yours. The East River on your right, Queens and Brooklyn across the water, the city skyline everywhere you look.",
+          "terrain_detail": "Flat — paved highway, river-level",
+          "named_section": "The East Side"
+        },
+        {
+          "mile": 22,
+          "label": "George Washington Bridge — The Crossing (50-mile route)",
+          "desc": "The 50-mile riders split off and cross the George Washington Bridge into New Jersey. Looking south from the bridge deck, the Manhattan skyline stretches to the horizon. Looking down, the Hudson River flows 200 feet below. This is the ride's most dramatic moment. The 30-mile riders continue south on 10th Avenue toward the finish.",
+          "terrain_detail": "Gentle bridge grade, protected cycling path",
+          "named_section": "The Bridge"
+        },
+        {
+          "mile": 30,
+          "label": "Route 9W — The Palisades Climb (50-mile route)",
+          "desc": "The only real climbing on either route. Route 9W rises through the New Jersey Palisades — wooded ridgeline with views of the Hudson Valley. The road has generous shoulders and light traffic. This is where the 50-mile route earns its elevation. The fall foliage in October makes this the most scenic section of the entire ride.",
+          "terrain_detail": "Rolling to climbing, paved highway with wide shoulders, ~2,000 ft gain",
+          "named_section": "The Palisades"
+        },
+        {
+          "mile": 50,
+          "label": "Pier 76 — The Finish",
+          "desc": "Back on the West Side Highway, rolling south to Pier 76. The Hudson River on your right, the celebration ahead. Cheering, hugging, the knowledge that every mile you rode and every dollar you raised is funding the fight against MS. The finish festival overlooks the river.",
+          "terrain_detail": "Flat — West Side Highway to Pier 76 finish area",
+          "named_section": "The Finish"
+        }
+      ],
+      "signature_challenge": "There is no signature physical challenge. The signature experience is the cause — riding alongside people living with MS, their families, and their teams through traffic-free Manhattan. The 50-mile route's George Washington Bridge crossing and Palisades climb add genuine effort, but the emotional weight of riding for MS is heavier than any gradient."
+    },
+    "guide_variables": {
+      "race_name": "Bike MS: New York City",
+      "race_distance": "30 or 50 miles",
+      "race_elevation": "~200 feet (30-mile) / ~2,278 feet (50-mile)",
+      "race_date": "October",
+      "race_location": "Manhattan, New York City",
+      "race_terrain": "Flat traffic-free paved urban roads (30-mile) with Palisades climbing on Route 9W (50-mile)",
+      "race_weather": "Cool autumn: 50-66F, generally dry, possible rain",
+      "race_challenges": [
+        "Fundraising: meet the $250 minimum before ride day",
+        "Route access closes at 8:00 AM — arrive early and be ready",
+        "Cool morning start along the Hudson River — layer appropriately",
+        "50-mile route: the Palisades climb on 9W is the only genuine physical test",
+        "Riding in a large group through urban corridors — maintain awareness and spacing"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Meet the $250 fundraising minimum before ride day",
+        "by_when": "Week 1",
+        "why": "You cannot pick up your packet or ride without meeting the $250 fundraising minimum. Start fundraising immediately upon registration. The National MS Society provides fundraising tools, email templates, and team support. Do not leave this until the final week — it creates unnecessary stress and risks not being able to ride."
+      },
+      {
+        "requirement": "Arrive at Pier 76 by 7:00 AM — route access closes at 8:00 AM",
+        "by_when": "Ride morning",
+        "why": "The route closes at 8:00 AM. If you are not on course by then, you do not ride. Opening ceremonies begin at 7:15 AM, cyclists are released at 7:30 AM. Allow extra time for subway delays, gear prep, and finding your team. This is a non-negotiable hard close."
+      },
+      {
+        "requirement": "Layering strategy for October morning start — arm warmers and light jacket",
+        "by_when": "Day before",
+        "why": "Mid-October mornings in Manhattan can be 48-55F, especially along the Hudson River waterfront. You will warm up quickly once riding, but the start and early miles can be cold in kit. Bring arm warmers and a light packable jacket. The 50-mile route's Palisades section can be cooler than the Manhattan streets."
+      }
+    ],
+    "citations": [
+      {
+        "url": "https://events.nationalmssociety.org/pages/10039",
+        "title": "Bike MS: New York City 2025 Details — National MS Society",
+        "category": "official"
+      },
+      {
+        "url": "https://events.nationalmssociety.org/events/2403",
+        "title": "Bike MS: New York City 2025 — National MS Society",
+        "category": "official"
+      },
+      {
+        "url": "https://events.nationalmssociety.org/pages/8341",
+        "title": "Bike MS: New York City Ride Details — National MS Society",
+        "category": "official"
+      },
+      {
+        "url": "https://www.cbsnews.com/newyork/news/bike-ms-nyc-street-closures-2025/",
+        "title": "Bike MS 2025 returns to NYC — CBS New York",
+        "category": "media"
+      },
+      {
+        "url": "https://hoodline.com/2025/10/new-york-city-pedals-for-multiple-sclerosis-awareness-in-bike-ms-2025-charity-ride/",
+        "title": "NYC Pedals for MS Awareness in Bike MS 2025 — Hoodline",
+        "category": "media"
+      },
+      {
+        "url": "https://events.nationalmssociety.org/index.cfm?fuseaction=cms.page&id=1227",
+        "title": "About Bike MS: How It Works — National MS Society",
+        "category": "official"
+      },
+      {
+        "url": "https://unlimitedbiking.com/events/bike-ms-new-york-city-bike-rentals/",
+        "title": "Bike MS: New York City — Unlimited Biking",
+        "category": "media"
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "high",
+      "validation_status": "validated",
+      "research_strength": "B+",
+      "sources_count": 7,
+      "last_updated": "2026-02-27"
+    }
+  }
+}

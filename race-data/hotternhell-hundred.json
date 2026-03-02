@@ -1,0 +1,271 @@
+{
+  "race": {
+    "name": "Hotter'N Hell Hundred",
+    "slug": "hotternhell-hundred",
+    "display_name": "Hotter'N Hell Hundred",
+    "tagline": "100 miles. 100 degrees. The largest sanctioned century ride in America. Texas heat is the course.",
+    "vitals": {
+      "distance_mi": 100,
+      "elevation_ft": 966,
+      "location": "Wichita Falls, Texas",
+      "location_badge": "WICHITA FALLS, TEXAS",
+      "date": "Last Saturday of August annually",
+      "date_specific": "2026: August 29",
+      "terrain_types": [
+        "Flat North Texas plains",
+        "Gentle rollers through Red River basin",
+        "Exposed farm roads"
+      ],
+      "field_size": "10,000-14,000 riders",
+      "start_time": "Saturday 7:05 AM (100-mile start)",
+      "registration": "Online via hh100.org. Through March 31: $50. April-August 23: $60. Late/on-site: $70.",
+      "prize_purse": "None for century ride. Sanctioned races have separate prize structure.",
+      "aid_stations": "Multiple rest stops with heavy hydration support, medical staff, and heat safety protocols along the course.",
+      "cutoff_time": "Must finish by afternoon. SAG vehicles available.",
+      "lat": 33.914,
+      "lng": -98.493,
+      "distance_options": [
+        "100 miles (flagship century)",
+        "100K (62 miles)",
+        "75 miles",
+        "50 miles",
+        "25 miles",
+        "10K"
+      ],
+      "entry_fee": "$50-70 (tiered by registration date)"
+    },
+    "climate": {
+      "primary": "Extreme Texas heat — the defining challenge",
+      "description": "Late August in Wichita Falls routinely delivers 98-108F (37-42C). The heat is not a side effect — it IS the event. Low humidity compared to Gulf Coast but radiant heat from flat roads is intense. Heat index can exceed 110F.",
+      "challenges": [
+        "Temperatures routinely 98-108F (37-42C)",
+        "Radiant heat from flat, dark road surfaces",
+        "No shade on exposed North Texas plains",
+        "Heat exhaustion and heat stroke are genuine medical risks"
+      ]
+    },
+    "terrain": {
+      "primary": "Flat North Texas plains",
+      "surface": "Paved farm roads and state highways. The terrain is almost entirely flat with gentle rollers. Less than 1,000 ft of elevation gain across 100 miles.",
+      "technical_rating": 1,
+      "features": [
+        "Flat — less than 1,000 ft of climbing across 100 miles",
+        "Exposed — zero shade on North Texas farm roads",
+        "Wind — can be a significant factor across open plains",
+        "Road surface — paved but can soften in extreme heat"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 69,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "logistics": 4,
+      "length": 3,
+      "technicality": 1,
+      "elevation": 1,
+      "climate": 5,
+      "altitude": 1,
+      "adventure": 3,
+      "prestige": 4,
+      "race_quality": 4,
+      "experience": 4,
+      "community": 4,
+      "field_depth": 3,
+      "value": 5,
+      "expenses": 4,
+      "cultural_impact": 2,
+      "tier_note": "America's largest sanctioned century ride. The heat IS the challenge — 100 miles at 100+ degrees. T2 by score (69). p4 cannot promote into T1.",
+      "score_note": "Climate=5 (extreme heat defines the event). Value=5 ($50-70 for America's largest century). Length=3 and elevation=1 reflect that the terrain is not the challenge — the weather is.",
+      "editorial_tier": 2,
+      "editorial_tier_label": "TIER 2",
+      "business_tier": 2,
+      "business_tier_label": "TIER 2",
+      "display_tier": 2,
+      "display_tier_label": "TIER 2",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 4,
+        "explanation": "44 years of organizational experience. Wichita Falls manages 10,000-14,000 riders across multiple distances with well-stocked aid stations, medical teams with heat-specific expertise, and SAG vehicles. The early-morning start (7:05 AM) maximizes cool hours. Registration is cheap and straightforward."
+      },
+      "length": {
+        "score": 3,
+        "explanation": "100 miles is a proper century but not ultra-endurance territory. The flat terrain means fast riders finish in 4-5 hours. But heat transforms 100 flat miles into something much harder — mid-pack riders face 6-8 hours of sustained heat exposure, where the distance becomes a survival exercise."
+      },
+      "technicality": {
+        "score": 1,
+        "explanation": "Flat paved roads. No technical demands whatsoever. The challenge is entirely physiological."
+      },
+      "elevation": {
+        "score": 1,
+        "explanation": "Less than 1,000 feet of climbing across 100 miles. North Texas is flat. The elevation gain is essentially a rounding error."
+      },
+      "climate": {
+        "score": 5,
+        "explanation": "This is the event where climate IS the course. 98-108F in late August Wichita Falls. The concept is literally '100 miles in 100-degree heat.' Heat exhaustion is a genuine medical risk, not a theoretical concern. The medical team has decades of heat-specific experience. Riders who don't respect the heat DNF or visit the medical tent. The name isn't marketing — it's a warning."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "Wichita Falls sits at about 950 feet. Altitude is not a factor."
+      },
+      "adventure": {
+        "score": 3,
+        "explanation": "The North Texas landscape has a stark beauty — wide-open plains, scattered oil pumps, heat shimmer on the horizon. It's not scenic in the mountain-and-coastline sense, but there's an austere, Western character to riding 100 miles through Texas heat. The adventure is personal — testing yourself against the elements."
+      },
+      "prestige": {
+        "score": 4,
+        "explanation": "The largest sanctioned century ride in America, running since 1982. 'I did HHH' carries weight in Texas cycling and endurance circles. The concept — 100 miles, 100 degrees — is immediately understood. Not the prestige of a La Marmotte or Strade Bianche, but a genuine American cycling institution."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "Professional for a century ride. Medical support is exceptional — 44 years of heat-specific experience. Multiple aid stations with heavy hydration protocol. SAG vehicles. Wichita Falls as a host city has the infrastructure and civic support to manage 14,000 riders. The weekend festival atmosphere adds value."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "Finishing 100 miles in 100+ degree heat is a visceral experience. The suffering is honest and unambiguous. You ride, you sweat, you suffer, you finish. There's no scenic distraction — the experience is purely about endurance against the elements. The post-ride celebration, when everyone is destroyed but triumphant, has genuine warmth."
+      },
+      "community": {
+        "score": 4,
+        "explanation": "10,000-14,000 riders create a massive shared experience. Texas cycling culture is strong and welcoming. The century ride draws everyone from competitive racers to first-time century riders, creating a broad community. Wichita Falls embraces the event as a point of civic pride."
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "The century ride itself is participatory, not competitive. But HHH also includes sanctioned road races that attract competitive fields. The century draw includes serious club riders who push pace, making the front group fast. Average depth for a century ride."
+      },
+      "value": {
+        "score": 5,
+        "explanation": "$50-70 for America's largest century ride with professional medical support, multiple aid stations, and a full weekend festival. This is among the cheapest century rides in the US, and the quality of organization far exceeds what the entry fee suggests."
+      },
+      "expenses": {
+        "score": 4,
+        "explanation": "Wichita Falls is cheap. Hotels, food, and incidentals in a small Texas city are well below national averages. Flights to Dallas (DFW) or Oklahoma City (OKC) are affordable, with 2-3 hour drives to Wichita Falls. Budget $400-800 for a long weekend including travel."
+      }
+    },
+    "biased_opinion": {
+      "verdict": "The Furnace",
+      "summary": "Hotter'N Hell Hundred is cycling reduced to its most primal element: you versus the heat. There are no mountains, no cobblestones, no gravel sectors. There's a flat Texas road and 100+ degree temperatures. The challenge is whether your body can thermoregulate for 5-8 hours in conditions that would stop most people from walking to the mailbox. It's not elegant or scenic or culturally rich. It's honest. 100 miles. 100 degrees. Can you handle it?",
+      "strengths": [
+        "The concept: brilliantly simple. 100 miles in 100-degree heat. Everyone understands it.",
+        "The value: $50-70 for a professionally organized century with 44 years of experience",
+        "The community: 10,000+ riders sharing the same heat, the same suffering, the same cold water at aid stations",
+        "Medical expertise: 44 years of heat-specific medical protocols"
+      ],
+      "weaknesses": [
+        "The terrain: flat North Texas plains. If you want scenery, look elsewhere.",
+        "The heat: this is not a metaphor. 100+ degrees is genuinely dangerous for unprepared riders.",
+        "Wichita Falls: a small Texas city, not a cycling destination. You come for the ride, not the location."
+      ],
+      "bottom_line": "If you want to know what 100 degrees does to a cyclist over 100 miles, there's only one way to find out."
+    },
+    "final_verdict": {
+      "score": "69 / 100",
+      "one_liner": "America's largest century ride. 100 miles. 100 degrees. Texas doesn't negotiate.",
+      "should_you_race": "Yes if you want to test your heat tolerance against America's original hot-weather century. Yes if you want an affordable, well-organized century ride. Skip if you need mountains, scenery, or technical terrain.",
+      "alternatives": "If you want a hot-weather challenge with more scenery: try El Tour de Tucson. If you want a US century with climbing: try Levi's GranFondo. If you want extreme heat with more adventure: try Badwater.",
+      "alternative_slugs": [
+        "tour-de-tucson",
+        "levis-granfondo"
+      ]
+    },
+    "logistics": {
+      "airport": "Dallas-Fort Worth (DFW) — 2.5 hours drive. Oklahoma City (OKC) — 2 hours drive. Wichita Falls has a small regional airport (SPS) with limited connections.",
+      "lodging_strategy": "Wichita Falls hotels are affordable and available. Book early for race weekend but options are plentiful. Budget $80-120/night.",
+      "food": "Texas BBQ. Enough said. Pre-race and post-race dining is cheap and abundant.",
+      "packet_pickup": "Friday/Saturday at Kay Yeager Civic Center. Expo and festival.",
+      "parking": "Ample free parking in Wichita Falls.",
+      "official_site": "https://www.hh100.org/"
+    },
+    "history": {
+      "founded": 1982,
+      "founder": "Wichita Falls community (part of the city's centennial celebration)",
+      "origin_story": "Born in 1982 as part of Wichita Falls' centennial celebration. The concept was simple: 100 miles in 100-degree heat. What started as a local challenge has grown into the largest sanctioned century ride in America, drawing 10,000-14,000 riders to a small Texas city every August.",
+      "notable_moments": [
+        "1982: First edition as part of Wichita Falls centennial",
+        "Grew to become the largest sanctioned century ride in the US",
+        "45th edition in 2026 — four decades of heat-tested tradition"
+      ],
+      "reputation": "The heat century. Where Texas tests your thermoregulation."
+    },
+    "course_description": {
+      "character": "Flat and hot. The course is not the challenge — the climate is. Less than 1,000 feet of climbing across 100 miles of North Texas farm roads. Wind can be a factor across the open plains. The route is circular, returning to Wichita Falls.",
+      "suffering_zones": [
+        {
+          "mile": 0,
+          "label": "The Start",
+          "desc": "7:05 AM start. Still cool-ish (80-85F). Pace yourself — the riders who go out fast in the 'cool' morning pay for it by mile 60.",
+          "terrain_detail": "Flat roads leaving Wichita Falls",
+          "named_section": "The Start"
+        },
+        {
+          "mile": 50,
+          "label": "The Heat Wall",
+          "desc": "By 10-11 AM, temperatures cross 100F. This is where the event becomes Hotter'N Hell. Radiant heat from the road surface adds to the misery. Shade is nonexistent. Hydration becomes survival.",
+          "terrain_detail": "Flat, exposed, 100F+",
+          "named_section": "The Heat Wall"
+        },
+        {
+          "mile": 75,
+          "label": "The Death March",
+          "desc": "Peak heat. 2-3 PM. If you're still on the road, temperatures are 105-108F. This is where the medical tent fills up. Pace drops. Water consumption doubles. Finishing becomes the only goal.",
+          "terrain_detail": "Flat, exposed, peak heat",
+          "named_section": "The Death March"
+        }
+      ],
+      "signature_challenge": "The heat. Not a single feature on the course — the climate is the course. 100+ degrees for 5-8 hours on exposed flat roads."
+    },
+    "guide_variables": {
+      "race_name": "Hotter'N Hell Hundred",
+      "race_distance": "100 miles",
+      "race_elevation": "966 feet",
+      "race_date": "August",
+      "race_location": "Wichita Falls, Texas",
+      "race_terrain": "Flat North Texas farm roads",
+      "race_weather": "Extreme heat: 98-108F (37-42C)",
+      "race_challenges": [
+        "Extreme heat — 100+ degrees for 5-8 hours",
+        "Zero shade on flat, exposed roads",
+        "Heat exhaustion/stroke risk requires serious preparation",
+        "Wind exposure across open North Texas plains"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Heat acclimatization protocol — 2-3 weeks of hot-weather training",
+        "by_when": "Week 6",
+        "why": "Heat adaptation takes 10-14 days minimum. Train in the hottest part of the day. If you can't train in heat, use sauna protocols. Arriving unprepared for 100+ degrees is dangerous."
+      },
+      {
+        "requirement": "Hydration and sodium strategy tested in training",
+        "by_when": "Week 8",
+        "why": "You will need 1-2 bottles per hour in 100+ degree heat. Sodium replacement is critical. Test your exact intake rates in hot training rides."
+      },
+      {
+        "requirement": "Early pacing discipline — conservative first 50 miles",
+        "by_when": "Race day",
+        "why": "The riders who blow up at mile 60 went too hard in the 'cool' morning. Start 10-15% below target pace. The heat will find you."
+      }
+    ],
+    "citations": [
+      {
+        "url": "https://www.hh100.org/",
+        "title": "Hotter'N Hell Hundred — Official Site",
+        "category": "official"
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Hotter%27N_Hell_Hundred",
+        "title": "Hotter'N Hell Hundred — Wikipedia",
+        "category": "reference"
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "high",
+      "validation_status": "validated",
+      "research_strength": "A-",
+      "sources_count": 2,
+      "last_updated": "2026-02-27"
+    }
+  }
+}

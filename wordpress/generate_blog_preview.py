@@ -360,25 +360,8 @@ def generate_preview_html(slug):
       {f'<p><a href="{esc(official_site)}">Official Website &rarr;</a></p>' if official_site else ''}
     </section>"""
 
-    # JSON-LD Article schema
-    jsonld = json.dumps({
-        "@context": "https://schema.org",
-        "@type": "Article",
-        "headline": f"{name} Race Preview — What to Expect in {preview_date.year}",
-        "author": {"@type": "Organization", "name": "Gravel God"},
-        "publisher": {
-            "@type": "Organization",
-            "name": "Gravel God",
-            "url": SITE_URL,
-        },
-        "datePublished": article_date_iso,
-        "image": og_image_url,
-        "about": {
-            "@type": "SportsEvent",
-            "name": name,
-            "url": profile_url,
-        },
-    }, separators=(",", ":"))
+    # No JSON-LD for preview pages — they are noindexed, and Article schema
+    # on noindexed pages sends contradictory signals to Google.
 
     page_html = f"""<!DOCTYPE html>
 <html lang="en">
@@ -393,7 +376,6 @@ def generate_preview_html(slug):
   <meta property="og:image" content="{og_image_url}">
   <meta property="og:url" content="{SITE_URL}/blog/{slug}/">
   <link rel="canonical" href="{SITE_URL}/blog/{slug}/">
-  <script type="application/ld+json">{jsonld}</script>
   <style>
     :root {{
       --gg-dark-brown: #3a2e25;

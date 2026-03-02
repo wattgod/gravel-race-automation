@@ -1,0 +1,327 @@
+{
+  "race": {
+    "name": "Prosecco Cycling",
+    "slug": "prosecco-cycling",
+    "display_name": "Prosecco Cycling (Gran Fondo Prosecco)",
+    "tagline": "100 kilometers through UNESCO vineyards, Prosecco at the aid stations, Nessun Dorma at the start line. The only gran fondo where the feed zone serves shrimp scampi and sparkling wine.",
+    "vitals": {
+      "distance_mi": 62,
+      "elevation_ft": 5118,
+      "location": "Valdobbiadene, Veneto, Italy",
+      "location_badge": "VALDOBBIADENE, VENETO, ITALY",
+      "date": "Last Sunday of September",
+      "date_specific": "2026: September 27 (22nd edition)",
+      "terrain_types": [
+        "Paved Veneto provincial and communal roads",
+        "UNESCO World Heritage Prosecco Hills vineyard roads",
+        "Punchy vineyard climbs with steep gradients",
+        "Rolling Conegliano-Valdobbiadene valley floors"
+      ],
+      "field_size": "~2,500-2,700 riders (capped at 2,500 registration; recent editions have exceeded cap)",
+      "start_time": "8:00 AM (mass start from Piazza Marconi, central Valdobbiadene — sent off to the Nessun Dorma aria with waiters waving bottles of Prosecco)",
+      "registration": "Online via proseccocycling.it. Registration opens early in the year. Standard entry: EUR58 (EUR53 for teams of 10+). EUR17 surcharge for daily insurance (non-FCI licensed or foreign riders without UCI license). Optional EUR7 timing chip for timed climb rankings.",
+      "prize_purse": "None (timed climb classifications with awards for top finishers in age groups)",
+      "aid_stations": "Multiple ristori along the route — Italian gran fondo standard elevated to art form. The signature stop at Ristoro Collagu serves small-batch traditional-method Prosecco from local producers. At San Pietro di Feletto, after the Muro di Ca' del Poggio, the station serves Prosecco and Scampi. Water, fruit, energy food, and local delicacies throughout. This is the only gran fondo in the world where the aid stations serve sparkling wine.",
+      "cutoff_time": "Time limits at intermediate checkpoints. Broom wagon support.",
+      "lat": 45.901,
+      "lng": 11.995,
+      "distance_options": [
+        "Gran Fondo (Road): ~100 km (62 mi), 1,560 m (5,118 ft) climbing — the flagship route through UNESCO Prosecco Hills with 4 timed climbs",
+        "Gravel: ~70 km (43 mi) — gravel route through the vineyard back roads (same day, same start)"
+      ],
+      "entry_fee": "EUR58 (standard) / EUR53 (team rate for groups of 10+) + EUR17 insurance for non-licensed riders"
+    },
+    "climate": {
+      "primary": "Late September Veneto — warm days, cool mornings, grape harvest season",
+      "description": "Late September in the Prosecco Hills is ideal cycling weather: daytime highs of 19-22C (66-72F) with morning lows of 11-13C (52-55F). The Veneto foothills enjoy the tail end of summer warmth moderated by approaching autumn. Humidity is moderate, and rainfall averages about 80-90mm across September, with roughly a 33% chance of rain on any given day. The proximity to the pre-Alpine foothills can produce afternoon showers, but morning starts typically benefit from dry, clear conditions. The grape harvest is in full swing, and the vineyards are at their most visually dramatic — golden light on changing leaves, workers in the terraced rows, the air scented with fermenting must.",
+      "challenges": [
+        "September rain showers possible — 33% chance on any given day, though usually afternoon",
+        "Morning start can be cool at 11-13C in the valleys — arm warmers recommended",
+        "Afternoon warmth in the vine-covered hills if conditions are sunny — 20-22C, potential dehydration on climbs",
+        "Steep descent pitches (Ca' del Poggio at 19% gradient) require extra caution if roads are wet",
+        "Late-season sun angle means shadows in valley bottoms — temperature swings between sun and shade on climbs"
+      ]
+    },
+    "terrain": {
+      "primary": "Paved Veneto roads through the UNESCO Prosecco Hills wine region",
+      "surface": "Italian provincial and communal roads through the Conegliano-Valdobbiadene DOCG zone. Road quality is generally good — these are well-maintained wine-country roads that see regular agricultural and tourist traffic. The terrain is relentlessly rolling: short, punchy climbs through terraced vineyards connected by valley-floor recoveries. Unlike long Alpine approaches, the Prosecco Hills deliver their climbing in sharp, concentrated pitches — the Muro di Ca' del Poggio exemplifies this with 19% maximum gradient over just 1.1 km. Between climbs, the roads wind through medieval villages, past stone walls, and along vineyard rows in gentle rolling terrain. All routes are fully paved.",
+      "technical_rating": 2,
+      "features": [
+        "Muro di Ca' del Poggio — 1.1 km, 134m gain, 12.7% average gradient, 19% maximum. The signature climb. Featured in the Giro d'Italia. The only climb in the Prosecco Hills certified by the Italian Cycling Federation. Punchy, steep, and over fast — a pure power test.",
+        "Salita di Zuel — the opening timed climb, a 1,400m ramp arriving into the village of Zuel. Sets the competitive tone early.",
+        "Via dei Colli — timed climb through the heart of the vineyard-covered hills, rolling terrain with stunning panoramic views",
+        "Salita di Collalto — the final timed climb, arriving at the medieval Castle of Collalto with views across the entire Prosecco zone",
+        "Combai climb — approach from Guia, 228m gain through terraced Prosecco vineyards",
+        "Resera climb — 139m gain, rolling approach through the northern hills toward Tarzo",
+        "UNESCO World Heritage vineyard roads — the Conegliano-Valdobbiadene Prosecco Hills, inscribed 2019, defined by the ciglioni (narrow grass-covered terraces carved into 45-degree slopes)"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 66,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "logistics": 4,
+      "length": 2,
+      "technicality": 2,
+      "elevation": 2,
+      "climate": 2,
+      "altitude": 1,
+      "adventure": 4,
+      "prestige": 3,
+      "race_quality": 3,
+      "experience": 5,
+      "community": 4,
+      "field_depth": 2,
+      "value": 4,
+      "expenses": 3,
+      "cultural_impact": 5,
+      "tier_note": "Score 66 places this firmly in Tier 2. prestige=3 — no prestige override applies. The score is driven almost entirely by the experiential and cultural dimensions: UNESCO World Heritage scenery, Prosecco at aid stations, Nessun Dorma sendoff, wine harvest timing. The physical challenge (100 km, 1,560m) is moderate by gran fondo standards, keeping the distance, elevation, and altitude scores low.",
+      "score_note": "Sum of 14 base criteria: logistics(4) + length(2) + technicality(2) + elevation(2) + climate(2) + altitude(1) + adventure(4) + prestige(3) + race_quality(3) + experience(5) + community(4) + field_depth(2) + value(4) + expenses(3) = 41. cultural_impact = 5 (UNESCO World Heritage landscape, Giro d'Italia climb on route, wine harvest celebration, Prosecco at aid stations, Nessun Dorma sendoff, international sustainability MOU with global cycling events, Green Flag Agriculture Award 2024). Total = 41 + 5 = 46. Score = round(46/70 * 100) = round(65.71) = 66.",
+      "editorial_tier": 2,
+      "editorial_tier_label": "TIER 2",
+      "business_tier": 2,
+      "business_tier_label": "TIER 2",
+      "display_tier": 2,
+      "display_tier_label": "TIER 2",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 4,
+        "explanation": "Valdobbiadene is a small town in the Veneto foothills, but it punches above its weight for accessibility. Treviso Airport (TSF) is 40 minutes away and serves Ryanair routes across Europe. Venice Marco Polo (VCE) is 1 hour and connects globally. The start and finish are in the same location in central Valdobbiadene (Piazza Marconi). Twenty years of organizational experience from the same committee, with the event recently achieving record-breaking participation and international recognition. The 2024 edition attracted riders from 26 nations across three continents. The town is small enough that everything is walkable during event weekend, and the Prosecco wine region infrastructure supports tourism year-round."
+      },
+      "length": {
+        "score": 2,
+        "explanation": "At approximately 100 km with 1,560m of climbing, Prosecco Cycling sits at the shorter end of the gran fondo spectrum. For reference, the classic Italian gran fondos — Nove Colli, Maratona dles Dolomites, La Fausto Coppi — range from 130-210 km. The single-route format offers no longer option for riders seeking more distance. The separate 70 km gravel route is even shorter. This is not a criticism of the event — the 100 km format is deliberate, designed to leave time and energy for the experiential elements (eating, drinking, celebrating) that define the day. But as a pure endurance test, it is modest."
+      },
+      "technicality": {
+        "score": 2,
+        "explanation": "All paved, well-maintained wine-country roads. The Muro di Ca' del Poggio delivers a 19% maximum gradient that demands confident climbing, and descending it requires concentration — tight road, potential traffic, steep pitch. But these are standard road skills. The rolling vineyard terrain involves constant direction changes on narrow roads through villages, but nothing that requires off-road skills or exotic equipment. Bring appropriate gearing for 19% gradients and confidence on steep descents. That is the full technical requirement."
+      },
+      "elevation": {
+        "score": 2,
+        "explanation": "1,560 meters of climbing over 100 km is honestly moderate. The climbing is delivered in short, punchy bursts — Ca' del Poggio is just 1.1 km, Combai 228m gain, Resera 139m — rather than sustained Alpine passes. The cumulative effect is real but not brutal. A fit recreational cyclist can complete this course without bonking. For context, the Gimondi packs 2,800m into its long route, the Maratona dles Dolomites delivers 4,230m. Prosecco Cycling is more about the wine and the views than about destroying your legs."
+      },
+      "climate": {
+        "score": 2,
+        "explanation": "Late September in the Veneto foothills is about as benign as European cycling weather gets. Temperatures of 12-22C are comfortable for sustained riding. There is no extreme heat, no extreme cold, no altitude-related weather risk. The 33% rain probability is the primary concern, and even that is typically afternoon convective activity rather than all-day soaking. The late-season timing coincides perfectly with the grape harvest — golden light, turning leaves, workers in the vineyards. Climate is not a challenge here. It is a feature."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "The Prosecco Hills top out at approximately 400-500 meters above sea level on the route. Valdobbiadene itself sits at around 250m. The Muro di Ca' del Poggio reaches perhaps 350m. There is absolutely zero altitude-related performance impact. Sea-level riders will notice nothing. This is vineyard-covered hills at the base of the pre-Alps, not mountain cycling. The score of 1 reflects that you are technically above sea level, but altitude is a non-factor in every meaningful sense."
+      },
+      "adventure": {
+        "score": 4,
+        "explanation": "The adventure here is cultural and sensory rather than geographical. You ride through a UNESCO World Heritage landscape — the Conegliano-Valdobbiadene Prosecco Hills, inscribed in 2019, defined by the ciglioni (narrow grass-covered terraces carved into slopes exceeding 45 degrees). The route connects medieval villages — Combai, Follina, Tarzo, Refrontolo, San Pietro di Feletto, Conegliano, Collalto — each with its own character. The Castle of Collalto overlooks the final timed climb. The vine rows stretch to the horizon in every direction. You ride through the landscape that produces one of the world's most famous sparkling wines, during harvest, when the entire region is alive with agricultural activity. It is not the Dolomites. It is not meant to be."
+      },
+      "prestige": {
+        "score": 3,
+        "explanation": "Prosecco Cycling has been running since 2005 and has grown steadily to 2,700 participants from 26 nations. It signed a Memorandum on Environmental Sustainability with TD Five Boro Bike Tour (32,000 riders), Cape Town Cycle Tour (35,000 riders), and RBC GranFondo Whistler (10,000 riders), signaling its ambition to stand among global cycling events. It won the 2024 Green Flag Agriculture Award. The Muro di Ca' del Poggio is a Giro d'Italia climb. But it is not UCI-sanctioned, not a Gran Fondo National Series fixture, and not yet in the same conversation as the Maratona, Nove Colli, or L'Etape. It is building prestige through cultural distinction rather than competitive heritage."
+      },
+      "race_quality": {
+        "score": 3,
+        "explanation": "Four timed climbs with real-time timing and age-group classifications give competitive riders something to fight for. The 2,500-rider cap and team registration system suggest organizational maturity. Road closures, medical support, and aid stations are well-managed across the route. But this is fundamentally a celebration ride that happens to have timed segments, not a race that happens to serve Prosecco. All bike types are welcome — road, gravel, e-bike, tandem, MTB, recumbent, handbike. The competitive depth at the front is real (Italian club riders on timed climbs), but the event's identity is cultural, not competitive."
+      },
+      "experience": {
+        "score": 5,
+        "explanation": "There is no other cycling event on Earth like this. The start: riders massed in Piazza Marconi, the Nessun Dorma aria playing from loudspeakers, waiters in formal dress waving bottles of Prosecco at the peloton as they roll out. The aid stations: not energy gels and bananas, but small-batch Prosecco from local producers at Ristoro Collagu, shrimp scampi and sparkling wine at the San Pietro di Feletto ristoro after climbing Ca' del Poggio. The route: UNESCO World Heritage vineyards in every direction, the grape harvest in full swing, medieval villages and hilltop castles. The timing: the last Sunday of September, celebrating the end of the harvest season alongside the entire region. This is not a bike race with scenery. This is a cultural festival that uses a bicycle as its medium."
+      },
+      "community": {
+        "score": 4,
+        "explanation": "The 2024 edition drew 2,700 riders from 26 nations across three continents, with 700 international participants — roughly 25% of the field. Twenty percent of riders were women, a high figure by Italian gran fondo standards. The event generated 1,700 overnight stays in local accommodation, meaning the community impact is tangible and sustained. Valdobbiadene is a town of roughly 10,000 people — the event nearly triples the population for a weekend. The Prosecco wine community embraces riders as guests of the harvest. This is genuine cultural exchange, not just a race that happens to be in a nice location."
+      },
+      "field_depth": {
+        "score": 2,
+        "explanation": "The field is deliberately broad rather than deep. All bike types are welcome — road, gravel, e-bike, tandem, mountain bike, recumbent, handbike. This inclusivity is a strength of the event's character but a weakness of its competitive depth. The timed climbs attract competitive Italian club riders who race hard on Ca' del Poggio, but the overall field is recreational and celebratory. The 26-nation participation is impressive in breadth but does not translate to international competitive depth. If you want to race, you can. But most people are here for the Prosecco."
+      },
+      "value": {
+        "score": 4,
+        "explanation": "EUR58 buys entry to a 100 km ride through a UNESCO World Heritage site with aid stations that serve Prosecco, scampi, and local delicacies. The team rate drops to EUR53 for groups of 10+. Add EUR7 for a timing chip if you want timed climb rankings. Even with the EUR17 insurance surcharge for non-licensed riders (EUR75 total for a foreign amateur), this is outstanding value for the experience delivered. Italian gran fondos in the EUR80-150 range rarely offer UNESCO scenery and wine at every aid station. The cost-to-experience ratio is among the best in European cycling events."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Valdobbiadene and the surrounding Prosecco wine country offer accommodation at reasonable rural Italian prices — EUR60-120/night for agriturismos and local hotels. Treviso Airport (Ryanair hub) provides budget European connections at EUR30-60, and Venice Marco Polo adds intercontinental options at higher but reasonable fares. Food and wine in the Prosecco region are excellent and affordable — this is working wine country, not a tourist-inflated resort area. Budget EUR600-1,100 from Europe, EUR1,100-1,800 from the US for a 3-5 day trip that combines the ride with Prosecco tastings, Venice day trips, and Veneto hill-town exploration."
+      }
+    },
+    "biased_opinion": {
+      "verdict": "The Wine Harvest Ride",
+      "summary": "Prosecco Cycling is the only gran fondo in the world where the aid stations serve sparkling wine and shrimp scampi. That sentence alone should tell you what kind of event this is. Starting with Puccini's Nessun Dorma blasting across Valdobbiadene's central piazza while waiters wave Prosecco bottles at 2,700 cyclists, the 100 km route threads through a UNESCO World Heritage vineyard landscape during the grape harvest, climbs the Giro d'Italia's Muro di Ca' del Poggio (19% maximum gradient, 1.1 km of pure punishment), and returns to a town-wide celebration of everything that makes Italian cycling culture irreplaceable. The riding is honest but not brutal. The scenery is extraordinary. The food and wine are non-negotiable. This is not an endurance test — it is Italy's end-of-season cycling party, and everyone is invited.",
+      "strengths": [
+        "UNESCO World Heritage Prosecco Hills — the route IS the landscape that earned the inscription in 2019",
+        "Aid stations serve small-batch Prosecco and shrimp scampi — literally the only gran fondo on Earth with this",
+        "Muro di Ca' del Poggio: Giro d'Italia climb, 19% max gradient, FCI-certified — a genuine cycling landmark",
+        "Nessun Dorma sendoff with waiters waving Prosecco — theatrical, absurd, and perfectly Italian",
+        "EUR58 entry for a 100 km UNESCO ride with wine and food at the aid stations — remarkable value"
+      ],
+      "weaknesses": [
+        "100 km with 1,560m climbing is short by gran fondo standards — not an endurance test",
+        "Single distance option for road riders — no long route for those wanting 150+ km",
+        "All bike types welcome means the field is recreational-dominant — competitive depth is limited",
+        "Valdobbiadene is a small town with limited accommodation capacity — book early or stay in Conegliano/Treviso",
+        "The event's identity as a celebration ride may not satisfy riders seeking a serious competitive experience"
+      ],
+      "bottom_line": "Prosecco Cycling is the cycling event you describe to non-cycling friends when they ask why you do this. Nobody needs to understand FTP, gravel tire pressure, or cutoff times to understand why riding 100 km through UNESCO vineyards while being served Prosecco at every aid station is a good idea. The Muro di Ca' del Poggio gives you a genuine cycling landmark to suffer on. The rest of the route gives you a wine country experience that restaurants charge hundreds of euros to replicate poorly. If you want to destroy yourself over 200 km and 4,000 meters of climbing, ride the Maratona. If you want to remember why you started cycling in the first place, ride Prosecco Cycling."
+    },
+    "final_verdict": {
+      "score": "66 / 100",
+      "one_liner": "100 kilometers through UNESCO vineyards, Prosecco at the aid stations, Nessun Dorma at the start line. The only gran fondo where the feed zone serves shrimp scampi and sparkling wine.",
+      "should_you_race": "Yes if you want the most uniquely Italian cycling experience available — wine, food, UNESCO scenery, and Puccini at the start line. Yes if EUR58 for a ride through a World Heritage landscape with Prosecco at the aid stations sounds like the best deal in European cycling. Yes if the Muro di Ca' del Poggio (19% max, Giro d'Italia climb) is on your bucket list. Skip if you need 150+ km and 3,000+ meters of climbing — this is 100 km and 1,560m, deliberately approachable. Skip if you want a pure competitive environment — all bike types are welcome and the atmosphere is celebratory.",
+      "alternatives": "If you want longer Italian GF: Gran Fondo Nove Colli (200 km, 9 hills, since 1971). If you want Italian mountains: Maratona dles Dolomites (7 Dolomite passes, 4,230m climbing). If you want Prosecco Hills on gravel: Nova Eroica Prosecco Hills (all-road event in the same region). If you want another wine-country GF in Veneto: Granfondo Pinarello (Treviso).",
+      "alternative_slugs": [
+        "nove-colli",
+        "maratona-dles-dolomites",
+        "nova-eroica-prosecco-hills",
+        "granfondo-pinarello"
+      ]
+    },
+    "logistics": {
+      "airport": "Treviso Airport (TSF) — 40 minutes from Valdobbiadene (Ryanair hub, budget connections across Europe). Venice Marco Polo (VCE) — 1 hour (intercontinental connections). Venice Treviso is the closest and cheapest option for European riders.",
+      "lodging_strategy": "Stay in Valdobbiadene for the full experience — it is a small town (pop. ~10,000) and accommodation fills quickly for the event. Agriturismos and wine-estate B&Bs in the surrounding Prosecco Hills are the premium option (EUR80-130/night) and offer vineyard views. Budget options in Valdobbiadene town center run EUR60-100/night. Conegliano (20 minutes southeast) has more hotel capacity and is a pleasant town in its own right. Treviso (40 minutes) is the fallback if local accommodation is full — also excellent for pre/post-ride exploration. Book 3-6 months in advance for event weekend, as the 2,700-rider field and limited local capacity create genuine scarcity.",
+      "food": "You are in the Prosecco Superiore DOCG zone — the heartland of Italy's most famous sparkling wine. Prosecco tastings at local producers are the obvious pre-ride activity. The Veneto culinary tradition delivers: risotto al radicchio rosso, bigoli pasta, fegato alla veneziana, soppressa (local salami), and Asiago cheese from the nearby plateau. Valdobbiadene's trattorias are honest and affordable. Conegliano adds more restaurant options. The post-ride meal will feature seasonal harvest ingredients — mushrooms, radicchio, chestnuts, and new-vintage Prosecco. Carb loading has never been this civilized.",
+      "packet_pickup": "Event registration and bib collection in Valdobbiadene, typically the day before and morning of. The event village includes expo, sponsors, and local Prosecco producers. The intimate scale of the town means everything is walkable.",
+      "parking": "Event parking in designated areas around Valdobbiadene. The town center closes for the start, so follow event instructions for designated lots. Arriving the evening before and parking at your accommodation is recommended. The small-town setting means distances are short but road closures affect access on race morning.",
+      "official_site": "https://www.proseccocycling.it/en/"
+    },
+    "history": {
+      "founded": 2005,
+      "founder": "Local organizing committee in Valdobbiadene, in partnership with the Prosecco wine consortium and Veneto cycling community",
+      "origin_story": "Prosecco Cycling was conceived in 2005 as a celebration of two things the Veneto foothills do better than anywhere else: cycling and winemaking. The idea was simple and audacious — create a gran fondo that treats the ride as a wine-country experience rather than a race that happens to pass through nice scenery. The route was built around the Conegliano-Valdobbiadene Prosecco Hills, threading through the vineyards that produce Prosecco Superiore DOCG. The timing was set for the last Sunday of September, coinciding with the grape harvest, so that riders would experience the wine region at its most alive. The aid stations were designed to serve Prosecco and local food, not just energy gels. The Nessun Dorma sendoff — Puccini's aria playing as waiters wave bottles at the departing peloton — was added to establish the event's theatrical, celebratory identity from the very first meters. In 2019, the Prosecco Hills received UNESCO World Heritage status, retroactively elevating the event's setting to globally recognized cultural significance. The event grew steadily from hundreds to thousands, reaching 2,700 riders from 26 nations by 2024. That same year, Prosecco Cycling won the Green Flag Agriculture Award and signed a sustainability MOU with major international cycling events including TD Five Boro Bike Tour New York, Cape Town Cycle Tour, and RBC GranFondo Whistler — an explicit statement of its ambition to be recognized among the world's great cycling events.",
+      "notable_moments": [
+        "2005: First edition — the concept of a wine-country gran fondo with Prosecco at the aid stations is born in Valdobbiadene",
+        "Muro di Ca' del Poggio featured as a Giro d'Italia climb — the only climb in the Prosecco Hills certified by the Italian Cycling Federation",
+        "2019: UNESCO inscribes the Conegliano-Valdobbiadene Prosecco Hills as a World Heritage Site — the event's entire route becomes globally recognized cultural landscape",
+        "Gravel route (~70 km) added alongside the flagship road gran fondo, running on the same day",
+        "2024: Record edition — 2,700 registered participants from 26 nations across three continents, 20% women, 700 international riders",
+        "2024: Prosecco Cycling wins the Green Flag Agriculture Award for environmental sustainability",
+        "2024: Sustainability MOU signed with TD Five Boro Bike Tour (32,000), Cape Town Cycle Tour (35,000), RBC GranFondo Whistler (10,000)",
+        "2026: 22nd edition scheduled for September 27"
+      ],
+      "reputation": "The world's most unapologetically Italian cycling event. Not the hardest, not the biggest, not the most competitive — but possibly the most memorable. The only gran fondo where Prosecco at the aid stations is the feature, not the gimmick."
+    },
+    "course_description": {
+      "character": "A 100 km circuit through the UNESCO World Heritage Prosecco Hills, starting and finishing in Valdobbiadene. The terrain is relentlessly rolling — short, punchy climbs through terraced vineyards connected by valley-floor sections through medieval villages. The climbing is concentrated in sharp, steep pitches rather than sustained alpine passes. The Muro di Ca' del Poggio is the signature effort: 1.1 km at 12.7% average with a 19% maximum gradient, a Giro d'Italia climb compressed into a furious sprint. Between the four timed climbs, the route meanders through Combai, Follina, Tarzo, Resera, Refrontolo, San Pietro di Feletto, Conegliano, and Collalto before returning via Sernaglia della Battaglia, Col San Martino, and Guia. The rhythm is climb-descend-roll-climb, with the rolling sections offering UNESCO vineyard panoramas at every turn. The route is designed for experience first, suffering second.",
+      "suffering_zones": [
+        {
+          "mile": 8,
+          "label": "Salita di Zuel — The Opening Ramp",
+          "desc": "The first timed climb, a 1,400-meter ramp arriving into the village of Zuel. It sets the competitive tone immediately for riders chasing timed-climb rankings. Short enough that the effort is pure anaerobic power, long enough that pacing matters. The adrenaline of the Nessun Dorma start is still in your legs.",
+          "terrain_detail": "1,400m, moderate gradient, punchy finish",
+          "named_section": "Salita di Zuel"
+        },
+        {
+          "mile": 20,
+          "label": "Combai Climb from Guia — The Vineyard Wall",
+          "desc": "228 meters of elevation gain through the terraced Prosecco vineyards above Guia. The climb winds through some of the most photogenic terrain on the route — ciglioni (grass-covered terraces) on slopes exceeding 45 degrees, workers harvesting grapes in the rows you ride past. The gradient is steady and unforgiving, but the views are distracting enough to dull the pain.",
+          "terrain_detail": "228m gain, steady gradient through vineyard terraces",
+          "named_section": "Combai from Guia"
+        },
+        {
+          "mile": 50,
+          "label": "Muro di Ca' del Poggio — The Wall",
+          "desc": "The event's signature climb and the only hill in the Prosecco region certified by the Italian Cycling Federation. 1.1 km at 12.7% average gradient with a maximum of 19%. This is a Giro d'Italia climb — the same road that professional riders have attacked at 1,500 watts. For gran fondo riders, it is an exercise in gear selection, body position, and sheer stubbornness. The 19% pitches are genuinely steep — if you stop, restarting on this gradient is difficult. At the top, the ristoro at San Pietro di Feletto serves Prosecco and Scampi. You have earned them.",
+          "terrain_detail": "1.1 km, 134m gain, 12.7% average, 19% max gradient — FCI certified, Giro d'Italia climb",
+          "named_section": "Muro di Ca' del Poggio"
+        },
+        {
+          "mile": 58,
+          "label": "Via dei Colli — The Rolling Panorama",
+          "desc": "The third timed climb, threading through the heart of the Prosecco Hills with panoramic views across the entire DOCG zone. The gradient is less savage than Ca' del Poggio — this is a rolling, undulating effort through vineyard-covered ridgelines. The challenge is cumulative: after 90+ km and multiple climbs, the constant undulation grinds at tired legs.",
+          "terrain_detail": "Moderate gradient, rolling through vineyard ridgelines",
+          "named_section": "Via dei Colli"
+        },
+        {
+          "mile": 62,
+          "label": "Salita di Collalto — The Final Timed Climb",
+          "desc": "The last competitive segment, climbing to the medieval Castle of Collalto with views across the Prosecco zone and out toward the Venetian plain. After 95+ km, this climb arrives when glycogen is depleted and the Prosecco from the aid stations has long since metabolized. The castle at the summit is a suitable reward — and the descent back to Valdobbiadene begins the homeward leg.",
+          "terrain_detail": "Climb to Castle of Collalto, final timed segment",
+          "named_section": "Salita di Collalto"
+        }
+      ],
+      "signature_challenge": "The Muro di Ca' del Poggio — 1.1 km of 12.7% average gradient with a 19% maximum, certified by the Italian Cycling Federation and featured in the Giro d'Italia. It is the kind of climb that sorts riders into those who can hold 300+ watts for 5 minutes and those who cannot. The 19% pitches are the steepest gradient most amateur cyclists will ever ride on paved road. The reward at the top — Prosecco and Scampi at the San Pietro di Feletto ristoro — is the most Italian thing that has ever happened at a cycling aid station."
+    },
+    "guide_variables": {
+      "race_name": "Prosecco Cycling (Gran Fondo Prosecco)",
+      "race_distance": "62 miles",
+      "race_elevation": "5,118 feet",
+      "race_date": "September",
+      "race_location": "Valdobbiadene, Veneto, Italy",
+      "race_terrain": "Paved Veneto roads — punchy vineyard climbs and rolling hills through UNESCO Prosecco country",
+      "race_weather": "Late September Veneto — pleasant (12-22C) with moderate rain probability, grape harvest season",
+      "race_challenges": [
+        "Muro di Ca' del Poggio: 1.1 km at 12.7% average, 19% max — Giro d'Italia climb requiring pure power",
+        "1,560m of climbing delivered in short, steep punches rather than sustained passes — constant gradient changes",
+        "Four timed climbs spread across 100 km — pacing strategy needed if competing for classifications",
+        "Late September warmth can cause dehydration on exposed vineyard climbs if conditions are sunny",
+        "Prosecco at the aid stations — maintaining discipline while surrounded by sparkling wine is the real challenge"
+      ],
+      "altitude_section": false,
+      "altitude_feet": 0
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Steep-gradient climbing power — ability to sustain 300+ watts on 15-19% gradients",
+        "by_when": "Week 6",
+        "why": "The Muro di Ca' del Poggio hits 19% maximum gradient — steeper than most riders have ever experienced on pavement. At this gradient, momentum is everything: if you slow below 6-7 km/h, the bike becomes difficult to control. Your training must include repeated efforts at 12-15%+ gradient to build the neuromuscular power and body positioning required. Find the steepest local hill and do intervals on it. If you do not have steep hills, do heavy-gear seated work on a trainer at very low cadence (40-50 RPM)."
+      },
+      {
+        "requirement": "Repeated short-climb endurance — 8-10 punchy climbs in a single ride",
+        "by_when": "Week 7",
+        "why": "The Prosecco Hills terrain is not one big climb — it is a constant series of short, steep efforts with brief recoveries. Your body needs to adapt to the repeated surge-and-recover pattern. Train by doing 8-10 hill repeats of 2-5 minutes at threshold to VO2max intensity with 3-5 minute recoveries between. The cumulative fatigue from this pattern is different from sustained climbing — it attacks your ability to recover between efforts."
+      },
+      {
+        "requirement": "Fueling discipline — practice eating and drinking on the bike at Italian aid-station scale",
+        "by_when": "Week 8",
+        "why": "The Prosecco Cycling ristori are famously generous — Prosecco, scampi, local delicacies. The temptation to overindulge mid-ride is real. Practice your fueling strategy on long training rides, including eating real food (not just gels) at ride intensity. Know your stomach's limits. One glass of Prosecco at Ca' del Poggio is a celebration. Three glasses is a tactical error with 40 km still to ride."
+      }
+    ],
+    "citations": [
+      {
+        "url": "https://www.proseccocycling.it/en/",
+        "title": "Prosecco Cycling — Official Site",
+        "category": "official"
+      },
+      {
+        "url": "https://marcadoc.com/en/curiosity/prosecco-cycling-2024-the-charge-of-the-2700-on-a-sunday-with-a-global-flavour",
+        "title": "Prosecco Cycling 2024: Record Edition — Marcadoc",
+        "category": "review"
+      },
+      {
+        "url": "https://www.europeancycleevents.com/tour/2026-gran-fondo-prosecco/",
+        "title": "2026 Gran Fondo Prosecco — European Cycle Events",
+        "category": "reference"
+      },
+      {
+        "url": "https://cycleclassictours.com/tours/road-cycling/gran-fondo-prosecco/",
+        "title": "Gran Fondo Prosecco — Cycle Classic Tours",
+        "category": "review"
+      },
+      {
+        "url": "https://battistrada.com/en/cycling-calendar/edition/prosecco-cycling-2026/50848/",
+        "title": "Prosecco Cycling 2026 — Battistrada",
+        "category": "reference"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/552/gran-fondo-prosecco",
+        "title": "Gran Fondo Prosecco — GranFondo Guide",
+        "category": "reference"
+      },
+      {
+        "url": "https://climbfinder.com/en/climbs/muro-ca-del-poggio-casotto",
+        "title": "Muro di Ca' del Poggio Climb Profile — ClimbFinder",
+        "category": "reference"
+      },
+      {
+        "url": "https://cyclinghero.cc/special-event/prosecco-cycling",
+        "title": "Prosecco Cycling — CyclingHero",
+        "category": "review"
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "high",
+      "validation_status": "validated",
+      "research_strength": "A",
+      "sources_count": 8,
+      "last_updated": "2026-02-27"
+    }
+  }
+}

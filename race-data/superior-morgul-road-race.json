@@ -1,0 +1,330 @@
+{
+  "race": {
+    "name": "Superior Morgul Road Race",
+    "slug": "superior-morgul-road-race",
+    "display_name": "Superior Morgul Road Race",
+    "tagline": "The Wall. The Coors Classic. LeMond. Hinault. Phinney. Colorado's most storied road racing circuit, resurrected for a new generation on the legendary Morgul-Bismarck loop.",
+    "vitals": {
+      "distance_mi": 56,
+      "elevation_ft": 6000,
+      "location": "Superior, Boulder County, Colorado, USA",
+      "location_badge": "SUPERIOR, COLORADO",
+      "date": "May annually (third Sunday)",
+      "date_specific": "2026: May 17",
+      "terrain_types": [
+        "Paved road circuit",
+        "Highway 128 loop",
+        "Rolling Front Range terrain",
+        "Punchy climbs including The Wall"
+      ],
+      "field_size": "~300-500 riders across all categories",
+      "start_time": "Sunday 8:00 AM (wave starts by category)",
+      "registration": "Online via BikeReg. Pre-registration closes Wednesday before race. Race-day registration available (cash only).",
+      "prize_purse": "Awards by category. State Championship medals for Colorado residents.",
+      "aid_stations": "Feed zone on course for longer categories",
+      "cutoff_time": "Within event window",
+      "lat": 39.938,
+      "lng": -105.169,
+      "distance_options": [
+        "Pro/1/2: 8 laps (~56 miles), ~6,000 ft climbing",
+        "Cat 3: 6 laps (~42 miles), ~4,500 ft climbing",
+        "Cat 4: 4 laps (~28 miles), ~3,000 ft climbing",
+        "Cat 5/Beginners: 3 laps (~21 miles), ~2,250 ft climbing",
+        "Masters categories: 4-6 laps depending on age group",
+        "Junior categories: 2-4 laps depending on age group"
+      ],
+      "entry_fee": "~$55-65 (pre-registration $55 adults, $45 juniors; race-day $65/$55)"
+    },
+    "climate": {
+      "primary": "Colorado Front Range spring — dry, sunny, afternoon storm risk",
+      "description": "Mid-May along the Front Range means 55-75F with abundant sunshine and low humidity. Mornings start cool (45-55F) and warm quickly. Afternoon thunderstorms are possible but the race typically finishes before they develop. Wind can be a factor on the exposed Highway 128 loop, particularly from the west. UV exposure is intense at 5,400+ feet elevation.",
+      "challenges": [
+        "Cool morning starts (45-55F) warming rapidly through the race",
+        "Afternoon thunderstorm risk — race typically finishes before weather arrives",
+        "Wind on exposed Highway 128 loop, especially from the west",
+        "Intense UV at 5,400+ feet elevation — sunscreen mandatory",
+        "Dry air accelerates dehydration"
+      ]
+    },
+    "terrain": {
+      "primary": "Paved circuit road race on rolling Front Range terrain",
+      "surface": "Smooth asphalt on Highway 128, fully closed to traffic. A 7-mile loop course on wide roads with excellent pavement quality. Rolling terrain with one major climb per lap — The Wall (Super Flag Hill), the defining feature of the Morgul-Bismarck circuit. The course favors climbers and punchy riders who can handle repeated efforts over The Wall.",
+      "technical_rating": 1,
+      "features": [
+        "The Wall (Super Flag Hill) — the legendary climb made famous by the Coors Classic, ~750 ft vertical gain, steep grades",
+        "7-mile fully closed loop on Highway 128 — wide, smooth asphalt",
+        "Rolling terrain with views of the Flatirons and Front Range",
+        "McCaslin Boulevard corner — tactical positioning point before The Wall",
+        "Exposed loop with potential crosswind sections"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 59,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "logistics": 4,
+      "length": 1,
+      "technicality": 1,
+      "elevation": 2,
+      "climate": 2,
+      "altitude": 2,
+      "adventure": 2,
+      "prestige": 4,
+      "race_quality": 3,
+      "experience": 4,
+      "community": 3,
+      "field_depth": 2,
+      "value": 3,
+      "expenses": 4,
+      "cultural_impact": 4,
+      "tier_note": "Score of 59 places this in T3, but prestige=4 (p4) promotes one tier to T2. The Morgul-Bismarck circuit is one of the most historically significant road racing courses in America — Coors Classic, 1987 Nationals, American Flyers filming location. The current event is a regional circuit race, but the cultural weight of the course itself is immense.",
+      "score_note": "Prestige=4 for Coors Classic / Red Zinger heritage, 1987 National Championships, American Flyers film. Experience=4 for racing the same circuit as LeMond, Hinault, Phinney. cultural_impact=4 for foundational role in American cycling history. Length=1 and technicality=1 reflect that this is a short-lap circuit race on smooth pavement. Field_depth=2 for regional-level competition in the current era.",
+      "editorial_tier": 2,
+      "editorial_tier_label": "TIER 2",
+      "business_tier": 2,
+      "business_tier_label": "TIER 2",
+      "display_tier": 2,
+      "display_tier_label": "TIER 2",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 4,
+        "explanation": "Superior sits between Boulder and Denver along US-36, 30 minutes from Boulder and 25 minutes from downtown Denver. Denver International Airport (DEN) is 45 minutes. Hotels are abundant in Louisville, Broomfield, and Superior itself. The course on Highway 128 is fully closed to traffic. Without Limits has organized this race for years and runs a tight ship. Registration via BikeReg is straightforward. Parking is manageable in the suburban setting."
+      },
+      "length": {
+        "score": 1,
+        "explanation": "This is a circuit race on a 7-mile loop. Pro/1/2 riders do 8 laps (~56 miles), but Cat 4/5 riders do 3-4 laps (21-28 miles). For most participants, this is a short race by distance. The repeated laps and The Wall make it harder than the mileage suggests, but it is not an endurance event by any definition."
+      },
+      "technicality": {
+        "score": 1,
+        "explanation": "Smooth, wide paved roads. No technical demands whatsoever. This is a pure road race on excellent asphalt. The only skill required beyond fitness is pack positioning and tactical awareness — standard road racing craft, not terrain management."
+      },
+      "elevation": {
+        "score": 2,
+        "explanation": "The Wall provides approximately 750 feet of climbing per lap — punchy and repeated. Over 8 laps for the Pro field, that accumulates to roughly 6,000 feet. But no single climb is sustained beyond a few minutes. The terrain is rolling Front Range — not mountain climbing, not flat. The Wall is steep but short."
+      },
+      "climate": {
+        "score": 2,
+        "explanation": "May on the Colorado Front Range is typically benign for cycling. Sunny, 55-75F, low humidity. The main risks are cool morning starts and the possibility of afternoon thunderstorms, though the race usually finishes before weather develops. Wind on the exposed loop can be a tactical factor. This is not a climate challenge — it is pleasant spring racing weather in most years."
+      },
+      "altitude": {
+        "score": 2,
+        "explanation": "The course sits at approximately 5,400-6,000 feet. Sea-level visitors will notice reduced oxygen, particularly on The Wall. It is not extreme altitude — it is the mild-but-real effect of racing on the Front Range. Local riders are unaffected. Visiting riders should arrive a day or two early."
+      },
+      "adventure": {
+        "score": 2,
+        "explanation": "The course is on Highway 128 in suburban Boulder County. Views of the Flatirons and the Front Range are visible on clear days, and the open grassland landscape has a windswept Colorado character. But this is not wilderness adventure — it is a road race in a developing suburban corridor. The original 13-mile Morgul-Bismarck loop ran through more isolated ranch land; the current 7-mile course is more constrained."
+      },
+      "prestige": {
+        "score": 4,
+        "explanation": "The Morgul-Bismarck is one of the most historically significant road racing circuits in the United States. The Red Zinger Bicycle Classic (1975-1979) and Coors Classic (1980-1988) — America's most important stage races of their era — used this course. Greg LeMond, Bernard Hinault, Connie Carpenter, Davis Phinney, and Ron Kiefel all raced here. The 1987 US National Championships were held on this circuit. The 1985 film American Flyers (Kevin Costner) was filmed here. The current event is a regional road race, not the international spectacle it once was — hence 4 and not 5."
+      },
+      "race_quality": {
+        "score": 3,
+        "explanation": "Without Limits runs a well-organized race on fully closed roads with USA Cycling sanctioning. Multiple categories from juniors through masters to Pro/1/2. Part of the Rocky Mountain Road Cup series and Colorado State Road Race Championships. Timing, marshaling, and event management are solid. It is a regional road race, not a national-caliber production — but it is run competently and with genuine care for the course's heritage."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "Racing up The Wall on the Morgul-Bismarck circuit is a bucket-list experience for American road cycling enthusiasts. The historical connection is palpable — you are riding the same roads as LeMond and Hinault, sprinting over the same terrain Kevin Costner's character attacked in American Flyers. The crowd lines The Wall on race day. The experience transcends the event's current scale. You are riding history."
+      },
+      "community": {
+        "score": 3,
+        "explanation": "Boulder County is one of the deepest cycling communities in the United States. The Town of Superior actively supports the race as part of the Superville weekend festival. Local cycling clubs turn out in force. The crowd on The Wall is a tradition. But the community impact is primarily local — this is a Boulder County event, not a national gathering point."
+      },
+      "field_depth": {
+        "score": 2,
+        "explanation": "The current field is primarily Colorado-based amateur and semi-professional riders. The Pro/1/2 category attracts strong regional riders but not national-caliber professionals. Masters categories are well-attended. Cat 3/4/5 fields are solid. This is a well-structured regional road race, not a talent showcase that draws top domestic professionals."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "$55-65 for a USA Cycling-sanctioned circuit race on fully closed roads with state championship designation. Fair value for what you get — closed roads, timing, marshaling, and the chance to race a legendary course. Not a bargain, not overpriced."
+      },
+      "expenses": {
+        "score": 4,
+        "explanation": "For Denver/Boulder locals, this is essentially free beyond the entry fee — it is a 30-minute drive. For visitors, Denver-area hotels run $100-200/night, DEN is a major hub with competitive airfares, and the area has abundant dining options. You can race this on a day trip from Denver. Total weekend cost for a visiting rider: $400-700 including airfare."
+      }
+    },
+    "biased_opinion": {
+      "verdict": "America's Road Racing Shrine",
+      "summary": "The Superior Morgul Road Race is not the biggest race on the calendar. It is not the hardest. It is not the most prestigious event in its current form. But the ground you race on carries more American cycling history per square meter than almost anywhere else in the country. The Morgul-Bismarck circuit hosted the Red Zinger and Coors Classic — the races that introduced America to professional road cycling. LeMond, Hinault, Phinney, Carpenter, and Kiefel attacked The Wall here. Kevin Costner charged up it in American Flyers. The 1987 National Championships were decided on this loop. Today it is a regional circuit race organized by passionate locals. The field is Colorado-strong, not nationally deep. The course is a modified 7-mile version of the original 13-mile Morgul-Bismarck, compressed by suburban development. But when you crest The Wall and see the crowd lining the road, you are standing where American cycling stood up.",
+      "strengths": [
+        "The Wall: one of the most iconic climbs in American road racing history",
+        "Historical gravitas: Coors Classic, Red Zinger, 1987 Nationals, American Flyers film",
+        "Fully closed 7-mile circuit on smooth Highway 128 pavement",
+        "Colorado State Road Race Championships designation",
+        "Exceptional accessibility from Denver/Boulder metro area",
+        "Strong local cycling community in Boulder County"
+      ],
+      "weaknesses": [
+        "Current event is a regional race — the international prestige of the Coors Classic era is gone",
+        "7-mile modified course is shorter than the original 13-mile Morgul-Bismarck loop",
+        "Suburban development has encroached on the once-isolated ranch land character",
+        "Field depth is regional — Colorado racers, not national-caliber professionals",
+        "Short circuit format limits the distance and adventure factor"
+      ],
+      "bottom_line": "The roads remember what happened here, even if the race has changed. If American cycling history matters to you, The Wall is a pilgrimage."
+    },
+    "final_verdict": {
+      "score": "59 / 100",
+      "one_liner": "Colorado's most storied road racing circuit — The Wall, the Coors Classic, LeMond, and American Flyers. History on two wheels.",
+      "should_you_race": "Yes if American cycling history moves you and you want to race the same circuit as LeMond and Hinault. Yes if you are a Colorado road racer looking for a well-organized circuit race on closed roads with state championship stakes. Skip if you want a long-distance endurance event or a nationally competitive field.",
+      "alternatives": "If you want Colorado climbing in a gran fondo format: try the Copper Triangle or Triple Bypass. If you want a domestic road race with deeper professional fields: try the Redlands Bicycle Classic or Tour of the Gila. If you want to ride iconic American cycling terrain: try the Mt. Evans Hill Climb.",
+      "alternative_slugs": [
+        "copper-triangle",
+        "triple-bypass",
+        "redlands-bicycle-classic",
+        "tour-of-the-gila",
+        "mt-evans-hill-climb"
+      ]
+    },
+    "logistics": {
+      "airport": "Denver International Airport (DEN) — 45 minutes. Superior is along US-36 between Denver and Boulder.",
+      "lodging_strategy": "Superior, Louisville, and Broomfield have abundant hotels along the US-36 corridor. Boulder (15 minutes) offers more character and dining. Denver (25 minutes) has the full range. This is suburban metro Denver — lodging is plentiful and affordable.",
+      "food": "Louisville's Main Street has excellent restaurants. Boulder is 15 minutes away with world-class dining. Superior itself has suburban dining options. Post-race food at the Superville festival.",
+      "packet_pickup": "Race-day pickup opens at 7:00 AM. Must pick up numbers 40 minutes before start time.",
+      "parking": "On-site parking in Superior. Arrive early as suburban infrastructure manages but fills.",
+      "official_site": "https://www.withoutlimits.co/morgul-bismark-cycling-race"
+    },
+    "history": {
+      "founded": 2010,
+      "founder": "Town of Superior, Colorado (resurrected the Morgul-Bismarck race; original course used since the 1970s)",
+      "origin_story": "The Morgul-Bismarck circuit near Superior, Colorado has been one of America's most important road racing courses since the 1970s. The Red Zinger Bicycle Classic (1975-1979), founded by Celestial Seasonings co-founder Mo Siegel, and its successor the Coors International Bicycle Classic (1980-1988) used this loop as a key stage. Greg LeMond won the Coors Classic in 1981 and 1985. Bernard Hinault, Connie Carpenter, Davis Phinney, and Ron Kiefel all raced here. The 1987 US National Road Race Championships were held on the Morgul-Bismarck. The course's notoriety reached Hollywood when the 1985 film American Flyers, starring Kevin Costner, used the circuit for its climactic 'Hell of the West' race. After the Coors Classic ended in 1988, racing on the Morgul-Bismarck continued intermittently through local events. In 2010, the Town of Superior formally resurrected the race as the Superior Morgul Classic, a multi-day event including street sprints, a criterium, and the circuit road race. Suburban development has altered the original 13-mile loop — the current race uses a modified 7-mile circuit on Highway 128. The event is now organized by Without Limits and continues as a pillar of the Rocky Mountain Road Cup calendar.",
+      "notable_moments": [
+        "1975: Red Zinger Bicycle Classic first uses the Morgul-Bismarck circuit",
+        "1981: Greg LeMond wins the Coors Classic, which includes the Morgul-Bismarck stage",
+        "1985: American Flyers film starring Kevin Costner shot on the Morgul-Bismarck course",
+        "1985: LeMond wins his second Coors Classic on this circuit",
+        "1987: US National Road Race Championships held on the Morgul-Bismarck",
+        "1988: Final Coors Classic — end of the international era on this course",
+        "2010: Town of Superior resurrects the race as the Superior Morgul Classic",
+        "2014-present: Without Limits organizes the event as part of the Rocky Mountain Road Cup",
+        "Course modified from original 13-mile loop to 7-mile Highway 128 circuit due to suburban development"
+      ],
+      "reputation": "The most historically significant road racing circuit in the United States. The Wall is to American cycling what the Koppenberg is to Belgian cycling — a short, steep climb that has decided championships and careers. The current event honors that legacy on a modified course."
+    },
+    "course_description": {
+      "character": "A 7-mile paved circuit on Highway 128, fully closed to traffic. Wide, smooth asphalt through rolling Colorado Front Range terrain. The course is dominated by one feature: The Wall (Super Flag Hill), a steep climb of approximately 750 vertical feet that riders face on every lap. The Wall is the selection point — it is where the race is won and lost on every lap. Between climbs, the course rolls through open grassland with views of the Flatirons. Wind on the exposed loop can fracture a field. The corner at McCaslin Boulevard is the tactical setup point — positioning into The Wall determines who attacks and who suffers. For the Pro/1/2 category doing 8 laps, the cumulative fatigue of repeated Wall efforts is the race's defining challenge.",
+      "suffering_zones": [
+        {
+          "mile": 0,
+          "label": "Start/Finish on Highway 128",
+          "desc": "Rolling out on wide, smooth Highway 128. The field is together but everyone knows what is coming. Positioning begins immediately as riders jockey for The Wall approach. The first lap is tactical — probing who is strong, who is bluffing.",
+          "terrain_detail": "Smooth paved highway, rolling terrain, exposed to wind",
+          "named_section": "The Rollout"
+        },
+        {
+          "mile": 3,
+          "label": "McCaslin Boulevard Corner",
+          "desc": "The right-hander at McCaslin is where The Wall approach begins. Position here determines everything. The inside line saves meters but risks being boxed in. The outside line is longer but keeps options open. Elbows out. This corner has decided races before the climbing even starts.",
+          "terrain_detail": "Paved intersection, sharp right turn onto climb approach",
+          "named_section": "The McCaslin Corner"
+        },
+        {
+          "mile": 4,
+          "label": "The Wall (Super Flag Hill)",
+          "desc": "The Wall. Approximately 750 vertical feet of steep, exposed climbing on pavement. This is the climb that made the Morgul-Bismarck famous — the same gradient LeMond and Hinault rode, the same road Kevin Costner attacked in American Flyers. On lap one, it hurts. On lap eight, it breaks you. The crowd lines the upper sections, ringing cowbells and screaming. The finish line is at the top.",
+          "terrain_detail": "Steep paved climb, exposed, approximately 750 ft vertical gain",
+          "named_section": "The Wall"
+        },
+        {
+          "mile": 5,
+          "label": "The Descent and Return",
+          "desc": "Over The Wall and descending back toward Highway 128 for the next lap. Brief recovery before the rolling terrain and wind reassert themselves. For multi-lap races, this is where you assess damage — did you gain time? Lose a wheel? The rolling return is the only respite before The Wall comes again.",
+          "terrain_detail": "Paved descent and rolling return to start/finish",
+          "named_section": "The Recovery Loop"
+        }
+      ],
+      "signature_challenge": "The Wall (Super Flag Hill) — repeated every lap. For Pro/1/2 riders doing 8 laps, that is 8 times up the most historically significant climb in American road racing. The cumulative fatigue of repeated Wall efforts, combined with wind on the exposed loop and tactical positioning at McCaslin Boulevard, makes this a race that rewards power, repeatability, and racing intelligence."
+    },
+    "guide_variables": {
+      "race_name": "Superior Morgul Road Race",
+      "race_distance": "21-56 miles (varies by category, 3-8 laps of 7-mile circuit)",
+      "race_elevation": "2,250-6,000 feet (varies by category)",
+      "race_date": "May",
+      "race_location": "Superior, Boulder County, Colorado",
+      "race_terrain": "Paved road circuit, smooth asphalt, rolling with one major climb per lap",
+      "race_weather": "55-75F, dry, sunny, possible afternoon thunderstorms, wind on exposed loop",
+      "race_challenges": [
+        "The Wall: repeated steep climb every lap — cumulative fatigue is the race",
+        "Wind on exposed Highway 128 loop can fracture the field",
+        "Altitude at 5,400-6,000 ft affects sea-level visitors",
+        "Tactical positioning at McCaslin Boulevard corner before The Wall",
+        "Multi-lap race requires pacing discipline — burning matches early ends badly"
+      ],
+      "altitude_section": true,
+      "altitude_feet": 5700
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Repeated-effort climbing intervals in training",
+        "by_when": "Week 6",
+        "why": "The Wall comes every 7 miles. For the Pro field, that is 8 times up a steep climb. Train with repeated 3-5 minute VO2max intervals to simulate the cumulative fatigue of multi-lap Wall efforts. Recovery between intervals should mimic the rolling return loop — not full rest, just enough to go again."
+      },
+      {
+        "requirement": "Altitude acclimation for sea-level visitors",
+        "by_when": "Race week",
+        "why": "Racing at 5,400-6,000 feet with repeated hard efforts on The Wall will expose any altitude deficit. Arrive 1-2 days early minimum. The oxygen cost of repeated threshold-to-VO2max efforts at altitude is real."
+      },
+      {
+        "requirement": "Race reconnaissance — ride the course before race day",
+        "by_when": "Race week",
+        "why": "Know The Wall's gradient profile, the McCaslin corner approach, and the wind patterns on the exposed loop. Riding the circuit at race intensity for 1-2 laps the day before gives invaluable tactical information about positioning and pacing."
+      }
+    ],
+    "citations": [
+      {
+        "url": "https://www.withoutlimits.co/morgul-bismark-cycling-race",
+        "title": "Superior Morgul Road Race — Without Limits (Official Organizer)",
+        "category": "official"
+      },
+      {
+        "url": "https://www.bikereg.com/superior-morgul-road-race",
+        "title": "Superior Morgul Road Race — BikeReg Registration",
+        "category": "official"
+      },
+      {
+        "url": "https://www.superiorcolorado.gov/Community/Calendars/Events/2025-Superior-Morgul-Bike-Race",
+        "title": "Town of Superior — Superior Morgul Bike Race",
+        "category": "official"
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Morgul-Bismark",
+        "title": "Morgul-Bismark — Wikipedia",
+        "category": "reference"
+      },
+      {
+        "url": "https://ronaldbax2.medium.com/say-goodbye-to-the-morgul-bismark-colorado-growth-endangers-famous-cycling-course-1d28010f89b9",
+        "title": "Say Goodbye to the Morgul-Bismark: Colorado Growth Endangers Famous Cycling Course",
+        "category": "media"
+      },
+      {
+        "url": "https://www.dailycamera.com/2015/05/17/superiors-morgul-bismark-cycling-race-called-colorados-best-by-participants-spectators/",
+        "title": "Superior's Morgul Bismark cycling race called Colorado's best — Boulder Daily Camera",
+        "category": "media"
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Coors_Classic",
+        "title": "Coors Classic — Wikipedia",
+        "category": "reference"
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Red_Zinger_Bicycle_Classic",
+        "title": "Red Zinger Bicycle Classic — Wikipedia",
+        "category": "reference"
+      },
+      {
+        "url": "https://www.coloradohometownweekly.com/ci_25754172/superior-morgul-time-trial-road-race-see-course/",
+        "title": "Superior Morgul time trial, road race see course changes — Colorado Hometown Weekly",
+        "category": "media"
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "high",
+      "validation_status": "validated",
+      "research_strength": "A",
+      "sources_count": 9,
+      "last_updated": "2026-02-27"
+    }
+  }
+}

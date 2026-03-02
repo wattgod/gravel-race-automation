@@ -1,0 +1,305 @@
+{
+  "race": {
+    "name": "Granfondo Campagnolo Roma",
+    "slug": "granfondo-campagnolo-roma",
+    "display_name": "Granfondo Campagnolo Roma",
+    "tagline": "Start at the Colosseum. Climb the Castelli Romani. Finish at Caracalla. Campagnolo's Roman holiday on two wheels.",
+    "vitals": {
+      "distance_mi": 76,
+      "elevation_ft": 6560,
+      "location": "Rome, Lazio, Italy",
+      "location_badge": "ROME, ITALY",
+      "date": "Second Sunday of October",
+      "date_specific": "2026: TBD (typically early-to-mid October)",
+      "terrain_types": [
+        "Roman cobblestone start through the Fori Imperiali",
+        "Paved Italian provincial roads",
+        "Punchy Castelli Romani hill climbs (max 18%)",
+        "Flat lakeside roads around Lago Albano"
+      ],
+      "field_size": "~5,000-6,000 riders",
+      "start_time": "7:15 AM from Via dei Fori Imperiali (access from 6:00 AM)",
+      "registration": "Online via granfondoroma.com. Early registration ~EUR55; late registration ~EUR75. Limited to 6,000-7,500 riders depending on edition.",
+      "prize_purse": "None (timed climbs with age-group rankings, finisher medals)",
+      "aid_stations": "Feed zones at strategic points through the Castelli Romani — water, fruit, energy bars, Italian pastries. The Caracalla Village Expo runs for three days around the event with food, bike culture, and sponsors.",
+      "cutoff_time": "Generous cutoff with broom wagon support on course.",
+      "lat": 41.8902,
+      "lng": 12.4922,
+      "distance_options": [
+        "Gran Fondo: 123 km (76 mi), ~2,000 m gain — 4 timed climbs through the Castelli Romani",
+        "Medio Fondo: 62 km (39 mi) — 'In Bici ai Castelli Romani' — shorter loop through the Roman hills"
+      ],
+      "entry_fee": "EUR55-75"
+    },
+    "climate": {
+      "primary": "Early October in Rome — warm, dry, ideal cycling weather",
+      "description": "Early October in Rome is cycling weather at its finest. Average highs of 22C (72F), lows around 13C (55F), with 6-7 hours of daily sunshine. The Romans call these late-warm days 'ottobrate' — a gift of almost-summer conditions well into autumn. Humidity averages 60-70%, comfortable by Mediterranean standards. Rainfall is possible (88mm average for October, across ~7 days), but the first half of the month is statistically drier. The 7:15 AM start is cool but not cold. By the time you hit the Castelli Romani climbs mid-morning, conditions are warm and pleasant.",
+      "challenges": [
+        "Occasional October rain — 88mm average spread across 7 days in the month",
+        "Morning cool at 7:15 AM start (13-15C) — arm warmers for the first hour",
+        "Afternoon warmth if the ride extends past noon (22-25C)",
+        "Wind exposure on the open roads south of Rome"
+      ]
+    },
+    "terrain": {
+      "primary": "Paved Italian roads through Rome and the Castelli Romani volcanic hills",
+      "surface": "The opening and closing kilometers through central Rome are a mix of excellent tarmac and occasional cobblestone sections near ancient monuments. The Castelli Romani roads are standard Italian provincial quality — well-maintained tarmac with occasional rough patches on narrower hill roads. The climbs are short and steep rather than long and sustained. All paved throughout.",
+      "technical_rating": 1,
+      "features": [
+        "Panoramica (Lake Albano) — 2.3 km at 5.9% average, 8% max. The opening climb with views across the volcanic crater lake",
+        "Murus (Rocca di Papa) — 1.1 km at 10.3% average, 16% max. The signature wall — short, savage, and relentless",
+        "Rocca Priora (Trofeo Corriere dello Sport) — 6 km at 6.3% average, 13% max. The longest and most sustained climb",
+        "Rostrum (Montecompatri) — 0.72 km at 12% average, 18% max. A brutal wall that comes when your legs are already gone",
+        "Flat timed section along Pratoni del Vivaro — 8 km flat sprint section",
+        "Via dei Fori Imperiali start — riding past the Colosseum and Roman Forum at dawn"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 59,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "logistics": 4,
+      "length": 3,
+      "technicality": 1,
+      "elevation": 3,
+      "climate": 2,
+      "altitude": 1,
+      "adventure": 4,
+      "prestige": 3,
+      "race_quality": 3,
+      "experience": 4,
+      "community": 3,
+      "field_depth": 2,
+      "value": 3,
+      "expenses": 2,
+      "cultural_impact": 3,
+      "tier_note": "The Campagnolo brand name lends cycling heritage, but the event itself is a mid-tier Italian gran fondo — not a UCI qualifier, cancelled 24 hours before the 2019 edition, and uncertain post-pandemic continuity. The extraordinary Rome setting lifts the experience score, but logistics and field depth keep it in Tier 3. prestige=3 provides no tier override.",
+      "score_note": "adventure=4 and experience=4 reflect the once-in-a-lifetime setting: departing the Colosseum at dawn, riding through the Roman Forum, climbing the volcanic Castelli Romani hills, returning to the Terme di Caracalla. expenses=2 because Rome is expensive. field_depth=2 — this is a tourist-heavy sportive, not a racing event. altitude=1 — hills top out around 700m. technicality=1 — all paved road. cultural_impact=3 for Campagnolo sponsorship and the Roman backdrop, but the event lacks the deep historical roots of Nove Colli or L'Eroica.",
+      "editorial_tier": 3,
+      "editorial_tier_label": "TIER 3",
+      "business_tier": 3,
+      "business_tier_label": "TIER 3",
+      "display_tier": 3,
+      "display_tier_label": "TIER 3",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 4,
+        "explanation": "Rome is Rome. Fiumicino (FCO) is one of Europe's best-connected airports, 30 minutes from the city center. Ciampino (CIA) handles budget airlines. The city has thousands of hotels at every price point. Public transport, taxis, and ride-shares are abundant. The start at Via dei Fori Imperiali is in the absolute center of the city — walkable from most hotels in the historic center. The Caracalla Village Expo is a short walk from the Colosseum area. Italy's rail network connects Rome to everywhere. For an international participant, the travel logistics could not be simpler."
+      },
+      "length": {
+        "score": 3,
+        "explanation": "123 km with 2,000m of climbing is a proper gran fondo — a full day's effort for most recreational riders, a half-day hammer for strong ones. The Medio Fondo at 62 km offers a genuine shorter alternative. Neither distance is extreme. The challenge comes from the concentrated climbing in the Castelli Romani rather than from raw distance. For comparison, Nove Colli is 200 km with nearly double the climbing. This is the approachable end of the Italian gran fondo spectrum."
+      },
+      "technicality": {
+        "score": 1,
+        "explanation": "All paved throughout. The steepest gradients (18% on the Rostrum) demand low gearing and seated climbing technique, but there is nothing technically difficult about the route. The roads through Rome are smooth, the Castelli Romani climbs are on well-maintained provincial roads, and the descents are straightforward. Brief cobblestone sections near the Fori Imperiali are aesthetic, not technical. Any competent road cyclist can handle this course."
+      },
+      "elevation": {
+        "score": 3,
+        "explanation": "2,000 meters (6,560 feet) of climbing across 123 km, concentrated in four timed climbs plus rolling terrain. The Murus at Rocca di Papa (10.3% average, 16% max) and the Rostrum at Montecompatri (12% average, 18% max) are genuinely steep walls. Rocca Priora at 6 km is the longest sustained effort. But the total volume is modest by Italian gran fondo standards — Nove Colli has 3,800m, Maratona dles Dolomites has 4,190m. The climbs are punchy and intense but brief."
+      },
+      "climate": {
+        "score": 2,
+        "explanation": "October in Rome is pleasant cycling weather. Highs of 22C, lows of 13C, moderate humidity. The 'ottobrate' — warm October days — are a Roman tradition. This is not a climate challenge. Rain is possible but not extreme (88mm across 7 days for the whole month). The morning start is cool, the midday return is warm. Compared to the Galibier in September, an April Paris-Roubaix, or any Australian summer event, the climate here is benign. A 2 reflects comfortable conditions that add no meaningful difficulty."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "The Castelli Romani are volcanic hills southeast of Rome. The highest point on the route is approximately 700m above sea level — the Rocca Priora area. Altitude is completely irrelevant. Oxygen saturation is identical to sea level. These are hills in the suburban fringe of a Mediterranean capital, not mountain passes."
+      },
+      "adventure": {
+        "score": 4,
+        "explanation": "This is where the Granfondo Campagnolo Roma earns its keep. You start at the Colosseum. At dawn. On a bicycle. You ride through the Roman Forum, past 2,000-year-old ruins, on roads cleared of traffic. Then you climb into the Castelli Romani — the volcanic hills where Roman aristocrats built their summer villas, where Lake Albano fills an ancient crater, where Frascati wine has been made for centuries. You finish at the Terme di Caracalla — the ruins of a 3rd-century Roman bath complex. The cycling itself is unremarkable. The setting is extraordinary."
+      },
+      "prestige": {
+        "score": 3,
+        "explanation": "Campagnolo is cycling royalty — the component maker that defined the Italian bicycle for a century. Having their name on a gran fondo carries weight. But the event itself, founded in 2012, lacks the deep roots of Italian cycling institutions. The 2019 edition was cancelled 24 hours before the start due to municipal permit failures — a prestige-damaging incident. The post-pandemic continuity has been uncertain. Campagnolo's brand gives this a floor of credibility, but the event's organizational track record prevents it from joining the top tier of Italian gran fondos."
+      },
+      "race_quality": {
+        "score": 3,
+        "explanation": "When it runs, the Granfondo Campagnolo Roma is well-organized: timed climbs, professional timing, closed roads through Rome, a substantial expo village at Caracalla. The Campagnolo branding extends to event production quality. Feed zones are adequate. However, the 2019 cancellation (24 hours before the start, due to lack of municipal agreements) revealed serious organizational fragility. Events that cancel the day before lose the benefit of the doubt on 'race quality.' The event earns a 3 — competent when running, but with a documented reliability issue."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "The experience is the entire point. Departing the Colosseum at 7:15 AM with 5,000 cyclists, riding through the Roman Forum as the morning light hits the ancient columns, then escaping Rome into the green volcanic hills of the Castelli Romani. Lake Albano — a crater lake — is stunning. The timed climbs add structure and purpose. The return to Rome, finishing at the Terme di Caracalla, closes the loop with another dose of ancient grandeur. The cycling is honestly mid-tier. The experience of riding a bicycle through Rome on closed roads is top-tier."
+      },
+      "community": {
+        "score": 3,
+        "explanation": "The Caracalla Village Expo draws 40,000+ visitors over three days — a substantial cycling festival with Italian food, bike culture, and sponsor activations. The field of 5,000-6,000 riders from 50+ countries creates an international atmosphere. But the community lacks the deep identity of heritage events. There is no 55-year tradition like Nove Colli, no iconic jersey, no generational repeat-rider culture. The community is enthusiastic but transient — many riders come once for the Rome experience rather than returning annually."
+      },
+      "field_depth": {
+        "score": 2,
+        "explanation": "This is primarily a tourist sportive. The international draw is Rome, not racing. Italian club riders who want competitive depth ride Nove Colli, Maratona, or the Sportful Dolomiti Race. The front of the Granfondo Roma field has capable riders, but the competitive depth is shallow compared to established northern Italian events. The timed climbs provide structure, but the majority of participants are there for the experience of riding through Rome."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "EUR55-75 for a 123 km gran fondo with closed roads through Rome, four timed climbs, and a substantial expo village is reasonable value. The Campagnolo branding adds production quality that justifies the price. But you are not getting the collector's jersey of Nove Colli or the mountain grandeur of Maratona dles Dolomites. The value is fair — you pay for a well-produced urban gran fondo with a famous sponsor. Not a bargain, not a ripoff."
+      },
+      "expenses": {
+        "score": 2,
+        "explanation": "Rome is one of Europe's most expensive cities for accommodation, especially in October when tourism is still active. Hotels near the historic center run EUR150-300/night. The flight to FCO or CIA is reasonable from anywhere in Europe, more expensive from North America. Italian food is excellent but Rome restaurants are not cheap. Budget EUR1,200-2,000 from Europe, EUR2,000-3,000+ from the US for a 3-5 day trip. The expense is Rome, not the event — but you are going to Rome, and Rome is not cheap."
+      }
+    },
+    "biased_opinion": {
+      "verdict": "The Roman Holiday",
+      "summary": "The Granfondo Campagnolo Roma is not a great race. It is a great experience wrapped in a decent race. You start at the Colosseum at dawn. You ride through the Roman Forum on closed roads. You climb into the Castelli Romani — the volcanic hills where ancient Romans retreated from the summer heat, where Frascati wine comes from, where Lake Albano fills a crater that last erupted 36,000 years ago. You ride walls as steep as 18%. You finish at the ruins of the Terme di Caracalla. Campagnolo puts its name on it, which means Italian cycling heritage is baked into the experience. The cycling itself? It is 123 km with 2,000m of climbing — honest but unremarkable by Italian gran fondo standards. The setting is what makes it.",
+      "strengths": [
+        "Starting at the Colosseum and riding through the Roman Forum at dawn — genuinely once-in-a-lifetime",
+        "Campagnolo sponsorship brings legitimate Italian cycling heritage and production quality",
+        "The Castelli Romani climbs are short, steep, and beautiful — volcanic hills with crater lakes and vineyards",
+        "October in Rome is near-perfect cycling weather — the 'ottobrate' at their finest",
+        "Rome is Rome — extend the trip and the cycling is just one layer of a world-class destination"
+      ],
+      "weaknesses": [
+        "The 2019 edition was cancelled 24 hours before the start due to permit failures — a serious organizational black mark",
+        "Post-pandemic continuity has been uncertain — the event's long-term future is not guaranteed",
+        "Rome is expensive: accommodation, food, and transport add up quickly",
+        "Field depth is shallow — this is a tourist sportive, not a competitive racing event",
+        "123 km with 2,000m climbing is honest but unexceptional — northern Italian GFs are significantly harder"
+      ],
+      "bottom_line": "Come for Rome, stay for the Colosseum start, enjoy the Castelli Romani hills, appreciate the Campagnolo heritage. Do not come expecting a world-class racing event or Alpine-scale suffering. The Granfondo Campagnolo Roma is the best way to ride a bicycle through one of the world's great cities. That is enough."
+    },
+    "final_verdict": {
+      "score": "59 / 100",
+      "one_liner": "Start at the Colosseum. Climb the Castelli Romani. Finish at Caracalla. Campagnolo's Roman holiday on two wheels.",
+      "should_you_race": "Yes if riding through Rome on closed roads — past the Colosseum, through the Forum, finishing at Caracalla — is on your cycling bucket list. Yes if you want a well-produced autumn gran fondo in one of the world's great cities. Skip if you want serious climbing or competitive depth — Nove Colli, Maratona, or the Sportful Dolomiti Race are better choices. Skip if the organizers have not confirmed the current edition is actually running.",
+      "alternatives": "If you want Italian cycling heritage with harder climbing: Gran Fondo Nove Colli (200 km, 9 hills, since 1971). If you want a Dolomites challenge: Maratona dles Dolomites (7 passes, 4,190m climbing). If you want another Italian brand gran fondo: Granfondo Pinarello in Treviso.",
+      "alternative_slugs": [
+        "nove-colli",
+        "maratona-dles-dolomites",
+        "granfondo-pinarello"
+      ]
+    },
+    "logistics": {
+      "airport": "Rome Fiumicino (FCO) — 30 minutes to city center (major international hub, direct flights from everywhere). Rome Ciampino (CIA) — 25 minutes (budget airlines, Ryanair hub).",
+      "lodging_strategy": "Stay in Rome's historic center within walking distance of the Fori Imperiali start. The Colosseum/Monti area and Trastevere are excellent bases — hotels range from EUR150-300/night in October. For budget options, look at Testaccio or San Giovanni neighborhoods (EUR80-150/night, 15-20 minutes by metro). Book 3-6 months ahead for October — it is peak shoulder season in Rome.",
+      "food": "Rome needs no food advice. Cacio e pepe, carbonara, supplì, pizza al taglio, espresso at every corner. For carb loading: Roscioli, Da Enzo in Trastevere, Tonnarello. The Castelli Romani produce Frascati wine and porchetta — the post-ride meal at a Castelli trattoria is mandatory. The Caracalla expo village has food vendors for the event weekend.",
+      "packet_pickup": "Village Expo at Terme di Caracalla, typically opens 2-3 days before race day. The expo has historically drawn 40,000+ visitors and features Campagnolo's latest products, bike brands, Italian cycling culture, and food vendors. Registration bib pickup is straightforward given Italian gran fondo experience.",
+      "parking": "Driving in central Rome is not recommended. Use public transport (Metro B to Colosseo) or walk from your hotel. If driving, park at peripheral lots and take the metro. The event start at Via dei Fori Imperiali is in a car-restricted zone.",
+      "official_site": "https://www.granfondoroma.com/"
+    },
+    "history": {
+      "founded": 2012,
+      "founder": "RCS Sport / Campagnolo (partnership between Italy's leading sports event company and the legendary component maker)",
+      "origin_story": "The Granfondo Campagnolo Roma was born in 2012, when Campagnolo — the Vicenza-based component maker that has equipped Tour de France, Giro d'Italia, and World Championship winners since 1933 — partnered to create a gran fondo worthy of the Eternal City. The inaugural edition attracted 5,500 riders from 20 countries, proving that Rome's ancient streets could host a modern cycling mass-start event. The concept was ambitious: close the roads around the Colosseum and the Roman Forum, then send thousands of cyclists into the volcanic hills of the Castelli Romani before returning to the Terme di Caracalla. The event grew quickly — a 7,500-rider cap was introduced for the 2013 edition with 2,000 slots reserved for international participants. The brand extended to Granfondo Campagnolo events in San Diego and New York. The 2019 edition suffered a devastating blow when it was cancelled just 24 hours before the start due to failure to secure municipal route agreements — a logistical failure that damaged the event's reputation. The COVID pandemic further disrupted continuity. The event's future editions remain subject to the complex bureaucracy of closing roads in a capital city.",
+      "notable_moments": [
+        "2012: Inaugural edition — 5,500 riders from 20 countries ride through Rome for the first time",
+        "2013: Field cap raised to 7,500 with 2,000 international slots — demand outstrips supply",
+        "Caracalla Village Expo grows to 40,000+ attendees — becomes a major Roman cycling festival",
+        "Brand extends to Granfondo Campagnolo events in San Diego and New York",
+        "Damiano Cunego (Giro d'Italia champion) serves as event ambassador and route consultant",
+        "2019: Edition cancelled 24 hours before the start — municipal permits not secured",
+        "COVID pandemic (2020-2021) disrupts continuity alongside many global cycling events"
+      ],
+      "reputation": "A glamorous gran fondo in an extraordinary setting, backed by cycling's most storied component maker. The reputation is built on Rome's iconic start, not on organizational reliability. The 2019 cancellation remains a scar."
+    },
+    "course_description": {
+      "character": "A tale of two halves: the theatrical departure through ancient Rome, then the athletic challenge of the Castelli Romani volcanic hills. The opening kilometers are pure spectacle — riding past the Colosseum, through the Roman Forum, and out of the city on closed roads. The route then turns southeast toward the Alban Hills, a cluster of volcanic ridges, crater lakes, and medieval hilltop towns that have served as Rome's countryside retreat since antiquity. Four timed climbs provide the competitive structure: the Panoramica along Lake Albano, the savage Murus at Rocca di Papa, the sustained Rocca Priora ascent, and the vicious Rostrum wall at Montecompatri. Between climbs, the roads roll through vineyards, chestnut forests, and small towns. The return to Rome delivers you to the Terme di Caracalla — the ruins of Emperor Caracalla's 3rd-century bath complex.",
+      "suffering_zones": [
+        {
+          "mile": 30,
+          "label": "Panoramica — Lake Albano",
+          "desc": "The first timed climb rises along the rim of Lake Albano — a volcanic crater lake that fills the caldera of an ancient eruption. 2.3 km at 5.9% average with a maximum of 8%. This is the warm-up climb — steady, scenic, and just steep enough to separate the groups. Views across the crater lake are spectacular if you have the composure to look.",
+          "terrain_detail": "2.3 km, 5.9% avg, 8% max — volcanic crater rim road",
+          "named_section": "Panoramica"
+        },
+        {
+          "mile": 35,
+          "label": "Murus — Rocca di Papa",
+          "desc": "The signature climb. 1.1 km at 10.3% average with a maximum of 16%. Rocca di Papa is a medieval hilltop town perched on the outer slopes of the Alban Hills, and the road up to it is a wall. Short enough that you can see the top when you start, steep enough that you wonder if you will reach it. The Murus rewards explosive power — sit down, stay in the saddle, grind. Or stand and attack. There is no comfortable way up 16%.",
+          "terrain_detail": "1.1 km, 10.3% avg, 16% max — the signature wall",
+          "named_section": "Murus (Rocca di Papa)"
+        },
+        {
+          "mile": 42,
+          "label": "Rocca Priora — Trofeo Corriere dello Sport",
+          "desc": "The longest climb on the route. 6 km at 6.3% average with a maximum of 13%. After the explosive violence of the Murus, Rocca Priora demands sustained threshold effort. The gradient is more manageable but the climb keeps going — six kilometers of steady uphill through chestnut forests and the town of Rocca Priora. This is where diesel climbers recover from the Murus and time triallists find their rhythm.",
+          "terrain_detail": "6 km, 6.3% avg, 13% max — sustained climbing through forests",
+          "named_section": "Rocca Priora"
+        },
+        {
+          "mile": 50,
+          "label": "Rostrum — Montecompatri",
+          "desc": "The cruelest climb on the course. 720 meters at 12% average with a maximum of 18%. This is not a climb — it is a wall that arrives when your legs are already deep in debt from the Murus and Rocca Priora. Less than a kilometer, but at 18% maximum gradient on tired legs, every meter is earned. The Rostrum is where the cumulative damage of the Castelli Romani hills becomes undeniable.",
+          "terrain_detail": "0.72 km, 12% avg, 18% max — brutal short wall",
+          "named_section": "Rostrum (Montecompatri)"
+        }
+      ],
+      "signature_challenge": "The Murus at Rocca di Papa — 1.1 km at 10.3% average with 16% maximum. It is the climb that defines the Granfondo Campagnolo Roma, the one that separates riders who came for the Colosseum photos from those who came to race. But the real test is the cumulative effect: Panoramica to soften you, Murus to break you, Rocca Priora to grind you down, Rostrum to finish you off. Four climbs in 25 km, none longer than 6 km, all of them steep."
+    },
+    "guide_variables": {
+      "race_name": "Granfondo Campagnolo Roma",
+      "race_distance": "76 miles",
+      "race_elevation": "6,560 feet",
+      "race_date": "October",
+      "race_location": "Rome, Lazio, Italy",
+      "race_terrain": "Paved Italian roads — punchy volcanic hill climbs in the Castelli Romani with gradients up to 18%",
+      "race_weather": "Early October Rome — pleasant (13-22C) with mild humidity and low rain probability",
+      "race_challenges": [
+        "Four timed climbs with gradients up to 18% (Rostrum) and 16% (Murus)",
+        "Concentrated climbing: ~2,000m of gain in a 25 km stretch through the Castelli Romani",
+        "Short, steep walls that reward explosive power over steady climbing",
+        "Navigating the return to Rome — fatigue on unfamiliar urban roads"
+      ],
+      "altitude_section": false,
+      "altitude_feet": 0
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Steep gradient training — repeated efforts on 10-18% grades",
+        "by_when": "Week 6",
+        "why": "The Murus (16% max) and Rostrum (18% max) are genuine walls. Your standard 5-6% climbing legs will not prepare you for holding power at these gradients. Find the steepest local climb and do repeated efforts — 3-5 minutes at threshold on 10%+ gradients. If you do not have steep terrain, use a smart trainer set to simulate the profiles. Gearing: bring at minimum a 34x32, ideally a 34x34."
+      },
+      {
+        "requirement": "Cumulative climbing endurance — 4+ climbs in a single training ride",
+        "by_when": "Week 7",
+        "why": "The four timed climbs come in rapid succession through the Castelli Romani. Your body needs to recover on the descents and go hard again immediately. Train with multi-climb days: ride your local climbs in a circuit, 4-5 times, with short recovery between. The third and fourth climbs must be ridden hard, not just survived."
+      },
+      {
+        "requirement": "Full 120 km dress rehearsal with climbing",
+        "by_when": "Week 9",
+        "why": "123 km with 2,000m of climbing is a 4-6 hour effort. Test your nutrition, pacing, and hydration at this duration. The first 30 km through Rome are flat — you will be tempted to ride fast in the excitement. The climbs start at km 30-50. If you burn matches early, the Rostrum at km 50 will end you."
+      }
+    ],
+    "citations": [
+      {
+        "url": "https://www.granfondoroma.com/",
+        "title": "Granfondo Campagnolo Roma — Official Site",
+        "category": "official"
+      },
+      {
+        "url": "https://www.cyclinglocations.com/gran-fondo-roma/",
+        "title": "Gran Fondo Campagnolo Roma — Cycling Locations (Registration, Route, Climbs)",
+        "category": "review"
+      },
+      {
+        "url": "https://www.bikeradar.com/features/routes-and-rides/granfondo-campagnolo-roma-preview",
+        "title": "Granfondo Campagnolo Roma Preview — BikeRadar",
+        "category": "review"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Contents/Index/1617/giro-d-italia-champion-damiano-cunego-previews-the-granfondo-campagnolo-roma-routes",
+        "title": "Damiano Cunego Previews the Granfondo Campagnolo Roma Routes — Gran Fondo Guide",
+        "category": "review"
+      },
+      {
+        "url": "https://endurance.biz/2019/industry-news/by-the-numbers-granfondo-campagnolo-roma-vii/",
+        "title": "By the Numbers: Granfondo Campagnolo Roma VII — Endurance.biz",
+        "category": "review"
+      },
+      {
+        "url": "http://italiancyclingjournal.blogspot.com/2012/10/granfondo-campagnolo-roma-huge-success.html",
+        "title": "GranFondo Campagnolo Roma: Huge Success (2012 Inaugural) — Italian Cycling Journal",
+        "category": "review"
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "medium",
+      "validation_status": "validated",
+      "research_strength": "B",
+      "sources_count": 6,
+      "last_updated": "2026-02-27"
+    }
+  }
+}

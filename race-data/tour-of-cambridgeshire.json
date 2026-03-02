@@ -1,0 +1,325 @@
+{
+  "race": {
+    "name": "Tour of Cambridgeshire",
+    "slug": "tour-of-cambridgeshire",
+    "display_name": "Tour of Cambridgeshire",
+    "tagline": "The UK's only UCI-sanctioned closed-road gran fondo. 7,000 riders across the Cambridgeshire fenlands where wind, not elevation, is the enemy.",
+    "vitals": {
+      "distance_mi": 82,
+      "elevation_ft": 1500,
+      "location": "East of England Showground, Peterborough, Cambridgeshire, England",
+      "location_badge": "PETERBOROUGH, ENGLAND",
+      "date": "First weekend of June (final edition: June 2-4, 2023). EVENT DISCONTINUED.",
+      "date_specific": "Final edition: June 2-4, 2023. No future editions planned.",
+      "terrain_types": [
+        "Flat fenland roads",
+        "Exposed agricultural plateaus",
+        "Village lanes",
+        "Disused airfield runway",
+        "Concrete farm tracks"
+      ],
+      "field_size": "~7,000+ riders across all events (54 countries represented in 2022)",
+      "start_time": "Saturday: Time Trial from 9:00 AM. Sunday: Gran Fondo and Sportive waves from early morning.",
+      "registration": "Was online via tourofcambridgeshire.com. Gran Fondo entry: ~GBP90. Sportive: ~GBP60. EVENT NO LONGER ACTIVE.",
+      "prize_purse": "None (UCI qualification times for Gran Fondo World Championships — top 25% of age/gender categories)",
+      "aid_stations": "Up to 4 pitstops along the course with food, drinks, and mechanical support. Full medical coverage on course.",
+      "cutoff_time": "Course support closed by 8:15 PM Sunday. Intermediate cutoffs at distance checkpoints.",
+      "lat": 52.5409,
+      "lng": -0.3205,
+      "distance_options": [
+        "Gran Fondo: 132 km (82 mi), ~460 m gain — UCI qualifier, closed roads, competitive categories",
+        "Time Trial: 26 km (16 mi), ~185 m gain — individual start, UCI Chrono qualifier (Saturday)",
+        "Sportive 100: 100 miles, ~900 m gain — closed roads, non-competitive",
+        "Sportive 70: 70 miles, ~700 m gain — closed roads, non-competitive",
+        "Sportive 50: 50 miles, ~460 m gain — closed roads, entry-level distance"
+      ],
+      "entry_fee": "~GBP60-90 depending on event category"
+    },
+    "climate": {
+      "primary": "English early summer — mild temperatures, significant wind exposure",
+      "description": "Early June in Cambridgeshire delivers some of the most reliable cycling weather England has to offer: 15-21C (59-70F) with long daylight hours and relatively low rainfall compared to the UK average. The Fens are drier than most of England due to their low altitude and easterly position — by the time prevailing southwesterly winds reach Cambridgeshire, they have already dumped their moisture on higher ground further west. But drier does not mean calm. The flat, treeless fenland is brutally exposed to wind. On a still day, this course is fast. On a windy day — which is most days — it becomes a grinding, morale-sapping test of sustained power output against an invisible gradient.",
+      "challenges": [
+        "Wind: the defining weather challenge. Flat, exposed fenland offers zero shelter from crosswinds and headwinds",
+        "Variable English weather: rain showers possible even in June, turning exposed roads unpleasant",
+        "Sun exposure on open fenland with no tree cover — sunburn risk on clear days",
+        "Morning chill for early start waves, warming to comfortable temperatures by midday"
+      ]
+    },
+    "terrain": {
+      "primary": "Flat fenland roads with persistent wind exposure",
+      "surface": "Entirely paved roads on fully closed public highways. Surface quality is generally good English tarmac, with sections of rougher concrete farm tracks and one stretch across a disused airfield runway that adds textural variety. The defining characteristic is not the surface but the exposure: the Cambridgeshire Fens are among the flattest landscapes in Britain, much of it at or below sea level, with virtually no hedgerows or trees to break the wind. The route passes through small villages where residents line the streets, across vast open agricultural plains, through an industrial estate, and along drainage channels that define the fenland geography. A few short rises near Folksworth and Chesterton at the western end of the course provide the closest thing to climbing — gentle undulations more akin to Belgium than the British hills.",
+      "technical_rating": 1,
+      "features": [
+        "Fenland exposure: miles of dead-flat, treeless agricultural land where crosswinds hit unshielded",
+        "Village sections: narrow lanes through Folksworth, Ramsey St Marys, Whittlesey, and Yaxley with cheering residents",
+        "Disused runway: a distinctive section across an old airfield — arrow-straight and windswept",
+        "Concrete farm tracks: rougher surface sections that break the monotony of smooth tarmac",
+        "Gentle rises near Folksworth and Chesterton: the only gradients on course, topping out at 3-4%",
+        "Drainage channels and dykes: the engineered waterways that define the fenland landscape line the route"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 56,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "logistics": 4,
+      "length": 3,
+      "technicality": 1,
+      "elevation": 1,
+      "climate": 2,
+      "altitude": 1,
+      "adventure": 2,
+      "prestige": 3,
+      "race_quality": 4,
+      "experience": 3,
+      "community": 4,
+      "field_depth": 3,
+      "value": 3,
+      "expenses": 3,
+      "cultural_impact": 2,
+      "tier_note": "T3 by raw score (56). Prestige=3 — no override applies. The event's UCI sanctioning and closed-road format were unique in UK cycling, but the flat fenland terrain and 2023 discontinuation limit its tier ceiling.",
+      "score_note": "Sum of 14 criteria = 37. cultural_impact = 2. Total = 39. (39/70)*100 = 55.71, rounded = 56. Altitude=1 (course at or below sea level). Elevation=1 (460m/1500ft on Gran Fondo — genuinely flat). Technicality=1 (flat paved roads). Prestige=3 (UCI Gran Fondo qualifier, UK's only closed-road UCI event, but not globally iconic and now defunct). Experience=3 (closed roads are extraordinary in UK context, but fenland terrain is agricultural rather than scenic).",
+      "tier_override_reason": null,
+      "editorial_tier": 3,
+      "editorial_tier_label": "TIER 3",
+      "business_tier": 3,
+      "business_tier_label": "TIER 3",
+      "display_tier": 3,
+      "display_tier_label": "TIER 3",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 4,
+        "explanation": "The East of England Showground is a purpose-built events venue with ample parking, expo space, and infrastructure for 7,000+ riders. Peterborough is well-connected: 50 minutes from London King's Cross by fast train, easy motorway access via the A1(M), and practical driving distance from most of England. Golazo's organization was professional — staggered start waves, chip timing, closed roads managed in coordination with local councils and police. The multi-day festival format with camping options at the showground eliminated the need for separate accommodation for many riders. Packet pickup and expo on-site. The closed-road logistics alone were a remarkable achievement in UK cycling — coordinating road closures across dozens of villages and hundreds of miles of public highway."
+      },
+      "length": {
+        "score": 3,
+        "explanation": "The Gran Fondo at 132 km (82 miles) is a genuine endurance test, though the lack of climbing means it is more of a sustained power effort than a survival challenge. The sportive options at 50, 70, and 100 miles provide legitimate scaling, and the Saturday time trial at 16 miles adds a completely different discipline. No single distance option is extreme — this is not a 200-mile ultra. The length challenge here is about sustained output against wind, not distance or vertical."
+      },
+      "technicality": {
+        "score": 1,
+        "explanation": "This is flat paved road riding on closed public highways. The most technical features are a stretch of rougher concrete farm track and a disused airfield runway. There is no off-road riding, no meaningful climbing, no descending, and no surface that demands anything beyond standard road bike handling. The challenge is entirely aerobic — managing wind, maintaining pace, and riding in a group. Technicality is not a factor."
+      },
+      "elevation": {
+        "score": 1,
+        "explanation": "The Cambridgeshire Fens are among the flattest landscapes in Britain, with significant areas at or below sea level. The Gran Fondo route accumulates roughly 460 meters (1,500 feet) of elevation gain across 132 km — that is pancake flat by any cycling standard. The 100-mile sportive manages about 900 meters (3,000 feet) only because it covers more distance through the gently undulating terrain near Folksworth. The few short rises on course barely register as climbs. What this course lacks in gradient it compensates for with wind — but the elevation score is what it is."
+      },
+      "climate": {
+        "score": 2,
+        "explanation": "English June is mild and the Fens are drier than the national average, which sounds pleasant until you factor in wind. The flat, treeless fenland is one of the most wind-exposed cycling environments in Britain. A calm day at the Tour of Cambridgeshire is a fast, enjoyable ride. A windy day — which is statistically more likely — turns the course into a relentless slog against invisible resistance. The temperature range (15-21C) is comfortable for cycling, but the unpredictability of English weather means rain is always plausible. The climate score reflects the wind exposure more than the temperature."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "The course traverses terrain that is literally at or below sea level. The Cambridgeshire Fens were reclaimed from marshland and in places sit below the surrounding waterways. The highest point on the route might reach 30 meters above sea level near Folksworth. Altitude is categorically, absolutely, definitively not a factor."
+      },
+      "adventure": {
+        "score": 2,
+        "explanation": "The fenland landscape has a stark, austere beauty that rewards those who appreciate it — vast skies, geometric drainage channels, lonely church spires rising from flat horizons, the engineered precision of a landscape wrested from the sea. But it is not conventionally scenic or adventurous. This is agricultural England at its most functional. The disused runway and concrete track add character, and the village sections with cheering locals provide atmosphere. But compared to the mountains of Wales, the moors of Yorkshire, or the coasts of Cornwall, the Cambridgeshire Fens are not where you go for adventure. The adventure here is in the concept: closed roads, UCI racing, a unique competitive format. Not in the landscape."
+      },
+      "prestige": {
+        "score": 3,
+        "explanation": "The Tour of Cambridgeshire held a unique position in British cycling: the UK's only UCI Gran Fondo World Series qualifier, and the country's only fully closed-road mass-participation cycling event. That is genuinely prestigious within the UK cycling ecosystem. Internationally, it was well-regarded in the UCI Gran Fondo circuit and drew riders from 54 countries. But prestige=3 rather than 4 because the event ran for only seven editions (2015-2023), it never became a genuinely iconic global event, and its 2023 discontinuation limits its ongoing legacy. It was not the Etape du Tour or L'Eroica. It was important, ground-breaking for UK cycling, and now it is finished."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "UCI sanctioning brought genuine competitive infrastructure: chip timing, individual start gates for the Gran Fondo, age-group classifications, qualification times for the World Championships, and anti-doping protocols. Golazo Cycling organized to continental European standards — start ramp for the time trial, lead cars for Gran Fondo groups, professional medical and mechanical support, and the logistical triumph of closing hundreds of miles of English public roads. The competitive format — top 25% of each age/gender category qualifying for Worlds — created genuine racing tension unusual in UK sportives. Deducting from 5 only because the sportive element (50/70/100 miles) was less competitively structured."
+      },
+      "experience": {
+        "score": 3,
+        "explanation": "The core experience was unlike anything else in UK cycling: riding on completely traffic-free public roads at racing speed through the English countryside. For British riders accustomed to dodging cars on every training ride, this alone was revelatory. The competitive Gran Fondo, with UCI start gates and qualification stakes, added genuine racing excitement. The time trial on Saturday with its indoor start ramp and individual timing was a uniquely professional experience for amateur riders. Against that: the terrain is flat fenland, the scenery is agricultural, and the wind can make the experience more exhausting than exhilarating. The festival village at the showground, camping, expo, and multi-event format created a weekend atmosphere. It was special for what it represented, even if the roads themselves were not."
+      },
+      "community": {
+        "score": 4,
+        "explanation": "7,000+ riders from 54 countries created a genuine international cycling community. The multi-event format — time trial Saturday, Gran Fondo and sportives Sunday, plus team time trials, circuit races, and family rides — meant the weekend attracted everyone from elite amateurs chasing UCI qualification times to casual riders doing their first sportive on closed roads. The camping at the showground fostered a festival community rare in UK cycling. Village residents along the route turned out to cheer, creating a mini-Tour de France atmosphere through English market towns. The event's UK cycling community presence was outsized — it was the one event that felt European."
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "The UCI qualification structure created a genuinely competitive front end to the Gran Fondo: licensed riders chasing top-25% qualification times in their age groups produced racing of real intensity. Riders from 54 countries meant the field included strong club racers from across Europe. The 150-rider-per-age-group limit in the competitive Gran Fondo maintained quality. But 7,000+ participants across all events means the majority were sportive riders with no competitive ambitions, and the UK amateur racing scene, while passionate, has less depth than the Continental European field in most UCI qualifiers."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "GBP60-90 for a closed-road, UCI-sanctioned event with chip timing, aid stations, medical support, and professional organization was reasonable by UK sportive standards — comparable to or slightly above the price of major UK sportives like the RideLondon, which also offers closed roads. The time trial entry added additional cost for the full weekend. For international riders, the value proposition weakened — traveling to Peterborough for flat fenland riding was a harder sell than traveling to the Italian Dolomites or the Pyrenees. Within the UK cycling market, fair value. On the international stage, middling."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Peterborough is affordable by UK standards. Hotels from GBP35-100/night, with camping available at the showground for those bringing tents. The city is 50 minutes from London by fast train, making it accessible without a car. For international visitors: London Stansted (51 km) and East Midlands Airport are the nearest airports with budget carrier connections. Birmingham Airport is 90 minutes by car. The UK is not cheap for visitors, but Peterborough is far more affordable than London. Budget GBP200-400 for a race weekend domestically, GBP500-1,000 from continental Europe."
+      }
+    },
+    "biased_opinion": {
+      "verdict": "The Flat Track Bully",
+      "summary": "The Tour of Cambridgeshire did something nobody else managed in British cycling: it closed the roads. Not just a city circuit or a London bypass, but hundreds of miles of English country lanes, turned over entirely to cyclists for a weekend of UCI-sanctioned racing across the Cambridgeshire Fens. The terrain was flat, the scenery was agricultural, and the wind was relentless — but the experience of riding on fully closed British roads, with UCI qualification times and a competitive Gran Fondo format, was unlike anything else available on these islands. Golazo Cycling built it in 2015, grew it to 7,000 riders from 54 countries, brought the UCI Gran Fondo World Championships to Britain, and then shut the door in 2023 having achieved what they set out to do.",
+      "strengths": [
+        "Closed roads: the only fully closed-road UCI cycling event in the UK — transformative for British riders accustomed to traffic",
+        "UCI qualification: genuine competitive stakes with top 25% qualifying for Gran Fondo World Championships",
+        "Multi-event festival: time trial, Gran Fondo, sportives at 50/70/100 miles, team time trials, circuit races, family rides",
+        "Community: 7,000+ riders from 54 countries with camping and expo at the showground"
+      ],
+      "weaknesses": [
+        "Discontinued: the final edition ran in June 2023. There are no future editions planned.",
+        "Terrain: flat fenland is fast but not scenic. The landscape is agricultural and functional, not dramatic.",
+        "Wind: the Fens are brutally exposed. A headwind day turns the course from fast to grinding.",
+        "Limited legacy: seven editions from 2015-2023 was not enough to build the deep cultural roots of established European gran fondos"
+      ],
+      "bottom_line": "A ground-breaking event for UK cycling that proved closed-road mass-participation racing was possible in Britain. The flat fenland terrain and 2023 discontinuation prevent it from reaching the top tier, but what Golazo built in Cambridgeshire was genuinely important. It just did not last long enough."
+    },
+    "final_verdict": {
+      "score": "56 / 100",
+      "one_liner": "The UK's only closed-road UCI gran fondo: 7,000 riders, 132 flat kilometres, and all the wind the Cambridgeshire Fens could muster. Ran 2015-2023. Now finished.",
+      "should_you_race": "You cannot — the event ended in 2023. If it ever returns: yes if you are a UK-based rider who wants UCI qualification on closed roads without leaving the country. Yes if you appreciate the rare luxury of traffic-free riding in England. Skip if you need mountains, scenery, or terrain that tests anything beyond your FTP and your ability to hold an aerodynamic position in a crosswind.",
+      "alternatives": "For UCI Gran Fondo qualifying in Europe: GFNY New York (flagship gran fondo), Granfondo Stelvio or any UCI World Series event. For closed-road sportives in the UK: RideLondon (100 miles, partially closed roads through Surrey and Essex). For flat, wind-exposed racing: the Ronde van Drenthe or similar Dutch sportives. For competitive UK sportives: the Etape Cymru, Tour of the Peak, or Dragon Ride.",
+      "alternative_slugs": [
+        "gfny-new-york"
+      ]
+    },
+    "logistics": {
+      "airport": "London Stansted (STN) — 51 km, best budget carrier hub. East Midlands (EMA) — 90 min drive. Birmingham (BHX) — 90 min. London Heathrow/Gatwick — 2+ hours. For domestic UK riders: Peterborough station, 50 min from London King's Cross by fast train.",
+      "lodging_strategy": "Stay in Peterborough for maximum convenience — the East of England Showground is on the western edge of the city with easy access. Hotels from GBP35-100/night: Holiday Inn Peterborough-West, Premier Inn Ferry Meadows, and The Bull Hotel in the city center are reliable options. Camping was available at the showground itself, which eliminated logistics entirely. For a more characterful stay: the village of Stilton (home of the cheese, 10 miles south) has the Bell Inn. Budget riders found good value in the B&Bs scattered around Yaxley, Farcet, and Whittlesey.",
+      "food": "Peterborough is not a culinary destination, but it serves honest English fare. Pre-race carb loading at any of the city center restaurants along Bridge Street and Cathedral Square. The event village had food vendors. Post-race: the Charters floating bar-restaurant on the River Nene is a local institution. Stilton cheese comes from the village on the course — it would be rude not to try it. English breakfast the morning of is non-negotiable.",
+      "packet_pickup": "East of England Showground (East of England Arena), Oundle Road, Alwalton, Peterborough PE2 6XE. On-site expo and registration. Saturday for Sunday sportive events.",
+      "parking": "On-site at East of England Showground — well-signposted from the A1(M) and A605. Parking charges applied. Arrive early for Sunday events. The showground has massive capacity but 7,000 riders fill it.",
+      "official_site": "https://www.tourofcambridgeshire.com"
+    },
+    "history": {
+      "founded": 2015,
+      "founder": "Golazo Cycling (Malcolm Smith)",
+      "origin_story": "The Tour of Cambridgeshire launched on June 6-7, 2015, as the UK's first fully closed-road UCI Gran Fondo and UCI Time Trial event. Organized by Golazo Cycling under the direction of Malcolm Smith, the event's explicit mission was to bring continental European closed-road racing culture to Britain and ultimately to host the UCI Gran Fondo World Championships on British soil. The Cambridgeshire Fens were chosen for their flat terrain — which simplified road closure logistics — and the East of England Showground provided a purpose-built events hub. The event grew rapidly from its inaugural edition to attract 7,000+ riders from 54 countries by 2022. COVID cancelled the 2020 and 2021 editions. In 2023, with the UCI Gran Fondo World Championships hosted in Glasgow as part of the inaugural combined UCI Cycling World Championships, Golazo achieved their founding objective. They announced the 2023 edition would be the last: 'With our primary goal accomplished we feel now is the right time to close the door on the Tour of Cambridgeshire.' Seven editions. Mission complete.",
+      "notable_moments": [
+        "2015: Inaugural edition — UK's first closed-road UCI Gran Fondo. Andrew Williams wins the first Gran Fondo classification.",
+        "2017-2019: Growth to 7,000+ riders. Event becomes the UK's largest closed-road cycling festival.",
+        "2020-2021: COVID cancellations. Two editions lost.",
+        "2022: 7,000+ riders from 54 countries — the event's peak participation.",
+        "2023: Final edition. UCI Gran Fondo World Championships held in Glasgow, fulfilling Golazo's founding mission. Event discontinued."
+      ],
+      "reputation": "The event that proved closed-road mass-participation cycling was possible in Britain. A logistical and political achievement as much as a sporting one, requiring cooperation with dozens of parish councils, police forces, and local authorities to shut English public roads for amateur cyclists. Nothing like it existed before. Nothing has replaced it since."
+    },
+    "course_description": {
+      "character": "A deceptive course. The elevation profile reads like a joke — 460 meters of gain across 132 kilometres is what most cyclists accumulate on a recovery spin. But the Cambridgeshire Fens do not trade in elevation; they trade in exposure. The route leaves the East of England Showground and pushes west through the gentle undulations near Folksworth and Chesterton — the closest thing to climbing you will find — before swinging east into the open fenland. Here, the landscape drops to sea level and sometimes below. The horizon flattens to a line. Trees vanish. Hedgerows disappear. And the wind arrives. Depending on the day, that wind is a mild irritant or an omnipresent adversary that turns a 132 km flat ride into an exercise in sustained threshold power. The route threads through villages where residents line the streets — Ramsey St Marys, Pondersbridge, Whittlesey — before crossing a disused airfield runway and passing through an industrial estate near the finish. It sounds unremarkable on paper. On a windy day, you remember every metre of exposed fenland road.",
+      "suffering_zones": [
+        {
+          "mile": 5,
+          "label": "Folksworth Undulations",
+          "desc": "The opening miles head west from the showground through the gently rolling terrain near Folksworth and Chesterton. These are the only genuine gradients on the course — brief 3-4% rises through hedgerow-lined lanes that feel positively Alpine compared to what follows. Groups form, positions are established, and the racing mindset kicks in on closed roads. Enjoy the shelter while it lasts.",
+          "terrain_detail": "Gentle rolling terrain, 2-4% gradients, hedgerow shelter",
+          "named_section": "Folksworth Hills"
+        },
+        {
+          "mile": 25,
+          "label": "The Fen Opens Up",
+          "desc": "The route swings east and drops onto the true fenland. The hedgerows end. The trees end. The horizon stretches to infinity in every direction. If the wind is from the south or west, you have been sheltered until now. Here, it hits sideways or head-on and does not stop. The landscape is flat enough that you can see riders a mile ahead, which is either motivating or demoralizing depending on whether you are gaining or losing ground. Group riding becomes essential — solo efforts into a fenland headwind are exercises in futility.",
+          "terrain_detail": "Dead flat, fully exposed fenland, sea-level elevation",
+          "named_section": "The Open Fens"
+        },
+        {
+          "mile": 50,
+          "label": "The Grind",
+          "desc": "Deep in the fenland, the course passes through Ramsey St Marys, Pondersbridge, and along the drainage channels that define this engineered landscape. The terrain is mathematically flat but the accumulated wind resistance makes the legs burn. Riders who have sat in the group conserve energy; those who have been on the front are starting to pay. The pitstops along the route are welcome, but stopping in a headwind means restarting in a headwind. The concrete farm tracks add surface variety — rougher, noisier, a tactile reminder that this is not a velodrome.",
+          "terrain_detail": "Flat fenland, drainage channels, concrete track sections",
+          "named_section": "Deep Fens"
+        },
+        {
+          "mile": 70,
+          "label": "The Runway and Home",
+          "desc": "The course crosses a disused airfield runway — arrow-straight, windswept, and uniquely atmospheric. This is the Tour of Cambridgeshire's signature oddity: hundreds of cyclists racing across an abandoned runway on closed roads in the English countryside. The final 12 miles swing back through Whittlesey and Yaxley toward the showground. Village support picks up, the finish line beckons, and the cumulative fatigue of 100+ km against the wind manifests as a final test of sustained power. The last miles feel disproportionately long.",
+          "terrain_detail": "Disused runway, village roads, final approach to showground",
+          "named_section": "Airfield Finish"
+        }
+      ],
+      "signature_challenge": "The wind. Not a climb, not a descent, not a technical sector — the wind. The Cambridgeshire Fens are a flat, treeless, fully exposed landscape where persistent wind transforms an objectively easy course into a sustained power test. Riders who can hold 250-300 watts for hours while managing group dynamics and crosswind positioning thrive. Those who go to the front too early, or ride solo into a headwind, discover that flat does not mean easy."
+    },
+    "guide_variables": {
+      "race_name": "Tour of Cambridgeshire",
+      "race_distance": "82 miles (132 km)",
+      "race_elevation": "1,500 feet (460 m)",
+      "race_date": "June (event discontinued after 2023)",
+      "race_location": "Peterborough, Cambridgeshire, England",
+      "race_terrain": "Flat fenland roads, fully closed public highways, wind-exposed agricultural plains",
+      "race_weather": "English June: 15-21C, significant wind exposure, possible showers",
+      "race_challenges": [
+        "Persistent wind across flat, exposed fenland with no shelter",
+        "Group riding tactics essential — solo efforts into headwinds are unsustainable",
+        "Sustained power output for 3-5 hours on terrain that never lets up or eases off",
+        "Crosswind management on open, unsheltered roads"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Sustained threshold power — ability to hold 75-85% FTP for 3-5 hours",
+        "by_when": "Week 6",
+        "why": "The flat, wind-exposed terrain demands sustained power output rather than climbing surges or technical skill. Without significant elevation changes, there are no natural recovery points — the effort is constant. Sweet-spot and tempo intervals of 20-40 minutes replicate the relentless fenland power demand. Over-under sessions build the ability to surge and recover within a group when the pace changes."
+      },
+      {
+        "requirement": "Group riding and drafting skills — confident echelon and paceline technique",
+        "by_when": "Week 8",
+        "why": "Crosswind on the exposed Fens makes echelon formation critical for energy conservation. Riders who cannot hold a wheel in a crosswind or rotate smoothly in a paceline burn 30-40% more energy than those who can. Regular group rides in windy conditions are essential preparation. Practice riding in the gutter and holding position when the wind shifts."
+      },
+      {
+        "requirement": "Aerodynamic position — time trial bike or optimized road position",
+        "by_when": "Week 10",
+        "why": "On flat, wind-exposed roads, aerodynamics determine more of your finishing time than fitness. A proper bike fit with an aggressive but sustainable position pays dividends across 132 km of headwind and crosswind. For the Saturday time trial, a TT bike is standard. For the Sunday Gran Fondo, even small gains — narrower bars, lower stem, tight clothing — matter on this terrain."
+      }
+    ],
+    "citations": [
+      {
+        "url": "https://www.tourofcambridgeshire.com",
+        "title": "Tour of Cambridgeshire — Official Website",
+        "category": "official"
+      },
+      {
+        "url": "https://ucigranfondoworldseries.com/en/tour-of-cambridgeshire/",
+        "title": "Tour of Cambridgeshire — UCI Gran Fondo World Series",
+        "category": "official"
+      },
+      {
+        "url": "https://www.golazocycling.com/tour_of_cambridgeshire/tour_of_cambridgeshire_cycling_festival_uk.php",
+        "title": "Tour of Cambridgeshire Cycling Festival — Golazo Cycling",
+        "category": "official"
+      },
+      {
+        "url": "https://www.cyclingweekly.com/news/organisers-close-the-door-on-tour-of-cambridgeshire",
+        "title": "One of Britain's biggest mass participation rides will end in 2023 — Cycling Weekly",
+        "category": "reference"
+      },
+      {
+        "url": "https://granfondodailynews.com/2023/04/13/uci-tour-of-cambridgeshire-calls-it-quits-2023-to-be-final-edition/",
+        "title": "UCI Tour of Cambridgeshire Calls It Quits — Gran Fondo Daily",
+        "category": "reference"
+      },
+      {
+        "url": "https://www.sportive.com/events/tour-of-cambridgeshire-gran-fondo/2023-06-04/6339/cycling",
+        "title": "Tour of Cambridgeshire Gran Fondo 2023 — Sportive.com",
+        "category": "review"
+      },
+      {
+        "url": "https://swinny.net/Cycling/-4662-Tour-of-Cambridgeshire-Gran-Fondo",
+        "title": "Tour of Cambridgeshire Gran Fondo — Swinny.net (ride review with course details)",
+        "category": "review"
+      },
+      {
+        "url": "https://racecheck.com/races/tour-of-cambridgeshire/",
+        "title": "Tour of Cambridgeshire Reviews — Racecheck",
+        "category": "review"
+      },
+      {
+        "url": "https://www.resultsbase.net/event/6715",
+        "title": "Tour of Cambridgeshire 2023 Results — ResultsBase",
+        "category": "results"
+      },
+      {
+        "url": "https://road.cc/content/news/145259-tour-cambridgeshire-launches-gran-fondo-and-time-trial",
+        "title": "Tour of Cambridgeshire launches Gran Fondo and Time Trial — road.cc",
+        "category": "reference"
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "high",
+      "validation_status": "validated",
+      "research_strength": "B+",
+      "sources_count": 10,
+      "last_updated": "2026-02-27",
+      "notes": "Event discontinued after 2023 final edition. Profile documents the event as it existed at peak (2022-2023). Entry fees approximate based on 2023 pricing. Elevation figures approximate — fenland terrain is so flat that GPS elevation data varies between sources."
+    }
+  }
+}

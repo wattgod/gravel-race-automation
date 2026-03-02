@@ -47,6 +47,8 @@ def get_mega_footer_html() -> str:
       <nav class="gg-mega-footer-links">
         <a href="{SUBSTACK_URL}" target="_blank" rel="noopener">Slow Mid 38s</a>
         <a href="{SITE_BASE_URL}/articles/">Hot Takes</a>
+        <a href="{SITE_BASE_URL}/insights/">The State of Gravel</a>
+        <a href="{SITE_BASE_URL}/fueling-methodology/">White Papers</a>
       </nav>
     </div>
     <div class="gg-mega-footer-col gg-mega-footer-newsletter">

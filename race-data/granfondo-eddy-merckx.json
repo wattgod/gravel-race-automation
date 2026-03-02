@@ -1,0 +1,397 @@
+{
+  "race": {
+    "name": "Granfondo Eddy Merckx",
+    "slug": "granfondo-eddy-merckx",
+    "display_name": "Granfondo Eddy Merckx",
+    "tagline": "The Cannibal's roads. 162 km through Belgium's Ardennes heartland. 18 savage hills. 2,644 meters of climbing. Ride the terrain that forged the greatest cyclist who ever lived.",
+    "vitals": {
+      "distance_mi": 101,
+      "elevation_ft": 8674,
+      "location": "Andenne, Wallonia, Belgium",
+      "location_badge": "ANDENNE, BELGIUM",
+      "county": "Province of Namur",
+      "date": "Third or fourth Sunday of June annually",
+      "date_specific": "2026: TBD (typically mid-to-late June)",
+      "terrain_types": [
+        "Paved Belgian roads throughout",
+        "Steep Ardennes hills with 18 classified climbs",
+        "Walloon river valley terrain",
+        "Rolling farmland between climb sequences"
+      ],
+      "field_size": "~2,000-3,000 riders",
+      "start_time": "Morning start (grid open from 7:00 AM)",
+      "registration": "Online via Golazo. Early registration ~EUR 44 for Gran Fondo distance. Shorter distances from EUR 10-35.",
+      "prize_purse": "Age-group podium awards. UCI World Cycling Tour qualifying event.",
+      "aid_stations": "Multiple feed zones along the 162 km route with water, sports drink, fruit, and energy bars. Medical assistance, broom wagon, and breakdown service throughout.",
+      "cutoff_time": "Varies by distance option",
+      "lat": 50.4875,
+      "lng": 5.0958,
+      "distance_options": [
+        "Gran Fondo: 162 km / 101 mi with 2,644m climbing — full route with 18 climbs including Triple Mur de Monty and Cote de Peu d'Eau",
+        "Medio Fondo: 120 km / 75 mi — intermediate route bypassing the hardest climb sequences",
+        "Corto: 80 km / 50 mi — shorter option through the Meuse valley hills"
+      ],
+      "entry_fee": "EUR 44-55 for Gran Fondo (early bird / standard). Shorter distances EUR 10-35. Includes race number, chip timing, feed zones, medical assistance, broom wagon, and finisher support."
+    },
+    "climate": {
+      "primary": "Maritime temperate — Belgian summer",
+      "description": "Late June in Wallonia delivers the longest days of the year with generally mild conditions. Temperatures typically range from 13-23C (55-73F), with warm afternoons possible on exposed climbs. Belgian weather is structurally unpredictable — rain can arrive without warning in any season, and the Meuse valley creates its own microclimate. The Ardennes hills are exposed to westerly winds that can turn descents into headwind slogs. On a fine June day, the rolling green countryside of Wallonia is some of the most beautiful cycling terrain in northern Europe. On a bad one, you learn why Belgian cyclists are the toughest in the peloton.",
+      "challenges": [
+        "Belgian weather unpredictability — rain possible at any time despite summer scheduling",
+        "Exposed hilltop sections vulnerable to strong westerly winds",
+        "Temperature differentials between sheltered Meuse valley and open hilltops",
+        "Wet cobblestone sections and slippery road surfaces after rain",
+        "Long daylight hours mean extended sun exposure on a 5-7 hour effort"
+      ]
+    },
+    "terrain": {
+      "primary": "Paved — Belgian provincial and communal roads",
+      "surface": "Well-maintained Belgian asphalt throughout, characteristic of the Walloon road network. The route traverses the steep, punchy hills of the Meuse valley and Condroz plateau — the same terrain that shapes the Ardennes Classics. Road surfaces range from excellent on main provincial roads to rougher on the narrower communal roads used for the steepest climbs. Expect Belgian road furniture — narrow lanes between hedgerows, farm vehicles, and occasional rough patches on the steeper ramps. No cobbles on the main route, but the character is unmistakably Belgian.",
+      "technical_rating": 2,
+      "features": [
+        "Triple Mur de Monty: 1.9 km at 9.1% average, maximum 20-24% — three savage ramps that hit 20% in succession, tougher than the Mur de Huy",
+        "Cote de Peu d'Eau: 2.7 km at 4.9% average, maximum 7.1% — La Fleche Wallonne terrain, hit immediately from the Andenne start",
+        "18 classified climbs in 162 km — relentless vertical accumulation through the Condroz and Meuse hills",
+        "Rolling Walloon farmland between climb sequences — never truly flat",
+        "Descents on narrow communal roads through forested hillsides",
+        "Meuse valley start/finish with panoramic views from hilltop summits"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 69,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "logistics": 3,
+      "length": 4,
+      "technicality": 2,
+      "elevation": 4,
+      "climate": 2,
+      "altitude": 1,
+      "adventure": 4,
+      "prestige": 4,
+      "race_quality": 4,
+      "experience": 4,
+      "community": 3,
+      "field_depth": 3,
+      "value": 3,
+      "expenses": 3,
+      "cultural_impact": 4,
+      "tier_note": "The Cannibal's namesake gran fondo. UCI World Cycling Tour qualifier through the Ardennes Classics heartland — 18 climbs including the Triple Mur de Monty (24% max). Prestige=4 reflects the Eddy Merckx name: the greatest cyclist in history, Belgian national hero, 525 career victories, 11 Grand Tours, all five Monuments. The p4 prestige override would promote one tier but cannot promote into T1, so T2 stands on scoring alone.",
+      "score_note": "elevation=4 for 2,644m of climbing compressed into 162 km with 18 classified climbs including the Triple Mur de Monty at 20-24% maximum gradient. adventure=4 for the Walloon Ardennes setting — Meuse valley, La Fleche Wallonne roads, the Condroz plateau, and the emotional weight of riding terrain that forged Belgian cycling's greatest legend. experience=4 for the pilgrimage factor — riding roads named for The Cannibal, through the landscape that produced Merckx, in a country where cycling is a religion. prestige=4 because Eddy Merckx is the GOAT — 525 victories, 11 Grand Tours, all five Monuments — and the event bears his name with his endorsement. cultural_impact=4 for Merckx as Belgium's greatest sportsman, Baron of Belgium, and the Ardennes as the spiritual home of Walloon cycling culture. altitude=1 because maximum elevation is ~400m — no altitude stress whatsoever.",
+      "editorial_tier": 2,
+      "editorial_tier_label": "TIER 2",
+      "business_tier": 2,
+      "business_tier_label": "TIER 2",
+      "display_tier": 2,
+      "display_tier_label": "TIER 2",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 3,
+        "explanation": "Andenne sits in the Meuse valley of Wallonia, roughly 80 km southeast of Brussels. Brussels Airport (BRU) is one of Europe's best-connected hubs — under 90 minutes to the start by car or train. Charleroi (CRL), the budget airline hub, is closer at about 50 minutes. Belgium's excellent rail network connects to Andenne station directly. The complication is Andenne itself: a small Walloon town, not a cycling tourism destination, with limited accommodation within walking distance of the start. Most riders stay in Namur (20 minutes by car), which offers proper hotel infrastructure, restaurants, and the charm of a Walloon provincial capital. Organized by Golazo — Belgium's premier sports event company — so the operational logistics are professional. Packet pickup is typically the day before in Andenne."
+      },
+      "length": {
+        "score": 4,
+        "explanation": "At 162 km with 2,644 meters of climbing spread across 18 classified hills, this is a serious day in the saddle. The distance alone would be manageable, but the relentless climbing transforms it — there is no extended flat recovery between efforts. The route hammers you immediately with the Cote de Peu d'Eau out of Andenne and never truly relents. For context: 162 km with 2,644m of climbing delivers a climbing density of 16.3m per horizontal kilometer — comparable to a hard Ardennes Classics stage. The 120 km and 80 km options provide escape routes for those who respect the full distance, which is the correct response for most cyclists."
+      },
+      "technicality": {
+        "score": 2,
+        "explanation": "Fully paved Belgian roads throughout. The technical demands come from the extreme gradients on the climbs — the Triple Mur de Monty's 20-24% ramps require genuine low-gear technique, precise weight distribution, and the kind of torque management that most road cyclists never practice. Descents on narrow communal roads through forested Walloon hillsides demand alertness, especially in wet conditions. But this is a road event on roads. No gravel, no cobbles on the main route, no navigation challenges. The Belgian road character — narrow, hedgerow-lined, occasionally rough — adds texture without constituting real technical difficulty."
+      },
+      "elevation": {
+        "score": 4,
+        "explanation": "2,644 meters of climbing in 162 km across 18 classified hills. The numbers are significant but understated by the aggregate — the suffering is in the gradient, not the altitude. The Triple Mur de Monty hits 20-24% on three successive ramps over 1.9 km. The Cote de Peu d'Eau delivers 2.7 km of sustained effort from the gun. And between the named climbs, the Condroz plateau terrain never flattens — every recovery is false, every downhill leads to another wall. This is Ardennes climbing: short, steep, repeated, cumulative. The legs that work on long Alpine grades will not save you here. Belgian hills demand explosive power, recovery, then explosive power again — 18 times."
+      },
+      "climate": {
+        "score": 2,
+        "explanation": "Late June in Belgium is generally the best weather window — longest days, warmest temperatures, lowest rainfall probability. Average highs around 20-23C are comfortable for racing efforts. But this is Belgium, where weather forecasts are suggestions rather than commitments. Rain can arrive on any day of the year, and the Meuse valley creates a microclimate where conditions change rapidly. When it rains, the steep descents become slippery and the exposed hilltops turn cold. On a dry June day, the green Walloon countryside is gorgeous. On a wet one, you understand why Belgian cyclists dominate the Spring Classics — they are forged in exactly this misery."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "Maximum elevation on the course is approximately 350-400 meters above sea level. The Condroz plateau and Ardennes foothills are emphatically low-altitude terrain. No altitude consideration is needed whatsoever. The climbs are steep but short. The challenge is gradient and repetition, not thin air."
+      },
+      "adventure": {
+        "score": 4,
+        "explanation": "The Walloon Ardennes is cycling's spiritual homeland for the Classics. The route passes through the same terrain that shapes La Fleche Wallonne and Liege-Bastogne-Liege — the rolling green hills, the forested valleys, the narrow communal roads between hedgerows and stone farmhouses. The Meuse river cuts through the landscape at Andenne, and from there the roads climb into the Condroz plateau — a landscape of gentle ridges and hidden valleys that is quintessentially Belgian. This is not wilderness adventure, but it is a cycling pilgrimage to the terrain that produced The Cannibal. Standing on the summit of the Triple Mur de Monty, looking out over the Meuse valley, you understand why Belgium has produced more great cyclists per capita than any nation on Earth."
+      },
+      "prestige": {
+        "score": 4,
+        "explanation": "The event bears the name of Eddy Merckx — the greatest cyclist in the history of the sport. Five Tours de France. Five Giri d'Italia. A Vuelta. All five Monuments, each won at least twice. 525 career victories. The World Hour Record. Three World Championships. Baron of Belgium. Sportsman of the Belgian 20th Century. There is no name in cycling that carries more weight. Merckx himself has participated in and endorsed the event. The UCI World Cycling Tour sanctioning adds competitive legitimacy. The only reason this isn't prestige=5 is that the event itself — while carrying the name of the GOAT — is a regional Belgian gran fondo, not one of cycling's Monuments or a decades-old institution like the Maratona dles Dolomites."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "Organized by Golazo, Belgium's largest sports event company — the same operation behind the Tour of Flanders sportive, the Ronde van Vlaanderen, and dozens of elite Belgian cycling events. Golazo knows how to run cycling events in Belgian terrain with Belgian weather. UCI World Cycling Tour sanctioning means chip timing, official results, age-group rankings, and qualification for the UCI Gran Fondo World Championships. Multiple feed zones, medical support, broom wagon, and breakdown service throughout the 162 km route. The operational competence is high. The Belgian cycling event ecosystem is among the most mature in the world."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "You are riding roads named for Eddy Merckx. The Cannibal — the man who won everything, attacked from the front, and devoured rivals until they gave him the most feared nickname in sport. The route through the Walloon Ardennes takes you on La Fleche Wallonne terrain, past the farms and forests that line the Spring Classics, up walls that would make a Flemish hardman wince. The Cote de Peu d'Eau from the start. The Triple Mur de Monty's three successive 20%+ ramps. The views from the Condroz plateau over the Meuse valley. In Belgium, cycling is not a sport — it is a cultural institution, a national religion, a way of life. Riding this gran fondo, surrounded by Belgian cyclists who grew up worshipping Merckx, on roads he personally endorsed — that is an experience that transcends the physical effort."
+      },
+      "community": {
+        "score": 3,
+        "explanation": "Belgium's cycling culture is among the deepest in the world — cycling is the national sport, and Belgian amateur cycling is a serious, organized, and passionate community. The field of 2,000-3,000 riders is predominantly Belgian and Dutch, with a growing international contingent drawn by the Merckx name and UCI qualifying status. The atmosphere is competitive European gran fondo — riders in team kits racing for UCI age-group positions, the seriousness of Walloon cycling culture, roadside fans who know what they are watching. The post-race atmosphere in Andenne is convivial but modest. This is not the festival atmosphere of a large American gravel event. It is the focused community of people who ride bikes hard in Belgium."
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "UCI World Cycling Tour qualifying attracts strong age-group riders, particularly Belgian and Dutch semi-professionals and serious amateur racers. The front of the field is genuinely fast — Belgian amateur racing is no joke, and the Walloon cycling culture produces riders who can climb. The age-group competition is the real race-within-the-race, with UCI World Championship spots on the line. But the total field of 2,000-3,000 is modest by European sportive standards, and the event's position as one of many Belgian gran fondos means the deepest Belgian talent spreads across multiple events."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "The Gran Fondo entry fee of approximately EUR 44-55 includes chip timing, multiple feed zones, medical support, broom wagon, and finisher support. For a UCI-sanctioned event with professional organization by Golazo, this is genuinely good value by European sportive standards — significantly cheaper than comparable Italian or Spanish gran fondos. The shorter distances at EUR 10-35 are remarkable value. You are paying for Ardennes roads, Belgian organization, and the Merckx name — and the price reflects fair positioning rather than prestige premium."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Getting to Andenne requires a flight to Brussels (BRU) — well-served by airlines from across Europe and increasingly from North America. Belgium's rail network provides direct connections. Accommodation in Namur runs EUR 80-150/night for a decent hotel. Budget EUR 40-60/day for Belgian food and drink — Wallonia is cheaper than Brussels or Flanders. Total budget for a UK/European rider: EUR 500-1,000 for a long weekend including flights, 2 nights accommodation, food, and entry. For North American riders, flights add EUR 400-800 but Belgium remains one of Europe's more affordable cycling destinations. Reasonable for an Ardennes gran fondo weekend."
+      }
+    },
+    "biased_opinion": {
+      "verdict": "The Cannibal's Namesake — Ardennes Punishment in 18 Acts",
+      "summary": "There is one name in cycling that sits above all others. Not Coppi. Not Anquetil. Not Hinault. Eddy Merckx — The Cannibal — won 525 races, 11 Grand Tours, all five Monuments at least twice, three World Championships, and the Hour Record. He was so dominant that rivals stopped trying to win and raced for second. And this gran fondo bears his name. The Granfondo Eddy Merckx sends you out of Andenne on the Cote de Peu d'Eau — La Fleche Wallonne terrain — and then hammers you across 162 km of Walloon Ardennes hills. Eighteen classified climbs. The Triple Mur de Monty with its three successive 20%+ ramps. 2,644 meters of climbing that never lets you recover. This is the terrain that forged Belgian cycling's greatest generation. Golazo runs it with typical Belgian efficiency. The UCI sanctions it for World Championship qualifying. And at EUR 44, it costs less than dinner in Brussels.",
+      "strengths": [
+        "The Merckx name: the greatest cyclist in history personally endorsed this event — there is no higher brand in the sport",
+        "18 classified climbs including Triple Mur de Monty (20-24% max) — relentless Ardennes punishment that defines Belgian cycling",
+        "La Fleche Wallonne and Ardennes Classics terrain — ride the roads that shape the Spring Classics",
+        "UCI World Cycling Tour qualifying — real competition with World Championship qualification on the line",
+        "Exceptional value: EUR 44-55 for a UCI-sanctioned, professionally organized 162 km gran fondo"
+      ],
+      "weaknesses": [
+        "Belgian weather unpredictability — rain is structurally possible on any June day in Wallonia",
+        "Andenne is a small Walloon town — limited accommodation and atmosphere require staying in Namur",
+        "Predominantly Belgian/Dutch field — less international flavor than marquee Italian or Spanish sportives",
+        "No extended flat recovery between climbs — the cumulative fatigue is relentless and unforgiving"
+      ],
+      "bottom_line": "If you have ever watched Eddy Merckx attacking from 100 km out and wondered what the roads of Belgium feel like under your wheels, this is how you find out. Eighteen hills. 2,644 meters. The Cannibal's name on the start banner. Ride like he did — from the front."
+    },
+    "final_verdict": {
+      "score": "69 / 100",
+      "one_liner": "The greatest cyclist's namesake gran fondo. 162 km, 18 climbs, 2,644m of Walloon Ardennes punishment. The Cannibal's roads.",
+      "should_you_race": "Yes if you want to ride in the name of the greatest cyclist who ever lived — through the Ardennes terrain that forged Belgian cycling's dominance. Yes if 18 climbs in 162 km excites rather than terrifies you. Yes if UCI age-group competition and World Championship qualifying matter to your ambitions. Yes if Belgium's cycling culture — the deepest in the world — is something you want to experience from the inside. Skip if you want warm weather guarantees. Skip if you prefer large festival-atmosphere events over focused European gran fondo racing. Skip if the relentless, puncheur-style climbing of the Ardennes is not your terrain.",
+      "alternatives": "If you want another legendary-name gran fondo: try Gran Fondo Il Lombardia Felice Gimondi for Monument roads around Lake Como. If you want Flemish cycling culture with cobbles: try the Tour of Flanders sportive (Ronde van Vlaanderen). If you want the ultimate Alpine road challenge: try La Marmotte with 5,000m+ of climbing. If you want another UCI qualifier with a champion's name: try Gran Fondo Marco Pantani in Cesenatico.",
+      "alternative_slugs": [
+        "gran-fondo-il-lombardia",
+        "tour-of-flanders-sportive",
+        "la-marmotte",
+        "gran-fondo-marco-pantani"
+      ]
+    },
+    "logistics": {
+      "airport": "Brussels Airport (BRU) — 80 km, ~75 minutes to Andenne by car. Brussels South Charleroi (CRL) — 55 km, ~50 minutes (budget airline hub). Direct train to Andenne station from Brussels (~1 hour). Liege Airport (LGG) — 50 km, ~45 minutes.",
+      "lodging_strategy": "Stay in Namur (20 minutes from Andenne) for the widest selection of hotels, restaurants, and atmosphere — Namur is Wallonia's capital and a charming river city with proper tourism infrastructure. Alternatively, stay in Huy (30 minutes) for proximity to the Ardennes Classics terrain. Andenne itself has limited accommodation — a few B&Bs and guesthouses, but not enough for event-weekend demand. Book early if staying in Andenne proper. Belgium's excellent rail network means staying in Brussels and training down on race morning is feasible but tight.",
+      "food": "Walloon cuisine is hearty and excellent — moules-frites, carbonnade flamande (Flemish stew), boulets liegeois (Liege meatballs), Belgian waffles, and the world's finest beer culture. Pre-race: carb-load in Namur's many restaurants. Post-race: local Andenne cafes and the event's finish area. Belgium's food-to-price ratio is outstanding compared to neighboring France or the Netherlands. Budget for at least one serious Belgian beer experience — but after the race, not before.",
+      "packet_pickup": "Day before the event in Andenne. Collect race number, timing chip, and event information. Small expo area with cycling brand presence.",
+      "parking": "Designated parking areas in Andenne communicated pre-race. Arrive early — small-town parking fills quickly. Many riders park in Namur and transfer. The train station is a viable option for those staying in Brussels or Namur.",
+      "official_site": "https://www.golazo.com/event/gran-fondo-eddy-merckx-2/"
+    },
+    "history": {
+      "founded": 2012,
+      "founder": "Golazo Sports in association with Eddy Merckx",
+      "origin_story": "The Granfondo Eddy Merckx was born from the simplest and most powerful idea in cycling: let people ride the roads of Belgium in the name of the greatest cyclist who ever lived. Edouard Louis Joseph Merckx — born June 17, 1945, in Meensel-Kiesegem, raised in Woluwe-Saint-Pierre — won his first race at Petit-Enghien in October 1961 and then proceeded to win 524 more over an 18-year professional career that redefined what was possible on a bicycle. Five Tours de France. Five Giri d'Italia. The Vuelta. All five Monuments — each at least twice. Three World Championships. The Hour Record. He was so voracious, so relentless, so incapable of sitting in the bunch and waiting, that his rivals named him The Cannibal. The event has been organized by Golazo, Belgium's premier sports event company, and sanctioned as a UCI World Cycling Tour qualifier. Originally based in Blegny (near Liege), the event moved to Andenne to take advantage of the steeper Condroz and Meuse valley terrain — including La Fleche Wallonne roads and the infamous Triple Mur de Monty. Merckx himself has participated in and endorsed the event, lending it the authenticity that only the man himself can provide.",
+      "notable_moments": [
+        "2012: Early edition in Blegny with 156 km UCI World Cycling Tour route — bringing Merckx's name to the gran fondo circuit",
+        "Event moves to Andenne — unlocking the steeper Condroz and Meuse valley terrain with 18 classified climbs",
+        "UCI World Cycling Tour sanctioning establishes the event as a qualifying race for Gran Fondo World Championships",
+        "Eddy Merckx's personal participation and endorsement — the GOAT riding his own namesake event alongside amateur cyclists",
+        "Triple Mur de Monty becomes the event's signature climb — three 20%+ ramps that rival the famous Mur de Huy"
+      ],
+      "reputation": "The Belgian gran fondo that carries the most famous name in cycling. Not the oldest or largest in Belgium, but the one that connects you most directly to the sport's greatest legend. The Ardennes terrain and Golazo organization deliver a serious, well-run event. The Merckx name is not merely marketing — it is a standard of excellence that the event works to uphold."
+    },
+    "course_description": {
+      "character": "A race of 18 successive walls through the Walloon Ardennes, bookended by the Meuse river valley at Andenne. The route begins with an immediate climb — the Cote de Peu d'Eau, 2.7 km of La Fleche Wallonne terrain that sets the tone from the gun. There is no warmup. From there, the course winds through the Condroz plateau — the rolling upland between the Meuse and Ourthe valleys — hitting classified climb after classified climb in a rhythm that is uniquely Belgian: short, steep, partial recovery, repeat. The signature moment is the Triple Mur de Monty — 1.9 km with three successive ramps hitting 20-24%, each one arriving just as you think the worst is over. Between the named climbs, the terrain never flattens. The Condroz is a landscape of gentle ridges and hidden valleys, and every false flat tilts upward. The descents are fast but technical — narrow communal roads through forest, hedgerows tight against the tarmac, the occasional farm vehicle adding authenticity. The final approach back to Andenne delivers panoramic views over the Meuse valley, a finishing reward for six-plus hours of Ardennes punishment. On a clear June day, the green Walloon countryside — stone farmhouses, church spires, cows in fields that slope toward hidden streams — is hauntingly beautiful. On a wet one, it is Belgium.",
+      "suffering_zones": [
+        {
+          "mile": 0,
+          "label": "Cote de Peu d'Eau",
+          "desc": "The immediate opening climb from Andenne — 2.7 km at 4.9% average with a maximum of 7.1%. La Fleche Wallonne terrain from the gun. No warmup. The peloton splinters before the first 5 km is done. At the summit, a panoramic view over Andenne and the Meuse valley below — a preview of the terrain that awaits.",
+          "terrain_detail": "2.7 km at 4.9% average, maximum 7.1%, paved communal road climbing away from the Meuse valley",
+          "named_section": "Cote de Peu d'Eau — La Fleche Wallonne territory"
+        },
+        {
+          "mile": 20,
+          "label": "Condroz Plateau — First Sequence",
+          "desc": "The opening set of climbs across the Condroz plateau. Short, punchy hills — 1-3 km each at 5-8% average — separated by partial descents that never fully recover you. The rhythm is uniquely Belgian: power, recover, power, recover, each recovery slightly shorter than the last. The green farmland and forested hillsides are gorgeous. The legs begin accumulating fatigue that will not leave.",
+          "terrain_detail": "Successive short climbs at 5-8%, rolling plateau terrain, narrow hedgerow-lined roads",
+          "named_section": "Condroz — the rolling punishment"
+        },
+        {
+          "mile": 45,
+          "label": "Triple Mur de Monty",
+          "desc": "The defining climb. 1.9 km at 9.1% average with three successive ramps hitting 20-24%. The first wall is difficult. The second is long. The third has the highest gradients — up to 24%, where a sign confirms what your legs already know. Tougher than the more famous Mur de Huy. On the Gran Fondo, this is where training meets truth. You either ride all three walls or you walk. At 20%+, most riders are in their lowest gear, weaving across the road, heart rate at maximum, lungs burning with Walloon air.",
+          "terrain_detail": "1.9 km at 9.1% average, maximum 20-24% on three successive ramps, narrow paved road",
+          "named_section": "Triple Mur de Monty — Belgium's cruelest triple wall"
+        },
+        {
+          "mile": 70,
+          "label": "Middle Climbs — The Accumulation",
+          "desc": "Climbs 8 through 14. By now, the individual hills blur together — each one 1-3 km, each one between 5-10%, each one hurting more than the last because the legs never fully recover. The Condroz plateau reveals its cruel design: the terrain looks gentle from a distance, but the constant undulation grinds you down. The descents are fast enough to cool you but too short to rest. Belgian cycling culture was built on this terrain — the ability to suffer on short climbs, recover, and suffer again.",
+          "terrain_detail": "Seven classified climbs in 25 km, 5-10% gradients, cumulative fatigue terrain",
+          "named_section": "The Accumulation — where the Ardennes grinds you"
+        },
+        {
+          "mile": 88,
+          "label": "Final Climb Sequence",
+          "desc": "Climbs 15 through 18. The last four hills before the Meuse valley descent back to Andenne. By this point, every gradient above 5% feels like a wall. The legs that handled the Triple Mur de Monty at mile 45 are now a different proposition entirely. The final climbs are not the steepest on the course, but they are the hardest — because they come after everything else. The views from the final summit over the Meuse valley are spectacular. You are too tired to care.",
+          "terrain_detail": "Four final classified climbs, 4-7% gradients, fatigued-leg terrain",
+          "named_section": "The Final Four — suffering on empty"
+        },
+        {
+          "mile": 97,
+          "label": "Meuse Valley Descent to Andenne",
+          "desc": "The descent back into the Meuse valley and the finish in Andenne. After 160 km of climbing, the final kilometers are downhill or flat along the river. The relief is physical and emotional. Andenne appears below, the finish banner visible from the descent. The Meuse river glitters in the June light. You have ridden The Cannibal's roads.",
+          "terrain_detail": "Descending and flat, paved road back to Andenne along the Meuse valley",
+          "named_section": "Meuse Valley — the finish"
+        }
+      ],
+      "signature_challenge": "The Triple Mur de Monty. Three successive walls hitting 20-24% gradient over 1.9 km. A sign at the steepest point reads 23.9%. Tougher than the Mur de Huy that decides La Fleche Wallonne. On the Granfondo Eddy Merckx, the Triple Mur is where you discover whether your training, your gearing, your body weight, and your willingness to suffer are sufficient for Belgian hills. The Cannibal would have attacked on the first ramp and been over the top before most riders reached the second. You are not The Cannibal."
+    },
+    "guide_variables": {
+      "race_name": "Granfondo Eddy Merckx",
+      "race_distance": "101 miles (162 km)",
+      "race_elevation": "8,674 feet (2,644 m)",
+      "race_date": "June",
+      "race_location": "Andenne, Wallonia, Belgium",
+      "race_terrain": "Paved Belgian roads — 18 classified climbs including Triple Mur de Monty (24% max), Cote de Peu d'Eau, rolling Condroz plateau",
+      "race_weather": "Belgian summer: 13-23C (55-73F), structurally unpredictable, rain possible at any time, exposed hilltops",
+      "race_challenges": [
+        "18 classified climbs in 162 km — relentless, puncheur-style Ardennes terrain",
+        "Triple Mur de Monty: 1.9 km with three 20-24% ramps — Belgian wall climbing at its cruelest",
+        "2,644m of climbing with no extended flat recovery — cumulative fatigue is the defining challenge",
+        "Belgian weather unpredictability — rain possible despite June scheduling",
+        "Cote de Peu d'Eau from the gun — no warmup, immediate La Fleche Wallonne terrain",
+        "Narrow communal roads with technical descents between climbs"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Repeated steep climb intervals — back-to-back efforts at 15-20%+ gradient to simulate the Triple Mur de Monty and Belgian walls",
+        "by_when": "Week 6",
+        "why": "The Triple Mur de Monty's 20-24% ramps are not something you can power through without specific preparation. Train on the steepest hills available, in your lowest gear, at cadences below 60 RPM. The key is three successive efforts with only partial recovery — simulating the triple-wall structure. If your local terrain lacks 15%+ gradients, use a turbo trainer at maximum resistance for 2-3 minute intervals with 90-second recoveries."
+      },
+      {
+        "requirement": "Sustained climbing endurance — 4+ hours of riding with continuous climb repetitions",
+        "by_when": "Week 8",
+        "why": "18 classified climbs over 162 km means you will be climbing on pre-fatigued legs from the halfway point onward. Your long rides must include repeated climb efforts — not just one big climb, but 8-12 short, steep efforts separated by partial recovery descents. The Belgian Ardennes rhythm is: climb, descend, climb, descend, never fully recover. Your training must replicate this pattern for at least 4 hours."
+      },
+      {
+        "requirement": "Puncheur power development — explosive efforts at VO2max followed by immediate recovery and repeat",
+        "by_when": "Week 7",
+        "why": "Belgian climbing is not Alpine climbing. The hills are 1-3 km, not 10-20 km. The effort is explosive, not sustained. Train with 2-4 minute VO2max intervals on steep gradients, with 2-3 minute rolling recoveries, repeated 8-15 times. This develops the specific power profile — high torque, high heart rate, rapid partial recovery — that the Ardennes demands."
+      }
+    ],
+    "citations": [
+      {
+        "url": "https://www.golazo.com/event/gran-fondo-eddy-merckx-2/",
+        "title": "Granfondo Eddy Merckx — Golazo Official Event Page",
+        "category": "official"
+      },
+      {
+        "url": "https://www.sportive.com/cycling/512196/gran-fondo-eddy-merckx-moves-to-andenne-entries-now-open",
+        "title": "Gran Fondo Eddy Merckx moves to Andenne — Sportive.com",
+        "category": "reference"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Contents/Index/883/gran-fondo-eddy-merckx-results-2013",
+        "title": "Gran Fondo Eddy Merckx — Gran Fondo Guide",
+        "category": "reference"
+      },
+      {
+        "url": "https://crdev.blob.core.windows.net/files/8216.pdf",
+        "title": "UCI World Cycling Tour — Gran Fondo Eddy Merckx 156km",
+        "category": "reference"
+      },
+      {
+        "url": "https://climbfinder.com/en/climbs/triple-mur-de-monty",
+        "title": "Triple Mur des Monty — ClimbFinder Profile",
+        "category": "reference"
+      },
+      {
+        "url": "https://climbfinder.com/en/climbs/peu-d-eau",
+        "title": "Cote de Peu d'Eau — ClimbFinder Profile",
+        "category": "reference"
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Eddy_Merckx",
+        "title": "Eddy Merckx — Wikipedia",
+        "category": "reference"
+      },
+      {
+        "url": "https://www.cyclingnews.com/features/eddy-merckx-why-the-cannibal-is-the-greatest-cyclist-of-all-time/",
+        "title": "Eddy Merckx at 80: Why the Cannibal is the greatest cyclist of all time — Cyclingnews",
+        "category": "reference"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/7149/eddy-merckx-classic",
+        "title": "Eddy Merckx Classic — Gran Fondo Guide",
+        "category": "reference"
+      },
+      {
+        "url": "https://battistrada.com/en/cycling-calendar/belgium/gran-fondo/?category=2",
+        "title": "Gran Fondo Calendar Belgium 2026 — Battistrada",
+        "category": "reference"
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "pending",
+      "research_strength": "B+",
+      "sources_count": 10,
+      "last_updated": "2026-02-27",
+      "notes": "Event details primarily sourced from Golazo event page, Sportive.com reporting on the Andenne move, and UCI World Cycling Tour documentation. The exact 2026 date is TBD — the event typically runs in mid-to-late June. Climb data verified against ClimbFinder profiles. Entry fee data from 2018 Sportive.com reporting — current pricing may vary. The event's relationship to the Italian Granfondo Ale La Merckx (Verona/Livigno) should not be confused — these are entirely separate events sharing only the Merckx name."
+    },
+    "training_config": {
+      "workout_modifications": {
+        "climbing_endurance": {
+          "enabled": true,
+          "weeks": [6, 7, 8]
+        },
+        "steep_gradient_intervals": {
+          "enabled": true,
+          "weeks": [5, 6, 7]
+        },
+        "puncheur_power": {
+          "enabled": true,
+          "weeks": [4, 5, 6, 7]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 10,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 4,
+            "finisher": 5,
+            "compete": 6,
+            "podium": 7
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "climbing",
+          "pacing",
+          "fueling",
+          "descending"
+        ],
+        "race_specific": true,
+        "topics": {
+          "climbing": "Repeated steep climb technique — low cadence, high torque, partial recovery",
+          "pacing": "18-climb pacing discipline — conserving for the second half",
+          "fueling": "Nutrition for 5-7 hours of constant climbing on Belgian terrain",
+          "descending": "Technical descending on narrow Belgian communal roads under fatigue"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "Granfondo Eddy Merckx",
+        "race_hook": "The Cannibal's namesake gran fondo. 162 km, 18 climbs, 2,644m of Walloon Ardennes punishment.",
+        "race_hook_detail": "Ride the roads that forged the greatest cyclist in history. Belgian walls. Ardennes terrain. The GOAT's name on the banner.",
+        "distance": "162",
+        "dark_mile": "70",
+        "non_negotiable_1": "Repeated steep climb intervals",
+        "non_negotiable_2": "Sustained climbing endurance",
+        "non_negotiable_3": "Puncheur power development",
+        "trainingpeaks_url": null
+      }
+    }
+  }
+}

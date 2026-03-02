@@ -628,6 +628,10 @@
     return { search: search, tier: tier, region: region, distance: distance, month: month, discipline: discipline };
   }
 
+  function escHtml(s) {
+    return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+
   function getTranscriptSnippet(searchText, query) {
     if (!searchText || !query) return '';
     var lower = searchText.toLowerCase();
@@ -636,15 +640,21 @@
     var start = Math.max(0, idx - 50);
     var end = Math.min(searchText.length, idx + query.length + 70);
     var snippet = (start > 0 ? '...' : '') +
-      searchText.substring(start, idx) +
-      '<mark>' + searchText.substring(idx, idx + query.length) + '</mark>' +
-      searchText.substring(idx + query.length, end) +
+      escHtml(searchText.substring(start, idx)) +
+      '<mark>' + escHtml(searchText.substring(idx, idx + query.length)) + '</mark>' +
+      escHtml(searchText.substring(idx + query.length, end)) +
       (end < searchText.length ? '...' : '');
     return snippet;
   }
 
   function filterRaces() {
     var f = getFilters();
+    // Clear snippet flags on ALL races upfront — prevents stale flags on races
+    // that were filtered out by tier/region/distance before the reset path ran
+    for (var i = 0; i < allRaces.length; i++) {
+      allRaces[i]._transcriptMatch = false;
+      allRaces[i]._searchQuery = '';
+    }
     return allRaces.filter(function(r) {
       if (f.search) {
         var nameMatch = r.name.toLowerCase().includes(f.search);
@@ -654,9 +664,6 @@
         // Tag transcript-only matches for snippet display
         r._transcriptMatch = !nameMatch && !locMatch && stMatch;
         r._searchQuery = f.search;
-      } else {
-        r._transcriptMatch = false;
-        r._searchQuery = '';
       }
       if (f.tier && r.tier != f.tier) return false;
       if (f.region === 'International' && (!r.region || US_REGIONS.has(r.region))) return false;
@@ -788,8 +795,8 @@
 
   function renderCard(race) {
     var nameTag = race.has_profile
-      ? '<a class="gg-card-name" href="' + race.profile_url + '">' + race.name + '</a>'
-      : '<span class="gg-card-name no-link">' + race.name + '</span>';
+      ? '<a class="gg-card-name" href="' + escHtml(race.profile_url) + '">' + escHtml(race.name) + '</a>'
+      : '<span class="gg-card-name no-link">' + escHtml(race.name) + '</span>';
 
     var breakdown = renderScoreBreakdown(race.scores);
 
@@ -856,7 +863,7 @@
 
     var seriesBadge = '';
     if (race.series_name) {
-      seriesBadge = '<a href="/race/series/' + race.series_id + '/" class="gg-series-badge">' + race.series_name + '</a>';
+      seriesBadge = '<a href="/race/series/' + escHtml(race.series_id) + '/" class="gg-series-badge">' + escHtml(race.series_name) + '</a>';
     }
 
     // Elite seal for Tier 1
@@ -884,14 +891,14 @@
         racerBadge +
       '</div>' +
       scoreBar +
-      '<div class="gg-card-meta">' + (race.location || 'Location TBD') + (race.month ? ' &middot; ' + race.month : '') + '</div>' +
+      '<div class="gg-card-meta">' + escHtml(race.location || 'Location TBD') + (race.month ? ' &middot; ' + escHtml(race.month) : '') + '</div>' +
       '<div class="gg-card-stats">' +
         (race.distance_mi ? '<div class="gg-stat"><span class="gg-stat-val">' + race.distance_mi + '</span><span class="gg-stat-label">Miles</span></div>' : '') +
         (race.elevation_ft ? '<div class="gg-stat"><span class="gg-stat-val">' + Number(race.elevation_ft).toLocaleString() + '</span><span class="gg-stat-label">Ft Elev</span></div>' : '') +
         (terrainTags ? '<div class="gg-stat gg-stat-terrain">' + terrainTags + '</div>' : '') +
       '</div>' +
       radar +
-      (race.tagline ? '<div class="gg-card-tagline">' + race.tagline + '</div>' : '') +
+      (race.tagline ? '<div class="gg-card-tagline">' + escHtml(race.tagline) + '</div>' : '') +
       (race._transcriptMatch ? '<div class="gg-card-transcript-snippet"><span class="gg-card-transcript-label">RIDERS SAY</span> ' + getTranscriptSnippet(race.st, race._searchQuery) + '</div>' : '') +
     '</div>';
   }

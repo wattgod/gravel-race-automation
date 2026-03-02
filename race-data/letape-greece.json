@@ -1,0 +1,322 @@
+{
+  "race": {
+    "name": "L'Etape Greece by Tour de France",
+    "slug": "letape-greece",
+    "display_name": "L'Etape Greece by Tour de France",
+    "tagline": "ASO's Tour de France franchise meets ancient Greek myth -- 140 km through Sparta, Mystras, and the wild passes of Mount Taygetus.",
+    "vitals": {
+      "distance_mi": 87,
+      "elevation_ft": 5577,
+      "location": "Sparta, Laconia, Peloponnese, Greece (2026). Location rotates annually within Greece.",
+      "location_badge": "SPARTA, PELOPONNESE, GREECE",
+      "date": "Early April annually",
+      "date_specific": "2026: April 4",
+      "terrain_types": [
+        "Paved roads (100%)",
+        "Fully closed course",
+        "Mountain passes (Taygetus range)",
+        "Coastal roads (Gytheio)",
+        "Historic Peloponnese landscapes"
+      ],
+      "field_size": "1,000-2,000 riders (growing annually; 650 in 2023, ~1,000 in 2025, 2,000+ expected 2026)",
+      "start_time": "Morning wave starts",
+      "registration": "Online via greece.letapebytourdefrance.com. Early bird pricing available. Fun Ride: EUR20. The Race and The Ride pricing varies by registration phase (estimated EUR60-100).",
+      "prize_purse": "None (timed event, classification jerseys, finisher medals)",
+      "aid_stations": "Multiple feed zones along the route with water, nutrition, and mechanical support. Fully supported closed-road course.",
+      "cutoff_time": "Enforced cutoffs along the course; broom wagon support",
+      "lat": 37.0755,
+      "lng": 22.4303,
+      "distance_options": [
+        "The Race: 140 km (87 mi), 1,700 m elevation gain -- the full competitive route",
+        "The Ride: 67 km (42 mi), 1,250 m elevation gain -- shorter competitive route",
+        "The Fun Ride: 15 km (9 mi), flat -- non-competitive, open to ages 9-99"
+      ],
+      "entry_fee": "EUR60-100 estimated (The Race/The Ride); EUR20 (Fun Ride)"
+    },
+    "climate": {
+      "primary": "Mediterranean spring -- mild and dry",
+      "description": "Early April in the Peloponnese delivers near-ideal cycling conditions. Sparta sits in the Eurotas valley at 216m elevation with average April daytime temperatures of 18-20C (64-68F) and nighttime lows around 8-9C. The Taygetus mountain passes on the route will be cooler, potentially 10-12C at elevation. Rainfall is moderate -- 30-55mm across the month -- with a mix of sunny and overcast days. Spring wildflowers blanket the olive groves and hillsides.",
+      "challenges": [
+        "Mountain pass temperatures 8-10 degrees cooler than valley floor",
+        "Occasional spring rain showers -- pack a vest",
+        "Light wind exposure on coastal section near Gytheio",
+        "Sun exposure on open road sections in the Eurotas valley"
+      ]
+    },
+    "terrain": {
+      "primary": "Paved mountain and coastal roads through the Peloponnese",
+      "surface": "100% sealed Greek regional roads. Well-maintained departmental roads through Laconia. The route passes through olive groves, mountain passes, and coastal stretches. Road surfaces are generally good quality with some rougher patches on remote mountain sections.",
+      "technical_rating": 1,
+      "features": [
+        "Start/finish at the Leonidas statue in the heart of Sparta",
+        "Passes through the UNESCO World Heritage castle town of Mystras",
+        "Wild mountain passes of Mount Taygetus (2,407m peak; route crosses lower passes)",
+        "Coastal stretch through the elegant port of Gytheio on the Laconian Gulf",
+        "Ancient sanctuary of Orthia Artemis and acropolis of Sparta",
+        "Fully closed roads with ASO-standard race infrastructure",
+        "Climbing Sprint and Flat Sprint classifications"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 59,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "logistics": 3,
+      "length": 3,
+      "technicality": 1,
+      "elevation": 3,
+      "climate": 2,
+      "altitude": 1,
+      "adventure": 4,
+      "prestige": 3,
+      "race_quality": 3,
+      "experience": 4,
+      "community": 2,
+      "field_depth": 2,
+      "value": 4,
+      "expenses": 3,
+      "cultural_impact": 3,
+      "tier_note": "ASO's official Tour de France franchise in Greece, launched 2023. Only in its 4th edition (2026) with a growing but still small field. The ancient Greek setting -- Sparta, Mystras, Taygetus -- elevates the experience well beyond typical regional sportives, but the event lacks the scale, competitive depth, and international draw to reach T2.",
+      "score_note": "adventure=4 and experience=4 carry this event: riding through ancient Sparta past the Leonidas statue, UNESCO Mystras, and the Taygetus passes is genuinely special. prestige=3 as a regional franchise of the TdF brand. field_depth=2 reflects a small, mostly Greek/regional field. value=4 for affordable entry into a fully supported TdF-branded event. Sum of 14 criteria = 38, cultural_impact = 3, total = 41. (41/70)*100 = 58.57, rounded to 59.",
+      "editorial_tier": 3,
+      "editorial_tier_label": "TIER 3",
+      "business_tier": 3,
+      "business_tier_label": "TIER 3",
+      "display_tier": 3,
+      "display_tier_label": "TIER 3",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 3,
+        "explanation": "ASO franchise standards apply: closed roads, wave starts, timing, feed zones, mechanical support. The on-course logistics are professional and well-organized by local partner ezGreece/feelosophy. But getting there requires work. Athens (ATH) is the gateway airport, and Sparta is a 2.5-3 hour drive south into the Peloponnese. There is no train. The event location rotates annually within Greece -- Ancient Olympia for 2023-2025, Sparta for 2026 -- so lodging and travel planning changes each edition. Sparta itself is a small city with limited hotel capacity; 2,000 riders and support crews will strain available rooms."
+      },
+      "length": {
+        "score": 3,
+        "explanation": "140 km (87 miles) with 1,700m of climbing is a solid but not exceptional day. For comparison, the original French L'Etape typically runs 150-170 km with 3,500-5,400m of climbing. The 2025 Ancient Olympia edition was 150 km with 2,300m -- the 2026 Sparta edition is actually shorter and flatter than its predecessor. The Ride at 67 km with 1,250m offers a legitimate shorter option. For a well-trained road cyclist, The Race is manageable within a day. It is not the lung-bursting mountain epic that the Tour de France name might suggest."
+      },
+      "technicality": {
+        "score": 1,
+        "explanation": "This is road cycling on sealed Greek highways. Zero technical terrain. The challenge is cardiovascular and muscular, not bike handling. The Taygetus mountain passes have some winding sections, but nothing that would trouble any competent road cyclist. Bring your road bike and leave the gravel setup at home."
+      },
+      "elevation": {
+        "score": 3,
+        "explanation": "1,700m of climbing over 140 km is moderate. The Taygetus passes provide the bulk of the vertical, with sustained climbs through mountain terrain before dropping to the coast at Gytheio and returning to Sparta. It is enough to separate the prepared from the casual, but this is not an Alpine monster. The 2025 Ancient Olympia edition had 2,300m in 150 km -- the Sparta route trades raw elevation for scenic diversity."
+      },
+      "climate": {
+        "score": 2,
+        "explanation": "Early April in the Peloponnese is near-ideal cycling weather. Daytime temperatures of 18-20C, minimal rain risk, light winds, and spring sunshine. This is not a climate challenge -- it is a climate gift. The only consideration is the temperature drop on the Taygetus passes (potentially 10C cooler than the valley) and occasional spring showers. Pack arm warmers and a vest. You will not suffer from the weather here."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "The route crosses lower passes of the Taygetus range, likely topping out at 700-1,000m. Sparta itself sits at 216m. There is zero altitude factor. Sea-level riders will not notice any oxygen reduction. This is a low-elevation event in a Mediterranean valley."
+      },
+      "adventure": {
+        "score": 4,
+        "explanation": "This is where L'Etape Greece punches above its weight class. You start and finish in front of the statue of Leonidas -- the actual King Leonidas, the 300 Spartans, Thermopylae. The route passes through the sanctuary of Orthia Artemis, the ancient acropolis of Sparta, the UNESCO castle town of Mystras (a Byzantine jewel perched on a hillside), the wild Taygetus passes that feel like riding through mythology, and the elegant port of Gytheio on the Laconian Gulf. This is not just a bike ride -- it is 2,500 years of civilization unspooling under your wheels. Very few road cycling events anywhere in the world can match this depth of historical and landscape immersion."
+      },
+      "prestige": {
+        "score": 3,
+        "explanation": "The Tour de France brand carries genuine weight, and this is an officially licensed ASO event. Skoda sponsors it (the same Skoda that sponsors the actual Tour). Classification jerseys mirror the real thing. But this is a young regional franchise -- only its 4th edition in 2026, with fields of 650-2,000 riders. It does not carry the prestige of the original French L'Etape, or even the more established franchise events in Czech Republic, Brazil, or Australia. Within Greek cycling, it is the prestige event. Globally, it is one of many L'Etape satellites."
+      },
+      "race_quality": {
+        "score": 3,
+        "explanation": "ASO franchise standards provide the framework: closed roads, professional timing, classification jerseys (yellow, polka-dot, green), Climbing Sprint and Flat Sprint segments, feed zones, medical support, and broom wagon coverage. Local organizer ezGreece/feelosophy handles execution. The 2024 edition in Ancient Olympia attracted 1,000 riders to positive reception. But a 4th-year event with 1,000-2,000 riders is still building its operational muscles. The infrastructure is solid but not yet at the level of mature L'Etape franchises."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "Standing at the Leonidas statue in Sparta, clipping in, and riding out through ancient Greek history on closed roads with Tour de France branding -- that is a genuinely special moment. Mystras emerging from the hillside like a Byzantine dream. The wild beauty of the Taygetus passes. The Mediterranean light hitting olive groves and wildflowers in April. The finish back at Leonidas after 140 km through the cradle of Western civilization. The physical challenge is moderate, but the experiential richness is exceptional. Few sportives can offer this combination of athletic achievement and cultural immersion."
+      },
+      "community": {
+        "score": 2,
+        "explanation": "With 650-1,000 riders in recent editions (2,000 expected for 2026), this is a small event. The field is predominantly Greek and Southern European riders -- the international draw is limited. The intimate scale could be a strength (you feel like you are part of something rather than lost in a crowd), but it also means limited networking, modest expo, and thin spectator presence outside the start/finish. The event is growing, and the move to Sparta should boost participation, but community depth is still developing."
+      },
+      "field_depth": {
+        "score": 2,
+        "explanation": "The competitive field is thin. 650-1,000 riders (growing to 2,000) are primarily recreational and club-level cyclists from Greece and neighboring countries. There is no meaningful elite or semi-professional presence. The classification jerseys create competitive structure, but winning times suggest strong club riders rather than national-level talent. If you want fierce age-group racing, look to larger European sportives. If you want a personal challenge in an extraordinary setting, the field depth is irrelevant."
+      },
+      "value": {
+        "score": 4,
+        "explanation": "Estimated EUR60-100 for The Race is outstanding value for a fully supported, closed-road event carrying the Tour de France brand. Compare this to EUR175 for the original French L'Etape, EUR120 for L'Etape Slovenia, or $300 AUD for L'Etape Australia. Greece is one of the most affordable L'Etape franchise locations. The Fun Ride at EUR20 is essentially free. Factor in the TdF classification jerseys, aid stations, closed roads, and professional timing -- this is one of the best value propositions in the L'Etape global series."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Greece is affordable by Western European standards. Athens flights from major European cities run EUR50-200. A rental car for the 2.5-3 hour drive to Sparta is EUR30-50/day. Hotels in Sparta and surrounding Laconia are EUR60-120/night. Food in the Peloponnese is excellent and inexpensive -- EUR15-25 for a full dinner. Total weekend budget for a European visitor: EUR400-700. From the US, add transatlantic flights (EUR600-1,200) but Greece remains cheaper than France, Switzerland, or Italy for cycling tourism."
+      }
+    },
+    "biased_opinion": {
+      "verdict": "Ancient Myth Meets Modern Franchise",
+      "summary": "L'Etape Greece is a young event trading on two powerful assets: the Tour de France brand and 2,500 years of Greek civilization. The cycling itself -- 140 km, 1,700m of climbing on paved Peloponnese roads -- is moderate by European sportive standards. What elevates this event is everything around the cycling: starting at the Leonidas statue in Sparta, riding through UNESCO-listed Mystras, crossing the wild Taygetus passes, touching the Laconian Gulf at Gytheio. It is a Tour de France stage wrapped in a mythology lecture. At only its 4th edition with fields under 2,000, it lacks the scale, competitive depth, and operational maturity of established L'Etape franchises. But the setting is unmatched in the L'Etape global series. If the organizers can grow participation while preserving the intimacy and leveraging the extraordinary Greek landscapes, this could become one of the standout franchise events.",
+      "strengths": [
+        "Setting: start/finish at the Leonidas statue in Sparta, through Mystras and Taygetus to the Laconian Gulf",
+        "Tour de France brand with ASO franchise standards: closed roads, classification jerseys, professional timing",
+        "Outstanding value: estimated EUR60-100 for a fully supported TdF-branded event",
+        "April in the Peloponnese: near-ideal cycling weather with spring wildflowers and Mediterranean light",
+        "Affordable destination: Greece is one of the cheapest Western European cycling tourism destinations",
+        "Growing momentum: from 650 riders (2023) to 2,000+ expected (2026)"
+      ],
+      "weaknesses": [
+        "Young event (4th edition in 2026) still building operational maturity",
+        "Small field (650-2,000) with limited international draw and thin competitive depth",
+        "Route location rotates annually within Greece -- cannot benchmark year over year",
+        "Moderate physical challenge: 1,700m elevation is not an Alpine epic",
+        "Logistics: Sparta requires a 2.5-3 hour drive from Athens with no train option",
+        "Limited accommodation capacity in Sparta for a growing event"
+      ],
+      "bottom_line": "L'Etape Greece is not the event you enter for the cycling challenge -- 140 km and 1,700m will not break a fit road cyclist. You enter this for the experience of riding through the birthplace of Western civilization on closed roads with Tour de France branding. The Leonidas statue. Byzantine Mystras. The Taygetus mountain passes. The port of Gytheio. At EUR60-100 in affordable Greece, the value proposition is excellent. This is a cycling holiday disguised as a race, and there is absolutely nothing wrong with that."
+    },
+    "final_verdict": {
+      "score": "59 / 100",
+      "one_liner": "Tour de France branding through the birthplace of Western civilization. Leonidas. Mystras. Taygetus. Moderate climbing, extraordinary setting.",
+      "should_you_race": "Yes if the combination of Tour de France atmosphere and ancient Greek history appeals more than raw physical challenge. Yes if you want an affordable L'Etape experience in a stunning Mediterranean setting. Yes if April in the Peloponnese sounds like cycling paradise. Skip if you want a mountain epic -- 1,700m is moderate. Skip if you want deep competitive fields. Skip if you need direct airport-to-venue logistics -- Sparta is a 3-hour drive from Athens.",
+      "alternatives": "For the original L'Etape experience with maximum prestige and climbing: L'Etape du Tour de France (France, July). For a Mediterranean L'Etape franchise with more climbing: L'Etape Czech Republic. For Greek road cycling with more distance: Mallorca 312 is the Mediterranean benchmark (different country, similar vibes). For ancient history + cycling without the franchise branding: any self-supported Peloponnese cycling tour.",
+      "alternative_slugs": [
+        "letape-du-tour",
+        "letape-czech-republic",
+        "mallorca-312"
+      ]
+    },
+    "logistics": {
+      "airport": "Athens International (ATH) -- 250 km / 2.5-3 hours drive to Sparta. Greece's main international hub with extensive European and intercontinental connections.",
+      "lodging_strategy": "Stay in Sparta (population ~16,000) for proximity to the start/finish. Hotels, guesthouses, and Airbnb options are limited but affordable (EUR60-120/night). Book early as the event will strain local capacity. Mystras (5 km from Sparta) offers boutique guesthouses with stunning views. Gytheio (45 km south) is a charming coastal alternative. Kalamata (60 km west) has more hotel capacity and its own airport (KLX) for some European connections.",
+      "food": "Peloponnese cuisine is exceptional: fresh olive oil, grilled meats, local cheeses, wild greens, and outstanding seafood in Gytheio. Carb-loading on Greek bread, pasta, and traditional pies. Post-ride: souvlaki, moussaka, and local wine. Feed zones on course stocked with water, energy drinks, fruit, and bars.",
+      "packet_pickup": "Event village near the Leonidas statue in central Sparta, 1-2 days before the race.",
+      "parking": "Designated event parking in Sparta. Limited capacity in the town center -- arrive early or use outlying areas with shuttle service.",
+      "official_site": "https://greece.letapebytourdefrance.com/"
+    },
+    "history": {
+      "founded": 2023,
+      "founder": "ezGreece/feelosophy (local organizer) under license from ASO (Amaury Sport Organisation)",
+      "origin_story": "Launched in 2023 as part of ASO's global expansion of the L'Etape brand, L'Etape Greece brought the Tour de France amateur experience to the mythical landscapes of the Peloponnese. The inaugural edition in Ancient Olympia -- the birthplace of the Olympic Games -- was a deliberate statement: connecting the world's greatest cycling brand to the origins of competitive sport. Over 650 riders from multiple countries participated in the first edition. The event has been held annually in Ancient Olympia (2023-2025), with the 2026 edition marking a bold move to Sparta, home of the legendary warrior king Leonidas. Presented by Skoda (the Tour de France's official vehicle partner), the event has grown steadily, with the 2026 Sparta edition expected to attract 2,000+ cyclists and visitors.",
+      "notable_moments": [
+        "2023: Inaugural edition at Ancient Olympia. 650+ riders. Two routes: The Race (150 km, 2,300m) and The Ride (75 km, 1,150m).",
+        "2024: 2nd edition at Ancient Olympia. ~1,000 riders. Former Olympian wins The Race. Three routes introduced (Race, Ride, Fun Ride).",
+        "2025: 3rd edition returns to Ancient Olympia. 1,000+ riders. Routes: 152 km, 88 km, and 17 km Fun Ride.",
+        "2026: 4th edition moves to Sparta for the first time. Three routes: 140 km, 67 km, 15 km. Start/finish at Leonidas statue. 2,000+ expected."
+      ],
+      "reputation": "The newest and most culturally rich entry in the L'Etape global franchise. Still young and small, but the combination of Tour de France branding and ancient Greek settings gives it a unique identity that no other L'Etape satellite can replicate. Within Greek cycling, it is quickly becoming the marquee annual road event."
+    },
+    "course_description": {
+      "character": "A Mediterranean road course that prioritizes scenic and historical richness over raw physical brutality. The 2026 Sparta edition sends riders from the Leonidas statue through the ancient city, past the sanctuary of Orthia Artemis, into the Taygetus mountain passes, down to the coastal port of Gytheio on the Laconian Gulf, and back through olive groves and Byzantine villages to Sparta. The terrain undulates through the Eurotas valley before rising into the Taygetus range, where the serious climbing begins. The coastal Gytheio section offers a Mediterranean respite before the return leg. Every kilometer is steeped in 2,500 years of history.",
+      "suffering_zones": [
+        {
+          "mile": 0,
+          "label": "Sparta to Mystras",
+          "desc": "The opening kilometers climb west from the Eurotas valley floor toward the Byzantine castle town of Mystras, perched on the eastern foothills of Mount Taygetus. Gradients are moderate but rising steadily. The ancient acropolis of Sparta and sanctuary of Orthia Artemis mark the early landmarks. Mystras appears on the hillside like a medieval fever dream -- a UNESCO World Heritage Site of ruined churches, palaces, and fortifications.",
+          "terrain_detail": "Rising terrain from 216m Sparta to ~500m Mystras foothills",
+          "named_section": "Mystras Approach"
+        },
+        {
+          "mile": 30,
+          "label": "Taygetus Mountain Passes",
+          "desc": "The route enters the wild heart of the Taygetus range. These are not the manicured switchbacks of the French Alps -- the passes are rugged, remote, and surrounded by scrub oak, cypress, and limestone crags. The climbing is sustained and the road narrows. This is where the event earns its elevation. The scenery is dramatic: deep gorges, exposed ridgelines, and views stretching across Laconia.",
+          "terrain_detail": "Sustained climbing through mountain passes, estimated 700-1,000m elevation",
+          "named_section": "Taygetus Passes"
+        },
+        {
+          "mile": 55,
+          "label": "Descent to Gytheio",
+          "desc": "The descent from the Taygetus passes drops to the elegant port town of Gytheio on the Laconian Gulf. The road sweeps through Mediterranean pine and olive groves toward the coast. Gytheio offers a psychological and physical respite -- the coastal air, the blue water, the flat terrain. But the return leg to Sparta still lies ahead, and the legs know it.",
+          "terrain_detail": "Fast descent to sea level, coastal flat through Gytheio",
+          "named_section": "Gytheio Coastal Section"
+        },
+        {
+          "mile": 75,
+          "label": "Return to Sparta",
+          "desc": "The final 30+ km from the coast back to Sparta crosses rolling terrain through the Eurotas valley. After 110+ km, the gentle rises feel steeper than they are. Olive groves and citrus orchards line the road. The statue of Leonidas awaits at the finish -- and by now you understand why the Spartans were hard.",
+          "terrain_detail": "Rolling terrain, gradual climb from coast back to Sparta at 216m",
+          "named_section": "Eurotas Valley Return"
+        }
+      ],
+      "signature_challenge": "The Taygetus mountain passes -- the physical and emotional crux of the course. Mount Taygetus (2,407m peak) dominates the western skyline of Sparta, and the route crosses its lower passes through wild, remote terrain that feels more like mythology than a bike race. The climbing is real, but the challenge is as much psychological as physical: you are riding through landscape that has barely changed since Spartan warriors trained on these same slopes.",
+      "surface_breakdown": {
+        "overall": {
+          "pavement": 100
+        }
+      }
+    },
+    "guide_variables": {
+      "race_name": "L'Etape Greece by Tour de France",
+      "race_distance": "87 miles",
+      "race_elevation": "5,577 feet",
+      "race_date": "April",
+      "race_location": "Sparta, Peloponnese, Greece",
+      "race_terrain": "Paved mountain and coastal roads through the Peloponnese",
+      "race_weather": "Mild Mediterranean spring: 18-20C daytime, cooler on mountain passes",
+      "race_challenges": [
+        "Sustained climbing through the Taygetus mountain passes",
+        "140 km requires solid endurance base and pacing discipline",
+        "Temperature variation between valley floor and mountain passes (8-10C difference)",
+        "Remote mountain sections with limited shade"
+      ],
+      "altitude_section": false,
+      "altitude_feet": 3281
+    },
+    "non_negotiables": [
+      {
+        "requirement": "4-5 hour road endurance at race tempo with 1,500m+ climbing",
+        "by_when": "Week 6",
+        "why": "140 km with 1,700m of climbing on Greek roads demands sustained aerobic output. Train with 4-5 hour rides including 30-60 minute sustained climbs. The Taygetus passes are not steep, but they are long -- your fueling and pacing on the climbs determine your finish quality."
+      },
+      {
+        "requirement": "Heat management and hydration strategy tested in training",
+        "by_when": "Week 8",
+        "why": "April in the Peloponnese can surprise with warm days, especially on sun-exposed road sections in the Eurotas valley. The mountain passes offer cooler temps but limited shade. Practice drinking every 15-20 minutes and carrying enough fluids between aid stations."
+      },
+      {
+        "requirement": "Layering strategy for 10C temperature swings",
+        "by_when": "Race week",
+        "why": "The valley floor sits at 18-20C while the Taygetus passes drop to 8-12C. You need a packable vest and arm warmers that you can strip and stow. The descent from Taygetus to Gytheio will chill you if you climb hard and sweat through the passes."
+      }
+    ],
+    "citations": [
+      {
+        "url": "https://greece.letapebytourdefrance.com/",
+        "title": "L'Etape Greece by Tour de France -- Official Site",
+        "category": "official"
+      },
+      {
+        "url": "https://www.letapeseries.com/index.php/memories/events/l-etape-greece-by-tour-de-france-2026-comes-to-sparta",
+        "title": "L'Etape Greece 2026 Comes to Sparta -- L'Etape Series",
+        "category": "official"
+      },
+      {
+        "url": "https://tornosnews.gr/en/featured/letape-greece-by-tour-de-france-2026-2000-cyclists-and-visitors-in-sparta.html",
+        "title": "L'Etape Greece 2026: 2,000 Cyclists and Visitors in Sparta -- Tornos News",
+        "category": "media"
+      },
+      {
+        "url": "https://news.gtp.gr/2024/04/09/letape-greece-by-tour-de-france-attracts-1000-cyclists-to-ancient-olympia/",
+        "title": "L'Etape Greece Attracts 1,000 Cyclists to Ancient Olympia -- GTP Headlines",
+        "category": "media"
+      },
+      {
+        "url": "https://www.kosmocar.gr/en/nea/deltia-tupou/press-2025/2_21012025-laatape-greece-by-tour-de-france-presented-by-skoda",
+        "title": "L'Etape Greece 2025 Presented by Skoda -- Kosmocar",
+        "category": "media"
+      },
+      {
+        "url": "https://www.discovergreece.com/event/1st-edition-letape-greece-tour-de-france",
+        "title": "1st Edition of L'Etape Greece by Tour de France -- Discover Greece",
+        "category": "reference"
+      },
+      {
+        "url": "https://ezgreece.gr/book/product/registration/",
+        "title": "Registration L'Etape Greece -- ezGreece",
+        "category": "official"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/10668/l%C3%A9tape-greece",
+        "title": "L'Etape Greece -- Gran Fondo Guide",
+        "category": "reference"
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "researched",
+      "validation_status": "validated",
+      "research_strength": "B",
+      "sources_count": 8,
+      "last_updated": "2026-02-27"
+    }
+  }
+}

@@ -23,7 +23,7 @@ from generate_blog_index import (
     generate_blog_index,
 )
 from generate_blog_index_page import generate_blog_index_page
-from generate_sitemap import generate_blog_sitemap
+from generate_sitemap import generate_blog_sitemap, INDEXABLE_BLOG_CATEGORIES
 
 
 # ── parse_race_date ──
@@ -114,7 +114,8 @@ def test_generate_preview_has_seo():
     html = generate_preview_html("mid-south")
     assert html is not None
     assert "og:title" in html
-    assert "application/ld+json" in html
+    # No Article JSON-LD on noindexed preview pages (contradictory signals)
+    assert "application/ld+json" not in html
     assert 'canonical' in html
 
 
@@ -417,6 +418,65 @@ def test_blog_sitemap_empty(tmp_path):
     ns = {"s": "http://www.sitemaps.org/schemas/sitemap/0.9"}
     urls = root.findall("s:url", ns)
     assert len(urls) == 1  # Just the blog index page
+
+
+# ── Sitemap allowlist + preview schema tests ──
+
+
+def test_blog_sitemap_excludes_preview_urls(tmp_path):
+    """Explicit URL absence check — preview URLs must never appear in sitemap."""
+    blog_index = [
+        {"slug": "unbound-200", "category": "preview", "date": "2026-02-12"},
+        {"slug": "roundup-march-2026", "category": "roundup", "date": "2026-02-12"},
+    ]
+    output = tmp_path / "blog-sitemap.xml"
+    generate_blog_sitemap(blog_index, output)
+    content = output.read_text()
+    assert "/blog/unbound-200/" not in content
+    assert "/blog/roundup-march-2026/" in content
+
+
+def test_blog_sitemap_excludes_all_previews(tmp_path):
+    """5 previews, 0 should leak into sitemap."""
+    blog_index = [
+        {"slug": f"race-{i}", "category": "preview", "date": "2026-02-12"}
+        for i in range(5)
+    ]
+    output = tmp_path / "blog-sitemap.xml"
+    generate_blog_sitemap(blog_index, output)
+
+    import xml.etree.ElementTree as ET
+    tree = ET.parse(output)
+    root = tree.getroot()
+    ns = {"s": "http://www.sitemaps.org/schemas/sitemap/0.9"}
+    urls = root.findall("s:url", ns)
+    assert len(urls) == 1  # Only the /blog/ index page
+
+
+def test_blog_sitemap_excludes_unknown_category(tmp_path):
+    """Unknown categories must be excluded by default (allowlist safety net)."""
+    blog_index = [
+        {"slug": "mystery-post", "category": "analysis", "date": "2026-02-12"},
+        {"slug": "roundup-march-2026", "category": "roundup", "date": "2026-02-12"},
+    ]
+    output = tmp_path / "blog-sitemap.xml"
+    generate_blog_sitemap(blog_index, output)
+    content = output.read_text()
+    assert "/blog/mystery-post/" not in content
+    assert "/blog/roundup-march-2026/" in content
+
+
+def test_preview_no_article_jsonld():
+    """Noindexed preview pages must not contain Article JSON-LD schema."""
+    html = generate_preview_html("unbound-200")
+    if html is None:
+        pytest.skip("unbound-200 preview not generated")
+
+    # Must have noindex
+    assert 'noindex' in html
+    # Must NOT have Article JSON-LD
+    assert 'application/ld+json' not in html, \
+        "Noindexed preview pages must not contain JSON-LD schema"
 
 
 # ── Sprint 35: No raw Python repr in rendered HTML ──

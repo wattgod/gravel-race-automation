@@ -1446,7 +1446,9 @@ class TestConfiguratorFormFields:
     def test_race_search_input(self, configurator_html):
         """Configurator has a race search input."""
         assert 'id="gg-cfg-race-search"' in configurator_html
-        assert 'placeholder="Search 328 races..."' in configurator_html
+        # The race count is dynamic — check for the pattern, not a hardcoded number
+        assert re.search(r'placeholder="Search \d+ races\.\.\."', configurator_html), \
+            "Configurator missing 'Search N races...' placeholder"
 
     def test_race_select_dropdown(self, configurator_html):
         """Configurator has a race select dropdown."""

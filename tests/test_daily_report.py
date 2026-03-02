@@ -30,13 +30,13 @@ class TestCollectRaceStats:
     def test_tier_counts(self):
         result = collect_race_stats()
         assert "error" not in result, f"Unexpected error: {result.get('error')}"
-        assert result["total"] == 328
+        assert result["total"] >= 328
         tiers = result["tier_counts"]
         assert "T1" in tiers
         assert "T2" in tiers
         assert "T3" in tiers
         assert "T4" in tiers
-        assert sum(tiers.values()) == 328
+        assert sum(tiers.values()) == result["total"]
 
     def test_upcoming_count(self):
         result = collect_race_stats()
@@ -66,7 +66,7 @@ class TestCollectDataQuality:
     def test_stale_date_detection(self):
         result = collect_data_quality()
         assert "error" not in result, f"Unexpected error: {result.get('error')}"
-        assert result["total_profiles"] == 328
+        assert result["total_profiles"] >= 328  # 328 gravel + road/gran fondo profiles
         assert result["stale_dates"] >= 0
         assert result["quality_score"] >= 0
         assert result["quality_score"] <= 100

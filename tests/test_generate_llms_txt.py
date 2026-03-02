@@ -40,7 +40,7 @@ class TestLlmsTxt:
 
     def test_has_race_count(self, index):
         txt = generate_llms_txt(index)
-        assert "328" in txt
+        assert str(len(index)) in txt
 
     def test_has_tier_breakdown(self, index):
         txt = generate_llms_txt(index)

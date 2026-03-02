@@ -551,13 +551,15 @@ class TestJsonLD:
                 skipped += 1
 
         total = valid + skipped
-        # At least 280 of 328 races should have valid SportsEvent
-        assert valid >= 280, \
-            f"Too few valid SportsEvent: {valid}/{total}. " \
+        # At least 85% of races should have valid SportsEvent
+        min_valid = int(total * 0.85)
+        assert valid >= min_valid, \
+            f"Too few valid SportsEvent: {valid}/{total} (need {min_valid}). " \
             f"Did a date format change break parsing?"
-        # No more than 50 should be skipped (safety ceiling)
-        assert skipped <= 50, \
-            f"Too many skipped SportsEvent: {skipped}/{total}. " \
+        # No more than 15% should be skipped (safety ceiling)
+        max_skipped = int(total * 0.15)
+        assert skipped <= max_skipped, \
+            f"Too many skipped SportsEvent: {skipped}/{total} (max {max_skipped}). " \
             f"Check for new unparseable date patterns."
 
     def test_sports_event_no_valid_from(self, normalized_data):

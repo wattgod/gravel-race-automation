@@ -93,6 +93,7 @@ PAST_TENSE_PATTERNS = [
     r"(?i)was\s+(part\s+of|on|in)\s+(the\s+)?life\s*time",
     r"(?i)was\s+(an?\s+)?LTGP",
     r"(?i)former(ly)?\s+LTGP",
+    r"(?i)former(ly)?\s+(part\s+of|on|in)\s+(the\s+)?life\s*time",
     r"(?i)dropped\s+(from|for)",
     r"(?i)in\s+20\d\d\s*\(",  # "in 2024 (dropped..."
     r"(?i)LTGP\s+in\s+20\d\d",
@@ -113,6 +114,13 @@ RIDER_PATTERNS = [
     r"(?i)many\s+LTGP\s+riders",
     r"(?i)attracts?\s+LTGP",
     r"(?i)LTGP-caliber",
+    r"(?i)Life\s*Time\s*Grand\s*Prix\s+pros?",  # "LTGP pros" = riders, not membership
+]
+
+# Patterns that compare/reference LTGP without claiming membership
+COMPARISON_PATTERNS = [
+    r"(?i)(at|find at)\s+(major\s+)?.*Life\s*Time\s*Grand\s*Prix\s+events?",
+    r"(?i)Life\s*Time\s*Grand\s*Prix\s+(gravel\s+)?race\s+added",  # festival history
 ]
 
 
@@ -165,6 +173,14 @@ def is_rider_reference(context: str) -> bool:
     return False
 
 
+def is_comparison_reference(context: str) -> bool:
+    """Check if the claim compares to LTGP without claiming membership."""
+    for pattern in COMPARISON_PATTERNS:
+        if re.search(pattern, context):
+            return True
+    return False
+
+
 class TestLTGPClaims:
     """Test that LTGP claims are factually accurate."""
 
@@ -188,12 +204,13 @@ class TestLTGPClaims:
             except (json.JSONDecodeError, IOError) as e:
                 continue
 
-            # Strip youtube_data before scanning — transcripts contain
-            # natural LTGP references from riders that aren't editorial claims
-            scan_data = dict(data)
-            if "race" in scan_data and "youtube_data" in scan_data.get("race", {}):
-                scan_data = json.loads(content)
-                scan_data["race"] = {k: v for k, v in scan_data["race"].items() if k != "youtube_data"}
+            # Strip youtube_data and race_photos before scanning — transcripts
+            # contain natural LTGP references from riders, and photo credits
+            # attribute the source channel (not membership claims)
+            scan_data = json.loads(content)
+            skip_keys = {"youtube_data", "race_photos", "photos"}
+            if "race" in scan_data:
+                scan_data["race"] = {k: v for k, v in scan_data["race"].items() if k not in skip_keys}
             scan_content = json.dumps(scan_data)
 
             # Extract all LTGP claims from the editorial JSON content
@@ -212,6 +229,10 @@ class TestLTGPClaims:
 
                 # Skip if it's about riders attending, not membership
                 if is_rider_reference(context):
+                    continue
+
+                # Skip if it's a comparison/reference, not membership
+                if is_comparison_reference(context):
                     continue
 
                 # If race is currently on LTGP, any claim is fine

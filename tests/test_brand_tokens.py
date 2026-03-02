@@ -83,13 +83,13 @@ class TestFontFaceCSS:
         assert "/fonts//" not in css
         assert "/fonts/SometypeMono" in css
 
-    def test_four_font_faces(self):
+    def test_font_face_count(self):
         css = get_font_face_css()
-        assert css.count("@font-face") == 4
+        assert css.count("@font-face") == len(FONT_FILES)
 
     def test_font_display_swap(self):
         css = get_font_face_css()
-        assert css.count("font-display: swap") == 4
+        assert css.count("font-display: swap") == len(FONT_FILES)
 
     def test_all_font_files_referenced(self):
         css = get_font_face_css()
@@ -109,7 +109,9 @@ class TestPreloadHints:
 
     def test_crossorigin_attribute(self):
         html = get_preload_hints()
-        assert html.count('crossorigin') == 2
+        # One preload per font family (latin subset only)
+        font_families = {f.split("-")[0] for f in FONT_FILES if "latin-ext" not in f and "italic" not in f}
+        assert html.count('crossorigin') == len(font_families)
 
     def test_custom_prefix(self):
         html = get_preload_hints("/cdn/fonts")
@@ -147,7 +149,7 @@ class TestConstants:
         assert not SITE_BASE_URL.endswith("/")
 
     def test_font_files_count(self):
-        assert len(FONT_FILES) == 4
+        assert len(FONT_FILES) >= 4  # minimum: 2 families × 2 subsets
 
     def test_font_files_woff2(self):
         for f in FONT_FILES:

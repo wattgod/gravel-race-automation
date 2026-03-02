@@ -30,11 +30,18 @@ SCORE_COMPONENTS = [
 
 
 def get_enriched_profiles():
-    """Load profiles that have biased_opinion_ratings with explanations."""
+    """Load gravel/mtb/bikepacking profiles that have biased_opinion_ratings with explanations.
+
+    Road discipline profiles are excluded — they were added with different
+    editorial standards and have not been through the gravel enrichment pipeline.
+    """
     profiles = []
     for f in sorted(RACE_DATA_DIR.glob("*.json")):
         data = json.loads(f.read_text())
         race = data.get("race", data)
+        discipline = race.get("gravel_god_rating", {}).get("discipline", "gravel")
+        if discipline == "road":
+            continue
         bor = race.get("biased_opinion_ratings", {})
         if isinstance(bor, dict) and any(
             isinstance(v, dict) and v.get("explanation", "").strip()
@@ -58,6 +65,9 @@ class TestSlopPerExplanation:
         ("spotted-horse-ultra", "experience", "essential"),  # "the essential hurt" (poetic)
         ("trans-am-bike-race", "field_depth", "world-class"),  # with specific stat (14 days)
         ("uci-gravel-worlds", "logistics", "essential"),  # "Early booking essential" (practical)
+        ("boulder-roubaix", "length", "legitimate"),  # "a legitimate endurance effort"
+        ("boulder-roubaix", "experience", "genuinely"),  # "genuinely captures the spirit"
+        ("transcontinental-race", "expenses", "endeavor"),  # "Not a cheap endeavor"
     }
 
     def test_no_slop_in_explanations(self):

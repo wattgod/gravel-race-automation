@@ -150,7 +150,8 @@ def _race_summary(slug: str, race_data_dir: Path) -> str:
         parts.append(f"Signature challenge: {sig}")
 
     # Biased opinion summary (adds depth)
-    bo = rd.get("biased_opinion", {})
+    bo_raw = rd.get("biased_opinion", {})
+    bo = {"summary": bo_raw} if isinstance(bo_raw, str) else bo_raw
     bo_summary = bo.get("summary", "")
     if bo_summary and bo_summary not in parts:
         parts.append(bo_summary)

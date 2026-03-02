@@ -31,6 +31,14 @@ VALID_DATE_PATTERNS = [
     r"^Paused\s+for\s+\d{4}",  # "Paused for 2026 — returning May 2027"
     r"^\d{4}:\s*(January|February|March|April|May|June|July|August|September|October|November|December)",  # "2026: July 11-12"
     r"^\d{4}:\s*\w+",  # Any year: something pattern
+    r"^\d{4}\s+was\s+the\s+final",  # "2025 was the final ride..."
+    r"^Self-scheduled",  # "Self-scheduled — any day..."
+    r"^Last\s+held:",  # "Last held: May 26, 2024. Cancelled..."
+    r"^Final\s+edition:",  # "Final edition: June 2-4, 2023."
+    r"^Event\s+cancelled",  # "Event cancelled in 2024..."
+    r"^TBD\s*[—–-]",  # "TBD — no future date set..."
+    r"^\d{4}\s+(January|February|March|April|May|June|July|August|September|October|November|December|Arizona|Northern|Chicagoland|New)",  # Multi-date: "2026 Arizona: Feb 14..."
+    r"^(January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2},?\s+\d{4}",  # "August 29, 2026 (...)"
 ]
 
 

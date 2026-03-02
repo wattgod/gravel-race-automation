@@ -1,0 +1,31 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Tour de Okinawa",
+  "description": "Japan's premier citizen road race. Subtropical island. Yanbaru forest climbs. 35 years of shut-down roads, sea-level starts, and the strongest amateur field in Asia.",
+  "sport": "Gravel Cycling",
+  "startDate": "2025-11-08",
+  "location": {
+    "@type": "Place",
+    "name": "Nago City, Okinawa, Japan"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "180",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/LimitedAvailability"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "66",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://www.tour-de-okinawa.jp/en/",
+  "organizer": {
+    "@type": "Person",
+    "name": "Okinawa Prefecture cycling community with prefectural government support",
+    "url": "https://www.tour-de-okinawa.jp/en/"
+  }
+}

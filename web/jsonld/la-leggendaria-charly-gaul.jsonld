@@ -1,0 +1,24 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "La Leggendaria Charly Gaul",
+  "description": "141 kilometers and 4,000 meters of climbing from Trento's Cathedral Square to the summit of Monte Bondone \u2014 the same finish where Charly Gaul collapsed, frozen and victorious, in the 1956 Giro d'Italia. UCI Gran Fondo World Series qualifier since 2012.",
+  "sport": "Gravel Cycling",
+  "location": {
+    "@type": "Place",
+    "name": "Trento, Trentino-Alto Adige, Italy"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "73",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://www.endu.net/en/events/la-leggendaria-charly-gaul-uci-granfondo-world-series/",
+  "organizer": {
+    "@type": "Person",
+    "name": "Trento Tourism Board in collaboration with ACC Contern (Luxembourg) and the Friends of Charly Gaul Foundation",
+    "url": "https://www.endu.net/en/events/la-leggendaria-charly-gaul-uci-granfondo-world-series/"
+  }
+}

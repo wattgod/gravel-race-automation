@@ -1,0 +1,25 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Cape Rouleur",
+  "description": "600 km. 6,000 meters of climbing. Five stages through the Cape Winelands on closed roads with pro-level support. South Africa's most luxurious cycling experience.",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-08-2024",
+  "location": {
+    "@type": "Place",
+    "name": "Franschhoek, Western Cape, South Africa"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "61",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://www.hotchillee.com/events/cape-rouleur/ (DEFUNCT \u2014 HotChillee entered liquidation August 2024, website compromised)",
+  "organizer": {
+    "@type": "Person",
+    "name": "HotChillee (Sven Thiele)",
+    "url": "https://www.hotchillee.com/events/cape-rouleur/ (DEFUNCT \u2014 HotChillee entered liquidation August 2024, website compromised)"
+  }
+}

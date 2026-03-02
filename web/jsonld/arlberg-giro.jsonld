@@ -1,0 +1,25 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Arlberg Giro",
+  "description": "150 kilometers and 2,500 meters of Alpine climbing through Tyrol and Vorarlberg. Two major passes, one legendary Austrian village, and the kind of scenery that makes you forget the suffering \u2014 until the next switchback.",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-08-02",
+  "location": {
+    "@type": "Place",
+    "name": "St. Anton am Arlberg, Tyrol, Austria"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "70",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://arlberg-giro.com/en/home",
+  "organizer": {
+    "@type": "Person",
+    "name": "Tourism Association St. Anton am Arlberg",
+    "url": "https://arlberg-giro.com/en/home"
+  }
+}

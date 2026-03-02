@@ -1,0 +1,25 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Chasing Cancellara",
+  "description": "Chase a legend through the Swiss Alps. 200-275km. 4,200-5,500m climbing. Beat Cancellara's time or die trying.",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-06-27",
+  "location": {
+    "@type": "Place",
+    "name": "Switzerland (multiple routes)"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "77",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://www.chasingcancellara.com",
+  "organizer": {
+    "@type": "Person",
+    "name": "Fabian Cancellara / Sette Sports AG",
+    "url": "https://www.chasingcancellara.com"
+  }
+}

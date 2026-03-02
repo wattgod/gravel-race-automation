@@ -1,0 +1,25 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "UCI Gran Fondo World Championships",
+  "description": "The only world championship in amateur road cycling. Qualify through 36 global events, race for the rainbow jersey against 2,000 age-group riders from 58 countries. Venue rotates annually.",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-08-26",
+  "location": {
+    "@type": "Place",
+    "name": "Venue rotates annually (2026: Niseko, Hokkaido, Japan)"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "73",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://ucigranfondoworldseries.com/en/world-championships/",
+  "organizer": {
+    "@type": "Person",
+    "name": "Union Cycliste Internationale (UCI)",
+    "url": "https://ucigranfondoworldseries.com/en/world-championships/"
+  }
+}

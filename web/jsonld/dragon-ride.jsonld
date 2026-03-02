@@ -1,0 +1,19 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Dragon Ride L'Etape Wales",
+  "description": "Britain's hardest sportive. 230 km. 3,500 m of climbing. Brecon Beacons mountain roads. Devil's Elbow at 10.3%. Twenty-two years of slaying dragons in South Wales.",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-06-14",
+  "location": {
+    "@type": "Place",
+    "name": "Margam Park, Port Talbot, South Wales, UK"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "71",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  }
+}

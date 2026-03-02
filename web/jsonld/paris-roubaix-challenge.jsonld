@@ -1,0 +1,25 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Paris-Roubaix Challenge",
+  "description": "The Hell of the North. 30 cobbled sectors. The Arenberg trench. Finish on the Roubaix Velodrome. The day before the pros.",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-04-11",
+  "location": {
+    "@type": "Place",
+    "name": "Busigny to Roubaix Velodrome, Nord, France"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "81",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://www.paris-roubaix-challenge.com/",
+  "organizer": {
+    "@type": "Person",
+    "name": "ASO (Amaury Sport Organisation \u2014 organizers of the professional Paris-Roubaix since its acquisition)",
+    "url": "https://www.paris-roubaix-challenge.com/"
+  }
+}

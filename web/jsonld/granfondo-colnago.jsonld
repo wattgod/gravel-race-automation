@@ -1,0 +1,25 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Granfondo Colnago",
+  "description": "140 km through Lake Garda's morainic hills. Colnago's name on the bib. Vineyards, olive groves, and the climb to Coste where the mountains begin. The legendary frame builder invites you to ride their festival.",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-04-10",
+  "location": {
+    "@type": "Place",
+    "name": "Desenzano del Garda, Lombardy, Italy"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "60",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://www.colnagocyclingfestival.com/en/",
+  "organizer": {
+    "@type": "Person",
+    "name": "Colnago (in partnership with local organizing committee and the Comune di Desenzano del Garda)",
+    "url": "https://www.colnagocyclingfestival.com/en/"
+  }
+}

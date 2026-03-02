@@ -1,0 +1,25 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Amstel Gold Race Toerversie",
+  "description": "Thirty climbs. The steepest hills in the Netherlands. 15,000 riders on the same roads as the Ardennes classic.",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-04-18",
+  "location": {
+    "@type": "Place",
+    "name": "Valkenburg, South Limburg, Netherlands"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "73",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://www.amstel.nl/amstelgoldrace/toerversie",
+  "organizer": {
+    "@type": "Person",
+    "name": "Amstel / Flanders Classics",
+    "url": "https://www.amstel.nl/amstelgoldrace/toerversie"
+  }
+}

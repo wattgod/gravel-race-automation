@@ -1,0 +1,31 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "GFNY Bali",
+  "description": "A GFNY World series gran fondo that climbs from Bali's black-sand coast to the crater rim of Kintamani volcano. Tropical heat, 2,230 meters of climbing through rice terraces and temple villages, and the Island of the Gods as your backdrop.",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-02-15",
+  "location": {
+    "@type": "Place",
+    "name": "Lebih, Klungkung, Bali, Indonesia"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "210",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/LimitedAvailability"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "70",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://bali.gfny.com/",
+  "organizer": {
+    "@type": "Person",
+    "name": "GFNY / Uli Fluhme (GFNY series founder), co-organized with local Indonesian partners",
+    "url": "https://bali.gfny.com/"
+  }
+}

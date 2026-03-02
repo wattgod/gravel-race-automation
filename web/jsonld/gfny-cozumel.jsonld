@@ -1,0 +1,31 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "GFNY Cozumel",
+  "description": "Two flat laps around a Caribbean island where the wind does the climbing. Latin America's largest cycling event wraps a GFNY World series qualifier in tropical heat, trade winds, and turquoise ocean views.",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-11-08",
+  "location": {
+    "@type": "Place",
+    "name": "San Miguel de Cozumel, Quintana Roo, Mexico"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "100",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/LimitedAvailability"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "54",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://cozumel.gfny.com/",
+  "organizer": {
+    "@type": "Person",
+    "name": "GFNY / Uli Fluhme (GFNY series founder), co-organized with local partners Shaun Gad and Miguel",
+    "url": "https://cozumel.gfny.com/"
+  }
+}

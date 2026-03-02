@@ -1,0 +1,25 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Gran Fondo Marco Pantani",
+  "description": "Il Pirata's training roads. His family's event. Cesenatico to the Romagnol hills and back. Since 2005.",
+  "sport": "Gravel Cycling",
+  "startDate": "2025-09-13",
+  "location": {
+    "@type": "Place",
+    "name": "Cesenatico, Emilia-Romagna, Italy"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "67",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://gfmarcopantani.com/",
+  "organizer": {
+    "@type": "Person",
+    "name": "The Pantani family, through the Fondazione Marco Pantani / Associazione Marco Pantani",
+    "url": "https://gfmarcopantani.com/"
+  }
+}

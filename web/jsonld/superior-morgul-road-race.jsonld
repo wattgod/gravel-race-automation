@@ -1,0 +1,25 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Superior Morgul Road Race",
+  "description": "The Wall. The Coors Classic. LeMond. Hinault. Phinney. Colorado's most storied road racing circuit, resurrected for a new generation on the legendary Morgul-Bismarck loop.",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-05-17",
+  "location": {
+    "@type": "Place",
+    "name": "Superior, Boulder County, Colorado, USA"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "59",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://www.withoutlimits.co/morgul-bismark-cycling-race",
+  "organizer": {
+    "@type": "Person",
+    "name": "Town of Superior, Colorado (resurrected the Morgul-Bismarck race; original course used since the 1970s)",
+    "url": "https://www.withoutlimits.co/morgul-bismark-cycling-race"
+  }
+}

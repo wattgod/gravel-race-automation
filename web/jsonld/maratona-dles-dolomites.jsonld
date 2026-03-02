@@ -1,0 +1,25 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Maratona dles Dolomites - Enel",
+  "description": "Seven Dolomite passes. 9,000 riders chosen by lottery from 31,000 applicants. The most oversubscribed cycling event on Earth.",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-07-05",
+  "location": {
+    "@type": "Place",
+    "name": "La Villa / Corvara, Alta Badia, South Tyrol, Italy"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "80",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://www.maratonadlesdolomites.it/",
+  "organizer": {
+    "@type": "Person",
+    "name": "Societa Ciclistica Alta Badia (on its 10th anniversary)",
+    "url": "https://www.maratonadlesdolomites.it/"
+  }
+}

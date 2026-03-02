@@ -5,7 +5,7 @@
     "display_name": "L'Etape Denmark by Tour de France",
     "tagline": "ASO's Tour de France franchise on Denmark's ancient Viking road. 7,000 riders. Five routes up to 300 km. TdF jerseys. All roads lead to Viborg.",
     "vitals": {
-      "distance_mi": 99,
+      "distance_mi": 186,
       "elevation_ft": 4593,
       "location": "Various start points across Jutland, Denmark — all routes finish in Viborg",
       "location_badge": "JUTLAND / VIBORG, DENMARK",
@@ -32,7 +32,9 @@
         "75 km road: 600 m elevation",
         "50 km road: 300 m elevation"
       ],
-      "entry_fee": "Varies by route (early-bird discounts 25-30%)"
+      "entry_fee": "Varies by route (early-bird discounts 25-30%)",
+      "distance_km": 300,
+      "distance_note": "Queen Stage (flagship); also offers 160km, 125km, 75km, 50km routes"
     },
     "climate": {
       "primary": "Mild Scandinavian summer (late June)",

@@ -1,0 +1,25 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Etape Loch Ness",
+  "description": "Scotland's largest closed-road sportive. 66 miles around the world's most famous loch. 900 metres of climbing. The King of the Mountain at 12%. Dawn start in the Highland capital.",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-04-26",
+  "location": {
+    "@type": "Place",
+    "name": "Inverness, Scottish Highlands"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "63",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://www.etapelochness.com",
+  "organizer": {
+    "@type": "Person",
+    "name": "Caledonian Concepts (Scotland) Ltd \u2014 the same team behind the Baxters Loch Ness Marathon and Festival of Running",
+    "url": "https://www.etapelochness.com"
+  }
+}

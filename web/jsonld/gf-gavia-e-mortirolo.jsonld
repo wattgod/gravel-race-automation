@@ -1,0 +1,25 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Granfondo Gavia e Mortirolo",
+  "description": "The Mortirolo at 18%. The Gavia at 2,618m. Pantani's mountains. The most brutal gradients in Italian cycling, compressed into 135 km.",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-06-28",
+  "location": {
+    "@type": "Place",
+    "name": "Ponte di Legno, Brescia, Lombardy, Italy"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "77",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://www.granfondogaviaemortirolo.it/",
+  "organizer": {
+    "@type": "Person",
+    "name": "ASD Granfondo Gavia e Mortirolo",
+    "url": "https://www.granfondogaviaemortirolo.it/"
+  }
+}

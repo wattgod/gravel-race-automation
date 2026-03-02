@@ -1,0 +1,31 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Boulder Roubaix Road Race",
+  "description": "America's spring classic. 61% dirt, 39% pavement, 100% suffering. The original Paris-Roubaix tribute race on Colorado's Front Range farm roads.",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-04-26",
+  "location": {
+    "@type": "Place",
+    "name": "Boulder Reservoir, Boulder County, Colorado, USA"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "10",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/LimitedAvailability"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "61",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://dbcevents.com/2026-roubaix/",
+  "organizer": {
+    "@type": "Person",
+    "name": "Chris Grealish / DBC Events (Denver-Boulder Couriers)",
+    "url": "https://dbcevents.com/2026-roubaix/"
+  }
+}

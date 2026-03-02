@@ -1,0 +1,25 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "L'Ard\u00e9choise Cyclosportive",
+  "description": "Europe's largest mountain cycling gathering. 15,000 riders. 160 decorated villages. The Ard\u00e8che department becomes one giant cycling festival.",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-06-10",
+  "location": {
+    "@type": "Place",
+    "name": "Saint-F\u00e9licien, Ard\u00e8che, France"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "83",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://www.ardechoise.com/",
+  "organizer": {
+    "@type": "Person",
+    "name": "Jean-Ren\u00e9 Sarles, Pierre Jouvencel, Fran\u00e7ois Causseque, and G\u00e9rard Mistler",
+    "url": "https://www.ardechoise.com/"
+  }
+}

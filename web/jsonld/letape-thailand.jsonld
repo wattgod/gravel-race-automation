@@ -1,0 +1,25 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "L'Etape Thailand by Tour de France",
+  "description": "ASO's Tour de France franchise brings closed-road racing to Southeast Asia -- rotating between Thai provinces with tropical heat, hilly terrain, and the only TdF-branded event in ASEAN.",
+  "sport": "Gravel Cycling",
+  "startDate": "2025-05-15",
+  "location": {
+    "@type": "Place",
+    "name": "Rotating: Phang Nga (2018-2022), Phitsanulok (2022, 2025), Udon Thani (2024), Thailand"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "54",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://www.letapethailand.com/",
+  "organizer": {
+    "@type": "Person",
+    "name": "Move Asia (local promoter) under license from Amaury Sport Organisation (ASO -- Tour de France organizer), with support from Thailand Convention and Exhibition Bureau (TCEB) and Tourism Authority of Thailand (TAT)",
+    "url": "https://www.letapethailand.com/"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Cycle to the Sun \u2014 Haleakala",
+  "description": "Sea level to 10,023 feet. 36 miles of continuous climbing up a Hawaiian volcano. The House of the Sun awaits.",
+  "sport": "Gravel Cycling",
+  "startDate": "2025-08-02",
+  "location": {
+    "@type": "Place",
+    "name": "Pa'ia, Maui, Hawaii"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "175",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/LimitedAvailability"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "74",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://cycletothesun.com/",
+  "organizer": {
+    "@type": "Person",
+    "name": "Originally held in the 1980s; revived by Kalima O Maui in 2001; organized by Go Cycling Maui / Donnie Arnoult since 2008",
+    "url": "https://cycletothesun.com/"
+  }
+}

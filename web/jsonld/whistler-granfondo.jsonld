@@ -1,0 +1,31 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "RBC GranFondo Whistler",
+  "description": "122 km from Vancouver to Whistler on a fully closed Sea-to-Sky Highway. North America's largest gran fondo \u2014 5,000+ riders crossing the Lions Gate Bridge at sunrise and climbing through the Coast Mountains on the one day a year this highway belongs to bikes.",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-09-12",
+  "location": {
+    "@type": "Place",
+    "name": "Vancouver to Whistler, British Columbia, Canada"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "200",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/LimitedAvailability"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "61",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://www.rbcgranfondo.com/event/whistler",
+  "organizer": {
+    "@type": "Person",
+    "name": "GranFondo Canada / RBC (Royal Bank of Canada) as title sponsor",
+    "url": "https://www.rbcgranfondo.com/event/whistler"
+  }
+}

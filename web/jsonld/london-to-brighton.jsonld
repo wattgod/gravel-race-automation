@@ -1,0 +1,25 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "London to Brighton Bike Ride",
+  "description": "54 miles. 15,000+ riders. Clapham Common to Brighton seafront. The ride that invented mass-participation charity cycling. Since 1976. Ditchling Beacon awaits.",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-06-21",
+  "location": {
+    "@type": "Place",
+    "name": "London to Brighton, England, UK"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "63",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://www.bhf.org.uk/how-you-can-help/events/bike-rides/london-to-brighton-bike-ride",
+  "organizer": {
+    "@type": "Person",
+    "name": "British Heart Foundation / Friends of the Earth (original organiser). Robert Stredder conceived the original ride.",
+    "url": "https://www.bhf.org.uk/how-you-can-help/events/bike-rides/london-to-brighton-bike-ride"
+  }
+}

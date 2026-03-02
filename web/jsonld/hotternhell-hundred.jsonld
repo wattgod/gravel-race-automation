@@ -1,0 +1,31 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Hotter'N Hell Hundred",
+  "description": "100 miles. 100 degrees. The largest sanctioned century ride in America. Texas heat is the course.",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-08-29",
+  "location": {
+    "@type": "Place",
+    "name": "Wichita Falls, Texas"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "50",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/LimitedAvailability"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "69",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://www.hh100.org/",
+  "organizer": {
+    "@type": "Person",
+    "name": "Wichita Falls community (part of the city's centennial celebration)",
+    "url": "https://www.hh100.org/"
+  }
+}

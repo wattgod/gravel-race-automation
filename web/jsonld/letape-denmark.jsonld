@@ -1,0 +1,25 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "L'Etape Denmark by Tour de France",
+  "description": "ASO's Tour de France franchise on Denmark's ancient Viking road. 7,000 riders. Five routes up to 300 km. TdF jerseys. All roads lead to Viborg.",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-06-27",
+  "location": {
+    "@type": "Place",
+    "name": "Various start points across Jutland, Denmark \u2014 all routes finish in Viborg"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "61",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://denmark.letapeseries.com/",
+  "organizer": {
+    "@type": "Person",
+    "name": "DGI (Danish Gymnastics and Sports Associations) \u2014 Denmark's second-largest sports organization",
+    "url": "https://denmark.letapeseries.com/"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Haute Route Alps",
+  "description": "Seven stages. 800 km. 19,000 meters of climbing. The highest and toughest amateur stage race in the world crosses the Alps from city to city.",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-08-23",
+  "location": {
+    "@type": "Place",
+    "name": "Nice to Thonon-les-Bains, French Alps / Italy"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "86",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://hauteroute.fr/",
+  "organizer": {
+    "@type": "Person",
+    "name": "Jean-Francois Alcan and OC Sport (now OC ThirdPole)",
+    "url": "https://hauteroute.fr/"
+  }
+}

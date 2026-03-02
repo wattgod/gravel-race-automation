@@ -1,0 +1,31 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Tour de Palm Springs",
+  "description": "Desert charity century through the Coachella Valley. 28 years. 10,000 riders. 20 bands. $5 million raised. Wind, sun, and a post-ride party that rivals the ride itself.",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-02-07",
+  "location": {
+    "@type": "Place",
+    "name": "Palm Springs, California, USA"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "10",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/LimitedAvailability"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "54",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://tourdepalmsprings.com/",
+  "organizer": {
+    "@type": "Person",
+    "name": "Tim Esser (Esser Air Conditioning and Heating)",
+    "url": "https://tourdepalmsprings.com/"
+  }
+}

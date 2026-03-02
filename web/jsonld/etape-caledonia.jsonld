@@ -1,0 +1,31 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Etape Caledonia",
+  "description": "Scotland's premier closed-road sportive. 80 miles through Highland Perthshire in the shadow of Schiehallion \u2014 the fairy hill where they first weighed the Earth.",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-05-17",
+  "location": {
+    "@type": "Place",
+    "name": "Pitlochry, Perthshire, Scotland, UK"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "80",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/LimitedAvailability"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "56",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://www.etapecaledonia.co.uk/",
+  "organizer": {
+    "@type": "Person",
+    "name": "IMG/Skyline Events",
+    "url": "https://www.etapecaledonia.co.uk/"
+  }
+}

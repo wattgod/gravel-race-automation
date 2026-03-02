@@ -1,0 +1,25 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "L'Etape Czech Republic by Tour de France",
+  "description": "ASO's Tour de France franchise in Central Europe -- 3,000 riders on fully closed roads through Bohemian hills, starting and finishing in Prague.",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-06-20",
+  "location": {
+    "@type": "Place",
+    "name": "Prague and Central Bohemia Region, Czech Republic"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "60",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://www.letapeczech.cz/en/",
+  "organizer": {
+    "@type": "Person",
+    "name": "Petr Cech Sport (organizing body), under ASO (Amaury Sport Organisation) patronage",
+    "url": "https://www.letapeczech.cz/en/"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "RAW \u2014 Ride Across Wisconsin",
+  "description": "175 miles of paved Wisconsin backroads in a single day. Rolling farmland, river valleys, and the Chippewa Valley \u2014 the Wisconsin Bike Fed's flagship fundraiser and the state's defining one-day cycling event. ~1,000 riders, 11 years of tradition, and rest stops stocked with Midwestern hospitality every 20 miles.",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-07-11",
+  "location": {
+    "@type": "Place",
+    "name": "Eau Claire, Wisconsin, USA"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "175",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/LimitedAvailability"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "51",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://www.rideacrosswisconsin.com",
+  "organizer": {
+    "@type": "Person",
+    "name": "Wisconsin Bike Fed (Bicycle Federation of Wisconsin)",
+    "url": "https://www.rideacrosswisconsin.com"
+  }
+}

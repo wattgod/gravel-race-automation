@@ -1,0 +1,25 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Granfondo Sestriere \u2014 Colle delle Finestre",
+  "description": "The only granfondo in the world with the Colle delle Finestre. 7.8 km of legendary Giro d'Italia dirt at 2,178 meters. Summit finish at Sestriere.",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-07-05",
+  "location": {
+    "@type": "Place",
+    "name": "Cesana Torinese, Piedmont, Italy"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "69",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://www.granfondosestriere.it/index.php/en/",
+  "organizer": {
+    "@type": "Person",
+    "name": "Local Piedmont cycling organization, initially in partnership with the Marmotte Granfondo series",
+    "url": "https://www.granfondosestriere.it/index.php/en/"
+  }
+}

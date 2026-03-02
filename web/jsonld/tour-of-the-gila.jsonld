@@ -1,0 +1,31 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Tour of the Gila",
+  "description": "America's only UCI stage race \u2014 open to amateurs. 5 stages. 7,400 feet of summit finish. The Gila Monster awaits in the New Mexico wilderness.",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-04-29",
+  "location": {
+    "@type": "Place",
+    "name": "Silver City, Grant County, New Mexico, USA"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "180",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/LimitedAvailability"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "76",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://tourofthegila.com/",
+  "organizer": {
+    "@type": "Person",
+    "name": "Silver City cycling community",
+    "url": "https://tourofthegila.com/"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Bob Cook Memorial Mt. Evans Hill Climb (Blue Sky Hill Climb)",
+  "description": "27 miles straight up to 14,130 feet. The highest paved road in North America. Colorado's ultimate test of lungs and legs since 1962.",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-07-25",
+  "location": {
+    "@type": "Place",
+    "name": "Idaho Springs, Colorado"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "15",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/LimitedAvailability"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "77",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://www.bicyclerace.com",
+  "organizer": {
+    "@type": "Person",
+    "name": "Idaho Springs cycling community",
+    "url": "https://www.bicyclerace.com"
+  }
+}

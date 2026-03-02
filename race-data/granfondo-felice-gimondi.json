@@ -5,8 +5,7 @@
     "display_name": "BGY Airport Granfondo (Granfondo Felice Gimondi)",
     "tagline": "30 years in the saddle of a legend. Six valleys. Selvino's 19 hairpins. Bergamo's cycling soul, named for the man who won all three Grand Tours.",
     "vitals": {
-      "distance_mi": 101,
-      "elevation_ft": 10007,
+      "distance_mi": 92,
       "location": "Bergamo, Lombardy, Italy",
       "location_badge": "BERGAMO, LOMBARDY, ITALY",
       "date": "First or second Sunday of May",
@@ -24,14 +23,16 @@
       "aid_stations": "Feed zones at strategic points between climbs — Italian granfondo standard. Water, fruit, energy food, cola. The Bergamasque valleys deliver reliable Italian hospitality at altitude.",
       "cutoff_time": "Time limits at intermediate checkpoints. Broom wagon enforced.",
       "lat": 45.694,
-      "lng": 9.670,
+      "lng": 9.67,
       "distance_options": [
         "Sprint: 63 km (39 mi), 800 m gain — NEW for 2026, includes Selvino only (most accessible option)",
         "Short: 91 km (57 mi), 1,400 m gain — Colle dei Pasta + Colle Gallo + Selvino",
         "Medium: 130 km (81 mi), 2,100 m gain — adds Costa d'Olda + Forcella di Bura (884m asl)",
         "Long: 148 km (92 mi), 2,800 m gain — adds Forcella di Berbenno + Costa Valle Imagna (formerly 162 km)"
       ],
-      "entry_fee": "EUR45 (bib) / EUR95 (bib + limited-edition Santini jersey)"
+      "entry_fee": "EUR45 (bib) / EUR95 (bib + limited-edition Santini jersey)",
+      "distance_km": 148,
+      "distance_note": "2026 routes: 148km, 130km, 91km, 63km"
     },
     "climate": {
       "primary": "Early May Lombardy — pleasant but rain-prone",

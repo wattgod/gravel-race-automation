@@ -6,7 +6,7 @@
     "tagline": "1,000 km. Multiple Alpine passes. Two days. Non-stop. The world's largest multi-day ultra-endurance cycling event — solo or in teams, day and night, across Switzerland.",
     "vitals": {
       "distance_mi": 621,
-      "elevation_ft": 39370,
+      "elevation_ft": 45932,
       "location": "Schaffhausen, Switzerland",
       "location_badge": "SCHAFFHAUSEN, SWITZERLAND",
       "date": "Mid-August annually",
@@ -74,7 +74,7 @@
       "expenses": 3,
       "cultural_impact": 3,
       "tier_note": "The world's largest multi-day non-stop ultra-endurance cycling event. 1,000 km across Switzerland in 48 hours is a genuine feat of human endurance. Strong prestige in the ultra-cycling community. Not mainstream but formidable.",
-      "score_note": "length=5 for 1,000 km non-stop in 48 hours — among the longest single-event road cycling distances. elevation=5 for ~12,000m+ across multiple Alpine passes. adventure=5 for the full Swiss traverse day and night. experience=5 for the transformative nature of non-stop riding through darkness and Alpine dawn. climate=3 for August Alpine conditions with night riding temperature swings. prestige=4 as the world's largest event of its type.",
+      "score_note": "length=5 for 1,000 km non-stop in 48 hours — among the longest single-event road cycling distances. elevation=5 for ~14,000m+ across multiple Alpine passes. adventure=5 for the full Swiss traverse day and night. experience=5 for the transformative nature of non-stop riding through darkness and Alpine dawn. climate=3 for August Alpine conditions with night riding temperature swings. prestige=4 as the world's largest event of its type.",
       "editorial_tier": 2,
       "editorial_tier_label": "TIER 2",
       "business_tier": 2,
@@ -98,7 +98,7 @@
       },
       "elevation": {
         "score": 5,
-        "explanation": "The TORTOUR 1000 typically accumulates 12,000+ meters of climbing across multiple Alpine passes. The exact route changes year to year, but always includes several major Swiss passes. That is more climbing than the Tour de France covers in its hardest mountain stages combined. And you do it in 48 hours, non-stop, with no team car to draft behind."
+        "explanation": "The TORTOUR 1000 typically accumulates 14,000+ meters of climbing across multiple Alpine passes. The exact route changes year to year, but always includes several major Swiss passes. That is more climbing than the Tour de France covers in its hardest mountain stages combined. And you do it in 48 hours, non-stop, with no team car to draft behind."
       },
       "climate": {
         "score": 3,
@@ -146,7 +146,7 @@
       "summary": "The TORTOUR is not a bike race. It is a 1,000 km argument with yourself about whether you can keep pedaling through the night, over Alpine passes, across an entire country, for 48 straight hours. The world's largest multi-day non-stop ultra-endurance cycling event takes everything Switzerland throws at you — 12,000m of climbing, 30-degree temperature swings, complete darkness, Alpine dawn — and compresses it into a single continuous effort.\n\nSolo unsupported is the purest form: you, your bike, and whatever you can carry for 1,000 km. Solo with support gives you a crew car and checkpoint assistance. Teams of 2-6 relay the distance. Every format is punishing. The TORTOUR 1000 solo finisher has earned something that no one-day sportive can replicate.\n\nThe 2026 edition returns to Schaffhausen, the event's birthplace, after six years in the Zurich canton. The prologue, pasta party, and finisher's brunch return to the original format. This is a homecoming for an event that has grown into the defining ultra-cycling challenge in Europe.",
       "strengths": [
         "1,000 km non-stop across Switzerland — the world's largest multi-day ultra-endurance cycling event",
-        "Multiple Alpine passes with 12,000m+ climbing — genuine mountain challenge, not flat ultra-distance",
+        "Multiple Alpine passes with 14,000m+ climbing — genuine mountain challenge, not flat ultra-distance",
         "Night riding through the Swiss Alps is a transformative, once-in-a-lifetime experience",
         "Multiple formats: solo unsupported, solo supported, teams of 2/4/6, plus 500/250/50 km options"
       ],
@@ -177,13 +177,13 @@
       "official_site": "https://tortour.com/en/"
     },
     "history": {
-      "founded": 2019,
-      "founder": "Tortour GmbH (Olivia Schoch and organizing team)",
-      "origin_story": "Launched in 2019 from Schaffhausen as a bold vision: create the world's largest multi-day non-stop ultra-endurance cycling event. The format was unique — 1,000 km across Switzerland with Alpine passes, completed non-stop in teams or solo within 48 hours. The event grew rapidly, attracting ultra-cycling enthusiasts from across Europe. After six editions based in the canton of Zurich (Küsnacht), the 2026 edition returns to Schaffhausen — the event's birthplace — with the original prologue, pasta party, and finisher's brunch format restored.",
+      "founded": 2016,
+      "founder": "Tortour GmbH",
+      "origin_story": "The TORTOUR launched from Schaffhausen circa 2016 as an ultra-endurance cycling event traversing Switzerland. The format was unique — 1,000 km across Switzerland with Alpine passes, completed non-stop in teams or solo within 48 hours. The event also included Sprint (370 km) and Challenge (520 km) formats. It grew rapidly, attracting ultra-cycling enthusiasts from across Europe, and expanded to include a gravel format. After several editions based in the canton of Zurich (Küsnacht), the 2026 edition returns to Schaffhausen — the event's birthplace — with the original prologue, pasta party, and finisher's brunch format restored.",
       "notable_moments": [
-        "2019: Inaugural TORTOUR from Schaffhausen — establishes the 1,000 km non-stop format",
+        "2016: TORTOUR launches from Schaffhausen — establishes the 1,000 km non-stop format with Sprint and Challenge variants",
+        "TORTOUR Gravel launched as companion gravel event — the Gravel 200",
         "Event relocates to Küsnacht/Zurich area for several editions while growing the format",
-        "TORTOUR Gravel launched (2016 era) as companion gravel event — the Gravel 200",
         "2026: Returns to Schaffhausen birthplace — 'Back to the Roots' edition with original format"
       ],
       "reputation": "The world's largest multi-day non-stop ultra-endurance cycling event. Respected in ultra-cycling circles, feared by everyone else."
@@ -225,14 +225,14 @@
     "guide_variables": {
       "race_name": "TORTOUR Ultracycling",
       "race_distance": "621 miles (1,000 km)",
-      "race_elevation": "39,370 feet (12,000m+)",
+      "race_elevation": "45,932 feet (14,000m+)",
       "race_date": "August",
       "race_location": "Schaffhausen, Switzerland",
       "race_terrain": "Paved Swiss roads — lowlands and Alpine passes",
       "race_weather": "August Swiss conditions: 22-30C valleys day, 3-10C Alpine summits night",
       "race_challenges": [
         "1,000 km non-stop in 48 hours — extreme endurance demand",
-        "12,000m+ climbing across multiple Alpine passes",
+        "14,000m+ climbing across multiple Alpine passes",
         "Night riding: 16+ hours in darkness across two nights",
         "Sleep deprivation combined with Alpine descents at speed"
       ],

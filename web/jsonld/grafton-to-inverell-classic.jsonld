@@ -1,0 +1,31 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Squadron Energy Grafton to Inverell Cycle Classic",
+  "description": "228 km point-to-point from the Clarence Valley to the New England Tablelands. 3,382 metres of climbing including the 16.3 km ascent of Gibraltar Range through World Heritage rainforest. Australia's toughest one-day road race since 1961.",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-03-14",
+  "location": {
+    "@type": "Place",
+    "name": "Grafton to Inverell, New South Wales, Australia"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "230",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/LimitedAvailability"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "81",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://www.graftontoinverell.com.au/",
+  "organizer": {
+    "@type": "Person",
+    "name": "Harold Strahley (1908-1979), Inverell resident",
+    "url": "https://www.graftontoinverell.com.au/"
+  }
+}

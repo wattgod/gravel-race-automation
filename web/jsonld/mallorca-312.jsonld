@@ -1,0 +1,19 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Mallorca 312 OK Mobility",
+  "description": "312 kilometers around cycling's Mediterranean paradise. Serra de Tramuntana climbs, closed roads, 8,500 riders, and a finish that makes you forget every watt of suffering.",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-04-25",
+  "location": {
+    "@type": "Place",
+    "name": "Playa de Muro, Mallorca, Spain"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "87",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  }
+}

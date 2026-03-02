@@ -1,0 +1,25 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Granfondo Via del Sale",
+  "description": "The Salt Road. From Cervia's ancient salt pans to the Romagna hills. Pantani showed up at the first one.",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-03-29",
+  "location": {
+    "@type": "Place",
+    "name": "Cervia, Emilia-Romagna, Italy"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "60",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://www.granfondoviadelsale.com/en/",
+  "organizer": {
+    "@type": "Person",
+    "name": "Sportur (then BVC Sport) \u2014 linked a sports award with a cycling event, choosing Cervia as the start/finish point with routes inspired by the historical salt trade",
+    "url": "https://www.granfondoviadelsale.com/en/"
+  }
+}

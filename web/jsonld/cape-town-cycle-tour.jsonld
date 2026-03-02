@@ -1,0 +1,25 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Cape Town Cycle Tour",
+  "description": "35,000 riders. Chapman's Peak. The entire Cape Peninsula in a single day. The world's largest individually timed cycling event.",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-03-08",
+  "location": {
+    "@type": "Place",
+    "name": "Cape Town, Western Cape, South Africa"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "93",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/LimitedAvailability"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "71",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  }
+}

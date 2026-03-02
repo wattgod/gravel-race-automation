@@ -1,0 +1,25 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "La Marmotte Granfondo Alpes",
+  "description": "Four Tour de France cols. 17,000 feet of climbing. Finish atop Alpe d'Huez. The original French cyclosportive.",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-06-28",
+  "location": {
+    "@type": "Place",
+    "name": "Bourg d'Oisans, Isere, France"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "87",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://marmottegranfondoalpes.com/en/",
+  "organizer": {
+    "@type": "Person",
+    "name": "Local Oisans region cycling organization",
+    "url": "https://marmottegranfondoalpes.com/en/"
+  }
+}

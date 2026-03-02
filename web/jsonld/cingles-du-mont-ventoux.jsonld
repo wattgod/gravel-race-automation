@@ -1,0 +1,24 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Les Cingl\u00e9s du Mont Ventoux",
+  "description": "Three ascents. Three faces. 4,400 meters of climbing. One day. The mountain they call the Beast of Provence \u2014 climbed from every side, because once is never enough.",
+  "sport": "Gravel Cycling",
+  "location": {
+    "@type": "Place",
+    "name": "B\u00e9doin, Vaucluse, Provence, France"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "69",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://www.clubcinglesventoux.org/",
+  "organizer": {
+    "@type": "Person",
+    "name": "Christian Pic",
+    "url": "https://www.clubcinglesventoux.org/"
+  }
+}

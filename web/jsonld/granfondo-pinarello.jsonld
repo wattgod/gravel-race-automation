@@ -1,0 +1,25 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Granfondo Pinarello",
+  "description": "155 km through Pinarello's backyard. The Muro di Ca' del Poggio. The Prosecco Hills. The brand that built Indurain's and Froome's bikes invites you to ride their roads.",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-07-12",
+  "location": {
+    "@type": "Place",
+    "name": "Treviso, Veneto, Italy"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "63",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://www.granfondopinarello.com/",
+  "organizer": {
+    "@type": "Person",
+    "name": "Cicli Pinarello",
+    "url": "https://www.granfondopinarello.com/"
+  }
+}

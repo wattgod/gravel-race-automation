@@ -1,0 +1,25 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "L'Etape Argentina by Tour de France",
+  "description": "ASO's Tour de France franchise returns to Argentina after an 11-year absence -- 134 km through the Sierras de Cordoba with the Argentine National Road Championship running alongside.",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-03-22",
+  "location": {
+    "@type": "Place",
+    "name": "Cordoba, Cordoba Province, Argentina (Estadio Mario Alberto Kempes start/finish)"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "56",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://argentina.letapeseries.com/",
+  "organizer": {
+    "@type": "Person",
+    "name": "Local organizing partner under license from ASO (Amaury Sport Organisation -- Tour de France organizer), with support from the Government of Cordoba Province",
+    "url": "https://argentina.letapeseries.com/"
+  }
+}

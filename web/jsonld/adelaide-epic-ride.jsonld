@@ -1,0 +1,31 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Adelaide Epic Ride (Santos Tour Down Under)",
+  "description": "136 km through the Adelaide Hills on the same roads as the UCI WorldTour pros. Chandlers Hill, Wickham Hill, Mount Barker Summit, and 1,800 metres of climbing under the January sun. The community ride of Australia's biggest professional cycling race.",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-01-23",
+  "location": {
+    "@type": "Place",
+    "name": "Adelaide, South Australia, Australia"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "225",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/LimitedAvailability"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "64",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://adelaideepic.org/",
+  "organizer": {
+    "@type": "Person",
+    "name": "Events South Australia (as part of Santos Tour Down Under)",
+    "url": "https://adelaideepic.org/"
+  }
+}

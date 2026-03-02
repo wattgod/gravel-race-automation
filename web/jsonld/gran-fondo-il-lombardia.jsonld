@@ -1,0 +1,25 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Gran Fondo Il Lombardia",
+  "description": "The Classic of the Falling Leaves. One Monument. Two legendary climbs. Lake Como in autumn. Ride the roads that close cycling's greatest season.",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-10-11",
+  "location": {
+    "@type": "Place",
+    "name": "Cantu, Como, Lombardy, Italy"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "70",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://gfilombardia.it/en/",
+  "organizer": {
+    "@type": "Person",
+    "name": "RCS Sport (Giro d'Italia organizers) in partnership with the Gimondi family",
+    "url": "https://gfilombardia.it/en/"
+  }
+}

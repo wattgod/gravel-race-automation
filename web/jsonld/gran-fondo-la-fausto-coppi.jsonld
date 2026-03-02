@@ -1,0 +1,25 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Granfondo La Fausto Coppi",
+  "description": "The Campionissimo's mountains. Cuneo to the summit of Colle Fauniera at 2,481 meters. Three Piedmont cols. Since 1987.",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-06-28",
+  "location": {
+    "@type": "Place",
+    "name": "Cuneo, Piedmont, Italy"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "80",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://www.faustocoppi.net/",
+  "organizer": {
+    "@type": "Person",
+    "name": "ASD Fausto Coppi on the Road (Cuneo cycling association)",
+    "url": "https://www.faustocoppi.net/"
+  }
+}

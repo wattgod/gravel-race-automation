@@ -1,0 +1,31 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Copper Triangle \u2014 Colorado's Three-Pass Alpine Loop",
+  "description": "3 mountain passes. 79 miles. 6,500 feet of climbing \u2014 entirely above 9,000 feet. Colorado's definitive high-altitude loop since 2006.",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-08-01",
+  "location": {
+    "@type": "Place",
+    "name": "Copper Mountain Resort, Colorado"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "130",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/LimitedAvailability"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "70",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://www.theridecollective.com/coppertriangle",
+  "organizer": {
+    "@type": "Person",
+    "name": "Scott Olmsted, co-founder, in partnership with Copper Mountain Resort and the Davis Phinney Foundation",
+    "url": "https://www.theridecollective.com/coppertriangle"
+  }
+}

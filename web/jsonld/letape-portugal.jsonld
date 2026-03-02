@@ -1,0 +1,25 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "L'Etape Portugal",
+  "description": "The Tour de France comes to the Atlantic. ASO's franchise sportive in Portugal's green north. Rolling Alto Minho roads. Three jersey classifications. Your gateway to L'Etape du Tour.",
+  "sport": "Gravel Cycling",
+  "startDate": "2025-09-28",
+  "location": {
+    "@type": "Place",
+    "name": "Viana do Castelo, Alto Minho, Northern Portugal"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "56",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://portugal.letapebytourdefrance.com/",
+  "organizer": {
+    "@type": "Person",
+    "name": "Podium Events (Portugal) in partnership with A.S.O. (Amaury Sport Organisation \u2014 organizers of the Tour de France)",
+    "url": "https://portugal.letapebytourdefrance.com/"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "L'Etape Greece by Tour de France",
+  "description": "ASO's Tour de France franchise meets ancient Greek myth -- 140 km through Sparta, Mystras, and the wild passes of Mount Taygetus.",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-04-04",
+  "location": {
+    "@type": "Place",
+    "name": "Sparta, Laconia, Peloponnese, Greece (2026). Location rotates annually within Greece."
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "59",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://greece.letapebytourdefrance.com/",
+  "organizer": {
+    "@type": "Person",
+    "name": "ezGreece/feelosophy (local organizer) under license from ASO (Amaury Sport Organisation)",
+    "url": "https://greece.letapebytourdefrance.com/"
+  }
+}

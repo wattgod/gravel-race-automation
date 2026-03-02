@@ -2,22 +2,22 @@
   "@context": "https://schema.org",
   "@type": "SportsEvent",
   "name": "Gran Fondo Hincapie",
-  "description": "100+ mile South Carolina mixed road/gravel gran fondo in Greenville.",
+  "description": "George Hincapie's Blue Ridge playground. 83 miles. 8,000 feet. Three timed climbs. Skyuka Mountain at 8.7%. The Southeast's premier gran fondo, born from 17 Tours de France.",
   "sport": "Gravel Cycling",
   "startDate": "2026-10-17",
   "location": {
     "@type": "Place",
-    "name": "Greenville, South Carolina"
+    "name": "Travelers Rest, South Carolina"
   },
   "offers": {
     "@type": "Offer",
-    "price": "100",
+    "price": "175",
     "priceCurrency": "USD",
     "availability": "https://schema.org/LimitedAvailability"
   },
   "aggregateRating": {
     "@type": "AggregateRating",
-    "ratingValue": "59",
+    "ratingValue": "67",
     "bestRating": "100",
     "ratingCount": "14",
     "name": "Gravel God Rating"
@@ -25,7 +25,7 @@
   "url": "https://hincapie.com/pages/gran-fondo-greenville",
   "organizer": {
     "@type": "Person",
-    "name": "George Hincapie",
+    "name": "George and Rich Hincapie",
     "url": "https://hincapie.com/pages/gran-fondo-greenville"
   }
 }

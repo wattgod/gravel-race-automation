@@ -1,0 +1,30 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "GFNY Bogota",
+  "description": "The world's highest gran fondo starts inside a salt cathedral 200 meters underground, then climbs into the Colombian Andes above 3,000 meters. Race where Egan Bernal learned to pedal, where oxygen is rationed, and where cycling is a national religion.",
+  "sport": "Gravel Cycling",
+  "location": {
+    "@type": "Place",
+    "name": "Zipaquira, Cundinamarca, Colombia"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "80",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/LimitedAvailability"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "73",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://bogota.gfny.com/",
+  "organizer": {
+    "@type": "Person",
+    "name": "GFNY / Uli Fluhme (GFNY series founder) and Juan Carlos Martinez (local organizer)",
+    "url": "https://bogota.gfny.com/"
+  }
+}

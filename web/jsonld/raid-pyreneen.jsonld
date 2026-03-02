@@ -1,0 +1,25 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Raid Pyreneen Randonneur",
+  "description": "Atlantic to Mediterranean. 18 cols. 720 km. 100 hours. The Pyrenees from ocean to ocean since 1950.",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-06-01",
+  "location": {
+    "@type": "Place",
+    "name": "Hendaye (Atlantic) to Cerbere (Mediterranean), France"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "76",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://ccb-cyclo.fr/en/raid-pyreneen.html",
+  "organizer": {
+    "@type": "Person",
+    "name": "Paul Mathis and the Cyclo Club Bearnais",
+    "url": "https://ccb-cyclo.fr/en/raid-pyreneen.html"
+  }
+}

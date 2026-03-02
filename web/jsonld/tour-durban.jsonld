@@ -1,0 +1,31 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "aQuelle Tour Durban",
+  "description": "Durban's coastal classic. 110km on the M4 from Moses Mabhida Stadium to the KwaZulu-Natal coast and back. Every cent to charity.",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-04-19",
+  "location": {
+    "@type": "Place",
+    "name": "Durban, KwaZulu-Natal, South Africa"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "37",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/LimitedAvailability"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "57",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://tourdurban.co.za/",
+  "organizer": {
+    "@type": "Person",
+    "name": "Mike Staphorst and Stan Nadal (Kings Park Cycling Club) with The Rotary Club of Durban",
+    "url": "https://tourdurban.co.za/"
+  }
+}

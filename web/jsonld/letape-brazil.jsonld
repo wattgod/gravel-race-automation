@@ -1,0 +1,31 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "L'Etape Brasil by Tour de France",
+  "description": "ASO's Tour de France franchise brings closed-road mountain racing to the Serra da Mantiqueira -- Latin America's biggest amateur cycling event, 10+ years deep.",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-09-27",
+  "location": {
+    "@type": "Place",
+    "name": "Campos do Jordao, Sao Paulo State, Brazil (flagship stage; series also visits Cunha and Rio de Janeiro)"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "500",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/LimitedAvailability"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "63",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://camposdojordao.letapeseries.com/",
+  "organizer": {
+    "@type": "Person",
+    "name": "Local organizing partner under license from ASO (Amaury Sport Organisation -- Tour de France organizer)",
+    "url": "https://camposdojordao.letapeseries.com/"
+  }
+}

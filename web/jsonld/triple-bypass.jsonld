@@ -1,0 +1,31 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Triple Bypass \u2014 Colorado's Three-Pass Challenge",
+  "description": "3 mountain passes. 118 miles. Nearly 11,000 feet of climbing across the Continental Divide. Colorado's defining cycling challenge since 1988.",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-07-11",
+  "location": {
+    "@type": "Place",
+    "name": "Evergreen to Avon, Colorado"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "265",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/LimitedAvailability"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "79",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://www.triplebypass.org/",
+  "organizer": {
+    "@type": "Person",
+    "name": "A group of avid cyclists from Team Evergreen Cycling",
+    "url": "https://www.triplebypass.org/"
+  }
+}

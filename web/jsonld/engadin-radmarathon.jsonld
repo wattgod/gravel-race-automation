@@ -1,0 +1,25 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Engadin Radmarathon",
+  "description": "Three days. Five passes. 221 km. 4,000 meters of climbing. Swiss Alpine precision through the Engadin \u2014 where glaciers meet UNESCO heritage and every pass tops 2,000 meters.",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-07-03",
+  "location": {
+    "@type": "Place",
+    "name": "Zernez, Engadin Valley, Graubunden, Switzerland"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "66",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://www.rad-marathon.ch/en",
+  "organizer": {
+    "@type": "Person",
+    "name": "Municipality of Zernez",
+    "url": "https://www.rad-marathon.ch/en"
+  }
+}

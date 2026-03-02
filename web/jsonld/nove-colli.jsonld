@@ -1,0 +1,25 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Gran Fondo Nove Colli",
+  "description": "The world's oldest gran fondo. Nine hills. 200 km. Pantani's hometown. Since 1971.",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-05-24",
+  "location": {
+    "@type": "Place",
+    "name": "Cesenatico, Emilia-Romagna, Italy"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "71",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://www.novecolli.it/",
+  "organizer": {
+    "@type": "Person",
+    "name": "Gruppo Sportivo Fausto Coppi Cesenatico (cycling club named after the legendary Italian champion)",
+    "url": "https://www.novecolli.it/"
+  }
+}

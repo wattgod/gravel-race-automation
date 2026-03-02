@@ -1,0 +1,25 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "L'Eroica",
+  "description": "209 kilometers, 3,863 meters of climbing, and 112 kilometers of strade bianche on vintage steel bikes through Tuscany's Chianti, Crete Senesi, and Val d'Orcia. 8,000 riders in wool jerseys and toe clips reliving the golden age of cycling since 1997.",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-10-03",
+  "location": {
+    "@type": "Place",
+    "name": "Gaiole in Chianti, Tuscany, Italy"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "81",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://www.eroica.cc/en/events/leroica/",
+  "organizer": {
+    "@type": "Person",
+    "name": "Giancarlo Brocci",
+    "url": "https://www.eroica.cc/en/events/leroica/"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "RAGBRAI (Register's Annual Great Bicycle Ride Across Iowa)",
+  "description": "America's oldest, largest, and longest multi-day recreational bicycle ride. 10,000+ riders. 7 days. ~400 miles across Iowa from the Missouri River to the Mississippi. Running since 1973. Where an entire state becomes your aid station.",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-07-18",
+  "location": {
+    "@type": "Place",
+    "name": "Across Iowa, USA (Missouri River to Mississippi River, west to east)"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "73",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  }
+}

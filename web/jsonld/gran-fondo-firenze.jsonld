@@ -1,0 +1,19 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Gran Fondo Firenze",
+  "description": "Over the Ponte Vecchio. Through the Renaissance. Up the World Championship wall. Florence gives you the keys to the city \u2014 and then sends you into the Tuscan hills to earn them.",
+  "sport": "Gravel Cycling",
+  "startDate": "2024-04-14",
+  "location": {
+    "@type": "Place",
+    "name": "Florence, Tuscany, Italy"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "63",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  }
+}

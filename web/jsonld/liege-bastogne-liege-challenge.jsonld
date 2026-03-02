@@ -1,0 +1,25 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Li\u00e8ge-Bastogne-Li\u00e8ge Challenge",
+  "description": "La Doyenne's amateur sportive \u2014 257km through the Belgian Ardennes, 4,500m of climbing, and every legendary c\u00f4te that has defined Monument cycling since 1892.",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-04-25",
+  "location": {
+    "@type": "Place",
+    "name": "Banneux, Belgium"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "79",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://lblchallenge.be/en/",
+  "organizer": {
+    "@type": "Person",
+    "name": "Golazo Sports (in partnership with ASO)",
+    "url": "https://lblchallenge.be/en/"
+  }
+}

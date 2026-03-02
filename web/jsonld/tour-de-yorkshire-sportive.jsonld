@@ -1,0 +1,25 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Tour de Yorkshire Sportive",
+  "description": "Up to 140 km on the same roads as the pros. Yorkshire's brutal climbs, Tour de France heritage, and 2.6 million screaming roadside fans \u2014 all cancelled since 2019.",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-01-2019",
+  "location": {
+    "@type": "Place",
+    "name": "Yorkshire, England, United Kingdom"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "67",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://letouryorkshire.com/ (historical \u2014 currently inactive)",
+  "organizer": {
+    "@type": "Person",
+    "name": "Welcome to Yorkshire and Amaury Sport Organisation (ASO) \u2014 sportive organized by Human Race Events",
+    "url": "https://letouryorkshire.com/ (historical \u2014 currently inactive)"
+  }
+}

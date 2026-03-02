@@ -1,0 +1,31 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Tour de Pologne Amator\u00f3w",
+  "description": "Ride the roads of Poland's WorldTour stage race. Southern Poland's Tatra foothills, historic cities, and the most affordable serious sportive in Europe.",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-08-01",
+  "location": {
+    "@type": "Place",
+    "name": "Southern Poland (route varies \u2014 typically Krakow area / Tatra Mountain foothills)"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "50",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/LimitedAvailability"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "53",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://www.tourdepologne.pl/",
+  "organizer": {
+    "@type": "Person",
+    "name": "Lang Team (Czeslaw Lang, organizer of the professional Tour de Pologne)",
+    "url": "https://www.tourdepologne.pl/"
+  }
+}

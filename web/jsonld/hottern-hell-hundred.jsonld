@@ -1,0 +1,31 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Hotter'N Hell Hundred",
+  "description": "100 miles. 100 degrees. Since 1982. The largest sanctioned century ride in America, where 10,000+ riders battle the brutal Texas heat in Wichita Falls every August. Birthplace of CamelBak. Where hydration is survival.",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-08-27",
+  "location": {
+    "@type": "Place",
+    "name": "Wichita Falls, Texas, USA"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "50",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/LimitedAvailability"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "73",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://www.hh100.org",
+  "organizer": {
+    "@type": "Person",
+    "name": "Roby Christie and the Wichita Falls Bicycle Club. Christie, a 37-year-old assistant postmaster and avid cyclist, proposed a century ride to celebrate Wichita Falls' 100th anniversary to the Board of Commerce and Industry in 1981.",
+    "url": "https://www.hh100.org"
+  }
+}

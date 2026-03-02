@@ -1,0 +1,25 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "BGY Airport Granfondo (Granfondo Felice Gimondi)",
+  "description": "30 years in the saddle of a legend. Six valleys. Selvino's 19 hairpins. Bergamo's cycling soul, named for the man who won all three Grand Tours.",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-05-10",
+  "location": {
+    "@type": "Place",
+    "name": "Bergamo, Lombardy, Italy"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "70",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://www.granfondobgy.it/en/",
+  "organizer": {
+    "@type": "Person",
+    "name": "Giuseppe Manenti and organizing committee, in collaboration with Felice Gimondi and Bianchi",
+    "url": "https://www.granfondobgy.it/en/"
+  }
+}

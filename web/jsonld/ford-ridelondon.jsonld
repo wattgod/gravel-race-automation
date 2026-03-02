@@ -1,0 +1,25 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Ford RideLondon",
+  "description": "Olympic legacy. 25,000 riders. 100 miles of closed London and Essex roads. The world's greatest festival of cycling \u2014 now on indefinite pause after 10 editions and \u00a385 million raised for charity.",
+  "sport": "Gravel Cycling",
+  "startDate": "2024-01-2025",
+  "location": {
+    "@type": "Place",
+    "name": "London / Essex, England"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "66",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://www.londonmarathonevents.co.uk/ridelondon",
+  "organizer": {
+    "@type": "Person",
+    "name": "London Marathon Events (with Mayor of London's office)",
+    "url": "https://www.londonmarathonevents.co.uk/ridelondon"
+  }
+}

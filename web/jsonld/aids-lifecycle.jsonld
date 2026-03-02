@@ -1,0 +1,31 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "AIDS/LifeCycle",
+  "description": "545 miles. 7 days. 1 mission. The most emotionally powerful cycling event ever created. San Francisco to Los Angeles. $300 million raised. Where the cycling community rides to end AIDS.",
+  "sport": "Gravel Cycling",
+  "startDate": "2025-06-01",
+  "location": {
+    "@type": "Place",
+    "name": "San Francisco to Los Angeles, California, USA"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "125",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/LimitedAvailability"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "71",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://www.aidslifecycle.org",
+  "organizer": {
+    "@type": "Person",
+    "name": "Pallotta Teamworks (as California AIDS Ride, 1994-2002). Relaunched as AIDS/LifeCycle in 2002 by Kevin Honeycutt, co-produced by San Francisco AIDS Foundation and Los Angeles LGBT Center.",
+    "url": "https://www.aidslifecycle.org"
+  }
+}

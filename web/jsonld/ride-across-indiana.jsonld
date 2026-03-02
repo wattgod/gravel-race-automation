@@ -1,0 +1,25 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "RAIN - Ride Across Indiana",
+  "description": "160 miles in one day across the entire state of Indiana. One road, one direction, dawn to dusk. America's most honest century-plus ride.",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-06-27",
+  "location": {
+    "@type": "Place",
+    "name": "Terre Haute to Richmond, Indiana, USA"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "56",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://www.rainride.org/ and https://centralincycling.org/flagship-ride/ride-across-indiana-rain/",
+  "organizer": {
+    "@type": "Person",
+    "name": "Bloomington Bicycle Club",
+    "url": "https://www.rainride.org/ and https://centralincycling.org/flagship-ride/ride-across-indiana-rain/"
+  }
+}

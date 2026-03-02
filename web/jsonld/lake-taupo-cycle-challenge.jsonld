@@ -1,25 +1,31 @@
 {
   "@context": "https://schema.org",
   "@type": "SportsEvent",
-  "name": "Lake Taupo Cycle Challenge",
-  "description": "New Zealand Lake Taupo gravel challenge.",
+  "name": "Lake Taup\u014d Cycle Challenge",
+  "description": "7,000 riders. One volcanic lake. 160 km around the largest caldera in the Southern Hemisphere. New Zealand's biggest cycling event since 1977.",
   "sport": "Gravel Cycling",
-  "startDate": "2026-11-28",
+  "startDate": "2025-11-29",
   "location": {
     "@type": "Place",
-    "name": "Lake Taupo, New Zealand"
+    "name": "Taup\u014d, Waikato, New Zealand"
   },
   "offers": {
     "@type": "Offer",
-    "price": "100",
+    "price": "59",
     "priceCurrency": "USD",
     "availability": "https://schema.org/LimitedAvailability"
   },
   "aggregateRating": {
     "@type": "AggregateRating",
-    "ratingValue": "50",
+    "ratingValue": "63",
     "bestRating": "100",
     "ratingCount": "14",
     "name": "Gravel God Rating"
+  },
+  "url": "https://www.cyclechallenge.com/",
+  "organizer": {
+    "@type": "Person",
+    "name": "Walter de Bont",
+    "url": "https://www.cyclechallenge.com/"
   }
 }

@@ -1,0 +1,25 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "L'Etape du Tour de France Femmes avec Zwift",
+  "description": "The official amateur stage of the Tour de France Femmes. 7,000 riders on Mont Ventoux, one day before the pros, on fully closed roads through Provence.",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-08-06",
+  "location": {
+    "@type": "Place",
+    "name": "Route changes annually (2026: Vaison-la-Romaine to Mont Ventoux, Provence)"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "79",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://www.letourfemmes.fr/en/etape-du-tour-de-france-femmes-avec-zwift",
+  "organizer": {
+    "@type": "Person",
+    "name": "ASO (Amaury Sport Organisation \u2014 Tour de France organizer)",
+    "url": "https://www.letourfemmes.fr/en/etape-du-tour-de-france-femmes-avec-zwift"
+  }
+}

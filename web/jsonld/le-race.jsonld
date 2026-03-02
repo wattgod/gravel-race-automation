@@ -1,0 +1,31 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Le Race",
+  "description": "100 km. Cathedral Square to Akaroa. Across an extinct volcano, over the Port Hills, and down into a French harbour town. New Zealand's toughest one-day road classic since 1999.",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-03-21",
+  "location": {
+    "@type": "Place",
+    "name": "Christchurch to Akaroa, Canterbury, New Zealand"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "130",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/LimitedAvailability"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "64",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://lerace.co.nz/",
+  "organizer": {
+    "@type": "Person",
+    "name": "Astrid Anderson",
+    "url": "https://lerace.co.nz/"
+  }
+}

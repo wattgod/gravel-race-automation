@@ -1,0 +1,31 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Cadel Evans Great Ocean Road Ride",
+  "description": "Australia's Tour de France winner. The Great Ocean Road. Challambra Crescent at 10%. Ride the same roads as the pros.",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-01-31",
+  "location": {
+    "@type": "Place",
+    "name": "Geelong, Victoria, Australia"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "120",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/LimitedAvailability"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "63",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://www.cadelevansgreatoceenroadride.com.au/",
+  "organizer": {
+    "@type": "Person",
+    "name": "Visit Victoria / Cycling Australia, honoring Cadel Evans",
+    "url": "https://www.cadelevansgreatoceenroadride.com.au/"
+  }
+}

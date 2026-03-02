@@ -496,7 +496,7 @@ def detect_tropes(rd):
             })
 
     # ── Prestige Override: tier doesn't match raw score
-    override_reason = rd["rating"].get("tier_override_reason", "")
+    override_reason = rd["rating"].get("tier_override_reason") or ""
     if "prestige" in override_reason.lower():
         natural_tier = _score_to_tier_name(score)
         tropes.append({
@@ -651,7 +651,8 @@ def brief_tier_reveal(rd):
             "label": "SETUP",
             "time_range": "0:05-0:10",
             "duration_sec": 5,
-            "narration": f"{name}. {location}. {distance}.",
+            "narration": _trim_narration(
+                f"{name}. {location}. {distance}.", 5),
             "text_on_screen": f"{name} | {location}",
             "visual": "Race card with location pin + route preview",
             "avatar_pose": "presenting",
@@ -885,11 +886,11 @@ def brief_roast(rd):
             "label": "HOOK",
             "time_range": "0:00-0:10",
             "duration_sec": 10,
-            "narration": (
+            "narration": _trim_narration(
                 f"We gave {name} the verdict: {verdict}. "
                 f"{tier_name} tier. {score} out of 100. "
-                f"Let me tell you what that really means."
-            ),
+                f"Let me tell you what that really means.",
+                10),
             "text_on_screen": f"{name}: {verdict}",
             "visual": "Verdict badge slam + tier badge + avatar",
             "avatar_pose": "mustache_twirl",
@@ -977,7 +978,7 @@ def brief_roast(rd):
             "label": "THE BOTTOM LINE",
             "time_range": "2:50-3:30",
             "duration_sec": 40,
-            "narration": bottom_line,
+            "narration": _trim_narration(bottom_line, 40),
             "text_on_screen": f"{verdict} — {score}/100",
             "visual": "Verdict card + final tier badge",
             "avatar_pose": _pick_avatar("verdict", trope["name"], tier),

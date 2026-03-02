@@ -253,7 +253,7 @@ def analyze_hooks(rd):
         })
 
     # Prestige override: tier doesn't match raw score
-    override_reason = rd["rating"].get("tier_override_reason", "")
+    override_reason = rd["rating"].get("tier_override_reason") or ""
     if "prestige" in override_reason.lower():
         hooks.append({
             "angle": "prestige_override",

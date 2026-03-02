@@ -22,6 +22,7 @@ import argparse
 import hashlib
 import html
 import json
+import logging
 import math
 import re
 import shutil
@@ -95,6 +96,62 @@ MONTH_NUMBERS = {
     "may": "05", "june": "06", "july": "07", "august": "08",
     "september": "09", "october": "10", "november": "11", "december": "12",
 }
+
+logger = logging.getLogger(__name__)
+
+
+def parse_event_dates(date_str: str) -> tuple[str | None, str | None]:
+    """Parse a race date string into (startDate, endDate) ISO strings.
+
+    Handles:
+      - Single day: "2026: June 15" → ("2026-06-15", "2026-06-15")
+      - Same-month range: "2026: August 19-23" → ("2026-08-19", "2026-08-23")
+      - Cross-month range: "2026: June 30 - July 2" → ("2026-06-30", "2026-07-02")
+      - Day-of-week prefixes: "Friday, June 12th" → stripped
+      - Ordinal suffixes: "7th", "1st", "22nd" → stripped
+
+    Returns (None, None) for TBD, empty, or unparseable strings.
+    """
+    if not date_str:
+        logger.debug("Empty date string — skipping")
+        return None, None
+
+    # Strip day-of-week and ordinal suffixes
+    clean = re.sub(
+        r'(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday),?\s*',
+        '', date_str)
+    clean = re.sub(r'(\d+)(?:st|nd|rd|th)\b', r'\1', clean)
+
+    # Try cross-month first: "2026: June 30 - July 2"
+    cross = re.search(
+        r'(\d{4}).*?(\w+)\s+(\d+)\s*-\s*(\w+)\s+(\d+)', clean)
+    if cross:
+        year = cross.group(1)
+        start_month = MONTH_NUMBERS.get(cross.group(2).lower())
+        start_day = cross.group(3)
+        end_month = MONTH_NUMBERS.get(cross.group(4).lower())
+        end_day = cross.group(5)
+        if start_month and end_month:
+            return (
+                f"{year}-{start_month}-{int(start_day):02d}",
+                f"{year}-{end_month}-{int(end_day):02d}",
+            )
+
+    # Fall back to same-month: "2026: June 15" or "2026: August 19-23"
+    same = re.search(r'(\d{4}).*?(\w+)\s+(\d+)(?:\s*-\s*(\d+))?', clean)
+    if same:
+        year = same.group(1)
+        month = MONTH_NUMBERS.get(same.group(2).lower())
+        if month:
+            start_day = same.group(3)
+            end_day = same.group(4)
+            start = f"{year}-{month}-{int(start_day):02d}"
+            end = f"{year}-{month}-{int(end_day):02d}" if end_day else start
+            return start, end
+
+    logger.debug("Unparseable date: %s", date_str)
+    return None, None
+
 
 # US state names and abbreviations for country detection in JSON-LD
 US_STATES = {
@@ -255,7 +312,8 @@ def normalize_race_data(data: dict) -> dict:
 
     rating = race.get('gravel_god_rating', {})
     bor = race.get('biased_opinion_ratings', {})
-    bo = race.get('biased_opinion', {})
+    bo_raw = race.get('biased_opinion', {})
+    bo = {'summary': bo_raw} if isinstance(bo_raw, str) else bo_raw
     vitals = race.get('vitals', {})
     course = race.get('course_description', {})
     history = race.get('history', {})
@@ -1231,24 +1289,13 @@ def build_sports_event_jsonld(rd: dict) -> Optional[dict]:
     — omitting SportsEvent entirely is better than emitting it without a date,
     which triggers GSC "missing startDate" errors with no rich-result upside.
     """
-    # Parse ISO date — preprocess to handle day-of-week and ordinal suffixes
+    # Parse ISO date via shared helper
     date_specific = rd['vitals'].get('date_specific', '')
-    date_clean = re.sub(
-        r'(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday),?\s*',
-        '', date_specific)
-    date_clean = re.sub(r'(\d+)(?:st|nd|rd|th)\b', r'\1', date_clean)
-    date_match = re.search(r'(\d{4}).*?(\w+)\s+(\d+)(?:-(\d+))?', date_clean)
+    start_date, end_date = parse_event_dates(date_specific)
 
     # No parseable date → skip SportsEvent entirely
-    if not date_match:
+    if not start_date:
         return None
-
-    # date_match is guaranteed truthy here (early return above)
-    year, month_name, day = date_match.group(1), date_match.group(2), date_match.group(3)
-    end_day = date_match.group(4)
-    month_num = MONTH_NUMBERS.get(month_name.lower(), "01")
-    start_date = f"{year}-{month_num}-{int(day):02d}"
-    end_date = f"{year}-{month_num}-{int(end_day):02d}" if end_day else start_date
 
     jsonld = {
         "@context": "https://schema.org",
@@ -1325,14 +1372,17 @@ def build_sports_event_jsonld(rd: dict) -> Optional[dict]:
     # Racer Rating → AggregateRating (only with 3+ ratings)
     racer_rating = rd.get('racer_rating', {})
     if racer_rating.get('total_ratings', 0) >= RACER_RATING_THRESHOLD and racer_rating.get('star_average'):
-        jsonld["aggregateRating"] = {
+        agg = {
             "@type": "AggregateRating",
             "ratingValue": str(round(racer_rating['star_average'], 1)),
             "bestRating": "5",
             "worstRating": "1",
             "ratingCount": str(racer_rating['total_ratings']),
-            "reviewCount": str(racer_rating.get('total_reviews', 0)),
         }
+        total_reviews = racer_rating.get('total_reviews', 0)
+        if total_reviews > 0:
+            agg["reviewCount"] = str(total_reviews)
+        jsonld["aggregateRating"] = agg
 
     if official_site and official_site.startswith('http'):
         jsonld["url"] = official_site
@@ -1583,26 +1633,10 @@ def build_course_overview(rd: dict, race_index: list = None) -> str:
     # Calendar export — Google Calendar link + .ics download
     cal_html = ''
     date_specific = v.get('date_specific', '')
-    date_clean = re.sub(
-        r'(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday),?\s*',
-        '', date_specific)
-    date_clean = re.sub(r'(\d+)(?:st|nd|rd|th)\b', r'\1', date_clean)
-    cal_date_match = re.search(r'(\d{4}).*?(\w+)\s+(\d+)(?:-(\d+))?', date_clean)
-    if not cal_date_match:
-        cal_date_match = re.search(r'(\w+)\s+(\d+)(?:-\d+)?,?\s*(\d{4})', date_clean)
-        if cal_date_match:
-            month_name_c, day_c, year_c = cal_date_match.group(1), cal_date_match.group(2), cal_date_match.group(3)
-            month_num_c = MONTH_NUMBERS.get(month_name_c.lower(), '')
-        else:
-            month_num_c = ''
-    else:
-        year_c = cal_date_match.group(1)
-        month_name_c = cal_date_match.group(2)
-        day_c = cal_date_match.group(3)
-        month_num_c = MONTH_NUMBERS.get(month_name_c.lower(), '')
+    cal_start, _cal_end = parse_event_dates(date_specific)
 
-    if month_num_c and month_num_c != '':
-        iso_date = f"{year_c}{month_num_c}{int(day_c):02d}"
+    if cal_start:
+        iso_date = cal_start.replace('-', '')
         race_title = rd['name']
         location_str = v.get('location', '')
         from urllib.parse import quote
@@ -2240,14 +2274,14 @@ def build_training(rd: dict) -> str:
     # Race date countdown — parsed from date_specific
     countdown_html = ''
     date_specific = rd['vitals'].get('date_specific', '')
-    date_match = re.search(r'(\d{4}).*?(\w+)\s+(\d+)', date_specific)
-    if date_match:
-        year, month_name, day = date_match.groups()
-        month_num = MONTH_NUMBERS.get(month_name.lower(), "01")
-        iso_date = f"{year}-{month_num}-{int(day):02d}"
-        # Show formatted date for no-JS/crawlers; JS replaces with day count
-        display_date = f"{month_name} {int(day)}, {year}"
-        countdown_html = f'<div class="gg-countdown" data-date="{iso_date}"><span class="gg-countdown-num" id="gg-days-left">{esc(display_date)}</span> {esc(race_name.upper())}</div>'
+    cd_start, _cd_end = parse_event_dates(date_specific)
+    if cd_start:
+        # Reconstruct display date from ISO for no-JS/crawlers
+        parts = cd_start.split('-')
+        month_names = {v: k.capitalize() for k, v in MONTH_NUMBERS.items()}
+        display_month = month_names.get(parts[1], parts[1])
+        display_date = f"{display_month} {int(parts[2])}, {parts[0]}"
+        countdown_html = f'<div class="gg-countdown" data-date="{cd_start}"><span class="gg-countdown-num" id="gg-days-left">{esc(display_date)}</span> {esc(race_name.upper())}</div>'
 
     # Riders Report: gear mentions before training plan CTA
     gear_html = _build_riders_report([

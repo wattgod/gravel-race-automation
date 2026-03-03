@@ -1,0 +1,25 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Race Across France",
+  "description": "",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-06-18",
+  "location": {
+    "@type": "Place",
+    "name": "Dinan to Mandelieu-la-Napoule, France",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Dinan to Mandelieu-la-Napoule",
+      "addressRegion": "France"
+    }
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "79",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://en.raceacrossseries.com/race-across-france-2025"
+}

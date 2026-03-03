@@ -1,0 +1,195 @@
+{
+  "race": {
+    "vitals": {
+      "slug": "gran-fondo-san-diego",
+      "name": "Gran Fondo San Diego",
+      "location": "San Diego, California, USA",
+      "date": "2026: April 19",
+      "date_specific": "2026: April 19",
+      "distance_mi": 101,
+      "elevation_ft": 6600,
+      "discipline": "road",
+      "month": "April",
+      "prestige": 2,
+      "overall_score": 66,
+      "tier": 2
+    },
+    "gravel_god_rating": {
+      "adventure": 3,
+      "altitude": 3,
+      "climate": 4,
+      "community": 3,
+      "elevation": 4,
+      "expenses": 3,
+      "experience": 3,
+      "field_depth": 3,
+      "length": 4,
+      "logistics": 4,
+      "prestige": 2,
+      "race_quality": 3,
+      "technicality": 2,
+      "value": 3,
+      "cultural_impact": 2,
+      "overall_score": 66,
+      "tier": 2,
+      "tier_label": "TIER 2"
+    },
+    "biased_opinion_ratings": {
+      "adventure": {
+        "score": 3,
+        "explanation": "The Great Western Loop through East County backcountry provides scenic exploration of San Diego's diverse landscapes, though primarily road-based rather than true gravel adventure."
+      },
+      "altitude": {
+        "score": 3,
+        "explanation": "While 6,600 feet of elevation gain is substantial, the maximum altitude reached remains moderate for cycling events, lacking extreme high-altitude challenges."
+      },
+      "climate": {
+        "score": 4,
+        "explanation": "San Diego's April weather offers ideal cycling conditions with mild temperatures and low precipitation, making it one of the best times to ride in Southern California."
+      },
+      "community": {
+        "score": 3,
+        "explanation": "The event emphasizes community through its Italian-themed celebration, live music, beer garden, and post-ride festivities that foster camaraderie among participants."
+      },
+      "elevation": {
+        "score": 4,
+        "explanation": "6,600 feet of elevation gain on a 101-mile route provides meaningful climbing challenges, particularly the timed Japatul Road climb, without being prohibitively steep."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Registration costs are moderate for a premier cycling event, though overall expenses depend on accommodation and travel to San Diego, which can be significant."
+      },
+      "experience": {
+        "score": 3,
+        "explanation": "The 18th annual event demonstrates established infrastructure with professional SAG support, mechanical assistance, multiple aid stations, and a well-organized finish celebration."
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "While the event attracts serious cyclists competing for KOM/QOM honors, it caters to all levels from beginners to advanced riders, potentially diluting competitive depth."
+      },
+      "length": {
+        "score": 4,
+        "explanation": "The 101-mile Gran Fondo route provides a classic century-distance challenge that tests endurance without requiring ultra-distance commitment."
+      },
+      "logistics": {
+        "score": 4,
+        "explanation": "Downtown San Diego location with Ruocco Park start/finish, clear staging procedures, and thorough support infrastructure make logistics straightforward and accessible."
+      },
+      "race_quality": {
+        "score": 3,
+        "explanation": "Professional organization, well-stocked aid stations, timed climbs, finisher medals, and thorough support demonstrate high-quality event execution."
+      },
+      "technicality": {
+        "score": 2,
+        "explanation": "As a road cycling event on paved surfaces, technical skill requirements are minimal; the challenge is primarily endurance and climbing ability rather than bike handling."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "The package includes medal, multiple aid stations, SAG support, Italian lunch, and entertainment, offering reasonable value though pricing depends on registration fees not detailed in sources."
+      },
+      "cultural_impact": {
+        "score": 2,
+        "explanation": "The Italian-themed Gran Fondo celebration and Southern California cycling culture presence provide moderate cultural significance within the regional cycling community."
+      },
+      "prestige": {
+        "score": 2,
+        "explanation": "Regional US gran fondo with 2,000+ riders since 2012, popular in the Southern California cycling scene."
+      }
+    },
+    "course_description": {
+      "character": "The Gran Fondo San Diego features the classic 'Great Western Loop' through East County's scenic backcountry, combining rolling terrain with strategic climbing challenges. The route showcases San Diego's diverse athletic landscape and natural beauty, transitioning from urban downtown San Diego through suburban areas into the rugged backcountry before returning to the waterfront finish.",
+      "suffering_zones": [
+        {
+          "label": "Japatul Road Timed Climb",
+          "description": "Located at mile 36 on the long route, this timed King/Queen of the Mountain challenge serves as the primary climbing test, offering bragging rights across multiple age categories."
+        },
+        {
+          "label": "East County Backcountry Section",
+          "description": "The middle portion of the Great Western Loop traverses rolling terrain through San Diego's backcountry, accumulating elevation gain across multiple smaller climbs rather than one sustained effort."
+        },
+        {
+          "label": "Final Push to Ruocco Park",
+          "description": "The closing miles return riders to downtown San Diego with potential fatigue setting in after 80+ miles, requiring mental fortitude to maintain pace through the urban finish."
+        }
+      ],
+      "signature_challenge": "The timed Japatul Road climb at mile 36, which determines KOM/QOM winners across eight age categories and represents the event's primary competitive climbing test."
+    },
+    "terrain": {
+      "surface_breakdown": {
+        "paved": 100,
+        "gravel": 0,
+        "other": 0
+      },
+      "terrain_overview": "Entirely paved road cycling event featuring the Great Western Loop through East County backcountry. The route combines rolling terrain with strategic elevation gain, transitioning from downtown San Diego through suburban areas into rural backcountry before returning to the waterfront.",
+      "key_features": [
+        "Great Western Loop through East County backcountry",
+        "Japatul Road timed climb at mile 36",
+        "Scenic views of Otay Lakes region",
+        "Downtown San Diego urban cycling",
+        "Pacific Ocean proximity",
+        "6,600 feet cumulative elevation gain distributed across the route"
+      ]
+    },
+    "logistics": {
+      "overview": "The Gran Fondo San Diego is a two-day festival held in downtown San Diego, starting and finishing at Ruocco Park. The event operates under open start line rules with no mass start; participants begin at assigned times based on event staging. All participants must provide photo ID and signed county and event waivers at packet pickup. The course closes at 5:30 PM with a 10.5-hour time limit to complete the ride.",
+      "official_site": "https://www.sdgranfondo.com",
+      "registration_url": "https://www.sdgranfondo.com/details",
+      "accommodation": "Downtown San Diego offers numerous hotel and lodging options suitable for event participants. The waterfront location provides convenient access to accommodations ranging from budget to luxury properties.",
+      "getting_there": "San Diego is accessible via San Diego International Airport (SAN) or driving via Interstate 5. Downtown San Diego and Ruocco Park are centrally located and accessible from major highways.",
+      "parking": "Parking information is not detailed in available sources; participants should contact the event organizers or check the official website for specific parking instructions at Ruocco Park.",
+      "spectator_info": "The event features a post-ride Fantastic Finish Celebration at Ruocco Park with live music, Italian Pasta Fest, and Seek Beer Co. Beer Garden, creating opportunities for spectators and supporters to celebrate with participants."
+    },
+    "climate": {
+      "overview": "San Diego in April offers ideal cycling conditions with mild temperatures, low precipitation, and generally favorable wind patterns. The coastal location moderates temperature extremes while providing scenic ocean views.",
+      "avg_temp_f": 68,
+      "precipitation_chance": 10,
+      "wind_conditions": "Typically mild spring winds; coastal location may produce light sea breezes but generally favorable for cycling.",
+      "altitude_effects": "Maximum elevation on the route remains below 3,000 feet, so altitude effects are negligible for most cyclists. The 6,600 feet of elevation gain is distributed across the 101-mile route rather than concentrated at high altitude."
+    },
+    "history": {
+      "overview": "The Gran Fondo San Diego is an established cycling event that has grown into a premier Southern California cycling celebration. The event combines Italian Gran Fondo tradition with San Diego's cycling culture, featuring the classic Great Western Loop through East County backcountry.",
+      "founded": 2008,
+      "notable_editions": [
+        "Voted Top 10 Century Ride in the USA",
+        "18th Annual edition in 2026",
+        "Established as a Southern California-Italian fusion cycling extravaganza"
+      ],
+      "growth_trajectory": "The event has evolved from a regional cycling ride into a recognized premier cycling event with thorough support infrastructure, multiple route options accommodating all skill levels, and an established festival atmosphere with live entertainment and Italian-themed celebrations."
+    },
+    "final_verdict": {
+      "one_liner": "A well-organized, community-focused century ride through San Diego's scenic backcountry with excellent support infrastructure and celebratory atmosphere.",
+      "best_for": "Cyclists seeking a challenging but achievable century ride with strong community elements, those wanting to experience Southern California's diverse landscapes, riders interested in timed climbing competitions, and participants who value post-ride celebration and Italian cultural themes.",
+      "not_ideal_for": "Gravel cyclists seeking off-road terrain, ultra-distance endurance athletes, riders seeking elite competitive racing, those with limited time (10.5-hour cutoff is firm), and cyclists uncomfortable with open-start format and rules-of-the-road riding.",
+      "pro_tip": "Arrive early for packet pickup to secure your assigned start time and familiarize yourself with the staging area. The Japatul Road climb at mile 36 is the primary competitive challenge—pace yourself accordingly if pursuing KOM/QOM honors. Take advantage of the five well-stocked aid stations to maintain energy levels, and plan to enjoy the post-ride Italian feast and live entertainment as part of the full Gran Fondo experience."
+    },
+    "citations": [
+      {
+        "url": "https://www.sdgranfondo.com",
+        "title": "GranFondo San Diego - Voted Top 10 Century Ride in the USA",
+        "snippet": "The 18th Annual GranFondo San Diego on Sunday April 19, 2026. Welcome to the ultimate celebration of cycling, flavor, and the breathtaking San Diego waterfront!"
+      },
+      {
+        "url": "https://www.sdgranfondo.com/overview",
+        "title": "San Diego Cycling Events: Gran Fond Routes Overview",
+        "snippet": "Our classic 100-mile Gran Fondo Route includes the 'Great Western Loop', a San Diego favorite that cruises through East County's backcountry. The Gran Fondo Route boasts 6,600 cumulative feet of elevation gain, timed climb on Japatul Road, and five well-stocked aid stations."
+      },
+      {
+        "url": "https://www.sdgranfondo.com/details",
+        "title": "Important info about the Campagnolo Granfondo San Diego",
+        "snippet": "San Diego Granfondo Event Date: April 18th, 2026. Choose one of 3 distances - 100 Miles, 60 Miles or 35 Miles. We have an all rules of the road, open start line with no mass start."
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/404/gran-fondo-san-diego",
+        "title": "Gran Fondo San Diego",
+        "snippet": "Held in beautiful Downtown San Diego, the two-day festival starts and finishes in Ruocco Park. There are 3 route options with timed King and Queen of the Mountain competitions."
+      },
+      {
+        "url": "https://findarace.com/us/events/2026-granfondo-san-diego",
+        "title": "2026 Granfondo San Diego 2026 | Sun 19 Apr",
+        "snippet": "Join us for the 2026 Granfondo San Diego on April 19th! Choose from 101, 60, or 34 miles and celebrate with food, music, and community at the stunning Downtown San Diego waterfront."
+      }
+    ],
+    "slug": "gran-fondo-san-diego",
+    "name": "Gran Fondo San Diego"
+  }
+}

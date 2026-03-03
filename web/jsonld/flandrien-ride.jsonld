@@ -1,0 +1,25 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Flandrien Ride",
+  "description": "",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-04-04",
+  "location": {
+    "@type": "Place",
+    "name": "Oudenaarde, Belgium",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Oudenaarde",
+      "addressRegion": "Belgium"
+    }
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "79",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://www.cyclinginflanders.cc/flandrien-challenge"
+}

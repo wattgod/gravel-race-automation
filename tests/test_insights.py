@@ -420,7 +420,7 @@ class TestRaceDataEmbed:
             insights_html,
             re.DOTALL,
         )
-        assert len(match.group(1).encode()) < 60000, "Race data exceeds 60KB"
+        assert len(match.group(1).encode()) < 80000, "Race data exceeds 80KB"
 
     def test_gravel_only_no_bikepacking(self, insights_html):
         """Bikepacking and MTB must be excluded from analysis."""

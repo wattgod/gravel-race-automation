@@ -1,0 +1,179 @@
+{
+  "race": {
+    "vitals": {
+      "slug": "haervejslobet",
+      "name": "Hærvejsløbet — The Viking Gran Fondo",
+      "location": "Flensburg, Germany to Viborg, Denmark",
+      "date": "2026: June 27",
+      "date_specific": "2026: June 27",
+      "distance_mi": 186,
+      "elevation_ft": 3300,
+      "discipline": "road",
+      "month": "June",
+      "prestige": 3,
+      "overall_score": 77,
+      "tier": 2
+    },
+    "gravel_god_rating": {
+      "adventure": 4,
+      "altitude": 2,
+      "climate": 4,
+      "community": 4,
+      "elevation": 3,
+      "expenses": 4,
+      "experience": 4,
+      "field_depth": 3,
+      "length": 5,
+      "logistics": 4,
+      "prestige": 3,
+      "race_quality": 4,
+      "technicality": 3,
+      "value": 4,
+      "cultural_impact": 3,
+      "overall_score": 77,
+      "tier": 2,
+      "tier_label": "TIER 2"
+    },
+    "biased_opinion_ratings": {
+      "adventure": {
+        "score": 4,
+        "explanation": "The 300 km Queen Stage from Flensburg, Germany, to Viborg follows the ancient Hærvejen army road used by Vikings, blending steep 10% climbs with historical sites like the Jelling Stones.[1][2][3]"
+      },
+      "altitude": {
+        "score": 2,
+        "explanation": "Riding stays near sea level along Denmark's Jutland peninsula ridge, with no high mountain passes exceeding typical lowland altitudes.[2][3]"
+      },
+      "climate": {
+        "score": 4,
+        "explanation": "Held on June 27th-28th in late Danish midsummer, riders enjoy long daylight hours and mild Jutland weather ideal for extended outdoor cycling.[4][5]"
+      },
+      "community": {
+        "score": 4,
+        "explanation": "Over 7,000 participants from all levels converge at Paradepladsen in Viborg, sharing food, music, and experiences across 15 routes on road, MTB, and gravel.[3][5]"
+      },
+      "elevation": {
+        "score": 3,
+        "explanation": "The ~186-mile route accumulates 3,300 ft of climbing, featuring a notable 650-meter cobblestone sector with hairpin bends near Viborg.[1][3]"
+      },
+      "expenses": {
+        "score": 4,
+        "explanation": "Entry packages start from EUR 425 for the ride with bus transport to Flensburg start, or EUR 490 including shared double room accommodation.[4]"
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "Denmark's largest recurring cycling event offers 15 routes all finishing at Viborg's Paradepladsen with famous feeding stations and post-ride celebrations.[3][5]"
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "More than 7,000 cyclists tackle 11-15 distances from 40 km to 300 km, mixing novices and challengers on road, gravel, and MTB from varied starts.[2][5]"
+      },
+      "length": {
+        "score": 5,
+        "explanation": "The flagship Viking Gran Fondo covers ~186 miles or nearly 300 km from Flensburg across the Danish-German border to Viborg.[1][2][4]"
+      },
+      "logistics": {
+        "score": 4,
+        "explanation": "Organizers provide bus transport from Viborg to the Flensburg starting point for the 300 km route, with all 15 distances converging at Paradepladsen.[3][4]"
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "Routes showcase mid-Jutland's undulating hills, Kongeåen border river, Rørbæk Sø lakes, and Denmark's largest forest belt near Vrads before Viborg.[2][3]"
+      },
+      "technicality": {
+        "score": 3,
+        "explanation": "A 650-meter cobblestone climb with hairpin bends adds challenge amid mostly rolling terrain on the historic Hærvejen path to Viborg.[3]"
+      },
+      "value": {
+        "score": 4,
+        "explanation": "EUR 425 packages cover the 300 km Flensburg-to-Viborg ride, bus transport, after-race food at Paradepladsen, and access to famed feeding stations.[4]"
+      },
+      "cultural_impact": {
+        "score": 3,
+        "explanation": "Follows ancient Hærvejen Viking road, weaving history, megaliths, and Jutland heritage into the ride."
+      },
+      "prestige": {
+        "score": 3,
+        "explanation": "As L'Etape Denmark by Tour de France road edition, it draws international riders but remains below WorldTour gran fondos in global ranking.[4][5]"
+      }
+    },
+    "course_description": {
+      "character": "Historic point-to-point road epic tracing the ancient Hærvejen ridge through Jutland's ice-age formed hills, blending cultural landmarks with relentless rolling terrain.",
+      "suffering_zones": [
+        {
+          "label": "Mur de Refsgårde",
+          "description": "Mid-race 550m wall at 8.2% average gradient that shatters rhythm after hours of pedaling."
+        },
+        {
+          "label": "Jennumbakken",
+          "description": "Longest climb at 1175m and 5.6% gradient, a grinding test of endurance amid scenic Viking landscapes."
+        },
+        {
+          "label": "Jutland Rollercoaster",
+          "description": "Constant succession of short, steep hills formed by ancient glaciers, wearing down legs over 186 miles."
+        }
+      ],
+      "signature_challenge": "Crossing the German-Danish border early, then battling cumulative elevation and wind-swept ridges to the triumphant red carpet finish in Viborg."
+    },
+    "logistics": {
+      "overview": "Mass-participation gran fondo with 15 routes converging on Viborg's Paradepladsen; road, MTB, and gravel options. Queen stage starts Flensburg with chip timing before finish-line parade.",
+      "official_site": "https://sites.dgi.dk/haervejsloebet-en/",
+      "registration_url": "https://pedalpeople.cc/l-etape-denmark",
+      "accommodation": "Viborg offers hotels, hostels, and barracks-area camping; book early for June event. Flensburg pre-race stays near start.",
+      "getting_there": "Fly to Billund or Aalborg airports, train to Flensburg/Viborg, or drive across border. Bike transport via event partners.",
+      "parking": "Ample parking at Flensburg start and Viborg finish; shuttle services for bike retrieval.",
+      "spectator_info": "Viborg Paradepladsen hosts family zone, food, and live timing; cheer the red carpet arrivals."
+    },
+    "climate": {
+      "overview": "Mild Nordic summer with long daylight hours; variable weather typical of Jutland peninsula.",
+      "avg_temp_f": "62-68",
+      "precipitation_chance": "30-40% chance of showers",
+      "wind_conditions": "Moderate 10-20 km/h westerly winds common along exposed ridge",
+      "altitude_effects": "Negligible; max elevations under 200m with no acclimatization needed."
+    },
+    "terrain": {
+      "surface_breakdown": {
+        "paved": 95,
+        "gravel": 3,
+        "other": 2
+      },
+      "terrain_overview": "Rolling road terrain following the elevated Hærvejen natural ridge, with punchy climbs, false flats, and open exposures rather than sustained mountains.",
+      "key_features": "Ice-age moraine hills, Viking-era paths, megalithic tombs, border crossing, and glimpses of Danish countryside."
+    },
+    "history": {
+      "overview": "Denmark's largest cycling event, inspired by ancient Hærvejen migration route used by Vikings, pilgrims, and armies. Now part of prestigious L'Etape Denmark by Tour de France series.",
+      "founded": 1985,
+      "notable_editions": "Integration into L'Etape series elevated profile; record participation in recent years with 10,000+ riders across distances.",
+      "growth_trajectory": "Steady expansion from local ride to international gran fondo, adding Tour de France branding and diverse formats (road/MTB/gravel)."
+    },
+    "final_verdict": {
+      "one_liner": "Viking-fueled endurance test blending history, hills, and high-quality organization.",
+      "best_for": "History buffs, ultra-endurance roadies, and groups seeking a festive Scandinavian adventure.",
+      "not_ideal_for": "Altitude junkies, technical descenders, or budget travelers avoiding Europe.",
+      "pro_tip": "Opt for early registration to secure the Queen Stage; pack arm warmers for Jutland's unpredictable winds and train on rolling terrain."
+    },
+    "citations": [
+      {
+        "url": "https://pedalpeople.cc/l-etape-denmark",
+        "title": "L'Etape Denmark",
+        "snippet": "HÆRVEJSLØBET – the Viking Gran Fondo is an unforgettable ride following the natural ridge... Queen Stage of L’Etape Denmark by Tour de France is the 300 kms road tour from Flensburg in Germany to Viborg."
+      },
+      {
+        "url": "https://www.alpecincycling.com/en/events/events-rides-cyclosportives-with-300-kilometers-2024/",
+        "title": "Events 2024: Cyclosportives with 300 and more Kilometers",
+        "snippet": "Hærvejsløbet – L’Étape Denmark. Date: June 29, 2024. Start-Finish: Flensburg – Viborg/Denmark. Route: 300 km/2500 hm... Mur de Refsgårde... Jennumbakken."
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/10641/h%C3%A6rvejsl%C3%B8bet-the-viking-gran-fondo",
+        "title": "Hærvejsløbet The Viking Gran Fondo",
+        "snippet": "Distances: 40 to 300 km. Difficulty: Difficult terrain with longer, steeper hills."
+      },
+      {
+        "url": "https://sites.dgi.dk/haervejsloebet-en/",
+        "title": "Hærvejsløbet - DGI",
+        "snippet": "Official site for event routes and registration details."
+      }
+    ],
+    "slug": "haervejslobet",
+    "name": "Hærvejsløbet — The Viking Gran Fondo"
+  }
+}

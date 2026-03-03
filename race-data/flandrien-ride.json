@@ -1,0 +1,174 @@
+{
+  "race": {
+    "vitals": {
+      "slug": "flandrien-ride",
+      "name": "Flandrien Ride",
+      "location": "Oudenaarde, Belgium",
+      "date": "2026: April 4",
+      "date_specific": "2026: April 4",
+      "distance_mi": 99,
+      "elevation_ft": 5500,
+      "discipline": "road",
+      "month": "April",
+      "prestige": 3,
+      "overall_score": 79,
+      "tier": 2
+    },
+    "gravel_god_rating": {
+      "adventure": 4,
+      "altitude": 2,
+      "climate": 3,
+      "community": 4,
+      "elevation": 4,
+      "expenses": 4,
+      "experience": 4,
+      "field_depth": 3,
+      "length": 4,
+      "logistics": 4,
+      "prestige": 3,
+      "race_quality": 4,
+      "technicality": 5,
+      "value": 4,
+      "cultural_impact": 3,
+      "overall_score": 79,
+      "tier": 2,
+      "tier_label": "TIER 2"
+    },
+    "biased_opinion_ratings": {
+      "adventure": {
+        "score": 4,
+        "explanation": "The Flandrien Ride challenges participants to conquer 59 iconic berg and cobble segments across three days from Ypres and Oudenaarde in under 72 hours, culminating in a personal stone on the wall of fame at Centrum Ronde van Vlaanderen.[1][2]"
+      },
+      "altitude": {
+        "score": 2,
+        "explanation": "The ~99-mile route around Oudenaarde stays within the low-lying Flemish Ardennes, lacking high mountain passes typical of alpine events.[4]"
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "Held in early April near Oudenaarde, the event faces Flanders' unpredictable spring weather with potential rain on exposed cobbled sectors like Paddestraat.[3][4]"
+      },
+      "community": {
+        "score": 4,
+        "explanation": "Riders join thousands of enthusiasts in Oudenaarde's Centrum Ronde van Vlaanderen, sharing stories in the Peloton Café after tackling shared bergs like Koppenberg.[2][5]"
+      },
+      "elevation": {
+        "score": 4,
+        "explanation": "~5,500 ft of climbing over ~99 miles features steep pitches on 12 climbs and 7 cobbled sectors in day two's 190km loop from Oudenaarde.[1]"
+      },
+      "expenses": {
+        "score": 4,
+        "explanation": "Bike rental and optional expert mechanic services are provided, with breakfasts included across four days starting from Oudenaarde for the multi-day challenge.[1]"
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "Participants validate achievements with photos of personalized cobbles on the wall at Oudenaarde's Centrum Ronde van Vlaanderen after day four's 142km ride.[1][5]"
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "The non-competitive sportive draws recreational cyclists to Oudenaarde's iconic roads, unlike the pro Tour of Flanders peloton battling on Oude Kwaremont.[3][4]"
+      },
+      "length": {
+        "score": 4,
+        "explanation": "~99 miles matches the sportive's day three 142km from Oudenaarde with 9km cobbles, shorter than the pro race's 100km flat run-in to Flemish Ardennes.[2][4]"
+      },
+      "logistics": {
+        "score": 4,
+        "explanation": "Rides start from Ypres or Oudenaarde and loop back, with local café stops and meals included, easing navigation of 59 marked segments over 72 hours.[1][2]"
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "High-quality cobbles total 15km on day two's 190km from Oudenaarde, mirroring pro sectors like Paterberg where Cancellara attacked in 2013.[1][4]"
+      },
+      "technicality": {
+        "score": 5,
+        "explanation": "Technical demands peak with steep cobbled bergs like Oude Kwaremont and 9km cobbles on day three's 142km Oudenaarde loop, testing bike handling skills.[2][4]"
+      },
+      "value": {
+        "score": 4,
+        "explanation": "Includes breakfasts daily, cobble monument personalization, and wall of fame spot in Oudenaarde for completing 59 segments in 72 hours.[1][2]"
+      },
+      "cultural_impact": {
+        "score": 3,
+        "explanation": "Embodies 'Flandrien' spirit – steel-willed cyclist who eats pain for breakfast."
+      },
+      "prestige": {
+        "score": 3,
+        "explanation": "Tied to Tour of Flanders heritage via climbs like Koppenberg south of Oudenaarde, it lacks the UCI WorldTour status of the pro race finishing there.[4][5]"
+      }
+    },
+    "course_description": {
+      "character": "Punchy hellingen and vicious cobbled sectors through Flemish Ardennes, evoking Tour of Flanders suffering in self-paced glory.",
+      "suffering_zones": [
+        {
+          "label": "Oude Kwaremont - Paterberg - Koppenberg finale",
+          "description": "Legendary triple-threat combo; relentless cobbled ascents that break souls in the Tour of Flanders."
+        },
+        {
+          "label": "Day 2 Main Course",
+          "description": "190km with 12 climbs and 7 cobbled sectors; endless unheralded ups where true Flandriens earn their spurs."
+        },
+        {
+          "label": "West Flanders Starter",
+          "description": "Ypres to Oudenaarde via Ghent-Wevelgem cobbles; 75km appetizer with 914m vert to whet the appetite."
+        }
+      ],
+      "signature_challenge": "Conquer all 59 marked berg & cobble Strava segments within 72 hours for your engraved stone on the Wall of Fame."
+    },
+    "logistics": {
+      "overview": "Self-supported Strava challenge based in Oudenaarde; optional guided tours with Sportive Breaks include transfers, meals, mechanics.",
+      "official_site": "https://www.cyclinginflanders.cc/flandrien-challenge",
+      "registration_url": "https://www.cyclinginflanders.cc/flandrien-challenge",
+      "accommodation": "Leopold Hotel Oudenaarde recommended; cycling-friendly with bike storage.",
+      "getting_there": "Brussels International Airport (1hr transfer); trains to Oudenaarde station.",
+      "parking": "Ample at Centre Ronde van Vlaanderen and hotels in Oudenaarde.",
+      "spectator_info": "Self-paced; validate achievement at Centre Ronde van Vlaanderen cafe with Strava proof."
+    },
+    "climate": {
+      "overview": "Typical Flemish April: cool, damp, windy – perfect for testing Flandrien mettle.",
+      "avg_temp_f": "48-55",
+      "precipitation_chance": "50-60%",
+      "wind_conditions": "Crosswinds from North Sea; 10-20mph common.",
+      "altitude_effects": "None; max elevations under 200ft."
+    },
+    "terrain": {
+      "surface_breakdown": {
+        "paved": 70,
+        "gravel": 0,
+        "other": 30
+      },
+      "terrain_overview": "Classic Flemish Ardennes: short steep bergs (hellingen), cobblestone sectors, rolling pavement.",
+      "key_features": "59 iconic segments including Oude Kwaremont, Paterberg, Koppenberg; ~25km total cobbles across multi-day."
+    },
+    "history": {
+      "overview": "Modern Strava-era challenge visualizing digital segments on Flanders' sacred roads; rewards completers with physical monument.",
+      "founded": 2020,
+      "notable_editions": "Launch tied to VisitFlanders promotion; growing legend status via Wall of Fame cobblestones.",
+      "growth_trajectory": "From niche challenge to must-do for classics fans; 2/3/4-day formats accommodating all abilities."
+    },
+    "final_verdict": {
+      "one_liner": "Ultimate Flandrien proving ground – suffer on hallowed cobbles, claim immortality in stone.",
+      "best_for": "Classics enthusiasts seeking authentic Flemish pain without pro peloton pressure.",
+      "not_ideal_for": "Gravel purists or altitude junkies; this is pure 'stone road' suffering.",
+      "pro_tip": "Go multi-day, fuel at local cafes, embrace the rain – real Flandriens thrive in adversity."
+    },
+    "citations": [
+      {
+        "url": "https://www.cyclinginflanders.cc/flandrien-challenge",
+        "title": "Flandrien Challenge",
+        "snippet": "Hit 59 iconic berg & cobble segments, marked on the road and tracked online, in less than 72 hours."
+      },
+      {
+        "url": "https://sportivebreaks.com/belgium-road-cycling-holidays/flandrien-challenge/",
+        "title": "Flandrien Challenge with Sportive Breaks",
+        "snippet": "Take on the 59 iconic berg and cobble segments in less than 72 hours! If you succeed, you'll get your very own stone in the wall of fame."
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=iVsFVcneuUE",
+        "title": "Flandrien Challenge. The unbelievable ride - YouTube",
+        "snippet": "Hit more than 50 iconic berg & cobble segments in less than 72 hours. Become part of the Flandrien legend."
+      }
+    ],
+    "slug": "flandrien-ride",
+    "name": "Flandrien Ride"
+  }
+}

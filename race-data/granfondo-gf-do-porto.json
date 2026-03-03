@@ -1,0 +1,179 @@
+{
+  "race": {
+    "vitals": {
+      "slug": "granfondo-gf-do-porto",
+      "name": "Granfondo do Porto",
+      "location": "Porto, Portugal",
+      "date": "2026: April 26",
+      "date_specific": "2026: April 26",
+      "distance_mi": 81,
+      "elevation_ft": 5200,
+      "discipline": "road",
+      "month": "April",
+      "prestige": 2,
+      "overall_score": 71,
+      "tier": 2
+    },
+    "gravel_god_rating": {
+      "adventure": 4,
+      "altitude": 2,
+      "climate": 4,
+      "community": 4,
+      "elevation": 3,
+      "expenses": 4,
+      "experience": 4,
+      "field_depth": 3,
+      "length": 3,
+      "logistics": 4,
+      "prestige": 2,
+      "race_quality": 3,
+      "technicality": 3,
+      "value": 4,
+      "cultural_impact": 3,
+      "overall_score": 71,
+      "tier": 2,
+      "tier_label": "TIER 2"
+    },
+    "biased_opinion_ratings": {
+      "adventure": {
+        "score": 4,
+        "explanation": "The Granfondo do Porto route winds through the scenic Alto Douro Wine Region, featuring the challenging 3.1 km Muro do Cadão climb at 10.2% gradient near Peso da Régua.[1]"
+      },
+      "altitude": {
+        "score": 2,
+        "explanation": "Riding north of the Douro River in the low-elevation Cima Corgo sub-region of Porto keeps maximum altitudes modest compared to high-mountain granfondos.[2]"
+      },
+      "climate": {
+        "score": 4,
+        "explanation": "In late spring near Peso da Régua, Portugal, riders enjoy mild April temperatures ideal for the 81-mile course through harmonious Douro surroundings.[1]"
+      },
+      "community": {
+        "score": 4,
+        "explanation": "The 11th edition in 2026 draws crowds to Peso da Régua, fostering camaraderie across its granfondo, mediofondo, and minifondo distances.[1]"
+      },
+      "elevation": {
+        "score": 3,
+        "explanation": "The ~5,200 ft of climbing includes demanding ascents to Favaios and São João da Pesqueira on the 81-mile route.[1]"
+      },
+      "expenses": {
+        "score": 4,
+        "explanation": "Entry includes finisher medal, timing chip, nutrition stations, and mechanical assistance, providing strong value for Portugal's largest granfondo.[2]"
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "Cyclists tackle iconic climbs like Vila Seca at 11 km with 4.4% gradient and Covas do Douro at 1.5 km with 9.7%, creating an unforgettable Douro adventure.[2]"
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "Limited to around 2,500 participants like similar Porto-area events, the field offers moderate competitive depth across categories.[6]"
+      },
+      "length": {
+        "score": 3,
+        "explanation": "The ~81-mile granfondo distance balances challenge with accessibility, shorter than the 151 km queen route in nearby Douro events.[1]"
+      },
+      "logistics": {
+        "score": 4,
+        "explanation": "Starting and finishing in Peso da Régua, the event provides drink stations, medical assistance, showers, and electronic chip timing for smooth execution.[2]"
+      },
+      "race_quality": {
+        "score": 3,
+        "explanation": "The 2026 edition features asphalt roads, scenic mountain range views, and highlights like the Tabuaço climb for high-quality racing.[2]"
+      },
+      "technicality": {
+        "score": 3,
+        "explanation": "Rolling terrain with short steep hills, including the 10.2% Muro do Cadão, demands moderate technical descending skills on the Porto route.[6]"
+      },
+      "value": {
+        "score": 4,
+        "explanation": "For ~81 miles, riders get e-certificate, photo service, accident insurance, and toilets, enhancing value in the Douro Valley setting.[2]"
+      },
+      "cultural_impact": {
+        "score": 3,
+        "explanation": "Deep ties to Port wine heritage and Douro culture elevate it uniquely."
+      },
+      "prestige": {
+        "score": 2,
+        "explanation": "As a regional Portuguese granfondo without UCI status, it holds less prestige than decade-celebrated national icons like the 2015 inaugural Douro race.[1]"
+      }
+    },
+    "course_description": {
+      "character": "Hilly road loop through Douro Valley's terraced vineyards, blending relentless climbs with sweeping descents and river views.",
+      "suffering_zones": [
+        {
+          "label": "Muro do Cadão",
+          "description": "3.1 km at 10.2% gradient; brutal late-race wall testing legs after earlier efforts."
+        },
+        {
+          "label": "Favaios Climb",
+          "description": "Steep ascent through historic village, iconic queen stage highlight amid wine terraces."
+        },
+        {
+          "label": "Tabuaço Ascent",
+          "description": "Grueling haul with panoramic Douro vistas, penultimate challenge before descent."
+        }
+      ],
+      "signature_challenge": "The return via Muro do Cadão, a 3.1km beast at 10.2% that breaks the field in spectacular wine country."
+    },
+    "logistics": {
+      "overview": "Well-supported event with bib pickup day prior, ample aid stations, mechanical support, and finisher amenities. Easy access from Porto.",
+      "official_site": "https://bikeservice.pt/en/event/douro-granfondo/",
+      "registration_url": "https://bikeservice.pt/en/event/douro-granfondo/",
+      "accommodation": "Quinta do Vallado wine hotel 2km from start in Peso da Régua; abundant options in Porto and Douro Valley.",
+      "getting_there": "Fly into Porto Airport (OPO), 1.5hr drive to Peso da Régua start. Trains/buses from Porto to Régua available.",
+      "parking": "Available at Douro Rio Café car park near Av. do Douro start line.",
+      "spectator_info": "Prime viewing at climbs like Favaios and Muro do Cadão; start/finish in Peso da Régua accessible by car."
+    },
+    "climate": {
+      "overview": "Mediterranean spring: mild, sunny days perfect for cycling through vineyards.",
+      "avg_temp_f": 64,
+      "precipitation_chance": "Low (15-20%)",
+      "wind_conditions": "Moderate river valley breezes, occasional gusts on exposed ridges.",
+      "altitude_effects": "Minimal; sea-level to gentle hills, no altitude sickness risk."
+    },
+    "terrain": {
+      "surface_breakdown": {
+        "paved": 100,
+        "gravel": 0,
+        "other": 0
+      },
+      "terrain_overview": "Fully paved roads through hilly Douro wine region: rolling terrain escalating to steep, sustained climbs and fast descents.",
+      "key_features": "Terraced vineyards (UNESCO site), river dams crossings, traditional villages like Sabrosa and Tabuaço."
+    },
+    "history": {
+      "overview": "Portugal's largest gran fondo, evolved from Douro origins to showcase the iconic wine valley with massive international fields.",
+      "founded": 2015,
+      "notable_editions": "11th edition 2026 returns to inaugural-style route; past events hit 4000 riders with Lisbon variants.",
+      "growth_trajectory": "Rapid expansion from regional sportive to national highlight, now drawing global peloton."
+    },
+    "final_verdict": {
+      "one_liner": "Scenic Douro masterpiece blending savage climbs with wine country bliss.",
+      "best_for": "Scenery chasers seeking cultural road suffering with perfect organization.",
+      "not_ideal_for": "Gravel purists or flat sprinters avoiding 10%+ walls.",
+      "pro_tip": "Stay at Quinta do Vallado for pro-level support; fuel for Cadão—it's the race decider."
+    },
+    "citations": [
+      {
+        "url": "https://bikeservice.pt/en/event/douro-granfondo/",
+        "title": "Love Tiles Douro Granfondo - BIKESERVICE",
+        "snippet": "Portugal's biggest and most spectacular granfondo returns on 26 April 2026... granfondo route is 151 km long."
+      },
+      {
+        "url": "https://worldsmarathons.com/marathon/douro-granfondo",
+        "title": "Love Tiles Douro Granfondo, 26 Apr 2026 | World's Marathons",
+        "snippet": "141km, 104km, 82km; Course profile. hilly; Course surface. Road."
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/8605/porto-gaia-granfondo",
+        "title": "Porto Gaia GranFondo - Gran Fondo Guide",
+        "snippet": "Distances · 52, 98, 156 km ; Porto, Portugal area."
+      },
+      {
+        "url": "https://portugalbiketours.com/join-us-at-the-douro-granfondo-and-get-a-free-registration/",
+        "title": "JOIN US AT THE DOURO GRANFONDO AND GET A FREE ...",
+        "snippet": "Biggest road cycling event in Portugal... 4000 cyclists."
+      }
+    ],
+    "slug": "granfondo-gf-do-porto",
+    "name": "Granfondo do Porto"
+  }
+}

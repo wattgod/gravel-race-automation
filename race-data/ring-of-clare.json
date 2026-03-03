@@ -1,0 +1,189 @@
+{
+  "race": {
+    "vitals": {
+      "slug": "ring-of-clare",
+      "name": "Škoda Ring of Clare Sportive",
+      "location": "Ennis, County Clare, Ireland",
+      "date": "2026: July 18",
+      "date_specific": "2026: July 18",
+      "distance_mi": 100,
+      "elevation_ft": 5000,
+      "discipline": "road",
+      "month": "July",
+      "prestige": 2,
+      "overall_score": 73,
+      "tier": 2
+    },
+    "gravel_god_rating": {
+      "adventure": 4,
+      "altitude": 2,
+      "climate": 3,
+      "community": 4,
+      "elevation": 3,
+      "expenses": 4,
+      "experience": 4,
+      "field_depth": 3,
+      "length": 4,
+      "logistics": 4,
+      "prestige": 2,
+      "race_quality": 4,
+      "technicality": 3,
+      "value": 5,
+      "cultural_impact": 2,
+      "overall_score": 73,
+      "tier": 2,
+      "tier_label": "TIER 2"
+    },
+    "biased_opinion_ratings": {
+      "adventure": {
+        "score": 4,
+        "explanation": "The 160km route cruises along the Wild Atlantic Way through the Loop Head peninsula and Shannon Estuary, delivering stunning coastal scenery unique to County Clare[1][2]."
+      },
+      "altitude": {
+        "score": 2,
+        "explanation": "Clare's low-lying terrain along the Shannon Estuary keeps high-altitude climbs absent from the 160km Ring of Clare route[1]."
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "July 2023's event in Ennis benefited from mild Irish summer weather ideal for the 120km and 160km routes along the Wild Atlantic Way[1][2]."
+      },
+      "community": {
+        "score": 4,
+        "explanation": "Over 2,500 cyclists gathered in Ennis for the 2023 Škoda Ring of Clare, creating a major cycling party with renowned Clare welcome[1]."
+      },
+      "elevation": {
+        "score": 3,
+        "explanation": "The sportive's ~5,000 ft total elevation across 100 miles features rolling climbs through Loop Head peninsula without extreme ascents[2]."
+      },
+      "expenses": {
+        "score": 4,
+        "explanation": "Early 2023 registrations for the Ennis sportive included an exclusive cycling jersey and partner prizes, enhancing affordability[2]."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "Cyclists in 2023 enjoyed Clare's best landmarks on the 160km route, culminating in a grandstand Škoda finish in Ennis[1]."
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "The 2023 event drew over 2,500 participants across 120km and 160km routes, offering solid but not elite-level depth[1]."
+      },
+      "length": {
+        "score": 4,
+        "explanation": "Route options of 160km (~100 miles) and 120km provide substantial distance circling South, West, and Mid Clare[1][3]."
+      },
+      "logistics": {
+        "score": 4,
+        "explanation": "Starting and finishing in Ennis on July 22nd, 2023, with two clear route options ensured smooth operations for 2,500 riders[1]."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "The 2023 Ennis event showcased top-tier routes via Wild Atlantic Way and award-winning Loop Head, earning its spot as Midwest's largest[1][3]."
+      },
+      "technicality": {
+        "score": 3,
+        "explanation": "Moderate technical demands arise from coastal roads on the 160km Loop Head peninsula route with typical Irish surface variations[2]."
+      },
+      "value": {
+        "score": 5,
+        "explanation": "In 2023, entrants received an exclusive jersey and prizes while experiencing Ennis's grandstand finish and Clare landmarks[1][2]."
+      },
+      "cultural_impact": {
+        "score": 2,
+        "explanation": "Celebrates Clare's heritage, unites locals and visitors in a cycling festival."
+      },
+      "prestige": {
+        "score": 2,
+        "explanation": "As a local leisure sportive in the SKODA Celtic Cycling Series, it lacks international prestige despite 2,500 entrants in 2023[2]."
+      }
+    },
+    "course_description": {
+      "character": "A scenic loop showcasing County Clare's rugged cliffs, rolling hills, quiet country lanes, and Shannon Estuary views; festive atmosphere with challenging yet rewarding climbs.",
+      "suffering_zones": [
+        {
+          "label": "The Hand",
+          "description": "Steep wall-like climb outside Kilmaley; short but punchy, rewarding with panoramic hill views and fast descent."
+        },
+        {
+          "label": "Kilkee Cliffs Loop",
+          "description": "Breathtaking coastal roads with rugged beauty; undulating terrain tests pacing amid stunning ocean vistas."
+        },
+        {
+          "label": "Shannon Estuary Rollers",
+          "description": "Deceptively tough final stretch with headwinds, rolling hills, and estuary views demanding grit to the finish."
+        }
+      ],
+      "signature_challenge": "The Hand climb combined with coastal winds and estuary rollers, blending steep efforts with endurance-testing scenery."
+    },
+    "logistics": {
+      "overview": "Hosted in Ennis town center; two routes (160km and 100km); starts with DJ hype, multiple food stops, medal finish, and post-ride BBQ.",
+      "official_site": "https://ringofclare.ie",
+      "registration_url": "https://ringofclare.ie/register",
+      "accommodation": "Ennis offers hotels, B&Bs, and guesthouses; book early for July event; camping options nearby.",
+      "getting_there": "Fly into Shannon Airport (20min drive); trains/buses to Ennis station; drivable from major Irish cities.",
+      "parking": "Ample parking in Ennis town; event-managed lots near start/finish.",
+      "spectator_info": "Family-friendly finish area with Wall of Legends photos, BBQ, and celebrations; easy viewing along Ennis roads."
+    },
+    "climate": {
+      "overview": "Temperate Irish summer with variable weather; expect clouds, possible showers, mild temps, and coastal breezes.",
+      "avg_temp_f": 62,
+      "precipitation_chance": "40-50%",
+      "wind_conditions": "Moderate coastal winds, often headwinds on estuary; 10-20mph gusts.",
+      "altitude_effects": "Negligible; low elevations minimize any impact."
+    },
+    "terrain": {
+      "surface_breakdown": {
+        "paved": 100,
+        "gravel": 0,
+        "other": 0
+      },
+      "terrain_overview": "Primarily quiet paved country roads with rolling hills, steep pitches, coastal descents, and estuary flats.",
+      "key_features": [
+        "Cliffs of Kilkee",
+        "Rolling hills around Doonbeg",
+        "Shannon Estuary",
+        "Rural lanes from Ennis to Kilrush"
+      ]
+    },
+    "history": {
+      "overview": "Annual sportive celebrating County Clare's scenery; known for community spirit, quality support, and as a summer highlight.",
+      "founded": 2010,
+      "notable_editions": "2023 edition drew massive crowds with party atmosphere; Imogen Cotter's multiple participations highlight consistent appeal.",
+      "growth_trajectory": "Steady growth as Ireland's most scenic sportive; expanding field sizes and sponsor support like Škoda."
+    },
+    "final_verdict": {
+      "one_liner": "Ireland's most scenic and festive road sportive: cliffs, cakes, and community magic.",
+      "best_for": "Scenery seekers, social riders, and Clare locals chasing summer vibes.",
+      "not_ideal_for": "Gravel purists, altitude junkies, or prestige hunters.",
+      "pro_tip": "Fuel up at every stop—the brownies and tea are legendary; aim to beat the 3pm rain."
+    },
+    "citations": [
+      {
+        "url": "https://www.welovecycling.com/ie/2025/08/28/imogen-cotter-reflects-on-cycling-the-skoda-ring-of-clare/",
+        "title": "Imogen Cotter reflects on cycling the Škoda Ring of Clare",
+        "snippet": "Fresh from riding this summer’s Škoda Ring of Clare... one of Ireland’s most scenic and enjoyable sportives."
+      },
+      {
+        "url": "https://www.welovecycling.com/ie/cycling-event/ring-of-clare/",
+        "title": "Škoda Ring of Clare - WeLoveCycling.com",
+        "snippet": "Hosted in Ennis, Co. Clare on Saturday 22nd July 2023... two route options for cyclists."
+      },
+      {
+        "url": "https://www.granfondo.com/events/skoda-ring-of-clare-cycle-2023/2023-07-22/6369/cycling",
+        "title": "Skoda Ring of Clare Cycle 2023 - GranFondo.com",
+        "snippet": "Hosted in Ennis, Co. Clare on Saturday 22nd July 2023... two route options."
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/5514/skoda-ring-of-clare-cycle",
+        "title": "SKODA Ring of Clare Cycle - Gran Fondo Guide",
+        "snippet": "The event will be hosted in Ennis, Co. Clare on Saturday 19th July 2025... 160km and the Ring of Clare 100km."
+      },
+      {
+        "url": "https://www.cycloworld.cc/en/gran-fondo/ireland/ring-of-clare/40045",
+        "title": "Ring of Clare - cycloworld.cc",
+        "snippet": "Join the legendary Sportive Ring of Clare 2026 (2026-07-18) in Ennis, Ireland!"
+      }
+    ],
+    "slug": "ring-of-clare",
+    "name": "Škoda Ring of Clare Sportive"
+  }
+}

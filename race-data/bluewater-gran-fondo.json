@@ -1,0 +1,184 @@
+{
+  "race": {
+    "vitals": {
+      "slug": "bluewater-gran-fondo",
+      "name": "Bluewater International Gran Fondo",
+      "location": "Sarnia, Ontario, Canada",
+      "date": "2026: August 2",
+      "date_specific": "2026: August 2",
+      "distance_mi": 93,
+      "elevation_ft": 2800,
+      "discipline": "road",
+      "month": "August",
+      "prestige": 2,
+      "overall_score": 69,
+      "tier": 2
+    },
+    "gravel_god_rating": {
+      "adventure": 3,
+      "altitude": 1,
+      "climate": 4,
+      "community": 4,
+      "elevation": 2,
+      "expenses": 4,
+      "experience": 4,
+      "field_depth": 3,
+      "length": 4,
+      "logistics": 5,
+      "prestige": 2,
+      "race_quality": 3,
+      "technicality": 2,
+      "value": 5,
+      "cultural_impact": 2,
+      "overall_score": 69,
+      "tier": 2,
+      "tier_label": "TIER 2"
+    },
+    "biased_opinion_ratings": {
+      "adventure": {
+        "score": 3,
+        "explanation": "The 150k route covers ~93 miles through the scenic Bluewater region of Lambton County, featuring quiet country roads and rolling hills in Arkona along Lake Huron shores.[1][3]"
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "This flat Lake Huron shoreline event in Sarnia has no significant high-altitude climbs, keeping all riding near sea level.[1][2]"
+      },
+      "climate": {
+        "score": 4,
+        "explanation": "Held on August 2nd or 3rd in Sarnia, the event benefits from Lambton County's warm summer weather ideal for coastal cycling.[2][3]"
+      },
+      "community": {
+        "score": 4,
+        "explanation": "The 10th anniversary edition in 2026 includes the free B.I.G. Slow Roll 10k ride open to all ages, fostering Sarnia-Lambton bicycle culture.[3]"
+      },
+      "elevation": {
+        "score": 2,
+        "explanation": "The ~93-mile route totals only 2,800 ft of elevation, primarily from gentle rolling hills in Arkona rather than steep climbs.[1]"
+      },
+      "expenses": {
+        "score": 4,
+        "explanation": "The 150k route registration costs CA$136.50 during last-chance period before August 2, dropping to super early bird pricing post-event.[5]"
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "Ranked Ontario's #1 Granfondo, the 10th annual event at Mike Weir Park provides an official jersey, swag bag, finisher medal, and live music.[1][3]"
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "Timed sections on the 150k, 100k, and 50k routes award plaques to lowest cumulative times in age groups, but no overall race time limits elite depth.[4]"
+      },
+      "length": {
+        "score": 4,
+        "explanation": "The longest 150k option spans ~93 miles, with staggered starts at 7:00 AM to coordinate finishes across all distances.[1][4]"
+      },
+      "logistics": {
+        "score": 5,
+        "explanation": "Well-marked routes from Mike Weir Park feature multiple fuel stations, on-course bike support, ample free parking, and sharp start times like 7:45 AM for 100k.[3][4]"
+      },
+      "race_quality": {
+        "score": 3,
+        "explanation": "Timed segments on the 150k route through Lambton County provide competition without mass-start pressure, complemented by post-ride hot meals and beer.[2][4]"
+      },
+      "technicality": {
+        "score": 2,
+        "explanation": "Quiet country roads and picturesque orchards on the Sarnia-based 150k route offer low technical demands beyond moderate rolling hills.[1]"
+      },
+      "value": {
+        "score": 5,
+        "explanation": "For CA$136.50 last-chance fee, 150k riders get a special 10th anniversary jersey, finisher medal, swag bag, fuel stations, and live band at Mike Weir Park.[3][5]"
+      },
+      "cultural_impact": {
+        "score": 2,
+        "explanation": "Supports local palliative care and builds Lambton County cycling culture."
+      },
+      "prestige": {
+        "score": 2,
+        "explanation": "Despite its Ontario #1 Granfondo ranking, the 10th edition remains a regional Lambton County event without international pro field draw.[1][3]"
+      }
+    },
+    "course_description": {
+      "character": "Scenic paved routes along Lake Huron shores, quiet country roads, rolling hills in Arkona, and picturesque orchards, with timed segments for competitive fun.",
+      "suffering_zones": [
+        {
+          "label": "Arkona Rolling Hills",
+          "description": "Challenging climbs through rural hills that test legs mid-ride."
+        },
+        {
+          "label": "Lake Huron Finish",
+          "description": "Exposed coastal push to the line with potential headwinds."
+        }
+      ],
+      "signature_challenge": "Timed segments on rolling terrain allowing pacing between efforts, finishing with stunning Lake Huron views."
+    },
+    "logistics": {
+      "overview": "Fully supported event with fuel stations, bike support, hot meals, live music, and beer at Mike Weir Park start/finish.",
+      "official_site": "https://www.ontariobybike.ca/event-item/10th-annual-bluewater-international-granfondo/",
+      "registration_url": "https://raceroster.com/events/2026/108967/bluewater-international-gran-fondo-2026",
+      "accommodation": "Hotels and lodging available in Sarnia; contact local tourism for options near Mike Weir Park.",
+      "getting_there": "Fly into Sarnia Chris Hadfield Airport or drive via Highway 402; event in Lambton County.",
+      "parking": "Ample parking at Mike Weir Park in Sarnia.",
+      "spectator_info": "Finish line at Mike Weir Park features live music, food, and beverages for spectators."
+    },
+    "climate": {
+      "overview": "Typical southern Ontario summer: warm, humid days with lake moderation.",
+      "avg_temp_f": 75,
+      "precipitation_chance": "Low to moderate in August.",
+      "wind_conditions": "Possible lake breezes from Lake Huron.",
+      "altitude_effects": "None; flat to rolling at near sea level."
+    },
+    "terrain": {
+      "surface_breakdown": {
+        "paved": 100,
+        "gravel": 0,
+        "other": 0
+      },
+      "terrain_overview": "Paved country roads with rolling hills, orchards, and lakeside finishes.",
+      "key_features": [
+        "Quiet rural roads",
+        "Arkona hills",
+        "Lake Huron shores"
+      ]
+    },
+    "history": {
+      "overview": "Celebrated gran fondo ranked Ontario's #1, supporting local palliative care with strong community backing.",
+      "founded": 2017,
+      "notable_editions": "10th anniversary in 2026 with special jersey and enhanced experiences.",
+      "growth_trajectory": "From 8th edition in 2024 to 10th in 2026, consistently praised for organization and growth."
+    },
+    "final_verdict": {
+      "one_liner": "Ontario's top gran fondo: scenic, supported, and community-driven perfection.",
+      "best_for": "Social riders, first-timers, and those seeking value-packed road cycling.",
+      "not_ideal_for": "Elite racers wanting pure competition or gravel/off-road thrills.",
+      "pro_tip": "Opt for 150k early bird registration and train on the Arkona hills preview rides."
+    },
+    "citations": [
+      {
+        "url": "https://www.ontariobybike.ca/event-item/10th-annual-bluewater-international-granfondo/",
+        "title": "10th Annual Bluewater International Granfondo - Ontario By Bike",
+        "snippet": "Ranked as Ontario's #1 Granfondo, this milestone event offers riders a premier cycling experience starting and finishing at Mike Weir Park in Sarnia."
+      },
+      {
+        "url": "https://raceroster.com/events/2026/108967/bluewater-international-gran-fondo-2026",
+        "title": "Bluewater International Gran Fondo 2026",
+        "snippet": "Starting and finishing in the City of Sarnia's beautiful Mike Weir Park, there are four routes to choose from, all of which have some outstanding views."
+      },
+      {
+        "url": "https://findarace.com/ca/events/bluewater-international-gran-fondo-2026",
+        "title": "Bluewater International Gran Fondo 2026 2026 | Sun 2 Aug",
+        "snippet": "Join us for the Bluewater International Gran Fondo on August 2, 2026, in Sarnia, Lambton."
+      },
+      {
+        "url": "https://www.granfondoguide.com/Contents/Index/7627/bluewater-international-granfondo-returns-to-support-local-palliative-care",
+        "title": "Bluewater International Granfondo returns to support Local Palliative ...",
+        "snippet": "The 8th Bluewater International Granfondo will be held on August 4th, 2024 starting in Mike Weir Park, Sarnia."
+      },
+      {
+        "url": "https://www.ourbco.ca",
+        "title": "Bluewater International Granfondo",
+        "snippet": "Bluewater Cycling Organization (BCO) promotes cycling in Lambton County through events like the Bluewater International Granfondo."
+      }
+    ],
+    "slug": "bluewater-gran-fondo",
+    "name": "Bluewater International Gran Fondo"
+  }
+}

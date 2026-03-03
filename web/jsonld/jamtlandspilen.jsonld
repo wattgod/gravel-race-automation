@@ -1,0 +1,25 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "J\u00e4mtlandspilen",
+  "description": "",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-08-15",
+  "location": {
+    "@type": "Place",
+    "name": "\u00d6stersund, Sweden",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "\u00d6stersund",
+      "addressRegion": "Sweden"
+    }
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "67",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://jamtlandspilen.se"
+}

@@ -1,0 +1,179 @@
+{
+  "race": {
+    "vitals": {
+      "slug": "race-across-france",
+      "name": "Race Across France",
+      "location": "Dinan to Mandelieu-la-Napoule, France",
+      "date": "2026: June 18",
+      "date_specific": "2026: June 18",
+      "distance_mi": 1553,
+      "elevation_ft": 80000,
+      "discipline": "road",
+      "month": "June",
+      "prestige": 3,
+      "overall_score": 79,
+      "tier": 2
+    },
+    "gravel_god_rating": {
+      "adventure": 4,
+      "altitude": 3,
+      "climate": 4,
+      "community": 4,
+      "elevation": 5,
+      "expenses": 3,
+      "experience": 4,
+      "field_depth": 2,
+      "length": 5,
+      "logistics": 4,
+      "prestige": 3,
+      "race_quality": 4,
+      "technicality": 4,
+      "value": 4,
+      "cultural_impact": 2,
+      "overall_score": 79,
+      "tier": 2,
+      "tier_label": "TIER 2"
+    },
+    "biased_opinion_ratings": {
+      "adventure": {
+        "score": 4,
+        "explanation": "Epic traversal of France's diverse landscapes from Brittany coast to Alpine peaks offers unparalleled adventure in ultra-cycling."
+      },
+      "altitude": {
+        "score": 3,
+        "explanation": "Reaches Cime de la Bonette at 2802m, one of Europe's highest paved roads, delivering extreme high-altitude challenge."
+      },
+      "climate": {
+        "score": 4,
+        "explanation": "Mediterranean warmth in June, but variable weather across regions from coastal breezes to mountain chills."
+      },
+      "community": {
+        "score": 4,
+        "explanation": "Growing field of 250+ riders fosters strong ultra-cycling camaraderie, amplified by finish festival in Mandelieu."
+      },
+      "elevation": {
+        "score": 5,
+        "explanation": "Massive 80,000ft gain over 1,500+ miles tests endurance across Monts d'Arrée, Massif Central, and Alps."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Ultra-distance logistics and travel across France incur moderate to high costs, though value-packed."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "Unforgettable journey through 11 natural parks, historic towns like Dinan, and iconic climbs."
+      },
+      "field_depth": {
+        "score": 2,
+        "explanation": "Record 250 participants in 2025 show deepening competitive field in Europe's top ultra-road event."
+      },
+      "length": {
+        "score": 5,
+        "explanation": "1,553-mile flagship distance demands ultimate commitment, with shorter options for accessibility."
+      },
+      "logistics": {
+        "score": 4,
+        "explanation": "Well-supported with bases de vie, but self-supported nature requires meticulous planning."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "Mythical routes, precise organization, and growing scale make it a benchmark ultra-cycling event."
+      },
+      "technicality": {
+        "score": 4,
+        "explanation": "Demanding climbs and descents on paved roads require strong handling and pacing skills."
+      },
+      "value": {
+        "score": 4,
+        "explanation": "High adventure return for entry fee, enhanced by community events and scenic payoff."
+      },
+      "cultural_impact": {
+        "score": 2,
+        "explanation": "Pays homage to France's cycling heritage, boosting ultra-endurance scene in Tour de France's homeland."
+      },
+      "prestige": {
+        "score": 3,
+        "explanation": "Flagship event of the Race Across Series since 2010s, recognized in the European ultra-endurance community."
+      }
+    },
+    "course_description": {
+      "character": "A monumental road ultra traversing France from Brittany's rugged coast to the French Riviera, blending coastal paths, rural farmlands, volcanic Massif Central climbs, and culminating in the high Alps with relentless elevation and visual splendor.",
+      "suffering_zones": [
+        {
+          "label": "Monts d'Arrée (Brittany)",
+          "description": "Early steep climbs after coastal start, testing legs with misty moors and relentless undulation."
+        },
+        {
+          "label": "Massif Central (Cantal & Cézallier)",
+          "description": "Volcanic plateaus with prolonged ascents and exposed winds, grinding endurance in central France."
+        },
+        {
+          "label": "Cime de la Bonette (Alps)",
+          "description": "Highest point at 2802m, a 20+km high-altitude grind with thin air and brutal gradients."
+        }
+      ],
+      "signature_challenge": "Cime de la Bonette ascent: Europe's highest paved road at 2802m, the ultimate test of power, pacing, and altitude tolerance after 1,400+ miles."
+    },
+    "logistics": {
+      "overview": "Semi-autonomous ultra with life bases at Creon, Orleans, Albertville, Bollène for the 2500km; multiple distances start from different points converging on Mandelieu finish.",
+      "official_site": "https://en.raceacrossseries.com/race-across-france-2025",
+      "registration_url": "https://en.raceacrossseries.com/race-across-france-2025",
+      "accommodation": "Life bases provide rest stops; hotels in Dinan start town and Mandelieu finish; plan self-supported sleep strategies.",
+      "getting_there": "Fly into Dinan (Rennes airport) for full distance or regional hubs like Orléans, Albertville; finish accessible via Nice Côte d'Azur Airport.",
+      "parking": "Available at start venues like Dinan historic center and Mandelieu Exhibition Center.",
+      "spectator_info": "Finish line celebrations at Mandelieu Exhibition Center with awards June 28; Outdoor Cycling Festival for public viewing and bike demos."
+    },
+    "climate": {
+      "overview": "June offers mild to warm conditions evolving from temperate Brittany to hot Mediterranean Riviera, with mountain variability.",
+      "avg_temp_f": "65-80",
+      "precipitation_chance": "Low (10-20%) except possible showers in Brittany/Massif Central.",
+      "wind_conditions": "Coastal headwinds early, alpine gusts on climbs; generally favorable southerly progression.",
+      "altitude_effects": "Significant above 2000m on Bonette with cooler temps (40-50F), oxygen drop impacting power."
+    },
+    "terrain": {
+      "surface_breakdown": {
+        "paved": 100,
+        "gravel": 0,
+        "other": 0
+      },
+      "terrain_overview": "Primarily paved roads showcasing France's best: coastal routes, rolling countryside, steep mountain passes, and high cols.",
+      "key_features": "11 natural parks, Cap Fréhel cliffs, Monts d'Arrée granite moors, Cantal volcanoes, Ardèche gorges, Montagne de Lure, Cime de la Bonette summit."
+    },
+    "history": {
+      "overview": "Founded in 2018 by Arnaud Manzanini as France's premier ultra-cycling event, evolving into a multi-distance series with record fields and iconic routes honoring the nation's cycling legacy.",
+      "founded": 2018,
+      "notable_editions": "2023: Le Touquet to Mandelieu (2480km, 40k m elev); 2025: Dinan to Mandelieu (2607km, 250 riders record).",
+      "growth_trajectory": "Explosive rise from niche to 250+ entrants by 2025, now Europe's leading ultra-road series with festival integration."
+    },
+    "final_verdict": {
+      "one_liner": "Ultimate French ultra-road odyssey: suffer the miles, conquer the cols, celebrate on the Riviera.",
+      "best_for": "Hardcore ultra-endurance riders seeking epic distance, massive vert, and cultural immersion.",
+      "not_ideal_for": "Gravel purists or those daunted by 1,500+ self-supported miles.",
+      "pro_tip": "Prioritize sleep blocks early; pace conservatively for Bonette—train high-altitude intervals and pack alpine layers."
+    },
+    "citations": [
+      {
+        "url": "https://jonas.verest.ch/stories/2025-race-across-france-en",
+        "title": "Ultra-Cycling Story: Race Across France 2025 - Jonas Verest",
+        "snippet": "This year, Race Across France covers 2607 km from Dinan in Brittany to Mandelieu on the French Riviera... Created in 2018 by Arnaud Manzanini."
+      },
+      {
+        "url": "https://en.raceacrossseries.com/race-across-france-2025",
+        "title": "Race Across France - Ultra cycling across France",
+        "snippet": "JUNE 18-28, 2026... RAF 2500KM Departure Hendaye Arrival Mandelieu-la-Napoule... Cime de la Bonette."
+      },
+      {
+        "url": "https://www.ahotu.com/event/race-across-france",
+        "title": "Race Across France, 20-29 Jun, 2024 (Thu - Sat) | Ahotu",
+        "snippet": "2500 K Solo, 2500 K Duo... Mandelieu-La Napoule, Maritime Alps, France."
+      },
+      {
+        "url": "https://raceacrossfrance.cc/en/",
+        "title": "Race Across France",
+        "snippet": "The Race Across France is the first ultra-cycling event in the country that gave birth to the Tour de France."
+      }
+    ],
+    "slug": "race-across-france",
+    "name": "Race Across France"
+  }
+}

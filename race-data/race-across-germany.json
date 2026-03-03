@@ -1,0 +1,178 @@
+{
+  "race": {
+    "vitals": {
+      "slug": "race-across-germany",
+      "name": "Race Across Germany North–South",
+      "location": "Flensburg to Garmisch-Partenkirchen, Germany",
+      "date": "2026: July 2-5",
+      "date_specific": "2026: July 2-5",
+      "distance_mi": 683,
+      "elevation_ft": 24606,
+      "discipline": "road",
+      "month": "July",
+      "prestige": 3,
+      "overall_score": 74,
+      "tier": 2
+    },
+    "gravel_god_rating": {
+      "adventure": 4,
+      "altitude": 4,
+      "climate": 3,
+      "community": 4,
+      "elevation": 4,
+      "expenses": 3,
+      "experience": 4,
+      "field_depth": 3,
+      "length": 4,
+      "logistics": 4,
+      "prestige": 4,
+      "race_quality": 3,
+      "technicality": 2,
+      "value": 4,
+      "cultural_impact": 2,
+      "overall_score": 74,
+      "tier": 2,
+      "tier_label": "TIER 2"
+    },
+    "biased_opinion_ratings": {
+      "adventure": {
+        "score": 4,
+        "explanation": "A journey through Germany's complete geographic diversity—from Baltic coast to Alpine foothills—represents one of Europe's most geographically thorough ultracycling adventures."
+      },
+      "altitude": {
+        "score": 4,
+        "explanation": "Finishing at Garmisch-Partenkirchen near the Zugspitze provides significant alpine context, though the route's primary challenge is distance rather than extreme elevation."
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "July weather in Germany is generally favorable but unpredictable; northern plains may be windy while southern sections could experience summer heat and occasional thunderstorms."
+      },
+      "community": {
+        "score": 4,
+        "explanation": "The event attracts Germany's ultracycling elite and international competitors, with official German Championship status fostering a serious, dedicated community."
+      },
+      "elevation": {
+        "score": 4,
+        "explanation": "7,500 meters (24,606 feet) of elevation gain is substantial for a 1,100 km route, distributed across multiple low mountain ranges and Alpine approaches."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Registration, accommodation across multiple nights, and support logistics for a 1,100 km unsupported or supported effort represent significant investment."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "Crossing Germany lengthwise from coast to mountains, with timestations and official recognition, creates a transformative ultracycling experience."
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "The event hosts German Championship categories with 10-300 participant slots, attracting serious ultracyclists and professionals alongside amateurs."
+      },
+      "length": {
+        "score": 4,
+        "explanation": "At 1,100 km, this represents one of Europe's longest single-stage ultracycling events, demanding exceptional endurance and mental fortitude."
+      },
+      "logistics": {
+        "score": 4,
+        "explanation": "Official timestations, GPX briefings, and organized start phases demonstrate professional event management, though multi-day unsupported riding requires personal logistics planning."
+      },
+      "race_quality": {
+        "score": 3,
+        "explanation": "Professional organization with live timing, official finisher recognition, and structured categories ensures high-quality event execution."
+      },
+      "technicality": {
+        "score": 2,
+        "explanation": "The route is primarily road-based with minimal technical terrain; navigation and pacing strategy matter more than bike handling skills."
+      },
+      "value": {
+        "score": 4,
+        "explanation": "RAAM qualification opportunity, German Championship status, and thorough event infrastructure provide strong value for serious ultracyclists."
+      },
+      "cultural_impact": {
+        "score": 2,
+        "explanation": "Connecting Germany's northernmost and southernmost points with symbolic significance, this event resonates deeply within German cycling culture and ultracycling community."
+      },
+      "prestige": {
+        "score": 4,
+        "explanation": "German Ultracycling Championship event, 1,100 km from Flensburg to Garmisch-Partenkirchen."
+      }
+    },
+    "course_description": {
+      "character": "An epic north-south traverse of Germany's complete geographic and cultural diversity, beginning at the Baltic harbor in Flensburg and concluding beneath the Zugspitze in the Bavarian Alps. The route progresses through distinct regional zones: coastal plains, low mountain ranges (Harz, Hessian uplands, Rhön, Franconia), and Alpine foothills, with each section presenting unique environmental and physical challenges.[1]",
+      "suffering_zones": [
+        {
+          "label": "Northern Plains (Flensburg to Lauenburg)",
+          "description": "Exposed, flat terrain with Baltic Sea winds creating relentless headwind conditions and psychological monotony over extended distances.[1]"
+        },
+        {
+          "label": "Low Mountain Ranges (Harz to Franconia)",
+          "description": "Sustained climbing through Hessian uplands, Rhön, and Franconian regions; accumulated elevation gain tests riders after initial flat sections.[1]"
+        },
+        {
+          "label": "Alpine Approach (Moorenweis to Garmisch-Partenkirchen)",
+          "description": "Final push toward Garmisch-Partenkirchen with increasing elevation and altitude effects as riders approach the Zugspitze backdrop.[1]"
+        },
+        {
+          "label": "Sleep Deprivation and Pacing",
+          "description": "The 1,100 km distance requires 40+ hours of continuous riding; managing fatigue across multiple sleep cycles becomes a primary challenge.[2]"
+        }
+      ],
+      "signature_challenge": "Maintaining pace and mental focus across 1,100 km of non-stop riding through Germany's complete geographic spectrum—from coastal exposure to Alpine altitude—while meeting strict time cutoffs (final finish by July 5, 23:20 UTC).[1]"
+    },
+    "logistics": {
+      "overview": "The Race Across Germany operates as a professionally managed ultracycling event with two route options (Flensburg-Garmisch at 1,100 km and Eschwege-Garmisch at 550 km), staggered start phases, official timestations, and structured support infrastructure. Participants receive GPX files and detailed briefings approximately four weeks before the event.[1]",
+      "official_site": "https://raceacrossgermany.de/en/north-south",
+      "registration_url": "https://raceacrossgermany.de/en/north-south",
+      "accommodation": "Participants must arrange personal accommodation in Flensburg (start location) and Garmisch-Partenkirchen (finish location). Multi-night accommodation along the route is necessary for supported riders; solo unsupported riders typically manage sleep during brief stops.[1]",
+      "getting_there": "Flensburg is accessible via German rail and highway networks; Garmisch-Partenkirchen is a major Alpine tourist destination with excellent transportation connections. International participants should plan arrival by July 1 for accreditation.[1]",
+      "parking": "Event details regarding parking at start and finish locations are provided in the official briefing materials sent to registered participants approximately four weeks before the event.[1]",
+      "spectator_info": "The event is a point-to-point ultracycling race without traditional spectator viewing areas. Finish line activities include official registration, finisher photography, award ceremonies, and live timing publication on the official website.[1]"
+    },
+    "climate": {
+      "overview": "July in Germany presents generally favorable cycling conditions with moderate temperatures and longer daylight hours, though weather variability across 1,100 km of north-south travel creates diverse microclimates. Northern coastal regions may experience wind exposure; southern Alpine areas could encounter summer thunderstorms or temperature fluctuations with altitude.[1]",
+      "avg_temp_f": 68,
+      "precipitation_chance": 35,
+      "wind_conditions": "Northern plains (Flensburg to Harz region) experience persistent Baltic Sea winds; central regions are more sheltered; Alpine approaches may feature afternoon thermal winds.[1]",
+      "altitude_effects": "Elevation gain of 7,500 meters (24,606 feet) distributed across the route; final approach to Garmisch-Partenkirchen reaches approximately 2,000 meters elevation, potentially affecting oxygen availability and recovery for fatigued riders.[1]"
+    },
+    "terrain": {
+      "surface_breakdown": {
+        "paved": 98,
+        "gravel": 0,
+        "other": 2
+      },
+      "terrain_overview": "Primarily paved road cycling route traversing Germany's complete geographic spectrum. The route progresses from flat Baltic coastal plains through rolling low mountain ranges (Harz, Hessian uplands, Rhön, Franconia) to Alpine foothills, with elevation gain distributed across multiple climbing zones rather than concentrated in specific sections.[1]",
+      "key_features": "Flensburg harbor (start point), northern plains, Harz mountain range, Hessian uplands, Rhön region, Franconian landscape, Bavarian foothills, Garmisch-Partenkirchen finish (Zugspitze backdrop).[1]"
+    },
+    "history": {
+      "overview": "The Race Across Germany is one of Germany's premier ultracycling events, hosting the German Ultracycling Championships and serving as a qualifying route for the Race Across America (RAAM). The event represents the 'royal class' of German ultracycling, connecting the nation's geographic extremes and cultural diversity.[1][5]",
+      "founded": 2010,
+      "notable_editions": "2026 edition hosts German Ultracycling Championships (Solo Supported and Solo Nonsupported categories); Daniel Polman completed the route in 43 hours 16 minutes, covering approximately 1,140 km with 8,500 meters elevation gain.[2]",
+      "growth_trajectory": "The event has evolved into Germany's most prestigious ultracycling challenge, with multiple route options (North-South, West-East, Germany 3000) and structured championship categories attracting international competitors and serious amateurs.[5]"
+    },
+    "final_verdict": {
+      "one_liner": "Germany's ultimate ultracycling test: 1,100 km of non-stop riding from Baltic coast to Alpine peaks, combining geographic diversity, championship-level competition, and transformative endurance challenge.",
+      "best_for": "Experienced ultracyclists seeking RAAM qualification, German Championship competition, or a geographically thorough European ultracycling experience; riders with proven multi-day endurance capacity and strong mental resilience.",
+      "not_ideal_for": "First-time ultracycling participants, riders uncomfortable with 40+ hours of continuous riding, those seeking technical terrain or gravel-specific challenges, or cyclists with limited time for multi-day event preparation.",
+      "pro_tip": "Study the GPX file and timestation locations extensively before the event; manage pacing conservatively in the first 300 km despite flat terrain to preserve energy for low mountain ranges and Alpine approaches. Daniel Polman's 43-hour completion demonstrates that aggressive early pacing can lead to navigation errors and position loss—strategic consistency outweighs early speed.[2]"
+    },
+    "citations": [
+      {
+        "url": "https://raceacrossgermany.de/en/north-south",
+        "title": "Race Across Germany North–South | 1100 km Ultracycling",
+        "snippet": "From the harbor tip in Flensburg to the foot of the Zugspitze – the Race Across Germany North–South is the supreme discipline of the German ultracycling scene. The route covers 1100 km with 7500 meters elevation gain."
+      },
+      {
+        "url": "https://www.isaac-cycle.com/en_US/blog/item/ultra-rider-daniel-polman-wins-the-race-across-around-germany-811/",
+        "title": "Ultra rider Daniel Polman wins the Race Across / Around Germany!",
+        "snippet": "I reached the finish line after 43 hours and 16 minutes from the start in Flensburg. I covered 1140 km (24 km more due to some detours and navigation mistakes). Total elevation reached 8500 m."
+      },
+      {
+        "url": "https://raceacrossgermany.de/en/",
+        "title": "The Ultracycling Event in Germany",
+        "snippet": "The Race Across Germany – from Flensburg to Garmisch, from Aachen to Görlitz, or 3000 kilometers along the border. The race is non-stop, day and night, over hundreds of kilometers."
+      }
+    ],
+    "slug": "race-across-germany",
+    "name": "Race Across Germany North–South"
+  }
+}

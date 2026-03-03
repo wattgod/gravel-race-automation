@@ -1,0 +1,25 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "\u0160koda Ring of Clare Sportive",
+  "description": "",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-07-18",
+  "location": {
+    "@type": "Place",
+    "name": "Ennis, County Clare, Ireland",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Ennis",
+      "addressRegion": "County Clare"
+    }
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "73",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://ringofclare.ie"
+}

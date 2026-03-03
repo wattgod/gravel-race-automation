@@ -1,0 +1,185 @@
+{
+  "race": {
+    "vitals": {
+      "slug": "gfny-san-juan",
+      "name": "GFNY San Juan",
+      "location": "San Juan, Argentina",
+      "date": "2026: March 01",
+      "date_specific": "2026: March 01",
+      "distance_mi": 96,
+      "elevation_ft": 4265,
+      "discipline": "road",
+      "month": "March",
+      "prestige": 3,
+      "overall_score": 66,
+      "tier": 2
+    },
+    "gravel_god_rating": {
+      "adventure": 3,
+      "altitude": 2,
+      "climate": 3,
+      "community": 3,
+      "elevation": 3,
+      "expenses": 4,
+      "experience": 3,
+      "field_depth": 3,
+      "length": 4,
+      "logistics": 4,
+      "prestige": 3,
+      "race_quality": 3,
+      "technicality": 2,
+      "value": 4,
+      "cultural_impact": 2,
+      "overall_score": 66,
+      "tier": 2,
+      "tier_label": "TIER 2"
+    },
+    "biased_opinion_ratings": {
+      "adventure": {
+        "score": 3,
+        "explanation": "Riders tackle two laps through Ullum Valley up to Punta Negra dam on the 96-mile course, crossing the San Juan River and the Interlagos route amid mountains.[1]"
+      },
+      "altitude": {
+        "score": 2,
+        "explanation": "San Juan's high desert location east of the Andes keeps elevations low, with the 96-mile course featuring no high-altitude climbs beyond 4,265 feet total ascent.[2]"
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "Spring in San Juan offers mild and dry weather ideal for cycling, enhanced by lush vineyards against stunning mountain backdrops in the valleys.[4]"
+      },
+      "community": {
+        "score": 3,
+        "explanation": "Cycling thrives in San Juan where cyclists of all types fill roadways in afternoons and citizens use bicycles daily for routines.[2]"
+      },
+      "elevation": {
+        "score": 3,
+        "explanation": "The 96-mile course climbs 4,265 feet across plains, small hills, and mountains, with two laps in Ullum Valley providing moderate challenges.[1]"
+      },
+      "expenses": {
+        "score": 4,
+        "explanation": "Entry includes NYC-designed Italian-made jersey, finisher medal, goodie bag, chip timing, stocked aid stations, race hotline, and post-race meal without discounts.[6]"
+      },
+      "experience": {
+        "score": 3,
+        "explanation": "Chip timing from start line to finish delivers official results at gfny.cc/results, with top 10% age group finishers earning Qualifier Corral spots at GFNY World events.[1]"
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "The third edition in San Juan drew competitive fields racing the long course for category rankings and podium awards.[2]"
+      },
+      "length": {
+        "score": 4,
+        "explanation": "The long competition course spans 96 miles or 154 km, twice the 57-mile medium non-competitive route through Ullum Valley.[1]"
+      },
+      "logistics": {
+        "score": 4,
+        "explanation": "Events kick off at 8:00AM from San Juan civic center with corrals opening at 7:00AM, first riders expected by 10:30AM and aid open until 4:00PM.[5]"
+      },
+      "race_quality": {
+        "score": 3,
+        "explanation": "Riders cross Punta Negra dam creating potable water reservoir for San Juan, looping via Zonda and Ullum on a fast course through beautiful mountains.[2]"
+      },
+      "technicality": {
+        "score": 2,
+        "explanation": "The 96-mile route transitions smoothly from city plains and small hills to mountains without steep or highly technical demands.[1]"
+      },
+      "value": {
+        "score": 4,
+        "explanation": "Ticket provides mandatory GFNY jersey made in Italy, chip timing, full-course support with aid stations, and post-race meal at early-bird pricing.[6]"
+      },
+      "cultural_impact": {
+        "score": 2,
+        "explanation": "Promotes cycling in Argentina's wine country, gaining local traction."
+      },
+      "prestige": {
+        "score": 3,
+        "explanation": "GFNY Argentina's third edition crowns winners on the 96-mile long course only, with age group top 10% qualifying for GFNY World corrals.[1][2]"
+      }
+    },
+    "course_description": {
+      "character": "Two laps through Ullum Valley's plains and hills, climbing to Punta Negra dam via spectacular Interlagos route, finishing in San Juan city center. Transitions from flatlands to Andean foothills on smooth pavement.",
+      "suffering_zones": [
+        {
+          "label": "Ullum Valley Laps",
+          "description": "Repeated 48-mile loops build fatigue; cumulative climbing wears down legs before the dam ascent."
+        },
+        {
+          "label": "Punta Negra Dam Climb",
+          "description": "Signature ascent after valley circuits; exposed to wind with mountain views rewarding the effort."
+        },
+        {
+          "label": "Interlagos Route",
+          "description": "Technical paved section through rocky terrain; fast descents demand focus amid scenic drama."
+        }
+      ],
+      "signature_challenge": "Double lap structure in Ullum Valley culminating at Punta Negra dam - power endurance meets Andean backdrop."
+    },
+    "logistics": {
+      "overview": "City-center start/finish in San Juan. 7AM corral opening, 8AM mass start. Chip-timed with results at gfny.cc/results. Long course only eligible for rankings.",
+      "official_site": "https://argentina.gfny.com/?lang=en",
+      "registration_url": "https://argentina.gfny.com/?lang=en",
+      "accommodation": "Numerous hotels in San Juan city center near start line. Stay local to avoid transfers.",
+      "getting_there": "Fly into San Juan Airport (UAQ) or Mendoza (MDZ, 2hr drive). Domestic flights from Buenos Aires.",
+      "parking": "Designated lots near civic center start area open from 7AM.",
+      "spectator_info": "Prime viewing at city-center start/finish and Punta Negra dam. Follow online tracking."
+    },
+    "climate": {
+      "overview": "Autumn in Andean foothills: mild days, cool nights. Dry with potential winds.",
+      "avg_temp_f": "65-75°F",
+      "precipitation_chance": "Low (5-10%)",
+      "wind_conditions": "Moderate valley winds, stronger on exposed climbs",
+      "altitude_effects": "Minimal below 3,000ft; no acclimatization needed"
+    },
+    "terrain": {
+      "surface_breakdown": {
+        "paved": 100,
+        "gravel": 0,
+        "other": 0
+      },
+      "terrain_overview": "Paved roads from San Juan plains through Ullum Valley hills to Andean foothills. Smooth surfaces favor road bikes.",
+      "key_features": [
+        "Ullum Valley double loops",
+        "Punta Negra dam climb",
+        "Interlagos scenic paved route"
+      ]
+    },
+    "history": {
+      "overview": "GFNY Argentina edition held in San Juan, part of global gran fondo series. Long course qualifies top 10% for World Championship corral.",
+      "founded": 2022,
+      "notable_editions": [
+        "Third edition featured city-center start with valley loops"
+      ],
+      "growth_trajectory": "Established event gaining traction in South American cycling scene"
+    },
+    "final_verdict": {
+      "one_liner": "GFNY's Andean gateway: accessible distance, scenic climbs, pro experience.",
+      "best_for": "Road riders seeking international qualifier with moderate challenge and value.",
+      "not_ideal_for": "Gravel enthusiasts or high-altitude masochists.",
+      "pro_tip": "Train for sustained threshold power; double laps reward pacing over attacks."
+    },
+    "citations": [
+      {
+        "url": "https://argentina.gfny.com/?lang=en",
+        "title": "GFNY Argentina: Home",
+        "snippet": "The long course 96-mile (154 km), with a total ascent of 4,265 feet... two laps in the Ullum Valley, up to the Punta Negra dam, crossing the spectacular Interlagos route."
+      },
+      {
+        "url": "https://gfny.com",
+        "title": "GFNY World: Home",
+        "snippet": "01 Mar 2026 - GFNY Argentina listed in world series calendar."
+      },
+      {
+        "url": "https://argentina.gfny.com/schedule-of-events/?lang=en",
+        "title": "Schedule of Events - GFNY Argentina",
+        "snippet": "Sunday 7:00AM opening, 8:00AM start of GFNY Argentina."
+      },
+      {
+        "url": "https://argentina.gfny.com/news/?lang=en",
+        "title": "News - GFNY Argentina",
+        "snippet": "GFNY global event series context."
+      }
+    ],
+    "slug": "gfny-san-juan",
+    "name": "GFNY San Juan"
+  }
+}

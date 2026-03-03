@@ -1,0 +1,25 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "H\u00e6rvejsl\u00f8bet \u2014 The Viking Gran Fondo",
+  "description": "",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-06-27",
+  "location": {
+    "@type": "Place",
+    "name": "Flensburg, Germany to Viborg, Denmark",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Flensburg",
+      "addressRegion": "Germany to Viborg"
+    }
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "77",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://sites.dgi.dk/haervejsloebet-en/"
+}

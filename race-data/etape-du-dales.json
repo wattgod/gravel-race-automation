@@ -1,0 +1,201 @@
+{
+  "race": {
+    "vitals": {
+      "slug": "etape-du-dales",
+      "name": "Étape du Dales",
+      "location": "Settle, North Yorkshire, England",
+      "date": "2025: June 8",
+      "date_specific": "2025: June 8",
+      "distance_mi": 106,
+      "elevation_ft": 10500,
+      "discipline": "road",
+      "month": "June",
+      "prestige": 2,
+      "overall_score": 79,
+      "tier": 2
+    },
+    "gravel_god_rating": {
+      "adventure": 4,
+      "altitude": 4,
+      "climate": 3,
+      "community": 4,
+      "elevation": 4,
+      "expenses": 4,
+      "experience": 4,
+      "field_depth": 3,
+      "length": 4,
+      "logistics": 4,
+      "prestige": 3,
+      "race_quality": 4,
+      "technicality": 4,
+      "value": 4,
+      "cultural_impact": 2,
+      "overall_score": 79,
+      "tier": 2,
+      "tier_label": "TIER 2"
+    },
+    "biased_opinion_ratings": {
+      "adventure": {
+        "score": 4,
+        "explanation": "Remote Yorkshire Dales with iconic passes and wild moorland create pure cycling adventure."
+      },
+      "altitude": {
+        "score": 4,
+        "explanation": "High pubs and moorland summits, but not extreme altitude sickness territory."
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "Classic British summer - sun, rain, and wind all possible in one day."
+      },
+      "community": {
+        "score": 4,
+        "explanation": "Strong charity ethos with Dave Rayner Fund support builds tight-knit cycling community."
+      },
+      "elevation": {
+        "score": 4,
+        "explanation": "10,500ft over 106 miles - proper British climbing sufferfest."
+      },
+      "expenses": {
+        "score": 4,
+        "explanation": "£50 entry represents excellent value for this calibre of event."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "Iconic climbs through cinematic Yorkshire scenery - bucket list ride."
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "500 riders but sportive format limits elite depth."
+      },
+      "length": {
+        "score": 4,
+        "explanation": "106 miles of continuous Dales punishment - full day commitment."
+      },
+      "logistics": {
+        "score": 4,
+        "explanation": "New Settle HQ with parking and facilities simplifies access."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "Perfectly organised with feed stations and route tweaks for accessibility."
+      },
+      "technicality": {
+        "score": 4,
+        "explanation": "Steep ramps to 18% plus twisty descents demand bike handling skills."
+      },
+      "value": {
+        "score": 4,
+        "explanation": "Top-tier scenery and challenge for modest entry fee."
+      },
+      "cultural_impact": {
+        "score": 2,
+        "explanation": "Alternative to Fred Whitton with strong Yorkshire cycling heritage."
+      },
+      "prestige": {
+        "score": 3,
+        "explanation": "Regional Yorkshire sportive running 20+ years, well-known within UK cycling but limited international profile."
+      }
+    },
+    "course_description": {
+      "character": "Brutal Yorkshire Dales epic featuring seven monster climbs through wild moorland, remote valleys, and iconic high passes. Cinematic scenery meets relentless gradient.",
+      "suffering_zones": [
+        {
+          "label": "Langcliffe Scar",
+          "description": "2.3km @ 7.8% avg (18% max) - brutal race opener after 3km warm-up"
+        },
+        {
+          "label": "Fleet Moss",
+          "description": "Highest road in Yorkshire - bleak moorland exposure"
+        },
+        {
+          "label": "Tan Hill Inn",
+          "description": "Highest pub in England - remote grit test"
+        },
+        {
+          "label": "Buttertubs Pass",
+          "description": "Iconic Tour de Yorkshire climb with butter churn landmarks"
+        },
+        {
+          "label": "Coal Road",
+          "description": "2.8km @ 7.8% avg to highest mainline station in England"
+        },
+        {
+          "label": "Grinton Moor",
+          "description": "3.8km grind across wild Swaledale moorland"
+        }
+      ],
+      "signature_challenge": "Coal Road to Dent Station - relentless 7.8% gradient delivering you to England's highest mainline railway station through remote gritstone wilderness."
+    },
+    "logistics": {
+      "overview": "New HQ at Settle with parking, changing rooms, post-ride food and beer. Multiple feed stations including Moorcock Inn.",
+      "official_site": "https://www.etapedudales.org",
+      "registration_url": "https://etapedudales.eventrac.co.uk",
+      "accommodation": "Settle offers B&Bs, pubs, and camping. Grassington (15min drive) and Skipton (20min) provide more options.",
+      "getting_there": "Settle train station direct from Leeds (50min) or London King's Cross via Carlisle (3hrs). A65 road access from north/south.",
+      "parking": "Good facilities at new Settle HQ - Horton Pavilion previously used.",
+      "spectator_info": "Limited roadside spectating due to remote rural route. Best at Settle finish and feed stations."
+    },
+    "climate": {
+      "overview": "Classic Yorkshire summer - expect all four seasons. Windy moorland summits amplify conditions.",
+      "avg_temp_f": 59,
+      "precipitation_chance": "60%",
+      "wind_conditions": "Strong crosswinds on exposed moorland passes, especially Fleet Moss and Grinton Moor.",
+      "altitude_effects": "Moderate - highest points ~1800ft. Wind chill significant on summits."
+    },
+    "terrain": {
+      "surface_breakdown": {
+        "paved": 95,
+        "gravel": 5,
+        "other": 0
+      },
+      "terrain_overview": "Narrow Yorkshire lanes, steep moorland ramps, remote valley roads. Predominantly paved with occasional rougher sections.",
+      "key_features": [
+        "18% ramps",
+        "Fast twisty descents",
+        "Remote moorland exposure",
+        "Livestock on road"
+      ]
+    },
+    "history": {
+      "overview": "Established as Fred Whitton Challenge alternative. Supports Dave Rayner Fund for young cyclists. Iconic UK sportive status.",
+      "founded": 2007,
+      "notable_editions": "2009: 109 miles/11,500ft. 2011: 110 miles. 2025: Route tweaks for accessibility, new Settle HQ.",
+      "growth_trajectory": "Established fixture with 500+ riders. Steady growth through charity appeal and Dales scenery reputation."
+    },
+    "final_verdict": {
+      "one_liner": "Ultimate Yorkshire Dales sufferfest - 10,500ft of cinematic climbing punishment.",
+      "best_for": "Climbing masochists seeking authentic British sportive experience with iconic passes.",
+      "not_ideal_for": "Gravel bike owners (road event), time-crunched riders, or fair weather cyclists.",
+      "pro_tip": "Triple chainring or ultra-low gears essential. Pack full waterproofs. Train on Lake District/Welsh 10%+ ramps."
+    },
+    "citations": [
+      {
+        "url": "https://etapedudales.eventrac.co.uk/e/etape-du-dales-11892",
+        "title": "Etape Du Dales",
+        "snippet": "At 167km (104 miles) and with over 3200m of climbing this is a serious challenge"
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Etape_du_Dales",
+        "title": "Etape du Dales - Wikipedia",
+        "snippet": "109 miles (175km), with around 11,500 feet (3,500m) of ascents; in 2011, 110 miles"
+      },
+      {
+        "url": "https://www.britishcycling.org.uk/events/details/310455/Etape-du-Dales-by-the-Rayner-Foundation",
+        "title": "Etape du Dales by the Rayner Foundation",
+        "snippet": "Sun, 8th Jun 2025... 178km / 110 miles... Venue: Horton Pavilion, Horton In Ribblesdale"
+      },
+      {
+        "url": "https://www.etapedudales.org/long-route-2026",
+        "title": "Long Route 2026 - ETAPE du DALES 2026",
+        "snippet": "New HQ in Settle... Langcliffe Scar... 2.3km with avg gradient of 7.8% and max 18%"
+      },
+      {
+        "url": "https://www.etapedudales.org",
+        "title": "Home | Etape du Dales Cycling Challenge 2026",
+        "snippet": "ETAPE du dales #1... ULTIMATE Dales challenge ride. With over 3500m of climbing"
+      }
+    ],
+    "slug": "etape-du-dales",
+    "name": "Étape du Dales"
+  }
+}

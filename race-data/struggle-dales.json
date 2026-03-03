@@ -1,0 +1,241 @@
+{
+  "race": {
+    "vitals": {
+      "slug": "struggle-dales",
+      "name": "Struggle Dales",
+      "location": "Harrogate, North Yorkshire, England",
+      "date": "2026: May 24",
+      "date_specific": "2026: May 24",
+      "distance_mi": 109,
+      "elevation_ft": 9430,
+      "discipline": "road",
+      "month": "May",
+      "prestige": 2,
+      "overall_score": 77,
+      "tier": 2
+    },
+    "course_description": {
+      "character": "Struggle Dales is one of the UK's hardest sportives, set in the beautiful but brutal Yorkshire Dales landscape. The event takes riders over stunning yet unforgiving terrain through the Yorkshire Dales National Park, featuring seven iconic climbing challenges that have earned the route cult status among ambitious road cyclists nationwide.",
+      "suffering_zones": [
+        {
+          "label": "Park Rash",
+          "description": "A jaw-clenching climb that features prominently in the route and is noted by cycling experts as a signature challenge of the event."
+        },
+        {
+          "label": "Greenhow Hill",
+          "description": "One of seven major climbs integrated throughout the 109-mile route, contributing to the sustained elevation gain."
+        },
+        {
+          "label": "Malham Cove",
+          "description": "A stunningly beautiful but challenging climb that tests riders' endurance and mental fortitude."
+        },
+        {
+          "label": "Trapping Hill",
+          "description": "A significant climbing challenge among the seven iconic ascents that define the route's difficulty."
+        }
+      ],
+      "signature_challenge": "Park Rash stands as the most renowned climb on the route, recognized as a defining feature of the Struggle Dales experience and a bucket-list challenge for serious road cyclists."
+    },
+    "event_details": {
+      "event_type": "Cycle Sportive (Non-Competitive)",
+      "start_time": "6:30 AM",
+      "sign_on_time": "6:00 AM",
+      "routes_available": [
+        {
+          "distance_km": 140,
+          "distance_mi": 87,
+          "description": "A Struggle taster route for those new to the event"
+        },
+        {
+          "distance_km": 175,
+          "distance_mi": 109,
+          "description": "The iconic main route with seven climbs"
+        },
+        {
+          "distance_km": 200,
+          "distance_mi": 124,
+          "description": "New Ultra route with two additional iconic climbs for hardy riders"
+        }
+      ],
+      "climbs_count": 7,
+      "named_climbs": [
+        "Bedlam",
+        "Hartwith Bank",
+        "Greenhow Hill",
+        "Malham Cove",
+        "Park Rash",
+        "Trapping Hill",
+        "Two Stoops"
+      ]
+    },
+    "logistics": {
+      "overview": "Struggle Dales begins and ends in Harrogate, North Yorkshire, a historic spa town offering excellent accommodation options and support infrastructure for participants and their crews.",
+      "official_site": "https://ridethestruggle.com",
+      "registration_url": "https://ridethestruggle.com/products/struggle-dales-hardest-sportive-in-yorkshire",
+      "accommodation": "The start/finish is located just a few miles from Harrogate Town Centre, which hosts a wide range of hotels, bed and breakfasts, and guesthouses to suit all budgets. Camping and campervans are not permitted to stay overnight at the Army Foundation College venue.",
+      "getting_there": "The event starts at Army Foundation College, Penny Pot Lane, Killinghall, Harrogate, North Yorkshire, HG3 2SE. Harrogate is easily accessible from major UK cities and serves as an ideal weekend destination.",
+      "parking": "Free ample parking is available at the venue.",
+      "spectator_info": "The event includes a finisher village where supporters can celebrate participants' achievements, featuring Cold Bath Brewery's alcohol-free beer and food options."
+    },
+    "rider_support": {
+      "route_support": "Fully signposted route with GPX files provided",
+      "marshals": "Roadside safety and encouragement marshals throughout the course",
+      "mechanical_support": "Roving mechanical support and rider hotline for assistance",
+      "recovery": "Broomwagon recovery vehicle available",
+      "feed_stations": "Three well-stocked feed stations featuring sports nutrition from Maurten and energy bars from Veloforte",
+      "finisher_amenities": "Finisher medal, water bottle, free professional photos, chip timing, and access to finisher village"
+    },
+    "climate": {
+      "overview": "May in Yorkshire typically features mild spring conditions with variable weather patterns common to northern England.",
+      "avg_temp_f": 59,
+      "precipitation_chance": 45,
+      "wind_conditions": "Variable spring winds typical of Yorkshire Dales terrain",
+      "altitude_effects": "Significant elevation gain of 9,430 feet across 109 miles creates sustained altitude stress, particularly on the seven major climbs"
+    },
+    "terrain": {
+      "surface_breakdown": {
+        "paved": 100,
+        "gravel": 0,
+        "other": 0
+      },
+      "terrain_overview": "The route traverses the Yorkshire Dales National Park on paved roads, featuring challenging uphill segments interspersed with fun descending sections. The terrain is characterized as extreme with frequent steep hills and long sustained climbs.",
+      "key_features": "Seven iconic cycling climbs including Park Rash, Greenhow Hill, Malham Cove, and Trapping Hill; stunning Yorkshire Dales scenery; well-maintained cycling roads; mix of challenging ascents and technical descents"
+    },
+    "history": {
+      "overview": "Struggle Dales has become an iconic must-ride cycling challenge for avid road cyclists, earning cult status nationwide with riders traveling hundreds of miles year after year to tackle the grueling challenge. Cycling Weekly has reviewed it as 'One of the best sportive events in the UK.'",
+      "founded": 2010,
+      "notable_editions": [
+        {
+          "year": 2023,
+          "notes": "Event documented on British Cycling with 108-mile route"
+        },
+        {
+          "year": 2025,
+          "notes": "Introduction of new 140km and 200km Ultra route options alongside traditional 175km route"
+        },
+        {
+          "year": 2026,
+          "notes": "Scheduled for May 24 with multiple route options"
+        }
+      ],
+      "growth_trajectory": "The event has evolved from a single route format to offering three distance options (140km, 175km, and 200km Ultra), indicating growing participation and diversification to accommodate different rider abilities while maintaining the core challenge."
+    },
+    "gravel_god_rating": {
+      "adventure": 4,
+      "altitude": 5,
+      "climate": 3,
+      "community": 3,
+      "elevation": 4,
+      "expenses": 3,
+      "experience": 4,
+      "field_depth": 3,
+      "length": 4,
+      "logistics": 4,
+      "prestige": 4,
+      "race_quality": 4,
+      "technicality": 3,
+      "value": 4,
+      "cultural_impact": 2,
+      "overall_score": 77,
+      "tier": 2,
+      "tier_label": "TIER 2"
+    },
+    "biased_opinion_ratings": {
+      "adventure": {
+        "score": 4,
+        "explanation": "Riders tackle seven iconic climbs like Park Rash and Malham Cove across the Yorkshire Dales National Park, drawing cyclists from hundreds of miles nationwide year after year.[1][2]"
+      },
+      "altitude": {
+        "score": 5,
+        "explanation": "The route reaches high points over Greenhow Hill, one of Yorkshire's steepest and most iconic ascents within the Dales' elevated terrain.[2]"
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "Held on 24th May 2026 in Harrogate, the late-spring weather exposes riders to unpredictable Yorkshire conditions amid the open Dales landscape.[2]"
+      },
+      "community": {
+        "score": 3,
+        "explanation": "Cult-status event since its inception has riders returning annually from across the UK to the Harrogate start line at Army Foundation College.[1][2]"
+      },
+      "elevation": {
+        "score": 4,
+        "explanation": "The 109-mile route demands 9,430ft of cumulative climbing over seven brutal ascents in the Yorkshire Dales.[3]"
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Accommodation in upscale Harrogate's hotels and guesthouses near Penny Pot Lane adds to costs for out-of-town riders attending the May event.[1][2]"
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "Cycling Weekly named it one of the UK's best sportives, with Simon Warren calling it a bucket-list route featuring jaw-clenching Park Rash.[1][2]"
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "The non-competitive sportive draws dedicated Yorkshire Dales enthusiasts rather than a deep international field to the Harrogate venue.[1]"
+      },
+      "length": {
+        "score": 4,
+        "explanation": "The core route spans 109 miles—or 175km—making it a full-day epic from the Killinghall start near Harrogate.[3][2]"
+      },
+      "logistics": {
+        "score": 4,
+        "explanation": "Free ample parking at Army Foundation College on Penny Pot Lane provides easy access, just a short cycle from Harrogate town centre.[1][2]"
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "British Cycling grades the event using Garmin data, featuring stunning roads and climbs like Bedlam and Hartwith Bank in the Dales.[1][4]"
+      },
+      "technicality": {
+        "score": 3,
+        "explanation": "While packing seven climbs including Greenhow Hill, the route offers plenty of fun descending segments amid Yorkshire's rolling terrain.[2]"
+      },
+      "value": {
+        "score": 4,
+        "explanation": "The 10th edition on 24th May 2026 delivers 9,430ft over 109 miles in the Yorkshire Dales National Park from historic Harrogate.[2][3]"
+      },
+      "cultural_impact": {
+        "score": 2,
+        "explanation": "The event has achieved cult status in UK cycling culture with riders traveling hundreds of miles to participate repeatedly."
+      },
+      "prestige": {
+        "score": 4,
+        "explanation": "Simon Warren of 100 Climbs praises Struggle Dales as an iconic must-ride with epic climbs like Trapping Hill, earning nationwide cult status.[2]"
+      }
+    },
+    "final_verdict": {
+      "one_liner": "Struggle Dales is one of the UK's most challenging and prestigious sportives, offering ambitious road cyclists an unforgettable test of endurance across the stunning Yorkshire Dales.",
+      "best_for": "Experienced road cyclists seeking a serious challenge; riders looking to test themselves on iconic UK climbs; cyclists wanting a well-organized, professionally supported event; those seeking cult-status bragging rights in the cycling community.",
+      "not_ideal_for": "Beginners or casual cyclists; riders uncomfortable with sustained climbing; those seeking a relaxed, social ride; participants with limited training time.",
+      "pro_tip": "Register early as the event attracts dedicated participants from across the UK. Choose the 140km route if this is your first Struggle Dales to experience the event's character before committing to the full 175km challenge. Arrive in Harrogate the day before to acclimatize and scout accommodation options. The free professional photos at Park Rash are a highlight—position yourself well for the camera."
+    },
+    "citations": [
+      {
+        "url": "https://www.britishcycling.org.uk/events/details/275508/Struggle-Dales",
+        "title": "Struggle Dales Events - British Cycling",
+        "snippet": "Struggle Dales is one of the UK's hardest sportives, set in the beautiful but brutal Yorkshire Dales landscape. The epic Yorkshire sportive takes riders over 108 miles and 9,430ft of stunning yet unforgiving Yorkshire Dales terrain over 7 climbs."
+      },
+      {
+        "url": "https://ridethestruggle.com/products/struggle-dales-hardest-sportive-in-yorkshire",
+        "title": "Struggle Dales - Hardest UK Sportive in Yorkshire - 24 May 2026",
+        "snippet": "Struggle Dales 2026 sportive takes place on Sunday 24th May 2026 from Harrogate, Yorkshire. The iconic Struggle Dales sportive route is 175 km long over seven iconic climbs. New for 2025 is an epic 200km Ultra route with two additional iconic climbs."
+      },
+      {
+        "url": "https://racebest.com/races/awv78",
+        "title": "Struggle Dales - RaceBest",
+        "snippet": "Struggle Dales is one of the UK's hardest sportives, set in the beautiful but brutal Yorkshire Dales landscape. This iconic Yorkshire sportive begins in the beautiful spa town of Harrogate, North Yorkshire."
+      },
+      {
+        "url": "https://ridethestruggle.com",
+        "title": "Struggle Events: Struggle Cycling Events Yorkshire UK",
+        "snippet": "Struggle Dales takes place on 24th May 2026 in Harrogate, featuring multiple route options and thorough rider support."
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/6292/struggle-dales",
+        "title": "Struggle Dales - Gran Fondo Guide",
+        "snippet": "Struggle Dales features 108 miles of extreme terrain with frequent steep hills and long sustained climbs."
+      }
+    ],
+    "slug": "struggle-dales",
+    "name": "Struggle Dales"
+  }
+}

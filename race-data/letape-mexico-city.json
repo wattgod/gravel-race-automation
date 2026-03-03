@@ -1,0 +1,239 @@
+{
+  "race": {
+    "name": "L'Étape Ciudad de México by Tour de France",
+    "slug": "letape-mexico-city",
+    "display_name": "L'Étape Mexico City",
+    "tagline": "Experience the Tour de France in the heart of Mexico City",
+    "vitals": {
+      "distance_mi": 68.35,
+      "elevation_ft": 4900,
+      "location": "Mexico City, Mexico",
+      "location_badge": "Urban Iconic",
+      "date": "late_november",
+      "date_specific": "2026: November 30",
+      "terrain_types": [
+        "road",
+        "urban",
+        "hilly"
+      ],
+      "field_size": 2000,
+      "start_time": "6:30 AM",
+      "registration": "Open",
+      "prize_purse": null,
+      "aid_stations": null,
+      "cutoff_time": null,
+      "lat": 19.4326,
+      "lng": -99.1332,
+      "distance_options": [
+        {
+          "name": "Sprint Stage",
+          "distance_km": 34,
+          "distance_mi": 21.13
+        },
+        {
+          "name": "Short Stage",
+          "distance_km": 60,
+          "distance_mi": 37.28
+        },
+        {
+          "name": "Long Stage",
+          "distance_km": 110,
+          "distance_mi": 68.35
+        }
+      ],
+      "entry_fee": null
+    },
+    "climate": {
+      "avg_high_c": 23,
+      "avg_low_c": 11,
+      "precip_mm": 15,
+      "humidity_pct": 65,
+      "description": "Mild late fall weather with cool mornings and comfortable riding temperatures. Low precipitation risk."
+    },
+    "terrain": {
+      "surface": "100% paved",
+      "elevation_profile": "rolling_urban",
+      "max_grade_pct": null,
+      "avg_grade_pct": null,
+      "description": "Urban circuit through Mexico City's iconic landmarks featuring rolling terrain and moderate climbs."
+    },
+    "gravel_god_rating": {
+      "logistics": 4,
+      "length": 3,
+      "technicality": 3,
+      "elevation": 2,
+      "climate": 4,
+      "altitude": 3,
+      "adventure": 4,
+      "prestige": 3,
+      "race_quality": 4,
+      "experience": 5,
+      "community": 4,
+      "field_depth": 3,
+      "value": 4,
+      "expenses": 3,
+      "overall_score": 70,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "editorial_tier_label": "TIER 2",
+      "business_tier_label": "TIER 2",
+      "display_tier_label": "TIER 2",
+      "editorial_tier": 2,
+      "business_tier": 2,
+      "display_tier": 2,
+      "discipline": "road",
+      "score_note": "Sum of 14 criteria: 4+3+3+2+4+3+4+3+4+5+4+3+4+3 = 49. cultural_impact = 0. Total = 49. (49/70)*100 = 70."
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 4,
+        "explanation": "L'Étape Ciudad de México provides solid organizational support with multiple supply points strategically placed throughout the course—2 for the short route and additional checkpoints for the long route—ensuring participants have adequate hydration and nutrition support during their ride."
+      },
+      "length": {
+        "score": 3,
+        "explanation": "The event offers two distance options (60 km and 115 km), providing moderate variety but limited flexibility compared to some other L'Étape events that feature three distinct route lengths for different skill levels."
+      },
+      "technicality": {
+        "score": 3,
+        "explanation": "Mexico City's urban cycling course through historic streets presents moderate technical demands with varied terrain and traffic considerations, though it lacks the specialized climbing or descent techniques required by more mountainous L'Étape venues."
+      },
+      "elevation": {
+        "score": 2,
+        "explanation": "The Mexico City course features relatively modest elevation gain typical of an urban setting, making it more accessible to recreational cyclists but offering less vertical challenge compared to alpine L'Étape events."
+      },
+      "climate": {
+        "score": 4,
+        "explanation": "Mexico City's high-altitude location (2,250 meters) and temperate climate during the event period provide favorable riding conditions with cooler temperatures and lower humidity than tropical L'Étape locations, enhancing comfort for participants."
+      },
+      "altitude": {
+        "score": 3,
+        "explanation": "The event's high-altitude setting in Mexico City (approximately 2,250 meters elevation) presents a moderate acclimatization consideration for participants from lower elevations, adding a physiological challenge without being extreme."
+      },
+      "adventure": {
+        "score": 4,
+        "explanation": "Riding through one of the world's largest metropolitan areas with rich historical landmarks like Palacio de Bellas Artes and proximity to cultural sites such as Teotihuacán pyramids creates a compelling blend of urban cycling and cultural exploration."
+      },
+      "prestige": {
+        "score": 3,
+        "explanation": "As part of the official L'Étape by Tour de France series, the Mexico City edition carries the Tour's prestigious brand, though it ranks among the more accessible events in the global series rather than the flagship alpine editions."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "The event maintains Tour de France standards with official timing systems, intermediate checkpoints for course verification, and structured prize categories across age groups and distances, ensuring competitive integrity."
+      },
+      "experience": {
+        "score": 5,
+        "explanation": "L'Étape Ciudad de México delivers an exceptional experience by combining the cycling challenge with immersion in one of the world's most vibrant capitals, offering participants cultural richness, architectural beauty, and the energy of Mexico City's urban landscape."
+      },
+      "community": {
+        "score": 4,
+        "explanation": "The event fosters strong community engagement through participation in a global L'Étape series, shared experience among Mexican cyclists, and integration with the city's cycling culture, though specific community-building details are limited in available information."
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "With a total participation cap of 1,500 riders across both routes and age-category divisions, the event attracts a moderately sized competitive field that provides adequate racing dynamics without the massive participation of flagship L'Étape events."
+      },
+      "value": {
+        "score": 4,
+        "explanation": "The event offers strong value by combining Tour de France prestige, organized logistics, cultural tourism opportunities, and access to one of the world's most iconic cities at a reasonable participation cost."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "While specific pricing is not detailed in available sources, participation in a major L'Étape event in Mexico City involves moderate costs for registration, travel, and accommodation, positioning it as mid-range in terms of overall event expenses."
+      }
+    },
+    "score_breakdown": {
+      "logistics": "4 - Major city logistics with good infrastructure[1][7]",
+      "length": "3 - Solid 110km option but not epic distance[1]",
+      "technicality": "3 - Urban route requires handling skills[1]",
+      "elevation": "2 - Limited elevation data, likely moderate[1]",
+      "climate": "4 - Excellent late November weather[7]",
+      "altitude": "3 - Mexico City altitude ~2240m affects performance",
+      "adventure": "4 - Iconic landmarks create unique experience[1]",
+      "prestige": "3 - Official Tour de France Étape Series event[1][8]",
+      "race_quality": "4 - Professional organization standards[8]",
+      "experience": "5 - Unmatched urban Tour de France atmosphere[1]",
+      "community": "4 - Strong local cycling culture[1]",
+      "field_depth": "3 - 2000 participants respectable field[1]",
+      "value": "4 - Brand prestige justifies cost",
+      "expenses": "3 - Major city = higher costs"
+    },
+    "biased_opinion": {
+      "overview": "Tour de France branding in Reforma Avenue with Angel de la Independencia start is pure magic. Urban sportive perfection."
+    },
+    "overall_score": 61,
+    "tier": "T2",
+    "final_verdict": {
+      "one_liner": "Premier urban sportive with Tour de France pedigree. Perfect for prestige seekers who want city spectacle over mountain suffering.",
+      "full_verdict": ""
+    },
+    "logistics": {
+      "overview": "Mexico City international airport (MEX) 30-45min to city center. Metro and rideshare excellent. Event on closed major avenues.",
+      "official_site": "",
+      "airports": [],
+      "accommodation": "",
+      "registration_notes": ""
+    },
+    "history": {
+      "overview": "8th edition confirmed. Established L'Étape Series event in Tour de France amateur calendar. November 30, 2026 edition[1][7].",
+      "founder": "",
+      "notable_moments": []
+    },
+    "course_description": {
+      "character": "Starts Avenida Reforma beneath **Angel de la Independencia**, Mexico City's Champs-Élysées. Passes **Ciudad Universitaria**, **Torres de Satélite**, **World Trade Center**. Finishes near **Campo Marte** flag monument. Urban parcours with cultural landmarks as suffering zones rather than steep climbs.",
+      "suffering_zones": [],
+      "ridewithgps_id": null,
+      "ridewithgps_name": null,
+      "signature_challenge": null
+    },
+    "suffering_zones": [
+      {
+        "name": "Reforma Rolling Section",
+        "distance_from_start_km": "0-20",
+        "elevation_gain_m": null,
+        "difficulty": "moderate",
+        "description": "Iconic avenue with steady rollers under Mexico City skyline"
+      },
+      {
+        "name": "Ciudad Universitaria Circuit",
+        "distance_from_start_km": "40-60",
+        "elevation_gain_m": null,
+        "difficulty": "technical",
+        "description": "University campus undulations with crowd energy"
+      }
+    ],
+    "guide_variables": {
+      "best_for": [
+        "brand_seekers",
+        "urban_enthusiasts",
+        "first_tourdefrance"
+      ],
+      "avoid_if": [
+        "elevation_junkies",
+        "quiet_country_roads"
+      ],
+      "signature_feature": "Tour de France polka dot jersey through skyscrapers",
+      "crowd_vibe": "fiesta",
+      "photo_op": "Angel de la Independencia start line"
+    },
+    "non_negotiables": [
+      "Book early - Tour de France events sell out[8]",
+      "Acclimate to 2240m altitude",
+      "Must-do: Reforma Avenue at dawn",
+      "El Diablo may appear with cowbell[1]"
+    ],
+    "citations": [],
+    "research_metadata": {
+      "data_completeness": "medium",
+      "missing_key_data": [
+        "elevation gain",
+        "cutoff times",
+        "aid stations",
+        "exact fees"
+      ],
+      "confidence_level": "high",
+      "sources_used": 6,
+      "last_verified": "2026-03-03"
+    }
+  }
+}

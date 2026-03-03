@@ -1,0 +1,223 @@
+{
+  "race": {
+    "name": "CRC 506 Gran Fondo Costa Rica",
+    "slug": "crc-506-gran-fondo-costa-rica",
+    "display_name": "CRC 506 Gran Fondo Costa Rica",
+    "tagline": "Costa Rica's UCI Gran Fondo qualifier on the stunning Pacific coast",
+    "discipline": "road",
+    "prestige": 3,
+    "vitals": {
+      "distance_mi": 87.6,
+      "elevation_ft": 2759,
+      "location": "Jacó, Garabito, Puntarenas Province, Costa Rica",
+      "location_badge": "Pacific Coast",
+      "date": "June 7",
+      "date_specific": "2026: June 7",
+      "terrain_types": [
+        "road",
+        "coastal",
+        "flattish"
+      ],
+      "field_size": 1000,
+      "start_time": "7:00 AM (Gran Fondo)",
+      "registration": "Open via www.crc-506.com",
+      "prize_purse": "UCI medals",
+      "aid_stations": "Standard UCI support",
+      "cutoff_time": "Not specified",
+      "lat": 9.54,
+      "lng": -84.63,
+      "distance_options": [
+        {
+          "name": "Gran Fondo",
+          "distance_km": 141.4,
+          "distance_mi": 87.6,
+          "elevation_m": 841,
+          "elevation_ft": 2759,
+          "categories": "Men 19-59, Women 19-49"
+        },
+        {
+          "name": "Medio Fondo",
+          "distance_km": 72.9,
+          "distance_mi": 45.3,
+          "elevation_m": 410,
+          "elevation_ft": 1345,
+          "categories": "Men 60+, Women 50+"
+        }
+      ],
+      "entry_fee": "Not specified; register at official site"
+    },
+    "climate": {
+      "overview": "Warm tropical (77-90°F), humid Pacific coast, June rain risk",
+      "average_temp_f": null,
+      "precipitation_chance": null
+    },
+    "terrain": {
+      "overview": "Flattish coastal road (Ruta 34) with ocean views, minimal climbs",
+      "surface_breakdown": {}
+    },
+    "gravel_god_rating": {
+      "logistics": 4,
+      "length": 4,
+      "technicality": 2,
+      "elevation": 2,
+      "climate": 3,
+      "altitude": 1,
+      "adventure": 4,
+      "prestige": 3,
+      "race_quality": 4,
+      "experience": 5,
+      "community": 4,
+      "field_depth": 3,
+      "value": 4,
+      "expenses": 3,
+      "cultural_impact": 3,
+      "overall_score": 70,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "editorial_tier_label": "TIER 2",
+      "business_tier_label": "TIER 2",
+      "display_tier_label": "TIER 2",
+      "editorial_tier": 2,
+      "business_tier": 2,
+      "display_tier": 2,
+      "discipline": "road",
+      "score_note": "Sum of 14 criteria: 4+4+2+2+3+1+4+3+4+5+4+3+4+3 = 46. cultural_impact = 3. Total = 49. (49/70)*100 = 70."
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 4,
+        "explanation": "The event's coastal route from Jacó to Quepos and back is well-defined with clear start and finish points at the Jacó Civic Center, but one rider review notes very poor organization, preventing a perfect score.[1][2][4]"
+      },
+      "length": {
+        "score": 4,
+        "explanation": "The Gran Fondo offers a substantial 141 km distance along the Pacific coastline, ideal for endurance riders, complemented by a 70 km Medio Fondo option for broader participation.[1][2]"
+      },
+      "technicality": {
+        "score": 2,
+        "explanation": "The flattish course primarily follows the same coastal road south to Quepos with minimal challenging features, making it straightforward for most riders.[2]"
+      },
+      "elevation": {
+        "score": 2,
+        "explanation": "With only 841m of total elevation gain over 141 km on a mostly flat coastal path, the route lacks significant climbs, suiting beginners over mountaineers.[2]"
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "June's tropical Pacific coast weather in Jacó brings warm temperatures and potential humidity or rain, offering scenic riding but requiring heat acclimation.[1][3]"
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "The sea-level route along Costa Rica's Pacific coastline stays at low elevation throughout, providing no high-altitude challenges or thin-air difficulties.[2]"
+      },
+      "adventure": {
+        "score": 4,
+        "explanation": "Riding 141 km through Costa Rica's stunning beaches, national parks, and wildlife-rich coastal areas from Jacó to Quepos delivers a thrilling tropical exploration.[2][3]"
+      },
+      "prestige": {
+        "score": 3,
+        "explanation": "As a UCI Gran Fondo World Series qualifier attracting 700 riders in past editions, it elevates Costa Rica's profile in international cycling but remains regionally focused.[1][2][5]"
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "The UCI-sanctioned event features age-graded categories for men and women across Gran and Medio Fondos, ensuring fair competition on a scenic, well-mapped course.[1][2]"
+      },
+      "experience": {
+        "score": 5,
+        "explanation": "The paradisiacal Jacó backdrop with ocean views, post-ride beach relaxation, and Costa Rica's tourism allure create an unforgettable, immersive cycling adventure.[2][3]"
+      },
+      "community": {
+        "score": 4,
+        "explanation": "With 700+ riders in prior editions and broad categories from 19-80+, it fosters a vibrant Central American cycling scene as the region's biggest mass-participation event.[1][2]"
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "Solid regional turnout with UCI qualifiers draws competitive local and international pelotons, though depth is moderate compared to European Gran Fondos.[1][2]"
+      },
+      "value": {
+        "score": 4,
+        "explanation": "UCI prestige, stunning coastal scenery, and tourist perks like beaches and parks offer excellent bang-for-buck for a qualifier event in paradise.[2][3]"
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Travel to remote Jacó in Puntarenas adds costs for international visitors, but local accessibility and included race logistics keep it reasonable.[1][3]"
+      },
+      "cultural_impact": {
+        "score": 3,
+        "explanation": ""
+      }
+    },
+    "ratings_explanations": {
+      "logistics": "Well-organized UCI event, accessible from SJO airport (1.5hr), limited to 1000 riders[1][2]",
+      "length": "Legitimate 141km Gran Fondo distance with Medio option[1][2]",
+      "technicality": "Flattish coastal road, low technical demands[2]",
+      "elevation": "Only 841m total - flattest Gran Fondo profile[2]",
+      "climate": "Warm tropical beauty but June wet season risks (2025 canceled)[9]",
+      "altitude": "Sea level coastal route[2]",
+      "adventure": "Stunning Pacific coast from Jacó to Quepos[1][2]",
+      "prestige": "UCI Gran Fondo World Series qualifier (franchise prestige 3)[1][2]",
+      "race_quality": "Official UCI medals, age-category qualification to Worlds[1][2]",
+      "experience": "Ocean views, mass start from civic center, tourist paradise[2]",
+      "community": "Central America's largest cycling event, strong local support[2]",
+      "field_depth": "700 riders in 2023 debut, capped at 1000[1][2]",
+      "value": "UCI Worlds qualifier access in beautiful location[1][2]",
+      "expenses": "Costa Rica travel costs but good event value[2]",
+      "cultural_impact": "Costa Rica's premier cycling showcase to world[1]"
+    },
+    "overall_score": 62,
+    "tier": "T2",
+    "biased_opinion": {
+      "overview": "Tropical paradise UCI qualifier with stunning coastal views but flattish profile and wet season risks. Perfect for speed-focused qualifiers seeking Worlds qualification in beach setting."
+    },
+    "final_verdict": {
+      "one_liner": "Strong regional UCI event with international appeal and qualification prestige.",
+      "full_verdict": ""
+    },
+    "logistics": {
+      "overview": "Nearest airport: Juan Santamaría (SJO, ~1.5hr drive). Quepos domestic (XQP). Start/Finish: Centro Cívico por la Paz, Jacó. Medio start: Parque de Quepos. Limited 1000 spots[1][2]",
+      "official_site": "",
+      "airports": [],
+      "accommodation": "",
+      "registration_notes": ""
+    },
+    "history": {
+      "overview": "Founded 2023 as Costa Rica's first UCI Gran Fondo by RPMTV/Fecoci. 2023: 700 riders San José-Puntarenas. 2025: Jacó-Quepos route announced but canceled (tropical wave). 2026: June 7 edition[1][2][9]",
+      "founder": "",
+      "notable_moments": []
+    },
+    "course_description": {
+      "character": "141.4km Gran Fondo: Neutral 2km start Jacó Civic Center, south on Ruta 34 coastal highway to Quepos loop/turnaround, return to Jacó (841m elevation, flattish). Medio Fondo (72.9km): Quepos start 8AM covering return leg to Jacó finish. **Suffering zones**: Heat/humidity, headwinds on exposed coast, potential rain[1][2]",
+      "suffering_zones": [],
+      "ridewithgps_id": null,
+      "ridewithgps_name": null,
+      "signature_challenge": null
+    },
+    "guide_variables": {
+      "best_for": [
+        "UCI qualifiers",
+        "coastal scenery",
+        "fast PRs"
+      ],
+      "avoid_if": [
+        "climb hunters",
+        "wet weather averse"
+      ],
+      "signature_feature": "Pacific Ocean views on flattish qualifier course"
+    },
+    "non_negotiables": [
+      "UCI Gran Fondo World Series qualification (top 25% per age/gender)",
+      "Only Costa Rican event awarding official UCI medals",
+      "Age 19+ categories by gender",
+      "Mass start from Jacó Civic Center"
+    ],
+    "citations": [],
+    "research_metadata": {
+      "founded_year": 2023,
+      "sources_count": 9,
+      "data_completeness": "High (UCI official sources)",
+      "notable_gaps": [
+        "exact entry fees",
+        "precise GPS coordinates",
+        "aid station details"
+      ]
+    }
+  }
+}

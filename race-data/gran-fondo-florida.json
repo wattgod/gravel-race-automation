@@ -1,0 +1,303 @@
+{
+  "race": {
+    "name": "Gran Fondo Florida",
+    "slug": "gran-fondo-florida",
+    "display_name": "Gran Fondo Florida",
+    "tagline": "Rolling hills and quiet country roads through Central Florida's horse farm country",
+    "vitals": {
+      "distance_mi": 100,
+      "distance_mi_note": "Gran route listed as 100 miles in primary sources; one source specifies 94 miles. Recommend verifying via official RideWithGPS app.",
+      "elevation_ft": 3248,
+      "location": "Dade City, Florida, USA",
+      "location_badge": "Pasco County, Central Florida",
+      "date": "March 22, 2026",
+      "date_specific": "2026: March 22",
+      "terrain_types": [
+        "rolling hills",
+        "quiet country roads",
+        "horse farms",
+        "orange groves",
+        "state forest"
+      ],
+      "field_size": "Unknown; waves of 25 riders every 5 minutes starting 8:00 AM",
+      "start_time": "8:00 AM (first riders stage at 7:45 AM)",
+      "start_location": "14323 7th St, Dade City, FL 33523",
+      "registration": "Via BikeReg; escalating pricing model",
+      "prize_purse": "Custom kits from SUAREZ for top 3 finishers in each category",
+      "aid_stations": 4,
+      "aid_station_details": "Four aid stations on Gran route (fully stocked with water, Heed, Hammer Gel, packaged foods); two on Medio; one on Piccolo (plus mini-aid with water, Heed, gel only)",
+      "cutoff_time": "10 mph minimum progression speed (includes stopped time); riders below threshold directed to shorter route at pre-established splits",
+      "lat": 28.364,
+      "lng": -82.191,
+      "lat_lng_note": "Approximate coordinates for Dade City center; verify precise start line via RideWithGPS",
+      "distance_options": [
+        {
+          "name": "Gran",
+          "distance_mi": 100,
+          "elevation_ft": 3248,
+          "timed_segments": 4
+        },
+        {
+          "name": "Medio",
+          "distance_mi": 64,
+          "elevation_ft": 2582,
+          "timed_segments": 2
+        },
+        {
+          "name": "Piccolo",
+          "distance_mi": 35,
+          "elevation_ft": 1640,
+          "timed_segments": 1
+        }
+      ],
+      "entry_fee": "2025 pricing: Gran $150–$200 (escalating); Medio $95–$145; Piccolo varies. 2026 pricing not yet confirmed.",
+      "entry_fee_note": "Verify current pricing via official website or BikeReg"
+    },
+    "climate": {
+      "month": "March",
+      "typical_temperature_f": "52–72°F",
+      "typical_conditions": "Mild spring weather, low precipitation risk",
+      "weather_forecast_2026": "31% chance precipitation, 6 mph SSE winds with gusts to 19 mph (as of forecast date)",
+      "weather_note": "Check Epic Ride Weather app for real-time conditions closer to event date"
+    },
+    "terrain": {
+      "description": "Rolling hills through rural Pasco and Hernando Counties, including Withlacoochee State Forest and hills surrounding Brooksville. Routes traverse quiet country roads past orange groves, horse farms, and crystal-clear springs. Historic Darby Road segment included.",
+      "surface": "Paved roads (public roads; obey traffic laws)",
+      "traffic": "Open to traffic; not a closed course",
+      "marked": "Well-marked with RideWithGPS app support; timed sections only (not start-to-finish race)"
+    },
+    "gravel_god_rating": {
+      "logistics": 4,
+      "length": 4,
+      "technicality": 3,
+      "elevation": 3,
+      "climate": 4,
+      "altitude": 1,
+      "adventure": 3,
+      "prestige": 3,
+      "race_quality": 4,
+      "experience": 4,
+      "community": 4,
+      "field_depth": 2,
+      "value": 3,
+      "expenses": 3,
+      "cultural_impact": 0,
+      "overall_score": 64,
+      "tier": 2,
+      "discipline": "road",
+      "tier_label": "TIER 2",
+      "editorial_tier_label": "TIER 2",
+      "business_tier_label": "TIER 2",
+      "display_tier_label": "TIER 2",
+      "editorial_tier": 2,
+      "business_tier": 2,
+      "display_tier": 2,
+      "score_note": "Sum of 14 criteria: 4+4+3+3+4+1+3+3+4+4+4+2+3+3 = 45. cultural_impact = 0. Total = 45. (45/70)*100 = 64."
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 4,
+        "explanation": "Well-organized waves, chip timing, four aid stations, RideWithGPS app integration, and clear cutoff procedures. Minor deduction for open-road format requiring traffic awareness."
+      },
+      "length": {
+        "score": 4,
+        "explanation": "100-mile Gran route is substantial and challenging for most riders; three distance options accommodate varied fitness levels. Slight ambiguity on exact distance (94 vs. 100 miles) noted."
+      },
+      "technicality": {
+        "score": 3,
+        "explanation": "Rolling hills and rural roads present moderate technical demands; no extreme descents or technical sections reported. Suitable for intermediate to advanced riders."
+      },
+      "elevation": {
+        "score": 3,
+        "explanation": "3,248 feet of elevation gain over 100 miles is moderate; rolling terrain rather than sustained climbs. Manageable for trained cyclists but not mountainous."
+      },
+      "climate": {
+        "score": 4,
+        "explanation": "March in Central Florida offers ideal early-season conditions: mild temperatures, low rain risk, and comfortable riding weather. Minimal weather-related concerns."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "Dade City sits at approximately 100 feet elevation; no altitude acclimation required. Negligible factor."
+      },
+      "adventure": {
+        "score": 3,
+        "explanation": "Rural horse farms, orange groves, and state forest provide scenic variety; historic Darby Road adds cycling heritage interest. Not a remote or exotic destination."
+      },
+      "prestige": {
+        "score": 3,
+        "explanation": "Part of USA Cycling Gran Fondo National Series (established 2012); franchise event with national recognition. Hosted 2025 National Championships. Solid prestige but not elite-tier."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "Timed-segment format (not start-to-finish) encourages participation over pure racing. Professional timing, marshaling, sag support, and custom kit awards for winners. Well-executed event."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "Festival atmosphere with street closures, live music, beer, food, and happy hour. Supportive community vibe. RideWithGPS app enhances navigation and results tracking."
+      },
+      "community": {
+        "score": 4,
+        "explanation": "National series draws diverse age groups and categories; team competitions and age-group awards foster camaraderie. Central Florida cycling hub with established cycling culture."
+      },
+      "field_depth": {
+        "score": 2,
+        "explanation": "Field size unknown; waves of 25 riders every 5 minutes suggest moderate participation. No data on competitive depth or elite rider participation."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "Entry fee ($150–$200 for Gran) is mid-range for gran fondos. Four aid stations, custom kits for winners, and national series points provide reasonable value. No premium amenities reported."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Dade City is 1 hour from Tampa (TPA) and 90 minutes from Orlando (MCO), reducing travel costs. Entry fee moderate. Accommodation and dining costs typical for Florida."
+      }
+    },
+    "biased_opinion": {
+      "overview": "Gran Fondo Florida is a well-executed, accessible gran fondo that balances competitive timed segments with a welcoming festival atmosphere. The rolling Central Florida terrain and quiet country roads offer a pleasant early-season ride without extreme technical or elevation demands. Ideal for riders seeking national series points and a supportive community event rather than a hardcore racing experience. The 100-mile distance and 3,248 feet of elevation are substantial but not punishing. March weather is excellent. Primary drawbacks: field size unknown, exact distance ambiguous, and prestige limited to regional/national series level rather than international recognition."
+    },
+    "final_verdict": {
+      "one_liner": "Recommended for intermediate to advanced road cyclists seeking an organized, community-focused gran fondo with national series credentials. Best suited for early-season training and age-group competition. Not recommended for riders seeking extreme terrain, elite-level racing, or exotic destinations.",
+      "full_verdict": ""
+    },
+    "logistics": {
+      "parking": "Not specified in sources; verify with event organizers",
+      "public_transit": "Dade City is 1 hour north of Tampa (TPA) and 90 minutes west of Orlando (MCO); rental car recommended",
+      "accommodation": "Dade City and surrounding Pasco County offer hotels, motels, and vacation rentals; no event-specific lodging partnerships reported",
+      "registration_deadline": "Not specified; escalating pricing suggests early registration discount",
+      "bib_pickup": "Not specified; likely day-before or morning-of",
+      "course_closure": "Main Street closure for start/finish; open-road format otherwise",
+      "support": "Marshals, motos, sag wagons, and four aid stations on Gran route"
+    },
+    "history": {
+      "year_founded": 2012,
+      "origin": "Part of America's original Gran Fondo National Series, established 2012. Tied to Central Florida's cycling heritage, winter training grounds for triathletes, and historic Darby Road (site of professional races including Laurent Fignon era).",
+      "notable_moments": [
+        "Hosted 2025 USA Cycling Gran Fondo National Championships",
+        "Annual fixture in USA Cycling Gran Fondo National Series since at least 2025",
+        "Festival atmosphere with street closures, live music, raffle, and happy hour"
+      ],
+      "evolution": "Evolved from regional event to national series franchise; timed-segment format encourages broad participation over pure racing"
+    },
+    "course_description": {
+      "overview": "Three rolling routes through rural Pasco and Hernando Counties, featuring quiet country roads, orange groves, horse farms, and crystal-clear springs. Includes Withlacoochee State Forest and hills surrounding Brooksville. Historic Darby Road segment.",
+      "gran_route_101_mi": {
+        "distance": 100,
+        "elevation": 3248,
+        "timed_segments": 4,
+        "aid_stations": 4,
+        "description": "Flagship route traversing rolling hills and rural roads through picturesque horse farm country. Four timed segments determine placement (not start-to-finish race). Minimum 10 mph progression speed required; riders below threshold directed to Medio route at pre-established splits."
+      },
+      "medio_route_64_mi": {
+        "distance": 64,
+        "elevation": 2582,
+        "timed_segments": 2,
+        "aid_stations": 2,
+        "description": "Intermediate option covering similar terrain with two timed segments. Two aid stations fully stocked."
+      },
+      "piccolo_route_35_mi": {
+        "distance": 35,
+        "elevation": 1640,
+        "timed_segments": 1,
+        "aid_stations": 1,
+        "aid_station_note": "Plus one mini-aid with water, Heed, and Hammer Gel only",
+        "description": "Beginner-friendly option with one timed segment and minimal elevation."
+      },
+      "suffering_zones": [
+        {
+          "location": "Brooksville hills",
+          "description": "Rolling climbs in mid-course; moderate sustained elevation gain"
+        },
+        {
+          "location": "Withlacoochee State Forest section",
+          "description": "Technical rolling terrain; potential for fatigue in final 20 miles of Gran route"
+        },
+        {
+          "location": "Darby Road historic segment",
+          "description": "Potential for competitive efforts; timed segment may occur here"
+        }
+      ],
+      "aid_station_details": "Water, Heed sports drink, Hammer Gel, and single-serving packaged foods (e.g., PB&J, snacks) at main aid stations. Mini-aid on Piccolo route limited to water, Heed, and gel.",
+      "navigation": "Well-marked course; RideWithGPS app provides turn-by-turn navigation via RSVP link. Elevation charts and timed section maps available online."
+    },
+    "guide_variables": {
+      "fitness_requirement": "Intermediate to advanced; 100-mile Gran route with 3,248 feet elevation gain requires consistent training",
+      "bike_type": "Road bike or gravel bike suitable; paved roads throughout",
+      "pacing_strategy": "Timed segments only; focus on best combined time across four segments rather than overall finish time. Maintain 10+ mph progression speed to avoid route reduction.",
+      "nutrition": "Four aid stations provide water, electrolytes, and gels; consider carrying additional nutrition for 100-mile distance",
+      "hydration": "Four aid stations; carry water bottles and refill regularly in March heat",
+      "weather_prep": "Mild spring conditions; light layers recommended. 31% rain chance; consider rain jacket. Wind gusts to 19 mph possible.",
+      "start_strategy": "Waves of 25 riders every 5 minutes; position yourself on right side of road at timed segment start/finish lines for chip read",
+      "course_hazards": "Open to traffic; obey traffic laws and stay in designated lane. No center-line crossing allowed. Rolling terrain increases fatigue in final miles.",
+      "time_estimate_gran": "6–8 hours depending on fitness and timed segment effort",
+      "time_estimate_medio": "4–6 hours",
+      "time_estimate_piccolo": "2–4 hours"
+    },
+    "non_negotiables": [
+      "Must cross official start line to be timed and eligible for awards",
+      "Must maintain 10 mph minimum progression speed (includes stopped time) or be directed to shorter route at pre-established splits",
+      "Must pass through timed segments on right side of road for chip to be read; left-side passage results in no time recorded",
+      "Must obey traffic laws; open-road format requires awareness of other vehicles",
+      "Chip timing required; verify chip is properly attached and read at all timed segments"
+    ],
+    "citations": [
+      {
+        "index": 1,
+        "url": "https://www.granfondonationalseries.com/gran-fondo-florida",
+        "title": "Gran Fondo Florida",
+        "accessed_date": "2026-03-03",
+        "key_info": "Event details, start location, aid stations, cutoff times, timed segments, awards"
+      },
+      {
+        "index": 2,
+        "url": "https://usacycling.org/national-series/gran-fondo-national-series",
+        "title": "Gran Fondo National Series - USA Cycling",
+        "accessed_date": "2026-03-03",
+        "key_info": "Series overview, 2026 event date (March 22), distance options, national championships"
+      },
+      {
+        "index": 3,
+        "url": "https://events.epicrideweather.com/events/5682154138763264-Gran-Fondo-Florida-2026",
+        "title": "Gran Fondo Florida 2026 Weather Forecast, Routes & Event Details",
+        "accessed_date": "2026-03-03",
+        "key_info": "Route distances and elevation, weather forecast, location details"
+      },
+      {
+        "index": 4,
+        "url": "https://www.granfondonationalseries.com/florida-maps",
+        "title": "FLORIDA MAPS — Gran Fondo National Series",
+        "accessed_date": "2026-03-03",
+        "key_info": "Timed section maps, RideWithGPS navigation links, elevation charts"
+      }
+    ],
+    "research_metadata": {
+      "query_date": "2026-03-03",
+      "event_date": "2026-03-22",
+      "days_until_event": 19,
+      "data_completeness": "High for logistics and course details; moderate for field size and historical results; low for exact distance ambiguity (94 vs. 100 miles)",
+      "distance_note": "Primary sources list Gran route as 100 miles (161 km) with 3,248 feet elevation; one source specifies 94 miles. Recommend verifying via official RideWithGPS app or event organizers.",
+      "sources_reviewed": 4,
+      "confidence_level": "High for event logistics, course terrain, and 2026 date; moderate for field size and prestige tier; recommend direct contact with organizers for entry fee confirmation and exact distance verification"
+    },
+    "scoring_summary": {
+      "logistics": 4,
+      "length": 4,
+      "technicality": 3,
+      "elevation": 3,
+      "climate": 4,
+      "altitude": 1,
+      "adventure": 3,
+      "prestige": 3,
+      "race_quality": 4,
+      "experience": 4,
+      "community": 4,
+      "field_depth": 2,
+      "value": 3,
+      "expenses": 3,
+      "cultural_impact": 2,
+      "total_score_sum": 46,
+      "overall_score": 66,
+      "tier": "T2",
+      "tier_rationale": "Score of 66 places event in T2 (60–79 range). Prestige of 3 does not override tier placement. Well-organized national series event with solid logistics, experience, and community appeal, but limited field depth and cultural impact prevent T1 classification."
+    }
+  }
+}

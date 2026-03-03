@@ -130,7 +130,10 @@
         "description": "Medium distance with serious climbing"
       }
     ],
-    "terrain": "Appalachian foothills gravel - steep sustained climbs, technical terrain, challenging Ohio hill country",
+    "terrain": {
+      "overview": "Appalachian foothills gravel - steep sustained climbs, technical terrain, challenging Ohio hill country",
+      "surface_breakdown": {}
+    },
     "registration": "Limited field, opens in winter",
     "weather": "Ohio spring - variable temperatures (50s-70s F), potential for rain and mud",
     "uniqueCharacteristics": [

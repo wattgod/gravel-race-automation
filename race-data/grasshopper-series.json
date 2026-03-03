@@ -209,7 +209,10 @@
         "Juniors 16-18"
       ]
     },
-    "terrain": "Diverse - gravel roads, logging roads, singletrack, pavement. Varies significantly by event from 95% dirt (Low Gap) to 96% paved (King Ridge) to 100% off-road (Jackson Forest).",
+    "terrain": {
+      "overview": "Diverse - gravel roads, logging roads, singletrack, pavement. Varies significantly by event from 95% dirt (Low Gap) to 96% paved (King Ridge) to 100% off-road (Jackson Forest).",
+      "surface_breakdown": {}
+    },
     "weather": "January-May Northern California - variable winter/spring conditions with potential for rain, mud, fog, and cool temperatures",
     "unique_characteristics": [
       "World's first gravel series (founded 1998)",

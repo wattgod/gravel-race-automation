@@ -1,0 +1,213 @@
+{
+  "race": {
+    "name": "GFNY Bremen",
+    "slug": "gfny-bremen",
+    "display_name": "GFNY Bremen",
+    "tagline": "Flat, fast, and windy: Be a Pro for a Day on North German roads",
+    "vitals": {
+      "distance_mi": 69.6,
+      "elevation_ft": 984,
+      "location": "Bremen, Germany",
+      "location_badge": "Tabakquartier Bremen",
+      "date": "August 30",
+      "date_specific": "August 30, 2026",
+      "terrain_types": [
+        "road",
+        "cobbles"
+      ],
+      "field_size": 1500,
+      "start_time": "8:30 AM",
+      "registration": "Open via bremen.gfny.com",
+      "prize_purse": "Age group podiums + GFNY World Championship qualifiers",
+      "aid_stations": "Maurten fueling stations",
+      "cutoff_time": "Not specified",
+      "lat": 53.1048,
+      "lng": 8.8089,
+      "distance_options": [
+        {
+          "name": "Long Route",
+          "distance_km": 112,
+          "distance_mi": 69.6,
+          "competitive": true
+        },
+        {
+          "name": "Medium Route",
+          "distance_km": 68,
+          "distance_mi": 42.2,
+          "competitive": false
+        }
+      ],
+      "entry_fee": "Not specified"
+    },
+    "climate": {
+      "overview": "North German late-summer: mild temperatures, potential wind challenges on exposed flat terrain[1][2][3]",
+      "average_temp_f": null,
+      "precipitation_chance": null
+    },
+    "terrain": {
+      "overview": "Mostly flat North German roads with frequent false flats, 500m cobbles, farmland, forest, and small turny roads[1][2][3]",
+      "surface_breakdown": {}
+    },
+    "gravel_god_rating": {
+      "logistics": 4,
+      "length": 3,
+      "technicality": 3,
+      "elevation": 1,
+      "climate": 3,
+      "altitude": 1,
+      "adventure": 2,
+      "prestige": 3,
+      "race_quality": 4,
+      "experience": 4,
+      "community": 4,
+      "field_depth": 3,
+      "value": 3,
+      "expenses": 3,
+      "cultural_impact": 2,
+      "overall_score": 61,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "editorial_tier_label": "TIER 2",
+      "business_tier_label": "TIER 2",
+      "display_tier_label": "TIER 2",
+      "editorial_tier": 2,
+      "business_tier": 2,
+      "display_tier": 2,
+      "discipline": "road",
+      "score_note": "Sum of 14 criteria: 4+3+3+1+3+1+2+3+4+4+4+3+3+3 = 41. cultural_impact = 2. Total = 43. (43/70)*100 = 61."
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 4,
+        "explanation": "GFNY Bremen features efficient organization at the historic Tabakquartier for expo, start, finish, and festivities, with neutralized sections for safety and courteous local traffic on closed roads.[1][2][4]"
+      },
+      "length": {
+        "score": 3,
+        "explanation": "The main GFNY distance is 110-112.7 km with a 40 km loop ridden twice, offering a solid but not epic gran fondo length, alongside a shorter 60 km medio option.[1][2][4]"
+      },
+      "technicality": {
+        "score": 3,
+        "explanation": "The course includes numerous turns in the early 4-18 km section, frequent false flats, and a 500m cobbled stretch, demanding handling skills despite overall smoothness.[2][4]"
+      },
+      "elevation": {
+        "score": 1,
+        "explanation": "With hardly any meters of climbing, just gentle undulations and rare 4% gradients that don't last, the route is predominantly flat.[2][4]"
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "Northern Germany's August weather brings typical mild summer conditions with potential wind challenges on the exposed flat farmlands, balancing comfort and exposure.[1][2][4]"
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "Starting and riding at near-sea level in Bremen, the course stays low throughout its flat profile with no significant high points.[2][4]"
+      },
+      "adventure": {
+        "score": 2,
+        "explanation": "Passing vast farmlands, traditional farmsteads, forests, and scenic Ochtum River cool-down, it offers pleasant rural scenery but lacks rugged or exploratory thrills.[2][4]"
+      },
+      "prestige": {
+        "score": 3,
+        "explanation": "As part of the renowned international GFNY series hosting the GFNY Europe Championship, it carries solid brand recognition without the elite status of flagships like New York.[3][5]"
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "Flat, fast roads with wind and false flats sorting the field, chip timing, age-group rankings, and pro-like vibes make for high-quality racing tailored to powerful riders.[2][3][5]"
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "Festivities include expo, group rides, happy hour, finisher medals, post-race meals, and awards at Tabakquartier, enhanced by Bremen's bike-friendly culture and safety.[2][3][4]"
+      },
+      "community": {
+        "score": 4,
+        "explanation": "Around 1,500 international participants foster a vibrant atmosphere, supported by local enthusiasm and GFNY's rider-focused events like warm-up rides.[1][3]"
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "1,500 riders from across Europe and beyond compete, but as a newer flat-focused event, it attracts strong power riders without drawing top global climbing talent.[1][2][3]"
+      },
+      "value": {
+        "score": 3,
+        "explanation": "Entry provides expo access, timing, medals, meals, and festivities in a bike-friendly city, offering good but not standout value for the GFNY experience.[3][5]"
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Proximity to Hamburg and Netherlands aids accessibility, with bike rentals and local support, though travel and GFNY entry fees keep costs moderate for Europeans.[3][7]"
+      },
+      "cultural_impact": {
+        "score": 2,
+        "explanation": ""
+      }
+    },
+    "ratings_explanations": {
+      "logistics": "Excellent access via Bremen Airport, central Tabakquartier hub for expo/finish[1][2][5]",
+      "length": "Solid 112km but not ultra distance[1][2][3]",
+      "technicality": "Turny roads + cobbles add interest to flat course[1][2]",
+      "elevation": "Minimal climbing, false flats only[1][2][3]",
+      "climate": "Mild August but wind is the real challenge[1][2]",
+      "altitude": "Sea level North Germany[1]",
+      "adventure": "Familiar European roads, not exotic[1][5]",
+      "prestige": "GFNY franchise + 2025 Europe Championship[1][5]",
+      "race_quality": "Closed roads, chip timing, pro organization[1][2]",
+      "experience": "Neutralized start/end, jersey, expo, Happy Hour[1][2][5]",
+      "community": "1500 international riders + group rides[1][5]",
+      "field_depth": "Good field size but new event[1][5]",
+      "value": "GFNY format delivers but entry fee unknown[1]",
+      "expenses": "Reasonable Euro travel costs[2][5]",
+      "cultural_impact": "Historic Bremen setting, new to calendar[1][5]"
+    },
+    "overall_score": 60,
+    "tier": "T2",
+    "biased_opinion": {
+      "overview": "GFNY Bremen delivers the franchise polish on a fast, windy North German course. Perfect for age-groupers chasing qualifiers without climbing suffering. Cobbles and false flats prevent pure TT boredom."
+    },
+    "final_verdict": {
+      "one_liner": "T2 GFNY franchise event: Fast Euro qualifier with wind character",
+      "full_verdict": ""
+    },
+    "logistics": {
+      "overview": "Bremen Airport (BRE) on course km4. Hamburg (HAM) 1hr away. Tabakquartier central hub. Easy Euro access[1][2][5]",
+      "official_site": "",
+      "airports": [],
+      "accommodation": "",
+      "registration_notes": ""
+    },
+    "history": {
+      "overview": "Inaugural 2025 (Aug 31) as GFNY Europe Championship with 1500 riders. 2026 edition Aug 30. Organized by GFNY Global Series[1][2][5]",
+      "founder": "",
+      "notable_moments": []
+    },
+    "course_description": {
+      "character": "Neutralized 0-4km to airport → racing km4-18 turny roads → double flat loop (farmland/forest/false flats/500m cobbles) → timing finish km106 sprint → neutralized 6km Ochtum River cooldown to Tabakquartier[1][2][3]",
+      "suffering_zones": [],
+      "ridewithgps_id": null,
+      "ridewithgps_name": null,
+      "signature_challenge": null
+    },
+    "suffering_zones": [
+      "Wind-exposed flats (entire loops)",
+      "500m cobbles historic sector",
+      "False flats sorting groups"
+    ],
+    "guide_variables": {
+      "discipline": "road",
+      "prestige": 3,
+      "wind_factor": "high",
+      "cobbles": "500m",
+      "neutralized": "10km total"
+    },
+    "non_negotiables": [
+      "Mandatory official GFNY jersey (NYC design, Italy made)",
+      "Long route required for age group awards/qualifiers",
+      "Cross final Tabakquartier line for official finisher status",
+      "U18 category only (no U16 due to competitive format)"
+    ],
+    "citations": [],
+    "research_metadata": {
+      "data_freshness": "Current as of March 2026 for Aug 2026 event",
+      "elevation_confirmed": false,
+      "fee_confirmed": false,
+      "gps_confirmed": false,
+      "sources": 9
+    }
+  }
+}

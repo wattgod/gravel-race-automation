@@ -1,17 +1,17 @@
 {
   "@context": "https://schema.org",
   "@type": "SportsEvent",
-  "name": "Oregon Gran Fondo",
-  "description": "All-road cycling through western Oregon forests, vineyards, and historic landscapes - Round #5 of the Oregon Triple Crown Series",
+  "name": "Tour de Fukushima",
+  "description": "UCI Gran Fondo qualifier through Fukushima's recovery zones",
   "sport": "Gravel Cycling",
-  "startDate": "2026-05-16",
+  "startDate": "2026-06-13",
   "location": {
     "@type": "Place",
-    "name": "Cottage Grove, Oregon, USA"
+    "name": "Hamadori coastal region, Fukushima Prefecture"
   },
   "aggregateRating": {
     "@type": "AggregateRating",
-    "ratingValue": "79",
+    "ratingValue": "74",
     "bestRating": "100",
     "ratingCount": "14",
     "name": "Gravel God Rating"

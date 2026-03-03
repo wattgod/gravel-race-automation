@@ -1,0 +1,234 @@
+{
+  "race": {
+    "name": "L'Étape Bulgaria by Tour de France",
+    "slug": "letape-bulgaria",
+    "display_name": "L'Étape Bulgaria by Tour de France - Peshtera",
+    "tagline": "Experience the Tour de France atmosphere on fully closed roads in the Rhodope Mountains",
+    "vitals": {
+      "distance_mi": 63.4,
+      "elevation_ft": 8202,
+      "location": "Peshtera, Bulgaria",
+      "location_badge": "Rhodope Mountains",
+      "date": "July",
+      "date_specific": "July 5, 2026",
+      "terrain_types": [
+        "paved",
+        "hilly",
+        "mountainous"
+      ],
+      "field_size": "Not disclosed",
+      "start_time": "Not specified",
+      "registration": "Early registration opens October 23 (general pattern)",
+      "prize_purse": "Not specified",
+      "aid_stations": "Not specified",
+      "cutoff_time": "Not specified",
+      "lat": 42.0333,
+      "lng": 24.2833,
+      "distance_options": [
+        {
+          "name": "Long Race",
+          "distance_km": 102,
+          "distance_mi": 63.4,
+          "elevation_m": 2500,
+          "elevation_ft": 8202
+        },
+        {
+          "name": "Short Race",
+          "distance_km": 57,
+          "distance_mi": 35.4,
+          "elevation_m": 1500,
+          "elevation_ft": 4921
+        },
+        {
+          "name": "Kids Race",
+          "distance_km": "Short",
+          "distance_mi": "TBD",
+          "elevation_m": "Minimal",
+          "elevation_ft": "Minimal"
+        },
+        {
+          "name": "Family Ride",
+          "distance_km": "Short",
+          "distance_mi": "TBD",
+          "elevation_m": "Minimal",
+          "elevation_ft": "Minimal"
+        }
+      ],
+      "entry_fee": "Not disclosed"
+    },
+    "climate": {
+      "overview": "Warm summer conditions typical of Bulgarian Rhodope Mountains in early July; expect temperatures 20-30°C with potential afternoon showers. Specific forecasts unavailable.",
+      "average_temp_f": null,
+      "precipitation_chance": null
+    },
+    "terrain": {
+      "overview": "Fully closed paved roads through Rhodope Mountains featuring sustained climbs, technical descents, and scenic reservoir views.",
+      "surface_breakdown": {}
+    },
+    "gravel_god_rating": {
+      "logistics": 4,
+      "length": 3,
+      "technicality": 4,
+      "elevation": 4,
+      "climate": 4,
+      "altitude": 3,
+      "adventure": 5,
+      "prestige": 3,
+      "race_quality": 4,
+      "experience": 5,
+      "community": 4,
+      "field_depth": 3,
+      "value": 4,
+      "expenses": 3,
+      "cultural_impact": 2,
+      "overall_score": 79,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "editorial_tier_label": "TIER 2",
+      "business_tier_label": "TIER 2",
+      "display_tier_label": "TIER 2",
+      "editorial_tier": 2,
+      "business_tier": 2,
+      "display_tier": 2,
+      "discipline": "road",
+      "score_note": "Sum of 14 criteria: 4+3+4+4+4+3+5+3+4+5+4+3+4+3 = 53. cultural_impact = 2. Total = 55. (55/70)*100 = 79."
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 4,
+        "explanation": "The event in Peshtera benefited from strong municipal support, meticulous route preparation, and safety measures, enabling smooth execution for 1,200 cyclists across multiple formats.[1][2] Minor deductions arise from potential first-time hosting challenges in the new location."
+      },
+      "length": {
+        "score": 3,
+        "explanation": "Offering 58 km and 112 km distances, the routes provide solid options but lack ultra-long challenges exceeding 150 km common in elite gran fondos.[1][2]"
+      },
+      "technicality": {
+        "score": 4,
+        "explanation": "The circuit features winding ascents like the Saint Konstantin climb and varied terrain around Batak Lake, demanding precise handling and pacing skills.[2]"
+      },
+      "elevation": {
+        "score": 4,
+        "explanation": "With 1,100 m for the short race and 2,200 m for the long, the climbs through the Rhodope Mountains deliver substantial vertical challenge without overwhelming amateurs.[1][2]"
+      },
+      "climate": {
+        "score": 4,
+        "explanation": "August timing in Peshtera ensures mild summer weather in the Rhodope Mountains, ideal for endurance riding with low rain risk and comfortable temperatures.[2]"
+      },
+      "altitude": {
+        "score": 3,
+        "explanation": "Primarily low-elevation routes starting in Peshtera and climbing to St. Konstantin resort, lacking high-altitude passes that test hypoxia adaptation.[1][2]"
+      },
+      "adventure": {
+        "score": 5,
+        "explanation": "Riders experience stunning Rhodope scenery, historic Batak streets, serene Batak Lake shores, and a festive atmosphere, creating an unforgettable exploratory journey.[2]"
+      },
+      "prestige": {
+        "score": 3,
+        "explanation": "Branded under Tour de France's L'Étape series with international draw from 16 countries, but as a third-edition amateur event in Bulgaria, it trails flagship Étape du Tour prestige.[1][5]"
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "Well-organized with diverse formats, challenging circuits, and jubilant crowds, elevated by Tour de France branding and pro-level route design.[2]"
+      },
+      "experience": {
+        "score": 5,
+        "explanation": "Combines epic climbs, breathtaking views, family rides, live concerts, and a Tour museum, crafting a holistic festival of cycling passion and community.[1][2]"
+      },
+      "community": {
+        "score": 4,
+        "explanation": "Peshtera's warm embrace, local engagement, and 1,200 riders from 16 nations fostered strong camaraderie and shared endurance spirit.[1][2]"
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "Attracts 1,200 amateurs from 16 countries, offering decent international variety but limited elite or pro-level depth typical of top gran fondos.[1]"
+      },
+      "value": {
+        "score": 4,
+        "explanation": "Delivers high-quality Tour de France-branded challenge, scenery, and festivities at accessible amateur pricing in Bulgaria's scenic Rhodopes.[2]"
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Reasonable for the experience but travel to Peshtera and Rhodope lodging add costs for international participants from 16 countries.[1]"
+      },
+      "cultural_impact": {
+        "score": 2,
+        "explanation": ""
+      }
+    },
+    "biased_opinion": {
+      "logistics": "4 - Well-organized Tour de France franchise event with Race Village, though international travel logistics add complexity[1].",
+      "length": "3 - Solid 102km long route but shorter than flagship Etape du Tour distances[1].",
+      "technicality": "4 - Mountain descents near Batak Dam require solid bike handling skills[1].",
+      "elevation": "4 - 2,500m gain over 102km provides serious climbing challenge for amateurs[1].",
+      "climate": "4 - Favorable July weather in Rhodopes, warm but not extreme[1].",
+      "altitude": "3 - Highest point 1,350m is challenging but not high-altitude suffering[1].",
+      "adventure": "5 - Stunning Rhodope scenery, closed roads, reservoir views create epic adventure[1].",
+      "prestige": "3 - Official Tour de France L'Étape Series event carries strong brand recognition[4].",
+      "race_quality": "4 - Professional organization standards from Tour de France franchise[1][4].",
+      "experience": "5 - Authentic Tour atmosphere with Race Village in mountain setting[1].",
+      "community": "4 - Growing regional cycling scene boosted by Tour de France branding[1].",
+      "field_depth": "3 - Amateur sportive with competitive long route but not elite field[1].",
+      "value": "4 - Premium Tour de France experience at accessible Eastern Europe pricing[1].",
+      "expenses": "3 - International travel from Western Europe adds cost; local value excellent",
+      "cultural_impact": "2 - Young event (4th edition 2026) building local cycling culture[1][4]"
+    },
+    "final_verdict": {
+      "one_liner": "T2 - Premium Tour de France franchise sportive delivering authentic Gran Fondo experience in spectacular Rhodope Mountains. Excellent for climbers seeking closed-road adventure.",
+      "full_verdict": ""
+    },
+    "logistics": {
+      "overview": "Start/finish in Peshtera city center. Fully closed roads. Race Village provides Tour de France atmosphere. International travelers should fly into Sofia (2.5hr drive). Early registration recommended[1].",
+      "official_site": "",
+      "airports": [],
+      "accommodation": "",
+      "registration_notes": ""
+    },
+    "history": {
+      "overview": "Launched January 10, 2023 as inaugural edition. 2026 marks 4th edition (2023-2026). Part of global L'Étape Series across 20+ countries[1][4].",
+      "founder": "",
+      "notable_moments": []
+    },
+    "course_description": {
+      "character": "Start Peshtera city center → climb through town → **SUFFERING ZONE 1: Sustained ascent to Sveti Konstantin resort (1,350m highest point)** → scenic descent past Batak Dam → through Batak town → **FINAL SUFFERING ZONE: City center finish circuits**. Fully closed roads showcase Rhodope beauty[1].",
+      "suffering_zones": [],
+      "ridewithgps_id": null,
+      "ridewithgps_name": null,
+      "signature_challenge": null
+    },
+    "guide_variables": {
+      "best_for": [
+        "climbers",
+        "scenic_enthusiasts",
+        "tour_de_france_fans"
+      ],
+      "difficulty": "hard",
+      "signature_feature": "Tour de France branding on closed Rhodope roads",
+      "crowd_vibe": "festive_family",
+      "travel_difficulty": "medium"
+    },
+    "non_negotiables": [
+      "Book early - Tour de France events sell out",
+      "Climbing legs required for long route",
+      "Mountain bike handling skills for descents",
+      "Sofia airport transfer planning (2.5hrs)",
+      "Hot July mountain weather preparation"
+    ],
+    "citations": [],
+    "research_metadata": {
+      "data_completeness": "medium",
+      "missing_info": [
+        "exact field size",
+        "registration fees",
+        "aid station details",
+        "cutoff times"
+      ],
+      "confidence": "high",
+      "last_updated": "2026",
+      "sources_used": 8
+    },
+    "prestige": 3,
+    "discipline": "road",
+    "overall_score": 62,
+    "tier": "T2"
+  }
+}

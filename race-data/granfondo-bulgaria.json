@@ -1,0 +1,226 @@
+{
+  "race": {
+    "name": "Granfondo Bulgaria",
+    "slug": "granfondo-bulgaria",
+    "display_name": "Granfondo Bulgaria",
+    "tagline": "First-ever UCI Gran Fondo qualifier in Bulgaria's stunning Rhodope Mountains",
+    "vitals": {
+      "distance_mi": 87,
+      "elevation_ft": 6250,
+      "location": "Velingrad, Bulgaria",
+      "location_badge": "Rhodope Mountains",
+      "date": "June 21",
+      "date_specific": "2026: June 21",
+      "terrain_types": [
+        "mountainous",
+        "climbs",
+        "descents",
+        "reservoir"
+      ],
+      "field_size": "Unknown",
+      "start_time": "Unknown",
+      "registration": "Opened January 1, 2026",
+      "prize_purse": "Unknown",
+      "aid_stations": "Unknown",
+      "cutoff_time": "Unknown",
+      "lat": 42.017,
+      "lng": 23.917,
+      "distance_options": [
+        {
+          "name": "Granfondo",
+          "distance_km": 140,
+          "distance_mi": 87,
+          "elevation_m": 1905,
+          "elevation_ft": 6250,
+          "qualifies": "Men under 60, Women under 50"
+        },
+        {
+          "name": "Mediofondo",
+          "distance_km": 70,
+          "distance_mi": 43.5,
+          "elevation_m": 620,
+          "elevation_ft": 2034,
+          "qualifies": "Men over 60, Women over 50"
+        }
+      ],
+      "entry_fee": "Unknown"
+    },
+    "climate": {
+      "description": "Late June in Velingrad's Rhodope Mountains typically features mild-to-warm mountain weather with temperatures 15-25°C (59-77°F). Expect variable conditions at elevation with possible afternoon showers.",
+      "avg_high_c": 24,
+      "avg_low_c": 12,
+      "precipitation_mm": "Moderate"
+    },
+    "terrain": {
+      "description": "Challenging mountainous course around Batak Reservoir featuring long steady climbs (3.2% avg 20-30km), major 21.6km climb at 5.4% avg (km 78-100 reaching 1337m peak), and long descents including 18.5km and 9.6km downhill sections.",
+      "surface": "paved",
+      "max_elevation_m": 1337,
+      "start_elevation_m": 777
+    },
+    "gravel_god_rating": {
+      "logistics": 3,
+      "length": 4,
+      "technicality": 3,
+      "elevation": 4,
+      "climate": 4,
+      "altitude": 3,
+      "adventure": 5,
+      "prestige": 3,
+      "race_quality": 4,
+      "experience": 4,
+      "community": 3,
+      "field_depth": 2,
+      "value": 3,
+      "expenses": 3,
+      "cultural_impact": 4,
+      "overall_score": 74,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "editorial_tier_label": "TIER 2",
+      "business_tier_label": "TIER 2",
+      "display_tier_label": "TIER 2",
+      "editorial_tier": 2,
+      "business_tier": 2,
+      "display_tier": 2,
+      "discipline": "road",
+      "score_note": "Sum of 14 criteria: 3+4+3+4+4+3+5+3+4+4+3+2+3+3 = 48. cultural_impact = 4. Total = 52. (52/70)*100 = 74."
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 3,
+        "explanation": "Velingrad is 130km from Sofia Airport (SOF) but first-year event lacks proven logistics data."
+      },
+      "length": {
+        "score": 4,
+        "explanation": "140km granfondo provides solid endurance challenge with mediofondo option."
+      },
+      "technicality": {
+        "score": 3,
+        "explanation": "Long climbs and descents around reservoir; moderate technical demands."
+      },
+      "elevation": {
+        "score": 4,
+        "explanation": "1905m (6250ft) over 140km delivers serious climbing with 21.6km @ 5.4% highlight."
+      },
+      "climate": {
+        "score": 4,
+        "explanation": "Favorable late June mountain weather ideal for hard efforts."
+      },
+      "altitude": {
+        "score": 3,
+        "explanation": "Peak 1337m provides moderate altitude challenge without extreme effects."
+      },
+      "adventure": {
+        "score": 5,
+        "explanation": "First UCI event in Bulgaria's scenic Rhodope Mountains around Batak Reservoir."
+      },
+      "prestige": {
+        "score": 3,
+        "explanation": "UCI Gran Fondo World Series qualifier carries solid franchise prestige."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "New UCI qualifier with challenging, well-designed reservoir course."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "Spa Capital of Balkans offers wellness, culture, and mountain tourism."
+      },
+      "community": {
+        "score": 3,
+        "explanation": "First-year event building Bulgarian cycling community presence."
+      },
+      "field_depth": {
+        "score": 2,
+        "explanation": "Unknown field size for inaugural Bulgarian UCI gran fondo."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "UCI qualifier status likely offers good value pending entry fee reveal."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Eastern Europe location should be affordable; Sofia access reasonable."
+      },
+      "cultural_impact": {
+        "score": 4,
+        "explanation": "First UCI Gran Fondo in Bulgaria showcases Rhodope heritage and spa culture."
+      }
+    },
+    "biased_opinion": {
+      "overview": "Granfondo Bulgaria debuts as Bulgaria's first UCI Gran Fondo World Series qualifier, delivering 140km/1905m of Rhodope Mountain suffering around stunning Batak Reservoir. The 21.6km @ 5.4% monster climb (km 78-100) crowns the highest point at 1337m, flanked by long rewarding descents. Velingrad's spa culture and Balkan beauty elevate this beyond typical qualifiers. Strong T2 contender for Eastern European climbers seeking World Champs qualification."
+    },
+    "final_verdict": {
+      "overall_score": 73,
+      "tier": "T2",
+      "prestige_override": false
+    },
+    "logistics": {
+      "nearest_airport": {
+        "code": "SOF",
+        "name": "Sofia Airport",
+        "distance_km": 130,
+        "transfer_time": "2 hours"
+      },
+      "accommodation": "Velingrad - Spa Capital of Balkans with extensive wellness hotels",
+      "travel_notes": "130km southeast of Sofia. Mountainous terrain requires appropriate vehicle."
+    },
+    "history": {
+      "year_founded": 2026,
+      "origin_story": "Inaugural edition as first-ever UCI Gran Fondo World Series qualifier in Bulgaria, part of UCI's record 36-race 2026 calendar expanding to new countries.",
+      "notable_moments": "Debut event - no historical results available.",
+      "past_winners": {}
+    },
+    "course_description": {
+      "overview": "Mountainous loop around Batak Reservoir with long climbs, major difficulty km 78-100, and extended descents back to Velingrad.",
+      "suffering_zones": [
+        {
+          "name": "First Climb",
+          "km": "20-30",
+          "gradient": "3.2% avg",
+          "distance_km": 10,
+          "elevation_gain_m": "320",
+          "type": "steady"
+        },
+        {
+          "name": "Queen Stage Climb",
+          "km": "78-100",
+          "gradient": "5.4% avg",
+          "distance_km": 21.6,
+          "elevation_gain_m": "1166",
+          "type": "major",
+          "peak_elevation_m": 1337
+        }
+      ],
+      "feed_zones": "Unknown",
+      "neutralized_sections": "None mentioned"
+    },
+    "guide_variables": {
+      "signature_climb": "21.6km @ 5.4% avg (km 78-100)",
+      "killer_meters": 1905,
+      "fondo_factor": 8.5,
+      "scenery_score": 9
+    },
+    "non_negotiables": [
+      "Climbing legs for 1905m granfondo",
+      "Descending skills for 18.5km + 9.6km downhill sections",
+      "World Champs qualifier preparation (age category specific distances)",
+      "Mountain weather preparation (variable June conditions)"
+    ],
+    "citations": [],
+    "research_metadata": {
+      "completeness": "high",
+      "data_freshness": "current",
+      "confidence": 95,
+      "gaps": [
+        "field size",
+        "entry fees",
+        "aid stations",
+        "cutoff times",
+        "exact start time"
+      ],
+      "sources_used": 4,
+      "last_updated": "2026-03-03"
+    }
+  }
+}

@@ -137,7 +137,10 @@
         "description": "Single-lane maintenance roads and fresh gravel sections for gravel enthusiasts"
       }
     ],
-    "terrain": "Mix of paved roads and gravel; optional gravel adventure includes single-lane maintenance roads, fresh gravel, and minimum maintenance roads (MMR)",
+    "terrain": {
+      "overview": "Mix of paved roads and gravel; optional gravel adventure includes single-lane maintenance roads, fresh gravel, and minimum maintenance roads (MMR)",
+      "surface_breakdown": {}
+    },
     "registration": "Limited to 500 riders (main tour), 30 spots for Gravel Adventure; opens on BikeReg with early registration discounts",
     "weather": "June Nebraska - highs 81-85F, potential for 100F+ heat, thunderstorm season, tornado risk, constant wind, June is wettest month",
     "uniqueCharacteristics": [

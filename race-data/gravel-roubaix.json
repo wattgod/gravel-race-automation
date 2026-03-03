@@ -46,7 +46,10 @@
         "description": "Half distance with substantial climbing in mountainous terrain"
       }
     ],
-    "terrain": "Pocono Mountain gravel roads - steep sustained climbs, technical rocky descents, remote forest roads",
+    "terrain": {
+      "overview": "Pocono Mountain gravel roads - steep sustained climbs, technical rocky descents, remote forest roads",
+      "surface_breakdown": {}
+    },
     "registration": "Opens winter, sells out quickly",
     "weather": "Unpredictable spring mountain weather - temperatures 40s-60s°F, potential for rain, cold, or mud",
     "uniqueCharacteristics": [

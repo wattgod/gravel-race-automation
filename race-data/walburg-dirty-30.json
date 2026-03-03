@@ -41,7 +41,10 @@
         "description": "Challenging 30 miles through Texas Hill Country"
       }
     ],
-    "terrain": "Texas Hill Country gravel - rolling hills, limestone roads, ranch land, technical sections",
+    "terrain": {
+      "overview": "Texas Hill Country gravel - rolling hills, limestone roads, ranch land, technical sections",
+      "surface_breakdown": {}
+    },
     "registration": "Opens in summer",
     "weather": "Texas December - mild to cool temperatures (50s-60s°F), generally pleasant racing conditions",
     "uniqueCharacteristics": [

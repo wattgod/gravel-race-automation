@@ -1,17 +1,17 @@
 {
   "@context": "https://schema.org",
   "@type": "SportsEvent",
-  "name": "Oregon Gran Fondo",
-  "description": "All-road cycling through western Oregon forests, vineyards, and historic landscapes - Round #5 of the Oregon Triple Crown Series",
+  "name": "L'\u00c9tape Mexico City",
+  "description": "Experience the Tour de France in the heart of Mexico City",
   "sport": "Gravel Cycling",
-  "startDate": "2026-05-16",
+  "startDate": "2026-11-30",
   "location": {
     "@type": "Place",
-    "name": "Cottage Grove, Oregon, USA"
+    "name": "Mexico City, Mexico"
   },
   "aggregateRating": {
     "@type": "AggregateRating",
-    "ratingValue": "79",
+    "ratingValue": "70",
     "bestRating": "100",
     "ratingCount": "14",
     "name": "Gravel God Rating"

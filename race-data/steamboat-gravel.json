@@ -62,7 +62,10 @@
         "description": "Beginner-friendly introduction to champagne gravel"
       }
     ],
-    "terrain": "Famous 'champagne gravel' - smooth, high-quality gravel roads through working ranches, aspen groves, and sage-studded hills at high altitude",
+    "terrain": {
+      "overview": "Famous 'champagne gravel' - smooth, high-quality gravel roads through working ranches, aspen groves, and sage-studded hills at high altitude",
+      "surface_breakdown": {}
+    },
     "registration": {
       "method": "Lottery via BikeReg",
       "window": "October 14-31, 2025 for 2026 event",

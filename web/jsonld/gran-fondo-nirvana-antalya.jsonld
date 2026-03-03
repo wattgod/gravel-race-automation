@@ -1,17 +1,17 @@
 {
   "@context": "https://schema.org",
   "@type": "SportsEvent",
-  "name": "Oregon Gran Fondo",
-  "description": "All-road cycling through western Oregon forests, vineyards, and historic landscapes - Round #5 of the Oregon Triple Crown Series",
+  "name": "UCI Gran Fondo World Series Antalya",
+  "description": "Fast Turkish Riviera qualifier with luxury resort vibes",
   "sport": "Gravel Cycling",
-  "startDate": "2026-05-16",
+  "startDate": "2025-11-07",
   "location": {
     "@type": "Place",
-    "name": "Cottage Grove, Oregon, USA"
+    "name": "Antalya, Turkey"
   },
   "aggregateRating": {
     "@type": "AggregateRating",
-    "ratingValue": "79",
+    "ratingValue": "71",
     "bestRating": "100",
     "ratingCount": "14",
     "name": "Gravel God Rating"

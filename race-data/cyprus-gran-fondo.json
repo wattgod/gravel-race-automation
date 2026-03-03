@@ -1,0 +1,213 @@
+{
+  "race": {
+    "name": "Cyprus Gran Fondo",
+    "slug": "cyprus-gran-fondo",
+    "display_name": "UCI Cyprus Gran Fondo",
+    "tagline": "3-day UCI Gran Fondo World Series qualifier in Mediterranean paradise",
+    "vitals": {
+      "distance_mi": 63.4,
+      "elevation_ft": 6562,
+      "location": "Paphos, Cyprus",
+      "location_badge": "Pafos Castle Square",
+      "date": "April",
+      "date_specific": "2026: April 3",
+      "terrain_types": [
+        "road",
+        "climb",
+        "coastal",
+        "valley"
+      ],
+      "field_size": 400,
+      "start_time": "08:00-09:02",
+      "registration": "Open - UCI qualifier",
+      "prize_purse": "Age category medals + UCI Worlds qualification",
+      "aid_stations": "Multiple feeding zones per stage (water, fruit, carbs)",
+      "cutoff_time": "Not specified",
+      "lat": 34.769,
+      "lng": 32.419,
+      "distance_options": [
+        "28.6km ITT",
+        "45km medio",
+        "59km",
+        "89km medio",
+        "102km gran fondo"
+      ],
+      "entry_fee": "Bronze/Silver/Gold packages (price TBD)"
+    },
+    "climate": {
+      "overview": "Mediterranean spring: sunny, cool breezes, ideal cycling conditions",
+      "average_temp_f": null,
+      "precipitation_chance": null
+    },
+    "terrain": {
+      "overview": "Coastal roads, mountain climbs (4-9%), valleys, traditional villages",
+      "surface_breakdown": {}
+    },
+    "gravel_god_rating": {
+      "logistics": 4,
+      "length": 3,
+      "technicality": 4,
+      "elevation": 4,
+      "climate": 5,
+      "altitude": 2,
+      "adventure": 4,
+      "prestige": 3,
+      "race_quality": 4,
+      "experience": 4,
+      "community": 4,
+      "field_depth": 3,
+      "value": 4,
+      "expenses": 3,
+      "cultural_impact": 3,
+      "overall_score": 77,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "editorial_tier_label": "TIER 2",
+      "business_tier_label": "TIER 2",
+      "display_tier_label": "TIER 2",
+      "editorial_tier": 2,
+      "business_tier": 2,
+      "display_tier": 2,
+      "discipline": "road",
+      "score_note": "Sum of 14 criteria: 4+3+4+4+5+2+4+3+4+4+4+3+4+3 = 51. cultural_impact = 3. Total = 54. (54/70)*100 = 77."
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 4,
+        "explanation": "The Cyprus Gran Fondo in Paphos features flawless organization with all stages starting from the spacious square in front of Pafos Medieval Castle, including neutralized starts for safe city exits and accommodating mega events seamlessly.[1]"
+      },
+      "length": {
+        "score": 3,
+        "explanation": "While offering distances up to 102km in the gran fondo stages, the event's multi-day format with shorter options like 28km ITT and 59km medio fondo limits its epic length appeal for ultra-endurance seekers.[1]"
+      },
+      "technicality": {
+        "score": 4,
+        "explanation": "Routes include rolling terrain with short steep hills averaging 5.5-6% gradients and a 9% section for 700m, demanding solid bike-handling skills through valleys and villages without extreme descents.[1]"
+      },
+      "elevation": {
+        "score": 4,
+        "explanation": "Significant climbing is present, especially on Stage 3 with steady uphill sections to the highest points and connections to mountain routes, providing challenging yet manageable elevation for qualifiers.[1]"
+      },
+      "climate": {
+        "score": 5,
+        "explanation": "Held in early April in Paphos, the event benefits from ideal spring conditions with cool Mediterranean breezes, bright sun, green landscapes, and wildflowers, creating perfect riding weather.[3]"
+      },
+      "altitude": {
+        "score": 2,
+        "explanation": "Primarily coastal and low-elevation routes starting at Pafos harbor and staying in valleys without high mountain passes, keeping altitudes minimal throughout the stages.[1]"
+      },
+      "adventure": {
+        "score": 4,
+        "explanation": "Riders experience stunning coastal paths, Diarizos valley, traditional villages, and UNESCO sites in Paphos, blending competitive racing with exploratory rides through Cyprus's wild beauty.[1]"
+      },
+      "prestige": {
+        "score": 3,
+        "explanation": "As a UCI Gran Fondo World Series qualifier, it offers spots for the World Championships but remains a regional event without the global star power of top-tier series finales.[3]"
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "High-quality multi-stage format with timed flying starts, diverse routes from ITT to gran fondo, and professional setup next to Pafos castle ensures a competitive and well-executed experience.[1]"
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "The complete package combines racing in paradise with post-ride relaxation in Paphos's top hotels, archaeological parks, and harbors, delivering an unforgettable sports and cultural immersion.[2]"
+      },
+      "community": {
+        "score": 4,
+        "explanation": "Attracts a global field of pros to beginners in the UCI series, fostering camaraderie through team discounts and shared starts, though not the largest international peloton.[5]"
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "Solid participation from recreational qualifiers to experts across distances, but as a Cyprus-based event, it lacks the deep elite fields of major European gran fondos.[7]"
+      },
+      "value": {
+        "score": 4,
+        "explanation": "UCI qualifier status, multiple distances, and prime Paphos location provide excellent value through qualification opportunities and scenic racing without excessive costs.[3]"
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Travel to Cyprus and potential package upgrades like bronze/silver/gold entries add moderate costs, balanced by local lodging but higher for international participants.[5]"
+      },
+      "cultural_impact": {
+        "score": 4,
+        "explanation": ""
+      }
+    },
+    "score_breakdown": {
+      "logistics": "5 - PFO airport 15km away, 4-5* hotels, castle square start/finish[1]",
+      "length": "3 - Multi-stage 28-102km, not epic single-day distance[1]",
+      "technicality": "4 - Varied climbs 4-9%, ITT requires positioning[1]",
+      "elevation": "4 - Significant stage climbs, ~1800m on key day[3]",
+      "climate": "5 - Perfect April Mediterranean weather[1][6]",
+      "altitude": "2 - Max ~300m, no high altitude challenges[1]",
+      "adventure": "5 - Coast/mountains/villages in compact island[6]",
+      "prestige": "3 - UCI Gran Fondo World Series qualifier[1]",
+      "race_quality": "4 - Pro commissaires, timing, police escort[2]",
+      "experience": "5 - Tourism + racing, 80% international[1]",
+      "community": "4 - 37 nationalities, team discounts[1][6]",
+      "field_depth": "3 - International but amateur-focused[1]",
+      "value": "4 - Includes meals/medal/T-shirt/UCI qual[2]",
+      "expenses": "3 - Cyprus travel + resort packages add up[6]"
+    },
+    "overall_score": 67,
+    "tier": "T2",
+    "biased_opinion": {
+      "overview": "Perfect spring cycling vacation with UCI Worlds qualification. Compact island delivers coast-to-mountain variety without extreme distance. Ideal for age-group racers seeking qualification + Instagram-worthy scenery."
+    },
+    "final_verdict": {
+      "one_liner": "Strong T2 UCI stage race - qualification + tourism excellence",
+      "full_verdict": ""
+    },
+    "logistics": {
+      "overview": "Paphos Int'l Airport (PFO) 15km. All stages start/finish Pafos Castle Square near 4-5* resorts (Annabelle, Almyra). Police escort, support cars (except ITT), multiple feed zones[1][2].",
+      "official_site": "",
+      "airports": [],
+      "accommodation": "",
+      "registration_notes": ""
+    },
+    "history": {
+      "overview": "10th edition 2026 (~2016 origin). UCI Gran Fondo World Series partner since 2017. Attracts ex-pros like Olga Zabelinskaya + world champions[1][6].",
+      "founder": "",
+      "notable_moments": []
+    },
+    "course_description": {
+      "character": "3-day stage race from Pafos Castle Square:\n- **Stage 1 (Fri 3 Apr)**: 28.6km ITT - uphill to 300m peak then descent\n- **Stage 2 (Sat 09:00)**: 102km GF (15km neutral → 3 climbs: 8km@4%, 6.5km@6%, 13.5km@4.5% to 65km peak)\n- **Stage 3 (Sun 08:00)**: 59km GF w/ 700m@9% climb + 45km medio shortcut[1][2]",
+      "suffering_zones": [],
+      "ridewithgps_id": null,
+      "ridewithgps_name": null,
+      "signature_challenge": null
+    },
+    "suffering_zones": [
+      "Stage 2: 6.5km climb @6% avg (steep start)",
+      "Stage 3: 700m wall @9%",
+      "Stage 1 ITT: Full gas 28.6km uphill opening"
+    ],
+    "guide_variables": {
+      "best_for": [
+        "UCI qualification",
+        "spring training",
+        "cycling vacation"
+      ],
+      "not_for": [
+        "gravel",
+        "high altitude",
+        "budget travelers"
+      ],
+      "pro_tip": "Book Almyra/Annabelle hotels - walk to start line"
+    },
+    "non_negotiables": [
+      "UCI road/time trial bikes only (1.3.023)",
+      "Support cars exit before final 3km",
+      "No drafting in ITT - 25m rule",
+      "Left-side driving - obey marshals/police"
+    ],
+    "citations": [],
+    "research_metadata": {
+      "data_freshness": "Current for 2026 edition",
+      "confidence": "High - official UCI + organizer sources",
+      "gaps": "Exact elevation totals, entry fees, GPS coordinates",
+      "discipline": "road",
+      "prestige": 3
+    }
+  }
+}

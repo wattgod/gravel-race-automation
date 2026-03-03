@@ -134,7 +134,10 @@
         "description": "Official qualifying distance for men 60+ and women 50+ age groups"
       }
     ],
-    "terrain": "50% paved / 50% unpaved alpine terrain. Starts flat in Rhone Valley, transitions to steep forest climbs and high-altitude gravel roads. Features a brutal 20% gradient section on Route des Chaux before the Col de la Croix finish.",
+    "terrain": {
+      "overview": "50% paved / 50% unpaved alpine terrain. Starts flat in Rhone Valley, transitions to steep forest climbs and high-altitude gravel roads. Features a brutal 20% gradient section on Route des Chaux before the Col de la Croix finish.",
+      "surface_breakdown": {}
+    },
     "registration": {
       "opens": "November (previous year)",
       "website": "https://ucigravelsuisse.com/en/inscriptions/",

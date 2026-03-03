@@ -1,13 +1,12 @@
 {
   "@context": "https://schema.org",
   "@type": "SportsEvent",
-  "name": "Oregon Gran Fondo",
-  "description": "All-road cycling through western Oregon forests, vineyards, and historic landscapes - Round #5 of the Oregon Triple Crown Series",
+  "name": "GFNY Cannes",
+  "description": "Be a Pro for a Day on the French Riviera",
   "sport": "Gravel Cycling",
-  "startDate": "2026-05-16",
   "location": {
     "@type": "Place",
-    "name": "Cottage Grove, Oregon, USA"
+    "name": "Cannes, French Riviera, France"
   },
   "aggregateRating": {
     "@type": "AggregateRating",

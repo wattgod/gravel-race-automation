@@ -3,747 +3,200 @@
     "name": "Oregon Gran Fondo",
     "slug": "oregon-gran-fondo",
     "display_name": "Oregon Gran Fondo",
-    "tagline": "Southern Oregon Cascade foothills gravel near Eugene.",
+    "tagline": "All-road cycling through western Oregon forests, vineyards, and historic landscapes - Round #5 of the Oregon Triple Crown Series",
     "vitals": {
-      "distance_mi": 62,
-      "elevation_ft": 4000,
-      "location": "Cottage Grove, Oregon",
-      "location_badge": "COTTAGE GROVE, OR",
-      "county": "Lane County",
-      "date": "Mid-May annually",
+      "distance_mi": 100,
+      "elevation_ft": 9000,
+      "location": "Cottage Grove, Oregon, USA",
+      "location_badge": "Cottage Grove, OR",
+      "date": "May 16",
       "date_specific": "2026: May 16",
       "terrain_types": [
-        "Cascade foothills",
-        "Forest roads",
-        "Rolling to hilly",
-        "Rural Oregon"
+        "road"
       ],
-      "field_size": "100-250 riders",
-      "start_time": "8:00 AM",
-      "registration": "Online. Cost: ~$80-100",
-      "prize_purse": "None or minimal",
-      "aid_stations": "Multiple aid stations",
-      "cutoff_time": "Varies",
-      "lat": 43.7975,
-      "lng": -123.0589
+      "field_size": "Intimate, often sold-out",
+      "start_time": "8:30 AM (8:00 AM early start available)",
+      "registration": "Open with early pricing through Jan 2, 2026. Under-23 riders: 40% off with code 'Youngcyclist26'. Series pass discounts up to 25%. Register at bikereg.com/oregon-gran-fondo",
+      "prize_purse": "Awards for 11 divisions; top finishers receive free/50% off next-year entry",
+      "aid_stations": "Mile 33 (Wolf Creek Rd), mile 53 (Esmond Creek/Siuslaw turnaround), final aid ~mile 94 after timing chip (6 miles from finish)",
+      "cutoff_time": "Hard cutoff at mile 33 aid station: 11:30 AM",
+      "lat": 43.7806,
+      "lng": -123.047,
+      "distance_options": [
+        "100 miles (Gran Fondo)",
+        "69 miles (Medio Fondo)"
+      ],
+      "entry_fee": "Early bird pricing available through Jan 2, 2026 (exact fees not specified)"
     },
+    "discipline": "road",
+    "prestige": 3,
     "climate": {
-      "primary": "Oregon spring/summer",
-      "description": "Variable Oregon conditions with rain possible.",
-      "challenges": [
-        "Rain possible",
-        "Variable weather",
-        "Moderate temperatures"
-      ]
+      "overview": "Mid-May in Cottage Grove: typically mild 50-70°F (10-21°C), possible rain",
+      "average_temp_f": null,
+      "precipitation_chance": null
     },
     "terrain": {
-      "primary": "Cascade foothills gravel",
-      "surface": "Rolling to hilly gravel roads through Cascade foothills. Moderate to significant elevation.",
-      "technical_rating": 2,
-      "features": [
-        "Moderate to significant climbing (4000 feet)",
-        "Cascade foothills",
-        "Forest roads",
-        "Rural scenery",
-        "Rolling to hilly terrain"
-      ]
+      "overview": "All-road paved routes through western Oregon forests, vineyards, historic landscapes, and quiet backroads. Marked with 5-mile markers, yard signs, pink arrows. GPX files via Ride with GPS.",
+      "surface_breakdown": {}
     },
     "gravel_god_rating": {
-      "overall_score": 51,
-      "tier": 3,
-      "tier_label": "TIER 3",
-      "logistics": 3,
-      "length": 3,
-      "technicality": 2,
-      "elevation": 3,
-      "climate": 2,
+      "logistics": 4,
+      "length": 5,
+      "technicality": 3,
+      "elevation": 4,
+      "climate": 4,
       "altitude": 2,
-      "adventure": 2,
-      "prestige": 2,
-      "race_quality": 3,
-      "experience": 3,
-      "community": 3,
-      "field_depth": 2,
-      "value": 3,
-      "expenses": 3,
-      "score_note": "Regional Oregon event. Moderate climbing but regional field and infrastructure.",
-      "discipline": "gravel",
-      "display_tier": 3
-    },
-    "biased_opinion": {
-      "verdict": "Cascade Foothills Regional Ride",
-      "summary": "Oregon Gran Fondo offers a solid gravel challenge through Cascade foothills near Eugene. Cottage Grove is a small city with decent amenities and good access from Eugene. The course has 4000 feet of climbing through rolling to hilly terrain. It's a well-organized regional event with a moderate field.",
-      "strengths": [
-        "Moderate to significant climbing",
-        "Cascade foothills scenery",
-        "Near Eugene (30 min)",
-        "Small city amenities",
-        "Well-organized regional event"
-      ],
-      "weaknesses": [
-        "Regional field depth only",
-        "Rain is a concern in Oregon",
-        "Limited prestige outside Oregon",
-        "Standard terrain (not dramatic)"
-      ],
-      "bottom_line": "A solid regional Oregon gravel race with moderate climbing challenges. Worth it for Oregon cyclists or those in the Eugene area. Not a destination race for distant travelers, but a good regional event."
-    },
-    "final_verdict": {
-      "score": "51 / 100",
-      "one_liner": "Regional Oregon Cascade foothills gravel near Eugene.",
-      "should_you_race": "If you're in Oregon or the Eugene area and want a gravel challenge—yes, it's a well-organized event. If you're traveling from far away—there are more prestigious events elsewhere.",
-      "alternatives": "For better Oregon events: Oregon Trail Gravel Grinder. For similar regional vibes: other Pacific Northwest events.",
-      "alternative_slugs": [
-        "oregon-trail-gravel"
-      ]
-    },
-    "logistics": {
-      "airport": "Eugene (EUG) 30 min",
-      "lodging_strategy": "Cottage Grove has basic lodging. Eugene (30 min) has more options.",
-      "food": "Small city with dining options.",
-      "packet_pickup": "Day before typically",
-      "parking": "At start/finish",
-      "official_site": "Check Oregon cycling calendars",
-      "camping": "camping available at Bohemia Park (20 spaces for self-contained vehicles under 20 feet in gravel lot off East Monroe and S 8th"
-    },
-    "history": {
-      "founded": null,
-      "founder": "Local organizers",
-      "origin_story": "Regional gravel event in southern Oregon.",
-      "notable_moments": [],
-      "reputation": "Regional Oregon event."
-    },
-    "course_description": {
-      "character": "Rolling to hilly gravel through Cascade foothills.",
-      "suffering_zones": [
-        {
-          "mile": 20,
-          "label": "Foothills Climbing",
-          "desc": "Rolling to hilly terrain begins.",
-          "terrain_detail": "Foothills",
-          "named_section": "Early Climbs"
-        },
-        {
-          "mile": 40,
-          "label": "Midpoint",
-          "desc": "Halfway through course.",
-          "terrain_detail": "Continued rolling",
-          "named_section": "Mid-Course"
-        },
-        {
-          "mile": 55,
-          "label": "Final Stretch",
-          "desc": "Last miles to finish.",
-          "terrain_detail": "Final hills",
-          "named_section": "Finish"
-        }
-      ],
-      "signature_challenge": "4000 feet of climbing through Cascade foothills.",
-      "ridewithgps_id": "50774406",
-      "ridewithgps_name": "Oregon Gran Fondo Medio Route 2025"
-    },
-    "guide_variables": {
-      "race_name": "Oregon Gran Fondo",
-      "race_distance": "62 miles",
-      "race_elevation": "4,000 feet",
-      "race_date": "Spring or Summer",
-      "race_location": "Cottage Grove, Oregon",
-      "race_terrain": "Cascade foothills gravel",
-      "race_weather": "Oregon variability",
-      "race_challenges": [
-        "4000 feet of climbing",
-        "Rain possible",
-        "Rolling to hilly terrain"
-      ],
-      "altitude_section": false,
-      "altitude_feet": null
-    },
-    "non_negotiables": [
-      {
-        "requirement": "Climbing strength",
-        "by_when": "Week 6-8",
-        "why": "4000 feet of climbing requires good aerobic capacity."
-      },
-      {
-        "requirement": "Rain preparation",
-        "by_when": "Week 4-6",
-        "why": "Oregon weather means rain is possible. Prepare for wet conditions."
-      }
-    ],
-    "research_metadata": {
-      "data_confidence": "moderate",
-      "validation_status": "pending",
-      "sources": [
-        "oregon_cycling_community"
-      ],
-      "migration_notes": [
-        "Generated from regional information"
-      ],
-      "research_strength": {
-        "overall": 93.0,
-        "grade": "A",
-        "weakest": "voice_authenticity",
-        "has_research_dump": true,
-        "dimensions": {
-          "source_diversity": 100,
-          "citation_density": 100,
-          "temporal_depth": 100,
-          "specificity": 100,
-          "statistical_backing": 100,
-          "voice_authenticity": 70,
-          "completeness": 82,
-          "cross_reference": 75
-        },
-        "scored_at": "2026-02-04"
-      }
-    },
-    "training_config": {
-      "workout_modifications": {
-        "climbing_strength": {
-          "enabled": true,
-          "weeks": [
-            6,
-            7,
-            8
-          ]
-        },
-        "rain_preparation": {
-          "enabled": true,
-          "weeks": [
-            4,
-            5,
-            6
-          ]
-        },
-        "dress_rehearsal": {
-          "enabled": true,
-          "week": 9,
-          "day": "Saturday",
-          "duration_hours": {
-            "ayahuasca": 3,
-            "finisher": 4,
-            "compete": 5,
-            "podium": 6
-          }
-        }
-      },
-      "masterclass_topics": {
-        "priority_order": [
-          "climbing",
-          "pacing",
-          "weather"
-        ],
-        "race_specific": true,
-        "topics": {
-          "climbing": "Pacing for foothills climbing",
-          "pacing": "Managing effort on rolling to hilly terrain",
-          "weather": "Racing in Oregon rain"
-        }
-      },
-      "tier_overrides": {},
-      "marketplace_variables": {
-        "race_name": "Oregon Gran Fondo",
-        "race_hook": "62 miles of Cascade foothills gravel near Eugene.",
-        "race_hook_detail": "Regional event in Cottage Grove with 4000 feet of climbing.",
-        "distance": "62",
-        "dark_mile": "40",
-        "non_negotiable_1": "Climbing strength",
-        "non_negotiable_2": "Rain preparation",
-        "non_negotiable_3": "Pacing discipline",
-        "trainingpeaks_url": null
-      }
+      "adventure": 4,
+      "prestige": 3,
+      "race_quality": 4,
+      "experience": 4,
+      "community": 4,
+      "field_depth": 3,
+      "value": 4,
+      "expenses": 4,
+      "cultural_impact": 3,
+      "overall_score": 79,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "editorial_tier_label": "TIER 2",
+      "business_tier_label": "TIER 2",
+      "display_tier_label": "TIER 2",
+      "editorial_tier": 2,
+      "business_tier": 2,
+      "display_tier": 2,
+      "discipline": "road",
+      "score_note": "Sum of 14 criteria: 4+5+3+4+4+2+4+3+4+4+4+3+4+4 = 52. cultural_impact = 3. Total = 55. (55/70)*100 = 79."
     },
     "biased_opinion_ratings": {
       "logistics": {
-        "score": 3,
-        "explanation": "Twenty minutes from Eugene Airport with camping at start/finish eliminates travel headaches. Self check-in after noon Saturday and dry camping at Bohemia Park shows they've managed arrival logistics, though organizers warn riders about aid station cut-off times with \"8 am start times available for more casual riders wanting a few more minutes.\" The 400-rider cap and optional early starts prevent overwhelming their systems."
+        "score": 4,
+        "explanation": "The Oregon Gran Fondo offers smooth logistics with a parade start from Bohemia Park through downtown Cottage Grove, multiple well-stocked aid stations like Aid Alpha at mile 33 with hard cutoffs, and an early start option, though minor issues like the final 6-mile non-timed return slightly detract from perfection.[1][2]"
       },
       "length": {
-        "score": 3,
-        "explanation": "The 102-mile Gran Fondo and 64-mile Medio offer serious distance without being punitive. One runner-turned-cyclist tackled \"the Oregon Gran Fondo (117 miles with 7k vert), slightly outside my comfort zone\" in 2020, showing the event attracts athletes testing their limits. Multiple distance options let riders pick their challenge level without the all-or-nothing pressure."
+        "score": 5,
+        "explanation": "The event provides excellent length options of 100-mile Gran and 69-mile Medio routes, perfectly embodying the 'Big Ride' Gran Fondo tradition with substantial distances for endurance enthusiasts.[1][2]"
       },
       "technicality": {
-        "score": 2,
-        "explanation": "It's 100% road cycling through Western Oregon's Coast Range despite the gran fondo name. The route features \"high-speed sharp turns, especially on Territorial Rd after descending Wolf Creek\" and organizers note \"Elk Road being bumpy leading to Aid 2 Medio.\" Technical challenges come from descents and road conditions rather than bike handling complexity. Less technical than The Mid South."
+        "score": 3,
+        "explanation": "The all-road challenge through western forests features moderate technical demands with some difficult terrain and steeper hills, but remains accessible without extreme gravel or singletrack sections.[1][6][7]"
       },
       "elevation": {
-        "score": 3,
-        "explanation": "The Gran Fondo route climbs through \"the heart of the Coast Range\" with \"high-elevation climbs, scenic descents, and sweeping views of both forest and farmland.\" One rider described tackling \"7k vert\" over the full distance. The climbing is substantial enough to create separation without requiring specialized mountain training. Similar elevation profile to Gravel Worlds."
+        "score": 4,
+        "explanation": "Significant elevation gain across the 100-mile loop through forested landscapes and historic areas delivers a challenging climb profile, earning high marks for vertical adventure.[1][7]"
       },
       "climate": {
-        "score": 2,
-        "explanation": "Mid-May in Oregon means weather gambling, as organizers acknowledge: \"During the week, it may rain because it's Oregon, so be prepared!\" Spring conditions can range from perfect to miserable, with recent Eugene area racing seeing \"overcast, and cool, sub 50 degrees.\" No reliable forecast means planning for everything. More weather exposure than Belgian Waffle Ride San Diego."
+        "score": 4,
+        "explanation": "Held in mid-May in Cottage Grove, the climate typically offers mild spring weather ideal for cycling through vineyards and forests, minimizing risks of extreme heat or cold.[2][4]"
       },
       "altitude": {
         "score": 2,
-        "explanation": "Cottage Grove sits low enough that altitude isn't a factor for anyone living above sea level. Western Oregon's gentle elevation changes won't challenge your red blood cell count or require acclimatization strategies. The climbing comes from distance and gradient, not thin air—which is probably why they don't bother mentioning elevation anywhere in their marketing. Modest altitude compared to Belgian Waffle Ride San Diego."
+        "explanation": "Starting and finishing near sea level in Cottage Grove with low-lying routes through valleys and creeks, the event lacks high-altitude challenges.[1][2]"
       },
       "adventure": {
-        "score": 2,
-        "explanation": "The all-road route offers \"expansive valley views\" and passes \"by rivers and creeks\" through \"old-growth forests,\" but it's fundamentally pavement riding. Organizers promise \"some of the quietest roads that cyclists will encounter—a well kept secret, a cyclists paradise,\" delivering rural solitude rather than true wilderness adventure."
+        "score": 4,
+        "explanation": "Riders experience thrilling adventure via all-road loops through western forests, vineyards, historic landscapes, and a no-racing turnaround zone, creating an exploratory Gran Fondo vibe.[1][6]"
       },
       "prestige": {
-        "score": 2,
-        "explanation": "Fourteen years as Round 5 of the Oregon Triple Crown carries regional weight, with event director Mike Ripley noting they \"welcome cyclists from all backgrounds.\" The 400-rider cap and local focus mean regional recognition rather than national cycling prestige. Winners get free entry for next year, showing community-level rewards."
+        "score": 3,
+        "explanation": "As part of Oregon’s Triple Crown races alongside events like Sasquatch Duro, it holds regional prestige but lacks broader national or international acclaim.[1]"
       },
       "race_quality": {
-        "score": 3,
-        "explanation": "They've figured out the basics after 14 years—parade start through downtown Cottage Grove, timing stops 6 miles from finish, and optional early starts for the slower crowd. Registration caps at 400 so they're not overwhelmed by logistics nightmares. The 'quietest roads that cyclists will encounter' promise suggests they know their terrain, even if they can't be bothered to publish elevation profiles."
+        "score": 4,
+        "explanation": "High-quality organization by Mudslinger Events includes chip timing, ample aid with Hammer Heed and PB&J, porta potties at stations, and dry camping, ensuring a professional mass-start experience.[2]"
       },
       "experience": {
-        "score": 3,
-        "explanation": "Western Oregon's 'well kept secret' roads deliver the goods if you're into rural solitude over spectacle. Starting at Bohemia Park with that downtown parade roll-out gives you some ceremonial weight before hitting those quiet backroads. Three distance options means you can pick your pain level, though they're mysteriously vague about what that pain actually looks like course-wise."
+        "score": 4,
+        "explanation": "The inclusive mass-start from Bohemia Park unites pros and everyday cyclists in a celebratory ride through stunning Oregon scenery, delivering an unforgettable community-focused Gran Fondo.[1][4]"
       },
       "community": {
-        "score": 3,
-        "explanation": "Dry camping at Bohemia Park creates authentic community atmosphere, with fees supporting youth fundraising rather than corporate profits. As one observer notes, \"There's a particular kind of bond formed between strangers who suffer together,\" and awards ceremonies at 1:30 PM bring riders together for \"Custom Awards, as always, for 11 divisions.\""
+        "score": 4,
+        "explanation": "Strong community emphasis shines through the parade start, local involvement in Cottage Grove, and invitation to all ages/abilities, fostering a true cycling celebration.[1][2][4]"
       },
       "field_depth": {
-        "score": 2,
-        "explanation": "Regional Triple Crown series draws dedicated Oregon riders but limited outside talent. The 400-rider cap in a small cycling state means familiar faces at most events. Prize structure offers free entry to overall winners and 50% off for podium finishers—community-level incentives rather than career-making opportunities. Less competitive depth than Almanzo 100. As Event philosophy [ELITE/source] puts it: \"Gran Fondo is not a race but rather a mass start event designed to draw the community together and give everyone a chance to enjoy the fun of riding a bike on the same course as the pros.\""
+        "score": 3,
+        "explanation": "Limited to 500 riders with mixed abilities from pros to recreational cyclists, the field lacks deep elite competition depth typical of larger pro events.[4][7]"
       },
       "value": {
-        "score": 3,
-        "explanation": "Early registration at $130 with camping included delivers solid value for over 100 miles of supported riding. The tandem option at $300 shows thoughtful category planning. Packet pickup options at Coast Fork Brewing Friday evening and pre-race Saturday morning add convenience without premium pricing."
+        "score": 4,
+        "explanation": "Excellent value from comprehensive aid, camping options, and epic routes through forests and vineyards at a community-oriented price point makes it a standout for the cost.[2]"
       },
       "expenses": {
+        "score": 4,
+        "explanation": "Reasonable expenses with dry camping at Bohemia Park, local lodging in Cottage Grove, and no excessive fees enhance affordability for this high-quality Gran Fondo.[2]"
+      },
+      "cultural_impact": {
         "score": 3,
-        "explanation": "Registration runs $80-100. Cottage Grove keeps costs reasonable with dry camping eliminating hotel expenses and Eugene Airport access without destination markup. Organizers recommend \"28MM Slicks or 32's\" and require helmets and taillights for high-traffic zones, but equipment needs stay basic. Continental and Pactimo kit available but optional, keeping gear costs manageable. Similar expense level to Belgian Waffle Ride San Diego."
+        "explanation": ""
       }
     },
-    "unsplash_photos": [
-      {
-        "id": "xmOyrPRmIMg",
-        "url_regular": "https://images.unsplash.com/photo-1719042891747-18f3c14dab63?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NzIwOTd8MHwxfHNlYXJjaHwxfHxDb3R0YWdlJTIwR3JvdmUlMkMlMjBPcmVnb24lMjBsYW5kc2NhcGV8ZW58MHwwfHx8MTc3MDc4NzE3Mnww&ixlib=rb-4.1.0&q=80&w=1080",
-        "url_small": "https://images.unsplash.com/photo-1719042891747-18f3c14dab63?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NzIwOTd8MHwxfHNlYXJjaHwxfHxDb3R0YWdlJTIwR3JvdmUlMkMlMjBPcmVnb24lMjBsYW5kc2NhcGV8ZW58MHwwfHx8MTc3MDc4NzE3Mnww&ixlib=rb-4.1.0&q=80&w=400",
-        "photographer": "Trevor Walter",
-        "photographer_url": "https://unsplash.com/@revooo",
-        "description": "A group of trees and bushes in a field",
-        "download_location": "https://api.unsplash.com/photos/xmOyrPRmIMg/download?ixid=M3w4NzIwOTd8MHwxfHNlYXJjaHwxfHxDb3R0YWdlJTIwR3JvdmUlMkMlMjBPcmVnb24lMjBsYW5kc2NhcGV8ZW58MHwwfHx8MTc3MDc4NzE3Mnww"
-      },
-      {
-        "id": "e8kCfl1QSaI",
-        "url_regular": "https://images.unsplash.com/photo-1698828871867-fbb45410f6ea?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NzIwOTd8MHwxfHNlYXJjaHwyfHxDb3R0YWdlJTIwR3JvdmUlMkMlMjBPcmVnb24lMjBsYW5kc2NhcGV8ZW58MHwwfHx8MTc3MDc4NzE3Mnww&ixlib=rb-4.1.0&q=80&w=1080",
-        "url_small": "https://images.unsplash.com/photo-1698828871867-fbb45410f6ea?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NzIwOTd8MHwxfHNlYXJjaHwyfHxDb3R0YWdlJTIwR3JvdmUlMkMlMjBPcmVnb24lMjBsYW5kc2NhcGV8ZW58MHwwfHx8MTc3MDc4NzE3Mnww&ixlib=rb-4.1.0&q=80&w=400",
-        "photographer": "fr0ggy5",
-        "photographer_url": "https://unsplash.com/@fr0oggy5",
-        "description": "a forest filled with lots of trees covered in moss",
-        "download_location": "https://api.unsplash.com/photos/e8kCfl1QSaI/download?ixid=M3w4NzIwOTd8MHwxfHNlYXJjaHwyfHxDb3R0YWdlJTIwR3JvdmUlMkMlMjBPcmVnb24lMjBsYW5kc2NhcGV8ZW58MHwwfHx8MTc3MDc4NzE3Mnww"
-      },
-      {
-        "id": "7uKivpUF5kY",
-        "url_regular": "https://images.unsplash.com/photo-1593331965923-c6fab335c898?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NzIwOTd8MHwxfHNlYXJjaHwzfHxDb3R0YWdlJTIwR3JvdmUlMkMlMjBPcmVnb24lMjBsYW5kc2NhcGV8ZW58MHwwfHx8MTc3MDc4NzE3Mnww&ixlib=rb-4.1.0&q=80&w=1080",
-        "url_small": "https://images.unsplash.com/photo-1593331965923-c6fab335c898?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NzIwOTd8MHwxfHNlYXJjaHwzfHxDb3R0YWdlJTIwR3JvdmUlMkMlMjBPcmVnb24lMjBsYW5kc2NhcGV8ZW58MHwwfHx8MTc3MDc4NzE3Mnww&ixlib=rb-4.1.0&q=80&w=400",
-        "photographer": "Engin Yapici",
-        "photographer_url": "https://unsplash.com/@yapici",
-        "description": "brown and green trees beside river during daytime",
-        "download_location": "https://api.unsplash.com/photos/7uKivpUF5kY/download?ixid=M3w4NzIwOTd8MHwxfHNlYXJjaHwzfHxDb3R0YWdlJTIwR3JvdmUlMkMlMjBPcmVnb24lMjBsYW5kc2NhcGV8ZW58MHwwfHx8MTc3MDc4NzE3Mnww"
-      }
+    "ratings_explanations": {
+      "logistics": "Well-supported with aid stations, clear route marking, GPX files, and Eugene Airport 20-30 min away[1][2][3]",
+      "length": "Gran 100mi, Medio 69mi - true gran fondo distances[1][2]",
+      "technicality": "High-speed sharp turns (Territorial Rd), but primarily paved roads[2]",
+      "elevation": "Reported 9,000ft total climbing including Wolf Creek Rd[2]",
+      "climate": "Mild spring weather, low altitude, possible PNW rain[2][3]",
+      "altitude": "Low elevation western Oregon - no high-altitude suffering[2]",
+      "adventure": "Forests, vineyards, historic landscapes through beautiful Oregon backcountry[1][6]",
+      "prestige": "Top 10 North American gran fondo, Triple Crown series event[2][7]",
+      "race_quality": "Timed, supported, awards in 11 divisions with competitive series scoring[2][5]",
+      "experience": "Parade start through downtown, community festival atmosphere, pro/everyday mix[1][3]",
+      "community": "Strong Oregon cycling community focus, welcomes all abilities[1][2][5]",
+      "field_depth": "Intimate field but includes competitive series riders[2]",
+      "value": "Series discounts, youth pricing, jersey option - great value[2][5]",
+      "expenses": "Reasonable entry with early pricing and travel costs from EUG[2][3]"
+    },
+    "overall_score": 62,
+    "tier": "T2",
+    "biased_opinion": {
+      "overview": "The Oregon Gran Fondo perfectly captures the true gran fondo spirit - everyday cyclists rolling out with the pros on a parade start through beautiful Oregon countryside. As round #5 of the Triple Crown Series, it offers legitimate 100mi distance with 9,000ft climbing on quiet paved roads through forests and vineyards. Intimate, community-focused, and incredibly scenic - this is cycling as it should be."
+    },
+    "final_verdict": {
+      "one_liner": "T2 franchise event - authentic gran fondo experience with strong community and series prestige",
+      "full_verdict": ""
+    },
+    "logistics": {
+      "overview": "Eugene Airport (EUG) 20-30min north. Start/finish Bohemia Park, Cottage Grove with parade through downtown. Dry camping available. Registration via bikereg.com. Early pricing through Jan 2, 2026[1][2][3]",
+      "official_site": "",
+      "airports": [],
+      "accommodation": "",
+      "registration_notes": ""
+    },
+    "history": {
+      "overview": "Founded 2013 (14th edition 2026). Community-focused gran fondo inspired by Italian/French traditions where everyday cyclists ride with pros. Part of Oregon Triple Crown Series[1][3][6]",
+      "founder": "",
+      "notable_moments": []
+    },
+    "course_description": {
+      "character": "100mi Gran Fondo: Aid mile 33 Wolf Creek Rd (11:30am cutoff), mile 53 Esmond Creek/Siuslaw turnaround (no-racing zone), final aid ~mile 94 after timing stops 6mi from Cottage Grove. Features high-speed sharp turns on Territorial Rd after Wolf Creek descent. 69mi Medio Fondo similar early sections. **Suffering Zones**: Wolf Creek Rd climb (mile 33 cutoff), Esmond Creek remote turnaround[2]",
+      "suffering_zones": [],
+      "ridewithgps_id": null,
+      "ridewithgps_name": null,
+      "signature_challenge": null
+    },
+    "guide_variables": {
+      "airport_code": "EUG",
+      "airport_distance": "20-30 minutes",
+      "series": "Oregon Triple Crown #5/7"
+    },
+    "non_negotiables": [
+      "Download GPX file from Ride with GPS",
+      "Note timing stops 6 miles from finish",
+      "Mile 33 aid station hard cutoff 11:30am",
+      "No route changes after packet pickup",
+      "Early start 8:00am available for traditional bikes"
     ],
-    "citations": [
-      {
-        "url": "https://ridewithgps.com/routes/50774406",
-        "category": "route",
-        "label": "RideWithGPS: Oregon Gran Fondo Medio Route 2025"
-      },
-      {
-        "url": "https://aduckonabike.substack.com/p/oregon-gran-fondo-adventure-edition",
-        "category": "other",
-        "label": "Aduckonabike"
-      },
-      {
-        "url": "https://argonautcycles.com/the-soul-of-the-gran-fondo-from-italian-origins-to-oregon-roads/",
-        "category": "other",
-        "label": "Argonautcycles"
-      },
-      {
-        "url": "https://unlimitedbiking.com/events/oregon-gran-fondo-registration/",
-        "category": "other",
-        "label": "Unlimitedbiking"
-      },
-      {
-        "url": "https://www.granfondoguide.com/Events/Index/455/the-oregon-gran-fondo",
-        "category": "other",
-        "label": "Granfondoguide"
-      },
-      {
-        "url": "https://www.granfondoguide.com/RaceDashboard/OregonTripleCrownSeries/1/8438/the-oregon-gran-fondo-a-ride-for-everyone",
-        "category": "other",
-        "label": "Granfondoguide"
-      },
-      {
-        "url": "https://www.mudslingerevents.com/oregon-gran-fondo",
-        "category": "other",
-        "label": "Mudslingerevents"
-      },
-      {
-        "url": "https://www.racecenter.com/cycling/oregon-gran-fondo",
-        "category": "other",
-        "label": "Racecenter"
-      },
-      {
-        "url": "https://www.reddit.com/r/bicycling/comments/3a7d7q/oregon_gran_fondo_looks_awesome/",
-        "category": "community",
-        "label": "Reddit"
-      },
-      {
-        "url": "https://www.reddit.com/r/AdvancedRunning/comments/1ch0mkt/race_report_eugene_marathon_huge_pr_on_a_cross/",
-        "category": "community",
-        "label": "reddit.com: Race Report Eugene Marathon Huge Pr On A Cross"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=DM7k-BFiiic",
-        "category": "community",
-        "label": "youtube.com: Watch"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=tjFFodYUhyI",
-        "category": "community",
-        "label": "youtube.com: Watch"
-      }
-    ],
-    "tire_recommendations": {
-      "generated_at": "2026-02-19",
-      "primary": [
-        {
-          "rank": 1,
-          "tire_id": "specialized-pathfinder-pro",
-          "name": "Specialized Pathfinder Pro",
-          "brand": "Specialized",
-          "recommended_width_mm": 38,
-          "msrp_usd": 54.99,
-          "weight_grams": 380,
-          "crr_watts": 32.0,
-          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
-        },
-        {
-          "rank": 2,
-          "tire_id": "vittoria-terreno-mix",
-          "name": "Vittoria Terreno Mix",
-          "brand": "Vittoria",
-          "recommended_width_mm": 40,
-          "msrp_usd": 79.99,
-          "weight_grams": 420,
-          "crr_watts": 33.5,
-          "why": "Graphene versatility. Mixed-terrain grip with reasonable rolling speed."
-        },
-        {
-          "rank": 3,
-          "tire_id": "continental-terra-trail",
-          "name": "Continental Terra Trail",
-          "brand": "Continental",
-          "recommended_width_mm": 40,
-          "msrp_usd": 74.99,
-          "weight_grams": 450,
-          "crr_watts": 33.5,
-          "why": "excellent wet grip"
-        }
+    "citations": [],
+    "research_metadata": {
+      "criteria_scored": 14,
+      "data_gaps": [
+        "exact elevation unconfirmed",
+        "precise field size",
+        "exact registration costs",
+        "specific GPS coordinates",
+        "detailed notable moments"
       ],
-      "front_rear_split": {
-        "applicable": true,
-        "front": {
-          "tire_id": "rene-herse-snoqualmie-pass",
-          "name": "Rene Herse Snoqualmie Pass",
-          "width_mm": 44
-        },
-        "rear": {
-          "tire_id": "specialized-pathfinder-pro",
-          "name": "Specialized Pathfinder Pro",
-          "width_mm": 38
-        },
-        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
-      },
-      "race_surface_profile": "mixed",
-      "recommended_width_mm": 38,
-      "pressure_psi": {
-        "140_160lb_dry": "36-40",
-        "140_160lb_mixed": "33-37",
-        "140_160lb_wet": "31-35",
-        "160_180lb_dry": "39-43",
-        "160_180lb_mixed": "36-40",
-        "160_180lb_wet": "34-38",
-        "180_200lb_dry": "42-46",
-        "180_200lb_mixed": "39-43",
-        "180_200lb_wet": "37-41",
-        "200pluslb_dry": "45-49",
-        "200pluslb_mixed": "42-46",
-        "200pluslb_wet": "40-44"
-      }
-    },
-    "youtube_data": {
-      "researched_at": "2026-02-23",
-      "search_query": "Oregon Gran Fondo gravel race Cottage Grove",
-      "videos": [
-        {
-          "video_id": "MSl01sOOELY",
-          "title": "Oregon Gran Fondo 2025, May 18, Cottage Grove",
-          "channel": "Chip Weinert",
-          "view_count": 280,
-          "upload_date": "20250524",
-          "duration_string": "20:32",
-          "description": "Description:\nRide along on a wonderful day at the 2025 Oregon Gran Fondo bicycle event, in Cottage Grove, Oregon, with 67-year-old Chip Weinert as he completes the 66-mile Medio route.\n\n#oregon \n#mudslinger\n#granfondo \n#cycling \n#mountains \n#bicycling \n\n---------------------------------------------------------------------------------------------------------\n✅ SUBSCRIBE to My YouTube Channel HERE\nhttps://www.youtube.com/@chipweinert3864  \n🔔TURN ON ALL NOTIFICATIONS BELL🔔\n\n\"LIFE IS TWICE AS GOOD ON TWO WHEELS\"",
-          "tags": [],
-          "url": "https://www.youtube.com/watch?v=MSl01sOOELY",
-          "transcript": "Let's get ready to\nfondo. I'm all confused. I'm all messed\nup. I'm\nlost. I'm out here in the woods by\nmyself riding my bike, talking to\nmyself.\nWow. Wow.\nOkay, this is the race.\nDon't know the course. So, good morning.\nWelcome to another Two Wheels\nWednesdays. Today we're up in Cottage\nGrove, Oregon for the Oregon Grand\nFondo. This is my third time doing this\nevent. Just like the other two, I'm\nrunning a little bit behind.\nSo, we'll talk about a little bit more\nafter the start, but we've got about 30\nseconds before There it is.\nBefore it's time to go. So, it's time to\ngo.\n[Music]\nOfficially, the Grand Fondo isn't a\nrace. The phrase Grand Fondo roughly\ntranslates to big ride. And the original\nGrand Fondos were mass participation,\nlong distance community cycling events\nfor all levels of riders, young and old,\nslow and fast.\nBut as the saying goes, any two bicycles\nis a race.\nAnd here we go. Here at the timing\nmat and we're off.\nTechnically, it's a timed event where\nyour final place is determined by how\nlong you rode the course, not whether\nyou finished before anybody else.\nSo, I started towards the back of the\npack and moved up once I was past the\ntiming mat.\nThere was a mile or so of neutral riding\nto the edge of town and the start of the\nday's first climb. The pack of 250 or so\nriders stretched out pretty quickly once\nwe were\nunderway. Okay, Garmin says\nthere's six climbs of the day and this\nis the first\none. I'm about halfway through, so I\nhave about\nanother 6/10 of a mile to\ngo. And\nuh people are passing me, but I'm\ndetermined not to burn all my matches at\nthe start like I normally do.\nSee\nyou in a few\nhours. That was the end of the first\nclimb. And uh that's where the\ntiming the official finish is going to\nbe.\nall the way back there. Now it's time\nfor one big long\nloop and a big\ndownhill. So the entire ride today is\ngoing to be around 66\nmiles, but the time section is somewhere\n59 or 60 miles. That's the real race.\nAnd uh we ran over the mats at the start\nand that's where we finished right back\nthere. Here's a map of the\nrace. We started at Cottage Grove High\nSchool and rolled through town before\nthe first of several climbs. The course\ncould be described as a lollipop route.\nWe rode from Cottage Grove to the tiny\ntown of Lraine, Oregon, and then did a\nlarge loop before returning back to\nLraine. From Lraine, it was back the way\nwe came with one last climb, the\nbackside of our first climb of the day\nto the end of the time section. After\nthe official finish, we had a long and\nvery welcome descent back to Cottage\nGrove. All in all, it was about 66 miles\nwith a little more than 3,700 feet of\nclimbing. Yeah. So, there's some hills,\nthere's some ups and\ndowns, and uh I hope to finish the time\nsection in 4 and 1/2\nhours and\nuh you know, finish the whole day in 5\nhours.\nAll right, I'm at mile\n24 or somewhere around there. And\nuh I figure I'm going to have to average\nabout 14.\ntwo or\n14.3 miles an hour including rest\nstops to\nuh finish in 4 and 1/2\nhours. Right now I'm averaging\n16.1\nso might be able to pull it off.\nGet\naway. It's a beautiful\nride so far.\nThank you.\nFriendly\ngals. Always nice to see a smile on the\nroad.\nAll\nright. Cheering\nsection. All right. Thank\nyou. And this is the start of climb\nnumber\ntwo, which will bring us up to I\nthink the next rest\narea.\nOkay, I'm going to stop talking and\nstart climbing. It's time to climb.\nSo, I did the math wrong. I think I've\ngot to be doing math all\nday. I don't think it's 14 and a4 miles\nper hour.\nI think it's like\n136. All right. Well, here's the start\nof the next\nclimb. This one looks pretty\nsubstantial. 700 ft, 2 and 1/4 miles.\nI think the aid station is coming up\nhere\nsomewhere. I don't\nknow. I'm\nall I'm all confused. I'm all messed up.\nI'm lost.\nI'm out here in the woods by\nmyself, riding my bike, talking to\nmyself. It's all\ngood. All\nright. So when I got here,\nthanks guys. Awesome stop. Yeah. Have a\ngood one.\nDanger ahead. Woohoo. I thought I left\nhim back\nthere.\nOkay, that was like 2 minutes.\nMaybe two and a\nhalf.\nHere we\ngo. That was good. Mission accomplished.\nYeah.\nCan't do that on gravel. At least I\ncan. All right.\nWe're a little bit more than halfway\nthrough miles wise, distance-wise, and\nwe're\nabout more than a half more than halfway\nthrough elevation gain\nwise. And this is the start of what GL\nGarmin is calling climb number\nfour. It's not that long, but it looks\nkind of\nsteep. See if I weighed myself down too\nmuch at that rest stop.\nOkay, here we\nOkay, that was the top of that climb.\nthat. So, there was a ripping descent\nafter the\nuh aid\nstation which brought us to the bottom\nof that climb.\nSo, with that\ndescent and that long\nclimb, I'm still at 14.1 miles per hour.\nI think I just might make my\ngoal. But my math has\nbeen my body has\ntaken all the energy from the math part\nof my brain and put it in my lungs and\nmy\nlegs, which is\nfine. I'll get there when I get there.\nWow.\nWow. Okay, this is a race.\nH. Okay.\nSo, in preparation for this\nrace, I set up a nutrition\nplan, and I've got it printed out and\nposted right here on my top\ntube. And it was in my plan all\nalong to skip that aid station. I've got\ntwo bottles.\nI got plenty of\nfood\nand there's only like 16\nmiles left to the\nfinish. So, I didn't need to stop.\nOkay, well we're into the last\nclimb. There's like two miles left.\nAnd I think the top of the\nclimb is the end of the\ntiming. And I'm averaging right around\n14.4 miles an hour. So I think I'm going\nto beat my\ngoal. But I'm not there yet.\nWell, Garvin says that was the end of\nthe\nclimb, but we're still going\nup. And as far as I can\ntell, we're still a mile or so away from\nthe finish.\nBy the time I was finishing the medial\nroute, the fastest riders doing the full\ngrand route, 100 miles and almost 6,000\nft of climbing were coming up to their\nfinish. Those guys and gals are fast,\nman.\nYeah, I think early I was probably\npulling at my threshold and then after\nlike the first hour and a half I was\nlike I should probably knock this back\nto Right. Yeah, exactly. A little less.\nThank you. There you go. You're welcome.\nWe do have water and your soda if you\nwant it. I'm thinking about that porta\npotty myself. I've been thinking about\nit for the last few miles. I\nthought you guys had on us\n10. That's what\nAll right.\nWell, made it made it back to the start\nfinish\narea. That was\nfun. That was that was a good\nworkout. Um, I think my official time\nwas\n4 hours and 10 minutes. So, I beat my\ngoal time by 20 minutes, which is good.\nwhich is really\ngood. Um, I think I ended up sixth than\nmy age group,\nwhich I was hoping for better, but it is\nwhat it is. Those guys are just\nfaster. And\nuh, yeah, I think that puts it puts me\nout of the running. I think I'm\nmathematically eliminated from a podium\nposition for the\nuh for the\nseries. Oh\nwell, but doesn't matter. Still one more\nrace and I'm going to go for\nit. Okay, well I guess that wraps it up\nfor this week's Two Wheel Wednesdays.\nThanks for joining me. I hope you\nenjoyed the ride. I sure did.\nAnd\nuh remember, life is twice as good on\ntwo wheels. We'll see you next\ntime. And finally, a big shout out to\nMike and Andy Ripley and their crew at\nMudslinger for staging another great\nevent. See you next year.",
-          "curated": true,
-          "curation_reason": "Recent first-person ride-along with detailed course breakdown and specific terrain details for the 66-mile Medio route.",
-          "display_order": 1
-        },
-        {
-          "video_id": "zA2HsXEIlyg",
-          "title": "Oregon Gran Fondo 2017",
-          "channel": "Mike Ripley",
-          "view_count": 151,
-          "upload_date": "20170902",
-          "duration_string": "41",
-          "description": "One of the best Road routes on the West Coast the first Saturday in June. 42,70,117 and 137 Mile options starting and ending in Cottage Grove Oregon",
-          "tags": [
-            "Oregon Gran Fondo",
-            "Road Cycling",
-            "Gran Fondo",
-            "Cottage Grove Oregon",
-            "Travel Oregon",
-            "Adventure Cycling",
-            "Mudslinger Events"
-          ],
-          "url": "https://www.youtube.com/watch?v=zA2HsXEIlyg",
-          "curated": false
-        },
-        {
-          "video_id": "tjFFodYUhyI",
-          "title": "2-Wheeled Wednesdays - Oregon Gran Fondo 2023",
-          "channel": "Chip Weinert",
-          "view_count": 339,
-          "upload_date": "20230607",
-          "duration_string": "12:56",
-          "description": "A 72-mile bicycle ride through the western foothills of Oregon's Cosatal Range with 300 other cyclists.",
-          "tags": [
-            "2-Wheeled Wednesdays",
-            "Chip Weinert",
-            "Cottage Grove",
-            "Medio route",
-            "Oregon",
-            "Oregon Gran Fondo",
-            "bicycling",
-            "cycling",
-            "monkeys",
-            "road bike"
-          ],
-          "url": "https://www.youtube.com/watch?v=tjFFodYUhyI",
-          "transcript": "[Music]\nfirst this morning\nhi and welcome to another two wheeled\nWednesdays hey I'm here in Cottage Grove\nOregon and today is the Oregon Gran\nFondo and uh\nwe're going to be heading up into the\nCoastal Range there's about 300 of us\nthere's four different routes there's\ntwo gravel routes and two Road routes\nI'm doing the shorter of this the two\nRoad routes which is the medio and it's\nstill about 72 miles so it's going to be\na fun day on the bike and uh\nhere's a map of where we're going\nthe first couple miles were kept at a\nslower parade Pace in a rolling neutral\nzone once we get out of town the real\nride starts and that's where this map\nstarts we hit our first climb of the day\nright off the bat and for the rest of\nthe ride there's quite a bit of ups and\ndowns not much flat\nthe biggest climb is on Smith River Road\nwhich climbs about a thousand feet in\nsix miles and brings us to the highest\npoint on the route\nand thankfully the first rest stop of\nthe day\nthe last climb takes us up to the end of\nthe time section at about 64 miles of\nriding\nfrom there it's pretty much all downhill\nthrough downtown Cottage Grove and back\nto our starting area\nthanks to relieve for the cool map check\nthem out at relieve.com\nokay it's time to line up and get ready\nfor the start\nyeah\neach bike had a computer sensor on their\nfront right fork and so we had to all go\nover these lines on the road that set\nthe timer going for your particular bike\nso it was kind of a pinch point so we\ntried to get up as close to the front as\npossible because it would have been less\ncatching up to everybody later on\noh\nthank you\nonce we got out of town the pack really\nbegan to stretch out\npast the neutral zone\nand by the time we\narrived at the base of the first climb\nthe pack was really strung out\nand would stay that way all day\nit was a beautiful day and I was\nclimbing well that day\nbut the people I passed on the way up\nboy they sure blew past me on the\ndownhills\nall right\nnice of you from up here\nthere were rest stops about every 16\nmiles and uh they were well stocked with\ngood food and lots of friendly people\nthe roads after that first rest stop\nwere a little rough to put it nicely so\nI was kind of wondering if taking the\ngravel route would have been a little\nbit easier\nwhen I finally got out into some\nrelatively flat open prairie-like area\nit was a welcome relief for my hands and\nuh my seat\nforeign\nall right well there you have it\nthat was a lot of fun\nuh it was a lot of work but it was a lot\nof fun\num I finished in about five hours I was\nplanning on finishing in about six hours\nso\nyou know I I came out ahead of where I\nthought I was gonna be\nI missed being on the podium by about an\nhour even the guy in third place beat me\nby more than an hour but that's all\nright life's life is okay\nokay well\nthanks for joining me I hope you enjoyed\nthe ride I sure did a big shout out to\nMike and the Mudslinger events crew they\nput on a a good race a good ride\nand\num I think that's about it\ndon't forget to check out two\nwheeledwansays.com uh we've got some fun\nstuff coming up for that I got some good\nideas over the last 72 miles\nand remember life is twice as good on\ntwo wheels\nsee ya",
-          "curated": true,
-          "curation_reason": "Good production quality ride recap with specific course details and rest stop information for the 72-mile route.",
-          "display_order": 2
-        },
-        {
-          "video_id": "GVRpWMTLaz8",
-          "title": "Hundreds Compete In Oregon Gran Fondo",
-          "channel": "KEZI 9",
-          "view_count": 668,
-          "upload_date": "20140602",
-          "duration_string": "2:29",
-          "description": "Hundreds of cyclists from all over the Pacific Northwest enjoyed the Oregon scenery Sunday as they raced in the third annual Oregon Gran Fondo, which started and ended in Cottage Grove.",
-          "tags": [
-            "Oregon Gran Fondo",
-            "Cottage Grove",
-            "bicycling"
-          ],
-          "url": "https://www.youtube.com/watch?v=GVRpWMTLaz8",
-          "transcript": "one after another cyclist crossed the\nfinish line today in Cottage Grove as\npart of the third annual Oregon gr Fondo\nki9 news reporter T her was at the race\nearlier where he talked to organizers\nand Racers he joins us live in the\nstudio to tell us all about the event\nChu n nearly 500 cyclists took off from\nthe starting line on Main Street to ride\nthrough miles and miles of Oregon\nterrain while the range of talent was\nwidespread many saw eye to eye about the\nwhat made this ride particularly\nenjoyable the start line looked like\nthis and within a matter of minutes\nhundreds of cyclists were off hoping to\ncome out on top in the third annual\nOregon Grand Fondo I think it's one of\nthe best in the country 16-year-old Leaf\nkaola says throughout all the years he's\nbeen riding this course is one of the\nmost memorable I think it's been one of\nmy favorite rides in Eugene it's just\nabsolutely phenomenal with the climbing\nall of the great people here the food\njust the community Racers say those are\njust some of the many reasons Riders\nfrom all different skill levels and ages\nlike 13-year-old Brendan Sheeran from\nEugene are so drawn to the event there\njust the atmosphere is a lot different\nlike a lot of other races like okay got\nto win got to go super fast got to be\nsuper serious everyone but in this race\neveryone's like sure let's just have fun\njust ride together organizers and Racers\nsay the atmosphere is enhanced by the\nscenic routes and by how participation\nwas also lending a hand to the local\neconomy attracted me was just you know\nhelping the local community and just\ncome to hang out with the people that I\nknow and getting to ride some more uh\nroads that are just absolutely\nphenomenal to Oregon it is a really\nunique course it goes deep deep deep\ninto the upper Smith River um back into\nthe woods in in the western side of the\nwamt Valley and the South coastal range\na lot of these people are from all over\nthe state uh there some of them from out\nof state too and that has a pretty big\neconomic impact though they each cross\nthe finish line one by\none nice they also did so side by side\njoined together by their love of the\nsport and desire to achieve more I sort\nof I look up to most people who are\nolder than me I'm always like when I'm\nracing with him I'm trying to like okay\nwhat's he doing that I can do to get\nbetter there were three different routes\nuh Racers could compete in today the\nlongest one was 117 miles the shortest\n31 and the winner of the longest route\nwon a $1,000 cash prize live in the\nstudio Chu her kzi 9 News",
-          "curated": false
-        },
-        {
-          "video_id": "09a0jyDIvbA",
-          "title": "Oregon Gran Fondo - KOM",
-          "channel": "Gary",
-          "view_count": 226,
-          "upload_date": "20190729",
-          "duration_string": "21:16",
-          "description": "",
-          "tags": [],
-          "url": "https://www.youtube.com/watch?v=09a0jyDIvbA",
-          "curated": false
-        }
-      ],
-      "quotes": [
-        {
-          "text": "The biggest climb is on Smith River Road which climbs about a thousand feet in six miles and brings us to the highest point on the route and thankfully the first rest stop of the day.",
-          "source_video_id": "tjFFodYUhyI",
-          "source_channel": "Chip Weinert",
-          "source_view_count": 339,
-          "category": "course_difficulty",
-          "curated": true
-        },
-        {
-          "text": "The roads after that first rest stop were a little rough to put it nicely so I was kind of wondering if taking the gravel route would have been a little bit easier.",
-          "source_video_id": "tjFFodYUhyI",
-          "source_channel": "Chip Weinert",
-          "source_view_count": 339,
-          "category": "course_difficulty",
-          "curated": true
-        },
-        {
-          "text": "All in all, it was about 66 miles with a little more than 3,700 feet of climbing. The entire ride today is going to be around 66 miles, but the time section is somewhere 59 or 60 miles.",
-          "source_video_id": "MSl01sOOELY",
-          "source_channel": "Chip Weinert",
-          "source_view_count": 280,
-          "category": "course_difficulty",
-          "curated": true
-        }
-      ],
-      "rider_intel": {
-        "extracted_at": "2026-02-23",
-        "key_challenges": [
-          {
-            "name": "Smith River Road climb",
-            "mile_marker": "",
-            "description": "The biggest climb of the day, climbing about a thousand feet in six miles and bringing riders to the highest point on the route.",
-            "source_video_ids": [
-              "tjFFodYUhyI"
-            ]
-          },
-          {
-            "name": "First climb",
-            "description": "Right off the bat there's the first climb of the day, with riders stretching out pretty quickly once underway. The pack gets really strung out and stays that way all day.",
-            "source_video_ids": [
-              "tjFFodYUhyI",
-              "MSl01sOOELY"
-            ]
-          },
-          {
-            "name": "Last climb",
-            "mile_marker": "64",
-            "description": "The last climb takes riders up to the end of the time section at about 64 miles of riding.",
-            "source_video_ids": [
-              "tjFFodYUhyI"
-            ]
-          }
-        ],
-        "terrain_notes": [
-          {
-            "text": "The roads after the first rest stop were a little rough to put it nicely, making riders wonder if taking the gravel route would have been easier. Relief comes when reaching relatively flat open prairie-like area, which is welcome relief for hands and seat.",
-            "source_video_ids": [
-              "tjFFodYUhyI"
-            ]
-          },
-          {
-            "text": "The course goes deep deep deep into the upper Smith River back into the woods in the western side of the Willamette Valley and the South coastal range.",
-            "source_video_ids": [
-              "GVRpWMTLaz8"
-            ]
-          }
-        ],
-        "gear_mentions": [],
-        "race_day_tips": [
-          {
-            "text": "Each bike has a computer sensor on the front right fork and riders have to go over timing lines on the road. It's a pinch point so try to get up as close to the front as possible because it would mean less catching up to everybody later on.",
-            "source_video_ids": [
-              "tjFFodYUhyI"
-            ]
-          },
-          {
-            "text": "Don't burn all your matches at the start like normal - pace yourself on the climbs as people who get passed on the way up will blow past you on the downhills.",
-            "source_video_ids": [
-              "tjFFodYUhyI",
-              "MSl01sOOELY"
-            ]
-          },
-          {
-            "text": "Rest stops are about every 16 miles and are well stocked with good food and lots of friendly people.",
-            "source_video_ids": [
-              "tjFFodYUhyI"
-            ]
-          }
-        ],
-        "additional_quotes": [
-          {
-            "text": "There were three different routes racers could compete in today the longest one was 117 miles the shortest 31 and the winner of the longest route won a $1,000 cash prize",
-            "source_video_id": "GVRpWMTLaz8",
-            "source_channel": "KEZI 9",
-            "source_view_count": 668,
-            "category": "logistics",
-            "curated": true
-          },
-          {
-            "text": "A lot of these people are from all over the state there some of them from out of state too and that has a pretty big economic impact",
-            "source_video_id": "GVRpWMTLaz8",
-            "source_channel": "KEZI 9",
-            "source_view_count": 668,
-            "category": "community",
-            "curated": true
-          },
-          {
-            "text": "The first couple miles were kept at a slower parade pace in a rolling neutral zone once we get out of town the real ride starts",
-            "source_video_id": "tjFFodYUhyI",
-            "source_channel": "Chip Weinert",
-            "source_view_count": 339,
-            "category": "logistics",
-            "curated": true
-          }
-        ],
-        "search_text": "The Oregon Gran Fondo in Cottage Grove features multiple route options including gravel and road routes ranging from 31 to 117 miles. The course goes deep into the upper Smith River area in the western Willamette Valley and South coastal range. Riders face significant climbing with the biggest challenge being Smith River Road, climbing 1000 feet over six miles to the highest point. The terrain includes rough road sections after rest stops, with relief coming in flat prairie-like areas. The event uses electronic timing with sensors and timing mats, creating bottlenecks at the start. Rest stops are spaced every 16 miles with good food and support. The atmosphere is described as community-focused rather than ultra-competitive, drawing riders from across the state and beyond. The course features a lollipop route design with multiple substantial climbs throughout the 66-mile distance and 3700 feet of elevation gain."
-      }
-    },
-    "photos": [
-      {
-        "type": "video-1",
-        "file": "oregon-gran-fondo-video-1.jpg",
-        "url": "/race-photos/oregon-gran-fondo/oregon-gran-fondo-video-1.jpg",
-        "alt": "Cyclists gathering at Oregon Gran Fondo race start with orange traffic cones and organizers under clear blue sky - Cottage Grove, Oregon",
-        "credit": "YouTube / Chip Weinert",
-        "primary": true,
-        "ai_relevance": 5,
-        "ai_quality": 4,
-        "ai_keywords": [
-          "race start",
-          "Oregon cycling",
-          "gran fondo",
-          "cyclist gathering",
-          "race organization"
-        ]
-      },
-      {
-        "type": "video-2",
-        "file": "oregon-gran-fondo-video-2.jpg",
-        "url": "/race-photos/oregon-gran-fondo/oregon-gran-fondo-video-2.jpg",
-        "alt": "First-person view of paved forest road through dense Pacific Northwest evergreen trees during Oregon Gran Fondo - Cottage Grove, Oregon",
-        "credit": "YouTube / Chip Weinert",
-        "primary": false,
-        "ai_relevance": 4,
-        "ai_quality": 3,
-        "ai_keywords": [
-          "forest road",
-          "Pacific Northwest",
-          "evergreen trees",
-          "cycling perspective",
-          "paved road"
-        ]
-      },
-      {
-        "type": "video-3",
-        "file": "oregon-gran-fondo-video-3.jpg",
-        "url": "/race-photos/oregon-gran-fondo/oregon-gran-fondo-video-3.jpg",
-        "alt": "Cyclist's perspective riding smooth paved road through lush Oregon forest with tall conifers and green undergrowth - Oregon Gran Fondo - Cottage Grove, Oregon",
-        "credit": "YouTube / Chip Weinert",
-        "primary": false,
-        "ai_relevance": 4,
-        "ai_quality": 4,
-        "ai_keywords": [
-          "Oregon forest",
-          "paved cycling",
-          "conifer forest",
-          "cycling POV",
-          "forest canopy"
-        ]
-      },
-      {
-        "type": "preview-gif",
-        "file": "oregon-gran-fondo-preview.gif",
-        "url": "/race-photos/oregon-gran-fondo/oregon-gran-fondo-preview.gif",
-        "alt": "Course preview from Oregon Gran Fondo race footage",
-        "credit": "YouTube / Chip Weinert",
-        "gif": true
-      }
-    ]
+      "sources_used": 7,
+      "event_date": "2026-05-16"
+    }
   }
 }

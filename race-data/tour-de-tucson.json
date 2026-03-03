@@ -1,0 +1,176 @@
+{
+  "race": {
+    "slug": "tour-de-tucson",
+    "name": "Tour de Tucson",
+    "vitals": {
+      "slug": "tour-de-tucson",
+      "name": "Tour de Tucson",
+      "date": "November 21, 2026",
+      "date_specific": "November 21, 2026",
+      "distance_mi": 102,
+      "elevation_ft": 3500,
+      "location": "Tucson, Arizona, USA",
+      "terrain": "Paved roads",
+      "website": "https://eltourdetucson.org",
+      "registration_url": "https://eltourdetucson.org",
+      "prestige": 3,
+      "overall_score": 71,
+      "tier": 2,
+      "discipline": "road",
+      "month": "November"
+    },
+    "gravel_god_rating": {
+      "logistics": 4,
+      "length": 4,
+      "technicality": 1,
+      "elevation": 3,
+      "climate": 4,
+      "altitude": 2,
+      "adventure": 3,
+      "prestige": 3,
+      "race_quality": 3,
+      "experience": 3,
+      "community": 4,
+      "field_depth": 5,
+      "value": 4,
+      "expenses": 4,
+      "cultural_impact": 3,
+      "overall_score": 71,
+      "tier": 2,
+      "tier_label": "TIER 2"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 4,
+        "explanation": "Central start and finish at Tucson Convention Center simplifies access for 11,000 riders. Multiple packet pick-up times on Thursday and Friday at the venue reduce lines. Post-race expo with beer garden and results board near finish line enhances convenience."
+      },
+      "length": {
+        "score": 4,
+        "explanation": "102-mile century loops the Tucson perimeter on paved roads through Pima County municipalities. Options like 63-mile metric and 32-mile half metric cater to varied fitness levels. Full distance challenges riders over desert terrain without excessive repetition."
+      },
+      "technicality": {
+        "score": 1,
+        "explanation": "Fully paved roads require no off-road skills or handling expertise. Route tweaks by Pima County officials ensure smooth, safe surfaces avoiding construction. Focus remains on endurance pacing rather than bike control demands."
+      },
+      "elevation": {
+        "score": 3,
+        "explanation": "3500 feet gain spread across 102 miles features rolling desert climbs around Tucson. No extreme peaks but sustained efforts test pacing on outskirts roads. Gradual ascents suit steady climbers in the perimeter layout."
+      },
+      "climate": {
+        "score": 4,
+        "explanation": "November timing delivers mild Tucson desert weather ideal for long rides. Low humidity and comfortable temps post-fall support high rider turnout. Minimal rain risk enhances safety on open perimeter routes."
+      },
+      "altitude": {
+        "score": 2,
+        "explanation": "Tucson base elevation around 2400 feet poses negligible hypoxia for most. Flat-to-rolling perimeter stays low without high passes. Acclimation unnecessary even for sea-level riders tackling 102 miles."
+      },
+      "adventure": {
+        "score": 3,
+        "explanation": "Perimeter loop explores Tucson metro deserts and municipalities on closed roads. Massive 11,000-rider field creates electric atmosphere from Convention Center start. Charitable team rides add motivational community vibe."
+      },
+      "prestige": {
+        "score": 3,
+        "explanation": "42+ editions since 1983 draw nearly 11,000 annually as a top U.S. road event per USA TODAY. Perimeter format distinguishes it among American sportives. Fundraising legacy nearing $130 million elevates its charitable stature."
+      },
+      "race_quality": {
+        "score": 3,
+        "explanation": "Perimeter Bicycling coordinates with Pima County for safe route tweaks and law enforcement. Electronic timing and quick results posting at finish maintain efficiency. Expo fiesta with awards and beer garden caps organized experience."
+      },
+      "experience": {
+        "score": 3,
+        "explanation": "Downtown Tucson Convention Center hub offers festive start with expected finish time corrals. Post-ride Dragoon Brewing beer garden and live entertainment reward efforts. Family fun rides like 3-mile option broaden appeal."
+      },
+      "community": {
+        "score": 4,
+        "explanation": "Nonprofit teams enable charities to fundraise via 102-mile and shorter options. 11,000 participants foster inclusive cycling culture in Tucson. Event promotes health, wellness, and local engagement annually."
+      },
+      "field_depth": {
+        "score": 5,
+        "explanation": "Nearly 11,000 cyclists across platinum, individual, tandem, e-bike, and military categories. Platinum Cat 1/2 divisions attract competitive riders in 102-mile event. High volume creates deep, diverse pelotons on perimeter."
+      },
+      "value": {
+        "score": 4,
+        "explanation": "Multiple distances from 102 miles to 1-mile fun rides suit all levels at accessible fees. Charitable impact and expo perks add non-monetary returns. Massive scale delivers pro-level logistics for regional sportive."
+      },
+      "expenses": {
+        "score": 4,
+        "explanation": "Tucson Convention Center proximity cuts lodging needs for race day. Local rentals and direct flights minimize travel costs. Entry fees remain reasonable for 102-mile fully supported perimeter event."
+      },
+      "cultural_impact": {
+        "score": 3,
+        "explanation": "National recognition as top road event with 42 editions shapes U.S. sportive scene. $130 million raised since 1983 boosts Tucson charities significantly. Annual tradition draws global cyclists to desert perimeter."
+      }
+    },
+    "course_description": {
+      "summary": "The 102-mile century loops Tucson's perimeter on paved roads through Pima County municipalities, starting and finishing at the Tucson Convention Center. Desert terrain features rolling climbs totaling 3500 feet gain amid safe, closed routes. Multiple options like 63-mile metric and 32-mile half metric accommodate varied participants.",
+      "terrain_breakdown": {
+        "paved": 100,
+        "gravel": 0,
+        "singletrack": 0,
+        "other": 0
+      },
+      "key_segments": [
+        {
+          "name": "Desert Outskirts Rollers",
+          "description": "Early miles exit downtown Tucson into rolling desert roads with gradual climbs building elevation. Pima County coordination ensures smooth pavement for steady pacing.",
+          "distance_mi": 25,
+          "difficulty": "moderate"
+        },
+        {
+          "name": "Perimeter Eastern Push",
+          "description": "Mid-route eastern loop challenges with sustained rollers accumulating much of the 3500 feet gain. Open vistas reward efforts before return leg to Convention Center.",
+          "distance_mi": 40,
+          "difficulty": "moderate"
+        }
+      ],
+      "elevation_profile": "Profile shows steady accumulation of 3500 feet via frequent rollers rather than steep pitches across the 102-mile perimeter. Desert terrain keeps grades manageable for sportives. No major summits dominate the Tucson loop.",
+      "aid_stations": "Multiple aid stations line the route with first aid and hydration support. Electronically timed finish ensures efficient post-ride recovery at the Convention Center."
+    },
+    "logistics": {
+      "registration": {
+        "opens": "June/July",
+        "closes": "sells out",
+        "cost": "$100-150 USD",
+        "lottery": false,
+        "capacity": 11000
+      },
+      "travel": {
+        "nearest_airport": "Tucson International Airport (TUS)",
+        "driving_from_major_city": "110 miles, 1.5 hours from Phoenix",
+        "accommodation": "Downtown Tucson hotels like DoubleTree near Convention Center fill fast; book early for race weekend. Budget options abound in metro area.",
+        "bike_transport": "TUS airport offers direct rentals; ship via bike shops or fly with bike for 7am century start. Local mechanics service at expo."
+      },
+      "race_day": {
+        "start_time": "7:00am for 102-mile",
+        "cutoff": "none",
+        "categories": "Platinum/Cat 1-2, age groups, tandems, e-bikes, military, non-profits; distances 102/63/32/25 miles",
+        "awards": "Age group medals, team prizes at expo ceremony"
+      }
+    },
+    "training_recommendations": {
+      "minimum_fitness": "Base of 1000 miles yearly with long rides over 50 miles prepares for 102-mile distance. Comfort on rolling terrain handles 3500 feet gain.",
+      "ideal_preparation": "Build to 200-mile training weeks peaking four weeks out with 80-mile rides mimicking perimeter rollers. Include Tucson-like heat acclimation in November block. Taper focuses recovery for 7am mass start.",
+      "key_workouts": "3x 2-hour tempo intervals at 200-250 watts on rolling roads. 5-hour endurance ride with 3000 feet gain. 102km simulation loop at race pace."
+    },
+    "history": {
+      "founded": 1983,
+      "notable_facts": "42nd edition held November 2025 with 11,000 riders. Raised nearly $130 million for charities since inception. Recognized by USA TODAY as top U.S. road cycling event."
+    },
+    "final_verdict": {
+      "one_liner": "Massive Tucson perimeter sportive blending charity, desert miles, and community buzz.",
+      "who_should_ride": "Century seekers wanting huge fields and supported 102-mile loops. Charity riders and fitness enthusiasts thrive in inclusive vibe.",
+      "who_should_skip": "Technical gravel hunters or high-altitude masochists find little challenge here. Extreme solo adventurers prefer wilder routes.",
+      "insider_tip": "Arrive by 4am at Cushing Street corral for prime 102-mile start position."
+    },
+    "suffering_zones": [
+      {
+        "label": "Desert Roller Fatigue",
+        "description": "Mid-ride eastern perimeter accumulatively drains legs with 2000 feet gain over 40 miles. Steady 3-5% grades in sun test fueling on exposed roads."
+      },
+      {
+        "label": "Late Finish Sprint",
+        "description": "Final 20 miles back to Convention Center feature punchy rollers after 90 miles. Crowded field demands positioning amid 11,000 riders."
+      }
+    ]
+  }
+}

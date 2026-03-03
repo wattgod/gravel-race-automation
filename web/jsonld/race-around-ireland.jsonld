@@ -1,0 +1,23 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Race Around Ireland",
+  "description": "",
+  "sport": "Gravel Cycling",
+  "location": {
+    "@type": "Place",
+    "name": "Trim, County Meath, Ireland",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Trim",
+      "addressRegion": "County Meath"
+    }
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "66",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  }
+}

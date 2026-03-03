@@ -1,0 +1,186 @@
+{
+  "race": {
+    "slug": "hong-kong-cyclothon",
+    "name": "Hong Kong Cyclothon",
+    "vitals": {
+      "slug": "hong-kong-cyclothon",
+      "name": "Hong Kong Cyclothon",
+      "date": "2026: November TBD",
+      "date_specific": "2026: November TBD",
+      "distance_mi": 31,
+      "elevation_ft": 1200,
+      "location": "Hong Kong, China",
+      "terrain": "Paved roads",
+      "website": "https://www.discoverhongkong.com/eng/what-s-new/events/cyclothon.html",
+      "registration_url": "https://www.discoverhongkong.com/eng/what-s-new/events/cyclothon.html",
+      "prestige": 3,
+      "overall_score": 67,
+      "tier": 2,
+      "discipline": "road",
+      "month": "October"
+    },
+    "gravel_god_rating": {
+      "logistics": 4,
+      "length": 3,
+      "technicality": 2,
+      "elevation": 3,
+      "climate": 3,
+      "altitude": 1,
+      "adventure": 4,
+      "prestige": 3,
+      "race_quality": 3,
+      "experience": 4,
+      "community": 4,
+      "field_depth": 4,
+      "value": 3,
+      "expenses": 3,
+      "cultural_impact": 3,
+      "overall_score": 67,
+      "tier": 2,
+      "tier_label": "TIER 2"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 4,
+        "explanation": "Registration opens in mid-September via the official HKTB website and fills 6,000 spots quickly, requiring a cycling technique assessment for new 50km riders at designated venues. Bike rentals are available first-come-first-served for non-locals, with shuttle buses offered for HK$60. Centralized organization by Hong Kong Tourism Board ensures smooth urban event management."
+      },
+      "length": {
+        "score": 3,
+        "explanation": "The flagship 50km route covers approximately 31 miles through Hong Kong's urban core, passing four tunnels like Cheung Ching and three bridges including Tsing Ma. Shorter 32km option hits two tunnels and two bridges for less committed riders. Distances suit intermediate cyclists tackling iconic infrastructure without ultra-endurance demands."
+      },
+      "technicality": {
+        "score": 2,
+        "explanation": "Paved roads through tunnels and over bridges like Ting Kau demand steady handling in group rides amid urban traffic closures. No gravel or singletrack, but technique assessments test cornering and braking for 50km entrants. Primarily power-focused with low technical barriers for road-equipped bikes."
+      },
+      "elevation": {
+        "score": 3,
+        "explanation": "1200 feet of gain spread across 50km challenges riders with rolling climbs near Eagle's Nest Tunnel and Sha Tin Heights. Urban profile mixes flats with moderate pitches on bridge approaches. Sufficient to spike heart rates without sustained alpine suffering."
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "Late fall in Hong Kong brings mild 20-25°C temperatures with high humidity during November rides. Occasional rain adds slick tunnel surfaces, but dry conditions favor fast paces. Riders must prepare for subtropical warmth over 31 miles."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "Sea-level urban route through Hong Kong stays below 500 feet, eliminating any hypoxia effects. Focus remains on heat and traffic flow rather than thin air. No altitude acclimation needed for international participants."
+      },
+      "adventure": {
+        "score": 4,
+        "explanation": "Crossing Tsing Ma Bridge and navigating four tunnels like Nam Wan delivers rare vehicular access to Hong Kong's engineering marvels. Urban scenery blends skyscrapers with waterfronts for a thrilling city-to-bridge journey. Mass event vibe amplifies the exploratory feel amid 6,000 riders."
+      },
+      "prestige": {
+        "score": 3,
+        "explanation": "Hong Kong's largest cycling event draws 6,000 local, mainland, and overseas participants annually since 2014. Organized by HKTB with Sun Hung Kai sponsorship, it features university trophies and charity rides. Regional draw elevates its status in Asia's sports tourism calendar."
+      },
+      "race_quality": {
+        "score": 3,
+        "explanation": "HKTB coordinates road closures for safe passage over Stonecutters Bridge and through Sha Tin Heights Tunnel. Livestreaming, cheering zones in West Kowloon, and finisher medals ensure polished execution. Qualification proofs and assessments maintain standards for mass sportive."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "Riding Tsing Ma Bridge's span against Victoria Harbour skyline creates unforgettable urban vistas. Family Fun Ride in West Kowloon adds festive elements with interactive tasks. Blend of competition, charity, and tourism crafts a vibrant rider atmosphere."
+      },
+      "community": {
+        "score": 4,
+        "explanation": "6,000 cyclists from Hong Kong, Mainland China, and global universities foster inclusive vibes with team options up to 10 riders. Charity donations to Community Chest via fees build goodwill. Spectator zones and CEO rides strengthen local engagement."
+      },
+      "field_depth": {
+        "score": 4,
+        "explanation": "5000-6000 participants include qualified riders from CAHK races and UCI events, plus university teams from top-100 global schools. Mix of individuals and teams ensures competitive pelotons on 50km route. Broad appeal tests fitness across skill levels."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "HK$600 entry for 50km includes rider pack, medal, and e-certificate, with optional jersey for HK$155. Access to iconic Tsing Ma Bridge justifies cost for urban sportive fans. Charity component adds purpose to the fee."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Entry at HK$600 (~$77 USD) plus extras like shuttle HK$60 make it accessible, but flights to Hong Kong International Airport add up for internationals. Local lodging in Kowloon keeps costs moderate. Bike rentals mitigate transport fees."
+      },
+      "cultural_impact": {
+        "score": 3,
+        "explanation": "As HKTB's flagship, it promotes Hong Kong's sports tourism via bridge-tunnel routes showcasing infrastructure. Draws international universities for cultural exchange in Greater Bay Area context. Annual staple reinforces city's dynamic cycling scene."
+      }
+    },
+    "course_description": {
+      "summary": "The 50km Hong Kong Cyclothon loops through urban Hong Kong, crossing three massive bridges like Tsing Ma and four tunnels including Eagle's Nest. Riders experience the city's engineering icons amid skyscraper backdrops. Shorter 32km variant offers similar thrills with reduced distance.",
+      "terrain_breakdown": {
+        "paved": 100,
+        "gravel": 0,
+        "singletrack": 0,
+        "other": 0
+      },
+      "key_segments": [
+        {
+          "name": "Tsing Ma Bridge Crossing",
+          "description": "Iconic ascent over the 2km-long suspension bridge with harbor views and steady climbs. High-speed group riding amid closed lanes.",
+          "distance_mi": 1.2,
+          "difficulty": "moderate"
+        },
+        {
+          "name": "Eagle's Nest and Sha Tin Heights Tunnels",
+          "description": "Dark, echoing passages with rolling pitches demanding consistent power output. Echoes rider packs through urban connectors.",
+          "distance_mi": 2.5,
+          "difficulty": "moderate"
+        },
+        {
+          "name": "Ting Kau Bridge",
+          "description": "Cable-stayed span with wind exposure and panoramic Rambler Channel sights. Fast descent follows moderate ramp.",
+          "distance_mi": 0.8,
+          "difficulty": "easy"
+        }
+      ],
+      "elevation_profile": "Rolling urban profile accumulates 1200 feet via bridge ramps and tunnel approaches, peaking near Sha Tin Heights. No extreme KOMs, but sustained 2-5% grades spike efforts over 31 miles. Flats dominate for recovery between pitches.",
+      "aid_stations": "Multiple hydration points along the 50km route provide water and electrolytes at tunnel exits and bridge bases. Finisher area in urban hub offers full recovery refreshments."
+    },
+    "logistics": {
+      "registration": {
+        "opens": "Mid-September",
+        "closes": "Late September or sells out",
+        "cost": "HK$600 (~$77 USD)",
+        "lottery": false,
+        "capacity": 5000
+      },
+      "travel": {
+        "nearest_airport": "Hong Kong International Airport (HKG)",
+        "driving_from_major_city": "Central Hong Kong: 30km, 40 minutes",
+        "accommodation": "Abundant hotels in Kowloon and Central near start areas; budget to luxury options with cyclist-friendly spots in West Kowloon Cultural District.",
+        "bike_transport": "Rentals available first-come-first-served during registration; fly with bike to HKG or use local shops for assembly."
+      },
+      "race_day": {
+        "start_time": "Early morning, around 7:00 AM",
+        "cutoff": "6-8 hours",
+        "categories": "50km ride, 32km ride, Family Fun Ride, CEO Charity Ride, University Trophy",
+        "awards": "Finisher medals and e-certificates for 50km/32km completers; trophies for university and open challenges"
+      }
+    },
+    "training_recommendations": {
+      "minimum_fitness": "Build to 50km rides with 1000ft gain at moderate pace; complete local group rides to mimic pack dynamics.",
+      "ideal_preparation": "Log 200-300km weekly for 8 weeks, emphasizing threshold efforts for tunnel pushes. Practice 2-3% grades simulating bridge ramps. Include humid heat sessions to adapt to Hong Kong conditions.",
+      "key_workouts": "3x10min at 90% FTP with 5min recoveries for bridge power; 50km tempo ride with 1200ft gain; group paceline drills for 2 hours."
+    },
+    "history": {
+      "founded": 2014,
+      "notable_facts": "Grew to Hong Kong's largest cycling event with 6000 entrants by attracting global universities for inaugural World University Trophy. Expanded routes annually to include more bridges/tunnels, boosting tourism. Partnered with Sun Hung Kai Properties for charity impact."
+    },
+    "final_verdict": {
+      "one_liner": "Urban bridge-blasting sportive blending Hong Kong's skyline with mass-ride energy.",
+      "who_should_ride": "Intermediate roadies seeking iconic infrastructure thrills and Asian cycling vibes. Tourists wanting sport-tourism combo with 5000 mates.",
+      "who_should_skip": "Climbing purists or gravel adventurers; extreme heat haters facing humidity. Beginners lacking technique assessment quals.",
+      "insider_tip": "Book bike rental early during registration and arrive 90min before technique assessment at Sha Tin velodrome."
+    },
+    "suffering_zones": [
+      {
+        "label": "Tsing Ma Bridge Wind Tunnel",
+        "description": "Headwinds on the 2km span amplify 1200ft total gain efforts amid harbor gusts. Exposed position tests sustained power in the pack."
+      },
+      {
+        "label": "Tunnel Succession Grind",
+        "description": "Back-to-back Cheung Ching, Nam Wan, and Eagle's Nest passages build cumulative fatigue with dim lighting and echoing packs. Heat buildup spikes without breeze."
+      },
+      {
+        "label": "Late-Stage Urban Push",
+        "description": "Final 10km through Kowloon traffic closures demands leg preservation after bridges. Humidity saps energy on rolling finishes."
+      }
+    ]
+  }
+}

@@ -1,0 +1,186 @@
+{
+  "race": {
+    "slug": "gfny-nyc",
+    "name": "GFNY NYC",
+    "vitals": {
+      "slug": "gfny-nyc",
+      "name": "GFNY NYC",
+      "date": "May 17, 2026",
+      "date_specific": "May 17, 2026",
+      "distance_mi": 100,
+      "elevation_ft": 8500,
+      "location": "New York City, New York, USA",
+      "terrain": "Paved roads",
+      "website": "https://nyc.gfny.com",
+      "registration_url": "https://gfny.cc/user/register",
+      "prestige": 4,
+      "overall_score": 74,
+      "tier": 2,
+      "discipline": "road",
+      "month": "May"
+    },
+    "gravel_god_rating": {
+      "logistics": 4,
+      "length": 5,
+      "technicality": 1,
+      "elevation": 4,
+      "climate": 3,
+      "altitude": 1,
+      "adventure": 4,
+      "prestige": 4,
+      "race_quality": 4,
+      "experience": 4,
+      "community": 5,
+      "field_depth": 4,
+      "value": 3,
+      "expenses": 2,
+      "cultural_impact": 4,
+      "overall_score": 74,
+      "tier": 2,
+      "tier_label": "TIER 2"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 4,
+        "explanation": "GFNY NYC centralizes race week around George Washington Bridge and Fort Lee, New Jersey, with easy access from NYC via public transit or short drives. Packet pickup, expo, and group rides occur in the GFNY Village, minimizing travel hassles. Post-race finish village offers music, pasta party, and beer garden right on site."
+      },
+      "length": {
+        "score": 5,
+        "explanation": "The full 100-mile course challenges riders with a demanding distance through NYC boroughs, over George Washington Bridge into New Jersey, and back via Palisades cliffs. A shorter 85-mile option exists for less experienced participants. This length tests endurance on a looped route totaling about 160 km."
+      },
+      "technicality": {
+        "score": 1,
+        "explanation": "As a fully paved road event on wide highways like Route 9W and closed bridges, technical demands are minimal with no gravel, descents requiring advanced handling, or tight corners. Riders focus on steady pedaling and traffic-free group riding. Descents along Palisades are smooth and straightforward."
+      },
+      "elevation": {
+        "score": 4,
+        "explanation": "Approximately 8500 feet of climbing features repeated efforts through Palisades Interstate Park and Hudson Valley roads north of George Washington Bridge. Key ascents total around 1942 meters over 137 km, with rolling terrain building cumulative fatigue. Climbs are steady grades rather than extreme pitches."
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "May in NYC brings mild spring weather around 60-70°F, but early starts on George Washington Bridge expose riders to cool dawns and potential rain showers. Humidity from Hudson River can make efforts feel heavier mid-race. Variable winds off the Palisades add unpredictability."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "The entire course stays at sea level near NYC and Hudson River, with no high passes or elevation above 500 feet. Riders experience zero altitude effects throughout the 100 miles. Focus remains on heat, wind, and climbing fatigue instead."
+      },
+      "adventure": {
+        "score": 4,
+        "explanation": "Crossing the closed George Washington Bridge at dawn with NYC skyline views delivers a thrilling urban-to-rural shift into New Jersey's Palisades and historic Hudson Valley. International peloton from 90+ countries creates electric energy. Route blends city icons with cliffside roads for memorable discovery."
+      },
+      "prestige": {
+        "score": 4,
+        "explanation": "GFNY NYC is the flagship World Championship, drawing riders from over 90 countries to qualify via global series events. Top 20% age-group finishers earn front corral spots worldwide. Its status as the original GFNY since 2011 elevates it as cycling's most international mass-participation race."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "Professional chip timing from George Washington Bridge start to NYC finish ensures accurate results for all 5000 riders. Mandatory Italian-made jersey and pro-level organization treat amateurs like elites. Integration with UCI Gran Premio NYC adds polish to road closures and logistics."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "Sunrise start on the world's busiest bridge, closed for GFNY, offers skyline panoramas and Hudson Valley scenery thorough in urban races. Finish village features podiums, BBQ, and beer garden for celebration. Jersey presentation and global camaraderie enhance the Pro For A Day vibe."
+      },
+      "community": {
+        "score": 5,
+        "explanation": "Peloton from nearly 100 nations fosters instant global bonds among 5000 participants. Age-group podiums and qualifier incentives build ongoing GFNY series loyalty. Post-race pasta party and expo unite families, spectators, and riders in Fort Lee."
+      },
+      "field_depth": {
+        "score": 4,
+        "explanation": "Around 5000 riders fill start corrals on George Washington Bridge, including qualified elites from GFNY worldwide events. International mix spans pros chasing GP NYC to enthusiasts, with top 20% age-group cuts ensuring competitive depth. Field quality rivals major sportives."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "Entry includes chip-timed race, official NYC-designed jersey, and finisher perks, but NYC lodging inflates total costs. Qualifier benefits add long-term value for series racers. Shorter route option boosts accessibility without diluting main event appeal."
+      },
+      "expenses": {
+        "score": 2,
+        "explanation": "High NYC hotel rates near George Washington Bridge and Fort Lee push budgets, plus flight costs for international field. Entry fees around $200-300 USD cover jersey and timing but not travel. Bike rentals available, though shipping to NYC expo adds expense."
+      },
+      "cultural_impact": {
+        "score": 4,
+        "explanation": "GFNY NYC pioneered the global granfondo series since 2011, expanding to 30+ events and influencing mass-participation racing. Closing George Washington Bridge symbolizes cycling's urban takeover. Its World Championship status draws diverse nations, shaping international endurance culture."
+      }
+    },
+    "course_description": {
+      "summary": "GFNY NYC's 100-mile flagship route starts on the closed George Washington Bridge, crossing into New Jersey's Palisades before looping through historic Hudson Valley roads and returning to NYC. Riders tackle rolling terrain with significant climbs amid urban and natural vistas. This original GFNY course serves as the World Championship for a global peloton.",
+      "terrain_breakdown": {
+        "paved": 100,
+        "gravel": 0,
+        "singletrack": 0,
+        "other": 0
+      },
+      "key_segments": [
+        {
+          "name": "George Washington Bridge Crossing",
+          "description": "Iconic traffic-free start at dawn over the world's busiest bridge, with NYC skyline south and Hudson Valley north. Riders hit full gas in corrals before descending into NJ.",
+          "distance_mi": 1.5,
+          "difficulty": "moderate"
+        },
+        {
+          "name": "Palisades Climb (Route 9W)",
+          "description": "Steady ascent through Palisades Interstate Park after initial NJ miles, offering cliff views and early leg-burner. Repeated efforts build elevation over rolling highways.",
+          "distance_mi": 10,
+          "difficulty": "hard"
+        },
+        {
+          "name": "Hudson Valley Rollers",
+          "description": "Northern NY State section features punchy climbs and descents with river vistas, testing fatigue after 50 miles. Cumulative gain peaks here before NYC return.",
+          "distance_mi": 20,
+          "difficulty": "hard"
+        }
+      ],
+      "elevation_profile": "The profile builds gradually with initial flats post-bridge, then repeated 500-1000ft climbs along Palisades and Route 9W totaling 8500ft. Mid-race Hudson Valley rollers deliver the biggest efforts before a net descent to NYC finish. No extreme KOMs, but constant undulation fatigues legs over 100 miles.",
+      "aid_stations": "Multiple drink stands and full aid stations dot the course every 20-25 miles, stocked with water, electrolytes, gels, and bars. Post-race finish village expands to pasta party, BBQ, and beer garden for recovery."
+    },
+    "logistics": {
+      "registration": {
+        "opens": "Fall prior",
+        "closes": "sells out",
+        "cost": "$250-350 USD",
+        "lottery": false,
+        "capacity": 5000
+      },
+      "travel": {
+        "nearest_airport": "John F. Kennedy International Airport (JFK)",
+        "driving_from_major_city": "0 miles from NYC (local event)",
+        "accommodation": "Hotels cluster in Fort Lee, NJ, and Manhattan near George Washington Bridge; budget options in NJ suburbs. GFNY partners with local chains for race blocks.",
+        "bike_transport": "Ship to NYC Bike Expo in GFNY Village or rent road bikes locally; UPS/FedEx drop-off available pre-race."
+      },
+      "race_day": {
+        "start_time": "6:10 AM (waves)",
+        "cutoff": "16.5 hours",
+        "categories": "Age groups 18+, full 100mi and 85mi routes; qualifier corrals",
+        "awards": "Age-group podiums, top 20% qualifiers, overall recognition"
+      }
+    },
+    "training_recommendations": {
+      "minimum_fitness": "Build to 50-60 mile rides with 4000ft elevation; complete a local century in under 8 hours.",
+      "ideal_preparation": "Log 200-300 miles weekly for 12 weeks, emphasizing back-to-back long rides over 70 miles with 5000ft gain. Include threshold intervals on rolling terrain to mimic Palisades efforts. Practice early-morning group starts for bridge corral pacing.",
+      "key_workouts": "3x20min at 85% FTP on climbs simulating Route 9W grades. 80-mile Saturday ride + 40-mile recovery Sunday with 6000ft total gain. 4-hour tempo ride with 20mi at race pace post-Hudson Valley rollers simulation."
+    },
+    "history": {
+      "founded": 2011,
+      "notable_facts": "Inaugural race held May 8, 2011, by founders Lidia and Uli Fluhme, launching the global GFNY series now over 30 events. Pioneered mass-pro racing with Gran Premio NYC, UCI pros starting 10min ahead on same course. Evolved into world's largest cycling marathon brand with 90+ nations at NYC flagship."
+    },
+    "final_verdict": {
+      "one_liner": "GFNY NYC delivers epic bridge start and global vibes on a climber's 100-miler.",
+      "who_should_ride": "Ambitious amateurs seeking international prestige and NYC iconography with solid century base. Qualifiers chasing GFNY World Championship glory.",
+      "who_should_skip": "Novices daunted by 8500ft gain or big-city crowds; flat sprinters uninterested in rollers.",
+      "insider_tip": "Arrive early for upper corrals on George Washington Bridge—views beat the elite start."
+    },
+    "suffering_zones": [
+      {
+        "label": "Palisades Grind",
+        "description": "Hour 2-4 on Route 9W features relentless 10-mile climbing block through cliffs, where early bridge adrenaline fades into NJ heat and wind."
+      },
+      {
+        "label": "Hudson Valley Death Rolls",
+        "description": "Miles 50-80 deliver punchy, unending rollers north of NYC, spiking fatigue with 4000ft more gain as legs scream for the bridge return."
+      },
+      {
+        "label": "Bridge Finale Push",
+        "description": "Final 10 miles back over George Washington Bridge after 90mi tests cracked resolve with crowds cheering the urban crawl to finish."
+      }
+    ]
+  }
+}

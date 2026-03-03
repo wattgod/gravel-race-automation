@@ -1,0 +1,176 @@
+{
+  "race": {
+    "slug": "london-edinburgh-london",
+    "name": "London Edinburgh London",
+    "vitals": {
+      "slug": "london-edinburgh-london",
+      "name": "London Edinburgh London",
+      "date": "2026: July TBD",
+      "date_specific": "2026: July TBD",
+      "distance_mi": 950,
+      "elevation_ft": 36000,
+      "location": "Chelmsford, Essex, UK",
+      "terrain": "Paved roads",
+      "website": "https://londonedinburghlondon.com/",
+      "registration_url": "https://londonedinburghlondon.com/",
+      "prestige": 4,
+      "overall_score": 74,
+      "tier": 2,
+      "discipline": "road",
+      "month": "July"
+    },
+    "gravel_god_rating": {
+      "logistics": 4,
+      "length": 5,
+      "technicality": 1,
+      "elevation": 4,
+      "climate": 3,
+      "altitude": 1,
+      "adventure": 5,
+      "prestige": 4,
+      "race_quality": 4,
+      "experience": 4,
+      "community": 4,
+      "field_depth": 3,
+      "value": 4,
+      "expenses": 3,
+      "cultural_impact": 3,
+      "overall_score": 74,
+      "tier": 2,
+      "tier_label": "TIER 2"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 4,
+        "explanation": "Registration opens via ballot in January 2029 for the 2029 edition, with 2,500 entries available before selling out. Start at Writtle University College near Chelmsford offers camping for £149 and 280 rooms for the full event duration. Controls in Boston, Malton, Richmond, Hawick, and Edinburgh provide food, rest, showers, and mechanical support."
+      },
+      "length": {
+        "score": 5,
+        "explanation": "The 1530km course demands ultra-endurance from Writtle to Edinburgh and back through scenic UK landscapes. Riders tackle the full out-and-back in about five days, testing sustained pacing over remote plains and country lanes. Secondary London Guildhall start adds slight extra distance at 1558km."
+      },
+      "technicality": {
+        "score": 1,
+        "explanation": "All on paved roads with no off-road or singletrack sections, focusing on navigation via route sheets and GPX files. Riders follow a fixed 1530km path through towns like Boston and Hawick without technical descents or rough terrain. Self-supported nature emphasizes steady road riding skills over bike handling."
+      },
+      "elevation": {
+        "score": 4,
+        "explanation": "13,442m of climbing over 1539km challenges legs across remote hill ranges north of Edinburgh. The profile builds cumulative fatigue with undulating terrain through Malton and Richmond on the return. London start variant hits 13,570m, demanding strong pacing on repeated ascents."
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "August timing brings mild UK summer weather but risks wind, rain, and cooler nights on exposed plains to Edinburgh. Headwinds on the return from Scotland amplify fatigue over 950 miles. Riders must prepare for variable conditions across England and Scottish borders."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "No high passes or significant altitude; the route stays at low elevations through Writtle, Boston, and Hawick. Focus remains on distance and volume rather than thin air effects. Cumulative climbing occurs below 1000m, minimizing hypoxia concerns."
+      },
+      "adventure": {
+        "score": 5,
+        "explanation": "Self-supported 1530km trek links London, Edinburgh, and back via windswept plains, landmark bridges, and verdant lanes. Quadrennial event tests initiative with controls in remote towns like Richmond and Hawick. Non-competitive randonnée format heightens the exploratory spirit across Britain's backroads."
+      },
+      "prestige": {
+        "score": 4,
+        "explanation": "UK's premier ultra-distance audax, held every four years as British counterpart to Paris-Brest-Paris. Validated by Les Randonneurs Mondiaux, drawing 2200 starters globally. Finishers earn medals and alphabetical listing for completing 950 miles in time."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "Audax UK flagship with live tracking, detailed GPX via Ride With GPS, and controls stocked for self-support. Ballot entry ensures fairness up to 2500 riders, with organized parking and camping at Writtle start. Route sheets published March 2029 guarantee precise navigation."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "Breathtaking route through three capital cities, hill ranges, and characterful towns like Edinburgh and Malton. Self-paced groups from 04:00-17:00 foster camaraderie over 128 hours. Medals for all completers reward the raw endurance journey."
+      },
+      "community": {
+        "score": 4,
+        "explanation": "Randonneuring culture unites 2200 international riders in non-competitive spirit at Writtle and controls. Live online tracking lets supporters follow progress from Boston to Hawick. Alphabetical finisher list celebrates collective achievement."
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "Around 2200 starters including qualifiers and ballot winners, with 2500 entries targeted for 2029. Mix of UK and international riders tests resilience on 1530km without elite racing. Capacity reflects strong demand for this quadrennial challenge."
+      },
+      "value": {
+        "score": 4,
+        "explanation": "Entry cost confirmed 2027 offers access to full event support over 950 miles for global ultra enthusiasts. Camping and rooms provide secure base at Writtle for the week. Medal and finisher status deliver high reward for self-supported effort."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Camping £149 or parking £59 per person, plus entry fee TBD in 2027 for 128-hour event. Travel to Chelmsford station 3km from Writtle adds costs for internationals. On-route self-support at controls keeps extras moderate."
+      },
+      "cultural_impact": {
+        "score": 3,
+        "explanation": "National icon in UK audax scene since 1989, every four years mirroring PBP tradition. Draws worldwide randonneurs to explore Britain from Essex to Scotland. Strengthens self-supported cycling heritage through Audax UK."
+      }
+    },
+    "course_description": {
+      "summary": "London Edinburgh London is a 1530km self-supported paved-road randonnée from Writtle near Chelmsford to Edinburgh and back within 128 hours. Riders navigate via route sheets through scenic English plains, Scottish hills, and towns like Boston, Malton, Richmond, and Hawick. The non-competitive format emphasizes endurance on Britain's backroads and bridges.",
+      "terrain_breakdown": {
+        "paved": 100,
+        "gravel": 0,
+        "singletrack": 0,
+        "other": 0
+      },
+      "key_segments": [
+        {
+          "name": "Writtle to Boston",
+          "description": "Initial northern leg through flat fenlands and windswept plains tests early pacing over ~200 miles. Passes Northstowe control amid rural Essex and Cambridgeshire.",
+          "distance_mi": 200,
+          "difficulty": "moderate"
+        },
+        {
+          "name": "Edinburgh Return via Hawick and Richmond",
+          "description": "Southern leg features hill ranges and undulations back through Scottish borders to Yorkshire towns. Cumulative fatigue hits on remote lanes after 700+ miles out.",
+          "distance_mi": 400,
+          "difficulty": "hard"
+        }
+      ],
+      "elevation_profile": "Steady accumulation of 13,442m over 1539km with rolling hills intensifying north of Edinburgh and on the return through Richmond. No extreme climbs but relentless ups and downs build deep fatigue across plains and ranges. London variant adds 128m more elevation.",
+      "aid_stations": "Controls at Northstowe, Boston, Malton, Richmond, Hawick, and Edinburgh offer food, rest, showers, and bike support. Riders self-manage between these well-spaced towns roughly every 100-200km."
+    },
+    "logistics": {
+      "registration": {
+        "opens": "January 5-19, 2029 (ballot)",
+        "closes": "sells out",
+        "cost": "TBD (2027)",
+        "lottery": true,
+        "capacity": 1600
+      },
+      "travel": {
+        "nearest_airport": "London Stansted (STN)",
+        "driving_from_major_city": "45 miles, 1 hour from London",
+        "accommodation": "280 rooms and camping pitches at Writtle University College available for full event duration from August 3-11. Secure luggage storage while riding.",
+        "bike_transport": "Nearest station Chelmsford 3km from start; fly to Stansted and train. Rentals available locally; ship bikes to Writtle parking area."
+      },
+      "race_day": {
+        "start_time": "04:00-17:00",
+        "cutoff": "128 hours",
+        "categories": "Open to qualified and ballot riders; single distance",
+        "awards": "Finishers medal; official alphabetical list for on-time completers"
+      }
+    },
+    "training_recommendations": {
+      "minimum_fitness": "Complete a 600km brevet in under 40 hours and build 300km+ weekend rides. Focus on sleep deprivation tolerance over 5 days.",
+      "ideal_preparation": "Log 10,000km year including multiple 1000km+ brevets with qualifiers. Practice self-supported pacing on loaded bikes through varied UK terrain. Incorporate night riding and 20-hour efforts to simulate 128-hour demand.",
+      "key_workouts": "Back-to-back 300km/200km days with hills mimicking Malton-Richmond. 24-hour loaded ride targeting 400km. Paced 400km with minimal sleep."
+    },
+    "history": {
+      "founded": 1989,
+      "notable_facts": "Flagship Audax UK event every four years, validated by Les Randonneurs Mondiaux. Grew from UK randonneuring roots as PBP counterpart. 2025 edition expects 2200 starters on refined 1539km route."
+    },
+    "final_verdict": {
+      "one_liner": "Ultimate UK ultra-randonnée: 950 miles self-supported to Edinburgh and back.",
+      "who_should_ride": "Qualified ultra-endurance riders seeking non-competitive adventure across Britain. Ideal for those qualified via 600km brevets craving 128-hour self-reliance.",
+      "who_should_skip": "Novices lacking 1000km+ brevets or discomfort with unsupported navigation. Skip if headwinds and sleep management overwhelm your prep.",
+      "insider_tip": "Book live tracking early and practice 'look right first' for UK roads if from right-hand drive countries."
+    },
+    "suffering_zones": [
+      {
+        "label": "The Scottish Borders Grind",
+        "description": "Post-Edinburgh return through Hawick and hill ranges piles on 5000m+ climbing after 700 miles. Headwinds and fatigue turn remote lanes into a mental battle over 300km."
+      },
+      {
+        "label": "Fenland Headwind Plains",
+        "description": "Flat 200 miles to Boston exposes riders to relentless crosswinds on exposed fens. Early pace discipline prevents blow-ups before northern hills hit."
+      }
+    ]
+  }
+}

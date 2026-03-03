@@ -1,0 +1,176 @@
+{
+  "race": {
+    "slug": "veloturk-gran-fondo-cesme",
+    "name": "VeloTurk Gran Fondo Cesme",
+    "vitals": {
+      "slug": "veloturk-gran-fondo-cesme",
+      "name": "VeloTurk Gran Fondo Cesme",
+      "date": "2026: April TBD",
+      "date_specific": "2026: April TBD",
+      "distance_mi": 57,
+      "elevation_ft": 3400,
+      "location": "Cesme, Izmir, Turkey",
+      "terrain": "Paved roads",
+      "website": "https://granfondocesme.com/en",
+      "registration_url": "https://granfondocesme.com/en",
+      "prestige": 2,
+      "overall_score": 63,
+      "tier": 2,
+      "discipline": "road",
+      "month": "April"
+    },
+    "gravel_god_rating": {
+      "logistics": 3,
+      "length": 3,
+      "technicality": 2,
+      "elevation": 3,
+      "climate": 4,
+      "altitude": 1,
+      "adventure": 3,
+      "prestige": 2,
+      "race_quality": 3,
+      "experience": 4,
+      "community": 3,
+      "field_depth": 3,
+      "value": 4,
+      "expenses": 4,
+      "cultural_impact": 2,
+      "overall_score": 63,
+      "tier": 2,
+      "tier_label": "TIER 2"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 3,
+        "explanation": "Registration for the Salcano Long Course in Cesme closes mid-October with a cap of 1000 per distance, totaling around 3000 riders across three routes. Organized by experienced Argeus Travel with a history of Turkish cycling events, logistics are reliable from Cesme City Center start. Travel from Izmir Airport is straightforward, about 1.5 hours drive."
+      },
+      "length": {
+        "score": 3,
+        "explanation": "The main Salcano course covers 91 km or about 57 miles, matching the query's distance with medium and short options at 67 km and 41 km. This length suits intermediate gran fondo riders seeking a full-day effort along Aegean coastal roads. Multiple distances allow flexibility for different fitness levels from Cesme City Center."
+      },
+      "technicality": {
+        "score": 2,
+        "explanation": "Fully paved peninsula roads from Cesme demand standard road handling skills with no gravel or off-road sections. Technical demands focus on group riding and cornering on coastal descents with stunning Aegean views. It's accessible for road cyclists without advanced descending expertise."
+      },
+      "elevation": {
+        "score": 3,
+        "explanation": "Approximately 3400 feet of gain over 57 miles challenges riders with rolling climbs on the Cesme peninsula. The profile features punchy ascents amid scenic coastal terrain, testing endurance without extreme gradients. This elevation suits trained amateurs preparing for hilly sportives."
+      },
+      "climate": {
+        "score": 4,
+        "explanation": "Aegean coast in Cesme offers mild fall weather with temperatures around 15-20°C during November events, ideal for road cycling. Low rain risk enhances ride quality along coastal roads, though wind from the sea can add challenge. Spring April timing would bring even warmer, drier conditions."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "Cesme sits at near-sea level with no high passes, eliminating altitude sickness risks entirely. The flat starting elevation in Cesme City Center keeps efforts purely aerobic and climbing-focused. Riders face no hypoxia issues on this coastal route."
+      },
+      "adventure": {
+        "score": 3,
+        "explanation": "Scenic loops around Cesme peninsula deliver stunning Aegean Sea views and Turkish coastal roads for a memorable journey. The event's charity focus via Veloturk foundation adds purpose beyond typical sportives. Combination of beauty and moderate challenge creates solid adventure appeal."
+      },
+      "prestige": {
+        "score": 2,
+        "explanation": "Turkey's largest non-GFNY cycling event draws 2000-3000 amateurs across distances with 8+ editions since 2017. Organized by Veloturk foundation, it supports child bicycle donations, building regional reputation. Not UCI but respected in Turkish cycling circles."
+      },
+      "race_quality": {
+        "score": 3,
+        "explanation": "Argeus Travel's expertise from Presidential Cycling Tour and Cappadocia events ensures solid organization in Cesme. Clear rules, timed results, and capped fields per course maintain smooth execution. Reliable setup for a regional gran fondo standard."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "Breathtaking Aegean coastal and peninsula views from Cesme City Center create an exceptional riding venue. Multiple courses cater to varied abilities while sharing stunning scenery. Post-ride atmosphere in beachside Cesme enhances the overall participant immersion."
+      },
+      "community": {
+        "score": 3,
+        "explanation": "Veloturk foundation fosters a supportive cycling culture through charity initiatives like gifting bikes to Turkish children. Events attract international amateurs mixing with local riders in Cesme. Strong sense of purpose unites the 2000+ participant field."
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "Around 2000 typical participants across three capped courses of 1000 each draw solid amateur fields from multiple countries. Includes recreational riders and some UCI-pointed athletes per rules, but not elite depth. Competitive yet accessible for regional sportives."
+      },
+      "value": {
+        "score": 4,
+        "explanation": "Affordable entry for high-quality coastal roads and organization in Cesme provides excellent value. Multiple distance options maximize accessibility without premium pricing. Charity component adds meaningful return on participation fees."
+      },
+      "expenses": {
+        "score": 4,
+        "explanation": "Low entry costs in Turkish Lira combined with budget flights to Izmir keep overall expenses reasonable. Cesme offers affordable seaside lodging versus European gran fondos. Local bike rentals and short drives from airport minimize travel costs."
+      },
+      "cultural_impact": {
+        "score": 2,
+        "explanation": "As Turkey's premier non-GFNY event, it promotes cycling regionally with Veloturk's child-focused charity. Eight editions in Cesme boost local awareness and tourism. Holds significance in Turkish sportive scene without broader international draw."
+      }
+    },
+    "course_description": {
+      "summary": "The VeloTurk Gran Fondo Cesme features three paved road courses starting from Cesme City Center, looping the scenic peninsula with Aegean Sea views. The flagship Salcano Long at 91 km / 57 miles includes 3400 feet of elevation amid coastal beauty. Medium and short options at 67 km and 41 km share similar stunning terrain for varied abilities.",
+      "terrain_breakdown": {
+        "paved": 100,
+        "gravel": 0,
+        "singletrack": 0,
+        "other": 0
+      },
+      "key_segments": [
+        {
+          "name": "Peninsula Coastal Climb",
+          "description": "Rolling ascent along Cesme peninsula roads with panoramic Aegean views, building cumulative fatigue mid-route.",
+          "distance_mi": 15,
+          "difficulty": "moderate"
+        },
+        {
+          "name": "City Center Return Descent",
+          "description": "Fast paved descent back toward Cesme with sea breezes, rewarding after climbs but requiring traffic awareness.",
+          "distance_mi": 10,
+          "difficulty": "moderate"
+        }
+      ],
+      "elevation_profile": "The 57-mile course presents a rolling profile with 3400 feet gain, featuring frequent short-to-medium climbs on peninsula roads rather than prolonged mountains. Total elevation spreads evenly, demanding steady pacing from Cesme start. Coastal undulations keep intensity consistent without extreme peaks.",
+      "aid_stations": "Multiple aid stations along the Cesme peninsula routes provide hydration and snacks, spaced every 20-25 km per event standards. Full support ensures rider needs met on all distances."
+    },
+    "logistics": {
+      "registration": {
+        "opens": "June",
+        "closes": "mid-October or sells out",
+        "cost": "500-1500 TRY ($15-45 USD)",
+        "lottery": false,
+        "capacity": 2000
+      },
+      "travel": {
+        "nearest_airport": "Izmir Adnan Menderes Airport (ADB)",
+        "driving_from_major_city": "90 km, 1.5 hours from Izmir",
+        "accommodation": "Cesme offers beachfront hotels, resorts, and guesthouses with many cyclist-friendly options near the city center start.",
+        "bike_transport": "Bike rentals available locally; shipping from Izmir Airport straightforward with event partner support."
+      },
+      "race_day": {
+        "start_time": "8:00 AM",
+        "cutoff": "5 hours",
+        "categories": "age groups, three distances: 91 km long, 67 km medium, 41 km short",
+        "awards": "age category podiums, overall winners per distance"
+      }
+    },
+    "training_recommendations": {
+      "minimum_fitness": "Base fitness for 2000 ft weekend rides with some hills; complete 40-mile flats weekly.",
+      "ideal_preparation": "Build to 50-60 mile rides with 3000 ft gain two months out, focusing on tempo efforts. Include group rides for pack skills on Cesme roads. Taper with coastal spin week prior.",
+      "key_workouts": "3x10-min hill repeats at threshold on rolling terrain; 4-hour endurance ride with 2500 ft gain; 20-min VO2 intervals simulating peninsula punches."
+    },
+    "history": {
+      "founded": 2017,
+      "notable_facts": "Eighth edition in 2025 confirms 8+ runnings; Veloturk foundation donates bikes to Turkish children via event proceeds; First organized in Cappadocia context before Cesme focus."
+    },
+    "final_verdict": {
+      "one_liner": "Scenic Aegean gran fondo blending coastal beauty, moderate challenge, and Turkish charity vibes.",
+      "who_should_ride": "Intermediate roadies seeking picturesque 57-mile sufferfests with solid organization and value. Ideal for Euro-adjacent travelers wanting unique Turkish cycling.",
+      "who_should_skip": "Elite racers needing deep fields or extreme climbs; beginners daunted by 3400 ft on timed courses.",
+      "insider_tip": "Book Cesme beach hotel early—walk to start and recover with seaside mezes post-ride."
+    },
+    "suffering_zones": [
+      {
+        "label": "Peninsula Punchies",
+        "description": "Mid-route series of 1-2 km climbs on exposed coastal roads sap legs with headwinds and heat. Cumulative 2000 ft here turns quads to jelly amid epic views."
+      },
+      {
+        "label": "Final Coastal Grind",
+        "description": "Last 15 miles feature rolling undulations back to Cesme, where fatigue meets sea breezes for mental test. Paceline discipline key to surviving the grind."
+      }
+    ]
+  }
+}

@@ -1,0 +1,182 @@
+{
+  "race": {
+    "slug": "gran-fondo-coimbra",
+    "name": "Gran Fondo Coimbra Region",
+    "vitals": {
+      "slug": "gran-fondo-coimbra",
+      "name": "Gran Fondo Coimbra Region",
+      "date": "2026: September TBD",
+      "date_specific": "2026: September TBD",
+      "distance_mi": 100,
+      "elevation_ft": 6500,
+      "location": "Coimbra, Portugal",
+      "terrain": "Paved roads",
+      "website": "https://www.granfondocoimbraregion.com",
+      "registration_url": "https://www.granfondocoimbraregion.com",
+      "prestige": 3,
+      "overall_score": 70,
+      "tier": 2,
+      "discipline": "road",
+      "month": "September"
+    },
+    "gravel_god_rating": {
+      "logistics": 3,
+      "length": 4,
+      "technicality": 2,
+      "elevation": 4,
+      "climate": 4,
+      "altitude": 2,
+      "adventure": 3,
+      "prestige": 3,
+      "race_quality": 4,
+      "experience": 4,
+      "community": 3,
+      "field_depth": 3,
+      "value": 4,
+      "expenses": 4,
+      "cultural_impact": 2,
+      "overall_score": 70,
+      "tier": 2,
+      "tier_label": "TIER 2"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 3,
+        "explanation": "Coimbra's central location offers easy access from Lisbon or Porto, with Pombal serving as a historic base near Serra de Sicó. UCI Gran Fondo organization by Cabreirasolutions ensures smooth multi-day events including time trials. Accommodation in university city areas is straightforward for 2000 participants."
+      },
+      "length": {
+        "score": 4,
+        "explanation": "The Granfondo covers 148 km through Coimbra region's landscapes, demanding endurance over approximately 100 miles. Mediofondo at 108 km provides options for varied fitness levels. Riders tackle full distance from areas like Montemor-o-Velho amid stunning natural surroundings."
+      },
+      "technicality": {
+        "score": 2,
+        "explanation": "Paved roads dominate with minimal technical demands beyond group riding skills. Flat 20.2 km time trial loops along rivers require steady pacing. Course focuses on endurance rather than sharp handling in Coimbra surroundings."
+      },
+      "elevation": {
+        "score": 4,
+        "explanation": "1,835 meters of climbing challenge riders across 148 km in central Portugal's hilly terrain. Significant ascents around Bussaco National Forest test leg strength. Elevation suits strong amateurs preparing for UCI qualifiers."
+      },
+      "climate": {
+        "score": 4,
+        "explanation": "September in Coimbra brings mild temperatures ideal for long efforts, avoiding summer heat. Coastal proximity to Figueira da Foz offers refreshing breezes. Reliable weather supports mass participation events."
+      },
+      "altitude": {
+        "score": 2,
+        "explanation": "Low elevations around Coimbra and Pombal mean no high-altitude effects for riders. Focus remains on accumulated climbing rather than thin air. University city's flat historic center aids recovery."
+      },
+      "adventure": {
+        "score": 3,
+        "explanation": "Routes through UNESCO-listed University of Coimbra and Bussaco Forest deliver scenic adventure. Exploration post-ride to Figuera da Foz beaches adds appeal. UCI status elevates the journey in central Portugal."
+      },
+      "prestige": {
+        "score": 3,
+        "explanation": "UCI Gran Fondo World Series qualifier offers top 25% age/gender finishers a spot at Worlds in Niseko, Japan. Founded in 2012, it draws international fields from 14 countries. Regional shift to Leiria maintains high standards."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "Cabreirasolutions delivers UCI-sanctioned events with time trials and gran fondos over two days. Past editions featured 305+ riders in smooth operations from Montemor-o-Velho. Qualifier status ensures professional organization."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "Breathtaking Coimbra landscapes and university heritage create memorable rides. Post-race visits to Bussaco Forest and beaches enhance immersion. Paved routes through natural beauty stand out for sportives."
+      },
+      "community": {
+        "score": 3,
+        "explanation": "2000 participants foster vibrant atmosphere in Portugal's cycling scene. International riders mix with locals around Pombal's castle town. UCI events build strong participant camaraderie."
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "Typical 2000 entrants include competitive amateurs vying for qualifiers. Fields represent diverse nations as seen in prior 305-signup events. Age-group battles add depth without pro-level intensity."
+      },
+      "value": {
+        "score": 4,
+        "explanation": "UCI qualifier access at regional prices offers strong return for 148 km challenge. Multiple distances including 108 km mediofondo suit budgets. Cultural sites like University of Coimbra boost overall worth."
+      },
+      "expenses": {
+        "score": 4,
+        "explanation": "Affordable entry for Portuguese event keeps costs low versus international travel. Proximity to airports minimizes logistics spend. Local lodging in Coimbra provides value for 2000-rider fields."
+      },
+      "cultural_impact": {
+        "score": 2,
+        "explanation": "Event highlights central Portugal's heritage from Pombal fortress to university city. Regional significance grows since 2012 founding. Ties to UCI series amplify local cycling culture modestly."
+      }
+    },
+    "course_description": {
+      "summary": "The Gran Fondo Coimbra Region features a demanding 148 km paved route through central Portugal's stunning landscapes, starting near Montemor-o-Velho. Riders encounter significant climbs amid natural beauty, qualifying top finishers for UCI Gran Fondo Worlds. Multiple distances including a flat 20 km time trial and 108 km mediofondo cater to varied abilities.",
+      "terrain_breakdown": {
+        "paved": 100,
+        "gravel": 0,
+        "singletrack": 0,
+        "other": 0
+      },
+      "key_segments": [
+        {
+          "name": "Bussaco Forest Climb",
+          "description": "Steep ascents through lush Bussaco National Forest test climbing power over rolling hills.",
+          "distance_mi": 15,
+          "difficulty": "hard"
+        },
+        {
+          "name": "River Time Trial Loop",
+          "description": "Flat 20.2 km out-and-back along Coimbra rivers demands aero positioning and steady power.",
+          "distance_mi": 12.5,
+          "difficulty": "moderate"
+        },
+        {
+          "name": "Serra de Sicó Approach",
+          "description": "Hilly sections nearing Pombal build late-race fatigue with punchy rises.",
+          "distance_mi": 20,
+          "difficulty": "hard"
+        }
+      ],
+      "elevation_profile": "The profile accumulates 1835 meters over 148 km with frequent undulations rather than extreme peaks. Early flats give way to mid-course climbs around Bussaco, peaking in intensity before a rolling finish. Total gain challenges endurance without sustained high passes.",
+      "aid_stations": "Multiple feed stations dot the UCI-organized route, stocked with Portuguese refreshments. Support aligns with 2000-participant scale for reliable hydration."
+    },
+    "logistics": {
+      "registration": {
+        "opens": "May",
+        "closes": "sells out",
+        "cost": "€50-€100 / $55-$110",
+        "lottery": false,
+        "capacity": 2000
+      },
+      "travel": {
+        "nearest_airport": "Francisco de Sá Carneiro Airport (OPO) or Humberto Delgado Airport (LIS)",
+        "driving_from_major_city": "2 hours from Lisbon",
+        "accommodation": "Coimbra offers university dorms, historic hotels, and guesthouses; nearby Pombal has affordable options near the castle.",
+        "bike_transport": "Rentals available in Coimbra; shipping via local shops or fly with bike to OPO/LIS for easy transfer."
+      },
+      "race_day": {
+        "start_time": "8:00 AM",
+        "cutoff": "6 hours",
+        "categories": "age groups 19-59 men, 19-39 women; Granfondo 148 km, Mediofondo 108 km, Time Trial 20 km",
+        "awards": "Top 25% age/gender qualify for UCI Worlds; medals and category prizes"
+      }
+    },
+    "training_recommendations": {
+      "minimum_fitness": "Build base for 100 miles with 3000 ft weekly climbs; complete century rides comfortably.",
+      "ideal_preparation": "Log 200-300 km weekly for 8-12 weeks, emphasizing hill repeats mimicking Bussaco ascents. Include 4-5 hour endurance rides with 1500m gain. Taper with time trial intervals for qualifier push.",
+      "key_workouts": "3x10 min climbs at threshold in Serra-like terrain; 20 km flat TT effort; 120 km weekend ride with 1800m elevation."
+    },
+    "history": {
+      "founded": 2012,
+      "notable_facts": "Opened European UCI Gran Fondo season with international fields from 14 countries. Evolving to Leiria Region – Sicó Lands for 2026 due to regional shifts. Qualifies riders for Worlds since inception."
+    },
+    "final_verdict": {
+      "one_liner": "UCI qualifier blending Coimbra's heritage with hilly Portuguese roads for solid sportive suffering.",
+      "who_should_ride": "Ambitious amateurs eyeing Worlds spots in their 30s-50s with strong climbing fitness. Groups seeking scenic central Portugal rides.",
+      "who_should_skip": "Flatland sprinters or novices daunted by 6500 ft gain. Those avoiding multi-day formats with time trials.",
+      "insider_tip": "Stay in Montemor-o-Velho for quiet pre-race vibes and first-look course recon."
+    },
+    "suffering_zones": [
+      {
+        "label": "Bussaco Big Climb",
+        "description": "Mid-race ascents through dense forest shred legs after early flats, with punchy gradients forcing pace cracks."
+      },
+      {
+        "label": "Late Sicó Rolls",
+        "description": "Final 30 miles of undulating paved roads near Pombal sap energy, turning groups into survival solos."
+      }
+    ]
+  }
+}

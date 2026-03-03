@@ -1,0 +1,182 @@
+{
+  "race": {
+    "slug": "gran-fondo-greece-loutraki",
+    "name": "UCI Gran Fondo Greece Loutraki",
+    "vitals": {
+      "slug": "gran-fondo-greece-loutraki",
+      "name": "UCI Gran Fondo Greece Loutraki",
+      "date": "2026: November TBD",
+      "date_specific": "2026: November TBD",
+      "distance_mi": 68,
+      "elevation_ft": 4200,
+      "location": "Loutraki, Peloponnese, Greece",
+      "terrain": "Paved roads",
+      "website": "https://ucigranfondoworldseries.com/en/loutraki/",
+      "registration_url": "https://ucigranfondoworldseries.com/en/loutraki/",
+      "prestige": 3,
+      "overall_score": 67,
+      "tier": 2,
+      "discipline": "road",
+      "month": "March"
+    },
+    "gravel_god_rating": {
+      "logistics": 4,
+      "length": 3,
+      "technicality": 2,
+      "elevation": 3,
+      "climate": 4,
+      "altitude": 2,
+      "adventure": 4,
+      "prestige": 3,
+      "race_quality": 4,
+      "experience": 4,
+      "community": 3,
+      "field_depth": 3,
+      "value": 4,
+      "expenses": 3,
+      "cultural_impact": 1,
+      "overall_score": 67,
+      "tier": 2,
+      "tier_label": "TIER 2"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 4,
+        "explanation": "Club Hotel Casino Loutraki serves as the start/finish and official hotel with secure bike storage. Bib pickup is available in Athens or at the venue the day before. Easy access from Athens airport makes travel straightforward for international riders."
+      },
+      "length": {
+        "score": 3,
+        "explanation": "The 112km course covers 68 miles with a flat first 40km along the Saronic Gulf. Riders then tackle inland sections before returning to the coast. A small climb in the final 10km adds a punchy finish near Loutraki."
+      },
+      "technicality": {
+        "score": 2,
+        "explanation": "Smooth, high-quality asphalt roads dominate the route with no gravel or off-road. Descents and coastal turns require standard road handling skills. The rolling climb averages 3.1% gradient, keeping demands low on bike control."
+      },
+      "elevation": {
+        "score": 3,
+        "explanation": "Total gain reaches around 4200 feet including a two-part climb to 300m in the Geraneia Mountains. Rolling inland sections contribute steadily after the flat coastal start. Final 10km features a small climb back toward Loutraki."
+      },
+      "climate": {
+        "score": 4,
+        "explanation": "Early November in Loutraki offers mild Mediterranean weather along the Peloponnese coast. Expect comfortable temperatures with low rain risk on the Saronic Gulf. Feed zones provide ample hydration for any variable conditions."
+      },
+      "altitude": {
+        "score": 2,
+        "explanation": "Maximum elevation stays at 300m in the low Geraneia Mountains, posing no high-altitude issues. The course starts and finishes at sea level in Loutraki. Riders face sea-level efforts along the Saronic Gulf for most of the 112km."
+      },
+      "adventure": {
+        "score": 4,
+        "explanation": "Scenic Peloponnese coastline mixes with Geraneia Mountain views and proximity to Corinth Canal. Flat coastal roads lead to inland climbs amid dramatic landscapes. Post-race, explore Lake Vouliagmeni or the canal for added thrill."
+      },
+      "prestige": {
+        "score": 3,
+        "explanation": "Part of the UCI Gran Fondo World Series, it qualifies riders for world championships. Draws elite, masters, and sportive athletes to Loutraki. New but backed by UCI sanctioning in the Peloponnese region."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "UCI-organized with technical support vehicles, sweep wagon, and medical ambulances. Two feed zones at 42.5km and 78.9km offer water, isotonic drinks, and bars. Checkpoints enforce safety with a 5.5-hour cutoff."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "Stunning route blends Saronic Gulf flats, mountain climbs, and coastal returns in Loutraki. Geraneia backdrop and Corinth Isthmus setting elevate the ride. Finishes with medals for all completers under 5.5 hours."
+      },
+      "community": {
+        "score": 3,
+        "explanation": "Around 1500 riders including age-group categories from 19-79 for men and women. Organized by Loutraki Municipality and KYVERNITIS Travel. Podiums for top three per category foster inclusive vibes."
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "Capacity near 1500 with elite, U23, juniors, masters, and sportive participants. Age categories ensure competitive depth across 19-79 groups. UCI qualifiers attract solid international and local talent to Loutraki."
+      },
+      "value": {
+        "score": 4,
+        "explanation": "UCI Gran Fondo access plus scenic Peloponnese route at regional pricing. Includes medals, feeds, and support for 112km challenge. Exclusive rates at Club Hotel Casino Loutraki boost overall package."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Travel from Athens adds moderate costs, but direct airport access helps. Entry fees reasonable for UCI event with hotel packages available. Bike storage and feeds included, though international flights impact budget."
+      },
+      "cultural_impact": {
+        "score": 1,
+        "explanation": "New event since 2022 in Loutraki, still building local draw. Ties into Peloponnese heritage near Corinth Canal. Primarily a cycling qualifier rather than established cultural staple."
+      }
+    },
+    "course_description": {
+      "summary": "The 112km UCI Gran Fondo Greece Loutraki loops from Club Hotel Casino Loutraki along the flat Saronic Gulf for 40km toward Athens. Riders then climb inland through Geraneia Mountains to 300m before descending back to the coast. A final small climb leads to the finish amid Peloponnese coastal views.",
+      "terrain_breakdown": {
+        "paved": 100,
+        "gravel": 0,
+        "singletrack": 0,
+        "other": 0
+      },
+      "key_segments": [
+        {
+          "name": "Saronic Gulf Coast",
+          "description": "Mainly flat 40km out-and-back along the gulf toward Athens on smooth roads.",
+          "distance_mi": 25,
+          "difficulty": "moderate"
+        },
+        {
+          "name": "Geraneia Climb",
+          "description": "Two-part rolling ascent to 300m max with 3.1% average gradient inland from the coast.",
+          "distance_mi": 12,
+          "difficulty": "hard"
+        },
+        {
+          "name": "Final Loutraki Climb",
+          "description": "Short punchy rise in the last 10km before finish at Club Hotel Casino.",
+          "distance_mi": 6,
+          "difficulty": "moderate"
+        }
+      ],
+      "elevation_profile": "Profile starts flat along Saronic Gulf, builds with rolling inland climb to 300m peak around halfway. Descent returns to sea level with minor late undulations. Total 4200 feet spread accessibly without extreme pitches.",
+      "aid_stations": "Two feed zones at 42.5km and 78.9km supply water, isotonic drinks, fruits, and energy bars. Signage warns 5km and 1km prior; checkpoints enforce cutoffs."
+    },
+    "logistics": {
+      "registration": {
+        "opens": "June/July",
+        "closes": "sells out",
+        "cost": "€50-€100 / $55-$110",
+        "lottery": false,
+        "capacity": 1500
+      },
+      "travel": {
+        "nearest_airport": "Athens International Airport (ATH)",
+        "driving_from_major_city": "58km, 45 minutes from Athens",
+        "accommodation": "Club Hotel Casino Loutraki offers official packages with bike storage. Nearby options in Loutraki and Corinth area suit various budgets.",
+        "bike_transport": "Rentals available locally; ship via Athens bib pickup. Secure storage at official hotel."
+      },
+      "race_day": {
+        "start_time": "08:30",
+        "cutoff": "5 hours 30 minutes",
+        "categories": "Age groups 19-34 to 75-79 men/women, UCI qualifiers",
+        "awards": "Top 3 per age category podium, medals for all finishers"
+      }
+    },
+    "training_recommendations": {
+      "minimum_fitness": "Build base for 68 miles with 3000+ feet climbing at endurance pace. Complete a 4-hour road ride with hills weekly for 8 weeks prior.",
+      "ideal_preparation": "Aim for 200-300km weekly volume peaking 4 weeks out. Include two hill sessions mimicking 3% rolling climbs. Taper with 5.5-hour simulation ride including coastal flats and descents.",
+      "key_workouts": "3x20min at 3.1% gradient threshold; 4-hour endurance with 2000ft gain; 90min intervals at race pace on rolling terrain."
+    },
+    "history": {
+      "founded": 2022,
+      "notable_facts": "First held in Loutraki as UCI Gran Fondo World Series qualifier. Grew quickly to 1500 capacity amid Peloponnese appeal. Organized by local municipality for cycling-for-all inclusivity."
+    },
+    "final_verdict": {
+      "one_liner": "Scenic UCI road qualifier blending Gulf of Corinth flats and Geraneia climbs.",
+      "who_should_ride": "Early-season seekers wanting Mediterranean vibes and qualifiers. Age-group racers eyeing podiums in accessible 68-mile challenge.",
+      "who_should_skip": "Ultra-climber purists needing bigger vert. Those avoiding 5.5-hour cutoffs on rolling roads.",
+      "insider_tip": "Bib pickup in Athens saves hassle; book Club Hotel early for bike storage."
+    },
+    "suffering_zones": [
+      {
+        "label": "Geraneia Rolling Grind",
+        "description": "Mid-race two-part climb to 300m saps legs after 40km flats. Steady 3.1% tests pacing amid mountain views."
+      },
+      {
+        "label": "Late Coastal Punch",
+        "description": "Final 10km small climb hits fatigued riders returning from gulf. Short but sharp before Loutraki finish line."
+      }
+    ]
+  }
+}

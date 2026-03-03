@@ -1,0 +1,186 @@
+{
+  "race": {
+    "slug": "gran-fondo-curacavi",
+    "name": "Gran Fondo Curacavi",
+    "vitals": {
+      "slug": "gran-fondo-curacavi",
+      "name": "Gran Fondo Curacavi",
+      "date": "April 19, 2026",
+      "date_specific": "April 19, 2026",
+      "distance_mi": 75,
+      "elevation_ft": 4500,
+      "location": "Curacavi, Valparaiso Region, Chile",
+      "terrain": "Paved roads",
+      "website": "https://www.granfondocuracavi.cl",
+      "registration_url": "https://www.granfondocuracavi.cl",
+      "prestige": 2,
+      "overall_score": 60,
+      "tier": 2,
+      "discipline": "road",
+      "month": "March"
+    },
+    "gravel_god_rating": {
+      "logistics": 3,
+      "length": 3,
+      "technicality": 2,
+      "elevation": 3,
+      "climate": 4,
+      "altitude": 2,
+      "adventure": 3,
+      "prestige": 2,
+      "race_quality": 3,
+      "experience": 3,
+      "community": 3,
+      "field_depth": 3,
+      "value": 3,
+      "expenses": 3,
+      "cultural_impact": 2,
+      "overall_score": 60,
+      "tier": 2,
+      "tier_label": "TIER 2"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 3,
+        "explanation": "Located within reasonable driving distance of Santiago, the race offers straightforward access via the Valparaiso Region. However, limited public transportation to the Curacavi start line may require rental vehicles or organized shuttles from nearby towns."
+      },
+      "length": {
+        "score": 3,
+        "explanation": "The 120-kilometer distance (approximately 75 miles) positions this as a solid intermediate gran fondo, accessible to recreational cyclists with moderate fitness. The route traverses three communes—Curacavi, Casablanca, and María Pinto—providing varied scenery without extreme distance demands."
+      },
+      "technicality": {
+        "score": 2,
+        "explanation": "As a road cycling event on paved surfaces, technical demands are minimal with no singletrack or gravel sections. The course focuses on steady climbing and descending rather than technical handling skills."
+      },
+      "elevation": {
+        "score": 3,
+        "explanation": "Approximately 4,500 feet of elevation gain over 75 miles represents moderate climbing typical of Chilean wine country terrain. The elevation is distributed across the route rather than concentrated in brutal climbs, making it manageable for trained amateurs."
+      },
+      "climate": {
+        "score": 4,
+        "explanation": "April in the Valparaiso Region offers excellent cycling conditions with mild autumn temperatures and lower precipitation than winter months. The coastal proximity moderates extreme heat while providing pleasant riding conditions for the 120-kilometer distance."
+      },
+      "altitude": {
+        "score": 2,
+        "explanation": "The Curacavi area sits at modest elevations without significant altitude effects. Riders from sea-level locations will experience no acclimatization challenges."
+      },
+      "adventure": {
+        "score": 3,
+        "explanation": "The route through Casablanca wine country and María Pinto offers scenic Chilean landscapes and cultural immersion without extreme remoteness. The family-oriented atmosphere emphasizes enjoyment over pure adventure."
+      },
+      "prestige": {
+        "score": 2,
+        "explanation": "As a regional Chilean gran fondo established in 2021, this event carries modest prestige within South American cycling circles. It remains independent from major international gran fondo networks like GFNY."
+      },
+      "race_quality": {
+        "score": 3,
+        "explanation": "The event demonstrates solid organization through Epic Rides Chile with official timing, results tracking, and established course management. Standard regional sportive quality with professional infrastructure rather than exceptional production values."
+      },
+      "experience": {
+        "score": 3,
+        "explanation": "The Casablanca wine region provides pleasant scenery and cultural context for the ride. The family-friendly format creates a relaxed atmosphere distinct from competitive racing, though this may lack the intensity some riders seek."
+      },
+      "community": {
+        "score": 3,
+        "explanation": "The event explicitly congregates families, friends, and cycling enthusiasts in a 'sana competencia' (healthy competition) environment. Social media presence on Instagram and Facebook indicates active community engagement typical of regional events."
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "With approximately 1,500 typical participants, the event attracts solid regional participation without the elite international fields of major gran fondos. Results show competitive amateur cyclists but not professional-level competition."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "Entry fees and logistics costs appear reasonable for a South American gran fondo, though specific pricing requires direct registration inquiry. The 120-kilometer distance and wine country location provide fair value for regional participants."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Costs remain moderate for Chilean standards with no extreme travel expenses if based in central Chile. International participants should budget for flights to Santiago and ground transportation to Curacavi."
+      },
+      "cultural_impact": {
+        "score": 2,
+        "explanation": "The event holds regional significance within Chilean cycling culture and the Valparaiso wine community. It lacks the national or international recognition of established gran fondos but serves as an important local cycling tradition."
+      }
+    },
+    "course_description": {
+      "summary": "The Gran Fondo Curacavi traverses 120 kilometers through three communes in the Valparaiso Region, connecting Curacavi with the renowned Casablanca wine country and María Pinto. The entirely paved route features approximately 4,500 feet of elevation gain distributed across rolling terrain characteristic of central Chilean wine regions. Riders experience a mix of agricultural landscapes, vineyard vistas, and small-town Chilean culture while maintaining moderate climbing intensity suitable for recreational cyclists.",
+      "terrain_breakdown": {
+        "paved": 100,
+        "gravel": 0,
+        "singletrack": 0,
+        "other": 0
+      },
+      "key_segments": [
+        {
+          "name": "Curacavi to Casablanca",
+          "description": "The opening section establishes the route's character with rolling climbs through agricultural areas. This segment introduces riders to the elevation profile while passing through rural Chilean communities.",
+          "distance_mi": 30,
+          "difficulty": "moderate"
+        },
+        {
+          "name": "Casablanca Wine Country",
+          "description": "The middle section showcases the renowned Casablanca wine region with vineyard-lined roads and scenic vistas. Elevation gains become more pronounced as the route navigates the coastal mountain terrain.",
+          "distance_mi": 35,
+          "difficulty": "moderate"
+        },
+        {
+          "name": "María Pinto Return",
+          "description": "The final 35 kilometers through María Pinto feature the route's most sustained climbing before descending back toward Curacavi. This section tests rider endurance while providing expansive views of the Valparaiso landscape.",
+          "distance_mi": 35,
+          "difficulty": "moderate"
+        }
+      ],
+      "elevation_profile": "The elevation profile distributes 4,500 feet of climbing across the 120-kilometer distance, averaging approximately 37 feet per kilometer. Rather than featuring a single major climb, the course presents consistent rolling terrain with multiple sustained grades through the wine country and María Pinto sections. Descents provide recovery opportunities between climbing zones.",
+      "aid_stations": "The route includes support stations typical of organized gran fondos, though specific locations and services require confirmation through the official website or race briefing materials."
+    },
+    "logistics": {
+      "registration": {
+        "opens": "January",
+        "closes": "April or sells out",
+        "cost": "Registration fee in Chilean pesos (approximately USD 50-80 estimated)",
+        "lottery": false,
+        "capacity": 1500
+      },
+      "travel": {
+        "nearest_airport": "Arturo Merino Benítez International Airport (SCL), Santiago - approximately 80 kilometers from Curacavi",
+        "driving_from_major_city": "Approximately 80 kilometers (50 miles) northwest of Santiago, roughly 90 minutes driving time via Route 5 North and regional roads",
+        "accommodation": "Curacavi and nearby Casablanca offer modest lodging options including small hotels and guesthouses. Santiago provides more extensive accommodation choices within 90 minutes' drive.",
+        "bike_transport": "International riders should arrange bike shipping to Santiago or consider local bike rental services. Epic Rides Chile may provide rental recommendations through their contact information."
+      },
+      "race_day": {
+        "start_time": "Typical morning start between 7:00-8:00 AM",
+        "cutoff": "Standard gran fondo time limits likely apply, though specific cutoff times require confirmation",
+        "categories": "Amateur road cycling categories; family-oriented format suggests flexible participation options",
+        "awards": "Recognition for finishers; specific prize details available through official race communications"
+      }
+    },
+    "training_recommendations": {
+      "minimum_fitness": "Riders should complete at least 8-10 weeks of consistent training with regular 50-70 kilometer road rides. Ability to sustain moderate climbing for extended periods is essential for the 4,500 feet of elevation gain.",
+      "ideal_preparation": "Optimal preparation includes 12-16 weeks of structured training emphasizing sustained climbing efforts and long-distance endurance. Incorporate specific workouts on rolling terrain similar to the Casablanca wine country profile. Include at least 2-3 rides exceeding 100 kilometers to build confidence for the full distance.",
+      "key_workouts": "Perform weekly tempo climbs of 20-30 minutes at threshold intensity to build climbing strength. Complete long, steady-state rides of 100+ kilometers at conversational pace. Include hill repeats on 5-10 minute climbs to develop power for the route's rolling terrain."
+    },
+    "history": {
+      "founded": 2021,
+      "notable_facts": "The Gran Fondo Curacavi emerged as an independent Chilean gran fondo outside major international networks like GFNY, establishing itself as a regional cycling tradition. The event's routing through Casablanca wine country connects cycling culture with Chile's renowned viticulture, creating a unique blend of sport and gastronomy. Organized by Epic Rides Chile, the event emphasizes family participation and community engagement rather than elite competition."
+    },
+    "final_verdict": {
+      "one_liner": "A solid regional gran fondo offering pleasant wine country scenery and moderate climbing for recreational Chilean cyclists seeking community-focused riding.",
+      "who_should_ride": "Recreational cyclists based in central Chile or visiting the Valparaiso Region who enjoy moderate distances with scenic wine country landscapes. Riders seeking a family-friendly atmosphere and cultural immersion in Chilean cycling culture will appreciate the event's emphasis on 'sana competencia.'",
+      "who_should_skip": "Elite cyclists seeking highly competitive fields or international prestige should look elsewhere. Riders uncomfortable with Spanish-language communications or preferring established international gran fondo networks may find better alternatives.",
+      "insider_tip": "Plan to explore Casablanca's wineries before or after the event—the route passes through prime wine country, making this an ideal opportunity to combine cycling with Chilean viticulture experiences."
+    },
+    "suffering_zones": [
+      {
+        "label": "Casablanca Climbing Section",
+        "description": "The middle 35 kilometers through Casablanca wine country concentrate the route's most sustained elevation gain. Riders encounter multiple back-to-back climbs without significant recovery sections, testing endurance and mental fortitude."
+      },
+      {
+        "label": "María Pinto Final Push",
+        "description": "The final 35 kilometers through María Pinto present cumulative fatigue challenges as riders tackle sustained climbing on tired legs. The route's most demanding grades appear in this section before the final descent toward Curacavi."
+      },
+      {
+        "label": "Distance Endurance",
+        "description": "The 120-kilometer total distance demands sustained aerobic effort over 4-6 hours of riding. Riders unaccustomed to extended gran fondo distances may struggle with pacing and nutrition management across the full route."
+      }
+    ]
+  }
+}

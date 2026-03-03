@@ -1,0 +1,176 @@
+{
+  "race": {
+    "slug": "mt-fuji-hill-climb",
+    "name": "Mt. Fuji Hill Climb",
+    "vitals": {
+      "slug": "mt-fuji-hill-climb",
+      "name": "Mt. Fuji Hill Climb",
+      "date": "First Sunday of June or TBD",
+      "date_specific": "June 7, 2026",
+      "distance_mi": 15,
+      "elevation_ft": 4600,
+      "location": "Fujiyoshida, Yamanashi, Japan",
+      "terrain": "Paved roads",
+      "website": "https://www.fujihc.jp/",
+      "registration_url": "https://www.fujihc.jp/",
+      "prestige": 4,
+      "overall_score": 79,
+      "tier": 2,
+      "discipline": "road",
+      "month": "June"
+    },
+    "gravel_god_rating": {
+      "logistics": 4,
+      "length": 3,
+      "technicality": 1,
+      "elevation": 5,
+      "climate": 3,
+      "altitude": 4,
+      "adventure": 4,
+      "prestige": 4,
+      "race_quality": 4,
+      "experience": 4,
+      "community": 4,
+      "field_depth": 4,
+      "value": 4,
+      "expenses": 3,
+      "cultural_impact": 4,
+      "overall_score": 79,
+      "tier": 2,
+      "tier_label": "TIER 2"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 4,
+        "explanation": "Registration for the Mt. Fuji Hill Climb typically opens in February and closes in early March, selling out quickly for 8500 spots from Fuji Hokuroku Park. Travel is straightforward via Fujikyuko Line to Mt. Fuji Station followed by a 15-minute taxi, or 8 minutes drive from Kawaguchiko I.C. Ample parking is available at the start in Fujiyoshida City."
+      },
+      "length": {
+        "score": 3,
+        "explanation": "The 24km course from Fuji Hokuroku Park in Fujiyoshida to Mt. Fuji 5th Station suits steady climbers without overwhelming distance. At 15 miles, it demands sustained power over two hours for most riders. It's concise yet challenging for a single hill climb effort."
+      },
+      "technicality": {
+        "score": 1,
+        "explanation": "Fully paved Fuji Subaru Line roads feature wide switchbacks with no gravel or rough sections. Riders focus purely on climbing power without handling skills. Technical demands are minimal, making it accessible for road bike setups."
+      },
+      "elevation": {
+        "score": 5,
+        "explanation": "The course packs 1405m (4600ft) gain into 24km from 900m to 2305m at the 5th Station. Continuous climbing on Mt. Fuji tests lactate threshold relentlessly. Few recoveries amplify the vertical brutality."
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "Early June brings mild 15-20°C starts in Fujiyoshida but cooler 5-10°C at 2305m altitude. Rain is possible on Mt. Fuji's north side, requiring layered kit. Wind exposure increases above treeline."
+      },
+      "altitude": {
+        "score": 4,
+        "explanation": "Climbing to 2305m on Mt. Fuji induces noticeable hypoxia for unacclimatized riders from sea level. Oxygen drops 25% vs. baseline, hitting above 2000m. Effects build progressively on the upper half."
+      },
+      "adventure": {
+        "score": 4,
+        "explanation": "Ascent of UNESCO World Heritage Mt. Fuji from Fuji Hokuroku Park delivers epic volcanic vistas and cultural aura. Iconic snow-capped peak backdrop creates bucket-list vibes. Remote high-altitude feel despite proximity to Tokyo."
+      },
+      "prestige": {
+        "score": 4,
+        "explanation": "Japan's largest hill climb draws 8500 riders annually to Mt. Fuji, spanning 20+ editions since 2004. National media coverage and personal goal awards elevate its status. Elite times on Fuji Subaru Line benchmark Japanese climbing prowess."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "Organizers manage 8500 starters smoothly on Fuji Subaru Line with timed waves and aid stations. 22nd edition in 2026 features Zwift dojo prep and Fuji Hill Ride Tour. Proven logistics handle massive fields professionally."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "Spectacular paved climb past forests to barren 5th Station offers Mt. Fuji intimacy thorough regionally. Post-race vibes at Fujiyoshida celebrate personal bests amid iconic views. Venue elevates standard sportive to memorable pilgrimage."
+      },
+      "community": {
+        "score": 4,
+        "explanation": "8500 participants from Japan and abroad foster vibrant cycling culture around Mt. Fuji events. Local Fujiyoshida support and Fujiko historical ties add depth. Zwift collaborations build online rider camaraderie pre-race."
+      },
+      "field_depth": {
+        "score": 4,
+        "explanation": "8500 entrants include Japanese elites posting sub-60min times alongside recreational climbers. Broad spectrum from beginners to pros on 24km course. Volume creates competitive mid-pack battles."
+      },
+      "value": {
+        "score": 4,
+        "explanation": "Entry fees around 10,000-15,000 JPY deliver prime Mt. Fuji access and timing chip for global benchmarking. Massive field and scenery justify cost vs. similar climbs. Includes awards for personal goals across ages."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Entry at 10,000-15,000 JPY (~65-100 USD) plus Tokyo-Fujiyoshida travel inflates total to 300-500 USD. Lodging near Fuji Hokuroku Park runs 10,000 JPY/night. High yen costs offset by event value."
+      },
+      "cultural_impact": {
+        "score": 4,
+        "explanation": "Event crowns Mt. Fuji—a national symbol and UNESCO site—as Japan's premier hill climb destination. 20+ years draw international riders to Yamanashi's Fuji worship heritage. Reinforces cycling's role in Fujiyoshida tourism."
+      }
+    },
+    "course_description": {
+      "summary": "The Mt. Fuji Hill Climb ascends 24km of paved Fuji Subaru Line from Fuji Hokuroku Park at 900m elevation in Fujiyoshida to the 5th Station at 2305m. Riders tackle relentless climbing amid forests transitioning to alpine vistas on Japan's iconic volcano. The mass-participation event emphasizes personal bests over podium battles.",
+      "terrain_breakdown": {
+        "paved": 100,
+        "gravel": 0,
+        "singletrack": 0,
+        "other": 0
+      },
+      "key_segments": [
+        {
+          "name": "Lower Forest Climb",
+          "description": "Initial 10km from Fuji Hokuroku Park winds through shaded forests on widening switchbacks. Steady 5-7% grades warm up legs before steepening.",
+          "distance_mi": 6.2,
+          "difficulty": "moderate"
+        },
+        {
+          "name": "Upper Alpine Push",
+          "description": "Final 7km above treeline exposes barren lava fields and steeper pitches to 5th Station. Wind and thinning air test resolve amid epic summit views.",
+          "distance_mi": 4.3,
+          "difficulty": "extreme"
+        }
+      ],
+      "elevation_profile": "Steady ramp gains 1405m over 24km averaging 5.8% gradient from Fujiyoshida's 900m base. Progression steepens above 1800m with fewer switchbacks amplifying fatigue. Final 2km pitch hits 8-10% into the 2305m finish.",
+      "aid_stations": "Multiple aid stations along Fuji Subaru Line provide water, sports drinks, and gels from early kilometers through the 5th Station approach."
+    },
+    "logistics": {
+      "registration": {
+        "opens": "February",
+        "closes": "early March or sells out",
+        "cost": "10,000-15,000 JPY (65-100 USD)",
+        "lottery": false,
+        "capacity": 8000
+      },
+      "travel": {
+        "nearest_airport": "Tokyo Narita (NRT) or Haneda (HND)",
+        "driving_from_major_city": "110km, 2 hours from Tokyo",
+        "accommodation": "Hotels and guesthouses cluster near Mt. Fuji Station and Fuji Hokuroku Park in Fujiyoshida; book early for June race weekend.",
+        "bike_transport": "Bike rentals available in Fujiyoshida; Japan Post or bike shops handle shipping from Tokyo for ~5000 JPY."
+      },
+      "race_day": {
+        "start_time": "early morning waves (6-8 AM)",
+        "cutoff": "3-4 hours",
+        "categories": "age groups, gender, personal goal times",
+        "awards": "certificates for personal bests and age-group podiums"
+      }
+    },
+    "training_recommendations": {
+      "minimum_fitness": "Build base for 3+ hour road rides with 2000ft climbing. Threshold power to sustain 250-300W for 90 minutes required.",
+      "ideal_preparation": "Accumulate 10-15 hours weekly with hill repeats mimicking 6% grades. Include 2x 90min threshold efforts at race pace every 10 days. Acclimate via high-altitude sim or Fuji area rides pre-event.",
+      "key_workouts": "2x20min at 5.8% gradient (race avg) @ threshold power; 3x10min VO2max above 2000m sim; 90min steady climb Fuji Subaru Line recon."
+    },
+    "history": {
+      "founded": 2004,
+      "notable_facts": "Grew to Japan's largest hill climb with 8500 starters by 22nd edition in 2026. Pioneered mass-participation climbing on sacred Mt. Fuji. Added Zwift virtual dojos and Fuji Hill Ride Tours for global reach."
+    },
+    "final_verdict": {
+      "one_liner": "Brutal paved assault up Mt. Fuji—Japan's signature sufferfest.",
+      "who_should_ride": "Strong climbers chasing iconic climbs and big fields. Anyone targeting sub-2hr personal bests on volcanic roads.",
+      "who_should_skip": "Flatland sprinters or altitude novices without prep. Budget travelers dodging Japan costs.",
+      "insider_tip": "Ride Fuji Subaru Line recon two days prior from 5th Station down to dial gradients."
+    },
+    "suffering_zones": [
+      {
+        "label": "Hypoxic Burn",
+        "description": "Above 2000m on upper Fuji Subaru Line, oxygen debt compounds with 7-9% ramps. Legs fill with lactate amid thinning air and wind gusts."
+      },
+      {
+        "label": "Treeline Break",
+        "description": "Mid-climb at 1700-1900m where forest ends and exposure begins. Steady 6% erodes power as mental fatigue from endless switchbacks peaks."
+      }
+    ]
+  }
+}

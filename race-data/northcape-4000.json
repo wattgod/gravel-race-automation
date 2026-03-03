@@ -1,0 +1,192 @@
+{
+  "race": {
+    "slug": "northcape-4000",
+    "name": "NorthCape 4000",
+    "vitals": {
+      "slug": "northcape-4000",
+      "name": "NorthCape 4000",
+      "date": "July 25, 2026",
+      "date_specific": "July 25, 2026",
+      "distance_mi": 2485,
+      "elevation_ft": 98000,
+      "location": "Rovereto, Italy to North Cape, Norway",
+      "terrain": "Paved roads",
+      "website": "https://northcape4000.com",
+      "registration_url": "https://northcape4000.com/registration/",
+      "prestige": 4,
+      "overall_score": 77,
+      "tier": 2,
+      "discipline": "bikepacking",
+      "month": "July"
+    },
+    "gravel_god_rating": {
+      "logistics": 4,
+      "length": 5,
+      "technicality": 1,
+      "elevation": 4,
+      "climate": 3,
+      "altitude": 2,
+      "adventure": 5,
+      "prestige": 4,
+      "race_quality": 4,
+      "experience": 5,
+      "community": 5,
+      "field_depth": 2,
+      "value": 4,
+      "expenses": 3,
+      "cultural_impact": 3,
+      "overall_score": 77,
+      "tier": 2,
+      "tier_label": "TIER 2"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 4,
+        "explanation": "Organizers provide GPX tracks for the 4000 km route from Rovereto through 8 countries to North Cape, plus live tracking and staff support vehicles without direct aid. Pre-departure meetings in Rovereto and an intermediate Berlin start on July 30 simplify planning. Professional media coverage and finisher photos at North Cape add seamless execution."
+      },
+      "length": {
+        "score": 5,
+        "explanation": "The 2485-mile course spans 4000 km across Europe from Rovereto, Italy, past Munich and Berlin to North Cape, Norway. Riders must complete it self-supported within 27 days until August 20. Optional Berlin start shortens distance but maintains ultra challenge."
+      },
+      "technicality": {
+        "score": 1,
+        "explanation": "Route uses paved roads and cycle paths, starting along Adige River paths in Trentino. No gravel or singletrack demands skills beyond endurance riding. Detours for safety are rider-managed on traffic-free European roads."
+      },
+      "elevation": {
+        "score": 4,
+        "explanation": "98000 feet of gain accumulates over 2485 miles through varied terrain from Italian vineyards to Scandinavian climbs. Passes like those near Munich add significant efforts before Arctic flats. Self-supported nature amplifies fatigue on prolonged ascents."
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "July starts warm in Rovereto but progresses to cooler Arctic conditions near North Cape. Expect rain in northern Europe and variable winds across 8 countries. Riders prepare gear for 22-day weather shifts from Mediterranean to subarctic."
+      },
+      "altitude": {
+        "score": 2,
+        "explanation": "Minimal high passes; route prioritizes safe, low-traffic paved roads from Rovereto sea level to North Cape plateau. No extreme altitudes like Alps peaks challenge oxygenation. Focus remains endurance over hypoxia."
+      },
+      "adventure": {
+        "score": 5,
+        "explanation": "Self-supported 4000 km bikepacking through 8 nations from Rovereto to North Cape embodies raw exploration. Landmarks like Berlin checkpoint and Arctic Circle deliver postcard scenery and isolation. Life-changing solitude or camaraderie defines the edge-of-world journey."
+      },
+      "prestige": {
+        "score": 4,
+        "explanation": "Most attended ultra-distance bikepacking event draws 500 riders annually since 2017. Finishers list and live tracking elevate status among ultracyclists. Recognition at North Cape staff welcome cements its benchmark appeal."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "Edition IX features scouted safest route with GPX files, live maps, and pro photography from Rovereto to North Cape. Staff vehicles ensure safety monitoring without aid. High production rivals pro events in detail."
+      },
+      "experience": {
+        "score": 5,
+        "explanation": "Riders pedal dreamlike landscapes from Trentino orchards to Arctic vistas over 4000 km. Companionship with 500 others fosters bonds amid jaw-dropping beauty. Indelible memories from self-paced adventure outshine competitive races."
+      },
+      "community": {
+        "score": 5,
+        "explanation": "500 participants unite in fair play from Rovereto start to North Cape finish. Real-time tracking and media share stories across Europe. Global riders form lasting networks beyond ordinary events."
+      },
+      "field_depth": {
+        "score": 2,
+        "explanation": "Around 500 self-supported adventurers join, emphasizing personal challenge over elite pros. Finishers like 2022's Daniel Gottschalk highlight committed amateurs. Capacity limits depth but boosts camaraderie."
+      },
+      "value": {
+        "score": 4,
+        "explanation": "Subscription delivers GPX routes, live tracking, gadgets, and North Cape photos for transformative 4000 km adventure. No aid keeps costs low versus supported tours. Incomparable experience justifies entry."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Self-supported format demands rider-funded food and lodging over 27 days across 8 countries. Entry covers tracking and media but travel to Rovereto adds up. Quality scouting justifies investment for committed ultracyclists."
+      },
+      "cultural_impact": {
+        "score": 3,
+        "explanation": "Benchmark ultra-bikepacking event since 2017 influences European self-supported adventures. Stories from Rovereto to North Cape inspire global participants. Growing annually as life's milestone ride."
+      }
+    },
+    "course_description": {
+      "summary": "NorthCape 4000 is a 2485-mile self-supported bikepacking adventure from Rovereto, Italy, to North Cape, Norway, crossing 8 countries on paved roads. Riders follow GPX tracks through checkpoints like Berlin, tackling 98000 feet of elevation in under 27 days. The route showcases Europe's safest cycle paths amid stunning countrysides.",
+      "terrain_breakdown": {
+        "paved": 100,
+        "gravel": 0,
+        "singletrack": 0,
+        "other": 0
+      },
+      "key_segments": [
+        {
+          "name": "Rovereto to Munich",
+          "description": "Starts along Adige River cycle paths through Trentino vineyards and orchards before Alpine foothills.",
+          "distance_mi": 350,
+          "difficulty": "moderate"
+        },
+        {
+          "name": "Berlin Checkpoint",
+          "description": "Intermediate start option or midway gate in urban Germany, shifting to northern plains.",
+          "distance_mi": 800,
+          "difficulty": "moderate"
+        },
+        {
+          "name": "Stockholm to Rovaniemi",
+          "description": "Scandinavian forests and coasts lead to Arctic Circle approach with lengthening days.",
+          "distance_mi": 700,
+          "difficulty": "hard"
+        },
+        {
+          "name": "Arctic to North Cape",
+          "description": "Final 500 km on remote Norwegian roads with staff support points and midnight sun.",
+          "distance_mi": 500,
+          "difficulty": "extreme"
+        }
+      ],
+      "elevation_profile": "Steady accumulation of 98000 feet builds from Italian climbs near Rovereto, peaks mid-route through central Europe, then flattens toward Arctic plateaus. Undulating paved roads distribute gain without extreme single efforts. Self-supported pacing turns profile into endurance test.",
+      "aid_stations": "Fully self-supported with no aid stations; riders source food independently. Arctic section road map notes services in final 700 km."
+    },
+    "logistics": {
+      "registration": {
+        "opens": "Early 2026",
+        "closes": "sells out",
+        "cost": "€500-€700 / $550-$770 USD",
+        "lottery": false,
+        "capacity": 500
+      },
+      "travel": {
+        "nearest_airport": "Verona Villafranca (VRN)",
+        "driving_from_major_city": "150 km / 2 hours from Milan",
+        "accommodation": "Rovereto offers hotels and campsites pre-event; riders self-arrange lodging en route across Europe.",
+        "bike_transport": "Fly bikes to Verona or ship to Rovereto; rentals available locally for road setups."
+      },
+      "race_day": {
+        "start_time": "8:00 AM",
+        "cutoff": "August 20, 2026 (27 days)",
+        "categories": "Solo, open pace; Berlin intermediate start",
+        "awards": "Finisher list, photo, gadgets; arrival order from Berlin start"
+      }
+    },
+    "training_recommendations": {
+      "minimum_fitness": "Build to 200-300 mile weeks with back-to-back long rides; complete a 600 km brevet unsupported.",
+      "ideal_preparation": "Train 4-6 months with progressive volume up to 400 mile weeks including 10000 ft elevation days. Simulate self-support with multi-day tours carrying bikepacking gear. Focus recovery for 3-week block mimicking 27-day effort.",
+      "key_workouts": "200-mile self-supported ride with 15000 ft gain; three consecutive 150-mile days; 24-hour endurance spin at 200 watts."
+    },
+    "history": {
+      "founded": 2017,
+      "notable_facts": "First held in 2017 from Lake Garda area as annual summer ultra. Grew to most participated bikepacking event with 500 riders. Route evolves yearly for safety, passing gates like Munich, Berlin, Stockholm, Rovaniemi."
+    },
+    "final_verdict": {
+      "one_liner": "Ultimate self-supported European traverse from Rovereto to North Cape redefines endurance adventure.",
+      "who_should_ride": "Experienced ultracyclists craving 4000 km of raw bikepacking through 8 nations. Those seeking transformative solitude or 500-rider camaraderie.",
+      "who_should_skip": "Novices lacking multi-day self-support experience or those needing aid stations. Riders averse to 27-day weather variability.",
+      "insider_tip": "Opt for Berlin start to ease into northern legs if full Rovereto distance intimidates."
+    },
+    "suffering_zones": [
+      {
+        "label": "Central European Push",
+        "description": "Munich-Berlin grind mixes climbs and headwinds over 500 miles, testing early pacing before fatigue sets in."
+      },
+      {
+        "label": "Arctic Isolation",
+        "description": "Final 700 km to North Cape delivers remote roads, cold rains, and mental lows amid midnight sun."
+      },
+      {
+        "label": "Day 15-20 Wall",
+        "description": "Scandinavian forests sap energy with steady rollers after 2000 miles, where sleep deprivation peaks."
+      }
+    ]
+  }
+}

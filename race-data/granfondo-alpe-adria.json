@@ -1,0 +1,182 @@
+{
+  "race": {
+    "slug": "granfondo-alpe-adria",
+    "name": "Granfondo Alpe Adria",
+    "vitals": {
+      "slug": "granfondo-alpe-adria",
+      "name": "Granfondo Alpe Adria",
+      "date": "2026: July TBD",
+      "date_specific": "2026: July TBD",
+      "distance_mi": 100,
+      "elevation_ft": 6800,
+      "location": "Villach, Carinthia, Austria",
+      "terrain": "Paved roads",
+      "website": "https://www.bike-alpeadria.eu/en/",
+      "registration_url": "https://www.bike-alpeadria.eu/en/",
+      "prestige": 3,
+      "overall_score": 70,
+      "tier": 2,
+      "discipline": "road",
+      "month": "July"
+    },
+    "gravel_god_rating": {
+      "logistics": 3,
+      "length": 4,
+      "technicality": 2,
+      "elevation": 4,
+      "climate": 4,
+      "altitude": 3,
+      "adventure": 4,
+      "prestige": 3,
+      "race_quality": 3,
+      "experience": 4,
+      "community": 3,
+      "field_depth": 3,
+      "value": 4,
+      "expenses": 3,
+      "cultural_impact": 2,
+      "overall_score": 70,
+      "tier": 2,
+      "tier_label": "TIER 2"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 3,
+        "explanation": "Registration typically opens in spring for the Villach start, with ample free parking near the city center. Travel from Klagenfurt airport is straightforward, about 40 minutes drive. Bike rentals are available locally given the Alpe Adria cycling region's infrastructure."
+      },
+      "length": {
+        "score": 4,
+        "explanation": "The 100-mile course challenges endurance across Austria, Italy, and Slovenia borders. Riders tackle sustained efforts through Karawanken tunnels and alpine valleys. It's demanding yet achievable for trained amateurs seeking a full-day road effort."
+      },
+      "technicality": {
+        "score": 2,
+        "explanation": "Fully paved roads keep handling straightforward on wide alpine routes. Descents from Karawanken passes require confident cornering but lack gravel or rough surfaces. Focus remains on pacing rather than bike-handling skills."
+      },
+      "elevation": {
+        "score": 4,
+        "explanation": "6800 feet of climbing features multiple pitches through Carinthian Alps near Villach. Key ascents via Karawanken tunnels demand steady power over 2000-foot gains. Descents provide relief amid the tri-nation layout."
+      },
+      "climate": {
+        "score": 4,
+        "explanation": "July in Carinthia offers mild 70-80°F days with low rain risk in alpine valleys. Lake Villach area ensures comfortable riding post-climb. Evening starts avoid peak heat in this border region."
+      },
+      "altitude": {
+        "score": 3,
+        "explanation": "Peaks near 5000 feet in Karawanken range introduce moderate hypoxia on climbs from Villach. Sustained efforts above 3000 feet test acclimation over 100 miles. Lower valleys provide recovery zones."
+      },
+      "adventure": {
+        "score": 4,
+        "explanation": "Tri-nation crossing from Austria through Italy to Slovenia via Karawanken tunnels delivers border-hopping thrill. Alpine scenery shifts from Carinthian lakes to Julian Alps. Cultural mix amplifies the exploratory road vibe."
+      },
+      "prestige": {
+        "score": 3,
+        "explanation": "Regional draw pulls 2000 riders to Villach annually since 2010. Part of Alpe Adria cycling circuits builds steady reputation. Solid for Central European gran fondo enthusiasts without global fame."
+      },
+      "race_quality": {
+        "score": 3,
+        "explanation": "Well-organized with aid stations across 100 miles from Villach. Typical age categories and pasta parties match regional standards. Reliable timing through Karawanken sections ensures smooth execution."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "Stunning alpine vistas from Villach to Slovenian borders create memorable rides. Karawanken tunnel passages add unique engineering flair. Post-race lake views in Carinthia enhance recovery."
+      },
+      "community": {
+        "score": 3,
+        "explanation": "2000 participants foster camaraderie among Alpe Adria regulars from Austria, Italy, Slovenia. Local Villach clubs host pasta parties. Cross-border vibe builds lasting regional connections."
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "Around 2000 entrants fill age categories with solid amateur talent from tri-nation area. Mix of locals from Villach and tourists boosts competition. Not elite-heavy but competitive for sportives."
+      },
+      "value": {
+        "score": 4,
+        "explanation": "Entry fees around €50-80 deliver 100 miles of alpine roads from Villach. Includes jersey and meals matching regional norms. High scenery-to-cost ratio in Carinthia."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Affordable €50-80 entry plus low-cost Villach lodging at €80/night. Flights to Klagenfurt add moderate travel expense. Bike rentals under €50/day keep totals reasonable."
+      },
+      "cultural_impact": {
+        "score": 2,
+        "explanation": "Promotes Alpe Adria border unity since 2010 in Villach. Draws regional cyclists to Karawanken heritage. Niche appeal in Carinthia without national spotlight."
+      }
+    },
+    "course_description": {
+      "summary": "The Granfondo Alpe Adria starts in Villach, Carinthia, winding 100 miles through Austria, Italy, and Slovenia's alpine terrain. Riders conquer 6800 feet via Karawanken tunnels and border passes. Paved roads showcase lakes, valleys, and mountain vistas in a tri-nation loop.",
+      "terrain_breakdown": {
+        "paved": 100,
+        "gravel": 0,
+        "singletrack": 0,
+        "other": 0
+      },
+      "key_segments": [
+        {
+          "name": "Karawanken Tunnel Ascent",
+          "description": "Iconic climb through the Karawanken range linking Austria to Slovenia, with steady gradients and tunnel passages. Offers panoramic alpine views post-descent.",
+          "distance_mi": 15,
+          "difficulty": "hard"
+        },
+        {
+          "name": "Villach Lake Rollers",
+          "description": "Early rolling section around Ossiach Lake from Villach start, building rhythm before mountains. Gentle hills warm up legs for border crossings.",
+          "distance_mi": 20,
+          "difficulty": "moderate"
+        },
+        {
+          "name": "Julian Alps Descent",
+          "description": "Fast paved drop into Slovenian valleys after Karawanken, with sweeping turns amid peaks. Technical yet rewarding finish approach.",
+          "distance_mi": 25,
+          "difficulty": "hard"
+        }
+      ],
+      "elevation_profile": "Profile builds gradually from Villach flats with 2000-foot lumps en route to Karawanken peaks. Mid-course features sustained 3000-foot climbs averaging 5-7% gradients. Final 30 miles descend roller-style for recovery amid 6800 total feet.",
+      "aid_stations": "Aid stations every 20-25 miles stock energy gels, bananas, and hydration from Villach through borders. Final station near Slovenian finish offers hot meals."
+    },
+    "logistics": {
+      "registration": {
+        "opens": "March",
+        "closes": "sells out",
+        "cost": "€50-80 / $55-88 USD",
+        "lottery": false,
+        "capacity": 2000
+      },
+      "travel": {
+        "nearest_airport": "Klagenfurt (KLU)",
+        "driving_from_major_city": "40 minutes from Klagenfurt",
+        "accommodation": "Villach offers lakeside hotels and guesthouses from €70/night. Campgrounds near Ossiach Lake suit budget riders.",
+        "bike_transport": "Rentals available in Villach; fly bikes to Klagenfurt with easy assembly. Local shops service Alpe Adria routes."
+      },
+      "race_day": {
+        "start_time": "8:00 AM",
+        "cutoff": "6 hours",
+        "categories": "age groups 18-65+, short/medium/long options",
+        "awards": "Top 3 per category trophies, finisher medals"
+      }
+    },
+    "training_recommendations": {
+      "minimum_fitness": "Base of 2000 miles yearly with hill repeats. Comfortable 4-hour rides at 15 mph pace required.",
+      "ideal_preparation": "Build 8-10 hour weekend rides mimicking 6800 feet over 100 miles. Include 2x weekly intervals on 6% grades like Karawanken. Taper two weeks prior with Villach-like rollers.",
+      "key_workouts": "3x20min at threshold on alpine simulator grades. 100-mile simulation with 6000ft gain. Karawanken-style 2-hour climb/descent repeats."
+    },
+    "history": {
+      "founded": 2010,
+      "notable_facts": "Launched to highlight tri-nation Alpe Adria cycling unity from Villach. Grew to 2000 riders by showcasing Karawanken tunnels. Integrated into regional gran fondo series like Kaertnen Rad-Marathon."
+    },
+    "final_verdict": {
+      "one_liner": "Alpine tri-nation road epic from Villach delivering big climbs and border thrills.",
+      "who_should_ride": "Strong amateurs craving 100-mile alpine challenges across Austria-Italy-Slovenia. Ideal for those seeking scenic endurance without elite pressure.",
+      "who_should_skip": "Novices lacking hill fitness or those preferring flat routes. Skip if high altitude or long transfers deter.",
+      "insider_tip": "Stay in Villach's lakeside zone for pre-race swims and easy start access."
+    },
+    "suffering_zones": [
+      {
+        "label": "Karawanken Grind",
+        "description": "Relentless 2000-foot haul through tunnels tests legs mid-race after Villach warm-up. Heat buildup and gradient force pacing discipline."
+      },
+      {
+        "label": "Border Pass Bonk",
+        "description": "Final climbs into Slovenia after 70 miles drain energy reserves. Exposed alpine winds amplify fatigue on 6800-foot total."
+      }
+    ]
+  }
+}

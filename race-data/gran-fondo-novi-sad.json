@@ -1,0 +1,182 @@
+{
+  "race": {
+    "slug": "gran-fondo-novi-sad",
+    "name": "Gran Fondo Novi Sad",
+    "vitals": {
+      "slug": "gran-fondo-novi-sad",
+      "name": "Gran Fondo Novi Sad",
+      "date": "June 7, 2026",
+      "date_specific": "June 7, 2026",
+      "distance_mi": 62,
+      "elevation_ft": 4900,
+      "location": "Novi Sad, Serbia",
+      "terrain": "Paved roads",
+      "website": "https://granfondons.com/",
+      "registration_url": "https://granfondons.com/",
+      "prestige": 3,
+      "overall_score": 70,
+      "tier": 2,
+      "discipline": "road",
+      "month": "June"
+    },
+    "gravel_god_rating": {
+      "logistics": 3,
+      "length": 3,
+      "technicality": 2,
+      "elevation": 4,
+      "climate": 4,
+      "altitude": 2,
+      "adventure": 4,
+      "prestige": 3,
+      "race_quality": 4,
+      "experience": 4,
+      "community": 3,
+      "field_depth": 3,
+      "value": 4,
+      "expenses": 4,
+      "cultural_impact": 2,
+      "overall_score": 70,
+      "tier": 2,
+      "tier_label": "TIER 2"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 3,
+        "explanation": "Packet pickup occurs at the Tourist Organization of Vojvodina on Bulevar Mihajla Pupina 18 in Novi Sad on Saturday from 2 PM to 8 PM and Sunday from 7 AM to 10 AM. Start is conveniently in front of the Provincial Government building with neutralized rollout via Rainbow Bridge. On-site registration is available but limited to race numbers only."
+      },
+      "length": {
+        "score": 3,
+        "explanation": "The Gran Fondo route covers 100 km through Fruska Gora National Park, ideal for a full-day effort without excessive fatigue. Shorter 77 km Medio Fondo option suits varied fitness levels. Circular loop returns to Novi Sad city center for easy post-race access."
+      },
+      "technicality": {
+        "score": 2,
+        "explanation": "Fully paved roads with predictable gradients minimize handling demands on descents through Mala Remeta and Jazak. Steady climbs average 3.8-4.5% with max 8%, favoring power over bike skills. Fruska Gora ridge alternates up and down without technical gravel or corners."
+      },
+      "elevation": {
+        "score": 4,
+        "explanation": "1500 m total gain challenges with a 9 km first climb from Beočin at 19 km averaging 4.5%. Second 6 km ascent to Irig at 55 km hits 7% max. Ridge section adds relentless undulations for sustained suffering."
+      },
+      "climate": {
+        "score": 4,
+        "explanation": "June in Novi Sad offers mild summer temps around 20-28°C with low precipitation risk. Danube River paths provide cooling breezes early on. Fruska Gora's forested slopes shield from extreme heat."
+      },
+      "altitude": {
+        "score": 2,
+        "explanation": "Routes stay below 500m elevation throughout Fruska Gora, posing no hypoxia issues. Lowlands along Danube to Beočin keep efforts aerobic. Climbs feel punchy due to gradients, not thin air."
+      },
+      "adventure": {
+        "score": 4,
+        "explanation": "Scenic loop explores Fruska Gora National Park's monasteries and villages like Vrdnik and Irig. Danube riverside to Rainbow Bridge adds urban-to-wild transition. Ridge traverse delivers decisive, non-stop action."
+      },
+      "prestige": {
+        "score": 3,
+        "explanation": "Part of UCI Gran Fondo World Series since 2024, qualifying riders for world finals. Draws international field to Novi Sad, 2022 European Capital of Culture. Solid regional prestige with live TV broadcasts."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "UCI-sanctioned with Protime chip timing and medical/technical support on course. Organized by Vojvodanska asocijacija biciklistickih klubova with pasta party and expo. Routes marked clearly, even in weather changes."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "Stunning Fruska Gora landscapes mix climbs, descents, and ridge with city sprint finish. Neutralized start builds excitement from Provincial Government plaza. Post-race festivities in vibrant Novi Sad enhance the vibe."
+      },
+      "community": {
+        "score": 3,
+        "explanation": "Around 1500 riders join this Serbian gem, fostering local cycling culture via VABK. Age-group awards build camaraderie. International UCI appeal mixes locals with global participants."
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "Typical 1500 entrants fill categories competitively in UCI series format. Pros like Veljko Stojnić have joined past editions. Strong regional depth with world qualifier stakes."
+      },
+      "value": {
+        "score": 4,
+        "explanation": "Includes full race pack, refreshments, pasta party, and tracking for reasonable fees. On-site options keep it accessible post-online close. UCI prestige elevates the sportive experience."
+      },
+      "expenses": {
+        "score": 4,
+        "explanation": "Low entry costs in Serbia around 50-100 EUR provide high value. Affordable Novi Sad lodging beats Western Europe prices. Proximity to Belgrade airport cuts travel expenses."
+      },
+      "cultural_impact": {
+        "score": 2,
+        "explanation": "Boosts Novi Sad's cycling scene as 2022 European Capital of Culture host. Introduces UCI Gran Fondo to Serbia since 2019. Regional draw with growing Eastern European significance."
+      }
+    },
+    "course_description": {
+      "summary": "Gran Fondo Novi Sad loops 100 km from Novi Sad's Provincial Government through Fruska Gora National Park, featuring two major climbs and a decisive ridge. Riders cross Rainbow Bridge along the Danube to Beočin before ascending. The route returns via Vrdnik and Irig for a fast city finish.",
+      "terrain_breakdown": {
+        "paved": 100,
+        "gravel": 0,
+        "singletrack": 0,
+        "other": 0
+      },
+      "key_segments": [
+        {
+          "name": "First Climb from Beočin",
+          "description": "9 km ascent starting at 19 km mark with 4.5% average gradient and 8% max. Steady effort through Fruska Gora foothills to Mala Remeta.",
+          "distance_mi": 5.6,
+          "difficulty": "hard"
+        },
+        {
+          "name": "Fruska Gora Ridge",
+          "description": "11 km undulating traverse post-second climb with constant up-down, no flats. Likely race-deciding section before descent to Novi Sad.",
+          "distance_mi": 6.8,
+          "difficulty": "extreme"
+        },
+        {
+          "name": "Second Climb to Irig",
+          "description": "6 km effort at 55 km with 3.8% average and 7% max gradient. Leads directly into the ridge for back-to-back challenges.",
+          "distance_mi": 3.7,
+          "difficulty": "moderate"
+        }
+      ],
+      "elevation_profile": "Profile builds gradually with flat Danube riverside to 19 km before 1500 m total gain across two climbs and ridge undulations. First 9 km climb dominates early, second adds mid-race punch, and 11 km ridge delivers relentless finish. Descents provide recovery before 2 km sprint.",
+      "aid_stations": "Refreshments at start/finish in Novi Sad plus on-course service points along Fruska Gora route. Pasta party post-race enhances recovery."
+    },
+    "logistics": {
+      "registration": {
+        "opens": "January",
+        "closes": "May or sells out",
+        "cost": "50-100 EUR ($55-110 USD)",
+        "lottery": false,
+        "capacity": 1500
+      },
+      "travel": {
+        "nearest_airport": "Belgrade Nikola Tesla (BEG)",
+        "driving_from_major_city": "90 km, 1.5 hours from Belgrade",
+        "accommodation": "Abundant hotels and Airbnbs in central Novi Sad near Provincial Government start. Budget options plentiful in this cultural hub.",
+        "bike_transport": "Rentals available locally; ship via Belgrade airport services. Event expo offers mechanical support."
+      },
+      "race_day": {
+        "start_time": "10:00 AM",
+        "cutoff": "6 hours",
+        "categories": "Age groups for Gran Fondo (100 km) and Medio Fondo (77 km)",
+        "awards": "Age category winners, overall podiums with UCI qualifiers"
+      }
+    },
+    "training_recommendations": {
+      "minimum_fitness": "Base of 2000 km yearly mileage with hill repeats to handle 1500 m gain. Comfortable 4-hour road rides required.",
+      "ideal_preparation": "Build 8-12 week plan peaking with 100 km rides including 1000 m climbs mimicking Fruska Gora gradients. Incorporate threshold intervals for 4-5% efforts. Taper with easy spins around Danube paths.",
+      "key_workouts": "3x 20-min at 4.5% gradient simulating Beočin climb; 2-hour ride with 11 km rolling ridge intervals; 90-min tempo with 500 m gain repeats."
+    },
+    "history": {
+      "founded": 2019,
+      "notable_facts": "Joined UCI Gran Fondo World Series in 2024 as Serbia's premier event. Novi Sad hosted as 2022 European Capital of Culture. Live TV broadcasts elevate its profile."
+    },
+    "final_verdict": {
+      "one_liner": "UCI qualifier through Fruska Gora's climbs delivers punchy Eastern European road suffering.",
+      "who_should_ride": "Ambitious amateurs seeking UCI worlds qualifier with scenic hills and value. Strong climbers from 100 km sportive backgrounds thrive here.",
+      "who_should_skip": "Flatland sprinters or ultra-endurance seekers wanting 200 km epics. Novices lacking hill fitness will struggle on gradients.",
+      "insider_tip": "Pre-ride Danube path to Beočin for warmup; attack ridge early to gap the field."
+    },
+    "suffering_zones": [
+      {
+        "label": "Beočin Beast Climb",
+        "description": "9 km grind from 19 km erodes legs with steady 4.5% to 8% pitches through forest. First real test after flat start exposes early pacing errors."
+      },
+      {
+        "label": "Ridge Rollercoaster",
+        "description": "11 km non-stop up-down on Fruska Gora summit post-61 km split. No recovery as attacks fly; decides podiums before fast descent."
+      }
+    ]
+  }
+}

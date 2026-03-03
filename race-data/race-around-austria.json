@@ -1,0 +1,176 @@
+{
+  "race": {
+    "slug": "race-around-austria",
+    "name": "Race Around Austria",
+    "vitals": {
+      "slug": "race-around-austria",
+      "name": "Race Around Austria",
+      "date": "2026: August TBD",
+      "date_specific": "2026: August TBD",
+      "distance_mi": 348,
+      "elevation_ft": 21300,
+      "location": "St. Georgen im Attergau, Austria",
+      "terrain": "Paved roads",
+      "website": "https://www.racearoundaustria.at",
+      "registration_url": "https://www.racearoundaustria.at",
+      "prestige": 3,
+      "overall_score": 69,
+      "tier": 2,
+      "discipline": "road",
+      "month": "August"
+    },
+    "gravel_god_rating": {
+      "logistics": 3,
+      "length": 5,
+      "technicality": 2,
+      "elevation": 4,
+      "climate": 3,
+      "altitude": 3,
+      "adventure": 4,
+      "prestige": 3,
+      "race_quality": 3,
+      "experience": 4,
+      "community": 3,
+      "field_depth": 2,
+      "value": 4,
+      "expenses": 3,
+      "cultural_impact": 2,
+      "overall_score": 69,
+      "tier": 2,
+      "tier_label": "TIER 2"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 3,
+        "explanation": "Support vehicles follow riders along the 560km Upper Austria border loop from St. Georgen im Attergau. Routebook and GPX files provided pre-race, with modifications for tunnels and detours. Organization handles depot bag transport to km 330 for self-supported adventure category."
+      },
+      "length": {
+        "score": 5,
+        "explanation": "The 560km challenge circles the Upper Austria border nonstop in 24-hour format. Riders tackle the full loop solo or in teams of two, testing ultra-endurance beyond typical sportives. This distance mirrors the emotional intensity of the full 2200km race but focuses regionally."
+      },
+      "technicality": {
+        "score": 2,
+        "explanation": "Paved roads form the entire 560km course with no gravel or singletrack. Navigation relies on GPX and routebook for border-hugging paths. Demands come from continuous riding rather than bike-handling skills on technical terrain."
+      },
+      "elevation": {
+        "score": 4,
+        "explanation": "Approximately 6500m gain over 560km challenges riders with rolling Upper Austria terrain. Climbs accumulate steadily along the border without extreme Alpine passes like Grossglockner. Sustained elevation tests pacing over the 24-hour effort."
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "August weather in Upper Austria brings mild temperatures but risks rain on exposed border roads. Day-night cycling in 24-hour format exposes riders to variable conditions. Preparation for cooler evenings near St. Georgen im Attergau is important."
+      },
+      "altitude": {
+        "score": 3,
+        "explanation": "Border route stays mostly below high Alps, avoiding severe hypoxia. Moderate elevations in Upper Austria hills add fatigue without extreme thin air. Riders from St. Georgen im Attergau face gradual ascents impacting long-term output."
+      },
+      "adventure": {
+        "score": 4,
+        "explanation": "Solo or team nonstop loop around Upper Austria border evokes RAAM-qualifier intensity on a regional scale. Self-supported option with depot at km 330 heightens isolation. Emotional highs from scenic paths near Salzburg amplify the ultra-adventure."
+      },
+      "prestige": {
+        "score": 3,
+        "explanation": "Austria's flagship ultra-cycling event draws international field as RAAM qualifier. Hosts Austrian 4er-Team Championships, elevating national status. The 560km Challenge embodies the full race's border-loop legacy since 2011."
+      },
+      "race_quality": {
+        "score": 3,
+        "explanation": "Well-organized with routebook, GPX, and support vehicle rules for the 560km loop. Starter packs include modifications for safe passage through bike-restricted tunnels. Regional focus ensures smooth execution from St. Georgen im Attergau start."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "Scenic Upper Austria border roads offer emotional riding past lakes and hills. 24-hour nonstop format builds rider narratives of triumph over 560km. Highlights include the single-loop journey versus repetitive 24h circuits."
+      },
+      "community": {
+        "score": 3,
+        "explanation": "Around 500 participants foster tight-knit ultra-cycling scene in solo, team, and business categories. Support crews bond during the Upper Austria border pursuit. Event culture emphasizes shared emotional perseverance."
+      },
+      "field_depth": {
+        "score": 2,
+        "explanation": "Typical 500 riders include novices to experienced ultracyclists in the 560km Challenge. Mix of solo, duo teams, and corporate entries dilutes elite depth. Regional draw limits to committed border-loop enthusiasts."
+      },
+      "value": {
+        "score": 4,
+        "explanation": "Entry provides full organization for 560km ultra including depot services and route support. RAAM-qualifier status adds appeal for the price. High adventure-to-cost ratio for Upper Austria's border showcase."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Crew and support vehicle costs add to entry for the 560km event. Travel to St. Georgen im Attergau from Salzburg is affordable. Local lodging keeps overall expenses moderate for European ultra."
+      },
+      "cultural_impact": {
+        "score": 2,
+        "explanation": "Billed as Austria's most emotional bike race, centered on Upper Austria border. Hosts national team championships, boosting local ultra scene. Niche appeal grows since 2011 without broad mainstream reach."
+      }
+    },
+    "course_description": {
+      "summary": "The Race Around Austria Challenge is a 560km nonstop loop hugging the Upper Austria border, starting from St. Georgen im Attergau. Riders face 6500m elevation in 24-hour solo or team format, embodying ultra spirit. Paved roads wind through scenic hills and lakes, testing endurance without full-race Alps.",
+      "terrain_breakdown": {
+        "paved": 100,
+        "gravel": 0,
+        "singletrack": 0,
+        "other": 0
+      },
+      "key_segments": [
+        {
+          "name": "Southern Border Climb",
+          "description": "Rolling ascent along Upper Austria's southern edge builds early elevation. Steady gradients challenge pacing over 100km into the loop.",
+          "distance_mi": 62,
+          "difficulty": "moderate"
+        },
+        {
+          "name": "Northern Lakeside Push",
+          "description": "Flat-to-rolling paths near lakes test fatigue after 300km. Night riding heightens mental demands on return to St. Georgen.",
+          "distance_mi": 50,
+          "difficulty": "hard"
+        }
+      ],
+      "elevation_profile": "Continuous rolling climbs total 6500m over 560km, with no extreme peaks but relentless accumulation. Profile features steady 3-6% gradients along border roads. Rear-loaded fatigue from sustained gain defines the challenge.",
+      "aid_stations": "Official depot at km 330 allows bag exchange for self-supported riders. Support vehicles provide on-course aid for accompanied categories."
+    },
+    "logistics": {
+      "registration": {
+        "opens": "March",
+        "closes": "sells out",
+        "cost": "€300-500 / $330-550 USD",
+        "lottery": false,
+        "capacity": 500
+      },
+      "travel": {
+        "nearest_airport": "Salzburg Airport (SZG)",
+        "driving_from_major_city": "30km, 30min from Salzburg",
+        "accommodation": "Hotels and guesthouses abound in St. Georgen im Attergau; crew camping near start available. Book early for August event.",
+        "bike_transport": "Rentals in Salzburg; shipping to local bike shops supported. Event provides no official transport."
+      },
+      "race_day": {
+        "start_time": "6:30 PM CEST",
+        "cutoff": "24 hours",
+        "categories": "Solo, Team (2), Business Challenge",
+        "awards": "Category podiums, national championships recognition"
+      }
+    },
+    "training_recommendations": {
+      "minimum_fitness": "Build to 300km+ rides with 4000m gain. Complete century rides back-to-back weekends.",
+      "ideal_preparation": "Log 500km weeks peaking 8 weeks out with 24-hour efforts. Include night riding and solo ultras. Focus on pacing for nonstop border loop.",
+      "key_workouts": "4-hour ride with 2000m climbing simulating border rolls. 300km overnight solo push. Interval repeats on 5% grades totaling 1000m."
+    },
+    "history": {
+      "founded": 2011,
+      "notable_facts": "Evolved into RAAM qualifier with 2200km full race; Challenge added for Upper Austria focus. Hosted Austrian 4er-Team Championships in 2022, 2024, 2026. Known as Europe's toughest border race."
+    },
+    "final_verdict": {
+      "one_liner": "Austria's emotional ultra gateway via 560km Upper Austria border grind.",
+      "who_should_ride": "Ultra-curious roadies seeking RAAM prep or team adventure. Strong endurance riders ready for 24-hour nonstop.",
+      "who_should_skip": "Climb-averse or logistics-light travelers. Novices without 300km base.",
+      "insider_tip": "Practice GPX navigation on Attersee lake roads mirroring border flats."
+    },
+    "suffering_zones": [
+      {
+        "label": "Midnight Border Void",
+        "description": "Hours 8-12 bring darkness and isolation on quiet Upper Austria roads. Mental fatigue peaks without crowds post-300km."
+      },
+      {
+        "label": "Depot Grind Finale",
+        "description": "Final 230km after km 330 depot tests depleted legs on rolling return. Cumulative 6500m saps power nearing St. Georgen."
+      }
+    ]
+  }
+}

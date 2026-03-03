@@ -1,0 +1,175 @@
+{
+  "race": {
+    "slug": "yangyang-gran-fondo",
+    "name": "Yangyang Gran Fondo",
+    "vitals": {
+      "slug": "yangyang-gran-fondo",
+      "name": "Yangyang Gran Fondo",
+      "date": "2026: October TBD",
+      "date_specific": "2026: October TBD",
+      "distance_mi": 93,
+      "elevation_ft": 6800,
+      "location": "Yangyang, Gangwon-do, South Korea",
+      "terrain": "Paved roads",
+      "website": "",
+      "prestige": 2,
+      "overall_score": 61,
+      "tier": 2,
+      "discipline": "road",
+      "month": "October"
+    },
+    "gravel_god_rating": {
+      "logistics": 3,
+      "length": 4,
+      "technicality": 2,
+      "elevation": 3,
+      "climate": 3,
+      "altitude": 2,
+      "adventure": 3,
+      "prestige": 2,
+      "race_quality": 3,
+      "experience": 4,
+      "community": 3,
+      "field_depth": 2,
+      "value": 4,
+      "expenses": 3,
+      "cultural_impact": 2,
+      "overall_score": 61,
+      "tier": 2,
+      "tier_label": "TIER 2"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 3,
+        "explanation": "Gangwon Province is accessible from Seoul via KTX high-speed rail in 2 hours. Local cycling infrastructure is developing."
+      },
+      "length": {
+        "score": 4,
+        "explanation": "The 150km route offers a substantial day in the saddle along the Gangwon coastline and mountain roads."
+      },
+      "technicality": {
+        "score": 2,
+        "explanation": "Well-maintained Korean roads with good surface quality. Standard road sportive demands."
+      },
+      "elevation": {
+        "score": 3,
+        "explanation": "Roughly 2100m of climbing through the coastal mountains of eastern Korea."
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "October brings cool autumn temperatures around 10-18C. Occasional coastal winds."
+      },
+      "altitude": {
+        "score": 2,
+        "explanation": "Maximum elevation around 700m. No significant altitude concerns."
+      },
+      "adventure": {
+        "score": 3,
+        "explanation": "Scenic coastal roads and mountain passes through Gangwon Province offer varied terrain."
+      },
+      "prestige": {
+        "score": 2,
+        "explanation": "Growing event in Korea's cycling scene but still building international recognition."
+      },
+      "race_quality": {
+        "score": 3,
+        "explanation": "Organized by local cycling federation with aid stations and mechanical support."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "Beautiful autumn foliage along Korea's eastern coast and mountain roads."
+      },
+      "community": {
+        "score": 3,
+        "explanation": "Strong local cycling community participation. Growing Korean amateur cycling scene."
+      },
+      "field_depth": {
+        "score": 2,
+        "explanation": "Around 1500 participants, primarily Korean domestic riders with some international visitors."
+      },
+      "value": {
+        "score": 4,
+        "explanation": "Entry fees around 50000-80000 KRW (roughly $40-60 USD). Reasonable for the experience."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Moderate costs. Accommodation in Yangyang is affordable. Seoul provides cheaper base options."
+      },
+      "cultural_impact": {
+        "score": 2,
+        "explanation": "Part of Korea's growing cycling culture. Yangyang is known for surfing and outdoor sports."
+      }
+    },
+    "course_description": {
+      "summary": "The Yangyang Gran Fondo traces the dramatic eastern coastline of Gangwon Province before turning inland through forested mountain passes. The route showcases autumn colors and Pacific Ocean views.",
+      "terrain_breakdown": {
+        "paved": 100,
+        "gravel": 0,
+        "singletrack": 0,
+        "other": 0
+      },
+      "key_segments": [
+        {
+          "name": "Coastal Highway",
+          "description": "Opening section along Korea's eastern seaboard with ocean panoramas.",
+          "distance_mi": 25,
+          "difficulty": "moderate"
+        },
+        {
+          "name": "Osaek Mountain Pass",
+          "description": "The main climb through pine forests with autumn foliage.",
+          "distance_mi": 12,
+          "difficulty": "hard"
+        }
+      ],
+      "elevation_profile": "Generally rolling with two significant climbs in the second half. The route gains most elevation between miles 40-70.",
+      "aid_stations": "Aid stations every 25-30km with water, electrolytes, and Korean snacks."
+    },
+    "logistics": {
+      "registration": {
+        "opens": "June",
+        "closes": "September",
+        "cost": "50000-80000 KRW ($40-60 USD)",
+        "lottery": false,
+        "capacity": 1500
+      },
+      "travel": {
+        "nearest_airport": "Yangyang International Airport (YNY)",
+        "driving_from_major_city": "2.5 hours from Seoul via Yeongdong Expressway",
+        "accommodation": "Hotels and pensions in Yangyang beach area. Budget options from 50000 KRW/night.",
+        "bike_transport": "Bike bags accepted on KTX trains. Local rental shops available in Yangyang."
+      },
+      "race_day": {
+        "start_time": "7:00 AM",
+        "cutoff": "8 hours",
+        "categories": "Age groups, distance options (150km, 100km, 50km)",
+        "awards": "Age group medals and prizes"
+      }
+    },
+    "training_recommendations": {
+      "minimum_fitness": "Able to ride 100km with moderate climbing. 6+ weeks of structured training.",
+      "ideal_preparation": "12 weeks of endurance-focused training including hill repeats and long rides of 120km+.",
+      "key_workouts": "Weekly hill intervals, tempo rides on rolling terrain, back-to-back weekend rides."
+    },
+    "history": {
+      "founded": 2017,
+      "notable_facts": "Part of the Korean cycling boom following increased infrastructure investment. Gangwon Province hosted cycling events during the 2018 PyeongChang Winter Olympics period."
+    },
+    "final_verdict": {
+      "one_liner": "A scenic Korean coastal-to-mountain gran fondo showcasing Gangwon Province's autumn beauty.",
+      "who_should_ride": "Riders seeking an authentic Korean cycling experience with coastal and mountain scenery.",
+      "who_should_skip": "Those expecting a large international field or flat fast course.",
+      "insider_tip": "Stay in Yangyang's beach district and visit the Naksansa Temple the day before the ride."
+    },
+    "suffering_zones": [
+      {
+        "label": "Osaek Ascent",
+        "description": "The main climb gains 500m over 15km through dense forest. Steady gradient with limited shade breaks."
+      },
+      {
+        "label": "Coastal Headwinds",
+        "description": "The return coastal section often faces strong onshore winds in the afternoon."
+      }
+    ]
+  }
+}

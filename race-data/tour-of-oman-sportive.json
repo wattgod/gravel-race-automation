@@ -1,0 +1,176 @@
+{
+  "race": {
+    "slug": "tour-of-oman-sportive",
+    "name": "Tour of Oman Sportive",
+    "vitals": {
+      "slug": "tour-of-oman-sportive",
+      "name": "Tour of Oman Sportive",
+      "date": "2026: February TBD",
+      "date_specific": "2026: February TBD",
+      "distance_mi": 105,
+      "elevation_ft": 8500,
+      "location": "Muscat, Oman",
+      "terrain": "Paved roads",
+      "website": "https://www.tour-of-oman.com/en/",
+      "registration_url": "https://www.tour-of-oman.com/en/",
+      "prestige": 3,
+      "overall_score": 63,
+      "tier": 2,
+      "discipline": "road",
+      "month": "February"
+    },
+    "gravel_god_rating": {
+      "logistics": 3,
+      "length": 4,
+      "technicality": 1,
+      "elevation": 4,
+      "climate": 4,
+      "altitude": 2,
+      "adventure": 3,
+      "prestige": 3,
+      "race_quality": 3,
+      "experience": 4,
+      "community": 3,
+      "field_depth": 3,
+      "value": 3,
+      "expenses": 2,
+      "cultural_impact": 2,
+      "overall_score": 63,
+      "tier": 2,
+      "tier_label": "TIER 2"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 3,
+        "explanation": "Muscat's international airport provides direct access for global participants, with shuttles to the start near Al Bustan. ASO's organization ensures smooth bib pickup and bike assembly areas. Coastal hotel options simplify pre-race logistics in February."
+      },
+      "length": {
+        "score": 4,
+        "explanation": "The 105-mile route mirrors pro Tour of Oman stages along Oman's coast from Muscat toward Quriyat. Riders tackle sustained efforts on open paved roads before the finale. This distance demands endurance without overwhelming sportive standards."
+      },
+      "technicality": {
+        "score": 1,
+        "explanation": "All 105 miles use smooth coastal paved roads and wide highways around Muscat. No gravel, descents, or tight corners challenge handling skills. Focus remains on pacing and power output exclusively."
+      },
+      "elevation": {
+        "score": 4,
+        "explanation": "8500 feet of climbing centers on the iconic Green Mountain ascent near Jabal al Akhdar, averaging 10.4% over 5.7km. Earlier rollers along the coast from Al Mawj add cumulative gain. This profile tests early-season legs significantly."
+      },
+      "climate": {
+        "score": 4,
+        "explanation": "February in Muscat offers 70-80°F days with low humidity and minimal rain risk. Calm coastal winds aid flatter sections before mountain exposure. Ideal for winter training without extreme heat."
+      },
+      "altitude": {
+        "score": 2,
+        "explanation": "Sea-level start in Muscat rises modestly to Green Mountain's 2000m summit. No sustained high altitude affects oxygenation like Andean events. Acclimatization occurs naturally during the ride."
+      },
+      "adventure": {
+        "score": 3,
+        "explanation": "Riding past Nizwa Fort and up Green Mountain offers Arabian desert vistas uncommon in Europe. Coastal paths from Al Bustan to Quriyat blend culture with challenge. ASO polish tempers raw adventure slightly."
+      },
+      "prestige": {
+        "score": 3,
+        "explanation": "ASO organization links it directly to the UCI ProSeries Tour of Oman, attracting pros and enthusiasts. 1000-rider field gains visibility from the pro event's global broadcast. February timing boosts early-season appeal."
+      },
+      "race_quality": {
+        "score": 3,
+        "explanation": "ASO delivers pro-level signage, traffic control, and medical support on Muscat coastal roads. Feed stations match Tour of Oman standards with local dates and hydration. Reliable for a regional sportive."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "Spectacular Green Mountain climb and coastal views from Al Mawj create memorable riding. Post-race festivities alongside pros enhance the vibe near Muscat. Exotic Oman setting elevates beyond standard European sportives."
+      },
+      "community": {
+        "score": 3,
+        "explanation": "1000 participants form an international mix drawn by Tour of Oman proximity. Local Oman Cycling Association fosters welcoming vibe at Muscat starts. Growing expat cycling scene adds camaraderie."
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "Typical 1000 entrants include fit amateurs and off-season pros training for UAE Tour. Competitive waves ensure paced groups on 105-mile course. Balanced field without elite-only pressure."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "Entry covers pro-caliber organization, feeds, and finisher perks for mid-three figures. ASO quality justifies cost relative to European winter alternatives. Includes cultural immersion in Oman."
+      },
+      "expenses": {
+        "score": 2,
+        "explanation": "Flights to Muscat and hotels inflate total beyond $2000 for internationals. Entry around 150-250 OMR adds up with bike shipping. Value shines for Middle East travelers."
+      },
+      "cultural_impact": {
+        "score": 2,
+        "explanation": "Event highlights Oman's cycling growth since 2010 via pro Tour linkage. Rides past forts like Nizwa showcase heritage to 1000 riders. Regional significance in Arabian Peninsula sports."
+      }
+    },
+    "course_description": {
+      "summary": "The Tour of Oman Sportive follows paved coastal roads from Muscat, tracing pro Tour routes toward Quriyat before turning inland. The 105-mile challenge culminates with the brutal Green Mountain climb near Jabal al Akhdar. ASO ensures a pro-inspired experience with stunning Arabian scenery.",
+      "terrain_breakdown": {
+        "paved": 100,
+        "gravel": 0,
+        "singletrack": 0,
+        "other": 0
+      },
+      "key_segments": [
+        {
+          "name": "Coastal Roads to Quriyat",
+          "description": "Flat to rolling paved highways from Al Mawj through Sink Hole area offer fast group riding. Open terrain allows steady pacing over 60 miles.",
+          "distance_mi": 60,
+          "difficulty": "moderate"
+        },
+        {
+          "name": "Green Mountain Climb",
+          "description": "Final 5.7km ascent averages 10.4% with steep ramps deciding the day. Summit views reward the 8500ft total gain effort.",
+          "distance_mi": 4,
+          "difficulty": "extreme"
+        }
+      ],
+      "elevation_profile": "Profile starts flat along Muscat coast with progressive rollers building to inland climbs. Major elevation concentrates in late Green Mountain pitch after 8500ft accumulation. Descents are gentle paved returns.",
+      "aid_stations": "Multiple ASO-staffed stations every 25 miles offer water, dates, bananas, and energy gels. Final feed before Green Mountain ensures climber fueling."
+    },
+    "logistics": {
+      "registration": {
+        "opens": "November",
+        "closes": "sells out",
+        "cost": "150-250 OMR ($390-650 USD)",
+        "lottery": false,
+        "capacity": 1000
+      },
+      "travel": {
+        "nearest_airport": "Muscat International Airport (MCT)",
+        "driving_from_major_city": "0 miles, event starts in Muscat",
+        "accommodation": "Abundant beach resorts near Al Bustan and luxury hotels in Muscat city center. Group rates available during Tour of Oman week.",
+        "bike_transport": "Bike rentals from local shops in Muscat; shipping via airline partners supported by ASO. Assembly stations at expo."
+      },
+      "race_day": {
+        "start_time": "7:00 AM",
+        "cutoff": "6 hours",
+        "categories": "Open, age groups 18-35/36-50/50+, women",
+        "awards": "Finisher medals, category podiums, Green Mountain KoM/QoM"
+      }
+    },
+    "training_recommendations": {
+      "minimum_fitness": "Base of 2000 miles annual riding with weekly 4-hour efforts. Comfortable holding 200 watts for 5 hours required for 105 miles.",
+      "ideal_preparation": "Build 8-12 weeks with two peak centuries including 5000ft gain. Interval sessions mimic 10% Green Mountain ramps twice weekly. Taper with Oman time zone adjustment flights.",
+      "key_workouts": "4x8min at 5-8% gradient threshold; 5hr endurance ride with coastal paceline simulation; 2x20min Green Mountain-specific 10% efforts."
+    },
+    "history": {
+      "founded": 2012,
+      "notable_facts": "Launched by ASO alongside pro Tour of Oman to boost amateur participation. Grew to 1000 riders amid Oman's cycling rise since 2010. Features same Green Mountain climb that decides pro GC."
+    },
+    "final_verdict": {
+      "one_liner": "Pro roads, Arabian climbs: winter sportive gold.",
+      "who_should_ride": "Strong amateurs seeking exotic early-season test with pro vibes. Climbers chasing Green Mountain glory among 1000 internationals.",
+      "who_should_skip": "Budget travelers daunted by Oman flights. Novices lacking 5-hour endurance base.",
+      "insider_tip": "Ride wide on Green Mountain's steepest ramps—loose gravel hides in corners."
+    },
+    "suffering_zones": [
+      {
+        "label": "Green Mountain Hell",
+        "description": "Final 5.7km at 10.4% average shreds legs after 100 miles. Yates-style accelerations from pros ahead amplify the burn."
+      },
+      {
+        "label": "Coastal Headwind Grind",
+        "description": "60 miles of exposed Muscat highways sap energy in any breeze. Group drafting essential to survive pre-climb fatigue."
+      }
+    ]
+  }
+}

@@ -1,0 +1,176 @@
+{
+  "race": {
+    "slug": "race-around-ireland",
+    "name": "Race Around Ireland",
+    "vitals": {
+      "slug": "race-around-ireland",
+      "name": "Race Around Ireland",
+      "date": "2026: August TBD",
+      "date_specific": "2026: August TBD",
+      "distance_mi": 1336,
+      "elevation_ft": 72000,
+      "location": "Trim, County Meath, Ireland",
+      "terrain": "Paved roads",
+      "website": "https://en.wikipedia.org/wiki/Race_Around_Ireland",
+      "registration_url": "https://en.wikipedia.org/wiki/Race_Around_Ireland",
+      "prestige": 3,
+      "overall_score": 66,
+      "tier": 2,
+      "discipline": "road",
+      "month": "August"
+    },
+    "gravel_god_rating": {
+      "logistics": 3,
+      "length": 5,
+      "technicality": 1,
+      "elevation": 4,
+      "climate": 3,
+      "altitude": 1,
+      "adventure": 5,
+      "prestige": 3,
+      "race_quality": 3,
+      "experience": 4,
+      "community": 3,
+      "field_depth": 2,
+      "value": 4,
+      "expenses": 3,
+      "cultural_impact": 2,
+      "overall_score": 66,
+      "tier": 2,
+      "tier_label": "TIER 2"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 3,
+        "explanation": "Riders manage their own support vehicles and rest stops along the 2,212 km coastal route from Trim in County Meath. Time stations like the 22 checkpoints require self-supported navigation. Crew coordination is critical for non-stop pacing within the 132-hour solo limit."
+      },
+      "length": {
+        "score": 5,
+        "explanation": "The 2,212 km (1,336 miles) circumnavigation hugs Ireland's coastline, demanding relentless endurance from Trim back to Trim. Soloists often ride 22 hours daily to finish under 132 hours. Christoph Strasser's 2013 record of 93 hours underscores the ultra-distance brutality."
+      },
+      "technicality": {
+        "score": 1,
+        "explanation": "Paved coastal roads around Ireland offer straightforward riding with no gravel or off-road sections. Focus remains on sustained power rather than bike-handling skills. Wind exposure along the Atlantic and Irish Sea edges adds pacing challenges over technical demands."
+      },
+      "elevation": {
+        "score": 4,
+        "explanation": "22,000 meters (72,000 feet) of climbing accumulates over the 2,212 km loop through Ireland's hilly coastal terrain. Repeated ascents in areas like County Kerry and Donegal test fatigue management. Riders must pace climbs to sustain average speeds near 20 km/h."
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "Late August brings mild temperatures but frequent rain and headwinds along Ireland's exposed coastline. Conditions from Trim to southwestern cliffs can shift rapidly, impacting non-stop efforts. Wet roads demand cautious descending after 100+ hours in the saddle."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "No significant high-altitude sections occur on the coastal route around Ireland. Elevations stay low, focusing challenges on cumulative climbing rather than thin air. Sea-level riding from County Meath preserves power output throughout the 132-hour window."
+      },
+      "adventure": {
+        "score": 5,
+        "explanation": "Non-stop solo circumnavigation of Ireland's 2,212 km coastline delivers raw adventure with self-managed sleep and nutrition. Passing landmarks from Cliffs of Moher to Giant's Causeway builds epic isolation. Qualifying status for Race Across America elevates the exploratory allure."
+      },
+      "prestige": {
+        "score": 3,
+        "explanation": "Race Around Ireland holds regional prestige as Ireland's premier ultra cycling event since 2009, attracting international soloists like Christoph Strasser. Winners like Nicole Reist in 2017 gain recognition in ultra circles. Its RAAM qualifier status boosts credibility among endurance riders."
+      },
+      "race_quality": {
+        "score": 3,
+        "explanation": "Organized as a self-supported ultra with 22 time stations around Ireland's coast, it emphasizes rider autonomy from Trim start/finish. Fixed 132-hour solo cutoff ensures fairness for ~200 participants. Relay options for teams of 2-8 add structured variety."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "Riding Ireland's stunning coastal scenery from County Meath to remote northwestern headlands creates unforgettable immersion. Non-stop format allows personal pacing through historic sites and wild landscapes. Finishers cherish the raw achievement after 22,000m of climbing."
+      },
+      "community": {
+        "score": 3,
+        "explanation": "Tight-knit ultra cycling scene bonds ~200 soloists and relay teams at Trim gatherings. International riders from Switzerland and Germany join Irish locals like Joe Barr. Shared suffering fosters post-race camaraderie among RAAM qualifiers."
+      },
+      "field_depth": {
+        "score": 2,
+        "explanation": "Around 200 participants including soloists and small relay teams compete annually. Elite times like Strasser's 93:16 on 2,209 km show depth among ultraspecialists. Field suits dedicated endurance riders over mass pelotons."
+      },
+      "value": {
+        "score": 4,
+        "explanation": "Self-supported format minimizes costs beyond entry and crew travel to Trim, County Meath. Epic 2,212 km coastal challenge offers high reward for preparation invested. RAAM qualifier status adds long-term competitive value."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Entry fees cover basics, but support crew travel and lodging in rural Ireland add moderate costs. Flying to Dublin for Trim access is affordable from Europe. Self-navigation reduces aid expenses over the 132-hour effort."
+      },
+      "cultural_impact": {
+        "score": 2,
+        "explanation": "Event celebrates Ireland's coastal heritage, routing past sites like Giant's Causeway since 2009. Regional ultra staple draws global riders to County Meath. Niche status limits broader national prominence."
+      }
+    },
+    "course_description": {
+      "summary": "Race Around Ireland is a non-stop ultra-distance road cycling event circumnavigating Ireland's coastline for 2,212 km (1,336 miles) with 22,000 m (72,000 ft) of elevation gain. Starting and finishing in Trim, County Meath, it challenges soloists within a 132-hour limit. Riders self-manage support vehicles, rest, and nutrition along paved roads.",
+      "terrain_breakdown": {
+        "paved": 100,
+        "gravel": 0,
+        "singletrack": 0,
+        "other": 0
+      },
+      "key_segments": [
+        {
+          "name": "Southwest Coast to Kerry",
+          "description": "Hilly coastal roads climb repeatedly through Dingle Peninsula and Killarney areas. Exposed to Atlantic winds, this section tests pacing after initial flat miles from Trim.",
+          "distance_mi": 300,
+          "difficulty": "hard"
+        },
+        {
+          "name": "Northwest Atlantic Exposure",
+          "description": "Remote roads along Donegal and Northern Ireland hug cliffs with persistent headwinds and short steep pitches. Cumulative fatigue peaks here midway through the 2,212 km loop.",
+          "distance_mi": 400,
+          "difficulty": "extreme"
+        }
+      ],
+      "elevation_profile": "Steady accumulation of 22,000 m over 2,212 km features rolling coastal hills rather than massive cols. No extreme peaks, but relentless ups and downs from Trim through Kerry to Donegal demand sustained power. Profile suits grinders averaging 20 km/h.",
+      "aid_stations": "22 time stations serve as unofficial checkpoints for self-supported resupply along the coastal route. Riders rely on personal crews for nutrition at these points."
+    },
+    "logistics": {
+      "registration": {
+        "opens": "Spring",
+        "closes": "sells out",
+        "cost": "€500-€800 / $550-$880 USD",
+        "lottery": false,
+        "capacity": 200
+      },
+      "travel": {
+        "nearest_airport": "Dublin Airport (DUB)",
+        "driving_from_major_city": "45 minutes from Dublin",
+        "accommodation": "Hotels and B&Bs abound in historic Trim; nearby Dublin offers more options for crews. Rural coastal spots have limited stays, so book early.",
+        "bike_transport": "Fly bikes to Dublin Airport; rentals available in Trim or Dublin for road setups. Crew vehicles handle transport along the route."
+      },
+      "race_day": {
+        "start_time": "Late evening mass start",
+        "cutoff": "132 hours for soloists",
+        "categories": "Solo, teams of 2, 4, 8",
+        "awards": "Finisher recognition; records for fastest times"
+      }
+    },
+    "training_recommendations": {
+      "minimum_fitness": "Build to 300-400 km weekly with back-to-back long rides exceeding 200 km. Include 5,000 m weekly climbing to handle the non-stop format.",
+      "ideal_preparation": "Simulate ultras with 24-hour rides at 20 km/h pace, incorporating sleep deprivation. Train on windy, rolling roads mimicking Irish coasts. Peak with 1,000 km weeks including 15,000 m elevation.",
+      "key_workouts": "600 km weekend double with 10,000 m climbing over two days. 24-hour time trial targeting 450-500 km. Threshold intervals on 10-15% coastal-style pitches."
+    },
+    "history": {
+      "founded": 2011,
+      "notable_facts": "First held in 2009 with Joe Barr winning in 108 hours; Christoph Strasser set the solo record of 93:16 in 2013. Nicole Reist became the first woman to lead all solo finishers in 2017. Qualifying event for Race Across America since inception."
+    },
+    "final_verdict": {
+      "one_liner": "Brutal non-stop Irish coastal ultra for true endurance masochists.",
+      "who_should_ride": "Experienced ultra soloists seeking RAAM qualifiers with 1,300+ mile road grind. Those thriving on self-supported adventure around Ireland's wild coasts.",
+      "who_should_skip": "Novice long-distance riders lacking 400 km/day fitness. Anyone averse to weather roulette and sleep-deprived navigation.",
+      "insider_tip": "Stock extra layers for relentless Atlantic gales off Donegal—windchill drops temps 10°C below forecast."
+    },
+    "suffering_zones": [
+      {
+        "label": "Hour 80-100 Wall",
+        "description": "Deep into northwest Ireland, cumulative sleep debt and 15,000 m climbed trigger hallucinations on empty coastal roads. Headwinds from Slieve League cliffs amplify the void."
+      },
+      {
+        "label": "Final 200 km Push",
+        "description": "Exhausted return to Trim after full circumnavigation brings cramp city on familiar Meath lanes. 132-hour clock ticks mercilessly with every pedal stroke."
+      }
+    ]
+  }
+}

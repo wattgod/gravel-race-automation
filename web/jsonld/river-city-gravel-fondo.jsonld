@@ -7,7 +7,12 @@
   "startDate": "2026-04-12",
   "location": {
     "@type": "Place",
-    "name": "Campbell River, British Columbia"
+    "name": "Campbell River, British Columbia",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Campbell River",
+      "addressRegion": "British Columbia"
+    }
   },
   "offers": {
     "@type": "Offer",

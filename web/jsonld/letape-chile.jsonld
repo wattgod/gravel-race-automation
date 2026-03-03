@@ -6,7 +6,12 @@
   "sport": "Gravel Cycling",
   "location": {
     "@type": "Place",
-    "name": "Valdivia, Los Rios, Chile"
+    "name": "Valdivia, Los Rios, Chile",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Valdivia",
+      "addressRegion": "Los Rios"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

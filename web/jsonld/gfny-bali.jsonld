@@ -7,7 +7,12 @@
   "startDate": "2026-02-15",
   "location": {
     "@type": "Place",
-    "name": "Lebih, Klungkung, Bali, Indonesia"
+    "name": "Lebih, Klungkung, Bali, Indonesia",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Lebih",
+      "addressRegion": "Klungkung"
+    }
   },
   "offers": {
     "@type": "Offer",

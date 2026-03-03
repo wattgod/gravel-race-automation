@@ -7,7 +7,12 @@
   "startDate": "2026-07-12",
   "location": {
     "@type": "Place",
-    "name": "Aigle / Villars-sur-Ollon, Switzerland"
+    "name": "Aigle / Villars-sur-Ollon, Switzerland",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Aigle / Villars-sur-Ollon",
+      "addressRegion": "Switzerland"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

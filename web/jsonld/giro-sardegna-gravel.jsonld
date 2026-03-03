@@ -6,7 +6,12 @@
   "sport": "Gravel Cycling",
   "location": {
     "@type": "Place",
-    "name": "Siniscola, Sardinia, Italy"
+    "name": "Siniscola, Sardinia, Italy",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Siniscola",
+      "addressRegion": "Sardinia"
+    }
   },
   "offers": {
     "@type": "Offer",

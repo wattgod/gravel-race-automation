@@ -7,7 +7,12 @@
   "startDate": "2026-08-23",
   "location": {
     "@type": "Place",
-    "name": "Nice to Thonon-les-Bains, French Alps"
+    "name": "Nice to Thonon-les-Bains, French Alps",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Nice to Thonon-les-Bains",
+      "addressRegion": "French Alps"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

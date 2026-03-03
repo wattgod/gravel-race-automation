@@ -7,7 +7,12 @@
   "startDate": "2026-09-27",
   "location": {
     "@type": "Place",
-    "name": "Iron Mountain, Michigan"
+    "name": "Iron Mountain, Michigan",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Iron Mountain",
+      "addressRegion": "Michigan"
+    }
   },
   "offers": {
     "@type": "Offer",

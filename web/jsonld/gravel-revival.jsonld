@@ -7,7 +7,12 @@
   "startDate": "2026-10-16",
   "location": {
     "@type": "Place",
-    "name": "Hickman County, Tennessee"
+    "name": "Hickman County, Tennessee",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Hickman County",
+      "addressRegion": "Tennessee"
+    }
   },
   "offers": {
     "@type": "Offer",

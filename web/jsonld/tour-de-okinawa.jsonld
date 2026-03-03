@@ -7,7 +7,12 @@
   "startDate": "2025-11-08",
   "location": {
     "@type": "Place",
-    "name": "Nago City, Okinawa, Japan"
+    "name": "Nago City, Okinawa, Japan",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Nago City",
+      "addressRegion": "Okinawa"
+    }
   },
   "offers": {
     "@type": "Offer",

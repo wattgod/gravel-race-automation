@@ -7,7 +7,12 @@
   "startDate": "2026-06-13",
   "location": {
     "@type": "Place",
-    "name": "Cedar City, Utah"
+    "name": "Cedar City, Utah",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Cedar City",
+      "addressRegion": "Utah"
+    }
   },
   "offers": {
     "@type": "Offer",

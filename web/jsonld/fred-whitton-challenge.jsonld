@@ -7,7 +7,12 @@
   "startDate": "2026-05-10",
   "location": {
     "@type": "Place",
-    "name": "Grasmere, Lake District, Cumbria, England, UK"
+    "name": "Grasmere, Lake District, Cumbria, England, UK",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Grasmere",
+      "addressRegion": "Lake District"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

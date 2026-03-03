@@ -6,7 +6,12 @@
   "sport": "Gravel Cycling",
   "location": {
     "@type": "Place",
-    "name": "Rotating (2024: Heerlen, Netherlands)"
+    "name": "Rotating (2024: Heerlen, Netherlands)",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Rotating (2024: Heerlen",
+      "addressRegion": "Netherlands)"
+    }
   },
   "offers": {
     "@type": "Offer",

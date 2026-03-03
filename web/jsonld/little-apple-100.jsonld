@@ -7,7 +7,12 @@
   "startDate": "2025-08-03",
   "location": {
     "@type": "Place",
-    "name": "Manhattan, Illinois"
+    "name": "Manhattan, Illinois",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Manhattan",
+      "addressRegion": "Illinois"
+    }
   },
   "offers": {
     "@type": "Offer",

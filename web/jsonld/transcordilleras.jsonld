@@ -6,7 +6,12 @@
   "sport": "Gravel Cycling",
   "location": {
     "@type": "Place",
-    "name": "Colombian Andes, Colombia"
+    "name": "Colombian Andes, Colombia",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Colombian Andes",
+      "addressRegion": "Colombia"
+    }
   },
   "offers": {
     "@type": "Offer",

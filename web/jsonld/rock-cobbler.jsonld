@@ -7,7 +7,12 @@
   "startDate": "2026-02-01",
   "location": {
     "@type": "Place",
-    "name": "Bakersfield, California"
+    "name": "Bakersfield, California",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Bakersfield",
+      "addressRegion": "California"
+    }
   },
   "offers": {
     "@type": "Offer",

@@ -7,7 +7,12 @@
   "startDate": "2026-04-26",
   "location": {
     "@type": "Place",
-    "name": "Dakota County, Minnesota"
+    "name": "Dakota County, Minnesota",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Dakota County",
+      "addressRegion": "Minnesota"
+    }
   },
   "offers": {
     "@type": "Offer",

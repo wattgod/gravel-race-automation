@@ -7,7 +7,12 @@
   "startDate": "2026-04-25",
   "location": {
     "@type": "Place",
-    "name": "Goshen, Arkansas"
+    "name": "Goshen, Arkansas",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Goshen",
+      "addressRegion": "Arkansas"
+    }
   },
   "offers": {
     "@type": "Offer",

@@ -7,7 +7,12 @@
   "startDate": "2026-04-12",
   "location": {
     "@type": "Place",
-    "name": "Lock Haven, Pennsylvania"
+    "name": "Lock Haven, Pennsylvania",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Lock Haven",
+      "addressRegion": "Pennsylvania"
+    }
   },
   "offers": {
     "@type": "Offer",

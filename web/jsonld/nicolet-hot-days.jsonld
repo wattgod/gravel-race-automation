@@ -7,7 +7,12 @@
   "startDate": "2025-08-10",
   "location": {
     "@type": "Place",
-    "name": "Wabeno, Wisconsin"
+    "name": "Wabeno, Wisconsin",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Wabeno",
+      "addressRegion": "Wisconsin"
+    }
   },
   "offers": {
     "@type": "Offer",

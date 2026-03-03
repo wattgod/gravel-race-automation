@@ -7,7 +7,12 @@
   "startDate": "2026-05-24",
   "location": {
     "@type": "Place",
-    "name": "Trumansburg, New York"
+    "name": "Trumansburg, New York",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Trumansburg",
+      "addressRegion": "New York"
+    }
   },
   "offers": {
     "@type": "Offer",

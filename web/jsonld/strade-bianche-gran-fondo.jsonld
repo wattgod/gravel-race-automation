@@ -7,7 +7,12 @@
   "startDate": "2026-03-08",
   "location": {
     "@type": "Place",
-    "name": "Siena, Tuscany, Italy"
+    "name": "Siena, Tuscany, Italy",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Siena",
+      "addressRegion": "Tuscany"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

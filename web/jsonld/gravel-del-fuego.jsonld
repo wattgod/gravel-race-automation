@@ -7,7 +7,12 @@
   "startDate": "2026-04-11",
   "location": {
     "@type": "Place",
-    "name": "Patagonia, Chile"
+    "name": "Patagonia, Chile",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Patagonia",
+      "addressRegion": "Chile"
+    }
   },
   "offers": {
     "@type": "Offer",

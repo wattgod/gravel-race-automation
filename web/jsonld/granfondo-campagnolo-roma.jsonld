@@ -6,7 +6,12 @@
   "sport": "Gravel Cycling",
   "location": {
     "@type": "Place",
-    "name": "Rome, Lazio, Italy"
+    "name": "Rome, Lazio, Italy",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Rome",
+      "addressRegion": "Lazio"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

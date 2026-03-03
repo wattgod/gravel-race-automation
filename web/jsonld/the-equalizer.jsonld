@@ -7,7 +7,12 @@
   "startDate": "2026-07-26",
   "location": {
     "@type": "Place",
-    "name": "Marthasville, Missouri"
+    "name": "Marthasville, Missouri",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Marthasville",
+      "addressRegion": "Missouri"
+    }
   },
   "offers": {
     "@type": "Offer",

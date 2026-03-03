@@ -7,7 +7,12 @@
   "startDate": "2026-07-10",
   "location": {
     "@type": "Place",
-    "name": "North York Moors, UK"
+    "name": "North York Moors, UK",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "North York Moors",
+      "addressRegion": "UK"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

@@ -7,7 +7,12 @@
   "startDate": "2026-09-20",
   "location": {
     "@type": "Place",
-    "name": "Monroeville, Pennsylvania, USA"
+    "name": "Monroeville, Pennsylvania, USA",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Monroeville",
+      "addressRegion": "Pennsylvania"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

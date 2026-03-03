@@ -7,7 +7,12 @@
   "startDate": "2026-05-2027",
   "location": {
     "@type": "Place",
-    "name": "Cokedale, Colorado"
+    "name": "Cokedale, Colorado",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Cokedale",
+      "addressRegion": "Colorado"
+    }
   },
   "offers": {
     "@type": "Offer",

@@ -6,7 +6,12 @@
   "sport": "Gravel Cycling",
   "location": {
     "@type": "Place",
-    "name": "Castell\u00f3n de la Plana, Castell\u00f3n Province, Spain"
+    "name": "Castell\u00f3n de la Plana, Castell\u00f3n Province, Spain",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Castell\u00f3n de la Plana",
+      "addressRegion": "Castell\u00f3n Province"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

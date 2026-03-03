@@ -7,7 +7,12 @@
   "startDate": "2026-01-31",
   "location": {
     "@type": "Place",
-    "name": "Geelong, Victoria, Australia"
+    "name": "Geelong, Victoria, Australia",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Geelong",
+      "addressRegion": "Victoria"
+    }
   },
   "offers": {
     "@type": "Offer",

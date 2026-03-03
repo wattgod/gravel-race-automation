@@ -6,7 +6,12 @@
   "sport": "Gravel Cycling",
   "location": {
     "@type": "Place",
-    "name": "Ouray, Colorado"
+    "name": "Ouray, Colorado",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Ouray",
+      "addressRegion": "Colorado"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

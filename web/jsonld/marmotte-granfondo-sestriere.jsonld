@@ -7,7 +7,12 @@
   "startDate": "2026-07-05",
   "location": {
     "@type": "Place",
-    "name": "Cesana Torinese, Piedmont, Italy"
+    "name": "Cesana Torinese, Piedmont, Italy",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Cesana Torinese",
+      "addressRegion": "Piedmont"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

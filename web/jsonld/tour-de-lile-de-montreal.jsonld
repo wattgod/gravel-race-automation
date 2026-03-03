@@ -7,7 +7,12 @@
   "startDate": "2026-05-31",
   "location": {
     "@type": "Place",
-    "name": "Montreal, Quebec, Canada"
+    "name": "Montreal, Quebec, Canada",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Montreal",
+      "addressRegion": "Quebec"
+    }
   },
   "offers": {
     "@type": "Offer",

@@ -7,7 +7,12 @@
   "startDate": "2026-03-08",
   "location": {
     "@type": "Place",
-    "name": "Cape Town, Western Cape, South Africa"
+    "name": "Cape Town, Western Cape, South Africa",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Cape Town",
+      "addressRegion": "Western Cape"
+    }
   },
   "offers": {
     "@type": "Offer",

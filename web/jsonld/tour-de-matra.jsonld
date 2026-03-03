@@ -7,7 +7,12 @@
   "startDate": "2026-05-29",
   "location": {
     "@type": "Place",
-    "name": "Gy\u00f6ngy\u00f6s, Hungary"
+    "name": "Gy\u00f6ngy\u00f6s, Hungary",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Gy\u00f6ngy\u00f6s",
+      "addressRegion": "Hungary"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

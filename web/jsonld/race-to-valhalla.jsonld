@@ -7,7 +7,12 @@
   "startDate": "2026-04-25",
   "location": {
     "@type": "Place",
-    "name": "Walhalla, South Carolina"
+    "name": "Walhalla, South Carolina",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Walhalla",
+      "addressRegion": "South Carolina"
+    }
   },
   "offers": {
     "@type": "Offer",

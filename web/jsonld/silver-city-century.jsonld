@@ -7,7 +7,12 @@
   "startDate": "2026-05-24",
   "location": {
     "@type": "Place",
-    "name": "Silver City, Iowa"
+    "name": "Silver City, Iowa",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Silver City",
+      "addressRegion": "Iowa"
+    }
   },
   "offers": {
     "@type": "Offer",

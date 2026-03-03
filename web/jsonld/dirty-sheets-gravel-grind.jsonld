@@ -7,7 +7,12 @@
   "startDate": "2026-02-08",
   "location": {
     "@type": "Place",
-    "name": "Chattahoochee Hills, Georgia"
+    "name": "Chattahoochee Hills, Georgia",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Chattahoochee Hills",
+      "addressRegion": "Georgia"
+    }
   },
   "offers": {
     "@type": "Offer",

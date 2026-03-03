@@ -7,7 +7,12 @@
   "startDate": "2025-04-19",
   "location": {
     "@type": "Place",
-    "name": "Checkpoint, Iowa"
+    "name": "Checkpoint, Iowa",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Checkpoint",
+      "addressRegion": "Iowa"
+    }
   },
   "offers": {
     "@type": "Offer",

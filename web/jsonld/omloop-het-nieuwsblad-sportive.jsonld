@@ -1,0 +1,21 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Omloop Het Nieuwsblad Cyclo",
+  "description": "Ride the Flemish classics cobbles and bergs the day after the pros",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-03-01",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "74",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://omloophetnieuwsbladcyclo.be/",
+  "organizer": {
+    "@type": "Person",
+    "name": "Uncertain; organized with Flanders Classics.",
+    "url": "https://omloophetnieuwsbladcyclo.be/"
+  }
+}

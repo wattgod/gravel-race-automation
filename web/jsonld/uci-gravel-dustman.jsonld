@@ -7,7 +7,12 @@
   "startDate": "2026-11-14",
   "location": {
     "@type": "Place",
-    "name": "Kanchanaburi, Thailand"
+    "name": "Kanchanaburi, Thailand",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Kanchanaburi",
+      "addressRegion": "Thailand"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

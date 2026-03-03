@@ -7,7 +7,12 @@
   "startDate": "2026-09-13",
   "location": {
     "@type": "Place",
-    "name": "Glacier, Washington, USA"
+    "name": "Glacier, Washington, USA",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Glacier",
+      "addressRegion": "Washington"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

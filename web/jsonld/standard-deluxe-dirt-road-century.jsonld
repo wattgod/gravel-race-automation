@@ -7,7 +7,12 @@
   "startDate": "2025-11-08",
   "location": {
     "@type": "Place",
-    "name": "Waverly, Alabama"
+    "name": "Waverly, Alabama",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Waverly",
+      "addressRegion": "Alabama"
+    }
   },
   "offers": {
     "@type": "Offer",

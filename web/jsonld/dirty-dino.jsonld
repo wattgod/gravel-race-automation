@@ -7,7 +7,12 @@
   "startDate": "2026-06-28",
   "location": {
     "@type": "Place",
-    "name": "Vernal, Utah"
+    "name": "Vernal, Utah",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Vernal",
+      "addressRegion": "Utah"
+    }
   },
   "offers": {
     "@type": "Offer",

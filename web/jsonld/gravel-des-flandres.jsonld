@@ -7,7 +7,12 @@
   "startDate": "2025-09-14",
   "location": {
     "@type": "Place",
-    "name": "Flanders, Belgium"
+    "name": "Flanders, Belgium",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Flanders",
+      "addressRegion": "Belgium"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

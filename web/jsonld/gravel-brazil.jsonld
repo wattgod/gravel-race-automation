@@ -6,7 +6,12 @@
   "sport": "Gravel Cycling",
   "location": {
     "@type": "Place",
-    "name": "Balne\u00e1rio Cambori\u00fa, Santa Catarina, Brazil"
+    "name": "Balne\u00e1rio Cambori\u00fa, Santa Catarina, Brazil",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Balne\u00e1rio Cambori\u00fa",
+      "addressRegion": "Santa Catarina"
+    }
   },
   "offers": {
     "@type": "Offer",

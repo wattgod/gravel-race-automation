@@ -7,7 +7,12 @@
   "startDate": "2026-06-13",
   "location": {
     "@type": "Place",
-    "name": "Portola, California"
+    "name": "Portola, California",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Portola",
+      "addressRegion": "California"
+    }
   },
   "offers": {
     "@type": "Offer",

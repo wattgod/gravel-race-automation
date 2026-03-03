@@ -7,7 +7,12 @@
   "startDate": "2025-09-28",
   "location": {
     "@type": "Place",
-    "name": "Viana do Castelo, Alto Minho, Northern Portugal"
+    "name": "Viana do Castelo, Alto Minho, Northern Portugal",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Viana do Castelo",
+      "addressRegion": "Alto Minho"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

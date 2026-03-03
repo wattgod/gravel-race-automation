@@ -6,7 +6,12 @@
   "sport": "Gravel Cycling",
   "location": {
     "@type": "Place",
-    "name": "Asheville, North Carolina"
+    "name": "Asheville, North Carolina",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Asheville",
+      "addressRegion": "North Carolina"
+    }
   },
   "offers": {
     "@type": "Offer",

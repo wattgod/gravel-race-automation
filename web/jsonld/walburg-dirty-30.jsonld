@@ -7,7 +7,12 @@
   "startDate": "2026-12-2026",
   "location": {
     "@type": "Place",
-    "name": "Walburg, Texas"
+    "name": "Walburg, Texas",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Walburg",
+      "addressRegion": "Texas"
+    }
   },
   "offers": {
     "@type": "Offer",

@@ -7,7 +7,12 @@
   "startDate": "2027-08-22",
   "location": {
     "@type": "Place",
-    "name": "Rambouillet to Brest and back, France"
+    "name": "Rambouillet to Brest and back, France",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Rambouillet to Brest and back",
+      "addressRegion": "France"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

@@ -7,7 +7,12 @@
   "startDate": "2025-08-24",
   "location": {
     "@type": "Place",
-    "name": "Argel\u00e8s-Gazost / Luz-Saint-Sauveur, Hautes-Pyr\u00e9n\u00e9es, France"
+    "name": "Argel\u00e8s-Gazost / Luz-Saint-Sauveur, Hautes-Pyr\u00e9n\u00e9es, France",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Argel\u00e8s-Gazost / Luz-Saint-Sauveur",
+      "addressRegion": "Hautes-Pyr\u00e9n\u00e9es"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

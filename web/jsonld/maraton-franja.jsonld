@@ -7,7 +7,12 @@
   "startDate": "2026-06-12",
   "location": {
     "@type": "Place",
-    "name": "Ljubljana, Slovenia"
+    "name": "Ljubljana, Slovenia",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Ljubljana",
+      "addressRegion": "Slovenia"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

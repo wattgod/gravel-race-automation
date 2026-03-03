@@ -7,7 +7,12 @@
   "startDate": "2026-06-07",
   "location": {
     "@type": "Place",
-    "name": "Bormio, Alta Valtellina, Lombardy, Italy"
+    "name": "Bormio, Alta Valtellina, Lombardy, Italy",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Bormio",
+      "addressRegion": "Alta Valtellina"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

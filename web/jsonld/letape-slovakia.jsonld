@@ -7,7 +7,11 @@
   "startDate": "2026-08-23",
   "location": {
     "@type": "Place",
-    "name": "Bratislava"
+    "name": "Bratislava",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Bratislava"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

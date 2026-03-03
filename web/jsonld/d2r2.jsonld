@@ -7,7 +7,12 @@
   "startDate": "2026-08-22",
   "location": {
     "@type": "Place",
-    "name": "Deerfield, Massachusetts"
+    "name": "Deerfield, Massachusetts",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Deerfield",
+      "addressRegion": "Massachusetts"
+    }
   },
   "offers": {
     "@type": "Offer",

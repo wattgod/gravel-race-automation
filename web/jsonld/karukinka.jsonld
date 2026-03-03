@@ -7,7 +7,12 @@
   "startDate": "2026-02-25",
   "location": {
     "@type": "Place",
-    "name": "Tierra del Fuego, Chile"
+    "name": "Tierra del Fuego, Chile",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Tierra del Fuego",
+      "addressRegion": "Chile"
+    }
   },
   "offers": {
     "@type": "Offer",

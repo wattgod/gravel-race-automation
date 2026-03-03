@@ -7,7 +7,12 @@
   "startDate": "2026-04-16",
   "location": {
     "@type": "Place",
-    "name": "Monterey, California"
+    "name": "Monterey, California",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Monterey",
+      "addressRegion": "California"
+    }
   },
   "offers": {
     "@type": "Offer",

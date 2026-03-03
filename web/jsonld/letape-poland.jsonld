@@ -7,7 +7,12 @@
   "startDate": "2026-09-29",
   "location": {
     "@type": "Place",
-    "name": "Zakopane, Lesser Poland Voivodeship, Poland"
+    "name": "Zakopane, Lesser Poland Voivodeship, Poland",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Zakopane",
+      "addressRegion": "Lesser Poland Voivodeship"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

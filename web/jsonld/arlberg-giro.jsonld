@@ -7,7 +7,12 @@
   "startDate": "2026-08-02",
   "location": {
     "@type": "Place",
-    "name": "St. Anton am Arlberg, Tyrol, Austria"
+    "name": "St. Anton am Arlberg, Tyrol, Austria",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "St. Anton am Arlberg",
+      "addressRegion": "Tyrol"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

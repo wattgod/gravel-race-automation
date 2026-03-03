@@ -7,7 +7,12 @@
   "startDate": "2026-03-15",
   "location": {
     "@type": "Place",
-    "name": "Punta del Este, Maldonado Department, Uruguay"
+    "name": "Punta del Este, Maldonado Department, Uruguay",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Punta del Este",
+      "addressRegion": "Maldonado Department"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

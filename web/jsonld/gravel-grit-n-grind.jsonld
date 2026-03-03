@@ -7,7 +7,12 @@
   "startDate": "2026-08-14",
   "location": {
     "@type": "Place",
-    "name": "Halmstad, Sweden"
+    "name": "Halmstad, Sweden",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Halmstad",
+      "addressRegion": "Sweden"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

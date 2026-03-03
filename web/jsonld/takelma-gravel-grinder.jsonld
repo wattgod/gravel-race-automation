@@ -7,7 +7,12 @@
   "startDate": "2026-06-27",
   "location": {
     "@type": "Place",
-    "name": "Canyonville, OR"
+    "name": "Canyonville, OR",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Canyonville",
+      "addressRegion": "OR"
+    }
   },
   "offers": {
     "@type": "Offer",

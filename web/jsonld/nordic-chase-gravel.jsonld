@@ -6,7 +6,12 @@
   "sport": "Gravel Cycling",
   "location": {
     "@type": "Place",
-    "name": "Copenhagen, Denmark to Oslo, Norway"
+    "name": "Copenhagen, Denmark to Oslo, Norway",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Copenhagen",
+      "addressRegion": "Denmark to Oslo"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

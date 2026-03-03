@@ -7,7 +7,12 @@
   "startDate": "2026-07-19",
   "location": {
     "@type": "Place",
-    "name": "Route changes annually (2026: Bourg d'Oisans to Alpe d'Huez, French Alps)"
+    "name": "Route changes annually (2026: Bourg d'Oisans to Alpe d'Huez, French Alps)",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Route changes annually (2026: Bourg d'Oisans to Alpe d'Huez",
+      "addressRegion": "French Alps)"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

@@ -7,7 +7,11 @@
   "startDate": "2026-10-17",
   "location": {
     "@type": "Place",
-    "name": "Iowa"
+    "name": "Iowa",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Iowa"
+    }
   },
   "offers": {
     "@type": "Offer",

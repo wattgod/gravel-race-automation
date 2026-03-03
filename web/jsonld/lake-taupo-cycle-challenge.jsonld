@@ -7,7 +7,12 @@
   "startDate": "2025-11-29",
   "location": {
     "@type": "Place",
-    "name": "Taup\u014d, Waikato, New Zealand"
+    "name": "Taup\u014d, Waikato, New Zealand",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Taup\u014d",
+      "addressRegion": "Waikato"
+    }
   },
   "offers": {
     "@type": "Offer",

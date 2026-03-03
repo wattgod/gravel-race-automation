@@ -7,7 +7,12 @@
   "startDate": "2026-11-08",
   "location": {
     "@type": "Place",
-    "name": "San Miguel de Cozumel, Quintana Roo, Mexico"
+    "name": "San Miguel de Cozumel, Quintana Roo, Mexico",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "San Miguel de Cozumel",
+      "addressRegion": "Quintana Roo"
+    }
   },
   "offers": {
     "@type": "Offer",

@@ -6,7 +6,12 @@
   "sport": "Gravel Cycling",
   "location": {
     "@type": "Place",
-    "name": "Upper Peninsula, Michigan"
+    "name": "Upper Peninsula, Michigan",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Upper Peninsula",
+      "addressRegion": "Michigan"
+    }
   },
   "offers": {
     "@type": "Offer",

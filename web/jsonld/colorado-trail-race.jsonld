@@ -7,7 +7,12 @@
   "startDate": "2026-08-02",
   "location": {
     "@type": "Place",
-    "name": "Durango to Denver, Colorado"
+    "name": "Durango to Denver, Colorado",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Durango to Denver",
+      "addressRegion": "Colorado"
+    }
   },
   "offers": {
     "@type": "Offer",

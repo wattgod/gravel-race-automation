@@ -7,7 +7,12 @@
   "startDate": "2026-09-06",
   "location": {
     "@type": "Place",
-    "name": "Amana, Iowa"
+    "name": "Amana, Iowa",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Amana",
+      "addressRegion": "Iowa"
+    }
   },
   "offers": {
     "@type": "Offer",

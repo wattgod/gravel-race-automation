@@ -7,7 +7,12 @@
   "startDate": "2026-10-03",
   "location": {
     "@type": "Place",
-    "name": "Hokah, Minnesota"
+    "name": "Hokah, Minnesota",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Hokah",
+      "addressRegion": "Minnesota"
+    }
   },
   "offers": {
     "@type": "Offer",

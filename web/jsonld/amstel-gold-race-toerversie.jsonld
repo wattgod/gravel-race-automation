@@ -7,7 +7,12 @@
   "startDate": "2026-04-18",
   "location": {
     "@type": "Place",
-    "name": "Valkenburg, South Limburg, Netherlands"
+    "name": "Valkenburg, South Limburg, Netherlands",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Valkenburg",
+      "addressRegion": "South Limburg"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

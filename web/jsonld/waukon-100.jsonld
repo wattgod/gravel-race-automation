@@ -7,7 +7,12 @@
   "startDate": "2026-06-20",
   "location": {
     "@type": "Place",
-    "name": "Waukon, Iowa"
+    "name": "Waukon, Iowa",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Waukon",
+      "addressRegion": "Iowa"
+    }
   },
   "offers": {
     "@type": "Offer",

@@ -6,7 +6,12 @@
   "sport": "Gravel Cycling",
   "location": {
     "@type": "Place",
-    "name": "Adelaide Hills, South Australia"
+    "name": "Adelaide Hills, South Australia",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Adelaide Hills",
+      "addressRegion": "South Australia"
+    }
   },
   "offers": {
     "@type": "Offer",

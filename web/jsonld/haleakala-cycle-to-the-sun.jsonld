@@ -7,7 +7,12 @@
   "startDate": "2025-08-02",
   "location": {
     "@type": "Place",
-    "name": "Pa'ia, Maui, Hawaii"
+    "name": "Pa'ia, Maui, Hawaii",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Pa'ia",
+      "addressRegion": "Maui"
+    }
   },
   "offers": {
     "@type": "Offer",

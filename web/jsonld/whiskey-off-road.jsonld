@@ -7,7 +7,12 @@
   "startDate": "2026-04-24",
   "location": {
     "@type": "Place",
-    "name": "Prescott, Arizona"
+    "name": "Prescott, Arizona",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Prescott",
+      "addressRegion": "Arizona"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

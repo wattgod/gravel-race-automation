@@ -7,7 +7,12 @@
   "startDate": "2025-05-15",
   "location": {
     "@type": "Place",
-    "name": "Rotating: Phang Nga (2018-2022), Phitsanulok (2022, 2025), Udon Thani (2024), Thailand"
+    "name": "Rotating: Phang Nga (2018-2022), Phitsanulok (2022, 2025), Udon Thani (2024), Thailand",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Rotating: Phang Nga (2018-2022)",
+      "addressRegion": "Phitsanulok (2022"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

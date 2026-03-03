@@ -7,7 +7,12 @@
   "startDate": "2026-05-09",
   "location": {
     "@type": "Place",
-    "name": "Kalona, Iowa"
+    "name": "Kalona, Iowa",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Kalona",
+      "addressRegion": "Iowa"
+    }
   },
   "offers": {
     "@type": "Offer",

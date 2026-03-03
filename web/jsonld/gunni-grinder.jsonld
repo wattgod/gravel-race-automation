@@ -7,7 +7,12 @@
   "startDate": "2026-09-06",
   "location": {
     "@type": "Place",
-    "name": "Gunnison, Colorado"
+    "name": "Gunnison, Colorado",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Gunnison",
+      "addressRegion": "Colorado"
+    }
   },
   "offers": {
     "@type": "Offer",

@@ -6,7 +6,12 @@
   "sport": "Gravel Cycling",
   "location": {
     "@type": "Place",
-    "name": "Brevard, North Carolina (Pisgah National Forest)"
+    "name": "Brevard, North Carolina (Pisgah National Forest)",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Brevard",
+      "addressRegion": "North Carolina (Pisgah National Forest)"
+    }
   },
   "offers": {
     "@type": "Offer",

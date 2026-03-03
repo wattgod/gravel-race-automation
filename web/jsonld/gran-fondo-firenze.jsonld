@@ -7,7 +7,12 @@
   "startDate": "2024-04-14",
   "location": {
     "@type": "Place",
-    "name": "Florence, Tuscany, Italy"
+    "name": "Florence, Tuscany, Italy",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Florence",
+      "addressRegion": "Tuscany"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

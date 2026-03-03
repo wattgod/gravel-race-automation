@@ -7,7 +7,12 @@
   "startDate": "2026-06-27",
   "location": {
     "@type": "Place",
-    "name": "Au Gres to Ludington, Michigan"
+    "name": "Au Gres to Ludington, Michigan",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Au Gres to Ludington",
+      "addressRegion": "Michigan"
+    }
   },
   "offers": {
     "@type": "Offer",

@@ -7,7 +7,12 @@
   "startDate": "2026-04-05",
   "location": {
     "@type": "Place",
-    "name": "Bentonville, Arkansas"
+    "name": "Bentonville, Arkansas",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Bentonville",
+      "addressRegion": "Arkansas"
+    }
   },
   "offers": {
     "@type": "Offer",

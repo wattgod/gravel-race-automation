@@ -7,7 +7,12 @@
   "startDate": "2026-09-06",
   "location": {
     "@type": "Place",
-    "name": "Lorne, Great Ocean Road, Victoria, Australia"
+    "name": "Lorne, Great Ocean Road, Victoria, Australia",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Lorne",
+      "addressRegion": "Great Ocean Road"
+    }
   },
   "offers": {
     "@type": "Offer",

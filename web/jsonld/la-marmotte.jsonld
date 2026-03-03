@@ -7,7 +7,12 @@
   "startDate": "2026-06-28",
   "location": {
     "@type": "Place",
-    "name": "Bourg d'Oisans, Isere, France"
+    "name": "Bourg d'Oisans, Isere, France",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Bourg d'Oisans",
+      "addressRegion": "Isere"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

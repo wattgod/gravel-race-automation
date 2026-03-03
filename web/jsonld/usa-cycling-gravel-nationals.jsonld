@@ -7,7 +7,12 @@
   "startDate": "2026-09-12",
   "location": {
     "@type": "Place",
-    "name": "La Crescent, Minnesota (2025-26); previously Gering, Nebraska (2023-24)"
+    "name": "La Crescent, Minnesota (2025-26); previously Gering, Nebraska (2023-24)",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "La Crescent",
+      "addressRegion": "Minnesota (2025-26); previously Gering"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

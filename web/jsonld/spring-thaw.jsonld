@@ -7,7 +7,12 @@
   "startDate": "2026-04-12",
   "location": {
     "@type": "Place",
-    "name": "Muskegon, Michigan"
+    "name": "Muskegon, Michigan",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Muskegon",
+      "addressRegion": "Michigan"
+    }
   },
   "offers": {
     "@type": "Offer",

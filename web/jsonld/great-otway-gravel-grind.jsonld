@@ -7,7 +7,12 @@
   "startDate": "2026-02-28",
   "location": {
     "@type": "Place",
-    "name": "Forrest, Victoria, Australia"
+    "name": "Forrest, Victoria, Australia",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Forrest",
+      "addressRegion": "Victoria"
+    }
   },
   "offers": {
     "@type": "Offer",

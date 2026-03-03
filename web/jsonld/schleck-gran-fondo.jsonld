@@ -7,7 +7,12 @@
   "startDate": "2026-05-30",
   "location": {
     "@type": "Place",
-    "name": "Mondorf-les-Bains, Luxembourg"
+    "name": "Mondorf-les-Bains, Luxembourg",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Mondorf-les-Bains",
+      "addressRegion": "Luxembourg"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

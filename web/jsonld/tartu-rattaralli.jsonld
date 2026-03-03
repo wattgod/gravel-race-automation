@@ -7,7 +7,12 @@
   "startDate": "2026-06-07",
   "location": {
     "@type": "Place",
-    "name": "Tartu, South Estonia, Estonia"
+    "name": "Tartu, South Estonia, Estonia",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Tartu",
+      "addressRegion": "South Estonia"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

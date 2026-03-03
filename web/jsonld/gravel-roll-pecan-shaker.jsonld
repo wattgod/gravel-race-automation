@@ -7,7 +7,12 @@
   "startDate": "2026-10-17",
   "location": {
     "@type": "Place",
-    "name": "Hawkinsville, Georgia"
+    "name": "Hawkinsville, Georgia",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Hawkinsville",
+      "addressRegion": "Georgia"
+    }
   },
   "offers": {
     "@type": "Offer",

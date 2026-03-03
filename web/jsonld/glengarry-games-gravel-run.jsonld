@@ -7,7 +7,12 @@
   "startDate": "2026-08-02",
   "location": {
     "@type": "Place",
-    "name": "Maxville, Ontario, Canada"
+    "name": "Maxville, Ontario, Canada",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Maxville",
+      "addressRegion": "Ontario"
+    }
   },
   "offers": {
     "@type": "Offer",

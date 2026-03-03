@@ -7,7 +7,11 @@
   "startDate": "2026-05-16",
   "location": {
     "@type": "Place",
-    "name": "South Africa"
+    "name": "South Africa",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "South Africa"
+    }
   },
   "offers": {
     "@type": "Offer",

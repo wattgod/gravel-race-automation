@@ -7,7 +7,11 @@
   "startDate": "2026-07-08",
   "location": {
     "@type": "Place",
-    "name": "Central Oregon (multiple towns)"
+    "name": "Central Oregon (multiple towns)",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Central Oregon (multiple towns)"
+    }
   },
   "offers": {
     "@type": "Offer",

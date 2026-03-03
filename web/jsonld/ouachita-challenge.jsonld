@@ -7,7 +7,12 @@
   "startDate": "2026-03-28",
   "location": {
     "@type": "Place",
-    "name": "Mount Ida, Arkansas"
+    "name": "Mount Ida, Arkansas",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Mount Ida",
+      "addressRegion": "Arkansas"
+    }
   },
   "offers": {
     "@type": "Offer",

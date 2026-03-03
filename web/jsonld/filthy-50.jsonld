@@ -6,7 +6,11 @@
   "sport": "Gravel Cycling",
   "location": {
     "@type": "Place",
-    "name": "Northern Minnesota (route varies)"
+    "name": "Northern Minnesota (route varies)",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Northern Minnesota (route varies)"
+    }
   },
   "offers": {
     "@type": "Offer",

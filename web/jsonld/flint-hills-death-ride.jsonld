@@ -7,7 +7,12 @@
   "startDate": "2026-04-04",
   "location": {
     "@type": "Place",
-    "name": "Cottonwood Falls, Kansas"
+    "name": "Cottonwood Falls, Kansas",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Cottonwood Falls",
+      "addressRegion": "Kansas"
+    }
   },
   "offers": {
     "@type": "Offer",

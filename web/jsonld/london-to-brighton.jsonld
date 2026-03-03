@@ -7,7 +7,12 @@
   "startDate": "2026-06-21",
   "location": {
     "@type": "Place",
-    "name": "London to Brighton, England, UK"
+    "name": "London to Brighton, England, UK",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "London to Brighton",
+      "addressRegion": "England"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

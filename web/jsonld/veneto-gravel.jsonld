@@ -7,7 +7,12 @@
   "startDate": "2025-11-20",
   "location": {
     "@type": "Place",
-    "name": "Asolo, Veneto, Italy"
+    "name": "Asolo, Veneto, Italy",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Asolo",
+      "addressRegion": "Veneto"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

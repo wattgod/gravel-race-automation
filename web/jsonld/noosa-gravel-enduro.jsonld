@@ -7,7 +7,12 @@
   "startDate": "2026-06-21",
   "location": {
     "@type": "Place",
-    "name": "Noosa Hinterland, Queensland"
+    "name": "Noosa Hinterland, Queensland",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Noosa Hinterland",
+      "addressRegion": "Queensland"
+    }
   },
   "offers": {
     "@type": "Offer",

@@ -7,7 +7,12 @@
   "startDate": "2026-04-24",
   "location": {
     "@type": "Place",
-    "name": "Kielder, Northumberland, England"
+    "name": "Kielder, Northumberland, England",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Kielder",
+      "addressRegion": "Northumberland"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

@@ -7,7 +7,12 @@
   "startDate": "2026-10-02",
   "location": {
     "@type": "Place",
-    "name": "Jamestown, South Carolina"
+    "name": "Jamestown, South Carolina",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Jamestown",
+      "addressRegion": "South Carolina"
+    }
   },
   "offers": {
     "@type": "Offer",

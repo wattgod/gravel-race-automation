@@ -7,7 +7,11 @@
   "startDate": "2026-03-07",
   "location": {
     "@type": "Place",
-    "name": "Florida"
+    "name": "Florida",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Florida"
+    }
   },
   "offers": {
     "@type": "Offer",

@@ -7,7 +7,12 @@
   "startDate": "2026-05-17",
   "location": {
     "@type": "Place",
-    "name": "Peak District, UK"
+    "name": "Peak District, UK",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Peak District",
+      "addressRegion": "UK"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

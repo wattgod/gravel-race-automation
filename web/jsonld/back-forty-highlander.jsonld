@@ -7,7 +7,12 @@
   "startDate": "2026-09-05",
   "location": {
     "@type": "Place",
-    "name": "Mississippi Station, Ontario"
+    "name": "Mississippi Station, Ontario",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Mississippi Station",
+      "addressRegion": "Ontario"
+    }
   },
   "offers": {
     "@type": "Offer",

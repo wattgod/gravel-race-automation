@@ -7,7 +7,12 @@
   "startDate": "2026-01-23",
   "location": {
     "@type": "Place",
-    "name": "Adelaide, South Australia, Australia"
+    "name": "Adelaide, South Australia, Australia",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Adelaide",
+      "addressRegion": "South Australia"
+    }
   },
   "offers": {
     "@type": "Offer",

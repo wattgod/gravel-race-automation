@@ -7,7 +7,12 @@
   "startDate": "2026-04-04",
   "location": {
     "@type": "Place",
-    "name": "Sparta, Laconia, Peloponnese, Greece (2026). Location rotates annually within Greece."
+    "name": "Sparta, Laconia, Peloponnese, Greece (2026). Location rotates annually within Greece.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Sparta",
+      "addressRegion": "Laconia"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

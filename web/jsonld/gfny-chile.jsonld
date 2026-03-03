@@ -7,7 +7,12 @@
   "startDate": "2026-01-27",
   "location": {
     "@type": "Place",
-    "name": "Casablanca, Valpara\u00edso Region, Chile"
+    "name": "Casablanca, Valpara\u00edso Region, Chile",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Casablanca",
+      "addressRegion": "Valpara\u00edso Region"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

@@ -7,7 +7,12 @@
   "startDate": "2026-07-11",
   "location": {
     "@type": "Place",
-    "name": "Glenrock, Wyoming"
+    "name": "Glenrock, Wyoming",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Glenrock",
+      "addressRegion": "Wyoming"
+    }
   },
   "offers": {
     "@type": "Offer",

@@ -7,7 +7,12 @@
   "startDate": "2026-06-19",
   "location": {
     "@type": "Place",
-    "name": "Dalby Forest, North York Moors, UK"
+    "name": "Dalby Forest, North York Moors, UK",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Dalby Forest",
+      "addressRegion": "North York Moors"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

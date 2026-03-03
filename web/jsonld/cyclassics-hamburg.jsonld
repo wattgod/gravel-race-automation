@@ -7,7 +7,12 @@
   "startDate": "2026-08-16",
   "location": {
     "@type": "Place",
-    "name": "Hamburg, Germany"
+    "name": "Hamburg, Germany",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Hamburg",
+      "addressRegion": "Germany"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

@@ -7,7 +7,12 @@
   "startDate": "2026-09-12",
   "location": {
     "@type": "Place",
-    "name": "Lander, Wyoming"
+    "name": "Lander, Wyoming",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Lander",
+      "addressRegion": "Wyoming"
+    }
   },
   "offers": {
     "@type": "Offer",

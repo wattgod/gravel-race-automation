@@ -7,7 +7,12 @@
   "startDate": "2025-09-18",
   "location": {
     "@type": "Place",
-    "name": "Dr\u00f4me, France"
+    "name": "Dr\u00f4me, France",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Dr\u00f4me",
+      "addressRegion": "France"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

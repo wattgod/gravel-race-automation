@@ -7,7 +7,12 @@
   "startDate": "2026-07-19",
   "location": {
     "@type": "Place",
-    "name": "Winterberg/Aachen, Germany"
+    "name": "Winterberg/Aachen, Germany",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Winterberg/Aachen",
+      "addressRegion": "Germany"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

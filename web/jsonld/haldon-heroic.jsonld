@@ -7,7 +7,12 @@
   "startDate": "2026-04-12",
   "location": {
     "@type": "Place",
-    "name": "Haldon Forest, Devon, UK"
+    "name": "Haldon Forest, Devon, UK",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Haldon Forest",
+      "addressRegion": "Devon"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

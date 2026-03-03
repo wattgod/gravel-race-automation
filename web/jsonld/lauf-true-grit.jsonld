@@ -7,7 +7,12 @@
   "startDate": "2026-03-19",
   "location": {
     "@type": "Place",
-    "name": "Santa Clara, Utah"
+    "name": "Santa Clara, Utah",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Santa Clara",
+      "addressRegion": "Utah"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

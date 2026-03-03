@@ -7,7 +7,11 @@
   "startDate": "2026-07-19",
   "location": {
     "@type": "Place",
-    "name": "Across Europe (route changes annually)"
+    "name": "Across Europe (route changes annually)",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Across Europe (route changes annually)"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

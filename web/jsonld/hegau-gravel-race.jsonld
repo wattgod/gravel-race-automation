@@ -7,7 +7,12 @@
   "startDate": "2026-07-05",
   "location": {
     "@type": "Place",
-    "name": "Singen, Germany"
+    "name": "Singen, Germany",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Singen",
+      "addressRegion": "Germany"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

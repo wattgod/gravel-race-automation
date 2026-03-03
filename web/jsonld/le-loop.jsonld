@@ -7,7 +7,12 @@
   "startDate": "2026-06-27",
   "location": {
     "@type": "Place",
-    "name": "Tour de France Route, France"
+    "name": "Tour de France Route, France",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Tour de France Route",
+      "addressRegion": "France"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

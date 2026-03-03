@@ -6,7 +6,12 @@
   "sport": "Gravel Cycling",
   "location": {
     "@type": "Place",
-    "name": "Ojai, California"
+    "name": "Ojai, California",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Ojai",
+      "addressRegion": "California"
+    }
   },
   "offers": {
     "@type": "Offer",

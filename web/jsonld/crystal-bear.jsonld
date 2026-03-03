@@ -7,7 +7,12 @@
   "startDate": "2026-05-17",
   "location": {
     "@type": "Place",
-    "name": "Laona, WI to Crystal Falls, MI"
+    "name": "Laona, WI to Crystal Falls, MI",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Laona",
+      "addressRegion": "WI to Crystal Falls"
+    }
   },
   "offers": {
     "@type": "Offer",

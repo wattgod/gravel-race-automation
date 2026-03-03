@@ -7,7 +7,12 @@
   "startDate": "2026-06-10",
   "location": {
     "@type": "Place",
-    "name": "Saint-F\u00e9licien, Ard\u00e8che, France"
+    "name": "Saint-F\u00e9licien, Ard\u00e8che, France",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Saint-F\u00e9licien",
+      "addressRegion": "Ard\u00e8che"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

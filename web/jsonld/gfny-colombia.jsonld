@@ -6,7 +6,12 @@
   "sport": "Gravel Cycling",
   "location": {
     "@type": "Place",
-    "name": "Zipaquira, Cundinamarca, Colombia"
+    "name": "Zipaquira, Cundinamarca, Colombia",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Zipaquira",
+      "addressRegion": "Cundinamarca"
+    }
   },
   "offers": {
     "@type": "Offer",

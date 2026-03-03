@@ -7,7 +7,12 @@
   "startDate": "2026-08-21",
   "location": {
     "@type": "Place",
-    "name": "Nelligen, New South Wales, Australia"
+    "name": "Nelligen, New South Wales, Australia",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Nelligen",
+      "addressRegion": "New South Wales"
+    }
   },
   "offers": {
     "@type": "Offer",

@@ -7,7 +7,12 @@
   "startDate": "2026-10-18",
   "location": {
     "@type": "Place",
-    "name": "Bowral, New South Wales, Australia"
+    "name": "Bowral, New South Wales, Australia",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Bowral",
+      "addressRegion": "New South Wales"
+    }
   },
   "offers": {
     "@type": "Offer",

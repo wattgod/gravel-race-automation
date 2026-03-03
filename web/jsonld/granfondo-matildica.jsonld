@@ -1,0 +1,29 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Granfondo Matildica",
+  "description": "Italy's oldest gran fondo, UCI Gran Fondo World Series qualifier through the Emilia-Romagna Apennines",
+  "sport": "Gravel Cycling",
+  "location": {
+    "@type": "Place",
+    "name": "Reggio Emilia, Emilia-Romagna, Italy",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Reggio Emilia",
+      "addressRegion": "Emilia-Romagna"
+    }
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "77",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://www.granfondomatildica.it",
+  "organizer": {
+    "@type": "Person",
+    "name": "A.S.D. Cooperatori",
+    "url": "https://www.granfondomatildica.it"
+  }
+}

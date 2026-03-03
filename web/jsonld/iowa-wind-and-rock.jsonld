@@ -7,7 +7,12 @@
   "startDate": "2026-04-19",
   "location": {
     "@type": "Place",
-    "name": "Winterset, Iowa"
+    "name": "Winterset, Iowa",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Winterset",
+      "addressRegion": "Iowa"
+    }
   },
   "offers": {
     "@type": "Offer",

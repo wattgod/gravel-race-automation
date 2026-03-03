@@ -7,7 +7,11 @@
   "startDate": "2025-06-15",
   "location": {
     "@type": "Place",
-    "name": "Wisconsin"
+    "name": "Wisconsin",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Wisconsin"
+    }
   },
   "offers": {
     "@type": "Offer",

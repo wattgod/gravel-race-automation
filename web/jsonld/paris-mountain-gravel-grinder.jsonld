@@ -7,7 +7,12 @@
   "startDate": "2026-06-28",
   "location": {
     "@type": "Place",
-    "name": "Travelers Rest, South Carolina"
+    "name": "Travelers Rest, South Carolina",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Travelers Rest",
+      "addressRegion": "South Carolina"
+    }
   },
   "offers": {
     "@type": "Offer",

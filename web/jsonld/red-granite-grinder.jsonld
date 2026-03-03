@@ -7,7 +7,12 @@
   "startDate": "2026-10-10",
   "location": {
     "@type": "Place",
-    "name": "Athens, Wisconsin (Central Wisconsin)"
+    "name": "Athens, Wisconsin (Central Wisconsin)",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Athens",
+      "addressRegion": "Wisconsin (Central Wisconsin)"
+    }
   },
   "offers": {
     "@type": "Offer",

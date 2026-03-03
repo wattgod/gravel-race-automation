@@ -7,7 +7,11 @@
   "startDate": "2026-08-29",
   "location": {
     "@type": "Place",
-    "name": "Various Europe"
+    "name": "Various Europe",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Various Europe"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

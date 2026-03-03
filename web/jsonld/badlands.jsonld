@@ -7,7 +7,12 @@
   "startDate": "2026-08-30",
   "location": {
     "@type": "Place",
-    "name": "Granada, Andalusia, Spain"
+    "name": "Granada, Andalusia, Spain",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Granada",
+      "addressRegion": "Andalusia"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

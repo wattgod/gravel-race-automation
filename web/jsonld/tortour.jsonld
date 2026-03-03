@@ -7,7 +7,12 @@
   "startDate": "2026-08-12",
   "location": {
     "@type": "Place",
-    "name": "Schaffhausen, Switzerland"
+    "name": "Schaffhausen, Switzerland",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Schaffhausen",
+      "addressRegion": "Switzerland"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

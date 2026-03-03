@@ -7,7 +7,12 @@
   "startDate": "2026-05-17",
   "location": {
     "@type": "Place",
-    "name": "De Beque, Colorado"
+    "name": "De Beque, Colorado",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "De Beque",
+      "addressRegion": "Colorado"
+    }
   },
   "offers": {
     "@type": "Offer",

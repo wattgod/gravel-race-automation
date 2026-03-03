@@ -7,7 +7,12 @@
   "startDate": "2026-04-26",
   "location": {
     "@type": "Place",
-    "name": "Palmerton, Pennsylvania"
+    "name": "Palmerton, Pennsylvania",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Palmerton",
+      "addressRegion": "Pennsylvania"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

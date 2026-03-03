@@ -7,7 +7,12 @@
   "startDate": "2026-05-02",
   "location": {
     "@type": "Place",
-    "name": "Waldport, Oregon"
+    "name": "Waldport, Oregon",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Waldport",
+      "addressRegion": "Oregon"
+    }
   },
   "offers": {
     "@type": "Offer",

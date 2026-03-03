@@ -7,7 +7,12 @@
   "startDate": "2026-04-29",
   "location": {
     "@type": "Place",
-    "name": "Flagstaff, Arizona"
+    "name": "Flagstaff, Arizona",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Flagstaff",
+      "addressRegion": "Arizona"
+    }
   },
   "offers": {
     "@type": "Offer",

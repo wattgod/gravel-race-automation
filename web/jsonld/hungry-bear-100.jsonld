@@ -7,7 +7,12 @@
   "startDate": "2026-05-09",
   "location": {
     "@type": "Place",
-    "name": "Cable, Wisconsin"
+    "name": "Cable, Wisconsin",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Cable",
+      "addressRegion": "Wisconsin"
+    }
   },
   "offers": {
     "@type": "Offer",

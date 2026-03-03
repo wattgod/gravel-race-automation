@@ -7,7 +7,12 @@
   "startDate": "2025-06-15",
   "location": {
     "@type": "Place",
-    "name": "Nanaimo, British Columbia, Canada"
+    "name": "Nanaimo, British Columbia, Canada",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Nanaimo",
+      "addressRegion": "British Columbia"
+    }
   },
   "offers": {
     "@type": "Offer",

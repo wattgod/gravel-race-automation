@@ -6,7 +6,12 @@
   "sport": "Gravel Cycling",
   "location": {
     "@type": "Place",
-    "name": "Bogot\u00e1, Colombia"
+    "name": "Bogot\u00e1, Colombia",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Bogot\u00e1",
+      "addressRegion": "Colombia"
+    }
   },
   "offers": {
     "@type": "Offer",

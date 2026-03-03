@@ -7,7 +7,12 @@
   "startDate": "2026-10-01",
   "location": {
     "@type": "Place",
-    "name": "Huson, MT"
+    "name": "Huson, MT",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Huson",
+      "addressRegion": "MT"
+    }
   },
   "offers": {
     "@type": "Offer",

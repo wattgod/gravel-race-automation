@@ -7,7 +7,11 @@
   "startDate": "2026-05-19",
   "location": {
     "@type": "Place",
-    "name": "Pennsylvania"
+    "name": "Pennsylvania",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Pennsylvania"
+    }
   },
   "offers": {
     "@type": "Offer",

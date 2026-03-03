@@ -7,7 +7,12 @@
   "startDate": "2026-02-20",
   "location": {
     "@type": "Place",
-    "name": "Kalamazoo, Michigan"
+    "name": "Kalamazoo, Michigan",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Kalamazoo",
+      "addressRegion": "Michigan"
+    }
   },
   "offers": {
     "@type": "Offer",

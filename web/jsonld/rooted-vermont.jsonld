@@ -6,7 +6,12 @@
   "sport": "Gravel Cycling",
   "location": {
     "@type": "Place",
-    "name": "Morrisville, Vermont"
+    "name": "Morrisville, Vermont",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Morrisville",
+      "addressRegion": "Vermont"
+    }
   },
   "offers": {
     "@type": "Offer",

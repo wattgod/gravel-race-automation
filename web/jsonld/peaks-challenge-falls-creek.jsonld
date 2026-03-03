@@ -7,7 +7,12 @@
   "startDate": "2026-03-07",
   "location": {
     "@type": "Place",
-    "name": "Falls Creek, Victoria, Australia"
+    "name": "Falls Creek, Victoria, Australia",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Falls Creek",
+      "addressRegion": "Victoria"
+    }
   },
   "offers": {
     "@type": "Offer",

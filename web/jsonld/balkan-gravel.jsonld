@@ -7,7 +7,11 @@
   "startDate": "2026-05-29",
   "location": {
     "@type": "Place",
-    "name": "Slovenia/Croatia"
+    "name": "Slovenia/Croatia",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Slovenia/Croatia"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

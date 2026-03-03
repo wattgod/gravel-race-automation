@@ -7,7 +7,12 @@
   "startDate": "2026-05-16",
   "location": {
     "@type": "Place",
-    "name": "Northfield, Minnesota"
+    "name": "Northfield, Minnesota",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Northfield",
+      "addressRegion": "Minnesota"
+    }
   },
   "offers": {
     "@type": "Offer",

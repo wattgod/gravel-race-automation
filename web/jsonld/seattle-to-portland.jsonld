@@ -7,7 +7,12 @@
   "startDate": "2026-07-11",
   "location": {
     "@type": "Place",
-    "name": "Seattle to Portland, Washington/Oregon, USA"
+    "name": "Seattle to Portland, Washington/Oregon, USA",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Seattle to Portland",
+      "addressRegion": "Washington/Oregon"
+    }
   },
   "offers": {
     "@type": "Offer",

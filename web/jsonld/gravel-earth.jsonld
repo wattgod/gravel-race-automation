@@ -7,7 +7,12 @@
   "startDate": "2026-01-07",
   "location": {
     "@type": "Place",
-    "name": "Global (HQ: Girona, Spain)"
+    "name": "Global (HQ: Girona, Spain)",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Global (HQ: Girona",
+      "addressRegion": "Spain)"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

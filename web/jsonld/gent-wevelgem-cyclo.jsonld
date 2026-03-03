@@ -1,0 +1,29 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "In Flanders Fields Cyclo - Wevelgem",
+  "description": "Ride the legendary Flemish classic's course through war history and cobbled climbs",
+  "sport": "Gravel Cycling",
+  "location": {
+    "@type": "Place",
+    "name": "Wevelgem, West Flanders, Belgium",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Wevelgem",
+      "addressRegion": "West Flanders"
+    }
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "71",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://inflandersfieldscyclo.be/en/",
+  "organizer": {
+    "@type": "Person",
+    "name": "Gazet van Antwerpen (newspaper); professional race founded 1934 as tribute to Gaston Rebry. Cyclosportive version established as amateur event mirroring the pro classic.",
+    "url": "https://inflandersfieldscyclo.be/en/"
+  }
+}

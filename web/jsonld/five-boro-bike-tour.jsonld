@@ -7,7 +7,12 @@
   "startDate": "2026-05-03",
   "location": {
     "@type": "Place",
-    "name": "New York City, New York"
+    "name": "New York City, New York",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "New York City",
+      "addressRegion": "New York"
+    }
   },
   "offers": {
     "@type": "Offer",

@@ -7,7 +7,12 @@
   "startDate": "2026-08-27",
   "location": {
     "@type": "Place",
-    "name": "Wichita Falls, Texas, USA"
+    "name": "Wichita Falls, Texas, USA",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Wichita Falls",
+      "addressRegion": "Texas"
+    }
   },
   "offers": {
     "@type": "Offer",

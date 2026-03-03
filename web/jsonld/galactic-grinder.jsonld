@@ -7,7 +7,12 @@
   "startDate": "2025-04-19",
   "location": {
     "@type": "Place",
-    "name": "Cedar Hill, New Mexico"
+    "name": "Cedar Hill, New Mexico",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Cedar Hill",
+      "addressRegion": "New Mexico"
+    }
   },
   "offers": {
     "@type": "Offer",

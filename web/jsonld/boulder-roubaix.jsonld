@@ -7,7 +7,12 @@
   "startDate": "2026-04-26",
   "location": {
     "@type": "Place",
-    "name": "Boulder Reservoir, Boulder County, Colorado, USA"
+    "name": "Boulder Reservoir, Boulder County, Colorado, USA",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Boulder Reservoir",
+      "addressRegion": "Boulder County"
+    }
   },
   "offers": {
     "@type": "Offer",

@@ -7,7 +7,12 @@
   "startDate": "2026-02-27",
   "location": {
     "@type": "Place",
-    "name": "Cave Creek / McDowell Region, Arizona"
+    "name": "Cave Creek / McDowell Region, Arizona",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Cave Creek / McDowell Region",
+      "addressRegion": "Arizona"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

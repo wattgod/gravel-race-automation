@@ -7,7 +7,12 @@
   "startDate": "2026-06-07",
   "location": {
     "@type": "Place",
-    "name": "Canmore, Alberta, Canada"
+    "name": "Canmore, Alberta, Canada",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Canmore",
+      "addressRegion": "Alberta"
+    }
   },
   "offers": {
     "@type": "Offer",

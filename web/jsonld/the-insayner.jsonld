@@ -7,7 +7,12 @@
   "startDate": "2026-06-13",
   "location": {
     "@type": "Place",
-    "name": "Sayner, Wisconsin"
+    "name": "Sayner, Wisconsin",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Sayner",
+      "addressRegion": "Wisconsin"
+    }
   },
   "offers": {
     "@type": "Offer",

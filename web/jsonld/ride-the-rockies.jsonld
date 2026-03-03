@@ -7,7 +7,11 @@
   "startDate": "2024-08-2026",
   "location": {
     "@type": "Place",
-    "name": "Colorado Rocky Mountains (route changed annually)"
+    "name": "Colorado Rocky Mountains (route changed annually)",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Colorado Rocky Mountains (route changed annually)"
+    }
   },
   "offers": {
     "@type": "Offer",

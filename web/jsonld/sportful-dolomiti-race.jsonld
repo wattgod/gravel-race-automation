@@ -7,7 +7,12 @@
   "startDate": "2026-06-14",
   "location": {
     "@type": "Place",
-    "name": "Feltre, Belluno, Veneto, Italy"
+    "name": "Feltre, Belluno, Veneto, Italy",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Feltre",
+      "addressRegion": "Belluno"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

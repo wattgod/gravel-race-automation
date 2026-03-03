@@ -7,7 +7,12 @@
   "startDate": "2026-07-26",
   "location": {
     "@type": "Place",
-    "name": "N\u00fcrburg, Germany"
+    "name": "N\u00fcrburg, Germany",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "N\u00fcrburg",
+      "addressRegion": "Germany"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

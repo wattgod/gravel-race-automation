@@ -7,7 +7,12 @@
   "startDate": "2026-07-18",
   "location": {
     "@type": "Place",
-    "name": "Erbusco, Lombardy, Italy"
+    "name": "Erbusco, Lombardy, Italy",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Erbusco",
+      "addressRegion": "Lombardy"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

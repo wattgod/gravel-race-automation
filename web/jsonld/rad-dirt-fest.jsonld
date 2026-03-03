@@ -6,7 +6,12 @@
   "sport": "Gravel Cycling",
   "location": {
     "@type": "Place",
-    "name": "Salida, Colorado"
+    "name": "Salida, Colorado",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Salida",
+      "addressRegion": "Colorado"
+    }
   },
   "offers": {
     "@type": "Offer",

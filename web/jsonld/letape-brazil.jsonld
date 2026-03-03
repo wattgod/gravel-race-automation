@@ -7,7 +7,12 @@
   "startDate": "2026-09-27",
   "location": {
     "@type": "Place",
-    "name": "Campos do Jordao, Sao Paulo State, Brazil (flagship stage; series also visits Cunha and Rio de Janeiro)"
+    "name": "Campos do Jordao, Sao Paulo State, Brazil (flagship stage; series also visits Cunha and Rio de Janeiro)",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Campos do Jordao",
+      "addressRegion": "Sao Paulo State"
+    }
   },
   "offers": {
     "@type": "Offer",

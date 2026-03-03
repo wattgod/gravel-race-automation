@@ -7,7 +7,12 @@
   "startDate": "2026-06-13",
   "location": {
     "@type": "Place",
-    "name": "Kremmling, CO"
+    "name": "Kremmling, CO",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Kremmling",
+      "addressRegion": "CO"
+    }
   },
   "offers": {
     "@type": "Offer",

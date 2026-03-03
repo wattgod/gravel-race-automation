@@ -7,7 +7,12 @@
   "startDate": "2026-01-19",
   "location": {
     "@type": "Place",
-    "name": "Lincoln, Nebraska (Sandhills Global Event Center)"
+    "name": "Lincoln, Nebraska (Sandhills Global Event Center)",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Lincoln",
+      "addressRegion": "Nebraska (Sandhills Global Event Center)"
+    }
   },
   "offers": {
     "@type": "Offer",

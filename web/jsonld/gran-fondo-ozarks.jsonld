@@ -7,7 +7,12 @@
   "startDate": "2026-03-12",
   "location": {
     "@type": "Place",
-    "name": "Eureka Springs, Arkansas"
+    "name": "Eureka Springs, Arkansas",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Eureka Springs",
+      "addressRegion": "Arkansas"
+    }
   },
   "offers": {
     "@type": "Offer",

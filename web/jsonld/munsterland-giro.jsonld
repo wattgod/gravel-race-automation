@@ -7,7 +7,12 @@
   "startDate": "2026-10-03",
   "location": {
     "@type": "Place",
-    "name": "Munster, North Rhine-Westphalia, Germany"
+    "name": "Munster, North Rhine-Westphalia, Germany",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Munster",
+      "addressRegion": "North Rhine-Westphalia"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

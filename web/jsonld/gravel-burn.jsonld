@@ -6,7 +6,12 @@
   "sport": "Gravel Cycling",
   "location": {
     "@type": "Place",
-    "name": "Mpumalanga, South Africa"
+    "name": "Mpumalanga, South Africa",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Mpumalanga",
+      "addressRegion": "South Africa"
+    }
   },
   "offers": {
     "@type": "Offer",

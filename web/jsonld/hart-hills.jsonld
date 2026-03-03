@@ -7,7 +7,12 @@
   "startDate": "2026-05-09",
   "location": {
     "@type": "Place",
-    "name": "Hart, Michigan"
+    "name": "Hart, Michigan",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Hart",
+      "addressRegion": "Michigan"
+    }
   },
   "offers": {
     "@type": "Offer",

@@ -7,7 +7,12 @@
   "startDate": "2026-09-27",
   "location": {
     "@type": "Place",
-    "name": "Dunoon, Scotland, UK"
+    "name": "Dunoon, Scotland, UK",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Dunoon",
+      "addressRegion": "Scotland"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

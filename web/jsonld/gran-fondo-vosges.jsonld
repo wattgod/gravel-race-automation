@@ -7,7 +7,12 @@
   "startDate": "2026-05-17",
   "location": {
     "@type": "Place",
-    "name": "La Bresse Hohneck ski station, Vosges, France"
+    "name": "La Bresse Hohneck ski station, Vosges, France",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "La Bresse Hohneck ski station",
+      "addressRegion": "Vosges"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

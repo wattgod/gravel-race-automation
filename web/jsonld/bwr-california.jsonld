@@ -7,7 +7,12 @@
   "startDate": "2026-04-25",
   "location": {
     "@type": "Place",
-    "name": "Del Mar, California"
+    "name": "Del Mar, California",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Del Mar",
+      "addressRegion": "California"
+    }
   },
   "offers": {
     "@type": "Offer",

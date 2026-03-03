@@ -7,7 +7,12 @@
   "startDate": "2026-06-20",
   "location": {
     "@type": "Place",
-    "name": "British Columbia, Canada"
+    "name": "British Columbia, Canada",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "British Columbia",
+      "addressRegion": "Canada"
+    }
   },
   "offers": {
     "@type": "Offer",

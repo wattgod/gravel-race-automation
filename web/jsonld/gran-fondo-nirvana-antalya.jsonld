@@ -7,7 +7,12 @@
   "startDate": "2025-11-07",
   "location": {
     "@type": "Place",
-    "name": "Antalya, Turkey"
+    "name": "Antalya, Turkey",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Antalya",
+      "addressRegion": "Turkey"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

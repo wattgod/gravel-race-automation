@@ -7,7 +7,12 @@
   "startDate": "2026-06-13",
   "location": {
     "@type": "Place",
-    "name": "Quilcene, WA"
+    "name": "Quilcene, WA",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Quilcene",
+      "addressRegion": "WA"
+    }
   },
   "offers": {
     "@type": "Offer",

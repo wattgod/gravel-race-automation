@@ -7,7 +7,12 @@
   "startDate": "2026-06-07",
   "location": {
     "@type": "Place",
-    "name": "Astoria, Oregon to Yorktown, Virginia"
+    "name": "Astoria, Oregon to Yorktown, Virginia",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Astoria",
+      "addressRegion": "Oregon to Yorktown"
+    }
   },
   "offers": {
     "@type": "Offer",

@@ -7,7 +7,12 @@
   "startDate": "2026-05-16",
   "location": {
     "@type": "Place",
-    "name": "Jacksonville, Alabama"
+    "name": "Jacksonville, Alabama",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Jacksonville",
+      "addressRegion": "Alabama"
+    }
   },
   "offers": {
     "@type": "Offer",

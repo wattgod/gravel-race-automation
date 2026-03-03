@@ -7,7 +7,12 @@
   "startDate": "2026-02-21",
   "location": {
     "@type": "Place",
-    "name": "Doral, Florida, USA"
+    "name": "Doral, Florida, USA",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Doral",
+      "addressRegion": "Florida"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

@@ -7,7 +7,12 @@
   "startDate": "2026-07-10",
   "location": {
     "@type": "Place",
-    "name": "Villars-sur-Ollon, Canton of Vaud, Switzerland"
+    "name": "Villars-sur-Ollon, Canton of Vaud, Switzerland",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Villars-sur-Ollon",
+      "addressRegion": "Canton of Vaud"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

@@ -7,7 +7,12 @@
   "startDate": "2026-05-09",
   "location": {
     "@type": "Place",
-    "name": "Cambridge, Washington County, New York, USA"
+    "name": "Cambridge, Washington County, New York, USA",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Cambridge",
+      "addressRegion": "Washington County"
+    }
   },
   "offers": {
     "@type": "Offer",

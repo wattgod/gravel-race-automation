@@ -7,7 +7,12 @@
   "startDate": "2026-05-30",
   "location": {
     "@type": "Place",
-    "name": "Nashville, Tennessee"
+    "name": "Nashville, Tennessee",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Nashville",
+      "addressRegion": "Tennessee"
+    }
   },
   "offers": {
     "@type": "Offer",

@@ -7,7 +7,12 @@
   "startDate": "2025-10-18",
   "location": {
     "@type": "Place",
-    "name": "Potosi, Missouri"
+    "name": "Potosi, Missouri",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Potosi",
+      "addressRegion": "Missouri"
+    }
   },
   "offers": {
     "@type": "Offer",

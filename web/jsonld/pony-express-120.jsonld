@@ -7,7 +7,12 @@
   "startDate": "2026-09-07",
   "location": {
     "@type": "Place",
-    "name": "Marysville, Kansas"
+    "name": "Marysville, Kansas",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Marysville",
+      "addressRegion": "Kansas"
+    }
   },
   "offers": {
     "@type": "Offer",

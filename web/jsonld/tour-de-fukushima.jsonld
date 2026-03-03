@@ -7,7 +7,12 @@
   "startDate": "2026-06-13",
   "location": {
     "@type": "Place",
-    "name": "Hamadori coastal region, Fukushima Prefecture"
+    "name": "Hamadori coastal region, Fukushima Prefecture",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Hamadori coastal region",
+      "addressRegion": "Fukushima Prefecture"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

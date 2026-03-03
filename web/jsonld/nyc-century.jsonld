@@ -7,7 +7,12 @@
   "startDate": "2025-09-21",
   "location": {
     "@type": "Place",
-    "name": "New York City, New York, USA \u2014 Meatpacking District start/finish, four-borough route through Manhattan, Brooklyn, Queens, and the Bronx"
+    "name": "New York City, New York, USA \u2014 Meatpacking District start/finish, four-borough route through Manhattan, Brooklyn, Queens, and the Bronx",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "New York City",
+      "addressRegion": "New York"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

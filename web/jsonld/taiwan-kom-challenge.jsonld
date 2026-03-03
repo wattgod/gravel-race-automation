@@ -7,7 +7,12 @@
   "startDate": "2025-10-27",
   "location": {
     "@type": "Place",
-    "name": "Yilan to Wuling Pass, Taiwan"
+    "name": "Yilan to Wuling Pass, Taiwan",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Yilan to Wuling Pass",
+      "addressRegion": "Taiwan"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

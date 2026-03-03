@@ -7,7 +7,12 @@
   "startDate": "2026-03-20",
   "location": {
     "@type": "Place",
-    "name": "Mountain View, Arkansas"
+    "name": "Mountain View, Arkansas",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Mountain View",
+      "addressRegion": "Arkansas"
+    }
   },
   "offers": {
     "@type": "Offer",

@@ -7,7 +7,12 @@
   "startDate": "2026-05-31",
   "location": {
     "@type": "Place",
-    "name": "Entracque, Cuneo, Piemonte, Italy"
+    "name": "Entracque, Cuneo, Piemonte, Italy",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Entracque",
+      "addressRegion": "Cuneo"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

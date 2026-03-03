@@ -7,7 +7,12 @@
   "startDate": "2025-05-06",
   "location": {
     "@type": "Place",
-    "name": "Mentone, Alabama"
+    "name": "Mentone, Alabama",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Mentone",
+      "addressRegion": "Alabama"
+    }
   },
   "offers": {
     "@type": "Offer",

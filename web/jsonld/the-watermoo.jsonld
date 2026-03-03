@@ -7,7 +7,12 @@
   "startDate": "2026-08-08",
   "location": {
     "@type": "Place",
-    "name": "Dexter, Michigan"
+    "name": "Dexter, Michigan",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Dexter",
+      "addressRegion": "Michigan"
+    }
   },
   "offers": {
     "@type": "Offer",

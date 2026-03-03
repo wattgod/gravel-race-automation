@@ -7,7 +7,12 @@
   "startDate": "2026-07-18",
   "location": {
     "@type": "Place",
-    "name": "Across Iowa, USA (Missouri River to Mississippi River, west to east)"
+    "name": "Across Iowa, USA (Missouri River to Mississippi River, west to east)",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Across Iowa",
+      "addressRegion": "USA (Missouri River to Mississippi River"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

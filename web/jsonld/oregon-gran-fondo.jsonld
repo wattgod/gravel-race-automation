@@ -7,7 +7,12 @@
   "startDate": "2026-05-16",
   "location": {
     "@type": "Place",
-    "name": "Cottage Grove, Oregon, USA"
+    "name": "Cottage Grove, Oregon, USA",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Cottage Grove",
+      "addressRegion": "Oregon"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

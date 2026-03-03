@@ -7,7 +7,12 @@
   "startDate": "2026-10-11",
   "location": {
     "@type": "Place",
-    "name": "Cantu, Como, Lombardy, Italy"
+    "name": "Cantu, Como, Lombardy, Italy",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Cantu",
+      "addressRegion": "Como"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

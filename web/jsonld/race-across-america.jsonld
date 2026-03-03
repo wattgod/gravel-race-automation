@@ -7,7 +7,12 @@
   "startDate": "2026-06-16",
   "location": {
     "@type": "Place",
-    "name": "Oceanside, CA to Atlantic City, NJ"
+    "name": "Oceanside, CA to Atlantic City, NJ",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Oceanside",
+      "addressRegion": "CA to Atlantic City"
+    }
   },
   "offers": {
     "@type": "Offer",

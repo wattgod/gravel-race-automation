@@ -7,7 +7,12 @@
   "startDate": "2026-04-11",
   "location": {
     "@type": "Place",
-    "name": "Carlton, Oregon"
+    "name": "Carlton, Oregon",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Carlton",
+      "addressRegion": "Oregon"
+    }
   },
   "offers": {
     "@type": "Offer",

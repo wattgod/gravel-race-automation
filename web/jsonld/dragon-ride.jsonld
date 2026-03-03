@@ -7,7 +7,12 @@
   "startDate": "2026-06-14",
   "location": {
     "@type": "Place",
-    "name": "Margam Park, Port Talbot, South Wales, UK"
+    "name": "Margam Park, Port Talbot, South Wales, UK",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Margam Park",
+      "addressRegion": "Port Talbot"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

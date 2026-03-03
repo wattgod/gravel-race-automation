@@ -7,7 +7,12 @@
   "startDate": "2026-09-20",
   "location": {
     "@type": "Place",
-    "name": "Cumberland, British Columbia, Canada"
+    "name": "Cumberland, British Columbia, Canada",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Cumberland",
+      "addressRegion": "British Columbia"
+    }
   },
   "offers": {
     "@type": "Offer",

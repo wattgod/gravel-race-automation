@@ -7,7 +7,12 @@
   "startDate": "2026-06-14",
   "location": {
     "@type": "Place",
-    "name": "Ringle, Wisconsin"
+    "name": "Ringle, Wisconsin",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Ringle",
+      "addressRegion": "Wisconsin"
+    }
   },
   "offers": {
     "@type": "Offer",

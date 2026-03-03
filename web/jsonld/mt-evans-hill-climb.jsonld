@@ -7,7 +7,12 @@
   "startDate": "2026-07-25",
   "location": {
     "@type": "Place",
-    "name": "Idaho Springs, Colorado"
+    "name": "Idaho Springs, Colorado",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Idaho Springs",
+      "addressRegion": "Colorado"
+    }
   },
   "offers": {
     "@type": "Offer",

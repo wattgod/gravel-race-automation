@@ -7,7 +7,12 @@
   "startDate": "2026-01-25",
   "location": {
     "@type": "Place",
-    "name": "Dubai Design District (D3) to Expo Village Park, Dubai, UAE"
+    "name": "Dubai Design District (D3) to Expo Village Park, Dubai, UAE",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Dubai Design District (D3) to Expo Village Park",
+      "addressRegion": "Dubai"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

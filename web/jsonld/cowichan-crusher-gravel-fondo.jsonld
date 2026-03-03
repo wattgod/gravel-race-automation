@@ -7,7 +7,12 @@
   "startDate": "2026-05-31",
   "location": {
     "@type": "Place",
-    "name": "Lake Cowichan, British Columbia"
+    "name": "Lake Cowichan, British Columbia",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Lake Cowichan",
+      "addressRegion": "British Columbia"
+    }
   },
   "offers": {
     "@type": "Offer",

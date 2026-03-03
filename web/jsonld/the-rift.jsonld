@@ -7,7 +7,12 @@
   "startDate": "2026-07-04",
   "location": {
     "@type": "Place",
-    "name": "Hvolsv\u00f6llur, Southern Iceland"
+    "name": "Hvolsv\u00f6llur, Southern Iceland",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Hvolsv\u00f6llur",
+      "addressRegion": "Southern Iceland"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

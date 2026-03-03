@@ -7,7 +7,12 @@
   "startDate": "2026-06-20",
   "location": {
     "@type": "Place",
-    "name": "Tasmania, Australia"
+    "name": "Tasmania, Australia",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Tasmania",
+      "addressRegion": "Australia"
+    }
   },
   "offers": {
     "@type": "Offer",

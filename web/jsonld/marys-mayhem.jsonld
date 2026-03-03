@@ -7,7 +7,12 @@
   "startDate": "2026-10-16",
   "location": {
     "@type": "Place",
-    "name": "Mudgee, New South Wales, Australia"
+    "name": "Mudgee, New South Wales, Australia",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Mudgee",
+      "addressRegion": "New South Wales"
+    }
   },
   "offers": {
     "@type": "Offer",

@@ -7,7 +7,12 @@
   "startDate": "2026-07-11",
   "location": {
     "@type": "Place",
-    "name": "San Sebasti\u00e1n (Donostia), Basque Country, Spain"
+    "name": "San Sebasti\u00e1n (Donostia), Basque Country, Spain",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "San Sebasti\u00e1n (Donostia)",
+      "addressRegion": "Basque Country"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

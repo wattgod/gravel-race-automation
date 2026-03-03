@@ -7,7 +7,12 @@
   "startDate": "2026-06-20",
   "location": {
     "@type": "Place",
-    "name": "Beaver Dam State Park, Nevada"
+    "name": "Beaver Dam State Park, Nevada",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Beaver Dam State Park",
+      "addressRegion": "Nevada"
+    }
   },
   "offers": {
     "@type": "Offer",

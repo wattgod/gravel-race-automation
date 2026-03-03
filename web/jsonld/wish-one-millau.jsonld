@@ -7,7 +7,12 @@
   "startDate": "2026-06-14",
   "location": {
     "@type": "Place",
-    "name": "Millau Grands Causses, France"
+    "name": "Millau Grands Causses, France",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Millau Grands Causses",
+      "addressRegion": "France"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

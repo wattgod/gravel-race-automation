@@ -7,7 +7,12 @@
   "startDate": "2026-04-19",
   "location": {
     "@type": "Place",
-    "name": "Saranac, Michigan"
+    "name": "Saranac, Michigan",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Saranac",
+      "addressRegion": "Michigan"
+    }
   },
   "offers": {
     "@type": "Offer",

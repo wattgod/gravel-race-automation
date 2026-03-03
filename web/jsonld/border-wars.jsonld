@@ -6,7 +6,11 @@
   "sport": "Gravel Cycling",
   "location": {
     "@type": "Place",
-    "name": "GA/AL border"
+    "name": "GA/AL border",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "GA/AL border"
+    }
   },
   "offers": {
     "@type": "Offer",

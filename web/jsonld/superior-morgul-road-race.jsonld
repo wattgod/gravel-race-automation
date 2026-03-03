@@ -7,7 +7,12 @@
   "startDate": "2026-05-17",
   "location": {
     "@type": "Place",
-    "name": "Superior, Boulder County, Colorado, USA"
+    "name": "Superior, Boulder County, Colorado, USA",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Superior",
+      "addressRegion": "Boulder County"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

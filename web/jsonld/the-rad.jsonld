@@ -7,7 +7,12 @@
   "startDate": "2026-09-26",
   "location": {
     "@type": "Place",
-    "name": "Trinidad, Colorado"
+    "name": "Trinidad, Colorado",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Trinidad",
+      "addressRegion": "Colorado"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

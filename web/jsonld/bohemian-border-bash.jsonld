@@ -7,7 +7,11 @@
   "startDate": "2025-09-06",
   "location": {
     "@type": "Place",
-    "name": "Czech Republic"
+    "name": "Czech Republic",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Czech Republic"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

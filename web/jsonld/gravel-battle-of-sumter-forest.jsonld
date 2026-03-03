@@ -7,7 +7,12 @@
   "startDate": "2026-03-14",
   "location": {
     "@type": "Place",
-    "name": "Whitmire, South Carolina"
+    "name": "Whitmire, South Carolina",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Whitmire",
+      "addressRegion": "South Carolina"
+    }
   },
   "offers": {
     "@type": "Offer",

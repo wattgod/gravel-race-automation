@@ -7,7 +7,12 @@
   "startDate": "2026-06-27",
   "location": {
     "@type": "Place",
-    "name": "Various start points across Jutland, Denmark \u2014 all routes finish in Viborg"
+    "name": "Various start points across Jutland, Denmark \u2014 all routes finish in Viborg",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Various start points across Jutland",
+      "addressRegion": "Denmark \u2014 all routes finish in Viborg"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

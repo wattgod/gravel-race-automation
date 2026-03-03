@@ -6,7 +6,12 @@
   "sport": "Gravel Cycling",
   "location": {
     "@type": "Place",
-    "name": "Andenne, Wallonia, Belgium"
+    "name": "Andenne, Wallonia, Belgium",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Andenne",
+      "addressRegion": "Wallonia"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

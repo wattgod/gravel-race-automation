@@ -7,7 +7,12 @@
   "startDate": "2026-05-17",
   "location": {
     "@type": "Place",
-    "name": "Pitlochry, Perthshire, Scotland, UK"
+    "name": "Pitlochry, Perthshire, Scotland, UK",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Pitlochry",
+      "addressRegion": "Perthshire"
+    }
   },
   "offers": {
     "@type": "Offer",

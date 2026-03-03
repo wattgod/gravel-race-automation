@@ -7,7 +7,12 @@
   "startDate": "2026-04-25",
   "location": {
     "@type": "Place",
-    "name": "Houston to College Station, Texas, USA"
+    "name": "Houston to College Station, Texas, USA",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Houston to College Station",
+      "addressRegion": "Texas"
+    }
   },
   "offers": {
     "@type": "Offer",

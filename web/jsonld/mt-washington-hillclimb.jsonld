@@ -7,7 +7,12 @@
   "startDate": "2026-08-15",
   "location": {
     "@type": "Place",
-    "name": "Gorham, New Hampshire"
+    "name": "Gorham, New Hampshire",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Gorham",
+      "addressRegion": "New Hampshire"
+    }
   },
   "offers": {
     "@type": "Offer",

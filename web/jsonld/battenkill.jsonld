@@ -7,7 +7,12 @@
   "startDate": "2026-05-09",
   "location": {
     "@type": "Place",
-    "name": "Cambridge, New York"
+    "name": "Cambridge, New York",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Cambridge",
+      "addressRegion": "New York"
+    }
   },
   "offers": {
     "@type": "Offer",

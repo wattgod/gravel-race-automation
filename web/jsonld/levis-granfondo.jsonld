@@ -7,7 +7,12 @@
   "startDate": "2026-10-03",
   "location": {
     "@type": "Place",
-    "name": "Santa Rosa, Sonoma County, California, USA"
+    "name": "Santa Rosa, Sonoma County, California, USA",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Santa Rosa",
+      "addressRegion": "Sonoma County"
+    }
   },
   "offers": {
     "@type": "Offer",

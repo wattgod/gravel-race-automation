@@ -7,7 +7,11 @@
   "startDate": "2026-08-28",
   "location": {
     "@type": "Place",
-    "name": "Southern Oregon \u2014 Grants Pass and Jacksonville basecamps (2026). Route and region change annually."
+    "name": "Southern Oregon \u2014 Grants Pass and Jacksonville basecamps (2026). Route and region change annually.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Southern Oregon \u2014 Grants Pass and Jacksonville basecamps (2026). Route and region change annually."
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

@@ -7,7 +7,12 @@
   "startDate": "2026-08-06",
   "location": {
     "@type": "Place",
-    "name": "Route changes annually (2026: Vaison-la-Romaine to Mont Ventoux, Provence)"
+    "name": "Route changes annually (2026: Vaison-la-Romaine to Mont Ventoux, Provence)",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Route changes annually (2026: Vaison-la-Romaine to Mont Ventoux",
+      "addressRegion": "Provence)"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

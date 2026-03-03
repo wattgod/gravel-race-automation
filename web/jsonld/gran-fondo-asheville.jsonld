@@ -7,7 +7,12 @@
   "startDate": "2026-07-20",
   "location": {
     "@type": "Place",
-    "name": "Asheville Yards Amphitheater, 75 Coxe Ave, Asheville, NC 28801"
+    "name": "Asheville Yards Amphitheater, 75 Coxe Ave, Asheville, NC 28801",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Asheville Yards Amphitheater",
+      "addressRegion": "75 Coxe Ave"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

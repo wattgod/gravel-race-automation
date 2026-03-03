@@ -7,7 +7,12 @@
   "startDate": "2026-06-14",
   "location": {
     "@type": "Place",
-    "name": "Lourdes, Hautes-Pyr\u00e9n\u00e9es, France"
+    "name": "Lourdes, Hautes-Pyr\u00e9n\u00e9es, France",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Lourdes",
+      "addressRegion": "Hautes-Pyr\u00e9n\u00e9es"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

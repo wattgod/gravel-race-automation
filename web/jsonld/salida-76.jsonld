@@ -7,7 +7,12 @@
   "startDate": "2026-09-19",
   "location": {
     "@type": "Place",
-    "name": "Salida, CO"
+    "name": "Salida, CO",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Salida",
+      "addressRegion": "CO"
+    }
   },
   "offers": {
     "@type": "Offer",

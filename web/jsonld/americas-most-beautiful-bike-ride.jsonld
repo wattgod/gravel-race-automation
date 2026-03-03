@@ -7,7 +7,12 @@
   "startDate": "2026-06-07",
   "location": {
     "@type": "Place",
-    "name": "Stateline, Nevada, USA"
+    "name": "Stateline, Nevada, USA",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Stateline",
+      "addressRegion": "Nevada"
+    }
   },
   "offers": {
     "@type": "Offer",

@@ -7,7 +7,12 @@
   "startDate": "2026-06-23",
   "location": {
     "@type": "Place",
-    "name": "Southwest Nebraska (Curtis, Elwood, Cambridge, McCook)"
+    "name": "Southwest Nebraska (Curtis, Elwood, Cambridge, McCook)",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Southwest Nebraska (Curtis",
+      "addressRegion": "Elwood"
+    }
   },
   "offers": {
     "@type": "Offer",

@@ -7,7 +7,12 @@
   "startDate": "2026-06-08",
   "location": {
     "@type": "Place",
-    "name": "Ionia, Michigan"
+    "name": "Ionia, Michigan",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Ionia",
+      "addressRegion": "Michigan"
+    }
   },
   "offers": {
     "@type": "Offer",

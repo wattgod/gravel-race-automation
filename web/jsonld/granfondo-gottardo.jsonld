@@ -7,7 +7,12 @@
   "startDate": "2026-08-23",
   "location": {
     "@type": "Place",
-    "name": "Ambri, Ticino, Switzerland"
+    "name": "Ambri, Ticino, Switzerland",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Ambri",
+      "addressRegion": "Ticino"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

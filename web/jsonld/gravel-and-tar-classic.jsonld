@@ -6,7 +6,12 @@
   "sport": "Gravel Cycling",
   "location": {
     "@type": "Place",
-    "name": "Manawat\u016b-Whanganui, New Zealand"
+    "name": "Manawat\u016b-Whanganui, New Zealand",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Manawat\u016b-Whanganui",
+      "addressRegion": "New Zealand"
+    }
   },
   "offers": {
     "@type": "Offer",

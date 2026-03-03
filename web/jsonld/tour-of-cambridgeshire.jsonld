@@ -6,7 +6,12 @@
   "sport": "Gravel Cycling",
   "location": {
     "@type": "Place",
-    "name": "East of England Showground, Peterborough, Cambridgeshire, England"
+    "name": "East of England Showground, Peterborough, Cambridgeshire, England",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "East of England Showground",
+      "addressRegion": "Peterborough"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

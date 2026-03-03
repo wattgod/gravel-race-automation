@@ -6,7 +6,12 @@
   "sport": "Gravel Cycling",
   "location": {
     "@type": "Place",
-    "name": "Banff, Alberta, Canada"
+    "name": "Banff, Alberta, Canada",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Banff",
+      "addressRegion": "Alberta"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

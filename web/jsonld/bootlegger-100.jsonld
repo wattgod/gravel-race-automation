@@ -6,7 +6,12 @@
   "sport": "Gravel Cycling",
   "location": {
     "@type": "Place",
-    "name": "Dahlonega, Georgia (North Georgia mountains)"
+    "name": "Dahlonega, Georgia (North Georgia mountains)",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Dahlonega",
+      "addressRegion": "Georgia (North Georgia mountains)"
+    }
   },
   "offers": {
     "@type": "Offer",

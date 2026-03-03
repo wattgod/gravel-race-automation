@@ -7,7 +7,12 @@
   "startDate": "2026-08-09",
   "location": {
     "@type": "Place",
-    "name": "Cartago, Cartago Province, Costa Rica"
+    "name": "Cartago, Cartago Province, Costa Rica",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Cartago",
+      "addressRegion": "Cartago Province"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

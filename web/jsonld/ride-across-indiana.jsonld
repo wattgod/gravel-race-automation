@@ -7,7 +7,12 @@
   "startDate": "2026-06-27",
   "location": {
     "@type": "Place",
-    "name": "Terre Haute to Richmond, Indiana, USA"
+    "name": "Terre Haute to Richmond, Indiana, USA",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Terre Haute to Richmond",
+      "addressRegion": "Indiana"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

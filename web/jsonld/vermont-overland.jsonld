@@ -7,7 +7,12 @@
   "startDate": "2026-08-30",
   "location": {
     "@type": "Place",
-    "name": "Woodstock, Vermont"
+    "name": "Woodstock, Vermont",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Woodstock",
+      "addressRegion": "Vermont"
+    }
   },
   "offers": {
     "@type": "Offer",

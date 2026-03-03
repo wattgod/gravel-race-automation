@@ -7,7 +7,12 @@
   "startDate": "2026-10-25",
   "location": {
     "@type": "Place",
-    "name": "Alentejo, Portugal"
+    "name": "Alentejo, Portugal",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Alentejo",
+      "addressRegion": "Portugal"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

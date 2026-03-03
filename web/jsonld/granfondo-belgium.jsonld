@@ -7,7 +7,12 @@
   "startDate": "2026-03-29",
   "location": {
     "@type": "Place",
-    "name": "Les Lacs de l'Eau d'Heure, Hainaut, Belgium"
+    "name": "Les Lacs de l'Eau d'Heure, Hainaut, Belgium",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Les Lacs de l'Eau d'Heure",
+      "addressRegion": "Hainaut"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

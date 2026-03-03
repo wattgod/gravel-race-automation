@@ -7,7 +7,12 @@
   "startDate": "2026-09-12",
   "location": {
     "@type": "Place",
-    "name": "Logan, Utah to Teton Village, Wyoming"
+    "name": "Logan, Utah to Teton Village, Wyoming",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Logan",
+      "addressRegion": "Utah to Teton Village"
+    }
   },
   "offers": {
     "@type": "Offer",

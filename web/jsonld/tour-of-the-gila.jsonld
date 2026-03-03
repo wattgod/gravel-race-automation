@@ -7,7 +7,12 @@
   "startDate": "2026-04-29",
   "location": {
     "@type": "Place",
-    "name": "Silver City, Grant County, New Mexico, USA"
+    "name": "Silver City, Grant County, New Mexico, USA",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Silver City",
+      "addressRegion": "Grant County"
+    }
   },
   "offers": {
     "@type": "Offer",

@@ -7,7 +7,12 @@
   "startDate": "2026-10-03",
   "location": {
     "@type": "Place",
-    "name": "Fairfield, Iowa"
+    "name": "Fairfield, Iowa",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Fairfield",
+      "addressRegion": "Iowa"
+    }
   },
   "offers": {
     "@type": "Offer",

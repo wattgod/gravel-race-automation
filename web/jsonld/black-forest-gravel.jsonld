@@ -7,7 +7,12 @@
   "startDate": "2026-07-25",
   "location": {
     "@type": "Place",
-    "name": "Freiburg, Black Forest, Germany"
+    "name": "Freiburg, Black Forest, Germany",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Freiburg",
+      "addressRegion": "Black Forest"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

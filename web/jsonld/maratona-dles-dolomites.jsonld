@@ -7,7 +7,12 @@
   "startDate": "2026-07-05",
   "location": {
     "@type": "Place",
-    "name": "La Villa / Corvara, Alta Badia, South Tyrol, Italy"
+    "name": "La Villa / Corvara, Alta Badia, South Tyrol, Italy",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "La Villa / Corvara",
+      "addressRegion": "Alta Badia"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

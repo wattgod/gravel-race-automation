@@ -7,7 +7,11 @@
   "startDate": "2026-02-06",
   "location": {
     "@type": "Place",
-    "name": "Morocco"
+    "name": "Morocco",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Morocco"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

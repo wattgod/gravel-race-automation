@@ -7,7 +7,12 @@
   "startDate": "2026-07-18",
   "location": {
     "@type": "Place",
-    "name": "Albia, Iowa"
+    "name": "Albia, Iowa",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Albia",
+      "addressRegion": "Iowa"
+    }
   },
   "offers": {
     "@type": "Offer",

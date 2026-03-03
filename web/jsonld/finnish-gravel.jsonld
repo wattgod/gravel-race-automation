@@ -7,7 +7,12 @@
   "startDate": "2026-08-08",
   "location": {
     "@type": "Place",
-    "name": "Lahti, Paijanne Tavastia, Finland"
+    "name": "Lahti, Paijanne Tavastia, Finland",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Lahti",
+      "addressRegion": "Paijanne Tavastia"
+    }
   },
   "offers": {
     "@type": "Offer",

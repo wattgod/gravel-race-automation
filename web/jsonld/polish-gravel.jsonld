@@ -7,7 +7,12 @@
   "startDate": "2026-08-08",
   "location": {
     "@type": "Place",
-    "name": "Krak\u00f3w, Poland"
+    "name": "Krak\u00f3w, Poland",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Krak\u00f3w",
+      "addressRegion": "Poland"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

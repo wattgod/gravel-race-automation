@@ -7,7 +7,12 @@
   "startDate": "2026-09-18",
   "location": {
     "@type": "Place",
-    "name": "Marquette, Michigan"
+    "name": "Marquette, Michigan",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Marquette",
+      "addressRegion": "Michigan"
+    }
   },
   "offers": {
     "@type": "Offer",

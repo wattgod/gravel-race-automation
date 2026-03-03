@@ -7,7 +7,12 @@
   "startDate": "2026-09-18",
   "location": {
     "@type": "Place",
-    "name": "Girona, Catalonia, Spain"
+    "name": "Girona, Catalonia, Spain",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Girona",
+      "addressRegion": "Catalonia"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

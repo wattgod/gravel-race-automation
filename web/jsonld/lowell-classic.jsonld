@@ -7,7 +7,12 @@
   "startDate": "2026-10-24",
   "location": {
     "@type": "Place",
-    "name": "Lowell, Michigan"
+    "name": "Lowell, Michigan",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Lowell",
+      "addressRegion": "Michigan"
+    }
   },
   "offers": {
     "@type": "Offer",

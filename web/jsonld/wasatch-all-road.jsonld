@@ -7,7 +7,12 @@
   "startDate": "2026-08-29",
   "location": {
     "@type": "Place",
-    "name": "Francis, Utah"
+    "name": "Francis, Utah",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Francis",
+      "addressRegion": "Utah"
+    }
   },
   "offers": {
     "@type": "Offer",

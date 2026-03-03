@@ -7,7 +7,12 @@
   "startDate": "2026-05-18",
   "location": {
     "@type": "Place",
-    "name": "Spartanburg, South Carolina to Mt. Mitchell, North Carolina"
+    "name": "Spartanburg, South Carolina to Mt. Mitchell, North Carolina",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Spartanburg",
+      "addressRegion": "South Carolina to Mt. Mitchell"
+    }
   },
   "offers": {
     "@type": "Offer",

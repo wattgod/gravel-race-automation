@@ -7,7 +7,12 @@
   "startDate": "2026-01-11",
   "location": {
     "@type": "Place",
-    "name": "Oxford, MS"
+    "name": "Oxford, MS",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Oxford",
+      "addressRegion": "MS"
+    }
   },
   "offers": {
     "@type": "Offer",

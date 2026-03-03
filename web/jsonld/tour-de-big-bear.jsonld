@@ -7,7 +7,12 @@
   "startDate": "2026-08-01",
   "location": {
     "@type": "Place",
-    "name": "Big Bear Lake, California, USA"
+    "name": "Big Bear Lake, California, USA",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Big Bear Lake",
+      "addressRegion": "California"
+    }
   },
   "offers": {
     "@type": "Offer",

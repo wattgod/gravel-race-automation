@@ -7,7 +7,12 @@
   "startDate": "2026-07-11",
   "location": {
     "@type": "Place",
-    "name": "Eau Claire, Wisconsin, USA"
+    "name": "Eau Claire, Wisconsin, USA",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Eau Claire",
+      "addressRegion": "Wisconsin"
+    }
   },
   "offers": {
     "@type": "Offer",

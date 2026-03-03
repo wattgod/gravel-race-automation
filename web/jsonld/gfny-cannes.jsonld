@@ -6,7 +6,12 @@
   "sport": "Gravel Cycling",
   "location": {
     "@type": "Place",
-    "name": "Cannes, French Riviera, France"
+    "name": "Cannes, French Riviera, France",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Cannes",
+      "addressRegion": "French Riviera"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

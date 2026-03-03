@@ -7,7 +7,12 @@
   "startDate": "2026-03-29",
   "location": {
     "@type": "Place",
-    "name": "Cervia, Emilia-Romagna, Italy"
+    "name": "Cervia, Emilia-Romagna, Italy",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Cervia",
+      "addressRegion": "Emilia-Romagna"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

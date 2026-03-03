@@ -7,7 +7,12 @@
   "startDate": "2026-03-21",
   "location": {
     "@type": "Place",
-    "name": "Decatur, Texas"
+    "name": "Decatur, Texas",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Decatur",
+      "addressRegion": "Texas"
+    }
   },
   "offers": {
     "@type": "Offer",

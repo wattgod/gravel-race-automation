@@ -7,7 +7,12 @@
   "startDate": "2026-10-25",
   "location": {
     "@type": "Place",
-    "name": "Victoria, Australia"
+    "name": "Victoria, Australia",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Victoria",
+      "addressRegion": "Australia"
+    }
   },
   "offers": {
     "@type": "Offer",

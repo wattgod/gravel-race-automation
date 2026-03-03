@@ -7,7 +7,12 @@
   "startDate": "2026-06-19",
   "location": {
     "@type": "Place",
-    "name": "New Gloucester, Maine, USA"
+    "name": "New Gloucester, Maine, USA",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "New Gloucester",
+      "addressRegion": "Maine"
+    }
   },
   "offers": {
     "@type": "Offer",

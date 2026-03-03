@@ -7,7 +7,12 @@
   "startDate": "2026-07-11",
   "location": {
     "@type": "Place",
-    "name": "Bend, Oregon"
+    "name": "Bend, Oregon",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Bend",
+      "addressRegion": "Oregon"
+    }
   },
   "offers": {
     "@type": "Offer",

@@ -6,7 +6,12 @@
   "sport": "Gravel Cycling",
   "location": {
     "@type": "Place",
-    "name": "Medell\u00edn, Colombia"
+    "name": "Medell\u00edn, Colombia",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Medell\u00edn",
+      "addressRegion": "Colombia"
+    }
   },
   "offers": {
     "@type": "Offer",

@@ -7,7 +7,12 @@
   "startDate": "2025-11-29",
   "location": {
     "@type": "Place",
-    "name": "South Island, New Zealand"
+    "name": "South Island, New Zealand",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "South Island",
+      "addressRegion": "New Zealand"
+    }
   },
   "offers": {
     "@type": "Offer",

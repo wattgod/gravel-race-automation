@@ -7,7 +7,12 @@
   "startDate": "2026-08-30",
   "location": {
     "@type": "Place",
-    "name": "Houffalize, Belgian Ardennes"
+    "name": "Houffalize, Belgian Ardennes",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Houffalize",
+      "addressRegion": "Belgian Ardennes"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

@@ -7,7 +7,12 @@
   "startDate": "2026-08-15",
   "location": {
     "@type": "Place",
-    "name": "Leadville, Colorado"
+    "name": "Leadville, Colorado",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Leadville",
+      "addressRegion": "Colorado"
+    }
   },
   "offers": {
     "@type": "Offer",

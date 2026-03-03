@@ -7,7 +7,12 @@
   "startDate": "2026-07-18",
   "location": {
     "@type": "Place",
-    "name": "Hoquiam, WA"
+    "name": "Hoquiam, WA",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Hoquiam",
+      "addressRegion": "WA"
+    }
   },
   "offers": {
     "@type": "Offer",

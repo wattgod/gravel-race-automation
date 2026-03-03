@@ -7,7 +7,12 @@
   "startDate": "2026-06-14",
   "location": {
     "@type": "Place",
-    "name": "Whitby, UK"
+    "name": "Whitby, UK",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Whitby",
+      "addressRegion": "UK"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

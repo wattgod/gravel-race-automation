@@ -7,7 +7,12 @@
   "startDate": "2026-07-12",
   "location": {
     "@type": "Place",
-    "name": "Treviso, Veneto, Italy"
+    "name": "Treviso, Veneto, Italy",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Treviso",
+      "addressRegion": "Veneto"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

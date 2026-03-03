@@ -7,7 +7,12 @@
   "startDate": "2025-04-05",
   "location": {
     "@type": "Place",
-    "name": "Hunterdon County, New Jersey"
+    "name": "Hunterdon County, New Jersey",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Hunterdon County",
+      "addressRegion": "New Jersey"
+    }
   },
   "offers": {
     "@type": "Offer",

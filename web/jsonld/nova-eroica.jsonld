@@ -6,7 +6,12 @@
   "sport": "Gravel Cycling",
   "location": {
     "@type": "Place",
-    "name": "Buonconvento, Tuscany, Italy"
+    "name": "Buonconvento, Tuscany, Italy",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Buonconvento",
+      "addressRegion": "Tuscany"
+    }
   },
   "offers": {
     "@type": "Offer",

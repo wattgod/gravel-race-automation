@@ -7,7 +7,12 @@
   "startDate": "2026-05-23",
   "location": {
     "@type": "Place",
-    "name": "Peloponnese, Greece"
+    "name": "Peloponnese, Greece",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Peloponnese",
+      "addressRegion": "Greece"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

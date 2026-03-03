@@ -7,7 +7,12 @@
   "startDate": "2026-03-14",
   "location": {
     "@type": "Place",
-    "name": "Grafton to Inverell, New South Wales, Australia"
+    "name": "Grafton to Inverell, New South Wales, Australia",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Grafton to Inverell",
+      "addressRegion": "New South Wales"
+    }
   },
   "offers": {
     "@type": "Offer",

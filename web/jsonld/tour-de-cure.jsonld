@@ -7,7 +7,12 @@
   "startDate": "2026-02-14",
   "location": {
     "@type": "Place",
-    "name": "Multiple locations nationwide, USA (Arizona, Northern California, Chicagoland, New England, Greater New York, Mid-Atlantic, Texas, and more)"
+    "name": "Multiple locations nationwide, USA (Arizona, Northern California, Chicagoland, New England, Greater New York, Mid-Atlantic, Texas, and more)",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Multiple locations nationwide",
+      "addressRegion": "USA (Arizona"
+    }
   },
   "offers": {
     "@type": "Offer",

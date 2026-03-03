@@ -7,7 +7,12 @@
   "startDate": "2026-07-12",
   "location": {
     "@type": "Place",
-    "name": "Aigle, Switzerland"
+    "name": "Aigle, Switzerland",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Aigle",
+      "addressRegion": "Switzerland"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

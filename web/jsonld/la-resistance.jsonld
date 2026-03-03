@@ -6,7 +6,11 @@
   "sport": "Gravel Cycling",
   "location": {
     "@type": "Place",
-    "name": "French Alps"
+    "name": "French Alps",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "French Alps"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

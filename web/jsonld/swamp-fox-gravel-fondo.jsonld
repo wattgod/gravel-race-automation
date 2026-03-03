@@ -7,7 +7,12 @@
   "startDate": "2026-03-21",
   "location": {
     "@type": "Place",
-    "name": "Francis Marion National Forest, South Carolina"
+    "name": "Francis Marion National Forest, South Carolina",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Francis Marion National Forest",
+      "addressRegion": "South Carolina"
+    }
   },
   "offers": {
     "@type": "Offer",

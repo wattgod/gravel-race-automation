@@ -7,7 +7,12 @@
   "startDate": "2026-08-01",
   "location": {
     "@type": "Place",
-    "name": "Winter Park, Colorado"
+    "name": "Winter Park, Colorado",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Winter Park",
+      "addressRegion": "Colorado"
+    }
   },
   "offers": {
     "@type": "Offer",

@@ -7,7 +7,12 @@
   "startDate": "2026-04-11",
   "location": {
     "@type": "Place",
-    "name": "Busigny to Roubaix Velodrome, Nord, France"
+    "name": "Busigny to Roubaix Velodrome, Nord, France",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Busigny to Roubaix Velodrome",
+      "addressRegion": "Nord"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

@@ -6,7 +6,12 @@
   "sport": "Gravel Cycling",
   "location": {
     "@type": "Place",
-    "name": "Saint-Urbain-de-Charlevoix, Quebec, Canada"
+    "name": "Saint-Urbain-de-Charlevoix, Quebec, Canada",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Saint-Urbain-de-Charlevoix",
+      "addressRegion": "Quebec"
+    }
   },
   "offers": {
     "@type": "Offer",

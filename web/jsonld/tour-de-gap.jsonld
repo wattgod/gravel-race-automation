@@ -7,7 +7,12 @@
   "startDate": "2026-07-25",
   "location": {
     "@type": "Place",
-    "name": "Fulton, Mississippi"
+    "name": "Fulton, Mississippi",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Fulton",
+      "addressRegion": "Mississippi"
+    }
   },
   "offers": {
     "@type": "Offer",

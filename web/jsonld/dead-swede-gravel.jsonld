@@ -7,7 +7,12 @@
   "startDate": "2026-06-06",
   "location": {
     "@type": "Place",
-    "name": "Sheridan, Wyoming"
+    "name": "Sheridan, Wyoming",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Sheridan",
+      "addressRegion": "Wyoming"
+    }
   },
   "offers": {
     "@type": "Offer",

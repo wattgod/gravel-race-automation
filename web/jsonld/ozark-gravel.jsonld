@@ -7,7 +7,12 @@
   "startDate": "2026-03-07",
   "location": {
     "@type": "Place",
-    "name": "Rogers, Arkansas"
+    "name": "Rogers, Arkansas",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Rogers",
+      "addressRegion": "Arkansas"
+    }
   },
   "offers": {
     "@type": "Offer",

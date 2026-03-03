@@ -6,7 +6,12 @@
   "sport": "Gravel Cycling",
   "location": {
     "@type": "Place",
-    "name": "Turin, Italy to Nice, France"
+    "name": "Turin, Italy to Nice, France",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Turin",
+      "addressRegion": "Italy to Nice"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

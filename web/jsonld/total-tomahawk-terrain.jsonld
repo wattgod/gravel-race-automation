@@ -7,7 +7,12 @@
   "startDate": "2026-06-20",
   "location": {
     "@type": "Place",
-    "name": "Tomahawk, Wisconsin"
+    "name": "Tomahawk, Wisconsin",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Tomahawk",
+      "addressRegion": "Wisconsin"
+    }
   },
   "offers": {
     "@type": "Offer",

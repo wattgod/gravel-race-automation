@@ -6,7 +6,12 @@
   "sport": "Gravel Cycling",
   "location": {
     "@type": "Place",
-    "name": "B\u00e9doin, Vaucluse, Provence, France"
+    "name": "B\u00e9doin, Vaucluse, Provence, France",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "B\u00e9doin",
+      "addressRegion": "Vaucluse"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

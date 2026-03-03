@@ -7,7 +7,12 @@
   "startDate": "2026-06-12",
   "location": {
     "@type": "Place",
-    "name": "Motala, \u00d6sterg\u00f6tland, Sweden"
+    "name": "Motala, \u00d6sterg\u00f6tland, Sweden",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Motala",
+      "addressRegion": "\u00d6sterg\u00f6tland"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

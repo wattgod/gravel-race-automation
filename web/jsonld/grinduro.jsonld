@@ -6,7 +6,11 @@
   "sport": "Gravel Cycling",
   "location": {
     "@type": "Place",
-    "name": "Multi-Location Global Series"
+    "name": "Multi-Location Global Series",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Multi-Location Global Series"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

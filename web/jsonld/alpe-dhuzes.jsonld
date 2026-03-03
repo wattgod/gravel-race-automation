@@ -7,7 +7,12 @@
   "startDate": "2026-06-04",
   "location": {
     "@type": "Place",
-    "name": "Alpe d'Huez, Isere, France"
+    "name": "Alpe d'Huez, Isere, France",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Alpe d'Huez",
+      "addressRegion": "Isere"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

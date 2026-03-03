@@ -7,7 +7,12 @@
   "startDate": "2026-05-17",
   "location": {
     "@type": "Place",
-    "name": "Cancun, Quintana Roo, Mexico"
+    "name": "Cancun, Quintana Roo, Mexico",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Cancun",
+      "addressRegion": "Quintana Roo"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

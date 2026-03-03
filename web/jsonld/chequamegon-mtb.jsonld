@@ -7,7 +7,12 @@
   "startDate": "2026-09-20",
   "location": {
     "@type": "Place",
-    "name": "Cable, Wisconsin (Chequamegon National Forest)"
+    "name": "Cable, Wisconsin (Chequamegon National Forest)",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Cable",
+      "addressRegion": "Wisconsin (Chequamegon National Forest)"
+    }
   },
   "offers": {
     "@type": "Offer",

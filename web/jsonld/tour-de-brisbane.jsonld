@@ -7,7 +7,12 @@
   "startDate": "2026-04-12",
   "location": {
     "@type": "Place",
-    "name": "Brisbane, Queensland, Australia"
+    "name": "Brisbane, Queensland, Australia",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Brisbane",
+      "addressRegion": "Queensland"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

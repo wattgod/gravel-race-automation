@@ -7,7 +7,12 @@
   "startDate": "2026-10-03",
   "location": {
     "@type": "Place",
-    "name": "Hendersonville, North Carolina"
+    "name": "Hendersonville, North Carolina",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Hendersonville",
+      "addressRegion": "North Carolina"
+    }
   },
   "offers": {
     "@type": "Offer",

@@ -7,7 +7,12 @@
   "startDate": "2026-09-05",
   "location": {
     "@type": "Place",
-    "name": "Elbert, CO"
+    "name": "Elbert, CO",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Elbert",
+      "addressRegion": "CO"
+    }
   },
   "offers": {
     "@type": "Offer",

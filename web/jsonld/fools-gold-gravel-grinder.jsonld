@@ -7,7 +7,12 @@
   "startDate": "2026-09-12",
   "location": {
     "@type": "Place",
-    "name": "Dahlonega, Georgia"
+    "name": "Dahlonega, Georgia",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Dahlonega",
+      "addressRegion": "Georgia"
+    }
   },
   "offers": {
     "@type": "Offer",

@@ -7,7 +7,12 @@
   "startDate": "2026-06-27",
   "location": {
     "@type": "Place",
-    "name": "Truckee, California"
+    "name": "Truckee, California",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Truckee",
+      "addressRegion": "California"
+    }
   },
   "offers": {
     "@type": "Offer",

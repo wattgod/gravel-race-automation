@@ -7,7 +7,12 @@
   "startDate": "2026-06-06",
   "location": {
     "@type": "Place",
-    "name": "Grinnell, Iowa"
+    "name": "Grinnell, Iowa",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Grinnell",
+      "addressRegion": "Iowa"
+    }
   },
   "offers": {
     "@type": "Offer",

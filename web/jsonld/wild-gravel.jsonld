@@ -7,7 +7,12 @@
   "startDate": "2026-10-24",
   "location": {
     "@type": "Place",
-    "name": "Gnowangerup, Western Australia, Australia"
+    "name": "Gnowangerup, Western Australia, Australia",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Gnowangerup",
+      "addressRegion": "Western Australia"
+    }
   },
   "offers": {
     "@type": "Offer",

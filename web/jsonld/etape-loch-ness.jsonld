@@ -7,7 +7,12 @@
   "startDate": "2026-04-26",
   "location": {
     "@type": "Place",
-    "name": "Inverness, Scottish Highlands"
+    "name": "Inverness, Scottish Highlands",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Inverness",
+      "addressRegion": "Scottish Highlands"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

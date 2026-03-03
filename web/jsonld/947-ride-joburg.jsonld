@@ -7,7 +7,12 @@
   "startDate": "2025-10-26",
   "location": {
     "@type": "Place",
-    "name": "Johannesburg, South Africa"
+    "name": "Johannesburg, South Africa",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Johannesburg",
+      "addressRegion": "South Africa"
+    }
   },
   "offers": {
     "@type": "Offer",

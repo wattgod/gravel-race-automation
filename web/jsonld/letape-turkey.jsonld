@@ -7,7 +7,12 @@
   "startDate": "2026-09-19",
   "location": {
     "@type": "Place",
-    "name": "Beykoz, Istanbul, Turkey"
+    "name": "Beykoz, Istanbul, Turkey",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Beykoz",
+      "addressRegion": "Istanbul"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

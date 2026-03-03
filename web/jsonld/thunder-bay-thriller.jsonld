@@ -7,7 +7,12 @@
   "startDate": "2026-08-29",
   "location": {
     "@type": "Place",
-    "name": "Alpena, Michigan"
+    "name": "Alpena, Michigan",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Alpena",
+      "addressRegion": "Michigan"
+    }
   },
   "offers": {
     "@type": "Offer",

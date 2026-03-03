@@ -7,7 +7,12 @@
   "startDate": "2026-09-19",
   "location": {
     "@type": "Place",
-    "name": "Oliva, Valencia, Spain"
+    "name": "Oliva, Valencia, Spain",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Oliva",
+      "addressRegion": "Valencia"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

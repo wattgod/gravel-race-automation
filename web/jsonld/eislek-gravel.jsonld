@@ -7,7 +7,11 @@
   "startDate": "2026-06-20",
   "location": {
     "@type": "Place",
-    "name": "Luxembourg"
+    "name": "Luxembourg",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Luxembourg"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

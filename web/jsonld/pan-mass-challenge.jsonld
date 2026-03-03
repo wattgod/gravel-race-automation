@@ -7,7 +7,12 @@
   "startDate": "2026-08-01",
   "location": {
     "@type": "Place",
-    "name": "Worcester to Provincetown, Massachusetts, USA (multiple routes across Massachusetts)"
+    "name": "Worcester to Provincetown, Massachusetts, USA (multiple routes across Massachusetts)",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Worcester to Provincetown",
+      "addressRegion": "Massachusetts"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

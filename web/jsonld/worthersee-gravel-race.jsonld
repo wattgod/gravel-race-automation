@@ -7,7 +7,12 @@
   "startDate": "2026-04-12",
   "location": {
     "@type": "Place",
-    "name": "W\u00f6rthersee, Austria"
+    "name": "W\u00f6rthersee, Austria",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "W\u00f6rthersee",
+      "addressRegion": "Austria"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

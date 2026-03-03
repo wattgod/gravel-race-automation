@@ -7,7 +7,12 @@
   "startDate": "2026-06-28",
   "location": {
     "@type": "Place",
-    "name": "Les Saisies, Haute-Savoie, France"
+    "name": "Les Saisies, Haute-Savoie, France",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Les Saisies",
+      "addressRegion": "Haute-Savoie"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

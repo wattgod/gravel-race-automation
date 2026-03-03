@@ -7,7 +7,12 @@
   "startDate": "2026-08-19",
   "location": {
     "@type": "Place",
-    "name": "Lincoln, Nebraska"
+    "name": "Lincoln, Nebraska",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Lincoln",
+      "addressRegion": "Nebraska"
+    }
   },
   "offers": {
     "@type": "Offer",

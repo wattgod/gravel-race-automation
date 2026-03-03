@@ -7,7 +7,12 @@
   "startDate": "2026-03-13",
   "location": {
     "@type": "Place",
-    "name": "Stillwater, Oklahoma"
+    "name": "Stillwater, Oklahoma",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Stillwater",
+      "addressRegion": "Oklahoma"
+    }
   },
   "offers": {
     "@type": "Offer",

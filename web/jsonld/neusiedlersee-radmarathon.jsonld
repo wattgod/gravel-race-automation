@@ -7,7 +7,12 @@
   "startDate": "2026-04-18",
   "location": {
     "@type": "Place",
-    "name": "M\u00f6rbisch am See, Burgenland, Austria"
+    "name": "M\u00f6rbisch am See, Burgenland, Austria",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "M\u00f6rbisch am See",
+      "addressRegion": "Burgenland"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

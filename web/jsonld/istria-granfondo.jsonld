@@ -7,7 +7,12 @@
   "startDate": "2026-04-11",
   "location": {
     "@type": "Place",
-    "name": "Umag, Istria County, Croatia"
+    "name": "Umag, Istria County, Croatia",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Umag",
+      "addressRegion": "Istria County"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

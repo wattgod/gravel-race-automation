@@ -7,7 +7,12 @@
   "startDate": "2026-05-23",
   "location": {
     "@type": "Place",
-    "name": "Grand Marais, Minnesota"
+    "name": "Grand Marais, Minnesota",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Grand Marais",
+      "addressRegion": "Minnesota"
+    }
   },
   "offers": {
     "@type": "Offer",

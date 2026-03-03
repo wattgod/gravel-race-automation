@@ -7,7 +7,12 @@
   "startDate": "2026-07-11",
   "location": {
     "@type": "Place",
-    "name": "Evergreen to Avon, Colorado"
+    "name": "Evergreen to Avon, Colorado",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Evergreen to Avon",
+      "addressRegion": "Colorado"
+    }
   },
   "offers": {
     "@type": "Offer",

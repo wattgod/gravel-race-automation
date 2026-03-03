@@ -7,7 +7,12 @@
   "startDate": "2026-05-2026",
   "location": {
     "@type": "Place",
-    "name": "Chillicothe, Ohio"
+    "name": "Chillicothe, Ohio",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Chillicothe",
+      "addressRegion": "Ohio"
+    }
   },
   "offers": {
     "@type": "Offer",

@@ -7,7 +7,12 @@
   "startDate": "2026-09-19",
   "location": {
     "@type": "Place",
-    "name": "Sheridan, WY"
+    "name": "Sheridan, WY",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Sheridan",
+      "addressRegion": "WY"
+    }
   },
   "offers": {
     "@type": "Offer",

@@ -7,7 +7,12 @@
   "startDate": "2026-01-2019",
   "location": {
     "@type": "Place",
-    "name": "Yorkshire, England, United Kingdom"
+    "name": "Yorkshire, England, United Kingdom",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Yorkshire",
+      "addressRegion": "England"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

@@ -7,7 +7,11 @@
   "startDate": "2026-06-27",
   "location": {
     "@type": "Place",
-    "name": "Switzerland (multiple routes)"
+    "name": "Switzerland (multiple routes)",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Switzerland (multiple routes)"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

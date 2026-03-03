@@ -7,7 +7,12 @@
   "startDate": "2026-06-07",
   "location": {
     "@type": "Place",
-    "name": "Jac\u00f3, Garabito, Puntarenas Province, Costa Rica"
+    "name": "Jac\u00f3, Garabito, Puntarenas Province, Costa Rica",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Jac\u00f3",
+      "addressRegion": "Garabito"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

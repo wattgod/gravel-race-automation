@@ -6,7 +6,12 @@
   "sport": "Gravel Cycling",
   "location": {
     "@type": "Place",
-    "name": "Trento, Trentino-Alto Adige, Italy"
+    "name": "Trento, Trentino-Alto Adige, Italy",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Trento",
+      "addressRegion": "Trentino-Alto Adige"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

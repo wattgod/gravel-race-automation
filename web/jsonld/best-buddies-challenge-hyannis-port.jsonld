@@ -7,7 +7,12 @@
   "startDate": "2026-05-30",
   "location": {
     "@type": "Place",
-    "name": "Boston to Hyannis Port, Massachusetts, USA"
+    "name": "Boston to Hyannis Port, Massachusetts, USA",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Boston to Hyannis Port",
+      "addressRegion": "Massachusetts"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

@@ -7,7 +7,12 @@
   "startDate": "2026-05-10",
   "location": {
     "@type": "Place",
-    "name": "Santa Fe, NM"
+    "name": "Santa Fe, NM",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Santa Fe",
+      "addressRegion": "NM"
+    }
   },
   "offers": {
     "@type": "Offer",

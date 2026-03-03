@@ -7,7 +7,12 @@
   "startDate": "2026-10-18",
   "location": {
     "@type": "Place",
-    "name": "Melbourne, Victoria, Australia"
+    "name": "Melbourne, Victoria, Australia",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Melbourne",
+      "addressRegion": "Victoria"
+    }
   },
   "offers": {
     "@type": "Offer",

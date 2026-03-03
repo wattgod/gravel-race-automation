@@ -7,7 +7,12 @@
   "startDate": "2026-04-10",
   "location": {
     "@type": "Place",
-    "name": "Desenzano del Garda, Lombardy, Italy"
+    "name": "Desenzano del Garda, Lombardy, Italy",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Desenzano del Garda",
+      "addressRegion": "Lombardy"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

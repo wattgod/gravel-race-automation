@@ -7,7 +7,12 @@
   "startDate": "2026-04-19",
   "location": {
     "@type": "Place",
-    "name": "Durban, KwaZulu-Natal, South Africa"
+    "name": "Durban, KwaZulu-Natal, South Africa",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Durban",
+      "addressRegion": "KwaZulu-Natal"
+    }
   },
   "offers": {
     "@type": "Offer",

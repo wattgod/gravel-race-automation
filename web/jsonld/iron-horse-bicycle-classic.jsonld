@@ -7,7 +7,12 @@
   "startDate": "2026-05-24",
   "location": {
     "@type": "Place",
-    "name": "Durango, Colorado"
+    "name": "Durango, Colorado",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Durango",
+      "addressRegion": "Colorado"
+    }
   },
   "offers": {
     "@type": "Offer",

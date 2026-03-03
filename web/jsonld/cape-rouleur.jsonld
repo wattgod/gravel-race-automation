@@ -7,7 +7,12 @@
   "startDate": "2026-08-2024",
   "location": {
     "@type": "Place",
-    "name": "Franschhoek, Western Cape, South Africa"
+    "name": "Franschhoek, Western Cape, South Africa",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Franschhoek",
+      "addressRegion": "Western Cape"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

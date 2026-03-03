@@ -7,7 +7,12 @@
   "startDate": "2026-08-30",
   "location": {
     "@type": "Place",
-    "name": "Turnhout, Belgium"
+    "name": "Turnhout, Belgium",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Turnhout",
+      "addressRegion": "Belgium"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

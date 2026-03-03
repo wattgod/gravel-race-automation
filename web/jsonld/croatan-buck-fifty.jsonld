@@ -6,7 +6,12 @@
   "sport": "Gravel Cycling",
   "location": {
     "@type": "Place",
-    "name": "New Bern, North Carolina (Croatan National Forest)"
+    "name": "New Bern, North Carolina (Croatan National Forest)",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "New Bern",
+      "addressRegion": "North Carolina (Croatan National Forest)"
+    }
   },
   "offers": {
     "@type": "Offer",

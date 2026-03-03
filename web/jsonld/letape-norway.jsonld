@@ -7,7 +7,12 @@
   "startDate": "2026-06-20",
   "location": {
     "@type": "Place",
-    "name": "Trondheim, Tr\u00f8ndelag, Norway"
+    "name": "Trondheim, Tr\u00f8ndelag, Norway",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Trondheim",
+      "addressRegion": "Tr\u00f8ndelag"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

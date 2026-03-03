@@ -7,7 +7,12 @@
   "startDate": "2026-05-02",
   "location": {
     "@type": "Place",
-    "name": "Traquair House, Scotland, UK"
+    "name": "Traquair House, Scotland, UK",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Traquair House",
+      "addressRegion": "Scotland"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

@@ -7,7 +7,12 @@
   "startDate": "2026-08-16",
   "location": {
     "@type": "Place",
-    "name": "Mathias, West Virginia"
+    "name": "Mathias, West Virginia",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Mathias",
+      "addressRegion": "West Virginia"
+    }
   },
   "offers": {
     "@type": "Offer",

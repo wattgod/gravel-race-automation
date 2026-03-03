@@ -7,7 +7,12 @@
   "startDate": "2026-07-12",
   "location": {
     "@type": "Place",
-    "name": "Cedar Springs, Michigan"
+    "name": "Cedar Springs, Michigan",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Cedar Springs",
+      "addressRegion": "Michigan"
+    }
   },
   "offers": {
     "@type": "Offer",

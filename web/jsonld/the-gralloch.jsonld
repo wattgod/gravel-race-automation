@@ -6,7 +6,12 @@
   "sport": "Gravel Cycling",
   "location": {
     "@type": "Place",
-    "name": "Scottish Highlands, Scotland"
+    "name": "Scottish Highlands, Scotland",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Scottish Highlands",
+      "addressRegion": "Scotland"
+    }
   },
   "offers": {
     "@type": "Offer",

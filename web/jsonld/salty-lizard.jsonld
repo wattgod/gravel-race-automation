@@ -7,7 +7,12 @@
   "startDate": "2026-04-04",
   "location": {
     "@type": "Place",
-    "name": "Wendover, UT"
+    "name": "Wendover, UT",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Wendover",
+      "addressRegion": "UT"
+    }
   },
   "offers": {
     "@type": "Offer",

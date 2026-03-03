@@ -7,7 +7,12 @@
   "startDate": "2026-06-20",
   "location": {
     "@type": "Place",
-    "name": "Sabinanigo, Huesca, Spain"
+    "name": "Sabinanigo, Huesca, Spain",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Sabinanigo",
+      "addressRegion": "Huesca"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

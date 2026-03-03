@@ -7,7 +7,12 @@
   "startDate": "2026-05-09",
   "location": {
     "@type": "Place",
-    "name": "Clearfield County, Pennsylvania"
+    "name": "Clearfield County, Pennsylvania",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Clearfield County",
+      "addressRegion": "Pennsylvania"
+    }
   },
   "offers": {
     "@type": "Offer",

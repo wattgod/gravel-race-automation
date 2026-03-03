@@ -7,7 +7,12 @@
   "startDate": "2025-03-22",
   "location": {
     "@type": "Place",
-    "name": "Thomasville, GA"
+    "name": "Thomasville, GA",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Thomasville",
+      "addressRegion": "GA"
+    }
   },
   "offers": {
     "@type": "Offer",

@@ -7,7 +7,12 @@
   "startDate": "2026-05-09",
   "location": {
     "@type": "Place",
-    "name": "Trinidad, CO"
+    "name": "Trinidad, CO",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Trinidad",
+      "addressRegion": "CO"
+    }
   },
   "offers": {
     "@type": "Offer",

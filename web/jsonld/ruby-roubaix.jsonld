@@ -7,7 +7,12 @@
   "startDate": "2026-06-27",
   "location": {
     "@type": "Place",
-    "name": "Lamoille, Nevada"
+    "name": "Lamoille, Nevada",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Lamoille",
+      "addressRegion": "Nevada"
+    }
   },
   "offers": {
     "@type": "Offer",

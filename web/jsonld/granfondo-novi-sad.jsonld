@@ -6,7 +6,12 @@
   "sport": "Gravel Cycling",
   "location": {
     "@type": "Place",
-    "name": "Novi Sad, Serbia"
+    "name": "Novi Sad, Serbia",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Novi Sad",
+      "addressRegion": "Serbia"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

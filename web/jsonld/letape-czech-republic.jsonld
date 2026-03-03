@@ -7,7 +7,12 @@
   "startDate": "2026-06-20",
   "location": {
     "@type": "Place",
-    "name": "Prague and Central Bohemia Region, Czech Republic"
+    "name": "Prague and Central Bohemia Region, Czech Republic",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Prague and Central Bohemia Region",
+      "addressRegion": "Czech Republic"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

@@ -7,7 +7,12 @@
   "startDate": "2026-09-27",
   "location": {
     "@type": "Place",
-    "name": "Valdobbiadene, Veneto, Italy"
+    "name": "Valdobbiadene, Veneto, Italy",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Valdobbiadene",
+      "addressRegion": "Veneto"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

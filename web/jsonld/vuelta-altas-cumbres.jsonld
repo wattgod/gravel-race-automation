@@ -7,7 +7,12 @@
   "startDate": "2026-03-29",
   "location": {
     "@type": "Place",
-    "name": "C\u00f3rdoba, Argentina"
+    "name": "C\u00f3rdoba, Argentina",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "C\u00f3rdoba",
+      "addressRegion": "Argentina"
+    }
   },
   "offers": {
     "@type": "Offer",

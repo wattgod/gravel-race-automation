@@ -7,7 +7,12 @@
   "startDate": "2026-05-17",
   "location": {
     "@type": "Place",
-    "name": "Fort Lee, New Jersey / Hudson Valley, New York, USA"
+    "name": "Fort Lee, New Jersey / Hudson Valley, New York, USA",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Fort Lee",
+      "addressRegion": "New Jersey / Hudson Valley"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

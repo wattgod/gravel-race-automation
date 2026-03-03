@@ -7,7 +7,12 @@
   "startDate": "2026-09-20",
   "location": {
     "@type": "Place",
-    "name": "Cumberland, VA"
+    "name": "Cumberland, VA",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Cumberland",
+      "addressRegion": "VA"
+    }
   },
   "offers": {
     "@type": "Offer",

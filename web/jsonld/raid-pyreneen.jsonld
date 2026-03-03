@@ -7,7 +7,12 @@
   "startDate": "2026-06-01",
   "location": {
     "@type": "Place",
-    "name": "Hendaye (Atlantic) to Cerbere (Mediterranean), France"
+    "name": "Hendaye (Atlantic) to Cerbere (Mediterranean), France",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Hendaye (Atlantic) to Cerbere (Mediterranean)",
+      "addressRegion": "France"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

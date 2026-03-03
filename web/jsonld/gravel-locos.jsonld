@@ -7,7 +7,12 @@
   "startDate": "2026-05-23",
   "location": {
     "@type": "Place",
-    "name": "Hico, Texas"
+    "name": "Hico, Texas",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Hico",
+      "addressRegion": "Texas"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

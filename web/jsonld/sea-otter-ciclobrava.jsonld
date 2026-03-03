@@ -7,7 +7,12 @@
   "startDate": "2026-09-20",
   "location": {
     "@type": "Place",
-    "name": "Girona, Costa Brava, Spain"
+    "name": "Girona, Costa Brava, Spain",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Girona",
+      "addressRegion": "Costa Brava"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

@@ -6,7 +6,12 @@
   "sport": "Gravel Cycling",
   "location": {
     "@type": "Place",
-    "name": "Missoula, Montana"
+    "name": "Missoula, Montana",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Missoula",
+      "addressRegion": "Montana"
+    }
   },
   "offers": {
     "@type": "Offer",

@@ -7,7 +7,12 @@
   "startDate": "2026-04-26",
   "location": {
     "@type": "Place",
-    "name": "Burke, Vermont"
+    "name": "Burke, Vermont",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Burke",
+      "addressRegion": "Vermont"
+    }
   },
   "offers": {
     "@type": "Offer",

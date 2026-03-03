@@ -7,7 +7,12 @@
   "startDate": "2026-10-03",
   "location": {
     "@type": "Place",
-    "name": "Gaiole in Chianti, Tuscany, Italy"
+    "name": "Gaiole in Chianti, Tuscany, Italy",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Gaiole in Chianti",
+      "addressRegion": "Tuscany"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

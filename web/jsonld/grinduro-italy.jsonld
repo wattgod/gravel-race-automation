@@ -7,7 +7,12 @@
   "startDate": "2026-09-26",
   "location": {
     "@type": "Place",
-    "name": "Finale Ligure, Italy"
+    "name": "Finale Ligure, Italy",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Finale Ligure",
+      "addressRegion": "Italy"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

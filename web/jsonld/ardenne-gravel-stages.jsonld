@@ -7,7 +7,12 @@
   "startDate": "2026-09-25",
   "location": {
     "@type": "Place",
-    "name": "Vielsalm/Engreux, Belgian Ardennes"
+    "name": "Vielsalm/Engreux, Belgian Ardennes",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Vielsalm/Engreux",
+      "addressRegion": "Belgian Ardennes"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

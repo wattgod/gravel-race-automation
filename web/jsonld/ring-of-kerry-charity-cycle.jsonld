@@ -7,7 +7,12 @@
   "startDate": "2026-07-04",
   "location": {
     "@type": "Place",
-    "name": "Killarney, County Kerry, Ireland"
+    "name": "Killarney, County Kerry, Ireland",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Killarney",
+      "addressRegion": "County Kerry"
+    }
   },
   "offers": {
     "@type": "Offer",

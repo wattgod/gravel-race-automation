@@ -7,7 +7,12 @@
   "startDate": "2026-11-07",
   "location": {
     "@type": "Place",
-    "name": "Kalkaska, Michigan"
+    "name": "Kalkaska, Michigan",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Kalkaska",
+      "addressRegion": "Michigan"
+    }
   },
   "offers": {
     "@type": "Offer",

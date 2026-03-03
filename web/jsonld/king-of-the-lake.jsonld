@@ -7,7 +7,12 @@
   "startDate": "2026-09-26",
   "location": {
     "@type": "Place",
-    "name": "Lake Constance, Germany"
+    "name": "Lake Constance, Germany",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Lake Constance",
+      "addressRegion": "Germany"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

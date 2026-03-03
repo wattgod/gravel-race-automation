@@ -7,7 +7,12 @@
   "startDate": "2026-05-15",
   "location": {
     "@type": "Place",
-    "name": "Tenterfield, New South Wales, Australia"
+    "name": "Tenterfield, New South Wales, Australia",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Tenterfield",
+      "addressRegion": "New South Wales"
+    }
   },
   "offers": {
     "@type": "Offer",

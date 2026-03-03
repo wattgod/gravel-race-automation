@@ -7,7 +7,12 @@
   "startDate": "2026-08-15",
   "location": {
     "@type": "Place",
-    "name": "Charlotte, Michigan"
+    "name": "Charlotte, Michigan",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Charlotte",
+      "addressRegion": "Michigan"
+    }
   },
   "offers": {
     "@type": "Offer",

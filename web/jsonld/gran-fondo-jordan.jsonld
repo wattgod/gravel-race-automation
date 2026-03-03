@@ -7,7 +7,12 @@
   "startDate": "2026-01-30",
   "location": {
     "@type": "Place",
-    "name": "Dead Sea, Jordan"
+    "name": "Dead Sea, Jordan",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Dead Sea",
+      "addressRegion": "Jordan"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

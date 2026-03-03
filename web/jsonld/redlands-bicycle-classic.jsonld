@@ -7,7 +7,12 @@
   "startDate": "2026-04-11",
   "location": {
     "@type": "Place",
-    "name": "Redlands, San Bernardino County, California, USA"
+    "name": "Redlands, San Bernardino County, California, USA",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Redlands",
+      "addressRegion": "San Bernardino County"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

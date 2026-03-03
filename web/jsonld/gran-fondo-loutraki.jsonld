@@ -1,0 +1,29 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "UCI Gran Fondo Loutraki",
+  "description": "Greece's inaugural UCI Gran Fondo qualifier combining Mediterranean coastal riding with mountain climbing on the Isthmus of Corinth",
+  "sport": "Gravel Cycling",
+  "location": {
+    "@type": "Place",
+    "name": "Loutraki, Isthmus of Corinth, Greece",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Loutraki",
+      "addressRegion": "Isthmus of Corinth"
+    }
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "69",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://kyvernitis.gr/sports-and-events/uci-gran-fondo-greece/",
+  "organizer": {
+    "@type": "Person",
+    "name": "Municipality of Loutraki in collaboration with KYVERNITIS Travel, with technical support from the Hellenic Cycling Federation (EOP)",
+    "url": "https://kyvernitis.gr/sports-and-events/uci-gran-fondo-greece/"
+  }
+}

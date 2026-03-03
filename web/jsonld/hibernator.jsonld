@@ -7,7 +7,12 @@
   "startDate": "2025-10-04",
   "location": {
     "@type": "Place",
-    "name": "Laona, Wisconsin"
+    "name": "Laona, Wisconsin",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Laona",
+      "addressRegion": "Wisconsin"
+    }
   },
   "offers": {
     "@type": "Offer",

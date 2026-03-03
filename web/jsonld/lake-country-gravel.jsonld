@@ -7,7 +7,12 @@
   "startDate": "2026-07-25",
   "location": {
     "@type": "Place",
-    "name": "Oconomowoc, Wisconsin"
+    "name": "Oconomowoc, Wisconsin",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Oconomowoc",
+      "addressRegion": "Wisconsin"
+    }
   },
   "offers": {
     "@type": "Offer",

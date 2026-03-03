@@ -7,7 +7,11 @@
   "startDate": "2026-04-24",
   "location": {
     "@type": "Place",
-    "name": "Tennessee"
+    "name": "Tennessee",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Tennessee"
+    }
   },
   "offers": {
     "@type": "Offer",

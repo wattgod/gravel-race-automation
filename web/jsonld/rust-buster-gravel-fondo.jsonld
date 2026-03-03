@@ -7,7 +7,12 @@
   "startDate": "2025-04-05",
   "location": {
     "@type": "Place",
-    "name": "Memphis, TN"
+    "name": "Memphis, TN",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Memphis",
+      "addressRegion": "TN"
+    }
   },
   "offers": {
     "@type": "Offer",

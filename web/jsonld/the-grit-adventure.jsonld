@@ -7,7 +7,12 @@
   "startDate": "2026-07-18",
   "location": {
     "@type": "Place",
-    "name": "Snoqualmie Pass, WA"
+    "name": "Snoqualmie Pass, WA",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Snoqualmie Pass",
+      "addressRegion": "WA"
+    }
   },
   "offers": {
     "@type": "Offer",

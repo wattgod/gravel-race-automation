@@ -7,7 +7,12 @@
   "startDate": "2026-03-21",
   "location": {
     "@type": "Place",
-    "name": "Warda, Texas"
+    "name": "Warda, Texas",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Warda",
+      "addressRegion": "Texas"
+    }
   },
   "offers": {
     "@type": "Offer",

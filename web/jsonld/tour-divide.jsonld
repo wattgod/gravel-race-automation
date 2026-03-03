@@ -7,7 +7,12 @@
   "startDate": "2026-06-12",
   "location": {
     "@type": "Place",
-    "name": "Banff, Alberta to Antelope Wells, New Mexico"
+    "name": "Banff, Alberta to Antelope Wells, New Mexico",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Banff",
+      "addressRegion": "Alberta to Antelope Wells"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

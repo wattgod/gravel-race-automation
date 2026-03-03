@@ -7,7 +7,12 @@
   "startDate": "2026-04-12",
   "location": {
     "@type": "Place",
-    "name": "Andenne, Belgium"
+    "name": "Andenne, Belgium",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Andenne",
+      "addressRegion": "Belgium"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

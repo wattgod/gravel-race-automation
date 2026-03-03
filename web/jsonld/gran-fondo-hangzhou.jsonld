@@ -7,7 +7,12 @@
   "startDate": "2026-05-23",
   "location": {
     "@type": "Place",
-    "name": "Qiandao Lake, Chun\u2019an County, Hangzhou, Zhejiang Province, China"
+    "name": "Qiandao Lake, Chun\u2019an County, Hangzhou, Zhejiang Province, China",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Qiandao Lake",
+      "addressRegion": "Chun\u2019an County"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

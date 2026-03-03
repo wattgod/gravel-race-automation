@@ -6,7 +6,12 @@
   "sport": "Gravel Cycling",
   "location": {
     "@type": "Place",
-    "name": "Bremen, Germany"
+    "name": "Bremen, Germany",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Bremen",
+      "addressRegion": "Germany"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

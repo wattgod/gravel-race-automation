@@ -6,7 +6,12 @@
   "sport": "Gravel Cycling",
   "location": {
     "@type": "Place",
-    "name": "Emporia, Kansas (same roads as Unbound Gravel)"
+    "name": "Emporia, Kansas (same roads as Unbound Gravel)",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Emporia",
+      "addressRegion": "Kansas (same roads as Unbound Gravel)"
+    }
   },
   "offers": {
     "@type": "Offer",

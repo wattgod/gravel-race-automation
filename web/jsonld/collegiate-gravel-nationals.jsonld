@@ -6,7 +6,12 @@
   "sport": "Gravel Cycling",
   "location": {
     "@type": "Place",
-    "name": "Turkey, Texas"
+    "name": "Turkey, Texas",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Turkey",
+      "addressRegion": "Texas"
+    }
   },
   "offers": {
     "@type": "Offer",

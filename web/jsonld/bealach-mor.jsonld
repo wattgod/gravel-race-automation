@@ -1,0 +1,29 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Bealach M\u00f3r (The B\u00e0 Sportive)",
+  "description": "Holy Grail of UK cycling climbs: closed-road assault on Bealach na B\u00e0.",
+  "sport": "Gravel Cycling",
+  "location": {
+    "@type": "Place",
+    "name": "Shieldaig, Applecross Peninsula, Scottish Highlands, Scotland",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Shieldaig",
+      "addressRegion": "Applecross Peninsula"
+    }
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "76",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://www.sientries.co.uk/event.php?elid=Y&event_id=14569",
+  "organizer": {
+    "@type": "Person",
+    "name": "Hands On Events / Jenny Graham (current)",
+    "url": "https://www.sientries.co.uk/event.php?elid=Y&event_id=14569"
+  }
+}

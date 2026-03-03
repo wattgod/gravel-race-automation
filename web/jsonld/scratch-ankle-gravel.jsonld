@@ -7,7 +7,12 @@
   "startDate": "2026-03-21",
   "location": {
     "@type": "Place",
-    "name": "Milton, FL"
+    "name": "Milton, FL",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Milton",
+      "addressRegion": "FL"
+    }
   },
   "offers": {
     "@type": "Offer",

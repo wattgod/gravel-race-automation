@@ -7,7 +7,12 @@
   "startDate": "2026-06-19",
   "location": {
     "@type": "Place",
-    "name": "Br\u00e4nnland Inn near Ume\u00e5, Sweden to Scandic Plaza hotel in Ume\u00e5 (loop into Norway to Mo i Rana and Norwegian Sea fjords)"
+    "name": "Br\u00e4nnland Inn near Ume\u00e5, Sweden to Scandic Plaza hotel in Ume\u00e5 (loop into Norway to Mo i Rana and Norwegian Sea fjords)",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Br\u00e4nnland Inn near Ume\u00e5",
+      "addressRegion": "Sweden to Scandic Plaza hotel in Ume\u00e5 (loop into Norway to Mo i Rana and Norwegian Sea fjords)"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

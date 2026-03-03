@@ -7,7 +7,12 @@
   "startDate": "2026-06-20",
   "location": {
     "@type": "Place",
-    "name": "Gypsum, Colorado"
+    "name": "Gypsum, Colorado",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Gypsum",
+      "addressRegion": "Colorado"
+    }
   },
   "offers": {
     "@type": "Offer",

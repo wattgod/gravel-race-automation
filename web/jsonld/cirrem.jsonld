@@ -7,7 +7,12 @@
   "startDate": "2026-02-28",
   "location": {
     "@type": "Place",
-    "name": "Roubaix, Illinois"
+    "name": "Roubaix, Illinois",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Roubaix",
+      "addressRegion": "Illinois"
+    }
   },
   "offers": {
     "@type": "Offer",

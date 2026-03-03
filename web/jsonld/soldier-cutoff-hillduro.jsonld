@@ -7,7 +7,12 @@
   "startDate": "2026-09-19",
   "location": {
     "@type": "Place",
-    "name": "Pisgah, Iowa"
+    "name": "Pisgah, Iowa",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Pisgah",
+      "addressRegion": "Iowa"
+    }
   },
   "offers": {
     "@type": "Offer",

@@ -7,7 +7,12 @@
   "startDate": "2026-10-03",
   "location": {
     "@type": "Place",
-    "name": "Varese, Lombardy, Italy"
+    "name": "Varese, Lombardy, Italy",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Varese",
+      "addressRegion": "Lombardy"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

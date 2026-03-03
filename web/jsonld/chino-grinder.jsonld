@@ -7,7 +7,12 @@
   "startDate": "2026-10-17",
   "location": {
     "@type": "Place",
-    "name": "Chino Valley, Arizona"
+    "name": "Chino Valley, Arizona",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Chino Valley",
+      "addressRegion": "Arizona"
+    }
   },
   "offers": {
     "@type": "Offer",

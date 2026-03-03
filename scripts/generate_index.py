@@ -357,10 +357,21 @@ def generate_jsonld(entry: dict, profile_data: dict = None) -> dict:
         jsonld["startDate"] = iso_date
 
     if entry.get("location"):
-        jsonld["location"] = {
-            "@type": "Place",
-            "name": entry["location"],
-        }
+        loc = entry["location"]
+        parts = [p.strip() for p in loc.split(",")]
+        place = {"@type": "Place", "name": loc}
+        if len(parts) >= 2:
+            place["address"] = {
+                "@type": "PostalAddress",
+                "addressLocality": parts[0],
+                "addressRegion": parts[1] if len(parts) > 2 else parts[-1],
+            }
+        else:
+            place["address"] = {
+                "@type": "PostalAddress",
+                "addressLocality": parts[0],
+            }
+        jsonld["location"] = place
 
     if price:
         jsonld["offers"] = {

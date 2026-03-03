@@ -7,7 +7,12 @@
   "startDate": "2026-06-07",
   "location": {
     "@type": "Place",
-    "name": "Milan to Sanremo, Liguria, Italy"
+    "name": "Milan to Sanremo, Liguria, Italy",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Milan to Sanremo",
+      "addressRegion": "Liguria"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

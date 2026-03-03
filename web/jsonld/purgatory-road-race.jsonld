@@ -6,7 +6,12 @@
   "sport": "Gravel Cycling",
   "location": {
     "@type": "Place",
-    "name": "Fredericksburg, Texas"
+    "name": "Fredericksburg, Texas",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Fredericksburg",
+      "addressRegion": "Texas"
+    }
   },
   "offers": {
     "@type": "Offer",

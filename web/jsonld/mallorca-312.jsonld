@@ -7,7 +7,12 @@
   "startDate": "2026-04-25",
   "location": {
     "@type": "Place",
-    "name": "Playa de Muro, Mallorca, Spain"
+    "name": "Playa de Muro, Mallorca, Spain",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Playa de Muro",
+      "addressRegion": "Mallorca"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",

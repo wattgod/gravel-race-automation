@@ -1,0 +1,246 @@
+{
+  "race": {
+    "name": "Tour of Georgia Gran Fondo",
+    "slug": "tour-of-georgia-gran-fondo",
+    "display_name": "Tour of Georgia Gran Fondo",
+    "tagline": "Challenging timed-segment Gran Fondo through North Georgia Mountains",
+    "vitals": {
+      "date": "2026: April 19",
+      "discipline": "road",
+      "prestige": 3,
+      "location": "Helen, Georgia",
+      "start_finish": "Parking lot in front of La Cabaña Mexican Restaurant, 707 Edelweiss Strasse, Helen, GA 30545",
+      "routes": [
+        {
+          "name": "Gran",
+          "distance_mi": 90,
+          "distance_km": 145,
+          "elevation_ft": 9000,
+          "timed_segments": 4
+        },
+        {
+          "name": "Medio",
+          "distance_mi": 66,
+          "distance_km": 106,
+          "elevation_ft": 6900,
+          "timed_segments": 3
+        },
+        {
+          "name": "Piccolo",
+          "distance_mi": 25,
+          "distance_km": 40,
+          "elevation_ft": 1700,
+          "timed_segments": 1
+        }
+      ],
+      "format": "Timed-segment racing (placement by combined segment times, not overall)",
+      "start_times": {
+        "gran_medio": "8:00 AM (stage by 7:45 AM)",
+        "piccolo": "10:00 AM (stage by 9:50 AM)"
+      },
+      "aid_stations": {
+        "gran": 4,
+        "medio": 3,
+        "piccolo": 1
+      },
+      "elevation_ft": 10000,
+      "date_specific": "2026: April 19",
+      "slug": "tour-of-georgia-gran-fondo",
+      "distance_mi": 102
+    },
+    "climate": {
+      "overview": "Spring in North Georgia Mountains; mild temperatures with potential for variable weather including rain.",
+      "average_temp_f": "55-70",
+      "precipitation_chance": "30-50%"
+    },
+    "terrain": {
+      "overview": "Steep climbs, quiet country roads, scenic views, thrilling descents through National Forest lands and mountain gaps.",
+      "surface_breakdown": {
+        "paved": 100,
+        "gravel": 0
+      }
+    },
+    "gravel_god_rating": {
+      "logistics": 4,
+      "length": 5,
+      "technicality": 2,
+      "elevation": 5,
+      "climate": 3,
+      "altitude": 2,
+      "adventure": 5,
+      "prestige": 3,
+      "race_quality": 4,
+      "experience": 5,
+      "community": 4,
+      "field_depth": 3,
+      "value": 4,
+      "expenses": 3,
+      "cultural_impact": 2,
+      "overall_score": 77,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "editorial_tier_label": "TIER 2",
+      "business_tier_label": "TIER 2",
+      "display_tier_label": "TIER 2",
+      "editorial_tier": 2,
+      "business_tier": 2,
+      "display_tier": 2,
+      "discipline": "road",
+      "score_note": "Sum of 14 criteria: 4+5+2+5+3+2+5+3+4+5+4+3+4+3 = 52. cultural_impact = 2. Total = 54. (54/70)*100 = 77."
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 4,
+        "explanation": "Well-supported with aid, sag, motos; clear parking and staging in charming Helen."
+      },
+      "length": {
+        "score": 5,
+        "explanation": "Gran offers epic 90mi/9k ft; options for all levels."
+      },
+      "technicality": {
+        "score": 2,
+        "explanation": "Road riding; no gravel or tech features."
+      },
+      "elevation": {
+        "score": 5,
+        "explanation": "Brutal 9,000ft on Gran; serious climber's test."
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "Spring GA mountains: pleasant but wet risk."
+      },
+      "altitude": {
+        "score": 2,
+        "explanation": "Low elevation; no high-altitude suffering."
+      },
+      "adventure": {
+        "score": 5,
+        "explanation": "Remote Appalachian roads, gaps, forest views."
+      },
+      "prestige": {
+        "score": 3,
+        "explanation": "GFNS series event; solid but not elite pro."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "Timed segments, awards, jerseys; pro organization."
+      },
+      "experience": {
+        "score": 5,
+        "explanation": "Bavarian village vibe, swag, raffle, podiums."
+      },
+      "community": {
+        "score": 4,
+        "explanation": "Age groups, teams, series camaraderie."
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "Competitive categories but amateur-focused."
+      },
+      "value": {
+        "score": 4,
+        "explanation": "$160-200 entry includes jersey, support, prizes."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Reasonable entry; travel to remote GA adds cost."
+      },
+      "cultural_impact": {
+        "score": 2,
+        "explanation": "Regional GFNS stop; growing US gran fondo scene."
+      }
+    },
+    "biased_opinion": {
+      "overview": "A gravel god's road detour: savage climbs and series polish make the Gran a bucket-list sufferfest, even without dirt."
+    },
+    "final_verdict": {
+      "one_liner": "Elite climbing gran fondo in alpine Georgia—pure vertical pain with Bavarian charm.",
+      "full_verdict": "Top-tier GFNS event with massive elevation, timed KOMs, full support, and series perks. Gran route crushes souls over big gaps; perfect for roadies chasing suffering and swag."
+    },
+    "logistics": {
+      "overview": "Staged mass start from Helen parking lot; mandatory bib/plate/chip; 10mph progression cutoff; app for results/GPS.",
+      "official_site": "https://www.granfondonationalseries.com/gran-fondo-georgia",
+      "airports": [
+        "ATL (Atlanta, ~120mi)",
+        "GSP (Greenville-Spartanburg, ~100mi)"
+      ],
+      "accommodation": "Hotels in Bavarian-themed Helen; book early for event weekend.",
+      "registration_notes": "$160 Gran/Medio until Jan 8 2026, up to $200 on-site; includes event jersey if early."
+    },
+    "history": {
+      "overview": "Part of Gran Fondo National Series (est. 2012); Stop 2; no specific event founding year found.",
+      "founder": "Gran Fondo National Series",
+      "notable_moments": [
+        "Picks for best Southeast road events",
+        "Custom Suarez kits for Gran age winners",
+        "USA Cycling-sanctioned series championships"
+      ]
+    },
+    "course_description": {
+      "character": "Crisscrosses Appalachian Trail through North Georgia Mountains: steep climbs, secluded roads, National Forest, mountain gaps.",
+      "suffering_zones": [
+        {
+          "label": "Glassy Mountain",
+          "description": ""
+        },
+        {
+          "label": "Unicoi Gap",
+          "description": ""
+        },
+        {
+          "label": "Hog Pen Gap",
+          "description": ""
+        },
+        {
+          "label": "Cigarette Hills",
+          "description": ""
+        }
+      ],
+      "signature_challenge": "9,000ft Gran with 4 timed climbs over brutal gaps",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "cutoff": "10mph progression (includes stops); no exceptions on Gran/Medio"
+    },
+    "non_negotiables": [
+      "Bib on jersey back",
+      "Bike plate on handlebar/headtube",
+      "Timing chip on ankle",
+      "Cross official start line",
+      "Right side of road for segments"
+    ],
+    "citations": [
+      {
+        "url": "https://www.granfondonationalseries.com/gran-fondo-georgia",
+        "title": "Tour of Georgia Gran Fondo 2026",
+        "accessed": "2026-03-03"
+      },
+      {
+        "url": "https://strambecco.com/event/tour-of-georgia-gran-fondo/",
+        "title": "Tour of Georgia Gran Fondo 2026 - Rated",
+        "accessed": "2026-03-03"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Contents/Index/1375/reviving-the-tour-of-georgia",
+        "title": "Reviving the Tour of Georgia - Gran Fondo Guide",
+        "accessed": "2026-03-03"
+      },
+      {
+        "url": "https://www.granfondonationalseries.com",
+        "title": "Gran Fondo National Series",
+        "accessed": "2026-03-03"
+      },
+      {
+        "url": "https://usacycling.org/national-series/gran-fondo-national-series",
+        "title": "Gran Fondo National Series",
+        "accessed": "2026-03-03"
+      }
+    ],
+    "research_metadata": {
+      "field_size": "Not specified",
+      "gps_coordinates": "Not provided",
+      "year_founded": "Series est. 2012; event-specific unknown"
+    }
+  }
+}

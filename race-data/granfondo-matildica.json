@@ -1,0 +1,214 @@
+{
+  "race": {
+    "name": "Granfondo Matildica",
+    "slug": "granfondo-matildica",
+    "display_name": "Granfondo Matildica",
+    "tagline": "Italy's oldest gran fondo, UCI Gran Fondo World Series qualifier through the Emilia-Romagna Apennines",
+    "vitals": {
+      "date": "2025: August 31",
+      "discipline": "road",
+      "prestige": 3,
+      "distance_options": [
+        {
+          "name": "Gran fondo",
+          "distance_km": 153,
+          "elevation_m": 2150
+        },
+        {
+          "name": "Medio fondo",
+          "distance_km": 126,
+          "elevation_m": 1450
+        }
+      ],
+      "location": "Reggio Emilia, Emilia-Romagna, Italy",
+      "gps_coordinates": "44.6980, 10.6313",
+      "registration_cost": "€55 until August 29, 2025",
+      "elevation_ft": 7054,
+      "date_specific": "2025: August 31",
+      "slug": "granfondo-matildica",
+      "distance_mi": 95.1
+    },
+    "climate": {
+      "overview": "Late August in Reggio Emilia features mild Mediterranean weather with daytime highs around 28-30°C (82-86°F) and possible afternoon showers.",
+      "average_temp_f": 84,
+      "precipitation_chance": "Moderate"
+    },
+    "terrain": {
+      "overview": "Hilly roads through Emilia-Romagna Apennines with rolling ups and downs.",
+      "surface_breakdown": {
+        "paved": 100
+      }
+    },
+    "gravel_god_rating": {
+      "logistics": 4,
+      "length": 5,
+      "technicality": 2,
+      "elevation": 4,
+      "climate": 4,
+      "altitude": 2,
+      "adventure": 3,
+      "prestige": 3,
+      "race_quality": 4,
+      "experience": 4,
+      "community": 4,
+      "field_depth": 3,
+      "value": 5,
+      "expenses": 4,
+      "cultural_impact": 3,
+      "overall_score": 77,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "editorial_tier_label": "TIER 2",
+      "business_tier_label": "TIER 2",
+      "display_tier_label": "TIER 2",
+      "editorial_tier": 2,
+      "business_tier": 2,
+      "display_tier": 2,
+      "discipline": "road",
+      "score_note": "Sum of 14 criteria: 4+5+2+4+4+2+3+3+4+4+4+3+5+4 = 51. cultural_impact = 3. Total = 54. (54/70)*100 = 77."
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 4,
+        "explanation": "Accessible from nearby airports, comprehensive on-site services, affordable registration."
+      },
+      "length": {
+        "score": 5,
+        "explanation": "Classic gran fondo distances ideal for qualifiers."
+      },
+      "technicality": {
+        "score": 2,
+        "explanation": "Road event with steady climbs, low technical demands."
+      },
+      "elevation": {
+        "score": 4,
+        "explanation": "Substantial 2150m gain challenges without extremes."
+      },
+      "climate": {
+        "score": 4,
+        "explanation": "Warm summer riding with low severe weather risk."
+      },
+      "altitude": {
+        "score": 2,
+        "explanation": "Lowland start, Apennine foothills only."
+      },
+      "adventure": {
+        "score": 3,
+        "explanation": "Historic Italian routes, but paved and supported."
+      },
+      "prestige": {
+        "score": 3,
+        "explanation": "UCI qualifier status with long tradition."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "Full support, UCI-sanctioned organization."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "Post-race massages, refreshments, recovery services."
+      },
+      "community": {
+        "score": 4,
+        "explanation": "Strong local cycling culture in Emilia-Romagna."
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "Age-group qualifiers attract competitive amateurs."
+      },
+      "value": {
+        "score": 5,
+        "explanation": "€55 entry for UCI qualifier is exceptional."
+      },
+      "expenses": {
+        "score": 4,
+        "explanation": "Low cost relative to services provided."
+      },
+      "cultural_impact": {
+        "score": 3,
+        "explanation": "Oldest Italian gran fondo, regional heritage."
+      }
+    },
+    "biased_opinion": {
+      "overview": "A storied classic with unbeatable value as a UCI qualifier, perfect for age-group racers seeking qualifiers without breaking the bank. Steady Apennine climbs deliver suffering in a well-supported package amid Italy's cycling heartland."
+    },
+    "final_verdict": {
+      "one_liner": "Essential UCI qualifier for road enthusiasts: historic, hilly, and a steal at €55.",
+      "full_verdict": "Granfondo Matildica stands out as Italy's oldest gran fondo, offering legitimate UCI World Series qualification split smartly by age (gran fondo 19-49, medio 50+). The 153km/2150m route through Apennine terrain tests endurance with key climbs like a 4km at 5.5% and 11km at 3.5%, fully supported by aid, mechanics, medical, and recovery. Reggio Emilia's hospitality, bike parking, gifts, and post-race perks elevate the experience. Ideal for qualifiers prioritizing value and tradition over spectacle."
+    },
+    "logistics": {
+      "overview": "Start/finish at Corso Garibaldi, Reggio Emilia. Organized by A.S.D. Cooperatori (granfondo@cooperatori.it, +39 333 6918411). Full services including bike parking, mechanical/medical aid, refreshments, massages, abandonment recovery.",
+      "official_site": "https://www.granfondomatildica.it",
+      "airports": [
+        "Parma (PMF, ~50km)",
+        "Bologna (BLQ, ~90km)",
+        "Milan Linate (LIN, ~150km)"
+      ],
+      "accommodation": "Plentiful in historic Reggio Emilia with piazzas, cultural sites, and food/wine.",
+      "registration_notes": "€55 until Aug 29, 2025; updated routes/regulations on site."
+    },
+    "history": {
+      "overview": "Founded 1973 (53rd edition 2025), Italy's oldest gran fondo. Consistent UCI Gran Fondo World Series qualifier; hosted UEC European Championships Granfondo in 2022.",
+      "founder": "A.S.D. Cooperatori",
+      "notable_moments": [
+        "53rd edition as UCI qualifier",
+        "UEC European Championships host 2022"
+      ]
+    },
+    "course_description": {
+      "character": "Hilly Apennine roads with rolling terrain, shared bulk between distances; gran fondo adds loops including 4km climb at 5.5% (km53) and 11km at 3.5% (km60+).",
+      "suffering_zones": [
+        {
+          "label": "4km climb @5.5% after 53km",
+          "description": ""
+        },
+        {
+          "label": "11km climb @3.5% after 60km",
+          "description": ""
+        },
+        {
+          "label": "Repeated up-downs through Apennines",
+          "description": ""
+        }
+      ],
+      "signature_challenge": "Long false-flat climb after initial steeper ascent, building cumulative fatigue.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "field_size": "Unknown",
+      "year_founded": 1973
+    },
+    "non_negotiables": [
+      "UCI Gran Fondo World Series qualifier",
+      "Comprehensive race-day support",
+      "Affordable entry for high-quality event"
+    ],
+    "citations": [
+      {
+        "url": "https://ucigranfondoworldseries.com/en/gran-fondo-mathildica-2025/",
+        "title": "Gran Fondo Mathildica 2025",
+        "accessed": "2026-03-03"
+      },
+      {
+        "url": "https://www.granfondomatildica.it/en/",
+        "title": "Granfondo Matildica Official Site",
+        "accessed": "2026-03-03"
+      },
+      {
+        "url": "https://www.travelemiliaromagna.it/en/cycling-events-emilia-romagna/",
+        "title": "Cycling events 2025 in Emilia-Romagna",
+        "accessed": "2026-03-03"
+      }
+    ],
+    "research_metadata": {
+      "sources_analyzed": 8,
+      "data_freshness": "Current as of 2026",
+      "gaps": [
+        "Exact field size",
+        "Detailed GPS track",
+        "Specific weather history"
+      ]
+    }
+  }
+}

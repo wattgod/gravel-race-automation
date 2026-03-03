@@ -1,0 +1,248 @@
+{
+  "race": {
+    "name": "GFNY República Dominicana",
+    "slug": "gfny-dominican-republic",
+    "display_name": "GFNY Dominican Republic",
+    "tagline": "Be a Pro For A Day in Paradise",
+    "vitals": {
+      "location": "Punta Cana, Dominican Republic",
+      "start_finish": "Blue Mall Punta Cana",
+      "date": "March",
+      "courses": [
+        {
+          "name": "Long Course (Competitive)",
+          "distance_km": 149.7,
+          "distance_miles": 92.9,
+          "elevation_m": 962,
+          "elevation_ft": 3156,
+          "competitive": true,
+          "notes": "Only finishers eligible for category rankings and podium awards. Top 10% of finishers in each age group earn qualifier corral spot."
+        },
+        {
+          "name": "Medium Course (Non-Competitive)",
+          "distance_km": 93.8,
+          "distance_miles": 58.3,
+          "elevation_m": 381,
+          "elevation_ft": 1250,
+          "competitive": false,
+          "notes": "Start-to-finish time provided but riders not ranked by finish time. Results listed alphabetically."
+        }
+      ],
+      "field_size": "Not specified",
+      "registration_cost": "Not specified",
+      "website": "https://capcana.gfny.com",
+      "elevation_ft": 3500,
+      "date_specific": "2026: March 15",
+      "slug": "gfny-dominican-republic",
+      "distance_mi": 62
+    },
+    "climate": {
+      "overview": "Warm weather racing in March with tropical conditions. Punta Cana features consistent warm temperatures and Caribbean trade winds that significantly impact the course.",
+      "average_temp_f": "Not specified",
+      "precipitation_chance": "Not specified",
+      "wind_notes": "Trade winds are a major factor. Early course benefits from tailwind (first 10km from east, then tailwind after turning left). Return journey features significant headwinds, particularly in final 20km approaching Punta Cana."
+    },
+    "terrain": {
+      "overview": "Rolling hills with distinct character changes. First 47km relatively flat with rolling hills and favorable wind. Middle section features rural hinterland with rolling hills (4-6 degree grades). Final sections return to main roads with headwind challenges.",
+      "surface_breakdown": {
+        "asphalt": "100%"
+      },
+      "elevation_profile": "Gradual rolling terrain with concentrated elevation in the 30km hinterland loop section. No major climbs; difficulty comes from wind resistance and accumulated rolling hills."
+    },
+    "gravel_god_rating": {
+      "logistics": 4,
+      "length": 4,
+      "technicality": 2,
+      "elevation": 3,
+      "climate": 4,
+      "altitude": 1,
+      "adventure": 4,
+      "prestige": 3,
+      "race_quality": 4,
+      "experience": 4,
+      "community": 4,
+      "field_depth": 3,
+      "value": 3,
+      "expenses": 2,
+      "cultural_impact": 3,
+      "overall_score": 69,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "editorial_tier_label": "TIER 2",
+      "business_tier_label": "TIER 2",
+      "display_tier_label": "TIER 2",
+      "editorial_tier": 2,
+      "business_tier": 2,
+      "display_tier": 2,
+      "discipline": "road",
+      "score_note": "Sum of 14 criteria: 4+4+2+3+4+1+4+3+4+4+4+3+3+2 = 45. cultural_impact = 3. Total = 48. (48/70)*100 = 69."
+    },
+    "biased_opinion_ratings": {
+      "adventure": {
+        "score": 4,
+        "explanation": "Punta Cana offers a tropical cycling experience with Caribbean scenery, lush nature, and opportunities for post-race activities like zip-lining and snorkeling[3][4]."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "The event takes place in a low-altitude coastal region with minimal elevation gain relative to sea level[4]."
+      },
+      "climate": {
+        "score": 4,
+        "explanation": "The Caribbean location provides favorable cycling conditions with consistent trade winds that assist riders on portions of the course[1][4]."
+      },
+      "community": {
+        "score": 4,
+        "explanation": "GFNY is an established international cycling series with organized race week activities, expo events, and a competitive community of endurance cyclists[1][2]."
+      },
+      "elevation": {
+        "score": 3,
+        "explanation": "The courses feature moderate elevation gains of 381m for the medium course and 962m for the long course, with rolling hills rather than steep climbs[1]."
+      },
+      "expenses": {
+        "score": 2,
+        "explanation": "As a destination cycling event in a resort area with travel requirements to Punta Cana, costs for registration, travel, and accommodation are relatively high[4]."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "The event provides a well-organized international cycling experience with closed roads, professional course design, and Caribbean scenery[3][5]."
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "GFNY is a competitive series that attracts serious cyclists, though specific field size and competitive depth data for this edition is limited[2][4]."
+      },
+      "length": {
+        "score": 4,
+        "explanation": "Both course options (94km and 150km) offer substantial distances suitable for endurance cyclists seeking a full-day cycling challenge[1][2]."
+      },
+      "logistics": {
+        "score": 4,
+        "explanation": "The event is professionally organized with a centralized race hub at Blue Mall Punta Cana, on-site registration, and clear course management[1][4]."
+      },
+      "prestige": {
+        "score": 3,
+        "explanation": "GFNY is a recognized international gran fondo series, though the Dominican Republic edition is less prominent than the flagship New York City event[2][4]."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "The event features professionally designed courses with strategic wind conditions, elevation changes, and closed-road racing infrastructure[1][4]."
+      },
+      "technicality": {
+        "score": 2,
+        "explanation": "The courses emphasize endurance over technical skill, with rolling hills and wind management rather than technical descents or complex terrain[1][4]."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "While the event offers quality organization and a unique destination experience, the high travel costs and moderate course difficulty provide moderate overall value[3][4]."
+      }
+    },
+    "biased_opinion": {
+      "overview": "GFNY Dominican Republic is a wind-defined race that rewards tactical patience and mental toughness. The outbound leg's false sense of ease—powered by favorable tailwind through beautiful rural terrain—sets up a humbling return journey. This is not a race to chase early moves; it's a race to conserve energy, read the wind, and unleash in the final 10km when others are suffering. The Caribbean setting elevates the experience beyond pure cycling metrics, and the professional race organization ensures riders feel like legitimate competitors. Best suited for cyclists who enjoy wind strategy and don't mind a challenging finish."
+    },
+    "final_verdict": {
+      "one_liner": "A wind-dependent Caribbean challenge that tests tactical racing and mental resilience in a stunning tropical setting.",
+      "full_verdict": "GFNY Dominican Republic delivers a unique racing experience where wind becomes the primary opponent rather than terrain. The 149.7km long course offers genuine competitive racing with a well-organized international field, while the 93.8km medium course provides an accessible alternative. The race's greatest strength is its strategic depth—the favorable outbound leg tempts aggressive racing, but the brutal headwind return punishes poor pacing decisions. Punta Cana's resort infrastructure, direct international flights, and beautiful Caribbean scenery make this an attractive destination race. However, the relatively modest elevation gain and lack of technical terrain limit its appeal for climbers or technical specialists. The race shines for cyclists seeking a professional racing experience in an exotic location, particularly those who thrive in wind-based tactical racing. Not ideal for first-time gran fondo participants or those seeking a pure climbing challenge, but excellent for experienced riders wanting to test their racing acumen in paradise."
+    },
+    "logistics": {
+      "overview": "Punta Cana is the second most popular tourist destination in Latin America with extensive resort infrastructure. Race week activities centered at Blue Mall Punta Cana, which hosts the expo, pre-race group rides, start/finish line, and post-race activities.",
+      "official_site": "https://capcana.gfny.com",
+      "airports": [
+        {
+          "code": "PUJ",
+          "name": "Punta Cana International Airport",
+          "distance_from_race": "15 minutes",
+          "notes": "Direct flights from 28 countries"
+        }
+      ],
+      "accommodation": "Extensive all-inclusive resort options in Bavaro and Punta Cana area (La Costa del Coco). Wide range of luxury accommodations available.",
+      "registration_notes": "All riders receive official GFNY República Dominicana race jersey (mandatory attire, designed in NYC, made in Italy). Chip timing provided for all athletes. Registration deadline not specified in available sources.",
+      "race_week_schedule": "Pre-race group rides and expo activities held during race week at Blue Mall Punta Cana"
+    },
+    "history": {
+      "overview": "GFNY República Dominicana is part of the GFNY Global Endurance Sports Series, which operates 30+ cycling events worldwide across five continents. The event brings the 'Pro For A Day' concept to the Caribbean.",
+      "founder": "Gran Fondo New York (GFNY)",
+      "notable_moments": [
+        "Part of GFNY's expansion to multiple continents with international peloton from nearly 100 nations",
+        "Established as a competitive and non-competitive racing option with separate course structures"
+      ]
+    },
+    "course_description": {
+      "character": "A wind-dependent Caribbean cycling challenge featuring a deceptively fast outbound leg with favorable tailwind through rural tropical terrain, followed by a punishing headwind return that tests mental toughness and pacing discipline. The course transitions from coastal roads to lush hinterland and back, with the Caribbean Sea and impressive hill backdrops providing scenic contrast.",
+      "suffering_zones": [
+        {
+          "location": "km 67-87 (Long Course Return)",
+          "description": "Headwind section returning to Punta Cana. All favorable wind from outbound leg becomes direct opposition. Riders face 20km of headwind before wind shifts to left side.",
+          "difficulty": "High"
+        },
+        {
+          "location": "km 117-127 (Final Push)",
+          "description": "Last 10km approaching finish. Wind from left side with opportunity to attack, but fatigue and wind resistance create final selection point.",
+          "difficulty": "High"
+        },
+        {
+          "location": "km 47-67 (Medium Course Return)",
+          "description": "For medium course riders, the 47km turnaround means immediate headwind for final 47km to finish. Wind challenge is proportionally harder for shorter distance.",
+          "difficulty": "Medium-High"
+        }
+      ],
+      "signature_challenge": "The wind reversal from outbound to return leg. Riders must exercise extreme restraint during the fast, favorable outbound section (km 0-67) despite the pace feeling easy and the field moving quickly. The return journey's headwind separates those who paced conservatively from those who burned matches early.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "pacing_strategy": "Conservative on outbound leg despite fast pace. The tailwind and rolling terrain create false sense of ease. Save energy for return journey headwind.",
+      "nutrition_timing": "Eat and drink heavily during first 47km when pace allows. Refuel aggressively before km 67 turnaround.",
+      "wind_reading": "Check forecast for wind direction. East wind means right-side wind first 10km, then tailwind after left turn. Plan group positioning accordingly.",
+      "attack_windows": "30km hinterland loop section (km 47-77 on long course) offers best attack opportunities with rolling hills. Final 10km provides dramatic finish potential if legs remain.",
+      "course_difficulty": "Moderate for experienced cyclists. Wind is primary challenge, not terrain. Suitable for riders comfortable with 3-4 hour efforts.",
+      "best_for": "Tactical racers, wind-savvy cyclists, experienced gran fondo participants, riders seeking professional racing experience in exotic location"
+    },
+    "non_negotiables": [
+      "Official GFNY race jersey (mandatory attire)",
+      "Chip timing from start to finish",
+      "Closed roads for entire course",
+      "Professional race organization with expo and pre-race activities",
+      "Separate competitive (long) and non-competitive (medium) course options",
+      "Caribbean tropical setting with beach and resort access"
+    ],
+    "citations": [
+      {
+        "url": "https://gfny.com/gfny-republica-dominicana-course-guide/",
+        "title": "GFNY Republica Dominicana Course Guide",
+        "accessed": "2026-03-03"
+      },
+      {
+        "url": "https://capcana.gfny.com/?lang=en",
+        "title": "GFNY República Dominicana: Home",
+        "accessed": "2026-03-03"
+      },
+      {
+        "url": "https://www.finishers.com/en/event/gfny-dominican-republic",
+        "title": "GFNY Dominican Republic 2026",
+        "accessed": "2026-03-03"
+      },
+      {
+        "url": "https://nyc.gfny.com",
+        "title": "Home - GFNY New York",
+        "accessed": "2026-03-03"
+      },
+      {
+        "url": "https://gfny.com/race-finder/",
+        "title": "Race Finder - GFNY World",
+        "accessed": "2026-03-03"
+      }
+    ],
+    "research_metadata": {
+      "data_completeness": "High for course details and logistics. Moderate for historical context and field size. Low for registration costs and exact founding year.",
+      "information_gaps": [
+        "Exact field size and registration cost",
+        "Year GFNY Dominican Republic was first held",
+        "Average temperatures and precipitation data",
+        "GPS coordinates",
+        "RideWithGPS route ID"
+      ],
+      "sources_consulted": 5,
+      "research_date": "2026-03-03",
+      "confidence_level": "High for course description and logistics. Moderate for historical context."
+    }
+  }
+}

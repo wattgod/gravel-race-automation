@@ -1,0 +1,28 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "L'\u00c9tape Romania",
+  "description": "Experience the Tour de France in the heart of Bucharest's historic streets",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-08-16",
+  "location": {
+    "@type": "Place",
+    "name": "Bucharest, Romania",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Bucharest",
+      "addressRegion": "Romania"
+    }
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "63",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "organizer": {
+    "@type": "Person",
+    "name": "Amaury Sport Organisation (A.S.O.) in partnership with local organizers; CEO Tudor \u0218tefan MOCU\u021aA (MPG)"
+  }
+}

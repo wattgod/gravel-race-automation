@@ -1,0 +1,205 @@
+{
+  "race": {
+    "name": "L'Étape Slovenia by Tour de France",
+    "slug": "letape-slovenia",
+    "display_name": "L'Étape Slovenia by Tour de France",
+    "tagline": "Official Tour de France amateur cycling event in Slovenia's scenic Gorenjska region with pro-level closed-road routes.",
+    "vitals": {
+      "discipline": "road",
+      "prestige": 3,
+      "date_specific": "2025: September 7",
+      "location": "Kranj, Slovenia",
+      "gps_coords": "46.2436° N, 14.3556° E",
+      "distances": [
+        {
+          "name": "Ride",
+          "distance_km": 80
+        },
+        {
+          "name": "Race",
+          "distance_km": 150
+        }
+      ],
+      "elevation_meters": {
+        "Ride": 841,
+        "Race": 2118
+      },
+      "elevation_ft": 5900,
+      "date": "September",
+      "slug": "letape-slovenia",
+      "distance_mi": 75
+    },
+    "climate": {
+      "overview": "Early September in Kranj/Gorenjska typically features mild daytime temperatures with possible rain or fog in the foothills.",
+      "average_temp_f": "50-68",
+      "precipitation_chance": "Moderate, possible rain"
+    },
+    "terrain": {
+      "overview": "Hilly paved roads through Gorenjska region with climbs in the Julian Alps foothills.",
+      "surface_breakdown": {
+        "paved": 100
+      }
+    },
+    "gravel_god_rating": {
+      "logistics": 4,
+      "length": 4,
+      "technicality": 2,
+      "elevation": 3,
+      "climate": 4,
+      "altitude": 2,
+      "adventure": 4,
+      "prestige": 3,
+      "race_quality": 4,
+      "experience": 5,
+      "community": 3,
+      "field_depth": 3,
+      "value": 4,
+      "expenses": 3,
+      "cultural_impact": 2,
+      "overall_score": 71,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "editorial_tier_label": "TIER 2",
+      "business_tier_label": "TIER 2",
+      "display_tier_label": "TIER 2",
+      "editorial_tier": 2,
+      "business_tier": 2,
+      "display_tier": 2,
+      "discipline": "road",
+      "score_note": "Sum of 14 criteria: 4+4+2+3+4+2+4+3+4+5+3+3+4+3 = 48. cultural_impact = 2. Total = 50. (50/70)*100 = 71."
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 4,
+        "explanation": "Easy access from Ljubljana airport, central Kranj base, but limited field size and registration details."
+      },
+      "length": {
+        "score": 4,
+        "explanation": "Solid 80km and 150km options suit varied abilities in a compact region."
+      },
+      "technicality": {
+        "score": 2,
+        "explanation": "Paved roads with standard road racing demands, no gravel or tech features."
+      },
+      "elevation": {
+        "score": 3,
+        "explanation": "Moderate climbs at 841m-2118m, challenging but not Alpine extreme."
+      },
+      "climate": {
+        "score": 4,
+        "explanation": "Mild September weather ideal for cycling, low extreme risk."
+      },
+      "altitude": {
+        "score": 2,
+        "explanation": "Low foothills, no high-altitude demands."
+      },
+      "adventure": {
+        "score": 4,
+        "explanation": "Scenic Julian Alps routes with pro closed-road experience."
+      },
+      "prestige": {
+        "score": 3,
+        "explanation": "Official Tour de France Étape series branding adds credibility."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "Pro mechanics, traffic-free, ambassador Matej Mohorič elevate quality."
+      },
+      "experience": {
+        "score": 5,
+        "explanation": "Festival village, official jerseys, Tour ties create immersive event."
+      },
+      "community": {
+        "score": 3,
+        "explanation": "Tied to Slovenian cycling heritage, growing local appeal."
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "Amateur focus with uncertain numbers, no elite depth reported."
+      },
+      "value": {
+        "score": 4,
+        "explanation": "Early-bird deals and pro features offer good bang for buck."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Standard European event costs, early registration helps."
+      },
+      "cultural_impact": {
+        "score": 2,
+        "explanation": "Boosts local Kranj cycling scene, linked to Mohorič legacy."
+      }
+    },
+    "biased_opinion": {
+      "overview": "A gem for road enthusiasts seeking Tour de France vibes in Slovenia's stunning foothills. The 150km Race delivers hilly suffering with pro polish, while Matej Mohorič's ambassadorship ties it to world-class heritage—perfect mid-tier adventure without Alpine brutality."
+    },
+    "final_verdict": {
+      "one_liner": "Pro-level amateur road event with Slovenian flair and Julian Alps scenery.",
+      "full_verdict": "L'Étape Slovenia stands out in the Étape series for its accessible yet challenging routes from Kranj, blending Tour branding, closed roads, and local hero appeal. Ideal for sportive riders chasing prestige without overcrowding."
+    },
+    "logistics": {
+      "overview": "Start/finish at Slovenski trg in Kranj; registrations via Prijavim.se with early-bird incentives.",
+      "official_site": "https://slovenia.letapebytourdefrance.com/",
+      "airports": [
+        "Ljubljana Jože Pučnik Airport (LJU) ~25km"
+      ],
+      "accommodation": "Kranj hotels and Gorenjska options; event village on-site.",
+      "registration_notes": "Same fee for both distances; early registration by Nov 25, 2024 for 2025 prizes like signed Mohorič items."
+    },
+    "history": {
+      "overview": "Founded 2022 as part of official L'Étape Series; annual September event hosted by Municipality of Kranj and Visit Kranj. Editions: 2022 (Sep 3-4), 2023, 2024 (Sep 7-8), 2025 (Sep 6-7), 2026 (Sep 5-6 planned).",
+      "founder": "Municipality of Kranj and Visit Kranj, inspired by Tour de France.",
+      "notable_moments": [
+        "2022 debut with Ale cycling jerseys.",
+        "Ongoing Matej Mohorič ambassadorship.",
+        "2025 early registration prizes: signed bibs, VIP starts."
+      ]
+    },
+    "course_description": {
+      "character": "Scenic, hilly loops through Gorenjska villages and foothills; traffic-free paved roads with pro support.",
+      "suffering_zones": [
+        {
+          "label": "Šenturška Gora climb (shared)",
+          "description": ""
+        },
+        {
+          "label": "Podblica to Jamnik climb (Race only)",
+          "description": ""
+        },
+        {
+          "label": "Kropa and Praproše sections",
+          "description": ""
+        }
+      ],
+      "signature_challenge": "Race's second loop via Besnica, Jamnik, Kropa, Golnik—hilly test in Julian Alps foothills.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "field_size": "Uncertain; open registrations via Prijavim.se",
+      "registration_cost": "Uncertain; early-bird cheapest, opened Nov 11, 2024 for 2025"
+    },
+    "non_negotiables": [
+      "Closed-road pro conditions",
+      "Tour de France official branding",
+      "Matej Mohorič involvement"
+    ],
+    "citations": [
+      {
+        "url": "https://slovenia.letapebytourdefrance.com/",
+        "title": "L'Étape Slovenia by Tour de France",
+        "accessed": "2026-03-03"
+      },
+      {
+        "url": "https://www.letapeseries.com/",
+        "title": "L'Étape Series",
+        "accessed": "2026-03-03"
+      }
+    ],
+    "research_metadata": {
+      "founded_year": 2022,
+      "nearest_airport": "LJU",
+      "unique_features": "Mohorič ambassador, Gorenjska scenery, two distances + corporate stage"
+    }
+  }
+}

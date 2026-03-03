@@ -1,0 +1,30 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Cycling Shimanami 2026",
+  "description": "Japan's premier international cycling event across the Seto Inland Sea",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-10-25",
+  "location": {
+    "@type": "Place",
+    "name": "Imabari, Ehime Prefecture to Onomichi, Hiroshima Prefecture, Japan",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Imabari",
+      "addressRegion": "Ehime Prefecture to Onomichi"
+    }
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "74",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://cycling-shimanami.jp/english/",
+  "organizer": {
+    "@type": "Person",
+    "name": "Ehime Prefecture officials in partnership with local cycling organizations",
+    "url": "https://cycling-shimanami.jp/english/"
+  }
+}

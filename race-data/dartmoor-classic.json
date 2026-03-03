@@ -1,0 +1,272 @@
+{
+  "race": {
+    "name": "Dartmoor Classic",
+    "slug": "dartmoor-classic",
+    "display_name": "Dartmoor Classic Sportive",
+    "tagline": "Commit. Climb. Conquer. One of the UK's most prestigious open-road sportives.",
+    "vitals": {
+      "date": "2026: June 21",
+      "location": "Dartmoor National Park, Devon, England",
+      "start_finish": "Newton Abbot Racecourse, Newton Road, Newton Abbot, Devon, TQ12",
+      "distance_options": [
+        {
+          "name": "Pixies Revenge",
+          "distance_miles": 45,
+          "distance_km": 74,
+          "elevation_ft": null,
+          "elevation_m": null,
+          "min_age": 11,
+          "entry_fee_gbp": 65
+        },
+        {
+          "name": "Mist & Myths - Medio Route",
+          "distance_miles": 66.6,
+          "distance_km": 107,
+          "elevation_ft": null,
+          "elevation_m": null,
+          "min_age": 12,
+          "entry_fee_gbp": 65
+        },
+        {
+          "name": "Granite & Ghosts - Grande Route",
+          "distance_miles": 107,
+          "distance_km": 173,
+          "elevation_ft": 8858,
+          "elevation_m": 2700,
+          "min_age": 14,
+          "entry_fee_gbp": 65
+        }
+      ],
+      "field_size": 4000,
+      "discipline": "road",
+      "event_type": "Cycle Sportive (Non-Competitive)",
+      "registration_status": "Open (limited places)",
+      "elevation_ft": 8858,
+      "date_specific": "2026: June 21",
+      "slug": "dartmoor-classic",
+      "distance_mi": 107.5
+    },
+    "climate": {
+      "overview": "Dartmoor in June features mild temperate conditions typical of southwest England, with variable moorland weather including frequent wind and rain.",
+      "average_temp_f": "59-68°F",
+      "average_temp_c": "15-20°C",
+      "precipitation_chance": "High (frequent rain/wind expected)"
+    },
+    "terrain": {
+      "overview": "Dramatic Dartmoor moorland with demanding ascents, exhilarating descents, and unrivalled scenery. All routes feature closed-road hill climb competition segments with iconic climbs including Haytor (featured in Tour of Britain).",
+      "surface_breakdown": {
+        "tarmac": "100%"
+      },
+      "character": "High-moorland challenge with rugged beauty, sweeping views, and some of the region's toughest climbs."
+    },
+    "gravel_god_rating": {
+      "logistics": 5,
+      "length": 4,
+      "technicality": 3,
+      "elevation": 4,
+      "climate": 3,
+      "altitude": 2,
+      "adventure": 4,
+      "prestige": 3,
+      "race_quality": 4,
+      "experience": 4,
+      "community": 4,
+      "field_depth": 4,
+      "value": 4,
+      "expenses": 3,
+      "cultural_impact": 3,
+      "overall_score": 77,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "editorial_tier_label": "TIER 2",
+      "business_tier_label": "TIER 2",
+      "display_tier_label": "TIER 2",
+      "editorial_tier": 2,
+      "business_tier": 2,
+      "display_tier": 2,
+      "discipline": "road",
+      "score_note": "Sum of 14 criteria: 5+4+3+4+3+2+4+3+4+4+4+4+4+3 = 51. cultural_impact = 3. Total = 54. (54/70)*100 = 77."
+    },
+    "biased_opinion_ratings": {
+      "adventure": {
+        "score": 4,
+        "explanation": "Thrilling routes through breathtaking Dartmoor scenery with challenging hills and a closed-road hill climb competition make this a highly adventurous ride.[1][2][3]"
+      },
+      "altitude": {
+        "score": 2,
+        "explanation": "While Dartmoor offers hilly terrain, the routes do not feature extreme high altitudes, keeping it moderate in this aspect.[1][3]"
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "Held in late June, the event benefits from summer weather, though Dartmoor's variable conditions like wind can impact the ride.[1][2][6]"
+      },
+      "community": {
+        "score": 4,
+        "explanation": "Strong sense of camaraderie fostered by Mid-Devon Cycling Club, volunteers, event village with music and stalls, and international participants.[1][2][3]"
+      },
+      "elevation": {
+        "score": 4,
+        "explanation": "Significant elevation gains from tough Dartmoor climbs, including the longest and hardest routes with steep hills.[1][3][4]"
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Reasonable entry fee of £65 across all routes, with potential refunds through fundraising, offering good value for the experience.[1][2]"
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "Pro tour-style event registered with British Cycling, suitable for beginners to experts with multiple route options and medals.[1][4]"
+      },
+      "field_depth": {
+        "score": 4,
+        "explanation": "Sell-out field of up to 4,000 riders from around the world, with age/gender categories and competitive segments.[1][5]"
+      },
+      "length": {
+        "score": 4,
+        "explanation": "Varied distances from 46 miles (Piccolo) to 107 miles (Grande), accommodating different fitness levels with substantial options.[1][4]"
+      },
+      "logistics": {
+        "score": 5,
+        "explanation": "Flawlessly organized with free parking, event village, excellent marshals, and support, earning consistent praise.[1][3][4]"
+      },
+      "prestige": {
+        "score": 3,
+        "explanation": "Well-recognized UK sportive established in 2007, but not elite-level prestige despite large turnout and international appeal.[1]"
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "High-quality production with entertainment, prizes, finisher medals, and pro-like experience on iconic roads.[1][2][3]"
+      },
+      "technicality": {
+        "score": 3,
+        "explanation": "Primarily road cycling with steep hills and climbs, but not highly technical due to focus on open-road sportive format.[1][3]"
+      },
+      "value": {
+        "score": 4,
+        "explanation": "Excellent value at £65 for well-supported routes, medals, competitions, and memorable Dartmoor experience.[1][2][4]"
+      }
+    },
+    "biased_opinion": {
+      "overview": "The Dartmoor Classic represents the gold standard for UK sportive organization and course design. Established in 2007, it has earned its reputation as one of Britain's most prestigious open-road events through consistent delivery of exceptional experiences. The 2026 edition's expansion of the closed-road hill climb competition to all routes—not just the Grande—demonstrates the organizers' commitment to competitive engagement across all distances. For riders seeking a genuinely challenging moorland experience with world-class logistics and a welcoming community atmosphere, the Dartmoor Classic is essential."
+    },
+    "final_verdict": {
+      "one_liner": "The Dartmoor Classic is the UK's premier moorland sportive, combining exceptional organization, iconic climbs, and genuine challenge in one of England's most dramatic landscapes.",
+      "full_verdict": "The Dartmoor Classic stands as a landmark fixture on the national cycling calendar, delivering a pro-tour experience to amateur cyclists since 2007. With three distance options ranging from 45 to 107 miles, it accommodates diverse ability levels while maintaining uncompromising course quality. The Grande route's 2,700m elevation gain ensures legitimate suffering, while the closed-road hill climb competition on all routes adds prestige and competitive engagement. Mid-Devon Cycling Club's volunteer-driven organization is exemplary, with comprehensive support including mechanical assistance, professional medical coverage, and celebrated feed stations. The event's sell-out field of 4,000 riders and international reputation reflect its status as one of Britain's best-organized and most respected sportives. For serious cyclists seeking a challenging, well-executed event in stunning scenery, the Dartmoor Classic is non-negotiable."
+    },
+    "logistics": {
+      "overview": "The event is based at Newton Abbot Racecourse with free parking and comprehensive support infrastructure. All routes are fully signposted with feed stations, mechanical assistance, and dedicated rider support teams. An event village hosts exhibitors, catering, entertainment, and family facilities.",
+      "official_site": "https://www.dartmoorclassic.co.uk",
+      "airports": [
+        {
+          "code": "EXT",
+          "name": "Exeter Airport",
+          "distance_km": "30-40",
+          "notes": "Nearest major airport, approximately 30-40 km east of Dartmoor"
+        },
+        {
+          "code": "BRS",
+          "name": "Bristol Airport",
+          "distance_km": "120",
+          "notes": "Alternative major airport approximately 120 km northeast"
+        }
+      ],
+      "accommodation": "Newton Abbot and surrounding Devon towns offer extensive accommodation options. Dartmoor is a popular tourist destination with hotels, B&Bs, and self-catering properties throughout the region.",
+      "registration_notes": "Entry fee £65 per route. Places are limited and the event regularly sells out. Registration opened November 1, 2025. Entry includes high-quality 2026 Dartmoor Classic cycle jersey, finishers medal, feed stations, energy drinks, gels, mechanical support, professional medical support, rider support vehicles, electronic timing, competitions, and event village access. Fundraising option available: hit £200 fundraising target with Devon Air Ambulance to receive entry fee refund."
+    },
+    "history": {
+      "overview": "The Dartmoor Classic was established in 2007 by Mid-Devon Cycling Club as an annual sportive designed to bring a pro-tour cycling experience to the amateur cycling community. It has grown into one of the UK's most iconic and best-loved cycling events, regularly selling out with a field of 4,000 riders and earning recognition as one of Britain's premier open-road sportives.",
+      "founder": "Mid-Devon Cycling Club",
+      "notable_moments": [
+        "Established 2007 as a grassroots initiative to challenge riders on Dartmoor's toughest terrain",
+        "Registered with British Cycling, the sport's governing body",
+        "Achieved sell-out status with 4,000-rider field, becoming a landmark fixture on the national cycling calendar",
+        "2026 expansion: closed-road hill climb competition segment added to all routes (previously limited to Grande route), with prizes for age/gender categories plus overall King/Queen of the Mountain",
+        "Consistently praised for exceptional volunteer organization, marshal support, and feed station quality",
+        "Attracts international participation, cementing status as one of the UK's most prestigious open-road sportives"
+      ]
+    },
+    "course_description": {
+      "character": "Dramatic moorland challenge combining demanding ascents with exhilarating descents across Dartmoor's most iconic roads. The event showcases the rugged beauty of Dartmoor National Park with sweeping views and world-class event organization.",
+      "suffering_zones": [
+        {
+          "label": "Haytor climb (featured in Tour of Britain) on Grande route",
+          "description": ""
+        },
+        {
+          "label": "Multiple high-moorland ascents on Grande route delivering 2,700m total elevation gain",
+          "description": ""
+        },
+        {
+          "label": "Closed-road hill climb competition segment on all routes (2026 feature)",
+          "description": ""
+        },
+        {
+          "label": "Exposed moorland terrain with variable wind conditions typical of June in southwest England",
+          "description": ""
+        }
+      ],
+      "signature_challenge": "The Grande route's 107-mile, 2,700m elevation gain challenge through Dartmoor's toughest climbs, culminating in the closed-road hill climb competition segment where riders compete for King/Queen of the Mountain honors.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "best_for": "Serious road cyclists seeking a challenging, well-organized UK sportive with iconic climbs and genuine moorland experience. Suitable for intermediate to advanced riders; beginner-friendly options available.",
+      "avoid_if": "You prefer flat terrain, mild weather, or small intimate events. Dartmoor's moorland weather is variable and challenging; expect wind and potential rain in June.",
+      "training_focus": "Build sustained climbing power and aerobic capacity. The Grande route's 2,700m elevation gain requires specific hill training. All routes demand moorland-specific fitness.",
+      "pacing_strategy": "Conservative pacing on early climbs; the Grande route's sustained elevation gain punishes aggressive early efforts. Feed stations are well-positioned; utilize them strategically.",
+      "key_logistics": "Arrive early for free parking at Newton Abbot Racecourse. Event runs 8:00am-5:00pm. Bring weather-appropriate gear for variable moorland conditions. Mechanical support and rider support vehicles available throughout."
+    },
+    "non_negotiables": [
+      "Closed-road hill climb competition segment on all routes with category prizes and King/Queen of the Mountain crowning",
+      "Comprehensive support infrastructure: feed stations, mechanical assistance, professional medical coverage, rider support vehicles",
+      "High-quality event jersey included with entry",
+      "World-class organization by Mid-Devon Cycling Club volunteers",
+      "Iconic Dartmoor climbs including Haytor (Tour of Britain featured climb)",
+      "Sell-out field of 4,000 riders creating genuine competitive atmosphere",
+      "Registration with British Cycling, the sport's governing body"
+    ],
+    "citations": [
+      {
+        "url": "https://sportive.com/event/dartmoor-classic-2026/",
+        "title": "Dartmoor Classic 2026 - Sportive.com",
+        "accessed": "2026-03-03"
+      },
+      {
+        "url": "https://www.timeoutdoors.com/events/dartmoor-classic-cycle-sportive",
+        "title": "Dartmoor Classic Cycle Sportive | Sun 21 Jun 2026 - TimeOutdoors",
+        "accessed": "2026-03-03"
+      },
+      {
+        "url": "https://www.tavistock-today.co.uk/sport/cycling/dartmoor-classic-returns-for-2026-874644",
+        "title": "Dartmoor Classic returns for 2026 | tavistock-today.co.uk",
+        "accessed": "2026-03-03"
+      },
+      {
+        "url": "https://www.daat.org/support-us/fundraising/events/event/dartmoor-classic-bike-ride-2026/",
+        "title": "Dartmoor Classic Bike Ride 2026 - Devon Air Ambulance Trust",
+        "accessed": "2026-03-03"
+      },
+      {
+        "url": "https://www.dartmoorclassic.co.uk",
+        "title": "Bike ride near me - Dartmoor Classic Sportive",
+        "accessed": "2026-03-03"
+      },
+      {
+        "url": "https://www.britishcycling.org.uk/events/details/327911/Dartmoor-Classic-2026",
+        "title": "Dartmoor Classic 2026 Events - British Cycling",
+        "accessed": "2026-03-03"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/5737/the-dartmoor-classic-sportive",
+        "title": "Dartmoor Classic Sportive - Gran Fondo Guide",
+        "accessed": "2026-03-03"
+      }
+    ],
+    "research_metadata": {
+      "data_completeness": "High. Core event details confirmed across multiple authoritative sources including official website, British Cycling registry, and local media. GPS coordinates for start/finish and detailed elevation profiles for Medio route unavailable in sources.",
+      "confidence_level": "Very High for: event date, location, distance options, entry fee, organizer, field size, prestige status. High for: elevation gain (Grande route), climate conditions, logistics. Moderate for: exact elevation profiles for Piccolo and Medio routes, detailed course descriptions.",
+      "gaps": "Precise GPS coordinates for start/finish; detailed elevation profiles for Piccolo (45 mi) and Medio (66.6 mi) routes; exact course maps/GPX files; historical year-by-year participation data; detailed rider testimonials; specific feed station locations.",
+      "sources_used": 7,
+      "last_verified": "2026-03-03"
+    }
+  }
+}

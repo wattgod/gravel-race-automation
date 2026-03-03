@@ -1,0 +1,285 @@
+{
+  "race": {
+    "name": "Rift Valley Odyssey",
+    "slug": "rift-valley-odyssey",
+    "display_name": "Rift Valley Odyssey (RVO)",
+    "tagline": "The only mountain bike race crossing Kenya's Great Rift Valley to Maasai Mara",
+    "vitals": {
+      "year_founded": 2010,
+      "location": "Kiambu County to Maasai Mara, Kenya",
+      "start_point": "Limuru",
+      "finish_point": "Maasai Mara (Entumoto Safari Camp)",
+      "discipline": "mountain_bike",
+      "race_type": "multi_day_adventure",
+      "distance_options": [
+        {
+          "name": "5-day",
+          "distance_km": 475,
+          "distance_mi": 295,
+          "elevation_gain_m": 8000,
+          "elevation_gain_ft": 26247,
+          "route": "Limuru – Lake Naivasha – Mt. Suswa – Maji Moto – Loita – Maasai Mara"
+        },
+        {
+          "name": "3-day",
+          "distance_km": 300,
+          "distance_mi": 186,
+          "elevation_gain_m": 4500,
+          "elevation_gain_ft": 14764,
+          "route": "Mt. Suswa – Maji Moto – Loita – Maasai Mara"
+        }
+      ],
+      "next_event_dates": "2026: September 23-27",
+      "field_size": 50,
+      "field_size_note": "Limited to 50 participants to maximize trail joy and social interactions",
+      "registration_window": "2026: December 5 - January 31 (Early Bird)",
+      "elevation_ft": 32808,
+      "date": "September",
+      "date_specific": "2026: September 14",
+      "slug": "rift-valley-odyssey",
+      "distance_mi": 295.2
+    },
+    "climate": {
+      "overview": "September is the Great Migration season, with approximately 1 million animals migrating between Serengeti and Maasai Mara National Parks. Conditions vary across elevation zones: hot and dry in savanna lowlands, cooler in montane forests. High altitude adds significant cardio demands.[1][2]",
+      "average_temp_f": "68-82",
+      "average_temp_f_note": "Varies by elevation; highlands cooler, savanna hotter",
+      "precipitation_chance": 0.15,
+      "precipitation_note": "September is dry season in Kenya"
+    },
+    "terrain": {
+      "overview": "Raw African landscape combining 50% singletrack and 50% jeep track across diverse ecosystems. Daily stages range 80-100 km on rugged, high-altitude terrain with 60% of the route above 2,000 m elevation. No course markings except start and finish; self-navigation via Garmin GPS required.[1][2]",
+      "surface_breakdown": {
+        "singletrack_percent": 50,
+        "jeep_track_percent": 50,
+        "terrain_types": [
+          "Verdant farmlands",
+          "Indigenous forests",
+          "Volcanic deserts",
+          "Arid scrubland",
+          "Montane forests",
+          "Rolling savanna"
+        ]
+      },
+      "max_altitude_m": 2750,
+      "max_altitude_ft": 9022
+    },
+    "gravel_god_rating": {
+      "logistics": 4,
+      "length": 5,
+      "technicality": 4,
+      "elevation": 5,
+      "climate": 3,
+      "altitude": 3,
+      "adventure": 5,
+      "prestige": 3,
+      "race_quality": 4,
+      "experience": 4,
+      "community": 4,
+      "field_depth": 3,
+      "value": 3,
+      "expenses": 2,
+      "cultural_impact": 4,
+      "overall_score": 80,
+      "tier": 1,
+      "tier_rationale": "Prestige 3 with score 78 places in T2; exceptional adventure and elevation offset by moderate prestige and field depth",
+      "tier_label": "TIER 1",
+      "editorial_tier_label": "TIER 1",
+      "business_tier_label": "TIER 1",
+      "display_tier_label": "TIER 1",
+      "editorial_tier": 1,
+      "business_tier": 1,
+      "display_tier": 1,
+      "discipline": "road",
+      "score_note": "Sum of 14 criteria: 4+5+4+5+3+5+5+3+4+4+4+3+3+2 = 54. cultural_impact = 4. Total = 58. (58/70)*100 = 83."
+    },
+    "biased_opinion_ratings": {
+      "adventure": {
+        "score": 5,
+        "explanation": "An epic 5-day mountain bike race crossing the Great Rift Valley to Maasai Mara, featuring diverse landscapes from farmlands to savanna and wildlife encounters during migration season.[1][2][4]"
+      },
+      "altitude": {
+        "score": 3,
+        "explanation": "Moderate altitude variations with climbs through montane forests and escarpments, but not extreme high-altitude challenges throughout the route.[1][3][4]"
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "September timing offers generally favorable conditions during migration season, though potential for variable weather in Kenya's diverse terrains.[1][4]"
+      },
+      "community": {
+        "score": 4,
+        "explanation": "Strong local involvement with Kenyan cycling culture growing, limited to 50 participants fostering a tight-knit group experience.[3][4]"
+      },
+      "elevation": {
+        "score": 5,
+        "explanation": "Impressive total ascent of 8,000m over 475km, with significant climbs like Mt. Eburru, Mt. Suswa, and Loita Hills.[3][4]"
+      },
+      "expenses": {
+        "score": 2,
+        "explanation": "High costs due to limited spots, custom safari packages, potential air transfers, and remote logistics in Kenya.[4][7]"
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "Intense mix of 50% singletrack and 50% jeep track across raw African terrain, ideal for seasoned mountain bikers.[1][2]"
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "Small elite field capped at 50 riders, limiting depth but ensuring high-quality intimate racing.[4]"
+      },
+      "length": {
+        "score": 5,
+        "explanation": "Substantial 475km over 5 demanding days from Kiambu/Limuru to Maasai Mara, a true odyssey.[1][4]"
+      },
+      "logistics": {
+        "score": 4,
+        "explanation": "Well-organized with specialist advisors handling transfers, custom camps, and post-race safaris to Entumoto or Cottar's.[1][4]"
+      },
+      "prestige": {
+        "score": 3,
+        "explanation": "Unique as the only race crossing the Great Rift Valley to Maasai Mara, but still emerging in global cycling prestige.[1][3]"
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "High-caliber event with breathtaking routes, professional organization, and iconic finish at safari camp.[1][2][4]"
+      },
+      "technicality": {
+        "score": 4,
+        "explanation": "Challenging 50% singletrack through forests, volcanic deserts, and rugged savanna demanding solid technical skills.[1][3]"
+      },
+      "value": {
+        "score": 3,
+        "explanation": "Premium experience with safaris and exclusivity, though expense may outweigh accessibility for budget-conscious riders.[4][7]"
+      }
+    },
+    "biased_opinion": {
+      "overview": "The Rift Valley Odyssey is a bucket-list adventure race for experienced mountain bikers seeking raw African wilderness and self-sufficiency. The combination of Great Rift Valley crossing, wildlife migration timing, and zero-marking GPS navigation creates an unparalleled experience. However, the moderate prestige, small field, and high cost limit its appeal to elite adventure racers rather than competitive cyclists. Best suited for riders prioritizing experience and exploration over racing accolades."
+    },
+    "course_description": {
+      "character": "Epic multi-day mountain bike adventure through Kenya's most dramatic landscapes, combining technical singletrack with remote jeep track navigation. Each stage crosses incredible terrain littered with wildlife, from verdant farmlands to blistering volcanic deserts. The race culminates at Maasai Mara during the Great Migration, offering post-race safari and hot air balloon experiences.[1][2]",
+      "suffering_zones": [
+        {
+          "label": "High-altitude climbs above 2,500 m in montane forests with thin air and steep gradients",
+          "description": ""
+        },
+        {
+          "label": "Volcanic desert sections with exposed terrain, minimal water, and intense sun exposure",
+          "description": ""
+        },
+        {
+          "label": "Remote scrubland stages requiring GPS accuracy and self-sufficiency with limited support",
+          "description": ""
+        },
+        {
+          "label": "Day 4-5 cumulative fatigue at altitude before final push to Maasai Mara",
+          "description": ""
+        }
+      ],
+      "signature_challenge": "Mt. Suswa volcanic terrain combined with sustained high-altitude climbing and self-navigation through unmarked singletrack in the Loita Hills",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "logistics": {
+      "overview": "The race provides comprehensive support including shared accommodation, all meals, and emergency ambulance. Participants must arrange international travel to Nairobi and provide their own Garmin GPS device with Kenya road map. Post-race transfers available by road or air from Maasai Mara to Nairobi. E-MTB batteries are freighted separately per IATA regulations.[2][3]",
+      "official_site": "https://www.riftvalleyodyssey.com",
+      "airports": [
+        {
+          "name": "Jomo Kenyatta International Airport",
+          "code": "NBO",
+          "city": "Nairobi",
+          "distance_to_start_km": 60,
+          "distance_to_start_mi": 37,
+          "notes": "Primary hub for international arrivals; road transfers to Limuru start point"
+        }
+      ],
+      "accommodation": {
+        "pre_race": "Nairobi area hotels (self-arranged)",
+        "during_race": "Shared room accommodation included in registration fee",
+        "post_race": "2-night customized safari packages at Entumoto Safari Camp or Cottar's 1920s Safari Camp in Maasai Mara",
+        "notes": "Self-tent discount available; overnight stay at Entumoto Safari Camp on finish day (September 27)"
+      },
+      "registration_notes": "Early Bird registration: December 5, 2025 - January 31, 2026. Limited to 50 participants. 5-day: USD 975 (international/EA residents) or KES 95,000 (Kenya residents); 3-day: USD 775. Includes shared room, meals, ambulance. Excludes travel insurance. Registration closes June 30, 2025 for 2025 event; 2026 dates pending confirmation.[2][5]"
+    },
+    "history": {
+      "overview": "The Rift Valley Odyssey was founded in 2010 as a GPS self-navigation mountain bike adventure race, establishing itself as the only race to cross the Great Rift Valley and finish at Maasai Mara. The event has grown to become a signature African adventure race combining competitive cycling with wildlife tourism.[2][3]",
+      "founder": "RVO Cycling (Nairobi, Kenya); contact: Eric Nesbitt",
+      "notable_moments": [
+        "2023: Event held September 25-29, establishing September as the official race window coinciding with Great Migration season",
+        "2025: Event scheduled for September 22-26 with both 5-day and 3-day options",
+        "Signature feature: Only mountain bike race crossing the Great Rift Valley to Maasai Mara finish",
+        "Post-race safari and hot air balloon rides over Maasai Mara during peak wildlife migration"
+      ]
+    },
+    "final_verdict": {
+      "one_liner": "An elite adventure race combining world-class African wilderness, GPS self-navigation, and wildlife migration experiences—not a competitive race but a transformative expedition.",
+      "full_verdict": "The Rift Valley Odyssey delivers an unmatched adventure experience for experienced mountain bikers willing to embrace self-sufficiency, high altitude, and remote terrain. The September timing coincides perfectly with the Great Migration, and the post-race safari adds genuine value. However, the limited field (50 riders), moderate prestige, and high cost position this as an experience-focused event rather than a competitive racing destination. Best suited for riders seeking personal challenge, exploration, and connection with raw African landscapes over podium finishes. The GPS self-navigation requirement and lack of course markings demand technical competency and mental resilience. Overall: a bucket-list adventure for the right rider, not a mainstream competitive race."
+    },
+    "guide_variables": {
+      "gps_required": true,
+      "gps_device": "Garmin with Kenya road map on micro-SD card",
+      "gps_incompatible_models": [
+        "Fenix 500",
+        "Edge 500"
+      ],
+      "self_navigation": true,
+      "course_markings": false,
+      "daily_stage_distance_km": "80-100",
+      "water_points_per_stage": "1-2",
+      "recommended_hydration_capacity_liters": 3,
+      "hydration_system": "Camelbak recommended",
+      "e_mtb_allowed": true,
+      "e_mtb_battery_handling": "Freighted separately per IATA regulations",
+      "bike_transport": "Bike box transport available",
+      "support_vehicle": "Limited; self-sufficient navigation required",
+      "altitude_acclimation_recommended": true,
+      "fitness_level_required": "Elite/Advanced"
+    },
+    "non_negotiables": [
+      "Garmin GPS device with Kenya road map (mandatory for self-navigation)",
+      "High altitude fitness (60% of route above 2,000 m)",
+      "Self-sufficiency mindset (minimal course markings, remote terrain)",
+      "Travel insurance (not included in registration)",
+      "International travel to Nairobi",
+      "Ability to navigate unmarked singletrack using GPS",
+      "Mental resilience for multi-day remote adventure"
+    ],
+    "citations": [
+      {
+        "url": "https://bikehub.co.za/events/races/view/393/rift-valley-odyssey",
+        "title": "Rift Valley Odyssey | Bike Hub",
+        "accessed": "2026-03-03"
+      },
+      {
+        "url": "https://www.riftvalleyodyssey.com/raceseries/rvo-mara/",
+        "title": "RVO Maasai Mara 2026",
+        "accessed": "2026-03-03"
+      },
+      {
+        "url": "https://www.riftvalleyodyssey.com",
+        "title": "Rift Valley Odyssey – Breathtaking mountain bike adventures",
+        "accessed": "2026-03-03"
+      },
+      {
+        "url": "https://stageraces.com/event/rift-valley-odyssey-maasai-mara/",
+        "title": "Rift Valley Odyssey Maasai Mara - Mountain Biking Journey",
+        "accessed": "2026-03-03"
+      },
+      {
+        "url": "https://www.riftvalleyodyssey.com/rvo-mara-registration/",
+        "title": "RVO – Maasai Mara Registration - Rift Valley Odyssey",
+        "accessed": "2026-03-03"
+      }
+    ],
+    "research_metadata": {
+      "data_completeness": "High for core race details; limited for GPS coordinates, historical incidents, and exact climate data",
+      "information_gaps": [
+        "Precise GPS coordinates for start/finish and waypoints",
+        "Detailed stage-by-stage breakdown and elevation profiles",
+        "Historical race incidents or notable finishes",
+        "Exact average temperatures and precipitation for September",
+        "Detailed course map or RideWithGPS link"
+      ],
+      "source_reliability": "Official website and event listing platforms provide consistent, authoritative information",
+      "last_verified": "2026-03-03",
+      "next_event_confirmation_needed": "2026 event dates and registration details pending official announcement"
+    }
+  }
+}

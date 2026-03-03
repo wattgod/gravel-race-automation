@@ -1,0 +1,309 @@
+{
+  "race": {
+    "name": "Colnago GF Mont Ventoux",
+    "slug": "colnago-cycling-festival",
+    "display_name": "Colnago Gran Fondo Mont Ventoux",
+    "tagline": "Conquer the Giant of Provence in a legendary summit finish",
+    "vitals": {
+      "location": "Vaison-la-Romaine, Vaucluse, Provence-Alpes-Côte d'Azur, France",
+      "coordinates": {
+        "latitude": 44.2386,
+        "longitude": 5.0722,
+        "note": "General location; exact race start coordinates not provided in sources"
+      },
+      "date": "2026: June 7",
+      "distance_km": 135.2,
+      "distance_miles": 84,
+      "elevation_m": 3144,
+      "elevation_ft": 10318,
+      "discipline": "road",
+      "event_type": "gran fondo",
+      "distance_options": [
+        {
+          "name": "Granfondo",
+          "distance_km": 135.2,
+          "distance_miles": 84,
+          "elevation_m": 3144,
+          "elevation_ft": 10318,
+          "route_variant": "Mont Ventoux via Bédoin"
+        },
+        {
+          "name": "Mediofondo",
+          "distance_km": 106,
+          "distance_miles": 66,
+          "elevation_m": 2600,
+          "elevation_ft": 8530,
+          "route_variant": "Mont Ventoux via Sault"
+        },
+        {
+          "name": "Piccolofondo",
+          "distance_km": 80,
+          "distance_miles": 50,
+          "elevation_m": 2135,
+          "elevation_ft": 7005,
+          "route_variant": "Mont Ventoux via Sault"
+        }
+      ],
+      "gravel_options": [
+        {
+          "name": "La Virade Romaine",
+          "distance_km": 43,
+          "elevation_m": 855,
+          "date": "2026: June 6"
+        },
+        {
+          "name": "Braquet et Dentelles",
+          "distance_km": 78,
+          "elevation_m": 1610,
+          "date": "2026: June 6"
+        },
+        {
+          "name": "La Grande Escapade",
+          "distance_km": 105,
+          "elevation_m": 2000,
+          "date": "2026: June 6"
+        }
+      ],
+      "date_specific": "2026: June 7",
+      "slug": "colnago-cycling-festival",
+      "distance_mi": 84
+    },
+    "climate": {
+      "overview": "Early June in Provence features mild Mediterranean conditions with low precipitation risk. Mont Ventoux summit can experience significant wind and cooler temperatures despite warm valley conditions.",
+      "average_temp_f": "59-77",
+      "average_temp_c": "15-25",
+      "precipitation_chance": "low",
+      "notes": "Weather on Mont Ventoux can be unpredictable; wind is common at elevation"
+    },
+    "terrain": {
+      "overview": "Provence cyclosportive through lavender fields, vineyards, Gorges de la Nesque, and Provençal villages, culminating in a summit finish at Mont Ventoux (1,912 m). Multiple significant climbs including Col de l'Homme Mort and Sault ascent.",
+      "surface_breakdown": {
+        "asphalt": "100%"
+      },
+      "max_gradient": "17.2%",
+      "notable_climbs": [
+        "Mont Ventoux (final ascent)",
+        "Col de l'Homme Mort",
+        "Sault ascent",
+        "Chalet Reynard section"
+      ]
+    },
+    "gravel_god_rating": {
+      "logistics": 4,
+      "length": 4,
+      "technicality": 3,
+      "elevation": 5,
+      "climate": 4,
+      "altitude": 3,
+      "adventure": 4,
+      "prestige": 3,
+      "race_quality": 4,
+      "experience": 4,
+      "community": 4,
+      "field_depth": 3,
+      "value": 3,
+      "expenses": 2,
+      "cultural_impact": 3,
+      "overall_score": 76,
+      "tier": 2,
+      "calculation_note": "Prestige 5 with score 83 qualifies for T1 tier",
+      "tier_label": "TIER 2",
+      "editorial_tier_label": "TIER 2",
+      "business_tier_label": "TIER 2",
+      "display_tier_label": "TIER 2",
+      "editorial_tier": 2,
+      "business_tier": 2,
+      "display_tier": 2,
+      "discipline": "road",
+      "score_note": "Sum of 14 criteria: 4+4+3+5+4+3+4+3+4+4+4+3+3+2 = 50. cultural_impact = 3. Total = 53. (53/70)*100 = 76."
+    },
+    "biased_opinion_ratings": {
+      "adventure": {
+        "score": 4,
+        "explanation": "Thrilling climbs to Mont Ventoux summit through picturesque Provençal villages and Nesque Gorges deliver high adventure.[1][2]"
+      },
+      "altitude": {
+        "score": 3,
+        "explanation": "Reaches nearly 2000m at Ventoux peak, but much of the route stays at lower altitudes in Provence valleys.[1][5]"
+      },
+      "climate": {
+        "score": 4,
+        "explanation": "Early June in Provence offers pleasant, sunny weather ideal for cycling with minimal rain risk.[2][5]"
+      },
+      "community": {
+        "score": 4,
+        "explanation": "Festive village expo, pasta party, and vibrant participant atmosphere foster strong cycling camaraderie.[1][4]"
+      },
+      "elevation": {
+        "score": 5,
+        "explanation": "Iconic Mont Ventoux ascent to 1910m provides exceptional climbing challenge and rewards.[1][5]"
+      },
+      "expenses": {
+        "score": 2,
+        "explanation": "Hotel packages, event entry, and transfers add up quickly for this premium Mont Ventoux experience.[1]"
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "Well-organized with quality feed stations, medals, and scenic routes creates memorable event.[1][4]"
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "Multiple distances attract varied abilities but lacks elite professional field depth.[1]"
+      },
+      "length": {
+        "score": 4,
+        "explanation": "Choices of 135km, 106km, or 80km offer solid distances culminating at Ventoux summit.[1]"
+      },
+      "logistics": {
+        "score": 4,
+        "explanation": "Expert guides, shuttles, mechanical support, and clear expo schedule ensure smooth operations.[1][4]"
+      },
+      "prestige": {
+        "score": 3,
+        "explanation": "Renowned Mont Ventoux climb carries solid reputation, though not the most elite gran fondo.[5]"
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "High-quality organization with festive animations, reliable aid stations, and finisher perks.[1][5]"
+      },
+      "technicality": {
+        "score": 3,
+        "explanation": "Primarily paved roads with steady climbs; moderate descents lack extreme technical demands.[2][5]"
+      },
+      "value": {
+        "score": 3,
+        "explanation": "Premium Provence experience and Ventoux summit justify cost, but packages aren't budget-friendly.[1]"
+      }
+    },
+    "biased_opinion": {
+      "overview": "The Colnago GF Mont Ventoux is a bucket-list event that delivers on every front: iconic climb, stunning Provençal setting, world-class organization, and genuine suffering. The summit finish at 1,912 m with closed roads and professional support creates a truly memorable experience. Multiple distance options make it accessible to varied abilities. Primary concern is unknown registration costs and limited value transparency, though the included package (accommodation, guides, support) suggests premium positioning."
+    },
+    "final_verdict": {
+      "one_liner": "A legendary Mont Ventoux summit finish in Provence with world-class organization and unforgettable scenery—a true bucket-list gran fondo.",
+      "full_verdict": "The Colnago GF Mont Ventoux ranks among Europe's premier gran fondos. The event combines cycling's most iconic climb with stunning Provençal landscapes, professional-level logistics, and festive community atmosphere. The 135 km Granfondo with 3,144 m elevation delivers genuine challenge, while shorter options and Saturday gravel routes provide accessibility. Closed roads on Mont Ventoux, feed stations, mechanical support, and a summit finish at 1,912 m create a professional-grade experience. The event's reputation rivals Etape du Tour, and the inclusion of accommodation and guided rides in packages adds value for destination travelers. Primary limitations are undisclosed registration costs and limited field-size data. For cyclists seeking a legendary European gran fondo combining sporting challenge with cultural immersion, this event is essential."
+    },
+    "logistics": {
+      "overview": "Event based in Vaison-la-Romaine, a charming Provençal town. Sportive Breaks offers 3-night packages including accommodation, meals, guided rides, and mechanical support. Closed roads on Mont Ventoux from 8:30 AM to 3 PM. Race start 7:30 AM.",
+      "official_site": "https://gfmontventoux.com/en/",
+      "airports": [
+        {
+          "code": "MRS",
+          "name": "Marseille Provence Airport",
+          "distance_km": 120,
+          "distance_miles": 75,
+          "drive_time_hours": 2
+        },
+        {
+          "code": "AVN",
+          "name": "Avignon-Provence Airport",
+          "distance_km": 65,
+          "distance_miles": 40,
+          "drive_time_hours": 1
+        }
+      ],
+      "accommodation": "Vaison-la-Romaine offers hotels and lodging. Sportive Breaks packages include 3 nights on half-board basis with breakfasts and evening meals.",
+      "registration_notes": "Entry to Colnago GF Mont Ventoux available through Sportive Breaks packages or direct registration. Compulsory Colnago GF Mont Ventoux jersey required. Finishers receive medal, souvenir bag, and access to celebratory pasta party. Private airport transfers available from Marseille or Avignon.",
+      "parking": "Large parking at Mont Serein (5 km from summit via Malaucène ascent). Road closed at Mont Serein and Chalet Reynard; shuttle service available for accompanying persons 9:00 AM to 4:00 PM.",
+      "race_schedule": {
+        "grid_opening": "6:30 AM",
+        "granfondo_mediofondo_start": "7:30 AM",
+        "first_piccolofondo_summit_arrival": "10:00 AM",
+        "first_mediofondo_summit_arrival": "11:00 AM",
+        "first_granfondo_summit_arrival": "12:00 PM",
+        "piccolofondo_mediofondo_awards": "3:30 PM",
+        "last_rider_summit_arrival": "3:30 PM",
+        "village_expo_opening": "10:00 AM"
+      }
+    },
+    "history": {
+      "overview": "The Colnago GF Mont Ventoux is described as a legendary cyclosportive now in its sixth year (as of 2026), celebrated for world-class organization rivaling top events like Etape du Tour. The event is branded by Colnago and organized in partnership with Ventoux Provence.",
+      "founder": "Unknown; organized by Colnago and Ventoux Provence",
+      "founding_year": "Approximately 2020 (sixth year as of 2026)",
+      "notable_moments": [
+        "Established reputation rivaling Etape du Tour for organization quality",
+        "Saturday gravel route additions introduced in recent years",
+        "Route alternation system implemented from 2025 (northern/southern bypass variants)",
+        "Consistent summit finish at Mont Ventoux (1,912 m) with closed roads and professional support"
+      ]
+    },
+    "course_description": {
+      "character": "A legendary Provençal gran fondo centered on Mont Ventoux, Europe's most iconic climb. The route traverses stunning landscapes—lavender fields, vineyards, Gorges de la Nesque, and quaint villages—before culminating in a dramatic summit finish at 1,912 m. The event emphasizes both sporting challenge and cultural immersion in Provence.",
+      "suffering_zones": [
+        {
+          "label": "Col de l'Homme Mort: sustained climb draining energy reserves before Mont Ventoux",
+          "description": ""
+        },
+        {
+          "label": "Sault ascent: significant elevation gain on mediofondo/piccolofondo routes",
+          "description": ""
+        },
+        {
+          "label": "Mont Ventoux final ascent: the defining challenge with grades up to 17.2%, wind exposure, and altitude effects from Chalet Reynard (1,632 m) to summit (1,912 m)",
+          "description": ""
+        }
+      ],
+      "signature_challenge": "Mont Ventoux summit finish via Bédoin (Granfondo) or Sault (Mediofondo/Piccolofondo). The final ascent is renowned as one of France's most demanding climbs, combining sustained gradient, wind exposure, and psychological challenge of the barren, rocky summit.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "fitness_level_required": "Intermediate to advanced; 3,144 m elevation over 135 km demands strong climbing fitness",
+      "best_for": "Cyclists seeking a legendary European gran fondo with iconic climb, cultural immersion, and professional organization",
+      "avoid_if": "Averse to high elevation gain, Mont Ventoux's wind exposure, or premium event pricing",
+      "training_focus": "Sustained climbing ability, especially 15+ minute efforts; altitude acclimatization beneficial",
+      "pacing_strategy": "Conservative early climbing to preserve energy for Mont Ventoux final ascent; utilize feed stations strategically",
+      "gear_recommendation": "Compact crankset (34t) advisable for sustained climbing; weather-adaptive layers for summit conditions"
+    },
+    "non_negotiables": [
+      "Compulsory Colnago GF Mont Ventoux jersey",
+      "Helmet required",
+      "Bike must be mechanically sound for 3,144 m elevation",
+      "Mont Ventoux road closed 8:30 AM to 3 PM; no vehicle access outside race window",
+      "Electric bikes not permitted (insufficient range for full route)"
+    ],
+    "citations": [
+      {
+        "url": "https://sportivebreaks.com/sportives/sportives-gran-fondo/gran-fondo-mont-ventoux/",
+        "title": "Colnago Gran Fondo Mont Ventoux with Sportive Breaks",
+        "accessed": "2026-03-03"
+      },
+      {
+        "url": "https://en.vaison-ventoux-provence.com/offers/gf-colnago-mont-ventoux-vaison-la-romaine-en-4947165/",
+        "title": "GF Colnago Mont Ventoux (Vaison-la-Romaine)",
+        "accessed": "2026-03-03"
+      },
+      {
+        "url": "https://gfmontventoux.com/en/parcours-2/106-km-chrono/",
+        "title": "106 km - Chrono - Colnago GF Mont Ventoux",
+        "accessed": "2026-03-03"
+      },
+      {
+        "url": "https://gfmontventoux.com/en/parcours-2/135-km-2/",
+        "title": "135 km - Chrono - Colnago GF Mont Ventoux",
+        "accessed": "2026-03-03"
+      },
+      {
+        "url": "https://gfmontventoux.com/en/infos-pratiques/questions-frequentes/",
+        "title": "Frequently Asked Questions - Colnago GF Mont Ventoux",
+        "accessed": "2026-03-03"
+      },
+      {
+        "url": "https://www.finishers.com/en/event/granfondo-colnago-mont-ventoux-2",
+        "title": "Granfondo Colnago Mont Ventoux 2026",
+        "accessed": "2026-03-03"
+      }
+    ],
+    "research_metadata": {
+      "data_completeness": "High for 2026 event logistics, routes, and organization; moderate for historical context and field data",
+      "confidence_level": "High for distance, elevation, location, and logistics; low for founding year and participant numbers",
+      "gaps_identified": [
+        "Registration cost not disclosed",
+        "Participant field size unknown",
+        "Exact GPS coordinates for race start not provided",
+        "Founding year estimated at ~2020; origin story unavailable",
+        "Climate data inferred from regional norms, not event-specific"
+      ],
+      "data_currency": "Current for 2026 event (June 7); sources accessed March 3, 2026"
+    }
+  }
+}

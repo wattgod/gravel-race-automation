@@ -1,28 +1,28 @@
 {
   "@context": "https://schema.org",
   "@type": "SportsEvent",
-  "name": "Dekom System Sudety Tour",
-  "description": "A challenging cross-border gran fondo through the Sudetes connecting Czechia and Poland",
+  "name": "GFNY Dominican Republic",
+  "description": "Be a Pro For A Day in Paradise",
   "sport": "Gravel Cycling",
-  "startDate": "2026-05-09",
+  "startDate": "2026-03-15",
   "location": {
     "@type": "Place",
-    "name": "Broumov, Czechia",
+    "name": "Punta Cana, Dominican Republic",
     "address": {
       "@type": "PostalAddress",
-      "addressLocality": "Broumov",
-      "addressRegion": "Czechia"
+      "addressLocality": "Punta Cana",
+      "addressRegion": "Dominican Republic"
     }
   },
   "aggregateRating": {
     "@type": "AggregateRating",
-    "ratingValue": "67",
+    "ratingValue": "69",
     "bestRating": "100",
     "ratingCount": "14",
     "name": "Gravel God Rating"
   },
   "organizer": {
     "@type": "Person",
-    "name": "Unknown; original event launched 2004"
+    "name": "Gran Fondo New York (GFNY)"
   }
 }

@@ -1,0 +1,30 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Tour of Nilgiris (TFN)",
+  "description": "Asia's premier multi-stage endurance cycling expedition through the Western Ghats",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-12-07",
+  "location": {
+    "@type": "Place",
+    "name": "Nilgiris District, Tamil Nadu, India",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Nilgiris District",
+      "addressRegion": "Tamil Nadu"
+    }
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "81",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://tourofnilgiris.com",
+  "organizer": {
+    "@type": "Person",
+    "name": "Co-founded by Ravi Ranjan Kumar and team; Ravi Ranjan is credited as co-founder in podcast discussions of TFN's genesis.",
+    "url": "https://tourofnilgiris.com"
+  }
+}

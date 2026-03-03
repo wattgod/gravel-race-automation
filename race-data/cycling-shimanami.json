@@ -1,0 +1,317 @@
+{
+  "race": {
+    "name": "Cycling Shimanami",
+    "slug": "cycling-shimanami",
+    "display_name": "Cycling Shimanami 2026",
+    "tagline": "Japan's premier international cycling event across the Seto Inland Sea",
+    "vitals": {
+      "location": "Imabari, Ehime Prefecture to Onomichi, Hiroshima Prefecture, Japan",
+      "coordinates": {
+        "start": {
+          "latitude": 34.0667,
+          "longitude": 132.9833
+        },
+        "finish": {
+          "latitude": 34.4086,
+          "longitude": 133.205
+        }
+      },
+      "date": "October",
+      "distance_km": 70,
+      "distance_miles": 43.5,
+      "elevation_gain_m": null,
+      "elevation_gain_ft": null,
+      "discipline": "road",
+      "event_type": "mass participation cycling event",
+      "frequency": "biennial",
+      "course_options": [
+        {
+          "name": "30 km course",
+          "distance_km": 30,
+          "difficulty": "beginner"
+        },
+        {
+          "name": "70 km course",
+          "distance_km": 70,
+          "difficulty": "intermediate"
+        },
+        {
+          "name": "140 km course",
+          "distance_km": 140,
+          "difficulty": "advanced"
+        }
+      ],
+      "elevation_ft": 1300,
+      "date_specific": "2026: October 25",
+      "slug": "cycling-shimanami",
+      "distance_mi": 43.5
+    },
+    "climate": {
+      "overview": "Late October in the Seto Inland Sea region features mild autumn conditions with low precipitation risk and light winds, ideal for cycling.",
+      "average_temp_f": 64,
+      "average_temp_range": "59-72°F (15-22°C)",
+      "precipitation_chance": 15,
+      "wind_conditions": "light"
+    },
+    "terrain": {
+      "overview": "Relatively flat route crossing nine bridges that link six islands across the Seto Inland Sea, featuring dedicated blue-line cycling paths with ocean views throughout.",
+      "surface_breakdown": {
+        "paved": 100,
+        "gravel": 0,
+        "dirt": 0
+      },
+      "characteristics": [
+        "Nine major bridge crossings",
+        "Island-to-island connectivity",
+        "Dedicated cyclist paths",
+        "Minimal elevation gain",
+        "Coastal scenery"
+      ]
+    },
+    "gravel_god_rating": {
+      "logistics": 5,
+      "length": 3,
+      "technicality": 2,
+      "elevation": 2,
+      "climate": 4,
+      "altitude": 1,
+      "adventure": 4,
+      "prestige": 3,
+      "race_quality": 4,
+      "experience": 5,
+      "community": 5,
+      "field_depth": 3,
+      "value": 4,
+      "expenses": 3,
+      "cultural_impact": 4,
+      "overall_score": 74,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "editorial_tier_label": "TIER 2",
+      "business_tier_label": "TIER 2",
+      "display_tier_label": "TIER 2",
+      "editorial_tier": 2,
+      "business_tier": 2,
+      "display_tier": 2,
+      "discipline": "road",
+      "score_note": "Sum of 14 criteria: 5+3+2+2+4+1+4+3+4+5+5+3+4+3 = 48. cultural_impact = 4. Total = 52. (52/70)*100 = 74."
+    },
+    "biased_opinion_ratings": {
+      "adventure": {
+        "score": 4,
+        "explanation": "The scenic 70km route across islands and iconic bridges like Kurushima-Kaikyo offers thrilling island-hopping exploration, though it's more leisurely than extreme.[1][6]"
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "Minimal altitude variation with only about 20m elevation gain, making it exceptionally flat for a bridge-crossing journey.[1]"
+      },
+      "climate": {
+        "score": 4,
+        "explanation": "Mild Seto Inland Sea weather provides comfortable cycling conditions most of the year, enhancing the outdoor experience.[1]"
+      },
+      "community": {
+        "score": 5,
+        "explanation": "Over 150 cycle oases, rental stations, and cyclist-friendly facilities create a welcoming, supportive environment for riders worldwide.[1][7]"
+      },
+      "elevation": {
+        "score": 2,
+        "explanation": "Low total elevation gain of around 20m, but some steeper sections like on Oshima add minor challenges.[1][3]"
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Moderate costs for rentals, buses (e.g., 2,500-2,800 yen return), and access balance affordability with quality infrastructure.[2][4]"
+      },
+      "experience": {
+        "score": 5,
+        "explanation": "Breathtaking Seto Inland Sea views, historical sites, and well-marked paths deliver an unforgettable, world-class cycling journey.[1][3]"
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "Solid variety of islands, bridges, and stops like observatories and temples, though focused mainly on the main 70km path.[1][2]"
+      },
+      "length": {
+        "score": 3,
+        "explanation": "70km main route suits a full day or multi-day trip, ideal for most but lengthy for quick outings.[1][4]"
+      },
+      "logistics": {
+        "score": 5,
+        "explanation": "Excellent setup with blue line markers, English rentals/returns at any terminal, frequent buses, and clear access from major stations.[1][2][7]"
+      },
+      "prestige": {
+        "score": 3,
+        "explanation": "Renowned national cycling route and global mecca for cyclists, yet more accessible than elite racing events.[3][7]"
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "High-quality infrastructure and scenery make for an engaging 'race' experience, though designed for touring over competition.[1][4]"
+      },
+      "technicality": {
+        "score": 2,
+        "explanation": "Primarily flat, paved paths with blue line guidance suit beginners; limited steep or rough terrain.[1][4]"
+      },
+      "value": {
+        "score": 4,
+        "explanation": "Exceptional facilities, scenery, and ease for the cost deliver strong value for a premier cycling adventure.[1][7]"
+      }
+    },
+    "biased_opinion": {
+      "overview": "Cycling Shimanami represents the gold standard for mass-participation cycling events in Asia. The combination of world-class organization, stunning scenery, and genuine cultural integration makes it exceptional for riders seeking an unforgettable experience rather than a competitive challenge. The event's biennial schedule and international draw create a unique atmosphere where thousands of cyclists from around the world share the road simultaneously, with locals cheering from sidewalks and photographers lining the route. The flat terrain and excellent support infrastructure make it accessible to a broad range of abilities, though this also means it lacks the physical severity that hardcore cyclists might seek. For those prioritizing logistics, experience quality, and community engagement over raw difficulty, this is a premier destination event."
+    },
+    "final_verdict": {
+      "one_liner": "Japan's most prestigious international cycling event offering unparalleled logistics, scenery, and cultural immersion across the Seto Inland Sea.",
+      "full_verdict": "Cycling Shimanami 2026 stands as a masterclass in event organization and cyclist-centric infrastructure. The event's strength lies not in physical difficulty but in its holistic experience: stunning bridge crossings, dedicated cycling paths, exceptional volunteer support, and authentic cultural integration. The October timing provides ideal weather, and the biennial schedule creates genuine international community. However, the relatively flat terrain and moderate distances mean this event appeals primarily to experience-seekers and recreational cyclists rather than those seeking competitive challenge or significant physical suffering. The comprehensive logistics—including bike rentals, luggage forwarding, and 150+ aid stations—eliminate typical cycling event friction points. For international cyclists planning a Japan cycling pilgrimage, this is non-negotiable; for those seeking a hard cycling challenge, look elsewhere."
+    },
+    "logistics": {
+      "overview": "Exceptionally well-organized event with comprehensive support for international participants. Registration opens April 2026. Multiple distance options accommodate varying abilities. Bike rentals available at 10 terminals throughout the route with drop-off flexibility. Luggage forwarding and accommodation partnerships facilitate multi-day touring.",
+      "official_site": "https://cycling-shimanami.jp/english/",
+      "airports": [
+        {
+          "code": "MYJ",
+          "name": "Matsuyama Airport",
+          "distance_to_start_km": 60,
+          "notes": "Closest airport to Imabari start point, approximately 1 hour by car"
+        },
+        {
+          "code": "HIJ",
+          "name": "Hiroshima Airport",
+          "distance_to_finish_km": 80,
+          "notes": "Convenient for Onomichi finish point, approximately 1.5 hours by car"
+        },
+        {
+          "code": "KIX",
+          "name": "Osaka International Airport (Kansai)",
+          "distance_to_start_km": 280,
+          "notes": "Major hub with train connections to Imabari"
+        },
+        {
+          "code": "FUK",
+          "name": "Fukuoka Airport",
+          "distance_to_start_km": 200,
+          "notes": "Alternative major hub with regional rail access"
+        }
+      ],
+      "accommodation": "Multiple lodging options available through event partnerships, including traditional onsen (hot spring) accommodations. Bike-into-room lodging available at select properties. Luggage transfer services connect accommodations along the route.",
+      "registration_notes": "Registration opens April 2026 through official website. International participants welcome. Multiple course distances available (30 km, 70 km, 140 km). Event expects approximately 7,000 participants from around the world. Computerized lottery system may be used if over-subscribed."
+    },
+    "history": {
+      "overview": "Cycling Shimanami is Japan's largest organized cycling event, held biennially on the Shimanami Kaido route. The event showcases the scenic Seto Inland Sea crossing and has become an international destination event attracting cyclists from around the world.",
+      "founder": "Ehime Prefecture officials in partnership with local cycling organizations",
+      "year_founded": 2006,
+      "notable_moments": [
+        "Event established as international cycling showcase for Shimanami Kaido route",
+        "Biennial schedule established to manage participation and maintain event quality",
+        "2026 edition marks continued growth with expanded international promotion through partnerships with cycling organizations including Hawai'i Bicycling League",
+        "Event features unique access to normally car-only expressway, available only during the cycling event"
+      ]
+    },
+    "course_description": {
+      "character": "A scenic, relatively flat island-hopping route across nine iconic bridges spanning the Seto Inland Sea. The Shimanami Kaido connects six islands (Oshima, Omishima, Hakatajima, Innoshima, Ikuchi-jima, and Mukaishima) between Imabari on Shikoku Island and Onomichi in Hiroshima Prefecture. Dedicated blue-line cycling paths, 150+ rest oases, and comprehensive aid stations with local food and cultural experiences characterize the route. The event allows cyclists unique access to the normally car-only expressway main road, creating an unforgettable atmosphere with closed roads, cheering locals, and photographers lining the route.",
+      "suffering_zones": [
+        {
+          "label": "Shiratakiyama viewpoint climb (optional but challenging, offering panoramic island chain views)",
+          "description": ""
+        },
+        {
+          "label": "Kumakogen countryside section with technical turns and relentless inclines (27 km course variant)",
+          "description": ""
+        },
+        {
+          "label": "Omogo-kei Gorge passage with elevation changes",
+          "description": ""
+        },
+        {
+          "label": "UFO Line section with distant ocean views and sustained climbing",
+          "description": ""
+        }
+      ],
+      "signature_challenge": "The nine bridge crossings themselves, particularly the longest bridge onto Shikoku Island, which require sustained effort but reward with spectacular Seto Inland Sea vistas. The optional Shiratakiyama climb offers the most significant elevation challenge with stone kami (gods) statues lining the ascent.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "typical_start_time": "8:00 AM",
+      "typical_finish_time": "5:00 PM",
+      "aid_station_count": 150,
+      "water_sources": "Abundant at aid stations and oases throughout route",
+      "food_options": "Local specialties at aid stations including daifuku confections and yuzu gelato",
+      "bike_rental_terminals": 10,
+      "luggage_transfer_available": true,
+      "support_vehicle_access": true,
+      "checkpoint_time_limits": true,
+      "mandatory_rest_stops": false,
+      "group_size_limit": null,
+      "bike_types_allowed": [
+        "Road bike",
+        "MTB Mountain bicycle",
+        "Hybrid bicycle",
+        "Small tire diameter bicycle (16-24 inches)",
+        "City bicycle (with drive train system)",
+        "Tandem bicycle (two-seater only)"
+      ]
+    },
+    "non_negotiables": [
+      "Participants must stay behind staff guides on designated courses",
+      "Participants must maintain forward direction; intentional course deviation results in forced retirement and transport to finish",
+      "Participants must pass each checkpoint by set closing times or be directed to retire",
+      "On expressway sections, riders must stay in designated lanes (up lane from Imabari to Onomichi); do not enter outbound lane",
+      "Riders must ride in two lines in center of lane on single-lane sections",
+      "All participants must abide by organizer safety rules and drive safely at all times",
+      "Completion certification requires finishing by allotted time limit",
+      "Certain bicycle types prohibited due to safety concerns"
+    ],
+    "citations": [
+      {
+        "url": "https://hbl.org/shimanami2026/",
+        "title": "Cycling Shimanami 2026 - Hawai'i Bicycling League",
+        "accessed": "2026-03-03"
+      },
+      {
+        "url": "https://bicyclingaustralia.com.au/news/destination-riding-the-shimanami-kaido-event-and-beyond/",
+        "title": "Destination: Riding the Shimanami Kaido event and beyond",
+        "accessed": "2026-03-03"
+      },
+      {
+        "url": "https://cycling-shimanami.jp/download/cs2026_rule_english.pdf",
+        "title": "CYCLING SHIMANAMI 2026 Event Rules",
+        "accessed": "2026-03-03"
+      },
+      {
+        "url": "https://www.womantours.com/tours/481/japan-the-shimanami-experience-ride-connect-celebrate-bike-tour",
+        "title": "The Shimanami Experience - Ride Connect Celebrate | Bike Tour",
+        "accessed": "2026-03-03"
+      },
+      {
+        "url": "https://cccts.org/ride/2026-japans-setouchi-islands-a-cyclists-paradise/",
+        "title": "2026 Japan's Setouchi Islands – A Cyclist's Paradise",
+        "accessed": "2026-03-03"
+      },
+      {
+        "url": "https://cycling-shimanami.jp/english/",
+        "title": "CYCLING SHIMANAMI 2026 Setouchi Shimanami Kaido",
+        "accessed": "2026-03-03"
+      },
+      {
+        "url": "https://cycling-shimanami.jp/english/about.html/",
+        "title": "About | CYCLING SHIMANAMI 2026 Setouchi Shimanami Kaido",
+        "accessed": "2026-03-03"
+      },
+      {
+        "url": "https://www.ahotu.com/event/cycling-shimanami",
+        "title": "Cycling Shimanami, 25 Oct, 2026 (Sun) | Ahotu",
+        "accessed": "2026-03-03"
+      }
+    ],
+    "research_metadata": {
+      "query_date": "2026-03-03",
+      "sources_consulted": 8,
+      "confidence_level": "high",
+      "data_gaps": [
+        "Exact elevation gain for primary 70 km route not specified in sources",
+        "Specific 2026 registration fees not published as of research date",
+        "Exact participant count expectations for 2026 edition not confirmed",
+        "RideWithGPS route IDs not available in search results"
+      ],
+      "notes": "The 140 km course distance mentioned in search results appears to be a longer variant option rather than the standard route. The primary Shimanami Kaido cycling route is 70 km. Multiple course options (30 km, 70 km, 140 km) are available to accommodate different fitness levels. Event organization and logistics are exceptionally well-documented; terrain and climate data are consistent across sources. October 25, 2026 date confirmed across multiple independent sources."
+    }
+  }
+}

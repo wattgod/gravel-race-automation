@@ -1,0 +1,221 @@
+{
+  "race": {
+    "name": "Omloop Het Nieuwsblad Sportive",
+    "slug": "omloop-het-nieuwsblad-sportive",
+    "display_name": "Omloop Het Nieuwsblad Cyclo",
+    "tagline": "Ride the Flemish classics cobbles and bergs the day after the pros",
+    "vitals": {
+      "discipline": "road",
+      "prestige": 3,
+      "date_specific": "2026: March 1",
+      "distance_options": [
+        "60 km (37 mi)",
+        "80 km (50 mi)",
+        "120 km (75 mi)",
+        "150 km (93 mi)"
+      ],
+      "flagship_distance": "150 km (93 mi)",
+      "flagship_elevation": "+1218 m (+3996 ft)",
+      "start_location_150km": "'t Kuipke velodrome, Gent",
+      "start_location_shorter": "Campus Ninove",
+      "gps_coords": {
+        "gent": "51.05°N, 3.72°E",
+        "ninove": "50.86°N, 4.03°E"
+      },
+      "field_size": "Thousands",
+      "registration_cost": "€18-26 (early online, varies by distance)",
+      "elevation_ft": 3996,
+      "date": "March",
+      "slug": "omloop-het-nieuwsblad-sportive",
+      "location": "Ghent, Belgium",
+      "distance_mi": 93
+    },
+    "climate": {
+      "overview": "Early March in Flanders: cool, often wet and windy on cobbles, typical 'Flemish spring' variability.",
+      "average_temp_f": "41-50°F",
+      "precipitation_chance": "High (frequent rain/wind)"
+    },
+    "terrain": {
+      "overview": "Flemish classics roads with cobbled climbs (bergs) like Muur van Geraardsbergen.",
+      "surface_breakdown": {
+        "cobbles": "Significant (Haaghoek, etc.)",
+        "paved": "Majority",
+        "gravel": "None"
+      }
+    },
+    "gravel_god_rating": {
+      "logistics": 4,
+      "length": 4,
+      "technicality": 4,
+      "elevation": 3,
+      "climate": 3,
+      "altitude": 1,
+      "adventure": 3,
+      "prestige": 3,
+      "race_quality": 4,
+      "experience": 4,
+      "community": 5,
+      "field_depth": 2,
+      "value": 5,
+      "expenses": 4,
+      "cultural_impact": 3,
+      "overall_score": 74,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "editorial_tier_label": "TIER 2",
+      "business_tier_label": "TIER 2",
+      "display_tier_label": "TIER 2",
+      "editorial_tier": 2,
+      "business_tier": 2,
+      "display_tier": 2,
+      "discipline": "road",
+      "score_note": "Sum of 14 criteria: 4+4+4+3+3+1+3+3+4+4+5+2+5+4 = 49. cultural_impact = 3. Total = 52. (52/70)*100 = 74."
+    },
+    "biased_opinion_ratings": {
+      "adventure": {
+        "score": 3,
+        "explanation": "Offers a moderate level of adventure with some scenic routes and moderate challenges, but lacks extreme elements."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "Minimal altitude gain, making it accessible but unexciting for those seeking high-elevation climbs."
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "Weather conditions are generally favorable with occasional variability, providing a balanced riding experience."
+      },
+      "community": {
+        "score": 5,
+        "explanation": "Exceptional community atmosphere with strong camaraderie, support, and engagement among participants."
+      },
+      "elevation": {
+        "score": 3,
+        "explanation": "Moderate elevation profile includes noticeable climbs that add challenge without being overwhelming."
+      },
+      "expenses": {
+        "score": 4,
+        "explanation": "Reasonably priced with good value for the experience, keeping costs manageable for most riders."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "Delivers a solid, enjoyable experience suitable for a wide range of cyclists, with few drawbacks."
+      },
+      "field_depth": {
+        "score": 2,
+        "explanation": "Limited depth in the field, with fewer highly competitive riders, leading to less intense racing."
+      },
+      "length": {
+        "score": 4,
+        "explanation": "Well-suited length that provides a substantial ride without excessive fatigue for participants."
+      },
+      "logistics": {
+        "score": 4,
+        "explanation": "Smooth and efficient organization with reliable support, minimizing hassles for riders."
+      },
+      "prestige": {
+        "score": 3,
+        "explanation": "Moderate prestige as a recognized sportive, appealing to enthusiasts but not elite professionals."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "High-quality event execution with strong organization and engaging competition."
+      },
+      "technicality": {
+        "score": 4,
+        "explanation": "Features demanding technical sections like corners and descents that test rider skills effectively."
+      },
+      "value": {
+        "score": 5,
+        "explanation": "Outstanding value, offering premium experience and quality far exceeding the cost."
+      }
+    },
+    "biased_opinion": {
+      "overview": "This sportive captures the soul of Flemish cycling—cobbles, wind, and bergs that humble even pros. Starting from 't Kuipke the day after MVDP's win? Pure magic for €25. Shorter Ninove options make it accessible, but 150km is the real test of Vlaamse koersbeleving."
+    },
+    "final_verdict": {
+      "one_liner": "Essential Flemish classics cyclo for cobbles lovers.",
+      "full_verdict": "Iconic routes matching the pro race with new challenges like Haaghoek and Leberg. Excellent value, strong community, weather adds adventure. T2 tier gran fondo with top cultural punch."
+    },
+    "logistics": {
+      "overview": "Starts day after pro race (March 1, 2026); parking at venues; English/NL site.",
+      "official_site": "https://omloophetnieuwsbladcyclo.be/",
+      "airports": [
+        "BRU (Brussels, ~30-50km)",
+        "ANR (Antwerp, ~60km)",
+        "CRL (Charleroi, ~70km)"
+      ],
+      "accommodation": "Ghent/Ninove hotels; easy from Brussels.",
+      "registration_notes": "€18-23 (60/80km), €21-26 (120/150km) early; +€5 deposit for T-shirt; prices rise near event."
+    },
+    "history": {
+      "overview": "Longstanding amateur cyclo tied to pro Omloop Het Nieuwsblad (1945 origins); fans ride same roads day after.",
+      "founder": "Uncertain; organized with Flanders Classics.",
+      "notable_moments": [
+        "2025 (March 2): Thousands post-pro wins by Waerenskjold (men), Claes (women); new Haaghoek/Tenbossestraat.",
+        "2026 pro context: MVDP solo from Muur to Ninove."
+      ]
+    },
+    "course_description": {
+      "character": "Cobbled Flemish hellingen and pavé sectors mimicking pro Omloop; new additions for 2026.",
+      "suffering_zones": [
+        {
+          "label": "Haaghoek (new)",
+          "description": ""
+        },
+        {
+          "label": "Leberg (new)",
+          "description": ""
+        },
+        {
+          "label": "Berendries",
+          "description": ""
+        },
+        {
+          "label": "Tenbossestraat (new, twice)",
+          "description": ""
+        },
+        {
+          "label": "Muur van Geraardsbergen",
+          "description": ""
+        },
+        {
+          "label": "Bosberg",
+          "description": ""
+        }
+      ],
+      "signature_challenge": "Muur van Geraardsbergen cobbles",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "year_founded": "Uncertain (pre-2010)",
+      "organizer": "Flanders Classics"
+    },
+    "non_negotiables": [
+      "Cobbles tolerance",
+      "Early March weather prep",
+      "Classic Flemish bike setup"
+    ],
+    "citations": [
+      {
+        "url": "https://omloophetnieuwsbladcyclo.be/",
+        "title": "Omloop Het Nieuwsblad Cyclo Official Site",
+        "accessed": "2026-03-03"
+      },
+      {
+        "url": "https://www.cyclingnews.com/pro-cycling/races/omloop-het-nieuwsblad-2026/",
+        "title": "Omloop Het Nieuwsblad 2026 | Cyclingnews",
+        "accessed": "2026-03-03"
+      },
+      {
+        "url": "https://www.onlycycling.com/nl/omloop-het-nieuwsblad/2026/",
+        "title": "Omloop Het Nieuwsblad 2026: Alle info - OnlyCycling",
+        "accessed": "2026-03-03"
+      }
+    ],
+    "research_metadata": {
+      "sources_used": "[1][3][4]",
+      "notes": "Pro race sources contextualize cyclo routes; sportive specifics from [3][4]. GPS approx."
+    }
+  }
+}

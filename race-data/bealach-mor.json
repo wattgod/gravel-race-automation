@@ -1,0 +1,202 @@
+{
+  "race": {
+    "name": "Bealach Mór",
+    "slug": "bealach-mor",
+    "display_name": "Bealach Mór (The Bà Sportive)",
+    "tagline": "Holy Grail of UK cycling climbs: closed-road assault on Bealach na Bà.",
+    "vitals": {
+      "discipline": "road",
+      "prestige": 3,
+      "date": "2026: May 16",
+      "distance_km": 72,
+      "distance_miles": 45,
+      "elevation_m": 800,
+      "elevation_ft": 2625,
+      "location": "Shieldaig, Applecross Peninsula, Scottish Highlands, Scotland",
+      "gps_coords": "57.441°N, 5.588°W (Bealach na Bà summit)",
+      "field_size": 400,
+      "registration_cost": "£50 standard; £35 student",
+      "date_specific": "2026: May 16",
+      "slug": "bealach-mor",
+      "distance_mi": 44.7
+    },
+    "climate": {
+      "overview": "Typical May Scottish Highlands: cool, rainy, windy, variable; exposed to Atlantic weather on Bealach na Bà.",
+      "average_temp_f": "46-59",
+      "precipitation_chance": "High"
+    },
+    "terrain": {
+      "overview": "Closed Highland roads with rugged climbs; primarily paved ascent of Bealach na Bà.",
+      "surface_breakdown": {
+        "paved": "100%",
+        "gravel": 0
+      }
+    },
+    "gravel_god_rating": {
+      "logistics": 3,
+      "length": 3,
+      "technicality": 2,
+      "elevation": 4,
+      "climate": 3,
+      "altitude": 3,
+      "adventure": 5,
+      "prestige": 3,
+      "race_quality": 4,
+      "experience": 5,
+      "community": 4,
+      "field_depth": 3,
+      "value": 5,
+      "expenses": 3,
+      "cultural_impact": 3,
+      "overall_score": 76,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "editorial_tier_label": "TIER 2",
+      "business_tier_label": "TIER 2",
+      "display_tier_label": "TIER 2",
+      "editorial_tier": 2,
+      "business_tier": 2,
+      "display_tier": 2,
+      "discipline": "road",
+      "score_note": "Sum of 14 criteria: 3+3+2+4+3+3+5+3+4+5+4+3+5+3 = 50. cultural_impact = 3. Total = 53. (53/70)*100 = 76."
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 3,
+        "explanation": "Remote Highlands location requires planning; nearest airports 2.5hrs away."
+      },
+      "length": {
+        "score": 3,
+        "explanation": "Compact 72km but brutally challenging."
+      },
+      "technicality": {
+        "score": 2,
+        "explanation": "Road sportive; steep gradients demand power over bike handling."
+      },
+      "elevation": {
+        "score": 4,
+        "explanation": "Iconic 632m Bealach na Bà climb with 20% sections."
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "Unpredictable Scottish weather adds grit."
+      },
+      "altitude": {
+        "score": 3,
+        "explanation": "Summit ~626m; not extreme but exposed."
+      },
+      "adventure": {
+        "score": 5,
+        "explanation": "Stunning vistas of Skye, Torridon; bucket-list epic."
+      },
+      "prestige": {
+        "score": 3,
+        "explanation": "UK's toughest road climb; growing fame."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "Closed roads, charity focus, strong organization."
+      },
+      "experience": {
+        "score": 5,
+        "explanation": "'Prettiest and most challenging' per sources."
+      },
+      "community": {
+        "score": 4,
+        "explanation": "Funds Shieldaig; ~400-rider peloton vibe."
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "Sportive field; quality but not pro depth."
+      },
+      "value": {
+        "score": 5,
+        "explanation": "£50 entry, 100% to community; unbeatable."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Travel to remote Scotland inflates costs."
+      },
+      "cultural_impact": {
+        "score": 3,
+        "explanation": "Legendary pass elevates UK cycling lore."
+      }
+    },
+    "biased_opinion": {
+      "overview": "A savage, scenic masterpiece that punches way above its modest distance—pure suffering rewarded with Highland majesty. Prestige 3 belies its 'Holy Grail' status among UK climbs."
+    },
+    "final_verdict": {
+      "one_liner": "UK's ultimate road climb on closed roads: brutal, beautiful, bucket-list essential.",
+      "full_verdict": "Bealach Mór delivers the Bealach na Bà—626m over 9km at 20% max—in a 72km charity loop through paradise. Remote, raw, and relentlessly rewarding; T2 tier hides its elite suffering."
+    },
+    "logistics": {
+      "overview": "Start/finish Shieldaig; rolling 9:15-9:45am; closed roads.",
+      "official_site": "https://www.sientries.co.uk/event.php?elid=Y&event_id=14569",
+      "airports": [
+        "Inverness (INV, ~2.5hrs drive)"
+      ],
+      "accommodation": "Local Shieldaig/Applecross; book early for Highlands.",
+      "registration_notes": "£50/£35; closed for 2025, check 2026; proceeds to Shieldaig Community."
+    },
+    "history": {
+      "overview": "Founded 2006 by Hands On Events; now Shieldaig Assoc./Jenny Graham (relaunched as The Bà 2025+).",
+      "founder": "Hands On Events / Jenny Graham (current)",
+      "notable_moments": [
+        "UK's 'prettiest and most challenging' ride.",
+        "'Holy Grail' of British climbs.",
+        "2025 duathlon addition."
+      ]
+    },
+    "course_description": {
+      "character": "Closed-road loop from Shieldaig over Bealach na Bà to Applecross peninsula, looping with Torridon/Skye views back to finish.",
+      "suffering_zones": [
+        {
+          "label": "Bealach na Bà: 9km, 632m gain, 7% avg/20% max.",
+          "description": ""
+        }
+      ],
+      "signature_challenge": "Bealach na Bà pass—UK's biggest road climb.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": "https://ridewithgps.com/routes/15068453"
+    },
+    "guide_variables": {
+      "year_founded": 2006,
+      "distance_options": [
+        "Main: 72km/45mi",
+        "Related: Bealach Beag (shorter)",
+        "2025 Bà Duathlon"
+      ]
+    },
+    "non_negotiables": [
+      "Prepare for 20% gradients",
+      "Pack for Scottish weather",
+      "Remote logistics—arrive early"
+    ],
+    "citations": [
+      {
+        "url": "https://stolengoat.com/2026/01/best-cycling-events-2026/",
+        "title": "Our pick of the best cycling events to enter in 2026 - Stolen Goat",
+        "accessed": "2026: March 03"
+      },
+      {
+        "url": "https://www.bikeradar.com/features/routes-and-rides/best-cycling-sportives-uk",
+        "title": "The UK's best sportives: these events will make 2026 a year to remember",
+        "accessed": "2026: March 03"
+      },
+      {
+        "url": "https://jenny-graham.com/the-ba/",
+        "title": "The Bà - Jenny Graham",
+        "accessed": "2026: March 03"
+      }
+    ],
+    "research_metadata": {
+      "sources_used": [
+        1,
+        2,
+        3
+      ],
+      "conflicts": "Distance/elevation vary (72km/800m vs promo 90mi/2100m); used core route data.",
+      "date_researched": "2026: March 03"
+    }
+  }
+}

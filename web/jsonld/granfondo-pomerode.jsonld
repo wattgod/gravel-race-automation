@@ -1,0 +1,28 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "UCI Gran Fondo Brasil \u2013 Pomerode",
+  "description": "South America's Premier UCI Gran Fondo Qualifier in Germany-Heritage Santa Catarina",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-11-08",
+  "location": {
+    "@type": "Place",
+    "name": "Pomerode, Santa Catarina, Brazil",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Pomerode",
+      "addressRegion": "Santa Catarina"
+    }
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "70",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "organizer": {
+    "@type": "Person",
+    "name": "UCI Gran Fondo World Series (organized by team behind successful UCI Gran Fondo Brazil)"
+  }
+}

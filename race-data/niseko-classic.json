@@ -1,0 +1,327 @@
+{
+  "race": {
+    "name": "Niseko Classic",
+    "slug": "niseko-classic",
+    "display_name": "Niseko Classic",
+    "tagline": "Asia's premier mountain gran fondo qualifier in Hokkaido's legendary ski terrain",
+    "vitals": {
+      "location": "Niseko, Hokkaido, Japan",
+      "country": "Japan",
+      "region": "Hokkaido",
+      "distance_km": 140,
+      "distance_miles": 87,
+      "elevation_gain_m": 2370,
+      "elevation_gain_ft": 7776,
+      "terrain_type": "mountain",
+      "discipline": "road",
+      "event_type": "gran_fondo",
+      "founded_year": 2014,
+      "editions_completed": 12,
+      "typical_month": "June",
+      "typical_date": "2026: June 13-14",
+      "elevation_ft": 6562,
+      "date": "June",
+      "date_specific": "2026: June 21",
+      "slug": "niseko-classic",
+      "distance_mi": 87
+    },
+    "climate": {
+      "overview": "Early summer in Hokkaido's mountainous Niseko region; mild temperatures with potential rain in forested and alpine terrain",
+      "average_temp_f": 68,
+      "precipitation_chance": 45
+    },
+    "terrain": {
+      "overview": "Mountainous gran fondo routes through Hokkaido's Niseko range, featuring alpine climbs, forested descents, and coastal views of the Sea of Japan",
+      "surface_breakdown": {
+        "asphalt": 95,
+        "gravel": 0,
+        "dirt": 5
+      }
+    },
+    "distance_options": [
+      {
+        "name": "Gran Fondo",
+        "distance_km": 140,
+        "distance_miles": 87,
+        "elevation_m": 2370,
+        "qualifier_for": "Men 19-49",
+        "description": "Main mountain stage with 20 km climb to 1,000 m elevation"
+      },
+      {
+        "name": "Medio Fondo",
+        "distance_km": 77,
+        "distance_miles": 48,
+        "elevation_m": null,
+        "qualifier_for": "Women and Men 50+",
+        "description": "Hilly route through Rankoshi Town with Sea of Japan views"
+      },
+      {
+        "name": "Time Trial",
+        "distance_km": 16.3,
+        "distance_miles": 10.1,
+        "elevation_m": null,
+        "qualifier_for": "All categories",
+        "description": "Flat back-and-forth loop in Kyowa near the coast"
+      },
+      {
+        "name": "Team Relay",
+        "distance_km": null,
+        "distance_miles": null,
+        "elevation_m": null,
+        "qualifier_for": "Mixed teams",
+        "description": "New format for 2025 and beyond"
+      },
+      {
+        "name": "Discovery Ride",
+        "distance_km": null,
+        "distance_miles": null,
+        "elevation_m": null,
+        "qualifier_for": "All participants",
+        "description": "Open recreational ride on course sections"
+      }
+    ],
+    "course_description": {
+      "character": "A dramatic mountain gran fondo through Hokkaido's famous Niseko ski region, combining steep alpine climbs with fast descents, forested passages, and glimpses of the Sea of Japan. The 140 km route is a true mountain stage with over 2,370 meters of elevation gain, featuring a signature 20 km climb to 1,000 meters elevation.",
+      "suffering_zones": [
+        {
+          "label": "20 km climb to 1,000 m elevation on the Niseko Panorama Line (home to Hokkaido's highest KOM)",
+          "description": ""
+        },
+        {
+          "label": "Multiple rolling climbs through forested terrain in the Niseko Mountain Range",
+          "description": ""
+        },
+        {
+          "label": "Sustained elevation gain throughout the route with limited flat recovery sections",
+          "description": ""
+        }
+      ],
+      "signature_challenge": "The Niseko Panorama Line climb to Hokkaido's highest KOM, followed by a fast descent into Kyowa Town",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null,
+      "course_routing": "Starting and finishing at Niseko Tokyu Grand Hirafu, the course passes through Rankoshi Town along the Shiribetsu River (one of Japan's cleanest rivers), tackles the Niseko Panorama Line with its signature KOM, then descends rapidly into Kyowa Town"
+    },
+    "gravel_god_rating": {
+      "logistics": 4,
+      "length": 4,
+      "technicality": 4,
+      "elevation": 5,
+      "climate": 3,
+      "altitude": 4,
+      "adventure": 4,
+      "prestige": 3,
+      "race_quality": 4,
+      "experience": 4,
+      "community": 3,
+      "field_depth": 2,
+      "value": 2,
+      "expenses": 2,
+      "cultural_impact": 4,
+      "overall_score": 74,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "editorial_tier_label": "TIER 2",
+      "business_tier_label": "TIER 2",
+      "display_tier_label": "TIER 2",
+      "editorial_tier": 2,
+      "business_tier": 2,
+      "display_tier": 2,
+      "discipline": "road",
+      "score_note": "Sum of 14 criteria: 4+4+4+5+3+4+4+3+4+4+3+2+2+2 = 48. cultural_impact = 4. Total = 52. (52/70)*100 = 74."
+    },
+    "biased_opinion_ratings": {
+      "adventure": {
+        "score": 4,
+        "explanation": "Thrilling mountainous routes through lush forests and rugged coastline with Mt. Yotei backdrop deliver high adventure.[1]"
+      },
+      "altitude": {
+        "score": 4,
+        "explanation": "Reaches 1000m above sea level on the 140km course, providing substantial altitude challenge.[2]"
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "June in Hokkaido offers mild but unpredictable weather, potentially dampening the experience.[1]"
+      },
+      "community": {
+        "score": 3,
+        "explanation": "Growing local support and festive atmosphere, yet still developing as a major cycling hub.[3]"
+      },
+      "elevation": {
+        "score": 5,
+        "explanation": "Features a demanding 20km climb to 1000m, earning top marks for elevation gain.[2]"
+      },
+      "expenses": {
+        "score": 2,
+        "explanation": "Remote location 2 hours from Sapporo airport, plus Japan costs, make it pricey.[2]"
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "Well-organized 12th edition as UCI Gran Fondo qualifier with diverse events like team relay.[6]"
+      },
+      "field_depth": {
+        "score": 2,
+        "explanation": "Attracts participants but lacks deep elite competition typical of world championships.[1]"
+      },
+      "length": {
+        "score": 4,
+        "explanation": "Offers 140km gran fondo and 77km medio fondo distances, ideal for long-distance riders.[2]"
+      },
+      "logistics": {
+        "score": 4,
+        "explanation": "Closed roads and structured multi-day format with time trial and relay simplify participation.[2]"
+      },
+      "prestige": {
+        "score": 3,
+        "explanation": "Official qualifier for 2026 UCI Worlds in Niseko boosts status, though not the top event.[1]"
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "Scenic, fully closed-road mountain stage with new time trial course ensures high quality.[2]"
+      },
+      "technicality": {
+        "score": 4,
+        "explanation": "Hilly terrain with significant climbs demands solid technical descending and pacing skills.[2]"
+      },
+      "value": {
+        "score": 2,
+        "explanation": "High costs versus regional event scale offer limited bang for the buck.[3]"
+      }
+    },
+    "biased_opinion": {
+      "overview": "Niseko Classic delivers world-class mountain cycling in an exotic, underexplored region. The elevation and technical climbing rival European gran fondos, while the Hokkaido setting offers cultural immersion and stunning scenery. As the official 2026 UCI Gran Fondo World Championships qualifier and Asia's premier amateur cycling event, it carries significant prestige. However, high travel costs, uncertain registration fees, and limited field depth information temper the overall value proposition for international riders."
+    },
+    "logistics": {
+      "overview": "Niseko is located in Hokkaido, Japan, approximately 100 km southwest of Sapporo city and 2 hours driving distance from Sapporo New Chitose Airport (CTS). The event starts and finishes at Niseko Tokyu Grand Hirafu venue. Accommodation options include Niseko Landmark View (bike-in/bike-out access with secure storage and maintenance area) and official host hotels offering 10% discounts.",
+      "official_site": "https://nisekoclassic.com/en/",
+      "airports": [
+        {
+          "code": "CTS",
+          "name": "Sapporo New Chitose Airport",
+          "distance_km": 100,
+          "drive_time_hours": 2,
+          "notes": "International airport serving East and Southeast Asia"
+        }
+      ],
+      "accommodation": [
+        {
+          "name": "Niseko Landmark View",
+          "location": "Upper Hirafu",
+          "features": "Secure bicycle storage, maintenance area in basement, air pumps for rent, bike-in/bike-out access, fully equipped kitchen, 90+ sq meters of space",
+          "room_types": "Deluxe (1st-3rd floors) and Premium (4th-6th floors) with forest or Mt. Yotei views"
+        },
+        {
+          "name": "Official Host Hotels",
+          "discount": "10% off",
+          "notes": "Multiple options available in Niseko area"
+        }
+      ],
+      "registration_notes": "Registration opening date unconfirmed. Event registration typically occurs on-site with race pack collection and technical briefing. Transponder check and rider confirmation held morning of event. Age group categories: 19-34, 35-39, 40-44, 45-49, 50-54, 55-59, 60-64, 65-69, 70-74, 75-79, 80+ (age on December 31, 2025)"
+    },
+    "history": {
+      "overview": "Niseko Classic was founded in 2014 as a UCI Gran Fondo World Series qualifier on a difficult and scenic mountain route in Hokkaido's famous ski region. The event has grown to become Asia's premier amateur cycling event and is now the official pre-event for the 2026 UCI Gran Fondo World Championships—the first time this championship is hosted in Asia.",
+      "founder": "Niseko cycling community and UCI Gran Fondo World Series",
+      "notable_moments": [
+        "2014: Event founded as UCI Gran Fondo World Series qualifier",
+        "2025: 12th edition and 10th year as official UCI-sanctioned citizen race",
+        "2025: Introduction of Japan's first Team Relay format (June 13)",
+        "2025: Individual Time Trial comeback (June 14)",
+        "2025: First fully closed roads in recent editions",
+        "2026: Hosting UCI Gran Fondo World Championships (August 26-30)—Asia's first championship edition",
+        "2026: Courses run in opposite direction to past years to prepare for World Championships"
+      ]
+    },
+    "final_verdict": {
+      "one_liner": "Niseko Classic is Asia's most prestigious gran fondo, offering world-class mountain cycling and cultural immersion as the official qualifier for the 2026 UCI Gran Fondo World Championships.",
+      "full_verdict": "Niseko Classic stands as a landmark event in amateur cycling, combining exceptional elevation gain (2,370 m), technical mountain terrain, and stunning Hokkaido scenery. Its status as the official 2026 UCI Gran Fondo World Championships qualifier elevates its prestige significantly. The event delivers on climbing quality and organization, with fully closed roads and professional support. However, international participants face substantial travel costs, uncertain registration fees, and limited information on field depth. Best suited for experienced climbers seeking a unique Asian cycling experience and potential qualification pathway to the World Championships. The June timing in early summer Hokkaido offers mild conditions but potential rain. Overall, a high-quality event with significant cultural and competitive value, though not optimized for budget-conscious riders."
+    },
+    "guide_variables": {
+      "best_for": [
+        "Experienced climbers seeking challenging mountain terrain",
+        "Riders pursuing UCI Gran Fondo World Championships qualification",
+        "Cyclists interested in Asian cycling culture and exotic locations",
+        "Athletes training for high-elevation gran fondos"
+      ],
+      "avoid_if": [
+        "Budget-conscious riders (travel and accommodation costs substantial)",
+        "Flat-terrain preference",
+        "Limited climbing fitness",
+        "Preference for large, established European gran fondos"
+      ],
+      "training_focus": [
+        "Sustained climbing power (20 km climb to 1,000 m elevation)",
+        "Technical descending skills",
+        "High-altitude acclimatization",
+        "Mental toughness for 2,370 m total elevation"
+      ],
+      "packing_essentials": [
+        "Rain gear (potential precipitation in forested terrain)",
+        "Climbing-specific gearing",
+        "Sunscreen and hydration for alpine exposure",
+        "Passport and travel documents"
+      ]
+    },
+    "non_negotiables": [
+      "Passport and visa (if required for Japan entry)",
+      "Travel to Hokkaido (100 km from Sapporo airport)",
+      "Accommodation booking (limited availability during event)",
+      "Bike transport or rental arrangement",
+      "High climbing fitness (2,370 m elevation gain)",
+      "International travel budget (flights, accommodation, meals)"
+    ],
+    "citations": [
+      {
+        "url": "https://nisekoclassic.com/en/",
+        "title": "2026 UCI Gran Fondo World Championships Niseko, Japan",
+        "accessed": "2026-03-03"
+      },
+      {
+        "url": "https://sportivebreaks.com/sportives/uci-gran-fondo-world-championships/",
+        "title": "2026 UCI Gran Fondo World Championships Niseko, Japan",
+        "accessed": "2026-03-03"
+      },
+      {
+        "url": "https://nisekoclassic.com/en/race/140km-road-race",
+        "title": "Gran Fondo 140km | Niseko Classic",
+        "accessed": "2026-03-03"
+      },
+      {
+        "url": "https://ucigranfondoworldseries.com/en/niseko-classic/",
+        "title": "Niseko Classic - UCI Gran Fondo World Series",
+        "accessed": "2026-03-03"
+      },
+      {
+        "url": "https://vacationniseko.com/en/2026-uci-gran-fondo-special-offer/",
+        "title": "2026 UCI Gran Fondo World Championships Special Offer",
+        "accessed": "2026-03-03"
+      },
+      {
+        "url": "https://www.uci.org/article/uci-gran-fondo-world-series-global-dreams-lead-to-japan/3UpI7mQH6WfTW5FeDSFm8",
+        "title": "UCI Gran Fondo World Series: global dreams lead to Japan",
+        "accessed": "2026-03-03"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/13158/2026-uci-gran-fondo-world-championships",
+        "title": "2026 UCI Gran Fondo World Championships",
+        "accessed": "2026-03-03"
+      },
+      {
+        "url": "https://www.skyeniseko.com/special-deals/niseko-classic-2025-2",
+        "title": "10% off at the Official Host Hotel of 2026 UCI Gran Fondo World Series",
+        "accessed": "2026-03-03"
+      }
+    ],
+    "research_metadata": {
+      "data_completeness": "High for course details, moderate for logistics and registration, low for participant numbers and costs",
+      "confidence_level": "High for event dates, location, distances, and elevation; moderate for climate and field details",
+      "gaps_identified": [
+        "Exact registration fees not disclosed",
+        "Participant field size and depth unknown",
+        "Precise GPS coordinates not provided",
+        "Average temperatures and detailed weather patterns not specified",
+        "RideWithGPS course ID not available"
+      ],
+      "sources_reviewed": 8,
+      "last_updated": "2026-03-03"
+    }
+  }
+}

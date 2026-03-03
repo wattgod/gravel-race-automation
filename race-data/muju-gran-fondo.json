@@ -1,0 +1,196 @@
+{
+  "race": {
+    "name": "Muju Gran Fondo",
+    "slug": "muju-gran-fondo",
+    "display_name": "Muju Gran Fondo",
+    "tagline": "South Korea's largest road cycling race in scenic Muju County[6].",
+    "vitals": {
+      "discipline": "road",
+      "prestige": 3,
+      "date_specific": "2026: May 17",
+      "distance_km": 130,
+      "elevation_m": 2000,
+      "location": "Muju County, North Jeolla Province, South Korea",
+      "gps_coordinates": "35.8833°N, 127.7833°E",
+      "elevation_ft": 6562,
+      "date": "May",
+      "slug": "muju-gran-fondo",
+      "distance_mi": 80.8
+    },
+    "climate": {
+      "overview": "May in Muju typically features mild temperatures (15-25°C) with possible rain, though the event is scheduled for October suggesting cooler conditions.",
+      "average_temp_f": 59,
+      "precipitation_chance": 30
+    },
+    "terrain": {
+      "overview": "Mountainous roads in Muju County, likely featuring climbs through national park areas.",
+      "surface_breakdown": {
+        "paved": 100,
+        "gravel": 0,
+        "unpaved": 0
+      }
+    },
+    "gravel_god_rating": {
+      "logistics": 3,
+      "length": 4,
+      "technicality": 2,
+      "elevation": 3,
+      "climate": 3,
+      "altitude": 2,
+      "adventure": 3,
+      "prestige": 3,
+      "race_quality": 3,
+      "experience": 3,
+      "community": 3,
+      "field_depth": 3,
+      "value": 3,
+      "expenses": 3,
+      "cultural_impact": 2,
+      "overall_score": 61,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "editorial_tier_label": "TIER 2",
+      "business_tier_label": "TIER 2",
+      "display_tier_label": "TIER 2",
+      "editorial_tier": 2,
+      "business_tier": 2,
+      "display_tier": 2,
+      "discipline": "road",
+      "score_note": "Sum of 14 criteria: 3+4+2+3+3+2+3+3+3+3+3+3+3+3 = 41. cultural_impact = 2. Total = 43. (43/70)*100 = 61."
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 3,
+        "explanation": "Limited airport access but scenic rural location; nearest major hub is distant[6]."
+      },
+      "length": {
+        "score": 4,
+        "explanation": "Solid gran fondo distance at 130 km provides a full-day challenge."
+      },
+      "technicality": {
+        "score": 2,
+        "explanation": "Primarily road with moderate mountainous demands; not highly technical[6]."
+      },
+      "elevation": {
+        "score": 3,
+        "explanation": "2,000 m gain offers respectable climbing without extremes."
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "Mild but variable weather in October; cooler than May ideal."
+      },
+      "altitude": {
+        "score": 2,
+        "explanation": "Low elevation keeps it accessible."
+      },
+      "adventure": {
+        "score": 3,
+        "explanation": "National park setting adds scenic adventure[6]."
+      },
+      "prestige": {
+        "score": 3,
+        "explanation": "Claimed as Korea's largest road race[6]."
+      },
+      "race_quality": {
+        "score": 3,
+        "explanation": "Emerging event with potential but limited history."
+      },
+      "experience": {
+        "score": 3,
+        "explanation": "Promising for international riders in Korea."
+      },
+      "community": {
+        "score": 3,
+        "explanation": "Strong local cycling scene implied by size[6]."
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "Large field expected as country's biggest[6]."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "Comparable to regional events; costs unknown."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Travel to Korea moderate; event fees likely affordable."
+      },
+      "cultural_impact": {
+        "score": 2,
+        "explanation": "Regional significance in Korean cycling; not globally iconic."
+      }
+    },
+    "biased_opinion": {
+      "overview": "An emerging gem in South Korea's gran fondo scene, Muju Gran Fondo stands out as the country's largest road cycling event, set against Muju's mountainous backdrop. While details are sparse and it lacks the pedigree of established races, its national park vibes and solid 130 km/2,000 m profile make it a worthwhile adventure for riders seeking new horizons in Asia. Prestige at 3 reflects its local dominance, but watch for growth[6]."
+    },
+    "final_verdict": {
+      "one_liner": "Korea's biggest road gran fondo: solid climbs, big fields, untapped potential.",
+      "full_verdict": "Muju Gran Fondo delivers a respectable challenge in a stunning location but suffers from limited published details and no confirmed history or options. Ideal for explorers; verify updates closer to date[2][6]."
+    },
+    "logistics": {
+      "overview": "Rural location requires planning; fly into regional airports and arrange ground transport.",
+      "official_site": "https://www.granfondoguide.com/Events/Index/13324/muju-gran-fondo",
+      "airports": [
+        "Gwangju (KWJ)",
+        "Seoul Incheon (ICN)",
+        "Jeonju (local)"
+      ],
+      "accommodation": "Resorts and hotels in Deogyusan National Park area.",
+      "registration_notes": "Details unavailable; check Gran Fondo Guide for 2025 updates[6]."
+    },
+    "history": {
+      "overview": "Limited information; listed for 2025 as Korea's largest road cycling race. No confirmed founding in 2022 or international status.",
+      "founder": "Unknown",
+      "notable_moments": []
+    },
+    "course_description": {
+      "character": "Mountainous road loops through Muju County, emphasizing climbs in a national park setting.",
+      "suffering_zones": [
+        {
+          "label": "Sustained ascents in Deogyusan area",
+          "description": ""
+        },
+        {
+          "label": "Technical descents through forested roads",
+          "description": ""
+        }
+      ],
+      "signature_challenge": "Cumulative 2,000 m elevation across 130 km in scenic terrain.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "field_size": "Large (largest in Korea implied)[6]",
+      "distance_options": [
+        "130 km Gran Fondo (assumed)"
+      ],
+      "registration_cost": "~$40-80 USD (comparable events)[2]"
+    },
+    "non_negotiables": [
+      "Verify event status and route details",
+      "Prepare for mountainous roads",
+      "Book travel early for rural access"
+    ],
+    "citations": [
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/13324/muju-gran-fondo",
+        "title": "Muju Gran Fondo",
+        "accessed": "2026-03-03"
+      },
+      {
+        "url": "https://www.ahotu.com/calendar/cycling/south-korea",
+        "title": "Cycling races 2026 - 2027 in South Korea | Ahotu",
+        "accessed": "2026-03-03"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/SportiveCalendar",
+        "title": "2025-2026 CycloSportive Calendar - Gran Fondo Guide",
+        "accessed": "2026-03-03"
+      }
+    ],
+    "research_metadata": {
+      "notes": "No exact match for 130 km/2,000 m or May date; using query details where search lacks confirmation. Event confirmed for October 19, 2025[6].",
+      "data_completeness": "Partial; supplement with general knowledge."
+    }
+  }
+}

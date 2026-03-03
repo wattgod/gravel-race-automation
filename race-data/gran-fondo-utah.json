@@ -1,0 +1,224 @@
+{
+  "race": {
+    "name": "Gran Fondo Utah",
+    "slug": "gran-fondo-utah",
+    "display_name": "Gran Fondo Utah",
+    "tagline": "Ride the Wasatch Front: Conquer Nebo Loop in Utah's Gran Fondo National Series",
+    "vitals": {
+      "discipline": "road",
+      "prestige": 3,
+      "date": "June",
+      "location": "Payson Memorial Park, 300 S Main St, Payson, UT 84651, USA",
+      "gps_coords": "40.0425° N, 111.7325° W",
+      "routes": [
+        {
+          "name": "Gran",
+          "distance_mi": 93,
+          "distance_km": 150,
+          "elevation_ft": 6800,
+          "elevation_m": 2072
+        },
+        {
+          "name": "Medio",
+          "distance_mi": 62,
+          "distance_km": 100,
+          "elevation_ft": 2000,
+          "elevation_m": 610
+        },
+        {
+          "name": "Piccolo",
+          "distance_mi": 35,
+          "distance_km": 56,
+          "elevation_ft": 1000,
+          "elevation_m": 305
+        }
+      ],
+      "field_size": "Uncertain; open to all levels",
+      "registration_cost": "Gran/Medio: $150-$200; Piccolo: $150",
+      "elevation_ft": 9000,
+      "date_specific": "2026: June 13",
+      "slug": "gran-fondo-utah",
+      "distance_mi": 100
+    },
+    "climate": {
+      "overview": "Early-mid June in Payson (Wasatch Front, ~4,500 ft): mild/warm daytime highs 70-85°F, possible afternoon thunderstorms at altitude.",
+      "average_temp_f": "70-85",
+      "precipitation_chance": "Moderate (thunderstorms possible)"
+    },
+    "terrain": {
+      "overview": "Road cycling through Wasatch Front: iconic Nebo Loop climb (>9,000 ft), Goshen Canyon, fruit orchards, Utah Lake.",
+      "surface_breakdown": {
+        "paved": 100,
+        "gravel": 0
+      }
+    },
+    "gravel_god_rating": {
+      "logistics": 4,
+      "length": 5,
+      "technicality": 2,
+      "elevation": 4,
+      "climate": 4,
+      "altitude": 4,
+      "adventure": 5,
+      "prestige": 3,
+      "race_quality": 4,
+      "experience": 5,
+      "community": 4,
+      "field_depth": 3,
+      "value": 4,
+      "expenses": 3,
+      "cultural_impact": 1,
+      "overall_score": 79,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "editorial_tier_label": "TIER 2",
+      "business_tier_label": "TIER 2",
+      "display_tier_label": "TIER 2",
+      "editorial_tier": 2,
+      "business_tier": 2,
+      "display_tier": 2,
+      "discipline": "road",
+      "score_note": "Sum of 14 criteria: 4+5+2+4+4+4+5+3+4+5+4+3+4+3 = 54. cultural_impact = 1. Total = 55. (55/70)*100 = 79."
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 4,
+        "explanation": "Easy SLC airport access, local bike shops, central park start/finish, app-supported."
+      },
+      "length": {
+        "score": 5,
+        "explanation": "Gran at 93mi/150km with three timed segments offers epic distance."
+      },
+      "technicality": {
+        "score": 2,
+        "explanation": "Pure road; no gravel or tech descents, just climbs."
+      },
+      "elevation": {
+        "score": 4,
+        "explanation": "6,800ft on Gran with Nebo Loop punch."
+      },
+      "climate": {
+        "score": 4,
+        "explanation": "June warmth ideal, but altitude storms a wildcard."
+      },
+      "altitude": {
+        "score": 4,
+        "explanation": "~4,500ft base to >9,000ft; real high-plains test."
+      },
+      "adventure": {
+        "score": 5,
+        "explanation": "Tour of Utah climbs, canyons, orchards: Utah scenery maxed."
+      },
+      "prestige": {
+        "score": 3,
+        "explanation": "National Series points, Nationals qualifier; growing rep."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "Timed segments, teams, custom kits, solid support."
+      },
+      "experience": {
+        "score": 5,
+        "explanation": "Festival, food trucks, app results, podiums."
+      },
+      "community": {
+        "score": 4,
+        "explanation": "All levels welcome, age groups, teams."
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "New event; open field, no elite depth yet."
+      },
+      "value": {
+        "score": 4,
+        "explanation": "$150-200 for series points, qualifiers, swag."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Travel to Utah adds up; reg fair."
+      },
+      "cultural_impact": {
+        "score": 1,
+        "explanation": "Brand new; minimal history."
+      }
+    },
+    "biased_opinion": {
+      "overview": "New star in Gran Fondo National Series shines with Nebo Loop's Tour of Utah legacy, timed segments, and Rocky Mountain qualifier status. Gran route's 93mi/6,800ft delivers suffering and views; perfect for mid-pack hammers chasing series points. Logistics smooth, vibe fun—don't sleep on this."
+    },
+    "final_verdict": {
+      "one_liner": "Epic Wasatch climbs meet National Series prestige: must-do for road warriors.",
+      "full_verdict": "Gran Fondo Utah nails the gran fondo formula: challenging Nebo Loop centerpiece, multiple distances, timed racing without mass-start chaos, plus qualifiers and kits. 2nd edition builds buzz; ideal summer road event despite youth."
+    },
+    "logistics": {
+      "overview": "Start/finish Payson Memorial Park; packet pickup Thu-Sat; app for maps/results; BikeReg registration; SLC airport ~60mi; local shops Spanish Fork/Payson.",
+      "official_site": "https://www.granfondonationalseries.com/gran-fondo-utah",
+      "airports": [
+        "SLC (Salt Lake City International, ~60 mi)"
+      ],
+      "accommodation": "Uncertain; Payson/Utah Valley options.",
+      "registration_notes": "Gran/Medio $150 (early)-$200 (onsite); Piccolo $150; via BikeReg; teams available."
+    },
+    "history": {
+      "overview": "Founded 2025 as inaugural event by Gran Fondo National Series to expand in Rockies; 2026 is 2nd annual.",
+      "founder": "Reuben Kline (Gran Fondo National Series)",
+      "notable_moments": []
+    },
+    "course_description": {
+      "character": "Timed-segment road race through Wasatch Front beauty: brutal Nebo Loop climb, scenic canyons/orchards/lake.",
+      "suffering_zones": [
+        {
+          "label": "Nebo Loop (>9,000 ft, Tour of Utah KOM)",
+          "description": ""
+        },
+        {
+          "label": "Goshen Canyon",
+          "description": ""
+        },
+        {
+          "label": "Timed segments (3 on Gran)",
+          "description": ""
+        }
+      ],
+      "signature_challenge": "Nebo Loop climb",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "cutoff": "15mph progression first 30mi (Gran/Medio)"
+    },
+    "non_negotiables": [
+      "Bib on back",
+      "Timing chip on ankle",
+      "Staged by 6:45AM (Gran/Medio), 7:45AM (Piccolo)",
+      "Aid stations supported"
+    ],
+    "citations": [
+      {
+        "url": "https://www.granfondonationalseries.com/gran-fondo-utah",
+        "title": "Gran Fondo Utah",
+        "accessed": "2026-03-03"
+      },
+      {
+        "url": "https://www.bikereg.com/gran-fondo-utah",
+        "title": "Gran Fondo Utah Online Registration - BikeReg.com",
+        "accessed": "2026-03-03"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/12568/gran-fondo-utah",
+        "title": "Gran Fondo Utah",
+        "accessed": "2026-03-03"
+      }
+    ],
+    "research_metadata": {
+      "sources_used": [
+        1,
+        2,
+        3,
+        5,
+        7,
+        8
+      ],
+      "notes": "Event new (2025 inaugural); distances/elev from primary site; GPS approx from address; no past results/notable moments; climate inferred from location/season."
+    }
+  }
+}

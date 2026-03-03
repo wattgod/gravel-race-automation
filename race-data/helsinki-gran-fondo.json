@@ -1,0 +1,200 @@
+{
+  "race": {
+    "name": "Helsinki Gran Fondo",
+    "slug": "helsinki-gran-fondo",
+    "display_name": "Helsinki Gran Fondo",
+    "tagline": "Scenic paved routes from city to countryside, non-competitive gran fondo for all levels",
+    "vitals": {
+      "date": "2026: August 30",
+      "discipline": "road",
+      "prestige": 3,
+      "location": "Helsinki Velodrome, Helsinki, Finland",
+      "distances": [
+        100,
+        160
+      ],
+      "surface": "paved",
+      "elevation_gain": null,
+      "elevation_ft": 2600,
+      "date_specific": "2026: August 30",
+      "slug": "helsinki-gran-fondo",
+      "distance_mi": 93
+    },
+    "climate": {
+      "overview": "No specific data available; typical late August in Helsinki features mild summer weather.",
+      "average_temp_f": null,
+      "precipitation_chance": null
+    },
+    "terrain": {
+      "overview": "Paved roads combining urban and rural landscapes with quality surfaces and moderate challenge.",
+      "surface_breakdown": {
+        "paved": 100,
+        "gravel": 0,
+        "other": 0
+      }
+    },
+    "gravel_god_rating": {
+      "logistics": 3,
+      "length": 4,
+      "technicality": 1,
+      "elevation": 2,
+      "climate": 4,
+      "altitude": 1,
+      "adventure": 3,
+      "prestige": 3,
+      "race_quality": 3,
+      "experience": 4,
+      "community": 4,
+      "field_depth": 2,
+      "value": 5,
+      "expenses": 4,
+      "cultural_impact": 2,
+      "overall_score": 64,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "editorial_tier_label": "TIER 2",
+      "business_tier_label": "TIER 2",
+      "display_tier_label": "TIER 2",
+      "editorial_tier": 2,
+      "business_tier": 2,
+      "display_tier": 2,
+      "discipline": "road",
+      "score_note": "Sum of 14 criteria: 3+4+1+2+4+1+3+3+3+4+4+2+5+4 = 43. cultural_impact = 2. Total = 45. (45/70)*100 = 64."
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 3,
+        "explanation": "Straightforward access to velodrome start/finish, but limited airport and accommodation details provided."
+      },
+      "length": {
+        "score": 4,
+        "explanation": "Solid 100km and 160km options suitable for various abilities."
+      },
+      "technicality": {
+        "score": 1,
+        "explanation": "Fully paved roads with no technical demands."
+      },
+      "elevation": {
+        "score": 2,
+        "explanation": "Profiles unpublished; expected moderate for Finnish terrain."
+      },
+      "climate": {
+        "score": 4,
+        "explanation": "Favorable late summer conditions in Helsinki."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "Sea-level location with negligible altitude."
+      },
+      "adventure": {
+        "score": 3,
+        "explanation": "Mix of city and countryside scenery provides decent adventure."
+      },
+      "prestige": {
+        "score": 3,
+        "explanation": "Established local gran fondo with growing appeal."
+      },
+      "race_quality": {
+        "score": 3,
+        "explanation": "Well-organized non-competitive event with support and insurance."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "Pace groups, medals, and community rides enhance enjoyment."
+      },
+      "community": {
+        "score": 4,
+        "explanation": "Partner clubs, group rides, and inclusive vibe."
+      },
+      "field_depth": {
+        "score": 2,
+        "explanation": "No data on participant numbers; recreational focus."
+      },
+      "value": {
+        "score": 5,
+        "explanation": "Excellent early bird pricing at 75€ with inclusions."
+      },
+      "expenses": {
+        "score": 4,
+        "explanation": "Affordable entry; proceeds support cycling development."
+      },
+      "cultural_impact": {
+        "score": 2,
+        "explanation": "Local Finnish event tied to national cycling federation."
+      }
+    },
+    "biased_opinion": {
+      "overview": "Helsinki Gran Fondo offers an accessible, scenic paved ride ideal for enthusiasts seeking community and enjoyment over competition, though it lacks gravel challenge and detailed route data until spring 2026."
+    },
+    "final_verdict": {
+      "one_liner": "Welcoming non-race gran fondo with great value and Finnish scenery.",
+      "full_verdict": "A solid choice for road cyclists wanting a supported, paced group ride through urban-rural contrasts, with e-bikes welcome and strong community elements, but awaits route details for full assessment."
+    },
+    "logistics": {
+      "overview": "Start/finish at Helsinki Velodrome; arrive 60min early for bib pickup with photo ID; two waves 1hr apart (160km first).",
+      "official_site": "https://helsinkigranfondo.fi",
+      "airports": [],
+      "accommodation": null,
+      "registration_notes": "Early bird 75€, regular 105€; online via PACE; insurance included."
+    },
+    "history": {
+      "overview": "Recurring event returning in 2026; gran fondo concept from 1970s Italy emphasizing non-competitive long rides.",
+      "founder": null,
+      "notable_moments": []
+    },
+    "course_description": {
+      "character": "Diverse paved journey from vibrant city to peaceful countryside, starting with controlled lead-out to Leppävaara.",
+      "suffering_zones": [],
+      "signature_challenge": null,
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "primary_distance": 160,
+      "secondary_distance": 100
+    },
+    "non_negotiables": [
+      "Helmet required",
+      "No racing license needed",
+      "E-bikes welcome"
+    ],
+    "citations": [
+      {
+        "url": "https://helsinkigranfondo.fi/en/register-2026/",
+        "title": "Register for the 2026 Helsinki Gran Fondo",
+        "accessed": "2026-03-03"
+      },
+      {
+        "url": "https://helsinkigranfondo.fi/en/",
+        "title": "Cycling Event in Helsinki 30 Aug 2026",
+        "accessed": "2026-03-03"
+      },
+      {
+        "url": "https://helsinkigranfondo.fi/en/event-info/",
+        "title": "Event Info and Participant Guide",
+        "accessed": "2026-03-03"
+      },
+      {
+        "url": "https://pace.sport/events/helsinki-gran-fondo-2026",
+        "title": "Helsinki Gran Fondo 2026",
+        "accessed": "2026-03-03"
+      },
+      {
+        "url": "https://helsinkigranfondo.fi/en/route-maps/",
+        "title": "Route Maps and Ride Details - Helsinki Gran Fondo",
+        "accessed": "2026-03-03"
+      }
+    ],
+    "research_metadata": {
+      "date_researched": "2026-03-03",
+      "gaps": [
+        "elevation_gain",
+        "gps_coordinates",
+        "founder_year",
+        "participant_numbers",
+        "airports",
+        "weather_data"
+      ]
+    }
+  }
+}

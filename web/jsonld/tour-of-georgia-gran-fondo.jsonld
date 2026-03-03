@@ -1,0 +1,30 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Tour of Georgia Gran Fondo",
+  "description": "Challenging timed-segment Gran Fondo through North Georgia Mountains",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-04-19",
+  "location": {
+    "@type": "Place",
+    "name": "Helen, Georgia",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Helen",
+      "addressRegion": "Georgia"
+    }
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "77",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://www.granfondonationalseries.com/gran-fondo-georgia",
+  "organizer": {
+    "@type": "Person",
+    "name": "Gran Fondo National Series",
+    "url": "https://www.granfondonationalseries.com/gran-fondo-georgia"
+  }
+}

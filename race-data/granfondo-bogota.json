@@ -1,0 +1,206 @@
+{
+  "race": {
+    "name": "Granfondo Bogotá",
+    "slug": "granfondo-bogota",
+    "display_name": "UCI Granfondo Bogotá",
+    "tagline": "High-altitude UCI qualifier in Colombia's cycling capital",
+    "vitals": {
+      "date": "December",
+      "discipline": "road",
+      "prestige": 3,
+      "distances": [
+        {
+          "name": "Gran Fondo",
+          "distance_km": 128,
+          "elevation_m": 1276
+        },
+        {
+          "name": "Medio Fondo",
+          "distance_km": 80,
+          "elevation_m": 1276
+        }
+      ],
+      "location": "Bogotá, Colombia",
+      "gps_start": null,
+      "gps_finish": null,
+      "elevation_ft": 4921,
+      "date_specific": "2025: December 7",
+      "slug": "granfondo-bogota",
+      "distance_mi": 68
+    },
+    "climate": {
+      "overview": "Mild spring-like climate at 2,640m elevation; cool temperatures (7-19°C / 45-66°F) in December with possible rain and high altitude effects.[2]",
+      "average_temp_f": "45-66",
+      "precipitation_chance": "Moderate (rain possible)"
+    },
+    "terrain": {
+      "overview": "Road course starting flat, featuring high-altitude Andean climbs (2,500-3,000m) around Embalse de Tominó, with major difficulties late including La Calera climb (8.85km at 4.7% avg).[1][2]",
+      "surface_breakdown": {
+        "paved": 100,
+        "gravel": 0,
+        "other": 0
+      }
+    },
+    "gravel_god_rating": {
+      "logistics": 3,
+      "length": 4,
+      "technicality": 2,
+      "elevation": 3,
+      "climate": 3,
+      "altitude": 5,
+      "adventure": 4,
+      "prestige": 3,
+      "race_quality": 4,
+      "experience": 4,
+      "community": 4,
+      "field_depth": 3,
+      "value": 3,
+      "expenses": 3,
+      "cultural_impact": 4,
+      "overall_score": 74,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "editorial_tier_label": "TIER 2",
+      "business_tier_label": "TIER 2",
+      "display_tier_label": "TIER 2",
+      "editorial_tier": 2,
+      "business_tier": 2,
+      "display_tier": 2,
+      "discipline": "road",
+      "score_note": "Sum of 14 criteria: 3+4+2+3+3+5+4+3+4+4+4+3+3+3 = 48. cultural_impact = 4. Total = 52. (52/70)*100 = 74."
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 3,
+        "explanation": "Major airport access but limited details on accommodations and registration; new event with solid organizer backing.[2]"
+      },
+      "length": {
+        "score": 4,
+        "explanation": "128km gran fondo provides solid endurance test without excess.[1][2]"
+      },
+      "technicality": {
+        "score": 2,
+        "explanation": "Primarily road with climbs; low technical demands for gravel standards.[1][2]"
+      },
+      "elevation": {
+        "score": 3,
+        "explanation": "1,276m gain is moderate but amplified by altitude.[1][2]"
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "Cool and variable; altitude adds challenge but no extremes.[2]"
+      },
+      "altitude": {
+        "score": 5,
+        "explanation": "Extreme 2,500-3,000m elevation makes this uniquely punishing.[1][2]"
+      },
+      "adventure": {
+        "score": 4,
+        "explanation": "Andean loops around reservoirs offer scenic high-plateau exploration.[1]"
+      },
+      "prestige": {
+        "score": 3,
+        "explanation": "UCI Gran Fondo World Series qualifier elevates status.[2][3]"
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "Inaugural edition delivered tight sprints and pro-level tactics.[1]"
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "Bogotá's cycling culture and city finish enhance vibe.[1][2]"
+      },
+      "community": {
+        "score": 4,
+        "explanation": "Strong local participation (90% Colombian in prior events) with international draw.[1]"
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "1,500+ riders including elites like Quintero and Severino.[1]"
+      },
+      "value": {
+        "score": 3,
+        "explanation": "Qualifier status adds value; costs unknown.[2]"
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "International travel to Colombia moderate; local appeal high.[2]"
+      },
+      "cultural_impact": {
+        "score": 4,
+        "explanation": "Showcases Colombia's passion via Urán support and capital streets.[1][2]"
+      }
+    },
+    "biased_opinion": {
+      "overview": "Inaugural UCI Granfondo Bogotá punched above its weight with extreme altitude turning a moderate profile into a sufferfest. La Calera climb and Tominó reservoir loop at 3,000m demand acclimation; tight photo-finish sprints prove it's no gimmick. Perfect for altitude junkies chasing qualifiers in cycling-mad Colombia."
+    },
+    "final_verdict": {
+      "one_liner": "Elite high-altitude road qualifier with massive suffering potential.",
+      "full_verdict": "Bogotá's Andes deliver a brutal debut: 128km with 1,276m gain at nosebleed elevations, won in dramatic sprints by Quintero and Severino amid 1,500 riders. UCI prestige meets local fire—must-do for qualifiers.[1][2]"
+    },
+    "logistics": {
+      "overview": "Starts/finishes in Bogotá; accessible via major hub but new event means watch for updates.[1][2]",
+      "official_site": "https://www.ucigranfondocolombia.com",
+      "airports": [
+        "El Dorado International Airport (BOG)"
+      ],
+      "accommodation": "Abundant in Bogotá city center.",
+      "registration_notes": "UCI Gran Fondo qualifiers by age; pricing unknown.[2]"
+    },
+    "history": {
+      "overview": "Founded 2025 as inaugural UCI Gran Fondo World Series event in Bogotá, organized by UCI Gran Fondo Brazil team with Rigoberto Urán support.[1][2]",
+      "founder": "Team behind UCI Gran Fondo Brazil.",
+      "notable_moments": [
+        "Camilo Camacho Quintero wins men's in 3:02:12 photo-finish.[1]",
+        "Camila Cortés Severino takes women's sprint victory.[1]",
+        "1,500+ riders tackle high-altitude course around Embalse de Tominó.[1]"
+      ]
+    },
+    "course_description": {
+      "character": "Flat start builds to late high-altitude climbs in Andean plateau, finishing fast in Bogotá streets.[1][2]",
+      "suffering_zones": [
+        {
+          "label": "La Calera climb: 8.85km at 4.7% avg, top 13km from finish.[2]",
+          "description": ""
+        },
+        {
+          "label": "High-altitude sections topping 3,000m around Embalse de Tominó.[1]",
+          "description": ""
+        }
+      ],
+      "signature_challenge": "La Calera climb at extreme elevation.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "field_size": "1,500+[1]",
+      "prior_winners_men": "Camilo Camacho Quintero[1]",
+      "prior_winners_women": "Camila Cortés Severino[1]"
+    },
+    "non_negotiables": [
+      "Acclimatize to 2,500-3,000m altitude.[1][2]",
+      "Train for sustained climbing efforts.[2]"
+    ],
+    "citations": [
+      {
+        "url": "https://www.granfondoguide.com/Contents/IndexFull/8823/severino-and-quintero-take-victory-at-2025-uci-granfondo-colombia-in-bogota",
+        "title": "Severino and Quintero take victory at 2025 UCI Granfondo Colombia in Bogota",
+        "accessed": "2026-03-03"
+      },
+      {
+        "url": "https://ucigranfondoworldseries.com/en/uci-gran-fondo-colombia/",
+        "title": "Granfondo Bogota - UCI Gran Fondo World Series",
+        "accessed": "2026-03-03"
+      },
+      {
+        "url": "https://www.uci.org/competition-details/2025/CPT/76953",
+        "title": "GRAN FONDO BOGOTA - UCI",
+        "accessed": "2026-03-03"
+      }
+    ],
+    "research_metadata": {
+      "sources_used": "1,2,3",
+      "last_updated": "2026-03-03"
+    }
+  }
+}

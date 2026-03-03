@@ -1,0 +1,224 @@
+{
+  "race": {
+    "name": "Trek 100",
+    "slug": "trek-100",
+    "display_name": "Trek 100",
+    "tagline": "Annual charity bike ride through Wisconsin's rolling farmland benefiting childhood cancer research.",
+    "vitals": {
+      "discipline": "road",
+      "date_specific": "2026: June 6",
+      "location": "Trek HQ, 801 West Madison Street, Waterloo, Wisconsin 53594",
+      "distances": [
+        "100 miles",
+        "62 miles",
+        "35 miles",
+        "24 miles",
+        "MTB (10-mile laps)"
+      ],
+      "elevation_gain": {
+        "100mi": "3889 ft",
+        "62mi": "2328 ft",
+        "33mi": "1222 ft"
+      },
+      "founded": "1990",
+      "prestige": 3,
+      "elevation_ft": 4500,
+      "date": "June",
+      "slug": "trek-100",
+      "distance_mi": 100
+    },
+    "climate": {
+      "overview": "Typical June weather in southern Wisconsin features mild temperatures and variable conditions suitable for cycling through farmland.",
+      "average_temp_f": "70-80°F",
+      "precipitation_chance": "30%"
+    },
+    "terrain": {
+      "overview": "Paved secondary roads through rolling dairy farmland in Jefferson, Columbia, Dane, and Dodge Counties with challenging hillsides and flats; MTB option on private singletrack trails at Trek HQ.",
+      "surface_breakdown": {
+        "paved": 95,
+        "gravel": 0,
+        "singletrack": 5
+      }
+    },
+    "gravel_god_rating": {
+      "logistics": 4,
+      "length": 4,
+      "technicality": 2,
+      "elevation": 3,
+      "climate": 4,
+      "altitude": 1,
+      "adventure": 3,
+      "prestige": 3,
+      "race_quality": 4,
+      "experience": 5,
+      "community": 5,
+      "field_depth": 2,
+      "value": 5,
+      "expenses": 4,
+      "cultural_impact": 3,
+      "overall_score": 74,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "editorial_tier_label": "TIER 2",
+      "business_tier_label": "TIER 2",
+      "display_tier_label": "TIER 2",
+      "editorial_tier": 2,
+      "business_tier": 2,
+      "display_tier": 2,
+      "discipline": "road",
+      "score_note": "Sum of 14 criteria: 4+4+2+3+4+1+3+3+4+5+5+2+5+4 = 49. cultural_impact = 3. Total = 52. (52/70)*100 = 74."
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 4,
+        "explanation": "Well-supported charity ride at Trek HQ with staggered starts, rest stops, and post-ride party, though open to traffic."
+      },
+      "length": {
+        "score": 4,
+        "explanation": "Multiple distances from 24 to 100 miles plus MTB laps cater to all levels."
+      },
+      "technicality": {
+        "score": 2,
+        "explanation": "Primarily paved roads with rolling terrain; MTB adds moderate singletrack."
+      },
+      "elevation": {
+        "score": 3,
+        "explanation": "Challenging hills on longer routes with 3,000-3,900 ft gain on 100-mile option."
+      },
+      "climate": {
+        "score": 4,
+        "explanation": "Pleasant early summer conditions in Wisconsin farmland."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "Low elevation in Midwest flatlands."
+      },
+      "adventure": {
+        "score": 3,
+        "explanation": "Scenic farmland loops with some hills and new fun segments."
+      },
+      "prestige": {
+        "score": 3,
+        "explanation": "Established charity event with $22M+ raised, tied to Trek's legacy."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "High production as non-competitive supported ride from Trek."
+      },
+      "experience": {
+        "score": 5,
+        "explanation": "Festive atmosphere with party, pancakes, and heroic cause."
+      },
+      "community": {
+        "score": 5,
+        "explanation": "Strong charity focus for MACC Fund unites riders for kids."
+      },
+      "field_depth": {
+        "score": 2,
+        "explanation": "Inclusive charity ride, not elite racing field."
+      },
+      "value": {
+        "score": 5,
+        "explanation": "Low reg fees with fundraising; massive impact per dollar."
+      },
+      "expenses": {
+        "score": 4,
+        "explanation": "Affordable entry plus fundraising minimums."
+      },
+      "cultural_impact": {
+        "score": 3,
+        "explanation": "Iconic Trek event celebrating 50 years, major charity staple."
+      }
+    },
+    "biased_opinion": {
+      "overview": "The Trek 100 stands out as a feel-good charity powerhouse, blending accessible routes, Trek's polish, and a noble cause—perfect for community-minded riders seeking fun over suffering."
+    },
+    "final_verdict": {
+      "one_liner": "Premier charity ride with heart, hills, and headquarters party.",
+      "full_verdict": "Trek 100 delivers a polished, inclusive cycling experience through Wisconsin's picturesque farmland, raising millions for childhood cancer research while offering diverse distances and a festive vibe at Trek HQ. Ideal for fundraisers who want challenge without cutthroat competition."
+    },
+    "logistics": {
+      "overview": "Fully supported ride with staggered starts (7:30am for 100/62mi, 9:30am for shorter), rest stops, volunteers, and law enforcement at intersections; roads open to traffic; arrive 1hr early; post-ride party.",
+      "official_site": "https://trek100.org",
+      "airports": [
+        "MSN (Madison, ~30mi)",
+        "MKE (Milwaukee, ~70mi)",
+        "ORD (Chicago, ~130mi)"
+      ],
+      "accommodation": "Hotels in Waterloo, Lake Mills, or Madison; camping not specified.",
+      "registration_notes": "$50-75 reg fee + fundraising minimums ($50-200); open now; ride-from-home option; tax-deductible pledges."
+    },
+    "history": {
+      "overview": "Annual charity ride since 1990 benefiting MACC Fund; over $22M raised; 2025 marks Trek's 50th anniversary.",
+      "founder": "Trek Bicycle (in partnership with MACC Fund)",
+      "notable_moments": [
+        "1990: Founded",
+        "2025: 50th Trek anniversary; new 25mi loop and MTB course",
+        "Ongoing: $22M+ total funds raised"
+      ]
+    },
+    "course_description": {
+      "character": "Rolling paved roads through dairy farmland with quiet secondary roads, challenging hillsides, flats, and fun segments; new loop-style courses; MTB on private moderate singletrack (10mi laps, no jumps).",
+      "suffering_zones": [
+        {
+          "label": "Challenging hillsides on 62/100mi routes",
+          "description": ""
+        },
+        {
+          "label": "Farmland rollers in Jefferson/Columbia/Dane/Dodge Counties",
+          "description": ""
+        }
+      ],
+      "signature_challenge": "Hilly 100-mile route with 3,889ft elevation through beautiful Wisconsin countryside.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "difficulty": "Moderate",
+      "best_for": "Charity riders, families, Trek fans",
+      "not_a_race": true
+    },
+    "non_negotiables": [
+      "Fundraising commitment",
+      "Supported but traffic-open roads",
+      "Early arrival for staging",
+      "Novices avoid 62/100mi"
+    ],
+    "citations": [
+      {
+        "url": "https://maccfund.org/trek-100/",
+        "title": "Trek 100",
+        "accessed": "2026-03-03"
+      },
+      {
+        "url": "https://media.trekbikes.com/image/upload/v1746820676/Trek100_2025_RiderInfo_v2.pdf",
+        "title": "2025 Trek 100 Rider Information FAQs",
+        "accessed": "2026-03-03"
+      },
+      {
+        "url": "https://ridewithgps.com/users/1503335",
+        "title": "Trek 100 - Ride with GPS",
+        "accessed": "2026-03-03"
+      },
+      {
+        "url": "https://media.trekbikes.com/image/upload/v1717099596/Trek100_2024_RiderInfo_V3.pdf",
+        "title": "2024 Trek 100 Rider Information FAQs",
+        "accessed": "2026-03-03"
+      },
+      {
+        "url": "https://ridewithgps.com/events/208009-2023-trek-100",
+        "title": "2023 Trek 100 - Ride with GPS",
+        "accessed": "2026-03-03"
+      }
+    ],
+    "research_metadata": {
+      "sources_used": 8,
+      "gaps": [
+        "Exact GPS files",
+        "Participant numbers",
+        "Detailed origin story",
+        "2026 date confirmation"
+      ]
+    }
+  }
+}

@@ -105,7 +105,7 @@ class TestLlmsFullTxt:
     def test_reasonable_size(self, index):
         txt = generate_llms_full_txt(index, RACE_DATA_DIR)
         # Should be substantial but not huge
-        assert 50_000 < len(txt) < 500_000
+        assert 50_000 < len(txt) < 700_000
 
     def test_t1_before_t2(self, index):
         txt = generate_llms_full_txt(index, RACE_DATA_DIR)

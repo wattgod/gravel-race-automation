@@ -1,0 +1,20 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "L'Etape Cancun by Tour de France",
+  "description": "Blaze 63 flat miles of Caribbean speed on closed roads, Tour de France style.",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-05-17",
+  "location": {
+    "@type": "Place",
+    "name": "Cancun, Quintana Roo, Mexico"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "59",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://cancun.letapeseries.com"
+}

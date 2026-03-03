@@ -1,0 +1,25 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Giro d'Italia Ride Like a Pro USA",
+  "description": "85 flat miles of Italian flair in sunny Miami\u2014pure pro vibes for amateurs.",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-02-21",
+  "location": {
+    "@type": "Place",
+    "name": "Doral, Florida, USA"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "69",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://giroridelikeapro-usa.com/",
+  "organizer": {
+    "@type": "Person",
+    "name": "Giro d'Italia organizers expanding pro routes to amateurs",
+    "url": "https://giroridelikeapro-usa.com/"
+  }
+}

@@ -1,0 +1,275 @@
+{
+  "race": {
+    "name": "Granfondo Belgium",
+    "slug": "granfondo-belgium",
+    "display_name": "Granfondo Belgium",
+    "tagline": "138km of Ardennes fury with 2100m punch—car-free UCI qualifier that bites back.",
+    "vitals": {
+      "distance_mi": 85.7,
+      "elevation_ft": 6890,
+      "location": "Les Lacs de l'Eau d'Heure, Hainaut, Belgium",
+      "location_badge": "FROIDCHAPELLE, BE",
+      "date": "Late March",
+      "date_specific": "2026: March 29",
+      "terrain_types": [
+        "hilly",
+        "lakeside",
+        "ardennes",
+        "paved"
+      ],
+      "field_size": "Limited to 1400-2000 riders across waves",
+      "start_time": "9:00-9:14 AM staggered waves",
+      "registration": "€60-€95 includes bib, goodie bag, medal, certificate, medical aid, UCI quals",
+      "prize_purse": "UCI medals for top age-group qualifiers",
+      "aid_stations": "Multiple feed stations plus finish drinks",
+      "cutoff_time": "Not specified; endurance-focused with waves",
+      "lat": 50.173,
+      "lng": 4.333,
+      "distance_options": [
+        "Gran Fondo: 85.7mi, 6890ft — UCI flagship with lead-in + 4x24km laps",
+        "Medio Fondo: 71mi, 5905ft — lead-in + 3 laps",
+        "Rando: 40mi, 2625ft — intro challenge"
+      ],
+      "entry_fee": "€60-95"
+    },
+    "climate": {
+      "primary": "Cool spring variable",
+      "description": "March in Wallonia delivers 5-10°C temps with frequent rain and gusty winds that turn climbs into slogs. Muddy roads and chill demand full kit. Annual swings keep it unpredictable—pack for misery.",
+      "challenges": [
+        "rain-slicked descents",
+        "headwinds on lakeside",
+        "cold post-ride shivers",
+        "wet pavement slips"
+      ]
+    },
+    "terrain": {
+      "primary": "Ardennes hilly loops",
+      "surface": "Fully paved, car-free roads reward smooth power. Lakeside flats mix with relentless rollers. Border hills deliver grippy, technical bite without gravel distractions.",
+      "technical_rating": 3,
+      "features": [
+        "33km selection loop",
+        "4x24km punishing laps",
+        "6km valley wall at 96km",
+        "Petit Poggio 700m at 9%",
+        "L'Eau Noire ascent"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 67,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "logistics": 4,
+      "length": 3,
+      "technicality": 3,
+      "elevation": 4,
+      "climate": 2,
+      "altitude": 1,
+      "adventure": 4,
+      "prestige": 3,
+      "race_quality": 4,
+      "experience": 5,
+      "community": 3,
+      "field_depth": 2,
+      "value": 4,
+      "expenses": 4,
+      "cultural_impact": 1,
+      "tier_note": "Solid T3 for UCI qualifier status and car-free innovation post-2025 chaos. Lacks depth in field and history to climb higher. Punishing laps elevate it above generic sportives.",
+      "score_note": "Sum of 14 criteria: 4+3+3+4+2+1+4+3+4+5+3+2+4+4 = 46. cultural_impact = 1. Total = 47. (47/70)*100 = 67.",
+      "editorial_tier": 2,
+      "editorial_tier_label": "TIER 2",
+      "business_tier": 2,
+      "business_tier_label": "TIER 2",
+      "display_tier": 2,
+      "display_tier_label": "TIER 2",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 4,
+        "explanation": "Staggered waves and car-free mastery fix 2025's mess brilliantly. Parking and bib pickup scream efficiency. Southern Belgium access is straightforward for Euros—no transatlantic nonsense."
+      },
+      "length": {
+        "score": 3,
+        "explanation": "138km hits solid gran fondo sweet spot without epic excess. Repeat laps build rhythm but risk monotony. Perfect for qualifiers chasing top-25% without ultra-marathon burnout."
+      },
+      "technicality": {
+        "score": 3,
+        "explanation": "Paved Ardennes deliver calculated punch—6% walls and 9% kickers demand bike-handling smarts. No gravel chaos, just relentless positioning. Waves keep it sane, not sketchy."
+      },
+      "elevation": {
+        "score": 4,
+        "explanation": "2100m in 138km packs Ardennes sting without Haute Route brutality. Petit Poggio repeats forge legs of steel. Underrated vertical for spring sharpeners."
+      },
+      "climate": {
+        "score": 2,
+        "explanation": "March Wallonia roulette: rain, wind, chill—pure Belgian misery index. Gear up or suffer. Builds character, crushes weak prep."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "Flatlander heaven—no thin air excuses. Pure power test at sea level. Keeps focus on legs, not lungs."
+      },
+      "adventure": {
+        "score": 4,
+        "explanation": "Lakeside loops into French-border wilds ooze emerald allure. Car-free freedom amplifies immersion. Revamped post-turmoil, it's now a hidden gem hunt."
+      },
+      "prestige": {
+        "score": 3,
+        "explanation": "UCI World Series badge unlocks worlds—top-25% glory awaits. Fresh but legit qualifier cred. Outshines regional slogs instantly."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "Feedback-forged excellence: safety first, selective suffering second. Medals and quals elevate beyond party ride. Belgian efficiency shines."
+      },
+      "experience": {
+        "score": 5,
+        "explanation": "Car-free bliss, showers, UCI swag—post-ride nirvana. Scenic lakes seal the deal. Transformed from debut disaster to must-do."
+      },
+      "community": {
+        "score": 3,
+        "explanation": "Wave starts foster age-group battles, but newbie event lacks deep lore. Euro cyclists vibe strong. Growing fast."
+      },
+      "field_depth": {
+        "score": 2,
+        "explanation": "Capped at 2k, heavy qualifiers—not pro peloton clash. Unknown elites keep it accessible. Depth builds with reps."
+      },
+      "value": {
+        "score": 4,
+        "explanation": "€60 early bird for UCI quals and full package? Steal. Beats bloated Italian fees. Discounts seal it."
+      },
+      "expenses": {
+        "score": 4,
+        "explanation": "Affordable entry, local parking—no flight gouge for Euros. Budget banger. Value punches above weight."
+      }
+    },
+    "biased_opinion": {
+      "verdict": "Revamped UCI sleeper hit",
+      "summary": "Granfondo Belgium 2.0 torches its turbulent debut with car-free roads and selective savagery around Eau d'Heure's emerald basins. 138km of Ardennes pain qualifies elites while capping chaos at 2k riders. UCI prestige meets Belgian grit—spring sharpeners, this is your qualifier ticket. Laps grind souls but scenery soothes; post-2025 glow makes it unmissable.",
+      "strengths": [
+        "Car-free safety revolution",
+        "UCI worlds qualifier",
+        "Scenic lake loops",
+        "Revamped pro organization",
+        "Bargain quals pricing"
+      ],
+      "weaknesses": [
+        "March weather roulette",
+        "Repeat lap tedium",
+        "Thin field depth",
+        "Newbie history",
+        "Uncertain cutoffs"
+      ],
+      "bottom_line": "Early UCI gem with legs for glory. Nail training, dodge rain—bag that top-25%. Skip if hating cold puddles."
+    },
+    "final_verdict": {
+      "score": "65 / 100",
+      "one_liner": "Car-free Ardennes qualifier punches way above rookie weight.",
+      "should_you_race": "Yes if chasing UCI worlds quals with Ardennes appetite and rainproof grit. Skip if spring slop or lap monotony kills your vibe—wait for field maturity.",
+      "alternatives": "Haute Route classics for vert overload (haute-route-slug), Flanders cobbles for pro vibes (tour-of-flanders-sportive), Lombardy crushers (granfondo-lombardia)",
+      "alternative_slugs": [
+        "tour-of-flanders",
+        "granfondo-lombardia",
+        "haute-route"
+      ]
+    },
+    "logistics": {
+      "airport": "Brussels (BRU) 1.5hrs north; Charleroi (CRL) closer for budget flights. Drive south via E42. French border proximity aids Paris hubs.",
+      "lodging_strategy": "Base in Philippeville or Couvin for lakeside calm. Campsites near Plate Taille for immersion. Book early—limited spots.",
+      "food": "Lakeside cafes fuel pre-race; post-ride frites and beer await. Feeds include essentials—pack gels for laps.",
+      "packet_pickup": "Sat 1-7pm or Sun dawn at Route de la Plate Taille 99.",
+      "parking": "Ample near start—stress-free.",
+      "official_site": "https://www.granfondobelgium.com"
+    },
+    "history": {
+      "founded": 2025,
+      "founder": "UCI Gran Fondo World Series organizers",
+      "origin_story": "Born 2025 as UCI qualifier amid Eau d'Heure's serene lakes and Franco-Belgian hills. Turbulent debut sparked total 2026 overhaul: car-free roads, safety upgrades. Now a selective spring beast qualifying top age-groupers for worlds.",
+      "notable_moments": [
+        "2025 debut turbulence prompts revamp",
+        "2026 car-free innovation",
+        "UCI series entry with border hills",
+        "March 29 selective relaunch"
+      ],
+      "reputation": "Rapid redemption arc from chaos to polished UCI contender. Riders rave safety gains. Building buzz as Wallonia's qualifier king."
+    },
+    "course_description": {
+      "character": "Ardennes microcosm: 33km opener splits the pack on 3km@3% (8%max) before 4x24km laps south to Couvin. Lakeside calm yields to valley crushers. Paved, rolling brutality tests pacing over raw distance.",
+      "suffering_zones": [
+        {
+          "mile": 3,
+          "label": "Plate Taille Selection",
+          "desc": "Early 3km grind at 3% avg (8%max) shatters peloton instantly. Lakeside views mock the burn. Sets tone for lap hell.",
+          "terrain_detail": "Paved steady ramp",
+          "named_section": "Plate Taille Climb"
+        },
+        {
+          "mile": 60,
+          "label": "Petit Poggio Repeat",
+          "desc": "700m@6.3% (9.3%max) x4 per lap—soul-crusher on tired legs. Local legend builds with reps. Power or perish.",
+          "terrain_detail": "Steep paved kicker",
+          "named_section": "Petit Poggio"
+        },
+        {
+          "mile": 60,
+          "label": "L’Eau Noire Valley",
+          "desc": "Post-96km 6km beast to 6% assaults after southern out-back. Valley shadows amplify fatigue. Signature finisher wall.",
+          "terrain_detail": "Long valley haul",
+          "named_section": "L’Eau Noire"
+        }
+      ],
+      "signature_challenge": "Fourfold Petit Poggio laps forge unbreakable engines amid repeat suffering. Cumulative 2100m demands fueling mastery. Car-free flow lets pain purify."
+    },
+    "guide_variables": {
+      "race_name": "Granfondo Belgium",
+      "race_distance": "138 km (85.7 miles)",
+      "race_elevation": "2100 meters (6890 feet)",
+      "race_date": "March",
+      "race_location": "Les Lacs de l'Eau d'Heure, Belgium",
+      "race_terrain": "Hilly paved Ardennes loops, car-free",
+      "race_weather": "Cool 5-10C, rainy, windy March",
+      "race_challenges": [
+        "Repeat lap grind",
+        "Early selection climb",
+        "Valley wall assault",
+        "Spring slop"
+      ],
+      "altitude_section": false,
+      "altitude_feet": 0
+    },
+    "non_negotiables": [
+      {
+        "requirement": "12+ hours threshold power at 4w/kg",
+        "by_when": "Week 8",
+        "why": "Laps demand sustained output over 2100m. Early splitter and Poggio repeats cull weak wattage. Qualify or fade—test in sims now."
+      },
+      {
+        "requirement": "Full wet-weather kit + mudguards",
+        "by_when": "Week 10",
+        "why": "March deluge turns descents deadly. Visibility and grip save races. Practice sloppy spins or DNF inbound."
+      }
+    ],
+    "citations": [
+      {
+        "url": "https://www.granfondobelgium.com",
+        "title": "Official Granfondo Belgium",
+        "category": "official"
+      },
+      {
+        "url": "https://vendre-son-velo.com/en/Granfondo-Belgium-2026-2100-md-at-the-Lacs-de-l'Eau-d'Heure-on-March-29th/",
+        "title": "Granfondo Belgium 2026 Details",
+        "category": "event"
+      },
+      {
+        "url": "https://www.cycloworld.cc/en/article/completely-car-free-and-selective-this-is-the-new-gran-fondo-belgium/6859",
+        "title": "CycloWorld: Car-Free Gran Fondo",
+        "category": "media"
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "high",
+      "validation_status": "validated",
+      "research_strength": "A",
+      "sources_count": 14,
+      "last_updated": "2026-03-02"
+    }
+  }
+}

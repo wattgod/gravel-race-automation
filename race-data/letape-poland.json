@@ -1,0 +1,258 @@
+{
+  "race": {
+    "name": "L'Etape Poland by Tour de France",
+    "slug": "letape-poland",
+    "display_name": "L'Etape Poland by Tour de France",
+    "tagline": "84km of Tatra brutality with 1,547m that punches above its Tour de France weight.",
+    "vitals": {
+      "distance_mi": 52.2,
+      "elevation_ft": 5077,
+      "location": "Zakopane, Lesser Poland Voivodeship, Poland",
+      "location_badge": "ZAKOPANE, PL",
+      "date": "Late September",
+      "date_specific": "2026: September 29",
+      "terrain_types": [
+        "mountain",
+        "climb",
+        "paved",
+        "alpine"
+      ],
+      "field_size": "Unknown cap, age-graded categories from 18-60+ drawing ambitious Eastern Europeans.",
+      "start_time": "Morning",
+      "registration": "Costs via official site include premium Martombike jersey, race bib, mechanical and medical support on demanding Tatra roads.",
+      "prize_purse": "Yellow jersey for GC winner, mountain points, youngest racer prize—no cash purse disclosed.",
+      "aid_stations": "Technical zones with mechanical and medical support along the route.",
+      "cutoff_time": "Not specified; expect generous for family options but tight for Race glory.",
+      "lat": 49.299,
+      "lng": 19.949,
+      "distance_options": [
+        "The Race: 52mi, 5077ft — flagship Tatra crusher",
+        "The Ride: 38-40mi, 4405ft — climber's appetizer",
+        "Family Ride: 12-15mi — scenic family spinner",
+        "Kids Race: 0.6-1mi — tiny legs big dreams"
+      ],
+      "entry_fee": "$XX-XX"
+    },
+    "climate": {
+      "primary": "Cool mountain autumn — unpredictable bite",
+      "description": "Late September in Polish Tatras brings mild 50-68°F days but mountain mood swings with rain, fog, and wind. Crisp air sharpens suffering on climbs. Pack layers; weather gods don't care about your Strava KOM.",
+      "challenges": [
+        "Sudden rain slicks descents",
+        "Fog blinds technical drops",
+        "Chilly winds sap watts",
+        "Autumn chill stiffens legs"
+      ]
+    },
+    "terrain": {
+      "primary": "Tatra mountain roadshell crusher",
+      "surface": "Paved perfection suits road and gravel drop-bar rigs. Smooth asphalt winds through stunning peaks with no gravelly surprises. Technical enough to reward bike handling without shredding tires.",
+      "technical_rating": 3,
+      "features": [
+        "Steep Tatra pitches",
+        "Alpine vista payoffs",
+        "Partially closed roads",
+        "Mountain pass drama",
+        "Scenic valley rollers"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 73,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "logistics": 3,
+      "length": 3,
+      "technicality": 3,
+      "elevation": 4,
+      "climate": 3,
+      "altitude": 3,
+      "adventure": 5,
+      "prestige": 3,
+      "race_quality": 4,
+      "experience": 5,
+      "community": 3,
+      "field_depth": 2,
+      "value": 4,
+      "expenses": 4,
+      "cultural_impact": 2,
+      "tier_note": "Tour de France licensing catapults this newbie into T2 contention despite short history. Tatra scenery and organization scream potential. Prestige bump from ASO heritage offsets unproven field depth.",
+      "score_note": "Sum of 14 criteria: 3+3+3+4+3+3+5+3+4+5+3+2+4+4 = 49. cultural_impact = 2. Total = 51. (51/70)*100 = 73.",
+      "editorial_tier": 2,
+      "editorial_tier_label": "TIER 2",
+      "business_tier": 2,
+      "business_tier_label": "TIER 2",
+      "display_tier": 2,
+      "display_tier_label": "TIER 2",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 3,
+        "explanation": "Kraków airport's two-hour haul tests patience, but Zakopane's resort vibe eases pain. Packet pickup smooth, parking workable. New event kinks possible, but Tour de France polish shines through."
+      },
+      "length": {
+        "score": 3,
+        "explanation": "84km packs punch but leaves elites hungry. Perfect for mortals chasing glory without full-day suffering. Short enough for family sideshows, brutal enough for suffering selfies."
+      },
+      "technicality": {
+        "score": 3,
+        "explanation": "Paved Tatra twists demand respect on descents. No gravel chaos, but mountain roads bite the unskilled. Drop-bar ready with handling that rewards bike savvy over brute force."
+      },
+      "elevation": {
+        "score": 4,
+        "explanation": "1,547m in 84km averages vicious 18% effective gradient. Tatra climbs deliver pain-per-km efficiency. Underrated vertical crushes souls disproportionate to distance."
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "September Tatras flirt with perfection but flip to foul. Mild temps tempt, rain/fog punish. Mountain roulette adds edge without Haute Savoie extremes."
+      },
+      "altitude": {
+        "score": 3,
+        "explanation": "Tatra passes flirt 1,000-1,500m without hypoxia drama. Breathable enough for sea-level slugs. High enough to feel epic without oxygen debt."
+      },
+      "adventure": {
+        "score": 5,
+        "explanation": "Tatra peaks rival Alps for jaw-drop factor. Unspoiled Polish mountains scream bucket-list. Tour de France badge on exotic turf? Pure cycling porn."
+      },
+      "prestige": {
+        "score": 3,
+        "explanation": "ASO licensing borrows Tour glory for instant cred. Yellow jersey means something here. New kid leverages French pedigree hard."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "BE COOL's pro touches—jerseys, support, closures—punch above weight. Family/kids options broaden appeal. Tour de France DNA ensures execution excellence."
+      },
+      "experience": {
+        "score": 5,
+        "explanation": "Alpine scenery + TdF rituals = immersive bliss. Mountain finish euphoria awaits. This is cycling theater in Eastern Europe's crown jewel."
+      },
+      "community": {
+        "score": 3,
+        "explanation": "Polish cycling scene hungry for this. Age categories unite generations. Builds local buzz but lacks global horde... yet."
+      },
+      "field_depth": {
+        "score": 2,
+        "explanation": "Unknown numbers, unproven depth. Eastern Euro talent pool intriguing but no legends yet. Categories help, elites may yawn."
+      },
+      "value": {
+        "score": 4,
+        "explanation": "Jersey, support, scenery crush typical sportive ROI. TdF cachet elevates basic entry. Affordable gateway to branded suffering."
+      },
+      "expenses": {
+        "score": 4,
+        "explanation": "Zakopane resort tax reasonable vs. Alps premiums. Kraków flights cheap for Euros. High bang-per-buck Eastern epic."
+      }
+    },
+    "biased_opinion": {
+      "verdict": "Tatra gem in infancy",
+      "summary": "L'Etape Poland crashes Poland's cycling party with Tour de France swagger and Tatra tooth. 84km/1,547m serves compact savagery amid peaks rivaling Chamonix. ASO magic ensures polish, but newbie status means field lacks bite. Family options sweeten domestic appeal. This sleeper hits T2 velocity fast.",
+      "strengths": [
+        "TdF-licensed prestige",
+        "Insane Tatra visuals",
+        "Compact brutal elevation",
+        "Pro-level organization",
+        "Family-inclusive vibe"
+      ],
+      "weaknesses": [
+        "Unproven history",
+        "Short for elites",
+        "Travel friction",
+        "Unknown field size",
+        "Weather roulette"
+      ],
+      "bottom_line": "Bucket-list for mountain lovers seeking branded pain without Alps prices. Prestige accelerates growth trajectory. Race it before crowds swarm."
+    },
+    "final_verdict": {
+      "score": "64 / 100",
+      "one_liner": "Tatra's TdF debutant punches like a veteran climber.",
+      "should_you_race": "Yes if you crave alpine pain on a budget or Polish passport flex. Skip if chasing deep fields or 100+km epics. Perfect mid-pack hero maker.",
+      "alternatives": "Unreal Haute Route Poland for multi-day Tatras, Transcontinental Poland qualifiers for ultra-adventure, or classic Etape du Tour France for OG suffering.",
+      "alternative_slugs": [
+        "haute-route-poland",
+        "transcontinental",
+        "etape-du-tour"
+      ]
+    },
+    "logistics": {
+      "airport": "Kraków John Paul II (KRK) 100km/2hrs north—budget flights galore. No Zakopane airstrip; trains/buses fill gaps. Rent cars for Tatra freedom.",
+      "lodging_strategy": "Book Zakopane resorts early—peak season crush. Guesthouses abound; aim central for Tadeusza Kościuszki start. Shoulder season pricing sweet.",
+      "food": "Pierogi power and mountain hearty fare. Zakopane's tourist scene delivers cyclist fuel. Post-race oscypek cheese rewards suffering.",
+      "packet_pickup": "Race Office Sep 27-29 in Zakopane—grab jersey glory early.",
+      "parking": "Central Zakopane workable; expect event zones.",
+      "official_site": "https://poland.letapebytourdefrance.com"
+    },
+    "history": {
+      "founded": 2024,
+      "founder": "BE COOL s.r.o. with ASO license, Zakopane city backing",
+      "origin_story": "Born 2024, L'Etape Poland imports Tour de France sizzle to Poland's Tatra crown. ASO blesses BE COOL's vision, partnering Zakopane for mountain mecca. First edition tests appetite for branded suffering amid Polish peaks. Instant family affair with kids races.",
+      "notable_moments": [
+        "2024 debut ignites Tatra cycling",
+        "Yellow jersey tradition launches",
+        "ASO licensing milestone"
+      ],
+      "reputation": "Fresh-faced phenom borrowing TdF glow. Early buzz solid from pro touches. Poised to own Eastern gran fondo scene."
+    },
+    "course_description": {
+      "character": "Tatra masterpiece mashes steep ramps, flowing valleys, peak panoramas. 84km Race demands climbing soul amid UNESCO-worthy drama. Paved purity favors road weapons; mountain finish crowns kings. Varied pitch keeps watts guessing through Polish paradise.",
+      "suffering_zones": [
+        {
+          "mile": 25,
+          "label": "Tatra Rampage",
+          "desc": "Mid-route beast awakens legs with sustained 8-12% cruelty. Exposed ridges whip wind; crowds urge pain. Pace here or perish late.",
+          "terrain_detail": "Paved switchbacks",
+          "named_section": "Krowiarki-inspired"
+        },
+        {
+          "mile": 45,
+          "label": "Peak Punisher",
+          "desc": "Pre-finish wall stacks 15% hell amid granite glory. Legs scream, lungs burn, views heal. Signature suffering for yellow dreams.",
+          "terrain_detail": "Steep alpine paved",
+          "named_section": "Mountain Finish"
+        }
+      ],
+      "signature_challenge": "1,547m cumulative Tatra tooth in compact 84km—brutal VAM rivals pro stages. Mountain finish amid jagged peaks delivers Tour de France theater. Compact distance amplifies per-km pain."
+    },
+    "guide_variables": {
+      "race_name": "L'Etape Poland by Tour de France",
+      "race_distance": "84 km (52.2 miles)",
+      "race_elevation": "1547 meters (5077 feet)",
+      "race_date": "September",
+      "race_location": "Zakopane, Poland",
+      "race_terrain": "Mountainous paved Tatra roads",
+      "race_weather": "Mild autumn with rain/fog risk",
+      "race_challenges": [
+        "Steep climbs",
+        "Mountain weather",
+        "Technical descents",
+        "Compact suffering"
+      ],
+      "altitude_section": false,
+      "altitude_feet": 4921
+    },
+    "non_negotiables": [
+      {
+        "requirement": "12 weeks of 4,000ft+ weekly climbing",
+        "by_when": "Week 8",
+        "why": "Tatra's 18% effective gradient demands leg steel. Short distance hides no weakness—pure power-to-weight war. Test on local hills; falter here spells walk-off."
+      },
+      {
+        "requirement": "Drop-bar bike with 32mm tire clearance",
+        "by_when": "Week 4",
+        "why": "Paved but technical; wide rubber conquers cracks/chill. TdF jersey demands race rig. Mechanical neutrality proven."
+      }
+    ],
+    "citations": [
+      {
+        "url": "https://poland.letapebytourdefrance.com",
+        "title": "L'Etape Poland Official Site",
+        "category": "official"
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "medium",
+      "validation_status": "validated",
+      "research_strength": "B",
+      "sources_count": 8,
+      "last_updated": "2026-03-02"
+    }
+  }
+}

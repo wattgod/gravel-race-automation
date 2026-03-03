@@ -1,0 +1,25 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "GFNY Chile",
+  "description": "79.5-mile wine valley sufferfest with 6,007ft and a 27% Muro de Tunqu\u00e9n gut punch.",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-01-27",
+  "location": {
+    "@type": "Place",
+    "name": "Casablanca, Valpara\u00edso Region, Chile"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "76",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://chile.gfny.com",
+  "organizer": {
+    "@type": "Person",
+    "name": "GFNY Global Endurance Sports Series, led by CEO Uli Fluhme",
+    "url": "https://chile.gfny.com"
+  }
+}

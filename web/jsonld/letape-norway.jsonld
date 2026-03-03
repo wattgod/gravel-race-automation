@@ -1,0 +1,20 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "L'Etape Norway by Tour de France",
+  "description": "Norway's inaugural 130km Tour de France experience through Arctic fjords and Nordic climbing",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-06-20",
+  "location": {
+    "@type": "Place",
+    "name": "Trondheim, Tr\u00f8ndelag, Norway"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "71",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://trondheim.letapeseries.com"
+}

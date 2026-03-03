@@ -1,0 +1,25 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Schleck Gran Fondo",
+  "description": "159km of Luxembourg Ardennes brutality on Fr\u00e4nk Schleck's savage training roads\u2014UCI qualifier that sells out faster than a Tour de France sprint.",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-05-30",
+  "location": {
+    "@type": "Place",
+    "name": "Mondorf-les-Bains, Luxembourg"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "80",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://schleck-x-perience.com/granfondo/",
+  "organizer": {
+    "@type": "Person",
+    "name": "Fr\u00e4nk Schleck, post-pro icon via Schleck X-Perience SA with ACC Contern",
+    "url": "https://schleck-x-perience.com/granfondo/"
+  }
+}

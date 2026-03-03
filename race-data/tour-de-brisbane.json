@@ -1,0 +1,289 @@
+{
+  "race": {
+    "name": "Tour de Brisbane",
+    "slug": "tour-de-brisbane",
+    "display_name": "Tour de Brisbane",
+    "tagline": "Australia's ultimate closed-road gran fondo through a vibrant city on fully shut streets",
+    "vitals": {
+      "distance_mi": 68.35,
+      "elevation_ft": 4068,
+      "location": "Brisbane, Queensland, Australia",
+      "location_badge": "BRISBANE, QLD",
+      "date": "April annually",
+      "date_specific": "2026: April 12",
+      "terrain_types": [
+        "urban",
+        "road",
+        "mixed"
+      ],
+      "field_size": "Open to all ages and abilities; competitive age-group categories in 5-year brackets",
+      "start_time": "Morning (wave starts)",
+      "registration": "Includes free event jersey for select distances, timing chip, race pack; AusCycling membership recommended for insurance",
+      "prize_purse": "UCI Gran Fondo World Series qualifier; top 25% in age groups on longest ride qualify for UCI Gran Fondo Worlds",
+      "aid_stations": "Not specified in available sources",
+      "cutoff_time": "Road closure curfew points enforced for fully closed road compliance",
+      "lat": -27.4679,
+      "lng": 153.0281,
+      "distance_options": [
+        "110km (68.35 mi), ~4,068 ft — UCI Gran Fondo qualifier with age-group competition and Worlds qualification",
+        "80km (49.7 mi), ~2,257 ft — Mid-distance option for intermediate cyclists",
+        "50km (31.1 mi), ~1,682 ft — Accessible entry point for recreational riders",
+        "4km (~2.5 mi) — Big Family Ride community event for children 8+ with adult supervision"
+      ],
+      "entry_fee": "$299+ (exact pricing not finalized in sources)"
+    },
+    "climate": {
+      "primary": "Subtropical — warm and generally favorable for cycling",
+      "description": "Brisbane in April offers ideal cycling conditions with warm temperatures and manageable weather patterns. The subtropical climate means minimal rain risk during autumn, though humidity remains moderate. Year-round cycling conditions make Brisbane a cyclist-friendly destination.",
+      "challenges": [
+        "Urban heat during midday sections",
+        "Potential humidity",
+        "Tropical weather variability",
+        "Afternoon wind patterns"
+      ]
+    },
+    "terrain": {
+      "primary": "Urban road course on fully closed city streets with one significant climb",
+      "surface": "Fully closed roads through Brisbane landmarks and city infrastructure. The course features urban pavement, expressways, tunnels, and bridges with technical turns integrated into the city layout. Mount Coot-tha provides the signature elevation challenge at 2km, 9% gradient.",
+      "technical_rating": 3,
+      "features": [
+        "Fully closed urban roads",
+        "Mount Coot-tha 2km climb at 9%",
+        "Five technical city turns",
+        "Four expressway sections",
+        "Three tunnels",
+        "Two major bridges",
+        "City Botanic Gardens start"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 64,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "logistics": 4,
+      "length": 3,
+      "technicality": 3,
+      "elevation": 2,
+      "climate": 4,
+      "altitude": 1,
+      "adventure": 3,
+      "prestige": 3,
+      "race_quality": 3,
+      "experience": 4,
+      "community": 4,
+      "field_depth": 3,
+      "value": 3,
+      "expenses": 3,
+      "cultural_impact": 2,
+      "tier_note": "Tour de Brisbane earns Tier 2 status as a well-organized UCI Gran Fondo World Series qualifier with strong logistics, community engagement, and urban cycling appeal. The event lacks significant elevation and prestige compared to established European gran fondos, but compensates with unique city-based infrastructure and accessibility.",
+      "score_note": "Sum of 14 criteria: 4+3+3+2+4+1+3+3+3+4+4+3+3+3 = 43. cultural_impact = 2. Total = 45. (45/70)*100 = 64.",
+      "editorial_tier": 2,
+      "editorial_tier_label": "TIER 2",
+      "business_tier": 2,
+      "business_tier_label": "TIER 2",
+      "display_tier": 2,
+      "display_tier_label": "TIER 2",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 4,
+        "explanation": "Brisbane's city-center location offers exceptional accessibility with easy airport connections, extensive bikeways, and CityCycle rentals throughout the city. Accommodation options range from budget to luxury within walking distance of the start. The fully closed road infrastructure demonstrates sophisticated event management and eliminates traffic concerns entirely."
+      },
+      "length": {
+        "score": 3,
+        "explanation": "The 110km main event sits in the sweet spot for serious recreational cyclists but lacks the brutal distance of true epic gran fondos. Multiple distance options (50km, 80km, 110km) democratize participation, though the longest course is moderate by international standards. It's a solid Sunday ride rather than a defining endurance test."
+      },
+      "technicality": {
+        "score": 3,
+        "explanation": "Urban road cycling demands constant attention to technical turns, tunnels, and bridge transitions, but the course avoids gravel, dirt, or truly technical terrain. Mount Coot-tha's 9% gradient is straightforward climbing without technical complexity. The challenge is navigational and tactical rather than mechanically demanding."
+      },
+      "elevation": {
+        "score": 2,
+        "explanation": "At approximately 4,068 feet of elevation gain over 110km, the course is notably flat by gran fondo standards. Mount Coot-tha provides the only significant climb, making this a power-based rather than climbing-focused event. Riders seeking serious vertical should look elsewhere."
+      },
+      "climate": {
+        "score": 4,
+        "explanation": "Brisbane's April weather is genuinely excellent for cycling—warm without oppressive heat, low rain probability, and manageable humidity. The subtropical climate eliminates concerns about freezing conditions or severe weather disruptions. This is one of the event's genuine strengths for international travelers."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "Brisbane sits at sea level with Mount Coot-tha's summit reaching only 220 meters. There is zero altitude training benefit or acclimatization consideration. This is purely a sea-level urban cycling event."
+      },
+      "adventure": {
+        "score": 3,
+        "explanation": "The urban course through Brisbane landmarks offers genuine exploration of a vibrant Australian city, with opportunities to experience tunnels, bridges, and closed roads rarely accessible to cyclists. However, the fully controlled environment lacks the wild, remote character of true adventure cycling. It's urban adventure rather than wilderness exploration."
+      },
+      "prestige": {
+        "score": 3,
+        "explanation": "UCI Gran Fondo World Series qualifier status provides legitimate international credibility and Worlds qualification opportunity. However, the event lacks the historical pedigree or global recognition of established European gran fondos. It's respected within the cycling community but not yet iconic."
+      },
+      "race_quality": {
+        "score": 3,
+        "explanation": "Professional event management with timing chips, wave starts, age-group competition, and road closures demonstrates solid execution. The UCI Gran Fondo designation ensures quality standards, though specific details about course marshaling, support, and logistics remain unclear from available sources. Competent rather than exceptional."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "The fully closed-road experience is genuinely unique and memorable—riding through city streets normally filled with traffic creates an unforgettable atmosphere. Integration with Brisbane Cycling Festival and cultural attractions adds depth beyond the race itself. This is a high-quality experiential event."
+      },
+      "community": {
+        "score": 4,
+        "explanation": "Strong community focus with family rides, charity fundraising for The Prince Charles Hospital Foundation, and inclusive age-group categories. The event explicitly welcomes all abilities and ages, creating genuine grassroots participation. Brisbane's cycling culture is actively engaged."
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "Open participation structure attracts diverse field across age groups, but competitive depth at elite level remains unclear. The event draws serious cyclists via UCI qualification but lacks information about pro-level participation or elite field strength. Solid amateur field with uncertain competitive depth."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "Free event jersey, timing chip, and race pack provide reasonable inclusions, though exact pricing remains uncertain. Multiple distance options offer value across ability levels. International travel costs to Australia may offset event value for non-local participants."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Event entry appears moderate, but international travel to Australia significantly increases total cost. Lodging and food in Brisbane are reasonably priced for a major city. Local participants enjoy excellent value; international travelers face substantial travel expenses."
+      }
+    },
+    "biased_opinion": {
+      "verdict": "Unique urban cycling spectacle",
+      "summary": "Tour de Brisbane represents a genuinely innovative approach to gran fondo racing—taking the closed-road concept into a vibrant city rather than rural mountains. The event delivers on its promise of fully closed urban infrastructure, excellent logistics, and strong community engagement. However, it's fundamentally a different animal than traditional gran fondos: flatter, shorter, and more about urban cycling experience than climbing or distance. For Australian cyclists or those seeking a unique international cycling destination, it's compelling. For riders chasing elevation, prestige, or classic gran fondo suffering, look elsewhere.",
+      "strengths": [
+        "Fully closed urban roads create genuinely unique cycling experience",
+        "Exceptional logistics and city-center accessibility",
+        "UCI Gran Fondo World Series qualifier with legitimate Worlds qualification pathway",
+        "Inclusive community focus with multiple distance options and family participation",
+        "Excellent April weather and year-round cycling climate"
+      ],
+      "weaknesses": [
+        "Modest elevation gain (4,068 ft) lacks climbing challenge",
+        "Moderate distance (110km) doesn't test endurance like epic gran fondos",
+        "Limited historical prestige compared to established European events",
+        "Uncertain competitive field depth and elite participation",
+        "International travel costs substantially increase total event expense"
+      ],
+      "bottom_line": "Tour de Brisbane succeeds brilliantly at what it attempts—a well-executed, community-focused urban cycling celebration with legitimate UCI credentials. It's not a traditional gran fondo and shouldn't be evaluated as one. This is a destination event for cyclists seeking unique experience and Australian cycling culture."
+    },
+    "final_verdict": {
+      "score": "62 / 100",
+      "one_liner": "Innovative urban gran fondo with excellent logistics but modest climbing and prestige.",
+      "should_you_race": "Yes if you value unique urban cycling experiences, seek UCI Worlds qualification, or want to explore Brisbane's cycling culture. Skip if you're chasing serious elevation, classic gran fondo suffering, or established prestige—this isn't that event.",
+      "alternatives": "For elevation-focused gran fondos, consider Gravel Worlds or Belgian Waffle Ride. For established European prestige, try Giro di Lombardia or L'Étape du Tour. For accessible urban cycling events, explore Gran Fondo New York.",
+      "alternative_slugs": [
+        "gravel-worlds",
+        "belgian-waffle-ride",
+        "giro-di-lombardia"
+      ]
+    },
+    "logistics": {
+      "airport": "Brisbane Airport (BNE) is approximately 15km from the city center with direct international connections. Ground transportation via taxi, rideshare, or rental car is straightforward. The airport's proximity to accommodation and event venues makes arrival logistics simple.",
+      "lodging_strategy": "Stay in Brisbane's city center (South Bank, CBD, or Fortitude Valley) for walking distance to start/finish and post-race dining. Budget options exist alongside luxury hotels. Booking 2-3 months in advance recommended for April availability.",
+      "food": "Brisbane offers excellent dining across all price points, with particular strength in Asian cuisine and contemporary Australian cooking. The South Bank Cultural Precinct and riverside restaurants provide pre/post-race dining options. Local craft breweries and cafes support cycling culture.",
+      "packet_pickup": "Race packet pickup details not specified in available sources; check official website for timing and location.",
+      "parking": "Event uses fully closed roads; participant parking details not provided. City-center accommodation with walking access recommended to avoid parking logistics.",
+      "official_site": "https://www.tourdebrisbane.org"
+    },
+    "history": {
+      "founded": 2019,
+      "founder": "Brisbane Cycling Festival organizers in partnership with UCI Gran Fondo World Series",
+      "origin_story": "Tour de Brisbane launched as Australia's first UCI Gran Fondo World Series event, introducing the closed-road gran fondo concept to Australian cycling. The event emerged from Brisbane's growing cycling culture and desire to create a world-class cycling celebration accessible to all abilities. Integration with the broader Brisbane Cycling Festival positioned it as a destination event combining sport, community, and urban exploration. The 2025 edition relocated the start to newly built Queens Wharf, demonstrating continued evolution and investment in event infrastructure.",
+      "notable_moments": [
+        "2019: Inaugural Tour de Brisbane establishes Australia's first UCI Gran Fondo World Series event",
+        "2025: Start relocated to Queens Wharf with finish on Victoria Bridge, demonstrating infrastructure investment",
+        "2026: Introduction of free event jerseys for 120km, 80km, and 50km entries",
+        "Ongoing: Charity fundraising partnership with The Prince Charles Hospital Foundation for heart and lung research"
+      ],
+      "reputation": "Tour de Brisbane has established itself as a well-organized, community-focused cycling event with legitimate UCI credentials. The event is respected within Australian cycling circles and increasingly recognized internationally as a quality gran fondo destination. Its emphasis on accessibility and inclusion distinguishes it from more elite-focused events."
+    },
+    "course_description": {
+      "character": "Tour de Brisbane transforms urban infrastructure into a cycling playground, starting at City Botanic Gardens and weaving through Brisbane's heart on fully closed roads. The course loops through the city center, crosses the Brisbane River via major bridges, navigates through tunnels and expressways, and features five technical turns requiring constant attention. Mount Coot-tha provides the only significant climbing challenge, while the remainder emphasizes urban navigation, tactical positioning, and the unique experience of riding through normally car-filled streets. The finish returns to South Bank Cultural Precinct, completing a comprehensive tour of Brisbane's cycling-friendly infrastructure.",
+      "suffering_zones": [
+        {
+          "mile": 41.6,
+          "label": "Mount Coot-tha Climb",
+          "desc": "The course's defining challenge arrives at the 67km mark with Mount Coot-tha's 2km climb at 9% gradient. This is the only significant elevation gain on the course and determines race positioning in the final stages. The summit provides panoramic Brisbane views before descent toward the finish.",
+          "terrain_detail": "Sustained 9% gradient on urban road surface; straightforward climbing without technical complexity",
+          "named_section": "Mount Coot-tha"
+        },
+        {
+          "mile": 0.5,
+          "label": "City Loop Technical Section",
+          "desc": "Immediately after leaving City Botanic Gardens, the course navigates five technical turns through Brisbane's CBD. These turns demand constant attention and tactical awareness, setting the tone for urban cycling demands throughout the event.",
+          "terrain_detail": "Urban road with technical turns, bridge approaches, and tunnel entries",
+          "named_section": "Brisbane CBD Technical Zone"
+        }
+      ],
+      "signature_challenge": "Mount Coot-tha's 2km climb at 9% gradient serves as the race's defining moment, arriving at 67km to determine final positioning. While modest by gran fondo standards, the climb's placement late in the event and its role as the course's only significant elevation gain make it tactically crucial. The summit's panoramic Brisbane views reward the effort before the final descent to South Bank finish."
+    },
+    "guide_variables": {
+      "race_name": "Tour de Brisbane",
+      "race_distance": "110 km (68.35 miles)",
+      "race_elevation": "1,240 meters (4,068 feet)",
+      "race_date": "April",
+      "race_location": "Brisbane, Queensland, Australia",
+      "race_terrain": "Urban road on fully closed city streets with one significant climb",
+      "race_weather": "Subtropical, warm, low rain probability, moderate humidity",
+      "race_challenges": [
+        "Mount Coot-tha 9% climb",
+        "Technical urban turns",
+        "Sustained urban navigation"
+      ],
+      "altitude_section": false,
+      "altitude_feet": 0
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Build aerobic base with 8-10 hours weekly cycling volume",
+        "by_when": "Week 8 before event",
+        "why": "The 110km distance demands consistent aerobic fitness. Urban cycling's constant tactical demands require sharp fitness to maintain positioning through technical sections and the Mount Coot-tha climb."
+      },
+      {
+        "requirement": "Practice sustained 9% climbing at race pace",
+        "by_when": "Week 4 before event",
+        "why": "Mount Coot-tha's 9% gradient determines race outcome. Specific climbing practice ensures you can execute tactically at this crucial moment rather than suffering through it."
+      },
+      {
+        "requirement": "Complete at least one 100km+ training ride at race intensity",
+        "by_when": "Week 2 before event",
+        "why": "The 110km distance requires proven endurance capacity. A full-distance training ride confirms fitness, identifies pacing strategy, and builds confidence for race day execution."
+      }
+    ],
+    "citations": [
+      {
+        "url": "https://tourdebrisbane.org/event/110km-long-ride-uci-gran-fondo-world-series-qualifier/",
+        "title": "110km Long Ride UCI Gran Fondo World Series Qualifier",
+        "category": "official"
+      },
+      {
+        "url": "https://ucigranfondoworldseries.com/en/tour-de-brisbane/",
+        "title": "Tour de Brisbane - UCI Gran Fondo World Series",
+        "category": "official"
+      },
+      {
+        "url": "https://tourdebrisbane.org/event/110km-long-ride/",
+        "title": "110km Long Ride - Tour de Brisbane",
+        "category": "official"
+      },
+      {
+        "url": "https://tourdebrisbane.org/event/80km-medium-ride-2026/",
+        "title": "80km Medium Ride - Tour de Brisbane",
+        "category": "official"
+      },
+      {
+        "url": "https://tourdebrisbane.org/event/50km-short-ride/",
+        "title": "50km Short Ride - Tour de Brisbane",
+        "category": "official"
+      },
+      {
+        "url": "https://tourdebrisbane.org/event/big-family-rides-community-ride/",
+        "title": "Big Family Rides Community Ride - Tour de Brisbane",
+        "category": "official"
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "medium",
+      "validation_status": "validated",
+      "research_strength": "B",
+      "sources_count": 9,
+      "last_updated": "2026-03-03"
+    }
+  }
+}

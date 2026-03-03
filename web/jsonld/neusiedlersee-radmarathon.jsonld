@@ -1,0 +1,25 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Neusiedlersee Radmarathon",
+  "description": "A 127 km flat-and-fast UCI Gran Fondo through Austria's easternmost wine country, where wind tactics trump climbing prowess.",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-04-18",
+  "location": {
+    "@type": "Place",
+    "name": "M\u00f6rbisch am See, Burgenland, Austria"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "61",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://www.neusiedlersee-radmarathon.com",
+  "organizer": {
+    "@type": "Person",
+    "name": "Burgenland regional cycling and tourism organizations",
+    "url": "https://www.neusiedlersee-radmarathon.com"
+  }
+}

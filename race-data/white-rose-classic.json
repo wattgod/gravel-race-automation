@@ -1,0 +1,276 @@
+{
+  "race": {
+    "name": "White Rose Classic",
+    "slug": "white-rose-classic",
+    "display_name": "White Rose Classic",
+    "tagline": "Yorkshire's must-do sportive: 125 miles, 11,000ft of Dales brutality.",
+    "vitals": {
+      "distance_mi": 125,
+      "elevation_ft": 11071,
+      "location": "Ilkley, West Yorkshire, UK",
+      "location_badge": "ILKLEY, UK",
+      "date": "May-July",
+      "date_specific": "2026: May 31",
+      "terrain_types": [
+        "hilly",
+        "undulating",
+        "road",
+        "out-and-back"
+      ],
+      "field_size": "Up to 300 per long route, 200 on shorts",
+      "start_time": "06:45",
+      "registration": "£36-£46 adult entry includes eco medal, drink, photos, chip timing, signed routes, event village perks",
+      "prize_purse": "Non-competitive sportive, no purse",
+      "aid_stations": "Food/water stations, first aid, toilets, marshals, sweepers",
+      "cutoff_time": "Cutoff time with sweeper support",
+      "lat": 53.9214,
+      "lng": -1.8255,
+      "distance_options": [
+        "Epic: 125mi, 11071ft — heart of Dales, pro climbs",
+        "Challenge: 84mi, ~8100ft — serious test",
+        "Intermediate: 47-71mi, 5748ft — balanced sufferfest",
+        "Short: 36-37mi, 2858ft — Dales taster"
+      ],
+      "entry_fee": "£36-46"
+    },
+    "climate": {
+      "primary": "Mild, wet spring — Dales wildcard",
+      "description": "May in West Yorkshire brings 13-15°C highs, 6-8°C lows with 60-70% rain chance and gusty winds. Dales weather flips fast from sun to deluge. Pack layers and pray for tailwinds.",
+      "challenges": [
+        "frequent rain",
+        "rapid changes",
+        "headwinds",
+        "cool damp"
+      ]
+    },
+    "terrain": {
+      "primary": "Hilly Dales roads, pro-peloton pedigree",
+      "surface": "Paved perfection on Tour de France/Tour de Yorkshire tarmac. Smooth but relentless with lumps, bumps, and leg-snapping climbs. Fully signed, no excuses.",
+      "technical_rating": 3,
+      "features": [
+        "Tour de France 2014 roads",
+        "UCI Worlds 2019 climbs",
+        "stunning Dales scenery",
+        "out-and-back format",
+        "wave starts"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 83,
+      "tier": 1,
+      "tier_label": "TIER 1",
+      "logistics": 4,
+      "length": 5,
+      "technicality": 3,
+      "elevation": 5,
+      "climate": 3,
+      "altitude": 2,
+      "adventure": 4,
+      "prestige": 3,
+      "race_quality": 4,
+      "experience": 5,
+      "community": 4,
+      "field_depth": 3,
+      "value": 5,
+      "expenses": 5,
+      "cultural_impact": 3,
+      "tier_note": "Solid T3 for accessible brutality on iconic roads. Epic distance and value punch above weight, but regional prestige and field depth cap it. Weather roulette adds edge without elite status.",
+      "score_note": "Sum of 14 criteria: 4+5+3+5+3+2+4+3+4+5+4+3+5+5 = 55. cultural_impact = 3. Total = 58. (58/70)*100 = 83.",
+      "editorial_tier": 1,
+      "editorial_tier_label": "TIER 1",
+      "business_tier": 1,
+      "business_tier_label": "TIER 1",
+      "display_tier": 1,
+      "display_tier_label": "TIER 1",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 4,
+        "explanation": "Free parking, urban HQ, family village—Ilkley nails basics. Public transport links help, but airport trek annoys. Wave starts and sweepers make it foolproof for mortals."
+      },
+      "length": {
+        "score": 5,
+        "explanation": "125-mile Epic is a proper gut-check, not some 50km jog. Shorter options scale perfectly for all levels. This is distance done right—no half-measures."
+      },
+      "technicality": {
+        "score": 3,
+        "explanation": "Paved roads, signed routes—zero nav stress. Climbs demand power, not bike-handling wizardry. Fun undulations, but no Etape du Tour descents to white-knuckle."
+      },
+      "elevation": {
+        "score": 5,
+        "explanation": "11,071ft crushes souls across 125 miles. Dales deliver non-stop vertical punishment. Even shorts pack punch—pure climber's joy."
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "Mild but soggy Yorkshire spring bites hard. Rain-slicked TDF roads turn epic to epic fail. Pack waterproofs or embrace the sufferfest."
+      },
+      "altitude": {
+        "score": 2,
+        "explanation": "Lowland Dales, no thin air drama. Max a few hundred meters—pure leg burn, no hypoxia excuses. Keeps it accessible for sea-level slugs."
+      },
+      "adventure": {
+        "score": 4,
+        "explanation": "Dales scenery stuns, pro roads thrill. Out-and-back with village vibes feels exploratory yet supported. True cycling mecca without wildcards."
+      },
+      "prestige": {
+        "score": 3,
+        "explanation": "Yorkshire's premier sportive, TDF pedigree shines. Not Worlds-level fame, but local legend status. Bucket-list for UK roadies."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "British Cycling graded, full support, eco focus—polished operation. Chip timing, medals, no corners cut. Deserves pro-peloton respect."
+      },
+      "experience": {
+        "score": 5,
+        "explanation": "Post-ride village is gold: drinks, food, family welcome. Eco medals, photos—feels premium. Hospitality turns suffer into celebration."
+      },
+      "community": {
+        "score": 4,
+        "explanation": "Teams, families, beginners to beasts—welcoming vibe. 300-rider waves foster mateship. Yorkshire grit unites all."
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "300 Epic starters solid, but no pro depth. Mixed abilities keep it fun, not cutthroat. Quality over quantity here."
+      },
+      "value": {
+        "score": 5,
+        "explanation": "£45 for Epic insanity? Steal. Inclusions stack up—medal, timing, village. Beats overpriced gran fondos."
+      },
+      "expenses": {
+        "score": 5,
+        "explanation": "Cheap entry, free parking, no hidden fees. Under-18 deals sweeten family pot. Budget beast."
+      }
+    },
+    "biased_opinion": {
+      "verdict": "Dales Destroyer Supreme",
+      "summary": "White Rose Classic owns Yorkshire's sportive throne with 125 miles of TDF-grade punishment at bargain price. Epic route's 11k feet through stunning Dales is pure poetry for pain lovers. Village hospitality and eco smarts elevate it beyond typical sportives. Weather gambles add spice—rainbow or river, you'll earn that medal. Regional gem screaming for national buzz.",
+      "strengths": [
+        "Insane value at £45",
+        "Iconic TDF roads",
+        "11kft elevation beast",
+        "Family village magic",
+        "Eco warrior creds"
+      ],
+      "weaknesses": [
+        "Weather wildcard",
+        "Regional prestige only",
+        "No airport ease",
+        "Modest field depth",
+        "Low altitude snooze"
+      ],
+      "bottom_line": "Pin this if you crave UK road suffering with polish. Skip if rain-phobic or prestige-hunting. Epic redefines 'must-do'."
+    },
+    "final_verdict": {
+      "score": "68 / 100",
+      "one_liner": "Yorkshire's brutal bargain bashes bigger names.",
+      "should_you_race": "Yes if you're UK-based craving Dales climbs and value. Perfect for 100+ milers seeking pro roads without Etape price. Skip if chasing elite fields or hate wet wool.",
+      "alternatives": "Etape Loch Ness (etape-loch-ness) for Scottish suffer, Dragon Ride (dragon-ride) for Welsh walls, Sportive.com Classic (sportive-classic) for volume.",
+      "alternative_slugs": [
+        "etape-loch-ness",
+        "dragon-ride",
+        "sportive-classic"
+      ]
+    },
+    "logistics": {
+      "airport": "Leeds Bradford (LBA) 20km away, quick taxi/train. Manchester (MAN) viable for diehards, 1hr drive. Trains to Ilkley station ace public links.",
+      "lodging_strategy": "Ilkley B&Bs or Airbnbs fill fast—book early. Camp nearby or Leeds hotels for urban base. Event village handles day-trippers fine.",
+      "food": "Village bar/food post-ride heaven. Ilkley cafes pre-event fuel. Stations en route keep you topped.",
+      "packet_pickup": "HQ on race day, chip timing seamless.",
+      "parking": "Free at urban HQ, ample spaces.",
+      "official_site": "https://whiteroseclassic.org.uk"
+    },
+    "history": {
+      "founded": 2019,
+      "founder": "Yorkshire sportive specialists",
+      "origin_story": "Born 2019 as Yorkshire's top sportive, White Rose plunged riders into Dales magic on TDF/Tour de Yorkshire roads. Started with three routes for all abilities, exploded in popularity. By 2025 added shortest 58km for casuals, cementing inclusive rep. Now carbon-neutral staple with pro-level support.",
+      "notable_moments": [
+        "2019 launch on UCI Worlds roads",
+        "2020 Dales debut pre-pandemic",
+        "2024 'Must-Do' status with three routes",
+        "2025 fourth short route launch",
+        "2026 Epic graded 667/1000 by BC"
+      ],
+      "reputation": "Yorkshire's premier, British Cycling backed. Must-do for Dales devotees. Grows yearly on scenery and support."
+    },
+    "course_description": {
+      "character": "Out-and-back Dales crusher on paved pro roads. Undulating hell with relentless climbs through Wharfe Valley heart. Stunning vistas mask leg-shredding reality. Fully marked, supported—focus on suffering. Wave starts spread the pain.",
+      "suffering_zones": [
+        {
+          "mile": 30,
+          "label": "Wharfe Valley Rampage",
+          "desc": "Early climbs wake the dead into Dales core. Lumps build to full-gas efforts. Scenery distracts from burn.",
+          "terrain_detail": "Steep paved ramps, undulating",
+          "named_section": "Wharfe Valley"
+        },
+        {
+          "mile": 70,
+          "label": "Dales Heartbreaker",
+          "desc": "Mid-route vertical avalanche on TDF icons. Non-stop bumps crush rhythm. Feed zones offer false hope.",
+          "terrain_detail": "Hilly paved, iconic",
+          "named_section": "Yorkshire Dales Core"
+        },
+        {
+          "mile": 110,
+          "label": "Epic Endgame",
+          "desc": "Final 15mi death march back to Ilkley. Cumulative fatigue peaks on rolling crushers. Village beacon pulls you home.",
+          "terrain_detail": "Undulating return",
+          "named_section": "Ilkley Home"
+        }
+      ],
+      "signature_challenge": "3371m total ascent across 201km—Dales deliver endless climbs on pro-famous tarmac. No single KOM king, just cumulative destruction. Tests endurance over explosiveness."
+    },
+    "guide_variables": {
+      "race_name": "White Rose Classic",
+      "race_distance": "201 km (125 miles)",
+      "race_elevation": "3371 meters (11071 feet)",
+      "race_date": "May",
+      "race_location": "Ilkley, West Yorkshire, UK",
+      "race_terrain": "Hilly paved roads through Yorkshire Dales",
+      "race_weather": "Mild spring with rain risk, 13-15C",
+      "race_challenges": [
+        "relentless climbs",
+        "variable weather",
+        "125mi endurance"
+      ],
+      "altitude_section": false,
+      "altitude_feet": 0
+    },
+    "non_negotiables": [
+      {
+        "requirement": "200km with 3000m+ trainer blocks",
+        "by_when": "Week 12",
+        "why": "Epic's vertical demands hill legs—base now or crack later. Dales punish weak engines. Test on 100mi recon."
+      },
+      {
+        "requirement": "Rain kit and layers dialed",
+        "by_when": "Week 8",
+        "why": "60% precip chance turns roads to rivers. Wet suffering amplifies 11k feet. Practice sloppy conditions."
+      }
+    ],
+    "citations": [
+      {
+        "url": "https://whiteroseclassic.org.uk",
+        "title": "White Rose Classic Official Site",
+        "category": "official"
+      },
+      {
+        "url": "https://www.timeoutdoors.com/events/white-rose-classic/the-intermediate-one",
+        "title": "TimeOutdoors Event Page",
+        "category": "official"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/6436/white-rose-classic",
+        "title": "Gran Fondo Guide",
+        "category": "directory"
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "high",
+      "validation_status": "validated",
+      "research_strength": "A",
+      "sources_count": 7,
+      "last_updated": "2026-03-02"
+    }
+  }
+}

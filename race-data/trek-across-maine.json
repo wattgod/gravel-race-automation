@@ -1,0 +1,281 @@
+{
+  "race": {
+    "name": "Trek Across Maine",
+    "slug": "trek-across-maine",
+    "display_name": "Trek Across Maine",
+    "tagline": "180-mile charity haul through Maine's lupine-laced hills—pedal for lungs, beer, and glory.",
+    "vitals": {
+      "distance_mi": 180,
+      "elevation_ft": 8000,
+      "location": "New Gloucester, Maine, USA",
+      "location_badge": "NEW GLOUCESTER, ME",
+      "date": "Mid-June annually",
+      "date_specific": "2026: June 19-21",
+      "terrain_types": [
+        "rolling hills",
+        "paved roads",
+        "farmland",
+        "lakeside"
+      ],
+      "field_size": "Over 1,000 riders, families, and lung warriors",
+      "start_time": "Morning",
+      "registration": "$40 fee + $550 fundraising minimum ($400 youth); includes full support, 3 daily rest stops, overnights with music, pizza, beer, and festivities",
+      "prize_purse": "No cash prizes—pure charity glory and $750K impact",
+      "aid_stations": "Three fully stocked rest stops daily with snacks, drinks, volunteers, and sag wagons",
+      "cutoff_time": "Self-paced multi-day with support—no hard cutoffs",
+      "lat": 43.9625,
+      "lng": -70.1892,
+      "distance_options": [
+        "3-day: 180mi, moderate elevation — full cross-state supported trek",
+        "2-day: ~120mi — condensed hill roller",
+        "1-day: ~60mi — taste of Maine",
+        "Virtual: self-paced — ride anywhere for t-shirt and medal"
+      ],
+      "entry_fee": "$40 + $550"
+    },
+    "climate": {
+      "primary": "Mild coastal summer — brief",
+      "description": "Mid-June in Maine delivers balmy 60-75°F days with low humidity, perfect for long hauls. Occasional coastal fog or showers add character without drenching misery. Father's Day weekend vibes mean reliable riding weather for New England.",
+      "challenges": [
+        "pop-up showers",
+        "morning fog",
+        "wind off lakes",
+        "heat spikes"
+      ]
+    },
+    "terrain": {
+      "primary": "Rolling paved hills of central Maine",
+      "surface": "Smooth country roads wind through farmland, woods, and lupine fields—crack-free bliss with zero gravel grit. Law enforcement clears the way for uninterrupted flow. Classic Northeast rollers that reward cadence over brute force.",
+      "technical_rating": 2,
+      "features": [
+        "wild lupine views",
+        "serene lakes and rivers",
+        "lush woods",
+        "farmland vistas",
+        "quaint Maine towns"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 77,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "logistics": 4,
+      "length": 4,
+      "technicality": 2,
+      "elevation": 3,
+      "climate": 4,
+      "altitude": 1,
+      "adventure": 4,
+      "prestige": 3,
+      "race_quality": 4,
+      "experience": 5,
+      "community": 5,
+      "field_depth": 2,
+      "value": 5,
+      "expenses": 4,
+      "cultural_impact": 4,
+      "tier_note": "Solid T2 charity staple punches above weight in experience and community, capping at T2 without elite prestige or tech demands. Multi-day format and lung legacy deliver reliable joy. Ideal for cause-driven riders seeking supported miles.",
+      "score_note": "Sum of 14 criteria: 4+4+2+3+4+1+4+3+4+5+5+2+5+4 = 50. cultural_impact = 4. Total = 54. (54/70)*100 = 77.",
+      "editorial_tier": 2,
+      "editorial_tier_label": "TIER 2",
+      "business_tier": 2,
+      "business_tier_label": "TIER 2",
+      "display_tier": 2,
+      "display_tier_label": "TIER 2",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 4,
+        "explanation": "Pineland Farms start/end simplifies everything—overnights at colleges with pizza and brews are genius. Three rest stops daily plus sag wagons mean zero suffering solo. Virtual option seals it for busy folks. Nailed the charity ride blueprint."
+      },
+      "length": {
+        "score": 4,
+        "explanation": "180 miles over three days hits the multi-day sweet spot—60ish daily without burnout. Flexible options from one-day tasters to full commitment keep it accessible. Perfect for building epic without Tour de France madness."
+      },
+      "technicality": {
+        "score": 2,
+        "explanation": "Pure road rollers—no descents to white-knuckle or gravel to dodge. Smooth sailing for any road bike. Beginners thrive here; experts might yawn at the simplicity."
+      },
+      "elevation": {
+        "score": 3,
+        "explanation": "Moderate rolling hills keep quads honest without alpine cruelty. Central Maine undulations build character steadily. No KOM hunts, just consistent leg-burn charm."
+      },
+      "climate": {
+        "score": 4,
+        "explanation": "June Maine magic: mild temps, lupine blooms, lake breezes. Rare rain adds lore, not ruin. Far better than sweaty southern slogs or windy plains."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "Sea-level bliss—no hypoxia headaches. Pure oxygen for lung charity irony. Flatlanders and hill-dwellers unite effortlessly."
+      },
+      "adventure": {
+        "score": 4,
+        "explanation": "Cross-state Maine trek with wildflowers, colleges, and brewery pitstops screams postcard adventure. Family tandems and virtual kin amp the inclusivity. Beats sterile crits every time."
+      },
+      "prestige": {
+        "score": 3,
+        "explanation": "40+ years of $32M raised commands respect in charity circles. Not Unbound elite, but badge-worthy for cause riders. Father's Day tradition adds heart."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "Fully supported with cops, volunteers, and feasts—pro-level execution for amateurs. Consistent routes, even virtual polish. Lung Association delivers reliably."
+      },
+      "experience": {
+        "score": 5,
+        "explanation": "Music, games, potato bars, local IPAs—pure party on pedals. Overnights turn it into festival-cycling hybrid. Unmatched vibes for 180 miles."
+      },
+      "community": {
+        "score": 5,
+        "explanation": "1,000+ riders united for lungs: memorials, advocacy, kids on tandems. Thick camaraderie from shared suffering and suds. Ride for more than self."
+      },
+      "field_depth": {
+        "score": 2,
+        "explanation": "Enthusiast masses, not pro peloton. Families and fundraisers dominate—no deep elite bench. Strength in numbers, not watts."
+      },
+      "value": {
+        "score": 5,
+        "explanation": "$550 minimum yields epic support, food, fun—bang-for-buck king of charity rides. Virtual at $250? Steal. Impact feels priceless."
+      },
+      "expenses": {
+        "score": 4,
+        "explanation": "Fundraising covers the ride; travel to Maine adds airfare sting. But inclusions erase nickel-and-diming. Smart budget for East Coasters."
+      }
+    },
+    "biased_opinion": {
+      "verdict": "Heart-pumping charity gem",
+      "summary": "Trek Across Maine nails the charity multi-day formula: 180 scenic miles, rolling Maine charm, and college-camp vibes with brews and bands. Lung legacy since '85 elevates it beyond mere miles—ride for health heroes while feasting on pizza and lupine views. Virtual flex and kid-friendly tandems make it inclusive gold. Prestige lacks pro punch, but experience overflows. This ain't racing; it's righteous rolling.",
+      "strengths": [
+        "insane community and festivities",
+        "flawless support logistics",
+        "scenic Maine overload",
+        "charity impact that hits home",
+        "flexible distance options"
+      ],
+      "weaknesses": [
+        "no elite field depth",
+        "hills lack epic punch",
+        "fundraising commitment",
+        "remote Maine travel",
+        "zero tech demands"
+      ],
+      "bottom_line": "Prime pick for cause-driven cyclists craving supported adventure. Skip if chasing KOMs or dodging hills. Pin it for lungs and lupines."
+    },
+    "final_verdict": {
+      "score": "64 / 100",
+      "one_liner": "Lung-loving legend of supported Maine miles.",
+      "should_you_race": "Yes if you're fundraising for good, love multi-day parties, or seek family-inclusive road joy. Skip if elite prestige or gravel grit calls—or hills bore you.",
+      "alternatives": "Unbound Gravel (unbound-gravel) for prestige punch; Dirty Kanza (dirty-kanza) for true suffering; local century rides for solo spins.",
+      "alternative_slugs": [
+        "unbound-gravel",
+        "dirty-kanza",
+        "ragbrai"
+      ]
+    },
+    "logistics": {
+      "airport": "Fly into Portland Jetport (PWM), 30min from Pineland Farms—shuttle or rental bike-friendly. Boston Logan works for road trippers. Contact 207-624-0312 for crew shuttles.",
+      "lodging_strategy": "Overnights handled at Bates and St. Joe's colleges—dorms, camping, festivities included. Book Portland hotels pre/post; glamp at Pineland if fancy.",
+      "food": "Three daily rest stops fuel with snacks/drinks; evenings bring baked potato bars, pizza, local brewery beers, finish-line feasts. Carb heaven.",
+      "packet_pickup": "On-site at Pineland Farms morning of Day 1—smooth rider check-in.",
+      "parking": "Ample at start/finish Pineland Farms; carpool encouraged for lots.",
+      "official_site": "https://trekacrossmaine.org"
+    },
+    "history": {
+      "founded": 1985,
+      "founder": "American Lung Association",
+      "origin_story": "Born in 1985 as Maine's flagship charity pedal, Trek Across Maine rallied cyclists for lung health amid rising asthma woes. American Lung Association turned two-wheel passion into $32M+ war chest for research, clean air, and vaping education. Father's Day tradition stuck, evolving from beach starts to farm-fresh launches while staying true to supported joy.",
+      "notable_moments": [
+        "$32M+ raised since debut",
+        "2020 virtual pivot amid chaos",
+        "2025 Pineland Farms relaunch (41st edition)",
+        "42nd annual eyes $750K in 2026"
+      ],
+      "reputation": "Gold standard charity ride: reliable, inclusive, impactful. Riders rave about vibes and views; legacy cements it as Maine cycling icon."
+    },
+    "course_description": {
+      "character": "Three-day loop from Pineland Farms slices central Maine's rolling heart: lupine-choked fields, glassy lakes, river glimpses, and woodsy whispers. Paved perfection greets every pedal through Freeport and beyond, with college overnights fueling the fest. No flats here—steady climbs craft satisfying rhythm amid postcard scenery.",
+      "suffering_zones": [
+        {
+          "mile": 30,
+          "label": "Lupine Hills Warmup",
+          "desc": "Early rollers test sea legs amid wildflower explosions. Lakeside views distract from the grind. Pace yourself—it's just the opener.",
+          "terrain_detail": "paved undulations",
+          "named_section": "Lupine Rollers"
+        },
+        {
+          "mile": 90,
+          "label": "Bates Build",
+          "desc": "Day 2's central hills ramp up after college recovery. River valleys tempt, but climbs demand respect. Pizza awaits victors.",
+          "terrain_detail": "rolling paved",
+          "named_section": "River Rise"
+        },
+        {
+          "mile": 150,
+          "label": "Standish Surge",
+          "desc": "Final push home packs sneaky pitches through farmland. Brewery dreams pull you over the top. Heroic finish line glory.",
+          "terrain_detail": "hilly roads",
+          "named_section": "Farmland Finish"
+        }
+      ],
+      "signature_challenge": "The three-day unsupported-feel grind: 60-mile days blend hills, heat, and heart for lung legacy. Overnights recharge with brews and bands, but cumulative fatigue defines the trek. Charity fire keeps wheels turning."
+    },
+    "guide_variables": {
+      "race_name": "Trek Across Maine",
+      "race_distance": "290 km (180 miles)",
+      "race_elevation": "2440 meters (8000 feet)",
+      "race_date": "June",
+      "race_location": "New Gloucester, Maine, USA",
+      "race_terrain": "Rolling paved hills through lupines, lakes, woods",
+      "race_weather": "Mild 60-75°F with possible showers",
+      "race_challenges": [
+        "rolling hills",
+        "multi-day fatigue",
+        "fundraising minimum",
+        "remote logistics"
+      ],
+      "altitude_section": false,
+      "altitude_feet": 500
+    },
+    "non_negotiables": [
+      {
+        "requirement": "50-mile rides weekly",
+        "by_when": "Week 8",
+        "why": "Builds base for 60-mile days without bonking. Hills demand cadence endurance. Charity commitment means showing funded and fit."
+      },
+      {
+        "requirement": "$550 fundraising locked",
+        "by_when": "Ride start",
+        "why": "Core to the mission—no funds, no pedals. Secures support perks. Lung impact fuels the soul grind."
+      }
+    ],
+    "citations": [
+      {
+        "url": "https://cycleforair.lung.org/pages/1896",
+        "title": "Route Information - Cycle For Air - American Lung Association",
+        "category": "official"
+      },
+      {
+        "url": "https://www.bikemaine.org/event/42nd-annual-trek-across-maine/",
+        "title": "42nd Annual Trek Across Maine - Bicycle Coalition of Maine",
+        "category": "official"
+      },
+      {
+        "url": "https://www.bikemaine.org/event/41st-annual-trek-across-maine/",
+        "title": "41st Annual Trek Across Maine",
+        "category": "official"
+      },
+      {
+        "url": "https://trekacrossmaine.org",
+        "title": "Trek Across Maine Official Site",
+        "category": "official"
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "high",
+      "validation_status": "validated",
+      "research_strength": "A",
+      "sources_count": 6,
+      "last_updated": "2026-03-02"
+    }
+  }
+}

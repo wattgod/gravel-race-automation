@@ -1,0 +1,286 @@
+{
+  "race": {
+    "name": "Gran Fondo Maryland",
+    "slug": "gran-fondo-maryland",
+    "display_name": "Gran Fondo Maryland",
+    "tagline": "100 miles of savage Maryland climbs crushing souls with 10,000ft through Catoctin wilds.",
+    "vitals": {
+      "distance_mi": 100,
+      "elevation_ft": 10000,
+      "location": "Frederick, Maryland, USA",
+      "location_badge": "FREDERICK, MD",
+      "date": "September",
+      "date_specific": "2026: September 13",
+      "terrain_types": [
+        "hilly",
+        "mountainous",
+        "forested",
+        "technical"
+      ],
+      "field_size": "Hundreds of riders from casual spinners to national championship contenders",
+      "start_time": "8:00-8:30 AM",
+      "registration": "Competitive entry with timed segments, post-ride feasts, and festivities included",
+      "prize_purse": "National Championship titles and age-group podiums",
+      "aid_stations": "4-5 fully stocked feed zones across the Gran Route",
+      "cutoff_time": "Strict 10mph progression speed or get swept to shorter route—no exceptions",
+      "lat": 39.4143,
+      "lng": -77.4103,
+      "distance_options": [
+        "Gran Route: 100mi, 10,000ft — brutal national champs course with 4 timed KOMs",
+        "Medio Route: 65mi, 4,500ft — shares final timed beast on Gambrill",
+        "Piccolo Route: 30mi — social spin for the less masochistic"
+      ],
+      "entry_fee": "$150-250"
+    },
+    "climate": {
+      "primary": "Temperate fall — mild but unpredictable",
+      "description": "September in Maryland brings crisp 60-75°F mornings warming to low 80s, perfect for suffering if dry. Late-summer humidity lingers, risking sudden showers that slick up those tar-and-chip descents. Cool forest canopies offer shade but watch for damp leaves turning corners treacherous.",
+      "challenges": [
+        "lingering humidity saps power",
+        "sudden afternoon showers",
+        "cool descents numb fingers",
+        "leaf-strewn tech sections"
+      ]
+    },
+    "terrain": {
+      "primary": "Brutally hilly forested mountain roads",
+      "surface": "Mostly smooth pavement carved through parks and watersheds, punctuated by gritty tar-and-chip that punishes skinny tires. Obscure backroads demand constant vigilance around 90° corners and ancient bridges. Ridge-top rollers on Gambrill test the legs after hours of abuse.",
+      "technical_rating": 4,
+      "features": [
+        "Catoctin Mountain National Park traverses",
+        "decommissioned Fort Ritchie ghost base",
+        "Frederick Municipal Forest beast climbs",
+        "Gambrill State Park ridge undulations",
+        "historic downtown Frederick finish party"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 86,
+      "tier": 1,
+      "tier_label": "TIER 1",
+      "logistics": 4,
+      "length": 5,
+      "technicality": 4,
+      "elevation": 5,
+      "climate": 3,
+      "altitude": 2,
+      "adventure": 5,
+      "prestige": 5,
+      "race_quality": 5,
+      "experience": 5,
+      "community": 4,
+      "field_depth": 3,
+      "value": 4,
+      "expenses": 3,
+      "cultural_impact": 3,
+      "tier_note": "National Champs prestige punches above its tier weight, delivering pro-level timed segments amid epic East Coast terrain. Solid logistics and adventure factor make it a must for climbers chasing glory. Caps at T3 without deeper field or global draw.",
+      "score_note": "Sum of 14 criteria: 4+5+4+5+3+2+5+5+5+5+4+3+4+3 = 57. cultural_impact = 3. Total = 60. (60/70)*100 = 86.",
+      "editorial_tier": 1,
+      "editorial_tier_label": "TIER 1",
+      "business_tier": 1,
+      "business_tier_label": "TIER 1",
+      "display_tier": 1,
+      "display_tier_label": "TIER 1",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 4,
+        "explanation": "Frederick's compact start/finish in historic downtown screams convenience—no airport schlep required. Bike rentals with helmets on-site? Genius for out-of-towners. Cutoffs are ruthless but fair, keeping the peloton moving like clockwork."
+      },
+      "length": {
+        "score": 5,
+        "explanation": "True gran fondo century at 100 miles, no half-measures here. Builds progressively savage from forest romps to ridge-crushing finales. Perfect length to break mortals while crowning kings on nationals podiums."
+      },
+      "technicality": {
+        "score": 4,
+        "explanation": "Gully of Darius demands bike-handling chops with 90° whips, bridge hops, and tar-chip slipperies. Descents test brakes, punchy Harp Hill yo-yos spike HR. Not Nove Mesto gnarly, but way spicier than pancake-flat fondos."
+      },
+      "elevation": {
+        "score": 5,
+        "explanation": "10,000ft isn't Everest, but Maryland's relentless forested pitches make every foot count. Four timed segments stack pain from 1,270ft forest bombs to Gambrill's 1,200ft ridge killer. Climbers' paradise disguised as a party ride."
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "September sweet spot mostly, but DC-area humidity clings like a bad ex. Showers turn tech sections into skating rinks. Pack arm warmers—mornings bite before the sun bakes you alive."
+      },
+      "altitude": {
+        "score": 2,
+        "explanation": "Sea-level peasants' playground, maxing 2,000ft ridges. No hypoxia drama, just pure leg-burning VAM. Fine for flatlanders, boring for thin-air addicts."
+      },
+      "adventure": {
+        "score": 5,
+        "explanation": "Catoctin wilds, ghost military bases, watershed secrets—feels like raiding Appalachia's backyard. Obscure roads vanish into enchanted forests. Finish line beers in historic Frederick seal the epic quest."
+      },
+      "prestige": {
+        "score": 5,
+        "explanation": "USA Cycling Gran Fondo Nationals? Instant legitimacy, age-group glory awaits. Timed segments separate sheep from wolves. Jersey on the line elevates this beyond tourist trap status."
+      },
+      "race_quality": {
+        "score": 5,
+        "explanation": "Pro-series polish: marked routes, marshals, feeds galore, strict cutoffs. Dual starts for champs vs civilians keep it fair. Post-ride village vibes are Fondo perfection."
+      },
+      "experience": {
+        "score": 5,
+        "explanation": "From municipal forest plunges to Gambrill glory, every mile paints a masterpiece of pain and payoff. Festivities hit right—food, brews, swag. Leaves you buzzing for next year's redemption."
+      },
+      "community": {
+        "score": 4,
+        "explanation": "National Series faithful plus local Maryland hammers create solid vibe. Champs draw talent, piccolos bring families. Downtown finish fosters instant friendships over victory pints."
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "Decent nationals contenders up front, but mid-pack thins out. No Euro pro peloton, more domestic warriors. Still competitive enough to light a fire under your saddle."
+      },
+      "value": {
+        "score": 4,
+        "explanation": "Epic terrain and titles for reasonable coin—beats Disney rides any day. Inclusions like feeds and parties stretch the dollar. Worth every penny for the suffering served."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Travel to Maryland adds up from coasts, lodging in charming Frederick ain't cheap. Entry fair, but incidentals nibble. Budget for post-ride beers—they're earned."
+      }
+    },
+    "biased_opinion": {
+      "verdict": "Climber's savage nationals gem",
+      "summary": "Gran Fondo Maryland isn't messing around—100 miles of Appalachian fury hosting USA Cycling's Gran Nats with four timed gut-punches that crown real champions. Forget flat spins; this is forested hellscapes, ridge-top rollers, and technical daggers testing every fiber. Historic Frederick finish delivers the party payoff, but only if you survive Gambrill's wrath. Prestige elevates it beyond regional fare, though field depth lags elite Euros.",
+      "strengths": [
+        "National Championships prestige",
+        "10k ft of pure climbing pain",
+        "Four elite timed segments",
+        "Wild parkland adventure",
+        "Legendary finish festivities"
+      ],
+      "weaknesses": [
+        "Inconsistent distance/elev data",
+        "Humidity roulette",
+        "Shallow pro field",
+        "Ruthless cutoffs",
+        "Low altitude snooze"
+      ],
+      "bottom_line": "Elite East Coast climber's ticket to glory. Pin the number if you crave KOM badges amid Maryland magic. Skip if flats are your jam."
+    },
+    "final_verdict": {
+      "score": "73 / 100",
+      "one_liner": "Brutal Nats beast devours legs in Catoctin chaos.",
+      "should_you_race": "Yes if you're a climber chasing national hardware and 10k ft romps. Skip if humidity or tech descents terrify you—stick to pan-flat spins.",
+      "alternatives": "Gran Fondo Asheville for southern savage climbs, Boone Gran Fondo for Appalachian twin terror, Highlands Gran Fondo for gravel-infused pain.",
+      "alternative_slugs": [
+        "gran-fondo-asheville",
+        "boone-gran-fondo",
+        "highlands-gran-fondo"
+      ]
+    },
+    "logistics": {
+      "airport": "Fly into Dulles (IAD) or BWI, both 45-60min drive to Frederick—rent a car for backroad freedom. Amtrak to Frederick station works for rail fans.",
+      "lodging_strategy": "Book historic downtown Airbnbs or Carroll Creek hotels near start arch—walkable to packet and parties. Camp Gambrill if you're hardcore.",
+      "food": "Finish line feasts overflow with local brews, grub, and swag. Pre-ride Frederick's farm-to-table scene; feeds keep you fueled mid-sufferfest.",
+      "packet_pickup": "On-site at start arch, 500 Fleming Ave—grab and go.",
+      "parking": "Downtown lots and street parking abundant near historic core.",
+      "official_site": "https://www.granfondonationalseries.com/gran-fondo-maryland"
+    },
+    "history": {
+      "founded": 2014,
+      "founder": "Gran Fondo National Series organizers",
+      "origin_story": "Born in 2014 as part of the National Series quest to crown American fondo kings, Maryland edition locked in Frederick's hilly heartland. Evolved into USA Cycling Gran Fondo Nationals powerhouse, blending competitive fire with East Coast allure. Consistent since 2021 with Catoctin classics defining its soul.",
+      "notable_moments": [
+        "Hosts USA Cycling Gran Fondo National Championships annually",
+        "2024 GPS track hits 99.4mi/10,066ft with 13.1% max grade",
+        "Distinct 8AM champs vs 8:30AM fondo starts",
+        "Signature Gully of Darius tech test endures"
+      ],
+      "reputation": "Feared for relentless climbs and nationals prestige among US fondo circuits. Riders rave about terrain immersion and party prowess. Solid rep as climber's must-do."
+    },
+    "course_description": {
+      "character": "Northwest from Frederick's charm into municipal forest savagery, the Gran Route devours obscure backroads to Fort Ritchie's ruins before Catoctin plunges. Punchy Harp Hills and Gully tech terror precede Gambrill's ridge-crushing finale. Undulating watersheds and state park singletracks return you battle-scarred to downtown glory.",
+      "suffering_zones": [
+        {
+          "mile": 10,
+          "label": "Frederick Municipal Forest #1",
+          "desc": "5.6mi timed bomb gaining 1,270ft through cool canopy—pure VAM torture. Crest for screaming descent rewards the bold. Sets the tone: survive or suffer.",
+          "terrain_detail": "Paved forest switchbacks, shaded pitches",
+          "named_section": "Timed Segment #1"
+        },
+        {
+          "mile": 25,
+          "label": "Harp Hill #2",
+          "desc": "1.4mi punchy up-down-up-down rollercoaster, 279ft vertical spikes. Short but soul-snapping intensity. Gasp for the 25mi backroad grind ahead.",
+          "terrain_detail": "Southern approach paved yo-yos",
+          "named_section": "Timed Segment #2"
+        },
+        {
+          "mile": 50,
+          "label": "The Gully of Darius #3",
+          "desc": "5.5mi dynamic beast: fast 4.9mi drop, then 300ft kicker amid 90° turns and bridges. Tar-chip slipfest demands skills or spills. Net downhill but heart-rate hell.",
+          "terrain_detail": "Tech descents, chip roads, sharp corners",
+          "named_section": "Timed Segment #3"
+        },
+        {
+          "mile": 71,
+          "label": "Gambrill Ridge #4",
+          "desc": "11.4mi hardest hit: 784ft/4.6mi opener into 6.8mi undulating ridge nightmare. Watersheds to Gambrill State Park crush quads. Final 1,000ft drop tempts complacency—watch the kickers.",
+          "terrain_detail": "Ridge-top rollers, park roads",
+          "named_section": "Timed Segment #4"
+        }
+      ],
+      "signature_challenge": "Gambrill Park Road's 11.4mi timed finale—784ft opener explodes into endless ridge undulations through watershed wilds. Legs scream, mind fractures; only the strongest summit smiling. Defines Maryland as climber's crucible."
+    },
+    "guide_variables": {
+      "race_name": "Gran Fondo Maryland",
+      "race_distance": "161 km (100 miles)",
+      "race_elevation": "3048 meters (10000 feet)",
+      "race_date": "September",
+      "race_location": "Frederick, Maryland, USA",
+      "race_terrain": "Hilly forested roads with tech descents and mountain ridges",
+      "race_weather": "Mild fall with humidity risks and shower threats",
+      "race_challenges": [
+        "Timed forest climbs",
+        "Technical Gully descents",
+        "Gambrill ridge suffering"
+      ],
+      "altitude_section": false,
+      "altitude_feet": 2000
+    },
+    "non_negotiables": [
+      {
+        "requirement": "8hr century with 10k ft at 10mph progression minimum",
+        "by_when": "Week 12",
+        "why": "Cutoffs are brutal—no mercy for dawdlers, sweeps you to medio ignominy. Builds base for Gambrill's late crush. Test on 100mi/8k ft sim with tech bits."
+      },
+      {
+        "requirement": "Climbing intervals at 300-400 VAM",
+        "by_when": "Week 8",
+        "why": "Forest #1 and Gambrill demand sustained power on 10-13% pitches. Threshold repeats forge the engine. Skip and watch contenders gap you eternally."
+      }
+    ],
+    "citations": [
+      {
+        "url": "https://www.granfondonationalseries.com/gran-fondo-maryland",
+        "title": "Gran Fondo Maryland Official Site",
+        "category": "official"
+      },
+      {
+        "url": "https://reuben-kline.squarespace.com/s/RiderRoadbook_24_Maryland_posted.pdf",
+        "title": "2024 Rider Roadbook",
+        "category": "official"
+      },
+      {
+        "url": "https://ridewithgps.com/trips/289479423",
+        "title": "2024 GPS Track",
+        "category": "rider"
+      },
+      {
+        "url": "https://www.granfondonationalseries.com/gfns-routes",
+        "title": "Gran Fondo National Series Routes",
+        "category": "official"
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "medium",
+      "validation_status": "validated",
+      "research_strength": "B",
+      "sources_count": 6,
+      "last_updated": "2026-03-02"
+    }
+  }
+}

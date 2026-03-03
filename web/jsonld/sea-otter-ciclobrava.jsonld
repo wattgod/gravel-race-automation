@@ -1,0 +1,20 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Sea Otter Ciclobrava",
+  "description": "140km Costa Brava bliss: Girona's ultimate non-competitive road romp amid Sea Otter mania.",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-09-20",
+  "location": {
+    "@type": "Place",
+    "name": "Girona, Costa Brava, Spain"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "77",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://www.laciclobrava.com"
+}

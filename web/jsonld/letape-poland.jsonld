@@ -1,0 +1,25 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "L'Etape Poland by Tour de France",
+  "description": "84km of Tatra brutality with 1,547m that punches above its Tour de France weight.",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-09-29",
+  "location": {
+    "@type": "Place",
+    "name": "Zakopane, Lesser Poland Voivodeship, Poland"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "73",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://poland.letapebytourdefrance.com",
+  "organizer": {
+    "@type": "Person",
+    "name": "BE COOL s.r.o. with ASO license, Zakopane city backing",
+    "url": "https://poland.letapebytourdefrance.com"
+  }
+}

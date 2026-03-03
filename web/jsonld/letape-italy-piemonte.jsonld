@@ -1,0 +1,25 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "L'Etape Italy Piemonte by Tour de France",
+  "description": "50 km of Alpine charm through Italy's Maritime Alps with Tour de France flair and zero pretension",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-05-31",
+  "location": {
+    "@type": "Place",
+    "name": "Entracque, Cuneo, Piemonte, Italy"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "63",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://letapeitaly.it/en/letape-piemonte-homepage-2/",
+  "organizer": {
+    "@type": "Person",
+    "name": "L'\u00c9tape Italy by Tour de France, organized by EPT (Events \u2013 People \u2013 Territory) in collaboration with ExtraGiro",
+    "url": "https://letapeitaly.it/en/letape-piemonte-homepage-2/"
+  }
+}

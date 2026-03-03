@@ -1,0 +1,25 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Cheaha Challenge Gran Fondo",
+  "description": "126 miles of Alabama savagery with 13,000ft that crushes souls twice over Cheaha.",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-05-16",
+  "location": {
+    "@type": "Place",
+    "name": "Jacksonville, Alabama, USA"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "90",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://www.cheahachallenge.com",
+  "organizer": {
+    "@type": "Person",
+    "name": "Northeast Alabama Bicycle Association (NEABA)",
+    "url": "https://www.cheahachallenge.com"
+  }
+}

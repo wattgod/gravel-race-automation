@@ -1,0 +1,25 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Tour de Brisbane",
+  "description": "Australia's ultimate closed-road gran fondo through a vibrant city on fully shut streets",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-04-12",
+  "location": {
+    "@type": "Place",
+    "name": "Brisbane, Queensland, Australia"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "64",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://www.tourdebrisbane.org",
+  "organizer": {
+    "@type": "Person",
+    "name": "Brisbane Cycling Festival organizers in partnership with UCI Gran Fondo World Series",
+    "url": "https://www.tourdebrisbane.org"
+  }
+}

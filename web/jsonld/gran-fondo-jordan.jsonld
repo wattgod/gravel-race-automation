@@ -1,0 +1,25 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Gran Fondo Jordan",
+  "description": "Race 1,500 meters of climbing from 430 meters below sea level to 850 meters above it\u2014the world's only gran fondo starting at Earth's lowest point.",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-01-30",
+  "location": {
+    "@type": "Place",
+    "name": "Dead Sea, Jordan"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "74",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://ucigranfondoworldseries.com/en/uci-granfondo-jordan-dead-sea/",
+  "organizer": {
+    "@type": "Person",
+    "name": "UCI Gran Fondo World Series in partnership with Jordanian cycling organizations",
+    "url": "https://ucigranfondoworldseries.com/en/uci-granfondo-jordan-dead-sea/"
+  }
+}

@@ -1,0 +1,285 @@
+{
+  "race": {
+    "name": "Cheaha Challenge Gran Fondo",
+    "slug": "cheaha-challenge-gran-fondo",
+    "display_name": "Cheaha Challenge Gran Fondo",
+    "tagline": "126 miles of Alabama savagery with 13,000ft that crushes souls twice over Cheaha.",
+    "vitals": {
+      "distance_mi": 126,
+      "elevation_ft": 13000,
+      "location": "Jacksonville, Alabama, USA",
+      "location_badge": "JACKSONVILLE, AL",
+      "date": "May",
+      "date_specific": "2026: May 16",
+      "terrain_types": [
+        "hilly",
+        "mountainous",
+        "paved",
+        "rails-to-trail"
+      ],
+      "field_size": "Hundreds from 26+ states and 9+ countries, all levels chasing UCI glory",
+      "start_time": "Morning from 7am",
+      "registration": "Includes pre-ride party meal, free breakfast for riders/families, post-ride feast, finisher swag, BikeExpo, and packet pickup",
+      "prize_purse": "UCI medals/jerseys for century winners, KOM/QOM awards, age group prizes",
+      "aid_stations": "11 rest stops stocked across all routes",
+      "cutoff_time": "Strict: 12pm century to 84mi, 1pm Ultra extension or get rerouted",
+      "lat": 33.8139,
+      "lng": -85.7633,
+      "distance_options": [
+        "Ultra: 126mi, 13,000ft — extreme loop with Chinnabee Lake bonus",
+        "UCI Century: 100mi, 9,714ft — double Cheaha summit brutality",
+        "84mi: KOM/QOM Cheaha climb",
+        "62mi, 44mi, 24mi: Scaled suffering",
+        "Chief Ladiga Cruise: 50/25/12mi rails-to-trail",
+        "20km ITT Time Trial"
+      ],
+      "entry_fee": "$75-150"
+    },
+    "climate": {
+      "primary": "Mild Southern spring — blue skies, clean mountain air",
+      "description": "May delivers ideal temps in the 60-80F range amid Talladega National Forest's four mountain zones. Clean air and blue skies make for perfect suffering conditions. Rare rain but humidity can sneak up on descents.",
+      "challenges": [
+        "Sudden humidity spikes",
+        "Mountain microclimates",
+        "Deceptive mildness masking grind",
+        "Spring pollen haze"
+      ]
+    },
+    "terrain": {
+      "primary": "Brutal paved mountain loops through Alabama's high country",
+      "surface": "Smooth paved roads wind through Talladega National Forest with gaps, steep pitches, and ripping descents. Rails-to-trail options for cruises. State park construction reroutes ultras over Cheaha summit.",
+      "technical_rating": 4,
+      "features": [
+        "Double Cheaha Mountain summit (2,407ft)",
+        "White’s Gap relentless grinder",
+        "Heflin Mountain wall",
+        "OH SHIFT! surprise kicker",
+        "Adam’s Gap double-dose turnaround"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 90,
+      "tier": 1,
+      "tier_label": "TIER 1",
+      "logistics": 4,
+      "length": 5,
+      "technicality": 4,
+      "elevation": 5,
+      "climate": 4,
+      "altitude": 2,
+      "adventure": 5,
+      "prestige": 4,
+      "race_quality": 5,
+      "experience": 5,
+      "community": 4,
+      "field_depth": 3,
+      "value": 5,
+      "expenses": 4,
+      "cultural_impact": 4,
+      "tier_note": "UCI qualifier status and 30-year legacy punch it into T1 despite modest altitude. Elevation and adventure crush the math. Southern hospitality elevates the full package to elite sufferfest tier.",
+      "score_note": "Sum of 14 criteria: 4+5+4+5+4+2+5+4+5+5+4+3+5+4 = 59. cultural_impact = 4. Total = 63. (63/70)*100 = 90.",
+      "editorial_tier": 1,
+      "editorial_tier_label": "TIER 1",
+      "business_tier": 1,
+      "business_tier_label": "TIER 1",
+      "display_tier": 1,
+      "display_tier_label": "TIER 1",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 4,
+        "explanation": "JSU campus start/finish is pedaler's paradise with expo and meals galore. Chief Ladiga ITT kicks off the party right. Cutoffs are brutal but fair—plan your suffering wisely. Family-friendly vibes make it a weekend win."
+      },
+      "length": {
+        "score": 5,
+        "explanation": "126-mile Ultra is a monster that devours centuries like appetizers. Back-forth loop ensures no escape from the pain. Perfect for masochists eyeing GFNS glory. Anything shorter feels like a cop-out."
+      },
+      "technicality": {
+        "score": 4,
+        "explanation": "Paved perfection with gap descents and punchy kickers named to mock you. Double summits demand bike-handling chops. Rails-trail tame for newbs, but real course tests descending nerve. High stakes, high thrills."
+      },
+      "elevation": {
+        "score": 5,
+        "explanation": "13,000ft over 126mi is soul-destroying gold. Century's 9,714ft already legendary—Ultra piles on Chinnabee cruelty. Cheaha twice? Pure Alabama vengeance. Vert junkies, this is your church."
+      },
+      "climate": {
+        "score": 4,
+        "explanation": "May's mild magic: 60-80F, blue skies, forest freshness. Humidity lurks to sap your will on climbs. Ideal for PRs if you dodge pollen. Southern spring at its deceptive best."
+      },
+      "altitude": {
+        "score": 2,
+        "explanation": "2,407ft peak is hill country, not hypoxia. No thin-air excuses here. Low summit suits power pedaling over pure altitude grind. Cheaha feels huge locally, tame globally."
+      },
+      "adventure": {
+        "score": 5,
+        "explanation": "Talladega wilds, state park vistas, named climbs that taunt—pure exploratory brutality. Ultra's lake detour seals the epic. Forest immersion beats sterile centuries. Adventure on asphalt."
+      },
+      "prestige": {
+        "score": 4,
+        "explanation": "UCI/GFNS qualifier with world-champ shots—serious cred. 30-year king of Southern fondos. Modest field depth caps it, but badges shine. Legit badge for the palmares."
+      },
+      "race_quality": {
+        "score": 5,
+        "explanation": "NEABA nails execution: stocked stops, timing segments, swag even for DNF 'ashes'. Post-ride feasts fuel stories. Multiple distances welcome all. Gold-standard organization."
+      },
+      "experience": {
+        "score": 5,
+        "explanation": "Pre-party meals, expo buzz, family cruise options—total immersion. Finisher medals or hilarious ashes? Genius. Storytelling banquet cements memories. Unforgettable Southern spectacle."
+      },
+      "community": {
+        "score": 4,
+        "explanation": "Jacksonville's square charm and JSU hospitality ooze welcome. Riders from everywhere bond over shared pain. BBQ and festivals amplify the vibe. Tight-knit without cliques."
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "Diverse pack from newbs to UCI hunters, but no pro peloton depth. Competitive enough for qualifiers. International flavor punches above regional weight. Solid, not stacked."
+      },
+      "value": {
+        "score": 5,
+        "explanation": "Meals, expo, swag, qualifiers for the price? Steal. Family perks seal it. No nickel-and-diming here. Biggest bang in Southern centuries."
+      },
+      "expenses": {
+        "score": 4,
+        "explanation": "Affordable entry, campus base keeps costs low. Fly into ATL/BHM, drive doable. Meals covered minimize extras. Smart budget for big suffering."
+      }
+    },
+    "biased_opinion": {
+      "verdict": "Southern vert apocalypse",
+      "summary": "Cheaha doesn't mess around—126 miles stacking 13,000ft over Alabama's roof will humble even hardened hammers. UCI qualifier prestige meets backwoods brutality in a package that's grown from campus century to national beast. Double Cheaha summits and cheeky climb names like 'OH SHIFT!' deliver suffering with a grin. Family cruise sideshows and post-ride feasts make it a ritual worth the pilgrimage. If you crave road pain with heart, this is your crucible.",
+      "strengths": [
+        "Unrelenting 13,000ft elevation feast",
+        "UCI/GFNS qualifier prestige",
+        "Flawless organization and swag",
+        "Epic adventure in Talladega wilds",
+        "Insane value with meals/expo"
+      ],
+      "weaknesses": [
+        "Strict cutoffs sweep slowpokes",
+        "Modest field lacks elite depth",
+        "Low altitude, no thin-air badge",
+        "Drive required from major airports",
+        "Humidity wildcards in May"
+      ],
+      "bottom_line": "Elite Southern sufferfest for vert addicts. UCI dreams meet mountain mayhem. Pin this if climbs are your kink."
+    },
+    "final_verdict": {
+      "score": "81 / 100",
+      "one_liner": "Alabama's vertical vice-grip crushes with prestige and pain.",
+      "should_you_race": "Yes if you're vert-hungry with UCI qualifier ambitions or crave legendary Southern climbs. Skip if flats are your jam or cutoffs scare you—stick to rails-trails.",
+      "alternatives": "Gran Fondo New York for urban prestige, Hincapie Gran Fondo for Southeast vibes, Haute Route for pure vert overload.",
+      "alternative_slugs": [
+        "gran-fondo-new-york",
+        "hincapie-gran-fondo",
+        "haute-route"
+      ]
+    },
+    "logistics": {
+      "airport": "ATL (2hr drive) or BHM (1.5hr) for easiest access. Smaller regional fields work too. Car essential for Alabama backroads.",
+      "lodging_strategy": "Crash on JSU campus or Jacksonville square inns. Book early for festival weekend. Camp nearby for immersion.",
+      "food": "Pre/post-ride meals covered—BBQ heaven awaits. Award-winning 'cue spots dot the square. Expo fuels the fest.",
+      "packet_pickup": "BikeExpo at Pete Mathews Coliseum—grab and gab.",
+      "parking": "Plenty on sweeping JSU campus.",
+      "official_site": "https://www.cheahachallenge.com"
+    },
+    "history": {
+      "founded": 1996,
+      "founder": "Northeast Alabama Bicycle Association (NEABA)",
+      "origin_story": "Born as a humble century over Alabama's highest peak, Mount Cheaha, starting from Jacksonville State University campus. NEABA crafted a loop of pain that hooked riders instantly. Evolved into the state's biggest bike bash, adding Ultra brutality and UCI glory. Now 31 years strong, it's the South's toughest tradition.",
+      "notable_moments": [
+        "First USA UCI Gran Fondo qualifier",
+        "Ultra addition with 12,000+ft monster",
+        "Chief Ladiga ITT festival kickoff",
+        "Grew to riders from 26 states/9 countries"
+      ],
+      "reputation": "Toughest ride in the South with heart. Legendary for climbs that break and bond. UCI stamp cements elite status amid family charm."
+    },
+    "course_description": {
+      "character": "Back-and-forth paved punishment through Talladega National Forest, doubling down on Alabama's iconic summits and gaps. Hilly hellscape mixes grinding ascents with white-knuckle descents. Ultra extends the agony with remote lake loops—pure, relentless road savagery.",
+      "suffering_zones": [
+        {
+          "mile": 42,
+          "label": "Cheaha Mountain Summit #1",
+          "desc": "First taste of Alabama's roof at 2,407ft—3-mile KOM grinder to Bunker Tower. Legs scream amid state park vistas. Turning point looms far away.",
+          "terrain_detail": "Steep paved pitch through forest",
+          "named_section": "Mount Cheaha"
+        },
+        {
+          "mile": 57,
+          "label": "Cheaha Mountain Summit #2",
+          "desc": "Second helping hits harder post-turnaround. Cumulative fatigue turns pitch to pitchfork. Iconic suffering etched in legend.",
+          "terrain_detail": "Relentless paved climb",
+          "named_section": "Mount Cheaha"
+        },
+        {
+          "mile": 50,
+          "label": "Adam’s Gap Turnaround",
+          "desc": "Double-dose gap climb marks the pivot—pure mental warfare. Ultra riders press on to Chinnabee cruelty. No mercy in sight.",
+          "terrain_detail": "Steep gap roller",
+          "named_section": "Adam’s Gap"
+        },
+        {
+          "mile": 20,
+          "label": "OH SHIFT! Kicker",
+          "desc": "Sneaky named punch after early rollers. Sets the tone for endless ups. Grins fade fast here.",
+          "terrain_detail": "Short steep paved wall",
+          "named_section": "OH SHIFT!"
+        }
+      ],
+      "signature_challenge": "Double ascent of Mount Cheaha—Alabama's highest at 2,407ft—bookending the century loop at miles 42 and 57. Each 3-mile haul to Bunker Tower demands everything, turning fit riders to wreckage. The Ultra's extra miles make it a vert odyssey for the damned."
+    },
+    "guide_variables": {
+      "race_name": "Cheaha Challenge Gran Fondo",
+      "race_distance": "203 km (126 miles)",
+      "race_elevation": "3962 meters (13000 feet)",
+      "race_date": "May",
+      "race_location": "Jacksonville, Alabama",
+      "race_terrain": "Paved mountainous loops with brutal climbs and descents",
+      "race_weather": "Mild 60-80F spring with blue skies and humidity risks",
+      "race_challenges": [
+        "Double Cheaha summits",
+        "13,000ft cumulative grind",
+        "Strict cutoffs",
+        "Remote forest gaps"
+      ],
+      "altitude_section": false,
+      "altitude_feet": 2407
+    },
+    "non_negotiables": [
+      {
+        "requirement": "12,000+ft climbing weeks in training",
+        "by_when": "Week -8",
+        "why": "Ultra demands vert tolerance—Cheaha doubles will destroy unprepared legs. Build base to survive cutoffs. Test doubles early or reroute to shame."
+      },
+      {
+        "requirement": "Descending confidence on gaps",
+        "by_when": "Week -4",
+        "why": "White-knuckle drops follow every summit. Practice speed to save seconds. Hesitation costs cutoffs in this beast."
+      }
+    ],
+    "citations": [
+      {
+        "url": "https://ucigranfondoworldseries.com/en/cheaha-challenge-granfondo/",
+        "title": "Cheaha Challenge Granfondo - UCI Gran Fondo World Series",
+        "category": "official"
+      },
+      {
+        "url": "https://www.cheahachallenge.com",
+        "title": "Cheaha Challenge Official Site",
+        "category": "official"
+      },
+      {
+        "url": "https://northsouth.live/event/cheaha-challenge-gran-fondo",
+        "title": "Cheaha Challenge Gran Fondo | Raceatlas",
+        "category": "results"
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "high",
+      "validation_status": "validated",
+      "research_strength": "A",
+      "sources_count": 9,
+      "last_updated": "2026-03-02"
+    }
+  }
+}

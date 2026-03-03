@@ -1,0 +1,25 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Tartu Rattaralli",
+  "description": "131km of Baltic speed with 1,176m punch\u2014Europe's oldest gran fondo beast roars on.",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-06-07",
+  "location": {
+    "@type": "Place",
+    "name": "Tartu, South Estonia, Estonia"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "77",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://tartumaraton.ee/en/tartu-rattaralli-2026",
+  "organizer": {
+    "@type": "Person",
+    "name": "MT\u00dc Klubi Tartu Maraton visionaries",
+    "url": "https://tartumaraton.ee/en/tartu-rattaralli-2026"
+  }
+}

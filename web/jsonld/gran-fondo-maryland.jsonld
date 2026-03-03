@@ -1,0 +1,20 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Gran Fondo Maryland",
+  "description": "100 miles of savage Maryland climbs crushing souls with 10,000ft through Catoctin wilds.",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-09-13",
+  "location": {
+    "@type": "Place",
+    "name": "Frederick, Maryland, USA"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "86",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://www.granfondonationalseries.com/gran-fondo-maryland"
+}

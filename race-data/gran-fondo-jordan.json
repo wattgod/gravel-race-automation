@@ -1,0 +1,302 @@
+{
+  "race": {
+    "name": "Gran Fondo Jordan",
+    "slug": "gran-fondo-jordan",
+    "display_name": "Gran Fondo Jordan",
+    "tagline": "Race 1,500 meters of climbing from 430 meters below sea level to 850 meters above it—the world's only gran fondo starting at Earth's lowest point.",
+    "vitals": {
+      "distance_mi": 47.2,
+      "elevation_ft": 4921,
+      "location": "Dead Sea, Jordan",
+      "location_badge": "DEAD SEA, JO",
+      "date": "January-February annually",
+      "date_specific": "2026: January 30 - February 1",
+      "terrain_types": [
+        "paved road",
+        "climbing",
+        "mountain",
+        "lakeside"
+      ],
+      "field_size": "Limited amateur field of under 100 riders, international UCI Gran Fondo World Series qualifiers",
+      "start_time": "Morning",
+      "registration": "Three-day stage race package includes time trial and two road races; hub at Movenpick hotel with optional holiday packages combining race participation and tourism",
+      "prize_purse": "Not specified",
+      "aid_stations": "Standard UCI Gran Fondo support",
+      "cutoff_time": "Not specified",
+      "lat": 31.5,
+      "lng": 35.5,
+      "distance_options": [
+        "Stage 1 (Time Trial): 19.3 km, 120 m elevation — flat, scenic loop along Dead Sea with wind exposure",
+        "Stage 2 (Road Race): 74 km, ~1,200 m elevation — 18 km climb in two steep sections from -430m to 850m with lake views",
+        "Stage 3 (Road Race): 76 km, ~1,500 m elevation — 30 km climb in three steep steps, major descent, flat finish"
+      ],
+      "entry_fee": "Not specified in available sources"
+    },
+    "climate": {
+      "primary": "Desert/Mediterranean — mild winters, windy",
+      "description": "January-February brings mild daytime temperatures (10-20°C / 50-68°F) in the Dead Sea region. Wind exposure is significant near the lake, particularly during the time trial. Rain and cold conditions can develop at higher elevations during road races, requiring layering and preparation.",
+      "challenges": [
+        "wind exposure near Dead Sea",
+        "rapid temperature drops at elevation",
+        "potential rain at altitude",
+        "intense sun at low elevation"
+      ]
+    },
+    "terrain": {
+      "primary": "Paved mountain climbing with Dead Sea loops and dramatic elevation swings",
+      "surface": "Fully paved roads throughout all three stages. Surfaces are well-maintained but can be exposed to sand and wind near the lake. Higher elevation sections feature consistent asphalt with variable gradient sections.",
+      "technical_rating": 3,
+      "features": [
+        "climbs from below sea level to 850m elevation",
+        "two-sector and three-sector climbing patterns with recovery sections",
+        "Dead Sea lakeside loops with scenic views",
+        "steep gradient sections up to 18% gradient",
+        "significant descent sections on major roads"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 74,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "logistics": 3,
+      "length": 4,
+      "technicality": 3,
+      "elevation": 5,
+      "climate": 3,
+      "altitude": 4,
+      "adventure": 5,
+      "prestige": 3,
+      "race_quality": 4,
+      "experience": 4,
+      "community": 3,
+      "field_depth": 2,
+      "value": 3,
+      "expenses": 2,
+      "cultural_impact": 4,
+      "tier_note": "Gran Fondo Jordan earns Tier 2 status through exceptional elevation drama, unique geographic positioning, and growing prestige as a UCI World Series qualifier. Limited field depth and logistical complexity prevent higher placement, but the event's novelty and challenging mountain profile justify premium positioning.",
+      "score_note": "Sum of 14 criteria: 3+4+3+5+3+4+5+3+4+4+3+2+3+2 = 48. cultural_impact = 4. Total = 52. (52/70)*100 = 74.",
+      "editorial_tier": 2,
+      "editorial_tier_label": "TIER 2",
+      "business_tier": 2,
+      "business_tier_label": "TIER 2",
+      "display_tier": 2,
+      "display_tier_label": "TIER 2",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 3,
+        "explanation": "Getting to the Dead Sea requires a flight to Amman followed by a ~1-hour transfer, which adds friction for North American and European riders. The Movenpick hotel hub simplifies race operations and lodging coordination, but limited airport options and visa requirements for some nationalities create barriers. Ground logistics are solid once you arrive, but the entry barrier is real."
+      },
+      "length": {
+        "score": 4,
+        "explanation": "The three-stage format totaling 155-169 km over three days is substantial without being punishing—perfect for serious amateurs wanting a multi-day challenge without the Tour de France grind. Stage distances (19, 74, 76 km) are well-calibrated for recovery and progression. This is a proper cycling event, not a casual weekend ride."
+      },
+      "technicality": {
+        "score": 3,
+        "explanation": "Climbing is the dominant technical challenge, with steep sections (up to 18%) and variable gradient patterns requiring pacing discipline. The terrain isn't technical in a gravel-handling sense—it's all paved—but the climbing strategy and mental toughness required elevate the difficulty. Wind exposure during the time trial adds another tactical layer."
+      },
+      "elevation": {
+        "score": 5,
+        "explanation": "This is the event's defining characteristic: 1,500 meters of climbing compressed into 76 km, starting from 430 meters below sea level and summiting at 850 meters. The elevation gain-to-distance ratio is brutal and unforgiving. This is a legitimate mountain cycling challenge disguised as a gran fondo."
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "January-February timing avoids extreme heat, but wind near the Dead Sea can be treacherous and unpredictable. Temperature swings from mild at sea level to cold at elevation require careful gear planning. Rain and cold conditions at altitude have forced riders to abandon in previous editions, making weather a real variable."
+      },
+      "altitude": {
+        "score": 4,
+        "explanation": "The unique elevation profile—starting below sea level and climbing to 850 meters—creates an unusual physiological challenge. Riders experience rapid altitude gain without traditional acclimatization time. The Dead Sea's low elevation at the start provides no altitude advantage, making the climbing feel even more demanding."
+      },
+      "adventure": {
+        "score": 5,
+        "explanation": "Racing at the lowest point on Earth with Dead Sea views, climbing to dramatic vistas, and exploring Jordan's unique geography creates genuine adventure. The event's relative youth (founded 2023) and limited field size add an exploratory feel. This isn't a cookie-cutter gran fondo—it's a pilgrimage to one of the world's most distinctive landscapes."
+      },
+      "prestige": {
+        "score": 3,
+        "explanation": "UCI Gran Fondo World Series status and World Championships qualifying credentials provide legitimate prestige. The event is still building its reputation, lacking the historical weight of European gran fondos, but the unique location and challenging profile are earning respect. A podium here means something in the cycling community."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "UCI organization ensures professional race management, well-marked courses, and proper timing infrastructure. The three-day stage format is well-executed with clear logistical hubs. Previous editions have demonstrated solid race operations, though the limited field size means fewer support resources than mega-events."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "Staying at the Movenpick hotel, racing with Dead Sea views, and combining cycling with Jordan tourism creates a memorable experience beyond the race itself. The intimate field size fosters community and camaraderie. This is a cycling trip, not just a race—and that's a strength."
+      },
+      "community": {
+        "score": 3,
+        "explanation": "The limited field (under 100 riders) creates tight-knit community, but the international and dispersed nature of participants means less ongoing community building than established gran fondos. The event attracts serious cyclists seeking challenge over social experience, which appeals to some but limits broader community appeal."
+      },
+      "field_depth": {
+        "score": 2,
+        "explanation": "With under 100 total participants across all categories, the field is small and lacks the depth of established gran fondos. This means fewer competitive categories, less peer competition, and a smaller talent pool. For some riders this is an advantage (easier podium), but it limits the competitive prestige."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "Registration costs aren't published, but the three-day format, UCI organization, and hotel packages likely command premium pricing. The unique location and challenge justify higher costs, but without published fees it's difficult to assess value. International travel costs add significantly to the total investment."
+      },
+      "expenses": {
+        "score": 2,
+        "explanation": "International flights to Amman, ground transfers, multi-night hotel stays, and meals make this an expensive proposition for most riders. The Movenpick packages may offer value, but this isn't a budget-friendly event. Budget $2,500-4,000+ for a complete trip from North America or Europe."
+      }
+    },
+    "biased_opinion": {
+      "verdict": "Unique, challenging, worth the journey.",
+      "summary": "Gran Fondo Jordan is a rare breed: a genuinely distinctive cycling event that justifies the logistical effort to reach it. The elevation profile is legitimately brutal, the location is unforgettable, and the UCI credentials are real. This isn't a mass-participation gran fondo—it's a curated challenge for serious cyclists willing to travel. The small field creates intimacy but limits competitive depth. If you're seeking a cycling adventure with genuine geographic and physical challenge, this delivers. If you want a casual weekend ride with thousands of peers, look elsewhere.",
+      "strengths": [
+        "Exceptional elevation gain (1,500m) in compressed distance creates legitimate climbing challenge",
+        "Unique geographic positioning at Earth's lowest point with stunning Dead Sea views",
+        "UCI World Series status and World Championships qualifying credentials",
+        "Three-day stage format with well-organized logistics and hotel hub",
+        "Intimate field size fosters community and camaraderie among participants"
+      ],
+      "weaknesses": [
+        "Limited field depth (under 100 riders) reduces competitive prestige and category options",
+        "Significant logistical barriers: international flight, visa requirements, long transfer times",
+        "High total cost when factoring flights, transfers, lodging, and meals",
+        "Small field size means fewer support resources and aid stations compared to mega-events",
+        "Weather variability at elevation (rain, cold, wind) has forced previous editions to see high DNF rates"
+      ],
+      "bottom_line": "Gran Fondo Jordan is a bucket-list event for cyclists seeking genuine challenge and adventure. The elevation profile and location are unmatched in the gran fondo world. Plan accordingly for logistics and budget, and you'll experience something truly special."
+    },
+    "final_verdict": {
+      "score": "72 / 100",
+      "one_liner": "A geographically stunning and physically brutal three-day climbing challenge that rewards serious cyclists willing to travel.",
+      "should_you_race": "Yes if you're a strong climber seeking a unique, UCI-sanctioned challenge with genuine adventure and don't mind international travel logistics. Skip if you prefer mass-participation events, casual weekend rides, or budget-friendly racing.",
+      "alternatives": "For similar elevation challenge with easier logistics, consider Giro di Lombardia or Maratona dles Dolomites in Italy. For adventure-focused gran fondos, explore Gravel Worlds or Unbound Gravel. For Middle East cycling, consider Gran Fondo events in the UAE.",
+      "alternative_slugs": [
+        "giro-di-lombardia",
+        "maratona-dles-dolomites",
+        "gravel-worlds"
+      ]
+    },
+    "logistics": {
+      "airport": "Queen Alia International Airport (AMM) in Amman serves as the primary gateway, approximately 1 hour by car from the Dead Sea. Most international riders will connect through major European hubs (Frankfurt, London, Istanbul) or Middle Eastern hubs (Dubai, Doha). Ground transfer to the Movenpick hotel can be arranged through the race organization.",
+      "lodging_strategy": "The Movenpick Dead Sea hotel serves as the official race hub and is the logical choice for accommodations. The hotel offers packages combining race entry with lodging and tourism options. Book early as availability is limited during the January-February event window. Consider arriving 1-2 days early for acclimatization and course reconnaissance.",
+      "food": "The Movenpick hotel provides meal options, and the Dead Sea region has limited but adequate dining. Bring any specialized nutrition (gels, bars, electrolytes) from home, as availability may be limited. The hotel can accommodate dietary restrictions with advance notice.",
+      "packet_pickup": "Race packets are distributed at the Movenpick hotel hub during registration on Thursday, January 29. Arrive early to avoid lines and allow time for course briefings and bike checks.",
+      "parking": "Parking is available at the Movenpick hotel. Bike transport and storage are managed through the hotel and race organization.",
+      "official_site": "https://ucigranfondoworldseries.com/en/uci-granfondo-jordan-dead-sea/"
+    },
+    "history": {
+      "founded": 2023,
+      "founder": "UCI Gran Fondo World Series in partnership with Jordanian cycling organizations",
+      "origin_story": "Gran Fondo Jordan debuted in 2023 as the first UCI Gran Fondo event in Jordan and the Middle East region, capitalizing on the Dead Sea's unique geographic positioning as Earth's lowest land-based elevation. The event was designed to showcase Jordan's cycling potential and create a World Championships qualifier with a genuinely distinctive challenge. By positioning the race at the Dead Sea and climbing to 850 meters, organizers created an event with no geographic equivalent in the gran fondo world. The 2025 edition marked the event's third year and the start of the UCI Gran Fondo World Series' 15th season, establishing Gran Fondo Jordan as a permanent fixture in the international cycling calendar.",
+      "notable_moments": [
+        "2023: Inaugural edition establishes Gran Fondo Jordan as first UCI Gran Fondo in Middle East region",
+        "2023-2024: Event gains recognition as legitimate World Championships qualifier with challenging elevation profile",
+        "2025: Third edition coincides with UCI Gran Fondo World Series 15th season launch",
+        "Multiple editions feature rain and cold conditions at elevation, creating memorable suffering and high DNF rates"
+      ],
+      "reputation": "Gran Fondo Jordan is rapidly building a reputation as a serious, challenging event for cyclists seeking genuine adventure and UCI credentials. The unique location and brutal elevation profile have earned respect in the cycling community. The small, curated field attracts experienced riders rather than casual participants, creating a reputation for quality over quantity."
+    },
+    "course_description": {
+      "character": "Gran Fondo Jordan is a three-day stage race that weaponizes geography. The Dead Sea's position as Earth's lowest point becomes the launching pad for sustained climbing that tests every system in your body. Stage 1 is a deceptively simple time trial along the lake—flat but windy, a tactical opener. Stages 2 and 3 are climbing masterclasses: relentless ascents with variable gradient patterns, steep sections that demand pacing discipline, and descents that offer brief respite before the next push. The course is fully paved but feels raw and exposed, with Dead Sea views that are simultaneously beautiful and humbling as you suffer upward. This is climbing-focused cycling at its most unforgiving.",
+      "suffering_zones": [
+        {
+          "mile": 10,
+          "label": "Stage 2: Initial Climb Start",
+          "desc": "After 10 km of lake loops, the climbing begins in earnest. The first climb is 18 km of sustained elevation gain with two distinct steep sections separated by a brief recovery section. Gradients reach 18% in the steepest parts.",
+          "terrain_detail": "Paved road, variable gradient (8-18%), two steep sectors with moderate recovery section",
+          "named_section": "Mount Panorama Lower Section"
+        },
+        {
+          "mile": 22,
+          "label": "Stage 2: Steep Sector One",
+          "desc": "The first of two steep sections within the 18 km climb. This is where the race is won or lost—riders who pace poorly here will suffer exponentially on the second steep section.",
+          "terrain_detail": "Paved road, 12-18% gradient, relentless for 5-6 km",
+          "named_section": "First Steep Push"
+        },
+        {
+          "mile": 28,
+          "label": "Stage 2: Summit and Descent",
+          "desc": "After reaching 850 meters elevation, riders get a brief summit respite before a technical descent back toward the Dead Sea. The descent is fast but requires focus after the climbing effort.",
+          "terrain_detail": "Paved descent, variable gradient, splendid Dead Sea views",
+          "named_section": "Mount Panorama Descent"
+        },
+        {
+          "mile": 7,
+          "label": "Stage 3: Mount Panorama Climb Start",
+          "desc": "Stage 3 reverses the climbing pattern, starting with a 30 km climb up Mount Panorama. This is the event's signature suffering zone: three distinct steep sections with moderate recovery sections between them.",
+          "terrain_detail": "Paved road, 30 km total climb in three steep steps, variable gradient (6-15%)",
+          "named_section": "Mount Panorama Full Ascent"
+        }
+      ],
+      "signature_challenge": "The 30 km Mount Panorama climb on Stage 3 is the event's defining challenge. Divided into three steep steps (first 5-6 km steep, second steep section after 10 km, third steep part at km 18), with moderate recovery sections and even short downhills between them, this climb demands tactical pacing and mental toughness. Riders must manage their effort across three distinct steep sections while managing fatigue from the previous day's climbing. The final 6 km flatten out slightly, but by then most riders are operating on empty. This is climbing that breaks riders mentally and physically."
+    },
+    "guide_variables": {
+      "race_name": "Gran Fondo Jordan",
+      "race_distance": "155 km (96 miles) over three stages",
+      "race_elevation": "1,500 meters (4,921 feet) total across three stages",
+      "race_date": "January-February",
+      "race_location": "Dead Sea, Jordan",
+      "race_terrain": "Paved climbing with Dead Sea loops, variable gradient sections, sustained ascents from -430m to 850m elevation",
+      "race_weather": "Mild daytime temperatures (10-20°C), windy near lake, potential rain and cold at elevation",
+      "race_challenges": [
+        "brutal elevation gain in compressed distance",
+        "steep gradient sections (up to 18%)",
+        "wind exposure during time trial",
+        "rapid temperature swings from sea level to altitude"
+      ],
+      "altitude_section": true,
+      "altitude_feet": 2789
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Build sustained climbing fitness with 4-6 weeks of hill repeats and long climbs",
+        "by_when": "Week 8 before event",
+        "why": "The 1,500 meters of elevation gain over three days demands specific climbing adaptation. Generic aerobic fitness is insufficient—you need muscular endurance and mental toughness for sustained steep climbing."
+      },
+      {
+        "requirement": "Complete at least one 3-4 hour climbing-focused training ride with 1,000+ meters of elevation",
+        "by_when": "Week 4 before event",
+        "why": "This simulates the physiological and mental demands of Stage 2 and Stage 3. You need to know how your body responds to sustained climbing and practice pacing strategies."
+      },
+      {
+        "requirement": "Arrive 2-3 days early for acclimatization and course reconnaissance",
+        "by_when": "January 27-28",
+        "why": "The Dead Sea's unique elevation and climate require adjustment time. Riding the course sections before race day reduces anxiety and allows you to identify pacing landmarks and challenging sections."
+      },
+      {
+        "requirement": "Prepare for variable weather with layering system and rain gear",
+        "by_when": "Week 2 before event",
+        "why": "January-February weather at the Dead Sea is unpredictable. Cold and rain at elevation have forced previous editions to see high DNF rates. You need gear for 50°F at sea level and 35°F at 850m elevation."
+      }
+    ],
+    "citations": [
+      {
+        "url": "https://ucigranfondoworldseries.com/en/uci-granfondo-jordan-dead-sea/",
+        "title": "UCI Granfondo Jordan Dead Sea - UCI Gran Fondo World Series",
+        "category": "official"
+      },
+      {
+        "url": "https://ucigranfondoworldseries.com/en/racing-below-sea-level-at-the-uci-gran-fondo-jordan-dead-sea/",
+        "title": "Racing below sea level at the UCI Gran Fondo Jordan Dead Sea",
+        "category": "official"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Popup/10708",
+        "title": "UCI Gran Fondo Jordan Dead Sea",
+        "category": "reference"
+      },
+      {
+        "url": "https://www.cycloworld.cc/en/article/to-the-dead-sea-for-victory/2439",
+        "title": "To the Dead Sea for victory",
+        "category": "participant_report"
+      },
+      {
+        "url": "https://granfondodailynews.com/2024/02/04/uci-gran-fondo-world-series-restarts-results-from-jordan/",
+        "title": "UCI GRAN FONDO WORLD SERIES RESTARTS – RESULTS FROM JORDAN",
+        "category": "results"
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "medium",
+      "validation_status": "validated",
+      "research_strength": "B",
+      "sources_count": 5,
+      "last_updated": "2026-03-03"
+    }
+  }
+}

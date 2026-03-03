@@ -1,0 +1,20 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "L'Etape Taiwan by Tour de France",
+  "description": "104km of Taiwanese lake paradise with 1,500m pain\u2014Tour de France vibes in Asia!",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-04-12",
+  "location": {
+    "@type": "Place",
+    "name": "Sun Moon Lake, Nantou County, Taiwan"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "74",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://letapesunmoonlake.com"
+}

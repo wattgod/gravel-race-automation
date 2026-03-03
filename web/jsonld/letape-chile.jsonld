@@ -1,0 +1,24 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "L'Etape Chile by Tour de France",
+  "description": "110km of Chilean coastal fury with 1,200m punch\u2014Tour de France soul hits the Southern Hemisphere!",
+  "sport": "Gravel Cycling",
+  "location": {
+    "@type": "Place",
+    "name": "Valdivia, Los Rios, Chile"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "63",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://chile.letapeseries.com",
+  "organizer": {
+    "@type": "Person",
+    "name": "ASO (Tour de France organizers) expanding L'Etape Series",
+    "url": "https://chile.letapeseries.com"
+  }
+}

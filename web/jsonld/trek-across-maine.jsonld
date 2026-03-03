@@ -1,0 +1,31 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Trek Across Maine",
+  "description": "180-mile charity haul through Maine's lupine-laced hills\u2014pedal for lungs, beer, and glory.",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-06-19",
+  "location": {
+    "@type": "Place",
+    "name": "New Gloucester, Maine, USA"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "40",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/LimitedAvailability"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "77",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://trekacrossmaine.org",
+  "organizer": {
+    "@type": "Person",
+    "name": "American Lung Association",
+    "url": "https://trekacrossmaine.org"
+  }
+}

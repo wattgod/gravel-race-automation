@@ -1,0 +1,287 @@
+{
+  "race": {
+    "name": "L'Etape Italy Piemonte by Tour de France",
+    "slug": "letape-italy-piemonte",
+    "display_name": "L'Etape Italy Piemonte by Tour de France",
+    "tagline": "50 km of Alpine charm through Italy's Maritime Alps with Tour de France flair and zero pretension",
+    "vitals": {
+      "distance_mi": 31,
+      "elevation_ft": 2608,
+      "location": "Entracque, Cuneo, Piemonte, Italy",
+      "location_badge": "ENTRACQUE, IT",
+      "date": "May annually",
+      "date_specific": "2026: May 31",
+      "terrain_types": [
+        "alpine forest",
+        "open valley",
+        "paved provincial road",
+        "steady climb"
+      ],
+      "field_size": "Unspecified; open to all levels including families, e-bike users, and first-timers",
+      "start_time": "Morning (specific time not specified)",
+      "registration": "€25 includes official jersey, race pack, on-route refreshments, and final pasta party",
+      "prize_purse": "None; community-focused cycle-touring event",
+      "aid_stations": "On-route refreshments included",
+      "cutoff_time": "Not specified",
+      "lat": 44.0833,
+      "lng": 7.5667,
+      "distance_options": [
+        "50 km, 2,608 ft — scenic cycle-touring loop through Valle Gesso with moderate climbing"
+      ],
+      "entry_fee": "€25"
+    },
+    "climate": {
+      "primary": "Alpine spring — mild with variable conditions",
+      "description": "Late May in Piemonte's Maritime Alps typically offers mild spring weather with moderate temperatures and potential for afternoon showers. The high elevation and alpine terrain mean conditions can shift rapidly, requiring layered clothing. Expect pleasant conditions for cycling but prepare for variable mountain weather.",
+      "challenges": [
+        "rapid weather changes",
+        "afternoon thunderstorms possible",
+        "cool mornings",
+        "altitude exposure"
+      ]
+    },
+    "terrain": {
+      "primary": "Alpine cycle-touring with moderate climbing and scenic variety",
+      "surface": "Paved provincial roads with smooth stretches and steady gradients designed for accessibility rather than technical challenge. The route winds through varied alpine landscapes including forests, open valleys, and historic settlements, prioritizing scenic enjoyment over competitive difficulty. Surface quality supports both traditional bikes and e-bikes.",
+      "technical_rating": 2,
+      "features": [
+        "alpine forest passages",
+        "open valley vistas",
+        "historic settlements",
+        "steady gradient climbs",
+        "Valle Gesso scenery"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 63,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "logistics": 3,
+      "length": 2,
+      "technicality": 2,
+      "elevation": 2,
+      "climate": 3,
+      "altitude": 2,
+      "adventure": 3,
+      "prestige": 3,
+      "race_quality": 3,
+      "experience": 4,
+      "community": 5,
+      "field_depth": 2,
+      "value": 4,
+      "expenses": 4,
+      "cultural_impact": 2,
+      "tier_note": "L'Etape Piemonte lands squarely in Tier 3 as an accessible, community-focused debut event with strong experience and value metrics but limited field depth and technical challenge. The inaugural 2026 edition prioritizes inclusivity and cultural immersion over competitive prestige, making it ideal for recreational cyclists rather than serious racers.",
+      "score_note": "Sum of 14 criteria: 3+2+2+2+3+2+3+3+3+4+5+2+4+4 = 42. cultural_impact = 2. Total = 44. (44/70)*100 = 63.",
+      "editorial_tier": 2,
+      "editorial_tier_label": "TIER 2",
+      "business_tier": 2,
+      "business_tier_label": "TIER 2",
+      "display_tier": 2,
+      "display_tier_label": "TIER 2",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 3,
+        "explanation": "Entracque sits in Italy's Cuneo province, reasonably accessible but not a major cycling hub. Turin-Caselle Airport (~100 km north) is the logical entry point, requiring ground transport to the Maritime Alps. The event's inaugural status means logistics details remain sparse, and mountain village infrastructure may limit accommodation options. Doable but requires planning."
+      },
+      "length": {
+        "score": 2,
+        "explanation": "At 31 miles, this is a half-day recreational ride, not a granfondo in the traditional sense. For serious cyclists seeking distance and suffering, this falls short—it's designed for families, e-bikes, and casual touring rather than competitive mileage. The modest distance actually works against prestige but perfectly matches the event's accessibility mission."
+      },
+      "technicality": {
+        "score": 2,
+        "explanation": "Smooth stretches and steady gradients explicitly avoid technical challenge, making this beginner-friendly but boring for skilled riders. No technical descents, no gravel sections, no handling demands—just paved roads and moderate climbing. The accessibility is intentional, but it eliminates the technical satisfaction serious cyclists crave."
+      },
+      "elevation": {
+        "score": 2,
+        "explanation": "2,608 feet of climbing over 31 miles averages 5.3% gradient—manageable and steady but not punishing. For context, the 2026 Etape du Tour features 5,400 meters (17,717 feet) over 170 km. This is a warm-up, not a test of climbing fitness. Recreational cyclists will find it satisfying; racers will find it insufficient."
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "Late May in the Maritime Alps offers mild spring conditions—ideal for recreational cycling but variable. Alpine weather can shift rapidly, and afternoon thunderstorms are possible. The timing avoids summer heat and winter cold, making it genuinely pleasant for casual touring. Not extreme enough to be a defining challenge."
+      },
+      "altitude": {
+        "score": 2,
+        "explanation": "The route peaks around 2,000 meters (6,560 feet), modest for Alpine cycling. No altitude acclimatization needed, no high-altitude suffering or thin-air challenges. The elevation gain is steady rather than dramatic, keeping this firmly in recreational territory rather than mountaineering-adjacent cycling."
+      },
+      "adventure": {
+        "score": 3,
+        "explanation": "The route through Valle Gesso, Valdieri, and Roccavione offers genuine scenic appeal and cultural immersion in Piemonte's wine country and Maritime Alps. The Tour de France Museum and event village add theatrical flair. However, the modest distance and beginner-friendly terrain limit the sense of expedition or exploration serious adventurers seek."
+      },
+      "prestige": {
+        "score": 3,
+        "explanation": "L'Etape carries Tour de France branding, which is prestigious, but this inaugural Piemonte edition is explicitly non-competitive and accessibility-focused. Finishing a 31-mile recreational ride carries less prestige than completing a brutal Alpine granfondo. The event's strength lies in cultural experience, not racing credentials."
+      },
+      "race_quality": {
+        "score": 3,
+        "explanation": "This isn't really a race—it's a cycle-touring event with Tour de France aesthetics. Organization appears solid (official jersey, refreshments, pasta party), but field size is unspecified and competitive structure is absent. The event prioritizes experience over racing, which is fine for its mission but limits racing-focused appeal."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "The L'Etape Village, Tour de France Museum, authentic signage, and family-friendly atmosphere create a genuinely immersive cycling celebration. The pasta party and cultural focus on Piemonte's regions elevate this beyond a simple bike ride. For recreational cyclists and families, the experience is excellent; for racers, it's window dressing."
+      },
+      "community": {
+        "score": 5,
+        "explanation": "This event is explicitly designed as an inclusive, community-focused celebration of cycling. Open to e-bikes, families, first-timers, and all levels, with emphasis on shared experience over competition. The organizers (EPT) clearly prioritize hospitality and regional appreciation. Community is the event's strongest asset."
+      },
+      "field_depth": {
+        "score": 2,
+        "explanation": "Field size is unspecified, and the event's recreational focus suggests a mixed-ability crowd rather than competitive depth. No mention of elite categories, prize purse, or serious racers. This is a community gathering, not a competitive proving ground. Expect families and casual cyclists, not cycling talent."
+      },
+      "value": {
+        "score": 4,
+        "explanation": "At €25, the entry fee is exceptional value—official jersey, race pack, refreshments, and pasta party included. For recreational cyclists seeking a Tour de France experience without breaking the bank, this is genuinely good value. The pricing reflects the event's accessibility mission perfectly."
+      },
+      "expenses": {
+        "score": 4,
+        "explanation": "Beyond the €25 entry, expenses are modest: travel to Cuneo province and lodging in a mountain village. No expensive gear required, no altitude training camps needed. The event's recreational nature and modest distance keep total trip costs reasonable for European cycling tourism."
+      }
+    },
+    "biased_opinion": {
+      "verdict": "Accessible Tour de France tourism",
+      "summary": "L'Etape Italy Piemonte is a masterclass in inclusive event design—it brings Tour de France atmosphere to recreational cyclists without pretense or gatekeeping. The 31-mile loop through Valle Gesso is genuinely scenic, the €25 entry fee is absurdly fair, and the community focus is refreshing in a cycling world obsessed with racing credentials. However, serious cyclists will find it underwhelming: the distance is short, the climbing is moderate, and the terrain is beginner-friendly. This is deliberately not a granfondo for racers; it's a celebration of cycling culture for families, e-bike users, and casual touring enthusiasts. If you're seeking a competitive test or serious Alpine suffering, look elsewhere. If you want to experience Tour de France magic without the suffering, this inaugural 2026 edition delivers.",
+      "strengths": [
+        "exceptional value at €25",
+        "genuinely inclusive community focus",
+        "Tour de France cultural immersion",
+        "scenic Maritime Alps routing",
+        "family-friendly and e-bike accessible"
+      ],
+      "weaknesses": [
+        "too short for serious cyclists",
+        "moderate climbing lacks challenge",
+        "inaugural status means unproven logistics",
+        "no competitive structure or field depth",
+        "beginner-friendly terrain eliminates technical satisfaction"
+      ],
+      "bottom_line": "L'Etape Piemonte succeeds brilliantly at what it intends: making Tour de France cycling accessible to everyone. It's not a race; it's a celebration. Approach it with that mindset and you'll love it."
+    },
+    "final_verdict": {
+      "score": "48 / 100",
+      "one_liner": "A charming, inclusive Tour de France experience that sacrifices competitive challenge for community and accessibility.",
+      "should_you_race": "Yes if you're a recreational cyclist, family, or e-bike user seeking Tour de France atmosphere without suffering. Skip if you're a serious racer wanting Alpine challenge—the 31 miles and 2,608 feet of climbing won't test you.",
+      "alternatives": "For serious Alpine granfondos, consider the 2026 Etape du Tour (170 km, 5,400 m) or L'Etape Mondovì (60 km, 1,104 m) later in September. For accessible Italian cycling tourism, L'Etape Parma offers a 140 km granfondo option.",
+      "alternative_slugs": [
+        "etape-du-tour-2026",
+        "letape-mondovi",
+        "letape-parma"
+      ]
+    },
+    "logistics": {
+      "airport": "Turin-Caselle Airport (TRN) is approximately 100 km north of Entracque and serves as the primary international gateway. Ground transport via rental car or shuttle service is necessary to reach the Maritime Alps. Consider arriving a day early to explore the region and acclimate to the terrain.",
+      "lodging_strategy": "Entracque is a small mountain village with limited accommodation; book early as the inaugural event may attract more interest than capacity allows. Consider lodging in nearby Cuneo (30 km south) for more options, or explore agritourism farms in the Piemonte region for authentic rural stays.",
+      "food": "Piemonte is renowned for wine, truffles, and regional cuisine. Stock up on local specialties before or after the ride. The event includes a pasta party, but plan additional meals in Entracque or nearby villages. Mountain village dining may be limited; research restaurants in advance.",
+      "packet_pickup": "Packet pickup details not specified in available sources; contact the organizers at letapeitaly.it for specific timing and location.",
+      "parking": "Parking details not specified; assume village parking near the start in Entracque, but confirm with organizers given the small-town setting.",
+      "official_site": "https://letapeitaly.it/en/letape-piemonte-homepage-2/"
+    },
+    "history": {
+      "founded": 2026,
+      "founder": "L'Étape Italy by Tour de France, organized by EPT (Events – People – Territory) in collaboration with ExtraGiro",
+      "origin_story": "L'Etape Italy Piemonte represents the expansion of the global L'Etape Series into Italy's Alpine regions, debuting in 2026 as an inaugural cycle-touring event. Rather than replicating the competitive granfondo model, the organizers deliberately designed this event to prioritize accessibility, community, and cultural immersion over racing credentials. The route through Valle Gesso and the Maritime Alps showcases Piemonte's wine country and historic settlements, positioning cycling as a celebration of regional identity rather than a competitive proving ground. This philosophy—'cycling is for everyone'—guides the event's inclusive approach to families, e-bikes, and all skill levels.",
+      "notable_moments": [
+        "Inaugural 2026 debut in Piemonte's Maritime Alps",
+        "Launch of L'Etape Italy's cycle-touring series expanding Tour de France brand to Italy",
+        "Opening event of two-event 2026 L'Etape Italy calendar (Piemonte in May, Mondovì in September)",
+        "Emphasis on accessibility and community over competitive racing"
+      ],
+      "reputation": "As a new event, L'Etape Piemonte has no established reputation, but the L'Etape brand carries significant prestige from its Tour de France association. The organizers' explicit commitment to inclusivity and hospitality suggests a strong foundation for building community goodwill, though inaugural events always carry execution risk."
+    },
+    "course_description": {
+      "character": "L'Etape Piemonte is a scenic cycle-touring loop designed for recreational enjoyment rather than competitive racing. The route winds through Valle Gesso's varied alpine landscapes—forests, open valleys, and historic settlements—with paved provincial roads and steady, manageable gradients. The course prioritizes visual and cultural immersion over physical suffering, passing through charming villages like Valdieri, Borgo San Dalmazzo, and Roccavione. The 795 meters of climbing is distributed evenly across the 50 km, creating a rhythm of gentle ascent and descent rather than dramatic Alpine suffering. This is deliberately beginner-friendly terrain that welcomes e-bikes and families while remaining scenically rewarding.",
+      "suffering_zones": [
+        {
+          "mile": 12,
+          "label": "Valdieri Approach",
+          "desc": "The initial climb toward Valdieri establishes the route's steady-gradient rhythm. This section tests early-ride fitness and introduces riders to the Maritime Alps' character without overwhelming.",
+          "terrain_detail": "Paved provincial road with 5-6% average gradient through alpine forest",
+          "named_section": "Valdieri Climb"
+        },
+        {
+          "mile": 20,
+          "label": "Borgo San Dalmazzo Transition",
+          "desc": "A brief descent and transition through more urban surroundings before the return climb. This mid-ride section offers mental reset and refueling opportunity.",
+          "terrain_detail": "Mixed terrain with brief descent and urban passage",
+          "named_section": "Borgo San Dalmazzo"
+        },
+        {
+          "mile": 28,
+          "label": "Roccavione Return Climb",
+          "desc": "The final significant climbing section back through Roccavione toward Valle Gesso. Fatigue is present, but the steady gradient and scenic surroundings maintain motivation.",
+          "terrain_detail": "Paved road with 6-7% gradient through mixed forest and open valley",
+          "named_section": "Roccavione Climb"
+        }
+      ],
+      "signature_challenge": "The signature challenge is not a single dramatic climb but rather the sustained, steady climbing across the entire 50 km loop. With 795 meters distributed evenly, riders face consistent 5-7% gradients rather than a single punishing ascent. The real challenge is maintaining pace and enjoying the scenery simultaneously—a mental and physical balance rather than a pure suffering test."
+    },
+    "guide_variables": {
+      "race_name": "L'Etape Italy Piemonte by Tour de France",
+      "race_distance": "50 km (31 miles)",
+      "race_elevation": "795 meters (2,608 feet)",
+      "race_date": "May",
+      "race_location": "Entracque, Cuneo, Piemonte, Italy",
+      "race_terrain": "Alpine cycle-touring with paved provincial roads, steady gradients, and scenic valleys",
+      "race_weather": "Late May alpine spring conditions—mild with potential afternoon showers",
+      "race_challenges": [
+        "steady climbing across entire route",
+        "variable alpine weather",
+        "modest field size and unproven logistics"
+      ],
+      "altitude_section": true,
+      "altitude_feet": 6560
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Basic fitness for 31 miles with 2,608 feet of climbing",
+        "by_when": "4 weeks before event",
+        "why": "While the event is beginner-friendly, completing 31 miles with steady climbing requires aerobic base fitness. Four weeks of consistent cycling (3-4 rides per week) builds sufficient endurance for recreational pace."
+      },
+      {
+        "requirement": "Bike maintenance and mechanical competency",
+        "by_when": "2 weeks before event",
+        "why": "Mountain village setting may limit mechanical support. Ensure your bike is properly maintained and you can handle basic repairs (flat tires, chain issues). Carry a spare tube and basic tools."
+      },
+      {
+        "requirement": "Layered clothing and weather preparation",
+        "by_when": "1 week before event",
+        "why": "Late May alpine weather is variable. Pack layers, rain jacket, and sun protection. Mountain conditions can shift rapidly, and you'll experience temperature changes with elevation."
+      }
+    ],
+    "citations": [
+      {
+        "url": "https://www.bike-mag.com/letape-italy-launches-new-cycle-touring-rides-for-2026",
+        "title": "L'Étape Italy launches new cycle‑touring rides for 2026",
+        "category": "official"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Contents/IndexFull/8764/2026-etape-du-tour-one-of-the-most-demanding-editions-finishing-atop-alpe-dhuez",
+        "title": "2026 Etape du Tour one of the Most Demanding Editions Finishing atop Alpe d'Huez",
+        "category": "reference"
+      },
+      {
+        "url": "https://www.letapeseries.com/memories/race/registrations-open-for-the-second-edition-of-l-etape-parma-by-tour-de-france",
+        "title": "Registrations Open for the Second Edition of L'Étape Parma by Tour de France",
+        "category": "reference"
+      },
+      {
+        "url": "https://www.cycloworld.cc/en/gran-fondo/italy/letape-mondovi/42092",
+        "title": "L'Etape Mondovi",
+        "category": "reference"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/4636/2026-letape-du-tour",
+        "title": "2026 L'Etape Du Tour - Gran Fondo Guide",
+        "category": "reference"
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "medium",
+      "validation_status": "validated",
+      "research_strength": "B",
+      "sources_count": 5,
+      "last_updated": "2026-03-03"
+    }
+  }
+}

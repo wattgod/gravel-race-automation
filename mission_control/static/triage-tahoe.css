@@ -1,0 +1,541 @@
+/* Triage — Apple Tahoe / Liquid Glass reskin
+   Scoped under .mc-tahoe so nothing leaks to other MC pages.
+   Loaded only on triage.html via {% block head_extra %}.
+
+   RULES:
+   1. Every selector MUST start with .mc-tahoe
+   2. No hardcoded hex values — use tokens defined below
+   3. border-left accents use box-shadow inset (not border-left) to avoid
+      clipping rounded corners
+   4. backdrop-filter has @supports fallback for Firefox/Linux
+   5. Hover animations respect prefers-reduced-motion */
+
+/* ==========================================================================
+   Design Tokens
+   ========================================================================== */
+
+.mc-tahoe {
+  /* Radii */
+  --tahoe-radius-lg: 16px;
+  --tahoe-radius-md: 12px;
+  --tahoe-radius-sm: 8px;
+  --tahoe-radius-pill: 100px;
+
+  /* Glass surface */
+  --tahoe-glass-bg: rgba(255, 253, 250, 0.78);
+  --tahoe-glass-bg-solid: #fefdfb;          /* fallback when blur unsupported */
+  --tahoe-glass-border: rgba(200, 192, 182, 0.32);
+  --tahoe-glass-blur: 20px;
+
+  /* Shadows */
+  --tahoe-shadow: 0 2px 12px rgba(120, 110, 100, 0.05);
+  --tahoe-shadow-hover: 0 4px 20px rgba(120, 110, 100, 0.09);
+
+  /* Typography */
+  --tahoe-font: -apple-system, BlinkMacSystemFont, "SF Pro Display",
+    "SF Pro Text", system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+  /* Text colors — lighter than brand browns */
+  --tahoe-text: #4a4a4a;
+  --tahoe-text-muted: #8a8580;
+
+  /* Teal accent for attention */
+  --tahoe-accent: #1A8A82;
+  --tahoe-accent-light: rgba(26, 138, 130, 0.08);
+
+  /* Surface variants */
+  --tahoe-header-bg: rgba(250, 248, 244, 0.55);
+  --tahoe-stripe-bg: rgba(248, 246, 242, 0.45);
+
+  /* Base */
+  font-family: var(--tahoe-font);
+  color: var(--tahoe-text);
+}
+
+/* ==========================================================================
+   @supports fallback — browsers without backdrop-filter get a solid bg
+   ========================================================================== */
+
+@supports not (backdrop-filter: blur(1px)) {
+  .mc-tahoe .mc-card,
+  .mc-tahoe .gg-stat-card,
+  .mc-tahoe .gg-empty-state:not(.gg-empty-state--borderless) {
+    background: var(--tahoe-glass-bg-solid);
+  }
+}
+
+/* ==========================================================================
+   prefers-reduced-motion — kill hover animations
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .mc-tahoe .mc-card,
+  .mc-tahoe .gg-stat-card {
+    transition: none;
+  }
+
+  .mc-tahoe .mc-card:hover,
+  .mc-tahoe .gg-stat-card:hover {
+    transform: none;
+  }
+}
+
+/* ==========================================================================
+   Base Typography
+   ========================================================================== */
+
+.mc-tahoe .mc-text-muted {
+  color: var(--tahoe-text-muted);
+}
+
+.mc-tahoe .mc-text-teal {
+  color: var(--tahoe-accent);
+}
+
+.mc-tahoe a {
+  color: var(--tahoe-accent);
+}
+
+.mc-tahoe a:hover {
+  color: var(--gg-color-light-teal);
+}
+
+/* ==========================================================================
+   Page Header
+   ========================================================================== */
+
+.mc-tahoe .mc-page-header {
+  border-bottom: 1px solid var(--tahoe-glass-border);
+}
+
+.mc-tahoe .mc-page-header__title {
+  font-family: var(--tahoe-font);
+  font-weight: 700;
+  letter-spacing: -0.3px;
+  color: var(--tahoe-text);
+}
+
+.mc-tahoe .mc-page-header__kicker {
+  font-family: var(--tahoe-font);
+  font-weight: 600;
+  color: var(--tahoe-accent);
+}
+
+.mc-tahoe .mc-page-header__desc {
+  font-family: var(--tahoe-font);
+  color: var(--tahoe-text-muted);
+}
+
+/* ==========================================================================
+   Cards / Surfaces
+
+   NOTE: Accent borders use box-shadow inset, NOT border-left.
+   border-left clips the border-radius on the left edge, creating an ugly
+   flat corner while the right stays rounded. box-shadow inset renders
+   inside the rounded rect cleanly.
+   ========================================================================== */
+
+.mc-tahoe .mc-card {
+  border-radius: var(--tahoe-radius-lg);
+  background: var(--tahoe-glass-bg);
+  backdrop-filter: blur(var(--tahoe-glass-blur));
+  -webkit-backdrop-filter: blur(var(--tahoe-glass-blur));
+  border: 1px solid var(--tahoe-glass-border);
+  box-shadow: var(--tahoe-shadow);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.mc-tahoe .mc-card:hover {
+  box-shadow: var(--tahoe-shadow-hover);
+  transform: translateY(-1px);
+}
+
+.mc-tahoe .mc-card__header {
+  border-radius: var(--tahoe-radius-lg) var(--tahoe-radius-lg) 0 0;
+  background: var(--tahoe-header-bg);
+  border-bottom: 1px solid var(--tahoe-glass-border);
+}
+
+.mc-tahoe .mc-card__title {
+  font-family: var(--tahoe-font);
+  font-weight: 600;
+  color: var(--tahoe-text);
+}
+
+.mc-tahoe .mc-card__action {
+  font-family: var(--tahoe-font);
+  color: var(--tahoe-accent);
+}
+
+.mc-tahoe .mc-card__action:hover {
+  color: var(--gg-color-light-teal);
+}
+
+.mc-tahoe .mc-card__body {
+  font-family: var(--tahoe-font);
+}
+
+/* ==========================================================================
+   Stat Cards
+   ========================================================================== */
+
+.mc-tahoe .gg-stat-card {
+  border-radius: var(--tahoe-radius-md);
+  background: var(--tahoe-glass-bg);
+  backdrop-filter: blur(var(--tahoe-glass-blur));
+  -webkit-backdrop-filter: blur(var(--tahoe-glass-blur));
+  border: 1px solid var(--tahoe-glass-border);
+  box-shadow: var(--tahoe-shadow);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.mc-tahoe .gg-stat-card:hover {
+  box-shadow: var(--tahoe-shadow-hover);
+  transform: translateY(-1px);
+  border-color: rgba(26, 138, 130, 0.3);
+}
+
+.mc-tahoe .gg-stat-card__value {
+  font-family: var(--tahoe-font);
+  font-weight: 700;
+  color: var(--tahoe-text);
+}
+
+.mc-tahoe .gg-stat-card__label {
+  font-family: var(--tahoe-font);
+  font-weight: 500;
+  color: var(--tahoe-text-muted);
+}
+
+/* ==========================================================================
+   Alerts
+   ========================================================================== */
+
+.mc-tahoe .gg-alert {
+  border-radius: var(--tahoe-radius-md);
+  border: 1px solid var(--tahoe-glass-border);
+  border-left: 4px solid var(--gg-color-teal);
+}
+
+.mc-tahoe .gg-alert--error {
+  border-left-color: var(--gg-color-error);
+}
+
+.mc-tahoe .gg-alert--success {
+  border-left-color: var(--gg-color-teal);
+}
+
+.mc-tahoe .gg-alert--warning {
+  border-left-color: var(--gg-color-gold);
+}
+
+.mc-tahoe .gg-alert__label {
+  font-family: var(--tahoe-font);
+}
+
+.mc-tahoe .gg-alert__message {
+  font-family: var(--tahoe-font);
+}
+
+/* ==========================================================================
+   Badges
+   ========================================================================== */
+
+.mc-tahoe .gg-badge {
+  border-radius: var(--tahoe-radius-pill);
+  font-family: var(--tahoe-font);
+  font-weight: 600;
+  border: 1px solid transparent;
+}
+
+.mc-tahoe .gg-badge--gold {
+  border-color: rgba(183, 149, 11, 0.3);
+}
+
+.mc-tahoe .gg-badge--teal {
+  border-color: rgba(26, 138, 130, 0.3);
+}
+
+.mc-tahoe .gg-badge--default {
+  border-color: var(--tahoe-glass-border);
+}
+
+/* Status and deal-stage badges inherit pill shape */
+.mc-tahoe .gg-badge[class*="mc-status--"],
+.mc-tahoe .gg-badge[class*="mc-deal-stage--"] {
+  border-radius: var(--tahoe-radius-pill);
+  font-family: var(--tahoe-font);
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   Tables
+   ========================================================================== */
+
+.mc-tahoe .gg-table {
+  border-radius: var(--tahoe-radius-md);
+  overflow: hidden;
+  border: 1px solid var(--tahoe-glass-border);
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.mc-tahoe .gg-table thead {
+  border-bottom: 1px solid var(--tahoe-glass-border);
+}
+
+.mc-tahoe .gg-table th {
+  font-family: var(--tahoe-font);
+  font-weight: 600;
+  color: var(--tahoe-text-muted);
+  background: var(--tahoe-header-bg);
+  border-bottom: 1px solid var(--tahoe-glass-border);
+}
+
+.mc-tahoe .gg-table td {
+  font-family: var(--tahoe-font);
+  color: var(--tahoe-text);
+  border-bottom: 1px solid rgba(200, 192, 182, 0.2);
+}
+
+.mc-tahoe .gg-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.mc-tahoe .gg-table--striped tbody tr:nth-child(even) td {
+  background: var(--tahoe-stripe-bg);
+}
+
+.mc-tahoe .gg-table tbody tr:hover {
+  background: var(--tahoe-accent-light);
+}
+
+/* Keep monospace for data columns */
+.mc-tahoe .mc-text-mono {
+  font-family: var(--gg-font-data);
+}
+
+.mc-tahoe .gg-table__num {
+  font-family: var(--gg-font-data);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
+
+.mc-tahoe .gg-btn {
+  border-radius: var(--tahoe-radius-sm);
+  font-family: var(--tahoe-font);
+}
+
+.mc-tahoe .gg-btn--primary {
+  border-color: transparent;
+}
+
+.mc-tahoe .gg-btn--ghost {
+  border-radius: var(--tahoe-radius-sm);
+  border-color: var(--tahoe-glass-border);
+  color: var(--tahoe-text);
+}
+
+.mc-tahoe .gg-btn--ghost:hover {
+  background: var(--tahoe-accent-light);
+  border-color: rgba(26, 138, 130, 0.25);
+  color: var(--tahoe-accent);
+}
+
+/* ==========================================================================
+   Empty States
+   ========================================================================== */
+
+.mc-tahoe .gg-empty-state {
+  border-radius: var(--tahoe-radius-lg);
+  background: var(--tahoe-glass-bg);
+  backdrop-filter: blur(var(--tahoe-glass-blur));
+  -webkit-backdrop-filter: blur(var(--tahoe-glass-blur));
+  border: 1px solid var(--tahoe-glass-border);
+  font-family: var(--tahoe-font);
+}
+
+.mc-tahoe .gg-empty-state--borderless {
+  border: none;
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.mc-tahoe .gg-empty-state__title {
+  font-family: var(--tahoe-font);
+  font-weight: 600;
+  color: var(--tahoe-text);
+}
+
+.mc-tahoe .gg-empty-state__text {
+  font-family: var(--tahoe-font);
+  color: var(--tahoe-text-muted);
+}
+
+/* ==========================================================================
+   Triage-specific: Accent cards & onboarding
+
+   Using box-shadow inset instead of border-left to avoid clipping the
+   border-radius on the left edge. The :hover state composites the accent
+   shadow with the hover shadow.
+   ========================================================================== */
+
+.mc-tahoe .triage-card--action {
+  box-shadow: inset 3px 0 0 var(--tahoe-accent), var(--tahoe-shadow);
+}
+
+.mc-tahoe .triage-card--action:hover {
+  box-shadow: inset 3px 0 0 var(--tahoe-accent), var(--tahoe-shadow-hover);
+}
+
+.mc-tahoe .triage-card--stale {
+  box-shadow: inset 3px 0 0 var(--tahoe-text-muted), var(--tahoe-shadow);
+}
+
+.mc-tahoe .triage-card--stale:hover {
+  box-shadow: inset 3px 0 0 var(--tahoe-text-muted), var(--tahoe-shadow-hover);
+}
+
+.mc-tahoe .triage-onboarding {
+  box-shadow: inset 3px 0 0 var(--tahoe-accent);
+  text-align: left;
+  align-items: flex-start;
+}
+
+.mc-tahoe .triage-onboarding .gg-empty-state__text {
+  max-width: none;
+}
+
+.mc-tahoe .triage-onboarding ol {
+  font-family: var(--tahoe-font);
+  font-size: var(--gg-font-size-sm);
+  color: var(--tahoe-text-muted);
+  margin: var(--gg-spacing-sm) 0;
+  padding-left: var(--gg-spacing-lg);
+}
+
+.mc-tahoe .triage-onboarding ol li {
+  margin-bottom: var(--gg-spacing-xs);
+}
+
+.mc-tahoe .triage-onboarding ol li:last-child {
+  margin-bottom: 0;
+}
+
+/* ==========================================================================
+   Triage-specific: FYI grid
+   ========================================================================== */
+
+.mc-tahoe .triage-fyi-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--gg-spacing-lg);
+}
+
+@media (max-width: 1024px) {
+  .mc-tahoe .triage-fyi-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================================================
+   Triage-specific: Section subheadings
+   ========================================================================== */
+
+.mc-tahoe .triage-section-sub {
+  font-family: var(--tahoe-font);
+  font-size: var(--gg-font-size-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--tahoe-text-muted);
+  margin-bottom: var(--gg-spacing-sm);
+}
+
+.mc-tahoe .triage-section-sub--small {
+  font-size: var(--gg-font-size-2xs);
+  margin-bottom: var(--gg-spacing-xs);
+}
+
+/* ==========================================================================
+   Triage-specific: FYI heading
+   ========================================================================== */
+
+.mc-tahoe .triage-fyi-heading {
+  font-family: var(--tahoe-font);
+  font-size: var(--gg-font-size-sm);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--tahoe-text-muted);
+  margin-bottom: var(--gg-spacing-xs);
+}
+
+/* ==========================================================================
+   Triage-specific: Inline-style replacements
+   Utility classes for styles that were previously inline in the template.
+   ========================================================================== */
+
+.mc-tahoe .triage-card-desc {
+  font-size: var(--gg-font-size-2xs);
+  margin-bottom: var(--gg-spacing-md);
+}
+
+.mc-tahoe .triage-table-spaced {
+  margin-bottom: var(--gg-spacing-lg);
+}
+
+.mc-tahoe .triage-table-spaced-sm {
+  margin-bottom: var(--gg-spacing-md);
+}
+
+.mc-tahoe .triage-btn-sm {
+  font-size: var(--gg-font-size-2xs);
+  padding: 2px 8px;
+}
+
+.mc-tahoe .triage-cell-sm {
+  font-size: var(--gg-font-size-2xs);
+}
+
+.mc-tahoe .triage-empty-sm .gg-empty-state__title {
+  font-size: var(--gg-font-size-sm);
+}
+
+.mc-tahoe .triage-empty-sm .gg-empty-state__text {
+  font-size: var(--gg-font-size-2xs);
+}
+
+.mc-tahoe .triage-stat-clear {
+  color: var(--tahoe-accent);
+}
+
+.mc-tahoe .triage-stat-grid-compact {
+  margin-bottom: var(--gg-spacing-sm);
+}
+
+.mc-tahoe .triage-overflow-count {
+  font-size: var(--gg-font-size-2xs);
+  margin-top: var(--gg-spacing-sm);
+}
+
+.mc-tahoe .triage-source-hint {
+  font-size: var(--gg-font-size-2xs);
+}
+
+.mc-tahoe .triage-health-desc {
+  font-size: var(--gg-font-size-2xs);
+  margin-bottom: var(--gg-spacing-md);
+}
+
+/* ==========================================================================
+   Clickable rows
+   ========================================================================== */
+
+.mc-tahoe .mc-clickable-row:hover {
+  background: var(--tahoe-accent-light);
+}

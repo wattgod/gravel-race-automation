@@ -107,6 +107,10 @@ class FakeQueryBuilder:
         self._filters.append(("lt", col, val))
         return self
 
+    def in_(self, col, vals):
+        self._filters.append(("in_", col, vals))
+        return self
+
     def or_(self, expr):
         # Simplified: don't filter, return all (search tests handle this separately)
         return self
@@ -137,6 +141,8 @@ class FakeQueryBuilder:
             if op == "lte" and (row_val is None or str(row_val) > str(val)):
                 return False
             if op == "lt" and (row_val is None or str(row_val) >= str(val)):
+                return False
+            if op == "in_" and row_val not in val:
                 return False
         return True
 
@@ -234,26 +240,31 @@ def fake_db():
 @pytest.fixture
 def client(fake_db):
     """Sync test client for FastAPI app with mocked DB."""
-    # Patch scheduler to avoid APScheduler import issues
-    with patch("mission_control.app.lifespan") as mock_lifespan:
-        from contextlib import asynccontextmanager
+    from contextlib import asynccontextmanager
+    from fastapi.testclient import TestClient
 
-        @asynccontextmanager
-        async def noop_lifespan(app):
-            yield
+    @asynccontextmanager
+    async def noop_lifespan(app):
+        yield
 
-        mock_lifespan.side_effect = noop_lifespan
+    # Pre-mock the scheduler so the lifespan import doesn't fail
+    _scheduler_mod = types.ModuleType("mission_control.scheduler")
+    _scheduler_mod.scheduler = MagicMock()
+    sys.modules.setdefault("mission_control.scheduler", _scheduler_mod)
 
-        # Re-import to get patched version
-        from mission_control.app import create_app
-        from fastapi.testclient import TestClient
+    # Import and patch the lifespan to skip scheduler start/stop
+    import mission_control.app as app_mod
+    original_lifespan = app_mod.lifespan
+    app_mod.lifespan = noop_lifespan
 
-        app = create_app()
-        # Override lifespan
+    try:
+        app = app_mod.create_app()
         app.router.lifespan_context = noop_lifespan
 
         with TestClient(app) as c:
             yield c
+    finally:
+        app_mod.lifespan = original_lifespan
 
 
 # ---------------------------------------------------------------------------
@@ -331,6 +342,38 @@ def make_payment(**overrides):
         "stripe_payment_id": "",
         "description": "Training plan",
         "paid_at": datetime.now(timezone.utc).isoformat(),
+        "created_at": datetime.now(timezone.utc).isoformat(),
+    }
+    defaults.update(overrides)
+    return defaults
+
+
+def make_communication(**overrides):
+    defaults = {
+        "id": str(uuid.uuid4()),
+        "athlete_id": str(uuid.uuid4()),
+        "comm_type": "inbound",
+        "status": "received",
+        "subject": "Question about training",
+        "body": "Hey, quick question...",
+        "recipient": "athlete@example.com",
+        "sent_at": datetime.now(timezone.utc).isoformat(),
+        "created_at": datetime.now(timezone.utc).isoformat(),
+    }
+    defaults.update(overrides)
+    return defaults
+
+
+def make_sequence_send(**overrides):
+    defaults = {
+        "id": str(uuid.uuid4()),
+        "enrollment_id": str(uuid.uuid4()),
+        "template": "welcome_1",
+        "status": "sent",
+        "sent_at": datetime.now(timezone.utc).isoformat(),
+        "opened_at": None,
+        "clicked_at": None,
+        "bounced_at": None,
         "created_at": datetime.now(timezone.utc).isoformat(),
     }
     defaults.update(overrides)

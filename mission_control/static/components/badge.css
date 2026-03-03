@@ -57,6 +57,13 @@
   color: var(--gg-color-warm-paper);
 }
 
+/* Error variant — destructive/negative status */
+.gg-badge--error {
+  background: var(--gg-color-error);
+  border-color: var(--gg-color-error);
+  color: var(--gg-color-white);
+}
+
 /* Default variant — neutral/muted for non-status labels */
 .gg-badge--default {
   background: var(--gg-color-sand);

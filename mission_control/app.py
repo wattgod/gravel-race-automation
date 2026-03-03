@@ -8,7 +8,7 @@ from fastapi.staticfiles import StaticFiles
 
 from mission_control.config import STATIC_DIR
 from mission_control.routers import (
-    athletes, dashboard, pipeline, reports, templates_page, touchpoints, webhooks,
+    athletes, dashboard, pipeline, reports, templates_page, touchpoints, triage, webhooks,
 )
 from mission_control.routers import sequences, deals_router, analytics, unsubscribe
 from mission_control.routers import races_api
@@ -59,7 +59,7 @@ def create_app() -> FastAPI:
         return {"status": "ok"}
 
     # Routers — v1 (dashboard, internal — hidden from API docs)
-    for r in [dashboard, athletes, pipeline, touchpoints, templates_page, reports, webhooks]:
+    for r in [dashboard, triage, athletes, pipeline, touchpoints, templates_page, reports, webhooks]:
         app.include_router(r.router, include_in_schema=False)
 
     # Routers — v2 (internal — hidden from API docs)

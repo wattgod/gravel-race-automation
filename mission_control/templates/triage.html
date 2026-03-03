@@ -1,0 +1,435 @@
+{% extends "base.html" %}
+
+{% block title %}Triage{% endblock %}
+
+{% block content %}
+<div class="mc-page-header">
+    <span class="mc-page-header__kicker">Command Center</span>
+    <h1 class="mc-page-header__title">Triage</h1>
+</div>
+
+<!-- Summary Stats -->
+<div class="gg-stat-grid mc-mb-lg">
+    <div class="gg-stat-card">
+        <div class="gg-stat-card__value{% if summary.action_required > 0 %} mc-text-teal{% endif %}">{{ summary.action_required }}</div>
+        <div class="gg-stat-card__label">Action Required</div>
+    </div>
+    <div class="gg-stat-card">
+        <div class="gg-stat-card__value">{{ summary.pending_intakes }}</div>
+        <div class="gg-stat-card__label">Pending Intakes</div>
+    </div>
+    <div class="gg-stat-card">
+        <div class="gg-stat-card__value">{{ summary.unread_replies }}</div>
+        <div class="gg-stat-card__label">Unread Replies</div>
+    </div>
+    <div class="gg-stat-card">
+        <div class="gg-stat-card__value">{{ summary.due_touchpoints }}</div>
+        <div class="gg-stat-card__label">Due Touchpoints</div>
+    </div>
+</div>
+
+<!-- ================================================================ -->
+<!-- ACTION REQUIRED                                                  -->
+<!-- ================================================================ -->
+
+{% if pending_intakes or unanswered_replies or plans_needing_action or due_touchpoints %}
+<div class="mc-card mc-mb-lg" style="border-left:4px solid var(--gg-color-gold)">
+    <div class="mc-card__header">
+        <h3 class="mc-card__title">Action Required</h3>
+        <span class="gg-badge gg-badge--gold">{{ summary.action_required }} items</span>
+    </div>
+    <div class="mc-card__body">
+
+        <!-- Pending Intakes -->
+        {% if pending_intakes %}
+        <h4 style="font-family:var(--gg-font-data);font-size:var(--gg-font-size-xs);text-transform:uppercase;letter-spacing:0.1em;color:var(--gg-color-secondary-brown);margin-bottom:var(--gg-spacing-sm)">
+            New Intakes ({{ pending_intakes|length }})
+        </h4>
+        <table class="gg-table gg-table--striped gg-table--compact" style="margin-bottom:var(--gg-spacing-lg)">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Race</th>
+                    <th>Submitted</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for req in pending_intakes %}
+                <tr>
+                    <td>{{ req.payload.name if req.payload else '—' }}</td>
+                    <td class="mc-text-mono" style="font-size:var(--gg-font-size-2xs)">{{ req.payload.email if req.payload else '—' }}</td>
+                    <td>{{ req.payload.races[0].name if req.payload and req.payload.races else '—' }}</td>
+                    <td class="mc-text-muted">{{ req.created_at[:10] if req.created_at else '—' }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% endif %}
+
+        <!-- Unanswered Replies -->
+        {% if unanswered_replies %}
+        <h4 style="font-family:var(--gg-font-data);font-size:var(--gg-font-size-xs);text-transform:uppercase;letter-spacing:0.1em;color:var(--gg-color-secondary-brown);margin-bottom:var(--gg-spacing-sm)">
+            Unanswered Replies ({{ unanswered_replies|length }})
+        </h4>
+        <table class="gg-table gg-table--striped gg-table--compact" style="margin-bottom:var(--gg-spacing-lg)">
+            <thead>
+                <tr>
+                    <th>From</th>
+                    <th>Subject</th>
+                    <th>Received</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for msg in unanswered_replies %}
+                <tr>
+                    <td>
+                        {% if msg.gg_athletes %}
+                        <a href="/athletes/{{ msg.gg_athletes.slug }}" class="mc-text-teal">{{ msg.gg_athletes.name }}</a>
+                        {% else %}
+                        {{ msg.recipient or '—' }}
+                        {% endif %}
+                    </td>
+                    <td>{{ msg.subject or '(no subject)' }}</td>
+                    <td class="mc-text-muted">{{ msg.sent_at[:10] if msg.sent_at else '—' }}</td>
+                    <td>
+                        <button class="gg-btn gg-btn--ghost" style="font-size:var(--gg-font-size-2xs);padding:2px 8px"
+                                hx-post="/triage/ack/{{ msg.id }}" hx-target="closest tr" hx-swap="outerHTML">
+                            Ack
+                        </button>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% endif %}
+
+        <!-- Plans Needing Action -->
+        {% if plans_needing_action %}
+        <h4 style="font-family:var(--gg-font-data);font-size:var(--gg-font-size-xs);text-transform:uppercase;letter-spacing:0.1em;color:var(--gg-color-secondary-brown);margin-bottom:var(--gg-spacing-sm)">
+            Plans Needing Action ({{ plans_needing_action|length }})
+        </h4>
+        <table class="gg-table gg-table--striped gg-table--compact" style="margin-bottom:var(--gg-spacing-lg)">
+            <thead>
+                <tr>
+                    <th>Athlete</th>
+                    <th>Race</th>
+                    <th>Race Date</th>
+                    <th>Status</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for a in plans_needing_action %}
+                <tr>
+                    <td><a href="/athletes/{{ a.slug }}" class="mc-text-teal">{{ a.name }}</a></td>
+                    <td>{{ a.race_name or '—' }}</td>
+                    <td class="mc-text-muted">{{ a.race_date or '—' }}</td>
+                    <td><span class="gg-badge mc-status--{{ a.plan_status }}">{{ a.plan_status|replace('_',' ') }}</span></td>
+                    <td><a href="/athletes/{{ a.slug }}" class="gg-btn gg-btn--ghost" style="font-size:var(--gg-font-size-2xs);padding:2px 8px">Review</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% endif %}
+
+        <!-- Due Touchpoints -->
+        {% if due_touchpoints %}
+        <h4 style="font-family:var(--gg-font-data);font-size:var(--gg-font-size-xs);text-transform:uppercase;letter-spacing:0.1em;color:var(--gg-color-secondary-brown);margin-bottom:var(--gg-spacing-sm)">
+            Due Touchpoints ({{ due_touchpoints|length }})
+        </h4>
+        <table class="gg-table gg-table--striped gg-table--compact">
+            <thead>
+                <tr>
+                    <th>Athlete</th>
+                    <th>Category</th>
+                    <th>Subject</th>
+                    <th>Due</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for tp in due_touchpoints %}
+                <tr>
+                    <td>
+                        {% if tp.gg_athletes %}
+                        <a href="/athletes/{{ tp.gg_athletes.slug }}" class="mc-text-teal">{{ tp.gg_athletes.name }}</a>
+                        {% else %}—{% endif %}
+                    </td>
+                    <td><span class="gg-badge gg-badge--default">{{ tp.category }}</span></td>
+                    <td>{{ tp.subject or '—' }}</td>
+                    <td class="mc-text-muted">{{ tp.send_date }}</td>
+                    <td><a href="/touchpoints" class="gg-btn gg-btn--ghost" style="font-size:var(--gg-font-size-2xs);padding:2px 8px">Send</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% endif %}
+
+    </div>
+</div>
+{% else %}
+<div class="gg-alert gg-alert--success mc-mb-lg">
+    <span class="gg-alert__label">All Clear</span>
+    <span class="gg-alert__message">Nothing requires your attention right now.</span>
+</div>
+{% endif %}
+
+<!-- Stale Deals -->
+{% if stale_deals %}
+<div class="mc-card mc-mb-lg" style="border-left:4px solid var(--gg-color-secondary-brown)">
+    <div class="mc-card__header">
+        <h3 class="mc-card__title">Stale Deals (48h+ no activity)</h3>
+        <a href="/deals" class="mc-card__action">View Pipeline</a>
+    </div>
+    <div class="mc-card__body">
+        <table class="gg-table gg-table--striped gg-table--compact">
+            <thead>
+                <tr>
+                    <th>Contact</th>
+                    <th>Race</th>
+                    <th>Stage</th>
+                    <th>Value</th>
+                    <th>Last Updated</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for d in stale_deals %}
+                <tr>
+                    <td><a href="/deals/{{ d.id }}" class="mc-text-teal">{{ d.contact_name or d.contact_email }}</a></td>
+                    <td>{{ d.race_name or '—' }}</td>
+                    <td><span class="gg-badge mc-deal-stage--{{ d.stage }}">{{ d.stage|replace('_',' ') }}</span></td>
+                    <td class="gg-table__num">${{ "%.0f"|format(d.value|float) }}</td>
+                    <td class="mc-text-muted">{{ d.updated_at[:10] if d.updated_at else '—' }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endif %}
+
+<!-- ================================================================ -->
+<!-- AUTOMATED — FYI                                                  -->
+<!-- ================================================================ -->
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--gg-spacing-lg)" class="mc-mb-lg">
+
+    <!-- Recent Sends (24h) -->
+    <div class="mc-card">
+        <div class="mc-card__header">
+            <h3 class="mc-card__title">Emails Sent (24h)</h3>
+            <a href="/sequences" class="mc-card__action">Sequences</a>
+        </div>
+        <div class="mc-card__body">
+            {% if recent_sends %}
+            <table class="gg-table gg-table--compact">
+                <thead>
+                    <tr>
+                        <th>Recipient</th>
+                        <th>Template</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for s in recent_sends[:10] %}
+                    <tr>
+                        <td class="mc-text-mono" style="font-size:var(--gg-font-size-2xs)">
+                            {{ s.gg_sequence_enrollments.contact_email if s.gg_sequence_enrollments else '—' }}
+                        </td>
+                        <td style="font-size:var(--gg-font-size-2xs)">{{ s.template or '—' }}</td>
+                        <td>
+                            {% if s.status == 'opened' %}
+                            <span class="gg-badge gg-badge--teal">opened</span>
+                            {% elif s.status == 'clicked' %}
+                            <span class="gg-badge gg-badge--gold">clicked</span>
+                            {% elif s.status == 'bounced' %}
+                            <span class="gg-badge" style="background:var(--gg-color-error);color:white">bounced</span>
+                            {% else %}
+                            <span class="gg-badge gg-badge--default">sent</span>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% if recent_sends|length > 10 %}
+            <p class="mc-text-muted mc-text-mono" style="font-size:var(--gg-font-size-2xs);margin-top:var(--gg-spacing-sm)">+ {{ recent_sends|length - 10 }} more</p>
+            {% endif %}
+            {% else %}
+            <p class="mc-text-muted" style="font-size:var(--gg-font-size-sm)">No emails sent in the last 24 hours.</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- New Enrollments (24h) -->
+    <div class="mc-card">
+        <div class="mc-card__header">
+            <h3 class="mc-card__title">New Enrollments (24h)</h3>
+        </div>
+        <div class="mc-card__body">
+            {% if recent_enrollments %}
+            <table class="gg-table gg-table--compact">
+                <thead>
+                    <tr>
+                        <th>Contact</th>
+                        <th>Sequence</th>
+                        <th>Source</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for e in recent_enrollments[:10] %}
+                    <tr>
+                        <td class="mc-text-mono" style="font-size:var(--gg-font-size-2xs)">{{ e.contact_email }}</td>
+                        <td style="font-size:var(--gg-font-size-2xs)">{{ e.sequence_id }}</td>
+                        <td><span class="gg-badge gg-badge--default">{{ e.source or '—' }}</span></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% if recent_enrollments|length > 10 %}
+            <p class="mc-text-muted mc-text-mono" style="font-size:var(--gg-font-size-2xs);margin-top:var(--gg-spacing-sm)">+ {{ recent_enrollments|length - 10 }} more</p>
+            {% endif %}
+            {% else %}
+            <p class="mc-text-muted" style="font-size:var(--gg-font-size-sm)">No new enrollments in the last 24 hours.</p>
+            {% endif %}
+        </div>
+    </div>
+
+</div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--gg-spacing-lg)" class="mc-mb-lg">
+
+    <!-- Upcoming Races (30 days) -->
+    <div class="mc-card">
+        <div class="mc-card__header">
+            <h3 class="mc-card__title">Races — Next 30 Days</h3>
+        </div>
+        <div class="mc-card__body">
+            {% if upcoming_races %}
+            <table class="gg-table gg-table--compact">
+                <thead>
+                    <tr>
+                        <th>Athlete</th>
+                        <th>Race</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for r in upcoming_races %}
+                    <tr>
+                        <td><a href="/athletes/{{ r.slug }}" class="mc-text-teal">{{ r.name }}</a></td>
+                        <td>{{ r.race_name }}</td>
+                        <td class="mc-text-muted">{{ r.race_date }}</td>
+                        <td><span class="gg-badge mc-status--{{ r.plan_status }}">{{ r.plan_status|replace('_',' ') }}</span></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% else %}
+            <p class="mc-text-muted" style="font-size:var(--gg-font-size-sm)">No races in the next 30 days.</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Bounces + Unsubscribes (7 days) -->
+    <div class="mc-card">
+        <div class="mc-card__header">
+            <h3 class="mc-card__title">Issues (7 days)</h3>
+        </div>
+        <div class="mc-card__body">
+            {% if recent_bounces %}
+            <h4 style="font-family:var(--gg-font-data);font-size:var(--gg-font-size-2xs);text-transform:uppercase;letter-spacing:0.1em;color:var(--gg-color-secondary-brown);margin-bottom:var(--gg-spacing-xs)">
+                Bounces ({{ recent_bounces|length }})
+            </h4>
+            <table class="gg-table gg-table--compact" style="margin-bottom:var(--gg-spacing-md)">
+                <thead>
+                    <tr>
+                        <th>Email</th>
+                        <th>Template</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for b in recent_bounces %}
+                    <tr>
+                        <td class="mc-text-mono" style="font-size:var(--gg-font-size-2xs)">{{ b.gg_sequence_enrollments.contact_email if b.gg_sequence_enrollments else '—' }}</td>
+                        <td style="font-size:var(--gg-font-size-2xs)">{{ b.template or '—' }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% endif %}
+
+            {% if recent_unsubscribes %}
+            <h4 style="font-family:var(--gg-font-data);font-size:var(--gg-font-size-2xs);text-transform:uppercase;letter-spacing:0.1em;color:var(--gg-color-secondary-brown);margin-bottom:var(--gg-spacing-xs)">
+                Unsubscribes ({{ recent_unsubscribes|length }})
+            </h4>
+            <table class="gg-table gg-table--compact">
+                <thead>
+                    <tr>
+                        <th>Email</th>
+                        <th>Sequence</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for u in recent_unsubscribes %}
+                    <tr>
+                        <td class="mc-text-mono" style="font-size:var(--gg-font-size-2xs)">{{ u.contact_email }}</td>
+                        <td style="font-size:var(--gg-font-size-2xs)">{{ u.sequence_id }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% endif %}
+
+            {% if not recent_bounces and not recent_unsubscribes %}
+            <p class="mc-text-muted" style="font-size:var(--gg-font-size-sm)">No bounces or unsubscribes in the last 7 days.</p>
+            {% endif %}
+        </div>
+    </div>
+
+</div>
+
+<!-- ================================================================ -->
+<!-- SYSTEM HEALTH                                                    -->
+<!-- ================================================================ -->
+
+<div class="mc-card">
+    <div class="mc-card__header">
+        <h3 class="mc-card__title">System Health</h3>
+        <span class="gg-badge {% if health.error_count > 0 %}{% elif health.warning_count > 0 %}gg-badge--gold{% else %}gg-badge--teal{% endif %}">
+            {{ health.ok_count }}/{{ health.checks|length }} ok
+        </span>
+    </div>
+    <div class="mc-card__body">
+        <table class="gg-table gg-table--compact">
+            <thead>
+                <tr>
+                    <th>Service</th>
+                    <th>Status</th>
+                    <th>Detail</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for check in health.checks %}
+                <tr>
+                    <td>{{ check.name }}</td>
+                    <td>
+                        {% if check.status == 'ok' %}
+                        <span class="gg-badge gg-badge--teal">OK</span>
+                        {% elif check.status == 'warning' %}
+                        <span class="gg-badge gg-badge--gold">WARNING</span>
+                        {% else %}
+                        <span class="gg-badge" style="background:var(--gg-color-error);color:white">ERROR</span>
+                        {% endif %}
+                    </td>
+                    <td class="mc-text-muted" style="font-size:var(--gg-font-size-2xs)">{{ check.detail }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

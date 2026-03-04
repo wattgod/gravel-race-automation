@@ -1,0 +1,116 @@
+{
+  "race": {
+    "name": "Trans Pyrenees Race",
+    "slug": "trans-pyrenees-race",
+    "vitals": {
+      "distance": "1800-2000 km",
+      "elevation_gain": "45,000+ m",
+      "terrain": "mountains, cols, remote regions",
+      "surface": "mostly paved roads, minor off-road options",
+      "avg_gradient": "N/A",
+      "aid_stations": "self-supported, no aid stations",
+      "time_limit": "9 days (finish cut-off 3rd October 23:59 CEST)",
+      "field_size": "limited, solo or pairs",
+      "participation_trend": "growing interest in ultra events by Lost Dot",
+      "date": "2026: September 25",
+      "date_specific": "2026: September 25",
+      "location": "Atlantic to Mediterranean, France/Spain",
+      "distance_mi": 1243,
+      "elevation_ft": 147637
+    },
+    "course_description": {
+      "overview": "Self-supported ultra race from Girona (Mediterranean) across the Pyrenees to Orio (Atlantic), then back via iconic cols to Girona, featuring mandatory parcours and control points with ~1800km of relentless climbing through Catalonia, Basque country, and high Pyrenees.",
+      "key_segments": [
+        {
+          "name": "Parcours A: Els Angels to Coll d’Arques",
+          "distance": "2km",
+          "description": "Tarmac with 17m gain, leading to cross-country choices through forested slopes."
+        },
+        {
+          "name": "Parcours B: Coll de Jou to Coll de Boixols",
+          "distance": "N/A",
+          "description": "Balcony roads with sheer rock faces and endless views in unexplored areas."
+        },
+        {
+          "name": "CP1: Pessonada (Boumort Reserve)",
+          "distance": "N/A",
+          "description": "Unmanned analog checkpoint; tear page from book, tribute to Barkley Marathons."
+        },
+        {
+          "name": "Parcours C: Plan to Canon de Anisclo (CP2)",
+          "distance": "N/A",
+          "description": "Skims Pyrenees edge with high peaks and Ordesa cliffs."
+        },
+        {
+          "name": "RAID Pyreneen (Parcours E/F)",
+          "distance": "N/A",
+          "description": "Historic cols including Marie-Blanque, Aubisque, Soulor, Tourmalet, Aspin, Peyresourde; finishes at Cim de Coma Morera (2200m)."
+        },
+        {
+          "name": "Finish: Panta de Susqueda to Girona",
+          "distance": "N/A",
+          "description": "Secondary roads and Via Verde along Ter river."
+        }
+      ],
+      "difficulty_narrative": "Considerable climbing for grimpeurs, demanding terrain rewarding adventure, with route choices, remote areas, and high-altitude cols up to 2200m."
+    },
+    "logistics": {
+      "getting_there": "Start/finish in Girona, Spain; accessible by flights to Girona-Costa Brava Airport or Barcelona; riders manage own travel to start.",
+      "accommodation": "Self-supported; riders source own bivouac or hotels en route.",
+      "registration_details": "Applications open 23rd January - 15th February 2026; Registration: 24th September 2026 10:00-16:00 CEST; Cost: £415 per rider + £130 refundable tracker deposit; solo or pairs.",
+      "bike_logistics": "Riders responsible for bike transport, maintenance, and navigation; tracker required.",
+      "local_considerations": "Pyrenees weather variable; prepare for remote areas, high altitude, and border crossings between France/Spain."
+    },
+    "gravel_god_rating": {
+      "logistics": 2,
+      "length": 5,
+      "technicality": 2,
+      "elevation": 5,
+      "climate": 3,
+      "altitude": 4,
+      "adventure": 5,
+      "prestige": 4,
+      "race_quality": 3,
+      "experience": 4,
+      "community": 4,
+      "field_depth": 2,
+      "value": 4,
+      "expenses": 4,
+      "cultural_impact": 4,
+      "overall_score": 79,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "scenery": 5,
+      "course_design": 5,
+      "race_atmosphere": 4,
+      "post_race_experience": 4,
+      "value_for_money": 4,
+      "accessibility": 2,
+      "overall_score": 79,
+      "tier": 2,
+      "tier_label": "TIER 2"
+    },
+    "final_verdict": {
+      "one_liner": "Epic self-supported Pyrenees double-crossing for grimpeurs seeking ultimate adventure.",
+      "who_is_it_for": "Experienced ultra-distance cyclists, solo or pairs, who thrive on climbing, navigation choices, and remoteness.",
+      "is_it_worth_it": "Yes, for those chasing Mike Hall's vision of demanding, rewarding terrain in stunning scenery.",
+      "pro_tips": [
+        "Master route choices at parcours transitions for time savings.",
+        "Pack for variable mountain weather and high altitude.",
+        "Train extensively on long climbs; focus on grimpeur fitness.",
+        "Validate CPs analog-style; carry book page tools."
+      ]
+    },
+    "suffering_zones": {
+      "climbing": 5,
+      "distance": 5,
+      "technicality": 2,
+      "exposure": 4,
+      "mental": 5,
+      "overall_suffering": 4.2
+    }
+  }
+}

@@ -1,0 +1,106 @@
+{
+  "race": {
+    "name": "Fuji Panorama Gran Fondo",
+    "slug": "fuji-panorama-gran-fondo",
+    "vitals": {
+      "distance": "120 km",
+      "elevation_gain": "1800 m",
+      "terrain": "rolling hills with climbs",
+      "surface": "paved roads",
+      "avg_gradient": "1.5%",
+      "aid_stations": "6",
+      "time_limit": "8 hours",
+      "field_size": "1500",
+      "participation_trend": "stable",
+      "date": "2026: 10 TBD",
+      "date_specific": "2026: 10 TBD",
+      "location": "Lake Saiko, Yamanashi Prefecture, Japan",
+      "distance_mi": 75,
+      "elevation_ft": 5906
+    },
+    "course_description": {
+      "overview": "Gran fondo road cycling event circling the Fuji Five Lakes area, starting and finishing near Lake Saiko, with continuous panoramic views of Mt. Fuji across paved roads linking Lakes Saiko, Shoji, Motosu, Kawaguchi, and Yamanaka.",
+      "key_segments": [
+        {
+          "name": "Saiko to Yamanaka Lake Climb",
+          "distance": "25 km",
+          "description": "Rolling ascent with Fuji views, moderate gradients up to 6%."
+        },
+        {
+          "name": "Kawaguchi Lake Loop",
+          "distance": "30 km",
+          "description": "Flat to rolling lakeside roads with iconic Fuji reflections."
+        },
+        {
+          "name": "Motosu Panorama Descent",
+          "distance": "20 km",
+          "description": "Fast paved descent with expansive mountain vistas."
+        },
+        {
+          "name": "Final Saiko Rollers",
+          "distance": "15 km",
+          "description": "Undulating finish testing fatigue with lake-edge paths."
+        }
+      ],
+      "difficulty_narrative": "Moderate challenge blending long distance, moderate elevation, and variable weather; accessible for strong amateurs but demanding due to altitude and exposure."
+    },
+    "logistics": {
+      "getting_there": "Fly into Tokyo (NRT/HND), then bus/train to Kawaguchiko Station (1.5-2 hrs); event shuttles from Fujikyuko Line stations to Lake Saiko start.",
+      "accommodation": "Hotels and ryokans around Lake Kawaguchi; camping at Saiko lakeside sites; book early for Fuji-view rooms.",
+      "registration_details": "Online via Japanese platforms like Runnet; entry ~15,000-20,000 JPY; opens spring 2026, caps at 1500 riders.",
+      "bike_logistics": "Bike assembly at Kawaguchiko; rental shops available; Japan Rail bike bags for transport; no mechanical support on course.",
+      "local_considerations": "Autumn weather variable (cool 10-20C, possible rain); high altitude (800-1400m) affects breathing; respect Fuji traffic rules; English support limited."
+    },
+    "gravel_god_rating": {
+      "logistics": 3,
+      "length": 4,
+      "technicality": 1,
+      "elevation": 3,
+      "climate": 4,
+      "altitude": 3,
+      "adventure": 4,
+      "prestige": 2,
+      "race_quality": 3,
+      "experience": 5,
+      "community": 3,
+      "field_depth": 2,
+      "value": 4,
+      "expenses": 3,
+      "cultural_impact": 0,
+      "overall_score": 63,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "scenery": 5,
+      "course_design": 4,
+      "race_atmosphere": 3,
+      "post_race_experience": 4,
+      "value_for_money": 4,
+      "accessibility": 3,
+      "overall_score": 63,
+      "tier": 2,
+      "tier_label": "TIER 2"
+    },
+    "final_verdict": {
+      "one_liner": "Stunning Fuji-framed road loops for scenery chasers seeking accessible gran fondo suffering.",
+      "who_is_it_for": "Amateur road cyclists craving epic views over pure racing; groups/tourists combining ride with Japan travel.",
+      "is_it_worth_it": "Yes, for notable Mt. Fuji panoramas at moderate difficulty and cost.",
+      "pro_tips": [
+        "Train for altitude with hill repeats.",
+        "Pack arm/leg warmers for variable fall weather.",
+        "Stay in Kawaguchiko for easy access and onsen recovery.",
+        "Join local Cycle Expo day before for gear/vibes."
+      ]
+    },
+    "suffering_zones": {
+      "climbing": 3,
+      "distance": 4,
+      "technicality": 1,
+      "exposure": 4,
+      "mental": 3,
+      "overall_suffering": 3.0
+    }
+  }
+}

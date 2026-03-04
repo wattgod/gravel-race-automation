@@ -1,0 +1,96 @@
+{
+  "race": {
+    "name": "Bordeaux-Paris Ultra Cycling Challenge",
+    "slug": "bordeaux-paris-ultra-cycling",
+    "vitals": {
+      "distance": "650 km",
+      "elevation_gain": "Minimal",
+      "terrain": "Flat to rolling",
+      "surface": "Paved roads",
+      "avg_gradient": "N/A",
+      "aid_stations": "Self-supported ultra format; no formal aid stations specified",
+      "time_limit": "Not specified",
+      "field_size": "Small field typical for ultra events",
+      "participation_trend": "Stable niche ultra-cycling event",
+      "date": "2026: May TBD",
+      "date_specific": "May 22, 2026 (one source)",
+      "location": "Bordeaux to Paris, France",
+      "distance_mi": 370,
+      "elevation_ft": 0
+    },
+    "course_description": {
+      "overview": "Ultra-endurance road cycling challenge of nearly 650 km in a single push from Bordeaux on the Atlantic Ocean and Garonne River banks to Paris on the Seine River, traversing flat to rolling French landscapes.[6]",
+      "key_segments": [
+        {
+          "name": "Bordeaux to Châteauroux",
+          "distance": "330 km",
+          "description": "Initial segment through southwestern France, likely flat forests and plains similar to Landes region."
+        },
+        {
+          "name": "Châteauroux to Paris",
+          "distance": "320 km",
+          "description": "Northern push through central France to the Eiffel Tower, rolling terrain."
+        }
+      ],
+      "difficulty_narrative": "Extreme distance challenge emphasizing endurance over technical difficulty, with long straight roads, subtle hills, and mental fatigue from monotonous flats.[3][6]"
+    },
+    "logistics": {
+      "getting_there": "Fly into Bordeaux Airport (BOD) for start; Paris airports (CDG, ORY) for finish. Train connections available between cities.",
+      "accommodation": "Self-managed; pre/post-event hotels in Bordeaux and Paris.",
+      "registration_details": "Register via organizer site; date and price TBD for 2026. Limited spots for ultra events.[3]",
+      "bike_logistics": "Fly with bike or ship; standard road bike suitable. No support vehicles mentioned.",
+      "local_considerations": "Spring weather variable; watch for traffic on roads. France has good cycling infrastructure but event is on open roads."
+    },
+    "gravel_god_rating": {
+      "logistics": 3,
+      "length": 5,
+      "technicality": 1,
+      "elevation": 1,
+      "climate": 3,
+      "altitude": 1,
+      "adventure": 4,
+      "prestige": 3,
+      "race_quality": 3,
+      "experience": 4,
+      "community": 3,
+      "field_depth": 2,
+      "value": 4,
+      "expenses": 3,
+      "cultural_impact": 2,
+      "overall_score": 60,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "scenery": 3,
+      "course_design": 3,
+      "race_atmosphere": 2,
+      "post_race_experience": 4,
+      "value_for_money": 4,
+      "accessibility": 3,
+      "overall_score": 60,
+      "tier": 2,
+      "tier_label": "TIER 2"
+    },
+    "final_verdict": {
+      "one_liner": "Brutal flat ultra-road test of pure endurance from wine country to the City of Light.",
+      "who_is_it_for": "Hardcore ultra-cyclists seeking a single-push 650km road sufferfest without gravel or climbs.",
+      "is_it_worth_it": "Yes for ultra-distance purists chasing iconic France traversal.",
+      "pro_tips": [
+        "Train for 20+ hour saddle time on trainer with headwind simulation.",
+        "Pack lights and spares; self-supported format demands reliability.",
+        "Start early to beat summer heat; monitor Loire Valley winds.",
+        "Celebrate finish with Eiffel Tower views and French recovery meal."
+      ]
+    },
+    "suffering_zones": {
+      "climbing": 1,
+      "distance": 5,
+      "technicality": 1,
+      "exposure": 3,
+      "mental": 5,
+      "overall_suffering": 3.0
+    }
+  }
+}

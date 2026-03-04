@@ -1,0 +1,101 @@
+{
+  "race": {
+    "name": "Suzuka Endurance Road",
+    "slug": "suzuka-endurance-road",
+    "vitals": {
+      "distance": "Circuit laps totaling approximately 160 km",
+      "elevation_gain": "Minimal",
+      "terrain": "Closed circuit",
+      "surface": "Smooth asphalt",
+      "avg_gradient": "0%",
+      "aid_stations": "Pit stops with team support",
+      "time_limit": "Fixed duration (e.g., 4 or 8 hours)",
+      "field_size": "Hundreds of teams",
+      "participation_trend": "Stable with high attendance",
+      "date": "2026: July 3-5",
+      "date_specific": "2026: July 3-5",
+      "location": "Suzuka Circuit, Mie Prefecture, Japan",
+      "distance_mi": 100,
+      "elevation_ft": 0
+    },
+    "course_description": {
+      "overview": "Endurance road race on the 5.8 km Suzuka Circuit, a technical F1 track with elevation changes, high-speed sections, and challenging corners like the 'S' curves and 130R corner. Teams and soloists complete laps for a set time period.",
+      "key_segments": [
+        {
+          "name": "Degner Curves",
+          "distance": "Part of 5.8 km lap",
+          "description": "Tight left-right sequence testing bike handling and rider skill."
+        },
+        {
+          "name": "Spoon Curve",
+          "distance": "Part of 5.8 km lap",
+          "description": "Long uphill left-hander requiring sustained power."
+        },
+        {
+          "name": "130R",
+          "distance": "Part of 5.8 km lap",
+          "description": "High-speed right-hander at over 300 km/h demanding precision."
+        }
+      ],
+      "difficulty_narrative": "High due to relentless pace, technical corners, and team coordination over hours; fatigue and strategy key factors."
+    },
+    "logistics": {
+      "getting_there": "Fly to Chubu Centrair International Airport (NGO) or Kansai International (KIX), then train or bus to Suzuka (1-2 hours).",
+      "accommodation": "On-site hotel at Suzuka Circuit, nearby hotels in Suzuka city, or camping areas.",
+      "registration_details": "Entry via official Suzuka Circuit website; team-based with seed rights for top teams; strict bike class rules (e.g., 600cc supersport).",
+      "bike_logistics": "Bikes transported to circuit; pit areas provided for teams; modifications limited per class rules.",
+      "local_considerations": "Hot, humid summer conditions; large crowds (up to 85,000+); Japanese language dominant, English support limited."
+    },
+    "gravel_god_rating": {
+      "logistics": 3,
+      "length": 3,
+      "technicality": 4,
+      "elevation": 1,
+      "climate": 2,
+      "altitude": 1,
+      "adventure": 2,
+      "prestige": 5,
+      "race_quality": 5,
+      "experience": 4,
+      "community": 4,
+      "field_depth": 4,
+      "value": 3,
+      "expenses": 2,
+      "cultural_impact": 5,
+      "overall_score": 69,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "scenery": 2,
+      "course_design": 5,
+      "race_atmosphere": 5,
+      "post_race_experience": 3,
+      "value_for_money": 3,
+      "accessibility": 3,
+      "overall_score": 69,
+      "tier": 2,
+      "tier_label": "TIER 2"
+    },
+    "final_verdict": {
+      "one_liner": "Iconic Japanese motorcycle endurance racing on legendary Suzuka Circuit.",
+      "who_is_it_for": "Experienced road racers, teams, and fans of high-level circuit endurance events.",
+      "is_it_worth_it": "Yes for prestige and competition, but high costs and team requirements limit accessibility.",
+      "pro_tips": [
+        "Prepare for heat and humidity in July.",
+        "Secure team entry early via seed rights or qualifiers.",
+        "Study Suzuka's technical layout for lap time optimization.",
+        "Leverage pit strategy for refueling and rider changes."
+      ]
+    },
+    "suffering_zones": {
+      "climbing": 1,
+      "distance": 4,
+      "technicality": 5,
+      "exposure": 2,
+      "mental": 4,
+      "overall_suffering": 3.2
+    }
+  }
+}

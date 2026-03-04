@@ -1,0 +1,106 @@
+{
+  "race": {
+    "name": "Race Around Netherlands",
+    "slug": "race-around-netherlands",
+    "vitals": {
+      "distance": "1950 km (classic) / 1315 km (north loop)",
+      "elevation_gain": "Minimal",
+      "terrain": "Flat with some hills",
+      "surface": "99% paved",
+      "avg_gradient": "N/A",
+      "aid_stations": "None (fully self-supported)",
+      "time_limit": "8 days (May 10th 1800)",
+      "field_size": "20-50",
+      "participation_trend": "Stable/growing",
+      "date": "2026: May 2",
+      "date_specific": "2026: May 2",
+      "location": "Netherlands (loop)",
+      "distance_mi": 1211,
+      "elevation_ft": 0
+    },
+    "course_description": {
+      "overview": "Self-supported bikepacking race circumnavigating the Netherlands, primarily on paved paths with coastal headwinds, rivers, national parks, and southern hills including Keutenberg (16% gradient). Start/finish at De Proloog Cafe in Amerongen.",
+      "key_segments": [
+        {
+          "name": "Rivers Neder-Rijn and Waal",
+          "distance": "N/A",
+          "description": "Through historic cities Nijmegen and Arnhem."
+        },
+        {
+          "name": "National Park Veluwezoom",
+          "distance": "N/A",
+          "description": "Heath fields, estates, Posbank hill."
+        },
+        {
+          "name": "Belgian border to Limburg",
+          "distance": "N/A",
+          "description": "Hills including Keutenberg (16% max gradient)."
+        },
+        {
+          "name": "Maas river return",
+          "distance": "N/A",
+          "description": "Southern dikes back to Amerongen."
+        }
+      ],
+      "difficulty_narrative": "Relentless coastal headwinds, flat distance with mental challenge of self-support and long paved miles; some short steep hills in south."
+    },
+    "logistics": {
+      "getting_there": "Fly to Amsterdam Schiphol (AMS), train to Amerongen; start/finish at De Proloog Cafe, Allemanswaard 27, 3958 KA Amerongen.",
+      "accommodation": "Fully self-supported; optional hostel add-on night before race (May 1); no finish sleep provided.",
+      "registration_details": "Opens Aug 1, 2025, closes Mar 1, 2026. Early fee: €235 solo/€215 team; late: €275/€255. No refunds after Dec 30, 2025.",
+      "bike_logistics": "Fly with bike or rent; e-bikes allowed; GPX route and tracking device provided.",
+      "local_considerations": "Dutch traffic laws mandatory; no drafting except teams; coastal winds, mild spring weather."
+    },
+    "gravel_god_rating": {
+      "logistics": 3,
+      "length": 5,
+      "technicality": 1,
+      "elevation": 1,
+      "climate": 3,
+      "altitude": 1,
+      "adventure": 4,
+      "prestige": 3,
+      "race_quality": 4,
+      "experience": 4,
+      "community": 3,
+      "field_depth": 3,
+      "value": 4,
+      "expenses": 4,
+      "cultural_impact": 2,
+      "overall_score": 64,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "scenery": 4,
+      "course_design": 4,
+      "race_atmosphere": 3,
+      "post_race_experience": 3,
+      "value_for_money": 4,
+      "accessibility": 4,
+      "overall_score": 64,
+      "tier": 2,
+      "tier_label": "TIER 2"
+    },
+    "final_verdict": {
+      "one_liner": "Epic self-supported flat loop testing endurance against Dutch winds and distance.",
+      "who_is_it_for": "Ultra bikepackers seeking unsupported road miles, solo/team riders comfortable self-organizing.",
+      "is_it_worth_it": "Yes for wind-hardened adventurers valuing raw challenge over support.",
+      "pro_tips": [
+        "Train headwind riding on flats.",
+        "Pack light for self-support; source food en route.",
+        "Choose north loop if time-constrained.",
+        "Book early hostel; bring shower towel for finish."
+      ]
+    },
+    "suffering_zones": {
+      "climbing": 1,
+      "distance": 5,
+      "technicality": 1,
+      "exposure": 4,
+      "mental": 5,
+      "overall_suffering": 3.2
+    }
+  }
+}

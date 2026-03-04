@@ -1,0 +1,96 @@
+{
+  "race": {
+    "name": "Jedermann-Rennen Rund um Köln",
+    "slug": "jedermann-rennen-koln",
+    "vitals": {
+      "distance": "120 km",
+      "elevation_gain": "~1500 m",
+      "terrain": "hilly",
+      "surface": "asphalt",
+      "avg_gradient": "N/A",
+      "aid_stations": "Multiple on course",
+      "time_limit": "N/A",
+      "field_size": "Large (hundreds)",
+      "participation_trend": "Stable, traditional event",
+      "date": "2026: May 17",
+      "date_specific": "2026: May 17",
+      "location": "Cologne, Germany",
+      "distance_mi": 62,
+      "elevation_ft": 4921
+    },
+    "course_description": {
+      "overview": "Amateur companion race to the pro UCI Rund um Köln classic, on closed roads through the hilly Bergisches Land region, starting and finishing at Rheinauhafen in Cologne.",
+      "key_segments": [
+        {
+          "name": "Schloss Bensberg",
+          "distance": "N/A",
+          "description": "Iconic cobblestone climb to Bensberg Castle with crowds, punchy ascent."
+        },
+        {
+          "name": "Bergisches Land Hills",
+          "distance": "N/A",
+          "description": "Series of short, steep climbs and rolling terrain throughout the route."
+        }
+      ],
+      "difficulty_narrative": "Constant up-and-down with numerous short, punchy climbs making it challenging for amateurs; diversified hilly profile."
+    },
+    "logistics": {
+      "getting_there": "Start/finish at Rheinauhafen, Cologne; accessible by public transport, car, or bike; expo at Harry-Blum-Platz May 16-17.",
+      "accommodation": "Abundant hotels in Cologne; book early for race weekend.",
+      "registration_details": "Opens November 2025; online via rundumkoeln.de; multiple distances available.",
+      "bike_logistics": "Standard road bike; transport to Cologne via train/plane/car.",
+      "local_considerations": "Closed roads; family-friendly with kids' events; watch weather in May (mild, possible rain)."
+    },
+    "gravel_god_rating": {
+      "logistics": 4,
+      "length": 3,
+      "technicality": 1,
+      "elevation": 3,
+      "climate": 4,
+      "altitude": 1,
+      "adventure": 3,
+      "prestige": 4,
+      "race_quality": 4,
+      "experience": 4,
+      "community": 4,
+      "field_depth": 3,
+      "value": 4,
+      "expenses": 3,
+      "cultural_impact": 4,
+      "overall_score": 70,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "scenery": 4,
+      "course_design": 4,
+      "race_atmosphere": 5,
+      "post_race_experience": 4,
+      "value_for_money": 4,
+      "accessibility": 4,
+      "overall_score": 70,
+      "tier": 2,
+      "tier_label": "TIER 2"
+    },
+    "final_verdict": {
+      "one_liner": "Classic German amateur road race sharing pro roads with punchy hills and great atmosphere.",
+      "who_is_it_for": "Ambitious road cyclists seeking a challenging gran fondo on closed roads with classic vibes.",
+      "is_it_worth_it": "Yes, for the prestige, scenery, and pro-level experience at amateur level.",
+      "pro_tips": [
+        "Register early in Nov 2025.",
+        "Train for short steep climbs.",
+        "Visit expo Sat for gear/vibes.",
+        "Spectate Schloss Bensberg for energy."
+      ]
+    },
+    "suffering_zones": {
+      "climbing": 7,
+      "distance": 5,
+      "technicality": 2,
+      "exposure": 3,
+      "mental": 5,
+      "overall_suffering": 4.4
+    }
+  }
+}

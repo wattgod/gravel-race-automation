@@ -1,0 +1,24 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "La Cicloturista Internacional de la Cerdanya",
+  "description": "",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-07-04",
+  "location": {
+    "@type": "Place",
+    "name": "Puigcerd\u00e0, Catalonia, Spain",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Puigcerd\u00e0",
+      "addressRegion": "Catalonia"
+    }
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "77",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Les Trois Ballons",
+  "description": "",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-06-07",
+  "location": {
+    "@type": "Place",
+    "name": "Ronchamp, Haute-Sa\u00f4ne, France",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Ronchamp",
+      "addressRegion": "Haute-Sa\u00f4ne"
+    }
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "67",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  }
+}

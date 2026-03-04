@@ -1,0 +1,106 @@
+{
+  "race": {
+    "name": "Two Volcano Sprint",
+    "slug": "two-volcano-sprint",
+    "vitals": {
+      "distance": "1200 km",
+      "elevation_gain": "24000 m",
+      "terrain": "Hilly with steep climbs and mountain passes",
+      "surface": "Paved roads",
+      "avg_gradient": "N/A",
+      "aid_stations": "None (self-supported)",
+      "time_limit": "N/A",
+      "field_size": "Small (experienced ultra riders)",
+      "participation_trend": "Growing interest among ultra cyclists",
+      "date": "2026: April 26",
+      "date_specific": "2026: April 26",
+      "location": "Ercolano (Vesuvius) to Catania (Etna), Italy",
+      "distance_mi": 746,
+      "elevation_ft": 78740
+    },
+    "course_description": {
+      "overview": "Self-supported ultra cycling race from Mount Vesuvius near Naples, through Calabria, ferry across Strait of Messina, to Mount Etna in Sicily, featuring demanding climbs, coastal descents, and southern Italian landscapes.",
+      "key_segments": [
+        {
+          "name": "Vesuvius and Faito climbs",
+          "distance": "~100 km",
+          "description": "Initial high-pace climbs from Ercolano, stretching the field early."
+        },
+        {
+          "name": "Calabrian mountains",
+          "distance": "~500 km",
+          "description": "Rugged terrain with tough passes, irregular roads, and elevation challenges."
+        },
+        {
+          "name": "Strait of Messina ferry",
+          "distance": "Short ferry",
+          "description": "Transition to Sicily with quick refuel before night climbs."
+        },
+        {
+          "name": "Etna south ascent",
+          "distance": "~100 km",
+          "description": "Brutal final climb on rough lava terrain leading to finish in Catania."
+        }
+      ],
+      "difficulty_narrative": "Extreme endurance test with massive elevation, steep gradients, unpredictable weather, and full self-sufficiency over remote southern Italian roads."
+    },
+    "logistics": {
+      "getting_there": "Fly to Naples for start in Ercolano; finish in Catania with airport access.",
+      "accommodation": "Riders self-manage; no provided support.",
+      "registration_details": "Open since September 2025 at www.twovolcanosprint.com; fees support environmental projects.",
+      "bike_logistics": "Fly with bike to Naples; ship home from Catania if needed; fixed GPX route.",
+      "local_considerations": "Ferry across Strait of Messina required; watch for traffic, shepherds, dogs; Italian road conditions variable with cobblestones and rain."
+    },
+    "gravel_god_rating": {
+      "logistics": 2,
+      "length": 5,
+      "technicality": 2,
+      "elevation": 5,
+      "climate": 3,
+      "altitude": 2,
+      "adventure": 5,
+      "prestige": 3,
+      "race_quality": 4,
+      "experience": 5,
+      "community": 3,
+      "field_depth": 3,
+      "value": 4,
+      "expenses": 3,
+      "cultural_impact": 2,
+      "overall_score": 73,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "scenery": 5,
+      "course_design": 4,
+      "race_atmosphere": 4,
+      "post_race_experience": 4,
+      "value_for_money": 4,
+      "accessibility": 2,
+      "overall_score": 73,
+      "tier": 2,
+      "tier_label": "TIER 2"
+    },
+    "final_verdict": {
+      "one_liner": "Epic self-supported odyssey linking Italy's iconic volcanoes for hardened ultra cyclists.",
+      "who_is_it_for": "Experienced ultra-distance riders seeking raw adventure, massive climbs, and southern Italy's wild beauty.",
+      "is_it_worth_it": "Yes, for those craving a prestigious, unsupported challenge with stunning views outweighing the suffering.",
+      "pro_tips": [
+        "Master self-sufficiency: pack repair kit, navigation, and food for remote stretches.",
+        "Train for repeated steep climbs and night riding.",
+        "Time the Messina ferry carefully.",
+        "Embrace Calabria's rugged reality over romanticized expectations."
+      ]
+    },
+    "suffering_zones": {
+      "climbing": 5,
+      "distance": 5,
+      "technicality": 2,
+      "exposure": 4,
+      "mental": 5,
+      "overall_suffering": 4.2
+    }
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "race": {
+    "name": "Tour de Suisse Challenge",
+    "slug": "tour-de-suisse-challenge",
+    "vitals": {
+      "distance": "1015 km",
+      "elevation_gain": "TBD",
+      "terrain": "mountainous and rolling",
+      "surface": "paved roads",
+      "avg_gradient": "TBD",
+      "aid_stations": "TBD",
+      "time_limit": "TBD",
+      "field_size": "TBD",
+      "participation_trend": "TBD",
+      "date": "2026: June TBD",
+      "date_specific": "2026: June 11 (start)",
+      "location": "Various, Switzerland",
+      "distance_mi": 630,
+      "elevation_ft": 0
+    },
+    "course_description": {
+      "overview": "Amateur multi-stage road cycling event mirroring the professional Tour de Suisse, covering approximately 1015 km across Switzerland with mountainous and rolling terrain over several days.",
+      "key_segments": [
+        {
+          "name": "Stage 1",
+          "distance": "TBD",
+          "description": "Start in Einsiedeln, following pro race routes."
+        },
+        {
+          "name": "Mountain Stages",
+          "distance": "TBD",
+          "description": "High Alps climbs similar to pro Queen Stage."
+        },
+        {
+          "name": "Final Stages",
+          "distance": "TBD",
+          "description": "Rolling terrain leading to overall finish."
+        }
+      ],
+      "difficulty_narrative": "High difficulty due to total distance, significant elevation in Swiss Alps, and multi-day format testing endurance on paved mountain roads akin to UCI WorldTour stages."
+    },
+    "logistics": {
+      "getting_there": "Fly into Zurich Airport (ZRH), then train or drive to start in Einsiedeln or host regions; aligns with pro race host cities announced autumn 2025.",
+      "accommodation": "Book hotels in daily host towns matching pro Tour de Suisse regions; camping or bike-friendly stays in Swiss Alps areas.",
+      "registration_details": "Opens TBD via official site; entry fee TBD, limited field as amateur companion event.",
+      "bike_logistics": "Transport bike via Swiss rail (SBB bike spaces) or fly with bike bag to ZRH; service courses likely at stage starts like pro event.",
+      "local_considerations": "Expect road closures during pro race June 17-21; variable June weather with rain/heat; high altitude passes require acclimation."
+    },
+    "gravel_god_rating": {
+      "logistics": 4,
+      "length": 5,
+      "technicality": 2,
+      "elevation": 5,
+      "climate": 4,
+      "altitude": 5,
+      "adventure": 4,
+      "prestige": 3,
+      "race_quality": 3,
+      "experience": 5,
+      "community": 4,
+      "field_depth": 2,
+      "value": 4,
+      "expenses": 2,
+      "cultural_impact": 3,
+      "overall_score": 79,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "scenery": 5,
+      "course_design": 4,
+      "race_atmosphere": 5,
+      "post_race_experience": 4,
+      "value_for_money": 4,
+      "accessibility": 3,
+      "overall_score": 79,
+      "tier": 2,
+      "tier_label": "TIER 2"
+    },
+    "final_verdict": {
+      "one_liner": "Epic amateur multi-day road challenge shadowing the revamped Tour de Suisse pros.",
+      "who_is_it_for": "Endurance road cyclists seeking pro-level Swiss Alps stages without WorldTour speed.",
+      "is_it_worth_it": "Yes, for stunning scenery and prestige of riding iconic routes.",
+      "pro_tips": [
+        "Train for 20,000m+ elevation like past pro editions.",
+        "Register early as field limited.",
+        "Sync with pro race for spectator vibes June 17-21.",
+        "Pack layers for alpine weather shifts."
+      ]
+    },
+    "suffering_zones": {
+      "climbing": 5,
+      "distance": 5,
+      "technicality": 2,
+      "exposure": 4,
+      "mental": 4,
+      "overall_suffering": 4.0
+    }
+  }
+}

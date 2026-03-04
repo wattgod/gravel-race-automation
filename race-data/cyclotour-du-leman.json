@@ -1,0 +1,101 @@
+{
+  "race": {
+    "name": "Cyclotour du Léman",
+    "slug": "cyclotour-du-leman",
+    "vitals": {
+      "distance": "176 km",
+      "elevation_gain": "890 m",
+      "terrain": "rolling hills, lake shores, vineyards",
+      "surface": "paved roads",
+      "avg_gradient": "N/A",
+      "aid_stations": "multiple along course, at start/finish",
+      "time_limit": "16 hours (full course)",
+      "field_size": "4000",
+      "participation_trend": "consistently full, sells out months in advance",
+      "date": "2026: October 18",
+      "date_specific": "2026: October 18",
+      "location": "Lausanne, Switzerland",
+      "distance_mi": 109,
+      "elevation_ft": 2920
+    },
+    "course_description": {
+      "overview": "Non-competitive cyclosportive looping around Lake Geneva (Lac Léman) through Swiss and French vineyards, shores, and hills, with three distances: 176 km full loop (Lausanne-Lausanne), 112 km (Evian-Lausanne), 64 km (Lausanne-Evian). Roads remain open to traffic.",
+      "key_segments": [
+        {
+          "name": "Lavaux vineyards",
+          "distance": "variable",
+          "description": "Terraced vineyards and lake views on Swiss side."
+        },
+        {
+          "name": "Chablais region",
+          "distance": "variable",
+          "description": "Hilly terrain near Evian with Mont Blanc vistas."
+        },
+        {
+          "name": "Full lake loop climbs",
+          "distance": "176 km total",
+          "description": "Cumulative 890 m elevation through rolling hills and lake-hugging roads."
+        }
+      ],
+      "difficulty_narrative": "Demanding for full 176 km due to length and 890 m gain over varied terrain; accessible options for shorter routes. No tri bars or TT bikes allowed for safety."
+    },
+    "logistics": {
+      "getting_there": "Accessible by car, train, or public transport to Lausanne/Evian; dedicated parking, boat transfers (free for mid-distance participants), shuttles available.",
+      "accommodation": "Hotels in Lausanne and Evian; book early due to popularity.",
+      "registration_details": "Opens January 15, 2026 at 11h; sells out fast (previous edition full 3+ months early); fees 60-139 CHF; includes jersey, timing, finisher diploma, boat transfer, aid.",
+      "bike_logistics": "Bib/maillot pickup at Place de la Navigation, Lausanne; secured bike park at finish; participants responsible for bike maintenance.",
+      "local_considerations": "Routes open to traffic, obey road rules; age 16+; date shifted to October due to G7 in Evian; non-competitive, no support vehicles."
+    },
+    "gravel_god_rating": {
+      "logistics": 4,
+      "length": 4,
+      "technicality": 1,
+      "elevation": 3,
+      "climate": 4,
+      "altitude": 2,
+      "adventure": 4,
+      "prestige": 3,
+      "race_quality": 4,
+      "experience": 5,
+      "community": 4,
+      "field_depth": 3,
+      "value": 4,
+      "expenses": 4,
+      "cultural_impact": 2,
+      "overall_score": 73,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "scenery": 5,
+      "course_design": 4,
+      "race_atmosphere": 4,
+      "post_race_experience": 4,
+      "value_for_money": 4,
+      "accessibility": 4,
+      "overall_score": 73,
+      "tier": 2,
+      "tier_label": "TIER 2"
+    },
+    "final_verdict": {
+      "one_liner": "Switzerland's largest non-competitive cyclosportive: stunning Lake Geneva loop for all levels.",
+      "who_is_it_for": "Recreational cyclists seeking epic scenery without racing pressure; endurance riders tackling 176 km.",
+      "is_it_worth_it": "Yes, for notable lake/mountain views, inclusive vibe, and high value inclusions.",
+      "pro_tips": [
+        "Register January 15 sharp—sells out fast.",
+        "Train for 890 m gain on rolling roads.",
+        "Use boat transfer for logistics ease.",
+        "Respect open roads and no tri bars rule."
+      ]
+    },
+    "suffering_zones": {
+      "climbing": 3,
+      "distance": 4,
+      "technicality": 1,
+      "exposure": 2,
+      "mental": 3,
+      "overall_suffering": 2.6
+    }
+  }
+}

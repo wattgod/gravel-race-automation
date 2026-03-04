@@ -1,0 +1,101 @@
+{
+  "race": {
+    "name": "Clare Classic",
+    "slug": "clare-classic",
+    "vitals": {
+      "distance": "161 km",
+      "elevation_gain": "1800 m",
+      "terrain": "rolling hills",
+      "surface": "paved roads",
+      "avg_gradient": "1.1%",
+      "aid_stations": "4-5",
+      "time_limit": "8 hours",
+      "field_size": "800-1000",
+      "participation_trend": "stable regional event",
+      "date": "2026: February 15",
+      "date_specific": "2026: February 15",
+      "location": "Clare Valley, South Australia",
+      "distance_mi": 100,
+      "elevation_ft": 5906
+    },
+    "course_description": {
+      "overview": "Gran fondo through the scenic Clare Valley wine region north of Adelaide, featuring undulating roads with multiple short climbs amid vineyards and countryside.",
+      "key_segments": [
+        {
+          "name": "Mintaro Climb",
+          "distance": "5 km",
+          "description": "Steady ascent through historic village with vineyard views."
+        },
+        {
+          "name": "Sevenhill Rollers",
+          "distance": "20 km",
+          "description": "Series of punchy hills in wine country."
+        },
+        {
+          "name": "Return to Clare",
+          "distance": "30 km",
+          "description": "Fast descent and flat run to finish line."
+        }
+      ],
+      "difficulty_narrative": "Moderate challenge with consistent climbing suited to strong amateurs; rewarding scenery offsets the elevation."
+    },
+    "logistics": {
+      "getting_there": "Fly into Adelaide Airport (2-hour drive north); shuttles often available from event organizers.",
+      "accommodation": "Abundant wineries, B&Bs, and hotels in Clare town; book early for race weekend.",
+      "registration_details": "Online via Cycling Classics; early bird entry around AUD 100-150; multiple distances often offered.",
+      "bike_logistics": "Road bikes recommended; bike shops in Clare for servicing; transport bags via event support.",
+      "local_considerations": "Summer heat possible (25-35°C); wine region - enjoy tastings responsibly post-ride."
+    },
+    "gravel_god_rating": {
+      "logistics": 3,
+      "length": 3,
+      "technicality": 1,
+      "elevation": 3,
+      "climate": 3,
+      "altitude": 1,
+      "adventure": 3,
+      "prestige": 2,
+      "race_quality": 4,
+      "experience": 4,
+      "community": 3,
+      "field_depth": 2,
+      "value": 3,
+      "expenses": 3,
+      "cultural_impact": 0,
+      "overall_score": 54,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "scenery": 5,
+      "course_design": 4,
+      "race_atmosphere": 4,
+      "post_race_experience": 5,
+      "value_for_money": 4,
+      "accessibility": 4,
+      "overall_score": 54,
+      "tier": 3,
+      "tier_label": "TIER 3"
+    },
+    "final_verdict": {
+      "one_liner": "Premier gran fondo blending Clare Valley's wine country beauty with solid road challenge.",
+      "who_is_it_for": "Gran fondo enthusiasts seeking scenic rides with climbs, wine lovers, and South Australian cyclists.",
+      "is_it_worth_it": "Yes, for the unbeatable scenery-to-effort ratio and post-ride winery vibes.",
+      "pro_tips": [
+        "Train for repeated 2-5% grades.",
+        "Stay hydrated in Aussie summer sun.",
+        "Combine with weekend winery tour.",
+        "Opt for shorter distances if new to fondos."
+      ]
+    },
+    "suffering_zones": {
+      "climbing": 6,
+      "distance": 5,
+      "technicality": 1,
+      "exposure": 4,
+      "mental": 3,
+      "overall_suffering": 3.8
+    }
+  }
+}

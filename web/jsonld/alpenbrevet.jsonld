@@ -1,0 +1,24 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Alpenbrevet",
+  "description": "",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-09-05",
+  "location": {
+    "@type": "Place",
+    "name": "Andermatt, Switzerland",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Andermatt",
+      "addressRegion": "Switzerland"
+    }
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "79",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  }
+}

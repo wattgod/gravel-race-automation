@@ -1,0 +1,24 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Peaks and Plains",
+  "description": "",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-05-29",
+  "location": {
+    "@type": "Place",
+    "name": "Magdeburg/Harz Mountains, Germany",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Magdeburg/Harz Mountains",
+      "addressRegion": "Germany"
+    }
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "59",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  }
+}

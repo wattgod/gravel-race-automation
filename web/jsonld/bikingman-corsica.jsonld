@@ -1,0 +1,24 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "BikingMan Corsica",
+  "description": "",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-05-24",
+  "location": {
+    "@type": "Place",
+    "name": "Corsica, France",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Corsica",
+      "addressRegion": "France"
+    }
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "77",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  }
+}

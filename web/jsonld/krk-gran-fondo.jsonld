@@ -1,0 +1,24 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Krk Gran Fondo",
+  "description": "",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-04-25",
+  "location": {
+    "@type": "Place",
+    "name": "Island of Krk, Croatia",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Island of Krk",
+      "addressRegion": "Croatia"
+    }
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "57",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  }
+}

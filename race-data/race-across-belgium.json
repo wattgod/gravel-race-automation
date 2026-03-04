@@ -1,0 +1,101 @@
+{
+  "race": {
+    "name": "Race Across Belgium",
+    "slug": "race-across-belgium",
+    "vitals": {
+      "distance": "200km, 300km, 500km, 1000km options",
+      "elevation_gain": "1000km: ~11,900m; 500km: ~8,550m; 300km: ~5,000m; 200km: not specified",
+      "terrain": "Mixed: Belgian cobblestones, Ardennes valleys, forest roads, border terrain",
+      "surface": "Road and gravel mix",
+      "avg_gradient": "Not specified",
+      "aid_stations": "Semi-autonomous with base camp support at Arlon",
+      "time_limit": "Not specified",
+      "field_size": "Not specified",
+      "participation_trend": "Part of Race Across Series with 3,400+ riders globally",
+      "date": "2026: May 27-31",
+      "date_specific": "2026: May 27",
+      "location": "Belgium, Netherlands, Luxembourg (traverse)",
+      "distance_mi": 621,
+      "elevation_ft": 39042
+    },
+    "course_description": {
+      "overview": "The Race Across Benelux (formerly Race Across Belgium) is an ultra-distance cycling event spanning the Benelux region. The flagship 1000km course features a two-act structure: a 533.5km crossing from Amsterdam to Arlon through the Netherlands and Belgium, followed by a 515.3km loop from Arlon through the Belgian Ardennes and Luxembourg. The event celebrates the region's cycling heritage, featuring iconic Belgian cobblestones, hilly terrain, and beer culture.[2][3]",
+      "key_segments": [
+        {
+          "name": "Act 1: Amsterdam to Arlon",
+          "distance": "533.5km",
+          "description": "Crossing from Amsterdam through Rotterdam, Gouda, and the Baarle-Hertog/Nassau enclaves into Limburg, featuring the Valkenburg Cauberg climb and Hautes Fagnes before reaching Arlon.[2]"
+        },
+        {
+          "name": "Act 2: Arlon Loop",
+          "distance": "515.3km",
+          "description": "Demanding loop through Belgian Ardennes and Luxembourg, including the Anlier Forest, Valley of the Seven Castles, Luxembourg City, Gaume region, and Semois valley with ~7,165m elevation gain.[2]"
+        },
+        {
+          "name": "500km Route",
+          "distance": "528km",
+          "description": "Two complementary loops from Arlon: 200km loop through Anlier Forest and Haute-Sûre, plus 300km loop through Valley of the Seven Castles and Gaume.[2]"
+        }
+      ],
+      "difficulty_narrative": "The event combines wide plains in the Netherlands with challenging Ardennes climbs and technical terrain. The 1000km format totals approximately 11,900m of elevation gain across two distinct acts. The second act is described as 'demanding, leg-breaking' with steep, winding roads through forests and successive climbs. Shorter distances (200-300km) offer more accessible entry points while maintaining significant climbing.[2]"
+    },
+    "logistics": {
+      "getting_there": "Start location is Amsterdam (1000km) or Arlon, Belgium (other distances). The event spans Netherlands, Belgium, and Luxembourg, requiring international travel planning.[2]",
+      "accommodation": "Base camp at Arlon provides dormitories, showers, and meals. Participants return to base camp after each loop on the 500km+ distances.[1]",
+      "registration_details": "Registration opened January 1, 2026. Pricing ranges from €119-€359 for solo entries depending on distance, with team and duo options available at reduced per-person rates.[1] Event runs May 27-31, 2026, with race bib pickup on May 27 and start on May 27 for the 1000km.[2]",
+      "bike_logistics": "Semi-autonomous format with support team and loved ones permitted. Shuttles and life bases provided.[1]",
+      "local_considerations": "Event celebrates regional beer culture (Amstel, Heineken, Chimay, Rochefort, and others) and passes through historically significant areas. Cobblestone roads require appropriate bike setup.[2]"
+    },
+    "gravel_god_rating": {
+      "logistics": 4,
+      "length": 5,
+      "technicality": 3,
+      "elevation": 5,
+      "climate": 3,
+      "altitude": 2,
+      "adventure": 4,
+      "prestige": 3,
+      "race_quality": 4,
+      "experience": 4,
+      "community": 4,
+      "field_depth": 3,
+      "value": 3,
+      "expenses": 2,
+      "cultural_impact": 2,
+      "overall_score": 73,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "scenery": 4,
+      "course_design": 4,
+      "race_atmosphere": 4,
+      "post_race_experience": 3,
+      "value_for_money": 3,
+      "accessibility": 4,
+      "overall_score": 73,
+      "tier": 2,
+      "tier_label": "TIER 2"
+    },
+    "final_verdict": {
+      "one_liner": "A distinctive European ultra-cycling challenge combining Benelux geography, cycling heritage, and demanding terrain for serious endurance cyclists.",
+      "who_is_it_for": "Experienced ultra-cyclists seeking a well-organized, multi-country adventure with cultural richness. The 200-500km options accommodate various fitness levels, while the 1000km targets dedicated ultra-distance racers. Suitable for road cyclists and bikepacking enthusiasts.",
+      "is_it_worth_it": "Yes, for those seeking a European ultra-cycling experience with strong organization, cultural immersion, and challenging terrain. The semi-autonomous format and base camp support balance adventure with logistics. Value depends on travel costs from your location.",
+      "pro_tips": [
+        "Book accommodation early in Arlon for the base camp experience; dormitories fill quickly for multi-day events.",
+        "Prepare for cobblestone roads with appropriate tire selection and bike setup; Belgian classics demand respect.",
+        "The two-act structure of the 1000km allows mental reset at Arlon midpoint; use base camp facilities strategically.",
+        "Plan beer culture exploration as part of the experience; iconic breweries align with the route narrative."
+      ]
+    },
+    "suffering_zones": {
+      "climbing": 5,
+      "distance": 5,
+      "technicality": 3,
+      "exposure": 2,
+      "mental": 4,
+      "overall_suffering": 3.8
+    }
+  }
+}

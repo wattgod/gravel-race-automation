@@ -1,0 +1,101 @@
+{
+  "race": {
+    "name": "Bergen-Voss",
+    "slug": "bergen-voss",
+    "vitals": {
+      "distance": "165 km",
+      "elevation_gain": "2,100 m",
+      "terrain": "fjords and mountains",
+      "surface": "public roads and cycle lanes",
+      "avg_gradient": "N/A",
+      "aid_stations": "multiple, including largest at Norheimsund and last at Kvanndal",
+      "time_limit": "11 hours (07:00-18:00)",
+      "field_size": "2,000-5,000",
+      "participation_trend": "stable, annual since 1977",
+      "date": "2026: June 6",
+      "date_specific": "2026: June 6",
+      "location": "Bergen to Voss, Norway",
+      "distance_mi": 106,
+      "elevation_ft": 6880
+    },
+    "course_description": {
+      "overview": "Point-to-point road sportive from Bergen to Voss through fjord country, featuring stunning scenery of fjords and mountains on public roads and cycle lanes. Includes a 'Timeout' neutral zone over 8 km with technical descent at Tokagjelet.",
+      "key_segments": [
+        {
+          "name": "Start at Edvard Griegs plass",
+          "distance": "0 km",
+          "description": "Mass start in Bergen city center."
+        },
+        {
+          "name": "Norheimsund Food Station / Tokagjelet",
+          "distance": "approx. 80-100 km",
+          "description": "Technical descent neutralized for timing, largest food station."
+        },
+        {
+          "name": "Kvanndal (last feeding station)",
+          "distance": "near end",
+          "description": "Cutoff at 16:30; must pass to continue."
+        }
+      ],
+      "difficulty_narrative": "Challenging with 2,100m climbing through varied terrain including tunnels requiring front white and rear red lights. Suitable for all abilities but demanding due to distance, elevation, and technical sections."
+    },
+    "logistics": {
+      "getting_there": "Fly to Bergen airport; drive or train to start at Edvard Griegs plass. Car parking nearby; remove bikes from roof racks before entering.",
+      "accommodation": "Available in Bergen and Voss resort; Voss sports arena for post-race showers and hot meal.",
+      "registration_details": "Individual or group via www.bergenvoss.no; organized by Bergen Cycle Club with local support.",
+      "bike_logistics": "Road bikes recommended; mountain bikes allowed but suspension discouraged. Compulsory lights for tunnels. Gear bag transport to Voss provided.",
+      "local_considerations": "Passes through Bergen, Samnanger, Kvam, Granvin, Voss municipalities. Expect local enthusiasm and support."
+    },
+    "gravel_god_rating": {
+      "logistics": 4,
+      "length": 4,
+      "technicality": 3,
+      "elevation": 4,
+      "climate": 3,
+      "altitude": 2,
+      "adventure": 5,
+      "prestige": 4,
+      "race_quality": 4,
+      "experience": 5,
+      "community": 4,
+      "field_depth": 2,
+      "value": 4,
+      "expenses": 3,
+      "cultural_impact": 4,
+      "overall_score": 79,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "scenery": 5,
+      "course_design": 4,
+      "race_atmosphere": 4,
+      "post_race_experience": 4,
+      "value_for_money": 4,
+      "accessibility": 4,
+      "overall_score": 79,
+      "tier": 2,
+      "tier_label": "TIER 2"
+    },
+    "final_verdict": {
+      "one_liner": "Norway's iconic Fjord Classic: breathtaking scenery meets solid challenge on roads.",
+      "who_is_it_for": "Cyclists seeking epic fjord views, climbing, and a major Scandinavian sportive; all levels welcome.",
+      "is_it_worth_it": "Yes, for the notable beauty and prestige in Norwegian cycling culture.",
+      "pro_tips": [
+        "Pack compulsory bike lights for tunnels.",
+        "Use gear bag service for post-race change.",
+        "Train for climbs and technical descents like Tokagjelet.",
+        "Confirm exact date on bergenvoss.no as calendars vary."
+      ]
+    },
+    "suffering_zones": {
+      "climbing": 7,
+      "distance": 6,
+      "technicality": 4,
+      "exposure": 3,
+      "mental": 5,
+      "overall_suffering": 5.0
+    }
+  }
+}

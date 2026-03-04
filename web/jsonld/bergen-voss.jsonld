@@ -1,0 +1,24 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Bergen-Voss",
+  "description": "",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-06-06",
+  "location": {
+    "@type": "Place",
+    "name": "Bergen to Voss, Norway",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Bergen to Voss",
+      "addressRegion": "Norway"
+    }
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "79",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  }
+}

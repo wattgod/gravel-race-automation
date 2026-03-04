@@ -1,0 +1,101 @@
+{
+  "race": {
+    "name": "Chase the Sun Norway",
+    "slug": "chase-the-sun-norway",
+    "vitals": {
+      "distance": "450 km",
+      "elevation_gain": "3300 m",
+      "terrain": "mountains, coastal roads, forests",
+      "surface": "paved roads",
+      "avg_gradient": "N/A",
+      "aid_stations": "grab-and-go snacks en-route, lunch venue mid-day, finish line food",
+      "time_limit": "sunrise to sunset (~17.5 hours)",
+      "field_size": "N/A",
+      "participation_trend": "growing community interest",
+      "date": "2026: June 20",
+      "date_specific": "2026: June 20",
+      "location": "Bergen to Kristiansand, Norway",
+      "distance_mi": 280,
+      "elevation_ft": 10827
+    },
+    "course_description": {
+      "overview": "Sunrise-to-sunset ultra-endurance road ride across southern Norway from Bergen on the west coast to Kristiansand on the south coast, featuring mountains, coastal vistas, and fjord landscapes.",
+      "key_segments": [
+        {
+          "name": "West Coast Start",
+          "distance": "0-100 km",
+          "description": "Depart Bergen at sunrise along coastal roads with initial climbs."
+        },
+        {
+          "name": "Mountain Traverse",
+          "distance": "100-300 km",
+          "description": "Cross inland mountains and valleys with significant elevation gain."
+        },
+        {
+          "name": "Southern Approach",
+          "distance": "300-450 km",
+          "description": "Descend to Kristiansand for sunset finish amid coastal terrain."
+        }
+      ],
+      "difficulty_narrative": "Challenging non-competitive ultra-distance ride with 3300m elevation over 450km, demanding strong endurance, navigation, and pacing to finish before sunset."
+    },
+    "logistics": {
+      "getting_there": "Fly to Bergen Airport (BGO); arrange return from Kristiansand (KRS); self-arrange travel or use optional coach transfers as in other routes.",
+      "accommodation": "Self-arranged; bag drop available from 04:00 on ride day.",
+      "registration_details": "Solo £79, Team £210 (3 riders); includes GPX files, training plans, tracking, snacks, mechanics, medal; pre-register for priority.",
+      "bike_logistics": "Own bike; support vehicles allowed; mechanic at key stops; bag van for luggage.",
+      "local_considerations": "Mid-summer longest day; variable weather; self-supported navigation; sign-in via SMS at start, lunch, finish."
+    },
+    "gravel_god_rating": {
+      "logistics": 3,
+      "length": 5,
+      "technicality": 2,
+      "elevation": 4,
+      "climate": 3,
+      "altitude": 2,
+      "adventure": 5,
+      "prestige": 2,
+      "race_quality": 4,
+      "experience": 5,
+      "community": 4,
+      "field_depth": 2,
+      "value": 4,
+      "expenses": 4,
+      "cultural_impact": 0,
+      "overall_score": 70,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "scenery": 5,
+      "course_design": 4,
+      "race_atmosphere": 4,
+      "post_race_experience": 4,
+      "value_for_money": 5,
+      "accessibility": 3,
+      "overall_score": 70,
+      "tier": 2,
+      "tier_label": "TIER 2"
+    },
+    "final_verdict": {
+      "one_liner": "Epic sunrise-to-sunset coast-to-coast challenge through Norway's stunning fjords and mountains.",
+      "who_is_it_for": "Ultra-endurance road cyclists seeking adventure, navigation challenges, and longest-day glory.",
+      "is_it_worth_it": "Yes, for the notable scenery, community, and personal achievement.",
+      "pro_tips": [
+        "Train with 16-week plan for 450km/3300m.",
+        "Join relay team if solo feels daunting.",
+        "Pack for variable Norwegian summer weather.",
+        "Pre-register early for priority entry."
+      ]
+    },
+    "suffering_zones": {
+      "climbing": 4,
+      "distance": 5,
+      "technicality": 2,
+      "exposure": 3,
+      "mental": 5,
+      "overall_suffering": 3.8
+    }
+  }
+}

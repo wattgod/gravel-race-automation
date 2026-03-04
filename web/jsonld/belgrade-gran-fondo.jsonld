@@ -1,0 +1,23 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Belgrade Gran Fondo",
+  "description": "",
+  "sport": "Gravel Cycling",
+  "location": {
+    "@type": "Place",
+    "name": "Belgrade, Serbia",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Belgrade",
+      "addressRegion": "Serbia"
+    }
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "66",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  }
+}

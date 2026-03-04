@@ -1,0 +1,101 @@
+{
+  "race": {
+    "name": "Gran Fondo Sibiu",
+    "slug": "gran-fondo-sibiu",
+    "vitals": {
+      "distance": "150 km",
+      "elevation_gain": "2500 m",
+      "terrain": "Hilly with mountain climbs",
+      "surface": "Asphalt",
+      "avg_gradient": "5-7%",
+      "aid_stations": "5-6",
+      "time_limit": "8 hours",
+      "field_size": "500-800",
+      "participation_trend": "Stable regional event",
+      "date": "2026: July TBD",
+      "date_specific": "2026: July TBD",
+      "location": "Sibiu, Transylvania, Romania",
+      "distance_mi": 93,
+      "elevation_ft": 8202
+    },
+    "course_description": {
+      "overview": "Challenging 150 km road sportive through the Transylvanian highlands near the Făgăraș Mountains, featuring rolling terrain and significant climbs with stunning Carpathian scenery.",
+      "key_segments": [
+        {
+          "name": "Initial Rollers",
+          "distance": "0-40 km",
+          "description": "Gentle undulations warming up through rural Transylvanian landscapes."
+        },
+        {
+          "name": "Făgăraș Foothill Climb",
+          "distance": "40-90 km",
+          "description": "Major ascent into the highlands with panoramic views of peaks."
+        },
+        {
+          "name": "Descent and Final Push",
+          "distance": "90-150 km",
+          "description": "Fast descent followed by rolling finish back to Sibiu."
+        }
+      ],
+      "difficulty_narrative": "Demands strong climbing ability with sustained efforts in the highlands; rewarding for those seeking epic scenery and moderate suffering."
+    },
+    "logistics": {
+      "getting_there": "Fly into Sibiu International Airport (SBZ) or Bucharest (OTP) then 4-hour drive/train; good road access from major EU cities.",
+      "accommodation": "Abundant hotels in historic Sibiu old town; book early for event weekend.",
+      "registration_details": "Online via official site, €50-80 entry fee; multiple distances often available.",
+      "bike_logistics": "Bike rental shops in Sibiu; fly with bike or rent locally; roads bike-friendly.",
+      "local_considerations": "Warm summer weather; bear-aware in highlands; English widely spoken in tourist areas."
+    },
+    "gravel_god_rating": {
+      "logistics": 3,
+      "length": 4,
+      "technicality": 2,
+      "elevation": 4,
+      "climate": 4,
+      "altitude": 3,
+      "adventure": 4,
+      "prestige": 2,
+      "race_quality": 3,
+      "experience": 4,
+      "community": 3,
+      "field_depth": 2,
+      "value": 4,
+      "expenses": 4,
+      "cultural_impact": 0,
+      "overall_score": 66,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "scenery": 5,
+      "course_design": 4,
+      "race_atmosphere": 3,
+      "post_race_experience": 4,
+      "value_for_money": 5,
+      "accessibility": 3,
+      "overall_score": 66,
+      "tier": 2,
+      "tier_label": "TIER 2"
+    },
+    "final_verdict": {
+      "one_liner": "Scenic Transylvanian highlands challenge with climbs and culture.",
+      "who_is_it_for": "Ambitious amateurs seeking beauty and climbs in Eastern Europe.",
+      "is_it_worth_it": "Yes, for value, scenery, and unique location.",
+      "pro_tips": [
+        "Train for 7-10% gradients.",
+        "Visit Sibiu's medieval center post-ride.",
+        "Start hydration early in summer heat.",
+        "Combine with nearby Transfăgărășan Highway ride."
+      ]
+    },
+    "suffering_zones": {
+      "climbing": 8,
+      "distance": 6,
+      "technicality": 3,
+      "exposure": 5,
+      "mental": 6,
+      "overall_suffering": 5.6
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Manali-Khardung La Cycling Championship",
+  "description": "",
+  "sport": "Gravel Cycling",
+  "location": {
+    "@type": "Place",
+    "name": "Manali to Leh, Himachal Pradesh / Ladakh, India",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Manali to Leh",
+      "addressRegion": "Himachal Pradesh / Ladakh"
+    }
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "79",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  }
+}

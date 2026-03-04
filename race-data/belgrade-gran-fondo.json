@@ -1,0 +1,101 @@
+{
+  "race": {
+    "name": "Belgrade Gran Fondo",
+    "slug": "belgrade-gran-fondo",
+    "vitals": {
+      "distance": "120 km",
+      "elevation_gain": "1800 m",
+      "terrain": "Rolling with mountain climbs",
+      "surface": "Paved road",
+      "avg_gradient": "3-5%",
+      "aid_stations": "4-6",
+      "time_limit": "8 hours",
+      "field_size": "1500-2000",
+      "participation_trend": "Growing, regional flagship",
+      "date": "2026: June TBD",
+      "date_specific": "2026: June TBD",
+      "location": "Belgrade, Serbia",
+      "distance_mi": 75,
+      "elevation_ft": 5906
+    },
+    "course_description": {
+      "overview": "Serbia's flagship mass-participation road cycling event starting in Belgrade, looping through urban areas and ascending Avala mountain with rolling terrain and key climbs.",
+      "key_segments": [
+        {
+          "name": "Avala Mountain Climb",
+          "distance": "15 km",
+          "description": "Signature ascent on Avala with steady gradients leading to panoramic views."
+        },
+        {
+          "name": "Belgrade City Loop",
+          "distance": "40 km",
+          "description": "Flat to rolling urban and suburban roads through historic Belgrade."
+        },
+        {
+          "name": "Return to Belgrade",
+          "distance": "65 km",
+          "description": "Mixed terrain with final rollers approaching the finish."
+        }
+      ],
+      "difficulty_narrative": "Moderate difficulty for gran fondos: demanding due to Avala climbs and total distance, accessible for trained amateurs with time limit."
+    },
+    "logistics": {
+      "getting_there": "Fly into Belgrade Nikola Tesla Airport (BEG), 30-min drive to city center; event start in central Belgrade.",
+      "accommodation": "Abundant hotels in Belgrade city center; book early for race weekend near start/finish.",
+      "registration_details": "Online via official site; early bird fees ~€50-80; UCI Gran Fondo qualifier slots available.",
+      "bike_logistics": "Bike rental shops in Belgrade; fly with bike or ship; mechanics on-site pre-race.",
+      "local_considerations": "Warm June weather (20-30°C); Balkan roads in good condition; English widely spoken in city."
+    },
+    "gravel_god_rating": {
+      "logistics": 3,
+      "length": 4,
+      "technicality": 2,
+      "elevation": 3,
+      "climate": 4,
+      "altitude": 2,
+      "adventure": 3,
+      "prestige": 3,
+      "race_quality": 3,
+      "experience": 4,
+      "community": 3,
+      "field_depth": 2,
+      "value": 4,
+      "expenses": 4,
+      "cultural_impact": 2,
+      "overall_score": 66,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "scenery": 4,
+      "course_design": 3,
+      "race_atmosphere": 4,
+      "post_race_experience": 4,
+      "value_for_money": 5,
+      "accessibility": 4,
+      "overall_score": 66,
+      "tier": 2,
+      "tier_label": "TIER 2"
+    },
+    "final_verdict": {
+      "one_liner": "Belgrade's premier gran fondo blending city vibes, mountain challenge, and Balkan hospitality.",
+      "who_is_it_for": "Amateur road cyclists seeking a scenic European qualifier with moderate difficulty and great value.",
+      "is_it_worth_it": "Yes, for accessible long-distance road riding in an emerging cycling nation.",
+      "pro_tips": [
+        "Train for Avala climbs with hill repeats.",
+        "Stay downtown for easy access.",
+        "Sample local rakija post-race.",
+        "Register early for UCI slots."
+      ]
+    },
+    "suffering_zones": {
+      "climbing": 6,
+      "distance": 7,
+      "technicality": 3,
+      "exposure": 5,
+      "mental": 5,
+      "overall_suffering": 5.2
+    }
+  }
+}

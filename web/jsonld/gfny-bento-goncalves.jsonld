@@ -1,0 +1,23 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "GFNY Bento Gon\u00e7alves",
+  "description": "",
+  "sport": "Gravel Cycling",
+  "location": {
+    "@type": "Place",
+    "name": "Bento Gon\u00e7alves, Rio Grande do Sul, Brazil",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Bento Gon\u00e7alves",
+      "addressRegion": "Rio Grande do Sul"
+    }
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "70",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  }
+}

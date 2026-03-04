@@ -1,0 +1,101 @@
+{
+  "race": {
+    "name": "Utrecht Ultra",
+    "slug": "utrecht-ultra",
+    "vitals": {
+      "distance": "1000 km",
+      "elevation_gain": "6000 m",
+      "terrain": "Hilly with mountains and cobbles",
+      "surface": "98% tarmac",
+      "avg_gradient": "N/A",
+      "aid_stations": "Self-supported; commercial services only; some staffed checkpoints",
+      "time_limit": "100 hours",
+      "field_size": "N/A",
+      "participation_trend": "N/A",
+      "date": "2026: May 23",
+      "date_specific": "2026: May 23",
+      "location": "Utrecht, Netherlands",
+      "distance_mi": 621,
+      "elevation_ft": 19685
+    },
+    "course_description": {
+      "overview": "Self-supported ultra-distance road cycling race starting and finishing in Utrecht, Netherlands. Mix of fixed routes and free routing between three checkpoints in neighboring countries: Germany’s Eifel region (CP1), Luxembourg valleys (CP2), and Belgium’s Ardennes with climbs like Stockeu and La Redoute (CP3). Final fixed route back to Utrecht.[2]",
+      "key_segments": [
+        {
+          "name": "CP1: Eifel region, Germany",
+          "distance": "N/A",
+          "description": "Hills surrounding the Ahr river; staffed checkpoint with short mandatory parcours."
+        },
+        {
+          "name": "CP2: Luxembourg",
+          "distance": "N/A",
+          "description": "Smooth tarmac and plentiful switchbacks; staffed checkpoint."
+        },
+        {
+          "name": "CP3: Belgium Ardennes",
+          "distance": "N/A",
+          "description": "Iconic climbs including Stockeu and La Redoute; staffed checkpoint."
+        }
+      ],
+      "difficulty_narrative": "Demanding mix of strategic free routing and mandatory parcours through hilly terrain, valleys, and cobbles. Self-supported format requires full self-reliance within 100-hour limit.[1][2]"
+    },
+    "logistics": {
+      "getting_there": "Start and finish in Utrecht, Netherlands; accessible by train, bike, or car.",
+      "accommodation": "Self-supported; use commercial services only (hotels, shops).",
+      "registration_details": "Entry fee around €220; register via official website utrechtultra.com. Mass start format.[2][4]",
+      "bike_logistics": "Road bike recommended (98-99% tarmac); carry all gear for self-support.",
+      "local_considerations": "Routes cross France, Germany, Belgium, Luxembourg; plan for variable weather in May, border crossings seamless in Schengen area."
+    },
+    "gravel_god_rating": {
+      "logistics": 3,
+      "length": 5,
+      "technicality": 2,
+      "elevation": 4,
+      "climate": 3,
+      "altitude": 1,
+      "adventure": 4,
+      "prestige": 2,
+      "race_quality": 4,
+      "experience": 4,
+      "community": 3,
+      "field_depth": 2,
+      "value": 4,
+      "expenses": 3,
+      "cultural_impact": 0,
+      "overall_score": 63,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "scenery": 4,
+      "course_design": 4,
+      "race_atmosphere": 3,
+      "post_race_experience": 3,
+      "value_for_money": 4,
+      "accessibility": 3,
+      "overall_score": 63,
+      "tier": 2,
+      "tier_label": "TIER 2"
+    },
+    "final_verdict": {
+      "one_liner": "Challenging self-supported road ultra blending free routing with iconic European climbs and cobbles.",
+      "who_is_it_for": "Experienced ultra-distance cyclists seeking adventure in Western Europe without full gravel demands.",
+      "is_it_worth_it": "Yes, for those prepared for self-sufficiency and strategic navigation.",
+      "pro_tips": [
+        "Prioritize lightweight bikepacking setup for 98% tarmac.",
+        "Study Vosges/ Ardennes cols and cobbles in training.",
+        "Plan resupplies around commercial services near checkpoints.",
+        "Track weather across multiple countries."
+      ]
+    },
+    "suffering_zones": {
+      "climbing": 4,
+      "distance": 5,
+      "technicality": 2,
+      "exposure": 3,
+      "mental": 5,
+      "overall_suffering": 3.8
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "GranGuanche Audax Road",
+  "description": "",
+  "sport": "Gravel Cycling",
+  "location": {
+    "@type": "Place",
+    "name": "Lanzarote, Canary Islands, Spain",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Lanzarote",
+      "addressRegion": "Canary Islands"
+    }
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "79",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  }
+}

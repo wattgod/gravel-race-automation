@@ -1,0 +1,115 @@
+{
+  "race": {
+    "name": "Giro delle Dolomiti",
+    "slug": "giro-delle-dolomiti",
+    "vitals": {
+      "distance": "480 km",
+      "elevation_gain": "~9,000 m",
+      "terrain": "mountainous roads with iconic Dolomite passes",
+      "surface": "paved roads",
+      "avg_gradient": "varies by timed section, typically steep climbs",
+      "aid_stations": "feed zones on each stage (e.g., San Cipriano, Passo Costalunga)",
+      "time_limit": "no overall time limit; group riding pace with timed sections",
+      "field_size": "up to 600 athletes per stage",
+      "participation_trend": "international field, steady popularity as historic event",
+      "date": "2026: July 13",
+      "date_specific": "2026: July 13",
+      "location": "Bolzano, South Tyrol, Italy",
+      "distance_mi": 298,
+      "elevation_ft": 29527
+    },
+    "course_description": {
+      "overview": "5-stage amateur road cycling event over legendary Dolomite passes including Sellaronda and Stelvio area routes, with group riding and timed mountain time trials (crono sections) on traffic-free roads.",
+      "key_segments": [
+        {
+          "name": "Stage 1: Tires – Carezza",
+          "distance": "78.3 km",
+          "description": "Bolzano to Passo Nigra and Passo Costalunga; timed: 6.9 km, 542 m gain[1][3]"
+        },
+        {
+          "name": "Stage 2: Sellaronda",
+          "distance": "107 km",
+          "elevation_gain": "3,102 m",
+          "description": "Ponte Gardena loop over Passo Sella, Pordoi, Campolongo, Gardena; timed section ~6-16 km[1][2]"
+        },
+        {
+          "name": "Stage 3: Renon",
+          "distance": "20.5 km",
+          "elevation_gain": "948 m",
+          "description": "Bolzano to Collalbo; timed: 11.5 km, 791 m gain through vineyards and forest[1][3]"
+        },
+        {
+          "name": "Stage 4: Predazzo to Falcade via Passo Rolle",
+          "distance": "85 km",
+          "elevation_gain": "2,480 m",
+          "description": "Toughest stage into Trentino over Passo Rolle[2]"
+        },
+        {
+          "name": "Stage 5: Meltina – San Genesio",
+          "distance": "51.3 km",
+          "elevation_gain": "1,336 m",
+          "description": "Bolzano via Terlano to San Genesio; timed: 9 km, 789 m gain[1]"
+        }
+      ],
+      "difficulty_narrative": "Multi-day challenge with ~9,000 m total climbing across steep, iconic passes; mix of social group riding and competitive timed climbs up to 1,200 m gain."
+    },
+    "logistics": {
+      "getting_there": "Fly to Bolzano Airport or Innsbruck/Milan; daily starts/ends at Bolzano Fair; trains/buses connect to South Tyrol.",
+      "accommodation": "Bolzano base with hotels; bike-friendly options in South Tyrol; multi-day event allows central stay.",
+      "registration_details": "Opens ~October prior; single stages available; international participants; limited to ~600 per stage[4][6].",
+      "bike_logistics": "Road bikes recommended; traffic-free timed sections; support via group pace and feeds.",
+      "local_considerations": "UNESCO Dolomites; July weather variable (warm days, cool highs); altitude effects on climbs."
+    },
+    "gravel_god_rating": {
+      "logistics": 4,
+      "length": 4,
+      "technicality": 1,
+      "elevation": 5,
+      "climate": 4,
+      "altitude": 5,
+      "adventure": 4,
+      "prestige": 4,
+      "race_quality": 4,
+      "experience": 4,
+      "community": 3,
+      "field_depth": 2,
+      "value": 4,
+      "expenses": 3,
+      "cultural_impact": 4,
+      "overall_score": 79,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "scenery": 5,
+      "course_design": 5,
+      "race_atmosphere": 4,
+      "post_race_experience": 4,
+      "value_for_money": 4,
+      "accessibility": 3,
+      "overall_score": 79,
+      "tier": 2,
+      "tier_label": "TIER 2"
+    },
+    "final_verdict": {
+      "one_liner": "Historic 5-day Dolomites road epic blending social rides with brutal timed climbs.",
+      "who_is_it_for": "Strong amateur climbers seeking iconic passes, UNESCO views, and international camaraderie.",
+      "is_it_worth_it": "Yes, for Dolomites road biking prestige and unique format.",
+      "pro_tips": [
+        "Train for 3,000m+ days like Sellaronda.",
+        "Base in Bolzano for easy logistics.",
+        "Focus on cronos for GC contention.",
+        "Pack layers for high-altitude weather shifts."
+      ]
+    },
+    "suffering_zones": {
+      "climbing": 5,
+      "distance": 3,
+      "technicality": 1,
+      "exposure": 4,
+      "mental": 4,
+      "overall_suffering": 3.4
+    }
+  }
+}

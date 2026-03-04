@@ -1,0 +1,106 @@
+{
+  "race": {
+    "name": "Gran Fondo Montevideo",
+    "slug": "gran-fondo-montevideo",
+    "vitals": {
+      "distance": "130 km",
+      "elevation_gain": "512 m",
+      "terrain": "flat and fast",
+      "surface": "paved",
+      "avg_gradient": "N/A",
+      "aid_stations": "2",
+      "time_limit": "N/A",
+      "field_size": "N/A",
+      "participation_trend": "growing (4+ years, new UCI event)",
+      "date": "2026: September TBD",
+      "date_specific": "2026: September TBD",
+      "location": "Montevideo, Uruguay",
+      "distance_mi": 81,
+      "elevation_ft": 1679
+    },
+    "course_description": {
+      "overview": "The 130km Gran Fondo starts at Rambla de Carrasco, follows the coastline for 2km, heads northeast through Barros Blancos and Santa Rosa, returns seaside for 30km with an intermediate sprint, and finishes with 15km along the coastline. Flat and fast profile with max elevation 74m.[1]",
+      "key_segments": [
+        {
+          "name": "San Jacinto Climb",
+          "distance": "short",
+          "description": "Short climb at km71; mountain award for first rider.[1]"
+        },
+        {
+          "name": "Feed Zone 1",
+          "distance": "km ~30-40",
+          "description": "First feedzone in Santa Rosa area.[1]"
+        },
+        {
+          "name": "Feed Zone 2",
+          "distance": "km89",
+          "description": "Second feedzone before seaside return.[1]"
+        },
+        {
+          "name": "Intermediate Sprint",
+          "distance": "last 30km seaside",
+          "description": "Sprint along the sea before final coastal stretch.[1]"
+        }
+      ],
+      "difficulty_narrative": "Predominantly flat with minor rolling terrain and one short climb; ideal for speed rather than climbing efforts. Mediofondo option (60km, 239m elevation) available.[1]"
+    },
+    "logistics": {
+      "getting_there": "Fly into Montevideo's international airport; event starts in city center at Rambla de Carrasco, easily accessible.[1]",
+      "accommodation": "Montevideo offers hotels in Ciudad Vieja, near Rambla, and modern areas; day trips to Colonia del Sacramento or Punta del Este possible.[1]",
+      "registration_details": "UCI Gran Fondo World Series qualifier; register via www.espanolagranfondo.uy. Distances: 60km mediofondo, 130km granfondo.[1][4]",
+      "bike_logistics": "Road bikes recommended for paved coastal and inland roads; standard transport to Uruguay.[1]",
+      "local_considerations": "Relaxed city with Rambla promenade for cycling; enjoy Mercado del Puerto for parrillas, Feria Tristán Narvaja market (Sundays). September weather mild.[1]"
+    },
+    "gravel_god_rating": {
+      "logistics": 4,
+      "length": 3,
+      "technicality": 1,
+      "elevation": 1,
+      "climate": 4,
+      "altitude": 1,
+      "adventure": 2,
+      "prestige": 3,
+      "race_quality": 4,
+      "experience": 4,
+      "community": 3,
+      "field_depth": 2,
+      "value": 4,
+      "expenses": 4,
+      "cultural_impact": 2,
+      "overall_score": 60,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "scenery": 4,
+      "course_design": 3,
+      "race_atmosphere": 4,
+      "post_race_experience": 4,
+      "value_for_money": 4,
+      "accessibility": 4,
+      "overall_score": 60,
+      "tier": 2,
+      "tier_label": "TIER 2"
+    },
+    "final_verdict": {
+      "one_liner": "Flat, fast UCI qualifier along Montevideo's stunning Rambla coastline – Uruguay's premier road gran fondo.",
+      "who_is_it_for": "Speed-focused road cyclists seeking UCI Worlds qualification without major climbs; beginners to elites in mild South American setting.",
+      "is_it_worth_it": "Yes for qualifiers and coastal scenery fans; accessible prestige event in growing series.",
+      "pro_tips": [
+        "Prioritize aero position for flat speed.",
+        "Explore Rambla and Mercado del Puerto post-race.",
+        "Opt for granfondo to chase mountain award at km71.",
+        "Book early for September in popular Montevideo."
+      ]
+    },
+    "suffering_zones": {
+      "climbing": 1,
+      "distance": 3,
+      "technicality": 1,
+      "exposure": 2,
+      "mental": 2,
+      "overall_suffering": 1.8
+    }
+  }
+}

@@ -1,0 +1,106 @@
+{
+  "race": {
+    "name": "Race Around Poland",
+    "slug": "race-around-poland",
+    "vitals": {
+      "distance": "300km to 3600km (multi-distance format)",
+      "elevation_gain": "33,100m (full circuit)",
+      "terrain": "Mixed road terrain around Poland circumnavigation",
+      "surface": "Open road traffic",
+      "avg_gradient": "0.92%",
+      "aid_stations": "Multiple checkpoints on route with minimum speed requirements",
+      "time_limit": "RAP solo: 12 days | 1/2 RAP solo: 6 days | 1/4 RAP: 3 days | RAP team: 8 days | Challenge 300: 24 hours",
+      "field_size": "Unknown",
+      "participation_trend": "Growing popularity in ultracycling",
+      "date": "2026: June 27",
+      "date_specific": "2026: June 27",
+      "location": "Poland (circumnavigation)",
+      "distance_mi": 2237,
+      "elevation_ft": 108610
+    },
+    "course_description": {
+      "overview": "Race Around Poland is an ultracycling event featuring a ~3600km circumnavigation of Poland starting and finishing in Warsaw. The 2026 edition hosts the IV World Ultra Cycling Championships in unsupported format and offers multiple distance options (300km, 900km, 1800km, 3600km) to accommodate different experience levels. Participants can compete solo or in relay teams with varying support levels.",
+      "key_segments": [
+        {
+          "name": "Full Circuit (RAP)",
+          "distance": "3600km",
+          "description": "Complete circumnavigation of Poland with 33,100m elevation gain, marked via GPX file"
+        },
+        {
+          "name": "Half Circuit (1/2 RAP)",
+          "distance": "1800km",
+          "description": "Route ending at Szklarska Poręba (TS6)"
+        },
+        {
+          "name": "Quarter Circuit (1/4 RAP)",
+          "distance": "900km",
+          "description": "Route ending at Czorsztyn (TS3)"
+        },
+        {
+          "name": "Challenge 300",
+          "distance": "300km",
+          "description": "Warsaw-Czemierniki-Warsaw loop, 24-hour time limit"
+        }
+      ],
+      "difficulty_narrative": "This is an extreme endurance event requiring sustained effort over multiple days. Solo unsupported racers must maintain 12.5 kph average speed (300km/day) with no organized mobile support. Team racers must average 18.74 kph (450km/day). The route traverses open Polish roads with variable conditions and weather exposure. Checkpoints enforce minimum speed standards, making this a true test of physical and mental endurance."
+    },
+    "logistics": {
+      "getting_there": "Start and finish in Warsaw, Poland. Participants should arrange transportation to Warsaw for June 27, 2026 start date.",
+      "accommodation": "Not specified in available information. Racers in supported categories have crew assistance; unsupported racers must arrange their own rest stops at stationary support points or casual accommodations.",
+      "registration_details": "Multiple categories available: Solo unsupported (WUCA Championship), Solo supported, 2-person team relay, 4-person team relay, and Challenge 300 variants. Organizers offer chargeable professional support crew in various configurations (Semi support, Support 1/2/4). Registration appears open through race website.",
+      "bike_logistics": "Upright bikes with human muscle power only; e-bikes and recumbent bikes prohibited. Supported racers may change bikes on route after technical inspection. All bikes must pass organizer's technical check-up.",
+      "local_considerations": "Race occurs on open road traffic; participants must follow Polish road traffic laws. Drafting prohibited (minimum 100m distance between competitors except during overtaking). Route subject to changes based on road conditions, construction, or detours."
+    },
+    "gravel_god_rating": {
+      "logistics": 3,
+      "length": 5,
+      "technicality": 2,
+      "elevation": 4,
+      "climate": 3,
+      "altitude": 2,
+      "adventure": 4,
+      "prestige": 4,
+      "race_quality": 4,
+      "experience": 4,
+      "community": 3,
+      "field_depth": 2,
+      "value": 3,
+      "expenses": 2,
+      "cultural_impact": 3,
+      "overall_score": 69,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "scenery": 4,
+      "course_design": 4,
+      "race_atmosphere": 4,
+      "post_race_experience": 3,
+      "value_for_money": 2,
+      "accessibility": 3,
+      "overall_score": 69,
+      "tier": 2,
+      "tier_label": "TIER 2"
+    },
+    "final_verdict": {
+      "one_liner": "An elite ultracycling championship offering multiple distance formats around Poland's circumference, combining extreme endurance with organized support infrastructure.",
+      "who_is_it_for": "Experienced ultracycling athletes seeking WUCA World Championship credentials or multi-day cycling challenges. Available in supported and unsupported formats for varying experience levels. Suitable for solo riders and relay teams.",
+      "is_it_worth_it": "Yes, for committed ultracycling enthusiasts. The event offers important world championship status in unsupported format, professional organization drawing on 10+ years of experience with similar events, and flexible distance options. However, costs for professional support crews and travel to Poland should be factored into decision-making.",
+      "pro_tips": [
+        "Choose your category carefully: unsupported requires complete self-sufficiency; supported categories provide crew assistance with minimum 2 crew members per vehicle",
+        "Download the GPX file early and familiarize yourself with the route; organizers reserve right to make changes based on road conditions",
+        "Maintain minimum speed requirements at checkpoints (12.5 kph solo, 18.74 kph team) to avoid elimination",
+        "For unsupported category, pre-identify stationary support locations and casual accommodation options along the route in advance"
+      ]
+    },
+    "suffering_zones": {
+      "climbing": 4,
+      "distance": 5,
+      "technicality": 1,
+      "exposure": 3,
+      "mental": 5,
+      "overall_suffering": 3.6
+    }
+  }
+}

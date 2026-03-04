@@ -1,0 +1,24 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Race Through Poland",
+  "description": "",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-05-23",
+  "location": {
+    "@type": "Place",
+    "name": "Nowy Targ, Lesser Poland",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Nowy Targ",
+      "addressRegion": "Lesser Poland"
+    }
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "79",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  }
+}

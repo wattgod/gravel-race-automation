@@ -1,0 +1,24 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Giro delle Dolomiti",
+  "description": "",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-07-13",
+  "location": {
+    "@type": "Place",
+    "name": "Bolzano, South Tyrol, Italy",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Bolzano",
+      "addressRegion": "South Tyrol"
+    }
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "79",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  }
+}

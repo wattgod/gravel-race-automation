@@ -1,0 +1,111 @@
+{
+  "race": {
+    "name": "GranGuanche Audax Road",
+    "slug": "granguanche-audax-road",
+    "vitals": {
+      "distance": "750 km",
+      "elevation_gain": "15,000 m",
+      "terrain": "volcanic roads, sea-to-summit climbs, mountains, coastal paths",
+      "surface": "paved roads, some rough asphalt",
+      "avg_gradient": "N/A",
+      "aid_stations": "self-supported; supermarkets, gas stations for resupply",
+      "time_limit": "flexible Audax format with ferry timing constraints",
+      "field_size": "small, ~20-30 riders",
+      "participation_trend": "growing steadily, 5th edition in 2026",
+      "date": "2026: January TBD",
+      "date_specific": "2026: January TBD",
+      "location": "Lanzarote, Canary Islands, Spain",
+      "distance_mi": 466,
+      "elevation_ft": 49213
+    },
+    "course_description": {
+      "overview": "Self-supported ultra-distance road Audax spanning five Canary Islands: Lanzarote, Fuerteventura, Gran Canaria, Tenerife, and La Gomera. Riders connect via ferries, following iconic roads with epic climbs through volcanic landscapes, from beaches to mountains.",
+      "key_segments": [
+        {
+          "name": "Lanzarote",
+          "distance": "115 km",
+          "description": "Fast start with 1,710 m elevation to first ferry."
+        },
+        {
+          "name": "Fuerteventura",
+          "distance": "~150 km",
+          "description": "Endless climbs, rough asphalt, night riding to next ferry."
+        },
+        {
+          "name": "Gran Canaria",
+          "distance": "~140 km",
+          "description": "New route in 2026 with iconic roads and epic climbs."
+        },
+        {
+          "name": "Tenerife",
+          "distance": "144 km",
+          "description": "Critical 3,487 m climb over Mount Teide to catch ferry, long descent."
+        },
+        {
+          "name": "La Gomera",
+          "distance": "107 km",
+          "description": "Final competitive loop with 3,275 m elevation after mandatory rest."
+        }
+      ],
+      "difficulty_narrative": "Ferry timing creates pressure; massive elevation after 500+ km fatigues riders. Drafting allowed fosters community until final island race."
+    },
+    "logistics": {
+      "getting_there": "Fly to Lanzarote Airport (ACE); start from there. Ferries connect islands (Lanzarote-Fuerteventura-Gran Canaria-Tenerife-La Gomera).",
+      "accommodation": "Self-supported; some book hotels for rest (e.g., Tenerife). Final La Gomera has mandatory overnight for fast riders.",
+      "registration_details": "Via Outer Detours; limited field, early signup advised for 5th edition.",
+      "bike_logistics": "Road bike suitable; strip non-importants for final stage. Low gearing recommended for climbs.",
+      "local_considerations": "Warm winter temps; variable weather (cold Teide descent, wind). Spanish ferries require timing; supermarkets for food."
+    },
+    "gravel_god_rating": {
+      "logistics": 3,
+      "length": 5,
+      "technicality": 2,
+      "elevation": 5,
+      "climate": 4,
+      "altitude": 3,
+      "adventure": 5,
+      "prestige": 3,
+      "race_quality": 4,
+      "experience": 5,
+      "community": 4,
+      "field_depth": 3,
+      "value": 4,
+      "expenses": 3,
+      "cultural_impact": 2,
+      "overall_score": 79,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "scenery": 5,
+      "course_design": 4,
+      "race_atmosphere": 4,
+      "post_race_experience": 4,
+      "value_for_money": 4,
+      "accessibility": 3,
+      "overall_score": 79,
+      "tier": 2,
+      "tier_label": "TIER 2"
+    },
+    "final_verdict": {
+      "one_liner": "Epic island-hopping Audax on volcanic roads with ferry chases and Teide summit.",
+      "who_is_it_for": "Ultra road riders seeking adventure, community drafting, and winter sun in extreme terrain.",
+      "is_it_worth_it": "Yes, for unique Canary scenery and format blending Audax pace with final race.",
+      "pro_tips": [
+        "Nail ferry timings—aim for Audax pace to group start on La Gomera.",
+        "Pack for cold Teide descent despite warm start.",
+        "Refuel at supermarkets; carry cash for ferries.",
+        "Train climbs; 3,500m+ days after 500km demand fitness."
+      ]
+    },
+    "suffering_zones": {
+      "climbing": 5,
+      "distance": 5,
+      "technicality": 2,
+      "exposure": 4,
+      "mental": 4,
+      "overall_suffering": 4.0
+    }
+  }
+}

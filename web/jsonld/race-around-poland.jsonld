@@ -1,0 +1,23 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Race Around Poland",
+  "description": "",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-06-27",
+  "location": {
+    "@type": "Place",
+    "name": "Poland (circumnavigation)",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Poland (circumnavigation)"
+    }
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "69",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Gran Fondo & Ultra Raid Samo\u00ebns",
+  "description": "",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-06-05",
+  "location": {
+    "@type": "Place",
+    "name": "Samo\u00ebns, Haute-Savoie, France",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Samo\u00ebns",
+      "addressRegion": "Haute-Savoie"
+    }
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "69",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Velo Vietnam Northern Frontier",
+  "description": "",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-10-02",
+  "location": {
+    "@type": "Place",
+    "name": "Northern Vietnam",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Northern Vietnam"
+    }
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "77",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  }
+}

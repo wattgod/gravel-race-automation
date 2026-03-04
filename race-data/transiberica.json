@@ -1,0 +1,141 @@
+{
+  "race": {
+    "name": "Transiberica",
+    "slug": "transiberica",
+    "vitals": {
+      "distance": "3000 km",
+      "elevation_gain": "48,000 m",
+      "terrain": "mountains, passes, varied landscapes",
+      "surface": "asphalt with short gravel/cobble sections",
+      "avg_gradient": "N/A",
+      "aid_stations": "unsupported, self-supported via checkpoints",
+      "time_limit": "15 days (Aug 22 to Sep 6)",
+      "field_size": "limited to ~250",
+      "participation_trend": "growing since 2017, application-based",
+      "date": "2026: August 22",
+      "date_specific": "2026: August 22",
+      "location": "Oudenaarde, Belgium to Bilbao, Spain",
+      "distance_mi": 1864,
+      "elevation_ft": 157480
+    },
+    "course_description": {
+      "overview": "Unsupported one-stage road cycling challenge, free-route format through 10 mandatory checkpoints across Belgium, Luxembourg, Switzerland, France, Alps, and Pyrenees, averaging 3000 km with 48,000 m elevation.[1][2][3]",
+      "key_segments": [
+        {
+          "name": "Start - Oudenaarde",
+          "distance": "N/A",
+          "description": "Start in Belgium with Kruisberg gravel section and Oude Kwaremont cobbles."
+        },
+        {
+          "name": "CP1 - Roche en Ardennes",
+          "distance": "N/A",
+          "description": "Ardennes region."
+        },
+        {
+          "name": "CP2 - Grand Ballon d'Alsace (parcours)",
+          "distance": "N/A",
+          "description": "Alsace mountain pass."
+        },
+        {
+          "name": "CP3 - Col de Joux Plane",
+          "distance": "N/A",
+          "description": "Alpine climb."
+        },
+        {
+          "name": "CP4 - Arpettaz (parcours, Route de la Soif gravel)",
+          "distance": "N/A",
+          "description": "Aravis to Arpettaz with mandatory gravel."
+        },
+        {
+          "name": "CP5 - Belvedere Revard",
+          "distance": "N/A",
+          "description": "French Alps."
+        },
+        {
+          "name": "CP6 - Vercors",
+          "distance": "N/A",
+          "description": "Mountainous region."
+        },
+        {
+          "name": "CP7 - Pas de Peyrol",
+          "distance": "N/A",
+          "description": "Auvergne volcanic area."
+        },
+        {
+          "name": "CP8 - Col de Pailhères (parcours)",
+          "distance": "N/A",
+          "description": "Pyrenees climb."
+        },
+        {
+          "name": "CP9 - Pradell",
+          "distance": "N/A",
+          "description": "Pyrenees."
+        },
+        {
+          "name": "CP10 - San Juan de la Peña to Finish Bilbao",
+          "distance": "N/A",
+          "description": "Final Pyrenees to Basque finish."
+        }
+      ],
+      "difficulty_narrative": "Extreme ultra-endurance with self-planned route through iconic Alps and Pyrenees passes, fully unsupported, no pre-booked services, 15-day time limit ticking continuously.[1][2]"
+    },
+    "logistics": {
+      "getting_there": "Start accreditation Aug 21 in Oudenaarde, Belgium; finish Bilbao, Spain. Self-arrange travel.[1][2]",
+      "accommodation": "Fully unsupported; no pre-booking allowed, must source on-route during event.[2]",
+      "registration_details": "Application-based, €320 solo / €580 pair (VAT inc), includes insurance, tracker, medal. Discounts for veterans/women. Over 18 required.[1][2]",
+      "bike_logistics": "Road bike recommended, 28mm tires; entirely asphalted except short gravel/cobbles. Self-supported.[2]",
+      "local_considerations": "Mandatory insurance included; family access limited to start/finish/checkpoints with prior notice. Media license for commercial use.[2]"
+    },
+    "gravel_god_rating": {
+      "logistics": 2,
+      "length": 5,
+      "technicality": 2,
+      "elevation": 5,
+      "climate": 3,
+      "altitude": 4,
+      "adventure": 5,
+      "prestige": 4,
+      "race_quality": 3,
+      "experience": 4,
+      "community": 3,
+      "field_depth": 2,
+      "value": 5,
+      "expenses": 4,
+      "cultural_impact": 4,
+      "overall_score": 79,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "discipline": "bikepacking"
+    },
+    "biased_opinion_ratings": {
+      "scenery": 5,
+      "course_design": 5,
+      "race_atmosphere": 4,
+      "post_race_experience": 4,
+      "value_for_money": 5,
+      "accessibility": 2,
+      "overall_score": 79,
+      "tier": 2,
+      "tier_label": "TIER 2"
+    },
+    "final_verdict": {
+      "one_liner": "Europe's premier unsupported ultra-road odyssey across continents and iconic climbs.",
+      "who_is_it_for": "Elite self-supported ultra-cyclists seeking ultimate adventure through Alps and Pyrenees.",
+      "is_it_worth_it": "Yes, for those craving raw endurance prestige and freedom in route design.",
+      "pro_tips": [
+        "Master route planning with GPX tools for 10 CPs and 48k m climbs.",
+        "Pack versatile road setup for rare gravel/cobbles.",
+        "Prioritize sleep strategy in 15-day ticking clock.",
+        "Apply early; selective field with veteran perks."
+      ]
+    },
+    "suffering_zones": {
+      "climbing": 5,
+      "distance": 5,
+      "technicality": 2,
+      "exposure": 4,
+      "mental": 5,
+      "overall_suffering": 4.2
+    }
+  }
+}

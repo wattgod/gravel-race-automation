@@ -1,0 +1,24 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Transiberica",
+  "description": "",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-08-22",
+  "location": {
+    "@type": "Place",
+    "name": "Oudenaarde, Belgium to Bilbao, Spain",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Oudenaarde",
+      "addressRegion": "Belgium to Bilbao"
+    }
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "79",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  }
+}

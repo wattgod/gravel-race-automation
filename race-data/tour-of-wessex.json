@@ -1,0 +1,101 @@
+{
+  "race": {
+    "name": "Tour of Wessex",
+    "slug": "tour-of-wessex",
+    "vitals": {
+      "distance": "375 km",
+      "elevation_gain": "4,570 m",
+      "terrain": "Rolling hills, levels, climbs",
+      "surface": "Paved roads",
+      "avg_gradient": "N/A",
+      "aid_stations": "Multiple feed stations per stage",
+      "time_limit": "N/A",
+      "field_size": "Limited, regional sportive",
+      "participation_trend": "Stable regional event",
+      "date": "2026: May TBD",
+      "date_specific": "2026: May TBD",
+      "location": "Yeovil, Somerset, England",
+      "distance_mi": 233,
+      "elevation_ft": 14993
+    },
+    "course_description": {
+      "overview": "One of the UK's only multi-stage sportive events consisting of 3 x 125km loops through Glastonbury Tor, Somerset Levels, and Sherborne Abbey with 4,570m total elevation.",
+      "key_segments": [
+        {
+          "name": "Glastonbury Tor",
+          "distance": "Loop segment",
+          "description": "Iconic climb through historic Somerset landmark."
+        },
+        {
+          "name": "Somerset Levels",
+          "distance": "Loop segment",
+          "description": "Flat to rolling terrain across wetlands and farmland."
+        },
+        {
+          "name": "Sherborne Abbey",
+          "distance": "Loop segment",
+          "description": "Historic area with abbey views and surrounding roads."
+        }
+      ],
+      "difficulty_narrative": "Multi-day challenge with significant elevation across three demanding stages on undulating English countryside roads."
+    },
+    "logistics": {
+      "getting_there": "Fly into Bristol or Bournemouth airports, then train or drive to Yeovil; free parking at event HQ.",
+      "accommodation": "Hotels and B&Bs in Yeovil, Somerset; book early for multi-day event.",
+      "registration_details": "Online entry via event website; solo, team, relay options; expect entry fees around £100-200 for multi-stage.",
+      "bike_logistics": "Road bike recommended; bike support and mechanical aid on course; transport bike to Yeovil.",
+      "local_considerations": "English weather variable in May; rural roads, watch for traffic; under 18s need adult accompaniment."
+    },
+    "gravel_god_rating": {
+      "logistics": 3,
+      "length": 4,
+      "technicality": 1,
+      "elevation": 4,
+      "climate": 3,
+      "altitude": 1,
+      "adventure": 3,
+      "prestige": 2,
+      "race_quality": 3,
+      "experience": 4,
+      "community": 3,
+      "field_depth": 2,
+      "value": 4,
+      "expenses": 3,
+      "cultural_impact": 0,
+      "overall_score": 57,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "scenery": 4,
+      "course_design": 4,
+      "race_atmosphere": 3,
+      "post_race_experience": 3,
+      "value_for_money": 4,
+      "accessibility": 3,
+      "overall_score": 57,
+      "tier": 3,
+      "tier_label": "TIER 3"
+    },
+    "final_verdict": {
+      "one_liner": "Rare UK multi-stage road sportive through stunning Somerset landscapes.",
+      "who_is_it_for": "Endurance road cyclists seeking multi-day challenge with solo/team options.",
+      "is_it_worth_it": "Yes for UK riders wanting stage racing format without international travel.",
+      "pro_tips": [
+        "Train for repeated 125km days with climbs.",
+        "Join team/relay to share suffering.",
+        "Book Yeovil accommodation early.",
+        "Pack for variable May weather."
+      ]
+    },
+    "suffering_zones": {
+      "climbing": 7,
+      "distance": 8,
+      "technicality": 2,
+      "exposure": 4,
+      "mental": 7,
+      "overall_suffering": 5.6
+    }
+  }
+}

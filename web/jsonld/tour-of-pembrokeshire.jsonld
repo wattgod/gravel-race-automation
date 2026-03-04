@@ -1,0 +1,24 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Tour of Pembrokeshire",
+  "description": "",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-05-23",
+  "location": {
+    "@type": "Place",
+    "name": "St Davids, Pembrokeshire, Wales",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "St Davids",
+      "addressRegion": "Pembrokeshire"
+    }
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "69",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  }
+}

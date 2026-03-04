@@ -1,0 +1,193 @@
+{
+  "race": {
+    "slug": "gfny-grand-ballon",
+    "name": "GFNY Grand Ballon",
+    "vitals": {
+      "slug": "gfny-grand-ballon",
+      "name": "GFNY Grand Ballon",
+      "date": "2026: July TBD",
+      "date_specific": "2026: July TBD",
+      "distance_mi": 91,
+      "elevation_ft": 7500,
+      "location": "Thann, Alsace, France",
+      "terrain": "Paved roads",
+      "website": "https://grandballon.gfny.com",
+      "registration_url": "https://grandballon.gfny.com",
+      "prestige": 3,
+      "overall_score": 79,
+      "tier": 2,
+      "discipline": "road",
+      "month": "July"
+    },
+    "gravel_god_rating": {
+      "logistics": 4,
+      "length": 4,
+      "technicality": 2,
+      "elevation": 5,
+      "climate": 4,
+      "altitude": 5,
+      "adventure": 4,
+      "prestige": 3,
+      "race_quality": 3,
+      "experience": 5,
+      "community": 4,
+      "field_depth": 3,
+      "value": 4,
+      "expenses": 3,
+      "cultural_impact": 2,
+      "overall_score": 79,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 4,
+        "explanation": "Race package pickup occurs at Place Joffre in Thann's historic center, simplifying access for participants. Thann serves as an ideal base near the Alsace Wine Route gateway. Mechanical assistance and supervision are provided throughout the 146 km course."
+      },
+      "length": {
+        "score": 4,
+        "explanation": "The long course spans 147.1 km from Thann, demanding sustained effort over nearly 91 miles. Riders tackle multiple climbs including two ascents of Grand Ballon at 1325m. This distance suits experienced gran fondo athletes seeking a full-day challenge."
+      },
+      "technicality": {
+        "score": 2,
+        "explanation": "Paved roads through Ballons des Vosges Nature Park feature smooth gradients on climbs like Le Plan Diebold and Col du Firstplan. Descents require caution but lack gravel or rough surfaces. Focus remains on endurance rather than bike-handling skills."
+      },
+      "elevation": {
+        "score": 5,
+        "explanation": "Over 4056m of climbing includes the steep Col du Firstplan with 21% max gradient and double Grand Ballon ascents to 1325m. Petit Ballon and Col du Platzerwasel add to the Vosges mountain demands. This profile rivals Tour de France heritage climbs."
+      },
+      "climate": {
+        "score": 4,
+        "explanation": "July in Alsace offers warm summer weather ideal for high-altitude Vosges riding. Views of Alsace Plain reward efforts amid forests. Mild conditions support large fields without extreme heat or cold risks."
+      },
+      "altitude": {
+        "score": 5,
+        "explanation": "Grand Ballon at 1325m marks the Vosges' highest peak, with Routes des Cretes traversing lofty ridges. Markstein ski station reaches significant elevation in the nature park. Riders experience rarefied air testing adaptation on prolonged climbs."
+      },
+      "adventure": {
+        "score": 4,
+        "explanation": "Course winds through Ballons des Vosges Nature Park via Tour de France-famous roads like Viel Armand from WWI history. Scenic descents to Florival Valley and Cernay blend challenge with beauty. Alsace Wine Route start adds cultural thrill."
+      },
+      "prestige": {
+        "score": 3,
+        "explanation": "Label d'Or from Fédération Française de Cyclisme recognizes its quality organization. Top 10% age-group finishers qualify for GFNY World events. Third edition sold out, drawing riders from nearby Netherlands, Belgium, and Germany."
+      },
+      "race_quality": {
+        "score": 3,
+        "explanation": "Timed long course includes official GFNY jersey, finisher's medal, and post-race meal in Thann. Age-group categories from 55-59 up to 80+ ensure inclusivity. Mechanical aid and real-time results enhance regional sportive standards."
+      },
+      "experience": {
+        "score": 5,
+        "explanation": "Breathtaking Vosges Balloons views and Alsace Plain panoramas from 1325m summits create unforgettable moments. Festive celebration in Thann's historic center follows climbs like Markstein from 2023 Tour de France. Tour heritage elevates the journey."
+      },
+      "community": {
+        "score": 4,
+        "explanation": "Record sell-outs reflect strong appeal to European riders, with 2000 typical capacity. Thann rolls out red carpet at Place Joffre for sign-in and photos. GFNY's global series fosters camaraderie among age-group competitors."
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "Around 2000 participants fill categories across ages up to 80+, with sold-out editions. Regional draw from Dutch, Belgian, German riders boosts competition. Qualifier corral spots motivate top age-group performances."
+      },
+      "value": {
+        "score": 4,
+        "explanation": "Entry covers GFNY jersey, timing chip, lunch, medal, and assistance on 147 km course. Access to Vosges peaks like Grand Ballon and Petit Ballon justifies cost. Label d'Or status adds prestige for the price."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Travel to Thann in Haut-Rhin requires flights to nearby Basel or Strasbourg airports. Alsace accommodation and wine route proximity balance costs. Race fees align with high-quality inclusions like jersey and post-race meal."
+      },
+      "cultural_impact": {
+        "score": 2,
+        "explanation": "Vosges climbs feature Tour de France history and WWI sites like Viel Armand. Alsace region's wine road and Thann's historic center provide local flavor. Regional favorite in France's mass-participation cycling tradition."
+      }
+    },
+    "course_description": {
+      "summary": "GFNY Grand Ballon challenges riders on a 147 km paved loop from Thann through Ballons des Vosges Nature Park, featuring over 4000m climbing to Grand Ballon at 1325m, the Vosges' highest peak. Iconic ascents like Col du Firstplan (21% max) and double Grand Ballon tests endurance amid Tour de France heritage roads. Stunning views of Vosges forests and Alsace Plain reward the suffering, ending with a flat run to Thann.",
+      "terrain_breakdown": {
+        "paved": 100,
+        "gravel": 0,
+        "singletrack": 0,
+        "other": 0
+      },
+      "key_segments": [
+        {
+          "name": "Grand Ballon (first ascent)",
+          "description": "Mythical climb to 1325m, highest in Vosges, through nature park after Le Plan Diebold warmup.",
+          "distance_mi": 12,
+          "difficulty": "HC"
+        },
+        {
+          "name": "Col du Firstplan",
+          "description": "Mid-race beast with 21% max gradient near halfway in Florival Valley.",
+          "distance_mi": 3,
+          "difficulty": "Cat 1"
+        },
+        {
+          "name": "Petit Ballon & Col du Platzerwasel",
+          "description": "Technical ridge climbs on Routes des Cretes leading to second Grand Ballon.",
+          "distance_mi": 8,
+          "difficulty": "Cat 1"
+        },
+        {
+          "name": "Viel Armand",
+          "description": "Final climb of historical significance before descent through Cernay.",
+          "distance_mi": 5,
+          "difficulty": "Cat 2"
+        }
+      ],
+      "elevation_profile": "Relentless climbing starts at 1km with early peaks, major efforts mid-race at Firstplan and Ballons, lumpy ridges, and late Viel Armand before flat finish. Multiple 1000m+ summits demand pacing.",
+      "aid_stations": "Multiple stations with supervision and mechanical assistance along the 147 km; post-race meal in Thann center."
+    },
+    "logistics": {
+      "registration": {
+        "opens": "TBD for 2026",
+        "closes": "Sells out quickly",
+        "cost": "Includes jersey, meal, timing",
+        "lottery": false,
+        "capacity": 2000
+      },
+      "travel": {
+        "nearest_airport": "Basel-Mulhouse (BSL) or Strasbourg (SXB)",
+        "driving_from_major_city": "2 hours from Strasbourg; 1 hour from Basel",
+        "accommodation": "Hotels in Thann or nearby Colmar on Alsace Wine Route",
+        "bike_transport": "Fly with bike to BSL; mechanical support on-site"
+      },
+      "race_day": {
+        "start_time": "Early morning from Thann historic center",
+        "cutoff": "Age-group qualifiers in top 10%",
+        "categories": "Age groups 18-80+ M/F; long timed, medium non-competitive",
+        "awards": "GFNY World qualifier corral spots; finisher medal"
+      }
+    },
+    "training_recommendations": {
+      "minimum_fitness": "Base of 3000 miles/year; able to ride 70 miles with 5000 ft climbing.",
+      "ideal_preparation": "12-week build with Vosges-style hill repeats; focus on 20% gradient tolerance.",
+      "key_workouts": "3x20min at threshold on 15% climbs; 5hr endurance with 8000ft gain; Grand Ballon simulation intervals."
+    },
+    "history": {
+      "founded": 2018,
+      "notable_facts": "Inaugural 2022; sold out by 2024 with record entries; Label d'Or event; biggest GFNY in France for Northern Europeans."
+    },
+    "final_verdict": {
+      "one_liner": "Vosges climb fest with double Grand Ballon punishment and Tour heritage.",
+      "who_should_ride": "Climb lovers seeking 91-mile, 7500ft Euro gran fondo with qualifier perks.",
+      "who_should_skip": "Flat sprinters or gravel purists; underprepared for 20% pitches.",
+      "insider_tip": "Draft on headwind flats to Cernay; fuel heavy before Firstplan; sign board at Place Joffre."
+    },
+    "suffering_zones": [
+      {
+        "label": "Firstplan Furnace",
+        "description": "21% ramps shred legs mid-race after Grand Ballon descent in Florival Valley."
+      },
+      {
+        "label": "Double Ballon Death",
+        "description": "Second Grand Ballon via Platzerwasel ridges crushes after 70km of Vosges abuse."
+      },
+      {
+        "label": "Viel Verdict",
+        "description": "WWI climb saps final energy before exposed flats into Thann."
+      }
+    ]
+  }
+}

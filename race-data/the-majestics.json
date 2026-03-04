@@ -1,0 +1,199 @@
+{
+  "race": {
+    "slug": "the-majestics",
+    "name": "The Majestics",
+    "vitals": {
+      "slug": "the-majestics",
+      "name": "The Majestics",
+      "date": "2026: July TBD",
+      "date_specific": "2026: July TBD",
+      "distance_mi": 81,
+      "elevation_ft": 8800,
+      "location": "Villars-sur-Ollon, Vaud, Switzerland",
+      "terrain": "Paved roads",
+      "website": "https://ucigranfondoworldseries.com/en/villars/",
+      "registration_url": "https://www.finishers.com/en/event/uci-gran-fondo-suisse-time-trial",
+      "prestige": 3,
+      "overall_score": 79,
+      "tier": 2,
+      "discipline": "road",
+      "month": "July"
+    },
+    "gravel_god_rating": {
+      "logistics": 4,
+      "length": 4,
+      "technicality": 2,
+      "elevation": 5,
+      "climate": 4,
+      "altitude": 5,
+      "adventure": 4,
+      "prestige": 3,
+      "race_quality": 4,
+      "experience": 5,
+      "community": 3,
+      "field_depth": 3,
+      "value": 4,
+      "expenses": 3,
+      "cultural_impact": 2,
+      "overall_score": 79,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 4,
+        "explanation": "Registration opens early with tiered pricing from CHF 75 for Granfondo early birds in Villars-sur-Ollon. Multiple distances including 150km Granfondo and 7.4km time trial to Col de la Croix accommodate varied levels. Proximity to Lake Geneva and Aigle castle aids post-race recovery."
+      },
+      "length": {
+        "score": 4,
+        "explanation": "Granfondo covers 150km with 3809m elevation through Vaudois Alps from Villars-sur-Ollon. Mediofondo at 106km with 2616m offers shorter challenge via Chateau d'Oex. Time trial adds 7.4km punchy climb to Col de la Croix at 1775m."
+      },
+      "technicality": {
+        "score": 2,
+        "explanation": "Fully paved roads through high Vaud Alps passes like Col du Pillon and Col des Mosses. Steady gradients up to 13% on time trial sectors from Villars-sur-Ollon. No gravel or off-road demands pure road climbing power."
+      },
+      "elevation": {
+        "score": 5,
+        "explanation": "Granfondo totals 3800m+ gain hitting Col de la Croix (1778m), Col du Mittelberg (1633m), and final Croix ascent. Drops to 690m Hongrin valley before Col des Mosses (1445m) and La Forclaz (1283m). Time trial packs 467m over 7.4km at 6.3% average."
+      },
+      "climate": {
+        "score": 4,
+        "explanation": "Mid-July in Vaud Alps offers mild summer highs around 20-25C in Villars-sur-Ollon at 1309m. High passes like Col de la Croix risk cooler winds and showers. Post-race Lavey Spa provides recovery near Lake Geneva."
+      },
+      "altitude": {
+        "score": 5,
+        "explanation": "Starts at 1309m in Villars-sur-Ollon summiting Col de la Croix at 1778m multiple times. Includes Col du Pillon (1544m) and Col du Mittelberg (1633m) in thin air. Hongrin dam low at 690m contrasts extreme Vaudois altitude swings."
+      },
+      "adventure": {
+        "score": 4,
+        "explanation": "Traverses untamed Hongrin valley to its lake and dam from Pays-d'En Haut to Saanenland. Iconic Vaudois passes like Col des Mosses and La Forclaz deliver Grand Tour-style mountain stage. Breathtaking landscapes east of Lake Geneva amplify epic feel."
+      },
+      "prestige": {
+        "score": 3,
+        "explanation": "UCI Gran Fondo World Series qualifier in Villars-sur-Ollon with Granfondo for men 19-59. Combines time trial, Mediofondo, and Granfondo routes. Regional Swiss Alpine event drawing dedicated amateurs since 2019."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "UCI-sanctioned with qualifier distances and pro-level climbs like double Col de la Croix. Organized by R&D Cycling from Villars Sports Centre start. Multiple categories ensure fair competition across ages."
+      },
+      "experience": {
+        "score": 5,
+        "explanation": "Concludes with steep Col de la Croix retrace after Col des Mosses and La Forclaz. Time trial from Villars-sur-Ollon tests pure climbing on 13% ramps. UCI prestige elevates the Vaud Alps spectacle."
+      },
+      "community": {
+        "score": 3,
+        "explanation": "Typical 1500 participants fill categories in Swiss Alpine tradition. Local support in Villars-sur-Ollon and nearby Aigle. Pairs with UCI Gravel Suisse same weekend for vibrant atmosphere."
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "Around 1500 riders across Granfondo, Mediofondo, and time trial in Villars-sur-Ollon. UCI qualifiers attract strong regional climbers for Vaud passes. Capacity supports quality amateur field."
+      },
+      "value": {
+        "score": 4,
+        "explanation": "Early bird Granfondo at CHF 75 offers huge value for 150km/3800m in Vaud Alps. Tiered pricing to CHF 145 rewards early registration. Includes UCI qualifier status near UCI headquarters."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Swiss costs with Granfondo up to CHF 145 late entry from Villars-sur-Ollon base. Accommodation in Alpes Vaudoises adds premium. Travel from Geneva Airport offsets with event value."
+      },
+      "cultural_impact": {
+        "score": 2,
+        "explanation": "Niche Swiss event showcasing Vaudois Alps passes like Col du Pillon near UCI HQ. Draws regional cyclists to Villars-sur-Ollon heritage. Limited international draw despite UCI tie-in."
+      }
+    },
+    "course_description": {
+      "summary": "The Majestics Granfondo starts in Villars-sur-Ollon, tackling high Vaud Alps passes including double ascents of Col de la Croix at 1778m and Col du Pillon at 1544m. Riders descend to Hongrin valley's 690m dam before climbing Col des Mosses and La Forclaz, finishing with a punishing Croix retrace. This UCI GFWS qualifier delivers Grand Tour intensity over approximately 130km with 2700m gain on paved roads.",
+      "terrain_breakdown": {
+        "paved": 100,
+        "gravel": 0,
+        "singletrack": 0,
+        "other": 0
+      },
+      "key_segments": [
+        {
+          "name": "Col de la Croix (first ascent)",
+          "description": "Initial warm-up climb from Villars-sur-Ollon reaching 1778m after time trial start area.",
+          "distance_mi": 4.6,
+          "difficulty": "HC"
+        },
+        {
+          "name": "Col du Mittelberg",
+          "description": "Breathtaking link from Pays-d'Enhaut to Saanenland at 1633m through wild landscapes.",
+          "distance_mi": 6.2,
+          "difficulty": "1"
+        },
+        {
+          "name": "Hongrin Valley to Dam",
+          "description": "Descent to lowest point at 690m lake and dam before major climbs resume.",
+          "distance_mi": 12.4,
+          "difficulty": "descent"
+        },
+        {
+          "name": "Col des Mosses and La Forclaz",
+          "description": "Mid-late climbs at 1445m and 1283m building to final challenge.",
+          "distance_mi": 8.7,
+          "difficulty": "2"
+        },
+        {
+          "name": "Final Col de la Croix",
+          "description": "Race-ending steep retrace to 1778m summit from Villars-sur-Ollon base.",
+          "distance_mi": 4.6,
+          "difficulty": "HC"
+        }
+      ],
+      "elevation_profile": "Multiple high passes with early double Croix/Pillon warm-up, valley bottom at Hongrin dam, late Mosses/Forclaz, and Croix finale; steady 6-13% gradients.",
+      "aid_stations": "Multiple along 150km route at key valleys and passes including post-Pillon, Hongrin area, and pre-Mosses."
+    },
+    "logistics": {
+      "registration": {
+        "opens": "November 2025",
+        "closes": "July 7 2026",
+        "cost": "CHF 75-145 tiered (early to late Granfondo)",
+        "lottery": false,
+        "capacity": 1500
+      },
+      "travel": {
+        "nearest_airport": "Geneva (GVA, 1.5 hours drive)",
+        "driving_from_major_city": "Lausanne (1 hour), Geneva (1.5 hours)",
+        "accommodation": "Hotels in Villars-sur-Ollon and Alpes Vaudoises; book early for July",
+        "bike_transport": "Fly to GVA with bike; local shops in Villars for assembly"
+      },
+      "race_day": {
+        "start_time": "7:30 AM Villars Sports Centre",
+        "cutoff": "6:00 PM",
+        "categories": "Granfondo (19-59M/19-49F UCI qualifier), Mediofondo (60+M/50+F), Time Trial",
+        "awards": "Age group podiums, UCI qualifiers"
+      }
+    },
+    "training_recommendations": {
+      "minimum_fitness": "Base of 3000km/year with 10% climbing; complete 100km/2500m sportive.",
+      "ideal_preparation": "12-week block peaking with 20+ hour weeks; altitude camp simulating 1300-1800m.",
+      "key_workouts": "3x Col de la Croix-style 5km@6-13% repeats; 5hr endurance with 3000m gain; 7km TT intervals."
+    },
+    "history": {
+      "founded": 2019,
+      "notable_facts": "Updated courses in 2024 with new Vaud mountains; UCI GFWS qualifier near UCI HQ; pairs with UCI Gravel Suisse."
+    },
+    "final_verdict": {
+      "one_liner": "Brutal Vaud Alps qualifier with double Croix punishment.",
+      "who_should_ride": "Strong climbers seeking UCI points via Grand Tour passes.",
+      "who_should_skip": "Flatland sprinters or low-volume riders daunted by 2700m+.",
+      "insider_tip": "Pre-ride Col du Pillon descent; stay in Villars for 1309m acclimation."
+    },
+    "suffering_zones": [
+      {
+        "label": "Double Col de la Croix",
+        "description": "1778m opener and finale with 13% ramps after 100km fatigue in Vaud heat."
+      },
+      {
+        "label": "Hongrin Valley Reversal",
+        "description": "Post-low 690m dam, grinding back up through Mosses/Forclaz on tired legs."
+      },
+      {
+        "label": "Mittelberg Wilds",
+        "description": "Exposed 1633m climb linking regions with relentless alpine gradients."
+      }
+    ]
+  }
+}

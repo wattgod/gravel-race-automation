@@ -1,0 +1,193 @@
+{
+  "race": {
+    "slug": "granfondo-vosges",
+    "name": "Granfondo Vosges",
+    "vitals": {
+      "slug": "granfondo-vosges",
+      "name": "Granfondo Vosges",
+      "date": "2026: May TBD",
+      "date_specific": "2026: May TBD",
+      "distance_mi": 62,
+      "elevation_ft": 5900,
+      "location": "La Bresse, Vosges, France",
+      "terrain": "Paved roads",
+      "website": "https://granfondovosges.com",
+      "registration_url": "https://granfondovosges.com",
+      "prestige": 3,
+      "overall_score": 71,
+      "tier": 2,
+      "discipline": "road",
+      "month": "May"
+    },
+    "gravel_god_rating": {
+      "logistics": 3,
+      "length": 3,
+      "technicality": 2,
+      "elevation": 4,
+      "climate": 4,
+      "altitude": 4,
+      "adventure": 4,
+      "prestige": 3,
+      "race_quality": 4,
+      "experience": 4,
+      "community": 3,
+      "field_depth": 3,
+      "value": 4,
+      "expenses": 3,
+      "cultural_impact": 2,
+      "overall_score": 71,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 3,
+        "explanation": "Start and finish at La Bresse-Hohneck ski station simplifies logistics with on-site parking and facilities. Proximity to La Bresse town at 900m altitude offers easy access to accommodations. Multiple distances including the 62-mile Mediofondo cater to varied rider levels."
+      },
+      "length": {
+        "score": 3,
+        "explanation": "The 62-mile Mediofondo distance splits from the Granfondo at km 60, covering 62 km back to La Bresse-Hohneck. This length challenges endurance without the full 109-mile Granfondo commitment. It aligns perfectly with the query's 62-mile specification."
+      },
+      "technicality": {
+        "score": 2,
+        "explanation": "Paved roads through Vosges mountains feature short, steep climbs like La Croix des Moinats at 891m rather than technical descents. Focus remains on sustained power climbing over handling skills. Smooth surfaces suit road bike setups without gravel demands."
+      },
+      "elevation": {
+        "score": 4,
+        "explanation": "Approximately 5900 feet of gain over 62 miles matches the demanding Mediofondo profile with climbs like Col du Champdray at 733m. Final ascents include 10km to Col des Feignes at 993m and 9km to La Bresse-Hohneck at 898m. Mountainous terrain delivers serious vertical."
+      },
+      "climate": {
+        "score": 4,
+        "explanation": "Mid-May timing in Vosges offers mild spring weather near the German border, ideal for climbing. Ski station at 1100-1350m provides cooler highs avoiding summer heat. Low precipitation risk enhances ride conditions."
+      },
+      "altitude": {
+        "score": 4,
+        "explanation": "Courses reach elevations up to 993m at Col des Feignes from La Bresse base at 900m. La Bresse-Hohneck station operates at 1100-1350m, introducing high-altitude efforts. Northeast France's Vosges deliver consistent summit challenges."
+      },
+      "adventure": {
+        "score": 4,
+        "explanation": "Mountain course winds through Vosges passes like Haut du Tôt at 866m and Col des Écureuils at 678m near German border. Loop around Lispach lake adds scenic variety before major climbs. UCI qualifier status amplifies the exploratory mountain ride feel."
+      },
+      "prestige": {
+        "score": 3,
+        "explanation": "UCI Gran Fondo World Series qualifier offers qualification for men 60+ on Mediofondo distance. Regional event in northeast France's Vosges mountains builds steady reputation. Annual May tradition since early editions supports its standing."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "UCI-sanctioned with Granfondo at 175km/2894m and Mediofondo sharing finales like Col des Feignes. Professional organization by Golazo Sports France ensures quality. Qualifier for World Championships elevates standards."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "Finale features 10km climb to Col des Feignes and 9km to La Bresse-Hohneck amid stunning Vosges scenery. Ski station setting provides festive atmosphere post-ride. Mix of short steeps and long grinds creates memorable suffering."
+      },
+      "community": {
+        "score": 3,
+        "explanation": "Around 1500-2300 participants fill La Bresse-Hohneck start, fostering group energy. Local Vosges cycling scene supports with clubs and spectators. Family-friendly rando option broadens appeal."
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "Typical 1500 participants hit 1000-5000 range for solid depth in regional UCI qualifier. Draws international qualifiers targeting Worlds spots. Competitive men's 19-59 on longer distance spills quality to Mediofondo."
+      },
+      "value": {
+        "score": 4,
+        "explanation": "UCI qualifier access for 62-mile effort with 5900ft gain offers high reward. Scenic Vosges mountains and ski station base enhance experience per euro. Multiple distances provide flexibility."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "France travel to La Bresse incurs moderate costs with nearby airports. Local accommodations in Vosges valley keep lodging reasonable. Event fees balanced by qualifier prestige."
+      },
+      "cultural_impact": {
+        "score": 2,
+        "explanation": "Niche appeal in Vosges region as key local cyclosportif event. Builds French gran fondo tradition without national dominance. Ties to La Bresse tourism strengthen regional footprint."
+      }
+    },
+    "course_description": {
+      "summary": "The Granfondo Vosges Mediofondo covers approximately 62 miles from La Bresse-Hohneck through the Vosges mountains, featuring steep early climbs and a demanding finale. Riders tackle passes like Col du Champdray before the 10km ascent to Col des Feignes and final 9km to the ski station finish. This UCI qualifier delivers mountainous road challenge near France's German border.",
+      "terrain_breakdown": {
+        "paved": 100,
+        "gravel": 0,
+        "singletrack": 0,
+        "other": 0
+      },
+      "key_segments": [
+        {
+          "name": "Col des Écureuils",
+          "description": "Early steep climb at 678m after Lispach lake loop.",
+          "distance_mi": 2,
+          "difficulty": "steep"
+        },
+        {
+          "name": "Col du Champdray",
+          "description": "Mid-parcours ascent at 733m shared with Granfondo.",
+          "distance_mi": 3,
+          "difficulty": "moderate"
+        },
+        {
+          "name": "Col des Feignes",
+          "description": "10km penultimate climb to 993m before final push.",
+          "distance_mi": 6.2,
+          "difficulty": "long steady"
+        },
+        {
+          "name": "Finish at La Bresse-Hohneck",
+          "description": "9km climb to ski station at 898m.",
+          "distance_mi": 5.6,
+          "difficulty": "exigent"
+        }
+      ],
+      "elevation_profile": "Rolling start with short steeps to La Croix des Moinats (891m) and Haut du Tôt (866m), flatter mid-section before Col du Champdray (733m), then major late climbs: 10km Col des Feignes (993m) and 9km to La Bresse-Hohneck (898m) totaling ~5900ft.",
+      "aid_stations": "Multiple stations along 62-mile course, positioned post-major climbs like after Col du Champdray and before Col des Feignes."
+    },
+    "logistics": {
+      "registration": {
+        "opens": "Early 2026",
+        "closes": "May 2026",
+        "cost": "€50-€80",
+        "lottery": false,
+        "capacity": 1500
+      },
+      "travel": {
+        "nearest_airport": "Bâle-Mulhouse (BSL) or Strasbourg (SXB), 2-3 hours drive",
+        "driving_from_major_city": "3 hours from Strasbourg, 4 hours from Lyon",
+        "accommodation": "Hotels and campings in La Bresse valley, ski station nearby",
+        "bike_transport": "Fly to BSL with bike bag, rent car or shuttle from airport"
+      },
+      "race_day": {
+        "start_time": "8:00 AM",
+        "cutoff": "5:00 PM",
+        "categories": "Age groups by gender, qualifiers for UCI Worlds",
+        "awards": "Podiums per age category, qualifier spots"
+      }
+    },
+    "training_recommendations": {
+      "minimum_fitness": "Base of 2000 miles/year with hill repeats; FTP 3.5w/kg for sub-5hr finish.",
+      "ideal_preparation": "8-12 weeks building to 200-250 mile weeks with Vosges-style climbs.",
+      "key_workouts": "2x20min at 5% gradient; 3hr rides with 3000ft gain; threshold intervals simulating Col des Feignes."
+    },
+    "history": {
+      "founded": 2018,
+      "notable_facts": "UCI GFWS qualifier since 2021; 2026 marks 9th edition; 2300 entrants in 2024; longest GF in series at 175km."
+    },
+    "final_verdict": {
+      "one_liner": "Mountain UCI qualifier with epic Vosges finales perfect for 62-mile climbers.",
+      "who_should_ride": "Age 60+ men and women seeking Worlds qualification; strong regional climbers loving steep Vosges passes.",
+      "who_should_skip": "Flatland sprinters or those undertrained for 5900ft; gravel purists.",
+      "insider_tip": "Pre-ride Lispach lake loop for warmup; target strong Col des Feignes to gap field before final 9km."
+    },
+    "suffering_zones": [
+      {
+        "label": "Col des Feignes Grind",
+        "description": "10km at ~4-5% through Vosges forests to 993m; legs burn mid-climb before easing to finish."
+      },
+      {
+        "label": "Hohneck Finale",
+        "description": "9km drag to ski station; crowds cheer as fatigue peaks near 898m summit line."
+      },
+      {
+        "label": "Early Steeps",
+        "description": "Short raides to Croix des Moinats (891m) and Haut du Tôt (866m) spike HR right after Lispach."
+      }
+    ]
+  }
+}

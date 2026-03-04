@@ -1,0 +1,24 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "GFNY Maryland Cambridge",
+  "description": "",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-10-04",
+  "location": {
+    "@type": "Place",
+    "name": "Cambridge, Maryland, USA",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Cambridge",
+      "addressRegion": "Maryland"
+    }
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "60",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  }
+}

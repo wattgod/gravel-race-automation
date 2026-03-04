@@ -1,0 +1,183 @@
+{
+  "race": {
+    "slug": "tour-de-yabakei",
+    "name": "Tour de Yabakei",
+    "vitals": {
+      "slug": "tour-de-yabakei",
+      "name": "Tour de Yabakei",
+      "date": "2026: May TBD",
+      "date_specific": "2026: May TBD",
+      "distance_mi": 62,
+      "elevation_ft": 3500,
+      "location": "Nakatsu, Oita, Japan",
+      "terrain": "Paved roads",
+      "website": "https://tourdeyabakei.studio.site",
+      "registration_url": "https://tourdeyabakei.studio.site",
+      "prestige": 2,
+      "overall_score": 64,
+      "tier": 2,
+      "discipline": "road",
+      "month": "May"
+    },
+    "gravel_god_rating": {
+      "logistics": 3,
+      "length": 3,
+      "technicality": 1,
+      "elevation": 4,
+      "climate": 4,
+      "altitude": 2,
+      "adventure": 3,
+      "prestige": 2,
+      "race_quality": 3,
+      "experience": 4,
+      "community": 3,
+      "field_depth": 3,
+      "value": 4,
+      "expenses": 4,
+      "cultural_impact": 2,
+      "overall_score": 64,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 3,
+        "explanation": "Start and finish at 2221-1 Yabakeimachi Oaza Oshima in Nakatsu provides easy access near Fukuoka border. Yabakei Cycling Terminal and Roadside Station Yaba Topia offer nearby support facilities. Proximity to Nakatsu-Hita Road IC simplifies arrival for international riders."
+      },
+      "length": {
+        "score": 3,
+        "explanation": "62-mile distance through Yabakei Gorge suits mid-level endurance riders. Covers scenic valleys like Hon-Yabakei and Shin-Yabakei without excessive strain. Allows time for aid station stops featuring local Oita ingredients."
+      },
+      "technicality": {
+        "score": 1,
+        "explanation": "Fully paved roads along Yamaguni River valley demand no off-road skills. Focus remains on steady pedaling through mountain and river paths. Leisurely format prioritizes scenery over technical demands."
+      },
+      "elevation": {
+        "score": 4,
+        "explanation": "3500 feet gain features challenging climbs in Yabakei reminiscent of pro hill courses. Routes wind through Oku-Yabakei and Ura-Yabakei gorges. Delivers rewarding ascents amid dramatic rock formations."
+      },
+      "climate": {
+        "score": 4,
+        "explanation": "May timing in Oita offers mild spring weather ideal for Kyushu cycling. Low rainfall risk enhances enjoyment of Yabakei vistas. Comfortable temperatures support leisurely pace."
+      },
+      "altitude": {
+        "score": 2,
+        "explanation": "Low elevation profiles in Nakatsu area avoid high-altitude challenges. Yamaguni River valley keeps riders near sea level. Focus stays on gorge climbs rather than summit heights."
+      },
+      "adventure": {
+        "score": 3,
+        "explanation": "Mountain roads through four Yabakei areas provide scenic gorge adventure. River valley paths near Yabakei Bridge add exploratory feel. Gran Fondo format blends challenge with cultural immersion."
+      },
+      "prestige": {
+        "score": 2,
+        "explanation": "Gran Fondo World Tour stop attracts steady field to Nakatsu. Regional appeal in Oita draws Japanese cyclists. Steady growth since 2015 builds quiet reputation."
+      },
+      "race_quality": {
+        "score": 3,
+        "explanation": "Regional event emphasizes leisure over competition in Yabakei. Aid stations with Oita specialties elevate experience. Well-organized with clear course through iconic gorges."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "Breathtaking Yabakei landscapes including Jingxiu Feng views captivate riders. Stops at local spots like Soba Takenoko enhance immersion. Sense of achievement from 3500 feet in scenic setting."
+      },
+      "community": {
+        "score": 3,
+        "explanation": "2000 participants foster friendly vibe in Nakatsu community. Local support via Yabakei Cycling Terminal builds camaraderie. Regional draw from Fukuoka border encourages group rides."
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "Typical 2000 entrants provide solid mid-tier competition. Attracts domestic riders to Oita's Yabakei course. Capacity matches demand without overwhelming logistics."
+      },
+      "value": {
+        "score": 4,
+        "explanation": "Affordable entry for 62-mile Gran Fondo in Japan. Abundant aid with regional foods adds high value. Scenic payoff through multiple Yabakei valleys justifies cost."
+      },
+      "expenses": {
+        "score": 4,
+        "explanation": "Low travel costs from nearby Fukuoka airports to Nakatsu. Local accommodations like Roadside Station Yamakuni keep budgets friendly. No luxury demands fit leisure event."
+      },
+      "cultural_impact": {
+        "score": 2,
+        "explanation": "Highlights regional Oita gorge beauty in Kyushu. Engages Nakatsu tourism via Yabakei heritage. Niche appeal among Japanese cycling enthusiasts."
+      }
+    },
+    "course_description": {
+      "summary": "Tour de Yabakei offers a 62-mile scenic ride through the stunning Yabakei Gorge areas of Nakatsu, Oita, featuring mountain roads and river valleys on Kyushu island. Riders enjoy leisurely pacing with challenging climbs totaling 3500 feet, reminiscent of professional hill courses. Aid stations provide local Oita specialties amid breathtaking landscapes of Hon-Yabakei, Shin-Yabakei, Ura-Yabakei, and Oku-Yabakei.",
+      "terrain_breakdown": {
+        "paved": 100,
+        "gravel": 0,
+        "singletrack": 0,
+        "other": 0
+      },
+      "key_segments": [
+        {
+          "name": "Yabakei Gorge Climbs",
+          "description": "Challenging ascents through Hon-Yabakei and Shin-Yabakei with pro-level gradients.",
+          "distance_mi": 15,
+          "difficulty": "hard"
+        },
+        {
+          "name": "Yamaguni River Valley",
+          "description": "Rolling paved paths along the river near Yabakei Bridge with scenic views.",
+          "distance_mi": 20,
+          "difficulty": "moderate"
+        },
+        {
+          "name": "Oku-Yabakei Finale",
+          "description": "Steep pulls through remote gorge sections building to rewarding descent.",
+          "distance_mi": 10,
+          "difficulty": "hard"
+        }
+      ],
+      "elevation_profile": "Steady climbs totaling 3500 feet concentrated in Yabakei gorges, with multiple KOM-style segments amid rock formations and river views.",
+      "aid_stations": "Multiple stations offering local Oita ingredients and specialties, positioned at key points like near Roadside Station Yaba Topia."
+    },
+    "logistics": {
+      "registration": {
+        "opens": "January",
+        "closes": "March",
+        "cost": "Moderate entry fee",
+        "lottery": false,
+        "capacity": 2000
+      },
+      "travel": {
+        "nearest_airport": "Fukuoka Airport (FUK), 1-2 hours drive",
+        "driving_from_major_city": "1 hour from Fukuoka City via expressway",
+        "accommodation": "Nakatsu hotels, Roadside Station Yamakuni, Yabakei Camping options",
+        "bike_transport": "Yabakei Cycling Terminal offers assembly and storage"
+      },
+      "race_day": {
+        "start_time": "Early morning from 2221-1 Yabakeimachi Oaza Oshima",
+        "cutoff": "Self-paced leisurely format",
+        "categories": "Open Gran Fondo distances",
+        "awards": "Completion certificates and local prizes"
+      }
+    },
+    "training_recommendations": {
+      "minimum_fitness": "Base of 2000 miles/year with hill repeats.",
+      "ideal_preparation": "Build 4-6 weeks of 50-70 mile rides including 3000+ ft elevation.",
+      "key_workouts": "2x 2-hour hill sessions mimicking Yabakei gradients; 4-hour endurance ride at zone 2."
+    },
+    "history": {
+      "founded": 2015,
+      "notable_facts": "Gran Fondo World Tour qualifier; emphasizes leisure over racing; showcases Yabakei as Kyushu cycling gem."
+    },
+    "final_verdict": {
+      "one_liner": "Scenic Yabakei gorge ramble blending climbs and culture.",
+      "who_should_ride": "Scenery seekers and mid-level climbers wanting Japanese Gran Fondo vibes.",
+      "who_should_skip": "Speed racers or gravel purists.",
+      "insider_tip": "Arrive early for Yabakei Bridge parking; sample soba at aid stations near Oshima."
+    },
+    "suffering_zones": [
+      {
+        "label": "Gorge Wall Climbs",
+        "description": "Steep 10-15% gradients through Hon-Yabakei testing legs amid sheer rock faces."
+      },
+      {
+        "label": "Ura-Yabakei Pulls",
+        "description": "Remote valley ascents with 3500 ft cumulative burn in humid May air."
+      }
+    ]
+  }
+}

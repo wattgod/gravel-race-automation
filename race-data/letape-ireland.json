@@ -1,0 +1,187 @@
+{
+  "race": {
+    "slug": "letape-ireland",
+    "name": "L'Etape Ireland",
+    "vitals": {
+      "slug": "letape-ireland",
+      "name": "L'Etape Ireland",
+      "date": "2026: September TBD",
+      "date_specific": "2026: September TBD",
+      "distance_mi": 93,
+      "elevation_ft": 6200,
+      "location": "Carrick-on-Suir, County Tipperary, Ireland",
+      "terrain": "Paved roads",
+      "website": "https://ireland.letapeseries.com",
+      "registration_url": "https://ireland.letapeseries.com",
+      "prestige": 3,
+      "overall_score": 74,
+      "tier": 2,
+      "discipline": "road",
+      "month": "September"
+    },
+    "gravel_god_rating": {
+      "logistics": 4,
+      "length": 4,
+      "technicality": 2,
+      "elevation": 4,
+      "climate": 4,
+      "altitude": 2,
+      "adventure": 4,
+      "prestige": 3,
+      "race_quality": 3,
+      "experience": 5,
+      "community": 4,
+      "field_depth": 3,
+      "value": 4,
+      "expenses": 3,
+      "cultural_impact": 3,
+      "overall_score": 74,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 4,
+        "explanation": "Circular route starting and finishing in Carrick-on-Suir simplifies logistics with no A-to-B transport needed. Race pack pickup available the day before or morning of in the event village near the start. Pens divided by average speed ensure smooth rollout after a 2km neutralized start."
+      },
+      "length": {
+        "score": 4,
+        "explanation": "93-mile distance challenges endurance without overwhelming most fit amateurs. Comparable to the 98km 2024 Kerry route that included major climbs. Allows full-day effort through Comeragh Mountains back to Carrick-on-Suir."
+      },
+      "technicality": {
+        "score": 2,
+        "explanation": "Paved roads through County Tipperary demand standard road skills only. Descents after climbs like those in Comeragh Mountains require caution but marshals provide warnings as in prior events. No gravel or singletrack sections."
+      },
+      "elevation": {
+        "score": 4,
+        "explanation": "6200 feet of gain over 93 miles features sustained mountain efforts in Comeragh Mountains. Similar to 2024's Molls Gap (300m over 9.45km) and Ballaghabema climbs. Demands strong climbing legs for repeated ascents."
+      },
+      "climate": {
+        "score": 4,
+        "explanation": "September in County Tipperary offers mild temperatures ideal for long efforts. Misty mornings possible as in Kerry's 2024 edition, clearing to stunning views. Low risk of extreme heat or cold enhances comfort."
+      },
+      "altitude": {
+        "score": 2,
+        "explanation": "Low elevations throughout Tipperary countryside prevent hypoxia issues. Focus remains on climbs like Comeragh passes rather than high altitude. Suitable for sea-level trained riders."
+      },
+      "adventure": {
+        "score": 4,
+        "explanation": "Routes wind through Comeragh Mountains with lake views, coastal stretches, and forest descents near Carrick-on-Suir. Evokes Tour de France atmosphere on Irish roads. No dull sections, all scenery-focused."
+      },
+      "prestige": {
+        "score": 3,
+        "explanation": "Official Tour de France L'Etape series event brings branded prestige to Ireland. First held in 2024, now in Sean Kelly's Tipperary region. Attracts international peloton for green jersey sprints."
+      },
+      "race_quality": {
+        "score": 3,
+        "explanation": "Regional sportive with TdF-style organization including KOM/QOM and sprints like Caragh Lake stage. Well-stocked feed stations at key points such as after major climbs. High production in Event Village post-finish."
+      },
+      "experience": {
+        "score": 5,
+        "explanation": "Immersive TdF feel with timing chips, pro-style pens, and post-ride village in Carrick-on-Suir. Stunning Comeragh Mountain vistas reward efforts as in 2024 Kerry sunbreaks. Magical blend of challenge and scenery."
+      },
+      "community": {
+        "score": 4,
+        "explanation": "2000 participants foster strong group riding, especially post-convergence on routes. Local Tipperary support and ambassadors like Dan Martin build vibe. Family-friendly with kids' events nearby."
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "Typical 2000 riders match 1000-5000 field for competitive yet accessible pelotons. Speed-based waves prevent chaos. Draws diverse nationalities as in series' 60,000 annual cyclists."
+      },
+      "value": {
+        "score": 4,
+        "explanation": "TdF licensing delivers premium experience at sportive pricing for 93-mile challenge. Includes timing, feeds, and village access in Carrick-on-Suir. High scenery-to-cost ratio in Tipperary."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Travel to rural Tipperary adds moderate costs, but local start reduces logistics fees. Accommodation near Carrick-on-Suir affordable versus major cities. Entry reflects ASO licensing premium."
+      },
+      "cultural_impact": {
+        "score": 3,
+        "explanation": "Brings TdF to Ireland nationally, spotlighting Sean Kelly's County Tipperary hometown. Builds domestic cycling buzz post-2024 debut. Fosters national pride in hosting global series event."
+      }
+    },
+    "course_description": {
+      "summary": "L'Etape Ireland challenges riders with 93 miles of paved roads from Carrick-on-Suir through the rugged Comeragh Mountains, featuring 6200 feet of climbing. The circular route offers Tour de France-style competition with KOMs, sprints, and stunning Irish landscapes including misty passes and lake views. Finishing back in town, it captures the essence of pro racing in Sean Kelly's homeland.",
+      "terrain_breakdown": {
+        "paved": 100,
+        "gravel": 0,
+        "singletrack": 0,
+        "other": 0
+      },
+      "key_segments": [
+        {
+          "name": "Comeragh Mountains Climb",
+          "description": "Sustained ascent akin to Molls Gap with 300m gain over 9km through misty passes.",
+          "distance_mi": 5.6,
+          "difficulty": "Hard"
+        },
+        {
+          "name": "Ballaghabema-Style Drag",
+          "description": "Steep, spiky forestry climb narrowing to technical pitches before fast descent.",
+          "distance_mi": 2.8,
+          "difficulty": "Very Hard"
+        },
+        {
+          "name": "Caragh Lake Sprint",
+          "description": "Flat 700m sprint along lake roads for green jersey contention.",
+          "distance_mi": 0.4,
+          "difficulty": "Moderate"
+        }
+      ],
+      "elevation_profile": "Rolling start from Carrick-on-Suir builds to major climbs in Comeragh Mountains mid-route, with punchy rollers and fast descents before flat finish.",
+      "aid_stations": "Multiple water stops at climb summits like post-Molls Gap equivalent; full feed stations stocked with gels and food at 36-mile mark near Sneem-style village."
+    },
+    "logistics": {
+      "registration": {
+        "opens": "Spring 2026",
+        "closes": "August 2026",
+        "cost": "$150-250",
+        "lottery": false,
+        "capacity": 2000
+      },
+      "travel": {
+        "nearest_airport": "Waterford Airport (WDH) or Cork (ORK), 1-2 hours drive",
+        "driving_from_major_city": "Dublin: 2.5 hours; Cork: 1.5 hours to Carrick-on-Suir",
+        "accommodation": "Hotels and B&Bs in Carrick-on-Suir; book early for event weekend",
+        "bike_transport": "Fly bikes boxed to Ireland airports; local shops for assembly"
+      },
+      "race_day": {
+        "start_time": "7:40am main wave",
+        "cutoff": "5pm",
+        "categories": "Distance waves by avg speed; KOM/QOM; sprints",
+        "awards": "Top finishers, mountain/sprint leaders in Event Village"
+      }
+    },
+    "training_recommendations": {
+      "minimum_fitness": "Base of 2000+ miles/year; able to ride 70 miles with 4000ft gain.",
+      "ideal_preparation": "8-12 weeks with 2-3 hill sessions/week; long rides 70-90 miles.",
+      "key_workouts": "- 3x10min climbs at threshold simulating Comeragh pitches\n- 4hr endurance with 5000ft gain\n- Sprint intervals for green jersey stages"
+    },
+    "history": {
+      "founded": 2024,
+      "notable_facts": "Debuted in Killarney, Kerry as 32nd global L'Etape; official TdF amateur series. Sean Kelly's Tipperary region hosts for 2026, emphasizing Irish cycling heritage. Attracted strong international field in inaugural year."
+    },
+    "final_verdict": {
+      "one_liner": "TdF magic on Irish mountains: challenging, scenic, accessible.",
+      "who_should_ride": "Ambitious roadies seeking prestige climbs in stunning Comeragh terrain; 2000-rider pelotons suit group riders.",
+      "who_should_skip": "Gravel purists or those hating rain-mist; novices under 3000 miles/year.",
+      "insider_tip": "Gel before Ballaghabema-style steeps; join local shakedown for leg-openers in Tipperary."
+    },
+    "suffering_zones": [
+      {
+        "label": "Comeragh Spikes",
+        "description": "Final pitches of mountain climbs where cadence drops and walking tempts, like Ballaghabema's steeps amid forestry."
+      },
+      {
+        "label": "Headwind Drags",
+        "description": "5-mile post-feed climbs into wind, testing resolve before second KOM in Tipperary hills."
+      },
+      {
+        "label": "Late Rollers",
+        "description": "Final 20 miles' deceptive undulations feel eternal if early efforts deplete glycogen."
+      }
+    ]
+  }
+}

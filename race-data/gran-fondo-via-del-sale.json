@@ -1,0 +1,187 @@
+{
+  "race": {
+    "slug": "gran-fondo-via-del-sale",
+    "name": "Gran Fondo Via del Sale",
+    "vitals": {
+      "slug": "gran-fondo-via-del-sale",
+      "name": "Gran Fondo Via del Sale",
+      "date": "2026: March 29",
+      "date_specific": "2026: March 29",
+      "distance_mi": 87,
+      "elevation_ft": 4800,
+      "location": "Cervia, Emilia-Romagna, Italy",
+      "terrain": "Paved roads",
+      "website": "https://granfondoviadelsale.com",
+      "registration_url": "https://granfondoviadelsale.com",
+      "prestige": 3,
+      "overall_score": 70,
+      "tier": 2,
+      "discipline": "road",
+      "month": "March"
+    },
+    "gravel_god_rating": {
+      "logistics": 4,
+      "length": 4,
+      "technicality": 2,
+      "elevation": 4,
+      "climate": 4,
+      "altitude": 2,
+      "adventure": 3,
+      "prestige": 3,
+      "race_quality": 3,
+      "experience": 4,
+      "community": 4,
+      "field_depth": 3,
+      "value": 4,
+      "expenses": 3,
+      "cultural_impact": 2,
+      "overall_score": 70,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 4,
+        "explanation": "Well-organized event with mechanical assistance at every refreshment post and an Advanced Medical Point. Beach venue at Lungomare Deledda provides easy access and parking for participants arriving from across Europe."
+      },
+      "length": {
+        "score": 4,
+        "explanation": "The 144 km Riopetra Route and 104 km Valdinoce Route offer substantial distances suitable for serious cyclists. The 87-mile primary distance sits in the sweet spot for early-season granfondo racing."
+      },
+      "technicality": {
+        "score": 2,
+        "explanation": "Paved road racing with no technical terrain. The Formignano hill-climb provides the main technical challenge, but overall course remains accessible to intermediate cyclists."
+      },
+      "elevation": {
+        "score": 4,
+        "explanation": "The Riopetra Route features 1,773 meters of elevation gain while the Valdinoce Route includes 991 meters. Significant climbing through Apennine foothills provides serious elevation challenge for early season."
+      },
+      "climate": {
+        "score": 4,
+        "explanation": "Late March in Cervia offers spring conditions with moderate temperatures ideal for cycling. Coastal Adriatic location provides pleasant weather without extreme heat or cold."
+      },
+      "altitude": {
+        "score": 2,
+        "explanation": "Race operates at sea level starting from the Adriatic coast, with maximum elevation in the Apennine foothills. No altitude acclimatization required."
+      },
+      "adventure": {
+        "score": 3,
+        "explanation": "Sea-to-hills routing from Lungomare Deledda through Apennine foothills creates scenic variety. Multiple route options and regional food-wine integration add character without extreme adventure."
+      },
+      "prestige": {
+        "score": 3,
+        "explanation": "29th edition establishes this as a regional classic with significant history. Recognized as one of the most important early-season granfondo races in Italy."
+      },
+      "race_quality": {
+        "score": 3,
+        "explanation": "Regional-level event with professional organization including refreshment points featuring Terra di Romagna products and pasta party. Cervia Cycling Festival side events enhance the experience."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "Full weekend experience with bicycle expo running April 4-6, family-friendly activities, and cultural attractions in Cervia. Pasta party with unlimited food and wine creates memorable post-race experience."
+      },
+      "community": {
+        "score": 4,
+        "explanation": "Established event with strong local support and family participation encouraged. Typical field of 3,000 participants creates vibrant cycling community atmosphere."
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "Typical participation of approximately 3,000 cyclists places this in the 1,000-5,000 range. Sufficient field depth for competitive racing without overwhelming crowds."
+      },
+      "value": {
+        "score": 4,
+        "explanation": "Registration includes mechanical support, medical assistance, refreshments with regional products, and pasta party. Bicycle expo and festival activities provide additional value for entry fee."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Coastal Italian location with established tourism infrastructure in Cervia. Accommodation and travel costs moderate for European destination with direct access from major cities."
+      },
+      "cultural_impact": {
+        "score": 2,
+        "explanation": "Regional cycling event with strong presence in Emilia-Romagna. Recognized as important early-season classic but limited international profile compared to UCI-sanctioned races."
+      }
+    },
+    "course_description": {
+      "summary": "The Gran Fondo Via del Sale routes cyclists from the Adriatic coast at Cervia through the rolling hills and Apennine foothills of Emilia-Romagna. Two distance options—the 144 km Riopetra Route and 104 km Valdinoce Route—provide choices for different fitness levels while maintaining the signature sea-to-hills character. The Formignano hill-climb serves as the defining technical feature, with refreshment points along the route showcasing regional Terra di Romagna food and wine products.",
+      "terrain_breakdown": {
+        "paved": 100,
+        "gravel": 0,
+        "singletrack": 0,
+        "other": 0
+      },
+      "key_segments": [
+        {
+          "name": "Formignano Hill-Climb",
+          "description": "The signature climbing challenge of the race, featuring steep pitches through the Apennine foothills",
+          "distance_mi": 3,
+          "difficulty": "Hard"
+        },
+        {
+          "name": "Coastal Start at Lungomare Deledda",
+          "description": "Beach departure point providing scenic Adriatic views and establishing the sea-to-hills routing concept",
+          "distance_mi": 0,
+          "difficulty": "Easy"
+        },
+        {
+          "name": "Apennine Foothills Section",
+          "description": "Rolling terrain through Apennine foothills with sustained elevation gain across both routes",
+          "distance_mi": 40,
+          "difficulty": "Moderate"
+        }
+      ],
+      "elevation_profile": "Riopetra Route: 1,773 meters elevation gain over 144 km; Valdinoce Route: 991 meters elevation gain over 104 km. Continuous rolling terrain with concentrated climbing in Apennine foothills section.",
+      "aid_stations": "Refreshment points positioned throughout both routes featuring Terra di Romagna regional products. Mechanical assistance available at every refreshment post with wheel changes and fast roadside support. Advanced Medical Point and ambulances with medical staff stationed along course."
+    },
+    "logistics": {
+      "registration": {
+        "opens": "November 1, 2025",
+        "closes": "Race day capacity dependent",
+        "cost": "Not specified in available sources",
+        "lottery": false,
+        "capacity": 3000
+      },
+      "travel": {
+        "nearest_airport": "Bologna Guglielmo Marconi Airport (approximately 100 km)",
+        "driving_from_major_city": "Bologna: 100 km south; Ravenna: 30 km south; Rimini: 50 km south",
+        "accommodation": "Cervia offers extensive tourism infrastructure with hotels, beach resorts, and wellness facilities. Family-friendly activities and cultural attractions available throughout town.",
+        "bike_transport": "Coastal beach venue at Lungomare Deledda provides accessible parking and bike transport logistics"
+      },
+      "race_day": {
+        "start_time": "8:00 AM",
+        "cutoff": "Not specified in available sources",
+        "categories": "Two distance options: 144 km (Riopetra Route) and 104 km (Valdinoce Route)",
+        "awards": "Not specified in available sources"
+      }
+    },
+    "training_recommendations": {
+      "minimum_fitness": "Intermediate cycling fitness with ability to sustain 4-5 hours of paced riding. Familiarity with sustained climbing required for Riopetra Route.",
+      "ideal_preparation": "8-12 week build focused on early-season base fitness and hill-specific work. March timing requires winter training completion with emphasis on spring form development.",
+      "key_workouts": "Sustained climbing intervals targeting Formignano-style steep pitches; tempo rides at 85-90% FTP; long steady rides building to 140+ km; hill repeats in 6-8 week pre-race block"
+    },
+    "history": {
+      "founded": 1997,
+      "notable_facts": "29th edition in 2026 establishes this as a regional cycling institution. Recognized as one of the most important early-season granfondo races in Italy. Cervia Cycling Festival expansion demonstrates growth and community integration. Consistent route evolution with new adrenaline-pumping routes introduced while maintaining sea-to-hills signature character."
+    },
+    "final_verdict": {
+      "one_liner": "A well-organized early-season regional classic offering scenic sea-to-hills routing and strong community experience for intermediate-to-advanced cyclists.",
+      "who_should_ride": "Cyclists seeking early-season racing experience with established event infrastructure. Riders comfortable with 90-145 km distances and 1,000+ meters of elevation gain. Those valuing community atmosphere and regional food-wine integration over pure competitive prestige.",
+      "who_should_skip": "Ultra-distance specialists seeking 200+ km challenges. Cyclists requiring UCI-sanctioned racing credentials. Those prioritizing flat, fast courses without significant climbing.",
+      "insider_tip": "Arrive early for the Bicycle Show Expo (Friday-Sunday) to explore technical companies and network with Italian cycling community. The unlimited pasta party post-race is genuinely exceptional—pace your riding accordingly to enjoy it fully. March weather in Cervia is ideal, but bring layering options for coastal wind."
+    },
+    "suffering_zones": [
+      {
+        "label": "Formignano Hill-Climb",
+        "description": "The race's defining climbing challenge with steep pitches through Apennine foothills. Early-season fitness may struggle here; this is where the race separates committed cyclists from casual participants."
+      },
+      {
+        "label": "Mid-Race Apennine Section",
+        "description": "Sustained rolling terrain through foothills creates cumulative fatigue. The combination of continuous climbing and distance compounds physical demands in the 60-100 km range."
+      },
+      {
+        "label": "Final 20 km Push",
+        "description": "Return to coast requires mental toughness after extended climbing. Fatigue combined with desire to finish strong creates the race's final suffering zone."
+      }
+    ]
+  }
+}

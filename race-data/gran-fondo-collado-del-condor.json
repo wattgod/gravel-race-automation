@@ -1,0 +1,197 @@
+{
+  "race": {
+    "slug": "gran-fondo-collado-del-condor",
+    "name": "Gran Fondo Collado del Condor",
+    "vitals": {
+      "slug": "gran-fondo-collado-del-condor",
+      "name": "Gran Fondo Collado del Condor",
+      "date": "2026: March 22",
+      "date_specific": "2026: March 22",
+      "distance_mi": 77.8,
+      "elevation_ft": 13779,
+      "location": "Merida, Venezuela",
+      "terrain": "Paved roads",
+      "website": "https://www.granfondoworldtour.com",
+      "registration_url": "https://www.granfondoworldtour.com",
+      "prestige": 4,
+      "overall_score": 74,
+      "tier": 2,
+      "discipline": "road",
+      "month": "March"
+    },
+    "gravel_god_rating": {
+      "logistics": 2,
+      "length": 4,
+      "technicality": 3,
+      "elevation": 5,
+      "climate": 3,
+      "altitude": 5,
+      "adventure": 4,
+      "prestige": 4,
+      "race_quality": 4,
+      "experience": 4,
+      "community": 4,
+      "field_depth": 2,
+      "value": 3,
+      "expenses": 2,
+      "cultural_impact": 3,
+      "overall_score": 74,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 2,
+        "explanation": "Located in remote Mérida state requiring significant travel planning. Limited infrastructure in the high-altitude Andes region of Venezuela presents logistical challenges for international participants."
+      },
+      "length": {
+        "score": 4,
+        "explanation": "The 125-kilometer Estanques route represents a substantial single-day challenge. The distance combined with extreme elevation gain creates a demanding endurance test comparable to major alpine events."
+      },
+      "technicality": {
+        "score": 3,
+        "explanation": "Paved roads throughout the course reduce technical difficulty, but the sustained 4,200-meter climb from Estanques (425m elevation) to Collado del Cóndor (4,200m) demands exceptional climbing technique and pacing strategy."
+      },
+      "elevation": {
+        "score": 5,
+        "explanation": "The 3,775-meter elevation gain over 125 kilometers establishes this as one of the world's longest continuous bicycle ascents. Guinness certification validates the extreme vertical challenge from sea-level-equivalent starting points to ultra-high altitude."
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "March timing in Mérida provides favorable weather conditions as noted in the 2026 event. High-altitude Andes weather remains unpredictable with potential for rapid temperature changes and thin-air conditions."
+      },
+      "altitude": {
+        "score": 5,
+        "explanation": "The finish at 4,200 meters above sea level places this among the highest-altitude cycling events globally. Acclimatization requirements are critical for participants unaccustomed to extreme elevation."
+      },
+      "adventure": {
+        "score": 4,
+        "explanation": "Riding through Venezuelan Andes landscapes with multiple starting points (Mucuchíes, Valle Hermoso, Mérida, Estanques) offers diverse route options. The event combines extreme altitude with cultural immersion in a unique South American cycling destination."
+      },
+      "prestige": {
+        "score": 4,
+        "explanation": "Guinness World Record holder for longest bicycle ascent provides thorough prestige. Recognition from international cycling community and partnerships with professional cyclists like José Rujano elevate status."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "Fifth edition demonstrates organizational maturity with Guinness certification, professional timing, multiple distance options, and thorough support infrastructure. UCI-adjacent quality through professional cyclist participation."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "Participation of Olympic athletes like Joselyn Brea and professional cyclists creates elite atmosphere. Hydration and entertainment stations along the route enhance the participant experience in remote mountain terrain."
+      },
+      "community": {
+        "score": 4,
+        "explanation": "1,000 cyclists from all Venezuelan states participated in 2026 edition demonstrating strong regional community. International interest growing with Colombian cyclist Camilo Reina's participation and cross-border collaboration with Egan Bernal's Gran Fondo."
+      },
+      "field_depth": {
+        "score": 2,
+        "explanation": "Typical participation of 750-1,000 cyclists places this in smaller field category. Limited international participation due to Venezuela's geographic isolation and logistical challenges."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "Guinness-certified unique experience justifies entry costs. Limited commercial infrastructure in Mérida region may increase overall trip expenses despite reasonable race fees."
+      },
+      "expenses": {
+        "score": 2,
+        "explanation": "Remote location in Venezuelan Andes requires expensive international travel and accommodation. Limited hotel infrastructure in Mérida state increases lodging costs significantly."
+      },
+      "cultural_impact": {
+        "score": 3,
+        "explanation": "Event serves as benchmark for Latin American cycling and promotes Venezuelan cycling internationally. Bancamiga sponsorship and media coverage through Ultrabikex YouTube channel expand regional cultural significance."
+      }
+    },
+    "course_description": {
+      "summary": "The Gran Fondo Collado del Cóndor features four distance options ranging from 26 to 125 kilometers, with the flagship 125-kilometer Estanques route earning Guinness certification as the world's longest continuous bicycle ascent. Riders climb from Estanques at 425 meters elevation to Collado del Cóndor at 4,200 meters, gaining 3,775 meters over paved roads through the Venezuelan Andes in Mérida state. The event combines extreme altitude, sustained climbing, and spectacular mountain scenery in one of South America's most challenging cycling destinations.",
+      "terrain_breakdown": {
+        "paved": 100,
+        "gravel": 0,
+        "singletrack": 0,
+        "other": 0
+      },
+      "key_segments": [
+        {
+          "name": "Estanques to Collado del Cóndor",
+          "description": "The main 125-kilometer climb starting from Estanques at 425 meters elevation, ascending continuously to the summit at 4,200 meters. This Guinness-certified longest bicycle ascent features relentless gradient through Venezuelan Andes terrain.",
+          "distance_mi": 77.8,
+          "difficulty": "Extreme"
+        },
+        {
+          "name": "Mérida Route",
+          "description": "80-kilometer option starting from Mérida, offering a more accessible but still challenging high-altitude experience. Won by Olympic athlete Joselyn Brea in 2026 edition.",
+          "distance_mi": 49.7,
+          "difficulty": "Very Hard"
+        },
+        {
+          "name": "Valle Hermoso Route",
+          "description": "46-kilometer intermediate option providing significant elevation gain with slightly lower altitude exposure than longer routes.",
+          "distance_mi": 28.6,
+          "difficulty": "Hard"
+        },
+        {
+          "name": "Mucuchíes Route",
+          "description": "26-kilometer introductory option allowing participation across multiple fitness levels while maintaining high-altitude Andes experience.",
+          "distance_mi": 16.2,
+          "difficulty": "Moderate"
+        }
+      ],
+      "elevation_profile": "The 125-kilometer Estanques route features continuous climbing with elevation gain of 3,775 meters (13,779 feet) from 425 meters to 4,200 meters. Sustained grades characterize the entire ascent with no significant descents, creating one of cycling's most demanding elevation profiles.",
+      "aid_stations": "Multiple hydration and entertainment stations positioned along the route provide support for participants. Bancamiga employees and volunteers staff stations throughout the climb to assist riders in the extreme altitude environment."
+    },
+    "logistics": {
+      "registration": {
+        "opens": "Date not confirmed",
+        "closes": "Date not confirmed",
+        "cost": "Not specified",
+        "lottery": false,
+        "capacity": 1000
+      },
+      "travel": {
+        "nearest_airport": "Juan Manuel de los Ríos International Airport (Mérida) or Maracaibo International Airport",
+        "driving_from_major_city": "Mérida is the primary hub; remote location in Venezuelan Andes requires significant travel from major cities",
+        "accommodation": "Limited hotel infrastructure in Mérida state; advance booking important for international participants",
+        "bike_transport": "International bike transport to Venezuela requires specialized logistics; local bike shops in Mérida available for support"
+      },
+      "race_day": {
+        "start_time": "Morning starts from multiple locations (first start from Estanques in early morning)",
+        "cutoff": "Not specified",
+        "categories": "Open categories with professional and amateur divisions; separate women's competition",
+        "awards": "Prize categories for overall winners; Bancamiga Ultrabikex Challenge features elite professional cyclist competition with team records"
+      }
+    },
+    "training_recommendations": {
+      "minimum_fitness": "Advanced cycling fitness with extensive high-altitude climbing experience. Minimum 12-16 weeks of structured training including sustained climbing intervals and altitude acclimatization.",
+      "ideal_preparation": "18-20 weeks of progressive training emphasizing long climbs, high-altitude adaptation, and mental resilience. Simulate 4,000+ meter elevation gain workouts. Arrive 5-7 days early for altitude acclimatization to 4,200-meter finish elevation.",
+      "key_workouts": "Long sustained climbs (90-120 minute efforts), high-altitude interval training, low-cadence strength climbing, mental toughness sessions on extended climbs. Practice fueling and hydration strategies for 5+ hour efforts in thin air."
+    },
+    "history": {
+      "founded": 2019,
+      "notable_facts": "Fifth edition in 2026 achieved Guinness World Record certification as the event with the longest bicycle ascent in the world. Professional cyclists José Rujano (four-time winner), José Alarcón, and Edwin Becerra have competed. The Bancamiga Ultrabikex Challenge team of six cyclists set course record of 5:03 in 2026. Event organized by Ultrabikex with streaming on YouTube. Growing international recognition with Colombian cyclist participation and partnerships with 2019 Tour de France champion Egan Bernal's Gran Fondo initiative."
+    },
+    "final_verdict": {
+      "one_liner": "The world's longest continuous bicycle ascent offers thorough prestige and extreme altitude challenge for elite climbers seeking Guinness-certified bragging rights.",
+      "who_should_ride": "Advanced cyclists with extensive high-altitude climbing experience, altitude-adapted athletes, professional and elite amateur racers, cycling adventurers seeking unique South American destinations, and those pursuing Guinness-certified cycling achievements.",
+      "who_should_skip": "Casual cyclists, those with altitude sensitivity or medical contraindications, riders without 12+ weeks training time, participants requiring extensive logistical support, and cyclists uncomfortable with remote Venezuelan infrastructure.",
+      "insider_tip": "Arrive in Mérida 5-7 days before the event for critical altitude acclimatization to 4,200 meters. The multiple starting points (Mucuchíes, Valle Hermoso, Mérida, Estanques) allow flexible participation based on fitness level. March weather provides optimal conditions. Connect with the growing Venezuelan cycling community through Ultrabikex's YouTube channel for training insights and local knowledge."
+    },
+    "suffering_zones": [
+      {
+        "label": "The Relentless Climb",
+        "description": "From Estanques (425m) to Collado del Cóndor (4,200m), the entire 125-kilometer route features continuous climbing with no significant descents. The sustained 3,775-meter elevation gain creates cumulative physical and mental suffering over 5+ hours."
+      },
+      {
+        "label": "Altitude Hypoxia",
+        "description": "Finishing at 4,200 meters elevation places riders in extreme thin-air conditions. Oxygen deprivation intensifies in the final kilometers as altitude compounds fatigue, requiring exceptional mental fortitude."
+      },
+      {
+        "label": "The Final Push",
+        "description": "The last 20-30 kilometers approaching Collado del Cóndor represent the steepest psychological and physical challenge. Riders face diminishing oxygen availability, accumulated fatigue, and the mental battle of sustained ultra-high-altitude climbing."
+      },
+      {
+        "label": "Acclimatization Deficit",
+        "description": "International participants arriving without adequate altitude acclimatization face compounded suffering. The combination of travel fatigue, thin air, and extreme climbing creates a perfect storm of physiological stress."
+      }
+    ]
+  }
+}

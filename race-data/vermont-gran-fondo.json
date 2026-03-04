@@ -1,0 +1,193 @@
+{
+  "race": {
+    "slug": "vermont-gran-fondo",
+    "name": "Vermont Gran Fondo",
+    "vitals": {
+      "slug": "vermont-gran-fondo",
+      "name": "Vermont Gran Fondo",
+      "date": "2026: June TBD",
+      "date_specific": "2026: June TBD",
+      "distance_mi": 62,
+      "elevation_ft": 4800,
+      "location": "Stowe, Vermont, USA",
+      "terrain": "Paved roads",
+      "website": "https://vermontgranfondo.com",
+      "registration_url": "https://vermontgranfondo.com",
+      "prestige": 2,
+      "overall_score": 70,
+      "tier": 2,
+      "discipline": "road",
+      "month": "June"
+    },
+    "gravel_god_rating": {
+      "logistics": 4,
+      "length": 3,
+      "technicality": 2,
+      "elevation": 4,
+      "climate": 4,
+      "altitude": 2,
+      "adventure": 4,
+      "prestige": 2,
+      "race_quality": 3,
+      "experience": 4,
+      "community": 4,
+      "field_depth": 3,
+      "value": 4,
+      "expenses": 4,
+      "cultural_impact": 2,
+      "overall_score": 70,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 4,
+        "explanation": "Event centered at Bristol Rec Park in Bristol, Vermont, with ample parking and on-site activities from 4:30 AM. Registration available online until late June or in-person at Frog Hollow Bikes in Middlebury and the venue. SAG, mechanical support, and rest stops every 25 miles like Warren and Lincoln ensure smooth execution."
+      },
+      "length": {
+        "score": 3,
+        "explanation": "Approximately 62 miles matches the shorter routes like Piccolo or Medio, while full Gran hits 109 miles over Green Mountains. Suitable for varied fitness levels with options avoiding the full LAMB four-gap epic. Cutoffs at Ripton for Gran and 100-mile mark for Gran-X prevent overly long suffering."
+      },
+      "technicality": {
+        "score": 2,
+        "explanation": "Primarily paved New England mountain roads with 10-20% hard-packed dirt on Gran, Medio, and Piccolo routes. Climbs like Lincoln Gap and Middlebury Gap focus on sustained efforts rather than technical descents. Well-marked with signage, cue sheets, and Strava segments for navigation."
+      },
+      "elevation": {
+        "score": 4,
+        "explanation": "Around 4800 feet captures the essence of iconic gaps like Lincoln Gap at 7 miles and Middlebury Gap Summit. Full Gran exceeds 9,850 feet across Appalachian, Lincoln, Middlebury, and Brandon Gaps from Bristol start. Challenging climbs test fitness amid Green Mountains scenery."
+      },
+      "climate": {
+        "score": 4,
+        "explanation": "June timing in Vermont offers mild summer weather ideal for high-elevation climbs in Green Mountains. Fantastic views from gap summits enhance the experience before fast descents. Typical New England conditions support enjoyable non-competitive riding."
+      },
+      "altitude": {
+        "score": 2,
+        "explanation": "Green Mountains summits like Middlebury Gap reach moderate heights without extreme altitude effects. Focus remains on climbing effort from Bristol base rather than thin air challenges. Suitable for sea-level riders tackling Lincoln and Rochester gaps."
+      },
+      "adventure": {
+        "score": 4,
+        "explanation": "Bucket-list LAMB ride inspiration with four gaps—Lincoln, Appalachian, Middlebury, Brandon—through Vermont's scenic Green Mountains. Non-competitive format with après party at Bristol Rec Grounds adds thrill. Strava KOM/QOM on gaps like Lincoln fuels personal adventure."
+      },
+      "prestige": {
+        "score": 2,
+        "explanation": "Part of Gran Fondo National Series with points on timed segments like Middlebury Gap. Regional appeal in Vermont without UCI status. Awards for Lincoln Gap KOM/QOM, oldest rider, and DFL highlight fun over elite prestige."
+      },
+      "race_quality": {
+        "score": 3,
+        "explanation": "Fully supported with rest stops stocked by Hammer Nutrition at Warren, Randolph, Rochester, and East Middlebury. Moto, tech, and SAG support plus insurance included. Regional organization by Ride It If You Can Llc benefits Addison County cycling."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "Stunning Green Mountains views from gap summits paired with après party featuring music, food, and local brews at Bristol venue. Family-friendly with perks like route maps and specialty treats at stops. Bragging rights from completing gaps like Appalachian."
+      },
+      "community": {
+        "score": 4,
+        "explanation": "Local cyclists and tourism reps organize, supporting Addison County via grants for biking infrastructure. Sponsors like Frog Hollow Bikes in Middlebury and Vermont Tourism foster regional vibe. 1500 participants create lively après scene at Bristol Rec Park."
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "Typical 1500 riders across Gran-X, Gran, Medio, and Piccolo from Bristol start. Gran Fondo National Series points attract committed amateurs on timed gaps. No racing license needed, emphasizing inclusive challenge over deep pro field."
+      },
+      "value": {
+        "score": 4,
+        "explanation": "Includes full support, timed segments, insurance, and après entry for reasonable cost closing late June. Rest stops with PBJ, fruits, and Hammer products every 25 miles like Lincoln at 35 miles. High perks for Green Mountains gap experience."
+      },
+      "expenses": {
+        "score": 4,
+        "explanation": "Affordable regional event in Bristol, Vermont, with free après access and family options. No hidden fees beyond registration; mechanical support included. Proximity to country stores in Warren and Ripton keeps additional costs low."
+      },
+      "cultural_impact": {
+        "score": 2,
+        "explanation": "Born from local LAMB 4-gap legend in Vermont's Green Mountains, enhancing Addison County cycling via grants. Featured in Vermont Sports Magazine with sponsors like Addison County Chamber. Regional draw without national prominence."
+      }
+    },
+    "course_description": {
+      "summary": "The Vermont Gran Fondo challenges riders on approximately 62 miles of New England mountain roads through the Green Mountains, starting near Stowe with 4800 feet of elevation gain. Iconic climbs like Lincoln Gap and Middlebury Gap offer stunning scenery and timed Strava segments. Non-competitive format emphasizes personal achievement amid paved paths and hard-packed dirt stretches.",
+      "terrain_breakdown": {
+        "paved": 90,
+        "gravel": 10,
+        "singletrack": 0,
+        "other": 0
+      },
+      "key_segments": [
+        {
+          "name": "Lincoln Gap",
+          "description": "Steep early climb just 1.5 miles from Bristol-area start, timed for KOM/QOM.",
+          "distance_mi": 7,
+          "difficulty": "high"
+        },
+        {
+          "name": "Middlebury Gap",
+          "description": "Summit rest stop with views, key challenge on Gran and Medio routes.",
+          "distance_mi": 23,
+          "difficulty": "high"
+        },
+        {
+          "name": "Appalachian Gap",
+          "description": "Part of LAMB epic, demanding ascent in Green Mountains.",
+          "distance_mi": 25,
+          "difficulty": "high"
+        },
+        {
+          "name": "Brandon Gap",
+          "description": "Final major climb pushing total elevation in scenic Vermont terrain.",
+          "distance_mi": 50,
+          "difficulty": "high"
+        }
+      ],
+      "elevation_profile": "Steady climbs starting light from Stowe vicinity, peaking at gaps like Lincoln (7 mi) and Middlebury (23 mi), with descents offering views; total 4800 ft over 62 mi.",
+      "aid_stations": "Provisional stops at Warren (25 mi), Lincoln (35 mi), Rochester (60 mi), East Middlebury (88 mi) with Hammer Nutrition, fruits, PBJ, and first aid."
+    },
+    "logistics": {
+      "registration": {
+        "opens": "Early spring",
+        "closes": "Late June",
+        "cost": "Varies, check website",
+        "lottery": false,
+        "capacity": 1500
+      },
+      "travel": {
+        "nearest_airport": "Burlington International (BTV)",
+        "driving_from_major_city": "3 hours from Boston, 4 hours from NYC to Stowe",
+        "accommodation": "Stowe resort village, Bristol-area hotels",
+        "bike_transport": "SAG and mechanical support provided"
+      },
+      "race_day": {
+        "start_time": "7:00 AM",
+        "cutoff": "12:00 PM at Ripton for Gran",
+        "categories": "Gran-X (109 mi), Gran (109 mi), Medio (80 mi), Piccolo (40 mi)",
+        "awards": "Lincoln Gap KOM/QOM, oldest rider, DFL"
+      }
+    },
+    "training_recommendations": {
+      "minimum_fitness": "Base of 2000 ft climbing per weekend ride",
+      "ideal_preparation": "8-week plan building to 62 mi with 4800 ft elevation",
+      "key_workouts": "Gap simulations: 7-mi Lincoln Gap repeats, threshold intervals for Middlebury Gap"
+    },
+    "history": {
+      "founded": 2016,
+      "notable_facts": "Inspired by local LAMB 4-gap bucket-list ride (Lincoln, Appalachian, Middlebury, Brandon). Part of Gran Fondo National Series since 2022. Supports Addison County cycling infrastructure."
+    },
+    "final_verdict": {
+      "one_liner": "Challenging Green Mountains gaps with support and scenery.",
+      "who_should_ride": "Climbers seeking regional gran fondo with iconic Vermont gaps.",
+      "who_should_skip": "Those avoiding dirt roads or extreme climbs over 4800 ft.",
+      "insider_tip": "Pre-ride Strava segments for Lincoln Gap KOM; arrive early for Bristol parking."
+    },
+    "suffering_zones": [
+      {
+        "label": "Lincoln Gap Climb",
+        "description": "Steep 7-mile ascent early in ride from Bristol, testing legs amid Green Mountains."
+      },
+      {
+        "label": "Middlebury Gap Summit",
+        "description": "Sustained effort to 23 miles with cutoff risks, rewarded by panoramic views."
+      },
+      {
+        "label": "Brandon Gap Finale",
+        "description": "Pushes fatigue over 50 miles, completing LAMB-style epic."
+      }
+    ]
+  }
+}

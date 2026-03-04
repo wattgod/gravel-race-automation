@@ -1,0 +1,187 @@
+{
+  "race": {
+    "slug": "granfondo-antalya",
+    "name": "Granfondo Antalya",
+    "vitals": {
+      "slug": "granfondo-antalya",
+      "name": "Granfondo Antalya",
+      "date": "2026: November TBD",
+      "date_specific": "2026: November TBD",
+      "distance_mi": 87,
+      "elevation_ft": 5200,
+      "location": "Antalya, Turkey",
+      "terrain": "Paved roads",
+      "website": "https://ucigranfondoantalya.com",
+      "registration_url": "https://ucigranfondoantalya.com",
+      "prestige": 3,
+      "overall_score": 74,
+      "tier": 2,
+      "discipline": "road",
+      "month": "November"
+    },
+    "gravel_god_rating": {
+      "logistics": 4,
+      "length": 4,
+      "technicality": 2,
+      "elevation": 3,
+      "climate": 5,
+      "altitude": 1,
+      "adventure": 3,
+      "prestige": 3,
+      "race_quality": 4,
+      "experience": 4,
+      "community": 4,
+      "field_depth": 3,
+      "value": 4,
+      "expenses": 4,
+      "cultural_impact": 4,
+      "overall_score": 74,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 4,
+        "explanation": "Start and finish at Nirvana Cosmopolitan Hotel in Kadriye near Belek simplifies access, just 20 minutes from Antalya Airport. All official activities occur at the host hotel, minimizing travel needs. The 3-day format with time trial on Friday and granfondo on Sunday allows easy holiday integration on the Turkish Riviera."
+      },
+      "length": {
+        "score": 4,
+        "explanation": "The 98km granfondo distance challenges endurance without extremes, equivalent to 87 miles around Antalya's coastal flats. Shorter 66km option suits qualifiers over 50, starting from Nirvana Cosmopolitan. Time trial adds 20km flat loop for thorough multi-day effort."
+      },
+      "technicality": {
+        "score": 2,
+        "explanation": "Fully paved roads with flat out-and-back time trial next to a channel in Kadriye demand power over bike handling. Granfondo features minor hills to 133m near the 40km mark but no gravel or descents. Coastal loop near the beach prioritizes steady pacing."
+      },
+      "elevation": {
+        "score": 3,
+        "explanation": "Moderate climbs reach 133m at 40km on the 98km course from Nirvana Cosmopolitan through backcountry near the airport. Total gain suits hilly road efforts around Antalya's east side. Short course peaks at 67m, skipping steeper sections."
+      },
+      "climate": {
+        "score": 5,
+        "explanation": "Warm November temperatures of 22-23°C offer ideal late-season conditions on Turkey's Mediterranean Turquoise Coast. Antalya's tourist resorts like Lara and Konyaalti beaches enhance post-ride recovery. Three seasons of spring-like weather support comfortable racing."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "Sea-level racing stays below 133m max elevation near Antalya's coast. Flat time trial in Kadriye and low hills in backcountry avoid high-altitude stress. Perfect for lowlanders targeting qualifiers."
+      },
+      "adventure": {
+        "score": 3,
+        "explanation": "Journey from Nirvana Cosmopolitan through beach loops and minor hills to 133m explores Antalya's Riviera backcountry. Combines UCI qualifier with tourism in Belek golf region and Mediterranean swims. International peloton from 36 countries adds exploratory vibe."
+      },
+      "prestige": {
+        "score": 3,
+        "explanation": "UCI Gran Fondo World Series qualifier draws global riders to Antalya's east side resorts. First UCI event in 2021 built international reputation with 812 registered in 2024. Late-season slot as 2024's final qualifier boosts appeal."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "UCI-sanctioned with time trial, 66km, and 98km courses from Nirvana Cosmopolitan meets world series standards. Categories by age and qualifiers for men 19-59 on long, over-60 on short ensure fair racing. Professional setup includes feed zones and safety cars."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "Luxury at Nirvana Cosmopolitan host hotel pairs with flat coastal roads and warm weather for memorable Riviera ride. Post-race beach access in Lara enhances recovery. Multi-day format with TT builds excitement for 87-mile granfondo."
+      },
+      "community": {
+        "score": 4,
+        "explanation": "Riders from 36 countries foster international bonds at Antalya event near Belek hotels. Over 800 registered in 2024 reflects strong peloton. Age-group podiums and qualifiers create shared qualifier pursuit."
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "Typical 2000 participants hit 1000-5000 range for solid depth in UCI qualifiers. 812 from 36 nations in 2024 shows quality international field. Capacity supports competitive age categories from Nirvana start."
+      },
+      "value": {
+        "score": 4,
+        "explanation": "Reasonable luxury at Nirvana Cosmopolitan combines with UCI qualifier status for high return. 87 miles on paved Antalya roads plus TT offer multi-event value. Warm November timing maximizes holiday integration."
+      },
+      "expenses": {
+        "score": 4,
+        "explanation": "Proximity to Antalya Airport (20 min to Kadriye) cuts travel costs to host hotel. Turkey's tourism hub provides affordable high-standard resorts in Belek. Late-season warm weather reduces gear needs."
+      },
+      "cultural_impact": {
+        "score": 4,
+        "explanation": "Antalya as Turkey's tourism capital hosts half the nation's visitors, blending race with Mediterranean culture. Belek golf and Lara beaches elevate international draw. Rising bike scene positions it as cyclists' favorite."
+      }
+    },
+    "course_description": {
+      "summary": "Granfondo Antalya is a 3-day UCI Gran Fondo World Series qualifier on Turkey's Mediterranean Turquoise Coast, featuring a flat 20km time trial and 87-mile granfondo from Nirvana Cosmopolitan Hotel in Kadriye. The mainly flat paved roads include minor hills to 133m at 40km, passing beach loops and backcountry near the airport. Warm November conditions and luxury resorts make it a perfect late-season event combining racing with holiday.",
+      "terrain_breakdown": {
+        "paved": 100,
+        "gravel": 0,
+        "singletrack": 0,
+        "other": 0
+      },
+      "key_segments": [
+        {
+          "name": "Flat Coastal Loop",
+          "description": "Initial flat section along the beach from Nirvana Cosmopolitan Hotel, same area as time trial start.",
+          "distance_mi": 10,
+          "difficulty": "easy"
+        },
+        {
+          "name": "Backcountry Hills",
+          "description": "Minor climbs through backcountry near airport to highest point at 133m around 40km mark.",
+          "distance_mi": 30,
+          "difficulty": "moderate"
+        },
+        {
+          "name": "Return Flats",
+          "description": "Final flat kilometers mirroring time trial route back to Nirvana Cosmopolitan finish.",
+          "distance_mi": 47,
+          "difficulty": "easy"
+        }
+      ],
+      "elevation_profile": "Mostly flat with moderate rolling hills peaking at 133m near 40km; total gain ~5200 feet across paved coastal and backcountry roads.",
+      "aid_stations": "At least one feed zone per distance, announced 1km ahead on right side of road; participants stop to access."
+    },
+    "logistics": {
+      "registration": {
+        "opens": "TBD for 2026",
+        "closes": "TBD",
+        "cost": "TBD",
+        "lottery": false,
+        "capacity": 2000
+      },
+      "travel": {
+        "nearest_airport": "Antalya Airport (20 min to Kadriye start)",
+        "driving_from_major_city": "30 min from Antalya city center to Nirvana Cosmopolitan",
+        "accommodation": "Nirvana Cosmopolitan Hotel (host hotel with official activities)",
+        "bike_transport": "Fly to Antalya Airport; hotel bike storage available"
+      },
+      "race_day": {
+        "start_time": "TBD; time trial Friday, granfondo Sunday",
+        "cutoff": "Minimum average speed announced at technical meeting",
+        "categories": "Age groups: men 19-59 (98km), 60+ & women 50+ (66km); PRO category",
+        "awards": "Age group podiums, overall men/women; UCI qualifiers; participation medals"
+      }
+    },
+    "training_recommendations": {
+      "minimum_fitness": "Base of 2000 miles/year; able to sustain 18mph for 5 hours on flats.",
+      "ideal_preparation": "6-8 weeks of threshold rides building to 4+ hour efforts with hills; include 20km TT practice.",
+      "key_workouts": "3x10min at 95% FTP on flats; 4hr ride with 2000ft climbing; weekly 20km TT simulation."
+    },
+    "history": {
+      "founded": 2019,
+      "notable_facts": "UCI qualifier since 2021; 2024's final world series event with 812 riders from 36 countries; grown to attract 5000+ participants in recent editions."
+    },
+    "final_verdict": {
+      "one_liner": "Warm late-season UCI qualifier on Antalya's flats with luxury resort vibes.",
+      "who_should_ride": "Qualifier seekers, vacation cyclists, or those wanting international road racing in 22°C November sun.",
+      "who_should_skip": "Gravel enthusiasts or high-mountain chasers seeking technical terrain.",
+      "insider_tip": "Book Nirvana Cosmopolitan early for all-in-one access; ride the flat TT course pre-event for power benchmarking."
+    },
+    "suffering_zones": [
+      {
+        "label": "Minor Hills to 133m",
+        "description": "40km mark backcountry climb tests legs after flat start; steady power needed on exposed coastal roads."
+      },
+      {
+        "label": "Late Flat Grind",
+        "description": "Final 40km airport flats demand sustained effort in warm sun to hold position."
+      },
+      {
+        "label": "Time Trial Push",
+        "description": "20km out-and-back solo effort next to Kadriye channel separates big engines early."
+      }
+    ]
+  }
+}

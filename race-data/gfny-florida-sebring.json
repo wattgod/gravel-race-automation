@@ -1,0 +1,187 @@
+{
+  "race": {
+    "slug": "gfny-florida-sebring",
+    "name": "GFNY Florida Sebring",
+    "vitals": {
+      "slug": "gfny-florida-sebring",
+      "name": "GFNY Florida Sebring",
+      "date": "2026: October TBD",
+      "date_specific": "2026: October TBD",
+      "distance_mi": 82,
+      "elevation_ft": 800,
+      "location": "Sebring, Florida, USA",
+      "terrain": "Paved roads",
+      "website": "https://florida.gfny.com",
+      "registration_url": "https://florida.gfny.com",
+      "prestige": 2,
+      "overall_score": 60,
+      "tier": 2,
+      "discipline": "road",
+      "month": "October"
+    },
+    "gravel_god_rating": {
+      "logistics": 4,
+      "length": 3,
+      "technicality": 1,
+      "elevation": 2,
+      "climate": 4,
+      "altitude": 1,
+      "adventure": 2,
+      "prestige": 2,
+      "race_quality": 3,
+      "experience": 4,
+      "community": 3,
+      "field_depth": 3,
+      "value": 4,
+      "expenses": 4,
+      "cultural_impact": 2,
+      "overall_score": 60,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 4,
+        "explanation": "Fully stocked aid stations support the 82-mile course around Sebring with police-moderated intersections for safety. Start at The Barn at Paso Fino with clear 7:30 AM rollout and recovery zone opening by 10:00 AM. Group rides from Miami-Palm Beach shops aid preparation."
+      },
+      "length": {
+        "score": 3,
+        "explanation": "The long course spans 82 miles through central Florida lake country, ideal for endurance building without ultra distances. Medium 59-mile option suits casual riders while competitive rankings require the full 82 miles. Top 10% age group finishers qualify for GFNY World events."
+      },
+      "technicality": {
+        "score": 1,
+        "explanation": "Well-maintained paved roads through scrub habitat, cattle ranches, and orange groves near Sebring International Raceway demand no advanced handling skills. Flat to rolling terrain focuses on steady pacing rather than technical descents or corners. Low-traffic rural routes prioritize endurance over bike control."
+      },
+      "elevation": {
+        "score": 2,
+        "explanation": "Approximately 800 feet of gain across 82 miles features gently rolling hills in Sebring's lake country. No major climbs challenge riders, keeping efforts aerobic on the paved loop. Late-season warmth amplifies perceived effort on any rises near Highlands Hammock State Park."
+      },
+      "climate": {
+        "score": 4,
+        "explanation": "October timing delivers warm late-season weather perfect for Florida training in Sebring's central lake district. Panoramic vistas and lake-view sunsets enhance comfort on paved roads. Police-escorted course minimizes heat-related stops with ample aid stations."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "Sea-level riding near Sebring International Raceway offers no altitude effects across the 82-mile route. Flat central Florida terrain keeps oxygen plentiful for all participants. Focus remains on heat management rather than thin air."
+      },
+      "adventure": {
+        "score": 2,
+        "explanation": "Rides through protected Florida scrub, cattle ranches, and orange groves provide scenic paved adventure from The Barn at Paso Fino. Charming small towns and low-traffic roads near Sebring create a relaxed cycling vacation vibe. Pair with Highlands Hammock State Park visits for added exploration."
+      },
+      "prestige": {
+        "score": 2,
+        "explanation": "GFNY Florida Sebring ranks as a regional qualifier with top 10% age group finishes earning World Championship corral spots. Mandatory Italian-made NYC-designed jersey and chip timing add professional feel to the 82-mile Sebring event. Podium awards limited to long course completers."
+      },
+      "race_quality": {
+        "score": 3,
+        "explanation": "Police-moderated intersections and fully stocked aid stations ensure smooth 82-mile execution in Sebring. USA Cycling sanctioning with one-day licenses supports fair regional competition. Post-race meal and multi-finisher ceremonies at The Barn elevate the experience."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "Scenic loops past orange groves and lake country deliver memorable late-season riding near Sebring. Finisher medals, goodie bags, and recovery zone create a festive atmosphere. Jersey requirement and qualifier status boost sense of achievement on the 800-foot gain course."
+      },
+      "community": {
+        "score": 3,
+        "explanation": "Around 1000 participants join group rides from Miami-Palm Beach shops led by local experts like Vanessa and Gabriel. Age group podiums and top 10% qualifiers foster camaraderie in Sebring. Weekend ties to GFNY Marathon build multi-sport vibe."
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "Typical 1000-rider field features regional talents from Florida events like Coconut Cup and GFNY qualifiers. Age group rankings draw competitive amateurs to the 82-mile Sebring course. Medium course adds recreational depth without diluting long course podiums."
+      },
+      "value": {
+        "score": 4,
+        "explanation": "Entry includes mandatory GFNY jersey, chip timing, finisher medal, goodie bag, and post-race meal for Sebring's 82 miles. Early registration locks lowest prices before monthly increases. Fully supported course with aid stations maximizes perks."
+      },
+      "expenses": {
+        "score": 4,
+        "explanation": "Affordable regional event near Sebring offers value with no discounts but early-bird pricing on florida.gfny.com. Local restaurants and Highlands Hammock State Park keep costs low versus major GFNYs. Proximity to raceway aids budget travel."
+      },
+      "cultural_impact": {
+        "score": 2,
+        "explanation": "GFNY Florida Sebring anchors regional cycling scene in central Florida lake country with 1000 riders. Ties to Sebring International Raceway and scrub habitat rides build local enthusiasm. Qualifier status links it to broader GFNY network."
+      }
+    },
+    "course_description": {
+      "summary": "GFNY Florida Sebring challenges riders with an 82-mile paved loop through central Florida's lake country, featuring flat to rolling terrain and 800 feet of elevation gain. Scenic routes pass protected scrub habitat, cattle ranches, orange groves, and charming small towns near Sebring International Raceway. Late October warmth and police-escorted roads make it an ideal end-of-season race with fully stocked aid stations.",
+      "terrain_breakdown": {
+        "paved": 100,
+        "gravel": 0,
+        "singletrack": 0,
+        "other": 0
+      },
+      "key_segments": [
+        {
+          "name": "Scrub Habitat Rollers",
+          "description": "Gently rolling paved roads through protected native Florida scrub with panoramic vistas.",
+          "distance_mi": 20,
+          "difficulty": "moderate"
+        },
+        {
+          "name": "Orange Grove Flats",
+          "description": "Fast, flat sections winding past citrus groves and cattle ranches in lake country.",
+          "distance_mi": 30,
+          "difficulty": "easy"
+        },
+        {
+          "name": "Sebring Lake Country Climbs",
+          "description": "Short rollers near lakes and small towns building to the highest efforts before return.",
+          "distance_mi": 32,
+          "difficulty": "moderate"
+        }
+      ],
+      "elevation_profile": "Gentle rolling with max 800 feet total gain; no sustained climbs, peaks at 50-100 foot rises over 2-3 miles.",
+      "aid_stations": "Fully stocked stations every 20-25 miles with sports nutrition, water, and electrolytes along the police-moderated 82-mile course."
+    },
+    "logistics": {
+      "registration": {
+        "opens": "Ongoing with monthly price increases",
+        "closes": "Day before race or when sold out",
+        "cost": "Early bird lowest; increases monthly",
+        "lottery": false,
+        "capacity": 1000
+      },
+      "travel": {
+        "nearest_airport": "Melbourne Orlando International (MLB) or Orlando (MCO), 1-2 hours drive",
+        "driving_from_major_city": "2 hours from Miami or Orlando",
+        "accommodation": "Sebring hotels, restaurants, and Highlands Hammock State Park area",
+        "bike_transport": "Group rides from Miami-Palm Beach shops; expo for pickups"
+      },
+      "race_day": {
+        "start_time": "7:30 AM at The Barn at Paso Fino",
+        "cutoff": "Approximately 12:00 PM with recovery zone open",
+        "categories": "Age group rankings for long course (top 10% qualify GFNY Worlds); medium non-competitive",
+        "awards": "Podium for long course overall and categories; multi-finisher ceremonies"
+      }
+    },
+    "training_recommendations": {
+      "minimum_fitness": "Base of 2000 miles/year; comfortable 50-mile rides at 16-18 mph.",
+      "ideal_preparation": "8-12 weeks building to 80+ mile long rides with 800-1000 ft gain; heat acclimation for October Florida weather.",
+      "key_workouts": "3x weekly intervals (4x5min at 95% FTP); Saturday 60-mile endurance with rollers; Sunday recovery spin."
+    },
+    "history": {
+      "founded": 2022,
+      "notable_facts": "Rapidly grew to Florida's largest road race with 1000 riders; part of GFNY Sebring endurance weekend including marathon; top age group finishers qualify for GFNY Worlds."
+    },
+    "final_verdict": {
+      "one_liner": "Scenic, accessible late-season Florida road race with qualifier perks.",
+      "who_should_ride": "Regional racers seeking GFNY Worlds qualification, late-season tuners, or vacation cyclists enjoying Sebring's lakes and groves.",
+      "who_should_skip": "Gravel enthusiasts or climbers wanting big elevation; those avoiding warm-weather flats.",
+      "insider_tip": "Join Miami-Palm Beach group rides led by locals like Gabriel for course recon; target top 10% in age group at The Barn start for Worlds corral."
+    },
+    "suffering_zones": [
+      {
+        "label": "Florida Heat Build",
+        "description": "Midday October warmth amplifies 800 ft rolling gain over 82 miles, testing hydration on exposed scrub roads."
+      },
+      {
+        "label": "Lake Country Rollers",
+        "description": "Repeated short climbs through orange groves near Sebring sap legs in the final 30 miles."
+      },
+      {
+        "label": "Pacing Pressure",
+        "description": "Competitive 1000-rider field on police-escorted pave demands early discipline to hit age group qualifiers."
+      }
+    ]
+  }
+}

@@ -1,0 +1,171 @@
+{
+  "race": {
+    "slug": "letape-piemonte",
+    "name": "L'Etape Piemonte",
+    "vitals": {
+      "slug": "letape-piemonte",
+      "name": "L'Etape Piemonte",
+      "date": "2026: May TBD",
+      "date_specific": "2026: May TBD",
+      "distance_mi": 81,
+      "elevation_ft": 7500,
+      "location": "Entracque, Cuneo, Italy",
+      "terrain": "Paved roads",
+      "website": "https://letapeitaly.it/en/letape-piemonte-homepage-2/",
+      "registration_url": "https://letapeitaly.it/en/letape-piemonte-homepage-2/",
+      "prestige": 3,
+      "overall_score": 79,
+      "tier": 2,
+      "discipline": "road",
+      "month": "May"
+    },
+    "gravel_god_rating": {
+      "logistics": 4,
+      "length": 4,
+      "technicality": 3,
+      "elevation": 5,
+      "climate": 4,
+      "altitude": 4,
+      "adventure": 4,
+      "prestige": 3,
+      "race_quality": 3,
+      "experience": 4,
+      "community": 4,
+      "field_depth": 3,
+      "value": 4,
+      "expenses": 3,
+      "cultural_impact": 3,
+      "overall_score": 79,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 4,
+        "explanation": "L'Etape Piemonte benefits from excellent accessibility in the Maritime Alps region of Piedmont. The event is centered in Entracque in the Valle Gesso, a well-established cycling destination with established infrastructure for major events."
+      },
+      "length": {
+        "score": 4,
+        "explanation": "At 81 miles, L'Etape Piemonte sits in the sweet spot for serious granfondo cyclists. The distance is substantial enough to challenge riders while remaining achievable for well-trained participants."
+      },
+      "technicality": {
+        "score": 3,
+        "explanation": "As a paved road event in the Maritime Alps, technical difficulty is moderate. Riders face demanding climbs and descents on established mountain roads rather than technical terrain."
+      },
+      "elevation": {
+        "score": 5,
+        "explanation": "With 7,500 feet of elevation gain across 81 miles, L'Etape Piemonte delivers significant climbing. The mountain stage format in Valle Gesso ensures sustained alpine elevation challenges throughout the course."
+      },
+      "climate": {
+        "score": 4,
+        "explanation": "May in the Piedmont Alps offers favorable spring conditions with moderate temperatures. Late spring timing minimizes extreme weather while providing stable riding conditions in the Cuneo province."
+      },
+      "altitude": {
+        "score": 4,
+        "explanation": "The Valle Gesso course reaches meaningful alpine elevations typical of the Maritime Alps. Riders experience significant altitude exposure without extreme high-altitude effects."
+      },
+      "adventure": {
+        "score": 4,
+        "explanation": "L'Etape Piemonte combines the prestige of Tour de France-sanctioned racing with exploration of legendary Italian alpine terrain. The event captures the spirit of professional cycling in an accessible granfondo format."
+      },
+      "prestige": {
+        "score": 3,
+        "explanation": "As an official L'Etape event by Tour de France, L'Etape Piemonte carries significant credibility. The 2026 inaugural year in Piedmont establishes it as a notable appointment on the Italian cycling calendar."
+      },
+      "race_quality": {
+        "score": 3,
+        "explanation": "L'Etape Piemonte operates under Tour de France standards as a regional granfondo event. The collaboration between ExtraGiro and EPT ensures professional event management and course design."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "The event promises two days of celebrations in Entracque and throughout Cuneo province. Participants experience the atmosphere of Tour de France racing combined with festive village environments."
+      },
+      "community": {
+        "score": 4,
+        "explanation": "L'Etape events attract passionate cyclists seeking shared experiences in legendary locations. The Piedmont event builds community through the Tour de France legacy and Italian cycling culture."
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "With typical participation around 1,500 riders, L'Etape Piemonte attracts a solid regional field. The field size supports competitive racing without overwhelming logistics."
+      },
+      "value": {
+        "score": 4,
+        "explanation": "L'Etape Piemonte offered special launch pricing at €30 during early registration. The Tour de France-sanctioned format and alpine course justify the registration investment."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Beyond registration, costs include travel to Entracque in the Cuneo province and accommodation for the two-day event. Alpine location requires planning for lodging and transportation."
+      },
+      "cultural_impact": {
+        "score": 3,
+        "explanation": "L'Etape Piemonte represents the Tour de France's expansion into Italian cycling culture. The event establishes a national cycling appointment while celebrating the Maritime Alps heritage."
+      }
+    },
+    "course_description": {
+      "summary": "L'Etape Piemonte is a mountain stage granfondo set in the Valle Gesso of the Maritime Alps in Piedmont. Starting from Entracque in Cuneo province, the 81-mile course features 7,500 feet of elevation gain across paved alpine roads. The event combines the prestige of Tour de France racing with exploration of legendary Italian cycling terrain, offering riders a two-day celebration in the Cuneo region.",
+      "terrain_breakdown": {
+        "paved": 100,
+        "gravel": 0,
+        "singletrack": 0,
+        "other": 0
+      },
+      "key_segments": [
+        {
+          "name": "Valle Gesso Ascent",
+          "description": "Primary climbing section through the Maritime Alps starting from Entracque",
+          "distance_mi": 0,
+          "difficulty": "Hard"
+        }
+      ],
+      "elevation_profile": "Sustained alpine climbing with 7,500 feet of elevation gain across 81 miles, featuring multiple mountain passes in the Valle Gesso region",
+      "aid_stations": "Standard L'Etape support stations along the course in the Cuneo province"
+    },
+    "logistics": {
+      "registration": {
+        "opens": "2026-01-01",
+        "closes": "TBD",
+        "cost": "€30 promotional rate (early registration)",
+        "lottery": false,
+        "capacity": 1500
+      },
+      "travel": {
+        "nearest_airport": "Turin (Torino) - approximately 100 miles from Entracque",
+        "driving_from_major_city": "Approximately 2-3 hours from Turin to Entracque in the Cuneo province",
+        "accommodation": "Entracque and surrounding Cuneo province villages offer lodging for the two-day event",
+        "bike_transport": "Standard bike transport via car or train to Piedmont region"
+      },
+      "race_day": {
+        "start_time": "TBD",
+        "cutoff": "TBD",
+        "categories": "Open to all registered participants",
+        "awards": "Standard L'Etape awards and recognition"
+      }
+    },
+    "training_recommendations": {
+      "minimum_fitness": "Intermediate to advanced cycling fitness required for 81 miles with 7,500 feet of elevation gain",
+      "ideal_preparation": "12-16 weeks of structured training with emphasis on sustained climbing and alpine conditions",
+      "key_workouts": "Long alpine climbs, sustained threshold efforts, and multi-hour endurance rides at moderate intensity"
+    },
+    "history": {
+      "founded": 2026,
+      "notable_facts": "L'Etape Piemonte marks the inaugural year of L'Etape Italy's expansion into the Piedmont region. The event represents the Tour de France's official granfondo series establishing a presence in the Maritime Alps. Part of a two-event Italian program alongside L'Etape Mondovì in September 2026."
+    },
+    "final_verdict": {
+      "one_liner": "L'Etape Piemonte delivers Tour de France prestige with serious alpine climbing in Italy's Maritime Alps.",
+      "who_should_ride": "Experienced cyclists seeking a prestigious granfondo experience in legendary alpine terrain. Riders comfortable with 7,500 feet of elevation gain and looking to race in the Tour de France tradition.",
+      "who_should_skip": "Beginners or riders seeking flat courses. Those unable to handle sustained alpine climbing or preferring smaller, local events.",
+      "insider_tip": "Register early for the €30 promotional rate and plan to stay for both days of celebrations in Entracque and the Cuneo province to fully experience the Tour de France atmosphere."
+    },
+    "suffering_zones": [
+      {
+        "label": "Valle Gesso Climbs",
+        "description": "Sustained alpine climbing through the Maritime Alps starting from Entracque with multiple elevation-gaining sections"
+      },
+      {
+        "label": "Late-Race Fatigue",
+        "description": "Final climbing sections after 60+ miles of riding at altitude in the Cuneo province mountains"
+      }
+    ]
+  }
+}

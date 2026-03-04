@@ -1,0 +1,106 @@
+{
+  "race": {
+    "name": "Gran Fondo Siete Lagos",
+    "slug": "granfondo-siete-lagos",
+    "vitals": {
+      "distance": "100 km (62 mi)",
+      "elevation_gain": "1,500 m (4,920 ft)",
+      "terrain": "100% paved mountain roads through Patagonian lake district",
+      "surface": "Asphalt with occasional chip seal on mountain passes",
+      "avg_gradient": "Moderate with sustained climbs between lakes",
+      "aid_stations": "4 feed zones with hydration and nutrition",
+      "time_limit": "6 hours",
+      "field_size": "2,000 riders",
+      "participation_trend": "Growing — UCI Gran Fondo World Series qualifier attracting international riders",
+      "location": "San Martín de los Andes, Neuquén, Argentina",
+      "distance_mi": 62,
+      "elevation_ft": 4920,
+      "date": "2026: March TBD",
+      "date_specific": "2026: March TBD"
+    },
+    "course_description": {
+      "overview": "A point-to-point route through Argentina's Lake District connecting seven Patagonian lakes. The course follows Ruta 40 and scenic mountain roads from San Martín de los Andes through Villa La Angostura, passing through ancient araucaria forests and alongside crystalline glacial lakes at the foot of the Andes.",
+      "key_segments": [
+        {
+          "name": "Lago Lácar to Lago Machónico",
+          "distance": "15 km",
+          "description": "Rolling departure along the northern shore of Lago Lácar through temperate rainforest. Early-race positioning matters as the road narrows before the first climb."
+        },
+        {
+          "name": "Paso del Córdoba",
+          "distance": "12 km",
+          "description": "The signature climb: 600m of elevation gain on exposed switchbacks with panoramic views of Lago Nahuel Huapi. Gradients reach 8-10% near the summit. Wind exposure adds difficulty in March."
+        },
+        {
+          "name": "Seven Lakes Traverse",
+          "distance": "25 km",
+          "description": "The namesake section connecting Lagos Escondido, Correntoso, Espejo, and Falkner. Constant undulations with short punchy climbs between lake basins. The scenery is the reward."
+        },
+        {
+          "name": "Villa La Angostura Finish",
+          "distance": "10 km",
+          "description": "Fast descent into the resort town with a final 2km flat run to the finish line along the Nahuel Huapi lakeshore."
+        }
+      ],
+      "difficulty_narrative": "The course demands sustained climbing fitness rather than explosive power. March conditions in Patagonia bring unpredictable weather — riders should prepare for wind, rain, and temperature swings within a single stage. The altitude stays between 700-1,400m, so acclimatization is minor but the thin mountain air adds cumulative fatigue."
+    },
+    "logistics": {
+      "getting_there": "Fly into San Martín de los Andes (CPC) or Bariloche (BRC), 90 minutes by road. International connections through Buenos Aires (AEP/EZE). Several daily flights on Aerolíneas Argentinas and FlyBondi.",
+      "accommodation": "San Martín de los Andes has ample lodging from hostels ($30/night) to lakeside cabañas ($120/night). Book early — March is peak autumn season in Patagonia. Villa La Angostura offers post-race accommodation.",
+      "registration_details": "Online registration opens November. UCI category requires federation license. Standard entry approximately $80 USD with late registration surcharge.",
+      "bike_logistics": "Bike transport available from Buenos Aires via organized shuttles. Local rental shops in San Martín carry road bikes. Mechanical support on course at each feed zone.",
+      "local_considerations": "March is early autumn — daylight from 7:30am to 7:30pm. Argentine peso exchange rates favor international visitors. Asado culture means post-race dining is a highlight. Spanish language dominates; limited English outside tourist areas."
+    },
+    "gravel_god_rating": {
+      "logistics": 3,
+      "length": 3,
+      "technicality": 2,
+      "elevation": 3,
+      "climate": 3,
+      "altitude": 2,
+      "adventure": 5,
+      "prestige": 3,
+      "race_quality": 4,
+      "experience": 4,
+      "community": 3,
+      "field_depth": 3,
+      "value": 4,
+      "expenses": 3,
+      "overall_score": 69,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "cultural_impact": 3,
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "scenery": 5,
+      "course_design": 4,
+      "race_atmosphere": 4,
+      "post_race_experience": 4,
+      "value_for_money": 4,
+      "accessibility": 3,
+      "overall_score": 69,
+      "tier": 2,
+      "tier_label": "TIER 2"
+    },
+    "final_verdict": {
+      "one_liner": "Seven lakes, one unforgettable day in Patagonia.",
+      "who_is_it_for": "Riders who want a UCI Gran Fondo qualifier wrapped in Patagonian wilderness. The course rewards steady climbers who can handle unpredictable mountain weather.",
+      "is_it_worth_it": "If you can make the trip to southern Argentina, this is one of the most scenic road events in South America. The combination of glacial lakes, Andean peaks, and autumn foliage creates a backdrop that few European or North American events can match. The UCI qualification adds competitive purpose to what would otherwise be a destination ride.",
+      "pro_tips": [
+        "Bring arm warmers and a vest — March weather shifts fast between lake valleys",
+        "Start conservatively on Paso del Córdoba. The summit wind can steal 10 watts from your average",
+        "Pack your own nutrition. Feed zones carry local products but nothing you've trained with",
+        "Stay in San Martín an extra day. The mountain biking trails are excellent"
+      ]
+    },
+    "suffering_zones": {
+      "climbing": 7,
+      "distance": 5,
+      "technicality": 3,
+      "exposure": 7,
+      "mental": 5,
+      "overall_suffering": 5.4
+    }
+  }
+}

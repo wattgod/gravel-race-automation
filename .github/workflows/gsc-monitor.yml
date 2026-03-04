@@ -26,9 +26,14 @@ jobs:
         run: |
           pip install google-api-python-client google-auth
 
+      - name: Setup GSC credentials
+        run: echo "$GSC_SERVICE_ACCOUNT_JSON" > /tmp/gsc-creds.json
+        env:
+          GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
+
       - name: Run GSC tracker
         env:
-          GOOGLE_APPLICATION_CREDENTIALS: data/gsc-service-account.json
+          GOOGLE_APPLICATION_CREDENTIALS: /tmp/gsc-creds.json
         run: |
           python scripts/gsc_tracker.py --snapshot --report --alert
 

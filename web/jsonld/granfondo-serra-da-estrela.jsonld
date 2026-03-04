@@ -1,0 +1,24 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Granfondo Serra da Estrela",
+  "description": "",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-06-28",
+  "location": {
+    "@type": "Place",
+    "name": "Seia, Serra da Estrela, Portugal",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Seia",
+      "addressRegion": "Serra da Estrela"
+    }
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "79",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  }
+}

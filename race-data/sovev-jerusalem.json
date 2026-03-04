@@ -1,0 +1,106 @@
+{
+  "race": {
+    "name": "Sovev Jerusalem",
+    "slug": "sovev-jerusalem",
+    "vitals": {
+      "distance": "50 km",
+      "elevation_gain": "1500 m",
+      "terrain": "urban and hilly",
+      "surface": "paved roads",
+      "avg_gradient": "3%",
+      "aid_stations": "3-4",
+      "time_limit": "4 hours",
+      "field_size": "7000+",
+      "participation_trend": "stable, one of Israel's largest cycling events",
+      "date": "2026: May 8",
+      "date_specific": "2026: May 8",
+      "location": "Jerusalem, Israel",
+      "distance_mi": 31,
+      "elevation_ft": 4921
+    },
+    "course_description": {
+      "overview": "Mass participation road cycling event featuring 4 spectacular routes through Jerusalem's main historic attractions, surrounding nature, and scenic areas.",
+      "key_segments": [
+        {
+          "name": "Old City Loop",
+          "distance": "10 km",
+          "description": "Passes major landmarks including ancient walls and historic sites."
+        },
+        {
+          "name": "Mount of Olives Climb",
+          "distance": "15 km",
+          "description": "Steep ascent with panoramic views over the city."
+        },
+        {
+          "name": "Neveot Descent",
+          "distance": "12 km",
+          "description": "Fast downhill through surrounding hills and nature."
+        },
+        {
+          "name": "Finish Circuit",
+          "distance": "13 km",
+          "description": "Urban return via city center highlights."
+        }
+      ],
+      "difficulty_narrative": "Challenging due to Jerusalem's steep hills and urban climbs, suitable for intermediate riders with family-friendly shorter options."
+    },
+    "logistics": {
+      "getting_there": "Fly into Ben Gurion Airport (TLV), then bus or train to Jerusalem (45-60 min). Event starts in central Jerusalem.",
+      "accommodation": "Abundant hotels and hostels in central Jerusalem near start area; book early for event weekend.",
+      "registration_details": "Online via official site; English support at +972-3-5711575. Cancellation fee 5% of registration.",
+      "bike_logistics": "Bring your own or rent locally; expo provides servicing. Roads closed for event.",
+      "local_considerations": "Early May weather mild (20-25°C); respect cultural sites, modest dress outside event. Hebrew dominant, English widely understood."
+    },
+    "gravel_god_rating": {
+      "logistics": 3,
+      "length": 2,
+      "technicality": 1,
+      "elevation": 4,
+      "climate": 4,
+      "altitude": 2,
+      "adventure": 3,
+      "prestige": 3,
+      "race_quality": 4,
+      "experience": 4,
+      "community": 4,
+      "field_depth": 3,
+      "value": 4,
+      "expenses": 3,
+      "cultural_impact": 3,
+      "overall_score": 67,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "discipline": "road"
+    },
+    "biased_opinion_ratings": {
+      "scenery": 5,
+      "course_design": 4,
+      "race_atmosphere": 5,
+      "post_race_experience": 4,
+      "value_for_money": 4,
+      "accessibility": 4,
+      "overall_score": 67,
+      "tier": 2,
+      "tier_label": "TIER 2"
+    },
+    "final_verdict": {
+      "one_liner": "Jerusalem's iconic mass cycling celebration blending athletic challenge with historic wonders.",
+      "who_is_it_for": "Road cyclists seeking cultural immersion, families with shorter routes, and large-field enthusiasts.",
+      "is_it_worth_it": "Yes, for the unique scenery, atmosphere, and prestige as Israel's premier urban bike event.",
+      "pro_tips": [
+        "Train for hills; Jerusalem's terrain is relentlessly steep.",
+        "Register early for preferred start waves.",
+        "Explore Old City post-race.",
+        "Hydrate heavily; May sun intensifies climbs."
+      ]
+    },
+    "suffering_zones": {
+      "climbing": 8,
+      "distance": 4,
+      "technicality": 2,
+      "exposure": 5,
+      "mental": 6,
+      "overall_suffering": 5.0
+    }
+  }
+}

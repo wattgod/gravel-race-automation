@@ -1,0 +1,24 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Raul Alcala Challenge Oaxaca",
+  "description": "",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-04-19",
+  "location": {
+    "@type": "Place",
+    "name": "Oaxaca de Ju\u00e1rez, Oaxaca, Mexico",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Oaxaca de Ju\u00e1rez",
+      "addressRegion": "Oaxaca"
+    }
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "70",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  }
+}

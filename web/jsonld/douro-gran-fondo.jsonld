@@ -1,0 +1,24 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Love Tiles Douro Granfondo",
+  "description": "",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-05-10",
+  "location": {
+    "@type": "Place",
+    "name": "Peso da R\u00e9gua, Douro Valley, Portugal",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Peso da R\u00e9gua",
+      "addressRegion": "Douro Valley"
+    }
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "74",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  }
+}

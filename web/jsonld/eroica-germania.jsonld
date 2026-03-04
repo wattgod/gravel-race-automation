@@ -1,0 +1,24 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Eroica Germania",
+  "description": "",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-08-22",
+  "location": {
+    "@type": "Place",
+    "name": "Eltville am Rhein, Hesse, Germany",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Eltville am Rhein",
+      "addressRegion": "Hesse"
+    }
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "69",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  }
+}

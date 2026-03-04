@@ -1,0 +1,24 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Eroica Japan",
+  "description": "",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-04-11",
+  "location": {
+    "@type": "Place",
+    "name": "Kitakaruizawa, Gunma Prefecture, Japan",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Kitakaruizawa",
+      "addressRegion": "Gunma Prefecture"
+    }
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "79",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  }
+}

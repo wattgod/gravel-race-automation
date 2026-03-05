@@ -174,6 +174,41 @@ class TestKnownMajorRaces:
                 msg += f"  - {v['name']}: tier={v['tier']}, score={v['score']}\n"
             pytest.fail(msg)
 
+    def test_tier1_requires_score_80_or_prestige5(self):
+        """T1 races must have score >= 80 OR (prestige == 5 AND score >= 75).
+
+        Catches the gap where low-prestige races could land in T1 without
+        the score to back it up. Races with score >= 80 earn T1 on merit.
+        Prestige 5 + score >= 75 get the prestige override into T1.
+        """
+        violations = []
+        for fname, race in get_all_races():
+            r = race.get('gravel_god_rating', {})
+            tier = r.get('tier', 3)
+            score = r.get('overall_score', 0)
+            prestige = r.get('prestige', 0)
+
+            if tier != 1:
+                continue
+
+            earned_on_score = score >= 80
+            prestige_override = prestige == 5 and score >= 75
+
+            if not earned_on_score and not prestige_override:
+                violations.append({
+                    'file': fname,
+                    'name': race.get('name'),
+                    'score': score,
+                    'prestige': prestige,
+                })
+
+        if violations:
+            msg = "\n\nTIER 1 RACES WITHOUT QUALIFYING SCORE OR PRESTIGE:\n"
+            for v in violations:
+                msg += f"  - {v['name']}: score={v['score']}, prestige={v['prestige']}\n"
+            msg += "\nT1 requires: score>=80 OR (prestige==5 AND score>=75).\n"
+            pytest.fail(msg)
+
     def test_known_tier2_minimum(self):
         """Known major races must be at least Tier 2."""
         violations = []

@@ -844,13 +844,13 @@
     }
 
     var compareCheck = '<label class="gg-compare-check" title="Add to compare">' +
-      '<input type="checkbox" data-slug="' + race.slug + '" onchange="toggleCompare(this.dataset.slug,this.checked)"' +
+      '<input type="checkbox" data-slug="' + escHtml(race.slug) + '"' +
         (compareSlugs.indexOf(race.slug) !== -1 ? ' checked' : '') + '>' +
       '<span class="gg-compare-check-box"></span>' +
     '</label>';
 
     var isFav = favorites.indexOf(race.slug) !== -1;
-    var favBtn = '<button class="gg-fav-btn' + (isFav ? ' gg-fav-active' : '') + '" data-slug="' + race.slug + '" onclick="toggleFavorite(\'' + race.slug + '\')" title="Favorite">' +
+    var favBtn = '<button class="gg-fav-btn' + (isFav ? ' gg-fav-active' : '') + '" data-slug="' + escHtml(race.slug) + '" title="Favorite">' +
       '<span class="gg-fav-icon">' + (isFav ? '&#9829;' : '&#9825;') + '</span>' +
     '</button>';
 
@@ -1132,7 +1132,7 @@
     allRaces.forEach(function(r) { slugSet[r.slug] = r.name; });
     pills.innerHTML = compareSlugs.map(function(slug) {
       var name = slugSet[slug] || slug;
-      return '<span class="gg-filter-pill">' + name + '<button onclick="toggleCompare(\'' + slug + '\',false)">\u00d7</button></span>';
+      return '<span class="gg-filter-pill">' + escHtml(name) + '<button class="gg-compare-remove" data-slug="' + escHtml(slug) + '">\u00d7</button></span>';
     }).join('');
     btn.disabled = compareSlugs.length < 2;
     btn.textContent = 'COMPARE (' + compareSlugs.length + ')';
@@ -1555,6 +1555,26 @@
       }
     });
   }
+
+  // Delegated event listeners — avoid inline onclick/onchange (XSS prevention)
+  document.addEventListener('click', function(e) {
+    var favBtn = e.target.closest('.gg-fav-btn');
+    if (favBtn && favBtn.dataset.slug) {
+      toggleFavorite(favBtn.dataset.slug);
+      return;
+    }
+    var removeBtn = e.target.closest('.gg-compare-remove');
+    if (removeBtn && removeBtn.dataset.slug) {
+      toggleCompare(removeBtn.dataset.slug, false);
+      return;
+    }
+  });
+  document.addEventListener('change', function(e) {
+    var cb = e.target;
+    if (cb.type === 'checkbox' && cb.dataset.slug !== undefined) {
+      toggleCompare(cb.dataset.slug, cb.checked);
+    }
+  });
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);

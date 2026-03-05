@@ -23,6 +23,7 @@ from generate_neo_brutalist import (
     RACER_RATING_THRESHOLD,
     US_STATES,
     _build_race_name_map,
+    _safe_json_for_script,
     build_accordion_html,
     build_course_overview,
     build_course_route,
@@ -1214,3 +1215,123 @@ class TestRacerRating:
         assert rr['star_average'] is None
         assert rr['total_reviews'] == 0
         assert rr['reviews'] == []
+
+
+class TestNormalizeSilentFailures:
+    """Tests for normalize_race_data edge cases that previously failed silently."""
+
+    def test_missing_biased_opinion_ratings_defaults_gracefully(self):
+        """Empty biased_opinion_ratings should produce explanations with scores from rating."""
+        data = {
+            "race": {
+                "name": "Test Race",
+                "slug": "test-race",
+                "gravel_god_rating": {
+                    "overall_score": 65,
+                    "tier": 2,
+                    "logistics": 3, "length": 4, "technicality": 3,
+                    "elevation": 3, "climate": 3, "altitude": 1, "adventure": 3,
+                    "prestige": 2, "race_quality": 3, "experience": 3,
+                    "community": 3, "field_depth": 2, "value": 3, "expenses": 3,
+                },
+                "biased_opinion_ratings": {},
+                "vitals": {"location": "Nowhere"},
+            }
+        }
+        rd = normalize_race_data(data)
+        # Explanations should exist for all dims with scores from gravel_god_rating
+        assert rd['explanations']['logistics']['score'] == 3
+        assert rd['explanations']['length']['score'] == 4
+        assert rd['explanations']['prestige']['score'] == 2
+
+    def test_field_size_none_does_not_crash(self):
+        """field_size=None should not throw regex error."""
+        data = {
+            "race": {
+                "name": "Test Race",
+                "slug": "test-race",
+                "gravel_god_rating": {"overall_score": 50, "tier": 3},
+                "vitals": {"location": "Somewhere", "field_size": None},
+            }
+        }
+        # Should not raise TypeError/AttributeError on regex
+        rd = normalize_race_data(data)
+        # field_size may be None — that's fine, we just verify no crash
+        assert 'field_size' in rd['vitals']
+
+
+class TestJsonLdSafety:
+    """Tests for JSON-LD injection prevention."""
+
+    def test_neo_brutalist_uses_safe_json_for_jsonld(self):
+        """Static analysis: generate_page JSON-LD section must not use raw json.dumps."""
+        src = Path(__file__).parent.parent / "wordpress" / "generate_neo_brutalist.py"
+        content = src.read_text()
+
+        # Find the JSON-LD section and check it doesn't use json.dumps
+        in_jsonld = False
+        violations = []
+        for i, line in enumerate(content.split('\n'), 1):
+            if 'application/ld+json' in line:
+                in_jsonld = True
+            if in_jsonld and 'json.dumps' in line:
+                violations.append(f"  Line {i}: {line.strip()}")
+            if in_jsonld and 'jsonld_html' in line and '=' in line:
+                in_jsonld = False
+
+        # Also check the 4 specific jsonld_parts.append lines
+        jsonld_append_lines = [
+            (i, line.strip())
+            for i, line in enumerate(content.split('\n'), 1)
+            if 'jsonld_parts.append' in line and 'json.dumps' in line
+        ]
+        for lineno, line in jsonld_append_lines:
+            violations.append(f"  Line {lineno}: {line}")
+
+        if violations:
+            pytest.fail(
+                "Raw json.dumps found in JSON-LD section (use _safe_json_for_script):\n"
+                + "\n".join(violations)
+            )
+
+    def test_jsonld_escapes_close_script_tag(self):
+        """JSON-LD output must not contain literal </script>."""
+        data = {
+            "race": {
+                "name": 'Evil Race</script><script>alert(1)',
+                "slug": "evil-race",
+                "display_name": 'Evil Race</script><script>alert(1)',
+                "tagline": "Test XSS prevention",
+                "gravel_god_rating": {
+                    "overall_score": 50, "tier": 3, "tier_label": "TIER 3",
+                    "logistics": 3, "length": 3, "technicality": 3,
+                    "elevation": 3, "climate": 3, "altitude": 1, "adventure": 3,
+                    "prestige": 2, "race_quality": 3, "experience": 3,
+                    "community": 3, "field_depth": 2, "value": 3, "expenses": 3,
+                },
+                "vitals": {
+                    "location": "Test City",
+                    "date_specific": "2026: June 15",
+                    "distance_mi": 100,
+                    "elevation_ft": 5000,
+                },
+                "biased_opinion_ratings": {},
+                "course_description": {},
+                "history": {},
+                "logistics": {},
+                "final_verdict": {},
+            }
+        }
+        rd = normalize_race_data(data)
+        page_html = generate_page(rd)
+        # The page should NOT contain literal </script> inside JSON-LD blocks
+        # (the safe serializer replaces </ with <\/)
+        jsonld_blocks = re.findall(
+            r'<script type="application/ld\+json">(.*?)</script>',
+            page_html, re.DOTALL
+        )
+        assert len(jsonld_blocks) > 0, "No JSON-LD blocks found in output"
+        for block in jsonld_blocks:
+            assert '</script>' not in block, (
+                f"JSON-LD block contains literal </script>: {block[:200]}"
+            )

@@ -149,7 +149,11 @@ def parse_event_dates(date_str: str) -> tuple[str | None, str | None]:
             end = f"{year}-{month}-{int(end_day):02d}" if end_day else start
             return start, end
 
-    logger.debug("Unparseable date: %s", date_str)
+    # If the string contains a year but we still couldn't parse it, warn
+    if re.search(r'\d{4}', date_str):
+        logger.warning("Date contains year but failed to parse: %s", date_str)
+    else:
+        logger.debug("Unparseable date: %s", date_str)
     return None, None
 
 
@@ -313,6 +317,7 @@ def normalize_race_data(data: dict) -> dict:
     """Normalize race data from new-format JSON into a consistent shape
     with all fields the generator expects. Computes derived fields if missing."""
     race = data.get('race', data)
+    slug = race.get('slug', '(unknown)')
 
     rating = race.get('gravel_god_rating', {})
     bor = race.get('biased_opinion_ratings', {})
@@ -323,6 +328,16 @@ def normalize_race_data(data: dict) -> dict:
     history = race.get('history', {})
     logistics = race.get('logistics', {})
     final_verdict = race.get('final_verdict', {})
+
+    # Warn about missing sections that produce degraded output
+    if not vitals:
+        logger.warning("[%s] Missing 'vitals' section — page will show placeholder data", slug)
+    if not rating:
+        logger.warning("[%s] Missing 'gravel_god_rating' — score will be 0, tier will be T4", slug)
+    if not bor:
+        logger.warning("[%s] Missing 'biased_opinion_ratings' — accordion scores will all be 0", slug)
+    if not course:
+        logger.warning("[%s] Missing 'course_description' — course section will be empty", slug)
 
     # Compute course_profile total if missing
     course_profile = sum(rating.get(d, 0) for d in COURSE_DIMS)
@@ -461,6 +476,20 @@ def normalize_race_data(data: dict) -> dict:
 def esc(text: Any) -> str:
     """HTML-escape a string."""
     return html.escape(str(text)) if text else ''
+
+
+def _safe_json_for_script(obj, **kwargs) -> str:
+    """Serialize obj to JSON safe for embedding inside <script> tags.
+
+    json.dumps does NOT escape '</' sequences, so a string containing
+    '</script>' would prematurely close the <script> element, breaking
+    the page and potentially enabling XSS. We replace '</' with '<\\/'
+    which is semantically identical in JSON/JS but prevents the HTML
+    parser from seeing an end tag.
+    """
+    raw = json.dumps(obj, **kwargs)
+    return raw.replace("</", "<\\/")
+
 
 
 def score_bar_color(score: int) -> str:
@@ -1150,102 +1179,6 @@ document.querySelectorAll('.gg-faq-question').forEach(function(q) {
     document.getElementById('gg-review-form-wrap').querySelector('.gg-review-form').style.display='none';
     document.getElementById('gg-review-success').style.display='block';
   });
-})();
-
-// Exit-intent popup
-(function() {
-  var LS_KEY='gg-exit-popup-dismissed';
-  var WORKER_URL='https://fueling-lead-intake.gravelgodcoaching.workers.dev';
-  var DISMISS_DAYS=14;
-  /* Don't show if already captured email or dismissed recently */
-  try{
-    var cached=JSON.parse(localStorage.getItem('gg-pk-fueling')||'null');
-    if(cached&&cached.email&&cached.exp>Date.now()) return;
-    var dismissed=parseInt(localStorage.getItem(LS_KEY)||'0',10);
-    if(dismissed&&Date.now()<dismissed) return;
-  }catch(e){}
-
-  var shown=false;
-  function createPopup(){
-    if(shown) return;
-    shown=true;
-    try{localStorage.setItem(LS_KEY,String(Date.now()+DISMISS_DAYS*86400000));}catch(e){}
-    var overlay=document.createElement('div');
-    overlay.className='gg-exit-overlay';
-    overlay.setAttribute('role','dialog');
-    overlay.setAttribute('aria-modal','true');
-    overlay.setAttribute('aria-label','Email signup');
-    overlay.innerHTML='<div class="gg-exit-modal">'
-      +'<button class="gg-exit-close" aria-label="Close">&times;</button>'
-      +'<div class="gg-exit-badge">BEFORE YOU GO</div>'
-      +'<h3 class="gg-exit-title">GET YOUR FREE RACE PREP KIT</h3>'
-      +'<p class="gg-exit-text">12-week training timeline, packing list, and personalized fueling calculator for any gravel race.</p>'
-      +'<form class="gg-exit-form" id="gg-exit-form" autocomplete="off">'
-      +'<input type="hidden" name="source" value="exit_intent">'
-      +'<input type="hidden" name="website" value="">'
-      +'<div class="gg-exit-row">'
-      +'<input type="email" name="email" required placeholder="your@email.com" class="gg-exit-input" aria-label="Email">'
-      +'<button type="submit" class="gg-exit-btn">SEND IT</button>'
-      +'</div></form>'
-      +'<p class="gg-exit-fine">No spam. Unsubscribe anytime.</p>'
-      +'</div>';
-    document.body.appendChild(overlay);
-
-    /* Close handlers */
-    function closePopup(){overlay.remove();document.removeEventListener('keydown',escHandler);}
-    function escHandler(e){if(e.key==='Escape') closePopup();}
-    overlay.querySelector('.gg-exit-close').addEventListener('click',closePopup);
-    overlay.addEventListener('click',function(e){if(e.target===overlay) closePopup();});
-    document.addEventListener('keydown',escHandler);
-
-    /* Focus trap: keep focus inside modal */
-    var emailInput=overlay.querySelector('.gg-exit-input');
-    if(emailInput) emailInput.focus();
-    overlay.addEventListener('keydown',function(e){
-      if(e.key!=='Tab') return;
-      var focusable=overlay.querySelectorAll('button,input,[tabindex]');
-      var first=focusable[0],last=focusable[focusable.length-1];
-      if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}
-      else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
-    });
-
-    /* Form submit */
-    var exitForm=document.getElementById('gg-exit-form');
-    if(exitForm){
-      exitForm.addEventListener('submit',function(ev){
-        ev.preventDefault();
-        var email=exitForm.email.value.trim();
-        if(!email||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
-          alert('Please enter a valid email.');return;
-        }
-        if(exitForm.website&&exitForm.website.value) return;
-        try{localStorage.setItem('gg-pk-fueling',JSON.stringify({email:email,exp:Date.now()+90*86400000}));}catch(ex){}
-        var payload={email:email,source:'exit_intent',website:exitForm.website.value};
-        fetch(WORKER_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}).catch(function(){});
-        if(typeof gtag==='function') gtag('event','email_capture',{source:'exit_intent'});
-        overlay.querySelector('.gg-exit-modal').innerHTML='<div class="gg-exit-badge" style="background:#178079">DONE</div>'
-          +'<h3 class="gg-exit-title">CHECK YOUR INBOX</h3>'
-          +'<p class="gg-exit-text">Browse our <a href="/gravel-races/" style="color:#178079;text-decoration:underline">race profiles</a> to find your prep kit.</p>';
-        setTimeout(function(){overlay.remove();},4000);
-      });
-    }
-  }
-
-  /* Desktop: mouse leaves viewport top */
-  document.addEventListener('mouseout',function(e){
-    if(!e.relatedTarget&&e.clientY<5) createPopup();
-  });
-  /* Mobile: scroll up quickly (back button intent) */
-  var lastScroll=0;
-  var triggered=false;
-  window.addEventListener('scroll',function(){
-    var st=window.pageYOffset||document.documentElement.scrollTop;
-    if(st>500&&lastScroll-st>200&&!triggered){
-      triggered=true;
-      setTimeout(createPopup,500);
-    }
-    lastScroll=st;
-  },{passive:true});
 })();
 
 // Lite-YouTube facade — click to load iframe (zero perf cost until interaction)
@@ -4533,22 +4466,6 @@ def get_page_css() -> str:
 .gg-sticky-dismiss {{ background: none; border: none; color: var(--gg-color-white); font-size: 22px; cursor: pointer; opacity: 0.6; padding: 0 4px; line-height: 1; }}
 .gg-sticky-dismiss:hover {{ opacity: 1; }}
 
-/* Exit-intent popup */
-.gg-exit-overlay {{ position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 9999; background: rgba(26,22,19,0.85); display: flex; align-items: center; justify-content: center; padding: 20px; animation: gg-fade-in 0.3s ease; }}
-.gg-exit-modal {{ background: var(--gg-color-warm-paper); border: 4px solid var(--gg-color-near-black); max-width: 440px; width: 100%; padding: 40px 32px; text-align: center; position: relative; animation: gg-slide-up 0.3s ease; }}
-.gg-exit-close {{ position: absolute; top: 12px; right: 16px; background: none; border: none; font-size: 28px; color: var(--gg-color-secondary-brown); cursor: pointer; line-height: 1; }}
-.gg-exit-close:hover {{ color: var(--gg-color-near-black); }}
-.gg-exit-badge {{ display: inline-block; font-family: var(--gg-font-data); font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; background: var(--gg-color-near-black); color: var(--gg-color-warm-paper); padding: 4px 12px; margin-bottom: 16px; }}
-.gg-exit-title {{ font-family: var(--gg-font-data); font-size: 20px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin: 0 0 10px; color: var(--gg-color-near-black); }}
-.gg-exit-text {{ font-family: var(--gg-font-editorial); font-size: 14px; line-height: 1.6; color: var(--gg-color-primary-brown); margin: 0 0 20px; }}
-.gg-exit-row {{ display: flex; gap: 0; }}
-.gg-exit-input {{ flex: 1; font-family: var(--gg-font-data); font-size: 13px; padding: 12px 14px; border: 3px solid var(--gg-color-near-black); border-right: none; background: var(--gg-color-white); color: var(--gg-color-near-black); min-width: 0; }}
-.gg-exit-input:focus {{ outline: none; border-color: var(--gg-color-teal); }}
-.gg-exit-btn {{ font-family: var(--gg-font-data); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 12px 18px; background: var(--gg-color-near-black); color: var(--gg-color-warm-paper); border: 3px solid var(--gg-color-near-black); cursor: pointer; white-space: nowrap; transition: background 0.2s; }}
-.gg-exit-btn:hover {{ background: var(--gg-color-teal); border-color: var(--gg-color-teal); }}
-.gg-exit-fine {{ font-family: var(--gg-font-data); font-size: 10px; color: var(--gg-color-secondary-brown); letter-spacing: 1px; margin: 10px 0 0; }}
-@keyframes gg-fade-in {{ from {{ opacity: 0; }} to {{ opacity: 1; }} }}
-@keyframes gg-slide-up {{ from {{ transform: translateY(20px); opacity: 0; }} to {{ transform: translateY(0); opacity: 1; }} }}
 
 /* Back to top */
 .gg-back-to-top {{ position: fixed; bottom: 72px; right: 20px; z-index: 199; width: 40px; height: 40px; background: var(--gg-color-dark-brown); color: var(--gg-color-warm-paper); border: 2px solid var(--gg-color-warm-paper); font-size: 18px; cursor: pointer; opacity: 0; visibility: hidden; transition: opacity 0.2s, visibility 0.2s; display: flex; align-items: center; justify-content: center; }}
@@ -4697,9 +4614,6 @@ def get_page_css() -> str:
   .gg-neo-brutalist-page .gg-pack-wo-label {{ min-width: unset; }}
   .gg-neo-brutalist-page .gg-pack-viz-label {{ font-size: 8px; }}
   .gg-sticky-cta-name {{ display: none; }}
-  .gg-exit-row {{ flex-direction: column; gap: 8px; }}
-  .gg-exit-input {{ border-right: 3px solid var(--gg-color-near-black); }}
-  .gg-exit-modal {{ padding: 32px 20px; }}
   .gg-sticky-cta .gg-btn {{ width: 100%; text-align: center; }}
   .gg-neo-brutalist-page .gg-toc {{ flex-direction: column; gap: 6px; }}
   .gg-neo-brutalist-page .gg-map-embed iframe {{ height: 350px; }}
@@ -4818,16 +4732,16 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
     jsonld_parts = []
     sports_event = build_sports_event_jsonld(rd)
     if sports_event is not None:
-        jsonld_parts.append(json.dumps(sports_event, ensure_ascii=False, separators=(',', ':')))
+        jsonld_parts.append(_safe_json_for_script(sports_event, ensure_ascii=False, separators=(',', ':')))
     faq = build_faq_jsonld(rd)
     if faq:
-        jsonld_parts.append(json.dumps(faq, ensure_ascii=False, separators=(',', ':')))
+        jsonld_parts.append(_safe_json_for_script(faq, ensure_ascii=False, separators=(',', ':')))
     if race_index:
         breadcrumb = build_breadcrumb_jsonld(rd, race_index)
-        jsonld_parts.append(json.dumps(breadcrumb, ensure_ascii=False, separators=(',', ':')))
+        jsonld_parts.append(_safe_json_for_script(breadcrumb, ensure_ascii=False, separators=(',', ':')))
 
     webpage = build_webpage_jsonld(rd)
-    jsonld_parts.append(json.dumps(webpage, ensure_ascii=False, separators=(',', ':')))
+    jsonld_parts.append(_safe_json_for_script(webpage, ensure_ascii=False, separators=(',', ':')))
 
     jsonld_html = '\n'.join(
         f'<script type="application/ld+json">{j}</script>'

@@ -17,9 +17,7 @@ from pathlib import Path
 RACE_DATA_DIR = Path(__file__).parent.parent / "race-data"
 
 # Known exceptions — document why each is allowed
-KNOWN_SLUG_MISMATCHES = {
-    "fuego-mtb": "fuego-xl",  # Historical: renamed from Fuego XL to Fuego MTB
-}
+KNOWN_SLUG_MISMATCHES = {}
 
 KNOWN_DUPLICATE_NAMES = set()  # Previously: FNLD GRVL, Grasshopper — resolved by removing stubs
 
@@ -228,4 +226,43 @@ class TestDuplicateDetection:
             pytest.fail(
                 f"{len(dupes)} duplicate taglines (causes duplicate meta descriptions):\n"
                 + "\n".join(dupes)
+            )
+
+
+class TestSecurityRegressions:
+    """Static analysis tests to prevent XSS/injection regression."""
+
+    def test_no_inline_onclick_with_slug_in_search_js(self):
+        """search.js must not contain inline onclick handlers interpolating slugs."""
+        src = Path(__file__).parent.parent / "web" / "gravel-race-search.js"
+        content = src.read_text()
+        dangerous_patterns = [
+            "onclick=\"toggleFavorite('\"",
+            "onclick=\"toggleCompare('\"",
+            "onchange=\"toggleCompare(",
+        ]
+        violations = []
+        for pattern in dangerous_patterns:
+            if pattern in content:
+                violations.append(f"  Found: {pattern}")
+
+        if violations:
+            pytest.fail(
+                "Inline event handlers with slug interpolation found in search.js "
+                "(XSS risk):\n" + "\n".join(violations)
+            )
+
+    def test_no_raw_json_dumps_in_jsonld(self):
+        """generate_neo_brutalist.py must not use raw json.dumps for JSON-LD."""
+        src = Path(__file__).parent.parent / "wordpress" / "generate_neo_brutalist.py"
+        content = src.read_text()
+        violations = []
+        for i, line in enumerate(content.split('\n'), 1):
+            if 'jsonld_parts.append' in line and 'json.dumps' in line:
+                violations.append(f"  Line {i}: {line.strip()}")
+
+        if violations:
+            pytest.fail(
+                "Raw json.dumps in JSON-LD construction (use _safe_json_for_script):\n"
+                + "\n".join(violations)
             )

@@ -6,6 +6,7 @@ Push landing page JSON or race index to WordPress.
 import argparse
 import json
 import os
+import re
 import shutil
 import subprocess
 import tempfile
@@ -47,6 +48,19 @@ def get_ssh_credentials():
     if not SSH_KEY.exists():
         print(f"⚠️  SSH key not found: {SSH_KEY}")
         return None
+
+    # Validate credentials to prevent command injection
+    _bad_chars = re.compile(r'[;\s|&`$]')
+    if _bad_chars.search(host):
+        print(f"⚠️  SSH_HOST contains invalid characters: {host!r}")
+        return None
+    if _bad_chars.search(user):
+        print(f"⚠️  SSH_USER contains invalid characters: {user!r}")
+        return None
+    if not port.isdigit():
+        print(f"⚠️  SSH_PORT must be numeric: {port!r}")
+        return None
+
     return host, user, port
 
 

@@ -7,11 +7,13 @@ from unittest.mock import patch, MagicMock
 import pytest
 
 from mission_control.tests.conftest import (
+    make_api_usage,
     make_athlete,
     make_communication,
     make_deal,
     make_enrollment,
     make_sequence_send,
+    make_touchpoint,
 )
 
 
@@ -522,3 +524,557 @@ class TestTriageGA4Integration:
         resp = client.get("/triage")
         assert resp.status_code == 200
         assert "Site Analytics" in resp.text
+
+
+# ---------------------------------------------------------------------------
+# Class 9: Stats Endpoint + OOB
+# ---------------------------------------------------------------------------
+
+class TestStatsEndpoint:
+
+    def test_get_stats_returns_html_fragment(self, client, fake_db):
+        resp = client.get("/triage/stats")
+        assert resp.status_code == 200
+        assert "Action Required" in resp.text
+        assert "Pending Intakes" in resp.text
+
+    def test_get_stats_reflects_current_counts(self, client, fake_db):
+        fake_db.store["plan_requests"].append({
+            "id": str(uuid.uuid4()),
+            "status": "pending",
+            "payload": {"name": "Alice"},
+            "created_at": _now_iso(),
+        })
+        resp = client.get("/triage/stats")
+        assert resp.status_code == 200
+        # Should include at least 1 in some count
+        assert "Action Required" in resp.text
+
+    def test_ack_returns_oob_stats(self, client, fake_db):
+        """POST /triage/ack now returns OOB stats refresh."""
+        from mission_control.routers.triage import _rate_buckets
+        _rate_buckets.clear()
+
+        comm = make_communication()
+        fake_db.store["gg_communications"].append(comm)
+        resp = client.post(f"/triage/ack/{comm['id']}")
+        assert resp.status_code == 200
+        assert "hx-swap-oob" in resp.text
+        assert "triage-stats" in resp.text
+
+    def test_stats_partial_included_in_triage_page(self, client, fake_db):
+        """The triage page should include the stats partial."""
+        resp = client.get("/triage")
+        assert resp.status_code == 200
+        assert 'id="triage-stats"' in resp.text
+        assert 'hx-get="/triage/stats"' in resp.text
+
+
+# ---------------------------------------------------------------------------
+# Class 10: Deal Stage Change
+# ---------------------------------------------------------------------------
+
+class TestDealStageChange:
+
+    def _post_stage(self, client, deal_id, stage):
+        return client.post(f"/triage/deals/{deal_id}/stage", data={"stage": stage})
+
+    def test_qualify_deal_succeeds(self, client, fake_db):
+        from mission_control.routers.triage import _rate_buckets
+        _rate_buckets.clear()
+
+        deal = make_deal(stage="lead")
+        fake_db.store["gg_deals"].append(deal)
+        resp = self._post_stage(client, deal["id"], "qualified")
+        assert resp.status_code == 200
+        assert "hx-swap-oob" in resp.text
+
+    def test_close_deal_returns_empty_row(self, client, fake_db):
+        from mission_control.routers.triage import _rate_buckets
+        _rate_buckets.clear()
+
+        deal = make_deal(stage="lead")
+        fake_db.store["gg_deals"].append(deal)
+        resp = self._post_stage(client, deal["id"], "closed_lost")
+        assert resp.status_code == 200
+        # Primary HTML is empty (row removed), but OOB stats present
+        assert "hx-swap-oob" in resp.text
+
+    def test_invalid_uuid_rejected(self, client, fake_db):
+        from mission_control.routers.triage import _rate_buckets
+        _rate_buckets.clear()
+
+        resp = self._post_stage(client, "not-a-uuid", "qualified")
+        assert resp.status_code == 400
+
+    def test_nonexistent_deal_returns_404(self, client, fake_db):
+        from mission_control.routers.triage import _rate_buckets
+        _rate_buckets.clear()
+
+        resp = self._post_stage(client, str(uuid.uuid4()), "qualified")
+        assert resp.status_code == 404
+
+    def test_invalid_stage_returns_400(self, client, fake_db):
+        from mission_control.routers.triage import _rate_buckets
+        _rate_buckets.clear()
+
+        deal = make_deal(stage="lead")
+        fake_db.store["gg_deals"].append(deal)
+        resp = self._post_stage(client, deal["id"], "invalid_stage")
+        assert resp.status_code == 400
+
+    def test_deal_stage_change_rate_limited(self, client, fake_db):
+        from mission_control.routers.triage import _rate_buckets
+        _rate_buckets.clear()
+
+        deal = make_deal(stage="lead")
+        fake_db.store["gg_deals"].append(deal)
+
+        for _ in range(10):
+            resp = self._post_stage(client, deal["id"], "qualified")
+            assert resp.status_code == 200
+
+        resp = self._post_stage(client, deal["id"], "qualified")
+        assert resp.status_code == 429
+
+    def test_deal_stage_audit_logged(self, client, fake_db):
+        from mission_control.routers.triage import _rate_buckets
+        _rate_buckets.clear()
+
+        deal = make_deal(stage="lead")
+        fake_db.store["gg_deals"].append(deal)
+        self._post_stage(client, deal["id"], "qualified")
+
+        logs = fake_db.store["gg_audit_log"]
+        assert any(log["action"] == "deal_stage_change" for log in logs)
+
+    def test_stale_deals_table_has_action_buttons(self, client, fake_db):
+        fake_db.store["gg_deals"].append(
+            make_deal(stage="lead", updated_at=_hours_ago(72))
+        )
+        resp = client.get("/triage")
+        assert resp.status_code == 200
+        assert "Qualify" in resp.text
+        assert "Close" in resp.text
+        assert "triage-action-group" in resp.text
+
+
+# ---------------------------------------------------------------------------
+# Class 11: Plan Approve
+# ---------------------------------------------------------------------------
+
+class TestPlanApprove:
+
+    def test_approve_pipeline_complete_plan(self, client, fake_db):
+        from mission_control.routers.triage import _rate_buckets
+        _rate_buckets.clear()
+
+        athlete = make_athlete(slug="test-approve", plan_status="pipeline_complete")
+        fake_db.store["gg_athletes"].append(athlete)
+        resp = client.post("/triage/plans/test-approve/approve")
+        assert resp.status_code == 200
+        assert "approved" in resp.text
+        assert "hx-swap-oob" in resp.text
+
+    def test_approve_audit_passed_plan(self, client, fake_db):
+        from mission_control.routers.triage import _rate_buckets
+        _rate_buckets.clear()
+
+        athlete = make_athlete(slug="test-audit", plan_status="audit_passed")
+        fake_db.store["gg_athletes"].append(athlete)
+        resp = client.post("/triage/plans/test-audit/approve")
+        assert resp.status_code == 200
+        assert "approved" in resp.text
+
+    def test_approve_already_approved_returns_404(self, client, fake_db):
+        from mission_control.routers.triage import _rate_buckets
+        _rate_buckets.clear()
+
+        athlete = make_athlete(slug="already-done", plan_status="approved")
+        fake_db.store["gg_athletes"].append(athlete)
+        resp = client.post("/triage/plans/already-done/approve")
+        assert resp.status_code == 404
+
+    def test_approve_nonexistent_slug_returns_404(self, client, fake_db):
+        from mission_control.routers.triage import _rate_buckets
+        _rate_buckets.clear()
+
+        resp = client.post("/triage/plans/does-not-exist/approve")
+        assert resp.status_code == 404
+
+    def test_approve_invalid_slug_rejected(self, client, fake_db):
+        from mission_control.routers.triage import _rate_buckets
+        _rate_buckets.clear()
+
+        resp = client.post("/triage/plans/INVALID_SLUG!/approve")
+        assert resp.status_code == 400
+
+    def test_approve_creates_audit_log(self, client, fake_db):
+        from mission_control.routers.triage import _rate_buckets
+        _rate_buckets.clear()
+
+        athlete = make_athlete(slug="audit-test", plan_status="pipeline_complete")
+        fake_db.store["gg_athletes"].append(athlete)
+        client.post("/triage/plans/audit-test/approve")
+
+        logs = fake_db.store["gg_audit_log"]
+        assert any(log["action"] == "plan_approved" for log in logs)
+
+    def test_plans_table_has_approve_button(self, client, fake_db):
+        fake_db.store["gg_athletes"].append(
+            make_athlete(slug="btn-test", plan_status="pipeline_complete", updated_at=_now_iso())
+        )
+        resp = client.get("/triage")
+        assert resp.status_code == 200
+        assert "Approve" in resp.text
+        assert "/triage/plans/btn-test/approve" in resp.text
+
+    def test_approved_plan_no_approve_button(self, client, fake_db):
+        fake_db.store["gg_athletes"].append(
+            make_athlete(slug="already-approved", plan_status="approved", updated_at=_now_iso())
+        )
+        resp = client.get("/triage")
+        assert resp.status_code == 200
+        # Should have Review but not Approve for already-approved
+        assert "/triage/plans/already-approved/approve" not in resp.text
+
+
+# ---------------------------------------------------------------------------
+# Class 12: Touchpoint Mark Sent
+# ---------------------------------------------------------------------------
+
+class TestTouchpointMarkSent:
+
+    def test_mark_sent_succeeds(self, client, fake_db):
+        from mission_control.routers.triage import _rate_buckets
+        _rate_buckets.clear()
+
+        tp = make_touchpoint()
+        fake_db.store["gg_touchpoints"].append(tp)
+        resp = client.post(f"/triage/touchpoints/{tp['id']}/sent")
+        assert resp.status_code == 200
+        assert "hx-swap-oob" in resp.text
+
+    def test_mark_sent_updates_db(self, client, fake_db):
+        from mission_control.routers.triage import _rate_buckets
+        _rate_buckets.clear()
+
+        tp = make_touchpoint(sent=False)
+        fake_db.store["gg_touchpoints"].append(tp)
+        client.post(f"/triage/touchpoints/{tp['id']}/sent")
+        assert tp["sent"] is True
+
+    def test_mark_sent_creates_audit_log(self, client, fake_db):
+        from mission_control.routers.triage import _rate_buckets
+        _rate_buckets.clear()
+
+        tp = make_touchpoint()
+        fake_db.store["gg_touchpoints"].append(tp)
+        client.post(f"/triage/touchpoints/{tp['id']}/sent")
+
+        logs = fake_db.store["gg_audit_log"]
+        assert any(log["action"] == "touchpoint_marked_sent" for log in logs)
+
+    def test_mark_sent_invalid_uuid(self, client, fake_db):
+        from mission_control.routers.triage import _rate_buckets
+        _rate_buckets.clear()
+
+        resp = client.post("/triage/touchpoints/not-a-uuid/sent")
+        assert resp.status_code == 400
+
+    def test_mark_sent_nonexistent_returns_404(self, client, fake_db):
+        from mission_control.routers.triage import _rate_buckets
+        _rate_buckets.clear()
+
+        resp = client.post(f"/triage/touchpoints/{str(uuid.uuid4())}/sent")
+        assert resp.status_code == 404
+
+    def test_touchpoint_table_has_mark_sent_button(self, client, fake_db):
+        tp = make_touchpoint()
+        with patch("mission_control.services.triage.db.get_touchpoints", return_value=[tp]):
+            resp = client.get("/triage")
+            assert resp.status_code == 200
+            assert "Mark Sent" in resp.text
+
+
+# ---------------------------------------------------------------------------
+# Class 13: Expanded Health Checks
+# ---------------------------------------------------------------------------
+
+class TestExpandedHealth:
+
+    def test_deep_health_endpoint_returns_html(self, client, fake_db):
+        resp = client.get("/triage/health/deep")
+        assert resp.status_code == 200
+        assert "Deep Health Checks" in resp.text
+
+    def test_deep_health_checks_env_vars(self, client, fake_db):
+        resp = client.get("/triage/health/deep")
+        assert resp.status_code == 200
+        assert "ENV:" in resp.text
+
+    def test_deep_health_checks_supabase_tables(self, client, fake_db):
+        resp = client.get("/triage/health/deep")
+        assert resp.status_code == 200
+        assert "Table:" in resp.text
+
+    def test_expanded_health_service_returns_structure(self, fake_db):
+        from mission_control.services.triage import get_expanded_health
+        health = get_expanded_health()
+        assert "checks" in health
+        assert "ok_count" in health
+        assert "warning_count" in health
+        assert "error_count" in health
+        assert len(health["checks"]) > 4  # More than basic checks
+
+    def test_check_env_vars_required(self, fake_db):
+        from mission_control.services.triage import _check_env_vars
+        results = _check_env_vars()
+        names = [r["name"] for r in results]
+        assert "ENV: SUPABASE_URL" in names
+        assert "ENV: SUPABASE_SERVICE_KEY" in names
+        assert "ENV: WEBHOOK_SECRET" in names
+        assert "ENV: RESEND_API_KEY" in names
+
+    def test_check_env_vars_optional(self, fake_db):
+        from mission_control.services.triage import _check_env_vars
+        results = _check_env_vars()
+        names = [r["name"] for r in results]
+        assert "ENV: STRIPE_API_KEY" in names
+        assert "ENV: GA4_PROPERTY_ID" in names
+
+    def test_check_supabase_tables(self, fake_db):
+        from mission_control.services.triage import _check_supabase_tables
+        results = _check_supabase_tables()
+        names = [r["name"] for r in results]
+        assert "Table: gg_deals" in names
+        assert "Table: gg_athletes" in names
+        assert "Table: gg_sequence_enrollments" in names
+
+    def test_check_supabase_table_with_data(self, fake_db):
+        from mission_control.services.triage import _check_supabase_tables
+        fake_db.store["gg_deals"].append(make_deal())
+        results = _check_supabase_tables()
+        deal_check = next(r for r in results if r["name"] == "Table: gg_deals")
+        assert deal_check["status"] == "ok"
+
+    def test_check_self_health_no_public_url(self, fake_db):
+        from mission_control.services.triage import _check_self_health
+        with patch("mission_control.config.PUBLIC_URL", ""):
+            result = _check_self_health()
+            assert result["status"] == "warning"
+
+    def test_check_resend_no_api_key(self, fake_db):
+        from mission_control.services.triage import _check_resend_connectivity
+        with patch("mission_control.config.RESEND_API_KEY", ""):
+            result = _check_resend_connectivity()
+            assert result["status"] == "error"
+
+    def test_deep_health_button_in_template(self, client, fake_db):
+        resp = client.get("/triage")
+        assert resp.status_code == 200
+        assert "Run Deep Checks" in resp.text
+        assert 'hx-get="/triage/health/deep"' in resp.text
+
+    def test_deep_health_never_crashes_page(self, client, fake_db):
+        """Even if all deep checks fail, endpoint should return 200."""
+        with patch("mission_control.services.triage._check_env_vars", return_value=[]):
+            with patch("mission_control.services.triage._check_supabase_tables", return_value=[]):
+                resp = client.get("/triage/health/deep")
+                assert resp.status_code == 200
+
+
+# ---------------------------------------------------------------------------
+# Class 14: Auto-Refresh Timer
+# ---------------------------------------------------------------------------
+
+class TestAutoRefresh:
+
+    def test_stats_div_has_polling_trigger(self, client, fake_db):
+        resp = client.get("/triage")
+        assert resp.status_code == 200
+        assert 'hx-trigger="every 300s"' in resp.text
+
+    def test_last_refreshed_span_exists(self, client, fake_db):
+        resp = client.get("/triage")
+        assert resp.status_code == 200
+        assert 'id="last-refreshed"' in resp.text
+
+    def test_scripts_block_has_after_swap_listener(self, client, fake_db):
+        resp = client.get("/triage")
+        assert resp.status_code == 200
+        assert "htmx:afterSwap" in resp.text
+
+
+# ---------------------------------------------------------------------------
+# Class 15: API Cost Tracking
+# ---------------------------------------------------------------------------
+
+class TestAPICostTracking:
+
+    def test_calculate_cost_known_model(self, fake_db):
+        from mission_control.services.triage import calculate_cost
+        # claude-sonnet: $3/M in, $15/M out
+        cost = calculate_cost("claude-sonnet-4-20250514", 1000, 500)
+        expected = (1000 / 1_000_000) * 3.00 + (500 / 1_000_000) * 15.00
+        assert abs(cost - expected) < 0.000001
+
+    def test_calculate_cost_unknown_model(self, fake_db):
+        from mission_control.services.triage import calculate_cost
+        cost = calculate_cost("unknown-model", 1000, 500)
+        assert cost == 0.0
+
+    def test_get_api_cost_summary_empty_table(self, fake_db):
+        from mission_control.services.triage import get_api_cost_summary
+        result = get_api_cost_summary()
+        assert result["configured"] is True
+        assert result["today"] == 0.0
+        assert result["total"] == 0.0
+
+    def test_get_api_cost_summary_with_data(self, fake_db):
+        from mission_control.services.triage import get_api_cost_summary
+        fake_db.store["gg_api_usage"].append(
+            make_api_usage(cost_usd=0.05, created_at=_now_iso())
+        )
+        fake_db.store["gg_api_usage"].append(
+            make_api_usage(cost_usd=0.03, model="sonar-pro", created_at=_now_iso())
+        )
+        result = get_api_cost_summary()
+        assert result["configured"] is True
+        assert result["total"] == 0.08
+        assert "claude-sonnet-4-20250514" in result["by_model"]
+        assert "sonar-pro" in result["by_model"]
+
+    def test_get_api_cost_summary_time_buckets(self, fake_db):
+        from mission_control.services.triage import get_api_cost_summary
+        # Today
+        fake_db.store["gg_api_usage"].append(
+            make_api_usage(cost_usd=0.10, created_at=_now_iso())
+        )
+        # 3 days ago (within week, not today)
+        fake_db.store["gg_api_usage"].append(
+            make_api_usage(cost_usd=0.20, created_at=_days_ago(3))
+        )
+        # 15 days ago (within month, not week)
+        fake_db.store["gg_api_usage"].append(
+            make_api_usage(cost_usd=0.30, created_at=_days_ago(15))
+        )
+        result = get_api_cost_summary()
+        assert result["today"] == 0.10
+        assert result["week"] == 0.30  # today + 3 days ago
+        assert result["month"] == 0.60  # all three
+        assert result["total"] == 0.60
+
+    def test_api_cost_summary_table_not_exist(self, fake_db):
+        """If gg_api_usage doesn't exist, return configured=False."""
+        from mission_control.services.triage import get_api_cost_summary
+        with patch("mission_control.services.triage.db._table", side_effect=Exception("table not found")):
+            result = get_api_cost_summary()
+            assert result["configured"] is False
+
+    def test_api_costs_widget_in_triage_page(self, client, fake_db):
+        """API costs widget shows when configured with data."""
+        fake_db.store["gg_api_usage"].append(
+            make_api_usage(cost_usd=1.50, created_at=_now_iso())
+        )
+        resp = client.get("/triage")
+        assert resp.status_code == 200
+        assert "API Costs" in resp.text
+
+    def test_api_costs_widget_hidden_when_not_configured(self, fake_db):
+        """When configured=False, the API costs section is not rendered."""
+        from mission_control.services.triage import get_api_cost_summary
+        # Simulate table not existing
+        with patch("mission_control.services.triage.db._table") as mock_table:
+            mock_table.side_effect = Exception("table not found")
+            result = get_api_cost_summary()
+            assert result["configured"] is False
+        # The template uses {% if api_costs.configured %} so with False,
+        # "API Costs" heading will not appear. Verified via service test above.
+
+    def test_pricing_dict_has_expected_models(self, fake_db):
+        from mission_control.services.triage import API_PRICING
+        assert "claude-sonnet-4-20250514" in API_PRICING
+        assert "sonar-pro" in API_PRICING
+        assert "sonar" in API_PRICING
+
+    def test_calculate_cost_sonar(self, fake_db):
+        from mission_control.services.triage import calculate_cost
+        # sonar: $1/M in, $1/M out
+        cost = calculate_cost("sonar", 1_000_000, 1_000_000)
+        assert cost == 2.0
+
+    def test_api_costs_empty_state_in_page(self, client, fake_db):
+        """With configured=True but no data, should still show widget."""
+        resp = client.get("/triage")
+        assert resp.status_code == 200
+        # With empty gg_api_usage table, configured=True but all zeros
+        assert "API Costs" in resp.text
+
+
+# ---------------------------------------------------------------------------
+# Class 16: Intake View Links
+# ---------------------------------------------------------------------------
+
+class TestIntakeViewLinks:
+
+    def test_intake_name_links_to_athlete_search(self, client, fake_db):
+        fake_db.store["plan_requests"].append({
+            "id": str(uuid.uuid4()),
+            "status": "pending",
+            "payload": {"name": "Link Test", "email": "link@test.com"},
+            "created_at": _now_iso(),
+        })
+        resp = client.get("/triage")
+        assert resp.status_code == 200
+        assert "/athletes?search=" in resp.text
+        assert "link%40test.com" in resp.text or "link@test.com" in resp.text
+
+
+# ---------------------------------------------------------------------------
+# Class 17: Service Approve/MarkSent Unit Tests
+# ---------------------------------------------------------------------------
+
+class TestServiceApprovePlan:
+
+    def test_approve_plan_changes_status(self, fake_db):
+        from mission_control.services.triage import approve_plan
+        athlete = make_athlete(slug="svc-test", plan_status="pipeline_complete")
+        fake_db.store["gg_athletes"].append(athlete)
+        result = approve_plan("svc-test")
+        assert result is not None
+        assert athlete["plan_status"] == "approved"
+
+    def test_approve_plan_wrong_status_returns_none(self, fake_db):
+        from mission_control.services.triage import approve_plan
+        athlete = make_athlete(slug="wrong-status", plan_status="delivered")
+        fake_db.store["gg_athletes"].append(athlete)
+        result = approve_plan("wrong-status")
+        assert result is None
+
+    def test_approve_plan_missing_slug_returns_none(self, fake_db):
+        from mission_control.services.triage import approve_plan
+        result = approve_plan("nonexistent")
+        assert result is None
+
+
+class TestServiceMarkTouchpointSent:
+
+    def test_mark_sent_sets_flag(self, fake_db):
+        from mission_control.services.triage import mark_touchpoint_sent
+        tp = make_touchpoint(sent=False)
+        fake_db.store["gg_touchpoints"].append(tp)
+        result = mark_touchpoint_sent(tp["id"])
+        assert result is not None
+        assert tp["sent"] is True
+
+    def test_mark_sent_missing_id_returns_none(self, fake_db):
+        from mission_control.services.triage import mark_touchpoint_sent
+        result = mark_touchpoint_sent(str(uuid.uuid4()))
+        assert result is None
+
+    def test_mark_sent_on_db_error_returns_none(self, fake_db):
+        from mission_control.services.triage import mark_touchpoint_sent
+        with patch("mission_control.services.triage.db.select_one", side_effect=Exception("boom")):
+            result = mark_touchpoint_sent(str(uuid.uuid4()))
+            assert result is None

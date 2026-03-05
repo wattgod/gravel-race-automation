@@ -8,6 +8,12 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent / "scripts"))
 
 
+def pytest_configure(config):
+    """Register custom markers."""
+    config.addinivalue_line("markers", "scraper: requires scrapling installed")
+    config.addinivalue_line("markers", "network: requires network access")
+
+
 @pytest.fixture
 def sample_research_content():
     """Sample research content that should pass quality gates."""

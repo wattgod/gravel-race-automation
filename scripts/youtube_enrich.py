@@ -161,6 +161,50 @@ VIDEOS:
 """
 
 
+def _log_api_usage(response, model: str, script: str) -> None:
+    """Best-effort log API token usage to gg_api_usage via Supabase REST API."""
+    try:
+        tokens_in = response.usage.input_tokens
+        tokens_out = response.usage.output_tokens
+
+        # Calculate cost
+        pricing = {
+            "claude-sonnet-4-20250514": {"input": 3.00, "output": 15.00},
+            "claude-3-5-haiku-20241022": {"input": 0.80, "output": 4.00},
+        }
+        rates = pricing.get(model, {"input": 3.00, "output": 15.00})
+        cost = (tokens_in / 1_000_000) * rates["input"] + (tokens_out / 1_000_000) * rates["output"]
+
+        # Direct REST API call — no MC import dependency
+        import urllib.request
+        import json as _json
+
+        supabase_url = os.environ.get("SUPABASE_URL", "")
+        supabase_key = os.environ.get("SUPABASE_SERVICE_KEY", "")
+        if not supabase_url or not supabase_key:
+            return
+
+        url = f"{supabase_url}/rest/v1/gg_api_usage"
+        payload = _json.dumps({
+            "provider": "anthropic",
+            "model": model,
+            "tokens_in": tokens_in,
+            "tokens_out": tokens_out,
+            "cost_usd": round(cost, 6),
+            "script": script,
+        }).encode()
+
+        req = urllib.request.Request(url, data=payload, method="POST", headers={
+            "apikey": supabase_key,
+            "Authorization": f"Bearer {supabase_key}",
+            "Content-Type": "application/json",
+            "Prefer": "return=minimal",
+        })
+        urllib.request.urlopen(req, timeout=5)
+    except Exception:
+        pass  # Never break API calls if logging fails
+
+
 def call_api(prompt: str, max_retries: int = 3, retry_delay: int = 30) -> str:
     """Call Claude API with retry logic."""
     import anthropic
@@ -178,6 +222,7 @@ def call_api(prompt: str, max_retries: int = 3, retry_delay: int = 30) -> str:
                 max_tokens=4000,
                 messages=[{"role": "user", "content": prompt}]
             )
+            _log_api_usage(response, "claude-sonnet-4-20250514", "youtube_enrich")
             return response.content[0].text
         except anthropic.RateLimitError:
             if attempt < max_retries - 1:

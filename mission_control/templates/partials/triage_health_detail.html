@@ -1,0 +1,27 @@
+<h4 class="triage-section-sub">Deep Health Checks ({{ health.ok_count }}/{{ health.checks|length }} ok)</h4>
+<table class="gg-table gg-table--compact">
+    <thead>
+        <tr>
+            <th>Check</th>
+            <th>Status</th>
+            <th>Detail</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for check in health.checks %}
+        <tr>
+            <td class="triage-cell-sm">{{ check.name }}</td>
+            <td>
+                {% if check.status == 'ok' %}
+                <span class="gg-badge gg-badge--teal">OK</span>
+                {% elif check.status == 'warning' %}
+                <span class="gg-badge gg-badge--gold">WARNING</span>
+                {% else %}
+                <span class="gg-badge gg-badge--error">ERROR</span>
+                {% endif %}
+            </td>
+            <td class="mc-text-muted triage-cell-sm">{{ check.detail }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>

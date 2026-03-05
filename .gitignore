@@ -85,6 +85,9 @@ web/markdown/
 # Photo QC reports (generated via: python3 scripts/photo_qc.py)
 reports/photo-qc-*.html
 
+# Scraper cache (large HTML blobs, regenerate with: python scripts/scrape_official_sites.py)
+data/scrape-cache/
+
 # OS
 .DS_Store
 Thumbs.db

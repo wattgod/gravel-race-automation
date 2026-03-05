@@ -378,3 +378,33 @@ def make_sequence_send(**overrides):
     }
     defaults.update(overrides)
     return defaults
+
+
+def make_touchpoint(**overrides):
+    defaults = {
+        "id": str(uuid.uuid4()),
+        "athlete_id": str(uuid.uuid4()),
+        "touchpoint_id": "checkin-week2",
+        "category": "check_in",
+        "subject": "Week 2 Check-in",
+        "send_date": datetime.now(timezone.utc).strftime("%Y-%m-%d"),
+        "sent": False,
+        "created_at": datetime.now(timezone.utc).isoformat(),
+    }
+    defaults.update(overrides)
+    return defaults
+
+
+def make_api_usage(**overrides):
+    defaults = {
+        "id": str(uuid.uuid4()),
+        "provider": "anthropic",
+        "model": "claude-sonnet-4-20250514",
+        "tokens_in": 1000,
+        "tokens_out": 500,
+        "cost_usd": 0.010500,
+        "script": "test_script",
+        "created_at": datetime.now(timezone.utc).isoformat(),
+    }
+    defaults.update(overrides)
+    return defaults

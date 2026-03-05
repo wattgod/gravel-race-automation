@@ -5,11 +5,15 @@ batch_date_search.py — Web-search for 2026 dates for races with stale (pre-202
 Searches DuckDuckGo for each stale race's 2026 date, parses results for date
 patterns, and opportunistically captures official website URLs.
 
+With --use-scraper: after DuckDuckGo fails, falls back to cached scrape extracts
+or direct scraping of official_site URLs (requires scrapling).
+
 Usage:
   python scripts/batch_date_search.py --dry-run              # Preview all
   python scripts/batch_date_search.py --tier 1 --tier 2      # T1+T2 only
   python scripts/batch_date_search.py --slug jeroboam        # Single race
   python scripts/batch_date_search.py --verbose               # Show search details
+  python scripts/batch_date_search.py --use-scraper           # Enable scraper fallback
 """
 
 import argparse
@@ -21,6 +25,12 @@ from pathlib import Path
 from urllib.parse import urlparse
 
 from duckduckgo_search import DDGS
+
+try:
+    from scrape_utils import load_extract, fetch_url, get_cached, set_cached
+    HAS_SCRAPER = True
+except ImportError:
+    HAS_SCRAPER = False
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 RACE_DATA_DIR = PROJECT_ROOT / "race-data"
@@ -419,6 +429,66 @@ def load_stale_races(tier_filters=None, slug_filter=None):
     return stale
 
 
+def scraper_fallback_date(race, slug, verbose=False):
+    """Try to find a 2026 date via cached scrape extracts or direct scraping.
+
+    Returns (date_specific, month_name) or (None, None).
+    Requires --use-scraper flag and scrapling installed.
+    """
+    if not HAS_SCRAPER:
+        return None, None
+
+    # Step 1: Check cached extract from scrape_official_sites.py
+    extract = load_extract(slug)
+    if extract and extract.get("date_2026"):
+        date_str = str(extract["date_2026"])
+        if verbose:
+            print(f"  SCRAPER FALLBACK: cached extract has date_2026={date_str}")
+        # Parse into our format
+        date_spec, month, day = extract_date_from_text(date_str + " 2026")
+        if not date_spec:
+            # Try as-is if it looks like "2026-MM-DD"
+            iso = re.match(r"2026-(\d{2})-(\d{2})", date_str)
+            if iso:
+                month_num = int(iso.group(1))
+                day = int(iso.group(2))
+                month = MONTHS[month_num - 1]
+                date_spec = f"2026: {month} {day}"
+        if date_spec:
+            return date_spec, month
+        # Try month name format like "June 6" or "June 6, 2026"
+        for i, m in enumerate(MONTHS):
+            if m.lower() in date_str.lower():
+                day_match = re.search(r"(\d{1,2})", date_str)
+                if day_match:
+                    return f"2026: {m} {day_match.group(1)}", m
+                return None, None
+
+    # Step 2: Direct scrape of official_site with regex date extraction
+    url = race.get("logistics", {}).get("official_site", "")
+    if not url or not url.startswith("http"):
+        return None, None
+
+    if verbose:
+        print(f"  SCRAPER FALLBACK: fetching {url}")
+
+    html, status, fetcher = fetch_url(url, strategy="auto")
+    if not html:
+        if verbose:
+            print(f"  SCRAPER FALLBACK: fetch failed ({fetcher})")
+        return None, None
+
+    if verbose:
+        print(f"  SCRAPER FALLBACK: got {len(html)} chars via {fetcher}")
+
+    # Extract date using existing regex patterns (no Claude call)
+    date_spec, month, day = extract_date_from_text(html)
+    if date_spec and verbose:
+        print(f"  SCRAPER FALLBACK: found {date_spec}")
+
+    return date_spec, month
+
+
 def main():
     parser = argparse.ArgumentParser(
         description="Web-search for 2026 dates for stale races"
@@ -432,7 +502,14 @@ def main():
                         help="Show search details")
     parser.add_argument("--delay", type=float, default=2.5,
                         help="Delay between races in seconds (default: 2.5)")
+    parser.add_argument("--use-scraper", action="store_true",
+                        help="Fall back to scraping official_site when DuckDuckGo fails")
     args = parser.parse_args()
+
+    if args.use_scraper and not HAS_SCRAPER:
+        print("WARNING: --use-scraper requires scrapling. Install with: pip install 'scrapling[fetchers]'")
+        print("Continuing without scraper fallback.")
+        args.use_scraper = False
 
     tier_filters = set(args.tiers) if args.tiers else None
     stale = load_stale_races(tier_filters=tier_filters, slug_filter=args.slug)
@@ -483,8 +560,42 @@ def main():
                     if date_general:
                         race["vitals"]["date"] = date_general
         else:
-            date_not_found += 1
-            print(f"  NO 2026 DATE FOUND")
+            # Scraper fallback: try cached extracts or direct scraping
+            if args.use_scraper:
+                scraper_date, scraper_month = scraper_fallback_date(
+                    race, slug, verbose=args.verbose
+                )
+                if scraper_date:
+                    # Apply same month-shift sanity check
+                    old_month = _extract_month_from_date_specific(old_ds)
+                    new_month = _month_num(scraper_month) if scraper_month else None
+                    shift = _month_distance(old_month, new_month)
+
+                    if shift > 2:
+                        print(f"  REJECTED scraper date: {old_ds!r} -> {scraper_date!r} (month shift={shift})")
+                        date_not_found += 1
+                    else:
+                        date_spec = scraper_date
+                        month = scraper_month
+                        date_found += 1
+                        day_match = re.search(r"(\d{1,2})", scraper_date.split(":")[-1])
+                        day = int(day_match.group(1)) if day_match else 15
+                        date_general = timing_label(month, day) if month else None
+
+                        if args.dry_run:
+                            print(f"  WOULD UPDATE date (scraper): {old_ds!r} -> {date_spec!r}")
+                            if date_general:
+                                print(f"                               -> {date_general!r}")
+                        else:
+                            race["vitals"]["date_specific"] = date_spec
+                            if date_general:
+                                race["vitals"]["date"] = date_general
+                else:
+                    date_not_found += 1
+                    print(f"  NO 2026 DATE FOUND (DuckDuckGo + scraper)")
+            else:
+                date_not_found += 1
+                print(f"  NO 2026 DATE FOUND")
 
         if website:
             website_found += 1

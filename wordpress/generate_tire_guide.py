@@ -1310,29 +1310,9 @@ a:hover { text-decoration: underline; }
 }
 .tg-email-capture-link:hover { background: var(--gg-color-light-teal); text-decoration: none; }
 
-/* Exit-intent popup */
-.tg-exit-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 9999; background: rgba(26,22,19,0.85); display: flex; align-items: center; justify-content: center; padding: 20px; animation: tg-fade-in 0.3s ease; }
-.tg-exit-modal { background: var(--gg-color-warm-paper); border: 4px solid var(--gg-color-near-black); max-width: 440px; width: 100%; padding: 40px 32px; text-align: center; position: relative; animation: tg-slide-up 0.3s ease; }
-.tg-exit-close { position: absolute; top: 12px; right: 16px; background: none; border: none; font-size: 28px; color: var(--gg-color-secondary-brown); cursor: pointer; line-height: 1; }
-.tg-exit-close:hover { color: var(--gg-color-near-black); }
-.tg-exit-badge { display: inline-block; font-family: var(--gg-font-data); font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; background: var(--gg-color-near-black); color: var(--gg-color-warm-paper); padding: 4px 12px; margin-bottom: 16px; }
-.tg-exit-title { font-family: var(--gg-font-data); font-size: 20px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin: 0 0 10px; color: var(--gg-color-near-black); }
-.tg-exit-text { font-family: var(--gg-font-editorial); font-size: 14px; line-height: 1.6; color: var(--gg-color-primary-brown); margin: 0 0 20px; }
-.tg-exit-row { display: flex; gap: 0; }
-.tg-exit-input { flex: 1; font-family: var(--gg-font-data); font-size: 13px; padding: 12px 14px; border: 3px solid var(--gg-color-near-black); border-right: none; background: var(--gg-color-white); color: var(--gg-color-near-black); min-width: 0; }
-.tg-exit-input:focus { outline: none; border-color: var(--gg-color-teal); }
-.tg-exit-btn { font-family: var(--gg-font-data); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 12px 18px; background: var(--gg-color-near-black); color: var(--gg-color-warm-paper); border: 3px solid var(--gg-color-near-black); cursor: pointer; white-space: nowrap; transition: background 0.2s; }
-.tg-exit-btn:hover { background: var(--gg-color-teal); border-color: var(--gg-color-teal); }
-.tg-exit-fine { font-family: var(--gg-font-data); font-size: 10px; color: var(--gg-color-secondary-brown); letter-spacing: 1px; margin: 10px 0 0; }
-@keyframes tg-fade-in { from { opacity: 0; } to { opacity: 1; } }
-@keyframes tg-slide-up { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-
 @media (max-width: 480px) {
   .tg-email-capture-row { flex-direction: column; gap: 8px; }
   .tg-email-capture-input { border-right: 2px solid var(--gg-color-tan); }
-  .tg-exit-row { flex-direction: column; gap: 8px; }
-  .tg-exit-input { border-right: 3px solid var(--gg-color-near-black); }
-  .tg-exit-modal { padding: 32px 20px; }
 }
 
 /* Print styles */
@@ -1743,95 +1723,7 @@ def build_inline_js() -> str:
   });
 })();
 
-/* Exit-intent popup */
-(function(){
-  var LS_KEY='gg-exit-popup-dismissed';
-  var WORKER_URL='https://fueling-lead-intake.gravelgodcoaching.workers.dev';
-  var DISMISS_DAYS=14;
-  try{
-    var cached=JSON.parse(localStorage.getItem('gg-pk-fueling')||'null');
-    if(cached&&cached.email&&cached.exp>Date.now()) return;
-    var dismissed=parseInt(localStorage.getItem(LS_KEY)||'0',10);
-    if(dismissed&&Date.now()<dismissed) return;
-  }catch(e){}
 
-  var shown=false;
-  function createPopup(){
-    if(shown) return;
-    shown=true;
-    try{localStorage.setItem(LS_KEY,String(Date.now()+DISMISS_DAYS*86400000));}catch(e){}
-    var overlay=document.createElement('div');
-    overlay.className='tg-exit-overlay';
-    overlay.setAttribute('role','dialog');
-    overlay.setAttribute('aria-modal','true');
-    overlay.setAttribute('aria-label','Email signup');
-    overlay.innerHTML='<div class="tg-exit-modal">'
-      +'<button class="tg-exit-close" aria-label="Close">&times;</button>'
-      +'<div class="tg-exit-badge">BEFORE YOU GO</div>'
-      +'<h3 class="tg-exit-title">GET A FREE SETUP CARD</h3>'
-      +'<p class="tg-exit-text">Get a printable tire setup card with pressures, sealant, and race-day tips for any gravel race.</p>'
-      +'<form class="tg-exit-form" id="tg-exit-form" autocomplete="off">'
-      +'<input type="hidden" name="source" value="exit_intent">'
-      +'<input type="hidden" name="website" value="">'
-      +'<div class="tg-exit-row">'
-      +'<input type="email" name="email" required placeholder="your@email.com" class="tg-exit-input" aria-label="Email">'
-      +'<button type="submit" class="tg-exit-btn">SEND IT</button>'
-      +'</div></form>'
-      +'<p class="tg-exit-fine">No spam. Unsubscribe anytime.</p>'
-      +'</div>';
-    document.body.appendChild(overlay);
-
-    function closePopup(){overlay.remove();document.removeEventListener('keydown',escHandler);}
-    function escHandler(e){if(e.key==='Escape') closePopup();}
-    overlay.querySelector('.tg-exit-close').addEventListener('click',closePopup);
-    overlay.addEventListener('click',function(e){if(e.target===overlay) closePopup();});
-    document.addEventListener('keydown',escHandler);
-
-    var emailInput=overlay.querySelector('.tg-exit-input');
-    if(emailInput) emailInput.focus();
-    overlay.addEventListener('keydown',function(e){
-      if(e.key!=='Tab') return;
-      var focusable=overlay.querySelectorAll('button,input,[tabindex]');
-      var first=focusable[0],last=focusable[focusable.length-1];
-      if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}
-      else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
-    });
-
-    var exitForm=document.getElementById('tg-exit-form');
-    if(exitForm){
-      exitForm.addEventListener('submit',function(ev){
-        ev.preventDefault();
-        var email=exitForm.email.value.trim();
-        if(!email||!/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email)){
-          alert('Please enter a valid email.');return;
-        }
-        if(exitForm.website&&exitForm.website.value) return;
-        try{localStorage.setItem('gg-pk-fueling',JSON.stringify({email:email,exp:Date.now()+90*86400000}));}catch(ex){}
-        var payload={email:email,source:'exit_intent',website:exitForm.website.value};
-        fetch(WORKER_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}).catch(function(){});
-        if(typeof gtag==='function') gtag('event','email_capture',{source:'exit_intent'});
-        overlay.querySelector('.tg-exit-modal').innerHTML='<div class="tg-exit-badge" style="background:#178079">DONE</div>'
-          +'<h3 class="tg-exit-title">CHECK YOUR INBOX</h3>'
-          +'<p class="tg-exit-text">Browse our <a href="/gravel-races/" style="color:#178079;text-decoration:underline">race profiles</a> to find your setup card.</p>';
-        setTimeout(function(){overlay.remove();},4000);
-      });
-    }
-  }
-
-  document.addEventListener('mouseout',function(e){
-    if(!e.relatedTarget&&e.clientY<5) createPopup();
-  });
-  var lastScroll=0;
-  var triggered=false;
-  window.addEventListener('scroll',function(){
-    var st=window.pageYOffset||document.documentElement.scrollTop;
-    if(st>500&&lastScroll-st>200&&!triggered){
-      triggered=true;
-      setTimeout(createPopup,500);
-    }
-    lastScroll=st;
-  },{passive:true});
-})();
 </script>'''
 
 

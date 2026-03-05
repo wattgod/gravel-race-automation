@@ -280,11 +280,14 @@ class TestTriageTemplateStructure:
     def test_utility_classes_present(self):
         """Template must use utility classes instead of inline styles."""
         content = self.TRIAGE_PATH.read_text()
-        assert 'triage-card-desc' in content
-        assert 'triage-btn-sm' in content
-        assert 'triage-cell-sm' in content
-        assert 'triage-empty-sm' in content
-        assert 'triage-stat-clear' in content
+        # Also check partials that are included
+        stats_partial = (MC_ROOT / "templates" / "partials" / "triage_stats.html").read_text()
+        combined = content + stats_partial
+        assert 'triage-card-desc' in combined
+        assert 'triage-btn-sm' in combined
+        assert 'triage-cell-sm' in combined
+        assert 'triage-empty-sm' in combined
+        assert 'triage-stat-clear' in combined
 
     def test_no_residual_style_attributes(self):
         """Count remaining inline style= attributes.

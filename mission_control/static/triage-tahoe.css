@@ -539,3 +539,42 @@
 .mc-tahoe .mc-clickable-row:hover {
   background: var(--tahoe-accent-light);
 }
+
+/* ==========================================================================
+   Triage-specific: Action buttons + danger variant
+   ========================================================================== */
+
+.mc-tahoe .triage-action-group {
+  display: flex;
+  gap: 4px;
+}
+
+.mc-tahoe .triage-btn-danger {
+  color: var(--gg-color-error);
+}
+
+.mc-tahoe .triage-btn-danger:hover {
+  background: rgba(200, 50, 50, 0.08);
+}
+
+/* ==========================================================================
+   Triage-specific: Last refreshed timestamp
+   ========================================================================== */
+
+.mc-tahoe .triage-last-refreshed {
+  font-size: var(--gg-font-size-2xs);
+  color: var(--tahoe-text-muted);
+}
+
+/* ==========================================================================
+   HTMX indicator
+   ========================================================================== */
+
+.mc-tahoe .htmx-indicator {
+  display: none;
+}
+
+.mc-tahoe .htmx-request .htmx-indicator,
+.mc-tahoe .htmx-request.htmx-indicator {
+  display: inline;
+}

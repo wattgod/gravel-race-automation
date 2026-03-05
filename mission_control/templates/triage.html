@@ -12,7 +12,7 @@
 <div class="mc-page-header">
     <span class="mc-page-header__kicker">Command Center</span>
     <h1 class="mc-page-header__title">Triage</h1>
-    <p class="mc-page-header__desc">What needs your attention right now.</p>
+    <p class="mc-page-header__desc">What needs your attention right now. <span id="last-refreshed" class="triage-last-refreshed"></span></p>
 </div>
 
 <!-- Load Error Banner -->
@@ -44,23 +44,8 @@
 {% endif %}
 
 <!-- Summary Stats -->
-<div class="gg-stat-grid mc-mb-lg">
-    <div class="gg-stat-card">
-        <div class="gg-stat-card__value{% if summary.action_required > 0 %} mc-text-teal{% endif %}">{{ summary.action_required }}</div>
-        <div class="gg-stat-card__label">Action Required{% if summary.action_required == 0 %} <span class="triage-stat-clear">— clear</span>{% endif %}</div>
-    </div>
-    <div class="gg-stat-card">
-        <div class="gg-stat-card__value">{{ summary.pending_intakes }}</div>
-        <div class="gg-stat-card__label">Pending Intakes{% if summary.pending_intakes == 0 %} <span class="triage-stat-clear">— clear</span>{% endif %}</div>
-    </div>
-    <div class="gg-stat-card">
-        <div class="gg-stat-card__value">{{ summary.unread_replies }}</div>
-        <div class="gg-stat-card__label">Unread Replies{% if summary.unread_replies == 0 %} <span class="triage-stat-clear">— clear</span>{% endif %}</div>
-    </div>
-    <div class="gg-stat-card">
-        <div class="gg-stat-card__value">{{ summary.due_touchpoints }}</div>
-        <div class="gg-stat-card__label">Due Touchpoints{% if summary.due_touchpoints == 0 %} <span class="triage-stat-clear">— clear</span>{% endif %}</div>
-    </div>
+<div id="triage-stats" class="gg-stat-grid mc-mb-lg" hx-get="/triage/stats" hx-trigger="every 300s" hx-swap="innerHTML">
+    {% include "partials/triage_stats.html" %}
 </div>
 
 <!-- ================================================================ -->
@@ -99,7 +84,7 @@
             <tbody>
                 {% for req in pending_intakes %}
                 <tr>
-                    <td>{{ req.payload.name if req.payload else '—' }}</td>
+                    <td>{% if req.payload and req.payload.email %}<a href="/athletes?search={{ req.payload.email|urlencode }}" class="mc-text-teal">{{ req.payload.name if req.payload else '—' }}</a>{% else %}{{ req.payload.name if req.payload else '—' }}{% endif %}</td>
                     <td class="mc-text-mono triage-cell-sm">{{ req.payload.email if req.payload else '—' }}</td>
                     <td>{{ req.payload.races[0].name if req.payload and req.payload.races else '—' }}</td>
                     <td class="mc-text-muted">{{ req.created_at[:10] if req.created_at else '—' }}</td>
@@ -179,7 +164,15 @@
                     <td>{{ a.race_name or '—' }}</td>
                     <td class="mc-text-muted">{{ a.race_date or '—' }}</td>
                     <td><span class="gg-badge mc-status--{{ a.plan_status }}">{{ a.plan_status|replace('_',' ') }}</span></td>
-                    <td><a href="/athletes/{{ a.slug }}" class="gg-btn gg-btn--ghost triage-btn-sm">Review</a></td>
+                    <td class="triage-action-group">
+                        {% if a.plan_status in ('pipeline_complete', 'audit_passed') %}
+                        <button class="gg-btn gg-btn--ghost triage-btn-sm"
+                                hx-post="/triage/plans/{{ a.slug }}/approve"
+                                hx-target="closest tr" hx-swap="outerHTML"
+                                hx-confirm="Approve plan for {{ a.name }}?">Approve</button>
+                        {% endif %}
+                        <a href="/athletes/{{ a.slug }}" class="gg-btn gg-btn--ghost triage-btn-sm">Review</a>
+                    </td>
                 </tr>
                 {% endfor %}
             </tbody>
@@ -217,7 +210,13 @@
                     <td><span class="gg-badge gg-badge--default">{{ tp.category }}</span></td>
                     <td>{{ tp.subject or '—' }}</td>
                     <td class="mc-text-muted">{{ tp.send_date }}</td>
-                    <td><a href="/touchpoints" class="gg-btn gg-btn--ghost triage-btn-sm">Send</a></td>
+                    <td class="triage-action-group">
+                        <button class="gg-btn gg-btn--ghost triage-btn-sm"
+                                hx-post="/triage/touchpoints/{{ tp.id }}/sent"
+                                hx-target="closest tr" hx-swap="outerHTML"
+                                hx-confirm="Mark as sent?">Mark Sent</button>
+                        <a href="/touchpoints" class="gg-btn gg-btn--ghost triage-btn-sm">Send</a>
+                    </td>
                 </tr>
                 {% endfor %}
             </tbody>
@@ -248,6 +247,7 @@
                     <th>Stage</th>
                     <th>Value</th>
                     <th>Last Updated</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -258,6 +258,18 @@
                     <td><span class="gg-badge mc-deal-stage--{{ d.stage }}">{{ d.stage|replace('_',' ') }}</span></td>
                     <td class="gg-table__num">${{ "%.0f"|format(d.value|float) }}</td>
                     <td class="mc-text-muted">{{ d.updated_at[:10] if d.updated_at else '—' }}</td>
+                    <td class="triage-action-group">
+                        <button class="gg-btn gg-btn--ghost triage-btn-sm"
+                                hx-post="/triage/deals/{{ d.id }}/stage"
+                                hx-vals='{"stage":"qualified"}'
+                                hx-target="closest tr" hx-swap="outerHTML"
+                                hx-confirm="Move to Qualified?">Qualify</button>
+                        <button class="gg-btn gg-btn--ghost triage-btn-sm triage-btn-danger"
+                                hx-post="/triage/deals/{{ d.id }}/stage"
+                                hx-vals='{"stage":"closed_lost"}'
+                                hx-target="closest tr" hx-swap="outerHTML"
+                                hx-confirm="Close as Lost?">Close</button>
+                    </td>
                 </tr>
                 {% endfor %}
             </tbody>
@@ -512,7 +524,7 @@
 <!-- SYSTEM HEALTH                                                    -->
 <!-- ================================================================ -->
 
-<div class="mc-card">
+<div class="mc-card mc-mb-lg">
     <div class="mc-card__header">
         <h3 class="mc-card__title">System Health</h3>
         <span class="gg-badge {% if health.error_count > 0 %}gg-badge--error{% elif health.warning_count > 0 %}gg-badge--gold{% else %}gg-badge--teal{% endif %}">
@@ -522,7 +534,7 @@
     <div class="mc-card__body">
         <p class="mc-text-muted triage-health-desc">Integration status for all connected services.</p>
         {% if health.checks %}
-        <table class="gg-table gg-table--compact">
+        <table class="gg-table gg-table--compact triage-table-spaced">
             <thead>
                 <tr>
                     <th>Service</th>
@@ -549,8 +561,72 @@
             </tbody>
         </table>
         {% endif %}
+        <button class="gg-btn gg-btn--ghost triage-btn-sm"
+                hx-get="/triage/health/deep" hx-target="#health-detail" hx-swap="innerHTML"
+                hx-indicator="#health-spinner">Run Deep Checks</button>
+        <span id="health-spinner" class="htmx-indicator triage-last-refreshed">Checking...</span>
+        <div id="health-detail"></div>
     </div>
 </div>
 
+<!-- API Costs -->
+{% if api_costs.configured %}
+<div class="mc-card mc-mb-lg">
+    <div class="mc-card__header">
+        <h3 class="mc-card__title">API Costs</h3>
+    </div>
+    <div class="mc-card__body">
+        <div class="gg-stat-grid triage-stat-grid-compact">
+            <div class="gg-stat-card">
+                <div class="gg-stat-card__value">${{ "%.2f"|format(api_costs.today) }}</div>
+                <div class="gg-stat-card__label">Today</div>
+            </div>
+            <div class="gg-stat-card">
+                <div class="gg-stat-card__value">${{ "%.2f"|format(api_costs.week) }}</div>
+                <div class="gg-stat-card__label">7 Days</div>
+            </div>
+            <div class="gg-stat-card">
+                <div class="gg-stat-card__value">${{ "%.2f"|format(api_costs.month) }}</div>
+                <div class="gg-stat-card__label">30 Days</div>
+            </div>
+            <div class="gg-stat-card">
+                <div class="gg-stat-card__value">${{ "%.2f"|format(api_costs.total) }}</div>
+                <div class="gg-stat-card__label">All Time</div>
+            </div>
+        </div>
+        {% if api_costs.by_model %}
+        <table class="gg-table gg-table--compact">
+            <thead>
+                <tr>
+                    <th>Model</th>
+                    <th>Cost</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for model, cost in api_costs.by_model.items() %}
+                <tr>
+                    <td class="mc-text-mono triage-cell-sm">{{ model }}</td>
+                    <td class="gg-table__num">${{ "%.4f"|format(cost) }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% endif %}
+    </div>
 </div>
+{% endif %}
+
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.body.addEventListener("htmx:afterSwap", function(evt) {
+    var el = document.getElementById("last-refreshed");
+    if (el) {
+        var now = new Date();
+        el.textContent = "Last refreshed " + now.toLocaleTimeString();
+    }
+});
+</script>
 {% endblock %}

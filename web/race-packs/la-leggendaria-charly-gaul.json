@@ -1,0 +1,137 @@
+{
+  "slug": "la-leggendaria-charly-gaul",
+  "race_name": "La Leggendaria Charly Gaul",
+  "distance_mi": 88.0,
+  "demands": {
+    "durability": 4,
+    "climbing": 9,
+    "vo2_power": 8,
+    "threshold": 8,
+    "technical": 4,
+    "heat_resilience": 1,
+    "altitude": 4,
+    "race_specificity": 10
+  },
+  "top_categories": [
+    {
+      "category": "TT_Threshold",
+      "score": 100,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ],
+      "workout_context": "149ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 96,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ],
+      "workout_context": "Race-pace efforts that mimic La Leggendaria Charly Gaul's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before July."
+    },
+    {
+      "category": "Over_Under",
+      "score": 92,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ],
+      "workout_context": "At La Leggendaria Charly Gaul, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
+    },
+    {
+      "category": "VO2max",
+      "score": 91,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ],
+      "workout_context": "13,123ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 85,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ],
+      "workout_context": "La Leggendaria Charly Gaul's Paved mountain roads through Trentino valleys and forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 88 miles."
+    },
+    {
+      "category": "Durability",
+      "score": 77,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ],
+      "workout_context": "At mile 60 of 88, glycogen is gone. This workout teaches your body to produce watts on fumes."
+    },
+    {
+      "category": "G_Spot",
+      "score": 77,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ],
+      "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of La Leggendaria Charly Gaul. Train it until it feels boring."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 72,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "13,123ft of climbing on grades that change every minute. You need to switch from seated to standing without losing rhythm."
+    },
+    {
+      "category": "Anaerobic_Capacity",
+      "score": 53,
+      "workouts": [
+        "2min Killers",
+        "90sec Repeats"
+      ],
+      "workout_context": "Short, max efforts are unavoidable. Punchy climbs, gap closures, attacks on paved mountain roads through Trentino with a. If you haven't trained them, you'll crack."
+    },
+    {
+      "category": "Critical_Power",
+      "score": 53,
+      "workouts": [
+        "Above CP Repeats",
+        "W-Prime Depletion"
+      ],
+      "workout_context": "How long can you hold 105% FTP before you blow? At La Leggendaria Charly Gaul, that number decides whether you bridge or get dropped."
+    },
+    {
+      "category": "SFR_Muscle_Force",
+      "score": 48,
+      "workouts": [
+        "SFR Low Cadence",
+        "Force Repeats"
+      ],
+      "workout_context": "Low-cadence force work for 13,123ft of climbing. The slow, grinding ascents where you can't spin\u2014you push."
+    },
+    {
+      "category": "Blended",
+      "score": 43,
+      "workouts": [
+        "Z2 + VO2 Combo",
+        "Endurance with Spikes"
+      ],
+      "workout_context": "Endurance with intensity spikes baked in. Exactly what 13,123ft of climbing on paved mountain roads through Trentino with a does to your power file on race day."
+    }
+  ],
+  "race_overlay": {
+    "nutrition": "Target 60\u201380g carbs/hour for La Leggendaria Charly Gaul\u2019s 88 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
+    "altitude": "Moderate altitude at La Leggendaria Charly Gaul. Arrive 2\u20133 days early. Reduce intensity expectations by 5\u201310%. Hydrate aggressively.",
+    "terrain": "Mixed terrain at La Leggendaria Charly Gaul requires surface adaptability. Include weekly rides on paved mountain roads through trentino with a summit finish on monte bondone to build confidence. Expect: paved mountain roads through trentino valleys and vineyards, monte bondone summit finish at 1,650m \u2014 the charly gaul climb, valle dei laghi lakeside roads."
+  },
+  "pack_summary": "This 10-workout pack focuses on TT Threshold, Race Simulation, and Over Under to prepare you for 88 miles of paved mountain roads through trentino with a summit finish on monte bondone in Trento, Trentino-Alto Adige, Italy.",
+  "generated_at": "2026-03-06"
+}

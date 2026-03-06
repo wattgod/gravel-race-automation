@@ -1,0 +1,135 @@
+{
+  "slug": "letape-argentina",
+  "race_name": "L'Etape Argentina by Tour de France",
+  "distance_mi": 83.0,
+  "demands": {
+    "durability": 4,
+    "climbing": 6,
+    "vo2_power": 5,
+    "threshold": 8,
+    "technical": 2,
+    "heat_resilience": 1,
+    "altitude": 2,
+    "race_specificity": 7
+  },
+  "top_categories": [
+    {
+      "category": "TT_Threshold",
+      "score": 100,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ],
+      "workout_context": "79ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
+    },
+    {
+      "category": "Over_Under",
+      "score": 82,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ],
+      "workout_context": "At L'Etape Argentina by Tour de France, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
+    },
+    {
+      "category": "G_Spot",
+      "score": 79,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ],
+      "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of L'Etape Argentina by Tour de France. Train it until it feels boring."
+    },
+    {
+      "category": "Durability",
+      "score": 74,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ],
+      "workout_context": "At mile 60 of 83, glycogen is gone. This workout teaches your body to produce watts on fumes."
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 73,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ],
+      "workout_context": "Race-pace efforts that mimic L'Etape Argentina by Tour de France's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before March."
+    },
+    {
+      "category": "VO2max",
+      "score": 61,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ],
+      "workout_context": "6,562ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 61,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ],
+      "workout_context": "L'Etape Argentina by Tour de France's Paved mountain and valley roads (100%), Sierras de Cordoba forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 83 miles."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 55,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "6,562ft of climbing on grades that change every minute. You need to switch from seated to standing without losing rhythm."
+    },
+    {
+      "category": "Norwegian_Double",
+      "score": 48,
+      "workouts": [
+        "Norwegian 4x8 Classic",
+        "Double Threshold"
+      ],
+      "workout_context": "Two threshold sessions per week without the recovery cost of VO2max work. For 83 miles, sustainable FTP gains matter more than peak power."
+    },
+    {
+      "category": "Blended",
+      "score": 39,
+      "workouts": [
+        "Z2 + VO2 Combo",
+        "Endurance with Spikes"
+      ],
+      "workout_context": "Endurance with intensity spikes baked in. Exactly what 6,562ft of climbing on paved mountain and valley roads through the does to your power file on race day."
+    },
+    {
+      "category": "Endurance",
+      "score": 38,
+      "workouts": [
+        "Pre-Race Openers",
+        "Terrain Simulation Z2"
+      ],
+      "workout_context": "Every hard session works better with a bigger aerobic base. At 83 miles, base fitness is the difference between racing and surviving."
+    },
+    {
+      "category": "Tempo",
+      "score": 36,
+      "workouts": [
+        "Tempo Blocks",
+        "Extended Tempo"
+      ],
+      "workout_context": "Tempo is L'Etape Argentina by Tour de France's race pace. The wattage you'll hold for 83 miles on paved mountain and valley roads through the. Train it until it's automatic."
+    }
+  ],
+  "race_overlay": {
+    "nutrition": "Target 60\u201380g carbs/hour for L'Etape Argentina by Tour de France\u2019s 83 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure."
+  },
+  "pack_summary": "This 10-workout pack focuses on TT Threshold, Over Under, and G Spot to prepare you for 83 miles of paved mountain and valley roads through the sierras de cordoba and punilla valley in Cordoba, Cordoba Province, Argentina (Estadio Mario Alberto Kempes start/finish).",
+  "generated_at": "2026-03-06"
+}

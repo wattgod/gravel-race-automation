@@ -1,0 +1,136 @@
+{
+  "slug": "prosecco-cycling",
+  "race_name": "Prosecco Cycling (Gran Fondo Prosecco)",
+  "distance_mi": 62.0,
+  "demands": {
+    "durability": 2,
+    "climbing": 4,
+    "vo2_power": 5,
+    "threshold": 5,
+    "technical": 4,
+    "heat_resilience": 1,
+    "altitude": 2,
+    "race_specificity": 9
+  },
+  "top_categories": [
+    {
+      "category": "Race_Simulation",
+      "score": 100,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ],
+      "workout_context": "Race-pace efforts that mimic Prosecco Cycling (Gran Fondo Prosecco)'s demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before September."
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 91,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ],
+      "workout_context": "Prosecco Cycling (Gran Fondo Prosecco)'s Paved Veneto provincial and communal roads, UNESCO World forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 62 miles."
+    },
+    {
+      "category": "Durability",
+      "score": 65,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ],
+      "workout_context": "62 miles on paved Veneto roads through the UNESCO Prosecco burns energy faster than the distance suggests. Train the fade resistance now."
+    },
+    {
+      "category": "TT_Threshold",
+      "score": 64,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ],
+      "workout_context": "83ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
+    },
+    {
+      "category": "VO2max",
+      "score": 61,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ],
+      "workout_context": "5,118ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
+    },
+    {
+      "category": "Over_Under",
+      "score": 53,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ],
+      "workout_context": "At Prosecco Cycling (Gran Fondo Prosecco), surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
+    },
+    {
+      "category": "G_Spot",
+      "score": 50,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ],
+      "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of Prosecco Cycling (Gran Fondo Prosecco). Train it until it feels boring."
+    },
+    {
+      "category": "Critical_Power",
+      "score": 47,
+      "workouts": [
+        "Above CP Repeats",
+        "W-Prime Depletion"
+      ],
+      "workout_context": "How long can you hold 105% FTP before you blow? At Prosecco Cycling (Gran Fondo Prosecco), that number decides whether you bridge or get dropped."
+    },
+    {
+      "category": "Anaerobic_Capacity",
+      "score": 42,
+      "workouts": [
+        "2min Killers",
+        "90sec Repeats"
+      ],
+      "workout_context": "Short, max efforts are unavoidable. Punchy climbs, gap closures, attacks on paved Veneto roads through the UNESCO Prosecco. If you haven't trained them, you'll crack."
+    },
+    {
+      "category": "Blended",
+      "score": 36,
+      "workouts": [
+        "Z2 + VO2 Combo",
+        "Endurance with Spikes"
+      ],
+      "workout_context": "Endurance with intensity spikes baked in. Exactly what 5,118ft of climbing on paved Veneto roads through the UNESCO Prosecco does to your power file on race day."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 36,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "5,118ft of climbing on grades that change every minute. You need to switch from seated to standing without losing rhythm."
+    },
+    {
+      "category": "Norwegian_Double",
+      "score": 30,
+      "workouts": [
+        "Norwegian 4x8 Classic",
+        "Double Threshold"
+      ],
+      "workout_context": "Double-threshold training builds sustained power with less fatigue. More FTP per hour of training."
+    }
+  ],
+  "race_overlay": {
+    "nutrition": "Target 40\u201360g carbs/hour for Prosecco Cycling (Gran Fondo Prosecco)\u2019s 62 miles. Front-load calories in the first half. One bottle per hour minimum, more in heat.",
+    "terrain": "Mixed terrain at Prosecco Cycling (Gran Fondo Prosecco) requires surface adaptability. Include weekly rides on paved veneto roads through the unesco prosecco hills wine region to build confidence. Expect: paved veneto provincial and communal roads, unesco world heritage prosecco hills vineyard roads, punchy vineyard climbs with steep gradients."
+  },
+  "pack_summary": "This 10-workout pack focuses on Race Simulation, Gravel Specific, and Durability to prepare you for 62 miles of paved veneto roads through the unesco prosecco hills wine region in Valdobbiadene, Veneto, Italy.",
+  "generated_at": "2026-03-06"
+}

@@ -674,13 +674,14 @@ def build_accordion_html(dims: list, explanations: dict, idx_offset: int = 0) ->
     return '<div class="gg-accordion">\n' + '\n'.join(items) + '\n</div>'
 
 
-def build_sticky_cta(race_name: str) -> str:
+def build_sticky_cta(race_name: str, slug: str = "") -> str:
     """Build sticky bottom CTA bar HTML."""
+    plan_href = f"{TRAINING_PLANS_URL}?race={esc(slug)}" if slug else esc(TRAINING_PLANS_URL)
     return f'''<div class="gg-sticky-cta" id="gg-sticky-cta">
   <div class="gg-sticky-cta-inner">
     <span class="gg-sticky-cta-name">{esc(race_name)}</span>
     <div style="display:flex;align-items:center;gap:12px">
-      <a href="{esc(TRAINING_PLANS_URL)}" class="gg-btn">BUILD MY PLAN &mdash; $15/WK</a>
+      <a href="{plan_href}" class="gg-btn" id="gg-sticky-cta-link"><span id="gg-sticky-cta-text">BUILD MY PLAN &mdash; $15/WK</span></a>
       <button class="gg-sticky-dismiss" onclick="document.getElementById(\'gg-sticky-cta\').style.display=\'none\';try{{sessionStorage.setItem(\'gg-cta-dismissed\',\'1\')}}catch(e){{}}" aria-label="Dismiss">&times;</button>
     </div>
   </div>
@@ -1063,6 +1064,29 @@ document.querySelectorAll('.gg-faq-question').forEach(function(q) {
   });
 });
 
+// CTA click tracking — GA4
+(function() {
+  if (typeof gtag !== 'function') return;
+  document.querySelectorAll('a.gg-btn, a.gg-btn--outline').forEach(function(link) {
+    link.addEventListener('click', function() {
+      var text = this.textContent.trim().replace(/\s+/g, ' ');
+      var href = this.getAttribute('href') || '';
+      var cta_type = 'other';
+      if (text.indexOf('BUILD MY PLAN') !== -1) cta_type = 'build_plan';
+      else if (text.indexOf('PREP KIT') !== -1) cta_type = 'prep_kit';
+      else if (text.indexOf('COACHING') !== -1) cta_type = 'coaching';
+      var section = this.closest('.gg-section, .gg-sticky-cta');
+      var section_id = section ? (section.id || section.className.split(' ')[0]) : 'unknown';
+      gtag('event', 'cta_click', {
+        cta_type: cta_type,
+        cta_text: text.substring(0, 50),
+        cta_section: section_id,
+        cta_href: href
+      });
+    });
+  });
+})();
+
 // Email capture form — prep kit CTA
 (function() {
   var WORKER_URL='https://fueling-lead-intake.gravelgodcoaching.workers.dev';
@@ -1214,6 +1238,282 @@ document.querySelectorAll('.gg-pack-workout').forEach(function(card) {
     }
   });
 });
+
+/* ── Plan Preview Mini-Configurator ── */
+(function() {
+  var rd = window.__GG_RACE_DATA__;
+  if (!rd) return;
+  var btn = document.getElementById('gg-cfg-btn');
+  var dateInput = document.getElementById('gg-cfg-date');
+  if (!btn || !dateInput) return;
+  var previewActive = false;
+
+  // Pre-fill race date from date_specific — handles multiple formats:
+  //   "2026: June 6"                          → June 6, 2026
+  //   "2026: June 6-7"                        → June 6, 2026 (first day)
+  //   "July 20, 2026 (subject to ...)"        → July 20, 2026
+  //   "2026: September 20 - 21"               → September 20, 2026
+  //   "TBD" / "check website"                 → no pre-fill
+  function parseRaceDate(ds) {
+    if (!ds) return null;
+    var parsed = null;
+    // Format 1: "YYYY: Month Day..." (most common)
+    var m1 = ds.match(/(\d{4}):\s*([A-Za-z]+)\s+(\d{1,2})/);
+    if (m1) {
+      parsed = new Date(m1[2] + ' ' + m1[3] + ', ' + m1[1]);
+      if (!isNaN(parsed.getTime())) return parsed;
+    }
+    // Format 2: "Month Day, YYYY" anywhere in string
+    var m2 = ds.match(/([A-Za-z]+)\s+(\d{1,2}),?\s*(\d{4})/);
+    if (m2) {
+      parsed = new Date(m2[1] + ' ' + m2[2] + ', ' + m2[3]);
+      if (!isNaN(parsed.getTime())) return parsed;
+    }
+    // Format 3: ISO-ish "YYYY-MM-DD" anywhere
+    var m3 = ds.match(/(\d{4})-(\d{2})-(\d{2})/);
+    if (m3) {
+      parsed = new Date(m3[1] + '-' + m3[2] + '-' + m3[3] + 'T00:00:00');
+      if (!isNaN(parsed.getTime())) return parsed;
+    }
+    return null;
+  }
+  var raceDateParsed = parseRaceDate(rd.date_specific);
+  if (raceDateParsed) {
+    var y = raceDateParsed.getFullYear();
+    var mo = String(raceDateParsed.getMonth() + 1).padStart(2, '0');
+    var da = String(raceDateParsed.getDate()).padStart(2, '0');
+    dateInput.value = y + '-' + mo + '-' + da;
+  }
+
+  // Level config: VO2 range, threshold range (matches nate_workout_generator.py scaling)
+  var LEVELS = {
+    beginner:     { vo2: '105\u2013108% FTP', thr: '92\u201396% FTP'  },
+    intermediate: { vo2: '108\u2013112% FTP', thr: '96\u2013100% FTP' },
+    advanced:     { vo2: '112\u2013118% FTP', thr: '100\u2013105% FTP'},
+    elite:        { vo2: '115\u2013120% FTP', thr: '105\u2013108% FTP'}
+  };
+
+  // Hours config: quality sessions, endurance rides, avg hours
+  var HOURS = {
+    '6-8':  { quality: 2, endurance: 2, avg: 7  },
+    '8-12': { quality: 3, endurance: 2, avg: 10 },
+    '12-16':{ quality: 3, endurance: 3, avg: 14 },
+    '16+':  { quality: 4, endurance: 3, avg: 18 }
+  };
+
+  // Category to phase mapping — names must match web/race-packs/*.json exactly
+  // Source of truth: scripts/generate_race_pack_previews.py weight matrix (19 categories)
+  var PHASE_MAP = {
+    'Endurance': 'base', 'HVLI_Extended': 'base', 'LT1_MAF': 'base',
+    'Tempo': 'base', 'Cadence_Work': 'base',
+    'TT_Threshold': 'build', 'Over_Under': 'build', 'Mixed_Climbing': 'build',
+    'SFR_Muscle_Force': 'build', 'Blended': 'build', 'G_Spot': 'build',
+    'Norwegian_Double': 'build',
+    'VO2max': 'peak', 'Durability': 'peak', 'Race_Simulation': 'peak',
+    'Gravel_Specific': 'peak', 'Anaerobic_Capacity': 'peak',
+    'Critical_Power': 'peak', 'Sprint_Neuromuscular': 'peak'
+  };
+
+  var PHASE_LABELS = { base: 'BASE PHASE', build: 'BUILD PHASE', peak: 'PEAK PHASE' };
+  var PHASE_CSS = { base: 'gg-cfg-phase-base', build: 'gg-cfg-phase-build', peak: 'gg-cfg-phase-peak' };
+
+  btn.addEventListener('click', function() {
+    var level = document.getElementById('gg-cfg-level').value;
+    var hours = document.getElementById('gg-cfg-hours').value;
+    var raceDateStr = dateInput.value;
+
+    if (!raceDateStr) {
+      dateInput.focus();
+      return;
+    }
+
+    var raceDate = new Date(raceDateStr + 'T00:00:00');
+    var today = new Date();
+    today.setHours(0, 0, 0, 0);
+    var diffMs = raceDate.getTime() - today.getTime();
+    var weeksRaw = Math.ceil(diffMs / (7 * 24 * 60 * 60 * 1000));
+    var weeks = Math.max(4, weeksRaw);
+
+    // Phase split
+    var taper = 1;
+    var remaining = weeks - taper;
+    var base = Math.round(remaining * 0.4);
+    var build = Math.round(remaining * 0.35);
+    var peak = remaining - base - build;
+    if (peak < 1) { peak = 1; base = Math.max(1, base - 1); }
+
+    // Price
+    var price = Math.min(249, Math.max(60, weeks * 15));
+
+    // Session structure
+    var hCfg = HOURS[hours] || HOURS['8-12'];
+    var lCfg = LEVELS[level] || LEVELS['intermediate'];
+    var sessionsPerWeek = hCfg.quality + hCfg.endurance + 1; // +1 for recovery/easy ride
+    var totalWorkouts = weeks * sessionsPerWeek;
+
+    // Build summary
+    var summaryEl = document.getElementById('gg-cfg-summary');
+    var titleEl = document.getElementById('gg-cfg-summary-title');
+    var timelineEl = document.getElementById('gg-cfg-timeline');
+    var barEl = document.getElementById('gg-cfg-timeline-bar');
+    var detailsEl = document.getElementById('gg-cfg-details');
+
+    titleEl.textContent = 'YOUR ' + weeks + '-WEEK ' + rd.race_name.toUpperCase() + ' PLAN';
+
+    // Timeline text
+    timelineEl.textContent = '';
+    var phases = [
+      { name: 'BASE', wk: base },
+      { name: 'BUILD', wk: build },
+      { name: 'PEAK', wk: peak },
+      { name: 'TAPER', wk: taper }
+    ];
+    phases.forEach(function(p, idx) {
+      if (idx > 0) {
+        var sep = document.createElement('span');
+        sep.className = 'gg-cfg-timeline-sep';
+        sep.textContent = '\u25b8';
+        timelineEl.appendChild(sep);
+      }
+      var sp = document.createElement('span');
+      sp.textContent = p.name + ' (' + p.wk + 'wk)';
+      timelineEl.appendChild(sp);
+    });
+
+    // Timeline bar (proportional widths)
+    barEl.textContent = '';
+    var colors = ['base', 'build', 'peak', 'taper'];
+    phases.forEach(function(p, idx) {
+      var seg = document.createElement('div');
+      seg.className = 'gg-cfg-bar-' + colors[idx];
+      seg.style.flex = String(p.wk);
+      barEl.appendChild(seg);
+    });
+
+    // Details text
+    detailsEl.textContent = '';
+    var line1 = document.createElement('div');
+    line1.textContent = hCfg.quality + ' quality sessions + ' + hCfg.endurance + ' endurance rides/week \u00b7 ' + hCfg.avg + ' hrs/week';
+    detailsEl.appendChild(line1);
+    var line2 = document.createElement('div');
+    line2.textContent = totalWorkouts + ' structured workouts \u00b7 ZWO files for Zwift/Wahoo/Garmin';
+    detailsEl.appendChild(line2);
+
+    summaryEl.style.display = 'block';
+
+    // Phase badges on workout cards
+    document.querySelectorAll('.gg-pack-workout').forEach(function(card) {
+      var cat = card.getAttribute('data-workout-cat') || '';
+      var phase = PHASE_MAP[cat] || 'build';
+      var badge = card.querySelector('.gg-cfg-phase-badge');
+      if (badge) {
+        badge.textContent = PHASE_LABELS[phase] || 'BUILD PHASE';
+        badge.className = 'gg-cfg-phase-badge ' + (PHASE_CSS[phase] || 'gg-cfg-phase-build');
+        badge.style.display = 'block';
+      }
+      // Level annotation
+      var note = card.querySelector('.gg-cfg-level-note');
+      if (note) {
+        note.textContent = 'YOUR TARGETS: VO2 at ' + lCfg.vo2 + ' \u00b7 Threshold at ' + lCfg.thr;
+        note.style.display = 'block';
+      }
+    });
+
+    // Update default CTA to personalized CTA
+    var defaultCta = document.getElementById('gg-pack-cta-default');
+    var cfgCta = document.getElementById('gg-cfg-cta');
+    var cfgCtaLink = document.getElementById('gg-cfg-cta-link');
+    var cfgCtaDetail = document.getElementById('gg-cfg-cta-detail');
+    if (defaultCta) {
+      defaultCta.style.display = 'none';
+      defaultCta.setAttribute('aria-hidden', 'true');
+    }
+    if (cfgCta && cfgCtaLink && cfgCtaDetail) {
+      var ctaText = 'GET YOUR ' + weeks + '-WEEK ' + rd.race_name.toUpperCase() + ' PLAN \u2014 $' + price;
+      cfgCtaLink.textContent = ctaText;
+      cfgCtaLink.removeAttribute('tabindex');
+      // Pass configurator selections to questionnaire for pre-population
+      cfgCtaLink.href = '/coaching?race=' + encodeURIComponent(rd.slug) +
+        '&level=' + encodeURIComponent(level) +
+        '&hours=' + encodeURIComponent(hours) +
+        '&weeks=' + weeks;
+      cfgCtaDetail.textContent = totalWorkouts + ' workouts \u00b7 ZWO files \u00b7 Phase-periodized for ' + rd.race_name;
+      cfgCta.style.display = 'block';
+      cfgCta.removeAttribute('aria-hidden');
+    }
+
+    // Update sticky CTA
+    var stickyText = document.getElementById('gg-sticky-cta-text');
+    var stickyLink = document.getElementById('gg-sticky-cta-link');
+    if (stickyText) {
+      stickyText.textContent = weeks + '-WEEK PLAN \u2014 $' + price;
+    }
+    if (stickyLink) {
+      stickyLink.href = '/coaching?race=' + encodeURIComponent(rd.slug) +
+        '&level=' + encodeURIComponent(level) +
+        '&hours=' + encodeURIComponent(hours) +
+        '&weeks=' + weeks;
+    }
+
+    previewActive = true;
+    btn.textContent = 'PREVIEW MY PLAN';
+
+    // GA4 events
+    if (typeof gtag === 'function') {
+      gtag('event', 'configurator_preview', {
+        race_slug: rd.slug,
+        level: level,
+        hours: hours,
+        weeks: weeks,
+        price: price
+      });
+    }
+  });
+
+  // Track configurator interactions + mark preview stale when inputs change
+  ['gg-cfg-level', 'gg-cfg-hours', 'gg-cfg-date'].forEach(function(id) {
+    var el = document.getElementById(id);
+    if (el) {
+      el.addEventListener('change', function() {
+        // Mark preview as stale — hide summary and reset badges
+        if (previewActive) {
+          var sum = document.getElementById('gg-cfg-summary');
+          if (sum) sum.style.display = 'none';
+          document.querySelectorAll('.gg-cfg-phase-badge').forEach(function(b) { b.style.display = 'none'; });
+          document.querySelectorAll('.gg-cfg-level-note').forEach(function(n) { n.style.display = 'none'; });
+          var defCta = document.getElementById('gg-pack-cta-default');
+          var cfgC = document.getElementById('gg-cfg-cta');
+          if (defCta) { defCta.style.display = ''; defCta.removeAttribute('aria-hidden'); }
+          if (cfgC) { cfgC.style.display = 'none'; cfgC.setAttribute('aria-hidden', 'true'); }
+          var stickyT = document.getElementById('gg-sticky-cta-text');
+          if (stickyT) stickyT.textContent = 'BUILD MY PLAN \u2014 $15/WK';
+          previewActive = false;
+          btn.textContent = 'UPDATE PREVIEW';
+        }
+        if (typeof gtag === 'function') {
+          gtag('event', 'configurator_interact', {
+            race_slug: rd.slug,
+            field: id.replace('gg-cfg-', ''),
+            value: el.value
+          });
+        }
+      });
+    }
+  });
+
+  // Track personalized CTA clicks
+  var cfgCtaLinkEl = document.getElementById('gg-cfg-cta-link');
+  if (cfgCtaLinkEl) {
+    cfgCtaLinkEl.addEventListener('click', function() {
+      if (typeof gtag === 'function') {
+        gtag('event', 'configurator_cta_click', {
+          race_slug: rd.slug,
+          cta_text: cfgCtaLinkEl.textContent
+        });
+      }
+    });
+  }
+})();
 </script>'''
 
 
@@ -2261,7 +2561,7 @@ def build_training(rd: dict) -> str:
           <li>Nutrition plan</li>
           <li>Strength training</li>
         </ul>
-        <a href="{esc(TRAINING_PLANS_URL)}" class="gg-btn">BUILD MY PLAN &mdash; $15/WK</a>
+        <a href="{esc(TRAINING_PLANS_URL)}?race={esc(rd['slug'])}" class="gg-btn">BUILD MY PLAN &mdash; $15/WK</a>
       </div>
       <div class="gg-training-divider">
         <span class="gg-training-divider-line"></span>
@@ -3477,7 +3777,8 @@ def build_train_for_race(rd: dict) -> str:
         )
 
         card_html = (
-            f'<div class="gg-pack-workout" data-workout-idx="{i}">\n'
+            f'<div class="gg-pack-workout" data-workout-idx="{i}" data-workout-cat="{esc(tc["category"])}">\n'
+            f'          <div class="gg-cfg-phase-badge" style="display:none;"></div>\n'
             f'          <div class="gg-pack-workout-header">\n'
             f'            <div class="gg-pack-workout-info">\n'
             f'              <span class="gg-pack-workout-cat">{esc(cat_name)}</span>\n'
@@ -3490,6 +3791,7 @@ def build_train_for_race(rd: dict) -> str:
             f'          </div>\n'
             f'          <p class="gg-pack-workout-summary">{esc(showcase["summary"])}</p>\n'
             f'{context_line}'
+            f'          <div class="gg-cfg-level-note" style="display:none;"></div>\n'
             f'          <div class="gg-pack-workout-viz">\n'
             f'            {viz_html}\n'
             f'          </div>\n'
@@ -3528,6 +3830,15 @@ def build_train_for_race(rd: dict) -> str:
 
     plan_url = f"{TRAINING_PLANS_URL}?race={esc(slug)}"
 
+    # Embed race data for client-side configurator
+    race_data_js = {
+        'slug': slug,
+        'race_name': race_name,
+        'date_specific': rd['vitals'].get('date_specific', ''),
+        'distance_mi': distance_mi,
+    }
+    race_data_json = _safe_json_for_script(race_data_js, ensure_ascii=False, separators=(',', ':'))
+
     return f'''<section id="train-for-race" class="gg-section gg-fade-section">
     <div class="gg-section-header">
       <span class="gg-section-kicker">[08]</span>
@@ -3538,16 +3849,55 @@ def build_train_for_race(rd: dict) -> str:
         <h3 class="gg-pack-subtitle">RACE DEMAND PROFILE</h3>
         {demands_html}
       </div>
+      <div class="gg-cfg-bar">
+        <h3 class="gg-cfg-title">PREVIEW YOUR TRAINING PLAN</h3>
+        <div class="gg-cfg-inputs">
+          <div class="gg-cfg-field">
+            <label class="gg-cfg-label" for="gg-cfg-level">YOUR FITNESS</label>
+            <select id="gg-cfg-level" class="gg-cfg-select">
+              <option value="beginner">Beginner</option>
+              <option value="intermediate" selected>Intermediate</option>
+              <option value="advanced">Advanced</option>
+              <option value="elite">Elite</option>
+            </select>
+          </div>
+          <div class="gg-cfg-field">
+            <label class="gg-cfg-label" for="gg-cfg-hours">HOURS/WEEK</label>
+            <select id="gg-cfg-hours" class="gg-cfg-select">
+              <option value="6-8">6&ndash;8 hrs</option>
+              <option value="8-12" selected>8&ndash;12 hrs</option>
+              <option value="12-16">12&ndash;16 hrs</option>
+              <option value="16+">16+ hrs</option>
+            </select>
+          </div>
+          <div class="gg-cfg-field">
+            <label class="gg-cfg-label" for="gg-cfg-date">RACE DATE</label>
+            <input type="date" id="gg-cfg-date" class="gg-cfg-input">
+          </div>
+        </div>
+        <button type="button" id="gg-cfg-btn" class="gg-btn gg-cfg-preview-btn">PREVIEW MY PLAN</button>
+      </div>
+      <div id="gg-cfg-summary" class="gg-cfg-summary" style="display:none;" aria-live="polite" role="region" aria-label="Training plan preview">
+        <div class="gg-cfg-summary-title" id="gg-cfg-summary-title"></div>
+        <div class="gg-cfg-timeline" id="gg-cfg-timeline"></div>
+        <div class="gg-cfg-timeline-bar" id="gg-cfg-timeline-bar"></div>
+        <div class="gg-cfg-details" id="gg-cfg-details"></div>
+      </div>
       <div class="gg-pack-workouts">
         <h3 class="gg-pack-subtitle">5 WORKOUTS BUILT FOR THIS RACE</h3>
         <p class="gg-pack-workouts-intro">Each workout below is selected from our archetype library based on {esc(race_name)}&rsquo;s specific demands. Click any workout to see the full execution protocol.</p>
         {workouts_html}
       </div>
-      <div class="gg-pack-cta">
-        <a href="{plan_url}" class="gg-btn">BUILD MY PLAN &mdash; $15/WK</a>
+      <div class="gg-pack-cta" id="gg-pack-cta-default">
+        <a href="{plan_url}" class="gg-btn" id="gg-pack-cta-link">BUILD MY PLAN &mdash; $15/WK</a>
         <p class="gg-pack-cta-detail">Race-specific. Built for {esc(race_name)}. $15/week, capped at $249.</p>
       </div>
+      <div class="gg-pack-cta gg-cfg-cta" id="gg-cfg-cta" style="display:none;" aria-hidden="true">
+        <a href="{plan_url}" class="gg-btn gg-cfg-cta-btn" id="gg-cfg-cta-link" tabindex="-1">BUILD MY PLAN</a>
+        <p class="gg-pack-cta-detail" id="gg-cfg-cta-detail"></p>
+      </div>
     </div>
+    <script>window.__GG_RACE_DATA__={race_data_json};</script>
   </section>'''
 
 
@@ -3752,7 +4102,7 @@ def _build_race_name_map(race_index: list) -> dict:
 
 def linkify_alternatives(alt_text: str, race_index: list) -> str:
     """Parse race names from alternatives text and link to profile pages.
-    Builds name→slug mapping from the full race index (328 races)."""
+    Builds name→slug mapping from the full race index."""
     if not alt_text:
         return ''
 
@@ -4430,6 +4780,35 @@ def get_page_css() -> str:
 .gg-neo-brutalist-page .gg-pack-cta .gg-btn:hover {{ background: var(--gg-color-light-teal); }}
 .gg-neo-brutalist-page .gg-pack-cta-detail {{ font-family: var(--gg-font-editorial); font-size: 12px; color: var(--gg-color-secondary-brown); margin-top: 8px; }}
 
+/* ── Plan Preview Configurator ── */
+.gg-neo-brutalist-page .gg-cfg-bar {{ background: var(--gg-color-warm-paper); border: 3px solid var(--gg-color-primary-brown); padding: 24px; margin-bottom: 32px; }}
+.gg-neo-brutalist-page .gg-cfg-title {{ font-family: var(--gg-font-data); font-size: var(--gg-font-size-2xs); font-weight: 700; letter-spacing: var(--gg-letter-spacing-ultra-wide); text-transform: uppercase; color: var(--gg-color-primary-brown); margin-bottom: 16px; }}
+.gg-neo-brutalist-page .gg-cfg-inputs {{ display: flex; gap: 16px; margin-bottom: 16px; flex-wrap: wrap; }}
+.gg-neo-brutalist-page .gg-cfg-field {{ display: flex; flex-direction: column; gap: 4px; flex: 1; min-width: 140px; }}
+.gg-neo-brutalist-page .gg-cfg-label {{ font-family: var(--gg-font-data); font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: var(--gg-letter-spacing-wider); color: var(--gg-color-secondary-brown); }}
+.gg-neo-brutalist-page .gg-cfg-select, .gg-neo-brutalist-page .gg-cfg-input {{ font-family: var(--gg-font-data); font-size: 13px; border: 2px solid var(--gg-color-primary-brown); border-radius: 0; background: var(--gg-color-white); padding: 8px 12px; color: var(--gg-color-near-black); -webkit-appearance: none; appearance: none; }}
+.gg-neo-brutalist-page .gg-cfg-select {{ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M2 4l4 4 4-4' fill='none' stroke='%2359473c' stroke-width='2'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 10px center; padding-right: 32px; }}
+.gg-neo-brutalist-page .gg-cfg-preview-btn {{ width: 100%; background: var(--gg-color-primary-brown); color: var(--gg-color-warm-paper); border-color: var(--gg-color-primary-brown); font-size: 13px; letter-spacing: var(--gg-letter-spacing-wider); }}
+.gg-neo-brutalist-page .gg-cfg-preview-btn:hover {{ background: var(--gg-color-near-black); border-color: var(--gg-color-near-black); }}
+.gg-neo-brutalist-page .gg-cfg-summary {{ border: 3px solid var(--gg-color-teal); background: var(--gg-color-warm-paper); padding: 24px; margin-bottom: 32px; }}
+.gg-neo-brutalist-page .gg-cfg-summary-title {{ font-family: var(--gg-font-data); font-size: var(--gg-font-size-base); font-weight: 700; text-transform: uppercase; letter-spacing: var(--gg-letter-spacing-wider); color: var(--gg-color-near-black); margin-bottom: 16px; }}
+.gg-neo-brutalist-page .gg-cfg-timeline {{ display: flex; gap: 4px; align-items: center; font-family: var(--gg-font-data); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: var(--gg-letter-spacing-wider); color: var(--gg-color-secondary-brown); margin-bottom: 8px; flex-wrap: wrap; }}
+.gg-neo-brutalist-page .gg-cfg-timeline-sep {{ color: var(--gg-color-tan); }}
+.gg-neo-brutalist-page .gg-cfg-timeline-bar {{ display: flex; height: 8px; margin-bottom: 16px; }}
+.gg-neo-brutalist-page .gg-cfg-bar-base {{ background: var(--gg-color-primary-brown); }}
+.gg-neo-brutalist-page .gg-cfg-bar-build {{ background: var(--gg-color-teal); }}
+.gg-neo-brutalist-page .gg-cfg-bar-peak {{ background: var(--gg-color-gold); }}
+.gg-neo-brutalist-page .gg-cfg-bar-taper {{ background: var(--gg-color-tan); }}
+.gg-neo-brutalist-page .gg-cfg-details {{ font-family: var(--gg-font-data); font-size: 12px; color: var(--gg-color-secondary-brown); line-height: 1.8; }}
+.gg-neo-brutalist-page .gg-cfg-phase-badge {{ font-family: var(--gg-font-data); font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: var(--gg-letter-spacing-wider); padding: 4px 12px 0; }}
+.gg-neo-brutalist-page .gg-cfg-phase-base {{ color: var(--gg-color-primary-brown); }}
+.gg-neo-brutalist-page .gg-cfg-phase-build {{ color: var(--gg-color-teal); }}
+.gg-neo-brutalist-page .gg-cfg-phase-peak {{ color: var(--gg-color-gold); }}
+.gg-neo-brutalist-page .gg-cfg-level-note {{ font-family: var(--gg-font-data); font-size: 0.85em; color: var(--gg-color-secondary-brown); padding: 0 16px 8px; line-height: 1.5; }}
+.gg-neo-brutalist-page .gg-cfg-cta {{ border-color: var(--gg-color-teal); }}
+.gg-neo-brutalist-page .gg-cfg-cta-btn {{ background: var(--gg-color-teal); color: var(--gg-color-white); border-color: var(--gg-color-teal); font-size: 14px; letter-spacing: var(--gg-letter-spacing-wider); }}
+.gg-neo-brutalist-page .gg-cfg-cta-btn:hover {{ background: var(--gg-color-light-teal); }}
+
 /* Logistics */
 .gg-neo-brutalist-page .gg-logistics-grid {{ display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }}
 .gg-neo-brutalist-page .gg-logistics-item {{ border: var(--gg-border-subtle); padding: 12px; background: var(--gg-color-warm-paper); }}
@@ -4620,6 +4999,10 @@ def get_page_css() -> str:
   .gg-neo-brutalist-page .gg-pack-wo-field {{ flex-direction: column; gap: 4px; }}
   .gg-neo-brutalist-page .gg-pack-wo-label {{ min-width: unset; }}
   .gg-neo-brutalist-page .gg-pack-viz-label {{ font-size: 8px; }}
+  .gg-neo-brutalist-page .gg-cfg-inputs {{ flex-direction: column; }}
+  .gg-neo-brutalist-page .gg-cfg-bar {{ padding: 16px; }}
+  .gg-neo-brutalist-page .gg-cfg-summary {{ padding: 16px; }}
+  .gg-neo-brutalist-page .gg-cfg-timeline {{ font-size: 10px; }}
   .gg-sticky-cta-name {{ display: none; }}
   .gg-sticky-cta .gg-btn {{ width: 100%; text-align: center; }}
   .gg-neo-brutalist-page .gg-toc {{ flex-direction: column; gap: 6px; }}
@@ -4776,7 +5159,7 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
     similar = build_similar_races(rd, race_index)
     citations_sec = build_citations_section(rd)
     footer = build_footer(rd)
-    sticky_cta = build_sticky_cta(rd['name'])
+    sticky_cta = build_sticky_cta(rd['name'], rd['slug'])
 
     # Dynamic TOC — only link to sections that have content
     active = {'course', 'ratings', 'training'}  # always present

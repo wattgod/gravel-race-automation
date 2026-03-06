@@ -1,0 +1,136 @@
+{
+  "slug": "tour-de-cure",
+  "race_name": "Tour de Cure",
+  "distance_mi": 100.0,
+  "demands": {
+    "durability": 6,
+    "climbing": 2,
+    "vo2_power": 4,
+    "threshold": 7,
+    "technical": 2,
+    "heat_resilience": 1,
+    "altitude": 2,
+    "race_specificity": 7
+  },
+  "top_categories": [
+    {
+      "category": "Durability",
+      "score": 100,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ],
+      "workout_context": "At mile 60 of 100, glycogen is gone. This workout teaches your body to produce watts on fumes."
+    },
+    {
+      "category": "TT_Threshold",
+      "score": 79,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ],
+      "workout_context": "Tour de Cure's paved roads \u2014 flat to gently rolling, designed rewards steady threshold power. Surging and recovering costs more watts than just holding."
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 79,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ],
+      "workout_context": "Race-pace efforts that mimic Tour de Cure's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before February."
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 66,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ],
+      "workout_context": "Tour de Cure's Paved roads \u2014 state highways, county roads, and suburban forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 100 miles."
+    },
+    {
+      "category": "G_Spot",
+      "score": 64,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ],
+      "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of Tour de Cure. Train it until it feels boring."
+    },
+    {
+      "category": "VO2max",
+      "score": 56,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ],
+      "workout_context": "When someone attacks on paved roads \u2014 flat to gently rolling, designed, you have 10 seconds to respond or you're off the back. This builds that response."
+    },
+    {
+      "category": "Endurance",
+      "score": 54,
+      "workouts": [
+        "Pre-Race Openers",
+        "Terrain Simulation Z2"
+      ],
+      "workout_context": "Every hard session works better with a bigger aerobic base. At 100 miles, base fitness is the difference between racing and surviving."
+    },
+    {
+      "category": "HVLI_Extended",
+      "score": 52,
+      "workouts": [
+        "HVLI Extended Z2",
+        "Multi-Hour Z2",
+        "Back-to-Back Long"
+      ],
+      "workout_context": "100 miles rewards fat oxidation. This volume work shifts your fuel mix so you're still burning fat at hour 5, not bonking at hour 3."
+    },
+    {
+      "category": "Blended",
+      "score": 52,
+      "workouts": [
+        "Z2 + VO2 Combo",
+        "Endurance with Spikes"
+      ],
+      "workout_context": "Long rides with hard efforts mixed in. Simulates what Tour de Cure's paved roads \u2014 flat to gently rolling, designed actually does to you."
+    },
+    {
+      "category": "Over_Under",
+      "score": 51,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ],
+      "workout_context": "At Tour de Cure, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
+    },
+    {
+      "category": "Norwegian_Double",
+      "score": 46,
+      "workouts": [
+        "Norwegian 4x8 Classic",
+        "Double Threshold"
+      ],
+      "workout_context": "Two threshold sessions per week without the recovery cost of VO2max work. For 100 miles, sustainable FTP gains matter more than peak power."
+    },
+    {
+      "category": "Tempo",
+      "score": 43,
+      "workouts": [
+        "Tempo Blocks",
+        "Extended Tempo"
+      ],
+      "workout_context": "Tempo is Tour de Cure's race pace. The wattage you'll hold for 100 miles on paved roads \u2014 flat to gently rolling, designed. Train it until it's automatic."
+    }
+  ],
+  "race_overlay": {
+    "nutrition": "Target 60\u201380g carbs/hour for Tour de Cure\u2019s 100 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure."
+  },
+  "pack_summary": "This 10-workout pack focuses on Durability, TT Threshold, and Race Simulation to prepare you for 100 miles of paved roads \u2014 flat to gently rolling, designed for mass participation across all ability levels in Multiple locations nationwide, USA (Arizona, Northern California, Chicagoland, New England, Greater New York, Mid-Atlantic, Texas, and more).",
+  "generated_at": "2026-03-06"
+}

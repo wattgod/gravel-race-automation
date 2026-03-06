@@ -1,0 +1,138 @@
+{
+  "slug": "paris-roubaix-challenge",
+  "race_name": "Paris-Roubaix Challenge",
+  "distance_mi": 106.0,
+  "demands": {
+    "durability": 6,
+    "climbing": 2,
+    "vo2_power": 8,
+    "threshold": 7,
+    "technical": 10,
+    "heat_resilience": 6,
+    "altitude": 2,
+    "race_specificity": 10
+  },
+  "top_categories": [
+    {
+      "category": "Gravel_Specific",
+      "score": 100,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ],
+      "workout_context": "Paris-Roubaix Challenge's Cobblestoned sectors (pave), Paved roads between sectors forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 106 miles."
+    },
+    {
+      "category": "Durability",
+      "score": 90,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ],
+      "workout_context": "At mile 60 of 106, glycogen is gone. This workout teaches your body to produce watts on fumes."
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 90,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ],
+      "workout_context": "Race-pace efforts that mimic Paris-Roubaix Challenge's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before April."
+    },
+    {
+      "category": "Critical_Power",
+      "score": 64,
+      "workouts": [
+        "Above CP Repeats",
+        "W-Prime Depletion"
+      ],
+      "workout_context": "How long can you hold 105% FTP before you blow? At Paris-Roubaix Challenge, that number decides whether you bridge or get dropped."
+    },
+    {
+      "category": "VO2max",
+      "score": 58,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ],
+      "workout_context": "When someone attacks on cobblestoned sectors (pave) and paved roads, you have 10 seconds to respond or you're off the back. This builds that response."
+    },
+    {
+      "category": "Anaerobic_Capacity",
+      "score": 52,
+      "workouts": [
+        "2min Killers",
+        "90sec Repeats"
+      ],
+      "workout_context": "Short, max efforts are unavoidable. Punchy climbs, gap closures, attacks on cobblestoned sectors (pave) and paved roads. If you haven't trained them, you'll crack."
+    },
+    {
+      "category": "Endurance",
+      "score": 48,
+      "workouts": [
+        "Pre-Race Openers",
+        "Terrain Simulation Z2"
+      ],
+      "workout_context": "Every hard session works better with a bigger aerobic base. At 106 miles, base fitness is the difference between racing and surviving."
+    },
+    {
+      "category": "TT_Threshold",
+      "score": 48,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ],
+      "workout_context": "Paris-Roubaix Challenge's cobblestoned sectors (pave) and paved roads rewards steady threshold power. Surging and recovering costs more watts than just holding."
+    },
+    {
+      "category": "HVLI_Extended",
+      "score": 42,
+      "workouts": [
+        "HVLI Extended Z2",
+        "Multi-Hour Z2",
+        "Back-to-Back Long"
+      ],
+      "workout_context": "106 miles rewards fat oxidation. This volume work shifts your fuel mix so you're still burning fat at hour 5, not bonking at hour 3."
+    },
+    {
+      "category": "Cadence_Work",
+      "score": 40,
+      "workouts": [
+        "High Cadence Drills",
+        "Cadence Pyramids"
+      ],
+      "workout_context": "Smooth pedaling at 106 miles saves muscle. Bad technique at mile 10 is invisible. At mile 80 it's a cramp."
+    },
+    {
+      "category": "G_Spot",
+      "score": 39,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ],
+      "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of Paris-Roubaix Challenge. Train it until it feels boring."
+    },
+    {
+      "category": "Blended",
+      "score": 38,
+      "workouts": [
+        "Z2 + VO2 Combo",
+        "Endurance with Spikes"
+      ],
+      "workout_context": "Endurance with intensity spikes baked in. Exactly what 3,600ft of climbing on cobblestoned sectors (pave) and paved roads does to your power file on race day."
+    }
+  ],
+  "race_overlay": {
+    "heat": "April in Busigny to Roubaix Velodrome, Nord, France can bring heat. Complete 3\u20134 heat exposure sessions in the final 2 weeks before Paris-Roubaix Challenge. Increase sodium intake 48 hours before race day.",
+    "nutrition": "Target 60\u201380g carbs/hour for Paris-Roubaix Challenge\u2019s 106 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
+    "terrain": "Highly technical terrain at Paris-Roubaix Challenge demands practice on similar surfaces. Ride cobblestoned sectors (pave) and paved roads at race-day cadence weekly. Expect: cobblestoned sectors (pave), paved roads between sectors, farm tracks. Practice cornering, descending, and power delivery on unstable surfaces. Dial in tire pressure before race week \u2014 5 PSI wrong costs you 15+ minutes over 106 miles."
+  },
+  "pack_summary": "This 10-workout pack focuses on Gravel Specific, Durability, and Race Simulation to prepare you for 106 miles of cobblestoned sectors (pave) and paved roads in Busigny to Roubaix Velodrome, Nord, France.",
+  "generated_at": "2026-03-06"
+}

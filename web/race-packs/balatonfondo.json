@@ -1,0 +1,137 @@
+{
+  "slug": "balatonfondo",
+  "race_name": "BalatonFondo",
+  "distance_mi": 75.0,
+  "demands": {
+    "durability": 4,
+    "climbing": 3,
+    "vo2_power": 5,
+    "threshold": 7,
+    "technical": 2,
+    "heat_resilience": 6,
+    "altitude": 2,
+    "race_specificity": 8
+  },
+  "top_categories": [
+    {
+      "category": "Durability",
+      "score": 100,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ],
+      "workout_context": "75 miles on mixed terrain burns energy faster than the distance suggests. Train the fade resistance now."
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 75,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ],
+      "workout_context": "Race-pace efforts that mimic BalatonFondo's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before May."
+    },
+    {
+      "category": "TT_Threshold",
+      "score": 71,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ],
+      "workout_context": "BalatonFondo's mixed terrain rewards steady threshold power. Surging and recovering costs more watts than just holding."
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 61,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ],
+      "workout_context": "BalatonFondo's mixed terrain forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 75 miles."
+    },
+    {
+      "category": "G_Spot",
+      "score": 57,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ],
+      "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of BalatonFondo. Train it until it feels boring."
+    },
+    {
+      "category": "Endurance",
+      "score": 56,
+      "workouts": [
+        "Pre-Race Openers",
+        "Terrain Simulation Z2"
+      ],
+      "workout_context": "Base fitness for BalatonFondo. Without this, the hard workouts break you down instead of building you up."
+    },
+    {
+      "category": "VO2max",
+      "score": 56,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ],
+      "workout_context": "When someone attacks on mixed terrain, you have 10 seconds to respond or you're off the back. This builds that response."
+    },
+    {
+      "category": "Over_Under",
+      "score": 50,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ],
+      "workout_context": "At BalatonFondo, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
+    },
+    {
+      "category": "HVLI_Extended",
+      "score": 44,
+      "workouts": [
+        "HVLI Extended Z2",
+        "Multi-Hour Z2",
+        "Back-to-Back Long"
+      ],
+      "workout_context": "The aerobic base that lets you ride mixed terrain at tempo for 75 miles without cracking. No shortcuts."
+    },
+    {
+      "category": "Blended",
+      "score": 39,
+      "workouts": [
+        "Z2 + VO2 Combo",
+        "Endurance with Spikes"
+      ],
+      "workout_context": "Long rides with hard efforts mixed in. Simulates what BalatonFondo's mixed terrain actually does to you."
+    },
+    {
+      "category": "Norwegian_Double",
+      "score": 39,
+      "workouts": [
+        "Norwegian 4x8 Classic",
+        "Double Threshold"
+      ],
+      "workout_context": "Double-threshold training builds sustained power with less fatigue. More FTP per hour of training."
+    },
+    {
+      "category": "Anaerobic_Capacity",
+      "score": 33,
+      "workouts": [
+        "2min Killers",
+        "90sec Repeats"
+      ],
+      "workout_context": "2-minute all-out efforts on mixed terrain. Closing gaps, responding to attacks, sprinting for position. Train the burn."
+    }
+  ],
+  "race_overlay": {
+    "heat": "May in Lake Balaton, Hungary can bring heat. Complete 3\u20134 heat exposure sessions in the final 2 weeks before BalatonFondo. Increase sodium intake 48 hours before race day.",
+    "nutrition": "Target 40\u201360g carbs/hour for BalatonFondo\u2019s 75 miles. Front-load calories in the first half. One bottle per hour minimum, more in heat."
+  },
+  "pack_summary": "This 10-workout pack focuses on Durability, Race Simulation, and TT Threshold to prepare you for 75 miles of mixed terrain in Lake Balaton, Hungary.",
+  "generated_at": "2026-03-06"
+}

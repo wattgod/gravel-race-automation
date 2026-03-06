@@ -1,0 +1,137 @@
+{
+  "slug": "grafton-to-inverell-classic",
+  "race_name": "Squadron Energy Grafton to Inverell Cycle Classic",
+  "distance_mi": 142.0,
+  "demands": {
+    "durability": 6,
+    "climbing": 8,
+    "vo2_power": 9,
+    "threshold": 8,
+    "technical": 4,
+    "heat_resilience": 1,
+    "altitude": 4,
+    "race_specificity": 10
+  },
+  "top_categories": [
+    {
+      "category": "VO2max",
+      "score": 100,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ],
+      "workout_context": "11,096ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
+    },
+    {
+      "category": "TT_Threshold",
+      "score": 97,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ],
+      "workout_context": "78ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 97,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ],
+      "workout_context": "Race-pace efforts that mimic Squadron Energy Grafton to Inverell Cycle Classic's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before March."
+    },
+    {
+      "category": "Durability",
+      "score": 95,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ],
+      "workout_context": "At mile 60 of 142, glycogen is gone. This workout teaches your body to produce watts on fumes."
+    },
+    {
+      "category": "Over_Under",
+      "score": 86,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ],
+      "workout_context": "At Squadron Energy Grafton to Inverell Cycle Classic, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 86,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ],
+      "workout_context": "Squadron Energy Grafton to Inverell Cycle Classic's Sealed road along the Gwydir Highway through the Clarence forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 142 miles."
+    },
+    {
+      "category": "G_Spot",
+      "score": 76,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ],
+      "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of Squadron Energy Grafton to Inverell Cycle Classic. Train it until it feels boring."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 65,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "11,096ft of climbing on grades that change every minute. You need to switch from seated to standing without losing rhythm."
+    },
+    {
+      "category": "Anaerobic_Capacity",
+      "score": 59,
+      "workouts": [
+        "2min Killers",
+        "90sec Repeats"
+      ],
+      "workout_context": "Short, max efforts are unavoidable. Punchy climbs, gap closures, attacks on sealed road \u2014 mountain highway through World. If you haven't trained them, you'll crack."
+    },
+    {
+      "category": "Critical_Power",
+      "score": 58,
+      "workouts": [
+        "Above CP Repeats",
+        "W-Prime Depletion"
+      ],
+      "workout_context": "How long can you hold 105% FTP before you blow? At Squadron Energy Grafton to Inverell Cycle Classic, that number decides whether you bridge or get dropped."
+    },
+    {
+      "category": "Endurance",
+      "score": 53,
+      "workouts": [
+        "Pre-Race Openers",
+        "Terrain Simulation Z2"
+      ],
+      "workout_context": "Every hard session works better with a bigger aerobic base. At 142 miles, base fitness is the difference between racing and surviving."
+    },
+    {
+      "category": "Blended",
+      "score": 51,
+      "workouts": [
+        "Z2 + VO2 Combo",
+        "Endurance with Spikes"
+      ],
+      "workout_context": "Endurance with intensity spikes baked in. Exactly what 11,096ft of climbing on sealed road \u2014 mountain highway through World does to your power file on race day."
+    }
+  ],
+  "race_overlay": {
+    "nutrition": "Target 60\u201380g carbs/hour for Squadron Energy Grafton to Inverell Cycle Classic\u2019s 142 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
+    "altitude": "Moderate altitude at Squadron Energy Grafton to Inverell Cycle Classic. Arrive 2\u20133 days early. Reduce intensity expectations by 5\u201310%. Hydrate aggressively.",
+    "terrain": "Mixed terrain at Squadron Energy Grafton to Inverell Cycle Classic requires surface adaptability. Include weekly rides on sealed road \u2014 mountain highway through world heritage rainforest and new england highlands to build confidence. Expect: sealed road along the gwydir highway through the clarence valley and new england tablelands, sustained mountain climbing through gibraltar range national park \u2014 16.3 km at 5.7% average, rolling terrain through new england highlands with punchy categorised climbs at waterloo range and wire gully."
+  },
+  "pack_summary": "This 10-workout pack focuses on VO2max, TT Threshold, and Race Simulation to prepare you for 142 miles of sealed road \u2014 mountain highway through world heritage rainforest and new england highlands in Grafton to Inverell, New South Wales, Australia.",
+  "generated_at": "2026-03-06"
+}

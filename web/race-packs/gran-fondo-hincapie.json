@@ -1,16 +1,16 @@
 {
   "slug": "gran-fondo-hincapie",
   "race_name": "Gran Fondo Hincapie",
-  "distance_mi": 105.0,
+  "distance_mi": 83.0,
   "demands": {
-    "durability": 6,
-    "climbing": 7,
-    "vo2_power": 5,
+    "durability": 4,
+    "climbing": 8,
+    "vo2_power": 6,
     "threshold": 8,
     "technical": 4,
     "heat_resilience": 1,
     "altitude": 2,
-    "race_specificity": 7
+    "race_specificity": 10
   },
   "top_categories": [
     {
@@ -21,26 +21,45 @@
         "Threshold Ramps",
         "Descending Threshold"
       ],
-      "workout_context": "67ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
+      "workout_context": "98ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
     },
     {
-      "category": "Durability",
-      "score": 88,
+      "category": "Race_Simulation",
+      "score": 100,
       "workouts": [
-        "Tired VO2max",
-        "Double Day Simulation",
-        "Progressive Fatigue"
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
       ],
-      "workout_context": "At mile 60 of 105, glycogen is gone. This workout teaches your body to produce watts on fumes."
+      "workout_context": "Race-pace efforts that mimic Gran Fondo Hincapie's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before October."
     },
     {
       "category": "Over_Under",
-      "score": 86,
+      "score": 89,
       "workouts": [
         "Classic Over-Unders",
         "Ladder Over-Unders"
       ],
       "workout_context": "At Gran Fondo Hincapie, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 89,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ],
+      "workout_context": "Gran Fondo Hincapie's Paved Blue Ridge foothill roads, Sustained mountain climbs forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 83 miles."
+    },
+    {
+      "category": "Durability",
+      "score": 81,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ],
+      "workout_context": "At mile 60 of 83, glycogen is gone. This workout teaches your body to produce watts on fumes."
     },
     {
       "category": "G_Spot",
@@ -53,85 +72,65 @@
       "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of Gran Fondo Hincapie. Train it until it feels boring."
     },
     {
-      "category": "Race_Simulation",
-      "score": 78,
-      "workouts": [
-        "Breakaway Simulation",
-        "Variable Pace Chaos",
-        "Sector Simulation"
-      ],
-      "workout_context": "Race-pace efforts that mimic Gran Fondo Hincapie's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before October."
-    },
-    {
-      "category": "Gravel_Specific",
-      "score": 75,
-      "workouts": [
-        "Surge and Settle",
-        "Terrain Microbursts"
-      ],
-      "workout_context": "Gran Fondo Hincapie's South Carolina mountains, Mixed road/gravel forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 105 miles."
-    },
-    {
       "category": "Mixed_Climbing",
-      "score": 61,
+      "score": 67,
       "workouts": [
         "Seated/Standing Climbs",
         "Variable Grade Simulation"
       ],
-      "workout_context": "7,000ft of climbing on grades that change every minute. You need to switch from seated to standing without losing rhythm."
+      "workout_context": "8,100ft of climbing on grades that change every minute. You need to switch from seated to standing without losing rhythm."
     },
     {
       "category": "VO2max",
-      "score": 58,
+      "score": 64,
       "workouts": [
         "5x3 VO2 Classic",
         "Descending VO2 Pyramid",
         "Norwegian 4x8"
       ],
-      "workout_context": "7,000ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
+      "workout_context": "8,100ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
     },
     {
-      "category": "Endurance",
-      "score": 48,
+      "category": "Critical_Power",
+      "score": 47,
       "workouts": [
-        "Pre-Race Openers",
-        "Terrain Simulation Z2"
+        "Above CP Repeats",
+        "W-Prime Depletion"
       ],
-      "workout_context": "Every hard session works better with a bigger aerobic base. At 105 miles, base fitness is the difference between racing and surviving."
-    },
-    {
-      "category": "HVLI_Extended",
-      "score": 46,
-      "workouts": [
-        "HVLI Extended Z2",
-        "Multi-Hour Z2",
-        "Back-to-Back Long"
-      ],
-      "workout_context": "105 miles rewards fat oxidation. This volume work shifts your fuel mix so you're still burning fat at hour 5, not bonking at hour 3."
+      "workout_context": "How long can you hold 105% FTP before you blow? At Gran Fondo Hincapie, that number decides whether you bridge or get dropped."
     },
     {
       "category": "Blended",
-      "score": 46,
+      "score": 44,
       "workouts": [
         "Z2 + VO2 Combo",
         "Endurance with Spikes"
       ],
-      "workout_context": "Endurance with intensity spikes baked in. Exactly what 7,000ft of climbing on South Carolina mixed road/gravel does to your power file on race day."
+      "workout_context": "Endurance with intensity spikes baked in. Exactly what 8,100ft of climbing on paved Blue Ridge foothill roads with sustained does to your power file on race day."
     },
     {
-      "category": "Norwegian_Double",
-      "score": 46,
+      "category": "SFR_Muscle_Force",
+      "score": 44,
       "workouts": [
-        "Norwegian 4x8 Classic",
-        "Double Threshold"
+        "SFR Low Cadence",
+        "Force Repeats"
       ],
-      "workout_context": "Two threshold sessions per week without the recovery cost of VO2max work. For 105 miles, sustainable FTP gains matter more than peak power."
+      "workout_context": "Low-cadence force work for 8,100ft of climbing. The slow, grinding ascents where you can't spin\u2014you push."
+    },
+    {
+      "category": "Anaerobic_Capacity",
+      "score": 44,
+      "workouts": [
+        "2min Killers",
+        "90sec Repeats"
+      ],
+      "workout_context": "Short, max efforts are unavoidable. Punchy climbs, gap closures, attacks on paved Blue Ridge foothill roads with sustained. If you haven't trained them, you'll crack."
     }
   ],
   "race_overlay": {
-    "nutrition": "Target 60\u201380g carbs/hour for Gran Fondo Hincapie\u2019s 105 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
-    "terrain": "Mixed terrain at Gran Fondo Hincapie requires surface adaptability. Include weekly rides on south carolina mixed road/gravel to build confidence. Expect: south carolina mountains, mixed road/gravel, 100+ mile distance."
+    "nutrition": "Target 60\u201380g carbs/hour for Gran Fondo Hincapie\u2019s 83 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
+    "terrain": "Mixed terrain at Gran Fondo Hincapie requires surface adaptability. Include weekly rides on paved blue ridge foothill roads with sustained mountain climbs to build confidence. Expect: paved blue ridge foothill roads, sustained mountain climbs with switchbacks, rolling upstate south carolina countryside."
   },
-  "pack_summary": "This 10-workout pack focuses on TT Threshold, Durability, and Over Under to prepare you for 105 miles of south carolina mixed road/gravel in Greenville, South Carolina.",
-  "generated_at": "2026-02-26"
+  "pack_summary": "This 10-workout pack focuses on TT Threshold, Race Simulation, and Over Under to prepare you for 83 miles of paved blue ridge foothill roads with sustained mountain climbs in Travelers Rest, South Carolina.",
+  "generated_at": "2026-03-06"
 }

@@ -1,0 +1,136 @@
+{
+  "slug": "ride-across-wisconsin",
+  "race_name": "RAW \u2014 Ride Across Wisconsin",
+  "distance_mi": 175.0,
+  "demands": {
+    "durability": 8,
+    "climbing": 4,
+    "vo2_power": 3,
+    "threshold": 4,
+    "technical": 2,
+    "heat_resilience": 1,
+    "altitude": 2,
+    "race_specificity": 6
+  },
+  "top_categories": [
+    {
+      "category": "Durability",
+      "score": 100,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ],
+      "workout_context": "175 miles. Your legs will beg to quit after 120. This trains the power output you need from mile 130 onward."
+    },
+    {
+      "category": "HVLI_Extended",
+      "score": 60,
+      "workouts": [
+        "HVLI Extended Z2",
+        "Multi-Hour Z2",
+        "Back-to-Back Long"
+      ],
+      "workout_context": "175 miles rewards fat oxidation. This volume work shifts your fuel mix so you're still burning fat at hour 5, not bonking at hour 3."
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 60,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ],
+      "workout_context": "Race-pace efforts that mimic RAW \u2014 Ride Across Wisconsin's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before July."
+    },
+    {
+      "category": "Endurance",
+      "score": 59,
+      "workouts": [
+        "Pre-Race Openers",
+        "Terrain Simulation Z2"
+      ],
+      "workout_context": "Every hard session works better with a bigger aerobic base. At 175 miles, base fitness is the difference between racing and surviving."
+    },
+    {
+      "category": "Blended",
+      "score": 51,
+      "workouts": [
+        "Z2 + VO2 Combo",
+        "Endurance with Spikes"
+      ],
+      "workout_context": "Endurance with intensity spikes baked in. Exactly what 6,800ft of climbing on paved country roads \u2014 flat to rolling does to your power file on race day."
+    },
+    {
+      "category": "TT_Threshold",
+      "score": 51,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ],
+      "workout_context": "RAW \u2014 Ride Across Wisconsin's paved country roads \u2014 flat to rolling rewards steady threshold power. Surging and recovering costs more watts than just holding."
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 51,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ],
+      "workout_context": "RAW \u2014 Ride Across Wisconsin's Paved country roads through western Wisconsin, Rolling forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 175 miles."
+    },
+    {
+      "category": "Over_Under",
+      "score": 46,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ],
+      "workout_context": "At RAW \u2014 Ride Across Wisconsin, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
+    },
+    {
+      "category": "G_Spot",
+      "score": 40,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ],
+      "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of RAW \u2014 Ride Across Wisconsin. Train it until it feels boring."
+    },
+    {
+      "category": "VO2max",
+      "score": 40,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ],
+      "workout_context": "6,800ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
+    },
+    {
+      "category": "Tempo",
+      "score": 34,
+      "workouts": [
+        "Tempo Blocks",
+        "Extended Tempo"
+      ],
+      "workout_context": "Tempo is RAW \u2014 Ride Across Wisconsin's race pace. The wattage you'll hold for 175 miles on paved country roads \u2014 flat to rolling. Train it until it's automatic."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 34,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "6,800ft of climbing on grades that change every minute. You need to switch from seated to standing without losing rhythm."
+    }
+  ],
+  "race_overlay": {
+    "nutrition": "Ultra-distance fueling for 175 miles: 80\u2013100g carbs/hour from mile 1 \u2014 don\u2019t wait until you\u2019re hungry. Practice your exact race-day nutrition in every long training ride. Carry backup calories. 175 miles burns 8,000\u201312,000+ calories \u2014 you cannot replace them all, but you must try."
+  },
+  "pack_summary": "This 10-workout pack focuses on Durability, HVLI Extended, and Race Simulation to prepare you for 175 miles of paved country roads \u2014 flat to rolling in Eau Claire, Wisconsin, USA.",
+  "generated_at": "2026-03-06"
+}

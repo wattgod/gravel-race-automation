@@ -1,0 +1,137 @@
+{
+  "slug": "3rides-gran-fondo",
+  "race_name": "3RIDES Gran Fondo S\u00fcdliche Weinstrasse",
+  "distance_mi": 62.0,
+  "demands": {
+    "durability": 2,
+    "climbing": 5,
+    "vo2_power": 6,
+    "threshold": 6,
+    "technical": 8,
+    "heat_resilience": 0,
+    "altitude": 4,
+    "race_specificity": 9
+  },
+  "top_categories": [
+    {
+      "category": "Gravel_Specific",
+      "score": 100,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ],
+      "workout_context": "3RIDES Gran Fondo S\u00fcdliche Weinstrasse's mixed terrain forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 62 miles."
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 93,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ],
+      "workout_context": "Race-pace efforts that mimic 3RIDES Gran Fondo S\u00fcdliche Weinstrasse's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before April."
+    },
+    {
+      "category": "VO2max",
+      "score": 67,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ],
+      "workout_context": "When someone attacks on mixed terrain, you have 10 seconds to respond or you're off the back. This builds that response."
+    },
+    {
+      "category": "TT_Threshold",
+      "score": 61,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ],
+      "workout_context": "3RIDES Gran Fondo S\u00fcdliche Weinstrasse's mixed terrain rewards steady threshold power. Surging and recovering costs more watts than just holding."
+    },
+    {
+      "category": "Critical_Power",
+      "score": 60,
+      "workouts": [
+        "Above CP Repeats",
+        "W-Prime Depletion"
+      ],
+      "workout_context": "How long can you hold 105% FTP before you blow? At 3RIDES Gran Fondo S\u00fcdliche Weinstrasse, that number decides whether you bridge or get dropped."
+    },
+    {
+      "category": "Over_Under",
+      "score": 51,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ],
+      "workout_context": "At 3RIDES Gran Fondo S\u00fcdliche Weinstrasse, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
+    },
+    {
+      "category": "G_Spot",
+      "score": 48,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ],
+      "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of 3RIDES Gran Fondo S\u00fcdliche Weinstrasse. Train it until it feels boring."
+    },
+    {
+      "category": "Anaerobic_Capacity",
+      "score": 48,
+      "workouts": [
+        "2min Killers",
+        "90sec Repeats"
+      ],
+      "workout_context": "2-minute all-out efforts on mixed terrain. Closing gaps, responding to attacks, sprinting for position. Train the burn."
+    },
+    {
+      "category": "Durability",
+      "score": 46,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ],
+      "workout_context": "62 miles on mixed terrain burns energy faster than the distance suggests. Train the fade resistance now."
+    },
+    {
+      "category": "Cadence_Work",
+      "score": 38,
+      "workouts": [
+        "High Cadence Drills",
+        "Cadence Pyramids"
+      ],
+      "workout_context": "Smooth pedaling at 62 miles saves muscle. Bad technique at mile 10 is invisible. At mile 80 it's a cramp."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 36,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "Varied gradients on mixed terrain demand climbing versatility. Sit the shallow stuff, stand the steep stuff, switch without thinking."
+    },
+    {
+      "category": "Blended",
+      "score": 29,
+      "workouts": [
+        "Z2 + VO2 Combo",
+        "Endurance with Spikes"
+      ],
+      "workout_context": "Long rides with hard efforts mixed in. Simulates what 3RIDES Gran Fondo S\u00fcdliche Weinstrasse's mixed terrain actually does to you."
+    }
+  ],
+  "race_overlay": {
+    "nutrition": "Target 40\u201360g carbs/hour for 3RIDES Gran Fondo S\u00fcdliche Weinstrasse\u2019s 62 miles. Front-load calories in the first half. One bottle per hour minimum, more in heat.",
+    "altitude": "Moderate altitude at 3RIDES Gran Fondo S\u00fcdliche Weinstrasse. Arrive 2\u20133 days early. Reduce intensity expectations by 5\u201310%. Hydrate aggressively.",
+    "terrain": "Highly technical terrain at 3RIDES Gran Fondo S\u00fcdliche Weinstrasse demands practice on similar surfaces. Ride mixed terrain at race-day cadence weekly. Practice cornering, descending, and power delivery on unstable surfaces. Dial in tire pressure before race week \u2014 5 PSI wrong costs you 15+ minutes over 62 miles."
+  },
+  "pack_summary": "This 10-workout pack focuses on Gravel Specific, Race Simulation, and VO2max to prepare you for 62 miles of mixed terrain in Porte des Vins Allemands (German Wine Gate), Schweigen-Rechtenbach, Rhineland-Palatinate, Germany.",
+  "generated_at": "2026-03-06"
+}

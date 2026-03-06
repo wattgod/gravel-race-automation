@@ -1,0 +1,138 @@
+{
+  "slug": "raid-pyreneen",
+  "race_name": "Raid Pyreneen Randonneur",
+  "distance_mi": 447.0,
+  "demands": {
+    "durability": 10,
+    "climbing": 10,
+    "vo2_power": 6,
+    "threshold": 5,
+    "technical": 2,
+    "heat_resilience": 6,
+    "altitude": 6,
+    "race_specificity": 10
+  },
+  "top_categories": [
+    {
+      "category": "Durability",
+      "score": 100,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ],
+      "workout_context": "447 miles. Your legs will beg to quit after 120. This trains the power output you need from mile 130 onward."
+    },
+    {
+      "category": "Endurance",
+      "score": 67,
+      "workouts": [
+        "Pre-Race Openers",
+        "Terrain Simulation Z2"
+      ],
+      "workout_context": "Every hard session works better with a bigger aerobic base. At 447 miles, base fitness is the difference between racing and surviving."
+    },
+    {
+      "category": "VO2max",
+      "score": 58,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ],
+      "workout_context": "36,100ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 58,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ],
+      "workout_context": "Race-pace efforts that mimic Raid Pyreneen Randonneur's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before June."
+    },
+    {
+      "category": "Over_Under",
+      "score": 57,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ],
+      "workout_context": "At Raid Pyreneen Randonneur, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
+    },
+    {
+      "category": "HVLI_Extended",
+      "score": 54,
+      "workouts": [
+        "HVLI Extended Z2",
+        "Multi-Hour Z2",
+        "Back-to-Back Long"
+      ],
+      "workout_context": "447 miles rewards fat oxidation. This volume work shifts your fuel mix so you're still burning fat at hour 5, not bonking at hour 3."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 53,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "36,100ft of climbing on grades that change every minute. You need to switch from seated to standing without losing rhythm."
+    },
+    {
+      "category": "TT_Threshold",
+      "score": 53,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ],
+      "workout_context": "81ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 46,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ],
+      "workout_context": "Raid Pyreneen Randonneur's Paved Pyrenean mountain passes, Tour de France cols forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 447 miles."
+    },
+    {
+      "category": "Blended",
+      "score": 44,
+      "workouts": [
+        "Z2 + VO2 Combo",
+        "Endurance with Spikes"
+      ],
+      "workout_context": "Endurance with intensity spikes baked in. Exactly what 36,100ft of climbing on paved Pyrenean mountain passes does to your power file on race day."
+    },
+    {
+      "category": "G_Spot",
+      "score": 39,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ],
+      "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of Raid Pyreneen Randonneur. Train it until it feels boring."
+    },
+    {
+      "category": "SFR_Muscle_Force",
+      "score": 35,
+      "workouts": [
+        "SFR Low Cadence",
+        "Force Repeats"
+      ],
+      "workout_context": "Low-cadence force work for 36,100ft of climbing. The slow, grinding ascents where you can't spin\u2014you push."
+    }
+  ],
+  "race_overlay": {
+    "heat": "June in Hendaye (Atlantic) to Cerbere (Mediterranean), France can bring heat. Complete 3\u20134 heat exposure sessions in the final 2 weeks before Raid Pyreneen Randonneur. Increase sodium intake 48 hours before race day.",
+    "nutrition": "Ultra-distance fueling for 447 miles: 80\u2013100g carbs/hour from mile 1 \u2014 don\u2019t wait until you\u2019re hungry. Practice your exact race-day nutrition in every long training ride. Carry backup calories. 447 miles burns 8,000\u201312,000+ calories \u2014 you cannot replace them all, but you must try.",
+    "altitude": "Moderate altitude at Raid Pyreneen Randonneur. Arrive 2\u20133 days early. Reduce intensity expectations by 5\u201310%. Hydrate aggressively."
+  },
+  "pack_summary": "This 10-workout pack focuses on Durability, Endurance, and VO2max to prepare you for 447 miles of paved pyrenean mountain passes in Hendaye (Atlantic) to Cerbere (Mediterranean), France.",
+  "generated_at": "2026-03-06"
+}

@@ -1,0 +1,135 @@
+{
+  "slug": "sado-long-ride-210",
+  "race_name": "Sado Long Ride 210",
+  "distance_mi": 130.0,
+  "demands": {
+    "durability": 6,
+    "climbing": 8,
+    "vo2_power": 7,
+    "threshold": 8,
+    "technical": 2,
+    "heat_resilience": 0,
+    "altitude": 2,
+    "race_specificity": 10
+  },
+  "top_categories": [
+    {
+      "category": "TT_Threshold",
+      "score": 100,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ],
+      "workout_context": "76ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
+    },
+    {
+      "category": "Durability",
+      "score": 92,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ],
+      "workout_context": "At mile 60 of 130, glycogen is gone. This workout teaches your body to produce watts on fumes."
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 92,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ],
+      "workout_context": "Race-pace efforts that mimic Sado Long Ride 210's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before May."
+    },
+    {
+      "category": "Over_Under",
+      "score": 89,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ],
+      "workout_context": "At Sado Long Ride 210, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
+    },
+    {
+      "category": "G_Spot",
+      "score": 78,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ],
+      "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of Sado Long Ride 210. Train it until it feels boring."
+    },
+    {
+      "category": "VO2max",
+      "score": 72,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ],
+      "workout_context": "9,843ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 72,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ],
+      "workout_context": "Sado Long Ride 210's mixed terrain forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 130 miles."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 67,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "9,843ft of climbing on grades that change every minute. You need to switch from seated to standing without losing rhythm."
+    },
+    {
+      "category": "Blended",
+      "score": 53,
+      "workouts": [
+        "Z2 + VO2 Combo",
+        "Endurance with Spikes"
+      ],
+      "workout_context": "Endurance with intensity spikes baked in. Exactly what 9,843ft of climbing on mixed terrain does to your power file on race day."
+    },
+    {
+      "category": "SFR_Muscle_Force",
+      "score": 44,
+      "workouts": [
+        "SFR Low Cadence",
+        "Force Repeats"
+      ],
+      "workout_context": "Low-cadence force work for 9,843ft of climbing. The slow, grinding ascents where you can't spin\u2014you push."
+    },
+    {
+      "category": "Anaerobic_Capacity",
+      "score": 44,
+      "workouts": [
+        "2min Killers",
+        "90sec Repeats"
+      ],
+      "workout_context": "Short, max efforts are unavoidable. Punchy climbs, gap closures, attacks on mixed terrain. If you haven't trained them, you'll crack."
+    },
+    {
+      "category": "Norwegian_Double",
+      "score": 44,
+      "workouts": [
+        "Norwegian 4x8 Classic",
+        "Double Threshold"
+      ],
+      "workout_context": "Two threshold sessions per week without the recovery cost of VO2max work. For 130 miles, sustainable FTP gains matter more than peak power."
+    }
+  ],
+  "race_overlay": {
+    "nutrition": "Target 60\u201380g carbs/hour for Sado Long Ride 210\u2019s 130 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure."
+  },
+  "pack_summary": "This 10-workout pack focuses on TT Threshold, Durability, and Race Simulation to prepare you for 130 miles of mixed terrain in Sado Island, Niigata Prefecture, Japan.",
+  "generated_at": "2026-03-06"
+}

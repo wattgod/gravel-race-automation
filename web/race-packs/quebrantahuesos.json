@@ -1,0 +1,136 @@
+{
+  "slug": "quebrantahuesos",
+  "race_name": "Marcha Cicloturista Quebrantahuesos",
+  "distance_mi": 123.0,
+  "demands": {
+    "durability": 6,
+    "climbing": 10,
+    "vo2_power": 9,
+    "threshold": 8,
+    "technical": 2,
+    "heat_resilience": 1,
+    "altitude": 6,
+    "race_specificity": 10
+  },
+  "top_categories": [
+    {
+      "category": "VO2max",
+      "score": 100,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ],
+      "workout_context": "11,483ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
+    },
+    {
+      "category": "TT_Threshold",
+      "score": 93,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ],
+      "workout_context": "93ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
+    },
+    {
+      "category": "Over_Under",
+      "score": 88,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ],
+      "workout_context": "At Marcha Cicloturista Quebrantahuesos, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
+    },
+    {
+      "category": "Durability",
+      "score": 83,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ],
+      "workout_context": "At mile 60 of 123, glycogen is gone. This workout teaches your body to produce watts on fumes."
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 79,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ],
+      "workout_context": "Race-pace efforts that mimic Marcha Cicloturista Quebrantahuesos' demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before June."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 71,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "11,483ft of climbing on grades that change every minute. You need to switch from seated to standing without losing rhythm."
+    },
+    {
+      "category": "G_Spot",
+      "score": 71,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ],
+      "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of Marcha Cicloturista Quebrantahuesos. Train it until it feels boring."
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 62,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ],
+      "workout_context": "Marcha Cicloturista Quebrantahuesos' Paved Pyrenean mountain roads, Tour de France / Vuelta a forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 123 miles."
+    },
+    {
+      "category": "Endurance",
+      "score": 54,
+      "workouts": [
+        "Pre-Race Openers",
+        "Terrain Simulation Z2"
+      ],
+      "workout_context": "Every hard session works better with a bigger aerobic base. At 123 miles, base fitness is the difference between racing and surviving."
+    },
+    {
+      "category": "SFR_Muscle_Force",
+      "score": 48,
+      "workouts": [
+        "SFR Low Cadence",
+        "Force Repeats"
+      ],
+      "workout_context": "Low-cadence force work for 11,483ft of climbing. The slow, grinding ascents where you can't spin\u2014you push."
+    },
+    {
+      "category": "Anaerobic_Capacity",
+      "score": 48,
+      "workouts": [
+        "2min Killers",
+        "90sec Repeats"
+      ],
+      "workout_context": "Short, max efforts are unavoidable. Punchy climbs, gap closures, attacks on paved Pyrenean mountain passes. If you haven't trained them, you'll crack."
+    },
+    {
+      "category": "Blended",
+      "score": 45,
+      "workouts": [
+        "Z2 + VO2 Combo",
+        "Endurance with Spikes"
+      ],
+      "workout_context": "Endurance with intensity spikes baked in. Exactly what 11,483ft of climbing on paved Pyrenean mountain passes does to your power file on race day."
+    }
+  ],
+  "race_overlay": {
+    "nutrition": "Target 60\u201380g carbs/hour for Marcha Cicloturista Quebrantahuesos\u2019s 123 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
+    "altitude": "Moderate altitude at Marcha Cicloturista Quebrantahuesos. Arrive 2\u20133 days early. Reduce intensity expectations by 5\u201310%. Hydrate aggressively."
+  },
+  "pack_summary": "This 10-workout pack focuses on VO2max, TT Threshold, and Over Under to prepare you for 123 miles of paved pyrenean mountain passes in Sabinanigo, Huesca, Spain.",
+  "generated_at": "2026-03-06"
+}

@@ -1,0 +1,137 @@
+{
+  "slug": "cinturon-ciclista-mallorca",
+  "race_name": "Cintur\u00f3n Ciclista a Mallorca",
+  "distance_mi": 106.0,
+  "demands": {
+    "durability": 6,
+    "climbing": 4,
+    "vo2_power": 4,
+    "threshold": 8,
+    "technical": 2,
+    "heat_resilience": 6,
+    "altitude": 2,
+    "race_specificity": 6
+  },
+  "top_categories": [
+    {
+      "category": "Durability",
+      "score": 100,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ],
+      "workout_context": "At mile 60 of 106, glycogen is gone. This workout teaches your body to produce watts on fumes."
+    },
+    {
+      "category": "TT_Threshold",
+      "score": 77,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ],
+      "workout_context": "Cintur\u00f3n Ciclista a Mallorca's mixed terrain rewards steady threshold power. Surging and recovering costs more watts than just holding."
+    },
+    {
+      "category": "Endurance",
+      "score": 62,
+      "workouts": [
+        "Pre-Race Openers",
+        "Terrain Simulation Z2"
+      ],
+      "workout_context": "Every hard session works better with a bigger aerobic base. At 106 miles, base fitness is the difference between racing and surviving."
+    },
+    {
+      "category": "G_Spot",
+      "score": 62,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ],
+      "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of Cintur\u00f3n Ciclista a Mallorca. Train it until it feels boring."
+    },
+    {
+      "category": "Over_Under",
+      "score": 56,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ],
+      "workout_context": "At Cintur\u00f3n Ciclista a Mallorca, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
+    },
+    {
+      "category": "HVLI_Extended",
+      "score": 54,
+      "workouts": [
+        "HVLI Extended Z2",
+        "Multi-Hour Z2",
+        "Back-to-Back Long"
+      ],
+      "workout_context": "106 miles rewards fat oxidation. This volume work shifts your fuel mix so you're still burning fat at hour 5, not bonking at hour 3."
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 54,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ],
+      "workout_context": "Race-pace efforts that mimic Cintur\u00f3n Ciclista a Mallorca's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before February."
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 46,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ],
+      "workout_context": "Cintur\u00f3n Ciclista a Mallorca's mixed terrain forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 106 miles."
+    },
+    {
+      "category": "VO2max",
+      "score": 44,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ],
+      "workout_context": "When someone attacks on mixed terrain, you have 10 seconds to respond or you're off the back. This builds that response."
+    },
+    {
+      "category": "Norwegian_Double",
+      "score": 41,
+      "workouts": [
+        "Norwegian 4x8 Classic",
+        "Double Threshold"
+      ],
+      "workout_context": "Two threshold sessions per week without the recovery cost of VO2max work. For 106 miles, sustainable FTP gains matter more than peak power."
+    },
+    {
+      "category": "Blended",
+      "score": 38,
+      "workouts": [
+        "Z2 + VO2 Combo",
+        "Endurance with Spikes"
+      ],
+      "workout_context": "Long rides with hard efforts mixed in. Simulates what Cintur\u00f3n Ciclista a Mallorca's mixed terrain actually does to you."
+    },
+    {
+      "category": "Tempo",
+      "score": 36,
+      "workouts": [
+        "Tempo Blocks",
+        "Extended Tempo"
+      ],
+      "workout_context": "Tempo is Cintur\u00f3n Ciclista a Mallorca's race pace. The wattage you'll hold for 106 miles on mixed terrain. Train it until it's automatic."
+    }
+  ],
+  "race_overlay": {
+    "heat": "February in Mallorca, Spain can bring heat. Complete 3\u20134 heat exposure sessions in the final 2 weeks before Cintur\u00f3n Ciclista a Mallorca. Increase sodium intake 48 hours before race day.",
+    "nutrition": "Target 60\u201380g carbs/hour for Cintur\u00f3n Ciclista a Mallorca\u2019s 106 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure."
+  },
+  "pack_summary": "This 10-workout pack focuses on Durability, TT Threshold, and Endurance to prepare you for 106 miles of mixed terrain in Mallorca, Spain.",
+  "generated_at": "2026-03-06"
+}

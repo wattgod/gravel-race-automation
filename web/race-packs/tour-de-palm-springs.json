@@ -1,0 +1,136 @@
+{
+  "slug": "tour-de-palm-springs",
+  "race_name": "Tour de Palm Springs",
+  "distance_mi": 102.0,
+  "demands": {
+    "durability": 6,
+    "climbing": 2,
+    "vo2_power": 3,
+    "threshold": 7,
+    "technical": 2,
+    "heat_resilience": 1,
+    "altitude": 2,
+    "race_specificity": 6
+  },
+  "top_categories": [
+    {
+      "category": "Durability",
+      "score": 100,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ],
+      "workout_context": "At mile 60 of 102, glycogen is gone. This workout teaches your body to produce watts on fumes."
+    },
+    {
+      "category": "TT_Threshold",
+      "score": 83,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ],
+      "workout_context": "Tour de Palm Springs' flat to gently rolling desert roads through the rewards steady threshold power. Surging and recovering costs more watts than just holding."
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 72,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ],
+      "workout_context": "Race-pace efforts that mimic Tour de Palm Springs' demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before February."
+    },
+    {
+      "category": "G_Spot",
+      "score": 67,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ],
+      "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of Tour de Palm Springs. Train it until it feels boring."
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 62,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ],
+      "workout_context": "Tour de Palm Springs' Paved desert roads through the Coachella Valley, Flat to forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 102 miles."
+    },
+    {
+      "category": "Endurance",
+      "score": 57,
+      "workouts": [
+        "Pre-Race Openers",
+        "Terrain Simulation Z2"
+      ],
+      "workout_context": "Every hard session works better with a bigger aerobic base. At 102 miles, base fitness is the difference between racing and surviving."
+    },
+    {
+      "category": "HVLI_Extended",
+      "score": 55,
+      "workouts": [
+        "HVLI Extended Z2",
+        "Multi-Hour Z2",
+        "Back-to-Back Long"
+      ],
+      "workout_context": "102 miles rewards fat oxidation. This volume work shifts your fuel mix so you're still burning fat at hour 5, not bonking at hour 3."
+    },
+    {
+      "category": "Over_Under",
+      "score": 53,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ],
+      "workout_context": "At Tour de Palm Springs, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
+    },
+    {
+      "category": "Blended",
+      "score": 52,
+      "workouts": [
+        "Z2 + VO2 Combo",
+        "Endurance with Spikes"
+      ],
+      "workout_context": "Long rides with hard efforts mixed in. Simulates what Tour de Palm Springs' flat to gently rolling desert roads through the actually does to you."
+    },
+    {
+      "category": "VO2max",
+      "score": 48,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ],
+      "workout_context": "When someone attacks on flat to gently rolling desert roads through the, you have 10 seconds to respond or you're off the back. This builds that response."
+    },
+    {
+      "category": "Norwegian_Double",
+      "score": 48,
+      "workouts": [
+        "Norwegian 4x8 Classic",
+        "Double Threshold"
+      ],
+      "workout_context": "Two threshold sessions per week without the recovery cost of VO2max work. For 102 miles, sustainable FTP gains matter more than peak power."
+    },
+    {
+      "category": "Tempo",
+      "score": 45,
+      "workouts": [
+        "Tempo Blocks",
+        "Extended Tempo"
+      ],
+      "workout_context": "Tempo is Tour de Palm Springs' race pace. The wattage you'll hold for 102 miles on flat to gently rolling desert roads through the. Train it until it's automatic."
+    }
+  ],
+  "race_overlay": {
+    "nutrition": "Target 60\u201380g carbs/hour for Tour de Palm Springs\u2019s 102 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure."
+  },
+  "pack_summary": "This 10-workout pack focuses on Durability, TT Threshold, and Race Simulation to prepare you for 102 miles of flat to gently rolling desert roads through the coachella valley in Palm Springs, California, USA.",
+  "generated_at": "2026-03-06"
+}

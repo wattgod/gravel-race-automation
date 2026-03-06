@@ -1,0 +1,139 @@
+{
+  "slug": "gran-fondo-via-del-sale",
+  "race_name": "Gran Fondo Via del Sale",
+  "distance_mi": 87.0,
+  "demands": {
+    "durability": 4,
+    "climbing": 7,
+    "vo2_power": 6,
+    "threshold": 8,
+    "technical": 4,
+    "heat_resilience": 6,
+    "altitude": 4,
+    "race_specificity": 9
+  },
+  "top_categories": [
+    {
+      "category": "Durability",
+      "score": 100,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ],
+      "workout_context": "At mile 60 of 87, glycogen is gone. This workout teaches your body to produce watts on fumes."
+    },
+    {
+      "category": "TT_Threshold",
+      "score": 92,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ],
+      "workout_context": "55ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 88,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ],
+      "workout_context": "Race-pace efforts that mimic Gran Fondo Via del Sale's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before March."
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 80,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ],
+      "workout_context": "Gran Fondo Via del Sale's mixed terrain forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 87 miles."
+    },
+    {
+      "category": "Over_Under",
+      "score": 79,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ],
+      "workout_context": "At Gran Fondo Via del Sale, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
+    },
+    {
+      "category": "VO2max",
+      "score": 75,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ],
+      "workout_context": "When someone attacks on mixed terrain, you have 10 seconds to respond or you're off the back. This builds that response."
+    },
+    {
+      "category": "G_Spot",
+      "score": 72,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ],
+      "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of Gran Fondo Via del Sale. Train it until it feels boring."
+    },
+    {
+      "category": "Endurance",
+      "score": 61,
+      "workouts": [
+        "Pre-Race Openers",
+        "Terrain Simulation Z2"
+      ],
+      "workout_context": "Every hard session works better with a bigger aerobic base. At 87 miles, base fitness is the difference between racing and surviving."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 56,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "Varied gradients on mixed terrain demand climbing versatility. Sit the shallow stuff, stand the steep stuff, switch without thinking."
+    },
+    {
+      "category": "Critical_Power",
+      "score": 45,
+      "workouts": [
+        "Above CP Repeats",
+        "W-Prime Depletion"
+      ],
+      "workout_context": "How long can you hold 105% FTP before you blow? At Gran Fondo Via del Sale, that number decides whether you bridge or get dropped."
+    },
+    {
+      "category": "HVLI_Extended",
+      "score": 43,
+      "workouts": [
+        "HVLI Extended Z2",
+        "Multi-Hour Z2",
+        "Back-to-Back Long"
+      ],
+      "workout_context": "The aerobic base that lets you ride mixed terrain at tempo for 87 miles without cracking. No shortcuts."
+    },
+    {
+      "category": "Anaerobic_Capacity",
+      "score": 43,
+      "workouts": [
+        "2min Killers",
+        "90sec Repeats"
+      ],
+      "workout_context": "Short, max efforts are unavoidable. Punchy climbs, gap closures, attacks on mixed terrain. If you haven't trained them, you'll crack."
+    }
+  ],
+  "race_overlay": {
+    "heat": "March in Cervia, Emilia-Romagna, Italy can bring heat. Complete 3\u20134 heat exposure sessions in the final 2 weeks before Gran Fondo Via del Sale. Increase sodium intake 48 hours before race day.",
+    "nutrition": "Target 60\u201380g carbs/hour for Gran Fondo Via del Sale\u2019s 87 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
+    "altitude": "Moderate altitude at Gran Fondo Via del Sale. Arrive 2\u20133 days early. Reduce intensity expectations by 5\u201310%. Hydrate aggressively.",
+    "terrain": "Mixed terrain at Gran Fondo Via del Sale requires surface adaptability. Include weekly rides on mixed terrain to build confidence."
+  },
+  "pack_summary": "This 10-workout pack focuses on Durability, TT Threshold, and Race Simulation to prepare you for 87 miles of mixed terrain in Cervia, Emilia-Romagna, Italy.",
+  "generated_at": "2026-03-06"
+}

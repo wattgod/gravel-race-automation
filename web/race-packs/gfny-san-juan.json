@@ -1,0 +1,137 @@
+{
+  "slug": "gfny-san-juan",
+  "race_name": "GFNY San Juan",
+  "distance_mi": 96.0,
+  "demands": {
+    "durability": 4,
+    "climbing": 5,
+    "vo2_power": 6,
+    "threshold": 8,
+    "technical": 4,
+    "heat_resilience": 0,
+    "altitude": 4,
+    "race_specificity": 9
+  },
+  "top_categories": [
+    {
+      "category": "Race_Simulation",
+      "score": 100,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ],
+      "workout_context": "Race-pace efforts that mimic GFNY San Juan's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before March."
+    },
+    {
+      "category": "TT_Threshold",
+      "score": 95,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ],
+      "workout_context": "GFNY San Juan's mixed terrain rewards steady threshold power. Surging and recovering costs more watts than just holding."
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 91,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ],
+      "workout_context": "GFNY San Juan's mixed terrain forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 96 miles."
+    },
+    {
+      "category": "VO2max",
+      "score": 85,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ],
+      "workout_context": "When someone attacks on mixed terrain, you have 10 seconds to respond or you're off the back. This builds that response."
+    },
+    {
+      "category": "Durability",
+      "score": 77,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ],
+      "workout_context": "At mile 60 of 96, glycogen is gone. This workout teaches your body to produce watts on fumes."
+    },
+    {
+      "category": "G_Spot",
+      "score": 76,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ],
+      "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of GFNY San Juan. Train it until it feels boring."
+    },
+    {
+      "category": "Over_Under",
+      "score": 74,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ],
+      "workout_context": "At GFNY San Juan, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
+    },
+    {
+      "category": "Critical_Power",
+      "score": 52,
+      "workouts": [
+        "Above CP Repeats",
+        "W-Prime Depletion"
+      ],
+      "workout_context": "How long can you hold 105% FTP before you blow? At GFNY San Juan, that number decides whether you bridge or get dropped."
+    },
+    {
+      "category": "Anaerobic_Capacity",
+      "score": 48,
+      "workouts": [
+        "2min Killers",
+        "90sec Repeats"
+      ],
+      "workout_context": "Short, max efforts are unavoidable. Punchy climbs, gap closures, attacks on mixed terrain. If you haven't trained them, you'll crack."
+    },
+    {
+      "category": "Norwegian_Double",
+      "score": 48,
+      "workouts": [
+        "Norwegian 4x8 Classic",
+        "Double Threshold"
+      ],
+      "workout_context": "Two threshold sessions per week without the recovery cost of VO2max work. For 96 miles, sustainable FTP gains matter more than peak power."
+    },
+    {
+      "category": "Blended",
+      "score": 45,
+      "workouts": [
+        "Z2 + VO2 Combo",
+        "Endurance with Spikes"
+      ],
+      "workout_context": "Endurance with intensity spikes baked in. Exactly what 4,265ft of climbing on mixed terrain does to your power file on race day."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 45,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "Varied gradients on mixed terrain demand climbing versatility. Sit the shallow stuff, stand the steep stuff, switch without thinking."
+    }
+  ],
+  "race_overlay": {
+    "nutrition": "Target 60\u201380g carbs/hour for GFNY San Juan\u2019s 96 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
+    "altitude": "Moderate altitude at GFNY San Juan. Arrive 2\u20133 days early. Reduce intensity expectations by 5\u201310%. Hydrate aggressively.",
+    "terrain": "Mixed terrain at GFNY San Juan requires surface adaptability. Include weekly rides on mixed terrain to build confidence."
+  },
+  "pack_summary": "This 10-workout pack focuses on Race Simulation, TT Threshold, and Gravel Specific to prepare you for 96 miles of mixed terrain in San Juan, Argentina.",
+  "generated_at": "2026-03-06"
+}

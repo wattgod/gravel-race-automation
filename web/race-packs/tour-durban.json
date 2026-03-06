@@ -1,0 +1,135 @@
+{
+  "slug": "tour-durban",
+  "race_name": "aQuelle Tour Durban",
+  "distance_mi": 68.4,
+  "demands": {
+    "durability": 2,
+    "climbing": 4,
+    "vo2_power": 5,
+    "threshold": 5,
+    "technical": 2,
+    "heat_resilience": 1,
+    "altitude": 2,
+    "race_specificity": 7
+  },
+  "top_categories": [
+    {
+      "category": "Race_Simulation",
+      "score": 100,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ],
+      "workout_context": "Race-pace efforts that mimic aQuelle Tour Durban's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before April."
+    },
+    {
+      "category": "TT_Threshold",
+      "score": 88,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ],
+      "workout_context": "54ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
+    },
+    {
+      "category": "VO2max",
+      "score": 83,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ],
+      "workout_context": "When someone attacks on paved coastal highway along the Indian Ocean, you have 10 seconds to respond or you're off the back. This builds that response."
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 83,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ],
+      "workout_context": "aQuelle Tour Durban's Paved coastal roads, M4 highway forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 68 miles."
+    },
+    {
+      "category": "Durability",
+      "score": 77,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ],
+      "workout_context": "68 miles on paved coastal highway along the Indian Ocean burns energy faster than the distance suggests. Train the fade resistance now."
+    },
+    {
+      "category": "Over_Under",
+      "score": 73,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ],
+      "workout_context": "At aQuelle Tour Durban, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
+    },
+    {
+      "category": "G_Spot",
+      "score": 69,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ],
+      "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of aQuelle Tour Durban. Train it until it feels boring."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 50,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "Varied gradients on paved coastal highway along the Indian Ocean demand climbing versatility. Sit the shallow stuff, stand the steep stuff, switch without thinking."
+    },
+    {
+      "category": "Anaerobic_Capacity",
+      "score": 50,
+      "workouts": [
+        "2min Killers",
+        "90sec Repeats"
+      ],
+      "workout_context": "Short, max efforts are unavoidable. Punchy climbs, gap closures, attacks on paved coastal highway along the Indian Ocean. If you haven't trained them, you'll crack."
+    },
+    {
+      "category": "Critical_Power",
+      "score": 48,
+      "workouts": [
+        "Above CP Repeats",
+        "W-Prime Depletion"
+      ],
+      "workout_context": "How long can you hold 105% FTP before you blow? At aQuelle Tour Durban, that number decides whether you bridge or get dropped."
+    },
+    {
+      "category": "Blended",
+      "score": 42,
+      "workouts": [
+        "Z2 + VO2 Combo",
+        "Endurance with Spikes"
+      ],
+      "workout_context": "Endurance with intensity spikes baked in. Exactly what 3,727ft of climbing on paved coastal highway along the Indian Ocean does to your power file on race day."
+    },
+    {
+      "category": "Norwegian_Double",
+      "score": 42,
+      "workouts": [
+        "Norwegian 4x8 Classic",
+        "Double Threshold"
+      ],
+      "workout_context": "Double-threshold training builds sustained power with less fatigue. More FTP per hour of training."
+    }
+  ],
+  "race_overlay": {
+    "nutrition": "Target 40\u201360g carbs/hour for aQuelle Tour Durban\u2019s 68 miles. Front-load calories in the first half. One bottle per hour minimum, more in heat."
+  },
+  "pack_summary": "This 10-workout pack focuses on Race Simulation, TT Threshold, and VO2max to prepare you for 68 miles of paved coastal highway along the indian ocean in Durban, KwaZulu-Natal, South Africa.",
+  "generated_at": "2026-03-06"
+}

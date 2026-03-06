@@ -1,0 +1,136 @@
+{
+  "slug": "hong-kong-cyclothon",
+  "race_name": "Hong Kong Cyclothon",
+  "distance_mi": 31.0,
+  "demands": {
+    "durability": 1,
+    "climbing": 5,
+    "vo2_power": 7,
+    "threshold": 4,
+    "technical": 4,
+    "heat_resilience": 0,
+    "altitude": 2,
+    "race_specificity": 9
+  },
+  "top_categories": [
+    {
+      "category": "Race_Simulation",
+      "score": 100,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ],
+      "workout_context": "Race-pace efforts that mimic Hong Kong Cyclothon's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before November."
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 91,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ],
+      "workout_context": "Hong Kong Cyclothon's mixed terrain forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 31 miles."
+    },
+    {
+      "category": "VO2max",
+      "score": 79,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ],
+      "workout_context": "When someone attacks on mixed terrain, you have 10 seconds to respond or you're off the back. This builds that response."
+    },
+    {
+      "category": "TT_Threshold",
+      "score": 59,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ],
+      "workout_context": "Hong Kong Cyclothon's mixed terrain rewards steady threshold power. Surging and recovering costs more watts than just holding."
+    },
+    {
+      "category": "Over_Under",
+      "score": 56,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ],
+      "workout_context": "At Hong Kong Cyclothon, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
+    },
+    {
+      "category": "Critical_Power",
+      "score": 56,
+      "workouts": [
+        "Above CP Repeats",
+        "W-Prime Depletion"
+      ],
+      "workout_context": "How long can you hold 105% FTP before you blow? At Hong Kong Cyclothon, that number decides whether you bridge or get dropped."
+    },
+    {
+      "category": "Anaerobic_Capacity",
+      "score": 55,
+      "workouts": [
+        "2min Killers",
+        "90sec Repeats"
+      ],
+      "workout_context": "2-minute all-out efforts on mixed terrain. Closing gaps, responding to attacks, sprinting for position. Train the burn."
+    },
+    {
+      "category": "Durability",
+      "score": 50,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ],
+      "workout_context": "31 miles on mixed terrain burns energy faster than the distance suggests. Train the fade resistance now."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 45,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "Varied gradients on mixed terrain demand climbing versatility. Sit the shallow stuff, stand the steep stuff, switch without thinking."
+    },
+    {
+      "category": "G_Spot",
+      "score": 45,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ],
+      "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of Hong Kong Cyclothon. Train it until it feels boring."
+    },
+    {
+      "category": "Blended",
+      "score": 32,
+      "workouts": [
+        "Z2 + VO2 Combo",
+        "Endurance with Spikes"
+      ],
+      "workout_context": "Long rides with hard efforts mixed in. Simulates what Hong Kong Cyclothon's mixed terrain actually does to you."
+    },
+    {
+      "category": "SFR_Muscle_Force",
+      "score": 30,
+      "workouts": [
+        "SFR Low Cadence",
+        "Force Repeats"
+      ],
+      "workout_context": "Torque for headwinds and mixed terrain. When cadence drops below 70rpm, muscular strength keeps the watts up."
+    }
+  ],
+  "race_overlay": {
+    "nutrition": "Standard hydration and fueling. One bottle per hour minimum. Gel or bar every 45 minutes at race intensity.",
+    "terrain": "Mixed terrain at Hong Kong Cyclothon requires surface adaptability. Include weekly rides on mixed terrain to build confidence."
+  },
+  "pack_summary": "This 10-workout pack focuses on Race Simulation, Gravel Specific, and VO2max to prepare you for 31 miles of mixed terrain in Hong Kong, China.",
+  "generated_at": "2026-03-06"
+}

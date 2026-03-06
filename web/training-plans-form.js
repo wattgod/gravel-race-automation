@@ -248,6 +248,45 @@
   addRace(); // First race by default
   addRaceBtn.addEventListener('click', addRace);
 
+  // ---- Pre-populate from ?race= URL param ----
+  (function prefillFromURL() {
+    var params = new URLSearchParams(window.location.search);
+    var raceSlug = params.get('race');
+    if (!raceSlug) return;
+
+    // Humanize slug as fallback name: "unbound-200" → "Unbound 200"
+    var fallbackName = raceSlug.replace(/-/g, ' ').replace(/\b\w/g, function(c) { return c.toUpperCase(); });
+
+    // Try to fetch race-index.json for accurate display name + date
+    fetch('/wp-content/uploads/race-index.json')
+      .then(function(r) { return r.ok ? r.json() : Promise.reject(); })
+      .then(function(races) {
+        var match = races.find(function(r) { return r.slug === raceSlug; });
+        var nameField = form.querySelector('input[name="race_0_name"]');
+        if (nameField && !nameField.value) {
+          nameField.value = match ? match.name : fallbackName;
+        }
+        var priorityField = form.querySelector('select[name="race_0_priority"]');
+        if (priorityField && !priorityField.value) {
+          priorityField.value = 'A';
+        }
+        updatePriceDisplay();
+        track('tp_race_prefill', { race_slug: raceSlug, matched: !!match });
+      })
+      .catch(function() {
+        // Fallback: use humanized slug
+        var nameField = form.querySelector('input[name="race_0_name"]');
+        if (nameField && !nameField.value) {
+          nameField.value = fallbackName;
+        }
+        var priorityField = form.querySelector('select[name="race_0_priority"]');
+        if (priorityField && !priorityField.value) {
+          priorityField.value = 'A';
+        }
+        track('tp_race_prefill', { race_slug: raceSlug, matched: false });
+      });
+  })();
+
   // ---- Update price when race fields change ----
   racesContainer.addEventListener('change', updatePriceDisplay);
   racesContainer.addEventListener('input', function() {

@@ -1,0 +1,137 @@
+{
+  "slug": "granfondo-pomerode",
+  "race_name": "UCI Gran Fondo Brasil \u2013 Pomerode",
+  "distance_mi": 68.0,
+  "demands": {
+    "durability": 2,
+    "climbing": 7,
+    "vo2_power": 6,
+    "threshold": 6,
+    "technical": 4,
+    "heat_resilience": 0,
+    "altitude": 4,
+    "race_specificity": 9
+  },
+  "top_categories": [
+    {
+      "category": "Race_Simulation",
+      "score": 100,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ],
+      "workout_context": "Race-pace efforts that mimic UCI Gran Fondo Brasil \u2013 Pomerode's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before November."
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 91,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ],
+      "workout_context": "UCI Gran Fondo Brasil \u2013 Pomerode's mixed terrain forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 68 miles."
+    },
+    {
+      "category": "TT_Threshold",
+      "score": 86,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ],
+      "workout_context": "63ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
+    },
+    {
+      "category": "VO2max",
+      "score": 85,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ],
+      "workout_context": "When someone attacks on mixed terrain, you have 10 seconds to respond or you're off the back. This builds that response."
+    },
+    {
+      "category": "Over_Under",
+      "score": 80,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ],
+      "workout_context": "At UCI Gran Fondo Brasil \u2013 Pomerode, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
+    },
+    {
+      "category": "G_Spot",
+      "score": 67,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ],
+      "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of UCI Gran Fondo Brasil \u2013 Pomerode. Train it until it feels boring."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 64,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "Varied gradients on mixed terrain demand climbing versatility. Sit the shallow stuff, stand the steep stuff, switch without thinking."
+    },
+    {
+      "category": "Durability",
+      "score": 59,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ],
+      "workout_context": "68 miles on mixed terrain burns energy faster than the distance suggests. Train the fade resistance now."
+    },
+    {
+      "category": "Critical_Power",
+      "score": 52,
+      "workouts": [
+        "Above CP Repeats",
+        "W-Prime Depletion"
+      ],
+      "workout_context": "How long can you hold 105% FTP before you blow? At UCI Gran Fondo Brasil \u2013 Pomerode, that number decides whether you bridge or get dropped."
+    },
+    {
+      "category": "Anaerobic_Capacity",
+      "score": 48,
+      "workouts": [
+        "2min Killers",
+        "90sec Repeats"
+      ],
+      "workout_context": "Short, max efforts are unavoidable. Punchy climbs, gap closures, attacks on mixed terrain. If you haven't trained them, you'll crack."
+    },
+    {
+      "category": "SFR_Muscle_Force",
+      "score": 42,
+      "workouts": [
+        "SFR Low Cadence",
+        "Force Repeats"
+      ],
+      "workout_context": "Low-cadence force work for 4,265ft of climbing. The slow, grinding ascents where you can't spin\u2014you push."
+    },
+    {
+      "category": "Blended",
+      "score": 36,
+      "workouts": [
+        "Z2 + VO2 Combo",
+        "Endurance with Spikes"
+      ],
+      "workout_context": "Endurance with intensity spikes baked in. Exactly what 4,265ft of climbing on mixed terrain does to your power file on race day."
+    }
+  ],
+  "race_overlay": {
+    "nutrition": "Target 40\u201360g carbs/hour for UCI Gran Fondo Brasil \u2013 Pomerode\u2019s 68 miles. Front-load calories in the first half. One bottle per hour minimum, more in heat.",
+    "altitude": "Moderate altitude at UCI Gran Fondo Brasil \u2013 Pomerode. Arrive 2\u20133 days early. Reduce intensity expectations by 5\u201310%. Hydrate aggressively.",
+    "terrain": "Mixed terrain at UCI Gran Fondo Brasil \u2013 Pomerode requires surface adaptability. Include weekly rides on mixed terrain to build confidence."
+  },
+  "pack_summary": "This 10-workout pack focuses on Race Simulation, Gravel Specific, and TT Threshold to prepare you for 68 miles of mixed terrain in Pomerode, Santa Catarina, Brazil.",
+  "generated_at": "2026-03-06"
+}

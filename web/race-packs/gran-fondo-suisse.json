@@ -1,0 +1,137 @@
+{
+  "slug": "gran-fondo-suisse",
+  "race_name": "Gran Fondo Suisse",
+  "distance_mi": 93.2,
+  "demands": {
+    "durability": 4,
+    "climbing": 10,
+    "vo2_power": 6,
+    "threshold": 8,
+    "technical": 6,
+    "heat_resilience": 0,
+    "altitude": 8,
+    "race_specificity": 10
+  },
+  "top_categories": [
+    {
+      "category": "TT_Threshold",
+      "score": 100,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ],
+      "workout_context": "130ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 100,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ],
+      "workout_context": "Race-pace efforts that mimic Gran Fondo Suisse's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before July."
+    },
+    {
+      "category": "VO2max",
+      "score": 97,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ],
+      "workout_context": "12,139ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 97,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ],
+      "workout_context": "Gran Fondo Suisse's paved, offroad forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 93 miles."
+    },
+    {
+      "category": "Over_Under",
+      "score": 95,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ],
+      "workout_context": "At Gran Fondo Suisse, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 77,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "12,139ft of climbing on grades that change every minute. You need to switch from seated to standing without losing rhythm."
+    },
+    {
+      "category": "G_Spot",
+      "score": 77,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ],
+      "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of Gran Fondo Suisse. Train it until it feels boring."
+    },
+    {
+      "category": "Durability",
+      "score": 69,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ],
+      "workout_context": "At mile 60 of 93, glycogen is gone. This workout teaches your body to produce watts on fumes."
+    },
+    {
+      "category": "Critical_Power",
+      "score": 54,
+      "workouts": [
+        "Above CP Repeats",
+        "W-Prime Depletion"
+      ],
+      "workout_context": "How long can you hold 105% FTP before you blow? At Gran Fondo Suisse, that number decides whether you bridge or get dropped."
+    },
+    {
+      "category": "Endurance",
+      "score": 51,
+      "workouts": [
+        "Pre-Race Openers",
+        "Terrain Simulation Z2"
+      ],
+      "workout_context": "Every hard session works better with a bigger aerobic base. At 93 miles, base fitness is the difference between racing and surviving."
+    },
+    {
+      "category": "SFR_Muscle_Force",
+      "score": 51,
+      "workouts": [
+        "SFR Low Cadence",
+        "Force Repeats"
+      ],
+      "workout_context": "Low-cadence force work for 12,139ft of climbing. The slow, grinding ascents where you can't spin\u2014you push."
+    },
+    {
+      "category": "Anaerobic_Capacity",
+      "score": 46,
+      "workouts": [
+        "2min Killers",
+        "90sec Repeats"
+      ],
+      "workout_context": "Short, max efforts are unavoidable. Punchy climbs, gap closures, attacks on grand Tour-worthy alpine roads and offroad. If you haven't trained them, you'll crack."
+    }
+  ],
+  "race_overlay": {
+    "nutrition": "Target 60\u201380g carbs/hour for Gran Fondo Suisse\u2019s 93 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
+    "altitude": "Gran Fondo Suisse with 12,139ft of climbing, much of it above 8,000ft demands altitude preparation. Arrive 5\u20137 days early for acclimatization. Expect 5\u201315% power reduction at altitude. Increase iron intake 4 weeks out. Hydrate aggressively \u2014 altitude increases fluid loss by 20\u201340%. high UV at altitude.",
+    "terrain": "Mixed terrain at Gran Fondo Suisse requires surface adaptability. Include weekly rides on grand tour-worthy alpine roads and offroad to build confidence. Expect: paved, offroad, woods."
+  },
+  "pack_summary": "This 10-workout pack focuses on TT Threshold, Race Simulation, and VO2max to prepare you for 93 miles of grand tour-worthy alpine roads and offroad in Villars-sur-Ollon, Canton of Vaud, Switzerland.",
+  "generated_at": "2026-03-06"
+}

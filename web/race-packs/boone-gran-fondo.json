@@ -1,0 +1,139 @@
+{
+  "slug": "boone-gran-fondo",
+  "race_name": "Boone Gran Fondo",
+  "distance_mi": 100.0,
+  "demands": {
+    "durability": 6,
+    "climbing": 8,
+    "vo2_power": 6,
+    "threshold": 8,
+    "technical": 4,
+    "heat_resilience": 8,
+    "altitude": 8,
+    "race_specificity": 9
+  },
+  "top_categories": [
+    {
+      "category": "Durability",
+      "score": 100,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ],
+      "workout_context": "At mile 60 of 100, glycogen is gone. This workout teaches your body to produce watts on fumes."
+    },
+    {
+      "category": "VO2max",
+      "score": 80,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ],
+      "workout_context": "7,714ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
+    },
+    {
+      "category": "Endurance",
+      "score": 76,
+      "workouts": [
+        "Pre-Race Openers",
+        "Terrain Simulation Z2"
+      ],
+      "workout_context": "Every hard session works better with a bigger aerobic base. At 100 miles, base fitness is the difference between racing and surviving."
+    },
+    {
+      "category": "TT_Threshold",
+      "score": 76,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ],
+      "workout_context": "77ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 69,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ],
+      "workout_context": "Race-pace efforts that mimic Boone Gran Fondo's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before August."
+    },
+    {
+      "category": "Over_Under",
+      "score": 67,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ],
+      "workout_context": "At Boone Gran Fondo, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 63,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ],
+      "workout_context": "Boone Gran Fondo's mixed terrain forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 100 miles."
+    },
+    {
+      "category": "G_Spot",
+      "score": 59,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ],
+      "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of Boone Gran Fondo. Train it until it feels boring."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 51,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "7,714ft of climbing on grades that change every minute. You need to switch from seated to standing without losing rhythm."
+    },
+    {
+      "category": "HVLI_Extended",
+      "score": 48,
+      "workouts": [
+        "HVLI Extended Z2",
+        "Multi-Hour Z2",
+        "Back-to-Back Long"
+      ],
+      "workout_context": "100 miles rewards fat oxidation. This volume work shifts your fuel mix so you're still burning fat at hour 5, not bonking at hour 3."
+    },
+    {
+      "category": "Blended",
+      "score": 38,
+      "workouts": [
+        "Z2 + VO2 Combo",
+        "Endurance with Spikes"
+      ],
+      "workout_context": "Endurance with intensity spikes baked in. Exactly what 7,714ft of climbing on mixed terrain does to your power file on race day."
+    },
+    {
+      "category": "Critical_Power",
+      "score": 36,
+      "workouts": [
+        "Above CP Repeats",
+        "W-Prime Depletion"
+      ],
+      "workout_context": "How long can you hold 105% FTP before you blow? At Boone Gran Fondo, that number decides whether you bridge or get dropped."
+    }
+  ],
+  "race_overlay": {
+    "heat": "August in Boone, North Carolina, USA. Begin heat acclimatization 10\u201314 days before Boone Gran Fondo \u2014 20\u201330min sauna sessions or midday rides in full kit. Pre-load sodium 48 hours out. Target 500\u2013750ml/hr with electrolytes on race day.",
+    "nutrition": "Target 60\u201380g carbs/hour for Boone Gran Fondo\u2019s 100 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
+    "altitude": "Boone Gran Fondo with 7,714ft of climbing, much of it above 8,000ft demands altitude preparation. Arrive 5\u20137 days early for acclimatization. Expect 5\u201315% power reduction at altitude. Increase iron intake 4 weeks out. Hydrate aggressively \u2014 altitude increases fluid loss by 20\u201340%.",
+    "terrain": "Mixed terrain at Boone Gran Fondo requires surface adaptability. Include weekly rides on mixed terrain to build confidence."
+  },
+  "pack_summary": "This 10-workout pack focuses on Durability, VO2max, and Endurance to prepare you for 100 miles of mixed terrain in Boone, North Carolina, USA.",
+  "generated_at": "2026-03-06"
+}

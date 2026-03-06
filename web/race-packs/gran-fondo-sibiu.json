@@ -1,0 +1,139 @@
+{
+  "slug": "gran-fondo-sibiu",
+  "race_name": "Gran Fondo Sibiu",
+  "distance_mi": 93.0,
+  "demands": {
+    "durability": 4,
+    "climbing": 8,
+    "vo2_power": 4,
+    "threshold": 8,
+    "technical": 4,
+    "heat_resilience": 6,
+    "altitude": 6,
+    "race_specificity": 8
+  },
+  "top_categories": [
+    {
+      "category": "Durability",
+      "score": 100,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ],
+      "workout_context": "At mile 60 of 93, glycogen is gone. This workout teaches your body to produce watts on fumes."
+    },
+    {
+      "category": "TT_Threshold",
+      "score": 100,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ],
+      "workout_context": "88ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
+    },
+    {
+      "category": "Over_Under",
+      "score": 89,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ],
+      "workout_context": "At Gran Fondo Sibiu, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 83,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ],
+      "workout_context": "Race-pace efforts that mimic Gran Fondo Sibiu's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before July."
+    },
+    {
+      "category": "G_Spot",
+      "score": 78,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ],
+      "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of Gran Fondo Sibiu. Train it until it feels boring."
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 78,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ],
+      "workout_context": "Gran Fondo Sibiu's mixed terrain forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 93 miles."
+    },
+    {
+      "category": "VO2max",
+      "score": 75,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ],
+      "workout_context": "8,202ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
+    },
+    {
+      "category": "Endurance",
+      "score": 72,
+      "workouts": [
+        "Pre-Race Openers",
+        "Terrain Simulation Z2"
+      ],
+      "workout_context": "Every hard session works better with a bigger aerobic base. At 93 miles, base fitness is the difference between racing and surviving."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 67,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "8,202ft of climbing on grades that change every minute. You need to switch from seated to standing without losing rhythm."
+    },
+    {
+      "category": "HVLI_Extended",
+      "score": 44,
+      "workouts": [
+        "HVLI Extended Z2",
+        "Multi-Hour Z2",
+        "Back-to-Back Long"
+      ],
+      "workout_context": "The aerobic base that lets you ride mixed terrain at tempo for 93 miles without cracking. No shortcuts."
+    },
+    {
+      "category": "SFR_Muscle_Force",
+      "score": 44,
+      "workouts": [
+        "SFR Low Cadence",
+        "Force Repeats"
+      ],
+      "workout_context": "Low-cadence force work for 8,202ft of climbing. The slow, grinding ascents where you can't spin\u2014you push."
+    },
+    {
+      "category": "Norwegian_Double",
+      "score": 44,
+      "workouts": [
+        "Norwegian 4x8 Classic",
+        "Double Threshold"
+      ],
+      "workout_context": "Two threshold sessions per week without the recovery cost of VO2max work. For 93 miles, sustainable FTP gains matter more than peak power."
+    }
+  ],
+  "race_overlay": {
+    "heat": "July in Sibiu, Transylvania, Romania can bring heat. Complete 3\u20134 heat exposure sessions in the final 2 weeks before Gran Fondo Sibiu. Increase sodium intake 48 hours before race day.",
+    "nutrition": "Target 60\u201380g carbs/hour for Gran Fondo Sibiu\u2019s 93 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
+    "altitude": "Moderate altitude at Gran Fondo Sibiu. Arrive 2\u20133 days early. Reduce intensity expectations by 5\u201310%. Hydrate aggressively.",
+    "terrain": "Mixed terrain at Gran Fondo Sibiu requires surface adaptability. Include weekly rides on mixed terrain to build confidence."
+  },
+  "pack_summary": "This 10-workout pack focuses on Durability, TT Threshold, and Over Under to prepare you for 93 miles of mixed terrain in Sibiu, Transylvania, Romania.",
+  "generated_at": "2026-03-06"
+}

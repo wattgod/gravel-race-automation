@@ -1,0 +1,137 @@
+{
+  "slug": "bp-ms-150-texas",
+  "race_name": "BP MS 150",
+  "distance_mi": 150.0,
+  "demands": {
+    "durability": 8,
+    "climbing": 3,
+    "vo2_power": 6,
+    "threshold": 7,
+    "technical": 4,
+    "heat_resilience": 1,
+    "altitude": 2,
+    "race_specificity": 9
+  },
+  "top_categories": [
+    {
+      "category": "Durability",
+      "score": 100,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ],
+      "workout_context": "150 miles. Your legs will beg to quit after 120. This trains the power output you need from mile 130 onward."
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 84,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ],
+      "workout_context": "Race-pace efforts that mimic BP MS 150's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before April."
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 76,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ],
+      "workout_context": "BP MS 150's rolling hills, flat countryside forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 150 miles."
+    },
+    {
+      "category": "TT_Threshold",
+      "score": 65,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ],
+      "workout_context": "BP MS 150's rolling Texas countryside roads rewards steady threshold power. Surging and recovering costs more watts than just holding."
+    },
+    {
+      "category": "VO2max",
+      "score": 58,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ],
+      "workout_context": "When someone attacks on rolling Texas countryside roads, you have 10 seconds to respond or you're off the back. This builds that response."
+    },
+    {
+      "category": "HVLI_Extended",
+      "score": 53,
+      "workouts": [
+        "HVLI Extended Z2",
+        "Multi-Hour Z2",
+        "Back-to-Back Long"
+      ],
+      "workout_context": "150 miles rewards fat oxidation. This volume work shifts your fuel mix so you're still burning fat at hour 5, not bonking at hour 3."
+    },
+    {
+      "category": "Blended",
+      "score": 53,
+      "workouts": [
+        "Z2 + VO2 Combo",
+        "Endurance with Spikes"
+      ],
+      "workout_context": "Long rides with hard efforts mixed in. Simulates what BP MS 150's rolling Texas countryside roads actually does to you."
+    },
+    {
+      "category": "Endurance",
+      "score": 52,
+      "workouts": [
+        "Pre-Race Openers",
+        "Terrain Simulation Z2"
+      ],
+      "workout_context": "Every hard session works better with a bigger aerobic base. At 150 miles, base fitness is the difference between racing and surviving."
+    },
+    {
+      "category": "G_Spot",
+      "score": 52,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ],
+      "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of BP MS 150. Train it until it feels boring."
+    },
+    {
+      "category": "Over_Under",
+      "score": 46,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ],
+      "workout_context": "At BP MS 150, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
+    },
+    {
+      "category": "Critical_Power",
+      "score": 43,
+      "workouts": [
+        "Above CP Repeats",
+        "W-Prime Depletion"
+      ],
+      "workout_context": "How long can you hold 105% FTP before you blow? At BP MS 150, that number decides whether you bridge or get dropped."
+    },
+    {
+      "category": "Anaerobic_Capacity",
+      "score": 41,
+      "workouts": [
+        "2min Killers",
+        "90sec Repeats"
+      ],
+      "workout_context": "2-minute all-out efforts on rolling Texas countryside roads. Closing gaps, responding to attacks, sprinting for position. Train the burn."
+    }
+  ],
+  "race_overlay": {
+    "nutrition": "Ultra-distance fueling for 150 miles: 80\u2013100g carbs/hour from mile 1 \u2014 don\u2019t wait until you\u2019re hungry. Practice your exact race-day nutrition in every long training ride. Carry backup calories. 150 miles burns 8,000\u201312,000+ calories \u2014 you cannot replace them all, but you must try.",
+    "terrain": "Mixed terrain at BP MS 150 requires surface adaptability. Include weekly rides on rolling texas countryside roads to build confidence. Expect: rolling hills, flat countryside, paved roads."
+  },
+  "pack_summary": "This 10-workout pack focuses on Durability, Race Simulation, and Gravel Specific to prepare you for 150 miles of rolling texas countryside roads in Houston to College Station, Texas, USA.",
+  "generated_at": "2026-03-06"
+}

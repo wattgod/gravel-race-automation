@@ -1,40 +1,21 @@
 {
   "slug": "iron-horse-bicycle-classic",
   "race_name": "Iron Horse Bicycle Classic",
-  "distance_mi": 65.0,
+  "distance_mi": 50.0,
   "demands": {
     "durability": 2,
     "climbing": 7,
-    "vo2_power": 4,
+    "vo2_power": 7,
     "threshold": 6,
-    "technical": 6,
+    "technical": 4,
     "heat_resilience": 0,
-    "altitude": 6,
-    "race_specificity": 6
+    "altitude": 8,
+    "race_specificity": 10
   },
   "top_categories": [
     {
-      "category": "Gravel_Specific",
-      "score": 100,
-      "workouts": [
-        "Surge and Settle",
-        "Terrain Microbursts"
-      ],
-      "workout_context": "Iron Horse Bicycle Classic's Colorado mountains, Mixed surfaces forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 65 miles."
-    },
-    {
-      "category": "TT_Threshold",
-      "score": 95,
-      "workouts": [
-        "Single Sustained Threshold",
-        "Threshold Ramps",
-        "Descending Threshold"
-      ],
-      "workout_context": "92ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
-    },
-    {
       "category": "VO2max",
-      "score": 90,
+      "score": 100,
       "workouts": [
         "5x3 VO2 Classic",
         "Descending VO2 Pyramid",
@@ -44,17 +25,36 @@
     },
     {
       "category": "Race_Simulation",
-      "score": 90,
+      "score": 88,
       "workouts": [
         "Breakaway Simulation",
         "Variable Pace Chaos",
         "Sector Simulation"
       ],
-      "workout_context": "Race-pace efforts that mimic Iron Horse Bicycle Classic's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before May."
+      "workout_context": "Race-pace efforts that mimic Iron Horse Bicycle Classic's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before race day."
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 78,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ],
+      "workout_context": "Iron Horse Bicycle Classic's Paved mountain highway, High-altitude passes forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 50 miles."
+    },
+    {
+      "category": "TT_Threshold",
+      "score": 70,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ],
+      "workout_context": "120ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
     },
     {
       "category": "Over_Under",
-      "score": 88,
+      "score": 65,
       "workouts": [
         "Classic Over-Unders",
         "Ladder Over-Unders"
@@ -63,7 +63,7 @@
     },
     {
       "category": "G_Spot",
-      "score": 73,
+      "score": 54,
       "workouts": [
         "G-Spot Standard",
         "G-Spot Extended",
@@ -72,8 +72,18 @@
       "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of Iron Horse Bicycle Classic. Train it until it feels boring."
     },
     {
+      "category": "Durability",
+      "score": 51,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ],
+      "workout_context": "50 miles on paved mountain highway with two major passes burns energy faster than the distance suggests. Train the fade resistance now."
+    },
+    {
       "category": "Mixed_Climbing",
-      "score": 70,
+      "score": 51,
       "workouts": [
         "Seated/Standing Climbs",
         "Variable Grade Simulation"
@@ -82,7 +92,7 @@
     },
     {
       "category": "Critical_Power",
-      "score": 60,
+      "score": 45,
       "workouts": [
         "Above CP Repeats",
         "W-Prime Depletion"
@@ -90,48 +100,38 @@
       "workout_context": "How long can you hold 105% FTP before you blow? At Iron Horse Bicycle Classic, that number decides whether you bridge or get dropped."
     },
     {
-      "category": "Durability",
-      "score": 50,
-      "workouts": [
-        "Tired VO2max",
-        "Double Day Simulation",
-        "Progressive Fatigue"
-      ],
-      "workout_context": "65 miles on Colorado mountain mixed terrain burns energy faster than the distance suggests. Train the fade resistance now."
-    },
-    {
-      "category": "SFR_Muscle_Force",
-      "score": 47,
-      "workouts": [
-        "SFR Low Cadence",
-        "Force Repeats"
-      ],
-      "workout_context": "Low-cadence force work for 6,000ft of climbing. The slow, grinding ascents where you can't spin\u2014you push."
-    },
-    {
       "category": "Anaerobic_Capacity",
-      "score": 47,
+      "score": 44,
       "workouts": [
         "2min Killers",
         "90sec Repeats"
       ],
-      "workout_context": "Short, max efforts are unavoidable. Punchy climbs, gap closures, attacks on Colorado mountain mixed terrain. If you haven't trained them, you'll crack."
+      "workout_context": "Short, max efforts are unavoidable. Punchy climbs, gap closures, attacks on paved mountain highway with two major passes. If you haven't trained them, you'll crack."
     },
     {
       "category": "Endurance",
-      "score": 43,
+      "score": 39,
       "workouts": [
         "Pre-Race Openers",
         "Terrain Simulation Z2"
       ],
       "workout_context": "Base fitness for Iron Horse Bicycle Classic. Without this, the hard workouts break you down instead of building you up."
+    },
+    {
+      "category": "SFR_Muscle_Force",
+      "score": 34,
+      "workouts": [
+        "SFR Low Cadence",
+        "Force Repeats"
+      ],
+      "workout_context": "Low-cadence force work for 6,000ft of climbing. The slow, grinding ascents where you can't spin\u2014you push."
     }
   ],
   "race_overlay": {
-    "nutrition": "Target 40\u201360g carbs/hour for Iron Horse Bicycle Classic\u2019s 65 miles. Front-load calories in the first half. One bottle per hour minimum, more in heat.",
-    "altitude": "Moderate altitude at Iron Horse Bicycle Classic. Arrive 2\u20133 days early. Reduce intensity expectations by 5\u201310%. Hydrate aggressively.",
-    "terrain": "Mixed terrain at Iron Horse Bicycle Classic requires surface adaptability. Include weekly rides on colorado mountain mixed terrain to build confidence. Expect: colorado mountains, mixed surfaces, mountain gravel."
+    "nutrition": "Target 40\u201360g carbs/hour for Iron Horse Bicycle Classic\u2019s 50 miles. Front-load calories in the first half. One bottle per hour minimum, more in heat.",
+    "altitude": "Iron Horse Bicycle Classic with 6,000ft of climbing, much of it above 8,000ft demands altitude preparation. Arrive 5\u20137 days early for acclimatization. Expect 5\u201315% power reduction at altitude. Increase iron intake 4 weeks out. Hydrate aggressively \u2014 altitude increases fluid loss by 20\u201340%. Temperature drops of 20-30F between Durango and pass summits.",
+    "terrain": "Mixed terrain at Iron Horse Bicycle Classic requires surface adaptability. Include weekly rides on paved mountain highway with two major passes to build confidence. Expect: paved mountain highway, high-altitude passes, point-to-point road race."
   },
-  "pack_summary": "This 10-workout pack focuses on Gravel Specific, TT Threshold, and VO2max to prepare you for 65 miles of colorado mountain mixed terrain in Durango, Colorado.",
-  "generated_at": "2026-02-26"
+  "pack_summary": "This 10-workout pack focuses on VO2max, Race Simulation, and Gravel Specific to prepare you for 50 miles of paved mountain highway with two major passes in Durango, Colorado.",
+  "generated_at": "2026-03-06"
 }

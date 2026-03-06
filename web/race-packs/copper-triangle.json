@@ -1,0 +1,136 @@
+{
+  "slug": "copper-triangle",
+  "race_name": "Copper Triangle \u2014 Colorado's Three-Pass Alpine Loop",
+  "distance_mi": 79.0,
+  "demands": {
+    "durability": 4,
+    "climbing": 6,
+    "vo2_power": 5,
+    "threshold": 8,
+    "technical": 2,
+    "heat_resilience": 1,
+    "altitude": 10,
+    "race_specificity": 9
+  },
+  "top_categories": [
+    {
+      "category": "VO2max",
+      "score": 100,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ],
+      "workout_context": "6,500ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
+    },
+    {
+      "category": "TT_Threshold",
+      "score": 82,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ],
+      "workout_context": "82ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 75,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ],
+      "workout_context": "Race-pace efforts that mimic Copper Triangle \u2014 Colorado's Three-Pass Alpine Loop's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before August."
+    },
+    {
+      "category": "Durability",
+      "score": 69,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ],
+      "workout_context": "79 miles on paved mountain highways and dedicated bike paths burns energy faster than the distance suggests. Train the fade resistance now."
+    },
+    {
+      "category": "Over_Under",
+      "score": 68,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ],
+      "workout_context": "At Copper Triangle \u2014 Colorado's Three-Pass Alpine Loop, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
+    },
+    {
+      "category": "G_Spot",
+      "score": 65,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ],
+      "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of Copper Triangle \u2014 Colorado's Three-Pass Alpine Loop. Train it until it feels boring."
+    },
+    {
+      "category": "Endurance",
+      "score": 61,
+      "workouts": [
+        "Pre-Race Openers",
+        "Terrain Simulation Z2"
+      ],
+      "workout_context": "Base fitness for Copper Triangle \u2014 Colorado's Three-Pass Alpine Loop. Without this, the hard workouts break you down instead of building you up."
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 60,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ],
+      "workout_context": "Copper Triangle \u2014 Colorado's Three-Pass Alpine Loop's Paved Colorado mountain highways (CO-91, US-24), Dedicated forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 79 miles."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 45,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "6,500ft of climbing on grades that change every minute. You need to switch from seated to standing without losing rhythm."
+    },
+    {
+      "category": "Norwegian_Double",
+      "score": 40,
+      "workouts": [
+        "Norwegian 4x8 Classic",
+        "Double Threshold"
+      ],
+      "workout_context": "Double-threshold training builds sustained power with less fatigue. More FTP per hour of training."
+    },
+    {
+      "category": "Blended",
+      "score": 38,
+      "workouts": [
+        "Z2 + VO2 Combo",
+        "Endurance with Spikes"
+      ],
+      "workout_context": "Endurance with intensity spikes baked in. Exactly what 6,500ft of climbing on paved mountain highways and dedicated bike paths does to your power file on race day."
+    },
+    {
+      "category": "Tempo",
+      "score": 30,
+      "workouts": [
+        "Tempo Blocks",
+        "Extended Tempo"
+      ],
+      "workout_context": "76\u201385% FTP for extended efforts. At Copper Triangle \u2014 Colorado's Three-Pass Alpine Loop, tempo is the floor you'll live on. Make it feel easy."
+    }
+  ],
+  "race_overlay": {
+    "nutrition": "Target 40\u201360g carbs/hour for Copper Triangle \u2014 Colorado's Three-Pass Alpine Loop\u2019s 79 miles. Front-load calories in the first half. One bottle per hour minimum, more in heat.",
+    "altitude": "Copper Triangle \u2014 Colorado's Three-Pass Alpine Loop with 6,500ft of climbing, much of it above 8,000ft demands altitude preparation. Arrive 5\u20137 days early for acclimatization. Expect 5\u201315% power reduction at altitude. Increase iron intake 4 weeks out. Hydrate aggressively \u2014 altitude increases fluid loss by 20\u201340%. Entire route above 9,000 ft \u2014 relentless altitude with no low-elevation recovery; Temperature swings from cool dawn to warm valleys to cold pass summits."
+  },
+  "pack_summary": "This 10-workout pack focuses on VO2max, TT Threshold, and Race Simulation to prepare you for 79 miles of paved mountain highways and dedicated bike paths in Copper Mountain Resort, Colorado.",
+  "generated_at": "2026-03-06"
+}

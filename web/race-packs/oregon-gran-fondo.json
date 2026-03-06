@@ -1,40 +1,50 @@
 {
   "slug": "oregon-gran-fondo",
   "race_name": "Oregon Gran Fondo",
-  "distance_mi": 62.0,
+  "distance_mi": 100.0,
   "demands": {
-    "durability": 2,
-    "climbing": 5,
-    "vo2_power": 4,
-    "threshold": 6,
-    "technical": 4,
-    "heat_resilience": 0,
+    "durability": 6,
+    "climbing": 8,
+    "vo2_power": 6,
+    "threshold": 8,
+    "technical": 6,
+    "heat_resilience": 6,
     "altitude": 4,
-    "race_specificity": 6
+    "race_specificity": 9
   },
   "top_categories": [
     {
-      "category": "TT_Threshold",
+      "category": "Durability",
       "score": 100,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ],
+      "workout_context": "At mile 60 of 100, glycogen is gone. This workout teaches your body to produce watts on fumes."
+    },
+    {
+      "category": "TT_Threshold",
+      "score": 83,
       "workouts": [
         "Single Sustained Threshold",
         "Threshold Ramps",
         "Descending Threshold"
       ],
-      "workout_context": "65ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
+      "workout_context": "90ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
     },
     {
       "category": "Gravel_Specific",
-      "score": 94,
+      "score": 83,
       "workouts": [
         "Surge and Settle",
         "Terrain Microbursts"
       ],
-      "workout_context": "Oregon Gran Fondo's Cascade foothills, Forest roads forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 62 miles."
+      "workout_context": "Oregon Gran Fondo's road forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 100 miles."
     },
     {
       "category": "Race_Simulation",
-      "score": 94,
+      "score": 83,
       "workouts": [
         "Breakaway Simulation",
         "Variable Pace Chaos",
@@ -43,18 +53,8 @@
       "workout_context": "Race-pace efforts that mimic Oregon Gran Fondo's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before May."
     },
     {
-      "category": "VO2max",
-      "score": 86,
-      "workouts": [
-        "5x3 VO2 Classic",
-        "Descending VO2 Pyramid",
-        "Norwegian 4x8"
-      ],
-      "workout_context": "When someone attacks on cascade foothills gravel, you have 10 seconds to respond or you're off the back. This builds that response."
-    },
-    {
       "category": "Over_Under",
-      "score": 84,
+      "score": 74,
       "workouts": [
         "Classic Over-Unders",
         "Ladder Over-Unders"
@@ -63,7 +63,7 @@
     },
     {
       "category": "G_Spot",
-      "score": 78,
+      "score": 64,
       "workouts": [
         "G-Spot Standard",
         "G-Spot Extended",
@@ -72,27 +72,46 @@
       "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of Oregon Gran Fondo. Train it until it feels boring."
     },
     {
-      "category": "Durability",
-      "score": 59,
+      "category": "VO2max",
+      "score": 64,
       "workouts": [
-        "Tired VO2max",
-        "Double Day Simulation",
-        "Progressive Fatigue"
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
       ],
-      "workout_context": "62 miles on cascade foothills gravel burns energy faster than the distance suggests. Train the fade resistance now."
+      "workout_context": "9,000ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
+    },
+    {
+      "category": "Endurance",
+      "score": 62,
+      "workouts": [
+        "Pre-Race Openers",
+        "Terrain Simulation Z2"
+      ],
+      "workout_context": "Every hard session works better with a bigger aerobic base. At 100 miles, base fitness is the difference between racing and surviving."
     },
     {
       "category": "Mixed_Climbing",
-      "score": 59,
+      "score": 55,
       "workouts": [
         "Seated/Standing Climbs",
         "Variable Grade Simulation"
       ],
-      "workout_context": "Varied gradients on cascade foothills gravel demand climbing versatility. Sit the shallow stuff, stand the steep stuff, switch without thinking."
+      "workout_context": "9,000ft of climbing on grades that change every minute. You need to switch from seated to standing without losing rhythm."
+    },
+    {
+      "category": "HVLI_Extended",
+      "score": 48,
+      "workouts": [
+        "HVLI Extended Z2",
+        "Multi-Hour Z2",
+        "Back-to-Back Long"
+      ],
+      "workout_context": "100 miles rewards fat oxidation. This volume work shifts your fuel mix so you're still burning fat at hour 5, not bonking at hour 3."
     },
     {
       "category": "Critical_Power",
-      "score": 55,
+      "score": 48,
       "workouts": [
         "Above CP Repeats",
         "W-Prime Depletion"
@@ -100,38 +119,21 @@
       "workout_context": "How long can you hold 105% FTP before you blow? At Oregon Gran Fondo, that number decides whether you bridge or get dropped."
     },
     {
-      "category": "Anaerobic_Capacity",
-      "score": 47,
+      "category": "Blended",
+      "score": 41,
       "workouts": [
-        "2min Killers",
-        "90sec Repeats"
+        "Z2 + VO2 Combo",
+        "Endurance with Spikes"
       ],
-      "workout_context": "Short, max efforts are unavoidable. Punchy climbs, gap closures, attacks on cascade foothills gravel. If you haven't trained them, you'll crack."
-    },
-    {
-      "category": "Norwegian_Double",
-      "score": 47,
-      "workouts": [
-        "Norwegian 4x8 Classic",
-        "Double Threshold"
-      ],
-      "workout_context": "Double-threshold training builds sustained power with less fatigue. More FTP per hour of training."
-    },
-    {
-      "category": "Endurance",
-      "score": 39,
-      "workouts": [
-        "Pre-Race Openers",
-        "Terrain Simulation Z2"
-      ],
-      "workout_context": "Base fitness for Oregon Gran Fondo. Without this, the hard workouts break you down instead of building you up."
+      "workout_context": "Endurance with intensity spikes baked in. Exactly what 9,000ft of climbing on road does to your power file on race day."
     }
   ],
   "race_overlay": {
-    "nutrition": "Target 40\u201360g carbs/hour for Oregon Gran Fondo\u2019s 62 miles. Front-load calories in the first half. One bottle per hour minimum, more in heat.",
+    "heat": "May in Cottage Grove, Oregon, USA can bring heat. Complete 3\u20134 heat exposure sessions in the final 2 weeks before Oregon Gran Fondo. Increase sodium intake 48 hours before race day.",
+    "nutrition": "Target 60\u201380g carbs/hour for Oregon Gran Fondo\u2019s 100 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
     "altitude": "Moderate altitude at Oregon Gran Fondo. Arrive 2\u20133 days early. Reduce intensity expectations by 5\u201310%. Hydrate aggressively.",
-    "terrain": "Mixed terrain at Oregon Gran Fondo requires surface adaptability. Include weekly rides on cascade foothills gravel to build confidence. Expect: cascade foothills, forest roads, rolling to hilly."
+    "terrain": "Mixed terrain at Oregon Gran Fondo requires surface adaptability. Include weekly rides on road to build confidence. Expect: road."
   },
-  "pack_summary": "This 10-workout pack focuses on TT Threshold, Gravel Specific, and Race Simulation to prepare you for 62 miles of cascade foothills gravel in Cottage Grove, Oregon.",
-  "generated_at": "2026-02-26"
+  "pack_summary": "This 10-workout pack focuses on Durability, TT Threshold, and Gravel Specific to prepare you for 100 miles of road in Cottage Grove, Oregon, USA.",
+  "generated_at": "2026-03-06"
 }

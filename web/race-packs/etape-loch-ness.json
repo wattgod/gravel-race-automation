@@ -1,0 +1,135 @@
+{
+  "slug": "etape-loch-ness",
+  "race_name": "Etape Loch Ness",
+  "distance_mi": 66.0,
+  "demands": {
+    "durability": 2,
+    "climbing": 5,
+    "vo2_power": 5,
+    "threshold": 6,
+    "technical": 2,
+    "heat_resilience": 0,
+    "altitude": 2,
+    "race_specificity": 9
+  },
+  "top_categories": [
+    {
+      "category": "Race_Simulation",
+      "score": 100,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ],
+      "workout_context": "Race-pace efforts that mimic Etape Loch Ness' demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before April."
+    },
+    {
+      "category": "TT_Threshold",
+      "score": 85,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ],
+      "workout_context": "Etape Loch Ness' fully paved closed public roads through the rewards steady threshold power. Surging and recovering costs more watts than just holding."
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 80,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ],
+      "workout_context": "Etape Loch Ness' Fully paved closed public roads, Single-carriageway forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 66 miles."
+    },
+    {
+      "category": "Over_Under",
+      "score": 72,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ],
+      "workout_context": "At Etape Loch Ness, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
+    },
+    {
+      "category": "G_Spot",
+      "score": 67,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ],
+      "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of Etape Loch Ness. Train it until it feels boring."
+    },
+    {
+      "category": "VO2max",
+      "score": 67,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ],
+      "workout_context": "When someone attacks on fully paved closed public roads through the, you have 10 seconds to respond or you're off the back. This builds that response."
+    },
+    {
+      "category": "Durability",
+      "score": 65,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ],
+      "workout_context": "66 miles on fully paved closed public roads through the burns energy faster than the distance suggests. Train the fade resistance now."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 50,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "Varied gradients on fully paved closed public roads through the demand climbing versatility. Sit the shallow stuff, stand the steep stuff, switch without thinking."
+    },
+    {
+      "category": "Blended",
+      "score": 40,
+      "workouts": [
+        "Z2 + VO2 Combo",
+        "Endurance with Spikes"
+      ],
+      "workout_context": "Long rides with hard efforts mixed in. Simulates what Etape Loch Ness' fully paved closed public roads through the actually does to you."
+    },
+    {
+      "category": "Anaerobic_Capacity",
+      "score": 40,
+      "workouts": [
+        "2min Killers",
+        "90sec Repeats"
+      ],
+      "workout_context": "2-minute all-out efforts on fully paved closed public roads through the. Closing gaps, responding to attacks, sprinting for position. Train the burn."
+    },
+    {
+      "category": "Norwegian_Double",
+      "score": 40,
+      "workouts": [
+        "Norwegian 4x8 Classic",
+        "Double Threshold"
+      ],
+      "workout_context": "Double-threshold training builds sustained power with less fatigue. More FTP per hour of training."
+    },
+    {
+      "category": "Critical_Power",
+      "score": 38,
+      "workouts": [
+        "Above CP Repeats",
+        "W-Prime Depletion"
+      ],
+      "workout_context": "How long can you hold 105% FTP before you blow? At Etape Loch Ness, that number decides whether you bridge or get dropped."
+    }
+  ],
+  "race_overlay": {
+    "nutrition": "Target 40\u201360g carbs/hour for Etape Loch Ness\u2019s 66 miles. Front-load calories in the first half. One bottle per hour minimum, more in heat."
+  },
+  "pack_summary": "This 10-workout pack focuses on Race Simulation, TT Threshold, and Gravel Specific to prepare you for 66 miles of fully paved closed public roads through the scottish highlands in Inverness, Scottish Highlands.",
+  "generated_at": "2026-03-06"
+}

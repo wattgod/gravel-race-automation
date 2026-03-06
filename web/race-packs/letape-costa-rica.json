@@ -1,0 +1,137 @@
+{
+  "slug": "letape-costa-rica",
+  "race_name": "L'Etape Costa Rica by Tour de France",
+  "distance_mi": 80.8,
+  "demands": {
+    "durability": 4,
+    "climbing": 8,
+    "vo2_power": 5,
+    "threshold": 8,
+    "technical": 6,
+    "heat_resilience": 1,
+    "altitude": 8,
+    "race_specificity": 9
+  },
+  "top_categories": [
+    {
+      "category": "TT_Threshold",
+      "score": 100,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ],
+      "workout_context": "102ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 100,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ],
+      "workout_context": "L'Etape Costa Rica by Tour de France's volcanic climbs, paved roads forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 80 miles."
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 100,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ],
+      "workout_context": "Race-pace efforts that mimic L'Etape Costa Rica by Tour de France's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before August."
+    },
+    {
+      "category": "VO2max",
+      "score": 97,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ],
+      "workout_context": "8,202ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
+    },
+    {
+      "category": "Over_Under",
+      "score": 89,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ],
+      "workout_context": "At L'Etape Costa Rica by Tour de France, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
+    },
+    {
+      "category": "G_Spot",
+      "score": 78,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ],
+      "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of L'Etape Costa Rica by Tour de France. Train it until it feels boring."
+    },
+    {
+      "category": "Durability",
+      "score": 76,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ],
+      "workout_context": "At mile 60 of 80, glycogen is gone. This workout teaches your body to produce watts on fumes."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 67,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "8,202ft of climbing on grades that change every minute. You need to switch from seated to standing without losing rhythm."
+    },
+    {
+      "category": "Endurance",
+      "score": 60,
+      "workouts": [
+        "Pre-Race Openers",
+        "Terrain Simulation Z2"
+      ],
+      "workout_context": "Every hard session works better with a bigger aerobic base. At 80 miles, base fitness is the difference between racing and surviving."
+    },
+    {
+      "category": "Critical_Power",
+      "score": 54,
+      "workouts": [
+        "Above CP Repeats",
+        "W-Prime Depletion"
+      ],
+      "workout_context": "How long can you hold 105% FTP before you blow? At L'Etape Costa Rica by Tour de France, that number decides whether you bridge or get dropped."
+    },
+    {
+      "category": "SFR_Muscle_Force",
+      "score": 44,
+      "workouts": [
+        "SFR Low Cadence",
+        "Force Repeats"
+      ],
+      "workout_context": "Low-cadence force work for 8,202ft of climbing. The slow, grinding ascents where you can't spin\u2014you push."
+    },
+    {
+      "category": "Anaerobic_Capacity",
+      "score": 44,
+      "workouts": [
+        "2min Killers",
+        "90sec Repeats"
+      ],
+      "workout_context": "Short, max efforts are unavoidable. Punchy climbs, gap closures, attacks on volcanic paved climbs with Tour pedigree. If you haven't trained them, you'll crack."
+    }
+  ],
+  "race_overlay": {
+    "nutrition": "Target 60\u201380g carbs/hour for L'Etape Costa Rica by Tour de France\u2019s 80 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
+    "altitude": "L'Etape Costa Rica by Tour de France with 8,202ft of climbing, much of it above 8,000ft demands altitude preparation. Arrive 5\u20137 days early for acclimatization. Expect 5\u201315% power reduction at altitude. Increase iron intake 4 weeks out. Hydrate aggressively \u2014 altitude increases fluid loss by 20\u201340%. UV exposure at altitude.",
+    "terrain": "Mixed terrain at L'Etape Costa Rica by Tour de France requires surface adaptability. Include weekly rides on volcanic paved climbs with tour pedigree to build confidence. Expect: volcanic climbs, paved roads, mountain passes."
+  },
+  "pack_summary": "This 10-workout pack focuses on TT Threshold, Gravel Specific, and Race Simulation to prepare you for 80 miles of volcanic paved climbs with tour pedigree in Cartago, Cartago Province, Costa Rica.",
+  "generated_at": "2026-03-06"
+}

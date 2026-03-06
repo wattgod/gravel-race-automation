@@ -1,0 +1,137 @@
+{
+  "slug": "velomediane-criquielion",
+  "race_name": "V\u00e9lomediane Claudy Criquielion",
+  "distance_mi": 103.0,
+  "demands": {
+    "durability": 6,
+    "climbing": 10,
+    "vo2_power": 5,
+    "threshold": 8,
+    "technical": 4,
+    "heat_resilience": 0,
+    "altitude": 4,
+    "race_specificity": 9
+  },
+  "top_categories": [
+    {
+      "category": "TT_Threshold",
+      "score": 100,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ],
+      "workout_context": "114ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
+    },
+    {
+      "category": "Over_Under",
+      "score": 95,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ],
+      "workout_context": "At V\u00e9lomediane Claudy Criquielion, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 85,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ],
+      "workout_context": "Race-pace efforts that mimic V\u00e9lomediane Claudy Criquielion's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before August."
+    },
+    {
+      "category": "Durability",
+      "score": 81,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ],
+      "workout_context": "At mile 60 of 103, glycogen is gone. This workout teaches your body to produce watts on fumes."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 77,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "11,712ft of climbing on grades that change every minute. You need to switch from seated to standing without losing rhythm."
+    },
+    {
+      "category": "G_Spot",
+      "score": 77,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ],
+      "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of V\u00e9lomediane Claudy Criquielion. Train it until it feels boring."
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 77,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ],
+      "workout_context": "V\u00e9lomediane Claudy Criquielion's mixed terrain forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 103 miles."
+    },
+    {
+      "category": "VO2max",
+      "score": 64,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ],
+      "workout_context": "11,712ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
+    },
+    {
+      "category": "SFR_Muscle_Force",
+      "score": 51,
+      "workouts": [
+        "SFR Low Cadence",
+        "Force Repeats"
+      ],
+      "workout_context": "Low-cadence force work for 11,712ft of climbing. The slow, grinding ascents where you can't spin\u2014you push."
+    },
+    {
+      "category": "Endurance",
+      "score": 46,
+      "workouts": [
+        "Pre-Race Openers",
+        "Terrain Simulation Z2"
+      ],
+      "workout_context": "Every hard session works better with a bigger aerobic base. At 103 miles, base fitness is the difference between racing and surviving."
+    },
+    {
+      "category": "Blended",
+      "score": 46,
+      "workouts": [
+        "Z2 + VO2 Combo",
+        "Endurance with Spikes"
+      ],
+      "workout_context": "Endurance with intensity spikes baked in. Exactly what 11,712ft of climbing on mixed terrain does to your power file on race day."
+    },
+    {
+      "category": "Norwegian_Double",
+      "score": 41,
+      "workouts": [
+        "Norwegian 4x8 Classic",
+        "Double Threshold"
+      ],
+      "workout_context": "Two threshold sessions per week without the recovery cost of VO2max work. For 103 miles, sustainable FTP gains matter more than peak power."
+    }
+  ],
+  "race_overlay": {
+    "nutrition": "Target 60\u201380g carbs/hour for V\u00e9lomediane Claudy Criquielion\u2019s 103 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
+    "altitude": "Moderate altitude at V\u00e9lomediane Claudy Criquielion. Arrive 2\u20133 days early. Reduce intensity expectations by 5\u201310%. Hydrate aggressively.",
+    "terrain": "Mixed terrain at V\u00e9lomediane Claudy Criquielion requires surface adaptability. Include weekly rides on mixed terrain to build confidence."
+  },
+  "pack_summary": "This 10-workout pack focuses on TT Threshold, Over Under, and Race Simulation to prepare you for 103 miles of mixed terrain in La Roche-en-Ardenne, Belgium.",
+  "generated_at": "2026-03-06"
+}

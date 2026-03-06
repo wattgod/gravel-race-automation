@@ -1,0 +1,138 @@
+{
+  "slug": "letape-du-tour",
+  "race_name": "L'Etape du Tour de France",
+  "distance_mi": 106.0,
+  "demands": {
+    "durability": 6,
+    "climbing": 10,
+    "vo2_power": 8,
+    "threshold": 8,
+    "technical": 2,
+    "heat_resilience": 7,
+    "altitude": 10,
+    "race_specificity": 10
+  },
+  "top_categories": [
+    {
+      "category": "VO2max",
+      "score": 100,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ],
+      "workout_context": "17,700ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
+    },
+    {
+      "category": "Durability",
+      "score": 96,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ],
+      "workout_context": "At mile 60 of 106, glycogen is gone. This workout teaches your body to produce watts on fumes."
+    },
+    {
+      "category": "TT_Threshold",
+      "score": 80,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ],
+      "workout_context": "167ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
+    },
+    {
+      "category": "Endurance",
+      "score": 77,
+      "workouts": [
+        "Pre-Race Openers",
+        "Terrain Simulation Z2"
+      ],
+      "workout_context": "Every hard session works better with a bigger aerobic base. At 106 miles, base fitness is the difference between racing and surviving."
+    },
+    {
+      "category": "Over_Under",
+      "score": 76,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ],
+      "workout_context": "At L'Etape du Tour de France, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 67,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ],
+      "workout_context": "Race-pace efforts that mimic L'Etape du Tour de France's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before July."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 61,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "17,700ft of climbing on grades that change every minute. You need to switch from seated to standing without losing rhythm."
+    },
+    {
+      "category": "G_Spot",
+      "score": 61,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ],
+      "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of L'Etape du Tour de France. Train it until it feels boring."
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 53,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ],
+      "workout_context": "L'Etape du Tour de France's Paved Alpine roads, Tour de France mountain passes forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 106 miles."
+    },
+    {
+      "category": "HVLI_Extended",
+      "score": 45,
+      "workouts": [
+        "HVLI Extended Z2",
+        "Multi-Hour Z2",
+        "Back-to-Back Long"
+      ],
+      "workout_context": "106 miles rewards fat oxidation. This volume work shifts your fuel mix so you're still burning fat at hour 5, not bonking at hour 3."
+    },
+    {
+      "category": "SFR_Muscle_Force",
+      "score": 41,
+      "workouts": [
+        "SFR Low Cadence",
+        "Force Repeats"
+      ],
+      "workout_context": "Low-cadence force work for 17,700ft of climbing. The slow, grinding ascents where you can't spin\u2014you push."
+    },
+    {
+      "category": "Blended",
+      "score": 39,
+      "workouts": [
+        "Z2 + VO2 Combo",
+        "Endurance with Spikes"
+      ],
+      "workout_context": "Endurance with intensity spikes baked in. Exactly what 17,700ft of climbing on paved Alpine mountain passes does to your power file on race day."
+    }
+  ],
+  "race_overlay": {
+    "heat": "July in Route changes annually (2026: Bourg d'Oisans to Alpe d'Huez, French Alps) can bring heat. Complete 3\u20134 heat exposure sessions in the final 2 weeks before L'Etape du Tour de France. Increase sodium intake 48 hours before race day.",
+    "nutrition": "Target 60\u201380g carbs/hour for L'Etape du Tour de France\u2019s 106 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
+    "altitude": "L'Etape du Tour de France with 17,700ft of climbing, much of it above 8,000ft demands altitude preparation. Arrive 5\u20137 days early for acclimatization. Expect 5\u201315% power reduction at altitude. Increase iron intake 4 weeks out. Hydrate aggressively \u2014 altitude increases fluid loss by 20\u201340%. Galibier summit at 2,642m: near-freezing with severe wind chill; Must carry warm layers for summits and strip down for valleys."
+  },
+  "pack_summary": "This 10-workout pack focuses on VO2max, Durability, and TT Threshold to prepare you for 106 miles of paved alpine mountain passes in Route changes annually (2026: Bourg d'Oisans to Alpe d'Huez, French Alps).",
+  "generated_at": "2026-03-06"
+}

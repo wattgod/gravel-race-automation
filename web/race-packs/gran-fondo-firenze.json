@@ -1,0 +1,136 @@
+{
+  "slug": "gran-fondo-firenze",
+  "race_name": "Gran Fondo Firenze",
+  "distance_mi": 83.0,
+  "demands": {
+    "durability": 4,
+    "climbing": 6,
+    "vo2_power": 5,
+    "threshold": 8,
+    "technical": 4,
+    "heat_resilience": 1,
+    "altitude": 2,
+    "race_specificity": 9
+  },
+  "top_categories": [
+    {
+      "category": "TT_Threshold",
+      "score": 100,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ],
+      "workout_context": "79ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 100,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ],
+      "workout_context": "Race-pace efforts that mimic Gran Fondo Firenze's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before April."
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 91,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ],
+      "workout_context": "Gran Fondo Firenze's Paved Italian roads throughout, Rolling Tuscan hills with forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 83 miles."
+    },
+    {
+      "category": "Durability",
+      "score": 83,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ],
+      "workout_context": "At mile 60 of 83, glycogen is gone. This workout teaches your body to produce watts on fumes."
+    },
+    {
+      "category": "Over_Under",
+      "score": 82,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ],
+      "workout_context": "At Gran Fondo Firenze, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
+    },
+    {
+      "category": "G_Spot",
+      "score": 79,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ],
+      "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of Gran Fondo Firenze. Train it until it feels boring."
+    },
+    {
+      "category": "VO2max",
+      "score": 61,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ],
+      "workout_context": "6,562ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 55,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "6,562ft of climbing on grades that change every minute. You need to switch from seated to standing without losing rhythm."
+    },
+    {
+      "category": "Norwegian_Double",
+      "score": 48,
+      "workouts": [
+        "Norwegian 4x8 Classic",
+        "Double Threshold"
+      ],
+      "workout_context": "Two threshold sessions per week without the recovery cost of VO2max work. For 83 miles, sustainable FTP gains matter more than peak power."
+    },
+    {
+      "category": "Critical_Power",
+      "score": 47,
+      "workouts": [
+        "Above CP Repeats",
+        "W-Prime Depletion"
+      ],
+      "workout_context": "How long can you hold 105% FTP before you blow? At Gran Fondo Firenze, that number decides whether you bridge or get dropped."
+    },
+    {
+      "category": "Blended",
+      "score": 45,
+      "workouts": [
+        "Z2 + VO2 Combo",
+        "Endurance with Spikes"
+      ],
+      "workout_context": "Endurance with intensity spikes baked in. Exactly what 6,562ft of climbing on paved \u2014 Italian provincial and urban roads does to your power file on race day."
+    },
+    {
+      "category": "Anaerobic_Capacity",
+      "score": 42,
+      "workouts": [
+        "2min Killers",
+        "90sec Repeats"
+      ],
+      "workout_context": "Short, max efforts are unavoidable. Punchy climbs, gap closures, attacks on paved \u2014 Italian provincial and urban roads. If you haven't trained them, you'll crack."
+    }
+  ],
+  "race_overlay": {
+    "nutrition": "Target 60\u201380g carbs/hour for Gran Fondo Firenze\u2019s 83 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
+    "terrain": "Mixed terrain at Gran Fondo Firenze requires surface adaptability. Include weekly rides on paved \u2014 italian provincial and urban roads to build confidence. Expect: paved italian roads throughout, rolling tuscan hills with vineyard-lined descents, steep urban climbs on historic cobbled streets."
+  },
+  "pack_summary": "This 10-workout pack focuses on TT Threshold, Race Simulation, and Gravel Specific to prepare you for 83 miles of paved \u2014 italian provincial and urban roads in Florence, Tuscany, Italy.",
+  "generated_at": "2026-03-06"
+}

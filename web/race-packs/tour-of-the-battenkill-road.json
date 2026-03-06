@@ -1,0 +1,136 @@
+{
+  "slug": "tour-of-the-battenkill-road",
+  "race_name": "Tour of the Battenkill \u2014 Gran Fondo",
+  "distance_mi": 64.0,
+  "demands": {
+    "durability": 2,
+    "climbing": 4,
+    "vo2_power": 5,
+    "threshold": 5,
+    "technical": 6,
+    "heat_resilience": 0,
+    "altitude": 2,
+    "race_specificity": 6
+  },
+  "top_categories": [
+    {
+      "category": "Gravel_Specific",
+      "score": 100,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ],
+      "workout_context": "Tour of the Battenkill \u2014 Gran Fondo's Paved rural roads, Packed dirt farm roads forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 64 miles."
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 90,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ],
+      "workout_context": "Race-pace efforts that mimic Tour of the Battenkill \u2014 Gran Fondo's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before May."
+    },
+    {
+      "category": "TT_Threshold",
+      "score": 70,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ],
+      "workout_context": "70ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
+    },
+    {
+      "category": "VO2max",
+      "score": 67,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ],
+      "workout_context": "When someone attacks on mixed-surface \u2014 paved roads and packed dirt farm, you have 10 seconds to respond or you're off the back. This builds that response."
+    },
+    {
+      "category": "Critical_Power",
+      "score": 65,
+      "workouts": [
+        "Above CP Repeats",
+        "W-Prime Depletion"
+      ],
+      "workout_context": "How long can you hold 105% FTP before you blow? At Tour of the Battenkill \u2014 Gran Fondo, that number decides whether you bridge or get dropped."
+    },
+    {
+      "category": "Over_Under",
+      "score": 58,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ],
+      "workout_context": "At Tour of the Battenkill \u2014 Gran Fondo, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
+    },
+    {
+      "category": "G_Spot",
+      "score": 55,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ],
+      "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of Tour of the Battenkill \u2014 Gran Fondo. Train it until it feels boring."
+    },
+    {
+      "category": "Anaerobic_Capacity",
+      "score": 53,
+      "workouts": [
+        "2min Killers",
+        "90sec Repeats"
+      ],
+      "workout_context": "Short, max efforts are unavoidable. Punchy climbs, gap closures, attacks on mixed-surface \u2014 paved roads and packed dirt farm. If you haven't trained them, you'll crack."
+    },
+    {
+      "category": "Durability",
+      "score": 50,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ],
+      "workout_context": "64 miles on mixed-surface \u2014 paved roads and packed dirt farm burns energy faster than the distance suggests. Train the fade resistance now."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 40,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "Varied gradients on mixed-surface \u2014 paved roads and packed dirt farm demand climbing versatility. Sit the shallow stuff, stand the steep stuff, switch without thinking."
+    },
+    {
+      "category": "Cadence_Work",
+      "score": 40,
+      "workouts": [
+        "High Cadence Drills",
+        "Cadence Pyramids"
+      ],
+      "workout_context": "Smooth pedaling at 64 miles saves muscle. Bad technique at mile 10 is invisible. At mile 80 it's a cramp."
+    },
+    {
+      "category": "Norwegian_Double",
+      "score": 33,
+      "workouts": [
+        "Norwegian 4x8 Classic",
+        "Double Threshold"
+      ],
+      "workout_context": "Double-threshold training builds sustained power with less fatigue. More FTP per hour of training."
+    }
+  ],
+  "race_overlay": {
+    "nutrition": "Target 40\u201360g carbs/hour for Tour of the Battenkill \u2014 Gran Fondo\u2019s 64 miles. Front-load calories in the first half. One bottle per hour minimum, more in heat.",
+    "terrain": "Mixed terrain at Tour of the Battenkill \u2014 Gran Fondo requires surface adaptability. Include weekly rides on mixed-surface \u2014 paved roads and packed dirt farm roads to build confidence. Expect: paved rural roads, packed dirt farm roads, mixed-surface sectors."
+  },
+  "pack_summary": "This 10-workout pack focuses on Gravel Specific, Race Simulation, and TT Threshold to prepare you for 64 miles of mixed-surface \u2014 paved roads and packed dirt farm roads in Cambridge, Washington County, New York, USA.",
+  "generated_at": "2026-03-06"
+}

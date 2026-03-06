@@ -1,0 +1,137 @@
+{
+  "slug": "oetztaler-radmarathon",
+  "race_name": "\u00d6tztaler Radmarathon",
+  "distance_mi": 143.0,
+  "demands": {
+    "durability": 6,
+    "climbing": 10,
+    "vo2_power": 9,
+    "threshold": 8,
+    "technical": 4,
+    "heat_resilience": 0,
+    "altitude": 10,
+    "race_specificity": 10
+  },
+  "top_categories": [
+    {
+      "category": "VO2max",
+      "score": 100,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ],
+      "workout_context": "18,045ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
+    },
+    {
+      "category": "TT_Threshold",
+      "score": 75,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ],
+      "workout_context": "126ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
+    },
+    {
+      "category": "Over_Under",
+      "score": 71,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ],
+      "workout_context": "At \u00d6tztaler Radmarathon, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 69,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ],
+      "workout_context": "Race-pace efforts that mimic \u00d6tztaler Radmarathon's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before August."
+    },
+    {
+      "category": "Durability",
+      "score": 63,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ],
+      "workout_context": "At mile 60 of 143, glycogen is gone. This workout teaches your body to produce watts on fumes."
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 62,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ],
+      "workout_context": "\u00d6tztaler Radmarathon's mixed terrain forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 143 miles."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 58,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "18,045ft of climbing on grades that change every minute. You need to switch from seated to standing without losing rhythm."
+    },
+    {
+      "category": "G_Spot",
+      "score": 58,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ],
+      "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of \u00d6tztaler Radmarathon. Train it until it feels boring."
+    },
+    {
+      "category": "Endurance",
+      "score": 52,
+      "workouts": [
+        "Pre-Race Openers",
+        "Terrain Simulation Z2"
+      ],
+      "workout_context": "Every hard session works better with a bigger aerobic base. At 143 miles, base fitness is the difference between racing and surviving."
+    },
+    {
+      "category": "Anaerobic_Capacity",
+      "score": 42,
+      "workouts": [
+        "2min Killers",
+        "90sec Repeats"
+      ],
+      "workout_context": "Short, max efforts are unavoidable. Punchy climbs, gap closures, attacks on mixed terrain. If you haven't trained them, you'll crack."
+    },
+    {
+      "category": "Critical_Power",
+      "score": 41,
+      "workouts": [
+        "Above CP Repeats",
+        "W-Prime Depletion"
+      ],
+      "workout_context": "How long can you hold 105% FTP before you blow? At \u00d6tztaler Radmarathon, that number decides whether you bridge or get dropped."
+    },
+    {
+      "category": "SFR_Muscle_Force",
+      "score": 38,
+      "workouts": [
+        "SFR Low Cadence",
+        "Force Repeats"
+      ],
+      "workout_context": "Low-cadence force work for 18,045ft of climbing. The slow, grinding ascents where you can't spin\u2014you push."
+    }
+  ],
+  "race_overlay": {
+    "nutrition": "Target 60\u201380g carbs/hour for \u00d6tztaler Radmarathon\u2019s 143 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
+    "altitude": "\u00d6tztaler Radmarathon with 18,045ft of climbing, much of it above 8,000ft demands altitude preparation. Arrive 5\u20137 days early for acclimatization. Expect 5\u201315% power reduction at altitude. Increase iron intake 4 weeks out. Hydrate aggressively \u2014 altitude increases fluid loss by 20\u201340%.",
+    "terrain": "Mixed terrain at \u00d6tztaler Radmarathon requires surface adaptability. Include weekly rides on mixed terrain to build confidence."
+  },
+  "pack_summary": "This 10-workout pack focuses on VO2max, TT Threshold, and Over Under to prepare you for 143 miles of mixed terrain in S\u00f6lden, Tirol, Austria.",
+  "generated_at": "2026-03-06"
+}

@@ -1,0 +1,135 @@
+{
+  "slug": "maraton-franja",
+  "race_name": "Maraton Franja BTC City",
+  "distance_mi": 97.0,
+  "demands": {
+    "durability": 4,
+    "climbing": 5,
+    "vo2_power": 7,
+    "threshold": 8,
+    "technical": 2,
+    "heat_resilience": 1,
+    "altitude": 2,
+    "race_specificity": 10
+  },
+  "top_categories": [
+    {
+      "category": "Race_Simulation",
+      "score": 100,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ],
+      "workout_context": "Race-pace efforts that mimic Maraton Franja BTC City's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before June."
+    },
+    {
+      "category": "TT_Threshold",
+      "score": 95,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ],
+      "workout_context": "Maraton Franja BTC City's paved Slovenian provincial and back-country roads rewards steady threshold power. Surging and recovering costs more watts than just holding."
+    },
+    {
+      "category": "Durability",
+      "score": 88,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ],
+      "workout_context": "At mile 60 of 97, glycogen is gone. This workout teaches your body to produce watts on fumes."
+    },
+    {
+      "category": "VO2max",
+      "score": 79,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ],
+      "workout_context": "When someone attacks on paved Slovenian provincial and back-country roads, you have 10 seconds to respond or you're off the back. This builds that response."
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 79,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ],
+      "workout_context": "Maraton Franja BTC City's Paved Slovenian provincial roads, Ljubljana Basin loop forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 97 miles."
+    },
+    {
+      "category": "G_Spot",
+      "score": 76,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ],
+      "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of Maraton Franja BTC City. Train it until it feels boring."
+    },
+    {
+      "category": "Over_Under",
+      "score": 74,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ],
+      "workout_context": "At Maraton Franja BTC City, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
+    },
+    {
+      "category": "Blended",
+      "score": 48,
+      "workouts": [
+        "Z2 + VO2 Combo",
+        "Endurance with Spikes"
+      ],
+      "workout_context": "Endurance with intensity spikes baked in. Exactly what 4,281ft of climbing on paved Slovenian provincial and back-country roads does to your power file on race day."
+    },
+    {
+      "category": "Anaerobic_Capacity",
+      "score": 48,
+      "workouts": [
+        "2min Killers",
+        "90sec Repeats"
+      ],
+      "workout_context": "Short, max efforts are unavoidable. Punchy climbs, gap closures, attacks on paved Slovenian provincial and back-country roads. If you haven't trained them, you'll crack."
+    },
+    {
+      "category": "Norwegian_Double",
+      "score": 48,
+      "workouts": [
+        "Norwegian 4x8 Classic",
+        "Double Threshold"
+      ],
+      "workout_context": "Two threshold sessions per week without the recovery cost of VO2max work. For 97 miles, sustainable FTP gains matter more than peak power."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 45,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "Varied gradients on paved Slovenian provincial and back-country roads demand climbing versatility. Sit the shallow stuff, stand the steep stuff, switch without thinking."
+    },
+    {
+      "category": "Critical_Power",
+      "score": 44,
+      "workouts": [
+        "Above CP Repeats",
+        "W-Prime Depletion"
+      ],
+      "workout_context": "How long can you hold 105% FTP before you blow? At Maraton Franja BTC City, that number decides whether you bridge or get dropped."
+    }
+  ],
+  "race_overlay": {
+    "nutrition": "Target 60\u201380g carbs/hour for Maraton Franja BTC City\u2019s 97 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure."
+  },
+  "pack_summary": "This 10-workout pack focuses on Race Simulation, TT Threshold, and Durability to prepare you for 97 miles of paved slovenian provincial and back-country roads in Ljubljana, Slovenia.",
+  "generated_at": "2026-03-06"
+}

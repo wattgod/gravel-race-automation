@@ -1,0 +1,136 @@
+{
+  "slug": "perth-hills-gran-fondo",
+  "race_name": "Perth Hills Gran Fondo",
+  "distance_mi": 87.0,
+  "demands": {
+    "durability": 4,
+    "climbing": 4,
+    "vo2_power": 4,
+    "threshold": 8,
+    "technical": 4,
+    "heat_resilience": 0,
+    "altitude": 2,
+    "race_specificity": 6
+  },
+  "top_categories": [
+    {
+      "category": "TT_Threshold",
+      "score": 100,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ],
+      "workout_context": "Perth Hills Gran Fondo's mixed terrain rewards steady threshold power. Surging and recovering costs more watts than just holding."
+    },
+    {
+      "category": "G_Spot",
+      "score": 80,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ],
+      "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of Perth Hills Gran Fondo. Train it until it feels boring."
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 80,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ],
+      "workout_context": "Perth Hills Gran Fondo's mixed terrain forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 87 miles."
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 80,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ],
+      "workout_context": "Race-pace efforts that mimic Perth Hills Gran Fondo's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before March."
+    },
+    {
+      "category": "Over_Under",
+      "score": 73,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ],
+      "workout_context": "At Perth Hills Gran Fondo, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
+    },
+    {
+      "category": "Durability",
+      "score": 70,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ],
+      "workout_context": "At mile 60 of 87, glycogen is gone. This workout teaches your body to produce watts on fumes."
+    },
+    {
+      "category": "VO2max",
+      "score": 57,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ],
+      "workout_context": "When someone attacks on mixed terrain, you have 10 seconds to respond or you're off the back. This builds that response."
+    },
+    {
+      "category": "Norwegian_Double",
+      "score": 53,
+      "workouts": [
+        "Norwegian 4x8 Classic",
+        "Double Threshold"
+      ],
+      "workout_context": "Two threshold sessions per week without the recovery cost of VO2max work. For 87 miles, sustainable FTP gains matter more than peak power."
+    },
+    {
+      "category": "Critical_Power",
+      "score": 47,
+      "workouts": [
+        "Above CP Repeats",
+        "W-Prime Depletion"
+      ],
+      "workout_context": "How long can you hold 105% FTP before you blow? At Perth Hills Gran Fondo, that number decides whether you bridge or get dropped."
+    },
+    {
+      "category": "Blended",
+      "score": 40,
+      "workouts": [
+        "Z2 + VO2 Combo",
+        "Endurance with Spikes"
+      ],
+      "workout_context": "Long rides with hard efforts mixed in. Simulates what Perth Hills Gran Fondo's mixed terrain actually does to you."
+    },
+    {
+      "category": "Tempo",
+      "score": 40,
+      "workouts": [
+        "Tempo Blocks",
+        "Extended Tempo"
+      ],
+      "workout_context": "Tempo is Perth Hills Gran Fondo's race pace. The wattage you'll hold for 87 miles on mixed terrain. Train it until it's automatic."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 40,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "Varied gradients on mixed terrain demand climbing versatility. Sit the shallow stuff, stand the steep stuff, switch without thinking."
+    }
+  ],
+  "race_overlay": {
+    "nutrition": "Target 60\u201380g carbs/hour for Perth Hills Gran Fondo\u2019s 87 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
+    "terrain": "Mixed terrain at Perth Hills Gran Fondo requires surface adaptability. Include weekly rides on mixed terrain to build confidence."
+  },
+  "pack_summary": "This 10-workout pack focuses on TT Threshold, G Spot, and Gravel Specific to prepare you for 87 miles of mixed terrain in Kalamunda, Perth, Western Australia.",
+  "generated_at": "2026-03-06"
+}

@@ -1,0 +1,137 @@
+{
+  "slug": "rbc-gran-fondo-banff",
+  "race_name": "GranFondo Banff",
+  "distance_mi": 88.0,
+  "demands": {
+    "durability": 4,
+    "climbing": 6,
+    "vo2_power": 3,
+    "threshold": 8,
+    "technical": 4,
+    "heat_resilience": 2,
+    "altitude": 6,
+    "race_specificity": 8
+  },
+  "top_categories": [
+    {
+      "category": "TT_Threshold",
+      "score": 100,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ],
+      "workout_context": "60ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 91,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ],
+      "workout_context": "Race-pace efforts that mimic GranFondo Banff's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before August."
+    },
+    {
+      "category": "Durability",
+      "score": 85,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ],
+      "workout_context": "At mile 60 of 88, glycogen is gone. This workout teaches your body to produce watts on fumes."
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 85,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ],
+      "workout_context": "GranFondo Banff's Paved highway, Canadian Rockies mountain roads forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 88 miles."
+    },
+    {
+      "category": "Over_Under",
+      "score": 82,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ],
+      "workout_context": "At GranFondo Banff, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
+    },
+    {
+      "category": "G_Spot",
+      "score": 79,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ],
+      "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of GranFondo Banff. Train it until it feels boring."
+    },
+    {
+      "category": "VO2max",
+      "score": 73,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ],
+      "workout_context": "5,249ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
+    },
+    {
+      "category": "Endurance",
+      "score": 61,
+      "workouts": [
+        "Pre-Race Openers",
+        "Terrain Simulation Z2"
+      ],
+      "workout_context": "Every hard session works better with a bigger aerobic base. At 88 miles, base fitness is the difference between racing and surviving."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 55,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "5,249ft of climbing on grades that change every minute. You need to switch from seated to standing without losing rhythm."
+    },
+    {
+      "category": "Norwegian_Double",
+      "score": 48,
+      "workouts": [
+        "Norwegian 4x8 Classic",
+        "Double Threshold"
+      ],
+      "workout_context": "Two threshold sessions per week without the recovery cost of VO2max work. For 88 miles, sustainable FTP gains matter more than peak power."
+    },
+    {
+      "category": "Blended",
+      "score": 42,
+      "workouts": [
+        "Z2 + VO2 Combo",
+        "Endurance with Spikes"
+      ],
+      "workout_context": "Endurance with intensity spikes baked in. Exactly what 5,249ft of climbing on paved mountain highway through Banff National Park does to your power file on race day."
+    },
+    {
+      "category": "Critical_Power",
+      "score": 38,
+      "workouts": [
+        "Above CP Repeats",
+        "W-Prime Depletion"
+      ],
+      "workout_context": "How long can you hold 105% FTP before you blow? At GranFondo Banff, that number decides whether you bridge or get dropped."
+    }
+  ],
+  "race_overlay": {
+    "nutrition": "Target 60\u201380g carbs/hour for GranFondo Banff\u2019s 88 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
+    "altitude": "Moderate altitude at GranFondo Banff. Arrive 2\u20133 days early. Reduce intensity expectations by 5\u201310%. Hydrate aggressively.",
+    "terrain": "Mixed terrain at GranFondo Banff requires surface adaptability. Include weekly rides on paved mountain highway through banff national park to build confidence. Expect: paved highway, canadian rockies mountain roads, national park roads."
+  },
+  "pack_summary": "This 10-workout pack focuses on TT Threshold, Race Simulation, and Durability to prepare you for 88 miles of paved mountain highway through banff national park in Banff, Alberta, Canada.",
+  "generated_at": "2026-03-06"
+}

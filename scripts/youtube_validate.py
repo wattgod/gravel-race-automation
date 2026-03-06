@@ -32,6 +32,7 @@ DATA_DIR = Path(__file__).resolve().parent.parent / "race-data"
 VIDEO_ID_RE = re.compile(r'^[A-Za-z0-9_-]{11}$')
 DATE_RE = re.compile(r'^\d{4}-\d{2}-\d{2}$')
 HTML_RE = re.compile(r'<[a-z][^>]*>', re.IGNORECASE)
+THUMBNAIL_URL_RE = re.compile(r'^https://i\.ytimg\.com/vi/[A-Za-z0-9_-]{11}/(maxresdefault|hqdefault)\.jpg$')
 
 
 def validate_rider_intel(fname: str, intel: dict, video_ids: set) -> list[str]:
@@ -242,7 +243,13 @@ def validate_race(fname: str, yt_data: dict, verbose: bool = False) -> list[str]
     if ra and not DATE_RE.match(ra):
         errors.append(f"{fname}: invalid researched_at date '{ra}'")
 
-    # 7. rider_intel validation
+    # 7. thumbnail_url format (if present)
+    for v in videos:
+        thumb_url = v.get("thumbnail_url", "")
+        if thumb_url and not THUMBNAIL_URL_RE.match(thumb_url):
+            errors.append(f"{fname}: invalid thumbnail_url '{thumb_url}' for video '{v.get('video_id')}'")
+
+    # 8. rider_intel validation
     rider_intel = yt_data.get("rider_intel")
     if rider_intel:
         errors.extend(validate_rider_intel(fname, rider_intel, video_ids))

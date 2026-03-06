@@ -1928,11 +1928,18 @@ def build_from_the_field(rd: dict) -> str:
                 meta_parts.append(duration)
             meta_text = ' &middot; '.join(meta_parts)
 
+            thumb_url = esc(v.get('thumbnail_url', ''))
+            if thumb_url and 'maxresdefault' in thumb_url:
+                thumb_w, thumb_h = 1280, 720
+            else:
+                thumb_url = f'https://i.ytimg.com/vi/{vid}/hqdefault.jpg'
+                thumb_w, thumb_h = 480, 360
+
             video_cards.append(
                 f'<div class="gg-field-video">'
                 f'<div class="gg-lite-youtube" data-videoid="{vid}">'
-                f'<img src="https://i.ytimg.com/vi/{vid}/hqdefault.jpg" '
-                f'alt="{title}" class="gg-lite-youtube-thumb" loading="lazy" width="480" height="360">'
+                f'<img src="{thumb_url}" '
+                f'alt="{title}" class="gg-lite-youtube-thumb" loading="lazy" width="{thumb_w}" height="{thumb_h}">'
                 f'<button class="gg-lite-youtube-play" aria-label="Play {title}">'
                 f'<svg viewBox="0 0 68 48" width="68" height="48"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.64 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="#212121" fill-opacity=".8"/><path d="M45 24 27 14v20" fill="#fff"/></svg>'
                 f'</button>'

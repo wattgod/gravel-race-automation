@@ -88,6 +88,9 @@ reports/photo-qc-*.html
 # Scraper cache (large HTML blobs, regenerate with: python scripts/scrape_official_sites.py)
 data/scrape-cache/
 
+# Thumbnail cache (fetched YouTube thumbnails, regenerate with: python scripts/youtube_thumbnail.py)
+data/thumbnail-cache/
+
 # OS
 .DS_Store
 Thumbs.db

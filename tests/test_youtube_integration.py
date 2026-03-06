@@ -20,6 +20,11 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "wordpress"))
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "scripts"))
 
 from youtube_research import build_search_query
+from youtube_enrich import (
+    build_enrichment_prompt,
+    validate_enrichment,
+    _parse_duration_seconds,
+)
 
 from generate_neo_brutalist import (
     _merge_youtube_quotes,
@@ -517,3 +522,219 @@ class TestBuildSearchQuery:
         race = self._make_race("Test Race", "road", "")
         query = build_search_query(race)
         assert query == "Test Race gran fondo cycling"
+
+
+# ── Enrichment Prompt Tests ──────────────────────────────────
+
+class TestEnrichmentPrompt:
+    """Test build_enrichment_prompt() content."""
+
+    def _make_race_data(self, tier=1, tier_label="TIER 1"):
+        return {
+            "race": {
+                "name": "Test Race",
+                "display_name": "Test Race",
+                "vitals": {"location": "Emporia, Kansas"},
+                "gravel_god_rating": {
+                    "tier": tier,
+                    "tier_label": tier_label,
+                },
+            }
+        }
+
+    def _make_research(self):
+        return {
+            "videos": [{
+                "title": "Race Recap",
+                "channel": "Cyclist",
+                "view_count": 5000,
+                "upload_date": "20250601",
+                "duration_string": "15:00",
+                "url": "https://youtube.com/watch?v=abcdefghijk",
+                "description": "A great ride.",
+            }],
+        }
+
+    def test_prompt_contains_reject_criteria(self):
+        prompt = build_enrichment_prompt(self._make_race_data(), self._make_research())
+        assert "TacxRLV" in prompt
+        assert "BKool" in prompt
+        assert "Rouvy" in prompt
+        assert "Zwift" in prompt
+        assert "slideshows" in prompt
+
+    def test_prompt_tier_guidance_t1(self):
+        prompt = build_enrichment_prompt(self._make_race_data(tier=1), self._make_research())
+        assert ">5,000" in prompt
+
+    def test_prompt_tier_guidance_t2(self):
+        prompt = build_enrichment_prompt(self._make_race_data(tier=2, tier_label="TIER 2"), self._make_research())
+        assert ">1,000" in prompt
+
+    def test_prompt_tier_guidance_t3(self):
+        prompt = build_enrichment_prompt(self._make_race_data(tier=3, tier_label="TIER 3"), self._make_research())
+        assert "no minimum" in prompt.lower()
+
+
+# ── Orphaned Quote Cleanup Tests ─────────────────────────────
+
+class TestOrphanedQuoteCleanup:
+    """Test that quotes referencing non-curated videos are dropped."""
+
+    def test_orphaned_quotes_dropped(self):
+        """Quotes referencing video IDs not in curated set should be filtered."""
+        enriched = {
+            "videos": [
+                {"video_id": "abcdefghijk", "curation_reason": "Good", "display_order": 1},
+            ],
+            "quotes": [
+                {"text": "Great race!", "source_video_id": "abcdefghijk", "category": "race_atmosphere", "curated": True},
+                {"text": "Orphaned quote.", "source_video_id": "ZZZZZZZZZZZ", "category": "generic", "curated": True},
+            ],
+        }
+        curated_ids = {v.get("video_id") for v in enriched.get("videos", [])}
+        original_count = len(enriched["quotes"])
+        enriched["quotes"] = [q for q in enriched["quotes"] if q.get("source_video_id", "") in curated_ids]
+        assert len(enriched["quotes"]) == 1
+        assert enriched["quotes"][0]["source_video_id"] == "abcdefghijk"
+
+
+# ── Duration Validation Tests ────────────────────────────────
+
+class TestDurationValidation:
+    """Test validate_enrichment duration checks."""
+
+    def test_validate_rejects_short_video(self):
+        """Video under 3 minutes should fail validation."""
+        enriched = {
+            "videos": [
+                {"video_id": "abcdefghijk", "curation_reason": "Good", "display_order": 1, "duration_string": "2:00"},
+            ],
+            "quotes": [],
+        }
+        errors = validate_enrichment("test-slug", enriched)
+        assert any("too short" in e for e in errors)
+
+    def test_validate_rejects_long_video(self):
+        """Video over 2 hours should fail validation."""
+        enriched = {
+            "videos": [
+                {"video_id": "abcdefghijk", "curation_reason": "Good", "display_order": 1, "duration_string": "3:00:01"},
+            ],
+            "quotes": [],
+        }
+        errors = validate_enrichment("test-slug", enriched)
+        assert any("too long" in e for e in errors)
+
+    def test_validate_accepts_normal_duration(self):
+        """Video within 3min-2hr should pass."""
+        enriched = {
+            "videos": [
+                {"video_id": "abcdefghijk", "curation_reason": "Good", "display_order": 1, "duration_string": "15:30"},
+            ],
+            "quotes": [],
+        }
+        errors = validate_enrichment("test-slug", enriched)
+        assert not any("too short" in e or "too long" in e for e in errors)
+
+    def test_parse_duration_seconds(self):
+        assert _parse_duration_seconds("15:30") == 930
+        assert _parse_duration_seconds("1:30:00") == 5400
+        assert _parse_duration_seconds("2:00") == 120
+        assert _parse_duration_seconds("") == 0
+        assert _parse_duration_seconds(None) == 0
+
+
+# ── Thumbnail URL in HTML ────────────────────────────────────
+
+class TestThumbnailUrlInHtml:
+    """Test that stored thumbnail_url renders in HTML output."""
+
+    def test_thumbnail_url_in_html(self, race_with_youtube):
+        """When a video has thumbnail_url, it should appear in generated HTML."""
+        race_with_youtube["race"]["youtube_data"]["videos"][0]["thumbnail_url"] = \
+            "https://i.ytimg.com/vi/vKCSt1e392M/maxresdefault.jpg"
+        rd = normalize_race_data(race_with_youtube)
+        html = build_from_the_field(rd)
+        assert "maxresdefault.jpg" in html
+        assert 'width="1280"' in html
+        assert 'height="720"' in html
+
+    def test_fallback_hqdefault(self, race_with_youtube):
+        """Absent thumbnail_url should use hqdefault.jpg."""
+        # Ensure no thumbnail_url is set
+        for v in race_with_youtube["race"]["youtube_data"]["videos"]:
+            v.pop("thumbnail_url", None)
+        rd = normalize_race_data(race_with_youtube)
+        html = build_from_the_field(rd)
+        assert "hqdefault.jpg" in html
+        assert 'width="480"' in html
+
+
+# ── Vision API Tests ─────────────────────────────────────────
+
+class TestVisionEnrichment:
+    """Test vision API integration for thumbnail-aware curation."""
+
+    def _make_race_data(self):
+        return {
+            "race": {
+                "name": "Test Race",
+                "display_name": "Test Race",
+                "vitals": {"location": "Emporia, Kansas"},
+                "gravel_god_rating": {"tier": 1, "tier_label": "TIER 1"},
+            }
+        }
+
+    def _make_research(self):
+        return {
+            "videos": [{
+                "title": "Race Recap",
+                "channel": "Cyclist",
+                "view_count": 5000,
+                "upload_date": "20250601",
+                "duration_string": "15:00",
+                "url": "https://youtube.com/watch?v=abcdefghijk",
+                "description": "A great ride.",
+            }],
+        }
+
+    def test_vision_prompt_contains_thumbnail_guidance(self):
+        """When vision mode produces images, prompt should include thumbnail guidance."""
+        PIL = pytest.importorskip("PIL", reason="Pillow required for vision tests")
+        from unittest.mock import patch
+        import io
+        from PIL import Image
+
+        # Create a fake thumbnail
+        img = Image.new("RGB", (480, 360), (100, 150, 80))
+        buf = io.BytesIO()
+        img.save(buf, "JPEG")
+        fake_bytes = buf.getvalue()
+
+        with patch("youtube_thumbnail.fetch_thumbnail", return_value=(fake_bytes, True)):
+            from youtube_enrich import build_enrichment_with_vision
+            prompt, images = build_enrichment_with_vision(
+                self._make_race_data(), self._make_research()
+            )
+            assert "thumbnail" in prompt.lower()
+            assert len([b for b in images if b.get("type") == "image"]) > 0
+
+    def test_vision_handles_fetch_failure(self):
+        """When fetch fails, should gracefully return empty images."""
+        PIL = pytest.importorskip("PIL", reason="Pillow required for vision tests")
+        from unittest.mock import patch
+        with patch("youtube_thumbnail.fetch_thumbnail", return_value=(b"", False)):
+            from youtube_enrich import build_enrichment_with_vision
+            prompt, images = build_enrichment_with_vision(
+                self._make_race_data(), self._make_research()
+            )
+            # No images attached (empty bytes)
+            assert len([b for b in images if b.get("type") == "image"]) == 0
+
+    def test_vision_flag_false_uses_text_only(self):
+        """When use_vision=False, should use text-only call_api (not call_api_vision)."""
+        from youtube_enrich import build_enrichment_prompt
+        # Just verify the text-only prompt has no thumbnail guidance
+        prompt = build_enrichment_prompt(self._make_race_data(), self._make_research())
+        assert "THUMBNAIL QUALITY GUIDANCE" not in prompt

@@ -82,7 +82,16 @@ def build_enrichment_prompt(race_data: dict, research: dict) -> str:
     r = race_data.get("race", {})
     name = r.get("display_name") or r.get("name", "Unknown")
     location = r.get("vitals", {}).get("location", "")
-    tier = r.get("gravel_god_rating", {}).get("tier_label", "")
+    tier_label = r.get("gravel_god_rating", {}).get("tier_label", "")
+    tier_num = r.get("gravel_god_rating", {}).get("tier", 4)
+
+    # Tier-aware view count guidance
+    if tier_num == 1:
+        view_guidance = "Prefer videos with >5,000 views for Tier 1 races"
+    elif tier_num == 2:
+        view_guidance = "Prefer videos with >1,000 views for Tier 2 races"
+    else:
+        view_guidance = "No minimum view count for Tier 3/4 races — accept any quality content"
 
     videos_text = ""
     for i, v in enumerate(research.get("videos", [])):
@@ -108,16 +117,24 @@ Description excerpt: {(v.get('description', '') or '')[:500]}
 
 RACE: {name}
 LOCATION: {location}
-TIER: {tier}
+TIER: {tier_label}
 
 Below are YouTube videos found for this race. Your job:
 
-1. SELECT the best 1-3 videos for embedding on the race profile page. Prefer:
-   - First-person race recaps and ride-alongs (>1K views)
+1. SELECT the best 1-3 videos for embedding on the race profile page.
+
+   PREFER:
+   - Rider-filmed POV and vlog content (first-person race recaps, ride-alongs)
    - Course previews with specific terrain/difficulty details
-   - Recent (2023-2025) over older
-   - Good production quality channels
-   - REJECT generic news clips, pure promotional content, or unrelated videos
+   - Recent (2023-2026) over older
+   - {view_guidance}
+
+   REJECT (do NOT curate these):
+   - Indoor trainer videos (TacxRLV, BKool, Rouvy, Kinomap, Zwift, "virtual ride")
+   - Auto-generated compilations, slideshows, or photo montages
+   - Pure promotional reels or official channel ads with no rider perspective
+   - Videos shorter than 3 minutes or longer than 2 hours
+   - Generic news clips or unrelated videos
 
 2. EXTRACT 1-3 specific, experiential quotes from the transcripts (if available).
    - Quotes should be vivid, specific to THIS race (not generic "great race" fluff)
@@ -283,6 +300,85 @@ def parse_json_response(text: str) -> dict:
     return json.loads(text)
 
 
+def build_enrichment_with_vision(race_data: dict, research: dict) -> tuple[str, list[dict]]:
+    """Build enrichment prompt with thumbnail images for Claude vision API.
+
+    Fetches thumbnails for candidate videos and converts them to base64
+    image blocks for the Anthropic vision API.
+
+    Returns (prompt_text, image_blocks) where image_blocks is a list of
+    Anthropic image content blocks. Falls back to (prompt, []) on failure.
+    """
+    import base64
+
+    prompt = build_enrichment_prompt(race_data, research)
+    image_blocks = []
+
+    try:
+        from youtube_thumbnail import fetch_thumbnail
+    except ImportError:
+        return prompt, []
+
+    # Append vision guidance to prompt
+    vision_guidance = """
+
+THUMBNAIL QUALITY GUIDANCE (you can see the thumbnails above):
+Reject videos with dark/blurry/all-text/clickbait thumbnails.
+Prefer thumbnails showing cycling scenery, course conditions, or race atmosphere.
+A good thumbnail strongly correlates with good video content.
+"""
+    prompt += vision_guidance
+
+    for v in research.get("videos", []):
+        vid_id = extract_video_id(v.get("url", ""))
+        if not vid_id:
+            continue
+        try:
+            img_bytes, _ = fetch_thumbnail(vid_id)
+            if not img_bytes:
+                continue
+            b64 = base64.b64encode(img_bytes).decode("utf-8")
+            image_blocks.append({
+                "type": "image",
+                "source": {
+                    "type": "base64",
+                    "media_type": "image/jpeg",
+                    "data": b64,
+                },
+            })
+            # Add a text label for this image
+            image_blocks.append({
+                "type": "text",
+                "text": f"[Thumbnail for Video: {v.get('title', 'Unknown')} — ID: {vid_id}]",
+            })
+        except Exception:
+            continue  # Skip thumbnails that fail to fetch
+
+    return prompt, image_blocks
+
+
+def _parse_duration_seconds(duration_string: str) -> int:
+    """Parse YouTube duration string (MM:SS or H:MM:SS) to seconds. Returns 0 on failure."""
+    if not duration_string or not isinstance(duration_string, str):
+        return 0
+    parts = duration_string.strip().split(":")
+    try:
+        nums = [int(p) for p in parts]
+    except ValueError:
+        return 0
+    if len(nums) == 1:
+        return nums[0]
+    if len(nums) == 2:
+        return nums[0] * 60 + nums[1]
+    if len(nums) == 3:
+        return nums[0] * 3600 + nums[1] * 60 + nums[2]
+    return 0
+
+
+MIN_DURATION_SEC = 180   # 3 minutes
+MAX_DURATION_SEC = 7200  # 2 hours
+
+
 def validate_enrichment(slug: str, enriched: dict) -> list[str]:
     """Validate the enriched youtube_data. Returns list of error strings."""
     errors = []
@@ -297,6 +393,12 @@ def validate_enrichment(slug: str, enriched: dict) -> list[str]:
             errors.append(f"Invalid video_id: '{vid}'")
         if not v.get("curation_reason"):
             errors.append(f"Video '{vid}' missing curation_reason")
+        # Duration range check
+        dur = _parse_duration_seconds(v.get("duration_string", ""))
+        if dur > 0 and dur < MIN_DURATION_SEC:
+            errors.append(f"Video '{vid}' too short: {v.get('duration_string')} (min 3 min)")
+        if dur > MAX_DURATION_SEC:
+            errors.append(f"Video '{vid}' too long: {v.get('duration_string')} (max 2 hr)")
 
     for q in quotes:
         src = q.get("source_video_id", "")
@@ -346,7 +448,8 @@ def get_enrichment_candidates(n: int) -> list[str]:
     return [slug for _, _, slug in candidates[:n]]
 
 
-def enrich_profile(slug: str, research_file: str = None, dry_run: bool = False) -> bool:
+def enrich_profile(slug: str, research_file: str = None, dry_run: bool = False,
+                   use_vision: bool = False) -> bool:
     """Enrich a single race profile with youtube_data. Returns True on success."""
     race_data = load_race(slug)
     if not race_data:
@@ -369,15 +472,29 @@ def enrich_profile(slug: str, research_file: str = None, dry_run: bool = False) 
     print(f"\n  Enriching: {slug}")
     print(f"  Videos found: {research.get('video_count', len(research.get('videos', [])))}")
 
-    prompt = build_enrichment_prompt(race_data, research)
+    # Build prompt (with optional vision)
+    image_blocks = []
+    if use_vision:
+        prompt, image_blocks = build_enrichment_with_vision(race_data, research)
+        if image_blocks:
+            print(f"  Vision mode: {len([b for b in image_blocks if b.get('type') == 'image'])} thumbnails attached")
+        else:
+            print(f"  Vision mode: no thumbnails fetched, falling back to text-only")
+    else:
+        prompt = build_enrichment_prompt(race_data, research)
 
     if dry_run:
         print(f"  [DRY RUN] Would call API with {len(prompt)} char prompt")
         print(f"  [DRY RUN] Videos available: {len(research.get('videos', []))}")
+        if image_blocks:
+            print(f"  [DRY RUN] Vision: {len([b for b in image_blocks if b.get('type') == 'image'])} thumbnails")
         return True
 
     try:
-        response = call_api(prompt)
+        if use_vision and image_blocks:
+            response = call_api_vision(prompt, image_blocks)
+        else:
+            response = call_api(prompt)
         enriched = parse_json_response(response)
     except (json.JSONDecodeError, ValueError) as e:
         print(f"  ERROR: Failed to parse API response: {e}")
@@ -386,32 +503,43 @@ def enrich_profile(slug: str, research_file: str = None, dry_run: bool = False) 
         print(f"  ERROR: API call failed: {e}")
         return False
 
-    # Auto-promote: if a quote references a video not in the curated set,
-    # find it in the research data and add it as curated
+    # Drop orphaned quotes that reference non-curated videos
     curated_ids = {v.get("video_id") for v in enriched.get("videos", [])}
-    research_ids = {}
-    for rv in research.get("videos", []):
-        vid = extract_video_id(rv.get("url", ""))
-        if vid:
-            research_ids[vid] = rv
+    original_count = len(enriched.get("quotes", []))
+    enriched["quotes"] = [q for q in enriched.get("quotes", []) if q.get("source_video_id", "") in curated_ids]
+    dropped = original_count - len(enriched["quotes"])
+    if dropped:
+        print(f"  Dropped {dropped} quote(s) referencing non-curated videos")
 
-    for q in enriched.get("quotes", []):
-        src = q.get("source_video_id", "")
-        if src and src not in curated_ids and src in research_ids:
-            rv = research_ids[src]
-            enriched["videos"].append({
-                "video_id": src,
-                "title": rv.get("title", ""),
-                "channel": rv.get("channel", ""),
-                "view_count": rv.get("view_count", 0),
-                "upload_date": rv.get("upload_date", ""),
-                "duration_string": rv.get("duration_string", ""),
-                "curated": True,
-                "curation_reason": "Auto-promoted: referenced by curated quote",
-                "display_order": len(enriched["videos"]) + 1,
-            })
-            curated_ids.add(src)
-            print(f"  Auto-promoted video {src} (referenced by quote)")
+    # Score thumbnails and drop low-quality ones (PIL optional)
+    try:
+        from youtube_thumbnail import score_thumbnail, get_best_thumbnail_url
+
+        kept_videos = []
+        for v in enriched.get("videos", []):
+            vid = v.get("video_id", "")
+            try:
+                result = score_thumbnail(vid)
+                v["thumbnail_score"] = result["score"]
+                v["thumbnail_url"] = get_best_thumbnail_url(vid, result["has_maxres"])
+                if result["is_black"]:
+                    print(f"  Dropped video {vid}: black thumbnail")
+                    continue
+                if result["score"] < 15:
+                    print(f"  Dropped video {vid}: low thumbnail score ({result['score']:.1f})")
+                    continue
+                kept_videos.append(v)
+            except Exception as e:
+                print(f"  Thumbnail scoring failed for {vid}: {e}")
+                kept_videos.append(v)  # keep on scoring failure
+
+        if len(kept_videos) < len(enriched.get("videos", [])):
+            enriched["videos"] = kept_videos
+            # Re-clean orphaned quotes after thumbnail drops
+            curated_ids = {v.get("video_id") for v in enriched["videos"]}
+            enriched["quotes"] = [q for q in enriched.get("quotes", []) if q.get("source_video_id", "") in curated_ids]
+    except ImportError:
+        pass  # PIL not available — skip thumbnail scoring
 
     # Validate
     errors = validate_enrichment(slug, enriched)
@@ -448,6 +576,10 @@ def enrich_profile(slug: str, research_file: str = None, dry_run: bool = False) 
                     record["curated"] = True
                     record["curation_reason"] = cv.get("curation_reason", "")
                     record["display_order"] = cv.get("display_order", 99)
+                    if cv.get("thumbnail_url"):
+                        record["thumbnail_url"] = cv["thumbnail_url"]
+                    if cv.get("thumbnail_score") is not None:
+                        record["thumbnail_score"] = cv["thumbnail_score"]
                     break
         else:
             record["curated"] = False
@@ -486,6 +618,8 @@ def main():
                         help="Preview what would be enriched without calling API")
     parser.add_argument("--delay", type=int, default=3,
                         help="Seconds between API calls (default: 3)")
+    parser.add_argument("--vision", action="store_true",
+                        help="Use Claude vision API with thumbnail images for better curation")
     args = parser.parse_args()
 
     if not args.slug and not args.auto:
@@ -508,7 +642,8 @@ def main():
     for i, slug in enumerate(slugs):
         if i > 0 and not args.dry_run:
             time.sleep(args.delay)
-        result = enrich_profile(slug, args.research_file, args.dry_run)
+        result = enrich_profile(slug, args.research_file, args.dry_run,
+                               use_vision=args.vision)
         if result:
             success += 1
         else:

@@ -343,15 +343,28 @@
       "workout_modifications": {
         "climbing_endurance": {
           "enabled": true,
-          "weeks": [6, 7, 8]
+          "weeks": [
+            6,
+            7,
+            8
+          ]
         },
         "steep_gradient_intervals": {
           "enabled": true,
-          "weeks": [5, 6, 7]
+          "weeks": [
+            5,
+            6,
+            7
+          ]
         },
         "puncheur_power": {
           "enabled": true,
-          "weeks": [4, 5, 6, 7]
+          "weeks": [
+            4,
+            5,
+            6,
+            7
+          ]
         },
         "dress_rehearsal": {
           "enabled": true,
@@ -392,6 +405,33 @@
         "non_negotiable_3": "Puncheur power development",
         "trainingpeaks_url": null
       }
+    },
+    "youtube_data": {
+      "researched_at": "2026-03-05",
+      "search_query": "Granfondo Eddy Merckx gran fondo cycling Andenne",
+      "videos": [
+        {
+          "video_id": "fdo-q66BV7Q",
+          "title": "Kristof Houben snelste in Gran Fondo Eddy Merckx",
+          "channel": "X²O Badkamers Trofee",
+          "view_count": 2200,
+          "upload_date": "20140623",
+          "duration_string": "2:21",
+          "description": "Een zonovergoten Gran Fondo Eddy Merckx mocht bijna 900 wielertoeristen verwelkomen. Kristof Houben zette de snelste tijd neer op het pittige 152 km lange parcours in en om Andenne.",
+          "tags": [
+            "gran fondo eddy merckx",
+            "Eddy Merckx (Cyclist)",
+            "Andenne (City/Town/Village)",
+            "golazo",
+            "pieter wandels",
+            "productiehuis.eu",
+            "kristof houben"
+          ],
+          "url": "https://www.youtube.com/watch?v=fdo-q66BV7Q",
+          "curated": false
+        }
+      ],
+      "quotes": []
     }
   }
 }

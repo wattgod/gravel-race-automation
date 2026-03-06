@@ -291,7 +291,8 @@ def validate_enrichment(slug: str, enriched: dict) -> list[str]:
     video_ids = {v.get("video_id") for v in videos}
 
     for v in videos:
-        vid = v.get("video_id", "")
+        vid = str(v.get("video_id", ""))
+        v["video_id"] = vid  # coerce to string
         if not VIDEO_ID_RE.match(vid):
             errors.append(f"Invalid video_id: '{vid}'")
         if not v.get("curation_reason"):

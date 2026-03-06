@@ -140,13 +140,24 @@ def load_race(slug: str) -> dict | None:
 
 
 def build_search_query(race: dict) -> str:
-    """Build a YouTube search query from race data."""
+    """Build a YouTube search query from race data.
+
+    Uses discipline-aware search terms so road races search for
+    "gran fondo cycling" instead of "gravel race", etc.
+    """
     r = race.get("race", {})
     name = r.get("name") or r.get("display_name", "")
     location = r.get("vitals", {}).get("location", "")
+    discipline = r.get("gravel_god_rating", {}).get("discipline", "gravel")
 
-    # Try to include the year for freshness
-    query = f"{name} gravel race"
+    DISCIPLINE_TERMS = {
+        "gravel": "gravel race",
+        "road": "gran fondo cycling",
+        "bikepacking": "bikepacking race",
+        "mtb": "mountain bike race",
+    }
+    term = DISCIPLINE_TERMS.get(discipline, "cycling race")
+    query = f"{name} {term}"
     if location:
         query += f" {location.split(',')[0]}"  # Just the city/region
     return query

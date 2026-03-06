@@ -15,8 +15,11 @@ from pathlib import Path
 
 import pytest
 
-# Ensure wordpress/ is importable
+# Ensure wordpress/ and scripts/ are importable
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "wordpress"))
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "scripts"))
+
+from youtube_research import build_search_query
 
 from generate_neo_brutalist import (
     _merge_youtube_quotes,
@@ -455,3 +458,62 @@ class TestDnsPrefetch:
         rd = normalize_race_data(race_with_youtube)
         html = generate_page(rd)
         assert 'dns-prefetch" href="https://i.ytimg.com"' in html
+
+
+# ── Search Query Builder ─────────────────────────────────────
+
+class TestBuildSearchQuery:
+    """Test discipline-aware YouTube search query construction."""
+
+    def _make_race(self, name, discipline, location=""):
+        race = {
+            "race": {
+                "name": name,
+                "display_name": name,
+                "vitals": {"location": location},
+                "gravel_god_rating": {"discipline": discipline},
+            }
+        }
+        return race
+
+    def test_gravel_uses_gravel_race(self):
+        race = self._make_race("Unbound 200", "gravel", "Emporia, Kansas")
+        query = build_search_query(race)
+        assert "gravel race" in query
+        assert "Unbound 200" in query
+        assert "Emporia" in query
+
+    def test_road_uses_gran_fondo_cycling(self):
+        race = self._make_race("Göteborgsgirot", "road", "Gothenburg, Sweden")
+        query = build_search_query(race)
+        assert "gran fondo cycling" in query
+        assert "Göteborgsgirot" in query
+        assert "Gothenburg" in query
+        assert "gravel" not in query
+
+    def test_bikepacking_uses_bikepacking_race(self):
+        race = self._make_race("Tour Divide", "bikepacking", "Banff, Canada")
+        query = build_search_query(race)
+        assert "bikepacking race" in query
+        assert "Tour Divide" in query
+
+    def test_mtb_uses_mountain_bike_race(self):
+        race = self._make_race("Leadville 100 MTB", "mtb", "Leadville, Colorado")
+        query = build_search_query(race)
+        assert "mountain bike race" in query
+
+    def test_unknown_discipline_uses_cycling_race(self):
+        race = self._make_race("Mystery Race", "cyclocross")
+        query = build_search_query(race)
+        assert "cycling race" in query
+
+    def test_no_discipline_defaults_to_gravel(self):
+        """Missing discipline key should default to gravel."""
+        race = {"race": {"name": "Some Race", "vitals": {}, "gravel_god_rating": {}}}
+        query = build_search_query(race)
+        assert "gravel race" in query
+
+    def test_no_location_omits_location(self):
+        race = self._make_race("Test Race", "road", "")
+        query = build_search_query(race)
+        assert query == "Test Race gran fondo cycling"

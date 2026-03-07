@@ -91,6 +91,9 @@ data/scrape-cache/
 # Thumbnail cache (fetched YouTube thumbnails, regenerate with: python scripts/youtube_thumbnail.py)
 data/thumbnail-cache/
 
+# YouTube research results (regenerate with: python scripts/youtube_research.py)
+youtube-research-results/
+
 # OS
 .DS_Store
 Thumbs.db

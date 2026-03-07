@@ -8,6 +8,7 @@
  *   - race_quiz:          email + race context (quiz results gate)
  *   - quiz_shared:        email + race context (shared quiz results)
  *   - tire_guide:         email + race context (tire setup card CTA)
+ *   - race_review:        email + race context + stars/review data (race profile review form)
  *   - fueling_calculator: email + weight + race + fueling data (detected by weight_lbs, no source field)
  *
  * Every valid submission upserts the contact into SendGrid Marketing Contacts.
@@ -20,7 +21,7 @@ const DISPOSABLE_DOMAINS = [
   'yopmail.com', 'temp-mail.org', 'getnada.com', 'mohmal.com'
 ];
 
-const KNOWN_SOURCES = ['exit_intent', 'race_profile', 'prep_kit_gate', 'race_quiz', 'quiz_shared', 'tire_guide'];
+const KNOWN_SOURCES = ['exit_intent', 'race_profile', 'prep_kit_gate', 'race_quiz', 'quiz_shared', 'tire_guide', 'race_review'];
 
 export default {
   async fetch(request, env) {

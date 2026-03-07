@@ -1185,6 +1185,7 @@ document.querySelectorAll('.gg-faq-question').forEach(function(q) {
 
     var payload={
       email:email,
+      source:'race_review',
       race_slug:form.race_slug.value,
       race_name:form.race_name.value,
       stars:stars,
@@ -1219,6 +1220,43 @@ document.querySelectorAll('.gg-lite-youtube').forEach(function(el) {
     el.appendChild(iframe);
   });
 });
+
+/* ── Train for Race: Workout panel toggle ── */
+(function() {
+  var toggleBtn = document.getElementById('gg-pack-toggle-btn');
+  var panel = document.getElementById('gg-pack-workouts-panel');
+  var toggleText = document.getElementById('gg-pack-toggle-text');
+  if (!toggleBtn || !panel) return;
+  // Read actual workout count from panel instead of hardcoding
+  var workoutCount = panel.querySelectorAll('.gg-pack-workout').length;
+  var seeText = 'SEE ' + workoutCount + ' SAMPLE WORKOUTS';
+  var hideText = 'HIDE SAMPLE WORKOUTS';
+  // Set initial text from actual count (defense against generator/JS mismatch)
+  if (toggleText) toggleText.textContent = seeText;
+  toggleBtn.addEventListener('click', function() {
+    var expanded = toggleBtn.getAttribute('aria-expanded') === 'true';
+    if (expanded) {
+      panel.style.display = 'none';
+      toggleBtn.setAttribute('aria-expanded', 'false');
+      if (toggleText) toggleText.textContent = seeText;
+      toggleBtn.focus();
+    } else {
+      panel.style.display = 'block';
+      toggleBtn.setAttribute('aria-expanded', 'true');
+      if (toggleText) toggleText.textContent = hideText;
+      // Move focus to panel for screen readers
+      panel.setAttribute('tabindex', '-1');
+      panel.focus();
+      panel.removeAttribute('tabindex');
+      if (typeof gtag === 'function') {
+        gtag('event', 'workouts_panel_expand', {
+          race_slug: (window.__GG_RACE_DATA__ || {}).slug || '',
+          workout_count: workoutCount
+        });
+      }
+    }
+  });
+})();
 
 /* ── Train for Race: Workout expand/collapse ── */
 document.querySelectorAll('.gg-pack-workout').forEach(function(card) {
@@ -1433,7 +1471,7 @@ document.querySelectorAll('.gg-pack-workout').forEach(function(card) {
       cfgCtaLink.textContent = ctaText;
       cfgCtaLink.removeAttribute('tabindex');
       // Pass configurator selections to questionnaire for pre-population
-      cfgCtaLink.href = '/coaching?race=' + encodeURIComponent(rd.slug) +
+      cfgCtaLink.href = '/questionnaire/?race=' + encodeURIComponent(rd.slug) +
         '&level=' + encodeURIComponent(level) +
         '&hours=' + encodeURIComponent(hours) +
         '&weeks=' + weeks;
@@ -1449,7 +1487,7 @@ document.querySelectorAll('.gg-pack-workout').forEach(function(card) {
       stickyText.textContent = weeks + '-WEEK PLAN \u2014 $' + price;
     }
     if (stickyLink) {
-      stickyLink.href = '/coaching?race=' + encodeURIComponent(rd.slug) +
+      stickyLink.href = '/questionnaire/?race=' + encodeURIComponent(rd.slug) +
         '&level=' + encodeURIComponent(level) +
         '&hours=' + encodeURIComponent(hours) +
         '&weeks=' + weeks;
@@ -3827,6 +3865,7 @@ def build_train_for_race(rd: dict) -> str:
         workout_cards.append(card_html)
 
     workouts_html = '\n      '.join(workout_cards)
+    num_workouts = len(workout_cards)
 
     plan_url = f"{TRAINING_PLANS_URL}?race={esc(slug)}"
 
@@ -3839,6 +3878,27 @@ def build_train_for_race(rd: dict) -> str:
     }
     race_data_json = _safe_json_for_script(race_data_js, ensure_ascii=False, separators=(',', ':'))
 
+    # Workout toggle + panel — only render if we have workouts
+    workouts_section = ''
+    if num_workouts > 0:
+        workouts_section = (
+            f'<div class="gg-pack-workouts-toggle" id="gg-pack-workouts-toggle">\n'
+            f'        <button type="button" class="gg-pack-toggle-btn" id="gg-pack-toggle-btn" '
+            f'aria-expanded="false" aria-controls="gg-pack-workouts-panel">\n'
+            f'          <span id="gg-pack-toggle-text">SEE {num_workouts} SAMPLE WORKOUTS</span>\n'
+            f'          <span class="gg-pack-toggle-arrow" aria-hidden="true">&#9662;</span>\n'
+            f'        </button>\n'
+            f'      </div>\n'
+            f'      <div class="gg-pack-workouts" id="gg-pack-workouts-panel" '
+            f'style="display:none;" role="region" aria-label="Sample workouts">\n'
+            f'        <h3 class="gg-pack-subtitle">{num_workouts} WORKOUTS BUILT FOR THIS RACE</h3>\n'
+            f'        <p class="gg-pack-workouts-intro">Each workout below is selected from our '
+            f'archetype library based on {esc(race_name)}&rsquo;s specific demands. '
+            f'Click any workout to see the full execution protocol.</p>\n'
+            f'        {workouts_html}\n'
+            f'      </div>'
+        )
+
     return f'''<section id="train-for-race" class="gg-section gg-fade-section">
     <div class="gg-section-header">
       <span class="gg-section-kicker">[08]</span>
@@ -3847,7 +3907,9 @@ def build_train_for_race(rd: dict) -> str:
     <div class="gg-section-body">
       <div class="gg-pack-demands">
         <h3 class="gg-pack-subtitle">RACE DEMAND PROFILE</h3>
-        {demands_html}
+        <div class="gg-pack-demands-inline">
+          {demands_html}
+        </div>
       </div>
       <div class="gg-cfg-bar">
         <h3 class="gg-cfg-title">PREVIEW YOUR TRAINING PLAN</h3>
@@ -3883,11 +3945,6 @@ def build_train_for_race(rd: dict) -> str:
         <div class="gg-cfg-timeline-bar" id="gg-cfg-timeline-bar"></div>
         <div class="gg-cfg-details" id="gg-cfg-details"></div>
       </div>
-      <div class="gg-pack-workouts">
-        <h3 class="gg-pack-subtitle">5 WORKOUTS BUILT FOR THIS RACE</h3>
-        <p class="gg-pack-workouts-intro">Each workout below is selected from our archetype library based on {esc(race_name)}&rsquo;s specific demands. Click any workout to see the full execution protocol.</p>
-        {workouts_html}
-      </div>
       <div class="gg-pack-cta" id="gg-pack-cta-default">
         <a href="{plan_url}" class="gg-btn" id="gg-pack-cta-link">BUILD MY PLAN &mdash; $15/WK</a>
         <p class="gg-pack-cta-detail">Race-specific. Built for {esc(race_name)}. $15/week, capped at $249.</p>
@@ -3896,6 +3953,7 @@ def build_train_for_race(rd: dict) -> str:
         <a href="{plan_url}" class="gg-btn gg-cfg-cta-btn" id="gg-cfg-cta-link" tabindex="-1">BUILD MY PLAN</a>
         <p class="gg-pack-cta-detail" id="gg-cfg-cta-detail"></p>
       </div>
+      {workouts_section}
     </div>
     <script>window.__GG_RACE_DATA__={race_data_json};</script>
   </section>'''
@@ -4735,13 +4793,22 @@ def get_page_css() -> str:
 
 /* ── Train for This Race ── */
 .gg-neo-brutalist-page .gg-pack-subtitle {{ font-family: var(--gg-font-data); font-size: var(--gg-font-size-2xs); font-weight: 700; letter-spacing: var(--gg-letter-spacing-ultra-wide); text-transform: uppercase; color: var(--gg-color-secondary-brown); margin-bottom: 12px; }}
-.gg-neo-brutalist-page .gg-pack-demands {{ margin-bottom: 32px; }}
-.gg-neo-brutalist-page .gg-pack-demand {{ display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }}
-.gg-neo-brutalist-page .gg-pack-demand-label {{ font-family: var(--gg-font-data); font-size: 11px; width: 110px; min-width: 110px; text-transform: uppercase; letter-spacing: var(--gg-letter-spacing-wider); color: var(--gg-color-primary-brown); }}
-.gg-neo-brutalist-page .gg-pack-demand-track {{ flex: 1; height: 8px; background: var(--gg-color-tan); border: 1px solid var(--gg-color-tan); }}
+.gg-neo-brutalist-page .gg-pack-demands {{ margin-bottom: 24px; }}
+.gg-neo-brutalist-page .gg-pack-demands-inline {{ display: grid; grid-template-columns: 1fr 1fr; gap: 4px 24px; }}
+.gg-neo-brutalist-page .gg-pack-demand {{ display: flex; align-items: center; gap: 6px; }}
+.gg-neo-brutalist-page .gg-pack-demand-label {{ font-family: var(--gg-font-data); font-size: 10px; width: 90px; min-width: 90px; text-transform: uppercase; letter-spacing: var(--gg-letter-spacing-wider); color: var(--gg-color-primary-brown); }}
+.gg-neo-brutalist-page .gg-pack-demand-track {{ flex: 1; height: 6px; background: var(--gg-color-tan); border: 1px solid var(--gg-color-tan); }}
 .gg-neo-brutalist-page .gg-pack-demand-fill {{ height: 100%; background: var(--gg-color-teal); transition: width 0.6s ease-out; }}
-.gg-neo-brutalist-page .gg-pack-demand-score {{ font-family: var(--gg-font-data); font-size: 11px; width: 20px; text-align: right; color: var(--gg-color-secondary-brown); }}
-.gg-neo-brutalist-page .gg-pack-workouts {{ margin-bottom: 32px; }}
+.gg-neo-brutalist-page .gg-pack-demand-score {{ font-family: var(--gg-font-data); font-size: 10px; width: 16px; text-align: right; color: var(--gg-color-secondary-brown); }}
+@media (max-width: 600px) {{ .gg-neo-brutalist-page .gg-pack-demands-inline {{ grid-template-columns: 1fr; }} }}
+.gg-neo-brutalist-page .gg-pack-workouts-toggle {{ text-align: center; margin: 24px 0 8px; }}
+.gg-neo-brutalist-page .gg-pack-toggle-btn {{ width: 100%; background: transparent; color: var(--gg-color-secondary-brown); border: 2px solid var(--gg-color-tan); border-radius: 0; font-family: var(--gg-font-data); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: var(--gg-letter-spacing-wider); display: flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 16px; cursor: pointer; transition: border-color 0.2s, color 0.2s; -webkit-appearance: none; appearance: none; }}
+.gg-neo-brutalist-page .gg-pack-toggle-btn:hover {{ border-color: var(--gg-color-primary-brown); color: var(--gg-color-primary-brown); background: transparent; }}
+.gg-neo-brutalist-page .gg-pack-toggle-btn:focus-visible {{ outline: 2px solid var(--gg-color-teal); outline-offset: 2px; }}
+.gg-neo-brutalist-page .gg-pack-toggle-arrow {{ font-size: 10px; transition: transform 0.2s; }}
+@media (prefers-reduced-motion: reduce) {{ .gg-neo-brutalist-page .gg-pack-toggle-arrow {{ transition: none; }} }}
+.gg-neo-brutalist-page .gg-pack-toggle-btn[aria-expanded="true"] .gg-pack-toggle-arrow {{ transform: rotate(180deg); }}
+.gg-neo-brutalist-page .gg-pack-workouts {{ margin-bottom: 16px; margin-top: 16px; }}
 .gg-neo-brutalist-page .gg-pack-workouts-intro {{ font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-sm); color: var(--gg-color-secondary-brown); line-height: 1.6; margin-bottom: 20px; }}
 .gg-neo-brutalist-page .gg-pack-workout {{ border: 2px solid var(--gg-color-tan); margin-bottom: 12px; background: var(--gg-color-warm-paper); cursor: pointer; transition: border-color 0.2s; }}
 .gg-neo-brutalist-page .gg-pack-workout:hover {{ border-color: var(--gg-color-primary-brown); }}

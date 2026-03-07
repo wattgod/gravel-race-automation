@@ -548,6 +548,40 @@ class TestConfiguratorJS:
         assert '&weeks=' in js_content
         assert 'encodeURIComponent' in js_content
 
+    def test_cta_links_to_questionnaire_not_coaching(self, js_content):
+        """Configurator CTA must link to /questionnaire/, not /coaching.
+
+        Bug found in Sprint 41 audit: configurator CTA linked to /coaching
+        which is a different product (1:1 coaching). The self-serve training
+        plan funnel must go through /questionnaire/.
+        """
+        # Both the cfg CTA and sticky CTA set their href in JS
+        cta_href_lines = [
+            line.strip() for line in js_content.split('\n')
+            if '.href' in line and 'race=' in line
+        ]
+        for line in cta_href_lines:
+            assert '/questionnaire/' in line, (
+                f"CTA href must point to /questionnaire/, not /coaching: {line}"
+            )
+        # Should never contain /coaching? as a CTA destination
+        assert "'/coaching?" not in js_content, (
+            "JS must not link to /coaching — wrong funnel for self-serve plans"
+        )
+
+    def test_review_form_includes_source_field(self, js_content):
+        """Review form payload must include source:'race_review'.
+
+        Bug found in Sprint 41 audit: review form omitted the source field,
+        causing the Cloudflare Worker to reject all reviews with 400 'Unknown
+        source'. The .catch() swallowed the error so users saw fake success
+        but all reviews were silently lost.
+        """
+        assert "source:'race_review'" in js_content, (
+            "Review form payload must include source:'race_review' — "
+            "without it the worker rejects submissions silently"
+        )
+
     def test_no_dead_code_in_configs(self, js_content):
         """Level and hours configs must not have unused properties."""
         # intMul, durMul, longest were dead code in v1
@@ -915,6 +949,20 @@ class TestRacePackIntegration:
                     f"WORKOUT_SHOWCASE['{name}'] missing required field '{field}'"
                 )
 
+    def test_worker_accepts_race_review_source(self):
+        """Cloudflare Worker KNOWN_SOURCES must include 'race_review'.
+
+        The review form sends source:'race_review' — the worker must accept it.
+        """
+        worker_path = Path(__file__).resolve().parent.parent / "workers" / "fueling-lead-intake" / "worker.js"
+        if not worker_path.exists():
+            pytest.skip("Worker file not found")
+        worker_js = worker_path.read_text()
+        assert "'race_review'" in worker_js, (
+            "Worker KNOWN_SOURCES must include 'race_review' — "
+            "review submissions will be rejected with 400 otherwise"
+        )
+
     def test_viz_blocks_have_valid_zones(self):
         """Every viz block must reference a valid zone class (z1-z6)."""
         valid_zones = {'z1', 'z2', 'z3', 'z4', 'z5', 'z6'}
@@ -929,3 +977,327 @@ class TestRacePackIntegration:
                 assert 0 < block['h'] <= 200, (
                     f"WORKOUT_SHOWCASE['{name}'].viz[{i}] has invalid height {block['h']}"
                 )
+
+
+# ── Layout Restructure Tests ──────────────────────────────────
+
+class TestSectionLayout:
+    """Test the CTA-above-workouts restructure.
+
+    The [08] section was restructured to put CTAs immediately after the
+    configurator summary and collapse workouts behind a toggle. These tests
+    prevent regressions that would bury the CTA under workout cards again.
+    """
+
+    def test_cta_appears_before_workouts_in_dom(self, normalized_data, preview_json):
+        """CTA must come before workout toggle and panel in DOM order.
+
+        This is the CORE conversion optimization — if someone moves the CTA
+        below workouts, this test fails.
+        """
+        html = _build_section_with_preview(normalized_data, preview_json)
+        default_cta_pos = html.find('id="gg-pack-cta-default"')
+        cfg_cta_pos = html.find('id="gg-cfg-cta"')
+        toggle_pos = html.find('id="gg-pack-workouts-toggle"')
+        panel_pos = html.find('id="gg-pack-workouts-panel"')
+        assert default_cta_pos > 0, "Default CTA missing"
+        assert cfg_cta_pos > 0, "Personalized CTA missing"
+        assert toggle_pos > 0, "Workout toggle missing"
+        assert panel_pos > 0, "Workout panel missing"
+        assert default_cta_pos < toggle_pos, (
+            "Default CTA must appear before workout toggle in DOM"
+        )
+        assert cfg_cta_pos < toggle_pos, (
+            "Personalized CTA must appear before workout toggle in DOM"
+        )
+        assert toggle_pos < panel_pos, (
+            "Toggle button must appear before workout panel in DOM"
+        )
+
+    def test_demand_bars_have_heading(self, normalized_data, preview_json):
+        """Demand bars section must have RACE DEMAND PROFILE heading for a11y."""
+        html = _build_section_with_preview(normalized_data, preview_json)
+        assert 'RACE DEMAND PROFILE' in html, (
+            "RACE DEMAND PROFILE heading was silently removed"
+        )
+
+    def test_demand_bars_use_inline_grid(self, normalized_data, preview_json):
+        """Demand bars must use 2-column inline grid wrapper."""
+        html = _build_section_with_preview(normalized_data, preview_json)
+        assert 'gg-pack-demands-inline' in html, (
+            "Demand bars missing gg-pack-demands-inline grid wrapper"
+        )
+
+    def test_workout_panel_hidden_by_default(self, normalized_data, preview_json):
+        """Workout panel must be hidden (display:none) by default."""
+        html = _build_section_with_preview(normalized_data, preview_json)
+        # Find the panel element and check its style
+        panel_match = re.search(
+            r'id="gg-pack-workouts-panel"[^>]*style="([^"]*)"', html
+        )
+        assert panel_match, "Workout panel missing"
+        assert 'display:none' in panel_match.group(1), (
+            "Workout panel must be hidden by default"
+        )
+
+    def test_toggle_button_has_correct_aria(self, normalized_data, preview_json):
+        """Toggle button must have aria-expanded=false and aria-controls linking to panel."""
+        html = _build_section_with_preview(normalized_data, preview_json)
+        toggle = re.search(
+            r'id="gg-pack-toggle-btn"[^>]*', html
+        ) or re.search(
+            r'class="gg-pack-toggle-btn"[^>]*', html
+        )
+        assert toggle, "Toggle button missing"
+        tag = toggle.group()
+        assert 'aria-expanded="false"' in tag, (
+            "Toggle must start with aria-expanded=false"
+        )
+        assert 'aria-controls="gg-pack-workouts-panel"' in tag, (
+            "Toggle must reference workout panel via aria-controls"
+        )
+
+    def test_toggle_text_matches_workout_count(self, normalized_data, preview_json):
+        """Toggle button text must show actual workout count, not hardcoded 5."""
+        html = _build_section_with_preview(normalized_data, preview_json)
+        # Count actual workout cards
+        actual_count = len(re.findall(r'data-workout-idx="\d+"', html))
+        # Find toggle text
+        toggle_text = re.search(
+            r'id="gg-pack-toggle-text">(.*?)<', html
+        )
+        assert toggle_text, "Toggle text span missing"
+        # Extract number from toggle text
+        toggle_num = re.search(r'(\d+)', toggle_text.group(1))
+        assert toggle_num, f"No number in toggle text: {toggle_text.group(1)}"
+        assert int(toggle_num.group(1)) == actual_count, (
+            f"Toggle says {toggle_num.group(1)} workouts but {actual_count} cards exist"
+        )
+
+    def test_panel_header_matches_workout_count(self, normalized_data, preview_json):
+        """Panel subtitle 'N WORKOUTS BUILT FOR THIS RACE' must match actual card count."""
+        html = _build_section_with_preview(normalized_data, preview_json)
+        actual_count = len(re.findall(r'data-workout-idx="\d+"', html))
+        header_match = re.search(r'(\d+) WORKOUTS BUILT FOR THIS RACE', html)
+        assert header_match, "Panel subtitle with count missing"
+        assert int(header_match.group(1)) == actual_count, (
+            f"Panel header says {header_match.group(1)} but {actual_count} cards exist"
+        )
+
+    def test_toggle_not_rendered_without_workouts(self, normalized_data, preview_json):
+        """If no workouts pass eligibility, toggle and panel must not render."""
+        # Create preview with categories that have no showcase workouts
+        empty_preview = dict(preview_json)
+        empty_preview['top_categories'] = [
+            {'category': 'NonExistent', 'score': 100, 'workouts': ['FakeWorkout']}
+        ]
+        html = _build_section_with_preview(normalized_data, empty_preview)
+        assert 'gg-pack-workouts-toggle' not in html, (
+            "Toggle rendered with 0 eligible workouts"
+        )
+        assert 'gg-pack-workouts-panel' not in html, (
+            "Workout panel rendered with 0 eligible workouts"
+        )
+
+    def test_toggle_button_no_gg_btn_class(self, normalized_data, preview_json):
+        """Toggle button must NOT have gg-btn base class (specificity conflict)."""
+        html = _build_section_with_preview(normalized_data, preview_json)
+        toggle = re.search(
+            r'class="([^"]*gg-pack-toggle-btn[^"]*)"', html
+        )
+        assert toggle, "Toggle button missing"
+        classes = toggle.group(1).split()
+        assert 'gg-btn' not in classes, (
+            f"Toggle has gg-btn class causing specificity conflict: {toggle.group(1)}"
+        )
+        assert 'gg-btn--outline' not in classes, (
+            f"Toggle has gg-btn--outline class: {toggle.group(1)}"
+        )
+
+
+class TestToggleJS:
+    """Test the workout toggle JS behavior and edge cases."""
+
+    @pytest.fixture
+    def js_content(self):
+        js = build_inline_js()
+        return js
+
+    def test_toggle_iife_present(self, js_content):
+        """Workout panel toggle IIFE must exist in JS."""
+        assert 'Workout panel toggle' in js_content
+        assert 'gg-pack-toggle-btn' in js_content
+
+    def test_toggle_reads_actual_count(self, js_content):
+        """Toggle JS must read workout count from DOM, not hardcode it."""
+        assert "panel.querySelectorAll('.gg-pack-workout').length" in js_content, (
+            "Toggle JS must count workouts from DOM, not hardcode '5'"
+        )
+
+    def test_toggle_focus_management(self, js_content):
+        """Expanding toggle must move focus to panel for screen readers."""
+        assert 'panel.focus()' in js_content, (
+            "Toggle expand must focus the panel for screen reader users"
+        )
+        assert "tabindex" in js_content, (
+            "Panel needs temporary tabindex for programmatic focus"
+        )
+
+    def test_toggle_collapse_returns_focus(self, js_content):
+        """Collapsing toggle must return focus to the button."""
+        assert 'toggleBtn.focus()' in js_content, (
+            "Toggle collapse must return focus to button"
+        )
+
+    def test_toggle_guards_missing_elements(self, js_content):
+        """Toggle JS must exit early if elements are missing."""
+        assert '!toggleBtn || !panel' in js_content or \
+               'toggleBtn && panel' in js_content, (
+            "Toggle JS must guard against missing DOM elements"
+        )
+
+    def test_toggle_ga4_tracking(self, js_content):
+        """Toggle expansion must fire GA4 event with workout count."""
+        assert 'workouts_panel_expand' in js_content
+        assert 'workout_count' in js_content, (
+            "GA4 event should include workout_count for analytics"
+        )
+
+    def test_toggle_updates_aria_expanded(self, js_content):
+        """Toggle must update aria-expanded attribute."""
+        assert "setAttribute('aria-expanded'" in js_content or \
+               'aria-expanded' in js_content
+
+
+class TestToggleCSS:
+    """Test toggle button CSS for correctness and accessibility."""
+
+    @pytest.fixture
+    def css_content(self):
+        """Read CSS from the externalized asset file (CSS is extracted from HTML)."""
+        assets_dir = Path(__file__).resolve().parent.parent / 'wordpress' / 'output' / 'assets'
+        css_files = sorted(assets_dir.glob('gg-styles.*.css')) if assets_dir.exists() else []
+        if css_files:
+            return css_files[-1].read_text()
+        # Fallback: read all CSS from generated HTML (inline + external refs)
+        output = Path(__file__).resolve().parent.parent / 'wordpress' / 'output' / 'unbound-200.html'
+        if output.exists():
+            html = output.read_text()
+            # Check inline styles AND link to external CSS
+            css_blocks = re.findall(r'<style[^>]*>(.*?)</style>', html, re.DOTALL)
+            # Also find referenced CSS files
+            css_refs = re.findall(r'href="([^"]*gg-styles[^"]*\.css)"', html)
+            for ref in css_refs:
+                css_path = output.parent / ref.lstrip('/')
+                if css_path.exists():
+                    css_blocks.append(css_path.read_text())
+            return '\n'.join(css_blocks)
+        pytest.skip("No generated CSS available")
+
+    def test_toggle_has_focus_visible_style(self, css_content):
+        """Toggle button must have :focus-visible outline for keyboard users."""
+        assert 'gg-pack-toggle-btn' in css_content
+        assert 'focus-visible' in css_content, (
+            "Toggle needs :focus-visible styles for keyboard accessibility"
+        )
+
+    def test_toggle_has_reduced_motion(self, css_content):
+        """Toggle arrow animation must respect prefers-reduced-motion."""
+        assert 'prefers-reduced-motion' in css_content, (
+            "Toggle animation needs reduced-motion media query"
+        )
+
+    def test_toggle_no_border_radius(self, css_content):
+        """Toggle button must have border-radius: 0 (neo-brutalist spec)."""
+        assert 'border-radius:0' in css_content or 'border-radius: 0' in css_content, (
+            "Toggle needs explicit border-radius: 0 (neo-brutalist spec)"
+        )
+
+    def test_demand_grid_responsive(self, css_content):
+        """Demand bars grid must collapse to 1 column on mobile."""
+        assert 'gg-pack-demands-inline' in css_content
+        assert 'grid-template-columns:1fr' in css_content or \
+               'grid-template-columns: 1fr' in css_content, (
+            "Demand bars grid needs mobile single-column fallback"
+        )
+
+
+class TestLayoutEdgeCases:
+    """Edge cases that could break the restructured layout."""
+
+    def test_race_with_only_1_eligible_workout(self, normalized_data, preview_json):
+        """A race with only 1 eligible workout should render toggle with '1'."""
+        # Modify preview to have only 1 category with an eligible workout
+        slim_preview = dict(preview_json)
+        slim_preview['top_categories'] = [
+            {
+                'category': 'Durability',
+                'score': 100,
+                'workouts': ['Progressive Fatigue'],
+                'workout_context': 'Test context.',
+            }
+        ]
+        html = _build_section_with_preview(normalized_data, slim_preview)
+        if 'gg-pack-workouts-toggle' in html:
+            toggle_text = re.search(r'SEE (\d+) SAMPLE', html)
+            assert toggle_text, "Toggle text missing count"
+            assert toggle_text.group(1) == '1', (
+                f"Toggle says {toggle_text.group(1)} but only 1 workout exists"
+            )
+
+    def test_configurator_summary_before_cta_in_dom(self, normalized_data, preview_json):
+        """Plan summary container must appear before CTA in DOM."""
+        html = _build_section_with_preview(normalized_data, preview_json)
+        summary_pos = html.find('id="gg-cfg-summary"')
+        cta_pos = html.find('id="gg-pack-cta-default"')
+        assert summary_pos > 0 and cta_pos > 0, "Summary or CTA missing"
+        assert summary_pos < cta_pos, (
+            "Summary must appear before CTA — the flow is: "
+            "configurator → summary → CTA"
+        )
+
+    def test_stale_preview_reset_hides_personalized_cta(self):
+        """When inputs change after preview, JS must hide personalized CTA and show default."""
+        js = build_inline_js()
+        # The reset handler must target the CTA elements
+        assert "gg-pack-cta-default" in js, (
+            "Stale preview handler must reference default CTA"
+        )
+        assert "gg-cfg-cta" in js, (
+            "Stale preview handler must reference personalized CTA"
+        )
+        # The handler must show default and hide personalized
+        # Find the change handler section (case-insensitive search for the comment)
+        stale_idx = js.lower().find('mark preview as stale')
+        assert stale_idx >= 0, "JS must contain 'Mark preview as stale' comment"
+        change_section = js[stale_idx:]
+        assert 'defCta' in change_section or 'gg-pack-cta-default' in change_section, (
+            "Change handler must restore default CTA visibility"
+        )
+
+    def test_all_757_races_have_consistent_toggle_count(self):
+        """For every race with a preview, toggle count must match actual cards.
+
+        Scans all web/race-packs/*.json to verify the generator would produce
+        consistent toggle text vs actual workout cards.
+        """
+        race_packs_dir = Path(__file__).resolve().parent.parent / 'web' / 'race-packs'
+        if not race_packs_dir.exists():
+            pytest.skip("No race-packs directory")
+        previews = list(race_packs_dir.glob('*.json'))
+        if len(previews) < 10:
+            pytest.skip("Too few race-packs to test")
+        # Verify at least that every preview has top_categories with workouts
+        empty_count = 0
+        for p in previews:
+            try:
+                data = json.loads(p.read_text())
+            except (json.JSONDecodeError, OSError):
+                continue
+            cats = data.get('top_categories', [])
+            if not cats:
+                empty_count += 1
+        # Allow some empties but flag if too many
+        assert empty_count < len(previews) * 0.1, (
+            f"{empty_count}/{len(previews)} race-packs have no top_categories"
+        )

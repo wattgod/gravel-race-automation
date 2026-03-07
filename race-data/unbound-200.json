@@ -10,8 +10,8 @@
       "location": "Emporia, Kansas",
       "location_badge": "EMPORIA, KANSAS",
       "county": "Lyon County",
-      "date": "Early June annually",
-      "date_specific": "2026: June 6",
+      "date": "Late May annually",
+      "date_specific": "2026: May 30",
       "terrain_types": [
         "Flint Hills gravel",
         "rolling hills",
@@ -29,7 +29,7 @@
     },
     "climate": {
       "primary": "Flint Hills heat",
-      "description": "June brings 85-95°F days with high humidity",
+      "description": "Late May brings 85-95°F days with high humidity",
       "challenges": [
         "Heat adaptation critical",
         "Hydration demands extreme",
@@ -213,7 +213,7 @@
       "race_name": "Unbound Gravel 200",
       "race_distance": "200 miles",
       "race_elevation": "11,000 feet",
-      "race_date": "June",
+      "race_date": "May",
       "race_location": "Emporia, Kansas",
       "race_terrain": "Flint Hills gravel roads",
       "race_weather": "Hot and humid, typically 85-95°F",
@@ -615,7 +615,7 @@
           "field_size_actual": 5000,
           "dnf_rate_pct": 23,
           "key_takeaways": [
-            "Date: Held annually on the first Saturday of June (e",
+            "Date: Held annually on the Saturday of Memorial Day weekend (late May) (e",
             "Field Size: ~4,000+ total riders across all distances in 2024 (largest ever) ; nearly 5,000 riders across all distances in 2024",
             "Checkpoint 1 – Alma (mile ~70): The first support crew checkpoint at a small town",
             "This led to high finisher counts and even faster winning times: the men’s winner (Cameron Jones) obliterated the record in ~8h34m, and the women’s rac",
@@ -709,7 +709,9 @@
           "duration_string": "34:12",
           "curated": true,
           "curation_reason": "Raw on-bike highlights from elite men's field with massive view count",
-          "display_order": 1
+          "display_order": 1,
+          "thumbnail_url": "https://i.ytimg.com/vi/7976ne2KPks/maxresdefault.jpg",
+          "thumbnail_score": 84.0
         },
         {
           "video_id": "oh4TzdDDPRI",
@@ -720,7 +722,9 @@
           "duration_string": "31:18",
           "curated": true,
           "curation_reason": "Pro rider first-person redemption story with detailed race strategy breakdown",
-          "display_order": 2
+          "display_order": 2,
+          "thumbnail_url": "https://i.ytimg.com/vi/oh4TzdDDPRI/maxresdefault.jpg",
+          "thumbnail_score": 80.0
         },
         {
           "video_id": "Qhcmr9mlmdI",
@@ -731,7 +735,9 @@
           "duration_string": "47:22",
           "curated": true,
           "curation_reason": "First-person elite race recap with on-bike footage and flat tire drama",
-          "display_order": 3
+          "display_order": 3,
+          "thumbnail_url": "https://i.ytimg.com/vi/Qhcmr9mlmdI/maxresdefault.jpg",
+          "thumbnail_score": 84.0
         }
       ],
       "quotes": [

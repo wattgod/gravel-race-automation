@@ -291,3 +291,46 @@ class TestSpeedBrackets:
         for _, speed in SPEED_BRACKETS:
             assert speed <= prev_speed
             prev_speed = speed
+
+
+# ── Input validation ───────────────────────────────────────
+
+
+class TestInputValidation:
+    """Verify that invalid inputs raise ValueError, not silent garbage."""
+
+    def test_estimate_speed_zero_raises(self):
+        with pytest.raises(ValueError, match="positive"):
+            estimate_speed(0)
+
+    def test_estimate_speed_negative_raises(self):
+        with pytest.raises(ValueError, match="positive"):
+            estimate_speed(-10)
+
+    def test_compute_fueling_zero_distance_raises(self):
+        with pytest.raises(ValueError, match="positive"):
+            compute_fueling(0)
+
+    def test_compute_fueling_negative_distance_raises(self):
+        with pytest.raises(ValueError, match="positive"):
+            compute_fueling(-50)
+
+    def test_compute_fueling_negative_duration_raises(self):
+        with pytest.raises(ValueError, match="negative"):
+            compute_fueling(100, duration_hours=-1)
+
+    def test_compute_fueling_for_guide_zero_distance_raises(self):
+        with pytest.raises(ValueError, match="positive"):
+            compute_fueling_for_guide(0, {})
+
+    def test_compute_fueling_for_guide_none_distance_raises(self):
+        with pytest.raises(ValueError, match="positive"):
+            compute_fueling_for_guide(None, {})
+
+    def test_short_race_with_weight_gets_weight_targets(self):
+        """Regression: short races (<20mi) with profile should still get weight targets."""
+        profile = {"demographics": {"weight_lbs": 150}}
+        result = compute_fueling_for_guide(15, {}, profile)
+        assert "weight_kg" in result
+        assert result["daily_carb_lo"] > 0
+        assert result["daily_carb_hi"] > result["daily_carb_lo"]

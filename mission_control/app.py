@@ -11,7 +11,7 @@ from mission_control.routers import (
     athletes, dashboard, pipeline, reports, templates_page, touchpoints, triage, webhooks,
 )
 from mission_control.routers import sequences, deals_router, analytics, unsubscribe
-from mission_control.routers import races_api
+from mission_control.routers import races_api, nutrition_api
 
 logger = logging.getLogger(__name__)
 
@@ -68,5 +68,8 @@ def create_app() -> FastAPI:
 
     # Races API — public, included in API docs
     app.include_router(races_api.router)
+
+    # Nutrition API — public, included in API docs
+    app.include_router(nutrition_api.router)
 
     return app

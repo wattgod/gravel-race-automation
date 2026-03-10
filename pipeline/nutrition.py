@@ -35,7 +35,19 @@ DURATION_BRACKETS = [
 
 
 def estimate_speed(distance_mi: int) -> int:
-    """Estimate average gravel speed (mph) from distance bracket."""
+    """Estimate average gravel speed (mph) from distance bracket.
+
+    Args:
+        distance_mi: Race distance in miles. Must be > 0.
+
+    Returns:
+        Estimated average speed in mph.
+
+    Raises:
+        ValueError: If distance_mi <= 0.
+    """
+    if distance_mi <= 0:
+        raise ValueError(f"distance_mi must be positive, got {distance_mi}")
     for max_dist, speed in SPEED_BRACKETS:
         if distance_mi <= max_dist:
             return speed
@@ -46,13 +58,21 @@ def compute_fueling(distance_mi: int, duration_hours: float = 0) -> dict:
     """Compute duration-scaled fueling targets for a gravel race.
 
     Args:
-        distance_mi: Race distance in miles.
+        distance_mi: Race distance in miles. Must be > 0.
         duration_hours: Estimated duration in hours. If 0, estimated from distance.
 
     Returns:
         Dict with carb_rate_lo, carb_rate_hi, hours, label, gut_training_weeks,
         carbs_total_lo, carbs_total_hi, gels_lo, gels_hi.
+
+    Raises:
+        ValueError: If distance_mi <= 0 or duration_hours < 0.
     """
+    if distance_mi <= 0:
+        raise ValueError(f"distance_mi must be positive, got {distance_mi}")
+    if duration_hours < 0:
+        raise ValueError(f"duration_hours cannot be negative, got {duration_hours}")
+
     if duration_hours <= 0:
         avg_mph = estimate_speed(distance_mi)
         duration_hours = distance_mi / avg_mph
@@ -99,8 +119,25 @@ def compute_fueling_for_guide(
     from distance. Returns a dict ready for the guide template.
     """
     dist = int(race_distance) if race_distance else 0
+    if dist <= 0:
+        raise ValueError(f"race_distance must be positive, got {race_distance}")
     if dist < 20:
-        return compute_fueling(dist)
+        result = compute_fueling(dist)
+        # Still add weight-derived targets for short races if profile provided
+        if profile:
+            weight_lbs = profile.get("demographics", {}).get("weight_lbs")
+            if weight_lbs:
+                try:
+                    weight_kg = float(weight_lbs) / 2.205
+                    result["weight_kg"] = round(weight_kg, 1)
+                    result["weight_lbs"] = float(weight_lbs)
+                    result["daily_carb_lo"] = round(weight_kg * 6)
+                    result["daily_carb_hi"] = round(weight_kg * 7)
+                    result["long_ride_carb_lo"] = round(weight_kg * 8)
+                    result["long_ride_carb_hi"] = round(weight_kg * 10)
+                except (ValueError, TypeError):
+                    pass
+        return result
 
     # Parse duration estimate from race data (e.g. "6-10 hours")
     duration_hours = 0

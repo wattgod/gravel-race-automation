@@ -21,6 +21,7 @@ os.environ.setdefault("SUPABASE_URL", "https://fake.supabase.co")
 os.environ.setdefault("SUPABASE_SERVICE_KEY", "fake-key")
 os.environ.setdefault("WEBHOOK_SECRET", "test-secret-123")
 os.environ.setdefault("RESEND_API_KEY", "")
+os.environ.setdefault("MISSION_CONTROL_SECRET", "test-secret-for-tests")
 
 # Pre-mock the supabase package so mission_control.supabase_client can import.
 # The real supabase pip package may not be installed, and the local supabase/

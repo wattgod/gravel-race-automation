@@ -496,6 +496,10 @@ a:hover {
   color: var(--gg-color-teal);
 }
 
+.mc-text-warning {
+  color: var(--gg-color-gold);
+}
+
 .mc-text-error {
   color: var(--gg-color-error);
 }

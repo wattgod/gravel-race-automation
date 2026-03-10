@@ -24,6 +24,9 @@ os.environ.setdefault("SUPABASE_URL", "https://fake.supabase.co")
 os.environ.setdefault("SUPABASE_SERVICE_KEY", "fake-key")
 os.environ.setdefault("WEBHOOK_SECRET", "test-secret-123")
 os.environ.setdefault("RESEND_API_KEY", "")
+os.environ.setdefault("MISSION_CONTROL_SECRET", "test-secret-for-tests")
+
+ADMIN_HEADERS = {"Authorization": f"Bearer {os.environ['MISSION_CONTROL_SECRET']}"}
 
 # Pre-mock supabase
 if "supabase" not in sys.modules or not hasattr(sys.modules["supabase"], "Client"):
@@ -109,7 +112,7 @@ class TestDeliverHappyPath:
     def test_dry_run_returns_preview(self, deliver_client):
         """Default dry_run=True returns a confirmation prompt."""
         c = deliver_client["client"]
-        resp = c.post("/athletes/test-athlete/deliver", data={"dry_run": "true"})
+        resp = c.post("/athletes/test-athlete/deliver", data={"dry_run": "true"}, headers=ADMIN_HEADERS)
         assert resp.status_code == 200
         assert "Preview" in resp.text
         assert "Confirm Deliver" in resp.text
@@ -125,7 +128,7 @@ class TestDeliverHappyPath:
             with patch.dict(os.environ, {"RESEND_API_KEY": "re_test_key"}):
                 with patch("mission_control.config.RESEND_API_KEY", "re_test_key"):
                     with patch.dict(sys.modules, {"resend": fake_resend}):
-                        resp = c.post("/athletes/test-athlete/deliver", data={"dry_run": "false"})
+                        resp = c.post("/athletes/test-athlete/deliver", data={"dry_run": "false"}, headers=ADMIN_HEADERS)
 
         assert resp.status_code == 200
         assert "Done" in resp.text
@@ -154,7 +157,7 @@ class TestDeliverNoArtifacts:
                 with patch("mission_control.supabase_client.get_files", return_value=[]):
                     client = _make_client()
                     with client:
-                        resp = client.post("/athletes/test-athlete/deliver", data={"dry_run": "false"})
+                        resp = client.post("/athletes/test-athlete/deliver", data={"dry_run": "false"}, headers=ADMIN_HEADERS)
 
         assert resp.status_code == 404
         assert "No deliverable artifacts" in resp.text
@@ -179,7 +182,7 @@ class TestDeliverPartialURLFailure:
 
         with patch("mission_control.services.file_storage.get_signed_url", side_effect=flaky_sign):
             with patch("mission_control.config.RESEND_API_KEY", ""):
-                resp = c.post("/athletes/test-athlete/deliver", data={"dry_run": "false"})
+                resp = c.post("/athletes/test-athlete/deliver", data={"dry_run": "false"}, headers=ADMIN_HEADERS)
 
         assert resp.status_code == 200
         assert "3 files" in resp.text  # 3 of 4 succeeded
@@ -208,7 +211,7 @@ class TestRedelivery:
                                     with patch("mission_control.config.RESEND_API_KEY", ""):
                                         client = _make_client()
                                         with client:
-                                            resp = client.post("/athletes/re-test/deliver", data={"dry_run": "false"})
+                                            resp = client.post("/athletes/re-test/deliver", data={"dry_run": "false"}, headers=ADMIN_HEADERS)
 
         assert resp.status_code == 200
         assert "1 files" in resp.text
@@ -229,7 +232,7 @@ class TestDeliverEmailFailure:
         with patch("mission_control.services.file_storage.get_signed_url", return_value="https://signed.url/file"):
             with patch("mission_control.config.RESEND_API_KEY", "re_test_key"):
                 with patch.dict(sys.modules, {"resend": fake_resend}):
-                    resp = c.post("/athletes/test-athlete/deliver", data={"dry_run": "false"})
+                    resp = c.post("/athletes/test-athlete/deliver", data={"dry_run": "false"}, headers=ADMIN_HEADERS)
 
         assert resp.status_code == 200
         assert "Email send failed" in resp.text
@@ -254,7 +257,7 @@ class TestDeliverNoApiKey:
 
         with patch("mission_control.services.file_storage.get_signed_url", return_value="https://signed.url/file"):
             with patch("mission_control.config.RESEND_API_KEY", ""):
-                resp = c.post("/athletes/test-athlete/deliver", data={"dry_run": "false"})
+                resp = c.post("/athletes/test-athlete/deliver", data={"dry_run": "false"}, headers=ADMIN_HEADERS)
 
         assert resp.status_code == 200
         assert "RESEND_API_KEY" in resp.text
@@ -277,7 +280,7 @@ class TestDeliverNoEmail:
             with patch("mission_control.supabase_client.get_athlete", return_value=athlete):
                 client = _make_client()
                 with client:
-                    resp = client.post("/athletes/no-email/deliver", data={"dry_run": "false"})
+                    resp = client.post("/athletes/no-email/deliver", data={"dry_run": "false"}, headers=ADMIN_HEADERS)
 
         assert resp.status_code == 400
         assert "no email" in resp.text.lower()
@@ -290,7 +293,7 @@ class TestDeliverNoEmail:
             with patch("mission_control.supabase_client.get_athlete", return_value=athlete):
                 client = _make_client()
                 with client:
-                    resp = client.post("/athletes/null-email/deliver", data={"dry_run": "false"})
+                    resp = client.post("/athletes/null-email/deliver", data={"dry_run": "false"}, headers=ADMIN_HEADERS)
 
         assert resp.status_code == 400
 
@@ -311,7 +314,7 @@ class TestDeliverWrongStatus:
             with patch("mission_control.supabase_client.get_athlete", return_value=athlete):
                 client = _make_client()
                 with client:
-                    resp = client.post("/athletes/wrong-status/deliver", data={"dry_run": "false"})
+                    resp = client.post("/athletes/wrong-status/deliver", data={"dry_run": "false"}, headers=ADMIN_HEADERS)
 
         assert resp.status_code == 409
         assert "Cannot deliver" in resp.text
@@ -336,7 +339,7 @@ class TestDeliverWrongStatus:
                                     with patch("mission_control.config.RESEND_API_KEY", ""):
                                         client = _make_client()
                                         with client:
-                                            resp = client.post("/athletes/ok-status/deliver", data={"dry_run": "false"})
+                                            resp = client.post("/athletes/ok-status/deliver", data={"dry_run": "false"}, headers=ADMIN_HEADERS)
 
         assert resp.status_code == 200
 
@@ -351,7 +354,7 @@ class TestDeliverAthleteNotFound:
             with patch("mission_control.supabase_client.get_athlete", return_value=None):
                 client = _make_client()
                 with client:
-                    resp = client.post("/athletes/ghost/deliver", data={"dry_run": "false"})
+                    resp = client.post("/athletes/ghost/deliver", data={"dry_run": "false"}, headers=ADMIN_HEADERS)
 
         assert resp.status_code == 404
         assert "not found" in resp.text.lower()

@@ -3,10 +3,11 @@
 import logging
 from contextlib import asynccontextmanager
 
-from fastapi import FastAPI
+from fastapi import Depends, FastAPI
 from fastapi.staticfiles import StaticFiles
 
 from mission_control.config import STATIC_DIR
+from mission_control.middleware.auth import require_admin
 from mission_control.routers import (
     athletes, dashboard, pipeline, reports, templates_page, touchpoints, triage, webhooks,
 )
@@ -58,13 +59,20 @@ def create_app() -> FastAPI:
     async def health():
         return {"status": "ok"}
 
-    # Routers — v1 (dashboard, internal — hidden from API docs)
-    for r in [dashboard, triage, athletes, pipeline, touchpoints, templates_page, reports, webhooks]:
-        app.include_router(r.router, include_in_schema=False)
+    # Routers — admin-protected (dashboard, internal — hidden from API docs)
+    _admin = [Depends(require_admin)]
+    for r in [dashboard, triage, athletes, pipeline, touchpoints, templates_page, reports]:
+        app.include_router(r.router, include_in_schema=False, dependencies=_admin)
 
-    # Routers — v2 (internal — hidden from API docs)
-    for r in [sequences, deals_router, analytics, unsubscribe]:
-        app.include_router(r.router, include_in_schema=False)
+    # Webhooks have their own WEBHOOK_SECRET auth — no admin dependency
+    app.include_router(webhooks.router, include_in_schema=False)
+
+    # Routers — v2 admin-protected (internal — hidden from API docs)
+    for r in [sequences, deals_router, analytics]:
+        app.include_router(r.router, include_in_schema=False, dependencies=_admin)
+
+    # Unsubscribe — public, no auth (CAN-SPAM compliance)
+    app.include_router(unsubscribe.router, include_in_schema=False)
 
     # Races API — public, included in API docs
     app.include_router(races_api.router)

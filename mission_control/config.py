@@ -41,6 +41,9 @@ REPLY_TO_EMAIL = os.environ.get("REPLY_TO_EMAIL", "gravelgodcoaching@gmail.com")
 # Webhook secret (for Worker → Mission Control auth)
 WEBHOOK_SECRET = os.environ.get("WEBHOOK_SECRET", "")
 
+# Admin auth secret (for Mission Control dashboard routes)
+MISSION_CONTROL_SECRET = os.environ.get("MISSION_CONTROL_SECRET", "")
+
 # Server
 HOST = os.environ.get("HOST", "0.0.0.0")
 PORT = int(os.environ.get("PORT", "8000"))

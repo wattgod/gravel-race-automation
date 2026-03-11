@@ -10,7 +10,6 @@ WORKDIR /app
 # Python deps
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt \
-    && pip install --no-cache-dir fastapi uvicorn jinja2 supabase python-multipart \
     && playwright install chromium --with-deps
 
 # App code (pipeline + mission control + templates + data)

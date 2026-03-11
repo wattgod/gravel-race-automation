@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login — Mission Control</title>
+    <link rel="stylesheet" href="/static/tokens.css">
+    <link rel="stylesheet" href="/static/fonts/fonts.css">
+    <link rel="stylesheet" href="/static/components/button.css">
+    <link rel="stylesheet" href="/static/components/alert.css">
+    <link rel="stylesheet" href="/static/mission-control.css">
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            background: var(--gg-color-bg, #0d1117);
+        }
+        .login-card {
+            background: var(--gg-color-surface, #161b22);
+            border: 1px solid var(--gg-color-border, #30363d);
+            border-radius: var(--gg-radius-lg, 12px);
+            padding: 2.5rem 2rem;
+            width: 100%;
+            max-width: 380px;
+        }
+        .login-card__title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--gg-color-text, #e6edf3);
+            margin: 0 0 0.25rem;
+            text-align: center;
+        }
+        .login-card__subtitle {
+            font-size: 0.8rem;
+            color: var(--gg-color-text-muted, #8b949e);
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        .login-card label {
+            display: block;
+            font-size: 0.8rem;
+            color: var(--gg-color-text-muted, #8b949e);
+            margin-bottom: 0.4rem;
+        }
+        .login-card input[type="password"] {
+            width: 100%;
+            padding: 0.6rem 0.75rem;
+            border: 1px solid var(--gg-color-border, #30363d);
+            border-radius: var(--gg-radius-md, 8px);
+            background: var(--gg-color-bg, #0d1117);
+            color: var(--gg-color-text, #e6edf3);
+            font-size: 0.9rem;
+            box-sizing: border-box;
+        }
+        .login-card input[type="password"]:focus {
+            outline: 2px solid var(--gg-color-accent, #5CE1E6);
+            border-color: transparent;
+        }
+        .login-card button {
+            width: 100%;
+            margin-top: 1rem;
+        }
+        .login-error {
+            background: rgba(248, 81, 73, 0.1);
+            border: 1px solid rgba(248, 81, 73, 0.4);
+            border-radius: var(--gg-radius-md, 8px);
+            color: #f85149;
+            padding: 0.5rem 0.75rem;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-card">
+        <div class="login-card__title">Mission Control</div>
+        <div class="login-card__subtitle">Gravel God Coaching</div>
+
+        {% if error %}
+        <div class="login-error">{{ error }}</div>
+        {% endif %}
+
+        <form method="POST" action="/login">
+            <label for="secret">Admin Secret</label>
+            <input type="password" id="secret" name="secret" required autofocus
+                   placeholder="Enter MISSION_CONTROL_SECRET">
+            <button type="submit" class="gg-btn gg-btn--primary">Sign In</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -13,6 +13,7 @@ from mission_control.routers import (
 )
 from mission_control.routers import sequences, deals_router, analytics, unsubscribe
 from mission_control.routers import races_api, nutrition_api
+from mission_control.routers import auth_routes
 
 logger = logging.getLogger(__name__)
 
@@ -63,6 +64,9 @@ def create_app() -> FastAPI:
     _admin = [Depends(require_admin)]
     for r in [dashboard, triage, athletes, pipeline, touchpoints, templates_page, reports]:
         app.include_router(r.router, include_in_schema=False, dependencies=_admin)
+
+    # Auth routes — public (login/logout pages)
+    app.include_router(auth_routes.router, include_in_schema=False)
 
     # Webhooks have their own WEBHOOK_SECRET auth — no admin dependency
     app.include_router(webhooks.router, include_in_schema=False)

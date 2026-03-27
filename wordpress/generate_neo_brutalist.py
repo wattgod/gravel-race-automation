@@ -43,7 +43,7 @@ from brand_tokens import (
 )
 from cookie_consent import get_consent_banner_html
 from shared_footer import get_mega_footer_css, get_mega_footer_html
-from shared_header import get_site_header_css, get_site_header_html
+from shared_header import get_site_header_css, get_site_header_html, get_site_header_js
 
 # ── Constants ──────────────────────────────────────────────────
 
@@ -681,8 +681,8 @@ def build_sticky_cta(race_name: str, slug: str = "") -> str:
   <div class="gg-sticky-cta-inner">
     <span class="gg-sticky-cta-name">{esc(race_name)}</span>
     <div style="display:flex;align-items:center;gap:12px">
-      <a href="{plan_href}" class="gg-btn" id="gg-sticky-cta-link"><span id="gg-sticky-cta-text">BUILD MY PLAN &mdash; $15/WK</span></a>
-      <button class="gg-sticky-dismiss" onclick="document.getElementById(\'gg-sticky-cta\').style.display=\'none\';try{{sessionStorage.setItem(\'gg-cta-dismissed\',\'1\')}}catch(e){{}}" aria-label="Dismiss">&times;</button>
+      <a href="{plan_href}" class="gg-btn" id="gg-sticky-cta-link"><span id="gg-sticky-cta-text" data-ab="race_sticky_cta">BUILD MY PLAN &mdash; $15/WK</span></a>
+      <button class="gg-sticky-dismiss" id="gg-sticky-dismiss" aria-label="Dismiss">&times;</button>
     </div>
   </div>
 </div>'''
@@ -690,7 +690,8 @@ def build_sticky_cta(race_name: str, slug: str = "") -> str:
 
 def build_inline_js() -> str:
     """Build the inline JavaScript for all interactive features."""
-    return r'''<script>
+    header_js = get_site_header_js()
+    return '<script>\n' + header_js + r'''
 // Accordion toggle (independent mode — multiple can be open)
 document.querySelectorAll('.gg-accordion-trigger').forEach(function(trigger) {
   if (trigger.dataset.noContent) return;
@@ -890,6 +891,14 @@ document.querySelectorAll('.gg-accordion-trigger').forEach(function(trigger) {
 if ('IntersectionObserver' in window) {
   var stickyCta = document.getElementById('gg-sticky-cta');
   try { if (sessionStorage.getItem('gg-cta-dismissed')) { if (stickyCta) stickyCta.style.display = 'none'; stickyCta = null; } } catch(e) {}
+  var dismissBtn = document.getElementById('gg-sticky-dismiss');
+  if (dismissBtn) {
+    dismissBtn.addEventListener('click', function() {
+      if (stickyCta) stickyCta.style.display = 'none';
+      stickyCta = null;
+      try { sessionStorage.setItem('gg-cta-dismissed', '1'); } catch(e) {}
+    });
+  }
   var hero = document.querySelector('.gg-hero');
   var training = document.getElementById('training');
 
@@ -918,7 +927,13 @@ if ('IntersectionObserver' in window) {
     }).observe(training);
   }
 
-  // Scroll fade-in
+  // Scroll fade-in — progressive enhancement
+  // Enable animations only after JS loads; content stays visible without JS
+  var pageWrapper = document.querySelector('.gg-neo-brutalist-page');
+  if (pageWrapper) {
+    pageWrapper.classList.add('gg-animations-ready');
+  }
+
   var fadeObserver = new IntersectionObserver(function(entries) {
     entries.forEach(function(entry) {
       if (entry.isIntersecting) {
@@ -929,7 +944,13 @@ if ('IntersectionObserver' in window) {
   }, { threshold: 0.15 });
 
   document.querySelectorAll('.gg-fade-section').forEach(function(el) {
-    fadeObserver.observe(el);
+    // If element is already in viewport on page load, make it visible immediately
+    var rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      el.classList.add('is-visible');
+    } else {
+      fadeObserver.observe(el);
+    }
   });
 
   // Back to top button
@@ -947,6 +968,68 @@ if ('IntersectionObserver' in window) {
     });
   }
 }
+
+// TOC — scroll-spy + mobile toggle
+(function() {
+  var toc = document.getElementById('gg-toc');
+  var tocToggle = document.getElementById('gg-toc-toggle');
+  var tocLinks = document.getElementById('gg-toc-links');
+  if (!toc) return;
+
+  // Mobile toggle
+  if (tocToggle && tocLinks) {
+    tocToggle.addEventListener('click', function() {
+      var expanded = tocToggle.getAttribute('aria-expanded') === 'true';
+      tocToggle.setAttribute('aria-expanded', !expanded);
+      tocLinks.classList.toggle('is-open', !expanded);
+    });
+    // Close on link click (mobile)
+    tocLinks.querySelectorAll('a').forEach(function(a) {
+      a.addEventListener('click', function() {
+        tocToggle.setAttribute('aria-expanded', 'false');
+        tocLinks.classList.remove('is-open');
+      });
+    });
+  }
+
+  // Scroll-spy: highlight active section in TOC
+  var tocAnchors = toc.querySelectorAll('a[data-toc-target]');
+  if (!tocAnchors.length) return;
+  var sectionIds = Array.from(tocAnchors).map(function(a) { return a.getAttribute('data-toc-target'); });
+  var sections = sectionIds.map(function(id) { return document.getElementById(id); }).filter(Boolean);
+  if (!sections.length) return;
+
+  var spyObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        tocAnchors.forEach(function(a) { a.classList.remove('gg-toc-active'); });
+        var active = toc.querySelector('a[data-toc-target="' + entry.target.id + '"]');
+        if (active) active.classList.add('gg-toc-active');
+      }
+    });
+  }, { rootMargin: '-' + (parseInt(getComputedStyle(document.documentElement).getPropertyValue('--gg-header-height')) || 80) + 'px 0px -60% 0px', threshold: 0 });
+
+  sections.forEach(function(s) { spyObserver.observe(s); });
+})();
+
+// Reading progress bar
+(function() {
+  var bar = document.getElementById('gg-reading-progress-bar');
+  if (!bar) return;
+  var ticking = false;
+  window.addEventListener('scroll', function() {
+    if (!ticking) {
+      requestAnimationFrame(function() {
+        var scrollTop = window.scrollY;
+        var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        var pct = docHeight > 0 ? Math.min((scrollTop / docHeight) * 100, 100) : 0;
+        bar.style.width = pct + '%';
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
+})();
 
 // News ticker — multi-source (Google News + Reddit)
 (function() {
@@ -1048,6 +1131,15 @@ if ('IntersectionObserver' in window) {
     feed.appendChild(buildTickerItems(all));
   });
 })();
+
+// Review expand button — no inline handlers
+document.querySelectorAll('.gg-review-expand-btn').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    var expandable = btn.nextElementSibling;
+    if (expandable) expandable.style.display = 'block';
+    btn.style.display = 'none';
+  });
+});
 
 // FAQ accordion toggle
 document.querySelectorAll('.gg-faq-question').forEach(function(q) {
@@ -1552,6 +1644,81 @@ document.querySelectorAll('.gg-pack-workout').forEach(function(card) {
     });
   }
 })();
+
+// Date reminder handler
+(function() {
+  var WORKER_URL='https://fueling-lead-intake.gravelgodcoaching.workers.dev';
+  var form=document.getElementById('gg-date-reminder-form');
+  if(!form) return;
+  form.addEventListener('submit',function(e) {
+    e.preventDefault();
+    var email=form.email.value.trim();
+    if(!email||!/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email)) {
+      alert('Please enter a valid email address.');return;
+    }
+    var hp=form.querySelector('input[name=hp]');
+    if(hp&&hp.value) return;
+    var slug=form.race_slug.value;
+    var raceDate=form.race_date.value;
+    var payload={
+      email:email,
+      source:'date_reminder',
+      race_slug:slug,
+      race_date:raceDate,
+      website:hp?hp.value:''
+    };
+    fetch(WORKER_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}).catch(function(){});
+    if(typeof gtag==='function') {
+      gtag('event','email_capture',{source:'date_reminder',race_slug:slug});
+    }
+    while(form.firstChild) form.removeChild(form.firstChild);
+    var msg=document.createElement('p');
+    msg.style.cssText='font-family:var(--gg-font-data);font-size:12px;color:var(--gg-color-teal);font-weight:700';
+    msg.textContent='\u2713 We will remind you 12 weeks out.';
+    form.appendChild(msg);
+  });
+})();
+
+// Mobile collapsible sections — collapse long sections on narrow screens
+(function() {
+  if (window.innerWidth > 768) return;
+  var collapsibleIds = ['history', 'logistics', 'training', 'news', 'citations', 'similar'];
+  var hash = window.location.hash ? window.location.hash.substring(1) : '';
+  collapsibleIds.forEach(function(id) {
+    var section = document.getElementById(id);
+    if (!section) return;
+    var header = section.querySelector('.gg-section-header');
+    var body = section.querySelector('.gg-section-body');
+    if (!header || !body) return;
+    // If URL hash targets this section, keep it expanded
+    var startExpanded = (hash === id);
+    section.classList.add('gg-section-collapsible');
+    if (!startExpanded) {
+      section.classList.add('gg-section-collapsed');
+      body.style.display = 'none';
+    }
+    header.setAttribute('role', 'button');
+    header.setAttribute('aria-expanded', startExpanded ? 'true' : 'false');
+    header.setAttribute('tabindex', '0');
+    header.style.cursor = 'pointer';
+    // Add chevron indicator
+    var chevron = document.createElement('span');
+    chevron.className = 'gg-section-chevron';
+    chevron.textContent = startExpanded ? '\u25B4' : '\u25BE';
+    chevron.setAttribute('aria-hidden', 'true');
+    header.appendChild(chevron);
+    function toggle() {
+      var collapsed = section.classList.toggle('gg-section-collapsed');
+      body.style.display = collapsed ? 'none' : '';
+      header.setAttribute('aria-expanded', !collapsed);
+      chevron.textContent = collapsed ? '\u25BE' : '\u25B4';
+    }
+    header.addEventListener('click', toggle);
+    header.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
+    });
+  });
+})();
 </script>'''
 
 
@@ -1812,8 +1979,19 @@ def build_toc(active_sections=None) -> str:
     ]
     links = [(href, label) for href, label in all_links
              if active_sections is None or href in active_sections]
-    items = '\n  '.join(f'<a href="#{href}">{label}</a>' for href, label in links)
-    return f'<nav class="gg-toc" aria-label="Table of contents">\n  {items}\n</nav>'
+    items = '\n    '.join(
+        f'<a href="#{href}" data-toc-target="{href}">{label}</a>'
+        for href, label in links
+    )
+    return f'''<nav class="gg-toc" id="gg-toc" aria-label="Table of contents">
+  <button class="gg-toc-toggle" id="gg-toc-toggle" aria-expanded="false" aria-controls="gg-toc-links">
+    <span class="gg-toc-toggle-label">On This Page</span>
+    <span class="gg-toc-toggle-icon">+</span>
+  </button>
+  <div class="gg-toc-links" id="gg-toc-links">
+    {items}
+  </div>
+</nav>'''
 
 
 def _extract_state(location: str) -> str:
@@ -2484,12 +2662,15 @@ def build_racer_reviews(rd: dict) -> str:
 
     review_form = _build_inline_review_form(slug, name)
 
-    # No ratings at all — empty state
+    # No ratings at all — compact empty state with collapsible form
     if total_ratings == 0:
         return f'''<section class="gg-racer-reviews gg-fade-section">
     <div class="gg-racer-empty">
-      <div class="gg-racer-empty-text">No racer ratings yet. Be the first to rate {esc(name)}.</div>
-      {review_form}
+      <div class="gg-racer-empty-text">Raced {esc(name)}? Be the first to rate it.</div>
+      <button class="gg-btn gg-btn--outline gg-review-expand-btn">RATE THIS RACE</button>
+      <div class="gg-review-expandable" style="display:none">
+        {review_form}
+      </div>
     </div>
   </section>'''
 
@@ -4107,6 +4288,91 @@ def build_tire_picks(rd: dict) -> str:
   </section>'''
 
 
+def build_tire_guide_callout(rd: dict) -> str:
+    """Prominent inline callout linking to the full tire guide for this race.
+
+    Shown in races that have tire recommendations — positioned near the course
+    section to catch users while they're thinking about terrain.
+
+    DEPENDENCY: Links to /race/{slug}/tires/ which must be generated by
+    generate_tire_pages.py.  If tire_recommendations exists in the JSON but
+    the tire page hasn't been generated, this link will 404.  There is
+    currently no preflight check that validates internal cross-page links;
+    the deploy pipeline should add one (see preflight_quality.py).
+    """
+    tr = rd.get('tire_recommendations', {})
+    if not tr.get('primary'):
+        return ''
+
+    slug = rd['slug']
+    name = rd['name']
+    surface = tr.get('race_surface_profile', '')
+    width_mm = tr.get('recommended_width_mm')
+
+    detail_parts = []
+    if surface:
+        detail_parts.append(surface.replace('_', ' ').title())
+    if width_mm:
+        detail_parts.append(f'{width_mm}mm')
+    detail = ' · '.join(detail_parts)
+    detail_html = f'<span class="gg-tire-callout-detail">{esc(detail)}</span>' if detail else ''
+
+    return f'''<div class="gg-tire-callout gg-fade-section">
+    <a href="/race/{esc(slug)}/tires/" class="gg-tire-callout-link" data-cta="tire_guide">
+      <span class="gg-tire-callout-label">TIRE GUIDE</span>
+      <span class="gg-tire-callout-text">Top 3 tire picks + pressure table for {esc(name)}</span>
+      {detail_html}
+    </a>
+  </div>'''
+
+
+def build_coaching_teaser(rd: dict) -> str:
+    """Contextual coaching bridge using rider intel data.
+
+    Uses real rider quotes about challenges to create a natural segue into
+    coaching — not just a CTA, but a content-driven connection.
+    """
+    intel = rd.get('rider_intel', {})
+    challenges = intel.get('key_challenges', [])
+    race_name = rd['name']
+
+    if challenges:
+        # Use the first challenge as the hook
+        challenge = challenges[0]
+        if isinstance(challenge, dict):
+            challenge_text = challenge.get('text', challenge.get('name', ''))
+        else:
+            challenge_text = str(challenge)
+
+        if not challenge_text:
+            return ''
+
+        return f'''<div class="gg-coaching-teaser">
+    <div class="gg-coaching-teaser-quote">
+      <span class="gg-coaching-teaser-label">RIDERS SAY</span>
+      <p>&ldquo;{esc(challenge_text)}&rdquo;</p>
+    </div>
+    <div class="gg-coaching-teaser-body">
+      <p>Our coached athletes train specifically for challenges like this.
+      A coach who knows {esc(race_name)} builds your plan around it.</p>
+      <a href="{esc(COACHING_URL)}" class="gg-btn gg-btn--outline" data-cta="coaching" data-ab="race_coaching_cta">TALK TO A COACH</a>
+    </div>
+  </div>'''
+
+    # Fallback: difficulty-based teaser for races without rider intel
+    score = rd.get('overall_score', 0)
+    if score >= 60:
+        return f'''<div class="gg-coaching-teaser">
+    <div class="gg-coaching-teaser-body">
+      <p>{esc(race_name)} is a serious effort. A coach adapts your training
+      week to week and builds race-day strategy with you.</p>
+      <a href="{esc(COACHING_URL)}" class="gg-btn gg-btn--outline" data-cta="coaching" data-ab="race_coaching_cta">TALK TO A COACH</a>
+    </div>
+  </div>'''
+
+    return ''
+
+
 def build_news_section(rd: dict) -> str:
     """Build Latest News section — fetches Google News RSS via rss2json.com at runtime.
     Only renders for T1/T2 races (T3/T4 rarely have news, wastes API calls).
@@ -4216,6 +4482,35 @@ def build_email_capture(rd: dict) -> str:
       </div>
       <p class="gg-email-capture-fine">No spam. Unsubscribe anytime.</p>
     </div>
+  </div>'''
+
+
+def build_date_reminder(rd: dict) -> str:
+    """Build race date reminder capture — drives return visits 12 weeks before race."""
+    date_specific = rd['vitals'].get('date_specific', '')
+    cd_start, _ = parse_event_dates(date_specific)
+    if not cd_start:
+        return ''
+
+    slug = esc(rd['slug'])
+    name = esc(rd['name'])
+    # Parse month for display
+    parts = cd_start.split('-')
+    month_names = {v: k.capitalize() for k, v in MONTH_NUMBERS.items()}
+    display_month = month_names.get(parts[1], parts[1])
+
+    return f'''<div class="gg-date-reminder">
+    <p class="gg-date-reminder-text">
+      <span class="gg-date-reminder-icon">\u23f0</span>
+      Get reminded 12 weeks before {name} to start training ({display_month} {parts[0]}).
+    </p>
+    <form id="gg-date-reminder-form" class="gg-date-reminder-form">
+      <input type="email" name="email" placeholder="you@email.com" required class="gg-date-reminder-input" aria-label="Email for race date reminder">
+      <input type="text" name="hp" style="display:none" tabindex="-1" autocomplete="off">
+      <input type="hidden" name="race_slug" value="{slug}">
+      <input type="hidden" name="race_date" value="{cd_start}">
+      <button type="submit" class="gg-date-reminder-btn">REMIND ME</button>
+    </form>
   </div>'''
 
 
@@ -4472,8 +4767,9 @@ def _build_breadcrumb_series_segment(rd: dict) -> str:
 
 def build_nav_header(rd: dict, race_index: list) -> str:
     """Build visible navigation header with breadcrumb trail."""
-    return get_site_header_html(active="races") + f'''
-  <div class="gg-breadcrumb">
+    return get_site_header_html(active="races") + '''
+  <div class="gg-reading-progress" id="gg-reading-progress"><div class="gg-reading-progress-bar" id="gg-reading-progress-bar"></div></div>
+''' + f'''  <div class="gg-breadcrumb">
     <a href="{SITE_BASE_URL}/">Home</a>
     <span class="gg-breadcrumb-sep">&rsaquo;</span>
     <a href="{SITE_BASE_URL}/gravel-races/">Gravel Races</a>
@@ -4514,8 +4810,43 @@ def get_page_css() -> str:
 .gg-neo-brutalist-page a:focus-visible, .gg-neo-brutalist-page button:focus-visible, .gg-neo-brutalist-page [role="button"]:focus-visible, .gg-neo-brutalist-page .gg-btn:focus-visible {{ outline: 3px solid var(--gg-color-gold); outline-offset: 2px; }}
 .gg-neo-brutalist-page .gg-faq-question:focus-visible {{ outline: 3px solid var(--gg-color-gold); outline-offset: -3px; }}
 
+/* Mobile touch resets — targeted to interactive elements only */
+.gg-neo-brutalist-page a,
+.gg-neo-brutalist-page button,
+.gg-neo-brutalist-page [role="button"],
+.gg-neo-brutalist-page select,
+.gg-neo-brutalist-page input,
+.gg-neo-brutalist-page .gg-btn {{
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}}
+
+/* Active/pressed states — mobile-only tap feedback (no transform on desktop) */
+@media (max-width: 768px) {{
+  .gg-neo-brutalist-page .gg-btn:active {{ opacity: 0.85; }}
+  .gg-neo-brutalist-page .gg-accordion-trigger:active {{ background: var(--gg-color-sand); }}
+  .gg-neo-brutalist-page .gg-faq-question:active {{ background: var(--gg-color-sand); }}
+  .gg-neo-brutalist-page .gg-toc a:active {{ color: var(--gg-color-gold); }}
+  .gg-neo-brutalist-page .gg-similar-card:active {{ border-color: var(--gg-color-gold); background: var(--gg-color-sand); }}
+  .gg-neo-brutalist-page .gg-pack-workout:active {{ border-color: var(--gg-color-teal); }}
+  .gg-neo-brutalist-page .gg-pack-toggle-btn:active {{ border-color: var(--gg-color-primary-brown); color: var(--gg-color-primary-brown); }}
+  .gg-neo-brutalist-page .gg-email-capture-btn:active {{ opacity: 0.85; }}
+  .gg-neo-brutalist-page .gg-date-reminder-btn:active {{ opacity: 0.85; }}
+  .gg-sticky-cta .gg-btn:active {{ opacity: 0.85; }}
+  .gg-sticky-dismiss:active {{ opacity: 1; }}
+  .gg-back-to-top:active {{ background: var(--gg-color-warm-paper); color: var(--gg-color-dark-brown); }}
+}}
+@media (max-width: 768px) and (prefers-reduced-motion: no-preference) {{
+  .gg-neo-brutalist-page .gg-btn:active {{ transform: scale(0.98); }}
+  .gg-sticky-cta .gg-btn:active {{ transform: scale(0.98); }}
+}}
+
 /* Utility */
 .gg-mt-md {{ margin-top: var(--gg-spacing-md); }}
+
+/* Smooth scrolling for anchor links */
+html {{ scroll-behavior: smooth; }}
+@media (prefers-reduced-motion: reduce) {{ html {{ scroll-behavior: auto; }} }}
 
 /* Page wrapper */
 .gg-neo-brutalist-page {{
@@ -4537,7 +4868,7 @@ def get_page_css() -> str:
 .gg-neo-brutalist-page .gg-hero {{ background: var(--gg-color-warm-paper); color: var(--gg-color-dark-brown); padding: 48px 32px; border-bottom: 2px solid var(--gg-color-gold); margin-bottom: 0; display: flex; align-items: flex-end; justify-content: space-between; gap: 32px; }}
 .gg-neo-brutalist-page .gg-hero-content {{ flex: 1; min-width: 0; }}
 .gg-neo-brutalist-page .gg-hero-tier {{ display: inline-block; font-family: var(--gg-font-data); font-size: var(--gg-font-size-2xs); font-weight: var(--gg-font-weight-bold); letter-spacing: var(--gg-letter-spacing-ultra-wide); text-transform: uppercase; color: var(--gg-color-secondary-brown); margin-bottom: var(--gg-spacing-sm); }}
-.gg-neo-brutalist-page .gg-series-badge {{ display: inline-block; margin-left: 12px; color: var(--gg-color-teal); font-family: var(--gg-font-data); font-size: 9px; font-weight: var(--gg-font-weight-bold); letter-spacing: var(--gg-letter-spacing-wider); text-transform: uppercase; text-decoration: none; border-bottom: 1px solid var(--gg-color-teal); padding-bottom: 1px; }}
+.gg-neo-brutalist-page .gg-series-badge {{ display: inline-block; margin-left: 12px; color: var(--gg-color-teal); font-family: var(--gg-font-data); font-size: 11px; font-weight: var(--gg-font-weight-bold); letter-spacing: var(--gg-letter-spacing-wider); text-transform: uppercase; text-decoration: none; border-bottom: 1px solid var(--gg-color-teal); padding-bottom: 1px; }}
 .gg-neo-brutalist-page .gg-series-badge:hover {{ color: var(--gg-color-dark-teal); }}
 .gg-neo-brutalist-page .gg-hero h1 {{ font-family: var(--gg-font-editorial); font-size: 42px; font-weight: var(--gg-font-weight-bold); line-height: 1.05; letter-spacing: var(--gg-letter-spacing-tight); margin: 0; color: var(--gg-color-dark-brown); }}
 .gg-neo-brutalist-page .gg-hero-vitals {{ font-family: var(--gg-font-data); font-size: 11px; color: var(--gg-color-secondary-brown); letter-spacing: 1px; text-transform: uppercase; margin-top: 14px; }}
@@ -4545,10 +4876,58 @@ def get_page_css() -> str:
 .gg-neo-brutalist-page .gg-hero-score-number {{ font-family: var(--gg-font-editorial); font-size: 72px; font-weight: var(--gg-font-weight-bold); line-height: 1; color: var(--gg-color-gold); }}
 .gg-neo-brutalist-page .gg-hero-score-label {{ font-family: var(--gg-font-data); font-size: 10px; font-weight: var(--gg-font-weight-bold); letter-spacing: 3px; text-transform: uppercase; color: var(--gg-color-secondary-brown); margin-top: 4px; }}
 
-/* TOC — light version */
-.gg-neo-brutalist-page .gg-toc {{ background: var(--gg-color-warm-paper); padding: 16px 20px; border-bottom: 1px solid var(--gg-color-gold); display: flex; flex-wrap: wrap; gap: 8px 20px; margin-bottom: 32px; }}
-.gg-neo-brutalist-page .gg-toc a {{ color: var(--gg-color-secondary-brown); text-decoration: none; font-family: var(--gg-font-data); font-size: 11px; font-weight: 700; letter-spacing: var(--gg-letter-spacing-wider); text-transform: uppercase; transition: color 0.2s; }}
+/* TOC — sticky with scroll-spy */
+.gg-neo-brutalist-page .gg-toc {{
+  position: sticky; top: var(--gg-header-height, 72px); z-index: 50;
+  background: var(--gg-color-warm-paper);
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--gg-color-gold);
+  margin-bottom: 32px;
+}}
+.gg-neo-brutalist-page .gg-toc-toggle {{
+  display: none; /* Hidden on desktop */
+}}
+.gg-neo-brutalist-page .gg-toc-links {{
+  display: flex; flex-wrap: wrap; gap: 8px 20px;
+}}
+.gg-neo-brutalist-page .gg-toc a {{
+  color: var(--gg-color-secondary-brown); text-decoration: none;
+  font-family: var(--gg-font-data); font-size: 11px; font-weight: 700;
+  letter-spacing: var(--gg-letter-spacing-wider); text-transform: uppercase;
+  transition: color 0.2s; padding: 2px 0;
+  border-bottom: 2px solid transparent;
+}}
 .gg-neo-brutalist-page .gg-toc a:hover {{ color: var(--gg-color-gold); }}
+.gg-neo-brutalist-page .gg-toc a.gg-toc-active {{
+  color: var(--gg-color-gold);
+  border-bottom-color: var(--gg-color-gold);
+}}
+/* TOC — mobile: collapsible dropdown */
+@media (max-width: 768px) {{
+  .gg-neo-brutalist-page .gg-toc {{ position: sticky; top: var(--gg-header-height, 56px); padding: 0; }}
+  .gg-neo-brutalist-page .gg-toc-toggle {{
+    display: flex; align-items: center; justify-content: space-between;
+    width: 100%; padding: 12px 20px;
+    background: none; border: none; cursor: pointer;
+    font-family: var(--gg-font-data); font-size: 11px; font-weight: 700;
+    letter-spacing: var(--gg-letter-spacing-wider); text-transform: uppercase;
+    color: var(--gg-color-dark-brown);
+  }}
+  .gg-neo-brutalist-page .gg-toc-toggle-icon {{
+    font-size: 16px; color: var(--gg-color-secondary-brown);
+    transition: transform 0.2s;
+  }}
+  .gg-neo-brutalist-page .gg-toc-toggle[aria-expanded="true"] .gg-toc-toggle-icon {{
+    transform: rotate(45deg);
+  }}
+  .gg-neo-brutalist-page .gg-toc-links {{
+    display: none; flex-direction: column; gap: 0;
+    padding: 0 20px 12px;
+    border-top: 1px solid var(--gg-color-tan);
+  }}
+  .gg-neo-brutalist-page .gg-toc-links.is-open {{ display: flex; }}
+  .gg-neo-brutalist-page .gg-toc a {{ padding: 8px 0; border-bottom: none; }}
+}}
 
 /* Section common — Variant F: warm paper bg, gold hairlines */
 .gg-neo-brutalist-page .gg-section {{ margin-bottom: 32px; border: 1px solid var(--gg-color-tan); background: var(--gg-color-warm-paper); }}
@@ -4556,6 +4935,19 @@ def get_page_css() -> str:
 .gg-neo-brutalist-page .gg-section-kicker {{ font-family: var(--gg-font-data); font-size: var(--gg-font-size-2xs); font-weight: 700; letter-spacing: var(--gg-letter-spacing-ultra-wide); text-transform: uppercase; color: var(--gg-color-gold); white-space: nowrap; }}
 .gg-neo-brutalist-page .gg-section-title {{ font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-md); font-weight: var(--gg-font-weight-semibold); letter-spacing: var(--gg-letter-spacing-normal); color: var(--gg-color-dark-brown); margin: 0; }}
 .gg-neo-brutalist-page .gg-section-body {{ padding: 24px 20px; }}
+/* Mobile collapsible sections — chevron indicator */
+.gg-neo-brutalist-page .gg-section-chevron {{ margin-left: auto; font-size: 16px; color: var(--gg-color-secondary-brown); }}
+@media (prefers-reduced-motion: no-preference) {{ .gg-neo-brutalist-page .gg-section-chevron {{ transition: transform 0.2s; }} }}
+.gg-neo-brutalist-page .gg-section-collapsible .gg-section-header {{ border-bottom-color: var(--gg-color-tan); }}
+.gg-neo-brutalist-page .gg-section-collapsible:not(.gg-section-collapsed) .gg-section-header {{ border-bottom-color: var(--gg-color-gold); }}
+/* Editorial font for prose paragraphs — data labels and stats keep monospace */
+.gg-neo-brutalist-page .gg-section-body > p,
+.gg-neo-brutalist-page .gg-section-body .gg-prose p,
+.gg-neo-brutalist-page .gg-section-body > .gg-overview-tagline {{
+  font-family: var(--gg-font-editorial);
+  font-size: var(--gg-font-size-base);
+  line-height: var(--gg-line-height-prose);
+}}
 
 /* Section header variant: dark — now uses primary-brown text on warm paper */
 .gg-neo-brutalist-page .gg-section-header--dark {{ background: var(--gg-color-warm-paper); }}
@@ -4615,7 +5007,7 @@ def get_page_css() -> str:
 .gg-neo-brutalist-page .gg-difficulty-label {{ font-family: var(--gg-font-data); font-size: 12px; font-weight: 700; letter-spacing: var(--gg-letter-spacing-wider); color: var(--gg-color-dark-brown); }}
 .gg-neo-brutalist-page .gg-difficulty-track {{ height: 12px; background: var(--gg-color-sand); border: 1px solid var(--gg-color-dark-brown); position: relative; overflow: hidden; }}
 .gg-neo-brutalist-page .gg-difficulty-fill {{ height: 100%; transition: width 1.5s cubic-bezier(0.22,1,0.36,1); }}
-.gg-neo-brutalist-page .gg-difficulty-scale {{ display: flex; justify-content: space-between; margin-top: 6px; font-family: var(--gg-font-data); font-size: 8px; font-weight: 700; letter-spacing: 1px; color: var(--gg-color-warm-brown); text-transform: uppercase; }}
+.gg-neo-brutalist-page .gg-difficulty-scale {{ display: flex; justify-content: space-between; margin-top: 6px; font-family: var(--gg-font-data); font-size: 10px; font-weight: 700; letter-spacing: 1px; color: var(--gg-color-warm-brown); text-transform: uppercase; }}
 
 /* Nearby races — in-content cross-links */
 .gg-neo-brutalist-page .gg-nearby-races {{ margin-top: 16px; padding: 10px 16px; background: var(--gg-color-sand); border: 1px solid var(--gg-color-tan); font-family: var(--gg-font-data); font-size: 11px; }}
@@ -4670,6 +5062,21 @@ def get_page_css() -> str:
 .gg-neo-brutalist-page .gg-tire-split-combo {{ font-family: var(--gg-font-data); font-size: var(--gg-font-size-xs); color: var(--gg-color-dark-brown); font-weight: 700; }}
 .gg-neo-brutalist-page .gg-tire-split-why {{ display: block; font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-xs); color: var(--gg-color-secondary-brown); margin-top: 4px; line-height: var(--gg-line-height-relaxed); }}
 
+/* Tire guide callout */
+.gg-neo-brutalist-page .gg-tire-callout {{ margin: 16px 0; }}
+.gg-neo-brutalist-page .gg-tire-callout-link {{ display: block; padding: 16px 20px; border: 2px solid var(--gg-color-gold); text-decoration: none; color: var(--gg-color-dark-brown); transition: border-color 0.2s, background 0.2s; }}
+.gg-neo-brutalist-page .gg-tire-callout-link:hover {{ border-color: var(--gg-color-light-gold); background: rgba(183,149,11,0.04); }}
+.gg-neo-brutalist-page .gg-tire-callout-label {{ display: block; font-family: var(--gg-font-data); font-size: 10px; font-weight: 700; letter-spacing: var(--gg-letter-spacing-wider); text-transform: uppercase; color: var(--gg-color-teal); margin-bottom: 4px; }}
+.gg-neo-brutalist-page .gg-tire-callout-text {{ display: block; font-family: var(--gg-font-editorial); font-size: 14px; line-height: 1.5; }}
+.gg-neo-brutalist-page .gg-tire-callout-detail {{ display: block; font-family: var(--gg-font-data); font-size: 11px; color: var(--gg-color-secondary-brown); margin-top: 4px; letter-spacing: 0.5px; }}
+
+/* Coaching teaser */
+.gg-neo-brutalist-page .gg-coaching-teaser {{ margin: 24px 0; border: 2px solid var(--gg-color-sand); padding: 20px 24px; }}
+.gg-neo-brutalist-page .gg-coaching-teaser-label {{ display: block; font-family: var(--gg-font-data); font-size: 10px; font-weight: 700; letter-spacing: var(--gg-letter-spacing-wider); text-transform: uppercase; color: var(--gg-color-teal); margin-bottom: 8px; }}
+.gg-neo-brutalist-page .gg-coaching-teaser-quote {{ margin-bottom: 16px; }}
+.gg-neo-brutalist-page .gg-coaching-teaser-quote p {{ font-family: var(--gg-font-editorial); font-size: 15px; font-style: italic; line-height: 1.6; color: var(--gg-color-dark-brown); margin: 0; }}
+.gg-neo-brutalist-page .gg-coaching-teaser-body p {{ font-family: var(--gg-font-editorial); font-size: 13px; line-height: 1.6; color: var(--gg-color-secondary-brown); margin: 0 0 12px; }}
+
 /* Suffering zones */
 .gg-neo-brutalist-page .gg-suffering-zone {{ border: var(--gg-border-subtle); margin-bottom: 12px; display: flex; background: var(--gg-color-warm-paper); opacity: 0; transform: translateX(-30px); transition: opacity 0.5s, transform 0.5s; }}
 .gg-neo-brutalist-page .gg-suffering-zone.is-visible {{ opacity: 1; transform: translateX(0); }}
@@ -4697,7 +5104,7 @@ def get_page_css() -> str:
 .gg-neo-brutalist-page .gg-accordion-item {{ border-bottom: 2px solid var(--gg-color-dark-brown); }}
 .gg-neo-brutalist-page .gg-accordion-trigger {{ display: flex; align-items: center; width: 100%; padding: 10px 0; cursor: pointer; background: none; border: none; font-family: var(--gg-font-data); font-size: 12px; text-align: left; gap: 8px; }}
 .gg-neo-brutalist-page .gg-accordion-trigger:hover {{ background: var(--gg-color-warm-paper); }}
-.gg-neo-brutalist-page .gg-accordion-label {{ font-family: var(--gg-font-data); width: 110px; min-width: 110px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; font-size: 11px; color: var(--gg-color-dark-brown); }}
+.gg-neo-brutalist-page .gg-accordion-label {{ font-family: var(--gg-font-data); width: clamp(65px, 18vw, 110px); min-width: 65px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; font-size: 11px; color: var(--gg-color-dark-brown); }}
 .gg-neo-brutalist-page .gg-accordion-bar-track {{ flex: 1; height: 8px; background: var(--gg-color-sand); position: relative; border: 1px solid var(--gg-color-dark-brown); }}
 .gg-neo-brutalist-page .gg-accordion-bar-fill {{ height: 100%; transition: width 0.3s; }}
 .gg-neo-brutalist-page .gg-accordion-score {{ font-family: var(--gg-font-editorial); width: 40px; min-width: 40px; text-align: center; font-weight: var(--gg-font-weight-bold); font-size: var(--gg-font-size-sm); color: var(--gg-color-gold); }}
@@ -4705,7 +5112,7 @@ def get_page_css() -> str:
 .gg-neo-brutalist-page .gg-accordion-item.is-open .gg-accordion-arrow {{ transform: rotate(90deg); color: var(--gg-color-gold); }}
 .gg-neo-brutalist-page .gg-accordion-panel {{ max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; }}
 .gg-neo-brutalist-page .gg-accordion-item.is-open .gg-accordion-panel {{ max-height: 500px; }}
-.gg-neo-brutalist-page .gg-accordion-content {{ font-family: var(--gg-font-editorial); padding: 0 0 14px 122px; font-size: var(--gg-font-size-sm); line-height: var(--gg-line-height-relaxed); color: var(--gg-color-primary-brown); }}
+.gg-neo-brutalist-page .gg-accordion-content {{ font-family: var(--gg-font-editorial); padding: 0 0 14px calc(clamp(65px, 18vw, 110px) + 12px); font-size: var(--gg-font-size-sm); line-height: var(--gg-line-height-relaxed); color: var(--gg-color-primary-brown); }}
 
 /* Radar charts */
 .gg-neo-brutalist-page .gg-radar-pair {{ display: flex; gap: 16px; margin-bottom: 24px; }}
@@ -4796,7 +5203,7 @@ def get_page_css() -> str:
 .gg-neo-brutalist-page .gg-pack-demands {{ margin-bottom: 24px; }}
 .gg-neo-brutalist-page .gg-pack-demands-inline {{ display: grid; grid-template-columns: 1fr 1fr; gap: 4px 24px; }}
 .gg-neo-brutalist-page .gg-pack-demand {{ display: flex; align-items: center; gap: 6px; }}
-.gg-neo-brutalist-page .gg-pack-demand-label {{ font-family: var(--gg-font-data); font-size: 10px; width: 90px; min-width: 90px; text-transform: uppercase; letter-spacing: var(--gg-letter-spacing-wider); color: var(--gg-color-primary-brown); }}
+.gg-neo-brutalist-page .gg-pack-demand-label {{ font-family: var(--gg-font-data); font-size: 11px; width: clamp(65px, 18vw, 90px); min-width: 65px; text-transform: uppercase; letter-spacing: var(--gg-letter-spacing-wider); color: var(--gg-color-primary-brown); }}
 .gg-neo-brutalist-page .gg-pack-demand-track {{ flex: 1; height: 6px; background: var(--gg-color-tan); border: 1px solid var(--gg-color-tan); }}
 .gg-neo-brutalist-page .gg-pack-demand-fill {{ height: 100%; background: var(--gg-color-teal); transition: width 0.6s ease-out; }}
 .gg-neo-brutalist-page .gg-pack-demand-score {{ font-family: var(--gg-font-data); font-size: 10px; width: 16px; text-align: right; color: var(--gg-color-secondary-brown); }}
@@ -4851,7 +5258,7 @@ def get_page_css() -> str:
 .gg-neo-brutalist-page .gg-cfg-bar {{ background: var(--gg-color-warm-paper); border: 3px solid var(--gg-color-primary-brown); padding: 24px; margin-bottom: 32px; }}
 .gg-neo-brutalist-page .gg-cfg-title {{ font-family: var(--gg-font-data); font-size: var(--gg-font-size-2xs); font-weight: 700; letter-spacing: var(--gg-letter-spacing-ultra-wide); text-transform: uppercase; color: var(--gg-color-primary-brown); margin-bottom: 16px; }}
 .gg-neo-brutalist-page .gg-cfg-inputs {{ display: flex; gap: 16px; margin-bottom: 16px; flex-wrap: wrap; }}
-.gg-neo-brutalist-page .gg-cfg-field {{ display: flex; flex-direction: column; gap: 4px; flex: 1; min-width: 140px; }}
+.gg-neo-brutalist-page .gg-cfg-field {{ display: flex; flex-direction: column; gap: 4px; flex: 1; min-width: min(140px, 100%); }}
 .gg-neo-brutalist-page .gg-cfg-label {{ font-family: var(--gg-font-data); font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: var(--gg-letter-spacing-wider); color: var(--gg-color-secondary-brown); }}
 .gg-neo-brutalist-page .gg-cfg-select, .gg-neo-brutalist-page .gg-cfg-input {{ font-family: var(--gg-font-data); font-size: 13px; border: 2px solid var(--gg-color-primary-brown); border-radius: 0; background: var(--gg-color-white); padding: 8px 12px; color: var(--gg-color-near-black); -webkit-appearance: none; appearance: none; }}
 .gg-neo-brutalist-page .gg-cfg-select {{ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M2 4l4 4 4-4' fill='none' stroke='%2359473c' stroke-width='2'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 10px center; padding-right: 32px; }}
@@ -4909,6 +5316,11 @@ def get_page_css() -> str:
 .gg-neo-brutalist-page .gg-news-ticker-empty {{ color: var(--gg-color-secondary-brown); font-size: 11px; letter-spacing: 1px; padding-left: 16px; }}
 @keyframes gg-ticker-scroll {{ 0% {{ transform: translateX(0); }} 100% {{ transform: translateX(-100%); }} }}
 
+/* Reading progress bar */
+.gg-reading-progress {{ position: sticky; top: var(--gg-header-height, 72px); z-index: 899; height: 3px; background: var(--gg-color-tan); }}
+.gg-reading-progress-bar {{ height: 100%; width: 0%; background: var(--gg-color-gold); transition: width 0.1s linear; }}
+@media (max-width: 768px) {{ .gg-reading-progress {{ top: var(--gg-header-height, 56px); }} }}
+
 /* Sticky CTA */
 .gg-sticky-cta {{ position: fixed; bottom: 0; left: 0; right: 0; z-index: 200; background: var(--gg-color-near-black); border-top: 3px solid var(--gg-color-teal); padding: 12px 24px; transform: translateY(100%); transition: transform 0.3s ease; }}
 .gg-sticky-cta.is-visible {{ transform: translateY(0); }}
@@ -4925,9 +5337,11 @@ def get_page_css() -> str:
 .gg-back-to-top.is-visible {{ opacity: 1; visibility: visible; }}
 .gg-back-to-top:hover {{ background: var(--gg-color-warm-paper); color: var(--gg-color-dark-brown); }}
 
-/* Scroll fade-in */
-.gg-neo-brutalist-page .gg-fade-section {{ opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }}
-.gg-neo-brutalist-page .gg-fade-section.is-visible {{ opacity: 1; transform: translateY(0); }}
+/* Scroll fade-in — progressive enhancement: visible by default, animated only when JS adds .gg-animations-ready */
+.gg-neo-brutalist-page.gg-animations-ready .gg-fade-section {{ opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }}
+.gg-neo-brutalist-page.gg-animations-ready .gg-fade-section.is-visible {{ opacity: 1; transform: translateY(0); }}
+/* Anchor-linked sections: make instantly visible when targeted via URL hash */
+.gg-neo-brutalist-page.gg-animations-ready .gg-fade-section:target {{ opacity: 1; transform: translateY(0); transition: none; }}
 
 /* Email capture */
 .gg-neo-brutalist-page .gg-email-capture {{ margin-bottom: var(--gg-spacing-xl); border: 1px solid var(--gg-color-tan); border-top: 2px solid var(--gg-color-teal); background: var(--gg-color-warm-paper); padding: 0; }}
@@ -4945,6 +5359,16 @@ def get_page_css() -> str:
 .gg-neo-brutalist-page .gg-email-capture-check {{ font-family: var(--gg-font-data); font-size: 14px; font-weight: 700; color: var(--gg-color-light-teal); margin: 0 0 var(--gg-spacing-xs); }}
 .gg-neo-brutalist-page .gg-email-capture-link {{ display: inline-block; font-family: var(--gg-font-data); font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--gg-color-white); background: var(--gg-color-teal); padding: 10px 20px; text-decoration: none; border: 2px solid var(--gg-color-teal); transition: background 0.2s; }}
 .gg-neo-brutalist-page .gg-email-capture-link:hover {{ background: var(--gg-color-light-teal); }}
+
+/* Date reminder */
+.gg-neo-brutalist-page .gg-date-reminder {{ padding: 16px 20px; border: 1px solid var(--gg-color-muted-tan); margin: 16px 0; }}
+.gg-neo-brutalist-page .gg-date-reminder-text {{ font-family: var(--gg-font-editorial); font-size: 13px; color: var(--gg-color-secondary-brown); margin: 0 0 10px; line-height: 1.5; }}
+.gg-neo-brutalist-page .gg-date-reminder-icon {{ margin-right: 6px; }}
+.gg-neo-brutalist-page .gg-date-reminder-form {{ display: flex; gap: 8px; }}
+.gg-neo-brutalist-page .gg-date-reminder-input {{ flex: 1; padding: 8px 12px; border: 2px solid var(--gg-color-muted-tan); font-family: var(--gg-font-data); font-size: 12px; background: var(--gg-color-white); color: var(--gg-color-dark-brown); }}
+.gg-neo-brutalist-page .gg-date-reminder-input:focus {{ outline: none; border-color: var(--gg-color-gold); }}
+.gg-neo-brutalist-page .gg-date-reminder-btn {{ padding: 8px 16px; border: 2px solid var(--gg-color-gold); background: var(--gg-color-gold); color: var(--gg-color-dark-brown); font-family: var(--gg-font-data); font-size: 10px; font-weight: 700; letter-spacing: 1.5px; cursor: pointer; }}
+@media (max-width: 480px) {{ .gg-neo-brutalist-page .gg-date-reminder-form {{ flex-direction: column; }} }}
 
 /* Countdown */
 .gg-neo-brutalist-page .gg-countdown {{ border: 1px solid var(--gg-color-teal); background: var(--gg-color-warm-paper); color: var(--gg-color-dark-brown); padding: var(--gg-spacing-md); text-align: center; font-family: var(--gg-font-data); font-size: 12px; font-weight: 700; letter-spacing: var(--gg-letter-spacing-ultra-wide); margin-bottom: 20px; }}
@@ -4965,7 +5389,7 @@ def get_page_css() -> str:
 .gg-neo-brutalist-page .gg-similar-grid {{ display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }}
 .gg-neo-brutalist-page .gg-similar-card {{ display: block; border: var(--gg-border-subtle); padding: 16px; background: var(--gg-color-warm-paper); text-decoration: none; color: var(--gg-color-dark-brown); transition: border-color 0.15s, background 0.15s; }}
 .gg-neo-brutalist-page .gg-similar-card:hover {{ border-color: var(--gg-color-gold); background: var(--gg-color-sand); }}
-.gg-neo-brutalist-page .gg-similar-tier {{ font-family: var(--gg-font-data); display: inline-block; background: var(--gg-color-gold); color: var(--gg-color-dark-brown); padding: 2px 8px; font-size: 9px; font-weight: 700; letter-spacing: var(--gg-letter-spacing-wider); margin-bottom: 6px; }}
+.gg-neo-brutalist-page .gg-similar-tier {{ font-family: var(--gg-font-data); display: inline-block; background: var(--gg-color-gold); color: var(--gg-color-dark-brown); padding: 2px 8px; font-size: 10px; font-weight: 700; letter-spacing: var(--gg-letter-spacing-wider); margin-bottom: 6px; }}
 .gg-neo-brutalist-page .gg-similar-name {{ font-family: var(--gg-font-editorial); display: block; font-size: var(--gg-font-size-base); font-weight: var(--gg-font-weight-semibold); letter-spacing: 0; margin-bottom: 4px; }}
 .gg-neo-brutalist-page .gg-similar-meta {{ display: block; font-size: var(--gg-font-size-2xs); color: var(--gg-color-secondary-brown); letter-spacing: 0.5px; }}
 
@@ -4981,10 +5405,10 @@ def get_page_css() -> str:
 .gg-neo-brutalist-page .gg-citations-list {{ list-style: decimal; padding-left: 24px; margin: 0; }}
 .gg-neo-brutalist-page .gg-citation-item {{ font-size: var(--gg-font-size-2xs); line-height: 1.8; border-bottom: 1px solid var(--gg-color-cream); padding: 4px 0; }}
 .gg-neo-brutalist-page .gg-citation-item:last-child {{ border-bottom: none; }}
-.gg-neo-brutalist-page .gg-citation-cat {{ display: inline-block; background: var(--gg-color-dark-brown); color: var(--gg-color-warm-paper); font-size: 9px; font-weight: 700; letter-spacing: var(--gg-letter-spacing-wider); text-transform: uppercase; padding: 1px 6px; margin-right: 6px; }}
+.gg-neo-brutalist-page .gg-citation-cat {{ display: inline-block; background: var(--gg-color-dark-brown); color: var(--gg-color-warm-paper); font-size: 10px; font-weight: 700; letter-spacing: var(--gg-letter-spacing-wider); text-transform: uppercase; padding: 1px 6px; margin-right: 6px; }}
 .gg-neo-brutalist-page .gg-citation-link {{ color: var(--gg-color-dark-teal); text-decoration: none; font-weight: 600; }}
 .gg-neo-brutalist-page .gg-citation-link:hover {{ color: var(--gg-color-teal); text-decoration: underline; }}
-.gg-neo-brutalist-page .gg-citation-url {{ display: block; color: var(--gg-color-secondary-brown); font-size: 9px; word-break: break-all; }}
+.gg-neo-brutalist-page .gg-citation-url {{ display: block; color: var(--gg-color-secondary-brown); font-size: 10px; word-break: break-all; }}
 
 /* Footer — last-updated line (mega-footer CSS is appended separately) */
 .gg-neo-brutalist-page .gg-footer-updated {{ color: var(--gg-color-secondary-brown); font-size: var(--gg-font-size-2xs); margin: var(--gg-spacing-xs) 0 0 0; letter-spacing: 1px; text-transform: uppercase; text-align: center; }}
@@ -5000,10 +5424,12 @@ def get_page_css() -> str:
 .gg-neo-brutalist-page .gg-review-item:last-of-type {{ border-bottom: none; }}
 .gg-neo-brutalist-page .gg-review-text {{ font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-sm); font-style: italic; line-height: var(--gg-line-height-relaxed); color: var(--gg-color-dark-brown); }}
 .gg-neo-brutalist-page .gg-review-meta {{ font-family: var(--gg-font-data); font-size: var(--gg-font-size-2xs); color: var(--gg-color-gold); margin-top: 4px; }}
-.gg-neo-brutalist-page .gg-review-finish {{ display: inline-block; background: var(--gg-color-sand); color: var(--gg-color-secondary-brown); padding: 1px 6px; font-size: 9px; font-weight: var(--gg-font-weight-bold); letter-spacing: var(--gg-letter-spacing-wider); text-transform: uppercase; margin-left: 8px; }}
+.gg-neo-brutalist-page .gg-review-finish {{ display: inline-block; background: var(--gg-color-sand); color: var(--gg-color-secondary-brown); padding: 1px 6px; font-size: 10px; font-weight: var(--gg-font-weight-bold); letter-spacing: var(--gg-letter-spacing-wider); text-transform: uppercase; margin-left: 8px; }}
 .gg-neo-brutalist-page .gg-btn--rate {{ display: inline-block; margin-top: var(--gg-spacing-md); padding: 10px 24px; background: var(--gg-color-teal); color: var(--gg-color-white); font-family: var(--gg-font-data); font-size: var(--gg-font-size-xs); font-weight: var(--gg-font-weight-bold); text-transform: uppercase; letter-spacing: var(--gg-letter-spacing-wider); text-decoration: none; border: var(--gg-border-standard); cursor: pointer; }}
 .gg-neo-brutalist-page .gg-btn--rate:hover {{ background: #14695F; }}
-.gg-neo-brutalist-page .gg-racer-empty, .gg-neo-brutalist-page .gg-racer-pending {{ background: var(--gg-color-sand); padding: var(--gg-spacing-xl); text-align: center; }}
+.gg-neo-brutalist-page .gg-racer-empty, .gg-neo-brutalist-page .gg-racer-pending {{ background: var(--gg-color-sand); padding: var(--gg-spacing-md); text-align: center; }}
+.gg-neo-brutalist-page .gg-review-expand-btn {{ margin-top: 8px; }}
+.gg-neo-brutalist-page .gg-review-expandable {{ margin-top: var(--gg-spacing-md); }}
 .gg-neo-brutalist-page .gg-racer-empty-text, .gg-neo-brutalist-page .gg-racer-pending-text {{ font-family: var(--gg-font-data); font-size: var(--gg-font-size-sm); color: var(--gg-color-secondary-brown); letter-spacing: var(--gg-letter-spacing-wider); text-transform: uppercase; margin-bottom: var(--gg-spacing-sm); }}
 
 /* Inline review form */
@@ -5058,18 +5484,17 @@ def get_page_css() -> str:
   .gg-neo-brutalist-page .gg-logistics-grid {{ grid-template-columns: 1fr; }}
   .gg-neo-brutalist-page .gg-ratings-summary {{ flex-direction: column; }}
   .gg-neo-brutalist-page .gg-radar-pair {{ flex-direction: column; }}
-  .gg-neo-brutalist-page .gg-accordion-label {{ width: 80px; min-width: 80px; font-size: 10px; }}
   .gg-neo-brutalist-page .gg-accordion-content {{ padding-left: 0; }}
   .gg-neo-brutalist-page .gg-training-secondary {{ flex-direction: column; text-align: center; }}
-  .gg-neo-brutalist-page .gg-pack-demand-label {{ width: 80px; min-width: 80px; font-size: 10px; }}
+  .gg-neo-brutalist-page .gg-pack-demand-label {{ font-size: 11px; }}
   .gg-neo-brutalist-page .gg-pack-workout-header {{ flex-wrap: wrap; }}
   .gg-neo-brutalist-page .gg-pack-wo-field {{ flex-direction: column; gap: 4px; }}
   .gg-neo-brutalist-page .gg-pack-wo-label {{ min-width: unset; }}
-  .gg-neo-brutalist-page .gg-pack-viz-label {{ font-size: 8px; }}
+  .gg-neo-brutalist-page .gg-pack-viz-label {{ font-size: 9px; }}
   .gg-neo-brutalist-page .gg-cfg-inputs {{ flex-direction: column; }}
   .gg-neo-brutalist-page .gg-cfg-bar {{ padding: 16px; }}
   .gg-neo-brutalist-page .gg-cfg-summary {{ padding: 16px; }}
-  .gg-neo-brutalist-page .gg-cfg-timeline {{ font-size: 10px; }}
+  .gg-neo-brutalist-page .gg-cfg-timeline {{ font-size: 11px; }}
   .gg-sticky-cta-name {{ display: none; }}
   .gg-sticky-cta .gg-btn {{ width: 100%; text-align: center; }}
   .gg-neo-brutalist-page .gg-toc {{ flex-direction: column; gap: 6px; }}
@@ -5078,13 +5503,48 @@ def get_page_css() -> str:
   .gg-neo-brutalist-page .gg-pullquote-text {{ font-size: var(--gg-font-size-base); }}
   .gg-neo-brutalist-page .gg-pullquote-text::before {{ position: static; display: block; margin-bottom: -10px; }}
   .gg-neo-brutalist-page .gg-pullquote-text::after {{ display: none; }}
-  .gg-neo-brutalist-page .gg-news-ticker-label {{ font-size: 9px; padding: 0 10px; letter-spacing: 1px; }}
+  .gg-neo-brutalist-page .gg-news-ticker-label {{ font-size: 11px; padding: 0 10px; letter-spacing: 1px; }}
   .gg-neo-brutalist-page .gg-email-capture-row {{ flex-direction: column; gap: 8px; }}
   .gg-neo-brutalist-page .gg-email-capture-input {{ border-right: 2px solid var(--gg-color-tan); }}
   .gg-neo-brutalist-page .gg-similar-grid {{ grid-template-columns: 1fr; }}
   .gg-neo-brutalist-page .gg-field-video-grid {{ grid-template-columns: 1fr; }}
   .gg-neo-brutalist-page .gg-review-form-row {{ grid-template-columns: 1fr; }}
   .gg-neo-brutalist-page .gg-countdown-num {{ font-size: 24px; }}
+  /* 44px minimum touch targets on mobile */
+  .gg-neo-brutalist-page .gg-btn {{ min-height: 44px; padding-top: 12px; padding-bottom: 12px; }}
+  .gg-neo-brutalist-page .gg-accordion-trigger {{ min-height: 44px; }}
+  .gg-neo-brutalist-page .gg-faq-question {{ min-height: 44px; }}
+  .gg-neo-brutalist-page .gg-toc-toggle {{ min-height: 44px; }}
+  .gg-neo-brutalist-page .gg-toc a {{ min-height: 44px; display: flex; align-items: center; }}
+  .gg-sticky-dismiss {{ min-width: 44px; min-height: 44px; display: flex; align-items: center; justify-content: center; }}
+  .gg-back-to-top {{ min-width: 44px; min-height: 44px; }}
+  .gg-neo-brutalist-page .gg-email-capture-btn {{ min-height: 44px; }}
+  .gg-neo-brutalist-page .gg-date-reminder-btn {{ min-height: 44px; }}
+  .gg-neo-brutalist-page .gg-btn--rate {{ min-height: 44px; }}
+  .gg-neo-brutalist-page .gg-cfg-select,
+  .gg-neo-brutalist-page .gg-cfg-input {{ min-height: 44px; }}
+  .gg-neo-brutalist-page .gg-review-star-btn {{ min-width: 44px; min-height: 44px; }}
+  .gg-neo-brutalist-page .gg-pack-toggle-btn {{ min-height: 44px; }}
+  .gg-neo-brutalist-page .gg-section-header[role="button"] {{ min-height: 44px; }}
+}}
+
+/* Responsive — large phones (600px) */
+@media (max-width: 600px) {{
+  .gg-neo-brutalist-page .gg-hero {{ padding: 24px 16px; gap: 16px; }}
+  .gg-neo-brutalist-page .gg-hero h1 {{ font-size: 24px; }}
+  .gg-neo-brutalist-page .gg-hero-score-number {{ font-size: 40px; }}
+  .gg-neo-brutalist-page .gg-hero-vitals {{ font-size: 11px; }}
+  .gg-neo-brutalist-page .gg-stat-grid {{ grid-template-columns: 1fr; }}
+  .gg-neo-brutalist-page .gg-ratings-summary-score {{ font-size: 26px; }}
+  .gg-neo-brutalist-page .gg-training-primary {{ padding: 20px; }}
+  .gg-neo-brutalist-page .gg-training-secondary {{ padding: 16px; }}
+  .gg-neo-brutalist-page .gg-photo-grid {{ grid-template-columns: 1fr; }}
+  .gg-neo-brutalist-page .gg-cfg-bar {{ padding: 14px; }}
+  .gg-neo-brutalist-page .gg-cfg-summary {{ padding: 14px; }}
+  .gg-neo-brutalist-page .gg-email-capture-inner {{ padding: var(--gg-spacing-md); }}
+  .gg-neo-brutalist-page .gg-section-body {{ padding: 20px 16px; }}
+  .gg-neo-brutalist-page .gg-map-embed iframe {{ height: 300px; }}
+  .gg-neo-brutalist-page .gg-field-quote {{ padding: 10px 12px; }}
 }}
 
 /* Responsive — small phones */
@@ -5093,14 +5553,12 @@ def get_page_css() -> str:
   .gg-neo-brutalist-page .gg-hero {{ padding: var(--gg-spacing-xl) var(--gg-spacing-md); }}
   .gg-neo-brutalist-page .gg-hero h1 {{ font-size: var(--gg-font-size-xl); }}
   .gg-neo-brutalist-page .gg-hero-score-number {{ font-size: var(--gg-font-size-3xl); }}
-  .gg-neo-brutalist-page .gg-stat-grid {{ grid-template-columns: 1fr; }}
   .gg-neo-brutalist-page .gg-section-header {{ flex-wrap: wrap; gap: 4px 12px; padding: 12px 16px; }}
   .gg-neo-brutalist-page .gg-section-kicker {{ white-space: normal; }}
   .gg-neo-brutalist-page .gg-section-body {{ padding: 16px 12px; }}
   .gg-neo-brutalist-page .gg-suffering-mile {{ min-width: 60px; padding: 8px; }}
   .gg-neo-brutalist-page .gg-suffering-mile-num {{ font-size: var(--gg-font-size-md); }}
   .gg-neo-brutalist-page .gg-suffering-content {{ padding: 8px 12px; }}
-  .gg-neo-brutalist-page .gg-accordion-label {{ width: 65px; min-width: 65px; font-size: 9px; letter-spacing: 0.5px; }}
   .gg-neo-brutalist-page .gg-accordion-score {{ width: 32px; min-width: 32px; font-size: 12px; }}
   .gg-neo-brutalist-page .gg-breadcrumb {{ font-size: 10px; }}
   .gg-sticky-cta {{ padding: 10px 12px; }}
@@ -5223,6 +5681,9 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
     train_for_race = build_train_for_race(rd)
     logistics_sec = build_logistics_section(rd)
     tire_picks = build_tire_picks(rd)
+    tire_callout = build_tire_guide_callout(rd)
+    coaching_teaser = build_coaching_teaser(rd)
+    date_reminder = build_date_reminder(rd)
     similar = build_similar_races(rd, race_index)
     citations_sec = build_citations_section(rd)
     footer = build_footer(rd)
@@ -5264,9 +5725,9 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
     # Section order
     content_sections = []
     for section in [course_overview, history, pullquote,
-                    course_route, from_the_field, ratings, verdict,
-                    racer_reviews, email_capture, news, training,
-                    train_for_race,
+                    course_route, tire_callout, from_the_field, ratings, verdict,
+                    racer_reviews, email_capture, date_reminder, news, training,
+                    coaching_teaser, train_for_race,
                     logistics_sec, tire_picks, similar, visible_faq,
                     citations_sec]:
         if section:

@@ -47,6 +47,14 @@
       border-radius: 0 !important;
       box-shadow: none !important;
     }
+    /* Mobile touch resets */
+    #gg-race-search a,
+    #gg-race-search button,
+    #gg-race-search select,
+    #gg-race-search input {
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+    }
 
     /* ── Questionnaire ── */
     #gg-race-search .gg-questionnaire {
@@ -112,7 +120,7 @@
       -webkit-appearance: none;
       appearance: none;
       width: 100%;
-      height: 6px;
+      height: 12px;
       background: var(--gg-color-sand);
       outline: none;
       cursor: pointer;
@@ -121,26 +129,26 @@
     #gg-race-search .gg-slider-row input[type="range"]::-webkit-slider-thumb {
       -webkit-appearance: none;
       appearance: none;
-      width: 22px;
-      height: 22px;
+      width: 28px;
+      height: 28px;
       background: var(--gg-color-primary-brown);
       border: 2px solid var(--gg-color-dark-brown);
       cursor: pointer;
     }
     #gg-race-search .gg-slider-row input[type="range"]::-moz-range-thumb {
-      width: 22px;
-      height: 22px;
+      width: 28px;
+      height: 28px;
       background: var(--gg-color-primary-brown);
       border: 2px solid var(--gg-color-dark-brown);
       border-radius: 0;
       cursor: pointer;
     }
     #gg-race-search .gg-slider-row input[type="range"]::-webkit-slider-runnable-track {
-      height: 6px;
+      height: 12px;
       background: var(--gg-color-sand);
     }
     #gg-race-search .gg-slider-row input[type="range"]::-moz-range-track {
-      height: 6px;
+      height: 12px;
       background: var(--gg-color-sand);
     }
     #gg-race-search .gg-questionnaire-actions {
@@ -394,7 +402,29 @@
       border: 2px solid var(--gg-color-dark-brown) !important;
       padding: 16px;
       background: var(--gg-color-warm-paper) !important;
+      overflow: hidden;
     }
+    /* Cards WITH thumbnails: remove card padding, add it to children instead */
+    #gg-race-search .gg-card.gg-card-has-thumb { padding: 0; }
+    #gg-race-search .gg-card-thumb {
+      width: 100%; height: 140px; overflow: hidden;
+      border-bottom: 1px solid var(--gg-color-tan);
+    }
+    #gg-race-search .gg-card-thumb img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+    }
+    #gg-race-search .gg-card-has-thumb .gg-card-header,
+    #gg-race-search .gg-card-has-thumb .gg-card-score-row,
+    #gg-race-search .gg-card-has-thumb .gg-card-meta,
+    #gg-race-search .gg-card-has-thumb .gg-card-stats,
+    #gg-race-search .gg-card-has-thumb .gg-card-tagline,
+    #gg-race-search .gg-card-has-thumb .gg-card-transcript-snippet {
+      padding-left: 16px; padding-right: 16px;
+    }
+    #gg-race-search .gg-card-has-thumb .gg-card-header { padding-top: 12px; }
+    #gg-race-search .gg-card-has-thumb .gg-card-stats { padding-bottom: 12px; }
+    #gg-race-search .gg-card-has-thumb .gg-card-tagline { padding-bottom: 12px; }
+    #gg-race-search .gg-card-has-thumb .gg-card-transcript-snippet { padding-bottom: 12px; }
     #gg-race-search .gg-card:hover {
       background: var(--gg-color-sand) !important;
     }
@@ -1462,6 +1492,22 @@
       #gg-race-search .gg-display-toggle { width: 100%; }
       #gg-race-search .gg-display-btn { flex: 1; text-align: center; padding: 8px 12px !important; }
       #gg-race-search .gg-card-score-big { font-size: 26px; }
+      /* Mobile touch targets — minimum 44px height */
+      #gg-race-search .gg-btn-match,
+      #gg-race-search .gg-btn-reset,
+      #gg-race-search .gg-btn-compare,
+      #gg-race-search .gg-filter-toggle,
+      #gg-race-search .gg-view-btn,
+      #gg-race-search .gg-display-btn,
+      #gg-race-search .gg-sort-btn,
+      #gg-race-search .gg-near-me-btn { min-height: 44px; }
+      /* Active states for tap feedback */
+      #gg-race-search .gg-card:active { border-color: var(--gg-color-gold); }
+      #gg-race-search .gg-btn-match:active,
+      #gg-race-search .gg-btn-compare:active { opacity: 0.85; }
+      #gg-race-search .gg-view-btn:active,
+      #gg-race-search .gg-display-btn:active { background: var(--gg-color-sand); }
+      #gg-race-search .gg-tier-section-header:active { background: var(--gg-color-sand); }
     }
 
     /* ── Static Race Directory (SEO) ── */

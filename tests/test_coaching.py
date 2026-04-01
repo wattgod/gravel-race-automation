@@ -136,7 +136,7 @@ class TestHero:
 
     def test_stat_line(self):
         hero = build_hero()
-        assert "Juniors" in hero
+        assert "757 race profiles" in hero
         assert "If you can pedal" in hero
         assert "gg-coach-stat-line" in hero
 
@@ -147,7 +147,7 @@ class TestHero:
 
     def test_headline(self):
         hero = build_hero()
-        assert "Spreadsheet" in hero
+        assert "Your Plan Is" in hero
 
 
 # ── Service Tiers ────────────────────────────────────────────
@@ -176,18 +176,19 @@ class TestServiceTiers:
         assert tiers.count("/4 WK") == 3
         assert "/MO" not in tiers
 
-    def test_cadence_lines(self):
+    def test_buyer_voice_quotes(self):
         tiers = build_service_tiers()
-        assert "Weekly review" in tiers
-        assert "Daily review" in tiers
+        assert "I know what to do" in tiers
+        assert "watching the data" in tiers
+        assert "nothing left to chance" in tiers
 
     def test_section_title(self):
         tiers = build_service_tiers()
-        assert "Same Coach. Same Standards. Different Involvement." in tiers
+        assert "Same Coach. Three Levels of Involvement." in tiers
 
     def test_disclaimer(self):
         tiers = build_service_tiers()
-        assert "skip workouts" in tiers
+        assert "skipped workouts" in tiers or "skip workouts" in tiers
         assert "24 hours" in tiers
 
     def test_all_ctas_get_started(self):
@@ -222,10 +223,10 @@ class TestDeliverables:
 
     def test_deliverable_titles(self):
         d = build_deliverables()
-        assert "I Read Your File" in d
-        assert "Your Plan Changes When Your Life Does" in d
-        assert "Honest Feedback" in d
-        assert "I Know What It Feels Like" in d
+        assert "A Human Reads Your File" in d
+        assert "The Plan Moves When Your Life Does" in d
+        assert "Tell You What You Don" in d
+        assert "Every Mistake" in d
         assert "Race Strategy" in d
 
 
@@ -233,15 +234,16 @@ class TestDeliverables:
 
 
 class TestHowItWorks:
-    def test_three_steps(self):
+    def test_four_steps(self):
         h = build_how_it_works()
-        assert h.count("gg-coach-step-num") == 3
+        assert h.count("gg-coach-step-num") == 4
 
     def test_step_titles(self):
         h = build_how_it_works()
         assert "Fill Out the Intake" in h
-        assert "We Align on a Plan" in h
+        assert "I Build Your Demand Profile" in h
         assert "We Train Together" in h
+        assert "We Adjust Until Race Day" in h
 
 
 # ── Testimonials ─────────────────────────────────────────────
@@ -269,7 +271,7 @@ class TestHonestCheck:
     def test_coaching_for_you_lists(self):
         h = build_honest_check()
         assert "Coaching Is For You If:" in h
-        assert "Coaching Isn&#39;t For You If:" in h
+        assert "Coaching Isn&#39;t This:" in h
 
     def test_list_items_count(self):
         h = build_honest_check()
@@ -559,11 +561,13 @@ class TestAccessibility:
         assert "No contracts" in faq or "no contracts" in faq
 
     def test_carousel_ga4_tracking(self, coaching_js):
-        """Carousel prev/next/auto-advance should fire GA4 events."""
+        """Carousel prev/next should fire GA4 events (auto-advance does NOT — Sprint Ralph Wiggum fix)."""
         assert "coaching_carousel" in coaching_js
         assert "direction: 'prev'" in coaching_js
         assert "direction: 'next'" in coaching_js
-        assert "direction: 'auto'" in coaching_js
+        # Auto-advance no longer fires GA events to prevent event spam
+        # (17,873 junk events from 9 users in 28 days)
+        assert "direction: 'auto'" not in coaching_js
 
     def test_sticky_cta_scroll_based(self, coaching_css, coaching_js):
         """Mobile sticky CTA should be hidden by default and shown after scrolling past hero."""
@@ -580,11 +584,12 @@ class TestSultanicCopyGuard:
     """Verify psychological upgrade copy is present, accurate, and brand-compliant."""
 
     def test_problem_comparison_ignition(self):
-        """Problem quotes should contain comparison-state language."""
+        """Problem quotes should contain comparison-state language and the $40 app closer."""
         problem = build_problem()
-        assert "rider who passed you" in problem, "Missing comparison ignition in quote 1"
-        assert "paid for structure and got a spreadsheet" in problem, "Missing comparison ignition in quote 2"
-        assert "hour you train without direction" in problem, "Missing cost-of-inaction in quote 3"
+        assert "feedback problem" in problem, "Missing feedback reframe in quote 1"
+        assert "don&#39;t have a plan" in problem or "don't have a plan" in problem, "Missing plan reframe in quote 2"
+        assert "Knowing and executing" in problem, "Missing knowing-vs-executing in quote 3"
+        assert "$40/month app" in problem, "Missing app comparison closer"
 
     def test_pricing_context_honest_math(self):
         """Cost-per-ride math must be truthful (based on 5 rides/week)."""
@@ -611,10 +616,10 @@ class TestSultanicCopyGuard:
         assert "adapt in real time" in deliverables, "Missing real-time adaptation in deliverable 02"
 
     def test_honest_check_investment_framing(self):
-        """Honest check should contain bike/engine investment comparison."""
+        """Honest check should contain bike/engine investment comparison and accountability filter."""
         check = build_honest_check()
         assert "invested in the bike" in check, "Missing investment framing in yes-column"
-        assert "faster bike" in check, "Missing bike-vs-engine in no-column"
+        assert "Accountability texting" in check or "substitute for doing the work" in check, "Missing accountability filter in no-column"
 
     def test_final_cta_cost_of_inaction(self):
         """Final CTA should quantify cost of NOT coaching."""
@@ -634,10 +639,10 @@ class TestSultanicCopyGuard:
         assert "gg-coach-final-cost" in css, "Missing CSS for final cost"
 
     def test_honest_check_yes_count(self):
-        """Yes-column should have 6 items (original 5 + investment)."""
+        """Yes-column should have 5 items."""
         check = build_honest_check()
         yes_items = re.findall(r'<li>.*?</li>', check[:check.find('--no')])
-        assert len(yes_items) == 6, f"Expected 6 yes-items, got {len(yes_items)}"
+        assert len(yes_items) == 5, f"Expected 5 yes-items, got {len(yes_items)}"
 
     def test_honest_check_no_count(self):
         """No-column should have 5 items (original 4 + faster bike)."""

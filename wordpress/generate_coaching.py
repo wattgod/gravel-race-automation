@@ -27,7 +27,7 @@ from generate_neo_brutalist import (
 )
 from brand_tokens import get_ab_head_snippet, get_ga4_head_snippet, get_preload_hints
 from shared_footer import get_mega_footer_html
-from shared_header import get_site_header_html
+from shared_header import get_site_header_html, get_site_header_js
 from cookie_consent import get_consent_banner_html
 from generate_about import _testimonial_data
 
@@ -59,13 +59,13 @@ def build_nav() -> str:
 def build_hero() -> str:
     return f'''<div class="gg-hero gg-coach-hero" id="hero">
     <div class="gg-hero-tier" style="background:var(--gg-color-gold)">COACHING</div>
-    <h1>You&#39;re a Person, Not a Spreadsheet.</h1>
-    <p class="gg-hero-tagline">Coaching is a relationship. Someone who knows your history, reads your data, and adjusts when life gets in the way. That&#39;s what this is.</p>
+    <h1>Your Fitness Isn&#39;t the Problem. Your Plan Is.</h1>
+    <p class="gg-hero-tagline">You&#39;ve done the work. 12-hour weeks, intervals in the dark, long rides that ate your Saturdays. And you still blew up at mile 80 &mdash; not because you&#39;re weak, but because nobody matched the training to the course, the calendar, or the part where you also have a job.</p>
     <div class="gg-coach-hero-cta">
       <a href="{QUESTIONNAIRE_URL}" class="gg-coach-btn gg-coach-btn--gold" data-cta="hero_apply">APPLY NOW</a>
       <a href="#how-it-works" class="gg-coach-btn gg-coach-btn--secondary" data-cta="hero_how_it_works">SEE HOW IT WORKS</a>
     </div>
-    <p class="gg-coach-stat-line">Juniors. Pros. Masters. If you can pedal, I can help.</p>
+    <p class="gg-coach-stat-line">757 race profiles. One coach. If you can pedal, I can help.</p>
   </div>'''
 
 
@@ -73,20 +73,21 @@ def build_problem() -> str:
     return '''<div class="gg-section" id="problem">
     <div class="gg-section-header">
       <span class="gg-section-kicker">01</span>
-      <h2 class="gg-section-title">The Limits of Going It Alone</h2>
+      <h2 class="gg-section-title">The Fit-vs-Ready Gap</h2>
     </div>
     <div class="gg-section-body">
       <div class="gg-coach-quotes">
         <blockquote class="gg-coach-quote">
-          <p>You&#39;ve been training by feel for years. Sometimes it works. Mostly you blow up at mile 80 and can&#39;t figure out why. Meanwhile, the rider who passed you at mile 60 had a plan for that exact section.</p>
+          <p>You&#39;ve trained 12 hours a week for three years. You still bonk at the same point in the same kind of race. That&#39;s not a fitness problem. It&#39;s a feedback problem.</p>
         </blockquote>
         <blockquote class="gg-coach-quote">
-          <p>You downloaded a plan from an app. It didn&#39;t know about your hip flexor, your newborn, or that your work calls run past 6 on Tuesdays. You paid for structure and got a spreadsheet.</p>
+          <p>You downloaded a plan from an app. It didn&#39;t know about your hip flexor, your newborn, or that your work calls run past 6 on Tuesdays. You adapted the plan yourself. Which means you don&#39;t have a plan.</p>
         </blockquote>
         <blockquote class="gg-coach-quote">
-          <p>You know more about cycling than most people. But knowing and executing are different skills. Every hour you train without direction is an hour you can&#39;t get back. A coach closes that gap.</p>
+          <p>You read more training content than most coaches produce. But last season you still crammed intensity into the final 3 weeks before your A race and showed up cooked. Knowing and executing are different skills.</p>
         </blockquote>
       </div>
+      <p class="gg-coach-problem-closer">A $40/month app can make you fitter. It cannot look at the Unbound course profile, cross-reference your power data, and tell you which climb will end your day if you don&#39;t fix your pacing by week 11. That&#39;s what I do.</p>
     </div>
   </div>'''
 
@@ -95,15 +96,16 @@ def build_service_tiers() -> str:
     return f'''<div class="gg-section" id="tiers">
     <div class="gg-section-header">
       <span class="gg-section-kicker">02</span>
-      <h2 class="gg-section-title">Same Coach. Same Standards. Different Involvement.</h2>
+      <h2 class="gg-section-title">Same Coach. Three Levels of Involvement.</h2>
     </div>
     <div class="gg-section-body">
       <div class="gg-coach-tiers">
         <div class="gg-coach-tier-card">
           <div class="gg-coach-tier-header">$199<span class="gg-coach-tier-interval">/4 WK</span></div>
           <h3>Min</h3>
-          <p class="gg-coach-tier-cadence">Weekly review &middot; Light analysis &middot; Quarterly calls</p>
-          <p class="gg-coach-tier-desc">For experienced athletes who execute without hand-holding.</p>
+          <p class="gg-coach-tier-voice">&ldquo;I know what to do. I need someone to build the specifics and check my work.&rdquo;</p>
+          <p class="gg-coach-tier-desc">A guardrail, not a leash. For experienced athletes who execute without hand-holding.</p>
+          <p class="gg-coach-tier-best-for"><strong>Best for:</strong> Self-directed riders with 3+ years of structured training who want a smarter plan and periodic course correction.</p>
           <ul class="gg-coach-tier-list">
             <li>Weekly training review</li>
             <li>Light file analysis</li>
@@ -117,8 +119,9 @@ def build_service_tiers() -> str:
         <div class="gg-coach-tier-card gg-coach-tier-card--featured">
           <div class="gg-coach-tier-header gg-coach-tier-header--gold">$299<span class="gg-coach-tier-interval">/4 WK</span></div>
           <h3>Mid</h3>
-          <p class="gg-coach-tier-cadence">Weekly review &middot; Thorough analysis &middot; Every-4-week calls</p>
-          <p class="gg-coach-tier-desc">For serious athletes who want clear feedback + weekly adjustments.</p>
+          <p class="gg-coach-tier-voice">&ldquo;I want someone watching the data between sessions &mdash; not three weeks after the damage shows up in my TSB.&rdquo;</p>
+          <p class="gg-coach-tier-desc">The plan adjusts the same week your life changes. Most athletes belong here.</p>
+          <p class="gg-coach-tier-best-for"><strong>Best for:</strong> Serious riders targeting a specific race who want weekly feedback, real-time plan adjustments, and someone who&#39;ll tell them what they don&#39;t want to hear.</p>
           <ul class="gg-coach-tier-list">
             <li>Everything in Min</li>
             <li>Thorough file analysis (WKO)</li>
@@ -132,8 +135,9 @@ def build_service_tiers() -> str:
         <div class="gg-coach-tier-card">
           <div class="gg-coach-tier-header">$1,200<span class="gg-coach-tier-interval">/4 WK</span></div>
           <h3>Max</h3>
-          <p class="gg-coach-tier-cadence">Daily review &middot; Extensive support &middot; On-demand calls</p>
-          <p class="gg-coach-tier-desc">For athletes who want immediate feedback + high-touch support.</p>
+          <p class="gg-coach-tier-voice">&ldquo;This is the race. I want nothing left to chance.&rdquo;</p>
+          <p class="gg-coach-tier-desc">A race that matters and a timeline that doesn&#39;t forgive wasted weeks.</p>
+          <p class="gg-coach-tier-best-for"><strong>Best for:</strong> Athletes with a high-priority event who want daily review, on-demand access, and race-week strategy built from course data.</p>
           <ul class="gg-coach-tier-list">
             <li>Everything in Mid</li>
             <li>Daily file review</li>
@@ -145,9 +149,9 @@ def build_service_tiers() -> str:
           <a href="{QUESTIONNAIRE_URL}?tier=max" class="gg-coach-btn gg-coach-btn--gold" data-cta="tier_max">GET STARTED</a>
         </div>
       </div>
-      <p class="gg-coach-tier-disclaimer">If you skip workouts, underfuel, or ignore feedback, no tier fixes that. I&#39;ll tell you within 24 hours if it&#39;s not a fit.</p>
-      <p class="gg-coach-tier-setup-fee">All tiers include a one-time $99 setup fee covering intake analysis, training history review, and initial plan setup.</p>
-      <p class="gg-coach-tier-context">Mid tier at 5 rides a week: $299 &divide; 20 rides = $14.95/ride. That&#39;s less than a pair of brake pads and worth more than every Strava KOM you&#39;ve lost by 12 seconds.</p>
+      <p class="gg-coach-tier-disclaimer">None of these tiers fix skipped workouts, ignored fueling, or feedback you don&#39;t act on. I&#39;ll tell you within 24 hours if this isn&#39;t a fit &mdash; and I&#39;ll tell you why.</p>
+      <p class="gg-coach-tier-setup-fee">All tiers include a one-time $99 setup fee covering intake analysis, training history review, and initial plan build.</p>
+      <p class="gg-coach-tier-context">Mid tier at 5 rides a week: $299 &divide; 20 rides = $14.95/ride. Your last set of tires cost more. The difference is the tires wear out &mdash; the fitness compounds.</p>
     </div>
   </div>'''
 
@@ -163,36 +167,36 @@ def build_deliverables() -> str:
         <div class="gg-coach-deliverable">
           <div class="gg-coach-deliverable-num">01</div>
           <div class="gg-coach-deliverable-content">
-            <h3>I Read Your File. Not a Summary of It.</h3>
+            <h3>A Human Reads Your File. Every Ride.</h3>
             <p>A person looks at your ride data, not a dashboard. I see the interval you bailed on and ask why. Software flags a number. I flag a pattern. That pattern is usually what&#39;s standing between you and your next finish line.</p>
           </div>
         </div>
         <div class="gg-coach-deliverable">
           <div class="gg-coach-deliverable-num">02</div>
           <div class="gg-coach-deliverable-content">
-            <h3>Your Plan Changes When Your Life Does</h3>
+            <h3>The Plan Moves When Your Life Does</h3>
             <p>Kid got sick. Work trip. Tweaked your knee. I adjust the plan that week &mdash; not after you fail to hit targets for three weeks and an algorithm notices. You don&#39;t lose a training block. You adapt in real time.</p>
           </div>
         </div>
         <div class="gg-coach-deliverable">
           <div class="gg-coach-deliverable-num">03</div>
           <div class="gg-coach-deliverable-content">
-            <h3>Honest Feedback You Can&#39;t Get From a Prompt</h3>
+            <h3>Someone Who&#39;ll Tell You What You Don&#39;t Want to Hear</h3>
             <p>You don&#39;t need a motivational paragraph generated in 2 seconds. You need someone who knows you well enough to say &#34;you&#39;re sandbagging&#34; or &#34;you need a rest week and you won&#39;t take one.&#34;</p>
           </div>
         </div>
         <div class="gg-coach-deliverable">
           <div class="gg-coach-deliverable-num">04</div>
           <div class="gg-coach-deliverable-content">
-            <h3>I Know What It Feels Like</h3>
-            <p>I&#39;ve blown up at mile 80. I&#39;ve overtrained into a hole. I&#39;ve raced sick because I was too stubborn to DNS. That context doesn&#39;t come from a training model &mdash; it comes from years on the bike.</p>
+            <h3>Race Strategy Built From Data, Not Guesswork</h3>
+            <p>757 races in the database. Suffering zones, terrain breakdowns, altitude warnings, segment-by-segment pacing. Your race-day plan isn&#39;t a guess &mdash; it&#39;s built from course data I&#39;ve already analyzed.</p>
           </div>
         </div>
         <div class="gg-coach-deliverable">
           <div class="gg-coach-deliverable-num">05</div>
           <div class="gg-coach-deliverable-content">
-            <h3>Race Strategy From Someone Who&#39;s Studied the Course</h3>
-            <p>328 races in the database. Suffering zones, terrain breakdowns, altitude warnings, segment-by-segment pacing. Your race-day plan isn&#39;t a guess &mdash; it&#39;s built from data.</p>
+            <h3>I&#39;ve Made Every Mistake I&#39;m Preventing You From Making</h3>
+            <p>I&#39;ve blown up at mile 80. I&#39;ve overtrained into a hole. I&#39;ve raced sick because I was too stubborn to DNS. That context doesn&#39;t come from a training model &mdash; it comes from years on the bike.</p>
           </div>
         </div>
       </div>
@@ -218,8 +222,8 @@ def build_how_it_works() -> str:
         <div class="gg-coach-step">
           <div class="gg-coach-step-num">02</div>
           <div class="gg-coach-step-body">
-            <h3>We Align on a Plan</h3>
-            <p>I review your intake, identify blindspots, and build your first training block. You&#39;ll hear from me within 48 hours.</p>
+            <h3>I Build Your Demand Profile</h3>
+            <p>I review your intake, analyze the course demands of your target race, identify the gaps in your training history, and build your first block. You&#39;ll hear from me within 48 hours.</p>
           </div>
         </div>
         <div class="gg-coach-step">
@@ -227,6 +231,13 @@ def build_how_it_works() -> str:
           <div class="gg-coach-step-body">
             <h3>We Train Together</h3>
             <p>Weekly check-ins. Plan adjustments. Direct access when something comes up. This isn&#39;t set-and-forget.</p>
+          </div>
+        </div>
+        <div class="gg-coach-step">
+          <div class="gg-coach-step-num">04</div>
+          <div class="gg-coach-step-body">
+            <h3>We Adjust Until Race Day</h3>
+            <p>Every 4 weeks we reassess. If your FTP jumps, the zones move. If your schedule shrinks, the structure adapts. The plan gets sharper as the race gets closer.</p>
           </div>
         </div>
       </div>
@@ -281,22 +292,21 @@ def build_honest_check() -> str:
         <div class="gg-coach-audience-col">
           <h3 class="gg-coach-audience-heading gg-coach-audience-heading--yes">Coaching Is For You If:</h3>
           <ul class="gg-coach-audience-list gg-coach-list--yes">
-            <li>You want someone invested in your outcome</li>
-            <li>You&#39;re tired of guessing</li>
-            <li>You&#39;ll do the work if someone shows you what to do</li>
+            <li>You&#39;ll do the training when someone shows you what to do</li>
             <li>You have a race and a reason</li>
             <li>You&#39;re ready to be honest about your habits</li>
             <li>You&#39;ve invested in the bike &mdash; now you&#39;re ready to invest in the engine</li>
+            <li>You want a plan that&#39;s smarter than what you can build alone</li>
           </ul>
         </div>
         <div class="gg-coach-audience-col">
-          <h3 class="gg-coach-audience-heading gg-coach-audience-heading--no">Coaching Isn&#39;t For You If:</h3>
+          <h3 class="gg-coach-audience-heading gg-coach-audience-heading--no">Coaching Isn&#39;t This:</h3>
           <ul class="gg-coach-audience-list gg-coach-list--no">
-            <li>You just want a file and don&#39;t want to talk to anyone</li>
-            <li>You&#39;re not willing to change anything</li>
-            <li>Your race is next week</li>
-            <li>You want validation, not honesty</li>
-            <li>You think a faster bike is the answer</li>
+            <li>Accountability texting when you skip a Tuesday</li>
+            <li>Validation disguised as feedback</li>
+            <li>A file you download and never discuss</li>
+            <li>A fix for a race that&#39;s next week</li>
+            <li>A substitute for doing the work</li>
           </ul>
         </div>
       </div>
@@ -370,12 +380,13 @@ def build_final_cta() -> str:
     return f'''<div class="gg-section" id="final-cta">
     <div class="gg-section-body">
       <div class="gg-coach-final-cta">
-        <p class="gg-coach-final-hook">You already know how to suffer. Let me show you how to suffer smarter.</p>
+        <p class="gg-coach-final-hook">Two versions of your next race. In one, you fade at mile 80 and wonder what went wrong. In the other, you already knew what was coming.</p>
         <p class="gg-coach-final-sub">The intake takes 10 minutes. I&#39;ll review it within 48 hours. No commitment until we both agree it&#39;s a fit.</p>
         <p class="gg-coach-final-cost">A blown race costs you months. A wasted training block costs you a season. The intake costs you 10 minutes.</p>
         <div class="gg-coach-final-buttons">
           <a href="{QUESTIONNAIRE_URL}" class="gg-coach-btn gg-coach-btn--gold" data-cta="final_fill_intake">FILL OUT THE INTAKE</a>
         </div>
+        <p class="gg-coach-final-contact">Questions before applying? <a href="mailto:matt@gravelgodcycling.com">matt@gravelgodcycling.com</a> &mdash; I answer myself, usually within a day.</p>
       </div>
     </div>
   </div>'''
@@ -514,6 +525,15 @@ def build_coaching_css() -> str:
   color: var(--gg-color-dark-brown);
   margin: 0;
 }
+.gg-neo-brutalist-page .gg-coach-problem-closer {
+  font-family: var(--gg-font-editorial);
+  font-size: var(--gg-font-size-base);
+  line-height: var(--gg-line-height-relaxed);
+  color: var(--gg-color-dark-brown);
+  margin-top: var(--gg-spacing-lg);
+  padding-top: var(--gg-spacing-md);
+  border-top: 2px solid var(--gg-color-dark-brown);
+}
 
 /* ── Service tiers ───────────────────────────────── */
 .gg-neo-brutalist-page .gg-coach-tiers {
@@ -560,11 +580,26 @@ def build_coaching_css() -> str:
   margin: 0 0 var(--gg-spacing-xs) 0;
   line-height: var(--gg-line-height-tight);
 }
+.gg-neo-brutalist-page .gg-coach-tier-voice {
+  font-family: var(--gg-font-editorial);
+  font-size: var(--gg-font-size-sm);
+  font-style: italic;
+  line-height: var(--gg-line-height-relaxed);
+  color: var(--gg-color-secondary-brown);
+  margin: 0 0 var(--gg-spacing-sm) 0;
+}
 .gg-neo-brutalist-page .gg-coach-tier-desc {
   font-family: var(--gg-font-editorial);
   font-size: var(--gg-font-size-sm);
   line-height: var(--gg-line-height-relaxed);
   color: var(--gg-color-dark-brown);
+  margin-bottom: var(--gg-spacing-xs);
+}
+.gg-neo-brutalist-page .gg-coach-tier-best-for {
+  font-family: var(--gg-font-editorial);
+  font-size: var(--gg-font-size-2xs);
+  line-height: var(--gg-line-height-relaxed);
+  color: var(--gg-color-secondary-brown);
   margin-bottom: var(--gg-spacing-md);
 }
 .gg-neo-brutalist-page .gg-coach-tier-list {
@@ -959,6 +994,16 @@ def build_coaching_css() -> str:
   justify-content: center;
   flex-wrap: wrap;
 }
+.gg-neo-brutalist-page .gg-coach-final-contact {
+  font-family: var(--gg-font-editorial);
+  font-size: var(--gg-font-size-sm);
+  color: var(--gg-color-secondary-brown);
+  margin-top: var(--gg-spacing-lg);
+  text-align: center;
+}
+.gg-neo-brutalist-page .gg-coach-final-contact a {
+  color: var(--gg-color-dark-brown);
+}
 
 /* ── Mobile sticky CTA ───────────────────────────── */
 .gg-neo-brutalist-page .gg-coach-sticky-cta {
@@ -1105,7 +1150,6 @@ def build_coaching_js() -> str:
     if (paused) return;
     var page = getPage();
     scrollToPage(page < totalPages() - 1 ? page + 1 : 0);
-    if (typeof gtag === 'function') gtag('event', 'coaching_carousel', { direction: 'auto', page: getPage() + 1 });
   }
   function startAuto() { autoTimer = setInterval(autoAdvance, 6000); }
   function stopAuto() { clearInterval(autoTimer); }
@@ -1309,6 +1353,8 @@ def generate_coaching_page(external_assets: dict = None) -> str:
 
 {inline_js}
 {coaching_js}
+
+''' + '<script>' + get_site_header_js() + '</script>' + '''
 
 {get_consent_banner_html()}
 </body>

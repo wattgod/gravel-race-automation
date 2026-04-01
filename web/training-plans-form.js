@@ -1,5 +1,6 @@
 (function() {
-  var API_URL = 'https://athlete-custom-training-plan-pipeline-production.up.railway.app/api/create-checkout';
+  var API_BASE = 'https://athlete-custom-training-plan-pipeline-production.up.railway.app/api';
+  var API_URL = API_BASE + '/create-checkout';
   var form = document.getElementById('gg-training-form');
   var messageEl = document.getElementById('gg-form-message');
   var submitBtn = form.querySelector('.gg-submit-btn');
@@ -10,6 +11,7 @@
   var MAX_RACES = 10;
   var formStarted = false;
   var formSubmitted = false;
+  var intentBeaconSent = false;
   var sectionsSeen = {};
   var STORAGE_KEY = 'gg_training_form';
 
@@ -421,6 +423,28 @@
     return bs;
   }
 
+  // ---- Intent beacon (fire once when user provides name + email) ----
+  function sendIntentBeacon() {
+    if (intentBeaconSent) return;
+    var nameVal = (form.querySelector('[name="name"]') || {}).value || '';
+    var emailVal = (form.querySelector('[name="email"]') || {}).value || '';
+    if (nameVal.trim() && emailVal.trim() && emailVal.indexOf('@') > 0) {
+      intentBeaconSent = true;
+      var payload = JSON.stringify({
+        name: nameVal.trim(),
+        email: emailVal.trim(),
+        sections_reached: Object.keys(sectionsSeen).length,
+        source: 'questionnaire'
+      });
+      // Use sendBeacon for reliability (fires even on page close)
+      if (navigator.sendBeacon) {
+        navigator.sendBeacon(API_BASE + '/questionnaire-started', new Blob([payload], {type: 'application/json'}));
+      } else {
+        fetch(API_BASE + '/questionnaire-started', {method: 'POST', body: payload, headers: {'Content-Type': 'application/json'}, keepalive: true}).catch(function() {});
+      }
+    }
+  }
+
   // ---- Form section progress tracking ----
   form.addEventListener('focusin', function(e) {
     if (!formStarted) {
@@ -434,6 +458,8 @@
       if (!sectionsSeen[sectionId]) {
         sectionsSeen[sectionId] = true;
         track('tp_form_section', { section: sectionId });
+        // Fire intent beacon when user reaches section 2+ (has passed contact info)
+        if (parseInt(sectionId) >= 2) sendIntentBeacon();
       }
     }
   });
@@ -448,6 +474,7 @@
   // ---- Abandonment tracking ----
   window.addEventListener('beforeunload', function() {
     if (formStarted && !formSubmitted) {
+      sendIntentBeacon();  // Capture contact info on abandon if available
       track('tp_form_abandon', {
         sections_reached: Object.keys(sectionsSeen).length,
         last_section: Object.keys(sectionsSeen).pop() || '0'

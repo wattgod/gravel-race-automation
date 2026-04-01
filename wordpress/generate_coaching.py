@@ -62,8 +62,8 @@ def build_hero() -> str:
     <h1>Your Fitness Isn&#39;t the Problem. Your Plan Is.</h1>
     <p class="gg-hero-tagline">You&#39;ve done the work. 12-hour weeks, intervals in the dark, long rides that ate your Saturdays. And you still blew up at mile 80 &mdash; not because you&#39;re weak, but because nobody matched the training to the course, the calendar, or the part where you also have a job.</p>
     <div class="gg-coach-hero-cta">
-      <a href="{QUESTIONNAIRE_URL}" class="gg-coach-btn gg-coach-btn--gold" data-cta="hero_apply">APPLY NOW</a>
-      <a href="#how-it-works" class="gg-coach-btn gg-coach-btn--secondary" data-cta="hero_how_it_works">SEE HOW IT WORKS</a>
+      <a href="{QUESTIONNAIRE_URL}" class="gg-coach-btn gg-coach-btn--gold" data-cta="hero_apply">Apply Now</a>
+      <a href="#how-it-works" class="gg-coach-btn gg-coach-btn--secondary" data-cta="hero_how_it_works">See How It Works</a>
     </div>
     <p class="gg-coach-stat-line">757 race profiles. One coach. If you can pedal, I can help.</p>
   </div>'''
@@ -114,7 +114,7 @@ def build_service_tiers() -> str:
             <li>Race-optimized nutrition plan</li>
             <li>Custom training guide</li>
           </ul>
-          <a href="{QUESTIONNAIRE_URL}?tier=min" class="gg-coach-btn gg-coach-btn--gold" data-cta="tier_min">GET STARTED</a>
+          <a href="{QUESTIONNAIRE_URL}?tier=min" class="gg-coach-btn gg-coach-btn--gold" data-cta="tier_min">Get Started</a>
         </div>
         <div class="gg-coach-tier-card gg-coach-tier-card--featured">
           <div class="gg-coach-tier-header gg-coach-tier-header--gold">$299<span class="gg-coach-tier-interval">/4 WK</span></div>
@@ -130,7 +130,7 @@ def build_service_tiers() -> str:
             <li>Direct message access</li>
             <li>Blindspot detection</li>
           </ul>
-          <a href="{QUESTIONNAIRE_URL}?tier=mid" class="gg-coach-btn gg-coach-btn--gold" data-cta="tier_mid">GET STARTED</a>
+          <a href="{QUESTIONNAIRE_URL}?tier=mid" class="gg-coach-btn gg-coach-btn--gold" data-cta="tier_mid">Get Started</a>
         </div>
         <div class="gg-coach-tier-card">
           <div class="gg-coach-tier-header">$1,200<span class="gg-coach-tier-interval">/4 WK</span></div>
@@ -146,7 +146,7 @@ def build_service_tiers() -> str:
             <li>Multi-race season planning</li>
             <li>Priority response</li>
           </ul>
-          <a href="{QUESTIONNAIRE_URL}?tier=max" class="gg-coach-btn gg-coach-btn--gold" data-cta="tier_max">GET STARTED</a>
+          <a href="{QUESTIONNAIRE_URL}?tier=max" class="gg-coach-btn gg-coach-btn--gold" data-cta="tier_max">Get Started</a>
         </div>
       </div>
       <p class="gg-coach-tier-disclaimer">None of these tiers fix skipped workouts, ignored fueling, or feedback you don&#39;t act on. I&#39;ll tell you within 24 hours if this isn&#39;t a fit &mdash; and I&#39;ll tell you why.</p>
@@ -242,7 +242,7 @@ def build_how_it_works() -> str:
         </div>
       </div>
       <div style="margin-top:var(--gg-spacing-lg)">
-        <a href="{QUESTIONNAIRE_URL}" class="gg-coach-btn gg-coach-btn--gold" data-cta="how_it_works_cta">START THE CONVERSATION</a>
+        <a href="{QUESTIONNAIRE_URL}" class="gg-coach-btn gg-coach-btn--gold" data-cta="how_it_works_cta">Start the Conversation</a>
       </div>
     </div>
   </div>'''
@@ -384,7 +384,7 @@ def build_final_cta() -> str:
         <p class="gg-coach-final-sub">The intake takes 10 minutes. I&#39;ll review it within 48 hours. No commitment until we both agree it&#39;s a fit.</p>
         <p class="gg-coach-final-cost">A blown race costs you months. A wasted training block costs you a season. The intake costs you 10 minutes.</p>
         <div class="gg-coach-final-buttons">
-          <a href="{QUESTIONNAIRE_URL}" class="gg-coach-btn gg-coach-btn--gold" data-cta="final_fill_intake">FILL OUT THE INTAKE</a>
+          <a href="{QUESTIONNAIRE_URL}" class="gg-coach-btn gg-coach-btn--gold" data-cta="final_fill_intake">Fill Out the Intake</a>
         </div>
         <p class="gg-coach-final-contact">Questions before applying? <a href="mailto:matt@gravelgodcycling.com">matt@gravelgodcycling.com</a> &mdash; I answer myself, usually within a day.</p>
       </div>
@@ -398,7 +398,7 @@ def build_footer() -> str:
 
 def build_mobile_sticky_cta() -> str:
     return f'''<div class="gg-coach-sticky-cta">
-    <a href="{QUESTIONNAIRE_URL}" data-cta="sticky_cta">APPLY FOR COACHING</a>
+    <a href="{QUESTIONNAIRE_URL}" data-cta="sticky_cta">Apply for Coaching</a>
   </div>'''
 
 
@@ -471,8 +471,7 @@ def build_coaching_css() -> str:
   font-family: var(--gg-font-data);
   font-size: var(--gg-font-size-2xs);
   font-weight: var(--gg-font-weight-bold);
-  text-transform: uppercase;
-  letter-spacing: var(--gg-letter-spacing-wider);
+  letter-spacing: var(--gg-letter-spacing-wide);
   padding: var(--gg-spacing-sm) var(--gg-spacing-lg);
   border: 3px solid var(--gg-color-primary-brown);
   text-decoration: none;

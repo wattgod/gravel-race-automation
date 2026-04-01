@@ -131,8 +131,8 @@ class TestNav:
 class TestHero:
     def test_cta_present(self):
         hero = build_hero()
-        assert "APPLY NOW" in hero
-        assert "SEE HOW IT WORKS" in hero
+        assert "Apply Now" in hero
+        assert "See How It Works" in hero
 
     def test_stat_line(self):
         hero = build_hero()
@@ -193,7 +193,7 @@ class TestServiceTiers:
 
     def test_all_ctas_get_started(self):
         tiers = build_service_tiers()
-        assert tiers.count("GET STARTED") == 3
+        assert tiers.count("Get Started") == 3
 
     def test_no_old_tiers(self):
         tiers = build_service_tiers()

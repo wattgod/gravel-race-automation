@@ -1,4 +1,7 @@
 (function() {
+  if (window.__ggTrainingFormLoaded) return;
+  window.__ggTrainingFormLoaded = true;
+
   var API_BASE = 'https://athlete-custom-training-plan-pipeline-production.up.railway.app/api';
   var API_URL = API_BASE + '/create-checkout';
   var form = document.getElementById('gg-training-form');

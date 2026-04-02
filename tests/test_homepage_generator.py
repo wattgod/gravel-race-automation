@@ -289,15 +289,16 @@ class TestSectionBuilders:
         assert "<h1" in hero
         assert "Every gravel race, honestly rated" in hero
 
-    def test_hero_has_announcement_pill(self, stats, race_index):
+    def test_hero_has_search_bar(self, stats, race_index):
         hero = build_hero(stats, race_index)
-        assert "gg-hp-announce-pill" in hero
-        assert f'{stats["race_count"]} Races Scored' in hero
+        assert "gg-hp-hero-search" in hero
+        assert 'role="search"' in hero
 
-    def test_hero_has_ctas(self, stats, race_index):
+    def test_hero_has_chips_and_stats(self, stats, race_index):
         hero = build_hero(stats, race_index)
-        assert "Browse All Races" in hero
+        assert "gg-hp-hero-chips" in hero
         assert "How We Rate" in hero
+        assert "gg-hp-hero-stats" in hero
 
     def test_hero_has_radar_viz(self, stats, race_index):
         hero = build_hero(stats, race_index)
@@ -562,7 +563,7 @@ class TestFullPage:
         assert size_kb > 20, f"Homepage is {size_kb:.1f}KB, seems too small"
 
     def test_ctas_have_ga_tracking(self, homepage_html):
-        for event in ['hero_cta_click', 'featured_race_click',
+        for event in ['hero_chip_click', 'featured_race_click',
                        'training_plan_click', 'sidebar_cta_click', 'guide_click']:
             assert f'data-ga="{event}"' in homepage_html, f"Missing GA event: {event}"
 
@@ -659,10 +660,16 @@ class TestRegressions:
         assert "grayscale" not in css
         assert "filter:" not in css
 
-    def test_no_opacity_transition(self):
-        """Hover transitions must be border-color/background-color/color only."""
+    def test_no_opacity_on_hover_transitions(self):
+        """Hover transitions must not use opacity. Scroll animations (inside
+        prefers-reduced-motion) may use opacity for fade-stagger."""
+        import re as _re
         css = build_homepage_css()
-        assert "transition: opacity" not in css
+        css_no_scroll = _re.sub(
+            r'@media\s*\(prefers-reduced-motion:\s*no-preference\)\s*\{.*?\}',
+            '', css, flags=_re.DOTALL
+        )
+        assert "transition: opacity" not in css_no_scroll
 
     def test_substack_included_in_ticker(self, homepage_html):
         """Substack articles should appear in the ticker to surface editorial voice."""

@@ -26,10 +26,11 @@ class TestScrollAnimationCSS:
         css = get_scroll_animation_css(["fade-stagger"])
         assert "translateY" in css
 
-    def test_fade_stagger_no_opacity(self):
-        """Brand rule: no opacity transitions on coaching/homepage."""
+    def test_fade_stagger_has_opacity(self):
+        """Scroll-triggered fade-stagger uses opacity for perceptible reveal."""
         css = get_scroll_animation_css(["fade-stagger"])
-        assert "opacity" not in css
+        assert "opacity: 0" in css
+        assert "opacity: 1" in css
 
     def test_fade_stagger_no_keyframes(self):
         """Scroll animations use transitions, never @keyframes."""

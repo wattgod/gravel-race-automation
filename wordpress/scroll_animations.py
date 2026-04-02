@@ -18,7 +18,7 @@ Usage:
 SUPPORTED_TYPES = {"fade-stagger", "bar", "progress"}
 
 _EASING = "cubic-bezier(0.25, 0.46, 0.45, 0.94)"
-_STAGGER_MS = 80  # ms between siblings for fade-stagger
+_STAGGER_MS = 120  # ms between siblings for fade-stagger
 
 
 def get_scroll_animation_css(types: list) -> str:
@@ -34,16 +34,18 @@ def get_scroll_animation_css(types: list) -> str:
     rules = []
 
     if "fade-stagger" in types:
-        # Initial hidden state (transform only — no opacity per brand rule)
+        # Initial hidden state (opacity + transform for perceptible reveal)
         rules.append(
             f'.gg-has-js [data-animate="fade-stagger"] > * {{\n'
-            f'  transform: translateY(16px);\n'
-            f'  transition: transform 0.5s {_EASING};\n'
+            f'  opacity: 0;\n'
+            f'  transform: translateY(24px);\n'
+            f'  transition: opacity 0.5s {_EASING}, transform 0.5s {_EASING};\n'
             f'}}'
         )
         # Visible state
         rules.append(
             f'.gg-in-view[data-animate="fade-stagger"] > * {{\n'
+            f'  opacity: 1;\n'
             f'  transform: translateY(0);\n'
             f'}}'
         )

@@ -328,16 +328,21 @@ class TestBrandCompliance:
     def test_no_box_shadow(self, coaching_css):
         assert "box-shadow" not in coaching_css
 
-    def test_no_opacity_transition(self, coaching_css):
-        """No opacity in transition declarations."""
+    def test_no_opacity_on_hover_transitions(self, coaching_css):
+        """No opacity in hover transition declarations (scroll animations allowed)."""
         css_match = re.search(r'<style>(.*?)</style>', coaching_css, re.DOTALL)
         if not css_match:
             pytest.skip("No CSS found")
         css = css_match.group(1)
-        # Check transition values don't include opacity
-        transitions = re.findall(r'transition:\s*([^;]+);', css)
+        # Remove scroll animation block (inside prefers-reduced-motion)
+        # before checking — opacity is allowed there for fade-stagger
+        css_no_scroll = re.sub(
+            r'@media\s*\(prefers-reduced-motion:\s*no-preference\)\s*\{.*?\}',
+            '', css, flags=re.DOTALL
+        )
+        transitions = re.findall(r'transition:\s*([^;]+);', css_no_scroll)
         for t in transitions:
-            assert "opacity" not in t.lower(), f"Found opacity transition: {t}"
+            assert "opacity" not in t.lower(), f"Found opacity in hover transition: {t}"
 
     def test_uses_brand_tokens(self, coaching_css):
         assert "var(--gg-color-" in coaching_css

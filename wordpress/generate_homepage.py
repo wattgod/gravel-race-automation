@@ -41,6 +41,7 @@ from brand_tokens import (
 from cookie_consent import get_consent_banner_html
 from shared_footer import get_mega_footer_css, get_mega_footer_html
 from shared_header import get_site_header_css, get_site_header_html, get_site_header_js
+from scroll_animations import get_scroll_animation_css, get_scroll_animation_js
 
 OUTPUT_DIR = Path(__file__).parent / "output"
 RACE_INDEX_PATH = Path(__file__).parent.parent / "web" / "race-index.json"
@@ -1088,7 +1089,7 @@ def build_how_it_works(stats: dict = None) -> str:
         <h3 class="gg-hp-step-title">{title}</h3>
         <p class="gg-hp-step-desc">{desc}</p>
       </div>'''
-    return f'''<section class="gg-hp-how-it-works">{cells}
+    return f'''<section class="gg-hp-how-it-works" data-animate="fade-stagger">{cells}
   </section>'''
 
 
@@ -1166,7 +1167,7 @@ def build_testimonials() -> str:
       <h2>ATHLETE RESULTS</h2>
       <p class="gg-hp-section-intro">Real plans. Real races. Real finishes.</p>
     </div>
-    <div class="gg-hp-test-grid">{cards}
+    <div class="gg-hp-test-grid" data-animate="fade-stagger">{cards}
     </div>
     <div class="gg-hp-test-cta">
       <p data-ab="coaching_scarcity">A human in your corner. Adapts week to week. Limited spots.</p>
@@ -1668,7 +1669,7 @@ a { text-decoration: none; color: #178079; }
 
 /* ── Reduced motion ────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) { .gg-hp-scroll-progress { display: none; } .gg-hp-announce-dot { animation: none; } }
-''' + mega_footer_css + '''
+''' + mega_footer_css + '\n' + get_scroll_animation_css(["fade-stagger"]) + '''
 </style>'''
 
 
@@ -1949,6 +1950,8 @@ if (tablist) {
 })();
 
 })();
+
+''' + get_scroll_animation_js() + '''
 </script>'''
 
 

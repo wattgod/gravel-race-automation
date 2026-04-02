@@ -30,6 +30,7 @@ from shared_footer import get_mega_footer_html
 from shared_header import get_site_header_html, get_site_header_js
 from cookie_consent import get_consent_banner_html
 from generate_about import _testimonial_data
+from scroll_animations import get_scroll_animation_css, get_scroll_animation_js
 
 OUTPUT_DIR = Path(__file__).parent / "output"
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
@@ -76,7 +77,7 @@ def build_problem() -> str:
       <h2 class="gg-section-title">The Fit-vs-Ready Gap</h2>
     </div>
     <div class="gg-section-body">
-      <div class="gg-coach-quotes">
+      <div class="gg-coach-quotes" data-animate="fade-stagger">
         <blockquote class="gg-coach-quote">
           <p>You&#39;ve trained 12 hours a week for three years. You still bonk at the same point in the same kind of race. That&#39;s not a fitness problem. It&#39;s a feedback problem.</p>
         </blockquote>
@@ -99,7 +100,7 @@ def build_service_tiers() -> str:
       <h2 class="gg-section-title">Same Coach. Three Levels of Involvement.</h2>
     </div>
     <div class="gg-section-body">
-      <div class="gg-coach-tiers">
+      <div class="gg-coach-tiers" data-animate="fade-stagger">
         <div class="gg-coach-tier-card">
           <div class="gg-coach-tier-header">$199<span class="gg-coach-tier-interval">/4 WK</span></div>
           <h3>Min</h3>
@@ -163,7 +164,7 @@ def build_deliverables() -> str:
       <h2 class="gg-section-title">What Coaching Looks Like</h2>
     </div>
     <div class="gg-section-body">
-      <div class="gg-coach-deliverables">
+      <div class="gg-coach-deliverables" data-animate="fade-stagger">
         <div class="gg-coach-deliverable">
           <div class="gg-coach-deliverable-num">01</div>
           <div class="gg-coach-deliverable-content">
@@ -211,7 +212,7 @@ def build_how_it_works() -> str:
       <h2 class="gg-section-title">How It Works</h2>
     </div>
     <div class="gg-section-body">
-      <div class="gg-coach-steps">
+      <div class="gg-coach-steps" data-animate="fade-stagger">
         <div class="gg-coach-step">
           <div class="gg-coach-step-num">01</div>
           <div class="gg-coach-step-body">
@@ -1069,7 +1070,7 @@ def build_coaching_css() -> str:
     padding-bottom: 60px;
   }
 }
-</style>'''
+''' + get_scroll_animation_css(["fade-stagger"]) + '\n</style>'
 
 
 # ── JS ────────────────────────────────────────────────────────
@@ -1220,7 +1221,7 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a) {
     }
   }, { threshold: 0 }).observe(hero);
 })();
-</script>'''
+''' + get_scroll_animation_js() + '\n</script>'
 
 
 # ── JSON-LD ───────────────────────────────────────────────────

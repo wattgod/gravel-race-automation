@@ -355,7 +355,7 @@ class TestBrandCompliance:
             # Allow shared gg-neo-brutalist-page, gg-site-header, gg-hero, gg-section, etc.
             if cls.startswith(('gg-neo-brutalist', 'gg-site-header', 'gg-hero',
                               'gg-section', 'gg-breadcrumb', 'gg-footer',
-                              'gg-mega-footer')):
+                              'gg-mega-footer', 'gg-has-js', 'gg-in-view')):
                 continue
             assert cls.startswith('gg-coach-'), f"Non-prefixed class in coaching CSS: .{cls}"
 
@@ -575,6 +575,57 @@ class TestAccessibility:
         assert "gg-coach-sticky-visible" in coaching_js
         assert "visibility: hidden" in coaching_css
         assert "pointer-events: none" in coaching_css
+
+
+# ── Scroll Animations ────────────────────────────────────────
+
+
+class TestScrollAnimations:
+    def test_fade_stagger_on_quotes(self):
+        html = build_problem()
+        assert 'data-animate="fade-stagger"' in html
+
+    def test_fade_stagger_on_tiers(self):
+        html = build_service_tiers()
+        assert 'data-animate="fade-stagger"' in html
+
+    def test_fade_stagger_on_deliverables(self):
+        html = build_deliverables()
+        assert 'data-animate="fade-stagger"' in html
+
+    def test_fade_stagger_on_steps(self):
+        html = build_how_it_works()
+        assert 'data-animate="fade-stagger"' in html
+
+    def test_no_animation_on_hero(self):
+        html = build_hero()
+        assert 'data-animate' not in html
+
+    def test_no_animation_on_testimonials(self):
+        html = build_testimonials()
+        assert 'data-animate' not in html
+
+    def test_no_animation_on_final_cta(self):
+        html = build_final_cta()
+        assert 'data-animate' not in html
+
+    def test_css_has_reduced_motion_guard(self, coaching_css):
+        assert "prefers-reduced-motion: no-preference" in coaching_css
+
+    def test_css_has_gg_has_js_guard(self, coaching_css):
+        assert ".gg-has-js" in coaching_css
+
+    def test_css_has_gg_in_view(self, coaching_css):
+        assert ".gg-in-view" in coaching_css
+
+    def test_js_has_intersection_observer(self, coaching_js):
+        assert "IntersectionObserver" in coaching_js
+
+    def test_js_adds_gg_has_js(self, coaching_js):
+        assert "gg-has-js" in coaching_js
+
+    def test_js_unobserves_after_trigger(self, coaching_js):
+        assert "unobserve" in coaching_js
 
 
 # ── Sultanic Copy Guard ────────────────────────────────────────

@@ -62,7 +62,7 @@ def build_nav() -> str:
 def build_hero(race_count: int) -> str:
     return f'''<div class="gg-hero gg-about-hero">
     <div class="gg-hero-tier" style="background:var(--gg-color-gold)">ABOUT</div>
-    <h1 data-text="{race_count} Gravel Races. Scored. Zero Sponsors.">{race_count} Gravel Races. Scored. Zero Sponsors.</h1>
+    <h1 data-text="{race_count} Gravel Races. Scored.">{race_count} Gravel Races. Scored.</h1>
     <p class="gg-hero-tagline">I scored every gravel race in America by hand, then paired it with coaching for people who have real jobs and limited PTO.</p>
   </div>'''
 
@@ -95,12 +95,12 @@ def build_what_we_built(race_count: int) -> str:
           <span class="gg-about-stat-label">Races Rated</span>
         </div>
         <div class="gg-about-stat">
-          <span class="gg-about-stat-number">14</span>
+          <span class="gg-about-stat-number">15</span>
           <span class="gg-about-stat-label">Scoring Dimensions</span>
         </div>
         <div class="gg-about-stat">
-          <span class="gg-about-stat-number">0</span>
-          <span class="gg-about-stat-label">Sponsors</span>
+          <span class="gg-about-stat-number">199+</span>
+          <span class="gg-about-stat-label">Regions</span>
         </div>
         <div class="gg-about-stat">
           <span class="gg-about-stat-number">42</span>
@@ -929,7 +929,7 @@ def generate_about_page(external_assets: dict = None) -> str:
   <meta property="og:site_name" content="Gravel God Cycling">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="About Gravel God — Race Intelligence &amp; Coaching for Gravel Cyclists">
-  <meta name="twitter:description" content="{race_count} gravel races scored across 15 dimensions. Zero sponsors. Plus coaching that works for people with real lives.">
+  <meta name="twitter:description" content="{race_count} gravel races scored across 15 dimensions. Plus coaching that works for people with real lives.">
   <meta name="twitter:image" content="{SITE_BASE_URL}/og/homepage.jpg">'''
 
     preload = get_preload_hints()

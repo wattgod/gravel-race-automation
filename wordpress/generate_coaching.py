@@ -87,7 +87,7 @@ def build_problem() -> str:
           <p>You read more training content than most coaches produce. But last season you still crammed intensity into the final 3 weeks before your A race and showed up cooked. Knowing and executing are different skills.</p>
         </blockquote>
       </div>
-      <p class="gg-coach-problem-closer">A $40/month app can make you fitter. It cannot look at the Unbound course profile, cross-reference your power data, and tell you which climb will end your day if you don&#39;t fix your pacing by week 11. That&#39;s what I do.</p>
+      <p class="gg-coach-problem-closer">A $40/month app can make you fitter. It cannot look at your race&#39;s course profile, cross-reference your power data, and tell you which climb will end your day if you don&#39;t fix your pacing by week 11. That&#39;s what I do.</p>
     </div>
   </div>'''
 

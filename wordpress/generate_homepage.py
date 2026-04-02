@@ -40,7 +40,7 @@ from brand_tokens import (
 )
 from cookie_consent import get_consent_banner_html
 from shared_footer import get_mega_footer_css, get_mega_footer_html
-from shared_header import get_site_header_css, get_site_header_html
+from shared_header import get_site_header_css, get_site_header_html, get_site_header_js
 
 OUTPUT_DIR = Path(__file__).parent / "output"
 RACE_INDEX_PATH = Path(__file__).parent.parent / "web" / "race-index.json"
@@ -559,18 +559,33 @@ def build_guide_preview(chapters: list) -> str:
 
 def build_hero(stats: dict, race_index: list = None) -> str:
     race_count = stats["race_count"]
+    region_count = stats["region_count"]
+    dimensions = stats["dimensions"]
 
     return f'''<section class="gg-hp-hero" id="main">
     <div class="gg-hp-hero-inner">
       <div class="gg-hp-hero-content">
-        <div class="gg-hp-announce-pill" aria-hidden="true"><span class="gg-hp-announce-dot"></span> {race_count} Races Scored for {CURRENT_YEAR}</div>
         <p class="gg-hp-hero-kicker">THE {CURRENT_YEAR} RACE DATABASE</p>
         <h1 id="hero-title">Every gravel race, honestly rated</h1>
         <div class="gg-hp-accent-line" aria-hidden="true"></div>
-        <p class="gg-hp-hero-deck" data-ab="hero_tagline">{race_count} races scored on 15 criteria. No sponsors, no affiliates, no pulled punches. Just the data and the dirt.</p>
-        <div class="gg-hp-hero-actions">
-          <a href="{SITE_BASE_URL}/gravel-races/" class="gg-hp-btn-primary" data-ga="hero_cta_click">Browse All Races</a>
-          <a href="{SITE_BASE_URL}/race/methodology/" class="gg-hp-btn-secondary" data-ga="hero_secondary_click">How We Rate</a>
+        <p class="gg-hp-hero-deck" data-ab="hero_tagline">{race_count} races scored on {dimensions} criteria. Honestly rated.</p>
+        <!-- Search-forward: inline search bar -->
+        <form class="gg-hp-hero-search" action="{SITE_BASE_URL}/gravel-races/" method="get" role="search">
+          <input type="text" name="q" class="gg-hp-hero-search-input" placeholder="Search races, locations, or what riders say..." aria-label="Search races" autocomplete="off">
+          <button type="submit" class="gg-hp-hero-search-btn" aria-label="Search">&#8594;</button>
+        </form>
+        <div class="gg-hp-hero-chips">
+          <a href="{SITE_BASE_URL}/gravel-races/?discipline=gravel" class="gg-hp-chip" data-ga="hero_chip_click" data-ga-label="gravel">Gravel</a>
+          <a href="{SITE_BASE_URL}/gravel-races/?discipline=bikepacking" class="gg-hp-chip" data-ga="hero_chip_click" data-ga-label="bikepacking">Bikepacking</a>
+          <a href="{SITE_BASE_URL}/gravel-races/?discipline=mtb" class="gg-hp-chip" data-ga="hero_chip_click" data-ga-label="mtb">MTB</a>
+          <a href="{SITE_BASE_URL}/gravel-races/?tier=1" class="gg-hp-chip gg-hp-chip--gold" data-ga="hero_chip_click" data-ga-label="tier1">Tier 1</a>
+          <a href="{SITE_BASE_URL}/race/methodology/" class="gg-hp-chip" data-ga="hero_secondary_click">How We Rate</a>
+        </div>
+        <!-- Animated stat counters -->
+        <div class="gg-hp-hero-stats">
+          <div class="gg-hp-hero-stat"><span class="gg-hp-hero-stat-num" data-counter="{race_count}">{race_count}</span><span class="gg-hp-hero-stat-label">Races</span></div>
+          <div class="gg-hp-hero-stat"><span class="gg-hp-hero-stat-num" data-counter="{region_count}">{region_count}</span><span class="gg-hp-hero-stat-label">Regions</span></div>
+          <div class="gg-hp-hero-stat"><span class="gg-hp-hero-stat-num" data-counter="{dimensions}">{dimensions}</span><span class="gg-hp-hero-stat-label">Criteria</span></div>
         </div>
       </div>
       {_build_hero_radar_viz(race_index)}
@@ -1061,7 +1076,7 @@ def build_content_grid(race_index: list, stats: dict, upcoming: list) -> str:
 def build_how_it_works(stats: dict = None) -> str:
     race_count = stats["race_count"] if stats else 328
     steps = [
-        ("01", "PICK YOUR RACE", f"{race_count} races. Scored honestly. Filter by what actually matters to you &mdash; not what a sponsor paid us to promote."),
+        ("01", "PICK YOUR RACE", f"{race_count} races. Scored honestly. Filter by terrain, distance, climbing, and what actually matters to you."),
         ("02", "READ THE REAL TAKE", "Every rating comes with an editorial opinion. We tell you if it&rsquo;s worth the flight, the entry fee, and the suffering."),
         ("03", "SHOW UP READY", "You&rsquo;ve already paid for the entry fee. Don&rsquo;t waste it. Race-specific plans so you don&rsquo;t blow up at mile 60 like we did."),
     ]
@@ -1255,7 +1270,21 @@ a { text-decoration: none; color: #178079; }
 .gg-hp-hero-inner { max-width: 1080px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
 .gg-hp-hero-kicker { font-family: 'Sometype Mono', monospace; font-size: 10px; font-weight: 700; color: #B7950B; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 16px; }
 .gg-hp-hero h1 { font-family: 'Source Serif 4', Georgia, serif; font-size: 48px; font-weight: 900; line-height: 1.05; margin-bottom: 12px; color: #3a2e25; }
-.gg-hp-hero-deck { font-size: 17px; font-weight: 300; color: #59473c; line-height: 1.7; margin-bottom: 28px; }
+.gg-hp-hero-deck { font-size: 17px; font-weight: 300; color: #59473c; line-height: 1.7; margin-bottom: 20px; }
+/* Search-forward hero */
+.gg-hp-hero-search { display: flex; margin-bottom: 16px; border: 2px solid #3a2e25; }
+.gg-hp-hero-search-input { flex: 1; padding: 12px 16px; font-family: 'Sometype Mono', monospace; font-size: 14px; border: none; background: #ffffff; color: #3a2e25; outline: none; }
+.gg-hp-hero-search-input::placeholder { color: #8c7568; }
+.gg-hp-hero-search-btn { padding: 12px 18px; background: #3a2e25; color: #f5efe6; border: none; font-size: 18px; cursor: pointer; transition: background-color 0.2s; font-family: 'Sometype Mono', monospace; }
+.gg-hp-hero-search-btn:hover { background: #B7950B; }
+.gg-hp-hero-chips { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; }
+.gg-hp-chip { display: inline-block; padding: 6px 14px; font-family: 'Sometype Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; text-decoration: none; color: #3a2e25; border: 1px solid #8c7568; transition: border-color 0.2s, color 0.2s; }
+.gg-hp-chip:hover { border-color: #B7950B; color: #B7950B; }
+.gg-hp-chip--gold { border-color: #B7950B; color: #B7950B; }
+.gg-hp-hero-stats { display: flex; gap: 32px; margin-top: 8px; }
+.gg-hp-hero-stat { text-align: center; }
+.gg-hp-hero-stat-num { display: block; font-family: 'Source Serif 4', Georgia, serif; font-size: 32px; font-weight: 700; color: #3a2e25; line-height: 1; }
+.gg-hp-hero-stat-label { display: block; font-family: 'Sometype Mono', monospace; font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #8c7568; margin-top: 4px; }
 .gg-hp-hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
 .gg-hp-btn-primary { display: inline-block; padding: 12px 28px; background: #3a2e25; color: #f5efe6; font-family: 'Sometype Mono', monospace; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; border: 2px solid #3a2e25; text-decoration: none; transition: background-color .3s, color .3s; }
 .gg-hp-btn-primary:hover { background: #B7950B; color: #1a1613; border-color: #B7950B; }
@@ -1542,6 +1571,12 @@ a { text-decoration: none; color: #178079; }
   .gg-hp-hero h1 { font-size: 28px; }
   .gg-hp-hero-actions { flex-direction: column; }
   .gg-hp-hero-actions a { width: 100%; text-align: center; }
+  .gg-hp-hero-search-input { font-size: 13px; padding: 10px 12px; }
+  .gg-hp-hero-search-btn { padding: 10px 14px; }
+  .gg-hp-hero-chips { gap: 6px; }
+  .gg-hp-chip { padding: 5px 10px; font-size: 10px; }
+  .gg-hp-hero-stats { gap: 20px; }
+  .gg-hp-hero-stat-num { font-size: 24px; }
 
   /* Hero radar viz */
   .gg-hp-hv-wrap svg { max-width: 320px; }
@@ -1641,7 +1676,8 @@ a { text-decoration: none; color: #178079; }
 
 
 def build_homepage_js() -> str:
-    return '''<script>
+    header_js = get_site_header_js()
+    return '<script>\n' + header_js + '''
 (function() {
 'use strict';
 
@@ -1925,7 +1961,7 @@ def build_jsonld(stats: dict) -> str:
         "@type": "Organization",
         "name": "Gravel God Cycling",
         "url": SITE_BASE_URL,
-        "description": "The definitive gravel race database. Honest ratings across 14 criteria.",
+        "description": "The definitive gravel race database. Honest ratings across 15 criteria.",
     }
     website = {
         "@context": "https://schema.org",
@@ -1952,8 +1988,10 @@ def generate_homepage(race_index: list, race_data_dir: Path = None,
                       guide_path: Path = None) -> str:
     stats = compute_stats(race_index)
     canonical_url = f"{SITE_BASE_URL}/"
-    title = "Gravel Race Database & Training Plans | Gravel God"
-    meta_desc = f"Gravel cycling data, coaching, and training plans. {stats['race_count']} races rated and ranked on 14 criteria. Built for cyclists who take gravel seriously."
+    # Round down to nearest 50 for title stability (757 → "750+", 800 → "800+")
+    stable_count = (stats['race_count'] // 50) * 50
+    title = f"{stable_count}+ Gravel & Road Races Rated for {CURRENT_YEAR} | Gravel God"
+    meta_desc = f"Find your next gravel race. {stats['race_count']} races worldwide, rated on 15 criteria. Training plans, race intel, and honest reviews."
 
     one_liners = load_editorial_one_liners(race_data_dir)
     upcoming = load_upcoming_races(race_data_dir)

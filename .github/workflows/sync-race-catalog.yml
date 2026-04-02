@@ -1,0 +1,43 @@
+name: Sync Race Catalog
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'race-data/**'
+      - 'web/race-index.json'
+  workflow_dispatch: # manual trigger
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Checkout endurelabs import script
+        uses: actions/checkout@v4
+        with:
+          repository: wattgod/endurelabs
+          path: endurelabs
+          sparse-checkout: |
+            scripts/import-single-source.ts
+            package.json
+          token: ${{ secrets.GH_PAT }}
+
+      - name: Install dependencies
+        working-directory: endurelabs
+        run: npm install @supabase/supabase-js tsx typescript --no-save
+
+      - name: Run import
+        working-directory: endurelabs
+        env:
+          RACE_SOURCE: gravel
+          RACE_DATA_DIR: ${{ github.workspace }}/race-data
+          RACE_INDEX_PATH: ${{ github.workspace }}/web/race-index.json
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: npx tsx scripts/import-single-source.ts

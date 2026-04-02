@@ -650,3 +650,35 @@ class TestSultanicCopyGuard:
         no_section = check[check.find('--no'):]
         no_items = re.findall(r'<li>.*?</li>', no_section)
         assert len(no_items) == 5, f"Expected 5 no-items, got {len(no_items)}"
+
+    def test_no_uppercase_on_prose(self):
+        """text-transform: uppercase must not appear on prose/copy elements.
+
+        Only allowed on: section kickers, badge labels, nav links.
+        Prose elements (disclaimer, setup-fee, context, deliverable body,
+        problem closer) must never be uppercased — it breaks the
+        conversational coaching tone.
+        """
+        css = build_coaching_css()
+        # Find all rules with text-transform: uppercase
+        import re
+        uppercase_rules = re.findall(
+            r'([^\{]+)\{[^\}]*text-transform:\s*uppercase[^\}]*\}',
+            css, re.DOTALL
+        )
+        # These selectors are allowed to be uppercase (structural labels)
+        allowed_patterns = [
+            'section-kicker', 'badge', 'nav', 'breadcrumb',
+            'hero-tier', 'stat-label', 'stat-line',
+            'step-num', 'step-body h3',
+            'deliverable-num', 'deliverable-content h3',
+            'carousel-count', 'tier-header',
+            'audience-heading', 'faq-q', 'sticky-cta',
+        ]
+        for rule in uppercase_rules:
+            selector = rule.strip().split('\n')[-1].strip()
+            is_allowed = any(p in selector for p in allowed_patterns)
+            assert is_allowed, (
+                f"text-transform: uppercase on prose element: {selector}\n"
+                f"Coaching copy should be sentence case, not shouted."
+            )

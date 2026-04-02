@@ -650,7 +650,6 @@ def build_coaching_css() -> str:
   color: var(--gg-color-secondary-brown);
   line-height: var(--gg-line-height-relaxed);
   margin-top: var(--gg-spacing-sm);
-  text-transform: uppercase;
   letter-spacing: var(--gg-letter-spacing-wide);
 }
 
@@ -983,7 +982,6 @@ def build_coaching_css() -> str:
   font-size: var(--gg-font-size-xs);
   color: var(--gg-color-secondary-brown);
   letter-spacing: var(--gg-letter-spacing-wide);
-  text-transform: uppercase;
   margin: var(--gg-spacing-sm) auto 0;
   max-width: 560px;
 }

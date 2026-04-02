@@ -34,7 +34,7 @@ from generate_neo_brutalist import (
 )
 from brand_tokens import get_ab_head_snippet, get_ga4_head_snippet, get_preload_hints
 from shared_footer import get_mega_footer_html
-from shared_header import get_site_header_html
+from shared_header import get_site_header_html, get_site_header_js
 from cookie_consent import get_consent_banner_html
 
 OUTPUT_DIR = Path(__file__).parent / "output"
@@ -65,9 +65,9 @@ def build_nav() -> str:
 
 def build_header() -> str:
     return '''<div class="gg-apply-header">
-    <div class="gg-apply-badge">Athlete Intake</div>
-    <h1>Let&#39;s Get Started</h1>
-    <p>This questionnaire helps me understand you as an athlete. The more detail you provide, the better I can tailor your coaching. Takes about 15 minutes.</p>
+    <div class="gg-apply-badge">Coaching Intake</div>
+    <h1>Tell Me What I&#39;m Working With</h1>
+    <p>This takes about 15 minutes. Every question exists because the answer changes something in your plan. Skip what you don&#39;t know &mdash; gaps tell me something too. Vague in, vague out.</p>
   </div>'''
 
 
@@ -81,7 +81,8 @@ def build_progress_bar() -> str:
 
 
 def build_section_1_basic_info() -> str:
-    return '''<div class="gg-apply-section-title">1. Basic Info</div>
+    return '''<div class="gg-apply-section-title">1. The Basics</div>
+      <p class="gg-apply-section-sub">Guardrails that keep your plan from destroying you.</p>
 
       <div class="gg-apply-inline">
         <div class="gg-apply-group">
@@ -127,7 +128,8 @@ def build_section_1_basic_info() -> str:
 
 
 def build_section_2_goals() -> str:
-    return '''<div class="gg-apply-section-title">2. Goals</div>
+    return '''<div class="gg-apply-section-title">2. The Goal, Specifically</div>
+      <p class="gg-apply-section-sub">&ldquo;Get faster&rdquo; isn&#39;t a goal. It&#39;s a direction.</p>
       <p class="gg-apply-section-help">What are you training for? This shapes everything.</p>
 
       <div class="gg-apply-group">
@@ -184,7 +186,8 @@ def build_section_2_goals() -> str:
 
 
 def build_section_3_fitness() -> str:
-    return '''<div class="gg-apply-section-title">3. Current Fitness</div>
+    return '''<div class="gg-apply-section-title">3. Your Actual Fitness Right Now</div>
+      <p class="gg-apply-section-sub">Not September. Not should-be. Today &mdash; including the embarrassing part.</p>
       <p class="gg-apply-section-help">Where you&#39;re starting from. Estimates are fine if you don&#39;t know exact numbers.</p>
 
       <div class="gg-apply-inline">
@@ -285,7 +288,8 @@ def build_section_3_fitness() -> str:
 
 
 def build_section_4_recovery() -> str:
-    return '''<div class="gg-apply-section-title">4. Recovery &amp; Baselines</div>
+    return '''<div class="gg-apply-section-title">4. How You Break Down and Build Back</div>
+      <p class="gg-apply-section-sub">Sleep, stress, recovery rate. Old injuries dictate new structure.</p>
       <p class="gg-apply-section-help">These establish your personal baselines for monitoring recovery and readiness.</p>
 
       <div class="gg-apply-inline-3">
@@ -366,7 +370,8 @@ def build_section_4_recovery() -> str:
 
 
 def build_section_5_equipment() -> str:
-    return '''<div class="gg-apply-section-title">5. Equipment &amp; Data</div>
+    return '''<div class="gg-apply-section-title">5. Your Equipment Situation</div>
+      <p class="gg-apply-section-sub">Not judging your gear. Figuring out what&#39;s executable.</p>
       <p class="gg-apply-section-help">What devices and platforms do you use? This enables automatic data sync.</p>
 
       <div class="gg-apply-group">
@@ -441,7 +446,8 @@ def build_section_5_equipment() -> str:
 
 
 def build_section_6_schedule() -> str:
-    return '''<div class="gg-apply-section-title">6. Schedule</div>
+    return '''<div class="gg-apply-section-title">6. Your Real Schedule</div>
+      <p class="gg-apply-section-sub">Include the kids, the commute, the partner who thinks you ride too much.</p>
       <p class="gg-apply-section-help">Your real-life constraints. I&#39;ll build around YOUR week.</p>
 
       <div class="gg-apply-inline">
@@ -518,7 +524,8 @@ def build_section_6_schedule() -> str:
 
 
 def build_section_7_work_life() -> str:
-    return '''<div class="gg-apply-section-title">7. Work &amp; Life</div>
+    return '''<div class="gg-apply-section-title">7. The Rest of Your Life</div>
+      <p class="gg-apply-section-sub">Your body doesn&#39;t know the difference between life load and training load.</p>
       <p class="gg-apply-section-help">Life context affects training capacity. No judgment.</p>
 
       <div class="gg-apply-inline">
@@ -569,7 +576,8 @@ def build_section_7_work_life() -> str:
 
 
 def build_section_8_health() -> str:
-    return '''<div class="gg-apply-section-title">8. Health</div>
+    return '''<div class="gg-apply-section-title">8. Medical History</div>
+      <p class="gg-apply-section-sub">Stays between us. Exists so I don&#39;t program something dangerous.</p>
       <p class="gg-apply-section-help">Medical history and current limitations.</p>
 
       <div class="gg-apply-group">
@@ -595,7 +603,8 @@ def build_section_8_health() -> str:
 
 
 def build_section_9_strength() -> str:
-    return '''<div class="gg-apply-section-title">9. Strength Training</div>
+    return '''<div class="gg-apply-section-title">9. Do You Lift?</div>
+      <p class="gg-apply-section-sub">Changes your recovery math and load capacity.</p>
 
       <div class="gg-apply-group">
         <label class="gg-apply-label">Current Strength Training <span class="gg-apply-required">*</span></label>
@@ -655,7 +664,8 @@ def build_section_9_strength() -> str:
 
 
 def build_section_10_coaching_prefs() -> str:
-    return '''<div class="gg-apply-section-title">10. Coaching Preferences</div>
+    return '''<div class="gg-apply-section-title">10. How You Like to Be Coached</div>
+      <p class="gg-apply-section-sub">What&#39;s worked. What&#39;s annoyed you. Wrong fit wastes both our time.</p>
       <p class="gg-apply-section-help">How do you want to work together?</p>
 
       <div class="gg-apply-inline">
@@ -719,7 +729,8 @@ def build_section_10_coaching_prefs() -> str:
 
 
 def build_section_11_mental_game() -> str:
-    return '''<div class="gg-apply-section-title">11. Mental Game</div>
+    return '''<div class="gg-apply-section-title">11. Your Pattern When Things Go Sideways</div>
+      <p class="gg-apply-section-sub">Do you double up, spiral, or quietly disappear?</p>
       <p class="gg-apply-section-help">These help me understand how you tick. Answer honestly.</p>
 
       <div class="gg-apply-group">
@@ -782,7 +793,8 @@ def build_section_11_mental_game() -> str:
 
 
 def build_section_12_other() -> str:
-    return '''<div class="gg-apply-section-title">12. Anything Else</div>
+    return '''<div class="gg-apply-section-title">12. What Haven&#39;t I Asked?</div>
+      <p class="gg-apply-section-sub">The thing too small to mention usually matters most.</p>
 
       <div class="gg-apply-group">
         <label class="gg-apply-label" for="previous_coach">Have you worked with a coach before?</label>
@@ -931,6 +943,15 @@ def build_apply_css() -> str:
 }
 .gg-apply-section-title:first-of-type {
   margin-top: 0;
+}
+.gg-apply-section-sub {
+  font-family: var(--gg-font-editorial);
+  font-size: var(--gg-font-size-sm);
+  font-style: italic;
+  color: var(--gg-color-secondary-brown);
+  margin-top: calc(-1 * var(--gg-spacing-sm));
+  margin-bottom: var(--gg-spacing-md);
+  line-height: var(--gg-line-height-relaxed);
 }
 .gg-apply-section-help {
   font-family: var(--gg-font-editorial);
@@ -1836,6 +1857,7 @@ def generate_apply_page(external_assets=None):
   {build_footer()}
   {build_jsonld()}
   {build_apply_js()}
+''' + '<script>' + get_site_header_js() + '</script>' + '''
 {get_consent_banner_html()}
 </body>
 </html>'''

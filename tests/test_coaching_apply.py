@@ -131,10 +131,10 @@ class TestFormStructure:
 
     def test_section_titles(self, apply_html):
         expected_titles = [
-            "Basic Info", "Goals", "Current Fitness",
-            "Recovery", "Equipment", "Schedule",
-            "Work", "Health", "Strength Training",
-            "Coaching Preferences", "Mental Game", "Anything Else",
+            "The Basics", "The Goal, Specifically", "Your Actual Fitness",
+            "Break Down and Build Back", "Equipment Situation", "Your Real Schedule",
+            "The Rest of Your Life", "Medical History", "Do You Lift",
+            "How You Like to Be Coached", "Things Go Sideways", "What Haven",
         ]
         for title in expected_titles:
             assert title in apply_html

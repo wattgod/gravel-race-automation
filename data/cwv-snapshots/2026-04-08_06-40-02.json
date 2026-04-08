@@ -1,0 +1,354 @@
+{
+  "timestamp": "2026-04-08T06:40:02Z",
+  "strategies": [
+    "mobile",
+    "desktop"
+  ],
+  "results": [
+    {
+      "url": "https://gravelgodcycling.com/",
+      "label": "Homepage",
+      "strategy": "mobile",
+      "metrics": {
+        "lcp_ms": 1187,
+        "cls": 0.0,
+        "inp_ms": 69,
+        "fid_ms": null,
+        "fcp_ms": 1505.0,
+        "ttfb_ms": 7,
+        "speed_index_ms": 4311.2,
+        "performance_score": 84
+      },
+      "grades": {
+        "lcp_ms": "PASS",
+        "cls": "PASS",
+        "inp_ms": "PASS",
+        "fid_ms": "N/A",
+        "fcp_ms": "PASS",
+        "ttfb_ms": "PASS",
+        "speed_index_ms": "FAIL"
+      }
+    },
+    {
+      "url": "https://gravelgodcycling.com/",
+      "label": "Homepage",
+      "strategy": "desktop",
+      "metrics": {
+        "lcp_ms": 736,
+        "cls": 0.01,
+        "inp_ms": 38,
+        "fid_ms": null,
+        "fcp_ms": 362.0,
+        "ttfb_ms": 3,
+        "speed_index_ms": 362.0,
+        "performance_score": 100
+      },
+      "grades": {
+        "lcp_ms": "PASS",
+        "cls": "PASS",
+        "inp_ms": "PASS",
+        "fid_ms": "N/A",
+        "fcp_ms": "PASS",
+        "ttfb_ms": "PASS",
+        "speed_index_ms": "PASS"
+      }
+    },
+    {
+      "url": "https://gravelgodcycling.com/gravel-races/",
+      "label": "Race Search",
+      "strategy": "mobile",
+      "metrics": {
+        "lcp_ms": 1187,
+        "cls": 0.0,
+        "inp_ms": 69,
+        "fid_ms": null,
+        "fcp_ms": 3801.0,
+        "ttfb_ms": 23,
+        "speed_index_ms": 6310.3,
+        "performance_score": 62
+      },
+      "grades": {
+        "lcp_ms": "PASS",
+        "cls": "PASS",
+        "inp_ms": "PASS",
+        "fid_ms": "N/A",
+        "fcp_ms": "FAIL",
+        "ttfb_ms": "PASS",
+        "speed_index_ms": "FAIL"
+      }
+    },
+    {
+      "url": "https://gravelgodcycling.com/gravel-races/",
+      "label": "Race Search",
+      "strategy": "desktop",
+      "metrics": {
+        "lcp_ms": 736,
+        "cls": 0.01,
+        "inp_ms": 38,
+        "fid_ms": null,
+        "fcp_ms": 653.0,
+        "ttfb_ms": 5,
+        "speed_index_ms": 1064.5,
+        "performance_score": 87
+      },
+      "grades": {
+        "lcp_ms": "PASS",
+        "cls": "PASS",
+        "inp_ms": "PASS",
+        "fid_ms": "N/A",
+        "fcp_ms": "PASS",
+        "ttfb_ms": "PASS",
+        "speed_index_ms": "PASS"
+      }
+    },
+    {
+      "url": "https://gravelgodcycling.com/race/unbound-200/",
+      "label": "T1 Race",
+      "strategy": "mobile",
+      "metrics": {
+        "lcp_ms": 1187,
+        "cls": 0.0,
+        "inp_ms": 69,
+        "fid_ms": null,
+        "fcp_ms": 8558.7,
+        "ttfb_ms": 3,
+        "speed_index_ms": 8558.7,
+        "performance_score": 43
+      },
+      "grades": {
+        "lcp_ms": "PASS",
+        "cls": "PASS",
+        "inp_ms": "PASS",
+        "fid_ms": "N/A",
+        "fcp_ms": "FAIL",
+        "ttfb_ms": "PASS",
+        "speed_index_ms": "FAIL"
+      }
+    },
+    {
+      "url": "https://gravelgodcycling.com/race/unbound-200/",
+      "label": "T1 Race",
+      "strategy": "desktop",
+      "metrics": {
+        "lcp_ms": 736,
+        "cls": 0.01,
+        "inp_ms": 38,
+        "fid_ms": null,
+        "fcp_ms": 554.0,
+        "ttfb_ms": 5,
+        "speed_index_ms": 3180.2,
+        "performance_score": 65
+      },
+      "grades": {
+        "lcp_ms": "PASS",
+        "cls": "PASS",
+        "inp_ms": "PASS",
+        "fid_ms": "N/A",
+        "fcp_ms": "PASS",
+        "ttfb_ms": "PASS",
+        "speed_index_ms": "PASS"
+      }
+    },
+    {
+      "url": "https://gravelgodcycling.com/race/barry-roubaix/",
+      "label": "T2 Race",
+      "strategy": "mobile",
+      "metrics": {
+        "lcp_ms": 1187,
+        "cls": 0.0,
+        "inp_ms": 69,
+        "fid_ms": null,
+        "fcp_ms": 8723.3,
+        "ttfb_ms": 8,
+        "speed_index_ms": 9612.1,
+        "performance_score": 51
+      },
+      "grades": {
+        "lcp_ms": "PASS",
+        "cls": "PASS",
+        "inp_ms": "PASS",
+        "fid_ms": "N/A",
+        "fcp_ms": "FAIL",
+        "ttfb_ms": "PASS",
+        "speed_index_ms": "FAIL"
+      }
+    },
+    {
+      "url": "https://gravelgodcycling.com/race/barry-roubaix/",
+      "label": "T2 Race",
+      "strategy": "desktop",
+      "metrics": {
+        "lcp_ms": 736,
+        "cls": 0.01,
+        "inp_ms": 38,
+        "fid_ms": null,
+        "fcp_ms": 527.0,
+        "ttfb_ms": 15,
+        "speed_index_ms": 2667.9,
+        "performance_score": 63
+      },
+      "grades": {
+        "lcp_ms": "PASS",
+        "cls": "PASS",
+        "inp_ms": "PASS",
+        "fid_ms": "N/A",
+        "fcp_ms": "PASS",
+        "ttfb_ms": "PASS",
+        "speed_index_ms": "PASS"
+      }
+    },
+    {
+      "url": "https://gravelgodcycling.com/race/big-sugar/",
+      "label": "T3 Race",
+      "strategy": "mobile",
+      "metrics": {
+        "lcp_ms": 1187,
+        "cls": 0.0,
+        "inp_ms": 69,
+        "fid_ms": null,
+        "fcp_ms": 1837.0,
+        "ttfb_ms": 3,
+        "speed_index_ms": 7895.6,
+        "performance_score": 74
+      },
+      "grades": {
+        "lcp_ms": "PASS",
+        "cls": "PASS",
+        "inp_ms": "PASS",
+        "fid_ms": "N/A",
+        "fcp_ms": "FAIL",
+        "ttfb_ms": "PASS",
+        "speed_index_ms": "FAIL"
+      }
+    },
+    {
+      "url": "https://gravelgodcycling.com/race/big-sugar/",
+      "label": "T3 Race",
+      "strategy": "desktop",
+      "metrics": {
+        "lcp_ms": 736,
+        "cls": 0.01,
+        "inp_ms": 38,
+        "fid_ms": null,
+        "fcp_ms": 348.0,
+        "ttfb_ms": 3,
+        "speed_index_ms": 3393.0,
+        "performance_score": 58
+      },
+      "grades": {
+        "lcp_ms": "PASS",
+        "cls": "PASS",
+        "inp_ms": "PASS",
+        "fid_ms": "N/A",
+        "fcp_ms": "PASS",
+        "ttfb_ms": "PASS",
+        "speed_index_ms": "PASS"
+      }
+    },
+    {
+      "url": "https://gravelgodcycling.com/race/3-state-3-mountain-challenge/",
+      "label": "T4 Race",
+      "strategy": "mobile",
+      "metrics": {
+        "lcp_ms": 1187,
+        "cls": 0.0,
+        "inp_ms": 69,
+        "fid_ms": null,
+        "fcp_ms": 9462.0,
+        "ttfb_ms": 3,
+        "speed_index_ms": 9462.0,
+        "performance_score": 39
+      },
+      "grades": {
+        "lcp_ms": "PASS",
+        "cls": "PASS",
+        "inp_ms": "PASS",
+        "fid_ms": "N/A",
+        "fcp_ms": "FAIL",
+        "ttfb_ms": "PASS",
+        "speed_index_ms": "FAIL"
+      }
+    },
+    {
+      "url": "https://gravelgodcycling.com/race/3-state-3-mountain-challenge/",
+      "label": "T4 Race",
+      "strategy": "desktop",
+      "metrics": {
+        "lcp_ms": 736,
+        "cls": 0.01,
+        "inp_ms": 38,
+        "fid_ms": null,
+        "fcp_ms": 506.0,
+        "ttfb_ms": 3,
+        "speed_index_ms": 1705.9,
+        "performance_score": 76
+      },
+      "grades": {
+        "lcp_ms": "PASS",
+        "cls": "PASS",
+        "inp_ms": "PASS",
+        "fid_ms": "N/A",
+        "fcp_ms": "PASS",
+        "ttfb_ms": "PASS",
+        "speed_index_ms": "PASS"
+      }
+    },
+    {
+      "url": "https://gravelgodcycling.com/coaching/",
+      "label": "Coaching",
+      "strategy": "mobile",
+      "metrics": {
+        "lcp_ms": 1187,
+        "cls": 0.0,
+        "inp_ms": 69,
+        "fid_ms": null,
+        "fcp_ms": 1657.6,
+        "ttfb_ms": 3,
+        "speed_index_ms": 4203.5,
+        "performance_score": 83
+      },
+      "grades": {
+        "lcp_ms": "PASS",
+        "cls": "PASS",
+        "inp_ms": "PASS",
+        "fid_ms": "N/A",
+        "fcp_ms": "PASS",
+        "ttfb_ms": "PASS",
+        "speed_index_ms": "FAIL"
+      }
+    },
+    {
+      "url": "https://gravelgodcycling.com/coaching/",
+      "label": "Coaching",
+      "strategy": "desktop",
+      "metrics": {
+        "lcp_ms": 736,
+        "cls": 0.01,
+        "inp_ms": 38,
+        "fid_ms": null,
+        "fcp_ms": 437.1,
+        "ttfb_ms": 2,
+        "speed_index_ms": 576.6,
+        "performance_score": 100
+      },
+      "grades": {
+        "lcp_ms": "PASS",
+        "cls": "PASS",
+        "inp_ms": "PASS",
+        "fid_ms": "N/A",
+        "fcp_ms": "PASS",
+        "ttfb_ms": "PASS",
+        "speed_index_ms": "PASS"
+      }
+    }
+  ],
+  "summary": {
+    "total_checks": 14,
+    "errors": 0,
+    "avg_performance_score": 70.4,
+    "min_performance_score": 39,
+    "max_performance_score": 100,
+    "pass_count": 72,
+    "fail_count": 12
+  }
+}

@@ -19,7 +19,7 @@ from datetime import date
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
-from brand_tokens import TIER_NAMES
+from brand_tokens import TIER_NAMES, get_ga4_head_snippet
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 RACE_DATA_DIR = PROJECT_ROOT / "race-data"
@@ -265,6 +265,7 @@ def generate_recap_html(slug, year):
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, follow">
   <title>{esc(name)} {year} Race Recap — Gravel God</title>
+{get_ga4_head_snippet()}
   <meta name="description" content="{esc(name)} {year} recap: {esc(headline)}. Tier {tier} {tier_name} rated {score}/100.">
   <meta property="og:title" content="{esc(name)} {year} Race Recap — Gravel God">
   <meta property="og:description" content="{esc(headline)}. Tier {tier} {tier_name} gravel race.">

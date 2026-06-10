@@ -17,6 +17,9 @@ import sys
 from datetime import date
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).parent))
+from brand_tokens import get_ga4_head_snippet
+
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 OUTPUT_DIR = PROJECT_ROOT / "wordpress" / "output"
 INDEX_JSON = PROJECT_ROOT / "web" / "blog-index.json"
@@ -97,6 +100,7 @@ def generate_blog_index_page(output_dir=None):
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gravel God Blog — Race Previews, Roundups &amp; Recaps</title>
+{get_ga4_head_snippet()}
   <meta name="description" content="Race previews, season roundups, and race recaps from the Gravel God gravel race database. 328 races rated and ranked.">
   <meta property="og:title" content="Gravel God Blog — Race Previews, Roundups &amp; Recaps">
   <meta property="og:description" content="Race previews, season roundups, and race recaps. 328 gravel races rated and ranked.">

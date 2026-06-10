@@ -1177,9 +1177,16 @@ def check_ga4_in_output_html():
     missing = []
 
     for html_file in html_files:
+        # Skip hidden directories (archives, caches) — not deployable output
+        if any(part.startswith('.') for part in html_file.parts):
+            continue
         try:
             content = html_file.read_text(encoding="utf-8")
         except Exception:
+            continue
+        # Internal tools (noindex, nofollow) are exempt — GA4 there would
+        # pollute analytics with the coach's own visits.
+        if 'content="noindex, nofollow"' in content:
             continue
         if GA4_ID not in content:
             rel_path = html_file.relative_to(WORDPRESS_DIR)

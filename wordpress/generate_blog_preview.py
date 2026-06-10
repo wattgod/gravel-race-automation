@@ -20,7 +20,7 @@ from datetime import date, datetime, timedelta
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
-from brand_tokens import TIER_NAMES
+from brand_tokens import TIER_NAMES, get_ga4_head_snippet
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 RACE_DATA_DIR = PROJECT_ROOT / "race-data"
@@ -370,6 +370,7 @@ def generate_preview_html(slug):
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, follow">
   <title>{esc(name)} Race Preview — Gravel God</title>
+{get_ga4_head_snippet()}
   <meta name="description" content="Everything you need to know about {esc(name)}: course preview, key stats, training tips, and registration info. Tier {tier} {tier_name} rated {score}/100.">
   <meta property="og:title" content="{esc(name)} Race Preview — Gravel God">
   <meta property="og:description" content="Tier {tier} {tier_name} gravel race. {esc(location)}. Rated {score}/100.">

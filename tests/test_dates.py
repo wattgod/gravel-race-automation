@@ -29,6 +29,7 @@ VALID_DATE_PATTERNS = [
     r"^Check\s+",  # "Check official website for date"
     r"^Status:",  # "Status: UNCERTAIN - Last held August 2022"
     r"^Paused\s+for\s+\d{4}",  # "Paused for 2026 — returning May 2027"
+    r"^Cancelled\s+for\s+\d{4}",  # "Cancelled for 2026" (Haute Route Pyrenees)
     r"^\d{4}:\s*(January|February|March|April|May|June|July|August|September|October|November|December)",  # "2026: July 11-12"
     r"^\d{4}:\s*\w+",  # Any year: something pattern
     r"^\d{4}\s+was\s+the\s+final",  # "2025 was the final ride..."

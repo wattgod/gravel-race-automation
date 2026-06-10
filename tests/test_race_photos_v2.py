@@ -453,7 +453,12 @@ class TestRealRaceData:
             assert "no watermarks" in prompt, f"{data_file.stem}: missing 'no watermarks' instruction"
 
     def test_rwgps_coverage_count(self):
-        """Verify RWGPS route coverage matches expected ~216/328."""
+        """Verify RWGPS route coverage hasn't regressed.
+
+        Originally pinned total == 328 — stale the moment the road-race
+        expansion grew the catalog to 757. Pin a FLOOR, not an exact count:
+        the catalog only grows, and coverage shouldn't shrink.
+        """
         rwgps_count = 0
         total = 0
         for data_file in sorted(DATA_DIR.glob("*.json")):
@@ -464,5 +469,5 @@ class TestRealRaceData:
             course = race.get("course_description", {})
             if isinstance(course, dict) and course.get("ridewithgps_id"):
                 rwgps_count += 1
-        assert total == 328, f"Expected 328 races, got {total}"
+        assert total >= 328, f"Race catalog shrank: {total} (floor 328)"
         assert rwgps_count >= 210, f"Expected >=210 RWGPS routes, got {rwgps_count}"

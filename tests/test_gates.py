@@ -17,6 +17,14 @@ from gates.quality_gates import (
 )
 
 
+# Race date computed relative to today — hardcoded dates rot (the original
+# 2026-06-28 fixture started failing Gate 1 'race too soon' once the
+# calendar caught up).
+from datetime import datetime, timedelta
+_d = datetime.now() + timedelta(weeks=30)
+_d += timedelta(days=(6 - _d.weekday()) % 7)  # a Sunday
+RACE_DATE_FAR = _d.strftime('%Y-%m-%d')
+
 # ── Fixtures ─────────────────────────────────────────────────
 
 @pytest.fixture
@@ -24,7 +32,7 @@ def valid_intake():
     return {
         "name": "Test Athlete",
         "email": "test@example.com",
-        "races": [{"name": "SBT GRVL", "date": "2026-06-28", "distance_miles": 100, "race_day_of_week": "Sunday"}],
+        "races": [{"name": "SBT GRVL", "date": RACE_DATE_FAR, "distance_miles": 100, "race_day_of_week": "Sunday"}],
         "weekly_hours": "5-7",
         "off_days": ["wednesday"],
     }
@@ -36,7 +44,7 @@ def valid_profile():
         "name": "Test Athlete",
         "email": "test@example.com",
         "demographics": {"sex": "female", "age": 44},
-        "race_calendar": [{"name": "SBT GRVL", "date": "2026-06-28", "distance_miles": 100}],
+        "race_calendar": [{"name": "SBT GRVL", "date": RACE_DATE_FAR, "distance_miles": 100}],
         "fitness": {"ftp_watts": None},
         "schedule": {"weekly_hours": "5-7", "off_days": ["wednesday"]},
         "training_history": {"years_cycling": "3-5 years"},
@@ -55,7 +63,7 @@ def valid_derived():
         "plan_duration": 20,
         "is_masters": False,
         "race_name": "SBT GRVL",
-        "race_date": "2026-06-28",
+        "race_date": RACE_DATE_FAR,
         "race_distance_miles": 100,
     }
 

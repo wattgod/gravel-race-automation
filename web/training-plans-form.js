@@ -35,7 +35,10 @@
     var raceDate = new Date(raceDateStr + 'T00:00:00');
     var today = new Date();
     today.setHours(0, 0, 0, 0);
-    var days = Math.ceil((raceDate - today) / (1000 * 60 * 60 * 24));
+    // Math.round, NOT ceil: a date range spanning a DST shift is N days
+    // +/- 1 hour in ms. ceil turned 210 days into 211 -> a 31-week price
+    // on a 30-week plan (mismatch vs the Python charge in app.py).
+    var days = Math.round((raceDate - today) / (1000 * 60 * 60 * 24));
     var weeks = Math.max(MIN_WEEKS, Math.ceil(days / 7));
     var price = Math.min(weeks * PRICE_PER_WEEK, PRICE_CAP);
     return { weeks: weeks, price: price };

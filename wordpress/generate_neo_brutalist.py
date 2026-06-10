@@ -1159,8 +1159,8 @@ document.querySelectorAll('.gg-faq-question').forEach(function(q) {
 // CTA click tracking — GA4
 // Preparation strip — weeks-to-race countdown + live plan price.
 // Server renders generic copy; only a valid FUTURE date upgrades it, so the
-// 48 known stale-date profiles degrade gracefully instead of showing a
-// wrong price. Pricing mirrors the server: $15/wk, min 4wk, cap $249.
+// stale-date profiles degrade gracefully instead of showing a wrong price.
+// Pricing constants mirror webhook/app.py compute_plan_price.
 (function() {
   var strip = document.getElementById('prep-strip');
   if (!strip) return;

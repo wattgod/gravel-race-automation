@@ -1,16 +1,17 @@
 <?php
 /**
- * Gravel God — Shared Dropdown Header for WordPress Pages
+ * Gravel God — Shared Header with Hamburger Nav for WordPress Pages
  *
- * Injects the 5-item dropdown nav (RACES, PRODUCTS, SERVICES, ARTICLES, ABOUT)
- * on WordPress-managed pages that don't use our static generators.
+ * Injects sticky header with hamburger mobile nav, dropdown desktop nav,
+ * and auto-hide on scroll. Matches shared_header.py output exactly.
  *
- * Targets: /gravel-races/, /products/training-plans/, and any other WP page
- * that has the Astra theme header.
+ * Targets: all WP-managed pages (coaching, about, training plans, consulting, etc.)
+ * Skips: admin, front page (has its own generated header)
  *
  * Strategy:
- *   1. wp_head: output CSS to hide Astra's header and style our dropdown nav
+ *   1. wp_head: output CSS to hide Astra's header and style our header + hamburger
  *   2. wp_body_open: inject our header HTML right after <body>
+ *   3. wp_footer: inject JS for hamburger toggle, sticky auto-hide, accessibility
  *
  * Deployed via SCP to wp-content/mu-plugins/gg-header.php
  */
@@ -22,6 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 add_action( 'wp_head', 'gg_shared_header_css', 5 );
 add_action( 'wp_head', 'gg_rss_feed_link', 6 );
 add_action( 'wp_body_open', 'gg_shared_header_html', 1 );
+add_action( 'wp_footer', 'gg_shared_header_js', 99 );
 add_filter( 'body_class', 'gg_add_neo_brutalist_class' );
 
 /**
@@ -44,17 +46,14 @@ function gg_add_neo_brutalist_class( $classes ) {
 
 /**
  * Check if current page should get our custom header.
- * Skip admin, static generated pages (they have their own header), and the homepage.
  */
 function gg_should_inject_header() {
     if ( is_admin() ) {
         return false;
     }
-    // Skip pages that already use our static header (served via Code Snippets overrides)
     if ( is_front_page() ) {
         return false;
     }
-    // Only inject on WordPress pages/posts that use the Astra theme header
     return true;
 }
 
@@ -74,12 +73,15 @@ function gg_shared_header_css() {
 header.site-header,
 .ast-mobile-header-wrap { display: none !important; }
 
-/* ── Shared Site Header (uses !important to override Astra theme) ── */
 @import url('https://fonts.googleapis.com/css2?family=Sometype+Mono:wght@400;700&family=Source+Serif+4:wght@400;700&display=swap');
 
-.gg-site-header { padding: 16px 24px !important; border-bottom: 2px solid #B7950B !important; background: #f5efe6 !important; }
+/* ── Sticky Header ── */
+.gg-site-header { position: sticky !important; top: 0 !important; z-index: 900 !important; padding: 16px 24px !important; border-bottom: 2px solid #B7950B !important; background: #f5efe6 !important; transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important; }
+.gg-site-header.gg-header-hidden { transform: translateY(-100%) !important; }
 .gg-site-header-inner { display: flex !important; align-items: center !important; justify-content: space-between !important; max-width: 960px !important; margin: 0 auto !important; }
 .gg-site-header-logo img { display: block !important; height: 50px !important; width: auto !important; }
+
+/* ── Desktop Nav ── */
 .gg-site-header-nav { display: flex !important; gap: 24px !important; align-items: center !important; }
 .gg-site-header-nav > a,
 .gg-site-header-nav > a:link,
@@ -100,20 +102,44 @@ header.site-header,
 .gg-site-header-dropdown a:visited { display: block !important; padding: 8px 16px !important; font-family: 'Sometype Mono', monospace !important; font-size: 11px !important; font-weight: 400 !important; letter-spacing: 1px !important; color: #3a2e25 !important; text-decoration: none !important; transition: color 0.2s !important; }
 .gg-site-header-dropdown a:hover { color: #B7950B !important; }
 
+/* ── Hamburger (hidden on desktop) ── */
+.gg-hamburger { display: none !important; background: none !important; border: none !important; cursor: pointer !important; padding: 8px !important; width: 48px !important; height: 48px !important; flex-direction: column !important; justify-content: center !important; align-items: center !important; gap: 5px !important; }
+.gg-hamburger-bar { display: block !important; width: 24px !important; height: 2px !important; background: #3a2e25 !important; transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important; }
+.gg-hamburger.is-open .gg-hamburger-bar:nth-child(1) { transform: translateY(7px) rotate(45deg) !important; }
+.gg-hamburger.is-open .gg-hamburger-bar:nth-child(2) { opacity: 0 !important; }
+.gg-hamburger.is-open .gg-hamburger-bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg) !important; }
+
+/* ── Mobile Nav Drawer ── */
+.gg-mobile-nav { display: none !important; flex-direction: column !important; padding: 0 24px 16px !important; border-top: 1px solid #d4c5b9 !important; background: #f5efe6 !important; }
+.gg-mobile-nav.is-open { display: flex !important; }
+.gg-mobile-nav-group { border-bottom: 1px solid #d4c5b9 !important; }
+.gg-mobile-nav-toggle { display: flex !important; align-items: center !important; justify-content: space-between !important; width: 100% !important; padding: 14px 0 !important; background: none !important; border: none !important; cursor: pointer !important; font-family: 'Sometype Mono', monospace !important; font-size: 12px !important; font-weight: 700 !important; letter-spacing: 2px !important; text-transform: uppercase !important; color: #3a2e25 !important; }
+.gg-mobile-nav-toggle::after { content: '+' !important; font-size: 18px !important; font-weight: 400 !important; color: #8c7568 !important; transition: transform 0.2s !important; }
+.gg-mobile-nav-toggle[aria-expanded="true"]::after { content: '\2212' !important; }
+.gg-mobile-nav-sub { display: none !important; flex-direction: column !important; padding: 0 0 12px 16px !important; }
+.gg-mobile-nav-sub.is-open { display: flex !important; }
+.gg-mobile-nav-sub a,
+.gg-mobile-nav-sub a:link,
+.gg-mobile-nav-sub a:visited { padding: 10px 0 !important; font-family: 'Sometype Mono', monospace !important; font-size: 12px !important; font-weight: 400 !important; letter-spacing: 1px !important; color: #3a2e25 !important; text-decoration: none !important; transition: color 0.2s !important; }
+.gg-mobile-nav-sub a:hover { color: #B7950B !important; }
+.gg-mobile-nav-link,
+.gg-mobile-nav-link:link,
+.gg-mobile-nav-link:visited { padding: 14px 0 !important; font-family: 'Sometype Mono', monospace !important; font-size: 12px !important; font-weight: 700 !important; letter-spacing: 2px !important; text-transform: uppercase !important; color: #3a2e25 !important; text-decoration: none !important; display: block !important; }
+.gg-mobile-nav-link:hover { color: #B7950B !important; }
+
 /* ── Training Plans page fix: entrance animation doesn't fire in WP ── */
 .tp-hero h1,
 .tp-hero-sub,
 .tp-hero-cta,
 .tp-hero-bar { opacity: 1 !important; transform: none !important; }
 
-@media (max-width: 600px) {
+/* ── Mobile breakpoint ── */
+@media (max-width: 768px) {
   .gg-site-header { padding: 12px 16px !important; }
-  .gg-site-header-inner { flex-wrap: wrap !important; justify-content: center !important; gap: 10px !important; }
   .gg-site-header-logo img { height: 40px !important; }
-  .gg-site-header-nav { gap: 12px !important; flex-wrap: wrap !important; justify-content: center !important; }
-  .gg-site-header-nav > a,
-  .gg-site-header-item > a { font-size: 10px !important; letter-spacing: 1.5px !important; }
-  .gg-site-header-dropdown { display: none !important; }
+  .gg-site-header-nav { display: none !important; }
+  .gg-hamburger { display: flex !important; }
+  .gg-mobile-nav { padding: 0 16px 12px !important; }
 }
 </style>
     <?php
@@ -124,7 +150,6 @@ function gg_shared_header_html() {
         return;
     }
 
-    // Determine active nav item from current URL
     $uri = $_SERVER['REQUEST_URI'] ?? '';
     $active = '';
     if ( strpos( $uri, '/gravel-races' ) !== false || strpos( $uri, '/race/' ) !== false ) {
@@ -146,12 +171,12 @@ function gg_shared_header_html() {
         return $active === $key ? ' aria-current="page"' : '';
     };
     ?>
-<header class="gg-site-header">
+<header class="gg-site-header" id="gg-site-header">
   <div class="gg-site-header-inner">
     <a href="<?php echo $base; ?>/" class="gg-site-header-logo">
       <img src="<?php echo $base; ?>/wp-content/uploads/2021/09/cropped-Gravel-God-logo.png" alt="Gravel God" width="50" height="50">
     </a>
-    <nav class="gg-site-header-nav">
+    <nav class="gg-site-header-nav" id="gg-nav-desktop">
       <div class="gg-site-header-item">
         <a href="<?php echo $base; ?>/gravel-races/"<?php echo $aria('races'); ?>>RACES</a>
         <div class="gg-site-header-dropdown">
@@ -184,7 +209,154 @@ function gg_shared_header_html() {
       </div>
       <a href="<?php echo $base; ?>/about/"<?php echo $aria('about'); ?>>ABOUT</a>
     </nav>
+    <button class="gg-hamburger" id="gg-hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="gg-mobile-nav">
+      <span class="gg-hamburger-bar"></span>
+      <span class="gg-hamburger-bar"></span>
+      <span class="gg-hamburger-bar"></span>
+    </button>
   </div>
+  <nav class="gg-mobile-nav" id="gg-mobile-nav" aria-label="Mobile navigation">
+    <div class="gg-mobile-nav-group">
+      <button class="gg-mobile-nav-toggle" aria-expanded="false">RACES</button>
+      <div class="gg-mobile-nav-sub">
+        <a href="<?php echo $base; ?>/gravel-races/">All Gravel Races</a>
+        <a href="<?php echo $base; ?>/race/methodology/">How We Rate</a>
+      </div>
+    </div>
+    <div class="gg-mobile-nav-group">
+      <button class="gg-mobile-nav-toggle" aria-expanded="false">PRODUCTS</button>
+      <div class="gg-mobile-nav-sub">
+        <a href="<?php echo $base; ?>/products/training-plans/">Custom Training Plans</a>
+        <a href="<?php echo $base; ?>/guide/">Gravel Handbook</a>
+      </div>
+    </div>
+    <div class="gg-mobile-nav-group">
+      <button class="gg-mobile-nav-toggle" aria-expanded="false">SERVICES</button>
+      <div class="gg-mobile-nav-sub">
+        <a href="<?php echo $base; ?>/coaching/">Coaching</a>
+        <a href="<?php echo $base; ?>/consulting/">Consulting</a>
+      </div>
+    </div>
+    <div class="gg-mobile-nav-group">
+      <button class="gg-mobile-nav-toggle" aria-expanded="false">ARTICLES</button>
+      <div class="gg-mobile-nav-sub">
+        <a href="<?php echo $substack; ?>" target="_blank" rel="noopener">Slow Mid 38s</a>
+        <a href="<?php echo $base; ?>/articles/">Hot Takes</a>
+        <a href="<?php echo $base; ?>/insights/">The State of Gravel</a>
+        <a href="<?php echo $base; ?>/fueling-methodology/">White Papers</a>
+      </div>
+    </div>
+    <a href="<?php echo $base; ?>/about/" class="gg-mobile-nav-link">ABOUT</a>
+  </nav>
 </header>
+    <?php
+}
+
+function gg_shared_header_js() {
+    if ( ! gg_should_inject_header() ) {
+        return;
+    }
+    ?>
+<script id="gg-shared-header-js">
+// ── Hamburger mobile menu ───────────────────────────────
+(function() {
+  var hamburger = document.getElementById('gg-hamburger');
+  var mobileNav = document.getElementById('gg-mobile-nav');
+  if (!hamburger || !mobileNav) return;
+  var navIsOpen = false;
+
+  function closeNav() {
+    navIsOpen = false;
+    hamburger.classList.remove('is-open');
+    hamburger.setAttribute('aria-expanded', 'false');
+    hamburger.setAttribute('aria-label', 'Open menu');
+    mobileNav.classList.remove('is-open');
+    document.body.style.overflow = '';
+    hamburger.focus();
+  }
+
+  function openNav() {
+    navIsOpen = true;
+    hamburger.classList.add('is-open');
+    hamburger.setAttribute('aria-expanded', 'true');
+    hamburger.setAttribute('aria-label', 'Close menu');
+    mobileNav.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+    var first = mobileNav.querySelector('button, a');
+    if (first) first.focus();
+  }
+
+  hamburger.addEventListener('click', function() {
+    navIsOpen ? closeNav() : openNav();
+  });
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && navIsOpen) { closeNav(); }
+  });
+
+  mobileNav.addEventListener('keydown', function(e) {
+    if (e.key !== 'Tab' || !navIsOpen) return;
+    var focusable = mobileNav.querySelectorAll('a, button');
+    if (!focusable.length) return;
+    var first = focusable[0];
+    var last = focusable[focusable.length - 1];
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault(); last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault(); hamburger.focus();
+    }
+  });
+
+  mobileNav.querySelectorAll('.gg-mobile-nav-toggle').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var sub = btn.nextElementSibling;
+      var expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', !expanded);
+      sub.classList.toggle('is-open', !expanded);
+    });
+  });
+
+  mobileNav.querySelectorAll('a').forEach(function(link) {
+    link.addEventListener('click', closeNav);
+  });
+
+  window._ggNavIsOpen = function() { return navIsOpen; };
+})();
+
+// ── Sticky header — auto-hide on scroll-down, reveal on scroll-up ──
+(function() {
+  var header = document.getElementById('gg-site-header');
+  if (!header) return;
+  var lastScrollY = 0;
+  var ticking = false;
+
+  function updateHeaderHeight() {
+    var h = header.offsetHeight;
+    document.documentElement.style.setProperty('--gg-header-height', h + 'px');
+  }
+  updateHeaderHeight();
+  window.addEventListener('resize', updateHeaderHeight);
+
+  function onScroll() {
+    var currentY = window.scrollY;
+    var headerHeight = header.offsetHeight;
+    var navOpen = typeof window._ggNavIsOpen === 'function' && window._ggNavIsOpen();
+    if (!navOpen && currentY > headerHeight && currentY > lastScrollY) {
+      header.classList.add('gg-header-hidden');
+    } else {
+      header.classList.remove('gg-header-hidden');
+    }
+    lastScrollY = currentY;
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', function() {
+    if (!ticking) {
+      requestAnimationFrame(onScroll);
+      ticking = true;
+    }
+  }, { passive: true });
+})();
+</script>
     <?php
 }

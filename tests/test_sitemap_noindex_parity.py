@@ -45,7 +45,9 @@ class TestSitemapNoindexParity:
             slug = entry.get("slug", "")
             category = entry.get("category", "preview")
             if category in INDEXABLE_BLOG_CATEGORIES:
-                uri = f"/blog/{slug}/"
+                # Mirror generate_sitemap.py: articles live under /articles/
+                url_prefix = "articles" if category == "article" else "blog"
+                uri = f"/{url_prefix}/{slug}/"
                 assert not php_blog_noindex(uri), \
                     f"Sitemap-included URL {uri} (category={category}) is noindexed by PHP"
 
@@ -53,9 +55,13 @@ class TestSitemapNoindexParity:
         """Every URL noindexed by PHP must NOT be in the sitemap categories."""
         for entry in blog_index:
             slug = entry.get("slug", "")
+            category = entry.get("category", "preview")
+            # Articles: the /blog/ alias is correctly noindexed (301s to
+            # /articles/, which the sitemap lists instead) — not a conflict.
+            if category == "article":
+                continue
             uri = f"/blog/{slug}/"
             if php_blog_noindex(uri):
-                category = entry.get("category", "preview")
                 assert category not in INDEXABLE_BLOG_CATEGORIES, \
                     f"PHP-noindexed URL {uri} has indexable category '{category}' — would appear in sitemap"
 
@@ -64,6 +70,8 @@ class TestSitemapNoindexParity:
         for entry in blog_index:
             slug = entry.get("slug", "")
             category = classify_blog_slug(slug)
+            if category == "article":
+                continue  # articles live under /articles/, outside PHP blog rules
             uri = f"/blog/{slug}/"
             is_noindexed = php_blog_noindex(uri)
 
@@ -76,7 +84,7 @@ class TestSitemapNoindexParity:
 
     def test_no_unknown_categories(self, blog_index):
         """All categories in blog-index.json must be known."""
-        known = {"roundup", "recap", "preview"}
+        known = {"roundup", "recap", "preview", "article"}
         for entry in blog_index:
             category = entry.get("category", "preview")
             assert category in known, \

@@ -138,7 +138,7 @@ class TestRenderTemplate:
     def test_renders_existing_template(self, fake_db):
         from mission_control.services.sequence_engine import _render_template
 
-        html = _render_template("welcome_a", {
+        html = _render_template("welcome_value", {
             "contact_name": "Sarah Johnson",
             "contact_email": "sarah@example.com",
             "source_data": {"race_name": "Unbound 200"},
@@ -156,7 +156,7 @@ class TestRenderTemplate:
     def test_handles_empty_name(self, fake_db):
         from mission_control.services.sequence_engine import _render_template
 
-        html = _render_template("welcome_a", {
+        html = _render_template("welcome_value", {
             "contact_name": "",
             "contact_email": "anon@example.com",
             "source_data": {},
@@ -177,7 +177,7 @@ class TestRecordEvent:
             "enrollment_id": enrollment["id"],
             "resend_id": "resend-abc-123",
             "step_index": 0,
-            "template": "welcome_a",
+            "template": "welcome_value",
             "subject": "Welcome",
             "status": "sent",
             "opened_at": None,
@@ -201,7 +201,7 @@ class TestRecordEvent:
             "enrollment_id": enrollment["id"],
             "resend_id": "resend-click-456",
             "step_index": 0,
-            "template": "welcome_a",
+            "template": "welcome_value",
             "subject": "Welcome",
             "status": "sent",
             "opened_at": None,
@@ -224,7 +224,7 @@ class TestRecordEvent:
             "enrollment_id": enrollment["id"],
             "resend_id": "resend-bounce-789",
             "step_index": 0,
-            "template": "welcome_a",
+            "template": "welcome_value",
             "subject": "Welcome",
             "status": "sent",
             "opened_at": None,
@@ -254,7 +254,7 @@ class TestRecordEvent:
             "enrollment_id": enrollment["id"],
             "resend_id": "resend-double-open",
             "step_index": 0,
-            "template": "welcome_a",
+            "template": "welcome_value",
             "subject": "Welcome",
             "status": "opened",
             "opened_at": original_time,
@@ -477,7 +477,7 @@ class TestGetSequenceStats:
         # Create sends
         fake_db.store["gg_sequence_sends"].extend([
             {"id": str(uuid.uuid4()), "enrollment_id": e1["id"],
-             "step_index": 0, "template": "welcome_a", "subject": "Hi",
+             "step_index": 0, "template": "welcome_value", "subject": "Hi",
              "opened_at": "2026-01-01T00:00:00Z", "clicked_at": None},
             {"id": str(uuid.uuid4()), "enrollment_id": e3["id"],
              "step_index": 0, "template": "welcome_b", "subject": "Hi",

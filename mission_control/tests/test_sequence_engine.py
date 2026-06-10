@@ -422,6 +422,45 @@ class TestProcessingLock:
         assert result["processed"] == 0
 
 
+class TestRenderPlaceholderFallback:
+    """race_name is optional in source_data — placeholders must never leak."""
+
+    def test_subject_missing_race_name(self, fake_db):
+        from mission_control.services.sequence_engine import _render_subject
+        assert _render_subject("what {race_name} actually demands", {}) == \
+            "what your race actually demands"
+
+    def test_subject_none_race_name(self, fake_db):
+        from mission_control.services.sequence_engine import _render_subject
+        assert _render_subject("what {race_name} actually demands",
+                               {"race_name": None}) == "what your race actually demands"
+
+    def test_subject_present_race_name(self, fake_db):
+        from mission_control.services.sequence_engine import _render_subject
+        assert _render_subject("what {race_name} actually demands",
+                               {"race_name": "Unbound 200"}) == \
+            "what Unbound 200 actually demands"
+
+    def test_template_missing_race_name(self, fake_db):
+        from mission_control.services.sequence_engine import _render_template
+        enrollment = {"contact_name": "Jess Couch", "contact_email": "j@x.com",
+                      "source_data": {}}
+        html = _render_template("race_deep_dive", enrollment)
+        assert "{race_name}" not in html
+        assert "your race" in html
+        assert "{first_name}" not in html
+
+    def test_all_sequence_templates_exist(self, fake_db):
+        from pathlib import Path
+        from mission_control.sequences import SEQUENCES
+        tdir = Path(__file__).resolve().parent.parent / "templates" / "emails" / "sequences"
+        for seq in SEQUENCES.values():
+            for variant in seq["variants"].values():
+                for step in variant["steps"]:
+                    assert (tdir / f"{step['template']}.html").exists(), \
+                        f"{seq['id']}: template {step['template']} missing"
+
+
 class TestGetSequenceStats:
     def test_stats_with_enrollments(self, fake_db):
         from mission_control.services.sequence_engine import get_sequence_stats

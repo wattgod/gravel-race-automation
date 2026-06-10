@@ -1,30 +1,25 @@
-"""Welcome sequence — new subscriber onboarding."""
+"""Welcome sequence — new subscriber onboarding, anti-funnel posture.
+
+Voice-true single track (June 2026 rewrite): assume familiarity, lead with
+the work, pitch once at the end with permission to say no. Variant B is
+kept (weight 0, same steps) so in-flight legacy-B enrollments keep working.
+"""
+
+_STEPS = [
+    {"delay_days": 0, "template": "welcome_a", "subject": "what race are you scared of?"},
+    {"delay_days": 3, "template": "essay_sweet_spot", "subject": "sweet spot isn't that sweet"},
+    {"delay_days": 7, "template": "honest_ratings", "subject": "the race we gave a 36"},
+    {"delay_days": 12, "template": "anti_pitch", "subject": "you probably don't need a coach"},
+]
 
 SEQUENCE = {
     "id": "welcome_v1",
     "name": "Welcome Sequence",
-    "description": "New subscriber onboarding — introduce GG, share race content, soft CTA for training plan.",
+    "description": "New subscriber onboarding — one voice-true track: reply prompt, best essay, honesty flex, anti-pitch.",
     "trigger": "new_subscriber",
     "active": True,
     "variants": {
-        "A": {
-            "weight": 50,
-            "name": "Editorial (slow build)",
-            "steps": [
-                {"delay_days": 0, "template": "welcome_a", "subject": "Welcome to Gravel God"},
-                {"delay_days": 3, "template": "top_races", "subject": "The 10 races defining 2026"},
-                {"delay_days": 7, "template": "plan_pitch_soft", "subject": "What if you showed up race-ready?"},
-                {"delay_days": 14, "template": "social_proof", "subject": "How Sarah PR'd SBT by 40 minutes"},
-            ],
-        },
-        "B": {
-            "weight": 50,
-            "name": "Direct (faster cadence)",
-            "steps": [
-                {"delay_days": 0, "template": "welcome_b", "subject": "You're in. Here's what's next."},
-                {"delay_days": 2, "template": "top_races", "subject": "The races everyone's talking about"},
-                {"delay_days": 5, "template": "plan_pitch_direct", "subject": "Custom Training Plan: $249, built for your race"},
-            ],
-        },
+        "A": {"weight": 100, "name": "Anti-funnel", "steps": _STEPS},
+        "B": {"weight": 0, "name": "Legacy slot (same steps)", "steps": _STEPS},
     },
 }

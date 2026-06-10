@@ -1,30 +1,25 @@
-"""Nurture sequence — engaged lead follow-up with race content + soft pitch."""
+"""Nurture sequence — prep-kit / exit-intent leads, anti-funnel posture.
+
+Voice-true single track (June 2026 rewrite). Deliberately avoids the
+essay email (welcome may also be running for the same contact); uses the
+honesty-flex instead. Variant B kept (weight 0, same steps) for in-flight
+legacy-B enrollments.
+"""
+
+_STEPS = [
+    {"delay_days": 2, "template": "race_prep_tips", "subject": "your gut needs training too"},
+    {"delay_days": 6, "template": "honest_ratings", "subject": "the race we gave a 36"},
+    {"delay_days": 12, "template": "anti_pitch", "subject": "you probably don't need a coach"},
+]
 
 SEQUENCE = {
     "id": "nurture_v1",
     "name": "Lead Nurture",
-    "description": "For leads who downloaded a prep kit or used exit intent — race content drip with gentle conversion push.",
+    "description": "Prep-kit and exit-intent leads — prep substance, honesty flex, anti-pitch.",
     "trigger": "prep_kit_download",
     "active": True,
     "variants": {
-        "A": {
-            "weight": 50,
-            "name": "Content-heavy",
-            "steps": [
-                {"delay_days": 2, "template": "race_prep_tips", "subject": "3 things most gravel racers get wrong"},
-                {"delay_days": 6, "template": "training_myth", "subject": "The base-miles myth (and what actually works)"},
-                {"delay_days": 10, "template": "plan_pitch_soft", "subject": "Your race is coming — are you ready?"},
-                {"delay_days": 17, "template": "social_proof", "subject": "From DNS to finish line: Mike's story"},
-            ],
-        },
-        "B": {
-            "weight": 50,
-            "name": "Value-first",
-            "steps": [
-                {"delay_days": 2, "template": "race_prep_tips", "subject": "Your race-day checklist (from a coach)"},
-                {"delay_days": 5, "template": "plan_pitch_direct", "subject": "Custom plan for your race — $249"},
-                {"delay_days": 12, "template": "social_proof", "subject": "Why 90% of gravel DNFs are preventable"},
-            ],
-        },
+        "A": {"weight": 100, "name": "Anti-funnel", "steps": _STEPS},
+        "B": {"weight": 0, "name": "Legacy slot (same steps)", "steps": _STEPS},
     },
 }

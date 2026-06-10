@@ -295,8 +295,10 @@ async def _send_next_step(enrollment: dict) -> bool:
 def _render_subject(subject: str, source_data: dict) -> str:
     """Replace {placeholders} in subject with source_data values."""
     for key, val in source_data.items():
-        subject = subject.replace(f"{{{key}}}", str(val))
-    return subject
+        if val is not None:
+            subject = subject.replace(f"{{{key}}}", str(val))
+    # race_name is not guaranteed in source_data — never leak the placeholder
+    return subject.replace("{race_name}", "your race")
 
 
 def _render_template(template_name: str, enrollment: dict) -> str:
@@ -313,16 +315,18 @@ def _render_template(template_name: str, enrollment: dict) -> str:
     replacements = {
         "{contact_name}": enrollment.get("contact_name", ""),
         "{contact_email}": enrollment.get("contact_email", ""),
-        "{first_name}": enrollment.get("contact_name", "").split()[0] if enrollment.get("contact_name") else "",
+        "{first_name}": enrollment.get("contact_name", "").split()[0] if enrollment.get("contact_name") else "there",
     }
     # Add source_data replacements
     for key, val in source_data.items():
-        replacements[f"{{{key}}}"] = str(val)
+        if val is not None:
+            replacements[f"{{{key}}}"] = str(val)
 
     for placeholder, value in replacements.items():
         html = html.replace(placeholder, value)
 
-    return html
+    # race_name is not guaranteed in source_data — never leak the placeholder
+    return html.replace("{race_name}", "your race")
 
 
 def _inject_utm_params(

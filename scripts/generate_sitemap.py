@@ -21,7 +21,7 @@ from xml.dom.minidom import parseString
 SITE_BASE_URL = "https://gravelgodcycling.com"
 
 # Only these blog categories are indexable — unknown categories excluded by default (safe)
-INDEXABLE_BLOG_CATEGORIES = frozenset({"roundup", "recap"})
+INDEXABLE_BLOG_CATEGORIES = frozenset({"roundup", "recap", "article"})
 
 
 def load_series_slugs(project_root: Path) -> list:
@@ -64,6 +64,14 @@ def load_state_slugs(project_root: Path) -> list:
         if path.is_dir() and path.name.startswith("best-gravel-races-"):
             slugs.append(path.name)
     return slugs
+
+
+def load_plan_page_slugs(project_root: Path) -> list:
+    """Load training-plan page slugs from wordpress/output/training-plan/."""
+    d = project_root / "wordpress" / "output" / "training-plan"
+    if not d.exists():
+        return []
+    return [path.stem for path in sorted(d.glob("*.html"))]
 
 
 def load_tire_slugs(project_root: Path) -> list:
@@ -229,6 +237,15 @@ def generate_sitemap(race_index: list, output_path: Path, data_dir: Path = None,
         SubElement(url, 'changefreq').text = 'weekly'
         SubElement(url, 'priority').text = '0.8'
 
+    # Training-plan pages (northstar P2 — commercial-intent SEO)
+    plan_slugs = load_plan_page_slugs(output_path.parent.parent)
+    for slug in plan_slugs:
+        url = SubElement(urlset, 'url')
+        SubElement(url, 'loc').text = f"{SITE_BASE_URL}/race/{slug}/training-plan/"
+        SubElement(url, 'lastmod').text = today
+        SubElement(url, 'changefreq').text = 'monthly'
+        SubElement(url, 'priority').text = '0.8'
+
     # Tire guide pages
     tire_slugs = load_tire_slugs(output_path.parent.parent)
     for slug in tire_slugs:
@@ -367,7 +384,7 @@ def generate_blog_sitemap(blog_index: list, output_path: Path) -> Path:
     SubElement(url, 'priority').text = '0.8'
 
     # Blog entries — allowlist: only indexable categories get into sitemap
-    priority_map = {"roundup": "0.7", "recap": "0.6"}
+    priority_map = {"roundup": "0.7", "recap": "0.6", "article": "0.8"}
     for entry in blog_index:
         slug = entry.get("slug", "")
         if not slug:
@@ -378,8 +395,10 @@ def generate_blog_sitemap(blog_index: list, output_path: Path) -> Path:
         priority = priority_map.get(category, "0.6")
         lastmod = entry.get("date", today)
 
+        # Articles live under /articles/, everything else under /blog/
+        url_prefix = "articles" if category == "article" else "blog"
         url = SubElement(urlset, 'url')
-        SubElement(url, 'loc').text = f"{SITE_BASE_URL}/blog/{slug}/"
+        SubElement(url, 'loc').text = f"{SITE_BASE_URL}/{url_prefix}/{slug}/"
         SubElement(url, 'lastmod').text = lastmod
         SubElement(url, 'changefreq').text = 'monthly'
         SubElement(url, 'priority').text = priority

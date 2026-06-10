@@ -97,7 +97,9 @@ jobs:
             --title "Gravel TV broadcast live — $(date +%Y-%m-%d)" \
             --body "$(printf 'This week'"'"'s broadcast deployed to https://gravelgodcycling.com/gravel-tv/\n\nDesk note as published (edit web/gravel-tv-desk-note.md + rerun the workflow to change it):\n\n---\n\n%s' "$(cat web/gravel-tv-desk-note.md)")"
 
-      - name: Send to subscribers (skips without key)
+      - name: Send to subscribers (Resend; skips if keys missing)
         env:
-          SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
         run: python scripts/send_broadcast_email.py

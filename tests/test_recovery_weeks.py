@@ -38,7 +38,15 @@ BASE_DIR = Path(__file__).parent.parent
 def sarah_intake():
     fixture_path = BASE_DIR / "tests" / "fixtures" / "sarah_printz.json"
     with open(fixture_path) as f:
-        return json.load(f)
+        data = json.load(f)
+    # Race dates computed relative to today: the fixture's hardcoded
+    # 2026-06-28 rotted once the calendar caught up (6-week intake
+    # minimum), failing every test in this suite on drift, not bugs.
+    _d = datetime.now() + timedelta(weeks=20)
+    _d += timedelta(days=(6 - _d.weekday()) % 7)  # a Sunday
+    for _race in data.get("races", []):
+        _race["date"] = _d.strftime("%Y-%m-%d")
+    return data
 
 
 @pytest.fixture
@@ -79,7 +87,7 @@ def mike_intake():
         "years_cycling": "10+",
         "sleep": "good",
         "stress": "moderate",
-        "races": [{"name": "Gravel Century Goal", "date": "2026-07-04", "distance_miles": 100, "priority": "A"}],
+        "races": [{"name": "Gravel Century Goal", "date": (datetime.now() + timedelta(weeks=20, days=(6 - (datetime.now() + timedelta(weeks=20)).weekday()) % 7)).strftime("%Y-%m-%d"), "distance_miles": 100, "priority": "A"}],
         "longest_ride": "4-6",
         "ftp": None,
         "max_hr": None,
@@ -608,7 +616,7 @@ def benjy_intake():
         "years_cycling": "3-5",
         "sleep": "good",
         "stress": "moderate",
-        "races": [{"name": "SBT GRVL", "date": "2026-06-28", "distance_miles": 75, "priority": "A"}],
+        "races": [{"name": "SBT GRVL", "date": (datetime.now() + timedelta(weeks=20, days=(6 - (datetime.now() + timedelta(weeks=20)).weekday()) % 7)).strftime("%Y-%m-%d"), "distance_miles": 75, "priority": "A"}],
         "longest_ride": "1-2",
         "ftp": 180,
         "max_hr": None,
@@ -659,7 +667,7 @@ def burk_intake():
         "years_cycling": "3-5",
         "sleep": "fair",
         "stress": "high",
-        "races": [{"name": "SBT GRVL", "date": "2026-06-28", "distance_miles": 73, "priority": "A"}],
+        "races": [{"name": "SBT GRVL", "date": (datetime.now() + timedelta(weeks=20, days=(6 - (datetime.now() + timedelta(weeks=20)).weekday()) % 7)).strftime("%Y-%m-%d"), "distance_miles": 73, "priority": "A"}],
         "longest_ride": "1-2",
         "ftp": None,
         "max_hr": None,

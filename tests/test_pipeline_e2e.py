@@ -7,7 +7,7 @@ Validates all quality gates pass through guide generation.
 
 import json
 import pytest
-from datetime import date, timedelta
+from datetime import datetime, date, timedelta
 from pathlib import Path
 
 from pipeline.step_01_validate import validate_intake, cross_reference_race_date, _parse_date_specific
@@ -36,7 +36,15 @@ BASE_DIR = Path(__file__).parent.parent
 def sarah_intake():
     fixture_path = BASE_DIR / "tests" / "fixtures" / "sarah_printz.json"
     with open(fixture_path) as f:
-        return json.load(f)
+        data = json.load(f)
+    # Race dates computed relative to today: the fixture's hardcoded
+    # 2026-06-28 rotted once the calendar caught up (6-week intake
+    # minimum), failing every test in this suite on drift, not bugs.
+    _d = datetime.now() + timedelta(weeks=20)
+    _d += timedelta(days=(6 - _d.weekday()) % 7)  # a Sunday
+    for _race in data.get("races", []):
+        _race["date"] = _d.strftime("%Y-%m-%d")
+    return data
 
 
 class TestPipelineE2E:
@@ -280,7 +288,7 @@ class TestRecoveryWeekCadence:
             "name": "Young Rider", "email": "young@test.com",
             "sex": "male", "age": 30, "weight_lbs": 165, "height_ft": 5, "height_in": 11,
             "years_cycling": "3-5 years", "sleep": "good", "stress": "low",
-            "races": [{"name": "SBT GRVL", "date": "2026-06-28", "distance_miles": 100, "priority": "A"}],
+            "races": [{"name": "SBT GRVL", "date": (datetime.now() + timedelta(weeks=20, days=(6 - (datetime.now() + timedelta(weeks=20)).weekday()) % 7)).strftime("%Y-%m-%d"), "distance_miles": 100, "priority": "A"}],
             "longest_ride": "2-4", "ftp": None, "max_hr": None, "weekly_hours": "5-7",
             "trainer_access": "yes-basic", "long_ride_days": ["saturday", "sunday"],
             "interval_days": ["tuesday", "thursday"], "off_days": ["wednesday"],

@@ -1137,6 +1137,67 @@ def check_meta_descriptions():
     check("No duplicate titles", title_dupes == 0, f"{title_dupes} duplicates")
 
 
+def check_questionnaire_parity():
+    """Verify the live Elementor questionnaire page matches the repo file.
+
+    The /questionnaire/ page does NOT deploy from the repo (it's an
+    Elementor HTML widget) — it silently missed two shipped commits in
+    June 2026 because nothing compared the two. Network-dependent: warns
+    (not fails) if the live site is unreachable.
+    """
+    print("\n── Questionnaire Parity (live vs repo) ──")
+    try:
+        from check_questionnaire_parity import check_parity
+        findings = check_parity()
+    except Exception as e:
+        warn("Questionnaire parity", f"check could not run: {e}")
+        return
+
+    check(
+        "Questionnaire parity (live Elementor page matches repo)",
+        not findings,
+        "; ".join(findings[:5]) + (f" (+{len(findings) - 5} more)" if len(findings) > 5 else ""),
+    )
+
+
+def check_ga4_in_output_html():
+    """Verify every HTML file in wordpress/output/ contains the GA4 measurement ID.
+
+    Catches generators that forgot to call get_ga4_head_snippet() — the output
+    HTML will be missing GA4 tracking entirely, creating a blind spot in analytics.
+    """
+    print("\n── GA4 Output Coverage ──")
+    output_dir = WORDPRESS_DIR / "output"
+    if not output_dir.exists():
+        warn("GA4 output coverage", "wordpress/output/ directory not found")
+        return
+
+    GA4_ID = "G-EJJZ9T6M52"
+    html_files = sorted(output_dir.rglob("*.html"))
+    missing = []
+
+    for html_file in html_files:
+        try:
+            content = html_file.read_text(encoding="utf-8")
+        except Exception:
+            continue
+        if GA4_ID not in content:
+            rel_path = html_file.relative_to(WORDPRESS_DIR)
+            missing.append(str(rel_path))
+
+    if missing:
+        # Show first 10 to keep output manageable
+        shown = missing[:10]
+        extra = f" (+{len(missing) - 10} more)" if len(missing) > 10 else ""
+        for f in shown:
+            check(f"GA4 in {f}", False, f"Missing {GA4_ID}")
+        if extra:
+            check(f"GA4 coverage{extra}", False,
+                  f"{len(missing)} total HTML files missing GA4")
+    else:
+        check(f"GA4 present in all {len(html_files)} output HTML files", True)
+
+
 def check_consent_snippet_centralized():
     """Ensure all generators use get_ga4_head_snippet() — no copy-pasted GA4 blocks."""
     print("\n── Consent Snippet Centralization ──")
@@ -1285,6 +1346,52 @@ def check_citation_quality():
              f"{generic_count} generic homepage(s) found (<=3 per profile, acceptable)")
 
 
+def check_slop_in_output():
+    """Scan generated HTML in wordpress/output/ for banned marketing fluff phrases.
+
+    Uses wordpress/slop_rules.py for the phrase list. Only scans visible text
+    content (ignores HTML tags, attributes, script, and style blocks).
+    Reports as warnings — some phrases may appear in legitimate rider quotes.
+    """
+    print("\n── Slop Detection (Output HTML) ──")
+    output_dir = WORDPRESS_DIR / "output"
+    if not output_dir.exists():
+        warn("Slop detection", "wordpress/output/ directory not found")
+        return
+
+    sys.path.insert(0, str(WORDPRESS_DIR))
+    from slop_rules import check_text
+
+    html_files = sorted(output_dir.rglob("*.html"))
+    if not html_files:
+        warn("Slop detection", "No HTML files in wordpress/output/")
+        return
+
+    total_violations = 0
+    files_with_violations = 0
+
+    for html_file in html_files:
+        try:
+            content = html_file.read_text(encoding="utf-8")
+        except Exception:
+            continue
+
+        violations = check_text(content, is_html=True)
+        if violations:
+            files_with_violations += 1
+            rel_path = html_file.relative_to(WORDPRESS_DIR)
+            phrases_found = sorted(set(v["phrase"] for v in violations))
+            for phrase in phrases_found:
+                warn(f"Slop in {rel_path}", f'banned phrase: "{phrase}"')
+                total_violations += 1
+
+    if total_violations == 0:
+        check(f"No slop phrases in {len(html_files)} output HTML files", True)
+    else:
+        warn("Slop detection summary",
+             f"{total_violations} violation(s) across {files_with_violations} file(s)")
+
+
 def check_photo_qc_health():
     """Check photo QC results for systemic issues."""
     print("\n── Photo QC Health ──")
@@ -1373,10 +1480,13 @@ def main():
         check_no_raw_transitions()
         check_ab_config_sync()
         check_meta_descriptions()
+        check_ga4_in_output_html()
         check_consent_snippet_centralized()
         check_mu_plugin_php_syntax()
         check_citation_quality()
         check_photo_qc_health()
+        check_slop_in_output()
+        check_questionnaire_parity()
         if not args.quick:
             check_climate_classification()
             check_fabricated_claims()

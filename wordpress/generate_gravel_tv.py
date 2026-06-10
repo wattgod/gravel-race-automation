@@ -168,7 +168,10 @@ def section_desk_note() -> str:
     fingerprint = hashlib.md5(raw.encode()).hexdigest()
     # strip a leading h1 if present (the section provides the heading)
     raw = re.sub(r'^#\s+.*\n', '', raw)
-    paras = ''.join(f'<p>{esc(p.strip())}</p>'
+    def _para(p: str) -> str:
+        # escape first, then convert markdown bold (Claude drafts use it)
+        return re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', esc(p.strip()))
+    paras = ''.join(f'<p>{_para(p)}</p>'
                     for p in raw.split('\n\n') if p.strip())
     if not paras:
         return '<p class="gtv-empty">The desk is empty this week.</p>'

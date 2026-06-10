@@ -8,7 +8,7 @@ legacy-B enrollments.
 
 _STEPS = [
     {"delay_days": 2, "template": "race_prep_tips", "subject": "your gut needs training too"},
-    {"delay_days": 6, "template": "honest_ratings", "subject": "the race we gave a 36"},
+    {"delay_days": 6, "template": "race_week_mistakes", "subject": "don't ruin it in the last seven days"},
     {"delay_days": 12, "template": "anti_pitch", "subject": "you probably don't need a coach"},
 ]
 

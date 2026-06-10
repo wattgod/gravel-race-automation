@@ -2,6 +2,13 @@
   if (window.__ggTrainingFormLoaded) return;
   window.__ggTrainingFormLoaded = true;
 
+  // Per-brand overrides — this file is shared verbatim between
+  // gravelgodcycling.com and roadielabs.com. The page may set
+  // window.__TP_FORM_CONFIG before loading this script; defaults are gravel.
+  var BRAND_CFG = window.__TP_FORM_CONFIG || {};
+  var RACE_PLACEHOLDER = BRAND_CFG.racePlaceholder || 'e.g., Unbound 200';
+  var FORM_SOURCE = BRAND_CFG.source || 'gravelgodcycling.com/training-plans/questionnaire';
+
   var API_BASE = 'https://athlete-custom-training-plan-pipeline-production.up.railway.app/api';
   var API_URL = API_BASE + '/create-checkout';
   var form = document.getElementById('gg-training-form');
@@ -173,7 +180,7 @@
       '<div class="gg-race-fields">' +
         '<div class="gg-form-group">' +
           '<label>Race Name <span class="required">*</span></label>' +
-          '<input type="text" name="race_' + index + '_name" required placeholder="e.g., Unbound 200">' +
+          '<input type="text" name="race_' + index + '_name" required placeholder="' + RACE_PLACEHOLDER + '">' +
         '</div>' +
         '<div class="gg-form-group">' +
           '<label>Date <span class="required">*</span></label>' +
@@ -539,7 +546,7 @@
 
     // Compute blindspots BEFORE mapping (uses camelCase field names)
     data.blindspots = identifyBlindspots(data);
-    data._source = 'gravelgodcycling.com/training-plans/questionnaire';
+    data._source = FORM_SOURCE;
 
     // Map to worker format (camelCase → snake_case)
     var workerData = mapToWorkerFormat(data);

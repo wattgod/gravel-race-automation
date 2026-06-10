@@ -1200,6 +1200,9 @@ def check_ga4_in_output_html():
         # pollute analytics with the coach's own visits.
         if 'content="noindex, nofollow"' in content:
             continue
+        # PWA offline fallbacks render without network — GA4 can't load
+        if html_file.name == 'offline.html':
+            continue
         if GA4_ID not in content:
             rel_path = html_file.relative_to(WORDPRESS_DIR)
             missing.append(str(rel_path))

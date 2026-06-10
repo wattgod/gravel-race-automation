@@ -52,6 +52,15 @@ Race database site (gravelgodcycling.com) — 757 race profiles, 543 tire guides
 - **Articles** deploy via SCP to `/articles/{slug}/index.html` — NOT via `--sync-blog` (which deploys to `/blog/`).
 - Always purge SiteGround cache after deploying.
 - Full checklist: `python3 scripts/preflight.py --deploy`
+- **Questionnaire page (`/questionnaire/`) is an ELEMENTOR page** (page ID
+  5017, HTML widget `3f59420`) — NOT a Custom HTML block, despite the stale
+  comment in `web/training-plans-questionnaire.html`. Editing `post_content`
+  does nothing: Elementor renders `_elementor_data` and regenerates the
+  post_content shadow on save. To change the form markup, edit the widget in
+  the Elementor editor (or via its JS API: `$e.run('document/elements/settings', ...)`
+  + `$e.run('document/save/default')`). The widget content has DRIFTED from
+  the repo file (~30.4K vs ~32.8K) — repo is reference, widget is truth.
+  Form JS deploys separately via `--sync-training` (SCP to wp-uploads).
 
 ### Articles (editorial content)
 - Articles live in `wordpress/output/articles/`, NOT `wordpress/output/blog/`.

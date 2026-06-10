@@ -72,12 +72,18 @@ jobs:
 
       - name: Verify live
         run: |
-          sleep 5
-          COUNT=$(curl -s -L "https://gravelgodcycling.com/gravel-tv/" | grep -c "gtv-logo" || true)
-          if [ "$COUNT" = "0" ]; then
-            echo "::error::Live page missing masthead after deploy"
-            exit 1
-          fi
+          # Cache purge needs time to rebuild — retry before declaring failure
+          for i in 1 2 3 4 5; do
+            sleep 10
+            COUNT=$(curl -s -L "https://gravelgodcycling.com/gravel-tv/" | grep -c "gtv-logo" || true)
+            if [ "$COUNT" != "0" ]; then
+              echo "Masthead present (attempt $i)"
+              exit 0
+            fi
+            echo "Attempt $i: masthead not found yet"
+          done
+          echo "::error::Live page missing masthead after deploy (5 attempts over 50s)"
+          exit 1
 
       - name: Commit desk note
         run: |

@@ -106,6 +106,8 @@ Regions: {', '.join(regions)}.
 - [MCP Server (GitHub)](https://github.com/wattgod/gravel-race-automation)
 - [Individual race profiles]({SITE_URL}/race/{{slug}}/)
 - [Markdown profiles]({SITE_URL}/race/{{slug}}/index.md)
+- [Race training-plan guides]({SITE_URL}/race/{{slug}}/training-plan/)
+- [Race prep kits]({SITE_URL}/race/{{slug}}/prep-kit/)
 
 ## Contact
 

@@ -294,6 +294,46 @@ def build_fueling(rd: dict) -> str:
 </section>'''
 
 
+def load_sku_link(slug: str) -> dict:
+    """TP static-plan links for this race's SKU family (northstar P3.1).
+
+    Reads data/tp-sku-map.json (race → family, from assign_tp_skus.py) and
+    data/tp-sku-links.json (family → {weeks: TP url}, filled as the TP
+    marketplace plans get published). Returns {} until links exist, so the
+    section renders nothing — safe to ship ahead of the TP builds.
+    """
+    try:
+        sku_map = json.loads((PROJECT_ROOT / "data" / "tp-sku-map.json").read_text())
+        links = json.loads((PROJECT_ROOT / "data" / "tp-sku-links.json").read_text())
+    except (OSError, json.JSONDecodeError):
+        return {}
+    family = sku_map.get(slug)
+    if not family:
+        return {}
+    fam_links = {w: u for w, u in links.get(family, {}).items() if u}
+    return {"family": family, "links": fam_links} if fam_links else {}
+
+
+def build_static_plan(rd: dict) -> str:
+    sku = load_sku_link(rd["slug"])
+    if not sku:
+        return ""
+    fam_label = sku["family"].replace("-", " ").title()
+    links = "\n    ".join(
+        f'<a href="{esc(u)}" class="gg-btn gg-btn--outline" data-cta="tpp_static_sku" rel="noopener" target="_blank">{w}-WEEK PLAN &rarr;</a>'
+        for w, u in sorted(sku["links"].items(), key=lambda kv: int(kv[0])))
+    return f"""<section class="gg-tpp-section" id="ready-made">
+  <h2>Not Ready for Custom? The Ready-Made Version.</h2>
+  <p>{esc(rd["name"])} maps to our <strong>{esc(fam_label)}</strong> family
+  &mdash; a structured plan built from the same workout library, sold on
+  TrainingPeaks. Fixed structure, lower price. The custom plan adapts all of
+  it to your hours and schedule; this one asks you to adapt to it.</p>
+  <div class="gg-tpp-cta-row">
+    {links}
+  </div>
+</section>"""
+
+
 def build_faq(rd: dict, pack: dict) -> tuple[str, list]:
     """Race-specific FAQ + (question, answer) pairs for schema."""
     name = rd["name"]
@@ -502,6 +542,7 @@ def generate_page(rd: dict, pack: dict) -> str:
     workouts = build_workouts(rd, pack)
     timeline = build_timeline(rd)
     fueling = build_fueling(rd)
+    static_plan = build_static_plan(rd)
     faq_html, qa = build_faq(rd, pack)
     cta = build_cta(rd)
     jsonld = build_json_ld(rd, qa, canonical)
@@ -544,6 +585,7 @@ def generate_page(rd: dict, pack: dict) -> str:
 {workouts}
 {timeline}
 {fueling}
+{static_plan}
 {faq_html}
 {cta}
 </div>

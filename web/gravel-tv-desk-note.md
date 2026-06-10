@@ -2,8 +2,8 @@
 
 **Week of June 10, 2026**
 
-Six Tier 1 races across five days, with the calendar spreading wide enough that you'd need four passports to follow the top end properly. L'Ardéchoise opens things Wednesday out of Saint-Félicien — one of the better pieces of French gravel infrastructure on the calendar. Migration Gravel Race runs the same day in the Maasai Mara, which is either the most interesting scheduling conflict of the year or proof that nobody coordinates these things. Belgian Waffle Ride Cedar City lands Saturday in Utah, which historically hits riders harder than the name suggests it should.
+Heavy week. Six Tier 1 races across five days, with the calendar spreading from the Maasai Mara on Wednesday to the Tourmalet on Sunday. L'Ardéchoise opens proceedings in Saint-Félicien today — Ardèche limestone and elevation, about as honest a test as France offers at this level. Migration Gravel Race runs the same day out of the Mara, which is either a scheduling conflict or a geography problem, depending on your ambitions.
 
-Sunday closes with GFNY Lourdes Tourmalet up in the Hautes-Pyrénées and the Midnight Sun Randonnée out of Umeå — though that one is road-classified, looping into Norway toward Mo i Rana and the fjords. Also Sunday: Sportful Dolomiti Race in Feltre and Dragon Ride L'Etape Wales at Margam Park. Four events, one day, three countries.
+The weekend's headline is Belgian Waffle Ride Cedar City on Saturday. Utah, not the original California venue, but BWR's reputation for grinding riders into paste travels with it. Sunday shifts to the Pyrenees: GFNY Lourdes Tourmalet out of Lourdes, Hautes-Pyrénées — if you're going to put Tourmalet in the name, you'd better deliver, and that route does.
 
-The full week sits at 52 races across all tiers. Vatternrundan in Motala on Friday is worth tracking — Sweden, Östergötland, Lake Vättern circumference.
+Midnight Sun Randonnée on Sunday is listed as road, not gravel — a loop from Brännland into Norway and the fjords toward Mo i Rana. Worth noting separately. Total card this week sits at 52 events across all tiers.

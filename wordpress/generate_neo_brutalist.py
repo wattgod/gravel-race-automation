@@ -1157,6 +1157,28 @@ document.querySelectorAll('.gg-faq-question').forEach(function(q) {
 });
 
 // CTA click tracking — GA4
+// Preparation strip — weeks-to-race countdown + live plan price.
+// Server renders generic copy; only a valid FUTURE date upgrades it, so the
+// 48 known stale-date profiles degrade gracefully instead of showing a
+// wrong price. Pricing mirrors the server: $15/wk, min 4wk, cap $249.
+(function() {
+  var strip = document.getElementById('prep-strip');
+  if (!strip) return;
+  var dateStr = strip.getAttribute('data-race-date');
+  if (!dateStr) return;
+  var race = new Date(dateStr + 'T00:00:00');
+  if (isNaN(race.getTime())) return;
+  var today = new Date(); today.setHours(0, 0, 0, 0);
+  var days = Math.ceil((race - today) / 86400000);
+  if (days <= 7) return;
+  var weeks = Math.max(4, Math.ceil(days / 7));
+  var price = Math.min(weeks * 15, 249);
+  var cd = document.getElementById('gg-prep-countdown');
+  if (cd) cd.textContent = weeks + ' WEEKS OUT';
+  var cta = document.getElementById('gg-prep-cta');
+  if (cta) cta.textContent = 'BUILD MY ' + weeks + '-WEEK PLAN — $' + price;
+})();
+
 (function() {
   if (typeof gtag !== 'function') return;
   document.querySelectorAll('a.gg-btn, a.gg-btn--outline').forEach(function(link) {
@@ -3864,6 +3886,74 @@ def _workout_eligible(name: str, distance_mi: float, demands: dict) -> bool:
     return True
 
 
+def build_prep_strip(rd: dict) -> str:
+    """Build the above-the-fold Preparation Profile strip.
+
+    Northstar Phase 1: the full training section at [08] converted 0.5% of
+    race-page visitors because it sits below 7 sections of editorial (first
+    funnel report, Jun 2026). This strip surfaces the same intelligence —
+    top demands, weeks-to-race, plan price — directly under the hero, and
+    links down to [08] for the full profile. Renders only when the race has
+    a race-pack preview (same condition as [08]); weeks/price fill in
+    client-side from data-race-date so stale or past dates degrade to
+    generic copy instead of a wrong price.
+    """
+    slug = rd['slug']
+    race_name = rd['name']
+
+    preview_path = Path(__file__).resolve().parent.parent / 'web' / 'race-packs' / f'{slug}.json'
+    if not preview_path.exists():
+        return ''
+    try:
+        with open(preview_path) as f:
+            preview = json.load(f)
+    except (json.JSONDecodeError, OSError):
+        return ''
+
+    demands = preview.get('demands', {})
+    if not demands:
+        return ''
+
+    dim_labels = {
+        'durability': 'Durability',
+        'climbing': 'Climbing',
+        'vo2_power': 'VO2 Power',
+        'threshold': 'Threshold',
+        'technical': 'Technical',
+        'heat_resilience': 'Heat',
+        'altitude': 'Altitude',
+        'race_specificity': 'Race Specificity',
+    }
+    top3 = sorted(((k, v) for k, v in demands.items() if k in dim_labels),
+                  key=lambda kv: kv[1], reverse=True)[:3]
+    if not top3:
+        return ''
+    chips = '\n      '.join(
+        f'<span class="gg-prep-chip">{esc(dim_labels[k])}'
+        f' <strong>{esc(v)}/10</strong></span>'
+        for k, v in top3)
+
+    cd_start, _ = parse_event_dates(rd['vitals'].get('date_specific', ''))
+    date_attr = f' data-race-date="{esc(cd_start)}"' if cd_start else ''
+
+    plan_url = f"{TRAINING_PLANS_URL}?race={esc(slug)}"
+
+    return f'''<section id="prep-strip" class="gg-prep-strip"{date_attr} aria-label="Preparation profile summary">
+    <div class="gg-prep-head">
+      <span class="gg-prep-kicker">Preparation Profile</span>
+      <span class="gg-prep-countdown" id="gg-prep-countdown"></span>
+    </div>
+    <p class="gg-prep-lede">The rating tells you what {esc(race_name)} is. This is what it takes.</p>
+    <div class="gg-prep-chips">
+      {chips}
+    </div>
+    <div class="gg-prep-actions">
+      <a href="#train-for-race" class="gg-btn gg-btn--outline" data-cta="prep_profile_full">FULL PREP PROFILE &darr;</a>
+      <a href="{plan_url}" class="gg-btn" data-cta="prep_strip_build" id="gg-prep-cta">BUILD MY PLAN &mdash; $15/WK</a>
+    </div>
+  </section>'''
+
+
 def build_train_for_race(rd: dict) -> str:
     """Build [08] Train for This Race section with showcase workouts."""
     slug = rd['slug']
@@ -5198,6 +5288,18 @@ html {{ scroll-behavior: smooth; }}
 .gg-neo-brutalist-page .gg-btn--outline {{ background: transparent; color: var(--gg-color-teal); border-color: var(--gg-color-teal); }}
 .gg-neo-brutalist-page .gg-btn--outline:hover {{ background: var(--gg-color-teal); color: var(--gg-color-white); }}
 
+/* ── Preparation Profile strip (above the fold) ── */
+.gg-neo-brutalist-page .gg-prep-strip {{ margin: 20px 0 28px; padding: 18px 20px; border: var(--gg-border-standard); background: var(--gg-color-warm-paper); }}
+.gg-neo-brutalist-page .gg-prep-head {{ display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-bottom: 8px; }}
+.gg-neo-brutalist-page .gg-prep-kicker {{ font-family: var(--gg-font-data); font-size: var(--gg-font-size-2xs); font-weight: 700; letter-spacing: var(--gg-letter-spacing-ultra-wide); text-transform: uppercase; color: var(--gg-color-secondary-brown); }}
+.gg-neo-brutalist-page .gg-prep-countdown {{ font-family: var(--gg-font-data); font-size: var(--gg-font-size-2xs); font-weight: 700; letter-spacing: var(--gg-letter-spacing-wider); text-transform: uppercase; color: var(--gg-color-teal); }}
+.gg-neo-brutalist-page .gg-prep-lede {{ font-family: var(--gg-font-editorial); font-size: 14px; line-height: 1.5; color: var(--gg-color-primary-brown); margin: 0 0 12px; }}
+.gg-neo-brutalist-page .gg-prep-chips {{ display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }}
+.gg-neo-brutalist-page .gg-prep-chip {{ font-family: var(--gg-font-data); font-size: 11px; text-transform: uppercase; letter-spacing: var(--gg-letter-spacing-wider); color: var(--gg-color-primary-brown); background: var(--gg-color-white); border: var(--gg-border-subtle); padding: 5px 10px; }}
+.gg-neo-brutalist-page .gg-prep-chip strong {{ color: var(--gg-color-teal); }}
+.gg-neo-brutalist-page .gg-prep-actions {{ display: flex; flex-wrap: wrap; gap: 10px; }}
+@media (max-width: 600px) {{ .gg-neo-brutalist-page .gg-prep-actions {{ flex-direction: column; }} .gg-neo-brutalist-page .gg-prep-actions .gg-btn {{ text-align: center; }} }}
+
 /* ── Train for This Race ── */
 .gg-neo-brutalist-page .gg-pack-subtitle {{ font-family: var(--gg-font-data); font-size: var(--gg-font-size-2xs); font-weight: 700; letter-spacing: var(--gg-letter-spacing-ultra-wide); text-transform: uppercase; color: var(--gg-color-secondary-brown); margin-bottom: 12px; }}
 .gg-neo-brutalist-page .gg-pack-demands {{ margin-bottom: 24px; }}
@@ -5679,6 +5781,8 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
     news = build_news_section(rd)
     training = build_training(rd)
     train_for_race = build_train_for_race(rd)
+    # Strip only renders when [08] exists — its anchor target must be present
+    prep_strip = build_prep_strip(rd) if train_for_race else ''
     logistics_sec = build_logistics_section(rd)
     tire_picks = build_tire_picks(rd)
     tire_callout = build_tire_guide_callout(rd)
@@ -5783,6 +5887,8 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
   {nav_header}
 
   {hero}
+
+  {prep_strip}
 
   {toc}
 

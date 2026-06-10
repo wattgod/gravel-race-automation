@@ -558,6 +558,26 @@ def build_guide_preview(chapters: list) -> str:
   </section>'''
 
 
+def build_gravel_tv_band(upcoming: list) -> str:
+    """Compact GRAVEL TV broadcast band — teases the weekly digest page.
+
+    Deliberately a TEASER, not a section: the homepage's job is search
+    (the hero); Gravel TV's job is the weekly ritual at /gravel-tv/.
+    """
+    n_upcoming = len(upcoming) if upcoming else 0
+    count_line = (f"{n_upcoming} races on air in the next two weeks"
+                  if n_upcoming else "This week's broadcast is live")
+    return f'''<section class="gg-hp-gtv" id="gravel-tv">
+    <a class="gg-hp-gtv-inner" href="/gravel-tv/" data-ab="gtv_band">
+      <span class="gg-hp-gtv-logo">GRAVEL<span class="gg-hp-gtv-tv">TV</span></span>
+      <span class="gg-hp-gtv-copy">
+        <strong>The weekly gravel broadcast.</strong> The desk note, {esc(count_line)}, fresh race tape.
+      </span>
+      <span class="gg-hp-gtv-cta">WATCH THIS WEEK&rsquo;S&nbsp;&rarr;</span>
+    </a>
+  </section>'''
+
+
 def build_hero(stats: dict, race_index: list = None) -> str:
     race_count = stats["race_count"]
     region_count = stats["region_count"]
@@ -1219,7 +1239,25 @@ def build_homepage_css() -> str:
     font_face = get_font_face_css()
     tokens = get_tokens_css()
     mega_footer_css = get_mega_footer_css()
-    return '<style>\n/* ── Self-hosted fonts ──────────────────────────────────── */\n' + font_face + '\n\n' + tokens + '\n\n' + '''/* ── Ticker (functional animation) ───────────────────────── */
+    return '<style>\n/* ── Self-hosted fonts ──────────────────────────────────── */\n' + font_face + '\n\n' + tokens + '\n\n' + '''/* ── GRAVEL TV band ──────────────────────────────────────── */
+.gg-hp-gtv { margin: 0; }
+.gg-hp-gtv-inner { display: flex; align-items: center; gap: 20px;
+  flex-wrap: wrap; background: var(--gg-color-teal); border-top: 4px solid #000;
+  border-bottom: 4px solid #000; padding: 18px 24px; text-decoration: none; }
+.gg-hp-gtv-logo { font-family: 'Sometype Mono', monospace; font-weight: 700;
+  font-size: 1.6rem; letter-spacing: -0.02em; color: var(--gg-color-warm-paper);
+  text-shadow: 2px 2px 0 #000, 4px 4px 0 var(--gg-color-gold); white-space: nowrap; }
+.gg-hp-gtv-tv { display: inline-block; background: #000; color: var(--gg-color-gold);
+  padding: 0 0.15em; margin-left: 0.1em; transform: rotate(-2deg); }
+.gg-hp-gtv-copy { flex: 1; min-width: 240px; color: var(--gg-color-warm-paper);
+  font-family: 'Sometype Mono', monospace; font-size: 0.85rem; line-height: 1.5; }
+.gg-hp-gtv-copy strong { color: var(--gg-color-warm-paper); }
+.gg-hp-gtv-cta { font-family: 'Sometype Mono', monospace; font-weight: 700;
+  font-size: 0.8rem; letter-spacing: 0.08em; background: var(--gg-color-gold);
+  color: #000; border: 3px solid #000; padding: 10px 16px; white-space: nowrap; }
+.gg-hp-gtv-inner:hover .gg-hp-gtv-cta { transform: translate(-2px, -2px); }
+
+/* ── Ticker (functional animation) ───────────────────────── */
 @keyframes gg-ticker-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
 /* ── Custom properties ───────────────────────────────────── */
@@ -2008,6 +2046,7 @@ def generate_homepage(race_index: list, race_data_dir: Path = None,
     ticker = build_ticker(one_liners, substack_posts, upcoming)
     content_grid = build_content_grid(race_index, stats, upcoming)
     latest_takes = build_latest_takes()
+    gravel_tv_band = build_gravel_tv_band(upcoming)
     how_it_works = build_how_it_works(stats)
     training_cta = build_training_cta()
     guide_preview = build_guide_preview(chapters)
@@ -2068,6 +2107,8 @@ def generate_homepage(race_index: list, race_data_dir: Path = None,
   {ticker}
 
   {content_grid}
+
+  {gravel_tv_band}
 
   {latest_takes}
 

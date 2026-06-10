@@ -140,7 +140,8 @@
     restingHr: 'hr_resting',
     longRideDays: 'long_ride_days',
     intervalDays: 'interval_days',
-    daysOff: 'off_days'
+    daysOff: 'off_days',
+    travelDates: 'travel_dates'
   };
 
   function mapToWorkerFormat(data) {
@@ -473,6 +474,19 @@
       }
     }
   });
+
+  // ---- Travel dates: show the date field once travel is indicated ----
+  var travelSelect = form.querySelector('[name="travelDuringPlan"]');
+  var travelDatesGroup = document.getElementById('travelDatesGroup');
+  function syncTravelDates() {
+    if (!travelSelect || !travelDatesGroup) return;
+    var v = travelSelect.value;
+    travelDatesGroup.style.display = (v && v !== 'none') ? '' : 'none';
+  }
+  if (travelSelect && travelDatesGroup) {
+    travelSelect.addEventListener('change', syncTravelDates);
+    syncTravelDates(); // restore-from-save support
+  }
 
   // ---- Auto-save on change ----
   form.addEventListener('change', saveForm);

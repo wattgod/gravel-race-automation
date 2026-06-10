@@ -45,7 +45,7 @@
 
   const TIER_NAMES = { 1: 'The Icons', 2: 'Elite', 3: 'Solid', 4: 'Grassroots' };
   const TIER_DESCS = {
-    1: 'The definitive gravel events. World-class fields, iconic courses, bucket-list status.',
+    1: 'The definitive gravel events. Top-tier fields, iconic courses, bucket-list status.',
     2: 'Established races with strong reputations and competitive fields. The next tier of must-do events.',
     3: 'Regional favorites and emerging races. Strong local scenes, genuine gravel character.',
     4: 'Up-and-coming races and local grinders. Small fields, raw vibes, grassroots gravel.'
@@ -872,7 +872,13 @@
     // Terrain tags
     var terrainTags = getTerrainTag(race);
 
-    return '<div class="gg-card gg-card-tier-' + race.tier + '">' +
+    var thumbHtml = '';
+    if (race.thumb) {
+      thumbHtml = '<div class="gg-card-thumb"><img src="' + escHtml(race.thumb) + '" alt="" loading="lazy" width="300" height="160"></div>';
+    }
+
+    return '<div class="gg-card gg-card-tier-' + race.tier + (race.thumb ? ' gg-card-has-thumb' : '') + '">' +
+      thumbHtml +
       '<div class="gg-card-header">' +
         compareCheck +
         favBtn +

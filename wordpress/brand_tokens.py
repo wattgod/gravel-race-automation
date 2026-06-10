@@ -11,18 +11,14 @@ from pathlib import Path
 BRAND_DIR = Path(__file__).resolve().parent.parent.parent / "gravel-god-brand"
 BRAND_FONTS_DIR = BRAND_DIR / "assets" / "fonts"
 
-# 10 woff2 font files to self-host
+# 6 woff2 font files to self-host (removed unused Unbounded + Sometype Mono italic)
 FONT_FILES = [
     "SometypeMono-normal-latin.woff2",
     "SometypeMono-normal-latin-ext.woff2",
-    "SometypeMono-italic-latin.woff2",
-    "SometypeMono-italic-latin-ext.woff2",
     "SourceSerif4-normal-latin.woff2",
     "SourceSerif4-normal-latin-ext.woff2",
     "SourceSerif4-italic-latin.woff2",
     "SourceSerif4-italic-latin-ext.woff2",
-    "Unbounded-900-latin.woff2",
-    "Unbounded-900-latin-ext.woff2",
 ]
 
 
@@ -81,7 +77,6 @@ def get_tokens_css() -> str:
   --gg-color-tier-4: #5e6868;
 
   /* font */
-  --gg-font-display: 'Unbounded', sans-serif;
   --gg-font-data: 'Sometype Mono', monospace;
   --gg-font-editorial: 'Source Serif 4', Georgia, serif;
   --gg-font-size-2xs: 10px;
@@ -182,24 +177,6 @@ def get_font_face_css(font_path_prefix: str = "/race/assets/fonts") -> str:
   src: url('{p}/SometypeMono-normal-latin.woff2') format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }}
-/* Sometype Mono — Italic — Latin Extended */
-@font-face {{
-  font-family: 'Sometype Mono';
-  font-style: italic;
-  font-weight: 400 700;
-  font-display: swap;
-  src: url('{p}/SometypeMono-italic-latin-ext.woff2') format('woff2');
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}}
-/* Sometype Mono — Italic — Latin */
-@font-face {{
-  font-family: 'Sometype Mono';
-  font-style: italic;
-  font-weight: 400 700;
-  font-display: swap;
-  src: url('{p}/SometypeMono-italic-latin.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}}
 /* Source Serif 4 — Normal — Latin Extended */
 @font-face {{
   font-family: 'Source Serif 4';
@@ -236,32 +213,14 @@ def get_font_face_css(font_path_prefix: str = "/race/assets/fonts") -> str:
   src: url('{p}/SourceSerif4-italic-latin.woff2') format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }}
-/* Unbounded — 900 (Black) — Latin Extended */
-@font-face {{
-  font-family: 'Unbounded';
-  font-style: normal;
-  font-weight: 900;
-  font-display: swap;
-  src: url('{p}/Unbounded-900-latin-ext.woff2') format('woff2');
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}}
-/* Unbounded — 900 (Black) — Latin */
-@font-face {{
-  font-family: 'Unbounded';
-  font-style: normal;
-  font-weight: 900;
-  font-display: swap;
-  src: url('{p}/Unbounded-900-latin.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}}"""
+"""
 
 
 def get_preload_hints(font_path_prefix: str = "/race/assets/fonts") -> str:
     """Return <link rel=preload> tags for the Latin (most common) font subsets."""
     p = font_path_prefix.rstrip("/")
     return f"""<link rel="preload" href="{p}/SometypeMono-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="{p}/SourceSerif4-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="{p}/Unbounded-900-latin.woff2" as="font" type="font/woff2" crossorigin>"""
+  <link rel="preload" href="{p}/SourceSerif4-normal-latin.woff2" as="font" type="font/woff2" crossorigin>"""
 
 
 # ── Color mapping for SVG attributes (can't use CSS vars) ────
@@ -344,7 +303,7 @@ RACER_RATING_THRESHOLD = 3
 TIER_NAMES = {1: "The Icons", 2: "Elite", 3: "Solid", 4: "Grassroots"}
 
 TIER_DESCS = {
-    1: "The definitive gravel events. World-class fields, iconic courses, bucket-list status.",
+    1: "The definitive gravel events. Top-tier fields, iconic courses, bucket-list status.",
     2: "Established races with strong reputations and competitive fields. The next tier of must-do events.",
     3: "Regional favorites and emerging races. Strong local scenes, genuine gravel character.",
     4: "Up-and-coming races and local grinders. Small fields, raw vibes, grassroots gravel.",

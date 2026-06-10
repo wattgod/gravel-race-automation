@@ -99,7 +99,7 @@
       },
       "technicality": {
         "score": 2,
-        "explanation": "This is a road race on paved roads. Surface quality is excellent — Japanese road maintenance is world-class. The technical demands are limited to descending through narrow Yanbaru forest roads, managing crosswinds on exposed coastal sections, and pack-riding tactics in a field of up to 400 riders. There are no cobblestones, no gravel sectors, no creek crossings. The difficulty comes from the climbing and the pace, not from surface challenges."
+        "explanation": "This is a road race on paved roads. Surface quality is excellent — Japanese road maintenance is top-tier. The technical demands are limited to descending through narrow Yanbaru forest roads, managing crosswinds on exposed coastal sections, and pack-riding tactics in a field of up to 400 riders. There are no cobblestones, no gravel sectors, no creek crossings. The difficulty comes from the climbing and the pace, not from surface challenges."
       },
       "elevation": {
         "score": 3,
@@ -397,9 +397,21 @@
       "workout_modifications": {
         "heat_training": {
           "enabled": true,
-          "tier_3_weeks": [6, 7, 8, 9, 10],
-          "tier_2_weeks": [4, 5],
-          "tier_1_weeks": [11, 12]
+          "tier_3_weeks": [
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "tier_2_weeks": [
+            4,
+            5
+          ],
+          "tier_1_weeks": [
+            11,
+            12
+          ]
         },
         "dress_rehearsal": {
           "enabled": true,
@@ -419,7 +431,10 @@
         },
         "robust_taper": {
           "enabled": true,
-          "weeks": [11, 12]
+          "weeks": [
+            11,
+            12
+          ]
         }
       },
       "masterclass_topics": {

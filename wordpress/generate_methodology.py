@@ -24,7 +24,7 @@ from generate_neo_brutalist import (
     write_shared_assets,
 )
 from brand_tokens import get_ga4_head_snippet, get_preload_hints
-from shared_header import get_site_header_html
+from shared_header import get_site_header_html, get_site_header_js
 from cookie_consent import get_consent_banner_html
 
 OUTPUT_DIR = Path(__file__).parent / "output"
@@ -75,7 +75,7 @@ def build_tier_system() -> str:
             <td><span style="display:inline-block;padding:2px 10px;background:#000;color:#fff;font-weight:700;font-size:11px;letter-spacing:1.5px;border:2px solid #000">TIER 1</span></td>
             <td style="font-weight:700">The Icons</td>
             <td>&ge; 80</td>
-            <td>The definitive gravel events. World-class fields, iconic courses, bucket-list status.</td>
+            <td>The definitive gravel events. Top-tier fields, iconic courses, bucket-list status.</td>
             <td><a href="{SITE_BASE_URL}/race/unbound-200/" style="color:var(--gg-color-teal);font-weight:700">Unbound 200</a></td>
           </tr>
           <tr>
@@ -116,7 +116,7 @@ def build_dimensions() -> str:
           <tr><td style="font-weight:700">Adventure</td><td>Standard race</td><td>Some character</td><td>Memorable</td><td>Epic scenery</td><td>Bucket list</td></tr>'''
 
     editorial_rows = '''
-          <tr><td style="font-weight:700">Prestige</td><td>Unknown</td><td>Local recognition</td><td>Regional</td><td>National</td><td>World-class / iconic</td></tr>
+          <tr><td style="font-weight:700">Prestige</td><td>Unknown</td><td>Local recognition</td><td>Regional</td><td>National</td><td>Top-tier / iconic</td></tr>
           <tr><td style="font-weight:700">Race Quality</td><td>Basic</td><td>Adequate</td><td>Good</td><td>Professional</td><td>Elite / flawless</td></tr>
           <tr><td style="font-weight:700">Experience</td><td>Forgettable</td><td>Pleasant</td><td>Enjoyable</td><td>Memorable</td><td>Life-changing</td></tr>
           <tr><td style="font-weight:700">Community</td><td>Sparse</td><td>Small group</td><td>Good vibe</td><td>Strong community</td><td>Legendary culture</td></tr>
@@ -217,12 +217,12 @@ def build_prestige_override() -> str:
         </thead>
         <tbody>
           <tr>
-            <td style="font-weight:700">5 (World-class)</td>
+            <td style="font-weight:700">5 (Top-tier)</td>
             <td>Score &ge; 75</td>
             <td>Promoted to Tier 1</td>
           </tr>
           <tr>
-            <td style="font-weight:700">5 (World-class)</td>
+            <td style="font-weight:700">5 (Top-tier)</td>
             <td>Score &lt; 75</td>
             <td>Capped at Tier 2 (not promoted to T1)</td>
           </tr>
@@ -475,6 +475,8 @@ def generate_methodology_page(external_assets: dict = None) -> str:
 </div>
 
 {inline_js}
+
+''' + '<script>' + get_site_header_js() + '</script>' + '''
 
 {get_consent_banner_html()}
 </body>

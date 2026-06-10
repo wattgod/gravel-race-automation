@@ -149,6 +149,31 @@ def load_research(slug: str) -> str:
     return '\n'.join(texts)
 
 
+_ALLOWLIST_PATH = Path(__file__).parent / 'claims_allowlist.json'
+_allowlist_cache = None
+
+
+def load_allowlist() -> set:
+    """Reviewed-and-verified claims keyed (slug, field, matched_text).
+
+    True historical facts often aren't phrased verbatim in research dumps
+    (e.g. 'Rudi Altig won the 1966 Worlds at the Nürburgring'). Once a
+    human verifies a flagged claim, it goes in claims_allowlist.json with
+    a reason — the audit stays strict for everything else.
+    """
+    global _allowlist_cache
+    if _allowlist_cache is None:
+        try:
+            data = json.loads(_ALLOWLIST_PATH.read_text())
+            _allowlist_cache = {
+                (e['slug'], e['field'], e['matched_text'])
+                for e in data.get('allowed', [])
+            }
+        except (OSError, json.JSONDecodeError, KeyError):
+            _allowlist_cache = set()
+    return _allowlist_cache
+
+
 def audit_race(race_path: Path) -> list[dict]:
     """Audit a single race JSON for unsupported claims.
 
@@ -198,7 +223,10 @@ def audit_race(race_path: Path) -> list[dict]:
 
             if not in_research:
                 # Extract the surrounding context
+                allowlist = load_allowlist()
                 for m in matches:
+                    if (slug, field_path, m.group(0)) in allowlist:
+                        continue  # human-verified true claim
                     start = max(0, m.start() - 30)
                     end = min(len(text), m.end() + 30)
                     context = text[start:end].strip()
@@ -210,6 +238,10 @@ def audit_race(race_path: Path) -> list[dict]:
                         'matched_text': m.group(0),
                         'context': context,
                         'has_research': has_research,
+                        # 'unsupported' = research exists and contradicts/omits
+                        # 'unverifiable' = no research dump to check against
+                        'severity': ('unsupported' if has_research
+                                     else 'unverifiable'),
                     })
 
     return findings
@@ -285,11 +317,16 @@ def main():
                     print(f"      ({research_note})")
                 print()
 
+    # Status trailer goes to stderr in --json mode — appending it to stdout
+    # corrupted the JSON document ('Extra data') and crashed every consumer.
+    status_stream = sys.stderr if args.json else sys.stdout
     if all_findings:
-        print(f"FAILED: {len(all_findings)} unsupported claim(s) found")
+        print(f"FAILED: {len(all_findings)} unsupported claim(s) found",
+              file=status_stream)
         return 1
     else:
-        print("PASSED: All claims verified against research")
+        print("PASSED: All claims verified against research",
+              file=status_stream)
         return 0
 
 

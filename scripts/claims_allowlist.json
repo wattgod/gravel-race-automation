@@ -1,0 +1,19 @@
+{
+  "_comment": "Manually reviewed claims the fabricated-claims audit may not find verbatim in research dumps. Each entry must include who verified it and why it's true. Match key: slug + field + matched_text.",
+  "allowed": [
+    {
+      "slug": "gran-fondo-hincapie",
+      "field": "history.origin_story",
+      "matched_text": "national series",
+      "verified": "2026-06-09",
+      "reason": "Hincapie Gran Fondo is a real multi-event series (Greenville, Chattanooga, Lehigh Valley, Fort Worth, Bentonville)."
+    },
+    {
+      "slug": "rad-am-ring",
+      "field": "history.origin_story",
+      "matched_text": "World Championship",
+      "verified": "2026-06-09",
+      "reason": "Rudi Altig won the 1966 UCI Road World Championship at the Nürburgring — documented cycling history, not a claim about this event."
+    }
+  ]
+}

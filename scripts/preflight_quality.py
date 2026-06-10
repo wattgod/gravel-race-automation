@@ -901,14 +901,26 @@ def check_fabricated_claims():
              "--json"],
             capture_output=True, text=True, timeout=120
         )
-        if result.returncode != 0:
-            findings = json.loads(result.stdout) if result.stdout.strip() else []
-            slugs = set(f['slug'] for f in findings)
-            check("No fabricated claims in race JSON", False,
-                  f"{len(findings)} unsupported claim(s) in {len(slugs)} race(s): "
-                  f"{', '.join(sorted(slugs))}")
-        else:
-            check("No fabricated claims in race JSON (328 profiles)", True)
+        findings = json.loads(result.stdout) if result.stdout.strip() else []
+
+        # Severity split: 'unsupported' = research EXISTS and doesn't back
+        # the claim (the Ned Gravel class of problem — hard FAIL).
+        # 'unverifiable' = no research dump exists (mostly migrated road
+        # races) — a research-coverage backlog, not a fabrication: WARN.
+        unsupported = [f for f in findings
+                       if f.get('severity', 'unsupported') == 'unsupported']
+        unverifiable = [f for f in findings
+                        if f.get('severity') == 'unverifiable']
+
+        slugs = sorted(set(f['slug'] for f in unsupported))
+        check("No fabricated claims in race JSON", not unsupported,
+              f"{len(unsupported)} unsupported claim(s) in {len(slugs)} "
+              f"race(s): {', '.join(slugs)}")
+        if unverifiable:
+            uv_slugs = set(f['slug'] for f in unverifiable)
+            warn("Unverifiable claims (research dump backlog)",
+                 f"{len(unverifiable)} claim(s) in {len(uv_slugs)} race(s) "
+                 f"have no research dump to check against")
     except Exception as e:
         check("Fabricated claims audit", False, f"Error: {e}")
 

@@ -1,0 +1,110 @@
+name: "Weekly Fact Refresh (PR mode)"
+
+# The race-content freshness loop, facts tier:
+#   scrape official sites (stale dates first) → Claude extraction →
+#   fact_check --auto-fix (whitelisted fields: dates, status) →
+#   verification gates (fabricated-claims audit + date format tests) →
+#   PR with the diff. A human merges; deploy rides the normal pipeline.
+#
+# Guardrails:
+#   - PR mode only: nothing auto-publishes (editorial NEVER will;
+#     auto-deploy for facts is a separate decision needing SSH-in-CI)
+#   - Anomaly brake: >10 changed profiles → open an issue instead of a PR
+#   - Budget: scraping is free; Claude extraction ~$0.01-0.05/race on the
+#     stale subset (≤50/run) — comfortably inside the $25/mo cap
+
+on:
+  schedule:
+    # Tuesdays 14:00 UTC — fresh data before the weekly Gravel TV issue
+    - cron: '0 14 * * 2'
+  workflow_dispatch:
+    inputs:
+      force_all:
+        description: 'Ignore cache, re-scrape stale races'
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: pip install requests pyyaml anthropic beautifulsoup4 pytest
+
+      - name: Scrape + extract (stale dates first)
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          python scripts/scrape_official_sites.py --stale-only \
+            ${{ inputs.force_all && '--force' || '' }} || true
+
+      - name: Apply safe fixes
+        run: python scripts/fact_check_profiles.py --auto-fix || true
+
+      - name: Count changed profiles
+        id: changes
+        run: |
+          CHANGED=$(git diff --name-only race-data/ | wc -l | tr -d ' ')
+          echo "count=$CHANGED" >> "$GITHUB_OUTPUT"
+          echo "Changed profiles: $CHANGED"
+          git diff --stat race-data/ | tail -5
+
+      - name: Verification gates
+        if: steps.changes.outputs.count != '0'
+        run: |
+          python scripts/audit_fabricated_claims.py --json > /tmp/claims.json 2>/dev/null || true
+          UNSUPPORTED=$(python3 -c "import json; d=json.load(open('/tmp/claims.json')); print(sum(1 for f in d if f.get('severity')=='unsupported'))")
+          if [ "$UNSUPPORTED" != "0" ]; then
+            echo "::error::Claims audit found $UNSUPPORTED unsupported claim(s) after refresh — refusing to open PR"
+            exit 1
+          fi
+          python -m pytest tests/test_dates.py -q
+
+      - name: Anomaly brake — too many changes
+        if: steps.changes.outputs.count > 10
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git diff --stat race-data/ > /tmp/diffstat.txt
+          gh issue create \
+            --title "Fact refresh anomaly: ${{ steps.changes.outputs.count }} profiles changed in one run" \
+            --body "$(printf 'The weekly fact refresh changed more than 10 profiles, which exceeds the anomaly brake. No PR was opened — review the run logs.\n\n```\n%s\n```' "$(cat /tmp/diffstat.txt)")"
+          echo "::warning::Anomaly brake tripped — issue opened, no PR"
+          git checkout -- race-data/
+          exit 0
+
+      - name: Open PR with fixes
+        if: steps.changes.outputs.count != '0' && steps.changes.outputs.count <= 10
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          BRANCH="fact-refresh/$(date +%Y-%m-%d)"
+          git config user.name "fact-refresh-bot"
+          git config user.email "fact-refresh@gravelgodcycling.com"
+          git checkout -b "$BRANCH"
+          git add race-data/ data/ 2>/dev/null || git add race-data/
+          git commit -m "fact-refresh: scraped date/status fixes ($(date +%Y-%m-%d))"
+          git push -u origin "$BRANCH"
+          gh pr create \
+            --title "Fact refresh: ${{ steps.changes.outputs.count }} profile fix(es) — $(date +%Y-%m-%d)" \
+            --body "$(printf 'Automated weekly fact refresh.\n\n- Source: official-site scrape + Claude extraction (stale dates first)\n- Fields: whitelisted facts only (dates, cancelled/paused status)\n- Gates passed: fabricated-claims audit (0 unsupported), date-format tests\n\nMerge, then regenerate + deploy race pages on the normal pipeline.\n\n```\n%s\n```' "$(git diff --stat HEAD~1 | tail -8)")"
+
+      - name: No changes
+        if: steps.changes.outputs.count == '0'
+        run: echo "Nothing stale this week — no PR needed."

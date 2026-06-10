@@ -2643,7 +2643,7 @@ def build_pk_email_gate(rd: dict) -> str:
     return f'''<div class="gg-pk-gate" id="gg-pk-gate">
     <div class="gg-pk-gate-inner">
       <div class="gg-pk-gate-badge">FREE DOWNLOAD</div>
-      <h2 class="gg-pk-gate-title">Unlock Your {name} Prep Kit</h2>
+      <h2 class="gg-pk-gate-title">Get The {name} Prep Kit</h2>
       <p class="gg-pk-gate-text">12-week training timeline, race-day checklists, packing list, and a personalized fueling calculator — free, instant access.</p>
       <div class="gg-pk-gate-preview">{preview_html}</div>
       <form class="gg-pk-gate-form" id="gg-pk-gate-form" autocomplete="off">
@@ -2651,7 +2651,7 @@ def build_pk_email_gate(rd: dict) -> str:
         <input type="hidden" name="race_name" value="{name}">
         <input type="hidden" name="website" value="">
         <input type="email" id="gg-pk-gate-email" name="email" required placeholder="your@email.com" class="gg-pk-gate-input" aria-label="Email address">
-        <button type="submit" class="gg-pk-gate-btn">UNLOCK PREP KIT</button>
+        <button type="submit" class="gg-pk-gate-btn">SEND ME THE KIT</button>
       </form>
       <p class="gg-pk-gate-fine">No spam. Unsubscribe anytime.</p>
     </div>

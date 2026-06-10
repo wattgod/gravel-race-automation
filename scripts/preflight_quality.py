@@ -1390,6 +1390,9 @@ def check_slop_in_output():
     files_with_violations = 0
 
     for html_file in html_files:
+        # Skip hidden directories (archives, caches) — not deployable output
+        if any(part.startswith('.') for part in html_file.parts):
+            continue
         try:
             content = html_file.read_text(encoding="utf-8")
         except Exception:

@@ -19,6 +19,7 @@ Desk note:
     Edit web/gravel-tv-desk-note.md weekly, regenerate, deploy.
 """
 
+import hashlib
 import html as html_mod
 import json
 import re
@@ -162,11 +163,16 @@ def section_desk_note() -> str:
     if not DESK_NOTE.exists():
         return '<p class="gtv-empty">The desk is empty this week. Unprecedented.</p>'
     raw = DESK_NOTE.read_text().strip()
+    # Fingerprint lets CI verify THIS note is live (gtv-logo alone can't
+    # detect a stale page after a failed upload)
+    fingerprint = hashlib.md5(raw.encode()).hexdigest()
     # strip a leading h1 if present (the section provides the heading)
     raw = re.sub(r'^#\s+.*\n', '', raw)
     paras = ''.join(f'<p>{esc(p.strip())}</p>'
                     for p in raw.split('\n\n') if p.strip())
-    return paras or '<p class="gtv-empty">The desk is empty this week.</p>'
+    if not paras:
+        return '<p class="gtv-empty">The desk is empty this week.</p>'
+    return f'<!-- gtv-note-hash: {fingerprint} -->{paras}'
 
 
 def build_page() -> str:

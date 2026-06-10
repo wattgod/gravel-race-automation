@@ -9,6 +9,7 @@ import os
 import re
 import shutil
 import subprocess
+import sys
 import tempfile
 from datetime import date
 
@@ -3529,87 +3530,99 @@ if __name__ == "__main__":
     if not has_action:
         parser.error("Provide a sync flag (--sync-pages, --sync-index, etc.), --deploy-content, or --deploy-all")
 
+    # Any sync returning falsy marks the whole run failed — a deploy that
+    # half-happens must exit non-zero so CI cannot report silent success.
+    _failures: list = []
+
+    def _run(name, fn, *fn_args):
+        if fn(*fn_args) is False:
+            _failures.append(name)
+
     if args.json:
-        push_to_wordpress(args.json)
+        _run("json", push_to_wordpress, args.json)
     if args.sync_index:
-        sync_index(args.index_file)
+        _run("sync-index", sync_index, args.index_file)
     if args.sync_widget:
-        sync_widget(args.widget_file)
+        _run("sync-widget", sync_widget, args.widget_file)
     if args.sync_training:
-        sync_training(args.training_file)
+        _run("sync-training", sync_training, args.training_file)
     if args.sync_guide:
-        sync_guide(args.guide_dir)
+        _run("sync-guide", sync_guide, args.guide_dir)
     if args.sync_guide_cluster:
-        sync_guide_cluster(args.guide_cluster_dir)
+        _run("sync-guide-cluster", sync_guide_cluster, args.guide_cluster_dir)
     if args.sync_og:
-        sync_og(args.og_dir)
+        _run("sync-og", sync_og, args.og_dir)
     if args.sync_homepage:
-        sync_homepage(args.homepage_file)
+        _run("sync-homepage", sync_homepage, args.homepage_file)
     if args.sync_gravel_tv:
-        sync_gravel_tv("wordpress/output/gravel-tv.html")
+        _run("sync-gravel-tv", sync_gravel_tv, "wordpress/output/gravel-tv.html")
     if args.sync_about:
-        sync_about(args.about_file)
+        _run("sync-about", sync_about, args.about_file)
     if args.sync_coaching:
-        sync_coaching(args.coaching_file)
+        _run("sync-coaching", sync_coaching, args.coaching_file)
     if args.sync_coaching_apply:
-        sync_coaching_apply(args.coaching_apply_file)
+        _run("sync-coaching-apply", sync_coaching_apply, args.coaching_apply_file)
     if args.sync_consulting:
-        sync_consulting(args.consulting_file)
+        _run("sync-consulting", sync_consulting, args.consulting_file)
     if args.sync_legal:
-        sync_legal("wordpress/output")
+        _run("sync-legal", sync_legal, "wordpress/output")
     if args.sync_consent:
-        sync_consent()
+        _run("sync-consent", sync_consent)
     if args.sync_training_plans:
-        sync_training_plans(args.training_plans_file)
+        _run("sync-training-plans", sync_training_plans, args.training_plans_file)
     if args.sync_success:
-        sync_success(args.success_dir)
+        _run("sync-success", sync_success, args.success_dir)
     if args.sync_pages:
-        sync_pages(args.pages_dir)
+        _run("sync-pages", sync_pages, args.pages_dir)
     if args.sync_sitemap:
-        sync_sitemap()
+        _run("sync-sitemap", sync_sitemap)
     if args.sync_redirects:
-        sync_redirects()
+        _run("sync-redirects", sync_redirects)
     if args.sync_noindex:
-        sync_noindex()
+        _run("sync-noindex", sync_noindex)
     if args.sync_ctas:
-        sync_ctas()
+        _run("sync-ctas", sync_ctas)
     if args.sync_ga4:
-        sync_ga4()
+        _run("sync-ga4", sync_ga4)
     if args.sync_header:
-        sync_header()
+        _run("sync-header", sync_header)
     if args.sync_photos:
-        sync_photos(args.photos_dir)
+        _run("sync-photos", sync_photos, args.photos_dir)
     if args.sync_prep_kits:
-        sync_prep_kits(args.prep_kit_dir)
+        _run("sync-prep-kits", sync_prep_kits, args.prep_kit_dir)
     if args.sync_plan_pages:
-        sync_plan_pages(args.plan_dir)
+        _run("sync-plan-pages", sync_plan_pages, args.plan_dir)
     if args.sync_tire_guides:
-        sync_tire_guides(args.tire_guide_dir)
+        _run("sync-tire-guides", sync_tire_guides, args.tire_guide_dir)
     if args.sync_series:
-        sync_series(args.series_dir)
+        _run("sync-series", sync_series, args.series_dir)
     if args.sync_blog:
-        sync_blog(args.blog_dir)
+        _run("sync-blog", sync_blog, args.blog_dir)
     if args.sync_blog_index:
-        sync_blog_index(args.blog_index_page, args.blog_index_json)
+        _run("sync-blog-index", sync_blog_index, args.blog_index_page, args.blog_index_json)
     if args.sync_ab:
-        sync_ab()
+        _run("sync-ab", sync_ab)
     if args.sync_meta_descriptions:
-        sync_meta_descriptions()
+        _run("sync-meta-descriptions", sync_meta_descriptions)
     if args.sync_courses:
-        sync_courses(args.course_dir)
+        _run("sync-courses", sync_courses, args.course_dir)
     if args.sync_mission_control:
-        sync_mission_control(args.mission_control_file)
+        _run("sync-mission-control", sync_mission_control, args.mission_control_file)
     if args.sync_insights:
-        sync_insights(args.insights_file)
+        _run("sync-insights", sync_insights, args.insights_file)
     if args.sync_whitepaper:
-        sync_whitepaper(args.whitepaper_file)
+        _run("sync-whitepaper", sync_whitepaper, args.whitepaper_file)
     if args.sync_embed:
-        sync_embed()
+        _run("sync-embed", sync_embed)
     if args.sync_rss:
-        sync_rss()
+        _run("sync-rss", sync_rss)
     if args.sync_llms_txt:
-        sync_llms_txt()
+        _run("sync-llms-txt", sync_llms_txt)
     if args.sync_markdown:
-        sync_markdown(args.markdown_dir)
+        _run("sync-markdown", sync_markdown, args.markdown_dir)
     if args.purge_cache:
-        purge_cache()
+        _run("purge-cache", purge_cache)
+
+    if _failures:
+        print(f"\n✗ DEPLOY FAILED — {len(_failures)} step(s): {', '.join(_failures)}")
+        sys.exit(1)

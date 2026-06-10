@@ -59,7 +59,9 @@ jobs:
       - name: Setup SSH
         run: |
           mkdir -p ~/.ssh
-          printf '%s' "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/siteground_key
+          # printf '%s\n' — OpenSSH requires a trailing newline; without it
+          # key load fails with "error in libcrypto" (broke run 27303536329)
+          printf '%s\n' "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/siteground_key
           chmod 600 ~/.ssh/siteground_key
           ssh-keyscan -p "${{ secrets.SSH_PORT }}" "${{ secrets.SSH_HOST }}" >> ~/.ssh/known_hosts 2>/dev/null
 
@@ -72,17 +74,21 @@ jobs:
 
       - name: Verify live
         run: |
-          # Cache purge needs time to rebuild — retry before declaring failure
+          # Verify THIS WEEK'S content is live, not just any page — the
+          # masthead-only check passed on a stale page after a silent
+          # upload failure (run 27303536329). The generator embeds the
+          # desk note's md5 as <!-- gtv-note-hash: ... -->.
+          HASH=$(python -c "import hashlib,pathlib; print(hashlib.md5(pathlib.Path('web/gravel-tv-desk-note.md').read_text().strip().encode()).hexdigest())")
+          echo "Expecting note hash $HASH"
           for i in 1 2 3 4 5; do
             sleep 10
-            COUNT=$(curl -s -L "https://gravelgodcycling.com/gravel-tv/" | grep -c "gtv-logo" || true)
-            if [ "$COUNT" != "0" ]; then
-              echo "Masthead present (attempt $i)"
+            if curl -s -L "https://gravelgodcycling.com/gravel-tv/?v=$HASH" | grep -q "gtv-note-hash: $HASH"; then
+              echo "Fresh content live (attempt $i)"
               exit 0
             fi
-            echo "Attempt $i: masthead not found yet"
+            echo "Attempt $i: this week's note not live yet"
           done
-          echo "::error::Live page missing masthead after deploy (5 attempts over 50s)"
+          echo "::error::Live page does not contain this week's desk note (5 attempts over 50s)"
           exit 1
 
       - name: Commit desk note

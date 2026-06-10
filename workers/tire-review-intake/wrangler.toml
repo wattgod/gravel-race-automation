@@ -3,7 +3,7 @@ main = "worker.js"
 compatibility_date = "2024-01-01"
 
 [vars]
-ALLOWED_ORIGINS = "https://gravelgodcycling.com"
+ALLOWED_ORIGINS = "https://gravelgodcycling.com,https://www.gravelgodcycling.com,https://roadielabs.com,https://www.roadielabs.com"
 
 [[kv_namespaces]]
 binding = "TIRE_REVIEWS"

@@ -62,6 +62,7 @@ from generate_guide import (
 
 # ── Constants ──────────────────────────────────────────────────
 
+QUESTIONNAIRE_URL = f"{SITE_BASE_URL}/questionnaire/"
 GUIDE_DIR = Path(__file__).parent.parent / "guide"
 CONTENT_JSON = GUIDE_DIR / "gravel-guide-content.json"
 OUTPUT_DIR = Path(__file__).parent / "output" / "prep-kit"
@@ -848,6 +849,11 @@ def build_fueling_calculator_html(rd: dict, raw: Optional[dict] = None) -> str:
       <button type="submit" class="gg-pk-calc-btn">GET MY FUELING PLAN</button>
     </form>
     <div class="gg-pk-calc-result" id="gg-pk-calc-result" style="display:none" aria-live="polite"></div>
+    <div class="gg-pk-calc-upsell" id="gg-pk-calc-upsell" style="display:none">
+      <p class="gg-pk-calc-upsell-title">Your numbers are the easy part.</p>
+      <p class="gg-pk-calc-upsell-text">Hitting them at race intensity is a trained skill &mdash; gut training over 4-6 weeks, bottle logistics, heat adjustments when the plan meets the weather. The custom training plan builds your fueling protocol into the actual training weeks, so race day is a rehearsal, not an experiment.</p>
+      <a href="{QUESTIONNAIRE_URL}?race={slug}" class="gg-pk-calc-upsell-btn" data-cta="fueling_upsell_plan">BUILD MY PLAN &mdash; FUELING INCLUDED</a>
+    </div>
     <div class="gg-pk-calc-substack" id="gg-pk-calc-substack" style="display:none">
       <p class="gg-pk-calc-substack-label">Get race-day tips in your inbox</p>
       <iframe src="{esc(SUBSTACK_EMBED)}" title="Newsletter signup" width="100%" height="150" style="border:none;background:transparent" frameborder="0" scrolling="no" loading="lazy"></iframe>
@@ -2173,6 +2179,11 @@ def build_prep_kit_css() -> str:
 .gg-pk-calc-result-value{font-weight:700;color:var(--gg-color-near-black)}
 .gg-pk-calc-result-highlight{font-size:28px;font-weight:700;color:var(--gg-color-teal);font-family:var(--gg-font-data)}
 .gg-pk-calc-result-note{font-family:var(--gg-font-editorial);font-size:12px;color:var(--gg-color-secondary-brown);margin:12px 0 0;line-height:1.5}
+.gg-pk-calc-upsell{margin:20px 0 0;padding:18px;border:3px solid var(--gg-color-primary-brown);background:var(--gg-color-warm-paper)}
+.gg-pk-calc-upsell-title{font-family:var(--gg-font-data);font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin:0 0 8px;color:var(--gg-color-primary-brown)}
+.gg-pk-calc-upsell-text{font-size:13px;line-height:1.6;margin:0 0 12px;color:var(--gg-color-primary-brown)}
+.gg-pk-calc-upsell-btn{display:inline-block;font-family:var(--gg-font-data);font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;text-decoration:none;padding:11px 20px;background:var(--gg-color-primary-brown);color:var(--gg-color-warm-paper);border:2px solid #000}
+.gg-pk-calc-upsell-btn:hover{background:var(--gg-color-teal)}
 .gg-pk-calc-substack{margin:20px 0 0;padding:16px;border:2px solid var(--gg-color-tan);background:var(--gg-color-white)}
 .gg-pk-calc-substack-label{font-family:var(--gg-font-data);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--gg-color-primary-brown);margin:0 0 8px}
 
@@ -2589,6 +2600,8 @@ document.querySelectorAll('.gg-guide-accordion-trigger').forEach(function(btn){
     /* Show Substack iframe */
     var ss=document.getElementById('gg-pk-calc-substack');
     if(ss) ss.style.display='block';
+    var up=document.getElementById('gg-pk-calc-upsell');
+    if(up) up.style.display='block';
     /* Cache email in localStorage */
     try{
       localStorage.setItem(LS_KEY,JSON.stringify({email:email,exp:Date.now()+EXPIRY_DAYS*86400000}));

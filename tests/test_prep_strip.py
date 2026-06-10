@@ -118,6 +118,23 @@ class TestSafety:
         assert 'href="#train-for-race"' in html
         assert f"questionnaire/?race={packed_slug}" in html
 
+    def test_prep_kit_gate_link(self, packed_slug):
+        """P1.3: the strip funnels non-buyers to the email-gated prep kit."""
+        html = build_prep_strip(_rd(slug=packed_slug))
+        assert 'href="#prep-kit-capture"' in html
+        assert 'data-cta="prep_strip_kit"' in html
+
+    def test_prep_kit_anchor_exists_in_capture(self, packed_slug):
+        """The gate link's anchor target must exist on every race page."""
+        from generate_neo_brutalist import build_email_capture
+        html = build_email_capture(_rd(slug=packed_slug))
+        assert 'id="prep-kit-capture"' in html
+
+    def test_kit_link_tracked_by_cta_js(self):
+        js = build_inline_js()
+        assert 'a.gg-prep-kit-link' in js
+        assert "T.indexOf('PREP KIT')" in js
+
     def test_race_name_escaped(self, packed_slug):
         rd = _rd(slug=packed_slug)
         rd["name"] = 'Evil "Race" <script>'

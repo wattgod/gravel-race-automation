@@ -1181,14 +1181,15 @@ document.querySelectorAll('.gg-faq-question').forEach(function(q) {
 
 (function() {
   if (typeof gtag !== 'function') return;
-  document.querySelectorAll('a.gg-btn, a.gg-btn--outline').forEach(function(link) {
+  document.querySelectorAll('a.gg-btn, a.gg-btn--outline, a.gg-prep-kit-link').forEach(function(link) {
     link.addEventListener('click', function() {
       var text = this.textContent.trim().replace(/\s+/g, ' ');
       var href = this.getAttribute('href') || '';
+      var T = text.toUpperCase();
       var cta_type = 'other';
-      if (text.indexOf('BUILD MY PLAN') !== -1) cta_type = 'build_plan';
-      else if (text.indexOf('PREP KIT') !== -1) cta_type = 'prep_kit';
-      else if (text.indexOf('COACHING') !== -1) cta_type = 'coaching';
+      if (T.indexOf('BUILD MY') !== -1) cta_type = 'build_plan';
+      else if (T.indexOf('PREP KIT') !== -1) cta_type = 'prep_kit';
+      else if (T.indexOf('COACHING') !== -1) cta_type = 'coaching';
       var section = this.closest('.gg-section, .gg-sticky-cta');
       var section_id = section ? (section.id || section.className.split(' ')[0]) : 'unknown';
       gtag('event', 'cta_click', {
@@ -3950,6 +3951,7 @@ def build_prep_strip(rd: dict) -> str:
     <div class="gg-prep-actions">
       <a href="#train-for-race" class="gg-btn gg-btn--outline" data-cta="prep_profile_full">FULL PREP PROFILE &darr;</a>
       <a href="{plan_url}" class="gg-btn" data-cta="prep_strip_build" id="gg-prep-cta">BUILD MY PLAN &mdash; $15/WK</a>
+      <a href="#prep-kit-capture" class="gg-prep-kit-link" data-cta="prep_strip_kit">Free {esc(race_name)} prep kit &rarr;</a>
     </div>
   </section>'''
 
@@ -4551,7 +4553,7 @@ def build_email_capture(rd: dict) -> str:
     """Build email capture section — prep kit CTA + Substack subscribe."""
     slug = esc(rd["slug"])
     name = esc(rd["name"])
-    return f'''<div class="gg-email-capture gg-fade-section">
+    return f'''<div class="gg-email-capture gg-fade-section" id="prep-kit-capture">
     <div class="gg-email-capture-inner">
       <div class="gg-email-capture-badge">FREE DOWNLOAD</div>
       <h3 class="gg-email-capture-title">GET THE {name.upper()} PREP KIT</h3>
@@ -5297,7 +5299,9 @@ html {{ scroll-behavior: smooth; }}
 .gg-neo-brutalist-page .gg-prep-chips {{ display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }}
 .gg-neo-brutalist-page .gg-prep-chip {{ font-family: var(--gg-font-data); font-size: 11px; text-transform: uppercase; letter-spacing: var(--gg-letter-spacing-wider); color: var(--gg-color-primary-brown); background: var(--gg-color-white); border: var(--gg-border-subtle); padding: 5px 10px; }}
 .gg-neo-brutalist-page .gg-prep-chip strong {{ color: var(--gg-color-teal); }}
-.gg-neo-brutalist-page .gg-prep-actions {{ display: flex; flex-wrap: wrap; gap: 10px; }}
+.gg-neo-brutalist-page .gg-prep-actions {{ display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }}
+.gg-neo-brutalist-page .gg-prep-kit-link {{ font-family: var(--gg-font-data); font-size: 12px; color: var(--gg-color-primary-brown); text-decoration: underline; text-underline-offset: 3px; }}
+.gg-neo-brutalist-page .gg-prep-kit-link:hover {{ color: var(--gg-color-teal); }}
 @media (max-width: 600px) {{ .gg-neo-brutalist-page .gg-prep-actions {{ flex-direction: column; }} .gg-neo-brutalist-page .gg-prep-actions .gg-btn {{ text-align: center; }} }}
 
 /* ── Train for This Race ── */

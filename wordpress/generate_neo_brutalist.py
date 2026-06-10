@@ -1942,15 +1942,40 @@ def build_hero(rd: dict) -> str:
             parts.append(f"{elev} ft")
     vitals_line = " &middot; ".join(parts)
 
+    # Rider Score — the RottenTomatoes audience-score mechanic (northstar
+    # P1.4). Only real, threshold-gated submitted ratings ever display a
+    # number; below threshold the cell is an honest ask that feeds the
+    # review form. star_average (1-5) maps to 0-100 for visual parity with
+    # the Lab score.
+    rr = rd.get('racer_rating', {})
+    if (rr.get('total_ratings', 0) >= RACER_RATING_THRESHOLD
+            and rr.get('star_average')):
+        rider_value = round(float(rr['star_average']) * 20)
+        n = rr['total_ratings']
+        rider_cell = (
+            f'<div class="gg-hero-score-number gg-hero-rider-number">{rider_value}</div>\n'
+            f'    <div class="gg-hero-score-label">RIDER SCORE &middot; {n} RATING{"S" if n != 1 else ""}</div>'
+        )
+    else:
+        rider_cell = (
+            '<div class="gg-hero-score-number gg-hero-rider-number gg-hero-rider-empty">&mdash;</div>\n'
+            '    <a class="gg-hero-score-label gg-hero-rider-ask" href="#racer-reviews" data-cta="hero_rate_race">RIDER SCORE &middot; RATE IT &rarr;</a>'
+        )
+
     return f'''<section class="gg-hero">
   <div class="gg-hero-content">
     <span class="gg-hero-tier">{esc(rd['tier_label'])}</span>{series_badge}
     <h1>{esc(rd['name'])}</h1>
     <div class="gg-hero-vitals">{vitals_line}</div>
   </div>
+  <div class="gg-hero-scores">
   <div class="gg-hero-score">
     <div class="gg-hero-score-number" data-target="{score}">{score}</div>
     <div class="gg-hero-score-label">GG SCORE</div>
+  </div>
+  <div class="gg-hero-score gg-hero-score--rider">
+    {rider_cell}
+  </div>
   </div>
 </section>'''
 
@@ -2687,7 +2712,7 @@ def build_racer_reviews(rd: dict) -> str:
 
     # No ratings at all — compact empty state with collapsible form
     if total_ratings == 0:
-        return f'''<section class="gg-racer-reviews gg-fade-section">
+        return f'''<section class="gg-racer-reviews gg-fade-section" id="racer-reviews">
     <div class="gg-racer-empty">
       <div class="gg-racer-empty-text">Raced {esc(name)}? Be the first to rate it.</div>
       <button class="gg-btn gg-btn--outline gg-review-expand-btn">RATE THIS RACE</button>
@@ -2700,7 +2725,7 @@ def build_racer_reviews(rd: dict) -> str:
     # Below threshold — pending state
     if total_ratings < RACER_RATING_THRESHOLD:
         needed = RACER_RATING_THRESHOLD - total_ratings
-        return f'''<section class="gg-racer-reviews gg-fade-section">
+        return f'''<section class="gg-racer-reviews gg-fade-section" id="racer-reviews">
     <div class="gg-racer-pending">
       <div class="gg-racer-pending-text">{total_ratings} rating{"s" if total_ratings != 1 else ""} so far &mdash; {needed} more needed to display the Racer Rating.</div>
       {review_form}
@@ -2749,7 +2774,7 @@ def build_racer_reviews(rd: dict) -> str:
     parts.append(review_form)
 
     inner = '\n    '.join(parts)
-    return f'''<section class="gg-racer-reviews gg-fade-section">
+    return f'''<section class="gg-racer-reviews gg-fade-section" id="racer-reviews">
     <div class="gg-section-header gg-section-header--teal">
       <span class="gg-section-kicker">RACER</span>
       <h2 class="gg-section-title">Racer Reviews</h2>
@@ -4964,7 +4989,13 @@ html {{ scroll-behavior: smooth; }}
 .gg-neo-brutalist-page .gg-series-badge:hover {{ color: var(--gg-color-dark-teal); }}
 .gg-neo-brutalist-page .gg-hero h1 {{ font-family: var(--gg-font-editorial); font-size: 42px; font-weight: var(--gg-font-weight-bold); line-height: 1.05; letter-spacing: var(--gg-letter-spacing-tight); margin: 0; color: var(--gg-color-dark-brown); }}
 .gg-neo-brutalist-page .gg-hero-vitals {{ font-family: var(--gg-font-data); font-size: 11px; color: var(--gg-color-secondary-brown); letter-spacing: 1px; text-transform: uppercase; margin-top: 14px; }}
+.gg-neo-brutalist-page .gg-hero-scores {{ display: flex; gap: 28px; flex-shrink: 0; align-items: flex-start; }}
 .gg-neo-brutalist-page .gg-hero-score {{ text-align: center; flex-shrink: 0; }}
+.gg-neo-brutalist-page .gg-hero-score--rider {{ padding-left: 28px; border-left: 2px solid var(--gg-color-cream); max-width: 130px; }}
+.gg-neo-brutalist-page .gg-hero-rider-number {{ color: var(--gg-color-teal); }}
+.gg-neo-brutalist-page .gg-hero-rider-empty {{ color: var(--gg-color-tan); }}
+.gg-neo-brutalist-page a.gg-hero-rider-ask {{ display: block; text-decoration: underline; text-underline-offset: 3px; color: var(--gg-color-teal); }}
+@media (max-width: 700px) {{ .gg-neo-brutalist-page .gg-hero-scores {{ gap: 18px; }} .gg-neo-brutalist-page .gg-hero-score--rider {{ padding-left: 18px; }} }}
 .gg-neo-brutalist-page .gg-hero-score-number {{ font-family: var(--gg-font-editorial); font-size: 72px; font-weight: var(--gg-font-weight-bold); line-height: 1; color: var(--gg-color-gold); }}
 .gg-neo-brutalist-page .gg-hero-score-label {{ font-family: var(--gg-font-data); font-size: 10px; font-weight: var(--gg-font-weight-bold); letter-spacing: 3px; text-transform: uppercase; color: var(--gg-color-secondary-brown); margin-top: 4px; }}
 

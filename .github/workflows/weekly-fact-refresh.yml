@@ -1,15 +1,16 @@
-name: "Weekly Fact Refresh (PR mode)"
+name: "Weekly Fact Refresh (gated auto-commit)"
 
 # The race-content freshness loop, facts tier:
 #   scrape official sites (stale dates first) → Claude extraction →
 #   fact_check --auto-fix (whitelisted fields: dates, status) →
 #   verification gates (fabricated-claims audit + date format tests) →
-#   PR with the diff. A human merges; deploy rides the normal pipeline.
+#   auto-commit to main + notification issue. Corrected dates ride into
+#   the Wednesday Gravel TV broadcast automatically.
 #
 # Guardrails:
-#   - PR mode only: nothing auto-publishes (editorial NEVER will;
-#     auto-deploy for facts is a separate decision needing SSH-in-CI)
-#   - Anomaly brake: >10 changed profiles → open an issue instead of a PR
+#   - Whitelisted FACT fields only (dates, cancelled/paused status);
+#     editorial content never auto-publishes
+#   - Anomaly brake: >10 changed profiles → issue instead of commit
 #   - Budget: scraping is free; Claude extraction ~$0.01-0.05/race on the
 #     stale subset (≤50/run) — comfortably inside the $25/mo cap
 
@@ -71,7 +72,7 @@ jobs:
           python scripts/audit_fabricated_claims.py --json > /tmp/claims.json 2>/dev/null || true
           UNSUPPORTED=$(python3 -c "import json; d=json.load(open('/tmp/claims.json')); print(sum(1 for f in d if f.get('severity')=='unsupported'))")
           if [ "$UNSUPPORTED" != "0" ]; then
-            echo "::error::Claims audit found $UNSUPPORTED unsupported claim(s) after refresh — refusing to open PR"
+            echo "::error::Claims audit found $UNSUPPORTED unsupported claim(s) after refresh — refusing to commit"
             exit 1
           fi
           python -m pytest tests/test_dates.py -q
@@ -85,26 +86,24 @@ jobs:
           gh issue create \
             --title "Fact refresh anomaly: ${{ steps.changes.outputs.count }} profiles changed in one run" \
             --body "$(printf 'The weekly fact refresh changed more than 10 profiles, which exceeds the anomaly brake. No PR was opened — review the run logs.\n\n```\n%s\n```' "$(cat /tmp/diffstat.txt)")"
-          echo "::warning::Anomaly brake tripped — issue opened, no PR"
+          echo "::warning::Anomaly brake tripped — issue opened, no commit"
           git checkout -- race-data/
           exit 0
 
-      - name: Open PR with fixes
+      - name: Commit fixes to main (gated auto-merge)
         if: steps.changes.outputs.count != '0' && steps.changes.outputs.count <= 10
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          BRANCH="fact-refresh/$(date +%Y-%m-%d)"
           git config user.name "fact-refresh-bot"
           git config user.email "fact-refresh@gravelgodcycling.com"
-          git checkout -b "$BRANCH"
           git add race-data/ data/ 2>/dev/null || git add race-data/
           git commit -m "fact-refresh: scraped date/status fixes ($(date +%Y-%m-%d))"
-          git push -u origin "$BRANCH"
-          gh pr create \
-            --title "Fact refresh: ${{ steps.changes.outputs.count }} profile fix(es) — $(date +%Y-%m-%d)" \
-            --body "$(printf 'Automated weekly fact refresh.\n\n- Source: official-site scrape + Claude extraction (stale dates first)\n- Fields: whitelisted facts only (dates, cancelled/paused status)\n- Gates passed: fabricated-claims audit (0 unsupported), date-format tests\n\nMerge, then regenerate + deploy race pages on the normal pipeline.\n\n```\n%s\n```' "$(git diff --stat HEAD~1 | tail -8)")"
+          git push
+          gh issue create \
+            --title "Fact refresh applied: ${{ steps.changes.outputs.count }} profile fix(es) — $(date +%Y-%m-%d)" \
+            --body "$(printf 'Auto-committed to main after gates passed (claims audit 0 unsupported, date-format tests green). Corrected dates ride into tomorrow'"'"'s Gravel TV broadcast automatically; race-page deploy ships them on the next full deploy.\n\n```\n%s\n```' "$(git diff --stat HEAD~1 | tail -8)")"
 
       - name: No changes
         if: steps.changes.outputs.count == '0'
-        run: echo "Nothing stale this week — no PR needed."
+        run: echo "Nothing stale this week."

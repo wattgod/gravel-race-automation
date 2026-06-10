@@ -1,9 +1,7 @@
-# Desk Note — edit me weekly, regenerate, deploy
+# Desk Note — week of 2026-06-10
 
-Welcome to Gravel TV. No, we didn't license anything. Yes, the logo is doing exactly what you think it's doing.
+52 races on the calendar in the next two weeks, including 6 Tier 1s.
 
-Here's the deal: there are 757 races in this database and on any given weekend a dozen of them are happening somewhere, and unless you're terminally online you'll hear about exactly none of them until the recap photos show up. So once a week, this desk tells you what's on, what's worth watching, and what actually happened — pulled straight from the same database that rates every race whether the promoter likes it or not.
+The desk's watch list: L'Ardéchoise (2026-06-10); Migration Gravel Race (2026-06-10); Tour de Suisse Challenge (2026-06-11).
 
-This week the calendar is stacked: BWR Cedar City and L'Ardéchoise both go off, which means two T1s in one broadcast window. If you only watch one thing, watch how the Cedar City field handles the heat.
-
-That's the show. New broadcast every week. Tell a friend who still thinks gravel news comes from Instagram.
+Full rundown below. New broadcast every week.

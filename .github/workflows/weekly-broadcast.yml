@@ -1,0 +1,103 @@
+name: "Weekly Gravel TV Broadcast"
+
+# The fully automated weekly ritual — nothing depends on anyone remembering:
+#   1. Draft the desk note (Claude, fact-grounded, slop-gated; data-only
+#      fallback on any failure). A manual edit committed to
+#      web/gravel-tv-desk-note.md after Wednesday simply wins next run.
+#   2. Regenerate /gravel-tv/ + homepage (fresh race calendar)
+#   3. Deploy both to SiteGround + purge cache
+#   4. Commit the desk note for history
+#   5. Open a GitHub issue with the note (coach visibility, after-the-fact)
+#   6. If SENDGRID_API_KEY is set: send the issue to subscribers (fail-soft)
+#
+# Runs Wednesday 13:00 UTC — the day after the Tuesday fact-refresh, so
+# corrected dates ride into the broadcast.
+
+on:
+  schedule:
+    - cron: '0 13 * * 3'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  broadcast:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: pip install anthropic pyyaml requests python-dotenv
+
+      - name: Draft desk note
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python scripts/draft_desk_note.py
+
+      - name: Regenerate Gravel TV + homepage
+        run: |
+          python wordpress/generate_gravel_tv.py
+          python wordpress/generate_homepage.py
+
+      - name: Verify GA4 + structure
+        run: |
+          for f in wordpress/output/gravel-tv.html wordpress/output/homepage.html; do
+            grep -q "G-EJJZ9T6M52" "$f" || { echo "::error::GA4 missing in $f"; exit 1; }
+          done
+          grep -q "gtv-logo" wordpress/output/gravel-tv.html
+
+      - name: Setup SSH
+        run: |
+          mkdir -p ~/.ssh
+          printf '%s' "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/siteground_key
+          chmod 600 ~/.ssh/siteground_key
+          ssh-keyscan -p "${{ secrets.SSH_PORT }}" "${{ secrets.SSH_HOST }}" >> ~/.ssh/known_hosts 2>/dev/null
+
+      - name: Deploy + purge cache
+        env:
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_USER: ${{ secrets.SSH_USER }}
+          SSH_PORT: ${{ secrets.SSH_PORT }}
+        run: python scripts/push_wordpress.py --sync-gravel-tv --sync-homepage --purge-cache
+
+      - name: Verify live
+        run: |
+          sleep 5
+          COUNT=$(curl -s -L "https://gravelgodcycling.com/gravel-tv/" | grep -c "gtv-logo" || true)
+          if [ "$COUNT" = "0" ]; then
+            echo "::error::Live page missing masthead after deploy"
+            exit 1
+          fi
+
+      - name: Commit desk note
+        run: |
+          git config user.name "gravel-tv-bot"
+          git config user.email "broadcast@gravelgodcycling.com"
+          git add web/gravel-tv-desk-note.md
+          git diff --cached --quiet || {
+            git commit -m "gravel-tv: desk note $(date +%Y-%m-%d)"
+            git push
+          }
+
+      - name: Open issue with this week's note
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh issue create \
+            --title "Gravel TV broadcast live — $(date +%Y-%m-%d)" \
+            --body "$(printf 'This week'"'"'s broadcast deployed to https://gravelgodcycling.com/gravel-tv/\n\nDesk note as published (edit web/gravel-tv-desk-note.md + rerun the workflow to change it):\n\n---\n\n%s' "$(cat web/gravel-tv-desk-note.md)")"
+
+      - name: Send to subscribers (skips without key)
+        env:
+          SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
+        run: python scripts/send_broadcast_email.py

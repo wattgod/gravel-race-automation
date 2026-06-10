@@ -176,6 +176,39 @@ async def subscriber_webhook(
     return {"status": "ok", "enrolled": enrolled}
 
 
+def _verify_svix_signature(raw_body: bytes, headers) -> bool:
+    """Verify a Svix-signed webhook (Resend's signing scheme).
+
+    Signature = base64(HMAC-SHA256(base64decode(secret), "{id}.{ts}.{body}"))
+    The svix-signature header holds space-separated "v1,<sig>" candidates.
+    """
+    import base64
+    import hashlib
+    import hmac as hmac_mod
+
+    from mission_control.config import RESEND_WEBHOOK_SECRET
+
+    msg_id = headers.get("svix-id", "")
+    timestamp = headers.get("svix-timestamp", "")
+    signatures = headers.get("svix-signature", "")
+    if not (msg_id and timestamp and signatures and RESEND_WEBHOOK_SECRET):
+        return False
+
+    secret = RESEND_WEBHOOK_SECRET.removeprefix("whsec_")
+    try:
+        key = base64.b64decode(secret + "=" * (-len(secret) % 4))
+    except Exception:
+        return False
+    signed = f"{msg_id}.{timestamp}.".encode() + raw_body
+    expected = base64.b64encode(
+        hmac_mod.new(key, signed, hashlib.sha256).digest()).decode()
+    for candidate in signatures.split(" "):
+        sig = candidate.split(",", 1)[-1]
+        if hmac_mod.compare_digest(expected, sig):
+            return True
+    return False
+
+
 @router.post("/resend")
 async def resend_webhook(
     request: Request,
@@ -183,10 +216,14 @@ async def resend_webhook(
 ):
     """Receive Resend email event webhooks (opens, clicks, bounces)."""
     _check_rate_limit(request)
-    if WEBHOOK_SECRET:
-        expected = f"Bearer {WEBHOOK_SECRET}"
-        if authorization != expected:
-            raise HTTPException(status_code=401, detail="Invalid webhook secret")
+    raw_body = await request.body()
+
+    # Real Resend events are Svix-signed; the Bearer path remains for
+    # internal callers and tests.
+    svix_ok = _verify_svix_signature(raw_body, request.headers)
+    bearer_ok = bool(WEBHOOK_SECRET) and authorization == f"Bearer {WEBHOOK_SECRET}"
+    if WEBHOOK_SECRET and not (svix_ok or bearer_ok):
+        raise HTTPException(status_code=401, detail="Invalid webhook signature")
 
     body = await request.json()
 

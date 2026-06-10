@@ -422,6 +422,44 @@ class TestProcessingLock:
         assert result["processed"] == 0
 
 
+class TestSvixVerification:
+    """Resend signs webhooks Svix-style — bearer auth alone never matches."""
+
+    def _sign(self, secret_b64: str, msg_id: str, ts: str, body: bytes) -> str:
+        import base64
+        import hashlib
+        import hmac
+        key = base64.b64decode(secret_b64 + "=" * (-len(secret_b64) % 4))
+        signed = f"{msg_id}.{ts}.".encode() + body
+        return base64.b64encode(hmac.new(key, signed, hashlib.sha256).digest()).decode()
+
+    def test_valid_signature_accepted(self, fake_db, monkeypatch):
+        import base64
+        from mission_control.routers.webhooks import _verify_svix_signature
+        secret = base64.b64encode(b"test-signing-key").decode()
+        monkeypatch.setattr("mission_control.config.RESEND_WEBHOOK_SECRET",
+                            f"whsec_{secret}")
+        body = b'{"type":"email.opened"}'
+        sig = self._sign(secret, "msg_1", "1700000000", body)
+        headers = {"svix-id": "msg_1", "svix-timestamp": "1700000000",
+                   "svix-signature": f"v1,{sig}"}
+        assert _verify_svix_signature(body, headers) is True
+
+    def test_bad_signature_rejected(self, fake_db, monkeypatch):
+        import base64
+        from mission_control.routers.webhooks import _verify_svix_signature
+        secret = base64.b64encode(b"test-signing-key").decode()
+        monkeypatch.setattr("mission_control.config.RESEND_WEBHOOK_SECRET",
+                            f"whsec_{secret}")
+        headers = {"svix-id": "msg_1", "svix-timestamp": "1700000000",
+                   "svix-signature": "v1,bm90LWEtcmVhbC1zaWduYXR1cmU="}
+        assert _verify_svix_signature(b'{"type":"email.opened"}', headers) is False
+
+    def test_missing_headers_rejected(self, fake_db):
+        from mission_control.routers.webhooks import _verify_svix_signature
+        assert _verify_svix_signature(b"{}", {}) is False
+
+
 class TestRenderPlaceholderFallback:
     """race_name is optional in source_data — placeholders must never leak."""
 

@@ -41,6 +41,11 @@ REPLY_TO_EMAIL = os.environ.get("REPLY_TO_EMAIL", "gravelgodcoaching@gmail.com")
 # Webhook secret (for Worker → Mission Control auth)
 WEBHOOK_SECRET = os.environ.get("WEBHOOK_SECRET", "")
 
+# Resend signs event webhooks Svix-style (svix-signature header), NOT with
+# an Authorization bearer. Signing secret from the Resend dashboard
+# (Webhooks -> endpoint -> Signing Secret, starts with "whsec_").
+RESEND_WEBHOOK_SECRET = os.environ.get("RESEND_WEBHOOK_SECRET", "")
+
 # Admin auth secret (for Mission Control dashboard routes)
 MISSION_CONTROL_SECRET = os.environ.get("MISSION_CONTROL_SECRET", "")
 

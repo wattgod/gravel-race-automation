@@ -11,21 +11,26 @@ B "Sober": contract welcome, race three-act structure, how scoring works,
 plain-spec pitch, breathing technique. Plain declarative register.
 """
 
+# Timing per research (Jun 2026): engagement halves by ~day 12, so pitch
+# at day 7 while attention is high; product named in email 1 (no ambush);
+# single re-pitch at day 10; pure-value email closes at day 17.
 _STEPS_A = [
     {"delay_days": 0, "template": "welcome_value", "subject": "start here"},
     {"delay_days": 3, "template": "fueling_mistake", "subject": "the biggest fueling mistake in gravel"},
-    {"delay_days": 7, "template": "honest_ratings", "subject": "the race we gave a 36"},
-    {"delay_days": 12, "template": "anti_pitch", "subject": "you probably don't need a coach"},
+    {"delay_days": 5, "template": "honest_ratings", "subject": "the race we gave a 36"},
+    {"delay_days": 7, "template": "anti_pitch", "subject": "you probably don't need a coach"},
+    {"delay_days": 10, "template": "repitch", "subject": "what happens when life gets in the way"},
     # Post-pitch pure-value email — nothing for sale, keeps the relationship
-    {"delay_days": 18, "template": "essay_sweet_spot", "subject": "sweet spot isn't that sweet"},
+    {"delay_days": 17, "template": "essay_sweet_spot", "subject": "sweet spot isn't that sweet"},
 ]
 
 _STEPS_B = [
     {"delay_days": 0, "template": "sober_welcome", "subject": "what you signed up for"},
     {"delay_days": 3, "template": "sober_pacing", "subject": "how long races actually unfold"},
-    {"delay_days": 7, "template": "sober_scoring", "subject": "what a 97 means"},
-    {"delay_days": 12, "template": "sober_pitch", "subject": "the offer, stated plainly"},
-    {"delay_days": 18, "template": "sober_breathing", "subject": "a technique for the hard miles"},
+    {"delay_days": 5, "template": "sober_scoring", "subject": "what a 97 means"},
+    {"delay_days": 7, "template": "sober_pitch", "subject": "the offer, stated plainly"},
+    {"delay_days": 10, "template": "sober_repitch", "subject": "the follow-up, and then we're done"},
+    {"delay_days": 17, "template": "sober_breathing", "subject": "a technique for the hard miles"},
 ]
 
 SEQUENCE = {

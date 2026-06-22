@@ -20,6 +20,11 @@
   var raceCount = 0;
   var MAX_RACES = 10;
   var formStarted = false;
+  // The race the customer arrived from (?race=slug). Carried to the backend so
+  // the pipeline resolves the target race by ID (exact) instead of fuzzy-
+  // matching the typed name — kills the wrong-edition / not-found order-killers.
+  var prefilledRaceSlug = null;
+  var prefilledRaceName = null;
   var formSubmitted = false;
   var intentBeaconSent = false;
   var sectionsSeen = {};
@@ -163,6 +168,12 @@
       mapped.race_date = aRace.date;
       mapped.race_distance = aRace.distance || '';
       mapped.race_goal = aRace.goal || '';
+      // Carry the slug ONLY if the A-race is still the one we prefilled from
+      // ?race= (the customer didn't swap it). The backend resolves the target
+      // race by this ID exactly; a stale slug would point at the wrong race.
+      if (prefilledRaceSlug && aRace.name === prefilledRaceName) {
+        mapped.race_slug = prefilledRaceSlug;
+      }
     }
 
     // Keep full races array for reference
@@ -269,6 +280,7 @@
     var params = new URLSearchParams(window.location.search);
     var raceSlug = params.get('race');
     if (!raceSlug) return;
+    prefilledRaceSlug = raceSlug;
 
     // Humanize slug as fallback name: "unbound-200" → "Unbound 200"
     var fallbackName = raceSlug.replace(/-/g, ' ').replace(/\b\w/g, function(c) { return c.toUpperCase(); });
@@ -278,9 +290,10 @@
       .then(function(r) { return r.ok ? r.json() : Promise.reject(); })
       .then(function(races) {
         var match = races.find(function(r) { return r.slug === raceSlug; });
+        prefilledRaceName = match ? match.name : fallbackName;
         var nameField = form.querySelector('input[name="race_0_name"]');
         if (nameField && !nameField.value) {
-          nameField.value = match ? match.name : fallbackName;
+          nameField.value = prefilledRaceName;
         }
         var priorityField = form.querySelector('select[name="race_0_priority"]');
         if (priorityField && !priorityField.value) {
@@ -291,6 +304,7 @@
       })
       .catch(function() {
         // Fallback: use humanized slug
+        prefilledRaceName = fallbackName;
         var nameField = form.querySelector('input[name="race_0_name"]');
         if (nameField && !nameField.value) {
           nameField.value = fallbackName;

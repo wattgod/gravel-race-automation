@@ -1,9 +1,9 @@
-# Desk Note — week of 2026-06-10
+# Desk Note — week of 2026-06-24
 
-**Week of June 10, 2026**
+**Week of 24 June 2026**
 
-Heavy week. Six Tier 1 races across five days, with the calendar spreading from the Maasai Mara on Wednesday to the Tourmalet on Sunday. L'Ardéchoise opens proceedings in Saint-Félicien today — Ardèche limestone and elevation, about as honest a test as France offers at this level. Migration Gravel Race runs the same day out of the Mara, which is either a scheduling conflict or a geography problem, depending on your ambitions.
+Saturday is unusually loaded. Five Tier 1 races land across the weekend — Le Loop on the TdF route (27th), then Gran Fondo La Fausto Coppi out of Cuneo, La Marmotte from Bourg d'Oisans, and SBT GRVL in Steamboat all on Sunday the 28th. That's a lot of marquee events sharing the same 48-hour window, which means fields get split and results get diluted. Worth keeping in mind when someone starts drawing conclusions about what a podium here actually means.
 
-The weekend's headline is Belgian Waffle Ride Cedar City on Saturday. Utah, not the original California venue, but BWR's reputation for grinding riders into paste travels with it. Sunday shifts to the Pyrenees: GFNY Lourdes Tourmalet out of Lourdes, Hautes-Pyrénées — if you're going to put Tourmalet in the name, you'd better deliver, and that route does.
+The geographic spread is worth noting for what it is: Livigno, Sligo, Viborg, Truckee, a circumnavigation of Poland. Forty-two races total across the week, which is a real number. (Race Around Poland alone covers more ground than most people's annual mileage.)
 
-Midnight Sun Randonnée on Sunday is listed as road, not gravel — a loop from Brännland into Norway and the fjords toward Mo i Rana. Worth noting separately. Total card this week sits at 52 events across all tiers.
+Sunday's Gavia e Mortirolo event out of Ponte di Legno is the one I'd watch on terrain alone — those two climbs don't negotiate.

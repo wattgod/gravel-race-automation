@@ -1,7 +1,13 @@
 /**
  * Cloudflare Worker: Lead Intake (All Email Capture Points)
  *
- * Handles 7 capture sources from gravelgodcycling.com:
+ * Multi-brand: serves gravelgodcycling.com (default) and roadielabs.com. The
+ * page sends `brand: 'gravelgod' | 'roadielabs'`; absent → gravelgod. Brand is
+ * tagged on the SendGrid contact (env.SG_FIELD_BRAND), the Mission Control
+ * payload, and the notification email subject/sender so road leads are
+ * distinguishable in the shared list/inbox.
+ *
+ * Handles 9 capture sources:
  *   - exit_intent:        email only (race profile exit popup)
  *   - race_profile:       email + race context (prep kit CTA)
  *   - prep_kit_gate:      email + race context (content unlock)
@@ -9,6 +15,8 @@
  *   - quiz_shared:        email + race context (shared quiz results)
  *   - tire_guide:         email + race context (tire setup card CTA)
  *   - race_review:        email + race context + stars/review data (race profile review form)
+ *   - state_hub:          email + state slug (state hub page subscribe)
+ *   - date_reminder:      email + race slug + race date (race date reminder)
  *   - fueling_calculator: email + weight + race + fueling data (detected by weight_lbs, no source field)
  *
  * Every valid submission upserts the contact into SendGrid Marketing Contacts.
@@ -21,7 +29,7 @@ const DISPOSABLE_DOMAINS = [
   'yopmail.com', 'temp-mail.org', 'getnada.com', 'mohmal.com'
 ];
 
-const KNOWN_SOURCES = ['exit_intent', 'race_profile', 'prep_kit_gate', 'race_quiz', 'quiz_shared', 'tire_guide', 'race_review'];
+const KNOWN_SOURCES = ['exit_intent', 'race_profile', 'prep_kit_gate', 'race_quiz', 'quiz_shared', 'tire_guide', 'race_review', 'state_hub', 'date_reminder'];
 
 export default {
   async fetch(request, env) {
@@ -46,6 +54,11 @@ export default {
     if (data.website) {
       return jsonResponse({ error: 'Bot detected' }, 400, origin);
     }
+
+    // Brand routing (multi-brand intake). Defaults to gravelgod for back-compat
+    // with the gravel pages that don't send a brand field.
+    const brand = (String(data.brand || 'gravelgod')).toLowerCase();
+    data.brand = brand;
 
     // Detect source: fueling_calculator has weight_lbs but no source field
     const source = data.source || (data.weight_lbs ? 'fueling_calculator' : null);
@@ -104,6 +117,16 @@ export default {
   }
 };
 
+// --- Brand helpers (multi-brand intake) ---
+
+const BRAND_LABELS = { gravelgod: 'Gravel God', roadielabs: 'Roadie Labs' };
+const BRAND_SENDERS = {
+  gravelgod: { email: 'leads@gravelgodcycling.com', name: 'Gravel God Fueling' },
+  roadielabs: { email: 'leads@gravelgodcycling.com', name: 'Roadie Labs Fueling' },
+};
+function brandLabel(brand) { return BRAND_LABELS[brand] || 'Gravel God'; }
+function brandSender(brand) { return BRAND_SENDERS[brand] || BRAND_SENDERS.gravelgod; }
+
 // --- HTML Escaping ---
 
 function esc(str) {
@@ -150,6 +173,7 @@ async function upsertMarketingContact(env, data, source) {
     if (env.SG_FIELD_RACE_SLUG && data.race_slug) customFields[env.SG_FIELD_RACE_SLUG] = data.race_slug;
     if (env.SG_FIELD_RACE_NAME && data.race_name) customFields[env.SG_FIELD_RACE_NAME] = data.race_name;
     if (env.SG_FIELD_HAS_FUELING) customFields[env.SG_FIELD_HAS_FUELING] = source === 'fueling_calculator' ? 'yes' : 'no';
+    if (env.SG_FIELD_BRAND && data.brand) customFields[env.SG_FIELD_BRAND] = data.brand;
 
     const contact = { email: data.email };
     if (Object.keys(customFields).length > 0) {
@@ -192,6 +216,7 @@ function formatFuelingLead(data, leadId) {
     lead_id: leadId,
     timestamp: new Date().toISOString(),
     source: 'prep-kit-fueling-calculator',
+    brand: data.brand || 'gravelgod',
     email: data.email,
     race_slug: data.race_slug,
     race_name: data.race_name || '',
@@ -246,9 +271,9 @@ async function sendNotificationEmail(env, lead) {
       body: JSON.stringify({
         personalizations: [{
           to: [{ email: env.NOTIFICATION_EMAIL }],
-          subject: `Fueling Lead: ${(lead.race_name || lead.race_slug).substring(0, 60)} - ${lead.email}`
+          subject: `[${brandLabel(lead.brand)}] Fueling Lead: ${(lead.race_name || lead.race_slug).substring(0, 60)} - ${lead.email}`
         }],
-        from: { email: 'leads@gravelgodcycling.com', name: 'Gravel God Fueling' },
+        from: brandSender(lead.brand),
         reply_to: { email: lead.email },
         content: [{ type: 'text/html', value: emailBody }]
       })
@@ -316,6 +341,7 @@ function formatEmailBody(lead) {
     <div class="row"><span class="label">Cramping:</span><span class="value">${esc(lead.fueling.cramp_history) || '—'}</span></div>
 
     <div class="footer">
+      <p>Brand: ${esc(brandLabel(lead.brand))}</p>
       <p>Source: Prep Kit fueling calculator</p>
       <p>Submitted: ${esc(lead.timestamp)}</p>
     </div>
@@ -331,6 +357,7 @@ async function notifyMissionControl(env, data, source) {
     const payload = {
       email: data.email,
       name: data.name || '',
+      brand: data.brand || 'gravelgod',
       source: source,
       race_slug: data.race_slug || '',
       race_name: data.race_name || '',

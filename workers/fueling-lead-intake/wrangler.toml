@@ -19,3 +19,9 @@ vars = { ALLOWED_ORIGINS = "https://gravelgodcycling.com,https://www.gravelgodcy
 # COACHING_WEBHOOK_URL — Optional webhook for fueling calculator leads
 # MC_WEBHOOK_URL       — Mission Control base URL (e.g. https://mc.example.com)
 # MC_WEBHOOK_SECRET    — Bearer token for Mission Control webhook auth
+#
+# Optional var: SG_FIELD_BRAND — SendGrid custom-field ID to store brand
+#   (gravelgod|roadielabs). Create the field in SendGrid Marketing → Custom
+#   Fields, then add it to [vars] + [env.production] like the other SG_FIELD_*.
+#   Until set, brand still flows to the notification subject/body + Mission
+#   Control. Road pages POST brand:'roadielabs'; gravel pages omit it (→ gravelgod).

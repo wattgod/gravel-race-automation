@@ -25,3 +25,13 @@ async def process_sequences():
             )
     except Exception as e:
         logger.error("Sequence processing failed: %s", e)
+
+
+@scheduler.scheduled_job("cron", hour=14, id="race_countdown")
+async def race_countdown():
+    """Daily weeks-to-race countdown enrollment (14:00 UTC)."""
+    from mission_control.services.race_countdown import run_race_countdown
+    try:
+        await run_race_countdown()
+    except Exception as e:
+        logger.error("Race countdown failed: %s", e)

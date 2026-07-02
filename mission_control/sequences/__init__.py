@@ -16,6 +16,7 @@ from mission_control.sequences.road_welcome import SEQUENCE as road_welcome
 from mission_control.sequences.road_nurture import SEQUENCE as road_nurture
 from mission_control.sequences.road_race_specific import SEQUENCE as road_race_specific
 from mission_control.sequences.road_post_purchase import SEQUENCE as road_post_purchase
+from mission_control.sequences.race_countdown import GG_8, GG_16, RL_8, RL_16
 
 DEFAULT_BRAND = "gravelgod"
 
@@ -29,6 +30,10 @@ SEQUENCES: dict[str, dict] = {
     road_nurture["id"]: road_nurture,
     road_race_specific["id"]: road_race_specific,
     road_post_purchase["id"]: road_post_purchase,
+    GG_16["id"]: GG_16,
+    GG_8["id"]: GG_8,
+    RL_16["id"]: RL_16,
+    RL_8["id"]: RL_8,
 }
 
 

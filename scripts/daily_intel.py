@@ -61,8 +61,17 @@ BRANDS = {
     },
 }
 
-FUNNEL_EVENTS = ["cta_click", "tp_form_start", "tp_form_submit",
-                 "begin_checkout", "purchase"]
+# The deployed gravel form JS predates the tp_* rename — both generations
+# fire in the wild, so each stage counts the union (Jul 2026 investigation:
+# June was form_start 33 / form_submit 20 / purchase 2, invisible to tp_*-only queries).
+FUNNEL_STAGES = {
+    "cta_click": ["cta_click"],
+    "form_start": ["form_start", "tp_form_start"],
+    "form_submit": ["form_submit", "tp_form_submit"],
+    "begin_checkout": ["begin_checkout"],
+    "purchase": ["purchase"],
+}
+FUNNEL_EVENTS = [e for evs in FUNNEL_STAGES.values() for e in evs]
 
 
 def _http(url: str, data: dict | None = None, headers: dict | None = None,
@@ -141,7 +150,10 @@ def collect_ga4(brand: str) -> dict:
         "users": int(t[1].value) if t else 0,
         "pageviews": int(t[2].value) if t else 0,
         "sessions_7d_avg": round(week_sessions / 8, 1),
-        "funnel": {e: ev.get(e, 0) for e in FUNNEL_EVENTS},
+        "funnel": {stage: sum(ev.get(e, 0) for e in evs)
+                   for stage, evs in FUNNEL_STAGES.items()},
+        "abandoned_submits": max(0, sum(ev.get(e, 0) for e in FUNNEL_STAGES["form_submit"])
+                                    - ev.get("purchase", 0)),
         "top_pages": top_pages,
     }
 
@@ -191,9 +203,10 @@ def collect_mission_control() -> dict:
     clicked = sum(1 for s in sends if (s.get("clicked_at") or "") >= cutoff)
     bounced = sum(1 for s in new_sends if s.get("status") == "bounced")
 
-    athletes = db.select("gg_athletes", columns="plan_status,created_at,race_name",
-                         limit=500)
-    new_orders = recent(athletes)
+    # NOTE: gg_athletes is NOT written by the purchase path (verified Jul 2026
+    # — real June sales never appeared there). Orders truth = GA4 purchase
+    # events (see ga4 collector) + the [GG] FAILED emails for fulfillment.
+    new_orders = []
 
     audit = db.get_audit_log(limit=200)
     errors = [
@@ -209,8 +222,7 @@ def collect_mission_control() -> dict:
         "countdown_enrollments": countdown,
         "emails_sent_24h": len(new_sends),
         "opens_24h": opened, "clicks_24h": clicked, "bounces_24h": bounced,
-        "new_orders_24h": len(new_orders),
-        "order_names": [a.get("race_name") for a in new_orders][:5],
+        "new_orders_24h_UNRELIABLE": "use ga4 purchase counts — gg_athletes is not written by purchases",
         "errors_24h": errors[:10],
     }
 
@@ -332,7 +344,7 @@ def plain_digest(collected: dict) -> tuple[str, str]:
     mc = collected["mission_control"]
     if mc.get("ok"):
         lines.append(f"\n- leads {mc['new_leads_24h']}, emails {mc['emails_sent_24h']}, "
-                     f"orders {mc['new_orders_24h']}, errors {len(mc['errors_24h'])}")
+                     f"errors {len(mc['errors_24h'])} (orders: see GA4 purchase counts)")
     else:
         lines.append(f"\n- Mission Control FAILED: {mc.get('error')}")
     return f"intel {collected['date']}: raw digest", "\n".join(lines)
@@ -340,25 +352,86 @@ def plain_digest(collected: dict) -> tuple[str, str]:
 
 # ── Delivery + snapshot ─────────────────────────────────────────────────
 
+def _md_to_html(md: str) -> str:
+    """Minimal markdown -> styled HTML for the report's known shapes:
+    ## headers, - bullets, | tables |, **bold**. Deliberately dependency-free."""
+    import html as h
+    import re as _re
+
+    def inline(t):
+        t = h.escape(t)
+        return _re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", t)
+
+    out, i, lines = [], 0, md.splitlines()
+    while i < len(lines):
+        line = lines[i].rstrip()
+        if line.startswith("## "):
+            out.append(f'<h2 style="font-family:\'Courier New\',monospace;font-size:13px;'
+                       f'letter-spacing:2px;color:#1a1a1a;border-bottom:2px solid #1a1a1a;'
+                       f'padding-bottom:6px;margin:28px 0 12px">{inline(line[3:]).upper()}</h2>')
+        elif line.startswith("|"):
+            rows = []
+            while i < len(lines) and lines[i].strip().startswith("|"):
+                cells = [c.strip() for c in lines[i].strip().strip("|").split("|")]
+                if not all(set(c) <= set("-: ") for c in cells):  # skip separator row
+                    rows.append(cells)
+                i += 1
+            i -= 1
+            table = ['<table style="border-collapse:collapse;width:100%;margin:8px 0 16px;'
+                     'font-size:14px">']
+            for ri, row in enumerate(rows):
+                tag = "th" if ri == 0 else "td"
+                style = ("border:1px solid #d0d0c8;padding:7px 10px;text-align:left;" +
+                         ("background:#1a1a1a;color:#f5f5f0;font-family:\'Courier New\',"
+                          "monospace;font-size:12px" if ri == 0 else "background:#ffffff"))
+                table.append("<tr>" + "".join(
+                    f'<{tag} style="{style}">{inline(c)}</{tag}>' for c in row) + "</tr>")
+            table.append("</table>")
+            out.append("".join(table))
+        elif line.startswith("- "):
+            items = []
+            while i < len(lines) and lines[i].startswith("- "):
+                items.append(f'<li style="margin:0 0 8px">{inline(lines[i][2:])}</li>')
+                i += 1
+            i -= 1
+            out.append('<ul style="margin:8px 0 16px;padding-left:22px">' + "".join(items) + "</ul>")
+        elif _re.match(r"^\d+\. ", line):
+            items = []
+            while i < len(lines) and _re.match(r"^\d+\. ", lines[i]):
+                items.append(f'<li style="margin:0 0 10px">{inline(_re.sub(r"^\d+\. ", "", lines[i]))}</li>')
+                i += 1
+            i -= 1
+            out.append('<ol style="margin:8px 0 16px;padding-left:22px">' + "".join(items) + "</ol>")
+        elif line.strip():
+            out.append(f'<p style="margin:0 0 12px">{inline(line)}</p>')
+        i += 1
+    return "".join(out)
+
+
 def send_email(subject: str, markdown: str) -> str:
+    body = _md_to_html(markdown)
     html = (
-        '<div style="max-width:640px;margin:0 auto;font-family:Georgia,serif;'
-        'color:#2b2b2b;line-height:1.6;font-size:15px">'
-        f'<div style="white-space:pre-wrap">{markdown}</div>'
-        '<div style="margin-top:24px;padding-top:12px;border-top:1px solid #ddd;'
-        'font-family:monospace;font-size:11px;color:#888">Morning Intel &middot; '
-        'gravel-race-automation/scripts/daily_intel.py &middot; snapshots in '
-        'data/intel-snapshots/</div></div>'
+        '<div style="background:#f5f5f0;padding:24px 8px">'
+        '<div style="max-width:640px;margin:0 auto;background:#ffffff;'
+        'border:2px solid #1a1a1a;padding:28px 32px;font-family:Georgia,serif;'
+        'color:#1a1a1a;line-height:1.6;font-size:15px">'
+        '<div style="font-family:\'Courier New\',monospace;font-size:11px;'
+        'letter-spacing:3px;color:#777777;margin-bottom:4px">MORNING INTEL</div>'
+        f'{body}'
+        '<div style="margin-top:28px;padding-top:12px;border-top:1px solid #d0d0c8;'
+        'font-family:\'Courier New\',monospace;font-size:11px;color:#999">'
+        'gravel-race-automation / daily_intel.py &middot; trend snapshots: '
+        'data/intel-snapshots/</div></div></div>'
     )
-    code, body = _http("https://api.resend.com/emails", data={
+    code, body_resp = _http("https://api.resend.com/emails", data={
         "from": "Morning Intel <matti@gravelgodcycling.com>",
         "to": [INTEL_TO],
         "subject": subject,
         "html": html,
     }, headers={"Authorization": f"Bearer {os.environ['RESEND_API_KEY']}"})
     if code != 200:
-        raise RuntimeError(f"Resend {code}: {body[:200]}")
-    return json.loads(body).get("id", "")
+        raise RuntimeError(f"Resend {code}: {body_resp[:200]}")
+    return json.loads(body_resp).get("id", "")
 
 
 def main() -> int:

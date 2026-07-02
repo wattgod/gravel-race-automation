@@ -1,6 +1,6 @@
 """Roadie Labs race-specific sequence — post-quiz follow-up.
 
-INACTIVE until roadielabs.com is verified in Resend — see road_welcome.py.
+ACTIVE — roadielabs.com verified in Resend Jul 2026.
 """
 
 SEQUENCE = {
@@ -9,7 +9,7 @@ SEQUENCE = {
     "brand": "roadielabs",
     "description": "After quiz completion — honest match notes, what their race demands, the plain pitch.",
     "trigger": "quiz_completed",
-    "active": False,
+    "active": True,
     "variants": {
         "A": {
             "weight": 100,

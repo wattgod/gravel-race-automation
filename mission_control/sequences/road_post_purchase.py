@@ -4,7 +4,7 @@ NOTE: plan_purchased enrollments must pass brand="roadielabs" at the
 enrollment call site for road buyers to land here (the subscriber webhook
 is brand-routed; verify the purchase-trigger path also carries brand).
 
-INACTIVE until roadielabs.com is verified in Resend — see road_welcome.py.
+ACTIVE — roadielabs.com verified in Resend Jul 2026.
 """
 
 SEQUENCE = {
@@ -13,7 +13,7 @@ SEQUENCE = {
     "brand": "roadielabs",
     "description": "After road plan purchase — onboarding, calibration check-ins, NPS.",
     "trigger": "plan_purchased",
-    "active": False,
+    "active": True,
     "variants": {
         "A": {
             "weight": 100,

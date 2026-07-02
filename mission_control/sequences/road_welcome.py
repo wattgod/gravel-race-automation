@@ -5,9 +5,8 @@ profanity, methodological transparency instead of self-deprecation.
 Single track (list too small to A/B). Timing mirrors gravel welcome
 (pitch day 7, single re-pitch day 10).
 
-INACTIVE until roadielabs.com is verified as a sending domain in Resend
-(DNS records). Flip "active" after verification — enrollment is already
-brand-routed, so road leads queue nothing until then.
+ACTIVE — roadielabs.com verified in Resend Jul 2026 (DKIM/SPF/MX via
+Cloudflare one-time authorization).
 """
 
 _STEPS = [
@@ -24,7 +23,7 @@ SEQUENCE = {
     "brand": "roadielabs",
     "description": "New Roadie Labs subscriber onboarding — deadpan, data-first, single pitch.",
     "trigger": "new_subscriber",
-    "active": False,
+    "active": True,
     "variants": {
         "A": {"weight": 100, "name": "Deadpan", "steps": _STEPS},
     },

@@ -3,7 +3,7 @@
 Deadpan register. Shares road_anti_pitch/road_repitch with the welcome
 sequence (same posture: one pitch, one follow-up, done).
 
-INACTIVE until roadielabs.com is verified in Resend — see road_welcome.py.
+ACTIVE — roadielabs.com verified in Resend Jul 2026.
 """
 
 _STEPS = [
@@ -19,7 +19,7 @@ SEQUENCE = {
     "brand": "roadielabs",
     "description": "Prep-kit and lead-magnet leads — prep substance, then the plain pitch.",
     "trigger": "prep_kit_download",
-    "active": False,
+    "active": True,
     "variants": {
         "A": {"weight": 100, "name": "Deadpan", "steps": _STEPS},
     },

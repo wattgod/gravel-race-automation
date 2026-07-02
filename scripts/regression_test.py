@@ -119,11 +119,17 @@ def test_research_script_response_extraction() -> Tuple[bool, str]:
         return False, "research.py not found"
     
     content = script_path.read_text()
-    
-    # Should use response.content[0].text (like other scripts)
-    if "response.content[0]" not in content and "response.content[0].text" not in content:
-        return False, "research.py doesn't use response.content[0] pattern"
-    
+
+    # Must iterate content blocks (Claude 5 models can emit thinking blocks
+    # before text — naive response.content[0].text breaks on them). The old
+    # assertion here REQUIRED the naive pattern; research.py was fixed to the
+    # robust one and this test wrongly failed it (Jul 2026).
+    if "for block in response.content" not in content and \
+       "response.content[0]" not in content:
+        return False, "research.py has no recognizable response extraction"
+    if "response.content[0]" in content:
+        return False, "research.py uses naive response.content[0] (breaks on thinking blocks)"
+
     # Should handle empty responses
     if "len(response.content)" not in content and "not response.content" not in content:
         return False, "research.py doesn't check for empty response"

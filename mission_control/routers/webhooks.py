@@ -137,7 +137,12 @@ async def subscriber_webhook(
     name = _truncate(body.get("name", "").strip(), _MAX_NAME_LEN)
     source = _truncate(body.get("source", "unknown"), _MAX_SOURCE_LEN)
 
-    source_data = {}
+    # Brand routing (worker sends "gravelgod" | "roadielabs"; unknown → gravelgod)
+    brand = str(body.get("brand", "gravelgod")).lower()
+    if brand not in ("gravelgod", "roadielabs"):
+        brand = "gravelgod"
+
+    source_data = {"brand": brand}
     if body.get("race_slug"):
         source_data["race_slug"] = body["race_slug"]
     if body.get("race_name"):
@@ -154,23 +159,23 @@ async def subscriber_webhook(
     }
     trigger = trigger_map.get(source, "new_subscriber")
 
-    # Enroll in matching sequences
+    # Enroll in matching sequences (brand-scoped)
     enrolled = []
-    for seq in get_sequences_for_trigger(trigger):
+    for seq in get_sequences_for_trigger(trigger, brand=brand):
         result = enroll(email, name, seq["id"], source=source, source_data=source_data)
         if result:
             enrolled.append(seq["id"])
 
     # Also enroll in welcome if trigger wasn't new_subscriber
     if trigger != "new_subscriber":
-        for seq in get_sequences_for_trigger("new_subscriber"):
+        for seq in get_sequences_for_trigger("new_subscriber", brand=brand):
             result = enroll(email, name, seq["id"], source=source, source_data=source_data)
             if result:
                 enrolled.append(seq["id"])
 
     db.log_action(
         "subscriber_received", "webhook", email,
-        f"Source: {source}, enrolled in: {', '.join(enrolled) or 'none (already enrolled)'}",
+        f"Brand: {brand}, source: {source}, enrolled in: {', '.join(enrolled) or 'none (already enrolled)'}",
     )
 
     return {"status": "ok", "enrolled": enrolled}

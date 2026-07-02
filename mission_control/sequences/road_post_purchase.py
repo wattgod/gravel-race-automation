@@ -1,0 +1,30 @@
+"""Roadie Labs post-purchase sequence — onboarding after buying a road plan.
+
+NOTE: plan_purchased enrollments must pass brand="roadielabs" at the
+enrollment call site for road buyers to land here (the subscriber webhook
+is brand-routed; verify the purchase-trigger path also carries brand).
+
+INACTIVE until roadielabs.com is verified in Resend — see road_welcome.py.
+"""
+
+SEQUENCE = {
+    "id": "road_post_purchase_v1",
+    "name": "Roadie Labs Post-Purchase Onboarding",
+    "brand": "roadielabs",
+    "description": "After road plan purchase — onboarding, calibration check-ins, NPS.",
+    "trigger": "plan_purchased",
+    "active": False,
+    "variants": {
+        "A": {
+            "weight": 100,
+            "name": "Deadpan",
+            "steps": [
+                {"delay_days": 0, "template": "road_purchase_welcome", "subject": "your plan is in production"},
+                {"delay_days": 3, "template": "road_week1", "subject": "week 1: calibration"},
+                {"delay_days": 10, "template": "road_checkin_week2", "subject": "two weeks in — three questions"},
+                {"delay_days": 21, "template": "road_progress_update", "subject": "the build phase, explained"},
+                {"delay_days": 42, "template": "road_nps_request", "subject": "one number"},
+            ],
+        },
+    },
+}

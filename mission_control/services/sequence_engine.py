@@ -216,6 +216,7 @@ async def _send_next_step(enrollment: dict) -> bool:
         return True
 
     step = steps[step_index]
+    brand = seq.get("brand", "gravelgod")
 
     # Render subject with source_data substitutions
     subject = _render_subject(step["subject"], enrollment.get("source_data") or {})
@@ -227,6 +228,7 @@ async def _send_next_step(enrollment: dict) -> bool:
         sequence_id=enrollment["sequence_id"],
         variant=enrollment["variant"],
         step_index=step_index,
+        brand=brand,
     )
     html = _inject_unsubscribe(html, enrollment["contact_email"])
 
@@ -242,6 +244,7 @@ async def _send_next_step(enrollment: dict) -> bool:
             enrollment["contact_email"],
             subject,
             html,
+            brand,
         )
     except Exception as e:
         db.log_action(
@@ -331,10 +334,14 @@ def _render_template(template_name: str, enrollment: dict) -> str:
 
 def _inject_utm_params(
     html: str, sequence_id: str, variant: str, step_index: int,
+    brand: str = "gravelgod",
 ) -> str:
-    """Append UTM tracking params to all gravelgodcycling.com links in HTML."""
+    """Append UTM tracking params to all brand-site links in HTML."""
+    from mission_control.config import BRAND_SEQUENCE_SENDERS
+
+    sender = BRAND_SEQUENCE_SENDERS.get(brand, BRAND_SEQUENCE_SENDERS["gravelgod"])
     utm = urllib.parse.urlencode({
-        "utm_source": "gravel_god",
+        "utm_source": sender["utm_source"],
         "utm_medium": "email",
         "utm_campaign": sequence_id,
         "utm_content": f"{variant}_{step_index}",
@@ -346,24 +353,26 @@ def _inject_utm_params(
         return f'href="{url}{sep}{utm}"'
 
     return re.sub(
-        r'href="(https://gravelgodcycling\.com[^"]*)"',
+        r'href="(https://(?:gravelgodcycling|roadielabs)\.com[^"]*)"',
         _add_utm,
         html,
     )
 
 
-def _send_email_sync(to_email: str, subject: str, html: str) -> str:
+def _send_email_sync(
+    to_email: str, subject: str, html: str, brand: str = "gravelgod",
+) -> str:
     """Send an email via Resend. Runs in a thread (called via asyncio.to_thread)."""
     import resend
-    from mission_control.config import SEQUENCE_FROM_EMAIL, SEQUENCE_FROM_NAME
+    from mission_control.config import BRAND_SEQUENCE_SENDERS
 
     if not resend.api_key:
         resend.api_key = RESEND_API_KEY
 
-    from mission_control.config import REPLY_TO_EMAIL
+    sender = BRAND_SEQUENCE_SENDERS.get(brand, BRAND_SEQUENCE_SENDERS["gravelgod"])
     result = resend.Emails.send({
-        "from": f"{SEQUENCE_FROM_NAME} <{SEQUENCE_FROM_EMAIL}>",
-        "reply_to": REPLY_TO_EMAIL,
+        "from": f"{sender['from_name']} <{sender['from_email']}>",
+        "reply_to": sender["reply_to"],
         "to": [to_email],
         "subject": subject,
         "html": html,

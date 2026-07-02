@@ -38,6 +38,25 @@ SEQUENCE_FROM_EMAIL = os.environ.get("SEQUENCE_FROM_EMAIL", "matti@gravelgodcycl
 SEQUENCE_FROM_NAME = os.environ.get("SEQUENCE_FROM_NAME", "Matti at Gravel God")
 REPLY_TO_EMAIL = os.environ.get("REPLY_TO_EMAIL", "gravelgodcoaching@gmail.com")
 
+# Per-brand sequence sender identity. Sequences carry a "brand" key
+# (absent = gravelgod); the engine looks up sender/utm here. Road sends
+# require the roadielabs.com domain to be verified in Resend first —
+# until then road sequences should stay inactive.
+BRAND_SEQUENCE_SENDERS = {
+    "gravelgod": {
+        "from_email": SEQUENCE_FROM_EMAIL,
+        "from_name": SEQUENCE_FROM_NAME,
+        "reply_to": REPLY_TO_EMAIL,
+        "utm_source": "gravel_god",
+    },
+    "roadielabs": {
+        "from_email": os.environ.get("RL_SEQUENCE_FROM_EMAIL", "matti@roadielabs.com"),
+        "from_name": os.environ.get("RL_SEQUENCE_FROM_NAME", "Matti at Roadie Labs"),
+        "reply_to": os.environ.get("RL_REPLY_TO_EMAIL", "gravelgodcoaching@gmail.com"),
+        "utm_source": "roadie_labs",
+    },
+}
+
 # Webhook secret (for Worker → Mission Control auth)
 WEBHOOK_SECRET = os.environ.get("WEBHOOK_SECRET", "")
 

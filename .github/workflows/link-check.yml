@@ -1,0 +1,22 @@
+name: Link Check
+
+# Weekly dead-link sweep of the live site (born from the Jul 2026 whoops
+# audit: 5 dead nav/footer URLs sat on every page for ~3 months unnoticed).
+# A red run = something a visitor can click is broken.
+
+on:
+  schedule:
+    - cron: "0 12 * * 1"   # Mondays 12:00 UTC
+  workflow_dispatch:
+
+jobs:
+  check-links:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Check live links (gravelgodcycling.com)
+        run: python3 scripts/check_links.py --max-urls 300 --delay 0.4

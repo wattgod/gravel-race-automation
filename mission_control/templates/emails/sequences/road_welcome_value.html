@@ -13,12 +13,18 @@
 <body>
   <div class="container">
     <p>{first_name} —</p>
-    <p>Roadie Labs rates road races the way film critics rate films: on a published rubric, in public, including the bad scores. 427 events — gran fondos, sportives, hillclimbs — each scored on the same 15 criteria. The same ruler for L'Etape du Tour and the fondo two towns over.</p>
-    <p>The useful free things, in order:</p>
-    <p><strong>1. <a href="https://roadielabs.com/road-races/">The database.</a></strong> Filter by distance, climbing, region, month, tier. Elite and Contender are worth a flight. Rising is worth a tank of gas. Local means: only if it is local to you.</p>
-    <p><strong>2. <a href="https://roadielabs.com/race/methodology/">The methodology.</a></strong> You should not trust race ratings on the internet. Correct instinct. This page shows the ruler — all 15 criteria, the tier thresholds, what a score can and cannot tell you. Check our work.</p>
+{{#race_name}}
+    <p>You arrived via the {race_name} page, so skipping the tour: the full profile — course, pacing, where the day is decided — is <a href="https://roadielabs.com/race/{race_slug}/">here</a>. Read the course section twice; the second read is where a pacing plan comes from.</p>
+    <p>One question, answerable in a word: is {race_name} your A-race, or a stepping stone? The answer changes what your remaining weeks are for. Replies get read by a person and answered.</p>
+    <p>Beyond your race, the free things worth your time, in order:</p>
+{{/race_name}}
+{{^race_name}}
+    <p>One question before anything else: is there a race on your calendar? Reply with which one — a single line — and you'll get a plain assessment of what your remaining weeks are for. Replies get read by a person and answered.</p>
+    <p>The free things worth your time, in order:</p>
+{{/race_name}}
+    <p><strong>1. <a href="https://roadielabs.com/road-races/">The database.</a></strong> 427 events — gran fondos, sportives, hillclimbs — each scored on the same published 15 criteria, including the bad scores. Elite and Contender are worth a flight. Rising is worth a tank of gas. Local means: only if it is local to you.</p>
+    <p><strong>2. <a href="https://roadielabs.com/race/methodology/">The methodology.</a></strong> You should not trust race ratings on the internet. Correct instinct. This page shows the ruler. Check our work.</p>
     <p><strong>3. <a href="https://roadielabs.com/race/calendar/2026/">The 2026 calendar.</a></strong> Every rated race with a confirmed date, chronological.</p>
-    <p>If you have a race on the calendar, reply with which one. You will get its page and a plain assessment of what your remaining weeks are for. Replies get read by a person and answered.</p>
     <p>What to expect from this list: mostly signal. Two emails about the training plans we sell — one next week, one short follow-up after it. Then the subject closes.</p>
     <p>— Matti</p>
     <p>P.S. Next email: the carbohydrate arithmetic for a 7-hour fondo. Bring a calculator.</p>

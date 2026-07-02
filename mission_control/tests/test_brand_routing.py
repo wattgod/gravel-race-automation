@@ -123,3 +123,35 @@ class TestBrandUtm:
         html = '<a href="https://roadielabs.com/road-races/?tier=1">t1</a>'
         out = _inject_utm_params(html, "road_welcome_v1", "A", 0, brand="roadielabs")
         assert "?tier=1&" in out
+
+
+class TestConditionalPersonalization:
+    """The friend-opener rule: talk about THEM when the capture told us
+    anything; never leak an empty placeholder or mustache syntax."""
+
+    def _render(self, tpl, source_data):
+        from mission_control.services.sequence_engine import _render_template
+        return _render_template(tpl, {"contact_name": "Test Rider",
+                                      "source_data": source_data})
+
+    def test_known_race_gets_callback_opener(self):
+        for tpl in ("welcome_value", "road_welcome_value"):
+            html = self._render(tpl, {"race_name": "Big Sugar",
+                                      "race_slug": "big-sugar"})
+            assert "Big Sugar" in html
+            assert "A-race" in html            # the one-word question
+            assert "race/big-sugar/" in html   # value link first
+            assert "{{" not in html
+
+    def test_anonymous_gets_question_opener(self):
+        for tpl in ("welcome_value", "road_welcome_value"):
+            html = self._render(tpl, {})
+            assert "Big Sugar" not in html
+            assert "{{" not in html
+            assert "{race_name}" not in html   # engine fallback never leaks raw
+
+    def test_pitch_count_promise_in_both_branches(self):
+        # Promise-tracking survives personalization: both branches say two.
+        for sd in ({"race_name": "X", "race_slug": "x"}, {}):
+            html = self._render("welcome_value", sd)
+            assert "two emails" in html.lower()

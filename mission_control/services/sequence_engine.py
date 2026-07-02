@@ -304,6 +304,27 @@ def _render_subject(subject: str, source_data: dict) -> str:
     return subject.replace("{race_name}", "your race")
 
 
+def _apply_conditionals(html: str, data: dict) -> str:
+    """Mustache-style conditional blocks for optional personalization.
+
+    {{#key}}...{{/key}}  kept only when data[key] is truthy
+    {{^key}}...{{/key}}  kept only when data[key] is missing/empty
+
+    Lets one template serve both known-race signups (race_profile /
+    prep_kit captures carry race_name) and anonymous ones (exit_intent)
+    — the friend-opener rule: talk about THEM when you know anything
+    about them, and never leak an empty placeholder when you don't.
+    """
+    import re as _re
+
+    def _repl(m):
+        inverse, key, body = m.group(1) == "^", m.group(2), m.group(3)
+        has = bool(data.get(key))
+        return body if has != inverse else ""
+
+    return _re.sub(r"\{\{([#^])(\w+)\}\}(.*?)\{\{/\2\}\}", _repl, html, flags=_re.S)
+
+
 def _render_template(template_name: str, enrollment: dict) -> str:
     """Render a sequence email template."""
     template_path = WEB_TEMPLATES_DIR / "emails" / "sequences" / f"{template_name}.html"
@@ -315,6 +336,7 @@ def _render_template(template_name: str, enrollment: dict) -> str:
 
     # Replace placeholders with enrollment data
     source_data = enrollment.get("source_data") or {}
+    html = _apply_conditionals(html, source_data)
     replacements = {
         "{contact_name}": enrollment.get("contact_name", ""),
         "{contact_email}": enrollment.get("contact_email", ""),

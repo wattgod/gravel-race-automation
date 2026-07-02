@@ -13,11 +13,18 @@
 <body>
   <div class="container">
     <p>Hey {first_name},</p>
-    <p>No welcome speech. The most useful free stuff on the site, in the order I'd read it:</p>
-    <p><strong>1. <a href="https://gravelgodcycling.com/gravel-races/">The race database.</a></strong> 700+ races, each scored on the same fifteen criteria, in public, including the insulting scores. It exists so you can tell the races worth a flight from the ones worth a Saturday. (The race industry will not make this distinction for you. Every race is &ldquo;epic&rdquo; in the brochure.)</p>
-    <p><strong>2. <a href="https://gravelgodcycling.com/guide/">The gravel guide.</a></strong> Eight chapters: training, fueling, pacing, race week. The book I wish someone had handed me at my first start line, before I learned most of it the expensive way. Free, no gate.</p>
+{{#race_name}}
+    <p>You signed up from the {race_name} page, so I'll skip the tour and start where you already are: the full profile — course, pacing, where the day actually gets decided — is <a href="https://gravelgodcycling.com/race/{race_slug}/">here</a>. Read the course section twice. The second read is where your pacing plan comes from.</p>
+    <p>One question, ten seconds: is {race_name} your A-race this year, or a stepping stone to something bigger? Reply with one word — it changes what I'd tell you to do next. I read every reply.</p>
+    <p>Beyond your race, the free stuff worth your time, in the order I'd read it:</p>
+{{/race_name}}
+{{^race_name}}
+    <p>Quick one — you grabbed something from the site, which usually means there's a race somewhere on your calendar, or at least on your mind. Which one? One line back is plenty, and if it's in the database I'll send you my honest read on it. I read every reply.</p>
+    <p>While you're deciding whether to answer a stranger's email, the free stuff worth your time, in the order I'd read it:</p>
+{{/race_name}}
+    <p><strong>1. <a href="https://gravelgodcycling.com/gravel-races/">The race database.</a></strong> 700+ races, each scored on the same fifteen criteria, in public, including the insulting scores. It exists so you can tell the races worth a flight from the ones worth a Saturday.</p>
+    <p><strong>2. <a href="https://gravelgodcycling.com/guide/">The gravel guide.</a></strong> Eight chapters: training, fueling, pacing, race week. The book I wish someone had handed me at my first start line. Free, no gate.</p>
     <p><strong>3. <a href="https://gravelgodcycling.com/gravel-tv/">Gravel TV.</a></strong> The week in gravel racing, every Wednesday.</p>
-    <p>Now the part worth ten seconds of typing: if you've got a race on the calendar, reply and tell me which one. I'll point you at its page and give you my honest read on what your remaining weeks are best spent doing. From me, not a bot. I read every reply.</p>
     <p>Fair warning about what's coming: two emails about the thing I sell — one proper pitch next week, one short follow-up after it. Then it's back to free stuff indefinitely. I build custom training plans and coach a small handful of athletes. That's the whole catalog.</p>
     <p>— Matti</p>
     <p>P.S. Next email: a math problem that ruins more races than any climb does. It involves 24 gels.</p>

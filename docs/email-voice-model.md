@@ -54,3 +54,14 @@ Road sequences are single-track (list too small to split).
 Road sequences carry `"brand": "roadielabs"` and stay **inactive until
 roadielabs.com is verified in Resend** (DNS records) — flip `active` in
 `mission_control/sequences/road_*.py` after verification.
+
+## The friend-opener rule (Matti-approved, Jul 2026)
+
+Chosen over question-restyled lectures and everything else: **normal, one
+small question about them, no wasted time, value first.** Mechanics:
+callback to what THEY did ("you signed up from the {race_name} page") →
+value link with a concrete instruction → one answerable question ("A-race
+or stepping stone? one word"). Anonymous captures get the question as the
+opener. Conversational principles behind it: reason-for-writing-now, real
+questions over performance, no meta ("no welcome speech" is still a
+speech). Engine: mustache conditionals in _render_template.

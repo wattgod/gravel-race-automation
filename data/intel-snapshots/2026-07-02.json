@@ -8,11 +8,12 @@
    "sessions_7d_avg": 34.9,
    "funnel": {
     "cta_click": 0,
-    "tp_form_start": 0,
-    "tp_form_submit": 0,
+    "form_start": 0,
+    "form_submit": 0,
     "begin_checkout": 0,
     "purchase": 0
    },
+   "abandoned_submits": 0,
    "top_pages": [
     {
      "path": "/gravel-races/",
@@ -48,11 +49,12 @@
    "sessions_7d_avg": 0.2,
    "funnel": {
     "cta_click": 0,
-    "tp_form_start": 0,
-    "tp_form_submit": 0,
+    "form_start": 0,
+    "form_submit": 0,
     "begin_checkout": 0,
     "purchase": 0
    },
+   "abandoned_submits": 0,
    "top_pages": [],
    "ok": true
   }
@@ -72,29 +74,28 @@
   }
  },
  "mission_control": {
-  "new_leads_24h": 2,
+  "new_leads_24h": 0,
   "leads_by_brand": {
-   "gravelgod": 2,
+   "gravelgod": 0,
    "roadielabs": 0
   },
   "countdown_enrollments": 0,
   "emails_sent_24h": 6,
-  "opens_24h": 3,
+  "opens_24h": 2,
   "clicks_24h": 0,
   "bounces_24h": 0,
-  "new_orders_24h": 0,
-  "order_names": [],
+  "new_orders_24h_UNRELIABLE": "use ga4 purchase counts \u2014 gg_athletes is not written by purchases",
   "errors_24h": [],
   "ok": true
  },
  "workflows": {
   "latest": {
-   "gravel-race-automation/link-check.yml": "never-run",
-   "road-race-automation/link-check.yml": "never-run",
+   "gravel-race-automation/link-check.yml": "failure",
+   "road-race-automation/link-check.yml": "success",
    "road-race-automation/checkout-monitor.yml": "success",
-   "gravel-race-automation/regression-tests.yml": "failure"
+   "gravel-race-automation/regression-tests.yml": "success"
   },
   "ok": true
  },
- "report": "## TOP LINE\n- GravelGod: 30 sessions, 2 leads, 0 orders. Funnel is all zeros \u2014 not even a single cta_click logged.\n- RoadieLabs: 0 sessions, 0 users, 0 leads. Flatline day.\n- Checkout healthy both brands. No orders either side.\n\n## NUMBERS\n| Brand | Sessions (7d avg) | CTA\u2192Form\u2192Submit\u2192Checkout\u2192Purchase | Leads | Orders |\n|---|---|---|---|---|\n| GravelGod | 30 (34.9) | 0\u21920\u21920\u21920\u21920 | 2 | 0 |\n| RoadieLabs | 0 (0.2) | 0\u21920\u21920\u21920\u21920 | 0 | 0 |\n\n## BROKEN\n- `gravel-race-automation/regression-tests.yml`: failure \u2014 investigate before trusting checkout/funnel tracking further.\n- `gravel-race-automation/link-check.yml`: never-run.\n- `road-race-automation/link-check.yml`: never-run.\n\n## DO TODAY\n1. Check regression-tests.yml failure log \u2014 funnel showing 0 cta_click on 30 sessions is suspicious; could be tracking breakage, not just no interest. Impact: without this, funnel numbers are unreliable.\n2. Nothing new for RoadieLabs \u2014 zero sessions two days running, no lever to pull today. Impact: none, just don't spend time here.\n3. Follow up the 2 GravelGod leads manually (mission control shows leads but 0 form starts in GA4 \u2014 check for tracking gap vs. real leads). Impact: potential recovery of today's sale target."
+ "report": "## TOP LINE\n- GravelGod: 30 sessions, but every funnel step (cta_click \u2192 purchase) read zero \u2014 no clicks, no submits, nothing.\n- Roadie Labs: 0 sessions, 0 leads, effectively dormant today.\n- Lead counts conflict: mission_control reports 0 new leads 24h; trend summary reports 2 \u2014 unresolved discrepancy, not reconciled here.\n\n## NUMBERS\n| Brand | Sessions (7d avg) | CTA click | Form start | Form submit | Checkout | Purchase | Leads | Orders |\n|---|---|---|---|---|---|---|---|---|\n| GravelGod | 30 (34.9) | 0 | 0 | 0 | 0 | 0 | 0 | 0 |\n| Roadie Labs | 0 (0.2) | 0 | 0 | 0 | 0 | 0 | 0 | 0 |\n\n## BROKEN\n- `gravel-race-automation/link-check.yml` \u2014 failure (severity: check for broken links on GG site).\n- Lead count mismatch: mission_control (0) vs trend summary (2) for same date \u2014 data integrity issue, not a traffic issue.\n- No checkout or GA4 collector failures \u2014 both brands `ok: true`.\n\n## DO TODAY\n- Fix gravel-race-automation link-check failure \u2014 broken links can silently kill funnel entry; direct impact on GG traffic quality.\n- Verify GA4 event tagging on GG (cta_click through purchase all zero on 30 sessions is unusual, not just \"no sales\") \u2014 confirm tracking isn't broken before treating this as a demand problem.\n- Reconcile leads discrepancy (0 vs 2) in mission_control vs trend export \u2014 don't trust either number until fixed."
 }

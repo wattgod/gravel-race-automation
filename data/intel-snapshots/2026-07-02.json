@@ -96,5 +96,5 @@
   },
   "ok": true
  },
- "report": "**INTERPRETATION FAILED: Anthropic API 401: {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CcdRbdnAhNvpaPgAf6kNL\"}**\n\n## RAW DIGEST \u2014 2026-07-02 (interpretation unavailable)\n\n### Gravel God\n- sessions 30 (7d avg 34.9), funnel {'cta_click': 0, 'tp_form_start': 0, 'tp_form_submit': 0, 'begin_checkout': 0, 'purchase': 0}\n- checkout: OK\n\n### Roadie Labs\n- sessions 0 (7d avg 0.2), funnel {'cta_click': 0, 'tp_form_start': 0, 'tp_form_submit': 0, 'begin_checkout': 0, 'purchase': 0}\n- checkout: OK\n\n- leads 2, emails 6, orders 0, errors 0"
+ "report": "**INTERPRETATION FAILED: 'text'**\n\n## RAW DIGEST \u2014 2026-07-02 (interpretation unavailable)\n\n### Gravel God\n- sessions 30 (7d avg 34.9), funnel {'cta_click': 0, 'tp_form_start': 0, 'tp_form_submit': 0, 'begin_checkout': 0, 'purchase': 0}\n- checkout: OK\n\n### Roadie Labs\n- sessions 0 (7d avg 0.2), funnel {'cta_click': 0, 'tp_form_start': 0, 'tp_form_submit': 0, 'begin_checkout': 0, 'purchase': 0}\n- checkout: OK\n\n- leads 2, emails 6, orders 0, errors 0"
 }

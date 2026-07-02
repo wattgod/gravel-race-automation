@@ -304,7 +304,12 @@ def interpret(collected: dict, trend: list[dict]) -> tuple[str, str]:
     )
     if code != 200:
         raise RuntimeError(f"Anthropic API {code}: {body[:200]}")
-    text = json.loads(body)["content"][0]["text"]
+    # Claude 5 models may emit thinking blocks before text — take text blocks only
+    blocks = json.loads(body)["content"]
+    text = "\n".join(b.get("text", "") for b in blocks
+                     if b.get("type") == "text").strip()
+    if not text:
+        raise RuntimeError("no text block in model response")
     first, _, rest = text.partition("\n")
     subject = first.replace("SUBJECT:", "").strip() if first.startswith("SUBJECT:") \
         else f"intel {collected['date']}"

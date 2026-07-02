@@ -21,7 +21,9 @@
     <p>Delivery is inside 48 hours. A plan bought today is training by the weekend.</p>
     <p>If the answer is no, the database does not care what you buy.</p>
     <p class="cta">If the answer is &ldquo;eventually&rdquo;: eventually is the expensive version of yes. <a href="https://roadielabs.com/training-plans/">BUILD THE PLAN &rarr;</a></p>
-    <p>Or reply with your race and the arithmetic gets done on your actual calendar first.</p>
+{{^race_name}}    <p>Or reply with your race and the arithmetic gets done on your actual calendar first.</p>
+{{/race_name}}{{#race_name}}    <p>Or reply &ldquo;run the math&rdquo; and the arithmetic gets done on {race_name}'s actual date before you spend anything.</p>
+{{/race_name}}
     <p>Subject closed.</p>
     <p>— Matti</p>
     <div class="footer">Roadie Labs &middot; <a href="https://roadielabs.com">roadielabs.com</a></div>

@@ -134,6 +134,20 @@ class TestConditionalPersonalization:
         return _render_template(tpl, {"contact_name": "Test Rider",
                                       "source_data": source_data})
 
+    RACE_CONDITIONAL = ("welcome_value", "road_welcome_value", "anti_pitch",
+                        "repitch", "race_prep_tips", "road_anti_pitch",
+                        "road_repitch", "road_prep_variables")
+
+    def test_all_race_conditional_templates_render_both_branches(self):
+        for tpl in self.RACE_CONDITIONAL:
+            known = self._render(tpl, {"race_name": "Big Sugar",
+                                       "race_slug": "big-sugar"})
+            anon = self._render(tpl, {})
+            assert "Big Sugar" in known, f"{tpl}: race not personalized"
+            assert "Big Sugar" not in anon, f"{tpl}: race leaked into anon branch"
+            for html in (known, anon):
+                assert "{{" not in html and "}}" not in html, f"{tpl}: mustache leak"
+
     def test_known_race_gets_callback_opener(self):
         for tpl in ("welcome_value", "road_welcome_value"):
             html = self._render(tpl, {"race_name": "Big Sugar",

@@ -20,9 +20,9 @@
   <div class="container">
     <p>{first_name} —</p>
     <p>This is the sales email. One short follow-up next week. Then the subject is closed.</p>
-    <p>If there is no race on your calendar, no purchase is justified. Stop reading. The database is free either way.</p>
-    <p>If there is: every source of training on the internet — free plans, spreadsheets, adaptive software — shares one property. It models the rider. Fatigue, zones, missed sessions. It does not model the event. It does not know whether your race climbs 1,000 meters or 4,000, whether the decisive climb arrives at kilometer 30 or kilometer 130, or what eating schedule survives either. The output is fitness in a generic shape. Races are not generic.</p>
-    <p>The product: we take the race's course profile from the database, your FTP, and your real weekly hours, and build every workout between now and the start line. Pacing and fueling targets computed for the course, not for &ldquo;a hilly ride.&rdquo;</p>
+{{^race_name}}    <p>If there is no race on your calendar, no purchase is justified. Stop reading. The database is free either way.</p>
+    <p>If there is: every source of training on the internet{{/race_name}}{{#race_name}}    <p>{race_name} is on your calendar, so the who-is-this-for section is skipped. The relevant fact: every source of training on the internet{{/race_name}} — free plans, spreadsheets, adaptive software — shares one property. It models the rider. Fatigue, zones, missed sessions. It does not model the event. It does not know whether your race climbs 1,000 meters or 4,000, whether the decisive climb arrives at kilometer 30 or kilometer 130, or what eating schedule survives either. The output is fitness in a generic shape. Races are not generic.</p>
+    <p>The product: we take {{#race_name}}{race_name}'s course profile from the database{{/race_name}}{{^race_name}}the race's course profile from the database{{/race_name}}, your FTP, and your real weekly hours, and build every workout between now and the start line. Pacing and fueling targets computed for the course, not for &ldquo;a hilly ride.&rdquo;</p>
     <p>A representative mid-plan week, for a course with sustained climbing:</p>
     <ul>
       <li><strong>Tue</strong> — 4 x 8 min at threshold, 4 min recoveries</li>

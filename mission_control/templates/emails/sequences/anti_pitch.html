@@ -20,11 +20,13 @@
   <div class="container">
     <p>{first_name} —</p>
     <p>This is the sales email I warned you about. One short follow-up in a few days, then I'm done.</p>
-    <p>If you don't have a race on the calendar — if you just ride to ride — you don't need this. Close the email, enjoy your bike. The free stuff stays free either way.</p>
+{{^race_name}}    <p>If you don't have a race on the calendar — if you just ride to ride — you don't need this. Close the email, enjoy your bike. The free stuff stays free either way.</p>
     <p>If you do have one circled, here's the pitch, and it isn't workouts. Workouts are free. The internet is drowning in them.</p>
+{{/race_name}}{{#race_name}}    <p>You've got {race_name} circled, so I'll skip the who-is-this-for preamble — here's the pitch, and it isn't workouts. Workouts are free. The internet is drowning in them.</p>
+{{/race_name}}
     <p>Every source of those workouts — the free 12-week plan you downloaded, the spreadsheet you built, even genuinely good training software — has one thing in common: it models <em>you</em>. Your fatigue, your zones, your missed Tuesdays. None of it models <em>the race</em>. It doesn't know where the climbing lands on your course, whether the day is decided at mile 20 or mile 90, or what you need to be eating per hour to still have a brain at the finish. It hands you excellent fitness in a generic shape. Races aren't generic.</p>
     <p>And the math of limited hours makes generic expensive. A rider with 20 hours a week can afford fitness that's merely general. A rider with 8 can't. Structure is how 8 focused hours beat 12 wandering ones — but only if the structure points at something.</p>
-    <p>So here's what I actually sell: I take your race's course profile out of the database, your FTP, and the hours you really have, and build every workout between now and the start line — with pacing and fueling targets computed for your course, not for &ldquo;a hilly ride.&rdquo;</p>
+    <p>So here's what I actually sell: I take {{#race_name}}{race_name}'s course profile out of the database{{/race_name}}{{^race_name}}your race's course profile out of the database{{/race_name}}, your FTP, and the hours you really have, and build every workout between now and the start line — with pacing and fueling targets computed for your course, not for &ldquo;a hilly ride.&rdquo;</p>
     <p>A mid-plan week, for a course with the climbing stacked late, looks something like this:</p>
     <ul>
       <li><strong>Tue</strong> — 5 x 5 min at 105% of FTP. The &ldquo;still climbing at hour four&rdquo; workout.</li>

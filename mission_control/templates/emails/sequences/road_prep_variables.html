@@ -13,12 +13,15 @@
 <body>
   <div class="container">
     <p>{first_name} —</p>
-    <p>Three variables decide most gran fondos, and none of them is FTP.</p>
+{{#race_name}}    <p>You took the {race_name} prep kit — correct instinct; most riders improvise. Three variables will decide your day, and none of them is FTP.</p>
+{{/race_name}}{{^race_name}}    <p>Three variables decide most gran fondos, and none of them is FTP.</p>
+{{/race_name}}
     <p><strong>1. Gut throughput.</strong> If race-day nutrition is 80g of carbohydrate an hour, that number needs to have been practiced on long rides, repeatedly, weeks in advance. Absorption capacity is trainable; discovering yours mid-race is the expensive way to learn it.</p>
     <p><strong>2. A pacing plan made before the start line.</strong> Study the course profile. Decide in advance where you will be patient and where you will spend. The riders who detonate on the last climb usually made that decision three hours earlier, in a group that was &ldquo;only slightly&rdquo; too fast. The database profile for your race marks where it actually gets decided.</p>
     <p><strong>3. The taper, done as written.</strong> The final two weeks add no fitness (that window closed). They convert existing fitness into availability. Cut volume roughly 40%, keep a little intensity, arrive bored. Bored is the target state.</p>
     <p>Every race profile covers course, pacing, and prep for that specific event: <a href="https://roadielabs.com/road-races/">find yours</a>.</p>
-    <p>— Matti</p>
+{{#race_name}}    <p>Which of the three is least settled for {race_name} — fueling, pacing, or taper? One line back gets a specific pointer.</p>
+{{/race_name}}    <p>— Matti</p>
     <p>P.S. Next: the race-week don't list. It is longer than the do list, which is the point.</p>
     <div class="footer">Roadie Labs &middot; <a href="https://roadielabs.com">roadielabs.com</a></div>
   </div>

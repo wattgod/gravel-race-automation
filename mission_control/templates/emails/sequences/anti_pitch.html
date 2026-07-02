@@ -6,7 +6,12 @@
     .container { max-width: 560px; margin: 0 auto; }
     p { margin: 0 0 16px; line-height: 1.65; font-size: 16px; }
     a { color: #1A8A82; }
+    ul { margin: 0 0 16px; padding-left: 20px; }
+    li { line-height: 1.6; font-size: 15px; margin-bottom: 6px; }
     .objection { font-style: italic; font-weight: bold; margin: 20px 0 8px; }
+    .offer { border: 2px solid #2b2b2b; padding: 16px 20px; margin: 20px 0; }
+    .offer p { font-family: 'Courier New', monospace; font-size: 13px; margin: 0 0 6px; }
+    .cta { font-weight: bold; font-size: 17px; }
     .footer { margin-top: 28px; padding-top: 14px; border-top: 1px solid #d4c5b9; font-family: 'Courier New', monospace; font-size: 11px; color: #8c7568; }
     .footer a { color: #8c7568; }
   </style>
@@ -14,22 +19,36 @@
 <body>
   <div class="container">
     <p>{first_name} —</p>
-    <p>This is the sales email. There's this one, a short follow-up in a few days, and then we're done.</p>
-    <p>If you don't have a race on the calendar — if you just ride to ride — you don't need this. Close the email, enjoy your bike. (The unsubscribe link is at the bottom and I mean it kindly. The free stuff stays free either way.)</p>
-    <p>If you do have one circled, here's what I'm actually selling, because it isn't workouts. Workouts are free. The internet is drowning in them.</p>
-    <p>What I sell is the version of you that shows up in race week: faster than you've been, with a season you enjoyed instead of survived, without having donated your marriage to a training plan. The math of limited hours is brutal and simple — a rider with 20 hours a week can afford junk miles. A rider with 8 can't. Structure is how 8 focused hours beat 12 wandering ones.</p>
-    <p>The mechanism is unglamorous: I take your race's actual course profile, your FTP, and your real schedule, and build every workout between now and your start line. Delivered in 48 hours, loads straight into Zwift or your head unit, pacing and fueling included for your course.</p>
-    <p>$15 per week of training, one payment, capped at $249 — a 12-week plan is $180. No calls, no upsells, no &ldquo;discovery session.&rdquo;</p>
-    <p>Objections, answered honestly:</p>
-    <p class="objection">&ldquo;Yeah, but I could build this myself with a spreadsheet and a free FTP calculator.&rdquo;</p>
-    <p>Touché — you genuinely could. Everything you need is on the internet, most of it on my own site. The question isn't whether you <em>can</em>. It's whether you <em>will</em>, at 9pm in week six, when the plan needs rebuilding around a work trip. You're not buying knowledge. You're buying the decision already made.</p>
-    <p class="objection">&ldquo;Yeah, but $180 is real money.&rdquo;</p>
-    <p>It is. It's also less than your race entry, a third of your travel, and a tenth of your bike's wheels. It's the only one of those purchases that changes how the other ones feel at mile 90.</p>
-    <p class="objection">&ldquo;Yeah, but how is this different from a generic 12-week plan off some Instagram coach's site?&rdquo;</p>
-    <p>That plan doesn't know your race has 11,000 feet of climbing, that you can only ride Tuesday, Thursday, and Sunday, or that your FTP is 240 and not &ldquo;intermediate.&rdquo; It also doesn't answer email. Somewhere around week eight of a plan that fits, something quieter happens: you stop being a person who owns a nice bike and start being a competitor. That part outlasts the fitness.</p>
-    <p><a href="https://gravelgodcycling.com/products/training-plans/">How it works</a></p>
-    <p>(If you want an actual human watching your data week to week, <a href="https://gravelgodcycling.com/coaching/">coaching exists too</a> — I take a small number of athletes. Most people should start with the plan.)</p>
-    <p>If the answer is no: keep reading the free stuff. That's why it exists.</p>
+    <p>This is the sales email I warned you about. One short follow-up in a few days, then I'm done.</p>
+    <p>If you don't have a race on the calendar — if you just ride to ride — you don't need this. Close the email, enjoy your bike. The free stuff stays free either way.</p>
+    <p>If you do have one circled, here's the pitch, and it isn't workouts. Workouts are free. The internet is drowning in them.</p>
+    <p>Every source of those workouts — the free 12-week plan you downloaded, the spreadsheet you built, even genuinely good training software — has one thing in common: it models <em>you</em>. Your fatigue, your zones, your missed Tuesdays. None of it models <em>the race</em>. It doesn't know where the climbing lands on your course, whether the day is decided at mile 20 or mile 90, or what you need to be eating per hour to still have a brain at the finish. It hands you excellent fitness in a generic shape. Races aren't generic.</p>
+    <p>And the math of limited hours makes generic expensive. A rider with 20 hours a week can afford fitness that's merely general. A rider with 8 can't. Structure is how 8 focused hours beat 12 wandering ones — but only if the structure points at something.</p>
+    <p>So here's what I actually sell: I take your race's course profile out of the database, your FTP, and the hours you really have, and build every workout between now and the start line — with pacing and fueling targets computed for your course, not for &ldquo;a hilly ride.&rdquo;</p>
+    <p>A mid-plan week, for a course with the climbing stacked late, looks something like this:</p>
+    <ul>
+      <li><strong>Tue</strong> — 5 x 5 min at 105% of FTP. The &ldquo;still climbing at hour four&rdquo; workout.</li>
+      <li><strong>Thu</strong> — 90 min tempo with low-cadence climbing blocks</li>
+      <li><strong>Sat</strong> — 3.5 hr endurance, last hour at your race-day pacing and fueling targets</li>
+      <li><strong>Sun</strong> — 1 hr easy spin. No heroics.</li>
+    </ul>
+    <div class="offer">
+      <p>THE PLAN, IN ONE BLOCK:</p>
+      <p>&bull; Every workout from purchase to start line, built from your race's course profile + your FTP + your real weekly hours</p>
+      <p>&bull; ZWO files for Zwift or your head unit, plus a PDF overview</p>
+      <p>&bull; Pacing and fueling targets for your course</p>
+      <p>&bull; Life blows up? Reply to the email and a human rebuilds the remaining weeks</p>
+      <p>&bull; Delivered in 48 hours</p>
+      <p>&bull; $15 per week of training, one payment, capped at $249 — a 12-week plan is $180</p>
+    </div>
+    <p>Two objections, answered honestly:</p>
+    <p class="objection">&ldquo;I could build this myself.&rdquo;</p>
+    <p>You genuinely could — most of what you'd need is free on my own site. The question isn't whether you <em>can</em>. It's whether you <em>will</em>, at 9pm in week six, when the plan needs rebuilding around a work trip. You're not buying knowledge. You're buying the decision already made.</p>
+    <p class="objection">&ldquo;$180 is real money.&rdquo;</p>
+    <p>It is. It's also less than your entry fee and a fraction of your travel — and it's the only one of those purchases that changes how the others feel at mile 90.</p>
+    <p>(If you want a human on your data every single week, <a href="https://gravelgodcycling.com/coaching/">coaching exists too</a> — small roster. Most people should start with the plan.)</p>
+    <p class="cta">Race circled? <a href="https://gravelgodcycling.com/products/training-plans/">BUILD MY PLAN &rarr;</a></p>
+    <p>Not sure your runway is even worth a plan? Reply and ask. I'll tell you straight if it isn't.</p>
     <p>— Matti</p>
     <div class="footer">Matti Rowe &middot; Gravel God Cycling &middot; <a href="https://gravelgodcycling.com">gravelgodcycling.com</a></div>
   </div>

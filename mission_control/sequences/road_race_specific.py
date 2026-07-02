@@ -17,7 +17,7 @@ SEQUENCE = {
             "steps": [
                 {"delay_days": 1, "template": "road_quiz_recap", "subject": "about your matches"},
                 {"delay_days": 4, "template": "road_race_deep_dive", "subject": "what {race_name} actually demands"},
-                {"delay_days": 10, "template": "road_anti_pitch", "subject": "you probably don't need a training plan"},
+                {"delay_days": 10, "template": "road_anti_pitch", "subject": "software models the rider, not the race"},
             ],
         },
     },

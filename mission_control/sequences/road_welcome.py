@@ -10,10 +10,10 @@ Cloudflare one-time authorization).
 """
 
 _STEPS = [
-    {"delay_days": 0, "template": "road_welcome_value", "subject": "what this is"},
+    {"delay_days": 0, "template": "road_welcome_value", "subject": "427 races, one ruler"},
     {"delay_days": 3, "template": "road_fueling_math", "subject": "how many carbs does a gran fondo actually take?"},
     {"delay_days": 5, "template": "road_honest_ratings", "subject": "the race we rated 44"},
-    {"delay_days": 7, "template": "road_anti_pitch", "subject": "you probably don't need a training plan"},
+    {"delay_days": 7, "template": "road_anti_pitch", "subject": "software models the rider, not the race"},
     {"delay_days": 10, "template": "road_repitch", "subject": "the week-six problem"},
 ]
 

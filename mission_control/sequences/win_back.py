@@ -6,7 +6,7 @@ same steps) in case legacy-B enrollments exist when reactivated.
 
 _STEPS = [
     {"delay_days": 0, "template": "win_back_value", "subject": "still there?"},
-    {"delay_days": 6, "template": "anti_pitch", "subject": "you probably don't need a coach"},
+    {"delay_days": 6, "template": "anti_pitch", "subject": "your fitness has a shape. so does your race."},
 ]
 
 SEQUENCE = {

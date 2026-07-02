@@ -9,7 +9,7 @@ ACTIVE — roadielabs.com verified in Resend Jul 2026.
 _STEPS = [
     {"delay_days": 2, "template": "road_prep_variables", "subject": "three variables that decide your fondo"},
     {"delay_days": 5, "template": "road_race_week", "subject": "race week: mostly don'ts"},
-    {"delay_days": 8, "template": "road_anti_pitch", "subject": "you probably don't need a training plan"},
+    {"delay_days": 8, "template": "road_anti_pitch", "subject": "software models the rider, not the race"},
     {"delay_days": 11, "template": "road_repitch", "subject": "the week-six problem"},
 ]
 

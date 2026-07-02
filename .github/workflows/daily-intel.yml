@@ -1,0 +1,48 @@
+name: Morning Intel
+
+# Daily interpreted report (GA4 + checkout + Mission Control + errors) for
+# both brands → gravelgodcoaching@gmail.com, with snapshots committed to
+# data/intel-snapshots/ so trends compound. Spec: docs/specs/daily-intel-report.md
+
+on:
+  schedule:
+    - cron: "0 12 * * *"   # 12:00 UTC = 06:00 MT
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: read
+
+jobs:
+  intel:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install dependencies
+        run: pip install --quiet google-analytics-data supabase python-dotenv
+      - name: Write GA4 credentials
+        run: echo "$GA4_CREDENTIALS_JSON" > ga4-credentials.json
+        env:
+          GA4_CREDENTIALS_JSON: ${{ secrets.GA4_CREDENTIALS_JSON }}
+      - name: Run Morning Intel
+        env:
+          GG_GA4_PROPERTY_ID: ${{ secrets.GG_GA4_PROPERTY_ID }}
+          RL_GA4_PROPERTY_ID: ${{ secrets.RL_GA4_PROPERTY_ID }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GH_TOKEN: ${{ github.token }}
+        run: python3 scripts/daily_intel.py
+      - name: Commit snapshot
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/intel-snapshots/
+          git diff --cached --quiet || git commit -m "chore: intel snapshot $(date +%Y-%m-%d)"
+          git pull --rebase origin main || true
+          git push

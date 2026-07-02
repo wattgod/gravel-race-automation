@@ -78,7 +78,7 @@
    "roadielabs": 0
   },
   "countdown_enrollments": 0,
-  "emails_sent_24h": 7,
+  "emails_sent_24h": 6,
   "opens_24h": 3,
   "clicks_24h": 0,
   "bounces_24h": 0,
@@ -96,5 +96,5 @@
   },
   "ok": true
  },
- "report": "## TOP LINE\n- The machine works end-to-end as of last night: both checkouts mint Stripe sessions, sequences sent 7 emails to 2 new leads, zero errors in Mission Control.\n- Roadie Labs did 0 sessions yesterday \u2014 the site was down on an expired cert until ~10 PM. It's live now with a self-renewing cert; today is its real day one.\n- Gravel God: 30 sessions (7-day avg 34.9), funnel silent (0 CTA clicks \u2192 0 purchases). Nothing sold yesterday on either brand.\n\n## NUMBERS\n| | Gravel God | Roadie Labs |\n|---|---|---|\n| Sessions (vs 7d avg) | 30 (34.9) | 0 (0.2) |\n| CTA clicks \u2192 purchases | 0 \u2192 0 | 0 \u2192 0 |\n| Checkout probe | OK | OK |\n| Leads (24h, both) | 2 | \u2014 |\n| Emails sent (24h, both) | 7 | \u2014 |\n| Orders (24h) | 0 | 0 |\n| MC errors (24h) | 0 | 0 |\n\n## BROKEN\n- Nothing. All probes green. (Automated interpretation isn't wired yet \u2014 this edition was hand-written; see DO TODAY.)\n\n## DO TODAY\n1. Add the ANTHROPIC_API_KEY secret to wattgod/gravel-race-automation (gh secret set ANTHROPIC_API_KEY) \u2014 it's the only missing piece; tomorrow's report interprets itself.\n2. Flush the roadielabs.com cache once more, then re-run the Link Check action \u2014 last night's round-2 fixes are behind the cache and the checker reads through it.\n3. Nothing else \u2014 let it run. Roadie Labs' funnel can't convert traffic it doesn't have; the 863-URL sitemap is fresh in GSC and the countdown trigger fires its first pass at 14:00 UTC today. Watch this report for the first road sessions.\n"
+ "report": "**INTERPRETATION FAILED: Anthropic API 401: {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CcdRbdnAhNvpaPgAf6kNL\"}**\n\n## RAW DIGEST \u2014 2026-07-02 (interpretation unavailable)\n\n### Gravel God\n- sessions 30 (7d avg 34.9), funnel {'cta_click': 0, 'tp_form_start': 0, 'tp_form_submit': 0, 'begin_checkout': 0, 'purchase': 0}\n- checkout: OK\n\n### Roadie Labs\n- sessions 0 (7d avg 0.2), funnel {'cta_click': 0, 'tp_form_start': 0, 'tp_form_submit': 0, 'begin_checkout': 0, 'purchase': 0}\n- checkout: OK\n\n- leads 2, emails 6, orders 0, errors 0"
 }

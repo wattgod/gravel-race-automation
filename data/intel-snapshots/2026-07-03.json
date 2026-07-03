@@ -1,0 +1,101 @@
+{
+ "date": "2026-07-03",
+ "ga4": {
+  "gravelgod": {
+   "sessions": 39,
+   "users": 32,
+   "pageviews": 56,
+   "sessions_7d_avg": 36.4,
+   "funnel": {
+    "cta_click": 1,
+    "form_start": 0,
+    "form_submit": 0,
+    "begin_checkout": 0,
+    "purchase": 0
+   },
+   "abandoned_submits": 0,
+   "top_pages": [
+    {
+     "path": "/race/calendar/2026/",
+     "views": 5
+    },
+    {
+     "path": "/race/haute-route-alps/",
+     "views": 3
+    },
+    {
+     "path": "/articles/",
+     "views": 2
+    },
+    {
+     "path": "/gravel-races/",
+     "views": 2
+    },
+    {
+     "path": "/products/training-plans/",
+     "views": 2
+    },
+    {
+     "path": "/race/bergen-voss/",
+     "views": 2
+    }
+   ],
+   "ok": true
+  },
+  "roadielabs": {
+   "sessions": 0,
+   "users": 0,
+   "pageviews": 0,
+   "sessions_7d_avg": 0.2,
+   "funnel": {
+    "cta_click": 0,
+    "form_start": 0,
+    "form_submit": 0,
+    "begin_checkout": 0,
+    "purchase": 0
+   },
+   "abandoned_submits": 0,
+   "top_pages": [],
+   "ok": true
+  }
+ },
+ "checkout": {
+  "gravelgod": {
+   "health_ok": true,
+   "stripe_checkout_ok": true,
+   "ok": true,
+   "error": ""
+  },
+  "roadielabs": {
+   "health_ok": true,
+   "stripe_checkout_ok": true,
+   "ok": true,
+   "error": ""
+  }
+ },
+ "mission_control": {
+  "new_leads_24h": 0,
+  "leads_by_brand": {
+   "gravelgod": 0,
+   "roadielabs": 0
+  },
+  "countdown_enrollments": 0,
+  "emails_sent_24h": 10,
+  "opens_24h": 7,
+  "clicks_24h": 1,
+  "bounces_24h": 0,
+  "new_orders_24h_UNRELIABLE": "use ga4 purchase counts \u2014 gg_athletes is not written by purchases",
+  "errors_24h": [],
+  "ok": true
+ },
+ "workflows": {
+  "latest": {
+   "gravel-race-automation/link-check.yml": "failure",
+   "road-race-automation/link-check.yml": "success",
+   "road-race-automation/checkout-monitor.yml": "success",
+   "gravel-race-automation/regression-tests.yml": "success"
+  },
+  "ok": true
+ },
+ "report": "## TOP LINE\n- GravelGod: 39 sessions (7d avg 36.4), 1 CTA click, funnel dies there \u2014 no form starts, no purchases.\n- Roadie Labs: 0 sessions, 0 users, second straight day of no traffic.\n- No leads, no orders, either brand. Checkout infra healthy on both.\n\n## NUMBERS\n| Brand | Sessions (7d avg) | CTA click | Form start | Form submit | Checkout | Purchase | Leads |\n|---|---|---|---|---|---|---|---|\n| GravelGod | 39 (36.4) | 1 | 0 | 0 | 0 | 0 | 0 |\n| Roadie Labs | 0 (0.2) | 0 | 0 | 0 | 0 | 0 | 0 |\n\n## BROKEN\n- `gravel-race-automation/link-check.yml` \u2014 failure. Severity: medium (site integrity check, not revenue-blocking, but check for broken links accumulating unaddressed).\n\n## DO TODAY\n- Investigate `link-check.yml` failure \u2014 recurring failures compound into bad SEO/UX signals; costs nothing to check logs now.\n- Ignore Roadie Labs traffic dip \u2014 no collector error, just no visitors; nothing actionable without a driver (content/promo) already in motion.\n- Check why the single GravelGod CTA click didn't reach form_start \u2014 1 click, 0 starts is a full drop-off; look at that session's landing page/device if session recording exists."
+}

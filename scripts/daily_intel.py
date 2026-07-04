@@ -145,6 +145,17 @@ def collect_ga4(brand: str) -> dict:
     top_pages = [{"path": r.dimension_values[0].value,
                   "views": int(r.metric_values[0].value)} for r in pages.rows]
 
+    # 28-day aggregates for the constraint math (precomputed — the
+    # interpreter must never do arithmetic itself)
+    m_ago = (date.today() - timedelta(days=29)).isoformat()
+    agg = run(["sessions"], date_from=m_ago, date_to=y)
+    sessions_28d = int(agg.rows[0].metric_values[0].value) if agg.rows else 0
+    ev28 = run(["eventCount"], ["eventName"], date_from=m_ago, date_to=y)
+    ev28d = {r.dimension_values[0].value: int(r.metric_values[0].value)
+             for r in ev28.rows}
+    funnel_28d = {stage: sum(ev28d.get(e, 0) for e in evs)
+                  for stage, evs in FUNNEL_STAGES.items()}
+
     channels = run(["sessions"], ["sessionDefaultChannelGroup"], limit=8)
     channel_mix = {r.dimension_values[0].value: int(r.metric_values[0].value)
                    for r in channels.rows}
@@ -165,6 +176,8 @@ def collect_ga4(brand: str) -> dict:
         "top_pages": top_pages,
         "channel_mix": channel_mix,
         "top_landing": top_landing,
+        "sessions_28d": sessions_28d,
+        "funnel_28d": funnel_28d,
     }
 
 
@@ -182,6 +195,56 @@ def collect_checkout(brand: str) -> dict:
     return {"health_ok": health_ok, "stripe_checkout_ok": stripe_ok,
             "ok": health_ok and stripe_ok,
             "error": "" if (health_ok and stripe_ok) else f"health={code} checkout={ccode}"}
+
+
+def collect_commerce_ledger() -> dict:
+    """Ground truth from the webhook's /api/intel-stats (Railway volume logs):
+    orders WITH fulfillment outcomes, cart recoveries, questionnaire starts."""
+    secret = os.environ.get("CRON_SECRET", "")
+    if not secret:
+        return {"ok": False, "error": "CRON_SECRET not set"}
+    code, body = _http(f"{WEBHOOK}/api/intel-stats",
+                       headers={"X-Cron-Secret": secret})
+    if code != 200:
+        return {"ok": False, "error": f"intel-stats HTTP {code}: {body[:120]}"}
+    return json.loads(body)
+
+
+def compute_constraint(ga4_gravel: dict) -> dict:
+    """Name the funnel's binding constraint from 28-day rates. Pure math,
+    precomputed here so the interpreter only narrates."""
+    if not ga4_gravel.get("ok"):
+        return {"ok": False, "error": "no GA4 data"}
+    s28 = ga4_gravel.get("sessions_28d") or 0
+    f = ga4_gravel.get("funnel_28d") or {}
+    cta, sub, pur = f.get("cta_click", 0), f.get("form_submit", 0), f.get("purchase", 0)
+    days = 28
+    rates = {
+        "sessions_per_day": round(s28 / days, 1),
+        "cta_rate_pct": round(100 * cta / s28, 2) if s28 else 0,
+        "cta_to_submit_pct": round(100 * sub / cta, 1) if cta else 0,
+        "submit_to_purchase_pct": round(100 * pur / sub, 1) if sub else 0,
+        "purchases_28d": pur, "submits_28d": sub, "ctas_28d": cta,
+    }
+    # sessions/day needed for 1 purchase/day at current observed rates
+    # (fall back through the funnel when a stage has no data yet)
+    chain = (cta / s28 if s28 else 0) * (sub / cta if cta else 0) * (pur / sub if sub else 0)
+    rates["sessions_per_day_needed_for_1_sale"] = (
+        round(1 / chain) if chain > 0 else None)
+    # binding constraint heuristic, top-down
+    if s28 / days < 100:
+        binding = ("traffic — at these volumes no funnel rate is even "
+                   "measurable; nothing downstream is worth optimizing yet")
+    elif cta == 0:
+        binding = "cta_rate — sessions exist but nobody clicks toward a plan"
+    elif sub == 0:
+        binding = "form completion — clicks exist but nobody finishes intake"
+    elif pur == 0:
+        binding = "close rate — completed intakes aren't converting to payment"
+    else:
+        binding = "scaling — every stage has signal; grow the top"
+    rates["binding_constraint"] = binding
+    return {"ok": True, **rates}
 
 
 def collect_mission_control() -> dict:
@@ -226,7 +289,46 @@ def collect_mission_control() -> dict:
            or "fail" in (a.get("action") or "").lower()
     ]
 
+    # Hot leads: recent enrollments with race context + engagement, so the
+    # report can NAME people instead of counting them. Cap 8.
+    two_weeks = (datetime.now(timezone.utc) - timedelta(days=14)).isoformat()
+    recent_enr = [e for e in enrollments if (e.get("enrolled_at") or "") >= two_weeks]
+    recent_ids = {e.get("id") for e in db.select(
+        "gg_sequence_enrollments", columns="id,contact_email,enrolled_at",
+        order="enrolled_at", limit=1000) if (e.get("enrolled_at") or "") >= two_weeks}
+    id_sends = [x for x in db.select(
+        "gg_sequence_sends", columns="enrollment_id,sent_at,opened_at,clicked_at,template",
+        order="sent_at", limit=1000) if x.get("enrollment_id") in recent_ids]
+    eng = {}
+    for x in id_sends:
+        d = eng.setdefault(x["enrollment_id"], {"opens": 0, "clicks": 0, "last_template": None})
+        if x.get("opened_at"): d["opens"] += 1
+        if x.get("clicked_at"): d["clicks"] += 1
+        d["last_template"] = x.get("template")
+    full_enr = db.select("gg_sequence_enrollments",
+                         columns="id,contact_email,contact_name,sequence_id,current_step,status,enrolled_at,source_data",
+                         order="enrolled_at", limit=1000)
+    hot_leads = []
+    seen_emails = set()
+    for e in sorted(full_enr, key=lambda x: x.get("enrolled_at") or "", reverse=True):
+        if (e.get("enrolled_at") or "") < two_weeks or e["contact_email"] in seen_emails:
+            continue
+        seen_emails.add(e["contact_email"])
+        sd = e.get("source_data") or {}
+        g = eng.get(e.get("id"), {})
+        hot_leads.append({
+            "email": e["contact_email"], "name": e.get("contact_name") or "",
+            "race": sd.get("race_name") or "(no race given)",
+            "brand": sd.get("brand", "gravelgod"),
+            "sequence": e.get("sequence_id"), "step": e.get("current_step"),
+            "status": e.get("status"),
+            "opens": g.get("opens", 0), "clicks": g.get("clicks", 0),
+        })
+        if len(hot_leads) >= 8:
+            break
+
     return {
+        "hot_leads_14d": hot_leads,
         "new_leads_24h": len(new_enr),
         "leads_by_brand": by_brand,
         "countdown_enrollments": countdown,
@@ -301,8 +403,25 @@ For each brand with >5 sessions: top pages (path + views, top 3-5), the channel 
 learns WHAT people read and WHERE they came from. One line per item, real paths. If a \
 brand is near-zero, one line says so and moves on. Flag anything notable (a page \
 suddenly popular, a new referral source).
+## COMMERCE (ground truth)
+From commerce_ledger (the Railway order ledger — this OVERRIDES any GA4 inference): \
+orders in the last 24h with names and fulfillment outcomes, cart-recovery emails sent, \
+real questionnaire starts. A FAILED order (success=false) is a paying customer without \
+a product — lead the whole report with it if one exists. If the ledger shows nothing, \
+one line.
+## CONSTRAINT
+Use ONLY the precomputed numbers in `constraint` (never compute your own): state the \
+binding constraint by name, the 28-day funnel rates, and the sessions/day needed for \
+one sale/day at current rates vs actual sessions/day. Two or three sentences, plain.
+## HOT LEADS
+From mission_control.hot_leads_14d: one line per person — name/email, their race, \
+where they are in which sequence, opens/clicks — ending with ONE concrete suggested \
+action (e.g. "reply personally re: {race} — use draft_race_reply"). These are real \
+humans Matti may email today; be specific, never invent engagement they don't have. \
+If empty: one line.
 ## BROKEN
-Every failed probe/collector/error, severity-ranked. If nothing: one line saying so.
+Every failed probe/collector/error, severity-ranked. A failed ORDER outranks \
+everything else in the report. If nothing: one line saying so.
 ## DO TODAY
 Max 3 action items, each one line: the action, the why, expected impact. If the right \
 move is "nothing — let it run", say that.
@@ -462,8 +581,10 @@ def main() -> int:
         "ga4": {b: _safe(lambda b=b: collect_ga4(b)) for b in BRANDS},
         "checkout": {b: _safe(lambda b=b: collect_checkout(b)) for b in BRANDS},
         "mission_control": _safe(collect_mission_control),
+        "commerce_ledger": _safe(collect_commerce_ledger),
         "workflows": _safe(collect_workflows),
     }
+    collected["constraint"] = compute_constraint(collected["ga4"].get("gravelgod", {}))
     trend = load_trend()
 
     if args.no_llm or not os.environ.get("ANTHROPIC_API_KEY"):

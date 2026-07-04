@@ -38,6 +38,44 @@
     {
      "path": "/race/bike-abu-dhabi-gran-fondo/",
      "views": 1
+    },
+    {
+     "path": "/race/copper-triangle/",
+     "views": 1
+    },
+    {
+     "path": "/race/granfondo-san-sebastian/",
+     "views": 1
+    }
+   ],
+   "channel_mix": {
+    "Organic Search": 15,
+    "Direct": 5
+   },
+   "top_landing": [
+    {
+     "path": "/race/calendar/2026/",
+     "sessions": 3
+    },
+    {
+     "path": "/race/the-traka/tires/",
+     "sessions": 2
+    },
+    {
+     "path": "/race/unbound-200/tires/",
+     "sessions": 2
+    },
+    {
+     "path": "(not set)",
+     "sessions": 1
+    },
+    {
+     "path": "/",
+     "sessions": 1
+    },
+    {
+     "path": "/gravel-races/",
+     "sessions": 1
     }
    ],
    "ok": true
@@ -59,6 +97,19 @@
     {
      "path": "/race/la-marmotte/",
      "views": 1
+    }
+   ],
+   "channel_mix": {
+    "Organic Search": 1
+   },
+   "top_landing": [
+    {
+     "path": "",
+     "sessions": 1
+    },
+    {
+     "path": "/race/la-marmotte/",
+     "sessions": 1
     }
    ],
    "ok": true
@@ -85,8 +136,8 @@
    "roadielabs": 0
   },
   "countdown_enrollments": 0,
-  "emails_sent_24h": 12,
-  "opens_24h": 4,
+  "emails_sent_24h": 9,
+  "opens_24h": 3,
   "clicks_24h": 0,
   "bounces_24h": 0,
   "new_orders_24h_UNRELIABLE": "use ga4 purchase counts \u2014 gg_athletes is not written by purchases",
@@ -102,5 +153,5 @@
   },
   "ok": true
  },
- "report": "## TOP LINE\n- GravelGod sessions: 20 vs 35 7d avg (-43%). Zero clicks past homepage into funnel \u2014 no CTA clicks, no form starts, no purchases.\n- RoadieLabs: 1 session, 1 pageview, no funnel activity. Consistent with baseline (near-zero).\n- Zero leads, zero orders, zero checkout starts across both brands. Checkout infra itself is healthy (Stripe OK both sites).\n\n## NUMBERS\n| Brand | Sessions (7d avg) | CTA click | Form start | Form submit | Checkout | Purchase | Leads |\n|---|---|---|---|---|---|---|---|\n| GravelGod | 20 (35.0) | 0 | 0 | 0 | 0 | 0 | 0 |\n| RoadieLabs | 1 (0.4) | 0 | 0 | 0 | 0 | 0 | 0 |\n\nEmails: 12 sent, 4 opens, 0 clicks, 0 bounces. Countdown enrollments: 0.\n\n## BROKEN\n- `gravel-race-automation/link-check.yml`: failure. Unclear scope \u2014 check run log before assuming site-wide link rot.\n- Nothing else failed. Checkout, GA4 collectors, mission control all reporting `ok: true`.\n\n## DO TODAY\n- Check the `link-check.yml` failure log on GravelGod \u2014 why: could be flagging broken outbound race links suppressing engagement; impact: fix could restore normal browsing depth.\n- Nothing else to push \u2014 funnel is at zero, not degraded; forcing action on a 20-session day risks misreading noise as signal.\n- Watch tomorrow's GG session count against today's 20 \u2014 why: two straight days below 7d avg would be a real trend, not one bad day."
+ "report": "## TOP LINE\n- GravelGod: 20 sessions vs 35 7d-avg (-43%). Zero cta_clicks, zero form activity, zero purchases \u2014 full funnel dead, not just bottom of it.\n- RoadieLabs: 1 session (7d avg 0.4). Nothing else moving.\n- Leads: 0. Orders: 0. Both brands, zero for the day.\n\n## NUMBERS\n| Brand | Sessions (7d avg) | CTA clicks | Form start | Form submit | Checkout | Purchases | Leads |\n|---|---|---|---|---|---|---|---|\n| GravelGod | 20 (35.0) | 0 | 0 | 0 | 0 | 0 | 0 |\n| RoadieLabs | 1 (0.4) | 0 | 0 | 0 | 0 | 0 | 0 |\n\n## TRAFFIC\n**GravelGod** (20 sessions)\n- Top pages: /gravel-races/ (4), /race/calendar/2026/ (3), / (2), /race/unbound-200/tires/ (2), /race/big-sugar/ (1)\n- Channels: Organic Search 15, Direct 5. No referral traffic.\n- Top landing: /race/calendar/2026/ (3), /race/the-traka/tires/ (2), /race/unbound-200/tires/ (2)\n- Nothing new here \u2014 same race/tire pages as usual, no spike, no new source.\n\n**RoadieLabs**\n- Near-zero: 1 session total, landed on /race/la-marmotte/ via organic search. Not enough to read into.\n\n## BROKEN\n- `gravel-race-automation/link-check.yml`: failure. Other three workflows (road-race link-check, checkout-monitor, gravel regression-tests) green. Checkout health and Stripe both OK on both brands.\n\n## DO TODAY\n- Check gravel-race-automation/link-check.yml failure log \u2014 could be masking broken links feeding the session drop. (Fix cost: low, diagnostic value: real.)\n- Confirm GA4 funnel tracking fires on a manual test purchase attempt \u2014 zero cta_click across 20 sessions is a tracking-failure pattern, not just a bad day. If tracking's fine, it's a demand problem, not a tooling one.\n- No campaign changes today \u2014 sample size too thin (20 + 1 sessions) to act on traffic mix."
 }

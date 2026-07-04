@@ -44,6 +44,30 @@ did it make them smile? Both or don't post.
    Gravel (~7K, outsized influence) proves the irreverent-commentary
    audience exists; nobody has data behind it.
 
+## The Nihilist Arby's mechanic (Matti-requested addition)
+
+@nihilist_arbys (Brendan Kelly, 2015 — a PARODY, not Arby's; the brand
+wisely embraced it with sandwiches and a puppy instead of lawyers). Two
+things it proves that we steal:
+
+1. **A rigid comedic formula compounds.** Every post is identical
+   architecture: bleak cosmic observation → flat "Eat Arby's." The FORMAT
+   is the mascot — followers show up for the next iteration of the same
+   joke. Ours: **existential gravel truth → deadpan data → score/date.**
+   ("Nothing you do matters. The wind erases everything. Unbound is 12
+   weeks out. 97/100. Enjoy the gravel.") This is a recurring BIT, not
+   the whole voice — one format among several, because...
+2. **Dosage.** Full-nihilist works for a parody with nothing to sell.
+   We sell hope on a schedule (training plans), so despair is a spice,
+   not the sauce — and cycling canon already licenses it:
+   suffering-as-identity IS the sport's love language, and Matti's
+   Substack register (memento-mori math, "13% of your life at the height
+   of your powers") is this exact voice in essay form. The bit is
+   authentic because he already writes it.
+
+Corollary from Arby's-the-brand: if parody/roast accounts ever aim at us,
+feed them — never fight them. The gift-bag response outperformed any ad.
+
 ## Cycling's shared joke vocabulary (use these, they're canon)
 
 Suffering-as-identity · N+1/financial-ruin math · the dentist bike (mock

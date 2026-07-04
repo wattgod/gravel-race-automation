@@ -133,6 +133,17 @@ class TestApplyFixes:
             assert any(c.get("tier_change") for c in changes)
             assert new_rating["display_tier_label"] == f"TIER {new_rating['display_tier']}"
 
+    def test_huge_swing_is_flag_only(self, tmp_path, monkeypatch):
+        """>50% change usually means the agent verified the wrong distance
+        variant of a multi-distance event — never auto-fix."""
+        path = _make_race_file(tmp_path, monkeypatch,
+                               {"distance_mi": 65}, dict(BASE_RATING))
+        changes = vrr.apply_fixes("test-race",
+                                  [_verdict("distance_mi", web_value="26.7")],
+                                  dry_run=False)
+        assert changes and changes[0]["flag_only"] is True
+        assert json.loads(path.read_text())["race"]["vitals"]["distance_mi"] == 65
+
     def test_status_is_flag_only(self, tmp_path, monkeypatch):
         path = _make_race_file(tmp_path, monkeypatch,
                                {"distance_mi": 100}, dict(BASE_RATING))

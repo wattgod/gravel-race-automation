@@ -59,6 +59,9 @@ FIELD_TOLERANCE = {
     "elevation_ft": 0.15,
     "field_size": 0.25,   # sources report registered vs finishers; be loose
 }
+# A swing bigger than this is usually the agent verifying the wrong distance
+# variant of a multi-distance event, not a real correction — flag, don't fix.
+MAX_AUTO_REL_CHANGE = 0.5
 # Verified but never auto-fixed numerically (string fields — replace whole value)
 STRING_FIELDS = ["prize_purse", "registration_cost", "status"]
 
@@ -216,6 +219,11 @@ def apply_fixes(slug, verdicts, dry_run):
                 continue
             if old and abs(new - old) / old <= FIELD_TOLERANCE[field]:
                 continue  # within tolerance — treat as confirmed
+            if old and abs(new - old) / old > MAX_AUTO_REL_CHANGE:
+                changes.append({"field": f"vitals.{field}", "old": old,
+                                "new": new, "source": v["source_url"],
+                                "flag_only": True})
+                continue
             if field == "field_size":
                 vitals[field] = str(int(new))
             else:

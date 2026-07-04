@@ -875,8 +875,8 @@ def extract_screenshots(slug: str, data: dict, dry_run: bool = False,
         gif_paths = []
         if max_gifs > 0 and gif_candidates:
             best_gifs = select_best_gif_segments(gif_candidates, max_gifs)
-            _log(f"    GIF segments: {len(best_gifs)} selected "
-                 f"(motion: {', '.join(f'{g['motion_score']:.2f}' for g in best_gifs)})")
+            motions = ", ".join(f"{g['motion_score']:.2f}" for g in best_gifs)
+            _log(f"    GIF segments: {len(best_gifs)} selected (motion: {motions})")
 
             for gi, g in enumerate(best_gifs):
                 gp = generate_gif(g["video_id"], g["timestamp"], slug, tmp_dir,

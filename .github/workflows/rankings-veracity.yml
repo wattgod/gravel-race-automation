@@ -1,0 +1,118 @@
+name: "Rankings Veracity Check (gated auto-commit)"
+
+# The race-content freshness loop, RATINGS tier (sibling of weekly-fact-refresh,
+# which owns dates/status via official-site scraping):
+#   cheap agents (Haiku + web search) verify the objective vitals behind each
+#   race's rating (distance, elevation, field size, purse, cost, alive/dead) →
+#   high-confidence mismatches auto-fixed → Length/Elevation/Altitude criterion
+#   scores recomputed from the published rubric → overall score + tier
+#   recomputed → gates → auto-commit + notification issue.
+#
+# Guardrails:
+#   - Whitelisted FACT fields only; subjective criteria (prestige, community,
+#     experience...) are never touched
+#   - status (cancelled/defunct) is FLAG-ONLY — never auto-applied
+#   - Tier changes are applied (pure rubric math) but flagged loudly
+#   - Anomaly brake: >10 changed profiles → issue instead of commit
+#   - Budget: ~$0.04/race (Haiku + <=4 web searches). 25 races weekly ≈
+#     $4-5/mo; full 757-race sweep ≈ 30 weeks.
+
+on:
+  schedule:
+    # Thursdays 14:00 UTC — offset from the Tuesday fact refresh
+    - cron: '0 14 * * 4'
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: 'Races per run'
+        required: false
+        default: '25'
+        type: string
+      dry_run:
+        description: 'Report only, do not modify race-data'
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: pip install anthropic pytest
+
+      - name: Verify rankings facts
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          python scripts/verify_race_rankings.py \
+            --limit "${{ inputs.limit || '25' }}" \
+            ${{ inputs.dry_run == true && '--dry-run' || '' }} \
+            | tee /tmp/verify-output.txt
+
+      - name: Count changed profiles
+        id: changes
+        run: |
+          CHANGED=$(git diff --name-only race-data/ | wc -l | tr -d ' ')
+          echo "count=$CHANGED" >> "$GITHUB_OUTPUT"
+          echo "Changed profiles: $CHANGED"
+
+      - name: Verification gates
+        if: steps.changes.outputs.count != '0'
+        run: |
+          python -m pytest tests/test_verify_race_rankings.py tests/test_dates.py -q
+          python scripts/validate_citations.py > /dev/null
+
+      - name: Anomaly brake — too many changes
+        if: steps.changes.outputs.count > 10
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git diff --stat race-data/ > /tmp/diffstat.txt
+          gh issue create \
+            --title "Rankings veracity anomaly: ${{ steps.changes.outputs.count }} profiles changed in one run" \
+            --body "$(printf 'The veracity check changed more than 10 profiles, exceeding the anomaly brake. Nothing was committed — review the run logs.\n\n```\n%s\n```' "$(cat /tmp/diffstat.txt)")"
+          echo "::warning::Anomaly brake tripped — issue opened, no commit"
+          git checkout -- race-data/ data/verification/ 2>/dev/null || git checkout -- race-data/
+          exit 0
+
+      - name: Commit fixes to main (gated auto-merge)
+        if: steps.changes.outputs.count != '0' && steps.changes.outputs.count <= 10
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config user.name "rankings-veracity-bot"
+          git config user.email "veracity@gravelgodcycling.com"
+          git add race-data/ data/verification/
+          git commit -m "veracity: web-verified rankings fixes ($(date +%Y-%m-%d))"
+          git push
+          SUMMARY=$(grep -E "^  [a-z0-9-]+: " /tmp/verify-output.txt || echo "see run logs")
+          gh issue create \
+            --title "Rankings veracity: $(grep -oE '[0-9]+ with changes' /tmp/verify-output.txt || echo 'fixes') applied — $(date +%Y-%m-%d)" \
+            --body "$(printf 'Cheap-agent verification (Haiku + web search) found and fixed high-confidence factual mismatches. Criterion scores and tiers recomputed from the rubric where inputs changed. [TIER CHANGE] and [FLAG-ONLY] lines need your review.\n\n```\n%s\n```\n\nFull report: data/verification/last_run_report.json' "$SUMMARY")"
+
+      - name: Persist state even with no fixes
+        if: steps.changes.outputs.count == '0'
+        run: |
+          if ! git diff --quiet data/verification/ 2>/dev/null || [ -n "$(git status --porcelain data/verification/)" ]; then
+            git config user.name "rankings-veracity-bot"
+            git config user.email "veracity@gravelgodcycling.com"
+            git add data/verification/
+            git commit -m "veracity: verification state update ($(date +%Y-%m-%d)) — no fixes needed"
+            git push
+          fi
+          echo "All checked facts confirmed."

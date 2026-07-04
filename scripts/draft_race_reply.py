@@ -164,9 +164,10 @@ def main() -> int:
     facts = race_facts(path, brand["site"])
     text = draft(facts, args.name.strip().title(), brand["plans_url"])
 
+    weeks = ("?" if facts["weeks_out"] is None
+             else f"{facts['weeks_out']:.1f} weeks out")
     header = (f"── {facts['name']} · {facts['date_text']} · "
-              f"{'?' if facts['weeks_out'] is None else f'{facts['weeks_out']:.1f} weeks out'}"
-              f" · score {facts['score']}/100 ──")
+              f"{weeks} · score {facts['score']}/100 ──")
     print(header)
     print(text)
     if args.copy:

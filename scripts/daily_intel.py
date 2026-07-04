@@ -339,6 +339,26 @@ def collect_mission_control() -> dict:
     }
 
 
+def collect_social() -> dict:
+    """Social engine status: yesterday's queue + published state. Platform
+    metrics (impressions/engagement) join here in Phase 3 when accounts
+    exist; social-driven SESSIONS already arrive via ga4.channel_mix."""
+    qdir = PROJECT_ROOT / "data" / "social-queue"
+    y = (date.today() - timedelta(days=1)).isoformat()
+    t = date.today().isoformat()
+    out = {"accounts_live": False,  # flip when X/IG/Notes publishing ships
+           "queued_today": 0, "queued_yesterday": 0, "posts": []}
+    for label, day in (("queued_today", t), ("queued_yesterday", y)):
+        f = qdir / f"{day}.json"
+        if f.exists():
+            q = json.loads(f.read_text())
+            out[label] = len(q)
+            if label == "queued_today":
+                out["posts"] = [{"brand": x["brand"], "race": x["race"],
+                                 "kind": x["kind"]} for x in q[:10]]
+    return out
+
+
 def collect_workflows() -> dict:
     """Latest conclusions of the health workflows (needs GITHUB_TOKEN or gh auth)."""
     import subprocess
@@ -419,6 +439,13 @@ where they are in which sequence, opens/clicks — ending with ONE concrete sugg
 action (e.g. "reply personally about their race — use draft_race_reply"). These are real \
 humans Matti may email today; be specific, never invent engagement they don't have. \
 If empty: one line.
+## SOCIAL
+Metrics that matter, in strict order (say WHY when numbers exist): \
+(1) social-driven SESSIONS from ga4 channel_mix — the only metric connected to the \
+sales constraint; (2) link clicks per post; (3) engagement rate per post as a voice \
+signal. Follower counts and likes are explicitly NOT success — never celebrate them. \
+Also report what the engine queued (social.posts). While social.accounts_live is \
+false: one line — queue status + zero social sessions is expected, no analysis theater.
 ## BROKEN
 Every failed probe/collector/error, severity-ranked. A failed ORDER outranks \
 everything else in the report. If nothing: one line saying so.
@@ -533,7 +560,8 @@ def _md_to_html(md: str) -> str:
         elif _re.match(r"^\d+\. ", line):
             items = []
             while i < len(lines) and _re.match(r"^\d+\. ", lines[i]):
-                items.append(f'<li style="margin:0 0 10px">{inline(_re.sub(r"^\d+\. ", "", lines[i]))}</li>')
+                item_text = inline(_re.sub(r"^\d+\. ", "", lines[i]))
+                items.append(f'<li style="margin:0 0 10px">{item_text}</li>')
                 i += 1
             i -= 1
             out.append('<ol style="margin:8px 0 16px;padding-left:22px">' + "".join(items) + "</ol>")
@@ -582,6 +610,7 @@ def main() -> int:
         "checkout": {b: _safe(lambda b=b: collect_checkout(b)) for b in BRANDS},
         "mission_control": _safe(collect_mission_control),
         "commerce_ledger": _safe(collect_commerce_ledger),
+        "social": _safe(collect_social),
         "workflows": _safe(collect_workflows),
     }
     collected["constraint"] = compute_constraint(collected["ga4"].get("gravelgod", {}))

@@ -855,8 +855,8 @@ def extract_screenshots(slug: str, data: dict, dry_run: bool = False,
 
         # 6. Select best frames for stills
         best = select_best_frames(candidates, max_frames)
-        _log(f"    Selected: {len(best)} frames (scores: "
-             f"{', '.join(f'{b['score']:.1f}' for b in best)})")
+        scores = ", ".join(f"{b['score']:.1f}" for b in best)
+        _log(f"    Selected: {len(best)} frames (scores: {scores})")
 
         # 7. Save photos
         slug_dir = PHOTOS_DIR / slug

@@ -141,9 +141,17 @@ def collect_ga4(brand: str) -> dict:
     ev = {r.dimension_values[0].value: int(r.metric_values[0].value)
           for r in events.rows}
 
-    pages = run(["screenPageViews"], ["pagePath"], limit=6)
+    pages = run(["screenPageViews"], ["pagePath"], limit=8)
     top_pages = [{"path": r.dimension_values[0].value,
                   "views": int(r.metric_values[0].value)} for r in pages.rows]
+
+    channels = run(["sessions"], ["sessionDefaultChannelGroup"], limit=8)
+    channel_mix = {r.dimension_values[0].value: int(r.metric_values[0].value)
+                   for r in channels.rows}
+
+    landing = run(["sessions"], ["landingPagePlusQueryString"], limit=6)
+    top_landing = [{"path": r.dimension_values[0].value.split("?")[0],
+                    "sessions": int(r.metric_values[0].value)} for r in landing.rows]
 
     return {
         "sessions": int(t[0].value) if t else 0,
@@ -155,6 +163,8 @@ def collect_ga4(brand: str) -> dict:
         "abandoned_submits": max(0, sum(ev.get(e, 0) for e in FUNNEL_STAGES["form_submit"])
                                     - ev.get("purchase", 0)),
         "top_pages": top_pages,
+        "channel_mix": channel_mix,
+        "top_landing": top_landing,
     }
 
 
@@ -285,6 +295,12 @@ Then:
 - 3 bullets max. What actually happened yesterday. Numbers inline.
 ## NUMBERS
 A compact per-brand markdown table: sessions (vs 7d avg), funnel steps, leads, orders.
+## TRAFFIC
+For each brand with >5 sessions: top pages (path + views, top 3-5), the channel mix \
+(organic/direct/referral with counts), and top landing pages — this is where the reader \
+learns WHAT people read and WHERE they came from. One line per item, real paths. If a \
+brand is near-zero, one line says so and moves on. Flag anything notable (a page \
+suddenly popular, a new referral source).
 ## BROKEN
 Every failed probe/collector/error, severity-ranked. If nothing: one line saying so.
 ## DO TODAY

@@ -144,6 +144,18 @@ class TestApplyFixes:
         assert changes and changes[0]["flag_only"] is True
         assert json.loads(path.read_text())["race"]["vitals"]["distance_mi"] == 65
 
+    def test_flag_only_change_never_triggers_score_recompute(self, tmp_path, monkeypatch):
+        """A held (flag-only) vital must not recompute criterion scores."""
+        path = _make_race_file(tmp_path, monkeypatch,
+                               {"distance_mi": 51, "elevation_ft": 5000},
+                               dict(BASE_RATING))
+        vrr.apply_fixes("test-race",
+                        [_verdict("distance_mi", web_value="8.6")],
+                        dry_run=False)
+        rating = json.loads(path.read_text())["race"]["gravel_god_rating"]
+        assert rating["length"] == BASE_RATING["length"]
+        assert rating["overall_score"] == BASE_RATING["overall_score"]
+
     def test_status_is_flag_only(self, tmp_path, monkeypatch):
         path = _make_race_file(tmp_path, monkeypatch,
                                {"distance_mi": 100}, dict(BASE_RATING))

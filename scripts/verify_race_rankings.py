@@ -247,7 +247,8 @@ def apply_fixes(slug, verdicts, dry_run):
         ("distance_mi", "length", LENGTH_THRESHOLDS),
         ("elevation_ft", "elevation", ELEVATION_THRESHOLDS),
     ):
-        if not any(c["field"] == f"vitals.{vital_field}" for c in changes):
+        if not any(c["field"] == f"vitals.{vital_field}" and not c.get("flag_only")
+                   for c in changes):
             continue
         new_score = score_from_thresholds(_num(vitals[vital_field]), thresholds)
         old_score = rating.get(score_field)

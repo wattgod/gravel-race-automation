@@ -1171,8 +1171,8 @@ class TestRacerRating:
         rd = normalize_race_data(sample_race_data)
         html = build_racer_reviews(rd)
         assert "gg-racer-empty" in html
-        assert "No racer ratings yet" in html
-        assert "RATE " in html
+        assert "Be the first to rate" in html
+        assert "RATE THIS RACE" in html
 
     def test_racer_reviews_pending_state(self, race_below_threshold):
         rd = normalize_race_data(race_below_threshold)

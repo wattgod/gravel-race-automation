@@ -186,6 +186,8 @@ class TestSeriesHubPages:
     def test_hub_page_exists(self, slug):
         hub_path = (PROJECT_ROOT / "wordpress" / "output" / "race" / "series"
                     / slug / "index.html")
+        if not (PROJECT_ROOT / "wordpress" / "output").exists():
+            pytest.skip("Generated output not present (fresh checkout)")
         assert hub_path.exists(), f"Missing series hub page: {hub_path}"
 
     @pytest.mark.parametrize("slug", [

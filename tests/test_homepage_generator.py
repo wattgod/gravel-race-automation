@@ -1043,11 +1043,12 @@ class TestBrandToneGuard:
         css = build_homepage_css()
         # Read token hex values from tokens.css to stay in sync
         tokens_path = Path(__file__).parent.parent.parent / "gravel-god-brand" / "tokens" / "tokens.css"
+        if not tokens_path.exists():
+            pytest.skip("Brand tokens repo not present (fresh checkout)")
         known_hex = set()
-        if tokens_path.exists():
-            with open(tokens_path, encoding="utf-8") as f:
-                for match in re.finditer(r'#([0-9a-fA-F]{3,8})\b', f.read()):
-                    known_hex.add(match.group(1).lower())
+        with open(tokens_path, encoding="utf-8") as f:
+            for match in re.finditer(r'#([0-9a-fA-F]{3,8})\b', f.read()):
+                known_hex.add(match.group(1).lower())
         # Standard web colors
         known_hex.update(["fff", "ffffff", "000", "000000"])
         # Pre-existing hex values that predate the token system.

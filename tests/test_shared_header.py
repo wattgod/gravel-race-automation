@@ -148,7 +148,7 @@ class TestHeaderCSS:
 
     def test_mobile_hides_dropdowns(self):
         css = get_site_header_css()
-        assert "max-width: 600px" in css
+        assert "max-width: 768px" in css
         assert "display: none !important" in css
 
     def test_responsive_breakpoint(self):

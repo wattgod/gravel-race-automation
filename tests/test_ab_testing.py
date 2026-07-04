@@ -7,9 +7,11 @@ Target: 80+ test methods covering every surface that can silently break.
 from __future__ import annotations
 
 import json
+import os
 import re
 import subprocess
 import sys
+import tempfile
 from pathlib import Path
 
 import pytest
@@ -24,11 +26,21 @@ from ab_experiments import EXPERIMENTS, export_config, validate_experiments
 
 
 def run_js(code: str, timeout: int = 10) -> subprocess.CompletedProcess:
-    """Run JS code via Node.js and return result."""
-    return subprocess.run(
-        ["node", "-e", code],
-        capture_output=True, text=True, timeout=timeout,
-    )
+    """Run JS code via Node.js and return result.
+
+    Writes to a temp file instead of `node -e` — large scripts exceed
+    Linux's per-argument limit (ARG_MAX) on CI runners.
+    """
+    with tempfile.NamedTemporaryFile("w", suffix=".js", delete=False) as f:
+        f.write(code)
+        script_path = f.name
+    try:
+        return subprocess.run(
+            ["node", script_path],
+            capture_output=True, text=True, timeout=timeout,
+        )
+    finally:
+        os.unlink(script_path)
 
 
 def get_ab_js() -> str:
@@ -549,7 +561,10 @@ class TestSelectorGeneratorParity:
 
     @pytest.fixture(scope="class")
     def homepage_content(self):
-        return (PROJECT_ROOT / "wordpress" / "output" / "homepage.html").read_text()
+        path = PROJECT_ROOT / "wordpress" / "output" / "homepage.html"
+        if not path.exists():
+            pytest.skip("Generated output not present (fresh checkout)")
+        return path.read_text()
 
     @pytest.fixture(scope="class")
     def about_content(self):

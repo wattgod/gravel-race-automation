@@ -20,7 +20,7 @@ import pytest
 ROOT = Path(__file__).parent.parent
 MU_PLUGIN_PATH = ROOT / "wordpress" / "mu-plugins" / "gg-header.php"
 SHARED_HEADER_PATH = ROOT / "wordpress" / "shared_header.py"
-BRAND_TOKENS_PATH = Path("/Users/mattirowe/Documents/GravelGod/gravel-god-brand/tokens/tokens.css")
+BRAND_TOKENS_PATH = ROOT.parent / "gravel-god-brand" / "tokens" / "tokens.css"
 
 
 # ── Fixtures ────────────────────────────────────────────────
@@ -52,6 +52,8 @@ def shared_header_css():
 @pytest.fixture(scope="module")
 def brand_tokens():
     """Parse brand tokens.css into a dict of token_name → hex_value."""
+    if not BRAND_TOKENS_PATH.exists():
+        pytest.skip("Brand tokens repo not present (fresh checkout)")
     css = BRAND_TOKENS_PATH.read_text()
     tokens = {}
     for m in re.finditer(r'--(gg-color-[\w-]+):\s*(#[0-9a-fA-F]{3,8})', css):

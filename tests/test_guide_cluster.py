@@ -61,7 +61,10 @@ def chapters(content):
 @pytest.fixture(scope="module")
 def output_dir():
     """Return the guide cluster output directory (must exist from generation)."""
-    return Path(__file__).parent.parent / "wordpress" / "output" / "guide"
+    path = Path(__file__).parent.parent / "wordpress" / "output" / "guide"
+    if not path.exists():
+        pytest.skip("Generated output not present (fresh checkout)")
+    return path
 
 
 @pytest.fixture(scope="module")

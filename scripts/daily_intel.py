@@ -416,7 +416,7 @@ one sale/day at current rates vs actual sessions/day. Two or three sentences, pl
 ## HOT LEADS
 From mission_control.hot_leads_14d: one line per person — name/email, their race, \
 where they are in which sequence, opens/clicks — ending with ONE concrete suggested \
-action (e.g. "reply personally re: {race} — use draft_race_reply"). These are real \
+action (e.g. "reply personally about their race — use draft_race_reply"). These are real \
 humans Matti may email today; be specific, never invent engagement they don't have. \
 If empty: one line.
 ## BROKEN

@@ -163,22 +163,30 @@
       {
         "url": "https://northsouth.live/event/velothon-berlin",
         "title": "Velothon Berlin | Raceatlas - NORTHSOUTH Live",
-        "snippet": "180km / 120km / 60km; 13,000 participants; completely closed roads past world-famous sites."
+        "snippet": "180km / 120km / 60km; 13,000 participants; completely closed roads past world-famous sites.",
+        "category": "other",
+        "label": "Northsouth"
       },
       {
         "url": "https://www.berlin.de/en/events/62031-2842498-velocity-berlin.en.html",
         "title": "VeloCity Berlin - Berlin.de",
-        "snippet": "Successor to Velothon Berlin; 60km city course and 100km extended course through sights."
+        "snippet": "Successor to Velothon Berlin; 60km city course and 100km extended course through sights.",
+        "category": "other",
+        "label": "Berlin"
       },
       {
         "url": "https://en.wikipedia.org/wiki/Velothon_Berlin",
         "title": "Velothon Berlin - Wikipedia",
-        "snippet": "UCI Europe Tour 1.1 race 2011-2015; part of Velothon Majors series."
+        "snippet": "UCI Europe Tour 1.1 race 2011-2015; part of Velothon Majors series.",
+        "category": "reference",
+        "label": "Wikipedia"
       },
       {
         "url": "https://velocity.berlin/en/register",
         "title": "Registration - VeloCity Berlin",
-        "snippet": "60km and 100km distances; participation fees 68-120€; 8,000 participant limit."
+        "snippet": "60km and 100km distances; participation fees 68-120€; 8,000 participant limit.",
+        "category": "official",
+        "label": "Official Website"
       }
     ],
     "slug": "velothon-berlin",

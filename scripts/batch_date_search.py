@@ -24,7 +24,10 @@ import time
 from pathlib import Path
 from urllib.parse import urlparse
 
-from duckduckgo_search import DDGS
+try:
+    from ddgs import DDGS  # renamed package (duckduckgo_search >= 9)
+except ImportError:
+    from duckduckgo_search import DDGS
 
 try:
     from scrape_utils import load_extract, fetch_url, get_cached, set_cached

@@ -99,7 +99,12 @@ jobs:
           git config user.email "veracity@gravelgodcycling.com"
           git add race-data/ data/verification/
           git commit -m "veracity: web-verified rankings fixes ($(date +%Y-%m-%d))"
-          git push
+          # main moves constantly (crons, sessions) — rebase-retry the push
+          for i in 1 2 3; do
+            git pull --rebase origin main && git push && break
+            [ "$i" = "3" ] && exit 1
+            sleep 5
+          done
           SUMMARY=$(grep -E "^  [a-z0-9-]+: " /tmp/verify-output.txt || echo "see run logs")
           gh issue create \
             --title "Rankings veracity: $(grep -oE '[0-9]+ with changes' /tmp/verify-output.txt || echo 'fixes') applied — $(date +%Y-%m-%d)" \
@@ -113,6 +118,10 @@ jobs:
             git config user.email "veracity@gravelgodcycling.com"
             git add data/verification/
             git commit -m "veracity: verification state update ($(date +%Y-%m-%d)) — no fixes needed"
-            git push
+            for i in 1 2 3; do
+              git pull --rebase origin main && git push && break
+              [ "$i" = "3" ] && exit 1
+              sleep 5
+            done
           fi
           echo "All checked facts confirmed."

@@ -1,0 +1,106 @@
+{
+ "date": "2026-07-04",
+ "ga4": {
+  "gravelgod": {
+   "sessions": 20,
+   "users": 19,
+   "pageviews": 25,
+   "sessions_7d_avg": 35.0,
+   "funnel": {
+    "cta_click": 0,
+    "form_start": 0,
+    "form_submit": 0,
+    "begin_checkout": 0,
+    "purchase": 0
+   },
+   "abandoned_submits": 0,
+   "top_pages": [
+    {
+     "path": "/gravel-races/",
+     "views": 4
+    },
+    {
+     "path": "/race/calendar/2026/",
+     "views": 3
+    },
+    {
+     "path": "/",
+     "views": 2
+    },
+    {
+     "path": "/race/unbound-200/tires/",
+     "views": 2
+    },
+    {
+     "path": "/race/big-sugar/",
+     "views": 1
+    },
+    {
+     "path": "/race/bike-abu-dhabi-gran-fondo/",
+     "views": 1
+    }
+   ],
+   "ok": true
+  },
+  "roadielabs": {
+   "sessions": 1,
+   "users": 1,
+   "pageviews": 1,
+   "sessions_7d_avg": 0.4,
+   "funnel": {
+    "cta_click": 0,
+    "form_start": 0,
+    "form_submit": 0,
+    "begin_checkout": 0,
+    "purchase": 0
+   },
+   "abandoned_submits": 0,
+   "top_pages": [
+    {
+     "path": "/race/la-marmotte/",
+     "views": 1
+    }
+   ],
+   "ok": true
+  }
+ },
+ "checkout": {
+  "gravelgod": {
+   "health_ok": true,
+   "stripe_checkout_ok": true,
+   "ok": true,
+   "error": ""
+  },
+  "roadielabs": {
+   "health_ok": true,
+   "stripe_checkout_ok": true,
+   "ok": true,
+   "error": ""
+  }
+ },
+ "mission_control": {
+  "new_leads_24h": 0,
+  "leads_by_brand": {
+   "gravelgod": 0,
+   "roadielabs": 0
+  },
+  "countdown_enrollments": 0,
+  "emails_sent_24h": 12,
+  "opens_24h": 4,
+  "clicks_24h": 0,
+  "bounces_24h": 0,
+  "new_orders_24h_UNRELIABLE": "use ga4 purchase counts \u2014 gg_athletes is not written by purchases",
+  "errors_24h": [],
+  "ok": true
+ },
+ "workflows": {
+  "latest": {
+   "gravel-race-automation/link-check.yml": "failure",
+   "road-race-automation/link-check.yml": "success",
+   "road-race-automation/checkout-monitor.yml": "success",
+   "gravel-race-automation/regression-tests.yml": "success"
+  },
+  "ok": true
+ },
+ "report": "## TOP LINE\n- GravelGod sessions: 20 vs 35 7d avg (-43%). Zero clicks past homepage into funnel \u2014 no CTA clicks, no form starts, no purchases.\n- RoadieLabs: 1 session, 1 pageview, no funnel activity. Consistent with baseline (near-zero).\n- Zero leads, zero orders, zero checkout starts across both brands. Checkout infra itself is healthy (Stripe OK both sites).\n\n## NUMBERS\n| Brand | Sessions (7d avg) | CTA click | Form start | Form submit | Checkout | Purchase | Leads |\n|---|---|---|---|---|---|---|---|\n| GravelGod | 20 (35.0) | 0 | 0 | 0 | 0 | 0 | 0 |\n| RoadieLabs | 1 (0.4) | 0 | 0 | 0 | 0 | 0 | 0 |\n\nEmails: 12 sent, 4 opens, 0 clicks, 0 bounces. Countdown enrollments: 0.\n\n## BROKEN\n- `gravel-race-automation/link-check.yml`: failure. Unclear scope \u2014 check run log before assuming site-wide link rot.\n- Nothing else failed. Checkout, GA4 collectors, mission control all reporting `ok: true`.\n\n## DO TODAY\n- Check the `link-check.yml` failure log on GravelGod \u2014 why: could be flagging broken outbound race links suppressing engagement; impact: fix could restore normal browsing depth.\n- Nothing else to push \u2014 funnel is at zero, not degraded; forcing action on a 20-session day risks misreading noise as signal.\n- Watch tomorrow's GG session count against today's 20 \u2014 why: two straight days below 7d avg would be a real trend, not one bad day."
+}

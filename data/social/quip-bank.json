@@ -1,0 +1,197 @@
+{
+  "_readme": "Quip bank for social cards. Quips are OPINION -> human approval required. Only status:'approved' quips render on cards (social_engine.load_race merges them). fact_basis = the database facts that make the joke defensible (Wendy's rule: every roast resolves to a number we can defend). VOICE RULE (Matti, Jul 2026): the rigid formula is ours (hook -> real info -> number), but the nihilist-deadpan ANGLE is taken — Brendan Kelly owns it. Quips run Matti's own registers: math-as-weapon, racing-as-reality-test, warm irreverence, permission, inversion. Formats: deadpan-verdict, reality-test, price-math, hype-gap, keep-your-money, suffering-identity, sincerity, permission. Guardrails: punch at hype/prices/marketing copy, never riders/volunteers/communities; T4 grassroots races get affectionate honesty; road brand = clinical lab-report dry, zero profanity.",
+  "quips": [
+    {
+      "slug": "scratch-ankle-gravel",
+      "brand": "gravel",
+      "quip": "It's cheap, it's pleasant, it's gravel. Do not book a flight.",
+      "format": "keep-your-money",
+      "fact_basis": "36/100 T4, $45 fee, 1,500 ft — lowest score in the database",
+      "status": "approved"
+    },
+    {
+      "slug": "unbound-200",
+      "brand": "gravel",
+      "quip": "Nobody rides Unbound on a whim. You obsess over heat protocols for six months, and then 200 miles of Flint Hills tells you the truth.",
+      "format": "reality-test",
+      "fact_basis": "93/100 T1, 200 mi / 11,000 ft; profile: riders don't 'do' Unbound casually — they plan and obsess",
+      "status": "pending_qc"
+    },
+    {
+      "slug": "transcontinental-race",
+      "brand": "gravel",
+      "quip": "3,100 miles across Europe, alone. No drafting, no support, no hiding. The most honest feedback loop in cycling — and the highest score we've ever given.",
+      "format": "reality-test",
+      "fact_basis": "97/100 — top score of 757 races; 3,100 mi / 210,000 ft, self-supported solo",
+      "status": "pending_qc"
+    },
+    {
+      "slug": "tour-divide",
+      "brand": "gravel",
+      "quip": "2,745 miles down the spine of a continent. Your tracker dot matters to maybe four people. They love you. 94/100.",
+      "format": "sincerity",
+      "fact_basis": "94/100 T1, 2,745 mi / 200,000 ft bikepacking race with dot-watching culture",
+      "status": "pending_qc"
+    },
+    {
+      "slug": "big-sugar",
+      "brand": "gravel",
+      "quip": "The Ozarks don't do mountains. They do 9,500 feet of paper cuts.",
+      "format": "suffering-identity",
+      "fact_basis": "86/100 T1, 100 mi / 9,500 ft — profile calls it 'endless punchy terrain', no single big climb",
+      "status": "pending_qc"
+    },
+    {
+      "slug": "taiwan-kom-challenge",
+      "brand": "gravel",
+      "quip": "One road, one direction: the beach to 10,745 feet. Bring gears you're embarrassed by. Everyone fast already does.",
+      "format": "permission",
+      "fact_basis": "83/100 T1, 93 mi from Qixingtan Beach (sea level) to 10,745 ft summit, ~$150 entry",
+      "status": "pending_qc"
+    },
+    {
+      "slug": "uci-gravel-worlds",
+      "brand": "gravel",
+      "quip": "Gravel spent a decade escaping the UCI. The UCI drove out and brought it home anyway. 90/100 — rainbow stripes do that.",
+      "format": "hype-gap",
+      "fact_basis": "90/100 T1; founded 2022 after gravel's whole identity was anti-UCI; punches at institutions not riders",
+      "status": "pending_qc"
+    },
+    {
+      "slug": "la-ruta-de-los-conquistadores",
+      "brand": "gravel",
+      "quip": "Coast to coast across Costa Rica: 162 miles, 32,300 feet. Whatever gearing you're planning, it's wrong.",
+      "format": "deadpan-verdict",
+      "fact_basis": "79/100 T2, 162 mi / 32,300 ft — that's 199 ft/mi, roughly double Unbound's ratio",
+      "status": "pending_qc"
+    },
+    {
+      "slug": "cycling-shimanami",
+      "brand": "gravel",
+      "quip": "43 miles, 1,300 feet, islands, bridges, zero suffering. We checked the rulebook. It's allowed.",
+      "format": "permission",
+      "fact_basis": "74/100 T2, 43.5 mi / 1,300 ft — profile: 'gold standard for mass-participation events in Asia'",
+      "status": "pending_qc"
+    },
+    {
+      "slug": "gran-fondo-hincapie",
+      "brand": "gravel",
+      "quip": "$175 to ride George's mountains. He spent 17 years pulling other people up climbs — now it's your turn to know how that felt.",
+      "format": "suffering-identity",
+      "fact_basis": "67/100 T2, $175-275, 83 mi / 8,100 ft; Hincapie = 17-year Tour domestique per profile",
+      "status": "pending_qc"
+    },
+    {
+      "slug": "wild-gravel",
+      "brand": "gravel",
+      "quip": "Remote Western Australia, 50 riders. If you crack out there, the emus will not help you. The loneliness is the feature.",
+      "format": "deadpan-verdict",
+      "fact_basis": "40/100 T4, 50-100 rider field, profile cites 'very remote location' as the tier-4 reason",
+      "status": "pending_qc"
+    },
+    {
+      "slug": "lowell-classic",
+      "brand": "gravel",
+      "quip": "A perfectly nice Michigan gravel race. That's it. That's the review. 44/100.",
+      "format": "deadpan-verdict",
+      "fact_basis": "44/100 T4, 62 mi grassroots race near Grand Rapids — profile has nothing dramatic to say and neither do we",
+      "status": "pending_qc"
+    },
+    {
+      "slug": "marys-mayhem",
+      "brand": "gravel",
+      "quip": "4,500 feet of NSW mountains shared between 50 of you. Mayhem is a strong word. Hills is accurate.",
+      "format": "hype-gap",
+      "fact_basis": "44/100 T4, 65 mi / 4,500 ft, 50-100 riders — joke targets the race NAME (marketing), not the riders",
+      "status": "pending_qc"
+    },
+    {
+      "slug": "chino-grinder",
+      "brand": "gravel",
+      "quip": "High desert, low stakes. Go for the fitness, not the Instagram. 47/100.",
+      "format": "keep-your-money",
+      "fact_basis": "47/100 T3, Arizona high desert, 50-150 riders, 'basic amenities' per profile",
+      "status": "pending_qc"
+    },
+    {
+      "slug": "grassroots-gravel",
+      "brand": "gravel",
+      "quip": "It's called Grassroots Gravel and it scored 43. The name understood the assignment. No flights.",
+      "format": "deadpan-verdict",
+      "fact_basis": "43/100 T4 Colorado local event — the name literally self-describes the tier",
+      "status": "pending_qc"
+    },
+    {
+      "slug": "alentejo-gravel",
+      "brand": "gravel",
+      "quip": "Rolling Portuguese farmland, solid organization, zero prestige. Sometimes that's the whole point. 47/100.",
+      "format": "permission",
+      "fact_basis": "47/100 T3, profile credits 'solid organization' + scenic Alentejo, dings regional field",
+      "status": "pending_qc"
+    },
+    {
+      "slug": "gravel-roll-pecan-shaker",
+      "brand": "gravel",
+      "quip": "75 miles through central Georgia. The pecans are real. The prestige is not. 46/100.",
+      "format": "deadpan-verdict",
+      "fact_basis": "46/100 T3, 75 mi, Hawkinsville GA, 'small town location, limited amenities' per profile",
+      "status": "pending_qc"
+    },
+    {
+      "slug": "vatternrundan",
+      "brand": "gravel",
+      "quip": "196 miles around a Swedish lake with 4,593 feet of climbing. Flatter than your training compliance. Bring friends or bring regrets.",
+      "format": "price-math",
+      "fact_basis": "64/100 T2, 196 mi / 4,593 ft (23 ft/mi — pancake), ~$180-210 entry, famous group-ride culture",
+      "status": "pending_qc"
+    },
+    {
+      "slug": "taiwan-kom-challenge",
+      "brand": "road",
+      "quip": "Sea level to 10,745 feet in 93 miles. There is no descent. Read that sentence again. 80/100.",
+      "format": "deadpan-verdict",
+      "fact_basis": "80/100 T2, 93 mi, ocean start to 10,745 ft finish — one sustained climb, ~$150",
+      "status": "pending_qc"
+    },
+    {
+      "slug": "gran-fondo-hincapie",
+      "brand": "road",
+      "quip": "83 miles, 8,100 feet, hosted by the man who pulled the Tour peloton for 17 years. The climbs are unimpressed by his résumé. Or yours. 67/100.",
+      "format": "deadpan-verdict",
+      "fact_basis": "67/100 T2, $175-275, 83 mi / 8,100 ft, Hincapie's 17-year domestique career per profile",
+      "status": "pending_qc"
+    },
+    {
+      "slug": "cycling-shimanami",
+      "brand": "road",
+      "quip": "The most organized 43 miles in cycling. Japan does not do chaos. 70/100.",
+      "format": "deadpan-verdict",
+      "fact_basis": "70/100 T2, profile: 'gold standard for mass-participation cycling events in Asia', 'world-class organization'",
+      "status": "pending_qc"
+    },
+    {
+      "slug": "bowral-classic",
+      "brand": "road",
+      "quip": "A cycling magazine built its dream fondo: 94 miles, 7,851 feet, up to AUD $315. The Southern Highlands are lovely. The invoice is also climbing. 56/100.",
+      "format": "price-math",
+      "fact_basis": "56/100 T3, AUD $165-315, 94 mi / 7,851 ft, built by Yaffa Media (Bicycling Australia) per profile",
+      "status": "pending_qc"
+    },
+    {
+      "slug": "around-the-bay-in-a-day",
+      "brand": "road",
+      "quip": "Not the hardest, hilliest, or most remote ride in Australia. Just the biggest. 137 miles, a ferry in the middle, and everyone you know. 63/100.",
+      "format": "sincerity",
+      "fact_basis": "63/100 T2, 137 mi / 2,812 ft, ~$210 AUD incl. ferry+jersey; profile verdict: 'The People's Ride'",
+      "status": "pending_qc"
+    },
+    {
+      "slug": "cyclotour-du-leman",
+      "brand": "road",
+      "quip": "109 miles around Lake Geneva, 2,920 feet of climbing. The lake is doing most of the scenery work. You just have to keep pedaling. 69/100.",
+      "format": "deadpan-verdict",
+      "fact_basis": "69/100 T2, 109 mi / 2,920 ft loop of Lake Geneva — flat-for-Switzerland is the honest surprise",
+      "status": "pending_qc"
+    }
+  ]
+}

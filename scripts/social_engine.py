@@ -21,6 +21,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import sys
 from datetime import date
 from pathlib import Path
@@ -77,6 +78,19 @@ def _font(mono: bool, size: int) -> ImageFont.FreeTypeFont:
     return ImageFont.load_default(size)
 
 
+QUIP_BANK = GRAVEL_ROOT / "data" / "social" / "quip-bank.json"
+
+
+def approved_quip(slug: str, brand: str) -> str | None:
+    """Quips are opinion — only human-approved bank entries ever reach a card."""
+    if not QUIP_BANK.exists():
+        return None
+    for q in json.loads(QUIP_BANK.read_text()).get("quips", []):
+        if q["slug"] == slug and q["brand"] == brand and q.get("status") == "approved":
+            return q["quip"]
+    return None
+
+
 def load_race(slug: str, brand: str) -> dict | None:
     p = BRANDS[brand]["root"] / "race-data" / f"{slug}.json"
     if not p.exists():
@@ -92,6 +106,7 @@ def load_race(slug: str, brand: str) -> dict | None:
         "weeks_out": round((date.fromisoformat(iso) - date.today()).days / 7, 1) if iso else None,
         "distance": vitals.get("distance_mi"), "elevation": vitals.get("elevation_ft"),
         "location": vitals.get("location", ""),
+        "quip": approved_quip(slug, brand),
     }
 
 
@@ -127,10 +142,17 @@ def render_card(race: dict, brand: str, kind: str = "countdown") -> Path:
     d.text((margin + 40, margin + 36), b["label"], font=_font(True, 34), fill=ink)
     d.line([margin + 40, margin + 96, W - margin - 40, margin + 96], fill=ink, width=3)
 
-    # race name (serif, wrapped)
+    # race name (serif, wrapped; first line yields to the tier chip)
     name_font = _font(False, 88)
+    chip_w = 0
+    if race.get("tier"):
+        _chip = f' {b["tier_names"].get(race["tier"], "TIER " + str(race["tier"]))} '
+        chip_w = d.textlength(_chip, font=_font(True, 40)) + 24 + 40
     y = margin + 150
-    for line in _wrap(d, race["name"].upper(), name_font, W - 2 * margin - 80)[:3]:
+    lines = _wrap(d, race["name"].upper(), name_font, W - 2 * margin - 80 - chip_w)
+    if len(lines) > 1:  # remainder re-wraps at full width below the chip
+        lines = [lines[0]] + _wrap(d, " ".join(lines[1:]), name_font, W - 2 * margin - 80)
+    for line in lines[:3]:
         d.text((margin + 40, y), line, font=name_font, fill=ink)
         y += 100
 
@@ -140,6 +162,8 @@ def render_card(race: dict, brand: str, kind: str = "countdown") -> Path:
         d.text((margin + 40, y + 40), str(score), font=_font(False, 330), fill=ink)
         quip = race.get("quip")
         if quip:
+            # giant score sits right above — a trailing "NN/100." is redundant here
+            quip = re.sub(r"\s*\b\d{1,3}/100[.!]?\s*$", "", quip).rstrip()
             qf = _font(False, 44)
             qy = y + 400
             for line in _wrap(d, f"\u201c{quip}\u201d", qf, W - 2 * margin - 100)[:4]:
@@ -162,7 +186,7 @@ def render_card(race: dict, brand: str, kind: str = "countdown") -> Path:
     # countdown / footer band
     band_y = H - margin - 220
     d.line([margin + 40, band_y, W - margin - 40, band_y], fill=ink, width=3)
-    if kind == "countdown" and race.get("weeks_out") is not None:
+    if kind == "countdown" and race.get("weeks_out") is not None and race["weeks_out"] >= 0:
         big = f"{race['weeks_out']:.0f} WEEKS OUT"
         sub = ("THE FULL TRAINING WINDOW IS OPEN" if race["weeks_out"] >= 12
                else "SHORT RUNWAY. STRUCTURE WHAT'S LEFT.")

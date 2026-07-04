@@ -53,17 +53,16 @@ things it proves that we steal:
 1. **A rigid comedic formula compounds.** Every post is identical
    architecture: bleak cosmic observation → flat "Eat Arby's." The FORMAT
    is the mascot — followers show up for the next iteration of the same
-   joke. Ours: **existential gravel truth → deadpan data → score/date.**
-   ("Nothing you do matters. The wind erases everything. Unbound is 12
-   weeks out. 97/100. Enjoy the gravel.") This is a recurring BIT, not
-   the whole voice — one format among several, because...
-2. **Dosage.** Full-nihilist works for a parody with nothing to sell.
-   We sell hope on a schedule (training plans), so despair is a spice,
-   not the sauce — and cycling canon already licenses it:
-   suffering-as-identity IS the sport's love language, and Matti's
-   Substack register (memento-mori math, "13% of your life at the height
-   of your powers") is this exact voice in essay form. The bit is
-   authentic because he already writes it.
+   joke. We steal the ARCHITECTURE only: **hook → real information →
+   number/verdict**, same shape every time, recognizable at scroll speed.
+2. **The ANGLE is taken (Matti's ruling, Jul 2026).** Nihilist-deadpan is
+   Brendan Kelly's owned territory — wearing it would be borrowed
+   personality, the exact cringe the email council was built to kill.
+   The rigid formula runs in MATTI'S registers instead: math-as-weapon,
+   racing-as-reality-test ("200 miles of Flint Hills tells you the
+   truth"), warm irreverence, permission, inversion. His Substack
+   memento-mori register is adjacent but it's HIS version — use his,
+   never Kelly's costume.
 
 Corollary from Arby's-the-brand: if parody/roast accounts ever aim at us,
 feed them — never fight them. The gift-bag response outperformed any ad.

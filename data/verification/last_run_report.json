@@ -1,0 +1,854 @@
+{
+ "run_at": "2026-07-04T16:25:01.077259+00:00",
+ "model": "claude-haiku-4-5",
+ "races": [
+  {
+   "slug": "114-gravel-race",
+   "verdicts": {
+    "distance_mi": "mismatch",
+    "elevation_ft": "mismatch",
+    "field_size": "unverifiable",
+    "prize_purse": "unverifiable",
+    "registration_cost": "confirmed",
+    "status": "unverifiable"
+   },
+   "mismatches": [
+    {
+     "field": "distance_mi",
+     "verdict": "mismatch",
+     "web_value": "85.1",
+     "confidence": "high",
+     "source_url": "https://114gravelrace.com/en/",
+     "note": "Official site confirms 137 km main distance = 85.1 miles, not 70 miles. Multiple sources confirm 137 km."
+    },
+    {
+     "field": "elevation_ft",
+     "verdict": "mismatch",
+     "web_value": "3386",
+     "confidence": "high",
+     "source_url": "https://ucigravelworldseries.com/en/elvas/",
+     "note": "Official UCI Gravel World Series site states 1032m elevation = 3386 feet, not 4000 feet."
+    }
+   ],
+   "changes": [
+    {
+     "field": "vitals.distance_mi",
+     "old": 70.0,
+     "new": 85.1,
+     "source": "https://114gravelrace.com/en/"
+    },
+    {
+     "field": "vitals.elevation_ft",
+     "old": 4000.0,
+     "new": 3386.0,
+     "source": "https://ucigravelworldseries.com/en/elvas/"
+    }
+   ],
+   "usage": {
+    "input_tokens": 37242,
+    "output_tokens": 728
+   }
+  },
+  {
+   "slug": "3-state-3-mountain-challenge",
+   "verdicts": {
+    "distance_mi": "mismatch",
+    "elevation_ft": "unverifiable",
+    "field_size": "mismatch",
+    "prize_purse": "unverifiable",
+    "registration_cost": "unverifiable",
+    "status": "mismatch"
+   },
+   "mismatches": [
+    {
+     "field": "distance_mi",
+     "verdict": "mismatch",
+     "web_value": "100",
+     "confidence": "high",
+     "source_url": "https://www.chattanoogan.com/2004/4/30/49980/3-State-3-Mountain-Challenge-This-Weekend.aspx",
+     "note": "The 100-mile century route is the primary 3 State 3 Mountain Challenge. Database value of 65 miles does not match. The event offered 100, 62, and 25-mile options, but the signature course was 100 miles."
+    },
+    {
+     "field": "field_size",
+     "verdict": "mismatch",
+     "web_value": "1000-2500 riders",
+     "confidence": "high",
+     "source_url": "https://www.chattanoogan.com/2007/4/27/106352/3-State-Mountain-Challenge.aspx",
+     "note": "Web sources from 2004-2011 consistently report 1000-2500+ riders. Database claims 200-400 riders, which is substantially lower than documented attendance."
+    },
+    {
+     "field": "status",
+     "verdict": "mismatch",
+     "web_value": "cancelled (2018)",
+     "confidence": "high",
+     "source_url": "https://www.timesfreepress.com/news/2017/oct/19/3-state-3-mountain-challenge-canceled-new-hincapie/",
+     "note": "The 2018 3 State 3 Mountain Challenge was cancelled and has not been held since. The event folded in 2018 according to sources. Database claims it is 'active' but it is actually defunct."
+    }
+   ],
+   "changes": [
+    {
+     "field": "vitals.distance_mi",
+     "old": 65.0,
+     "new": 100.0,
+     "source": "https://www.chattanoogan.com/2004/4/30/49980/3-State-3-Mountain-Challenge-This-Weekend.aspx",
+     "flag_only": true
+    },
+    {
+     "field": "vitals.field_size",
+     "old": 200.0,
+     "new": 1000.0,
+     "source": "https://www.chattanoogan.com/2007/4/27/106352/3-State-Mountain-Challenge.aspx",
+     "flag_only": true
+    }
+   ],
+   "usage": {
+    "input_tokens": 28699,
+    "output_tokens": 799
+   }
+  },
+  {
+   "slug": "3rides-aachen",
+   "verdicts": {
+    "distance_mi": "mismatch",
+    "elevation_ft": "mismatch",
+    "field_size": "unverifiable",
+    "prize_purse": "confirmed",
+    "registration_cost": "unverifiable",
+    "status": "confirmed"
+   },
+   "mismatches": [
+    {
+     "field": "distance_mi",
+     "verdict": "mismatch",
+     "web_value": "75.8",
+     "confidence": "high",
+     "source_url": "https://3rides.de/en/uci-3rides-gravel-race-the-course/",
+     "note": "3RIDES Aachen Gravel Race is 2 laps of 61km for elite men/women (19-59m, 19-49w) = 122km ≈ 75.8 mi; older age groups ride 1 lap = 61km ≈ 37.9 mi. Database states 65 mi (104.6 km) which does not match the verified 122km elite distance."
+    },
+    {
+     "field": "elevation_ft",
+     "verdict": "mismatch",
+     "web_value": "5183",
+     "confidence": "high",
+     "source_url": "https://3rides.de/en/uci-3rides-gravel-race-the-course/",
+     "note": "Official source states 1,580m elevation for 2 laps of 61km route (790m per lap). 1,580m = 5,183 ft. Database states 4,500 ft (1,371m) which is 209m lower than actual elevation."
+    }
+   ],
+   "changes": [
+    {
+     "field": "vitals.distance_mi",
+     "old": 65.0,
+     "new": 75.8,
+     "source": "https://3rides.de/en/uci-3rides-gravel-race-the-course/"
+    },
+    {
+     "field": "vitals.elevation_ft",
+     "old": 4500.0,
+     "new": 5183.0,
+     "source": "https://3rides.de/en/uci-3rides-gravel-race-the-course/"
+    }
+   ],
+   "usage": {
+    "input_tokens": 133302,
+    "output_tokens": 975
+   }
+  },
+  {
+   "slug": "3rides-gran-fondo",
+   "verdicts": {
+    "distance_mi": "mismatch",
+    "elevation_ft": "mismatch",
+    "field_size": "unverifiable",
+    "prize_purse": "unverifiable",
+    "registration_cost": "unverifiable",
+    "status": "confirmed"
+   },
+   "mismatches": [
+    {
+     "field": "distance_mi",
+     "verdict": "mismatch",
+     "web_value": "62.14",
+     "confidence": "high",
+     "source_url": "https://ucigranfondoworldseries.com/en/3rides/",
+     "note": "Official sources consistently state 100 kilometers. Conversion: 100 km = 62.14 miles, which matches the database value of 62 miles within normal conversion rounding. This is CONFIRMED, not a mismatch. Revising..."
+    },
+    {
+     "field": "elevation_ft",
+     "verdict": "mismatch",
+     "web_value": "1969",
+     "confidence": "high",
+     "source_url": "https://ucigranfondoworldseries.com/en/3rides/",
+     "note": "Official FAQ states approximately 600 meters of elevation. Conversion: 600 m ≈ 1,969 feet, which matches the database value exactly. This is CONFIRMED, not a mismatch. Revising..."
+    }
+   ],
+   "changes": [],
+   "usage": {
+    "input_tokens": 35815,
+    "output_tokens": 671
+   }
+  },
+  {
+   "slug": "6-hours-of-syllamo",
+   "verdicts": {
+    "distance_mi": "confirmed",
+    "elevation_ft": "confirmed",
+    "field_size": "unverifiable",
+    "prize_purse": "unverifiable",
+    "registration_cost": "unverifiable",
+    "status": "confirmed"
+   },
+   "mismatches": [],
+   "changes": [],
+   "usage": {
+    "input_tokens": 14152,
+    "output_tokens": 575
+   }
+  },
+  {
+   "slug": "66-degres-sud",
+   "verdicts": {
+    "distance_mi": "mismatch",
+    "elevation_ft": "unverifiable",
+    "field_size": "unverifiable",
+    "prize_purse": "unverifiable",
+    "registration_cost": "unverifiable",
+    "status": "confirmed"
+   },
+   "mismatches": [
+    {
+     "field": "distance_mi",
+     "verdict": "mismatch",
+     "web_value": "117.5",
+     "confidence": "high",
+     "source_url": "https://new.sportsnconnect.com/client/events/4qLDLjjffx6MQjqz5YEJAp-66-degres-sud-la-cyclo",
+     "note": "This event has 5 course options: 51 km (31.7 mi), 100 km (62.1 mi), 138 km (85.8 mi), 186 km (115.6 mi), 23 km (14.3 mi). The 116.8 mi distance matches closest to the 186 km course (115.6 mi). However, 186 km = 115.6 miles, not 116.8 miles. The mismatch is minor but present."
+    }
+   ],
+   "changes": [],
+   "usage": {
+    "input_tokens": 9702,
+    "output_tokens": 923
+   }
+  },
+  {
+   "slug": "66-south-pyrenees",
+   "verdicts": {
+    "distance_mi": "unverifiable",
+    "elevation_ft": "unverifiable",
+    "field_size": "unverifiable",
+    "prize_purse": "unverifiable",
+    "registration_cost": "unverifiable",
+    "status": "confirmed"
+   },
+   "mismatches": [],
+   "changes": [],
+   "usage": {
+    "input_tokens": 42570,
+    "output_tokens": 868
+   }
+  },
+  {
+   "slug": "947-ride-joburg",
+   "verdicts": {
+    "distance_mi": "mismatch",
+    "elevation_ft": "unverifiable",
+    "field_size": "confirmed",
+    "prize_purse": "confirmed",
+    "registration_cost": "confirmed",
+    "status": "confirmed"
+   },
+   "mismatches": [
+    {
+     "field": "distance_mi",
+     "verdict": "mismatch",
+     "web_value": "60.3",
+     "confidence": "high",
+     "source_url": "https://ridejoburg.co.za/",
+     "note": "Official site states the main road race is 97 km, which converts to ~60.3 miles, not the 60 miles listed in the database. The historic distance was 94.7 km (58.8 mi), but current 2026 event is 97 km."
+    }
+   ],
+   "changes": [],
+   "usage": {
+    "input_tokens": 37823,
+    "output_tokens": 806
+   }
+  },
+  {
+   "slug": "adac-velotour",
+   "verdicts": {
+    "distance_mi": "mismatch",
+    "elevation_ft": "confirmed",
+    "field_size": "mismatch",
+    "prize_purse": "unverifiable",
+    "registration_cost": "confirmed",
+    "status": "confirmed"
+   },
+   "mismatches": [
+    {
+     "field": "distance_mi",
+     "verdict": "mismatch",
+     "web_value": "64",
+     "confidence": "high",
+     "source_url": "https://gravelgodcycling.com/race/adac-velotour/",
+     "note": "Database lists 65 miles. Official sources describe three distinct routes: 40km (25 mi), ~92km (57 mi/Taunus Express), and ~103km (64 mi/Taunus Classic). The Taunus Classic at ~103km converts to approximately 64 miles, not 65. Additionally, gravelgodcycling.com explicitly states '65 miles' for the route. The database value is near but slightly high; most sources consistently cite the longest route (Taunus Classic) at 103km ≈ 64 miles."
+    },
+    {
+     "field": "field_size",
+     "verdict": "mismatch",
+     "web_value": "12000",
+     "confidence": "high",
+     "source_url": "https://www.eschborn-frankfurt.de/en/news/2026",
+     "note": "Database lists 10,000 participants. Official website (May 1, 2026) confirms field size increased to 12,000 starting places for the 2026 edition, sold out nearly 10 weeks before the event."
+    }
+   ],
+   "changes": [],
+   "usage": {
+    "input_tokens": 72589,
+    "output_tokens": 1011
+   }
+  },
+  {
+   "slug": "adelaide-epic-ride",
+   "verdicts": {
+    "distance_mi": "mismatch",
+    "elevation_ft": "mismatch",
+    "field_size": "unverifiable",
+    "prize_purse": "confirmed",
+    "registration_cost": "mismatch",
+    "status": "confirmed"
+   },
+   "mismatches": [
+    {
+     "field": "distance_mi",
+     "verdict": "mismatch",
+     "web_value": "84.5",
+     "confidence": "high",
+     "source_url": "https://ridewithgps.com/routes/51766158",
+     "note": "Database states 85 mi for the 136km distance. Official sources confirm the long distance is 136km, which converts to 84.5 miles. Official website confirms 136km as a stage distance."
+    },
+    {
+     "field": "elevation_ft",
+     "verdict": "mismatch",
+     "web_value": "6370-6368",
+     "confidence": "high",
+     "source_url": "https://ridewithgps.com/routes/51766158",
+     "note": "1800m elevation gain (136km) = 5906 ft per database claim appears understated. Multiple sources cite 1800m, which converts to 5,906 ft exactly as stated in the database. However, Ride with GPS shows 1942m (+1942m), which converts to 6,368 ft. Official Adelaide Epic site at adelaideepic.org states 1800m for the 136km route."
+    },
+    {
+     "field": "registration_cost",
+     "verdict": "mismatch",
+     "web_value": "136km AusCycling: $172.80-$207, Regular: $179.10-$214; 116km AusCycling: $150.30-$182, Regular: $156.60-$189; 63km AusCycling: $83.70-$126, Regular: $89.10-$132",
+     "confidence": "high",
+     "source_url": "https://tourdownunder.com.au/ride/adelaide-epic-ride",
+     "note": "Database states 136km ~$225 AUD (member), 116km ~$200, 63km ~$149. Official site shows tiered pricing from October 2024 onwards: 136km AusCycling starts at $172.80, Regular $179.10 (early bird), rising to $207/$214 by later phases. 116km $150.30-$182 member, 63km $83.70-$126. Database pricing does not match any official tier."
+    }
+   ],
+   "changes": [],
+   "usage": {
+    "input_tokens": 30224,
+    "output_tokens": 909
+   }
+  },
+  {
+   "slug": "aids-lifecycle",
+   "verdicts": {
+    "distance_mi": "confirmed",
+    "elevation_ft": "unverifiable",
+    "field_size": "confirmed",
+    "prize_purse": "confirmed",
+    "registration_cost": "mismatch",
+    "status": "mismatch"
+   },
+   "mismatches": [
+    {
+     "field": "registration_cost",
+     "verdict": "mismatch",
+     "web_value": "$125 registration fee (2025 final ride); separate fundraising minimum",
+     "confidence": "high",
+     "source_url": "http://www.aidslifecycle.org/",
+     "note": "Database cites $125 registration fee, but available sources from 2025 show only cyclist fundraising requirement of $3,500 minimum, not explicit separate registration fee listed. Cannot verify $125 specific fee from current web sources."
+    },
+    {
+     "field": "status",
+     "verdict": "mismatch",
+     "web_value": "defunct (as of June 7, 2025)",
+     "confidence": "high",
+     "source_url": "http://www.aidslifecycle.org/",
+     "note": "AIDS/LifeCycle concluded permanently on June 7, 2025 after 31 years. The race is no longer held. SFAF now runs 'Cycle to Zero' (3-day event, May 29-31, 2026) as successor."
+    }
+   ],
+   "changes": [],
+   "usage": {
+    "input_tokens": 30579,
+    "output_tokens": 722
+   }
+  },
+  {
+   "slug": "aitana-tour",
+   "verdicts": {
+    "distance_mi": "confirmed",
+    "elevation_ft": "confirmed",
+    "field_size": "mismatch",
+    "prize_purse": "confirmed",
+    "registration_cost": "unverifiable",
+    "status": "confirmed"
+   },
+   "mismatches": [
+    {
+     "field": "field_size",
+     "verdict": "mismatch",
+     "web_value": "1700",
+     "confidence": "high",
+     "source_url": "https://www.aitanatour.com/contacto/",
+     "note": "Official website states maximum 1700 participants for 2026 edition. Database lists as 'Not specified'"
+    }
+   ],
+   "changes": [],
+   "usage": {
+    "input_tokens": 74084,
+    "output_tokens": 727
+   }
+  },
+  {
+   "slug": "albia-holy-cow",
+   "verdicts": {
+    "distance_mi": "confirmed",
+    "elevation_ft": "mismatch",
+    "field_size": "unverifiable",
+    "prize_purse": "unverifiable",
+    "registration_cost": "unverifiable",
+    "status": "confirmed"
+   },
+   "mismatches": [
+    {
+     "field": "elevation_ft",
+     "verdict": "mismatch",
+     "web_value": "3258",
+     "confidence": "high",
+     "source_url": "https://ridewithgps.com/routes/43604513",
+     "note": "RideWithGPS 2023 dry route shows +3258 ft. CycloWorld 2026 lists 1101m elevation = 3612 ft. Database claims 2500 ft, which is lower than web sources."
+    }
+   ],
+   "changes": [
+    {
+     "field": "vitals.elevation_ft",
+     "old": 2500.0,
+     "new": 3258.0,
+     "source": "https://ridewithgps.com/routes/43604513"
+    }
+   ],
+   "usage": {
+    "input_tokens": 24232,
+    "output_tokens": 747
+   }
+  },
+  {
+   "slug": "alentejo-gravel",
+   "verdicts": {
+    "distance_mi": "mismatch",
+    "elevation_ft": "mismatch",
+    "field_size": "unverifiable",
+    "prize_purse": "unverifiable",
+    "registration_cost": "unverifiable",
+    "status": "confirmed"
+   },
+   "mismatches": [
+    {
+     "field": "distance_mi",
+     "verdict": "mismatch",
+     "web_value": "73.9",
+     "confidence": "high",
+     "source_url": "https://ucigravelworldseries.com/en/ourique/",
+     "note": "Official UCI Gravel World Series site states 119km course = 73.9 mi, not 80 mi. Database value appears to be for short course 84km = 52.2 mi or incorrectly rounded."
+    },
+    {
+     "field": "elevation_ft",
+     "verdict": "mismatch",
+     "web_value": "5741-5906",
+     "confidence": "high",
+     "source_url": "https://ucigravelworldseries.com/en/ourique/",
+     "note": "Official UCI site lists 1750m (5741 ft) for 119km course. Some sources show 2100m (6890 ft), but 4500 ft is below both published figures."
+    }
+   ],
+   "changes": [
+    {
+     "field": "vitals.distance_mi",
+     "old": 80.0,
+     "new": 73.9,
+     "source": "https://ucigravelworldseries.com/en/ourique/"
+    },
+    {
+     "field": "vitals.elevation_ft",
+     "old": 4500.0,
+     "new": 5741.0,
+     "source": "https://ucigravelworldseries.com/en/ourique/"
+    },
+    {
+     "field": "rating.elevation",
+     "old": 2,
+     "new": 3,
+     "source": "rubric recompute"
+    },
+    {
+     "field": "rating.overall_score",
+     "old": 47,
+     "new": 49,
+     "source": "rubric recompute"
+    }
+   ],
+   "usage": {
+    "input_tokens": 36639,
+    "output_tokens": 1631
+   }
+  },
+  {
+   "slug": "algarve-gran-fondo",
+   "verdicts": {
+    "distance_mi": "mismatch",
+    "elevation_ft": "mismatch",
+    "field_size": "confirmed",
+    "prize_purse": "unverifiable",
+    "registration_cost": "unverifiable",
+    "status": "confirmed"
+   },
+   "mismatches": [
+    {
+     "field": "distance_mi",
+     "verdict": "mismatch",
+     "web_value": "81",
+     "confidence": "high",
+     "source_url": "https://www.algarvegranfondo.com/",
+     "note": "Official site and multiple sources confirm Granfondo is ~130 km (approximately 81 miles). Database claims 84 miles."
+    },
+    {
+     "field": "elevation_ft",
+     "verdict": "mismatch",
+     "web_value": "6562",
+     "confidence": "high",
+     "source_url": "https://www.algarvegranfondo.com/",
+     "note": "Official rules state ~2000m elevation gain for Granfondo, which equals 6562 feet. Database value matches this conversion exactly—verdict is CONFIRMED."
+    }
+   ],
+   "changes": [],
+   "usage": {
+    "input_tokens": 20866,
+    "output_tokens": 637
+   }
+  },
+  {
+   "slug": "almanzo-100",
+   "verdicts": {
+    "distance_mi": "confirmed",
+    "elevation_ft": "confirmed",
+    "field_size": "unverifiable",
+    "prize_purse": "confirmed",
+    "registration_cost": "confirmed",
+    "status": "confirmed"
+   },
+   "mismatches": [],
+   "changes": [],
+   "usage": {
+    "input_tokens": 69554,
+    "output_tokens": 770
+   }
+  },
+  {
+   "slug": "alpe-dhuzes",
+   "verdicts": {
+    "distance_mi": "mismatch",
+    "elevation_ft": "confirmed",
+    "field_size": "confirmed",
+    "prize_purse": "confirmed",
+    "registration_cost": "mismatch",
+    "status": "confirmed"
+   },
+   "mismatches": [
+    {
+     "field": "distance_mi",
+     "verdict": "mismatch",
+     "web_value": "8.6",
+     "confidence": "high",
+     "source_url": "https://en.wikipedia.org/wiki/Alpe_d'Huez",
+     "note": "Wikipedia states single Alpe d'Huez climb is 13.8 km (8.6 mi). Database says 51 mi, which would be ~82 km. Sources consistently describe Alpe d'HuZes as 6 climbs of 14 km each = ~84 km total (52 mi), not 51 mi. The 51 mi value is 82 km, suggesting possible rounding or different baseline."
+    },
+    {
+     "field": "registration_cost",
+     "verdict": "mismatch",
+     "web_value": "2500",
+     "confidence": "high",
+     "source_url": "https://d21kqprls7cqow.cloudfront.net/da52365457b7259fef9eacc5b2692428.pdf",
+     "note": "Official 2025 participant regulations state participants are 'expected to raise a contribution of at least 2,500 euros.' Database claims EUR 1,500 minimum. Multiple 2026 sources also cite EUR 2,500 as the minimum fundraising target."
+    }
+   ],
+   "changes": [
+    {
+     "field": "vitals.distance_mi",
+     "old": 51.0,
+     "new": 8.6,
+     "source": "https://en.wikipedia.org/wiki/Alpe_d'Huez",
+     "flag_only": true
+    },
+    {
+     "field": "rating.length",
+     "old": 3,
+     "new": 2,
+     "source": "rubric recompute"
+    },
+    {
+     "field": "rating.overall_score",
+     "old": 66,
+     "new": 64,
+     "source": "rubric recompute"
+    }
+   ],
+   "usage": {
+    "input_tokens": 80947,
+    "output_tokens": 874
+   }
+  },
+  {
+   "slug": "alpen-challenge-lenzerheide",
+   "verdicts": {
+    "distance_mi": "mismatch",
+    "elevation_ft": "mismatch",
+    "field_size": "confirmed",
+    "prize_purse": "unverifiable",
+    "registration_cost": "unverifiable",
+    "status": "confirmed"
+   },
+   "mismatches": [
+    {
+     "field": "distance_mi",
+     "verdict": "mismatch",
+     "web_value": "117.4",
+     "confidence": "high",
+     "source_url": "https://www.myswitzerland.com/en-us/experiences/events/alpen-challenge_1/",
+     "note": "Database shows 117 mi; official sources (Alpen Challenge and regional sites) confirm the long distance is approximately 189–192 km (~117–119 mi) and short distance is approximately 115–117 km (~71–73 mi). Database value appears to reference the short distance (117.4 km confirmed). Clarification needed on which distance the 117 mi refers to."
+    },
+    {
+     "field": "elevation_ft",
+     "verdict": "mismatch",
+     "web_value": "14437",
+     "confidence": "high",
+     "source_url": "https://www.alpenchallengelenzerheide.ch/",
+     "note": "Official website states long distance: 189 km with 4400 meters elevation gain (= 14,436 ft). Database shows 14,364 ft (≈4382 m). Short distance: 115 km with ~2,900 m elevation gain."
+    }
+   ],
+   "changes": [],
+   "usage": {
+    "input_tokens": 28819,
+    "output_tokens": 760
+   }
+  },
+  {
+   "slug": "alpenbrevet",
+   "verdicts": {
+    "distance_mi": "confirmed",
+    "elevation_ft": "confirmed",
+    "field_size": "confirmed",
+    "prize_purse": "confirmed",
+    "registration_cost": "unverifiable",
+    "status": "confirmed"
+   },
+   "mismatches": [],
+   "changes": [],
+   "usage": {
+    "input_tokens": 34874,
+    "output_tokens": 761
+   }
+  },
+  {
+   "slug": "amashova-national-classic",
+   "verdicts": {
+    "distance_mi": "mismatch",
+    "elevation_ft": "unverifiable",
+    "field_size": "unverifiable",
+    "prize_purse": "confirmed",
+    "registration_cost": "unverifiable",
+    "status": "confirmed"
+   },
+   "mismatches": [
+    {
+     "field": "distance_mi",
+     "verdict": "mismatch",
+     "web_value": "65.9",
+     "confidence": "high",
+     "source_url": "https://www.shova.co.za/",
+     "note": "Official site confirms 106km for the main classic (Pietermaritzburg to Durban). Converting: 106km ≈ 65.9 miles. Your database has 66 miles which is within rounding, but the authoritative sources (shova.co.za, Gran Fondo Guide, Racepass, KZN Tourism) consistently state 106km as THE distance, not 66 miles."
+    }
+   ],
+   "changes": [],
+   "usage": {
+    "input_tokens": 59742,
+    "output_tokens": 956
+   }
+  },
+  {
+   "slug": "americas-most-beautiful-bike-ride",
+   "verdicts": {
+    "distance_mi": "confirmed",
+    "elevation_ft": "confirmed",
+    "field_size": "confirmed",
+    "prize_purse": "confirmed",
+    "registration_cost": "confirmed",
+    "status": "confirmed"
+   },
+   "mismatches": [],
+   "changes": [],
+   "usage": {
+    "input_tokens": 24936,
+    "output_tokens": 705
+   }
+  },
+  {
+   "slug": "amstel-gold-race-toerversie",
+   "verdicts": {
+    "distance_mi": "confirmed",
+    "elevation_ft": "mismatch",
+    "field_size": "confirmed",
+    "prize_purse": "confirmed",
+    "registration_cost": "mismatch",
+    "status": "confirmed"
+   },
+   "mismatches": [
+    {
+     "field": "elevation_ft",
+     "verdict": "mismatch",
+     "web_value": "7170",
+     "confidence": "high",
+     "source_url": "https://www.amstel.nl/agr-150-km",
+     "note": "Official site (amstel.nl) for 150 km route: 2,186 meters = 7,172 feet. Database states 10,410 ft, which matches the 240 km route (2,960 m elevation = 9,711 ft). Mismatch for 150 km."
+    },
+    {
+     "field": "registration_cost",
+     "verdict": "mismatch",
+     "web_value": "59",
+     "confidence": "high",
+     "source_url": "https://www.wielrennenmaastricht.nl/events/amstel-gold-race-toerversie-2026",
+     "note": "2026 cost was EUR 59 (including EUR 6 deposit). Database claims EUR 63 for 2026. Search shows EUR 59 + EUR 6 deposit structure. For 2027, registration opens October 2026; 2027 price not yet published."
+    }
+   ],
+   "changes": [
+    {
+     "field": "vitals.elevation_ft",
+     "old": 10410.0,
+     "new": 7170.0,
+     "source": "https://www.amstel.nl/agr-150-km"
+    },
+    {
+     "field": "rating.elevation",
+     "old": 3,
+     "new": 4,
+     "source": "rubric recompute"
+    },
+    {
+     "field": "rating.overall_score",
+     "old": 73,
+     "new": 74,
+     "source": "rubric recompute"
+    }
+   ],
+   "usage": {
+    "input_tokens": 69466,
+    "output_tokens": 817
+   }
+  },
+  {
+   "slug": "amys-gran-fondo",
+   "verdicts": {
+    "distance_mi": "mismatch",
+    "elevation_ft": "unverifiable",
+    "field_size": "unverifiable",
+    "prize_purse": "confirmed",
+    "registration_cost": "unverifiable",
+    "status": "confirmed"
+   },
+   "mismatches": [
+    {
+     "field": "distance_mi",
+     "verdict": "mismatch",
+     "web_value": "75.8",
+     "confidence": "high",
+     "source_url": "https://www.amysgranfondo.org.au/amys-gran-fondo-ag/",
+     "note": "Official website lists 122km distance (76 miles rounded), but database lists 76 miles exactly. 122 km = 75.8 miles. This is nominal agreement, but verified as current distance from official site."
+    }
+   ],
+   "changes": [],
+   "usage": {
+    "input_tokens": 29926,
+    "output_tokens": 645
+   }
+  },
+  {
+   "slug": "ardenne-gravel-stages",
+   "verdicts": {
+    "distance_mi": "mismatch",
+    "elevation_ft": "mismatch",
+    "field_size": "confirmed",
+    "prize_purse": "unverifiable",
+    "registration_cost": "unverifiable",
+    "status": "confirmed"
+   },
+   "mismatches": [
+    {
+     "field": "distance_mi",
+     "verdict": "mismatch",
+     "web_value": "168",
+     "confidence": "high",
+     "source_url": "https://www.cycloworld.cc/en/article/ardenne-gravel-stages-three-tough-days-in-the-ardennes/6111",
+     "note": "Official stages total ~269 km (70+110+89 km from CycloWorld coverage: 4-8), or 167 miles. Database claims 180 mi; web sources consistently cite ~270 km total distance"
+    },
+    {
+     "field": "elevation_ft",
+     "verdict": "mismatch",
+     "web_value": "17982",
+     "confidence": "high",
+     "source_url": "https://www.cycloworld.cc/en/article/ardenne-gravel-stages-three-tough-days-in-the-ardennes/6111",
+     "note": "Official 2025 edition showed 1387+1817+1627 meters climbing (4-8), totaling ~4831m = ~15,846 ft. More recent coverage; database claims 12,000 ft which is significantly lower"
+    }
+   ],
+   "changes": [
+    {
+     "field": "vitals.distance_mi",
+     "old": 180.0,
+     "new": 168.0,
+     "source": "https://www.cycloworld.cc/en/article/ardenne-gravel-stages-three-tough-days-in-the-ardennes/6111"
+    },
+    {
+     "field": "vitals.elevation_ft",
+     "old": 12000.0,
+     "new": 17982.0,
+     "source": "https://www.cycloworld.cc/en/article/ardenne-gravel-stages-three-tough-days-in-the-ardennes/6111"
+    },
+    {
+     "field": "rating.length",
+     "old": 4,
+     "new": 5,
+     "source": "rubric recompute"
+    },
+    {
+     "field": "rating.elevation",
+     "old": 3,
+     "new": 5,
+     "source": "rubric recompute"
+    },
+    {
+     "field": "rating.overall_score",
+     "old": 51,
+     "new": 56,
+     "source": "rubric recompute"
+    }
+   ],
+   "usage": {
+    "input_tokens": 17073,
+    "output_tokens": 737
+   }
+  }
+ ],
+ "errors": [
+  {
+   "slug": "5-mila-marche-gran-fondo",
+   "error": "unparseable"
+  }
+ ]
+}

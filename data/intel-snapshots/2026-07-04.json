@@ -78,6 +78,14 @@
      "sessions": 1
     }
    ],
+   "sessions_28d": 1100,
+   "funnel_28d": {
+    "cta_click": 28,
+    "form_start": 33,
+    "form_submit": 19,
+    "begin_checkout": 0,
+    "purchase": 2
+   },
    "ok": true
   },
   "roadielabs": {
@@ -104,14 +112,18 @@
    },
    "top_landing": [
     {
-     "path": "",
-     "sessions": 1
-    },
-    {
      "path": "/race/la-marmotte/",
      "sessions": 1
     }
    ],
+   "sessions_28d": 14,
+   "funnel_28d": {
+    "cta_click": 0,
+    "form_start": 0,
+    "form_submit": 0,
+    "begin_checkout": 0,
+    "purchase": 0
+   },
    "ok": true
   }
  },
@@ -130,18 +142,116 @@
   }
  },
  "mission_control": {
+  "hot_leads_14d": [
+   {
+    "email": "ferrarioanea@gmail.com",
+    "name": "",
+    "race": "Sea Otter Fuego XL",
+    "brand": "gravelgod",
+    "sequence": "welcome_v1",
+    "step": 1,
+    "status": "active",
+    "opens": 1,
+    "clicks": 0
+   },
+   {
+    "email": "alpineluddites@gmail.com",
+    "name": "",
+    "race": "Tour Divide",
+    "brand": "gravelgod",
+    "sequence": "welcome_v1",
+    "step": 2,
+    "status": "active",
+    "opens": 2,
+    "clicks": 0
+   },
+   {
+    "email": "bigkaisa@icloud.com",
+    "name": "",
+    "race": "Crusher in the Tushar",
+    "brand": "gravelgod",
+    "sequence": "welcome_v1",
+    "step": 2,
+    "status": "active",
+    "opens": 0,
+    "clicks": 0
+   },
+   {
+    "email": "sabrinahirsch@gmail.com",
+    "name": "",
+    "race": "(no race given)",
+    "brand": "gravelgod",
+    "sequence": "welcome_v1",
+    "step": 2,
+    "status": "active",
+    "opens": 2,
+    "clicks": 0
+   },
+   {
+    "email": "raccoon-boldest.4t@icloud.com",
+    "name": "",
+    "race": "V\u00e4tternrundan",
+    "brand": "gravelgod",
+    "sequence": "welcome_v1",
+    "step": 3,
+    "status": "active",
+    "opens": 3,
+    "clicks": 0
+   },
+   {
+    "email": "jemldymond@gmail.com",
+    "name": "",
+    "race": "Lake Taup\u014d Cycle Challenge",
+    "brand": "gravelgod",
+    "sequence": "welcome_v1",
+    "step": 3,
+    "status": "unsubscribed",
+    "opens": 3,
+    "clicks": 2
+   },
+   {
+    "email": "ellenihoward@gmail.com",
+    "name": "",
+    "race": "SBT GRVL",
+    "brand": "gravelgod",
+    "sequence": "welcome_v1",
+    "step": 4,
+    "status": "active",
+    "opens": 0,
+    "clicks": 0
+   },
+   {
+    "email": "mshcrowley@gmail.com",
+    "name": "",
+    "race": "Bowral Classic",
+    "brand": "gravelgod",
+    "sequence": "welcome_v1",
+    "step": 4,
+    "status": "active",
+    "opens": 4,
+    "clicks": 0
+   }
+  ],
   "new_leads_24h": 0,
   "leads_by_brand": {
    "gravelgod": 0,
    "roadielabs": 0
   },
   "countdown_enrollments": 0,
-  "emails_sent_24h": 9,
-  "opens_24h": 3,
+  "emails_sent_24h": 10,
+  "opens_24h": 4,
   "clicks_24h": 0,
   "bounces_24h": 0,
   "new_orders_24h_UNRELIABLE": "use ga4 purchase counts \u2014 gg_athletes is not written by purchases",
   "errors_24h": [],
+  "ok": true
+ },
+ "commerce_ledger": {
+  "failed_orders": [],
+  "orders": [],
+  "questionnaire_starts": 0,
+  "recoveries": [],
+  "window_hours": 24,
   "ok": true
  },
  "workflows": {
@@ -153,5 +263,17 @@
   },
   "ok": true
  },
- "report": "## TOP LINE\n- GravelGod: 20 sessions vs 35 7d-avg (-43%). Zero cta_clicks, zero form activity, zero purchases \u2014 full funnel dead, not just bottom of it.\n- RoadieLabs: 1 session (7d avg 0.4). Nothing else moving.\n- Leads: 0. Orders: 0. Both brands, zero for the day.\n\n## NUMBERS\n| Brand | Sessions (7d avg) | CTA clicks | Form start | Form submit | Checkout | Purchases | Leads |\n|---|---|---|---|---|---|---|---|\n| GravelGod | 20 (35.0) | 0 | 0 | 0 | 0 | 0 | 0 |\n| RoadieLabs | 1 (0.4) | 0 | 0 | 0 | 0 | 0 | 0 |\n\n## TRAFFIC\n**GravelGod** (20 sessions)\n- Top pages: /gravel-races/ (4), /race/calendar/2026/ (3), / (2), /race/unbound-200/tires/ (2), /race/big-sugar/ (1)\n- Channels: Organic Search 15, Direct 5. No referral traffic.\n- Top landing: /race/calendar/2026/ (3), /race/the-traka/tires/ (2), /race/unbound-200/tires/ (2)\n- Nothing new here \u2014 same race/tire pages as usual, no spike, no new source.\n\n**RoadieLabs**\n- Near-zero: 1 session total, landed on /race/la-marmotte/ via organic search. Not enough to read into.\n\n## BROKEN\n- `gravel-race-automation/link-check.yml`: failure. Other three workflows (road-race link-check, checkout-monitor, gravel regression-tests) green. Checkout health and Stripe both OK on both brands.\n\n## DO TODAY\n- Check gravel-race-automation/link-check.yml failure log \u2014 could be masking broken links feeding the session drop. (Fix cost: low, diagnostic value: real.)\n- Confirm GA4 funnel tracking fires on a manual test purchase attempt \u2014 zero cta_click across 20 sessions is a tracking-failure pattern, not just a bad day. If tracking's fine, it's a demand problem, not a tooling one.\n- No campaign changes today \u2014 sample size too thin (20 + 1 sessions) to act on traffic mix."
+ "constraint": {
+  "ok": true,
+  "sessions_per_day": 39.3,
+  "cta_rate_pct": 2.55,
+  "cta_to_submit_pct": 67.9,
+  "submit_to_purchase_pct": 10.5,
+  "purchases_28d": 2,
+  "submits_28d": 19,
+  "ctas_28d": 28,
+  "sessions_per_day_needed_for_1_sale": 550,
+  "binding_constraint": "traffic \u2014 at these volumes no funnel rate is even measurable; nothing downstream is worth optimizing yet"
+ },
+ "report": "**INTERPRETATION FAILED: 'race'**\n\n## RAW DIGEST \u2014 2026-07-04 (interpretation unavailable)\n\n### Gravel God\n- sessions 20 (7d avg 35.0), funnel {'cta_click': 0, 'form_start': 0, 'form_submit': 0, 'begin_checkout': 0, 'purchase': 0}\n- checkout: OK\n\n### Roadie Labs\n- sessions 1 (7d avg 0.4), funnel {'cta_click': 0, 'form_start': 0, 'form_submit': 0, 'begin_checkout': 0, 'purchase': 0}\n- checkout: OK\n\n- leads 0, emails 10, errors 0 (orders: see GA4 purchase counts)"
 }

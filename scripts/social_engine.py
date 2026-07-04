@@ -138,8 +138,16 @@ def render_card(race: dict, brand: str, kind: str = "countdown") -> Path:
     score = race.get("score")
     if score is not None:
         d.text((margin + 40, y + 40), str(score), font=_font(False, 330), fill=ink)
-        d.text((margin + 60, y + 380), "/ 100 · SAME RULER AS EVERY RACE WE RATE",
-               font=_font(True, 26), fill=ink)
+        quip = race.get("quip")
+        if quip:
+            qf = _font(False, 44)
+            qy = y + 400
+            for line in _wrap(d, f"\u201c{quip}\u201d", qf, W - 2 * margin - 100)[:4]:
+                d.text((margin + 50, qy), line, font=qf, fill=ink)
+                qy += 56
+        else:
+            d.text((margin + 60, y + 380), "/ 100 · SAME RULER AS EVERY RACE WE RATE",
+                   font=_font(True, 26), fill=ink)
 
     # tier chip
     tier = race.get("tier")

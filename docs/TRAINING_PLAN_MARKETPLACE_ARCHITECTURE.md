@@ -62,14 +62,13 @@ The old model was 15 plans/race (4 tiers × up-to-5 levels × duration). **That'
 
 ---
 
-## 4. Testing weeks policy
+## 4. Testing weeks policy  (REVISED 2026-07-04)
 
-A test is a DAY, not a WEEK (don't burn a training week).
-- **Every plan:** FTP/threshold test in Week 1 (sets all zones).
-- **12-week:** + re-test day at the base→build seam (~end Wk 5).
-- **16-week:** + mid re-test, plus optional short re-test before peak.
-- **8-week / SMR:** Week-1 test only.
-Two test *days* in longer plans, never two test *weeks*. Audit base plans; add the mid re-test where missing.
+**Week 1 = a full 360 Testing Week** (superseded the earlier "test is a day" call). Source of truth = Matti's real TP plan **230732 "Gravel God Testing"** (7 days, 352 TSS / 6:22): Openers → Aerobic/FTP → Recovery → Anaerobic → Rest → Metabolism 2:20 → Strength. RPE-anchored (works when the athlete has no zones yet); profiles every energy system + aerobic durability (HR decoupling) + strength baseline. So the 12wk plan = **1 test week + 11 training weeks**.
+- **Education layer (required):** each assessment day carries WHAT IT MEASURES / WHY / WHAT TO RECORD / WHAT GOOD LOOKS LIKE, plus a guide "Your Testing Week" section (measure→record→success table + coach expectations). Matti's hosted "Required Reading" GGC articles are linked from the matching workouts (guide-as-link, already in prod): the-assessment-aerobic / the-anaerobic-assessment / the-aerobic-endurance-test.
+- **Mid-plan re-test:** a single compressed day (20-min Aerobic only) on 12wk+ (~Wk 7) to refresh zones. Never a second full test week.
+- **8-week / SMR:** open — likely a compressed 2-3 day test block, not the full 7.
+Engine: `gravel-god-training-plans/engine/testing_week.py` (+ workout_generator/guide/strength hooks). At TP-build time the swarm can instead APPLY block 230732 for Wk 1 to get exact notes + strength natively. Memory: `testing-week-360-protocol.md`.
 
 ---
 
@@ -136,6 +135,10 @@ Not in any repo — TP owns checkout. But it IS discoverable from published plan
 ---
 
 ## 11. Where we are (2026-07-04)
+
+- **Base-library engine SHIPPED** (ggtp branch `testing-week-and-base-library`, pushed). The athlete-intake engine now generates race-neutral base plans: **360 testing week (Wk 1)** → deterministic polarized 11-week progression → **compressed mid re-test (Wk 7)** → **universal heat block (Wk 6-10, guide + workout cues)** → taper/race. Clean archetype names (`W## Day:` artifact retired) with `(n of N)` progression suffixes + `placement_manifest.json` for swarm TP placement. 100/100 tests green (also de-staled the fixture dates).
+- **4 Finisher-gravel-12wk demand variations GENERATED** (all-rounder/climber/ultra/punchy) via a `DEMAND_EMPHASIS` overlay — same testing week + heat + periodization, biased archetype selection. Verified distinct (climber→Threshold, punchy→Anaerobic/VO2/Explosive, ultra→long-ride Durability). Intakes in `ggtp/base_intakes/`.
+- **NEXT:** build the base library into TP (apply block 230732 for Wk 1 to keep exact notes+strength; engine workouts Wk 2-12), then prove the wrapper layer (guide-link / race-aware description / notes) + lifecycle on one race.
 
 - **Finisher Intermediate proof built in TP** (plan **657024**, "AUTO Finisher Intermediate (proof)") from `gravel-race-automation/plans/6. Finisher Intermediate/template.json`: 84 workouts, every day filled, coaching in descriptions, Day-1 welcome orientation, race event, NO notes. Matches published reference **599629** ($99). Prior WEAK plan **657020** (from tp-skus generic families) left for side-by-side.
 - **All 15 SBT GRVL plans regenerated** via the catalog generator (`gpx/races/generate_race_plans.py races/sbt_grvl.json`) → `gpx/races/SBT GRVL/` (~1,500 workouts, reference-quality, SBT altitude/fueling overlays). Two non-fatal generator gaps: SBT config is an OLDER schema (non_negotiables/masterclass_topics must be lists; needs guide_variables/marketplace_variables/tier_overrides — transformed copy saved in `gpx/races/sbt_grvl.json`); guide gen needs `markdown` module (use the custom pipeline's `training_guide_builder.py` instead — Matti says it's superior).

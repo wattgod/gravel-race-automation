@@ -1,0 +1,283 @@
+{
+ "date": "2026-07-07",
+ "ga4": {
+  "gravelgod": {
+   "sessions": 33,
+   "users": 27,
+   "pageviews": 56,
+   "sessions_7d_avg": 31.4,
+   "funnel": {
+    "cta_click": 0,
+    "form_start": 0,
+    "form_submit": 0,
+    "begin_checkout": 0,
+    "purchase": 0
+   },
+   "abandoned_submits": 0,
+   "top_pages": [
+    {
+     "path": "/gravel-races/",
+     "views": 18
+    },
+    {
+     "path": "/race/calendar/2026/",
+     "views": 14
+    },
+    {
+     "path": "/",
+     "views": 2
+    },
+    {
+     "path": "/race/steamboat-gravel/",
+     "views": 2
+    },
+    {
+     "path": "/i-screwed-up-foco-fondo-so-you-dont-have-to/",
+     "views": 1
+    },
+    {
+     "path": "/race/best-gravel-races-colorado/",
+     "views": 1
+    },
+    {
+     "path": "/race/big-sugar/",
+     "views": 1
+    },
+    {
+     "path": "/race/colorado-trail-race/",
+     "views": 1
+    }
+   ],
+   "channel_mix": {
+    "Organic Search": 21,
+    "Direct": 10,
+    "AI Assistant": 1,
+    "Unassigned": 1
+   },
+   "top_landing": [
+    {
+     "path": "/race/calendar/2026/",
+     "sessions": 12
+    },
+    {
+     "path": "",
+     "sessions": 3
+    },
+    {
+     "path": "/gravel-races/",
+     "sessions": 3
+    },
+    {
+     "path": "/",
+     "sessions": 1
+    },
+    {
+     "path": "/i-screwed-up-foco-fondo-so-you-dont-have-to/",
+     "sessions": 1
+    },
+    {
+     "path": "/race/big-sugar/",
+     "sessions": 1
+    }
+   ],
+   "sessions_28d": 1062,
+   "funnel_28d": {
+    "cta_click": 29,
+    "form_start": 35,
+    "form_submit": 19,
+    "begin_checkout": 0,
+    "purchase": 2
+   },
+   "ok": true
+  },
+  "roadielabs": {
+   "sessions": 1,
+   "users": 1,
+   "pageviews": 0,
+   "sessions_7d_avg": 0.4,
+   "funnel": {
+    "cta_click": 0,
+    "form_start": 0,
+    "form_submit": 0,
+    "begin_checkout": 0,
+    "purchase": 0
+   },
+   "abandoned_submits": 0,
+   "top_pages": [],
+   "channel_mix": {
+    "Unassigned": 1
+   },
+   "top_landing": [
+    {
+     "path": "",
+     "sessions": 1
+    }
+   ],
+   "sessions_28d": 15,
+   "funnel_28d": {
+    "cta_click": 0,
+    "form_start": 0,
+    "form_submit": 0,
+    "begin_checkout": 0,
+    "purchase": 0
+   },
+   "ok": true
+  }
+ },
+ "checkout": {
+  "gravelgod": {
+   "health_ok": true,
+   "stripe_checkout_ok": true,
+   "ok": true,
+   "error": ""
+  },
+  "roadielabs": {
+   "health_ok": true,
+   "stripe_checkout_ok": true,
+   "ok": true,
+   "error": ""
+  }
+ },
+ "mission_control": {
+  "hot_leads_14d": [
+   {
+    "email": "bpfitmail@gmail.com",
+    "name": "",
+    "race": "Colorado Trail Race",
+    "brand": "gravelgod",
+    "sequence": "welcome_v1",
+    "step": 1,
+    "status": "active",
+    "opens": 0,
+    "clicks": 0
+   },
+   {
+    "email": "ashliegh.heritage07@gmail.com",
+    "name": "",
+    "race": "MAAP Beechworth Granite Classic",
+    "brand": "gravelgod",
+    "sequence": "welcome_v1",
+    "step": 1,
+    "status": "active",
+    "opens": 0,
+    "clicks": 0
+   },
+   {
+    "email": "kailee.dugan@gmail.com",
+    "name": "",
+    "race": "STP \u2014 Seattle to Portland",
+    "brand": "gravelgod",
+    "sequence": "welcome_v1",
+    "step": 1,
+    "status": "active",
+    "opens": 1,
+    "clicks": 0
+   },
+   {
+    "email": "ferrarioanea@gmail.com",
+    "name": "",
+    "race": "Sea Otter Fuego XL",
+    "brand": "gravelgod",
+    "sequence": "welcome_v1",
+    "step": 3,
+    "status": "active",
+    "opens": 3,
+    "clicks": 0
+   },
+   {
+    "email": "alpineluddites@gmail.com",
+    "name": "",
+    "race": "Tour Divide",
+    "brand": "gravelgod",
+    "sequence": "welcome_v1",
+    "step": 3,
+    "status": "active",
+    "opens": 3,
+    "clicks": 0
+   },
+   {
+    "email": "bigkaisa@icloud.com",
+    "name": "",
+    "race": "Crusher in the Tushar",
+    "brand": "gravelgod",
+    "sequence": "welcome_v1",
+    "step": 3,
+    "status": "active",
+    "opens": 0,
+    "clicks": 0
+   },
+   {
+    "email": "sabrinahirsch@gmail.com",
+    "name": "",
+    "race": "(no race given)",
+    "brand": "gravelgod",
+    "sequence": "welcome_v1",
+    "step": 4,
+    "status": "active",
+    "opens": 4,
+    "clicks": 0
+   },
+   {
+    "email": "raccoon-boldest.4t@icloud.com",
+    "name": "",
+    "race": "V\u00e4tternrundan",
+    "brand": "gravelgod",
+    "sequence": "welcome_v1",
+    "step": 4,
+    "status": "active",
+    "opens": 4,
+    "clicks": 0
+   }
+  ],
+  "new_leads_24h": 0,
+  "leads_by_brand": {
+   "gravelgod": 0,
+   "roadielabs": 0
+  },
+  "countdown_enrollments": 0,
+  "emails_sent_24h": 7,
+  "opens_24h": 4,
+  "clicks_24h": 0,
+  "bounces_24h": 0,
+  "new_orders_24h_UNRELIABLE": "use ga4 purchase counts \u2014 gg_athletes is not written by purchases",
+  "errors_24h": [],
+  "ok": true
+ },
+ "commerce_ledger": {
+  "failed_orders": [],
+  "orders": [],
+  "questionnaire_starts": 0,
+  "recoveries": [],
+  "window_hours": 24,
+  "ok": true
+ },
+ "social": {
+  "accounts_live": false,
+  "queued_today": 0,
+  "queued_yesterday": 0,
+  "posts": [],
+  "ok": true
+ },
+ "workflows": {
+  "latest": {
+   "gravel-race-automation/link-check.yml": "failure",
+   "road-race-automation/link-check.yml": "success",
+   "road-race-automation/checkout-monitor.yml": "success",
+   "gravel-race-automation/regression-tests.yml": "success"
+  },
+  "ok": true
+ },
+ "constraint": {
+  "ok": true,
+  "sessions_per_day": 37.9,
+  "cta_rate_pct": 2.73,
+  "cta_to_submit_pct": 65.5,
+  "submit_to_purchase_pct": 10.5,
+  "purchases_28d": 2,
+  "submits_28d": 19,
+  "ctas_28d": 29,
+  "sessions_per_day_needed_for_1_sale": 531,
+  "binding_constraint": "traffic \u2014 at these volumes no funnel rate is even measurable; nothing downstream is worth optimizing yet"
+ },
+ "report": "## TOP LINE\n- GravelGod: 33 sessions (7d avg 31.4), but zero CTA clicks, zero form activity, zero purchases \u2014 full funnel flatline for the day.\n- RoadieLabs: 1 session total, no funnel activity. Still effectively dark.\n- No orders, no failed orders, no cart recoveries in the last 24h (commerce_ledger empty).\n\n## NUMBERS\n| Brand | Sessions (7d avg) | CTA | Form start | Submit | Checkout | Purchase | Leads | Orders |\n|---|---|---|---|---|---|---|---|---|\n| GravelGod | 33 (31.4) | 0 | 0 | 0 | 0 | 0 | 0 | 0 |\n| RoadieLabs | 1 (0.4) | 0 | 0 | 0 | 0 | 0 | 0 | 0 |\n\n## TRAFFIC\n**GravelGod**\n- Top pages: /gravel-races/ (18), /race/calendar/2026/ (14), / (2), /race/steamboat-gravel/ (2)\n- Channel mix: Organic Search 21, Direct 10, AI Assistant 1, Unassigned 1\n- Top landing: /race/calendar/2026/ (12), homepage (3), /gravel-races/ (3)\n- Nothing new \u2014 same pages as usual, no anomalies.\n\n**RoadieLabs**\n- 1 session, unassigned channel, landed on homepage. Not enough volume to analyze.\n\n## COMMERCE (ground truth)\nNo orders, no failed orders, no recoveries, 0 questionnaire starts in the last 24h. Ledger clean but empty.\n\n## CONSTRAINT\nBinding constraint: traffic \u2014 at current volumes no funnel rate is measurable, nothing downstream is worth optimizing. 28-day rates: CTA 2.73%, CTA\u2192submit 65.5%, submit\u2192purchase 10.5% (2 purchases / 19 submits / 29 CTAs over 28d). Needs 531 sessions/day for one sale/day at these rates; actual is 37.9/day \u2014 roughly 14x short.\n\n## HOT LEADS\n- sabrinahirsch@gmail.com \u2014 no race given, welcome_v1 step 4, 4 opens/0 clicks. Highest engagement, no click yet \u2014 send personal nudge, use draft_race_reply.\n- raccoon-boldest.4t@icloud.com \u2014 V\u00e4tternrundan, welcome_v1 step 4, 4 opens/0 clicks. Same pattern \u2014 personal follow-up referencing their race.\n- ferrarioanea@gmail.com \u2014 Sea Otter Fuego XL, step 3, 3 opens/0 clicks. Watch, no action yet.\n- alpineluddites@gmail.com \u2014 Tour Divide, step 3, 3 opens/0 clicks. Watch, no action yet.\n- Remaining 4 leads (bpfitmail, ashliegh.heritage07, kailee.dugan, bigkaisa) \u2014 step 1, opens 0-1, no cl"
+}

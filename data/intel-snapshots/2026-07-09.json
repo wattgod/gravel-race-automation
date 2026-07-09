@@ -141,7 +141,7 @@
     "sequence": "welcome_v1",
     "step": 1,
     "status": "active",
-    "opens": 0,
+    "opens": 1,
     "clicks": 0
    },
    {
@@ -229,7 +229,7 @@
   },
   "countdown_enrollments": 0,
   "emails_sent_24h": 6,
-  "opens_24h": 4,
+  "opens_24h": 5,
   "clicks_24h": 0,
   "bounces_24h": 0,
   "new_orders_24h_UNRELIABLE": "use ga4 purchase counts \u2014 gg_athletes is not written by purchases",
@@ -272,5 +272,5 @@
   "sessions_per_day_needed_for_1_sale": 1022,
   "binding_constraint": "traffic \u2014 at these volumes no funnel rate is even measurable; nothing downstream is worth optimizing yet"
  },
- "report": "## TOP LINE\n- GravelGod: 37 sessions (7d avg 30.6), 1 form_submit, 1 abandoned submit, 0 purchases.\n- RoadieLabs: dead \u2014 0 sessions again, 7d avg 0.2.\n- Commerce ledger: no orders, no failed orders, no recoveries. Nothing to reconcile.\n\n## NUMBERS\n| Brand | Sessions (7d avg) | CTA | Form start | Form submit | Checkout | Leads | Orders |\n|---|---|---|---|---|---|---|---|\n| GravelGod | 37 (30.6) | 1 | 2 | 1 | 0 | 2 | 0 |\n| RoadieLabs | 0 (0.2) | 0 | 0 | 0 | 0 | 0 | 0 |\n\n## TRAFFIC\n**GravelGod**\n- Top pages: /gravel-races/ (13), /race/calendar/2026/ (7), / (3), /race/cedar-blitz/ (2), /race/grassroots-gravel/ (2).\n- Channels: Organic Search 26, Direct 8, Referral 2, Unassigned 1.\n- Top landing: /race/calendar/2026/ (5), /gravel-races/ (4), \"\" (3), / (2), /race/steamboat-gravel/tires/ (2).\n- Nothing new here \u2014 same pages, same organic-heavy mix as usual.\n\n**RoadieLabs**: 0 sessions. Nothing to report.\n\n## COMMERCE (ground truth)\nNo orders in last 24h. No failed orders. No cart-recovery emails sent. Questionnaire starts: 0.\n\n## CONSTRAINT\nBinding constraint: traffic. At current 28-day rates (CTA 3.23%, CTA\u2192submit 54.5%, submit\u2192purchase 5.6%), 1 sale/day requires 1022 sessions/day. Actual is 36.5/day \u2014 about 3.6% of what's needed. Funnel isn't worth touching yet; nothing downstream is measurable at this volume.\n\n## HOT LEADS\n- alpineluddites@gmail.com \u2014 Tour Divide, welcome_v1 step 4, 4 opens / 1 click. Only lead with a click \u2014 reply personally about their race, use draft_race_reply.\n- ferrarioanea@gmail.com \u2014 Sea Otter Fuego XL, welcome_v1 step 4, 4 opens / 0 clicks. Engaged but no click yet \u2014 leave in sequence.\n- Remaining 6 leads: step 1\u20132, 0\u20131 opens, 0 clicks. No action warranted yet.\n\n## SOCIAL\n- accounts_live: false. Social sessions: 0 (expected). Queued today: 0, queued yesterday: 0. No posts to report.\n\n## BROKEN\n- gravel-race-automation/link-check.yml: failure. Check for broken race links on GravelGod.\n- No failed orders, no collector errors, no bounces.\n\n## DO TODAY\n- Fix gravel-race-automation/link-check.yml"
+ "report": "## TOP LINE\n- GravelGod: 37 sessions (vs 7d avg 30.6), 1 form_submit, 0 purchases. Zero orders in ledger.\n- Roadie Labs: 0 sessions again \u2014 6th zero-or-near-zero day in the 7-day trend.\n- gravel-race-automation/link-check.yml failed overnight.\n\n## NUMBERS\n| Brand | Sessions (7d avg) | CTA | Form Start | Form Submit | Checkout | Purchase | Leads | Orders |\n|---|---|---|---|---|---|---|---|---|\n| GravelGod | 37 (30.6) | 1 | 2 | 1 | 0 | 0 | 2 | 0 |\n| Roadie Labs | 0 (0.2) | 0 | 0 | 0 | 0 | 0 | 0 | 0 |\n\n## TRAFFIC\n**GravelGod**\n- Top pages: /gravel-races/ (13), /race/calendar/2026/ (7), / (3), /race/cedar-blitz/ (2), /race/grassroots-gravel/ (2)\n- Channels: Organic Search 26, Direct 8, Referral 2, Unassigned 1\n- Top landings: /race/calendar/2026/ (5), /gravel-races/ (4), (empty) (3), / (2), /race/steamboat-gravel/tires/ (2)\n- Nothing new here \u2014 same pages, same organic-dominant mix as usual.\n\n**Roadie Labs**: 0 sessions. Nothing to report.\n\n## COMMERCE (ground truth)\nNo orders, no failed orders, no cart-recovery emails, 0 questionnaire starts. Ledger is empty across the board.\n\n## CONSTRAINT\nBinding constraint: traffic. At current 28-day rates (CTA"
 }

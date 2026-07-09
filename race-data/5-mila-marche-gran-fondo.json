@@ -7,8 +7,8 @@
       "name": "5 Mila Marche Gran Fondo",
       "date": "2026: September 19-21",
       "date_specific": "2026: September 20",
-      "distance_mi": 82,
-      "elevation_ft": 5446,
+      "distance_mi": 50,
+      "elevation_ft": 4003,
       "location": "Porto Recanati, Marche, Italy",
       "terrain": "Paved roads",
       "website": "https://www.5milamarche.com",
@@ -21,7 +21,7 @@
     },
     "gravel_god_rating": {
       "logistics": 3,
-      "length": 3,
+      "length": 2,
       "technicality": 2,
       "elevation": 3,
       "climate": 4,
@@ -35,10 +35,14 @@
       "value": 3,
       "expenses": 3,
       "cultural_impact": 0,
-      "overall_score": 56,
+      "overall_score": 54,
       "tier": 3,
       "tier_label": "TIER 3",
-      "discipline": "road"
+      "discipline": "road",
+      "editorial_tier": 3,
+      "editorial_tier_label": "TIER 3",
+      "display_tier": 3,
+      "display_tier_label": "TIER 3"
     },
     "biased_opinion_ratings": {
       "logistics": {

@@ -7,7 +7,7 @@
       "name": "BalatonFondo",
       "date": "May 1, TBD",
       "date_specific": "May 1, 2026",
-      "distance_mi": 75,
+      "distance_mi": 55,
       "elevation_ft": 2000,
       "location": "Lake Balaton, Hungary",
       "terrain": "Paved roads",
@@ -21,7 +21,7 @@
     },
     "gravel_god_rating": {
       "logistics": 3,
-      "length": 3,
+      "length": 2,
       "technicality": 1,
       "elevation": 2,
       "climate": 4,
@@ -35,9 +35,13 @@
       "value": 4,
       "expenses": 4,
       "cultural_impact": 2,
-      "overall_score": 60,
-      "tier": 2,
-      "tier_label": "TIER 2"
+      "overall_score": 59,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "editorial_tier": 3,
+      "editorial_tier_label": "TIER 3",
+      "display_tier": 3,
+      "display_tier_label": "TIER 3"
     },
     "biased_opinion_ratings": {
       "logistics": {

@@ -287,7 +287,7 @@ class TestSectionBuilders:
     def test_hero_has_h1(self, stats, race_index):
         hero = build_hero(stats, race_index)
         assert "<h1" in hero
-        assert "Every gravel race, honestly rated" in hero
+        assert "Every gravel race, rated." in hero
 
     def test_hero_has_search_bar(self, stats, race_index):
         hero = build_hero(stats, race_index)

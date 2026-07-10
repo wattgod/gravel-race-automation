@@ -587,9 +587,9 @@ def build_hero(stats: dict, race_index: list = None) -> str:
     <div class="gg-hp-hero-inner">
       <div class="gg-hp-hero-content">
         <p class="gg-hp-hero-kicker">THE {CURRENT_YEAR} RACE DATABASE</p>
-        <h1 id="hero-title">Every gravel race, honestly rated</h1>
+        <h1 id="hero-title">Every gravel race, rated.</h1>
         <div class="gg-hp-accent-line" aria-hidden="true"></div>
-        <p class="gg-hp-hero-deck" data-ab="hero_tagline">{race_count} races scored on {dimensions} criteria. Honestly rated.</p>
+        <p class="gg-hp-hero-deck" data-ab="hero_tagline">{race_count} races scored on {dimensions} criteria.</p>
         <!-- Search-forward: inline search bar -->
         <form class="gg-hp-hero-search" action="{SITE_BASE_URL}/gravel-races/" method="get" role="search">
           <input type="text" name="q" class="gg-hp-hero-search-input" placeholder="Search races, locations, or what riders say..." aria-label="Search races" autocomplete="off">
@@ -2032,7 +2032,7 @@ def generate_homepage(race_index: list, race_data_dir: Path = None,
     # Round down to nearest 50 for title stability (757 → "750+", 800 → "800+")
     stable_count = (stats['race_count'] // 50) * 50
     title = f"{stable_count}+ Gravel & Road Races Rated for {CURRENT_YEAR} | Gravel God"
-    meta_desc = f"Find your next gravel race. {stats['race_count']} races worldwide, rated on 15 criteria. Training plans, race intel, and honest reviews."
+    meta_desc = f"Find your next gravel race. {stats['race_count']} races worldwide, rated on 15 criteria. Training plans and race intel."
 
     one_liners = load_editorial_one_liners(race_data_dir)
     upcoming = load_upcoming_races(race_data_dir)

@@ -42,7 +42,7 @@ BRANDS = {
     "gravel": {
         "root": GRAVEL_ROOT, "site": "https://gravelgodcycling.com",
         "label": "GRAVEL GOD CYCLING", "rating_key": "gravel_god_rating",
-        "bg": "#f5efe6", "ink": "#59473c", "accent": "#1A8A82",
+        "bg": "#f5efe6", "ink": "#59473c", "accent": "#178079",
         "chip_bg": "#59473c", "chip_ink": "#f5efe6",
         "tier_names": {1: "TIER 1", 2: "TIER 2", 3: "TIER 3", 4: "TIER 4"},
         "utm": "utm_source=social&utm_medium=organic&utm_campaign=db_posts",

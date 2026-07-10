@@ -72,12 +72,16 @@ mu-plugin syncs (section 3) or article SCP sync. Run those separately —
 
 Source: `wordpress/mu-plugins/` (8 files): `gg-ab.php`, `gg-cookie-consent.php`,
 `gg-ga4.php`, `gg-header.php`, `gg-meta-descriptions.php`, `gg-noindex.php`,
-`gg-race-ctas.php`, `gg-training-form.php`. Seven have a dedicated
+`gg-race-ctas.php`, `gg-training-form.php`. Each has a dedicated
 `push_wordpress.py` SCP flag (`--sync-ab`, `--sync-consent`, `--sync-ga4`,
-`--sync-header`, `--sync-meta-descriptions`, `--sync-noindex`, `--sync-ctas`);
-`--deploy-all` includes all seven. `gg-training-form.php` has **no sync flag
-anywhere in `push_wordpress.py`** and is not in `--deploy-all` — verify its
-deploy path before assuming a local edit is live.
+`--sync-header`, `--sync-meta-descriptions`, `--sync-noindex`, `--sync-ctas`,
+`--sync-training-form`); `--deploy-all` includes all eight. War story (Jul
+2026): `gg-training-form.php` — the questionnaire's Submit & Pay JS loader —
+sat UNTRACKED in a working tree for four months, deployed only by a manual
+March SCP; it had no sync flag and existed in no commit. A revenue-critical
+file whose only copies are a laptop and the server is one disk failure from
+gone; if you add a mu-plugin, its sync flag and its commit land in the same
+change.
 
 `gg-header.php` must be kept in manual sync with `shared_header.py`'s
 `get_site_header_html/css/js()` — no shared source of truth between Python

@@ -603,7 +603,7 @@ MANUAL_ENTRIES = [
      "Eight years of long-term cycling coaching with Nate Wilson: what athlete development looks like when someone commits.",
      None, "long-term cycling coaching"),
     (3617, "post", "i-got-into-yoga-so-you-dont-have-to",
-     "Yoga for cyclists: an honest review from someone who resisted it for years. What helps, what doesn't, and why I kept going.",
+     "Yoga for cyclists: a practical review from someone who resisted it for years. What helps, what doesn't, and why I kept going.",
      None, "yoga for cyclists"),
     (3694, "post", "listening-to-robert-in-silver-city",
      "You're never fast enough to be too cool. A Silver City encounter that reframes what cycling ambition should look like.",

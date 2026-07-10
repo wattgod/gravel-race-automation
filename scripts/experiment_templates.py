@@ -67,12 +67,12 @@ TEMPLATES: dict[str, list[dict]] = {
                 {
                     "id": "control",
                     "name": "control",
-                    "content": "328 races. 15 criteria. 4,920 scores — all assigned by hand. Zero sponsors. Zero pay-to-play.",
+                    "content": "328 races. 15 criteria. 4,920 scores — all assigned by hand.",
                 },
                 {
                     "id": "variant_a",
                     "name": "short_direct",
-                    "content": "Every gravel race in America. Scored by hand. No sponsors.",
+                    "content": "Every gravel race in America. Scored by hand.",
                 },
                 {
                     "id": "variant_b",
@@ -91,17 +91,17 @@ TEMPLATES: dict[str, list[dict]] = {
                 {
                     "id": "control",
                     "name": "control",
-                    "content": "328 races. 15 criteria. 4,920 scores — all assigned by hand. Zero sponsors. Zero pay-to-play.",
+                    "content": "328 races. 15 criteria. 4,920 scores — all assigned by hand.",
                 },
                 {
                     "id": "variant_a",
                     "name": "hours_research",
-                    "content": "2,000+ hours of race research. Zero sponsors.",
+                    "content": "2,000+ hours of race research.",
                 },
                 {
                     "id": "variant_b",
                     "name": "rider_trust",
-                    "content": "Riders in 43 states trust these scores. No sponsors. No pay-to-play.",
+                    "content": "Riders in 43 states trust these scores.",
                 },
             ],
         },

@@ -1415,7 +1415,7 @@ class TestBlockRenderersDispatch:
 
 class TestChapterHeroImage:
     def test_chapter_hero_image(self):
-        """Hero div gets background-image URL when hero_image set."""
+        """Hero div renders an inline survey plate and ignores hero_image."""
         chapter = {
             "number": 1,
             "id": "test-chapter",
@@ -1426,11 +1426,12 @@ class TestChapterHeroImage:
             "hero_image": "ch1-hero",
         }
         html = build_chapter(chapter)
-        assert "url(/guide/media/ch1-hero-1x.webp)" in html
-        assert "center/cover no-repeat" in html
+        assert "gg-guide-plate" in html
+        assert "gg-guide-chapter-title-block" in html
+        assert "url(/guide/media/ch1-hero-1x.webp)" not in html
 
     def test_chapter_no_hero_image(self):
-        """Hero div uses plain background color when no hero_image."""
+        """Hero div still renders a survey plate when no hero_image is set."""
         chapter = {
             "number": 1,
             "id": "test-chapter",
@@ -1441,7 +1442,7 @@ class TestChapterHeroImage:
         }
         html = build_chapter(chapter)
         assert "url(/guide/media/" not in html
-        assert "background:#59473c" in html
+        assert "gg-guide-plate" in html
 
 
 class TestImageCss:

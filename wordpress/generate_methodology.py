@@ -53,7 +53,7 @@ def build_hero() -> str:
     return '''<div class="gg-hero">
     <div class="gg-hero-tier" style="background:var(--gg-color-teal)">METHODOLOGY</div>
     <h1 data-text="How We Rate Gravel Races">How We Rate Gravel Races</h1>
-    <p class="gg-hero-tagline">Every race in our database is scored across 15 dimensions by human editors. No algorithms. No sponsors. No pay-to-play. Here&#39;s exactly how it works.</p>
+    <p class="gg-hero-tagline">Every race in our database is scored across 15 dimensions by human editors. Here&#39;s exactly how it works.</p>
   </div>'''
 
 

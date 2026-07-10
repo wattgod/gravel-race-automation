@@ -45,6 +45,7 @@ from generate_neo_brutalist import (
 )
 
 from guide_infographics import INFOGRAPHIC_RENDERERS
+from guide_plates import render_chapter_plate
 from shared_header import get_site_header_css, get_site_header_html, get_site_header_js
 from cookie_consent import get_consent_banner_html
 from brand_tokens import get_ga4_head_snippet
@@ -1275,14 +1276,8 @@ def build_chapter(chapter: dict) -> str:
 
     subtitle_html = f'<p class="gg-guide-chapter-subtitle">{subtitle}</p>' if subtitle else ''
 
-    colors = ['#59473c', '#000', '#178079', '#59473c', '#000', '#178079', '#59473c', '#000']
-    bg = colors[(num - 1) % len(colors)]
-
-    hero_image_id = chapter.get("hero_image")
-    if hero_image_id:
-        hero_style = f"background:url(/guide/media/{esc(hero_image_id)}-1x.webp) center/cover no-repeat;background-color:{bg}"
-    else:
-        hero_style = f"background:{bg}"
+    variant = "dark" if num in {2, 4, 6, 8} else "light"
+    plate = render_chapter_plate(num, {"race_index": _RACE_INDEX})
 
     sections_html = []
     for section in chapter["sections"]:
@@ -1299,10 +1294,13 @@ def build_chapter(chapter: dict) -> str:
       </div>''')
 
     return f'''<div class="gg-guide-chapter{gated_class}" id="{esc(ch_id)}" data-chapter="{num}">
-    <div class="gg-guide-chapter-hero" style="{hero_style}">
-      <span class="gg-guide-chapter-num">CHAPTER {num:02d}</span>
-      <h2 class="gg-guide-chapter-title">{title}</h2>
-      {subtitle_html}
+    <div class="gg-guide-chapter-hero gg-guide-chapter-hero--{variant}">
+      {plate}
+      <div class="gg-guide-chapter-title-block">
+        <span class="gg-guide-chapter-num">CHAPTER {num:02d}</span>
+        <h2 class="gg-guide-chapter-title">{title}</h2>
+        {subtitle_html}
+      </div>
     </div>
     <div class="gg-guide-chapter-body">
       {"".join(sections_html)}
@@ -1584,10 +1582,16 @@ def build_guide_css() -> str:
 
 /* ── Chapter ── */
 .gg-guide-chapter{margin-bottom:40px;border:3px solid #3a2e25;background:#f5efe6}
-.gg-guide-chapter-hero{padding:48px 32px;color:#fff;position:relative}
-.gg-guide-chapter-num{display:block;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.85);margin-bottom:8px}
-.gg-guide-chapter-title{font-family:'Source Serif 4',Georgia,serif;font-size:32px;font-weight:700;text-transform:uppercase;letter-spacing:2px;line-height:1.1;margin:0;color:#fff}
-.gg-guide-chapter-subtitle{font-family:'Source Serif 4',Georgia,serif;font-size:14px;color:rgba(255,255,255,0.7);margin-top:8px}
+.gg-guide-chapter-hero{min-height:312px;padding:48px 32px;position:relative;overflow:hidden;background:var(--gg-color-warm-paper);display:flex;align-items:flex-end}
+.gg-guide-chapter-hero--dark{background:var(--gg-color-dark-brown)}
+.gg-guide-plate{position:absolute;inset:0;width:100%;height:100%;display:block}
+.gg-guide-chapter-title-block{position:relative;z-index:1;max-width:460px}
+.gg-guide-chapter-num{display:block;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gg-color-secondary-brown);margin-bottom:8px}
+.gg-guide-chapter-title{font-family:'Source Serif 4',Georgia,serif;font-size:32px;font-weight:700;text-transform:uppercase;letter-spacing:2px;line-height:1.1;margin:0;color:var(--gg-color-dark-brown)}
+.gg-guide-chapter-subtitle{font-family:'Source Serif 4',Georgia,serif;font-size:14px;color:var(--gg-color-primary-brown);margin-top:8px}
+.gg-guide-chapter-hero--dark .gg-guide-chapter-num{color:var(--gg-color-tan)}
+.gg-guide-chapter-hero--dark .gg-guide-chapter-title{color:var(--gg-color-white)}
+.gg-guide-chapter-hero--dark .gg-guide-chapter-subtitle{color:var(--gg-color-sand)}
 .gg-guide-chapter-body{padding:40px 48px}
 
 /* ── Gating ── */
@@ -3314,7 +3318,7 @@ def generate_guide_page(content: dict, inline: bool = False, assets_dir: Path = 
 
 {js_html}
 
-''' + '<script>' + get_site_header_js() + '</script>' + '''
+<script>{get_site_header_js()}</script>
 
 {get_consent_banner_html()}
 </body>

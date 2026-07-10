@@ -36,6 +36,7 @@ from generate_neo_brutalist import (
 )
 
 from guide_infographics import INFOGRAPHIC_RENDERERS
+from guide_plates import render_chapter_plate
 from shared_header import get_site_header_css, get_site_header_html, get_site_header_js
 from shared_footer import get_mega_footer_css, get_mega_footer_html
 from cookie_consent import get_consent_banner_html
@@ -308,20 +309,16 @@ def build_chapter_hero(chapter: dict) -> str:
     title = esc(chapter["title"])
     subtitle = esc(chapter.get("subtitle", ""))
     subtitle_html = f'<p class="gg-guide-chapter-subtitle">{subtitle}</p>' if subtitle else ''
+    variant = "dark" if num in {2, 4, 6, 8} else "light"
+    plate = render_chapter_plate(num, {"race_index": generate_guide._RACE_INDEX})
 
-    colors = ['#59473c', '#000', '#178079', '#59473c', '#000', '#178079', '#59473c', '#000']
-    bg = colors[(num - 1) % len(colors)]
-
-    hero_image_id = chapter.get("hero_image")
-    if hero_image_id:
-        hero_style = f"background:url(/guide/media/{esc(hero_image_id)}-1x.webp) center/cover no-repeat;background-color:{bg}"
-    else:
-        hero_style = f"background:{bg}"
-
-    return f'''<div class="gg-guide-chapter-hero" style="{hero_style}">
-      <span class="gg-guide-chapter-num">CHAPTER {num:02d}</span>
-      <h2 class="gg-guide-chapter-title">{title}</h2>
-      {subtitle_html}
+    return f'''<div class="gg-guide-chapter-hero gg-guide-chapter-hero--{variant}">
+      {plate}
+      <div class="gg-guide-chapter-title-block">
+        <span class="gg-guide-chapter-num">CHAPTER {num:02d}</span>
+        <h2 class="gg-guide-chapter-title">{title}</h2>
+        {subtitle_html}
+      </div>
     </div>'''
 
 
@@ -763,7 +760,7 @@ def generate_pillar_page(content: dict, guide_css: str, guide_js: str,
 
 {js_html}
 
-''' + '<script>' + get_site_header_js() + '</script>' + '''
+<script>{get_site_header_js()}</script>
 
 {get_consent_banner_html()}
 </body>
@@ -871,7 +868,7 @@ def generate_chapter_page(chapter: dict, chapters: list, content: dict,
 
 {js_html}
 
-''' + '<script>' + get_site_header_js() + '</script>' + '''
+<script>{get_site_header_js()}</script>
 
 {get_consent_banner_html()}
 </body>
@@ -1330,7 +1327,7 @@ def generate_configurator_page(content: dict, guide_css: str, guide_js: str,
 
 {js_html}
 
-''' + '<script>' + get_site_header_js() + '</script>' + '''
+<script>{get_site_header_js()}</script>
 
 {get_consent_banner_html()}
 </body>

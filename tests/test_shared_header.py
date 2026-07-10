@@ -62,7 +62,7 @@ class TestHeaderHTML:
             re.DOTALL,
         )
         sub_links = sum(d.count("<a ") for d in dropdowns)
-        assert sub_links == 10
+        assert sub_links == 11  # +1 for Courses link under PRODUCTS
 
     def test_logo_present(self):
         html = get_site_header_html()

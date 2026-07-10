@@ -293,7 +293,7 @@ class TestRenderHtml:
         assert "Not configured" not in html
         # Brand elements
         assert "#3a2e25" in html
-        assert "#B7950B" in html
+        assert "#9a7e0a" in html
         assert "Georgia" in html
 
     def test_html_no_border_radius(self):

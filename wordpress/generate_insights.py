@@ -32,7 +32,7 @@ from generate_neo_brutalist import (
 )
 from brand_tokens import get_ab_head_snippet, get_ga4_head_snippet, get_preload_hints
 from shared_footer import get_mega_footer_html
-from shared_header import get_site_header_html, get_site_header_css
+from shared_header import get_site_header_html, get_site_header_css, get_site_header_js
 from cookie_consent import get_consent_banner_html
 from world_map_data import WORLD_MAP_PATHS, COUNTRY_CENTROIDS
 
@@ -3277,6 +3277,8 @@ def generate_insights_page(external_assets: dict = None) -> str:
 </div>
 
 {insights_js}
+
+''' + '<script>' + get_site_header_js() + '</script>' + '''
 
 {get_consent_banner_html()}
 </body>

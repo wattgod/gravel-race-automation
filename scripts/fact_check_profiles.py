@@ -306,8 +306,8 @@ def generate_html_report(results: list) -> str:
             "STALE_DATE": "#ff8800",
             "ENRICHABLE": "#44aa44",
             "CONFIRM": "#888888",
-            "NO_DATA": "#cccccc",
-        }.get(r["summary"], "#cccccc")
+            "NO_DATA": "#5e6868",
+        }.get(r["summary"], "#5e6868")
 
         fields_html = ""
         for field, info in r["fields"].items():

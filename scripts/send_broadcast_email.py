@@ -76,12 +76,12 @@ def build_email_html(note_text: str) -> str:
         for p in note_text.split('\n\n') if p.strip() and not p.startswith('#'))
     return f'''<div style="max-width:560px;margin:0 auto;font-family:monospace;color:#000;">
   <div style="background:#178079;border:4px solid #000;padding:24px;text-align:center;">
-    <span style="font-size:2rem;font-weight:700;color:#f5efe6;">GRAVEL<span style="background:#000;color:#B7950B;padding:0 6px;">TV</span></span>
+    <span style="font-size:2rem;font-weight:700;color:#f5efe6;">GRAVEL<span style="background:#000;color:#9a7e0a;padding:0 6px;">TV</span></span>
   </div>
   <div style="border:3px solid #000;border-top:none;padding:20px;background:#fff;">
     {paras}
     <p style="margin:20px 0 0;">
-      <a href="{ISSUE_URL}" style="display:inline-block;background:#B7950B;color:#000;border:3px solid #000;padding:12px 22px;font-weight:700;text-decoration:none;">WATCH THIS WEEK&rsquo;S BROADCAST &rarr;</a>
+      <a href="{ISSUE_URL}" style="display:inline-block;background:#9a7e0a;color:#000;border:3px solid #000;padding:12px 22px;font-weight:700;text-decoration:none;">WATCH THIS WEEK&rsquo;S BROADCAST &rarr;</a>
     </p>
   </div>
   <p style="font-size:11px;color:#777;margin-top:14px;">You tuned in at gravelgodcycling.com.

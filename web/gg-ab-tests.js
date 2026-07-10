@@ -70,6 +70,8 @@
       // Match /index.html to /
       if (p === '/' && path === '/index.html') return true;
       if (p === '/index.html' && path === '/') return true;
+      // Wildcard prefix matching: /race/* matches /race/unbound-200/
+      if (p.endsWith('*') && path.startsWith(p.slice(0, -1))) return true;
       // Trailing slash normalization
       if (p.replace(/\/$/, '') === path.replace(/\/$/, '')) return true;
     }
@@ -86,7 +88,10 @@
   // ── DOM swap ───────────────────────────────────────────────
   function applyVariant(experiment, variant) {
     var el = document.querySelector(experiment.selector);
-    if (!el) return;
+    if (!el) {
+      console.warn('[GG-AB] Experiment ' + experiment.id + ': target element not found: ' + experiment.selector);
+      return;
+    }
     // All variants are plain text — textContent for XSS safety.
     // If rich HTML variants are needed later, add an explicit "html"
     // flag to the variant config.

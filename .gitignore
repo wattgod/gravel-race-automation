@@ -99,3 +99,9 @@ youtube-research-results/
 Thumbs.db
 ga4-credentials.json
 gsc-service-account.json
+
+# video pipeline artifacts
+video-output/
+data/broll-cache/
+assets/avatar/placeholders/
+assets/thumbnails/

@@ -34,8 +34,8 @@ body { font-family: 'Sometype Mono', monospace; background: #1a1612; color: #ede
 .admin-header { padding: 24px 32px; border-bottom: 2px solid #178079; display: flex; justify-content: space-between; align-items: center; }
 .admin-header h1 { font-family: 'Source Serif 4', Georgia, serif; font-size: 1.5rem; }
 .admin-header .admin-refresh { background: #178079; color: #fff; border: none; padding: 8px 20px; font-family: 'Sometype Mono', monospace; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; cursor: pointer; border-radius: 2px; }
-.admin-header .admin-refresh:hover { background: #1A8A82; }
-.admin-status { font-size: 11px; color: #8c7568; }
+.admin-header .admin-refresh:hover { background: #178079; }
+.admin-status { font-size: 11px; color: #7d695d; }
 
 .admin-auth { display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 24px; }
 .admin-auth-card { background: #3a2e25; padding: 48px 36px; border-radius: 4px; text-align: center; max-width: 400px; width: 100%; }
@@ -47,21 +47,21 @@ body { font-family: 'Sometype Mono', monospace; background: #1a1612; color: #ede
 .admin-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; padding: 32px; max-width: 1400px; margin: 0 auto; }
 
 .admin-card { background: #3a2e25; border-radius: 4px; padding: 24px; }
-.admin-card h3 { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #1A8A82; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid #59473c; }
+.admin-card h3 { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #178079; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid #59473c; }
 
 .admin-stat-row { display: flex; justify-content: space-between; padding: 8px 0; font-size: 13px; }
-.admin-stat-row .label { color: #8c7568; }
+.admin-stat-row .label { color: #7d695d; }
 .admin-stat-row .value { color: #ede4d8; font-weight: 700; }
 
 .admin-table { width: 100%; border-collapse: collapse; font-size: 12px; margin-top: 8px; }
-.admin-table th { text-align: left; color: #8c7568; padding: 6px 8px; border-bottom: 1px solid #59473c; font-weight: 400; letter-spacing: 1px; text-transform: uppercase; }
+.admin-table th { text-align: left; color: #7d695d; padding: 6px 8px; border-bottom: 1px solid #59473c; font-weight: 400; letter-spacing: 1px; text-transform: uppercase; }
 .admin-table td { padding: 6px 8px; border-bottom: 1px solid rgba(89,71,60,.3); color: #ede4d8; }
 .admin-table tr:last-child td { border-bottom: none; }
 
 .admin-bar { background: #59473c; height: 6px; border-radius: 3px; overflow: hidden; margin-top: 4px; }
 .admin-bar-fill { height: 100%; background: #178079; border-radius: 3px; }
 
-.admin-loading { text-align: center; padding: 60px 24px; color: #8c7568; font-size: 14px; }
+.admin-loading { text-align: center; padding: 60px 24px; color: #7d695d; font-size: 14px; }
 
 .admin-card-full { grid-column: 1 / -1; }
 
@@ -249,7 +249,7 @@ def build_dashboard_html() -> str:
 <div id="auth-screen" class="admin-auth">
   <div class="admin-auth-card">
     <h2>Course Admin</h2>
-    <p style="color:#8c7568;font-size:12px;margin-bottom:16px">Enter your admin API key to access the dashboard.</p>
+    <p style="color:#7d695d;font-size:12px;margin-bottom:16px">Enter your admin API key to access the dashboard.</p>
     <input type="password" id="admin-key-input" placeholder="Admin API Key" onkeydown="if(event.key==='Enter')authenticate()">
     <button onclick="authenticate()">ACCESS DASHBOARD</button>
     <div class="admin-error" id="admin-auth-error"></div>
@@ -280,7 +280,7 @@ def build_dashboard_html() -> str:
       <h3>Revenue by Course</h3>
       <table class="admin-table">
         <thead><tr><th>Course</th><th>Enrolled</th><th>Revenue</th></tr></thead>
-        <tbody id="revenue-by-course"><tr><td colspan="3" style="color:#8c7568">Loading...</td></tr></tbody>
+        <tbody id="revenue-by-course"><tr><td colspan="3" style="color:#7d695d">Loading...</td></tr></tbody>
       </table>
     </div>
 
@@ -297,7 +297,7 @@ def build_dashboard_html() -> str:
       <h3>Active Streaks</h3>
       <table class="admin-table">
         <thead><tr><th>User</th><th>Current</th><th>Longest</th></tr></thead>
-        <tbody id="active-streaks"><tr><td colspan="3" style="color:#8c7568">Loading...</td></tr></tbody>
+        <tbody id="active-streaks"><tr><td colspan="3" style="color:#7d695d">Loading...</td></tr></tbody>
       </table>
     </div>
 
@@ -306,7 +306,7 @@ def build_dashboard_html() -> str:
       <h3>Course Health</h3>
       <table class="admin-table">
         <thead><tr><th>Course</th><th>Enrolled</th><th>Started</th><th>Completed</th><th>Completion Rate</th></tr></thead>
-        <tbody id="course-health"><tr><td colspan="5" style="color:#8c7568">Loading...</td></tr></tbody>
+        <tbody id="course-health"><tr><td colspan="5" style="color:#7d695d">Loading...</td></tr></tbody>
       </table>
     </div>
 
@@ -315,7 +315,7 @@ def build_dashboard_html() -> str:
       <h3>Recent Purchases (Last 7 Days)</h3>
       <table class="admin-table">
         <thead><tr><th>Email</th><th>Course</th><th>Amount</th><th>Date</th></tr></thead>
-        <tbody id="recent-purchases"><tr><td colspan="4" style="color:#8c7568">Loading...</td></tr></tbody>
+        <tbody id="recent-purchases"><tr><td colspan="4" style="color:#7d695d">Loading...</td></tr></tbody>
       </table>
     </div>
 
@@ -324,7 +324,7 @@ def build_dashboard_html() -> str:
       <h3>Knowledge Check Accuracy</h3>
       <table class="admin-table">
         <thead><tr><th>Lesson</th><th>Question</th><th>Attempts</th><th>Accuracy</th></tr></thead>
-        <tbody id="kc-accuracy"><tr><td colspan="4" style="color:#8c7568">Loading...</td></tr></tbody>
+        <tbody id="kc-accuracy"><tr><td colspan="4" style="color:#7d695d">Loading...</td></tr></tbody>
       </table>
     </div>
 
@@ -333,7 +333,7 @@ def build_dashboard_html() -> str:
       <h3>Nudge Emails</h3>
       <table class="admin-table">
         <thead><tr><th>Type</th><th>Sent</th></tr></thead>
-        <tbody id="nudge-stats"><tr><td colspan="2" style="color:#8c7568">Loading...</td></tr></tbody>
+        <tbody id="nudge-stats"><tr><td colspan="2" style="color:#7d695d">Loading...</td></tr></tbody>
       </table>
     </div>
 

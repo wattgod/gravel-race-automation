@@ -3,7 +3,7 @@
   "blocks": [
     {
       "type": "prose",
-      "content": "Your carry strategy isn't a personal preference question — it's a course-specific engineering problem. The right answer for a 60-mile race with aid stations every 15 miles is completely different from the right answer for Unbound 200 with 50+ mile unsupported gaps.\n\nGet this wrong and you're either carrying unnecessary weight (packs on short courses) or running dry in the Kansas flint hills with 30 miles to the next water source. Neither is a good look.\n\nThe three main carry systems — bottles, hydration packs, and drop bags — each have a specific window where they're optimal. Most experienced gravel racers use a combination, and the fastest finishers plan their carry strategy with the same rigor they plan their power targets."
+      "content": "Your carry strategy isn't a personal preference question — it's a course-specific engineering problem. The right answer for a 60-mile race with aid stations every 15 miles is completely different from the right answer for Unbound 200 with 50+ mile unsupported gaps.\n\nGet this wrong and you're either carrying unnecessary weight (packs on short courses) or running dry in the Kansas flint hills with 30 miles to the next water source. Neither is a good look.\n\nAnd whatever you carry, secure it like the course is trying to take it from you — because it is. Four miles into Unbound 2021, my spare tube ripped loose from my saddle bag and wedged itself into my rear rotor. Gravel finds everything that isn't bolted down, and bottles are its favorite snack.\n\nThe three main carry systems — bottles, hydration packs, and drop bags — each have a specific window where they're optimal. Most experienced gravel racers use a combination, and the fastest finishers plan their carry strategy with the same rigor they plan their power targets."
     },
     {
       "type": "tabs",
@@ -44,7 +44,7 @@
     },
     {
       "type": "scenario",
-      "prompt": "You're racing SBT GRVL 144 (144 miles) in Steamboat Springs, CO. There are three aid stations spaced roughly every 35 miles. The forecast calls for 85°F with low humidity. Your tested sweat rate is 36 oz/hr in warm conditions. Which carry strategy do you choose?",
+      "prompt": "You're racing the SBT GRVL long course (~140 miles) in Steamboat Springs, CO. There are three aid stations spaced roughly every 35 miles. The forecast calls for 85°F with low humidity. Your tested sweat rate is 36 oz/hr in warm conditions. Which carry strategy do you choose?",
       "options": [
         {
           "label": "Three bottles only (72 oz) — stay light and refill at every aid station",
@@ -53,19 +53,42 @@
         },
         {
           "label": "Two bottles + 2L hydration pack (~115 oz) — refill the pack at aid stations",
-          "result": "This is the right call. 115 oz covers 3+ hours at 36 oz/hr, giving you a buffer for each segment. The weight penalty (~5 lbs) is manageable on a 144-mile race where survival matters more than watts. Refill both bottles and top off the pack at each aid station. Pre-freeze the reservoir the night before for cold fluids in the first half.",
+          "result": "This is the right call. 115 oz covers 3+ hours at 36 oz/hr, giving you a buffer for each segment. The weight penalty (~5 lbs) is manageable on a ~140-mile race where survival matters more than watts. Refill both bottles and top off the pack at each aid station. Pre-freeze the reservoir the night before for cold fluids in the first half.",
           "best": true
         },
         {
           "label": "Two bottles + drop bag at the halfway aid station with frozen bottles",
-          "result": "Partially right, but incomplete. A drop bag at the midpoint gives you fresh bottles for the second half, which is smart. But with only 48 oz of carry capacity, you're short on the 35-mile segments that take 2.5 hours at 36 oz/hr (you need ~90 oz). You'd still need a third bottle or a small pack to bridge the gaps between stations. Drop bag as a supplement? Great. As your primary strategy? Not enough capacity."
+          "result": "Partially right, but incomplete. A drop bag at the midpoint gives you fresh bottles for the second half, which is smart. But with only 48 oz of carry capacity, you're short on the 35-mile segments that take 2.5 hours at 36 oz/hr (you need ~90 oz). You'd still need a third bottle or a small pack to bridge the gaps between stations. Drop bag as a supplement? Great. As your primary strategy? Not enough capacity.",
+          "best": false
         }
       ]
     },
     {
-      "type": "callout",
-      "content": "**The best strategy is often a hybrid.** Many experienced gravel racers run two frame bottles for easy access during riding, a small hydration pack (1.5L) as a reserve tank, and a drop bag at the halfway point for a fresh resupply. This layered approach means no single failure — a lost bottle, a clogged bite valve, a missed drop bag — leaves you completely dry. Redundancy isn't overkill in ultra-distance racing. It's how you finish.",
-      "style": "highlight"
+      "type": "knowledge_check",
+      "question": "Your tested sweat rate is 32 oz/hr in race conditions, and the longest gap between aid stations will take you about 3 hours. Roughly how much carry capacity do you need for that segment?",
+      "options": [
+        {
+          "text": "48 oz — two standard bottles, the classic setup",
+          "correct": false
+        },
+        {
+          "text": "64 oz — two bottles plus a large soft flask",
+          "correct": false
+        },
+        {
+          "text": "~96 oz — bottles alone won't cover it; add a pack or third/fourth cage",
+          "correct": true
+        },
+        {
+          "text": "150+ oz — always carry double your projected losses",
+          "correct": false
+        }
+      ],
+      "explanation": "Three hours at 32 oz/hr means roughly 96 oz of sweat loss across the segment. Your planned intake will be a bit lower (you target 70-80% replacement, per Lesson 5), but carry capacity needs headroom for hotter-than-forecast conditions, a mechanical that stretches the segment, or a bottle lost on washboard. Two bottles (48 oz) is half of what this gap demands — the classic setup fails the math. Doubling to 150+ oz is dead weight you'll haul over every climb. Size capacity to the segment, not to habit."
+    },
+    {
+      "type": "commitment",
+      "content": "Before the next lesson: pull up the course map for your next A race and find the longest unsupported gap. Multiply the hours that gap will take you by your sweat rate, and write the number down. That's the capacity your setup has to cover — and the test most riders never run until they're dry in the flint hills. While you're at it, layer your system: bottles for access, a small pack as the reserve tank, a drop bag where the race allows it. No single failure — a lost bottle, a clogged bite valve, a missed drop bag — should leave you completely dry."
     }
   ]
 }

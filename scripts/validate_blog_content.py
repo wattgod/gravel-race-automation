@@ -102,7 +102,7 @@ def check_blog_index_schema(v):
         return
 
     required_fields = {"slug", "title", "category", "tier", "date", "excerpt", "url"}
-    valid_categories = {"preview", "roundup", "recap"}
+    valid_categories = {"preview", "roundup", "recap", "article"}
 
     for i, entry in enumerate(data):
         label = entry.get("slug", f"entry[{i}]")
@@ -122,12 +122,12 @@ def check_blog_index_schema(v):
             f"{label}: category '{cat}' is valid",
         )
 
-        # Tier is 1-4 for previews/recaps, 0 allowed for roundups
+        # Tier is 1-4 for previews/recaps, 0 allowed for roundups/articles
         tier = entry.get("tier", 0)
-        if cat == "roundup":
+        if cat in ("roundup", "article"):
             v.check(
                 isinstance(tier, int) and 0 <= tier <= 4,
-                f"{label}: tier {tier} valid for roundup (0-4)",
+                f"{label}: tier {tier} valid for {cat} (0-4)",
             )
         else:
             v.check(
@@ -142,11 +142,16 @@ def check_blog_index_schema(v):
             f"{label}: date '{date_str}' matches YYYY-MM-DD",
         )
 
-        # URL format /blog/{slug}/
+        # URL format: /blog/{slug}/ for most, /articles/{slug}/ for articles
         url = entry.get("url", "")
+        slug = entry.get("slug", "")
+        if cat == "article":
+            expected_url = f"/articles/{slug}/"
+        else:
+            expected_url = f"/blog/{slug}/"
         v.check(
-            url == f"/blog/{entry.get('slug', '')}/",
-            f"{label}: URL '{url}' matches /blog/{{slug}}/ format",
+            url == expected_url,
+            f"{label}: URL '{url}' matches expected '{expected_url}'",
         )
 
         # Title not empty

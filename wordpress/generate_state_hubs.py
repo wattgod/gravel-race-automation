@@ -30,7 +30,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 from brand_tokens import COLORS, get_font_face_css, get_ga4_head_snippet, get_tokens_css, RACER_RATING_THRESHOLD, SITE_BASE_URL
-from shared_header import get_site_header_css, get_site_header_html
+from shared_header import get_site_header_css, get_site_header_html, get_site_header_js
 from cookie_consent import get_consent_banner_html
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
@@ -64,6 +64,26 @@ STATE_ABBR = {
 
 US_STATES = set(STATE_ABBR.values())
 
+# Merge sub-regions into parent to avoid content cannibalization.
+# Key = raw location suffix, Value = canonical region name.
+REGION_MERGES = {
+    "England": "UK",
+    "Scotland": "UK",
+    "Wales": "UK",
+    "Northern Ireland": "UK",
+    "British Columbia": "Canada",
+    "Ontario": "Canada",
+    "Quebec": "Canada",
+    "Alberta": "Canada",
+    "Nova Scotia": "Canada",
+    "South Australia": "Australia",
+    "Victoria": "Australia",
+    "New South Wales": "Australia",
+    "Queensland": "Australia",
+    "Tasmania": "Australia",
+    "Western Australia": "Australia",
+}
+
 MONTH_ORDER = {
     "January": 1, "February": 2, "March": 3, "April": 4, "May": 5, "June": 6,
     "July": 7, "August": 8, "September": 9, "October": 10, "November": 11, "December": 12,
@@ -79,10 +99,33 @@ def _slugify(name: str) -> str:
     return re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-")
 
 
+def _discipline_label(races: list) -> str:
+    """Return 'Gravel', 'Road', or 'Cycling' based on discipline mix.
+
+    - >= 70% gravel → 'Gravel'
+    - >= 70% road → 'Road & Gravel'
+    - mixed → 'Cycling'
+    """
+    total = len(races)
+    if total == 0:
+        return "Cycling"
+    gravel = sum(1 for r in races if r.get("discipline") == "gravel")
+    road = sum(1 for r in races if r.get("discipline") == "road")
+    if gravel / total >= 0.7:
+        return "Gravel"
+    if road / total >= 0.7:
+        return "Road & Gravel"
+    return "Cycling"
+
+
 # ── Grouping logic ───────────────────────────────────────────────
 
 def group_races_by_state(races: list) -> dict:
-    """Group races by state/country from location field."""
+    """Group races by state/country from location field.
+
+    Applies REGION_MERGES to prevent content cannibalization
+    (e.g., England + Scotland → UK).
+    """
     state_races = defaultdict(list)
     for r in races:
         loc = r.get("location", "")
@@ -92,6 +135,8 @@ def group_races_by_state(races: list) -> dict:
             # Normalize abbreviations
             if state in STATE_ABBR:
                 state = STATE_ABBR[state]
+            # Merge sub-regions into parent
+            state = REGION_MERGES.get(state, state)
             state_races[state].append(r)
     # Filter to MIN_RACES+ and sort races by score
     return {
@@ -261,52 +306,53 @@ def build_race_cards(races: list) -> str:
 
 # ── FAQ ──────────────────────────────────────────────────────────
 
-def build_faq(state: str, races: list) -> tuple:
+def build_faq(state: str, races: list, disc_label: str = "Gravel") -> tuple:
     """Build FAQ HTML + JSON-LD. Returns (html, jsonld)."""
     total = len(races)
     t1 = [r for r in races if r.get("tier") == 1]
     t2 = [r for r in races if r.get("tier") == 2]
     top = races[0] if races else None
+    dl = disc_label.lower()
 
     pairs = []
 
-    # Q1: How many gravel races are in {state}?
+    # Q1: How many races are in {state}?
     pairs.append((
-        f"How many gravel races are in {state}?",
-        f"We track {total} gravel races in {state}, including "
+        f"How many {dl} races are in {state}?",
+        f"We track {total} {dl} races in {state}, including "
         f"{len(t1)} Elite (Tier 1) and {len(t2)} Contender (Tier 2) events. "
         f"See the full list above, ranked by our 15-dimension Gravel God Rating."
     ))
 
-    # Q2: What is the best gravel race in {state}?
+    # Q2: What is the best race in {state}?
     if top:
         pairs.append((
-            f"What is the best gravel race in {state}?",
-            f"{top['name']} is the highest-rated gravel race in {state} with a "
+            f"What is the best {dl} race in {state}?",
+            f"{top['name']} is the highest-rated race in {state} with a "
             f"Gravel God score of {top.get('overall_score',0)}/100. "
             f"Located in {top.get('location','')}, it takes place in {top.get('month','')}."
         ))
 
-    # Q3: When is gravel season in {state}?
+    # Q3: When is racing season in {state}?
     months = sorted(set(r.get("month", "") for r in races if r.get("month")),
                     key=lambda m: MONTH_ORDER.get(m, 13))
     if months:
         pairs.append((
-            f"When is gravel racing season in {state}?",
-            f"Gravel races in {state} run from {months[0]} through {months[-1]}. "
+            f"When is {dl} racing season in {state}?",
+            f"{disc_label} races in {state} run from {months[0]} through {months[-1]}. "
             f"Peak months include {', '.join(months[1:4])}." if len(months) > 3 else
-            f"Gravel races in {state} take place in {', '.join(months)}."
+            f"{disc_label} races in {state} take place in {', '.join(months)}."
         ))
 
-    # Q4: Are there beginner-friendly gravel races?
+    # Q4: Are there beginner-friendly races?
     easy = [r for r in races if r.get("scores", {}).get("technicality", 3) <= 2
             and r.get("scores", {}).get("length", 3) <= 2]
     if easy:
         names = ", ".join(r["name"] for r in easy[:3])
         pairs.append((
-            f"Are there beginner-friendly gravel races in {state}?",
+            f"Are there beginner-friendly {dl} races in {state}?",
             f"Yes! {names} {'are' if len(easy[:3]) > 1 else 'is'} among the most accessible "
-            f"gravel races in {state}, with lower technicality and shorter distances."
+            f"races in {state}, with lower technicality and shorter distances."
         ))
 
     # Build HTML
@@ -337,6 +383,89 @@ def build_faq(state: str, races: list) -> tuple:
     return faq_html, faq_jsonld
 
 
+def build_related_content(state: str, races: list) -> str:
+    """Cross-links to coaching, tire guides, and training resources."""
+    links = []
+    # Top tire guides for highest-tier races in this state
+    tire_races = sorted(races, key=lambda r: r.get("overall_score", 0), reverse=True)[:3]
+    for r in tire_races:
+        slug = r.get("slug", "")
+        name = r.get("name", "")
+        if slug and name:
+            links.append(
+                f'<a href="/race/{esc(slug)}/tires/" class="gg-state-related-link" '
+                f'data-ga="state_hub_crosslink">'
+                f'<span class="gg-state-related-label">Tire Guide</span>'
+                f'{esc(name)}</a>'
+            )
+
+    # Coaching
+    links.append(
+        '<a href="/coaching/" class="gg-state-related-link" '
+        'data-ga="state_hub_crosslink">'
+        '<span class="gg-state-related-label">1:1 Coaching</span>'
+        f'Get coached for your {esc(state)} race</a>'
+    )
+
+    # Training guide
+    links.append(
+        '<a href="/guide/" class="gg-state-related-link" '
+        'data-ga="state_hub_crosslink">'
+        '<span class="gg-state-related-label">Free Guide</span>'
+        'Gravel Race Training Guide</a>'
+    )
+
+    return f'''<section class="gg-state-related">
+  <h2>Resources for {esc(state)} Racers</h2>
+  <div class="gg-state-related-links">
+    {"".join(links)}
+  </div>
+</section>'''
+
+
+def build_email_capture(state: str) -> str:
+    """Email capture section for state hub pages."""
+    state_slug = _slugify(state)
+    return f'''<section class="gg-state-email">
+  <p>Get race updates for {esc(state)} — new events, date changes, and tire picks.</p>
+  <form id="gg-state-email-form" class="gg-state-email-form">
+    <input type="email" name="email" class="gg-state-email-input" placeholder="you@example.com" required aria-label="Email address">
+    <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off">
+    <input type="hidden" name="state" value="{esc(state_slug)}">
+    <button type="submit" class="gg-state-email-btn">Subscribe</button>
+  </form>
+</section>
+<script>
+(function() {{
+  var WORKER_URL='https://fueling-lead-intake.gravelgodcoaching.workers.dev';
+  var form=document.getElementById('gg-state-email-form');
+  if(!form) return;
+  form.addEventListener('submit',function(e) {{
+    e.preventDefault();
+    var email=form.email.value.trim();
+    if(!email||!/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email)) {{
+      alert('Please enter a valid email address.');return;
+    }}
+    if(form.website&&form.website.value) return;
+    var stateSlug=form.state.value;
+    var payload={{
+      email:email,
+      source:'state_hub',
+      state:stateSlug,
+      website:form.website.value
+    }};
+    fetch(WORKER_URL,{{method:'POST',headers:{{'Content-Type':'application/json'}},body:JSON.stringify(payload)}}).catch(function(){{}});
+    if(typeof gtag==='function') gtag('event','email_capture',{{source:'state_hub',state:stateSlug}});
+    while(form.firstChild) form.removeChild(form.firstChild);
+    var msg=document.createElement('p');
+    msg.style.cssText='color:var(--gg-color-teal);font-weight:700';
+    msg.textContent='Got it. We will keep you posted.';
+    form.appendChild(msg);
+  }});
+}})();
+</script>'''
+
+
 # ── Page assembly ────────────────────────────────────────────────
 
 def build_state_page(state: str, races: list, total_races: int) -> str:
@@ -351,18 +480,30 @@ def build_state_page(state: str, races: list, total_races: int) -> str:
     t1_count = sum(1 for r in races if r.get("tier") == 1)
     t2_count = sum(1 for r in races if r.get("tier") == 2)
 
-    title = f"Best Gravel Races in {state} ({CURRENT_YEAR}) | Gravel God"
+    disc_label = _discipline_label(races)
+    title = f"Best {disc_label} Races in {state} ({CURRENT_YEAR}) | Gravel God"
+    # Keep meta description under 160 chars
+    tier_note = ""
+    if t1_count:
+        tier_note = f" Including {t1_count} Elite-tier events."
+    elif t2_count:
+        tier_note = f" Including {t2_count} Contender-tier events."
     description = (
-        f"All {len(races)} gravel races in {state}, ranked by our 15-dimension Gravel God Rating. "
-        f"{'Including ' + str(t1_count) + ' Elite and ' + str(t2_count) + ' Contender events. ' if t1_count or t2_count else ''}"
-        f"Find your next gravel race in {state}."
+        f"All {len(races)} {disc_label.lower()} races in {state}, "
+        f"ranked by Gravel God Rating.{tier_note} "
+        f"Find your next race in {state}."
     )
+    # Safety truncation — should never trigger if template is well-designed
+    if len(description) > 160:
+        description = description[:157] + "..."
 
     # Build sections
     map_svg = build_dot_map_svg(races)
     cards_html = build_race_cards(races)
     calendar_html = build_monthly_breakdown(races)
-    faq_html, faq_jsonld = build_faq(state, races)
+    related_html = build_related_content(state, races)
+    email_html = build_email_capture(state)
+    faq_html, faq_jsonld = build_faq(state, races, disc_label)
 
     font_face = get_font_face_css()
     tokens = get_tokens_css()
@@ -389,29 +530,30 @@ def build_state_page(state: str, races: list, total_races: int) -> str:
     item_list_jsonld = json.dumps({
         "@context": "https://schema.org",
         "@type": "ItemList",
-        "name": f"Best Gravel Races in {state}",
+        "name": f"Best {disc_label} Races in {state}",
         "numberOfItems": len(races),
         "itemListOrder": "https://schema.org/ItemListOrderDescending",
         "itemListElement": item_list_entries,
     }, ensure_ascii=False, indent=2)
 
     # Intro text
+    disc_lower = disc_label.lower()
     if t1_count:
         intro = (
-            f"{state} is home to {len(races)} gravel races in our database, "
+            f"{state} is home to {len(races)} {disc_lower} races in our database, "
             f"including {t1_count} Elite-tier events that rank among the best in the world. "
-            f"Whether you're chasing a bucket-list finish or exploring new gravel, "
+            f"Whether you're chasing a bucket-list finish or exploring new terrain, "
             f"{state} has a race for every rider."
         )
     elif t2_count:
         intro = (
-            f"With {len(races)} gravel races tracked, {state} offers a deep bench of "
+            f"With {len(races)} {disc_lower} races tracked, {state} offers a deep bench of "
             f"quality events — including {t2_count} Contender-tier races with strong reputations "
-            f"and competitive fields. Here's every gravel race in {state}, ranked."
+            f"and competitive fields. Here's every race in {state}, ranked."
         )
     else:
         intro = (
-            f"{state} has {len(races)} gravel races in our database, from grassroots events "
+            f"{state} has {len(races)} {disc_lower} races in our database, from grassroots events "
             f"to regional favorites. Explore the full list below, ranked by our "
             f"15-dimension Gravel God Rating."
         )
@@ -698,6 +840,88 @@ body {{ margin: 0; background: var(--gg-color-warm-paper); }}
 }}
 .gg-state-cta-btn:hover {{ background: var(--gg-color-light-gold); border-color: var(--gg-color-light-gold); }}
 
+/* Related content */
+.gg-state-related {{
+  margin: 32px 0;
+  padding: 24px 0;
+  border-top: 1px solid var(--gg-color-sand);
+}}
+.gg-state-related h2 {{ border-bottom-color: var(--gg-color-sand); }}
+.gg-state-related-links {{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 12px;
+}}
+.gg-state-related-link {{
+  display: block;
+  padding: 12px 16px;
+  border: 2px solid var(--gg-color-sand);
+  text-decoration: none;
+  color: var(--gg-color-dark-brown);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: border-color 0.2s;
+}}
+.gg-state-related-link:hover {{ border-color: var(--gg-color-gold); }}
+.gg-state-related-label {{
+  display: block;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--gg-color-secondary-brown);
+  margin-bottom: 4px;
+  font-weight: 400;
+}}
+
+/* Email capture */
+.gg-state-email {{
+  margin: 24px 0;
+  padding: 20px 24px;
+  border: 2px solid var(--gg-color-gold);
+  text-align: center;
+}}
+.gg-state-email p {{
+  font-size: 13px;
+  color: var(--gg-color-secondary-brown);
+  margin: 0 0 12px;
+  line-height: 1.5;
+}}
+.gg-state-email-form {{
+  display: flex;
+  gap: 8px;
+  max-width: 420px;
+  margin: 0 auto;
+}}
+.gg-state-email-input {{
+  flex: 1;
+  padding: 10px 12px;
+  border: 2px solid var(--gg-color-sand);
+  font-family: var(--gg-font-data);
+  font-size: 13px;
+  background: #fff;
+  color: var(--gg-color-dark-brown);
+}}
+.gg-state-email-input:focus {{ outline: none; border-color: var(--gg-color-gold); }}
+.gg-state-email-btn {{
+  padding: 10px 20px;
+  border: 2px solid var(--gg-color-gold);
+  background: var(--gg-color-gold);
+  color: var(--gg-color-dark-brown);
+  font-family: var(--gg-font-data);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s;
+}}
+.gg-state-email-btn:hover {{ background: var(--gg-color-light-gold); border-color: var(--gg-color-light-gold); }}
+@media (max-width: 480px) {{
+  .gg-state-email-form {{ flex-direction: column; }}
+  .gg-state-related-links {{ grid-template-columns: 1fr; }}
+}}
+
 /* Footer */
 .gg-state-footer {{
   padding: 24px 0;
@@ -743,23 +967,27 @@ body {{ margin: 0; background: var(--gg-color-warm-paper); }}
   </div>
 
   <section class="gg-state-hero">
-    <h1>Best Gravel Races in {esc(state)}</h1>
-    <div class="gg-state-hero-count">{len(races)} races &middot; Ranked by Gravel God Rating</div>
+    <h1>Best {disc_label} Races in {esc(state)}</h1>
+    <div class="gg-state-hero-count">{len(races)} RACES &middot; RANKED BY GRAVEL GOD RATING</div>
   </section>
 
   <p class="gg-state-intro">{esc(intro)}</p>
 
   {map_section}
 
-  <h2>All {len(races)} Gravel Races in {esc(state)}</h2>
+  <h2>All {len(races)} {disc_label} Races in {esc(state)}</h2>
   <div class="gg-state-grid">
     {cards_html}
   </div>
+
+  {email_html}
 
   <h2>Race Calendar</h2>
   {calendar_html}
 
   {faq_html}
+
+  {related_html}
 
   <section class="gg-state-cta">
     <h2>Racing in {esc(state)}?</h2>
@@ -775,6 +1003,8 @@ body {{ margin: 0; background: var(--gg-color-warm-paper); }}
   </footer>
 
 </div>
+
+''' + '<script>' + get_site_header_js() + '</script>' + '''
 
 {get_consent_banner_html()}
 </body>

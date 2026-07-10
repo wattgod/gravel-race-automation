@@ -741,17 +741,22 @@ async function handleWebhook(request, env) {
   try {
     const user = await getOrCreateUser(env, email);
 
-    await env.DB.prepare(
-      'INSERT OR IGNORE INTO enrollments (user_id, course_id, stripe_session_id, amount_cents, currency) VALUES (?, ?, ?, ?, ?)'
-    ).bind(
-      user.id,
-      courseId,
-      session.id,
-      session.amount_total || 0,
-      session.currency || 'usd'
-    ).run();
+    // Bundles use a comma-separated course_id list ("course-a,course-b") —
+    // grant one enrollment per course.
+    const courseIds = courseId.split(',').map(c => c.trim()).filter(Boolean);
+    for (const cid of courseIds) {
+      await env.DB.prepare(
+        'INSERT OR IGNORE INTO enrollments (user_id, course_id, stripe_session_id, amount_cents, currency) VALUES (?, ?, ?, ?, ?)'
+      ).bind(
+        user.id,
+        cid,
+        session.id,
+        session.amount_total || 0,
+        session.currency || 'usd'
+      ).run();
+    }
 
-    console.log('Access granted:', { email, courseId, session_id: session.id });
+    console.log('Access granted:', { email, courseIds, session_id: session.id });
   } catch (dbError) {
     console.error('D1 write failed:', dbError);
     return new Response(JSON.stringify({ error: 'Storage error' }), {

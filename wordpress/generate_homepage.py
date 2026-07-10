@@ -568,7 +568,7 @@ def build_gravel_tv_band(upcoming: list) -> str:
     count_line = (f"{n_upcoming} races on air in the next two weeks"
                   if n_upcoming else "This week's broadcast is live")
     return f'''<section class="gg-hp-gtv" id="gravel-tv">
-    <a class="gg-hp-gtv-inner" href="/gravel-tv/" data-ab="gtv_band">
+    <a class="gg-hp-gtv-inner" href="/gravel-tv/">
       <span class="gg-hp-gtv-logo">GRAVEL<span class="gg-hp-gtv-tv">TV</span></span>
       <span class="gg-hp-gtv-copy">
         <strong>The weekly gravel broadcast.</strong> The desk note, {esc(count_line)}, fresh race tape.
@@ -1273,10 +1273,10 @@ a { text-decoration: none; color: #178079; }
 .gg-hp-page { margin: 0; padding: 0; overflow-x: clip; }
 
 /* ── Scroll progress ── */
-.gg-hp-scroll-progress { position: fixed; top: 0; left: 0; height: 3px; width: 0%; background: #B7950B; z-index: 200; will-change: width; }
+.gg-hp-scroll-progress { position: fixed; top: 0; left: 0; height: 3px; width: 0%; background: #9a7e0a; z-index: 200; will-change: width; }
 
 /* ── Gold top bar ── */
-.gg-hp-top-bar { height: 4px; background: #B7950B; }
+.gg-hp-top-bar { height: 4px; background: #9a7e0a; }
 
 ''' + get_site_header_css() + '''
 
@@ -1297,7 +1297,7 @@ a { text-decoration: none; color: #178079; }
 .gg-hp-ticker-mobile { display: none; }
 
 /* ── Announcement pill ── */
-.gg-hp-announce-pill { display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px; border: 2px solid #B7950B; margin-bottom: 20px; font-family: 'Sometype Mono', monospace; font-size: 11px; font-weight: 600; color: #B7950B; text-transform: uppercase; letter-spacing: 1px; }
+.gg-hp-announce-pill { display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px; border: 2px solid #9a7e0a; margin-bottom: 20px; font-family: 'Sometype Mono', monospace; font-size: 11px; font-weight: 600; color: #9a7e0a; text-transform: uppercase; letter-spacing: 1px; }
 .gg-hp-announce-dot { width: 6px; height: 6px; background: #178079; animation: gg-announce-pulse 2s ease-in-out infinite; }
 @keyframes gg-announce-pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
 
@@ -1307,26 +1307,26 @@ a { text-decoration: none; color: #178079; }
 /* ── Hero ─────────────────────────────────────────────────── */
 .gg-hp-hero { background: #f5efe6; padding: 64px 48px; border-bottom: 3px solid #3a2e25; }
 .gg-hp-hero-inner { max-width: 1080px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
-.gg-hp-hero-kicker { font-family: 'Sometype Mono', monospace; font-size: 10px; font-weight: 700; color: #B7950B; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 16px; }
+.gg-hp-hero-kicker { font-family: 'Sometype Mono', monospace; font-size: 10px; font-weight: 700; color: #9a7e0a; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 16px; }
 .gg-hp-hero h1 { font-family: 'Source Serif 4', Georgia, serif; font-size: 48px; font-weight: 900; line-height: 1.05; margin-bottom: 12px; color: #3a2e25; }
 .gg-hp-hero-deck { font-size: 17px; font-weight: 300; color: #59473c; line-height: 1.7; margin-bottom: 20px; }
 /* Search-forward hero */
 .gg-hp-hero-search { display: flex; margin-bottom: 16px; border: 2px solid #3a2e25; }
 .gg-hp-hero-search-input { flex: 1; padding: 12px 16px; font-family: 'Sometype Mono', monospace; font-size: 14px; border: none; background: #ffffff; color: #3a2e25; outline: none; }
-.gg-hp-hero-search-input::placeholder { color: #8c7568; }
+.gg-hp-hero-search-input::placeholder { color: #7d695d; }
 .gg-hp-hero-search-btn { padding: 12px 18px; background: #3a2e25; color: #f5efe6; border: none; font-size: 18px; cursor: pointer; transition: background-color 0.2s; font-family: 'Sometype Mono', monospace; }
-.gg-hp-hero-search-btn:hover { background: #B7950B; }
+.gg-hp-hero-search-btn:hover { background: #9a7e0a; }
 .gg-hp-hero-chips { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; }
-.gg-hp-chip { display: inline-block; padding: 6px 14px; font-family: 'Sometype Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; text-decoration: none; color: #3a2e25; border: 1px solid #8c7568; transition: border-color 0.2s, color 0.2s; }
-.gg-hp-chip:hover { border-color: #B7950B; color: #B7950B; }
-.gg-hp-chip--gold { border-color: #B7950B; color: #B7950B; }
+.gg-hp-chip { display: inline-block; padding: 6px 14px; font-family: 'Sometype Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; text-decoration: none; color: #3a2e25; border: 1px solid #7d695d; transition: border-color 0.2s, color 0.2s; }
+.gg-hp-chip:hover { border-color: #9a7e0a; color: #9a7e0a; }
+.gg-hp-chip--gold { border-color: #9a7e0a; color: #9a7e0a; }
 .gg-hp-hero-stats { display: flex; gap: 32px; margin-top: 8px; }
 .gg-hp-hero-stat { text-align: center; }
 .gg-hp-hero-stat-num { display: block; font-family: 'Source Serif 4', Georgia, serif; font-size: 32px; font-weight: 700; color: #3a2e25; line-height: 1; }
-.gg-hp-hero-stat-label { display: block; font-family: 'Sometype Mono', monospace; font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #8c7568; margin-top: 4px; }
+.gg-hp-hero-stat-label { display: block; font-family: 'Sometype Mono', monospace; font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #7d695d; margin-top: 4px; }
 .gg-hp-hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
 .gg-hp-btn-primary { display: inline-block; padding: 12px 28px; background: #3a2e25; color: #f5efe6; font-family: 'Sometype Mono', monospace; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; border: 2px solid #3a2e25; text-decoration: none; transition: background-color .3s, color .3s; }
-.gg-hp-btn-primary:hover { background: #B7950B; color: #1a1613; border-color: #B7950B; }
+.gg-hp-btn-primary:hover { background: #9a7e0a; color: #1a1613; border-color: #9a7e0a; }
 .gg-hp-btn-secondary { display: inline-block; padding: 12px 28px; background: transparent; color: #3a2e25; font-family: 'Sometype Mono', monospace; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; border: 2px solid #3a2e25; text-decoration: none; transition: border-color .3s, color .3s; }
 .gg-hp-btn-secondary:hover { border-color: #178079; color: #178079; }
 
@@ -1371,7 +1371,7 @@ a { text-decoration: none; color: #178079; }
 .gg-hp-stats-inner { max-width: 1080px; margin: 0 auto; display: grid; grid-template-columns: repeat(5, 1fr); }
 .gg-hp-ss-item { text-align: center; padding: 20px 0; border-right: 2px solid #59473c; }
 .gg-hp-ss-item:last-child { border-right: none; }
-.gg-hp-ss-val { font-family: 'Sometype Mono', monospace; font-size: 24px; font-weight: 700; color: #B7950B; }
+.gg-hp-ss-val { font-family: 'Sometype Mono', monospace; font-size: 24px; font-weight: 700; color: #9a7e0a; }
 .gg-hp-ss-lbl { font-family: 'Sometype Mono', monospace; font-size: 9px; color: #A68E80; text-transform: uppercase; letter-spacing: 1px; }
 
 /* ── Section headers ─────────────────────────────────────── */
@@ -1383,7 +1383,7 @@ a { text-decoration: none; color: #178079; }
 .gg-hp-content-grid { max-width: 1080px; margin: 0 auto; padding: 48px; display: grid; grid-template-columns: 3fr 2fr; gap: 48px; box-sizing: border-box; }
 .gg-hp-main-col, .gg-hp-sidebar { min-width: 0; overflow: hidden; }
 .gg-hp-sidebar-sticky { position: sticky; top: 24px; max-height: calc(100vh - 48px); overflow-y: auto; }
-.gg-hp-col-header { font-family: 'Sometype Mono', monospace; font-size: 10px; font-weight: 700; color: #B7950B; text-transform: uppercase; letter-spacing: 3px; padding-bottom: 12px; border-bottom: 3px solid #3a2e25; margin-bottom: 24px; }
+.gg-hp-col-header { font-family: 'Sometype Mono', monospace; font-size: 10px; font-weight: 700; color: #9a7e0a; text-transform: uppercase; letter-spacing: 3px; padding-bottom: 12px; border-bottom: 3px solid #3a2e25; margin-bottom: 24px; }
 
 /* ── Bento features ─────────────────────────────────────── */
 .gg-hp-bento { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 36px; }
@@ -1392,9 +1392,9 @@ a { text-decoration: none; color: #178079; }
 .gg-hp-bento-card:hover, .gg-hp-bento-card:focus-visible { border-color: #178079; }
 .gg-hp-bento-card:hover .gg-hp-bento-name, .gg-hp-bento-card:focus-visible .gg-hp-bento-name { color: #178079; }
 .gg-hp-bento-body { padding: 20px; }
-.gg-hp-bento-meta { font-family: 'Sometype Mono', monospace; font-size: 11px; font-weight: 700; color: #B7950B; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px; }
+.gg-hp-bento-meta { font-family: 'Sometype Mono', monospace; font-size: 11px; font-weight: 700; color: #9a7e0a; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px; }
 .gg-hp-bento-name { font-size: 24px; font-weight: 700; line-height: 1.15; margin-bottom: 8px; transition: color .3s; }
-.gg-hp-bento-byline { font-family: 'Sometype Mono', monospace; font-size: 11px; color: #8c7568; letter-spacing: .5px; margin-top: 4px; margin-bottom: 12px; }
+.gg-hp-bento-byline { font-family: 'Sometype Mono', monospace; font-size: 11px; color: #7d695d; letter-spacing: .5px; margin-top: 4px; margin-bottom: 12px; }
 .gg-hp-bento-quote { font-size: 14px; font-style: italic; color: #59473c; line-height: 1.6; margin: 12px 0 0; padding-left: 12px; border-left: 3px solid #9a7e0a; }
 
 /* ── Stat bars ──────────────────────────────────────────── */
@@ -1411,7 +1411,7 @@ a { text-decoration: none; color: #178079; }
 
 /* ── Tabs ───────────────────────────────────────────────── */
 .gg-hp-tab-bar { display: flex; gap: 0; margin-bottom: 0; }
-.gg-hp-tab-bar [role="tab"] { padding: 10px 20px; font-family: 'Sometype Mono', monospace; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #8c7568; background: #ede4d8; border: 2px solid #d4c5b9; border-bottom: none; cursor: pointer; transition: color .3s, background-color .3s; }
+.gg-hp-tab-bar [role="tab"] { padding: 10px 20px; font-family: 'Sometype Mono', monospace; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #7d695d; background: #ede4d8; border: 2px solid #d4c5b9; border-bottom: none; cursor: pointer; transition: color .3s, background-color .3s; }
 .gg-hp-tab-bar [role="tab"][aria-selected="true"] { color: #1a1613; background: #f5efe6; border-color: #3a2e25; }
 .gg-hp-tab-bar [role="tab"]:hover { color: #1a1613; }
 [role="tabpanel"] { border: 2px solid #3a2e25; border-top: 3px solid #3a2e25; padding: 24px; background: #f5efe6; }
@@ -1422,7 +1422,7 @@ a { text-decoration: none; color: #178079; }
 .gg-hp-article-item:first-child { border-top: none; }
 .gg-hp-article-item:hover .gg-hp-article-name, .gg-hp-article-item:focus-visible .gg-hp-article-name { color: #178079; }
 .gg-hp-article-num { font-size: 24px; font-weight: 700; color: #d4c5b9; line-height: 1; min-width: 32px; }
-.gg-hp-article-meta { font-family: 'Sometype Mono', monospace; font-size: 10px; font-weight: 700; color: #B7950B; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+.gg-hp-article-meta { font-family: 'Sometype Mono', monospace; font-size: 10px; font-weight: 700; color: #9a7e0a; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
 .gg-hp-article-name { font-size: 18px; font-weight: 700; line-height: 1.25; margin-bottom: 4px; transition: color .3s; }
 .gg-hp-article-excerpt { font-size: 14px; color: #59473c; line-height: 1.6; }
 .gg-hp-article-score { font-family: 'Sometype Mono', monospace; font-size: 18px; font-weight: 700; color: #178079; }
@@ -1432,27 +1432,27 @@ a { text-decoration: none; color: #178079; }
 .gg-hp-sidebar-stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 .gg-hp-sb-stat { text-align: center; padding: 16px 12px; background: #ede4d8; border: 2px solid #d4c5b9; }
 .gg-hp-sb-stat-val { font-family: 'Sometype Mono', monospace; font-size: 28px; font-weight: 700; color: #1a1613; }
-.gg-hp-sb-stat-lbl { font-family: 'Sometype Mono', monospace; font-size: 10px; color: #8c7568; text-transform: uppercase; letter-spacing: 1px; }
+.gg-hp-sb-stat-lbl { font-family: 'Sometype Mono', monospace; font-size: 10px; color: #7d695d; text-transform: uppercase; letter-spacing: 1px; }
 .gg-hp-rank-list { list-style: none; padding: 0; }
 .gg-hp-rank-item { display: flex; justify-content: space-between; align-items: baseline; padding: 10px 0; border-bottom: 2px solid #d4c5b9; }
 .gg-hp-rank-item:last-child { border-bottom: none; }
-.gg-hp-rank-pos { font-family: 'Sometype Mono', monospace; font-size: 12px; font-weight: 700; color: #8c7568; min-width: 24px; }
+.gg-hp-rank-pos { font-family: 'Sometype Mono', monospace; font-size: 12px; font-weight: 700; color: #7d695d; min-width: 24px; }
 .gg-hp-rank-name { font-size: 14px; font-weight: 600; flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .gg-hp-rank-score { font-family: 'Sometype Mono', monospace; font-size: 14px; font-weight: 700; color: #178079; }
 .gg-hp-sidebar-cta { background: #1a1613; border: 3px solid #3a2e25; padding: 32px 28px; text-align: center; }
 .gg-hp-sidebar-cta h3 { font-size: 22px; font-weight: 700; color: #f5efe6; margin-bottom: 8px; }
 .gg-hp-sidebar-cta p { font-size: 14px; color: #A68E80; margin-bottom: 20px; line-height: 1.6; }
-.gg-hp-sidebar-cta-btn { display: inline-block; background: #B7950B; color: #1a1613; padding: 12px 24px; border: none; font-family: 'Sometype Mono', monospace; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; text-decoration: none; transition: background-color .3s; }
+.gg-hp-sidebar-cta-btn { display: inline-block; background: #9a7e0a; color: #1a1613; padding: 12px 24px; border: none; font-family: 'Sometype Mono', monospace; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; text-decoration: none; transition: background-color .3s; }
 .gg-hp-sidebar-cta-btn:hover { background-color: #c9a92c; }
 
 /* ── Coming up compact (sidebar) ────────────────────────── */
 .gg-hp-coming-up-compact { padding: 0; }
-.gg-hp-coming-compact-empty { padding: 16px; font-family: 'Sometype Mono', monospace; font-size: 12px; color: #8c7568; }
+.gg-hp-coming-compact-empty { padding: 16px; font-family: 'Sometype Mono', monospace; font-size: 12px; color: #7d695d; }
 .gg-hp-coming-compact-empty a { color: #178079; font-weight: 700; }
 .gg-hp-coming-compact-item { display: flex; align-items: center; gap: 12px; padding: 10px 16px; border-bottom: 2px solid #d4c5b9; text-decoration: none; color: inherit; transition: background-color .3s; }
 .gg-hp-coming-compact-item:last-child { border-bottom: none; }
 .gg-hp-coming-compact-item:hover { background: #ede4d8; }
-.gg-hp-coming-compact-date { font-family: 'Sometype Mono', monospace; font-size: 10px; font-weight: 700; color: #8c7568; letter-spacing: 1px; text-transform: uppercase; min-width: 50px; }
+.gg-hp-coming-compact-date { font-family: 'Sometype Mono', monospace; font-size: 10px; font-weight: 700; color: #7d695d; letter-spacing: 1px; text-transform: uppercase; min-width: 50px; }
 .gg-hp-coming-compact-name { font-size: 13px; font-weight: 600; flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .gg-hp-coming-compact-tier { font-family: 'Sometype Mono', monospace; font-size: 9px; font-weight: 700; letter-spacing: 1px; padding: 2px 6px; }
 
@@ -1516,7 +1516,7 @@ a { text-decoration: none; color: #178079; }
 .gg-hp-cta-left { background: #1a1613; padding: 40px; display: flex; flex-direction: column; justify-content: center; }
 .gg-hp-cta-left h2 { font-size: 28px; font-weight: 900; color: #f5efe6; margin-bottom: 8px; }
 .gg-hp-cta-left p { font-size: 14px; color: #A68E80; line-height: 1.7; margin-bottom: 20px; }
-.gg-hp-cta-btn { display: inline-block; padding: 12px 28px; background: #B7950B; color: #1a1613; font-family: 'Sometype Mono', monospace; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; border: none; text-decoration: none; align-self: flex-start; transition: background-color .3s; }
+.gg-hp-cta-btn { display: inline-block; padding: 12px 28px; background: #9a7e0a; color: #1a1613; font-family: 'Sometype Mono', monospace; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; border: none; text-decoration: none; align-self: flex-start; transition: background-color .3s; }
 .gg-hp-cta-btn:hover { background-color: #c9a92c; }
 .gg-hp-cta-right { background: #d4c5b9; min-height: 200px; }
 

@@ -204,7 +204,7 @@ async function sendNudge(env, user, courseId, nudgeType, data) {
         <div style="font-family:Georgia,serif;max-width:560px;margin:0 auto;padding:40px 24px">
           <p style="font-size:18px;color:#3a2e25">You've been on a <strong>${data.streak_count}-day streak</strong> in ${esc(courseTitle)}.</p>
           <p style="color:#59473c">Complete a lesson today to keep it going. It only takes a few minutes.</p>
-          <a href="${esc(resumeUrl)}" style="display:inline-block;background:#1A8A82;color:#fff;padding:14px 32px;text-decoration:none;font-family:monospace;font-size:13px;letter-spacing:1px;text-transform:uppercase;margin-top:16px">CONTINUE LEARNING</a>
+          <a href="${esc(resumeUrl)}" style="display:inline-block;background:#178079;color:#fff;padding:14px 32px;text-decoration:none;font-family:monospace;font-size:13px;letter-spacing:1px;text-transform:uppercase;margin-top:16px">CONTINUE LEARNING</a>
         </div>
       `;
       break;
@@ -215,7 +215,7 @@ async function sendNudge(env, user, courseId, nudgeType, data) {
         <div style="font-family:Georgia,serif;max-width:560px;margin:0 auto;padding:40px 24px">
           <p style="font-size:18px;color:#3a2e25">You've completed <strong>${data.lessons_completed} lessons</strong> in ${esc(courseTitle)}. You're so close to finishing!</p>
           <p style="color:#59473c">Pick up where you left off and cross the finish line.</p>
-          <a href="${esc(resumeUrl)}" style="display:inline-block;background:#1A8A82;color:#fff;padding:14px 32px;text-decoration:none;font-family:monospace;font-size:13px;letter-spacing:1px;text-transform:uppercase;margin-top:16px">FINISH STRONG</a>
+          <a href="${esc(resumeUrl)}" style="display:inline-block;background:#178079;color:#fff;padding:14px 32px;text-decoration:none;font-family:monospace;font-size:13px;letter-spacing:1px;text-transform:uppercase;margin-top:16px">FINISH STRONG</a>
         </div>
       `;
       break;
@@ -226,7 +226,7 @@ async function sendNudge(env, user, courseId, nudgeType, data) {
         <div style="font-family:Georgia,serif;max-width:560px;margin:0 auto;padding:40px 24px">
           <p style="font-size:18px;color:#3a2e25">Congratulations! You've completed <strong>${esc(courseTitle)}</strong>.</p>
           <p style="color:#59473c">You've earned the knowledge. Now go crush your next gravel race.</p>
-          <p style="color:#8c7568;font-family:monospace;font-size:12px;margin-top:24px">Check out our other courses and training plans at <a href="${esc(siteBase)}/course/" style="color:#1A8A82">gravelgodcycling.com/course</a></p>
+          <p style="color:#7d695d;font-family:monospace;font-size:12px;margin-top:24px">Check out our other courses and training plans at <a href="${esc(siteBase)}/course/" style="color:#178079">gravelgodcycling.com/course</a></p>
         </div>
       `;
       break;
@@ -237,7 +237,7 @@ async function sendNudge(env, user, courseId, nudgeType, data) {
         <div style="font-family:Georgia,serif;max-width:560px;margin:0 auto;padding:40px 24px">
           <p style="font-size:18px;color:#3a2e25">It's been a while since you worked on <strong>${esc(courseTitle)}</strong>.</p>
           <p style="color:#59473c">You've already made progress — ${data.lessons_completed} lesson${data.lessons_completed === 1 ? '' : 's'} down. Pick up where you left off.</p>
-          <a href="${esc(resumeUrl)}" style="display:inline-block;background:#1A8A82;color:#fff;padding:14px 32px;text-decoration:none;font-family:monospace;font-size:13px;letter-spacing:1px;text-transform:uppercase;margin-top:16px">RESUME COURSE</a>
+          <a href="${esc(resumeUrl)}" style="display:inline-block;background:#178079;color:#fff;padding:14px 32px;text-decoration:none;font-family:monospace;font-size:13px;letter-spacing:1px;text-transform:uppercase;margin-top:16px">RESUME COURSE</a>
         </div>
       `;
       break;
@@ -245,8 +245,8 @@ async function sendNudge(env, user, courseId, nudgeType, data) {
 
   // Add unsubscribe footer
   bodyHtml += `
-    <div style="font-family:monospace;font-size:11px;color:#8c7568;text-align:center;padding:24px;margin-top:24px;border-top:1px solid #d4c5b9">
-      <a href="${esc(unsubscribeUrl)}" style="color:#8c7568">Unsubscribe from course emails</a>
+    <div style="font-family:monospace;font-size:11px;color:#7d695d;text-align:center;padding:24px;margin-top:24px;border-top:1px solid #d4c5b9">
+      <a href="${esc(unsubscribeUrl)}" style="color:#7d695d">Unsubscribe from course emails</a>
     </div>
   `;
 

@@ -125,6 +125,11 @@ def fetch_snapshot(service, target_date: date) -> dict:
         p for p in all_pages if p["page"].startswith("/race/")
     ]
 
+    # Filter article pages
+    snapshot["article_pages"] = [
+        p for p in all_pages if p["page"].startswith("/articles/")
+    ]
+
     return snapshot
 
 
@@ -233,6 +238,24 @@ def print_report(today: date):
             if new_pages:
                 print(f"\n  NEW race pages (not in last week's snapshot):")
                 for p in new_pages:
+                    print(f"    {p['page']}")
+
+    # Article pages
+    article_pages = latest.get("article_pages", [])
+    if article_pages:
+        print(f"\n{'─' * 60}")
+        print("  ARTICLE PAGES (indexed)")
+        print(f"{'─' * 60}")
+        print(f"  {'Page':<45} {'Clicks':>6} {'Impr':>7} {'Pos':>5}")
+        for p in sorted(article_pages, key=lambda x: x["clicks"], reverse=True):
+            print(f"  {p['page'][:45]:<45} {p['clicks']:>6} {p['impressions']:>7} {p['position']:>5.1f}")
+
+        if week_ago:
+            prev_articles = {p["page"] for p in week_ago.get("article_pages", [])}
+            new_articles = [p for p in article_pages if p["page"] not in prev_articles]
+            if new_articles:
+                print(f"\n  NEW article pages (not in last week's snapshot):")
+                for p in new_articles:
                     print(f"    {p['page']}")
 
     print()

@@ -25,19 +25,26 @@ sys.path.insert(0, str(PROJECT_ROOT / "wordpress"))
 from brand_tokens import TIER_NAMES
 
 BLOG_DIR = PROJECT_ROOT / "wordpress" / "output" / "blog"
+ARTICLES_DIR = PROJECT_ROOT / "wordpress" / "output" / "articles"
 OUTPUT_DIR = PROJECT_ROOT / "web"
 SITE_URL = "https://gravelgodcycling.com"
 
 
-def classify_blog_slug(slug):
+def classify_blog_slug(slug, html_content=""):
     """Classify a blog slug by content type.
 
-    Returns 'roundup', 'recap', or 'preview'.
+    Returns 'roundup', 'recap', 'article', or 'preview'.
+    Slug-based patterns are checked first; if none match,
+    the HTML robots meta tag distinguishes articles (index)
+    from previews (noindex).
     """
     if slug.startswith("roundup-"):
         return "roundup"
     if slug.endswith("-recap"):
         return "recap"
+    # Articles have 'index, follow' in robots meta (previews have 'noindex')
+    if html_content and 'name="robots" content="index, follow"' in html_content:
+        return "article"
     return "preview"
 
 
@@ -47,12 +54,13 @@ def extract_blog_metadata(html_path):
     Returns dict with slug, title, category, tier, date, excerpt, og_image, url.
     """
     slug = html_path.stem
-    category = classify_blog_slug(slug)
 
     try:
         content = html_path.read_text(errors="replace")
     except Exception:
         return None
+
+    category = classify_blog_slug(slug, content)
 
     # Extract title from <title> tag
     title_match = re.search(r'<title>(.*?)</title>', content, re.DOTALL)
@@ -102,7 +110,7 @@ def extract_blog_metadata(html_path):
         "date": pub_date,
         "excerpt": excerpt,
         "og_image": og_image,
-        "url": f"/blog/{slug}/",
+        "url": f"/articles/{slug}/" if category == "article" else f"/blog/{slug}/",
     }
 
 
@@ -119,8 +127,14 @@ def generate_blog_index(blog_dir=None, output_dir=None):
         return []
 
     html_files = sorted(blog_path.glob("*.html"))
+
+    # Also scan articles directory
+    articles_path = blog_path.parent / "articles"
+    if articles_path.exists():
+        html_files.extend(sorted(articles_path.glob("*.html")))
+
     if not html_files:
-        print("No blog HTML files found.")
+        print("No blog/article HTML files found.")
         return []
 
     entries = []

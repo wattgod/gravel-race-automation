@@ -31,7 +31,7 @@ from generate_neo_brutalist import (
 )
 from brand_tokens import get_ab_head_snippet, get_ga4_head_snippet, get_preload_hints
 from shared_footer import get_mega_footer_html
-from shared_header import get_site_header_html
+from shared_header import get_site_header_html, get_site_header_js
 from cookie_consent import get_consent_banner_html
 
 OUTPUT_DIR = Path(__file__).parent / "output"
@@ -283,6 +283,14 @@ def build_training_plan_success() -> str:
     finish line faster. Weekly adjustments, race-day strategy, and real
     accountability.</p>
     <a href="{SITE_BASE_URL}/coaching/" class="gg-success-cta">EXPLORE COACHING</a>
+  </div>
+
+  <div class="gg-success-crosssell">
+    <h2>Fitness Is Half the Race</h2>
+    <p>The plan builds your engine. The skills and the fueling are on you.
+    Self-paced courses on bike handling and hydration &mdash; built from the
+    same coaching playbook as your plan.</p>
+    <a href="{SITE_BASE_URL}/course/" class="gg-success-cta">BROWSE COURSES</a>
   </div>"""
 
     support = f"""
@@ -511,6 +519,7 @@ def generate_success_page(page_key: str,
 </div>
 {inline_js}
 {success_js}
+''' + '<script>' + get_site_header_js() + '</script>' + '''
 {get_consent_banner_html()}
 </body>
 </html>'''

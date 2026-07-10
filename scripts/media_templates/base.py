@@ -5,10 +5,10 @@ from PIL import Image, ImageDraw, ImageFont
 
 # ── Brand Colors (from tokens.css) ───────────────────────
 PRIMARY_BROWN = "#59473c"
-SECONDARY_BROWN = "#8c7568"
-DARK_TEAL = "#1A8A82"
+SECONDARY_BROWN = "#7d695d"
+DARK_TEAL = "#178079"
 TEAL = "#4ECDC4"
-GOLD = "#B7950B"
+GOLD = "#9a7e0a"
 LIGHT_GOLD = "#c9a92c"
 WARM_PAPER = "#f5efe6"
 DARK_BROWN = "#3a2e25"       # Borders, outlines
@@ -20,8 +20,8 @@ WARM_BROWN = "#A68E80"       # Caption/source text
 TAN = "#d4c5b9"             # Subtle decorative
 ERROR_RED = "#c0392b"        # Danger/alert
 SAND = "#ede4d8"             # Alternating/subtle backgrounds
-TIER_3 = "#999999"           # T3 tier color (legacy cold grey)
-TIER_4 = "#cccccc"           # T4 tier color (legacy cold grey)
+TIER_3 = "#766a5e"           # T3 tier color (legacy cold grey)
+TIER_4 = "#5e6868"           # T4 tier color (legacy cold grey)
 TIER_3_WARM = "#766a5e"      # T3 warm — earthy olive-brown (matches search widget)
 TIER_4_WARM = "#5e6868"      # T4 warm — muted teal-grey (matches search widget)
 

@@ -3,7 +3,7 @@
   "blocks": [
     {
       "type": "prose",
-      "content": "\"Drink when you're thirsty\" is fine advice for a 90-minute training ride. It will wreck you in a 6-hour gravel race.\n\nThirst is a lagging indicator — by the time your brain registers it, you're already 1-2% down on body weight and your power output has started to erode. In events longer than 3 hours, the cumulative deficit from reactive drinking compounds into a hole you can't climb out of. Research from the *International Journal of Sport Nutrition and Exercise Metabolism* shows that athletes who follow a structured hydration plan maintain 8-12% higher power output in the final third of endurance events compared to ad-libitum drinkers.\n\nThe good news: building a hydration plan isn't complicated. It takes 20 minutes of homework before race week and saves you from the slow-motion implosion that ruins so many gravel finishes. You already know your sweat rate from Lesson 2. Now we turn that number into an actionable race plan."
+      "content": "\"Drink when you're thirsty\" is fine advice for a 90-minute training ride. It's incomplete advice for a 6-hour gravel race.\n\nNot because thirst is broken — because racing buries it. Adrenaline, technical terrain, aid-station math, a wheel you're trying to hold: riders routinely come off course with half-full bottles, stunned at how little they drank. A written schedule prevents the under-drinking that racing makes almost automatic. The schedule is anchored to your measured sweat rate and capped below it: thirst is your floor, your measured rate is your ceiling, and you never force fluid past roughly 1 L/hr (34 oz) without body-weight checks. (Lesson 4 covers why the ceiling matters — overdrinking is the more dangerous failure.)\n\nI raced for years on \"drink to thirst\" and cramped in every long event I entered. At SBT GRVL 2021, I finally raced on a written plan: electrolytes the night before, more 90 minutes before the gun, a sodium schedule for every hour on course. I never cramped. I never got nauseous. From mile 85 on, I was passing riders who had dropped me earlier. Same legs. Different plan.\n\nThe good news: building a hydration plan isn't complicated. It takes 20 minutes of homework before race week and saves you from the slow-motion implosion that ruins so many gravel finishes. You already know your sweat rate from Lesson 2. Now we turn that number into an actionable race plan."
     },
     {
       "type": "timeline",
@@ -15,7 +15,7 @@
         },
         {
           "label": "1 Week Out",
-          "content": "Check the extended forecast for race day. If temperatures are 10+ degrees higher than your training conditions, add 20-30% to your hourly fluid target. Finalize your bottle/pack setup and test it on a ride — no new gear on race day. Pre-mix your electrolyte powder into labeled bags for easy refills."
+          "content": "Check the extended forecast for race day. If temperatures are 10+ degrees higher than your training conditions, add 15-20% to your hourly fluid target for every 10°F above 70°F — the same rule from your Sweat Audit. Finalize your bottle/pack setup and test it on a ride — no new gear on race day. Pre-mix your electrolyte powder into labeled bags for easy refills."
         },
         {
           "label": "3 Days Out",
@@ -32,38 +32,40 @@
       ]
     },
     {
-      "type": "process_list",
-      "items": [
+      "type": "process",
+      "title": "The Sweat Audit",
+      "description": "Five steps that turn your sweat rate into a race plan. Run it for every A race — the numbers change with the course and the forecast.",
+      "steps": [
         {
-          "label": "Know Your Sweat Rate",
-          "detail": "Use the sweat test protocol from Lesson 2. Your baseline sweat rate (oz/hr at moderate intensity, 65-75°F) is the foundation of everything. Most gravel riders fall between 24-48 oz/hr. If you haven't tested, use 32 oz/hr as a conservative starting point — but test before your A race.",
-          "percentage": 20
+          "step": "1",
+          "action": "Know Your Sweat Rate",
+          "detail": "Use the sweat test protocol from Lesson 2. Your baseline sweat rate (oz/hr at moderate intensity, 65-75°F) is the foundation of everything. Most gravel riders fall between 24-48 oz/hr. If you haven't tested, use 32 oz/hr as a conservative starting point — but test before your A race."
         },
         {
-          "label": "Check the Forecast",
-          "detail": "Temperature and humidity are the two biggest modifiers to your base sweat rate. For every 10°F above 70°F, increase your fluid target by approximately 15-20%. A rider who sweats 32 oz/hr at 70°F may hit 40+ oz/hr at 90°F. Wind and cloud cover matter too — a hot but windy day evaporates sweat faster, which helps cooling but accelerates fluid loss.",
-          "percentage": 40
+          "step": "2",
+          "action": "Check the Forecast",
+          "detail": "Temperature and humidity are the two biggest modifiers to your base sweat rate. For every 10°F above 70°F, increase your fluid target by approximately 15-20%. A rider who sweats 32 oz/hr at 70°F may hit 40+ oz/hr at 90°F. Wind and cloud cover matter too — a hot but windy day evaporates sweat faster, which helps cooling but accelerates fluid loss."
         },
         {
-          "label": "Map Aid Stations",
-          "detail": "Plot every aid station on your route with the distance between them. Calculate how long each segment takes at your target pace. If the longest gap is 40 miles and you average 14 mph, that's nearly 3 hours between refills. At 32 oz/hr, you need 96 oz of carry capacity for that segment alone. This math determines whether bottles are enough or you need a pack.",
-          "percentage": 60
+          "step": "3",
+          "action": "Map Aid Stations",
+          "detail": "Plot every aid station on your route with the distance between them. Calculate how long each segment takes at your target pace. If the longest gap is 40 miles and you average 14 mph, that's nearly 3 hours between refills. At 32 oz/hr, you need 96 oz of carry capacity for that segment alone. This math determines whether bottles are enough or you need a pack."
         },
         {
-          "label": "Calculate Total Fluid Needs",
-          "detail": "Multiply your adjusted sweat rate by your estimated race duration. A 7-hour race at 36 oz/hr = 252 oz total. You won't replace 100% of that — aim for 70-80% replacement, which means planning for roughly 176-202 oz of intake. Divide by your carry capacity to know how many refills you need and where you'll get them.",
-          "percentage": 80
+          "step": "4",
+          "action": "Calculate Total Fluid Needs",
+          "detail": "Multiply your adjusted sweat rate by your estimated race duration. A 7-hour race at 36 oz/hr = 252 oz total. You won't replace 100% of that — aim for 70-80% replacement, which means planning for roughly 176-202 oz of intake. Divide by your carry capacity to know how many refills you need and where you'll get them."
         },
         {
-          "label": "Plan Your Carry Strategy",
-          "detail": "Match your carry method to the longest unsupported segment. Two standard 24 oz bottles (48 oz total) covers about 90 minutes at moderate sweat rates. Beyond that, you need additional cages, a hydration pack, or drop bags at aid stations. We'll cover carry strategy in detail in Lesson 6.",
-          "percentage": 100
+          "step": "5",
+          "action": "Plan Your Carry Strategy",
+          "detail": "Match your carry method to the longest unsupported segment. Two standard 24 oz bottles (48 oz total) covers about 90 minutes at moderate sweat rates. Beyond that, you need additional cages, a hydration pack, or drop bags at aid stations. We'll cover carry strategy in detail in Lesson 6."
         }
       ]
     },
     {
       "type": "calculator",
-      "calculator_id": "race-hydration-plan",
+      "calculator_id": "gravel-hydration-mastery-race-plan",
       "title": "Race Hydration Planner",
       "description": "Enter your sweat rate, race details, and conditions to get a personalized hydration plan. If you don't know your sweat rate, use 32 oz/hr as a starting estimate.",
       "inputs": [
@@ -124,7 +126,7 @@
           "correct": false
         },
         {
-          "text": "Increase intake to 125-150% of your planned rate for the next 30-45 minutes, then return to plan",
+          "text": "Increase intake to 125-150% of your planned rate for the next 30-45 minutes, then return to plan. That short catch-up window is the one time you may brush against your measured sweat rate — never push past it (Lesson 4's ceiling still applies)",
           "correct": true
         },
         {

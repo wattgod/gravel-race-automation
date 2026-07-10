@@ -36,7 +36,7 @@ from generate_neo_brutalist import (
 )
 
 from guide_infographics import INFOGRAPHIC_RENDERERS
-from shared_header import get_site_header_css, get_site_header_html
+from shared_header import get_site_header_css, get_site_header_html, get_site_header_js
 from shared_footer import get_mega_footer_css, get_mega_footer_html
 from cookie_consent import get_consent_banner_html
 from brand_tokens import (
@@ -763,6 +763,8 @@ def generate_pillar_page(content: dict, guide_css: str, guide_js: str,
 
 {js_html}
 
+''' + '<script>' + get_site_header_js() + '</script>' + '''
+
 {get_consent_banner_html()}
 </body>
 </html>'''
@@ -868,6 +870,8 @@ def generate_chapter_page(chapter: dict, chapters: list, content: dict,
 {footer}
 
 {js_html}
+
+''' + '<script>' + get_site_header_js() + '</script>' + '''
 
 {get_consent_banner_html()}
 </body>
@@ -1325,6 +1329,8 @@ def generate_configurator_page(content: dict, guide_css: str, guide_js: str,
 {footer}
 
 {js_html}
+
+''' + '<script>' + get_site_header_js() + '</script>' + '''
 
 {get_consent_banner_html()}
 </body>

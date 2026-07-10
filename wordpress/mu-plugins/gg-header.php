@@ -76,7 +76,7 @@ header.site-header,
 @import url('https://fonts.googleapis.com/css2?family=Sometype+Mono:wght@400;700&family=Source+Serif+4:wght@400;700&display=swap');
 
 /* ── Sticky Header ── */
-.gg-site-header { position: sticky !important; top: 0 !important; z-index: 900 !important; padding: 16px 24px !important; border-bottom: 2px solid #B7950B !important; background: #f5efe6 !important; transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important; }
+.gg-site-header { position: sticky !important; top: 0 !important; z-index: 900 !important; padding: 16px 24px !important; border-bottom: 2px solid #9a7e0a !important; background: #f5efe6 !important; transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important; }
 .gg-site-header.gg-header-hidden { transform: translateY(-100%) !important; }
 .gg-site-header-inner { display: flex !important; align-items: center !important; justify-content: space-between !important; max-width: 960px !important; margin: 0 auto !important; }
 .gg-site-header-logo img { display: block !important; height: 50px !important; width: auto !important; }
@@ -90,9 +90,9 @@ header.site-header,
 .gg-site-header-item > a:link,
 .gg-site-header-item > a:visited { color: #3a2e25 !important; text-decoration: none !important; font-family: 'Sometype Mono', monospace !important; font-size: 11px !important; font-weight: 700 !important; letter-spacing: 2px !important; text-transform: uppercase !important; transition: color 0.2s !important; }
 .gg-site-header-nav > a:hover,
-.gg-site-header-item > a:hover { color: #B7950B !important; }
+.gg-site-header-item > a:hover { color: #9a7e0a !important; }
 .gg-site-header-nav > a[aria-current="page"],
-.gg-site-header-item > a[aria-current="page"] { color: #B7950B !important; }
+.gg-site-header-item > a[aria-current="page"] { color: #9a7e0a !important; }
 .gg-site-header-item { position: relative !important; }
 .gg-site-header-dropdown { display: none; position: absolute !important; top: 100% !important; left: 0 !important; min-width: 200px !important; padding: 8px 0 !important; background: #f5efe6 !important; border: 2px solid #3a2e25 !important; z-index: 1000 !important; }
 .gg-site-header-item:hover .gg-site-header-dropdown,
@@ -100,7 +100,7 @@ header.site-header,
 .gg-site-header-dropdown a,
 .gg-site-header-dropdown a:link,
 .gg-site-header-dropdown a:visited { display: block !important; padding: 8px 16px !important; font-family: 'Sometype Mono', monospace !important; font-size: 11px !important; font-weight: 400 !important; letter-spacing: 1px !important; color: #3a2e25 !important; text-decoration: none !important; transition: color 0.2s !important; }
-.gg-site-header-dropdown a:hover { color: #B7950B !important; }
+.gg-site-header-dropdown a:hover { color: #9a7e0a !important; }
 
 /* ── Hamburger (hidden on desktop) ── */
 .gg-hamburger { display: none !important; background: none !important; border: none !important; cursor: pointer !important; padding: 8px !important; width: 48px !important; height: 48px !important; flex-direction: column !important; justify-content: center !important; align-items: center !important; gap: 5px !important; }
@@ -114,18 +114,18 @@ header.site-header,
 .gg-mobile-nav.is-open { display: flex !important; }
 .gg-mobile-nav-group { border-bottom: 1px solid #d4c5b9 !important; }
 .gg-mobile-nav-toggle { display: flex !important; align-items: center !important; justify-content: space-between !important; width: 100% !important; padding: 14px 0 !important; background: none !important; border: none !important; cursor: pointer !important; font-family: 'Sometype Mono', monospace !important; font-size: 12px !important; font-weight: 700 !important; letter-spacing: 2px !important; text-transform: uppercase !important; color: #3a2e25 !important; }
-.gg-mobile-nav-toggle::after { content: '+' !important; font-size: 18px !important; font-weight: 400 !important; color: #8c7568 !important; transition: transform 0.2s !important; }
+.gg-mobile-nav-toggle::after { content: '+' !important; font-size: 18px !important; font-weight: 400 !important; color: #7d695d !important; transition: transform 0.2s !important; }
 .gg-mobile-nav-toggle[aria-expanded="true"]::after { content: '\2212' !important; }
 .gg-mobile-nav-sub { display: none !important; flex-direction: column !important; padding: 0 0 12px 16px !important; }
 .gg-mobile-nav-sub.is-open { display: flex !important; }
 .gg-mobile-nav-sub a,
 .gg-mobile-nav-sub a:link,
 .gg-mobile-nav-sub a:visited { padding: 10px 0 !important; font-family: 'Sometype Mono', monospace !important; font-size: 12px !important; font-weight: 400 !important; letter-spacing: 1px !important; color: #3a2e25 !important; text-decoration: none !important; transition: color 0.2s !important; }
-.gg-mobile-nav-sub a:hover { color: #B7950B !important; }
+.gg-mobile-nav-sub a:hover { color: #9a7e0a !important; }
 .gg-mobile-nav-link,
 .gg-mobile-nav-link:link,
 .gg-mobile-nav-link:visited { padding: 14px 0 !important; font-family: 'Sometype Mono', monospace !important; font-size: 12px !important; font-weight: 700 !important; letter-spacing: 2px !important; text-transform: uppercase !important; color: #3a2e25 !important; text-decoration: none !important; display: block !important; }
-.gg-mobile-nav-link:hover { color: #B7950B !important; }
+.gg-mobile-nav-link:hover { color: #9a7e0a !important; }
 
 /* ── Training Plans page fix: entrance animation doesn't fire in WP ── */
 .tp-hero h1,
@@ -188,6 +188,7 @@ function gg_shared_header_html() {
         <a href="<?php echo $base; ?>/products/training-plans/"<?php echo $aria('products'); ?>>PRODUCTS</a>
         <div class="gg-site-header-dropdown">
           <a href="<?php echo $base; ?>/products/training-plans/">Custom Training Plans</a>
+          <a href="<?php echo $base; ?>/course/">Courses</a>
           <a href="<?php echo $base; ?>/guide/">Gravel Handbook</a>
         </div>
       </div>
@@ -227,6 +228,7 @@ function gg_shared_header_html() {
       <button class="gg-mobile-nav-toggle" aria-expanded="false">PRODUCTS</button>
       <div class="gg-mobile-nav-sub">
         <a href="<?php echo $base; ?>/products/training-plans/">Custom Training Plans</a>
+        <a href="<?php echo $base; ?>/course/">Courses</a>
         <a href="<?php echo $base; ?>/guide/">Gravel Handbook</a>
       </div>
     </div>

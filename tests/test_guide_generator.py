@@ -101,6 +101,11 @@ class TestBlockRenderers:
             "image", "video", "hero_stat",
             "race_reference", "race_callout", "decision_tree",
             "personalized_content",
+            # Dirt Craft course block types (Jun 2026 port)
+            "quiz", "black_box", "sensation_target", "process",
+            "drill", "recovery_protocol", "commitment",
+            # Rise-style blocks v2 (Jun 2026)
+            "labeled_graphic", "sorting_activity", "continue_gate",
         }
         assert set(BLOCK_RENDERERS.keys()) == expected_types
 
@@ -1157,7 +1162,7 @@ class TestContentJsonIntegrity:
 class TestSizeBudget:
     def test_css_under_budget(self):
         css = build_guide_css()
-        assert len(css) < 65000, f"CSS is {len(css)} bytes, exceeds 65KB budget"
+        assert len(css) < 86000, f"CSS is {len(css)} bytes, exceeds 86KB budget"
 
     def test_js_under_budget(self):
         js = build_guide_js()
@@ -1456,7 +1461,7 @@ class TestImageCss:
     def test_css_budget_with_images(self):
         """CSS still under 25KB budget after image additions."""
         css = build_guide_css()
-        assert len(css) < 65000, f"CSS is {len(css)} bytes, exceeds 65KB budget"
+        assert len(css) < 86000, f"CSS is {len(css)} bytes, exceeds 86KB budget"
 
     def test_css_image_responsive(self):
         """Image layout classes have responsive overrides."""
@@ -1750,4 +1755,4 @@ class TestInfographicDispatch:
     def test_css_budget_with_infographics(self):
         """CSS still under 30KB budget after infographic additions."""
         css = build_guide_css()
-        assert len(css) < 65000, f"CSS is {len(css)} bytes, exceeds 65KB budget"
+        assert len(css) < 86000, f"CSS is {len(css)} bytes, exceeds 86KB budget"

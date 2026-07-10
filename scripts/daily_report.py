@@ -416,10 +416,10 @@ def _trend_arrow(current, previous) -> str:
     if current is None or previous is None:
         return ""
     if current > previous:
-        return ' <span style="color:#1A8A82;">&#8593;</span>'
+        return ' <span style="color:#178079;">&#8593;</span>'
     elif current < previous:
         return ' <span style="color:#c0392b;">&#8595;</span>'
-    return ' <span style="color:#8c7568;">&#8212;</span>'
+    return ' <span style="color:#7d695d;">&#8212;</span>'
 
 
 def _pct_change_str(current, previous) -> str:
@@ -436,8 +436,8 @@ def _not_configured_section(title: str) -> str:
     return f"""
     <tr><td style="padding:20px 32px;">
       <table width="100%" cellpadding="0" cellspacing="0">
-        <tr><td style="font-family:'Courier New',monospace;font-size:12px;text-transform:uppercase;letter-spacing:1px;color:#8c7568;padding-bottom:8px;">{title}</td></tr>
-        <tr><td style="font-family:Georgia,serif;font-size:14px;color:#8c7568;padding:12px;border:1px dashed #d4c5b9;">
+        <tr><td style="font-family:'Courier New',monospace;font-size:12px;text-transform:uppercase;letter-spacing:1px;color:#7d695d;padding-bottom:8px;">{title}</td></tr>
+        <tr><td style="font-family:Georgia,serif;font-size:14px;color:#7d695d;padding:12px;border:1px dashed #d4c5b9;">
           Not configured. See <code>scripts/daily_report.py</code> for setup instructions.
         </td></tr>
       </table>
@@ -447,7 +447,7 @@ def _not_configured_section(title: str) -> str:
 def _metric_cell(label: str, value: str, width: str = "25%") -> str:
     """Render a single metric in the key metrics bar."""
     return f"""<td width="{width}" style="text-align:center;padding:12px 8px;">
-          <div style="font-family:'Courier New',monospace;font-size:11px;text-transform:uppercase;letter-spacing:1px;color:#8c7568;">{label}</div>
+          <div style="font-family:'Courier New',monospace;font-size:11px;text-transform:uppercase;letter-spacing:1px;color:#7d695d;">{label}</div>
           <div style="font-family:Georgia,serif;font-size:22px;color:#3a2e25;padding-top:4px;">{value}</div>
         </td>"""
 
@@ -481,8 +481,8 @@ def render_html(data: dict) -> str:
     <tr><td style="background:#3a2e25;padding:24px 32px;">
       <table width="100%" cellpadding="0" cellspacing="0">
         <tr>
-          <td style="font-family:'Courier New',monospace;font-size:11px;text-transform:uppercase;letter-spacing:2px;color:#B7950B;">GRAVEL GOD</td>
-          <td style="text-align:right;font-family:'Courier New',monospace;font-size:11px;color:#8c7568;">{report_date}</td>
+          <td style="font-family:'Courier New',monospace;font-size:11px;text-transform:uppercase;letter-spacing:2px;color:#9a7e0a;">GRAVEL GOD</td>
+          <td style="text-align:right;font-family:'Courier New',monospace;font-size:11px;color:#7d695d;">{report_date}</td>
         </tr>
         <tr><td colspan="2" style="font-family:Georgia,serif;font-size:20px;color:#ffffff;padding-top:8px;">Daily Report</td></tr>
       </table>
@@ -509,7 +509,7 @@ def render_html(data: dict) -> str:
         sections.append(f"""
     <tr><td style="padding:20px 32px 12px;">
       <table width="100%" cellpadding="0" cellspacing="0">
-        <tr><td style="font-family:'Courier New',monospace;font-size:12px;text-transform:uppercase;letter-spacing:1px;color:#8c7568;padding-bottom:8px;">Commentary</td></tr>
+        <tr><td style="font-family:'Courier New',monospace;font-size:12px;text-transform:uppercase;letter-spacing:1px;color:#7d695d;padding-bottom:8px;">Commentary</td></tr>
         {commentary_html}
       </table>
     </td></tr>""")
@@ -523,19 +523,19 @@ def render_html(data: dict) -> str:
 
         upcoming_html = ""
         for r in race.get("upcoming_races", []):
-            upcoming_html += f'<tr><td style="font-family:Georgia,serif;font-size:13px;color:#3a2e25;padding:2px 0;">{r.get("name", r.get("slug", ""))}</td><td style="font-family:\'Courier New\',monospace;font-size:12px;color:#8c7568;text-align:right;padding:2px 0;">T{r.get("tier", "?")}</td></tr>\n'
+            upcoming_html += f'<tr><td style="font-family:Georgia,serif;font-size:13px;color:#3a2e25;padding:2px 0;">{r.get("name", r.get("slug", ""))}</td><td style="font-family:\'Courier New\',monospace;font-size:12px;color:#7d695d;text-align:right;padding:2px 0;">T{r.get("tier", "?")}</td></tr>\n'
 
         sections.append(f"""
     <tr><td style="padding:20px 32px 12px;">
       <table width="100%" cellpadding="0" cellspacing="0">
-        <tr><td style="font-family:'Courier New',monospace;font-size:12px;text-transform:uppercase;letter-spacing:1px;color:#8c7568;padding-bottom:8px;">Race Database — {race.get("total", 0)} Races</td></tr>
+        <tr><td style="font-family:'Courier New',monospace;font-size:12px;text-transform:uppercase;letter-spacing:1px;color:#7d695d;padding-bottom:8px;">Race Database — {race.get("total", 0)} Races</td></tr>
         <tr><td>
           <table width="100%" cellpadding="0" cellspacing="0" style="border:1px solid #d4c5b9;">
-            <tr><td style="font-family:'Courier New',monospace;font-size:11px;text-transform:uppercase;color:#8c7568;padding:6px 12px;border-bottom:2px solid #d4c5b9;">Tier</td><td style="font-family:'Courier New',monospace;font-size:11px;text-transform:uppercase;color:#8c7568;padding:6px 12px;border-bottom:2px solid #d4c5b9;text-align:right;">Count</td></tr>
+            <tr><td style="font-family:'Courier New',monospace;font-size:11px;text-transform:uppercase;color:#7d695d;padding:6px 12px;border-bottom:2px solid #d4c5b9;">Tier</td><td style="font-family:'Courier New',monospace;font-size:11px;text-transform:uppercase;color:#7d695d;padding:6px 12px;border-bottom:2px solid #d4c5b9;text-align:right;">Count</td></tr>
             {tier_rows}
           </table>
         </td></tr>
-        {"<tr><td style='padding-top:12px;font-family:Georgia,serif;font-size:13px;color:#8c7568;'>Upcoming (next 3 months): " + str(race.get('upcoming_count', 0)) + " races</td></tr>" if race.get("upcoming_count") else ""}
+        {"<tr><td style='padding-top:12px;font-family:Georgia,serif;font-size:13px;color:#7d695d;'>Upcoming (next 3 months): " + str(race.get('upcoming_count', 0)) + " races</td></tr>" if race.get("upcoming_count") else ""}
         {("<tr><td style='padding-top:8px;'><table width='100%' cellpadding='0' cellspacing='0'>" + upcoming_html + "</table></td></tr>") if upcoming_html else ""}
       </table>
     </td></tr>""")
@@ -549,13 +549,13 @@ def render_html(data: dict) -> str:
         sections.append(f"""
     <tr><td style="padding:20px 32px 12px;">
       <table width="100%" cellpadding="0" cellspacing="0">
-        <tr><td style="font-family:'Courier New',monospace;font-size:12px;text-transform:uppercase;letter-spacing:1px;color:#8c7568;padding-bottom:8px;">Blog Content — {blog.get("total", 0)} Articles</td></tr>
+        <tr><td style="font-family:'Courier New',monospace;font-size:12px;text-transform:uppercase;letter-spacing:1px;color:#7d695d;padding-bottom:8px;">Blog Content — {blog.get("total", 0)} Articles</td></tr>
         <tr><td>
           <table width="100%" cellpadding="0" cellspacing="0">
             {cat_rows}
           </table>
         </td></tr>
-        <tr><td style="font-family:Georgia,serif;font-size:13px;color:#8c7568;padding-top:8px;">Added this week: {blog.get("recent_count", 0)}</td></tr>
+        <tr><td style="font-family:Georgia,serif;font-size:13px;color:#7d695d;padding-top:8px;">Added this week: {blog.get("recent_count", 0)}</td></tr>
       </table>
     </td></tr>""")
 
@@ -566,19 +566,19 @@ def render_html(data: dict) -> str:
 
         top_pages_html = ""
         for p in ga4.get("top_pages", []):
-            top_pages_html += f'<tr><td style="font-family:Georgia,serif;font-size:13px;color:#3a2e25;padding:2px 0;max-width:300px;overflow:hidden;text-overflow:ellipsis;">{p["path"]}</td><td style="font-family:\'Courier New\',monospace;font-size:12px;color:#8c7568;text-align:right;padding:2px 0;">{p["pageviews"]:,}</td></tr>\n'
+            top_pages_html += f'<tr><td style="font-family:Georgia,serif;font-size:13px;color:#3a2e25;padding:2px 0;max-width:300px;overflow:hidden;text-overflow:ellipsis;">{p["path"]}</td><td style="font-family:\'Courier New\',monospace;font-size:12px;color:#7d695d;text-align:right;padding:2px 0;">{p["pageviews"]:,}</td></tr>\n'
 
         sources_html = ""
         for s in ga4.get("sources", []):
-            sources_html += f'<tr><td style="font-family:Georgia,serif;font-size:13px;color:#3a2e25;padding:2px 0;">{s["channel"]}</td><td style="font-family:\'Courier New\',monospace;font-size:12px;color:#8c7568;text-align:right;padding:2px 0;">{s["sessions"]:,}</td></tr>\n'
+            sources_html += f'<tr><td style="font-family:Georgia,serif;font-size:13px;color:#3a2e25;padding:2px 0;">{s["channel"]}</td><td style="font-family:\'Courier New\',monospace;font-size:12px;color:#7d695d;text-align:right;padding:2px 0;">{s["sessions"]:,}</td></tr>\n'
 
         sections.append(f"""
     <tr><td style="padding:20px 32px 12px;">
       <table width="100%" cellpadding="0" cellspacing="0">
-        <tr><td style="font-family:'Courier New',monospace;font-size:12px;text-transform:uppercase;letter-spacing:1px;color:#8c7568;padding-bottom:8px;">GA4 Analytics</td></tr>
+        <tr><td style="font-family:'Courier New',monospace;font-size:12px;text-transform:uppercase;letter-spacing:1px;color:#7d695d;padding-bottom:8px;">GA4 Analytics</td></tr>
         <tr><td style="font-family:Georgia,serif;font-size:14px;color:#3a2e25;padding-bottom:12px;">Sessions (7d): <strong>{ga4.get("sessions_7d", 0):,}</strong>{sessions_arrow}{pct_str}</td></tr>
-        {("<tr><td style='font-family:Georgia,serif;font-size:13px;color:#8c7568;padding-bottom:4px;'>Top Pages:</td></tr><tr><td><table width='100%' cellpadding='0' cellspacing='0'>" + top_pages_html + "</table></td></tr>") if top_pages_html else ""}
-        {("<tr><td style='font-family:Georgia,serif;font-size:13px;color:#8c7568;padding:8px 0 4px;'>Traffic Sources:</td></tr><tr><td><table width='100%' cellpadding='0' cellspacing='0'>" + sources_html + "</table></td></tr>") if sources_html else ""}
+        {("<tr><td style='font-family:Georgia,serif;font-size:13px;color:#7d695d;padding-bottom:4px;'>Top Pages:</td></tr><tr><td><table width='100%' cellpadding='0' cellspacing='0'>" + top_pages_html + "</table></td></tr>") if top_pages_html else ""}
+        {("<tr><td style='font-family:Georgia,serif;font-size:13px;color:#7d695d;padding:8px 0 4px;'>Traffic Sources:</td></tr><tr><td><table width='100%' cellpadding='0' cellspacing='0'>" + sources_html + "</table></td></tr>") if sources_html else ""}
       </table>
     </td></tr>""")
     else:
@@ -591,11 +591,11 @@ def render_html(data: dict) -> str:
         sections.append(f"""
     <tr><td style="padding:20px 32px 12px;">
       <table width="100%" cellpadding="0" cellspacing="0">
-        <tr><td style="font-family:'Courier New',monospace;font-size:12px;text-transform:uppercase;letter-spacing:1px;color:#8c7568;padding-bottom:8px;">Revenue — {rev.get("month", "")}</td></tr>
+        <tr><td style="font-family:'Courier New',monospace;font-size:12px;text-transform:uppercase;letter-spacing:1px;color:#7d695d;padding-bottom:8px;">Revenue — {rev.get("month", "")}</td></tr>
         <tr><td style="font-family:Georgia,serif;font-size:14px;color:#3a2e25;">MTD: <strong>${rev.get("mtd_revenue", 0):,.0f}</strong> / ${rev.get("target", 0):,.0f} ({pct}%)</td></tr>
         <tr><td style="padding:8px 0;">
           <table width="100%" cellpadding="0" cellspacing="0"><tr>
-            <td style="background:#f0ebe3;height:8px;"><div style="background:#1A8A82;height:8px;width:{bar_width}%;"></div></td>
+            <td style="background:#f0ebe3;height:8px;"><div style="background:#178079;height:8px;width:{bar_width}%;"></div></td>
           </tr></table>
         </td></tr>
         <tr><td style="font-family:Georgia,serif;font-size:13px;color:#3a2e25;">Plans sold this month: {rev.get("plans_sold", 0)} &middot; Pipeline: ${rev.get("pipeline_value", 0):,.0f}</td></tr>
@@ -610,7 +610,7 @@ def render_html(data: dict) -> str:
         sections.append(f"""
     <tr><td style="padding:20px 32px 12px;">
       <table width="100%" cellpadding="0" cellspacing="0">
-        <tr><td style="font-family:'Courier New',monospace;font-size:12px;text-transform:uppercase;letter-spacing:1px;color:#8c7568;padding-bottom:8px;">Athletes</td></tr>
+        <tr><td style="font-family:'Courier New',monospace;font-size:12px;text-transform:uppercase;letter-spacing:1px;color:#7d695d;padding-bottom:8px;">Athletes</td></tr>
         <tr><td style="font-family:Georgia,serif;font-size:14px;color:#3a2e25;">
           Total: <strong>{ath.get("total", 0)}</strong> &middot;
           Active: {ath.get("active_plans", 0)} &middot;
@@ -630,16 +630,16 @@ def render_html(data: dict) -> str:
         exp_rows = ""
         for exp in ab.get("experiments", []):
             days = exp.get("days_running", 0)
-            days_color = "#c0392b" if days >= 14 else "#1A8A82" if days >= 7 else "#3a2e25"
+            days_color = "#c0392b" if days >= 14 else "#178079" if days >= 7 else "#3a2e25"
             exp_rows += f'<tr><td style="font-family:Georgia,serif;font-size:13px;color:#3a2e25;padding:3px 0;">{exp["id"]}</td><td style="font-family:\'Courier New\',monospace;font-size:12px;color:{days_color};text-align:right;padding:3px 0;">{days}d</td></tr>\n'
 
         sections.append(f"""
     <tr><td style="padding:20px 32px 12px;">
       <table width="100%" cellpadding="0" cellspacing="0">
-        <tr><td style="font-family:'Courier New',monospace;font-size:12px;text-transform:uppercase;letter-spacing:1px;color:#8c7568;padding-bottom:8px;">A/B Experiments — {ab.get("active_count", 0)} Active</td></tr>
+        <tr><td style="font-family:'Courier New',monospace;font-size:12px;text-transform:uppercase;letter-spacing:1px;color:#7d695d;padding-bottom:8px;">A/B Experiments — {ab.get("active_count", 0)} Active</td></tr>
         <tr><td>
           <table width="100%" cellpadding="0" cellspacing="0">
-            {exp_rows if exp_rows else '<tr><td style="font-family:Georgia,serif;font-size:13px;color:#8c7568;">No active experiments.</td></tr>'}
+            {exp_rows if exp_rows else '<tr><td style="font-family:Georgia,serif;font-size:13px;color:#7d695d;">No active experiments.</td></tr>'}
           </table>
         </td></tr>
       </table>
@@ -650,7 +650,7 @@ def render_html(data: dict) -> str:
         sections.append(f"""
     <tr><td style="padding:20px 32px 12px;">
       <table width="100%" cellpadding="0" cellspacing="0">
-        <tr><td style="font-family:'Courier New',monospace;font-size:12px;text-transform:uppercase;letter-spacing:1px;color:#8c7568;padding-bottom:8px;">Data Quality — {quality.get("quality_score", 0)}%</td></tr>
+        <tr><td style="font-family:'Courier New',monospace;font-size:12px;text-transform:uppercase;letter-spacing:1px;color:#7d695d;padding-bottom:8px;">Data Quality — {quality.get("quality_score", 0)}%</td></tr>
         <tr><td style="font-family:Georgia,serif;font-size:14px;color:#3a2e25;line-height:1.8;">
           Profiles: {quality.get("total_profiles", 0)}<br>
           Stale dates: {quality.get("stale_dates", 0)}<br>
@@ -665,19 +665,19 @@ def render_html(data: dict) -> str:
     sections.append("""
     <tr><td style="padding:20px 32px 12px;border-top:2px solid #d4c5b9;">
       <table width="100%" cellpadding="0" cellspacing="0">
-        <tr><td style="font-family:'Courier New',monospace;font-size:12px;text-transform:uppercase;letter-spacing:1px;color:#8c7568;padding-bottom:8px;">Quick Links</td></tr>
+        <tr><td style="font-family:'Courier New',monospace;font-size:12px;text-transform:uppercase;letter-spacing:1px;color:#7d695d;padding-bottom:8px;">Quick Links</td></tr>
         <tr><td style="font-family:Georgia,serif;font-size:13px;color:#3a2e25;line-height:2;">
-          <a href="https://analytics.google.com" style="color:#1A8A82;">GA4 Dashboard</a> &middot;
-          <a href="https://gravelgodcycling.com/wp-admin/" style="color:#1A8A82;">WP Admin</a> &middot;
-          <a href="https://gravelgodcycling.com/gravel-races/" style="color:#1A8A82;">Race Search</a> &middot;
-          <a href="https://dashboard.resend.com" style="color:#1A8A82;">Resend</a>
+          <a href="https://analytics.google.com" style="color:#178079;">GA4 Dashboard</a> &middot;
+          <a href="https://gravelgodcycling.com/wp-admin/" style="color:#178079;">WP Admin</a> &middot;
+          <a href="https://gravelgodcycling.com/gravel-races/" style="color:#178079;">Race Search</a> &middot;
+          <a href="https://dashboard.resend.com" style="color:#178079;">Resend</a>
         </td></tr>
       </table>
     </td></tr>""")
 
     # 12. Footer
     sections.append(f"""
-    <tr><td style="padding:16px 32px;border-top:2px solid #d4c5b9;font-family:'Courier New',monospace;font-size:11px;color:#8c7568;">
+    <tr><td style="padding:16px 32px;border-top:2px solid #d4c5b9;font-family:'Courier New',monospace;font-size:11px;color:#7d695d;">
       Generated by scripts/daily_report.py &middot; {generated_at}
     </td></tr>""")
 

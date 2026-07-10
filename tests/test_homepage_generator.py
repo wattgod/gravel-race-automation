@@ -2100,7 +2100,7 @@ class TestHeroRadarViz:
         known_colors = {
             "#59473c", "#7d695d", "#178079", "#4ecdc4", "#9a7e0a",
             "#c9a92c", "#c4b5ab", "#d4c5b9", "#f5efe6", "#3a2e25",
-            "#1a1613", "#b7950b", "#766a5e", "#5e6868", "#8c7568",
+            "#1a1613", "#9a7e0a", "#766a5e", "#5e6868", "#7d695d",
             "#ede4d8", "#fff",
         }
         # Find hex colors specifically in the hv- rules

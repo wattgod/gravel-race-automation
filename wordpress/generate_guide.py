@@ -28,6 +28,7 @@ import argparse
 import hashlib
 import html
 import json
+import random
 import re
 import sys
 from datetime import datetime
@@ -44,7 +45,7 @@ from generate_neo_brutalist import (
 )
 
 from guide_infographics import INFOGRAPHIC_RENDERERS
-from shared_header import get_site_header_css, get_site_header_html
+from shared_header import get_site_header_css, get_site_header_html, get_site_header_js
 from cookie_consent import get_consent_banner_html
 from brand_tokens import get_ga4_head_snippet
 
@@ -95,6 +96,16 @@ def load_race_index() -> dict:
 # that call _md_inline() automatically resolve tooltip markers.
 _GLOSSARY = None  # dict or None — set during generation for tooltip resolution
 _RACE_INDEX = None  # dict or None — slug → race data, set during generation for race blocks
+_CURRENT_LESSON_ID = None  # str or None — set by course generator for deterministic
+                           # per-lesson seeds (matching shuffle, gate hashes)
+
+
+def set_lesson_context(lesson_id):
+    """Set the current lesson id so renderers that need a stable per-lesson
+    seed (matching knowledge checks, continue gates) produce deterministic
+    HTML. Course generators call this before rendering a lesson's blocks."""
+    global _CURRENT_LESSON_ID
+    _CURRENT_LESSON_ID = lesson_id
 
 
 def _md_inline(text: str) -> str:
@@ -150,6 +161,12 @@ def _md_block(content: str) -> str:
             # Strip the number prefix (e.g. "1. ", "12. ")
             li_text = re.sub(r'^\d+\.\s', '', stripped)
             result.append(f'<li>{li_text}</li>')
+        elif stripped.startswith('### '):
+            if in_list:
+                result.append(f'</{list_type}>')
+                in_list = False
+                list_type = None
+            result.append(f'<h4 class="gg-guide-prose-h">{stripped[4:]}</h4>')
         else:
             if in_list:
                 result.append(f'</{list_type}>')
@@ -197,7 +214,11 @@ def render_accordion(block: dict) -> str:
     items_html = []
     for idx, item in enumerate(block["items"]):
         title = esc(item["title"])
-        content_html = _md_block(esc(item["content"]))
+        if "blocks" in item:
+            # Nested blocks (e.g. data_table + callout inside an accordion panel)
+            content_html = "\n".join(render_block(b) for b in item["blocks"])
+        else:
+            content_html = _md_block(esc(item["content"]))
         panel_id = f"accordion-panel-{hashlib.md5(title.encode()).hexdigest()[:8]}-{idx}"
 
         items_html.append(f'''<div class="gg-guide-accordion-item">
@@ -306,8 +327,23 @@ def render_callout(block: dict) -> str:
     return f'<div class="gg-guide-callout gg-guide-callout--{esc(style)}">{"".join(paras)}</div>'
 
 
-def render_knowledge_check(block: dict) -> str:
-    """Render a knowledge check mini-quiz."""
+def render_knowledge_check(block: dict, label: str = "KNOWLEDGE CHECK") -> str:
+    """Render a knowledge check mini-quiz.
+
+    Options support an optional per-choice "feedback" field (Rise-style
+    "by choice" feedback). When present, the lesson JS reveals the matching
+    feedback for the selected option instead of the block-level explanation.
+    Pages without that JS still show the default explanation (feedback divs
+    stay hidden).
+
+    Supports "format" variants: "multiple_choice" (default), "fill_blank"
+    (text input + CHECK button) and "matching" (tap-to-pair, right column
+    shuffled server-side with a stable per-lesson seed)."""
+    fmt = block.get("format", "multiple_choice")
+    if fmt == "fill_blank":
+        return _render_kc_fill_blank(block, label)
+    if fmt == "matching":
+        return _render_kc_matching(block, label)
     question = esc(block["question"])
     explanation = esc(block["explanation"])
 
@@ -318,19 +354,250 @@ def render_knowledge_check(block: dict) -> str:
     question_hash = hashlib.sha256(hash_input.encode("utf-8")).hexdigest()[:8]
 
     options_html = []
+    feedback_html = []
     for i, opt in enumerate(block["options"]):
         text = esc(opt["text"])
         correct = "true" if opt["correct"] else "false"
         options_html.append(
             f'<button class="gg-guide-kc-option" data-correct="{correct}" data-index="{i}">{text}</button>'
         )
+        if opt.get("feedback"):
+            feedback_html.append(
+                f'<div class="gg-guide-kc-feedback" data-feedback-index="{i}" '
+                f'style="display:none"><p>{esc(opt["feedback"])}</p></div>'
+            )
     return f'''<div class="gg-guide-knowledge-check" data-question-hash="{question_hash}">
-      <div class="gg-guide-kc-label">KNOWLEDGE CHECK</div>
+      <div class="gg-guide-kc-label">{esc(label)}</div>
       <p class="gg-guide-kc-question">{question}</p>
       <div class="gg-guide-kc-options">{"".join(options_html)}</div>
       <div class="gg-guide-kc-explanation" style="display:none">
-        <p>{explanation}</p>
+        {"".join(feedback_html)}<p class="gg-guide-kc-explanation-default">{explanation}</p>
       </div>
+    </div>'''
+
+
+def _render_kc_fill_blank(block: dict, label: str) -> str:
+    """Render a fill-in-the-blank knowledge check.
+
+    Schema: {"format": "fill_blank", "question": "...",
+             "accept": ["answer a", "answer b"], "case_sensitive": false,
+             "explanation": "..."}.
+    JS trims whitespace and compares case-insensitively unless
+    case_sensitive is true. No-JS fallback: the input renders but the
+    check requires JS — content (question + explanation markup) is never
+    hidden by CSS alone."""
+    question = esc(block["question"])
+    explanation = esc(block.get("explanation", ""))
+    accept = block["accept"]
+    if not isinstance(accept, list) or not accept:
+        raise ValueError("fill_blank knowledge check requires a non-empty 'accept' list")
+    case_sensitive = "true" if block.get("case_sensitive") else "false"
+    hash_input = block["question"] + json.dumps(accept, ensure_ascii=False)
+    question_hash = hashlib.sha256(hash_input.encode("utf-8")).hexdigest()[:8]
+    accept_attr = esc(json.dumps(accept, ensure_ascii=False))
+    input_id = f"gg-fib-{question_hash}"
+    return f'''<div class="gg-guide-knowledge-check gg-guide-kc--fill-blank" data-question-hash="{question_hash}" data-kc-format="fill_blank">
+      <div class="gg-guide-kc-label">{esc(label)}</div>
+      <p class="gg-guide-kc-question">{question}</p>
+      <div class="gg-guide-kc-fib" data-accept="{accept_attr}" data-case-sensitive="{case_sensitive}">
+        <label class="gg-vh" for="{input_id}">Your answer</label>
+        <input type="text" id="{input_id}" class="gg-guide-kc-fib-input" autocomplete="off" autocapitalize="off" spellcheck="false">
+        <button type="button" class="gg-guide-kc-fib-check">CHECK</button>
+      </div>
+      <div class="gg-guide-kc-fib-status" aria-live="polite"></div>
+      <div class="gg-guide-kc-explanation" style="display:none">
+        <p class="gg-guide-kc-explanation-default">{explanation}</p>
+      </div>
+    </div>'''
+
+
+def _render_kc_matching(block: dict, label: str) -> str:
+    """Render a matching knowledge check (tap-to-pair).
+
+    Schema: {"format": "matching", "question": "...",
+             "pairs": [{"left": "...", "right": "..."}], "explanation": "..."}.
+    Left column keeps author order; the right column is shuffled ONCE at
+    render time with a deterministic seed (lesson id + content hash) so the
+    generated HTML is stable across runs."""
+    pairs = block["pairs"]
+    if not isinstance(pairs, list) or len(pairs) < 2:
+        raise ValueError("matching knowledge check requires at least 2 pairs")
+    question = esc(block.get("question", "Match each item on the left to its pair on the right."))
+    explanation = esc(block.get("explanation", ""))
+    hash_input = json.dumps([[p["left"], p["right"]] for p in pairs], ensure_ascii=False)
+    question_hash = hashlib.sha256(hash_input.encode("utf-8")).hexdigest()[:8]
+    # Deterministic shuffle: seed on lesson id + content hash so HTML is
+    # stable for tests and across regenerations.
+    rng = random.Random(f"{_CURRENT_LESSON_ID or 'guide'}:{question_hash}")
+    order = list(range(len(pairs)))
+    rng.shuffle(order)
+    if order == list(range(len(pairs))):
+        # Never serve the answers in natural order — rotate by one.
+        order = order[1:] + order[:1]
+    left_html = "".join(
+        f'<button type="button" class="gg-guide-kc-match-left" data-pair="{i}">{esc(p["left"])}</button>'
+        for i, p in enumerate(pairs)
+    )
+    right_html = "".join(
+        f'<button type="button" class="gg-guide-kc-match-right" data-match="{j}">{esc(pairs[j]["right"])}</button>'
+        for j in order
+    )
+    explanation_html = (
+        f'<div class="gg-guide-kc-explanation" style="display:none">'
+        f'<p class="gg-guide-kc-explanation-default">{explanation}</p></div>'
+        if explanation else ''
+    )
+    return f'''<div class="gg-guide-knowledge-check gg-guide-kc--matching" data-question-hash="{question_hash}" data-kc-format="matching">
+      <div class="gg-guide-kc-label">{esc(label)}</div>
+      <p class="gg-guide-kc-question">{question}</p>
+      <p class="gg-guide-kc-match-hint">Tap an item on the left, then tap its match on the right.</p>
+      <div class="gg-guide-kc-match">
+        <div class="gg-guide-kc-match-col">{left_html}</div>
+        <div class="gg-guide-kc-match-col">{right_html}</div>
+      </div>
+      {explanation_html}
+    </div>'''
+
+
+def render_labeled_graphic(block: dict) -> str:
+    """Render a labeled graphic (Rise-style hotspot block).
+
+    Schema: {"type": "labeled_graphic", "src": "...", "alt": "...",
+             "markers": [{"x": 42.5, "y": 31.0, "label": "1",
+                          "title": "...", "content": "...",
+                          "feedback_detail": "..."}]}.
+    x/y are percentages (0-100). Markers render as absolutely positioned
+    buttons; the popover is built by JS with textContent (no innerHTML).
+    No-JS fallback: marker content renders as a numbered list below the
+    image (markers hidden, list visible — JS flips both via .gg-lg-ready)."""
+    src = esc(block["src"])
+    alt = esc(block.get("alt", ""))
+    caption = block.get("caption", "")
+    markers = block.get("markers", [])
+    if not markers:
+        raise ValueError("labeled_graphic requires at least one marker")
+    fig_hash = hashlib.sha256(
+        (block["src"] + json.dumps([m.get("title", "") for m in markers],
+                                   ensure_ascii=False)).encode("utf-8")
+    ).hexdigest()[:8]
+    markers_html = []
+    fallback_html = []
+    for i, m in enumerate(markers):
+        x = float(m["x"])
+        y = float(m["y"])
+        if not (0 <= x <= 100) or not (0 <= y <= 100):
+            raise ValueError(
+                f"labeled_graphic marker {i} out of bounds: x={x}, y={y} "
+                f"(both must be 0-100 percentages)")
+        mlabel = esc(m.get("label", str(i + 1)))
+        title = esc(m["title"])
+        item_id = f"gg-lg-{fig_hash}-{i}"
+        markers_html.append(
+            f'<button type="button" class="gg-guide-lg-marker" '
+            f'style="left:{x}%;top:{y}%" data-lg-index="{i}" '
+            f'aria-expanded="false" aria-controls="{item_id}" '
+            f'aria-label="Marker {mlabel}: {title}">{mlabel}</button>'
+        )
+        detail = m.get("feedback_detail", "")
+        detail_html = (f' <span class="gg-guide-lg-item-detail">{esc(detail)}</span>'
+                       if detail else '')
+        fallback_html.append(
+            f'<li class="gg-guide-lg-item" id="{item_id}" data-lg-index="{i}">'
+            f'<strong class="gg-guide-lg-item-title">{title}</strong> '
+            f'<span class="gg-guide-lg-item-content">{esc(m["content"])}</span>'
+            f'{detail_html}</li>'
+        )
+    cap = (f'<figcaption class="gg-guide-img-caption">{_md_inline(esc(caption))}</figcaption>'
+           if caption else '')
+    return f'''<figure class="gg-guide-labeled-graphic" data-lg-id="{fig_hash}">
+      <div class="gg-guide-lg-stage">
+        <img src="{src}" alt="{alt}" loading="lazy" decoding="async" class="gg-guide-lg-img">
+        {''.join(markers_html)}
+      </div>
+      {cap}
+      <ol class="gg-guide-lg-fallback">{''.join(fallback_html)}</ol>
+    </figure>'''
+
+
+def render_sorting_activity(block: dict) -> str:
+    """Render a sorting activity (Rise-style, tap-to-sort — no drag).
+
+    Schema: {"type": "sorting_activity", "title": "...",
+             "instructions": "...",
+             "categories": [{"id": "front", "label": "Front brake"}],
+             "items": [{"text": "...", "category": "front"}]}.
+    Constraints: at most 4 categories, text-only cards, every item's
+    category must exist. One prompt card at a time + big tappable category
+    buttons. No-JS fallback: all cards render visible as a list; category
+    buttons stay hidden until JS adds .gg-sorting-ready."""
+    title = esc(block.get("title", ""))
+    instructions = esc(block.get("instructions", ""))
+    categories = block["categories"]
+    items = block["items"]
+    if len(categories) > 4:
+        raise ValueError(
+            f"sorting_activity supports at most 4 categories, got {len(categories)}")
+    if len(categories) < 2:
+        raise ValueError("sorting_activity requires at least 2 categories")
+    if not items:
+        raise ValueError("sorting_activity requires at least one item")
+    cat_ids = {c["id"] for c in categories}
+    for i, it in enumerate(items):
+        if it["category"] not in cat_ids:
+            raise ValueError(
+                f"sorting_activity item {i} references unknown category "
+                f"'{it['category']}' (known: {sorted(cat_ids)})")
+    hash_input = block.get("title", "") + json.dumps(
+        [it["text"] for it in items], ensure_ascii=False)
+    sort_hash = hashlib.sha256(hash_input.encode("utf-8")).hexdigest()[:8]
+    cats_html = "".join(
+        f'<button type="button" class="gg-guide-sorting-cat" data-category="{esc(c["id"])}">'
+        f'<span class="gg-guide-sorting-cat-label">{esc(c["label"])}</span>'
+        f'<span class="gg-guide-sorting-cat-count">0</span></button>'
+        for c in categories
+    )
+    cards_html = "".join(
+        f'<div class="gg-guide-sorting-card" data-category="{esc(it["category"])}">'
+        f'<p>{esc(it["text"])}</p></div>'
+        for it in items
+    )
+    title_html = f'<p class="gg-guide-sorting-title">{title}</p>' if title else ''
+    instr_html = (f'<p class="gg-guide-sorting-instructions">{instructions}</p>'
+                  if instructions else '')
+    return f'''<div class="gg-guide-sorting" data-sorting-hash="{sort_hash}" data-sorting-total="{len(items)}">
+      <div class="gg-guide-sorting-label">SORTING ACTIVITY</div>
+      {title_html}
+      {instr_html}
+      <div class="gg-guide-sorting-stack">{cards_html}</div>
+      <div class="gg-guide-sorting-cats">{cats_html}</div>
+      <div class="gg-guide-sorting-progress" aria-live="polite"></div>
+      <div class="gg-guide-sorting-done" hidden></div>
+    </div>'''
+
+
+# Valid continue_gate modes (Rise-style continue block)
+_GATE_MODES = {"none", "block_above", "all_above"}
+
+
+def render_continue_gate(block: dict) -> str:
+    """Render a continue gate (Rise-style continue block).
+
+    Schema: {"type": "continue_gate", "label": "...",
+             "mode": "none"|"block_above"|"all_above"}.
+    Renders a full-width button above a thin rule. CRITICAL progressive
+    enhancement: the markup hides NOTHING — content after the gate is only
+    wrapped/hidden by JS (build_course_js), so with JS off everything stays
+    visible. Passed gates persist in the localStorage course state."""
+    label = esc(block.get("label", "CONTINUE"))
+    mode = block.get("mode", "none")
+    if mode not in _GATE_MODES:
+        raise ValueError(
+            f"continue_gate mode must be one of {sorted(_GATE_MODES)}, got '{mode}'")
+    hash_input = f"{_CURRENT_LESSON_ID or 'guide'}:{block.get('label', '')}:{mode}"
+    gate_hash = hashlib.sha256(hash_input.encode("utf-8")).hexdigest()[:8]
+    return f'''<div class="gg-guide-continue-gate" data-gate-mode="{esc(mode)}" data-gate-hash="{gate_hash}">
+      <button type="button" class="gg-guide-continue-btn">{label}</button>
+      <p class="gg-guide-continue-hint" hidden></p>
     </div>'''
 
 
@@ -414,6 +681,17 @@ def render_calculator(block: dict) -> str:
                 f'<div class="gg-guide-calc-toggle" data-field="{inp_id}">{btns}</div>'
                 f'</div>'
             )
+        elif inp_type == "text":
+            # Plain text input (e.g. optional race-name notes) — never used
+            # by the compute functions, which only read manual numeric fields.
+            inputs_html.append(
+                f'<div class="gg-guide-calc-field">'
+                f'<label for="gg-calc-{inp_id}">{label}{optional}</label>'
+                f'<input type="text" id="gg-calc-{inp_id}" '
+                f'placeholder="{placeholder}" '
+                f'class="gg-guide-calc-input">'
+                f'</div>'
+            )
         else:
             inputs_html.append(
                 f'<div class="gg-guide-calc-field">'
@@ -478,7 +756,21 @@ def render_calculator(block: dict) -> str:
 def render_image(block: dict) -> str:
     """Render an image block with optional caption and layout variants.
     Infographic asset_ids are dispatched to inline SVG/HTML renderers;
-    hero photos fall through to <img> tags."""
+    hero photos fall through to <img> tags.
+
+    Course-local images use a direct "src" path instead of an asset_id
+    (e.g. {"type": "image", "src": "/course/dirt-craft/assets/x.webp"})."""
+    if "src" in block:
+        src = esc(block["src"])
+        alt = esc(block.get("alt", ""))
+        caption = block.get("caption", "")
+        layout = block.get("layout", "inline")
+        cls = f" gg-guide-img--{layout}" if layout != "inline" else ""
+        cap = (f'<figcaption class="gg-guide-img-caption">{_md_inline(esc(caption))}</figcaption>'
+               if caption else '')
+        return (f'<figure class="gg-guide-img{cls}">'
+                f'<img src="{src}" alt="{alt}" loading="lazy" decoding="async" '
+                f'class="gg-guide-img-el">{cap}</figure>')
     infographic_renderer = INFOGRAPHIC_RENDERERS.get(block["asset_id"])
     if infographic_renderer:
         return infographic_renderer(block)
@@ -545,6 +837,168 @@ def render_hero_stat(block: dict) -> str:
     unit_html = f'<span class="gg-guide-hero-stat__unit">{unit}</span>' if unit else ''
     ctx_html = f'<div class="gg-guide-hero-stat__context">{context}</div>' if context else ''
     return f'<div class="gg-guide-hero-stat"><div class="gg-guide-hero-stat__value">{value}{unit_html}</div>{ctx_html}</div>'
+
+
+# ── Dirt Craft Course Block Renderers ───────────────────────
+
+
+def render_quiz(block: dict) -> str:
+    """Render a quiz block — same schema as knowledge_check, different label.
+
+    Used by module stack-check lessons. Shares the knowledge-check XP
+    interaction JS (same gg-guide-kc-* classes and question hash)."""
+    return render_knowledge_check(block, label="QUIZ")
+
+
+def render_black_box(block: dict) -> str:
+    """Render a black box / incident report — ominous dark crash-analysis block.
+
+    Schema: {title, content} — content uses \\n\\n paragraph separators.
+    The final paragraph is emphasized (the conclusion of the report)."""
+    title = esc(block.get("title", "Incident Report"))
+    paras = [p.strip() for p in block.get("content", "").split("\n\n") if p.strip()]
+    paras_html = "".join(f'<p>{_md_inline(esc(p))}</p>' for p in paras)
+    return f'''<div class="gg-guide-blackbox">
+      <div class="gg-guide-blackbox-label">{title}</div>
+      <div class="gg-guide-blackbox-body">{paras_html}</div>
+    </div>'''
+
+
+def render_sensation_target(block: dict) -> str:
+    """Render a sensation target — the feel the rider is hunting for.
+
+    Schema: {label, content} — content uses \\n\\n paragraph separators."""
+    label = esc(block.get("label", ""))
+    content_html = _md_block(esc(block.get("content", "")))
+    return f'''<div class="gg-guide-sensation">
+      <div class="gg-guide-sensation-kicker">SENSATION TARGET</div>
+      <div class="gg-guide-sensation-label">{label}</div>
+      <div class="gg-guide-sensation-body">{content_html}</div>
+    </div>'''
+
+
+def render_process(block: dict) -> str:
+    """Render a named-tool protocol — numbered steps with action + detail.
+
+    Schema: {title, description, steps: [{step, action, detail}]}.
+    These are the course's "named tools" — visually distinct from
+    process_list (which is a generic numbered list with percentage bars)."""
+    title = esc(block.get("title", ""))
+    desc = _md_inline(esc(block.get("description", "")))
+    steps_html = []
+    for s in block.get("steps", []):
+        num = esc(s.get("step", ""))
+        action = _md_inline(esc(s.get("action", "")))
+        detail = _md_inline(esc(s.get("detail", "")))
+        steps_html.append(
+            f'<div class="gg-guide-tool-step">'
+            f'<div class="gg-guide-tool-step-num">{num}</div>'
+            f'<div class="gg-guide-tool-step-body">'
+            f'<div class="gg-guide-tool-step-action">{action}</div>'
+            f'<div class="gg-guide-tool-step-detail">{detail}</div>'
+            f'</div></div>'
+        )
+    desc_html = f'<div class="gg-guide-tool-desc">{desc}</div>' if desc else ''
+    return f'''<div class="gg-guide-tool">
+      <div class="gg-guide-tool-header">
+        <div class="gg-guide-tool-kicker">NAMED TOOL</div>
+        <div class="gg-guide-tool-title">{title}</div>
+      </div>
+      {desc_html}
+      <div class="gg-guide-tool-steps">{"".join(steps_html)}</div>
+    </div>'''
+
+
+# Drill level → CSS modifier (whitelist; unknown levels fall back to neutral)
+_DRILL_LEVELS = {"beginner", "intermediate", "race-pace"}
+
+
+def render_drill(block: dict) -> str:
+    """Render a field drill with level variants and an optional proof gate.
+
+    Schema: {title, time_minutes, description,
+             variants: [{level, label, steps: [str]}],
+             proof_gate: {description, metric, target}}."""
+    title = esc(block.get("title", ""))
+    desc = _md_inline(esc(block.get("description", "")))
+    time_min = block.get("time_minutes")
+    time_html = (f'<span class="gg-guide-drill-time">{esc(time_min)} MIN</span>'
+                 if time_min is not None and time_min != "" else '')
+
+    variants_html = []
+    for v in block.get("variants", []):
+        level = str(v.get("level", "")).strip().lower()
+        level_cls = f' gg-guide-drill-level--{esc(level)}' if level in _DRILL_LEVELS else ''
+        label = _md_inline(esc(v.get("label", "")))
+        steps = "".join(f'<li>{_md_inline(esc(s))}</li>' for s in v.get("steps", []))
+        variants_html.append(
+            f'<div class="gg-guide-drill-variant">'
+            f'<span class="gg-guide-drill-level{level_cls}">{esc(level.upper())}</span>'
+            f'<div class="gg-guide-drill-variant-label">{label}</div>'
+            f'<ol class="gg-guide-drill-steps">{steps}</ol>'
+            f'</div>'
+        )
+
+    pg = block.get("proof_gate") or {}
+    pg_html = ''
+    if pg:
+        pg_target = _md_inline(esc(pg.get("target", pg.get("description", ""))))
+        pg_html = (f'<div class="gg-guide-drill-gate">'
+                   f'<div class="gg-guide-drill-gate-label">PROOF GATE</div>'
+                   f'<div class="gg-guide-drill-gate-target">{pg_target}</div>'
+                   f'</div>')
+
+    desc_html = f'<div class="gg-guide-drill-desc">{desc}</div>' if desc else ''
+    return f'''<div class="gg-guide-drill">
+      <div class="gg-guide-drill-header">
+        <div class="gg-guide-drill-kicker">FIELD DRILL {time_html}</div>
+        <div class="gg-guide-drill-title">{title}</div>
+      </div>
+      {desc_html}
+      {"".join(variants_html)}
+      {pg_html}
+    </div>'''
+
+
+def render_recovery_protocol(block: dict) -> str:
+    """Render a recovery protocol — accordion of when-it-goes-wrong scenarios.
+
+    Schema: {title, scenarios: [{label, situation, steps: [str]}]}.
+    Reuses gg-guide-accordion-trigger/-body classes so the existing
+    accordion JS handles expand/collapse."""
+    title = esc(block.get("title", "When Prevention Fails"))
+    items_html = []
+    for idx, s in enumerate(block.get("scenarios", [])):
+        label = esc(s.get("label", ""))
+        situation = _md_inline(esc(s.get("situation", "")))
+        steps = "".join(f'<li>{_md_inline(esc(st))}</li>' for st in s.get("steps", []))
+        panel_id = f"recovery-panel-{hashlib.md5(label.encode()).hexdigest()[:8]}-{idx}"
+        items_html.append(
+            f'<div class="gg-guide-accordion-item gg-guide-recovery-item">'
+            f'<button class="gg-guide-accordion-trigger" aria-expanded="false" aria-controls="{panel_id}">'
+            f'<span>{label}</span>'
+            f'<span class="gg-guide-accordion-icon" aria-hidden="true">+</span>'
+            f'</button>'
+            f'<div class="gg-guide-accordion-body" id="{panel_id}">'
+            f'<p class="gg-guide-recovery-situation">{situation}</p>'
+            f'<ol class="gg-guide-recovery-steps">{steps}</ol>'
+            f'</div></div>'
+        )
+    return f'''<div class="gg-guide-recovery">
+      <div class="gg-guide-recovery-label">{title}</div>
+      {"".join(items_html)}
+    </div>'''
+
+
+def render_commitment(block: dict) -> str:
+    """Render a closing commitment callout — the rider's homework contract.
+
+    Schema: {content}."""
+    content_html = _md_block(esc(block.get("content", "")))
+    return f'''<div class="gg-guide-commitment">
+      <div class="gg-guide-commitment-kicker">YOUR COMMITMENT</div>
+      <div class="gg-guide-commitment-body">{content_html}</div>
+    </div>'''
 
 
 # ── Race-Connected Block Renderers ──────────────────────────
@@ -735,6 +1189,9 @@ BLOCK_RENDERERS = {
     "process_list": render_process_list,
     "callout": render_callout,
     "knowledge_check": render_knowledge_check,
+    "labeled_graphic": render_labeled_graphic,
+    "sorting_activity": render_sorting_activity,
+    "continue_gate": render_continue_gate,
     "flashcard": render_flashcard,
     "scenario": render_scenario,
     "calculator": render_calculator,
@@ -742,6 +1199,13 @@ BLOCK_RENDERERS = {
     "image": render_image,
     "video": render_video,
     "hero_stat": render_hero_stat,
+    "quiz": render_quiz,
+    "black_box": render_black_box,
+    "sensation_target": render_sensation_target,
+    "process": render_process,
+    "drill": render_drill,
+    "recovery_protocol": render_recovery_protocol,
+    "commitment": render_commitment,
     "race_reference": render_race_reference,
     "race_callout": render_race_callout,
     "decision_tree": render_decision_tree,
@@ -1085,22 +1549,22 @@ def build_guide_css() -> str:
     return ''':root{
 --gg-color-dark-brown:#3a2e25;
 --gg-color-primary-brown:#59473c;
---gg-color-secondary-brown:#8c7568;
+--gg-color-secondary-brown:#7d695d;
 --gg-color-warm-brown:#A68E80;
 --gg-color-tan:#d4c5b9;
 --gg-color-sand:#ede4d8;
 --gg-color-warm-paper:#f5efe6;
---gg-color-gold:#B7950B;
+--gg-color-gold:#9a7e0a;
 --gg-color-light-gold:#c9a92c;
---gg-color-teal:#1A8A82;
+--gg-color-teal:#178079;
 --gg-color-light-teal:#4ECDC4;
 --gg-color-near-black:#1a1613;
 --gg-color-white:#ffffff;
 --gg-color-error:#c0392b;
 --gg-color-tier-1:#59473c;
---gg-color-tier-2:#8c7568;
---gg-color-tier-3:#999999;
---gg-color-tier-4:#cccccc;
+--gg-color-tier-2:#7d695d;
+--gg-color-tier-3:#766a5e;
+--gg-color-tier-4:#5e6868;
 --gg-font-data:'Sometype Mono',monospace;
 --gg-font-editorial:'Source Serif 4',Georgia,serif
 }
@@ -1414,6 +1878,182 @@ def build_guide_css() -> str:
 .gg-guide-hero-stat__unit{font-family:var(--gg-font-data);font-size:20px;font-weight:700;color:var(--gg-color-gold);letter-spacing:2px;text-transform:uppercase;margin-left:4px}
 .gg-guide-hero-stat__context{font-family:var(--gg-font-editorial);font-size:14px;color:var(--gg-color-tan);margin-top:8px;line-height:1.7}
 @media(max-width:768px){.gg-guide-hero-stat{padding:var(--gg-spacing-lg) var(--gg-spacing-md)}.gg-guide-hero-stat__value{font-size:36px}.gg-guide-hero-stat__unit{font-size:16px}}
+
+/* ── Prose Subheading (### in lesson content) ── */
+.gg-guide-prose-h{font-family:var(--gg-font-data);font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gg-color-secondary-brown);margin:28px 0 12px;padding-bottom:6px;border-bottom:2px solid var(--gg-color-tan)}
+
+/* ── Black Box (Incident Report) ── */
+.gg-guide-blackbox{background:var(--gg-color-near-black);border:3px solid var(--gg-color-near-black);margin:0 0 24px}
+.gg-guide-blackbox-label{font-family:var(--gg-font-data);font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gg-color-error);padding:12px 24px;border-bottom:1px solid var(--gg-color-error)}
+.gg-guide-blackbox-body{padding:20px 24px}
+.gg-guide-blackbox-body p{font-family:var(--gg-font-data);font-size:12px;line-height:1.8;color:var(--gg-color-tan);margin:0 0 14px;opacity:0.75}
+.gg-guide-blackbox-body p:last-child{margin-bottom:0;opacity:1;font-weight:700;color:var(--gg-color-warm-paper)}
+
+/* ── Sensation Target ── */
+.gg-guide-sensation{border-left:6px solid var(--gg-color-teal);border-top:1px solid var(--gg-color-tan);border-right:1px solid var(--gg-color-tan);border-bottom:1px solid var(--gg-color-tan);background:var(--gg-color-warm-paper);padding:20px 24px;margin:0 0 24px}
+.gg-guide-sensation-kicker{font-family:var(--gg-font-data);font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gg-color-teal);margin-bottom:4px}
+.gg-guide-sensation-label{font-family:var(--gg-font-editorial);font-size:18px;font-weight:700;color:var(--gg-color-dark-brown);margin-bottom:10px}
+.gg-guide-sensation-body p{font-family:var(--gg-font-editorial);font-size:13px;line-height:1.7;color:var(--gg-color-primary-brown);margin:0 0 10px}
+.gg-guide-sensation-body p:last-child{margin-bottom:0}
+
+/* ── Named Tool (process) ── */
+.gg-guide-tool{border:3px solid var(--gg-color-dark-brown);background:var(--gg-color-warm-paper);margin:0 0 24px}
+.gg-guide-tool-header{background:var(--gg-color-teal);padding:12px 20px}
+.gg-guide-tool-kicker{font-family:var(--gg-font-data);font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gg-color-warm-paper);opacity:0.85;margin-bottom:2px}
+.gg-guide-tool-title{font-family:var(--gg-font-data);font-size:16px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gg-color-white)}
+.gg-guide-tool-desc{font-family:var(--gg-font-editorial);font-style:italic;font-size:13px;color:var(--gg-color-secondary-brown);padding:12px 20px;border-bottom:2px solid var(--gg-color-tan)}
+.gg-guide-tool-step{display:flex;gap:16px;padding:14px 20px;border-bottom:1px solid var(--gg-color-tan)}
+.gg-guide-tool-step:last-child{border-bottom:none}
+.gg-guide-tool-step-num{font-family:var(--gg-font-data);font-size:22px;font-weight:700;color:var(--gg-color-teal);min-width:28px;line-height:1.2}
+.gg-guide-tool-step-action{font-family:var(--gg-font-data);font-size:13px;font-weight:700;color:var(--gg-color-dark-brown)}
+.gg-guide-tool-step-detail{font-family:var(--gg-font-editorial);font-size:13px;line-height:1.6;color:var(--gg-color-primary-brown);margin-top:2px}
+
+/* ── Field Drill ── */
+.gg-guide-drill{border:3px solid var(--gg-color-dark-brown);background:var(--gg-color-warm-paper);margin:0 0 24px}
+.gg-guide-drill-header{background:var(--gg-color-gold);padding:12px 20px}
+.gg-guide-drill-kicker{font-family:var(--gg-font-data);font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gg-color-dark-brown);display:flex;align-items:center;gap:10px;margin-bottom:2px}
+.gg-guide-drill-time{background:var(--gg-color-dark-brown);color:var(--gg-color-warm-paper);padding:2px 8px;font-size:9px;letter-spacing:2px}
+.gg-guide-drill-title{font-family:var(--gg-font-editorial);font-size:17px;font-weight:700;color:var(--gg-color-dark-brown)}
+.gg-guide-drill-desc{font-family:var(--gg-font-editorial);font-style:italic;font-size:13px;color:var(--gg-color-secondary-brown);padding:12px 20px;border-bottom:2px solid var(--gg-color-tan)}
+.gg-guide-drill-variant{padding:16px 20px;border-bottom:1px solid var(--gg-color-tan)}
+.gg-guide-drill-variant:last-of-type{border-bottom:none}
+.gg-guide-drill-level{display:inline-block;font-family:var(--gg-font-data);font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:3px 10px;border:2px solid var(--gg-color-secondary-brown);color:var(--gg-color-secondary-brown);margin-bottom:6px}
+.gg-guide-drill-level--beginner{border-color:var(--gg-color-teal);color:var(--gg-color-teal)}
+.gg-guide-drill-level--intermediate{border-color:var(--gg-color-gold);color:var(--gg-color-gold)}
+.gg-guide-drill-level--race-pace{border-color:var(--gg-color-error);color:var(--gg-color-error)}
+.gg-guide-drill-variant-label{font-family:var(--gg-font-editorial);font-style:italic;font-size:13px;color:var(--gg-color-secondary-brown);margin-bottom:8px}
+.gg-guide-drill-steps{font-family:var(--gg-font-editorial);font-size:13px;line-height:1.7;color:var(--gg-color-dark-brown);padding-left:20px;margin:0}
+.gg-guide-drill-steps li{margin-bottom:6px}
+.gg-guide-drill-gate{border-top:3px solid var(--gg-color-teal);padding:14px 20px;background:var(--gg-color-sand)}
+.gg-guide-drill-gate-label{font-family:var(--gg-font-data);font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gg-color-teal);margin-bottom:4px}
+.gg-guide-drill-gate-target{font-family:var(--gg-font-data);font-size:12px;line-height:1.6;color:var(--gg-color-dark-brown)}
+
+/* ── Recovery Protocol ── */
+.gg-guide-recovery{border:3px solid var(--gg-color-dark-brown);background:var(--gg-color-warm-paper);margin:0 0 24px}
+.gg-guide-recovery-label{background:var(--gg-color-error);color:var(--gg-color-white);padding:10px 20px;font-family:var(--gg-font-data);font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase}
+.gg-guide-recovery .gg-guide-accordion-item{border:none;border-bottom:1px solid var(--gg-color-tan);margin-bottom:0}
+.gg-guide-recovery .gg-guide-accordion-item:last-child{border-bottom:none}
+.gg-guide-recovery .gg-guide-accordion-body{border-top:1px solid var(--gg-color-tan)}
+.gg-guide-recovery-situation{font-family:var(--gg-font-editorial);font-style:italic;font-size:13px;color:var(--gg-color-secondary-brown);margin:0 0 10px}
+.gg-guide-recovery-steps{font-family:var(--gg-font-editorial);font-size:13px;line-height:1.7;color:var(--gg-color-dark-brown);padding-left:20px;margin:0}
+.gg-guide-recovery-steps li{margin-bottom:5px}
+
+/* ── Commitment ── */
+.gg-guide-commitment{border:3px solid var(--gg-color-gold);border-left-width:8px;background:var(--gg-color-warm-paper);padding:18px 24px;margin:0 0 24px}
+.gg-guide-commitment-kicker{font-family:var(--gg-font-data);font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gg-color-gold);margin-bottom:8px}
+.gg-guide-commitment-body p{font-family:var(--gg-font-editorial);font-size:14px;line-height:1.7;font-weight:700;color:var(--gg-color-dark-brown);margin:0 0 8px}
+.gg-guide-commitment-body p:last-child{margin-bottom:0}
+
+/* ── New Block Responsive ── */
+@media(max-width:768px){
+  .gg-guide-blackbox-body{padding:16px}
+  .gg-guide-blackbox-label{padding:10px 16px}
+  .gg-guide-sensation{padding:16px}
+  .gg-guide-tool-step{gap:10px;padding:12px 14px}
+  .gg-guide-tool-header,.gg-guide-drill-header{padding:10px 14px}
+  .gg-guide-tool-desc,.gg-guide-drill-desc,.gg-guide-drill-variant,.gg-guide-drill-gate{padding-left:14px;padding-right:14px}
+  .gg-guide-commitment{padding:14px 16px}
+}
+
+/* ── Visually hidden utility ── */
+.gg-vh{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+/* ── Labeled Graphic (hotspot block) ──
+   Progressive enhancement: markers hidden + fallback list visible by
+   default. JS adds .gg-lg-ready to flip both. Content is never hidden
+   without JS. */
+.gg-guide-labeled-graphic{margin:0 0 24px;border:3px solid var(--gg-color-dark-brown);background:var(--gg-color-warm-paper)}
+.gg-guide-lg-stage{position:relative;line-height:0}
+.gg-guide-lg-img{width:100%;height:auto;display:block}
+.gg-guide-lg-marker{display:none;position:absolute;transform:translate(-50%,-50%);width:32px;height:32px;min-width:32px;min-height:32px;border:3px solid var(--gg-color-warm-paper);background:var(--gg-color-teal);color:var(--gg-color-white);font-family:var(--gg-font-data);font-size:14px;font-weight:700;line-height:1;cursor:pointer;align-items:center;justify-content:center;padding:0;z-index:2}
+.gg-lg-ready .gg-guide-lg-marker{display:flex}
+.gg-guide-lg-marker:hover,.gg-guide-lg-marker[aria-expanded="true"]{background:var(--gg-color-dark-brown)}
+.gg-guide-lg-marker:focus-visible{outline:3px solid var(--gg-color-gold);outline-offset:2px}
+.gg-guide-lg-popover{position:absolute;z-index:3;width:min(280px,72%);max-height:94%;overflow-y:auto;background:var(--gg-color-warm-paper);border:3px solid var(--gg-color-dark-brown);padding:14px 16px;line-height:1.5;text-align:left}
+.gg-guide-lg-pop-title{font-family:var(--gg-font-data);font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gg-color-teal);margin:0 28px 6px 0}
+.gg-guide-lg-pop-body{font-family:var(--gg-font-editorial);font-size:13px;color:var(--gg-color-dark-brown);margin:0}
+.gg-guide-lg-pop-detail{font-family:var(--gg-font-editorial);font-size:12px;color:var(--gg-color-secondary-brown);margin:8px 0 0}
+.gg-guide-lg-pop-close{position:absolute;top:4px;right:4px;width:28px;height:28px;border:2px solid var(--gg-color-dark-brown);background:var(--gg-color-warm-paper);color:var(--gg-color-dark-brown);font-size:16px;line-height:1;cursor:pointer;font-family:var(--gg-font-data);padding:0}
+.gg-guide-lg-pop-close:hover{border-color:var(--gg-color-teal);color:var(--gg-color-teal)}
+.gg-guide-lg-fallback{list-style:decimal;margin:0;padding:16px 16px 16px 40px;border-top:3px solid var(--gg-color-dark-brown);line-height:1.6}
+.gg-guide-lg-item{font-family:var(--gg-font-editorial);font-size:13px;color:var(--gg-color-primary-brown);margin-bottom:8px}
+.gg-guide-lg-item-title{color:var(--gg-color-dark-brown)}
+.gg-guide-lg-item-detail{color:var(--gg-color-secondary-brown)}
+.gg-lg-ready .gg-guide-lg-fallback{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(prefers-reduced-motion:no-preference){
+.gg-guide-lg-marker{animation:gg-lg-pulse 2.4s ease-in-out infinite}
+.gg-guide-lg-marker[aria-expanded="true"],.gg-guide-lg-marker:focus-visible{animation:none}
+@keyframes gg-lg-pulse{0%,100%{transform:translate(-50%,-50%) scale(1)}50%{transform:translate(-50%,-50%) scale(1.12)}}
+}
+
+/* ── Sorting Activity ── */
+.gg-guide-sorting{border:3px solid var(--gg-color-dark-brown);background:var(--gg-color-warm-paper);margin:0 0 24px}
+.gg-guide-sorting-label{background:var(--gg-color-teal);color:var(--gg-color-white);padding:8px 16px;font-family:var(--gg-font-data);font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase}
+.gg-guide-sorting-title{font-family:var(--gg-font-editorial);font-size:16px;font-weight:700;color:var(--gg-color-dark-brown);margin:0;padding:16px 20px 0}
+.gg-guide-sorting-instructions{font-family:var(--gg-font-editorial);font-size:13px;color:var(--gg-color-secondary-brown);margin:0;padding:6px 20px 0}
+.gg-guide-sorting-stack{padding:16px 20px 8px}
+.gg-guide-sorting-card{border:2px solid var(--gg-color-dark-brown);background:var(--gg-color-sand);padding:14px 16px;margin-bottom:8px}
+.gg-guide-sorting-card p{font-family:var(--gg-font-editorial);font-size:14px;color:var(--gg-color-dark-brown);margin:0;line-height:1.5}
+.gg-sorting-ready .gg-guide-sorting-card{display:none;margin-bottom:0}
+.gg-sorting-ready .gg-guide-sorting-card.gg-sorting-current{display:block}
+.gg-guide-sorting-card.gg-sorting-correct,.gg-guide-sorting-card.gg-sorting-fly{border-color:var(--gg-color-teal)}
+.gg-guide-sorting-card.gg-sorting-correct p::after,.gg-guide-sorting-card.gg-sorting-fly p::after{content:' \\2713';color:var(--gg-color-teal);font-weight:700;font-family:var(--gg-font-data)}
+.gg-guide-sorting-card.gg-sorting-wrong{border-color:var(--gg-color-error)}
+.gg-guide-sorting-cats{display:none;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;padding:0 20px 16px}
+.gg-sorting-ready .gg-guide-sorting-cats{display:grid}
+.gg-guide-sorting-cat{border:3px solid var(--gg-color-dark-brown);background:var(--gg-color-warm-paper);min-height:56px;cursor:pointer;font-family:var(--gg-font-data);font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gg-color-dark-brown);display:flex;align-items:center;justify-content:space-between;gap:8px;padding:10px 14px;text-align:left}
+.gg-guide-sorting-cat:hover{border-color:var(--gg-color-teal);color:var(--gg-color-teal)}
+.gg-guide-sorting-cat:disabled{opacity:.6;cursor:default}
+.gg-guide-sorting-cat:focus-visible{outline:3px solid var(--gg-color-gold);outline-offset:2px}
+.gg-guide-sorting-cat.gg-sorting-cat-hit{border-color:var(--gg-color-teal);color:var(--gg-color-teal)}
+.gg-guide-sorting-cat-count{border:2px solid currentColor;min-width:26px;text-align:center;padding:2px 4px}
+.gg-guide-sorting-progress{font-family:var(--gg-font-data);font-size:11px;letter-spacing:1px;color:var(--gg-color-secondary-brown);padding:0 20px 16px}
+.gg-guide-sorting-progress:empty{padding:0}
+.gg-guide-sorting-done{font-family:var(--gg-font-data);font-size:13px;font-weight:700;letter-spacing:1px;color:var(--gg-color-teal);padding:0 20px 16px}
+@media(prefers-reduced-motion:no-preference){
+.gg-guide-sorting-card.gg-sorting-fly{animation:gg-sorting-fly .45s ease-in forwards}
+@keyframes gg-sorting-fly{0%{opacity:1;transform:translateY(0) scale(1)}100%{opacity:0;transform:translateY(46px) scale(.85)}}
+.gg-guide-sorting-card.gg-sorting-shake{animation:gg-sorting-shake .35s ease-in-out}
+@keyframes gg-sorting-shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+}
+
+/* ── Continue Gate ──
+   Progressive enhancement contract: this markup hides NOTHING. The
+   .gg-gate-closed class below only ever appears on a wrapper div that JS
+   creates — with JS off, no wrapper exists and all content is visible. */
+.gg-guide-continue-gate{margin:0 0 24px;border-top:3px solid var(--gg-color-dark-brown);padding-top:16px}
+.gg-guide-continue-btn{display:block;width:100%;background:var(--gg-color-teal);color:var(--gg-color-white);border:3px solid var(--gg-color-dark-brown);font-family:var(--gg-font-data);font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:14px 16px;cursor:pointer}
+.gg-guide-continue-btn:hover{background:var(--gg-color-dark-brown)}
+.gg-guide-continue-btn:disabled{background:var(--gg-color-warm-paper);color:var(--gg-color-secondary-brown);cursor:not-allowed}
+.gg-guide-continue-btn:focus-visible{outline:3px solid var(--gg-color-gold);outline-offset:2px}
+.gg-guide-continue-gate.gg-gate-passed .gg-guide-continue-btn{background:var(--gg-color-warm-paper);color:var(--gg-color-teal);cursor:default}
+.gg-guide-continue-hint{font-family:var(--gg-font-data);font-size:11px;letter-spacing:1px;color:var(--gg-color-secondary-brown);margin:8px 0 0;text-align:center}
+.gg-gate-wrap.gg-gate-closed{max-height:0;overflow:hidden}
+.gg-gate-wrap.gg-gate-opening{overflow:hidden}
+@media(prefers-reduced-motion:no-preference){
+.gg-gate-wrap.gg-gate-opening{transition:max-height .45s ease-out}
+}
+
+/* ── Knowledge Check: fill-in-the-blank ── */
+.gg-guide-kc-fib{display:flex;gap:8px;padding:8px 20px;flex-wrap:wrap}
+.gg-guide-kc-fib-input{flex:1;min-width:180px;border:2px solid var(--gg-color-dark-brown);background:var(--gg-color-white);font-family:var(--gg-font-data);font-size:13px;padding:10px 12px}
+.gg-guide-kc-fib-input.gg-kc-fib-correct{border-color:var(--gg-color-teal)}
+.gg-guide-kc-fib-input.gg-kc-fib-wrong{border-color:var(--gg-color-error)}
+.gg-guide-kc-fib-check{border:2px solid var(--gg-color-dark-brown);background:var(--gg-color-teal);color:var(--gg-color-white);font-family:var(--gg-font-data);font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:10px 20px;cursor:pointer}
+.gg-guide-kc-fib-check:hover{background:var(--gg-color-dark-brown)}
+.gg-guide-kc-fib-check:disabled{opacity:.6;cursor:default}
+.gg-guide-kc-fib-status{font-family:var(--gg-font-data);font-size:11px;letter-spacing:1px;color:var(--gg-color-secondary-brown);padding:0 20px 12px}
+.gg-guide-kc-fib-status:empty{padding:0}
+
+/* ── Knowledge Check: matching ── */
+.gg-guide-kc-match-hint{font-family:var(--gg-font-data);font-size:11px;letter-spacing:1px;color:var(--gg-color-secondary-brown);margin:0;padding:0 20px 8px}
+.gg-guide-kc-match{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:8px 20px 16px}
+.gg-guide-kc-match-col{display:flex;flex-direction:column;gap:8px}
+.gg-guide-kc-match-left,.gg-guide-kc-match-right{padding:10px 14px;background:var(--gg-color-warm-paper);border:2px solid var(--gg-color-dark-brown);cursor:pointer;font-family:var(--gg-font-data);font-size:12px;text-align:left;color:var(--gg-color-dark-brown)}
+.gg-guide-kc-match-left:focus-visible,.gg-guide-kc-match-right:focus-visible{outline:3px solid var(--gg-color-gold);outline-offset:2px}
+.gg-guide-kc-match-left.gg-kc-match-selected{border-color:var(--gg-color-teal);background:var(--gg-color-sand)}
+.gg-kc-match-locked{border-color:var(--gg-color-teal);color:var(--gg-color-teal);cursor:default}
+.gg-kc-match-wrong{border-color:var(--gg-color-error)}
 
 /* ── Inline Infographics ── */
 .gg-infographic{margin:0 0 20px;line-height:1.4}
@@ -2673,6 +3313,8 @@ def generate_guide_page(content: dict, inline: bool = False, assets_dir: Path = 
 </div>
 
 {js_html}
+
+''' + '<script>' + get_site_header_js() + '</script>' + '''
 
 {get_consent_banner_html()}
 </body>

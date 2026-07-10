@@ -598,8 +598,8 @@ def render_qc_dashboard(qc_results: dict, ai_results: dict = None) -> str:
     bg = tokens.get("--gg-color-warm-paper", "#f5efe6")
     text_color = tokens.get("--gg-color-dark-brown", "#3a2e25")
     primary = tokens.get("--gg-color-primary-brown", "#59473c")
-    teal = tokens.get("--gg-color-teal", "#1A8A82")
-    gold = tokens.get("--gg-color-gold", "#B7950B")
+    teal = tokens.get("--gg-color-teal", "#178079")
+    gold = tokens.get("--gg-color-gold", "#9a7e0a")
     font_data = tokens.get("--gg-font-data", "'Sometype Mono', monospace")
     font_editorial = tokens.get("--gg-font-editorial", "'Source Serif 4', serif")
 

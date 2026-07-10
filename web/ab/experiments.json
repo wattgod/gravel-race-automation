@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated": "2026-02-21",
+  "generated": "2026-07-09",
   "experiments": [
     {
       "id": "homepage_hero_tagline",
@@ -14,12 +14,12 @@
         {
           "id": "control",
           "name": "Original tagline",
-          "content": "328 races. 15 criteria. 4,920 scores — all assigned by hand. Zero sponsors. Zero pay-to-play."
+          "content": "757 races. 15 criteria. Every score assigned by hand."
         },
         {
           "id": "variant_a",
           "name": "Short & direct",
-          "content": "Every gravel race in America. Scored by hand. No sponsors."
+          "content": "757 gravel races, scored by hand and ranked into tiers."
         },
         {
           "id": "variant_b",
@@ -123,6 +123,64 @@
       "conversion": {
         "type": "click",
         "selector": "[data-ga='coaching_click'], [data-cta='coaching_apply']"
+      }
+    },
+    {
+      "id": "race_sticky_cta_copy",
+      "selector": "[data-ab='race_sticky_cta']",
+      "pages": [
+        "/race/*"
+      ],
+      "traffic": 1.0,
+      "variants": [
+        {
+          "id": "control",
+          "name": "BUILD MY PLAN",
+          "content": "BUILD MY PLAN — $15/WK"
+        },
+        {
+          "id": "variant_a",
+          "name": "Race-specific verb",
+          "content": "TRAIN FOR THIS RACE — $15/WK"
+        },
+        {
+          "id": "variant_b",
+          "name": "Get plan",
+          "content": "GET YOUR RACE PLAN — $15/WK"
+        }
+      ],
+      "conversion": {
+        "type": "click",
+        "selector": "[data-cta='build_plan'], #gg-sticky-cta-link"
+      }
+    },
+    {
+      "id": "race_coaching_teaser",
+      "selector": "[data-ab='race_coaching_cta']",
+      "pages": [
+        "/race/*"
+      ],
+      "traffic": 1.0,
+      "variants": [
+        {
+          "id": "control",
+          "name": "Talk to a coach",
+          "content": "TALK TO A COACH"
+        },
+        {
+          "id": "variant_a",
+          "name": "Apply for coaching",
+          "content": "APPLY FOR COACHING"
+        },
+        {
+          "id": "variant_b",
+          "name": "Get a coach",
+          "content": "GET A COACH FOR THIS RACE"
+        }
+      ],
+      "conversion": {
+        "type": "click",
+        "selector": "[data-cta='coaching']"
       }
     }
   ]

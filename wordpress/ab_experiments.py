@@ -35,12 +35,12 @@ EXPERIMENTS = [
             {
                 "id": "control",
                 "name": "Original tagline",
-                "content": "328 races. 15 criteria. 4,920 scores \u2014 all assigned by hand. Zero sponsors. Zero pay-to-play.",
+                "content": "757 races. 15 criteria. Every score assigned by hand.",
             },
             {
                 "id": "variant_a",
                 "name": "Short & direct",
-                "content": "Every gravel race in America. Scored by hand. No sponsors.",
+                "content": "757 gravel races, scored by hand and ranked into tiers.",
             },
             {
                 "id": "variant_b",
@@ -141,6 +141,67 @@ EXPERIMENTS = [
         "conversion": {
             "type": "click",
             "selector": "[data-ga='coaching_click'], [data-cta='coaching_apply']",
+        },
+    },
+    # ── Race page experiments (wildcard matching required) ──
+    {
+        "id": "race_sticky_cta_copy",
+        "description": "Test sticky CTA text on race pages",
+        "selector": "[data-ab='race_sticky_cta']",
+        "pages": ["/race/*"],
+        "traffic": 1.0,
+        "start": "2026-03-25",
+        "end": None,
+        "variants": [
+            {
+                "id": "control",
+                "name": "BUILD MY PLAN",
+                "content": "BUILD MY PLAN \u2014 $15/WK",
+            },
+            {
+                "id": "variant_a",
+                "name": "Race-specific verb",
+                "content": "TRAIN FOR THIS RACE \u2014 $15/WK",
+            },
+            {
+                "id": "variant_b",
+                "name": "Get plan",
+                "content": "GET YOUR RACE PLAN \u2014 $15/WK",
+            },
+        ],
+        "conversion": {
+            "type": "click",
+            "selector": "[data-cta='build_plan'], #gg-sticky-cta-link",
+        },
+    },
+    {
+        "id": "race_coaching_teaser",
+        "description": "Test coaching teaser CTA copy on race pages",
+        "selector": "[data-ab='race_coaching_cta']",
+        "pages": ["/race/*"],
+        "traffic": 1.0,
+        "start": "2026-03-25",
+        "end": None,
+        "variants": [
+            {
+                "id": "control",
+                "name": "Talk to a coach",
+                "content": "TALK TO A COACH",
+            },
+            {
+                "id": "variant_a",
+                "name": "Apply for coaching",
+                "content": "APPLY FOR COACHING",
+            },
+            {
+                "id": "variant_b",
+                "name": "Get a coach",
+                "content": "GET A COACH FOR THIS RACE",
+            },
+        ],
+        "conversion": {
+            "type": "click",
+            "selector": "[data-cta='coaching']",
         },
     },
 ]

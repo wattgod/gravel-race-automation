@@ -6,7 +6,7 @@ name: Link Check
 
 on:
   schedule:
-    - cron: "0 12 * * 1"   # Mondays 12:00 UTC
+    - cron: "0 12 * * 2"   # Tuesdays 12:00 UTC
   workflow_dispatch:
 
 jobs:
@@ -17,6 +17,17 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
-          python-version: "3.12"
+          python-version: "3.11"
       - name: Check live links (gravelgodcycling.com)
-        run: python3 scripts/check_links.py --max-urls 300 --delay 0.4
+        run: |
+          set -o pipefail
+          python3 scripts/check_links.py --max-urls 300 --delay 0.4 2>&1 | tee /tmp/link-check.txt
+          status=${PIPESTATUS[0]}
+          {
+            echo "## Link Check"
+            echo
+            echo '```'
+            cat /tmp/link-check.txt
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+          exit "$status"

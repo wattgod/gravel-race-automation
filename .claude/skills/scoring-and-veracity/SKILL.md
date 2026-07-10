@@ -45,11 +45,15 @@ rotating oldest-first via `data/verification/verify_state.json`. A full
 On a high-confidence mismatch: the whitelisted FACT field is auto-fixed,
 then Length/Elevation criterion scores are recomputed from the published
 rubric (`docs/GRAVEL_GOD_SCORING_SYSTEM.md`), then overall_score/tier
-recomputed via `recalculate_tiers` logic. Subjective criteria (prestige,
-community, experience...) are never touched by the checker. Status changes
-(cancelled/defunct) and tier changes are FLAG-ONLY / loud in the resulting
-GitHub issue, never silently applied to the reader-facing claim. An anomaly
-brake stops auto-commit if more than 10 profiles change in one run.
+recomputed via `recalculate_tiers` logic — tier changes ARE applied (marked
+`tier_change: true` in the report), verified against the code and against
+commit 473c935d, which dropped balatonfondo T2→T3. Subjective criteria
+(prestige, community, experience...) are never touched. Only status changes
+(cancelled/defunct) are FLAG-ONLY. An anomaly brake stops auto-commit if
+more than 10 profiles change in one run. Known gap: a recompute-driven tier
+drop can invalidate `cultural_impact` eligibility (ci>0 requires prestige>=3
+or tier<=2, enforced by `test_tier_integrity.py`) — the checker does not
+zero the bonus itself; do it manually when the tier test fires.
 
 **War story**: rankings claims silently drifted from reality for months
 before this shipped (2026-07-04, hardened 2026-07-09) — nobody was

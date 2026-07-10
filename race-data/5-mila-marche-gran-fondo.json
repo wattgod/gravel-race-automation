@@ -7,8 +7,8 @@
       "name": "5 Mila Marche Gran Fondo",
       "date": "2026: September 19-21",
       "date_specific": "2026: September 20",
-      "distance_mi": 82,
-      "elevation_ft": 5446,
+      "distance_mi": 50,
+      "elevation_ft": 4003,
       "location": "Porto Recanati, Marche, Italy",
       "terrain": "Paved roads",
       "website": "https://www.5milamarche.com",
@@ -21,7 +21,7 @@
     },
     "gravel_god_rating": {
       "logistics": 3,
-      "length": 3,
+      "length": 2,
       "technicality": 2,
       "elevation": 3,
       "climate": 4,
@@ -35,10 +35,14 @@
       "value": 3,
       "expenses": 3,
       "cultural_impact": 0,
-      "overall_score": 56,
+      "overall_score": 54,
       "tier": 3,
       "tier_label": "TIER 3",
-      "discipline": "road"
+      "discipline": "road",
+      "editorial_tier": 3,
+      "editorial_tier_label": "TIER 3",
+      "display_tier": 3,
+      "display_tier_label": "TIER 3"
     },
     "biased_opinion_ratings": {
       "logistics": {
@@ -46,7 +50,7 @@
         "explanation": "Registration opens December 30 with online signup at 5milamarche.com. The event is held in Porto Recanati with bib pickup on race morning from 6:00-7:00 AM at Piazza Brancondi. Travel logistics are straightforward for European cyclists accessing the Adriatic coast region."
       },
       "length": {
-        "score": 3,
+        "score": 2,
         "explanation": "The Gran Fondo route spans 82 kilometers, positioning it as a moderate-distance gran fondo suitable for intermediate cyclists. This distance sits comfortably between casual recreational rides and ultra-endurance events, making it accessible to a broad amateur cycling base."
       },
       "technicality": {
@@ -98,7 +102,7 @@
         "explanation": "Total event costs include registration fees (€139-220 for circuit passes), accommodation in Porto Recanati or surrounding Marche towns, and travel to the Adriatic coast. Italy's moderate accommodation and dining costs keep overall expenses reasonable for European participants."
       },
       "cultural_impact": {
-        "score": 2,
+        "score": 0,
         "explanation": "The 5 Mila Marche functions as a regional cycling festival promoting the Marche territory through cycling tourism. The event has established significance within Italian amateur cycling circles but remains primarily a regional rather than national cultural phenomenon."
       },
       "overall_score": 56,

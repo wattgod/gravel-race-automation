@@ -1,9 +1,9 @@
-# Desk Note — week of 2026-06-24
+# Desk Note — week of 2026-07-08
 
-**Week of 24 June 2026**
+**Week of 8 July 2026**
 
-Saturday is unusually loaded. Five Tier 1 races land across the weekend — Le Loop on the TdF route (27th), then Gran Fondo La Fausto Coppi out of Cuneo, La Marmotte from Bourg d'Oisans, and SBT GRVL in Steamboat all on Sunday the 28th. That's a lot of marquee events sharing the same 48-hour window, which means fields get split and results get diluted. Worth keeping in mind when someone starts drawing conclusions about what a podium here actually means.
+A busy stretch. Thirty-one races across the week, with two Tier 1 events sharing the Saturday slot: Gran Fondo Suisse up in Villars-sur-Ollon on the 10th, and Crusher in the Tushar on the 11th out of Beaver, Utah — a race that will remind anyone who's looked at its elevation profile that "crusher" is not an accident of naming. The Switzerland cluster is worth noting: Gran Fondo Suisse, UCI Gravel Suisse/The Majestics, Gruyère Cycling Tour, and Gravel Suisse all fall within three days and a short drive of each other, which either reflects smart regional coordination or a scheduling conversation nobody finished.
 
-The geographic spread is worth noting for what it is: Livigno, Sligo, Viborg, Truckee, a circumnavigation of Poland. Forty-two races total across the week, which is a real number. (Race Around Poland alone covers more ground than most people's annual mileage.)
+Elsewhere on Saturday, the spread runs from the Pan Celtic Ultra (Wales to Ireland, which is its own logistical sentence) to the Cowboy Crusher in Glenrock, Wyoming at Tier 4. Oregon Trail Gravel Grinder opens things Wednesday across Central Oregon.
 
-Sunday's Gavia e Mortirolo event out of Ponte di Legno is the one I'd watch on terrain alone — those two climbs don't negotiate.
+Sunday closes with Granfondo Pinarello — La Pina in Treviso and Ned Gravel in Nederland, Colorado. Two different altitudes, same calendar box.

@@ -723,6 +723,48 @@ def check_root_matches_brand_tokens():
             warn(f"{name} in guide", f"Not found in brand tokens — verify manually")
 
 
+def check_brand_tokens_py_parity():
+    """Verify brand_tokens.py's hardcoded :root block matches tokens.css.
+
+    get_tokens_css() carries its own copy of the token values so generators
+    don't need the sibling repo at runtime. That copy drifted silently once
+    (border gold/secondary + two typography tokens, caught Jul 2026) because
+    the color-only check above never looked at it. Compare EVERY --gg-*
+    declaration, not just colors.
+    """
+    print("\n── brand_tokens.py vs Brand Tokens Parity ──")
+    tokens_path = PROJECT_ROOT.parent / "gravel-god-brand" / "tokens" / "tokens.css"
+    if not tokens_path.exists():
+        warn("brand_tokens.py parity", f"Brand tokens file not found at {tokens_path}")
+        return
+
+    sys.path.insert(0, str(WORDPRESS_DIR))
+    import brand_tokens
+
+    def parse_vars(text):
+        return dict(re.findall(r'(--gg-[\w-]+)\s*:\s*([^;]+);', text))
+
+    def norm(value):
+        return re.sub(r"\s+", " ", value.strip().lower())
+
+    upstream = parse_vars(tokens_path.read_text(encoding="utf-8"))
+    local = parse_vars(brand_tokens.get_tokens_css())
+
+    missing = sorted(name for name in local if name not in upstream)
+    check("all brand_tokens.py vars exist upstream",
+          not missing,
+          f"Declared only in brand_tokens.py — add to tokens.json and regenerate: {missing}")
+
+    drifted = sorted(
+        f"{name} (brand_tokens.py {local[name].strip()} != tokens.css {upstream[name].strip()})"
+        for name in local
+        if name in upstream and norm(local[name]) != norm(upstream[name])
+    )
+    check("brand_tokens.py values match tokens.css",
+          not drifted,
+          "; ".join(drifted))
+
+
 def check_interactive_js_handlers():
     """Verify every data-interactive value in renderers has a JS handler."""
     print("\n── Interactive JS Handler Coverage ──")
@@ -1498,6 +1540,7 @@ def main():
         check_interactive_js_handlers()
         check_no_dead_end_infographics()
         check_root_matches_brand_tokens()
+        check_brand_tokens_py_parity()
         check_all_generators_token_refs()
         check_success_js_syntax()
         check_insights_js_syntax()

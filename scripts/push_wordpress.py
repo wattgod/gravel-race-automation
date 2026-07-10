@@ -1870,6 +1870,44 @@ def sync_ctas():
         return False
 
 
+def sync_training_form():
+    """Deploy the training-form mu-plugin to WordPress.
+
+    Uploads gg-training-form.php to wp-content/mu-plugins/ via SCP.
+    Enqueues training-plans-form.js on the questionnaire page (ID 5017);
+    without it the Submit & Pay button does nothing. The JS itself deploys
+    separately via --sync-training.
+    """
+    ssh = get_ssh_credentials()
+    if not ssh:
+        return False
+    host, user, port = ssh
+
+    project_root = Path(__file__).resolve().parent.parent
+    plugin_file = project_root / "wordpress" / "mu-plugins" / "gg-training-form.php"
+    if not plugin_file.exists():
+        print(f"✗ mu-plugin not found: {plugin_file}")
+        return False
+
+    remote_path = "~/www/gravelgodcycling.com/public_html/wp-content/mu-plugins"
+
+    try:
+        subprocess.run(
+            [
+                "scp", "-i", str(SSH_KEY), "-P", port,
+                str(plugin_file),
+                f"{user}@{host}:{remote_path}/gg-training-form.php",
+            ],
+            capture_output=True, text=True, timeout=15, check=True,
+        )
+        print("✓ Deployed gg-training-form.php mu-plugin")
+        print("  Questionnaire page JS loader (Submit & Pay path)")
+        return True
+    except Exception as e:
+        print(f"✗ Failed to deploy training-form mu-plugin: {e}")
+        return False
+
+
 def sync_ga4():
     """Deploy the GA4 analytics mu-plugin to WordPress.
 
@@ -3346,6 +3384,10 @@ if __name__ == "__main__":
         help="Deploy race CTA mu-plugin to wp-content/mu-plugins/"
     )
     parser.add_argument(
+        "--sync-training-form", action="store_true",
+        help="Deploy training-form mu-plugin (questionnaire JS loader) to wp-content/mu-plugins/"
+    )
+    parser.add_argument(
         "--sync-ga4", action="store_true",
         help="Deploy GA4 analytics mu-plugin to wp-content/mu-plugins/"
     )
@@ -3496,6 +3538,7 @@ if __name__ == "__main__":
         args.sync_redirects = True
         args.sync_noindex = True
         args.sync_ctas = True
+        args.sync_training_form = True
         args.sync_ga4 = True
         args.sync_prep_kits = True
         args.sync_tire_guides = True
@@ -3523,7 +3566,7 @@ if __name__ == "__main__":
                       args.sync_coaching, args.sync_coaching_apply, args.sync_consulting,
                       args.sync_training_plans, args.sync_success, args.sync_pages,
                       args.sync_sitemap, args.sync_redirects,
-                      args.sync_noindex, args.sync_ctas, args.sync_ga4, args.sync_header, args.sync_prep_kits, args.sync_plan_pages, args.sync_tire_guides,
+                      args.sync_noindex, args.sync_ctas, args.sync_training_form, args.sync_ga4, args.sync_header, args.sync_prep_kits, args.sync_plan_pages, args.sync_tire_guides,
                       args.sync_series, args.sync_blog,
                       args.sync_blog_index, args.sync_photos, args.sync_ab, args.sync_courses,
                       args.sync_meta_descriptions, args.sync_mission_control,
@@ -3585,6 +3628,8 @@ if __name__ == "__main__":
         _run("sync-noindex", sync_noindex)
     if args.sync_ctas:
         _run("sync-ctas", sync_ctas)
+    if args.sync_training_form:
+        _run("sync-training-form", sync_training_form)
     if args.sync_ga4:
         _run("sync-ga4", sync_ga4)
     if args.sync_header:

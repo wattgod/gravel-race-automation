@@ -1,0 +1,277 @@
+{
+ "date": "2026-07-08",
+ "ga4": {
+  "gravelgod": {
+   "sessions": 28,
+   "users": 24,
+   "pageviews": 59,
+   "sessions_7d_avg": 30.0,
+   "funnel": {
+    "cta_click": 3,
+    "form_start": 0,
+    "form_submit": 0,
+    "begin_checkout": 0,
+    "purchase": 0
+   },
+   "abandoned_submits": 0,
+   "top_pages": [
+    {
+     "path": "/gravel-races/",
+     "views": 15
+    },
+    {
+     "path": "/",
+     "views": 4
+    },
+    {
+     "path": "/race/calendar/2026/",
+     "views": 3
+    },
+    {
+     "path": "/i-didnt-screw-up-ned-gravel-and-neither-do-you/",
+     "views": 2
+    },
+    {
+     "path": "/products/training-plans/",
+     "views": 2
+    },
+    {
+     "path": "/race/best-gravel-races-arkansas/",
+     "views": 2
+    },
+    {
+     "path": "/race/leadville-trail-100-mtb/",
+     "views": 2
+    },
+    {
+     "path": "/race/ouachita-challenge/",
+     "views": 2
+    }
+   ],
+   "channel_mix": {
+    "Organic Search": 19,
+    "Direct": 5,
+    "Email": 2,
+    "Referral": 1,
+    "Unassigned": 1
+   },
+   "top_landing": [
+    {
+     "path": "/race/calendar/2026/",
+     "sessions": 3
+    },
+    {
+     "path": "/",
+     "sessions": 2
+    },
+    {
+     "path": "/i-didnt-screw-up-ned-gravel-and-neither-do-you/",
+     "sessions": 2
+    },
+    {
+     "path": "/products/training-plans/",
+     "sessions": 2
+    },
+    {
+     "path": "/race/the-rift/tires/",
+     "sessions": 2
+    },
+    {
+     "path": "/gravel-races/",
+     "sessions": 1
+    }
+   ],
+   "sessions_28d": 1037,
+   "funnel_28d": {
+    "cta_click": 32,
+    "form_start": 32,
+    "form_submit": 18,
+    "begin_checkout": 0,
+    "purchase": 2
+   },
+   "ok": true
+  },
+  "roadielabs": {
+   "sessions": 0,
+   "users": 0,
+   "pageviews": 0,
+   "sessions_7d_avg": 0.2,
+   "funnel": {
+    "cta_click": 0,
+    "form_start": 0,
+    "form_submit": 0,
+    "begin_checkout": 0,
+    "purchase": 0
+   },
+   "abandoned_submits": 0,
+   "top_pages": [],
+   "channel_mix": {},
+   "top_landing": [],
+   "sessions_28d": 15,
+   "funnel_28d": {
+    "cta_click": 0,
+    "form_start": 0,
+    "form_submit": 0,
+    "begin_checkout": 0,
+    "purchase": 0
+   },
+   "ok": true
+  }
+ },
+ "checkout": {
+  "gravelgod": {
+   "health_ok": true,
+   "stripe_checkout_ok": true,
+   "ok": true,
+   "error": ""
+  },
+  "roadielabs": {
+   "health_ok": true,
+   "stripe_checkout_ok": true,
+   "ok": true,
+   "error": ""
+  }
+ },
+ "mission_control": {
+  "hot_leads_14d": [
+   {
+    "email": "willhb94@gmail.com",
+    "name": "",
+    "race": "Rad Dirt Fest",
+    "brand": "gravelgod",
+    "sequence": "welcome_v1",
+    "step": 1,
+    "status": "active",
+    "opens": 0,
+    "clicks": 0
+   },
+   {
+    "email": "bpfitmail@gmail.com",
+    "name": "",
+    "race": "Colorado Trail Race",
+    "brand": "gravelgod",
+    "sequence": "welcome_v1",
+    "step": 1,
+    "status": "active",
+    "opens": 0,
+    "clicks": 0
+   },
+   {
+    "email": "ashliegh.heritage07@gmail.com",
+    "name": "",
+    "race": "MAAP Beechworth Granite Classic",
+    "brand": "gravelgod",
+    "sequence": "welcome_v1",
+    "step": 2,
+    "status": "active",
+    "opens": 1,
+    "clicks": 0
+   },
+   {
+    "email": "kailee.dugan@gmail.com",
+    "name": "",
+    "race": "STP \u2014 Seattle to Portland",
+    "brand": "gravelgod",
+    "sequence": "welcome_v1",
+    "step": 2,
+    "status": "active",
+    "opens": 1,
+    "clicks": 0
+   },
+   {
+    "email": "ferrarioanea@gmail.com",
+    "name": "",
+    "race": "Sea Otter Fuego XL",
+    "brand": "gravelgod",
+    "sequence": "welcome_v1",
+    "step": 3,
+    "status": "active",
+    "opens": 3,
+    "clicks": 0
+   },
+   {
+    "email": "alpineluddites@gmail.com",
+    "name": "",
+    "race": "Tour Divide",
+    "brand": "gravelgod",
+    "sequence": "welcome_v1",
+    "step": 4,
+    "status": "active",
+    "opens": 4,
+    "clicks": 1
+   },
+   {
+    "email": "bigkaisa@icloud.com",
+    "name": "",
+    "race": "Crusher in the Tushar",
+    "brand": "gravelgod",
+    "sequence": "welcome_v1",
+    "step": 4,
+    "status": "active",
+    "opens": 0,
+    "clicks": 0
+   },
+   {
+    "email": "sabrinahirsch@gmail.com",
+    "name": "",
+    "race": "(no race given)",
+    "brand": "gravelgod",
+    "sequence": "welcome_v1",
+    "step": 4,
+    "status": "active",
+    "opens": 4,
+    "clicks": 0
+   }
+  ],
+  "new_leads_24h": 2,
+  "leads_by_brand": {
+   "gravelgod": 2,
+   "roadielabs": 0
+  },
+  "countdown_enrollments": 0,
+  "emails_sent_24h": 6,
+  "opens_24h": 3,
+  "clicks_24h": 1,
+  "bounces_24h": 0,
+  "new_orders_24h_UNRELIABLE": "use ga4 purchase counts \u2014 gg_athletes is not written by purchases",
+  "errors_24h": [],
+  "ok": true
+ },
+ "commerce_ledger": {
+  "failed_orders": [],
+  "orders": [],
+  "questionnaire_starts": 0,
+  "recoveries": [],
+  "window_hours": 24,
+  "ok": true
+ },
+ "social": {
+  "accounts_live": false,
+  "queued_today": 0,
+  "queued_yesterday": 0,
+  "posts": [],
+  "ok": true
+ },
+ "workflows": {
+  "latest": {
+   "gravel-race-automation/link-check.yml": "failure",
+   "road-race-automation/link-check.yml": "success",
+   "road-race-automation/checkout-monitor.yml": "success",
+   "gravel-race-automation/regression-tests.yml": "success"
+  },
+  "ok": true
+ },
+ "constraint": {
+  "ok": true,
+  "sessions_per_day": 37.0,
+  "cta_rate_pct": 3.09,
+  "cta_to_submit_pct": 56.2,
+  "submit_to_purchase_pct": 11.1,
+  "purchases_28d": 2,
+  "submits_28d": 18,
+  "ctas_28d": 32,
+  "sessions_per_day_needed_for_1_sale": 518,
+  "binding_constraint": "traffic \u2014 at these volumes no funnel rate is even measurable; nothing downstream is worth optimizing yet"
+ },
+ "report": "## TOP LINE\n- Gravel God: 28 sessions (7d avg 30), 3 CTA clicks, 0 form starts, 0 purchases. Roadie Labs: 0 sessions again.\n- No orders, no failed orders, no cart recoveries, no questionnaire starts in the last 24h \u2014 flat day at checkout.\n- link-check.yml failing on gravel-race-automation since at least yesterday \u2014 unverified.\n\n## NUMBERS\n| Brand | Sessions (7d avg) | CTA click | Form start | Form submit | Checkout | Purchase | Leads (24h) |\n|---|---|---|---|---|---|---|---|\n| Gravel God | 28 (30.0) | 3 | 0 | 0 | 0 | 0 | 2 |\n| Roadie Labs | 0 (0.2) | 0 | 0 | 0 | 0 | 0 | 0 |\n\n## TRAFFIC\n**Gravel God** (28 sessions):\n- Top pages: /gravel-races/ (15), / (4), /race/calendar/2026/ (3), /products/training-plans/ (2), /race/best-gravel-races-arkansas/ (2).\n- Channel mix: Organic Search 19, Direct 5, Email 2, Referral 1, Unassigned 1.\n- Top landing pages: /race/calendar/2026/ (3), / (2), /i-didnt-screw-up-ned-gravel-and-neither-do-you/ (2), /products/training-plans/ (2), /race/the-rift/tires/ (2).\n- Nothing new here \u2014 /gravel-races/ dominance is normal, no surprise referral source.\n\n**Roadie Labs**: 0 sessions. Nothing to report.\n\n## COMMERCE (ground truth)\nLedger empty: 0 orders, 0 failed orders, 0 recoveries, 0 questionnaire starts in last 24h.\n\n## CONSTRAINT\nBinding constraint: traffic \u2014 at these volumes no funnel rate is even measurable, nothing downstream is worth optimizing yet. 28-day rates: CTA 3.09%, CTA\u2192submit 56.2%, submit\u2192purchase 11.1%, on 32 CTAs / 18 submits / 2 purchases over 28 days. Need ~518 sessions/day for one sale/day at current rates; actual is 37/day.\n\n## HOT LEADS\n- alpineluddites@gmail.com \u2014 Tour Divide, welcome_v1 step 4, 4 opens/1 click. Most engaged lead in the pool \u2014 reply personally about their race, use draft_race_reply.\n- sabrinahirsch@gmail.com \u2014 no race given, welcome_v1 step 4, 4 opens/0 clicks. Opening but not clicking \u2014 consider a direct nudge email.\n- ferrarioanea@gmail.com \u2014 Sea Otter Fuego XL, welcome_v1 step 3, 3 opens/0 clicks. Warming up, let sequence continue.\n- Remaining 5 leads (willhb94, bpfitmail, ashliegh.heritage07, kailee.dugan, bigkaisa) at step 1-2 with 0-1 opens \u2014 no action, too early.\n\n## SOCIAL\naccounts_live is false. Queued today: 0. Queued yesterday: 0. Zero social sessions expected \u2014 no analysis theater.\n\n## BROKEN\n- gravel-race"
+}

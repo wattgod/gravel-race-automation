@@ -21,7 +21,7 @@ Race database site (gravelgodcycling.com) — 757 race profiles, 543 tire guides
 - **`json.dumps` inside `<script>` = injection** — `</script>` in data breaks HTML. Use `_safe_json_for_script()`.
 
 ### Email Capture Forms
-- **Every email form MUST POST to WORKER_URL** (`https://email-intake.gravelgodcoaching.workers.dev`). Never show a success message without actually submitting the email.
+- **Every email form MUST POST to its Cloudflare worker** (most capture surfaces use `https://fueling-lead-intake.gravelgodcoaching.workers.dev`; ratings use `review-intake`; see `workers/` for the full set — there is no generic `email-intake` worker). Never show a success message without actually submitting the email.
 - **Always include honeypot field** — hidden input that bots fill, humans don't.
 - **Use addEventListener, not inline onsubmit** — avoids JS injection via template variables in attribute context.
 
@@ -71,6 +71,16 @@ Race database site (gravelgodcycling.com) — 757 race profiles, 543 tire guides
 - GA4 events: `article_scroll_depth` (all thresholds), `article_deep_read` (75%+ only), `article_cta_click`.
 - Funnel report uses `article_deep_read`, NOT `article_scroll_depth` (which would inflate 4x).
 - 54 tests in `test_article_infrastructure.py` guard against regressions.
+
+## Handover Skills (load by task)
+
+| Task | Read first |
+|------|-----------|
+| Deploying / WordPress / SiteGround ops | `.claude/skills/deploy-safely/SKILL.md` |
+| Scores, rankings, testimonials, trust-bearing claims | `.claude/skills/scoring-and-veracity/SKILL.md` |
+| Brand tokens, fonts, CI, Python versions | `.claude/skills/brand-tokens-and-ci/SKILL.md` |
+| Email capture, sequences, Mission Control | `.claude/skills/conversion-and-email/SKILL.md` |
+| Race profiles, enrichment, scraping, site regen | `.claude/skills/data-pipeline-ops/SKILL.md` |
 
 ## Known Pitfalls
 1. Coaching carousel auto-advance was firing GA events every 6s — fixed, test enforces.

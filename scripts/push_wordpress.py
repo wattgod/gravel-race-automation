@@ -1422,6 +1422,9 @@ RewriteRule ^guide\\.html$ /guide/ [R=301,L]
 # /race/ directory index → search page (prevents 403)
 RewriteRule ^race/?$ /gravel-races/ [R=301,L]
 
+# /methodology/ → canonical location under /race/ (bare path 404s otherwise)
+RewriteRule ^methodology/?$ /race/methodology/ [R=301,L]
+
 # WP race guide pages → static race pages (duplicate content fix)
 RewriteRule ^barry-roubaix-race-guide/?$ /race/barry-roubaix/ [R=301,L]
 RewriteRule ^belgian-waffle-ride-race-guide/?$ /race/bwr-california/ [R=301,L]

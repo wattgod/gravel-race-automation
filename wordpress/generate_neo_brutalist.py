@@ -4966,6 +4966,10 @@ def get_page_css() -> str:
 html {{ scroll-behavior: smooth; }}
 @media (prefers-reduced-motion: reduce) {{ html {{ scroll-behavior: auto; }} }}
 
+/* Page canvas — without this the browser-default white body shows as a void
+   around the 960px column on wide screens */
+body {{ margin: 0; background: var(--gg-color-warm-paper); }}
+
 /* Page wrapper */
 .gg-neo-brutalist-page {{
   max-width: 960px;

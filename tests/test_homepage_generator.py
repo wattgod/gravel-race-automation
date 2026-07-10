@@ -226,8 +226,8 @@ class TestGuideChapters:
 class TestSectionBuilders:
     def test_nav_has_logo(self):
         nav = build_nav()
-        assert "cropped-Gravel-God-logo" in nav
-        assert "<img" in nav
+        assert "gg-logo-mark" in nav
+        assert "cropped-Gravel-God-logo" not in nav
 
     def test_nav_has_links(self):
         nav = build_nav()

@@ -66,7 +66,9 @@ class TestHeaderHTML:
 
     def test_logo_present(self):
         html = get_site_header_html()
-        assert "cropped-Gravel-God-logo.png" in html
+        # 2026 brand mark is inlined (currentColor SVG), not the old WP PNG
+        assert "gg-logo-mark" in html
+        assert "cropped-Gravel-God-logo.png" not in html
         assert 'class="gg-site-header-logo"' in html
 
     def test_aria_current_when_active(self):

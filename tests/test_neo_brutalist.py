@@ -897,7 +897,7 @@ class TestNav:
     def test_logo_links_to_homepage(self, normalized_data):
         html = build_nav_header(normalized_data, [])
         assert 'class="gg-site-header-logo"' in html
-        assert "cropped-Gravel-God-logo.png" in html
+        assert "gg-logo-mark" in html
         # Logo must link to site root
         assert 'href="https://gravelgodcycling.com/"' in html
 
@@ -964,7 +964,7 @@ class TestNavCrossGenerator:
         html = build_nav()
         assert 'class="gg-site-header"' in html
         assert "gg-site-nav" not in html
-        assert "cropped-Gravel-God-logo.png" in html
+        assert "gg-logo-mark" in html
         assert '>RACES</a>' in html
         assert '>PRODUCTS</a>' in html
         assert '>SERVICES</a>' in html
@@ -975,7 +975,7 @@ class TestNavCrossGenerator:
         html = build_nav()
         assert 'class="gg-site-header"' in html
         assert "gg-site-nav" not in html
-        assert "cropped-Gravel-God-logo.png" in html
+        assert "gg-logo-mark" in html
         assert '>RACES</a>' in html
         assert '>PRODUCTS</a>' in html
         assert '>SERVICES</a>' in html

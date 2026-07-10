@@ -317,7 +317,7 @@ class TestPageGeneration:
     def test_nav_has_site_header(self, guide_html):
         """Guide must use the shared site header, not old dark nav."""
         assert 'class="gg-site-header"' in guide_html
-        assert "cropped-Gravel-God-logo.png" in guide_html
+        assert "gg-logo-mark" in guide_html
         assert "gg-site-nav" not in guide_html  # old class must be gone
 
     def test_nav_links(self, guide_html):

@@ -1818,7 +1818,7 @@ def generate_apply_page(external_assets=None):
   <meta property="og:site_name" content="Gravel God Cycling">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="{SITE_BASE_URL}/og/homepage.jpg">
-  <link rel="icon" href="https://gravelgodcycling.com/wp-content/uploads/2021/09/cropped-Gravel-God-logo-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/svg+xml" href="https://gravelgodcycling.com/gg-logo.svg">
   {get_preload_hints()}
   {page_css}
   {get_ab_head_snippet()}

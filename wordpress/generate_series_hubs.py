@@ -1370,7 +1370,7 @@ def build_hub_page(series: dict, race_lookup: dict, race_data: dict) -> str:
   <meta name="description" content="{esc(meta_desc)}">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="{esc(canonical)}">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2032%2032%27%3E%3Crect%20width%3D%2732%27%20height%3D%2732%27%20fill%3D%27%233a2e25%27%2F%3E%3Ctext%20x%3D%2716%27%20y%3D%2724%27%20text-anchor%3D%27middle%27%20font-family%3D%27serif%27%20font-size%3D%2724%27%20font-weight%3D%27700%27%20fill%3D%27%239a7e0a%27%3EG%3C%2Ftext%3E%3C%2Fsvg%3E">
+  <link rel="icon" type="image/svg+xml" href="https://gravelgodcycling.com/gg-logo.svg">
   <meta property="og:title" content="{esc(page_title)}">
   <meta property="og:description" content="{esc(meta_desc)}">
   <meta property="og:type" content="website">

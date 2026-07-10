@@ -258,6 +258,15 @@ def apply_fixes(slug, verdicts, dry_run):
             changes.append({"field": f"rating.{score_field}",
                             "old": old_score, "new": new_score,
                             "source": "rubric recompute"})
+            # biased_opinion_ratings mirrors the same criteria as
+            # {score, explanation} objects; tests enforce score parity
+            # between the two blocks, so sync the twin or the fix fails CI.
+            bor = race.get("biased_opinion_ratings", {}).get(score_field)
+            if isinstance(bor, dict) and bor.get("score") != new_score:
+                changes.append({"field": f"biased_opinion_ratings.{score_field}.score",
+                                "old": bor.get("score"), "new": new_score,
+                                "source": "rubric recompute (sync)"})
+                bor["score"] = new_score
 
     if score_changed:
         old_overall, old_tier = rating.get("overall_score"), rating.get("display_tier")

@@ -5,9 +5,9 @@
     "display_name": "Grinduro",
     "tagline": "Where gravel racing meets enduro format - timed segments, untimed vibes, and a festival that actually delivers",
     "vitals": {
-      "distance_mi": 60,
+      "distance_mi": 51,
       "distance_range": "56-100km depending on venue",
-      "elevation_ft": 7800,
+      "elevation_ft": 7200,
       "elevation_range": "3,300-7,800 ft depending on venue/course",
       "location": "Multi-Location Global Series",
       "location_badge": "GLOBAL SERIES",
@@ -80,7 +80,7 @@
         }
       ],
       "date": "Various dates year-round (global series)",
-      "date_specific": "2026: Multiple events across continents",
+      "date_specific": "2026: September 12 (Quincy, CA — Mountains to Meadows Endurofest)",
       "format": "Enduro-style with 4 timed segments",
       "timed_segments": 4,
       "segment_duration": "5-15 minutes each",
@@ -94,7 +94,8 @@
       "founded": 2015,
       "origin": "Quincy, California",
       "lat": 38.4324,
-      "lng": -120.0356
+      "lng": -120.0356,
+      "month": "September"
     },
     "gravel_god_rating": {
       "overall_score": 77,

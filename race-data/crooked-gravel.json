@@ -5,8 +5,8 @@
     "display_name": "Crooked Gravel",
     "tagline": "Colorado mountain gravel in Winter Park with high altitude climbing.",
     "vitals": {
-      "distance_mi": 62,
-      "elevation_ft": 6000,
+      "distance_mi": 67,
+      "elevation_ft": 5600,
       "location": "Winter Park, Colorado",
       "location_badge": "WINTER PARK, CO",
       "county": "Grand County",
@@ -25,7 +25,9 @@
       "aid_stations": "Multiple aid stations",
       "cutoff_time": "Varies",
       "lat": 39.918,
-      "lng": -105.7856
+      "lng": -105.7856,
+      "start_elevation_asl_ft": 9052,
+      "avg_elevation_asl_ft": 9500
     },
     "climate": {
       "primary": "Colorado mountain summer",
@@ -145,8 +147,8 @@
     },
     "guide_variables": {
       "race_name": "Crooked Gravel",
-      "race_distance": "62 miles",
-      "race_elevation": "6,000 feet",
+      "race_distance": "67 miles",
+      "race_elevation": "5,600 feet",
       "race_date": "Summer",
       "race_location": "Winter Park, Colorado",
       "race_terrain": "Colorado mountain gravel",
@@ -158,7 +160,7 @@
         "Mountain weather"
       ],
       "altitude_section": true,
-      "altitude_feet": "8000-10000+"
+      "altitude_feet": "9000-10000"
     },
     "non_negotiables": [
       {
@@ -254,7 +256,7 @@
         "race_name": "Crooked Gravel",
         "race_hook": "62 miles of Colorado mountain gravel at 8000-10000+ feet.",
         "race_hook_detail": "Regional mountain event in Winter Park with 6000 feet of climbing.",
-        "distance": "62",
+        "distance": "67",
         "dark_mile": "35",
         "non_negotiable_1": "Altitude preparation",
         "non_negotiable_2": "Climbing strength",

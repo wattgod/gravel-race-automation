@@ -29,25 +29,25 @@
       "start_elevation_asl_ft": 700
     },
     "climate": {
-      "primary": "Alentejo spring",
-      "description": "Generally mild to warm conditions.",
+      "primary": "Alentejo late autumn",
+      "description": "Late October in Alentejo: warm, dry, golden-light racing with cool mornings.",
       "challenges": [
-        "Variable weather",
-        "Warm possible",
+        "Warm midday sun",
+        "Open-plains wind",
         "Rolling terrain",
-        "Spring conditions"
+        "Cool morning start"
       ]
     },
     "terrain": {
       "primary": "Alentejo rolling gravel",
-      "surface": "Gravel roads through Alentejo countryside. Moderate elevation with rolling scenery.",
+      "surface": "Gravel roads through cork-oak montado and golden plains. 1,750m of climbing arrives in hundreds of small rolling grades, not sustained climbs.",
       "technical_rating": 2,
       "features": [
-        "Moderate rolling (4500 feet)",
-        "Alentejo countryside scenery",
-        "Alentejo setting",
-        "Multiple distances",
-        "Regional event"
+        "Rolling montado (1,750m / 119km)",
+        "Cork-oak forest and open golden plains",
+        "UCI Gravel World Series qualifier field",
+        "84km official course for men 60+ / women 50+",
+        "Regional Portuguese event, 2nd edition"
       ]
     },
     "gravel_god_rating": {
@@ -106,14 +106,14 @@
       "food": "Alentejo has full dining options. Stock nutrition.",
       "packet_pickup": "Day before typically",
       "parking": "At start/finish",
-      "official_site": "Check Alentejo Gravel website"
+      "official_site": "https://ucigravelworldseries.com/en/ourique-2026"
     },
     "history": {
-      "founded": null,
-      "founder": "Cabreira Solutions",
-      "origin_story": "Regional Portuguese gravel event.",
+      "founded": 2025,
+      "founder": "Cabreira Solutions (Granfondo Coimbra team)",
+      "origin_story": "Inaugural edition raced November 2025 (700+ riders, 37 nationalities); 2nd edition moves to October 25 2026 as a UCI Gravel World Series round and a qualifier for the 2027 Gravel World Championships.",
       "notable_moments": [],
-      "reputation": "Regional Portuguese event."
+      "reputation": "New UCI Gravel World Series round through the Alentejo cork-oak montado and golden plains."
     },
     "course_description": {
       "character": "Cabreira Solutions' single-day UCI GWS round from Ourique (~700ft, 2nd edition, qualifier for the 2027 Gravel Worlds): 119km/1,750m (73.9mi/5,741ft) for younger categories; 84km/1,500m = official course for men 60+/women 50+. Rolling golden plains and cork-oak (montado) forest gravel. RACE DAY IS SUNDAY. Our prior 73mi/5,741ft matched the official 119km course — confirmed 2026-07-14.",
@@ -152,37 +152,37 @@
     },
     "guide_variables": {
       "race_name": "Alentejo Gravel",
-      "race_distance": "80 miles",
-      "race_elevation": "4,500 feet",
-      "race_date": "Spring",
-      "race_location": "Alentejo, Portugal",
-      "race_terrain": "Alentejo rolling gravel",
-      "race_weather": "Alentejo spring mild to warm",
+      "race_distance": "74 miles (119km)",
+      "race_elevation": "5,741 feet (1,750m)",
+      "race_date": "October 25, 2026 (Sunday)",
+      "race_location": "Ourique, Alentejo, Portugal",
+      "race_terrain": "Cork-oak montado and golden rolling plains, UCI Gravel World Series qualifier",
+      "race_weather": "Late-October Alentejo: warm, dry, golden light, cool mornings",
       "race_challenges": [
-        "Rolling terrain",
-        "Regional field",
-        "Moderate costs",
-        "Variable weather",
-        "Moderate elevation"
+        "Constant small rolling grades, not sustained climbs",
+        "Open-plains wind",
+        "UCI World Series-pace field",
+        "84km official course for men 60+ / women 50+",
+        "Warm midday sun"
       ],
       "altitude_section": false,
       "altitude_feet": null
     },
     "non_negotiables": [
       {
-        "requirement": "Rolling endurance",
+        "requirement": "Rolling-terrain durability",
         "by_when": "Week 8-10",
-        "why": "Alentejo rolling terrain requires sustained effort."
+        "why": "1,750m of climbing arrives as hundreds of small grades through the montado — repeatable punch matters more than one big climb."
       },
       {
-        "requirement": "Weather preparation",
+        "requirement": "Group speed and wind-craft",
         "by_when": "Week 4-6",
-        "why": "Alentejo spring weather is variable."
+        "why": "The open Alentejo plains hand the wind a vote and a UCI World Series field keeps the pace honest all day."
       },
       {
-        "requirement": "Budget planning",
+        "requirement": "Travel and logistics planning",
         "by_when": "Week 12+",
-        "why": "Moderate costs ($1500+ total)."
+        "why": "Ourique is rural (2hr from Lisbon, ~75km from Faro) — book lodging and transport early."
       }
     ],
     "research_metadata": {
@@ -253,20 +253,20 @@
         "topics": {
           "pacing": "Rolling terrain pacing",
           "fueling": "Nutrition for rolling riding",
-          "weather": "Riding in variable Alentejo weather",
+          "weather": "Racing warm, dry late-October Alentejo conditions",
           "rolling": "Sustained rolling strategy"
         }
       },
       "tier_overrides": {},
       "marketplace_variables": {
         "race_name": "Alentejo Gravel",
-        "race_hook": "Portuguese Alentejo gravel adventure.",
-        "race_hook_detail": "Regional event with rolling terrain.",
-        "distance": "80",
+        "race_hook": "A UCI Gravel World Series Sunday through the cork-oak montado of Ourique, Portugal.",
+        "race_hook_detail": "119km/1,750m of rolling terrain that hides its difficulty in hundreds of small grades; a qualifier for the 2027 Gravel World Championships.",
+        "distance": "74",
         "dark_mile": "40",
-        "non_negotiable_1": "Rolling endurance",
-        "non_negotiable_2": "Weather preparation",
-        "non_negotiable_3": "Budget planning",
+        "non_negotiable_1": "Rolling-terrain durability",
+        "non_negotiable_2": "Group speed and wind-craft",
+        "non_negotiable_3": "Travel and logistics planning",
         "trainingpeaks_url": null
       }
     },

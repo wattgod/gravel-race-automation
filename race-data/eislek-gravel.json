@@ -3,29 +3,30 @@
     "name": "Eislek Gravel",
     "slug": "eislek-gravel",
     "display_name": "Eislek Gravel",
-    "tagline": "Luxembourg Ardennes gravel challenge.",
+    "tagline": "Luxembourg's UCI World Series race — a castle ramp, three forest laps, real climbing.",
     "vitals": {
-      "distance_mi": 70,
-      "elevation_ft": 5500,
-      "location": "Luxembourg",
-      "location_badge": "LUXEMBOURG",
-      "county": "Eislek",
+      "distance_mi": 68,
+      "elevation_ft": 8760,
+      "location": "Vianden, Luxembourg",
+      "location_badge": "VIANDEN, LUXEMBOURG",
+      "county": "Vianden",
       "date": "Mid-June annually",
-      "date_specific": "2026: June 20-21",
+      "date_specific": "2027: June 20 (SUNDAY pattern; 2026 ran Sun Jun 21 — Wiebes/Vandeputte won in 37C heat)",
       "terrain_types": [
-        "Luxembourg Ardennes",
-        "European gravel",
-        "Regional event",
-        "Luxembourg"
+        "Éislek/Our valley lap race",
+        "UCI Gravel World Series",
+        "Vianden Castle cobbled ramp",
+        "Luxembourg forest gravel"
       ],
-      "field_size": "200-400 riders",
+      "field_size": "~1,500 (2025 sellout)",
       "start_time": "Morning start",
-      "registration": "Online. Cost: ~€50-80",
+      "registration": "Online. Organizer: LetzXplore (Esch-sur-Sûre)",
       "prize_purse": "Modest prizes",
       "aid_stations": "Multiple aid stations",
       "cutoff_time": "Varies",
       "lat": 49.8159,
-      "lng": 6.1297
+      "lng": 6.1297,
+      "start_elevation_asl_ft": 656
     },
     "climate": {
       "primary": "Luxembourg spring",
@@ -115,7 +116,7 @@
       "reputation": "Regional Luxembourg event."
     },
     "course_description": {
-      "character": "Luxembourg Ardennes gravel.",
+      "character": "LetzXplore's UCI GWS round from Vianden: 36.6km loop — full course 3 laps = 109.8km/2,670m (68mi/8,760ft official; one UCI recap says ~2,350m — organizer figure primary) for most cats; 2 laps = 73.2km/1,780m official for men 60+/women 50+; plus non-qualifying OPEN category. Each lap: cobbled ramp to Vianden Castle, ~10km climb to the 510m high point through forest, descent past the Our valley. 2026+ runs ENTIRELY in Luxembourg (2025 inaugural was cross-border w/ Germany — do not describe as cross-border). RACE DAY SUNDAY. PRIOR 70mi/5,500ft mismatched — corrected 2026-07-14.",
       "suffering_zones": [
         {
           "mile": 20,

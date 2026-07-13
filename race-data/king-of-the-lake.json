@@ -185,7 +185,8 @@
         "german_cycling_community"
       ],
       "migration_notes": [
-        "Generated from regional information"
+        "Generated from regional information",
+        "2026-07-13 wave-24 recon: IDENTITY BROKEN, DO NOT BUILD. This profile's own citations (bikeboard.cc/eng/king-of-the-lake-2024-review, granfondodailynews '15th King of the Lake TT results') point to the REAL King of the Lake -- ASVÖ King of the Lake at Attersee, Austria (kotl.at), a 47.2km closed-road individual TIME TRIAL on pavement, 16th edition Sat Sep 26 2026, ~1,400 riders, organized by Radsportverein Atterbiker/ASVÖ, start/finish Kammer marina, ~280m gain. It is NOT gravel. But the vitals/terrain fields in this file were fabricated separately as a 'Lake Constance, Germany rolling gravel' event (65mi/3,500ft, Sept 26) that does not match those citations and has no independent verification anywhere web-searched (Bodensee-area gravel events found: Bodensee-Radmarathon, Rumpelwege calendar -- none named 'King of the Lake'). Two-way conflation: real race = road TT (wrong discipline for a gravel ladder); fabricated race = gravel but does not exist. Recommend: exclude from gravel roll queue / move to review bucket. Do not force a vitals reconcile -- there is no real gravel 'King of the Lake' to reconcile to. If Matti wants a KOTL-branded product, it would need to be built as a ROAD time-trial plan against the real Attersee event, a different product line entirely."
       ],
       "research_strength": {
         "overall": 89.2,

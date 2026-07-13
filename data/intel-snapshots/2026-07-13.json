@@ -1,0 +1,284 @@
+{
+ "date": "2026-07-13",
+ "ga4": {
+  "gravelgod": {
+   "sessions": 44,
+   "users": 36,
+   "pageviews": 108,
+   "sessions_7d_avg": 35.6,
+   "funnel": {
+    "cta_click": 5,
+    "form_start": 5,
+    "form_submit": 3,
+    "begin_checkout": 1,
+    "purchase": 2
+   },
+   "abandoned_submits": 1,
+   "top_pages": [
+    {
+     "path": "/gravel-races/",
+     "views": 18
+    },
+    {
+     "path": "/",
+     "views": 7
+    },
+    {
+     "path": "/race/ned-gravel/",
+     "views": 4
+    },
+    {
+     "path": "/guide/",
+     "views": 3
+    },
+    {
+     "path": "/race/best-gravel-races-colorado/",
+     "views": 3
+    },
+    {
+     "path": "/race/bwr-california/",
+     "views": 3
+    },
+    {
+     "path": "/race/bwr-san-diego/",
+     "views": 3
+    },
+    {
+     "path": "/race/mammoth-tuff/tires/",
+     "views": 3
+    }
+   ],
+   "channel_mix": {
+    "Organic Search": 31,
+    "Direct": 12,
+    "Unassigned": 1
+   },
+   "top_landing": [
+    {
+     "path": "/guide/",
+     "sessions": 3
+    },
+    {
+     "path": "/gravel-races/",
+     "sessions": 2
+    },
+    {
+     "path": "/products/training-plans/",
+     "sessions": 2
+    },
+    {
+     "path": "/race/best-gravel-races-colorado/",
+     "sessions": 2
+    },
+    {
+     "path": "/race/bwr-california/tires/",
+     "sessions": 2
+    },
+    {
+     "path": "/race/ned-gravel/",
+     "sessions": 2
+    }
+   ],
+   "sessions_28d": 1033,
+   "funnel_28d": {
+    "cta_click": 38,
+    "form_start": 40,
+    "form_submit": 22,
+    "begin_checkout": 1,
+    "purchase": 3
+   },
+   "ok": true
+  },
+  "roadielabs": {
+   "sessions": 0,
+   "users": 0,
+   "pageviews": 0,
+   "sessions_7d_avg": 0.1,
+   "funnel": {
+    "cta_click": 0,
+    "form_start": 0,
+    "form_submit": 0,
+    "begin_checkout": 0,
+    "purchase": 0
+   },
+   "abandoned_submits": 0,
+   "top_pages": [],
+   "channel_mix": {},
+   "top_landing": [],
+   "sessions_28d": 12,
+   "funnel_28d": {
+    "cta_click": 0,
+    "form_start": 0,
+    "form_submit": 0,
+    "begin_checkout": 0,
+    "purchase": 0
+   },
+   "ok": true
+  }
+ },
+ "checkout": {
+  "gravelgod": {
+   "health_ok": true,
+   "stripe_checkout_ok": true,
+   "ok": true,
+   "error": ""
+  },
+  "roadielabs": {
+   "health_ok": true,
+   "stripe_checkout_ok": true,
+   "ok": true,
+   "error": ""
+  }
+ },
+ "mission_control": {
+  "hot_leads_14d": [
+   {
+    "email": "angela.waldrop@gmail.com",
+    "name": "",
+    "race": "Death Ride \u2014 Tour of the California Alps",
+    "brand": "gravelgod",
+    "sequence": "welcome_v1",
+    "step": 1,
+    "status": "active",
+    "opens": 1,
+    "clicks": 0
+   },
+   {
+    "email": "xanderbhs21@gmail.com",
+    "name": "",
+    "race": "Gunni Grinder",
+    "brand": "gravelgod",
+    "sequence": "welcome_v1",
+    "step": 1,
+    "status": "active",
+    "opens": 0,
+    "clicks": 0
+   },
+   {
+    "email": "xehahet640@bevriz.com",
+    "name": "",
+    "race": "Veneto Gravel",
+    "brand": "gravelgod",
+    "sequence": "welcome_v1",
+    "step": 1,
+    "status": "active",
+    "opens": 0,
+    "clicks": 0
+   },
+   {
+    "email": "paulcacha@hotmail.com",
+    "name": "",
+    "race": "Mad Gravel",
+    "brand": "gravelgod",
+    "sequence": "welcome_v1",
+    "step": 1,
+    "status": "active",
+    "opens": 0,
+    "clicks": 0
+   },
+   {
+    "email": "racerbenjamin@gmail.com",
+    "name": "",
+    "race": "The Rift",
+    "brand": "gravelgod",
+    "sequence": "welcome_v1",
+    "step": 2,
+    "status": "active",
+    "opens": 2,
+    "clicks": 1
+   },
+   {
+    "email": "michael.mendik@gmail.com",
+    "name": "",
+    "race": "Salida 76",
+    "brand": "gravelgod",
+    "sequence": "welcome_v1",
+    "step": 2,
+    "status": "active",
+    "opens": 0,
+    "clicks": 0
+   },
+   {
+    "email": "jseall@yahoo.com",
+    "name": "",
+    "race": "Melting Mann",
+    "brand": "gravelgod",
+    "sequence": "welcome_v1",
+    "step": 2,
+    "status": "active",
+    "opens": 1,
+    "clicks": 0
+   },
+   {
+    "email": "willhb94@gmail.com",
+    "name": "",
+    "race": "Rad Dirt Fest",
+    "brand": "gravelgod",
+    "sequence": "welcome_v1",
+    "step": 3,
+    "status": "active",
+    "opens": 0,
+    "clicks": 0
+   }
+  ],
+  "new_leads_24h": 2,
+  "leads_by_brand": {
+   "gravelgod": 2,
+   "roadielabs": 0
+  },
+  "countdown_enrollments": 0,
+  "emails_sent_24h": 10,
+  "opens_24h": 3,
+  "clicks_24h": 0,
+  "bounces_24h": 0,
+  "new_orders_24h_UNRELIABLE": "use ga4 purchase counts \u2014 gg_athletes is not written by purchases",
+  "errors_24h": [],
+  "ok": true
+ },
+ "commerce_ledger": {
+  "failed_orders": [],
+  "orders": [
+   {
+    "email": "heathermjgray@yahoo.ca",
+    "error": null,
+    "name": "Heather Gray",
+    "product_type": "training_plan",
+    "success": true,
+    "timestamp": "2026-07-12T13:29:39.686567"
+   }
+  ],
+  "questionnaire_starts": 0,
+  "recoveries": [],
+  "window_hours": 24,
+  "ok": true
+ },
+ "social": {
+  "accounts_live": false,
+  "queued_today": 0,
+  "queued_yesterday": 0,
+  "posts": [],
+  "ok": true
+ },
+ "workflows": {
+  "latest": {
+   "gravel-race-automation/link-check.yml": "failure",
+   "road-race-automation/link-check.yml": "failure",
+   "road-race-automation/checkout-monitor.yml": "success",
+   "gravel-race-automation/regression-tests.yml": "success"
+  },
+  "ok": true
+ },
+ "constraint": {
+  "ok": true,
+  "sessions_per_day": 36.9,
+  "cta_rate_pct": 3.68,
+  "cta_to_submit_pct": 57.9,
+  "submit_to_purchase_pct": 13.6,
+  "purchases_28d": 3,
+  "submits_28d": 22,
+  "ctas_28d": 38,
+  "sessions_per_day_needed_for_1_sale": 344,
+  "binding_constraint": "traffic \u2014 at these volumes no funnel rate is even measurable; nothing downstream is worth optimizing yet"
+ },
+ "report": "## TOP LINE\n- 1 successful order: Heather Gray, training_plan, gravelgod (commerce ledger, 07-12).\n- GravelGod sessions 44 vs 35.6 7d avg \u2014 highest in past week, but still traffic-bound.\n- RoadieLabs: 0 sessions again, funnel fully dark.\n\n## NUMBERS\n| Brand | Sessions (7d avg) | CTA | Form Start | Form Submit | Checkout | Purchase (GA4) | Leads | Orders (ledger) |\n|---|---|---|---|---|---|---|---|---|\n| GravelGod | 44 (35.6) | 5 | 5 | 3 | 1 | 2 | 2 | 1 |\n| RoadieLabs | 0 (0.1) | 0 | 0 | 0 | 0 | 0 | 0 | 0 |\n\n## TRAFFIC\n**GravelGod**\n- Top pages: /gravel-races/ 18, / 7, /race/ned-gravel/ 4, /guide/ 3, /race/best-g"
+}

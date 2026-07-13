@@ -25,9 +25,9 @@
       "start_elevation_asl_ft": 200
     },
     "climate": {
-      "primary": "TBD",
-      "description": "TBD",
-      "challenges": []
+      "primary": "Tropical heat and humidity",
+      "description": "Mid-November in Kanchanaburi falls in the post-monsoon shoulder season: average highs around 87°F, lows near 73°F, and roughly a coin-flip chance of rain on any given day. The 840 metres of climbing rarely define the race — the heat and humidity, sustained across four-plus hours, do.",
+      "challenges": ["Tropical heat", "High humidity", "Dust that turns to mud if it rains"]
     },
     "terrain": {
       "primary": "Mixed gravel",
@@ -127,27 +127,27 @@
       "character": "Bike Zone Events' single-day UCI GWS qualifier from Muang Sing Historical Park (westernmost outpost of the ancient Khmer Empire): 130km/840m (80.8mi/2,756ft) for elite + men 19-59/women 19-49; 90km/550m = official course for men 60+/women 50+ (courses assigned by category, not chosen). Wooded jungle-edge gravel, tropical heat/humidity, dust. Friday shakeout ride. Only UCI Gravel World Series event in Asia. Our prior 81mi/2,756ft matched the official 130km course — confirmed 2026-07-14.",
       "suffering_zones": [
         {
-          "mile": 12,
-          "label": "Temple Complex Punishment",
-          "desc": "Technical gravel climbs through the historical park where ancient Khmer ruins provide zero shade but maximum psychological warfare. The surface changes every few hundred meters."
+          "mile": 5,
+          "label": "Out of Muang Sing",
+          "desc": "The race starts and finishes at the ruins of Muang Sing Historical Park, the westernmost outpost of the ancient Khmer Empire, then heads straight onto gravel through Kanchanaburi's river valley — dust builds early as the field spreads out."
         },
         {
-          "mile": 35,
-          "label": "Jungle Heat Chamber",
-          "desc": "Deep forest roads where the canopy blocks any breeze but traps every degree of humidity. Your bottles will be empty and your soul will be questioning life choices."
+          "mile": 30,
+          "label": "River-Valley Gravel",
+          "desc": "Wooded, jungle-edge roads through the river valley carry most of the course's 840 metres of climbing as short surges rather than sustained pitches — no single defining ascent, just a lot of them."
         },
         {
-          "mile": 58,
-          "label": "The Thai Gravel Lottery",
-          "desc": "Weather-dependent course changes mean you're riding blind into whatever conditions decided to show up. Mud, dust, or rocks—the course doesn't negotiate."
+          "mile": 55,
+          "label": "The Afternoon Heat",
+          "desc": "By mid-race the tropical heat and humidity have compounded for hours; this is where the field thins out, less from the terrain than from riders who paced the opening kilometres too hard for the climate."
         },
         {
           "mile": 75,
-          "label": "Death March Finale",
-          "desc": "The final push back to Muang Sing Historical Park where exhaustion meets technical terrain and the November heat makes every pedal stroke feel like swimming through concrete."
+          "label": "Back to the Ruins",
+          "desc": "The closing miles return to Muang Sing on the same jungle-edge gravel, dusty in dry years and greasy if the region has seen recent rain — a long way to hold form after a full tropical day."
         }
       ],
-      "signature_challenge": "Thailand's humidity doesn't care about your power-to-weight ratio. November temperatures combined with jungle moisture create a heat index that turns even modest climbs into survival exercises, while course alterations based on weather conditions mean you can't really train for what you'll actually face.",
+      "signature_challenge": "The Dustman's real challenge is the climate, not the topography. Its 840 metres of climbing over 130 kilometres never organizes into a defining ascent, but tropical November heat and humidity in the Kanchanaburi river valley tax every effort for four-plus hours. Add jungle-edge gravel that runs dusty in a dry year and greasy in a wet one, and the course rewards riders who pace the opening hour conservatively and treat hydration with the same discipline as their power.",
       "ridewithgps_id": "53184604",
       "ridewithgps_name": "UCI GRAVEL WORLD SERIES DUSTMAN 130 KM. REVISED"
     },

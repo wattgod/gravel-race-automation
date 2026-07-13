@@ -3,29 +3,32 @@
     "name": "Santa Fe Century Gravelón",
     "slug": "santa-fe-century-gravelon",
     "display_name": "Santa Fe Century Gravelón",
-    "tagline": "New Mexico mountain gravel challenge.",
+    "tagline": "The Santa Fe Century's gravel Saturday — mesa forest roads at 7,500 feet.",
     "vitals": {
-      "distance_mi": 100,
-      "elevation_ft": 7500,
-      "location": "Santa Fe, NM",
-      "location_badge": "SANTA FE, NM",
+      "distance_mi": 54,
+      "elevation_ft": 2850,
+      "location": "Rowe Mesa, Santa Fe National Forest, New Mexico",
+      "location_badge": "ROWE MESA, NM",
       "county": "Santa Fe County",
-      "date": "Early May annually",
-      "date_specific": "2026: May 10",
+      "date": "Mid-May annually",
+      "date_specific": "2027: May 15 (Saturday pattern; 40th Century weekend ran May 16-17 2026)",
       "terrain_types": [
-        "New Mexico mountains",
-        "Mountain gravel",
-        "High altitude",
-        "New Mexico"
+        "High-desert mesa gravel",
+        "Ponderosa and piñon forest roads",
+        "ALTITUDE: ~7,500ft start",
+        "Santa Fe Century weekend"
       ],
       "field_size": "100-200 riders",
       "start_time": "Early morning start",
-      "registration": "Online. Cost: ~$100-120",
+      "registration": "Online (santafecentury.com)",
       "prize_purse": "Modest prizes",
       "aid_stations": "4-5 aid stations",
       "cutoff_time": "12-14 hours",
       "lat": 35.6876,
-      "lng": -105.9385
+      "lng": -105.9385,
+      "gain_display": "Varies",
+      "start_elevation_asl_ft": 7500,
+      "avg_elevation_asl_ft": 7200
     },
     "climate": {
       "primary": "New Mexico mountain fall",
@@ -112,7 +115,7 @@
       "reputation": "Regional NM event."
     },
     "course_description": {
-      "character": "New Mexico mountains gravel.",
+      "character": "Gravelón: 54 miles from Rowe Mesa (~7,500ft ASL, ~20min SE of Santa Fe, off Forest Road 326) — counterclockwise loop via Ojo de la Vaca Rd (15.9mi) and NM-34 (15.5mi) then forest roads through Ponderosa groves and piñon/juniper country; climbing concentrated in the final ~30mi back to the mesa; gain modest and imprecisely published (~2,850ft official w/ garbled formatting vs 3,100ft third-party — display Varies). Gravelito 25mi. Mass start 9:00 Saturday, awards 1:00. Wet-year clay mud can alter the route. PRIOR PROFILE 100mi/7,500ft-GAIN was a unit/field error (7,500 = START ELEVATION; no century gravel option exists) — corrected 2026-07-13. ALTITUDE RACE.",
       "suffering_zones": [
         {
           "mile": 30,

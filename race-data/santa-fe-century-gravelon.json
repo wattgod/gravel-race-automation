@@ -31,24 +31,24 @@
       "avg_elevation_asl_ft": 7200
     },
     "climate": {
-      "primary": "New Mexico mountain fall",
-      "description": "High altitude mountain conditions.",
+      "primary": "New Mexico high-desert spring (May)",
+      "description": "Cool mornings, strong sun, and dry air at high-desert altitude; wet years can turn Rowe Mesa's clay to notorious mud and alter the route.",
       "challenges": [
-        "High altitude (7000+ feet)",
-        "Variable weather",
-        "Mountain terrain",
-        "Fall conditions"
+        "High altitude (~7,500ft start)",
+        "Strong May sun",
+        "Dry high-desert air",
+        "Wet-year mud on Rowe Mesa clay"
       ]
     },
     "terrain": {
-      "primary": "New Mexico mountains gravel",
-      "surface": "Gravel roads through New Mexico mountains. Significant elevation with mountain scenery.",
+      "primary": "New Mexico high-desert mesa gravel",
+      "surface": "High-desert mesa and forest-road gravel through the Santa Fe National Forest — Ponderosa groves and piñon-juniper country, with climbing gathered into the final 30 miles.",
       "technical_rating": 3,
       "features": [
-        "Significant mountainous (7500 feet)",
-        "High altitude start",
-        "New Mexico mountains scenery",
-        "100-mile distance",
+        "High-desert mesa gravel, climbing concentrated in final 30mi",
+        "Altitude start ~7,500ft ASL",
+        "Ponderosa & piñon-juniper forest roads",
+        "Santa Fe National Forest (Rowe Mesa)",
         "Regional field"
       ]
     },
@@ -76,10 +76,10 @@
     },
     "biased_opinion": {
       "verdict": "New Mexico Mountain Gravel",
-      "summary": "Santa Fe Century Gravelón is a regional event in New Mexico—mountain terrain with significant elevation and high altitude. The 100-mile distance and New Mexico mountains are scenic, but the small regional field and limited organization keep it in Tier 4.",
+      "summary": "Santa Fe Century Gravelón is a regional event in New Mexico—high-desert mesa terrain with significant altitude. The 54-mile distance and New Mexico mesa scenery are scenic, but the small regional field and limited organization keep it Tier 3.",
       "strengths": [
-        "New Mexico mountains scenery",
-        "Century distance challenge",
+        "New Mexico mesa scenery",
+        "Late-race climbing concentrated in the final 30 miles",
         "High altitude experience",
         "Santa Fe access",
         "Good value"
@@ -118,64 +118,63 @@
       "character": "Gravelón: 54 miles from Rowe Mesa (~7,500ft ASL, ~20min SE of Santa Fe, off Forest Road 326) — counterclockwise loop via Ojo de la Vaca Rd (15.9mi) and NM-34 (15.5mi) then forest roads through Ponderosa groves and piñon/juniper country; climbing concentrated in the final ~30mi back to the mesa; gain modest and imprecisely published (~2,850ft official w/ garbled formatting vs 3,100ft third-party — display Varies). Gravelito 25mi. Mass start 9:00 Saturday, awards 1:00. Wet-year clay mud can alter the route. PRIOR PROFILE 100mi/7,500ft-GAIN was a unit/field error (7,500 = START ELEVATION; no century gravel option exists) — corrected 2026-07-13. ALTITUDE RACE.",
       "suffering_zones": [
         {
-          "mile": 30,
-          "label": "Early Mountains",
-          "desc": "First mountain sections.",
-          "terrain_detail": "Mountainous",
-          "named_section": "Early Mountains"
+          "mile": 16,
+          "label": "End of Ojo de la Vaca Road",
+          "desc": "The Ojo de la Vaca Road segment (15.9mi) ends and the course turns onto NM-34.",
+          "terrain_detail": "High-desert county road",
+          "named_section": "Ojo de la Vaca Road"
         },
         {
-          "mile": 50,
-          "label": "Midpoint",
-          "desc": "Halfway through the century.",
-          "terrain_detail": "Midpoint",
-          "named_section": "Halfway"
+          "mile": 24,
+          "label": "Onto the Forest Roads",
+          "desc": "The NM-34 segment gives way to Santa Fe National Forest roads for the closing miles — this is where the course's climbing begins to gather.",
+          "terrain_detail": "Forest road, Ponderosa and piñon-juniper",
+          "named_section": "Forest Road Turn"
         },
         {
-          "mile": 80,
-          "label": "Late Mountains",
-          "desc": "Final mountain sections before finish.",
-          "terrain_detail": "Late mountains",
-          "named_section": "Final Push"
+          "mile": 54,
+          "label": "Final Climbs to Rowe Mesa",
+          "desc": "Climbing is concentrated in this closing stretch back to the Rowe Mesa finish, at altitude the whole way.",
+          "terrain_detail": "Climbing forest road, ~7,500ft ASL",
+          "named_section": "Final Climbs Home"
         }
       ],
-      "signature_challenge": "New Mexico mountains terrain at high altitude.",
+      "signature_challenge": "High-desert mesa climbing concentrated in the final 30 miles, at altitude.",
       "ridewithgps_id": null,
       "ridewithgps_name": null
     },
     "guide_variables": {
       "race_name": "Santa Fe Century Gravelón",
-      "race_distance": "100 miles",
-      "race_elevation": "7,500 feet",
-      "race_date": "Fall",
-      "race_location": "Santa Fe, NM",
-      "race_terrain": "New Mexico mountains gravel",
-      "race_weather": "New Mexico mountain fall",
+      "race_distance": "54 miles",
+      "race_elevation": "Varies",
+      "race_date": "Mid-May",
+      "race_location": "Rowe Mesa, Santa Fe National Forest, NM",
+      "race_terrain": "New Mexico high-desert mesa gravel",
+      "race_weather": "High-desert May: cool mornings, strong sun, dry air",
       "race_challenges": [
-        "High altitude",
-        "Mountain terrain",
-        "Century distance",
-        "Significant elevation",
-        "Variable weather"
+        "High altitude (~7,500ft start)",
+        "Climbing concentrated in final 30 miles",
+        "Strong May sun",
+        "Wet-year mud on Rowe Mesa clay"
       ],
       "altitude_section": true,
-      "altitude_feet": 7000
+      "altitude_feet": 7500
     },
     "non_negotiables": [
       {
         "requirement": "Altitude acclimatization",
         "by_when": "Week 2-4",
-        "why": "Race starts at 7000+ feet elevation."
+        "why": "Race starts and runs entirely around 7,500 feet elevation."
       },
       {
-        "requirement": "Century endurance",
+        "requirement": "Full-distance endurance",
         "by_when": "Week 8-10",
-        "why": "100-mile distance requires century training."
+        "why": "54 miles of high-desert mesa gravel requires durable steady-state endurance."
       },
       {
-        "requirement": "Mountain endurance",
+        "requirement": "Late-climb strength",
         "by_when": "Week 6-8",
-        "why": "New Mexico mountains require sustained mountain effort."
+        "why": "Climbing is concentrated in the final 30 miles back to Rowe Mesa."
       }
     ],
     "research_metadata": {
@@ -253,21 +252,21 @@
         "race_specific": true,
         "topics": {
           "altitude": "Racing at high altitude",
-          "pacing": "Century pacing strategy",
+          "pacing": "High-desert pacing strategy",
           "mountains": "Sustained mountain strategy",
-          "fueling": "Century nutrition strategy"
+          "fueling": "High-desert fueling strategy"
         }
       },
       "tier_overrides": {},
       "marketplace_variables": {
         "race_name": "Santa Fe Century Gravelón",
-        "race_hook": "New Mexico mountain gravel challenge.",
-        "race_hook_detail": "Regional century event with mountain terrain and high altitude.",
-        "distance": "100",
-        "dark_mile": "50",
+        "race_hook": "New Mexico high-desert gravel challenge.",
+        "race_hook_detail": "Regional high-desert gravel event with altitude the defining challenge.",
+        "distance": "54",
+        "dark_mile": "40",
         "non_negotiable_1": "Altitude acclimatization",
-        "non_negotiable_2": "Century endurance",
-        "non_negotiable_3": "Mountain endurance",
+        "non_negotiable_2": "Full-distance endurance",
+        "non_negotiable_3": "Late-climb strength",
         "trainingpeaks_url": null
       }
     },
@@ -286,7 +285,7 @@
       },
       "elevation": {
         "score": 4,
-        "explanation": "The 3,100 feet of climbing includes 'moderate but longer climbs' over the final 30 miles back to Rowe Mesa. The course features 'rolling terrain' through ponderosa groves and grasslands with the finish at the top of a climb. More climbing than SBT GRVL at the same score."
+        "explanation": "Total gain is imprecisely published (official figures vs third-party estimates disagree, roughly 2,850-3,100ft), but the climbing itself includes 'moderate but longer climbs' over the final 30 miles back to Rowe Mesa. The course features 'rolling terrain' through ponderosa groves and grasslands with the finish at the top of a climb."
       },
       "climate": {
         "score": 2,

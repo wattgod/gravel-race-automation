@@ -3,21 +3,27 @@
     "name": "Gravel Grit 'n Grind",
     "slug": "gravel-grit-n-grind",
     "display_name": "Gravel Grit 'n Grind",
-    "tagline": "UCI Gravel World Series stop on the Swedish coast—lakeside forests, farm roads, and Nordic grit.",
+    "tagline": "Sweden's UCI World Series Saturday — farmland, forest doubletrack, and Nordic grit outside Halmstad.",
     "vitals": {
-      "distance_mi": 50,
+      "distance_mi": 93,
       "elevation_ft": 2000,
-      "location": "Halmstad, Sweden",
+      "location": "Halmstad, Sweden (Heagård farm)",
       "location_badge": "HALMSTAD, SWEDEN",
-      "date": "Mid-August annually",
+      "date": "Late September 2026 (moved from mid-August for permits); historical pattern mid-August",
       "terrain_types": [
-        "Gravel roads"
+        "Swedish farm and forest gravel",
+        "UCI Gravel World Series (Saturday stage)",
+        "~90% gravel",
+        "Nordic Gravel Series weekend"
       ],
       "field_size": "TBD",
-      "registration": "Online",
-      "date_specific": "2026: August 14-16",
+      "registration": "Online (gravelgritngrind.se). Organizer: Nordic Gravel + Cancano Tours",
+      "date_specific": "2026: September 26 (SATURDAY = UCI Gravel World Series qualifier stage, CONFIRMED — ucigravelworldseries.com/en/halmstad + gravelgritngrind.se; Sunday Sep 27 = separate Nordic Gravel Series event. 2026 MOVED from Aug 15-16 for permit reasons — 2027 may revert to the August pattern; re-verify.)",
       "lat": 56.674,
-      "lng": 12.8575
+      "lng": 12.8575,
+      "gain_display": "Varies",
+      "county": "Halland",
+      "start_elevation_asl_ft": 150
     },
     "climate": {
       "primary": "TBD",
@@ -126,7 +132,8 @@
     ],
     "course_description": {
       "ridewithgps_id": "45904274",
-      "ridewithgps_name": "Gravel Grit 'n Grind Granfondo 133km"
+      "ridewithgps_name": "Gravel Grit 'n Grind Granfondo 133km",
+      "character": "Saturday's UCI GWS qualifier stage from Heagård farm outside Halmstad: 150km (93mi) or 90km option — ~90% gravel across Halland farmlands, forest dual tracks, and rocky descents via Torup/Gräsås/Getinge; GAIN UNPUBLISHED (display Varies). Sunday runs a separate Nordic Gravel Series event (125/90km) in Simlångsdalen — riders can enter either or both days; our plans anchor the SATURDAY UCI stage (single-day registerable, flagship-day precedent). Age-band course split (90km for 60+/50+) reported but LOW-CONFIDENCE — copy must not assert it. Qualifier for 2026 Worlds (Western Australia) + 2027 Euros (Lahti). PRIOR 50mi/2,000ft profile mismatched; 2026 date MOVED to Sep 26 — corrected 2026-07-14."
     },
     "tire_recommendations": {
       "generated_at": "2026-02-19",

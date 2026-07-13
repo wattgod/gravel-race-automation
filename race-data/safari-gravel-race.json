@@ -3,29 +3,31 @@
     "name": "Safari Gravel Race",
     "slug": "safari-gravel-race",
     "display_name": "Safari Gravel Race",
-    "tagline": "Kenyan safari gravel adventure.",
+    "tagline": "Kenya's UCI Gravel World Series race — Hell's Gate at 6,200 feet with zebra for company.",
     "vitals": {
-      "distance_mi": 100,
-      "elevation_ft": 5000,
-      "location": "Kenya",
-      "location_badge": "KENYA",
-      "county": "Kenya",
+      "distance_mi": 69,
+      "elevation_ft": 8202,
+      "location": "Sulmac Village, Lake Naivasha, Kenya",
+      "location_badge": "NAIVASHA, KENYA",
+      "county": "Nakuru County",
       "date": "Mid-June annually",
-      "date_specific": "2026: June 13",
+      "date_specific": "2027: June 12 (Saturday pattern; 2026 ran Sat Jun 13 — UCI Gravel World Series)",
       "terrain_types": [
-        "Kenyan safari",
-        "Adventure gravel",
-        "Regional event",
-        "Kenya"
+        "Rift Valley red-clay gravel",
+        "Hell's Gate National Park",
+        "UCI Gravel World Series",
+        "ALTITUDE: ~6,200ft start"
       ],
       "field_size": "100-200 riders",
       "start_time": "Morning start",
-      "registration": "Online. Cost: ~$150-250",
+      "registration": "Online (teamamani.com). Organizer: Team Amani / The Amani Project",
       "prize_purse": "Modest prizes",
       "aid_stations": "Limited aid stations",
       "cutoff_time": "Varies",
       "lat": 1.442,
-      "lng": 38.4314
+      "lng": 38.4314,
+      "start_elevation_asl_ft": 6181,
+      "avg_elevation_asl_ft": 6400
     },
     "climate": {
       "primary": "Kenyan spring",
@@ -116,7 +118,7 @@
       "reputation": "Regional Kenyan event."
     },
     "course_description": {
-      "character": "Kenyan safari gravel.",
+      "character": "Team Amani's single-day UCI Gravel World Series qualifier from Sulmac Village on Lake Naivasha's south shore, adjacent to Hell's Gate National Park: 111km/2,500m (69mi/8,202ft) elite+age-band course, 60km/1,000m official course for men 60+/women 50+. ~85% gravel — red clay, singletrack, game trails — with guaranteed plains-game sightings (zebra, giraffe, warthog; Hell's Gate is one of the few parks cyclists enter unescorted). Course runs 1,675m-2,214m (5,495-7,264ft); start ~1,884m (6,181ft) = ALTITUDE RACE. Equatorial midday heat + altitude are the twin prep angles. Finish at Camp Carnelley's. Distinct from Migration Gravel Race (separate 4-stage Maasai Mara event, same organizers). PRIOR PROFILE 100mi/5,000ft wrong on both axes — corrected 2026-07-14.",
       "suffering_zones": [
         {
           "mile": 30,

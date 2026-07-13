@@ -54,7 +54,10 @@ class TestFeedFile:
         channel = tree.getroot().find("channel")
         desc = channel.find("description")
         assert desc is not None
-        assert "328" in desc.text
+        import json as _json
+        from pathlib import Path as _P
+        _n = len(_json.loads((_P(__file__).parent.parent / "web" / "race-index.json").read_text()))
+        assert str(_n) in desc.text
         assert "14 criteria" in desc.text
 
     def test_has_atom_self_link(self):
@@ -63,11 +66,14 @@ class TestFeedFile:
         assert 'rel="self"' in content
         assert "races.xml" in content
 
-    def test_has_328_items(self):
+    def test_has_all_index_items(self):
+        import json as _json
+        from pathlib import Path as _P
+        _n = len(_json.loads((_P(__file__).parent.parent / "web" / "race-index.json").read_text()))
         tree = ET.parse(str(FEED_FILE))
         channel = tree.getroot().find("channel")
         items = channel.findall("item")
-        assert len(items) == 328, f"Expected 328 items, got {len(items)}"
+        assert len(items) == _n, f"Expected {_n} items, got {len(items)}"
 
     def test_items_have_required_fields(self):
         tree = ET.parse(str(FEED_FILE))
@@ -128,8 +134,8 @@ class TestFeedFile:
 
     def test_file_size_reasonable(self):
         size = FEED_FILE.stat().st_size
-        # 328 items should be ~100-300KB
-        assert 50_000 < size < 500_000, f"Unexpected feed size: {size:,} bytes"
+        # scales with race count (~0.7KB/item)
+        assert 50_000 < size < 1_200_000, f"Unexpected feed size: {size:,} bytes"
 
 
 class TestGenerator:

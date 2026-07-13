@@ -32,7 +32,7 @@ RACE_GUIDE_ENTRIES = [
     (4994, "belgian-waffle-ride-race-guide", "bwr-california",
      "Belgian Waffle Ride race guide: 130 miles where bike handling outweighs FTP. Tier 1, 81/100. 40% DNF rate. You've been warned.",
      "Belgian Waffle Ride"),
-    (4995, "big-horn-gravel-race-guide", "big-horn-gravel",
+    (4995, "big-horn-gravel-race-guide", "bighorn-gravel",
      "Big Horn Gravel race guide: Colorado's rowdiest course where pros switch to hardtails. Tier 2, 73/100. The opening wall is personal.",
      "Big Horn Gravel"),
     (4996, "big-sugar-race-guide", "big-sugar",

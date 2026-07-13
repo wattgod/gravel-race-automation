@@ -116,13 +116,14 @@ def generate_rss():
 {cat_xml}    </item>""")
 
     items_xml = "\n".join(items)
+    count = len(items)
 
     rss = f"""<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Gravel God — Race Database</title>
     <link>{SITE_URL}/gravel-races/</link>
-    <description>328 gravel races rated and ranked on 14 criteria. Tier ratings, scores, locations, dates, and course details.</description>
+    <description>{count} gravel races rated and ranked on 14 criteria. Tier ratings, scores, locations, dates, and course details.</description>
     <language>en-us</language>
     <lastBuildDate>{now}</lastBuildDate>
     <atom:link href="{SITE_URL}/feed/races.xml" rel="self" type="application/rss+xml"/>

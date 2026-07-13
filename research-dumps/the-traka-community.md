@@ -1,4 +1,8 @@
-# TRAKA 360 — COMMUNITY RESEARCH
+# THE TRAKA 200 — COMMUNITY RESEARCH
+
+> NOTE (2026-07-16): profile re-anchored from the retired Traka 360 to the Traka 200
+> (2027 restructuring). Research below was gathered in the 360 era — treat distances/
+> logistics quotes as 360-specific unless independently confirmed for the 200.
 
 ## Rider Quotes & Race Reports
 

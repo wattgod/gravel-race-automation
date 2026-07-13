@@ -4687,6 +4687,14 @@ def build_date_reminder(rd: dict) -> str:
 
 _PLANS_BY_SLUG_CACHE: Optional[dict] = None
 
+# Race-page slug -> plans-db race_slug, for races whose canonical page slug
+# diverged from the slug the plan ladder was built under. The plans-db slug is
+# load-bearing (deployed guide URLs are baked into published TP plans' notes),
+# so the page side aliases to it rather than the other way around.
+PLAN_SLUG_ALIASES = {
+    "bighorn-gravel": "big-horn-gravel",  # dedup kept bighorn-gravel.json (a0b85bdf)
+}
+
 
 def _load_plans_by_slug() -> dict:
     """Load ../gravel-god-training-plans/db/plans.json, grouped by race_slug.
@@ -4732,7 +4740,8 @@ def build_plan_ladder(rd: dict) -> str:
         return ''
 
     slug = rd['slug']
-    plans = _load_plans_by_slug().get(slug, [])
+    lookup = _load_plans_by_slug()
+    plans = lookup.get(slug) or lookup.get(PLAN_SLUG_ALIASES.get(slug, ''), [])
     if not plans:
         return ''
 

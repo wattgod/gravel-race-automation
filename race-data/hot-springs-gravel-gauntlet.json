@@ -30,21 +30,21 @@
       "start_elevation_asl_ft": 1326
     },
     "climate": {
-      "primary": "North Carolina spring/fall",
-      "description": "Variable conditions with heat possible in spring, cool possible in fall, and humidity.",
+      "primary": "Mid-May Appalachian mountains",
+      "description": "Warm, humid valley conditions with cooler temperatures on the ridgetops; spring humidity taxes riders on every sustained climb.",
       "challenges": [
-        "Heat possible (spring)",
-        "Cool possible (fall)",
-        "Humidity",
-        "Variable weather"
+        "Spring humidity",
+        "Warm valley temperatures",
+        "Cooler ridge tops",
+        "Variable mountain weather"
       ]
     },
     "terrain": {
       "primary": "Appalachian gravel",
-      "surface": "Gravel roads through Appalachian mountains. Challenging elevation with mountain and forest scenery.",
+      "surface": "Gravel and forest roads through the Appalachian mountains west of Asheville — one flat stretch along the French Broad River, sustained climbing on the rest, on the course the organizers bill as their hilliest yet.",
       "technical_rating": 3,
       "features": [
-        "Challenging climbing (6000 feet)",
+        "Sustained Appalachian forest-road climbing (organizer's self-described hilliest course)",
         "Mountain scenery",
         "Appalachian Trail area",
         "Appalachian setting",
@@ -79,7 +79,7 @@
       "strengths": [
         "Appalachian mountain terrain",
         "Appalachian Trail area",
-        "Challenging climbing (6000 feet)",
+        "Sustained climbing (organizer's self-described hilliest course)",
         "Mountain scenery",
         "NC cycling community"
       ],
@@ -104,40 +104,40 @@
     "logistics": {
       "airport": "Asheville (AVL) 1 hour",
       "lodging_strategy": "Hot Springs has limited lodging. Asheville has more options.",
-      "food": "Small town with limited dining. Stock nutrition.",
-      "packet_pickup": "Day before typically",
+      "food": "Small town with limited dining — stock nutrition. Friday night Q&A with guest pros at Big Pillow Brewery; finish-line food and beer Saturday.",
+      "packet_pickup": "Friday night, 6–8pm at downtown venues (e.g. Vinyl Pies); Saturday morning option at Hot Springs Resort.",
       "parking": "At start/finish",
       "official_site": "Check North Carolina cycling calendars",
-      "camping": "camping available after race, with food and hangouts"
+      "camping": "Camping available at Hot Springs Resort after the race, with finish-line food, beer, and hangouts."
     },
     "history": {
       "founded": null,
       "founder": "Southeast Gravel (Greenville, SC)",
-      "origin_story": "Regional North Carolina gravel event.",
+      "origin_story": "Regional North Carolina gravel event — event 3 of 4 in the Southeast Gravel series (Greenville, SC).",
       "notable_moments": [],
       "reputation": "Regional NC event."
     },
     "course_description": {
-      "character": "Southeast Gravel series race out of Hot Springs, NC (start/finish at Hot Springs Resort and Spa): Long Course 61 miles, Short ~27 miles (3,502ft verified on the short course; long-course gain unpublished — organizer bills 2026 as 'the hilliest course yet'). One flat stretch along the French Broad River; everything else is sustained climbing on Appalachian forest roads. The Appalachian Trail runs down the town's main street.",
+      "character": "Southeast Gravel series race (event 3 of 4) out of Hot Springs, NC (start/finish at Hot Springs Resort & Spa): Long Course 61 miles, Short 27.2 miles (3,502ft verified), plus a 13-mile fun course. Long-course gain unpublished — organizer bills 2026 as 'the hilliest course yet'. One flat stretch along the French Broad River; everything else is sustained climbing on Appalachian forest roads. The Appalachian Trail runs down the town's main street.",
       "suffering_zones": [
         {
           "mile": 20,
-          "label": "Early Climbs",
-          "desc": "First significant mountain climbs.",
+          "label": "Early Climbing Begins",
+          "desc": "The flat French Broad River opening stretch ends and the course's sustained Appalachian forest-road climbing gets underway.",
           "terrain_detail": "Mountains",
           "named_section": "Early Climbs"
         },
         {
           "mile": 40,
           "label": "Midpoint",
-          "desc": "Halfway through the course.",
+          "desc": "Roughly halfway, with the climbing rhythm fully established — an aid station follows near mile 45.",
           "terrain_detail": "Midpoint",
           "named_section": "Halfway"
         },
         {
           "mile": 60,
           "label": "Late Climbs",
-          "desc": "Final mountain climbs before finish.",
+          "desc": "The course's final sustained climbs before the return to Hot Springs, with an aid station near mile 53.5 to fuel the last push.",
           "terrain_detail": "Late climbs",
           "named_section": "Final Push"
         }
@@ -148,9 +148,9 @@
     },
     "guide_variables": {
       "race_name": "Hot Springs Gravel Gauntlet",
-      "race_distance": "75 miles",
-      "race_elevation": "6,000 feet",
-      "race_date": "Spring or Fall",
+      "race_distance": "61 miles",
+      "race_elevation": "Varies (unpublished — sustained climbing throughout)",
+      "race_date": "Mid-May",
       "race_location": "Hot Springs, North Carolina",
       "race_terrain": "Appalachian gravel",
       "race_weather": "NC variability",
@@ -168,7 +168,7 @@
       {
         "requirement": "Mountain climbing endurance",
         "by_when": "Week 8-10",
-        "why": "Appalachian mountains require serious climbing fitness (6000 feet)."
+        "why": "Appalachian mountains require serious, sustained climbing fitness — the organizers bill this as their hilliest course."
       },
       {
         "requirement": "Heat and humidity preparation",
@@ -256,9 +256,9 @@
       "tier_overrides": {},
       "marketplace_variables": {
         "race_name": "Hot Springs Gravel Gauntlet",
-        "race_hook": "Appalachian mountain gravel in remote western North Carolina.",
+        "race_hook": "Southeast Gravel's Appalachian leg — sustained mountain climbing out of a remote western North Carolina trail town.",
         "race_hook_detail": "Regional event near Appalachian Trail.",
-        "distance": "75",
+        "distance": "61",
         "dark_mile": "40",
         "non_negotiable_1": "Mountain climbing endurance",
         "non_negotiable_2": "Heat and humidity preparation",

@@ -6,24 +6,25 @@
     "tagline": "180km Massachusetts rolling hills gravel from Greenfield (Deerfield Dirt-Road Randonnée).",
     "vitals": {
       "distance_mi": 112,
-      "elevation_ft": 13000,
+      "elevation_ft": 13800,
+      "gain_display": "Varies",
       "location": "Greenfield, Massachusetts",
       "location_badge": "GREENFIELD, MA",
       "county": "Franklin County",
-      "date": "Late August annually",
-      "date_specific": "2026: August 22",
+      "date": "Mid-to-late August annually (has floated between the 3rd and 4th Saturday in recent years)",
+      "date_specific": "2026: August 22 (SATURDAY, CONFIRMED — franklinlandtrust.org/d2r2/; 2027 not yet announced)",
       "terrain_types": [
         "Massachusetts rolling hills",
         "Rural gravel",
-        "180km distance",
-        "Regional event"
+        "Multi-distance event (180K/160K/115K/100K + shorter non-race options)"
       ],
       "field_size": "300-600 riders",
-      "start_time": "6:00 AM start",
+      "start_time": "6:00 AM start (180K); later starts for shorter distances",
       "registration": "Online. Cost: ~$80-120",
       "prize_purse": "Modest prizes",
       "aid_stations": "Multiple aid stations",
       "cutoff_time": "Varies",
+      "distance_options": "180K (~112mi, hardest/longest), 160K (~99mi, >7,000ft per organizer), 115K (~71mi), 100K (~62mi), plus a 40-mile Green River Tour and 12/16-mile Family Ride (non-race, minimal hills)",
       "lat": 42.5437,
       "lng": -72.6047
     },
@@ -42,7 +43,7 @@
       "surface": "Gravel roads through rolling western Massachusetts hills. Significant elevation with 180km distance.",
       "technical_rating": 2,
       "features": [
-        "Significant rolling hills (13000 feet)",
+        "Significant rolling hills (13,000+ ft on the 180K, varies by year)",
         "Rural and mountain scenery",
         "180km distance",
         "Western Massachusetts setting",
@@ -73,10 +74,10 @@
     },
     "biased_opinion": {
       "verdict": "Western Massachusetts 180km Rolling Hills Challenge",
-      "summary": "D2R2 is a western Massachusetts gravel race—180km (112 miles) of rolling hills with significant climbing. The organization is solid, and the Northeast reputation is decent. However, it's a regional field with standard gravel terrain, keeping it in Tier 3. Deerfield provides moderate access. The 180km distance and 13000 feet of climbing are the main challenges.",
+      "summary": "D2R2 (The Deerfield Dirt Road Randonée — the historic name persists even though start/finish moved to the Franklin County Fairgrounds in Greenfield, MA for 2026) is a western Massachusetts gravel event—180km (112 miles) at its longest, with multiple shorter distance options and significant climbing. The organization is solid, and the Northeast reputation is decent. However, it's a regional field with standard gravel terrain, keeping it in Tier 3. Greenfield provides moderate access. The 180km distance and its high (but year-variable) climbing total are the main challenges.",
       "strengths": [
-        "180km distance (significant challenge)",
-        "Significant climbing (13000 feet)",
+        "180km distance option (significant challenge)",
+        "Significant climbing (13,000+ ft on the longest route, varies by year)",
         "Well-organized event",
         "Western MA rolling hills",
         "MA cycling community"
@@ -102,22 +103,24 @@
     },
     "logistics": {
       "airport": "Hartford (BDL) 1 hour or Albany (ALB) 1.5 hours",
-      "lodging_strategy": "Deerfield has limited lodging. Greenfield or Northampton have more options.",
+      "lodging_strategy": "Start/finish is now the Franklin County Fairgrounds in Greenfield, MA (moved here for 2026) — Greenfield and Northampton have the most lodging options; nearby Deerfield (the event's namesake) has more limited lodging.",
       "food": "Moderate dining options. Stock nutrition for 180km.",
       "packet_pickup": "Day before",
-      "parking": "At start/finish",
-      "official_site": "Check D2R2 website",
-      "camping": "Camping Experience:**\n\"A significant number of participants camp on site the night before (though the odd decision to put tents"
+      "parking": "At start/finish (Franklin County Fairgrounds, Greenfield)",
+      "official_site": "https://d2r2.franklinlandtrust.org/",
+      "camping": "On-site camping is available at the Franklin County Fairgrounds start/finish; a significant number of participants camp the night before race day."
     },
     "history": {
       "founded": null,
-      "founder": "Massachusetts organizers",
-      "origin_story": "Western Massachusetts gravel event.",
-      "notable_moments": [],
-      "reputation": "Northeast regional event."
+      "founder": "Franklin Land Trust",
+      "origin_story": "Western Massachusetts gravel event, organized as a Franklin Land Trust fundraiser. Named for Deerfield, MA — the historic namesake town — though the start/finish has since moved to the Franklin County Fairgrounds in Greenfield, MA (new for 2026).",
+      "notable_moments": [
+        "2026: New start/finish at the Franklin County Fairgrounds in Greenfield, MA (added distance to the 180K route vs. the prior start)"
+      ],
+      "reputation": "Northeast regional event; often called 'the original gravel grinder.'"
     },
     "course_description": {
-      "character": "Rolling hills gravel for 180km.",
+      "character": "Rolling hills gravel, multiple distances from a 12-mile Family Ride up to the 180K (112mi).",
       "suffering_zones": [
         {
           "mile": 35,
@@ -148,21 +151,21 @@
           "named_section": "Homestretch"
         }
       ],
-      "signature_challenge": "180km distance with 13000 feet of rolling hills climbing.",
+      "signature_challenge": "180km distance with 13,000+ feet of rolling hills climbing on the longest route (gain varies by year/route naming churn — treat as an estimate, not a fixed spec).",
       "ridewithgps_id": "52352400",
       "ridewithgps_name": "D2R2 Green River Ride 2025 (updated 8/22)"
     },
     "guide_variables": {
       "race_name": "D2R2",
       "race_distance": "112 miles",
-      "race_elevation": "13,000 feet",
+      "race_elevation": "13,000+ feet (varies by year)",
       "race_date": "Summer",
       "race_location": "Greenfield, Massachusetts",
       "race_terrain": "Massachusetts rolling hills gravel",
       "race_weather": "MA summer variability",
       "race_challenges": [
         "180km distance",
-        "Significant climbing (13000 feet)",
+        "Significant climbing (13,000+ feet, varies by year)",
         "Summer heat/humidity",
         "Rolling hills endurance",
         "Long-distance pacing"
@@ -179,7 +182,7 @@
       {
         "requirement": "Climbing endurance",
         "by_when": "Week 8-10",
-        "why": "13000 feet of rolling hills requires sustained climbing fitness."
+        "why": "13,000+ feet of rolling hills (varies by year) requires sustained climbing fitness."
       },
       {
         "requirement": "Heat preparation",

@@ -18,7 +18,7 @@
         "Larzac forest gravel",
         "Millau Viaduct finish views"
       ],
-      "field_size": "200-400 riders",
+      "field_size": "~600 riders, 20+ nations",
       "start_time": "Morning start",
       "registration": "Online. Organizer: Wish One (first-ever UCI gravel event on European soil, 2022)",
       "prize_purse": "Modest prizes",
@@ -40,14 +40,14 @@
     },
     "terrain": {
       "primary": "French plateau gravel",
-      "surface": "Gravel roads through Grands Causses plateau. Moderate to significant elevation with plateau scenery.",
+      "surface": "Gravel roads, forest track, and paved sections through the Grands Causses limestone plateau (~40% forest, 40% gravel, 20% paved). Opens with the Puech d'Agast climb (+450m in the first 8 kilometres) straight out of Millau.",
       "technical_rating": 2,
       "features": [
-        "Moderate to significant elevation (4500 feet)",
-        "Plateau scenery",
-        "Millau setting",
-        "Multiple distances",
-        "Regional event"
+        "Puech d'Agast opening climb (+450m in the first 8km, cold-open)",
+        "Grands Causses limestone plateau (~40% forest / 40% gravel / 20% paved)",
+        "2,500m (8,200ft) of sustained climbing across 130km",
+        "Millau Viaduct finish views (world's tallest bridge)",
+        "UCI Gravel World Series — sole French round; official 80km course for women 50+/men 60+"
       ]
     },
     "gravel_god_rating": {
@@ -73,23 +73,22 @@
       "display_tier": 3
     },
     "biased_opinion": {
-      "verdict": "French Plateau Gravel",
-      "summary": "Wish One Millau is a regional event in Millau Grands Causses, France—plateau terrain with moderate to significant elevation. The Grands Causses plateau is scenic, but the moderate organization and regional field keep it firmly in Tier 3. Millau provides moderate access.",
+      "verdict": "UCI Gravel World Series — France's Founding Round",
+      "summary": "Wish One Millau is France's sole round of the UCI Gravel World Series and the first-ever UCI gravel event held on European soil (2022). The course opens with the Puech d'Agast climb (450m in the first 8km) straight out of Millau, then spends 130km and 2,500m of climbing across the Grands Causses limestone plateaus before finishing beneath the Millau Viaduct. ~600 riders from 20 nations race it; women 50+ and men 60+ race an official 80km UCI course.",
       "strengths": [
-        "Grands Causses plateau scenery",
-        "French cycling community",
-        "French warm summer weather",
-        "Regional pricing",
-        "Plateau setting"
+        "UCI Gravel World Series pedigree — Worlds qualification on the line",
+        "Grands Causses plateau scenery and the Millau Viaduct finish",
+        "Cold-open Puech d'Agast climb makes an honest, immediate selection",
+        "Official age-group course (women 50+/men 60+) — real masters racing",
+        "International field: ~600 riders, 20 nations"
       ],
       "weaknesses": [
-        "Southern France access (moderate)",
-        "Moderate organization",
-        "Regional field only",
-        "Moderate elevation only",
-        "Limited international recognition"
+        "Rural Aveyron access — nearest airports are 1.5-2 hours out",
+        "Regional-scale organization compared to the US majors",
+        "June timing hits peak tourism season, raising lodging costs",
+        "Limited course variety beyond the two headline distances"
       ],
-      "bottom_line": "A solid regional French gravel race with plateau terrain. Worth it for French/European cyclists. Not a destination race for international travelers."
+      "bottom_line": "A genuinely significant race wrapped in a regional-scale event — the UCI World Series status and the Puech d'Agast opener make it worth targeting for climbers, especially anyone in France or Europe. Not a bucket-list travel race for most Americans, but not just a local fondo either."
     },
     "final_verdict": {
       "score": "50 / 100",
@@ -106,38 +105,42 @@
       "food": "Millau has full dining options. Stock nutrition.",
       "packet_pickup": "Day before typically",
       "parking": "At start/finish",
-      "official_site": "Check Wish One Millau website"
+      "official_site": "https://wishonegravelrace.com/en/accueil-english/"
     },
     "history": {
-      "founded": null,
-      "founder": "French organizers",
-      "origin_story": "Regional French gravel event.",
-      "notable_moments": [],
-      "reputation": "Regional French event."
+      "founded": 2022,
+      "founder": "Wish One",
+      "origin_story": "Launched in 2022 as the first-ever UCI gravel event held on European soil. It remains the sole French round of the UCI Gravel World Series.",
+      "notable_moments": [
+        "First-ever UCI gravel race on European soil (2022)",
+        "Toby Perry's solo winning attack from 59.5km to go, finishing in 4:34:43 (2023)",
+        "2026: Hugo Drechou (men) and Sophie Wright (women) won"
+      ],
+      "reputation": "Sole French round of the UCI Gravel World Series; ~600 riders from 20 nations."
     },
     "course_description": {
       "character": "Wish One's Sunday UCI GWS round from Millau (~1,608ft): UCI 130km/2,500m (81mi/8,200ft) flagship for elite/open ages; UCI 80km/1,500m = official course for women 50+/men 60+; plus non-qualifying Open 40/80km waves (U17/U19). Opens with the Puech d'Agast climb (+450m in the first 8km) onto the Larzac/Grands Causses plateaus — ~40% forest, 40% gravel track, 20% paved — finishing with views of the Millau Viaduct (world's tallest cable-stayed bridge). ~600 riders, 20+ nations. First-ever UCI gravel event on European soil (2022). RACE DAY IS SUNDAY. PRIOR PROFILE 70mi/4,500ft matched nothing — corrected 2026-07-14.",
       "suffering_zones": [
         {
-          "mile": 20,
-          "label": "Early Plateau",
-          "desc": "First plateau sections.",
-          "terrain_detail": "Plateau",
-          "named_section": "Early Plateau"
+          "mile": 5,
+          "label": "Puech d'Agast",
+          "desc": "The course's opening climb — 450 metres of ascent in the first 8 kilometres, straight out of Millau on cold legs.",
+          "terrain_detail": "Climb",
+          "named_section": "Puech d'Agast"
         },
         {
           "mile": 40,
-          "label": "Midpoint",
-          "desc": "Halfway through the course.",
-          "terrain_detail": "Midpoint",
-          "named_section": "Halfway"
+          "label": "Grands Causses Plateau",
+          "desc": "Sustained limestone plateau climbing across the Larzac — forest track and gravel, grades that keep returning.",
+          "terrain_detail": "Plateau",
+          "named_section": "Grands Causses"
         },
         {
-          "mile": 60,
-          "label": "Late Plateau",
-          "desc": "Final plateau sections before finish.",
-          "terrain_detail": "Late plateau",
-          "named_section": "Final Push"
+          "mile": 75,
+          "label": "Final Approach",
+          "desc": "The closing kilometres toward Millau, finishing with the Millau Viaduct in view.",
+          "terrain_detail": "Approach",
+          "named_section": "Millau Viaduct Finish"
         }
       ],
       "signature_challenge": "Grands Causses plateau in Millau.",
@@ -146,37 +149,36 @@
     },
     "guide_variables": {
       "race_name": "Wish One Millau",
-      "race_distance": "70 miles",
-      "race_elevation": "4,500 feet",
-      "race_date": "Summer",
+      "race_distance": "81 miles",
+      "race_elevation": "8,200 feet",
+      "race_date": "Mid-June (Sunday)",
       "race_location": "Millau Grands Causses, France",
-      "race_terrain": "French plateau gravel",
+      "race_terrain": "Grands Causses limestone plateau — forest track, gravel, and paved roads",
       "race_weather": "French southern summer warm",
       "race_challenges": [
-        "Plateau terrain",
-        "Regional field",
-        "European costs",
-        "Variable weather",
-        "Moderate to significant elevation"
+        "Puech d'Agast cold-open climb (450m in the first 8km)",
+        "Sustained plateau climbing (2,500m total across 130km)",
+        "Mid-June Aveyron heat",
+        "Official 80km age-group course for women 50+/men 60+"
       ],
       "altitude_section": false,
       "altitude_feet": null
     },
     "non_negotiables": [
       {
-        "requirement": "Plateau endurance",
+        "requirement": "Cold-open climbing readiness (Puech d'Agast)",
         "by_when": "Week 8-10",
-        "why": "Grands Causses plateau requires sustained effort."
+        "why": "The course's hardest sustained effort starts at kilometre zero — 450m of climbing in the first 8km, on cold legs."
       },
       {
-        "requirement": "Weather preparation",
+        "requirement": "Sustained plateau climbing endurance",
+        "by_when": "Week 6-10",
+        "why": "2,500m of climbing spreads across the Grands Causses plateaus, not one hard hill — repeatable strength matters more than a single effort."
+      },
+      {
+        "requirement": "Mid-June heat preparation",
         "by_when": "Week 4-6",
-        "why": "French southern summer weather is variable."
-      },
-      {
-        "requirement": "Pacing discipline",
-        "by_when": "Week 2-4",
-        "why": "Plateau terrain requires pacing discipline."
+        "why": "Mid-June in the Aveyron runs warm and bright for a 5+ hour day."
       }
     ],
     "research_metadata": {
@@ -254,9 +256,9 @@
       "tier_overrides": {},
       "marketplace_variables": {
         "race_name": "Wish One Millau",
-        "race_hook": "French plateau gravel in Millau Grands Causses.",
-        "race_hook_detail": "Regional event with plateau terrain.",
-        "distance": "70",
+        "race_hook": "France's UCI Gravel World Series round — the Grands Causses above the Millau Viaduct.",
+        "race_hook_detail": "First-ever UCI gravel event on European soil (2022); sole French round of the UCI Gravel World Series.",
+        "distance": "81",
         "dark_mile": "40",
         "non_negotiable_1": "Plateau endurance",
         "non_negotiable_2": "Weather preparation",
@@ -279,7 +281,7 @@
       },
       "elevation": {
         "score": 3,
-        "explanation": "The 2000m elevation gain creates consistent selection pressure through rolling terrain. Race reports note \"another hard climb awaits between kilometers 30 and 40\" following the opening climb out of Millau valley, with the finish featuring a \"paved 2km climb\" under the viaduct that determines final positions in close races. Similar elevation profile to Gravel Worlds."
+        "explanation": "The 2,500m elevation gain creates consistent selection pressure through rolling terrain. Race reports note \"another hard climb awaits between kilometers 30 and 40\" following the opening climb out of Millau valley, with the finish featuring a \"paved 2km climb\" under the viaduct that determines final positions in close races. Similar elevation profile to Gravel Worlds."
       },
       "climate": {
         "score": 3,

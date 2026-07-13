@@ -30,24 +30,24 @@
     },
     "climate": {
       "primary": "Belgian summer",
-      "description": "Generally mild conditions.",
+      "description": "Late August in the Belgian Ardennes: warm and green, with real thunderstorm potential. Mild by comparison to July, but wooded descents get slick fast when it turns.",
       "challenges": [
-        "Variable weather",
-        "Generally mild",
-        "Hilly terrain",
-        "Summer conditions"
+        "Late-summer thunderstorm potential",
+        "Warm, green Ardennes conditions",
+        "Wooded, shaded descents (traction shifts fast in rain)",
+        "No altitude/heat extremes"
       ]
     },
     "terrain": {
-      "primary": "Belgian Ardennes gravel",
-      "surface": "Gravel roads through Belgian Ardennes. Significant elevation with forest scenery.",
+      "primary": "Belgian Ardennes gravel — 47km lap circuit",
+      "surface": "Laps of a 47-kilometre Belgian Ardennes circuit out of Houffalize, roughly 70 percent off-road (forest track, gravel roads, some singletrack) and 30 percent paved connectors. Every lap opens with the Côte de Saint Roch, a kilometre at 11.2 percent that ramps to 16 percent — the same climb that opens Liège-Bastogne-Liège.",
       "technical_rating": 2,
       "features": [
-        "Significant hilly (4500 feet)",
-        "Forest scenery",
-        "Houffalize setting",
-        "Multiple distances",
-        "Regional event"
+        "141km / ~2,100m for most categories (3 laps of 47km/~700m each)",
+        "Côte de Saint Roch opens every lap (1km @ 11.2%, ramps to 16%)",
+        "~70% off-road: forest track, gravel, some singletrack",
+        "Houffalize — Belgium's self-declared mountain-bike capital",
+        "UCI Gravel World Series round (2026 edition doubles as UEC Gravel European Championships)"
       ]
     },
     "gravel_god_rating": {
@@ -106,77 +106,80 @@
       "food": "Houffalize has full dining options. Stock nutrition.",
       "packet_pickup": "Day before typically",
       "parking": "At start/finish",
-      "official_site": "Check Houffa Gravel website"
+      "official_site": "houffagravel.be (UCI Gravel World Series)"
     },
     "history": {
       "founded": null,
-      "founder": "Belgian organizers",
-      "origin_story": "Regional Belgian gravel event.",
-      "notable_moments": [],
-      "reputation": "Regional Belgian event."
+      "founder": "Golazo (Bolero Gravel Series)",
+      "origin_story": "A UCI Gravel World Series round run out of Houffalize, the Belgian Ardennes town known as the country's self-declared mountain-bike capital. The course's signature is the Côte de Saint Roch, the same climb that opens the professional road classic Liège-Bastogne-Liège, ridden once at the start of every lap.",
+      "notable_moments": [
+        "2025: Mads Würtz Schmidt and Fleur Frain win the elite races",
+        "2026 edition doubles as the UEC Gravel European Championships"
+      ],
+      "reputation": "A UCI Gravel World Series qualifier known for its repeatable-punch format — the Saint Roch wall returns every lap, so the race rewards riders who pace the first ascent knowing it's coming back."
     },
     "course_description": {
       "character": "Golazo's UCI GWS round (2026 = UEC European Championships): 47km Ardennes lap, ~700m each — elite/open ride 3 laps (~141km/2,100m = 88mi/6,890ft), men 60-74/women 50-64 ride 2 (94km/1,400m), 75+/65+ ride 1. ~70% off-road. Each lap opens with the Côte de Saint Roch (1km at 11.2%, ramps to 16% — the L-B-L opener). 2025 winners Würtz Schmidt/Frain. RACE DAY SUNDAY. PRIOR 65mi/4,500ft matched nothing — corrected 2026-07-14. 2026 runway ~6.7wk = SMR-only question (Matti, w/ wasatch); 2027 pre-build = clean path.",
       "suffering_zones": [
         {
-          "mile": 20,
-          "label": "Early Hills",
-          "desc": "First hilly sections.",
-          "terrain_detail": "Hilly",
-          "named_section": "Early Hills"
+          "mile": 0,
+          "label": "Cote de Saint Roch — Lap 1",
+          "desc": "Every lap opens with this: a kilometre at 11.2%, ramping to 16% — the same wall that starts Liege-Bastogne-Liege. Fresh legs still make it feel survivable.",
+          "terrain_detail": "Paved/gravel wall, 11.2% avg to 16% max",
+          "named_section": "Cote de Saint Roch"
         },
         {
-          "mile": 35,
-          "label": "Midpoint",
-          "desc": "Halfway through the course.",
-          "terrain_detail": "Midpoint",
-          "named_section": "Halfway"
+          "mile": 29,
+          "label": "Cote de Saint Roch — Lap 2",
+          "desc": "The wall returns whether you're recovered or not. This is where the field starts to sort itself.",
+          "terrain_detail": "Same climb, second visit",
+          "named_section": "Cote de Saint Roch"
         },
         {
-          "mile": 55,
-          "label": "Late Hills",
-          "desc": "Final hilly sections before finish.",
-          "terrain_detail": "Late hills",
-          "named_section": "Final Push"
+          "mile": 58,
+          "label": "Cote de Saint Roch — Lap 3",
+          "desc": "The final ascent, on legs that have already answered it twice. This is where the whole day gets graded.",
+          "terrain_detail": "Same climb, third and final visit",
+          "named_section": "Cote de Saint Roch"
         }
       ],
-      "signature_challenge": "Belgian Ardennes hills in Houffalize.",
+      "signature_challenge": "The Cote de Saint Roch (1km @ 11.2%, ramping to 16%) opens every lap of the 47km Ardennes circuit.",
       "ridewithgps_id": "53380153",
       "ridewithgps_name": "Houffa Gravel 2025 - 94 km - RACE"
     },
     "guide_variables": {
       "race_name": "Houffa Gravel",
-      "race_distance": "65 miles",
-      "race_elevation": "4,500 feet",
-      "race_date": "Summer",
+      "race_distance": "88 miles (141km, 3 laps of 47km)",
+      "race_elevation": "6,890 feet (~2,100m)",
+      "race_date": "Late August annually",
       "race_location": "Houffalize, Belgian Ardennes",
-      "race_terrain": "Belgian Ardennes gravel",
-      "race_weather": "Belgian summer mild",
+      "race_terrain": "47km Ardennes lap circuit, ~70% off-road, Cote de Saint Roch opening every lap",
+      "race_weather": "Late-August Ardennes: warm, green, real thunderstorm potential",
       "race_challenges": [
-        "Hilly terrain",
-        "Regional field",
-        "European costs",
-        "Variable weather",
-        "Significant elevation"
+        "Cote de Saint Roch (1km @ 11.2%, ramps to 16%) repeats every lap",
+        "Lap-race pacing discipline — lap one sets up laps two and three",
+        "~70% off-road Ardennes rollers between climbs",
+        "Late-summer thunderstorm potential",
+        "European travel logistics"
       ],
       "altitude_section": false,
       "altitude_feet": null
     },
     "non_negotiables": [
       {
-        "requirement": "Hill endurance",
+        "requirement": "Repeatable steep punch",
+        "by_when": "Week 6-10",
+        "why": "The Cote de Saint Roch (1km @ 11.2%, to 16%) opens every lap — the third ascent has to cost what the first one did."
+      },
+      {
+        "requirement": "Ardennes rolling endurance",
+        "by_when": "Week 4-8",
+        "why": "46 kilometres of rolling terrain separate each Saint Roch ascent — it never lets you fully settle."
+      },
+      {
+        "requirement": "Lap-one pacing discipline",
         "by_when": "Week 8-10",
-        "why": "Belgian Ardennes hills require sustained effort."
-      },
-      {
-        "requirement": "Weather preparation",
-        "by_when": "Week 4-6",
-        "why": "Belgian summer weather is variable."
-      },
-      {
-        "requirement": "Pacing discipline",
-        "by_when": "Week 2-4",
-        "why": "Hilly terrain requires pacing discipline."
+        "why": "Lap racing punishes early aggression — treat lap one as a loan against laps two and three."
       }
     ],
     "research_metadata": {
@@ -254,13 +257,13 @@
       "tier_overrides": {},
       "marketplace_variables": {
         "race_name": "Houffa Gravel",
-        "race_hook": "Belgian Ardennes gravel in Houffalize.",
-        "race_hook_detail": "Regional event with hilly terrain.",
-        "distance": "65",
-        "dark_mile": "35",
-        "non_negotiable_1": "Hill endurance",
-        "non_negotiable_2": "Weather preparation",
-        "non_negotiable_3": "Pacing discipline",
+        "race_hook": "UCI Gravel World Series lap race — the Cote de Saint Roch opens every lap.",
+        "race_hook_detail": "141km, three laps of a 47km Belgian Ardennes circuit, each opening with the Cote de Saint Roch (1km @ 11.2%, ramps to 16%).",
+        "distance": "88",
+        "dark_mile": "58",
+        "non_negotiable_1": "Repeatable steep punch",
+        "non_negotiable_2": "Ardennes rolling endurance",
+        "non_negotiable_3": "Lap-one pacing discipline",
         "trainingpeaks_url": null
       }
     },

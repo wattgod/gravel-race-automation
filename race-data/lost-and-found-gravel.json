@@ -30,25 +30,25 @@
       "start_elevation_asl_ft": 4856
     },
     "climate": {
-      "primary": "California Sierra Nevada summer/fall",
-      "description": "Mountain weather with moderate altitude.",
+      "primary": "California Sierra Nevada early summer",
+      "description": "Mountain weather in the Lost Sierra, mid-June.",
       "challenges": [
         "Mountain weather variability",
-        "Moderate altitude (5000ft)",
+        "Strong June sun and dry dust",
         "Sierra Nevada mountains",
         "Mountain climbing"
       ]
     },
     "terrain": {
       "primary": "California Sierra Nevada gravel",
-      "surface": "Gravel roads through Sierra Nevada mountains. Significant elevation with mountain scenery.",
+      "surface": "70-80% dirt/gravel through Sierra Nevada forest roads and historic railroad grade, with the remainder pavement. Significant climbing with mountain scenery.",
       "technical_rating": 3,
       "features": [
-        "Significant mountain climbing (6000 feet)",
+        "Significant mountain climbing (gain shifts year to year on reroutes)",
         "Sierra Nevada scenery",
-        "Portola setting",
-        "Multiple distances",
-        "Regional event"
+        "Portola City Park setting",
+        "Multiple distances (Full Bull/Mid Moo/Half Calf)",
+        "Sierra Buttes Trail Stewardship fundraiser"
       ]
     },
     "gravel_god_rating": {
@@ -75,12 +75,12 @@
     },
     "biased_opinion": {
       "verdict": "California Sierra Nevada Gravel",
-      "summary": "Lost and Found Gravel is a regional event in Portola, California—Sierra Nevada mountain terrain with significant elevation and moderate altitude. The mountain scenery is nice, but the moderate organization and regional field keep it firmly in Tier 3. Portola provides moderate access. California pricing and expenses are higher.",
+      "summary": "Lost and Found Gravel is a regional event in Portola, California—Sierra Nevada mountain terrain with significant climbing that shifts with the course's yearly reroutes. The mountain scenery is nice, but the moderate organization and regional field keep it firmly in Tier 3. Portola provides moderate access. California pricing and expenses are higher.",
       "strengths": [
         "Sierra Nevada terrain",
-        "Significant climbing (6000 feet)",
+        "Significant climbing (gain shifts year to year)",
         "Mountain scenery",
-        "Moderate altitude (5000ft)",
+        "Sierra Buttes Trail Stewardship mission",
         "CA cycling community"
       ],
       "weaknesses": [
@@ -108,73 +108,76 @@
       "food": "Small town with limited dining. Stock nutrition.",
       "packet_pickup": "Day before typically",
       "parking": "At start/finish",
-      "official_site": "Check Lost and Found Gravel website",
-      "camping": "Camping and lodging** info on official site (specifics not detailed in results)"
+      "official_site": "lostandfoundbikeride.com",
+      "camping": "Camping and overlanding-style set-ups fill Portola for the weekend; lodging is limited, so most riders camp."
     },
     "history": {
-      "founded": null,
-      "founder": "California organizers",
-      "origin_story": "Regional California gravel event.",
-      "notable_moments": [],
-      "reputation": "Regional CA event."
+      "founded": 2014,
+      "founder": "Sierra Buttes Trail Stewardship (Chris McGovern)",
+      "origin_story": "Founded 2014 by the Sierra Buttes Trail Stewardship as the flagship fundraiser for the Lost Sierra Route, a project connecting 15 Sierra mountain communities by trail. Started small and has grown from roughly 200 riders in 2014 to about 2,000 today.",
+      "notable_moments": [
+        "Grew from ~200 riders (2014) to ~2,000 riders",
+        "Joined the Gravel Earth Series in 2025 with a global prize purse"
+      ],
+      "reputation": "Beloved regional CA gravel festival with a trail-building mission — three-time winner Serena Gordon calls it \"sort of the reason we ride and race bikes.\""
     },
     "course_description": {
-      "character": "Mass-rollout gravel race + festival from Portola City Park (~4,856ft) in the Lost Sierra, organized by the Sierra Buttes Trail Stewardship since 2014 as the fundraiser for the Lost Sierra Route. Three courses: Full Bull ~100mi, Mid Moo ~60mi, Half Calf ~40mi — 70-80% dirt/gravel including historic railroad grade, with exact mileage and gain shifting year to year on reroutes (organizer's own pages disagree on gain figures — display 'Varies'). ~2,000 riders, Friday expo, Saturday race + party.",
+      "character": "Mass-rollout gravel race + festival from Portola City Park (~4,856ft) in the Lost Sierra, organized by the Sierra Buttes Trail Stewardship since 2014 as the fundraiser for the Lost Sierra Route. Three courses: Full Bull ~100mi, Mid Moo ~60mi, Half Calf ~40mi — 70-80% dirt/gravel including historic railroad grade, with exact mileage and gain shifting year to year on reroutes (organizer's own pages disagree on gain figures — display 'Varies'). ~2,000 riders, Friday expo, Saturday race + party/camping.",
       "suffering_zones": [
         {
-          "mile": 20,
-          "label": "Early Climbs",
-          "desc": "First Sierra climbs.",
-          "terrain_detail": "Mountain climbing",
-          "named_section": "Early Climbs"
+          "mile": 8.4,
+          "label": "Dirt Transition",
+          "desc": "A sneaky, easy-to-miss left turn where the course leaves pavement for dirt after a fast descent.",
+          "terrain_detail": "Hidden left turn onto dirt",
+          "named_section": "Dirt Transition"
         },
         {
-          "mile": 35,
-          "label": "Midpoint",
-          "desc": "Halfway through the course.",
-          "terrain_detail": "Midpoint",
-          "named_section": "Halfway"
+          "mile": 30,
+          "label": "Windy Valley",
+          "desc": "A wide, exposed valley that regularly delivers a brutal headwind riders have to grind through.",
+          "terrain_detail": "Exposed valley, headwind",
+          "named_section": "Windy Valley"
         },
         {
-          "mile": 55,
-          "label": "Final Climbs",
-          "desc": "Final Sierra sections before finish.",
-          "terrain_detail": "Late climbing",
-          "named_section": "Final Push"
+          "mile": 33,
+          "label": "Climb Six",
+          "desc": "A loose, chunky climb of about 2.7 miles that kicks up to roughly 10% — one of the harder ascents on course.",
+          "terrain_detail": "Sustained loose-gravel climb",
+          "named_section": "Climb Six"
         }
       ],
-      "signature_challenge": "Sierra Nevada mountain climbing in Portola.",
+      "signature_challenge": "Sustained Sierra Nevada climbing on rerouted forest and railroad-grade gravel out of Portola.",
       "ridewithgps_id": "48961525",
       "ridewithgps_name": "Lost and Found Graveler"
     },
     "guide_variables": {
       "race_name": "Lost and Found Gravel",
-      "race_distance": "65 miles",
-      "race_elevation": "6,000 feet",
-      "race_date": "Summer or Fall",
+      "race_distance": "100 miles (Full Bull)",
+      "race_elevation": "Varies (course reroutes yearly)",
+      "race_date": "Mid-June annually",
       "race_location": "Portola, California",
       "race_terrain": "California Sierra Nevada gravel",
       "race_weather": "CA Sierra mountain weather",
       "race_challenges": [
         "Mountain climbing",
-        "Moderate altitude (5000ft)",
+        "Rough gravel and washboard",
         "Sierra Nevada mountains",
-        "Regional field",
+        "Course reroutes yearly",
         "CA costs"
       ],
-      "altitude_section": true,
-      "altitude_feet": 5000
+      "altitude_section": false,
+      "altitude_feet": null
     },
     "non_negotiables": [
       {
         "requirement": "Mountain climbing endurance",
         "by_when": "Week 8-10",
-        "why": "Sierra Nevada mountains require solid climbing fitness (6000 feet)."
+        "why": "Sierra Nevada mountains require solid climbing fitness spread across a long day."
       },
       {
-        "requirement": "Altitude preparation",
+        "requirement": "Durability & mechanical readiness",
         "by_when": "Week 4-6",
-        "why": "5000ft base elevation requires altitude acclimation."
+        "why": "Rough gravel and washboard punish sloppy handling and gear neglect over a hundred miles."
       },
       {
         "requirement": "Mountain pacing",
@@ -220,7 +223,7 @@
           ]
         },
         "altitude_training": {
-          "enabled": true,
+          "enabled": false,
           "weeks": [
             4,
             5,
@@ -243,14 +246,14 @@
         "priority_order": [
           "pacing",
           "climbing",
-          "altitude",
+          "durability",
           "fueling"
         ],
         "race_specific": true,
         "topics": {
           "pacing": "Mountain terrain pacing",
           "climbing": "Sustained Sierra climbing",
-          "altitude": "Racing at 5000ft",
+          "durability": "Handling and mechanical durability on rough, rerouted gravel",
           "fueling": "Nutrition for mountain climbing"
         }
       },
@@ -258,11 +261,11 @@
       "marketplace_variables": {
         "race_name": "Lost and Found Gravel",
         "race_hook": "California Sierra Nevada gravel in Portola.",
-        "race_hook_detail": "Regional event with mountain climbing and altitude.",
-        "distance": "65",
-        "dark_mile": "35",
+        "race_hook_detail": "Regional trail-stewardship fundraiser with sustained mountain climbing and a course that reroutes yearly.",
+        "distance": "100",
+        "dark_mile": "33",
         "non_negotiable_1": "Mountain climbing endurance",
-        "non_negotiable_2": "Altitude preparation",
+        "non_negotiable_2": "Durability & mechanical readiness",
         "non_negotiable_3": "Mountain pacing",
         "trainingpeaks_url": null
       }
@@ -274,7 +277,7 @@
       },
       "length": {
         "score": 3,
-        "explanation": "The 65-mile mid-distance hits the sweet spot with three options (35, 67, 100 miles) letting riders pick their suffering level. Derek Yarra finished the 100-miler in 6h24m, nearly an hour behind winner Tobin Ortenblad's 5h24m time. The course delivers \"80% dirt\" for the century with \"a perfect blend of pavement, dirt road, gravel road and historic railroad grade.\" Similar distance to Crusher in the Tushar."
+        "explanation": "The Full Bull flagship runs roughly 100 miles, with Mid Moo (~60mi) and Half Calf (~40mi) letting riders pick their suffering level. Derek Yarra finished the 100-miler in 6h24m, nearly an hour behind winner Tobin Ortenblad's 5h24m time. The course delivers \"80% dirt\" for the century with \"a perfect blend of pavement, dirt road, gravel road and historic railroad grade.\" Similar distance to Crusher in the Tushar."
       },
       "technicality": {
         "score": 3,
@@ -282,7 +285,7 @@
       },
       "elevation": {
         "score": 4,
-        "explanation": "Starting at nearly 5,000 feet with 6,000 feet of climbing creates substantial Sierra Nevada consequences. The course winds through \"forested valleys, canyons, high-Sierra peaks\" with three timed segments including the \"Grizzly Grind uphill.\" Race organizers have historically shifted dates to accommodate snow melt at higher elevations, confirming this gets properly vertical. More climbing than SBT GRVL at the same score."
+        "explanation": "Starting at nearly 5,000 feet with climbing that shifts year to year on reroutes (organizer figures range roughly 5,900-8,100ft) creates substantial Sierra Nevada consequences regardless of exact number. The course winds through \"forested valleys, canyons, high-Sierra peaks\" with three timed segments including the \"Grizzly Grind uphill.\" Race organizers have historically shifted dates to accommodate snow melt at higher elevations, confirming this gets properly vertical. More climbing than SBT GRVL at the same score."
       },
       "climate": {
         "score": 3,

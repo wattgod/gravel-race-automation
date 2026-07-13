@@ -29,25 +29,25 @@
       "start_elevation_asl_ft": 1476
     },
     "climate": {
-      "primary": "Austrian summer",
-      "description": "Generally mild conditions.",
+      "primary": "Carinthian spring",
+      "description": "Mid-April in Carinthia swings from bright sun to raw and near-freezing at the start line — the 2025 edition opened at 6°C with a hard easterly wind before clearing.",
       "challenges": [
-        "Variable weather",
-        "Generally mild",
-        "Mountainous terrain",
-        "Summer conditions"
+        "Cold, wind-exposed morning start",
+        "Variable spring conditions (sun, wind, and rain in one day)",
+        "April temperature swings",
+        "Group speed compounds any wind exposure"
       ]
     },
     "terrain": {
-      "primary": "Austrian Alps gravel",
-      "surface": "Gravel roads through Austrian Alps near Wörthersee. Significant elevation with Alpine scenery.",
+      "primary": "Carinthian lake and river gravel",
+      "surface": "Fast, mostly smooth gravel around the Wörthersee's south shore and along the Drau river, broken by one signature selection climb: a 4km/150m gravel ramp at km 2, repeated in reverse at the finish.",
       "technical_rating": 3,
       "features": [
-        "Significant mountainous (6000 feet)",
-        "Austrian Alps scenery",
-        "Wörthersee lake setting",
-        "Multiple distances",
-        "Regional event"
+        "Signature 4km/150m gravel ramp at km 2 (reversed at the finish)",
+        "Wörthersee south shore + Drau river gravel",
+        "78km + 72km loop format (150km/1,713m total)",
+        "UCI Gravel World Series qualifier",
+        "1,000-rider cap, sold out in 2 months (2024 debut)"
       ]
     },
     "gravel_god_rating": {
@@ -73,23 +73,23 @@
       "display_tier": 3
     },
     "biased_opinion": {
-      "verdict": "Austrian Alps Gravel",
-      "summary": "Wörthersee Gravel Race is a regional event in Austria—Alpine terrain with significant elevation. The Austrian Alps are scenic and organization is solid, but the moderate access and regional field keep it firmly in Tier 3.",
+      "verdict": "Austria's UCI Gravel World Series Race",
+      "summary": "Wörthersee Gravel Race is a young but well-drilled UCI Gravel World Series qualifier around the lake and along the Drau river at Velden am Wörthersee — fast, mostly smooth gravel bookended by one signature climb that splits the field early and repeats in reverse at the finish. Sold out within two months of its 2024 debut and grew to nearly 2,000 riders from 40+ countries by 2025.",
       "strengths": [
-        "Austrian Alps scenery",
-        "Good organization",
-        "Austrian mild summer weather",
-        "Wörthersee lake setting",
-        "European cycling community"
+        "Signature selection climb (4km/150m) makes for honest, decisive racing",
+        "Fast, drafting-friendly lake and river gravel",
+        "Well-organized three-day festival weekend at Velden",
+        "Official shorter course (94km) for men 60+/women 50+",
+        "Growing international UCI World Series field"
       ],
       "weaknesses": [
-        "Moderate Europe access",
-        "Moderate costs ($1500+ total)",
-        "Regional field only",
-        "Limited international draw",
-        "Variable weather"
+        "Regional-Europe travel for most international riders",
+        "1,000-rider cap sells out fast",
+        "Variable April Carinthian weather",
+        "Newest race on the World Series calendar, still building reputation",
+        "Moderate total trip cost ($1500+) for non-European riders"
       ],
-      "bottom_line": "A scenic Austrian Alps gravel race. Worth it for European riders. Not practical for most international riders."
+      "bottom_line": "A fast, honest gravel race built around one real selection climb, run twice. Straightforward for European riders; a genuine but pricier trip for everyone else."
     },
     "final_verdict": {
       "score": "53 / 100",
@@ -101,43 +101,47 @@
       ]
     },
     "logistics": {
-      "airport": "Klagenfurt (KLU) or Ljubljana (LJU) 1 hour",
-      "lodging_strategy": "Wörthersee has good lodging options.",
-      "food": "Wörthersee has full dining options. Stock nutrition.",
-      "packet_pickup": "Day before typically",
-      "parking": "At start/finish",
-      "official_site": "Check Wörthersee Gravel Race website"
+      "airport": "Klagenfurt (KLU), closest; Ljubljana (LJU) also ~1 hour away",
+      "lodging_strategy": "Velden am Wörthersee is a lakefront resort town with a full range of hotels, including the Falkensteiner Schlosshotel Velden, which runs VIP packages for race weekend. Book early — the weekend is a 3-day festival (expo, kids' race, pro presentation at Schloss Velden) that fills the town.",
+      "food": "Full dining in Velden; self-supply nutrition for the 150km/93mi distance between aid stations.",
+      "packet_pickup": "Day before, as part of the 3-day festival weekend",
+      "parking": "At start/finish, Velden am Wörthersee",
+      "official_site": "https://www.woerthersee-gravel.com/"
     },
     "history": {
-      "founded": null,
-      "founder": "Austrian organizers",
-      "origin_story": "Regional Austrian gravel event.",
-      "notable_moments": [],
-      "reputation": "Regional Austrian event."
+      "founded": 2024,
+      "founder": "Wörthersee-Rosental region organizers (race director Julius Rupitsch)",
+      "origin_story": "Debuted April 7, 2024 as the first UCI Gravel World Series race in Austria, built around Velden am Wörthersee's lake and river gravel; the inaugural edition sold out within two months.",
+      "notable_moments": [
+        "2024: inaugural edition, sold out in 2 months",
+        "2025: field grew to nearly 2,000 riders from 40+ countries; Magnus Bak Klaris (3:38:16) and Geerike Schreurs (4:32:21) won",
+        "2026: Jordan Habets and Nicole Frain won the third edition (April 12, 2026)"
+      ],
+      "reputation": "The newest race on the UCI Gravel World Series calendar and, per early finishers, one of the best-organized — a three-day festival built around Velden's lakefront."
     },
     "course_description": {
       "character": "UCI Gravel World Series qualifier from Velden am Wörthersee: 150km/1,713m full distance (78km start loop + 72km second loop) along the Wörthersee south shore and the Drau river channel. A 4km gravel ramp gaining 150m hits at km 2 and splits the field immediately; the final climb runs the same ramp in reverse. 94km/1,182m is the official course for men 60+ / women 50+. Start/finish 450m ASL, high point 620m at km 99. 2024 debut sold out in two months.",
       "suffering_zones": [
         {
-          "mile": 25,
-          "label": "Early Alps",
-          "desc": "First Alpine sections.",
-          "terrain_detail": "Mountainous",
-          "named_section": "Early Alps"
+          "mile": 1,
+          "label": "The Ramp",
+          "desc": "The 4km/150m gravel climb that starts at km 2 and splits the field into the groups that decide most of the day.",
+          "terrain_detail": "Gravel climbing, ~150m gain over 4km",
+          "named_section": "Km 2 Selection Ramp"
         },
         {
-          "mile": 38,
-          "label": "Midpoint",
-          "desc": "Halfway through the course.",
-          "terrain_detail": "Midpoint",
-          "named_section": "Halfway"
+          "mile": 48,
+          "label": "Loop Transition",
+          "desc": "The 78km opening loop hands off to a slightly different 72km second loop along the lake's south shore and the Drau river.",
+          "terrain_detail": "Fast gravel, lake and river gravel",
+          "named_section": "Loop 1 / Loop 2 Handoff"
         },
         {
-          "mile": 60,
-          "label": "Late Alps",
-          "desc": "Final Alpine sections before finish.",
-          "terrain_detail": "Late mountains",
-          "named_section": "Final Push"
+          "mile": 91,
+          "label": "The Ramp, Reversed",
+          "desc": "The same climb that opened the race, run in reverse with 140-plus kilometres already in your legs — Wörthersee's real test.",
+          "terrain_detail": "Gravel climbing, same ramp reversed",
+          "named_section": "Final Climb"
         }
       ],
       "signature_challenge": "Austrian Alps mountainous terrain.",
@@ -146,37 +150,37 @@
     },
     "guide_variables": {
       "race_name": "Wörthersee Gravel Race",
-      "race_distance": "75 miles",
-      "race_elevation": "6,000 feet",
-      "race_date": "Summer",
-      "race_location": "Wörthersee, Austria",
-      "race_terrain": "Austrian Alps gravel",
-      "race_weather": "Austrian summer mild",
+      "race_distance": "93 miles",
+      "race_elevation": "5,620 feet",
+      "race_date": "Mid-April (2027: April 11, Sunday)",
+      "race_location": "Velden am Wörthersee, Austria",
+      "race_terrain": "Carinthian lake and river gravel",
+      "race_weather": "Carinthian spring — variable, can be cold and windy",
       "race_challenges": [
-        "Mountainous terrain",
-        "Regional field",
-        "Moderate costs",
-        "Variable weather",
-        "Significant elevation"
+        "Hard-start selection ramp at km 2 (4km/150m)",
+        "Sustained group speed with heavy drafting stakes",
+        "Same ramp repeated in reverse at the finish, on tired legs",
+        "Variable spring weather",
+        "1,000-rider cap, competitive field"
       ],
       "altitude_section": false,
       "altitude_feet": null
     },
     "non_negotiables": [
       {
-        "requirement": "Mountain endurance",
+        "requirement": "Hard-start power for the km 2 selection ramp",
+        "by_when": "Week 6-8",
+        "why": "A 4km/150m gravel ramp hits 2km into the race and splits the field into the groups that decide most of the day."
+      },
+      {
+        "requirement": "Durable group-speed engine",
         "by_when": "Week 8-10",
-        "why": "Austrian Alps require sustained effort."
+        "why": "150km of mostly fast, smooth gravel along the lake and river rewards drafting and punishes riding alone."
       },
       {
-        "requirement": "Weather preparation",
-        "by_when": "Week 4-6",
-        "why": "Austrian summer weather is variable."
-      },
-      {
-        "requirement": "Budget planning",
-        "by_when": "Week 12+",
-        "why": "Moderate costs ($1500+ total)."
+        "requirement": "Legs that still answer on the reversed climb",
+        "by_when": "Week 10-12",
+        "why": "The finish repeats the opening ramp in reverse after 140-plus kilometres — Wörthersee saves its hardest test for empty legs."
       }
     ],
     "research_metadata": {
@@ -208,20 +212,20 @@
     },
     "training_config": {
       "workout_modifications": {
-        "mountain_endurance": {
+        "selection_ramp_power": {
+          "enabled": true,
+          "weeks": [
+            6,
+            7,
+            8
+          ]
+        },
+        "group_speed_durability": {
           "enabled": true,
           "weeks": [
             8,
             9,
             10
-          ]
-        },
-        "weather_training": {
-          "enabled": true,
-          "weeks": [
-            4,
-            5,
-            6
           ]
         },
         "dress_rehearsal": {
@@ -240,27 +244,25 @@
         "priority_order": [
           "pacing",
           "fueling",
-          "weather",
-          "mountains"
+          "group_speed"
         ],
         "race_specific": true,
         "topics": {
-          "pacing": "Mountainous terrain pacing",
-          "fueling": "Nutrition for mountain riding",
-          "weather": "Riding in variable Austrian weather",
-          "mountains": "Sustained mountain strategy"
+          "pacing": "Pacing the km 2 selection ramp without blowing up",
+          "fueling": "Fueling 150km of fast group racing",
+          "group_speed": "Drafting and group tactics on the Wörthersee/Drau gravel"
         }
       },
       "tier_overrides": {},
       "marketplace_variables": {
         "race_name": "Wörthersee Gravel Race",
-        "race_hook": "Austrian Alps gravel challenge.",
-        "race_hook_detail": "Regional event with mountainous terrain.",
-        "distance": "75",
-        "dark_mile": "38",
-        "non_negotiable_1": "Mountain endurance",
-        "non_negotiable_2": "Weather preparation",
-        "non_negotiable_3": "Budget planning",
+        "race_hook": "150 kilometres (93 miles) of fast Carinthian gravel with a signature selection climb, run twice.",
+        "race_hook_detail": "UCI Gravel World Series qualifier at Velden am Wörthersee, Austria.",
+        "distance": "93",
+        "dark_mile": "91",
+        "non_negotiable_1": "Hard-start power for the km 2 selection ramp",
+        "non_negotiable_2": "Durable group-speed engine",
+        "non_negotiable_3": "Legs that still answer on the reversed climb",
         "trainingpeaks_url": null
       }
     },
@@ -388,11 +390,26 @@
       "years": {
         "2024": {
           "key_takeaways": [
-            "Race history (founded year, founder if known): First UCI World Series race in Austria (noted for 2024 edition); part of 2026 UCI Gravel World Series a"
+            "Inaugural edition, April 7, 2024 — first UCI Gravel World Series race in Austria",
+            "Sold out within two months of opening registration"
+          ]
+        },
+        "2025": {
+          "key_takeaways": [
+            "Field grew to nearly 2,000 riders from 40+ countries",
+            "Men's winner: Magnus Bak Klaris (Denmark), 3:38:16; Felix Stehli (Switzerland) 2nd, Lukas Pöstlberger (Austria) 3rd/Austrian national champion",
+            "Women's winner: Geerike Schreurs (Netherlands), 4:32:21; Karolina Migoń (Switzerland) 2nd, Carolin Schiff (Germany) 3rd"
+          ]
+        },
+        "2026": {
+          "key_takeaways": [
+            "Third edition, April 12, 2026 (Sunday)",
+            "Men's winner: Jordan Habets",
+            "Women's winner: Nicole Frain"
           ]
         }
       },
-      "latest_year": "2024"
+      "latest_year": "2026"
     },
     "tire_recommendations": {
       "generated_at": "2026-02-19",

@@ -29,25 +29,25 @@
       "start_elevation_asl_ft": 230
     },
     "climate": {
-      "primary": "Spanish spring",
-      "description": "Generally mild to warm conditions.",
+      "primary": "Catalan late-summer/early-autumn",
+      "description": "Mid-September on the Costa Brava — usually warm, dry, and bright.",
       "challenges": [
-        "Variable weather",
-        "Warm possible",
-        "Rolling terrain",
-        "Spring conditions"
+        "Warm race-day heat despite the September date",
+        "Hard cold-open climb before the body is warm",
+        "Fast group-speed sections that punish riding alone",
+        "Late-race punch on tired legs (Mas Llunes, km83)"
       ]
     },
     "terrain": {
-      "primary": "Spanish rolling gravel",
-      "surface": "Gravel roads through Spanish countryside near Girona. Moderate elevation with rolling scenery.",
+      "primary": "Punchy Catalan farm and forest gravel",
+      "surface": "Fast Catalan farm and forest gravel roads through the Girona countryside, opening with a 5.2km climb at 6.2% straight from the Juià start.",
       "technical_rating": 2,
       "features": [
-        "Moderate rolling (5500 feet)",
-        "Spanish countryside scenery",
-        "Girona setting",
-        "Multiple distances",
-        "Regional event"
+        "5.2km opening climb at 6.2% from the gun",
+        "Coll de Llumeneres technical descent (~km21)",
+        "Fast rolling Catalan farm/forest gravel (~km41)",
+        "Mas Llunes climb (~km83, race-deciding)",
+        "Short sharp kicker (~km100) before the Girona finish"
       ]
     },
     "gravel_god_rating": {
@@ -110,73 +110,87 @@
     },
     "history": {
       "founded": null,
-      "founder": "Sea Otter organizers",
-      "origin_story": "Regional Spanish gravel event with Sea Otter brand.",
+      "founder": "Sea Otter Europe / 226ERS (UCI Gravel World Series)",
+      "origin_story": "Run within the Sea Otter Europe festival at Girona-Fontajau, this is the 226ERS-branded UCI Gravel World Series round and the last qualifier before the World Championships in Nice. The 2026 edition runs a new 109km/940m route from Juià — the 2025 edition (won solo by Nicole Frain) was raced on a different, since-changed 107km/1,828m course.",
       "notable_moments": [],
-      "reputation": "Regional Spanish event with brand."
+      "reputation": "UCI Gravel World Series qualifier riding on the Sea Otter Europe festival's draw — the last chance to qualify for Worlds before the season ends."
     },
     "course_description": {
       "character": "226ERS UCI Gravel World Series round at Sea Otter Europe (single clearly-defined race day within the festival): NEW 2026 route 109km/67.7mi with 940m (3,084ft), mass start 10:30 from Juià. Opens with a 5.2km climb at 6.2% straight from the gun; Coll de Llumeneres technical descent ~km21; fast rolling mid-race ~km41; Mas Llunes climb ~km83 (likely race-deciding); short sharp climb ~km100 before the Girona finish. Last 2026 qualifier before Gravel Worlds in Nice — deep late-season field. 2025 (107km/1,828m old route) won solo by Nicole Frain. PRIOR PROFILE 75mi/5,500ft = stale old-route data — corrected 2026-07-13.",
       "suffering_zones": [
         {
-          "mile": 25,
-          "label": "Early Rolling",
-          "desc": "First rolling sections.",
-          "terrain_detail": "Rolling",
-          "named_section": "Early Rolling"
+          "mile": 3.2,
+          "label": "Opening Climb",
+          "desc": "5.2km climb at 6.2% straight from the Juià start — the first selection, before anyone is warm.",
+          "terrain_detail": "5.2km @ 6.2% climb",
+          "named_section": "Opening Climb (km 5.2)"
         },
         {
-          "mile": 38,
-          "label": "Midpoint",
-          "desc": "Halfway through the course.",
-          "terrain_detail": "Midpoint",
-          "named_section": "Halfway"
+          "mile": 13.0,
+          "label": "Coll de Llumeneres",
+          "desc": "Technical descent that rewards commitment and punishes hesitation.",
+          "terrain_detail": "Technical descent",
+          "named_section": "Coll de Llumeneres (km 21)"
         },
         {
-          "mile": 60,
-          "label": "Late Rolling",
-          "desc": "Final rolling sections before finish.",
-          "terrain_detail": "Late rolling",
-          "named_section": "Final Push"
+          "mile": 25.5,
+          "label": "Fast Rolling",
+          "desc": "Long rolling stretches of Catalan farm and forest gravel where group speed matters enormously.",
+          "terrain_detail": "Rolling gravel, group-dependent",
+          "named_section": "Rolling Sector (km 41)"
+        },
+        {
+          "mile": 51.6,
+          "label": "Mas Llunes",
+          "desc": "The climb that decides most people's race, arriving on legs already worked over by fast group riding.",
+          "terrain_detail": "Race-deciding climb",
+          "named_section": "Mas Llunes (km 83)"
+        },
+        {
+          "mile": 62.1,
+          "label": "Final Kicker",
+          "desc": "One last sharp climb before the drop into the Girona finish — for whatever is left.",
+          "terrain_detail": "Short sharp kicker",
+          "named_section": "Final Kicker (km 100)"
         }
       ],
-      "signature_challenge": "Spanish rolling terrain.",
+      "signature_challenge": "The 5.2km opening climb at 6.2% straight from the gun, and the Mas Llunes climb at km 83 that usually decides the race.",
       "ridewithgps_id": null,
       "ridewithgps_name": null
     },
     "guide_variables": {
       "race_name": "Sea Otter Europe Gravel",
-      "race_distance": "75 miles",
-      "race_elevation": "5,500 feet",
-      "race_date": "Spring",
+      "race_distance": "68 miles (109 km)",
+      "race_elevation": "3,084 feet (940m)",
+      "race_date": "September (Sat, Sep 19 2026)",
       "race_location": "Girona, Spain",
-      "race_terrain": "Spanish rolling gravel",
-      "race_weather": "Spanish spring mild to warm",
+      "race_terrain": "Punchy Catalan farm and forest gravel",
+      "race_weather": "Warm, dry Catalan September",
       "race_challenges": [
-        "Rolling terrain",
-        "Regional field",
-        "Moderate costs",
-        "Variable weather",
-        "Moderate elevation"
+        "5.2km opening climb at 6.2% straight from the gun",
+        "Fast group riding on rolling Catalan gravel",
+        "Mas Llunes climb at km 83 usually decides the race",
+        "Short sharp kicker near km 100",
+        "Warm September heat on the Costa Brava"
       ],
       "altitude_section": false,
       "altitude_feet": null
     },
     "non_negotiables": [
       {
-        "requirement": "Rolling endurance",
-        "by_when": "Week 8-10",
-        "why": "Spanish rolling terrain requires sustained effort."
-      },
-      {
-        "requirement": "Weather preparation",
+        "requirement": "Cold-open climbing readiness",
         "by_when": "Week 4-6",
-        "why": "Spanish spring weather is variable."
+        "why": "The race opens with a 5.2km climb at 6.2% straight from the gun, before anyone is warm."
       },
       {
-        "requirement": "Budget planning",
-        "by_when": "Week 12+",
-        "why": "Moderate costs ($1500+ total)."
+        "requirement": "Sustained group speed",
+        "by_when": "Week 6-8",
+        "why": "Long fast rolling Catalan gravel sectors punish riders who get dropped from a group."
+      },
+      {
+        "requirement": "Late-race punch",
+        "by_when": "Week 8+",
+        "why": "The Mas Llunes climb at km 83 and a final kicker near km 100 decide the race on tired legs."
       }
     ],
     "research_metadata": {
@@ -245,22 +259,22 @@
         ],
         "race_specific": true,
         "topics": {
-          "pacing": "Rolling terrain pacing",
-          "fueling": "Nutrition for rolling riding",
-          "weather": "Riding in variable Spanish weather",
-          "rolling": "Sustained rolling strategy"
+          "pacing": "Pacing a hard cold-open climb from the gun",
+          "fueling": "Fueling a fast 109km Catalan gravel race",
+          "weather": "Racing warm, dry Catalan September heat",
+          "rolling": "Sustained group speed on fast Catalan gravel"
         }
       },
       "tier_overrides": {},
       "marketplace_variables": {
         "race_name": "Sea Otter Europe Gravel",
-        "race_hook": "Spanish Girona gravel challenge.",
-        "race_hook_detail": "Regional event with rolling terrain.",
-        "distance": "75",
-        "dark_mile": "38",
-        "non_negotiable_1": "Rolling endurance",
-        "non_negotiable_2": "Weather preparation",
-        "non_negotiable_3": "Budget planning",
+        "race_hook": "Girona's UCI Gravel World Series qualifier — the last stop before Worlds.",
+        "race_hook_detail": "109km/940m of fast Catalan gravel, opening with a 5.2km climb at 6.2% and deciding at Mas Llunes, km83.",
+        "distance": "68",
+        "dark_mile": "52",
+        "non_negotiable_1": "Cold-open climbing readiness",
+        "non_negotiable_2": "Sustained group speed",
+        "non_negotiable_3": "Late-race punch",
         "trainingpeaks_url": null
       }
     },
@@ -271,15 +285,15 @@
       },
       "length": {
         "score": 3,
-        "explanation": "107km with elite winning times of 3:40:00 for women (29.2 km/h) and 3:10:49 for men (33.7 km/h) shows the distance demands real fitness without being a pure sufferfest. Nicole Frain went solo at halfway and held her gap, while the men's race stayed together until a sprint finish with just 1 second separating first and second. Similar distance to Crusher in the Tushar."
+        "explanation": "The 2026 route is new: 109km/67.7mi from Juià, up from the 2025 course's 107km. In 2025, on the prior (since-changed) route, elite winning times were 3:40:00 for women (29.2 km/h) and 3:10:49 for men (33.7 km/h) — Nicole Frain went solo at halfway and held her gap, the men's race stayed together until a sprint finish decided by 1 second. The distance demands real fitness without being a pure sufferfest. Similar distance to Crusher in the Tushar."
       },
       "technicality": {
         "score": 2,
-        "explanation": "Nicole Frain described the course as 'rough, hot, rocky' with technical descents after the major climb to Puig d'Arques. The terrain combines wide flat tracks through rural areas with rolling hills, but the early selection on climbs rather than technical sections suggests it's more about power than handling skills. Less technical than The Mid South."
+        "explanation": "The Coll de Llumeneres descent around km21 is the technical test on the 2026 route, following directly off the hard opening climb. Nicole Frain described the (2025, since-changed) course as 'rough, hot, rocky' with technical descents after the major climb — a fair preview of the style even though the exact route has changed. Wide flat tracks through rural Catalonia mix with rolling and technical sections; the early selection happens on climbs rather than technical terrain, so it's more about power than handling skills. Less technical than The Mid South."
       },
       "elevation": {
         "score": 2,
-        "explanation": "1,828m over 107km includes a decisive first climb where Esmée Peperkamp 'set a savage pace' that immediately split the field. The major climb to Puig d'Arques at halfway reaches 409m elevation, with two consecutive climbs between km 41-48 providing the hardest section before a technical descent. Less climbing than The Mid South."
+        "explanation": "The 2026 route climbs 940m (3,084ft) over 109km — a punchy, not mountainous, profile: a 5.2km opening climb at 6.2% straight from the gun, then the Mas Llunes climb at km83 that usually decides the race, with a short sharp kicker near km100. (On the 2025 course, since changed, the major climb to Puig d'Arques at halfway reached 409m and Esmée Peperkamp 'set a savage pace' that split the field immediately — a taste of how hard the opening selection runs here regardless of the exact profile.) Less climbing than The Mid South."
       },
       "climate": {
         "score": 3,

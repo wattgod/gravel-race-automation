@@ -219,8 +219,11 @@ def check_html_quality(v):
         # SEO: canonical
         v.check('rel="canonical"' in content, f"{label}: has canonical URL")
 
-        # SEO: JSON-LD
-        v.check("application/ld+json" in content, f"{label}: has JSON-LD")
+        # SEO: JSON-LD — deliberately absent on noindexed previews (Article
+        # schema on noindex pages sends contradictory signals; see
+        # generate_blog_preview.py), so only require it on indexable pages.
+        if 'name="robots" content="noindex' not in content:
+            v.check("application/ld+json" in content, f"{label}: has JSON-LD")
 
         # SEO: meta description
         v.check('name="description"' in content, f"{label}: has meta description")

@@ -3,29 +3,30 @@
     "name": "Houffa Gravel",
     "slug": "houffa-gravel",
     "display_name": "Houffa Gravel",
-    "tagline": "Belgian Ardennes gravel in Houffalize.",
+    "tagline": "Houffalize's UCI World Series lap race — Saint Roch every lap, Ardennes all day.",
     "vitals": {
-      "distance_mi": 65,
-      "elevation_ft": 4500,
+      "distance_mi": 88,
+      "elevation_ft": 6890,
       "location": "Houffalize, Belgian Ardennes",
       "location_badge": "HOUFFALIZE, BELGIUM",
-      "county": "Luxembourg Province",
+      "county": "Luxembourg (province), Wallonia",
       "date": "Late August annually",
-      "date_specific": "2026: August 30",
+      "date_specific": "2026: August 30 (SUNDAY, CONFIRMED — ucigravelworldseries.com/en/houffalize + eurogravel26.com; 2026 doubles as UEC Gravel European Championships)",
       "terrain_types": [
-        "Belgian Ardennes",
-        "Hilly gravel",
-        "Regional event",
-        "Belgium"
+        "Belgian Ardennes lap race",
+        "UCI Gravel World Series",
+        "Côte de Saint Roch opener",
+        "MTB capital of Belgium"
       ],
       "field_size": "200-400 riders",
       "start_time": "8:30 a.m.",
-      "registration": "Online. Cost: ~€60-100",
+      "registration": "Online. Organizer: Golazo (Bolero Gravel Series)",
       "prize_purse": "Modest prizes",
       "aid_stations": "Multiple aid stations",
       "cutoff_time": "Varies",
       "lat": 50.1619,
-      "lng": 5.5817
+      "lng": 5.5817,
+      "start_elevation_asl_ft": 1519
     },
     "climate": {
       "primary": "Belgian summer",
@@ -115,7 +116,7 @@
       "reputation": "Regional Belgian event."
     },
     "course_description": {
-      "character": "Belgian Ardennes hilly gravel.",
+      "character": "Golazo's UCI GWS round (2026 = UEC European Championships): 47km Ardennes lap, ~700m each — elite/open ride 3 laps (~141km/2,100m = 88mi/6,890ft), men 60-74/women 50-64 ride 2 (94km/1,400m), 75+/65+ ride 1. ~70% off-road. Each lap opens with the Côte de Saint Roch (1km at 11.2%, ramps to 16% — the L-B-L opener). 2025 winners Würtz Schmidt/Frain. RACE DAY SUNDAY. PRIOR 65mi/4,500ft matched nothing — corrected 2026-07-14. 2026 runway ~6.7wk = SMR-only question (Matti, w/ wasatch); 2027 pre-build = clean path.",
       "suffering_zones": [
         {
           "mile": 20,

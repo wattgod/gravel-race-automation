@@ -30,13 +30,13 @@
       "start_elevation_asl_ft": 1350
     },
     "climate": {
-      "primary": "Wisconsin summer",
-      "description": "Variable summer conditions. Potential for heat or rain.",
+      "primary": "Northern Wisconsin early spring",
+      "description": "Early May in the Chequamegon can be crisp and perfect or raw and mean, sometimes both before lunch. Cold morning rollouts, warming afternoons, and rain are all in play.",
       "challenges": [
-        "Heat possible",
+        "Cold morning starts possible",
         "Rain possible",
-        "Variable Wisconsin weather",
-        "Humidity"
+        "Wide swings between morning and afternoon temps",
+        "Variable early-May northwoods weather"
       ]
     },
     "terrain": {
@@ -148,16 +148,16 @@
     "guide_variables": {
       "race_name": "Hungry Bear 100",
       "race_distance": "100 miles",
-      "race_elevation": "4,500 feet",
-      "race_date": "Summer",
+      "race_elevation": "Varies (unpublished by organizer; ~5,000ft per independent recap)",
+      "race_date": "Early May",
       "race_location": "Cable, Wisconsin",
-      "race_terrain": "Northwoods gravel roads",
-      "race_weather": "Wisconsin summer variability",
+      "race_terrain": "Chequamegon-Nicolet National Forest fortified gravel",
+      "race_weather": "Early-May northwoods variability (cold mornings to mild afternoons)",
       "race_challenges": [
         "100-mile distance",
-        "Rolling to hilly terrain",
-        "Weather variability",
-        "Moderate to significant climbing"
+        "Rolling to hilly fortified-gravel terrain",
+        "Early-May weather variability",
+        "Moderate to significant climbing (Rock Lake, Morgan Falls)"
       ],
       "altitude_section": false,
       "altitude_feet": null
@@ -171,7 +171,7 @@
       {
         "requirement": "Climbing strength",
         "by_when": "Week 6-8",
-        "why": "4500 feet of climbing requires good aerobic capacity."
+        "why": "Rolling northwoods climbing (gain unpublished by the organizer) accumulates across a hundred miles and requires good aerobic capacity."
       }
     ],
     "research_metadata": {
@@ -248,7 +248,7 @@
       "marketplace_variables": {
         "race_name": "Hungry Bear 100",
         "race_hook": "100 miles of Chequamegon area Northwoods gravel.",
-        "race_hook_detail": "Regional Wisconsin century with 4500 feet of climbing.",
+        "race_hook_detail": "Regional Wisconsin century with rolling northwoods climbing (gain unpublished by the organizer).",
         "distance": "100",
         "dark_mile": "60",
         "non_negotiable_1": "Century endurance",
@@ -272,7 +272,7 @@
       },
       "elevation": {
         "score": 3,
-        "explanation": "4,500 feet over 100 miles concentrates into \"quick, punchy hills and descents\" rather than sustained climbing. The final 25 miles pack \"around 2k feet of elevation\" into sandy, rocky terrain that one competitive rider warned others to \"save something in the tank for.\" It's rolling Northwoods punishment that accumulates without destroying your day. Similar elevation profile to Gravel Worlds."
+        "explanation": "Gain isn't officially published by the organizer (independent recaps put it around 5,000ft), and it concentrates into \"quick, punchy hills and descents\" rather than sustained climbing. The final 25 miles pack \"around 2k feet of elevation\" into sandy, rocky terrain that one competitive rider warned others to \"save something in the tank for.\" It's rolling Northwoods punishment that accumulates without destroying your day."
       },
       "climate": {
         "score": 2,

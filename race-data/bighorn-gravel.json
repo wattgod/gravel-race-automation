@@ -5,8 +5,8 @@
     "display_name": "Bighorn Gravel",
     "tagline": "Colorado mountain gravel in Gypsum near Vail with high altitude climbing.",
     "vitals": {
-      "distance_mi": 62,
-      "elevation_ft": 6000,
+      "distance_mi": 85,
+      "elevation_ft": 10000,
       "location": "Gypsum, Colorado",
       "location_badge": "GYPSUM, CO",
       "county": "Eagle County",
@@ -25,7 +25,9 @@
       "aid_stations": "Multiple aid stations",
       "cutoff_time": "Varies",
       "lat": 39.6469,
-      "lng": -106.9517
+      "lng": -106.9517,
+      "start_elevation_asl_ft": 6300,
+      "avg_elevation_asl_ft": 8500
     },
     "climate": {
       "primary": "Colorado mountain summer",
@@ -145,8 +147,8 @@
     },
     "guide_variables": {
       "race_name": "Bighorn Gravel",
-      "race_distance": "62 miles",
-      "race_elevation": "6,000 feet",
+      "race_distance": "85 miles",
+      "race_elevation": "10,000 feet",
       "race_date": "Summer",
       "race_location": "Gypsum, Colorado",
       "race_terrain": "Colorado mountain gravel",
@@ -252,7 +254,7 @@
       "tier_overrides": {},
       "marketplace_variables": {
         "race_name": "Bighorn Gravel",
-        "race_hook": "62 miles of Colorado mountain gravel at 7000-9000+ feet.",
+        "race_hook": "85 miles of Colorado mountain gravel at 7000-9000+ feet.",
         "race_hook_detail": "Regional mountain event in Gypsum with 6000 feet of climbing.",
         "distance": "62",
         "dark_mile": "35",

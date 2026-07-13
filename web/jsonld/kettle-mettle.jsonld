@@ -2,16 +2,16 @@
   "@context": "https://schema.org",
   "@type": "SportsEvent",
   "name": "Kettle Mettle",
-  "description": "British Columbia mountain gravel challenge.",
+  "description": "Western Canada's oldest gravel fondo on the Kettle Valley Rail Trail.",
   "sport": "Gravel Cycling",
-  "startDate": "2026-06-20",
+  "startDate": "2027-06-19",
   "location": {
     "@type": "Place",
-    "name": "British Columbia, Canada",
+    "name": "Princeton, British Columbia, Canada",
     "address": {
       "@type": "PostalAddress",
-      "addressLocality": "British Columbia",
-      "addressRegion": "Canada"
+      "addressLocality": "Princeton",
+      "addressRegion": "British Columbia"
     }
   },
   "offers": {
@@ -26,5 +26,9 @@
     "bestRating": "100",
     "ratingCount": "14",
     "name": "Gravel God Rating"
+  },
+  "organizer": {
+    "@type": "Person",
+    "name": "Tri 1 Events"
   }
 }

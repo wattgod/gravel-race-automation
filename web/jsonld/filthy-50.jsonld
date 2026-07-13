@@ -4,12 +4,14 @@
   "name": "Filthy 50",
   "description": "Minnesota fall gravel\u201450 miles of rolling terrain, 1,000 riders, and peak autumn colors.",
   "sport": "Gravel Cycling",
+  "startDate": "2026-10-10",
   "location": {
     "@type": "Place",
-    "name": "Northern Minnesota (route varies)",
+    "name": "Lanesboro, Minnesota",
     "address": {
       "@type": "PostalAddress",
-      "addressLocality": "Northern Minnesota (route varies)"
+      "addressLocality": "Lanesboro",
+      "addressRegion": "Minnesota"
     }
   },
   "offers": {

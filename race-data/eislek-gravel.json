@@ -29,25 +29,25 @@
       "start_elevation_asl_ft": 656
     },
     "climate": {
-      "primary": "Luxembourg spring",
-      "description": "Generally mild conditions.",
+      "primary": "Luxembourg early summer",
+      "description": "Mid-June in the Éislek: typically green and mild, but the 2026 edition was raced in 37°C heat, so real warm-weather days are on the table. Forest sections on the climbs provide shade; open stretches and the Our valley do not.",
       "challenges": [
-        "Variable weather",
-        "Generally mild",
-        "Rolling terrain",
-        "Spring conditions"
+        "Potential for real heat (2026 edition raced at 37°C)",
+        "Forest shade on the climbs vs. exposed valley sections",
+        "Cobbled ramp footing if wet",
+        "Early-summer Ardennes variability"
       ]
     },
     "terrain": {
-      "primary": "Luxembourg Ardennes gravel",
-      "surface": "Gravel roads through Luxembourg Ardennes. Moderate elevation with rolling scenery.",
+      "primary": "Luxembourg Ardennes gravel — 36.6km lap circuit",
+      "surface": "Laps of a 36.6-kilometre circuit out of Vianden in Luxembourg's Éislek/Ardennes — gravel and forest roads with a cobbled opening ramp. Every lap opens with a cobbled climb straight up to Vianden Castle, then roughly ten kilometres of climbing through forest to the lap's 510m high point before descending to the Our valley.",
       "technical_rating": 2,
       "features": [
-        "Moderate rolling (5500 feet)",
-        "Luxembourg Ardennes scenery",
-        "Eislek setting",
-        "Multiple distances",
-        "Regional event"
+        "109.8km / 2,670m for most categories (3 laps of 36.6km/~890m each)",
+        "Cobbled ramp to Vianden Castle opens every lap",
+        "~10km forest climb to the 510m high point per lap",
+        "Our valley descent closes every lap",
+        "UCI Gravel World Series round, Luxembourg-only since 2026"
       ]
     },
     "gravel_god_rating": {
@@ -106,77 +106,81 @@
       "food": "Luxembourg has full dining options. Stock nutrition.",
       "packet_pickup": "Day before typically",
       "parking": "At start/finish",
-      "official_site": "Check Eislek Gravel website"
+      "official_site": "eislekgravelluxembourg.com (UCI Gravel World Series)"
     },
     "history": {
-      "founded": null,
+      "founded": 2025,
       "founder": "Luxembourg organizers",
-      "origin_story": "Regional Luxembourg gravel event.",
-      "notable_moments": [],
-      "reputation": "Regional Luxembourg event."
+      "origin_story": "A UCI Gravel World Series round organized by LetzXplore (Esch-sur-Sûre), built around the medieval town of Vianden in Luxembourg's Éislek/Ardennes. The course's signature is the cobbled ramp straight up to Vianden Castle, ridden at the start of every lap before roughly ten kilometres of forest climbing to the circuit's 510m high point. The inaugural 2025 edition ran cross-border with Germany; since 2026 the course runs entirely within Luxembourg.",
+      "notable_moments": [
+        "2025: inaugural edition sells out at 1,500 riders",
+        "2026 (2nd edition): Marianne Vos-era sprinters Lorena Wiebes and Niels Vandeputte win in 37°C heat",
+        "2026: course becomes Luxembourg-only (2025 was cross-border with Germany)"
+      ],
+      "reputation": "A UCI Gravel World Series qualifier known for its repeatable-climb format — the cobbled castle ramp and forest climb return every lap, so the race rewards riders who pace the first ascent knowing it's coming back twice more. A non-qualifying OPEN category shares the day with the UCI-qualifying field."
     },
     "course_description": {
       "character": "LetzXplore's UCI GWS round from Vianden: 36.6km loop — full course 3 laps = 109.8km/2,670m (68mi/8,760ft official; one UCI recap says ~2,350m — organizer figure primary) for most cats; 2 laps = 73.2km/1,780m official for men 60+/women 50+; plus non-qualifying OPEN category. Each lap: cobbled ramp to Vianden Castle, ~10km climb to the 510m high point through forest, descent past the Our valley. 2026+ runs ENTIRELY in Luxembourg (2025 inaugural was cross-border w/ Germany — do not describe as cross-border). RACE DAY SUNDAY. PRIOR 70mi/5,500ft mismatched — corrected 2026-07-14.",
       "suffering_zones": [
         {
-          "mile": 20,
-          "label": "Early Rolling",
-          "desc": "First rolling sections.",
-          "terrain_detail": "Rolling",
-          "named_section": "Early Rolling"
+          "mile": 0,
+          "label": "Vianden Castle Ramp — Lap 1",
+          "desc": "Every lap opens with this: a cobbled ramp straight up to Vianden Castle, then roughly ten kilometres of forest climbing to the 510m high point. Fresh legs still make it feel manageable.",
+          "terrain_detail": "Cobbled ramp into sustained forest climbing",
+          "named_section": "Vianden Castle Ramp"
         },
         {
-          "mile": 35,
-          "label": "Midpoint",
-          "desc": "Halfway through the course.",
-          "terrain_detail": "Midpoint",
-          "named_section": "Halfway"
+          "mile": 23,
+          "label": "Vianden Castle Ramp — Lap 2",
+          "desc": "The cobbles and the forest climb return whether you paced lap one honestly or not. This is where the field starts to sort itself.",
+          "terrain_detail": "Same climb, second visit",
+          "named_section": "Vianden Castle Ramp"
         },
         {
-          "mile": 60,
-          "label": "Late Rolling",
-          "desc": "Final rolling sections before finish.",
-          "terrain_detail": "Late rolling",
-          "named_section": "Final Push"
+          "mile": 45,
+          "label": "Vianden Castle Ramp — Lap 3",
+          "desc": "The final ascent, on legs that have already answered it twice. Whatever lap one overspent, lap three collects.",
+          "terrain_detail": "Same climb, third and final visit",
+          "named_section": "Vianden Castle Ramp"
         }
       ],
-      "signature_challenge": "Luxembourg Ardennes rolling terrain.",
+      "signature_challenge": "The cobbled ramp to Vianden Castle, followed by a ~10km forest climb to the 510m high point — repeated at the start of every lap.",
       "ridewithgps_id": "51630014",
       "ridewithgps_name": "Eislek gravel 1"
     },
     "guide_variables": {
       "race_name": "Eislek Gravel",
-      "race_distance": "70 miles",
-      "race_elevation": "5,500 feet",
-      "race_date": "Spring",
+      "race_distance": "68 miles (109.8km, 3 laps of 36.6km)",
+      "race_elevation": "8,760 feet (~2,670m)",
+      "race_date": "Mid-June annually (2027: June 20, Sunday)",
       "race_location": "Luxembourg",
-      "race_terrain": "Luxembourg Ardennes gravel",
-      "race_weather": "Luxembourg spring mild",
+      "race_terrain": "36.6km Vianden lap circuit — cobbled castle ramp + ~10km forest climb per lap",
+      "race_weather": "Mid-June Éislek: typically mild-green, real heat possible (2026 edition raced at 37°C)",
       "race_challenges": [
-        "Rolling terrain",
-        "Regional field",
-        "Moderate costs",
-        "Variable weather",
-        "Moderate elevation"
+        "Cobbled Vianden Castle ramp + ~10km forest climb repeats every lap",
+        "Lap-race pacing discipline — lap one sets up laps two and three",
+        "Our valley descent on tired legs, three times",
+        "Potential real heat (2026 edition raced at 37°C)",
+        "European travel logistics"
       ],
       "altitude_section": false,
       "altitude_feet": null
     },
     "non_negotiables": [
       {
-        "requirement": "Rolling endurance",
+        "requirement": "Repeatable sustained climbing",
+        "by_when": "Week 6-10",
+        "why": "The cobbled Vianden Castle ramp + ~10km forest climb opens every lap — the third ascent has to cost what the first one did."
+      },
+      {
+        "requirement": "Cobble-and-forest handling",
+        "by_when": "Week 4-8",
+        "why": "Each lap opens on cobbles before transitioning to forest gravel — technique under fatigue matters as much as fitness."
+      },
+      {
+        "requirement": "Lap-one pacing discipline",
         "by_when": "Week 8-10",
-        "why": "Luxembourg Ardennes rolling terrain requires sustained effort."
-      },
-      {
-        "requirement": "Weather preparation",
-        "by_when": "Week 4-6",
-        "why": "Luxembourg spring weather is variable."
-      },
-      {
-        "requirement": "Budget planning",
-        "by_when": "Week 12+",
-        "why": "Moderate costs ($1500+ total)."
+        "why": "Lap racing punishes early aggression on the castle ramp — treat lap one as a loan against laps two and three."
       }
     ],
     "research_metadata": {
@@ -245,22 +249,22 @@
         ],
         "race_specific": true,
         "topics": {
-          "pacing": "Rolling terrain pacing",
-          "fueling": "Nutrition for rolling riding",
-          "weather": "Riding in variable Luxembourg weather",
-          "rolling": "Sustained rolling strategy"
+          "pacing": "Lap-race pacing for a repeated climb",
+          "fueling": "Nutrition for sustained climbing efforts",
+          "weather": "Riding in potential Éislek heat",
+          "rolling": "Sustained climbing strategy"
         }
       },
       "tier_overrides": {},
       "marketplace_variables": {
         "race_name": "Eislek Gravel",
-        "race_hook": "Luxembourg Ardennes gravel challenge.",
-        "race_hook_detail": "Regional event with rolling terrain.",
-        "distance": "70",
-        "dark_mile": "35",
-        "non_negotiable_1": "Rolling endurance",
-        "non_negotiable_2": "Weather preparation",
-        "non_negotiable_3": "Budget planning",
+        "race_hook": "UCI Gravel World Series lap race — the cobbled Vianden Castle ramp opens every lap.",
+        "race_hook_detail": "109.8km, three laps of a 36.6km Éislek circuit, each opening with a cobbled ramp to Vianden Castle then ~10km of forest climbing.",
+        "distance": "68",
+        "dark_mile": "45",
+        "non_negotiable_1": "Repeatable sustained climbing",
+        "non_negotiable_2": "Cobble-and-forest handling",
+        "non_negotiable_3": "Lap-one pacing discipline",
         "trainingpeaks_url": null
       }
     },
@@ -271,7 +275,7 @@
       },
       "length": {
         "score": 3,
-        "explanation": "The 70-mile distance demands careful pacing on the opening climb. eins4eins warns \"Da kann man leicht zu tief gehen und dann wird das ein richtig langer, harter Tag\" (you can easily go too deep there and then it becomes a really long, hard day). Elite winner Mathijs Loman averaged 33 km/h over 3:27:40 for the full 115km distance. Similar distance to Crusher in the Tushar."
+        "explanation": "The 109.8-kilometre (68-mile) distance demands careful pacing on the opening climb, and the opening climb repeats three times. Elite winners have raced it at speed averaging over 30 km/h across the full distance. Similar climbing density to Crusher in the Tushar, in a fraction of the distance."
       },
       "technicality": {
         "score": 2,
@@ -279,11 +283,11 @@
       },
       "elevation": {
         "score": 2,
-        "explanation": "Opening 8km climbs from 200m to 510m with sections exceeding 10% gradient. Loretta69 notes \"schöne Wangen, wo man mit 35/36 Übersetzung schon knautschen muss\" and wished for 30t chainring instead of 35t. The 70-mile course packs 1,100m+ elevation across 1.5 laps of the circuit. Less climbing than The Mid South."
+        "explanation": "Every lap climbs from Vianden (~200m) to the circuit's 510m high point via a cobbled castle ramp then roughly ten kilometres of forest gravel, with sections exceeding 10% gradient. The 109.8km course packs about 2,670 metres of climbing across all three laps. Riders have reported wishing for lower gearing than they brought. Comparable climbing density to The Mid South, in under half the distance."
       },
       "climate": {
         "score": 3,
-        "explanation": "Historical weather data shows average highs of 72°F and lows of 54°F, with a 51% chance of rain on any given day. Late June heat creates hydration challenges - eins4eins cramped 5km from finish after backup bottles \"wurden von jemandem weg genommen\" (were taken by someone). Forest sections provide tree cover relief, while the German Loop offers \"long sections under tree canopies where riders can pick up speed.\" Similar climate challenges to SBT GRVL."
+        "explanation": "Historical mid-June averages run mild, but the 2026 edition was raced in 37°C heat, so real warm-weather days are on the table. Forest sections on the climbs provide tree cover relief, while the Our valley descents and open stretches do not. Similar heat-variability challenge to SBT GRVL."
       },
       "altitude": {
         "score": 1,
@@ -291,7 +295,7 @@
       },
       "adventure": {
         "score": 3,
-        "explanation": "Cross-border route alternates between Luxembourg's cobblestone castle climb and Germany's softer forest paths. The Our River section runs along elevated paths with spectacular valley views, though Loretta69 warns the final 10km has \"einspurige Passagen, wo man dann von langsameren Fahrern ausgebremst wird.\""
+        "explanation": "The course loops out of medieval Vianden with a cobbled castle-ramp opener, forest climbing to the 510m high point, and a fast descent along the Our valley — three times. The Our valley sections run along elevated paths with real views. Since 2026 the course runs entirely within Luxembourg (the 2025 inaugural edition was cross-border with Germany)."
       },
       "prestige": {
         "score": 2,

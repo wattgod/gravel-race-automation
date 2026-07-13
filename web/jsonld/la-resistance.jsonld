@@ -4,12 +4,14 @@
   "name": "La Resistance",
   "description": "Route de la Soif \u2014 serious Alpine gravel with brooding mountain presence in the French Alps.",
   "sport": "Gravel Cycling",
+  "startDate": "2026-09-19",
   "location": {
     "@type": "Place",
-    "name": "French Alps",
+    "name": "Talloires, France",
     "address": {
       "@type": "PostalAddress",
-      "addressLocality": "French Alps"
+      "addressLocality": "Talloires",
+      "addressRegion": "France"
     }
   },
   "aggregateRating": {

@@ -41,14 +41,14 @@
     },
     "terrain": {
       "primary": "South Carolina Sumter Forest gravel",
-      "surface": "Gravel roads through Sumter National Forest. Significant elevation with forest scenery.",
+      "surface": "Fast, rolling Piedmont gravel through Sumter National Forest and private hunting-preserve roads — no single defining climb, difficulty is accumulation.",
       "technical_rating": 3,
       "features": [
-        "Significant rolling (4500 feet)",
-        "Forest scenery",
+        "Constant Piedmont rollers (no single climb)",
+        "River crossing traversed both directions",
+        "Tunnels under I-26",
         "Whitmire setting",
-        "Multiple distances",
-        "Regional event"
+        "Multiple distances (73/49/13mi)"
       ]
     },
     "gravel_god_rating": {
@@ -75,10 +75,10 @@
     },
     "biased_opinion": {
       "verdict": "South Carolina Forest Gravel",
-      "summary": "Gravel Battle of Sumter Forest is a regional event in Whitmire, South Carolina—Sumter National Forest terrain with significant elevation. The forest scenery is nice, but the moderate organization and regional field keep it firmly in Tier 3. Whitmire provides moderate access. Spring/fall weather brings heat and humidity challenges.",
+      "summary": "Gravel Battle of Sumter Forest is a regional event in Whitmire, South Carolina—Sumter National Forest terrain with a river crossing you meet twice and constant Piedmont rollers rather than any single defining climb. The forest scenery is nice, but the moderate organization and regional field keep it firmly in Tier 3. Whitmire provides moderate access. Spring/fall weather brings heat and humidity challenges.",
       "strengths": [
         "Sumter Forest terrain",
-        "Significant rolling (4500 feet)",
+        "River crossing traversed both directions + I-26 tunnels",
         "Forest scenery",
         "SC cycling community",
         "Regional pricing"
@@ -121,43 +121,50 @@
       "character": "Southeast Gravel race from downtown Whitmire (~430ft): Long 73mi (gain unpublished; 2021 edition measured ~3,031ft — display Varies), Short 49mi/2,100ft, Fun 13mi. Piedmont gravel through Sumter National Forest + private hunting-preserve roads, a river crossing traversed in BOTH directions, tunnels under I-26. Staggered starts (Long 9:00/Short 9:30/Fun 10:00), WebScorer timing. Has drawn stacked pro fields. PRIOR PROFILE 65mi/4,500ft matched no real option — corrected 2026-07-14.",
       "suffering_zones": [
         {
-          "mile": 20,
-          "label": "Early Rolling",
-          "desc": "First forest rolling sections.",
-          "terrain_detail": "Rolling",
-          "named_section": "Early Rolling"
+          "mile": 7,
+          "label": "First Dirt Section",
+          "desc": "The mass start hits its first gravel sector; the field compresses on loose surface and begins splitting up here.",
+          "terrain_detail": "Loose gravel, tight lines",
+          "named_section": "First Dirt Section"
         },
         {
-          "mile": 35,
-          "label": "Midpoint",
-          "desc": "Halfway through the course.",
-          "terrain_detail": "Midpoint",
-          "named_section": "Halfway"
+          "mile": 21,
+          "label": "Aid Station One",
+          "desc": "First aid station, deep into the Sumter National Forest and hunting-preserve roads.",
+          "terrain_detail": "Rolling forest gravel",
+          "named_section": "Aid Station One"
         },
         {
-          "mile": 55,
-          "label": "Final Rolling",
-          "desc": "Final forest sections before finish.",
-          "terrain_detail": "Late rolling",
-          "named_section": "Final Push"
+          "mile": 40,
+          "label": "Aid Station Two — River Crossing & Tunnels",
+          "desc": "Second aid station, in the stretch that carries the course's signature features: the river crossing (met in both directions) and the tunnels under I-26.",
+          "terrain_detail": "River crossing, tunnel underpasses",
+          "named_section": "River Crossing & Tunnels"
+        },
+        {
+          "mile": 63,
+          "label": "Aid Station Three — Final Push",
+          "desc": "Third aid station before the run to downtown Whitmire, including a steep late climb through the former shooting-range grounds into the finish.",
+          "terrain_detail": "Rolling into a steep finish pitch",
+          "named_section": "Final Push to Whitmire"
         }
       ],
-      "signature_challenge": "Sumter Forest rolling in central South Carolina.",
+      "signature_challenge": "No single defining climb — the river crossing (met twice), the I-26 tunnels, and rollers that never let the group settle, capped by a steep pitch into the Whitmire finish.",
       "ridewithgps_id": "50795630",
       "ridewithgps_name": "Gravel Battle of Sumter Forest Long Course New For 2025 (copy)"
     },
     "guide_variables": {
       "race_name": "Gravel Battle of Sumter Forest",
-      "race_distance": "65 miles",
-      "race_elevation": "4,500 feet",
-      "race_date": "Spring or Fall",
+      "race_distance": "73 miles",
+      "race_elevation": "Varies (unpublished — no single defining climb)",
+      "race_date": "Mid-March annually",
       "race_location": "Whitmire, South Carolina",
       "race_terrain": "South Carolina Sumter Forest gravel",
       "race_weather": "SC spring/fall variability",
       "race_challenges": [
-        "Forest rolling",
+        "Constant Piedmont rollers",
         "Heat/humidity possible",
-        "Significant elevation",
+        "River crossing (both directions)",
         "Regional field",
         "Variable conditions"
       ],
@@ -168,7 +175,7 @@
       {
         "requirement": "Rolling endurance",
         "by_when": "Week 8-10",
-        "why": "Sumter Forest rolling requires sustained effort (4500 feet)."
+        "why": "Sumter Forest's constant Piedmont rollers require sustained effort even without a single defining climb."
       },
       {
         "requirement": "Heat and humidity preparation",
@@ -248,7 +255,7 @@
         "race_specific": true,
         "topics": {
           "pacing": "Forest rolling pacing",
-          "fueling": "Nutrition for significant rolling",
+          "fueling": "Nutrition for a 73-mile day of constant rolling",
           "heat": "Racing in SC heat",
           "humidity": "Managing SC humidity"
         }
@@ -256,10 +263,10 @@
       "tier_overrides": {},
       "marketplace_variables": {
         "race_name": "Gravel Battle of Sumter Forest",
-        "race_hook": "South Carolina Sumter Forest gravel in Whitmire.",
-        "race_hook_detail": "Regional event with forest rolling.",
-        "distance": "65",
-        "dark_mile": "35",
+        "race_hook": "South Carolina Sumter Forest gravel in Whitmire — river crossing, tunnels, and rollers that never let you settle.",
+        "race_hook_detail": "Southeast Gravel series race with a river crossing and I-26 tunnels.",
+        "distance": "73",
+        "dark_mile": "40",
         "non_negotiable_1": "Rolling endurance",
         "non_negotiable_2": "Heat and humidity preparation",
         "non_negotiable_3": "Pacing discipline",

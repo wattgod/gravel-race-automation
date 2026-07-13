@@ -5,48 +5,49 @@
     "display_name": "La Drômoise Gravel",
     "tagline": "Vineyard passages and Vercors cliff views through the Drôme and Bez valleys of France.",
     "vitals": {
-      "distance_mi": 62,
-      "elevation_ft": 5500,
-      "location": "Drôme, France",
-      "location_badge": "DRÔME, FRANCE",
+      "distance_mi": 43,
+      "elevation_ft": 4921,
+      "location": "Die, Drôme, France",
+      "location_badge": "DIE, DRÔME, FRANCE",
       "county": "Drôme Department",
-      "date": "Mid-September annually",
-      "date_specific": "2025: September 18",
+      "date": "Third weekend of September annually",
+      "date_specific": "2026: Saturday, September 19 (Gravel day, within the Fri Sep 18-Sun Sep 20 Drômoise weekend) CONFIRMED official (cyclodromoise.com)",
       "terrain_types": [
-        "French Alps",
-        "European gravel",
-        "France",
-        "Alps"
+        "Diois forest fire roads",
+        "Vercors foothills (pre-Alps, not high Alps)",
+        "vineyard passages",
+        "Solaure plateau",
+        "GPS-navigation gravel"
       ],
-      "field_size": "150-200 riders",
-      "start_time": "Morning start",
-      "registration": "Online. Cost: ~€70-90",
+      "field_size": "~3,000-3,600 across the full 3-day Drômoise weekend (all disciplines); gravel-specific count not published (4th gravel edition, 2 courses)",
+      "start_time": "9:30 AM (40km course); Gravel-70km-GPS start time not separately published",
+      "registration": "Online via finishers.com. Cost: ~€70-90",
       "prize_purse": "Modest prizes",
-      "aid_stations": "3-4 aid stations",
-      "cutoff_time": "8 hours",
+      "aid_stations": "2 aid stations (km 9 and km 48) on the 70km course; 1 aid station on the 40km course",
+      "cutoff_time": "Not published",
       "lat": 44.7295,
-      "lng": 5.2046
+      "lng": 5.2229
     },
     "climate": {
-      "primary": "French Alps summer",
-      "description": "Variable mountain conditions.",
+      "primary": "Drôme/Vercors foothills late summer",
+      "description": "Late-September pre-Alpine conditions: mild days, cool mornings, variable mountain weather.",
       "challenges": [
-        "Variable weather",
-        "Mountain terrain",
-        "Summer heat possible",
-        "Alpine conditions"
+        "Variable mountain weather",
+        "Cool mornings, mild afternoons",
+        "Possible early-autumn rain",
+        "Foothill terrain, not high-altitude"
       ]
     },
     "terrain": {
-      "primary": "French Alps gravel",
-      "surface": "Gravel roads through French Alps. Significant elevation with mountain scenery.",
+      "primary": "Diois forest fire roads (pistes forestières) in the Vercors foothills",
+      "surface": "Nearly exclusively forest fire roads; small paved road passages and stony technical sections; GPS-trace navigation on the 70km course (not fully marked)",
       "technical_rating": 3,
       "features": [
-        "Significant mountainous (5500 feet)",
-        "French Alps scenery",
-        "European gravel experience",
-        "62-mile distance",
-        "Medium field"
+        "Solaure plateau and Roanne valley forest tracks",
+        "Views toward the Dévoluy, Vercors massif, and Mont Ventoux",
+        "Clairette vineyard above Aurel and Barsac",
+        "Finish near the Monastery of Sainte Croix",
+        "Col de Royer split point (Gravel-40 shares its opener with the MTB event, then diverges here)"
       ]
     },
     "gravel_god_rating": {
@@ -146,12 +147,12 @@
     },
     "guide_variables": {
       "race_name": "La Drômoise Gravel",
-      "race_distance": "62 miles",
-      "race_elevation": "5,500 feet",
-      "race_date": "Summer",
-      "race_location": "Drôme, France",
-      "race_terrain": "French Alps gravel",
-      "race_weather": "French Alps summer",
+      "race_distance": "43 miles (Gravel-70km-GPS; 25mi/40km Lite option also offered)",
+      "race_elevation": "4,921 feet",
+      "race_date": "Saturday, September 19, 2026",
+      "race_location": "Die, Drôme, France",
+      "race_terrain": "Diois forest fire roads, Vercors foothills",
+      "race_weather": "Late-September pre-Alpine, mild days/cool mornings",
       "race_challenges": [
         "Mountain terrain",
         "Variable weather",
@@ -186,7 +187,8 @@
         "france_cycling_community"
       ],
       "migration_notes": [
-        "Generated from regional information"
+        "Generated from regional information",
+        "2026-07-13 wave-24 recon: RECONCILED to official cyclodromoise.com. Real event = 19th La Drômoise cyclosportive weekend, Fri Sep 18-Sun Sep 20 2026, organized by Die Cycling Club (~3,000-3,600 across all 3 days/disciplines). Gravel is its own category (4th gravel edition) on Saturday Sep 19 2026 CONFIRMED, two courses: Gravel-40km/950m (marked, shares MTB opener, splits at Col de Royer) and Gravel-70km-GPS/1,500m (GPS-trace navigation only, forest fire roads, aid stations km9/km48). Anchored vitals on the 70km/1,500m course as flagship (43mi/4,921ft); 40km/950m (25mi/3,117ft) is the Lite alternative, not yet added as a separate keyed course. Corrected: location Die (not generic 'Drôme'), terrain from fabricated 'French Alps' to actual Diois/Vercors foothills pre-Alps, prior stale date '2025: September 18' and prior distance/elevation (62mi/5,500ft matched no real course) fixed. RUNWAY: from 2026-07-16 to 2026-09-19 = ~9.3 weeks -> SHORT ladder (F8/TC8/SMR6), NOT full 7-plan ladder; bank 12wk copy per standing precedent. UNFIXED (out of recon scope, flagged for copy-authoring): biased_opinion/final_verdict/history/course_description blocks below are still 100% generic 'French Alps' template boilerplate (score 49/tier 3) with zero race-specific content -- a real copy-authoring pass using the terrain.features/guide_variables specifics above would meaningfully improve this profile. Field size and cutoff time are NOT publicly available anywhere web-searched -- do not fabricate; use soft/no-number language in copy. Sources: cyclodromoise.com, cyclodromoise.com/project/gravel-70km-gps/, cyclodromoise.com/project/gravel-40km/, finishers.com/en/event/la-dromoise."
       ],
       "research_strength": {
         "overall": 87.2,

@@ -41,14 +41,14 @@
     },
     "terrain": {
       "primary": "Illinois farmland gravel",
-      "surface": "Farmland and rolling gravel roads. Moderate elevation with 100-mile distance challenge.",
+      "surface": "Flat Will County farmland gravel, ~88% unpaved (80% on the 150K). No published gain figure.",
       "technical_rating": 2,
       "features": [
-        "Moderate rolling (3000 feet)",
+        "Dead flat farmland",
         "Farmland scenery",
-        "100-mile distance",
+        "100K championship distance (62mi) — no 100-mile option",
         "State championship course",
-        "Northern Illinois setting"
+        "Will County, northern Illinois setting"
       ]
     },
     "gravel_god_rating": {
@@ -69,16 +69,16 @@
       "field_depth": 2,
       "value": 3,
       "expenses": 3,
-      "score_note": "Illinois State Championship. 100 miles is significant but flat farmland terrain and regional field.",
+      "score_note": "Illinois State Championship. 100K (62mi) is a solid distance but flat farmland terrain and regional field.",
       "discipline": "gravel",
       "display_tier": 3
     },
     "biased_opinion": {
-      "verdict": "Illinois State Championship Century",
-      "summary": "Little Apple 100 is Illinois' State Championship gravel race—a 100-mile challenge through northern Illinois farmland. The state championship status and century distance elevate it above typical regional events, but it's still flat farmland terrain with regional field depth. Manhattan is a small town near Chicago with basic amenities. It's well-organized for a state championship with moderate field size.",
+      "verdict": "Illinois State Championship, 100K Flagship",
+      "summary": "Little Apple 100 is Illinois' State Championship gravel race — a 100-kilometre (62-mile) flagship through Will County farmland out of Manhattan (50K/100K/150K menu, USAC 1-5 + Masters 40+/50+ titles at 100K). The state-championship status elevates it above typical regional events, but it's still flat farmland terrain with a regional field. Manhattan is a small town near Chicago with basic amenities. It's well-organized for a state championship with moderate field size.",
       "strengths": [
         "Illinois State Championship status",
-        "100-mile distance challenge",
+        "100K flagship distance with 50K/150K options",
         "Near Chicago (1 hour)",
         "Well-organized state championship",
         "Illinois cycling community support"
@@ -90,12 +90,12 @@
         "Limited national recognition",
         "Repetitive farmland scenery"
       ],
-      "bottom_line": "A solid Illinois State Championship gravel race with 100-mile distance challenge. Worth it for Illinois cyclists seeking state championship status. Not a destination race for out-of-state travelers, but a good state-level century event."
+      "bottom_line": "A solid Illinois State Championship gravel race with a 100K flagship distance. Worth it for Illinois cyclists seeking state championship status. Not a destination race for out-of-state travelers, but a good state-level event."
     },
     "final_verdict": {
       "score": "51 / 100",
-      "one_liner": "Illinois State Championship 100-mile gravel through flat farmland.",
-      "should_you_race": "If you're in Illinois and want state championship status—yes, it's a well-organized century event. If you're from out of state—there are more prestigious events elsewhere.",
+      "one_liner": "Illinois State Championship 100K gravel through flat farmland.",
+      "should_you_race": "If you're in Illinois and want state championship status—yes, it's a well-organized event. If you're from out of state—there are more prestigious events elsewhere.",
       "alternatives": "For better Midwest events: Gravel Worlds, Almanzo 100, Dirty Kanza. For similar state championships: other state championship events.",
       "alternative_slugs": [
         "almanzo-100",
@@ -106,7 +106,7 @@
     "logistics": {
       "airport": "Chicago (ORD/MDW) 1 hour",
       "lodging_strategy": "Manhattan has basic lodging. Chicago suburbs have more options.",
-      "food": "Small town with basic dining. Stock nutrition for 100 miles.",
+      "food": "Small town with basic dining. Stock nutrition for the 100K (62mi) distance.",
       "packet_pickup": "Day before typically",
       "parking": "At start/finish",
       "official_site": "Check Illinois cycling calendars"
@@ -122,48 +122,48 @@
       "character": "Illinois State Championship gravel race from Manhattan, IL (start/finish 525 S State St): 50K 'Little Apple', 100K 'Kong' (the championship flagship — USAC 1-5 + Masters 40+/50+ titles), and 150K 'King Kong'. NOTE: metric distances — there is NO 100-mile option; the name refers to 100 KILOMETERS. ~88% gravel (80% on the 150K) across flat, fast Will County farmland where wind and group speed decide everything. Race day is a SUNDAY (2026: Sun Aug 9). No published elevation figures — flat Midwest farmland, display 'Varies'.",
       "suffering_zones": [
         {
-          "mile": 30,
+          "mile": 19,
           "label": "First Third",
-          "desc": "30 miles in, settling into pace.",
+          "desc": "About a third in, settling into pace.",
           "terrain_detail": "Farmland",
           "named_section": "Early Miles"
         },
         {
-          "mile": 50,
+          "mile": 31,
           "label": "Halfway",
-          "desc": "Halfway point, 50 miles to go.",
+          "desc": "Halfway point, 31 miles to go.",
           "terrain_detail": "Midpoint",
           "named_section": "Halfway"
         },
         {
-          "mile": 75,
+          "mile": 47,
           "label": "The Grind",
-          "desc": "75 miles in, mental game begins.",
+          "desc": "Three-quarters in, mental game begins.",
           "terrain_detail": "Late miles",
           "named_section": "The Grind"
         },
         {
-          "mile": 90,
+          "mile": 56,
           "label": "Final Push",
-          "desc": "Last 10 miles to finish.",
+          "desc": "Last 6 miles to finish.",
           "terrain_detail": "Final miles",
           "named_section": "Homestretch"
         }
       ],
-      "signature_challenge": "100-mile distance through Illinois farmland with heat, wind, and humidity.",
+      "signature_challenge": "100-kilometre (62-mile) distance through flat Illinois farmland with heat, wind, and humidity.",
       "ridewithgps_id": "52324707",
       "ridewithgps_name": "Little Apple 100km"
     },
     "guide_variables": {
       "race_name": "Little Apple 100",
-      "race_distance": "100 miles",
-      "race_elevation": "3,000 feet",
-      "race_date": "Spring or Summer",
+      "race_distance": "100 kilometres (62 miles)",
+      "race_elevation": "Varies",
+      "race_date": "Sunday, early August",
       "race_location": "Manhattan, Illinois",
       "race_terrain": "Illinois farmland gravel",
       "race_weather": "Illinois variability",
       "race_challenges": [
-        "100-mile distance",
+        "100K championship distance",
         "Heat possible",
         "Wind exposure",
         "Humidity",
@@ -174,9 +174,9 @@
     },
     "non_negotiables": [
       {
-        "requirement": "Century endurance",
+        "requirement": "Century-distance endurance",
         "by_when": "Week 8-10",
-        "why": "100 miles requires extensive endurance base and long-distance preparation."
+        "why": "100 kilometres (62 miles) requires extensive endurance base and long-distance preparation."
       },
       {
         "requirement": "Heat and humidity preparation",
@@ -264,7 +264,7 @@
         "race_specific": true,
         "topics": {
           "pacing": "Century pacing discipline",
-          "fueling": "Nutrition strategy for 100 miles",
+          "fueling": "Nutrition strategy for 100 kilometres (62 miles)",
           "heat": "Racing in Illinois heat and humidity",
           "wind": "Riding in farmland wind"
         }
@@ -272,11 +272,11 @@
       "tier_overrides": {},
       "marketplace_variables": {
         "race_name": "Little Apple 100",
-        "race_hook": "100 miles of Illinois State Championship farmland gravel.",
-        "race_hook_detail": "State championship century event near Chicago.",
-        "distance": "100",
-        "dark_mile": "50",
-        "non_negotiable_1": "Century endurance",
+        "race_hook": "100 kilometres of Illinois State Championship farmland gravel.",
+        "race_hook_detail": "State championship 100K event near Chicago.",
+        "distance": "62",
+        "dark_mile": "31",
+        "non_negotiable_1": "Century-distance endurance",
         "non_negotiable_2": "Heat and humidity preparation",
         "non_negotiable_3": "Wind preparation",
         "trainingpeaks_url": null
@@ -289,7 +289,7 @@
       },
       "length": {
         "score": 4,
-        "explanation": "100 miles creates psychological warfare as much as physical suffering. One elite rider popped off the lead group at mile 11: \"I spent the next 5 miles trying to convince myself why I love gravel, and to just go slow, it doesn't matter.\" Partnership racing emerges when distance demands cooperation over pure competition. Longer than Belgian Waffle Ride San Diego."
+        "explanation": "100 kilometres (62 miles) creates psychological warfare as much as physical suffering. One elite rider popped off the lead group at mile 11: \"I spent the next 5 miles trying to convince myself why I love gravel, and to just go slow, it doesn't matter.\" Partnership racing emerges when distance demands cooperation over pure competition. Longer than Belgian Waffle Ride San Diego."
       },
       "technicality": {
         "score": 2,
@@ -297,7 +297,7 @@
       },
       "elevation": {
         "score": 2,
-        "explanation": "3000 feet over 100 miles creates sustained effort through farm areas of southern Chicago region. Ironman Chris describes \"five miles long\" climbing sections with headwinds that separate groups early. The challenge comes from accumulated fatigue rather than steep technical gradients requiring specialized climbing skills. Less climbing than The Mid South."
+        "explanation": "No published gain figure over 100 kilometres (62 miles) through farm areas of southern Chicago region — flat, but sustained. Ironman Chris describes \"five miles long\" flat stretches with headwinds that separate groups early. The challenge comes from accumulated fatigue rather than steep technical gradients requiring specialized climbing skills. Less climbing than The Mid South."
       },
       "climate": {
         "score": 2,

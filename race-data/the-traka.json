@@ -1,30 +1,30 @@
 {
   "race": {
-    "name": "Traka 360",
+    "name": "The Traka 200",
     "slug": "the-traka",
-    "display_name": "Traka 360",
-    "tagline": "Europe's Unbound. 360km through Catalonia from dawn to dusk to dawn. Where WorldTour pros meet gravel specialists.",
+    "display_name": "The Traka 200",
+    "tagline": "Europe's Unbound, one-day distance. 202km through Catalonia's Empordà plains and Gavarres massif, out and back to Girona in a day.",
     "vitals": {
-      "distance_mi": 224,
-      "elevation_ft": 11000,
+      "distance_mi": 126,
+      "elevation_ft": 8694,
       "location": "Girona, Catalonia, Spain",
       "location_badge": "GIRONA, CATALONIA, SPAIN",
       "county": "",
-      "date": "Early May annually",
-      "date_specific": "2026: April 30 - May 3",
+      "date": "Late April annually (Traka week)",
+      "date_specific": "2027: April 30 (Fri) - May 2 (Sun) Traka week; The Traka 200 = Friday, April 30, 2027 CONFIRMED (official thetraka.com)",
       "terrain_types": [
         "Rocky Mediterranean gravel",
+        "Empordà plains gravel",
         "forest trails",
-        "technical descents",
-        "Pyrenean foothill terrain",
-        "exposed ridgeline traverses"
+        "Gavarres massif singletrack",
+        "gentle-gradient forest climbs"
       ],
-      "field_size": "4,000+ riders from 74 countries",
-      "start_time": "Saturday early morning",
-      "registration": "Opens winter/spring. Cost: €80-200",
+      "field_size": "4,000+ riders across the full Traka week from 74 countries; Traka 200 sold out for 2026",
+      "start_time": "Friday 7:00 AM (from 7:00h), Parc de les Ribes del Ter",
+      "registration": "Priority access July 14, general registration July 16 (2026, for 2027 edition). Cost: €80-200",
       "prize_purse": "Varies",
       "aid_stations": "Multiple feed zones with staffed stops plus town resupply",
-      "cutoff_time": "18-20 hours",
+      "cutoff_time": "12 hours",
       "lat": 41.9793,
       "lng": 2.8199
     },
@@ -43,14 +43,14 @@
       "surface": "Rocky Mediterranean gravel, forest trails, technical descents—not smooth gravel",
       "technical_rating": 4,
       "features": [
-        "Sustained Category 1 climbs on gravel",
-        "Pyrenean foothill terrain",
-        "Forest singletrack that punishes tired legs",
-        "Exposed ridgeline traverses",
-        "Technical descents at hour 18"
+        "Paved climb out of Girona (~300m) opening the route before dropping onto gravel",
+        "Empordà plains: olive groves, vineyards, stone farmhouses toward Figueres",
+        "Anglès to Sant Hilari Sacalm climb, gentle 3-4% grade through forest",
+        "Punchy rolling climbs breaking up the middle third",
+        "Gavarres massif singletrack finale back into Girona"
       ],
-      "gravel_percentage": 85,
-      "pavement_percentage": 15
+      "gravel_percentage": 84,
+      "pavement_percentage": 16
     },
     "gravel_god_rating": {
       "overall_score": 91,
@@ -70,7 +70,7 @@
       "field_depth": 5,
       "value": 4,
       "expenses": 4,
-      "tier_note": "Europe's largest gravel event, UCI World Series, 4,000+ riders from 74 countries - prestige override applied",
+      "tier_note": "Europe's largest gravel event, Gravel Earth Series flagship (not UCI-affiliated), 4,000+ riders from 74 countries - prestige override applied",
       "editorial_tier": 1,
       "editorial_tier_label": "TIER 1",
       "business_tier": 1,
@@ -245,7 +245,9 @@
         "v1",
         "v2"
       ],
-      "migration_notes": [],
+      "migration_notes": [
+        "2026-07-13 wave-24 recon: profile RE-ANCHORED from Traka 360 (ultra, no longer buildable-flagship class per adjudication) to The Traka 200 per adjudication ruling. Vitals reconciled to official thetraka.com: 202km/2,650m gain (84% unpaved/16% paved), Fri Apr 30 2027 CONFIRMED start (7:00h, Parc de les Ribes del Ter), 12hr cutoff. NOTE: Traka 200 runs FRIDAY, not Saturday -- day-of-week anomaly, no established build precedent (only Sat-default and Sun-§D exist); flag for Matti/parent before build. Traka 300 (Sat May 1 2027) is now the event's PRO-category flagship replacing the retired Traka 560 (Klassmark cites local-authority route-length/duration constraints, not safety) -- an alternate anchor candidate if Friday is rejected. Traka 100 runs Sun May 2 2027. Also corrected: event is Gravel Earth Series, NOT UCI Gravel World Series (tier_note fixed). UNFIXED: final_verdict, biased_opinion_ratings, history, and course_description blocks below are still saturated with Traka-360-specific race results/quotes/km-markers (e.g. 'Garmin Hill at km 300', 11:37:30 winning time) -- these need a full copy-authoring pass before use, analogous to the M5 deep-field-staleness backlog. Sources: thetraka.com/the-traka-200/, thetraka.com/program/, cyclingnews.com Traka 300/560 restructuring piece, sciencetosport.com Traka 2026 guide, eatsleepcycle.com Girona climbs guide."
+      ],
       "research_strength": {
         "overall": 94.1,
         "grade": "A",

@@ -2,23 +2,17 @@
   "@context": "https://schema.org",
   "@type": "SportsEvent",
   "name": "Santa Fe Century Gravel\u00f3n",
-  "description": "New Mexico mountain gravel challenge.",
+  "description": "The Santa Fe Century's gravel Saturday \u2014 mesa forest roads at 7,500 feet.",
   "sport": "Gravel Cycling",
-  "startDate": "2026-05-10",
+  "startDate": "2027-05-15",
   "location": {
     "@type": "Place",
-    "name": "Santa Fe, NM",
+    "name": "Rowe Mesa, Santa Fe National Forest, New Mexico",
     "address": {
       "@type": "PostalAddress",
-      "addressLocality": "Santa Fe",
-      "addressRegion": "NM"
+      "addressLocality": "Rowe Mesa",
+      "addressRegion": "Santa Fe National Forest"
     }
-  },
-  "offers": {
-    "@type": "Offer",
-    "price": "100",
-    "priceCurrency": "USD",
-    "availability": "https://schema.org/LimitedAvailability"
   },
   "aggregateRating": {
     "@type": "AggregateRating",

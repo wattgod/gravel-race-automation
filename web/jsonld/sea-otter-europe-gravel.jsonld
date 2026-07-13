@@ -2,16 +2,16 @@
   "@context": "https://schema.org",
   "@type": "SportsEvent",
   "name": "Sea Otter Europe Gravel",
-  "description": "Spanish Girona gravel challenge.",
+  "description": "Girona's UCI Gravel World Series race at the Sea Otter Europe festival.",
   "sport": "Gravel Cycling",
   "startDate": "2026-09-19",
   "location": {
     "@type": "Place",
-    "name": "Girona, Spain",
+    "name": "Jui\u00e0 / Girona, Catalonia, Spain",
     "address": {
       "@type": "PostalAddress",
-      "addressLocality": "Girona",
-      "addressRegion": "Spain"
+      "addressLocality": "Jui\u00e0 / Girona",
+      "addressRegion": "Catalonia"
     }
   },
   "aggregateRating": {
@@ -20,5 +20,9 @@
     "bestRating": "100",
     "ratingCount": "14",
     "name": "Gravel God Rating"
+  },
+  "organizer": {
+    "@type": "Person",
+    "name": "Sea Otter Europe / 226ERS (UCI Gravel World Series)"
   }
 }

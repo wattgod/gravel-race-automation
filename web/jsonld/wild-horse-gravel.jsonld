@@ -2,23 +2,17 @@
   "@context": "https://schema.org",
   "@type": "SportsEvent",
   "name": "Wild Horse Gravel",
-  "description": "Western Colorado high desert gravel in De Beque.",
+  "description": "Private-ranch gravel through the Book Cliffs \u2014 roads closed to the public every other day of the year.",
   "sport": "Gravel Cycling",
-  "startDate": "2026-05-17",
+  "startDate": "2027-05-15",
   "location": {
     "@type": "Place",
-    "name": "De Beque, Colorado",
+    "name": "De Beque, Colorado (High Lonesome Ranch Basecamp)",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "De Beque",
-      "addressRegion": "Colorado"
+      "addressRegion": "Colorado (High Lonesome Ranch Basecamp)"
     }
-  },
-  "offers": {
-    "@type": "Offer",
-    "price": "60",
-    "priceCurrency": "USD",
-    "availability": "https://schema.org/LimitedAvailability"
   },
   "aggregateRating": {
     "@type": "AggregateRating",
@@ -27,8 +21,10 @@
     "ratingCount": "14",
     "name": "Gravel God Rating"
   },
+  "url": "https://geminiadventures.com/bike/wild-horse-gravel",
   "organizer": {
     "@type": "Person",
-    "name": "Gemini Adventures"
+    "name": "Roll Massif (org lineage: Roll Massif -> Outside Events -> Gemini Adventures, current organizer)",
+    "url": "https://geminiadventures.com/bike/wild-horse-gravel"
   }
 }

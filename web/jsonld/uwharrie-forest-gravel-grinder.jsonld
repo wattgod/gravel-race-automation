@@ -2,22 +2,17 @@
   "@context": "https://schema.org",
   "@type": "SportsEvent",
   "name": "Uwharrie Forest Gravel Grinder",
-  "description": "Forest gravel in central North Carolina's Uwharrie National Forest.",
+  "description": "Winter gravel in the ancient Uwharries \u2014 NC Gravel Series opener country.",
   "sport": "Gravel Cycling",
-  "startDate": "2026-02-22",
+  "startDate": "2027-02-21",
   "location": {
     "@type": "Place",
-    "name": "Central North Carolina (Uwharrie National Forest)",
+    "name": "Troy, North Carolina (Badin Lake, Uwharrie National Forest)",
     "address": {
       "@type": "PostalAddress",
-      "addressLocality": "Central North Carolina (Uwharrie National Forest)"
+      "addressLocality": "Troy",
+      "addressRegion": "North Carolina (Badin Lake"
     }
-  },
-  "offers": {
-    "@type": "Offer",
-    "price": "60",
-    "priceCurrency": "USD",
-    "availability": "https://schema.org/LimitedAvailability"
   },
   "aggregateRating": {
     "@type": "AggregateRating",
@@ -25,5 +20,9 @@
     "bestRating": "100",
     "ratingCount": "14",
     "name": "Gravel God Rating"
+  },
+  "organizer": {
+    "@type": "Person",
+    "name": "Trans-Sylvania Productions"
   }
 }

@@ -2,9 +2,9 @@
   "@context": "https://schema.org",
   "@type": "SportsEvent",
   "name": "Waucheesi Bike Race",
-  "description": "Appalachian gravel in remote southeast Tennessee mountains.",
+  "description": "Southeast Tennessee's grassroots monster in the Cherokee National Forest.",
   "sport": "Gravel Cycling",
-  "startDate": "2026-03-29",
+  "startDate": "2027-03-28",
   "location": {
     "@type": "Place",
     "name": "Tellico Plains, Tennessee",
@@ -13,12 +13,6 @@
       "addressLocality": "Tellico Plains",
       "addressRegion": "Tennessee"
     }
-  },
-  "offers": {
-    "@type": "Offer",
-    "price": "60",
-    "priceCurrency": "USD",
-    "availability": "https://schema.org/LimitedAvailability"
   },
   "aggregateRating": {
     "@type": "AggregateRating",

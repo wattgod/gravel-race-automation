@@ -2,16 +2,16 @@
   "@context": "https://schema.org",
   "@type": "SportsEvent",
   "name": "Gravel Grit 'n Grind",
-  "description": "UCI Gravel World Series stop on the Swedish coast\u2014lakeside forests, farm roads, and Nordic grit.",
+  "description": "Sweden's UCI World Series Saturday \u2014 farmland, forest doubletrack, and Nordic grit outside Halmstad.",
   "sport": "Gravel Cycling",
-  "startDate": "2026-08-14",
+  "startDate": "2026-09-26",
   "location": {
     "@type": "Place",
-    "name": "Halmstad, Sweden",
+    "name": "Halmstad, Sweden (Heag\u00e5rd farm)",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Halmstad",
-      "addressRegion": "Sweden"
+      "addressRegion": "Sweden (Heag\u00e5rd farm)"
     }
   },
   "aggregateRating": {

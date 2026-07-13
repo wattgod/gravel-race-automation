@@ -2,16 +2,16 @@
   "@context": "https://schema.org",
   "@type": "SportsEvent",
   "name": "Wish One Millau",
-  "description": "French plateau gravel in Millau Grands Causses.",
+  "description": "France's UCI Gravel World Series round \u2014 the Grands Causses above the Millau Viaduct.",
   "sport": "Gravel Cycling",
-  "startDate": "2026-06-14",
+  "startDate": "2027-06-13",
   "location": {
     "@type": "Place",
-    "name": "Millau Grands Causses, France",
+    "name": "Millau, Aveyron, France (Grands Causses)",
     "address": {
       "@type": "PostalAddress",
-      "addressLocality": "Millau Grands Causses",
-      "addressRegion": "France"
+      "addressLocality": "Millau",
+      "addressRegion": "Aveyron"
     }
   },
   "aggregateRating": {
@@ -20,5 +20,11 @@
     "bestRating": "100",
     "ratingCount": "14",
     "name": "Gravel God Rating"
+  },
+  "url": "https://wishonegravelrace.com/en/accueil-english/",
+  "organizer": {
+    "@type": "Person",
+    "name": "Wish One",
+    "url": "https://wishonegravelrace.com/en/accueil-english/"
   }
 }

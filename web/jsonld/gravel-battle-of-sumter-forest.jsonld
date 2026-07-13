@@ -2,9 +2,9 @@
   "@context": "https://schema.org",
   "@type": "SportsEvent",
   "name": "Gravel Battle of Sumter Forest",
-  "description": "South Carolina Sumter National Forest gravel in Whitmire.",
+  "description": "Southeast Gravel's season opener in the Sumter National Forest \u2014 river crossing included.",
   "sport": "Gravel Cycling",
-  "startDate": "2026-03-14",
+  "startDate": "2027-03-13",
   "location": {
     "@type": "Place",
     "name": "Whitmire, South Carolina",
@@ -13,12 +13,6 @@
       "addressLocality": "Whitmire",
       "addressRegion": "South Carolina"
     }
-  },
-  "offers": {
-    "@type": "Offer",
-    "price": "60",
-    "priceCurrency": "USD",
-    "availability": "https://schema.org/LimitedAvailability"
   },
   "aggregateRating": {
     "@type": "AggregateRating",

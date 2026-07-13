@@ -2,16 +2,16 @@
   "@context": "https://schema.org",
   "@type": "SportsEvent",
   "name": "Alentejo Gravel",
-  "description": "Portuguese Alentejo gravel adventure.",
+  "description": "Portugal's UCI Gravel World Series race through the cork-oak plains of Alentejo.",
   "sport": "Gravel Cycling",
   "startDate": "2026-10-25",
   "location": {
     "@type": "Place",
-    "name": "Alentejo, Portugal",
+    "name": "Ourique, Alentejo, Portugal",
     "address": {
       "@type": "PostalAddress",
-      "addressLocality": "Alentejo",
-      "addressRegion": "Portugal"
+      "addressLocality": "Ourique",
+      "addressRegion": "Alentejo"
     }
   },
   "aggregateRating": {
@@ -21,8 +21,10 @@
     "ratingCount": "14",
     "name": "Gravel God Rating"
   },
+  "url": "https://ucigravelworldseries.com/en/ourique-2026",
   "organizer": {
     "@type": "Person",
-    "name": "Cabreira Solutions"
+    "name": "Cabreira Solutions (Granfondo Coimbra team)",
+    "url": "https://ucigravelworldseries.com/en/ourique-2026"
   }
 }

@@ -2,30 +2,32 @@
   "race": {
     "name": "Little Apple 100",
     "slug": "little-apple-100",
-    "display_name": "Little Apple 100 - Illinois State Championship",
-    "tagline": "Illinois State Championship 100-mile gravel through farmland.",
+    "display_name": "Little Apple 100",
+    "tagline": "Illinois' state-championship gravel race — 100K of Will County farmland speed.",
     "vitals": {
-      "distance_mi": 100,
+      "distance_mi": 62,
       "elevation_ft": 3000,
       "location": "Manhattan, Illinois",
       "location_badge": "MANHATTAN, IL",
       "county": "Will County",
       "date": "Early August annually",
-      "date_specific": "2025: August 3",
+      "date_specific": "2027: August 8 (pattern estimate — 2026 confirmed Sun Aug 9; date floats between 1st/2nd Sunday)",
       "terrain_types": [
-        "Farmland gravel",
-        "Rolling terrain",
+        "Illinois farmland gravel",
         "State championship",
-        "100-mile distance"
+        "Flat fast century-K",
+        "Midwest"
       ],
       "field_size": "150-400 riders",
       "start_time": "8:00 AM CDT",
-      "registration": "Online. Cost: ~$80-120",
+      "registration": "Online (BikeSignup). USAC + Open categories",
       "prize_purse": "State championship prizes",
       "aid_stations": "Multiple aid stations",
       "cutoff_time": "Varies (typically 10-12 hours)",
       "lat": 41.4225,
-      "lng": -87.9859
+      "lng": -87.9859,
+      "gain_display": "Varies",
+      "start_elevation_asl_ft": 600
     },
     "climate": {
       "primary": "Illinois spring/summer",
@@ -117,7 +119,7 @@
       "reputation": "Illinois State Championship event."
     },
     "course_description": {
-      "character": "Flat to rolling farmland gravel for 100 miles.",
+      "character": "Illinois State Championship gravel race from Manhattan, IL (start/finish 525 S State St): 50K 'Little Apple', 100K 'Kong' (the championship flagship — USAC 1-5 + Masters 40+/50+ titles), and 150K 'King Kong'. NOTE: metric distances — there is NO 100-mile option; the name refers to 100 KILOMETERS. ~88% gravel (80% on the 150K) across flat, fast Will County farmland where wind and group speed decide everything. Race day is a SUNDAY (2026: Sun Aug 9). No published elevation figures — flat Midwest farmland, display 'Varies'.",
       "suffering_zones": [
         {
           "mile": 30,

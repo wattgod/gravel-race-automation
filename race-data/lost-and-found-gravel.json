@@ -3,29 +3,31 @@
     "name": "Lost and Found Gravel",
     "slug": "lost-and-found-gravel",
     "display_name": "Lost and Found Gravel",
-    "tagline": "California Sierra Nevada gravel in Portola.",
+    "tagline": "The Lost Sierra's biggest weekend — Sierra Buttes Trail Stewardship's flagship gravel fundraiser.",
     "vitals": {
-      "distance_mi": 65,
+      "distance_mi": 100,
       "elevation_ft": 6000,
       "location": "Portola, California",
       "location_badge": "PORTOLA, CA",
       "county": "Plumas County",
       "date": "Mid-June annually",
-      "date_specific": "2026: June 13",
+      "date_specific": "2027: June 12 (pattern — 2nd Saturday of June; 2026 edition ran June 13)",
       "terrain_types": [
-        "California Sierra Nevada",
-        "Mountain gravel",
-        "Regional event",
-        "Northern California"
+        "Lost Sierra",
+        "Sierra Nevada forest roads",
+        "Historic railroad grade",
+        "Gravel festival"
       ],
-      "field_size": "200-400 riders",
+      "field_size": "~2,000 riders",
       "start_time": "Morning start",
-      "registration": "Online. Cost: ~$80-120",
+      "registration": "Online (lostandfoundbikeride.com). Cost: ~$100-180",
       "prize_purse": "Modest prizes",
       "aid_stations": "Multiple aid stations",
       "cutoff_time": "Varies",
       "lat": 39.8105,
-      "lng": -120.4695
+      "lng": -120.4695,
+      "gain_display": "Varies",
+      "start_elevation_asl_ft": 4856
     },
     "climate": {
       "primary": "California Sierra Nevada summer/fall",
@@ -117,7 +119,7 @@
       "reputation": "Regional CA event."
     },
     "course_description": {
-      "character": "Sierra Nevada mountain gravel with significant climbing.",
+      "character": "Mass-rollout gravel race + festival from Portola City Park (~4,856ft) in the Lost Sierra, organized by the Sierra Buttes Trail Stewardship since 2014 as the fundraiser for the Lost Sierra Route. Three courses: Full Bull ~100mi, Mid Moo ~60mi, Half Calf ~40mi — 70-80% dirt/gravel including historic railroad grade, with exact mileage and gain shifting year to year on reroutes (organizer's own pages disagree on gain figures — display 'Varies'). ~2,000 riders, Friday expo, Saturday race + party.",
       "suffering_zones": [
         {
           "mile": 20,

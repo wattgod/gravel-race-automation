@@ -3,21 +3,26 @@
     "name": "UCI Gravel Dustman",
     "slug": "uci-gravel-dustman",
     "display_name": "UCI Gravel Dustman",
-    "tagline": "UCI Gravel World Series stop at a Khmer Empire outpost—jungle gravel in Kanchanaburi, Thailand.",
+    "tagline": "Asia's only UCI Gravel World Series stop — jungle gravel from a Khmer Empire outpost.",
     "vitals": {
       "distance_mi": 81,
       "elevation_ft": 2756,
-      "location": "Kanchanaburi, Thailand",
+      "location": "Kanchanaburi, Thailand (Muang Sing Historical Park)",
       "location_badge": "KANCHANABURI, THAILAND",
-      "date": "November annually",
+      "date": "Mid-November annually",
       "terrain_types": [
-        "Gravel roads"
+        "Jungle and river-valley gravel",
+        "UCI Gravel World Series (only Asian stop)",
+        "Khmer Empire outpost start",
+        "Tropical heat and dust"
       ],
       "field_size": "TBD",
-      "registration": "Online",
-      "date_specific": "2026: November 14",
+      "registration": "Online (Bike Zone Events)",
+      "date_specific": "2026: November 14 (SATURDAY, CONFIRMED — ucigravelworldseries.com/en/dustman-2026)",
       "lat": 14.02,
-      "lng": 99.53
+      "lng": 99.53,
+      "county": "Kanchanaburi",
+      "start_elevation_asl_ft": 200
     },
     "climate": {
       "primary": "TBD",
@@ -119,7 +124,7 @@
       ]
     },
     "course_description": {
-      "character": "Ancient temple ruins, jungle humidity, and Thai backcountry roads that switch between smooth pavement and technical gravel without warning. The course winds through Muang Sing Historical Park where thousand-year-old Khmer temples watch you suffer through 2,756 feet of climbing spread across 81 miles of whatever surface Thailand decides to throw at you.",
+      "character": "Bike Zone Events' single-day UCI GWS qualifier from Muang Sing Historical Park (westernmost outpost of the ancient Khmer Empire): 130km/840m (80.8mi/2,756ft) for elite + men 19-59/women 19-49; 90km/550m = official course for men 60+/women 50+ (courses assigned by category, not chosen). Wooded jungle-edge gravel, tropical heat/humidity, dust. Friday shakeout ride. Only UCI Gravel World Series event in Asia. Our prior 81mi/2,756ft matched the official 130km course — confirmed 2026-07-14.",
       "suffering_zones": [
         {
           "mile": 12,

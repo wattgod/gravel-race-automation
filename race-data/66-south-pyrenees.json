@@ -3,29 +3,31 @@
     "name": "66° South Pyrénées",
     "slug": "66-south-pyrenees",
     "display_name": "66° South Pyrénées",
-    "tagline": "French Pyrénées mountain gravel.",
+    "tagline": "UCI Gravel World Series in the Catalan Pyrénées from Font-Romeu at 1,760m.",
     "vitals": {
-      "distance_mi": 65,
-      "elevation_ft": 5500,
-      "location": "Pyrénées, France",
-      "location_badge": "PYRÉNÉES, FRANCE",
-      "county": "Pyrénées",
-      "date": "Late April annually",
-      "date_specific": "2026: April 23-25",
+      "distance_mi": 62,
+      "elevation_ft": 7500,
+      "location": "Font-Romeu, Pyrénées-Orientales, France",
+      "location_badge": "FONT-ROMEU, FRANCE",
+      "county": "Pyrénées-Orientales",
+      "date": "Late September annually",
+      "date_specific": "2026: September 26 (Saturday, confirmed — UCI Gravel World Series)",
       "terrain_types": [
-        "Pyrénées mountains",
-        "Mountain gravel",
-        "Regional event",
-        "France"
+        "Catalan Pyrénées",
+        "High-altitude gravel",
+        "UCI Gravel World Series",
+        "Mountain plateau"
       ],
       "field_size": "200-400 riders",
-      "start_time": "12:00 PM on",
-      "registration": "Online. Cost: ~€60-100",
+      "start_time": "Morning start",
+      "registration": "Online. Contact: capsud66@perpignan-mediterranee.org",
       "prize_purse": "Modest prizes",
       "aid_stations": "Multiple aid stations",
       "cutoff_time": "Varies",
-      "lat": 48.8739,
-      "lng": 2.3853
+      "lat": 42.5036,
+      "lng": 2.0397,
+      "start_elevation_asl_ft": 5774,
+      "avg_elevation_asl_ft": 6200
     },
     "climate": {
       "primary": "Pyrénées summer",
@@ -115,7 +117,7 @@
       "reputation": "Regional French Pyrénées event."
     },
     "course_description": {
-      "character": "Pyrénées mountain gravel.",
+      "character": "Official name: 66 Degrés — Pyrénées Catalanes Gravel Tour (UCI Gravel World Series). Granfondo 100km/2,286m in three loops from Font-Romeu (1,760m ASL): Col du Calvaire (1,856m, km 36), Chalet Sylvain (1,934m, km 55), Pic de la Calma (2,006m — highest point, 12km before the finish). Mediofondo 77km/1,726m skips the final northern loop; it is the qualifier course for men 60+ and women 50+. NOTE: prior profile data described the co-branded ROAD event '66 Degrés Sud — La Cyclo' (Canet-en-Roussillon, April) — corrected 2026-07-13.",
       "suffering_zones": [
         {
           "mile": 20,

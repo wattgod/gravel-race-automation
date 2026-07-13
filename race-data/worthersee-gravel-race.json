@@ -3,29 +3,30 @@
     "name": "Wörthersee Gravel Race",
     "slug": "worthersee-gravel-race",
     "display_name": "Wörthersee Gravel Race",
-    "tagline": "Austrian Alps gravel challenge.",
+    "tagline": "Austria's UCI Gravel World Series race on the shores of the Wörthersee.",
     "vitals": {
-      "distance_mi": 75,
-      "elevation_ft": 6000,
-      "location": "Wörthersee, Austria",
-      "location_badge": "WÖRTHERSEE, AUSTRIA",
+      "distance_mi": 93,
+      "elevation_ft": 5620,
+      "location": "Velden am Wörthersee, Austria",
+      "location_badge": "VELDEN, AUSTRIA",
       "county": "Carinthia",
       "date": "Mid-April annually",
-      "date_specific": "2026: April 12",
+      "date_specific": "2027: April 11 (Sunday, pattern from Apr 12 2026; 2026 edition complete)",
       "terrain_types": [
-        "Austrian Alps",
-        "European gravel",
-        "Regional event",
-        "Austria"
+        "Carinthian lake country",
+        "Alpine foothills",
+        "Drau river gravel",
+        "UCI Gravel World Series"
       ],
-      "field_size": "200-400 riders",
+      "field_size": "1,000 rider cap (2026)",
       "start_time": "Morning start",
       "registration": "Online. Cost: ~€60-90",
       "prize_purse": "Modest prizes",
       "aid_stations": "Multiple aid stations",
       "cutoff_time": "Varies",
-      "lat": 46.6215,
-      "lng": 14.0884
+      "lat": 46.6125,
+      "lng": 14.0409,
+      "start_elevation_asl_ft": 1476
     },
     "climate": {
       "primary": "Austrian summer",
@@ -115,7 +116,7 @@
       "reputation": "Regional Austrian event."
     },
     "course_description": {
-      "character": "Austrian Alps gravel.",
+      "character": "UCI Gravel World Series qualifier from Velden am Wörthersee: 150km/1,713m full distance (78km start loop + 72km second loop) along the Wörthersee south shore and the Drau river channel. A 4km gravel ramp gaining 150m hits at km 2 and splits the field immediately; the final climb runs the same ramp in reverse. 94km/1,182m is the official course for men 60+ / women 50+. Start/finish 450m ASL, high point 620m at km 99. 2024 debut sold out in two months.",
       "suffering_zones": [
         {
           "mile": 25,

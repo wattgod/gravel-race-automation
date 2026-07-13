@@ -2,30 +2,31 @@
   "race": {
     "name": "Flanders Legacy Gravel",
     "slug": "flanders-legacy-gravel",
-    "display_name": "Flanders Legacy Gravel",
-    "tagline": "Belgian Flanders gravel challenge.",
+    "display_name": "Leuven Legacy Gravel",
+    "tagline": "Leuven's UCI World Series race on the 2024 Worlds course — first qualifier for 2027.",
     "vitals": {
-      "distance_mi": 75,
-      "elevation_ft": 4000,
-      "location": "Flanders, Belgium",
-      "location_badge": "FLANDERS, BELGIUM",
-      "county": "Flanders",
+      "distance_mi": 91,
+      "elevation_ft": 3117,
+      "location": "Leuven / Heverlee, Flemish Brabant, Belgium",
+      "location_badge": "LEUVEN, BELGIUM",
+      "county": "Flemish Brabant",
       "date": "Mid-October annually",
-      "date_specific": "2026: October 18",
+      "date_specific": "2026: October 18 (SUNDAY, CONFIRMED — leuvenlegacygravel.be + ucigravelworldseries.com/en/legacy-gravel-2026)",
       "terrain_types": [
-        "Flanders rolling",
-        "Belgian gravel",
-        "Regional event",
-        "Belgium"
+        "Brabantse Wouden forest gravel",
+        "UCI Gravel World Series",
+        "2024 Worlds Leuven course",
+        "Rolling Flemish Brabant"
       ],
       "field_size": "200-400 riders",
       "start_time": "9:30 AM",
-      "registration": "Online. Cost: ~€50-80",
+      "registration": "Online. Organizer: Golazo (Bolero Gravel Series)",
       "prize_purse": "Modest prizes",
       "aid_stations": "Multiple aid stations",
       "cutoff_time": "Varies",
       "lat": 51.0378,
-      "lng": 4.2406
+      "lng": 4.2406,
+      "start_elevation_asl_ft": 200
     },
     "climate": {
       "primary": "Belgian spring",
@@ -115,7 +116,7 @@
       "reputation": "Regional Belgian event."
     },
     "course_description": {
-      "character": "Flanders rolling gravel.",
+      "character": "RENAMED for 2026: 'Flanders Legacy Gravel' -> 'LEUVEN LEGACY GRAVEL' (old domain 301s to leuvenlegacygravel.be). Golazo's UCI GWS round from Leuven/Heverlee — first official qualifier for the 2027 Gravel Worlds in France: 147km (3 laps of a 48km Brabantse Wouden circuit, ~950m) for elite + younger cats; 92km (2 laps, ~600-610m) = official course for men 60+/women 50+. Rolling forest gravel reusing the 2024 UCI Gravel Worlds Leuven course — NOT Flemish Ardennes bergs/kasseien (prior profile's framing was wrong). RACE DAY IS SUNDAY. PRIOR 75mi/4,000ft matched nothing — corrected 2026-07-14. NOTE FOR MATTI: site page slug flanders-legacy-gravel needs a rename/redirect decision (F-class naming item).",
       "suffering_zones": [
         {
           "mile": 25,

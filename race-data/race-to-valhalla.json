@@ -40,14 +40,14 @@
     },
     "terrain": {
       "primary": "South Carolina mountain gravel",
-      "surface": "Gravel roads through upstate SC mountains. Significant elevation with mountain scenery.",
+      "surface": "Traffic-free gravel roads through the Blue Ridge escarpment in Oconee County, SC — steep grades throughout, headlined by the ~30-minute Winding Stairs climb from Lake Cherokee.",
       "technical_rating": 3,
       "features": [
-        "Significant mountain climbing (5500 feet)",
-        "Mountain scenery",
-        "Walhalla setting",
-        "Multiple distances",
-        "Regional event"
+        "Winding Stairs climb from Lake Cherokee (~30 min, steep gravel)",
+        "Chattooga River scenic stretch",
+        "7,300 ft of climbing over 72 miles, traffic-free gravel",
+        "Walhalla Main St start/finish",
+        "Hardest course in the Southeast Gravel series"
       ]
     },
     "gravel_god_rating": {
@@ -74,13 +74,13 @@
     },
     "biased_opinion": {
       "verdict": "South Carolina Mountain Gravel",
-      "summary": "Race to Valhalla is a regional event in Walhalla, South Carolina—upstate mountain terrain with significant elevation. The mountain scenery is nice, but the moderate organization and regional field keep it firmly in Tier 3. Walhalla provides moderate access.",
+      "summary": "Race to Valhalla is Southeast Gravel's self-billed hardest course: 72 miles and about 7,300 feet of climbing out of Walhalla, South Carolina, headlined by the ~30-minute Winding Stairs climb from Lake Cherokee and a scenic Chattooga River stretch. Traffic-free gravel throughout, with a downtown Main Street finish.",
       "strengths": [
-        "SC mountain terrain",
-        "Significant climbing (5500 feet)",
-        "Mountain scenery",
-        "SC cycling community",
-        "Regional pricing"
+        "Winding Stairs climb from Lake Cherokee — signature ~30-minute gravel grind",
+        "7,300 ft of climbing over 72 miles — hardest course in the SEG series",
+        "Chattooga River scenic stretch",
+        "Traffic-free gravel roads throughout",
+        "Downtown Walhalla Main St finish with festival atmosphere"
       ],
       "weaknesses": [
         "Upstate SC access (moderate)",
@@ -89,7 +89,7 @@
         "Mountain weather variability",
         "Limited national recognition"
       ],
-      "bottom_line": "A solid regional South Carolina gravel race with mountain terrain. Worth it for South Carolina cyclists seeking a mountain event. Not a destination race for out-of-state travelers."
+      "bottom_line": "A serious mountain gravel test and Southeast Gravel's hardest course. Worth it for climbers who want Winding Stairs and the Chattooga River stretch. Not a flat-gravel day."
     },
     "final_verdict": {
       "score": "51 / 100",
@@ -120,64 +120,57 @@
       "character": "Southeast Gravel's hardest course: Long 72mi/~7,300ft (RideWithGPS official route 73.0mi/+7,231ft), Short 48mi/4,700ft, Fun 20mi. Start/finish on Walhalla Main St (~1,025ft), traffic-free gravel, signature ~30-minute climb up Winding Stairs Rd from Lake Cherokee, scenic Chattooga River stretch. Staggered starts by distance (Long 9:00). Aid at mile 19.3. PRIOR PROFILE 65mi/5,500ft matched no real option — corrected 2026-07-13.",
       "suffering_zones": [
         {
-          "mile": 20,
-          "label": "Early Climbs",
-          "desc": "First mountain climbs.",
-          "terrain_detail": "Mountain climbing",
-          "named_section": "Early Climbs"
+          "mile": 19.3,
+          "label": "Aid Station 1",
+          "desc": "First aid stop; the Winding Stairs climb from Lake Cherokee (~30 min, steep gravel) comes in the early miles of the course, before this stop.",
+          "terrain_detail": "Steep gravel climbing, early-course",
+          "named_section": "Winding Stairs / Aid Station 1"
         },
         {
-          "mile": 35,
-          "label": "Midpoint",
-          "desc": "Halfway through the course.",
-          "terrain_detail": "Midpoint",
-          "named_section": "Halfway"
-        },
-        {
-          "mile": 55,
-          "label": "Final Climbs",
-          "desc": "Final mountain sections before finish.",
-          "terrain_detail": "Late climbing",
-          "named_section": "Final Push"
+          "mile": 57.5,
+          "label": "Aid Station 2",
+          "desc": "Second and final aid stop. The Chattooga River stretch and the remaining escarpment grades sit between here and the Main Street finish in Walhalla.",
+          "terrain_detail": "Chattooga River stretch + late escarpment grades",
+          "named_section": "Aid Station 2"
         }
       ],
-      "signature_challenge": "SC mountain climbing in Walhalla.",
+      "signature_challenge": "Winding Stairs: a roughly 30-minute climb up steep gravel from Lake Cherokee, in the early miles of the course.",
       "ridewithgps_id": "36682023",
       "ridewithgps_name": "Official SEG The Race to Valhalla long course"
     },
     "guide_variables": {
       "race_name": "Race to Valhalla",
-      "race_distance": "65 miles",
-      "race_elevation": "5,500 feet",
+      "race_distance": "72 miles",
+      "race_elevation": "about 7,300 feet",
       "race_date": "Spring or Fall",
       "race_location": "Walhalla, South Carolina",
-      "race_terrain": "South Carolina mountain gravel",
+      "race_terrain": "Blue Ridge escarpment gravel: the Winding Stairs climb from Lake Cherokee (~30 min, steep gravel) and a scenic Chattooga River stretch, on traffic-free roads throughout.",
       "race_weather": "SC mountain variability",
       "race_challenges": [
-        "Mountain climbing",
+        "Winding Stairs climb (Lake Cherokee)",
+        "Sustained mountain climbing (~7,300 ft over 72 miles)",
+        "Late-race escarpment grades after mile 50",
         "Mountain weather variability",
-        "Significant elevation",
-        "Regional field",
-        "Variable conditions"
+        "Regional field"
       ],
       "altitude_section": false,
       "altitude_feet": null
     },
     "non_negotiables": [
       {
-        "requirement": "Mountain climbing endurance",
+        "requirement": "Sustained climbing endurance",
         "by_when": "Week 8-10",
-        "why": "SC mountains require solid climbing fitness (5500 feet)."
+        "why": "Winding Stairs and the escarpment grades demand sustained climbing strength (~7,300 ft over 72 miles)."
       },
       {
         "requirement": "Mountain weather preparation",
         "by_when": "Week 4-6",
-        "why": "SC mountain weather is variable."
+        "why": "Late April in the SC mountains is usually mild, but conditions are variable."
       },
       {
-        "requirement": "Mountain pacing",
+        "requirement": "Late-race durability",
         "by_when": "Week 2-4",
-        "why": "Mountain terrain requires pacing discipline."
+        "why": "The course's grades return again and again through mile 50+, where undertrained riders fade."
       }
     ],
     "research_metadata": {
@@ -255,13 +248,13 @@
       "tier_overrides": {},
       "marketplace_variables": {
         "race_name": "Race to Valhalla",
-        "race_hook": "South Carolina mountain gravel in Walhalla.",
-        "race_hook_detail": "Regional event with mountain climbing.",
-        "distance": "65",
-        "dark_mile": "35",
-        "non_negotiable_1": "Mountain climbing endurance",
+        "race_hook": "Southeast Gravel's hardest course — Winding Stairs and the Chattooga.",
+        "race_hook_detail": "72 miles, ~7,300 ft of climbing, headlined by the Winding Stairs climb from Lake Cherokee.",
+        "distance": "72",
+        "dark_mile": "50",
+        "non_negotiable_1": "Sustained climbing endurance",
         "non_negotiable_2": "Mountain weather preparation",
-        "non_negotiable_3": "Mountain pacing",
+        "non_negotiable_3": "Late-race durability",
         "trainingpeaks_url": null
       }
     },

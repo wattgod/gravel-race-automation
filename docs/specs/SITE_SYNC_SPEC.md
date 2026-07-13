@@ -39,4 +39,9 @@ of changed pages. Ledger each deploy in ROLL_HANDOFF. Failures stop the deploy l
 (no silent partial deploys — CI-veracity lesson).
 
 ## Deviations log
-- (running)
+- S2 (approved by Fable): email-gate reuses the established gg-email-capture -> 
+  fueling-lead-intake worker pattern (w/ tier + source=race_plan_ladder tags) instead of
+  training-plans-form.js — that file is the full questionnaire/Stripe flow, wrong tool.
+  No TOC entry (fixed hand-numbered list). Sort: longest-first, Finisher->SMR within length.
+- S2 voice review PASSED: 'Train for this race' / 'Get the plan' / 'Get notified' /
+  "You're on the list." — shipped as authored.

@@ -219,6 +219,25 @@ SUBSTACK_URL = "https://gravelgodcycling.substack.com"
 SUBSTACK_EMBED = "https://gravelgodcycling.substack.com/embed"
 CURRENT_YEAR = str(datetime.now().year)
 
+# SITE-SYNC S2 — race-page "Train for this race" plan ladder block.
+# Flip to False to disable the block globally without touching call sites
+# (build_plan_ladder / generate_page still run, they just short-circuit).
+PLAN_LADDER_ENABLED = True
+
+# db/plans.json lives in the sibling gravel-god-training-plans repo, keyed
+# by race_slug. Resolved relative to this file so it works regardless of cwd.
+PLANS_DB_PATH = Path(__file__).resolve().parent.parent.parent / 'gravel-god-training-plans' / 'db' / 'plans.json'
+
+# Display order for the plan ladder — full plan first, emergency/short plan
+# last. Unknown tiers sort after all known ones instead of erroring.
+PLAN_TIER_ORDER = {
+    'Finisher': 0,
+    'Time-Crunched': 1,
+    'Compete': 2,
+    'Masters 50+': 3,
+    'Save My Race': 4,
+}
+
 
 def build_seo_title(rd: dict) -> str:
     """Build an SEO-optimized <title> tag.
@@ -1250,6 +1269,40 @@ document.querySelectorAll('.gg-faq-question').forEach(function(q) {
     form.style.display='none';
     var success=document.getElementById('gg-email-capture-success');
     if(success) success.style.display='block';
+  });
+})();
+
+// Plan ladder — race-specific plan capture (SITE-SYNC S2). Multiple
+// independent forms can exist on one page (one per private/unlisted tier),
+// so this attaches per-form instead of assuming a single #id like the
+// prep-kit and date-reminder handlers above.
+(function() {
+  var WORKER_URL='https://fueling-lead-intake.gravelgodcoaching.workers.dev';
+  var forms=document.querySelectorAll('.gg-plan-ladder-form');
+  forms.forEach(function(form){
+    form.addEventListener('submit',function(e){
+      e.preventDefault();
+      var email=form.email.value.trim();
+      if(!email||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
+        alert('Please enter a valid email address.');return;
+      }
+      if(form.website&&form.website.value) return;
+      var payload={
+        email:email,
+        race_slug:form.race_slug.value,
+        race_name:form.race_name.value,
+        tier:form.tier.value,
+        source:form.source.value,
+        website:form.website.value
+      };
+      fetch(WORKER_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}).catch(function(){});
+      if(typeof gtag==='function'){
+        gtag('event','email_capture',{race_slug:form.race_slug.value,tier:form.tier.value,source:'race_plan_ladder'});
+      }
+      form.style.display='none';
+      var success=form.nextElementSibling;
+      if(success&&success.classList.contains('gg-plan-ladder-success')) success.style.display='block';
+    });
   });
 })();
 
@@ -4632,6 +4685,132 @@ def build_date_reminder(rd: dict) -> str:
   </div>'''
 
 
+_PLANS_BY_SLUG_CACHE: Optional[dict] = None
+
+
+def _load_plans_by_slug() -> dict:
+    """Load ../gravel-god-training-plans/db/plans.json, grouped by race_slug.
+
+    Cached at module scope \u2014 the db has 500+ entries and `--all` regenerates
+    757 race pages per run, so this should be read once, not once per race.
+    A missing file or malformed JSON degrades to an empty dict rather than
+    crashing the generator: SITE-SYNC S2 requires races with no plan data to
+    render nothing, which is exactly what an empty lookup produces.
+    """
+    global _PLANS_BY_SLUG_CACHE
+    if _PLANS_BY_SLUG_CACHE is not None:
+        return _PLANS_BY_SLUG_CACHE
+    by_slug: dict = {}
+    try:
+        with open(PLANS_DB_PATH, 'r', encoding='utf-8') as f:
+            db = json.load(f)
+        for plan in db.get('plans', []):
+            slug = plan.get('race_slug')
+            if not slug:
+                continue
+            by_slug.setdefault(slug, []).append(plan)
+    except (OSError, json.JSONDecodeError):
+        by_slug = {}
+    _PLANS_BY_SLUG_CACHE = by_slug
+    return by_slug
+
+
+def build_plan_ladder(rd: dict) -> str:
+    """Build the SITE-SYNC S2 "Train for this race" plan block.
+
+    Sourced from db/plans.json (sibling gravel-god-training-plans repo),
+    keyed by race_slug \u2014 NOT read/written here, this is display-only.
+    Published rows with a live marketplace_url get a buy CTA linking
+    straight to the TP store page. Every other row (private-ready, or
+    published-but-not-yet-backfilled with a store URL) gets an email-gate
+    "notify me" capture tagged with race_slug + tier so the lead is
+    attributable per-SKU. Renders '' for races with no plans in the db \u2014
+    no empty shell \u2014 and is gated by PLAN_LADDER_ENABLED.
+    Normie-safe copy only: tier / length / price, no TSS/FTP/watts.
+    """
+    if not PLAN_LADDER_ENABLED:
+        return ''
+
+    slug = rd['slug']
+    plans = _load_plans_by_slug().get(slug, [])
+    if not plans:
+        return ''
+
+    name = rd['name']
+
+    # Validate + normalize each plan; skip malformed rows instead of
+    # crashing an otherwise-good page over one bad db record.
+    valid = []
+    for plan in plans:
+        tier = plan.get('tier')
+        try:
+            length_wk = int(plan.get('length_wk'))
+            price = int(round(float(plan.get('price'))))
+        except (TypeError, ValueError):
+            continue
+        if not tier or length_wk <= 0 or price < 0:
+            continue
+        valid.append({
+            'tier': tier,
+            'length_wk': length_wk,
+            'price': price,
+            'status': plan.get('status'),
+            'marketplace_url': (plan.get('marketplace_url') or '').strip(),
+        })
+    if not valid:
+        return ''
+
+    valid.sort(key=lambda p: (-p['length_wk'], PLAN_TIER_ORDER.get(p['tier'], 99)))
+
+    rows = []
+    for plan in valid:
+        tier_esc = esc(plan['tier'])
+        info = (
+            f'<div class="gg-plan-ladder-info">'
+            f'<span class="gg-plan-ladder-tier">{tier_esc}</span>'
+            f'<span class="gg-plan-ladder-sep">&middot;</span>'
+            f'<span class="gg-plan-ladder-length">{plan["length_wk"]} wk</span>'
+            f'<span class="gg-plan-ladder-sep">&middot;</span>'
+            f'<span class="gg-plan-ladder-price">${plan["price"]}</span>'
+            f'</div>'
+        )
+
+        if plan['status'] == 'published' and plan['marketplace_url']:
+            cta = (
+                f'<a href="{esc(plan["marketplace_url"])}" class="gg-btn gg-plan-ladder-cta" '
+                f'data-cta="plan_ladder_buy" data-tier="{tier_esc}" target="_blank" rel="noopener">'
+                f'Get the plan</a>'
+            )
+        else:
+            cta = f'''<form class="gg-plan-ladder-form" data-tier="{tier_esc}">
+        <input type="hidden" name="race_slug" value="{esc(slug)}">
+        <input type="hidden" name="race_name" value="{esc(name)}">
+        <input type="hidden" name="tier" value="{tier_esc}">
+        <input type="hidden" name="source" value="race_plan_ladder">
+        <input type="hidden" name="website" value="">
+        <input type="email" name="email" required placeholder="you@email.com" class="gg-plan-ladder-input" aria-label="Email me when the {tier_esc} plan for {esc(name)} is ready">
+        <button type="submit" class="gg-plan-ladder-btn" data-cta="plan_ladder_notify">Get notified</button>
+      </form>
+      <p class="gg-plan-ladder-success" style="display:none">You&rsquo;re on the list.</p>'''
+
+        rows.append(f'''<div class="gg-plan-ladder-row" data-tier="{tier_esc}">
+      {info}
+      {cta}
+    </div>''')
+
+    return f'''<section class="gg-plan-ladder gg-section gg-fade-section" id="plan-ladder">
+    <div class="gg-section-header">
+      <span class="gg-section-kicker">[PLANS]</span>
+      <h2 class="gg-section-title">Train for this race</h2>
+    </div>
+    <div class="gg-section-body">
+      <div class="gg-plan-ladder-table">
+        {"".join(rows)}
+      </div>
+    </div>
+  </section>'''
+
+
 def build_visible_faq(rd: dict) -> str:
     """Build visible FAQ section for long-tail SEO. Uses same data as FAQ schema
     but renders as on-page content with H3 headings for search engines."""
@@ -5512,6 +5691,28 @@ body {{ margin: 0; background: var(--gg-color-warm-paper); }}
 .gg-neo-brutalist-page .gg-date-reminder-btn {{ padding: 8px 16px; border: 2px solid var(--gg-color-gold); background: var(--gg-color-gold); color: var(--gg-color-dark-brown); font-family: var(--gg-font-data); font-size: 10px; font-weight: 700; letter-spacing: 1.5px; cursor: pointer; }}
 @media (max-width: 480px) {{ .gg-neo-brutalist-page .gg-date-reminder-form {{ flex-direction: column; }} }}
 
+/* Plan ladder — SITE-SYNC S2 */
+.gg-neo-brutalist-page .gg-plan-ladder-table {{ display: flex; flex-direction: column; }}
+.gg-neo-brutalist-page .gg-plan-ladder-row {{ display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding: 14px 0; border-bottom: 1px solid var(--gg-color-tan); }}
+.gg-neo-brutalist-page .gg-plan-ladder-row:last-child {{ border-bottom: none; }}
+.gg-neo-brutalist-page .gg-plan-ladder-info {{ display: flex; align-items: baseline; gap: 8px; font-family: var(--gg-font-data); }}
+.gg-neo-brutalist-page .gg-plan-ladder-tier {{ font-size: 13px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--gg-color-dark-brown); }}
+.gg-neo-brutalist-page .gg-plan-ladder-sep {{ color: var(--gg-color-tan); }}
+.gg-neo-brutalist-page .gg-plan-ladder-length {{ font-size: 12px; color: var(--gg-color-secondary-brown); }}
+.gg-neo-brutalist-page .gg-plan-ladder-price {{ font-size: 13px; font-weight: 700; color: var(--gg-color-teal); }}
+.gg-neo-brutalist-page .gg-plan-ladder-cta {{ background: var(--gg-color-teal); color: var(--gg-color-white); border-color: var(--gg-color-teal); }}
+.gg-neo-brutalist-page .gg-plan-ladder-cta:hover {{ background: var(--gg-color-light-teal); }}
+.gg-neo-brutalist-page .gg-plan-ladder-form {{ display: flex; gap: 0; }}
+.gg-neo-brutalist-page .gg-plan-ladder-input {{ flex: 1; font-family: var(--gg-font-data); font-size: 12px; padding: 8px 12px; border: 2px solid var(--gg-color-tan); border-right: none; background: var(--gg-color-white); color: var(--gg-color-dark-brown); min-width: 0; }}
+.gg-neo-brutalist-page .gg-plan-ladder-input:focus {{ outline: none; border-color: var(--gg-color-teal); }}
+.gg-neo-brutalist-page .gg-plan-ladder-btn {{ font-family: var(--gg-font-data); font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 8px 14px; background: var(--gg-color-gold); color: var(--gg-color-dark-brown); border: 2px solid var(--gg-color-gold); cursor: pointer; white-space: nowrap; }}
+.gg-neo-brutalist-page .gg-plan-ladder-btn:hover {{ background: var(--gg-color-warm-paper); }}
+.gg-neo-brutalist-page .gg-plan-ladder-success {{ font-family: var(--gg-font-data); font-size: 12px; font-weight: 700; color: var(--gg-color-teal); margin: 0; }}
+@media (max-width: 480px) {{
+  .gg-neo-brutalist-page .gg-plan-ladder-row {{ flex-direction: column; align-items: flex-start; }}
+  .gg-neo-brutalist-page .gg-plan-ladder-form {{ width: 100%; }}
+}}
+
 /* Countdown */
 .gg-neo-brutalist-page .gg-countdown {{ border: 1px solid var(--gg-color-teal); background: var(--gg-color-warm-paper); color: var(--gg-color-dark-brown); padding: var(--gg-spacing-md); text-align: center; font-family: var(--gg-font-data); font-size: 12px; font-weight: 700; letter-spacing: var(--gg-letter-spacing-ultra-wide); margin-bottom: 20px; }}
 .gg-neo-brutalist-page .gg-countdown-num {{ font-size: 32px; color: var(--gg-color-teal); display: block; line-height: 1.2; }}
@@ -5662,6 +5863,7 @@ body {{ margin: 0; background: var(--gg-color-warm-paper); }}
   .gg-back-to-top {{ min-width: 44px; min-height: 44px; }}
   .gg-neo-brutalist-page .gg-email-capture-btn {{ min-height: 44px; }}
   .gg-neo-brutalist-page .gg-date-reminder-btn {{ min-height: 44px; }}
+  .gg-neo-brutalist-page .gg-plan-ladder-btn {{ min-height: 44px; }}
   .gg-neo-brutalist-page .gg-btn--rate {{ min-height: 44px; }}
   .gg-neo-brutalist-page .gg-cfg-select,
   .gg-neo-brutalist-page .gg-cfg-input {{ min-height: 44px; }}
@@ -5820,6 +6022,7 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
     visible_faq = build_visible_faq(rd)
     news = build_news_section(rd)
     training = build_training(rd)
+    plan_ladder = build_plan_ladder(rd)
     train_for_race = build_train_for_race(rd)
     # Strip only renders when [08] exists — its anchor target must be present
     prep_strip = build_prep_strip(rd) if train_for_race else ''
@@ -5871,7 +6074,7 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
     for section in [course_overview, history, pullquote,
                     course_route, tire_callout, from_the_field, ratings, verdict,
                     racer_reviews, email_capture, date_reminder, news, training,
-                    coaching_teaser, train_for_race,
+                    plan_ladder, coaching_teaser, train_for_race,
                     logistics_sec, tire_picks, similar, visible_faq,
                     citations_sec]:
         if section:

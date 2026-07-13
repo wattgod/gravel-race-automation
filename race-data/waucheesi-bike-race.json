@@ -3,29 +3,30 @@
     "name": "Waucheesi Bike Race",
     "slug": "waucheesi-bike-race",
     "display_name": "Waucheesi Bike Race",
-    "tagline": "Appalachian gravel in remote southeast Tennessee mountains.",
+    "tagline": "Southeast Tennessee's grassroots monster in the Cherokee National Forest.",
     "vitals": {
-      "distance_mi": 75,
-      "elevation_ft": 5000,
+      "distance_mi": 88,
+      "elevation_ft": 11500,
       "location": "Tellico Plains, Tennessee",
       "location_badge": "TELLICO PLAINS, TN",
       "county": "Monroe County",
       "date": "Late March annually",
-      "date_specific": "2026: March 29",
+      "date_specific": "2027: March 28 (last-Sunday-of-March pattern: 2025 Mar 30, 2026 Mar 29 — SUNDAY race)",
       "terrain_types": [
-        "Appalachian mountains",
-        "Forest gravel",
-        "Regional event",
-        "Cherokee National Forest area"
+        "Cherokee National Forest",
+        "Cherohala Skyway country",
+        "Appalachian forest-road climbs",
+        "Grassroots gravel"
       ],
-      "field_size": "100-300 riders",
+      "field_size": "~250 rider cap",
       "start_time": "8:00am",
-      "registration": "Online. Cost: ~$60-100",
+      "registration": "Online (BikeReg). Organizer: Rapid Expeditions",
       "prize_purse": "Modest prizes",
       "aid_stations": "Multiple aid stations",
       "cutoff_time": "Varies",
       "lat": 35.3626,
-      "lng": -84.294
+      "lng": -84.294,
+      "start_elevation_asl_ft": 900
     },
     "climate": {
       "primary": "Tennessee spring/fall",
@@ -116,7 +117,7 @@
       "reputation": "Regional Tennessee event."
     },
     "course_description": {
-      "character": "Appalachian mountain gravel with challenging climbing.",
+      "character": "Rapid Expeditions' grassroots mountain race out of Tellico Plains (~900ft): Wily 88 flagship — 88 miles with 11,500+ ft through Cherokee and Nantahala National Forests (climbs: Basin Gap, North River Road, Farr Gap — 88 only); Wondrous 63 — 63 miles/8,800+ ft; new 38-mile option (2026, stats unpublished). Police-escorted neutral rollout, 4 aid stations, sunset cutoff, ~250 riders, camping vibe. PRIOR PROFILE 75mi/5,000ft matched no real option — corrected 2026-07-13. RACE DAY IS SUNDAY.",
       "suffering_zones": [
         {
           "mile": 20,

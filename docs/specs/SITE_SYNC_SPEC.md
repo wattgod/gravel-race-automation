@@ -38,6 +38,14 @@ preflight_quality) → push_wordpress.py → SiteGround cache purge → check_li
 of changed pages. Ledger each deploy in ROLL_HANDOFF. Failures stop the deploy loudly
 (no silent partial deploys — CI-veracity lesson).
 
+## Branch note (load-bearing for S4)
+All session work sits on branch `immune-fixes-data` (19 commits ahead of main: ~28 races of
+race-data fixes + S2). This repo's CI deploys from main ("CI deploys were failing silently —
+fail loud" 197d5a1f), so MERGING TO MAIN IS THE DEPLOY TRIGGER. S4 sequence therefore:
+finish S1/S3 on this branch → preflight gates green ON THE BRANCH → merge to main → CI deploy
+→ cache purge + check_links + spot-curls → ledger. First merge = first auto-deploy (Matti
+chose auto-per-wave; the merge is the moment it goes outward).
+
 ## Deviations log
 - S2 (approved by Fable): email-gate reuses the established gg-email-capture -> 
   fueling-lead-intake worker pattern (w/ tier + source=race_plan_ladder tags) instead of

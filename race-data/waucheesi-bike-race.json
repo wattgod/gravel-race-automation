@@ -43,9 +43,9 @@
       "surface": "Gravel roads through Appalachian mountains. Challenging elevation with mountain and forest scenery.",
       "technical_rating": 3,
       "features": [
-        "Challenging climbing (5000 feet)",
+        "Sustained mountain climbing (11,500+ ft on the Wily 88 flagship)",
         "Mountain scenery",
-        "Cherokee National Forest area",
+        "Cherokee and Nantahala National Forests",
         "Appalachian setting",
         "Remote southeast Tennessee"
       ]
@@ -77,8 +77,8 @@
       "summary": "Waucheesi Bike Race is a regional event in remote Tellico Plains, southeast Tennessee near Cherokee National Forest. The Appalachian terrain offers challenging climbing with mountain scenery, but the remote location, limited amenities, and moderate organization keep it firmly in Tier 3. Tellico Plains is a small town with limited lodging and dining. It's a solid regional event for Tennessee cyclists seeking a mountain challenge.",
       "strengths": [
         "Appalachian mountain terrain",
-        "Cherokee National Forest area",
-        "Challenging climbing (5000 feet)",
+        "Cherokee and Nantahala National Forests",
+        "Sustained climbing (11,500+ ft on the flagship Wily 88)",
         "Mountain scenery",
         "Tennessee cycling community"
       ],
@@ -107,7 +107,7 @@
       "food": "Small town with limited dining. Stock nutrition.",
       "packet_pickup": "Day before typically",
       "parking": "At start/finish",
-      "official_site": "Check Tennessee cycling calendars"
+      "official_site": "rapidexpeditions.com/waucheesi-bike-race.html"
     },
     "history": {
       "founded": null,
@@ -121,35 +121,35 @@
       "suffering_zones": [
         {
           "mile": 20,
-          "label": "Early Climbs",
-          "desc": "First significant mountain climbs.",
+          "label": "Basin Gap",
+          "desc": "One of the Wily 88's marquee named climbs, early in the course (88-mile route only).",
           "terrain_detail": "Mountains",
-          "named_section": "Early Climbs"
+          "named_section": "Basin Gap"
         },
         {
           "mile": 40,
-          "label": "Midpoint",
-          "desc": "Halfway through the course.",
+          "label": "North River Road",
+          "desc": "Second marquee climb, roughly midway through the course (88-mile route only).",
           "terrain_detail": "Midpoint",
-          "named_section": "Halfway"
+          "named_section": "North River Road"
         },
         {
           "mile": 60,
-          "label": "Late Climbs",
-          "desc": "Final mountain climbs before finish.",
+          "label": "Farr Gap",
+          "desc": "Final marquee climb before the run to the sunset cutoff (88-mile route only).",
           "terrain_detail": "Late climbs",
-          "named_section": "Final Push"
+          "named_section": "Farr Gap"
         }
       ],
-      "signature_challenge": "Appalachian mountain climbing in remote southeast Tennessee.",
+      "signature_challenge": "Basin Gap, North River Road, and Farr Gap — three named climbs stacked into the Wily 88's 11,500+ feet.",
       "ridewithgps_id": "38315398",
       "ridewithgps_name": "Waucheesi Bike Race 63 mile (copy)"
     },
     "guide_variables": {
       "race_name": "Waucheesi Bike Race",
-      "race_distance": "75 miles",
-      "race_elevation": "5,000 feet",
-      "race_date": "Spring or Fall",
+      "race_distance": "88 miles (Wily 88 flagship; 63-mile Wondrous and new 38-mile options also offered)",
+      "race_elevation": "11,500+ feet",
+      "race_date": "Late March (Sunday)",
       "race_location": "Tellico Plains, Tennessee",
       "race_terrain": "Appalachian gravel",
       "race_weather": "Tennessee variability",
@@ -167,7 +167,7 @@
       {
         "requirement": "Mountain climbing endurance",
         "by_when": "Week 8-10",
-        "why": "Appalachian mountains require serious climbing fitness (5000 feet)."
+        "why": "The Wily 88 stacks Basin Gap, North River Road, and Farr Gap into 11,500+ feet of climbing — Appalachian mountains require serious, repeatable climbing fitness."
       },
       {
         "requirement": "Heat and humidity preparation",
@@ -256,9 +256,9 @@
       "marketplace_variables": {
         "race_name": "Waucheesi Bike Race",
         "race_hook": "Appalachian mountain gravel in remote southeast Tennessee.",
-        "race_hook_detail": "Regional event near Cherokee National Forest.",
-        "distance": "75",
-        "dark_mile": "40",
+        "race_hook_detail": "Regional event through the Cherokee and Nantahala National Forests.",
+        "distance": "88",
+        "dark_mile": "60",
         "non_negotiable_1": "Mountain climbing endurance",
         "non_negotiable_2": "Heat and humidity preparation",
         "non_negotiable_3": "Remote self-sufficiency",
@@ -272,7 +272,7 @@
       },
       "length": {
         "score": 3,
-        "explanation": "Three distance options (45, 63, 88 miles) with strict cutoffs at 24-mile (1:00pm) and 45-mile (2:30pm) splits that force shorter routes if missed. All riders must finish by sunset, creating real time pressure that separates this from casual touring. Similar distance to Crusher in the Tushar."
+        "explanation": "Three distance options (38, 63, 88 miles) with a sunset finish cutoff that forces real pacing discipline on the flagship Wily 88. All riders must finish by sunset, creating real time pressure that separates this from casual touring. Similar distance to Crusher in the Tushar."
       },
       "technicality": {
         "score": 3,
@@ -280,7 +280,7 @@
       },
       "elevation": {
         "score": 4,
-        "explanation": "The 88-mile 'Wily' route delivers 11,500+ feet of climbing while the 63-mile 'Wondrous' option packs 8,800+ feet of elevation gain. Even the shortest 45-mile route climbs 4,100 feet through Bald River terrain. These are substantial elevation totals that will test climbing endurance across all distance options. More climbing than SBT GRVL at the same score."
+        "explanation": "The 88-mile 'Wily' route delivers 11,500+ feet of climbing while the 63-mile 'Wondrous' option packs 8,800+ feet of elevation gain. The new 38-mile option covers the same forest-road terrain in a smaller frame (published gain figures not yet available). These are substantial elevation totals that will test climbing endurance across the longer distance options. More climbing than SBT GRVL at the same score."
       },
       "climate": {
         "score": 2,
@@ -316,7 +316,7 @@
       },
       "value": {
         "score": 3,
-        "explanation": "Gets you 75 miles of Appalachian gravel with elevation for what appears to be reasonable regional pricing. The distance options provide flexibility, though the scattered information makes it hard to know what you're actually paying for. Good terrain-to-dollar ratio if you can navigate the organizational confusion."
+        "explanation": "Gets you 88 miles and 11,500+ feet of Appalachian gravel on the Wily 88 flagship (63-mile Wondrous and new 38-mile options also offered) for what appears to be reasonable regional pricing. The distance options provide flexibility, though the scattered information makes it hard to know what you're actually paying for. Good terrain-to-dollar ratio if you can navigate the organizational confusion."
       },
       "expenses": {
         "score": 3,

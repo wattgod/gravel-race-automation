@@ -5,13 +5,13 @@
     "display_name": "Noosa Gravel Enduro",
     "tagline": "Queensland hinterland enduro with technical terrain and tourist town base.",
     "vitals": {
-      "distance_mi": 56,
-      "elevation_ft": 4100,
+      "distance_mi": 69,
+      "elevation_ft": 5243,
       "location": "Noosa Hinterland, Queensland",
       "location_badge": "NOOSA HINTERLAND, QLD",
       "county": "Noosa Shire",
-      "date": "Mid-June annually",
-      "date_specific": "2026: June 21",
+      "date": "Third weekend of June annually (as part of the Noosa Enduro festival)",
+      "date_specific": "2026: June 21 (SUNDAY, CONFIRMED — noosaenduro.com.au/adventure-gravel/; festival weekend is June 20-21, 2026)",
       "terrain_types": [
         "Gravel roads",
         "Forest tracks",
@@ -19,10 +19,10 @@
         "Technical climbs"
       ],
       "field_size": "200-400 riders",
-      "start_time": "Morning start",
+      "start_time": "8:30 AM, Dale Officer Oval, McKinnon Drive, Noosa Hinterland",
       "registration": "Online. Cost: ~$80-130 AUD",
-      "prize_purse": "Varies",
-      "aid_stations": "Aid stations on course",
+      "prize_purse": "None — non-competitive, single category, no prizes given (official 'timed but untimed-competitively' format, per organizer)",
+      "aid_stations": "3 aid stations on course",
       "cutoff_time": "Varies",
       "lat": -26.3665,
       "lng": 152.8562
@@ -105,7 +105,7 @@
       "food": "Noosa has excellent dining options. Tourist town with full amenities.",
       "packet_pickup": "Typically day before",
       "parking": "At start/finish",
-      "official_site": "Check Australian cycling calendars"
+      "official_site": "https://noosaenduro.com.au/adventure-gravel/"
     },
     "history": {
       "founded": null,
@@ -132,7 +132,7 @@
           "named_section": "Mid-Course"
         },
         {
-          "mile": 55,
+          "mile": 65,
           "label": "Final Push",
           "desc": "Last climbs and descents to finish.",
           "terrain_detail": "Final sections",
@@ -145,9 +145,9 @@
     },
     "guide_variables": {
       "race_name": "Noosa Gravel Enduro",
-      "race_distance": "56 miles",
-      "race_elevation": "4,100 feet",
-      "race_date": "Winter/spring",
+      "race_distance": "69 miles",
+      "race_elevation": "5,243 feet",
+      "race_date": "Mid-winter (Southern Hemisphere June)",
       "race_location": "Noosa Hinterland, QLD",
       "race_terrain": "Hinterland gravel and forest roads",
       "race_weather": "Queensland subtropical, heat and humidity",
@@ -260,9 +260,9 @@
       "tier_overrides": {},
       "marketplace_variables": {
         "race_name": "Noosa Gravel Enduro",
-        "race_hook": "62 miles of Queensland hinterland climbing and descents.",
-        "race_hook_detail": "Enduro format in subtropical Noosa with 5000 feet of climbing.",
-        "distance": "56",
+        "race_hook": "69 miles of Queensland hinterland climbing and descents.",
+        "race_hook_detail": "Non-competitive enduro-format gravel ride in subtropical Noosa with ~5,200 feet of climbing.",
+        "distance": "69",
         "dark_mile": "40",
         "non_negotiable_1": "Climbing strength",
         "non_negotiable_2": "Technical descending",

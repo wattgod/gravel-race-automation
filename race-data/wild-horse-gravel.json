@@ -31,23 +31,24 @@
     },
     "climate": {
       "primary": "High desert",
-      "description": "High desert conditions with variable weather. Heat possible depending on season.",
+      "description": "Mid-May in western Colorado high desert: cold starts (arm-warmer weather), strong sun by late morning, and dry roads. The whole course sits above 5,250 feet, so heat/sun exposure and dehydration risk are compounded by altitude.",
       "challenges": [
         "Sun exposure",
-        "Variable desert weather",
-        "Heat possible",
+        "Cold morning starts",
+        "Altitude (5,250-8,100ft) compounding heat/dehydration",
         "Dry conditions"
       ]
     },
     "terrain": {
-      "primary": "High desert gravel",
-      "surface": "Gravel roads through western Colorado high desert. Moderate elevation with desert and canyon scenery.",
+      "primary": "Private-ranch high desert gravel",
+      "surface": "Private ranch roads across the High Lonesome Ranch, closed to the public every other day of the year — Book Cliffs canyon corridors, open rangeland, and high-desert mesas between 5,250 and 8,100 feet.",
       "technical_rating": 2,
       "features": [
-        "High desert terrain",
-        "Canyon scenery",
-        "Moderate climbing",
-        "Desert roads",
+        "Private ranch roads (closed to public rest of year)",
+        "Book Cliffs canyon corridors",
+        "Open rangeland",
+        "High-desert mesa climbing to 8,100ft",
+        "10-mile neutral rollout to open the day",
         "Western Colorado setting"
       ]
     },
@@ -107,61 +108,62 @@
       "food": "Small town with minimal dining. Bring your own.",
       "packet_pickup": "Race morning",
       "parking": "At start/finish",
-      "official_site": "Check Colorado cycling calendars",
-      "camping": "camping setup Friday 5:00pm-9:00pm at High Lonesome Ranch"
+      "official_site": "https://geminiadventures.com/bike/wild-horse-gravel",
+      "camping": "camping setup Friday 5:00pm-9:00pm at High Lonesome Ranch",
+      "other_events_note": "A Sunday half-marathon also runs at High Lonesome Ranch that weekend; it is a separate event, not part of Wild Horse Gravel."
     },
     "history": {
-      "founded": null,
-      "founder": "Gemini Adventures",
-      "origin_story": "Grassroots gravel event in western Colorado high desert.",
+      "founded": 2019,
+      "founder": "Roll Massif (org lineage: Roll Massif -> Outside Events -> Gemini Adventures, current organizer)",
+      "origin_story": "Inaugural 2019 edition run by Roll Massif on private High Lonesome Ranch roads in the Book Cliffs, western Colorado high desert; ownership has since passed through Outside Events to current organizer Gemini Adventures.",
       "notable_moments": [],
-      "reputation": "Small regional western Colorado event."
+      "reputation": "Small regional western Colorado event, prized locally for one-day-a-year access to closed private ranch roads."
     },
     "course_description": {
       "character": "Gemini Adventures' Saturday race from High Lonesome Ranch Basecamp (~5,250ft — ALTITUDE RACE; venue, not De Beque town, is the right reference): Mustang 65mi/5,500ft (max 8,100ft) flagship, Gunslinger 46mi/4,000ft, Hoedown 30mi/3,000ft — single loops on private ranch roads closed to the public the rest of the year, through Book Cliffs canyon corridors, open rangeland, and high-desert mesas. 10-mile neutral rollout; staggered starts 8:00/8:30. Do NOT claim wild-horse herd sightings (unverified). PRIOR PROFILE 62mi/3,500ft matched nothing — corrected 2026-07-14.",
       "suffering_zones": [
         {
-          "mile": 20,
-          "label": "Desert Climbing",
-          "desc": "Elevation gain in desert.",
-          "terrain_detail": "Desert hills",
-          "named_section": "Early Climbs"
+          "mile": 10,
+          "label": "Rollout Ends, Racing Starts",
+          "desc": "The 10-mile neutral rollout ends and the timed racing begins into Book Cliffs canyon corridors.",
+          "terrain_detail": "Canyon corridors, private ranch gravel",
+          "named_section": "Canyon Corridors"
         },
         {
-          "mile": 40,
-          "label": "Midpoint",
-          "desc": "Halfway through desert.",
-          "terrain_detail": "Continued rolling",
-          "named_section": "Mid-Course"
+          "mile": 30,
+          "label": "Mesa Grades",
+          "desc": "Repeating high-desert mesa climbs across open rangeland, climbing toward the course high point of 8,100 feet — all of it above 5,250 feet ASL.",
+          "terrain_detail": "Mesa climbing, open rangeland",
+          "named_section": "The Mesas"
         },
         {
           "mile": 55,
-          "label": "Final Stretch",
-          "desc": "Last miles to finish.",
-          "terrain_detail": "Final hills",
-          "named_section": "Finish"
+          "label": "Return to Basecamp",
+          "desc": "Unfamiliar ranch gravel descents back toward the High Lonesome Ranch basecamp finish.",
+          "terrain_detail": "Ranch gravel descents",
+          "named_section": "Home Stretch"
         }
       ],
-      "signature_challenge": "High desert terrain and remote location.",
+      "signature_challenge": "Repeating Book Cliffs mesa climbs at altitude (5,250-8,100ft) on private ranch roads closed to the public the rest of the year.",
       "ridewithgps_id": null,
       "ridewithgps_name": null
     },
     "guide_variables": {
       "race_name": "Wild Horse Gravel",
-      "race_distance": "62 miles",
-      "race_elevation": "3,500 feet",
-      "race_date": "Spring or Fall",
-      "race_location": "De Beque, Colorado",
-      "race_terrain": "High desert gravel",
-      "race_weather": "High desert variability",
+      "race_distance": "65 miles",
+      "race_elevation": "5,500 feet",
+      "race_date": "Mid-May annually",
+      "race_location": "De Beque, Colorado (High Lonesome Ranch Basecamp)",
+      "race_terrain": "Private-ranch Book Cliffs high desert gravel",
+      "race_weather": "High desert variability, cold starts warming to sun",
       "race_challenges": [
-        "High desert conditions",
+        "Altitude (5,250-8,100ft, whole course above 5,250ft)",
         "Sun exposure",
         "Remote location",
-        "Variable weather"
+        "Unfamiliar private-ranch roads (no scouting possible)"
       ],
       "altitude_section": true,
-      "altitude_feet": "5000-7000"
+      "altitude_feet": "5250-8100"
     },
     "non_negotiables": [
       {
@@ -248,10 +250,10 @@
       "tier_overrides": {},
       "marketplace_variables": {
         "race_name": "Wild Horse Gravel",
-        "race_hook": "62 miles of western Colorado high desert gravel.",
-        "race_hook_detail": "Small grassroots event in remote De Beque.",
-        "distance": "62",
-        "dark_mile": "40",
+        "race_hook": "65 miles of private-ranch Book Cliffs gravel at altitude.",
+        "race_hook_detail": "Small grassroots event on roads closed to the public the rest of the year, near De Beque.",
+        "distance": "65",
+        "dark_mile": "30",
         "non_negotiable_1": "Heat and sun preparation",
         "non_negotiable_2": "Self-sufficiency",
         "non_negotiable_3": "Hydration strategy",

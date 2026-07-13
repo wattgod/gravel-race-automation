@@ -103,12 +103,12 @@
       "food": "Small city with basic dining. Stock up beforehand.",
       "packet_pickup": "Race morning",
       "parking": "At start/finish",
-      "official_site": "Check Wyoming cycling calendars"
+      "official_site": "thedeadswede.com"
     },
     "history": {
       "founded": null,
-      "founder": "Local organizers",
-      "origin_story": "Grassroots gravel event in northern Wyoming ranch country.",
+      "founder": "Dead Swede Hundo LLC / Sheridan Bicycle Company",
+      "origin_story": "Chip-timed grassroots gravel event out of Kendrick Park in Sheridan, run by the local bike shop through Bighorn-foothills ranch country.",
       "notable_moments": [],
       "reputation": "Small regional Wyoming event."
     },
@@ -143,20 +143,20 @@
     },
     "guide_variables": {
       "race_name": "Dead Swede Gravel",
-      "race_distance": "62 miles",
-      "race_elevation": "3,500 feet",
-      "race_date": "Summer",
+      "race_distance": "100 miles",
+      "race_elevation": "7,671 feet",
+      "race_date": "Early June (first Saturday)",
       "race_location": "Sheridan, Wyoming",
-      "race_terrain": "Wyoming high plains gravel",
+      "race_terrain": "Bighorn foothills gravel, Wyoming ranch country",
       "race_weather": "High plains variability",
       "race_challenges": [
         "Wind exposure",
         "Open terrain",
         "Variable weather",
-        "Moderate altitude"
+        "Punchy repeated climbing"
       ],
-      "altitude_section": true,
-      "altitude_feet": "4000-5000"
+      "altitude_section": false,
+      "altitude_feet": null
     },
     "non_negotiables": [
       {
@@ -243,10 +243,10 @@
       "tier_overrides": {},
       "marketplace_variables": {
         "race_name": "Dead Swede Gravel",
-        "race_hook": "62 miles of Wyoming high plains gravel in ranch country.",
-        "race_hook_detail": "Small grassroots event in remote Sheridan.",
-        "distance": "62",
-        "dark_mile": "40",
+        "race_hook": "100 miles and 7,671 feet through the Bighorn foothills out of Sheridan, Wyoming.",
+        "race_hook_detail": "Chip-timed community hundo run by the local bike shop, Kendrick Park start.",
+        "distance": "100",
+        "dark_mile": "70",
         "non_negotiable_1": "Wind preparation",
         "non_negotiable_2": "Self-sufficiency",
         "non_negotiable_3": "Weather preparation",

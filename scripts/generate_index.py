@@ -27,6 +27,22 @@ RACE_DATA = Path(__file__).parent.parent / "race-data"
 FLAT_DB = Path(__file__).parent.parent / "db" / "gravel_races_full_database.json"
 OUTPUT_DIR = Path(__file__).parent.parent / "web"
 
+# SITE-SYNC S3 (docs/specs/SITE_SYNC_SPEC.md): fabricated race pages removed
+# 2026-07, 301-redirected to state/region best-of hubs. race-data/*.json is
+# KEPT for the audit trail but must never resurface in the index/sitemap/search.
+REMOVED_FABRICATED_SLUGS = {
+    "black-forest-gravel",
+    "ozark-gravel",
+    "pirate-cycling-league-gravel",
+    "grasslands-100",
+    "balkan-gravel",
+    "greek-gravel",
+    "natchez-trace-gran-fondo",
+    "walburg-dirty-30",
+    "flint-hills-death-ride",
+    "kal-tour-dirty-100",
+}
+
 
 def slugify(name: str) -> str:
     slug = name.lower()
@@ -416,6 +432,8 @@ def main():
     # Load all canonical profiles
     profiles = {}
     for f in sorted(RACE_DATA.glob("*.json")):
+        if f.stem in REMOVED_FABRICATED_SLUGS:
+            continue
         try:
             data = json.loads(f.read_text())
             profiles[f.stem] = data

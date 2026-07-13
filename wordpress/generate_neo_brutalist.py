@@ -6185,6 +6185,23 @@ def load_race_data(filepath: Path) -> dict:
     return rd
 
 
+# SITE-SYNC S3 (docs/specs/SITE_SYNC_SPEC.md): fabricated race pages removed
+# 2026-07, 301-redirected to state/region best-of hubs. race-data/*.json is
+# KEPT for the audit trail but must never regenerate a page.
+REMOVED_FABRICATED_SLUGS = {
+    "black-forest-gravel",
+    "ozark-gravel",
+    "pirate-cycling-league-gravel",
+    "grasslands-100",
+    "balkan-gravel",
+    "greek-gravel",
+    "natchez-trace-gran-fondo",
+    "walburg-dirty-30",
+    "flint-hills-death-ride",
+    "kal-tour-dirty-100",
+}
+
+
 def main():
     parser = argparse.ArgumentParser(
         description="Generate neo-brutalist landing page HTML for gravel race profiles."
@@ -6235,7 +6252,7 @@ def main():
             print("ERROR: No data directory found with JSON files.", file=sys.stderr)
             sys.exit(1)
 
-        files = sorted(primary.glob('*.json'))
+        files = [f for f in sorted(primary.glob('*.json')) if f.stem not in REMOVED_FABRICATED_SLUGS]
         total = len(files)
         success = 0
         errors = []

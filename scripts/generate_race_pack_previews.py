@@ -712,6 +712,22 @@ def _get_race_tier(path: str) -> int:
 # CLI
 # =============================================================================
 
+# SITE-SYNC S3 (docs/specs/SITE_SYNC_SPEC.md): fabricated race pages removed
+# 2026-07, 301-redirected to state/region best-of hubs. race-data/*.json is
+# KEPT for the audit trail but must never regenerate a page.
+REMOVED_FABRICATED_SLUGS = {
+    "black-forest-gravel",
+    "ozark-gravel",
+    "pirate-cycling-league-gravel",
+    "grasslands-100",
+    "balkan-gravel",
+    "greek-gravel",
+    "natchez-trace-gran-fondo",
+    "walburg-dirty-30",
+    "flint-hills-death-ride",
+    "kal-tour-dirty-100",
+}
+
 
 def main() -> None:
     """CLI entry point."""
@@ -743,7 +759,10 @@ def main() -> None:
         _print_preview_summary(preview)
 
     elif args.all or args.tier:
-        json_files = sorted(f for f in os.listdir(race_dir) if f.endswith(".json"))
+        json_files = sorted(
+            f for f in os.listdir(race_dir)
+            if f.endswith(".json") and f[:-len(".json")] not in REMOVED_FABRICATED_SLUGS
+        )
         generated = 0
         errors = 0
         for filename in json_files:

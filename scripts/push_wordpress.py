@@ -1475,6 +1475,25 @@ RewriteRule ^training-plans/?$ /products/training-plans/ [R=301,L]
 
 # Broken URL from GSC → parent page (404 fix)
 RewriteRule ^training-plans-faq/gravelgodcoaching@gmail\\.com$ /training-plans-faq/ [R=301,L]
+
+# Bare calendar has no index page — send to the current-year calendar
+# (update the year segment at each season rollover).
+RewriteRule ^race/calendar/?$ /race/calendar/2026/ [R=301,L]
+
+# Fabricated race pages removed (SITE-SYNC S3, 2026-07) → state/region best-of hubs
+RewriteRule ^race/black-forest-gravel/?$ /race/best-gravel-races-germany/ [R=301,L]
+RewriteRule ^race/ozark-gravel/?$ /race/best-gravel-races-arkansas/ [R=301,L]
+RewriteRule ^race/pirate-cycling-league-gravel/?$ /race/best-gravel-races-california/ [R=301,L]
+RewriteRule ^race/grasslands-100/?$ /race/best-gravel-races-texas/ [R=301,L]
+RewriteRule ^race/balkan-gravel/?$ /race/calendar/ [R=301,L]
+# greek-gravel: /race/best-gravel-races-greece/ no longer generates — removing
+# greek-gravel drops Greece to 2 real races, below the state-hub MIN_RACES=3
+# floor (wordpress/generate_state_hubs.py) — fall back to calendar instead.
+RewriteRule ^race/greek-gravel/?$ /race/calendar/ [R=301,L]
+RewriteRule ^race/natchez-trace-gran-fondo/?$ /race/best-gravel-races-tennessee/ [R=301,L]
+RewriteRule ^race/walburg-dirty-30/?$ /race/best-gravel-races-texas/ [R=301,L]
+RewriteRule ^race/flint-hills-death-ride/?$ /race/best-gravel-races-kansas/ [R=301,L]
+RewriteRule ^race/kal-tour-dirty-100/?$ /race/best-gravel-races-michigan/ [R=301,L]
 </IfModule>
 # END Gravel God Redirects
 """
@@ -1543,7 +1562,7 @@ def sync_redirects():
             print(f"✗ Failed to write .htaccess: {proc.stderr.strip()}")
             return False
         print("✓ Redirect rules deployed to .htaccess")
-        print("  5 utility redirects + 27 duplicate content redirects (301)")
+        print("  6 utility redirects + 27 duplicate content redirects + 10 fabricated-race redirects (301)")
         return True
     except Exception as e:
         print(f"✗ Failed to upload .htaccess: {e}")

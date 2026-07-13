@@ -82,6 +82,20 @@ class TestIndexSync:
         "rad-dirt-fest",        # → salida-76
         "rasputitsa-spring-classic", # → rasputitsa
         "spring-valley-100",    # → almanzo-100
+
+        # SITE-SYNC S3 (docs/specs/SITE_SYNC_SPEC.md): fabricated races removed
+        # 2026-07, 301-redirected to state/region best-of hubs (or /race/calendar/
+        # where none exists). race-data/*.json kept for the audit trail.
+        "black-forest-gravel",
+        "ozark-gravel",
+        "pirate-cycling-league-gravel",
+        "grasslands-100",
+        "balkan-gravel",
+        "greek-gravel",
+        "natchez-trace-gran-fondo",
+        "walburg-dirty-30",
+        "flint-hills-death-ride",
+        "kal-tour-dirty-100",
     }
 
     def test_all_profiles_in_index(self):
